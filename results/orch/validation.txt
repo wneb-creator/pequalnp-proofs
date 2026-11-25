@@ -1,0 +1,8 @@
+L-meta-2583 PARTIAL CHECKPOINT — not a proof of the posted statement.
+Geometry source: lean/PEqualNP/Outside/L_meta_2583.lean (168 lines).
+Standalone Lean validation: lake env lean ../results/orch/lemmas/LowerBound.lean; exit 0.
+Complete standalone stdout/stderr: empty.
+Named lake build pending; posted-statement checker not yet run.
+Independent red-team review: PASS for preserving partial; no proof PR authorized by result.
+Sub-agents: 5 (status/review, toolchain, construction, semantic/search, lower-bound/geometry).
+TIMING total=14 subagents=5

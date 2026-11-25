@@ -1,0 +1,51 @@
+Independent red-team review: LowerBound.lean
+Reviewer: status_review
+Verdict: PASS FOR COMPILED PARTIAL PRESERVATION; NOT A COMPLETE GAP PROOF.
+
+Reviewed source: results/orch/lemmas/LowerBound.lean
+Lines: 167
+Bytes: 9220
+SHA256: e9c62bca9bd96a1bbfe827f383060dcefb80591b7cc14b5065e70fb006a9a856
+
+Mathematical checks:
+- plane_point_degree partitions the N-1 other points by their unique line through p.
+  Each fiber has q elements, so positive q cancels and yields point degree q+1.
+- incidence_card_left/right are finite double counts, with no assumed edge distinctness.
+- regular_cover_card bounds every incidence by those meeting selected points or lines,
+  counts both regular sides, and cancels positive q+1 to give cover size at least N.
+- regular_incidence_matching derives Hall from the cover bound using the complement
+  of an arbitrary point subset, then invokes the library finite Hall theorem.
+- plane_incidence_perm converts finite self-map injectivity to bijectivity correctly.
+- plane_no_rectangle applies uniqueness of the line through two distinct points.
+- plane_matching_edges forms the graph of that permutation: all edges are incident,
+  both coordinate projections are injective, and the matching has exactly N edges.
+
+Format/soundness checks:
+- Only Mathlib module imports, contiguous at top; no later import word.
+- No _root_, double quotes, sorry, new axioms, native_decide, executable commands,
+  custom data types, custom instances, attributes or options.
+- All declarations are helper lemmas inside the gap namespace; no global instance
+  changes or shadowing of project definitions. Plain UTF-8, well below 512 KiB.
+- These lemmas are direct consequences of the posted geometric hypotheses.
+
+Material limit:
+This source has NO theorem named PEqualNP.Outside.L_meta_2583 proving the desk statement.
+It proves geometry only, with no arbitrary-circuit lower bound or normalization.
+Therefore a successful Lean compile does not equal checker acceptance for L-meta-2583.
+It may be pushed only as an accurately labeled partial under the user push-early rule.
+Do not open a proof PR or claim ACCEPTED for the gap on the strength of this file.
+
+Root delivery checks still required: copy exact reviewed/compiled contents, run named
+lake build, preserve full output, git status before named staging/commit, push only
+origin pnp/pilot-138. I did not run the compiler or push from this reviewer task.
+
+Update after compile fixes: reviewed import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise,
+smul_eq_mul -> nsmul_eq_mul, and explicit function argument in Fintype.bijective_iff_injective_and_card f.
+These change elaboration/dependency resolution only; statement and proof argument unchanged.
+Updated source SHA256: 5762042fe032642d903d8d6fb818a736c737aa77bea2c8d5feed53ecbaef7c1c
+Updated line count: 168
+Static review remains PASS for partial preservation, compiler verdict pending.
+
+Final compile delta: Nat.nsmul_eq_mul is explicitly qualified in the four natural-number double counts.
+Static review PASS. Agent reports lean compile exit 0 (log lower-bound/lower-bound-build-03.log).
+Final reviewed source SHA256: 065fe039c9b582deb4da2cdc330ca8306ad43b3bbfd611daed87cbdeabd38ab8
