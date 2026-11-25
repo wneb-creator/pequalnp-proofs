@@ -1,0 +1,3 @@
+Independent reviewer pilot176_status cleared frozen colored-budget core/stars/crossed snapshots, nested rewiring and private-absorption surgery, and finite Hall matching-cover proof.
+Independent reviewer antecedent_search cleared structural_matching_three.lean, including graph embedding and use of finite5-witness certificate.
+All compiled; proof scopes are partial only. No full target theorem. Source hashes for colored snapshots verified before staging.

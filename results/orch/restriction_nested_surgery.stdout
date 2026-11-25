@@ -1,0 +1,11 @@
+../results/orch/lemmas/restriction_nested_surgery.lean:180:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/restriction_nested_surgery.lean:180:17: warning: This simp argument is unused:
+  if_pos (rfl : j = j)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

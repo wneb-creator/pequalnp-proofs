@@ -19,3 +19,8 @@
 - 2026-11-25T19:13:38.270241+00:00: lease renewed; expires 2026-11-25T19:33:37.779Z.
 - 2026-11-25T19:13:47.283774+00:00: combined target compiled and independently reviewed; standard-axiom audit passed; checkpoint5.
 - 2026-11-25T19:15:41.745900+00:00: mutual-product budgets and finite/pigeonhole lemmas checked/reviewed; checkpoint6.
+- 2026-11-25T19:17:57.492266+00:00: replan1; concentrate on colored resource bounds, two-star cover and nested surgery; drop invalid restriction shortcuts.
+- 2026-11-25T19:18:26.890998+00:00: finite bipartite no-three-matching to two-vertex-cover bridge compiled.
+- 2026-11-25T19:18:38.890892+00:00: lease renewed; expires 2026-11-25T19:38:38.263Z.
+- 2026-11-25T19:20:05.869728+00:00: colored budgets, nested absorption and matching-cover bridge checked/reviewed; checkpoint7.
+- 2026-11-25T19:20:05.962235+00:00: private nested absorption subcase checked; structural cone-preservation extension in progress.
