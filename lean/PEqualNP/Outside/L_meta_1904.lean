@@ -974,4 +974,575 @@ lemma reviewStar_negative_has_no_edge {t : ℕ} (d : Fin t → ℕ) (b : Fin t �
   rintro ⟨u, v, adj, hu, hv⟩
   exact reviewStar_negative_independent d b u v adj ⟨hu, hv⟩
 
+-- Input support and Boolean-cube counting for the star bound.
+namespace HelperSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+variable {n : ℕ}
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+/-- The support of a gate: the union of the supports of the wires it reads. -/
+def gateSupp (L : List (Finset (Fin n))) (g : Gate) : Finset (Fin n) :=
+  (g.inputs.map fun a => L.getD a ∅).foldr (· ∪ ·) ∅
+
+lemma mem_foldr_union (l : List ℕ) (F : ℕ → Finset (Fin n)) (i : Fin n) :
+    i ∈ (l.map F).foldr (· ∪ ·) ∅ ↔ ∃ a ∈ l, i ∈ F a := by
+  induction l with
+  | nil => simp
+  | cons b l ih => simp [ih]
+
+lemma mem_gateSupp (L : List (Finset (Fin n))) (g : Gate) (i : Fin n) :
+    i ∈ gateSupp L g ↔ ∃ a ∈ g.inputs, i ∈ L.getD a ∅ :=
+  mem_foldr_union _ _ _
+
+/-- The supports of all wires, starting from the supports `L` of the wires present. -/
+def suppsFrom (gs : List Gate) (L : List (Finset (Fin n))) : List (Finset (Fin n)) :=
+  gs.foldl (fun L g => L ++ [gateSupp L g]) L
+
+/-- The supports of the input wires: input `i` has support `{i}`. -/
+def inputSupps (n : ℕ) : List (Finset (Fin n)) := List.ofFn fun i : Fin n => {i}
+
+/-- Wire lists `w`, `w'` (for the inputs `x`, `y`) agree on every wire whose support `x` and
+  `y` agree on. -/
+def Agree (x y : Fin n → Bool) (L : List (Finset (Fin n))) (w w' : List Bool) : Prop :=
+  L.length = w.length ∧ w.length = w'.length ∧
+    ∀ j : ℕ, (∀ i ∈ L.getD j ∅, x i = y i) → w.getD j false = w'.getD j false
+
+lemma agree_wiresFrom (x y : Fin n → Bool) (gs : List Gate) :
+    ∀ (L : List (Finset (Fin n))) (w w' : List Bool), Agree x y L w w' →
+      Agree x y (suppsFrom gs L) (wiresFrom gs w) (wiresFrom gs w') := by
+  induction gs with
+  | nil => intro L w w' h; exact h
+  | cons g gs ih =>
+    intro L w w' h
+    obtain ⟨h1, h2, h3⟩ := h
+    apply ih (L ++ [gateSupp L g])
+      (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (w' ++ [g.op.eval (g.inputs.map fun i => w'.getD i false)])
+    refine ⟨by simp [h1], by simp [h2], ?_⟩
+    intro j hj
+    by_cases hjl : j = L.length
+    · subst hjl
+      rw [getD_snoc_eq] at hj
+      rw [h1, getD_snoc_eq, h2, getD_snoc_eq]
+      congr 1
+      apply List.map_congr_left
+      intro a ha
+      exact h3 a (fun i hi => hj i ((mem_gateSupp L g i).2 ⟨a, ha, hi⟩))
+    · rw [getD_snoc_ne _ _ _ _ hjl] at hj
+      rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ (by omega)]
+      exact h3 j hj
+
+lemma agree_inputs (x y : Fin n → Bool) :
+    Agree x y (inputSupps n) (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp [inputSupps], by simp, ?_⟩
+  intro j hj
+  by_cases hjn : j < n
+  · have hx : x ⟨j, hjn⟩ = y ⟨j, hjn⟩ := hj _ (by simp [inputSupps, hjn])
+    simp [hjn, hx]
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by simp; omega)]
+
+/-- Any set `W` of wires has a joint support of size at most `t + |W|`. -/
+def Cnt (t : ℕ) (L : List (Finset (Fin n))) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion fun j => L.getD j ∅).card ≤ t + W.card
+
+lemma cnt_inputs : Cnt 0 (inputSupps n) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hjn : j < n
+  · simp [inputSupps, hjn]
+  · rw [List.getD_eq_default _ _ (by simp [inputSupps]; omega)]; simp
+
+lemma cnt_step (t : ℕ) (L : List (Finset (Fin n))) (g : Gate) (hg : g.inputs.length ≤ 2)
+    (h : Cnt t L) : Cnt (t + 1) (L ++ [gateSupp L g]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        ⊆ ((W.erase L.length ∪ g.inputs.toFinset).biUnion fun j => L.getD j ∅) := by
+      intro i hi
+      rw [Finset.mem_biUnion] at hi ⊢
+      obtain ⟨j, hjW, hij⟩ := hi
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hij
+        obtain ⟨a, ha, hia⟩ := (mem_gateSupp L g i).1 hij
+        exact ⟨a, Finset.mem_union_right _ (List.mem_toFinset.2 ha), hia⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+        exact ⟨j, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨hjl, hjW⟩), hij⟩
+    have hc1 : (W.erase L.length ∪ g.inputs.toFinset).card ≤ (W.card - 1) + 2 := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left (le_trans (List.toFinset_card_le _) hg) _
+    have hWpos : 1 ≤ W.card := Finset.card_pos.2 ⟨_, hW⟩
+    have := h (W.erase L.length ∪ g.inputs.toFinset)
+    have := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        = (W.biUnion fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    have := h W
+    omega
+
+lemma cnt_suppsFrom (gs : List Gate) : ∀ (t : ℕ) (L : List (Finset (Fin n))),
+    (∀ g ∈ gs, g.inputs.length ≤ 2) → Cnt t L → Cnt (t + gs.length) (suppsFrom gs L) := by
+  induction gs with
+  | nil => intro t L _ h; exact h
+  | cons g gs ih =>
+    intro t L hok h
+    have := ih (t + 1) (L ++ [gateSupp L g]) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+      (cnt_step t L g (hok g List.mem_cons_self) h)
+    rw [List.length_cons, show t + (gs.length + 1) = t + 1 + gs.length by omega]
+    exact this
+
+
+def SeenInputs (L : List (Finset (Fin n))) (gs : List Gate) : Prop :=
+  ∀ w : ℕ, ∀ i : Fin n, i ∈ L.getD w ∅ →
+    w = i.val ∨ ∃ g ∈ gs, i.val ∈ g.inputs
+
+lemma seen_inputs : SeenInputs (inputSupps n) [] := by
+  intro w i hi
+  by_cases hw : w < n
+  · have hiw : i = ⟨w,hw⟩ := by simpa [inputSupps,hw] using hi
+    exact Or.inl (congrArg Fin.val hiw).symm
+  · simp [inputSupps,hw] at hi
+
+lemma seen_step (L : List (Finset (Fin n))) (gs : List Gate) (g : Gate)
+    (hseen : SeenInputs L gs) : SeenInputs (L ++ [gateSupp L g]) (gs ++ [g]) := by
+  intro w i hi
+  by_cases hw : w = L.length
+  · subst w
+    rw [getD_snoc_eq] at hi
+    obtain ⟨a,ha,hia⟩ := (mem_gateSupp L g i).mp hi
+    rcases hseen a i hia with heq | ⟨q,hq,hinput⟩
+    · right
+      exact ⟨g,by simp,heq ▸ ha⟩
+    · exact Or.inr ⟨q,List.mem_append_left _ hq,hinput⟩
+  · rw [getD_snoc_ne _ _ _ _ hw] at hi
+    rcases hseen w i hi with heq | ⟨q,hq,hinput⟩
+    · exact Or.inl heq
+    · exact Or.inr ⟨q,List.mem_append_left _ hq,hinput⟩
+
+lemma seen_suppsFrom (gs : List Gate) :
+    ∀ (L : List (Finset (Fin n))) (pre : List Gate), SeenInputs L pre →
+      SeenInputs (suppsFrom gs L) (pre ++ gs) := by
+  induction gs with
+  | nil => intro L pre h; simpa [suppsFrom] using h
+  | cons g gs ih =>
+    intro L pre h
+    have hnext := ih (L ++ [gateSupp L g]) (pre ++ [g]) (seen_step L pre g h)
+    simpa [suppsFrom,List.foldl_cons,List.append_assoc] using hnext
+
+lemma output_support (m : ℕ) (C : Circuit)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      (∀ x y : Fin m → Bool, (∀ i ∈ R, x i = y i) →
+        C.eval (List.ofFn x) = C.eval (List.ofFn y)) ∧
+      ∀ i ∈ R, C.output = i.val ∨ ∃ g ∈ C.gates, i.val ∈ g.inputs := by
+  let R := (suppsFrom C.gates (inputSupps m)).getD C.output ∅
+  refine ⟨R,?_,?_,?_⟩
+  · have bound := cnt_suppsFrom C.gates 0 (inputSupps m) hfan cnt_inputs {C.output}
+    simpa only [Finset.singleton_biUnion,Finset.card_singleton,zero_add,Circuit.size] using bound
+  · intro x y hxy
+    exact (agree_wiresFrom x y C.gates _ _ _ (agree_inputs x y)).2.2 C.output hxy
+  · intro i hi
+    have hseen := seen_suppsFrom C.gates (inputSupps m) [] seen_inputs
+    exact hseen C.output i hi
+
+end HelperSupport
+
+namespace CubeCounts
+
+def prescribed {k : ℕ} (T : Finset (Fin k)) (b : Fin k → Bool) :
+    Finset (Fin k → Bool) :=
+  Finset.univ.filter fun y => ∀ i ∈ T, y i = b i
+
+def prescribedEquiv {k : ℕ} (T : Finset (Fin k)) (b : Fin k → Bool) :
+    ↥(prescribed T b) ≃ (↥(Tᶜ) → Bool) where
+  toFun y i := y.val i.val
+  invFun z := ⟨fun i => if hi : i ∈ T then b i else z ⟨i, by simpa using hi⟩, by
+    simp only [prescribed, Finset.mem_filter, Finset.mem_univ, true_and]
+    intro i hi
+    simp [hi]⟩
+  left_inv y := by
+    apply Subtype.ext
+    funext i
+    by_cases hi : i ∈ T
+    · have hy := (Finset.mem_filter.mp y.property).2 i hi
+      simp [hi, hy]
+    · simp [hi]
+  right_inv z := by
+    funext i
+    have hi : i.val ∉ T := Finset.mem_compl.mp i.property
+    simp [hi]
+
+lemma prescribed_bits_card {k : ℕ} (T : Finset (Fin k)) (b : Fin k → Bool) :
+    (prescribed T b).card = 2 ^ (k - T.card) := by
+  calc
+    (prescribed T b).card = Fintype.card ↥(prescribed T b) := (Fintype.card_coe _).symm
+    _ = Fintype.card (↥(Tᶜ) → Bool) := Fintype.card_congr (prescribedEquiv T b)
+    _ = 2 ^ (k - T.card) := by rw [Fintype.card_fun]; simp
+
+lemma bool_ne_iff_eq_not (a b : Bool) : a ≠ b ↔ a = !b := by
+  cases a <;> cases b <;> decide
+
+def clauseConstraints {V : Type*} {k : ℕ} (S : Finset V)
+    (coord : V → Fin k) (sign : V → Bool) : Finset (Fin k → Bool) :=
+  Finset.univ.filter fun y => ∀ v ∈ S, y (coord v) ≠ sign v
+
+lemma packed_clause_constraints_card {V : Type*} {k : ℕ} (S : Finset V)
+    (coord : V → Fin k) (sign : V → Bool) (hinj : Set.InjOn coord (↑S : Set V)) :
+    (clauseConstraints S coord sign).card = 2 ^ (k - S.card) := by
+  classical
+  let b : Fin k → Bool := fun i =>
+    if hi : ∃ v ∈ S, coord v = i then !(sign (Classical.choose hi)) else false
+  have hb : ∀ v ∈ S, b (coord v) = !(sign v) := by
+    intro v hv
+    have he : ∃ u ∈ S, coord u = coord v := ⟨v, hv, rfl⟩
+    have hc : Classical.choose he = v :=
+      hinj (Classical.choose_spec he).1 hv (Classical.choose_spec he).2
+    simp only [b, dite_eq_left he, hc]
+  have heq : clauseConstraints S coord sign = prescribed (S.image coord) b := by
+    ext y
+    simp only [clauseConstraints, prescribed, Finset.mem_filter, Finset.mem_univ, true_and]
+    constructor
+    · intro hy i hi
+      obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hi
+      rw [hb v hv]
+      exact (bool_ne_iff_eq_not _ _).mp (hy v hv)
+    · intro hy v hv
+      apply (bool_ne_iff_eq_not _ _).mpr
+      rw [← hb v hv]
+      exact hy (coord v) (Finset.mem_image.mpr ⟨v, hv, rfl⟩)
+  rw [heq, prescribed_bits_card, Finset.card_image_of_injOn hinj]
+
+lemma one_coordinate_constraints_card {k : ℕ} (i : Fin k) (sign : Bool) :
+    (Finset.univ.filter fun y : Fin k → Bool => y i ≠ sign).card = 2 ^ (k - 1) := by
+  have h := packed_clause_constraints_card ({i} : Finset (Fin k)) id
+    (fun _ => sign) (fun _ _ _ _ he => he)
+  simpa [clauseConstraints] using h
+
+lemma clause_capacity_bound (k r : ℕ) (hr : r ≤ k) :
+    r * 2 ^ (k - r) ≤ 2 ^ (k - 1) := by
+  cases r with
+  | zero => simp
+  | succ r =>
+    have hpow : r + 1 ≤ 2 ^ r := by
+      have h : r < 2 ^ r := Nat.lt_two_pow_self
+      omega
+    calc
+      (r + 1) * 2 ^ (k - (r + 1)) ≤ 2 ^ r * 2 ^ (k - (r + 1)) :=
+        Nat.mul_le_mul_right _ hpow
+      _ = 2 ^ (r + (k - (r + 1))) := (pow_add _ _ _).symm
+      _ = 2 ^ (k - 1) := by congr 1; omega
+
+lemma packed_clause_capacity {V : Type*} {k : ℕ} (S : Finset V)
+    (coord : V → Fin k) (sign : V → Bool) (hinj : Set.InjOn coord (↑S : Set V)) :
+    S.card * (clauseConstraints S coord sign).card ≤ 2 ^ (k - 1) := by
+  rw [packed_clause_constraints_card S coord sign hinj]
+  apply clause_capacity_bound
+  have h := Finset.card_le_univ (S.image coord)
+  rw [Finset.card_image_of_injOn hinj, Fintype.card_fin] at h
+  exact h
+
+end CubeCounts
+
+
+namespace ForestRows
+
+variable {V : Type*} [Fintype V] [DecidableEq V] {k : ℕ}
+
+def negative (coord : V → Fin k) (sign : V → Bool) (y : Fin k → Bool) : V → Bool :=
+  fun v => decide (y (coord v) = sign v)
+
+def positive (coord : V → Fin k) (sign : V → Bool) (v : V) (y : Fin k → Bool) : V → Bool :=
+  fun w => negative coord sign y w || decide (w = v)
+
+def clause (S : Finset V) (x : V → Bool) : Bool :=
+  decide (∃ w ∈ S, x w = true)
+
+omit [Fintype V] in
+lemma clause_positive (coord : V → Fin k) (sign : V → Bool) (S : Finset V)
+    (v : V) (y : Fin k → Bool) :
+    clause S (positive coord sign v y) = true ↔
+      clause S (negative coord sign y) = true ∨ v ∈ S := by
+  simp only [clause, positive, decide_eq_true_eq, Bool.or_eq_true]
+  constructor
+  · rintro ⟨w, hw, h | h⟩
+    · exact Or.inl ⟨w, hw, h⟩
+    · exact Or.inr (h ▸ hw)
+  · rintro (⟨w, hw, h⟩ | h)
+    · exact ⟨w, hw, Or.inl h⟩
+    · exact ⟨v, h, Or.inr rfl⟩
+
+omit [Fintype V] [DecidableEq V] in
+lemma clause_negative_false (coord : V → Fin k) (sign : V → Bool) (S : Finset V)
+    (y : Fin k → Bool) :
+    clause S (negative coord sign y) = false ↔ ∀ w ∈ S, y (coord w) ≠ sign w := by
+  simp [clause, negative]
+
+def adjacentRows (coord : V → Fin k) (sign : V → Bool) : Finset (V × (Fin k → Bool)) :=
+  Finset.univ.filter fun p => negative coord sign p.2 p.1 = false
+
+def separatedRows (coord : V → Fin k) (sign : V → Bool) (S : Finset V) :
+    Finset (V × (Fin k → Bool)) :=
+  (adjacentRows coord sign).filter fun p =>
+    clause S (positive coord sign p.1 p.2) = true ∧
+      clause S (negative coord sign p.2) = false
+
+lemma separatedRows_eq_product (coord : V → Fin k) (sign : V → Bool) (S : Finset V) :
+    separatedRows coord sign S =
+      S ×ˢ (Finset.univ.filter fun y : Fin k → Bool => ∀ w ∈ S, y (coord w) ≠ sign w) := by
+  ext p
+  simp only [separatedRows, adjacentRows, Finset.mem_filter, Finset.mem_univ, true_and,
+    Finset.mem_product, clause_positive, clause_negative_false]
+  constructor
+  · rintro ⟨_, h | h, hn⟩
+    · obtain ⟨w, hw, hwy⟩ := of_decide_eq_true h
+      exact (hn w hw (of_decide_eq_true hwy)).elim
+    · exact ⟨h, hn⟩
+  · rintro ⟨hv, hn⟩
+    refine ⟨?_, Or.inr hv, hn⟩
+    simpa [negative] using hn p.1 hv
+
+lemma separatedRows_card (coord : V → Fin k) (sign : V → Bool) (S : Finset V) :
+    (separatedRows coord sign S).card =
+      S.card * (Finset.univ.filter fun y : Fin k → Bool =>
+        ∀ w ∈ S, y (coord w) ≠ sign w).card := by
+  rw [separatedRows_eq_product, Finset.card_product]
+
+omit [DecidableEq V] in
+lemma adjacentRows_card_sum (coord : V → Fin k) (sign : V → Bool) :
+    (adjacentRows coord sign).card =
+      ∑ v : V, (Finset.univ.filter fun y : Fin k → Bool =>
+        y (coord v) ≠ sign v).card := by
+  simp only [adjacentRows, negative, Finset.card_eq_sum_ones, Finset.sum_filter,
+    Fintype.sum_prod_type, decide_eq_false_iff_not]
+
+omit [Fintype V] in
+lemma output_change_separated {ι : Type*} (coord : V → Fin k) (sign : V → Bool)
+    (A : ι → Finset V) (F : (ι → Bool) → Bool) (v : V) (y : Fin k → Bool)
+    (hchange : F (fun i => clause (A i) (positive coord sign v y)) ≠
+      F (fun i => clause (A i) (negative coord sign y))) :
+    ∃ i, clause (A i) (positive coord sign v y) = true ∧
+      clause (A i) (negative coord sign y) = false := by
+  classical
+  by_contra h
+  push Not at h
+  apply hchange
+  congr 1
+  funext i
+  by_cases hn : clause (A i) (negative coord sign y) = true
+  · rw [hn, (clause_positive coord sign (A i) v y).mpr (Or.inl hn)]
+  · have hn' : clause (A i) (negative coord sign y) = false := by
+      cases hb : clause (A i) (negative coord sign y) <;> simp_all
+    have hp : clause (A i) (positive coord sign v y) = false := by
+      cases hb : clause (A i) (positive coord sign v y) <;> simp_all
+    rw [hp, hn']
+
+lemma adjacentRows_covered_of_separation {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (coord : V → Fin k) (sign : V → Bool) (A : ι → Finset V)
+    (hsep : ∀ p ∈ adjacentRows coord sign, ∃ i,
+      clause (A i) (positive coord sign p.1 p.2) = true ∧
+        clause (A i) (negative coord sign p.2) = false) :
+    adjacentRows coord sign ⊆ Finset.univ.biUnion (separatedRows coord sign ∘ A) := by
+  intro p hp
+  obtain ⟨i, hi⟩ := hsep p hp
+  exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_univ i, Finset.mem_filter.mpr ⟨hp, hi⟩⟩
+
+lemma adjacentRows_covered {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (coord : V → Fin k) (sign : V → Bool) (A : ι → Finset V)
+    (F : (ι → Bool) → Bool)
+    (hchange : ∀ p ∈ adjacentRows coord sign,
+      F (fun i => clause (A i) (positive coord sign p.1 p.2)) ≠
+        F (fun i => clause (A i) (negative coord sign p.2))) :
+    adjacentRows coord sign ⊆ Finset.univ.biUnion (separatedRows coord sign ∘ A) := by
+  apply adjacentRows_covered_of_separation
+  intro p hp
+  exact output_change_separated coord sign A F p.1 p.2 (hchange p hp)
+
+end ForestRows
+
+namespace ForestRows
+
+variable {V : Type*} [Fintype V] [DecidableEq V] {k : ℕ}
+
+omit [DecidableEq V] in
+lemma adjacentRows_card (coord : V → Fin k) (sign : V → Bool) :
+    (adjacentRows coord sign).card = Fintype.card V * 2 ^ (k - 1) := by
+  rw [adjacentRows_card_sum]
+  simp_rw [CubeCounts.one_coordinate_constraints_card]
+  simp
+
+lemma separatedRows_capacity (coord : V → Fin k) (sign : V → Bool) (S : Finset V)
+    (hinj : Set.InjOn coord (↑S : Set V)) :
+    (separatedRows coord sign S).card ≤ 2 ^ (k - 1) := by
+  rw [separatedRows_card]
+  have heq : (Finset.univ.filter fun y : Fin k → Bool =>
+      ∀ w ∈ S, y (coord w) ≠ sign w) = CubeCounts.clauseConstraints S coord sign := by
+    ext y
+    simp [CubeCounts.clauseConstraints]
+  rw [heq]
+  exact CubeCounts.packed_clause_capacity S coord sign hinj
+
+lemma packing_sources_lower_bound {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (coord : V → Fin k) (sign : V → Bool) (A : ι → Finset V)
+    (hpacking : ∀ i, Set.InjOn coord (↑(A i) : Set V))
+    (hsep : ∀ p ∈ adjacentRows coord sign, ∃ i,
+      clause (A i) (positive coord sign p.1 p.2) = true ∧
+        clause (A i) (negative coord sign p.2) = false) :
+    Fintype.card V ≤ Fintype.card ι := by
+  have hcover := adjacentRows_covered_of_separation coord sign A hsep
+  have hcount : Fintype.card V * 2 ^ (k - 1) ≤ Fintype.card ι * 2 ^ (k - 1) := by
+    calc
+      Fintype.card V * 2 ^ (k - 1) = (adjacentRows coord sign).card :=
+        (adjacentRows_card coord sign).symm
+      _ ≤ (Finset.univ.biUnion (separatedRows coord sign ∘ A)).card :=
+        Finset.card_le_card hcover
+      _ ≤ ∑ i : ι, (separatedRows coord sign (A i)).card :=
+        Finset.card_biUnion_le
+      _ ≤ ∑ _i : ι, 2 ^ (k - 1) := by
+        exact Finset.sum_le_sum fun i _ => separatedRows_capacity coord sign (A i) (hpacking i)
+      _ = Fintype.card ι * 2 ^ (k - 1) := by simp
+  have hp : 0 < 2 ^ (k - 1) := Nat.pow_pos (by decide)
+  by_contra h
+  have hlt := Nat.mul_lt_mul_of_pos_right (Nat.lt_of_not_ge h) hp
+  omega
+
+lemma packing_factorization_lower_bound {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (coord : V → Fin k) (sign : V → Bool) (A : ι → Finset V)
+    (hpacking : ∀ i, Set.InjOn coord (↑(A i) : Set V))
+    (F : (ι → Bool) → Bool)
+    (hchange : ∀ p ∈ adjacentRows coord sign,
+      F (fun i => clause (A i) (positive coord sign p.1 p.2)) ≠
+        F (fun i => clause (A i) (negative coord sign p.2))) :
+    Fintype.card V ≤ Fintype.card ι := by
+  apply packing_sources_lower_bound coord sign A hpacking
+  intro p hp
+  exact output_change_separated coord sign A F p.1 p.2 (hchange p hp)
+
+end ForestRows
+
+def reviewStarCoord {t : ℕ} (d : Fin t → ℕ) (v : reviewStarVertex d) : Fin t := v.1
+
+def reviewStarSign {t : ℕ} (d : Fin t → ℕ) (v : reviewStarVertex d) : Bool :=
+  decide (v.2.val = 0)
+
+lemma reviewStar_forest_negative_eq {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool) :
+    ForestRows.negative (reviewStarCoord d) (reviewStarSign d) b = reviewStarNegative d b := by
+  funext v
+  by_cases h : v.2.val = 0 <;> cases hb : b v.1 <;>
+    simp [ForestRows.negative, reviewStarCoord, reviewStarSign, reviewStarNegative, h, hb]
+
+lemma reviewStar_forest_positive_eq {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v : reviewStarVertex d) :
+    ForestRows.positive (reviewStarCoord d) (reviewStarSign d) v b = reviewStarPositive d b v := by
+  funext w
+  change (ForestRows.negative (reviewStarCoord d) (reviewStarSign d) b w || decide (w = v)) = _
+  rw [reviewStar_forest_negative_eq]
+  by_cases same : w = v
+  · subst w
+    simp [reviewStarPositive]
+  · simp [reviewStarPositive, same]
+
+lemma reviewStar_forest_clause_eq {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (x : reviewStarVertex d → Bool) :
+    ForestRows.clause S x = reviewStarClause d S x := rfl
+
+lemma reviewStar_factorization_lower_bound {t : ℕ} (d : Fin t → ℕ)
+    [DecidableRel (reviewStarGraph d).Adj] (nonempty : ∀ i, 0 < d i)
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (A : ι → Finset (reviewStarVertex d))
+    (packed : ∀ i, reviewStarPacking d (A i)) (F : (ι → Bool) → Bool)
+    (correct : ∀ x : reviewStarVertex d → Bool,
+      F (fun i => reviewStarClause d (A i) x) =
+        decide (∃ u v, (reviewStarGraph d).Adj u v ∧ x u = true ∧ x v = true)) :
+    Fintype.card (reviewStarVertex d) ≤ Fintype.card ι := by
+  refine ForestRows.packing_factorization_lower_bound
+    (reviewStarCoord d) (reviewStarSign d) A ?_ F ?_
+  · intro i u hu v hv comp
+    exact reviewStar_packing_component_injective d (A i) (packed i) u hu v hv comp
+  · intro p hp
+    rcases p with ⟨v, b⟩
+    have excluded : ForestRows.negative (reviewStarCoord d) (reviewStarSign d) b v = false :=
+      (Finset.mem_filter.mp hp).2
+    rw [reviewStar_forest_negative_eq] at excluded
+    have negative :
+        F (fun i => ForestRows.clause (A i)
+          (ForestRows.negative (reviewStarCoord d) (reviewStarSign d) b)) = false := by
+      rw [reviewStar_forest_negative_eq]
+      change F (fun i => reviewStarClause d (A i) (reviewStarNegative d b)) = false
+      rw [correct]
+      exact decide_eq_false (reviewStar_negative_has_no_edge d b)
+    have positive :
+        F (fun i => ForestRows.clause (A i)
+          (ForestRows.positive (reviewStarCoord d) (reviewStarSign d) v b)) = true := by
+      rw [reviewStar_forest_positive_eq]
+      change F (fun i => reviewStarClause d (A i) (reviewStarPositive d b v)) = true
+      rw [correct]
+      exact decide_eq_true (reviewStar_excluded_makes_positive d nonempty b v excluded)
+    rw [positive, negative]
+    decide
+
+lemma reviewStar_packing_circuit_lower_bound {t : ℕ} (d : Fin t → ℕ)
+    [DecidableRel (reviewStarGraph d).Adj] (nonempty : ∀ i, 0 < d i)
+    {m : ℕ} (A : Fin m → Finset (reviewStarVertex d))
+    (packed : ∀ i, reviewStarPacking d (A i))
+    (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (fanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : reviewStarVertex d → Bool,
+      C.eval (List.ofFn fun i => reviewStarClause d (A i) x) =
+        decide (∃ u v, (reviewStarGraph d).Adj u v ∧ x u = true ∧ x v = true)) :
+    Fintype.card (reviewStarVertex d) ≤ C.size + 1 := by
+  obtain ⟨R, size, agreement, _⟩ := HelperSupport.output_support m C fanin
+  let B : ↥R → Finset (reviewStarVertex d) := fun i => A i.val
+  let F : (↥R → Bool) → Bool := fun z =>
+    C.eval (List.ofFn fun i : Fin m => if hi : i ∈ R then z ⟨i, hi⟩ else false)
+  have factors : ∀ x : reviewStarVertex d → Bool,
+      F (fun i => reviewStarClause d (B i) x) =
+        decide (∃ u v, (reviewStarGraph d).Adj u v ∧ x u = true ∧ x v = true) := by
+    intro x
+    have same := agreement
+      (fun i => if hi : i ∈ R then reviewStarClause d (A i) x else false)
+      (fun i => reviewStarClause d (A i) x)
+      (by intro i hi; simp [hi])
+    simpa only [F, B] using same.trans (correct x)
+  have lower := reviewStar_factorization_lower_bound d nonempty B
+    (fun i => packed i.val) F factors
+  rw [Fintype.card_coe] at lower
+  exact lower.trans size
+
+lemma reviewStar_vertex_card {t : ℕ} (d : Fin t → ℕ) :
+    Fintype.card (reviewStarVertex d) = (∑ i, d i) + t := by
+  simp [reviewStarVertex, Fintype.card_sigma, Finset.sum_add_distrib]
+
+lemma reviewStar_packing_circuit_sum_lower_bound {t : ℕ} (d : Fin t → ℕ)
+    [DecidableRel (reviewStarGraph d).Adj] (nonempty : ∀ i, 0 < d i)
+    {m : ℕ} (A : Fin m → Finset (reviewStarVertex d))
+    (packed : ∀ i, reviewStarPacking d (A i))
+    (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (fanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : reviewStarVertex d → Bool,
+      C.eval (List.ofFn fun i => reviewStarClause d (A i) x) =
+        decide (∃ u v, (reviewStarGraph d).Adj u v ∧ x u = true ∧ x v = true)) :
+    (∑ i, d i) + t ≤ C.size + 1 := by
+  rw [← reviewStar_vertex_card d]
+  exact reviewStar_packing_circuit_lower_bound d nonempty A packed C fanin correct
+
 end PEqualNP.Outside.L_meta_1904_aux
