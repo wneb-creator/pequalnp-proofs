@@ -104,6 +104,40 @@ def ops (x y : BitVec width) : List (BitVec width) :=
 
 abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
 
+def canonical (w : BitVec width) : BitVec width :=
+  if w.toNat ≤ (~~~w).toNat then w else ~~~w
+
+lemma canonical_of_msb_false {w : BitVec width} (h : w.msb = false) :
+    canonical w = w := by
+  have bound := BitVec.msb_eq_false_iff_two_mul_lt.mp h
+  have order : w.toNat ≤ (~~~w).toNat := by
+    rw [BitVec.toNat_not]
+    omega
+  simp only [canonical, if_pos order]
+
+lemma canonical_msb_false (w : BitVec width) : (canonical w).msb = false := by
+  unfold canonical
+  split_ifs with order
+  · apply BitVec.msb_eq_false_iff_two_mul_lt.mpr
+    rw [BitVec.toNat_not] at order
+    have bound := w.isLt
+    omega
+  · apply BitVec.msb_eq_false_iff_two_mul_lt.mpr
+    rw [BitVec.toNat_not] at order ⊢
+    have bound := w.isLt
+    omega
+
+lemma ops_msb_false {a b w : BitVec width} (ha : a.msb = false)
+    (hb : b.msb = false) (hw : w ∈ ops a b) : w.msb = false := by
+  simp only [ops, List.mem_cons, List.not_mem_nil, or_false] at hw
+  rcases hw with rfl | rfl | rfl | rfl <;> simp [ha, hb]
+
+lemma canonical_ops {a b : BitVec width} (ha : a.msb = false)
+    (hb : b.msb = false) : (ops a b).map canonical = ops a b := by
+  have one (w : BitVec width) (hw : w ∈ ops a b) : canonical w = w :=
+    canonical_of_msb_false (ops_msb_false ha hb hw)
+  simpa only [List.map_id'] using List.map_congr_left one
+
 open PEqualNP.CircuitLowerBounds
 
 def holds (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
