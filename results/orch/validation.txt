@@ -13,3 +13,7 @@ BASELINE FULL BUILD PASS: lake build PEqualNP.Outside.L_meta_1677; source5439dbc
 CubeCheckerTest: standalone Lean exit0; independent semantic source review PASS (no independent recompilation during checker memory pressure). Full composed proof still pending.
 CornerInvariant and DecoderInvariant: Lean exit0 under512MB cap; independent semantic source/log review PASS, decoder definitions compared exactly modulo whitespace with current baseline. Full integration remains pending.
 DecoderBridgeInitSpec: Lean exit0; independent source/log review PASS. Optimized full preview814065a5d0301e00b6f2ac9969c36ea38cb8d44a15aa8344d6eee19130c76b85 passes source/guard/reproduction review;523865bytes6483lines; full BUILD/CHECKER PENDING.
+L1677 checker: INTENTIONALLY STOPPED after deskHTTP410; verifier exit143, checker fault/no verdict. Full namedbuild remains PASS; optimized candidate remains uncompiled.
+L2585 partial EdgeCases/StarRectangles/CleanBlockBridge and conditional ReductionDraft: producer Leanexit0, independent source/logreviewPASS. No full theorem or eligible reduction claim.
+Sub-agents:6 (same team reassigned to L-meta-2585)
+TIMING total=78.8 subagents=6
