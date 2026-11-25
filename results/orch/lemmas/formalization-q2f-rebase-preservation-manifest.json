@@ -1,0 +1,53 @@
+{
+  "created_utc": "2026-11-25T13:45:32.177864+00:00",
+  "scope": "Two new cached modules rebase the unchanged closure and actual-circuit proofs onto the completed finite certificate without rerunning its enumeration. Both cached builds exit0 with independently reviewed exact source composition. Existing permitted-import standalones remain separately preserved. This package does not claim a full gap proof.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-final-cache.lean",
+      "bytes": 27764,
+      "sha256": "65add20517a458a49c86fcacd7c5e947258f4cec79d5c352d36695ec18d9a4b2"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-final-cache-build.json",
+      "bytes": 903,
+      "sha256": "dcf809405a113a91d2dfd89634f2587da575fbab1c4fac1352c7c75ec9b37250"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-final-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-final-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-final-cache.lean",
+      "bytes": 30392,
+      "sha256": "c052cba992b91dbbf916e87cfa07bcd630ccea49991ecd0ee74d6aef8b3390c3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-final-cache-build.json",
+      "bytes": 899,
+      "sha256": "f12a42fa3761d1ee460754f41a6c015077131785cb09825ca45e6d5662151792"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-final-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-final-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-final-cache-rebase-review.json",
+      "bytes": 3644,
+      "sha256": "06f868a4b928dfe1939565508bff4c4d4c8628556e9e45ce17586e0424943a1d"
+    }
+  ],
+  "file_count": 9,
+  "total_bytes": 63602
+}

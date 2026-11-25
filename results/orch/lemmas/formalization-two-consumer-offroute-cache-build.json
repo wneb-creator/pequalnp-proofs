@@ -1,0 +1,14 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-cache.lean",
+  "sha256": "ab82a4f1e3b6cabe59e85547f3ba31391aa67797542b46c004c8dd0bb38d0bc2",
+  "tail_sha256": "e67f0d2842fc614afa6c63fe8e3ab448054d2444d9996d06132618fe474cb22a",
+  "module": "PNPTwoConsumerOffroute",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:44:47.760020+00:00",
+  "finished_utc": "2026-11-25T13:44:56.763657+00:00",
+  "elapsed_seconds": 9.003660233000119,
+  "stdout": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-cache-build.stdout",
+  "stderr": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-cache-build.stderr",
+  "scope": "Cached generic two-consumer off-route agreement; no graph or no-double-quiet claim.",
+  "olean_sha256": "866fd75de526144ab8cd28475db16bd2be87f64cce6f83eafb271ed34a76d125"
+}

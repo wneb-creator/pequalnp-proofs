@@ -1,0 +1,30 @@
+{
+  "scope": "Independent exact unconditional q2 subcase assembly review and full separate axiom-check diagnostics.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2-complete-review.json",
+      "sha256": "6faede65bf5b859e3721509b579a6b9e09e8c3738a48e9c67c34f0d72baed29c",
+      "bytes": 5267
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.lean",
+      "sha256": "6a190e2c6dab1202d91f844df14b10ef7631124a2bb60ce182e9a92d2bc71f9a",
+      "bytes": 2979
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stdout",
+      "sha256": "84f8d1ed2610f19ff0aca28b9dccb83fcb3c455e99782871e78102628020afbb",
+      "bytes": 110
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms-build.json",
+      "sha256": "96a4934db5bd740162059f9d16b7ac11b1128bdf4904a439afc2f53b83032fca",
+      "bytes": 837
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-11-25T13:47:22.533300+00:00",
+  "scope": "Generic two-consumer off-route agreement; cached and permitted-import standalone builds exit0 with complete empty logs and independent source/composition review. No graph, minimality or no-double-quiet conclusion.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-tail.lean",
+      "bytes": 2891,
+      "sha256": "e67f0d2842fc614afa6c63fe8e3ab448054d2444d9996d06132618fe474cb22a"
+    },
+    {
+      "path": "results/orch/lemmas/status-two-consumer-offroute-review.json",
+      "bytes": 2134,
+      "sha256": "41f4848b2755ce0a9aeefe0af817667986c6f5e68fd57dd37cc8c20a8b0c1bda"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-cache.lean",
+      "bytes": 2982,
+      "sha256": "ab82a4f1e3b6cabe59e85547f3ba31391aa67797542b46c004c8dd0bb38d0bc2"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-cache-build.json",
+      "bytes": 898,
+      "sha256": "80b0d6dc200ac2f5b557a094d5837052976cbbd13e013c18e2dc33af6f251b98"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-standalone.lean",
+      "bytes": 122431,
+      "sha256": "247b2797bc3988b1d59da7f6fc4c51cd38182575095101291a5f7818ee295ddf"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-standalone-build.json",
+      "bytes": 815,
+      "sha256": "7a29d87481f19b16c0bf0b84faf9c2efc953e94176e416dc062b04b1ac48ed33"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-two-consumer-offroute-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 10,
+  "bytes": 132151
+}

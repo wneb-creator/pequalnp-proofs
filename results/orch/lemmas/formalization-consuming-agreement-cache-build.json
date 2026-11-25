@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-consuming-agreement-cache.lean",
+  "source_sha256": "48228eefa2f389ddc866302f68ea0ad3a1eba23e5c96ec80aaec0dd9d66cd7e5",
+  "tail_sha256": "ef3c322007e655e7d6fcb883a8bb5e15cab544f9b735f6b972e3931b11cee59f",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T13:37:36.049532+00:00",
+  "scope": "Cached generic agreement lemma: consuming gate outputs that are ancestors of the target suffice; target has no seed singleton support. Global all-consumer version is a corollary. No p14/Fano conclusion."
+}

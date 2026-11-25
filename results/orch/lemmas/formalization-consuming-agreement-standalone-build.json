@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-consuming-agreement-standalone.lean",
+  "source_sha256": "32ff575ae72b28c272d753c4e9d7c4a29e85ed7ec3a37c3197c179bb01d15bcb",
+  "started_utc": "2026-11-25T13:37:36.255695+00:00",
+  "finished_utc": "2026-11-25T13:38:43.137277+00:00",
+  "exit_code": 0,
+  "scope": "Defs-only standalone generic consuming-ancestor agreement and all-consumer corollary; no graph or p14 conclusion."
+}

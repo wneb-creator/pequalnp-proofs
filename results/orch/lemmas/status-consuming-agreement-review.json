@@ -1,0 +1,32 @@
+{
+  "reviewer": "status_review",
+  "verdict": "PASS independent source/math, cached build and complete standalone composition/build",
+  "source": "results/orch/lemmas/formalization-consuming-agreement-tail.lean",
+  "sha256": "ef3c322007e655e7d6fcb883a8bb5e15cab544f9b735f6b972e3931b11cee59f",
+  "checked_utc": "2026-11-25T13:36:05.947890+00:00",
+  "scope": "Generic consuming-ancestor agreement and global corollary only. No graph, minimality, single-reader or quietness conclusion.",
+  "findings": [
+    "The strong-induction invariant retains a path from the current wire to the fixed target.",
+    "If an operand carries i but its gate output does not, the exact position belongs to sem_W_i, and the supplied ancestor-specific equality applies with the retained path.",
+    "When neither operand carries i, prepend each real operand read edge to the retained path; strictness gives the smaller index needed for both induction hypotheses.",
+    "Inputs use equality off i; invalid wires both evaluate false. Target reflexivity closes the result.",
+    "The former global agreement statement is a direct corollary that ignores the path hypothesis. No consuming-gate agreement is inferred from counts or semantic relevance.",
+    "Trust/format scan clean."
+  ],
+  "cached_build": {
+    "receipt": "results/orch/lemmas/formalization-consuming-agreement-cache-build.json",
+    "source_sha256": "48228eefa2f389ddc866302f68ea0ad3a1eba23e5c96ec80aaec0dd9d66cd7e5",
+    "exit_code": 0,
+    "complete_logs": "Both empty"
+  },
+  "finalized_utc": "2026-11-25T13:40:02.833766+00:00",
+  "standalone": {
+    "source": "results/orch/lemmas/formalization-consuming-agreement-standalone.lean",
+    "sha256": "32ff575ae72b28c272d753c4e9d7c4a29e85ed7ec3a37c3197c179bb01d15bcb",
+    "lines": 2566,
+    "exact_composition": "Accepted first2506lines, close SemCodes andnamespace, unchanged reviewed tail; namespace-only renaming.",
+    "receipt": "results/orch/lemmas/formalization-consuming-agreement-standalone-build.json",
+    "exit_code": 0,
+    "complete_logs": "Both empty"
+  }
+}

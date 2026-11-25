@@ -1,0 +1,185 @@
+{
+  "created_utc": "2026-11-25T13:42:00.365325+00:00",
+  "scope": "Independently reviewed empty-opposite p14 extension; no solver result or full target claim.",
+  "source_sha256": "4c8e6af4b526949c6fdb17dea5433c4a56744971a910ec0d8aea3bcf13087bc1",
+  "requires": [
+    "results/orch/lemmas/sat-p14-partition-preservation-manifest.json"
+  ],
+  "proof_source": "results/orch/lemmas/structural-empty-operand-small-tail.lean",
+  "proof_source_sha256": "68b60083868f86b6a03f6cb3e924046092a064b058dc741cda964f8200c22b72",
+  "proof_review": "results/orch/lemmas/algebraic-review-empty-operand-small.json",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty.py",
+      "bytes": 3115,
+      "sha256": "4c8e6af4b526949c6fdb17dea5433c4a56744971a910ec0d8aea3bcf13087bc1",
+      "restore_as": "sat-p14-compact-empty.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-controls.py",
+      "bytes": 5152,
+      "sha256": "70889c41af98e95c81ab6dde0ed6640d0eeb0807da11230d0a7a9ebb9cd6ceca",
+      "restore_as": "sat-p14-compact-empty-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-controls.json",
+      "bytes": 1283,
+      "sha256": "f04bb97ae006c3762fb874025f56d90718b171f6f3afef6a77a4ef2d5ea98949",
+      "restore_as": "sat-p14-compact-empty-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-controls.stdout",
+      "bytes": 1045,
+      "sha256": "a4f5c5b98def6ff7bbd86dc01fc4d0a35ac698a71ace4167d99cbba9df003c93",
+      "restore_as": "sat-p14-compact-empty-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-empty-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-empty-opposite-encoding-review.py",
+      "bytes": 4981,
+      "sha256": "055c8525ffd5297d1e6a0d07ab1cdc446e476950c36a96decbaf0cc19cc002b2",
+      "restore_as": "status-empty-opposite-encoding-review.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-empty-opposite-encoding-review.json",
+      "bytes": 1241,
+      "sha256": "8135e8a6c5c89877a5a9e9537c00b792d61cf2577d1c5cc2385d2eea04e5ed60",
+      "restore_as": "status-empty-opposite-encoding-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-empty-opposite-encoding-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "status-empty-opposite-encoding-review.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-target.cnf.gz",
+      "bytes": 540423,
+      "sha256": "da7af2918f9d483c2340c3ba26b522f4f8a1a5ab7736410b9501ba7c997ed983",
+      "restore_as": "sat-p14-compact-empty18-target.cnf",
+      "gzip": true,
+      "raw_sha256": "93151be730bbd301e21514d8368df6a0bb18b7f5bbccd28e942c6bbd12bcb0b9"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-target.metadata.json.gz",
+      "bytes": 110154,
+      "sha256": "8751c29efab6540e9b72ddc00ec87f7e92f5b476cdead3d988b11921f82b6389",
+      "restore_as": "sat-p14-compact-empty18-target.metadata.json",
+      "gzip": true,
+      "raw_sha256": "a681f184b5cf31f62a0fb4af32e15edd358ac3cabe66f9bc00d98fdb25b83eca"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty28-control.cnf.gz",
+      "bytes": 102031,
+      "sha256": "473d3f44b74f48623c51c1c8a6a562ed37849abf02fcbebe88bc61a4577f2e6f",
+      "restore_as": "sat-p14-compact-empty28-control.cnf",
+      "gzip": true,
+      "raw_sha256": "79d125b273b2943af59bf992a4b3e9877ebe6bed1f91cdd9227ee06c4b329f20"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty28-control.metadata.json.gz",
+      "bytes": 21521,
+      "sha256": "aa6081ed4f876b8044200aa408eeb7cf4a35ecfc763639958b0acfd477afd0c9",
+      "restore_as": "sat-p14-compact-empty28-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "4c489628e4538f8570b5168677f45c1d59d172c30dadd58978974c101b37098b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty28-control.complete-assignment.json.gz",
+      "bytes": 16464,
+      "sha256": "9238663e3f4a8032311d0f06e91ae133b2636cb515ab7c35845ff359c5928b8d",
+      "restore_as": "sat-p14-compact-empty28-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "b095ce5df6f1763175902e44f5293bc5904fdeeaa19f376407c730134632ff84"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty28-control.compact-control.json.gz",
+      "bytes": 261,
+      "sha256": "7f7dee2d767fcb6221b639a7836a79056b5c23a8a8b1f445b5059f4de7811b93",
+      "restore_as": "sat-p14-compact-empty28-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "a128f4991090a93b53f5a0e05330d03d86af008dc84d844045cac997f9e01eb5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-host-control.cnf.gz",
+      "bytes": 1272715,
+      "sha256": "4e971545c2075be2d37a27ad424ed9a9b8161db18efc5a6e1c1fcd6984378717",
+      "restore_as": "sat-p14-compact-empty-host-control.cnf",
+      "gzip": true,
+      "raw_sha256": "a631d1589aa4356bbcd7ab55e342a18f2130d6b69c623fe803c9f4ed5859ccb6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-host-control.metadata.json.gz",
+      "bytes": 249330,
+      "sha256": "8f9667f2b94774722ac9666a70cf9fab50cea71280869548699ff131affd0581",
+      "restore_as": "sat-p14-compact-empty-host-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "dd942f7f53b5d3d733a0812de31ab49a4f3937e19cfe6157e652e9b00dd5f58b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-host-control.complete-assignment.json.gz",
+      "bytes": 190536,
+      "sha256": "beee2ef6cdd02d9e771f96a5328ef47b78f0c760ce710423ac68e07db55e50cf",
+      "restore_as": "sat-p14-compact-empty-host-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "aa73f52743fa124c4799dd64c0ebf2e8c58fbc68a8918c114e4cf6e050a13598"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty-host-control.compact-control.json.gz",
+      "bytes": 321,
+      "sha256": "7634e93bb539f3fd48479dd8fe9ba3e06ff1b75cd2d5d716212b72001213d9e3",
+      "restore_as": "sat-p14-compact-empty-host-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "5f14f7b5f4aa483a0a11f07fdc2ef3b73a0ad810f434b4316510d1ab24dfeb6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition18-target.cnf.gz",
+      "bytes": 533846,
+      "sha256": "f4c8369465125aad524f4ceee1ef4559473adfd3017aa1203e639e7a1b320233",
+      "restore_as": "sat-p14-compact-partition18-target.cnf",
+      "gzip": true,
+      "raw_sha256": "12e84b8159e80c6c0f5c71cddbcac14bc39181209e87d7715fb844c35c6251c3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-empty-model.md",
+      "bytes": 1863,
+      "sha256": "975bdfa240380f9777fc4fc866152a4666acd41cd5e329df41f7c260e9a66ba9",
+      "restore_as": "sat-p14-empty-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-empty-reproduction-check.stdout",
+      "bytes": 1241,
+      "sha256": "8135e8a6c5c89877a5a9e9537c00b792d61cf2577d1c5cc2385d2eea04e5ed60",
+      "restore_as": "sat-p14-empty-reproduction-check.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-empty-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-empty-reproduction-check.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-empty-reproduction-check.json",
+      "bytes": 347,
+      "sha256": "f0893026d3c2f2029fc7c5c26ca6ad91fd60a6f106ab53f1e929325ac3494517",
+      "restore_as": "sat-p14-empty-reproduction-check.json",
+      "gzip": false
+    }
+  ]
+}

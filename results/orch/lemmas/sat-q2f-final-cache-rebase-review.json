@@ -1,0 +1,72 @@
+{
+  "status": "PASS: independent exact cache-rebase composition review; both new cached builds confirmed exit0",
+  "utc": "2026-11-25T13:45:05.035924+00:00",
+  "closure_source": "results/orch/lemmas/formalization-q2f-closure-final-cache.lean",
+  "closure_sha256": "65add20517a458a49c86fcacd7c5e947258f4cec79d5c352d36695ec18d9a4b2",
+  "closure_lines": 621,
+  "closure_components": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-foundations-tail.lean",
+      "sha256": "69988cb58551dd56b9f4cea6c3441046b8087e8531d9bf1721d6c2bb61f8a942",
+      "change": "Only import lines removed from cache components; foundation body unchanged"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.lean",
+      "sha256": "7fcc0ac20ca8df60f34fac918c016b4873bc68a02f01bd21b49f1d52ecff8848",
+      "change": "Only import lines removed from cache components; foundation body unchanged"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+      "sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+      "change": "Only import lines removed from cache components; foundation body unchanged"
+    }
+  ],
+  "closure_extra_text": [
+    "import PNPQ2FFinite\nset_option maxRecDepth 100000\nset_option maxHeartbeats 200000\n",
+    "\n\n",
+    "\n\n",
+    "\n"
+  ],
+  "actual_source": "results/orch/lemmas/formalization-q2f-actual-final-cache.lean",
+  "actual_sha256": "c052cba992b91dbbf916e87cfa07bcd630ccea49991ecd0ee74d6aef8b3390c3",
+  "actual_change": "Exact old actual cache with only PNPQ2FClosureComplete import renamed to PNPQ2FClosureFinal",
+  "unchanged_actual_sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1",
+  "finite_dependency": "PNPQ2FFinite; source0bf58d79 and completed artifact verified separately in sat-q2f-finite-final-review.json",
+  "qualification": "Both rebased cached modules compiled successfully with empty full logs. This uses the separately verified full finite certificate module and changes no existing proof body. No finite enumeration was rerun here; standalone final-gap assembly and checker success remain separate.",
+  "builds": [
+    {
+      "receipt": "results/orch/lemmas/formalization-q2f-closure-final-cache-build.json",
+      "receipt_sha256": "dcf809405a113a91d2dfd89634f2587da575fbab1c4fac1352c7c75ec9b37250",
+      "exit_code": 0,
+      "logs": [
+        {
+          "path": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-final-cache-build.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-final-cache-build.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "receipt": "results/orch/lemmas/formalization-q2f-actual-final-cache-build.json",
+      "receipt_sha256": "f12a42fa3761d1ee460754f41a6c015077131785cb09825ca45e6d5662151792",
+      "exit_code": 0,
+      "logs": [
+        {
+          "path": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-final-cache-build.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-final-cache-build.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ]
+}

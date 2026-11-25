@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS",
+  "reviewer": "status_review",
+  "checked_utc": "2026-11-25T13:47:01.507598+00:00",
+  "source_sha256": "ab82a4f1e3b6cabe59e85547f3ba31391aa67797542b46c004c8dd0bb38d0bc2",
+  "tail_sha256": "e67f0d2842fc614afa6c63fe8e3ab448054d2444d9996d06132618fe474cb22a",
+  "cached_build": "results/orch/lemmas/formalization-two-consumer-offroute-cache-build.json",
+  "cached_exit": 0,
+  "complete_logs_empty": true,
+  "mathematical_scope": "Strict DAG; at most the two named consuming gate indices for one label; one consuming operand opposite has empty singleton support; the other gate is not an ancestor of the target; label absent from target singleton support. Then inserting that label into any singleton input preserves the target value. No graph, minimality, quietness or single-reader hypothesis is assumed or concluded.",
+  "argument": [
+    "Strict index growth excludes a consuming gate from its own opposite child ancestors.",
+    "A path from the excluded other gate through that child would extend through the consuming gate to the target, contradicting the explicit off-route hypothesis.",
+    "Ancestor agreement first makes the empty opposite child remain false after insertion, hence the AND consumer remains false.",
+    "Ancestor agreement at the target then applies to all remaining possible consuming ancestors."
+  ],
+  "trust_format": "No holes, axioms, native evaluation, forbidden root marker, string literals or attributes in new tail; namespace and exact cached inclusion checked.",
+  "standalone_status": "PASS exact permitted-import composition and successful build",
+  "standalone": {
+    "source": "results/orch/lemmas/formalization-two-consumer-offroute-standalone.lean",
+    "sha256": "247b2797bc3988b1d59da7f6fc4c51cd38182575095101291a5f7818ee295ddf",
+    "lines": 2657,
+    "exit_code": 0,
+    "receipt": "formalization-two-consumer-offroute-standalone-build.json",
+    "composition": "Exact accepted first2534 lines; close SemCodes/original namespace; unchanged reviewed consuming-ancestor and two-consumer tails, with only permitted limit headers.",
+    "complete_logs_empty": true
+  }
+}

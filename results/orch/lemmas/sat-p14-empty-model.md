@@ -1,0 +1,9 @@
+# Empty-opposite singleton support restriction
+
+This frozen extension imports the reviewed partition model. For each AND operand slot, one Boolean variable is exactly the OR of its fourteen primary-label selectors. If that slot is empty, pairwise clauses forbid two point labels or two line labels in the opposite slot. Inactive atoms satisfy these clauses automatically. At cap18 this adds36 variables and2052 clauses, giving32651 variables and139673 clauses.
+
+The checked theorem empty_opposite_no_common_neighbor assumes a strict/live correct Fano circuit, at most two consuming positions per label, a valid operand whose AND output support is empty, and empty support of the opposite operand. It excludes two carried labels with a common neighbor. Any two distinct points, and any two distinct lines, share a Fano neighbor. In the compact p14 model every AND output has empty singleton support and each primary-label mask is exactly the operand support, so the guarded clauses follow. The theorem and its independent algebraic review are separate frozen proof artifacts.
+
+The exact28 Fano control enables the previous incomparability cut but disables this new cut and all size27 equality/partition restrictions. The hosted matching control enables the new cut and prior structural restrictions but disables Fano-minimality incomparability. It is not a Fano witness. The independent audit reconstructs every added clause, checks the unchanged target prefix, all32768 abstract guard/mask cases, all complete control clauses, full truth tables and raw traces.
+
+No solver outcome is claimed by this preparation bundle. Active logs are excluded until completion. Restore the files and run `python3 status-empty-opposite-encoding-review.py ARTIFACT_DIRECTORY` for independent reproduction. Encoder execution also requires the preceding manifests and solver binary.

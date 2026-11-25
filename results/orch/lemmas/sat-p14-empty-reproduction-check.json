@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "utc": "2026-11-25T13:44:31.456337+00:00",
+  "verifier": "status-empty-opposite-encoding-review.py",
+  "scope": "Fresh-directory independent exact-extension/control audit; no solver launched.",
+  "stdout": "sat-p14-empty-reproduction-check.stdout",
+  "stderr": "sat-p14-empty-reproduction-check.stderr"
+}

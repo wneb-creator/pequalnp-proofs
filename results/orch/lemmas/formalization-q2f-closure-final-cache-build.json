@@ -1,0 +1,14 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-final-cache.lean",
+  "cache_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FClosureFinal.lean",
+  "sha256": "65add20517a458a49c86fcacd7c5e947258f4cec79d5c352d36695ec18d9a4b2",
+  "module": "PNPQ2FClosureFinal",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:43:20.459660+00:00",
+  "finished_utc": "2026-11-25T13:44:10.410199+00:00",
+  "elapsed_seconds": 49.95054348100166,
+  "stdout": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-final-cache-build.stdout",
+  "stderr": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-final-cache-build.stderr",
+  "scope": "Cached development rebase onto completed finite certificate; original certificate was imported, not rerun.",
+  "olean_sha256": "726d0477d07a43c0d157956fcf1fe06297e25b18832a62f34657a45aa42d4832"
+}

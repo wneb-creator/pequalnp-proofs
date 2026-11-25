@@ -1,0 +1,12 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-standalone.lean",
+  "sha256": "247b2797bc3988b1d59da7f6fc4c51cd38182575095101291a5f7818ee295ddf",
+  "line_count": 2657,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:45:15.199736+00:00",
+  "finished_utc": "2026-11-25T13:46:15.762929+00:00",
+  "elapsed_seconds": 60.56322331500269,
+  "stdout": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-standalone-build.stdout",
+  "stderr": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-two-consumer-offroute-standalone-build.stderr",
+  "scope": "Permitted-import standalone generic two-consumer off-route agreement; no graph or no-double-quiet claim. Exact accepted prefix2534 plus frozen ancestor and off-route tails."
+}

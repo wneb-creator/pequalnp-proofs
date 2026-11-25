@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-complete-cache.lean",
+  "sha256": "557f72f8e486430809b61019de993a6aa2de0cec309dc100eb7e77cbce47859f",
+  "started_utc": "2026-11-25T13:45:25.400902+00:00",
+  "finished_utc": "2026-11-25T13:45:35.387647+00:00",
+  "exit_code": 0,
+  "scope": "Unconditional ordinary exclusion for exact q2 missing-mask subcase, not the full posted target"
+}

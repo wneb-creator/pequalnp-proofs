@@ -1,0 +1,26 @@
+{
+  "exit_code": 0,
+  "checked_utc": "2026-11-25T13:46:29.815518+00:00",
+  "source": {
+    "path": "results/orch/lemmas/stochastic-q2-complete-axioms.lean",
+    "sha256": "6a190e2c6dab1202d91f844df14b10ef7631124a2bb60ce182e9a92d2bc71f9a",
+    "bytes": 2979
+  },
+  "stdout": {
+    "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stdout",
+    "sha256": "84f8d1ed2610f19ff0aca28b9dccb83fcb3c455e99782871e78102628020afbb",
+    "bytes": 110
+  },
+  "stderr": {
+    "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "no_sorryAx": true,
+  "scope": "Exact complete cached source rechecked with only an appended print-axioms directive."
+}

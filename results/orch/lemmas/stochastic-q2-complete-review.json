@@ -1,0 +1,129 @@
+{
+  "verdict": "PASS: independent source/composition and exit-0 receipt review, plus separate explicit-exit-0 axiom census",
+  "utc": "2026-11-25T13:46:29.817038+00:00",
+  "source": {
+    "path": "results/orch/lemmas/pilot-q2-complete-cache.lean",
+    "sha256": "557f72f8e486430809b61019de993a6aa2de0cec309dc100eb7e77cbce47859f",
+    "bytes": 2915
+  },
+  "build_receipt": {
+    "path": "results/orch/lemmas/pilot-q2-complete-cache-build.json",
+    "sha256": "8e00e6d78d953f8e4ed81a8c9d207e514b5c1f105cb8ef1d03a79c33c2c967b1",
+    "bytes": 408
+  },
+  "exit_code": 0,
+  "full_logs": [
+    {
+      "path": "results/orch/lemmas/pilot-q2-complete-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-complete-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "dependencies": [
+    {
+      "module": "PNPQ2Residual",
+      "source": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2Residual.lean",
+        "sha256": "045d09bd457c9e9ebb5c6ffd244f20c3a78f24368f1f967fad32ca6ec3c5efff",
+        "bytes": 27542
+      },
+      "olean": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2Residual.olean",
+        "sha256": "f0399f8d0d494f583aa1ac6b6308ccc34c3c82b7264b0d6667a465948cb5b7fa",
+        "bytes": 847056
+      }
+    },
+    {
+      "module": "PNPQ2FActualFinal",
+      "source": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualFinal.lean",
+        "sha256": "c052cba992b91dbbf916e87cfa07bcd630ccea49991ecd0ee74d6aef8b3390c3",
+        "bytes": 30392
+      },
+      "olean": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualFinal.olean",
+        "sha256": "f814f876df05a549534071d819af8ae883fbb0ce048e8e484d75e1c59ebdc956",
+        "bytes": 814216
+      }
+    },
+    {
+      "module": "PNPQ2FFinite",
+      "source": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FFinite.lean",
+        "sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+        "bytes": 119729
+      },
+      "olean": {
+        "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FFinite.olean",
+        "sha256": "76fb32305854d484fbfed5b4cae9a6d2d90cad5e3fc9c2f0484a84553976f7d1",
+        "bytes": 3719424
+      }
+    }
+  ],
+  "checks": {
+    "scope": "Unconditional exclusion of the canonical ordinary q2 missing-mask subcase only. The finite certificate is discharged by q2f_certificate_all; no whole L-meta-1479 theorem or checker pass.",
+    "hypotheses": [
+      "D : Dag",
+      "StrictLive 14 D",
+      "Correct D",
+      "ineligSet 14 D = {0,1,2,3}",
+      "equality_missing_points D = {2,4,5,6}",
+      "Bplus 14 D \u226413",
+      "totalSurplus 14 D \u226414"
+    ],
+    "conclusion": "False",
+    "exact_conditional_tail": {
+      "path": "results/orch/lemmas/pilot-q2-composition-tail.lean",
+      "sha256": "e385c4adbd8f237c2025221126c63a1a90d6fe3edd3b2fe25d7e55d4515709fb",
+      "bytes": 2396
+    },
+    "tail_lines": 48,
+    "conditional_tail_exact_inclusion": true,
+    "wrapper_discharge": "exact qa_q2_conditional_exclusion h hD hI hM hplus hS q2f_certificate_all",
+    "source_review": [
+      "Lower bound Bplus\u226513 combines with given\u226413 to obtain the exact Bplus13 premise of the residual theorem.",
+      "Embedding pullback equals qa_mask because every local line lies in sem_hw_opp0.",
+      "Missing-neighborhood equality supplies the three occurring neighborhoods0,1,3 without an additional occurrence assumption.",
+      "The large-mask theorem supplies a single S; decoded11/69/49 are exactly qa_nb0/1/3.",
+      "The residual theorem receives all its circuit, surplus, occurrence and large-mask hypotheses from the stated case and proved family certificate.",
+      "No residual finite certificate, protection, cofactor or large-mask premise remains as an unproved public hypothesis."
+    ],
+    "format_scan": {
+      "sorry_tokens": [],
+      "forbidden_root_text": false,
+      "string_quotes": false
+    },
+    "runtime_qualification": "Cached assembly is short; it imports the completed full finite module. A flattened complete source would still inherit the original finite runtime exceeding30minutes unless optimized."
+  },
+  "axiom_verification": {
+    "exit_code": 0,
+    "checked_utc": "2026-11-25T13:46:29.815518+00:00",
+    "source": {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.lean",
+      "sha256": "6a190e2c6dab1202d91f844df14b10ef7631124a2bb60ce182e9a92d2bc71f9a",
+      "bytes": 2979
+    },
+    "stdout": {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stdout",
+      "sha256": "84f8d1ed2610f19ff0aca28b9dccb83fcb3c455e99782871e78102628020afbb",
+      "bytes": 110
+    },
+    "stderr": {
+      "path": "results/orch/lemmas/stochastic-q2-complete-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "no_sorryAx": true,
+    "scope": "Exact complete cached source rechecked with only an appended print-axioms directive."
+  }
+}

@@ -1,0 +1,11 @@
+PASS independent checkpoint1348 preservation audit
+Reviewed UTC: 2026-11-25T13:49:03.845391+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1348-files.json
+Manifest SHA256: 01c3647f0e8b0515d3ba277f6ffdd6a8b06ed0dbb559aa6a4f7e2306a7d87071
+Exact scope: 84 files, 3,608,482 bytes.
+
+Every listed path is a regular nonsymlink file with exact recorded size/hash. All compressed artifacts decompress and all JSON records parse. Receipt/source hashes match where supplied. The q2 cached theorem557f72f8 has explicit exit0, empty complete logs, an exact-source independent review and separate exit0 axiom audit listing only propext, Classical.choice and Quot.sound. Its final theorem discharges the finite certificate and excludes only I0123/missing2456/Bplus≤13/total≤14. The failed first composition remains separately marked exit1; its historical receipt retains the original source path, while its SHA8d9dd32f binds the preserved attempt1 snapshot exactly. Rebased caches retain cached-only scope; the combined permitted-import standalone is not claimed complete.
+
+The consuming-agreement, off-route and stronger empty-opposite standalone receipts are exit0 and bound to independent reviews. Their graph/chain/slot premises remain explicit. The partition search receipt says UNKNOWN, not UNSAT or a Lean refutation. Empty-opposite search artifacts are immutable inputs/controls/reviews, with no active outcome claim. Full stdout/stderr are preserved.
+
+The four metadata diffs accurately state partial progress, six subagents and timing290.6minutes. The named main file has no working-tree diff; validation still records checkerREJECTED(no-theorem), no27-gate quiet witness, no full target refutation and no PR. Cached/audit files are archival results rather than proposed plain-file PR sources. Narrow credential-marker and Lean trust-marker scans found no issue; the explicit print-axioms audit is correctly separated from proof artifacts. No staging, commit, push, metadata edit or source change was performed by this reviewer.

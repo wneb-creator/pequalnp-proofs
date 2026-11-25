@@ -1,0 +1,42 @@
+{
+  "verdict": "PASS independent exact-extension and complete-control audit",
+  "encoder_sha256": "4c8e6af4b526949c6fdb17dea5433c4a56744971a910ec0d8aea3bcf13087bc1",
+  "abstract_opposite_masks_and_guards_checked": 32768,
+  "reports": [
+    {
+      "tag": "sat-p14-compact-empty18-target",
+      "variables": 32651,
+      "clauses": 139673,
+      "added_variables": 36,
+      "added_clauses": 2052,
+      "unchanged_partition_prefix": true
+    },
+    {
+      "tag": "sat-p14-compact-empty28-control",
+      "variables": 6624,
+      "clauses": 24960,
+      "complete_assignment_pass": true,
+      "truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "empty_opposite_enabled": false,
+      "graph": "fano"
+    },
+    {
+      "tag": "sat-p14-compact-empty-host-control",
+      "variables": 78655,
+      "clauses": 357520,
+      "complete_assignment_pass": true,
+      "truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "empty_opposite_enabled": true,
+      "graph": "matching"
+    }
+  ],
+  "scope": "The new at-most-one-per-side cut only; complete positive-control clauses and direct truth/derivatives also checked. No solver outcome or full-target certificate."
+}

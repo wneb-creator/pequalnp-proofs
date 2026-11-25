@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T13:44:56.162374+00:00",
+  "source": "results/orch/lemmas/structural-empty-operand-small-standalone.lean",
+  "sha256": "f9a1d63c731b857ebded213f22264c19c187563374a7c9fc78451923832e8bf8",
+  "receipt": "structural-empty-operand-small-standalone-build.json",
+  "exit_code": 0,
+  "composition": "Exact previously reviewed empty-opposite standalone followed by exact reviewed stronger tail, modulo whitespace and namespace close/reopen/rename only.",
+  "scope": "Empty opposite and empty output, under strict-live Fano correctness and W\u22642, force the other operand support cardinal\u22642. No minimality or quietness claim.",
+  "prior_reviews": [
+    "algebraic-review-empty-operand.json",
+    "algebraic-review-empty-operand-small.json"
+  ]
+}
