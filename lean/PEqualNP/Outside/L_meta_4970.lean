@@ -2035,4 +2035,72 @@ lemma matching_owners_not_connected :
 
 end SafeBranchExample
 
+lemma shared_belowOr_eq_unit_on_onehot {α : Type*} [DecidableEq α]
+    (A B : Finset α) (q : α) (hab : A ∩ B ⊆ {q})
+    (f : (α → Bool) → Bool) (hm : MonotoneBool f)
+    (hunit : f (unitInput q) = true) (ha : BelowOr A f) (hb : BelowOr B f)
+    (x : α → Bool)
+    (hhot : ∀ a ∈ A, ∀ b ∈ B, x a = true → x b = true → a = b) :
+    f x = x q := by
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    obtain ⟨a, ha', hxa⟩ := ha x hx
+    obtain ⟨b, hb', hxb⟩ := hb x hx
+    have he : a = b := hhot a ha' b hb' hxa hxb
+    have haq : a = q := Finset.mem_singleton.mp (hab (Finset.mem_inter.mpr ⟨ha', he ▸ hb'⟩))
+    simpa only [haq] using hxa
+  · intro hx
+    apply hm (unitInput q) x _ hunit
+    intro a ha'
+    have he : a = q := of_decide_eq_true ha'
+    simpa only [he] using hx
+
+lemma common_neighbour_inter_subset_singleton {α β : Type*}
+    [DecidableEq α] [DecidableEq β] (N : α → Finset β)
+    (hno : ∀ c d q r, c ≠ d → q ≠ r →
+      ¬ (q ∈ N c ∧ r ∈ N c ∧ q ∈ N d ∧ r ∈ N d))
+    (c d : α) (hcd : c ≠ d) (q : β) (hc : q ∈ N c) (hd : q ∈ N d) :
+    N c ∩ N d ⊆ {q} := by
+  intro r hr
+  apply Finset.mem_singleton.mpr
+  by_contra hrq
+  have hqr : q ≠ r := Ne.symm hrq
+  exact hno c d q r hcd hqr ⟨hc, (Finset.mem_inter.mp hr).1,
+    hd, (Finset.mem_inter.mp hr).2⟩
+
+lemma unit_le_of_monotone_unit {α : Type*} [DecidableEq α]
+    (f : (α → Bool) → Bool) (hm : MonotoneBool f)
+    (q : α) (hq : f (unitInput q) = true) :
+    ∀ x, x q = true → f x = true := by
+  intro x hx
+  apply hm (unitInput q) x _ hq
+  intro a ha
+  have he : a = q := of_decide_eq_true ha
+  simpa only [he] using hx
+
+lemma shared_belowOr_pair_palette {α : Type*} [DecidableEq α]
+    (colour : α → Bool) (side : Bool) (A B : Finset α) (q : α)
+    (hA : ∀ v ∈ A, colour v = side) (hB : ∀ v ∈ B, colour v = side)
+    (hab : A ∩ B ⊆ {q}) (f : (α → Bool) → Bool) (hm : MonotoneBool f)
+    (hunit : f (unitInput q) = true) (ha : BelowOr A f) (hb : BelowOr B f)
+    (a b : α) (hcolour : colour a ≠ colour b) :
+    f (pairInput a b) = decide (q = a ∨ q = b) := by
+  apply shared_belowOr_eq_unit_on_onehot A B q hab f hm hunit ha hb
+  intro v hv w hw hvx hwx
+  have hv' : v = a ∨ v = b := of_decide_eq_true hvx
+  have hw' : w = a ∨ w = b := of_decide_eq_true hwx
+  have hcw : colour v = colour w := (hA v hv).trans (hB w hw).symm
+  rcases hv' with hva | hvb <;> rcases hw' with hwa | hwb
+  · exact hva.trans hwa.symm
+  · exfalso
+    apply hcolour
+    rw [← hva, ← hwb]
+    exact hcw
+  · exfalso
+    apply hcolour
+    rw [← hwa, ← hvb]
+    exact hcw.symm
+  · exact hvb.trans hwb.symm
+
 end PEqualNP.Outside.L_meta_4970_aux
