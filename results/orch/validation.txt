@@ -49,3 +49,9 @@ Independent assembly and guard review passed; guard errors only for absent full 
 Source SHA256:1bd555514cad4ed1e31a610d5068012c5fca49dd19e65a40647fea0882b7bd5f.
 OrReachAPI and ReaderSemantics independently reviewed after successful compilation.
 TIMING total=37.6 subagents=7
+
+Checkpoint9: PruningTraceAssembly, PruningPrefixFinal, and StarAppendOptional compile.
+Pruning preserves tCount=0 and all wires before the selected gate; restoring a final AND/OR costs at most two gates, including when the old output was erased.
+Independent review: combinatorial agent audited trace; toolchain audited prefix and optional-output restoration. Full compiler logs are archived.
+The posted theorem remains unproved; these are reusable checked components.
+TIMING total=46.9 subagents=7

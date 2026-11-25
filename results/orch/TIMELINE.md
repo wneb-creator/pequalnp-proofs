@@ -19,3 +19,4 @@
 - 2026-11-25T17:35:43.425165+00:00: TargetImplication.lean compiled; exact posted statement conditionally implies unrestricted edge-count lower bound on matching-saturated bipartite graphs.
 - 2026-11-25T17:38:06.911600+00:00: one-dirty graph/semantic lemmas and two-deletion pruning compiler compiled and independently reviewed.
 - 2026-11-25T17:42:48.027572+00:00: consolidated2579-line partial compiled and independently reviewed; no final theorem.
+- 2026-11-25T17:52:04.236657+00:00: zero-count pruning trace, prefix preservation, and optional-output star restoration compiled and independently reviewed.
