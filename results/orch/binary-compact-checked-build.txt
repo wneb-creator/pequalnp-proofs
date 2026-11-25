@@ -1,0 +1,45 @@
+import took 3.72s
+parsing took 202ms
+elaboration took 346ms
+elaboration took 2.48s
+process pre-definitions took 288ms
+elaboration took 15.5s
+declTypeLinter took 102ms
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 143ms
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 166ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 152ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 313ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 607ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 339ms
+linting took 675ms
+elaboration took 195ms
+elaboration took 216ms
+elaboration took 1.45s
+linting took 123ms
+elaboration took 650ms
+type checking took 13.8s
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryFastWorstNCAll.lean:1787:0: warning: Definition `compactBigChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.573ms
+	blocked (unaccounted) 32.7ms
+	congr simp thm 1.47ms
+	declTypeLinter 139ms
+	elaboration 21s
+	fix level params 6.36ms
+	import 3.72s
+	initialization 50.8ms
+	instantiate metavars 69.9ms
+	interpretation 2.79s
+	let-to-have transformation 140ms
+	linting 926ms
+	module linting 0.0437ms
+	parsing 295ms
+	process pre-definitions 518ms
+	share common exprs 90.8ms
+	simp 25.6ms
+	tactic execution 17.2ms
+	tacticAnalysis 111ms
+	type checking 13.9s
+	typeclass inference 8.51s

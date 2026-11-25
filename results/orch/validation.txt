@@ -23,3 +23,5 @@ Full tracked bridge compiled separately with exit0; root reviewed unchanged brid
 Fixed-NOT endpoint and exact-statement wrapper conditional on finite certificate compiled successfully. Independent wrapper review proof_route PASS. Remaining computation is being split to meet memory budget.
 
 Continuation cut/patch glue and normalized initial-state identities passed Lean. Root independently reviewed exact F/G replacement, key injection, patch equality, and kernel-normalized identities. Preserved as development partials.
+
+As of2026-11-25 19:58UTC: generic continuation cuts and restoration checked; unarycoverage andall54unaryleaves checked; worstbinaryleaf(4061states) checked; lower13t0cut/all21leaves andt1..12checked under6000MB. Fullgapstillpending binarybatches, sourceassembly, ordinarylakebuild andlocalchecker. Everycheckedcomponent ispreserved withcompletecompilerlogs.

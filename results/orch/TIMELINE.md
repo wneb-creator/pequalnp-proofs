@@ -35,3 +35,5 @@
 - 2026-11-25 19:53 UTC: Lower13-t0 full21-child cut proof checked under6000MB; kernel74.9seconds. Root independently reviewed closed low0Root, exact reusedcut glue, no dependence oniroot/lower13. Preserving worstleaf and fullcut source/logs.
 
 - 2026-11-25 19:55 UTC: All remaining lower13 t1..12 closedcomputations and13-way assembly checked under6000MB;15.2s kernel. Root reviewed exact parameters and explicit t0 premise only for assembly demonstration; t0 separately proved. Savedcomplete source/log.
+
+- 2026-11-25 20:04 UTC: Compact certificate tables, six-stage budget decoder, full-field normalization, and largest binary leaf passed Lean under6000MB (13.8s kernel,50.8s wall,peak4,864,540KiB). Root independently reviewed normalization identity and closed kernel leaf check; no forbidden constructs. Preserving complete source/log before further resource optimization.
