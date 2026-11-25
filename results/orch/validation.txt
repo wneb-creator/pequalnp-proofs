@@ -19,3 +19,8 @@ Explicit assumptions: at most 25 operand slots, all seven inputs and all twelve 
 Independent checkpoint review: toolchain GO, SHA256 5e9b6500af831ec98c3ca16169ef5faf4e3931698c4cc823cdd52cc85810eb81.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=18.4 subagents=6
+
+Checked factor constraints: SingleUseFactors.lean, 46 lines, Lean exit 0 with empty diagnostics. All 84 raw-partner cases independently checked. Factorization/blindness assumptions remain explicit.
+Formula-only exhaustive computation: full_formula.cpp and full_formula.stdout.txt preserve independently reviewed search excluding <=13 AND/OR formula gates. Not Lean-checked and not a DAG/circuit lower bound.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=21.2 subagents=6

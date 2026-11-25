@@ -1,0 +1,15 @@
+states 2350602 start cost 1 pair 0 a 0 targetcost 255
+COMPLETE cost 1 layer 42 operations 90 seconds 1.663e-06 targetcost 255
+COMPLETE cost 2 layer 245 operations 846 seconds 0.00904289 targetcost 255
+COMPLETE cost 3 layer 1015 operations 7062 seconds 0.0103306 targetcost 255
+COMPLETE cost 4 layer 3311 operations 45912 seconds 0.0496024 targetcost 255
+COMPLETE cost 5 layer 10969 operations 251040 seconds 0.0544897 targetcost 255
+COMPLETE cost 6 layer 32046 operations 1223956 seconds 0.0659533 targetcost 255
+COMPLETE cost 7 layer 76447 operations 5375810 seconds 0.0888743 targetcost 255
+COMPLETE cost 8 layer 168595 operations 21539860 seconds 0.184616 targetcost 255
+COMPLETE cost 9 layer 312844 operations 79931760 seconds 0.660392 targetcost 255
+COMPLETE cost 10 layer 473630 operations 274874060 seconds 2.06286 targetcost 255
+COMPLETE cost 11 layer 551145 operations 880015798 seconds 6.45469 targetcost 255
+COMPLETE cost 12 layer 438410 operations 2634519920 seconds 17.6657 targetcost 255
+COMPLETE cost 13 layer 210294 operations 7376368038 seconds 44.0996 targetcost 255
+TARGET LOWER 14
