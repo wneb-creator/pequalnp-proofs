@@ -1,0 +1,7 @@
+state 0 oldentries 13 cumulativebridgechecks 152 seconds 0.024
+state 1 oldentries 13 cumulativebridgechecks 304 seconds 0.019
+state 2 oldentries 13 cumulativebridgechecks 456 seconds 0.022
+state 3 oldentries 13 cumulativebridgechecks 608 seconds 0.023
+state 4 oldentries 15 cumulativebridgechecks 798 seconds 0.029
+state 5 oldentries 13 cumulativebridgechecks 950 seconds 0.018
+PASS all fresh closure bridge cases 950

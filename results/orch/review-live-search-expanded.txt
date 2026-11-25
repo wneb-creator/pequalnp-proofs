@@ -1,0 +1,25 @@
+Independent expanded-archive review by status_review, 2026-11-25.
+
+Scope: all 31 files in results/orch/search/live/manifest.json.
+All recorded byte counts and SHA256 values verified. Python source parses;
+targeted source/data checks found no credential material, credential access,
+network requests, or shell/subprocess execution.
+
+All six delta1 datasets match the independently audited originals exactly.
+The earlier finite-data audit covers 37,466 candidate pair-operation cases
+and 950 bridge memberships. The exporter and regression script perform only
+local finite computation. Those six states do not exhaust the posted target.
+
+live_search_full.cpp matches the separately reviewed full120/lazy-cache
+version exactly after removing only its new positive-control helper and CLI
+flag. The helper's 20-gate circuit was independently evaluated on all 1,024
+rows and matches the target. Preserved selftest logs report all 21 states and
+10 terminal checks passing in each mode. This is a control, not completeness.
+
+The conditional general-copy prototypes remain clearly labelled as depending
+on an unproved general reordering lemma. The bounded logs and README make
+their inconclusive outcomes explicit. No full target theorem is asserted.
+
+Verdict: PASS for preservation as exploratory artifacts and complete logs.
+The README chronology correction was applied, and all 31 manifest entries
+were verified again afterward (491244 bytes).

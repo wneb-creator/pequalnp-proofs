@@ -1,0 +1,6 @@
+EXPERIMENTAL first-copy recurrence mode=1 group=120
+nodes=37 steps=0 card=0 cover=0 cof=25 formula=3 share1=0 fullcover=0 clips=970179 signals=116802 seconds=18.4955 levels=0:10,1:7,2:4,3:4,4:4,5:3,6:2,7:1,8:1,9:1,
+copyclosures=12 entries=3779 subchecks=172684 subcuts=169025
+limit reached
+nodes=517 steps=0 card=0 cover=0 cof=475 formula=31 share1=0 fullcover=0 clips=1072850 signals=150055 seconds=21.4431 levels=0:489,1:8,2:4,3:4,4:4,5:3,6:2,7:1,8:1,9:1,
+copyclosures=42 entries=4875 subchecks=215277 subcuts=210028

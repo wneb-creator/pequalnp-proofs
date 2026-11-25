@@ -158,3 +158,40 @@ Checked `results/orch/lemmas/Live1024Closure.lean`: 1524 lines, 74720 bytes, SHA
 ### lean_setup fresh δ0 closure, 2026-11-25T13:33:17.296888+00:00
 
 Checked `results/orch/lemmas/Live1024ClosureFresh.lean`: 1609 lines, 79318 bytes, SHA256 `b48532d73a1eb0529a4b454118bbb0b83e4953dfb59612a51a0f0b66b69817ef`. Full Lean compile exit0, 16 linter warnings. `tight_closure_fresh_state/raw/exclusion` allow closure tables to omit equal operands and outputs equal to either operand, since actual Live transitions forbid these cases. Original closure interfaces preserved by a wrapper. Saved scratch module object `live1024/Live1024ClosureFresh.olean` for later wrapper debugging. Still a conditional verifier only.
+
+2026-11-25T13:36:24.300872+00:00: ConditionalInfluence.lean passes a frozen Defs-only recheck with exit0 and empty output. For any distinct a,b and any fixed value of b, there are inputs differing only at a with different edge values. Therefore every bin0..3 loses essential information if either first-gate operand is removed. ConditionalRowsDraft bridges the explicit finite supports to Live1024 row witnesses next; no arbitrary-function or Fin1024-pair enumeration.
+
+2026-11-25T13:37:48.736827+00:00: ConditionalRows.lean passes Lean with Defs-only import, exit0 and empty output. It bridges explicit one-/two-/three-input supports to Live1024 rows by small Fin10-index identities, then proves no_binary_identification_left_rows for every d<4. The rows agree on every input except a, agree on the new gate, and disagree on the target. The symmetric right-operand fact follows by swapping inputs and flipping op2/op3. This can force both first-gate operands retained and supports an18-binary lower bound in first-AND cases. No full20-gate lower bound is claimed.
+
+## counterexample agent: checkedδ1 terminal oracle — 2026-11-25T13:38:51.261895+00:00
+
+Live1024DeltaOne.lean compiled with exit0; sourceSHA2566032bb5579426da3fd9f6b50cf04d57b0665fd659212268fbedc17821d1bee46,2172lines108068bytes. Full compiler output preserved inLive1024DeltaOne.compile.txt. New562-line fragmentDeltaOneLemma.txt proves first-retention decomposition preservingread-once Cert0 labels/columns, duplicated Sum α Bool rootpartition/support, finite Cert0→Cert2 bridge, and deficit_one_closure_exclusion (Impossible forbudget≤numberofroots). Thetightcase usesδ0; oneextra-gatecase necessarily hasonesingle-retentiontransition andthena tighttail. Noformula reordering or Runcommutation is assumed. CopyCertificate obligations remainexplicitfiniteclosure/transfer/missing-target checks; targetPetersen lowerbound isnot yetproved. Independentmath/trust/format reviewPASS bylean_setup; library_route regressionchecked950nonvacuousbridge obligations across6archivedfrontiers inPython. Rootauthorizedarchiveforimmediatepartialpush.
+
+## proof_structure signed cofactor checkpoint (2026-11-25T13:42:24.137889+00:00)
+
+Checked artifact `results/orch/lemmas/NineSignedReach.lean` proves `NineSigned.nine_binary_lower` and `NineSigned.nine_reach_lower`: the vertex9-deleted Petersen function requires15 binary gates even with free complements. The signed-only L670 certificate is retained unchanged except namespace, with two new wrappers;246–247KB total. Compiler exit0 with warnings only; full log preserved. Scratch cached module `NineSignedCore.olean` enables lightweight extension tests. This is a partial result, not the posted2373 theorem.
+
+2026-11-25T13:42:56.425528+00:00: FirstOperandsRetained.lean compiled exit0. New first_binary_operands_retained proves both original input columns must remain inU after the first Live step for any allowed signed operation. It uses the strong per-operand row witnesses and live_row_difference, then bin_flip for the second operand. The pool equality justifies U⊆original inputs. Complete source, standalone suffix, and full compiler log preserved under results/orch/lemmas; only preexisting linter warnings.
+
+### lean_setup finite and witness reflection adapters, 2026-11-25T13:47:43.920466+00:00
+
+Compiled `results/orch/lemmas/Live1024WitnessTables.lean`, 87770 bytes/1761 lines, SHA `95ed9bee401c2672d58bb092947853f326700c9e322c85163a1502052647eba4`, exit0 with 16 inherited linter warnings. Contains generic finite-column table closure/bridge checks plus faster single-rejecting-row witness checks. Both use bounded Finset/table/range4 quantifiers and kernel-only decidability. The witness check validates a candidate table entry or one required row pair missed by the candidate and every outside root. This directly contradicts column admissibility and avoids constructing225-element column sets. Counterexample independently reviewed both adapters; its concrete12-root terminal certificate build is underway.
+
+### Counterexample / concrete δ1 certificate (2026-11-25 13:48:14 UTC)
+
+State0 initial13-entry fresh closure now kernel-checked with row-witness reflection. Full standalone source `lemmas/Live1024Terminal0Closure.lean`, SHA2567b8ccd2b8e5c38716ec6f972a942fb7b7788f114fa58b716c0bdc3b5fff4f331; Lean exit0, complete log archived. All85 signal literals,225 pair rows,13copytables and their untrusted packed row-witness data are declared; only oldTable closure is proved in this intermediate artifact. Full13copyclosure/bridge checks and `terminal_excluded` currently compiling. Plain225-element Finset union checker exceeded10.9GB RSS and was safely terminated; witness adapter avoids materializing columns and checks only chosen blocking rows. No target theorem claimed.
+
+
+### library_route: closure certificates and optimized search (2026-11-25T13:48:56.483244+00:00)
+
+- Full signed row separation uses all positive rows via bitset intersections against each of the76 false rows. It independently confirms both operands must survive every first binary gate.
+- Fresh δ0/δ1 tables omit operand-alias outputs, justified by actual Live freshness against insert a (insert b U). Six concrete deep-state datasets were exported, with83–99 shared signals and312–397 copied-closure entries each. Independent audit checked37,466 candidate operations and950 finite bridge obligations. These are partial-state exclusions, not the full target.
+- General first-sharing recurrence remains experimental. Subtree cofactor pruning reduced a capped3003-entry closure to36 entries. Its missing generic reordering argument must use list Run because moved subtrees may coincide with outside root values.
+- Ordinary Live search now uses full signed dependency checks, fresh closure terminals, a compact restricted-value dictionary, lazy cofactor caches, and input-prefix filtering of graph symmetries. The full120 Petersen automorphisms are valid for state impossibility even inside a fixed first-gate experiment; independent review confirmed no historical transition filter remains.
+- Positive control: an independently generated20-gate star-cover witness passed all21 exact-live states in both modes, including10 δ0/δ1 terminal checks per mode. No full19-gate exclusion or counterexample has been obtained.
+
+## Root second replan, 2026-11-25T13:49:30.406328+00:00
+
+The trimmed98-line target builds with PEqualNP.Defs only and the repository checker now completes: REJECTED (no-theorem), accurately identifying the unfinished goal. The checked20-gate control remains preserved in TargetPartial135.lean and history. Research builds can use two narrow-import slots; full checker runs get a quiet window.
+
+Prioritize concrete Petersen seventeen-binary-gate instantiation using the now-cached checked nine-input certificate. Finish its nineteen-gate/NOT-count consequence before expanding more variants. The generic delta-zero/delta-one terminal checker is checked; produce concrete frontier exclusions next. Favor conventional Live search with full functional-dependence, cofactor cuts, and these terminal rules; keep unproved first-sharing recurrence experiments secondary. All heuristic searches remain incomplete, and no exact counterexample has been found.

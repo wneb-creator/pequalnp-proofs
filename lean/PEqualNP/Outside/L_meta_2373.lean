@@ -1,4 +1,3 @@
-import Mathlib
 import PEqualNP.Defs
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
@@ -21,42 +20,6 @@ def edge (x : Fin 10 → Bool) : Bool :=
     x 9 && x 6 ||
     x 6 && x 8 ||
     x 8 && x 5
-
-def upperCircuit : Circuit :=
-  ⟨[⟨GateOp.or, [1, 4]⟩,
-      ⟨GateOp.or, [10, 5]⟩,
-      ⟨GateOp.and, [0, 11]⟩,
-      ⟨GateOp.or, [2, 6]⟩,
-      ⟨GateOp.and, [1, 13]⟩,
-      ⟨GateOp.or, [2, 4]⟩,
-      ⟨GateOp.or, [15, 8]⟩,
-      ⟨GateOp.and, [3, 16]⟩,
-      ⟨GateOp.or, [2, 5]⟩,
-      ⟨GateOp.or, [18, 9]⟩,
-      ⟨GateOp.and, [7, 19]⟩,
-      ⟨GateOp.or, [6, 5]⟩,
-      ⟨GateOp.and, [8, 21]⟩,
-      ⟨GateOp.or, [4, 6]⟩,
-      ⟨GateOp.and, [9, 23]⟩,
-      ⟨GateOp.or, [12, 14]⟩,
-      ⟨GateOp.or, [25, 17]⟩,
-      ⟨GateOp.or, [26, 20]⟩,
-      ⟨GateOp.or, [27, 22]⟩,
-      ⟨GateOp.or, [28, 24]⟩], 29⟩
-
-lemma upperCircuit_size : upperCircuit.size = 20 := rfl
-
-lemma upperCircuit_fanInTwo : FanInTwo upperCircuit := by
-  simp [FanInTwo, upperCircuit]
-
-set_option maxRecDepth 10000 in
-set_option maxHeartbeats 8000000 in
-lemma upperCircuit_computes : ∀ x : Fin 10 → Bool,
-    upperCircuit.eval (List.ofFn x) = edge x := by
-  decide
-
-lemma upper_bound : HasCircuitSize 10 edge 20 :=
-  ⟨upperCircuit, upperCircuit_fanInTwo, le_of_eq upperCircuit_size, upperCircuit_computes⟩
 
 lemma five_cycle_cover_weight (a b c d e : Nat)
     (hab : 1 ≤ a + b) (hbc : 1 ≤ b + c) (hcd : 1 ≤ c + d)

@@ -1,0 +1,12 @@
+Independent trust/format and implementation review by lean_setup, 2026-11-25 UTC
+
+Source: results/orch/lemmas/ConditionalSeventeen.lean
+SHA256: 99bbed41d37da112ea613c9cebeb9ef159cbf4f720eaf18cc8868e90795ee061
+Size: 77150 bytes, 1601 lines.
+Verdict: PASS as a checked conditional partial theorem, not the complete posted statement.
+
+Inspected complete compile log: author EXIT0; 17 linter warnings, no errors. The Live1024 namespace is byte-for-byte identical to checked Live1024Count. The small NineSigned prefix contains only the generic definitions and graph-proper helper needed for the explicit priorNine hypothesis; it does not assert the nine-input lower bound as an axiom or silently replace its proof.
+
+Reviewed the suffix projected_tail_lower and live_lower. A constant projected live wire contributes at least one to the projected mass. With the explicit nine-input lower bound15, projected_bound gives at least16 tail gates. The first original Live gate is counted separately. AND/ANDNOT/NOTAND become a constant under zeroing the suitable operand. OR must retain at least one operand, because the explicit noOr row witnesses would otherwise make every remaining live wire agree on two rows where the target differs. Zeroing a retained operand gives the required constant while the OR output equals the other available input. This matches the earlier independent mathematics review by finite_invariants.
+
+All projection correctness, fixed-input, availability, noOr, and nine-input lower-bound hypotheses remain explicit. Source imports only PEqualNP.Defs; all helper declarations are in target-prefixed namespaces. No sorry, new axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom structure/inductive/instance, _root_, strings, or attributes. The only option is inherited declaration-local maxHeartbeats. No red-team blocker found for preserving this conditional result.

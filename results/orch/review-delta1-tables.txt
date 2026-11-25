@@ -1,0 +1,27 @@
+Independent finite-data review by status_review, 2026-11-25.
+
+Scope: the six scratch library_route/delta1-tables/state-N.json exports.
+Every truth table and 225-column row-separation vector was independently
+recomputed. Every closure contains all required leaves and valid provenance
+steps. Every disjoint-label, distinct-operand monotone AND/OR combination
+whose result is proper, differs from both operands, and satisfies the row
+condition is included. No closure contains the full-mask target.
+Every admissible disjoint Cert0 entry is present in its Cert2 closure, and
+the exported bridge index lists are exact. All hash results follow below.
+
+The actual checked Live definition was explicitly inspected: its freshness
+field excludes the new output from insert a (insert b U), so the unconditional
+operand-alias exclusions in these tables match that definition.
+
+Verdict: PASS for the finite data under the stated fresh monotone semantics.
+The generic delta-one decomposition is separately Lean-checked; the concrete
+kernel table instantiation remains separate from this data audit. These are
+six partial frontier exclusions, not the posted bound.
+
+0 PASS signals 85 old 13 new 318 bridges 152 sha256 98e684ee01445e993666cff70710eb747fce5cefa078492d5e27a30a49f3073b
+1 PASS signals 83 old 13 new 312 bridges 152 sha256 88127da6835c63411c4b79f72fdcc2ee4205412304fdb4852ff509dd98e39008
+2 PASS signals 99 old 13 new 346 bridges 152 sha256 eb48a3610c9c3bc7c295612a2a1290983b725c20619e2e6e801e7d566317704e
+3 PASS signals 99 old 13 new 346 bridges 152 sha256 04e555efd5164249372d90af6fa35735012f67d02b78d14363cee04384a3a0a1
+4 PASS signals 91 old 15 new 397 bridges 190 sha256 1c78a40e48ebd280f211890a89a3a42767813278ac804940710c5b2824015c2b
+5 PASS signals 84 old 13 new 316 bridges 152 sha256 9170889bec3df9d21c04186cdbb5d0fc0735dc2faa2e72d4f5fcafda4d4e4360
+PASS all six finite tables; checked candidate pairs 37466 and bridge memberships 950

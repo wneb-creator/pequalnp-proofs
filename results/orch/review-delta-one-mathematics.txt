@@ -1,0 +1,31 @@
+Independent mathematical review by lean_setup
+
+Reviewed /tmp/oec/pequalnp-pilot-87/counterexample/delta1/DeltaOneLemma.txt, 555-line draft, 2026-11-25 UTC. Compilation was still receiving local elaboration fixes; this report concerns the interfaces and mathematics, not a final immutable source hash.
+
+Verdict: PASS for the conditional deficit-one exclusion theorem. No unconditional Petersen lower bound is asserted.
+
+The first-retention argument is sound: when |S| equals the remaining gate count, dropping both operands preserves that equality; retaining exactly one produces a tight tail |S'|=k+1; retaining both contradicts the generic Live size bound. Flipping operands normalizes the retained operand to a, with the ANDNOT/NOTAND operation exchanged by the existing proved flip lemma.
+
+The root-partition and column-support invariants suffice to transfer a current state to duplicated roots. Replace the shared support A by two new Sum labels, both denoting the same signature w. The retained w gets the first copy. The fresh result gets the second copy plus the consumed operand support. Other live signatures retain lifted disjoint supports. These supports partition the new root set and continue to cover each signature's separation column.
+
+CopyCertificate correctly includes a finite bridge obligation for every old certificate entry whose support is disjoint from A and whose signature is admissible in the new basis. The consumed operand b receives this admissibility from the pre-sharing Live row-cover property. Untouched post-state signatures receive it from the new partition/support and tight-tail row cover. The two singleton copies supply w, closure supplies the fresh gate, and the already checked tight_closure_fresh_state derives the full-target certificate, contradicting its explicit absence.
+
+This bridge avoids any formula-tree commutation or unproved substitution claim. It is a real independent finite checking obligation; it does not follow from either closure condition alone, and the implementation does not assume that it does. Cert2 needs only the two copy leaves as explicit initial entries because the bridge supplies all other live entries.
+
+The exclusion wrapper handles both possible remaining budgets: |roots|=k+1 via the zero-deficit theorem, or |roots|=k via the first-retention theorem. The generic lower size bound excludes smaller k.
+
+Follow-up required: successful compilation and final-source trust/format review with immutable hash before treating the combined artifact as checked. Parent handles the delivery review and push.
+
+Final immutable-source audit, 2026-11-25 UTC:
+
+Source: /tmp/oec/pequalnp-pilot-87/counterexample/delta1/Live1024DeltaOne.lean
+SHA256: 6032bb5579426da3fd9f6b50cf04d57b0665fd659212268fbedc17821d1bee46
+Size: 108068 bytes, 2172 lines.
+Fragment SHA256: e559ce9caf721e3f8bac2ea17a35c043839f654aaac869470966ed045ad5ee04, 562 lines.
+Compile: author completed exit0; inspected complete attempt-03.txt (8452 bytes), zero errors, 29 linter warnings, no declaration-uses-sorry warnings. No extra independent compile launched because the sole serialized compiler slot is needed for remaining work.
+
+Compared whole module against checked Live1024ClosureFresh: the only change is insertion of the new 562-line fragment before the namespace closing line. The base is byte-for-byte unchanged. Reviewed the final bookkeeping fixes: explicit Ne.symm applications, branch-local membership recovery, and let-alias simplification preserve the already reviewed statements and proof strategy.
+
+Trust/format: one import PEqualNP.Defs; all declarations remain inside PEqualNP.Outside.L_meta_2373.Live1024; no sorry, new axioms, native_decide, compiled bv_decide, unsafe/extern/run_tac, custom structures/inductives/instances, _root_, strings, or attributes. Only the inherited declaration-local maxHeartbeats option. The theorem remains explicitly conditional on finite certificates, their closure/bridge conditions, row coverage, and initial data. It does not claim that these certificates have been supplied for the full target.
+
+Final review verdict: PASS for preserving this checked conditional partial result. No red-team blocker found. Full target proof still requires explicit data and local checker validation after integration.

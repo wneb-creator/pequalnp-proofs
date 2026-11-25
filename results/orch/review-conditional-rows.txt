@@ -1,0 +1,22 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/ConditionalRows.lean
+SHA256: b2bfd97823586e4da8ee913603b4b295eeb461ff04ae1f9521f6492b2f2ce3bf
+Frozen Defs-only compilation reported exit 0; preserved compiler log is empty.
+
+The reviewed ConditionalInfluence prefix is unchanged. The ten input truth
+tables and Petersen target were independently regenerated and matched exactly.
+The explicit single, pair, and triple row encodings correctly implement the
+corresponding assignments; all 1,000 triple-index cases were independently
+checked, including repeats. The finite Lean table lemmas bridge these rows
+to the function-level witnesses, avoiding arbitrary row-pair enumeration.
+
+bit_bin_eq_boolBin correctly translates every normalized operation at a valid
+row. The final theorem preserves equality of all inputs except the left
+operand and equality of the computed gate, while separating the graph value.
+It is a strong auxiliary witness, not a proof of the full circuit bound.
+
+Only PEqualNP.Defs is imported. No forbidden proof shortcuts, root text,
+strings, attributes, or options were found.
+
+Verdict: PASS for the checked auxiliary result and backup preservation.

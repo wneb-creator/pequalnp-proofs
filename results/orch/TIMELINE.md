@@ -24,3 +24,14 @@
 
 - 2026-11-25T13:33:17.296888+00:00: lean_setup compiled fresh δ0 closure variant and emitted module object; aliases may now be omitted from sparse tables.
 - 2026-11-25T13:35:49.925480+00:00: preserving reviewed closure/symmetry/table proofs, complete bounded-search archives, axiom audit and both checker OOM fault logs. Target remains unproved.
+
+- 2026-11-25T13:38:51.261895+00:00: δ1first-retention finitecertificate bridge Lean-checkedexit0 and independentlyreviewedPASS; archivedsource/fullcompilelog. Beginningconcretefrontiercertificate instantiation.
+
+- 2026-11-25T13:42:24.137889+00:00: proof_structure: signed nine-variable cofactor lower bound15 binary gates and Reach lower theorem compiled exit0; cached module saved, independent static review passed.
+
+- 2026-11-25T13:47:43.920466+00:00: lean_setup compiled finite/witness table reflection adapters; counterexample moved concrete terminal checks to point witnesses after finite-column memory spike.
+
+- 2026-11-25 13:48:14 UTC — counterexample: kernel-checked concrete state0 initial fresh closure using row witnesses; archived checked intermediate pending independentreview/parentpush.
+- 2026-11-25T13:49:30.406328+00:00: second replan; checker memory issue resolved by active-source trim; exact-statement checker gives REJECTED(no-theorem), not acceptance.
+
+- 2026-11-25T13:55:24.291661+00:00: Defs-only 98-line target built successfully; required checker completed with REJECTED(no-theorem). Preserving reviewed partial lemmas while concrete stronger wrappers compile.

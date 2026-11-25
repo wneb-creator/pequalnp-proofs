@@ -1,0 +1,20 @@
+Independent delta review by status_review, 2026-11-25.
+
+Source: scratch library_route/live_search_full.cpp
+SHA256: 7feca58b724655c05949ccb14e8e383a460848a45de188b1e6b987758d9f0d19
+
+Reviewed the full120 group change, lazy cofactor cache, resource stopping
+conditions, and complete DFS transition body. Full Petersen symmetry is valid
+for a claim about the current truth-function pool and remaining gate budget.
+The original fixed first gate is historical only. No transition restriction
+depends on that history or on lexicographic gate order; history supplies a
+constructive cofactor witness and candidate replay. Thus a cached exclusion
+transfers across the full automorphism orbit.
+
+The lazy per-signal clip arrays preserve the previous cache semantics. Clip
+keys use a separate intern registry, so clipping does not reallocate sigs.
+The resource estimate is an approximate stopping condition checked at DFS
+entry, not a hard resident-memory cap; interrupted runs remain inconclusive.
+
+Verdict: PASS for the reviewed delta. This does not certify the entire search
+implementation, its completeness, or any posted lower bound.

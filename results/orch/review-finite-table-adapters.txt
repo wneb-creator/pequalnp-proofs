@@ -1,0 +1,11 @@
+Independent review of finite-table soundness adapters
+Reviewer: /root/counterexample
+Source: /tmp/oec/pequalnp-pilot-87/live1024/FiniteTablesLemma.txt
+SHA256: a6d04082d50c8ed0618e280064212236f6f7f74605724affa308d24014438544
+Verdict: PASS (mathematics and trust surface; compilation tracked separately by lean_setup).
+
+finiteAdmissible_iff identifies need minus outside-root column union with the stated universal outside-root exclusion condition in both directions. freshClosedCheck quantifies every finite table pair and gate code in range4; allowed_four bounds every semantically allowed code. Its implication contains exactly the fresh closure premises, and the result is actual table membership. finiteBridgeCheck covers every source entry under disjointness and new-basis admissibility, proving actual target-table membership. All reflection uses kernel decide/of_decide_eq_true; no new axioms, sorry, native_decide, custom instance, unsafe/meta command, string literal, or _root_ text.
+
+Performance caveat: plain225-element finite column unions in a13-entry benchmark exceeded10GB RSS and were terminated. This concerns reduction cost, not soundness. A more efficient packed or row-witness adapter is recommended before large concrete checks.
+
+Final compiled-source update: SHA256 437000e5d879a2c3ebbe6d9a2d0d6cda66fc77ea4a9d5d25dcc25b98028d7f6d. Reviewed the proof-only change to simp only [check, decide_eq_true_eq] at checked and direct application of checked. Statements/checker definitions unchanged; verdict remains PASS.

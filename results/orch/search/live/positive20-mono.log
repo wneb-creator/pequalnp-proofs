@@ -1,0 +1,2 @@
+mode=0 first=andedge group=120
+PASS positive20 all21states mode=0 terminalchecks=10

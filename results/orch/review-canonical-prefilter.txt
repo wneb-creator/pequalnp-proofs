@@ -1,0 +1,24 @@
+Independent semantic review by status_review, 2026-11-25.
+
+Source: scratch library_route/live_search_fresh_prefilter.cpp
+SHA256: 659af265af70fdf69a97b0ad817126a4075d3cce714ba8902b996ff197f1c94d
+Scope: canonical() input-prefix optimization and its initialization invariants.
+
+Initialization interns zero, then exactly the ten distinct primary inputs,
+so input IDs are 1 through 10. Cofactor signatures use a separate registry.
+Every actual search-state wire is proper, hence zero is absent. Coordinate
+permutations preserve the input/noninput partition; all noninput IDs exceed10.
+Thus a sorted transformed state splits into an input prefix and noninput
+suffix. Lexicographic minimization can first minimize that prefix, then
+consider suffixes only for transformations tied on it. The allowed group
+contains the identity. No symmetry or pruning assumption is added.
+
+An independent randomized check compared this decomposition against the full
+minimum on 300 mixed and multiplicity states, using the full 120-element
+automorphism group or a stabilizer; all matched under a common registry.
+Separate program executions can allocate different numeric IDs lazily, so
+literal ID equality between different binaries is not a promised property.
+The invariant orbit representative and search semantics are preserved.
+
+Verdict: PASS for this optimization on the stated search-state domain.
+This is not a certification of a complete search or of the posted bound.

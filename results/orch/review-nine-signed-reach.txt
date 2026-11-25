@@ -1,0 +1,22 @@
+Independent static review by lean_setup, 2026-11-25 UTC
+
+Source: /tmp/oec/pequalnp-pilot-87/proof_structure/NineSignedReach.lean
+SHA256: deb15cf662bca636e857802ca0b3fdbc1e97508f716dafe1a1d7e526f27a5548
+Size: 247029 bytes, 5396 lines.
+Verdict: PASS static review as a partial result, conditional on successful final compilation of the corrected wrapper. This is not the posted L-meta-2373 theorem.
+
+Compared all nonblank source lines against lean/PEqualNP/Outside/L_meta_670.lean after namespace substitution. Every retained original nonblank line is unchanged. Changes are deletion of unused declarations, removal of source-level top options/comments, declaration spacing, and two added wrappers (47 nonblank lines). Existing signed data and verifier are unchanged. The retained signedRoot excludes normalized signed Live circuits with at most 14 binary gates on the nine-input Petersen-minus-vertex function.
+
+Reviewed both new wrapper proofs. nine_binary_lower converts circuit evaluation to the checked 512-row target, extracts a signed Live trace bounded by the actual non-NOT gate count, uses essential-input witnesses to recover all nine roots, and contradicts signedRoot when the count is below 15. nine_reach_lower exposes Lower true inputs graph 15 via lower_impossible and the same nine essential-input witnesses. Neither wrapper strengthens an assumption silently or asserts the full ten-input target.
+
+Independently evaluated all 512 rows in Python: input masks are exactly the nine little-endian variables; graph mask equals the twelve listed Petersen edges remaining after deleting vertex 9. The graph declaration is unchanged from the checked source.
+
+Trust/format scan: only import PEqualNP.Defs; all declarations inside PEqualNP.Outside.L_meta_2373.NineSigned; no sorry, new axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom structure/inductive/instance, _root_, string literals, or attributes. Only local maxHeartbeats/maxRecDepth options, each using in. 138 decide +kernel occurrences. No new top-level target theorem is claimed.
+
+Compilation: author reported the full certificate portion compiled, with the previous failure isolated to the now-corrected redundant wrapper rintro. I did not launch an independent large compile during root's OOM-controlled build window. Final current-source compile remains required before labeling this source machine-checked or pushing as a checked result.
+
+Complete whitespace-normalized diff retained at /tmp/oec/pequalnp-pilot-87/proof_structure/NineSignedReach.review-diff.txt.
+
+Follow-up source review: requiredInputs and its declaration-local limits were restored after the compiler exposed an accidental pruning omission. The restored eight-line block is unchanged from L_meta_670. The current hash above includes this fix; every retained original nonblank line remains unchanged, and the only nondeletion block remains the two 47-line wrappers. Final compilation is still active at the time of this update.
+
+Final compile update: author completed the corrected-source build EXIT0 and emitted its module object. Source archived at results/orch/lemmas/NineSignedReach.lean with SHA256 deb15cf662bca636e857802ca0b3fdbc1e97508f716dafe1a1d7e526f27a5548; complete output at NineSignedReach.compile.txt. Inspected output: 181 linter warnings, no errors or declaration-uses-sorry warnings. Final verdict: PASS for preserving this checked nine-input partial lower bound. No outstanding compile condition remains for this exact hash.

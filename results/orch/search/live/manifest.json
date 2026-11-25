@@ -1,7 +1,11 @@
 {
   "README.md": {
-    "bytes": 2902,
-    "sha256": "b7e118ed0be630f42ed56efd1e990b0bbde8d10f1ced0dd34ba6f5412dc35c86"
+    "bytes": 4425,
+    "sha256": "8552295d3edb125a78d84196723181add3ff337d13a50919ad0d54461899a107"
+  },
+  "check_delta1_bridge.py": {
+    "bytes": 1663,
+    "sha256": "236c1f73e163351148eeec4e3061f7220b4ba5dee40821a7e0df828376c0c823"
   },
   "copy-closure-cap-state.json": {
     "bytes": 5692,
@@ -15,6 +19,10 @@
     "bytes": 220,
     "sha256": "39d87413b49199ad1f2f116f443d5fb45d238a55fc8dbe47be11d11ffaeab98e"
   },
+  "copy-search-pruned-mono60.log": {
+    "bytes": 1566,
+    "sha256": "6919f98113885b87e63f7d4daa7fbabfcbfe9b6753fc0bfb8c85ca6489c0d97b"
+  },
   "copy_search.py": {
     "bytes": 5611,
     "sha256": "197657be9c53a49dedd58ace44ae337a5d53242871fb94a28f531bbd2f36c688"
@@ -23,6 +31,58 @@
     "bytes": 5836,
     "sha256": "332a7bc7a79f9d40a052833fc15dd4be2084b1b69ef3d18349d0b77be420d020"
   },
+  "copy_search_pruned.cpp": {
+    "bytes": 31546,
+    "sha256": "fd296d68219673c8903ffd5fc0dd702995f8c9b2804f581df7a4dc5dfaaacd59"
+  },
+  "copy_search_pruned.py": {
+    "bytes": 6251,
+    "sha256": "af1e63d2ac333009fdb5280827c37aff84f2ef0c21cb4a88856ff453460eeb5e"
+  },
+  "cpp-copy-compact-signed30.log": {
+    "bytes": 519,
+    "sha256": "08fe0ede2fe537ae50245f663dd77c442a1eecd91ba06fc570c32006e5c3ca2b"
+  },
+  "cpp-live-compact-signed60.log": {
+    "bytes": 1150,
+    "sha256": "4b8304e06741f8f0215c04ca5cd495016bf8fc99e9b808a6609eaebd6ceb055b"
+  },
+  "cpp-live-fresh-mono60.log": {
+    "bytes": 1045,
+    "sha256": "0d8a3d15af8045137ca3b59692c4ac9e93004cd0a9721c9250f554fec53b7987"
+  },
+  "delta1-bridge-report.txt": {
+    "bytes": 418,
+    "sha256": "a4432de83a59068bb81063c12506b295b2cd56a971b7bfcb24d8330714ff9683"
+  },
+  "delta1-export-report.txt": {
+    "bytes": 462,
+    "sha256": "f54e0edac11dd040ee80ac78656b1daf3abc74c91d770a76fc1d97f7e41e11ac"
+  },
+  "delta1-tables/state-0.json": {
+    "bytes": 53894,
+    "sha256": "98e684ee01445e993666cff70710eb747fce5cefa078492d5e27a30a49f3073b"
+  },
+  "delta1-tables/state-1.json": {
+    "bytes": 52801,
+    "sha256": "88127da6835c63411c4b79f72fdcc2ee4205412304fdb4852ff509dd98e39008"
+  },
+  "delta1-tables/state-2.json": {
+    "bytes": 60690,
+    "sha256": "eb48a3610c9c3bc7c295612a2a1290983b725c20619e2e6e801e7d566317704e"
+  },
+  "delta1-tables/state-3.json": {
+    "bytes": 60726,
+    "sha256": "04e555efd5164249372d90af6fa35735012f67d02b78d14363cee04384a3a0a1"
+  },
+  "delta1-tables/state-4.json": {
+    "bytes": 60693,
+    "sha256": "1c78a40e48ebd280f211890a89a3a42767813278ac804940710c5b2824015c2b"
+  },
+  "delta1-tables/state-5.json": {
+    "bytes": 53597,
+    "sha256": "9170889bec3df9d21c04186cdbb5d0fc0735dc2faa2e72d4f5fcafda4d4e4360"
+  },
   "exact-cover-report.txt": {
     "bytes": 865,
     "sha256": "00a4376470611b07ca7520e97a098f158193d69eb9d92dcfd23edca7b8e7b917"
@@ -30,6 +90,10 @@
   "exact_cover.py": {
     "bytes": 1415,
     "sha256": "612e62629c59e2e43760ef0b64fd73e0223ef108b9c7f24555a1925a4a34e4b6"
+  },
+  "export_delta1.py": {
+    "bytes": 3228,
+    "sha256": "67e9ff84ddd70b953f9fe865d085242ffb6438895e6101e3eb81219e0c361973"
   },
   "formula_sparse.py": {
     "bytes": 1886,
@@ -43,8 +107,20 @@
     "bytes": 31550,
     "sha256": "b9bf0b7566833db4a4e5f743b22a30ea87818f479858e5e7419940aca48f5f4f"
   },
+  "live_search_full.cpp": {
+    "bytes": 35148,
+    "sha256": "3961540d5ff252cc9b13e361121057ee06bb5626f792dd913b5c78dd9425e7dd"
+  },
   "one_share.py": {
     "bytes": 1850,
     "sha256": "37ece1b60ccb0c9f3810badfcabf1c82ee615007e7c4542e58a8e07bf1da5df0"
+  },
+  "positive20-mono.log": {
+    "bytes": 84,
+    "sha256": "19cebcfda92f57a9f2342117ff5cdbb493724ce7f72ead46d57f2666cb18949d"
+  },
+  "positive20-signed.log": {
+    "bytes": 84,
+    "sha256": "d86011c35aea315a94b77c869799e0ed881c5a17d14f7e9be603f90938406e2d"
   }
 }

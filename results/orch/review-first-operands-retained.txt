@@ -1,0 +1,23 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/FirstOperandsRetained.lean
+SHA256: 3eec04a916fb18e60f6f87f7a419392fb435f0dbdfb3481f32f6b49c53203d61
+Reported compiler exit 0; complete log contains only queue and existing lint
+warnings. The file has 1,501 lines and imports only PEqualNP.Defs.
+
+The previously reviewed Live1024Count body, ConditionalInfluence function
+helpers, and ConditionalRows bridge helpers are copied without changes.
+The separately preserved suffix matches the new source exactly.
+
+The new theorem correctly shows both operands of any first normalized signed
+binary gate must remain in U. Pool equality identifies every old U wire with
+a primary input. If an operand were absent, the strong witness would make
+all remaining wires agree on two rows where the target differs, contradicting
+live_row_difference. Swapping operands and bin_flip proves the second half.
+No assumption about future gate order or output aliasing is introduced.
+
+Source trust/format checks passed: no forbidden proof shortcuts, root text,
+strings, unsupported attributes, or extra imports. This is an auxiliary
+structural result, not the full posted circuit lower bound.
+
+Verdict: PASS for the checked theorem and backup preservation.

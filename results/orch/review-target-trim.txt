@@ -1,0 +1,16 @@
+Independent review by status_review, 2026-11-25.
+
+The archived TargetPartial135.lean matches the old HEAD target byte for byte.
+SHA256: 035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1
+Its complete preserved build log records successful completion.
+
+The active target changes exactly two things: removes the broad Mathlib
+import, and removes the unused upperCircuit/upper_bound block. All graph
+definitions and finite combinatorial lemmas remain byte-for-byte unchanged.
+The source is reduced from 135 to 98 lines and imports only PEqualNP.Defs.
+No forbidden proof shortcuts, root text, strings, attributes, or options.
+Current SHA256: 266bb1614e6f2a8a9a8bdc048ca30c84089591e8cc4f89ceafa64711d74e3952
+
+Verdict: PASS for the source trim and preserved partial result.
+The root owns the new Defs-only build; this review does not claim it completed.
+The target still contains auxiliary results, not the named gap theorem.

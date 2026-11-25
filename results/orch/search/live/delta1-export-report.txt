@@ -1,0 +1,6 @@
+state-0.json bytes 53894 signals 85 oldentries 13 newentries 318 bridges 152
+state-1.json bytes 52801 signals 83 oldentries 13 newentries 312 bridges 152
+state-2.json bytes 60690 signals 99 oldentries 13 newentries 346 bridges 152
+state-3.json bytes 60726 signals 99 oldentries 13 newentries 346 bridges 152
+state-4.json bytes 60693 signals 91 oldentries 15 newentries 397 bridges 190
+state-5.json bytes 53597 signals 84 oldentries 13 newentries 316 bridges 152

@@ -1,0 +1,7 @@
+mode=0 first=andedge group=8
+nodes=131072 steps=464979 card=0 cover=318982 cof=124686 formula=2360 share1=2976 fullcover=0 clips=83338 signals=42095 seconds=10.1015 levels=1:1,2:8,3:20,4:55,5:162,6:4675,7:76276,8:48335,9:1540,
+nodes=176128 steps=615469 card=0 cover=419982 cof=167515 formula=3119 share1=4118 fullcover=0 clips=92168 signals=84190 seconds=20.228 levels=1:1,2:8,3:20,4:62,5:315,6:9223,7:108093,8:56132,9:2274,
+nodes=231424 steps=795305 card=0 cover=541408 cof=220293 formula=3974 share1=5386 fullcover=0 clips=105480 signals=119561 seconds=30.4933 levels=1:1,2:8,3:20,4:64,5:496,6:14004,7:137839,8:76357,9:2635,
+nodes=274432 steps=933603 card=0 cover=634480 cof=261396 formula=4652 share1=6308 fullcover=0 clips=114531 signals=141855 seconds=40.5352 levels=1:1,2:8,3:20,4:66,5:641,6:17654,7:160057,8:93075,9:2910,
+limit reached
+nodes=285377 steps=968907 card=0 cover=658042 cof=271845 formula=4855 share1=6526 fullcover=0 clips=116588 signals=150469 seconds=43.7177 levels=1:1,2:8,3:20,4:66,5:659,6:18729,7:166340,8:96644,9:2910,

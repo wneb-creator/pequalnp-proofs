@@ -1,0 +1,8 @@
+Independent witness-table soundness review
+Reviewer: /root/counterexample
+SHA256: 7eba860dfcc1a7235e9289e098aafae318d07f62d6ba7ce8f3cb117fc35b9b48
+Verdict: PASS (mathematical/trust review; compilation tracked by lean_setup).
+
+rowRejected gives a needed row absent from both candidate output and every outside root. ColumnAdmissible requires this row in the candidate, a direct contradiction. witnessClosedCheck covers every finite table pair and all four gate codes; the allowed_four argument covers every allowed operation. Each fresh permitted pair either has result membership or a rowRejected certificate, which rules out admissibility. witnessBridgeCheck applies the same dichotomy to every disjoint source entry with the target basis. Witness functions have no trusted correctness requirement: every chosen row is checked by the Boolean computation. No new axiom, sorry, native_decide, unsafe/meta code, strings, options, imports, or instances occur in the76-line fragment.
+
+Compiled full-module scope audit: results/orch/lemmas/Live1024WitnessTables.lean, SHA256 95ed9bee401c2672d58bb092947853f326700c9e322c85163a1502052647eba4, 87770bytes. Exact prefix matches independently checked Live1024ClosureFresh.lean with only its final namespace end removed; suffix consists exactly of the reviewed final FiniteTablesLemma.txt fragment (SHA256437000e5d879a2c3ebbe6d9a2d0d6cda66fc77ea4a9d5d25dcc25b98028d7f6d), reviewed WitnessTablesLemma.txt fragment (SHA2567eba860dfcc1a7235e9289e098aafae318d07f62d6ba7ce8f3cb117fc35b9b48), whitespace, and the restored namespace end. Full archived compile output contains0errors and16linterwarnings; lean_setup reported process exit0. Full-module verdict PASS.

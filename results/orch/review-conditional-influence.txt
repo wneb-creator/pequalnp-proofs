@@ -1,0 +1,22 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/ConditionalInfluence.lean
+SHA256: 9db9e34f3b717c7b3d07cda8f434e02117780708a25b0ab98aa23cac93f6d1d9
+Frozen Defs-only compilation reported exit 0; preserved compiler log is empty.
+
+The edge expression matches the posted Petersen graph. The two finite
+separators establish that toggling input a can change the graph while any
+other distinct input b is fixed to either Boolean value. This was checked
+independently for all 180 ordered-pair/value cases. The witnesses differ
+only at a, start with a=false, and end with a=true.
+
+The last lemma fixes b to the annihilating value for each normalized binary
+operation: false for AND/NOT-AND, true for OR/AND-NOT. The new gate then agrees
+on the two assignments while the target differs. It proves necessity of
+retaining the left operand; a right-operand result requires swapping inputs
+and the two asymmetric operation cases. No full circuit lower bound is claimed.
+
+Only the permitted import appears. No sorry, axioms, native_decide, forbidden
+root text, string literals, unsupported attributes, or unsupported options.
+
+Verdict: PASS for this checked auxiliary result and backup preservation.
