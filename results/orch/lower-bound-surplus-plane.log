@@ -1,0 +1,35 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound_surplus.lean:1884:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [graph, finSumFinEquiv_symm_apply_castAdd, finSumFinEquiv_symm_apply_natAdd, cross,
+    not_false_eq_true] at huv
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound_surplus.lean:1884:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [graph, finSumFinEquiv_symm_apply_castAdd, finSumFinEquiv_symm_apply_natAdd, cross,
+    not_false_eq_true] at huv
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound_surplus.lean:1899:31: warning: This simp argument is unused:
+  finSumFinEquiv_symm_apply_castAdd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graph, finSumFinEquiv_symm_apply_natAdd, cross, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound_surplus.lean:1905:66: warning: This simp argument is unused:
+  finSumFinEquiv_symm_apply_natAdd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graph, finSumFinEquiv_symm_apply_castAdd, cross, not_false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound_surplus.lean:1981:160: warning: This simp argument is unused:
+  not_false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graph, finSumFinEquiv_symm_apply_castAdd, finSumFinEquiv_symm_apply_natAdd, cross] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

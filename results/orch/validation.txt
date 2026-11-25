@@ -121,3 +121,18 @@ all-pair agreement is still only externally checked. Both complete logs
 are empty, compilation exit0. Source guards only lack the final theorem.
 No full proof, refutation, PR, or accepted checker verdict.
 TIMING total=128 subagents=8
+
+Checkpoint 11: named file now7090 lines,333774bytes (beforeintegration4978).
+It includes the unrestricted plane bound3*N−1<=C.size under the original
+hypotheses. Fullnamedlakebuild passed:5149jobs, namedmodule44s; complete
+593-line output retained inbuild-checkpoint-11.log. Priorunchangedbuild
+from a workdir mistake is separately retained inbuild-preintegration-11.log.
+Independent assembledreview passes:469declarations,nocollisions,exact
+reviewed prefix/suffix. Sourceguard onlyexpected missingfinaltheorem.
+No full goal or checker acceptance; cleanup pass not attempted.
+Fourthstrategy re-plan adds restriction_charge andboolean_identity for
+conic restriction averaging and exact absorption identities respectively.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math, gate_charge, restriction_charge,
+boolean_identity.
+TIMING total=134 subagents=10
