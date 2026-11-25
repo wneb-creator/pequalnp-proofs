@@ -1,0 +1,214 @@
+{
+  "source_sha256": "5bc7f362c1cf08ca49a34dea07ed4ff386f2b393efb6261efa57a20c37f10348",
+  "bytes": 523482,
+  "size_margin": 806,
+  "static_guard": "PASS",
+  "exact_posted_goal": true,
+  "input_truth_bits_checked": 4608,
+  "graph_truth_bits_checked": 512,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      8,
+      5
+    ]
+  ],
+  "essential_input_pairs": [
+    [
+      0,
+      16,
+      17
+    ],
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      2,
+      2,
+      6
+    ],
+    [
+      3,
+      4,
+      12
+    ],
+    [
+      4,
+      8,
+      24
+    ],
+    [
+      5,
+      1,
+      33
+    ],
+    [
+      6,
+      2,
+      66
+    ],
+    [
+      7,
+      4,
+      132
+    ],
+    [
+      8,
+      8,
+      264
+    ]
+  ],
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "critical_declaration_shadowing": [],
+  "panel_propositional_checks": [
+    {
+      "panel": 0,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    },
+    {
+      "panel": 1,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    },
+    {
+      "panel": 2,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    },
+    {
+      "panel": 3,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    },
+    {
+      "panel": 4,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    },
+    {
+      "panel": 5,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "assignments_checked": 32,
+      "tautology": true
+    },
+    {
+      "panel": 6,
+      "propositions": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "assignments_checked": 16,
+      "tautology": true
+    }
+  ],
+  "mo_level_coverage": {
+    "9": 7,
+    "10": 182,
+    "11": 820,
+    "12": 386,
+    "13": 66,
+    "14": 9,
+    "15": 1
+  },
+  "sg_level_coverage": {
+    "8": 6,
+    "9": 69,
+    "10": 373,
+    "11": 216,
+    "12": 30,
+    "13": 3,
+    "14": 1
+  },
+  "github_author": "0xshuzo",
+  "github_head_sha": "0d2bbcdeb511ffff33552e155db3526648d8575b",
+  "github_url": "https://github.com/open-goat/pequalnp-proofs/pull/12203",
+  "panels_independent_peer": "results/orch/pr12203-panels-independent.json",
+  "verdict": "PASS: independent static and mathematical source review; complete kernel replay/checker pending",
+  "reviewed_at": "2026-11-25T05:22:33.559468+00:00"
+}

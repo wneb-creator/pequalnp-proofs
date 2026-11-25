@@ -17,5 +17,23 @@
     "rewrite proved equality in rowCut_at and rowCut_merge",
     "explicit source credit"
   ],
-  "status": "prepared; comparative runtime benchmark and complete Lean replay pending"
+  "status": "replay interrupted intentionally to prioritize width278/groups96; no reported proof errors; no complete olean",
+  "replay": {
+    "source": "results/orch/lemmas/CompactForcedCandidate.lean",
+    "log": "/tmp/oec/pequalnp-pilot-61/compact-forced-profile.log",
+    "started_utc": "2026-11-25T04:56:16+00:00",
+    "ended_utc": "2026-11-25T05:03:18+00:00",
+    "elapsed_seconds": 421.394,
+    "exit_code": 130,
+    "lean_threads": 3,
+    "observed_queue_wait_seconds": 0,
+    "olean": "/tmp/oec/pequalnp-pilot-61/profile-oleans/results/orch/lemmas/CompactForcedCandidate.olean",
+    "affinity_cpus": [
+      2,
+      3
+    ],
+    "user_seconds": 426.664,
+    "system_seconds": 28.356,
+    "max_rss_kib": 4215572
+  }
 }

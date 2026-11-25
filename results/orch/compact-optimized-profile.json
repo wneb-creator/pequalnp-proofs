@@ -1,0 +1,18 @@
+{
+  "source": "results/orch/lemmas/CompactOptimizedCandidate.lean",
+  "log": "/tmp/oec/pequalnp-pilot-61/compact-optimized-profile.log",
+  "started_utc": "2026-11-25T05:07:34+00:00",
+  "ended_utc": "2026-11-25T05:32:39+00:00",
+  "elapsed_seconds": 1504.27,
+  "exit_code": 0,
+  "lean_threads": 3,
+  "observed_queue_wait_seconds": 0,
+  "olean": "/tmp/oec/pequalnp-pilot-61/profile-oleans/results/orch/lemmas/CompactOptimizedCandidate.olean",
+  "affinity_cpus": [
+    2,
+    3
+  ],
+  "user_seconds": 1414.741,
+  "system_seconds": 124.326,
+  "max_rss_kib": 8923532
+}

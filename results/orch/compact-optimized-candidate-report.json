@@ -23,6 +23,28 @@
     "groups96-independent-review.json",
     "cofactor64-independent-review.json"
   ],
-  "excluded_candidate": "cached-node reader did not improve the numerical benchmark",
-  "status": "full replay running on CPUs2-3 with explicit olean and complete compact-optimized-profile log"
+  "status": "complete Lean replay PASSED exit0; repository checker still pending; runtime regressed versus original baseline",
+  "excluded_candidates": [
+    "cached-node reader: kernel2.69s versus2.58s baseline",
+    "cached-pair decoder: kernel3.12s versus3.07s baseline"
+  ],
+  "replay": {
+    "source": "results/orch/lemmas/CompactOptimizedCandidate.lean",
+    "log": "/tmp/oec/pequalnp-pilot-61/compact-optimized-profile.log",
+    "started_utc": "2026-11-25T05:07:34+00:00",
+    "ended_utc": "2026-11-25T05:32:39+00:00",
+    "elapsed_seconds": 1504.27,
+    "exit_code": 0,
+    "lean_threads": 3,
+    "observed_queue_wait_seconds": 0,
+    "olean": "/tmp/oec/pequalnp-pilot-61/profile-oleans/results/orch/lemmas/CompactOptimizedCandidate.olean",
+    "affinity_cpus": [
+      2,
+      3
+    ],
+    "user_seconds": 1414.741,
+    "system_seconds": 124.326,
+    "max_rss_kib": 8923532
+  },
+  "performance_limit": "1504.270s wall and8,923,532KiB peakRSS versus original baseline1361.131s and~5.23GB peakRSS; local leaf gains did not generalize"
 }

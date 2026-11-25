@@ -74,3 +74,5 @@
 - 2026-11-25T05:16:05Z: Complete attributed public PR12184 baseline CompactProfileBaseline.lean passed Lean4.36 kernel compilation, exit0;1361.131s wall,1292.938s user,93.131s system,5,232,736KiB maxRSS, -j3 on CPUs0–1. This is a full mathematical baseline, not a local checker verdict or a runtime-compliant delivery. Full diagnostics preserved in results/orch/compact-baseline-profile-restart1.log/json.
 
 - 2026-11-25T05:22:00.798284+00:00: Original-depth attributed12203 replay runs onCPUs0-1 while12184 optimized replay continues onCPUs2-3. Full12184 baseline has been pushed; named module build/checker remains pending. More reviewed cache/lazy/fallback numerical probes preserved.
+
+- 2026-11-25T05:36:41Z: Complete attributed public PR12203 original-depth source Compact12203OriginalCandidate.lean passed Lean4.36 kernel compilation, exit0;1042.562s wall,1000.980s user,79.011s system,7,608,148KiB maxRSS, -j3 on CPUs0–1. All original proof/data/depth bytes preserved except239 attribution comment bytes. No local checker replay claimed. Full diagnostics preserved in results/orch/compact12203-original-profile.log/json.

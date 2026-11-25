@@ -1,0 +1,15 @@
+{
+  "limitation": "Phase boundaries are inferred from warning locations; both root definitions precede both root proofs, so this does not separate monotone from signed.",
+  "phase_kernel_stages": {
+    "shared": {
+      "count": 367,
+      "seconds": 351.865,
+      "maximum_seconds": 37.2
+    },
+    "wholegraph_and_final": {
+      "count": 404,
+      "seconds": 608.014,
+      "maximum_seconds": 13.0
+    }
+  }
+}
