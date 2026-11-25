@@ -1,9 +1,13 @@
 Partial checkpoint for L-meta-2592. The posted statement is not yet proved.
 
-Lean 4.36.0: lake env lean ../results/orch/lemmas/Finite.lean
-Exit status: 0. Complete stdout and stderr are empty and preserved in logs/.
-The file proves finite truth-table facts only. No proof PR is being opened.
+Lean 4.36.0 checks, each via lake env lean:
+- Finite.lean: exit 0; 76 false assignments, bounded distinct selected rows, and completeness of selected rows for any bitwise-monotone function.
+- Reduction.lean: exit 0; generic factorization at the last NOT gate, with sole project import PEqualNP.Defs.
+- Structural.lean: exit 0; reproduces the existing 15-binary-gate floor and excludes at least five NOT gates at total size at most 19.
+Complete logs are preserved in logs/. Structural compilation has linter warnings only.
+Independent static review: special_status passed all three exact files.
 Repository checker: not run; no complete theorem for the posted statement exists.
+No proof PR is being opened for these partial results.
 
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate
-TIMING total=8.2 subagents=5
+TIMING total=11.8 subagents=5

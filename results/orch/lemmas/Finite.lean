@@ -38,4 +38,36 @@ set_option maxHeartbeats 1000000 in
 lemma finite_rows_bounded : ∀ r ∈ finiteRows, r < 1024 := by
   decide +kernel
 
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma finite_true_covered : ∀ r : Fin 1024, finiteEdge r.val = true →
+    finiteRows.any (fun t => finiteEdge t && decide (t &&& r.val = t)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma finite_false_covered : ∀ r : Fin 1024, finiteEdge r.val = false →
+    finiteRows.any (fun t => !finiteEdge t && decide (r.val &&& t = r.val)) = true := by
+  decide +kernel
+
+lemma finite_rows_complete (g : ℕ → Bool)
+    (hmono : ∀ a b, a &&& b = a → g a = true → g b = true)
+    (hrows : ∀ r ∈ finiteRows, g r = finiteEdge r) :
+    ∀ r < 1024, g r = finiteEdge r := by
+  intro r hr
+  cases h : finiteEdge r with
+  | false =>
+    obtain ⟨t, ht, hval⟩ := List.any_eq_true.mp (finite_false_covered ⟨r, hr⟩ h)
+    have hh : finiteEdge t = false ∧ r &&& t = r := by simpa using hval
+    cases hg : g r with
+    | false => rfl
+    | true =>
+      have hm := hmono r t hh.2 hg
+      rw [hrows t ht, hh.1] at hm
+      contradiction
+  | true =>
+    obtain ⟨t, ht, hval⟩ := List.any_eq_true.mp (finite_true_covered ⟨r, hr⟩ h)
+    have hh : finiteEdge t = true ∧ t &&& r = t := by simpa using hval
+    exact hmono t r hh.2 ((hrows t ht).trans hh.1)
+
 end PEqualNP.Outside.L_meta_2592_aux
