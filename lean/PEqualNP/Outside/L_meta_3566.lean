@@ -2673,3 +2673,111 @@ lemma least_read_iff_degree_pos (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     InputReads.nonisolated_read G C hC.1 hC.2.1 z⟩
 
 end PEqualNP.Outside.L_meta_3566.ActiveReads
+
+namespace PEqualNP.Outside.L_meta_3566.LCF18
+
+/-- Numeric edge list of the 18-cycle with chord steps [5,7,-7,7,-7,-5] repeated. -/
+def fixtureEdges : List (ℕ × ℕ) :=
+  [(0, 1), (0, 5), (0, 17), (1, 2), (1, 8), (2, 3), (2, 13), (3, 4), (3, 10), (4, 5), (4, 15), (5, 6), (6, 7), (6, 11), (7, 8), (7, 14), (8, 9), (9, 10), (9, 16), (10, 11), (11, 12), (12, 13), (12, 17), (13, 14), (14, 15), (15, 16), (16, 17)]
+
+abbrev graph : SimpleGraph (Fin 18) := PEqualNP.EdgeOwnership.edgeGraph 18 fixtureEdges
+
+abbrev color (v : Fin 18) : Bool :=
+  decide (v.val % 2 = 0)
+
+lemma bipartite : ∀ u v : Fin 18, graph.Adj u v → color u ≠ color v := by
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma no_four : PEqualNP.TopForm.NoFourCycle graph := by
+  decide
+
+lemma degree_three : ∀ z : Fin 18, graph.degree z = 3 := by
+  decide
+
+lemma edges_twenty_seven : graph.edgeFinset.card = 27 := by
+  decide
+
+abbrev matchEven (i : Fin 9) : Fin 18 := ⟨2 * i.val, by omega⟩
+abbrev matchOdd (i : Fin 9) : Fin 18 := ⟨2 * i.val + 1, by omega⟩
+
+lemma hamilton_matching : ∀ i : Fin 9, graph.Adj (matchEven i) (matchOdd i) := by
+  decide
+
+lemma cover_lower (S : Finset (Fin 18))
+    (hS : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph S) :
+    9 ≤ S.card := by
+  let f (i : Fin 9) : Fin 18 := if matchEven i ∈ S then matchEven i else matchOdd i
+  have hmem (i : Fin 9) : f i ∈ S := by
+    dsimp [f]
+    split_ifs with h
+    · exact h
+    · exact (hS _ _ (hamilton_matching i)).resolve_left h
+  have hfdiv (i : Fin 9) : (f i).val / 2 = i.val := by
+    dsimp [f]
+    split_ifs <;> dsimp [matchEven, matchOdd] <;> omega
+  have hinj : Function.Injective (fun i : Fin 9 => (⟨f i, hmem i⟩ : S)) := by
+    intro i j hij
+    have heq : f i = f j := congrArg Subtype.val hij
+    have hi := hfdiv i
+    have hj := hfdiv j
+    apply Fin.ext
+    rw [heq] at hi
+    omega
+  have hc := Fintype.card_le_of_injective _ hinj
+  simpa using hc
+
+abbrev cover : Finset (Fin 18) := {0, 2, 4, 6, 8, 10, 12, 14, 16}
+
+lemma cover_valid : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph cover := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  decide
+
+lemma cover_card : cover.card = 9 := by
+  decide
+
+lemma cover_minimum : PEqualNP.MetaComplexity.NestedCover.IsMinCover graph cover := by
+  exact ⟨cover_valid, fun S hS => by simpa only [cover_card] using cover_lower S hS⟩
+
+abbrev cutCover (z : Fin 18) : Finset (Fin 18) :=
+  Finset.univ.filter (fun v => color v = color z ∧ v ≠ z)
+
+set_option synthInstance.maxSize 1000 in
+lemma cut_cover_valid : ∀ z : Fin 18,
+    PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+      (graph.deleteEdges (graph.incidenceSet z)) (cutCover z) := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  simp only [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+  decide
+
+lemma cut_cover_card : ∀ z : Fin 18, (cutCover z).card = 8 := by
+  decide
+
+lemma cut_cover_lower (z : Fin 18) (S : Finset (Fin 18))
+    (hS : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+      (graph.deleteEdges (graph.incidenceSet z)) S) :
+    8 ≤ S.card := by
+  have hfull : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph (insert z S) := by
+    intro a b hab
+    by_cases hza : z = a
+    · exact Or.inl (by simp [← hza])
+    by_cases hzb : z = b
+    · exact Or.inr (by simp [← hzb])
+    have hcut : (graph.deleteEdges (graph.incidenceSet z)).Adj a b := by
+      simp only [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+      exact ⟨hab, fun h => h.2.elim hza hzb⟩
+    rcases hS a b hcut with ha | hb
+    · exact Or.inl (Finset.mem_insert_of_mem ha)
+    · exact Or.inr (Finset.mem_insert_of_mem hb)
+  have h := cover_lower (insert z S) hfull
+  have hcard := Finset.card_insert_le z S
+  omega
+
+lemma cut_cover_minimum (z : Fin 18) :
+    PEqualNP.MetaComplexity.NestedCover.IsMinCover
+      (graph.deleteEdges (graph.incidenceSet z)) (cutCover z) := by
+  exact ⟨cut_cover_valid z, fun S hS => by
+    simpa only [cut_cover_card] using cut_cover_lower z S hS⟩
+
+end PEqualNP.Outside.L_meta_3566.LCF18
