@@ -3420,4 +3420,343 @@ lemma relative_circuit_cnf_cover_bound (P : Finset (Fin n))
 
 end RelativeCnf
 
+namespace InducedMatching
+
+open Finset
+open PEqualNP.Outside.L_meta_2583.MatchingSurplus
+
+variable {r : ℕ} (I : Fin r → Fin r → Prop) [DecidableRel I]
+
+def IndexIndependent (A : Finset (Fin r)) : Prop :=
+  ∀ a ∈ A, ∀ b ∈ A, a ≠ b → ¬ I a b
+
+lemma exists_large_independent (d : ℕ) (hdiag : ∀ i, I i i)
+    (hcol : ∀ i, (univ.filter fun k => I k i).card ≤ d)
+    (hrow : ∀ j, (univ.filter fun k => I j k).card ≤ d) :
+    ∃ A : Finset (Fin r), IndexIndependent I A ∧ r ≤ (2 * d - 1) * A.card := by
+  classical
+  have hex : ∃ k : ℕ, ∃ A : Finset (Fin r), IndexIndependent I A ∧ r - A.card = k := by
+    refine ⟨r, ∅, ?_, by simp⟩
+    intro a ha
+    simp at ha
+  obtain ⟨A, hA, hmin⟩ := Nat.find_spec hex
+  have hmax : ∀ B, IndexIndependent I B → B.card ≤ A.card := by
+    intro B hB
+    have hfind := Nat.find_min' hex (show ∃ C : Finset (Fin r),
+        IndexIndependent I C ∧ r - C.card = r - B.card from ⟨B, hB, rfl⟩)
+    have haCard : A.card ≤ r := by simpa using card_le_univ A
+    have hbCard : B.card ≤ r := by simpa using card_le_univ B
+    omega
+  let R : Fin r → Finset (Fin r) := fun a => univ.filter fun k => I a k
+  let C : Fin r → Finset (Fin r) := fun a => univ.filter fun k => I k a
+  let N : Fin r → Finset (Fin r) := fun a => R a ∪ C a
+  have hself : ∀ a, a ∈ N a := by
+    intro a
+    exact mem_union_left _ (mem_filter.mpr ⟨mem_univ _, hdiag a⟩)
+  have hcover : (univ : Finset (Fin r)) ⊆ A.biUnion N := by
+    intro i hi
+    by_contra hn
+    have hiA : i ∉ A := fun h => hn (mem_biUnion.mpr ⟨i, h, hself i⟩)
+    have hnone : ∀ a ∈ A, ¬ I a i ∧ ¬ I i a := by
+      intro a ha
+      constructor
+      · intro hai
+        exact hn (mem_biUnion.mpr ⟨a, ha, mem_union_left _ (mem_filter.mpr ⟨mem_univ _, hai⟩)⟩)
+      · intro hia
+        exact hn (mem_biUnion.mpr ⟨a, ha, mem_union_right _ (mem_filter.mpr ⟨mem_univ _, hia⟩)⟩)
+    have hins : IndexIndependent I (insert i A) := by
+      intro a ha b hb hab
+      rcases mem_insert.mp ha with hai | haA
+      · subst a
+        rcases mem_insert.mp hb with hbi | hbA
+        · exact (hab hbi.symm).elim
+        · exact (hnone b hbA).2
+      · rcases mem_insert.mp hb with hbi | hbA
+        · rw [hbi]
+          exact (hnone a haA).1
+        · exact hA a haA b hbA hab
+    have hb := hmax _ hins
+    rw [card_insert_of_notMem hiA] at hb
+    omega
+  have hNcard : ∀ a, (N a).card ≤ 2 * d - 1 := by
+    intro a
+    have hinter : 1 ≤ (R a ∩ C a).card := by
+      apply one_le_card.mpr
+      exact ⟨a, mem_inter.mpr ⟨mem_filter.mpr ⟨mem_univ _, hdiag a⟩,
+        mem_filter.mpr ⟨mem_univ _, hdiag a⟩⟩⟩
+    have hcard := card_union_add_card_inter (R a) (C a)
+    have hc := hcol a
+    have hrw := hrow a
+    change (C a).card ≤ d at hc
+    change (R a).card ≤ d at hrw
+    change (R a ∪ C a).card ≤ 2 * d - 1
+    omega
+  refine ⟨A, hA, ?_⟩
+  calc r = (univ : Finset (Fin r)).card := by simp
+    _ ≤ (A.biUnion N).card := card_le_card hcover
+    _ ≤ ∑ a ∈ A, (N a).card := card_biUnion_le
+    _ ≤ ∑ a ∈ A, (2 * d - 1) := sum_le_sum (fun a ha => hNcard a)
+    _ = (2 * d - 1) * A.card := by simp [Nat.mul_comm]
+
+lemma independent_clauses_power (A : Finset (Fin r)) (hA : IndexIndependent I A)
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hmiss : ∀ S, Independent I S → ∃ W ∈ F, Disjoint W S) :
+    2 ^ A.card ≤ F.card := by
+  classical
+  let B := {s : Finset (Fin r) // s ∈ A.powerset}
+  let S : B → Finset (Bool × Fin r) := fun b =>
+    (b.val.image fun i => (false, i)) ∪ ((A \ b.val).image fun i => (true, i))
+  have hsubset : ∀ b : B, b.val ⊆ A := fun b => mem_powerset.mp b.property
+  have hp : ∀ b : B, ∀ i, (false, i) ∈ S b ↔ i ∈ b.val := by
+    intro b i
+    simp [S]
+  have hl : ∀ b : B, ∀ i, (true, i) ∈ S b ↔ i ∈ A ∧ i ∉ b.val := by
+    intro b i
+    simp [S]
+  have hS : ∀ b : B, Independent I (S b) := by
+    intro b i j hi hj
+    have hiB := (hp b i).mp hi
+    obtain ⟨hjA, hjB⟩ := (hl b j).mp hj
+    have hij : i ≠ j := by
+      intro heq
+      exact hjB (heq ▸ hiB)
+    exact hA i (hsubset b hiB) j hjA hij
+  have hchoice : ∀ b : B, ∃ W ∈ F, Disjoint W (S b) := fun b => hmiss _ (hS b)
+  choose K hKF hKB using hchoice
+  have hinj : Function.Injective K := by
+    have hmono : ∀ b c : B, K b = K c → b.val ⊆ c.val := by
+      intro b c heq i hi
+      by_contra hic
+      have hiSb : (false, i) ∈ S b := (hp b i).mpr hi
+      have hiSc : (true, i) ∈ S c := (hl c i).mpr ⟨hsubset b hi, hic⟩
+      rcases hcover (K b) (hKF b) i with hiK | hiK
+      · exact Finset.disjoint_left.mp (hKB b) hiK hiSb
+      · rw [heq] at hiK
+        exact Finset.disjoint_left.mp (hKB c) hiK hiSc
+    intro b c heq
+    apply Subtype.ext
+    exact Finset.Subset.antisymm (hmono b c heq) (hmono c b heq.symm)
+  have hsub : A.powerset.attach.image K ⊆ F := by
+    intro W hW
+    obtain ⟨b, hb, rfl⟩ := mem_image.mp hW
+    exact hKF b
+  calc 2 ^ A.card = A.powerset.card := (card_powerset A).symm
+    _ = (A.powerset.attach.image K).card := by
+      rw [card_image_of_injective _ hinj]
+      exact card_attach.symm
+    _ ≤ F.card := card_le_card hsub
+
+lemma clause_count_degree_exponential (d : ℕ) (hdiag : ∀ i, I i i)
+    (hcol : ∀ i, (univ.filter fun k => I k i).card ≤ d)
+    (hrow : ∀ j, (univ.filter fun k => I j k).card ≤ d)
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hmiss : ∀ S, Independent I S → ∃ W ∈ F, Disjoint W S) :
+    ∃ t : ℕ, r ≤ (2 * d - 1) * t ∧ 2 ^ t ≤ F.card := by
+  obtain ⟨A, hA, hbound⟩ := exists_large_independent I d hdiag hcol hrow
+  exact ⟨A.card, hbound, independent_clauses_power I A hA F hcover hmiss⟩
+
+lemma graph_matching_clause_count_exponential {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (d : ℕ) (p l : Fin r → Fin n)
+    (hpp : ∀ i j, ¬ G.Adj (p i) (p j)) (hll : ∀ i j, ¬ G.Adj (l i) (l j))
+    (hdiag : ∀ i, G.Adj (p i) (l i))
+    (hcol : ∀ i, (univ.filter fun k => G.Adj (p k) (l i)).card ≤ d)
+    (hrow : ∀ j, (univ.filter fun k => G.Adj (p j) (l k)).card ≤ d)
+    (F : Finset (Finset (Fin n)))
+    (hcover : ∀ W ∈ F, ∀ i, p i ∈ W ∨ l i ∈ W)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    ∃ t : ℕ, r ≤ (2 * d - 1) * t ∧ 2 ^ t ≤ F.card := by
+  classical
+  let J : Fin r → Fin r → Prop := fun i j => G.Adj (p i) (l j)
+  let f : Bool × Fin r → Fin n
+    | (false, i) => p i
+    | (true, i) => l i
+  let Q : Finset (Fin n) → Finset (Bool × Fin r) :=
+    fun W => univ.filter fun u => f u ∈ W
+  have hQcover : ∀ W ∈ F.image Q, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W := by
+    intro W hW i
+    obtain ⟨V, hVF, rfl⟩ := mem_image.mp hW
+    rcases hcover V hVF i with hpW | hlW
+    · exact Or.inl (by simpa [Q, f] using hpW)
+    · exact Or.inr (by simpa [Q, f] using hlW)
+  have hQmiss : ∀ S, Independent J S → ∃ W ∈ F.image Q, Disjoint W S := by
+    intro S hS
+    have himg : ∀ u ∈ S.image f, ∀ v ∈ S.image f, ¬ G.Adj u v := by
+      intro u hu v hv huv
+      obtain ⟨⟨tu, iu⟩, hiu, rfl⟩ := mem_image.mp hu
+      obtain ⟨⟨tv, iv⟩, hiv, rfl⟩ := mem_image.mp hv
+      cases tu <;> cases tv
+      · exact hpp iu iv huv
+      · exact hS iu iv hiu hiv huv
+      · exact hS iv iu hiv hiu huv.symm
+      · exact hll iu iv huv
+    obtain ⟨W, hWF, hWS⟩ := safe_clause_miss G F hsafe (S.image f) himg
+    refine ⟨Q W, mem_image.mpr ⟨W, hWF, rfl⟩, ?_⟩
+    apply Finset.disjoint_left.mpr
+    intro u huQ huS
+    have huW : f u ∈ W := (mem_filter.mp huQ).2
+    have huImg : f u ∈ S.image f := mem_image.mpr ⟨u, huS, rfl⟩
+    exact Finset.disjoint_left.mp hWS huW huImg
+  obtain ⟨t, hbound, hpower⟩ :=
+    clause_count_degree_exponential J d hdiag hcol hrow (F.image Q) hQcover hQmiss
+  exact ⟨t, hbound, le_trans hpower card_image_le⟩
+
+
+end InducedMatching
+
+namespace MatchingCertificate
+
+open Finset
+
+lemma witness_family_bound {r m : ℕ} (I : Fin r → Fin r → Prop)
+    (S : Fin m → Finset (Bool × Fin r))
+    (hind : ∀ i a b, (false, a) ∈ S i → (true, b) ∈ S i → ¬ I a b)
+    (hsep : ∀ i j, i ≠ j → ∃ a,
+      (false, a) ∈ S i ∪ S j ∧ (true, a) ∈ S i ∪ S j)
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin r → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ i j, I i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    m ≤ F.card := by
+  classical
+  have hmiss : ∀ i, ∃ W ∈ F, Disjoint W (S i) := by
+    intro i
+    by_contra hn
+    push Not at hn
+    let x : Bool × Fin r → Bool := fun u => decide (u ∈ S i)
+    have hx : ∀ W ∈ F, ∃ u ∈ W, x u = true := by
+      intro W hWF
+      have hint : ∃ u ∈ W, u ∈ S i := by
+        by_contra hnone
+        push Not at hnone
+        exact hn W hWF (Finset.disjoint_left.mpr hnone)
+      obtain ⟨u, huW, huS⟩ := hint
+      exact ⟨u, huW, by simp [x, huS]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x hx
+    exact hind i a b (by simpa [x] using ha) (by simpa [x] using hb) hab
+  choose W hWF hdis using hmiss
+  let f : Fin m → {W // W ∈ F} := fun i => ⟨W i, hWF i⟩
+  have hf : Function.Injective f := by
+    intro i j heq
+    by_contra hij
+    obtain ⟨a, ha, hb⟩ := hsep i j hij
+    have he : W i = W j := congrArg Subtype.val heq
+    have hd : Disjoint (W i) (S i ∪ S j) := by
+      apply Finset.disjoint_union_right.mpr
+      exact ⟨hdis i, he ▸ hdis j⟩
+    rcases hcover (W i) (hWF i) a with hp | hl
+    · exact Finset.disjoint_left.mp hd hp ha
+    · exact Finset.disjoint_left.mp hd hl hb
+  simpa using Fintype.card_le_of_injective f hf
+
+def maskSet {r : ℕ} (row : ℕ × ℕ) : Finset (Bool × Fin r) :=
+  univ.filter fun u => (if u.1 then row.2 else row.1).testBit u.2.val = true
+
+lemma mem_maskSet_point {r : ℕ} (row : ℕ × ℕ) (a : Fin r) :
+    (false, a) ∈ maskSet row ↔ row.1.testBit a.val = true := by
+  simp [maskSet]
+
+lemma mem_maskSet_line {r : ℕ} (row : ℕ × ℕ) (a : Fin r) :
+    (true, a) ∈ maskSet row ↔ row.2.testBit a.val = true := by
+  simp [maskSet]
+
+lemma mask_family_bound {r m : ℕ} (I : Fin r → Fin r → Prop)
+    (rows : Fin m → ℕ × ℕ)
+    (hind : ∀ i a b, (rows i).1.testBit a.val = true →
+      (rows i).2.testBit b.val = true → ¬ I a b)
+    (hsep : ∀ i j, i ≠ j → ∃ a : Fin r,
+      ((rows i).1.testBit a.val = true ∨ (rows j).1.testBit a.val = true) ∧
+      ((rows i).2.testBit a.val = true ∨ (rows j).2.testBit a.val = true))
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin r → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ i j, I i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    m ≤ F.card := by
+  apply witness_family_bound I (fun i => maskSet (rows i)) ?_ ?_ F hcover hsafe
+  · intro i a b ha hb
+    exact hind i a b ((mem_maskSet_point _ _).mp ha) ((mem_maskSet_line _ _).mp hb)
+  · intro i j hij
+    obtain ⟨a, ha, hb⟩ := hsep i j hij
+    exact ⟨a, by simpa only [Finset.mem_union, mem_maskSet_point] using ha,
+      by simpa only [Finset.mem_union, mem_maskSet_line] using hb⟩
+
+end MatchingCertificate
+
+namespace MatchingCertificate
+
+def inc7 (a b : Fin 7) : Prop := a = b ∨ a = b + 1 ∨ a = b + 3
+
+lemma inc7_diagonal (a : Fin 7) : inc7 a a := Or.inl rfl
+
+def rows7 (i : Fin 23) : ℕ × ℕ :=
+  ([(0, 127), (1, 46), (2, 92), (4, 57), (5, 40), (8, 114), (10, 80), (16, 101), (20, 33), (29, 32), (32, 75), (33, 10), (39, 8), (40, 66), (58, 64), (64, 23), (66, 20), (78, 16), (80, 5), (83, 4), (105, 2), (116, 1), (127, 0)] : List (ℕ × ℕ)).getD i.val (0, 0)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma rows7_independent : ∀ (i : Fin 23) (a b : Fin 7),
+    (rows7 i).1.testBit a.val = true →
+    (rows7 i).2.testBit b.val = true → ¬ inc7 a b := by
+  unfold inc7
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma rows7_separated : ∀ (i j : Fin 23), i ≠ j → ∃ a : Fin 7,
+    ((rows7 i).1.testBit a.val = true ∨ (rows7 j).1.testBit a.val = true) ∧
+    ((rows7 i).2.testBit a.val = true ∨ (rows7 j).2.testBit a.val = true) := by
+  decide +kernel
+
+lemma safe_matching_cnf_7_lower
+    (F : Finset (Finset (Bool × Fin 7)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin 7 → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ i j, inc7 i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    23 ≤ F.card :=
+  mask_family_bound inc7 rows7 rows7_independent rows7_separated F hcover hsafe
+
+end MatchingCertificate
+
+namespace MatchingCertificate
+
+def inc13 (a b : Fin 13) : Prop := a = b ∨ a = b + 1 ∨ a = b + 3 ∨ a = b + 9
+
+lemma inc13_diagonal (a : Fin 13) : inc13 a a := Or.inl rfl
+
+def rows13 (i : Fin 158) : ℕ × ℕ :=
+  ([(0, 8191), (1, 3054), (2, 6108), (4, 4025), (5, 2984), (8, 8050), (10, 5968), (16, 7909), (20, 3745), (25, 2656), (32, 7627), (33, 2506), (40, 7490), (50, 5312), (64, 7063), (65, 2950), (66, 5012), (80, 6789), (83, 644), (100, 2433), (101, 2432), (128, 5935), (129, 814), (130, 5900), (132, 1833), (133, 808), (160, 5387), (166, 1288), (200, 4866), (202, 4864), (256, 3679), (257, 2638), (258, 1628), (260, 3609), (264, 3666), (266, 1616), (320, 2583), (321, 2566), (332, 2576), (349, 2560), (400, 1541), (404, 1537), (467, 516), (512, 7358), (514, 5276), (516, 3256), (520, 7218), (528, 7332), (532, 3232), (640, 5166), (642, 5132), (664, 5152), (698, 5120), (800, 3082), (808, 3074), (934, 1032), (1024, 6525), (1027, 332), (1028, 2361), (1032, 6512), (1040, 6245), (1056, 6473), (1064, 6464), (1191, 264), (1280, 2141), (1283, 76), (1284, 2073), (1328, 2113), (1337, 2112), (1396, 2049), (1541, 2088), (1565, 2080), (1600, 6164), (1616, 6148), (1829, 2056), (1868, 2064), (1917, 2048), (2048, 4859), (2049, 746), (2054, 664), (2056, 4722), (2064, 4833), (2073, 608), (2080, 4299), (2081, 202), (2112, 4755), (2128, 4737), (2135, 640), (2382, 528), (2433, 522), (2439, 520), (2505, 514), (2527, 512), (2560, 4282), (2566, 152), (2568, 4146), (2656, 4226), (2674, 4224), (2792, 4098), (2977, 10), (3082, 4176), (3130, 4160), (3200, 4137), (3232, 4105), (3658, 4112), (3717, 40), (3736, 4128), (3834, 4096), (4007, 8), (4096, 1527), (4098, 1492), (4108, 1328), (4112, 1253), (4128, 1475), (4137, 322), (4146, 1216), (4160, 407), (4162, 404), (4224, 1319), (4256, 1283), (4270, 1280), (4329, 258), (4609, 166), (4691, 132), (4737, 38), (4764, 1056), (4866, 1044), (4878, 1040), (5010, 1028), (5054, 1024), (5120, 373), (5132, 304), (5136, 101), (5163, 320), (5312, 261), (5315, 260), (5348, 257), (5359, 256), (5584, 5), (5954, 20), (6099, 4), (6164, 161), (6260, 129), (6400, 83), (6441, 66), (6464, 19), (6677, 160), (6753, 130), (6775, 128), (7145, 2), (7316, 33), (7434, 80), (7472, 65), (7483, 64), (7668, 1), (7837, 32), (8014, 16), (8191, 0)] : List (ℕ × ℕ)).getD i.val (0, 0)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma rows13_independent : ∀ (i : Fin 158) (a b : Fin 13),
+    (rows13 i).1.testBit a.val = true →
+    (rows13 i).2.testBit b.val = true → ¬ inc13 a b := by
+  unfold inc13
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma rows13_separated : ∀ (i j : Fin 158), i ≠ j → ∃ a : Fin 13,
+    ((rows13 i).1.testBit a.val = true ∨ (rows13 j).1.testBit a.val = true) ∧
+    ((rows13 i).2.testBit a.val = true ∨ (rows13 j).2.testBit a.val = true) := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+lemma safe_matching_cnf_13_lower
+    (F : Finset (Finset (Bool × Fin 13)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin 13 → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ i j, inc13 i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    158 ≤ F.card :=
+  mask_family_bound inc13 rows13 rows13_independent rows13_separated F hcover hsafe
+
+end MatchingCertificate
+
 end PEqualNP.Outside.L_meta_2583
