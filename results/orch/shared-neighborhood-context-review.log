@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2448.sharedContext.repair_fun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.sharedContext.repair_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.sharedContext.repair_size' depends on axioms: [propext]

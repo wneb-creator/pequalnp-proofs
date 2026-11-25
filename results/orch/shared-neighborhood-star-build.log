@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-75/structural/SharedNeighborhoodStar.lean:214:27: warning: This simp argument is unused:
+  read_snoc_last
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, GateOp.eval, w]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
