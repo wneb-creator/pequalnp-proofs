@@ -1,0 +1,49 @@
+Lean compilation: PASS (exit 0)
+Source SHA256: 557e73aa13b1085b7be8c2ebc0c95373a2b5bc4055ef254486ece8712b3be90f
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean
+This is a checked conditional normalization helper, not a proof of L-meta-650.
+
+Complete stdout and stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:117:24: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:138:12: warning: This simp argument is unused:
+  PEqualNP.MetaComplexity.Monotone2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:149:34: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [replace, PEqualNP.MetaComplexity.NestedCover.gateAt, List.getD_eq_getElem?_getD, hi] at hmem
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:154:36: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [replace, PEqualNP.MetaComplexity.NestedCover.gateAt, List.getD_eq_getElem?_getD, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:197:26: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/OrReplacement.lean:200:26: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+Independent review: structural_math inspected all hypotheses, simulation, size/AND-count conclusions and forbidden-token scan. PASS for partial preservation; not a63-gate witness.
+Sub-agents:6 (five strategy/proof agents and one search-audit child)
+TIMING total=36.0 subagents=6

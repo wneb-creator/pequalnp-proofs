@@ -1,0 +1,200 @@
+{
+  "batteries": {
+    "bytes": {
+      "other": 2854912,
+      ".c": 15233024,
+      ".ir": 9547776,
+      ".ilean": 1708032,
+      ".ir.sig": 319488,
+      ".olean.private": 38662144,
+      ".olean": 14376960,
+      ".olean.server": 892928
+    },
+    "counts": {
+      "other": 628,
+      ".c": 78,
+      ".ir": 78,
+      ".ilean": 78,
+      ".ir.sig": 78,
+      ".olean.private": 78,
+      ".olean": 78,
+      ".olean.server": 78
+    }
+  },
+  "proofwidgets": {
+    "bytes": {
+      ".c": 2482176,
+      "other": 425984,
+      ".olean": 2871296,
+      ".ir": 1662976,
+      ".olean.server": 110592,
+      ".ir.sig": 53248,
+      ".olean.private": 4222976,
+      ".ilean": 163840
+    },
+    "counts": {
+      ".c": 13,
+      "other": 104,
+      ".olean": 13,
+      ".ir": 13,
+      ".olean.server": 13,
+      ".ir.sig": 13,
+      ".olean.private": 13,
+      ".ilean": 13
+    }
+  },
+  "importGraph": {
+    "bytes": {
+      "other": 1245184,
+      ".c": 8790016,
+      ".olean.server": 397312,
+      ".olean.private": 16367616,
+      ".ilean": 704512,
+      ".ir": 6045696,
+      ".olean": 5382144,
+      ".ir.sig": 155648
+    },
+    "counts": {
+      "other": 304,
+      ".c": 38,
+      ".olean.server": 38,
+      ".olean.private": 38,
+      ".ilean": 38,
+      ".ir": 38,
+      ".olean": 38,
+      ".ir.sig": 38
+    }
+  },
+  "plausible": {
+    "bytes": {
+      "other": 425984,
+      ".c": 3272704,
+      ".ir": 1994752,
+      ".olean.server": 147456,
+      ".olean.private": 5156864,
+      ".olean": 2363392,
+      ".ir.sig": 53248,
+      ".ilean": 249856
+    },
+    "counts": {
+      "other": 104,
+      ".c": 13,
+      ".ir": 13,
+      ".olean.server": 13,
+      ".olean.private": 13,
+      ".olean": 13,
+      ".ir.sig": 13,
+      ".ilean": 13
+    }
+  },
+  "aesop": {
+    "bytes": {
+      ".c": 33349632,
+      "other": 4325376,
+      ".ilean": 2277376,
+      ".olean.private": 55345152,
+      ".ir.sig": 540672,
+      ".olean.server": 1007616,
+      ".ir": 22368256,
+      ".olean": 17518592
+    },
+    "counts": {
+      ".c": 132,
+      "other": 1056,
+      ".ilean": 132,
+      ".olean.private": 132,
+      ".ir.sig": 132,
+      ".olean.server": 132,
+      ".ir": 132,
+      ".olean": 132
+    }
+  },
+  "Qq": {
+    "bytes": {
+      "other": 458752,
+      ".c": 5001216,
+      ".olean": 4243456,
+      ".olean.server": 118784,
+      ".olean.private": 8298496,
+      ".ir.sig": 57344,
+      ".ilean": 282624,
+      ".ir": 3153920
+    },
+    "counts": {
+      "other": 112,
+      ".c": 14,
+      ".olean": 14,
+      ".olean.server": 14,
+      ".olean.private": 14,
+      ".ir.sig": 14,
+      ".ilean": 14,
+      ".ir": 14
+    }
+  },
+  "LeanSearchClient": {
+    "bytes": {
+      ".c": 1138688,
+      "other": 131072,
+      ".olean.server": 45056,
+      ".olean.private": 1937408,
+      ".ir": 770048,
+      ".olean": 962560,
+      ".ir.sig": 16384,
+      ".ilean": 90112
+    },
+    "counts": {
+      ".c": 4,
+      "other": 32,
+      ".olean.server": 4,
+      ".olean.private": 4,
+      ".ir": 4,
+      ".olean": 4,
+      ".ir.sig": 4,
+      ".ilean": 4
+    }
+  },
+  "mathlib": {
+    "bytes": {
+      "other": 199172096,
+      ".c": 184020992,
+      ".ir.sig": 9043968,
+      ".olean.server": 41558016,
+      ".ilean": 82276352,
+      ".ir": 112267264,
+      ".olean.private": 948469760,
+      ".olean": 517779456
+    },
+    "counts": {
+      "other": 17740,
+      ".c": 2208,
+      ".ir.sig": 2208,
+      ".olean.server": 2208,
+      ".ilean": 2208,
+      ".ir": 2208,
+      ".olean.private": 2208,
+      ".olean": 2208
+    }
+  },
+  "toolchain": {
+    "bytes": {
+      "other": 538423296,
+      ".a": 427290624,
+      ".ir": 396578816,
+      ".olean.private": 1401757696,
+      ".ir.sig": 10600448,
+      ".ilean": 95379456,
+      ".olean.server": 38907904,
+      ".olean": 351895552
+    },
+    "counts": {
+      "other": 2690,
+      ".a": 24,
+      ".ir": 2588,
+      ".olean.private": 2588,
+      ".ir.sig": 2588,
+      ".ilean": 2591,
+      ".olean.server": 2588,
+      ".olean": 2591
+    }
+  }
+}

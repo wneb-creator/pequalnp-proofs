@@ -1,0 +1,47 @@
+Diagnostic scratch-copy compilation: PASS (exit 0)
+Source SHA256 before diagnostic command: 557e73aa13b1085b7be8c2ebc0c95373a2b5bc4055ef254486ece8712b3be90f
+Only axioms: propext, Classical.choice, Quot.sound.
+
+Complete stdout and stderr:
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:117:24: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:138:12: warning: This simp argument is unused:
+  PEqualNP.MetaComplexity.Monotone2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:149:34: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [replace, PEqualNP.MetaComplexity.NestedCover.gateAt, List.getD_eq_getElem?_getD, hi] at hmem
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:154:36: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [replace, PEqualNP.MetaComplexity.NestedCover.gateAt, List.getD_eq_getElem?_getD, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:197:26: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-132/review/OrReplacementAxioms.lean:200:26: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_meta_650.OrReplacement.replace_preserves_edge_function' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -10,3 +10,5 @@
 2026-11-25T15:03:22.994853+00:00 —64-gate baseline Lean build PASSED; root notified for immediate checkpoint.
 
 2026-11-25T15:06:22.296574+00:00 — Generic extremal-certificate wrapper Lean compilation PASSED; root notified for checkpoint.
+2026-11-25T15:10:41.416086+00:00 — conditional-tap stochastic route finished (900seconds,best1error); exact SAT continuation assigned. Superset search prepared for freed slot.
+2026-11-25T15:13:35.841667+00:00 — AND-to-OR normalization compiled and axiom-audited; root notified for checkpoint.
