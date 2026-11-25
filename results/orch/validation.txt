@@ -45,3 +45,5 @@ Second checkpoint: 194 source/data/log files, 2,027,512 bytes, independently aud
 Input-layout assumptions: the core singleton mask requires 93 tests with singleton cases in slots 76 through 92; completion search requires positive tests in edge-list order. Both assumptions were reviewed and sent to the search agent.
 Sub-agents: six (status_review, circuit_search, algebra_strategy, lean_baseline, reduction_analysis, lower_bound)
 TIMING total=64.3 subagents=6
+
+2026-11-25 03:14 UTC: MergeGuard.lean (13 lines) and BipartiteBasis.lean (55 lines) compile with Lean 4.36.0. Independent status_review approved both. These are conditional/algebraic components, not a 63-gate witness. Complete compiler logs are preserved.

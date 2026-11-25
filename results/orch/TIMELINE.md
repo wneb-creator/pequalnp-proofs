@@ -31,3 +31,7 @@
 2026-11-25T03:01:04.153549+00:00 Secondstrategyreview; excluded smallcores and pivoted to genuine quadratic overapproximations plus signed-phase SAT.
 2026-11-25T03:01:59.254804+00:00 lean_baseline retiredsemantic-degeneratepoolsearch; launchedfullyphased merged-star fullbasisSAT.
 2026-11-25T03:04:47.986217+00:00 Renewed lease; expiry 2026-11-25T03:24:48.198Z.
+
+- 2026-11-25T03:09:59.775140+00:00: algebra_strategy completed generic checked three-merge triangle guard identity and exact41gate diversity seed bank.
+
+- 2026-11-25T03:12:16.846396+00:00: lean_baseline compiled generic finite-basis theorem; notified root for early push.
