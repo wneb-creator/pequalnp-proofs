@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-25T09:11:59.991342+00:00",
+  "ongoing_logs": [
+    "fano26-repair.log",
+    "q3-63-positive-walk.log"
+  ],
+  "completed_logs": [
+    "fano26-sat.log",
+    "fano26-walk.log",
+    "c6-8-nonread1-full.log"
+  ]
+}

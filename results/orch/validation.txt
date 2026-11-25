@@ -45,3 +45,17 @@ to import, namespace, forbidden-token and axiom rules. Agent build exit 0,
 complete output in structural-restriction.log. This artifact is additional
 partial work and is not yet appended to the named integration file.
 TIMING total=61 subagents=6
+
+Checkpoint 5 artifacts: independently reviewed compiled strict expansion,
+minimum-cover rigidity, robust cover deficit, CNF pair-matrix diagnostic,
+and explicit Fano 27-gate full semantics/global read1. These are partials,
+not a proof or refutation of the posted universal statement.
+Search programs, seeds, hashes, complete finished logs and labelled ongoing
+snapshots are retained under search/. No computational UNSAT is claimed as
+a Lean proof. Independent SAT audit fixed a first-gate symmetry omission.
+The sanitized desk log preserves all ten initial null messages.
+Local checker attempt on checkpoint 4 ended CHECKER FAULT before judging:
+Batteries.olean was absent in the partial Mathlib cache. Full output is
+checker-checkpoint-4.log. Environment repair is underway; no checker code
+or library definitions are changed. Named-module build remains successful.
+TIMING total=74 subagents=6
