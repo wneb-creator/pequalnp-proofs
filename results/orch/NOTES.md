@@ -44,3 +44,6 @@ Correction: public catalogue search by root found L_meta_8295 already proves the
 
 2026-11-25T14:27:04.616786+00:00
 Formal invariant result: Rename.lean compiled with exit 0 and empty log; independent rules_review audit passed (SHA256 6a334e82fe4d654a7d63aa6dc78f4bcfc28a6c2abe748f3e95b62a485ec4bf66). Input renaming preserves arbitrary gate semantics, total size, fan-in-two, and presence of NOT. Automorphism certificate switched from elaborator decide to ordinary kernel decide for resource use; canonical first-gate lemmas drafted for the five symmetry cases, conditional on nontrivial raw-input first gates.
+
+2026-11-25T14:29:45.685134+00:00
+Automorphisms.lean compiled with exit0, empty log; independent final audit PASS (SHA256 412af479a2ae6a0f98cbfd8c0067db026dfc2bd9af92ec4ce75ae28aadf95cab). All100 ordered-pair maps are bijections preserving100 adjacency pairs. Exact Boolean graph target bridge proved. Pair/vertex transitivity now Lean-checked; final combined canonical-first-gate statements are compiling. Ten p_i maps with p_i(i)=0 exported to formal-invariants/vertex-auts.json for lower_bound cofactor embeddings.
