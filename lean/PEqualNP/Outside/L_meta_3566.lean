@@ -5674,3 +5674,701 @@ lemma least_private_two_products_short {n k p q : ℕ} (hkp : 0 < k + p) (hkq : 
     simpa only [starFun, hwf, htg] using hx
 
 end PEqualNP.Outside.L_meta_3566.PrivateProducts
+
+namespace PEqualNP.Outside.L_meta_3566.GraphFactor
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma edges_intersection {n : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x)) (u v : Fin n) :
+    G.Adj u v ↔ A.Adj u v ∧ B.Adj u v := by
+  rw [← MixedColor.graphFun_pair G u v, hfun, Bool.and_eq_true,
+    MixedColor.graphFun_pair A u v, MixedColor.graphFun_pair B u v]
+
+lemma exclusive_cross {n : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b c d : Fin n) (ha : s a = false) (hb : s b = true)
+    (hc : s c = false) (hd : s d = true)
+    (hab : A.Adj a b) (hnotab : ¬ B.Adj a b)
+    (hcd : B.Adj c d) (hnotcd : ¬ A.Adj c d) :
+    G.Adj a d ∨ G.Adj c b := by
+  classical
+  let L : Finset (Fin n) := {a, c}
+  let R : Finset (Fin n) := {b, d}
+  let x := RectangleFamily.setInput (L ∪ R)
+  have hxA : graphFun A ∅ x = true := by
+    apply (RectangleFamily.graph_true A x).2
+    exact ⟨a, b, hab, by simp [x, RectangleFamily.setInput, L, R],
+      by simp [x, RectangleFamily.setInput, L, R]⟩
+  have hxB : graphFun B ∅ x = true := by
+    apply (RectangleFamily.graph_true B x).2
+    exact ⟨c, d, hcd, by simp [x, RectangleFamily.setInput, L, R],
+      by simp [x, RectangleFamily.setInput, L, R]⟩
+  have hxG : graphFun G ∅ x = true := by rw [hfun, hxA, hxB]; rfl
+  have hL : ∀ u ∈ L, s u = false := by
+    intro u hu
+    simp only [L, Finset.mem_insert, Finset.mem_singleton] at hu
+    rcases hu with rfl | rfl <;> assumption
+  have hR : ∀ v ∈ R, s v = true := by
+    intro v hv
+    simp only [R, Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl <;> assumption
+  obtain ⟨u, hu, v, hv, huv⟩ := RectangleFamily.edge_of_two_colors G s hbip L R hL hR hxG
+  simp only [L, Finset.mem_insert, Finset.mem_singleton] at hu
+  simp only [R, Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+  · exact (hnotab ((edges_intersection G A B hfun _ _).mp huv).2).elim
+  · exact Or.inl huv
+  · exact Or.inr huv
+  · exact (hnotcd ((edges_intersection G A B hfun _ _).mp huv).1).elim
+
+lemma exclusive_endpoints_distinct {n : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b c d : Fin n) (ha : s a = false) (hb : s b = true)
+    (hc : s c = false) (hd : s d = true)
+    (hab : A.Adj a b) (hnotab : ¬ B.Adj a b)
+    (hcd : B.Adj c d) (hnotcd : ¬ A.Adj c d) :
+    a ≠ c ∧ b ≠ d ∧ a ≠ d ∧ b ≠ c := by
+  have he := exclusive_cross G A B hfun s hbip a b c d ha hb hc hd hab hnotab hcd hnotcd
+  have hG_ab : ¬ G.Adj a b := fun h => hnotab ((edges_intersection G A B hfun a b).mp h).2
+  have hG_cd : ¬ G.Adj c d := fun h => hnotcd ((edges_intersection G A B hfun c d).mp h).1
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · intro heq
+    subst c
+    exact he.elim hG_cd hG_ab
+  · intro heq
+    subst d
+    exact he.elim hG_ab hG_cd
+  · intro heq
+    subst d
+    rw [ha] at hd
+    cases hd
+  · intro heq
+    subst c
+    rw [hb] at hc
+    cases hc
+
+end PEqualNP.Outside.L_meta_3566.GraphFactor
+
+namespace PEqualNP.Outside.L_meta_3566.RankTwoLocal
+
+def both (A B : Fin 4 → Fin 4 → Bool) (i j : Fin 4) : Bool := A i j && B i j
+
+lemma both_true {A B : Fin 4 → Fin 4 → Bool} {i j : Fin 4}
+    (h : A i j = true ∧ B i j = true) : both A B i j = true := by
+  simp only [both, h.1, h.2]
+  rfl
+
+def NoRectangle (G : Fin 4 → Fin 4 → Bool) : Prop :=
+  ∀ a b c d, a ≠ c → b ≠ d →
+    ¬ (G a b = true ∧ G a d = true ∧ G c b = true ∧ G c d = true)
+
+def RowSeparate (A B : Fin 4 → Fin 4 → Bool) : Prop :=
+  ∀ i j k, A i j = true → B i j = false → A i k = false → B i k = true → False
+
+def ColSeparate (A B : Fin 4 → Fin 4 → Bool) : Prop :=
+  ∀ i j k, A i j = true → B i j = false → A k j = false → B k j = true → False
+
+lemma oriented_impossible (A B : Fin 4 → Fin 4 → Bool)
+    (hd : ∀ i, A i i = true ∧ B i i = true)
+    (ha01 : A 0 1 = true) (ha10 : A 1 0 = true) (ha23 : A 2 3 = true)
+    (hb02 : B 0 2 = true) (hb20 : B 2 0 = true)
+    (hb13 : B 1 3 = true) (hb31 : B 3 1 = true)
+    (hs : A 0 2 = true → A 0 3 = true ∨ A 1 2 = true)
+    (h4 : NoRectangle (both A B)) (hr : RowSeparate A B) (hc : ColSeparate A B)
+    (hb01 : B 0 1 = false) : False := by
+  have gd : ∀ i, both A B i i = true := fun i => both_true (hd i)
+  have ha02 : A 0 2 = true := by
+    cases h : A 0 2 with
+    | false => exact (hr 0 1 2 ha01 hb01 h hb02).elim
+    | true => rfl
+  have ha31 : A 3 1 = true := by
+    cases h : A 3 1 with
+    | false => exact (hc 0 1 3 ha01 hb01 h hb31).elim
+    | true => rfl
+  have g02 : both A B 0 2 = true := both_true ⟨ha02, hb02⟩
+  have g31 : both A B 3 1 = true := both_true ⟨ha31, hb31⟩
+  have ha20 : A 2 0 = false := by
+    cases h : A 2 0 with
+    | false => rfl
+    | true =>
+      exact (h4 0 0 2 2 (by decide) (by decide)
+        ⟨gd 0, g02, both_true ⟨h, hb20⟩, gd 2⟩).elim
+  have ha13 : A 1 3 = false := by
+    cases h : A 1 3 with
+    | false => rfl
+    | true =>
+      exact (h4 1 1 3 3 (by decide) (by decide)
+        ⟨gd 1, both_true ⟨h, hb13⟩, g31, gd 3⟩).elim
+  have hb10 : B 1 0 = true := by
+    cases h : B 1 0 with
+    | false => exact (hr 1 0 3 ha10 h ha13 hb13).elim
+    | true => rfl
+  have hb23 : B 2 3 = true := by
+    cases h : B 2 3 with
+    | false => exact (hr 2 3 0 ha23 h ha20 hb20).elim
+    | true => rfl
+  have g10 : both A B 1 0 = true := both_true ⟨ha10, hb10⟩
+  have g23 : both A B 2 3 = true := both_true ⟨ha23, hb23⟩
+  have ng03 : both A B 0 3 ≠ true := by
+    intro h
+    exact h4 0 2 2 3 (by decide) (by decide) ⟨g02, h, gd 2, g23⟩
+  have ng12 : both A B 1 2 ≠ true := by
+    intro h
+    exact h4 0 0 1 2 (by decide) (by decide) ⟨gd 0, g02, g10, h⟩
+  have ha03 : A 0 3 = false := by
+    cases ha : A 0 3 with
+    | false => rfl
+    | true =>
+      cases hb : B 0 3 with
+      | false => exact (hc 0 3 1 ha hb ha13 hb13).elim
+      | true => exact (ng03 (both_true ⟨ha, hb⟩)).elim
+  have ha12 : A 1 2 = false := by
+    cases ha : A 1 2 with
+    | false => rfl
+    | true =>
+      cases hb : B 1 2 with
+      | false => exact (hr 1 2 3 ha hb ha13 hb13).elim
+      | true => exact (ng12 (both_true ⟨ha, hb⟩)).elim
+  rcases hs ha02 with h | h
+  · rw [ha03] at h
+    cases h
+  · rw [ha12] at h
+    cases h
+
+def flip : Fin 4 → Fin 4 := ![1, 0, 3, 2]
+
+lemma flip_injective : Function.Injective flip := by decide
+
+lemma impossible (A B : Fin 4 → Fin 4 → Bool)
+    (hd : ∀ i, A i i = true ∧ B i i = true)
+    (ha01 : A 0 1 = true) (ha10 : A 1 0 = true)
+    (ha23 : A 2 3 = true) (ha32 : A 3 2 = true)
+    (hb02 : B 0 2 = true) (hb20 : B 2 0 = true)
+    (hb13 : B 1 3 = true) (hb31 : B 3 1 = true)
+    (hs0 : A 0 2 = true → A 0 3 = true ∨ A 1 2 = true)
+    (hs1 : A 1 3 = true → A 1 2 = true ∨ A 0 3 = true)
+    (h4 : NoRectangle (both A B)) (hr : RowSeparate A B) (hc : ColSeparate A B) : False := by
+  by_cases hb01 : B 0 1 = false
+  · exact oriented_impossible A B hd ha01 ha10 ha23 hb02 hb20 hb13 hb31 hs0 h4 hr hc hb01
+  have hb01t : B 0 1 = true := Bool.eq_true_of_not_eq_false hb01
+  have hb10 : B 1 0 = false := by
+    cases h : B 1 0 with
+    | false => rfl
+    | true =>
+      exact (h4 0 0 1 1 (by decide) (by decide)
+        ⟨both_true (hd 0), both_true ⟨ha01, hb01t⟩,
+          both_true ⟨ha10, h⟩, both_true (hd 1)⟩).elim
+  let A' : Fin 4 → Fin 4 → Bool := fun i j => A (flip i) (flip j)
+  let B' : Fin 4 → Fin 4 → Bool := fun i j => B (flip i) (flip j)
+  apply oriented_impossible A' B' (fun i => hd (flip i)) ha10 ha01 ha32 hb13 hb31 hb02 hb20
+    hs1 _ _ _ hb10
+  · intro a b c d hac hbd
+    exact h4 (flip a) (flip b) (flip c) (flip d)
+      (fun h => hac (flip_injective h)) (fun h => hbd (flip_injective h))
+  · intro i j k
+    exact hr (flip i) (flip j) (flip k)
+  · intro i j k
+    exact hc (flip i) (flip j) (flip k)
+
+def sideA : Fin 4 → Bool := ![false, false, true, true]
+
+def sideB : Fin 4 → Bool := ![false, true, false, true]
+
+def matrix (side extraL extraR : Fin 4 → Bool) (i j : Fin 4) : Bool :=
+  (side i == side j) || extraL i || extraR j
+
+lemma two_by_two_matrix_impossible (x y u v : Fin 4 → Bool)
+    (h4 : NoRectangle (both (matrix sideA x y) (matrix sideB u v)))
+    (hr : RowSeparate (matrix sideA x y) (matrix sideB u v))
+    (hc : ColSeparate (matrix sideA x y) (matrix sideB u v)) : False := by
+  have hd : ∀ i, matrix sideA x y i i = true ∧ matrix sideB u v i i = true := by
+    intro i
+    simp [matrix]
+  have hs0 : matrix sideA x y 0 2 = true →
+      matrix sideA x y 0 3 = true ∨ matrix sideA x y 1 2 = true := by
+    intro h
+    have h' : x 0 = true ∨ y 2 = true := by simpa [matrix, sideA] using h
+    rcases h' with hx | hy
+    · exact Or.inl (by simp [matrix, sideA, hx])
+    · exact Or.inr (by simp [matrix, sideA, hy])
+  have hs1 : matrix sideA x y 1 3 = true →
+      matrix sideA x y 1 2 = true ∨ matrix sideA x y 0 3 = true := by
+    intro h
+    have h' : x 1 = true ∨ y 3 = true := by simpa [matrix, sideA] using h
+    rcases h' with hx | hy
+    · exact Or.inl (by simp [matrix, sideA, hx])
+    · exact Or.inr (by simp [matrix, sideA, hy])
+  exact impossible (matrix sideA x y) (matrix sideB u v) hd
+    (by simp [matrix, sideA]) (by simp [matrix, sideA])
+    (by simp [matrix, sideA]) (by simp [matrix, sideA])
+    (by simp [matrix, sideB]) (by simp [matrix, sideB])
+    (by simp [matrix, sideB]) (by simp [matrix, sideB]) hs0 hs1 h4 hr hc
+
+end PEqualNP.Outside.L_meta_3566.RankTwoLocal
+
+namespace PEqualNP.Outside.L_meta_3566.RankTwoLocal
+
+def rectangleMatrix (L R : Bool → Fin 4 → Bool) (i j : Fin 4) : Bool :=
+  (L false i && R false j) || (L true i && R true j)
+
+lemma rectangleMatrix_eq (L R : Bool → Fin 4 → Bool) (side : Fin 4 → Bool)
+    (hside : ∀ i, L (side i) i = true ∧ R (side i) i = true) :
+    rectangleMatrix L R = matrix side (fun i => L (!(side i)) i) (fun i => R (!(side i)) i) := by
+  funext i j
+  have hi := hside i
+  have hj := hside j
+  cases hsi : side i <;> cases hsj : side j <;>
+    simp_all [rectangleMatrix, matrix, Bool.or_comm]
+
+lemma labelled_rectangles_impossible
+    (LA RA LB RB : Bool → Fin 4 → Bool)
+    (ha : ∀ i, LA (sideA i) i = true ∧ RA (sideA i) i = true)
+    (hb : ∀ i, LB (sideB i) i = true ∧ RB (sideB i) i = true)
+    (h4 : NoRectangle (both (rectangleMatrix LA RA) (rectangleMatrix LB RB)))
+    (hr : RowSeparate (rectangleMatrix LA RA) (rectangleMatrix LB RB))
+    (hc : ColSeparate (rectangleMatrix LA RA) (rectangleMatrix LB RB)) : False := by
+  rw [rectangleMatrix_eq LA RA sideA ha, rectangleMatrix_eq LB RB sideB hb] at h4 hr hc
+  exact two_by_two_matrix_impossible _ _ _ _ h4 hr hc
+
+end PEqualNP.Outside.L_meta_3566.RankTwoLocal
+
+namespace PEqualNP.Outside.L_meta_3566.RankTwoFactor
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership RankTwoLocal
+
+def label (a b : Bool) : Fin 4 := if a then (if b then 3 else 2) else (if b then 1 else 0)
+
+lemma label_left (a b : Bool) : sideA (label a b) = a := by cases a <;> cases b <;> rfl
+
+lemma label_right (a b : Bool) : sideB (label a b) = b := by cases a <;> cases b <;> rfl
+
+lemma no_rectangle {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (h4 : NoFourCycle G)
+    (a b c d : Fin n) (hac : a ≠ c) (hbd : b ≠ d)
+    (hab : G.Adj a b) (had : G.Adj a d) (hcb : G.Adj c b) (hcd : G.Adj c d) : False := by
+  have hc : 1 < (Finset.univ.filter (fun v => G.Adj a v ∧ G.Adj c v)).card := by
+    apply Finset.one_lt_card.mpr
+    exact ⟨b, Finset.mem_filter.mpr ⟨Finset.mem_univ b, hab, hcb⟩,
+      d, Finset.mem_filter.mpr ⟨Finset.mem_univ d, had, hcd⟩, hbd⟩
+  have hsmall := h4 a c hac
+  omega
+
+lemma matching_four_impossible {n : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (LA RA LB RB : Bool → Finset (Fin n))
+    (hA : ∀ x y, s x = false → s y = true →
+      (A.Adj x y ↔ ∃ q, x ∈ LA q ∧ y ∈ RA q))
+    (hB : ∀ x y, s x = false → s y = true →
+      (B.Adj x y ↔ ∃ q, x ∈ LB q ∧ y ∈ RB q))
+    (a b : Fin 4 → Fin n) (ha : Function.Injective a) (hb : Function.Injective b)
+    (haColor : ∀ i, s (a i) = false) (hbColor : ∀ i, s (b i) = true)
+    (hmatch : ∀ i, G.Adj (a i) (b i)) : False := by
+  classical
+  have hexA : ∀ i, ∃ q, a i ∈ LA q ∧ b i ∈ RA q := by
+    intro i
+    exact (hA _ _ (haColor i) (hbColor i)).mp ((GraphFactor.edges_intersection G A B hfun _ _).mp (hmatch i)).1
+  have hexB : ∀ i, ∃ q, a i ∈ LB q ∧ b i ∈ RB q := by
+    intro i
+    exact (hB _ _ (haColor i) (hbColor i)).mp ((GraphFactor.edges_intersection G A B hfun _ _).mp (hmatch i)).2
+  choose qa hqa using hexA
+  choose qb hqb using hexB
+  let code : Fin 4 → Fin 4 := fun i => label (qa i) (qb i)
+  have hcode : Function.Injective code := by
+    intro i j he
+    by_contra hij
+    have heA : qa i = qa j := by simpa only [code, label_left] using congrArg sideA he
+    have heB : qb i = qb j := by simpa only [code, label_right] using congrArg sideB he
+    have hacross : A.Adj (a i) (b j) := (hA _ _ (haColor i) (hbColor j)).mpr
+      ⟨qa i, (hqa i).1, by rw [heA]; exact (hqa j).2⟩
+    have hbcross : B.Adj (a i) (b j) := (hB _ _ (haColor i) (hbColor j)).mpr
+      ⟨qb i, (hqb i).1, by rw [heB]; exact (hqb j).2⟩
+    have hacross' : A.Adj (a j) (b i) := (hA _ _ (haColor j) (hbColor i)).mpr
+      ⟨qa j, (hqa j).1, by rw [← heA]; exact (hqa i).2⟩
+    have hbcross' : B.Adj (a j) (b i) := (hB _ _ (haColor j) (hbColor i)).mpr
+      ⟨qb j, (hqb j).1, by rw [← heB]; exact (hqb i).2⟩
+    have gij := (GraphFactor.edges_intersection G A B hfun _ _).mpr ⟨hacross, hbcross⟩
+    have gji := (GraphFactor.edges_intersection G A B hfun _ _).mpr ⟨hacross', hbcross'⟩
+    exact no_rectangle G h4 (a i) (b i) (a j) (b j)
+      (fun h => hij (ha h)) (fun h => hij (hb h)) (hmatch i) gij gji (hmatch j)
+  let e : Fin 4 ≃ Fin 4 := Equiv.ofBijective code ⟨hcode, Finite.surjective_of_injective hcode⟩
+  let aa : Fin 4 → Fin n := fun i => a (e.symm i)
+  let bb : Fin 4 → Fin n := fun i => b (e.symm i)
+  have haa : Function.Injective aa := ha.comp e.symm.injective
+  have hbb : Function.Injective bb := hb.comp e.symm.injective
+  have hac : ∀ i, s (aa i) = false := fun i => haColor (e.symm i)
+  have hbc : ∀ i, s (bb i) = true := fun i => hbColor (e.symm i)
+  let LA' : Bool → Fin 4 → Bool := fun q i => decide (aa i ∈ LA q)
+  let RA' : Bool → Fin 4 → Bool := fun q i => decide (bb i ∈ RA q)
+  let LB' : Bool → Fin 4 → Bool := fun q i => decide (aa i ∈ LB q)
+  let RB' : Bool → Fin 4 → Bool := fun q i => decide (bb i ∈ RB q)
+  have hmA : ∀ i, LA' (sideA i) i = true ∧ RA' (sideA i) i = true := by
+    intro i
+    have he : label (qa (e.symm i)) (qb (e.symm i)) = i := e.apply_symm_apply i
+    have heA : qa (e.symm i) = sideA i := by simpa only [label_left] using congrArg sideA he
+    have h := hqa (e.symm i)
+    rw [heA] at h
+    exact ⟨decide_eq_true h.1, decide_eq_true h.2⟩
+  have hmB : ∀ i, LB' (sideB i) i = true ∧ RB' (sideB i) i = true := by
+    intro i
+    have he : label (qa (e.symm i)) (qb (e.symm i)) = i := e.apply_symm_apply i
+    have heB : qb (e.symm i) = sideB i := by simpa only [label_right] using congrArg sideB he
+    have h := hqb (e.symm i)
+    rw [heB] at h
+    exact ⟨decide_eq_true h.1, decide_eq_true h.2⟩
+  have matA : ∀ i j, rectangleMatrix LA' RA' i j = true ↔ A.Adj (aa i) (bb j) := by
+    intro i j
+    rw [hA _ _ (hac i) (hbc j)]
+    simp only [rectangleMatrix, Bool.or_eq_true, Bool.and_eq_true, LA', RA', decide_eq_true_eq]
+    constructor
+    · rintro (h | h)
+      · exact ⟨false, h⟩
+      · exact ⟨true, h⟩
+    · rintro ⟨q, h⟩
+      cases q
+      · exact Or.inl h
+      · exact Or.inr h
+  have matB : ∀ i j, rectangleMatrix LB' RB' i j = true ↔ B.Adj (aa i) (bb j) := by
+    intro i j
+    rw [hB _ _ (hac i) (hbc j)]
+    simp only [rectangleMatrix, Bool.or_eq_true, Bool.and_eq_true, LB', RB', decide_eq_true_eq]
+    constructor
+    · rintro (h | h)
+      · exact ⟨false, h⟩
+      · exact ⟨true, h⟩
+    · rintro ⟨q, h⟩
+      cases q
+      · exact Or.inl h
+      · exact Or.inr h
+  have matG : ∀ i j, both (rectangleMatrix LA' RA') (rectangleMatrix LB' RB') i j = true ↔
+      G.Adj (aa i) (bb j) := by
+    intro i j
+    rw [both, Bool.and_eq_true, matA, matB, GraphFactor.edges_intersection G A B hfun]
+  apply labelled_rectangles_impossible LA' RA' LB' RB' hmA hmB
+  · intro i j k l hik hjl hg
+    exact no_rectangle G h4 (aa i) (bb j) (aa k) (bb l)
+      (fun h => hik (haa h)) (fun h => hjl (hbb h))
+      ((matG i j).mp hg.1) ((matG i l).mp hg.2.1)
+      ((matG k j).mp hg.2.2.1) ((matG k l).mp hg.2.2.2)
+  · intro i j k haij hbij haik hbik
+    have hna : ¬ A.Adj (aa i) (bb k) := by
+      intro h
+      have ht := (matA i k).mpr h
+      rw [haik] at ht
+      cases ht
+    have hnb : ¬ B.Adj (aa i) (bb j) := by
+      intro h
+      have ht := (matB i j).mpr h
+      rw [hbij] at ht
+      cases ht
+    exact (GraphFactor.exclusive_endpoints_distinct G A B hfun s hbip
+      (aa i) (bb j) (aa i) (bb k) (hac i) (hbc j) (hac i) (hbc k)
+      ((matA i j).mp haij) hnb ((matB i k).mp hbik) hna).1 rfl
+  · intro i j k haij hbij hakj hbkj
+    have hna : ¬ A.Adj (aa k) (bb j) := by
+      intro h
+      have ht := (matA k j).mpr h
+      rw [hakj] at ht
+      cases ht
+    have hnb : ¬ B.Adj (aa i) (bb j) := by
+      intro h
+      have ht := (matB i j).mpr h
+      rw [hbij] at ht
+      cases ht
+    exact (GraphFactor.exclusive_endpoints_distinct G A B hfun s hbip
+      (aa i) (bb j) (aa k) (bb j) (hac i) (hbc j) (hac k) (hbc j)
+      ((matA i j).mp haij) hnb ((matB k j).mp hbkj) hna).2.1 rfl
+
+end PEqualNP.Outside.L_meta_3566.RankTwoFactor
+
+namespace PEqualNP.Outside.L_meta_3566.FactorBelowObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.MetaComplexity.CoverPromise PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+abbrev A : SimpleGraph (Fin 8) := SimpleGraph.fromRel fun u v =>
+  u.val < 4 ∧ 4 ≤ v.val ∧ u.val / 2 = (v.val - 4) / 2
+
+abbrev B : SimpleGraph (Fin 8) := SimpleGraph.fromRel fun u v =>
+  u.val < 4 ∧ 4 ≤ v.val ∧ u.val % 2 = (v.val - 4) % 2
+
+abbrev H : SimpleGraph (Fin 8) := SimpleGraph.fromRel fun u v =>
+  u.val < 4 ∧ v.val = u.val + 4
+
+abbrev G : SimpleGraph (Fin 8) := SimpleGraph.fromRel fun u v =>
+  (u.val < 4 ∧ v.val = u.val + 4) ∨
+  (u = 0 ∧ v = 5) ∨ (u = 1 ∧ v = 7) ∨ (u = 3 ∧ v = 6) ∨ (u = 2 ∧ v = 4)
+
+lemma bipartite : ∀ u v : Fin 8, G.Adj u v → decide (u.val < 4) ≠ decide (v.val < 4) := by
+  decide
+
+lemma noFourCycle : NoFourCycle G := by decide
+
+lemma G_edges : G.edgeFinset.card = 8 := by decide
+
+lemma H_edges : H.edgeFinset.card = 4 := by decide
+
+lemma intersection : ∀ u v : Fin 8, H.Adj u v ↔ A.Adj u v ∧ B.Adj u v := by decide
+
+set_option maxRecDepth 10000 in
+lemma factor_A : ∀ x : Fin 8 → Bool,
+    graphFun A ∅ x = (((x 0 || x 1) && (x 4 || x 5)) || ((x 2 || x 3) && (x 6 || x 7))) := by
+  decide
+
+set_option maxRecDepth 10000 in
+lemma factor_B : ∀ x : Fin 8 → Bool,
+    graphFun B ∅ x = (((x 0 || x 2) && (x 4 || x 6)) || ((x 1 || x 3) && (x 5 || x 7))) := by
+  decide
+
+set_option maxRecDepth 10000 in
+lemma below : ∀ x : Fin 8 → Bool,
+    (graphFun A ∅ x && graphFun B ∅ x) = true → graphFun G ∅ x = true := by
+  decide
+
+lemma pair_profile : ∀ u v : Fin 8,
+    (graphFun A ∅ (pairInput u v) && graphFun B ∅ (pairInput u v)) =
+      graphFun H ∅ (pairInput u v) := by decide
+
+lemma not_exact_intersection : ∃ x : Fin 8 → Bool,
+    (graphFun A ∅ x && graphFun B ∅ x) = true ∧ graphFun H ∅ x = false := by
+  refine ⟨fun v => decide (v = 1 ∨ v = 2 ∨ v = 4), ?_⟩
+  decide
+
+set_option maxRecDepth 10000 in
+lemma matching_cover_lower_bound : ∀ S : Finset (Fin 8), IsVertexCover H S → 4 ≤ S.card := by
+  unfold IsVertexCover
+  decide
+
+lemma matching_cover : IsVertexCover H {0, 1, 2, 3} := by
+  unfold IsVertexCover
+  decide
+
+lemma no_three_cover : ¬ ∃ S : Finset (Fin 8), IsVertexCover H S ∧ S.card ≤ 3 := by
+  rintro ⟨S, hS, hcard⟩
+  have := matching_cover_lower_bound S hS
+  omega
+
+end PEqualNP.Outside.L_meta_3566.FactorBelowObstruction
+
+namespace PEqualNP.Outside.L_meta_3566.NonjunkTop
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership TopFrontier
+
+lemma gate_count_with_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (w : ℕ) (hbelow : BelowWire G C w) :
+    (orN G C).card + (orT G C).card + (leaves (n := n) C w).card + (junk G C).card ≤ C.size := by
+  classical
+  have hNT : Disjoint (orN G C) (orT G C) := by
+    apply Finset.disjoint_left.mpr
+    intro j hjN hjT
+    simp only [orN, orT, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjN hjT
+    exact hjN.2.2 hjT.2.2
+  have hLA : Disjoint (orN G C ∪ orT G C) (leaves (n := n) C w) := by
+    apply Finset.disjoint_left.mpr
+    intro j hjO hjL
+    have hand := (Finset.mem_filter.mp hjL).2.1
+    have hor : (gateAt C j).op = .or := by
+      rcases Finset.mem_union.mp hjO with hjN | hjT
+      · simp only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjN
+        exact hjN.2.1
+      · simp only [orT, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjT
+        exact hjT.2.1
+    rw [hor] at hand
+    cases hand
+  have hsub : (orN G C ∪ orT G C) ∪ leaves (n := n) C w ⊆ Finset.range C.size := by
+    intro j hj
+    rcases Finset.mem_union.mp hj with hjO | hjL
+    · rcases Finset.mem_union.mp hjO with hjN | hjT
+      · simp only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjN
+        exact Finset.mem_range.mpr hjN.1
+      · simp only [orT, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjT
+        exact Finset.mem_range.mpr hjT.1
+    · exact (Finset.mem_filter.mp hjL).1
+  have hJ : Disjoint ((orN G C ∪ orT G C) ∪ leaves (n := n) C w) (junk G C) := by
+    apply Finset.disjoint_left.mpr
+    intro j hj hjJ
+    have hjD : (gateAt C j).op = .and ∧ j < C.gates.length ∧
+        ∃ x, gateVal n C j x = true ∧ graphFun G ∅ x = false := by
+      simpa only [junk, gatesWhere, Finset.mem_filter, Finset.mem_range,
+        PEqualNP.CleanedNonEdge.IsDirtyAnd, PEqualNP.CleanedNonEdge.IsDirty] using (Finset.mem_filter.mp hjJ).2
+    rcases Finset.mem_union.mp hj with hjO | hjL
+    · have hor : (gateAt C j).op = .or := by
+        rcases Finset.mem_union.mp hjO with hjN | hjT
+        · simp only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjN
+          exact hjN.2.1
+        · simp only [orT, gatesWhere, Finset.mem_filter, Finset.mem_range] at hjT
+          exact hjT.2.1
+      rw [hor] at hjD
+      cases hjD.1
+    · obtain ⟨x, hx, hn⟩ := hjD.2.2
+      have ht := leaf_below G C w j hbelow hjL x hx
+      rw [hn] at ht
+      cases ht
+  have hsubJ : ((orN G C ∪ orT G C) ∪ leaves (n := n) C w) ∪ junk G C ⊆
+      Finset.range C.size := by
+    intro j hj
+    rcases Finset.mem_union.mp hj with h | h
+    · exact hsub h
+    · exact (Finset.mem_filter.mp h).1
+  have hc := Finset.card_le_card hsubJ
+  rw [Finset.card_union_of_disjoint hJ] at hc
+  rw [Finset.card_union_of_disjoint hLA, Finset.card_union_of_disjoint hNT, Finset.card_range] at hc
+  exact hc
+
+end PEqualNP.Outside.L_meta_3566.NonjunkTop
+
+namespace PEqualNP.Outside.L_meta_3566.NonjunkStarBound
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership OrCharge TopFrontier ConditionalStarBound
+
+lemma exists_cover_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → s a ≠ s b) (h4 : NoFourCycle G)
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (hne : G.edgeFinset.Nonempty) (c : ℕ → Fin n) (f : ℕ → ℕ)
+    (hW : ∀ j ∈ tops G C, f j < n + C.size)
+    (hpure : ∀ j ∈ tops G C, ∀ x : Fin n → Bool, wire C (f j) x =
+      wire C (f j) (fun v => if s v ≠ s (c j) then x v else false))
+    (hclean : ∀ j ∈ tops G C, ∀ x : Fin n → Bool, x (c j) = true →
+      wire C (f j) x = true → graphFun G ∅ x = true)
+    (hretain : ∀ j ∈ tops G C, ∀ a b, G.Adj a b → gateVal n C j (pairInput a b) = true →
+      pairInput a b (c j) = true ∧ wire C (f j) (pairInput a b) = true) :
+    ∃ K : Finset (Fin n), G.IsVertexCover (K : Set (Fin n)) ∧
+      G.edgeFinset.card + K.card + (junk G C).card ≤ C.size + 1 := by
+  classical
+  let T := leaves (n := n) C C.output
+  have hbelow : BelowWire G C C.output := by
+    intro x hx
+    change circuitFun n C x = true at hx
+    simpa only [hfun] using hx
+  have hTtop : ∀ j ∈ T, j ∈ tops G C := by
+    intro j hj
+    obtain ⟨hjlt, hjand, _⟩ := Finset.mem_filter.mp hj
+    simp only [tops, gatesWhere, Finset.mem_filter, Finset.mem_range]
+    exact ⟨Finset.mem_range.mp hjlt, hjand, leaf_below G C C.output j hbelow hj⟩
+  have hcover : ∀ a b, G.Adj a b → ∃ j ∈ T,
+      pairInput a b (c j) = true ∧ wire C (f j) (pairInput a b) = true := by
+    intro a b hab
+    obtain ⟨j, hjtop, hpath, hjtrue⟩ := TopFrontierCoverage.edge_reaches_top G C hAO hfun a b hab
+    have hjparts : j < C.gates.length ∧ (gateAt C j).op = .and ∧ BelowF G C j := by
+      simpa only [tops, gatesWhere, Finset.mem_filter, Finset.mem_range] using hjtop
+    have hjT : j ∈ T :=
+      Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hjparts.1, hjparts.2.1, hpath⟩
+    exact ⟨j, hjT, hretain j hjtop a b hab hjtrue⟩
+  have hedge := StarGrouping.edge_orN_bound G s hbip h4 C hAO T c f
+    (fun j hj => hW j (hTtop j hj)) (fun j hj => hpure j (hTtop j hj))
+    (fun j hj => hclean j (hTtop j hj)) hcover
+  have hTcard := leaves_card_le_orT G C hAO C.output (output_valid G C hfun hne) hbelow
+  have hcount := NonjunkTop.gate_count_with_junk G C C.output hbelow
+  refine ⟨T.image c, ?_, ?_⟩
+  · intro a b hab
+    obtain ⟨j, hj, hz, _⟩ := hcover a b hab
+    have hz' : c j = a ∨ c j = b := by simpa [pairInput] using hz
+    rcases hz' with ha | hb
+    · exact Or.inl (Finset.mem_image.mpr ⟨j, hj, ha⟩)
+    · exact Or.inr (Finset.mem_image.mpr ⟨j, hj, hb⟩)
+  · have hK := Finset.card_image_le (s := T) (f := c)
+    change T.card ≤ (orT G C).card + 1 at hTcard
+    change (orN G C).card + (orT G C).card + T.card + (junk G C).card ≤ C.size at hcount
+    omega
+
+
+end PEqualNP.Outside.L_meta_3566.NonjunkStarBound
+
+namespace PEqualNP.Outside.L_meta_3566.NonjunkMixedBound
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership SemanticPurity OrCharge
+
+lemma exists_cover_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → s a ≠ s b) (h4 : NoFourCycle G)
+    (C : Circuit) (hLeast : IsLeastAO G C) (hne : G.edgeFinset.Nonempty)
+    (hOR : ∀ j, j < C.gates.length → (gateAt C j).op = .or →
+      ¬ Pure s false (W n C (n + j)) → ¬ Pure s true (W n C (n + j)) →
+      ∀ x, W n C (n + j) x = true → graphFun G ∅ x = true) :
+    ∃ K : Finset (Fin n), G.IsVertexCover (K : Set (Fin n)) ∧
+      G.edgeFinset.card + K.card + (junk G C).card ≤ C.size + 1 := by
+  classical
+  have hn : Nonempty (Fin n) := by
+    obtain ⟨e, _⟩ := hne
+    induction e using Sym2.ind with
+    | _ a _ => exact ⟨a⟩
+  let u0 : Fin n := Classical.choice hn
+  have hex : ∀ j : ℕ, ∃ (u : Fin n) (w : ℕ), j ∈ tops G C →
+      w < n + C.size ∧
+      (∀ x : Fin n → Bool, wire C w x =
+        wire C w (fun v => if s v ≠ s u then x v else false)) ∧
+      (∀ x : Fin n → Bool, x u = true → wire C w x = true → graphFun G ∅ x = true) ∧
+      (∀ a b, G.Adj a b → gateVal n C j (pairInput a b) = true →
+        pairInput a b u = true ∧ wire C w (pairInput a b) = true) := by
+    intro j
+    by_cases hjtop : j ∈ tops G C
+    · have hjparts : j < C.gates.length ∧ (gateAt C j).op = .and ∧ BelowF G C j := by
+        simpa only [tops, gatesWhere, Finset.mem_filter, Finset.mem_range] using hjtop
+      obtain ⟨u, w, hwb, hwp, hclean, hkeep⟩ := ConeFrontier.clean_and_star_all G s hbip h4
+        C hLeast hOR j hjparts.1 hjparts.2.1 hjparts.2.2
+      have hwvalid : w < n + C.gates.length := by omega
+      have hopp := ConeFrontier.pure_star_opposite_color G s hbip C hLeast.1 u w hwvalid hwp hclean
+      refine ⟨u, w, fun _ => ⟨hwvalid, ?_, ?_, ?_⟩⟩
+      · intro x
+        have he := hopp x
+        change wire C w x = wire C w (mask s (!(s u)) x) at he
+        have hm : mask s (!(s u)) x = (fun v => if s v ≠ s u then x v else false) := by
+          funext v
+          cases hv : s v <;> cases hu : s u <;> simp [mask, hv, hu]
+        simpa only [hm] using he
+      · intro x hxu hxw
+        change W n C w x = true at hxw
+        exact hclean x (by rw [hxu, hxw]; rfl)
+      · intro a b hab hjtrue
+        have h := hkeep a b hab hjtrue
+        simpa only [Bool.and_eq_true, W, wire] using h
+    · exact ⟨u0, 0, fun h => False.elim (hjtop h)⟩
+  choose c f hcf using hex
+  apply NonjunkStarBound.exists_cover_budget G s hbip h4 C hLeast.1 hLeast.2.1 hne c f
+  · intro j hj
+    exact (hcf j hj).1
+  · intro j hj
+    exact (hcf j hj).2.1
+  · intro j hj
+    exact (hcf j hj).2.2.1
+  · intro j hj
+    exact (hcf j hj).2.2.2
+
+lemma dirty_mixed_or_of_no_cover_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → s a ≠ s b) (h4 : NoFourCycle G)
+    (C : Circuit) (hLeast : IsLeastAO G C) (hne : G.edgeFinset.Nonempty)
+    (hbad : ¬ ∃ K : Finset (Fin n), G.IsVertexCover (K : Set (Fin n)) ∧
+      G.edgeFinset.card + K.card + (junk G C).card ≤ C.size + 1) :
+    ∃ j < C.gates.length, (gateAt C j).op = .or ∧
+      ¬ Pure s false (W n C (n + j)) ∧ ¬ Pure s true (W n C (n + j)) ∧ ¬ BelowF G C j := by
+  classical
+  by_contra hnone
+  apply hbad
+  apply exists_cover_budget G s hbip h4 C hLeast hne
+  intro j hj hop hleft hright
+  by_contra hnot
+  apply hnone
+  exact ⟨j, hj, hop, hleft, hright, hnot⟩
+
+lemma junk_empty_of_upper_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → s a ≠ s b) (h4 : NoFourCycle G)
+    (C : Circuit) (hLeast : IsLeastAO G C) (hne : G.edgeFinset.Nonempty)
+    (hOR : ∀ j, j < C.gates.length → (gateAt C j).op = .or →
+      ¬ Pure s false (W n C (n + j)) → ¬ Pure s true (W n C (n + j)) →
+      ∀ x, W n C (n + j) x = true → graphFun G ∅ x = true)
+    (k : ℕ) (hcover : ∀ K : Finset (Fin n), G.IsVertexCover (K : Set (Fin n)) → k ≤ K.card)
+    (hupper : C.size + 1 ≤ G.edgeFinset.card + k) : junk G C = ∅ := by
+  obtain ⟨K, hK, hbudget⟩ := exists_cover_budget G s hbip h4 C hLeast hne hOR
+  have hmin := hcover K hK
+  apply Finset.card_eq_zero.mp
+  omega
+
+end PEqualNP.Outside.L_meta_3566.NonjunkMixedBound
