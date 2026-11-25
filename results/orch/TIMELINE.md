@@ -6,3 +6,5 @@
 2026-11-25T13:52:59.079455+00:00: named partial module build passed; independent review passed; preparing first archival push.
 2026-11-25T13:54:56.319620+00:00: stochastic full-row19-gate search completed300s; 1,467,814,678 evaluations across14,678 restarts; best5errors, no witness. Program SHA256 a4098cd7595eb7303b97a21957403569856adcb72f73b956f395b1794e120024.
 2026-11-25T13:55:11.474620+00:00: three structural partial modules compiled and independently reviewed; preparing second archival push.
+2026-11-25T13:58:00.220288+00:00: capped computational search to3 CPUs for Lean workers. Stopped second stochastic pass and redundant CEGIS retry; retained full logs. Currentjobs: full1024rows exactly4NOT (600s), essential1NOT firstorbit69 (300s), and sequentialessential1NOT orbits521,276,773,116 (300s each).
+2026-11-25T13:58:52.690755+00:00: third partial checkpoint independently reviewed; immutable source hashes verified.

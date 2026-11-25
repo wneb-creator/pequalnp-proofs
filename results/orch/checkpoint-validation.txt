@@ -11,3 +11,7 @@ Second checkpoint: LibraryRoute, Structural, and extended OneNot each compile wi
 Independent review: toolchain agent reviewed LibraryRoute; root reviewed Structural and extended OneNot.
 Axiom check: only propext, Classical.choice, Quot.sound in inspected partials.
 Main posted statement still unsolved.
+
+Third checkpoint: expanded LibraryRoute (191 lines), Structural (213 lines), and OneNotAnd (151 lines) compile with exit 0 and pass independent toolchain-agent source review.
+A concurrent edit entered LibraryRoute before checkpoint two staging; the full191-line version has now been independently reviewed and its successful compilation confirmed.
+Main theorem remains unsolved; no exact-statement checker acceptance.
