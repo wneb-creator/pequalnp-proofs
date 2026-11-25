@@ -1,0 +1,65 @@
+{
+  "conjunction_bound.lean": {
+    "bytes": 5590,
+    "imports": [
+      "import PEqualNP.Outside.L_meta_2592"
+    ],
+    "export_private": false
+  },
+  "constant_sweep.lean": {
+    "bytes": 9171,
+    "imports": [
+      "import PEqualNP.Defs"
+    ],
+    "export_private": false
+  },
+  "one_not_semantics.lean": {
+    "bytes": 3694,
+    "imports": [
+      "import Mathlib.Data.List.Forall2",
+      "import PEqualNP.Defs"
+    ],
+    "export_private": false
+  },
+  "one_not_compile.lean": {
+    "bytes": 3924,
+    "imports": [
+      "import constant_sweep",
+      "import one_not_semantics"
+    ],
+    "export_private": false
+  },
+  "one_not_eliminate.lean": {
+    "bytes": 2408,
+    "imports": [
+      "import one_not_compile"
+    ],
+    "export_private": false
+  },
+  "first_and_circuit.fragment.lean": {
+    "bytes": 3508,
+    "imports": [],
+    "export_private": false
+  },
+  "first_and_circuit.lean": {
+    "bytes": 3860,
+    "imports": [
+      "import conjunction_bound",
+      "import Batteries.Tactic.OpenPrivate"
+    ],
+    "export_private": true
+  },
+  "two_not_structure.lean": {
+    "bytes": 5975,
+    "imports": [
+      "import conjunction_bound"
+    ],
+    "export_private": false
+  },
+  "two_not_structure.fragment.lean": {
+    "bytes": 3293,
+    "imports": [],
+    "export_private": false
+  },
+  "audit": "PASS: partial lemmas only; first_and_circuit standalone is a scratch import/export-private harness, plain fragment removes it; all local imports must be stripped on final integration; no full target claim"
+}

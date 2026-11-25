@@ -53,3 +53,8 @@ Additional independently reviewed components compiled with exit0 and empty diagn
 Actual named-module axiom inspection of seventeen_binary_floor and three_not_exclusion: only propext, Classical.choice, Quot.sound. No exact gap theorem or full checker acceptance yet.
 Sub-agents:6
 TIMING total=56 subagents=6
+
+OneNotPetersen.first_adjacent_and_not_lower compiled and independently reviewed PASS: restricted class needs20 gates. No claim for arbitrary NOT source or full gap.
+Previous2592lease was rejectedHTTP410 at14:38 despite confirmed14:53expiry; diagnostic same410. Checked results pushed before recovery. Recovery desk assigned newOWNgapL-meta-1886 at14:39:11UTC, which is now the active task. Requests2,nulls0.
+Sub-agents:6
+TIMING total=59 subagents=6
