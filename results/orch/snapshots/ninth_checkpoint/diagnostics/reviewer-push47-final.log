@@ -1,0 +1,2 @@
+PASS exact32 staged paths, all underresults/orch/lemmas; runner/input/log/control hashes match; filelimits and credential-pattern scan pass.
+Scope reviewed: runtime independent LRAT certificate acceptance only; no kernel-instance, circuit-encoding, totalgatebound, A6 or fullL650 claim.

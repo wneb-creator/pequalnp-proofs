@@ -111,3 +111,17 @@
 - 2026-11-25T05:52:48.271503+00:00: lean_baseline launched reviewed13AND dirtyskeleton SAT; residualadaptive16 completed localUNKNOWN05:50:53.
 
 2026-11-25T05:58:05.771648+00:00 Eighth checkpoint frozen. New direct weighted-circuit proofs are preserved. Five-owner exact synthesis retains learning across intervals; original and normalized thirteen-AND routes have calibrated, separately reviewed models. Target remains open.
+2026-11-25T05:58:53.636907+00:00 Renewed lease; expiry 2026-11-25T06:18:53.968Z.
+
+2026-11-25T05:59:13.975462+00:00 circuit_search: joint-six MIN_AND6 completed its1200s profile normally:6741250 sweeps,655545774678 candidate replacements,best8 boundary failures. Best remains28active/6AND,allraw,162 false fullraw assignments,two extra quadratic edges; full63 assembly is approximate, not a target witness. Complete log preserved. Replacing this slot with independently reviewed five-owner cost-table MIN_AND5 profile under fresh root renewal; weighted four-owner remains the only other stochastic process.
+2026-11-25T06:08:54.114894+00:00 Renewed lease; expiry 2026-11-25T06:28:54.380Z.
+
+2026-11-25T06:10:42.492958+00:00 circuit_search: Weighted four-owner profile completed normally after1200 seconds:15,869,447 sweeps and910,150,763,370 candidate replacements. Best weighted_score38 remains the starting six ordinary boundary failures plus two one-owner failures weighted16 each. No target witness. Full log and final circuit preserved. The new32 four-owner and382 five-owner higher-degree multiguard starts are separate pending independent review. Joint-five MIN_AND5 remains the only active stochastic process until the next approved slot transition.
+
+2026-11-25T06:11:43.911316+00:00 circuit_search: Parent-directed retirement of five-owner MIN_AND5 before its planned1200s end, after independently reviewed computational UNSAT of the uncut exact-five-AND dirty abstraction (not a Lean impossibility proof). Complete available log preserved; best8 remains approximate. Last progress: POLISH seconds 740 sweeps 970249 evaluations 103922052194 best 8 current 8. MIN_AND6 replacement is prepared from reviewed cost-table source and original audited six-AND seeds; waiting for fresh renewal.
+
+2026-11-25T06:12:22.510322+00:00 circuit_search: Following fresh root renewal, launched two1200s profiles: five-owner MIN_AND6 from12 previously audited genuine filtered starts (ordinary boundary score), and four-owner weighted priority from its score38 champion plus32 newly independently approved higher-degree multiguard starts. Five-owner MIN_AND6 is a search restriction consistent with the computational AND5 obstruction, not a claimed Lean lower bound. No unreviewed five-owner multiguard starts were loaded.
+2026-11-25T06:18:54.526844+00:00 Renewed lease; expiry 2026-11-25T06:38:54.821Z.
+
+2026-11-25T06:23:43.081927+00:00 Ninth checkpoint frozen. Computational A5 exclusion independently LRAT-validated; corresponding exact-five physical search retired, six-AND and full-plane alternatives continue. Analytic A5 geometry/origin proof components compile, full local theorem still unfinished.
+2026-11-25T06:28:55.067571+00:00 Renewed lease; expiry 2026-11-25T06:48:55.404Z.

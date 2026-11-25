@@ -1,0 +1,3 @@
+| reduction_analysis/DirectWeightedSlackTwo.lean | For 30 rejected inputs whose distinct joins are accepted, and at most five binary ANDs, every equal-child count is at most one and their sum is at most two. |
+RESULTS SHA256 965e6190cad603a7265633bb2ed5c86c1c0c05cba2e2f3b48466be64d9d30ab1
+PASS187 otherstagedblobs unchanged; exact188-path inventory unchanged; essential hypothesis fixed. Approved exact stagedcheckpoint forcommit/push.

@@ -1,0 +1,3 @@
+PASS six-skeleton-baseline-assembled.json all131072 raw inputs, corecost 29 falsepositives 0 fullsize 64
+PASS six-skeleton-filtered-assembled.json all131072 raw inputs, corecost 28 falsepositives 329 fullsize 63
+assembler SHA256 21610afbeab59f9904700aff84913dac386a731a88aec8b74ebac5b564d9256e

@@ -1,0 +1,306 @@
+{
+  "rows": [
+    {
+      "input": 16,
+      "support": [
+        5,
+        10
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 17,
+      "support": [
+        5,
+        14
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 18,
+      "support": [
+        10,
+        14
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 19,
+      "support": [
+        5,
+        10,
+        14
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 20,
+      "support": [
+        13,
+        15
+      ],
+      "negative_count_if_zero": 29
+    },
+    {
+      "input": 21,
+      "support": [
+        8,
+        11
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 22,
+      "support": [
+        8,
+        12
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 23,
+      "support": [
+        11,
+        12
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 24,
+      "support": [
+        8,
+        11,
+        12
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 25,
+      "support": [
+        6,
+        10
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 26,
+      "support": [
+        6,
+        12
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 27,
+      "support": [
+        10,
+        12
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 28,
+      "support": [
+        6,
+        10,
+        12
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 29,
+      "support": [
+        5,
+        9
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 30,
+      "support": [
+        5,
+        11
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 31,
+      "support": [
+        9,
+        11
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 32,
+      "support": [
+        5,
+        9,
+        11
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 33,
+      "support": [
+        8,
+        9
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 34,
+      "support": [
+        8,
+        10
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 35,
+      "support": [
+        9,
+        10
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 36,
+      "support": [
+        8,
+        15
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 37,
+      "support": [
+        9,
+        15
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 38,
+      "support": [
+        10,
+        15
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 39,
+      "support": [
+        8,
+        9,
+        10
+      ],
+      "negative_count_if_zero": 24
+    },
+    {
+      "input": 40,
+      "support": [
+        8,
+        9,
+        15
+      ],
+      "negative_count_if_zero": 24
+    },
+    {
+      "input": 41,
+      "support": [
+        8,
+        10,
+        15
+      ],
+      "negative_count_if_zero": 24
+    },
+    {
+      "input": 42,
+      "support": [
+        9,
+        10,
+        15
+      ],
+      "negative_count_if_zero": 24
+    },
+    {
+      "input": 43,
+      "support": [
+        8,
+        9,
+        10,
+        15
+      ],
+      "negative_count_if_zero": 23
+    },
+    {
+      "input": 44,
+      "support": [
+        7,
+        8
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 45,
+      "support": [
+        7,
+        14
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 46,
+      "support": [
+        8,
+        14
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 47,
+      "support": [
+        7,
+        8,
+        14
+      ],
+      "negative_count_if_zero": 25
+    },
+    {
+      "input": 48,
+      "support": [
+        6,
+        7
+      ],
+      "negative_count_if_zero": 28
+    },
+    {
+      "input": 49,
+      "support": [
+        6,
+        9
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 50,
+      "support": [
+        7,
+        9
+      ],
+      "negative_count_if_zero": 26
+    },
+    {
+      "input": 51,
+      "support": [
+        6,
+        7,
+        9
+      ],
+      "negative_count_if_zero": 25
+    }
+  ],
+  "minimum": 23,
+  "allowed_direct_AND_features": []
+}

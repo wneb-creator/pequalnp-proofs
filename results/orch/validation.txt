@@ -77,3 +77,7 @@ TIMING total=214.3 subagents=6
 2026-11-25T05:58:05.771648+00:00 Eighth research checkpoint: 182 artifacts, 2077740 original bytes/1598969 stored. ForcedActiveAnd, WeightedRejectedPacking, DirectWeightedPacking and DirectWeightedSlackTwo compiled and independently passed review before preservation pushes. The direct results apply to ordinary Circuit/Monotone2 with actual gate values. Five-owner assembly, phase extraction, two-pair symmetry and unrestricted-OR AND synthesis retain their documented scopes. No target proof/refutation or exact-target checker acceptance.
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
 TIMING total=237.0 subagents=6
+
+2026-11-25T06:23:43.081927+00:00 Ninth research checkpoint: 179 artifacts/3401137 bytes. Both dirty-five-AND SAT certificates independently accepted by Lean LRAT runtime checking and pushed separately with exact formula/proof hashes. This does not establish a kernel circuit theorem or full target refutation. FiveOwnerPropagation and FiveOwnerRectangleBase compiled and passed independent review as explicit partial components. Exact-five physical solver retired for replan after UNKNOWN checkpoints, not declared UNSAT. No full target proof/checker acceptance.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=262.6 subagents=6

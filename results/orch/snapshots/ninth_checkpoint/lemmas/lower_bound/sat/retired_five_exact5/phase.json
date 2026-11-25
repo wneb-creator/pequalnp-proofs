@@ -1,0 +1,179 @@
+{
+  "gates": [
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      1,
+      7,
+      11
+    ],
+    [
+      1,
+      12,
+      14
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      45,
+      23
+    ],
+    [
+      1,
+      15,
+      56
+    ],
+    [
+      1,
+      52,
+      57
+    ],
+    [
+      0,
+      55,
+      58
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      57,
+      60
+    ],
+    [
+      0,
+      59,
+      61
+    ],
+    [
+      1,
+      9,
+      54
+    ],
+    [
+      1,
+      13,
+      63
+    ],
+    [
+      0,
+      3,
+      64
+    ],
+    [
+      1,
+      10,
+      53
+    ],
+    [
+      1,
+      13,
+      66
+    ],
+    [
+      0,
+      4,
+      67
+    ],
+    [
+      1,
+      8,
+      52
+    ],
+    [
+      1,
+      13,
+      69
+    ],
+    [
+      0,
+      0,
+      70
+    ],
+    [
+      1,
+      62,
+      71
+    ],
+    [
+      1,
+      72,
+      65
+    ],
+    [
+      1,
+      73,
+      68
+    ]
+  ],
+  "output": 74,
+  "inputs": 52,
+  "raw_inputs": 16,
+  "source": "five_owner_filtered23_seed.json with exact cross-pair feature rebracketing",
+  "and_count": 5,
+  "gate_count": 23,
+  "false_negatives": 0,
+  "false_positives": 282,
+  "boundary_errors": [
+    316,
+    1165,
+    1452,
+    3083,
+    3402,
+    4629,
+    4916,
+    5765,
+    14244,
+    16915,
+    17234,
+    19971,
+    28482
+  ],
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      23,
+      45
+    ]
+  },
+  "target_met": false,
+  "feature_rewrite": {
+    "source_wire": 20,
+    "logical_wire": 56,
+    "features": [
+      45,
+      23
+    ],
+    "supports": [
+      [
+        7,
+        14
+      ],
+      [
+        11,
+        12
+      ]
+    ],
+    "outside_owners": [
+      11,
+      6
+    ]
+  },
+  "all_intermediate_truth_columns_unchanged": true,
+  "full_assignments_checked": 65536,
+  "status": "Semantically identical23-gate/5AND phase using two compatible free pairs; still282 false assignments/13 bad boundary cases."
+}

@@ -1,0 +1,4 @@
+2026-11-25T05:57:06.246912+00:00 AND-SKELETON-ORBITS inputs 4 ANDnodes 2 tests 6 variables 147 clauses 437 dirty-pairs [(0, 2), (0, 3)] NO-TOTAL-GATE-BOUND
+2026-11-25T05:57:06.247066+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0001
+2026-11-25T05:57:06.247319+00:00 EXACT AND SKELETON ANDnodes 2 dirty_input 9 NO-TOTAL-GATE-BOUND
+PASS actual SAT P4 minimum2 AND dirty orbit model plus exhaustive16 inputs

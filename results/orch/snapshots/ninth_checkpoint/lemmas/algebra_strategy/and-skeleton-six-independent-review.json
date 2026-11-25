@@ -1,0 +1,26 @@
+{
+  "status": "APPROVED computational packet and phase; no OR-cost or Lean lower-bound conclusion",
+  "raw_inputs": 17,
+  "required_edges": 24,
+  "maximal_negatives": 52,
+  "raw_assignments_per_phase": 131072,
+  "data_sha256": "61870aeac33bc1455a2eb33d0557927d4d16019075f8a7e58d9d16fb76d98043",
+  "phases": [
+    {
+      "file": "and_skeleton_six_baseline6.json",
+      "sha256": "a4e09fa6956eed8e3d86418c8cbf0fbcdf38c8d25ce5e7c558141cf1e798c23f",
+      "false_assignments": 0,
+      "missing_assignments": 0,
+      "dirty_input": null,
+      "exact_target": true
+    },
+    {
+      "file": "and_skeleton_six_filtered6_phase.json",
+      "sha256": "433b660aec5b1af9adb97c24708a62d6043b35c6dd85edcac138a108f4f03be1",
+      "false_assignments": 329,
+      "missing_assignments": 0,
+      "dirty_input": 257,
+      "exact_target": false
+    }
+  ]
+}

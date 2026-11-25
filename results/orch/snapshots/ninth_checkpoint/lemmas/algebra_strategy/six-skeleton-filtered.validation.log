@@ -1,0 +1,1 @@
+{"and_count": 6, "or_count": 22, "core_plus_prefix_extra": 28, "configurations_considered": 729, "distinct_encoded_configurations": 8, "assembly_evaluations": 23, "exact_core_target": false, "full_candidate_within63": true, "false_negatives": 0, "false_positives": 329}

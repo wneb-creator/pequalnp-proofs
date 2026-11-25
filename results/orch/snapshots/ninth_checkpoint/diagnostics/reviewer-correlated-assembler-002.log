@@ -1,0 +1,5 @@
+PASS correlated random assemblies 1000 all16 raw assignments; semantic off/on and resource cap4/20000
+PASS five-skeleton-baseline-assembled.json corecost 24 falsepositives 0 fullsize 64
+PASS five-skeleton-filtered-assembled.json corecost 23 falsepositives 282 fullsize 63
+assemble_encoded_and_skeleton.py ab2168b206b911ecc3b42d118a934267c8d33d93ba1de4a376b5b9c2017890ea
+assemble_five_skeleton.py 3df23f150deeb12b850859c84100d8cbafa74278a753ce275eef68bf10199ff7

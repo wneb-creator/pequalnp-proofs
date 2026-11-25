@@ -1,0 +1,3 @@
+PASS exhaustive65535 leftsupports; enumerated 4335 rightsubsets after left/adjacency filters; 9 passed activation/liveness before equality; 9 survivors
+All9 rows metadata and12-map invariance verified. Five stars plus four hub variants; full unquotiented list, no symmetry restriction. Necessity uses exact5AND minimality, singleton/pair census,209 forced-active masks and direct weightedslack2. Computational census, not yet Lean enumeration.
+SHA256 5ef13f847147c0ed834195787186b74161a61ba3efd72d5cf5faf80707a3a2aa

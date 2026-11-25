@@ -1,0 +1,31 @@
+{
+  "input_pairs_excluded_by_single_gate_Kraft": 1375,
+  "total_unordered_with_copies": 1378,
+  "positive_live_allowed_input_ANDs": [
+    {
+      "sources": [
+        0,
+        8
+      ],
+      "equal_negatives": 0,
+      "positive_edges": 1
+    },
+    {
+      "sources": [
+        3,
+        9
+      ],
+      "equal_negatives": 0,
+      "positive_edges": 1
+    },
+    {
+      "sources": [
+        4,
+        10
+      ],
+      "equal_negatives": 0,
+      "positive_edges": 1
+    }
+  ],
+  "scope": "Exact\u22645AND case only; each one AND consumes equal-child wildcard budget2."
+}

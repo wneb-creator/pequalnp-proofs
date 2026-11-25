@@ -1,0 +1,7 @@
+2026-11-25T06:04:18.067245+00:00 AND-COUNT-MODEL inputs 16 ANDnodes 5 tests 50 variables 3392 clauses 12857 dirty False positive-live True child-incomparable True negative-slack 2 NO-TOTAL-GATE-BOUND
+2026-11-25T06:04:18.067881+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0005
+2026-11-25T06:04:18.070380+00:00 EXACT AND SKELETON ANDnodes 5 dirty_input None NO-TOTAL-GATE-BOUND
+2026-11-25T06:04:18.073724+00:00 AND-COUNT-MODEL inputs 4 ANDnodes 2 tests 6 variables 172 clauses 519 dirty True positive-live True child-incomparable True negative-slack 1 NO-TOTAL-GATE-BOUND
+2026-11-25T06:04:18.073764+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0
+2026-11-25T06:04:18.073978+00:00 EXACT AND SKELETON ANDnodes 2 dirty_input 9 NO-TOTAL-GATE-BOUND
+PASS actual clean5 with slack2/full65536 verification and dirty P4 with allowedpair/slack1

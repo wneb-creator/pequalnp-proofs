@@ -1,0 +1,122 @@
+[
+  {
+    "pair": [
+      1,
+      13
+    ],
+    "extensions": 2,
+    "type": "point-line"
+  },
+  {
+    "pair": [
+      2,
+      13
+    ],
+    "extensions": 2,
+    "type": "point-line"
+  },
+  {
+    "pair": [
+      5,
+      11
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      5,
+      13
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      5,
+      14
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      6,
+      7
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      6,
+      12
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      6,
+      13
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      7,
+      13
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      7,
+      14
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      11,
+      12
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      11,
+      13
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      12,
+      13
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      13,
+      14
+    ],
+    "extensions": 2,
+    "type": "line-line"
+  },
+  {
+    "pair": [
+      13,
+      15
+    ],
+    "extensions": 1,
+    "type": "line-line"
+  }
+]

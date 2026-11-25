@@ -1,0 +1,4 @@
+PASS156 distinct exact66-gate/14AND constructions; each DNF equals52 posted edges; every supplied dirty witness true at someAND/outputfalse; skeletons preserve DNF
+generate_double_star_phases.py 35980840b9901005797ccc68e5642f8a911c21c5ad1d48a57d4043d8c0c91cb2
+full_double_star_exact66_phases.json 763647802da03a6598a9262288c0b7864ffd8244d7fdd8ec2670c409eb9fc55f
+and_skeleton_full_exact_dirty14_phase.json c3fbc343df34b0ba8bc6542ec87ba6168e92cdd5125743645226f95942ac589d

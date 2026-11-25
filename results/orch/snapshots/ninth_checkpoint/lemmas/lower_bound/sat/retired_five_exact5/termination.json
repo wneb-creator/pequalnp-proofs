@@ -1,0 +1,21 @@
+{
+  "terminated_utc": "2026-11-25T06:12:05.314098+00:00",
+  "reason": "Parent replan after independently cross-checked uncut A5 dirty-skeleton UNSAT",
+  "physical_solver_verdict": "UNKNOWN; terminated for replan, not physical-solver UNSAT",
+  "learned_clauses_exported": false,
+  "preserved": "Complete available stdout/stderr, original CNF and supplemental clauses, complete input/phase configuration and completed solve checkpoints",
+  "command_options": {
+    "seconds": 300,
+    "rounds": 6,
+    "and_count": 5,
+    "min_and_count": 5,
+    "crossings": true,
+    "kraft_exponential": true,
+    "and_false_samples": 12,
+    "and_true_samples": 12,
+    "require_dirty_pair": true
+  },
+  "process_exit_code": 143,
+  "shell_stderr": "Terminated",
+  "interrupted_round": 4
+}

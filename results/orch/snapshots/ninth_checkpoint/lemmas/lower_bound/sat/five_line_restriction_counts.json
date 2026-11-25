@@ -1,0 +1,57 @@
+[
+  {
+    "raw_line": 5,
+    "original_line": 13,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 6,
+    "original_line": 14,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 7,
+    "original_line": 15,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 8,
+    "original_line": 16,
+    "negatives_after_zero": 27
+  },
+  {
+    "raw_line": 9,
+    "original_line": 17,
+    "negatives_after_zero": 27
+  },
+  {
+    "raw_line": 10,
+    "original_line": 19,
+    "negatives_after_zero": 27
+  },
+  {
+    "raw_line": 11,
+    "original_line": 20,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 12,
+    "original_line": 21,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 13,
+    "original_line": 22,
+    "negatives_after_zero": 30
+  },
+  {
+    "raw_line": 14,
+    "original_line": 24,
+    "negatives_after_zero": 29
+  },
+  {
+    "raw_line": 15,
+    "original_line": 25,
+    "negatives_after_zero": 29
+  }
+]

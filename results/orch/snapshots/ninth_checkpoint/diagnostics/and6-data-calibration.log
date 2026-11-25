@@ -1,0 +1,4 @@
+2026-11-25T06:10:35.646766+00:00 AND-SKELETON inputs 17 ANDnodes 6 tests 76 dirty False variables 4555 clauses 18571 NO-TOTAL-GATE-BOUND
+2026-11-25T06:10:35.647918+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.001
+2026-11-25T06:10:35.651542+00:00 EXACT AND SKELETON ANDnodes 6 dirty_input None NO-TOTAL-GATE-BOUND
+PASS six-owner24+52data, exact clean6 calibration, full2^17 filtered6 phase; extras [(0, 12), (0, 16), (1, 7), (1, 9), (1, 13)] errors 329 dirtymask 257

@@ -1,0 +1,3 @@
+PASS all65535 left supports, 4473 ordered right candidates; maximum target edges4; nine exact cases
+PASS 16 dirty-pattern/other-owner absent-point + true-neighbor witnesses
+census_sha256 7d1fff2e1b63a026207244ffb0ebbd311dff0e9a2e60eb02eb3932fc373cb4fe

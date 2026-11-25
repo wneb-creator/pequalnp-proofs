@@ -1,0 +1,152 @@
+[
+  {
+    "rectangle_index": 1,
+    "owner": 1,
+    "bad_maximal_negatives": [
+      9990,
+      28482
+    ],
+    "bad_negative_owner_sets": [
+      [
+        1,
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "other_owner_absence_witnesses": [
+      {
+        "other_owner": 0,
+        "negative_mask": 9990,
+        "true_neighbor": 8
+      },
+      {
+        "other_owner": 2,
+        "negative_mask": 28482,
+        "true_neighbor": 6
+      },
+      {
+        "other_owner": 3,
+        "negative_mask": 9990,
+        "true_neighbor": 9
+      },
+      {
+        "other_owner": 4,
+        "negative_mask": 9990,
+        "true_neighbor": 10
+      }
+    ]
+  },
+  {
+    "rectangle_index": 3,
+    "owner": 2,
+    "bad_maximal_negatives": [
+      9990,
+      14244
+    ],
+    "bad_negative_owner_sets": [
+      [
+        1,
+        2
+      ],
+      [
+        2
+      ]
+    ],
+    "other_owner_absence_witnesses": [
+      {
+        "other_owner": 0,
+        "negative_mask": 9990,
+        "true_neighbor": 8
+      },
+      {
+        "other_owner": 1,
+        "negative_mask": 14244,
+        "true_neighbor": 5
+      },
+      {
+        "other_owner": 3,
+        "negative_mask": 9990,
+        "true_neighbor": 9
+      },
+      {
+        "other_owner": 4,
+        "negative_mask": 9990,
+        "true_neighbor": 10
+      }
+    ]
+  },
+  {
+    "rectangle_index": 7,
+    "owner": 1,
+    "bad_maximal_negatives": [
+      14244,
+      65504
+    ],
+    "bad_negative_owner_sets": [
+      [
+        2
+      ],
+      []
+    ],
+    "other_owner_absence_witnesses": [
+      {
+        "other_owner": 0,
+        "negative_mask": 14244,
+        "true_neighbor": 5
+      },
+      {
+        "other_owner": 2,
+        "negative_mask": 65504,
+        "true_neighbor": 6
+      },
+      {
+        "other_owner": 3,
+        "negative_mask": 14244,
+        "true_neighbor": 9
+      },
+      {
+        "other_owner": 4,
+        "negative_mask": 14244,
+        "true_neighbor": 7
+      }
+    ]
+  },
+  {
+    "rectangle_index": 8,
+    "owner": 2,
+    "bad_maximal_negatives": [
+      28482,
+      65504
+    ],
+    "bad_negative_owner_sets": [
+      [
+        1
+      ],
+      []
+    ],
+    "other_owner_absence_witnesses": [
+      {
+        "other_owner": 0,
+        "negative_mask": 28482,
+        "true_neighbor": 6
+      },
+      {
+        "other_owner": 1,
+        "negative_mask": 65504,
+        "true_neighbor": 5
+      },
+      {
+        "other_owner": 3,
+        "negative_mask": 28482,
+        "true_neighbor": 9
+      },
+      {
+        "other_owner": 4,
+        "negative_mask": 28482,
+        "true_neighbor": 10
+      }
+    ]
+  }
+]

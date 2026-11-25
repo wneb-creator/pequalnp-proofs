@@ -1,0 +1,6 @@
+baseline5 ANDnodes 5 full_target_errors 0
+filtered5_phase ANDnodes 5 full_target_errors 282
+2026-11-25T06:03:02.659354+00:00 AND-SKELETON inputs 16 ANDnodes 5 tests 50 dirty False variables 2342 clauses 9306 NO-TOTAL-GATE-BOUND
+2026-11-25T06:03:02.665170+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0057
+2026-11-25T06:03:02.667263+00:00 EXACT AND SKELETON ANDnodes 5 dirty_input None NO-TOTAL-GATE-BOUND
+PASS five-owner data regeneration, bothphase65536inputequivalence,actual clean5SAT

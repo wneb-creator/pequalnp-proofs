@@ -1,0 +1,10 @@
+{
+  "status": "APPROVED computational seed audit; all seeds remain incorrect",
+  "seeds": 32,
+  "enumerated_constructions": 6624,
+  "full_raw_assignments_checked": 524288,
+  "full26_semantics": "exact minimal-DNF comparison against core plus outside stars",
+  "min_weighted_score": 76,
+  "data_sha256": "4de28134d5235310c3d89f51246cae53ff48e896426f01edf98c20636f61f9df",
+  "generator_sha256": "0b6e8a8ee46d1c4b15831801f8ff1bf2bc26ad9b04475e7ea1d61493462a6e98"
+}

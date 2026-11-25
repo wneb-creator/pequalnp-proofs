@@ -1,0 +1,6 @@
+PASS exactslack0/1/2 arithmetic on1875 count vectors and all4 equal-child truth cases
+s0 actualfixedSAT/fulltruth/equalityverification PASS
+s1dirty actualfixedSAT/fulltruth/equalityverification PASS
+s2 actualfixedSAT/fulltruth/equalityverification PASS
+and_skeleton_minimal.py d02e8b24780d150f8611edf38477e063899b1bbf9b560fb8e81debc5c02cbe8f
+and_skeleton_count_run.py 35c264aa93c8baf36261d3cf948a2fd9f450ebf8d12349f34cbd197d5a57bd39

@@ -1,0 +1,186 @@
+{
+  "scope": "Bounded output AND of pure OR clauses from existing wires/available features. Deduplicates equivalent source signatures and keeps one minimum-cost clause per rejected subset; no general impossibility or exhaustive prefix-cost claim.",
+  "results": [
+    {
+      "seed_index": 299,
+      "budget": 4,
+      "sources": 61,
+      "clauses_enumerated": 559736,
+      "distinct_rejection_masks": 2,
+      "dp_states": 3,
+      "found": false,
+      "elapsed_seconds": 0.4714672000009159
+    },
+    {
+      "seed_index": 315,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 3,
+      "dp_states": 4,
+      "found": false,
+      "elapsed_seconds": 0.45951992699883704
+    },
+    {
+      "seed_index": 316,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 1,
+      "dp_states": 2,
+      "found": false,
+      "elapsed_seconds": 0.4935256569988269
+    },
+    {
+      "seed_index": 318,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 3,
+      "dp_states": 4,
+      "found": false,
+      "elapsed_seconds": 0.49161593899953004
+    },
+    {
+      "seed_index": 319,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 1,
+      "dp_states": 2,
+      "found": false,
+      "elapsed_seconds": 0.49518604900003993
+    },
+    {
+      "seed_index": 321,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 3,
+      "dp_states": 4,
+      "found": false,
+      "elapsed_seconds": 0.4964481850001903
+    },
+    {
+      "seed_index": 324,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 2,
+      "dp_states": 3,
+      "found": false,
+      "elapsed_seconds": 0.49289665300057095
+    },
+    {
+      "seed_index": 325,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 3,
+      "dp_states": 4,
+      "found": false,
+      "elapsed_seconds": 0.4767116780003562
+    },
+    {
+      "seed_index": 326,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 3,
+      "dp_states": 4,
+      "found": false,
+      "elapsed_seconds": 0.49495956399914576
+    },
+    {
+      "seed_index": 327,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 2,
+      "dp_states": 3,
+      "found": false,
+      "elapsed_seconds": 0.5239341569995304
+    },
+    {
+      "seed_index": 347,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 0,
+      "dp_states": 1,
+      "found": false,
+      "elapsed_seconds": 0.4961946990006254
+    },
+    {
+      "seed_index": 348,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 0,
+      "dp_states": 1,
+      "found": false,
+      "elapsed_seconds": 0.4789538229997561
+    },
+    {
+      "seed_index": 349,
+      "budget": 4,
+      "sources": 62,
+      "clauses_enumerated": 597618,
+      "distinct_rejection_masks": 0,
+      "dp_states": 1,
+      "found": false,
+      "elapsed_seconds": 0.49337540099986654
+    },
+    {
+      "seed_index": 373,
+      "budget": 5,
+      "sources": 61,
+      "clauses_enumerated": 6508883,
+      "distinct_rejection_masks": 4,
+      "dp_states": 5,
+      "found": false,
+      "elapsed_seconds": 6.21272012100053
+    },
+    {
+      "seed_index": 374,
+      "budget": 5,
+      "sources": 61,
+      "clauses_enumerated": 6508883,
+      "distinct_rejection_masks": 4,
+      "dp_states": 5,
+      "found": false,
+      "elapsed_seconds": 6.757514393999372
+    },
+    {
+      "seed_index": 375,
+      "budget": 5,
+      "sources": 61,
+      "clauses_enumerated": 6508883,
+      "distinct_rejection_masks": 4,
+      "dp_states": 5,
+      "found": false,
+      "elapsed_seconds": 6.378675977999592
+    },
+    {
+      "seed_index": 376,
+      "budget": 4,
+      "sources": 61,
+      "clauses_enumerated": 559736,
+      "distinct_rejection_masks": 0,
+      "dp_states": 1,
+      "found": false,
+      "elapsed_seconds": 0.4574586460003047
+    },
+    {
+      "seed_index": 377,
+      "budget": 4,
+      "sources": 61,
+      "clauses_enumerated": 559736,
+      "distinct_rejection_masks": 0,
+      "dp_states": 1,
+      "found": false,
+      "elapsed_seconds": 0.4593140390006738
+    }
+  ],
+  "witnesses": []
+}

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<stdin>", line 14, in <module>
+  File "/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/assemble_encoded_and_skeleton.py", line 59, in assemble_skeleton
+    assert len(initial_dnfs)==n and all(x is not None for x in initial_dnfs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

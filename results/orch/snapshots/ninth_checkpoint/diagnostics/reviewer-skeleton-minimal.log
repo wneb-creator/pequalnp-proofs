@@ -1,0 +1,5 @@
+Disabled emitter byte equality PASS on clean/dirty fixtures
+PASS512 fixed actual-solver encodings over allflagcombinations, independently compared complete truth and decoded optional predicates
+Mathematical scope: exact independent minimum AND count required. Positive-dead zero replacement or negative-contained-child OR replacement preserves complete monotone boundary and removes one AND; dirty preservation not needed for contradiction.
+and_skeleton_minimal.py 3d1626bceba8f4211f15a99e48df279df8ce95b215df107677df559dd53e49ad
+and_skeleton_orbit_run.py e39da107fe689f407970dada258e13a556a52045052fd0f8de3b481df6084cea

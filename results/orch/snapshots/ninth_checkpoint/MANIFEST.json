@@ -1,0 +1,1438 @@
+[
+  {
+    "file": "lemmas/algebra_strategy/FiveOwnerRectangleBase.build.log",
+    "source": "lemmas/algebra_strategy/FiveOwnerRectangleBase.build.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "lemmas/algebra_strategy/FiveOwnerRectangleBase.lean",
+    "source": "lemmas/algebra_strategy/FiveOwnerRectangleBase.lean",
+    "sha256": "d96e0f9bfec61c145dadd455583a7453516a8688ed5dfcbb533a6e220722ae67",
+    "bytes": 2005,
+    "stored_sha256": "d96e0f9bfec61c145dadd455583a7453516a8688ed5dfcbb533a6e220722ae67",
+    "stored_bytes": 2005,
+    "status": "untracked experimental source; no compilation claim from this snapshot"
+  },
+  {
+    "file": "lemmas/algebra_strategy/FiveOwnerRectangleTables.build.log",
+    "source": "lemmas/algebra_strategy/FiveOwnerRectangleTables.build.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "lemmas/algebra_strategy/FiveOwnerRectangleTables.lean",
+    "source": "lemmas/algebra_strategy/FiveOwnerRectangleTables.lean",
+    "sha256": "12176fe13be6c01844015b3b5e3b0924b02e8aba399d8d5e85997456fcaea36f",
+    "bytes": 2663,
+    "stored_sha256": "12176fe13be6c01844015b3b5e3b0924b02e8aba399d8d5e85997456fcaea36f",
+    "stored_bytes": 2663,
+    "status": "untracked experimental source; no compilation claim from this snapshot"
+  },
+  {
+    "file": "lemmas/algebra_strategy/FiveOwnerRectangles.lean",
+    "source": "lemmas/algebra_strategy/FiveOwnerRectangles.lean",
+    "sha256": "d572dea971bd40857c5af43667ae96286114852e4915db78d3f7ae7553f1e186",
+    "bytes": 8024,
+    "stored_sha256": "d572dea971bd40857c5af43667ae96286114852e4915db78d3f7ae7553f1e186",
+    "stored_bytes": 8024,
+    "status": "untracked experimental source; no compilation claim from this snapshot"
+  },
+  {
+    "file": "lemmas/algebra_strategy/and-skeleton-six-independent-review.json",
+    "source": "lemmas/algebra_strategy/and-skeleton-six-independent-review.json",
+    "sha256": "b6bc65c164594a133a21a3936672f4599a9ed8eb759d012014cf6c503b66dc15",
+    "bytes": 846,
+    "stored_sha256": "b6bc65c164594a133a21a3936672f4599a9ed8eb759d012014cf6c503b66dc15",
+    "stored_bytes": 846
+  },
+  {
+    "file": "lemmas/algebra_strategy/and-skeleton-six-independent-review.log",
+    "source": "lemmas/algebra_strategy/and-skeleton-six-independent-review.log",
+    "sha256": "b6bc65c164594a133a21a3936672f4599a9ed8eb759d012014cf6c503b66dc15",
+    "bytes": 846,
+    "stored_sha256": "b6bc65c164594a133a21a3936672f4599a9ed8eb759d012014cf6c503b66dc15",
+    "stored_bytes": 846
+  },
+  {
+    "file": "lemmas/algebra_strategy/assemble_encoded_and_skeleton.py",
+    "source": "lemmas/algebra_strategy/assemble_encoded_and_skeleton.py",
+    "sha256": "ab2168b206b911ecc3b42d118a934267c8d33d93ba1de4a376b5b9c2017890ea",
+    "bytes": 10499,
+    "stored_sha256": "ab2168b206b911ecc3b42d118a934267c8d33d93ba1de4a376b5b9c2017890ea",
+    "stored_bytes": 10499
+  },
+  {
+    "file": "lemmas/algebra_strategy/assemble_five_skeleton.py",
+    "source": "lemmas/algebra_strategy/assemble_five_skeleton.py",
+    "sha256": "3df23f150deeb12b850859c84100d8cbafa74278a753ce275eef68bf10199ff7",
+    "bytes": 9613,
+    "stored_sha256": "3df23f150deeb12b850859c84100d8cbafa74278a753ce275eef68bf10199ff7",
+    "stored_bytes": 9613
+  },
+  {
+    "file": "lemmas/algebra_strategy/assemble_six_skeleton.py",
+    "source": "lemmas/algebra_strategy/assemble_six_skeleton.py",
+    "sha256": "21610afbeab59f9904700aff84913dac386a731a88aec8b74ebac5b564d9256e",
+    "bytes": 9965,
+    "stored_sha256": "21610afbeab59f9904700aff84913dac386a731a88aec8b74ebac5b564d9256e",
+    "stored_bytes": 9965
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-multiguard-output-guard-search.json",
+    "source": "lemmas/algebra_strategy/five-multiguard-output-guard-search.json",
+    "sha256": "dbeb9b6133f1c4fe10b7b82654b201920e04b28eaac7a7d20c96ce4544abb3e6",
+    "bytes": 4595,
+    "stored_sha256": "dbeb9b6133f1c4fe10b7b82654b201920e04b28eaac7a7d20c96ce4544abb3e6",
+    "stored_bytes": 4595
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-multiguard-output-guard-search.log",
+    "source": "lemmas/algebra_strategy/five-multiguard-output-guard-search.log",
+    "sha256": "d896fa49f540c3f7a69ce59173baf7dc4130eb107f0cd7b8af701acf358b193d",
+    "bytes": 3245,
+    "stored_sha256": "d896fa49f540c3f7a69ce59173baf7dc4130eb107f0cd7b8af701acf358b193d",
+    "stored_bytes": 3245
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-skeleton-baseline-assembled.json",
+    "source": "lemmas/algebra_strategy/five-skeleton-baseline-assembled.json",
+    "sha256": "8593614f4886dbe7f1414388be9bb973bdd7aeac24144d7ce0379e2b6ed69fa4",
+    "bytes": 12343,
+    "stored_sha256": "8593614f4886dbe7f1414388be9bb973bdd7aeac24144d7ce0379e2b6ed69fa4",
+    "stored_bytes": 12343
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-skeleton-baseline.validation.log",
+    "source": "lemmas/algebra_strategy/five-skeleton-baseline.validation.log",
+    "sha256": "08cc9eced7cdba5faecd53cc7665ff96bf9efb857ba068a7a8d9e882e60a25ae",
+    "bytes": 269,
+    "stored_sha256": "08cc9eced7cdba5faecd53cc7665ff96bf9efb857ba068a7a8d9e882e60a25ae",
+    "stored_bytes": 269
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-skeleton-filtered-assembled.json",
+    "source": "lemmas/algebra_strategy/five-skeleton-filtered-assembled.json",
+    "sha256": "9ad5b75c71ecd810fbed9d29cd2dbbc23696f6424aa69cd50e6c3cde7a7f766c",
+    "bytes": 14102,
+    "stored_sha256": "9ad5b75c71ecd810fbed9d29cd2dbbc23696f6424aa69cd50e6c3cde7a7f766c",
+    "stored_bytes": 14102
+  },
+  {
+    "file": "lemmas/algebra_strategy/five-skeleton-filtered.validation.log",
+    "source": "lemmas/algebra_strategy/five-skeleton-filtered.validation.log",
+    "sha256": "6042b39aa54e99afc0190b7a637f3db312eace9550f85a575288af622007fdb2",
+    "bytes": 273,
+    "stored_sha256": "6042b39aa54e99afc0190b7a637f3db312eace9550f85a575288af622007fdb2",
+    "stored_bytes": 273
+  },
+  {
+    "file": "lemmas/algebra_strategy/joint-five-multiguards-independent-review.json",
+    "source": "lemmas/algebra_strategy/joint-five-multiguards-independent-review.json",
+    "sha256": "18810a986e52a9a6b14adab5781ebd0e12610ffa7d86a260a86dc7d681d66a10",
+    "bytes": 96762,
+    "stored_sha256": "18810a986e52a9a6b14adab5781ebd0e12610ffa7d86a260a86dc7d681d66a10",
+    "stored_bytes": 96762
+  },
+  {
+    "file": "lemmas/algebra_strategy/joint-five-multiguards-independent-review.log",
+    "source": "lemmas/algebra_strategy/joint-five-multiguards-independent-review.log",
+    "sha256": "02d7f7b18ccfc0c513e1acd0e5dc4bc96f0b53e87dee8f8600b5cb20280eb1e9",
+    "bytes": 466,
+    "stored_sha256": "02d7f7b18ccfc0c513e1acd0e5dc4bc96f0b53e87dee8f8600b5cb20280eb1e9",
+    "stored_bytes": 466
+  },
+  {
+    "file": "lemmas/algebra_strategy/joint-four-multiguards-independent-review.json",
+    "source": "lemmas/algebra_strategy/joint-four-multiguards-independent-review.json",
+    "sha256": "3245a107a823a312a546cdb9b71f24946138940179474dbb1bfde3ac678d4c04",
+    "bytes": 8468,
+    "stored_sha256": "3245a107a823a312a546cdb9b71f24946138940179474dbb1bfde3ac678d4c04",
+    "stored_bytes": 8468
+  },
+  {
+    "file": "lemmas/algebra_strategy/joint-four-multiguards-independent-review.log",
+    "source": "lemmas/algebra_strategy/joint-four-multiguards-independent-review.log",
+    "sha256": "de29597b514cc20eca05243fe4191369573edbef9150c3e8e2e422cf088b4ed8",
+    "bytes": 462,
+    "stored_sha256": "de29597b514cc20eca05243fe4191369573edbef9150c3e8e2e422cf088b4ed8",
+    "stored_bytes": 462
+  },
+  {
+    "file": "lemmas/algebra_strategy/review_and_skeleton_six.py",
+    "source": "lemmas/algebra_strategy/review_and_skeleton_six.py",
+    "sha256": "285b35d458dccb36da084589fc89741324710cf18c271a25934f4c4644ad480c",
+    "bytes": 2882,
+    "stored_sha256": "285b35d458dccb36da084589fc89741324710cf18c271a25934f4c4644ad480c",
+    "stored_bytes": 2882
+  },
+  {
+    "file": "lemmas/algebra_strategy/review_joint_five_multiguards.py",
+    "source": "lemmas/algebra_strategy/review_joint_five_multiguards.py",
+    "sha256": "3c43c6e6c23f42d4f0b6b60947e4ff43cd53ac4aded93578cff7c6b1eb46ed0d",
+    "bytes": 6100,
+    "stored_sha256": "3c43c6e6c23f42d4f0b6b60947e4ff43cd53ac4aded93578cff7c6b1eb46ed0d",
+    "stored_bytes": 6100
+  },
+  {
+    "file": "lemmas/algebra_strategy/review_joint_four_multiguards.py",
+    "source": "lemmas/algebra_strategy/review_joint_four_multiguards.py",
+    "sha256": "492a5443fe9c04d61394ebb5e576d3f9c7b284785dd26e2c67988a3ffa59fe69",
+    "bytes": 5498,
+    "stored_sha256": "492a5443fe9c04d61394ebb5e576d3f9c7b284785dd26e2c67988a3ffa59fe69",
+    "stored_bytes": 5498
+  },
+  {
+    "file": "lemmas/algebra_strategy/search_five_multiguard_output.py",
+    "source": "lemmas/algebra_strategy/search_five_multiguard_output.py",
+    "sha256": "d538a07d354250c63791e5cbb1ae31cb1ca09bc144701ed0f5268c06feb52796",
+    "bytes": 3294,
+    "stored_sha256": "d538a07d354250c63791e5cbb1ae31cb1ca09bc144701ed0f5268c06feb52796",
+    "stored_bytes": 3294
+  },
+  {
+    "file": "lemmas/algebra_strategy/six-skeleton-baseline-assembled.json",
+    "source": "lemmas/algebra_strategy/six-skeleton-baseline-assembled.json",
+    "sha256": "2a91035b04af191be8a407c9651f156d121d911f57693d69ce17f2f7e8e64122",
+    "bytes": 13879,
+    "stored_sha256": "2a91035b04af191be8a407c9651f156d121d911f57693d69ce17f2f7e8e64122",
+    "stored_bytes": 13879
+  },
+  {
+    "file": "lemmas/algebra_strategy/six-skeleton-baseline.validation.log",
+    "source": "lemmas/algebra_strategy/six-skeleton-baseline.validation.log",
+    "sha256": "259f9bcbf6b9bc13791abd0e354a05fcf452a9e6927c85fb0a54e2516fc3c06b",
+    "bytes": 267,
+    "stored_sha256": "259f9bcbf6b9bc13791abd0e354a05fcf452a9e6927c85fb0a54e2516fc3c06b",
+    "stored_bytes": 267
+  },
+  {
+    "file": "lemmas/algebra_strategy/six-skeleton-filtered-assembled.json",
+    "source": "lemmas/algebra_strategy/six-skeleton-filtered-assembled.json",
+    "sha256": "52a011920ca816eee50785a4125bb91aa1bc2fadcaeefacb4a9268189f46df05",
+    "bytes": 15780,
+    "stored_sha256": "52a011920ca816eee50785a4125bb91aa1bc2fadcaeefacb4a9268189f46df05",
+    "stored_bytes": 15780
+  },
+  {
+    "file": "lemmas/algebra_strategy/six-skeleton-filtered.validation.log",
+    "source": "lemmas/algebra_strategy/six-skeleton-filtered.validation.log",
+    "sha256": "bcbd2b99a56398bf90a5170ca283ff565cac439d5c73e3edf375f85d04985c62",
+    "bytes": 270,
+    "stored_sha256": "bcbd2b99a56398bf90a5170ca283ff565cac439d5c73e3edf375f85d04985c62",
+    "stored_bytes": 270
+  },
+  {
+    "file": "lemmas/circuit_search/active-profiles.json",
+    "source": "lemmas/circuit_search/active-profiles.json",
+    "sha256": "4625b7161a8031361d905021b150d123920e905acbd6b79af9cb54002f7d8448",
+    "bytes": 1447,
+    "stored_sha256": "4625b7161a8031361d905021b150d123920e905acbd6b79af9cb54002f7d8448",
+    "stored_bytes": 1447
+  },
+  {
+    "file": "lemmas/circuit_search/archive-smoke.validation.json",
+    "source": "lemmas/circuit_search/archive-smoke.validation.json",
+    "sha256": "3a85f14cd53cc0f3606a5f0d307cd4b50c3b245bdc3a0a57a309c158dd718b6a",
+    "bytes": 3511,
+    "stored_sha256": "3a85f14cd53cc0f3606a5f0d307cd4b50c3b245bdc3a0a57a309c158dd718b6a",
+    "stored_bytes": 3511
+  },
+  {
+    "file": "lemmas/circuit_search/archive-smoke.validation.log",
+    "source": "lemmas/circuit_search/archive-smoke.validation.log",
+    "sha256": "2d4b4fa4687c24a9ff1f4f32c688245774103ac148b6a4cf1e133a3a1ce3e85c",
+    "bytes": 142,
+    "stored_sha256": "2d4b4fa4687c24a9ff1f4f32c688245774103ac148b6a4cf1e133a3a1ce3e85c",
+    "stored_bytes": 142
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-joint-five-min5-interrupted.log",
+    "source": "lemmas/circuit_search/circuit-search-joint-five-min5-interrupted.log",
+    "sha256": "49e283a60e427f9a14b36bb0993688f2a8062a93f6d2751439a1d0e54ae6f55b",
+    "bytes": 5805,
+    "stored_sha256": "49e283a60e427f9a14b36bb0993688f2a8062a93f6d2751439a1d0e54ae6f55b",
+    "stored_bytes": 5805
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-joint-five-six-and.live.log",
+    "source": "lemmas/circuit_search/circuit-search-joint-five-six-and.live.log",
+    "sha256": "4a2a1e93e85d6c7182ec2448deb41a6cfe25816f056ef7c4a79ea1e4d337ea6c",
+    "bytes": 4079,
+    "stored_sha256": "4a2a1e93e85d6c7182ec2448deb41a6cfe25816f056ef7c4a79ea1e4d337ea6c",
+    "stored_bytes": 4079
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-joint-four-multiguard-priority.live.log",
+    "source": "lemmas/circuit_search/circuit-search-joint-four-multiguard-priority.live.log",
+    "sha256": "de122d203657e3910d02d263d5918d8a98eecd5834433a9b55003ef6fa30ac21",
+    "bytes": 4091,
+    "stored_sha256": "de122d203657e3910d02d263d5918d8a98eecd5834433a9b55003ef6fa30ac21",
+    "stored_bytes": 4091
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-joint-four-priority.log",
+    "source": "lemmas/circuit_search/circuit-search-joint-four-priority.log",
+    "sha256": "1d6fc09ccc5b8f7a6f7f1e9e7749df591678e0dea2a78c4b4484c86a29c8d860",
+    "bytes": 9568,
+    "stored_sha256": "1d6fc09ccc5b8f7a6f7f1e9e7749df591678e0dea2a78c4b4484c86a29c8d860",
+    "stored_bytes": 9568
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-joint-six.log",
+    "source": "lemmas/circuit_search/circuit-search-joint-six.log",
+    "sha256": "ca7fd5b6a295f0c704b9f6a417d4f314c72531cc42dba1ef97a73f196ad05d06",
+    "bytes": 9454,
+    "stored_sha256": "ca7fd5b6a295f0c704b9f6a417d4f314c72531cc42dba1ef97a73f196ad05d06",
+    "stored_bytes": 9454
+  },
+  {
+    "file": "lemmas/circuit_search/five-archive-smoke-all-positive.json",
+    "source": "lemmas/circuit_search/five-archive-smoke-all-positive.json",
+    "sha256": "6828b59fc8f91ddcbad02007abde39f70074ef43d32056e98336cdd21f61693b",
+    "bytes": 242,
+    "stored_sha256": "6828b59fc8f91ddcbad02007abde39f70074ef43d32056e98336cdd21f61693b",
+    "stored_bytes": 242
+  },
+  {
+    "file": "lemmas/circuit_search/five-archive-smoke-pool.json",
+    "source": "lemmas/circuit_search/five-archive-smoke-pool.json",
+    "sha256": "57f06ba0187ff225a4d430246eb15dc91f7d84d788568afc1ebfb9c71d84aab4",
+    "bytes": 2540,
+    "stored_sha256": "57f06ba0187ff225a4d430246eb15dc91f7d84d788568afc1ebfb9c71d84aab4",
+    "stored_bytes": 2540
+  },
+  {
+    "file": "lemmas/circuit_search/five-archive-smoke.log",
+    "source": "lemmas/circuit_search/five-archive-smoke.log",
+    "sha256": "51e1c7f241f109f3b0dd4d9da3b8887744dc5229bbc680d7bae2e004a99049db",
+    "bytes": 159,
+    "stored_sha256": "51e1c7f241f109f3b0dd4d9da3b8887744dc5229bbc680d7bae2e004a99049db",
+    "stored_bytes": 159
+  },
+  {
+    "file": "lemmas/circuit_search/five-kraft-small-pairs.json",
+    "source": "lemmas/circuit_search/five-kraft-small-pairs.json",
+    "sha256": "d905a8d7d9cce4cebfd1aafb9833cb83a5e0c9d501224c04ac43928f6f0f0dcb",
+    "bytes": 1403,
+    "stored_sha256": "d905a8d7d9cce4cebfd1aafb9833cb83a5e0c9d501224c04ac43928f6f0f0dcb",
+    "stored_bytes": 1403
+  },
+  {
+    "file": "lemmas/circuit_search/fold_five_seed_semantics.py",
+    "source": "lemmas/circuit_search/fold_five_seed_semantics.py",
+    "sha256": "547c636882d2f3910ae6d1bc45d3e519058aa76c73ae1504ad80d3af0e6a3d31",
+    "bytes": 2238,
+    "stored_sha256": "547c636882d2f3910ae6d1bc45d3e519058aa76c73ae1504ad80d3af0e6a3d31",
+    "stored_bytes": 2238
+  },
+  {
+    "file": "lemmas/circuit_search/four-archive-smoke-all-positive.json",
+    "source": "lemmas/circuit_search/four-archive-smoke-all-positive.json",
+    "sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "bytes": 188,
+    "stored_sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "stored_bytes": 188
+  },
+  {
+    "file": "lemmas/circuit_search/four-archive-smoke-pool.json",
+    "source": "lemmas/circuit_search/four-archive-smoke-pool.json",
+    "sha256": "5fff38c1488d6433038752ea4e3de2f48ffd6bc3ecd38682e8e721235cdb39f9",
+    "bytes": 6320,
+    "stored_sha256": "5fff38c1488d6433038752ea4e3de2f48ffd6bc3ecd38682e8e721235cdb39f9",
+    "stored_bytes": 6320
+  },
+  {
+    "file": "lemmas/circuit_search/four-archive-smoke.log",
+    "source": "lemmas/circuit_search/four-archive-smoke.log",
+    "sha256": "cee7918b4cc29ea88ba97deb8d2590c2b019500bf4a2d8a883c04dbd7cea8832",
+    "bytes": 169,
+    "stored_sha256": "cee7918b4cc29ea88ba97deb8d2590c2b019500bf4a2d8a883c04dbd7cea8832",
+    "stored_bytes": 169
+  },
+  {
+    "file": "lemmas/circuit_search/generate_joint_five_multiguards.py",
+    "source": "lemmas/circuit_search/generate_joint_five_multiguards.py",
+    "sha256": "77ab127de5225d6ccc2db05df0325e0f26e4115176ee383127f9efb313666fbb",
+    "bytes": 6002,
+    "stored_sha256": "77ab127de5225d6ccc2db05df0325e0f26e4115176ee383127f9efb313666fbb",
+    "stored_bytes": 6002
+  },
+  {
+    "file": "lemmas/circuit_search/generate_joint_four_multiguards.py",
+    "source": "lemmas/circuit_search/generate_joint_four_multiguards.py",
+    "sha256": "0b6e8a8ee46d1c4b15831801f8ff1bf2bc26ad9b04475e7ea1d61493462a6e98",
+    "bytes": 5952,
+    "stored_sha256": "0b6e8a8ee46d1c4b15831801f8ff1bf2bc26ad9b04475e7ea1d61493462a6e98",
+    "stored_bytes": 5952
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-best-8-full63.assembly.json",
+    "source": "lemmas/circuit_search/joint-five-best-8-full63.assembly.json",
+    "sha256": "b61ed5c73dbb79f419caa009db103ebd631ec45efc774c866038a42ffc0e0d7d",
+    "bytes": 134,
+    "stored_sha256": "b61ed5c73dbb79f419caa009db103ebd631ec45efc774c866038a42ffc0e0d7d",
+    "stored_bytes": 134
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-best-8-full63.json",
+    "source": "lemmas/circuit_search/joint-five-best-8-full63.json",
+    "sha256": "c5c2dfff4e9b1d7496e3b031e07ea762486c8268f9df6b2290b4237154ec8cdb",
+    "bytes": 809,
+    "stored_sha256": "c5c2dfff4e9b1d7496e3b031e07ea762486c8268f9df6b2290b4237154ec8cdb",
+    "stored_bytes": 809
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-best-8.json",
+    "source": "lemmas/circuit_search/joint-five-best-8.json",
+    "sha256": "2e9353e9fe0092a1db5c467ffe6f97b35dfb973fd5221685887cefd75fbfdc6d",
+    "bytes": 243,
+    "stored_sha256": "2e9353e9fe0092a1db5c467ffe6f97b35dfb973fd5221685887cefd75fbfdc6d",
+    "stored_bytes": 243
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-best-8.validation.json",
+    "source": "lemmas/circuit_search/joint-five-best-8.validation.json",
+    "sha256": "5453a459640f457c19851fb61647d92c2ee2800d67ae80c52539e61be8bfde13",
+    "bytes": 439,
+    "stored_sha256": "5453a459640f457c19851fb61647d92c2ee2800d67ae80c52539e61be8bfde13",
+    "stored_bytes": 439
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-best-8.validation.log",
+    "source": "lemmas/circuit_search/joint-five-best-8.validation.log",
+    "sha256": "2968bc8b99af60b8881358087df4bca845962e3f568111b7a0607344a0a3b6fe",
+    "bytes": 361,
+    "stored_sha256": "2968bc8b99af60b8881358087df4bca845962e3f568111b7a0607344a0a3b6fe",
+    "stored_bytes": 361
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-min5-stop.json",
+    "source": "lemmas/circuit_search/joint-five-min5-stop.json",
+    "sha256": "82a2c02fe5379141261e52c2a684bf9f1927dd1a89a8b6b022faef99d5479266",
+    "bytes": 195,
+    "stored_sha256": "82a2c02fe5379141261e52c2a684bf9f1927dd1a89a8b6b022faef99d5479266",
+    "stored_bytes": 195
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-multiguard-seeds.json",
+    "source": "lemmas/circuit_search/joint-five-multiguard-seeds.json",
+    "sha256": "cb87e34e576fcc83e3c9d75a1f7028b11bd69466d98819889ea460e10e163517",
+    "bytes": 248766,
+    "stored_sha256": "cb87e34e576fcc83e3c9d75a1f7028b11bd69466d98819889ea460e10e163517",
+    "stored_bytes": 248766
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-multiguards.log",
+    "source": "lemmas/circuit_search/joint-five-multiguards.log",
+    "sha256": "00c10e8fdab9551b14195af07a06931e3a20115fc07d30a9266aa5bd60138a7e",
+    "bytes": 97,
+    "stored_sha256": "00c10e8fdab9551b14195af07a06931e3a20115fc07d30a9266aa5bd60138a7e",
+    "stored_bytes": 97
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-neutral-folds.json",
+    "source": "lemmas/circuit_search/joint-five-neutral-folds.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "stored_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "stored_bytes": 2
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-neutral-folds.log",
+    "source": "lemmas/circuit_search/joint-five-neutral-folds.log",
+    "sha256": "698363fa27ba1b409725d8a996f8e0aa1e0ace6976b767f6e6c3106483f47173",
+    "bytes": 61,
+    "stored_sha256": "698363fa27ba1b409725d8a996f8e0aa1e0ace6976b767f6e6c3106483f47173",
+    "stored_bytes": 61
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-six-and-expanded-seeds.json",
+    "source": "lemmas/circuit_search/joint-five-six-and-expanded-seeds.json",
+    "sha256": "40bdd9a31b21db5eafe1a34b47b4ba5d56fbf782ece2dec5d46b54418db7e31a",
+    "bytes": 255054,
+    "stored_sha256": "40bdd9a31b21db5eafe1a34b47b4ba5d56fbf782ece2dec5d46b54418db7e31a",
+    "stored_bytes": 255054
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-six-and-seeds-before-multiguards.txt",
+    "source": "lemmas/circuit_search/joint-five-six-and-seeds-before-multiguards.txt",
+    "sha256": "f8b4d1e297b931880c100b8b22d37853f5478495f0d95568545f5eab99d9f07b",
+    "bytes": 2091,
+    "stored_sha256": "f8b4d1e297b931880c100b8b22d37853f5478495f0d95568545f5eab99d9f07b",
+    "stored_bytes": 2091
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-six-and-seeds.json",
+    "source": "lemmas/circuit_search/joint-five-six-and-seeds.json",
+    "sha256": "49e7ec5dd269184c060c3877b9c1e9b52a55b4ebbf4f554c93aff687d61b2513",
+    "bytes": 6288,
+    "stored_sha256": "49e7ec5dd269184c060c3877b9c1e9b52a55b4ebbf4f554c93aff687d61b2513",
+    "stored_bytes": 6288
+  },
+  {
+    "file": "lemmas/circuit_search/joint-five-six-and-seeds.txt",
+    "source": "lemmas/circuit_search/joint-five-six-and-seeds.txt",
+    "sha256": "394a0945c8251730445bf71f21a6e40fa51b005763e3dbe61b16f9f356021e67",
+    "bytes": 66261,
+    "stored_sha256": "394a0945c8251730445bf71f21a6e40fa51b005763e3dbe61b16f9f356021e67",
+    "stored_bytes": 66261
+  },
+  {
+    "file": "lemmas/circuit_search/joint-four-multiguard-seeds.json",
+    "source": "lemmas/circuit_search/joint-four-multiguard-seeds.json",
+    "sha256": "4de28134d5235310c3d89f51246cae53ff48e896426f01edf98c20636f61f9df",
+    "bytes": 18520,
+    "stored_sha256": "4de28134d5235310c3d89f51246cae53ff48e896426f01edf98c20636f61f9df",
+    "stored_bytes": 18520
+  },
+  {
+    "file": "lemmas/circuit_search/joint-four-multiguards.log",
+    "source": "lemmas/circuit_search/joint-four-multiguards.log",
+    "sha256": "d47cf7a51ff87261ed4fc5da2cdde397430871b5c48b0bd68e5f15a017ab8e1d",
+    "bytes": 94,
+    "stored_sha256": "d47cf7a51ff87261ed4fc5da2cdde397430871b5c48b0bd68e5f15a017ab8e1d",
+    "stored_bytes": 94
+  },
+  {
+    "file": "lemmas/circuit_search/joint-four-priority-final.json",
+    "source": "lemmas/circuit_search/joint-four-priority-final.json",
+    "sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "bytes": 188,
+    "stored_sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "stored_bytes": 188
+  },
+  {
+    "file": "lemmas/circuit_search/joint-four-priority-multiguard-seeds.txt",
+    "source": "lemmas/circuit_search/joint-four-priority-multiguard-seeds.txt",
+    "sha256": "f452ff9867c59713fc1377606da6f749137ee449add74543282821db080ee23e",
+    "bytes": 4483,
+    "stored_sha256": "f452ff9867c59713fc1377606da6f749137ee449add74543282821db080ee23e",
+    "stored_bytes": 4483
+  },
+  {
+    "file": "lemmas/circuit_search/joint4multiguard-all-positive.json",
+    "source": "lemmas/circuit_search/joint4multiguard-all-positive.json",
+    "sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "bytes": 188,
+    "stored_sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5",
+    "stored_bytes": 188
+  },
+  {
+    "file": "lemmas/circuit_search/joint5polish-all-positive.json",
+    "source": "lemmas/circuit_search/joint5polish-all-positive.json",
+    "sha256": "2e9353e9fe0092a1db5c467ffe6f97b35dfb973fd5221685887cefd75fbfdc6d",
+    "bytes": 243,
+    "stored_sha256": "2e9353e9fe0092a1db5c467ffe6f97b35dfb973fd5221685887cefd75fbfdc6d",
+    "stored_bytes": 243
+  },
+  {
+    "file": "lemmas/circuit_search/joint5six-all-positive.json",
+    "source": "lemmas/circuit_search/joint5six-all-positive.json",
+    "sha256": "6828b59fc8f91ddcbad02007abde39f70074ef43d32056e98336cdd21f61693b",
+    "bytes": 242,
+    "stored_sha256": "6828b59fc8f91ddcbad02007abde39f70074ef43d32056e98336cdd21f61693b",
+    "stored_bytes": 242
+  },
+  {
+    "file": "lemmas/circuit_search/search_feature_costtable_archive.cpp",
+    "source": "lemmas/circuit_search/search_feature_costtable_archive.cpp",
+    "sha256": "dd10ac37889938f876553601f85e976ae2dd5ee409f6dbc1a927b615aab9a0d0",
+    "bytes": 28768,
+    "stored_sha256": "dd10ac37889938f876553601f85e976ae2dd5ee409f6dbc1a927b615aab9a0d0",
+    "stored_bytes": 28768
+  },
+  {
+    "file": "lemmas/circuit_search/search_feature_priority_archive.cpp",
+    "source": "lemmas/circuit_search/search_feature_priority_archive.cpp",
+    "sha256": "987f9f2253bfcc911f117e27a7504400d42e2a554fe8593b9f898c547bfc31a2",
+    "bytes": 28651,
+    "stored_sha256": "987f9f2253bfcc911f117e27a7504400d42e2a554fe8593b9f898c547bfc31a2",
+    "stored_bytes": 28651
+  },
+  {
+    "file": "lemmas/circuit_search/validate_archive_pool.py",
+    "source": "lemmas/circuit_search/validate_archive_pool.py",
+    "sha256": "833c0a3e9323ac421100a005676a0baef0d63346a37bfd84ab8869134f13aa22",
+    "bytes": 2226,
+    "stored_sha256": "833c0a3e9323ac421100a005676a0baef0d63346a37bfd84ab8869134f13aa22",
+    "stored_bytes": 2226
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and-skeleton-minimal-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and-skeleton-minimal-calibration.log",
+    "sha256": "c56e1a05e6b1c5b703aa343201ebb7643db54fc971bcee94107997aa7b9f8984",
+    "bytes": 92,
+    "stored_sha256": "c56e1a05e6b1c5b703aa343201ebb7643db54fc971bcee94107997aa7b9f8984",
+    "stored_bytes": 92
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and-skeleton-minimal-emitter-equivalence.log",
+    "source": "lemmas/lean_baseline/sat/and-skeleton-minimal-emitter-equivalence.log",
+    "sha256": "9b8d37e97fe4b9a83a823c513f504438c3098ffb25720b5ef052fe30ab6c7adf",
+    "bytes": 108,
+    "stored_sha256": "9b8d37e97fe4b9a83a823c513f504438c3098ffb25720b5ef052fe30ab6c7adf",
+    "stored_bytes": 108
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and-skeleton-minimal-full-baseline.log",
+    "source": "lemmas/lean_baseline/sat/and-skeleton-minimal-full-baseline.log",
+    "sha256": "704877950876790bc0c49df9e0b02b91d98705955484b642efc09b7ebcf6be87",
+    "bytes": 113,
+    "stored_sha256": "704877950876790bc0c49df9e0b02b91d98705955484b642efc09b7ebcf6be87",
+    "stored_bytes": 113
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and-skeleton-orbits-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and-skeleton-orbits-calibration.log",
+    "sha256": "6bbbf47f41e562b42a196011cbe31a3aeff82ab343d23dfa9e017fbd677ca9ba",
+    "bytes": 396,
+    "stored_sha256": "6bbbf47f41e562b42a196011cbe31a3aeff82ab343d23dfa9e017fbd677ca9ba",
+    "stored_bytes": 396
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and-skeleton-orbits-minimal-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and-skeleton-orbits-minimal-calibration.log",
+    "sha256": "04cbfeec5dace425b089fee43b43f4a41c3d9fb78478f779ef7b164a650f7db6",
+    "bytes": 383,
+    "stored_sha256": "04cbfeec5dace425b089fee43b43f4a41c3d9fb78478f779ef7b164a650f7db6",
+    "stored_bytes": 383
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and5-constrained-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and5-constrained-calibration.log",
+    "sha256": "657de6e6948e2a199f5deb2f12778b070dc598a959469d03308913f5ba6e62a9",
+    "bytes": 815,
+    "stored_sha256": "657de6e6948e2a199f5deb2f12778b070dc598a959469d03308913f5ba6e62a9",
+    "stored_bytes": 815
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and5-data-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and5-data-calibration.log",
+    "sha256": "3053bcfc33af9524ee81f3552f4d2a845326959232157fc37dc94b3c30fcad6e",
+    "bytes": 479,
+    "stored_sha256": "3053bcfc33af9524ee81f3552f4d2a845326959232157fc37dc94b3c30fcad6e",
+    "stored_bytes": 479
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and5-equality-slack-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and5-equality-slack-calibration.log",
+    "sha256": "220a6c1beac78b9fe93c9e1b8d633bf461d478329e64941962eaab7257b2a1cd",
+    "bytes": 844,
+    "stored_sha256": "220a6c1beac78b9fe93c9e1b8d633bf461d478329e64941962eaab7257b2a1cd",
+    "stored_bytes": 844
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and6-data-calibration.log",
+    "source": "lemmas/lean_baseline/sat/and6-data-calibration.log",
+    "sha256": "88213a4d91ec8c25f3468f863c61893783e3e2e4e340819ab73ab7d55ac266f3",
+    "bytes": 457,
+    "stored_sha256": "88213a4d91ec8c25f3468f863c61893783e3e2e4e340819ab73ab7d55ac266f3",
+    "stored_bytes": 457
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/model-spec.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/model-spec.json",
+    "sha256": "028a8a61b2af65ee1a529ea940b56216218dc109cb98594413b87f59b2c3f96e",
+    "bytes": 435,
+    "stored_sha256": "028a8a61b2af65ee1a529ea940b56216218dc109cb98594413b87f59b2c3f96e",
+    "stored_bytes": 435
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/phase.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/phase.json",
+    "sha256": "2d90c9fa9824a3262005d17aaecda91461f428f6ef8a9e8210a71acde0ed5a33",
+    "bytes": 665,
+    "stored_sha256": "2d90c9fa9824a3262005d17aaecda91461f428f6ef8a9e8210a71acde0ed5a33",
+    "stored_bytes": 665
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/solver.log",
+    "source": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/solver.log",
+    "sha256": "e271cf935c1f166ffb76710afb13a75058359fb4aff22ae0e680bba5e84db7f9",
+    "bytes": 491,
+    "stored_sha256": "e271cf935c1f166ffb76710afb13a75058359fb4aff22ae0e680bba5e84db7f9",
+    "stored_bytes": 491
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/status.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/dirty13_uncut_1200s/status.json",
+    "sha256": "025a1565b127489122f6b61096da852f5dbb1a64c7023f8233a0a3c77595fca5",
+    "bytes": 169,
+    "stored_sha256": "025a1565b127489122f6b61096da852f5dbb1a64c7023f8233a0a3c77595fca5",
+    "stored_bytes": 169
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/model-spec.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/model-spec.json",
+    "sha256": "9397efc8c549b0fbeea097d7565dbe408736218d8597ecfe5501e1efa592efbc",
+    "bytes": 1027,
+    "stored_sha256": "9397efc8c549b0fbeea097d7565dbe408736218d8597ecfe5501e1efa592efbc",
+    "stored_bytes": 1027
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/orbit-clauses.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/orbit-clauses.json",
+    "sha256": "3fce40b3cba12f2df3ce6c6d751a95e9554de11c6167202713684c53fe321caf",
+    "bytes": 278,
+    "stored_sha256": "3fce40b3cba12f2df3ce6c6d751a95e9554de11c6167202713684c53fe321caf",
+    "stored_bytes": 278
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/phase.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/phase.json",
+    "sha256": "f2e1175010643fd590c146a596c89e6030d8346c64b59f1941a17cd7f8a4ed6e",
+    "bytes": 665,
+    "stored_sha256": "f2e1175010643fd590c146a596c89e6030d8346c64b59f1941a17cd7f8a4ed6e",
+    "stored_bytes": 665
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/solver.log",
+    "source": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/solver.log",
+    "sha256": "1584ee661efd3c8f5cb4f23d8bfedd8d0558acbb0ed3399f4c1725b576c2fe22",
+    "bytes": 310,
+    "stored_sha256": "1584ee661efd3c8f5cb4f23d8bfedd8d0558acbb0ed3399f4c1725b576c2fe22",
+    "stored_bytes": 310
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/status.json",
+    "source": "lemmas/lean_baseline/sat/and_archive/orbit13_300s/status.json",
+    "sha256": "6a80d61a384f4b6688d7c8f5e5418c0df992a61b5c0455f08626733d421cb911",
+    "bytes": 118,
+    "stored_sha256": "6a80d61a384f4b6688d7c8f5e5418c0df992a61b5c0455f08626733d421cb911",
+    "stored_bytes": 118
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_count_run.py",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_count_run.py",
+    "sha256": "35c264aa93c8baf36261d3cf948a2fd9f450ebf8d12349f34cbd197d5a57bd39",
+    "bytes": 5371,
+    "stored_sha256": "35c264aa93c8baf36261d3cf948a2fd9f450ebf8d12349f34cbd197d5a57bd39",
+    "stored_bytes": 5371
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_five_baseline5.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_five_baseline5.json",
+    "sha256": "6b825a7bba7b2cc3b2bf72066ad89a0932854e0b7b17c94de71070e1300d9c8d",
+    "bytes": 666,
+    "stored_sha256": "6b825a7bba7b2cc3b2bf72066ad89a0932854e0b7b17c94de71070e1300d9c8d",
+    "stored_bytes": 666
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_five_data.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_five_data.json",
+    "sha256": "1bbf4128c0c69c9d84f03ef641727743e9f105ea7ce22c62123e5b4296715086",
+    "bytes": 1685,
+    "stored_sha256": "1bbf4128c0c69c9d84f03ef641727743e9f105ea7ce22c62123e5b4296715086",
+    "stored_bytes": 1685
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_five_dirty_pairs.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_five_dirty_pairs.json",
+    "sha256": "f802a994cd31122033bc60b566ea4ba93b64689691aef3eea65284e23248f822",
+    "bytes": 139,
+    "stored_sha256": "f802a994cd31122033bc60b566ea4ba93b64689691aef3eea65284e23248f822",
+    "stored_bytes": 139
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_five_filtered5_phase.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_five_filtered5_phase.json",
+    "sha256": "8aaefbd1a5f10f64f3134223bac73534789205406ce2d0b34c40c0ef0e83417d",
+    "bytes": 688,
+    "stored_sha256": "8aaefbd1a5f10f64f3134223bac73534789205406ce2d0b34c40c0ef0e83417d",
+    "stored_bytes": 688
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_full_exact_dirty14_phase.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_full_exact_dirty14_phase.json",
+    "sha256": "c3fbc343df34b0ba8bc6542ec87ba6168e92cdd5125743645226f95942ac589d",
+    "bytes": 1416,
+    "stored_sha256": "c3fbc343df34b0ba8bc6542ec87ba6168e92cdd5125743645226f95942ac589d",
+    "stored_bytes": 1416
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_minimal.py",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_minimal.py",
+    "sha256": "4a2d092d2696080d24bfb6a4d3945e387fba31ef214d7fe00737a7a88dd6e8d6",
+    "bytes": 7644,
+    "stored_sha256": "4a2d092d2696080d24bfb6a4d3945e387fba31ef214d7fe00737a7a88dd6e8d6",
+    "stored_bytes": 7644
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_minimal_calibration.py",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_minimal_calibration.py",
+    "sha256": "aeed30f11172303e859aae17edc9c722347312b4b0ca62df5811a12ca7847aaa",
+    "bytes": 3576,
+    "stored_sha256": "aeed30f11172303e859aae17edc9c722347312b4b0ca62df5811a12ca7847aaa",
+    "stored_bytes": 3576
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_orbit_run.py",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_orbit_run.py",
+    "sha256": "e39da107fe689f407970dada258e13a556a52045052fd0f8de3b481df6084cea",
+    "bytes": 5530,
+    "stored_sha256": "e39da107fe689f407970dada258e13a556a52045052fd0f8de3b481df6084cea",
+    "stored_bytes": 5530
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_six_baseline6.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_six_baseline6.json",
+    "sha256": "a4e09fa6956eed8e3d86418c8cbf0fbcdf38c8d25ce5e7c558141cf1e798c23f",
+    "bytes": 663,
+    "stored_sha256": "a4e09fa6956eed8e3d86418c8cbf0fbcdf38c8d25ce5e7c558141cf1e798c23f",
+    "stored_bytes": 663
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_six_data.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_six_data.json",
+    "sha256": "61870aeac33bc1455a2eb33d0557927d4d16019075f8a7e58d9d16fb76d98043",
+    "bytes": 2479,
+    "stored_sha256": "61870aeac33bc1455a2eb33d0557927d4d16019075f8a7e58d9d16fb76d98043",
+    "stored_bytes": 2479
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/and_skeleton_six_filtered6_phase.json",
+    "source": "lemmas/lean_baseline/sat/and_skeleton_six_filtered6_phase.json",
+    "sha256": "433b660aec5b1af9adb97c24708a62d6043b35c6dd85edcac138a108f4f03be1",
+    "bytes": 811,
+    "stored_sha256": "433b660aec5b1af9adb97c24708a62d6043b35c6dd85edcac138a108f4f03be1",
+    "stored_bytes": 811
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/full_double_star_exact66_phases.json",
+    "source": "lemmas/lean_baseline/sat/full_double_star_exact66_phases.json",
+    "sha256": "763647802da03a6598a9262288c0b7864ffd8244d7fdd8ec2670c409eb9fc55f",
+    "bytes": 279031,
+    "stored_sha256": "763647802da03a6598a9262288c0b7864ffd8244d7fdd8ec2670c409eb9fc55f",
+    "stored_bytes": 279031
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/generate_double_star_phases.py",
+    "source": "lemmas/lean_baseline/sat/generate_double_star_phases.py",
+    "sha256": "35980840b9901005797ccc68e5642f8a911c21c5ad1d48a57d4043d8c0c91cb2",
+    "bytes": 3679,
+    "stored_sha256": "35980840b9901005797ccc68e5642f8a911c21c5ad1d48a57d4043d8c0c91cb2",
+    "stored_bytes": 3679
+  },
+  {
+    "file": "lemmas/lower_bound/sat/SEARCH_VALIDATION.txt",
+    "source": "lemmas/lower_bound/sat/SEARCH_VALIDATION.txt",
+    "sha256": "80f859df19dfe41c1b632d21336b01984a881510017002779d797853517d7d8f",
+    "bytes": 20625,
+    "stored_sha256": "80f859df19dfe41c1b632d21336b01984a881510017002779d797853517d7d8f",
+    "stored_bytes": 20625
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_dirty_pair_orbits.json",
+    "source": "lemmas/lower_bound/sat/five_dirty_pair_orbits.json",
+    "sha256": "68ebda4c8c9cf89e2e7709d17441393b0b004d195cbee7a5a42c0cf45bfb9f46",
+    "bytes": 13137,
+    "stored_sha256": "68ebda4c8c9cf89e2e7709d17441393b0b004d195cbee7a5a42c0cf45bfb9f46",
+    "stored_bytes": 13137
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_feature_alias_phases.json",
+    "source": "lemmas/lower_bound/sat/five_feature_alias_phases.json",
+    "sha256": "049752ddf83ecab1d2f7dd9816ecde89120d39118a94f81a2c6430152b88e368",
+    "bytes": 5911,
+    "stored_sha256": "049752ddf83ecab1d2f7dd9816ecde89120d39118a94f81a2c6430152b88e368",
+    "stored_bytes": 5911
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_feature_zero_counts.json",
+    "source": "lemmas/lower_bound/sat/five_feature_zero_counts.json",
+    "sha256": "9089ca2802c4b278f1f48b59396eea83af75042d6f1bcd6fe41eaefc36d1c82a",
+    "bytes": 4421,
+    "stored_sha256": "9089ca2802c4b278f1f48b59396eea83af75042d6f1bcd6fe41eaefc36d1c82a",
+    "stored_bytes": 4421
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_first_and_census.json",
+    "source": "lemmas/lower_bound/sat/five_first_and_census.json",
+    "sha256": "5ef13f847147c0ed834195787186b74161a61ba3efd72d5cf5faf80707a3a2aa",
+    "bytes": 2637,
+    "stored_sha256": "5ef13f847147c0ed834195787186b74161a61ba3efd72d5cf5faf80707a3a2aa",
+    "stored_bytes": 2637
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_input_and_pair_census.json",
+    "source": "lemmas/lower_bound/sat/five_input_and_pair_census.json",
+    "sha256": "15141d71ab554f2506ddd3f07e7ddabad2541bc36683406ec616f76fc244136f",
+    "bytes": 581,
+    "stored_sha256": "15141d71ab554f2506ddd3f07e7ddabad2541bc36683406ec616f76fc244136f",
+    "stored_bytes": 581
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_line_restriction_counts.json",
+    "source": "lemmas/lower_bound/sat/five_line_restriction_counts.json",
+    "sha256": "8c8334ac3d0b081e6cfc81f633ef20f2b88b82fb751f25d2785547f0470b93a3",
+    "bytes": 933,
+    "stored_sha256": "8c8334ac3d0b081e6cfc81f633ef20f2b88b82fb751f25d2785547f0470b93a3",
+    "stored_bytes": 933
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_multiguard_full_unfold_plans.json",
+    "source": "lemmas/lower_bound/sat/five_multiguard_full_unfold_plans.json",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "bytes": 3,
+    "stored_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "stored_bytes": 3
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_multiguard_phase_candidates.json",
+    "source": "lemmas/lower_bound/sat/five_multiguard_phase_candidates.json",
+    "sha256": "4240dd9a65d340b498fb59034166d06284093673838636c6d757ee903300b748",
+    "bytes": 25619,
+    "stored_sha256": "4240dd9a65d340b498fb59034166d06284093673838636c6d757ee903300b748",
+    "stored_bytes": 25619
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_phase_and_semantics.json",
+    "source": "lemmas/lower_bound/sat/five_phase_and_semantics.json",
+    "sha256": "e84f40c3180fe9cb76dd784e988860f88cf81c2892316de950527dc5dd7db340",
+    "bytes": 3712,
+    "stored_sha256": "e84f40c3180fe9cb76dd784e988860f88cf81c2892316de950527dc5dd7db340",
+    "stored_bytes": 3712
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_point_line_or_census.json",
+    "source": "lemmas/lower_bound/sat/five_point_line_or_census.json",
+    "sha256": "4034890453779ed6d82aff06537182a8e1880b1e7053864abd577e1a855f3263",
+    "bytes": 7719,
+    "stored_sha256": "4034890453779ed6d82aff06537182a8e1880b1e7053864abd577e1a855f3263",
+    "stored_bytes": 7719
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_six_and_nested_phases.json",
+    "source": "lemmas/lower_bound/sat/five_six_and_nested_phases.json",
+    "sha256": "8c89edfdb555e90e5fd432e3b7158004cea0240d77cf36cb84543aef0553612e",
+    "bytes": 23688,
+    "stored_sha256": "8c89edfdb555e90e5fd432e3b7158004cea0240d77cf36cb84543aef0553612e",
+    "stored_bytes": 23688
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_six_and_nested_positive_phases.json",
+    "source": "lemmas/lower_bound/sat/five_six_and_nested_positive_phases.json",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "bytes": 3,
+    "stored_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "stored_bytes": 3
+  },
+  {
+    "file": "lemmas/lower_bound/sat/five_six_and_unfolded_multiguards.json",
+    "source": "lemmas/lower_bound/sat/five_six_and_unfolded_multiguards.json",
+    "sha256": "a52d843410c8f4c3de219a4204d81a049ed4df4b388fc1b5eb2474a8367b2f12",
+    "bytes": 175863,
+    "stored_sha256": "a52d843410c8f4c3de219a4204d81a049ed4df4b388fc1b5eb2474a8367b2f12",
+    "stored_bytes": 175863
+  },
+  {
+    "file": "lemmas/lower_bound/sat/generate_first_and_census.py",
+    "source": "lemmas/lower_bound/sat/generate_first_and_census.py",
+    "sha256": "bde38b9197a5130bffb1026961af0d8cf92e91d96d35a1423b328cd60e6d33f8",
+    "bytes": 2850,
+    "stored_sha256": "bde38b9197a5130bffb1026961af0d8cf92e91d96d35a1423b328cd60e6d33f8",
+    "stored_bytes": 2850
+  },
+  {
+    "file": "lemmas/lower_bound/sat/joint_five_sustained_checkpoints.json",
+    "source": "lemmas/lower_bound/sat/joint_five_sustained_checkpoints.json",
+    "sha256": "c73c2b700c8c8177b7db80981297d783b01a33b84517750aa3132465535d6b75",
+    "bytes": 278,
+    "stored_sha256": "c73c2b700c8c8177b7db80981297d783b01a33b84517750aa3132465535d6b75",
+    "stored_bytes": 278
+  },
+  {
+    "file": "lemmas/lower_bound/sat/joint_five_sustained_progress.log",
+    "source": "lemmas/lower_bound/sat/joint_five_sustained_progress.log",
+    "sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "bytes": 1407,
+    "stored_sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "stored_bytes": 1407
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/baseline-assembly.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/baseline-assembly.json",
+    "sha256": "24ccd57650168664a02d5d8d4ce6c4fc86ff3c6f5fb5b3fada7c967ab0bdd185",
+    "bytes": 121,
+    "stored_sha256": "24ccd57650168664a02d5d8d4ce6c4fc86ff3c6f5fb5b3fada7c967ab0bdd185",
+    "stored_bytes": 121
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/baseline/checkpoints.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/baseline/checkpoints.json",
+    "sha256": "5c7c8ac451a12a25c89ea6795cd9fb9eaa121d6b9e5e9932d200065e81acd518",
+    "bytes": 66,
+    "stored_sha256": "5c7c8ac451a12a25c89ea6795cd9fb9eaa121d6b9e5e9932d200065e81acd518",
+    "stored_bytes": 66
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/baseline/result.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/baseline/result.json",
+    "sha256": "d6bf5def324bbd926f91b40bb46d06e2879c2c1fb5bcb21f1cb5429c6d2f8d19",
+    "bytes": 761,
+    "stored_sha256": "d6bf5def324bbd926f91b40bb46d06e2879c2c1fb5bcb21f1cb5429c6d2f8d19",
+    "stored_bytes": 761
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/complete.log",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/complete.log",
+    "sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "bytes": 1407,
+    "stored_sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "stored_bytes": 1407
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/direct-essential-witnesses.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/direct-essential-witnesses.json",
+    "sha256": "e7bd3b655c98e3a21769bf28552a719afad88b0cb391ebe77ddfc89170e8cccc",
+    "bytes": 284,
+    "stored_sha256": "e7bd3b655c98e3a21769bf28552a719afad88b0cb391ebe77ddfc89170e8cccc",
+    "stored_bytes": 284
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/internal-and-samples.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/internal-and-samples.json",
+    "sha256": "743a1b18877724fa8d0db41877c6aa9e61b9bc954107ce432c5d76052bee9485",
+    "bytes": 3245,
+    "stored_sha256": "743a1b18877724fa8d0db41877c6aa9e61b9bc954107ce432c5d76052bee9485",
+    "stored_bytes": 3245
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/phase.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/phase.json",
+    "sha256": "4e8bccc63e26b915b8f5ed9867ddc8740c8433449dbd09c433dd712bebc955dd",
+    "bytes": 2051,
+    "stored_sha256": "4e8bccc63e26b915b8f5ed9867ddc8740c8433449dbd09c433dd712bebc955dd",
+    "stored_bytes": 2051
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/problem.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/problem.json",
+    "sha256": "36d318cfcc5166f5e3c33b011d1e4e909fc69644795c53d39c2af360713fc110",
+    "bytes": 12639,
+    "stored_sha256": "36d318cfcc5166f5e3c33b011d1e4e909fc69644795c53d39c2af360713fc110",
+    "stored_bytes": 12639
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/required-dirty-pairs.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/required-dirty-pairs.json",
+    "sha256": "b5947e552e9049f47b9074b1a2b8bc75562d67e4561436d62ca8a8cf90878120",
+    "bytes": 1272,
+    "stored_sha256": "b5947e552e9049f47b9074b1a2b8bc75562d67e4561436d62ca8a8cf90878120",
+    "stored_bytes": 1272
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/search/checkpoints.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/search/checkpoints.json",
+    "sha256": "9a7e67ede221c34820a36c5f21392884d8b79f8ab444452eefea67e0770796b3",
+    "bytes": 209,
+    "stored_sha256": "9a7e67ede221c34820a36c5f21392884d8b79f8ab444452eefea67e0770796b3",
+    "stored_bytes": 209
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/search/problem.cnf.gz",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/search/problem.cnf.gz",
+    "sha256": "7011f8293fc9490245e8a40e764ba585bee7e15160de48874343b528e4dd7070",
+    "bytes": 1060017,
+    "stored_sha256": "7011f8293fc9490245e8a40e764ba585bee7e15160de48874343b528e4dd7070",
+    "stored_bytes": 1060017
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/search/support-clauses.cnfpart.gz",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/search/support-clauses.cnfpart.gz",
+    "sha256": "6d377f98c0ca052e3b26d4bc653c51cca3c79b2613fa67fa897e45562e4cf622",
+    "bytes": 681210,
+    "stored_sha256": "6d377f98c0ca052e3b26d4bc653c51cca3c79b2613fa67fa897e45562e4cf622",
+    "stored_bytes": 681210
+  },
+  {
+    "file": "lemmas/lower_bound/sat/retired_five_exact5/termination.json",
+    "source": "lemmas/lower_bound/sat/retired_five_exact5/termination.json",
+    "sha256": "547a511a9194182655c16c3f8a2a4fcc3cd9502ed122770eee8a93df390a6ff8",
+    "bytes": 774,
+    "stored_sha256": "547a511a9194182655c16c3f8a2a4fcc3cd9502ed122770eee8a93df390a6ff8",
+    "stored_bytes": 774
+  },
+  {
+    "file": "lemmas/reduction_analysis/FiveOwnerCoverage.lean",
+    "source": "lemmas/reduction_analysis/FiveOwnerCoverage.lean",
+    "sha256": "959e03e6872ea500da6c7c70fd2c0828ad2dd54cc4f73d9973ed9d4ae3ea6c6d",
+    "bytes": 1271,
+    "stored_sha256": "959e03e6872ea500da6c7c70fd2c0828ad2dd54cc4f73d9973ed9d4ae3ea6c6d",
+    "stored_bytes": 1271,
+    "status": "untracked experimental source; no compilation claim from this snapshot"
+  },
+  {
+    "file": "lemmas/reduction_analysis/five_owner_all_and_rectangles.json",
+    "source": "lemmas/reduction_analysis/five_owner_all_and_rectangles.json",
+    "sha256": "7d1fff2e1b63a026207244ffb0ebbd311dff0e9a2e60eb02eb3932fc373cb4fe",
+    "bytes": 2101,
+    "stored_sha256": "7d1fff2e1b63a026207244ffb0ebbd311dff0e9a2e60eb02eb3932fc373cb4fe",
+    "stored_bytes": 2101
+  },
+  {
+    "file": "lemmas/reduction_analysis/five_owner_all_and_rectangles.py",
+    "source": "lemmas/reduction_analysis/five_owner_all_and_rectangles.py",
+    "sha256": "d7afef25fd3cb82f3e6aceb27e296a329522d69b22a4f43c0db5306dfb60fe7d",
+    "bytes": 3235,
+    "stored_sha256": "d7afef25fd3cb82f3e6aceb27e296a329522d69b22a4f43c0db5306dfb60fe7d",
+    "stored_bytes": 3235
+  },
+  {
+    "file": "lemmas/reduction_analysis/five_owner_dirty_hub_witnesses.json",
+    "source": "lemmas/reduction_analysis/five_owner_dirty_hub_witnesses.json",
+    "sha256": "fd2f9e3461bed5071cc876125d438eea5d7bbadce477b34ad18e69e9fb206009",
+    "bytes": 2622,
+    "stored_sha256": "fd2f9e3461bed5071cc876125d438eea5d7bbadce477b34ad18e69e9fb206009",
+    "stored_bytes": 2622
+  },
+  {
+    "file": "lemmas/reduction_analysis/five_owner_rectangle_geometry.json",
+    "source": "lemmas/reduction_analysis/five_owner_rectangle_geometry.json",
+    "sha256": "ac6c3ec6fb62b7bc9e82a385939f79b1225024553405ea1be2f2cee907f626bb",
+    "bytes": 5719,
+    "stored_sha256": "ac6c3ec6fb62b7bc9e82a385939f79b1225024553405ea1be2f2cee907f626bb",
+    "stored_bytes": 5719
+  },
+  {
+    "file": "diagnostics/and-skeleton-minimal-calibration.log",
+    "source": "diagnostics/and-skeleton-minimal-calibration.log",
+    "sha256": "c56e1a05e6b1c5b703aa343201ebb7643db54fc971bcee94107997aa7b9f8984",
+    "bytes": 92,
+    "stored_sha256": "c56e1a05e6b1c5b703aa343201ebb7643db54fc971bcee94107997aa7b9f8984",
+    "stored_bytes": 92
+  },
+  {
+    "file": "diagnostics/and-skeleton-minimal-emitter-equivalence.log",
+    "source": "diagnostics/and-skeleton-minimal-emitter-equivalence.log",
+    "sha256": "9b8d37e97fe4b9a83a823c513f504438c3098ffb25720b5ef052fe30ab6c7adf",
+    "bytes": 108,
+    "stored_sha256": "9b8d37e97fe4b9a83a823c513f504438c3098ffb25720b5ef052fe30ab6c7adf",
+    "stored_bytes": 108
+  },
+  {
+    "file": "diagnostics/and-skeleton-minimal-full-baseline.log",
+    "source": "diagnostics/and-skeleton-minimal-full-baseline.log",
+    "sha256": "704877950876790bc0c49df9e0b02b91d98705955484b642efc09b7ebcf6be87",
+    "bytes": 113,
+    "stored_sha256": "704877950876790bc0c49df9e0b02b91d98705955484b642efc09b7ebcf6be87",
+    "stored_bytes": 113
+  },
+  {
+    "file": "diagnostics/and-skeleton-orbits-minimal-calibration.log",
+    "source": "diagnostics/and-skeleton-orbits-minimal-calibration.log",
+    "sha256": "04cbfeec5dace425b089fee43b43f4a41c3d9fb78478f779ef7b164a650f7db6",
+    "bytes": 383,
+    "stored_sha256": "04cbfeec5dace425b089fee43b43f4a41c3d9fb78478f779ef7b164a650f7db6",
+    "stored_bytes": 383
+  },
+  {
+    "file": "diagnostics/and13-dirty-orbit-minimal.log",
+    "source": "diagnostics/and13-dirty-orbit-minimal.log",
+    "sha256": "613b5cbe1d338dcffe3deeb7cc74d23c7795f37757e825bcfeccfc55dc80c5c1",
+    "bytes": 305,
+    "stored_sha256": "613b5cbe1d338dcffe3deeb7cc74d23c7795f37757e825bcfeccfc55dc80c5c1",
+    "stored_bytes": 305
+  },
+  {
+    "file": "diagnostics/and13-dirty-orbit-prototype.log",
+    "source": "diagnostics/and13-dirty-orbit-prototype.log",
+    "sha256": "1584ee661efd3c8f5cb4f23d8bfedd8d0558acbb0ed3399f4c1725b576c2fe22",
+    "bytes": 310,
+    "stored_sha256": "1584ee661efd3c8f5cb4f23d8bfedd8d0558acbb0ed3399f4c1725b576c2fe22",
+    "stored_bytes": 310
+  },
+  {
+    "file": "diagnostics/and13-dirty-prototype.log",
+    "source": "diagnostics/and13-dirty-prototype.log",
+    "sha256": "e271cf935c1f166ffb76710afb13a75058359fb4aff22ae0e680bba5e84db7f9",
+    "bytes": 491,
+    "stored_sha256": "e271cf935c1f166ffb76710afb13a75058359fb4aff22ae0e680bba5e84db7f9",
+    "stored_bytes": 491
+  },
+  {
+    "file": "diagnostics/and5-constrained-calibration.log",
+    "source": "diagnostics/and5-constrained-calibration.log",
+    "sha256": "657de6e6948e2a199f5deb2f12778b070dc598a959469d03308913f5ba6e62a9",
+    "bytes": 815,
+    "stored_sha256": "657de6e6948e2a199f5deb2f12778b070dc598a959469d03308913f5ba6e62a9",
+    "stored_bytes": 815
+  },
+  {
+    "file": "diagnostics/and5-data-calibration.log",
+    "source": "diagnostics/and5-data-calibration.log",
+    "sha256": "3053bcfc33af9524ee81f3552f4d2a845326959232157fc37dc94b3c30fcad6e",
+    "bytes": 479,
+    "stored_sha256": "3053bcfc33af9524ee81f3552f4d2a845326959232157fc37dc94b3c30fcad6e",
+    "stored_bytes": 479
+  },
+  {
+    "file": "diagnostics/and5-dirty-count-prototype.log",
+    "source": "diagnostics/and5-dirty-count-prototype.log",
+    "sha256": "32e795ae7b91a1409896d8b3f1cef2632d2564857ee9e2766c26b102a7780bc7",
+    "bytes": 380,
+    "stored_sha256": "32e795ae7b91a1409896d8b3f1cef2632d2564857ee9e2766c26b102a7780bc7",
+    "stored_bytes": 380
+  },
+  {
+    "file": "diagnostics/and5-dirty-unrestricted-crosscheck.log",
+    "source": "diagnostics/and5-dirty-unrestricted-crosscheck.log",
+    "sha256": "0ca85bfd091d7d2aa2e140911630badf9b4cae7a9a5d3f98ee4fa351d7b719a6",
+    "bytes": 373,
+    "stored_sha256": "0ca85bfd091d7d2aa2e140911630badf9b4cae7a9a5d3f98ee4fa351d7b719a6",
+    "stored_bytes": 373
+  },
+  {
+    "file": "diagnostics/and5-equality-slack-calibration.log",
+    "source": "diagnostics/and5-equality-slack-calibration.log",
+    "sha256": "220a6c1beac78b9fe93c9e1b8d633bf461d478329e64941962eaab7257b2a1cd",
+    "bytes": 844,
+    "stored_sha256": "220a6c1beac78b9fe93c9e1b8d633bf461d478329e64941962eaab7257b2a1cd",
+    "stored_bytes": 844
+  },
+  {
+    "file": "diagnostics/and6-data-calibration.log",
+    "source": "diagnostics/and6-data-calibration.log",
+    "sha256": "88213a4d91ec8c25f3468f863c61893783e3e2e4e340819ab73ab7d55ac266f3",
+    "bytes": 457,
+    "stored_sha256": "88213a4d91ec8c25f3468f863c61893783e3e2e4e340819ab73ab7d55ac266f3",
+    "stored_bytes": 457
+  },
+  {
+    "file": "diagnostics/and6-dirty-slack12-comparison.log",
+    "source": "diagnostics/and6-dirty-slack12-comparison.log",
+    "sha256": "325563d050f91c1271da2c6607f2cd372809dfed7eff27c75fe494218b174c1e",
+    "bytes": 383,
+    "stored_sha256": "325563d050f91c1271da2c6607f2cd372809dfed7eff27c75fe494218b174c1e",
+    "stored_bytes": 383
+  },
+  {
+    "file": "diagnostics/and6-dirty-uncut-prototype.log",
+    "source": "diagnostics/and6-dirty-uncut-prototype.log",
+    "sha256": "a48c67d603ef2fb184d7332a70ed1b4185fb1603ae4c13514a3c440d52f9d60d",
+    "bytes": 204,
+    "stored_sha256": "a48c67d603ef2fb184d7332a70ed1b4185fb1603ae4c13514a3c440d52f9d60d",
+    "stored_bytes": 204
+  },
+  {
+    "file": "diagnostics/and6-equality-slack-calibration.log",
+    "source": "diagnostics/and6-equality-slack-calibration.log",
+    "sha256": "51798be009646f560f077251dbac17640e87f40ce97a56794b5f987cb4406730",
+    "bytes": 469,
+    "stored_sha256": "51798be009646f560f077251dbac17640e87f40ce97a56794b5f987cb4406730",
+    "stored_bytes": 469
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-five-six-and-compile.log",
+    "source": "diagnostics/circuit-search-joint-five-six-and-compile.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-five-six-and.log",
+    "source": "diagnostics/circuit-search-joint-five-six-and.log",
+    "sha256": "78363e46a28717493ef11e94738b736b88ad487b17812698c40890af2f6b1728",
+    "bytes": 5435,
+    "stored_sha256": "78363e46a28717493ef11e94738b736b88ad487b17812698c40890af2f6b1728",
+    "stored_bytes": 5435
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-five.log",
+    "source": "diagnostics/circuit-search-joint-five.log",
+    "sha256": "49e283a60e427f9a14b36bb0993688f2a8062a93f6d2751439a1d0e54ae6f55b",
+    "bytes": 5805,
+    "stored_sha256": "49e283a60e427f9a14b36bb0993688f2a8062a93f6d2751439a1d0e54ae6f55b",
+    "stored_bytes": 5805
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-four-multiguard-priority.log",
+    "source": "diagnostics/circuit-search-joint-four-multiguard-priority.log",
+    "sha256": "17b45074fdf18a44a8ff651ffab98c85f90020ca761c423864f04223d599f800",
+    "bytes": 5425,
+    "stored_sha256": "17b45074fdf18a44a8ff651ffab98c85f90020ca761c423864f04223d599f800",
+    "stored_bytes": 5425
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-four-priority.log",
+    "source": "diagnostics/circuit-search-joint-four-priority.log",
+    "sha256": "1d6fc09ccc5b8f7a6f7f1e9e7749df591678e0dea2a78c4b4484c86a29c8d860",
+    "bytes": 9568,
+    "stored_sha256": "1d6fc09ccc5b8f7a6f7f1e9e7749df591678e0dea2a78c4b4484c86a29c8d860",
+    "stored_bytes": 9568
+  },
+  {
+    "file": "diagnostics/circuit-search-joint-six.log",
+    "source": "diagnostics/circuit-search-joint-six.log",
+    "sha256": "ca7fd5b6a295f0c704b9f6a417d4f314c72531cc42dba1ef97a73f196ad05d06",
+    "bytes": 9454,
+    "stored_sha256": "ca7fd5b6a295f0c704b9f6a417d4f314c72531cc42dba1ef97a73f196ad05d06",
+    "stored_bytes": 9454
+  },
+  {
+    "file": "diagnostics/joint-five-exact5-sustained.log",
+    "source": "diagnostics/joint-five-exact5-sustained.log",
+    "sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "bytes": 1407,
+    "stored_sha256": "b757082164f51606dcf2e8cd4a7e1e8ee9900d610a2227edee1000dd92269766",
+    "stored_bytes": 1407
+  },
+  {
+    "file": "diagnostics/reviewer-a5-equality-slack.log",
+    "source": "diagnostics/reviewer-a5-equality-slack.log",
+    "sha256": "3830e61e066ef671125dd2b6be8df034ff8307eb21ecc40935c989d1501e7bf1",
+    "bytes": 433,
+    "stored_sha256": "3830e61e066ef671125dd2b6be8df034ff8307eb21ecc40935c989d1501e7bf1",
+    "stored_bytes": 433
+  },
+  {
+    "file": "diagnostics/reviewer-a5-strengthened-lrat-runtime-002.log",
+    "source": "diagnostics/reviewer-a5-strengthened-lrat-runtime-002.log",
+    "sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae",
+    "bytes": 256,
+    "stored_sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae",
+    "stored_bytes": 256
+  },
+  {
+    "file": "diagnostics/reviewer-a5-strengthened-lrat-runtime.log",
+    "source": "diagnostics/reviewer-a5-strengthened-lrat-runtime.log",
+    "sha256": "06ff9815f62a380cf062ab897a29126338ac4d4f5af4454ce8543584f1abacd7",
+    "bytes": 132,
+    "stored_sha256": "06ff9815f62a380cf062ab897a29126338ac4d4f5af4454ce8543584f1abacd7",
+    "stored_bytes": 132
+  },
+  {
+    "file": "diagnostics/reviewer-a5-uncut-lrat-runtime.log",
+    "source": "diagnostics/reviewer-a5-uncut-lrat-runtime.log",
+    "sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4",
+    "bytes": 258,
+    "stored_sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4",
+    "stored_bytes": 258
+  },
+  {
+    "file": "diagnostics/reviewer-and-general-slack.log",
+    "source": "diagnostics/reviewer-and-general-slack.log",
+    "sha256": "bd00c8c6120343923c371c321679f6727fea1af3a20fca8e18ac9070e5cbbe26",
+    "bytes": 172,
+    "stored_sha256": "bd00c8c6120343923c371c321679f6727fea1af3a20fca8e18ac9070e5cbbe26",
+    "stored_bytes": 172
+  },
+  {
+    "file": "diagnostics/reviewer-correlated-assembler-002.log",
+    "source": "diagnostics/reviewer-correlated-assembler-002.log",
+    "sha256": "69769aebd41fbf9ca59eeea415c26a0845fc2c8cfc2438e414f170d926669db5",
+    "bytes": 461,
+    "stored_sha256": "69769aebd41fbf9ca59eeea415c26a0845fc2c8cfc2438e414f170d926669db5",
+    "stored_bytes": 461
+  },
+  {
+    "file": "diagnostics/reviewer-correlated-assembler.log",
+    "source": "diagnostics/reviewer-correlated-assembler.log",
+    "sha256": "fc1a04dd084e0db7b4d454261d76de31dd4c855b6f52d1c4e8a50c6d55dd3ec9",
+    "bytes": 380,
+    "stored_sha256": "fc1a04dd084e0db7b4d454261d76de31dd4c855b6f52d1c4e8a50c6d55dd3ec9",
+    "stored_bytes": 380
+  },
+  {
+    "file": "diagnostics/reviewer-double-star-bank.log",
+    "source": "diagnostics/reviewer-double-star-bank.log",
+    "sha256": "3a9accdf67d658fb4d0c481518cb42ffd8f792b4b9a34a058b54131707ac1a37",
+    "bytes": 470,
+    "stored_sha256": "3a9accdf67d658fb4d0c481518cb42ffd8f792b4b9a34a058b54131707ac1a37",
+    "stored_bytes": 470
+  },
+  {
+    "file": "diagnostics/reviewer-eighth-final-staged.log",
+    "source": "diagnostics/reviewer-eighth-final-staged.log",
+    "sha256": "91091bc559d478b84c77c9aa696f1e10dbe71c5d30ae22a39f038f24816453c5",
+    "bytes": 437,
+    "stored_sha256": "91091bc559d478b84c77c9aa696f1e10dbe71c5d30ae22a39f038f24816453c5",
+    "stored_bytes": 437
+  },
+  {
+    "file": "diagnostics/reviewer-eighth-staged-manifest.log",
+    "source": "diagnostics/reviewer-eighth-staged-manifest.log",
+    "sha256": "6645a07c58949c3c677dc09017427b175cbc498807cd8b279f8ef034b45eebf5",
+    "bytes": 837,
+    "stored_sha256": "6645a07c58949c3c677dc09017427b175cbc498807cd8b279f8ef034b45eebf5",
+    "stored_bytes": 837
+  },
+  {
+    "file": "diagnostics/reviewer-five-all-rectangles.log",
+    "source": "diagnostics/reviewer-five-all-rectangles.log",
+    "sha256": "b3d29bbf481bd50be98f9d16893dd02efdff40e23ff5905fd9f8e12cb7c8afa2",
+    "bytes": 252,
+    "stored_sha256": "b3d29bbf481bd50be98f9d16893dd02efdff40e23ff5905fd9f8e12cb7c8afa2",
+    "stored_bytes": 252
+  },
+  {
+    "file": "diagnostics/reviewer-five-and-data.log",
+    "source": "diagnostics/reviewer-five-and-data.log",
+    "sha256": "24b5903735be5469a176eb6bc5698c80a348ce7a914035948ec36670ac4b4af8",
+    "bytes": 463,
+    "stored_sha256": "24b5903735be5469a176eb6bc5698c80a348ce7a914035948ec36670ac4b4af8",
+    "stored_bytes": 463
+  },
+  {
+    "file": "diagnostics/reviewer-five-dirty-orbits.log",
+    "source": "diagnostics/reviewer-five-dirty-orbits.log",
+    "sha256": "72c049a030de279147e7fc7a1df7423f1d494c264b94782d140488a368be9f32",
+    "bytes": 333,
+    "stored_sha256": "72c049a030de279147e7fc7a1df7423f1d494c264b94782d140488a368be9f32",
+    "stored_bytes": 333
+  },
+  {
+    "file": "diagnostics/reviewer-five-first-and.log",
+    "source": "diagnostics/reviewer-five-first-and.log",
+    "sha256": "fc2cfc66c8cb19364603679a6c4169add97d3dcdf1b2758af5ab0928cf00fa82",
+    "bytes": 516,
+    "stored_sha256": "fc2cfc66c8cb19364603679a6c4169add97d3dcdf1b2758af5ab0928cf00fa82",
+    "stored_bytes": 516
+  },
+  {
+    "file": "diagnostics/reviewer-lrat-tiny-sat.log",
+    "source": "diagnostics/reviewer-lrat-tiny-sat.log",
+    "sha256": "a2bda522003dd6ba18b1f7df06a8d1a02731281dbf0ae1d222e6e5dfc3e7da81",
+    "bytes": 246,
+    "stored_sha256": "a2bda522003dd6ba18b1f7df06a8d1a02731281dbf0ae1d222e6e5dfc3e7da81",
+    "stored_bytes": 246
+  },
+  {
+    "file": "diagnostics/reviewer-lrat-tiny-unsat.log",
+    "source": "diagnostics/reviewer-lrat-tiny-unsat.log",
+    "sha256": "43e09a93572f5d3f25ce7e27f702d002cb67de6400e341645059c720a07767ea",
+    "bytes": 245,
+    "stored_sha256": "43e09a93572f5d3f25ce7e27f702d002cb67de6400e341645059c720a07767ea",
+    "stored_bytes": 245
+  },
+  {
+    "file": "diagnostics/reviewer-push47-final.log",
+    "source": "diagnostics/reviewer-push47-final.log",
+    "sha256": "45d3d0bbc5063796de48601e70d6aec95a129d2c536922667b12a8cefbe9165d",
+    "bytes": 287,
+    "stored_sha256": "45d3d0bbc5063796de48601e70d6aec95a129d2c536922667b12a8cefbe9165d",
+    "stored_bytes": 287
+  },
+  {
+    "file": "diagnostics/reviewer-six-assembler.log",
+    "source": "diagnostics/reviewer-six-assembler.log",
+    "sha256": "f00e6988e404bfd57dbeac7dfa02a0926ba55477fc304207a13c12f339ffbfe3",
+    "bytes": 294,
+    "stored_sha256": "f00e6988e404bfd57dbeac7dfa02a0926ba55477fc304207a13c12f339ffbfe3",
+    "stored_bytes": 294
+  },
+  {
+    "file": "diagnostics/reviewer-skeleton-minimal.log",
+    "source": "diagnostics/reviewer-skeleton-minimal.log",
+    "sha256": "94ea4f5bf77147b2510a4acc5bc6251b77d2f3dd996554fb14862874d95f5a29",
+    "bytes": 621,
+    "stored_sha256": "94ea4f5bf77147b2510a4acc5bc6251b77d2f3dd996554fb14862874d95f5a29",
+    "stored_bytes": 621
+  }
+]

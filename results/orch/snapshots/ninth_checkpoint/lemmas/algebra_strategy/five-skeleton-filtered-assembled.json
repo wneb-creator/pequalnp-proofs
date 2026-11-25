@@ -1,0 +1,1204 @@
+{
+  "inputs": 52,
+  "raw_inputs": 16,
+  "gates": [
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      7,
+      11
+    ],
+    [
+      1,
+      12,
+      14
+    ],
+    [
+      1,
+      53,
+      54
+    ],
+    [
+      1,
+      5,
+      55
+    ],
+    [
+      1,
+      15,
+      56
+    ],
+    [
+      1,
+      6,
+      57
+    ],
+    [
+      0,
+      52,
+      58
+    ],
+    [
+      1,
+      2,
+      57
+    ],
+    [
+      0,
+      59,
+      60
+    ],
+    [
+      1,
+      9,
+      13
+    ],
+    [
+      1,
+      54,
+      62
+    ],
+    [
+      0,
+      3,
+      63
+    ],
+    [
+      1,
+      10,
+      13
+    ],
+    [
+      1,
+      53,
+      65
+    ],
+    [
+      0,
+      4,
+      66
+    ],
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      1,
+      8,
+      68
+    ],
+    [
+      1,
+      13,
+      69
+    ],
+    [
+      0,
+      0,
+      70
+    ],
+    [
+      1,
+      61,
+      64
+    ],
+    [
+      1,
+      67,
+      72
+    ],
+    [
+      1,
+      71,
+      73
+    ]
+  ],
+  "output": 74,
+  "and_count": 5,
+  "or_count": 18,
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": []
+  },
+  "core_plus_prefix_extra": 23,
+  "original_and_count": 5,
+  "optimizer_origin": "raw baseline",
+  "greedy_steps": [
+    {
+      "feature": 17,
+      "tasks": [
+        1,
+        2
+      ],
+      "core_plus_extra": 23
+    },
+    {
+      "feature": 23,
+      "tasks": [
+        1,
+        2
+      ],
+      "core_plus_extra": 23
+    },
+    {
+      "feature": 48,
+      "tasks": [
+        1
+      ],
+      "core_plus_extra": 23
+    }
+  ],
+  "configurations_considered": 10935,
+  "distinct_encoded_configurations": 11,
+  "assembly_evaluations": 26,
+  "cover_cache": "CacheInfo(hits=120201, misses=84, maxsize=None, currsize=84)",
+  "expanded_OR_atom_sets_verified": true,
+  "all_original_gate_functions_full_truth_verified": true,
+  "raw_assignments_checked": 65536,
+  "false_negatives": 0,
+  "false_positives": 282,
+  "boundary_errors": [
+    316,
+    1165,
+    1452,
+    3083,
+    3402,
+    4629,
+    4916,
+    5765,
+    14244,
+    16915,
+    17234,
+    19971,
+    28482
+  ],
+  "exact_core_target": false,
+  "full_candidate_within63": true,
+  "full_gates": [
+    [
+      1,
+      13,
+      19
+    ],
+    [
+      1,
+      24,
+      26
+    ],
+    [
+      1,
+      22,
+      25
+    ],
+    [
+      1,
+      16,
+      20
+    ],
+    [
+      1,
+      21,
+      29
+    ],
+    [
+      1,
+      14,
+      19
+    ],
+    [
+      1,
+      21,
+      31
+    ],
+    [
+      1,
+      13,
+      17
+    ],
+    [
+      1,
+      20,
+      33
+    ],
+    [
+      1,
+      16,
+      25
+    ],
+    [
+      1,
+      17,
+      19
+    ],
+    [
+      1,
+      36,
+      35
+    ],
+    [
+      1,
+      15,
+      16
+    ],
+    [
+      1,
+      24,
+      38
+    ],
+    [
+      1,
+      14,
+      15
+    ],
+    [
+      1,
+      17,
+      40
+    ],
+    [
+      1,
+      27,
+      23
+    ],
+    [
+      0,
+      3,
+      42
+    ],
+    [
+      1,
+      28,
+      18
+    ],
+    [
+      1,
+      44,
+      23
+    ],
+    [
+      0,
+      4,
+      45
+    ],
+    [
+      1,
+      30,
+      23
+    ],
+    [
+      0,
+      6,
+      47
+    ],
+    [
+      1,
+      32,
+      18
+    ],
+    [
+      0,
+      8,
+      49
+    ],
+    [
+      1,
+      34,
+      18
+    ],
+    [
+      0,
+      9,
+      51
+    ],
+    [
+      0,
+      10,
+      37
+    ],
+    [
+      1,
+      39,
+      18
+    ],
+    [
+      0,
+      11,
+      54
+    ],
+    [
+      1,
+      41,
+      23
+    ],
+    [
+      0,
+      12,
+      56
+    ],
+    [
+      1,
+      43,
+      46
+    ],
+    [
+      1,
+      58,
+      48
+    ],
+    [
+      1,
+      59,
+      50
+    ],
+    [
+      1,
+      60,
+      52
+    ],
+    [
+      1,
+      61,
+      53
+    ],
+    [
+      1,
+      62,
+      55
+    ],
+    [
+      1,
+      63,
+      57
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      15,
+      20
+    ],
+    [
+      1,
+      21,
+      24
+    ],
+    [
+      1,
+      66,
+      67
+    ],
+    [
+      1,
+      13,
+      68
+    ],
+    [
+      1,
+      25,
+      69
+    ],
+    [
+      1,
+      14,
+      70
+    ],
+    [
+      0,
+      65,
+      71
+    ],
+    [
+      1,
+      2,
+      70
+    ],
+    [
+      0,
+      72,
+      73
+    ],
+    [
+      1,
+      17,
+      22
+    ],
+    [
+      1,
+      67,
+      75
+    ],
+    [
+      0,
+      5,
+      76
+    ],
+    [
+      1,
+      19,
+      22
+    ],
+    [
+      1,
+      66,
+      78
+    ],
+    [
+      0,
+      7,
+      79
+    ],
+    [
+      1,
+      13,
+      14
+    ],
+    [
+      1,
+      16,
+      81
+    ],
+    [
+      1,
+      22,
+      82
+    ],
+    [
+      0,
+      0,
+      83
+    ],
+    [
+      1,
+      74,
+      77
+    ],
+    [
+      1,
+      80,
+      85
+    ],
+    [
+      1,
+      84,
+      86
+    ],
+    [
+      1,
+      64,
+      87
+    ]
+  ],
+  "encoded_skeleton": {
+    "inputs": 52,
+    "and_count": 5,
+    "and_gates": [
+      {
+        "left": [
+          1,
+          2
+        ],
+        "right": [
+          5,
+          6,
+          7,
+          11,
+          12,
+          14,
+          15
+        ]
+      },
+      {
+        "left": [
+          2,
+          5,
+          7,
+          11,
+          12,
+          14,
+          15
+        ],
+        "right": [
+          52
+        ]
+      },
+      {
+        "left": [
+          3
+        ],
+        "right": [
+          9,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "left": [
+          4
+        ],
+        "right": [
+          7,
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "left": [
+          0
+        ],
+        "right": [
+          5,
+          6,
+          8,
+          13
+        ]
+      }
+    ],
+    "output": [
+      53,
+      54,
+      55,
+      56
+    ],
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        12
+      ],
+      [
+        3,
+        13
+      ],
+      [
+        3,
+        14
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        4,
+        13
+      ]
+    ]
+  },
+  "dnf_assembly": {
+    "inputs": 52,
+    "semantic_inputs": 16,
+    "gates": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        7,
+        11
+      ],
+      [
+        1,
+        12,
+        14
+      ],
+      [
+        1,
+        53,
+        54
+      ],
+      [
+        1,
+        5,
+        55
+      ],
+      [
+        1,
+        15,
+        56
+      ],
+      [
+        1,
+        6,
+        57
+      ],
+      [
+        0,
+        52,
+        58
+      ],
+      [
+        1,
+        2,
+        57
+      ],
+      [
+        0,
+        59,
+        60
+      ],
+      [
+        1,
+        9,
+        13
+      ],
+      [
+        1,
+        54,
+        62
+      ],
+      [
+        0,
+        3,
+        63
+      ],
+      [
+        1,
+        10,
+        13
+      ],
+      [
+        1,
+        53,
+        65
+      ],
+      [
+        0,
+        4,
+        66
+      ],
+      [
+        1,
+        5,
+        6
+      ],
+      [
+        1,
+        8,
+        68
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        0,
+        0,
+        70
+      ],
+      [
+        1,
+        61,
+        64
+      ],
+      [
+        1,
+        67,
+        72
+      ],
+      [
+        1,
+        71,
+        73
+      ]
+    ],
+    "output": 74,
+    "gate_count": 23,
+    "assembled": true,
+    "and_count": 5,
+    "or_count": 18,
+    "skeleton_and_count": 5,
+    "naive_or_count": 25,
+    "naive_total": 30,
+    "semantic_optimization": true,
+    "greedy_sharing": true,
+    "shared_factors": [
+      {
+        "symbol": 57,
+        "children": [
+          7,
+          11
+        ],
+        "tasks": [
+          1,
+          2,
+          7
+        ],
+        "atoms": [
+          7,
+          11
+        ]
+      },
+      {
+        "symbol": 58,
+        "children": [
+          12,
+          14
+        ],
+        "tasks": [
+          1,
+          2,
+          5
+        ],
+        "atoms": [
+          12,
+          14
+        ]
+      },
+      {
+        "symbol": 59,
+        "children": [
+          57,
+          58
+        ],
+        "tasks": [
+          1,
+          2
+        ],
+        "atoms": [
+          7,
+          11,
+          12,
+          14
+        ]
+      },
+      {
+        "symbol": 60,
+        "children": [
+          5,
+          59
+        ],
+        "tasks": [
+          1,
+          2
+        ],
+        "atoms": [
+          5,
+          7,
+          11,
+          12,
+          14
+        ]
+      },
+      {
+        "symbol": 61,
+        "children": [
+          15,
+          60
+        ],
+        "tasks": [
+          1,
+          2
+        ],
+        "atoms": [
+          5,
+          7,
+          11,
+          12,
+          14,
+          15
+        ]
+      }
+    ],
+    "dominance_rewrites": [],
+    "semantic_gate_folds": [],
+    "all_gate_functions_dnf_verified": true,
+    "gate_function_checks": [
+      {
+        "kind": "OR cone",
+        "index": 0,
+        "precompact_wire": 52,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 1,
+        "precompact_wire": 58,
+        "verified": true
+      },
+      {
+        "kind": "AND gate",
+        "index": 0,
+        "precompact_wire": 59,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 2,
+        "precompact_wire": 60,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 3,
+        "precompact_wire": 59,
+        "verified": true
+      },
+      {
+        "kind": "AND gate",
+        "index": 1,
+        "precompact_wire": 61,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 4,
+        "precompact_wire": 3,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 5,
+        "precompact_wire": 63,
+        "verified": true
+      },
+      {
+        "kind": "AND gate",
+        "index": 2,
+        "precompact_wire": 64,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 6,
+        "precompact_wire": 4,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 7,
+        "precompact_wire": 66,
+        "verified": true
+      },
+      {
+        "kind": "AND gate",
+        "index": 3,
+        "precompact_wire": 67,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 8,
+        "precompact_wire": 0,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 9,
+        "precompact_wire": 70,
+        "verified": true
+      },
+      {
+        "kind": "AND gate",
+        "index": 4,
+        "precompact_wire": 71,
+        "verified": true
+      },
+      {
+        "kind": "OR cone",
+        "index": 10,
+        "precompact_wire": 74,
+        "verified": true
+      }
+    ],
+    "precompact_gates": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        7,
+        11
+      ],
+      [
+        1,
+        12,
+        14
+      ],
+      [
+        1,
+        53,
+        54
+      ],
+      [
+        1,
+        5,
+        55
+      ],
+      [
+        1,
+        15,
+        56
+      ],
+      [
+        1,
+        6,
+        57
+      ],
+      [
+        0,
+        52,
+        58
+      ],
+      [
+        1,
+        2,
+        57
+      ],
+      [
+        0,
+        59,
+        60
+      ],
+      [
+        1,
+        9,
+        13
+      ],
+      [
+        1,
+        54,
+        62
+      ],
+      [
+        0,
+        3,
+        63
+      ],
+      [
+        1,
+        10,
+        13
+      ],
+      [
+        1,
+        53,
+        65
+      ],
+      [
+        0,
+        4,
+        66
+      ],
+      [
+        1,
+        5,
+        6
+      ],
+      [
+        1,
+        8,
+        68
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        0,
+        0,
+        70
+      ],
+      [
+        1,
+        61,
+        64
+      ],
+      [
+        1,
+        67,
+        72
+      ],
+      [
+        1,
+        71,
+        73
+      ]
+    ],
+    "dnf_skipped_computations": 0,
+    "output_minimal_terms": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        3,
+        12
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        3,
+        13
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        3,
+        14
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        2,
+        15
+      ]
+    ],
+    "exact_target_dnf": false,
+    "within63": true,
+    "status": "Assembled skeleton; gate bound and exact target are separate reported checks."
+  },
+  "scope": "Semantics preserved on all65536 raw inputs and every original AND/cone. Per-cone covers exact; global sharing/prefix optimizer is heuristic, not a lower bound. A result is a full63 witness only if exact_core_target and full_candidate_within63 are both true.",
+  "source": "results/orch/lemmas/lean_baseline/sat/and_skeleton_five_filtered5_phase.json"
+}
