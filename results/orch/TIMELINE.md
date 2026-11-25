@@ -15,3 +15,6 @@
 
 - 2026-11-24T23:58:12.130611+00:00 sibling_proof: core runtime audit concluded; no low-risk substantial optimization identified.
 2026-11-24T23:59:54.751493+00:00 — specialized mask equations independently compiled and reviewed; preserved as optional performance improvement, not applied to running full build.
+
+- 2026-11-25T00:07:09.605693+00:00 sibling_proof: certificate subset pruning eliminated by representative inclusion-minimality checks.
+2026-11-25T00:08:31.533344+00:00 — natural-row mask and rule-checker equivalence independently compiled/reviewed; isolated 512-row benchmark CPU mean 3.572s to 1.468s. Full theorem still compiling. Lease latest expiry 2026-11-25T00:26:27.321Z.
