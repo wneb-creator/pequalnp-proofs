@@ -1,0 +1,1 @@
+PASS. Four actual binary coefficient extractions agree identically. Nonzero-anchor sign, both incident pair coefficients, zero-endpoint mixed term, all-zero case and other-coordinate permutations independently reviewed. Final direct simpa at three zero-axis reductions. SHA 426b5d6517a24c14bda68f778fc6e1bb36bf2c59f8c1342413af67512524506f Lean exit0 2.820769215000837 s.

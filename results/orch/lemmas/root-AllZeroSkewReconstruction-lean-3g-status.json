@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/AllZeroSkewReconstruction.lean",
+  "sha256": "2d0874a5ce56cc6d16506f489a8e1f12e65afac399dce21a2f3838e33b76e228",
+  "source_sha256_after": "2d0874a5ce56cc6d16506f489a8e1f12e65afac399dce21a2f3838e33b76e228",
+  "started_utc": "2026-11-25T12:31:26.079472+00:00",
+  "finished_utc": "2026-11-25T12:31:27.692134+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1830989824,
+  "seconds": 1.6126881950003735,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}

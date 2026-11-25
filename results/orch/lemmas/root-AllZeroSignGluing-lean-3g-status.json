@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/AllZeroSignGluing.lean",
+  "sha256": "426b5d6517a24c14bda68f778fc6e1bb36bf2c59f8c1342413af67512524506f",
+  "source_sha256_after": "426b5d6517a24c14bda68f778fc6e1bb36bf2c59f8c1342413af67512524506f",
+  "started_utc": "2026-11-25T12:31:35.654448+00:00",
+  "finished_utc": "2026-11-25T12:31:38.475192+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1861087232,
+  "seconds": 2.820769215000837,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 90
+}
