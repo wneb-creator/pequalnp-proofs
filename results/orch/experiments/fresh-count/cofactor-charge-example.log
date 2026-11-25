@@ -1,0 +1,12 @@
+{
+  "status": "computational illustration only, not a Lean certificate or a gap witness",
+  "purpose": "A shared cofactor OR charge cannot be repaid only by selector AND gates.",
+  "output": 89,
+  "gate_count": 64,
+  "and_count": 13,
+  "or_count": 51,
+  "total_charges": 39,
+  "distinct_charged_or_gates": 12,
+  "excess_shared_charges": 27,
+  "verified_assignments": 106496
+}

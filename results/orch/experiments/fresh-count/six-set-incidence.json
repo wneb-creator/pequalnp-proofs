@@ -1,0 +1,40 @@
+{
+  "status": "computational geometry illustration, not Lean checked",
+  "point_sets": 1716,
+  "minimum_incidence_between_six_points_and_six_lines": 6,
+  "example": {
+    "points": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "lines": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "incidences": 6,
+    "column_counts": [
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  "analytic_argument": "For six points, line-intersection counts sum to24 and k*(k-1) sums to30. For every natural k, k*(k-1)+6>=4*k. If six lines had atmost5 incidences, the otherseven would have atleast19 and hence pair-sum atleast34, contradiction."
+}

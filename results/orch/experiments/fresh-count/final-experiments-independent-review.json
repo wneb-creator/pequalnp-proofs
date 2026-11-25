@@ -1,0 +1,13 @@
+{
+  "status": "PASS supporting research artifacts only",
+  "saved_candidates_independently_checked": 52,
+  "all_candidate_shapes_valid": true,
+  "all_full_domain_results_match_validator": true,
+  "valid_gap_witnesses": 0,
+  "positive_rows": 52,
+  "negative_rows": 236,
+  "reduced_negative_rows": 184,
+  "six_set_independent_count": 1716,
+  "six_set_minimum": 6,
+  "limitations": "No completeness claim for stochastic circuit search; no Lean certificate for the computational geometry."
+}

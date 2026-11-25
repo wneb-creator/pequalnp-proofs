@@ -3,20 +3,22 @@ The posted theorem remains unproved and is not declared. No proof PR has been op
 
 Latest source: lean/PEqualNP/Outside/L_meta_2089.lean, 2002 lines, 87812 bytes.
 Build: lake build PEqualNP.Outside.L_meta_2089 passed (18423 jobs).
-Latest completed local checker: REJECTED (no-theorem), for the preceding 1743-line file. The final 2002-line checker run is pending.
+Final local checker, 2002-line source: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2089 (one lemma, one file: the theorem carries the module's name).
 Final format guard: REFUSED because the main theorem is absent.
 Independent reviews: PASS for supporting lemmas and source restrictions; no full proof or refutation.
 Axiom audits: all audited supporting lemmas use only propext, Classical.choice, and Quot.sound.
 Cleanup pass: not started because the target checker has not passed. Line counts before/after: 2002/2002.
 
-Checked components include false-OR quotas, exact behavior on thin inputs, a twelve-bad-pair operand bound, singleton-support bounds, and a merged-pair compatibility bound. New components prove a 39-OR lower bound for thirteen simultaneous plane-neighbor linear outputs; exact selected cofactors for the original two factors; and three actual circuit OR-gate certificates per point. The certificate sets may overlap. A bound on that sharing remains unproved.
+Checked components include false-OR quotas, exact behavior on thin inputs, a twelve-bad-pair operand bound, singleton-support bounds, and a merged-pair compatibility bound. New components prove a 39-OR lower bound for thirteen simultaneous plane-neighbor linear outputs; exact selected cofactors for the original two factors; and three actual circuit OR-gate certificates per point. The certificate sets may overlap. No valid total gate bound accounting for that sharing and the other required gates has been proved.
 
 The 164-line OperandWitness artifact is a checked limitation of a proposed shortcut, NOT a refutation of L-meta-2089. Its 62-gate circuit accepts all 52 incident pairs, exactly 12 nonincident pairs, no singleton, and has only one wire accepting every incident pair. Independent compilation and evaluation passed.
 
-Experiments are computational research, not Lean certificates. Completed strict search: 15,140,404 mutations; relaxed search: 181,506,495 mutations. No valid witness; best strict candidate misses 2 positive pairs. A further reduced-domain search and compatibility census are being preserved with their separate limitations.
+Experiments are computational research, not Lean certificates. Completed strict search: 15,140,404 mutations; relaxed search: 181,506,495 mutations. No valid witness; best strict candidate misses 2 positive pairs. A further reduced-domain search ran 11,000,315 mutations without a witness; all 52 saved candidates fail the full posted tests. The compatibility census and finite six-set calculation are preserved as computational evidence only.
 
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack, fresh_count, final_audit, linear_bound
-TIMING total=87 subagents=10
+TIMING total=90.4 subagents=10
 
 Desk nulls: 1
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
+
+Final main-source independent review: PASS for supporting-result preservation only. SHA256 ffe9f1760138102c465e0b5dabb635d7a631eae98e76d1f5e8f8dbf7747ba3dd. Consolidated audit of eight principal lemmas reports only the three permitted axioms.

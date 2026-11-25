@@ -1,0 +1,158 @@
+{
+  "status": "PASS computational artifact review only",
+  "independent_full_census_rerun": false,
+  "script_sha256": "4a5110ffa20ec06ecbb2e3b95d3f41e2337d9e7d08de72d9412b37b658372aaf",
+  "logged_count": 2065676,
+  "logged_maxmin": 5,
+  "histogram_sum_matches_count": true,
+  "all_record_pairs_directly_rechecked": [
+    {
+      "index": 1,
+      "family_sizes": [
+        0,
+        117
+      ],
+      "shapes": [
+        [
+          0,
+          0
+        ],
+        [
+          13,
+          13
+        ]
+      ],
+      "score": 0,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    },
+    {
+      "index": 2,
+      "family_sizes": [
+        1,
+        60
+      ],
+      "shapes": [
+        [
+          1,
+          1
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "score": 1,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    },
+    {
+      "index": 25,
+      "family_sizes": [
+        2,
+        25
+      ],
+      "shapes": [
+        [
+          2,
+          2
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "score": 2,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    },
+    {
+      "index": 275,
+      "family_sizes": [
+        3,
+        15
+      ],
+      "shapes": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "score": 3,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    },
+    {
+      "index": 1870,
+      "family_sizes": [
+        4,
+        7
+      ],
+      "shapes": [
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "score": 4,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    },
+    {
+      "index": 10687,
+      "family_sizes": [
+        9,
+        7
+      ],
+      "shapes": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "score": 5,
+      "all_nonincident": true,
+      "cross_compatible": true,
+      "mutually_closed": true
+    }
+  ],
+  "maximizing_pair_verified": {
+    "index": 10687,
+    "family_sizes": [
+      9,
+      7
+    ],
+    "shapes": [
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "score": 5,
+    "all_nonincident": true,
+    "cross_compatible": true,
+    "mutually_closed": true
+  },
+  "limitations": "Reviewed NextClosure implementation and independently checked every recorded family pair. The global census remains computational evidence, not Lean checked."
+}

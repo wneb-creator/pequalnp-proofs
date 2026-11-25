@@ -1,0 +1,1 @@
+{"rng_seed": 208977, "duration_s": 180, "walkers": 43, "positive_rows": 52, "negative_rows": 184, "final_operand_constraint": "STRICT", "initial_families": ["distributed star65", "mixed incident67", "mixed starcover66+", "merged hot overapproximation"]}

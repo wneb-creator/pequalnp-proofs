@@ -1,0 +1,424 @@
+{
+  "status": "No valid witness",
+  "positive_count": 52,
+  "negative_count": 236,
+  "tested_candidates": 52,
+  "results": [
+    {
+      "file": "without-flagrows/best-33.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-642489.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 149,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-zero-false-positive.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-total.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 19,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 1,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 2,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 3,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 165,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 4,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 5,
+      "shape_valid": true,
+      "missing_positive": 4,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 6,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 7,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 8,
+      "shape_valid": true,
+      "missing_positive": 43,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 9,
+      "shape_valid": true,
+      "missing_positive": 6,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 10,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 11,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 12,
+      "shape_valid": true,
+      "missing_positive": 24,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 13,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 14,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 152,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 15,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 16,
+      "shape_valid": true,
+      "missing_positive": 4,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 17,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 18,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 19,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 20,
+      "shape_valid": true,
+      "missing_positive": 4,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 21,
+      "shape_valid": true,
+      "missing_positive": 4,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 22,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 103,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 23,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 24,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 25,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 26,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 149,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 27,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 28,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 29,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 30,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 31,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 32,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 33,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 34,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 165,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 35,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 36,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 37,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 38,
+      "shape_valid": true,
+      "missing_positive": 3,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 39,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 40,
+      "shape_valid": true,
+      "missing_positive": 7,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 41,
+      "shape_valid": true,
+      "missing_positive": 12,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/latest-population.json",
+      "record": 42,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 235,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-933423.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 103,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-3873.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 165,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-3.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 2,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-1.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 5,
+      "false_positive": 0,
+      "valid_on_full_posted_domain": false
+    },
+    {
+      "file": "without-flagrows/best-zero-false-negative.json",
+      "record": 0,
+      "shape_valid": true,
+      "missing_positive": 0,
+      "false_positive": 103,
+      "valid_on_full_posted_domain": false
+    }
+  ]
+}
