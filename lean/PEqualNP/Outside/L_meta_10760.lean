@@ -2271,1671 +2271,235 @@ lemma mkFreezeSlice {R T F B d free one L}
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
 
 
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.PackedRestrictions
+
+abbrev BaseD := List Nat × Nat × Nat
+abbrev RecordD := Nat × List Nat × Nat × List Nat × List Nat × Nat × Nat × Nat
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.PackedRestrictions
+
 namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
 
-def spec_0 : SliceD := (0x55555555555555555555555555555555, 10, [1, 2, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_0 : unitLiftChk [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 [] [0, 1, 2, 3, 4, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_0 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 0x55555555555555555555555555555555 126 0 = true := by decide +kernel
-
-lemma residual_lower_0 (h1 : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10) : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10 :=
-  mkUnitLift h1 lift_check_0
-
-lemma r92_0 (h1 : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10) : SliceN originalGRoots originalGWord spec_0 :=
-  mkFreezeSlice (residual_lower_0 h1) (by decide) freeze_check_0
-
-def spec_1 : SliceD := (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f, 10, [0, 1, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_1 : unitLiftChk [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 [] [0, 1, 2, 3, 4, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_1 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f 123 0 = true := by decide +kernel
-
-lemma residual_lower_1 (h3 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10 :=
-  mkUnitLift h3 lift_check_1
-
-lemma r92_1 (h3 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) : SliceN originalGRoots originalGWord spec_1 :=
-  mkFreezeSlice (residual_lower_1 h3) (by decide) freeze_check_1
-
-def spec_2 : SliceD := (0xff00ff00ff00ff00ff00ff00ff00ff, 10, [0, 1, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_2 : unitLiftChk [0, 1, 2, 4, 5, 6] 0xfffffffffefefafafefeeeeefefea0a0 [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 [] [5, 4, 3, 2, 1, 0, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_2 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 5, 6] 0xfffffffffefefafafefeeeeefefea0a0 0xff00ff00ff00ff00ff00ff00ff00ff 119 0 = true := by decide +kernel
-
-lemma residual_lower_2 (h3 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) : LowN [0, 1, 2, 4, 5, 6] 0xfffffffffefefafafefeeeeefefea0a0 10 :=
-  mkUnitLift h3 lift_check_2
-
-lemma r92_2 (h3 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) : SliceN originalGRoots originalGWord spec_2 :=
-  mkFreezeSlice (residual_lower_2 h3) (by decide) freeze_check_2
-
-def spec_3 : SliceD := (0xffffffff00000000ffffffff, 10, [0, 1, 2, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_3 : unitLiftChk [0, 1, 2, 3, 4, 6] 0xfffefffafffefffafefeeca0fefeeca0 [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 [] [5, 6, 1, 0, 3, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_3 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 4, 6] 0xfffefffafffefffafefeeca0fefeeca0 0xffffffff00000000ffffffff 95 0 = true := by decide +kernel
-
-lemma residual_lower_3 (h1 : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10) : LowN [0, 1, 2, 3, 4, 6] 0xfffefffafffefffafefeeca0fefeeca0 10 :=
-  mkUnitLift h1 lift_check_3
-
-lemma r92_3 (h1 : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10) : SliceN originalGRoots originalGWord spec_3 :=
-  mkFreezeSlice (residual_lower_3 h1) (by decide) freeze_check_3
-
-def spec_4 : SliceD := (0x33003300, 4, [0, 2, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_4 : unitLiftChk [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_4 : freezeSliceChk originalGRoots originalGWord [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 0x33003300 21 8 = true := by decide +kernel
-
-lemma residual_lower_4 : LowN [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 4 :=
-  mkUnitLift d55 lift_check_4
-
-lemma r92_4 : SliceN originalGRoots originalGWord spec_4 :=
-  mkFreezeSlice (residual_lower_4) (by decide) freeze_check_4
-
-def spec_5 : SliceD := (0x505000005050, 4, [1, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_5 : unitLiftChk [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_5 : freezeSliceChk originalGRoots originalGWord [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 0x505000005050 42 4 = true := by decide +kernel
-
-lemma residual_lower_5 : LowN [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 4 :=
-  mkUnitLift d55 lift_check_5
-
-lemma r92_5 : SliceN originalGRoots originalGWord spec_5 :=
-  mkFreezeSlice (residual_lower_5) (by decide) freeze_check_5
-
-def spec_6 : SliceD := (0x33333333333333333333333333333333, 10, [0, 2, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_6 : unitLiftChk [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 [] [0, 1, 2, 3, 4, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_6 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 0x33333333333333333333333333333333 125 0 = true := by decide +kernel
-
-lemma residual_lower_6 (h2 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10) : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10 :=
-  mkUnitLift h2 lift_check_6
-
-lemma r92_6 (h2 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10) : SliceN originalGRoots originalGWord spec_6 :=
-  mkFreezeSlice (residual_lower_6 h2) (by decide) freeze_check_6
-
-def spec_7 : SliceD := (0x1010000010100000101000001010000, 4, [3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_7 : unitLiftChk [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_7 : freezeSliceChk originalGRoots originalGWord [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 0x1010000010100000101000001010000 104 16 = true := by decide +kernel
-
-lemma residual_lower_7 : LowN [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 4 :=
-  mkUnitLift d55 lift_check_7
-
-lemma r92_7 : SliceN originalGRoots originalGWord spec_7 :=
-  mkFreezeSlice (residual_lower_7) (by decide) freeze_check_7
-
-def spec_8 : SliceD := (0x50500000505, 4, [1, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_8 : unitLiftChk [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_8 : freezeSliceChk originalGRoots originalGWord [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 0x50500000505 42 0 = true := by decide +kernel
-
-lemma residual_lower_8 : LowN [1, 3, 5] 0xffccffcccc00cc00ffccffcccc00cc00 4 :=
-  mkUnitLift d55 lift_check_8
-
-lemma r92_8 : SliceN originalGRoots originalGWord spec_8 :=
-  mkFreezeSlice (residual_lower_8) (by decide) freeze_check_8
-
-def spec_9 : SliceD := (0x5555555555555555, 7, [1, 2, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_9 : unitLiftChk [1, 2, 3, 4, 5] 0xfffcffccfcfccc00fffcffccfcfccc00 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [4, 1, 3, 5, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_9 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 4, 5] 0xfffcffccfcfccc00fffcffccfcfccc00 0x5555555555555555 62 0 = true := by decide +kernel
-
-lemma residual_lower_9 : LowN [1, 2, 3, 4, 5] 0xfffcffccfcfccc00fffcffccfcfccc00 7 :=
-  mkUnitLift d258 lift_check_9
-
-lemma r92_9 : SliceN originalGRoots originalGWord spec_9 :=
-  mkFreezeSlice (residual_lower_9) (by decide) freeze_check_9
-
-def spec_10 : SliceD := (0x330033, 4, [0, 2, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_10 : unitLiftChk [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_10 : freezeSliceChk originalGRoots originalGWord [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 0x330033 21 0 = true := by decide +kernel
-
-lemma residual_lower_10 : LowN [0, 2, 4] 0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0 4 :=
-  mkUnitLift d55 lift_check_10
-
-lemma r92_10 : SliceN originalGRoots originalGWord spec_10 :=
-  mkFreezeSlice (residual_lower_10) (by decide) freeze_check_10
-
-def spec_11 : SliceD := (0xcc00000000000000cc, 4, [0, 2, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_11 : unitLiftChk [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_11 : freezeSliceChk originalGRoots originalGWord [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 0xcc00000000000000cc 69 2 = true := by decide +kernel
-
-lemma residual_lower_11 : LowN [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 4 :=
-  mkUnitLift d55 lift_check_11
-
-lemma r92_11 : SliceN originalGRoots originalGWord spec_11 :=
-  mkFreezeSlice (residual_lower_11) (by decide) freeze_check_11
-
-def spec_12 : SliceD := (0xffff0000ffff0000ffff0000ffff, 10, [0, 1, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_12 : unitLiftChk [0, 1, 2, 3, 5, 6] 0xfffffffffffafffaffeeffeeeca0eca0 [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 [] [6, 4, 0, 1, 2, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_12 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 5, 6] 0xfffffffffffafffaffeeffeeeca0eca0 0xffff0000ffff0000ffff0000ffff 111 0 = true := by decide +kernel
-
-lemma residual_lower_12 (h2 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10) : LowN [0, 1, 2, 3, 5, 6] 0xfffffffffffafffaffeeffeeeca0eca0 10 :=
-  mkUnitLift h2 lift_check_12
-
-lemma r92_12 (h2 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10) : SliceN originalGRoots originalGWord spec_12 :=
-  mkFreezeSlice (residual_lower_12 h2) (by decide) freeze_check_12
-
-def spec_13 : SliceD := (0x555555550000000055555555, 7, [1, 2, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_13 : unitLiftChk [1, 2, 3, 4, 6] 0xfffcfff0fffcfff0fcfccc00fcfccc00 [0, 1, 2, 3, 4] 0xfeeefac0feeefac0feeefac0feeefac0 [] [1, 2, 6, 3, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_13 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 4, 6] 0xfffcfff0fffcfff0fcfccc00fcfccc00 0x555555550000000055555555 94 0 = true := by decide +kernel
-
-lemma residual_lower_13 : LowN [1, 2, 3, 4, 6] 0xfffcfff0fffcfff0fcfccc00fcfccc00 7 :=
-  mkUnitLift d436 lift_check_13
-
-lemma r92_13 : SliceN originalGRoots originalGWord spec_13 :=
-  mkFreezeSlice (residual_lower_13) (by decide) freeze_check_13
-
-def spec_14 : SliceD := (0xffffffff, 7, [0, 1, 2, 3, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_14 : unitLiftChk [0, 1, 2, 3, 4] 0xfefeeca0fefeeca0fefeeca0fefeeca0 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [1, 4, 0, 2, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_14 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 4] 0xfefeeca0fefeeca0fefeeca0fefeeca0 0xffffffff 31 0 = true := by decide +kernel
-
-lemma residual_lower_14 : LowN [0, 1, 2, 3, 4] 0xfefeeca0fefeeca0fefeeca0fefeeca0 7 :=
-  mkUnitLift d258 lift_check_14
-
-lemma r92_14 : SliceN originalGRoots originalGWord spec_14 :=
-  mkFreezeSlice (residual_lower_14) (by decide) freeze_check_14
-
-def spec_15 : SliceD := (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0, 7, [0, 1, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_15 : unitLiftChk [0, 1, 3, 4, 5, 6] 0xffffffffffffffffffffffeeffffeeaa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 4, 6] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_15 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4, 5, 6] 0xffffffffffffffffffffffeeffffeeaa 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0 123 4 = true := by decide +kernel
-
-lemma residual_lower_15 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffffffffffffffeeffffeeaa 7 :=
-  mkUnitLift d55 lift_check_15
-
-lemma r92_15 : SliceN originalGRoots originalGWord spec_15 :=
-  mkFreezeSlice (residual_lower_15) (by decide) freeze_check_15
-
-def spec_16 : SliceD := (0x5050505050505050, 5, [1, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_16 : unitLiftChk [1, 3, 4, 5] 0xffffffccffffcc00ffffffccffffcc00 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [4] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_16 : freezeSliceChk originalGRoots originalGWord [1, 3, 4, 5] 0xffffffccffffcc00ffffffccffffcc00 0x5050505050505050 58 4 = true := by decide +kernel
-
-lemma residual_lower_16 : LowN [1, 3, 4, 5] 0xffffffccffffcc00ffffffccffffcc00 5 :=
-  mkUnitLift d55 lift_check_16
-
-lemma r92_16 : SliceN originalGRoots originalGWord spec_16 :=
-  mkFreezeSlice (residual_lower_16) (by decide) freeze_check_16
-
-def spec_17 : SliceD := (0xff00ff00ff00ff00ff00ff00ff00ff00, 7, [0, 1, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_17 : unitLiftChk [0, 1, 2, 4, 5, 6] 0xfffffffffffffffffffffffffefeecec [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1, 5, 6] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_17 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 5, 6] 0xfffffffffffffffffffffffffefeecec 0xff00ff00ff00ff00ff00ff00ff00ff00 119 8 = true := by decide +kernel
-
-lemma residual_lower_17 : LowN [0, 1, 2, 4, 5, 6] 0xfffffffffffffffffffffffffefeecec 7 :=
-  mkUnitLift d55 lift_check_17
-
-lemma r92_17 : SliceN originalGRoots originalGWord spec_17 :=
-  mkFreezeSlice (residual_lower_17) (by decide) freeze_check_17
-
-def spec_18 : SliceD := (0xff00ff00, 5, [0, 1, 2, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_18 : unitLiftChk [0, 1, 2, 4] 0xfefeececfefeececfefeececfefeecec [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_18 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4] 0xfefeececfefeececfefeececfefeecec 0xff00ff00 23 8 = true := by decide +kernel
-
-lemma residual_lower_18 : LowN [0, 1, 2, 4] 0xfefeececfefeececfefeececfefeecec 5 :=
-  mkUnitLift d55 lift_check_18
-
-lemma r92_18 : SliceN originalGRoots originalGWord spec_18 :=
-  mkFreezeSlice (residual_lower_18) (by decide) freeze_check_18
-
-def spec_19 : SliceD := (0xcccccccccccccccccccccccccccccccc, 7, [0, 2, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_19 : unitLiftChk [0, 2, 3, 4, 5, 6] 0xfffffffffffffffaffffffffffffffa0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [3, 4, 5] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_19 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 4, 5, 6] 0xfffffffffffffffaffffffffffffffa0 0xcccccccccccccccccccccccccccccccc 125 2 = true := by decide +kernel
-
-lemma residual_lower_19 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffffffaffffffffffffffa0 7 :=
-  mkUnitLift d55 lift_check_19
-
-lemma r92_19 : SliceN originalGRoots originalGWord spec_19 :=
-  mkFreezeSlice (residual_lower_19) (by decide) freeze_check_19
-
-def spec_20 : SliceD := (0x3333333333333333, 7, [0, 2, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_20 : unitLiftChk [0, 2, 3, 4, 5] 0xfffaffaafafaa0a0fffaffaafafaa0a0 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [5, 0, 2, 4, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_20 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 4, 5] 0xfffaffaafafaa0a0fffaffaafafaa0a0 0x3333333333333333 61 0 = true := by decide +kernel
-
-lemma residual_lower_20 : LowN [0, 2, 3, 4, 5] 0xfffaffaafafaa0a0fffaffaafafaa0a0 7 :=
-  mkUnitLift d258 lift_check_20
-
-lemma r92_20 : SliceN originalGRoots originalGWord spec_20 :=
-  mkFreezeSlice (residual_lower_20) (by decide) freeze_check_20
-
-def spec_21 : SliceD := (0xf0f0f0f000000000f0f0f0f, 7, [0, 1, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_21 : unitLiftChk [0, 1, 3, 4, 6] 0xffeeffaaffeeffaaeeeecc00eeeecc00 [0, 1, 2, 3, 4] 0xfeeefac0feeefac0feeefac0feeefac0 [] [0, 1, 3, 6, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_21 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4, 6] 0xffeeffaaffeeffaaeeeecc00eeeecc00 0xf0f0f0f000000000f0f0f0f 91 0 = true := by decide +kernel
-
-lemma residual_lower_21 : LowN [0, 1, 3, 4, 6] 0xffeeffaaffeeffaaeeeecc00eeeecc00 7 :=
-  mkUnitLift d436 lift_check_21
-
-lemma r92_21 : SliceN originalGRoots originalGWord spec_21 :=
-  mkFreezeSlice (residual_lower_21) (by decide) freeze_check_21
-
-def spec_22 : SliceD := (0x101000001010000010100000101, 4, [3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_22 : unitLiftChk [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_22 : freezeSliceChk originalGRoots originalGWord [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 0x101000001010000010100000101 104 0 = true := by decide +kernel
-
-lemma residual_lower_22 : LowN [3, 5, 6] 0xffffffffff00ff00ff00ff0000000000 4 :=
-  mkUnitLift d55 lift_check_22
-
-lemma r92_22 : SliceN originalGRoots originalGWord spec_22 :=
-  mkFreezeSlice (residual_lower_22) (by decide) freeze_check_22
-
-def spec_23 : SliceD := (0x3000000030000000300000003, 4, [0, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_23 : unitLiftChk [0, 5, 6] 0xffffffffaaaaaaaaaaaaaaaa00000000 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [0, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_23 : freezeSliceChk originalGRoots originalGWord [0, 5, 6] 0xffffffffaaaaaaaaaaaaaaaa00000000 0x3000000030000000300000003 97 0 = true := by decide +kernel
-
-lemma residual_lower_23 : LowN [0, 5, 6] 0xffffffffaaaaaaaaaaaaaaaa00000000 4 :=
-  mkUnitLift d55 lift_check_23
-
-lemma r92_23 : SliceN originalGRoots originalGWord spec_23 :=
-  mkFreezeSlice (residual_lower_23) (by decide) freeze_check_23
-
-def spec_24 : SliceD := (0x550055005500550055005500550055, 7, [1, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_24 : unitLiftChk [1, 2, 4, 5, 6] 0xfffffffffcfcf0f0fcfcccccfcfc0000 [0, 1, 2, 3, 4] 0xfeeefac0feeefac0feeefac0feeefac0 [] [1, 2, 6, 5, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_24 : freezeSliceChk originalGRoots originalGWord [1, 2, 4, 5, 6] 0xfffffffffcfcf0f0fcfcccccfcfc0000 0x550055005500550055005500550055 118 0 = true := by decide +kernel
-
-lemma residual_lower_24 : LowN [1, 2, 4, 5, 6] 0xfffffffffcfcf0f0fcfcccccfcfc0000 7 :=
-  mkUnitLift d436 lift_check_24
-
-lemma r92_24 : SliceN originalGRoots originalGWord spec_24 :=
-  mkFreezeSlice (residual_lower_24) (by decide) freeze_check_24
-
-def spec_25 : SliceD := (0xffff0000ffff, 7, [0, 1, 2, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_25 : unitLiftChk [0, 1, 2, 3, 5] 0xffeeffeeeca0eca0ffeeffeeeca0eca0 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [0, 5, 1, 3, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_25 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 5] 0xffeeffeeeca0eca0ffeeffeeeca0eca0 0xffff0000ffff 47 0 = true := by decide +kernel
-
-lemma residual_lower_25 : LowN [0, 1, 2, 3, 5] 0xffeeffeeeca0eca0ffeeffeeeca0eca0 7 :=
-  mkUnitLift d258 lift_check_25
-
-lemma r92_25 : SliceN originalGRoots originalGWord spec_25 :=
-  mkFreezeSlice (residual_lower_25) (by decide) freeze_check_25
-
-def spec_26 : SliceD := (0xf0f0f0f0f0f0f0f0, 6, [0, 1, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_26 : unitLiftChk [0, 1, 3, 4, 5] 0xffffffeeffffeeaaffffffeeffffeeaa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 4] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_26 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4, 5] 0xffffffeeffffeeaaffffffeeffffeeaa 0xf0f0f0f0f0f0f0f0 59 4 = true := by decide +kernel
-
-lemma residual_lower_26 : LowN [0, 1, 3, 4, 5] 0xffffffeeffffeeaaffffffeeffffeeaa 6 :=
-  mkUnitLift d55 lift_check_26
-
-lemma r92_26 : SliceN originalGRoots originalGWord spec_26 :=
-  mkFreezeSlice (residual_lower_26) (by decide) freeze_check_26
-
-def spec_27 : SliceD := (0x5050505050505050505050505050505, 7, [1, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_27 : unitLiftChk [1, 3, 4, 5, 6] 0xffffffffffccff00ffccffcccccccc00 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [1, 3, 5, 6, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_27 : freezeSliceChk originalGRoots originalGWord [1, 3, 4, 5, 6] 0xffffffffffccff00ffccffcccccccc00 0x5050505050505050505050505050505 122 0 = true := by decide +kernel
-
-lemma residual_lower_27 : LowN [1, 3, 4, 5, 6] 0xffffffffffccff00ffccffcccccccc00 7 :=
-  mkUnitLift d137 lift_check_27
-
-lemma r92_27 : SliceN originalGRoots originalGWord spec_27 :=
-  mkFreezeSlice (residual_lower_27) (by decide) freeze_check_27
-
-def spec_28 : SliceD := (0x11111111111111111111111111111111, 7, [2, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_28 : unitLiftChk [2, 3, 4, 5, 6] 0xfffffffffff0fff0fff0ff00f0f00000 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [2, 6, 3, 5, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_28 : freezeSliceChk originalGRoots originalGWord [2, 3, 4, 5, 6] 0xfffffffffff0fff0fff0ff00f0f00000 0x11111111111111111111111111111111 124 0 = true := by decide +kernel
-
-lemma residual_lower_28 : LowN [2, 3, 4, 5, 6] 0xfffffffffff0fff0fff0ff00f0f00000 7 :=
-  mkUnitLift d258 lift_check_28
-
-lemma r92_28 : SliceN originalGRoots originalGWord spec_28 :=
-  mkFreezeSlice (residual_lower_28) (by decide) freeze_check_28
-
-def spec_29 : SliceD := (0xcc00cc0000000000cc00cc, 5, [0, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_29 : unitLiftChk [0, 2, 4, 6] 0xfffffafafffffafaffffa0a0ffffa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [4] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_29 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 6] 0xfffffafafffffafaffffa0a0ffffa0a0 0xcc00cc0000000000cc00cc 85 2 = true := by decide +kernel
-
-lemma residual_lower_29 : LowN [0, 2, 4, 6] 0xfffffafafffffafaffffa0a0ffffa0a0 5 :=
-  mkUnitLift d55 lift_check_29
-
-lemma r92_29 : SliceN originalGRoots originalGWord spec_29 :=
-  mkFreezeSlice (residual_lower_29) (by decide) freeze_check_29
-
-def spec_30 : SliceD := (0x5050000050500000505000005050000, 5, [1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_30 : unitLiftChk [1, 3, 5, 6] 0xffffffffffccffccffccffcccccccccc [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_30 : freezeSliceChk originalGRoots originalGWord [1, 3, 5, 6] 0xffffffffffccffccffccffcccccccccc 0x5050000050500000505000005050000 106 16 = true := by decide +kernel
-
-lemma residual_lower_30 : LowN [1, 3, 5, 6] 0xffffffffffccffccffccffcccccccccc 5 :=
-  mkUnitLift d55 lift_check_30
-
-lemma r92_30 : SliceN originalGRoots originalGWord spec_30 :=
-  mkFreezeSlice (residual_lower_30) (by decide) freeze_check_30
-
-def spec_31 : SliceD := (0x330000000000000033, 4, [0, 2, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_31 : unitLiftChk [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_31 : freezeSliceChk originalGRoots originalGWord [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 0x330000000000000033 69 0 = true := by decide +kernel
-
-lemma residual_lower_31 : LowN [0, 2, 6] 0xfafafafafafafafaa0a0a0a0a0a0a0a0 4 :=
-  mkUnitLift d55 lift_check_31
-
-lemma r92_31 : SliceN originalGRoots originalGWord spec_31 :=
-  mkFreezeSlice (residual_lower_31) (by decide) freeze_check_31
-
-def spec_32 : SliceD := (0xff00ff00ff00ff00, 6, [0, 1, 2, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_32 : unitLiftChk [0, 1, 2, 4, 5] 0xfffffffffefeececfffffffffefeecec [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1, 5] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_32 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 5] 0xfffffffffefeececfffffffffefeecec 0xff00ff00ff00ff00 55 8 = true := by decide +kernel
-
-lemma residual_lower_32 : LowN [0, 1, 2, 4, 5] 0xfffffffffefeececfffffffffefeecec 6 :=
-  mkUnitLift d55 lift_check_32
-
-lemma r92_32 : SliceN originalGRoots originalGWord spec_32 :=
-  mkFreezeSlice (residual_lower_32) (by decide) freeze_check_32
-
-def spec_33 : SliceD := (0xffff0000ffff0000ffff0000ffff0000, 7, [0, 1, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_33 : unitLiftChk [0, 1, 2, 3, 5, 6] 0xfffffffffffefffefffefffefefefefe [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 1, 2] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_33 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 5, 6] 0xfffffffffffefffefffefffefefefefe 0xffff0000ffff0000ffff0000ffff0000 111 16 = true := by decide +kernel
-
-lemma residual_lower_33 : LowN [0, 1, 2, 3, 5, 6] 0xfffffffffffefffefffefffefefefefe 7 :=
-  mkUnitLift d55 lift_check_33
-
-lemma r92_33 : SliceN originalGRoots originalGWord spec_33 :=
-  mkFreezeSlice (residual_lower_33) (by decide) freeze_check_33
-
-def spec_34 : SliceD := (0xf0f00000f0f00000f0f00000f0f, 7, [0, 1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_34 : unitLiftChk [0, 1, 3, 5, 6] 0xffffffffffaaffaaffeeffeecc00cc00 [0, 1, 2, 3, 4] 0xfeeefae8feeefae8feeefae8feeefae8 [] [5, 3, 6, 0, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_34 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 5, 6] 0xffffffffffaaffaaffeeffeecc00cc00 0xf0f00000f0f00000f0f00000f0f 107 0 = true := by decide +kernel
-
-lemma residual_lower_34 : LowN [0, 1, 3, 5, 6] 0xffffffffffaaffaaffeeffeecc00cc00 7 :=
-  mkUnitLift d167 lift_check_34
-
-lemma r92_34 : SliceN originalGRoots originalGWord spec_34 :=
-  mkFreezeSlice (residual_lower_34) (by decide) freeze_check_34
-
-def spec_35 : SliceD := (0x50505050505050505050505050505050, 6, [1, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_35 : unitLiftChk [1, 3, 4, 5, 6] 0xffffffffffffffffffffffccffffcc00 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [4, 6] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_35 : freezeSliceChk originalGRoots originalGWord [1, 3, 4, 5, 6] 0xffffffffffffffffffffffccffffcc00 0x50505050505050505050505050505050 122 4 = true := by decide +kernel
-
-lemma residual_lower_35 : LowN [1, 3, 4, 5, 6] 0xffffffffffffffffffffffccffffcc00 6 :=
-  mkUnitLift d55 lift_check_35
-
-lemma r92_35 : SliceN originalGRoots originalGWord spec_35 :=
-  mkFreezeSlice (residual_lower_35) (by decide) freeze_check_35
-
-def spec_36 : SliceD := (0x330033000000000033003300, 5, [0, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_36 : unitLiftChk [0, 2, 4, 6] 0xfffffffffffffffffafaa0a0fafaa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [6] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_36 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 6] 0xfffffffffffffffffafaa0a0fafaa0a0 0x330033000000000033003300 85 8 = true := by decide +kernel
-
-lemma residual_lower_36 : LowN [0, 2, 4, 6] 0xfffffffffffffffffafaa0a0fafaa0a0 5 :=
-  mkUnitLift d55 lift_check_36
-
-lemma r92_36 : SliceN originalGRoots originalGWord spec_36 :=
-  mkFreezeSlice (residual_lower_36) (by decide) freeze_check_36
-
-def spec_37 : SliceD := (0x11110000111100001111000011110000, 5, [2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_37 : unitLiftChk [2, 3, 5, 6] 0xfffffffffff0fff0fff0fff0f0f0f0f0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [2] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_37 : freezeSliceChk originalGRoots originalGWord [2, 3, 5, 6] 0xfffffffffff0fff0fff0fff0f0f0f0f0 0x11110000111100001111000011110000 108 16 = true := by decide +kernel
-
-lemma residual_lower_37 : LowN [2, 3, 5, 6] 0xfffffffffff0fff0fff0fff0f0f0f0f0 5 :=
-  mkUnitLift d55 lift_check_37
-
-lemma r92_37 : SliceN originalGRoots originalGWord spec_37 :=
-  mkFreezeSlice (residual_lower_37) (by decide) freeze_check_37
-
-def spec_38 : SliceD := (0x330033003300330033003300330033, 7, [0, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_38 : unitLiftChk [0, 2, 4, 5, 6] 0xfffffffffafafafafafaaaaafafaa0a0 [0, 1, 2, 3, 4] 0xfeeefae8feeefae8feeefae8feeefae8 [] [0, 2, 6, 5, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_38 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 5, 6] 0xfffffffffafafafafafaaaaafafaa0a0 0x330033003300330033003300330033 117 0 = true := by decide +kernel
-
-lemma residual_lower_38 : LowN [0, 2, 4, 5, 6] 0xfffffffffafafafafafaaaaafafaa0a0 7 :=
-  mkUnitLift d167 lift_check_38
-
-lemma r92_38 : SliceN originalGRoots originalGWord spec_38 :=
-  mkFreezeSlice (residual_lower_38) (by decide) freeze_check_38
-
-def spec_39 : SliceD := (0x55555555, 4, [1, 2, 3, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_39 : unitLiftChk [1, 2, 3, 4] 0xfcfccc00fcfccc00fcfccc00fcfccc00 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [1, 4, 2, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_39 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 4] 0xfcfccc00fcfccc00fcfccc00fcfccc00 0x55555555 30 0 = true := by decide +kernel
-
-lemma residual_lower_39 : LowN [1, 2, 3, 4] 0xfcfccc00fcfccc00fcfccc00fcfccc00 4 :=
-  mkUnitLift d37 lift_check_39
-
-lemma r92_39 : SliceN originalGRoots originalGWord spec_39 :=
-  mkFreezeSlice (residual_lower_39) (by decide) freeze_check_39
-
-def spec_40 : SliceD := (0x3030303030303030303030303030303, 7, [0, 3, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_40 : unitLiftChk [0, 3, 4, 5, 6] 0xffffffffffaaffaaffaaffaaaaaa0000 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [0, 5, 6, 3, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_40 : freezeSliceChk originalGRoots originalGWord [0, 3, 4, 5, 6] 0xffffffffffaaffaaffaaffaaaaaa0000 0x3030303030303030303030303030303 121 0 = true := by decide +kernel
-
-lemma residual_lower_40 : LowN [0, 3, 4, 5, 6] 0xffffffffffaaffaaffaaffaaaaaa0000 7 :=
-  mkUnitLift d137 lift_check_40
-
-lemma r92_40 : SliceN originalGRoots originalGWord spec_40 :=
-  mkFreezeSlice (residual_lower_40) (by decide) freeze_check_40
-
-def spec_41 : SliceD := (0xff00ff0000000000ff00ff, 7, [0, 1, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_41 : unitLiftChk [0, 1, 2, 4, 6] 0xfefefafafefefafafefea0a0fefea0a0 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [4, 0, 2, 6, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_41 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 6] 0xfefefafafefefafafefea0a0fefea0a0 0xff00ff0000000000ff00ff 87 0 = true := by decide +kernel
-
-lemma residual_lower_41 : LowN [0, 1, 2, 4, 6] 0xfefefafafefefafafefea0a0fefea0a0 7 :=
-  mkUnitLift d137 lift_check_41
-
-lemma r92_41 : SliceN originalGRoots originalGWord spec_41 :=
-  mkFreezeSlice (residual_lower_41) (by decide) freeze_check_41
-
-def spec_42 : SliceD := (0x33330000333300003333000033330000, 6, [0, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_42 : unitLiftChk [0, 2, 3, 5, 6] 0xfffffffffffafffafffafffafafafafa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 2] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_42 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 5, 6] 0xfffffffffffafffafffafffafafafafa 0x33330000333300003333000033330000 109 16 = true := by decide +kernel
-
-lemma residual_lower_42 : LowN [0, 2, 3, 5, 6] 0xfffffffffffafffafffafffafafafafa 6 :=
-  mkUnitLift d55 lift_check_42
-
-lemma r92_42 : SliceN originalGRoots originalGWord spec_42 :=
-  mkFreezeSlice (residual_lower_42) (by decide) freeze_check_42
-
-def spec_43 : SliceD := (0xcccc000000000000cccc, 5, [0, 2, 3, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_43 : unitLiftChk [0, 2, 3, 6] 0xfffafffafffafffaffa0ffa0ffa0ffa0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [3] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_43 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 6] 0xfffafffafffafffaffa0ffa0ffa0ffa0 0xcccc000000000000cccc 77 2 = true := by decide +kernel
-
-lemma residual_lower_43 : LowN [0, 2, 3, 6] 0xfffafffafffafffaffa0ffa0ffa0ffa0 5 :=
-  mkUnitLift d55 lift_check_43
-
-lemma r92_43 : SliceN originalGRoots originalGWord spec_43 :=
-  mkFreezeSlice (residual_lower_43) (by decide) freeze_check_43
-
-def spec_44 : SliceD := (0x55550000555500005555000055550000, 6, [1, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_44 : unitLiftChk [1, 2, 3, 5, 6] 0xfffffffffffcfffcfffcfffcfcfcfcfc [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1, 2] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_44 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 5, 6] 0xfffffffffffcfffcfffcfffcfcfcfcfc 0x55550000555500005555000055550000 110 16 = true := by decide +kernel
-
-lemma residual_lower_44 : LowN [1, 2, 3, 5, 6] 0xfffffffffffcfffcfffcfffcfcfcfcfc 6 :=
-  mkUnitLift d55 lift_check_44
-
-lemma r92_44 : SliceN originalGRoots originalGWord spec_44 :=
-  mkFreezeSlice (residual_lower_44) (by decide) freeze_check_44
-
-def spec_45 : SliceD := (0x505050505050505, 5, [1, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_45 : unitLiftChk [1, 3, 4, 5] 0xffccffcccccccc00ffccffcccccccc00 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [1, 3, 5, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_45 : freezeSliceChk originalGRoots originalGWord [1, 3, 4, 5] 0xffccffcccccccc00ffccffcccccccc00 0x505050505050505 58 0 = true := by decide +kernel
-
-lemma residual_lower_45 : LowN [1, 3, 4, 5] 0xffccffcccccccc00ffccffcccccccc00 5 :=
-  mkUnitLift d68 lift_check_45
-
-lemma r92_45 : SliceN originalGRoots originalGWord spec_45 :=
-  mkFreezeSlice (residual_lower_45) (by decide) freeze_check_45
-
-def spec_46 : SliceD := (0x5050000050500000505000005050, 5, [1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_46 : unitLiftChk [1, 3, 5, 6] 0xffffffffffffffffffccffcccc00cc00 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [6] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_46 : freezeSliceChk originalGRoots originalGWord [1, 3, 5, 6] 0xffffffffffffffffffccffcccc00cc00 0x5050000050500000505000005050 106 4 = true := by decide +kernel
-
-lemma residual_lower_46 : LowN [1, 3, 5, 6] 0xffffffffffffffffffccffcccc00cc00 5 :=
-  mkUnitLift d55 lift_check_46
-
-lemma r92_46 : SliceN originalGRoots originalGWord spec_46 :=
-  mkFreezeSlice (residual_lower_46) (by decide) freeze_check_46
-
-def spec_47 : SliceD := (0x3300330033003300, 5, [0, 2, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_47 : unitLiftChk [0, 2, 4, 5] 0xfffffffffafaa0a0fffffffffafaa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [5] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_47 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 5] 0xfffffffffafaa0a0fffffffffafaa0a0 0x3300330033003300 53 8 = true := by decide +kernel
-
-lemma residual_lower_47 : LowN [0, 2, 4, 5] 0xfffffffffafaa0a0fffffffffafaa0a0 5 :=
-  mkUnitLift d55 lift_check_47
-
-lemma r92_47 : SliceN originalGRoots originalGWord spec_47 :=
-  mkFreezeSlice (residual_lower_47) (by decide) freeze_check_47
-
-def spec_48 : SliceD := (0x33003300330033003300330033003300, 6, [0, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_48 : unitLiftChk [0, 2, 4, 5, 6] 0xfffffffffffffffffffffffffafaa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [5, 6] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_48 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 5, 6] 0xfffffffffffffffffffffffffafaa0a0 0x33003300330033003300330033003300 117 8 = true := by decide +kernel
-
-lemma residual_lower_48 : LowN [0, 2, 4, 5, 6] 0xfffffffffffffffffffffffffafaa0a0 6 :=
-  mkUnitLift d55 lift_check_48
-
-lemma r92_48 : SliceN originalGRoots originalGWord spec_48 :=
-  mkFreezeSlice (residual_lower_48) (by decide) freeze_check_48
-
-def spec_49 : SliceD := (0xf0f00000f0f0, 5, [0, 1, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_49 : unitLiftChk [0, 1, 3, 5] 0xffeeffeeeeaaeeaaffeeffeeeeaaeeaa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_49 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 5] 0xffeeffeeeeaaeeaaffeeffeeeeaaeeaa 0xf0f00000f0f0 43 4 = true := by decide +kernel
-
-lemma residual_lower_49 : LowN [0, 1, 3, 5] 0xffeeffeeeeaaeeaaffeeffeeeeaaeeaa 5 :=
-  mkUnitLift d55 lift_check_49
-
-lemma r92_49 : SliceN originalGRoots originalGWord spec_49 :=
-  mkFreezeSlice (residual_lower_49) (by decide) freeze_check_49
-
-def spec_50 : SliceD := (0xcccc0000cccc0000cccc0000cccc, 6, [0, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_50 : unitLiftChk [0, 2, 3, 5, 6] 0xfffffffffffafffaffffffffffa0ffa0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [3, 5] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_50 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 5, 6] 0xfffffffffffafffaffffffffffa0ffa0 0xcccc0000cccc0000cccc0000cccc 109 2 = true := by decide +kernel
-
-lemma residual_lower_50 : LowN [0, 2, 3, 5, 6] 0xfffffffffffafffaffffffffffa0ffa0 6 :=
-  mkUnitLift d55 lift_check_50
-
-lemma r92_50 : SliceN originalGRoots originalGWord spec_50 :=
-  mkFreezeSlice (residual_lower_50) (by decide) freeze_check_50
-
-def spec_51 : SliceD := (0x3030000030300000303000003030000, 5, [0, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_51 : unitLiftChk [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaaaaaaaaaa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_51 : freezeSliceChk originalGRoots originalGWord [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaaaaaaaaaa 0x3030000030300000303000003030000 105 16 = true := by decide +kernel
-
-lemma residual_lower_51 : LowN [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaaaaaaaaaa 5 :=
-  mkUnitLift d55 lift_check_51
-
-lemma r92_51 : SliceN originalGRoots originalGWord spec_51 :=
-  mkFreezeSlice (residual_lower_51) (by decide) freeze_check_51
-
-def spec_52 : SliceD := (0xffff000000000000ffff, 7, [0, 1, 2, 3, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_52 : unitLiftChk [0, 1, 2, 3, 6] 0xfffafffafffafffaeca0eca0eca0eca0 [0, 1, 2, 3, 4] 0xfeeafcc8feeafcc8feeafcc8feeafcc8 [] [3, 6, 0, 2, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_52 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 3, 6] 0xfffafffafffafffaeca0eca0eca0eca0 0xffff000000000000ffff 79 0 = true := by decide +kernel
-
-lemma residual_lower_52 : LowN [0, 1, 2, 3, 6] 0xfffafffafffafffaeca0eca0eca0eca0 7 :=
-  mkUnitLift d258 lift_check_52
-
-lemma r92_52 : SliceN originalGRoots originalGWord spec_52 :=
-  mkFreezeSlice (residual_lower_52) (by decide) freeze_check_52
-
-def spec_53 : SliceD := (0xff00ff0000000000ff00ff00, 6, [0, 1, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_53 : unitLiftChk [0, 1, 2, 4, 6] 0xfffffffffffffffffefeececfefeecec [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [1, 6] [0, 2, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_53 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 6] 0xfffffffffffffffffefeececfefeecec 0xff00ff0000000000ff00ff00 87 8 = true := by decide +kernel
-
-lemma residual_lower_53 : LowN [0, 1, 2, 4, 6] 0xfffffffffffffffffefeececfefeecec 6 :=
-  mkUnitLift d55 lift_check_53
-
-lemma r92_53 : SliceN originalGRoots originalGWord spec_53 :=
-  mkFreezeSlice (residual_lower_53) (by decide) freeze_check_53
-
-def spec_54 : SliceD := (0xcc000000cc000000cc000000cc, 5, [0, 2, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_54 : unitLiftChk [0, 2, 5, 6] 0xfffffffffafafafaffffffffa0a0a0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [5] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_54 : freezeSliceChk originalGRoots originalGWord [0, 2, 5, 6] 0xfffffffffafafafaffffffffa0a0a0a0 0xcc000000cc000000cc000000cc 101 2 = true := by decide +kernel
-
-lemma residual_lower_54 : LowN [0, 2, 5, 6] 0xfffffffffafafafaffffffffa0a0a0a0 5 :=
-  mkUnitLift d55 lift_check_54
-
-lemma r92_54 : SliceN originalGRoots originalGWord spec_54 :=
-  mkFreezeSlice (residual_lower_54) (by decide) freeze_check_54
-
-def spec_55 : SliceD := (0xf0f0f0f0f0f0f0f, 6, [0, 1, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_55 : unitLiftChk [0, 1, 3, 4, 5] 0xffeeffeeeeeecc00ffeeffeeeeeecc00 [0, 1, 2, 3, 4] 0xfeeefac8feeefac8feeefac8feeefac8 [] [1, 5, 0, 4, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_55 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4, 5] 0xffeeffeeeeeecc00ffeeffeeeeeecc00 0xf0f0f0f0f0f0f0f 59 0 = true := by decide +kernel
-
-lemma residual_lower_55 : LowN [0, 1, 3, 4, 5] 0xffeeffeeeeeecc00ffeeffeeeeeecc00 6 :=
-  mkUnitLift d150 lift_check_55
-
-lemma r92_55 : SliceN originalGRoots originalGWord spec_55 :=
-  mkFreezeSlice (residual_lower_55) (by decide) freeze_check_55
-
-def spec_56 : SliceD := (0x5555000055550000555500005555, 7, [1, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_56 : unitLiftChk [1, 2, 3, 5, 6] 0xfffffffffff0fff0ffccffcccc00cc00 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [6, 3, 5, 1, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_56 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 5, 6] 0xfffffffffff0fff0ffccffcccc00cc00 0x5555000055550000555500005555 110 0 = true := by decide +kernel
-
-lemma residual_lower_56 : LowN [1, 2, 3, 5, 6] 0xfffffffffff0fff0ffccffcccc00cc00 7 :=
-  mkUnitLift d137 lift_check_56
-
-lemma r92_56 : SliceN originalGRoots originalGWord spec_56 :=
-  mkFreezeSlice (residual_lower_56) (by decide) freeze_check_56
-
-def spec_57 : SliceD := (0xf0f00000f0f00000f0f00000f0f0, 6, [0, 1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_57 : unitLiftChk [0, 1, 3, 5, 6] 0xffffffffffffffffffeeffeeeeaaeeaa [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 6] [1, 3, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_57 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 5, 6] 0xffffffffffffffffffeeffeeeeaaeeaa 0xf0f00000f0f00000f0f00000f0f0 107 4 = true := by decide +kernel
-
-lemma residual_lower_57 : LowN [0, 1, 3, 5, 6] 0xffffffffffffffffffeeffeeeeaaeeaa 6 :=
-  mkUnitLift d55 lift_check_57
-
-lemma r92_57 : SliceN originalGRoots originalGWord spec_57 :=
-  mkFreezeSlice (residual_lower_57) (by decide) freeze_check_57
-
-def spec_58 : SliceD := (0xf0f00000f0f00000f0f00000f0f0000, 6, [0, 1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_58 : unitLiftChk [0, 1, 3, 5, 6] 0xffffffffffeeffeeffeeffeeeeeeeeee [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [0, 1] [3, 5, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_58 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 5, 6] 0xffffffffffeeffeeffeeffeeeeeeeeee 0xf0f00000f0f00000f0f00000f0f0000 107 16 = true := by decide +kernel
-
-lemma residual_lower_58 : LowN [0, 1, 3, 5, 6] 0xffffffffffeeffeeffeeffeeeeeeeeee 6 :=
-  mkUnitLift d55 lift_check_58
-
-lemma r92_58 : SliceN originalGRoots originalGWord spec_58 :=
-  mkFreezeSlice (residual_lower_58) (by decide) freeze_check_58
-
-def spec_59 : SliceD := (0x3333000033330000333300003333, 7, [0, 2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_59 : unitLiftChk [0, 2, 3, 5, 6] 0xfffffffffffafffaffaaffaaa0a0a0a0 [0, 1, 2, 3, 4] 0xfeeefae8feeefae8feeefae8feeefae8 [] [6, 0, 5, 3, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_59 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 5, 6] 0xfffffffffffafffaffaaffaaa0a0a0a0 0x3333000033330000333300003333 109 0 = true := by decide +kernel
-
-lemma residual_lower_59 : LowN [0, 2, 3, 5, 6] 0xfffffffffffafffaffaaffaaa0a0a0a0 7 :=
-  mkUnitLift d167 lift_check_59
-
-lemma r92_59 : SliceN originalGRoots originalGWord spec_59 :=
-  mkFreezeSlice (residual_lower_59) (by decide) freeze_check_59
-
-def spec_60 : SliceD := (0xcccccccc00000000cccccccc, 6, [0, 2, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_60 : unitLiftChk [0, 2, 3, 4, 6] 0xfffffffafffffffaffffffa0ffffffa0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [3, 4] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_60 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 4, 6] 0xfffffffafffffffaffffffa0ffffffa0 0xcccccccc00000000cccccccc 93 2 = true := by decide +kernel
-
-lemma residual_lower_60 : LowN [0, 2, 3, 4, 6] 0xfffffffafffffffaffffffa0ffffffa0 6 :=
-  mkUnitLift d55 lift_check_60
-
-lemma r92_60 : SliceN originalGRoots originalGWord spec_60 :=
-  mkFreezeSlice (residual_lower_60) (by decide) freeze_check_60
-
-def spec_61 : SliceD := (0x333333330000000033333333, 7, [0, 2, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_61 : unitLiftChk [0, 2, 3, 4, 6] 0xfffafffafffafffafafaa0a0fafaa0a0 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [6, 0, 2, 4, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_61 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 4, 6] 0xfffafffafffafffafafaa0a0fafaa0a0 0x333333330000000033333333 93 0 = true := by decide +kernel
-
-lemma residual_lower_61 : LowN [0, 2, 3, 4, 6] 0xfffafffafffafffafafaa0a0fafaa0a0 7 :=
-  mkUnitLift d137 lift_check_61
-
-lemma r92_61 : SliceN originalGRoots originalGWord spec_61 :=
-  mkFreezeSlice (residual_lower_61) (by decide) freeze_check_61
-
-def spec_62 : SliceD := (0xff00ff, 5, [0, 1, 2, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_62 : unitLiftChk [0, 1, 2, 4] 0xfefea0a0fefea0a0fefea0a0fefea0a0 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [4, 0, 2, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_62 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4] 0xfefea0a0fefea0a0fefea0a0fefea0a0 0xff00ff 23 0 = true := by decide +kernel
-
-lemma residual_lower_62 : LowN [0, 1, 2, 4] 0xfefea0a0fefea0a0fefea0a0fefea0a0 5 :=
-  mkUnitLift d68 lift_check_62
-
-lemma r92_62 : SliceN originalGRoots originalGWord spec_62 :=
-  mkFreezeSlice (residual_lower_62) (by decide) freeze_check_62
-
-def spec_63 : SliceD := (0xcc00cc00cc00cc00cc00cc00cc00cc, 6, [0, 2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_63 : unitLiftChk [0, 2, 4, 5, 6] 0xfffffffffffffafaffffffffffffa0a0 [0, 1, 2] 0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8 [4, 5] [0, 2, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_63 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 5, 6] 0xfffffffffffffafaffffffffffffa0a0 0xcc00cc00cc00cc00cc00cc00cc00cc 117 2 = true := by decide +kernel
-
-lemma residual_lower_63 : LowN [0, 2, 4, 5, 6] 0xfffffffffffffafaffffffffffffa0a0 6 :=
-  mkUnitLift d55 lift_check_63
-
-lemma r92_63 : SliceN originalGRoots originalGWord spec_63 :=
-  mkFreezeSlice (residual_lower_63) (by decide) freeze_check_63
-
-def spec_64 : SliceD := (0xff000000ff000000ff000000ff, 7, [0, 1, 2, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_64 : unitLiftChk [0, 1, 2, 5, 6] 0xfffffffffafafafaeeeeeeeea0a0a0a0 [0, 1, 2, 3, 4] 0xfeeafce8feeafce8feeafce8feeafce8 [] [5, 0, 6, 2, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_64 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 5, 6] 0xfffffffffafafafaeeeeeeeea0a0a0a0 0xff000000ff000000ff000000ff 103 0 = true := by decide +kernel
-
-lemma residual_lower_64 : LowN [0, 1, 2, 5, 6] 0xfffffffffafafafaeeeeeeeea0a0a0a0 7 :=
-  mkUnitLift d137 lift_check_64
-
-lemma r92_64 : SliceN originalGRoots originalGWord spec_64 :=
-  mkFreezeSlice (residual_lower_64) (by decide) freeze_check_64
-
-def spec_65 : SliceD := (0xff00ff00ff00ff, 6, [0, 1, 2, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_65 : unitLiftChk [0, 1, 2, 4, 5] 0xfefeeeeefefea0a0fefeeeeefefea0a0 [0, 1, 2, 3, 4] 0xfeeefac8feeefac8feeefac8feeefac8 [] [0, 4, 1, 5, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_65 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 4, 5] 0xfefeeeeefefea0a0fefeeeeefefea0a0 0xff00ff00ff00ff 55 0 = true := by decide +kernel
-
-lemma residual_lower_65 : LowN [0, 1, 2, 4, 5] 0xfefeeeeefefea0a0fefeeeeefefea0a0 6 :=
-  mkUnitLift d150 lift_check_65
-
-lemma r92_65 : SliceN originalGRoots originalGWord spec_65 :=
-  mkFreezeSlice (residual_lower_65) (by decide) freeze_check_65
-
-def spec_66 : SliceD := (0xf0f0f0f, 4, [0, 1, 3, 4])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_66 : unitLiftChk [0, 1, 3, 4] 0xeeeecc00eeeecc00eeeecc00eeeecc00 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [1, 4, 0, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_66 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 4] 0xeeeecc00eeeecc00eeeecc00eeeecc00 0xf0f0f0f 27 0 = true := by decide +kernel
-
-lemma residual_lower_66 : LowN [0, 1, 3, 4] 0xeeeecc00eeeecc00eeeecc00eeeecc00 4 :=
-  mkUnitLift d37 lift_check_66
-
-lemma r92_66 : SliceN originalGRoots originalGWord spec_66 :=
-  mkFreezeSlice (residual_lower_66) (by decide) freeze_check_66
-
-def spec_67 : SliceD := (0x111111110000000011111111, 4, [2, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_67 : unitLiftChk [2, 3, 4, 6] 0xfff0fff0fff0fff0f0f00000f0f00000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [2, 6, 3, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_67 : freezeSliceChk originalGRoots originalGWord [2, 3, 4, 6] 0xfff0fff0fff0fff0f0f00000f0f00000 0x111111110000000011111111 92 0 = true := by decide +kernel
-
-lemma residual_lower_67 : LowN [2, 3, 4, 6] 0xfff0fff0fff0fff0f0f00000f0f00000 4 :=
-  mkUnitLift d37 lift_check_67
-
-lemma r92_67 : SliceN originalGRoots originalGWord spec_67 :=
-  mkFreezeSlice (residual_lower_67) (by decide) freeze_check_67
-
-def spec_68 : SliceD := (0x50505050000000005050505, 4, [1, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_68 : unitLiftChk [1, 3, 4, 6] 0xffccff00ffccff00cccccc00cccccc00 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [1, 3, 6, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_68 : freezeSliceChk originalGRoots originalGWord [1, 3, 4, 6] 0xffccff00ffccff00cccccc00cccccc00 0x50505050000000005050505 90 0 = true := by decide +kernel
-
-lemma residual_lower_68 : LowN [1, 3, 4, 6] 0xffccff00ffccff00cccccc00cccccc00 4 :=
-  mkUnitLift d37 lift_check_68
-
-lemma r92_68 : SliceN originalGRoots originalGWord spec_68 :=
-  mkFreezeSlice (residual_lower_68) (by decide) freeze_check_68
-
-def spec_69 : SliceD := (0x55005500550055, 4, [1, 2, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_69 : unitLiftChk [1, 2, 4, 5] 0xfcfcccccfcfc0000fcfcccccfcfc0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [1, 4, 2, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_69 : freezeSliceChk originalGRoots originalGWord [1, 2, 4, 5] 0xfcfcccccfcfc0000fcfcccccfcfc0000 0x55005500550055 54 0 = true := by decide +kernel
-
-lemma residual_lower_69 : LowN [1, 2, 4, 5] 0xfcfcccccfcfc0000fcfcccccfcfc0000 4 :=
-  mkUnitLift d37 lift_check_69
-
-lemma r92_69 : SliceN originalGRoots originalGWord spec_69 :=
-  mkFreezeSlice (residual_lower_69) (by decide) freeze_check_69
-
-def spec_70 : SliceD := (0x303030303030303, 4, [0, 3, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_70 : unitLiftChk [0, 3, 4, 5] 0xffaaffaaaaaa0000ffaaffaaaaaa0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [0, 5, 3, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_70 : freezeSliceChk originalGRoots originalGWord [0, 3, 4, 5] 0xffaaffaaaaaa0000ffaaffaaaaaa0000 0x303030303030303 57 0 = true := by decide +kernel
-
-lemma residual_lower_70 : LowN [0, 3, 4, 5] 0xffaaffaaaaaa0000ffaaffaaaaaa0000 4 :=
-  mkUnitLift d37 lift_check_70
-
-lemma r92_70 : SliceN originalGRoots originalGWord spec_70 :=
-  mkFreezeSlice (residual_lower_70) (by decide) freeze_check_70
-
-def spec_71 : SliceD := (0xf000f000f000f000f000f000f000f, 6, [0, 1, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_71 : unitLiftChk [0, 1, 4, 5, 6] 0xffffffffeeeeaaaaeeeeeeeeeeee0000 [0, 1, 2, 3, 4] 0xfeeefac8feeefac8feeefac8feeefac8 [] [0, 5, 1, 4, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_71 : freezeSliceChk originalGRoots originalGWord [0, 1, 4, 5, 6] 0xffffffffeeeeaaaaeeeeeeeeeeee0000 0xf000f000f000f000f000f000f000f 115 0 = true := by decide +kernel
-
-lemma residual_lower_71 : LowN [0, 1, 4, 5, 6] 0xffffffffeeeeaaaaeeeeeeeeeeee0000 6 :=
-  mkUnitLift d150 lift_check_71
-
-lemma r92_71 : SliceN originalGRoots originalGWord spec_71 :=
-  mkFreezeSlice (residual_lower_71) (by decide) freeze_check_71
-
-def spec_72 : SliceD := (0xf0f00000f0f, 5, [0, 1, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_72 : unitLiftChk [0, 1, 3, 5] 0xffeeffeecc00cc00ffeeffeecc00cc00 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [5, 1, 3, 0] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_72 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 5] 0xffeeffeecc00cc00ffeeffeecc00cc00 0xf0f00000f0f 43 0 = true := by decide +kernel
-
-lemma residual_lower_72 : LowN [0, 1, 3, 5] 0xffeeffeecc00cc00ffeeffeecc00cc00 5 :=
-  mkUnitLift d68 lift_check_72
-
-lemma r92_72 : SliceN originalGRoots originalGWord spec_72 :=
-  mkFreezeSlice (residual_lower_72) (by decide) freeze_check_72
-
-def spec_73 : SliceD := (0x5500550000000000550055, 4, [1, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_73 : unitLiftChk [1, 2, 4, 6] 0xfcfcf0f0fcfcf0f0fcfc0000fcfc0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [2, 4, 1, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_73 : freezeSliceChk originalGRoots originalGWord [1, 2, 4, 6] 0xfcfcf0f0fcfcf0f0fcfc0000fcfc0000 0x5500550000000000550055 86 0 = true := by decide +kernel
-
-lemma residual_lower_73 : LowN [1, 2, 4, 6] 0xfcfcf0f0fcfcf0f0fcfc0000fcfc0000 4 :=
-  mkUnitLift d37 lift_check_73
-
-lemma r92_73 : SliceN originalGRoots originalGWord spec_73 :=
-  mkFreezeSlice (residual_lower_73) (by decide) freeze_check_73
-
-def spec_74 : SliceD := (0x33003300330033, 5, [0, 2, 4, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_74 : unitLiftChk [0, 2, 4, 5] 0xfafaaaaafafaa0a0fafaaaaafafaa0a0 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [0, 2, 4, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_74 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 5] 0xfafaaaaafafaa0a0fafaaaaafafaa0a0 0x33003300330033 53 0 = true := by decide +kernel
-
-lemma residual_lower_74 : LowN [0, 2, 4, 5] 0xfafaaaaafafaa0a0fafaaaaafafaa0a0 5 :=
-  mkUnitLift d68 lift_check_74
-
-lemma r92_74 : SliceN originalGRoots originalGWord spec_74 :=
-  mkFreezeSlice (residual_lower_74) (by decide) freeze_check_74
-
-def spec_75 : SliceD := (0x55550000000000005555, 4, [1, 2, 3, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_75 : unitLiftChk [1, 2, 3, 6] 0xfff0fff0fff0fff0cc00cc00cc00cc00 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [6, 3, 1, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_75 : freezeSliceChk originalGRoots originalGWord [1, 2, 3, 6] 0xfff0fff0fff0fff0cc00cc00cc00cc00 0x55550000000000005555 78 0 = true := by decide +kernel
-
-lemma residual_lower_75 : LowN [1, 2, 3, 6] 0xfff0fff0fff0fff0cc00cc00cc00cc00 4 :=
-  mkUnitLift d37 lift_check_75
-
-lemma r92_75 : SliceN originalGRoots originalGWord spec_75 :=
-  mkFreezeSlice (residual_lower_75) (by decide) freeze_check_75
-
-def spec_76 : SliceD := (0x30003000300030003000300030003, 5, [0, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_76 : unitLiftChk [0, 4, 5, 6] 0xffffffffaaaaaaaaaaaaaaaaaaaa0000 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [0, 5, 6, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_76 : freezeSliceChk originalGRoots originalGWord [0, 4, 5, 6] 0xffffffffaaaaaaaaaaaaaaaaaaaa0000 0x30003000300030003000300030003 113 0 = true := by decide +kernel
-
-lemma residual_lower_76 : LowN [0, 4, 5, 6] 0xffffffffaaaaaaaaaaaaaaaaaaaa0000 5 :=
-  mkUnitLift d68 lift_check_76
-
-lemma r92_76 : SliceN originalGRoots originalGWord spec_76 :=
-  mkFreezeSlice (residual_lower_76) (by decide) freeze_check_76
-
-def spec_77 : SliceD := (0xf0000000f0000000f0000000f, 5, [0, 1, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_77 : unitLiftChk [0, 1, 5, 6] 0xffffffffaaaaaaaaeeeeeeee00000000 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [5, 0, 6, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_77 : freezeSliceChk originalGRoots originalGWord [0, 1, 5, 6] 0xffffffffaaaaaaaaeeeeeeee00000000 0xf0000000f0000000f0000000f 99 0 = true := by decide +kernel
-
-lemma residual_lower_77 : LowN [0, 1, 5, 6] 0xffffffffaaaaaaaaeeeeeeee00000000 5 :=
-  mkUnitLift d68 lift_check_77
-
-lemma r92_77 : SliceN originalGRoots originalGWord spec_77 :=
-  mkFreezeSlice (residual_lower_77) (by decide) freeze_check_77
-
-def spec_78 : SliceD := (0xf000f00000000000f000f, 4, [0, 1, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_78 : unitLiftChk [0, 1, 4, 6] 0xeeeeaaaaeeeeaaaaeeee0000eeee0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [0, 4, 1, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_78 : freezeSliceChk originalGRoots originalGWord [0, 1, 4, 6] 0xeeeeaaaaeeeeaaaaeeee0000eeee0000 0xf000f00000000000f000f 83 0 = true := by decide +kernel
-
-lemma residual_lower_78 : LowN [0, 1, 4, 6] 0xeeeeaaaaeeeeaaaaeeee0000eeee0000 4 :=
-  mkUnitLift d37 lift_check_78
-
-lemma r92_78 : SliceN originalGRoots originalGWord spec_78 :=
-  mkFreezeSlice (residual_lower_78) (by decide) freeze_check_78
-
-def spec_79 : SliceD := (0x30303030000000003030303, 4, [0, 3, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_79 : unitLiftChk [0, 3, 4, 6] 0xffaaffaaffaaffaaaaaa0000aaaa0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [0, 6, 3, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_79 : freezeSliceChk originalGRoots originalGWord [0, 3, 4, 6] 0xffaaffaaffaaffaaaaaa0000aaaa0000 0x30303030000000003030303 89 0 = true := by decide +kernel
-
-lemma residual_lower_79 : LowN [0, 3, 4, 6] 0xffaaffaaffaaffaaaaaa0000aaaa0000 4 :=
-  mkUnitLift d37 lift_check_79
-
-lemma r92_79 : SliceN originalGRoots originalGWord spec_79 :=
-  mkFreezeSlice (residual_lower_79) (by decide) freeze_check_79
-
-def spec_80 : SliceD := (0x50005000500050005000500050005, 4, [1, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_80 : unitLiftChk [1, 4, 5, 6] 0xffffffffcccc0000cccccccccccc0000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [1, 5, 6, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_80 : freezeSliceChk originalGRoots originalGWord [1, 4, 5, 6] 0xffffffffcccc0000cccccccccccc0000 0x50005000500050005000500050005 114 0 = true := by decide +kernel
-
-lemma residual_lower_80 : LowN [1, 4, 5, 6] 0xffffffffcccc0000cccccccccccc0000 4 :=
-  mkUnitLift d37 lift_check_80
-
-lemma r92_80 : SliceN originalGRoots originalGWord spec_80 :=
-  mkFreezeSlice (residual_lower_80) (by decide) freeze_check_80
-
-def spec_81 : SliceD := (0xff000000ff, 4, [0, 1, 2, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_81 : unitLiftChk [0, 1, 2, 5] 0xeeeeeeeea0a0a0a0eeeeeeeea0a0a0a0 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [0, 5, 1, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_81 : freezeSliceChk originalGRoots originalGWord [0, 1, 2, 5] 0xeeeeeeeea0a0a0a0eeeeeeeea0a0a0a0 0xff000000ff 39 0 = true := by decide +kernel
-
-lemma residual_lower_81 : LowN [0, 1, 2, 5] 0xeeeeeeeea0a0a0a0eeeeeeeea0a0a0a0 4 :=
-  mkUnitLift d37 lift_check_81
-
-lemma r92_81 : SliceN originalGRoots originalGWord spec_81 :=
-  mkFreezeSlice (residual_lower_81) (by decide) freeze_check_81
-
-def spec_82 : SliceD := (0x505000005050000050500000505, 5, [1, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_82 : unitLiftChk [1, 3, 5, 6] 0xffffffffff00ff00ffccffcccc00cc00 [0, 1, 2, 3] 0xeee8eee8eee8eee8eee8eee8eee8eee8 [] [3, 5, 1, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_82 : freezeSliceChk originalGRoots originalGWord [1, 3, 5, 6] 0xffffffffff00ff00ffccffcccc00cc00 0x505000005050000050500000505 106 0 = true := by decide +kernel
-
-lemma residual_lower_82 : LowN [1, 3, 5, 6] 0xffffffffff00ff00ffccffcccc00cc00 5 :=
-  mkUnitLift d81 lift_check_82
-
-lemma r92_82 : SliceN originalGRoots originalGWord spec_82 :=
-  mkFreezeSlice (residual_lower_82) (by decide) freeze_check_82
-
-def spec_83 : SliceD := (0x1111000011110000111100001111, 5, [2, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_83 : unitLiftChk [2, 3, 5, 6] 0xfffffffffff0fff0ff00ff0000000000 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [6, 3, 5, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_83 : freezeSliceChk originalGRoots originalGWord [2, 3, 5, 6] 0xfffffffffff0fff0ff00ff0000000000 0x1111000011110000111100001111 108 0 = true := by decide +kernel
-
-lemma residual_lower_83 : LowN [2, 3, 5, 6] 0xfffffffffff0fff0ff00ff0000000000 5 :=
-  mkUnitLift d68 lift_check_83
-
-lemma r92_83 : SliceN originalGRoots originalGWord spec_83 :=
-  mkFreezeSlice (residual_lower_83) (by decide) freeze_check_83
-
-def spec_84 : SliceD := (0x333300003333, 4, [0, 2, 3, 5])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_84 : unitLiftChk [0, 2, 3, 5] 0xffaaffaaa0a0a0a0ffaaffaaa0a0a0a0 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [0, 5, 3, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_84 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 5] 0xffaaffaaa0a0a0a0ffaaffaaa0a0a0a0 0x333300003333 45 0 = true := by decide +kernel
-
-lemma residual_lower_84 : LowN [0, 2, 3, 5] 0xffaaffaaa0a0a0a0ffaaffaaa0a0a0a0 4 :=
-  mkUnitLift d37 lift_check_84
-
-lemma r92_84 : SliceN originalGRoots originalGWord spec_84 :=
-  mkFreezeSlice (residual_lower_84) (by decide) freeze_check_84
-
-def spec_85 : SliceD := (0x3300330000000000330033, 5, [0, 2, 4, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_85 : unitLiftChk [0, 2, 4, 6] 0xfafafafafafafafafafaa0a0fafaa0a0 [0, 1, 2, 3] 0xeee8eee8eee8eee8eee8eee8eee8eee8 [] [0, 2, 4, 6] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_85 : freezeSliceChk originalGRoots originalGWord [0, 2, 4, 6] 0xfafafafafafafafafafaa0a0fafaa0a0 0x3300330000000000330033 85 0 = true := by decide +kernel
-
-lemma residual_lower_85 : LowN [0, 2, 4, 6] 0xfafafafafafafafafafaa0a0fafaa0a0 5 :=
-  mkUnitLift d81 lift_check_85
-
-lemma r92_85 : SliceN originalGRoots originalGWord spec_85 :=
-  mkFreezeSlice (residual_lower_85) (by decide) freeze_check_85
-
-def spec_86 : SliceD := (0x33330000000000003333, 5, [0, 2, 3, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_86 : unitLiftChk [0, 2, 3, 6] 0xfffafffafffafffaa0a0a0a0a0a0a0a0 [0, 1, 2, 3] 0xeae8eae8eae8eae8eae8eae8eae8eae8 [] [6, 0, 2, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_86 : freezeSliceChk originalGRoots originalGWord [0, 2, 3, 6] 0xfffafffafffafffaa0a0a0a0a0a0a0a0 0x33330000000000003333 77 0 = true := by decide +kernel
-
-lemma residual_lower_86 : LowN [0, 2, 3, 6] 0xfffafffafffafffaa0a0a0a0a0a0a0a0 5 :=
-  mkUnitLift d68 lift_check_86
-
-lemma r92_86 : SliceN originalGRoots originalGWord spec_86 :=
-  mkFreezeSlice (residual_lower_86) (by decide) freeze_check_86
-
-def spec_87 : SliceD := (0x110011001100110011001100110011, 4, [2, 4, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_87 : unitLiftChk [2, 4, 5, 6] 0xfffffffff0f0f0f0f0f00000f0f00000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [2, 6, 5, 4] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_87 : freezeSliceChk originalGRoots originalGWord [2, 4, 5, 6] 0xfffffffff0f0f0f0f0f00000f0f00000 0x110011001100110011001100110011 116 0 = true := by decide +kernel
-
-lemma residual_lower_87 : LowN [2, 4, 5, 6] 0xfffffffff0f0f0f0f0f00000f0f00000 4 :=
-  mkUnitLift d37 lift_check_87
-
-lemma r92_87 : SliceN originalGRoots originalGWord spec_87 :=
-  mkFreezeSlice (residual_lower_87) (by decide) freeze_check_87
-
-def spec_88 : SliceD := (0xf0f0000000000000f0f, 4, [0, 1, 3, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_88 : unitLiftChk [0, 1, 3, 6] 0xffaaffaaffaaffaacc00cc00cc00cc00 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [3, 6, 0, 1] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_88 : freezeSliceChk originalGRoots originalGWord [0, 1, 3, 6] 0xffaaffaaffaaffaacc00cc00cc00cc00 0xf0f0000000000000f0f 75 0 = true := by decide +kernel
-
-lemma residual_lower_88 : LowN [0, 1, 3, 6] 0xffaaffaaffaaffaacc00cc00cc00cc00 4 :=
-  mkUnitLift d37 lift_check_88
-
-lemma r92_88 : SliceN originalGRoots originalGWord spec_88 :=
-  mkFreezeSlice (residual_lower_88) (by decide) freeze_check_88
-
-def spec_89 : SliceD := (0x55000000550000005500000055, 4, [1, 2, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_89 : unitLiftChk [1, 2, 5, 6] 0xfffffffff0f0f0f0cccccccc00000000 [0, 1, 2, 3] 0xeac8eac8eac8eac8eac8eac8eac8eac8 [] [6, 5, 1, 2] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_89 : freezeSliceChk originalGRoots originalGWord [1, 2, 5, 6] 0xfffffffff0f0f0f0cccccccc00000000 0x55000000550000005500000055 102 0 = true := by decide +kernel
-
-lemma residual_lower_89 : LowN [1, 2, 5, 6] 0xfffffffff0f0f0f0cccccccc00000000 4 :=
-  mkUnitLift d37 lift_check_89
-
-lemma r92_89 : SliceN originalGRoots originalGWord spec_89 :=
-  mkFreezeSlice (residual_lower_89) (by decide) freeze_check_89
-
-def spec_90 : SliceD := (0x303000003030000030300000303, 5, [0, 3, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_90 : unitLiftChk [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaa00000000 [0, 1, 2, 3] 0xeee8eee8eee8eee8eee8eee8eee8eee8 [] [5, 6, 0, 3] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_90 : freezeSliceChk originalGRoots originalGWord [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaa00000000 0x303000003030000030300000303 105 0 = true := by decide +kernel
-
-lemma residual_lower_90 : LowN [0, 3, 5, 6] 0xffffffffffaaffaaffaaffaa00000000 5 :=
-  mkUnitLift d81 lift_check_90
-
-lemma r92_90 : SliceN originalGRoots originalGWord spec_90 :=
-  mkFreezeSlice (residual_lower_90) (by decide) freeze_check_90
-
-def spec_91 : SliceD := (0x33000000330000003300000033, 5, [0, 2, 5, 6])
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma lift_check_91 : unitLiftChk [0, 2, 5, 6] 0xfffffffffafafafaaaaaaaaaa0a0a0a0 [0, 1, 2, 3] 0xeee8eee8eee8eee8eee8eee8eee8eee8 [] [0, 6, 2, 5] 0 = true := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma freeze_check_91 : freezeSliceChk originalGRoots originalGWord [0, 2, 5, 6] 0xfffffffffafafafaaaaaaaaaa0a0a0a0 0x33000000330000003300000033 101 0 = true := by decide +kernel
-
-lemma residual_lower_91 : LowN [0, 2, 5, 6] 0xfffffffffafafafaaaaaaaaaa0a0a0a0 5 :=
-  mkUnitLift d81 lift_check_91
-
-lemma r92_91 : SliceN originalGRoots originalGWord spec_91 :=
-  mkFreezeSlice (residual_lower_91) (by decide) freeze_check_91
-
-def sliceSpecs : List SliceD := [spec_0, spec_1, spec_2, spec_3, spec_4, spec_5, spec_6, spec_7, spec_8, spec_9, spec_10, spec_11, spec_12, spec_13, spec_14, spec_15, spec_16, spec_17, spec_18, spec_19, spec_20, spec_21, spec_22, spec_23, spec_24, spec_25, spec_26, spec_27, spec_28, spec_29, spec_30, spec_31, spec_32, spec_33, spec_34, spec_35, spec_36, spec_37, spec_38, spec_39, spec_40, spec_41, spec_42, spec_43, spec_44, spec_45, spec_46, spec_47, spec_48, spec_49, spec_50, spec_51, spec_52, spec_53, spec_54, spec_55, spec_56, spec_57, spec_58, spec_59, spec_60, spec_61, spec_62, spec_63, spec_64, spec_65, spec_66, spec_67, spec_68, spec_69, spec_70, spec_71, spec_72, spec_73, spec_74, spec_75, spec_76, spec_77, spec_78, spec_79, spec_80, spec_81, spec_82, spec_83, spec_84, spec_85, spec_86, spec_87, spec_88, spec_89, spec_90, spec_91]
-
-def smallSliceSpecs : List SliceD := [spec_4, spec_5, spec_7, spec_8, spec_9, spec_10, spec_11, spec_13, spec_14, spec_15, spec_16, spec_17, spec_18, spec_19, spec_20, spec_21, spec_22, spec_23, spec_24, spec_25, spec_26, spec_27, spec_28, spec_29, spec_30, spec_31, spec_32, spec_33, spec_34, spec_35, spec_36, spec_37, spec_38, spec_39, spec_40, spec_41, spec_42, spec_43, spec_44, spec_45, spec_46, spec_47, spec_48, spec_49, spec_50, spec_51, spec_52, spec_53, spec_54, spec_55, spec_56, spec_57, spec_58, spec_59, spec_60, spec_61, spec_62, spec_63, spec_64, spec_65, spec_66, spec_67, spec_68, spec_69, spec_70, spec_71, spec_72, spec_73, spec_74, spec_75, spec_76, spec_77, spec_78, spec_79, spec_80, spec_81, spec_82, spec_83, spec_84, spec_85, spec_86, spec_87, spec_88, spec_89, spec_90, spec_91]
-
-lemma slices_sound (h1 : LowN [1, 2, 3, 4, 5, 6] 0xfffffffffffcfff0fffcffccfcfccc00 10) (h2 : LowN [0, 2, 3, 4, 5, 6] 0xfffffffffffafffafffaffaafafaa0a0 10) (h3 : LowN [0, 1, 3, 4, 5, 6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) : ∀ s ∈ sliceSpecs, SliceN originalGRoots originalGWord s := by
+open PackedRestrictions
+
+def compactBases : List BaseD := [
+  ([0,1,2],0xe8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8,4),
+  ([0,1,2,3],0xeac8eac8eac8eac8eac8eac8eac8eac8,4),
+  ([0,1,2,3],0xeae8eae8eae8eae8eae8eae8eae8eae8,5),
+  ([0,1,2,3],0xeee8eee8eee8eee8eee8eee8eee8eee8,5),
+  ([0,1,2,3,4],0xfeeafcc8feeafcc8feeafcc8feeafcc8,7),
+  ([0,1,2,3,4],0xfeeafce8feeafce8feeafce8feeafce8,7),
+  ([0,1,2,3,4],0xfeeefac0feeefac0feeefac0feeefac0,7),
+  ([0,1,2,3,4],0xfeeefac8feeefac8feeefac8feeefac8,6),
+  ([0,1,2,3,4],0xfeeefae8feeefae8feeefae8feeefae8,7),
+  ([1,2,3,4,5,6],0xfffffffffffcfff0fffcffccfcfccc00,10),
+  ([0,2,3,4,5,6],0xfffffffffffafffafffaffaafafaa0a0,10),
+  ([0,1,3,4,5,6],0xffffffffffeeffaaffeeffeeeeeecc00,10)]
+
+def compactRecords : List RecordD := [
+  (0x55555555555555555555555555555555,[1,2,3,4,5,6],0xfffffffffffcfff0fffcffccfcfccc00,[],[0,1,2,3,4,5,6],126,0,9),
+  (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f,[0,1,3,4,5,6],0xffffffffffeeffaaffeeffeeeeeecc00,[],[0,1,2,3,4,5,6],123,0,11),
+  (0xff00ff00ff00ff00ff00ff00ff00ff,[0,1,2,4,5,6],0xfffffffffefefafafefeeeeefefea0a0,[],[5,4,3,2,1,0,6],119,0,11),
+  (0xffffffff00000000ffffffff,[0,1,2,3,4,6],0xfffefffafffefffafefeeca0fefeeca0,[],[5,6,1,0,3,2,4],95,0,9),
+  (0x33003300,[0,2,4],0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0,[],[0,2,4],21,8,0),
+  (0x505000005050,[1,3,5],0xffccffcccc00cc00ffccffcccc00cc00,[],[1,3,5],42,4,0),
+  (0x33333333333333333333333333333333,[0,2,3,4,5,6],0xfffffffffffafffafffaffaafafaa0a0,[],[0,1,2,3,4,5,6],125,0,10),
+  (0x1010000010100000101000001010000,[3,5,6],0xffffffffff00ff00ff00ff0000000000,[],[3,5,6],104,16,0),
+  (0x50500000505,[1,3,5],0xffccffcccc00cc00ffccffcccc00cc00,[],[1,3,5],42,0,0),
+  (0x5555555555555555,[1,2,3,4,5],0xfffcffccfcfccc00fffcffccfcfccc00,[],[4,1,3,5,2],62,0,4),
+  (0x330033,[0,2,4],0xfafaa0a0fafaa0a0fafaa0a0fafaa0a0,[],[0,2,4],21,0,0),
+  (0xcc00000000000000cc,[0,2,6],0xfafafafafafafafaa0a0a0a0a0a0a0a0,[],[0,2,6],69,2,0),
+  (0xffff0000ffff0000ffff0000ffff,[0,1,2,3,5,6],0xfffffffffffafffaffeeffeeeca0eca0,[],[6,4,0,1,2,3,5],111,0,10),
+  (0x555555550000000055555555,[1,2,3,4,6],0xfffcfff0fffcfff0fcfccc00fcfccc00,[],[1,2,6,3,4],94,0,6),
+  (0xffffffff,[0,1,2,3,4],0xfefeeca0fefeeca0fefeeca0fefeeca0,[],[1,4,0,2,3],31,0,4),
+  (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,[0,1,3,4,5,6],0xffffffffffffffffffffffeeffffeeaa,[0,4,6],[1,3,5],123,4,0),
+  (0x5050505050505050,[1,3,4,5],0xffffffccffffcc00ffffffccffffcc00,[4],[1,3,5],58,4,0),
+  (0xff00ff00ff00ff00ff00ff00ff00ff00,[0,1,2,4,5,6],0xfffffffffffffffffffffffffefeecec,[1,5,6],[0,2,4],119,8,0),
+  (0xff00ff00,[0,1,2,4],0xfefeececfefeececfefeececfefeecec,[1],[0,2,4],23,8,0),
+  (0xcccccccccccccccccccccccccccccccc,[0,2,3,4,5,6],0xfffffffffffffffaffffffffffffffa0,[3,4,5],[0,2,6],125,2,0),
+  (0x3333333333333333,[0,2,3,4,5],0xfffaffaafafaa0a0fffaffaafafaa0a0,[],[5,0,2,4,3],61,0,4),
+  (0xf0f0f0f000000000f0f0f0f,[0,1,3,4,6],0xffeeffaaffeeffaaeeeecc00eeeecc00,[],[0,1,3,6,4],91,0,6),
+  (0x101000001010000010100000101,[3,5,6],0xffffffffff00ff00ff00ff0000000000,[],[3,5,6],104,0,0),
+  (0x3000000030000000300000003,[0,5,6],0xffffffffaaaaaaaaaaaaaaaa00000000,[],[0,5,6],97,0,0),
+  (0x550055005500550055005500550055,[1,2,4,5,6],0xfffffffffcfcf0f0fcfcccccfcfc0000,[],[1,2,6,5,4],118,0,6),
+  (0xffff0000ffff,[0,1,2,3,5],0xffeeffeeeca0eca0ffeeffeeeca0eca0,[],[0,5,1,3,2],47,0,4),
+  (0xf0f0f0f0f0f0f0f0,[0,1,3,4,5],0xffffffeeffffeeaaffffffeeffffeeaa,[0,4],[1,3,5],59,4,0),
+  (0x5050505050505050505050505050505,[1,3,4,5,6],0xffffffffffccff00ffccffcccccccc00,[],[1,3,5,6,4],122,0,5),
+  (0x11111111111111111111111111111111,[2,3,4,5,6],0xfffffffffff0fff0fff0ff00f0f00000,[],[2,6,3,5,4],124,0,4),
+  (0xcc00cc0000000000cc00cc,[0,2,4,6],0xfffffafafffffafaffffa0a0ffffa0a0,[4],[0,2,6],85,2,0),
+  (0x5050000050500000505000005050000,[1,3,5,6],0xffffffffffccffccffccffcccccccccc,[1],[3,5,6],106,16,0),
+  (0x330000000000000033,[0,2,6],0xfafafafafafafafaa0a0a0a0a0a0a0a0,[],[0,2,6],69,0,0),
+  (0xff00ff00ff00ff00,[0,1,2,4,5],0xfffffffffefeececfffffffffefeecec,[1,5],[0,2,4],55,8,0),
+  (0xffff0000ffff0000ffff0000ffff0000,[0,1,2,3,5,6],0xfffffffffffefffefffefffefefefefe,[0,1,2],[3,5,6],111,16,0),
+  (0xf0f00000f0f00000f0f00000f0f,[0,1,3,5,6],0xffffffffffaaffaaffeeffeecc00cc00,[],[5,3,6,0,1],107,0,8),
+  (0x50505050505050505050505050505050,[1,3,4,5,6],0xffffffffffffffffffffffccffffcc00,[4,6],[1,3,5],122,4,0),
+  (0x330033000000000033003300,[0,2,4,6],0xfffffffffffffffffafaa0a0fafaa0a0,[6],[0,2,4],85,8,0),
+  (0x11110000111100001111000011110000,[2,3,5,6],0xfffffffffff0fff0fff0fff0f0f0f0f0,[2],[3,5,6],108,16,0),
+  (0x330033003300330033003300330033,[0,2,4,5,6],0xfffffffffafafafafafaaaaafafaa0a0,[],[0,2,6,5,4],117,0,8),
+  (0x55555555,[1,2,3,4],0xfcfccc00fcfccc00fcfccc00fcfccc00,[],[1,4,2,3],30,0,1),
+  (0x3030303030303030303030303030303,[0,3,4,5,6],0xffffffffffaaffaaffaaffaaaaaa0000,[],[0,5,6,3,4],121,0,5),
+  (0xff00ff0000000000ff00ff,[0,1,2,4,6],0xfefefafafefefafafefea0a0fefea0a0,[],[4,0,2,6,1],87,0,5),
+  (0x33330000333300003333000033330000,[0,2,3,5,6],0xfffffffffffafffafffafffafafafafa,[0,2],[3,5,6],109,16,0),
+  (0xcccc000000000000cccc,[0,2,3,6],0xfffafffafffafffaffa0ffa0ffa0ffa0,[3],[0,2,6],77,2,0),
+  (0x55550000555500005555000055550000,[1,2,3,5,6],0xfffffffffffcfffcfffcfffcfcfcfcfc,[1,2],[3,5,6],110,16,0),
+  (0x505050505050505,[1,3,4,5],0xffccffcccccccc00ffccffcccccccc00,[],[1,3,5,4],58,0,2),
+  (0x5050000050500000505000005050,[1,3,5,6],0xffffffffffffffffffccffcccc00cc00,[6],[1,3,5],106,4,0),
+  (0x3300330033003300,[0,2,4,5],0xfffffffffafaa0a0fffffffffafaa0a0,[5],[0,2,4],53,8,0),
+  (0x33003300330033003300330033003300,[0,2,4,5,6],0xfffffffffffffffffffffffffafaa0a0,[5,6],[0,2,4],117,8,0),
+  (0xf0f00000f0f0,[0,1,3,5],0xffeeffeeeeaaeeaaffeeffeeeeaaeeaa,[0],[1,3,5],43,4,0),
+  (0xcccc0000cccc0000cccc0000cccc,[0,2,3,5,6],0xfffffffffffafffaffffffffffa0ffa0,[3,5],[0,2,6],109,2,0),
+  (0x3030000030300000303000003030000,[0,3,5,6],0xffffffffffaaffaaffaaffaaaaaaaaaa,[0],[3,5,6],105,16,0),
+  (0xffff000000000000ffff,[0,1,2,3,6],0xfffafffafffafffaeca0eca0eca0eca0,[],[3,6,0,2,1],79,0,4),
+  (0xff00ff0000000000ff00ff00,[0,1,2,4,6],0xfffffffffffffffffefeececfefeecec,[1,6],[0,2,4],87,8,0),
+  (0xcc000000cc000000cc000000cc,[0,2,5,6],0xfffffffffafafafaffffffffa0a0a0a0,[5],[0,2,6],101,2,0),
+  (0xf0f0f0f0f0f0f0f,[0,1,3,4,5],0xffeeffeeeeeecc00ffeeffeeeeeecc00,[],[1,5,0,4,3],59,0,7),
+  (0x5555000055550000555500005555,[1,2,3,5,6],0xfffffffffff0fff0ffccffcccc00cc00,[],[6,3,5,1,2],110,0,5),
+  (0xf0f00000f0f00000f0f00000f0f0,[0,1,3,5,6],0xffffffffffffffffffeeffeeeeaaeeaa,[0,6],[1,3,5],107,4,0),
+  (0xf0f00000f0f00000f0f00000f0f0000,[0,1,3,5,6],0xffffffffffeeffeeffeeffeeeeeeeeee,[0,1],[3,5,6],107,16,0),
+  (0x3333000033330000333300003333,[0,2,3,5,6],0xfffffffffffafffaffaaffaaa0a0a0a0,[],[6,0,5,3,2],109,0,8),
+  (0xcccccccc00000000cccccccc,[0,2,3,4,6],0xfffffffafffffffaffffffa0ffffffa0,[3,4],[0,2,6],93,2,0),
+  (0x333333330000000033333333,[0,2,3,4,6],0xfffafffafffafffafafaa0a0fafaa0a0,[],[6,0,2,4,3],93,0,5),
+  (0xff00ff,[0,1,2,4],0xfefea0a0fefea0a0fefea0a0fefea0a0,[],[4,0,2,1],23,0,2),
+  (0xcc00cc00cc00cc00cc00cc00cc00cc,[0,2,4,5,6],0xfffffffffffffafaffffffffffffa0a0,[4,5],[0,2,6],117,2,0),
+  (0xff000000ff000000ff000000ff,[0,1,2,5,6],0xfffffffffafafafaeeeeeeeea0a0a0a0,[],[5,0,6,2,1],103,0,5),
+  (0xff00ff00ff00ff,[0,1,2,4,5],0xfefeeeeefefea0a0fefeeeeefefea0a0,[],[0,4,1,5,2],55,0,7),
+  (0xf0f0f0f,[0,1,3,4],0xeeeecc00eeeecc00eeeecc00eeeecc00,[],[1,4,0,3],27,0,1),
+  (0x111111110000000011111111,[2,3,4,6],0xfff0fff0fff0fff0f0f00000f0f00000,[],[2,6,3,4],92,0,1),
+  (0x50505050000000005050505,[1,3,4,6],0xffccff00ffccff00cccccc00cccccc00,[],[1,3,6,4],90,0,1),
+  (0x55005500550055,[1,2,4,5],0xfcfcccccfcfc0000fcfcccccfcfc0000,[],[1,4,2,5],54,0,1),
+  (0x303030303030303,[0,3,4,5],0xffaaffaaaaaa0000ffaaffaaaaaa0000,[],[0,5,3,4],57,0,1),
+  (0xf000f000f000f000f000f000f000f,[0,1,4,5,6],0xffffffffeeeeaaaaeeeeeeeeeeee0000,[],[0,5,1,4,6],115,0,7),
+  (0xf0f00000f0f,[0,1,3,5],0xffeeffeecc00cc00ffeeffeecc00cc00,[],[5,1,3,0],43,0,2),
+  (0x5500550000000000550055,[1,2,4,6],0xfcfcf0f0fcfcf0f0fcfc0000fcfc0000,[],[2,4,1,6],86,0,1),
+  (0x33003300330033,[0,2,4,5],0xfafaaaaafafaa0a0fafaaaaafafaa0a0,[],[0,2,4,5],53,0,2),
+  (0x55550000000000005555,[1,2,3,6],0xfff0fff0fff0fff0cc00cc00cc00cc00,[],[6,3,1,2],78,0,1),
+  (0x30003000300030003000300030003,[0,4,5,6],0xffffffffaaaaaaaaaaaaaaaaaaaa0000,[],[0,5,6,4],113,0,2),
+  (0xf0000000f0000000f0000000f,[0,1,5,6],0xffffffffaaaaaaaaeeeeeeee00000000,[],[5,0,6,1],99,0,2),
+  (0xf000f00000000000f000f,[0,1,4,6],0xeeeeaaaaeeeeaaaaeeee0000eeee0000,[],[0,4,1,6],83,0,1),
+  (0x30303030000000003030303,[0,3,4,6],0xffaaffaaffaaffaaaaaa0000aaaa0000,[],[0,6,3,4],89,0,1),
+  (0x50005000500050005000500050005,[1,4,5,6],0xffffffffcccc0000cccccccccccc0000,[],[1,5,6,4],114,0,1),
+  (0xff000000ff,[0,1,2,5],0xeeeeeeeea0a0a0a0eeeeeeeea0a0a0a0,[],[0,5,1,2],39,0,1),
+  (0x505000005050000050500000505,[1,3,5,6],0xffffffffff00ff00ffccffcccc00cc00,[],[3,5,1,6],106,0,3),
+  (0x1111000011110000111100001111,[2,3,5,6],0xfffffffffff0fff0ff00ff0000000000,[],[6,3,5,2],108,0,2),
+  (0x333300003333,[0,2,3,5],0xffaaffaaa0a0a0a0ffaaffaaa0a0a0a0,[],[0,5,3,2],45,0,1),
+  (0x3300330000000000330033,[0,2,4,6],0xfafafafafafafafafafaa0a0fafaa0a0,[],[0,2,4,6],85,0,3),
+  (0x33330000000000003333,[0,2,3,6],0xfffafffafffafffaa0a0a0a0a0a0a0a0,[],[6,0,2,3],77,0,2),
+  (0x110011001100110011001100110011,[2,4,5,6],0xfffffffff0f0f0f0f0f00000f0f00000,[],[2,6,5,4],116,0,1),
+  (0xf0f0000000000000f0f,[0,1,3,6],0xffaaffaaffaaffaacc00cc00cc00cc00,[],[3,6,0,1],75,0,1),
+  (0x55000000550000005500000055,[1,2,5,6],0xfffffffff0f0f0f0cccccccc00000000,[],[6,5,1,2],102,0,1),
+  (0x303000003030000030300000303,[0,3,5,6],0xffffffffffaaffaaffaaffaa00000000,[],[5,6,0,3],105,0,3),
+  (0x33000000330000003300000033,[0,2,5,6],0xfffffffffafafafaaaaaaaaaa0a0a0a0,[],[0,6,2,5],101,0,3)]
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.PackedRestrictions
+
+def recordIndex (c : RecordD) : Nat := c.2.2.2.2.2.2.2
+
+def recordSpec (bases : List BaseD) (c : RecordD) : SliceD :=
+  let (d,F,_,U,_,_,_,i) := c
+  let base := bases.getD i ([],0,0)
+  (d,base.2.2 + U.length,F)
+
+def recordCheck (R : List Nat) (T : Nat) (bases : List BaseD) (c : RecordD) : Bool :=
+  let (d,F,B,U,vs,free,one,i) := c
+  let base := bases.getD i ([],0,0)
+  decide (i < bases.length) && unitLiftChk F B base.1 base.2.1 U vs 0 &&
+    freezeSliceChk R T F B d free one && decide (0 < base.2.2 + U.length)
+
+lemma record_sound {R : List Nat} {T : Nat} {bases : List BaseD} {c : RecordD}
+    (prior : ∀ b ∈ bases, LowN b.1 b.2.1 b.2.2)
+    (checked : recordCheck R T bases c = true) : SliceN R T (recordSpec bases c) := by
+  obtain ⟨d,F,B,U,vs,free,one,i⟩ := c
+  simp only [recordCheck,Bool.and_eq_true,decide_eq_true_eq] at checked
+  obtain ⟨⟨⟨hi,hu⟩,hf⟩,hp⟩ := checked
+  have hm : bases.getD i ([],0,0) ∈ bases := by
+    simpa only [List.getD_eq_getElem?_getD,List.getElem?_eq_getElem hi,Option.getD_some]
+      using (List.getElem_mem hi : bases[i] ∈ bases)
+  exact mkFreezeSlice (mkUnitLift (prior _ hm) hu) hp hf
+
+lemma records_sound {R : List Nat} {T : Nat} {bases : List BaseD} {records : List RecordD}
+    (prior : ∀ b ∈ bases, LowN b.1 b.2.1 b.2.2)
+    (checked : records.all (recordCheck R T bases) = true) :
+    ∀ s ∈ records.map (recordSpec bases), SliceN R T s := by
   intro s hs
-  simp only [sliceSpecs, List.mem_cons, List.mem_nil_iff, or_false] at hs
-  rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-  · exact r92_0 h1
-  · exact r92_1 h3
-  · exact r92_2 h3
-  · exact r92_3 h1
-  · exact r92_4
-  · exact r92_5
-  · exact r92_6 h2
-  · exact r92_7
-  · exact r92_8
-  · exact r92_9
-  · exact r92_10
-  · exact r92_11
-  · exact r92_12 h2
-  · exact r92_13
-  · exact r92_14
-  · exact r92_15
-  · exact r92_16
-  · exact r92_17
-  · exact r92_18
-  · exact r92_19
-  · exact r92_20
-  · exact r92_21
-  · exact r92_22
-  · exact r92_23
-  · exact r92_24
-  · exact r92_25
-  · exact r92_26
-  · exact r92_27
-  · exact r92_28
-  · exact r92_29
-  · exact r92_30
-  · exact r92_31
-  · exact r92_32
-  · exact r92_33
-  · exact r92_34
-  · exact r92_35
-  · exact r92_36
-  · exact r92_37
-  · exact r92_38
-  · exact r92_39
-  · exact r92_40
-  · exact r92_41
-  · exact r92_42
-  · exact r92_43
-  · exact r92_44
-  · exact r92_45
-  · exact r92_46
-  · exact r92_47
-  · exact r92_48
-  · exact r92_49
-  · exact r92_50
-  · exact r92_51
-  · exact r92_52
-  · exact r92_53
-  · exact r92_54
-  · exact r92_55
-  · exact r92_56
-  · exact r92_57
-  · exact r92_58
-  · exact r92_59
-  · exact r92_60
-  · exact r92_61
-  · exact r92_62
-  · exact r92_63
-  · exact r92_64
-  · exact r92_65
-  · exact r92_66
-  · exact r92_67
-  · exact r92_68
-  · exact r92_69
-  · exact r92_70
-  · exact r92_71
-  · exact r92_72
-  · exact r92_73
-  · exact r92_74
-  · exact r92_75
-  · exact r92_76
-  · exact r92_77
-  · exact r92_78
-  · exact r92_79
-  · exact r92_80
-  · exact r92_81
-  · exact r92_82
-  · exact r92_83
-  · exact r92_84
-  · exact r92_85
-  · exact r92_86
-  · exact r92_87
-  · exact r92_88
-  · exact r92_89
-  · exact r92_90
-  · exact r92_91
+  obtain ⟨c,hc,rfl⟩ := List.mem_map.mp hs
+  exact record_sound prior ((List.all_eq_true.mp checked) c hc)
 
-lemma slices_sound_small : ∀ s ∈ smallSliceSpecs, SliceN originalGRoots originalGWord s := by
-  intro s hs
-  simp only [smallSliceSpecs, List.mem_cons, List.mem_nil_iff, or_false] at hs
-  rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-  · exact r92_4
-  · exact r92_5
-  · exact r92_7
-  · exact r92_8
-  · exact r92_9
-  · exact r92_10
-  · exact r92_11
-  · exact r92_13
-  · exact r92_14
-  · exact r92_15
-  · exact r92_16
-  · exact r92_17
-  · exact r92_18
-  · exact r92_19
-  · exact r92_20
-  · exact r92_21
-  · exact r92_22
-  · exact r92_23
-  · exact r92_24
-  · exact r92_25
-  · exact r92_26
-  · exact r92_27
-  · exact r92_28
-  · exact r92_29
-  · exact r92_30
-  · exact r92_31
-  · exact r92_32
-  · exact r92_33
-  · exact r92_34
-  · exact r92_35
-  · exact r92_36
-  · exact r92_37
-  · exact r92_38
-  · exact r92_39
-  · exact r92_40
-  · exact r92_41
-  · exact r92_42
-  · exact r92_43
-  · exact r92_44
-  · exact r92_45
-  · exact r92_46
-  · exact r92_47
-  · exact r92_48
-  · exact r92_49
-  · exact r92_50
-  · exact r92_51
-  · exact r92_52
-  · exact r92_53
-  · exact r92_54
-  · exact r92_55
-  · exact r92_56
-  · exact r92_57
-  · exact r92_58
-  · exact r92_59
-  · exact r92_60
-  · exact r92_61
-  · exact r92_62
-  · exact r92_63
-  · exact r92_64
-  · exact r92_65
-  · exact r92_66
-  · exact r92_67
-  · exact r92_68
-  · exact r92_69
-  · exact r92_70
-  · exact r92_71
-  · exact r92_72
-  · exact r92_73
-  · exact r92_74
-  · exact r92_75
-  · exact r92_76
-  · exact r92_77
-  · exact r92_78
-  · exact r92_79
-  · exact r92_80
-  · exact r92_81
-  · exact r92_82
-  · exact r92_83
-  · exact r92_84
-  · exact r92_85
-  · exact r92_86
-  · exact r92_87
-  · exact r92_88
-  · exact r92_89
-  · exact r92_90
-  · exact r92_91
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.PackedRestrictions
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+
+lemma compactBases_sound
+    (h1 : LowN [1,2,3,4,5,6] 0xfffffffffffcfff0fffcffccfcfccc00 10)
+    (h2 : LowN [0,2,3,4,5,6] 0xfffffffffffafffafffaffaafafaa0a0 10)
+    (h3 : LowN [0,1,3,4,5,6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) :
+    ∀ b ∈ compactBases, LowN b.1 b.2.1 b.2.2 := by
+  intro b hb
+  simp only [compactBases,List.mem_cons,List.mem_nil_iff,or_false] at hb
+  rcases hb with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact d55
+  · exact d37
+  · exact d68
+  · exact d81
+  · exact d258
+  · exact d137
+  · exact d436
+  · exact d150
+  · exact d167
+  · exact h1
+  · exact h2
+  · exact h3
+
+lemma compactSmallBases_sound :
+    ∀ b ∈ compactBases.take 9, LowN b.1 b.2.1 b.2.2 := by
+  intro b hb
+  simp only [compactBases,List.take,List.mem_cons,List.mem_nil_iff,or_false] at hb
+  rcases hb with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact d55
+  · exact d37
+  · exact d68
+  · exact d81
+  · exact d258
+  · exact d137
+  · exact d436
+  · exact d150
+  · exact d167
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+
+open PackedRestrictions
+
+def sliceSpecs : List SliceD := compactRecords.map (recordSpec compactBases)
+
+def compactSmallRecords : List RecordD :=
+  compactRecords.filter (fun r => decide (recordIndex r < 9))
+
+def smallSliceSpecs : List SliceD :=
+  compactSmallRecords.map (recordSpec (compactBases.take 9))
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma compactChecks :
+    compactRecords.all (recordCheck originalGRoots originalGWord compactBases) = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma compactSmallChecks :
+    compactSmallRecords.all (recordCheck originalGRoots originalGWord (compactBases.take 9)) = true := by
+  decide +kernel
+
+lemma slices_sound
+    (h1 : LowN [1,2,3,4,5,6] 0xfffffffffffcfff0fffcffccfcfccc00 10)
+    (h2 : LowN [0,2,3,4,5,6] 0xfffffffffffafffafffaffaafafaa0a0 10)
+    (h3 : LowN [0,1,3,4,5,6] 0xffffffffffeeffaaffeeffeeeeeecc00 10) :
+    ∀ s ∈ sliceSpecs, SliceN originalGRoots originalGWord s :=
+  records_sound (compactBases_sound h1 h2 h3) compactChecks
+
+lemma slices_sound_small :
+    ∀ s ∈ smallSliceSpecs, SliceN originalGRoots originalGWord s :=
+  records_sound compactSmallBases_sound compactSmallChecks
 
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
 
