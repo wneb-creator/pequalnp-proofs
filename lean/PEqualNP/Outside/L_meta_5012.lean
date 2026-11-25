@@ -2812,6 +2812,34 @@ lemma both_full_monochromatic_impossible {n : ℕ} {G : SimpleGraph (Fin n)}
     (fun k hk => (hJ k hk).symm) hlive hh hhmono hgmono
   omega
 
+lemma full_mono_gate_inCone_active_other {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C : Circuit} (hAO : IsAO2 n C) (hTF : TopForm G C)
+    (hcompute : circuitFun n C = graphFun G ∅) (s : Fin n → Bool)
+    (hs : ∀ u v, G.Adj u v → s u ≠ s v) {p q : ℕ}
+    (hJ : ∀ k ∈ junk G C, k = p ∨ k = q)
+    (hlive : ∀ r < C.gates.length,
+      C.output = n + r ∨ ∃ j < C.gates.length, n + r ∈ (gateAt C j).inputs)
+    (hp : p < C.gates.length)
+    (hpmono : ∀ b, gateVal n C p (monoInput s b) = true)
+    (hqmono : ∃ b, gateVal n C q (monoInput s b) = true) : InCone n C p q := by
+  obtain ⟨c, hqc⟩ := hqmono
+  have hraw : ∀ u : Fin n, ∃ x,
+      gateVal n C p x = true ∧ x u = true ∧ graphFun G ∅ x = false := by
+    intro u
+    exact ⟨monoInput s (s u), hpmono _, by simp [monoInput], graphFun_monoInput_false G s hs _⟩
+  have hself : ∃ x, gateVal n C p x = true ∧ gateVal n C p x = true ∧ graphFun G ∅ x = false :=
+    ⟨monoInput s c, hpmono _, hpmono _, graphFun_monoInput_false G s hs _⟩
+  have hother : ∃ x, gateVal n C p x = true ∧ gateVal n C q x = true ∧ graphFun G ∅ x = false :=
+    ⟨monoInput s c, hpmono _, hqc, graphFun_monoInput_false G s hs _⟩
+  obtain ⟨j, hj, _, hjpq, w, hw, hwp, _⟩ :=
+    dirty_frontier_eventually_junk hAO hTF hcompute hJ hlive hraw hself hother hp
+      (orReach_self n C p hp)
+  have hcone := reach_cone n C j hj w hw (hAO.2.1 j hj w hw) p hwp
+  rcases hjpq with rfl | rfl
+  · have hlt := inCone_lt n C _ _ hcone
+    omega
+  · exact hcone
+
 end BothMono
 
 end PEqualNP.Outside.L_meta_5012
