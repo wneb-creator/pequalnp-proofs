@@ -1,0 +1,11 @@
+L-meta-1884 search checkpoint
+
+Completed target searches, each119 seconds:18gate identity-mapper circuits with free¬x0; no paidNOT (38 exactcofactor rows), sole paidNOT first on neighbor1 (46 exactrows), sole paidNOT first on distance-two2 (49 exactrows). Allthree UNKNOWN; no witness. Structural conditions: strict earlier wires; allgates used; required free-negated-input use. Full1024 validation is implemented but these runs produced noSAT model.
+
+Completed localrepair: all816 choices of three mutablegate definitions in the frozen nonlinear18gate seed were UNSAT. The other15 definitions stayedpinned; zero paidNOTs; earlier-wire AND/OR operations with free¬x0; unusedgates permitted. This is only a neighborhood exclusion, not a global lowerbound. Complete percase stdout, stderr, wrapperlog and JSON are saved losslessly in two gzipJSON archives. The combinedreport listsall816 cases.
+
+Encoder validations: baseline20 SAT/full1024 correct; paidNOT21 SAT/full1024 correct; zero-NOTcap rejects thatpaidNOT pin; exacttwo-fixed-inputspec passes a21gate firstNOTinput1 pin; freshness preserves baseline20 and rejects a duplicatedx0 gate. Optional newest --once-input and --sat-preset flags have not yetbeen used in targetsearches. Sourcesv1,v2,v3 preserve prior versions; currentfree_not_cnf.py also contains these newerflags.
+
+Auxiliary cofactor encoder: nineinputs i=old(i+1),12edges,24 extremalrows. A selectedinternalwireH mustbetrueat386, falseonthe10 maximalindependent masks otherthan100 and386, and trueonatleastonepositiveedge. This is equivalentto H∧OR{0,3,4}≤f0 plusa productivefalsepositive alternatingtriad. Anycandidate is independently checked onall512 rows. The standard16gate baseline passesplainfresh/productive validation and is rejected bytheauxiliarycondition. A redundant24gate positivevalidation passesfunctionandHcondition onall512 rows. No16gateauxiliary targetrun has yetfinished atthischeckpoint.
+
+A useful plannedzeropaidNOTsplit: free¬x0use forcesrawx0use bypositiveessentiality. All11 source labelsoccur. A connected18binarygateDAG has≤19 primaryinputoccurrences, sooneofx1..x9 occurs exactlyonce. Themarked0stabilizer reducesitsorbit toneighbor1 or distance-two2. Codeforthecardinalityconstraint existsbuthasnotyetbeenrun.

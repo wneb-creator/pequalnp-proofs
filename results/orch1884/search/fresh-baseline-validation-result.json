@@ -1,0 +1,142 @@
+{
+  "started_at": "2026-11-25T15:45:35.226606+00:00",
+  "finished_at": "2026-11-25T15:45:35.415190+00:00",
+  "elapsed_seconds": 0.18858408300002338,
+  "arguments": {
+    "gates": 20,
+    "max_nots": 0,
+    "seconds": 10,
+    "first": null,
+    "pin": "/tmp/oec/pequalnp-pilot-103/orch1884/baseline20.json",
+    "mutable": null,
+    "allow_unused": false,
+    "require_free_use": false,
+    "full_rows": false,
+    "fresh": true,
+    "tag": "fresh-baseline-validation"
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "rows": 38,
+      "variables": 10380,
+      "clauses": 95086,
+      "cnf_sha256": "a5da62a2c58ceb35fc5ee7c59835b232e7f2843011ca1be584a3f0d650b70d8e",
+      "solver_seconds": 9,
+      "exit": 10,
+      "status": "SAT",
+      "full_rows_checked": 1024,
+      "bad_rows": [],
+      "candidate": [
+        [
+          1,
+          1,
+          4
+        ],
+        [
+          1,
+          5,
+          11
+        ],
+        [
+          0,
+          0,
+          12
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          0,
+          1,
+          14
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          8,
+          16
+        ],
+        [
+          0,
+          3,
+          17
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          9,
+          19
+        ],
+        [
+          0,
+          7,
+          20
+        ],
+        [
+          1,
+          5,
+          6
+        ],
+        [
+          0,
+          8,
+          22
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          9,
+          24
+        ],
+        [
+          1,
+          13,
+          15
+        ],
+        [
+          1,
+          18,
+          26
+        ],
+        [
+          1,
+          21,
+          27
+        ],
+        [
+          1,
+          23,
+          28
+        ],
+        [
+          1,
+          25,
+          29
+        ]
+      ]
+    }
+  ],
+  "strict_earlier_wires": true,
+  "free_not_input": 10,
+  "constant_sources": false,
+  "exact_cofactor_specification": true,
+  "fixed_inputs_for_cofactor_specification": [
+    0
+  ],
+  "solver_results_are_not_lean_proofs": true
+}

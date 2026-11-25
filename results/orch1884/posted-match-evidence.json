@@ -1,0 +1,715 @@
+{
+  "read_at": "2026-11-25T15:50:40.501576+00:00",
+  "head_generated_at": "2026-11-25T15:48:03.673Z",
+  "head_version": "155f18d4ee4dac30",
+  "formula_keyword_census": [
+    {
+      "id": 48,
+      "error": "JSONDecodeError",
+      "returncode": 0
+    },
+    {
+      "id": 87,
+      "error": "JSONDecodeError",
+      "returncode": 0
+    },
+    {
+      "id": 127,
+      "status": "conjecture",
+      "title": "De Morgan leaf size of the edge function is (edges) + (cover number) on graphs acyclic after removing middle edges",
+      "formal_length": 935
+    },
+    {
+      "id": 151,
+      "status": "conjecture",
+      "title": "Search: a monotone formula with at most 12 leaves for the edge function of the friendship graph on 7 vertices",
+      "formal_length": 396
+    },
+    {
+      "id": 209,
+      "status": "conjecture",
+      "title": "Typed rank is at most de Morgan formula leaf size",
+      "formal_length": 137
+    },
+    {
+      "id": 212,
+      "status": "conjecture",
+      "title": "OPEN: the majority of three exclusive-or pairs does not have typed rank at most 19",
+      "formal_length": 186
+    },
+    {
+      "id": 341,
+      "status": "conjecture",
+      "title": "OPEN either way: the exclusive or of five inputs has typed rank at most 27",
+      "formal_length": 119
+    },
+    {
+      "id": 364,
+      "status": "conjecture",
+      "title": "Walking the binary code of a CNF formula item by item reads its literals and clause ends in order",
+      "formal_length": 623
+    },
+    {
+      "id": 400,
+      "status": "conjecture",
+      "title": "At a leaf l with neighbour w: some minimum vertex cover contains w, and removing l and w lowers the cover number by exactly one",
+      "formal_length": 642
+    },
+    {
+      "id": 401,
+      "status": "conjecture",
+      "title": "Two leaves at one vertex: removing one of them leaves the vertex cover number unchanged",
+      "formal_length": 561
+    },
+    {
+      "id": 403,
+      "status": "conjecture",
+      "title": "A forest with an edge has a leaf l with neighbour w such that every neighbour of w except at most one is a leaf hanging at w",
+      "formal_length": 228
+    },
+    {
+      "id": 404,
+      "status": "conjecture",
+      "title": "Edge function at a leaf l with neighbour w: setting x_l to b gives (b AND x_w) OR the rest; x_l = 1 gives x_w OR the rest without w; x_w = 0 removes w",
+      "formal_length": 768
+    },
+    {
+      "id": 408,
+      "status": "conjecture",
+      "title": "Over all two-input gates, at a leaf l with neighbour w: the edge function costs two more than without l, or three more than without l and w",
+      "formal_length": 661
+    },
+    {
+      "id": 437,
+      "status": "conjecture",
+      "title": "The 9-cycle with chords 02, 35, 68 has no monotone formula with at most 17 leaves",
+      "formal_length": 453
+    },
+    {
+      "id": 439,
+      "status": "conjecture",
+      "title": "Three triangles joined in a ring have no monotone formula with at most 17 leaves",
+      "formal_length": 453
+    },
+    {
+      "id": 482,
+      "status": "conjecture",
+      "title": "An explicit edge list for the graph cvcGraph phi of a CNF formula phi has no repeated unordered pair and no loop",
+      "formal_length": 1121
+    },
+    {
+      "id": 490,
+      "status": "conjecture",
+      "title": "In the clause item list of phi, literal j of clause i is item off i + j and the end marker of clause i is item off i + |c_i|",
+      "formal_length": 343
+    },
+    {
+      "id": 518,
+      "status": "conjecture",
+      "title": "Edge function of the 8-cycle with a leaf at each of two adjacent cycle vertices: every circuit has at least 14 gates",
+      "formal_length": 245
+    },
+    {
+      "id": 523,
+      "status": "conjecture",
+      "title": "An 11-gate AND/OR circuit for the edge function of the 6-cycle with leaves at two adjacent vertices, nested, that no lift flattens",
+      "formal_length": 2164
+    },
+    {
+      "id": 625,
+      "status": "conjecture",
+      "title": "Two stars with distinct centres and no common edge: joint circuit size is the sum of the leaf counts less one gate per common leaf beyond the first",
+      "formal_length": 478
+    },
+    {
+      "id": 648,
+      "status": "conjecture",
+      "title": "On the 5-cycle with leaves at 3, 4 and 0, every 11-gate AND/OR circuit for the edge function reaches a flat one by lifts and junk drops",
+      "formal_length": 1116
+    },
+    {
+      "id": 774,
+      "status": "conjecture",
+      "title": "Exact circuit size: the edge function of the bull with a second leaf at one corner has circuits with s gates exactly when s >= 7",
+      "formal_length": 858
+    },
+    {
+      "id": 824,
+      "status": "conjecture",
+      "title": "An explicit circuit with 11 gates computes the edge function of the 6-cycle with leaves at opposite vertices",
+      "formal_length": 912
+    },
+    {
+      "id": 1015,
+      "status": "conjecture",
+      "title": "Petersen graph: every circuit for its edge function has a vertex whose setting to false leaves a circuit with at least 4 fewer gates",
+      "formal_length": 797
+    },
+    {
+      "id": 1399,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 3 for the edge function of the 5-cycle",
+      "formal_length": 432
+    },
+    {
+      "id": 1401,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 4 for the 5-cycle with each input an AND of two inputs",
+      "formal_length": 510
+    },
+    {
+      "id": 1403,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 4 for the 5-cycle with each input an OR of two inputs",
+      "formal_length": 530
+    },
+    {
+      "id": 1405,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 6 for the 5-cycle with each input a majority of three inputs",
+      "formal_length": 890
+    },
+    {
+      "id": 1507,
+      "status": "checked",
+      "title": "Probe: every monotone fan-in-two AND/OR formula for the edge function of the Petersen graph has depth at least 5",
+      "formal_length": 604
+    },
+    {
+      "id": 1508,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 4 for the edge function of the Petersen graph",
+      "formal_length": 600
+    },
+    {
+      "id": 1545,
+      "status": "conjecture",
+      "title": "Search: a fan-in-two AND/OR/NOT circuit of at most 13 gates for the 7-cycle 0..6 with leaves 7, 8, 9 at 0, 1, 2",
+      "formal_length": 230
+    },
+    {
+      "id": 1548,
+      "status": "conjecture",
+      "title": "Search: a fan-in-two AND/OR/NOT circuit of at most 13 gates for the 7-cycle 0..6 with leaves 7, 8, 9 at 0, 1, 4",
+      "formal_length": 230
+    },
+    {
+      "id": 1621,
+      "status": "conjecture",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 5 for the edge function of the Heawood graph",
+      "formal_length": 708
+    },
+    {
+      "id": 2295,
+      "status": "checked",
+      "title": "A step toward: Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate AND(x_0, x_4) computes\u2026 (step 1 of 3)",
+      "formal_length": 1488
+    },
+    {
+      "id": 2296,
+      "status": "refuted",
+      "title": "It is false that: A step toward: Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate\u2026 (step 1 of 3)",
+      "formal_length": 1492
+    },
+    {
+      "id": 2352,
+      "status": "conjecture",
+      "title": "Transversal lemma: an input making every leaf gate of a skeleton tree true makes its hanging wire true (fan-in-two AND/OR circuits)",
+      "formal_length": 1018
+    },
+    {
+      "id": 2353,
+      "status": "conjecture",
+      "title": "Transversal lemma, graft form: a skeleton tree whose leaves are cuts at any wire with an OR-only path upward (fan-in-two AND/OR circuits)",
+      "formal_length": 975
+    },
+    {
+      "id": 2355,
+      "status": "conjecture",
+      "title": "Tight leaf: a read-2 skeleton tree of an incidence in a circuit sound on two points and two lines has an x-leaf whose shadow lies on the line",
+      "formal_length": 1927
+    },
+    {
+      "id": 2409,
+      "status": "conjecture",
+      "title": "RT one side: incidences at most twice the OR gates plus |E_xs|, fan-in-two AND/OR circuits sound on two points and two lines, read-2 trees",
+      "formal_length": 2903
+    },
+    {
+      "id": 2410,
+      "status": "conjecture",
+      "title": "Theorem RT: incidences at most four times the OR gates plus |E_pp|, fan-in-two AND/OR circuits sound on two points and two lines",
+      "formal_length": 3606
+    },
+    {
+      "id": 2412,
+      "status": "conjecture",
+      "title": "Lemma D: a skeleton subtree of p- and l-leaves with at most one p-leaf, non-tight, hangs from a wire dirty off l (AND/OR fan-in two)",
+      "formal_length": 1559
+    },
+    {
+      "id": 2423,
+      "status": "conjecture",
+      "title": "Incidence function: a fan-in-two AND/OR circuit computing it is sound on two points and two lines, and read-2 gives every incidence a read-2 tree",
+      "formal_length": 2041
+    },
+    {
+      "id": 2424,
+      "status": "conjecture",
+      "title": "Assembly: incidences at most 112 times the size of a fan-in-two AND/OR circuit sound on two points and two lines with read-2 trees",
+      "formal_length": 2045
+    },
+    {
+      "id": 2470,
+      "status": "conjecture",
+      "title": "It is false that: Transversal lemma: an input making every leaf gate of a skeleton tree true makes its hanging wire true (fan-in-two AND/OR circuits)",
+      "formal_length": 1022
+    },
+    {
+      "id": 2471,
+      "status": "conjecture",
+      "title": "AND/OR circuits of fan-in at most two, false at all-false, not constant: no more gates at fan-in exactly two, same function, dominated count vectors",
+      "formal_length": 591
+    },
+    {
+      "id": 2472,
+      "status": "conjecture",
+      "title": "Read test caps: if the read-1 test accepts the list [u, w], the count vectors capped at 3 at the output include one with both entries at most 1",
+      "formal_length": 241
+    },
+    {
+      "id": 2477,
+      "status": "conjecture",
+      "title": "AND/OR circuits of fan-in exactly two: a proof tree with leaves exactly one u and one or two w gives a TYPE 0, I or II certificate",
+      "formal_length": 4880
+    },
+    {
+      "id": 2478,
+      "status": "conjecture",
+      "title": "It is false that: Tight leaf: a read-2 skeleton tree of an incidence in a circuit sound on two points and two lines has an x-leaf whose shadow lies on the line",
+      "formal_length": 1931
+    },
+    {
+      "id": 2488,
+      "status": "conjecture",
+      "title": "It is false that: RT one side: incidences at most twice the OR gates plus |E_xs|, fan-in-two AND/OR circuits sound on two points and two lines, read-2 trees",
+      "formal_length": 2907
+    },
+    {
+      "id": 2491,
+      "status": "conjecture",
+      "title": "Plane of order q, incidences read (1,1) or (1,2), false on one point with at most two lines off it: AND/OR fan-in exactly two, N(q + 1) at most 5 s",
+      "formal_length": 840
+    },
+    {
+      "id": 2492,
+      "status": "conjecture",
+      "title": "It is false that: Theorem RT: incidences at most four times the OR gates plus |E_pp|, fan-in-two AND/OR circuits sound on two points and two lines",
+      "formal_length": 3610
+    },
+    {
+      "id": 2493,
+      "status": "conjecture",
+      "title": "Plane of order q, incidences read (1,1), (1,2) or (2,1), sound at a point with two lines and dually: AND/OR fan-in exactly two, N(q + 1) at most 10 s",
+      "formal_length": 1233
+    },
+    {
+      "id": 2494,
+      "status": "conjecture",
+      "title": "Rung 0 target on the read-(1,2)/(2,1) class: plane of order q, AND/OR circuits of fan-in at most two, two weight-3 rejections: N q at most 100 s",
+      "formal_length": 1196
+    },
+    {
+      "id": 2495,
+      "status": "conjecture",
+      "title": "It is false that: Lemma D: a skeleton subtree of p- and l-leaves with at most one p-leaf, non-tight, hangs from a wire dirty off l (AND/OR fan-in two)",
+      "formal_length": 1563
+    },
+    {
+      "id": 2500,
+      "status": "conjecture",
+      "title": "Rung 0 target on the read-(1,2)/(2,1) class: plane of order q, AND/OR fan-in exactly two, earlier wires, two weight-3 rejections: N q at most 100 s",
+      "formal_length": 1193
+    },
+    {
+      "id": 2576,
+      "status": "conjecture",
+      "title": "Plane of order q: AND/OR circuits of fan-in at most two computing incidence, double reads meeting at local ANDs, have at least N(q - 3)/60 gates",
+      "formal_length": 2549
+    },
+    {
+      "id": 2775,
+      "status": "conjecture",
+      "title": "Counterexample to the distributive-law rewrite: an AND/OR circuit of fan-in two with two output terms sharing an AND input and no smaller equivalent",
+      "formal_length": 1173
+    },
+    {
+      "id": 2908,
+      "status": "conjecture",
+      "title": "One-line soundness prices monotone formulas: true on every flag, false on each line with all points off it, costs at least flags plus a vertex cover in leaves",
+      "formal_length": 1003
+    },
+    {
+      "id": 3018,
+      "status": "conjecture",
+      "title": "Fork-share removal rewrite fails: an AND/OR fan-in two circuit for a 4-cycle-free bipartite edge function has a private one-vertex OR-read gate that costs",
+      "formal_length": 2948
+    },
+    {
+      "id": 3241,
+      "status": "conjecture",
+      "title": "A step toward: 4-cycle-free bipartite incidence: every fan-in-two AND/OR circuit for it can be replaced by a two-level one (point ORs, line ORs\u2026 (step 1 of 3)",
+      "formal_length": 877
+    },
+    {
+      "id": 3242,
+      "status": "conjecture",
+      "title": "It is false that: A step toward: 4-cycle-free bipartite incidence: every fan-in-two AND/OR circuit for it can be replaced by a two-level one\u2026 (step 1 of 3)",
+      "formal_length": 881
+    },
+    {
+      "id": 9246,
+      "status": "conjecture",
+      "title": "Clause learning by unit propagation refutes the pigeonhole formula with 4 holes and one more pigeon learning at most 12 clauses",
+      "formal_length": 217
+    },
+    {
+      "id": 9248,
+      "status": "conjecture",
+      "title": "No run of clause learning by unit propagation refutes the pigeonhole formula with 4 holes and one more pigeon learning at most 12 clauses",
+      "formal_length": 221
+    },
+    {
+      "id": 9470,
+      "status": "conjecture",
+      "title": "Clause learning by unit propagation refutes the pigeonhole formula with 5 holes and one more pigeon learning at most 20 clauses",
+      "formal_length": 217
+    },
+    {
+      "id": 9471,
+      "status": "conjecture",
+      "title": "No run of clause learning by unit propagation refutes the pigeonhole formula with 5 holes and one more pigeon learning at most 20 clauses",
+      "formal_length": 221
+    },
+    {
+      "id": 9473,
+      "status": "conjecture",
+      "title": "Clause learning by unit propagation refutes the pigeonhole formula with 5 holes and one more pigeon learning at most 40 clauses",
+      "formal_length": 217
+    },
+    {
+      "id": 9475,
+      "status": "conjecture",
+      "title": "No run of clause learning by unit propagation refutes the pigeonhole formula with 5 holes and one more pigeon learning at most 40 clauses",
+      "formal_length": 221
+    },
+    {
+      "id": 9549,
+      "status": "conjecture",
+      "title": "A minimal unsatisfiable 11-clause formula on 4 variables not reduced to a minimal unsatisfiable one by fixing or merging a variable",
+      "formal_length": 2010
+    },
+    {
+      "id": 9561,
+      "status": "conjecture",
+      "title": "A minimal unsatisfiable 10-clause formula on 4 variables not reduced to a minimal unsatisfiable one by fixing, merging or eliminating a variable",
+      "formal_length": 2222
+    },
+    {
+      "id": 9568,
+      "status": "conjecture",
+      "title": "A minimal unsatisfiable 14-clause formula on 5 variables not reduced to a minimal unsatisfiable one by fixing, merging or eliminating a variable",
+      "formal_length": 2703
+    },
+    {
+      "id": 9668,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 3 holes and one more pigeon in at most 48 lines",
+      "formal_length": 148
+    },
+    {
+      "id": 9672,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 3 holes and one more pigeon has at most 48 lines",
+      "formal_length": 152
+    },
+    {
+      "id": 9679,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 3 holes and one more pigeon in at most 51 lines",
+      "formal_length": 148
+    },
+    {
+      "id": 9682,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 3 holes and one more pigeon has at most 51 lines",
+      "formal_length": 152
+    },
+    {
+      "id": 9690,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 4 holes and one more pigeon in at most 100 lines",
+      "formal_length": 149
+    },
+    {
+      "id": 9693,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 4 holes and one more pigeon has at most 100 lines",
+      "formal_length": 153
+    },
+    {
+      "id": 9695,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 4 holes and one more pigeon in at most 108 lines",
+      "formal_length": 149
+    },
+    {
+      "id": 9698,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 4 holes and one more pigeon has at most 108 lines",
+      "formal_length": 153
+    },
+    {
+      "id": 9704,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 5 holes and one more pigeon in at most 180 lines",
+      "formal_length": 149
+    },
+    {
+      "id": 9706,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 5 holes and one more pigeon has at most 180 lines",
+      "formal_length": 153
+    },
+    {
+      "id": 9708,
+      "status": "conjecture",
+      "title": "Cutting planes refutes the pigeonhole formula with 5 holes and one more pigeon in at most 195 lines",
+      "formal_length": 149
+    },
+    {
+      "id": 9710,
+      "status": "conjecture",
+      "title": "No cutting planes refutation of the pigeonhole formula with 5 holes and one more pigeon has at most 195 lines",
+      "formal_length": 153
+    }
+  ],
+  "selected_full_public_records": {
+    "1507": {
+      "id": "L-meta-1507",
+      "title": "Probe: every monotone fan-in-two AND/OR formula for the edge function of the Petersen graph has depth at least 5",
+      "formal_statement": "\u00ac (\u2200 T : \u2115 \u2192 Set ((Fin 10 \u2192 Bool) \u2192 Bool), (\u2200 i : Fin 10, (fun x : Fin 10 \u2192 Bool => x i) \u2208 T 0) \u2192 (\u2200 (k : \u2115) (f : (Fin 10 \u2192 Bool) \u2192 Bool), f \u2208 T k \u2192 f \u2208 T (k + 1)) \u2192 (\u2200 (k : \u2115) (f g : (Fin 10 \u2192 Bool) \u2192 Bool), f \u2208 T k \u2192 g \u2208 T k \u2192 (fun y : Fin 10 \u2192 Bool => f y && g y) \u2208 T (k + 1) \u2227 (fun y : Fin 10 \u2192 Bool => f y || g y) \u2208 T (k + 1)) \u2192 (fun z : Fin 10 \u2192 Bool => (z 0 && z 1) || (z 1 && z 2) || (z 2 && z 3) || (z 3 && z 4) || (z 4 && z 0) || (z 0 && z 5) || (z 1 && z 6) || (z 2 && z 7) || (z 3 && z 8) || (z 4 && z 9) || (z 5 && z 7) || (z 7 && z 9) || (z 9 && z 6) || (z 6 && z 8) || (z 8 && z 5)) \u2208 T 4)",
+      "statement_hash": "sha256:bcfc1a1f407e8235ec468575db9ffb4b441e557948929b377b8e37f6ac6b061e",
+      "plain_statement": "For the Petersen graph on inputs 0..9 (outer cycle 0-1-2-3-4-0, spokes i to i + 5, inner pentagram 5-7-9-6-8-5), the function true exactly when both ends of some edge are true has no monotone formula of depth at most 4. A monotone formula: a tree of fan-in-two AND and OR gates over the inputs, no NOT, no constants; depth at most d is said as: the function lies in level d of every family of sets of functions that holds the inputs at level 0, keeps each level in the next, and puts the AND and the OR of two level-k functions in level k + 1. Conjecture.",
+      "status": "checked",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": "seat-intake-1",
+      "proposed_at": "2026-11-24T00:37:35.790Z",
+      "attempts": [
+        {
+          "when": "2026-11-24T01:05:25.589Z",
+          "ended_at": "2026-11-24T01:05:25.589Z",
+          "by": "seat-intake-1",
+          "outcome": "checked",
+          "funded_by": {
+            "kind": "baseline",
+            "name": "Brilliant"
+          }
+        }
+      ],
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/L_meta_1507.lean",
+        "checker_version": "outside-runner",
+        "checker_run_id": "run-028453",
+        "content_hash": "sha256:a5d95dd4b494a88dffb2f51d4d5273e057e5bd1ef1278b6ce05f536efb625e8f",
+        "runner_url": "https://github.com/brilliant-hq/pequalnp-proofs/actions/runs/45301521147"
+      },
+      "contributor": {
+        "github": "odinfree",
+        "pr_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3041",
+        "merged_at": "2026-11-24T01:05:25.589Z"
+      },
+      "kind": "helper",
+      "result": {
+        "contributor": {
+          "id": "seat-intake-1",
+          "display_name": "seat-intake-1",
+          "kind": "fleet"
+        },
+        "funded_by": {
+          "kind": "baseline",
+          "name": "Brilliant"
+        }
+      },
+      "used_by": [],
+      "status_at": "2026-11-24T01:05:25.589Z",
+      "layer": 0
+    },
+    "1508": {
+      "id": "L-meta-1508",
+      "title": "Probe: Search: a monotone fan-in-two AND/OR formula of depth at most 4 for the edge function of the Petersen graph",
+      "formal_statement": "\u2200 T : \u2115 \u2192 Set ((Fin 10 \u2192 Bool) \u2192 Bool), (\u2200 i : Fin 10, (fun x : Fin 10 \u2192 Bool => x i) \u2208 T 0) \u2192 (\u2200 (k : \u2115) (f : (Fin 10 \u2192 Bool) \u2192 Bool), f \u2208 T k \u2192 f \u2208 T (k + 1)) \u2192 (\u2200 (k : \u2115) (f g : (Fin 10 \u2192 Bool) \u2192 Bool), f \u2208 T k \u2192 g \u2208 T k \u2192 (fun y : Fin 10 \u2192 Bool => f y && g y) \u2208 T (k + 1) \u2227 (fun y : Fin 10 \u2192 Bool => f y || g y) \u2208 T (k + 1)) \u2192 (fun z : Fin 10 \u2192 Bool => (z 0 && z 1) || (z 1 && z 2) || (z 2 && z 3) || (z 3 && z 4) || (z 4 && z 0) || (z 0 && z 5) || (z 1 && z 6) || (z 2 && z 7) || (z 3 && z 8) || (z 4 && z 9) || (z 5 && z 7) || (z 7 && z 9) || (z 9 && z 6) || (z 6 && z 8) || (z 8 && z 5)) \u2208 T 4",
+      "statement_hash": "sha256:8f0a4ba2934bb80289e368890345ddf4f7edcdc797fd521435487f7408f5adcc",
+      "plain_statement": "Is there, for the Petersen graph on inputs 0..9 (outer cycle 0-1-2-3-4-0, spokes i to i + 5, inner pentagram 5-7-9-6-8-5), a monotone formula of depth at most 4 for the function true exactly when both ends of some edge are true? A monotone formula: a tree of fan-in-two AND and OR gates over the inputs, no NOT, no constants; depth at most d is said as: the function lies in level d of every family of sets of functions that holds the inputs at level 0, keeps each level in the next, and puts the AND and the OR of two level-k functions in level k + 1. Conjecture.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-24T00:37:41.306Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-24T00:37:41.306Z",
+      "layer": 0
+    },
+    "127": {
+      "id": "L-meta-127",
+      "title": "De Morgan leaf size of the edge function is (edges) + (cover number) on graphs acyclic after removing middle edges",
+      "formal_statement": "\u2200 (n : \u2115) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (t s : \u2115), (\u2203 u v : Fin n, G.Adj u v) \u2192 (SimpleGraph.fromRel (fun b c : Fin n => G.Adj b c \u2227 \u00ac (\u2203 a d : Fin n, G.Adj a b \u2227 G.Adj c d \u2227 a \u2260 d \u2227 \u00ac G.Adj a d \u2227 (\u2200 w, G.Adj b w \u2192 w = a \u2228 w = c) \u2227 (\u2200 w, G.Adj c w \u2192 w = b \u2228 w = d) \u2227 (\u2203 z, \u2200 w, G.Adj a w \u2192 w = b \u2228 w = z) \u2227 (\u2203 z, \u2200 w, G.Adj d w \u2192 w = c \u2228 w = z)) \u2227 \u00ac (\u2203 a d : Fin n, G.Adj a c \u2227 G.Adj b d \u2227 a \u2260 d \u2227 \u00ac G.Adj a d \u2227 (\u2200 w, G.Adj c w \u2192 w = a \u2228 w = b) \u2227 (\u2200 w, G.Adj b w \u2192 w = c \u2228 w = d) \u2227 (\u2203 z, \u2200 w, G.Adj a w \u2192 w = c \u2228 w = z) \u2227 (\u2203 z, \u2200 w, G.Adj d w \u2192 w = b \u2228 w = z)))).IsAcyclic \u2192 (\u2203 S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S \u2227 S.card = t) \u2192 (\u2200 S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S \u2192 t \u2264 S.card) \u2192 (PEqualNP.MetaComplexity.HasLeafSize n (fun x : Fin n \u2192 Bool => decide (\u2203 u v : Fin n, G.Adj u v \u2227 x u = true \u2227 x v = true)) s \u2194 G.edgeFinset.card + t \u2264 s)",
+      "statement_hash": "sha256:a8a4892da009a0a6fc8ce899f0eef142c8754973951dfd5272349dba58397878",
+      "plain_statement": "De Morgan formulas: literal leaves (negation free at leaves), AND, OR; size = number of leaves. Graph with an edge that is acyclic once its middle edges are removed (bc is a middle edge if a - b - c - d is a path, a, d distinct and non-adjacent, b, c with no other neighbour, a, d with at most two). Contains forests, cycles of length at least 5, subdivisions with four or more inner vertices per edge. Then the edge function has a formula with s leaves iff edges + least cover size <= s. Paper proof, cold referee. Conjecture until checked.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-23T05:19:29.524Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-23T05:19:29.524Z",
+      "layer": 0
+    },
+    "437": {
+      "id": "L-meta-437",
+      "title": "The 9-cycle with chords 02, 35, 68 has no monotone formula with at most 17 leaves",
+      "formal_statement": "\u00ac (\u2203 \u03c6 : PEqualNP.MetaComplexity.DMFormula 9, \u03c6.leaves \u2264 17 \u2227 PEqualNP.MetaComplexity.DMFormula.rec (motive := fun _ : PEqualNP.MetaComplexity.DMFormula 9 => Prop) (fun (_ : Fin 9) (c : Bool) => c = true) (fun _ _ p q => p \u2227 q) (fun _ _ p q => p \u2227 q) \u03c6 \u2227 \u2200 x : Fin 9 \u2192 Bool, \u03c6.eval x = (x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 5 || x 5 && x 6 || x 6 && x 7 || x 7 && x 8 || x 8 && x 0 || x 0 && x 2 || x 3 && x 5 || x 6 && x 8))",
+      "statement_hash": "sha256:a2f8dc4e5ba534efaaa9c0db1c8888ed804c0418c19ce62a7b7445ccc89c820e",
+      "plain_statement": "Take the graph on vertices 0 to 8 whose edges are those of the 9-cycle 0, 1, ..., 8 together with the chords 02, 35 and 68. No formula of AND and OR gates over positive literals, nothing shared, with at most 17 leaves computes the function that is true when both ends of some edge are true. The number 18 is edges plus cover number (12 plus 6).",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-23T07:37:11.826Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-23T07:37:11.826Z",
+      "layer": 0
+    },
+    "439": {
+      "id": "L-meta-439",
+      "title": "Three triangles joined in a ring have no monotone formula with at most 17 leaves",
+      "formal_statement": "\u00ac (\u2203 \u03c6 : PEqualNP.MetaComplexity.DMFormula 9, \u03c6.leaves \u2264 17 \u2227 PEqualNP.MetaComplexity.DMFormula.rec (motive := fun _ : PEqualNP.MetaComplexity.DMFormula 9 => Prop) (fun (_ : Fin 9) (c : Bool) => c = true) (fun _ _ p q => p \u2227 q) (fun _ _ p q => p \u2227 q) \u03c6 \u2227 \u2200 x : Fin 9 \u2192 Bool, \u03c6.eval x = (x 0 && x 1 || x 1 && x 2 || x 0 && x 2 || x 3 && x 4 || x 4 && x 5 || x 3 && x 5 || x 6 && x 7 || x 7 && x 8 || x 6 && x 8 || x 0 && x 3 || x 3 && x 6 || x 6 && x 0))",
+      "statement_hash": "sha256:56a3f7603ba9c92907375d59b2babc380b7b64ec140dbf4a96d7667ad2ddff2e",
+      "plain_statement": "Take the graph on vertices 0 to 8 with the triangles 012, 345, 678 and the further edges 03, 36, 60. No formula of AND and OR gates over positive literals, nothing shared, with at most 17 leaves computes the function that is true when both ends of some edge are true. The number 18 is edges plus cover number (12 plus 6).",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-23T07:37:26.822Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-23T07:37:26.822Z",
+      "layer": 0
+    },
+    "2908": {
+      "id": "L-meta-2908",
+      "title": "One-line soundness prices monotone formulas: true on every flag, false on each line with all points off it, costs at least flags plus a vertex cover in leaves",
+      "formal_statement": "\u2200 (P L : \u2115) (I : Fin P \u2192 Fin L \u2192 Prop) [DecidableRel I] (\u03c6 : PEqualNP.MetaComplexity.DMFormula (P + L)),\n  (\u2200 l l' : Fin L, l \u2260 l' \u2192 \u2200 p p' : Fin P, I p l \u2192 I p l' \u2192 I p' l \u2192 I p' l' \u2192 p = p') \u2192\n  (\u2200 l : Fin L, 2 \u2264 (Finset.univ.filter (fun p : Fin P => I p l)).card) \u2192\n  (\u2200 p : Fin P, 2 \u2264 (Finset.univ.filter (fun l : Fin L => I p l)).card) \u2192\n  PEqualNP.MetaComplexity.DMFormula.rec (motive := fun _ : PEqualNP.MetaComplexity.DMFormula (P + L) => Prop)\n    (fun (_ : Fin (P + L)) (c : Bool) => c = true) (fun _ _ a b => a \u2227 b) (fun _ _ a b => a \u2227 b) \u03c6 \u2192\n  (\u2200 (p : Fin P) (l : Fin L), I p l \u2192\n    \u03c6.eval (fun k => decide (k = Fin.castAdd L p \u2228 k = Fin.natAdd P l)) = true) \u2192\n  (\u2200 m : Fin L,\n    \u03c6.eval (fun k => decide ((\u2203 p : Fin P, k = Fin.castAdd L p \u2227 \u00ac I p m) \u2228 k = Fin.natAdd P m)) = false) \u2192\n  \u2203 (TP : Finset (Fin P)) (TL : Finset (Fin L)),\n    (\u2200 (p : Fin P) (l : Fin L), I p l \u2192 p \u2208 TP \u2228 l \u2208 TL) \u2227\n    (Finset.univ.filter (fun f : Fin P \u00d7 Fin L => I f.1 f.2)).card + TP.card + TL.card \u2264 \u03c6.leaves",
+      "statement_hash": "sha256:43a88d74e40690c177de7eb94e7c5caefcfe5668c12da6b20193a11a2d0b0e1d",
+      "plain_statement": "Points 0..P-1 and lines 0..L-1 with an incidence in which two lines share at most one point, every line has at least 2 points and every point is on at least 2 lines; inputs are the P point bits then the L line bits. Let phi be a formula of AND and OR gates over positive literals, true on every input with exactly one point and one line on, the point on the line, and, for every line m, false on the input with m and exactly the points off m on. Then some set of points and lines covering every incident pair has incident pairs plus its size at most the leaves of phi.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-24T10:18:54.843Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-24T10:18:54.843Z",
+      "layer": 0
+    },
+    "909": {
+      "id": "L-meta-909",
+      "title": "Petersen graph: some circuit with at most 6 AND gates, ORs free, is correct on its partial function with each variable bare in at most two gates",
+      "formal_statement": "\u2200 G : SimpleGraph (Fin 10), G = SimpleGraph.fromRel (fun a b : Fin 10 => ((a : \u2115), (b : \u2115)) \u2208 ([(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 5), (1, 6), (2, 7), (3, 8), (4, 9), (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)] : List (\u2115 \u00d7 \u2115))) \u2192\n  \u2203 C : PEqualNP.AndCount.AndCountCircuit 10, C.WellFormed \u2227 C.size \u2264 6 \u2227\n    (\u2200 v : Fin 10, (Finset.univ.filter (fun i : Fin C.size => v \u2208 C.leftVars i \u2228 v \u2208 C.rightVars i)).card \u2264 2) \u2227\n    (\u2200 I : Finset (Fin 10), (\u2200 a \u2208 I, \u2200 c \u2208 I, \u00ac G.Adj a c) \u2192 (\u2200 w : Fin 10, w \u2209 I \u2192 \u2203 a \u2208 I, G.Adj a w) \u2192\n      C.eval I = false \u2227 \u2200 w : Fin 10, w \u2209 I \u2192 C.eval (insert w I) = true)",
+      "statement_hash": "sha256:1e231b4c177177857113e67ae068aba9d0eefc6f752cb4feb154017da978f5b4",
+      "plain_statement": "Petersen graph on vertices 0..9 with edges 0-1 1-2 2-3 3-4 4-0 0-5 1-6 2-7 3-8 4-9 5-7 7-9 9-6 6-8 8-5. Circuits: AND gates of two sides, each side an OR of variables and earlier gates, output an OR, only ANDs counted. A circuit is correct on the partial function of G when it outputs 0 at every maximal independent set I of G (as the set of true variables) and 1 at I plus any one vertex outside I. Some circuit with at most 6 ANDs is correct and every variable is bare in at most two gates.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-23T16:51:13.809Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-23T16:51:13.809Z",
+      "layer": 0
+    },
+    "2112": {
+      "id": "L-meta-2112",
+      "title": "A step toward: Petersen graph minus a vertex: no circuit of AND, OR (fan-in two) and NOT gates with at most 15 gates computes its edge function (step 2 of 4)",
+      "formal_statement": "have x1 : (Fin (9 : \u2115) \u2192 Bool) \u2192 Bool := fun (x1 : Fin (9 : \u2115) \u2192 Bool) => x1 (0 : Fin (9 : \u2115)) && x1 (1 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (2 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (3 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (4 : Fin (9 : \u2115)) || x1 (4 : Fin (9 : \u2115)) && x1 (0 : Fin (9 : \u2115)) || x1 (0 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (6 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (5 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (6 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (8 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)); have x2 : (x2 : PEqualNP.CircuitLowerBounds.Circuit) \u2192 Fin (9 : \u2115) \u2192 Finset (Fin x2.size) := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : Fin (9 : \u2115)) => {x4 : Fin x2.size | \u2191x3 \u2208 (x2.gates.get x4).inputs}; have x3 : PEqualNP.CircuitLowerBounds.Circuit \u2192 Prop := fun (x3 : PEqualNP.CircuitLowerBounds.Circuit) =>   PEqualNP.MetaComplexity.IsMinimalCircuit (9 : \u2115) x3 \u2227     x3.size \u2264 (15 : \u2115) \u2227       PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x3 = x1 \u2227         (\u2200 (x4 : Fin x3.size),             have x5 : PEqualNP.CircuitLowerBounds.Gate := x3.gates.get x4;             (\u2200 x6 \u2208 x5.inputs, x6 < (9 : \u2115) + \u2191x4) \u2227 x5.inputs.Nodup \u2227 (x5.op = PEqualNP.CircuitLowerBounds.GateOp.not \u2227 x5.inputs.length = (1 : \u2115) \u2228 x5.op \u2260 PEqualNP.CircuitLowerBounds.GateOp.not \u2227 x5.inputs.length = (2 : \u2115))) \u2227           \u2200 x4 \u2208 [(4 : Fin (9 : \u2115)), (6 : Fin (9 : \u2115)), (7 : Fin (9 : \u2115))], (x2 x3 x4).Nonempty \u2227 (x2 x3 x4).card \u2264 (2 : \u2115) \u2227 ((x2 x3 x4).card = (2 : \u2115) \u2192 \u2200 x7 \u2208 x2 x3 x4, (x3.gates.get x7).op = PEqualNP.CircuitLowerBounds.GateOp.or); \u2200 (x4 : PEqualNP.CircuitLowerBounds.Circuit), x3 x4 \u2192 (\u2203 x6 \u2208 [(4 : Fin (9 : \u2115)), (6 : Fin (9 : \u2115)), (7 : Fin (9 : \u2115))], \u2203 x7 \u2208 x2 x4 x6, (x4.gates.get x7).op \u2260 PEqualNP.CircuitLowerBounds.GateOp.or) \u2192 False",
+      "statement_hash": "sha256:24e0aff7d91f94d32c11340fa7130f2b812fc33ec5ebe91ca9a72fa25259c39d",
+      "plain_statement": "The edge function F of the Petersen graph minus a vertex (9 inputs, 12 edges). Call a circuit of AND, OR and NOT gates REDUCED if it is a least circuit for F with at most 15 gates, every gate reads earlier wires (a NOT one, the others two different ones), and each of the degree-two inputs x_4, x_6, x_7 is read by one gate, or by two gates that are both OR gates. No reduced circuit has a gate that reads x_4, x_6 or x_7 and is not an OR gate.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-24T07:29:37.941Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-24T07:29:37.941Z",
+      "layer": 0
+    },
+    "2311": {
+      "id": "L-meta-2311",
+      "title": "A step toward: Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate NOT x_0 computes its edge\u2026 (step 4 of 4)",
+      "formal_statement": "have x1 : (Fin (9 : \u2115) \u2192 Bool) \u2192 Bool := fun (x1 : Fin (9 : \u2115) \u2192 Bool) => x1 (0 : Fin (9 : \u2115)) && x1 (1 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (2 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (3 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (4 : Fin (9 : \u2115)) || x1 (4 : Fin (9 : \u2115)) && x1 (0 : Fin (9 : \u2115)) || x1 (0 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (6 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (5 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (6 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (8 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)); \u2200 (x2 : PEqualNP.CircuitLowerBounds.Circuit),   have x3 : List PEqualNP.CircuitLowerBounds.Gate := List.map (fun (x3 : PEqualNP.CircuitLowerBounds.Gate) => { op := x3.op, inputs := if x3.op.eval [Bool.false] = Bool.true then List.take (1 : \u2115) x3.inputs else x3.inputs : PEqualNP.CircuitLowerBounds.Gate }) (List.drop (1 : \u2115) x2.gates);   have x4 : PEqualNP.CircuitLowerBounds.Gate \u2192 Bool := fun (x4 : PEqualNP.CircuitLowerBounds.Gate) => [(0 : \u2115), (9 : \u2115)].any fun (x5 : \u2115) => x4.inputs.contains x5;   have x5 : \u2115 := (List.filter x4 x3).length;   have x6 : Prop := \u2203 (x6 : List PEqualNP.CircuitLowerBounds.Gate) (x7 : PEqualNP.CircuitLowerBounds.Gate) (x8 : List PEqualNP.CircuitLowerBounds.Gate), x3 = x6 ++ x7 :: x8 \u2227 (x7.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227 (0 : \u2115) \u2208 x7.inputs \u2228 x7.op = PEqualNP.CircuitLowerBounds.GateOp.or \u2227 (9 : \u2115) \u2208 x7.inputs) \u2227 \u2203 x9 \u2208 x8, x4 x9 = Bool.false \u2227 (10 : \u2115) + x6.length \u2208 x9.inputs;   PEqualNP.MetaComplexity.FanInTwo x2 \u2192 (\u2200 (x8 : Fin (9 : \u2115) \u2192 Bool), (x2.wires (List.ofFn x8)).getD (9 : \u2115) Bool.false = !x8 (0 : Fin (9 : \u2115))) \u2192 PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x2 = x1 \u2192 x2.size \u2264 (15 : \u2115) \u2192 x5 = (2 : \u2115) \u2192 \u00acx6 \u2192 False",
+      "statement_hash": "sha256:1dcae9548a5c6a535f0528430f0366a0b8d5eb0f87d9f7912b71c1df877e8834",
+      "plain_statement": "Petersen graph minus a vertex as in the parent, F its edge function on inputs 0 to 8: no an AND/OR/NOT fan-in-two circuit of at most 15 gates whose first gate (wire 9) is NOT x0 on every input; count the later gates that read wire 0 or wire 9 (a NOT read only at its first input) computes F with exactly 2 counted and no AND reading wire 0 or OR reading wire 9 read by a later uncounted gate.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-24T07:57:55.510Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-24T07:57:55.510Z",
+      "layer": 0
+    },
+    "3584": {
+      "id": "L-meta-3584",
+      "title": "A step toward: Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate OR(x_0, x_2) computes its\u2026 (step 4 of 4)",
+      "formal_statement": "have x1 : (Fin (9 : \u2115) \u2192 Bool) \u2192 Bool := fun (x1 : Fin (9 : \u2115) \u2192 Bool) => x1 (0 : Fin (9 : \u2115)) && x1 (1 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (2 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (3 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (4 : Fin (9 : \u2115)) || x1 (4 : Fin (9 : \u2115)) && x1 (0 : Fin (9 : \u2115)) || x1 (0 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)) || x1 (1 : Fin (9 : \u2115)) && x1 (6 : Fin (9 : \u2115)) || x1 (2 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (3 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (5 : Fin (9 : \u2115)) && x1 (7 : Fin (9 : \u2115)) || x1 (6 : Fin (9 : \u2115)) && x1 (8 : Fin (9 : \u2115)) || x1 (8 : Fin (9 : \u2115)) && x1 (5 : Fin (9 : \u2115)); \u2200 (x2 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.FanInTwo x2 \u2192     (\u2200 (x4 : Fin (9 : \u2115) \u2192 Bool), x2.eval (List.ofFn x4 ++ [x4 (0 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115))]) = x1 x4) \u2192       (have x5 : List \u2115 := List.flatMap (fun (x5 : PEqualNP.CircuitLowerBounds.Gate) => List.take (bif x5.op.eval [Bool.false] then (1 : \u2115) else (2 : \u2115)) x5.inputs) x2.gates;         (\u2200 x6 < (10 : \u2115) + x2.size, x6 \u2260 x2.output \u2192 x6 \u2208 x5) \u2227 (List.filter (fun (x6 : PEqualNP.CircuitLowerBounds.Gate) => x6.op.eval [Bool.false]) x2.gates).length + (x5.length - x5.toFinset.card) \u2264 (5 : \u2115)) \u2192         (\u2200 (x6 : Fin (9 : \u2115)) (x7 : Fin (10 : \u2115)), x6 \u2260 (0 : Fin (9 : \u2115)) \u2192 x6 \u2260 (2 : Fin (9 : \u2115)) \u2192 x6.castSucc \u2260 x7 \u2192 \u2200 x11 \u2208 x2.gates, x11.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 x11.op = PEqualNP.CircuitLowerBounds.GateOp.or \u2192 x11.inputs = [\u2191x6, \u2191x7] \u2228 x11.inputs = [\u2191x7, \u2191x6] \u2192 (2 : \u2115) \u2264 (List.filter (fun (x15 : PEqualNP.CircuitLowerBounds.Gate) => (List.take (bif x15.op.eval [Bool.false] then (1 : \u2115) else (2 : \u2115)) x15.inputs).contains \u2191x6) x2.gates).length) \u2192 (15 : \u2115) \u2264 x2.size",
+      "statement_hash": "sha256:274d02297b06dd3cf2033d925e7b543cd22d86563efe9eb86ed27c996a708ba7",
+      "plain_statement": "Petersen graph minus a vertex, ten wires (inputs 0 to 8 and x_0 OR x_2). A circuit of AND, OR (fan-in at most two) and NOT gates on them computing the edge function, in which every wire except the output is read, NOT gates plus repeated reads number at most 5, and every input other than x_0, x_2 combined directly with another of the ten wires is read at least twice, has at least 15 gates.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-24T14:57:12.402Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-24T14:57:12.402Z",
+      "layer": 0
+    }
+  },
+  "exact_negated_twin_1507_1508": true,
+  "conclusion": "No exact posted match found for the newly checked KWFormula, InputEssentiality, or PairLocalization helpers. No have=proof claim or desk request."
+}

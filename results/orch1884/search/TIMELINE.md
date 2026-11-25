@@ -1,0 +1,5 @@
+- 2026-11-25T15:39:00.200980+00:00: Adapted encoder and completed three pinned validation cases.
+- 2026-11-25T15:39:47Z: Started one120-second exact18-gate search with zero paidNOTs and required use of free negated input.
+- 2026-11-25T15:42:00.901957+00:00: First zero-paid-NOT18gate search returnedUNKNOWN; no witness. All diagnostic streams archived.
+- 2026-11-25T15:50:01.000524+00:00: Local repair completed793 of816 triplets; verdict counts{'UNSAT': 793}; no witness. Complete streams saved losslessly in gzipJSON.
+- 2026-11-25T15:53:30.999775+00:00: Checkpointed allthree UNKNOWN targetruns, complete816-case localrepairUNSAT census, and auxiliaryencoder validation. No active solver atcheckpoint.

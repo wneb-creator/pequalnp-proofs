@@ -1,0 +1,21 @@
+{
+  "snapshot_utc": "2026-11-25T15:53:24Z",
+  "running": "search1884_semantic 188443 1200",
+  "hot_files": [
+    "semantic.stdout",
+    "semantic.stderr"
+  ],
+  "stable_snapshots": [
+    "semantic-audit-snapshot.stdout",
+    "semantic-audit-snapshot.stderr"
+  ],
+  "exact_witness_found": false,
+  "completed_runs": {
+    "fullcube_updates": 20448000,
+    "ordinary38_updates": 172186000,
+    "syntactic_active_updates": 13884000
+  },
+  "prepared_not_run": [
+    "search_cegis.cpp"
+  ]
+}

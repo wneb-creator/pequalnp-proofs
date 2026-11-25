@@ -1,0 +1,12 @@
+# Read-only match search for checked partials
+
+Read at 2026-11-25T15:50:40.501576+00:00; public export generated 2026-11-25T15:48:03.673Z.
+Result: no exact open posted target was found matching the newly checked KWFormula, InputEssentiality, or PairLocalization helpers. No lease request, have=proof claim, new proof development, or source modification was made.
+
+The search used the current public map and keyword shards from https://data.pequalnp.com/head.json. It screened all 79 open meta-program records indexed by formula/formulas/leaf/leaves and the three additional closed Petersen formula records, plus seven open Petersen structural candidates selected by essential/singleton/partner/mapped/missing/read/reader/independent terms. Eighty of the 82 formula-census records returned valid public JSON; L48 and L87 returned non-JSON pages, so those two formal statements were not verified. This is a targeted keyword audit, not an exhaustive search of every formal statement in every program.
+
+No open Petersen positive-formula lower bound at twenty leaves or exclusion at nineteen leaves appeared. The nearby open explicit positive-formula exclusions L437 and L439 concern different nine-vertex graphs, so the ten-vertex certificate does not prove them. L127 concerns arbitrary graphs and unrestricted De Morgan leaf size; L2908 is a general bipartite incidence formula charging statement. Neither follows from our fixed Petersen certificate. InputEssentiality and PairLocalization likewise did not match any inspected posted statement: the structural candidates retain different cofactor/circuit/count hypotheses and conclusions.
+
+There is a stale-looking formula companion: [L1508](https://pequalnp.com/lemma.html#L-meta-1508) is still labelled conjecture, while checked [L1507](https://pequalnp.com/lemma.html#L-meta-1507) has a formal statement literally equal to the negation of L1508's entire formal statement. The local checked L1507 source is 9048 bytes and 228 lines, SHA256 a5d95dd4b494a88dffb2f51d4d5273e057e5bd1ef1278b6ce05f536efb625e8f. This does not create a new deliverable: join.txt lines 179–180 instruct false-step submissions to prove the posted negated twin, and that twin is already checked. Root explicitly confirmed this interpretation. No request for L1508 should be inferred from the discovery.
+
+Full selected public records and the complete formula census, including its two retrieval failures, are preserved in posted-match-evidence.json. No credential or lease information is included. The active work remains L-meta-1884.

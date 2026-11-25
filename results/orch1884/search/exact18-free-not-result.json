@@ -1,0 +1,34 @@
+{
+  "started_at": "2026-11-25T15:39:47.818159+00:00",
+  "finished_at": "2026-11-25T15:41:46.880528+00:00",
+  "elapsed_seconds": 119.06237381099982,
+  "arguments": {
+    "gates": 18,
+    "max_nots": 0,
+    "seconds": 120,
+    "first": null,
+    "pin": null,
+    "mutable": null,
+    "allow_unused": false,
+    "require_free_use": true,
+    "full_rows": false,
+    "tag": "exact18-free-not"
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "rows": 38,
+      "variables": 2808,
+      "clauses": 55136,
+      "cnf_sha256": "7d9bd747b9e9677f6c163bdd23eb4e39567b94b26d8beaddb8aa005bbeb5400d",
+      "solver_seconds": 119,
+      "exit": 0,
+      "status": "UNKNOWN"
+    }
+  ],
+  "strict_earlier_wires": true,
+  "free_not_input": 10,
+  "constant_sources": false,
+  "exact_cofactor_specification": true,
+  "solver_results_are_not_lean_proofs": true
+}

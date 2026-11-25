@@ -1,0 +1,542 @@
+{
+  "seed": "/tmp/oec/pequalnp-pilot-103/orch1884/nonlinear-repair-remainder-frozen-seed.json",
+  "elapsed_seconds": 3.091861353999775,
+  "completed": 23,
+  "total_three_gate_neighborhoods": 816,
+  "max_paid_nots": 0,
+  "cases": [
+    {
+      "index": 793,
+      "mutable": [
+        7,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "c2337c2fab229a80d80277d8217979196e92b4235d4c8d30eb818b596d5c9141",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 794,
+      "mutable": [
+        10,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "9fea5f04a8d57afd67d54b3eb172e0bb99e7ced87f14f4243febaf26827b5665",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 795,
+      "mutable": [
+        13,
+        15,
+        16
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "bb35173541c668b8f7fa7d48d515446032f15c87d4e6715ebfae29b7f10700c2",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 796,
+      "mutable": [
+        0,
+        12,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "7a99df13abe8c27c1669499148caa657d3cb6fa429d8d39ad3d025cb472f4d41",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 797,
+      "mutable": [
+        4,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "8e4c1bd84e11aeefdc8aa91d2029dc174c99de98c066d4ac55d8c6ff3690c815",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 798,
+      "mutable": [
+        8,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "54247f50e726679659e25b41a67dc2934b9ae35896d6a75f96a77a83c1890179",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 799,
+      "mutable": [
+        11,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "742838402b3933bcdbe01e86a31bad29a6f9ca602b0035916c0933e0834499ee",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 800,
+      "mutable": [
+        0,
+        1,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "e375c297069064c4fc4c51b292dd33934f5d4262e159a101b59ba972133b4ec9",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 801,
+      "mutable": [
+        0,
+        13,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "f3551695c13dadc8453d42a7efaa1cfd626b15522136c913d47233bea3b2bf2e",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 802,
+      "mutable": [
+        3,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "c2d2cf386626137a6eead71f1f01b933d7aeb9c9fe8baceca1ae919ec174a79c",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 803,
+      "mutable": [
+        9,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "3dfa48ed4f8ef4290404ceb6e465feb061a8bd5aaaccf2b459f0401f21d6ddc5",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 804,
+      "mutable": [
+        12,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "551b388118115ca618a76647a9c2ed5de8209c2c0a378ffd3228c52bfab22b49",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 805,
+      "mutable": [
+        0,
+        15,
+        16
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "234ff018456e578b2008a89b9807aba99161e6ce84da90b7d55857a05d52baea",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 806,
+      "mutable": [
+        1,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "16536935d6806021e96e9c19a0e0553abaca30aa459ff981540ea89b1fe180f8",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 807,
+      "mutable": [
+        10,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "19baf328d0b54a567b475acc9d4a5bc0cd65ed112f0ed86ea7bed9c553ad9641",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 808,
+      "mutable": [
+        13,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "2d1bf33dbbd3b61bed47a3f3f9c24602226a4ebd738882d96fcd7a5d0393450a",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 809,
+      "mutable": [
+        11,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "c8dde5b6938688b82241f59e6224236d8312b972cb682537e9c5a4f6fa0cd74c",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 810,
+      "mutable": [
+        12,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "bce6d24af55bf6989a69ccdcdcc2b04ff222403fd96d127b0b189f7140e6e83f",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 811,
+      "mutable": [
+        0,
+        15,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "ef921776b6f8b035476a94cbeb6c573620a4c383c5317514ba12c52772bd8582",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 812,
+      "mutable": [
+        1,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "38cba06e9500c6cfcb18e58585096196c8ed1d6010a2f06c43317c37b0bbe954",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 813,
+      "mutable": [
+        13,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "a1390989182c8d7e9d1f670aabec3ec1cdce4f7853cf1429466d3f294c8c3262",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 814,
+      "mutable": [
+        0,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "3e15b3a7b622b777e0136477fdb7e8c06aa9fc713de668d84a15d59c34671bb5",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    },
+    {
+      "index": 815,
+      "mutable": [
+        15,
+        16,
+        17
+      ],
+      "exit": 0,
+      "stages": [
+        {
+          "stage": 0,
+          "rows": 38,
+          "variables": 2808,
+          "clauses": 55163,
+          "cnf_sha256": "65a4cfff72904f537ae95b2217432942853f183087b172e4438b648e54295a14",
+          "solver_seconds": 1,
+          "exit": 20,
+          "status": "UNSAT"
+        }
+      ],
+      "status": "UNSAT",
+      "candidate_validated": false
+    }
+  ],
+  "start_index": 793,
+  "complete_neighborhood_census": false,
+  "all_other_gate_definitions_pinned": true,
+  "global_lower_bound_proved": false
+}

@@ -1,0 +1,6 @@
+remote: Internal Server Error
+remote: Request ID B6BB:161654:375E958:4AF472E:6B07033E
+remote: Time 2026-11-25T15:48:16Z
+To https://github.com/wneb-creator/pequalnp-proofs.git
+ ! [remote rejected] pnp/pilot-103 -> pnp/pilot-103 (Internal Server Error)
+error: failed to push some refs to origin

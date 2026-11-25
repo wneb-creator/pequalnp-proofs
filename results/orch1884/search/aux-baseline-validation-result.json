@@ -1,0 +1,143 @@
+{
+  "started_at": "2026-11-25T15:53:01.072815+00:00",
+  "finished_at": "2026-11-25T15:53:01.129067+00:00",
+  "elapsed_seconds": 0.05629142499947193,
+  "arguments": {
+    "gates": 16,
+    "seconds": 10,
+    "tag": "aux-baseline-validation",
+    "pin": "/tmp/oec/pequalnp-pilot-103/orch1884/cofactor-baseline16.json",
+    "plain": true,
+    "fresh": true,
+    "productive": true,
+    "sat_preset": false,
+    "seed": 0
+  },
+  "status": "SAT",
+  "exit": 10,
+  "rows": [
+    3,
+    6,
+    12,
+    25,
+    33,
+    52,
+    58,
+    66,
+    69,
+    80,
+    100,
+    104,
+    132,
+    138,
+    144,
+    160,
+    201,
+    264,
+    274,
+    277,
+    288,
+    320,
+    385,
+    386
+  ],
+  "variables": 4576,
+  "clauses": 39344,
+  "cnf_sha256": "eb1660967cd653dd4b08dc1ab19cd5487ab96a2894db85cf425d0d7dea8af62c",
+  "solver_arguments": [
+    "-t",
+    "10",
+    "--seed=0",
+    "/tmp/oec/pequalnp-pilot-103/orch1884/aux-baseline-validation.cnf"
+  ],
+  "strict_earlier_wires": true,
+  "statement_is_auxiliary_not_posted_gap": true,
+  "full_rows_checked": 512,
+  "bad_output_rows": [],
+  "bad_auxiliary_rows": [],
+  "H_gate_index": null,
+  "H_true_triads": [],
+  "H_true_edge_rows": [],
+  "gates": [
+    [
+      1,
+      1,
+      5
+    ],
+    [
+      0,
+      0,
+      9
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      7,
+      11
+    ],
+    [
+      0,
+      2,
+      12
+    ],
+    [
+      1,
+      1,
+      4
+    ],
+    [
+      1,
+      8,
+      14
+    ],
+    [
+      0,
+      6,
+      15
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      0,
+      7,
+      17
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      8,
+      19
+    ],
+    [
+      1,
+      10,
+      13
+    ],
+    [
+      1,
+      16,
+      21
+    ],
+    [
+      1,
+      18,
+      22
+    ],
+    [
+      1,
+      20,
+      23
+    ]
+  ]
+}

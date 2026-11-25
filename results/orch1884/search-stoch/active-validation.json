@@ -1,0 +1,16 @@
+[
+  {
+    "claimed": 2,
+    "trial": 0,
+    "false_positive": 0,
+    "false_negative": 22,
+    "paid_not": 0
+  },
+  {
+    "claimed": 2,
+    "trial": 110106,
+    "false_positive": 0,
+    "false_negative": 21,
+    "paid_not": 0
+  }
+]
