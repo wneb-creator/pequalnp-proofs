@@ -8,7 +8,7 @@ Search.lean: lake env lean, exit 0, stdout/stderr empty.
 Full gap checker: not run; partial results only.
 Independent review: status_review approved symmetry and upper-bound partial snapshot.
 Sub-agents: status/inventory/review, toolchain/search, structural, finite verification, normalization, restriction mathematics (6 total).
-TIMING total=45.0 subagents=6
+TIMING total=61.0 subagents=6
 
 Prepend.lean: lake env lean, exit 0, stdout/stderr empty. Root independent review passed.
 First partial snapshot pushed c570baf111e48dadc13c84178a64e977566f4670.
@@ -29,3 +29,6 @@ Records2444Prefix.lean: Lean exit 0; generic verifier with product/list BoundPoo
 ParentLargeProbe.lean: Lean -j1 exit 0; 182.45 s; peak RSS 4.626 GB. Covers forests through g383, including multi-level opcode/rule reconstruction. Full log logs/parent-large.log.
 SortedHashProbe.lean: Lean exit 0; compact pure lookup supplies only hints checked by unchanged sameWords/linkedSet soundness. Independent status_review semantic review passed. Full log logs/sorted-hash-probe.log. Neither component is the full gap proof.
 Transformation scripts preserved in tools/; some composed transformations remain unverified and are not a checker acceptance claim.
+
+LowerEqualityProbe.lean: exit 0, empty diagnostics; independently reviewed equality of original model definitions within each family, with no assumptions equating the two distinct families. Full log logs/lower-equality-probe.log.
+UnifiedRecords2444Prefix.lean and UnifiedRecords1678Prefix.lean: exit 0; combined state/record generic prefixes checked. Logs unified-records-2444-prefix-build.log and logs/unified-records-1678-prefix.log. Root reviewed the constituent transformations and compiled combinations; full certificate replay remains outstanding.

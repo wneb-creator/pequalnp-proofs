@@ -22,3 +22,6 @@
 2026-11-25T03:31:40.944913+00:00 Narrow raw run stoppedexit130 after15min due three ambiguous-graph diagnostics atline7243 in C4338. C2444 outeropen leaked. Independent reviewer confirmed namedsection wrappers for eachsource; generatorfixed, no mathematicalcasegap. Complete log full-raw-narrow-build.log retained.
 - 2026-11-25T03:33:17.510846+00:00: parent-opcode and inherited-rule compression representative replay passed (182.45s,4.626GB), through L5120 g383 certificate.
 - 2026-11-25T03:35:43.269470+00:00: reviewed larger parent codec and sorted lookup benchmarks; preserving successful components, complete logs, and reproducible transformation scripts.
+
+- 2026-11-25T03:39:43+00:00: normalization lane compiled combined1678 prefix and generic graph-bound equality probe; handed 78-theorem semantic alias pass to structural integration.
+- 2026-11-25T03:44:25.277945+00:00: preserved checked generic Lower equalities and both combined state/record verifier prefixes after independent review. Second strategy review prioritizes proof-family sharing, precise dependency scopes, and alternative NOT packages.
