@@ -2117,4 +2117,128 @@ lemma edge_family_star_or_disjoint {V : Type*} (G : SimpleGraph V)
       (hP a b hab).symm (hP c b hcd).symm (Ne.symm hca) (hP u v huv)
       h₁ (meet c b u v hcd huv).symm
 
+namespace Repair
+
+namespace TwoSingletonRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma gatePrefix_or {n : ℕ} (pre : List Gate) (u w : Fin n) (x : Fin n → Bool) :
+    gatePrefix pre ⟨.or, [u.val, w.val]⟩ x = (x u || x w) := by
+  simp only [gatePrefix, GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+    List.any_nil, id_eq, Bool.or_false]
+  rw [run_input pre x u, run_input pre x w]
+
+lemma two_singleton_circuit_repair {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hc : Monotone2 (patchCircuit pre post g out))
+    (correct : ∀ x : Fin n → Bool,
+      (patchCircuit pre post g out).eval (List.ofFn x) = true ↔ hit G x)
+    (u w : Fin n)
+    (hu : gatePrefix pre g (mask {u}) = true)
+    (hw : gatePrefix pre g (mask {w}) = true)
+    (critical : ∀ a b, G.Adj a b →
+      (patchCircuit pre post ⟨.or, []⟩ out).eval (List.ofFn (mask {a, b})) = false →
+        a = u ∨ b = u ∨ a = w ∨ b = w) :
+    let C := patchCircuit pre post g out
+    let D := patchCircuit pre post ⟨.or, [u.val, w.val]⟩ out
+    Monotone2 D ∧ D.size = C.size ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) = true ↔ hit G x) ∧
+    (∀ x : Fin n → Bool, WireLE (D.wires (List.ofFn x)) (C.wires (List.ofFn x))) ∧
+    D.gates[pre.length]? = some ⟨.or, [u.val, w.val]⟩ := by
+  dsimp only
+  have hpre : ∀ q ∈ pre, q.op = GateOp.and ∨ q.op = GateOp.or := by
+    intro q hq
+    exact (hc q (List.mem_append_left _ hq)).1
+  have hg : g.op = GateOp.and ∨ g.op = GateOp.or :=
+    (hc g (List.mem_append_right _ List.mem_cons_self)).1
+  have dominated : ∀ x : Fin n → Bool,
+      gatePrefix pre ⟨.or, [u.val, w.val]⟩ x = true → gatePrefix pre g x = true := by
+    intro x hx
+    rw [gatePrefix_or] at hx
+    simp only [Bool.or_eq_true] at hx
+    rcases hx with hxu | hxw
+    · apply gatePrefix_mono pre g hpre hg (mask {u}) x ?_ hu
+      intro i hi
+      have hiu : i = u := by simpa [mask] using hi
+      subst i
+      exact hxu
+    · apply gatePrefix_mono pre g hpre hg (mask {w}) x ?_ hw
+      intro i hi
+      have hiw : i = w := by simpa [mask] using hi
+      subst i
+      exact hxw
+  have keeps : ∀ a b, G.Adj a b →
+      (patchCircuit pre post ⟨.or, []⟩ out).eval (List.ofFn (mask {a, b})) = false →
+        gatePrefix pre ⟨.or, [u.val, w.val]⟩ (mask {a, b}) = true := by
+    intro a b hab hz
+    rw [gatePrefix_or]
+    rcases critical a b hab hz with rfl | rfl | rfl | rfl <;> simp [mask]
+  obtain ⟨hm, hs, he, hl⟩ := critical_gate_repair G pre post g
+    ⟨.or, [u.val, w.val]⟩ out hc ⟨Or.inr rfl, by simp⟩ correct dominated keeps
+  exact ⟨hm, hs, he, hl, by simp [patchCircuit]⟩
+
+end TwoSingletonRepair
+
+end Repair
+
+lemma dirty_extremal_no_nonand_patch {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g h : Gate) (out : ℕ)
+    (hmin : ∀ D, Correct G D → D.size ≤ (Repair.patchCircuit pre post g out).size →
+      (dirtySet G (Repair.patchCircuit pre post g out)).card ≤ (dirtySet G D).card)
+    (hD : Correct G (Repair.patchCircuit pre post h out))
+    (hdown : ∀ x : Fin n → Bool,
+      Repair.WireLE ((Repair.patchCircuit pre post h out).wires (List.ofFn x))
+        ((Repair.patchCircuit pre post g out).wires (List.ofFn x)))
+    (hbad : PEqualNP.CleanedNonEdge.IsDirtyAnd n G
+      (Repair.patchCircuit pre post g out) pre.length)
+    (hop : h.op ≠ GateOp.and) : False := by
+  classical
+  have hsub : dirtySet G (Repair.patchCircuit pre post h out) ⊆
+      dirtySet G (Repair.patchCircuit pre post g out) := by
+    rw [dirtySet_eq_junk, dirtySet_eq_junk]
+    apply Construction.junk_subset_of_pointwise_decrease G _ _
+      (by simp [Repair.patchCircuit, Circuit.size])
+    · intro j _
+      exact Construction.gateAt_patch_op pre post g h out (fun h => False.elim (hop h)) j
+    · intro j _ x _ hx
+      exact hdown x (n+j) hx
+  have hin : pre.length ∈ dirtySet G (Repair.patchCircuit pre post g out) :=
+    Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hbad.2.1, hbad⟩
+  have hout : pre.length ∉ dirtySet G (Repair.patchCircuit pre post h out) := by
+    intro hmem
+    have hh := (Finset.mem_filter.mp hmem).2.1
+    apply hop
+    simpa [PEqualNP.MetaComplexity.NestedCover.gateAt, Repair.patchCircuit,
+      List.getD_eq_getElem?_getD] using hh
+  exact Nat.not_lt_of_ge (hmin _ hD (by simp [Repair.patchCircuit, Circuit.size]))
+    (dirty_card_decreases G _ _ pre.length hsub hin hout)
+
+lemma dirty_extremal_no_two_singleton_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hc : Correct G (Repair.patchCircuit pre post g out))
+    (hmin : ∀ D, Correct G D → D.size ≤ (Repair.patchCircuit pre post g out).size →
+      (dirtySet G (Repair.patchCircuit pre post g out)).card ≤ (dirtySet G D).card)
+    (hbad : PEqualNP.CleanedNonEdge.IsDirtyAnd n G
+      (Repair.patchCircuit pre post g out) pre.length)
+    (u w : Fin n)
+    (hu : Repair.gatePrefix pre g (Repair.mask {u}) = true)
+    (hw : Repair.gatePrefix pre g (Repair.mask {w}) = true)
+    (hcover : ∀ a b, CriticalEdge G pre post out a b →
+      a = u ∨ b = u ∨ a = w ∨ b = w) : False := by
+  have correct : ∀ x : Fin n → Bool,
+      (Repair.patchCircuit pre post g out).eval (List.ofFn x) = true ↔ Repair.hit G x := by
+    intro x
+    rw [hc.2 x]
+    exact decide_eq_true_iff
+  obtain ⟨hm, _, he, hl, _⟩ := Repair.TwoSingletonRepair.two_singleton_circuit_repair
+    G pre post g out hc.1 correct u w hu hw (fun a b ha hb => hcover a b ⟨ha,hb⟩)
+  apply dirty_extremal_no_nonand_patch G pre post g ⟨.or,[u.val,w.val]⟩ out hmin _ hl hbad
+    (by intro h; cases h)
+  refine ⟨hm, ?_⟩
+  intro x
+  apply Bool.eq_iff_iff.mpr
+  rw [decide_eq_true_iff]
+  exact he x
+
 end PEqualNP.Outside.L_meta_1904_aux

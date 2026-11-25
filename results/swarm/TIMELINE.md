@@ -41,3 +41,5 @@
 - 2026-11-25 21:48:14 UTC: reduced dependencies to PEqualNP.Defs only; complete integrated partial lake build passed (5149 jobs, 15-second file build), stderr empty.
 - 2026-11-25 21:55:05 UTC: partial commit 7396cce54b14db956155376b3cae719997ca3d0d, subsequently pushed; three-level minimum and dirty-count two-critical-edge lemmas compiled and independently reviewed.
 - 2026-11-25 22:06:13 UTC: triangle-free edge-family star-or-disjoint classification compiled and independently source-reviewed; assembled named build passed 5149 jobs after generated-artifact permission repair. Full posted theorem remains absent.
+- 2026-11-25 22:15:06 UTC: root integrated checked two-singleton repair and proved minimum-dirty-count exclusion of all non-AND patches and two-singleton critical covers. Independent source review passed; direct Lean diagnostics empty; named build passed 5149 jobs with shared artifact caching disabled.
+- 2026-11-25 22:15:06 UTC: previous partial push confirmed at 08e2c613c; full theorem remains open, counterexample searches ongoing.
