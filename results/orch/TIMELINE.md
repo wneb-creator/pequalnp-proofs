@@ -30,3 +30,5 @@
 - 2026-11-25T09:20:04.684720+00:00: second major replanning. Single-edge signature repair now reduces bad-AND count. Two protected-edge conditional aliases now give a compiled arbitrary-fan-out junk-reducing patch. New live work: protected existing-wire product generalization; graph conditions forcing such alias pairs; safe four-corner clusters; finite 12-vertex exchange certificate. Broader all-minima singleton-false claim is not assumed.
 
 - 2026-11-25T09:20:42.740404+00:00: factor adapter and augmented data checkpoint reviewed; lease latest expiry09:39:38UTC.
+
+- 2026-11-25T09:22:37.790668+00:00: protected edge/product patches and four-corner semantic patch independently reviewed; partial preservation continues.

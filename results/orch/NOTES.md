@@ -196,3 +196,32 @@ GREEN/FROZEN `lemmas/protected_edge_patch_route.lean`; main `...aux.protectedPat
 ### 2026-11-25 09:20:30 UTC — protected earlier-wire product patch (lean_setup)
 
 GREEN/FROZEN `lemmas/protected_product_patch_route.lean`; unchanged protected-edge prefix plus namespace `...aux.protectedProduct`, main `.two_conditional_alias_repair`. Protect P(x)=original wire b(x)&&wire c(x), with b,c<n+j and P<=graphF. Explicit valid original output hypothesis. Two dirty gates j<k have earlier aliases p/q whenever P=false. Both b,c survive high-then-low deletions unconditionally; appended product+OR gives correct no-larger monotone circuit with strictly less junk. Arbitrary fan-out, no pointwise-decrease assumption. Full log `/tmp/oec/pequalnp-pilot-77/protected-product-patch-route-build-1.log`, exit 0 first compile. Frozen for review/push.
+
+### Independent review: protected-edge two-alias repair and rectangle clusters
+- UTC: 2026-11-25T09:20:49.602870+00:00
+- `protected_edge_patch_route.lean`: PASS archival partial, 917 lines, SHA256 `37fb9782b5ef55d6f3d686fdf931164a6de73358d8f8b9cb6365a235b42062a4`; exact approved clean prefix plus new component. Build4 warning-only, reported exit0.
+- Higher k deletion preserves j and earlier alias p. Both conditional equalities hold on ALL inputs where uv is false, which transports circuit equality despite arbitrary fan-out; on uv=true the protected graph edge makes output true after appending primitive AND plus OR. Original output validity follows from graph correctness and nonempty edge, and is retained through both bypasses.
+- skipIndex injects new junk into old junk minus removed gate; j stays dirty after deleting k, giving two decreases. Two deletions fund exactly two appended gates, and appended gates add no junk. This is a strict JUNK-count reduction, not a claimed ownership-count reduction, and assumes two specific earlier conditional aliases rather than proving their existence.
+- `rectangle_cluster_route.lean`: PASS archival partial, 92 lines, SHA256 `f7c53d435c1b583cceefacd310c4925463de61b373cea8bde8a33d7681eec51f`; empty build2 log. Matching plus cross-distinct hypotheses give four distinct corners; girth assumptions permit at most one cross edge. Boolean identities are kernel finite cases. No circuit/fan-out/minimality theorem here; a P4 patch uses three new operations only when its OR factor is already available.
+
+[2026-11-25 09:21:23 UTC] graph_normal_form: rectangle_patch_route.lean green/frozen, rectangle-patch-build-2.log empty exit0. Contains unchanged rectangleCluster prefix and new rectanglePatch.safe_cluster_patch: safe opposite four-literal rectangle intersection plus girth yields one of five explicit matching/P4 formulas, pointwise below graph function and covering every graph pair activating either rectangle. This certifies arbitrary-fanout semantic loss repair; circuit slot/reindexing cost and injection at existing safe intersection remain unformalized. Larger OR-support cells cannot use constant-size loss repair blindly: two stars with matched leaf edges form girth-six theta graphs, and deleting shared rectangles can lose arbitrarily many leaf matching edges. General exchange must reclaim OR source costs as well.
+
+### Independent review: protected earlier-wire product
+- UTC: 2026-11-25T09:21:31.157503+00:00
+- `protected_product_patch_route.lean`: PASS archival partial, 1091 lines, SHA256 `fed46c2f8fed1dc079f8eba9edaa6182fc1c48609837fd9b999d891ccd42f9ad`; exact reviewed edge prefix plus174lines. Build1 has48 warning entries and no errors, reported exit0.
+- Protected b,c<n+j survive both higher-first bypasses with exactly equal values; this transports product safety and conditional alias domain. Explicit valid output is preserved. Both deleted gates are dirty, the new product is safe, and appended OR adds no junk; same size budget and strict junk decrease follow. This proves a conditional repair, not existence of suitable aliases/product and not ownership-count decrease.
+
+### Independent review: safe rectangle-cluster Boolean patch
+- UTC: 2026-11-25T09:22:11.288188+00:00
+- `rectangle_patch_route.lean`: PASS archival partial, 233 lines, SHA256 `f0cf58ddf9fcf9eddf4b96bebe77c3b89f0b1ab1e549da6c82e3617a0b1734ce`; exact cluster prefix. Build2 log empty, reported exit0.
+- Safe intersection implies matching edges ab,cd. The induced graph function on the four corners is globally safe and covers every graph-edge pair activating EITHER rectangle; graph exclusions express it as one of five small formulas. Coverage need not be equality with either rectangle. No circuit ordering, fan-out, gate-count or minimality theorem is claimed. P4 alternatives use three new operations when their one OR factor is already available.
+
+2026-11-25T09:22:25.061636+00:00 repair_exchange merge map
+
+- repair_route.lean: 83 lines, compiled snapshot.
+- sharing_route.lean: 62 lines, compiled snapshot.
+- sharing_linear_route.lean: 138 lines, compiled snapshot.
+- single_edge_route.lean: 376 lines, compiled snapshot.
+- single_edge_repair_route.lean: 591 lines, compiled snapshot.
+For final assembly choose sharing_linear_route over sharing_route (the former contains the latter), and single_edge_repair_route over single_edge_route. Their namespaces are PEqualNP.Outside.L_meta_1772.Sharing and .SingleEdge, respectively. SingleEdge helper infrastructure adapted from L3720 is independent of the root clean namespace. The single-edge repair theorem proves full strict bad-AND-count drop for an exact single-edge graph-pair signature, preserving all old ownership witnesses via concrete cone inclusion.
+Protected-product geometry: g1=(a1 OR b) AND (a1 OR c), g2=(a2 OR b) AND (a2 OR c), S=g1 AND g2 safe. P=b AND c is safe because P implies S, and each g_i=a_i OR P is a conditional alias off P. With b,c earlier than the lower gate, the new protectedProduct theorem applies even with arbitrary fanout. This establishes a full local shared-product cluster normalization once its syntactic/semantic shape is supplied; extraction from an arbitrary bad gate is still missing.
