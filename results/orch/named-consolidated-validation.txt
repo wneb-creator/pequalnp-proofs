@@ -1,0 +1,15 @@
+PARTIAL checkpoint. The exact posted theorem remains unproved.
+UTC: 2026-11-25T01:46:06.087948+00:00
+File: lean/PEqualNP/Outside/L_meta_1031.lean
+SHA256: c3cf7ffffc50b449695e13e6f99914ffcea66ad0eec640bf7bfa612eccc32102
+Lines: 3027; prior named partial:119 lines.
+Command in lean/: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake build PEqualNP.Outside.L_meta_1031
+Exit:0. Complete stdout/stderr saved as named-consolidated-build.stdout and .stderr.
+Includes minimum existence, nonminimum ownership construction, conditional bridge from pair normalization, essential-edge/final-AND lemmas, empty graph and common-center special cases.
+The minimum pair-sound normalization assumption remains explicit and unproved. No final theorem named PEqualNP.Outside.L_meta_1031 exists.
+Posted-statement checker: NOT RUN; this is not a completed proof or accepted reduction. No proof PR opened.
+Independent red-team review: passed. 153 declarations match reviewed sources, and the new graph_has_circuit projection was inspected. No forbidden constructs or credentials.
+Cleanup pass: not triggered (full proof/checker not complete). Before/after cleanup:3027/3027lines.
+Desk requests:1; null responses:0; no no-gap message was returned. Own lease renewed at01:45UTC to02:05UTC.
+Sub-agents: six — counterexample, independent_review, lean_setup, lemma_inventory, proof_strategy, status_review.
+TIMING total=40.28 subagents=6
