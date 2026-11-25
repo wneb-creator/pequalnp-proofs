@@ -3392,7 +3392,7 @@ lemma raw_star_forest_budget
     {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
     (hAO : IsAO2 n C) (hfour : NoFourCycle G)
     (p : Fin n) (X : Finset (Fin n)) (hX : ∀ x ∈ X, G.Adj p x)
-    (hstar : ∀ w, G.Adj p w → s(p,w) ∈ Ustar G C)
+    (hstar : ∀ w ∈ X, s(p,w) ∈ Ustar G C)
     (R : Finset ℕ) (hR : R ⊆ Finset.range (n + C.size)) :
     (R.biUnion (fun w => orIn n C w ∩ X)).card ≤
       ((orN G C \ lam G C) \ mixing G C).card + R.card := by
@@ -3444,7 +3444,7 @@ lemma raw_star_forest_budget
       have htv := (Budget.cleanAdj hAO hg c (rawside v hvraw) htmem).symm
       have hpt : p ≠ t := by
         intro heq
-        exact (SimpleGraph.deleteEdges_adj.mp htu).2 (heq ▸ hstar u (hX u huX))
+        exact (SimpleGraph.deleteEdges_adj.mp htu).2 (heq ▸ hstar u huX)
       exact huv (common_neighbors_unique_of_card_le_one G hfour p t hpt u v
         (hX u huX) (SimpleGraph.deleteEdges_adj.mp htu).1
         (hX v hvX) (SimpleGraph.deleteEdges_adj.mp htv).1)
@@ -3477,7 +3477,7 @@ lemma false_served_budget
     {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
     (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
     (p : Fin n) (X : Finset (Fin n)) (hX : ∀ x ∈ X, G.Adj p x)
-    (hstar : ∀ w, G.Adj p w → s(p,w) ∈ Ustar G C) :
+    (hstar : ∀ w ∈ X, s(p,w) ∈ Ustar G C) :
     (falseServed G C p X).card ≤
       ((orN G C \ lam G C) \ mixing G C).card +
         ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card := by
@@ -3590,7 +3590,7 @@ lemma false_or_centreless_served_budget
     (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
     (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
     (p : Fin n) (X : Finset (Fin n)) (hX : ∀ x ∈ X, G.Adj p x)
-    (hstar : ∀ w, G.Adj p w → s(p,w) ∈ Ustar G C) :
+    (hstar : ∀ w ∈ X, s(p,w) ∈ Ustar G C) :
     (falseServed G C p X ∪ centrelessServed G C p X).card ≤
       ((orN G C \ lam G C) \ mixing G C).card +
         ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
@@ -3682,8 +3682,9 @@ lemma first_mixing
 lemma raw_pencil_leaf_unique
     {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
     {C : Circuit} (ao : IsAO2 n C) (hfour : NoFourCycle G)
-    (p : Fin n) (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C)
+    (p : Fin n)
     {m a a' : ℕ} {b b' : Fin 2} {l l' : Fin n}
+    (hedge : s(p,l) ∈ Ustar G C)
     (hm : (orIn n C (n + m)).Nonempty)
     (ha : a ∈ tops G C) (ha' : a' ∈ tops G C)
     (hp : Relation.ReflTransGen (OrStep n C) (opnd C a b) (n + m))
@@ -3700,7 +3701,7 @@ lemma raw_pencil_leaf_unique
   have hpt : p ≠ t := by
     intro he
     subst t
-    exact htl.2 (hstar l hpl)
+    exact htl.2 hedge
   exact CircuitLedger.common_neighbors_unique_of_card_le_one G hfour
     p t hpt l l' hpl htl.1 hpl' htl'.1
 
@@ -3800,8 +3801,8 @@ def PencilAt {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
 lemma pencil_count
     {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C : Circuit) (ao : IsAO2 n C) (hfour : NoFourCycle G)
-    (p : Fin n) (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C)
-    (L : Finset (Fin n)) (hL : ∀ l ∈ L, G.Adj p l)
+    (p : Fin n) (L : Finset (Fin n))
+    (hstar : ∀ l ∈ L, s(p,l) ∈ Ustar G C) (hL : ∀ l ∈ L, G.Adj p l)
     (hcover : ∀ l ∈ L, ∃ m ∈ mixing G C, PencilAt G C m l) :
     L.card ≤ (mixing G C).card := by
   classical
@@ -3814,7 +3815,7 @@ lemma pencil_count
   obtain ⟨hn, a, ha, b, hp, hside⟩ := (hpick l hl).2
   obtain ⟨_, a', ha', b', hp', hside'⟩ := (hpick k hk).2
   rw [← he] at hp'
-  exact raw_pencil_leaf_unique ao hfour p hstar hn ha ha' hp hp'
+  exact raw_pencil_leaf_unique ao hfour p (hstar l hl) hn ha ha' hp hp'
     hside hside' (hL l hl) (hL k hk)
 
 lemma mixing_subset_extra
@@ -3841,14 +3842,15 @@ lemma unserved_mixing_count
     (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
     (hz : centreless G C = ∅) (hfour : NoFourCycle G)
     (p : Fin n) (X : Finset (Fin n)) (hX : ∀ l ∈ X, G.Adj p l)
-    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C) :
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C) :
     (X \ falseServed G C p X).card ≤ (mixing G C).card := by
   classical
-  apply pencil_count G C hL.1 hfour p hstar _
+  apply pencil_count G C hL.1 hfour p _
+    (fun l hl => hstar l (Finset.mem_sdiff.mp hl).1)
     (fun l hl => hX l (Finset.mem_sdiff.mp hl).1)
   intro l hl
   obtain ⟨hlX, hlf⟩ := Finset.mem_sdiff.mp hl
-  apply true_leaf_mixing hL hT hz (hstar l (hX l hlX))
+  apply true_leaf_mixing hL hT hz (hstar l hlX)
   intro j hj hjp
   apply Bool.eq_false_of_not_eq_true
   intro hjl
@@ -3860,7 +3862,7 @@ lemma full_star_zero_centreless_penalty
     (hz : centreless G C = ∅) (hfour : NoFourCycle G)
     (p : Fin n) (X : Finset (Fin n)) (hXne : X.Nonempty)
     (hX : ∀ l ∈ X, G.Adj p l)
-    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C) :
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C) :
     X.card + 1 ≤ (junk G C).card + (orN G C \ lam G C).card := by
   classical
   let J := (junk G C).filter fun j => gateVal n C j (pairInput p p) = false
@@ -3876,13 +3878,13 @@ lemma full_star_zero_centreless_penalty
   · have hall : falseServed G C p X = X := by
       apply Finset.Subset.antisymm (Finset.filter_subset _ _)
       intro l hl
-      obtain ⟨a, ha, b, j, hj, _, _, hjl⟩ := residualTrace hL hT (hstar l (hX l hl))
+      obtain ⟨a, ha, b, j, hj, _, _, hjl⟩ := residualTrace hL hT (hstar l hl)
       have hjp : gateVal n C j (pairInput p p) = false :=
         (Finset.mem_filter.mp (show j ∈ J by rw [hJ]; exact hj)).2
       exact Finset.mem_filter.mpr ⟨hl, j, hj, hjp, hjl⟩
     have hmix : 0 < (mixing G C).card := by
       obtain ⟨l, hl⟩ := hXne
-      obtain ⟨a, ha, b, j, hj, _, hr, _⟩ := residualTrace hL hT (hstar l (hX l hl))
+      obtain ⟨a, ha, b, j, hj, _, hr, _⟩ := residualTrace hL hT (hstar l hl)
       obtain ⟨m, hm, _⟩ := first_mixing hL.1 hj _ (topSides hz ha b)
         (orReaches_reach j _ hr).1
       exact Finset.card_pos.mpr ⟨m, hm⟩
@@ -3904,15 +3906,16 @@ lemma other_served_mixing_count
     (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
     (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
     (hX : ∀ l ∈ X, G.Adj p l)
-    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C) :
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C) :
     (X \ (falseServed G C p X ∪ centrelessServed G C p X)).card ≤
       (mixing G C).card := by
   classical
-  apply pencil_count G C hL.1 hfour p hstar _
+  apply pencil_count G C hL.1 hfour p _
+    (fun l hl => hstar l (Finset.mem_sdiff.mp hl).1)
     (fun l hl => hX l (Finset.mem_sdiff.mp hl).1)
   intro l hl
   obtain ⟨hlX, hlf⟩ := Finset.mem_sdiff.mp hl
-  apply true_leaf_mixing_of_no_centreless hL hT (hstar l (hX l hlX))
+  apply true_leaf_mixing_of_no_centreless hL hT (hstar l hlX)
   · intro a ha
     apply Bool.eq_false_of_not_eq_true
     intro hav
@@ -3922,12 +3925,12 @@ lemma other_served_mixing_count
     intro hjl
     exact hlf (Finset.mem_union_left _ (Finset.mem_filter.mpr ⟨hlX, j, hj, hjp, hjl⟩))
 
-lemma full_star_penalty
+lemma residual_pencil_penalty
     {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
     (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
     (hXne : X.Nonempty) (hX : ∀ l ∈ X, G.Adj p l)
-    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C) :
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C) :
     X.card + 1 ≤ 2 * (centreless G C).card + (junk G C).card +
       (orN G C \ lam G C).card := by
   classical
@@ -3945,7 +3948,51 @@ lemma full_star_penalty
       (Finset.filter_subset (fun j => gateVal n C j (pairInput p p) = false) (junk G C))
     omega
 
+lemma full_star_penalty
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
+    (hXne : X.Nonempty) (hX : ∀ l ∈ X, G.Adj p l)
+    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C) :
+    X.card + 1 ≤ 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card :=
+  residual_pencil_penalty G C hL hT hfour p X hXne hX (fun l hl => hstar l (hX l hl))
+
 end FirstMixing
 
+
+
+namespace FirstMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+
+lemma full_star_ledger_lower_bound
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
+    (hXne : X.Nonempty) (hX : ∀ l ∈ X, G.Adj p l)
+    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C)
+    (hresidual : (Ustar G C).card ≤ X.card)
+    (N : ℕ) (hcentres : N ≤ (tops G C \ centreless G C).card + 1)
+    (hledger : G.edgeFinset.card + (tops G C \ centreless G C).card +
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card ≤
+        C.size + (Ustar G C).card + 1) :
+    G.edgeFinset.card + N ≤ C.size + 1 := by
+  have hP := full_star_penalty G C hL hT hfour p X hXne hX hstar
+  omega
+
+lemma full_star_equal_penalty_degree_gap
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
+    (hXne : X.Nonempty) (hX : ∀ l ∈ X, G.Adj p l)
+    (hstar : ∀ l, G.Adj p l → s(p,l) ∈ Ustar G C)
+    (q : ℕ) (hdegree : q + 1 ≤ X.card)
+    (hbudget : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ (Ustar G C).card) :
+    q + 2 ≤ (Ustar G C).card := by
+  have hP := full_star_penalty G C hL hT hfour p X hXne hX hstar
+  omega
+
+end FirstMixing
 
 end PEqualNP.Outside.L_meta_2583
