@@ -1,0 +1,31 @@
+
+theorem weighted_of_normal {T : Weighted.Sig} {k : Nat} {S : Finset Weighted.Sig}
+    (h : Normal.Live false T k S) : Weighted.Live T k 0 S := by
+  induction k generalizing S with
+  | zero =>
+      obtain ⟨rfl,hp⟩ := h
+      exact Weighted.Live.stop hp
+  | succ k ih =>
+      obtain ⟨U,a,b,d,hd,rfl,ha,hb,ne,hf,hr⟩ := h
+      have hd' : d=0 ∨ d=1 := by simp [Normal.allowed] at hd; omega
+      rcases hd' with rfl | rfl
+      · exact Weighted.Live.binary (d := false) ha hb ne hf (ih hr)
+      · exact Weighted.Live.binary (d := true) ha hb ne hf (ih hr)
+
+theorem normal_of_weighted {T : Weighted.Sig} {k : Nat} {S : Finset Weighted.Sig}
+    (h : Weighted.Live T k 0 S) : Normal.Live false T k S := by
+  apply h (fun k t S => t=0 → Normal.Live false T k S)
+  · intro hp ht
+    exact ⟨rfl,hp⟩
+  · intro k t U a ha hf ih ht
+    omega
+  · intro k t U a b d ha hb ne hf ih ht
+    refine ⟨U,a,b,if d then 1 else 0,?_,rfl,ha,hb,ne,?_,?_⟩
+    · cases d <;> simp [Normal.allowed]
+    · cases d <;> simpa [Normal.bin,Weighted.bin] using hf
+    · cases d <;> simpa [Normal.bin,Weighted.bin] using ih ht
+  · rfl
+
+theorem live_zero_iff {T : Weighted.Sig} {k : Nat} {S : Finset Weighted.Sig} :
+    Weighted.Live T k 0 S ↔ Normal.Live false T k S :=
+  ⟨normal_of_weighted,weighted_of_normal⟩

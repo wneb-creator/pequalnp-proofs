@@ -1,0 +1,22 @@
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots
+build queue: waiting 180s for one of 3 slots
+build queue: waiting 240s for one of 3 slots
+/workspace/pequalnp-proofs/results/orch/lemmas/LiveZeroBridge.lean:16:87: warning: Variable name `M` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _M
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LiveZeroBridge.lean:16:94: warning: Variable name `unary` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _unary
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LiveZeroBridge.lean:16:100: warning: Variable name `binary` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _binary
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
