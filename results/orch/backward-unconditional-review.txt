@@ -1,0 +1,13 @@
+Independent unconditional backward-component review
+2026-11-25T12:33:21.876603+00:00
+Reviewer: circuit_search
+Verdict: PASS; parent reported Lean exit0, no diagnostics.
+File: /tmp/oec/pequalnp-pilot-84/lower-bound/BackwardChecked.lean
+SHA256: 7bcf5f52f9e7ab5e21abff60ca9804651ebfd483b7d4331bb95f0497802aa28b
+
+Reviewed new Structural.stepMask/free_step, Backward.family_free_step, and final Backward.backward, with union identity and zero-substitution helper dependencies.
+Structural.free_step explicitly covers AND with an old operand (masked tofalse), AND with two fresh operands (fresh AND lift), OR with the old output marked (both operands masked), and unmarked OR with zero/one/two old operands. All branches use the actual mask defined from the old deletion set and reused operands. No arbitrary class closure or unproved assertion is assumed.
+family_free_step obtains classUnionK subset of current support from the Good class-subset invariant. classFamilyNext_union gives exact equality with stepMask. The constantzero function is a legitimate fresh dummy because Regular excludes it from the support.
+The final backward theorem takes only initial Regular wires and live basicOps goal kN. It discharges the previously explicit freeStep hypothesis by passing proved family_free_step. It returns actual ORclasses, Free after deletion, full-function agreement, support containment, and N.card+K.card<=k+1. Thus this compiler is now unconditional relative to its intended live-trace premises.
+Earlier reviewed budget and semantic arguments remain unchanged. Full posted lower bound still requires combining this component with input semantics, singleton rejection, class cardinality, and14P4 packing.
+No forbidden tokens, axioms, strings, or unsafe/native evaluation found. Standalone file integration remains subject to final single-module format check.

@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-84/lower-bound/Backward.lean:674:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [classFresh, classReused, hpq]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
