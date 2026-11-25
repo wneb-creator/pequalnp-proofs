@@ -1912,4 +1912,152 @@ lemma trace_extremal_dirty_two_critical_edges {n : ℕ} (G : SimpleGraph (Fin n)
     rw [hzero x] at htrue
     cases htrue
 
+lemma exists_three_level_minimum {α : Type*} (P : α → Prop)
+    (m₁ m₂ m₃ : α → ℕ) (hex : ∃ a, P a) :
+    ∃ a, P a ∧ (∀ b, P b → m₁ a ≤ m₁ b) ∧
+      (∀ b, P b → m₁ b ≤ m₁ a → m₂ a ≤ m₂ b) ∧
+      ∀ b, P b → m₁ b ≤ m₁ a → m₂ b ≤ m₂ a → m₃ a ≤ m₃ b := by
+  obtain ⟨a, ha, h₁⟩ := exists_minimizer P m₁ hex
+  obtain ⟨b, ⟨hb, hba⟩, h₂⟩ := exists_minimizer
+    (fun b => P b ∧ m₁ b ≤ m₁ a) m₂ ⟨a, ha, le_rfl⟩
+  obtain ⟨c, ⟨hc, hca, hcb⟩, h₃⟩ := exists_minimizer
+    (fun c => P c ∧ m₁ c ≤ m₁ a ∧ m₂ c ≤ m₂ b) m₃
+    ⟨b, hb, hba, le_rfl⟩
+  refine ⟨c, hc, fun d hd => hca.trans (h₁ d hd), ?_, ?_⟩
+  · intro d hd hdc
+    exact hcb.trans (h₂ d ⟨hd, hdc.trans hca⟩)
+  · intro d hd hdc hdcb
+    exact h₃ d ⟨hd, hdc.trans hca, hdcb.trans hcb⟩
+
+lemma exists_dirty_trace_minimum {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] :
+    ∃ C, Correct G C ∧ (∀ D, Correct G D → C.size ≤ D.size) ∧
+      (∀ D, Correct G D → D.size ≤ C.size →
+        (dirtySet G C).card ≤ (dirtySet G D).card) ∧
+      ∀ D, Correct G D → D.size ≤ C.size →
+        (dirtySet G D).card ≤ (dirtySet G C).card →
+        (falseTrace G C).card ≤ (falseTrace G D).card := by
+  exact exists_three_level_minimum (Correct G) Circuit.size
+    (fun C => (dirtySet G C).card) (fun C => (falseTrace G C).card) (exists_correct G)
+
+lemma dirty_trace_extremal_no_decrease {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit)
+    (hmin : ∀ D, Correct G D → D.size ≤ C.size →
+      (dirtySet G D).card ≤ (dirtySet G C).card →
+      (falseTrace G C).card ≤ (falseTrace G D).card)
+    (D : Circuit) (hD : Correct G D) (hsize : D.size ≤ C.size)
+    (hdirty : dirtySet G D ⊆ dirtySet G C)
+    (hdown : ∀ (x : Fin n → Bool) (j : ℕ), j < D.size →
+      (D.wires (List.ofFn x)).getD (n+j) false = true →
+      (C.wires (List.ofFn x)).getD (n+j) false = true)
+    (j : ℕ) (hj : j < C.size) (x : Fin n → Bool)
+    (hx : ¬ ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (hCx : (C.wires (List.ofFn x)).getD (n+j) false = true) :
+    (D.wires (List.ofFn x)).getD (n+j) false = true := by
+  classical
+  have hsub := falseTrace_subset G C D hsize hdown
+  have heq : falseTrace G D = falseTrace G C :=
+    Finset.eq_of_subset_of_card_le hsub (hmin D hD hsize (Finset.card_le_card hdirty))
+  have hp : (j,x) ∈ falseTrace G C := by
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_product.mpr ⟨Finset.mem_range.mpr hj, Finset.mem_univ _⟩,
+      hx, hCx⟩
+  rw [← heq] at hp
+  exact (Finset.mem_filter.mp hp).2.2
+
+lemma dirtySet_eq_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : dirtySet G C = PEqualNP.TopForm.junk G C := rfl
+
+lemma dirty_extremal_no_clean_patch {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g h : Gate) (out : ℕ)
+    (hmin : ∀ D, Correct G D → D.size ≤ (Repair.patchCircuit pre post g out).size →
+      (dirtySet G (Repair.patchCircuit pre post g out)).card ≤ (dirtySet G D).card)
+    (hD : Correct G (Repair.patchCircuit pre post h out))
+    (hdown : ∀ x : Fin n → Bool,
+      Repair.WireLE ((Repair.patchCircuit pre post h out).wires (List.ofFn x))
+        ((Repair.patchCircuit pre post g out).wires (List.ofFn x)))
+    (hbad : PEqualNP.CleanedNonEdge.IsDirtyAnd n G
+      (Repair.patchCircuit pre post g out) pre.length)
+    (hsafe : ∀ x : Fin n → Bool,
+      ((Repair.patchCircuit pre post h out).wires (List.ofFn x)).getD
+        (n + pre.length) false = true → Repair.hit G x) : False := by
+  have hg : g.op = GateOp.and := by
+    have h := hbad.1
+    simpa [PEqualNP.MetaComplexity.NestedCover.gateAt, Repair.patchCircuit,
+      List.getD_eq_getElem?_getD] using h
+  have hclean : PEqualNP.TopForm.BelowF G (Repair.patchCircuit pre post h out)
+      pre.length := by
+    intro x hx
+    have hit := hsafe x hx
+    simpa [PEqualNP.MetaComplexity.NestedCover.graphFun, Repair.hit] using hit
+  have hsub := Construction.junk_patch_ssubset G pre post g h out (fun _ => hg)
+    (fun j _ x _ => hdown x (n+j)) hbad hclean
+  have hlt := Finset.card_lt_card hsub
+  have hle := hmin (Repair.patchCircuit pre post h out) hD
+    (by simp [Repair.patchCircuit, Circuit.size])
+  rw [dirtySet_eq_junk, dirtySet_eq_junk] at hle
+  exact Nat.not_lt_of_ge hle hlt
+
+lemma dirty_extremal_two_critical_edges {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hc : Correct G (Repair.patchCircuit pre post g out))
+    (hmin : ∀ D, Correct G D → D.size ≤ (Repair.patchCircuit pre post g out).size →
+      (dirtySet G (Repair.patchCircuit pre post g out)).card ≤ (dirtySet G D).card)
+    (hbad : PEqualNP.CleanedNonEdge.IsDirtyAnd n G
+      (Repair.patchCircuit pre post g out) pre.length) :
+    ∃ a b c d, CriticalEdge G pre post out a b ∧ CriticalEdge G pre post out c d ∧
+      ¬ ((c = a ∧ d = b) ∨ (c = b ∧ d = a)) := by
+  classical
+  have correct : ∀ y : Fin n → Bool,
+      (Repair.patchCircuit pre post g out).eval (List.ofFn y) = true ↔ Repair.hit G y := by
+    intro y
+    rw [hc.2 y]
+    exact decide_eq_true_iff
+  have impossible (h : Gate) (hm : Monotone2 (Repair.patchCircuit pre post h out))
+      (hf : ∀ y : Fin n → Bool,
+        (Repair.patchCircuit pre post h out).eval (List.ofFn y) = true ↔ Repair.hit G y)
+      (hv : ∀ y : Fin n → Bool,
+        Repair.WireLE ((Repair.patchCircuit pre post h out).wires (List.ofFn y))
+          ((Repair.patchCircuit pre post g out).wires (List.ofFn y)))
+      (hsafe : ∀ y : Fin n → Bool,
+        ((Repair.patchCircuit pre post h out).wires (List.ofFn y)).getD
+          (n + pre.length) false = true → Repair.hit G y) : False := by
+    apply dirty_extremal_no_clean_patch G pre post g h out hmin _ hv hbad hsafe
+    refine ⟨hm, ?_⟩
+    intro y
+    apply Bool.eq_iff_iff.mpr
+    rw [decide_eq_true_iff]
+    exact hf y
+  by_cases hex : ∃ a b, CriticalEdge G pre post out a b
+  · obtain ⟨a, b, hab⟩ := hex
+    by_cases htwo : ∃ c d, CriticalEdge G pre post out c d ∧
+        ¬ ((c = a ∧ d = b) ∨ (c = b ∧ d = a))
+    · obtain ⟨c, d, hcd, hne⟩ := htwo
+      exact ⟨a, b, c, d, hab, hcd, hne⟩
+    · have unique : ∀ u v, G.Adj u v →
+          (Repair.patchCircuit pre post ⟨.or, []⟩ out).eval
+            (List.ofFn (Repair.mask {u,v})) = false →
+          (u = a ∧ v = b) ∨ (u = b ∧ v = a) := by
+        intro u v huv hz
+        by_contra hne
+        exact htwo ⟨u, v, ⟨huv, hz⟩, hne⟩
+      obtain ⟨hm, _, hf, hv, hs⟩ := Repair.single_edge_circuit_repair_safe G
+        pre post g out hc.1 correct a b hab.1 hab.2 unique
+      exact False.elim (impossible _ hm hf hv hs)
+  · have survives : ∀ u v, G.Adj u v →
+        (Repair.patchCircuit pre post ⟨.or, []⟩ out).eval
+          (List.ofFn (Repair.mask {u,v})) = true := by
+      intro u v huv
+      cases hz : (Repair.patchCircuit pre post ⟨.or, []⟩ out).eval
+          (List.ofFn (Repair.mask {u,v})) with
+      | false => exact False.elim (hex ⟨u, v, huv, hz⟩)
+      | true => rfl
+    obtain ⟨hm, _, hf, hv, hz⟩ := Repair.zero_edge_circuit_repair G
+      pre post g out hc.1 correct survives
+    apply False.elim
+    apply impossible _ hm hf hv
+    intro y hy
+    rw [hz y] at hy
+    cases hy
+
 end PEqualNP.Outside.L_meta_1904_aux
