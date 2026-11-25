@@ -1,0 +1,61 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.ReadK
+
+lemma graph_projected_actual_slot {n : ℕ} {C : Circuit} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (colour : Fin n → Bool) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hcross : ∀ u v, G.Adj u v → colour u ≠ colour v)
+    (hcorrect : ∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (a b : Fin n) (hab : G.Adj a b) :
+    ∃ k, reachable n C k ∧ (gateAt C k).op = GateOp.and ∧
+      ∃ w ∈ (gateAt C k).inputs, a ∈ singletonSupport n C w ∧
+        ∀ u ∈ singletonSupport n C w, colour u = colour a → G.Adj u b := by
+  classical
+  let y : Fin n → Bool := fun u => decide (u = b ∨ colour u = colour a ∧ ¬ G.Adj u b)
+  have hyb : y b = true := by simp [y]
+  have hneg : C.eval (List.ofFn y) = false := by
+    rw [hcorrect, decide_eq_false_iff_not]
+    rintro ⟨u, v, huv, hu, hv⟩
+    simp only [y, decide_eq_true_eq] at hu hv
+    rcases hu with rfl | ⟨hu, hub⟩ <;> rcases hv with rfl | ⟨hv, hvb⟩
+    · exact G.irrefl huv
+    · exact hvb huv.symm
+    · exact hub huv
+    · exact hcross u v huv (hu.trans hv.symm)
+  have hpos : C.eval (List.ofFn (pairInput a b)) = true := by
+    rw [hcorrect, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simp [pairInput], by simp [pairInput]⟩
+  have hout : singletonSupport n C C.output = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.2
+    intro u hu
+    have hv : C.eval (List.ofFn (pairInput u u)) = true := mem_support.1 hu
+    rw [hcorrect, decide_eq_true_eq] at hv
+    obtain ⟨v, w, hvw, hv, hw⟩ := hv
+    have hvu : v = u := by simpa [pairInput] using hv
+    have hwu : w = u := by simpa [pairInput] using hw
+    subst v
+    subst w
+    exact G.irrefl hvw
+  obtain ⟨k, hk, hop, w, hw, ⟨u, hu, hux⟩, hy⟩ :=
+    reachable_distinguishing_and_operand hm rb (pairInput a b) y hout hpos hneg
+  have hua : u = a := by
+    have huab : u = a ∨ u = b := by simpa [pairInput] using hux
+    rcases huab with he | he
+    · exact he
+    · subst u
+      have hh := hy b hu
+      rw [hyb] at hh
+      cases hh
+  subst u
+  refine ⟨k, hk, hop, w, hw, hu, ?_⟩
+  intro u hu' hcolour
+  by_contra hnu
+  have hyu : y u = true := by
+    simp only [y, decide_eq_true_eq]
+    exact Or.inr ⟨hcolour, hnu⟩
+  rw [hy u hu'] at hyu
+  cases hyu
+
+end PEqualNP.Outside.L_meta_4675.Reuse

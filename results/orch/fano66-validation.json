@@ -1,0 +1,77 @@
+{
+  "family": "fano66",
+  "edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "edge_count": 16,
+  "C4_free": true,
+  "diagonal_matching": true,
+  "minimum_cover": 6,
+  "maximal_independent_sets": 23,
+  "truth_samples": 39,
+  "claimed_minimum_gates": 21,
+  "counterexample_search_gates": 20
+}

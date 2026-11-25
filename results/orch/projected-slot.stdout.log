@@ -1,0 +1,6 @@
+../results/orch/lemmas/ProjectedSlot.lean:642:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hout] at hu
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

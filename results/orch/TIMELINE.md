@@ -45,3 +45,5 @@
 - 2026-11-25T18:05:49.404924+00:00: Root20minute strategyreview: stopped unsuccessful heuristic runs atscheduledlimits; ruledoutlinear-neighborhood shortcut onpaper; continue exactcounterexamples and strengthened actual-slot certificates.
 
 - 2026-11-25T18:08:59.233513+00:00: Namedpartial3166lines builds; expandedaxiomaudit passed; preparingcheckpoint11 withformattheta andlinear-outputlowerbound.
+
+- 2026-11-25T18:10:19.250118+00:00: Stronger projected-slot certificate compiledandreviewed; archivingbeforecombinedbuild.

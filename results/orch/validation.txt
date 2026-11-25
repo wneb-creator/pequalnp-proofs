@@ -45,3 +45,5 @@ MaskedTheta.lean compiled exit0; review010 approved scratch archive with two doc
 Integrated partial-004:3166lines/146440bytes; lake build exit0 (5149jobs). Review011 verified exact integration and explicit restricted hypotheses. Expanded axiomaudit exit0:clean_bound,erase_unique_edge_dirty,unique_dirty_graph_bound,unitfalse_graph_actual_slot,small_has_dirty use onlypropext/Classical.choice/Quot.sound. MaskedThetaFormatted compiledexit0 andreview012 formatfixesapproved. LinearBudget compiledexit0, structural independentmathematicalreview approved. No fullgaptheorem.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
 TIMING total=62.59 subagents=6
+
+ProjectedSlot compiledexit0 androotindependentreview approved; peredge projected neighborhood certificate needs neither tCount0 nor allANDsingletonfalse. Fullbudgetunresolved. Portfoliofano66 preset reviewed againstMultiDirty and independentlyvalidated16edges/mincover6/C4free.
