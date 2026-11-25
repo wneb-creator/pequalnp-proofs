@@ -2,7 +2,7 @@ L-meta-9811 partial results, NOT a completed proof of posted claim.
 Named file: lower20 plus upper25; lakebuildPASS,5149jobs.
 Axioms for both bounds: propext,Classical.choice,Quot.sound only.
 Ordinarymonotone ANDcount≥7: LeancompilePASS; independentsemantic/formatreviewPASS.
-Exactposted no24-gate theorem absent; localchecker pending. No PR.
+Exactposted no24-gate theorem absent; localchecker REJECTED(no-theorem): finalpostedtheorem isabsent. No PR.
 Namedlines: initialupper40; mergedbounds9249. Cleanup ofcompletedgap notapplicable.
 Sub-agents: 6 (lower_bound, lemma_search, counterexample, linear_network, status_review, toolchain)
-TIMING total=37 subagents=6
+TIMING total=45 subagents=6

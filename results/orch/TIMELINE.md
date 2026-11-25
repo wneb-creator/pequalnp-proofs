@@ -22,3 +22,7 @@
 
 - 2026-11-25T12:13:00.786742+00:00 lower_bound: ordinary Monotone2 target circuits need at least seven AND gates; AndSevenRoot.lean compiled, exit 0, independently reviewing compiler bridge.
 2026-11-25T12:17:12.336615+00:00 namedfile lakebuildPASS (9249lines522141bytes); lower20/upper25 axioms each exactlypropext,Classical.choice,Quot.sound. OrdinarymonotoneAND≥7formattedcomponent compilePASS and independentlyreviewed.
+
+- 2026-11-25T12:21:17.416381+00:00 lower_bound: CoverProfile and TopFormArithmetic compiled; critical ≤24 monotone case now conditionally reduced to at least three uncovered edges; exact three implies six clean tops, two dirty ANDs, one extra OR.
+2026-11-25T12:21:45.592837+00:00 linear_network ABC synthesis driver and independent netlist validator ready; awaiting toolchain build.
+2026-11-25T12:25:12.172689+00:00 officialpostedcheckerREJECTED(no-theorem), as expected forpartial. Coverprofile andconditionalarithmetic separatelycompiled; nofullcircuit25claim.

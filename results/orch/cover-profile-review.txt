@@ -1,0 +1,9 @@
+Independent review by status_review, 2026-11-25
+
+Reviewed results/orch/lemmas/CoverProfile.lean, SHA256 5cea6020bff7fc819d1788b2e97b1452fef2e471a4a5a6dba5947be8f6e9055f.
+
+The 19-edge list exactly matches the desk target. Independently checked that the selected 14 edges form a connected spanning cycle, with degree exactly two at every vertex. Exhaustive testing of all 16384 vertex subsets verifies both inequalities 19 <= uncovered + 3*centers and 14 <= uncovered + 2*centers. Minimum uncovered counts for exactly 0 through 7 centers are [19,16,13,10,7,4,2,0].
+
+The formal argument uses the elementary union-cardinality bound on covered edges, applied once to the whole graph of maximum degree three and once to the spanning cycle of degree two. The uncovered cycle edges are a subset of all uncovered edges. The three robust-cover consequences follow arithmetically. No circuit claim or full-gap conclusion is included.
+
+No forbidden forms or new axioms found; imports and helper namespace pass the official source guard apart from the intentional absence of the final gap theorem. Author reports successful compilation with an empty log. Approved for preservation as a combinatorial partial.
