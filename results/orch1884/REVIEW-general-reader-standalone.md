@@ -32,3 +32,10 @@ The final theorem still assumes identity-ordered ten inputs plus free negation o
 Only import is PEqualNP.Defs at the start; no scratch-module import or old outside-module reference remains. All declarations are in the L_meta_1884 helper namespaces. Every option is a permitted numeric scoped limit. No sorry, axiom, native_decide, forbidden namespace substring, double quote, attribute, unsafe/meta declaration, or unsupported option was found. No credential material was observed. The two local generators only read the named proof files and write the named output sources.
 
 The component dependency tests and small general-floor bridge have successful empty logs. The full523379-byte assembly is a distinct compilation obligation currently pending. Any further source edit must recheck the909-byte remaining limit and refresh the exact build/review hash. The reviewer did not author the new compiler, contraction, or assembly; the read-only pruning suggestions were independently compiled only when the full build completes.
+
+## Successful complete standalone build
+
+Updated 2026-11-25T16:35:22.994269+00:00. The author reported the full standalone Lean process exited0 at2026-11-25T16:34:43Z, using the exact reviewed source SHA256 `fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e` (523379bytes/7103lines). The complete archived stdout and stderr were read and hashed during this update: stdout contains warnings and no error diagnostic, stderr is empty. The earlier pending-build limitation is resolved for this exact source. The mathematical scope is unchanged: general FanInTwo cofactor/reader bound, not the full posted L-meta-1884 theorem.
+
+- `results/orch1884/general-reader-standalone-checked.stdout`: 61893bytes, SHA256 `9629c803ab591574a99e1fd426d9bd49584624b8cd1dca0d13915525bcd8ea30`.
+- `results/orch1884/general-reader-standalone-checked.stderr`: 0bytes, SHA256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.

@@ -1,0 +1,60 @@
+{
+  "utc": "2026-11-25T16:34:22.096219+00:00",
+  "sources": {
+    "GlobalProjectionCut.lean": {
+      "sha256": "611940656f2d9362f02572810252eb801aa61faa27e34646a9e898d4d771d372",
+      "bytes": 8283,
+      "lines": 171,
+      "logs": [
+        {
+          "path": "results/orch1884/global-projection-cut.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/orch1884/global-projection-cut.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "SharedFilter.lean": {
+      "sha256": "2e94b22073e83a4fe1c53e579c136452b1b3a582b0a6b3d1e1c9a945128ff927",
+      "bytes": 5593,
+      "lines": 129,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-second.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-second.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "SharedFilterSafety.lean": {
+      "sha256": "53828384b0223bd03ed28106042d91ba42a47b9c83e35248f9dacb765e191cb2",
+      "bytes": 2812,
+      "lines": 70,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-filter-safety-first.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-filter-safety-first.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  },
+  "negative_rows": 76,
+  "max_independent_set_size": 4,
+  "exceptional_pairs_each_supported_by_at_most_two_vertices": true,
+  "and_or_factor_boolean_truth_table_cases": 8
+}

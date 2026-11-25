@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T16:34:51.428606+00:00",
+  "source_sha256": "85e67209ca40652a99c1cb14c4d4cfd9c4677954969ba7f2ddd08c6ed067df46",
+  "exceptional_row": 277,
+  "exhaustive_rows_per_coordinate": 512,
+  "qualifying_negative_rows": {
+    "2": 45,
+    "8": 45
+  },
+  "all_pivotal_checks_pass": true
+}

@@ -1,0 +1,13 @@
+# Independent review: SharedFilter and SharedFilterSafety
+
+UTC: 2026-11-25T16:34:22.096219+00:00
+
+Verdict: PASS for both conditional helpers. SharedFilter SHA256 `2e94b22073e83a4fe1c53e579c136452b1b3a582b0a6b3d1e1c9a945128ff927` (5593 bytes/129 lines); SharedFilterSafety SHA256 `53828384b0223bd03ed28106042d91ba42a47b9c83e35248f9dacb765e191cb2` (2812 bytes/70 lines). Author reported both Lean checks exit 0; their complete named stdout/stderr files are empty. This reviewer did not rebuild.
+
+The core assumptions are explicit: H is monotone within each fixed x0 fiber, independent of each selected nonzero variable, and the target factors through that variable OR H when only that variable changes. `maximal_extension` takes a maximal independent superset in the same x0 fiber, preserving the applicable monotonicity assumption. At any accepted maximal negative row, each selected factor variable must belong to the row: otherwise inserting it produces a positive target while its OR with H was already true. Deleting two distinct irrelevant variables preserves H; the checked independence-number-four bound leaves at most two true inputs. Prior singleton and zero rejection force exactly a pair. The previously checked PairLocalization lemma then gives an exceptional pair for both variables.
+
+The safety extension converts arbitrary Boolean inputs to their finite support. A variable outside the three neighbors {1,4,5} cannot have an exceptional pair. Three pairwise-distinct selected variables cannot all share one exceptional pair, since each of the three possible pairs is exceptional for exactly two of those neighbors. The AND-filter bridge explicitly uses independence of H in the selected variable; a complete Boolean truth table verifies that equality of x OR H then implies equality of x AND NOT H.
+
+Independent Python verification examined all 1024 Petersen rows (76 negative rows, maximum independent-set size4), checked the exceptional-pair incidence table, and checked all eight Boolean bridge cases. Details and hashes are saved in shared-filter-independent-validation.json. These finite checks support the review and do not substitute for the author's successful Lean checks.
+
+The two scoped numeric options are directly above negative_card; otherwise there are no options. Both files use the L_meta_1884 namespace and contain no forbidden constructs, new axioms, unsafe declarations, strings, attributes, or secret-like content. Imports PairLocalization and SharedFilter are scratch dependencies, so a valid submission would need the checked components assembled with allowed imports. Neither file proves the factor/independence premises for arbitrary circuit gates or performs an actual circuit deletion; the full posted goal remains open.

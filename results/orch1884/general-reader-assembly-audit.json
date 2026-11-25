@@ -97,5 +97,26 @@
       "bytes": 0
     }
   ],
-  "standalone_build": "pending"
+  "standalone_build": "pending",
+  "full_standalone_build": {
+    "status": "PASS",
+    "reported_exit_code": 0,
+    "reported_completed_utc": "2026-11-25T16:34:43Z",
+    "review_updated_utc": "2026-11-25T16:35:22.994269+00:00",
+    "exact_source_sha256": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e",
+    "logs": [
+      {
+        "path": "results/orch1884/general-reader-standalone-checked.stdout",
+        "bytes": 61893,
+        "sha256": "9629c803ab591574a99e1fd426d9bd49584624b8cd1dca0d13915525bcd8ea30",
+        "warning_lines": 315
+      },
+      {
+        "path": "results/orch1884/general-reader-standalone-checked.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "warning_lines": 0
+      }
+    ]
+  }
 }
