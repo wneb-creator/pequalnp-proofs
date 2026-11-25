@@ -30,3 +30,6 @@
 - 2026-11-25T17:42:39.021801+00:00: refined positive-input-slot gate budget compiled, exit 0.
 - 2026-11-25T17:43:05.184381+00:00: exact Python theta8 witness refutes generic unchanged birth-slot allocation bridge.
 - 2026-11-25T17:46:13.923082+00:00: archival checkpoint of checked Fano dirty-gate necessity, selected-star and positive-slot budgets, dual flag certificates, and center adapter.
+- 2026-11-25T17:46:43.536677+00:00: second strategy review. Conditional certificate/slot budgets checked; unchanged birth allocation blocked by exhaustive theta8 example. Concentrate on unique-edge dirty normalization for certified SMT pruning and reachable actual-operand semantics; no full cost-preserving rewrite established.
+- 2026-11-25T17:47:27.719278+00:00: unique-edge dirty normalization and C4-free graph bound compiled, exit 0; counterexample search agent notified.
+- 2026-11-25T17:49:27.295311+00:00: archived checked unique-edge dirty repair and reachable separating-operand partials after independent review.

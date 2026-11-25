@@ -1,0 +1,219 @@
+{
+  "status": "exact Python checks passed; not Lean checked",
+  "vertices": 8,
+  "edges": 9,
+  "gates": 26,
+  "births": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "all_inputs_checked": 256,
+  "tCount": 0,
+  "all_AND_singleton_supports_empty": true,
+  "max_edges_per_whole_slot_star": 1,
+  "birth_star_cover_impossible": true,
+  "candidates": {
+    "6": [
+      {
+        "center": 4,
+        "wire": 0,
+        "covered": [
+          [
+            0,
+            4
+          ]
+        ]
+      },
+      {
+        "center": 5,
+        "wire": 0,
+        "covered": [
+          [
+            0,
+            5
+          ]
+        ]
+      },
+      {
+        "center": 6,
+        "wire": 0,
+        "covered": [
+          [
+            0,
+            6
+          ]
+        ]
+      }
+    ],
+    "7": [
+      {
+        "center": 4,
+        "wire": 1,
+        "covered": [
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      {
+        "center": 7,
+        "wire": 1,
+        "covered": [
+          [
+            1,
+            7
+          ]
+        ]
+      }
+    ],
+    "8": [
+      {
+        "center": 5,
+        "wire": 2,
+        "covered": [
+          [
+            2,
+            5
+          ]
+        ]
+      },
+      {
+        "center": 7,
+        "wire": 2,
+        "covered": [
+          [
+            2,
+            7
+          ]
+        ]
+      }
+    ],
+    "9": [
+      {
+        "center": 6,
+        "wire": 3,
+        "covered": [
+          [
+            3,
+            6
+          ]
+        ]
+      },
+      {
+        "center": 7,
+        "wire": 3,
+        "covered": [
+          [
+            3,
+            7
+          ]
+        ]
+      }
+    ],
+    "10": [
+      {
+        "center": 0,
+        "wire": 4,
+        "covered": [
+          [
+            0,
+            4
+          ]
+        ]
+      },
+      {
+        "center": 1,
+        "wire": 4,
+        "covered": [
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ],
+    "11": [
+      {
+        "center": 0,
+        "wire": 5,
+        "covered": [
+          [
+            0,
+            5
+          ]
+        ]
+      },
+      {
+        "center": 2,
+        "wire": 5,
+        "covered": [
+          [
+            2,
+            5
+          ]
+        ]
+      }
+    ],
+    "12": [
+      {
+        "center": 0,
+        "wire": 6,
+        "covered": [
+          [
+            0,
+            6
+          ]
+        ]
+      },
+      {
+        "center": 3,
+        "wire": 6,
+        "covered": [
+          [
+            3,
+            6
+          ]
+        ]
+      }
+    ],
+    "13": [
+      {
+        "center": 1,
+        "wire": 7,
+        "covered": [
+          [
+            1,
+            7
+          ]
+        ]
+      },
+      {
+        "center": 2,
+        "wire": 7,
+        "covered": [
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      {
+        "center": 3,
+        "wire": 7,
+        "covered": [
+          [
+            3,
+            7
+          ]
+        ]
+      }
+    ]
+  }
+}

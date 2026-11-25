@@ -1,0 +1,150 @@
+namespace PEqualNP.Outside.L_meta_4675.Normalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma erase_unique_edge_dirty {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsAO2 n C)
+    (hcomp : circuitFun n C = graphFun G ∅)
+    (hne : ∃ a b, G.Adj a b)
+    (hunique : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → ∀ u v a b, G.Adj u v → G.Adj a b →
+      gateVal n C j (pairInput u v) = true → gateVal n C j (pairInput a b) = true →
+        s(u, v) = s(a, b))
+    (colour : ℕ → Bool) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size = C.size ∧
+      circuitFun n D = graphFun G ∅ ∧
+      (∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j) ∧
+      PEqualNP.TwoColour.tCount n D colour = PEqualNP.TwoColour.tCount n C colour := by
+  classical
+  obtain ⟨a, b, hab⟩ := hne
+  let hit (j : ℕ) (e : Fin n × Fin n) : Prop :=
+    G.Adj e.1 e.2 ∧ gateVal n C j (pairInput e.1 e.2) = true
+  let pick : ℕ → Fin n × Fin n := fun j => if h : ∃ e, hit j e then h.choose else (a, b)
+  have pick_hit (j : ℕ) (e : Fin n × Fin n) (he : hit j e) : hit j (pick j) := by
+    have hex : ∃ e, hit j e := ⟨e, he⟩
+    simpa only [pick, dif_pos hex] using hex.choose_spec
+  have pick_adj (j : ℕ) : G.Adj (pick j).1 (pick j).2 := by
+    by_cases hex : ∃ e, hit j e
+    · exact (pick_hit j hex.choose hex.choose_spec).1
+    · simpa only [pick, dif_neg hex] using hab
+  let D := repair G C pick
+  have hD : IsAO2 n D := repair_ao hC pick
+  have reflect (x : Fin n → Bool) (hn : graphFun G ∅ x ≠ true) (w : ℕ) :
+      val D (List.ofFn x) w = true → val C (List.ofFn x) w = true :=
+    repair_compare hC pick x false (by
+      intro j hj hd hv
+      have hp := (repair_replaced_val pick hj hd x).1 hv
+      exact (hn (graph_true.2 ⟨_, _, pick_adj j, hp.1, hp.2⟩)).elim) w
+  have clean : ∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j := by
+    intro j hj hop x hv
+    have hj' : j < C.gates.length := by rwa [repair_len] at hj
+    by_cases hd : dirty G C j
+    · have hp := (repair_replaced_val pick hj' hd x).1 hv
+      exact graph_true.2 ⟨_, _, pick_adj j, hp.1, hp.2⟩
+    · have hop' : (gateAt C j).op = GateOp.and := by
+        rwa [repair_kept pick hj' hd] at hop
+      by_contra hn
+      have hbelow : BelowF G C j := by
+        by_contra h
+        exact hd ⟨hop', h⟩
+      exact hn (hbelow x (reflect x hn (n + j) hv))
+  have keep_pair (u v : Fin n) (huv : G.Adj u v) :
+      circuitFun n D (pairInput u v) = true := by
+    have hc : circuitFun n C (pairInput u v) = true := by
+      rw [hcomp]
+      exact graph_true.2 (edge_true_pair.2 huv)
+    exact repair_compare hC pick (pairInput u v) true (by
+      intro j hj hd hv
+      change gateVal n C j (pairInput u v) = true at hv
+      have hh := pick_hit j (u, v) ⟨huv, hv⟩
+      have heq : s((pick j).1, (pick j).2) = s(u, v) :=
+        hunique j hj hd.1 hd.2 _ _ u v hh.1 huv hh.2 hv
+      apply (repair_replaced_val pick hj hd _).2
+      rcases Sym2.eq_iff.1 heq with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp [h₁, h₂, pairInput])
+      C.output hc
+  have eq : circuitFun n D = graphFun G ∅ := by
+    funext x
+    apply Bool.eq_iff_iff.mpr
+    constructor
+    · intro hx
+      by_contra hn
+      have h := reflect x hn C.output hx
+      change circuitFun n C x = true at h
+      rw [hcomp] at h
+      exact hn h
+    · intro hx
+      obtain ⟨u, v, huv, hu, hv⟩ := graph_true.1 hx
+      apply val_mono hD (x := pairInput u v) (y := x) ?_ C.output (keep_pair u v huv)
+      intro i hi
+      simp only [pairInput, decide_eq_true_eq] at hi
+      rcases hi with rfl | rfl
+      · exact hu
+      · exact hv
+  exact ⟨D, hD, repair_len G C pick, eq, clean, repair_tCount G C pick colour⟩
+
+private lemma sorted_edges {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] :
+    ∃ E : Finset (Fin n × Fin n), E.card = G.edgeFinset.card ∧
+      ∀ p ∈ E, G.Adj p.1 p.2 ∧ p.1 ≤ p.2 := by
+  let E := Finset.univ.filter fun p : Fin n × Fin n => G.Adj p.1 p.2 ∧ p.1 ≤ p.2
+  refine ⟨E, ?_, fun p hp => (Finset.mem_filter.1 hp).2⟩
+  apply Finset.card_bij (fun p _ => s(p.1, p.2))
+  · exact fun p hp => SimpleGraph.mem_edgeFinset.2 (Finset.mem_filter.1 hp).2.1
+  · intro a ha b hb hab
+    rcases Sym2.eq_iff.1 hab with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩
+    · exact Prod.ext h₁ h₂
+    · have hle₁ := (Finset.mem_filter.1 ha).2.2
+      have hle₂ := (Finset.mem_filter.1 hb).2.2
+      have he : b.1 = b.2 := le_antisymm hle₂ (by rwa [h₁, h₂] at hle₁)
+      exact Prod.ext (h₁.trans he.symm) (h₂.trans he)
+  · intro e he
+    induction e using Sym2.ind with
+    | _ u v =>
+      have h := SimpleGraph.mem_edgeFinset.1 he
+      rcases le_total u v with huv | hvu
+      · exact ⟨(u, v), Finset.mem_filter.2 ⟨Finset.mem_univ _, h, huv⟩, rfl⟩
+      · exact ⟨(v, u), Finset.mem_filter.2 ⟨Finset.mem_univ _, h.symm, hvu⟩, Sym2.eq_swap⟩
+
+lemma unique_dirty_graph_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hfour : NoFourCycle G)
+    (hC : IsAO2 n C) (hcomp : circuitFun n C = graphFun G ∅)
+    (hne : ∃ a b, G.Adj a b)
+    (hunique : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → ∀ u v a b, G.Adj u v → G.Adj a b →
+      gateVal n C j (pairInput u v) = true → gateVal n C j (pairInput a b) = true →
+        s(u, v) = s(a, b)) :
+    ∃ S : Finset (Fin n), (∀ u v, G.Adj u v → u ∈ S ∨ v ∈ S) ∧
+      G.edgeFinset.card + S.card ≤ C.size + 1 := by
+  classical
+  obtain ⟨u, v, huv⟩ := hne
+  obtain ⟨D, hD, hsize, hDcomp, hclean, _⟩ :=
+    erase_unique_edge_dirty G C hC hcomp ⟨u, v, huv⟩ hunique (fun _ => false)
+  have hm : Monotone2 D := by
+    intro g hg
+    exact ⟨by simpa using hD.1 g hg, (hD.2.2 g hg).le⟩
+  obtain ⟨E, hcard, hE⟩ := sorted_edges G
+  obtain ⟨T, hcover, hT, hbound⟩ := Reuse.graph_budget (C := D) G u hm hD.2.1
+    (fun j hj hop a b ht => edge_true_pair.1 (graph_true.1 (hclean j hj.1 hop _ ht)))
+    (by
+      intro j hj hop
+      cases h : gateVal n D j (fun _ => false)
+      · rfl
+      · obtain ⟨a, b, _, ha, _⟩ := graph_true.1 (hclean j hj.1 hop _ h)
+        cases ha)
+    (fun _ _ _ _ => Reuse.no_four_cycle hfour)
+    (by
+      apply Finset.eq_empty_iff_forall_notMem.2
+      intro a ha
+      have hh : circuitFun n D (pairInput a a) = true := Reuse.mem_support.1 ha
+      rw [hDcomp] at hh
+      exact G.irrefl (edge_true_pair.1 (graph_true.1 hh)))
+    (by
+      intro a b hab
+      change circuitFun n D (pairInput a b) = true
+      rw [hDcomp]
+      exact graph_true.2 (edge_true_pair.2 hab)) E hE
+  refine ⟨T, hcover, ?_⟩
+  rw [hcard] at hbound
+  omega
+
+end PEqualNP.Outside.L_meta_4675.Normalize

@@ -32,3 +32,6 @@ Axiom audit of five main integrated partial lemmas passed; only propext, Classic
 
 Additional compiled and independently reviewed partials: FanoCleanLower, MatchingCover, FlagCoverExtended, Certificate, SlotBudget, FlagCentres. Sources retain explicit assumptions; no full statement theorem. Root independently checked SlotBudget local charging and FlagCentres finite choice; status_review checked remaining new components and bounded annealing validator.
 FanoCleanLower proves any AO2 Fano circuit of at most26gates has a dirtyAND; it does not rule those circuits out.
+
+UniqueRepair and ActualSlot/ActualSlotReachable compiled exit0 and passed independent archival review. UniqueRepair preserves size, function and tCount under the explicit at-most-one-edge dirty-gate condition; reachable separator is semantic, without a global gate-cover budget.
+BirthAllocationObstruction is exhaustive Python validation of a failed unchanged-birth strategy, not a Lean proof or refutation of the gap. StrongZ3 remains a restricted search; only returned witnesses receive full original-condition validation.
