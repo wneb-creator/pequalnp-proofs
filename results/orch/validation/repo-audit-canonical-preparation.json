@@ -1,0 +1,225 @@
+{
+  "scope": "Reviewed conditional canonical compiler/refutation preparation; no concrete fewer-than-51 witness; flattened control remains unbuilt",
+  "checks": [
+    "Exact literal posted statement under negation",
+    "All source and manifest hashes matched",
+    "Portable sources match checked snapshots",
+    "Closed mask certificate replay and backward-reference guards reviewed",
+    "Flattened K2,2 source matches dependency concatenation exactly",
+    "No forbidden Lean constructs or credential patterns detected"
+  ],
+  "files": [
+    {
+      "path": "results/orch/canonical-reproduction/CANONICAL-REFUTATION-RECIPE.md",
+      "sha256": "77b8cfe5ce5d1317f0a09b9cc0c1047bb98f2a89a8438a9362f8d24b26700c88"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/CanonicalCycleControlFlat.lean",
+      "sha256": "9220d893d69a2fd756f63208f36874104468a2784baee17b46c08cb9958859ed"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/CanonicalCycleControlFlat.manifest.json",
+      "sha256": "075c2b87f8925478b5242f3a7ed1edb5ae9f38cdbd37059cec87aa6195349ad7"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/README.md",
+      "sha256": "15248c5ff0099d8dcdd248f37ab8c2d430718d0dcfdeeacaf0b9f37b80dcc97b"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/canonical-candidate-reject51.log",
+      "sha256": "c4244d145425c975f75eaca5ad699c0d0db4b611aa6f9fc7a126ebf571fb3f55"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/flatten-canonical-modules.py",
+      "sha256": "0f3048f9d2b8d33dd9fe767cb1e0e8b1fc1efdb113b9396f026557d4bf59af52"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/manifest.json",
+      "sha256": "18d8b991b4c749165193ae468261724190ad3db4ed596c740eaa4b1cd9335b5a"
+    },
+    {
+      "path": "results/orch/canonical-reproduction/prepare-canonical-candidate.py",
+      "sha256": "09357087f855aa6d740e0348f3ebd0b7302d12af65a120ad728419791980cb4a"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-pointwise-samples.json",
+      "sha256": "663001328369bdc746d9bc1a19f16b9edd5bf48970bad06be66678af4b666667"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-pointwise-samples.lean",
+      "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-pointwise-samples.log",
+      "sha256": "d113f785aa885c40aa8fe071457957eec769e85f868cc1370fa1ef504697a928"
+    },
+    {
+      "path": "results/orch/checked/canonical-refutation-wrapper-independent-review.json",
+      "sha256": "a47ffdcdc4022c37b31e75b7faf6257a0e8ab2f152ad8555de16eac138c6f4b7"
+    },
+    {
+      "path": "results/orch/checked/canonical-refutation-wrapper.json",
+      "sha256": "d6a98de8138b03d742cbd68963df0ad1f2b53d6d34e0bbfb62938a39edc68d91"
+    },
+    {
+      "path": "results/orch/checked/canonical-refutation-wrapper.lean",
+      "sha256": "9dd451558e956b64d089876c4ac5d71327d91f342c97af8e9a7c035566be2f8e"
+    },
+    {
+      "path": "results/orch/checked/canonical-refutation-wrapper.log",
+      "sha256": "0b655d58a7df9dbb6fc6f60897af932a7a255a91e4fc24fd3334ae4a0f491b9d"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerDefs.lean",
+      "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerDefs.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerMasks.lean",
+      "sha256": "e6d6fb6f54e6e20749d632aeabf6098d940a1f09b091ebb496571d9f4b705795"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerMasks.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSamples.lean",
+      "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSamples.log",
+      "sha256": "d113f785aa885c40aa8fe071457957eec769e85f868cc1370fa1ef504697a928"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSemantics.lean",
+      "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSemantics.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerStructure.lean",
+      "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerStructure.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCycleControl.lean",
+      "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCycleControl.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalGlobalControl.lean",
+      "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalGlobalControl.log",
+      "sha256": "fcb94614dc435dde8e4ddc1ddb30d3e4b3b69e115e38c1d64538d1735030bdf4"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalRefutationWrapper.lean",
+      "sha256": "9dd451558e956b64d089876c4ac5d71327d91f342c97af8e9a7c035566be2f8e"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalRefutationWrapper.log",
+      "sha256": "0b655d58a7df9dbb6fc6f60897af932a7a255a91e4fc24fd3334ae4a0f491b9d"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleData.lean",
+      "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleData.log",
+      "sha256": "3afd8210af1bbeb046ab83197a86cbf506e5fa7bb8e9a098ecfffc6ac565b796"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsBench.lean",
+      "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsBench.log",
+      "sha256": "ce4e0c37d958c9ee8e5630515913b32b3dd56a19547af3fa022ff0a3d4bc888c"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsRemaining.lean",
+      "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsRemaining.log",
+      "sha256": "95fcf9b5b71a145c2a83818aa377e444f4538a1674f49e8c4c9758b6845104cc"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryFlags.lean",
+      "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryFlags.log",
+      "sha256": "c45a3c9c3f9062fd138b60f46778916583f25f58b54496c3a757d4a74e629b8a"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryRowsDefs.log",
+      "sha256": "6e410f0874393037ab26e5264a1f854120ece77dd26337db5e2d5089c1a10d4c"
+    },
+    {
+      "path": "results/orch/compiler-modules/README.md",
+      "sha256": "8133066100a5b9c516494afabe34950df6f884e8bd73e5d18bac00cfd630f922"
+    },
+    {
+      "path": "results/orch/compiler-modules/manifest.json",
+      "sha256": "10b7dec15647cd2e46bedc1c4727286f5de1377af0836d89a83ade42209cdc64"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalCompilerAll.json",
+      "sha256": "6425f1a357dd8adfc708089b69602ff92028236ef6fb86e8d521ecc51d708175"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalCompilerAll.lean",
+      "sha256": "892d6622f6cd957eec902d1632ce17923c144f7aac73187f5d236759db03fe28"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalCompilerSamples.lean",
+      "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalGlobalControl.lean",
+      "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalSampleData.lean",
+      "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalSampleFacts.lean",
+      "sha256": "4100f2d884456b124df5592b702feda31ac4b144bd6ea5c329272928b8d3a492"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalSampleFactsBench.lean",
+      "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7"
+    },
+    {
+      "path": "results/orch/compiler-prepared/CanonicalSampleFactsRemaining.lean",
+      "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547"
+    },
+    {
+      "path": "results/orch/compiler-prepared/README.md",
+      "sha256": "d002bc246d0ad17ed58fdb86ba7106d2cbcf4f0b8d99d9f4af74f6f4f70419e2"
+    },
+    {
+      "path": "results/orch/compiler-prepared/manifest.json",
+      "sha256": "c65a96aa937d431237b3d8beb0529b75a706616a83a25c746f2f8cd2b74f3e2e"
+    }
+  ]
+}

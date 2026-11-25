@@ -1,0 +1,6 @@
+{
+  "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2",
+  "exit_code": 0,
+  "scope": "Adds compile_mask_at for arbitrary Nat bit index; all assumptions explicit",
+  "wall_seconds": 3.0021784539985674
+}

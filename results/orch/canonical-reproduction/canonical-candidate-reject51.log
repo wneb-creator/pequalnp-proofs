@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-62/prepare-canonical-candidate.py", line 17, in <module>
+    raise ValueError("A candidate needs26 original inputs and fewer than51 OR operations")
+ValueError: A candidate needs26 original inputs and fewer than51 OR operations

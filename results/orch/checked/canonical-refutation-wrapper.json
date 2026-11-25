@@ -1,0 +1,8 @@
+{
+  "sha256": "9dd451558e956b64d089876c4ac5d71327d91f342c97af8e9a7c035566be2f8e",
+  "exit_code": 0,
+  "wall_seconds": 55.549157175999426,
+  "scope": "Conditional exact literal posted negation from k<51, a checked Program mask certificate, row completeness and row agreement",
+  "is_concrete_refutation": false,
+  "concrete_witness_found": false
+}

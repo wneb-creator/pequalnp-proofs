@@ -1,0 +1,26 @@
+[
+  {
+    "file": "prepare-canonical-candidate.py",
+    "sha256": "09357087f855aa6d740e0348f3ebd0b7302d12af65a120ad728419791980cb4a"
+  },
+  {
+    "file": "flatten-canonical-modules.py",
+    "sha256": "0f3048f9d2b8d33dd9fe767cb1e0e8b1fc1efdb113b9396f026557d4bf59af52"
+  },
+  {
+    "file": "CANONICAL-REFUTATION-RECIPE.md",
+    "sha256": "77b8cfe5ce5d1317f0a09b9cc0c1047bb98f2a89a8438a9362f8d24b26700c88"
+  },
+  {
+    "file": "canonical-candidate-reject51.log",
+    "sha256": "c4244d145425c975f75eaca5ad699c0d0db4b611aa6f9fc7a126ebf571fb3f55"
+  },
+  {
+    "file": "CanonicalCycleControlFlat.lean",
+    "sha256": "9220d893d69a2fd756f63208f36874104468a2784baee17b46c08cb9958859ed"
+  },
+  {
+    "file": "CanonicalCycleControlFlat.manifest.json",
+    "sha256": "075c2b87f8925478b5242f3a7ed1edb5ae9f38cdbd37059cec87aa6195349ad7"
+  }
+]

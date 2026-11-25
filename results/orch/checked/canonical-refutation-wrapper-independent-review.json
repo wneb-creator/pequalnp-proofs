@@ -1,0 +1,12 @@
+{
+  "source_sha256": "9dd451558e956b64d089876c4ac5d71327d91f342c97af8e9a7c035566be2f8e",
+  "lines": 70,
+  "exact_posted_under_negation": true,
+  "assumptions": [
+    "k<51",
+    "checkMasks=true",
+    "admissible_complete",
+    "row_eq"
+  ],
+  "review": "source semantic review passes; compilation pending"
+}

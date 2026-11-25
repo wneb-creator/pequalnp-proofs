@@ -1,8 +1,26 @@
 [
   {
+    "file": "CanonicalCompilerAll.lean",
+    "sha256": "892d6622f6cd957eec902d1632ce17923c144f7aac73187f5d236759db03fe28",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  },
+  {
+    "file": "CanonicalCompilerSamples.lean",
+    "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2",
+    "status": "Compiled; see pointwise sample-wrapper snapshot",
+    "source_snapshot": "results/orch/checked/canonical-compiler-pointwise-samples.lean"
+  },
+  {
+    "file": "CanonicalGlobalControl.lean",
+    "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+    "status": "Compiled; see full log and exact scope at source snapshot",
+    "source_snapshot": "results/orch/checked/canonical-global-control.lean"
+  },
+  {
     "file": "CanonicalSampleData.lean",
     "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5",
-    "status": "Prepared; this exact source has not yet been kernel-checked"
+    "status": "Compiled; see full log and exact scope at source snapshot",
+    "source_snapshot": "results/orch/checked/canonical-sample-data.lean"
   },
   {
     "file": "CanonicalSampleFacts.lean",
@@ -12,16 +30,13 @@
   {
     "file": "CanonicalSampleFactsBench.lean",
     "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
-    "status": "Prepared; this exact source has not yet been kernel-checked"
+    "status": "Compiled; see full log and exact scope at source snapshot",
+    "source_snapshot": "results/orch/checked/canonical-sample-facts-bench.lean"
   },
   {
-    "file": "CanonicalGlobalControl.lean",
-    "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
-    "status": "Prepared; this exact source has not yet been kernel-checked"
-  },
-  {
-    "file": "CanonicalCompilerSamples.lean",
-    "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2",
-    "status": "Prepared; this exact source has not yet been kernel-checked"
+    "file": "CanonicalSampleFactsRemaining.lean",
+    "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
+    "status": "Compiled; see full log and exact scope at source snapshot",
+    "source_snapshot": "results/orch/checked/canonical-sample-facts-remaining.lean"
   }
 ]

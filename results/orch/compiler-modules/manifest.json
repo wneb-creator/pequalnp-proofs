@@ -29,9 +29,9 @@
   },
   {
     "module": "CanonicalCompilerSamples",
-    "source_snapshot": "results/orch/checked/canonical-compiler-samples.lean",
-    "sha256": "f0a32c04062e4e86770b14dcdea3b94bb04a9882d7182e2f976bd0c91e1a19b6",
-    "status": "Compiled and independently reviewed",
+    "source_snapshot": "results/orch/checked/canonical-compiler-pointwise-samples.lean",
+    "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2",
+    "status": "Compiled generic theorem; no concrete refutation",
     "compile_order": 4
   },
   {
@@ -82,5 +82,12 @@
     "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
     "status": "Compiled; all fixed520-sample input masks and truth/result masks now certified with Bench",
     "compile_order": 11
+  },
+  {
+    "module": "CanonicalRefutationWrapper",
+    "source_snapshot": "results/orch/checked/canonical-refutation-wrapper.lean",
+    "sha256": "9dd451558e956b64d089876c4ac5d71327d91f342c97af8e9a7c035566be2f8e",
+    "status": "Compiled generic theorem; no concrete refutation",
+    "compile_order": 12
   }
 ]

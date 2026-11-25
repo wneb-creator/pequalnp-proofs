@@ -1,0 +1,31 @@
+import took 1.31s
+tactic execution of Lean.Parser.Tactic.exact took 52.5s
+cumulative profiling times:
+	.olean serialization 4.97ms
+	attribute application 0.0324ms
+	declTypeLinter 2.82ms
+	dsimp 5.97ms
+	elaboration 45.7ms
+	fix level params 0.101ms
+	import 1.31s
+	initialization 34.2ms
+	instantiate metavars 0.313ms
+	interpretation 179ms
+	let-to-have transformation 0.115ms
+	linting 9.7ms
+	module linting 0.0641ms
+	parsing 6.97ms
+	process pre-definitions 1.33ms
+	share common exprs 1.15ms
+	tactic execution 52.6s
+	tacticAnalysis 1.56ms
+	type checking 18.2ms
+	typeclass inference 28ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 55.549157175999426
+USER_SECONDS 53.968452
+SYS_SECONDS 1.107758
+PEAK_RSS_KIB 2898880
+PEAK_CGROUP_BYTES 4112814080

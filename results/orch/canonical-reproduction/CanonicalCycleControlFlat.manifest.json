@@ -1,0 +1,27 @@
+{
+  "status": "Flattened source; requires its own lake build and checker run",
+  "sha256": "9220d893d69a2fd756f63208f36874104468a2784baee17b46c08cb9958859ed",
+  "lines": 326,
+  "modules": [
+    {
+      "module": "CanonicalCompilerDefs",
+      "source": "/tmp/oec/pequalnp-pilot-62/lean-modules/CanonicalCompilerDefs.lean",
+      "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5"
+    },
+    {
+      "module": "CanonicalCompilerStructure",
+      "source": "/tmp/oec/pequalnp-pilot-62/lean-modules/CanonicalCompilerStructure.lean",
+      "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c"
+    },
+    {
+      "module": "CanonicalCompilerSemantics",
+      "source": "/tmp/oec/pequalnp-pilot-62/lean-modules/CanonicalCompilerSemantics.lean",
+      "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780"
+    },
+    {
+      "module": "CanonicalCycleControl",
+      "source": "/tmp/oec/pequalnp-pilot-62/lean-modules/CanonicalCycleControl.lean",
+      "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220"
+    }
+  ]
+}
