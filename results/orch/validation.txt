@@ -50,3 +50,6 @@ Additional checked partial: SeedNotCircuitPins.lean (116 lines); compiler exit0.
 Additional checked partial: SignedBridge.lean (493 lines); Lean exit0 and complete validation output adjacent. Root independent review PASS. This proves signed-circuit extraction and the ordinary nine-vertex lower bound15 conditional on the finite signedRoot certificate; the certificate itself remains in a separate pending build.
 
 Preservation checkpoint following HTTP410: draft Lean files, search programs and complete solver logs are archived. Drafts are not asserted to compile. All SAT runs are UNKNOWN or interrupted, with no refutation or UNSAT result. Independently reviewed preservation-only source list is PRESERVATION_REVIEW.txt. Root reviewed solver summary and provenance.
+
+Erase4093.lean has now compiled (exit0), with independent structural_proof review PASS; complete output is adjacent. It gives semantic constant/copy gate deletion without a global-minimality premise.
+Recovery desk request002 returned gap null, checker backlog521, estimate59minutes; exact response preserved. No current live lease. New proof work paused; polling every4minutes per user. Failed draft validation logs also preserved explicitly as failures.

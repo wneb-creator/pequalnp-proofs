@@ -1,0 +1,98 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:166:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:168:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:170:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:166:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:168:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:170:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:578:10: error: typeclass instance problem is stuck
+  Preorder ?m.59
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Preorder` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:577:15: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.countP_nil, isN, hop, Nat.zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:577:33: warning: This simp argument is unused:
+  List.countP_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.countP_cons, isN, hop, Nat.zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:577:55: warning: This simp argument is unused:
+  hop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.countP_cons, List.countP_nil, isN, Nat.zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:577:60: warning: This simp argument is unused:
+  Nat.zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.countP_cons, List.countP_nil, isN, hop]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:594:65: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ -1
+  b - d + e ≤ -2
+  0 ≤ a ≤ 1
+where
+ a := ↑(List.countP isN
+    (qg g.op (n + acc.2.length) (List.map (fun i => acc.1.getD i (Sum.inl false)) g.inputs)).1.toList)
+ b := ↑(List.countP isN acc.2)
+ c := ↑(List.countP isN (qa n acc g).2)
+ d := ↑(List.countP isN (elim n gs (qa n acc g)).2)
+ e := ↑(List.countP isN gs)
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:594:65: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 0
+  a - c + d ≤ -1
+where
+ a := ↑(List.countP isN acc.2)
+ b := ↑(List.countP isN (qa n acc g).2)
+ c := ↑(List.countP isN (elim n gs (qa n acc g)).2)
+ d := ↑(List.countP isN gs)
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:599:30: error: unsolved goals
+n k : ℕ
+acc : List Stat × List Gate
+b : Bool
+g : Gate
+tail : List ℕ
+hop : g.op = GateOp.not
+pins : g.inputs = k :: tail
+constant : acc.1.getD k (Sum.inl false) = Sum.inl b
+⊢ acc.2 ++ none.toList = acc.2
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:600:61: warning: This simp argument is unused:
+  List.append_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qa, hop, pins, List.map_cons, constant, qg, wr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,37 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:166:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:168:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:170:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:166:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:168:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:170:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/NotCount.lean:577:4: error: Type mismatch: After simplification, term
+  Nat.le_refl (if isN { op := op, inputs := [] } = true then 1 else 0)
+ has type
+  True
+but is expected to have type
+  (if
+        (match op with
+          | GateOp.not => true
+          | x => false) =
+          true then
+      1
+    else 0) ≤
+    if
+        (match op with
+          | GateOp.not => true
+          | x => false) =
+          true then
+      1
+    else 0

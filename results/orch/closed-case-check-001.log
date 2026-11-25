@@ -1,0 +1,68 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:484:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:486:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:488:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:484:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:486:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:488:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:890:53: error: unsolved goals
+x : Fin 9 → Bool
+⊢ (x 0 && Fin.snoc x false 1 ||
+      (Fin.snoc x false 1 && Fin.snoc x false 2 ||
+        (Fin.snoc x false 2 && Fin.snoc x false 3 ||
+          (Fin.snoc x false 3 && Fin.snoc x false 4 ||
+            (Fin.snoc x false 4 && x 0 ||
+              (x 0 && Fin.snoc x false 5 ||
+                (Fin.snoc x false 1 && Fin.snoc x false 6 ||
+                  (Fin.snoc x false 2 && Fin.snoc x false 7 ||
+                    (Fin.snoc x false 3 && Fin.snoc x false 8 ||
+                      (Fin.snoc x false 4 && Fin.snoc x false 9 ||
+                        (Fin.snoc x false 5 && Fin.snoc x false 7 ||
+                          (Fin.snoc x false 7 && Fin.snoc x false 9 ||
+                            (Fin.snoc x false 9 && Fin.snoc x false 6 ||
+                              (Fin.snoc x false 6 && Fin.snoc x false 8 ||
+                                Fin.snoc x false 8 && Fin.snoc x false 5)))))))))))))) =
+    (x 0 && x 1 ||
+      (x 1 && x 2 ||
+        (x 2 && x 3 ||
+          (x 3 && x 4 ||
+            (x 4 && x 0 ||
+              (x 0 && x 5 ||
+                (x 1 && x 6 || (x 2 && x 7 || (x 3 && x 8 || (x 5 && x 7 || (x 6 && x 8 || x 8 && x 5)))))))))))
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:903:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  SeedErase.target (Fin.snoc ?x false)
+in the target expression
+  (fun y => SeedErase.target (Fin.snoc y false)) x = minor x
+
+lower : ¬HasCircuitSize 9 minor 15
+s : ℕ
+h : HasCircuitSize 10 SeedErase.target s
+s' : ℕ
+hs : s' + 1 ≤ s
+C : Circuit
+hc : FanInTwo C
+hsize : C.size ≤ s'
+he : ∀ (x : Fin 9 → Bool), C.eval (List.ofFn x) = (fun y => SeedErase.target (Fin.snoc y false)) x
+hn : ¬17 ≤ s
+x : Fin 9 → Bool
+⊢ (fun y => SeedErase.target (Fin.snoc y false)) x = minor x
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:959:21: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:977:10: error(lean.unknownIdentifier): Unknown constant `Bool.not_inj.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:967:6: warning: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.countP_append, List.countP_cons, List.countP_nil, OneNot.isNot, Nat.zero_add] at count
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

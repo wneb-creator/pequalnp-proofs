@@ -1,0 +1,52 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:484:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:486:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:488:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:484:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:486:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:488:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:890:53: error: unsolved goals
+x : Fin 9 → Bool
+⊢ (x 0 && x 1 ||
+      (x 1 && x (Fin.castPred 2 ⋯) ||
+        (x (Fin.castPred 2 ⋯) && x (Fin.castPred 3 ⋯) ||
+          (x (Fin.castPred 3 ⋯) && x (Fin.castPred 4 ⋯) ||
+            (x (Fin.castPred 4 ⋯) && x 0 ||
+              (x 0 && x (Fin.castPred 5 ⋯) ||
+                (x 1 && x (Fin.castPred 6 ⋯) ||
+                  (x (Fin.castPred 2 ⋯) && x (Fin.castPred 7 ⋯) ||
+                    (x (Fin.castPred 3 ⋯) && x (Fin.castPred 8 ⋯) ||
+                      (x (Fin.castPred 5 ⋯) && x (Fin.castPred 7 ⋯) ||
+                        (x (Fin.castPred 6 ⋯) && x (Fin.castPred 8 ⋯) ||
+                          x (Fin.castPred 8 ⋯) && x (Fin.castPred 5 ⋯)))))))))))) =
+    (x 0 && x 1 ||
+      (x 1 && x 2 ||
+        (x 2 && x 3 ||
+          (x 3 && x 4 ||
+            (x 4 && x 0 ||
+              (x 0 && x 5 ||
+                (x 1 && x 6 || (x 2 && x 7 || (x 3 && x 8 || (x 5 && x 7 || (x 6 && x 8 || x 8 && x 5)))))))))))
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:891:60: warning: This simp argument is unused:
+  Fin.lastCases
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SeedErase.target, SeedErase.edges, minor, Fin.snoc, Bool.or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/ClosedCase.lean:977:4: error: Type mismatch: After simplification, term
+  congrArg not h
+ has type
+  @Eq Bool ((Restrict.q3 gs (List.ofFn (x ∘ p) ++ [x 0 && x 2])).getD i false) !SeedErase.target x
+but is expected to have type
+  @Eq Bool (C.eval (List.ofFn (x ∘ p) ++ [x 0 && x 2])) !SeedErase.target x

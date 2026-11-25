@@ -1,0 +1,372 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:484:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:486:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:488:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:484:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:486:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:488:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1099:2: error: unsolved goals
+case refine_1
+x y : Fin 9 → Bool
+h : ∀ (i : Fin 9), x i = true → y i = true
+i : Fin 10
+⊢ Fin.snoc x false 9 = true → Fin.snoc y false 9 = true
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1136:71: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => y ⟨↑_a, ⋯⟩ = Fin.snoc y false _a
+Error: Application type mismatch: The argument
+  lt
+has type
+  ↑(perm v j) < 9
+but is expected to have type
+  ↑_a < 9
+in the application
+  Eq.mpr
+    (id
+      (congrArg (LT.lt ↑_a)
+        (Eq.trans
+          (congrArg List.length
+            (Eq.trans List.ofFn_succ
+              (congrArg (List.cons (y 0))
+                (Eq.trans List.ofFn_succ
+                  (congrArg (List.cons (y 1))
+                    (Eq.trans List.ofFn_succ
+                      (congrArg (List.cons (y 2))
+                        (Eq.trans List.ofFn_succ
+                          (congrArg (List.cons (y 3))
+                            (Eq.trans List.ofFn_succ
+                              (congrArg (List.cons (y 4))
+                                (Eq.trans List.ofFn_succ
+                                  (congrArg (List.cons (y 5))
+                                    (Eq.trans List.ofFn_succ
+                                      (congrArg (List.cons (y 6))
+                                        (Eq.trans List.ofFn_succ
+                                          (congrArg (List.cons (y 7))
+                                            (Eq.trans List.ofFn_succ
+                                              (congrArg (List.cons (y 8)) List.ofFn_zero)))))))))))))))))))
+          (congrFun'
+            (congrArg HAdd.hAdd
+              (congrFun'
+                (congrArg HAdd.hAdd
+                  (congrFun'
+                    (congrArg HAdd.hAdd
+                      (congrFun'
+                        (congrArg HAdd.hAdd
+                          (congrFun'
+                            (congrArg HAdd.hAdd
+                              (congrFun'
+                                (congrArg HAdd.hAdd
+                                  (congrFun' (congrArg HAdd.hAdd (congrFun' (congrArg HAdd.hAdd (zero_add 1)) 1)) 1))
+                                1))
+                            1))
+                        1))
+                    1))
+                1))
+            1))))
+    lt
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case neg
+v j : Fin 10
+y : Fin 9 → Bool
+h : ¬perm v j = 9
+hn : ↑(perm v j) ≠ 9
+lt : ↑(perm v j) < 9
+eq : ⟨↑(perm v j), lt⟩.castSucc = perm v j
+⊢ y ⟨↑(perm v j), ⋯⟩ = Fin.snoc y false (perm v j)
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1171:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [initial]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1169:68: error: unsolved goals
+a : Fin 10
+p : Fin 10 → Fin 10
+⊢ [if perm (p a) (p 0) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 0)),
+        if perm (p a) (p 1) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 1)),
+        if perm (p a) (p 2) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 2)),
+        if perm (p a) (p 3) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 3)),
+        if perm (p a) (p 4) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 4)),
+        if perm (p a) (p 5) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 5)),
+        if perm (p a) (p 6) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 6)),
+        if perm (p a) (p 7) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 7)),
+        if perm (p a) (p 8) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 8)),
+        if perm (p a) (p 9) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 9))][↑a] =
+    Sum.inl false
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1172:8: warning: This simp argument is unused:
+  initial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawStat, send]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1172:26: warning: This simp argument is unused:
+  send
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initial, rawStat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1178:35: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1178:35: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1179:4: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.not` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `BitVec.not`
+  [apply] `not`
+  [apply] `Iff.not`
+  [apply] `Int.not`
+  [apply] `IsClosed.not`
+  [apply] `NzsNum.not`
+  [apply] `SNum.not`
+  [apply] `Bool.Internal.not`
+  [apply] `Inclusion.IntervalBool.not`
+  [apply] `List.TFAE.not`
+  [apply] `FreeAddGroup.Red.Step.not`
+  [apply] `FreeGroup.Red.Step.not`
+  [apply] `CircuitLowerBounds.GateOp.not`
+  [apply] `Std.Do.SPred.not`
+  [apply] `Mathlib.Tactic.ITauto.IProp.not`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1183:17: error: Application type mismatch: The argument
+  op
+has type
+  GateOp
+but is expected to have type
+  CircuitLowerBounds.GateOp
+in the application
+  qg op
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1183:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Membership Gate (List CircuitLowerBounds.Gate)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1183:39: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1184:2: error: Tactic `cases` failed: major premise type is not an inductive type
+  GateOp
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+GateOp : Sort u_1
+Gate : Type u_2
+op : GateOp
+m : ℕ
+ins : List Stat
+g : Gate
+h : sorry
+⊢ sorry = op
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1195:8: error: Application type mismatch: The argument
+  op
+has type
+  GateOp
+but is expected to have type
+  CircuitLowerBounds.GateOp
+in the application
+  qg op
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1195:47: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1196:16: error: Application type mismatch: The argument
+  op
+has type
+  GateOp
+of sort `Sort u_1` but is expected to have type
+  CircuitLowerBounds.GateOp
+of sort `Type` in the application
+  qg op
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1199:34: error: unsolved goals
+GateOp : Sort u_1
+op : GateOp
+m : ℕ
+ins : List Stat
+g : CircuitLowerBounds.Gate
+h : (qg sorry m ins).1 = some g
+⊢ sorry ()
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1200:4: error: Tactic `cases` failed: major premise type is not an inductive type
+  GateOp
+
+Explanation: the `cases` tactic is for constructor-based reasoning as well as for applying custom cases principles with a 'using' clause or a registered '@[cases_eliminator]' theorem. The above type neither is an inductive type nor has a registered theorem.
+
+case some
+GateOp : Sort u_1
+op : GateOp
+m : ℕ
+ins : List Stat
+g : CircuitLowerBounds.Gate
+h : (qg sorry m ins).1 = some g
+hop : sorry = op
+⊢ List.countP isN (some g).toList ≤ if isN sorry = true then 1 else 0
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1199:43: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1203:12: error: Application type mismatch: The argument
+  gs
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  elim n gs
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1205:8: error: unsolved goals
+case nil
+Gate : Type u_1
+n : ℕ
+acc : List Stat × List Gate
+⊢ List.countP isN (List.foldl (qa n) (sorry ()) (sorry ())).2 ≤ List.countP isN acc.2
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1207:23: error: Application type mismatch: The argument
+  acc
+has type
+  Prod.{0, u_1} (List Stat) (List Gate)
+of sort `Type u_1` but is expected to have type
+  Prod.{0, 0} (List Stat) (List CircuitLowerBounds.Gate)
+of sort `Type` in the application
+  qa n acc
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1208:22: error(lean.unknownIdentifier): Unknown identifier `qg_notcount`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1224:40: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1225:12: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1226:10: error: Application type mismatch: The argument
+  acc
+has type
+  List Stat × List Gate
+but is expected to have type
+  List Stat × List CircuitLowerBounds.Gate
+in the application
+  qa n acc
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1226:21: error: Type mismatch
+  acc.2
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1224:47: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.not` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `BitVec.not`
+  [apply] `not`
+  [apply] `Iff.not`
+  [apply] `Int.not`
+  [apply] `IsClosed.not`
+  [apply] `NzsNum.not`
+  [apply] `SNum.not`
+  [apply] `Bool.Internal.not`
+  [apply] `Inclusion.IntervalBool.not`
+  [apply] `List.TFAE.not`
+  [apply] `FreeAddGroup.Red.Step.not`
+  [apply] `FreeGroup.Red.Step.not`
+  [apply] `CircuitLowerBounds.GateOp.not`
+  [apply] `Std.Do.SPred.not`
+  [apply] `Mathlib.Tactic.ITauto.IProp.not`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1232:11: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1232:32: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1234:13: error: Type mismatch
+  pre ++ g :: post
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1235:13: error: Type mismatch
+  pre ++ g :: post
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1232:18: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.not` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `BitVec.not`
+  [apply] `not`
+  [apply] `Iff.not`
+  [apply] `Int.not`
+  [apply] `IsClosed.not`
+  [apply] `NzsNum.not`
+  [apply] `SNum.not`
+  [apply] `Bool.Internal.not`
+  [apply] `Inclusion.IntervalBool.not`
+  [apply] `List.TFAE.not`
+  [apply] `FreeAddGroup.Red.Step.not`
+  [apply] `FreeGroup.Red.Step.not`
+  [apply] `CircuitLowerBounds.GateOp.not`
+  [apply] `Std.Do.SPred.not`
+  [apply] `Mathlib.Tactic.ITauto.IProp.not`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1237:22: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  elim n pre
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1238:14: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  wy n k ?m.93 pre
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1239:13: error(lean.unknownIdentifier): Unknown identifier `constant_not_step`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1236:58: error: unsolved goals
+Gate : Type u_1
+n k : ℕ
+pre post : List Gate
+acc : List Stat × List Gate
+b : Bool
+g : Gate
+tail : List ℕ
+hop : sorry = sorry
+pins : sorry = k :: tail
+hk : k < acc.1.length
+constant : acc.1.getD k (Sum.inl false) = Sum.inl b
+held : (elim n sorry sorry).1.getD k (Sum.inl false) = Sum.inl b
+⊢ (elim n sorry sorry).2.length + 1 ≤ acc.2.length + (pre ++ g :: post).length ∧
+    List.countP isN (elim n sorry sorry).2 + 1 ≤ List.countP isN acc.2 + List.countP isN (pre ++ g :: post)
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1273:16: error(lean.unknownIdentifier): Unknown identifier `Restrict.elim_constant_not_saves`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/RawNotCase.lean:1267:71: error: unsolved goals
+lower : ¬HasCircuitSize 9 ClosedCase.minor 15
+pre post : List Gate
+g : Gate
+a : Fin 10
+tail : List ℕ
+out : ℕ
+p : Fin 10 → Fin 10
+hop : g.op = GateOp.not
+pins : g.inputs = ↑a :: tail
+fan : FanInTwo { gates := pre ++ g :: post, output := out }
+size : (pre ++ g :: post).length ≤ 17
+count : List.countP Restrict.isN (pre ++ g :: post) ≤ 2
+correct :
+  ∀ (x : Fin 10 → Bool),
+    { gates := pre ++ g :: post, output := out }.eval (List.ofFn (x ∘ p) ++ [x 0 && x 2]) = !SeedErase.target x
+v : Fin 10 := p a
+init : List Restrict.Stat × List Gate := (MinorMap.initial v p, [])
+acc : List Restrict.Stat × List Gate := Restrict.elim 10 (pre ++ g :: post) init
+e : (Fin 9 → Bool) → List Bool := fun y => List.ofFn y ++ [MinorMap.seed v y]
+⊢ False

@@ -1,0 +1,123 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:484:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:486:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:488:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:484:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:486:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:488:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1099:2: error: unsolved goals
+case refine_1
+x y : Fin 9 → Bool
+h : ∀ (i : Fin 9), x i = true → y i = true
+i : Fin 10
+⊢ Fin.snoc x false 9 = true → Fin.snoc y false 9 = true
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1136:71: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => y ⟨↑_a, ⋯⟩ = Fin.snoc y false _a
+Error: Application type mismatch: The argument
+  lt
+has type
+  ↑(perm v j) < 9
+but is expected to have type
+  ↑_a < 9
+in the application
+  Eq.mpr
+    (id
+      (congrArg (LT.lt ↑_a)
+        (Eq.trans
+          (congrArg List.length
+            (Eq.trans List.ofFn_succ
+              (congrArg (List.cons (y 0))
+                (Eq.trans List.ofFn_succ
+                  (congrArg (List.cons (y 1))
+                    (Eq.trans List.ofFn_succ
+                      (congrArg (List.cons (y 2))
+                        (Eq.trans List.ofFn_succ
+                          (congrArg (List.cons (y 3))
+                            (Eq.trans List.ofFn_succ
+                              (congrArg (List.cons (y 4))
+                                (Eq.trans List.ofFn_succ
+                                  (congrArg (List.cons (y 5))
+                                    (Eq.trans List.ofFn_succ
+                                      (congrArg (List.cons (y 6))
+                                        (Eq.trans List.ofFn_succ
+                                          (congrArg (List.cons (y 7))
+                                            (Eq.trans List.ofFn_succ
+                                              (congrArg (List.cons (y 8)) List.ofFn_zero)))))))))))))))))))
+          (congrFun'
+            (congrArg HAdd.hAdd
+              (congrFun'
+                (congrArg HAdd.hAdd
+                  (congrFun'
+                    (congrArg HAdd.hAdd
+                      (congrFun'
+                        (congrArg HAdd.hAdd
+                          (congrFun'
+                            (congrArg HAdd.hAdd
+                              (congrFun'
+                                (congrArg HAdd.hAdd
+                                  (congrFun' (congrArg HAdd.hAdd (congrFun' (congrArg HAdd.hAdd (zero_add 1)) 1)) 1))
+                                1))
+                            1))
+                        1))
+                    1))
+                1))
+            1))))
+    lt
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case neg
+v j : Fin 10
+y : Fin 9 → Bool
+h : ¬perm v j = 9
+hn : ↑(perm v j) ≠ 9
+lt : ↑(perm v j) < 9
+eq : ⟨↑(perm v j), lt⟩.castSucc = perm v j
+⊢ y ⟨↑(perm v j), ⋯⟩ = Fin.snoc y false (perm v j)
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1171:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [initial]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1169:68: error: unsolved goals
+a : Fin 10
+p : Fin 10 → Fin 10
+⊢ [if perm (p a) (p 0) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 0)),
+        if perm (p a) (p 1) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 1)),
+        if perm (p a) (p 2) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 2)),
+        if perm (p a) (p 3) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 3)),
+        if perm (p a) (p 4) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 4)),
+        if perm (p a) (p 5) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 5)),
+        if perm (p a) (p 6) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 6)),
+        if perm (p a) (p 7) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 7)),
+        if perm (p a) (p 8) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 8)),
+        if perm (p a) (p 9) = 9 then Sum.inl false else Sum.inr ↑(perm (p a) (p 9))][↑a] =
+    Sum.inl false
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1172:8: warning: This simp argument is unused:
+  initial
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawStat, send]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1172:26: warning: This simp argument is unused:
+  send
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initial, rawStat]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

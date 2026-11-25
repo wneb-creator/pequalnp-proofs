@@ -1,0 +1,35 @@
+Checked partial helper extraction; not a full gap proof.
+UTC 2026-11-25T15:28:12+00:00
+Source: results/orch/lemmas/status_review/Erase4093.lean
+SHA256: 89b418272509e2daf19959ec7a124c115b5e3e1654eb972bac1b5677f3abd25e
+Lines: 560
+Bytes: 24154
+Command: source /tmp/oec/pequalnp-pilot-134/lean-env.sh && lake env lean -R /workspace/pequalnp-proofs -o /tmp/oec/pequalnp-pilot-134/Erase4093.olean ../results/orch/lemmas/status_review/Erase4093.lean
+Exit status: 0
+Independent review: structural_proof PASS for exact copied proof bodies, semantics, and format.
+
+STDOUT
+../results/orch/lemmas/status_review/Erase4093.lean:245:14: warning: This simp argument is unused:
+  List.filter_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/status_review/Erase4093.lean:250:14: warning: This simp argument is unused:
+  List.filter_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/status_review/Erase4093.lean:366:68: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/status_review/Erase4093.lean:366:68: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+STDERR
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots

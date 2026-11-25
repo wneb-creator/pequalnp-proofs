@@ -1,0 +1,46 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:484:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:486:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:488:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:484:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:486:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:488:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1070:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1086:6: error: (kernel) unknown constant 'PEqualNP.Outside.L_meta_1890_aux.MinorMap.target_perm'
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1094:37: error: Type mismatch
+  Fin.snoc ?m.23 ?m.24 i
+has type
+  ?m.21 i
+but is expected to have type
+  Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1103:20: error(lean.unknownIdentifier): Unknown identifier `extend_mono`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1103:47: error(lean.unknownIdentifier): Unknown identifier `extend_mono`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1132:6: error: Type mismatch
+  Fin.snoc ?m.87 ?m.88 (perm v j)
+has type
+  ?m.85 (perm v j)
+but is expected to have type
+  Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/structural/MinorMap.lean:1168:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (?m.16 ++ ?m.17).getD ?m.19 ?m.18
+in the target expression
+  (initial (p a) p).getD (↑a) (Sum.inl false) = Sum.inl false
+
+a : Fin 10
+p : Fin 10 → Fin 10
+⊢ (initial (p a) p).getD (↑a) (Sum.inl false) = Sum.inl false
