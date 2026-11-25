@@ -1,5 +1,7 @@
-L-meta-1031: PARTIAL RESULT ONLY; posted theorem not proved.
-Lean 4.36.0: Structure.lean compiled successfully (exit 0).
-Local checker: not run; no theorem with the posted statement yet.
-Sub-agents: 5 (prior-gap and construction, structure, counterexample search, reductions/exchange, ownership/review)
-TIMING total=6 subagents=5
+L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
+Lean 4.36.0: named file builds successfully (exit 0).
+Includes intersecting-edge star lemmas, edgeless least-circuit case, and P4 exchange/common-center lemmas.
+Independent review: PASS for partial scope only.
+Local checker: not run; posted theorem remains absent.
+Sub-agents: 5 (prior-gap/construction, structure, counterexample search, reductions/exchange, ownership/review)
+TIMING total=10 subagents=5

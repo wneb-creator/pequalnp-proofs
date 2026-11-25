@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_1031.Exchange.p4Cnf_not_minimal' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Exchange.sound_or_singleton_center' depends on axioms: [propext, Quot.sound]

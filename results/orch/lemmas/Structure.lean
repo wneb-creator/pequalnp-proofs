@@ -1,5 +1,6 @@
 import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.Tactic
+import Mathlib.Tactic.Push
+import Mathlib.Tactic.Tauto
 
 namespace PEqualNP.Outside.L_meta_1031
 
@@ -13,7 +14,7 @@ lemma intersecting_edges_star {α : Type*} (G : SimpleGraph α) (r : α → α �
   obtain ⟨a, b, hab⟩ := hne
   by_cases ha : ∀ u v, r u v → u = a ∨ v = a
   · exact ⟨a, ha⟩
-  · push_neg at ha
+  · push Not at ha
     obtain ⟨p, q, hpq, hpa, hqa⟩ := ha
     have hbpq : p = b ∨ q = b := by
       have h := hmeet p q a b hpq hab
@@ -33,7 +34,7 @@ lemma intersecting_edges_star {α : Type*} (G : SimpleGraph α) (r : α → α �
     refine ⟨b, ?_⟩
     intro u v huv
     by_contra hn
-    push_neg at hn
+    push Not at hn
     have huva : u = a ∨ v = a := by
       have h := hmeet u v a b huv hab
       tauto
@@ -62,7 +63,7 @@ lemma nonstar_has_disjoint_edges {α : Type*} (G : SimpleGraph α) (r : α → �
   apply intersecting_edges_star G r htri hedge hne
   intro u v p q huv hpq
   by_contra hd
-  push_neg at hd
+  push Not at hd
   exact h ⟨u, v, p, q, huv, hpq, hd.1, hd.2.1, hd.2.2.1, hd.2.2.2⟩
 
 end PEqualNP.Outside.L_meta_1031

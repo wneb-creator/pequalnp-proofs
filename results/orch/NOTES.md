@@ -39,3 +39,19 @@ Reduction slots reported: 3 live; reductions_open true. Need inspect existing re
 - Amano/Maruoka paper metadata located, but full paper could not be fetched through web tool (429 from IPSJ PDF). Any detailed counterexample structure from that paper is UNVERIFIED.
 
 - 2026-11-25T01:09:36.947857+00:00 structure_proof: Structure.lean checked with pinned Lean via lake env lean (exit 0); only deprecated push_neg warnings. Proves general nonempty intersecting edge families of triangle-free graphs have a common vertex, and contraposition giving two disjoint edges. File frozen for root review and early partial push.
+
+## Exchange strategy 2026-11-25T01:10:55.207238+00:00
+- Exchange.lean compiled cleanly: 106 lines, lake env lean exit 0; log /tmp/oec/pequalnp-pilot-54/exchange-build.log.
+- Explicit P4 circuit (a∨c)∧(b∨d)∧(b∨c), 5 gates, rewrites to b∧(a∨c)∨c∧d, 4 gates. The first AND owns disjoint edges ab,cd, and the top AND owns none. Simple bypass of either AND by an operand fails; minimality needs a multi-gate exchange.
+- no_four_common_center/p4_or_sharing prove that a sound star reusing OR(a,c) has center b, OR(b,d) has center c, and OR(b,c) cannot have a center at all in girth>=5.
+- sound_or_singleton_center strengthens this: for any monotone signal F, if (x_a∨x_c)∧F is globally sound and a-b-c is a path, singleton support of F lies in {b}. Remaining obstruction is reuse by unsound downstream ANDs or signals with no singleton support.
+
+2026-11-25T01:12:40.455521+00:00
+
+## One-junk elimination and odd cycles
+- L_meta_3760 (10,039 lines) proves no exactly-one-junk-AND least circuit for bipartite C4-free graphs. Its bipartite hypothesis is materially used, not just for triangle exclusion.
+- At lines 8433 and 8504-8516, two common-neighbor steps propagate equal colors and rule out qb~v. The associated edges form the possible 5-cycle v--um--zstar--c′--qb--v; noC3/noC4 alone allows it. The analogous issue occurs at 9010-9017. Triangle-only uses at 8939, 9534-9537 and 9958-9959 can be generalized.
+- Checked OddCycle.lean proves the elementary common-neighbor triangle lemma and gives explicit C5 with no triangles/no 4-cycles where two such steps do not force nonadjacency. Lean4.36 exit0, no warnings. This is NOT a counterexample to the assigned gap.
+- To extend L3760, handle these odd-cycle cover-swap cases with additional local circuit/budget analysis; replacing hbip by htri directly is unsound. Counterexample agent searching minimum C5 circuits with a dirty AND to test whether stronger all-minima elimination is false.
+
+- 2026-11-25T01:12:44.087323+00:00: ExchangeBoundary.lean compiled cleanly; kernel finite check confirms P4 output cannot be produced by <=2 sound-AND extension gates when all three OR signals (a∨c),(b∨d),(b∨c) must be retained. Inputs encoded by 16-bit tables 43690,52428,61680,65280; OR tables 64250,65484,64764; target ab∨bc∨cd=63688. Constants 0 and 65535 also provided free. All OR gates allowed; each AND output required to satisfy value & ~target=0. The unnormalized circuit produces target with exactly2 extra ANDs. A sound replacement requires3 gates, so preserving arbitrary external uses blocks the local exchange.
