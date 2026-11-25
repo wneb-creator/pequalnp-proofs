@@ -1,0 +1,8 @@
+UTC 2026-11-25T06:54:40.434395+00:00
+SHA256 f316f6bc9c76b9efb3d98542d474308b746946c5c16ac6ff7759f8ca9b0ec4ad
+Build exit0 with full log retained; inherited conversion simplification/deprecation warnings only.
+Standalone Defs-only. Includes frozen FiveOwnerClean and TightConversionFull bodies unchanged modulo repeated import removal.
+New andcount_at_least_five proves the exact20-edge raw five-owner graph needs at least5 AndCount gates from its30 rejected inputs with pairwise accepted unions.
+New ordinary_and_clean: every AND output wire of any Monotone2 ordinary circuit with at most5 total AND opcodes computing that exactgraph is false on every independent raw input. Circuit split pre/g/post identifies its output wire16+pre.length. Handles constant/unary AND, all OR arities allowed by Monotone2, future/default references via the conversion invariant. Exactconvertedcount5 forces every originalAND to append one converted record.
+No raw23-gate assembly exclusion, global L650 proof/refutation, or checker/PR acceptance claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerOrdinaryClean.lean
