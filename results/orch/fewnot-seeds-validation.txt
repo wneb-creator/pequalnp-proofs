@@ -1,0 +1,5 @@
+Scope: finite auxiliary certificates for all 36 signed first-gate cases with first input 0 and second input 1 through 9.
+Build: lake env lean /tmp/oec/pequalnp-pilot-97/FewNotSeedsTest.lean
+Exit: 0
+No output on stdout/stderr.
+Kernel checks: target differs on two critical rows; extra signal and all other input signals are unchanged; each projected initial signal is zero or a supplied nine-input variable; signed extra has false baseline.

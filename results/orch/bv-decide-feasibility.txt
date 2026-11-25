@@ -1,0 +1,105 @@
+SAT certificate feasibility audit, 2026-11-25 UTC
+Reviewer: status_audit. Read-only source review; no speculative SAT/Lean build.
+
+Verdict
+The pinned bv_decide / bv_check tactic cannot satisfy this job's standard-axiom
+rule. A small UNSAT result could instead use the project's existing packed,
+kernel-evaluated LRAT checker. That route needs an explicit encoding soundness
+proof and a measured small certificate; no runtime/size guarantee follows from
+the solver reporting UNSAT.
+
+Pinned Lean 4.36 API evidence
+- Std/Tactic/BVDecide/Syntax.lean:40-106 defines BVDecideConfig. Relevant fields:
+  timeout := 10, trimProofs := true, binaryProofs := true, acNf := false,
+  structures := true, solverMode := .proof, uf := false, cegarRounds := 64.
+  There is no kernel-only evaluation switch.
+- Lean/Meta/Tactic/BVDecide/Prover/Bitblast.lean:27-45:
+  LratCert.toReflectionProof builds a String certificate declaration, then calls
+  nativeEqTrue at line 40 on verifyBVExpr reflectedExpr certExpr. It applies
+  unsat_of_verifyBVExpr_eq_true to that compiled-check result.
+- Lean/Elab/Tactic/BVDecide.lean documents that this introduces a compiled-check
+  axiom and trusts the compiler. bv_check uses the same LRAT reflection path and
+  requires a quoted external certificate filename.
+- Mathlib/Tactic/Sat/FromLRAT.lean offers lrat_proof name cnfString lratString.
+  It reconstructs propositional proofs rather than native checking, but the
+  command plus two strings/external files do not fit the plain-file rules.
+  Offline generation of an explicit proof term is possible in principle, but
+  does not remove proof-size or circuit-to-CNF soundness obligations.
+- No bv_decide, bv_check or bv_normalize occurrence was found in current
+  lean/PEqualNP/Outside/*.lean (rg exit 1, no matches).
+
+Format and trust constraints
+- CONTRIBUTING.md:12: maximum 512 KiB; :20 allowed imports are Mathlib and the
+  gap's project imports (here PEqualNP.Defs only); :29-30 allowed axioms are
+  propext, Classical.choice, Quot.sound; :54-67 no custom code-generating
+  commands/string literals, only four limit options, custom datatypes trigger
+  manual review rather than automatic merging.
+- lean/CheckLemma.lean:51 has exactly that three-axiom allowlist; its transitive
+  walk cannot be satisfied by bv_decide's extra compiled-check axiom.
+- tools/check-lean.mjs:57 gives the current local per-stage timeout as 30 min.
+  This is not evidence of meeting the requested 20 min proof/check budget.
+
+Existing kernel-only route
+- lean/PEqualNP/Library/LRAT/Checker.lean is 26,553 bytes, 578 lines. It implements
+  RUP-hint LRAT checking with Nat bitsets and a binary trie, raw recursors, and
+  no compiled computation. The helper library itself cannot be imported for
+  this gap; needed definitions/lemmas must be inlined and sanitized. Its custom
+  Trie datatype would require adaptation to a pinned existing type to preserve
+  the current automatic plain-file path, or would await manual review.
+- Main API:
+    checkW (F : List (List Nat)) (fk : List Nat) (W : Nat)
+      (words : List Nat) : Bool
+    checkW_sound F fk W words (h : checkW F fk W words = true) :
+      not (FormulaSat F)
+  Establish h with decide +kernel. Literals are 2*v / 2*v+1; variable zero is
+  reserved by the token format. Formula keys may omit unused clauses.
+- Each Nat word packs at most 1024 W-bit fields, least significant first,
+  followed by a sentinel top bit 1. Hex Nat literals avoid string literals.
+  Each RUP hint is augmented with the unit literal it produces. A converter
+  must replay the solver's LRAT, trim unused clauses, renumber/reuse keys,
+  generate these units, and pack the resulting tokens.
+- checkFirst/checkFirst_sound, checkSeg/checkSeg_sound, checkLast/checkLast_sound
+  allow a certificate to be split at explicit live-clause boundaries. This
+  bounds per-declaration kernel caches; it does not shrink the sum of tokens.
+- Existing examples: L_meta_2229.lean is 35,967 bytes and applies checkW_sound
+  to a packed W=12 certificate established by decide +kernel. L_meta_5531.lean
+  is 427,428 bytes and inlines the checker and circuit/CNF links; its final
+  checkW uses W=15 at lines 3548-3553. These establish feasibility for some
+  smaller encodings, not a performance bound for this Petersen instance.
+
+Mismatch with our SAT search
+- Defs.LratEncoding.enc/enc2 encode monotone AND/OR circuits with padding,
+  ordered inputs and normal forms. They do not encode the current shared
+  signed-source / bounded-negative-source search.
+- /tmp/oec/pequalnp-pilot-97/one-not/signed_source.py creates one-hot source
+  selectors, operation and input-sign variables, shared negative-source marks,
+  per-row source/output values, and an output sign. NOT count bounds distinct
+  marked source wires. The search metadata explicitly calls this witness
+  search, not a certified exhaustive lower bound.
+- A finite Bool/BitVec formula can express the same selectors after unfolding
+  all loops and finite indices. bv_decide would independently bitblast it to
+  an AIG/CNF; an LRAT proof for our Python-generated CNF is not automatically
+  a proof for that different generated CNF.
+- A usable manually checked certificate needs a Lean definition of exactly
+  our CNF and a proof that every relevant circuit/normalized Live witness
+  supplies a satisfying assignment. Output-last, all-gates-used, operand order,
+  lexicographic symmetry clauses and first-OR/NOR orbit restrictions each need
+  proved coverage. Without that bridge, UNSAT excludes only the encoding.
+
+Measured sizes and practical decision
+- signed2-lex-full: 17 binary gates, 2 negative sources, 1024 rows,
+  87,766 variables and 1,259,389 clauses.
+- signed1-lex-full: 18 binary gates, 1 negative source, 1024 rows,
+  92,946 variables and 1,374,037 clauses.
+- signed17-free-full: 17 binary gates, unbounded negative sources, 1024 rows,
+  87,766 variables and 1,196,173 clauses.
+- Current named Lean file at audit time: 309,284 bytes, leaving 215,004 bytes
+  below 512 KiB, or 188,451 bytes after the full LRAT checker alone. Bridge,
+  formula/key data and certificate must share the remainder; replacing some
+  existing lemmas could change this budget. No UNSAT certificate was available
+  to measure during this review.
+- Recommended next gate: first obtain and trim an actual UNSAT LRAT proof for
+  a provably covering case split; count packed token bytes and used CNF clauses
+  before starting Lean integration. If small enough, benchmark one genuine
+  kernel-checked segment and include checker rechecking cost. Do not assume
+  binary LRAT output or bv_decide avoids either the size cap or axiom rule.

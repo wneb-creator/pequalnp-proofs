@@ -1,0 +1,32 @@
+[
+  {
+    "file": "signed2-proper-nor01.cnf",
+    "bytes": 22942579,
+    "sha256": "0a23adb1118ebd7fbc4f1df89a44c033a53156136e312992b93f6916277edca5",
+    "reproduction": "../build_signed_cases.py"
+  },
+  {
+    "file": "signed1-lex-full.cnf",
+    "bytes": 25191668,
+    "sha256": "9d305c2bdcd5bd03b32f6315a4c24ad30a6409ef9304ef914479f9d11f579422",
+    "reproduction": "../build_signed_cases.py"
+  },
+  {
+    "file": "signed2-strong-nor01.cnf",
+    "bytes": 22954902,
+    "sha256": "96ccca42d52367f66aa2cf8cf462a5885dea4628175adf840882428de4e541ed",
+    "reproduction": "../build_signed_cases.py"
+  },
+  {
+    "file": "signed1-input0-readers.cnf",
+    "bytes": 25211202,
+    "sha256": "4e76397dc01095b04be8c3bfcae006831051c5d6499d289f2a9dfd98a6c6098f",
+    "reproduction": "../build_signed_cases.py"
+  },
+  {
+    "file": "signed2-readers-nor01.cnf",
+    "bytes": 22975297,
+    "sha256": "bd03ae30bc6b42e8f3e6ad9f846b29a680ac13cc211fd17d067a89778bb41f35",
+    "reproduction": "../build_signed_cases.py"
+  }
+]

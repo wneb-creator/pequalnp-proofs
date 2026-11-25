@@ -1,0 +1,9 @@
+UTC 2026-11-25T14:01:47.954921+00:00
+File: results/orch/lemmas/FewNot.lean
+SHA256 d3d304594cb5f3d4d516e562340b81e11372007bf8764f80360e06955189ecc5
+Build: lake env lean ../results/orch/lemmas/FewNot.lean
+Exit: 0
+Scope: partial lower-bound certificate and subclass only; no exact L-meta-2592 theorem.
+New lemmas: free_or_floor (16 + NOT count lower bound with free OR0,2 input); first_or_nonadjacent_few_not (size≤19 with first gate OR0,2 implies NOT count≤2).
+Source: sanitized L_meta_5236 certificate.
+Exact-statement checker: not run for partial auxiliary file.

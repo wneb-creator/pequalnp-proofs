@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS archival point-in-time snapshot only",
+  "manifest_sha256": "167d8414884d24075903db31886dbad5bcac303b097ba84b70724d348fd0340f",
+  "listed_files": 18,
+  "bytes": 89351,
+  "candidate_rows_checked": 1024,
+  "candidate_output_index": 27,
+  "candidate_not_count": 0,
+  "candidate_wrong_rows": [
+    138,
+    385,
+    521,
+    770
+  ],
+  "candidate_truth_sha256": "ea3cc085ed308a161da5eca6d75edd20c88074590f41559e9968bede744cc073",
+  "is_counterexample": false,
+  "active_logs_labeled_partial": true,
+  "new_source_scope": "free_polarity.cpp uses argument files only; retained Python sources match previously reviewed hashes; no network or credential handling detected"
+}

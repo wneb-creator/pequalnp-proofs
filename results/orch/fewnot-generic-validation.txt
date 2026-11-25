@@ -1,0 +1,7 @@
+UTC 2026-11-25T14:10:52.894776+00:00
+File: results/orch/lemmas/FewNotGeneric.lean
+SHA256 24ae3c463105ce2f62e6d2ea109bc5a5e0097b4eb15666afa696bc2ead2f8e3d
+Build: pinned lake env lean with LEAN_PATH scratch and cached FewNotBase, PermutationSupport, RowEmbeddingSupport.
+Exit: 0; stdout/stderr empty.
+Conclusion: pair_sixteen proves at least16 remaining binary gates for every distinct input signal pair and every allowed signed gate (four forms). This discharges the pairFloor premise of FirstBinary.binary_count_from_pair_floor.
+Imports are development caches only; final single-file proof must inline their checked sources.
