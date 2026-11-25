@@ -1,0 +1,14 @@
+{
+  "source": "results/meta2448/TwoCenterRepair.lean",
+  "sha256": "24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2",
+  "status": "Independent source/mathematical review PASS at exact compiled hash",
+  "reviewer": "/root/or_lower_bound",
+  "scope": "A pure linear product with two universal centers has a globally graph-sound two-star repair preserving all accepted graph-edge pairs. The generic monotone cofactor repair is exact. No Circuit transformation, size, fanout or ownership theorem is claimed.",
+  "findings": [
+    "Triangle-freeness forces disjoint sides from the two center hypotheses.",
+    "No-four-cycle forces every cross edge incident to a center.",
+    "Pair preservation uses disjointness to orient pair endpoints across the two sides.",
+    "The cofactor theorem needs only monotonicity of R: each positive graph edge is retained by R or covered by Repair; the reverse direction follows from old correctness and repair soundness."
+  ],
+  "compile_confirmation": "Author confirmed unchanged source SHA24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2 compiled EXIT0 in validation/two-center-repair-001.log."
+}

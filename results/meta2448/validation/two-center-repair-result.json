@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/checked/two-center-repair.lean",
+  "sha256": "24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2",
+  "lines": 100,
+  "exit": 0,
+  "log": "results/meta2448/validation/two-center-repair-001.log",
+  "dependency": "LinearCleanup.olean, compiled from checked/linear-cleanup.lean",
+  "scope": "Semantic two-center pure-product repair for arbitrary monotone cofactors. No Circuit construction, gate-count theorem or full L-meta-2448 result."
+}

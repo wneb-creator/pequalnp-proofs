@@ -1,0 +1,41 @@
+{
+  "review": "PASS compiled TwoCenterRepair and static scope documentation",
+  "scope": "Two universal centers and no four-cycle imply cross-edge coverage by two stars. The repair is graph-sound and preserves product on graph-edge pairs. Monotone R plus the explicit original cofactor identity yield exact semantic repair. No Circuit transformation, total-size bound, fanout normalization or minimum-profile theorem.",
+  "files": [
+    {
+      "path": "results/meta2448/checked/two-center-repair.lean",
+      "sha256": "24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2",
+      "bytes": 4097
+    },
+    {
+      "path": "results/meta2448/two-center-repair-independent-review.json",
+      "sha256": "17f0a8d690f11b34482e4ae5e47c7e82a372222cf0297846fbe8e75fe7635b86",
+      "bytes": 1162
+    },
+    {
+      "path": "results/meta2448/validation/two-center-repair-result.json",
+      "sha256": "aba3cfdfa8b42e70e877801d2cc7064fcaae931adc09873e91f13a816aa834fe",
+      "bytes": 483
+    },
+    {
+      "path": "results/meta2448/validation/two-center-repair-001.log",
+      "sha256": "43a5c49eb51180a85c5f50d4d8daf0e850819341f459a4080e7dbb36e65ffa3f",
+      "bytes": 668
+    },
+    {
+      "path": "results/meta2448/validation/two-center-repair-001.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/algebraic-exchange.md",
+      "sha256": "46b4dc048da69322f956588bbb4597ed06a635eec2b2527475607132ee3f3005",
+      "bytes": 8845
+    },
+    {
+      "path": "results/meta2448/validation/two-center-preservation-independent-review.json",
+      "sha256": "c7e2fc12159a50a4e1b563bc26dd3868f3475a51d1a4687d756d92fe53c58b98",
+      "bytes": 996
+    }
+  ]
+}

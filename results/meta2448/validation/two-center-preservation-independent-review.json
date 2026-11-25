@@ -1,0 +1,11 @@
+{
+  "review": "PASS exact compiled snapshot and honest semantic scope",
+  "source": "results/meta2448/checked/two-center-repair.lean",
+  "sha256": "24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2",
+  "lines": 100,
+  "build_exit": 0,
+  "build_wall_seconds": 15.521017921000748,
+  "dependency": "Reviewed checked/linear-cleanup.lean via debug module LinearCleanup; flatten this dependency into the final single file rather than retain its local module import.",
+  "scope": "Two universal centers and no four-cycle imply cross-edge coverage by two stars. The repair is graph-sound and preserves product on graph-edge pairs. Monotone R plus the explicit original cofactor identity yield exact semantic repair. No Circuit transformation, total-size bound, fanout normalization or minimum-profile theorem.",
+  "note_review": "algebraic-exchange.md consistently marks DAG budget/secondary potential arguments unformalized and identifies missing center existence and nonlinear cases."
+}
