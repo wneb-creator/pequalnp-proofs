@@ -12,3 +12,5 @@
 
 - 2026-11-25T19:06:21.277694+00:00: antecedent_search finite synthesis complete; C6 helper compiled and sent for independent review/push. No full target proof or counterexample.
 - 2026-11-25T19:06:29.170814+00:00: four more helper files compiled and passed independent review; preserving checkpoint2.
+- 2026-11-25T19:06:56.370212+00:00: restriction abstraction counterexample compiled; proof-route obstruction,not gap refutation.
+- 2026-11-25T19:07:10.375524+00:00: two concrete examples compiled and passed independent review; preserving checkpoint3.

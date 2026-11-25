@@ -1,0 +1,5 @@
+Independent reviewer: pilot176_status
+Cleared antecedent_cycle_six.lean (36 lines) and restriction_example.lean (85 lines).
+Both kernel-checked with empty build stdout/stderr; correct namespace/import/plain-file format.
+C6 witness gives an 8-gate upper bound and zero junk, not a minimum proof.
+The abstraction example is explicitly NOT least and is not a refutation of L-meta-5012.
