@@ -46,4 +46,29 @@ lemma guardedFastCost_eq (s : QS) (i j op : Nat) (ka kb : Bool) :
     rw [heq]
     rfl
 
+lemma loss_count_le (ka kb ax ay : Bool) :
+    (cond ka 0 (cond ax 0 1)) + (cond kb 0 (cond ay 0 1)) ≤
+      (cond ka 0 1) + (cond kb 0 1) := by
+  cases ka <;> cases kb <;> cases ax <;> cases ay <;> decide
+
+noncomputable def dynamicFastCost (s : QS) (i j op : Nat) (ka kb : Bool) : Bool :=
+  if s.2.2.2.2.1 ≤ (cond ka 0 1) + (cond kb 0 1) then fastCost s i j op ka kb else false
+
+lemma dynamicFastCost_eq (s : QS) (i j op : Nat) (ka kb : Bool) :
+    dynamicFastCost s i j op ka kb = fastCost s i j op ka kb := by
+  by_cases h : s.2.2.2.2.1 ≤ (cond ka 0 1) + (cond kb 0 1)
+  · simp only [dynamicFastCost,h,ite_true]
+  · simp only [dynamicFastCost,h,ite_false,fastCost,force_eq]
+    have neq : s.2.2.2.2.1 ≠
+        (cond ka 0 (cond (navail s.2.2.2.2.2.2.2 s.1 s.2.2.2.2.2.2.1 (s.2.2.2.2.2.1.getD i 0)) 0 1)) +
+        (cond kb 0 (cond (navail s.2.2.2.2.2.2.2 s.1 s.2.2.2.2.2.2.1 (s.2.2.2.2.2.1.getD j 0)) 0 1)) := by
+      have hb := loss_count_le ka kb
+        (navail s.2.2.2.2.2.2.2 s.1 s.2.2.2.2.2.2.1 (s.2.2.2.2.2.1.getD i 0))
+        (navail s.2.2.2.2.2.2.2 s.1 s.2.2.2.2.2.2.1 (s.2.2.2.2.2.1.getD j 0))
+      omega
+    have heq : Nat.beq _ _ = false := Bool.eq_false_iff.mpr (fun he => neq (Nat.eq_of_beq_eq_true he))
+    simp only [Nat.add_eq]
+    rw [heq]
+    rfl
+
 end PEqualNP.Outside.L_meta_670_aux.FastCostGuard

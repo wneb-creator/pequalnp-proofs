@@ -1,0 +1,27 @@
+import took 2.02s
+cumulative profiling times:
+	attribute application 13.2ms
+	blocked (unaccounted) 3.62s
+	compilation (IR) 49.3ms
+	compilation (LCNF base) 514ms
+	compilation (LCNF impure) 179ms
+	compilation (LCNF mono) 409ms
+	congr simp thm 1.3ms
+	declTypeLinter 112ms
+	elaboration 3.79s
+	fix level params 4.68ms
+	import 2.02s
+	initialization 49.5ms
+	instantiate metavars 20ms
+	interpretation 1.42s
+	let-to-have transformation 28.1ms
+	linting 268ms
+	module linting 0.091ms
+	parsing 261ms
+	process pre-definitions 235ms
+	share common exprs 30.9ms
+	simp 72ms
+	tactic execution 28.5ms
+	tacticAnalysis 45.9ms
+	type checking 5.95s
+	typeclass inference 867ms

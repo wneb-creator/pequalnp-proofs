@@ -9,3 +9,4 @@
 2026-11-25T04:44:30.055571+00:00: Cases normalization and Structural lowerbound8 compiled; independent checkpoint review passed.
 2026-11-25T04:45:28.344533+00:00: lookupforcing semantic equivalence compiled; independent review passed.
 2026-11-25T04:46:54.463501+00:00: lookupbenchmark and FastCostGuard semantic helper compiled; independent review passed. Batchforcing and lazylane experiments slower; no mainproofchange.
+2026-11-25T04:50:33.040502+00:00: batchmask benchmark and dynamic cost guard compiled; independent review passed.
