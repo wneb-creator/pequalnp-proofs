@@ -1,0 +1,45 @@
+{
+  "every_wire_small_vectors_agree_with_capped3": true,
+  "full_truth_table_validated": 16,
+  "joint_read2_vectors": {
+    "(0, 2)": [
+      [
+        1,
+        2
+      ]
+    ],
+    "(0, 3)": [
+      [
+        1,
+        2
+      ]
+    ],
+    "(1, 3)": []
+  },
+  "literal_capped3_output_vectors": {
+    "(0, 2)": [
+      [
+        1,
+        2
+      ]
+    ],
+    "(0, 3)": [
+      [
+        1,
+        2
+      ]
+    ],
+    "(1, 3)": [
+      [
+        1,
+        3
+      ]
+    ]
+  },
+  "non_read2_edges": [
+    [
+      1,
+      3
+    ]
+  ]
+}

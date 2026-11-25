@@ -65,3 +65,5 @@
 - 2026-11-25T18:30:21.056227+00:00: Desk renewal returned410 unexpectedlybeforelastreportedexpiry; diagnosticcurl-si confirmed. Preservingallworkandpausingremainingsearchbefore user-requiredre-request.
 
 - 2026-11-25T18:30:23Z: root reported unexpected HTTP410 on lease renewal; counterexample agent paused Fano26 MultiDirty PID13269/session67841 with SIGSTOP and preserved full current stdout/stderr in INTERRUPTED snapshots. No solver result. Awaiting root desk recovery outcome.
+
+- 2026-11-25T18:33:24.819122+00:00: root requested termination of paused Fano26 MultiDirty after desk recovery assigned L-meta-2582. Sent SIGTERM+SIGCONT to own PID13269. This is an owner stop, not timeout, UNSAT, or any solver result. Full interrupted snapshots preserved.

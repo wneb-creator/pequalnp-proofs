@@ -1,0 +1,36 @@
+Independent archival review: ReadTwoSearch.py and ReadTwoValidate.py
+2026-11-25, status-review agent
+
+ReadTwoSearch.py: 192 lines, 8675 bytes, SHA256
+8cc00d2660ce397510ad3e12ea94b8b508d99deb830dda02570f4b423078fd5b.
+ReadTwoValidate.py: 53 lines, 2126 bytes, SHA256
+34f0cde5c91a44e737456f395cb7967b01376176da46adb3e36c941feca5b1b4.
+
+The synthesis count encoding has nine bits for pairs in {0,1,2} squared.
+OR takes union; AND convolves the retained pairs. Discarding a pair with
+an entry above 2 is sound because later sums cannot decrease that entry.
+Input bits and convolution bit ordering match the intended pairs.
+Semantic samples include all minimal positive edge assignments and all
+maximal negative assignments, sufficient for monotone circuits here.
+
+Any SAT model is checked on all 2^n Boolean inputs by a separate Boolean
+evaluation and a set-valued joint-count recursion. The additional validator
+implements literal cap-at-3 sums and compares its small pairs against the
+discarding recurrence at every generated wire. Structural checks enforce
+backwards indices, legal operators, and the claimed bipartite C4-free
+preset. Validators use Python assertions and must run without -O.
+
+The search fixes the final gate as output, ordered commutative operands,
+and every gate used later. It adds no color constraint or graph-symmetry
+restriction. Its non-read-2 query asks for some circuit of a chosen size
+that has no read-2 tree on an edge. Such a model is not a refutation of
+L-meta-2582: a different read-2 circuit of no greater size might exist.
+An UNSAT or timeout result has only the stated finite query's scope.
+
+Both scripts are local-only: the search loads the installed libz3, and the
+validator reads one explicit local log. No network, shell execution,
+credential/environment access, or credential-pattern matches were found.
+Source inspection only; the author's fixed-P4 sanity run was not repeated.
+
+Verdict: approved for archival with the above finite-search scope and
+normal Python assertion execution. No Lean or full-gap proof claim.

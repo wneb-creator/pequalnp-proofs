@@ -1,0 +1,50 @@
+Independent archival review: ReadMono and LocalRewrite
+2026-11-25, status-review agent
+
+ReadMono.lean: 183 lines, 6674 bytes, SHA256
+2032a8d1395f839efd03c8668e3df947123fb31c2225f1fc9db33f659631a308.
+The proof lifts each small-cap count vector to a corresponding large-cap
+vector, preserving equality after recapping at k+1. It propagates through
+OR unions and AND convolutions, including their empty folds and missing
+wire defaults. If the recapped entries are <=k, the large-cap entries
+cannot have reached k+1; hence they are <=k<=l. This proves genuine
+readsAtMost and IsReadK monotonicity without any circuit-model hypothesis.
+The source contains 18 distinct declarations in its permitted auxiliary
+subnamespace. The reported successful read-mono-002 logs are both empty.
+
+LocalRewrite.lean: 459 lines, 19791 bytes, SHA256
+30e4111f064bf444e1f60e0fb43835778899af0e18db13d6bb2112bf427b02fc.
+Its inherited framework consists of exact source blocks from checked
+L_meta_2393.lean: original lines 11-106 become new lines 8-103; original
+lines 227-491 become new lines 104-368. No proof body in these blocks was
+changed. New wrappers establish equivalence between the local AO2 predicate
+and TopForm.IsAO2; deletion of a semantically equal earlier wire gate
+preserves the function and saves one gate; repeated-input gates are a
+special case. Output validity is explicitly assumed where required.
+
+The hoist_clean_or_input wrapper constructs V2, deletes the selected OR,
+redirects its uses to the other operand, and adds an OR with the clean
+input at the output. The explicit below-function hypothesis is essential.
+Its existential conclusion only states equal function and size, which
+could also be witnessed by C itself: that conclusion alone does not expose
+the useful structural transformation. The underlying V2 lemmas do check
+the concrete transformation. No claim of global normalization, read-2,
+or the full L-meta-2582 theorem is justified by this wrapper.
+
+There are 47 distinct declarations under the permitted
+PEqualNP.Outside.L_meta_2582.Rewrite namespace. The reported successful
+local-rewrite-2582 stdout has only deprecated if_pos/if_neg warnings;
+stderr is empty.
+
+Both files import only PEqualNP.Defs, have balanced named namespaces,
+and contain no forbidden proof tokens, _root_ text, quotes, exported
+instances, attributes, options, or credential-pattern matches.
+
+Root has now reported that the named Canonical build passed in 4.1 seconds
+(5149 jobs), satisfying review-001's compilation condition for that exact
+1176-line artifact. These two new files are reviewed as separate compiled
+partials; no integration build is inferred.
+
+Verdict: approved for truthful partial archival. Not a full gap proof or
+PR approval. Strengthened LocalRewriteExplicit was pending compilation
+and is outside this review. No unchanged tests were rerun.

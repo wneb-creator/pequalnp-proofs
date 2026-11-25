@@ -224,3 +224,13 @@ fano66 20-gate MultiDirty search completed UNKNOWN after600.182s, reason timeout
 ### Counterexample search update: auxiliary theta8
 
 Theta8 12-gate any-dirty search finished UNKNOWN after600.044s, reason timeout. This did not decide whether an optimal-size theta8 circuit can contain a dirty AND. No counterexample to the all-optima-clean shortcut or to L-meta-4675 resulted. Full logs archived and listed in manifest. Fano26 MultiDirty is the only active search, due around18:35:44 UTC.
+
+### lemma_search — new gap L-meta-2582 source audit
+
+The posted statement is size-preserving replacement of an arbitrary plane-incidence AO2 circuit by a READ-2 circuit. READ-2 (`Defs/ReadK.lean`) bounds BOTH endpoint multiplicities in ONE proof tree of each prime implicant; it is not fanout or separate per-variable minima.
+
+Known checked lower bounds: `Outside/L_meta_1942.lean:2616` states N*q <= 100*C.size. `Outside/L_meta_2058.lean:3319` internal `main` gives the stronger N*(q+1) <= 52*C.size; its final exported theorem at3369 weakens52 to112. `L_meta_2581` is READ-3 with a very large absolute constant, not the sharp READ-2 row.
+
+Canonical replacement cost is N*(q+2)-1: for each line, OR its q+1 points (q gates), AND its line variable (one gate), then OR the N blocks (N-1 gates). It is READ-1, hence READ-2. Existing `Outside/L_meta_7684.lean:1123` proves the more general bipartite vertex-cover construction, cost <= E.card+P.card+L.card-1 and READ-1. With P empty and all lines L, its hypotheses use only the posted line sizes. The file bundles construction/read certification in about1140lines; to reuse, copy helpers into own namespace and keep Defs/Mathlib imports only. Its default Mathlib umbrella can be replaced by Defs if dependencies permit.
+
+For Fano q=2,N=7, canonical cost27; generic READ-2 lowerbounds above give only size>=1, and essential-input count gives13. Therefore a26gate unrestricted Fano circuit would not by itself refute2582: it might already be READ-2, or another26gate READ-2 circuit might exist. An independent exact READ-2 minimum>=27 would be required. No such checked small-Fano READ-2 theorem was found.

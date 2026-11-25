@@ -42,8 +42,8 @@ All proposed exact witnesses are independently checked on the complete Boolean t
 - Complete 6×6 census with 16 edges and the fixed diagonal matching: 720 labelled graphs, all isomorphic to fano66. Every row-degree multiset is `(2,2,3,3,3,3)`. The census explicitly reported `complete: true` and finished in 0.27s.
 - Independent finite checks give minimum vertex-cover sizes 5 for fano55/theta10 and 6 for fano66. Their proposed gate lower bounds are respectively 16 and 21.
 
-## Remaining runs at this checkpoint
+## Interrupted final search
 
-- Refined Fano search: 26 gates and a multi-edge dirty AND, 900s limit. PAUSED after the desk returned HTTP 410 on renewal; pending desk recovery. Complete current output is preserved in the clearly labelled `fano-k26-z3multidirty.INTERRUPTED.*` snapshots. No result has been produced.
+- Refined Fano search: 26 gates and a multi-edge dirty AND, 900s limit. Paused after the desk returned HTTP 410 on renewal, then stopped by the owner because recovery assigned a different gap, L-meta-2582. Complete output is preserved in the clearly labelled `fano-k26-z3multidirty.INTERRUPTED.*` snapshots. No solver result was produced; this was neither a timeout nor UNSAT. No search remains active for L-meta-4675.
 
-Full completed and early-stopped logs are archived alongside this summary. `counterexample-log-manifest.json` records the source and archive paths, byte counts, and SHA256 hashes. Source programs are under `lemmas/`; active logs are preserved in the job scratch directory until their completion and archival.
+Full completed and early-stopped logs are archived alongside this summary. `counterexample-log-manifest.json` records the source and archive paths, byte counts, and SHA256 hashes of 64 completed/early-stopped logs. The final interrupted pair has a separate `INTERRUPTED.json` record. Source programs are under `lemmas/`.

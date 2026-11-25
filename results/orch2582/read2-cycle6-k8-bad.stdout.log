@@ -1,0 +1,4 @@
+{"graph": "cycle6", "n": 6, "gates": 8, "edges": [[0, 3], [0, 4], [1, 4], [1, 5], [2, 3], [2, 5]], "samples": 11, "non_read2": true, "smt_bytes": 173146}
+result unknown elapsed 120.0476008579999
+(:reason-unknown "timeout")
+

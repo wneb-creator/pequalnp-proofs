@@ -1,0 +1,74 @@
+[
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stdout",
+    "archive": "results/orch2582/read2-fixed-p4.stdout.log",
+    "bytes": 684,
+    "sha256": "785312f2f645f31f9633ec832588c7279e1410734a9f3be50e8797c878210386"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stderr",
+    "archive": "results/orch2582/read2-fixed-p4.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stdout",
+    "archive": "results/orch2582/read2-fixed-p4-validation.stdout.log",
+    "bytes": 542,
+    "sha256": "955dbe4e73863e1e38a32b6f9766bf48f74f46783d97b1c67bc63a3e178b6549"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stderr",
+    "archive": "results/orch2582/read2-fixed-p4-validation.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-cycle6-k8-bad.stdout",
+    "archive": "results/orch2582/read2-cycle6-k8-bad.stdout.log",
+    "bytes": 224,
+    "sha256": "89f27097c9c5d885c1ca8a82bfd919d3aa9f6fcf95d52ce57f853a3d0aa1ff92"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-cycle6-k8-bad.stderr",
+    "archive": "results/orch2582/read2-cycle6-k8-bad.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stdout",
+    "archive": "results/orch2582/read2-sanity-lean.stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stderr",
+    "archive": "results/orch2582/read2-sanity-lean.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-lean.stdout",
+    "archive": "results/orch2582/read2-local-lean.stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-lean.stderr",
+    "archive": "results/orch2582/read2-local-lean.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-validation.stdout",
+    "archive": "results/orch2582/read2-local-validation.stdout.log",
+    "bytes": 772,
+    "sha256": "b9f92b7a7faadfdba693088d5c9abf76a272572c73b6e75a381b3be624d26ec9"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-validation.stderr",
+    "archive": "results/orch2582/read2-local-validation.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

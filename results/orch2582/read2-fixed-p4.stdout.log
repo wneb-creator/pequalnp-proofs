@@ -1,0 +1,21 @@
+fixed sanity {'non_read2_edges': [(1, 3)], 'joint_read2_vectors': {'(0, 2)': [(1, 2)], '(0, 3)': [(1, 2)], '(1, 3)': []}, 'full_truth_table_validated': 16}
+{"graph": "p4", "n": 4, "gates": 5, "edges": [[0, 2], [0, 3], [1, 3]], "samples": 6, "non_read2": true, "smt_bytes": 52301}
+result sat elapsed 0.015324489999329671
+((a0 #x1)
+ (b0 #x3)
+ (o0 true)
+ (a1 #x0)
+ (b1 #x4)
+ (o1 false)
+ (a2 #x2)
+ (b2 #x3)
+ (o2 false)
+ (a3 #x5)
+ (b3 #x6)
+ (o3 true)
+ (a4 #x6)
+ (b4 #x7)
+ (o4 true))
+
+gates [(1, 3, 0), (0, 4, 1), (2, 3, 1), (5, 6, 0), (6, 7, 0)]
+{"non_read2_edges": [[1, 3]], "joint_read2_vectors": {"(0, 2)": [[1, 2]], "(0, 3)": [[1, 2]], "(1, 3)": []}, "full_truth_table_validated": 16}

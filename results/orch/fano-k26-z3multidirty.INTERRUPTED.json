@@ -1,5 +1,5 @@
 {
-  "state": "PAUSED; lease HTTP410; pending desk recovery",
+  "state": "OWNER-STOPPED after lease HTTP410 and assignment of different gap L-meta-2582; no solver result",
   "pid": 13269,
   "session": 67841,
   "utc": "2026-11-25T18:30:23.396719+00:00",
@@ -16,5 +16,8 @@
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
-  ]
+  ],
+  "stopped_utc": "2026-11-25T18:33:24.819122+00:00",
+  "shell_exit_code": 143,
+  "shell_completion": "Terminated\n"
 }

@@ -1,0 +1,38 @@
+Independent archival review: Canonical / named L_meta_2582 partial
+2026-11-25, status-review agent
+
+Reviewed files:
+  results/orch2582/lemmas/Canonical.lean
+  lean/PEqualNP/Outside/L_meta_2582.lean
+Both are byte-identical: 1176 lines, 54067 bytes, SHA256
+63bc175161a8bfbfbd2ae05201768bd2d1bc56e9f04e234c671b0d535f7bc110.
+
+The inherited 1125-line prefix is exactly L_meta_7684.lean after removing
+the initial Mathlib import, renaming its module prefix to
+PEqualNP.Outside.L_meta_2582_aux, and renaming the final inherited theorem
+to canonical_cover. No inherited proof body was otherwise changed.
+
+The new incidence_card lemma counts incidence pairs by the disjoint
+union of their line fibers. It uses only the explicitly stated equal
+column-cardinality hypothesis. The new canonical_plane_read_one theorem
+chooses all lines as the cover and applies canonical_cover, yielding an
+AO2 circuit computing the exact incidence function, read-1, of size at
+most N*(q+2)-1. The arithmetic and set-conversion steps match these claims.
+It does not compare that size to an arbitrary input circuit C. It does
+not assert the posted L-meta-2582 theorem or a counterexample.
+
+Static checks: one top import, PEqualNP.Defs; balanced named namespaces;
+70 distinct declarations, all under the permitted auxiliary namespace;
+no global instances, attributes, or options; no forbidden proof constructs,
+_root_ text, string literals, or credential-pattern matches. No exact main
+theorem PEqualNP.Outside.L_meta_2582 is present.
+
+Canonical compilation was reported successful by its author. Its complete
+canonical2582-001.stdout has only inherited unused/unreachable-tactic and
+deprecated-if_pos warnings; stderr is empty. The named-file build was
+still running when this review was written and must pass before the
+named artifact is described as independently compiled.
+
+Verdict: approved as an explicitly partial archival push, conditional on
+the running named-file build passing. Not approved as a proof PR or full
+gap result. No unchanged Lean tests were rerun for this review.

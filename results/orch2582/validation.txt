@@ -1,0 +1,8 @@
+Gap: L-meta-2582
+Status: PARTIAL; exact posted same-size normalization theorem absent.
+Named partial: lean/PEqualNP/Outside/L_meta_2582.lean,1176lines.
+Build: lake build PEqualNP.Outside.L_meta_2582 exit0; Build completed successfully (5149 jobs),4.1seconds.
+Independent review001: Canonical sourceandnewcardinality/Read1construction approved. Review002: genericReadKmonotonicity andlocalcircuitrewrites approved. Root independentlyreviewed strongerexplicitV2hoist delta andfiniteP4Read2 sanity; compiledsources valid,butnoneprove fullnormalization.
+Officialchecker fornewfile not yetinvoked; sameprojectfullMathlibcacheblocker previouslyconfirmed. NoPR.
+Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
+TIMING total=93.14 subagents=6
