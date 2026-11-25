@@ -34,7 +34,8 @@ Finite SAT exclusions are ordinary computational results, not Lean certificates.
 
 Two desk assignments were received; null-answer count: 0. No other pilot's lease was used or released. The initial L-meta-2602 lease became invalid with HTTP 410 despite an earlier future expiry; all then-current results were pushed before requesting another assignment. The exact response body was `{"error":"no such live lease: it expired or was released. Ask /desk/next again."}`. Complete headers/body are preserved in `results/orch/desk/auto-beat-011-diagnostic.txt`.
 
-The desk then assigned L-meta-1735. Lease renewal evidence is being preserved separately; final release disposition will be recorded before closing this job. No exact proof or refutation of L-meta-2602 was obtained either; its checked partials, finite searches, and checker rejection are preserved under `results/orch/` and its named Lean file.
+The desk then assigned L-meta-1735. Own L-meta-1735 lease was released successfully with reason=other after all proof artifacts were pushed. The root renewal timer was stopped first. The exact successful response and complete chronological desk log are preserved under desk/. No exact proof or refutation of L-meta-2602 was obtained either; its checked partials, finite searches, and checker rejection are preserved under `results/orch/` and its named Lean file.
 
 KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
 Sub-agents: finite_search, independent_review, lemma_route, status_review, structure_proof, toolchain
+TIMING total=120.02 subagents=6

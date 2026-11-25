@@ -1,7 +1,7 @@
 KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
 Gap: L-meta-1735
 Sub-agents: finite_search, independent_review, lemma_route, status_review, structure_proof, toolchain
-TIMING total=117.90 subagents=6
+TIMING total=120.02 subagents=6
 
 OUTCOME: Partial results only. The exact posted statement remains unproved; no refutation found; no PR opened.
 
@@ -27,4 +27,4 @@ Post-acceptance cleanup pass: not applicable because the exact checker did not a
 Finite archive:35 files,155930 bytes,independent review PASS. Computational UNSAT exclusions apply to pruned TopForm models and are not Lean certificates. All positive controls are explicitly nonleast; the earlier C7 search is UNKNOWN.
 Final follow-up searches: two300-second capped models, both UNKNOWN. Context irreducibility examples refute only proposed shortcuts; they are not counterexamples to the posted statement. Follow-up archive review recorded in NOTES.
 
-Desk requests:2 assignments,0 null answers. Prior L-meta-2602 lease returned410; complete body and headers preserved under results/orch/desk. All work was pushed before reassignment. Active L-meta-1735 lease disposition will be appended after release.
+Desk requests:2 assignments,0 null answers. Prior L-meta-2602 lease returned410; complete body and headers preserved under results/orch/desk. All work was pushed before reassignment. Own L-meta-1735 lease released successfully with reason=other after all proof artifacts were pushed. Root renewal timer stopped before release. Response preserved in desk/1735-release-001.json; no other pilot lease released.
