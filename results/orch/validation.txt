@@ -7,3 +7,5 @@ Independent whole-file review: PASS by status_review; all new tails also reviewe
 Complete build logs and earlier axiom audit are archived alongside this file.
 Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
 TIMING total=71.0 subagents=6
+Additional archival partial: constructive-completion.lean, 80 lines; all 441 witness cases independently recomputed, Lean exit 0, no claim about arbitrary AND factors.
+Normal-form axiom audit: only propext, Classical.choice, Quot.sound.

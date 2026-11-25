@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1479.fano_supported_normal_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1479.fano_repair_one_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1479.boundary_correct_of_checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1479.fano_cover_seven' depends on axioms: [propext, Classical.choice, Quot.sound]
