@@ -1,8 +1,8 @@
 Partial checkpoint only: L-meta-3451 is NOT proved for arbitrary N.
 Named lake build: PASS (3662 lines).
-Preserved independently reviewed failed-route analyses and final official checker FAULT. No full proof or refutation of the posted theorem was obtained.
+Stopped-cycle and timed-out nine-edge outcomes are recorded accurately. Historical source variants are explicitly archived; the general theorem remains unproved.
 Official checker exit3: CHECKER FAULT, missing prebuilt full Mathlib cache.
 Independent red-team review: passed before this checkpoint.
 Cleanup skipped because official checker cannot run with available cache/disk.
 Sub-agents: 6 (status_review, toolchain, normalization, counterexample, reduction, global_strategy)
-TIMING total=76.7 subagents=6
+TIMING total=88.6 subagents=6

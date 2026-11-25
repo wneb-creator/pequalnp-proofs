@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-25T01:49:39.737104+00:00",
+  "status": "intentionally stopped; unresolved synthesis run",
+  "exit_code": 143,
+  "reason": "Parent pivot: existing repository theorem MetaComplexity/L106.lean states exact cycle size n+ceil(n/2)-1 for n>=5; this target is the ten-cycle under the listed input permutation. Avoid redundant lower-bound search.",
+  "N": 5,
+  "incidence_mask": 18624707,
+  "gate_budget": 13,
+  "cycle_order_in_primary_variables": [
+    0,
+    6,
+    1,
+    7,
+    2,
+    8,
+    3,
+    9,
+    4,
+    5
+  ],
+  "all_assignments_correspondence_checked": 1024,
+  "repository_theorem": "PEqualNP.MetaComplexity.L106",
+  "theorem_numeric_bound": 14,
+  "not_Lean_checked_bridge": true,
+  "full_sat_witness_found": false,
+  "rejected_sampled_sat_candidates": 1,
+  "continuation": "Colored K4/Fano-minus-line target at gate budget22."
+}

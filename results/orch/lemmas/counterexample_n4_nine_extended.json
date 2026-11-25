@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-25T01:55:13.262718+00:00",
+  "N": 4,
+  "mask": 51863,
+  "gate_budget": 11,
+  "status": "UNKNOWN",
+  "reason": "CaDiCaL wall-time limit1200seconds reached; no lower-bound verdict",
+  "solver_exit_code": 0,
+  "elapsed_s": 1200.0209536320003,
+  "clean_upper": 12,
+  "cnf_raw_sha256": "3312ecc1ccdd7baf2b4d169f3a2a7ba40a21eec7d505778ca97f5f8fa877a919",
+  "cnf_raw_bytes": 3492507,
+  "cnf_compressed_bytes": 336672,
+  "files": [
+    {
+      "path": "results/orch/lemmas/n4-nine-eleven-1200-trial.stdout",
+      "sha256": "f3af72d262d1a46ad41637208e213277ec7e30c7cd795dd4dc2190a4ce0b0a06",
+      "bytes": 850
+    },
+    {
+      "path": "results/orch/lemmas/n4-nine-eleven-1200-trial.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/n4-nine-eleven-1200-cadical.stdout",
+      "sha256": "734972eb61b5cb7bf6105744573fa1055cb07a90605f89ac1be4be80baf76b1f",
+      "bytes": 59907
+    },
+    {
+      "path": "results/orch/lemmas/n4-nine-eleven-1200-cadical.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/certificates/n4-nine-eleven.cnf.xz",
+      "sha256": "2092424b78e1f86abd5ed33bd24734650a4aa624dbdf3d1d1cc75b4b59b90d4a",
+      "bytes": 336672
+    }
+  ]
+}

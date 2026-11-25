@@ -1,0 +1,8 @@
+version 5.3.3
+result unsat
+proof available True
+proof text (let ((a!1 (trans (monotonicity (asserted (= x #x01))
+                                (= (= x #x02) (= #x01 #x02)))
+                  (rewrite (= (= #x01 #x02) false))
+                  (= (= x #x02) false))))
+  (mp (asserted (= x #x02)) a!1 false))

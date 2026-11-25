@@ -122,3 +122,7 @@ Reviewer: status_review. Review performed without changing proof or solver sourc
 | results/orch/lemmas/p4-cadical-smoke-cadical.stdout | 6391 | 0d4f12a0935860c8448815d6612405b71614e7a7036eec90a956bbdb29f9e2cf |
 | results/orch/lemmas/p4-cadical-smoke.stderr | 0 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | results/orch/lemmas/p4-cadical-smoke.stdout | 803 | f78d78e1dfceea79ef0da8954972226edf491b41515487da79898f89900488d4 |
+
+## Supplemental dirty-crosspair symmetry check
+
+PASS. The frozen counterexample_sat_dirtycross.py at SHA-256 068d52befcad1a88cf898f8be2bb729e3aea16efc6b83fd3fcf3ff038dc350b7 enumerates only independent permutations within the two fixed sides and an optional global exchange of both sides. It does not independently exchange sides inside disconnected components. Every allowed map therefore preserves the set of nonincident crosspairs. Independently executed the selected pure automorphism function and checked exact nonincident-pair-set invariance for all four reported masks: (N2,7), (N3,417), (N3,426), and (N3,427), with respectively 2,2,2,12 automorphisms. The existence of a nonincident-crosspair-accepting AND is invariant under these symmetries. The original optimum-only scope remains in force.
