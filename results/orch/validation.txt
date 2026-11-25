@@ -1,0 +1,6 @@
+L-meta-12416 partial component: nine-gate monotone witness
+Lean command: lake env lean results/orch/lemmas/circuit_search/upper.fragment.lean (from lean/ with absolute source path)
+Result: exit 0; stdout and stderr empty.
+Full target proof and checker still pending.
+Sub-agents: status_review, toolchain_probe, circuit_search, lower_bound, independent_review
+TIMING total=8 subagents=5
