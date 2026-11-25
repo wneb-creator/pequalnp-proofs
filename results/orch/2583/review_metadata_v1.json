@@ -1,0 +1,80 @@
+{
+  "reviewed_at_utc": "2026-11-25T14:56:42.813817+00:00",
+  "reviewer": "status_1035 independent reviewer",
+  "scope": "Frozen metadata and completed logs only; running search outputs excluded. Preservation approval is not proof acceptance.",
+  "claims": [
+    "Exact statement and imports agree with assignment metadata.",
+    "Existing notes distinguish the conditional normalization budget and checked READ1 lower bound from the unresolved unrestricted bound.",
+    "Complete compile logs contain warnings only and empty stderr; source author reports exit0.",
+    "Baseline independently checked on all16384 assignments with21 minimal true and37 maximal false inputs. Every edge has a jointly read-at-most1 proof tree. This is a27gate baseline, not a counterexample.",
+    "Search run1 manifest is a prepared-run record, not a success claim. Its recorded source digest matches the current source.",
+    "No credential-like bytes detected; only file names would be reported if detected."
+  ],
+  "files": [
+    {
+      "path": "results/orch/2583/EXISTING_NOTES.md",
+      "sha256": "4ed7312d806c544e670a58d921db7e5aaa9ae422ed8e3c0170533bc3577eba1c",
+      "bytes": 2463
+    },
+    {
+      "path": "results/orch/2583/assignment.json",
+      "sha256": "b1cca036fa67437d848acd9f5a5c9dce2c17ea51c59c68966f8d46489ef646e8",
+      "bytes": 2659
+    },
+    {
+      "path": "results/orch/2583/imports.json",
+      "sha256": "dbe8d7f722c23b00484c2a082ad1bbdbf5ab7e410439d0f4338d7daaec89b950",
+      "bytes": 18
+    },
+    {
+      "path": "results/orch/2583/statement.txt",
+      "sha256": "48d806662b6a371c48bd173ebb3f39d6756aaad43e9c9f8f0fbb06a7939d478f",
+      "bytes": 815
+    },
+    {
+      "path": "results/orch/2583/lemmas/semantics_review.md",
+      "sha256": "1ed46abb4bf8c793c34a13a96eb0be3b174325a1e1aa625f4560c5f1d01b8e15",
+      "bytes": 3465
+    },
+    {
+      "path": "results/orch/2583/lemmas/search_fano26_run1_manifest.json",
+      "sha256": "0260d282660c19a492133e976e0b7f68ea3a701e63d32e9c84f0c73d16da695e",
+      "bytes": 781
+    },
+    {
+      "path": "results/orch/2583/lemmas/search_fano_baseline.json",
+      "sha256": "963add34ef55f9976877dc12e9472408cc76b670fec3d1e7980ec7baefe07e23",
+      "bytes": 3599
+    },
+    {
+      "path": "results/orch/2583/logs/2583-existing-fano-lower-5.stdout",
+      "sha256": "324e8e1823f61f401dd93f8ad2176daea5d0112988a48b1c0e878bb8008c66c9",
+      "bytes": 9718
+    },
+    {
+      "path": "results/orch/2583/logs/2583-existing-star-builder.stdout",
+      "sha256": "2ef76e7e7a77c88e6bc0d09c389df7a5ba4fce6f375184c9d956e0f245999453",
+      "bytes": 1704
+    },
+    {
+      "path": "results/orch/2583/logs/2583-lower-singleton-4.stdout",
+      "sha256": "430af2b0c7eb79f2e81769e85576c38202cbf125fe669386d467d814daf6b4be",
+      "bytes": 801
+    },
+    {
+      "path": "results/orch/2583/logs/2583-existing-fano-lower-5.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/2583/logs/2583-existing-star-builder.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/2583/logs/2583-lower-singleton-4.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "prepared for600s run",
+  "source_file": "results/orch/2583/lemmas/search_fano26_v1.cpp",
+  "original_source_sha256": "772a0451d4f24c70dac406a479bc9dd6e5a01e34ae146f5d1ca54be62848d4c3",
+  "source_provenance": "digest recorded before optimized compile and run; source frozen",
+  "seed": 2583,
+  "planned_seconds": 600,
+  "model": "26 sequential gates,14 primary inputs, each gate exactly two backward references, AND/OR only",
+  "test_basis": "21 minimal true inputs and37 maximal false inputs; complete for monotone circuits only",
+  "full_recheck_on_zero_score": "all16384 assignments required",
+  "compiler_options": [
+    "-O3",
+    "-march=native",
+    "-std=c++17"
+  ],
+  "sanitizer_smoke": "ASan and UBSan passed1second; critical score independently checked"
+}
