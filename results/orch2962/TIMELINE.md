@@ -10,3 +10,5 @@
 2026-11-25 15:56:56 UTC: renewed during disk cleanup; expiry16:16:56.974UTC. Full response preserved from tool output as2962-beat-005.json.
 
 2026-11-25T15:59:28.867556+00:00: final archive preparation after more than20minutes real effort on L2962. Full charge unresolved; no refutation. All agents stopping this gap.
+
+2026-11-25 16:00 UTC: final archive0d125ddd pushed, own2962 lease released withreasonother. Namedproofrequests2151and2159 bothreturnedgapnullwithnotopen message. Nootherleaseheldorchanged.

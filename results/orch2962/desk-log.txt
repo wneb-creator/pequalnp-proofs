@@ -817,3 +817,24 @@ x-envoy-upstream-service-time: 138
  "next_beat_s": 300
 }
 
+
+2026-11-25T16:00:21.907528+00:00 2962-release.json
+{
+ "released": "L-meta-2962",
+ "reason": "other"
+}
+
+
+2026-11-25T16:00:21.907616+00:00 desk-proof-2151.json
+{
+ "gap": null,
+ "note": "That step is not open: it is checked already, withdrawn, or not a step. Do not send its proof."
+}
+
+
+2026-11-25T16:01:23.925324+00:00 desk-proof-2159.json
+{
+ "gap": null,
+ "note": "That step is not open: it is checked already, withdrawn, or not a step. Do not send its proof."
+}
+

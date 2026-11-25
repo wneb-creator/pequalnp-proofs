@@ -1,0 +1,1 @@
+L4033 helper body copied with namespace rename; exactpostedstatement copied fromdeskassignment. Newfinalproof converts absenceofa disagreeinginput into forbiddenHasCircuitSize9edge15 witness. Nooutsideprojectimport added. Fourinheritedhelperstructuresmeanmanualreviewrouting underCONTRIBUTING.

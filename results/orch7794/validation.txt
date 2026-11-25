@@ -1,0 +1,3 @@
+Wrapper.lean compiled successfully with an explicit hypothesis supplying the existing L4033 exclusion. Full named target build and checker are pending.
+Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
+TIMING total=128 subagents=6

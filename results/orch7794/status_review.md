@@ -1,0 +1,13 @@
+# Independent review for L-meta-7794
+
+The authoritative posted-gap list is `https://data.pequalnp.com/data/desk/gaps.json`, as named in the repository's authoritative and advisory workflows. Unlike the public lemma catalog, this list identifies statements actually offered to outside contributors. The prior L2151 and L2159 candidates were catalog conjectures absent from all three desk lists (open, checked, withdrawn); the desk correctly refused them. No proof was built or edited for those unleased targets.
+
+L7794 is actually posted and was leased by the root agent. Its statement says every FanInTwo circuit of exactly 15 gates differs on some input from the nine-input edge function encoded by `[1,12,23,34,40,5,16,27,38,57,68,85]`. Decoding the twelve entries yields exactly the ordered edge list in accepted L4033: 01, 12, 23, 34, 40, 05, 16, 27, 38, 57, 68, 85. Independent finite evaluation agrees on all 512 Boolean assignments.
+
+The library definition of HasCircuitSize is an existential circuit satisfying FanInTwo, size at most the bound, and equality on every input. Therefore denying L7794's requested disagreement, together with size=15, supplies exactly the witness excluded by L4033. No graph regularity, backward-read restriction, monotonicity, or extra gate hypothesis is introduced.
+
+Reviewed target `lean/PEqualNP/Outside/L_meta_7794.lean`, SHA256 `d714efb590571bf8c86527409b8eee7b94ea4338d5a2271c3b87f98fe8cacc2e`: 6,586 lines, 521,570 bytes, leaving 2,718 bytes below the 512 KiB limit. The entire helper prefix matches accepted L4033 byte-for-byte after only the namespace rename L_meta_4033 to L_meta_7794. The final theorem contains the desk's exact statement verbatim. Its proof negates disagreement, supplies the HasCircuitSize witness to the inherited directSplit/monoRoot/signedRoot proof, and normalizes the encoded edge expression with Fin.ofNat and Boolean OR associativity.
+
+Official plain, import, and own-namespace checks pass on the actual file, without a parser sentinel. The sole import is PEqualNP.Defs. Four custom structures are inherited from L4033: KWRooms, FreeRooms, SingleFactor, PanelProof. Under CONTRIBUTING, their use requires human review; the PR description must disclose this in its first line. This is review routing rather than a rejection by the guard. The source includes no forbidden root text, quotes, code-execution commands, new axioms, sorry, or native_decide.
+
+Static independent verdict: PASS. The short implication wrapper was compiled separately with the inherited no-circuit theorem represented as an explicit hypothesis. The full target build and local checker are still pending at this audit timestamp; this note does not claim they have passed.
