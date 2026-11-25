@@ -1,0 +1,6 @@
+Independent review: DirtyPure.lean
+SHA256 f9a81534609b17c486a0c019ad9aec1680b184c21d1bbba1e9ece5fba5ee972a;915lines38749bytes.
+Exact delta from reviewedDirtyChain is96lines adding orIn_input_mem,orIn_gate_iff,pure_or_eval. Firsttwo lemmas correctly characterize primary ORsupport for input wires and valid ORgates by unfolding existing definitions and backward OrReaches.
+pure_or_eval assumes IsAO2 (only AND/OR,exacttwoinputs,strictbackwardreferences),a valid wire w,and no ANDgate OR-reaching w. It concludes nonempty primary ORsupport and evaluation equal to OR over that support. Strong induction on wireindex is valid because IsAO2 provides strict backwardreferences. Reflexive OrReaches rules outAND at currentgate; for each child any OR-reaching AND would extend through currentOR, so inductionapplies. Exacttwoinputs supplies at leastone child, giving support nonemptiness. Evalproof uses precisely the ORsupport characterization.
+Scope: no constants/NOT/zero-fanin or malformedwire cases are covered because AO2 andrange are explicit. Does not derive the no-AND-ancestor premise for any targetcircuit or prove the posted lowerbound.
+Format clean; approvedhelper namespace, no forbiddenforms/options/attributes/newaxioms. Officialguard reports only expected absent final postedtheorem. Savedlog has copiedwarnings but noerrors; authorreports exit0. Reviewpassed.
