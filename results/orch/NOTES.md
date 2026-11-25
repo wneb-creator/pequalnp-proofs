@@ -55,3 +55,13 @@ Reduction slots reported: 3 live; reductions_open true. Need inspect existing re
 - To extend L3760, handle these odd-cycle cover-swap cases with additional local circuit/budget analysis; replacing hbip by htri directly is unsound. Counterexample agent searching minimum C5 circuits with a dirty AND to test whether stronger all-minima elimination is false.
 
 - 2026-11-25T01:12:44.087323+00:00: ExchangeBoundary.lean compiled cleanly; kernel finite check confirms P4 output cannot be produced by <=2 sound-AND extension gates when all three OR signals (a∨c),(b∨d),(b∨c) must be retained. Inputs encoded by 16-bit tables 43690,52428,61680,65280; OR tables 64250,65484,64764; target ab∨bc∨cd=63688. Constants 0 and 65535 also provided free. All OR gates allowed; each AND output required to satisfy value & ~target=0. The unnormalized circuit produces target with exactly2 extra ANDs. A sound replacement requires3 gates, so preserving arbitrary external uses blocks the local exchange.
+
+- 2026-11-25T01:13:26.495865+00:00 structure_proof: Checked generalized finite-set essential-input bound from Support.lean using only legal imports, then graph specialization: every nonisolated vertex essential; degree(c) <= circuit size for any fan-in-two edge-function circuit. Checked conditional leastness at this degree bound. Full 247-line version is scratch starleast-next.lean, awaiting root snapshot coordination; construction agent making canonical star witness to combine into exact posted conclusion on all star graphs with isolates.
+
+2026-11-25T01:16:26.230726+00:00
+
+## OneJunk cover-cost implementation (check in progress)
+- Source provenance: OneJunk.lean copies infrastructure from upstream lean/PEqualNP/Outside/L_meta_3760.lean (commit9c4fa2b), under PEqualNP.Outside.L_meta_1031.OneJunk. The old proof contradicts every one-junk minimum for bipartite C4-free graphs.
+- New target is weaker and applies to triangle/C4-free graphs: a least AO2 circuit with exactly one junk AND admits a vertexcover T with |E|+|T|≤C.size+1. Combined with the star-cover construction, this gives a sound replacement no larger than C.
+- The strict-improvement tails needing bipartiteness are pruned. All branches use the one-junk global budget, with charges pen+mix+2centreless+coneGates≥|Ustar|+extra-cover-vertices−1. Singletonstar cases need cg≥U−1 and mix+2cl≥1. Doublestar cases use cg bounds from both sides and triangle exclusion to distinguish mixing witnesses.
+- The remaining gap for the assigned theorem is arbitrary many junk AND gates. No global telescope or valid boundary-preserving local replacement has been proved.

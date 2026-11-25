@@ -1,7 +1,7 @@
 L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
-Lean 4.36.0: named file builds successfully (exit 0).
-Includes intersecting-edge star lemmas, edgeless least-circuit case, and P4 exchange/common-center lemmas.
-Independent review: PASS for partial scope only.
+Lean4.36.0: named file builds successfully (exit0),1227lines.
+Checked partials: star-family combinatorics, edgeless least circuit, P4 exchange, C5 obstruction to an invalid inference, finite exchange-boundary obstruction, essential-input lower bound, and explicit star-cover ownership.
+Independent reviews: PASS for partial scope only.
 Local checker: not run; posted theorem remains absent.
-Sub-agents: 5 (prior-gap/construction, structure, counterexample search, reductions/exchange, ownership/review)
-TIMING total=10 subagents=5
+Sub-agents:5 (prior-gap/construction, structure, counterexample search, reductions/exchange, ownership/review)
+TIMING total=12.6 subagents=5
