@@ -9151,4 +9151,225 @@ lemma independent_no_opposite {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel 
 
 end LargeOverlapNoJoint
 
+
+namespace LargeOverlapCenters
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.ReadTwo
+open PEqualNP.Outside.L_meta_5012.IndependentDescent
+
+lemma wmax_nonempty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    {j k : ℕ} (hne : j ≠ k) (hJ : junk G C = {j,k})
+    (hCone : ¬ InCone n C j k)
+    (hNoOpp : ∀ a ∈ tops G C, ∀ b : Fin 2,
+      OrReaches n C (opnd C a b) j → ¬ OrReaches n C (opnd C a (1-b)) k) :
+    (wmax G C j).Nonempty := by
+  by_contra hEmpty
+  have hj : j ∈ junk G C := by rw [hJ]; simp
+  obtain ⟨e,he⟩ := Cases.edge_nonempty_of_junk_nonempty G C hL ⟨j,hj⟩
+  have hExists : ∀ e : Sym2 (Fin n), e ∈ G.edgeFinset → ∃ u v, G.Adj u v := by
+    intro e
+    refine Sym2.inductionOn e ?_
+    intro u v huv
+    exact ⟨u,v,by simpa using huv⟩
+  obtain ⟨u,v,huv⟩ := hExists e he
+  apply CleanReplacement.no_clean_independent_replacement G C hL hOne hne hJ hCone
+    (CleanReplacement.edgeGate u v)
+  · exact Or.inl rfl
+  · rfl
+  · intro w hw
+    simp only [CleanReplacement.edgeGate,List.mem_cons,List.not_mem_nil,or_false] at hw
+    rcases hw with rfl | rfl
+    · have := u.isLt; omega
+    · have := v.isLt; omega
+  · intro x hf
+    rw [CleanReplacement.edge_bit]
+    apply Bool.eq_false_iff.mpr
+    intro hv
+    have hx : x u = true ∧ x v = true := by simpa only [Bool.and_eq_true] using hv
+    have hF := (CleanReplacement.graph_true G x).mpr ⟨u,v,huv,hx.1,hx.2⟩
+    rw [hf] at hF
+    cases hF
+  · intro p q hpq hLost
+    have hcrit := Critical.critical_edge_useful hL.1 hL.2.1 hT
+      (by rw [hJ,Finset.pair_comm]) hne.symm hCone hNoOpp p q hpq hLost
+    rcases hcrit.2 with hp | hq
+    · exact False.elim (hEmpty ⟨p,hp⟩)
+    · exact False.elim (hEmpty ⟨q,hq⟩)
+
+lemma wmax_card_le_one {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) (P Q : Finset (Fin n))
+    (hEval : ∀ x : Fin n → Bool, gateVal n C j x = product P Q x)
+    (h4 : NoFourCycle G) (hLarge : 2 ≤ (P ∩ Q).card) :
+    (wmax G C j).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro u hu v hv
+  exact safe_unique_of_large_overlap G P Q h4 hLarge
+    ((wmax_iff G C j P Q hEval u).mp hu) ((wmax_iff G C j P Q hEval v).mp hv)
+
+lemma wmax_singleton {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    {j k : ℕ} (hne : j ≠ k) (hJ : junk G C = {j,k})
+    (hjk : ¬ InCone n C j k) (hkj : ¬ InCone n C k j)
+    (h4 : NoFourCycle G)
+    (hLarge : ∀ t ∈ junk G C, 2 ≤ (side (n := n) C t 0 ∩ side (n := n) C t 1).card) :
+    ∃ w : Fin n, wmax G C j = {w} := by
+  have hj : j ∈ junk G C := by rw [hJ]; simp
+  have hk : k ∈ junk G C := by rw [hJ]; simp
+  have hNoOpp := LargeOverlapNoJoint.independent_no_opposite G C hL.1 hT hJ hjk hkj h4 hLarge
+  have hneW := wmax_nonempty G C hL hT hOne hne hJ hjk (fun a ha b => hNoOpp a ha b j hj k hk)
+  have hEval := RawOperands.independent_product G C hL.1 hT j k hJ hjk hkj j (Or.inl rfl)
+  have hCard := wmax_card_le_one G C j _ _ hEval h4 (hLarge j hj)
+  exact Finset.card_eq_one.mp (by have := Finset.card_pos.mpr hneW; omega)
+
+end LargeOverlapCenters
+
+
+namespace InsideCenter
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.ReadTwo
+open IndependentDescent CleanReplacement
+
+lemma singleton_center_not_in_side {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    (hT : TopForm G C) {j k : ℕ} (hne : j ≠ k) (hJ : junk G C = {j,k})
+    (hjk : ¬ InCone n C j k) (hkj : ¬ InCone n C k j)
+    (hNoCommon : ∀ a ∈ tops G C, ∀ b : Fin 2,
+      OrReaches n C (opnd C a b) j → ¬ OrReaches n C (opnd C a (1-b)) k)
+    (w : Fin n) (hW : wmax G C j = {w}) (b : Fin 2) :
+    w ∉ side (n := n) C j b := by
+  intro hw
+  have hjmem : j ∈ junk G C := by rw [hJ]; simp
+  have hj : j < C.gates.length := (Critical.Base.junkData hjmem).1
+  have hAnd : (gateAt C j).op = GateOp.and := (Critical.Base.junkData hjmem).2.1
+  have hOpnd : opnd C j (1-b) < n+j := Lift.opnd_lt hL.1 hj (1-b)
+  have hEval : ∀ x : Fin n → Bool, gateVal n C j x =
+      product (side (n := n) C j 0) (side (n := n) C j 1) x :=
+    RawOperands.independent_product G C hL.1 hT j k hJ hjk hkj j (Or.inl rfl)
+  have hRaw (x : Fin n → Bool) : wval C x (opnd C j (1-b)) =
+      decide (∃ q ∈ side (n := n) C j (1-b), x q = true) :=
+    RawOperands.independent_operand G C hL.1 hT j k hJ hjk hkj j (Or.inl rfl) (1-b) x
+  have hSafe : Safe G (side (n := n) C j 0) (side (n := n) C j 1) w := by
+    apply (wmax_iff G C j _ _ hEval w).mp
+    rw [hW]
+    simp
+  have hProd (x : Fin n → Bool) (hxw : x w = true)
+      (hq : decide (∃ q ∈ side (n := n) C j (1-b), x q = true) = true) :
+      product (side (n := n) C j 0) (side (n := n) C j 1) x = true := by
+    apply (product_true _ _ _).mpr
+    have hq' := of_decide_eq_true hq
+    fin_cases b
+    · exact ⟨⟨w,hw,hxw⟩,by simpa using hq'⟩
+    · exact ⟨by simpa using hq',⟨w,hw,hxw⟩⟩
+  apply no_clean_independent_replacement G C hL hOne hne hJ hjk
+    ⟨GateOp.and,[w.val,opnd C j (1-b)]⟩ (Or.inl rfl) rfl
+  · intro q hq
+    simp only [List.mem_cons,List.not_mem_nil,or_false] at hq
+    rcases hq with rfl | rfl
+    · have := w.isLt
+      omega
+    · exact hOpnd
+  · intro x hf
+    rw [FlagReduction.star_gate_bit C j (Nat.le_of_lt hj) w _ hOpnd x,hRaw x]
+    apply Bool.eq_false_iff.mpr
+    intro hs
+    simp only [Bool.and_eq_true] at hs
+    obtain ⟨hxw,hq⟩ := hs
+    have hF := hSafe x (hProd x hxw hq) hxw
+    rw [hf] at hF
+    cases hF
+  · intro u v huv hLost
+    have hJ' : junk G C = {k,j} := by rw [hJ,Finset.pair_comm]
+    obtain ⟨hjv,hFilter⟩ := Critical.critical_edge_useful hL.1 hL.2.1 hT hJ'
+      (Ne.symm hne) hjk hNoCommon u v huv hLost
+    rw [FlagReduction.star_gate_bit C j (Nat.le_of_lt hj) w _ hOpnd _,Bool.and_eq_true]
+    refine ⟨?_,?_⟩
+    · rcases hFilter with hu | hv
+      · have huw : u=w := Finset.mem_singleton.mp (hW ▸ hu)
+        subst u
+        exact Critical.Base.pairInput_left _ _
+      · have hvw : v=w := Finset.mem_singleton.mp (hW ▸ hv)
+        subst v
+        exact Critical.Base.pairInput_right _ _
+    · rw [RawOperands.and_gate_eq C hL.1 j hj hAnd _,Bool.and_eq_true] at hjv
+      fin_cases b
+      · simpa using hjv.2
+      · simpa using hjv.1
+
+end InsideCenter
+
+namespace LargeOverlapCenters
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.ReadTwo
+
+lemma wmax_singleton_outside {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    {j k : ℕ} (hne : j ≠ k) (hJ : junk G C = {j,k})
+    (hjk : ¬ InCone n C j k) (hkj : ¬ InCone n C k j)
+    (h4 : NoFourCycle G)
+    (hLarge : ∀ t ∈ junk G C, 2 ≤ (side (n := n) C t 0 ∩ side (n := n) C t 1).card) :
+    ∃ w : Fin n, wmax G C j = {w} ∧ ∀ b : Fin 2, w ∉ side (n := n) C j b := by
+  obtain ⟨w, hw⟩ := wmax_singleton G C hL hT hOne hne hJ hjk hkj h4 hLarge
+  have hj : j ∈ junk G C := by rw [hJ]; simp
+  have hk : k ∈ junk G C := by rw [hJ]; simp
+  have hNoOpp := LargeOverlapNoJoint.independent_no_opposite G C hL.1 hT hJ hjk hkj h4 hLarge
+  exact ⟨w,hw,fun b => InsideCenter.singleton_center_not_in_side G C hL hOne hT hne hJ
+    hjk hkj (fun a ha b => hNoOpp a ha b j hj k hk) w hw b⟩
+
+lemma centers_outside {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    {g h : ℕ} (hne : g ≠ h) (hJ : junk G C = {g,h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (h4 : NoFourCycle G)
+    (hLarge : ∀ t ∈ junk G C, 2 ≤ (side (n := n) C t 0 ∩ side (n := n) C t 1).card) :
+    ∃ center : ℕ → Fin n, ∀ j ∈ junk G C,
+      wmax G C j = {center j} ∧ ∀ b : Fin 2, center j ∉ side (n := n) C j b := by
+  obtain ⟨w,hw,hwo⟩ := wmax_singleton_outside G C hL hT hOne hne hJ hgh hhg h4 hLarge
+  have hJ' : junk G C = {h,g} := by rw [hJ,Finset.pair_comm]
+  obtain ⟨z,hz,hzo⟩ := wmax_singleton_outside G C hL hT hOne hne.symm hJ' hhg hgh h4 hLarge
+  refine ⟨fun j => if j=g then w else z,?_⟩
+  intro j hj
+  rw [hJ] at hj
+  rcases (show j=g ∨ j=h by simpa only [Finset.mem_insert,Finset.mem_singleton] using hj) with rfl | rfl
+  · simpa only [ite_true] using And.intro hw hwo
+  · simpa only [ite_eq_right hne.symm] using And.intro hz hzo
+
+end LargeOverlapCenters
+
+namespace LargeOverlapCenters
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.ReadTwo
+
+lemma centers_opposite {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    {g h : ℕ} (hne : g ≠ h) (hJ : junk G C = {g,h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (h4 : NoFourCycle G)
+    (hLarge : ∀ t ∈ junk G C, 2 ≤ (side (n := n) C t 0 ∩ side (n := n) C t 1).card) :
+    ∃ center : ℕ → Fin n,
+      (∀ j ∈ junk G C, wmax G C j = {center j} ∧
+        ∀ b : Fin 2, center j ∉ side (n := n) C j b) ∧ s (center g) ≠ s (center h) := by
+  obtain ⟨center,hCenters⟩ := centers_outside G C hL hT hOne hne hJ hgh hhg h4 hLarge
+  refine ⟨center,hCenters,?_⟩
+  intro hSame
+  apply SameColorCenterCase.same_color_centers_overlap_impossible_without_bad G C hL hT hOne
+    s hbip hJ hgh hhg center (s (center g))
+  · intro j hj
+    rcases Critical.Base.memJunkPair hJ hj with rfl | rfl
+    · rfl
+    · exact hSame.symm
+  · exact fun j hj => (hCenters j hj).1
+  · exact fun j hj => (hCenters j hj).2
+  · intro j hj
+    exact Finset.card_pos.mp (by have := hLarge j hj; omega)
+
+end LargeOverlapCenters
+
 end PEqualNP.Outside.L_meta_5012
