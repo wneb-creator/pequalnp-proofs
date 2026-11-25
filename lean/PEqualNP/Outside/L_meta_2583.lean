@@ -2518,4 +2518,821 @@ lemma unified_strict_full_safety_matching_bound {P L r k : ℕ}
 
 end StrictMatchingCNF
 
+namespace ActivePointCNF
+
+lemma separated_active_points_clause_count {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hactive : ∀ i : Fin r, ∃ l, H (p i) l)
+    (hseparate : ∀ i j : Fin r, i ≠ j →
+      ∃ l, (H (p i) l ∧ ¬ I (p j) l) ∨ (H (p j) l ∧ ¬ I (p i) l))
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  classical
+  have hbase : ∃ c : Fin k, ∀ b, ¬ Sl c b := by
+    by_contra h
+    have hits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (false : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (true : Bool) = true) := by
+      intro c
+      have hex : ∃ b, Sl c b := by
+        by_contra hn
+        exact h ⟨c, fun b hb => hn ⟨b, hb⟩⟩
+      obtain ⟨b, hb⟩ := hex
+      exact Or.inr ⟨b, hb, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => false) (fun _ => true) hits
+    cases ha
+  have hpoint : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sp c (p i) ∧ ∀ b, ¬ I (p i) b → ¬ Sl c b := by
+    intro i
+    let x : Fin P → Bool := fun a => decide (a = p i)
+    let y : Fin L → Bool := fun b => decide (¬ I (p i) b)
+    by_contra h
+    have hits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hp : Sp c (p i)
+      · exact Or.inl ⟨p i, hp, by simp [x]⟩
+      · have hex : ∃ b, ¬ I (p i) b ∧ Sl c b := by
+          by_contra hn
+          exact h ⟨c, hp, fun b hnb hb => hn ⟨b, hnb, hb⟩⟩
+        obtain ⟨b, hnb, hb⟩ := hex
+        exact Or.inr ⟨b, hb, by simp [y, hnb]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hits
+    have hap : a = p i := by simpa only [x, decide_eq_true_eq] using ha
+    have hnb : ¬ I (p i) b := by simpa only [y, decide_eq_true_eq] using hb
+    exact hnb (hap ▸ hab)
+  obtain ⟨c0, hc0⟩ := hbase
+  choose c hc using hpoint
+  have c_ne_base (i : Fin r) : c i ≠ c0 := by
+    intro heq
+    obtain ⟨b, hb⟩ := hactive i
+    rcases hcover (c i) (p i) b hb with hp | hl
+    · exact (hc i).1 hp
+    · rw [heq] at hl
+      exact hc0 b hl
+  have c_injective : Function.Injective c := by
+    intro i j heq
+    by_contra hij
+    obtain ⟨b, hb | hb⟩ := hseparate i j hij
+    · rcases hcover (c i) (p i) b hb.1 with hp | hl
+      · exact (hc i).1 hp
+      · rw [heq] at hl
+        exact (hc j).2 b hb.2 hl
+    · rcases hcover (c j) (p j) b hb.1 with hp | hl
+      · exact (hc j).1 hp
+      · rw [← heq] at hl
+        exact (hc i).2 b hb.2 hl
+  let f : Option (Fin r) → Fin k := fun i => i.elim c0 c
+  have hinj : Function.Injective f := by
+    intro a b hab
+    cases a with
+    | none =>
+      cases b with
+      | none => rfl
+      | some i => exact False.elim (c_ne_base i hab.symm)
+    | some i =>
+      cases b with
+      | none => exact False.elim (c_ne_base i hab)
+      | some j => exact congrArg some (c_injective hab)
+  have hcard := Fintype.card_le_of_injective f hinj
+  simpa only [Fintype.card_option, Fintype.card_fin] using hcard
+
+lemma no_four_cycle_active_points_clause_count {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hsub : ∀ a b, H a b → I a b)
+    (hdiag : ∀ i : Fin r, H (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (hcollision : ∀ i j : Fin r, i ≠ j → l i = l j →
+      (∃ b, H (p i) b ∧ b ≠ l i) ∨ (∃ b, H (p j) b ∧ b ≠ l j))
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  apply separated_active_points_clause_count I H p Sp Sl
+    (fun i => ⟨l i, hdiag i⟩) ?_ hcover hsafe
+  intro i j hij
+  have hpp : p i ≠ p j := fun h => hij (hp h)
+  by_cases hli : ¬ I (p j) (l i)
+  · exact ⟨l i, Or.inl ⟨hdiag i, hli⟩⟩
+  by_cases hlj : ¬ I (p i) (l j)
+  · exact ⟨l j, Or.inr ⟨hdiag j, hlj⟩⟩
+  have hcrossi : I (p j) (l i) := Classical.not_not.mp hli
+  have hcrossj : I (p i) (l j) := Classical.not_not.mp hlj
+  have heq : l i = l j := hfour (p i) (p j) hpp (l i) (l j)
+    (hsub _ _ (hdiag i)) hcrossi hcrossj (hsub _ _ (hdiag j))
+  rcases hcollision i j hij heq with ⟨b, hb, hne⟩ | ⟨b, hb, hne⟩
+  · refine ⟨b, Or.inl ⟨hb, ?_⟩⟩
+    intro hother
+    exact hne (hfour (p i) (p j) hpp b (l i)
+      (hsub _ _ hb) hother (hsub _ _ (hdiag i)) hcrossi)
+  · refine ⟨b, Or.inr ⟨hb, ?_⟩⟩
+    intro hother
+    exact hne (hfour (p i) (p j) hpp b (l j)
+      hother (hsub _ _ hb) hcrossj (hsub _ _ (hdiag j)))
+
+end ActivePointCNF
+
+
+namespace ProductFactor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm PEqualNP.CircuitMoves
+  PEqualNP.MetaComplexity.NestedCover
+
+def appendOr (D : Circuit) (a b : ℕ) : Circuit :=
+  ⟨D.gates ++ [⟨GateOp.or, [a, b]⟩], D.output⟩
+
+lemma appendOr_size (D : Circuit) (a b : ℕ) :
+    (appendOr D a b).size = D.size + 1 := by
+  simp [appendOr, Circuit.size]
+
+lemma old_wire_appendOr (n : ℕ) (D : Circuit) (a b w : ℕ)
+    (hw : w < n + D.size) (x : Fin n → Bool) :
+    PEqualNP.BlindGate.wireValue (appendOr D a b) n x w =
+      PEqualNP.BlindGate.wireValue D n x w := by
+  unfold PEqualNP.BlindGate.wireValue Circuit.wires appendOr
+  simp only [List.foldl_append, List.foldl_cons, List.foldl_nil]
+  apply List.getD_append
+  change w < (D.gates.foldl SplitAux.wireStep (List.ofFn x)).length
+  rw [SplitAux.foldl_wireStep_length, List.length_ofFn]
+  exact hw
+
+lemma appendOr_gate (D : Circuit) (a b : ℕ) :
+    gateAt (appendOr D a b) D.gates.length = ⟨GateOp.or, [a, b]⟩ := by
+  simp [gateAt, appendOr, List.getD_eq_getElem?_getD]
+
+lemma appendOr_ao2 (n : ℕ) (D : Circuit) (a b : ℕ) (hD : IsAO2 n D)
+    (ha : a < n + D.size) (hb : b < n + D.size) : IsAO2 n (appendOr D a b) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [appendOr, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hD.1 g hg
+    · exact Or.inr rfl
+  · intro j hj w hw
+    have hlen : (appendOr D a b).gates.length = D.gates.length + 1 := by
+      simp [appendOr]
+    by_cases hjD : j < D.gates.length
+    · have heq : gateAt (appendOr D a b) j = gateAt D j := by
+        simp only [gateAt, appendOr]
+        exact List.getD_append _ _ _ _ hjD
+      rw [heq] at hw
+      exact hD.2.1 j hjD w hw
+    · have hjeq : j = D.gates.length := by omega
+      subst j
+      rw [appendOr_gate] at hw
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl
+      · exact ha
+      · exact hb
+  · intro g hg
+    simp only [appendOr, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hD.2.2 g hg
+    · rfl
+
+lemma new_wire_appendOr (n : ℕ) (D : Circuit) (a b : ℕ) (hD : IsAO2 n D)
+    (ha : a < n + D.size) (hb : b < n + D.size) (x : Fin n → Bool) :
+    PEqualNP.BlindGate.wireValue (appendOr D a b) n x (n + D.size) =
+      (PEqualNP.BlindGate.wireValue D n x a || PEqualNP.BlindGate.wireValue D n x b) := by
+  have hD' := appendOr_ao2 n D a b hD ha hb
+  change PEqualNP.BlindGate.wireValue (appendOr D a b) n x (n + D.gates.length) = _
+  rw [SplitAux.wireValue_gate n (appendOr D a b) x D.gates.length (by simp [appendOr]) hD'.2.1]
+  rw [appendOr_gate]
+  simp only [List.map_cons, List.map_nil, GateOp.eval, List.any_cons, List.any_nil,
+    Bool.or_false, id_eq]
+  rw [old_wire_appendOr n D a b a ha x, old_wire_appendOr n D a b b hb x]
+
+lemma appendOr_nonbelow (n : ℕ) (D : Circuit) (a b : ℕ) (F : (Fin n → Bool) → Bool)
+    (hD : IsAO2 n D) (ha : a < n + D.size) (hb : b < n + D.size)
+    (hold : ∀ j < D.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true ∧ F x = false)
+    (haF : ∃ x : Fin n → Bool, PEqualNP.BlindGate.wireValue D n x a = true ∧ F x = false) :
+    ∀ j < (appendOr D a b).size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue (appendOr D a b) n x (n + j) = true ∧ F x = false := by
+  intro j hj
+  rw [appendOr_size] at hj
+  by_cases hjD : j < D.size
+  · obtain ⟨x, hx, hF⟩ := hold j hjD
+    refine ⟨x, ?_, hF⟩
+    rwa [old_wire_appendOr n D a b (n + j) (by omega) x]
+  · have hjEq : j = D.size := by omega
+    subst j
+    obtain ⟨x, hx, hF⟩ := haF
+    refine ⟨x, ?_, hF⟩
+    rw [new_wire_appendOr n D a b hD ha hb x, hx]
+    rfl
+
+lemma factor_pair_semantics (n : ℕ) (D : Circuit) (J a b : ℕ)
+    (R : List (ℕ × ℕ)) (hD : IsAO2 n D)
+    (hJ : J < n + D.size) (ha : a < n + D.size) (hb : b < n + D.size)
+    (hR : ∀ t ∈ R, t.1 < n + D.size ∧ t.2 < n + D.size)
+    (x : Fin n → Bool) :
+    (∃ t ∈ (J, a) :: (J, b) :: R,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) ↔
+    ∃ t ∈ (J, n + D.size) :: R,
+      PEqualNP.BlindGate.wireValue (appendOr D a b) n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue (appendOr D a b) n x t.2 = true := by
+  have hrest : (∃ t ∈ R,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) ↔
+      ∃ t ∈ R,
+        PEqualNP.BlindGate.wireValue (appendOr D a b) n x t.1 = true ∧
+        PEqualNP.BlindGate.wireValue (appendOr D a b) n x t.2 = true := by
+    apply exists_congr
+    intro t
+    constructor
+    · rintro ⟨ht, ht1, ht2⟩
+      exact ⟨ht, by rwa [old_wire_appendOr n D a b t.1 (hR t ht).1 x],
+        by rwa [old_wire_appendOr n D a b t.2 (hR t ht).2 x]⟩
+    · rintro ⟨ht, ht1, ht2⟩
+      exact ⟨ht, by rwa [old_wire_appendOr n D a b t.1 (hR t ht).1 x] at ht1,
+        by rwa [old_wire_appendOr n D a b t.2 (hR t ht).2 x] at ht2⟩
+  simp only [List.mem_cons, exists_eq_or_imp] at *
+  rw [old_wire_appendOr n D a b J hJ x, new_wire_appendOr n D a b hD ha hb x,
+    Bool.or_eq_true, ← hrest]
+  tauto
+
+lemma factor_pair_cost (D : Circuit) (n J a b : ℕ) (R : List (ℕ × ℕ)) :
+    (appendOr D a b).size + 2 * ((J, n + D.size) :: R).length + 1 =
+      D.size + 2 * ((J, a) :: (J, b) :: R).length := by
+  rw [appendOr_size]
+  simp only [List.length_cons]
+  omega
+
+
+lemma invalid_wire_false (n : ℕ) (D : Circuit) (w : ℕ)
+    (hw : n + D.size ≤ w) (x : Fin n → Bool) :
+    PEqualNP.BlindGate.wireValue D n x w = false := by
+  unfold PEqualNP.BlindGate.wireValue Circuit.wires
+  change (D.gates.foldl SplitAux.wireStep (List.ofFn x)).getD w false = false
+  apply List.getD_eq_default
+  rw [SplitAux.foldl_wireStep_length, List.length_ofFn]
+  exact hw
+
+def validPairs (n : ℕ) (D : Circuit) (B : List (ℕ × ℕ)) : List (ℕ × ℕ) :=
+  B.filter (fun t => decide (t.1 < n + D.size ∧ t.2 < n + D.size))
+
+lemma mem_validPairs (n : ℕ) (D : Circuit) (B : List (ℕ × ℕ)) (t : ℕ × ℕ) :
+    t ∈ validPairs n D B ↔ t ∈ B ∧ t.1 < n + D.size ∧ t.2 < n + D.size := by
+  simp [validPairs]
+
+lemma validPairs_length_le (n : ℕ) (D : Circuit) (B : List (ℕ × ℕ)) :
+    (validPairs n D B).length ≤ B.length := by
+  exact List.length_filter_le _ _
+
+lemma validPairs_semantics (n : ℕ) (D : Circuit) (B : List (ℕ × ℕ))
+    (x : Fin n → Bool) :
+    (∃ t ∈ B, PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) ↔
+    ∃ t ∈ validPairs n D B, PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true := by
+  constructor
+  · rintro ⟨t, ht, h1, h2⟩
+    have hb1 : t.1 < n + D.size := by
+      by_contra h
+      rw [invalid_wire_false n D t.1 (by omega) x] at h1
+      cases h1
+    have hb2 : t.2 < n + D.size := by
+      by_contra h
+      rw [invalid_wire_false n D t.2 (by omega) x] at h2
+      cases h2
+    exact ⟨t, (mem_validPairs n D B t).mpr ⟨ht, hb1, hb2⟩, h1, h2⟩
+  · rintro ⟨t, ht, h1, h2⟩
+    exact ⟨t, ((mem_validPairs n D B t).mp ht).1, h1, h2⟩
+
+lemma factor_pair_package (n : ℕ) (D : Circuit) (J a b : ℕ)
+    (R : List (ℕ × ℕ)) (F : (Fin n → Bool) → Bool)
+    (hD : IsAO2 n D)
+    (hbound : ∀ t ∈ (J, a) :: (J, b) :: R,
+      t.1 < n + D.size ∧ t.2 < n + D.size)
+    (hnot : ∀ w < n + D.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x w = true ∧ F x = false)
+    (hF : ∀ x : Fin n → Bool, F x = true ↔ ∃ t ∈ (J, a) :: (J, b) :: R,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) :
+    ∃ (E : Circuit) (A : List (ℕ × ℕ)), IsAO2 n E ∧
+      (∀ t ∈ A, t.1 < n + E.size ∧ t.2 < n + E.size) ∧
+      (∀ w < n + E.size, ∃ x : Fin n → Bool,
+        PEqualNP.BlindGate.wireValue E n x w = true ∧ F x = false) ∧
+      (∀ x : Fin n → Bool, F x = true ↔ ∃ t ∈ A,
+        PEqualNP.BlindGate.wireValue E n x t.1 = true ∧
+        PEqualNP.BlindGate.wireValue E n x t.2 = true) ∧
+      E.size + 2 * A.length + 1 = D.size + 2 * ((J, a) :: (J, b) :: R).length := by
+  have hb1 := hbound (J, a) (by simp)
+  have hb2 := hbound (J, b) (by simp)
+  have hR : ∀ t ∈ R, t.1 < n + D.size ∧ t.2 < n + D.size := by
+    intro t ht
+    exact hbound t (by simp [ht])
+  refine ⟨appendOr D a b, (J, n + D.size) :: R,
+    appendOr_ao2 n D a b hD hb1.2 hb2.2, ?_, ?_, ?_, factor_pair_cost D n J a b R⟩
+  · intro t ht
+    rw [appendOr_size]
+    simp only [List.mem_cons] at ht
+    rcases ht with rfl | ht
+    · simpa using (show J < n + (D.size + 1) ∧ n + D.size < n + (D.size + 1) by omega)
+    · have := hR t ht
+      constructor <;> omega
+  · intro w hw
+    rw [appendOr_size] at hw
+    by_cases hwold : w < n + D.size
+    · obtain ⟨x, hx, hfalse⟩ := hnot w hwold
+      exact ⟨x, by rwa [old_wire_appendOr n D a b w hwold x], hfalse⟩
+    · have heq : w = n + D.size := by omega
+      subst w
+      obtain ⟨x, hx, hfalse⟩ := hnot a hb1.2
+      refine ⟨x, ?_, hfalse⟩
+      rw [new_wire_appendOr n D a b hD hb1.2 hb2.2 x, hx]
+      rfl
+  · intro x
+    exact (hF x).trans (factor_pair_semantics n D J a b R hD hb1.1 hb1.2 hb2.2 hR x)
+
+
+def IsResidual (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) : Prop :=
+  IsAO2 n D ∧
+  (∀ t ∈ B, t.1 < n + D.size ∧ t.2 < n + D.size) ∧
+  (∀ w < n + D.size, ∃ x : Fin n → Bool,
+    PEqualNP.BlindGate.wireValue D n x w = true ∧ F x = false) ∧
+  (∀ x : Fin n → Bool, F x = true ↔ ∃ t ∈ B,
+    PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+    PEqualNP.BlindGate.wireValue D n x t.2 = true)
+
+lemma factor_oriented_pairs (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hres : IsResidual n F D B)
+    (t s : ℕ × ℕ) (R : List (ℕ × ℕ)) (hperm : B.Perm (t :: s :: R))
+    (J a b : ℕ) (ht : t = (J, a) ∨ t = (a, J))
+    (hs : s = (J, b) ∨ s = (b, J)) :
+    ∃ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n F E A ∧
+      E.size + 2 * A.length + 1 = D.size + 2 * B.length := by
+  have htb := hres.2.1 t ((hperm.mem_iff).mpr (by simp))
+  have hsb := hres.2.1 s ((hperm.mem_iff).mpr (by simp))
+  have hJ : J < n + D.size := by rcases ht with rfl | rfl <;> tauto
+  have ha : a < n + D.size := by rcases ht with rfl | rfl <;> tauto
+  have hb : b < n + D.size := by rcases hs with rfl | rfl <;> tauto
+  have hR : ∀ v ∈ R, v.1 < n + D.size ∧ v.2 < n + D.size := by
+    intro v hv
+    exact hres.2.1 v ((hperm.mem_iff).mpr (by simp [hv]))
+  have hbound : ∀ v ∈ (J, a) :: (J, b) :: R,
+      v.1 < n + D.size ∧ v.2 < n + D.size := by
+    intro v hv
+    simp only [List.mem_cons] at hv
+    rcases hv with rfl | rfl | hv
+    · exact ⟨hJ, ha⟩
+    · exact ⟨hJ, hb⟩
+    · exact hR v hv
+  have hfun : ∀ x : Fin n → Bool, F x = true ↔ ∃ v ∈ (J, a) :: (J, b) :: R,
+      PEqualNP.BlindGate.wireValue D n x v.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x v.2 = true := by
+    intro x
+    rw [hres.2.2.2 x]
+    simp only [hperm.mem_iff, List.mem_cons, exists_eq_or_imp]
+    rcases ht with rfl | rfl <;> rcases hs with rfl | rfl <;> simp only <;> tauto
+  obtain ⟨E, A, hAO, hbd, hnot, hF, hcost⟩ :=
+    factor_pair_package n D J a b R F hres.1 hbound hres.2.2.1 hfun
+  refine ⟨E, A, ⟨hAO, hbd, hnot, hF⟩, ?_⟩
+  simpa only [hperm.length_eq, List.length_cons] using hcost
+
+lemma factor_shared_pairs (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hres : IsResidual n F D B)
+    (t s : ℕ × ℕ) (R : List (ℕ × ℕ)) (hperm : B.Perm (t :: s :: R))
+    (hshare : t.1 = s.1 ∨ t.1 = s.2 ∨ t.2 = s.1 ∨ t.2 = s.2) :
+    ∃ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n F E A ∧
+      E.size + 2 * A.length + 1 = D.size + 2 * B.length := by
+  rcases t with ⟨u, v⟩
+  rcases s with ⟨w, z⟩
+  simp only at hshare
+  rcases hshare with h | h | h | h
+  · subst w
+    exact factor_oriented_pairs n F D B hres (u, v) (u, z) R hperm u v z
+      (Or.inl rfl) (Or.inl rfl)
+  · subst z
+    exact factor_oriented_pairs n F D B hres (u, v) (w, u) R hperm u v w
+      (Or.inl rfl) (Or.inr rfl)
+  · subst w
+    exact factor_oriented_pairs n F D B hres (u, v) (v, z) R hperm v u z
+      (Or.inr rfl) (Or.inl rfl)
+  · subst z
+    exact factor_oriented_pairs n F D B hres (u, v) (w, v) R hperm v u w
+      (Or.inr rfl) (Or.inr rfl)
+
+lemma pairwise_of_pair_perm (B : List (ℕ × ℕ)) (R : (ℕ × ℕ) → (ℕ × ℕ) → Prop)
+    (h : ∀ t s T, B.Perm (t :: s :: T) → R t s) : B.Pairwise R := by
+  induction B with
+  | nil => simp
+  | cons t B ih =>
+    rw [List.pairwise_cons]
+    constructor
+    · intro s hs
+      exact h t s (B.erase s) ((List.perm_cons_erase hs).cons t)
+    · apply ih
+      intro s u T hp
+      apply h s u (t :: T)
+      exact (hp.cons t).trans ((List.Perm.swap s t (u :: T)).trans
+        ((List.Perm.swap u t T).cons s))
+
+lemma minimum_residual_matching (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hres : IsResidual n F D B)
+    (hmin : ∀ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n F E A →
+      D.size + 2 * B.length ≤ E.size + 2 * A.length) :
+    (∀ t ∈ B, t.1 ≠ t.2) ∧
+    B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  constructor
+  · intro t ht heq
+    obtain ⟨x, hx, hfalse⟩ := hres.2.2.1 t.1 (hres.2.1 t ht).1
+    have htrue : F x = true := (hres.2.2.2 x).mpr ⟨t, ht, hx, by rwa [← heq]⟩
+    rw [hfalse] at htrue
+    cases htrue
+  · apply pairwise_of_pair_perm
+    intro t s R hp
+    by_contra h
+    have hshare : t.1 = s.1 ∨ t.1 = s.2 ∨ t.2 = s.1 ∨ t.2 = s.2 := by tauto
+    obtain ⟨E, A, hEA, hcost⟩ := factor_shared_pairs n F D B hres t s R hp hshare
+    have := hmin E A hEA
+    omega
+
+lemma exists_minimum_residual_matching (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hres : IsResidual n F D B) :
+    ∃ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n F E A ∧
+      E.size + 2 * A.length ≤ D.size + 2 * B.length ∧
+      (∀ t ∈ A, t.1 ≠ t.2) ∧
+      A.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  classical
+  let P : ℕ → Prop := fun k => ∃ (E : Circuit) (A : List (ℕ × ℕ)),
+    IsResidual n F E A ∧ E.size + 2 * A.length = k
+  have hex : ∃ k, P k := ⟨D.size + 2 * B.length, D, B, hres, rfl⟩
+  obtain ⟨E, A, hEA, hcost⟩ := Nat.find_spec hex
+  have hmin : ∀ (D' : Circuit) (B' : List (ℕ × ℕ)), IsResidual n F D' B' →
+      E.size + 2 * A.length ≤ D'.size + 2 * B'.length := by
+    intro D' B' h'
+    rw [hcost]
+    exact Nat.find_min' hex ⟨D', B', h', rfl⟩
+  exact ⟨E, A, hEA, hmin D B hres, minimum_residual_matching n F E A hEA hmin⟩
+
+
+lemma residual_of_decomposition (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hD : IsAO2 n D)
+    (hinput : ∀ i : Fin n, ∃ x : Fin n → Bool, x i = true ∧ F x = false)
+    (hnot : ∀ j < D.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true ∧ F x = false)
+    (hF : ∀ x : Fin n → Bool, F x = true ↔ ∃ t ∈ B,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) :
+    IsResidual n F D (validPairs n D B) := by
+  refine ⟨hD, ?_, ?_, ?_⟩
+  · intro t ht
+    exact ((mem_validPairs n D B t).mp ht).2
+  · intro w hw
+    by_cases hwi : w < n
+    · obtain ⟨x, hx, hfalse⟩ := hinput ⟨w, hwi⟩
+      refine ⟨x, ?_, hfalse⟩
+      rwa [SplitAux.wireValue_input n D x w hwi]
+    · obtain ⟨x, hx, hfalse⟩ := hnot (w - n) (by omega)
+      refine ⟨x, ?_, hfalse⟩
+      simpa only [Nat.add_sub_of_le (by omega : n ≤ w)] using hx
+  · intro x
+    exact (hF x).trans (validPairs_semantics n D B x)
+
+lemma not_below_input_witnesses (n : ℕ) (C : Circuit)
+    (hinputs : ∀ w < n, ¬ WireBelowOutput n C w) :
+    ∀ i : Fin n, ∃ x : Fin n → Bool, x i = true ∧ circuitFun n C x = false := by
+  classical
+  intro i
+  have hn := hinputs i.val i.isLt
+  change ¬ ∀ x : Fin n → Bool,
+    PEqualNP.BlindGate.wireValue C n x i.val = true → circuitFun n C x = true at hn
+  push_neg at hn
+  obtain ⟨x, hx, hfalse⟩ := hn
+  refine ⟨x, ?_, by simpa only [Bool.not_eq_true] using hfalse⟩
+  simpa only [SplitAux.wireValue_input n C x i.val i.isLt] using hx
+
+lemma matching_product_decomposition (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hout : C.output < n + C.size)
+    (hinputs : ∀ w < n, ¬ WireBelowOutput n C w) :
+    ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n (circuitFun n C) D B ∧
+      D.size + 2 * B.length ≤ C.size + 1 ∧
+      (∀ t ∈ B, t.1 ≠ t.2) ∧
+      B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  obtain ⟨D, B, hD, hnot, hF, hcost⟩ := product_decomposition n C hAO hout hinputs
+  have hres := residual_of_decomposition n (circuitFun n C) D B hD
+    (not_below_input_witnesses n C hinputs) hnot hF
+  obtain ⟨E, A, hEA, hle, hloop, hpair⟩ :=
+    exists_minimum_residual_matching n (circuitFun n C) D (validPairs n D B) hres
+  refine ⟨E, A, hEA, ?_, hloop, hpair⟩
+  have := validPairs_length_le n D B
+  omega
+
+lemma incidence_matching_product_decomposition (p l : ℕ) (I : Fin p → Fin l → Prop)
+    [DecidableRel I] (C : Circuit) (hAO : IsAO2 (p + l) C) (hne : ∃ a b, I a b)
+    (hF : ∀ z : Fin (p + l) → Bool, circuitFun (p + l) C z =
+      decide (∃ a b, I a b ∧ z (Fin.castAdd l a) = true ∧ z (Fin.natAdd p b) = true)) :
+    ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual (p + l) (circuitFun (p + l) C) D B ∧
+      D.size + 2 * B.length ≤ C.size + 1 ∧
+      (∀ t ∈ B, t.1 ≠ t.2) ∧
+      B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) :=
+  matching_product_decomposition (p + l) C hAO (incidence_output_valid p l I C hne hF)
+    (incidence_no_input_below p l I C hF)
+
+lemma plane_matching_product_decomposition :
+    ∀ (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : Circuit),
+      2 ≤ q → N = q ^ 2 + q + 1 →
+      (∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) →
+      (∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) →
+      IsAO2 (N + N) C →
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+        decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧
+          z (Fin.natAdd N l) = true)) →
+      (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' →
+        ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) ∧
+      ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual (N + N) (circuitFun (N + N) C) D B ∧
+        D.size + 2 * B.length ≤ C.size + 1 ∧
+        (∀ t ∈ B, t.1 ≠ t.2) ∧
+        B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  intro q N I inst C hq hN hlines huniq hAO hF
+  have hfour := (plane_product_decomposition q N I C hq hN hlines huniq hAO hF).1
+  have hNpos : 0 < N := by omega
+  let l0 : Fin N := ⟨0, hNpos⟩
+  have hpoints : (Finset.univ.filter (fun p => I p l0)).Nonempty := by
+    apply Finset.card_pos.mp
+    rw [hlines l0]
+    omega
+  obtain ⟨p0, hp0⟩ := hpoints
+  have hne : ∃ p l : Fin N, I p l := ⟨p0, l0, (Finset.mem_filter.mp hp0).2⟩
+  exact ⟨hfour, incidence_matching_product_decomposition N N I C hAO hne hF⟩
+
+end ProductFactor
+
+
+namespace CoreClauses
+
+lemma option_elim_injective {α β : Type} (b : β) (f : α → β)
+    (hf : Function.Injective f) (hneq : ∀ a, f a ≠ b) :
+    Function.Injective (fun a : Option α => a.elim b f) := by
+  intro a c h
+  cases a with
+  | none =>
+    cases c with
+    | none => rfl
+    | some c => exact False.elim (hneq c h.symm)
+  | some a =>
+    cases c with
+    | none => exact False.elim (hneq a h)
+    | some c => exact congrArg some (hf h)
+
+lemma outside_separated_active_clause_surplus {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hactive : ∀ i : Fin r, ∃ l, H (p i) l)
+    (hseparate : ∀ i j : Fin r, i ≠ j →
+      ∃ l, (H (p i) l ∧ ¬ I (p j) l) ∨ (H (p j) l ∧ ¬ I (p i) l))
+    (houtside : ∀ i : Fin r, ∃ a : Fin P, ∃ l, H a l ∧ ¬ I (p i) l)
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 1 ≤ r) : r + 2 ≤ k := by
+  classical
+  have hpointBase : ∃ c : Fin k, ∀ a, ¬ Sp c a := by
+    by_contra h
+    have hits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (true : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (false : Bool) = true) := by
+      intro c
+      have hex : ∃ a, Sp c a := by
+        by_contra hn
+        exact h ⟨c, fun a ha => hn ⟨a, ha⟩⟩
+      obtain ⟨a, ha⟩ := hex
+      exact Or.inl ⟨a, ha, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => true) (fun _ => false) hits
+    cases hb
+  have hlineBase : ∃ c : Fin k, ∀ b, ¬ Sl c b := by
+    by_contra h
+    have hits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (false : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (true : Bool) = true) := by
+      intro c
+      have hex : ∃ b, Sl c b := by
+        by_contra hn
+        exact h ⟨c, fun b hb => hn ⟨b, hb⟩⟩
+      obtain ⟨b, hb⟩ := hex
+      exact Or.inr ⟨b, hb, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => false) (fun _ => true) hits
+    cases ha
+  have hpoint : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sp c (p i) ∧ ∀ b, ¬ I (p i) b → ¬ Sl c b := by
+    intro i
+    let x : Fin P → Bool := fun a => decide (a = p i)
+    let y : Fin L → Bool := fun b => decide (¬ I (p i) b)
+    by_contra h
+    have hits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hp : Sp c (p i)
+      · exact Or.inl ⟨p i, hp, by simp [x]⟩
+      · have hex : ∃ b, ¬ I (p i) b ∧ Sl c b := by
+          by_contra hn
+          exact h ⟨c, hp, fun b hnb hb => hn ⟨b, hnb, hb⟩⟩
+        obtain ⟨b, hnb, hb⟩ := hex
+        exact Or.inr ⟨b, hb, by simp [y, hnb]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hits
+    have hap : a = p i := by simpa only [x, decide_eq_true_eq] using ha
+    have hnb : ¬ I (p i) b := by simpa only [y, decide_eq_true_eq] using hb
+    exact hnb (hap ▸ hab)
+  obtain ⟨cP, hcP⟩ := hpointBase
+  obtain ⟨cL, hcL⟩ := hlineBase
+  choose c hc using hpoint
+  have hLP : cL ≠ cP := by
+    intro h
+    let i : Fin r := ⟨0, by omega⟩
+    obtain ⟨b, hb⟩ := hactive i
+    rcases hcover cL (p i) b hb with hp | hl
+    · rw [h] at hp
+      exact hcP (p i) hp
+    · exact hcL b hl
+  have hcL_ne (i : Fin r) : c i ≠ cL := by
+    intro h
+    obtain ⟨b, hb⟩ := hactive i
+    rcases hcover (c i) (p i) b hb with hp | hl
+    · exact (hc i).1 hp
+    · rw [h] at hl
+      exact hcL b hl
+  have hcP_ne (i : Fin r) : c i ≠ cP := by
+    intro h
+    obtain ⟨a, b, hb, hnb⟩ := houtside i
+    rcases hcover (c i) a b hb with hp | hl
+    · rw [h] at hp
+      exact hcP a hp
+    · exact (hc i).2 b hnb hl
+  have hcinj : Function.Injective c := by
+    intro i j h
+    by_contra hij
+    obtain ⟨b, hb | hb⟩ := hseparate i j hij
+    · rcases hcover (c i) (p i) b hb.1 with hp | hl
+      · exact (hc i).1 hp
+      · rw [h] at hl
+        exact (hc j).2 b hb.2 hl
+    · rcases hcover (c j) (p j) b hb.1 with hp | hl
+      · exact (hc j).1 hp
+      · rw [← h] at hl
+        exact (hc i).2 b hb.2 hl
+  let g : Option (Fin r) → Fin k := fun i => i.elim cL c
+  have hginj : Function.Injective g := option_elim_injective cL c hcinj hcL_ne
+  have hgP : ∀ i, g i ≠ cP := by
+    intro i
+    cases i with
+    | none => exact hLP
+    | some i => exact hcP_ne i
+  have hinj := option_elim_injective cP g hginj hgP
+  have hcard := Fintype.card_le_of_injective _ hinj
+  simpa only [Fintype.card_option, Fintype.card_fin, Nat.add_assoc] using hcard
+
+lemma directed_separated_active_clause_surplus {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hactive : ∀ i : Fin r, ∃ l, H (p i) l)
+    (hdirected : ∀ i j : Fin r, i ≠ j → ∃ l, H (p j) l ∧ ¬ I (p i) l)
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 2 ≤ r) : r + 2 ≤ k := by
+  apply outside_separated_active_clause_surplus I H p Sp Sl hactive ?_ ?_ hcover hsafe (by omega)
+  · intro i j hij
+    obtain ⟨b, hb⟩ := hdirected i j hij
+    exact ⟨b, Or.inr hb⟩
+  · intro i
+    have hex : ∃ j : Fin r, i ≠ j := by
+      by_cases hi : i.val = 0
+      · refine ⟨⟨1, by omega⟩, ?_⟩
+        intro h
+        have hh := congrArg Fin.val h
+        change i.val = 1 at hh
+        omega
+      · refine ⟨⟨0, by omega⟩, ?_⟩
+        intro h
+        exact hi (congrArg Fin.val h)
+    obtain ⟨j, hij⟩ := hex
+    obtain ⟨b, hb⟩ := hdirected i j hij
+    exact ⟨p j, b, hb⟩
+
+lemma two_neighbors_directed_separation {P L r : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (hp : Function.Injective p) (hsub : ∀ a b, H a b → I a b)
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (htwo : ∀ i : Fin r, ∃ b b', b ≠ b' ∧ H (p i) b ∧ H (p i) b') :
+    ∀ i j : Fin r, i ≠ j → ∃ b, H (p j) b ∧ ¬ I (p i) b := by
+  intro i j hij
+  obtain ⟨b, b', hbb', hjb, hjb'⟩ := htwo j
+  by_cases hib : I (p i) b
+  · refine ⟨b', hjb', ?_⟩
+    intro hib'
+    have hpp : p i ≠ p j := fun h => hij (hp h)
+    exact hbb' (hfour (p i) (p j) hpp b b' hib (hsub _ _ hjb) hib' (hsub _ _ hjb'))
+  · exact ⟨b, hjb, hib⟩
+
+lemma no_four_cycle_two_neighbor_clause_surplus {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (hp : Function.Injective p) (hsub : ∀ a b, H a b → I a b)
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (htwo : ∀ i : Fin r, ∃ b b', b ≠ b' ∧ H (p i) b ∧ H (p i) b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 2 ≤ r) : r + 2 ≤ k := by
+  apply directed_separated_active_clause_surplus I H p Sp Sl ?_
+    (two_neighbors_directed_separation I H p hp hsub hfour htwo) hcover hsafe hr
+  intro i
+  obtain ⟨b, b', hbb', hb, hb'⟩ := htwo i
+  exact ⟨b, hb⟩
+
+lemma no_four_cycle_degree_two_clause_surplus {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) [DecidableRel H] (p : Fin r → Fin P)
+    (hp : Function.Injective p) (hsub : ∀ a b, H a b → I a b)
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (hdegree : ∀ i : Fin r, 2 ≤ (Finset.univ.filter (H (p i))).card)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 2 ≤ r) : r + 2 ≤ k := by
+  apply no_four_cycle_two_neighbor_clause_surplus I H p hp hsub hfour ?_ Sp Sl hcover hsafe hr
+  intro i
+  have hcard : 1 < (Finset.univ.filter (H (p i))).card := by have := hdegree i; omega
+  obtain ⟨b, hb, b', hb', hbb'⟩ := Finset.one_lt_card.mp hcard
+  exact ⟨b, b', hbb', (Finset.mem_filter.mp hb).2, (Finset.mem_filter.mp hb').2⟩
+
+lemma outside_neighbor_of_two_neighbors {P L : ℕ}
+    (I H : Fin P → Fin L → Prop) (a c : Fin P) (hac : a ≠ c)
+    (hsub : ∀ u b, H u b → I u b)
+    (hfour : ∀ u u' : Fin P, u ≠ u' → ∀ b b' : Fin L,
+      I u b → I u' b → I u b' → I u' b' → b = b')
+    (htwo : ∃ b b', b ≠ b' ∧ H c b ∧ H c b') :
+    ∃ b, H c b ∧ ¬ I a b := by
+  classical
+  obtain ⟨b, b', hbb', hcb, hcb'⟩ := htwo
+  by_cases hab : I a b
+  · refine ⟨b', hcb', ?_⟩
+    intro hab'
+    exact hbb' (hfour a c hac b b' hab (hsub _ _ hcb) hab' (hsub _ _ hcb'))
+  · exact ⟨b, hcb, hab⟩
+
+lemma two_core_points_clause_surplus {P L r k : ℕ}
+    (I H : Fin P → Fin L → Prop) (p : Fin r → Fin P)
+    (u v : Fin P) (huv : u ≠ v)
+    (hsub : ∀ a b, H a b → I a b)
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (hu : ∃ b b', b ≠ b' ∧ H u b ∧ H u b')
+    (hv : ∃ b b', b ≠ b' ∧ H v b ∧ H v b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hactive : ∀ i : Fin r, ∃ l, H (p i) l)
+    (hseparate : ∀ i j : Fin r, i ≠ j →
+      ∃ l, (H (p i) l ∧ ¬ I (p j) l) ∨ (H (p j) l ∧ ¬ I (p i) l))
+    (hcover : ∀ c : Fin k, ∀ a b, H a b → Sp c a ∨ Sl c b)
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨
+        (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 1 ≤ r) : r + 2 ≤ k := by
+  classical
+  apply outside_separated_active_clause_surplus I H p Sp Sl hactive hseparate ?_
+    hcover hsafe hr
+  intro i
+  by_cases hiu : p i = u
+  · have hiv : p i ≠ v := fun h => huv (hiu.symm.trans h)
+    obtain ⟨b, hb⟩ := outside_neighbor_of_two_neighbors I H (p i) v hiv hsub hfour hv
+    exact ⟨v, b, hb⟩
+  · obtain ⟨b, hb⟩ := outside_neighbor_of_two_neighbors I H (p i) u hiu hsub hfour hu
+    exact ⟨u, b, hb⟩
+
+end CoreClauses
+
 end PEqualNP.Outside.L_meta_2583
