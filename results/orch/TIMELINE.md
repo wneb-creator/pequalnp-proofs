@@ -17,3 +17,4 @@
 - 2026-11-25T05:55:00.754184+00:00: packed-program-to-prefix-witness bridge compiled and independently reviewed. Full proof pipeline now waits for26-gate witness.
 - 2026-11-25T06:04:52.123267+00:00: general SAT run ended UNKNOWN after1800wallseconds/1104.63CPUseconds; phase-guided search started. Source/provenance/log snapshot independently reviewed and completed.
 - 2026-11-25T06:22:42.043664+00:00: three-filter cross-pair and double-star-center lemmas compiled and independently reviewed; preserving standalone helpers.
+- 2026-11-25T06:26:24.923216+00:00: adjacent-center cover lemmas compiled and independently reviewed; preserving standalone sources and complete logs.
