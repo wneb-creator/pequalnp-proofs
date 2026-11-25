@@ -2122,4 +2122,90 @@ lemma forest_and_lower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
 
 end TrueAndLoss
 
+namespace OrPacking
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.TrueAndLoss
+open PEqualNP.Outside.L_meta_3566.AndPacking
+open PEqualNP.Outside.L_meta_3566.AndSignature
+open PEqualNP.Outside.L_meta_3566.OrLoss
+
+def negInput {n : ℕ} (x : Fin n → Bool) : Fin n → Bool := fun i => !x i
+
+lemma negInput_injective {n : ℕ} : Function.Injective (@negInput n) := by
+  intro x y h
+  funext i
+  have hi := congrFun h i
+  simpa [negInput] using congrArg Bool.not hi
+
+lemma negInput_meet {n : ℕ} (x y : Fin n → Bool) :
+    (fun i => negInput x i || negInput y i) = negInput (fun i => x i && y i) := by
+  funext i
+  simp only [negInput]
+  cases x i <;> cases y i <;> rfl
+
+/-- Count equal-operand OR gates through the AND trace of the dual circuit.
+For an AO2 circuit, `wiresFrom_dual` complements each corresponding wire value;
+`dualOp` selects exactly the original OR gates, and complementing both operands
+preserves whether they are equal. No output-wire validity assumption is needed
+for that gate-trace interpretation. -/
+def orWildCount (n : ℕ) (C : Circuit) (x : Fin n → Bool) : ℕ :=
+  wildCount (stateFn n (dual C) (negInput x))
+
+lemma dual_false_family (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hout : C.output < n + C.gates.length) (S : Finset (Fin n → Bool))
+    (htrue : ∀ x ∈ S, circuitFun n C x = true)
+    (hmeet : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i && y i) = false) :
+    (∀ x ∈ S.image negInput, circuitFun n (dual C) x = false) ∧
+      (∀ x ∈ S.image negInput, ∀ y ∈ S.image negInput, x ≠ y →
+        circuitFun n (dual C) (fun i => x i || y i) = true) := by
+  constructor
+  · intro x hx
+    obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hx
+    rw [show negInput a = (fun i => !a i) from rfl,
+      dual_circuitFun_neg n C hAO hout, htrue a ha]
+    rfl
+  · intro x hx y hy hne
+    obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨b, hb, rfl⟩ := Finset.mem_image.mp hy
+    have hab : a ≠ b := by intro he; subst b; exact hne rfl
+    rw [negInput_meet, show negInput (fun i => a i && b i) =
+      (fun i => !(a i && b i)) from rfl,
+      dual_circuitFun_neg n C hAO hout, hmeet a ha b hb hab]
+    rfl
+
+/-- A true family with pairwise false meets has disjoint partial OR signatures. -/
+lemma true_family_kraft_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (htrue : ∀ x ∈ S, circuitFun n C x = true)
+    (hmeet : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i && y i) = false) :
+    (∑ x ∈ S, 2 ^ orWildCount n C x) ≤ 2 ^ orCount C.gates := by
+  classical
+  by_cases hzero : S = ∅
+  · simp [hzero]
+  obtain ⟨x, hx⟩ := Finset.nonempty_iff_ne_empty.mpr hzero
+  have hout := output_lt_of_true n C x (htrue x hx)
+  obtain ⟨hf, hj⟩ := dual_false_family n C hAO hout S htrue hmeet
+  have hk := false_family_kraft_bound n (dual C) (dual_ao2 n C hAO) (S.image negInput) hf hj
+  rw [Finset.sum_image (fun a _ b _ he => negInput_injective he)] at hk
+  simpa only [orWildCount, dual, andCount_dual] using hk
+
+lemma true_family_linear_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (htrue : ∀ x ∈ S, circuitFun n C x = true)
+    (hmeet : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i && y i) = false) :
+    (∑ x ∈ S, orWildCount n C x) ≤ 2 ^ orCount C.gates - S.card := by
+  classical
+  by_cases hzero : S = ∅
+  · simp [hzero]
+  obtain ⟨x, hx⟩ := Finset.nonempty_iff_ne_empty.mpr hzero
+  have hout := output_lt_of_true n C x (htrue x hx)
+  obtain ⟨hf, hj⟩ := dual_false_family n C hAO hout S htrue hmeet
+  have hk := false_family_linear_bound n (dual C) (dual_ao2 n C hAO) (S.image negInput) hf hj
+  rw [Finset.sum_image (fun a _ b _ he => negInput_injective he),
+    Finset.card_image_of_injective S negInput_injective] at hk
+  simpa only [orWildCount, dual, andCount_dual] using hk
+
+end OrPacking
+
 end PEqualNP.Outside.L_meta_3566
