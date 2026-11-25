@@ -1,0 +1,45 @@
+import took 1.83s
+/tmp/oec/pequalnp-pilot-79/Meta3773FastWordBridge.lean:26:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/Meta3773FastWordBridge.lean:27:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/Meta3773FastWordBridge.lean:35:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+simp took 100ms
+cumulative profiling times:
+	attribute application 0.0815ms
+	compilation (IR) 3.28ms
+	compilation (LCNF base) 25.2ms
+	compilation (LCNF impure) 4.76ms
+	compilation (LCNF mono) 10.1ms
+	congr simp thm 2.86ms
+	declTypeLinter 3.54ms
+	elaboration 31ms
+	fix level params 0.276ms
+	import 1.83s
+	initialization 72ms
+	instantiate metavars 0.317ms
+	interpretation 195ms
+	let-to-have transformation 0.103ms
+	linting 8.48ms
+	module linting 0.029ms
+	parsing 3.34ms
+	process pre-definitions 4.05ms
+	share common exprs 1.78ms
+	simp 185ms
+	tactic execution 57.9ms
+	tacticAnalysis 1.76ms
+	type checking 15.2ms
+	typeclass inference 57.1ms
