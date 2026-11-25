@@ -21,3 +21,7 @@ The 659-line upper-bound construction and conditional normalization helper compi
 ## Dirty-gate obstruction
 
 A five-gate AO2 circuit for a three-edge path is a lift fixed point but fails read1. Bypassing its dirty AND changes the function. A four-gate read1 circuit computes the same function. The finite example and general Boolean factoring identity compile and were independently checked. This is not a counterexample to L-meta-2583, and no saving is asserted in arbitrary shared contexts.
+
+## Semantic frontier
+
+New compiled helpers show that every true circuit input contains a prime implicant, and that a monotone function below the circuit function agrees everywhere if it accepts every prime. This proves the semantic half of deleting a gate that contributes to no minimal true input; constant propagation remains separate.
