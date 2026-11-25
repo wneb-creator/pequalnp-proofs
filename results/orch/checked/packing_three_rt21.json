@@ -1,0 +1,7 @@
+{
+  "sha256": "b9de5e88de82883ac7e629d53d6f066cdba2ca6dd244921a8d65e090e52f0c45",
+  "lines": 455,
+  "exit_code": 0,
+  "claim": "Only root21 of31 normalized finite searches evaluates true;811 search states, not the full capacity-three result.",
+  "independent_review": "repo_audit approved this exact source hash and scope; all351 concrete block triples and root21 traversal independently rechecked where applicable."
+}

@@ -1,0 +1,11 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/PackingMaskSemantics.lean:94:31: warning: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, Bool.or_eq_true, or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PackingMaskSemantics.lean:129:2: warning: Unused tactic linter: `change
+  flagCount (chosen.foldl step s).covered ≤ 29 + (chosen.foldl step s).count` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

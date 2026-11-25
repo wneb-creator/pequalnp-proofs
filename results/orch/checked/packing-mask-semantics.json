@@ -1,0 +1,7 @@
+{
+  "sha256": "9cb2858a54da1da2c2cc4a1963f2e6b3d98f526897cd5eb03163e6b0811f1e28",
+  "lines": 136,
+  "exit_code": 0,
+  "claim": "Generic mask accounting, antitone legality, and sound conservative upper pruning; no concrete full bound.",
+  "independent_review": "repo_audit approved this exact source hash and scope; all351 concrete block triples and root21 traversal independently rechecked where applicable."
+}
