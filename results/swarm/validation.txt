@@ -1,0 +1,26 @@
+Gap: L-meta-16664
+Result: full refutation candidate (negation of the posted statement)
+Canonical file: lean/PEqualNP/Outside/L_meta_16664.lean
+Base: 6975e4cfffa12ed6f0f337d79887461ee3e7aa0d
+Source SHA256: 3cf3cdd8d9e98294c88b959e1b020211a3d734b8ad2a2dec799f36e3f4312e85
+
+Independent source review: PASS; exact statement, circuit witness, restriction proof,
+counting argument, certificate coverage, source form, namespace and attribution checked.
+Independent Python certificate replay: search(7, 3, rows) = false, 6070 nodes;
+all 240 sampled truth-table rows match. All 64 witness rows match.
+Pinned Lean: 4.36.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9.
+Mathlib: pinned manifest revision; all 9117 cached files restored, no source build.
+Named-file build: PASS (lake build PEqualNP.Outside.L_meta_16664, exit 0)
+Official checker (refute): ACCEPTED (refute): PEqualNP.Outside.L_meta_16664; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 2039 constants of [PEqualNP.Defs.Base, PEqualNP.Defs.Classes, PEqualNP.Defs.CircuitLowerBounds, PEqualNP.Defs.MetaComplexity, PEqualNP.Defs.MetaComplexityLocal, PEqualNP.Defs.MetaComplexitySparse, PEqualNP.Defs.MetaComplexityMinimal, PEqualNP.Defs.MetaComplexityLgp, PEqualNP.Defs.MetaComplexityLgpMono, PEqualNP.Defs.BinaryCircuit, PEqualNP.Defs.MetaComplexityCoverCircuit, PEqualNP.Defs.ProofComplexity, PEqualNP.Defs.ProofComplexityLin, PEqualNP.Defs.ProofComplexityLinK, PEqualNP.Defs.ProofComplexityLift, PEqualNP.Defs.ProofComplexityResK, PEqualNP.Defs.ProofComplexityRestrict, PEqualNP.Defs.ProofComplexityBit, PEqualNP.Defs.ProofComplexityPC, PEqualNP.Defs.ProofComplexityMoment, PEqualNP.Defs.ProofComplexityChain, PEqualNP.Defs.ProofComplexityGeneral, PEqualNP.Defs.Search, PEqualNP.Defs.SearchQ, PEqualNP.Defs.SearchQTree, PEqualNP.Defs.SearchCP, PEqualNP.Defs.SearchRUP, PEqualNP.Defs.SearchQSyn, PEqualNP.Defs.SearchSoS, PEqualNP.Defs.Gct, PEqualNP.Defs.Oracle, PEqualNP.Defs.Algebraic, PEqualNP.Defs.Expanders, PEqualNP.Defs.RiffleRank, PEqualNP.Defs.TimeAlt, PEqualNP.Defs.CoverPromise, PEqualNP.Defs.SingleLevel, PEqualNP.Defs.DeMorganFormula, PEqualNP.Defs.MetaComplexityTypedRank, PEqualNP.Defs.Pebble, PEqualNP.Defs.Subdivision, PEqualNP.Defs.AndCountCircuit, PEqualNP.Defs.PebbleThreeWay, PEqualNP.Defs.CoLevel, PEqualNP.Defs.Peelable, PEqualNP.Defs.NestedCoverCircuit, PEqualNP.Defs.LiteralPartition, PEqualNP.Defs.MinimumComplex, PEqualNP.Defs.PendantBit, PEqualNP.Defs.BorrowedCoverCircuit, PEqualNP.Defs.LineDegree, PEqualNP.Defs.CircuitMoves, PEqualNP.Defs.LowMerge, PEqualNP.Defs.NewLowMerge, PEqualNP.Defs.AffinePlane, PEqualNP.Defs.EdgeOwnership, PEqualNP.Defs.PencilGate, PEqualNP.Defs.BlindGate, PEqualNP.Defs.BicliqueBlockCost, PEqualNP.Defs.SharingOrder, PEqualNP.Defs.NotPremium, PEqualNP.Defs.NotBracket, PEqualNP.Defs.PairShadow, PEqualNP.Defs.SplitCount, PEqualNP.Defs.InvisibleWire, PEqualNP.Defs.SharedOr, PEqualNP.Defs.CleanedNonEdge, PEqualNP.Defs.MergeCost, PEqualNP.Defs.CarriedProduct, PEqualNP.Defs.TopForm, PEqualNP.Defs.SyntacticMultilinear, PEqualNP.Defs.TopFormNames, PEqualNP.Defs.HeptadCover, PEqualNP.Defs.ReadK, PEqualNP.Defs.GenericRejection, PEqualNP.Defs.CrossAnd, PEqualNP.Defs.ReadKJoin, PEqualNP.Defs.SharedBlockCost, PEqualNP.Defs.ReadTwo, PEqualNP.Defs.LratEncoding, PEqualNP.Defs.Core, PEqualNP.Defs.PointTypes, PEqualNP.Defs.FactorSubst, PEqualNP.Defs.TwoColour, PEqualNP.Defs.Represents, PEqualNP.Defs, PEqualNP.Outside.L_meta_16664] (exit 0)
+
+Delivery caveat: the local checker supports refute. The current desk row defaults
+to check, so its authoritative gap-kind guard will reject a refute run until the
+coordinator arranges refutation handling. No statement or desk metadata was changed.
+No PR opened by the orchestrator; swarm delivery assigns that action to the Mac.
+No lease request or release performed; existing lease renewed.
+
+Sub-agents: 9 external bus helpers; 3 local agents (review, toolchain, fallback).
+TIMING total=10.8 subagents=12
+
+Final independent committed-diff review: PASS for 1bd5b52481d7e9d6557a6bfb4c00101221cb962f.
+Final branch pushed and verified: pnp/swarm-L-meta-16664 at 1bd5b52481d7e9d6557a6bfb4c00101221cb962f.
