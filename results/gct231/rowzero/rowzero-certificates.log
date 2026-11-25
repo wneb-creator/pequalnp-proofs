@@ -1,0 +1,88 @@
+Process Process-1:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 0, "degree": 0, "status": "ERROR"}
+Process Process-2:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 1, "degree": 0, "status": "ERROR"}
+Process Process-3:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 2, "degree": 0, "status": "ERROR"}
+Process Process-4:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 3, "degree": 0, "status": "ERROR"}
+Process Process-5:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 4, "degree": 0, "status": "ERROR"}
+Process Process-6:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 5, "degree": 0, "status": "ERROR"}
+Process Process-7:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 6, "degree": 0, "status": "ERROR"}
+Process Process-8:
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/pequalnp-proofs/results/gct231/rowzero_certificates.py", line 28, in worker
+    field = sp.QQ.alg_field(r)
+            ^^^^^^^^^^^^^^^
+AttributeError: 'RationalField' object has no attribute 'alg_field'. Did you mean: 'get_field'?
+{"chart": 7, "degree": 0, "status": "ERROR"}

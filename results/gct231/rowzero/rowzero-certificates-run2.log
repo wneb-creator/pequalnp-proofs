@@ -1,0 +1,16 @@
+{"chart": 0, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 2.178769853000631}
+{"chart": 0, "degree": 1, "status": "CERTIFIED", "seconds": 5.63076674200056, "verified_sum": "1"}
+{"chart": 1, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 1.8803126500006329}
+{"chart": 1, "degree": 1, "status": "CERTIFIED", "seconds": 8.223600495999563, "verified_sum": "1"}
+{"chart": 2, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 3.28991555399989}
+{"chart": 2, "degree": 1, "status": "CERTIFIED", "seconds": 10.748378848000357, "verified_sum": "1"}
+{"chart": 3, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 1.991901213001256}
+{"chart": 3, "degree": 1, "status": "CERTIFIED", "seconds": 5.12631820200113, "verified_sum": "1"}
+{"chart": 4, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 3.330445702000361}
+{"chart": 4, "degree": 1, "status": "CERTIFIED", "seconds": 11.882600802000525, "verified_sum": "1"}
+{"chart": 5, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 3.69885914400038}
+{"chart": 5, "degree": 1, "status": "CERTIFIED", "seconds": 9.170673509999688, "verified_sum": "1"}
+{"chart": 6, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 3.4242015670006367}
+{"chart": 6, "degree": 1, "status": "CERTIFIED", "seconds": 8.47720770900014, "verified_sum": "1"}
+{"chart": 7, "degree": 0, "status": "NO_CERTIFICATE", "seconds": 6.901641152999218}
+{"chart": 7, "degree": 1, "status": "CERTIFIED", "seconds": 6.857289972000217, "verified_sum": "1"}

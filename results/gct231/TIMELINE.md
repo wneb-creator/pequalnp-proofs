@@ -3,3 +3,4 @@
 2026-11-25T09:41:23UTC — Own renewal succeeded, expiry10:01:23UTC.
 2026-11-25T09:42:59.246611+00:00 —66-line construction helpers compiled as named partial and independently reviewed. No concrete3D family or main theorem.
 2026-11-25T09:48:16.271037+00:00 —159-line named partial passes build02 and independent review; diagonal rigidity and six-coordinate injectivity pass standard-axiom audit. Manual renewal09:46:44 expiry10:06:44UTC.
+2026-11-25T09:49:51.613014+00:00 — Row-sum-zero candidate family ruled out by exactCAS charts; two representative polynomial contradiction lemmas compile and pass independent review. Preserving scoped certificates; general chart search continues.

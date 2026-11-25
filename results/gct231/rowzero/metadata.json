@@ -1,0 +1,11 @@
+{
+  "scope": "Row-sum-zero ansatz and two explicit polynomial contradiction lemmas only; not the full gap or a Lean chart-coverage theorem",
+  "frozen_utc": "2026-11-25T09:48:16.560471+00:00",
+  "charts": 8,
+  "groebner_unit_ideals": 8,
+  "degree_one_certificates_verified": 8,
+  "lean_representatives": 2,
+  "lean_compile_exit": 0,
+  "coefficient_field": "Q(sqrt(-2))",
+  "initial_certificate_error": "First certificate script used an unavailable Sympy method; complete error log retained. Successful run used QQ.algebraic_field and produced all certificates."
+}
