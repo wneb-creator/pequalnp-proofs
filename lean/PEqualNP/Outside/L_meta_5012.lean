@@ -7225,4 +7225,336 @@ lemma no_least_singleton_flag_independent {n : ℕ} {G : SimpleGraph (Fin n)}
 
 end SingletonFlagProjection
 
+namespace SandwichProjection
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open Frontier PrivateProjection
+
+noncomputable def representative {n : ℕ} (K : Finset ℕ)
+    (S : ℕ → Finset (Fin n)) (I T : Finset (Fin n)) (w : ℕ) : Option ℕ := by
+  classical
+  exact if n ≤ w ∧ w-n ∈ K then some w else if S w ⊆ T then some w
+    else if h : (S w ∩ I).Nonempty then some (Classical.choose h).val else none
+
+lemma representative_back {n : ℕ} (K : Finset ℕ) (S : ℕ → Finset (Fin n))
+    (I T : Finset (Fin n)) {w j v : ℕ} (hw : w < n+j)
+    (hv : representative K S I T w = some v) : v < n+j := by
+  classical
+  unfold representative at hv
+  split at hv
+  · cases Option.some.inj hv
+    exact hw
+  · split at hv
+    · cases Option.some.inj hv
+      exact hw
+    · split at hv
+      · have he := Option.some.inj hv
+        have hlt := (Classical.choose ‹(S w ∩ I).Nonempty›).isLt
+        omega
+      · contradiction
+
+lemma representative_nonempty {n : ℕ} (K : Finset ℕ) (S : ℕ → Finset (Fin n))
+    (I T : Finset (Fin n)) (w : ℕ) (hw : (S w ∩ I).Nonempty) :
+    representative K S I T w ≠ none := by
+  classical
+  unfold representative
+  split
+  · simp
+  · split
+    · simp
+    · simp
+
+lemma representative_sandwich {n : ℕ} (K : Finset ℕ) (S : ℕ → Finset (Fin n))
+    (I T : Finset (Fin n)) (hIT : I ⊆ T) (w : ℕ) (x : Fin n → Bool) (f : ℕ → Bool)
+    (hinput : ∀ a : Fin n, f a.val = x a)
+    (hinside : (n ≤ w ∧ w-n ∈ K) →
+      (setOr (S w ∩ I) x = true → f w = true) ∧
+      (f w = true → setOr (S w ∩ T) x = true))
+    (hboundary : ¬ (n ≤ w ∧ w-n ∈ K) → f w = setOr (S w) x)
+    (hsmall : ¬ (n ≤ w ∧ w-n ∈ K) → ¬ S w ⊆ T → (S w ∩ I).card ≤ 1) :
+    (setOr (S w ∩ I) x = true → optionalValue f (representative K S I T w) = true) ∧
+    (optionalValue f (representative K S I T w) = true → setOr (S w ∩ T) x = true) := by
+  classical
+  have hsub : S w ∩ I ⊆ S w ∩ T := by
+    intro a ha
+    exact Finset.mem_inter.mpr ⟨(Finset.mem_inter.mp ha).1,hIT (Finset.mem_inter.mp ha).2⟩
+  unfold representative
+  split
+  next hk => exact hinside hk
+  next hk =>
+    split
+    next hgood =>
+      change (setOr (S w ∩ I) x = true → f w = true) ∧
+        (f w = true → setOr (S w ∩ T) x = true)
+      rw [hboundary hk, Finset.inter_eq_left.mpr hgood]
+      exact ⟨(setOr_le_iff _ _).mpr Finset.inter_subset_left x, fun hx => hx⟩
+    next hgood =>
+      split
+      next hp =>
+        let a : Fin n := Classical.choose hp
+        have ha : a ∈ S w ∩ I := Classical.choose_spec hp
+        have he : S w ∩ I = {a} := by
+          ext b
+          constructor
+          · intro hb
+            exact Finset.mem_singleton.mpr ((Finset.card_le_one.mp (hsmall hk hgood)) b hb a ha)
+          · intro hb
+            rw [Finset.mem_singleton] at hb
+            simpa only [hb] using ha
+        have hv : optionalValue f (some a.val) = setOr (S w ∩ I) x := by
+          change f a.val = _
+          rw [hinput a]
+          simp [he,setOr]
+        change (setOr (S w ∩ I) x = true → optionalValue f (some a.val) = true) ∧
+          (optionalValue f (some a.val) = true → setOr (S w ∩ T) x = true)
+        rw [hv]
+        exact ⟨fun hx => hx,(setOr_le_iff _ _).mpr hsub x⟩
+      next hp =>
+        have he : S w ∩ I = ∅ := Finset.not_nonempty_iff_eq_empty.mp hp
+        simp [optionalValue,he,setOr]
+
+lemma union_inter {α : Type*} [DecidableEq α] (A B T : Finset α) : (A ∪ B) ∩ T = (A ∩ T) ∪ (B ∩ T) := by
+  ext a
+  simp only [Finset.mem_inter,Finset.mem_union]
+  tauto
+
+lemma projection_data {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (K : Finset ℕ) (S : ℕ → Finset (Fin n)) (I T : Finset (Fin n))
+    (hunion : ∀ j < C.gates.length, j ∈ K →
+      S (n+j) = S (opnd C j 0) ∪ S (opnd C j 1))
+    (hnonempty : ∀ j < C.gates.length, j ∈ K → (S (n+j) ∩ I).Nonempty) :
+    let L := fun j => representative K S I T (opnd C j 0)
+    let R := fun j => representative K S I T (opnd C j 1)
+    (∀ j < C.gates.length, j ∈ K → L j ≠ none ∨ R j ≠ none) ∧
+    (∀ j < C.gates.length, j ∈ K → ∀ w, L j = some w ∨ R j = some w → w < n+j) := by
+  dsimp only
+  refine ⟨?_,?_⟩
+  · intro j hj hjK
+    obtain ⟨a, ha⟩ := hnonempty j hj hjK
+    rw [hunion j hj hjK] at ha
+    obtain ⟨ha,haI⟩ := Finset.mem_inter.mp ha
+    rcases Finset.mem_union.mp ha with ha | ha
+    · exact Or.inl (representative_nonempty K S I T _ ⟨a,Finset.mem_inter.mpr ⟨ha,haI⟩⟩)
+    · exact Or.inr (representative_nonempty K S I T _ ⟨a,Finset.mem_inter.mpr ⟨ha,haI⟩⟩)
+  · intro j hj hjK w hw
+    rcases hw with hw | hw
+    · exact representative_back K S I T (hAO.2.1 j hj _ (opnd_mem hAO hj 0)) hw
+    · exact representative_back K S I T (hAO.2.1 j hj _ (opnd_mem hAO hj 1)) hw
+
+lemma sandwich_prefix {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (K : Finset ℕ) (S : ℕ → Finset (Fin n)) (I T : Finset (Fin n)) (hIT : I ⊆ T)
+    (hunion : ∀ j < C.gates.length, j ∈ K →
+      S (n+j) = S (opnd C j 0) ∪ S (opnd C j 1))
+    (hnonempty : ∀ j < C.gates.length, j ∈ K → (S (n+j) ∩ I).Nonempty)
+    (hsem : ∀ j < C.gates.length, j ∈ K → ∀ w ∈ (gateAt C j).inputs,
+      ¬ (n ≤ w ∧ w-n ∈ K) → ∀ x, W n C x w = setOr (S w) x)
+    (hsmall : ∀ j < C.gates.length, j ∈ K → ∀ w ∈ (gateAt C j).inputs,
+      ¬ (n ≤ w ∧ w-n ∈ K) → ¬ S w ⊆ T → (S w ∩ I).card ≤ 1)
+    (g : ℕ)
+    (hprivate : ∀ j < g, j < C.gates.length → j ∉ K →
+      ∀ w ∈ (gateAt C j).inputs, w < n ∨ w-n ∉ K)
+    (x : Fin n → Bool) (w : ℕ) (hwg : w < n+g) (hwC : w < n+C.gates.length) :
+    let L := fun j => representative K S I T (opnd C j 0)
+    let R := fun j => representative K S I T (opnd C j 1)
+    let D := rewrite C K L R
+    ((n ≤ w ∧ w-n ∈ K) →
+      (setOr (S w ∩ I) x = true → W n D x w = true) ∧
+      (W n D x w = true → setOr (S w ∩ T) x = true)) ∧
+    (¬ (n ≤ w ∧ w-n ∈ K) → W n D x w = W n C x w) := by
+  let L := fun j => representative K S I T (opnd C j 0)
+  let R := fun j => representative K S I T (opnd C j 1)
+  let D := rewrite C K L R
+  change ((n ≤ w ∧ w-n ∈ K) →
+      (setOr (S w ∩ I) x = true → W n D x w = true) ∧
+      (W n D x w = true → setOr (S w ∩ T) x = true)) ∧
+    (¬ (n ≤ w ∧ w-n ∈ K) → W n D x w = W n C x w)
+  obtain ⟨hN,hBack⟩ := projection_data hAO K S I T hunion hnonempty
+  have hAO' : IsAO2 n D := rewrite_isAO2 hAO K L R hN hBack
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hwn : w < n
+    · refine ⟨?_,?_⟩
+      · intro h
+        omega
+      · intro _
+        rw [W_input n D x w hwn,W_input n C x w hwn]
+    · have hnw : n ≤ w := by omega
+      have hj : w-n < C.gates.length := by omega
+      have hjg : w-n < g := by omega
+      have he : n+(w-n) = w := by omega
+      by_cases hjK : w-n ∈ K
+      · have hrep (b : Fin 2) :
+            (setOr (S (opnd C (w-n) b) ∩ I) x = true →
+              optionalValue (W n D x) (representative K S I T (opnd C (w-n) b)) = true) ∧
+            (optionalValue (W n D x) (representative K S I T (opnd C (w-n) b)) = true →
+              setOr (S (opnd C (w-n) b) ∩ T) x = true) := by
+          have hb := opnd_mem hAO hj b
+          have hbw := hAO.2.1 (w-n) hj _ hb
+          have hrec := ih (opnd C (w-n) b) (by omega) (by omega) (by omega)
+          apply representative_sandwich K S I T hIT _ x (W n D x)
+          · intro a
+            exact W_input n D x a.val a.isLt
+          · exact hrec.1
+          · intro hout
+            exact (hrec.2 hout).trans (hsem _ hj hjK _ hb hout x)
+          · exact hsmall _ hj hjK _ hb
+        have hvalue : W n D x w =
+            (optionalValue (W n D x) (L (w-n)) || optionalValue (W n D x) (R (w-n))) := by
+          conv_lhs => rw [← he]
+          rw [PrivateProjection.W_gate_eq hAO' x (by simpa [D,rewrite_length] using hj),
+            rewrite_gateAt K L R hj,ite_eq_left hjK]
+          exact binaryInputs_eval (W n D x) (hN _ hj hjK)
+        have hI : setOr (S w ∩ I) x =
+            (setOr (S (opnd C (w-n) 0) ∩ I) x || setOr (S (opnd C (w-n) 1) ∩ I) x) := by
+          conv_lhs => rw [← he]
+          rw [hunion _ hj hjK,union_inter,PrivateProjection.setOr_union]
+        have hT : setOr (S w ∩ T) x =
+            (setOr (S (opnd C (w-n) 0) ∩ T) x || setOr (S (opnd C (w-n) 1) ∩ T) x) := by
+          conv_lhs => rw [← he]
+          rw [hunion _ hj hjK,union_inter,PrivateProjection.setOr_union]
+        refine ⟨?_,fun hout => False.elim (hout ⟨hnw,hjK⟩)⟩
+        intro _
+        rw [hI,hT,hvalue]
+        constructor
+        · intro hx
+          simp only [Bool.or_eq_true] at hx ⊢
+          rcases hx with hx | hx
+          · exact Or.inl ((hrep 0).1 hx)
+          · exact Or.inr ((hrep 1).1 hx)
+        · intro hx
+          simp only [Bool.or_eq_true] at hx ⊢
+          rcases hx with hx | hx
+          · exact Or.inl ((hrep 0).2 hx)
+          · exact Or.inr ((hrep 1).2 hx)
+      · refine ⟨fun h => False.elim (hjK h.2),?_⟩
+        intro _
+        rw [← he,PrivateProjection.W_gate_eq hAO' x (by simpa [D,rewrite_length] using hj),
+          PrivateProjection.W_gate_eq hAO x hj,rewrite_gateAt K L R hj,ite_eq_right hjK]
+        congr 1
+        apply List.map_congr_left
+        intro v hv
+        have hvw := hAO.2.1 (w-n) hj v hv
+        apply (ih v (by omega) (by omega) (by omega)).2
+        have ho := hprivate (w-n) hjg hj hjK v hv
+        intro hin
+        rcases ho with ho | ho
+        · omega
+        · exact ho hin.2
+
+lemma rewrite_under {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (K : Finset ℕ) (L R : ℕ → Option ℕ)
+    (hN : ∀ j < C.gates.length, j ∈ K → L j ≠ none ∨ R j ≠ none)
+    (hBack : ∀ j < C.gates.length, j ∈ K → ∀ w,
+      L j = some w ∨ R j = some w → w < n+j)
+    (hregion : ∀ j < C.gates.length, j ∈ K → ∀ x : Fin n → Bool,
+      W n (rewrite C K L R) x (n+j) = true → W n C x (n+j) = true) :
+    ∀ (x : Fin n → Bool) w, W n (rewrite C K L R) x w = true → W n C x w = true := by
+  have hAO' := rewrite_isAO2 hAO K L R hN hBack
+  intro x w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hval
+    by_cases hwn : w < n
+    · rw [W_input n _ x w hwn] at hval
+      rw [W_input n C x w hwn]
+      exact hval
+    · by_cases hwC : w < n+C.gates.length
+      · have hj : w-n < C.gates.length := by omega
+        have he : n+(w-n) = w := by omega
+        by_cases hjK : w-n ∈ K
+        · have ht := hregion (w-n) hj hjK x (by simpa only [he] using hval)
+          simpa only [he] using ht
+        · rw [← he, PrivateProjection.W_gate_eq hAO' x (by simpa [rewrite_length] using hj),
+            rewrite_gateAt K L R hj, ite_eq_right hjK] at hval
+          rw [← he, PrivateProjection.W_gate_eq hAO x hj]
+          have hop := hAO.1 (gateAt C (w-n)) (by
+            rw [gateAt_eq C _ hj]
+            exact List.getElem_mem hj)
+          rcases hop with hop | hop
+          · rw [hop] at hval ⊢
+            simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply, id_eq] at hval ⊢
+            intro v hv
+            have hvw := hAO.2.1 (w-n) hj v hv
+            exact ih v (by omega) (hval v hv)
+          · rw [hop] at hval ⊢
+            simp only [GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq] at hval ⊢
+            obtain ⟨v, hv, hvval⟩ := hval
+            have hvw := hAO.2.1 (w-n) hj v hv
+            exact ⟨v, hv, ih v (by omega) hvval⟩
+      · have hw' : ((rewrite C K L R).wires (List.ofFn x)).length ≤ w := by
+          rw [wires_length, rewrite_length]
+          omega
+        have hz := getD_ge_length ((rewrite C K L R).wires (List.ofFn x)) w hw'
+        change W n (rewrite C K L R) x w = false at hz
+        rw [hz] at hval
+        contradiction
+
+noncomputable def circuit {n : ℕ} (C : Circuit) (K : Finset ℕ)
+    (S : ℕ → Finset (Fin n)) (I T : Finset (Fin n)) : Circuit :=
+  rewrite C K (fun j => representative K S I T (opnd C j 0))
+    (fun j => representative K S I T (opnd C j 1))
+
+lemma construction {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (K : Finset ℕ) (S : ℕ → Finset (Fin n)) (I T : Finset (Fin n)) (hIT : I ⊆ T)
+    (g : ℕ) (hK : ∀ j ∈ K, j < g)
+    (hKop : ∀ j < C.gates.length, j ∈ K → (gateAt C j).op = GateOp.or)
+    (hprivate : ∀ j < C.gates.length, j ∉ K → j ≠ g →
+      ∀ w ∈ (gateAt C j).inputs, w < n ∨ w-n ∉ K)
+    (hunion : ∀ j < C.gates.length, j ∈ K →
+      S (n+j) = S (opnd C j 0) ∪ S (opnd C j 1))
+    (hnonempty : ∀ j < C.gates.length, j ∈ K → (S (n+j) ∩ I).Nonempty)
+    (hsemK : ∀ j < C.gates.length, j ∈ K → ∀ x, W n C x (n+j) = setOr (S (n+j)) x)
+    (hsem : ∀ j < C.gates.length, j ∈ K → ∀ w ∈ (gateAt C j).inputs,
+      ¬ (n ≤ w ∧ w-n ∈ K) → ∀ x, W n C x w = setOr (S w) x)
+    (hsmall : ∀ j < C.gates.length, j ∈ K → ∀ w ∈ (gateAt C j).inputs,
+      ¬ (n ≤ w ∧ w-n ∈ K) → ¬ S w ⊆ T → (S w ∩ I).card ≤ 1) :
+    let D := circuit C K S I T
+    IsAO2 n D ∧ D.size = C.size ∧ D.output = C.output ∧
+    (∀ j < C.gates.length, (gateAt D j).op = (gateAt C j).op) ∧
+    (∀ j < C.gates.length, j ∈ K → ∀ x,
+      (setOr (S (n+j) ∩ I) x = true → W n D x (n+j) = true) ∧
+      (W n D x (n+j) = true → setOr (S (n+j) ∩ T) x = true)) ∧
+    (∀ x w, W n D x w = true → W n C x w = true) ∧
+    (∀ x w, w < n+g → w < n+C.gates.length →
+      (w < n ∨ w-n ∉ K) → W n D x w = W n C x w) ∧
+    (∀ x, W n D x (n+g) = W n C x (n+g) →
+      ∀ w, (w < n ∨ w-n ∉ K) → W n D x w = W n C x w) := by
+  let L := fun j => representative K S I T (opnd C j 0)
+  let R := fun j => representative K S I T (opnd C j 1)
+  let D := rewrite C K L R
+  have hprivatePre : ∀ j < g, j < C.gates.length → j ∉ K →
+      ∀ w ∈ (gateAt C j).inputs, w < n ∨ w-n ∉ K := by
+    intro j hjg hj hjK
+    exact hprivate j hj hjK (by omega)
+  obtain ⟨hN,hBack⟩ := projection_data hAO K S I T hunion hnonempty
+  have hAO' : IsAO2 n D := rewrite_isAO2 hAO K L R hN hBack
+  have hprefix := sandwich_prefix hAO K S I T hIT hunion hnonempty hsem hsmall g hprivatePre
+  have hvalues : ∀ j < C.gates.length, j ∈ K → ∀ x,
+      (setOr (S (n+j) ∩ I) x = true → W n D x (n+j) = true) ∧
+      (W n D x (n+j) = true → setOr (S (n+j) ∩ T) x = true) := by
+    intro j hj hjK x
+    have hjg := hK j hjK
+    exact (hprefix x (n+j) (by omega) (by omega)).1
+      ⟨by omega,by simpa only [Nat.add_sub_cancel_left] using hjK⟩
+  have hunder : ∀ x w, W n D x w = true → W n C x w = true := by
+    apply rewrite_under hAO K L R hN hBack
+    intro j hj hjK x hx
+    rw [hsemK j hj hjK x]
+    exact (setOr_le_iff (S (n+j) ∩ T) (S (n+j))).mpr Finset.inter_subset_left x
+      ((hvalues j hj hjK x).2 hx)
+  refine ⟨hAO',rewrite_size C K L R,rfl,?_,hvalues,hunder,?_,?_⟩
+  · intro j hj
+    exact rewrite_op_eq K L R hKop hj
+  · intro x w hwg hwC hwK
+    apply (hprefix x w hwg hwC).2
+    intro hin
+    rcases hwK with hwK | hwK
+    · omega
+    · exact hwK hin.2
+  · intro x hg w hwK
+    exact rewrite_eq_outside hAO K L R hN hBack g hprivate x hg w hwK
+
+end SandwichProjection
+
 end PEqualNP.Outside.L_meta_5012
