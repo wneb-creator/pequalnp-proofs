@@ -76,3 +76,14 @@ RedundantNot.lean SHA256 b7deed3aa9442221514964e53f7131e556c8da3169c4f4ad763eda4
 Checker: not run on full statement; target theorem remains absent.
 Sub-agents: status_review, proof_route, circuit_search, not_elimination, toolchain_setup, gate_elimination
 TIMING total=29.48 subagents=6
+
+L-meta-2583 compiled partial: results/orch/lemmas/StarConstruction2583.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/StarConstruction2583.lean
+Exit status: 0. Complete logs: star-construction-2583.stdout and .stderr.
+Independent review: status_review approved SHA256 235ecb539b876155d053dcdfd308e55ac05a035d6276a1c8b1b3aea42c22e7c4.
+
+L-meta-2583 compiled partial: results/orch/lemmas/PlaneStarExact2583.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/PlaneStarExact2583.lean
+Exit status: 0. Complete logs: plane-star-exact-2583.stdout and .stderr.
+Independent review: status_review approved SHA256 dd6e73b3f2a7b599d143eed3e8726f87f833001f9b596e5a4f741612f9d5ec1a.
+Scope: explicit read1 plane circuit of exact cost N(q+2)-1; target normalization follows only under the still-unproved unrestricted numeric lower bound. No full checker acceptance claimed.

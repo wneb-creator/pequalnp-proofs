@@ -19,3 +19,11 @@ Adding the independent core pair (0,1) to zero and six singleton rows gives eigh
 ## ProbesTen adaptation checked
 
 2026-11-25T14:41:26.189111+00:00: ProbesTen.lean compiled against existing partial root module. Actual Petersen circuit-to-ledger link verified for eight regular samples plus two special rows and all five terminal layouts. no_ledger at nonNotCount<=15 reduces exactly to CoverCheckEight no_cover_build budget11. See strategy-probes.md for merge instructions and fixtures.
+
+## Active step changed after lease loss
+
+The retry requesting2592 returned L-meta-2583 instead. Active exact assignment is /tmp/oec/pequalnp-pilot-121/desk-002.json; statement is /tmp/oec/pequalnp-pilot-121/statement-2583.txt. All2592 work is paused and preserved. New focus: no-larger read-1 monotone circuit for projective-plane incidence. Reductions are closed. Roles: review=definition audit; gate=lower bounds; toolchain=explicit construction; proof_route=normal form; not_elimination=library/decomposition; circuit_search=small counterexamples.
+
+## L-meta-2583 exact star construction checked
+
+2026-11-25T14:51:48.595420+00:00: PlaneStarExact2583.lean compiles (664 lines) and gives correct read-1 circuit of exact size N(q+2)−1. normalize_from_bound finishes the target from N(q+2)≤C.size+1. Existing sharp lower bounds require read-1 and cannot be used circularly. Full details in strategy-2583-construct.md.

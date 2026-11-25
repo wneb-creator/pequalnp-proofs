@@ -12,3 +12,5 @@
 2026-11-25T14:39:20.625447+00:00: strengthened eight-row block-cover search independently reproduced no budget11 construction (212443 cover states,40266 core checks); allocating CoverCheck8, TerminalTen and ProbesTen ports. This is computational evidence pending Lean proof, not the full gap.
 2026-11-25T14:40:06.099581+00:00: actual exactly-one-NOT circuit witness link compiled and independently reviewed.
 2026-11-25T14:44:37.622417+00:00: HTTP410 despite recent renewal; paused new work and preserved compiled components plus reviewed pending proof drafts before prescribed re-request.
+2026-11-25T14:47:14.719429+00:00: deskretryreturnedL-meta-2583 withnewlease; teamreassigned, oldstepworkstopped.
+2026-11-25T14:53:03.157301+00:00: L-meta-2583 star constructors compiled and independently reviewed; preferred exact version664lines.
