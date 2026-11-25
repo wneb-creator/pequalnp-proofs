@@ -1,7 +1,9 @@
 import Mathlib
 import PEqualNP.Defs
 
-namespace PEqualNP.Outside.L_meta_4970.Kernel
+namespace PEqualNP.Outside.L_meta_4970
+
+namespace Kernel
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
@@ -633,5 +635,197 @@ lemma graph_extract_star_witnesses (p l : ℕ) (E : Finset (Fin p × Fin l)) (C 
   obtain ⟨w,hw,hsem⟩ := hpres i hi Q hneQ heq
   exact circuit_pure_or_root D hD w hw Q hQ hsem
 
-end PEqualNP.Outside.L_meta_4970.Kernel
+def StarServed (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : Circuit) : Prop :=
+  (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → (∃ (j : ℕ) (Q : Finset (Fin l)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ b' ∈ Q, x (Fin.natAdd p b') = true)) ∨ (∃ (j : ℕ) (P : Finset (Fin p)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ a' ∈ P, x (Fin.castAdd l a') = true)))
 
+lemma star_served_transfer (p l : ℕ) (E : Finset (Fin p × Fin l)) (C D : Circuit)
+    (hpres : ∀ i < p+l+C.gates.length, ∀ Q : Finset (Fin (p+l)), 2 ≤ Q.card →
+      (∀ x : Fin (p+l) → Bool,
+        (C.wires (List.ofFn x)).getD i false = decide (∃ q ∈ Q, x q = true)) →
+      ∃ j < D.gates.length, (gateAt D j).op = .or ∧
+        ∀ x : Fin (p+l) → Bool,
+          (D.wires (List.ofFn x)).getD (p+l+j) false = decide (∃ q ∈ Q, x q = true))
+    (hserved : StarServed p l E C) : StarServed p l E D := by
+  intro a b he
+  rcases hserved a b he with ⟨j,Q,hj,hop,hQ,hb,hadj,hsem⟩ | ⟨j,P,hj,hop,hP,ha,hadj,hsem⟩
+  · have hinj : Function.Injective (Fin.natAdd p : Fin l → Fin (p+l)) := by
+      intro a b hab
+      apply Fin.ext
+      have hv := congrArg Fin.val hab
+      simp only [Fin.val_natAdd] at hv
+      omega
+    have hcard : (Q.image (Fin.natAdd p)).card = Q.card :=
+      Finset.card_image_of_injective Q hinj
+    have hbig : 2 ≤ (Q.image (Fin.natAdd p)).card := by rw [hcard]; exact hQ
+    have hsem' : ∀ x : Fin (p+l) → Bool,
+        (C.wires (List.ofFn x)).getD (p+l+j) false =
+          decide (∃ q ∈ Q.image (Fin.natAdd p), x q = true) := by
+      intro x
+      simpa only [Finset.exists_mem_image] using hsem x
+    obtain ⟨k,hk,hkop,hksem⟩ := hpres (p+l+j) (by omega) (Q.image (Fin.natAdd p)) hbig hsem'
+    refine Or.inl ⟨k,Q,hk,hkop,hQ,hb,hadj,?_⟩
+    intro x
+    simpa only [Finset.exists_mem_image] using hksem x
+  · have hinj : Function.Injective (Fin.castAdd l : Fin p → Fin (p+l)) := by
+      intro a b hab
+      apply Fin.ext
+      simpa only [Fin.val_castAdd] using congrArg Fin.val hab
+    have hcard : (P.image (Fin.castAdd l)).card = P.card :=
+      Finset.card_image_of_injective P hinj
+    have hbig : 2 ≤ (P.image (Fin.castAdd l)).card := by rw [hcard]; exact hP
+    have hsem' : ∀ x : Fin (p+l) → Bool,
+        (C.wires (List.ofFn x)).getD (p+l+j) false =
+          decide (∃ q ∈ P.image (Fin.castAdd l), x q = true) := by
+      intro x
+      simpa only [Finset.exists_mem_image] using hsem x
+    obtain ⟨k,hk,hkop,hksem⟩ := hpres (p+l+j) (by omega) (P.image (Fin.castAdd l)) hbig hsem'
+    refine Or.inr ⟨k,P,hk,hkop,hP,ha,hadj,?_⟩
+    intro x
+    simpa only [Finset.exists_mem_image] using hksem x
+
+lemma graph_extract_served (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hne : E.Nonempty) (hao : IsAO2 (p+l) C)
+    (hfun : ∀ x : Fin (p+l) → Bool,
+      circuitFun (p+l) C x = decide (∃ a b, (a,b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hserved : StarServed p l E C) :
+    ∃ (D : Circuit) (U : Finset (ℕ × ℕ)),
+      IsAO2 (p+l) D ∧
+      (∀ j < D.gates.length, (gateAt D j).op = .and →
+        ∃ x : Fin (p+l) → Bool,
+          (D.wires (List.ofFn x)).getD (p+l+j) false = true ∧ ¬ Edge E x) ∧
+      (∀ t ∈ U, ∀ x : Fin (p+l) → Bool,
+        (D.wires (List.ofFn x)).getD t.1 false = true →
+        (D.wires (List.ofFn x)).getD t.2 false = true → Edge E x) ∧
+      (∀ x : Fin (p+l) → Bool, Edge E x → ∃ t ∈ U,
+        (D.wires (List.ofFn x)).getD t.1 false = true ∧
+        (D.wires (List.ofFn x)).getD t.2 false = true) ∧
+      D.size + 2 * U.card ≤ C.size + 1 ∧ StarServed p l E D := by
+  obtain ⟨D,U,hD,hd,hs,hcov,hbudget,hpres⟩ :=
+    graph_extract_star_witnesses p l E C hne hao hfun
+  exact ⟨D,U,hD,hd,hs,hcov,hbudget,star_served_transfer p l E C D hpres hserved⟩
+
+end Kernel
+
+namespace Boundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def edges : Finset (Fin 2 × Fin 2) := {(0, 0), (1, 0), (1, 1)}
+
+def kernel : Circuit :=
+  ⟨[⟨.or, [0, 1]⟩, ⟨.or, [2, 3]⟩, ⟨.and, [4, 5]⟩,
+    ⟨.and, [1, 1]⟩, ⟨.or, [2, 7]⟩], 8⟩
+
+def pairs : Finset (ℕ × ℕ) := {(6, 8)}
+
+def edgeFun (x : Fin 4 → Bool) : Bool :=
+  decide (∃ a b : Fin 2, (a, b) ∈ edges ∧
+    x (Fin.castAdd 2 a) = true ∧ x (Fin.natAdd 2 b) = true)
+
+def wire (w : ℕ) (x : Fin 4 → Bool) : Bool :=
+  (kernel.wires (List.ofFn x)).getD w false
+
+def covers (S : Finset (Fin 4)) : Prop :=
+  ∀ a b : Fin 2, (a, b) ∈ edges →
+    Fin.castAdd 2 a ∈ S ∨ Fin.natAdd 2 b ∈ S
+
+lemma no_four_cycle : ∀ a a' b b' : Fin 2,
+    a ≠ a' → b ≠ b' →
+    ¬ ((a, b) ∈ edges ∧ (a, b') ∈ edges ∧ (a', b) ∈ edges ∧ (a', b') ∈ edges) := by
+  decide +kernel
+
+lemma kernel_ao2 : PEqualNP.TopForm.IsAO2 4 kernel := by
+  decide +kernel
+
+lemma kernel_tCount :
+    PEqualNP.TwoColour.tCount 4 kernel (fun i => decide (2 ≤ i)) = 0 := by
+  decide +kernel
+
+lemma kernel_dirty : ∀ j : Fin kernel.gates.length,
+    ∃ x : Fin 4 → Bool, wire (4 + j.val) x = true ∧ edgeFun x = false := by
+  decide +kernel
+
+lemma pair_exact : ∀ x : Fin 4 → Bool, (wire 6 x && wire 8 x) = edgeFun x := by
+  decide +kernel
+
+lemma pairs_valid : ∀ u ∈ pairs, u.1 < 4 + kernel.size ∧ u.2 < 4 + kernel.size := by
+  decide +kernel
+
+lemma pairs_safe : ∀ u ∈ pairs, ∀ x : Fin 4 → Bool,
+    wire u.1 x = true → wire u.2 x = true → edgeFun x = true := by
+  intro u hu x ha hb
+  have he : u = (6, 8) := by simpa [pairs] using hu
+  subst u
+  have hh := pair_exact x
+  simpa [ha, hb] using hh.symm
+
+lemma pairs_cover : ∀ x : Fin 4 → Bool, edgeFun x = true →
+    ∃ u ∈ pairs, wire u.1 x = true ∧ wire u.2 x = true := by
+  intro x hx
+  refine ⟨(6, 8), by simp [pairs], ?_⟩
+  have hh := pair_exact x
+  rw [hx] at hh
+  simpa only [Bool.and_eq_true] using hh
+
+lemma left_star : (NestedCover.gateAt kernel 0).op = GateOp.or ∧
+    ∀ x : Fin 4 → Bool, wire 4 x =
+      decide (∃ a ∈ (Finset.univ : Finset (Fin 2)), x (Fin.castAdd 2 a) = true) := by
+  constructor
+  · rfl
+  · decide +kernel
+
+lemma right_star : (NestedCover.gateAt kernel 1).op = GateOp.or ∧
+    ∀ x : Fin 4 → Bool, wire 5 x =
+      decide (∃ b ∈ (Finset.univ : Finset (Fin 2)), x (Fin.natAdd 2 b) = true) := by
+  constructor
+  · rfl
+  · decide +kernel
+
+lemma stars_serve : ∀ a b : Fin 2, (a, b) ∈ edges →
+    (∃ (j : ℕ) (Q : Finset (Fin 2)),
+      j < kernel.gates.length ∧ (NestedCover.gateAt kernel j).op = GateOp.or ∧
+      2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ edges) ∧
+      ∀ x : Fin 4 → Bool, wire (4 + j) x =
+        decide (∃ b' ∈ Q, x (Fin.natAdd 2 b') = true)) ∨
+    (∃ (j : ℕ) (P : Finset (Fin 2)),
+      j < kernel.gates.length ∧ (NestedCover.gateAt kernel j).op = GateOp.or ∧
+      2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ edges) ∧
+      ∀ x : Fin 4 → Bool, wire (4 + j) x =
+        decide (∃ a' ∈ P, x (Fin.castAdd 2 a') = true)) := by
+  intro a b hab
+  by_cases hb : b = 0
+  · subst b
+    right
+    refine ⟨0, Finset.univ, by decide, left_star.1, by decide, Finset.mem_univ a, ?_, ?_⟩
+    · decide +kernel
+    · exact left_star.2
+  · have ha : a = 1 := by
+      fin_cases a <;> fin_cases b <;> simp [edges] at hab hb ⊢
+    subst a
+    left
+    refine ⟨1, Finset.univ, by decide, right_star.1, by decide, Finset.mem_univ b, ?_, ?_⟩
+    · decide +kernel
+    · exact right_star.2
+
+lemma cover_lower : ∀ S : Finset (Fin 4), covers S → 2 ≤ S.card := by
+  unfold covers
+  decide +kernel
+
+lemma cover_two : covers ({0, 1} : Finset (Fin 4)) ∧
+    ({0, 1} : Finset (Fin 4)).card = 2 := by
+  unfold covers
+  decide +kernel
+
+lemma pair_count_too_small : ∀ S : Finset (Fin 4), covers S → pairs.card < S.card := by
+  intro S hs
+  have h := cover_lower S hs
+  have hp : pairs.card = 1 := by decide
+  omega
+
+lemma combined_budget_still_holds : edges.card + 2 ≤ kernel.size + 2 * pairs.card := by
+  decide +kernel
+
+end Boundary
+
+end PEqualNP.Outside.L_meta_4970
