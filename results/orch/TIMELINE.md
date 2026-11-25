@@ -37,3 +37,7 @@
 - 2026-11-25T17:55:03.331257+00:00: unit-false singleton-support/orIn and semantic-colour bridge compiled, exit 0.
 
 - 2026-11-25T17:57:00.306558+00:00: Consolidated 2943-line named partial builds successfully; preparing checkpoint9. No full theorem.
+- 2026-11-25T17:57:53.110146+00:00: cofactor/reconvergence charging route remains open; no valid global budget obtained.
+- 2026-11-25T17:59:51.615374+00:00: self-AND raw-tCount charging rejected; pure same-colour OR-intersection simplification identified with unresolved shared-network cost.
+
+- 2026-11-25T18:00:52.004781+00:00: Preserving checked finite theta strategy obstruction and exact Python boundary-budget obstruction.

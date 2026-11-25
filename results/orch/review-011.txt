@@ -1,0 +1,22 @@
+Independent integration review by status_review, 2026-11-25T17:59:33Z.
+
+APPROVED FOR PARTIAL ARCHIVE IF THE INTEGRATED BUILD PASSES.
+No main theorem or full-gap proof is present; this is not PR approval.
+
+The named file is exactly commit 389333ae's file followed by unchanged
+SemanticColourWrappers.txt and GraphSlotRestrictedWrappers.txt, with blank-line
+separators only. It has 3,166 lines, 146,440 bytes, and 190 unique declarations.
+Named-file SHA256:
+a8a15177dd5d735cdd88655304c3325ac11f41a7a550f2216e8e7ab8d5193d0e.
+Composition-wrapper SHA256:
+36447dc9cd9ae67ae4b6ab6647f5c3f0826dd9fd81078330e60c98435fbc1b2c.
+
+The composition correctly supplies monochromatic singleton supports using
+SemanticColour, and derives Monotone2/ReadsBack from IsAO2. Its explicit
+assumptions include empty singleton supports for every AND, zero tCount,
+bipartite colouring, and exact graph-function computation. Its conclusion
+selects a reachable AND operand with a valid neighbourhood certificate for
+one edge. It does not assert a simultaneous allocation or global gate budget.
+
+No duplicate declarations, unbalanced or disallowed namespaces, forbidden
+proof tokens, credentials, or import changes were found. Build is pending.

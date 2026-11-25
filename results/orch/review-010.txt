@@ -1,0 +1,26 @@
+Independent archival review by status_review, 2026-11-25T17:58:59Z.
+
+MaskedTheta.lean: APPROVED FOR SCRATCH ARCHIVE ONLY in the reviewed form.
+SHA256: 68294e1f7db9404797965eaa9860db4bb59e25702bf39566de9b01bee280a359.
+
+The explicit 26-gate, eight-input circuit computes the stated nine-edge theta
+graph, is AO2, has zero two-colour count, and every AND has empty singleton
+support. Finite statements use ordinary decide, not native computation.
+The safe-slot lemma characterizes valid nonempty whole-operand stars; the
+last lemma rules out covering nine edges with eight chosen input-support
+stars. This excludes that allocation strategy, not the posted circuit bound.
+No full-gap theorem or refutation is claimed.
+
+No credentials, forbidden proof constructs, or unexpected imports found.
+The helper namespace is permitted. Reported compilation succeeded; captured
+diagnostics contain only letI style warnings and no errors.
+
+Two format issues must be corrected before final-file integration:
+1. Global maxRecDepth/maxHeartbeats options lack required declaration-local
+   `in` scope. Place needed permitted limits immediately above declarations.
+2. The exported Decidable instance should be removed. Unfold thetaAdj locally
+   in the safe-slot proof so decide can synthesize decidability without adding
+   an instance that propagates to other files.
+
+GraphSlotRestricted composition and SemanticColour integration pending;
+they were not yet supplied when this review was written.

@@ -39,3 +39,5 @@ BirthAllocationObstruction is exhaustive Python validation of a failed unchanged
 Integrated partial-003: 2943 lines, 136098 bytes; lake build PEqualNP.Outside.L_meta_4675 exit 0. Build completed successfully (5149 jobs). Independent integration-002 review approved exact component assembly; review-009 additionally approves SemanticColour and new search scripts. SemanticColour compiled separately, not yet included in named file. Main theorem remains absent.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
 TIMING total=50.61 subagents=6
+
+MaskedTheta.lean compiled exit0; review010 approved scratch archive with two documented final-format issues. It is a strategy obstruction, not full refutation. Root independently reviewed BoundaryBudgetObstruction.py: exact projective-F5 graph/matching and masked circuit validate failure of the positive-boundary-only budget; numerical Python result only.
