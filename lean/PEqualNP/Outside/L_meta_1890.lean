@@ -240,4 +240,121 @@ lemma finite_exclusion_iff :
     obtain ⟨x, hx⟩ := h (decodeCircuit c) id (decode_circuit_fan c) (decode_circuit_bound c)
     exact ⟨x, by simpa [input, Function.comp_def] using hx⟩
 
+def onSide {n : ℕ} (color : Fin n → Bool) (side : Bool) (x : Fin n → Bool) :
+    Fin n → Bool := fun i => if color i = side then x i else false
+
+lemma separator_forces_side {n : ℕ} (color : Fin n → Bool) (side : Bool)
+    (g : (Fin n → Bool) → Bool) (hg : Monotone g) (p q : Fin n → Bool) (i : Fin n)
+    (hs : ∀ j, j ≠ i → p j ≤ q j)
+    (hp : g (onSide color side p) = true) (hq : g (onSide color side q) = false) :
+    color i = side := by
+  by_contra hi
+  have hle : onSide color side p ≤ onSide color side q := by
+    intro j
+    by_cases hj : color j = side
+    · have hji : j ≠ i := by
+        intro he
+        subst j
+        exact hi hj
+      simpa only [onSide, ite_eq_left hj] using hs j hji
+    · simp [onSide, hj]
+  have h := hg hle
+  rw [hp, hq] at h
+  cases h rfl
+
+lemma or_root_forces_same_side {n : ℕ} (color : Fin n → Bool)
+    (a b : (Fin n → Bool) → Bool) (ha : Monotone a) (hb : Monotone b)
+    (p q r : Fin n → Bool) (i j : Fin n)
+    (hi : ∀ k, k ≠ i → p k ≤ q k) (hj : ∀ k, k ≠ j → p k ≤ r k)
+    (hp : (a (onSide color false p) || b (onSide color true p)) = true)
+    (hq : (a (onSide color false q) || b (onSide color true q)) = false)
+    (hr : (a (onSide color false r) || b (onSide color true r)) = false) :
+    color i = color j := by
+  obtain ⟨hqa, hqb⟩ := Bool.or_eq_false_iff.mp hq
+  obtain ⟨hra, hrb⟩ := Bool.or_eq_false_iff.mp hr
+  rcases Bool.or_eq_true_iff.mp hp with hpa | hpb
+  · exact (separator_forces_side color false a ha p q i hi hpa hqa).trans
+      (separator_forces_side color false a ha p r j hj hpa hra).symm
+  · exact (separator_forces_side color true b hb p q i hi hpb hqb).trans
+      (separator_forces_side color true b hb p r j hj hpb hrb).symm
+
+lemma and_root_forces_same_side {n : ℕ} (color : Fin n → Bool)
+    (a b : (Fin n → Bool) → Bool) (ha : Monotone a) (hb : Monotone b)
+    (p q r : Fin n → Bool) (i j : Fin n)
+    (hi : ∀ k, k ≠ i → p k ≤ r k) (hj : ∀ k, k ≠ j → q k ≤ r k)
+    (hp : (a (onSide color false p) && b (onSide color true p)) = true)
+    (hq : (a (onSide color false q) && b (onSide color true q)) = true)
+    (hr : (a (onSide color false r) && b (onSide color true r)) = false) :
+    color i = color j := by
+  obtain ⟨hpa, hpb⟩ := Bool.and_eq_true_iff.mp hp
+  obtain ⟨hqa, hqb⟩ := Bool.and_eq_true_iff.mp hq
+  rcases Bool.and_eq_false_iff.mp hr with hra | hrb
+  · exact (separator_forces_side color false a ha p r i hi hpa hra).trans
+      (separator_forces_side color false a ha q r j hj hqa hra).symm
+  · exact (separator_forces_side color true b hb p r i hi hpb hrb).trans
+      (separator_forces_side color true b hb q r j hj hqb hrb).symm
+
+lemma onSide_empty {n : ℕ} (color : Fin n → Bool) (side : Bool)
+    (p : Fin n → Bool) (i j : Fin n)
+    (hp : ∀ k, k ≠ i → k ≠ j → p k = false)
+    (hi : color i ≠ side) (hj : color j ≠ side) :
+    onSide color side p = fun _ => false := by
+  funext k
+  by_cases hki : k = i
+  · subst k
+    simp [onSide, hi]
+  by_cases hkj : k = j
+  · subst k
+    simp [onSide, hj]
+  simp [onSide, hp k hki hkj]
+
+lemma onSide_full {n : ℕ} (color : Fin n → Bool) (side : Bool)
+    (p : Fin n → Bool) (i j : Fin n)
+    (hp : ∀ k, k ≠ i → k ≠ j → p k = true)
+    (hi : color i ≠ side) (hj : color j ≠ side) :
+    onSide color side p = onSide color side (fun _ => true) := by
+  funext k
+  by_cases hki : k = i
+  · subst k
+    simp [onSide, hi]
+  by_cases hkj : k = j
+  · subst k
+    simp [onSide, hj]
+  simp [onSide, hp k hki hkj]
+
+lemma and_root_forces_opposite_side {n : ℕ} (color : Fin n → Bool)
+    (a b : (Fin n → Bool) → Bool)
+    (ha : a (fun _ => false) = false) (hb : b (fun _ => false) = false)
+    (p : Fin n → Bool) (i j : Fin n)
+    (hp : ∀ k, k ≠ i → k ≠ j → p k = false)
+    (hout : (a (onSide color false p) && b (onSide color true p)) = true) :
+    color i ≠ color j := by
+  intro he
+  obtain ⟨hpa, hpb⟩ := Bool.and_eq_true_iff.mp hout
+  cases hi : color i
+  · have h := onSide_empty color true p i j hp (by simp [hi]) (by rw [← he, hi]; decide)
+    rw [h, hb] at hpb
+    contradiction
+  · have h := onSide_empty color false p i j hp (by simp [hi]) (by rw [← he, hi]; decide)
+    rw [h, ha] at hpa
+    contradiction
+
+lemma or_root_forces_opposite_side {n : ℕ} (color : Fin n → Bool)
+    (a b : (Fin n → Bool) → Bool)
+    (ha : a (onSide color false (fun _ => true)) = true)
+    (hb : b (onSide color true (fun _ => true)) = true)
+    (p : Fin n → Bool) (i j : Fin n)
+    (hp : ∀ k, k ≠ i → k ≠ j → p k = true)
+    (hout : (a (onSide color false p) || b (onSide color true p)) = false) :
+    color i ≠ color j := by
+  intro he
+  obtain ⟨hpa, hpb⟩ := Bool.or_eq_false_iff.mp hout
+  cases hi : color i
+  · have h := onSide_full color true p i j hp (by simp [hi]) (by rw [← he, hi]; decide)
+    rw [h, hb] at hpb
+    contradiction
+  · have h := onSide_full color false p i j hp (by simp [hi]) (by rw [← he, hi]; decide)
+    rw [h, ha] at hpa
+    contradiction
+
 end PEqualNP.Outside.L_meta_1890_aux
