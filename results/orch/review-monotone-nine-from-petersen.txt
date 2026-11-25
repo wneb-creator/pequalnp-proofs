@@ -1,0 +1,36 @@
+Independent immutable source, mathematics and dependency review: PASS
+
+Source: lemmas/MonotoneNineFromPetersen.lean
+SHA256: 044bf39b7515a6f0a094c38cc069d3bcc4145fa260dad86b18cd1dd6bab83928
+Size: 4271 bytes. Archived source matches the frozen scratch source exactly.
+The complete retained log records compiler exit code 0; the produced cache
+exists and is newer than the matching source. No new build was necessary.
+
+Read the entire source. The embedding drops row bit9 by the existing coarse
+map. Its nine input columns and the exact ten-variable target identity are
+kernel-checked on all finite rows. Positive Reach is transported at exactly
+the same gate count, including free constants, and every initial ten-input
+column remains available. The four added gates compute:
+  (x4 OR x6), then OR x7, then AND x9, then OR the embedded nine-variable graph.
+The result is exactly the Petersen ten-variable target. Applying the explicit
+Lower false inputs graph 20 premise at p+4 yields p≥16. No lower-16 statement
+is assumed by the new proof.
+
+Verified exact import chain:
+  MonotoneNineFromPetersen -> SliceFromNine -> PetersenSeventeenFull -> PEqualNP.Defs.
+SliceFromNine SHA256: 2dcddf4c4ce871ec6b7a1bdea4645e9c6f3648b597befa7a4f40c7a849094871
+PetersenSeventeenFull SHA256: 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721
+The frozen seventeen base is the previously reviewed signed-15 ancestry.
+Neither NineMonotoneExtension nor its inline suffix is imported or appended.
+The conditional bridge therefore has no dependency on the old mono-16 proof.
+
+No sorry, new axiom, unsafe/native computation, bv_decide, custom datatype,
+instance, string literal or forbidden name occurs in this new source.
+The cached module import is for partial development; a final single-file
+submission must inline the needed definitions under the allowed import.
+
+Scope: this is a conditional bridge, not a proof of the Petersen lower20
+premise or of the posted gap. To remove the old mono-16 certificate without
+circularity, the lower20 premise must be proved independently, for example
+using only signed15 cofactor bounds. status_review separately confirmed the
+mathematical four-gate argument while this review checked frozen dependencies.
