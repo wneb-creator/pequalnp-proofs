@@ -1583,4 +1583,196 @@ lemma maximal_independent_family_card_bound {n : ℕ} (G : SimpleGraph (Fin n))
 
 end AndSignature
 
+namespace AndPacking
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.AO2Upper
+open PEqualNP.Outside.L_meta_3566.FalseRestrict
+open PEqualNP.Outside.L_meta_3566.AndSignature
+
+abbrev State := Bool × Bool
+
+/-- Opposite unequal operand states, the only obstruction to distributing AND over join. -/
+def Cross (p q : State) : Prop :=
+  (p = (true, false) ∧ q = (false, true)) ∨
+    (p = (false, true) ∧ q = (true, false))
+
+/-- Equal operands leave a signature bit free; unequal operands fix it to the left value. -/
+def allowed (p : State) : Finset Bool :=
+  if p.1 = p.2 then Finset.univ else {p.1}
+
+lemma not_cross_of_common (p q : State) (b : Bool)
+    (hp : b ∈ allowed p) (hq : b ∈ allowed q) : ¬ Cross p q := by
+  rcases p with ⟨a, c⟩
+  rcases q with ⟨d, e⟩
+  cases a <;> cases c <;> cases d <;> cases e <;> cases b <;>
+    simp_all [allowed, Cross]
+
+lemma gate_join_no_cross (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (a b c d : Bool) (h : op = GateOp.and → ¬ Cross (a, b) (c, d)) :
+    op.eval [a || c, b || d] = (op.eval [a, b] || op.eval [c, d]) := by
+  rcases hop with rfl | rfl <;> cases a <;> cases b <;> cases c <;> cases d <;>
+    simp_all [GateOp.eval, Cross]
+
+lemma step_join_no_cross (g : Gate) (s t u : List Bool) (h : JoinRel s t u)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hlen : g.inputs.length = 2)
+    (hcross : g.op = GateOp.and → ¬ Cross
+      (s.getD (g.inputs.getD 0 0) false, s.getD (g.inputs.getD 1 0) false)
+      (t.getD (g.inputs.getD 0 0) false, t.getD (g.inputs.getD 1 0) false)) :
+    JoinRel (step g s) (step g t) (step g u) := by
+  refine ⟨by simp [step, h.1], by simp [step, h.2.1], ?_⟩
+  intro i
+  by_cases hi : i = s.length
+  · subst i
+    have ht := h.1
+    have hu := h.2.1
+    unfold step
+    rw [getD_snoc_eq, ht, getD_snoc_eq, ← ht, hu, getD_snoc_eq]
+    obtain ⟨a, b, hg⟩ := List.length_eq_two.mp hlen
+    have hc : g.op = GateOp.and → ¬ Cross
+        (s.getD a false, s.getD b false) (t.getD a false, t.getD b false) := by
+      simpa [hg] using hcross
+    simp only [hg, List.map_cons, List.map_nil]
+    rw [h.2.2 a, h.2.2 b]
+    exact gate_join_no_cross g.op hop _ _ _ _ hc
+  · have ht := h.1
+    have hu := h.2.1
+    unfold step
+    rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ hi,
+      getD_snoc_ne _ _ _ _ (by omega)]
+    exact h.2.2 i
+
+def traceRun : List Gate → List Bool → List State
+  | [], _ => []
+  | g :: gs, s =>
+      (if isAnd g.op then
+        [(s.getD (g.inputs.getD 0 0) false, s.getD (g.inputs.getD 1 0) false)] else []) ++
+        traceRun gs (step g s)
+
+lemma traceRun_length (gs : List Gate) (s : List Bool) :
+    (traceRun gs s).length = andCount gs := by
+  induction gs generalizing s with
+  | nil => simp [traceRun, andCount]
+  | cons g gs ih =>
+    simp only [traceRun, List.length_append, ih, andCount, List.countP_cons]
+    cases isAnd g.op <;> simp [Nat.add_comm]
+
+lemma traceRun_join (gs : List Gate) (s t u : List Bool) (h : JoinRel s t u)
+    (hbasis : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2)
+    (hcross : ∀ i < andCount gs,
+      ¬ Cross ((traceRun gs s).getD i (false, false)) ((traceRun gs t).getD i (false, false))) :
+    JoinRel (wiresFrom gs s) (wiresFrom gs t) (wiresFrom gs u) := by
+  induction gs generalizing s t u with
+  | nil => exact h
+  | cons g gs ih =>
+    obtain ⟨hop, hlen⟩ := hbasis g List.mem_cons_self
+    have hhead : g.op = GateOp.and → ¬ Cross
+        (s.getD (g.inputs.getD 0 0) false, s.getD (g.inputs.getD 1 0) false)
+        (t.getD (g.inputs.getD 0 0) false, t.getD (g.inputs.getD 1 0) false) := by
+      intro hp
+      have hz : 0 < andCount (g :: gs) := by simp [andCount, hp, isAnd]
+      simpa [traceRun, hp, isAnd] using hcross 0 hz
+    have htail : ∀ i < andCount gs, ¬ Cross
+        ((traceRun gs (step g s)).getD i (false, false))
+        ((traceRun gs (step g t)).getD i (false, false)) := by
+      intro i hi
+      rcases hop with hp | hp
+      · have hib : i + 1 < andCount (g :: gs) := by
+          simp only [andCount, List.countP_cons, hp, isAnd, ↓reduceIte]
+          exact Nat.add_lt_add_right hi 1
+        simpa [traceRun, hp, isAnd] using hcross (i + 1) hib
+      · have hib : i < andCount (g :: gs) := by simpa [andCount, hp, isAnd] using hi
+        simpa [traceRun, hp, isAnd] using hcross i hib
+    exact ih _ _ _ (step_join_no_cross g s t u h hop hlen hhead)
+      (fun g' hg' => hbasis g' (List.mem_cons_of_mem g hg')) htail
+
+def stateFn (n : ℕ) (C : Circuit) (x : Fin n → Bool) : Fin (andCount C.gates) → State :=
+  fun i => (traceRun C.gates (List.ofFn x)).getD i.val (false, false)
+
+lemma no_cross_join (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (x y : Fin n → Bool)
+    (hcross : ∀ i, ¬ Cross (stateFn n C x i) (stateFn n C y i)) :
+    circuitFun n C (fun i => x i || y i) = (circuitFun n C x || circuitFun n C y) := by
+  have hinit : JoinRel (List.ofFn x) (List.ofFn y) (List.ofFn fun i => x i || y i) := by
+    refine ⟨by simp, by simp, ?_⟩
+    intro i
+    by_cases hi : i < n <;> simp [List.getD_eq_getElem?_getD, hi]
+  exact (traceRun_join C.gates _ _ _ hinit
+    (fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩) (fun i hi => hcross ⟨i, hi⟩)).2.2 C.output
+
+/-- Two false inputs with a true union have opposite unequal states at some AND gate. -/
+lemma exists_and_cross (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (x y : Fin n → Bool) (hx : circuitFun n C x = false) (hy : circuitFun n C y = false)
+    (hunion : circuitFun n C (fun i => x i || y i) = true) :
+    ∃ i : Fin (andCount C.gates), Cross (stateFn n C x i) (stateFn n C y i) := by
+  by_contra h
+  push Not at h
+  have heq := no_cross_join n C hAO x y h
+  rw [hunion, hx, hy] at heq
+  contradiction
+
+def cube {k : ℕ} (p : Fin k → State) : Finset (Fin k → Bool) :=
+  Fintype.piFinset fun i => allowed (p i)
+
+def wildCount {k : ℕ} (p : Fin k → State) : ℕ :=
+  (Finset.univ.filter fun i => (p i).1 = (p i).2).card
+
+lemma cube_disjoint_of_cross {k : ℕ} (p q : Fin k → State)
+    (hcross : ∃ i, Cross (p i) (q i)) : Disjoint (cube p) (cube q) := by
+  apply Finset.disjoint_left.mpr
+  intro f hp hq
+  obtain ⟨i, hi⟩ := hcross
+  exact not_cross_of_common (p i) (q i) (f i)
+    (Fintype.mem_piFinset.mp hp i) (Fintype.mem_piFinset.mp hq i) hi
+
+lemma cube_card {k : ℕ} (p : Fin k → State) : (cube p).card = 2 ^ wildCount p := by
+  rw [cube, Fintype.card_piFinset]
+  have hc : ∀ i, (allowed (p i)).card = if (p i).1 = (p i).2 then 2 else 1 := by
+    intro i
+    by_cases hi : (p i).1 = (p i).2 <;> simp [allowed, hi]
+  simp_rw [hc]
+  rw [← Finset.prod_filter]
+  simp [wildCount]
+
+/-- The partial AND signatures of a pairwise-union-positive false family occupy disjoint cubes. -/
+lemma false_family_kraft_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (hfalse : ∀ x ∈ S, circuitFun n C x = false)
+    (hjoin : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i || y i) = true) :
+    (∑ x ∈ S, 2 ^ wildCount (stateFn n C x)) ≤ 2 ^ andCount C.gates := by
+  classical
+  have hdis : (S : Set (Fin n → Bool)).PairwiseDisjoint (fun x => cube (stateFn n C x)) := by
+    intro x hx y hy hne
+    apply cube_disjoint_of_cross
+    exact exists_and_cross n C hAO x y (hfalse x hx) (hfalse y hy) (hjoin x hx y hy hne)
+  calc
+    _ = ∑ x ∈ S, (cube (stateFn n C x)).card := by
+      apply Finset.sum_congr rfl
+      intro x hx
+      exact (cube_card _).symm
+    _ = (S.biUnion fun x => cube (stateFn n C x)).card := (Finset.card_biUnion hdis).symm
+    _ ≤ Fintype.card (Fin (andCount C.gates) → Bool) := Finset.card_le_univ _
+    _ = _ := by simp
+
+lemma succ_le_two_pow (k : ℕ) : k + 1 ≤ 2 ^ k := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [pow_succ]
+    omega
+
+/-- Linear consequence of the cube packing bound, useful as a search constraint. -/
+lemma false_family_linear_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (hfalse : ∀ x ∈ S, circuitFun n C x = false)
+    (hjoin : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i || y i) = true) :
+    (∑ x ∈ S, wildCount (stateFn n C x)) ≤ 2 ^ andCount C.gates - S.card := by
+  have hsum : (∑ x ∈ S, (wildCount (stateFn n C x) + 1)) ≤
+      ∑ x ∈ S, 2 ^ wildCount (stateFn n C x) := by
+    exact Finset.sum_le_sum fun x hx => succ_le_two_pow _
+  have hk := false_family_kraft_bound n C hAO S hfalse hjoin
+  simp only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] at hsum
+  omega
+
+end AndPacking
+
 end PEqualNP.Outside.L_meta_3566
