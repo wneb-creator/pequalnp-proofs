@@ -29,3 +29,5 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus one loca
 
 - 2026-11-25T21:45:38+00:00: Third partial push confirmed at e1cee1b1f; independent review and kernel checks passed for orbit and carrier helpers.
 - 2026-11-25T21:45:38+00:00: Exact semantic trace compression independently reviewed and compiled; it preserves outputs and proves an exact deletion-count identity. Still no full gap proof.
+
+- 2026-11-25T21:50:33+00:00: Second re-plan retained all full-proof routes; root added and independently reviewed a linear-wire/AND-closure obstruction for the seven-row residual problem. Kernel and standard-axiom checks passed. Full gap remains open.
