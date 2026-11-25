@@ -2301,6 +2301,66 @@ lemma H2.n0_retained_marks {D : Dag} (hS : Strict 10 D) (q : ℕ)
     rw [hlabel (rep p) hrK, hrlabel]
     exact n0ResidualPairs_embed p r hr
 
+lemma H2.sem_W_gate_injective {n : ℕ} {D : Dag} (hS : Strict n D) (z : Fin n) :
+    Set.InjOn Prod.fst (↑(sem_W n D z) : Set (ℕ × Bool)) := by
+  rintro ⟨j, s⟩ hs ⟨k, t⟩ ht he
+  change j = k at he
+  subst k
+  by_cases hst : s = t
+  · exact Prod.ext rfl hst
+  have ha : z ∈ supp n D (opA D j) := by
+    cases s <;> cases t <;> simp_all [src, sem_mem_W]
+  have hb : z ∈ supp n D (opB D j) := by
+    cases s <;> cases t <;> simp_all [src, sem_mem_W]
+  have hg := (sem_mem_W.mp hs).1
+  have htag := sem_W_and hS hs
+  have hout := (sem_mem_W.mp hs).2.2
+  apply False.elim
+  apply hout
+  apply mem_supp.mpr
+  rw [val_gate hS (single z) j hg, htag, gop_true, mem_supp.mp ha, mem_supp.mp hb]
+  rfl
+
+lemma H2.n0_exit_noemit {D : Dag} (hS : Strict 10 D) {e : ℕ × Bool}
+    (he : e ∈ sem_W 10 D (0 : Fin 10)) :
+    (stage 6 n0Refs D (e.1 + 1)).2 = (stage 6 n0Refs D e.1).2 := by
+  obtain ⟨hj, hs, _⟩ := sem_mem_W.mp he
+  have ht := true_support_on_rows hS restrictN0 (v := (0 : Fin 10)) (fun _ => rfl) hs
+  apply n0_noemit_of_constant_operand D hS e.1 hj
+  cases hb : e.2
+  · exact Or.inl (Or.inr (by simpa [src, hb] using ht (fun _ => false)))
+  · exact Or.inr (Or.inr (by simpa [src, hb] using ht (fun _ => false)))
+
+lemma H2.n0_exit_not_copyBoundary {D : Dag} (hS : Strict 10 D) {e : ℕ × Bool}
+    (he : e ∈ sem_W 10 D (0 : Fin 10)) :
+    e.1 ∉ copyBoundary 10 D (zeroWires D neighborhoodResidualRows) := by
+  intro hz
+  obtain ⟨hj, hs, _⟩ := sem_mem_W.mp he
+  have hop := sem_W_and hS he
+  have ht := true_support_on_rows hS neighborhoodResidualRows
+    (v := (0 : Fin 10)) (fun _ => rfl) hs
+  have htt : (∀ r, val D (neighborhoodResidualRows r) (opA D e.1) = true) ∨
+      (∀ r, val D (neighborhoodResidualRows r) (opB D e.1) = true) := by
+    cases hb : e.2
+    · exact Or.inl (by simpa [src, hb] using ht)
+    · exact Or.inr (by simpa [src, hb] using ht)
+  obtain ⟨_, hcase⟩ := Finset.mem_filter.mp hz
+  rcases hcase with ⟨hka, hkb⟩ | ⟨hk, hko⟩
+  · rcases htt with hta | htb
+    · have hh := (mem_zeroWires.mp hka).2 (fun _ => true)
+      rw [hta] at hh
+      contradiction
+    · have hh := (mem_zeroWires.mp hkb).2 (fun _ => true)
+      rw [htb] at hh
+      contradiction
+  · apply hko
+    refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+    intro r
+    rw [val_gate hS _ e.1 hj, hop, gop_true]
+    rcases hk with hk | hk
+    · rw [(mem_zeroWires.mp hk).2 r]; rfl
+    · rw [(mem_zeroWires.mp hk).2 r]; simp
+
 end packScope1
 section packScope2
 
@@ -5942,5 +6002,119 @@ lemma H2.n0_three_exit_impossible {D : Dag} (h : StrictLive 10 D)
   n0_triple_supports_impossible h hc hi (n0_exact_star_triples h hc hi hW) hlen
 
 end packScope34
+section packScope35
+
+open PEqualNP.Outside.L_meta_2590_aux.H2
+
+lemma H2.n0_selected_empty_exits_first_marks_budget {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (F : Finset (ℕ × Bool)) (hF : F ⊆ sem_W 10 D (0 : Fin 10))
+    (hFe : ∀ e ∈ F, supp 10 D (10 + e.1) = ∅)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j))
+    (q : ℕ) (hq : q ≤ (stage 6 n0Refs D D.length).2.length) :
+    q + 3 + F.card + M.card ≤ D.length + (keptEmitted 6 n0Refs D D.length q ∩ M).card := by
+  classical
+  let Z := copyBoundary 10 D (zeroWires D neighborhoodResidualRows)
+  let A := F.image Prod.fst
+  have hFi : Set.InjOn Prod.fst (↑F : Set (ℕ × Bool)) := by
+    intro e he f hf hsame
+    exact sem_W_gate_injective h.1 0 (hF he) (hF hf) hsame
+  have hAc : A.card = F.card := Finset.card_image_of_injOn hFi
+  obtain ⟨_, _, _, _, hZc, _⟩ := n0_six_nonemitted h hc hi
+  have hZA : Disjoint Z A := by
+    apply Finset.disjoint_left.mpr
+    intro j hz ha
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+    exact n0_exit_not_copyBoundary h.1 (hF he) hz
+  have hZM : Disjoint Z M := by
+    apply Finset.disjoint_left.mpr
+    intro j hz hm
+    have htop : ∀ v, v ∉ neighborhoodI → neighborhoodResidualRows (fun _ => true) v = true := by
+      intro v hv
+      cases he : neighborhoodResidualRows (fun _ => true) v
+      · exact False.elim (hv ((neighborhood_rows_top v).mp he))
+      · rfl
+    have hdis : Disjoint (supp 10 D (10 + j)) neighborhoodI := by
+      apply Finset.disjoint_left.mpr
+      intro v hv hvi
+      have hp := sem_inelig_pure graph_ok h.1 hc (hi hvi) hv
+      have hh := hcard j hm
+      rw [hp, Finset.card_singleton] at hh
+      omega
+    exact first_support_gate_not_copyBoundary h.1 neighborhoodResidualRows neighborhoodI
+      (fun _ => true) htop (Finset.mem_range.mp (hM hm)) (hcard j hm) hdis
+      rfl (hfirst j hm) hz
+  have hAM : Disjoint A M := by
+    apply Finset.disjoint_left.mpr
+    intro j ha hm
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+    have hh := hcard _ hm
+    rw [hFe e he, Finset.card_empty] at hh
+    omega
+  have hsub : Z ∪ A ⊆ Finset.range D.length := by
+    intro j hj
+    rcases Finset.mem_union.mp hj with hz | ha
+    · exact (Finset.mem_filter.mp hz).1
+    · obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+      exact Finset.mem_range.mpr (sem_mem_W.mp (hF he)).1
+  have hno : ∀ j ∈ Z ∪ A, (stage 6 n0Refs D (j + 1)).2 = (stage 6 n0Refs D j).2 := by
+    intro j hj
+    rcases Finset.mem_union.mp hj with hz | ha
+    · exact n0_noemit_copyBoundary h.1 hz
+    · obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+      exact n0_exit_noemit h.1 (hF he)
+  have hdis : Disjoint M (Z ∪ A) :=
+    (Finset.disjoint_union_left.mpr ⟨hZM, hAM⟩).symm
+  have hb := keptEmitted_marked_budget 6 n0Refs D D.length q hq (Z ∪ A) M hsub hM hdis hno
+  rw [Finset.card_union_of_disjoint hZA, hAc] at hb
+  dsimp only [Z] at hb
+  omega
+
+lemma H2.n0_selected_empty_exits_virtual_budget {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (F : Finset (ℕ × Bool)) (hF : F ⊆ sem_W 10 D (0 : Fin 10))
+    (hFe : ∀ e ∈ F, supp 10 D (10 + e.1) = ∅)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j))
+    (t : ℕ) (hcost : t + 3 ≤ F.card) (hmarks : 6 ≤ M.card + t)
+    (q : ℕ) (hq : q ≤ (stage 6 n0Refs D D.length).2.length) :
+    q + 12 ≤ D.length + (keptEmitted 6 n0Refs D D.length q ∩ M).card := by
+  have hb := n0_selected_empty_exits_first_marks_budget h hc hi F hF hFe M hM hcard hfirst q hq
+  omega
+
+end packScope35
+section packScope36
+
+open PEqualNP.Outside.L_meta_2590_aux.H2
+
+lemma H2.n0_selected_empty_exits_virtual_impossible {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (F : Finset (ℕ × Bool)) (hF : F ⊆ sem_W 10 D (0 : Fin 10))
+    (hFe : ∀ e ∈ F, supp 10 D (10 + e.1) = ∅)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j))
+    (hgood : ∀ j ∈ M, (0 : Fin 10) ∈ supp 10 D (10 + j) ∨
+      ∃ p : Fin 3, supp 10 D (10 + j) = n0OriginalPairs p)
+    (t : ℕ) (hcost : t + 3 ≤ F.card) (hmarks : 6 ≤ M.card + t)
+    (hlen : D.length ≤ 19) : False := by
+  obtain ⟨q, _, hq, _, _, _, hcorrect, _⟩ := n0_c6_output_prefix hc
+  have hunique : ∀ i ∈ M, ∀ j ∈ M, ∀ p : Fin 3,
+      supp 10 D (10 + i) = n0OriginalPairs p →
+      supp 10 D (10 + j) = n0OriginalPairs p → i = j := by
+    intro i hiM j hjM p hip hjp
+    by_contra hne
+    rcases lt_or_gt_of_ne hne with hij | hji
+    · exact hfirst j hjM i hij (hip.trans hjp.symm)
+    · exact hfirst i hiM j hji (hjp.trans hip.symm)
+  have hlower := n0_retained_marks_actual_bound h.1 q hq hcorrect M hgood hunique
+  have hupper := n0_selected_empty_exits_virtual_budget h hc hi F hF hFe M hM hcard hfirst
+    t hcost hmarks q hq
+  omega
+
+end packScope36
 
 end PEqualNP.Outside.L_meta_2590_aux
