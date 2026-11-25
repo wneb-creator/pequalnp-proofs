@@ -4278,6 +4278,597 @@ lemma two_flags {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   exact ⟨side (n := n) C j 0,side (n := n) C j 1,z,zp,hzzp,hz,hzp,hP,
     fun q hq => (hQ q hq).symm,hlarge j hj 0,hlarge j hj 1,heval⟩
 
+lemma two_flags_no_joint {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C)
+    (hOne : ∀ D : Circuit, IsLeastAO G D → (junk G D).card ≠ 1)
+    (hT : TopForm G C) {g h : ℕ} (hne : g ≠ h) (hJ : junk G C = {g,h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hApart : ∀ a ∈ tops G C, ∀ b : Fin 2,
+      OrReaches n C (opnd C a b) g → ¬ OrReaches n C (opnd C a (1-b)) h)
+    (h4 : NoFourCycle G)
+    (hdis : ∀ j ∈ junk G C, Disjoint (side (n := n) C j 0) (side (n := n) C j 1))
+    (hlarge : ∀ j ∈ junk G C, ∀ b : Fin 2, 2 ≤ (side (n := n) C j b).card) :
+    ∀ j ∈ junk G C, ∃ (P Q : Finset (Fin n)) (z zp : Fin n),
+      G.Adj z zp ∧ z ∈ P ∧ zp ∈ Q ∧ (∀ p ∈ P, G.Adj p zp) ∧
+      (∀ q ∈ Q, G.Adj q z) ∧ 2 ≤ P.card ∧ 2 ≤ Q.card ∧
+      ∀ x : Fin n → Bool, gateVal n C j x =
+        (decide (∃ p ∈ P, x p = true) && decide (∃ q ∈ Q, x q = true)) := by
+  classical
+  have hFlag (j k : ℕ) (hne' : j ≠ k) (hJ' : junk G C = {j,k})
+      (hjk : ¬ InCone n C j k) (hkj : ¬ InCone n C k j)
+      (hApart' : ∀ a ∈ tops G C, ∀ b : Fin 2,
+        OrReaches n C (opnd C a b) j → ¬ OrReaches n C (opnd C a (1-b)) k) :
+      ∃ z ∈ side (n := n) C j 0, ∃ zp ∈ side (n := n) C j 1,
+        G.Adj z zp ∧ (∀ p ∈ side (n := n) C j 0, G.Adj p zp) ∧
+          (∀ q ∈ side (n := n) C j 1, G.Adj z q) := by
+    have hjmem : j ∈ junk G C := by rw [hJ']; simp
+    exact one_flag G C hL hOne hT hne' hJ' hjk hkj hApart' h4
+      (hdis j hjmem) (hlarge j hjmem 0) (hlarge j hjmem 1)
+  intro j hj
+  have hjcases : j = g ∨ j = h := by simpa [hJ] using hj
+  have heval := RawOperands.independent_product G C hL.1 hT g h hJ hgh hhg j hjcases
+  have hz : ∃ z ∈ side (n := n) C j 0, ∃ zp ∈ side (n := n) C j 1,
+      G.Adj z zp ∧ (∀ p ∈ side (n := n) C j 0, G.Adj p zp) ∧
+        (∀ q ∈ side (n := n) C j 1, G.Adj z q) := by
+    rcases hjcases with hjg | hjh
+    · rw [hjg]
+      exact hFlag g h hne hJ hgh hhg hApart
+    · rw [hjh]
+      exact hFlag h g (Ne.symm hne) (by rw [hJ,Finset.pair_comm]) hhg hgh
+        (by
+          intro a ha b hhr hgr
+          apply hApart a ha (1-b) hgr
+          have hb : (1 : Fin 2) - (1-b) = b := by fin_cases b <;> decide
+          simpa only [hb] using hhr)
+  obtain ⟨z,hz,zp,hzp,hzzp,hP,hQ⟩ := hz
+  exact ⟨side (n := n) C j 0,side (n := n) C j 1,z,zp,hzzp,hz,hzp,hP,
+    fun q hq => (hQ q hq).symm,hlarge j hj 0,hlarge j hj 1,heval⟩
+
 end ApartFlags
+
+namespace MixedPrivacy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+open PEqualNP.TopForm
+
+abbrev G : SimpleGraph (Fin 6) := edgeGraph 6 [(0,1),(1,2),(2,3),(3,4),(3,5)]
+
+def C : Circuit :=
+  { gates := [⟨GateOp.or, [0,2]⟩, ⟨GateOp.or, [1,3]⟩,
+      ⟨GateOp.and, [6,7]⟩, ⟨GateOp.or, [4,5]⟩,
+      ⟨GateOp.or, [9,1]⟩, ⟨GateOp.and, [3,10]⟩,
+      ⟨GateOp.and, [8,10]⟩, ⟨GateOp.and, [11,9]⟩,
+      ⟨GateOp.and, [2,3]⟩, ⟨GateOp.or, [12,13]⟩,
+      ⟨GateOp.or, [15,14]⟩], output := 16 }
+
+def E : Circuit :=
+  { gates := [⟨GateOp.or, [0,2]⟩, ⟨GateOp.and, [1,6]⟩,
+      ⟨GateOp.or, [2,4]⟩, ⟨GateOp.or, [8,5]⟩,
+      ⟨GateOp.and, [3,9]⟩, ⟨GateOp.or, [7,10]⟩], output := 11 }
+
+def cut : Circuit := ⟨C.gates.set 5 ⟨GateOp.or, []⟩, C.output⟩
+
+def color : Fin 6 → Bool := fun i => decide (i = 1 ∨ i = 3)
+
+lemma bipartite : ∀ u v : Fin 6, G.Adj u v → color u ≠ color v := by decide
+lemma no_four_cycle : NoFourCycle G := by decide
+lemma ao2 : IsAO2 6 C := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma computes : circuitFun 6 C = graphFun G ∅ := by
+  funext x
+  exact (show ∀ y : Fin 6 → Bool, circuitFun 6 C y = graphFun G ∅ y by decide) x
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma top_form : TopForm G C := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma junk_eq : junk G C = {2,5} := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma tops_eq : tops G C = {6,7,8} := by decide
+
+lemma independent : ¬ InCone 6 C 2 5 ∧ ¬ InCone 6 C 5 2 := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma no_common_top : ∀ t ∈ tops G C, ¬ (InCone 6 C 2 t ∧ InCone 6 C 5 t) := by decide
+
+lemma critical_edges :
+    G.Adj 3 4 ∧ G.Adj 3 5 ∧
+    circuitFun 6 cut (pairInput 3 4) = false ∧
+    circuitFun 6 cut (pairInput 3 5) = false := by decide
+
+lemma shared_raw_support : orIn 6 C 10 = {1,4,5} := by decide
+
+lemma shared_readers : readers 6 C 4 = {5,6} := by decide
+
+lemma bad_vertex : ¬ G.Adj 3 1 := by decide
+
+lemma no_common_neighbor : ¬ ∃ v : Fin 6, ∀ w ∈ orIn 6 C 10, G.Adj v w := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma flag_formula : ∀ x : Fin 6 → Bool,
+    gateVal 6 C 2 x = ((x 2 || x 0) && (x 1 || x 3)) := by decide
+
+lemma flag_centers : G.Adj 2 1 ∧ (∀ v ∈ ({0,2} : Finset (Fin 6)), G.Adj v 1) ∧
+    (∀ v ∈ ({1,3} : Finset (Fin 6)), G.Adj 2 v) := by decide
+
+lemma cheaper_ao2 : IsAO2 6 E := by decide
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 2000000 in
+lemma cheaper_computes : circuitFun 6 E = graphFun G ∅ := by
+  funext x
+  exact (show ∀ y : Fin 6 → Bool, circuitFun 6 E y = graphFun G ∅ y by decide) x
+
+lemma not_least : ¬ IsLeastAO G C := by
+  intro h
+  have hs : C.size ≤ E.size := h.2.2 E cheaper_ao2 cheaper_computes
+  exact (show ¬ C.size ≤ E.size by decide) hs
+
+end MixedPrivacy
+
+
+namespace FlagSafe
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_5012.IndependentDescent
+
+def Flag {n : ℕ} (G : SimpleGraph (Fin n)) (P Q : Finset (Fin n)) (a b : Fin n) : Prop :=
+  a ∈ P ∧ b ∈ Q ∧ G.Adj a b ∧ (∀ p ∈ P, G.Adj p b) ∧
+    (∀ q ∈ Q, G.Adj a q) ∧ 2 ≤ P.card ∧ 2 ≤ Q.card
+
+lemma same_color {n : ℕ} (G : SimpleGraph (Fin n)) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v) {u v w : Fin n}
+    (hu : G.Adj u w) (hv : G.Adj v w) : s u = s v := by
+  have h1 := hbip u w hu
+  have h2 := hbip v w hv
+  cases hs : s u <;> cases ht : s v <;> cases hw : s w <;> simp_all
+
+lemma flag_colors {n : ℕ} (G : SimpleGraph (Fin n)) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (P Q : Finset (Fin n)) (a b : Fin n) (hf : Flag G P Q a b) :
+    (∀ p ∈ P, s p = s a) ∧ (∀ q ∈ Q, s q = s b) := by
+  obtain ⟨_, _, hab, hP, hQ, _, _⟩ := hf
+  exact ⟨fun p hp => same_color G s hbip (hP p hp) hab,
+    fun q hq => same_color G s hbip (hQ q hq).symm hab.symm⟩
+
+lemma flag_noncenters {n : ℕ} (G : SimpleGraph (Fin n))
+    (P Q : Finset (Fin n)) (a b : Fin n) (hf : Flag G P Q a b) :
+    (P.erase a).Nonempty ∧ (Q.erase b).Nonempty := by
+  obtain ⟨ha, hb, _, _, _, hP, hQ⟩ := hf
+  have hp := Finset.card_erase_add_one ha
+  have hq := Finset.card_erase_add_one hb
+  exact ⟨Finset.card_pos.mp (by omega), Finset.card_pos.mp (by omega)⟩
+
+lemma no_noncentral_edge {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b : Fin n)
+    (hf : Flag G P Q a b) {p q : Fin n} (hp : p ∈ P.erase a) (hq : q ∈ Q.erase b) :
+    ¬ G.Adj p q := by
+  obtain ⟨ha, hb, hab, hP, hQ, _, _⟩ := hf
+  obtain ⟨hpa, hpP⟩ := Finset.mem_erase.mp hp
+  obtain ⟨hqb, hqQ⟩ := Finset.mem_erase.mp hq
+  intro hpq
+  have hs : ({b, q} : Finset (Fin n)) ⊆
+      Finset.univ.filter fun w => G.Adj a w ∧ G.Adj p w := by
+    intro w hw
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hab, hP p hpP⟩
+    · obtain rfl := Finset.mem_singleton.mp hw
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hQ _ hqQ, hpq⟩
+  have hc := (Finset.card_le_card hs).trans (h4 a p hpa.symm)
+  have hcard : ({b, q} : Finset (Fin n)).card = 2 := Finset.card_pair hqb.symm
+  omega
+
+lemma safe_triple {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) {p q w : Fin n}
+    (hp : p ∈ P) (hq : q ∈ Q) (hw : Safe G P Q w) :
+    G.Adj p q ∨ G.Adj w p ∨ G.Adj w q := by
+  let x : Fin n → Bool := fun i => decide (i = p ∨ i = q ∨ i = w)
+  have hpr : product P Q x = true := (product_true P Q x).mpr
+    ⟨⟨p, hp, by simp [x]⟩, q, hq, by simp [x]⟩
+  have hF := hw x hpr (by simp [x])
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+    Bool.false_or, decide_eq_true_eq] at hF
+  obtain ⟨i, j, hij, hi, hj⟩ := hF
+  simp only [x, decide_eq_true_eq] at hi hj
+  rcases hi with rfl | rfl | rfl <;> rcases hj with rfl | rfl | rfl
+  · exact (G.irrefl hij).elim
+  · exact Or.inl hij
+  · exact Or.inr (Or.inl hij.symm)
+  · exact Or.inl hij.symm
+  · exact (G.irrefl hij).elim
+  · exact Or.inr (Or.inr hij.symm)
+  · exact Or.inr (Or.inl hij)
+  · exact Or.inr (Or.inr hij)
+  · exact (G.irrefl hij).elim
+
+lemma safe_color_left {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b : Fin n)
+    (hf : Flag G P Q a b) {w : Fin n} (hw : Safe G P Q w) (hc : s w = s a) :
+    ∀ q ∈ Q.erase b, G.Adj w q := by
+  obtain ⟨p, hp⟩ := (flag_noncenters G P Q a b hf).1
+  have hpP := (Finset.mem_erase.mp hp).2
+  have hcp := (flag_colors G s hbip P Q a b hf).1 p hpP
+  intro q hq
+  rcases safe_triple G P Q hpP (Finset.mem_erase.mp hq).2 hw with hpq | hwp | hwq
+  · exact (no_noncentral_edge G h4 P Q a b hf hp hq hpq).elim
+  · exact (hbip w p hwp (hc.trans hcp.symm)).elim
+  · exact hwq
+
+lemma safe_color_right {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b : Fin n)
+    (hf : Flag G P Q a b) {w : Fin n} (hw : Safe G P Q w) (hc : s w = s b) :
+    ∀ p ∈ P.erase a, G.Adj w p := by
+  obtain ⟨q, hq⟩ := (flag_noncenters G P Q a b hf).2
+  have hqQ := (Finset.mem_erase.mp hq).2
+  have hcq := (flag_colors G s hbip P Q a b hf).2 q hqQ
+  intro p hp
+  rcases safe_triple G P Q (Finset.mem_erase.mp hp).2 hqQ hw with hpq | hwp | hwq
+  · exact (no_noncentral_edge G h4 P Q a b hf hp hq hpq).elim
+  · exact hwp
+  · exact (hbip w q hwq (hc.trans hcq.symm)).elim
+
+lemma safe_flag_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b w : Fin n)
+    (hf : Flag G P Q a b) :
+    Safe G P Q w ↔ (∀ p ∈ P.erase a, G.Adj w p) ∨
+      (∀ q ∈ Q.erase b, G.Adj w q) := by
+  constructor
+  · intro hw
+    have hab := hbip a b hf.2.2.1
+    have hc : s w = s a ∨ s w = s b := by
+      cases hwc : s w <;> cases hac : s a <;> cases hbc : s b <;> simp_all
+    rcases hc with hwa | hwb
+    · exact Or.inr (safe_color_left G s hbip h4 P Q a b hf hw hwa)
+    · exact Or.inl (safe_color_right G s hbip h4 P Q a b hf hw hwb)
+  · rintro (hP | hQ) x hx hwx
+    · obtain ⟨⟨p, hp, hpx⟩, q, hq, hqx⟩ := (product_true P Q x).mp hx
+      have he : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+        by_cases hpa : p = a
+        · subst p
+          exact ⟨a, q, hf.2.2.2.2.1 q hq, hpx, hqx⟩
+        · exact ⟨w, p, hP p (Finset.mem_erase.mpr ⟨hpa, hp⟩), hwx, hpx⟩
+      simpa only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+        Bool.false_or, decide_eq_true_eq] using he
+    · obtain ⟨⟨p, hp, hpx⟩, q, hq, hqx⟩ := (product_true P Q x).mp hx
+      have he : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+        by_cases hqb : q = b
+        · subst q
+          exact ⟨p, b, hf.2.2.2.1 p hp, hpx, hqx⟩
+        · exact ⟨w, q, hQ q (Finset.mem_erase.mpr ⟨hqb, hq⟩), hwx, hqx⟩
+      simpa only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+        Bool.false_or, decide_eq_true_eq] using he
+
+lemma common_center_unique {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (T : Finset (Fin n)) (hT : 2 ≤ T.card) {x y : Fin n}
+    (hx : ∀ t ∈ T, G.Adj x t) (hy : ∀ t ∈ T, G.Adj y t) : x = y := by
+  by_contra hne
+  have hs : T ⊆ Finset.univ.filter fun t => G.Adj x t ∧ G.Adj y t := by
+    intro t ht
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hx t ht, hy t ht⟩
+  have hc := (Finset.card_le_card hs).trans (h4 x y hne)
+  omega
+
+lemma opposite_colors {x y a b : Bool} (hab : a ≠ b) (hxa : x = a) (hyx : y ≠ x) : y = b := by
+  subst x
+  exact (Bool.eq_not_of_ne hyx).trans (Bool.eq_not_of_ne hab.symm).symm
+
+lemma flag_filter_exception {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b : Fin n)
+    (hf : Flag G P Q a b) (S T : Finset (Fin n)) (x : Fin n)
+    (hTS : T ⊆ S) (hT : 2 ≤ T.card) (hTx : ∀ t ∈ T, G.Adj x t)
+    (hSafe : ∀ w ∈ S, Safe G P Q w) :
+    (P.erase a = {x} ∨ Q.erase b = {x}) ∧
+      ∀ w ∈ S, ¬ G.Adj x w → s w = s x := by
+  have hab := hbip a b hf.2.2.1
+  have hparts : s x = s a ∨ s x = s b := by
+    cases hxc : s x <;> cases hac : s a <;> cases hbc : s b <;> simp_all
+  rcases hparts with hxa | hxb
+  · have hTeq : ∀ t ∈ T, s t = s b := fun t ht =>
+      opposite_colors hab hxa (hbip x t (hTx t ht)).symm
+    have hPx : P.erase a = {x} := by
+      apply Finset.eq_singleton_iff_nonempty_unique_mem.mpr
+      refine ⟨(flag_noncenters G P Q a b hf).1, ?_⟩
+      intro p hp
+      exact (common_center_unique G h4 T hT hTx (fun t ht =>
+        (safe_color_right G s hbip h4 P Q a b hf (hSafe t (hTS ht)) (hTeq t ht) p hp).symm)).symm
+    refine ⟨Or.inl hPx, ?_⟩
+    intro w hw hn
+    by_contra hc
+    have hwb : s w = s b := opposite_colors hab hxa hc
+    have hAdj := safe_color_right G s hbip h4 P Q a b hf (hSafe w hw) hwb x
+      (by rw [hPx]; simp)
+    exact hn hAdj.symm
+  · have hTeq : ∀ t ∈ T, s t = s a := fun t ht =>
+      opposite_colors hab.symm hxb (hbip x t (hTx t ht)).symm
+    have hQx : Q.erase b = {x} := by
+      apply Finset.eq_singleton_iff_nonempty_unique_mem.mpr
+      refine ⟨(flag_noncenters G P Q a b hf).2, ?_⟩
+      intro q hq
+      exact (common_center_unique G h4 T hT hTx (fun t ht =>
+        (safe_color_left G s hbip h4 P Q a b hf (hSafe t (hTS ht)) (hTeq t ht) q hq).symm)).symm
+    refine ⟨Or.inr hQx, ?_⟩
+    intro w hw hn
+    by_contra hc
+    have hwa : s w = s a := opposite_colors hab.symm hxb hc
+    have hAdj := safe_color_left G s hbip h4 P Q a b hf (hSafe w hw) hwa x
+      (by rw [hQx]; simp)
+    exact hn hAdj.symm
+
+lemma pure_filter_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q : Finset (Fin n)) (a b : Fin n)
+    (hf : Flag G P Q a b) (S T : Finset (Fin n)) (x : Fin n)
+    (hTS : T ⊆ S) (hT : 2 ≤ T.card) (hTx : ∀ t ∈ T, G.Adj x t)
+    (hPure : ∀ u ∈ S, ∀ v ∈ S, s u = s v)
+    (hBad : ∃ w ∈ S, ¬ G.Adj x w) :
+    ¬ (∀ w ∈ S, Safe G P Q w) := by
+  intro hSafe
+  obtain ⟨_, hcol⟩ := flag_filter_exception G s hbip h4 P Q a b hf S T x hTS hT hTx hSafe
+  obtain ⟨w, hw, hn⟩ := hBad
+  obtain ⟨t, ht⟩ := Finset.card_pos.mp (by omega : 0 < T.card)
+  have hwt := hPure w hw t (hTS ht)
+  have hwx := hcol w hw hn
+  exact hbip x t (hTx t ht) (hwx.symm.trans hwt)
+
+end FlagSafe
+
+
+
+namespace Colors
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_5012.IndependentDescent
+
+lemma safe_triple {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) {w : Fin n} (hs : Safe G P Q w)
+    {p q : Fin n} (hp : p ∈ P) (hq : q ∈ Q) :
+    G.Adj p q ∨ G.Adj p w ∨ G.Adj q w := by
+  let x : Fin n → Bool := fun v => decide (v = p ∨ v = q ∨ v = w)
+  have hprod : product P Q x = true :=
+    (product_true P Q x).mpr ⟨⟨p, hp, by simp [x]⟩, q, hq, by simp [x]⟩
+  have hF := hs x hprod (by simp [x])
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+    Bool.false_or, decide_eq_true_eq, x] at hF
+  obtain ⟨a, b, hab, ha, hb⟩ := hF
+  rcases ha with rfl | rfl | rfl <;> rcases hb with rfl | rfl | rfl
+  · exact (G.irrefl hab).elim
+  · exact Or.inl hab
+  · exact Or.inr (Or.inl hab)
+  · exact Or.inl hab.symm
+  · exact (G.irrefl hab).elim
+  · exact Or.inr (Or.inr hab)
+  · exact Or.inr (Or.inl hab.symm)
+  · exact Or.inr (Or.inr hab.symm)
+  · exact (G.irrefl hab).elim
+
+lemma safe_bad_adjacent {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) {w : Fin n} (hs : Safe G P Q w)
+    {p q : Fin n} (hp : p ∈ P) (hq : q ∈ Q)
+    (hpw : ¬ G.Adj p w) (hqw : ¬ G.Adj q w) : G.Adj p q := by
+  rcases safe_triple G P Q hs hp hq with hpq | hpw' | hqw'
+  · exact hpq
+  · exact (hpw hpw').elim
+  · exact (hqw hqw').elim
+
+lemma bool_eq_of_common_ne {a b c : Bool} (ha : a ≠ c) (hb : b ≠ c) : a = b := by
+  cases a <;> cases b <;> cases c <;> simp_all
+
+lemma safe_bad_colors {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (P Q : Finset (Fin n)) {w p0 q0 : Fin n} (hs : Safe G P Q w)
+    (hp0 : p0 ∈ P) (hq0 : q0 ∈ Q) (hpw : ¬ G.Adj p0 w) (hqw : ¬ G.Adj q0 w) :
+    G.Adj p0 q0 ∧
+      (∀ p ∈ P, ¬ G.Adj p w → s p = s p0) ∧
+      (∀ q ∈ Q, ¬ G.Adj q w → s q = s q0) := by
+  have hpq := safe_bad_adjacent G P Q hs hp0 hq0 hpw hqw
+  refine ⟨hpq, ?_, ?_⟩
+  · intro p hp hnp
+    have hadj := safe_bad_adjacent G P Q hs hp hq0 hnp hqw
+    exact bool_eq_of_common_ne (hbip p q0 hadj) (hbip p0 q0 hpq)
+  · intro q hq hnq
+    have hadj := safe_bad_adjacent G P Q hs hp0 hq hpw hnq
+    exact bool_eq_of_common_ne (Ne.symm (hbip p0 q hadj)) (Ne.symm (hbip p0 q0 hpq))
+
+lemma safe_oriented_bad_factors {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (P Q : Finset (Fin n)) {w p0 q0 : Fin n} (hs : Safe G P Q w)
+    (hp0 : p0 ∈ P) (hq0 : q0 ∈ Q) (hpw : ¬ G.Adj p0 w) (hqw : ¬ G.Adj q0 w) :
+    ((∀ p ∈ P, ¬ G.Adj p w → s p = s w) ∧ (∀ q ∈ Q, s q ≠ s w)) ∨
+      ((∀ q ∈ Q, ¬ G.Adj q w → s q = s w) ∧ (∀ p ∈ P, s p ≠ s w)) := by
+  obtain ⟨hpq, hP, hQ⟩ := safe_bad_colors G s hbip P Q hs hp0 hq0 hpw hqw
+  have hpqColor := hbip p0 q0 hpq
+  by_cases hpColor : s p0 = s w
+  · left
+    constructor
+    · intro p hp hn
+      exact (hP p hp hn).trans hpColor
+    · intro q hq hqwColor
+      have hnq : ¬ G.Adj q w := fun hadj => hbip q w hadj hqwColor
+      have hqColor := hQ q hq hnq
+      exact hpqColor (hpColor.trans (hqwColor.symm.trans hqColor))
+  · right
+    have hqColor : s q0 = s w :=
+      bool_eq_of_common_ne (Ne.symm hpqColor) (Ne.symm hpColor)
+    constructor
+    · intro q hq hn
+      exact (hQ q hq hn).trans hqColor
+    · intro p hp hpwColor
+      have hnp : ¬ G.Adj p w := fun hadj => hbip p w hadj hpwColor
+      have hpColor' := hP p hp hnp
+      exact hpqColor (hpColor'.symm.trans (hpwColor.trans hqColor.symm))
+
+lemma safe_iff_triples {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) (w : Fin n) :
+    Safe G P Q w ↔ ∀ p ∈ P, ∀ q ∈ Q, G.Adj p q ∨ G.Adj p w ∨ G.Adj q w := by
+  constructor
+  · intro hs p hp q hq
+    exact safe_triple G P Q hs hp hq
+  · intro h x hprod hxw
+    obtain ⟨⟨p, hp, hxp⟩, q, hq, hxq⟩ := (product_true P Q x).mp hprod
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    rcases h p hp q hq with hpq | hpw | hqw
+    · exact ⟨p, q, hpq, hxp, hxq⟩
+    · exact ⟨p, w, hpw, hxp, hxw⟩
+    · exact ⟨q, w, hqw, hxq, hxw⟩
+
+lemma safe_swap {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) (w : Fin n) : Safe G P Q w ↔ Safe G Q P w := by
+  constructor <;> intro hs x hx hw <;> apply hs x _ hw <;>
+    simpa only [product, Bool.and_comm] using hx
+
+end Colors
+
+namespace Sharing
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_5012.IndependentDescent
+  PEqualNP.Outside.L_meta_5012.Colors
+
+lemma safe_swap {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (P Q : Finset (Fin n)) {w : Fin n} (hs : Safe G P Q w) : Safe G Q P w := by
+  intro x hx hxw
+  apply hs x _ hxw
+  simpa only [product, Bool.and_comm] using hx
+
+lemma common_neighbor_unique {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (I : Finset (Fin n)) (hI : 2 ≤ I.card)
+    {w z : Fin n} (hw : ∀ i ∈ I, G.Adj w i) (hz : ∀ i ∈ I, G.Adj z i) : z = w := by
+  by_contra hne
+  have hsub : I ⊆ Finset.univ.filter fun i => G.Adj z i ∧ G.Adj w i := by
+    intro i hi
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hz i hi, hw i hi⟩
+  have hc := (Finset.card_le_card hsub).trans (h4 z w hne)
+  omega
+
+lemma shared_mixed_forces_same_center {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (I T R S : Finset (Fin n)) (hI : 2 ≤ I.card)
+    {w z p : Fin n} (hIw : ∀ i ∈ I, G.Adj w i) (hIT : I ⊆ T) (hTR : T ⊆ R)
+    (hpT : p ∈ T) (hpColor : s p = s w) (hzColor : s z = s w)
+    (hSafe : Safe G R S z) (hBad : ∃ q ∈ S, ¬ G.Adj q z) : z = w := by
+  obtain ⟨q, hqS, hqBad⟩ := hBad
+  have hpBad : ¬ G.Adj p z := by
+    intro hpz
+    exact hbip p z hpz (hpColor.trans hzColor.symm)
+  have hpq := safe_bad_adjacent G R S hSafe (hTR hpT) hqS hpBad hqBad
+  have hqColor : s q ≠ s w := by
+    intro he
+    exact hbip p q hpq (hpColor.trans he.symm)
+  apply common_neighbor_unique G h4 I hI hIw
+  intro i hi
+  have hiColor : s i ≠ s w := Ne.symm (hbip w i (hIw i hi))
+  have hiq : s i = s q := bool_eq_of_common_ne hiColor hqColor
+  rcases safe_triple G R S hSafe (hTR (hIT hi)) hqS with hiqAdj | hizAdj | hqzAdj
+  · exact False.elim (hbip i q hiqAdj hiq)
+  · exact hizAdj.symm
+  · exact False.elim (hqBad hqzAdj)
+
+lemma shared_mono_forces_neighbors {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (I T R S : Finset (Fin n)) (hI : 2 ≤ I.card)
+    {w z : Fin n} (hIw : ∀ i ∈ I, G.Adj w i) (hIT : I ⊆ T) (hTR : T ⊆ R)
+    (hColor : ∀ t ∈ T, s t = s z) (hSafe : Safe G R S z)
+    (hBad : ∃ q ∈ S, ¬ G.Adj q z) : ∀ t ∈ T, G.Adj w t := by
+  obtain ⟨q, hqS, hqBad⟩ := hBad
+  have hqt : ∀ t ∈ T, G.Adj q t := by
+    intro t ht
+    have htBad : ¬ G.Adj t z := fun htz => hbip t z htz (hColor t ht)
+    exact (safe_bad_adjacent G R S hSafe (hTR ht) hqS htBad hqBad).symm
+  have hqw : q = w := common_neighbor_unique G h4 I hI hIw (fun i hi => hqt i (hIT hi))
+  simpa only [hqw] using hqt
+
+lemma mixed_shared_subset_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (I T R S : Finset (Fin n)) {w z : Fin n}
+    (hIw : ∀ i ∈ I, G.Adj w i) (hzColor : s z = s w) (hzw : z ≠ w)
+    (hColor : ∀ t ∈ T, ¬ G.Adj t w → s t = s w)
+    (hSafe : Safe G R S z) (hRBad : ∃ p ∈ R, ¬ G.Adj p z)
+    (hSBad : ∃ q ∈ S, ¬ G.Adj q z) (hShared : T ⊆ R ∨ T ⊆ S) :
+    (∀ t ∈ T, G.Adj w t) ∨ (T ∩ I).card ≤ 1 := by
+  classical
+  by_cases hGood : ∀ t ∈ T, G.Adj w t
+  · exact Or.inl hGood
+  · right
+    by_contra hCard
+    have hI : 2 ≤ (T ∩ I).card := by omega
+    push Not at hGood
+    obtain ⟨p, hpT, hpBad⟩ := hGood
+    have hpBad' : ¬ G.Adj p w := fun hpw => hpBad hpw.symm
+    have hpColor := hColor p hpT hpBad'
+    have hIntw : ∀ i ∈ T ∩ I, G.Adj w i := fun i hi => hIw i (Finset.mem_inter.mp hi).2
+    rcases hShared with hTR | hTS
+    · exact hzw (shared_mixed_forces_same_center G s hbip h4 (T ∩ I) T R S hI
+        hIntw Finset.inter_subset_left hTR hpT hpColor hzColor hSafe hSBad)
+    · exact hzw (shared_mixed_forces_same_center G s hbip h4 (T ∩ I) T S R hI
+        hIntw Finset.inter_subset_left hTS hpT hpColor hzColor (safe_swap G R S hSafe) hRBad)
+
+lemma mono_shared_subset_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (I T R S : Finset (Fin n)) {w z : Fin n}
+    (hIw : ∀ i ∈ I, G.Adj w i) (hzColor : s z ≠ s w)
+    (hColor : ∀ t ∈ T, s t ≠ s w)
+    (hSafe : Safe G R S z) (hRBad : ∃ p ∈ R, ¬ G.Adj p z)
+    (hSBad : ∃ q ∈ S, ¬ G.Adj q z) (hShared : T ⊆ R ∨ T ⊆ S) :
+    (∀ t ∈ T, G.Adj w t) ∨ (T ∩ I).card ≤ 1 := by
+  classical
+  by_cases hCard : (T ∩ I).card ≤ 1
+  · exact Or.inr hCard
+  · left
+    have hI : 2 ≤ (T ∩ I).card := by omega
+    have hColor' : ∀ t ∈ T, s t = s z := fun t ht => bool_eq_of_common_ne (hColor t ht) hzColor
+    have hIntw : ∀ i ∈ T ∩ I, G.Adj w i := fun i hi => hIw i (Finset.mem_inter.mp hi).2
+    rcases hShared with hTR | hTS
+    · exact shared_mono_forces_neighbors G s hbip h4 (T ∩ I) T R S hI hIntw
+        Finset.inter_subset_left hTR hColor' hSafe hSBad
+    · exact shared_mono_forces_neighbors G s hbip h4 (T ∩ I) T S R hI hIntw
+        Finset.inter_subset_left hTS hColor' (safe_swap G R S hSafe) hRBad
+
+lemma distinct_safe_centers_protected_factor {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : NoFourCycle G) (P Q R S : Finset (Fin n)) {w z : Fin n}
+    (hSafe : Safe G P Q w) (hSafe' : Safe G R S z) (hzw : z ≠ w)
+    (hPBad : ∃ p ∈ P, ¬ G.Adj p w) (hQBad : ∃ q ∈ Q, ¬ G.Adj q w)
+    (hRBad : ∃ p ∈ R, ¬ G.Adj p z) (hSBad : ∃ q ∈ S, ¬ G.Adj q z) :
+    ∃ U : Finset (Fin n), (U = P ∨ U = Q) ∧ ∀ T ⊆ U, (T ⊆ R ∨ T ⊆ S) →
+      (∀ t ∈ T, G.Adj w t) ∨ (T ∩ (P ∩ Q)).card ≤ 1 := by
+  obtain ⟨p, hp, hpBad⟩ := hPBad
+  obtain ⟨q, hq, hqBad⟩ := hQBad
+  have hIw : ∀ i ∈ P ∩ Q, G.Adj w i :=
+    fun _ hi => safe_overlap_adjacent G P Q hSafe hi
+  rcases safe_oriented_bad_factors G s hbip P Q hSafe hp hq hpBad hqBad with hPQ | hQP
+  · by_cases hzColor : s z = s w
+    · refine ⟨P, Or.inl rfl, ?_⟩
+      intro T hTP hShared
+      exact mixed_shared_subset_bound G s hbip h4 (P ∩ Q) T R S hIw hzColor hzw
+        (fun t ht hBad => hPQ.1 t (hTP ht) hBad) hSafe' hRBad hSBad hShared
+    · refine ⟨Q, Or.inr rfl, ?_⟩
+      intro T hTQ hShared
+      exact mono_shared_subset_bound G s hbip h4 (P ∩ Q) T R S hIw hzColor
+        (fun t ht => hPQ.2 t (hTQ ht)) hSafe' hRBad hSBad hShared
+  · by_cases hzColor : s z = s w
+    · refine ⟨Q, Or.inr rfl, ?_⟩
+      intro T hTQ hShared
+      exact mixed_shared_subset_bound G s hbip h4 (P ∩ Q) T R S hIw hzColor hzw
+        (fun t ht hBad => hQP.1 t (hTQ ht) hBad) hSafe' hRBad hSBad hShared
+    · refine ⟨P, Or.inl rfl, ?_⟩
+      intro T hTP hShared
+      exact mono_shared_subset_bound G s hbip h4 (P ∩ Q) T R S hIw hzColor
+        (fun t ht => hQP.2 t (hTP ht)) hSafe' hRBad hSBad hShared
+
+end Sharing
 
 end PEqualNP.Outside.L_meta_5012
