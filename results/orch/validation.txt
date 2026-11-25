@@ -48,3 +48,5 @@ Generic star-direction obstruction: named-file lake build exit0,799lines. Indepe
 2026-11-25T11:06:07.909221+00:00: Combined1097-line named file lake build exit0; geometry independent integration/plain-file review PASS for SHA256076fcb95bf65631f5434149d42e399870d678b80ed6caaf323c3d75264f1c880. ConstantDiagonal96-line source separately compiled exit0 and independently reviewed byconstruct_search; source and complete logs preserved. Full posted theorem still absent; no checker verdict.
 Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
 TIMING total=171.3 subagents=7
+
+TriangleCover.lean105-line component compiled exit0; independent geometry_search/rowzero review PASS, SHA256788f94714c35ed0dcbe1879361eb4a85a2267c0ce7167de38fdaececbb8106a1. Scalar triangle-projection coverage via staged square-zero and Plucker identities; pair-independence and normalized-basis bridges remain separate. stdout empty; stderr contains only Mathlib local-changes warning after verified archival of unused sources. All runtime artifacts unchanged. Full gap unresolved.
