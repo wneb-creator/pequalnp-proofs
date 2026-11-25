@@ -112,3 +112,11 @@ Also checked UnionCount.lean (223 lines), the same charging theorem for any fini
 ## 2026-11-25T12:39:06.255275+00:00 — checked multilinearity bridge
 
 `results/orch/lemmas/Multilinear.lean` proves `IsAO2 n C → IsSyntMultilinear n C → IsReadK n C 1`, with no restriction on the computed function. The scan invariant assigns every true wire a witness set T supported by its syntactic support, whose 0/1 indicator is an actual read vector. Disjoint AND supports keep capped vector sums 0/1. Final result compiles in Lean 4.36.0, exit 0, empty stdout/stderr in results/orch/logs/multilinear.*. Independent math_bound semantic/format review passed; final hash confirmation pending after a purely definitional conversion fix. This is a sufficient invariant for the posted target, not a proof that every minimum incidence circuit has it.
+
+## Construction route — 2026-11-25T12:39:39.940565+00:00
+
+`results/orch/lemmas/SinglePoint.lean` PASSED Lean compilation (exit 0). It combines the checked empty case, exact-cost one-star construction with read-1 vectors, generic essential-input cardinal bound, and the full replacement conclusion when P=1 and L/I are arbitrary. No C4 condition is needed for that special case. Complete compiler output is preserved in `SinglePoint.validation.txt`. The full posted statement remains open; this is an exact special case, not a replacement statement for submission.
+
+## 2026-11-25T12:40:31.032753+00:00 — dirty-block obstruction checked (math_bound)
+
+DirtyBlockExample.lean compiled exit0, complete empty logs saved. For matching edges p0-l0 and p1-l1, C = ((p0 OR p1) AND (l0 OR l1)) AND ((p0 OR l1) AND (p1 OR l0)), seven gates. Lean proves AO2 validity, exact matching function, every interior wire (all ten wires before output) NOT below output, and NOT ReadK1. Therefore lift fixedpoint / no below-function interior wires cannot alone imply star/read1 form. A three-gate star circuit exists, so minimum-size remains essential; this is NOT a refutation of L2585.

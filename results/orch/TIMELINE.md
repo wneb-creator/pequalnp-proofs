@@ -10,3 +10,5 @@
 - 2026-11-25T12:38:47.175579+00:00: sharp OR-only cost partial compiled and independently reviewed.
 - 2026-11-25T12:39:06.255373+00:00: proof_route syntactic-multilinearity-to-ReadK1 bridge checked by Lean.
 - 2026-11-25T12:39:34.747885+00:00: multilinear/read-1 bridge and abstract union bound compiled; independent exact-source reviews passed.
+- 2026-11-25T12:39:39.940565+00:00: construction strategy completed checked P=1 exact-size/read-1 replacement.
+- 2026-11-25T12:40:35.054331+00:00: exact one-point replacement compiled and independently reviewed.

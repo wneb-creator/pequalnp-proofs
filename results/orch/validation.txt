@@ -18,3 +18,5 @@ Prime.lean: lake env lean exit 0, complete logs retained, one unnecessarySimpa w
 OrBound.lean: lake env lean exit 0, complete logs empty. Independent semantic and format review passed. Gives the sharp OR-only linear-family bound; not the full AO2 normalization theorem.
 
 Multilinear.lean and UnionCount.lean: lake env lean exit 0, complete logs empty. Independent reviews passed on exact checked hashes. Multilinear proves AO2 plus syntactic multilinearity implies read-1; UnionCount gives an abstract binary-union family cost bound. Neither establishes the full posted claim.
+
+SinglePoint.lean: lake env lean exit 0, full logs retained; independent exact-source review passed. Proves the exact P=1 specialization with arbitrary L and I, including size preservation and read-1. 748 source lines. Full P-arbitrary statement remains unproved.
