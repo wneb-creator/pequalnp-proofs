@@ -1,0 +1,28 @@
+{
+  "gap": {
+    "id": "L-meta-1342",
+    "title": "Search: a fan-in-two AND/OR circuit with at most 21 gates for the edge function of an 11-vertex graph with no 4-cycle, 16 edges and cover number 7",
+    "statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) ∧ C.size ≤ 21",
+    "file": "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "module": "PEqualNP.Outside.L_meta_1342",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "The 11-vertex graph with no 4-cycle: the cases with two or more junk AND gates",
+    "context": "SKETCH: no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. a search for a top-form AND/OR circuit of at most 21 gates for this 11-vertex graph's edge function, split by its number of junk AND gates. By a checked count, a 21-gate circuit needs the junk part to pay its inequality; enumerate the junk units first (shapes in routes/lgp/full-basis/eleven-vertex-RART.md section 4.1, with its sieve), filter, then complete the tops and the OR tree. Shard texts: routes/mining/cuts/L-meta-1342-1343-cuts.md. Size: about 60 minutes per shard.",
+    "dead": [],
+    "weight": 40,
+    "parallel": 6,
+    "lane": "main",
+    "shards": 2,
+    "shard_spec": "0: exactly two junk AND gates\n1: three or more junk AND gates",
+    "reductions": true,
+    "sketch": "no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. a search for a top-form AND/OR circuit of at most 21 gates for this 11-vertex graph's edge function, split by its number of junk AND gates. By a checked count, a 21-gate circuit needs the junk part to pay its inequality; enumerate the junk units first (shapes in routes/lgp/full-basis/eleven-vertex-RART.md section 4.1, with its sieve), filter, then complete the tops and the OR tree. Shard texts: routes/mining/cuts/L-meta-1342-1343-cuts.md. Size: about 60 minutes per shard.",
+    "pr_open": 0,
+    "pr_numbers": []
+  },
+  "shard": 0,
+  "shards": 2,
+  "reductions_open": true,
+  "lease_expires_at_at_assignment": "2026-11-25T01:43:54.892Z"
+}

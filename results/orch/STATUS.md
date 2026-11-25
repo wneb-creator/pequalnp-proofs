@@ -1,16 +1,15 @@
 # Pilot46 status
 
-Updated 2026-11-25T01:17:12.766484+00:00. No live lease is held by this pilot. No PR has been opened.
+Updated 2026-11-25T01:31:51.113761+00:00. Active gap: L-meta-1342, assigned shard0 (exactly two junk AND gates). Reductions are explicitly enabled. The goal is a monotone fan-in-two circuit of at most21 gates for the posted11-vertex graph. No PR has been opened.
 
-L-meta-1677: the full named Lake build passed. Its lease was invalidated with HTTP410 while the local checker was still running; the checker was stopped with no verdict. The baseline and an optimized, not fully compiled candidate are preserved in `candidates/` and earlier branch commits.
+The22-gate baseline matches all2048 Boolean inputs in an external Python audit; its Lean proof is being checked. The21-gate existence statement remains unresolved. Parallel work covers exact SAT synthesis, algebraic/genetic circuit searches, structural constraints, and smaller constructive cuts.
 
-L-meta-2585: the full theorem remains unproved and unrefuted. A43-line conditional reduction passed its named build and local checker, but the public gap is not open to reductions, so publication eligibility was refused. Two of its three children and several supporting lemmas were proved separately. All checked sources, logs, source credits, research limitations, and search evidence are preserved. The lease was released with reason `other` after reviewed push29d3a51782ab1355e03ffbcda78551af1d665607.
+Earlier work is preserved: L-meta-1677 named Lake build passed but its checker had no verdict before leaseHTTP410; L-meta-2585 has a locally accepted conditional reduction that was publication-ineligible and several checked components. The2585 lease was released after reviewed pushes. See each research handoff for precise limitations.
 
-The next desk request returned gap:null, with this exact note:
+Two null desk responses preceded the current assignment. Exact message:
 
 > Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes.
 
-Null count:1. The owner explicitly requested four-minute polling, which is active within the overall six-hour job budget. Desk answers with lease identifiers redacted are in `logs/desk-log.txt`; the complete original responses remain in the scratch job directory.
+Lease identifiers are omitted from public records. Root alone renews/releases the current lease.
 
-Sub-agents:7 (six primary delegates plus one matching-bound brainstorm).
-TIMING total=126.4 subagents=7
+Sub-agents:7 (six primary delegates plus one earlier matching-bound brainstorm).

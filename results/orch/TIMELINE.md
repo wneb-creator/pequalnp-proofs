@@ -38,3 +38,8 @@
 2026-11-25T01:13:44.602059+00:00 — All2585 searches finished. Independent Forest checkpoint review passed. Confirmed the locally accepted but publication-ineligible R46 is archived unchanged under results/orch/candidates; removed its active Outside copy. Preparing reviewed evidence push before releasing this lease and requesting another step.
 
 2026-11-25T01:17:12.766484+00:00 — L-meta-2585 release acknowledged, reason other. Next desk request returned gap:null: Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes. Waiting-for-check count556. Null count1. Polling every4minutes per owner instruction; no lease held.
+
+2026-11-25T01:23:54.892Z — Assigned L-meta-1342 shard0, exactly two junk AND gates; reductions explicitly enabled. Two preceding null answers reported every open step waiting for a proof check. Team reassigned to exact synthesis, genetic/shared-gadget search, structural sieve, constructive cuts, and independent review.
+2026-11-25T01:31:51.113761+00:00 — Brief environment restart preserved files but lost process sessions. Root restarted the timer and renewed1342 through01:48:20UTC.22-gate baseline has exhaustive Python truth-table validation; Lean proof method under verification. No21-gate witness or full result yet.
+
+2026-11-25T01:35:08.732278+00:00 — L1342 composition partial named build passed in2.3s; immediate independent review requested before push. Full21-gate goal remains unresolved.
