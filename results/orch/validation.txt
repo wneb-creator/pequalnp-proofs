@@ -9,7 +9,7 @@ Independent review: helper mathematics and forbidden-form audit passed; last-NOT
 SAT positive control: checked20gate L_meta_587 witness accepted on all1024 rows. Search UNSAT would not yet be a Lean proof.
 
 Sub-agents: 6 (lower bounds, library lemmas, synthesis, formal invariants, two independent reviewers)
-TIMING total=38.8 subagents=6
+TIMING total=47.6 subagents=6
 
 Second checkpoint: input-renaming helpers and run-agreement helper compile. Input-renaming source independently reviewed; combined193line named partial lake build passed.
 
@@ -20,3 +20,7 @@ Fourth checkpoint: canonical first-gate cases and genuine first-AND18/first-OR17
 Fifth checkpoint: unconditional global17nonNOT lower bound and exclusion of≥3NOT atsize≤19 compiled. Allfinite data and finalcount proof independently reviewed. Generic mode/floor lemma also compiled. Originalone/twoNOT cases remain open. Scratchdependencies still need inlining for self-contained namedfile.
 
 Lease loss checkpoint: HTTP410 at14:46, despite previously returned14:56expiry. All proof/search work paused. Compiled head-gate deletion, mode realization, and CONDITIONAL total18 bound preserved. Only global17nonNOT bound is unconditional; no proof/refutation of fullL-meta-2592 and no PR.
+
+Final checkpoint: repeated pre-existing L-meta-2583 lease; no fresh owned assignment established. Stopped without releasing it. Desk null count=0. No proof PR opened. No full-gap checker verdict or accepted proof claimed.
+Named partial file line count: 193 before cleanup, 193 after; cleanup skipped because the full theorem was not proved. Its two lake builds passed. Existing compiled partial logs and exact source files remain in this branch.
+L-meta-2583 source census, finite input preparation, and informal review saved in gap2583/. These are research notes, not Lean proofs of that gap.

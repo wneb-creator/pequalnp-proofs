@@ -17,3 +17,7 @@ UTC timeline for pilot-113
 2026-11-25T14:43:08.910808+00:00: GlobalData and GlobalWitness actual Lean checks passed; global17 ordinary proof assembly handed to library_route.
 2026-11-25T14:48:13.909386+00:00: unconditional17nonNOT bound compiled and independently approved; sixth sub-agent added for global proof review.
 2026-11-25T14:50:51.542536+00:00: lease410 confirmed; allworkpaused; preservation-only backup before re-request.
+2026-11-25 14:51:58 UTC: re-request returned L-meta-2583 with pre-existing issue time 13:59:02 UTC and holding=5.
+2026-11-25 14:52:34 UTC: one renewal of the returned lease succeeded before the ownership concern was recognized.
+2026-11-25 14:57 UTC: library and semantic audits completed; no full proof route identified.
+2026-11-25T14:58:58.495703+00:00: repeated same lease on allowed retry; stopped without releasing it and preserved remaining notes. No proof accepted; no PR opened.

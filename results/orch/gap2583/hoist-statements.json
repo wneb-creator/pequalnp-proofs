@@ -1,0 +1,74 @@
+[
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_6087.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6087 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5759 : \u2115).testBit (4 * u.val + v.val)) 7 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5759 : \u2115).testBit (4 * u.val + v.val)) 6 ",
+    "lines": 857,
+    "bytes": 37985
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_5994.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_5994 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (4700 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (4700 : \u2115).testBit (4 * u.val + v.val)) 8 ",
+    "lines": 1176,
+    "bytes": 66718
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_5479.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_5479 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 5) || (x 1 && x 2) || (x 1 && x 3) || (x 1 && x 4)) t \u2192 7 \u2264 t ",
+    "lines": 436,
+    "bytes": 20421
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_9023.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_9023 :\n\u2200 (k l s : \u2115) (A : Fin (2 ^ k) \u2192 Fin (2 ^ l) \u2192 Bool), PEqualNP.Represents.HasLitSize (k + l) (PEqualNP.Represents.adjFun A) s \u2192 PEqualNP.Represents.RepSizeAtMost A (s + 2 * 2 ^ k + k * 2 ^ ((k + 1) / 2) + 2 * 2 ^ l + l * 2 ^ ((l + 1) / 2)) ",
+    "lines": 621,
+    "bytes": 28515
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_5983.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_5983 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (4478 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (4478 : \u2115).testBit (4 * u.val + v.val)) 8 ",
+    "lines": 3475,
+    "bytes": 378210
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_4747.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_4747 : \u2200 (n : \u2115) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit) (s : Fin n \u2192 Bool) (g : \u2115), (\u2200 u v : Fin n, G.Adj u v \u2192 s u \u2260 s v) \u2192 PEqualNP.TopForm.NoFourCycle G \u2192 PEqualNP.TopForm.IsAO2 n C \u2192 PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 \u2192 PEqualNP.Core.IsLiftFixedPoint G C \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 t \u2208 (PEqualNP.MetaComplexity.NestedCover.gateAt C k).inputs, \u00ac (\u2200 x : Fin n \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8C.gates, t\u27e9 (List.ofFn x) = true \u2192 PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 x = true)) \u2192 (\u2200 k < C.gates.length, PEqualNP.Core.InOutputCone n C k) \u2192 g < C.gates.length \u2192 (PEqualNP.MetaComplexity.NestedCover.gateAt C g).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u00ac PEqualNP.TopForm.BelowF G C g \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 k \u2260 g \u2192 PEqualNP.TopForm.BelowF G C k) \u2192 (\u2200 w : Fin n, PEqualNP.EdgeOwnership.gateVal n C g (PEqualNP.SplitCount.unitInput w) = false) \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 u z : Fin n, G.Adj u z \u2192 (PEqualNP.CleanedNonEdge.OrReaches n C (PEqualNP.TopForm.opnd C k 0) g \u2227 PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C k 1) (PEqualNP.SplitCount.unitInput z) = true) \u2228 (PEqualNP.CleanedNonEdge.OrReaches n C (PEqualNP.TopForm.opnd C k 1) g \u2227 PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C k 0) (PEqualNP.SplitCount.unitInput z) = true) \u2192 PEqualNP.EdgeOwnership.gateVal n C g (PEqualNP.EdgeOwnership.pairInput u z) = false) \u2192 \u2203 D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n D \u2227 D.size < C.size \u2227 PEqualNP.MetaComplexity.circuitFun n D = PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 ",
+    "lines": 2161,
+    "bytes": 111332
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_6057.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6057 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5070 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5070 : \u2115).testBit (4 * u.val + v.val)) 8 ",
+    "lines": 1832,
+    "bytes": 169891
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_8969.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8969 : \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (13726 : \u2115).testBit (4 * u.val + v.val)) 10 ",
+    "lines": 6010,
+    "bytes": 375894
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_6344.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6344 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5103 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5103 : \u2115).testBit (4 * u.val + v.val)) 8 ",
+    "lines": 2044,
+    "bytes": 118923
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_3762.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_3762 : \u2200 C : PEqualNP.CircuitLowerBounds.Circuit, C = ({ gates := [{ op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [0, 2] }, { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [1, 4] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [0, 5] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [4, 5] }, { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [7, 9] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [6, 10] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [3, 11] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [6, 11] }, { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [12, 13] }, { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [14, 15] }, { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [8, 16] }], output := 17 } : PEqualNP.CircuitLowerBounds.Circuit) \u2192\n  PEqualNP.TopForm.IsAO2 7 C \u2227 C.size = 11 \u2227\n  (\u2200 x : Fin 7 \u2192 Bool, PEqualNP.MetaComplexity.circuitFun 7 C x = decide (\u2203 e \u2208 ([(0, 4), (0, 5), (0, 6), (1, 4), (2, 5), (3, 6)] : List (Fin 7 \u00d7 Fin 7)), x e.1 = true \u2227 x e.2 = true)) \u2227\n  (\u2200 e \u2208 ([(0, 4), (0, 5), (0, 6), (1, 4), (2, 5), (3, 6)] : List (Fin 7 \u00d7 Fin 7)), PEqualNP.Core.ReadTwiceAt 7 C (C.output - 7) e.1 e.2 \u2194 e \u2208 ([(0, 4), (0, 5), (0, 6), (2, 5), (3, 6)] : List (Fin 7 \u00d7 Fin 7))) \u2227\n  (\u2200 (G : SimpleGraph (Fin 7)) [DecidableRel G.Adj], (\u2200 u v : Fin 7, G.Adj u v \u2194 ((u, v) \u2208 ([(0, 4), (0, 5), (0, 6), (1, 4), (2, 5), (3, 6)] : List (Fin 7 \u00d7 Fin 7)) \u2228 (v, u) \u2208 ([(0, 4), (0, 5), (0, 6), (1, 4), (2, 5), (3, 6)] : List (Fin 7 \u00d7 Fin 7)))) \u2192\n    PEqualNP.Core.IsLiftFixedPoint G C) \u2227\n  PEqualNP.CleanedNonEdge.OrToOutput 7 C 9 \u2227 (PEqualNP.MetaComplexity.NestedCover.gateAt C 9).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227 (PEqualNP.MetaComplexity.NestedCover.gateAt C 8).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227 (PEqualNP.MetaComplexity.NestedCover.gateAt C 4).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227\n  PEqualNP.CleanedNonEdge.OrReaches 7 C (PEqualNP.TopForm.opnd C 9 1) 8 \u2227 PEqualNP.CleanedNonEdge.OrReaches 7 C (PEqualNP.TopForm.opnd C 8 1) 4 \u2227\n  \u2200 i : Fin 2, (C.wires (List.ofFn (fun z : Fin 7 => decide (z = 0 \u2228 z = 4)))).getD (PEqualNP.TopForm.opnd C 4 i) false = true \u2227 (C.wires (List.ofFn (fun z : Fin 7 => decide (z = 4)))).getD (PEqualNP.TopForm.opnd C 4 i) false = false ",
+    "lines": 31,
+    "bytes": 3502
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_9464.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_9464 : \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 5 => (7586009 : \u2115).testBit (5 * u.val + v.val)) 10 ",
+    "lines": 2461,
+    "bytes": 138960
+  },
+  {
+    "file": "lean/PEqualNP/Outside/L_meta_4742.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_4742 : \u2200 (n : \u2115) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit) (s : Fin n \u2192 Bool) (g : \u2115) (m : Fin n), (\u2200 u v : Fin n, G.Adj u v \u2192 s u \u2260 s v) \u2192 PEqualNP.TopForm.NoFourCycle G \u2192 PEqualNP.TopForm.IsAO2 n C \u2192 PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 \u2192 PEqualNP.Core.IsLiftFixedPoint G C \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 t \u2208 (PEqualNP.MetaComplexity.NestedCover.gateAt C k).inputs, \u00ac (\u2200 x : Fin n \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8C.gates, t\u27e9 (List.ofFn x) = true \u2192 PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 x = true)) \u2192 (\u2200 k < C.gates.length, PEqualNP.Core.InOutputCone n C k) \u2192 g < C.gates.length \u2192 (PEqualNP.MetaComplexity.NestedCover.gateAt C g).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u00ac PEqualNP.TopForm.BelowF G C g \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 k \u2260 g \u2192 PEqualNP.TopForm.BelowF G C k) \u2192 (\u2200 k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 z : Fin n, (PEqualNP.CleanedNonEdge.OrReaches n C (PEqualNP.TopForm.opnd C k 0) g \u2227 PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C k 1) (PEqualNP.SplitCount.unitInput z) = true) \u2228 (PEqualNP.CleanedNonEdge.OrReaches n C (PEqualNP.TopForm.opnd C k 1) g \u2227 PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C k 0) (PEqualNP.SplitCount.unitInput z) = true) \u2192 z = m) \u2192 ((\u2200 y : Fin n, PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C g 0) (PEqualNP.SplitCount.unitInput y) = true \u2192 G.Adj y m) \u2228 (\u2200 y : Fin n, PEqualNP.CleanedNonEdge.wireVal n C (PEqualNP.TopForm.opnd C g 1) (PEqualNP.SplitCount.unitInput y) = true \u2192 G.Adj y m)) \u2192 \u2203 D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n D \u2227 D.size < C.size \u2227 PEqualNP.MetaComplexity.circuitFun n D = PEqualNP.MetaComplexity.NestedCover.graphFun G \u2205 ",
+    "lines": 1691,
+    "bytes": 90356
+  }
+]

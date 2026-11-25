@@ -92,3 +92,17 @@ Independent final partial-source review update: PASS. CombinedOrdinary.lean, Glo
 CombinedOrdinary.lean SHA256 117ecf85745feef6db14499411ce78daed9759505c9c311a79ae0a446a56691b
 GlobalSeventeen.lean SHA256 9d727a36b47d0b4a8373f933f75a90c59b9354eaf352047206858779177f3fa8
 GenericBounds.lean SHA256 b0ac69dce45854aed67bce16297274b18301cf4ae4f6f4eaa0990ee58704efdb
+
+## L-meta-2583 library census
+
+Definitions: `ReadK.IsReadK n C 1` is joint proof-tree read multiplicity on every prime implicant, not input fanout and not the weaker single-read/double-reread notion. `TopForm.IsAO2` is exact binary AND/OR with backwards reads.
+
+Checked exact read1 cost tools: L4897 extracts a bipartite vertex cover with |E|+|left cover|+|right cover| <= size+1 for C4-free graphs. L7684 constructs read1 AO2 from any bipartite cover at that bound. L7639 specializes the lower bound to a perfect matching, giving |E|+N <= size+1. These imply read1 lower bounds27 for Fano and64 for order3 planes.
+
+Important: unrestricted monotone Fano >=27 is already checked in L971 (9367 lines). Thus a q2 counterexample cannot exist. For q3, the 135-file Fin26 census found only conditional >=64 lower bounds: L4803 no AND nesting; L5162 minimal with one ordered AND-ancestor pair; L1500/L2420/L5254 line-degree at most1. L1730 is a checked64gate witness. No unrestricted q3 >=64 theorem found.
+
+Normalization support: L8385/L4181 produce no-larger least top-form circuits. L3653 and L3700 remove a single dirty AND under lift-fixed-point side conditions. L3652 places every doubly reread edge in a maximal core. Warning: L3444, L3446, L2969 refute natural core/cover budget inequalities even for bipartite C4-free graphs. L3679 refutes flat minimum-circuit normalization for general bipartite graphs using a Tarjan construction with many4cycles; it does not directly settle projective planes.
+
+Complete statement indexes are in /tmp/oec/pequalnp-pilot-113/gap2583/{readk,topform,lift,plane,26input,42input,hoist}-statements.json. No existing theorem resolving2583 was found.
+
+Final ownership correction: the desk returned leases whose terms.issue times predated this job. The L-meta-2583 retry returned the same existing lease and holding=5 note. Per the user instruction, all work stopped and no lease was released. The saved L-meta-2592 partials are compiled research, not a submitted solution. L-meta-2583 notes are informal and no new circuit-synthesis search or proof build was started.
