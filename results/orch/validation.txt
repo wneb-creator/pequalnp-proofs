@@ -21,3 +21,6 @@ Updated compiled partials: audit_last_not (404 lines), routes_normalized_live (6
 Each Lean exit0, no warnings/errors. Independent reviewer: PASS for partial preservation.
 Root row witness table independently recomputed on all 360 applicable cases and all 1024 target rows.
 The posted L-meta-2592 statement remains unproved; no proof PR opened.
+
+root_row_lookup.lean: Lean exit0 with narrow Mathlib.Data.BitVec import; independent review PASS.
+It lifts the finite certificate to arbitrary listed input signatures; certificate remains an explicit hypothesis discharged by root_row_witness in integration.

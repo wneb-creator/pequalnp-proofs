@@ -70,3 +70,17 @@ New checked partial results/orch/lemmas/routes_normalized_live.lean: 637 lines, 
 The wrapper chooses a minimum equivalent circuit and prefers the original if it is already minimum; normalization then cannot reduce its size, and the generic deletion argument proves liveness. If pruning erases NOT from a <=19 circuit, D has <=18 gates; a version of the incidence argument with s+1<2n still obtains a primary read at most once without needing a monotone lower bound.
 
 No direct checked full-Petersen monotone >=19 or >=20 theorem was found in the current repository. Existing 2590 reductions still retain lower-bound children.
+
+## Root re-plan 2026-11-25T14:32:09.301271+00:00
+
+The strongest active route is the signed live-wire lower bound. All four cofactors for each primary pair are distinct, and a checked row table now forces both first-gate operands to remain available. Restricting a retained input false yields a robust proposed binary floor17 from the checked nine-variable floor15; first AND/ANDNOT may yield18. First OR creates a duplicate, whose elimination cannot be charged by the existing constant-mass invariant. Do not claim uniform floor18 yet.
+
+Normalized-live and sole-primary-reader partials are checked and pushed. Search strategy: normalized signed18 and paid one-NOT19; star-cover eight-gate auxiliary strategy excluded by finite computer search, with kernel verification in progress. Limit heavy Lean to about2CPU and search to1CPU when possible; container quota4CPU.
+
+## Circuit search update 2026-11-25T14:33:35.261345+00:00
+
+- CGP original19:641.4million candidates, no exact witness, best9truth errors. Signed18:315.6million candidates, no exact witness, best9errors.
+- Exact SAT original19 firstOR01 oneNOT180s, signed18 CaDiCaL180s, signed18Kissat300s, delete9target16oneNOT180s:all timeout/unknown, notUNSAT.
+- Local exact repair of original19best with≤3changedgate definitions:UNSAT;≤4repair timedout180s. Signed18≤4repair timedout180s.
+- Added colexfanin order restriction (search heuristic, no completeness theorem), signedwirephase normalization falseatallzero (AND/OR/ANDNOT/NOTAND), and2NOTexactcount mode. Paused/terminated extrajobs toreserve2CPUsforLean.
+- Onlynormalizedsigned18SAT currentlyrunning; ABCcompile effectively1CPU, onecompilerpaused in scratch abc-paused-pids.json and MUST resumeonce remainingbuildwaits.
