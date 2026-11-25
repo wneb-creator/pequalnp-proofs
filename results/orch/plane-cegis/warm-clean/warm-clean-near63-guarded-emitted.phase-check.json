@@ -1,0 +1,40 @@
+{
+  "clauses": 8819172,
+  "violations": [
+    {
+      "index": 8752285,
+      "literals": [
+        154923
+      ],
+      "row": 32770,
+      "inputs": [
+        1,
+        15
+      ]
+    },
+    {
+      "index": 8752291,
+      "literals": [
+        154929
+      ],
+      "row": 33554436,
+      "inputs": [
+        2,
+        25
+      ]
+    },
+    {
+      "index": 8752322,
+      "literals": [
+        154960
+      ],
+      "row": 525312,
+      "inputs": [
+        10,
+        19
+      ]
+    }
+  ],
+  "unexpected_constraint_violations": 0,
+  "status": "all new lex,clean-reader and AND-count constraints satisfied by phase hint"
+}

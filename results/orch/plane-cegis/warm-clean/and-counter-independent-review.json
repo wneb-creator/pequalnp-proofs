@@ -1,0 +1,25 @@
+{
+  "status": "APPROVED independent counter polarity/threshold audit",
+  "fragment_sha256": "6a0b0a9d651829fa388a35cbcc4058053d0366e78bf6848bd3cc8e80c0c817ce",
+  "controls": [
+    {
+      "name": "nine_AND_one_OR",
+      "clauses": 372,
+      "unit_conflict": true,
+      "all_variables_fixed": true
+    },
+    {
+      "name": "ten_AND",
+      "clauses": 372,
+      "unit_conflict": false,
+      "all_variables_fixed": true
+    },
+    {
+      "name": "ten_AND_one_OR",
+      "clauses": 411,
+      "unit_conflict": false,
+      "all_variables_fixed": true
+    }
+  ],
+  "fragment_without_trailing_newline_sha256": "4de0fce4f4f36c71ceadb0be77ecb1c084cdda87ed79d775620a50487e4ae63f"
+}

@@ -1,0 +1,13 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount_budget2056.py",
+  "--ands",
+  "14",
+  "--ordinary-limit",
+  "63",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-target14",
+  "--fixed-star-prefix",
+  "0",
+  "--emit-only"
+]

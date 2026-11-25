@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "cases": 1000,
+  "rows_per_case": 128,
+  "checks": [
+    "abstract/binary equality",
+    "empty OR propagation",
+    "dead gate pruning",
+    "valid backward reads",
+    "nonempty binary output last",
+    "binary AND count bounded"
+  ],
+  "star_controls": [
+    {
+      "ands": 12,
+      "ordinary_size": 59,
+      "boundary_errors": 4
+    },
+    {
+      "ands": 13,
+      "ordinary_size": 64,
+      "boundary_errors": 0
+    }
+  ],
+  "seconds": 1.079204342999219
+}

@@ -1,0 +1,20 @@
+{
+  "warm-primary-near63-full-emitted.json": "39bac65adc1d2e25811be11cad34b593d0326d366d68627cd0d547d9a88414b8",
+  "warm-primary-near63-full-run-wrapper.stdout": "6783a227578b09012b6f86d9e79f2f3726bbff7cc1857990ee3cbf8de60c01a9",
+  "warm-primary-near63-full-run.process.json": "7803788bbcca2892219ce4b5641b1a958608e08c3bb4a4b3c03e98ba43d3880b",
+  "independent-audit.json": "0bf6aa3aafe6e73ad4c936f53e391601f4282b66ab2126b61d993960a509cf40",
+  "warm-primary-near63-full-run.cnf-identity.json": "0df325ea58e5f22cfd311331972849dbfc81b878028236929a4ab6cceaf54f6d",
+  "warm-primary-near63-full-run.stdout": "c17653f8dbe30afd924dcdb36e9a638e71053d63c39575ea3bc7d645816d24f3",
+  "warm-primary-near63-full-run-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-primary-near63-full-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-primary-near63-full-run.sol": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+  "warm-primary-near63-full-run.mapping.json": "06f67c6a8dbb46c49c45476a2afbe945addfedcdc94c80cc88b65fd78384506a",
+  "warm-primary-near63-full-emitted-wrapper.stdout": "6d7e658cbe0f764855b9378cd5ce4a357f478ac34906131baf38d126b3869dc6",
+  "warm-primary-near63-full-run.json": "a12360baa86e32206d380012f90f46052e20074b26beaec97d40682d5a9cbe2d",
+  "README.md": "c7b6d2119470687513208c926fd5697d7acb3571b833c8799ad2b222a6f797bc",
+  "warm-primary-near63-full-emitted-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-primary-delta-check.json": "e7bdba0ac5039884713202cf1a433c272da915107d4bbfc5fc5c571eeb36b8ab",
+  "warm-primary-near63-full-emitted.mapping.json": "06f67c6a8dbb46c49c45476a2afbe945addfedcdc94c80cc88b65fd78384506a",
+  "warm-primary-control64-extra.cnf": "d1c3e5e138674dac8638feeb2680d6d1b299432172e23b5a47eb35aac368a5b8",
+  "direct_cnf_warm_primary.py": "68e04093c6c6d1f74c6a09b20a6e1cb0a867cc77176f3d63c939ec4ef2266e6b"
+}

@@ -1,0 +1,26 @@
+{
+  "source_sha256": "140fcc06a04f357f52c69a2bef26549a53b5a46f3ec45c31cd0fd628604fba28",
+  "ands": 14,
+  "false_rows": 704,
+  "missing_edges": [
+    [
+      1,
+      15
+    ],
+    [
+      2,
+      25
+    ],
+    [
+      10,
+      19
+    ]
+  ],
+  "distinct_selector_profiles": 704,
+  "max_bucket": 1,
+  "colliding_pairs": [],
+  "scope": "Diagnostic on an invalid near circuit; no target proof.",
+  "source_path": "window2056-sat/plane63-near-seed-2056.json",
+  "source_path_base": "results/orch",
+  "source_record_index": 0
+}

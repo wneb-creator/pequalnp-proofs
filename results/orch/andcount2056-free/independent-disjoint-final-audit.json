@@ -1,0 +1,47 @@
+{
+  "base_source_sha256": "dead97d08741c098a5263c361f3309a0a118886563ebb36ac261255ecc0e3342",
+  "disjoint_source_sha256": "d8acbf7a61835f01ee6acf3e7c20dbd05d1bc2b3a6aa83f9800352ee254c246a",
+  "native_controls": [
+    {
+      "name": "native-control13-fixed",
+      "variables": 148941,
+      "clauses": 668837,
+      "decoded_ANDs": 13,
+      "binary_gates": 64,
+      "complete_boundary_errors": 0,
+      "same_as_exhaustively_checked_64_gate_control": true
+    },
+    {
+      "name": "native-control13-free1",
+      "variables": 148941,
+      "clauses": 668761,
+      "decoded_ANDs": 13,
+      "binary_gates": 64,
+      "complete_boundary_errors": 0,
+      "same_as_exhaustively_checked_64_gate_control": true
+    },
+    {
+      "name": "disjoint-control13-fixed",
+      "variables": 148941,
+      "clauses": 669253,
+      "decoded_ANDs": 13,
+      "binary_gates": 64,
+      "complete_boundary_errors": 0,
+      "same_as_exhaustively_checked_64_gate_control": true
+    },
+    {
+      "name": "disjoint-control13-free1",
+      "variables": 148941,
+      "clauses": 669177,
+      "decoded_ANDs": 13,
+      "binary_gates": 64,
+      "complete_boundary_errors": 0,
+      "same_as_exhaustively_checked_64_gate_control": true
+    }
+  ],
+  "invalid12_controls": "external UNSAT as expected",
+  "target_added_clauses": 378,
+  "target_existing_clauses_byte_identical": true,
+  "target_phase_violations": 4,
+  "status": "independent source, mathematical normalization, actual clause/model, geometry and materialization checks passed"
+}

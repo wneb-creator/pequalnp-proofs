@@ -1,0 +1,120 @@
+{
+  "seconds": 0.02249788900007843,
+  "exact_networks": 16,
+  "best_size": 65,
+  "hit": false,
+  "results": [
+    {
+      "source_record": 0,
+      "original": 69,
+      "size": 69,
+      "output": 94,
+      "steps": 0
+    },
+    {
+      "source_record": 1,
+      "original": 68,
+      "size": 67,
+      "output": 92,
+      "steps": 1
+    },
+    {
+      "source_record": 2,
+      "original": 67,
+      "size": 66,
+      "output": 91,
+      "steps": 1
+    },
+    {
+      "source_record": 3,
+      "original": 66,
+      "size": 65,
+      "output": 90,
+      "steps": 1
+    },
+    {
+      "source_record": 4,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 5,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 6,
+      "original": 68,
+      "size": 67,
+      "output": 92,
+      "steps": 1
+    },
+    {
+      "source_record": 7,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 8,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 9,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 10,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 11,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 12,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 13,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 14,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 15,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    }
+  ]
+}

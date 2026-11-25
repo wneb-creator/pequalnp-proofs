@@ -1,0 +1,47 @@
+{
+  "warm-first-near63-full-emitted": {
+    "clauses": 8820813,
+    "all_false_phase_failures": [
+      [
+        8752281,
+        [
+          154919
+        ]
+      ],
+      [
+        8752289,
+        [
+          154927
+        ]
+      ],
+      [
+        8752315,
+        [
+          154953
+        ]
+      ]
+    ],
+    "actual_warm_gate_mismatches": [
+      16385,
+      1048580,
+      2097408
+    ],
+    "first_gate": [
+      1,
+      0,
+      1
+    ],
+    "three_new_clauses_exact": true
+  },
+  "warm-first-control64-full-free3-v1": {
+    "clauses": 9058790,
+    "all_false_phase_failures": [],
+    "actual_warm_gate_mismatches": [],
+    "first_gate": [
+      1,
+      0,
+      1
+    ],
+    "three_new_clauses_exact": true
+  }
+}

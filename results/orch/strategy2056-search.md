@@ -271,3 +271,24 @@ an actual zero-error candidate. Reviewed source and completed validation
 records are preserved in search2056/stratified/; active run logs remain in
 scratch, with repository prefix snapshots to be replaced by the full logs
 at completion.
+
+
+The three-stratum phase completed its1200-second allowance and exited0.
+It tried232133634 proposals; best errors were1/3/4 missed edges with0
+false positives. All20 retained networks are exported (9 plain,4 soft
+non-read1,7 shared-dirty). Complete logs and independent analyses are now
+frozen in search2056/stratified/, replacing the earlier prefix snapshots.
+No witness, error-metric mismatch or class violation was found.
+
+The four-stratum successor additionally retains two actual dirty shared
+ANDs connected by a first-AND frontier edge. Its initial63-gate network
+has6 missed edges,0 false positives, two shared dirty ANDs, one nested
+pair,63 live distinct functions and no earlier directed dominator.
+Source b348bd725715fb7c11ccec7e32c8e4a67f70c592790827f5228629124e7c9d20
+and the unchanged624-control config were independently approved after
+19653 reference checks, including2259 nested-sharing cases. All raw-zero
+checks precede population filtering. Parent renewed at17:50:44UTC; the
+1200-second one-CPU run began2026-11-25T17:51:22.938004+00:00, with planned
+finish18:11:22.938004UTC. Source and seed pool are frozen for this phase.
+Source/validation records are complete in search2056/nested-stratified/;
+active-run logs and analyses there are explicitly labelled prefix snapshots.

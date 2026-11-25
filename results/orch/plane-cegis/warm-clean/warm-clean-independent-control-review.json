@@ -1,0 +1,15 @@
+{
+  "status": "APPROVED; exact64-gate positive control only, no63-gate witness",
+  "source_sha256": "296fdb9ba49c530525e5bc2c29e882a9b2c44ae160717cca9b62c8b280746779",
+  "result_sha256": "52de66e4e3e2ae5f73e00119e32a2322dd0c016d832554d0c0f25e5cb6f1096e",
+  "model_sha256": "abce1bfc60a4a61ed6b0608d45ca2aedaaf3dccf190defa1b84d44937d2d170f",
+  "clauses_independently_checked": 9057123,
+  "variables": 166259,
+  "decoded_gates_match": true,
+  "fixed_prefix": 61,
+  "actual_ands": 13,
+  "full_boundary_mismatches": 0,
+  "semantic_clean_rules_hold": true,
+  "free_suffix_changed": false,
+  "elapsed_seconds": 22.8267939819998
+}

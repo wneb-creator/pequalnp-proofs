@@ -1,0 +1,22 @@
+{
+  "separation-lex-independent-control-2056": {
+    "clauses_verified": 1550,
+    "boundary_rows": 16,
+    "chosen_variant": 0,
+    "separation_pairs": 16,
+    "all_separations_witnessed": true
+  },
+  "separation-menu-reused32-free4-control-2056": {
+    "clauses_verified": 71289,
+    "boundary_rows": 83,
+    "chosen_variant": 0,
+    "separation_pairs": 23,
+    "all_separations_witnessed": true
+  },
+  "target": {
+    "variants": 225,
+    "same_residual_pair_set": true,
+    "pairs": 235
+  },
+  "encoder_sha256": "cbfaeafe90460b104af7a1666548c552f07913032c5401dd9a2f1f5f07d1974e"
+}

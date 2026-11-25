@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T18:00:26.795471+00:00",
+  "source_sha256": "dead97d08741c098a5263c361f3309a0a118886563ebb36ac261255ecc0e3342",
+  "and_bound": 12,
+  "rows": 756,
+  "variables": 128400,
+  "clauses": 581092,
+  "fixed_star_prefix": 12,
+  "fix_output": true,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 4,
+  "conversion_seconds": 3.0484237060009036,
+  "scope": "AND-count synthesis with free OR subsets; ordinary gate cost measured after decoding",
+  "Lean_verified": false,
+  "exit_code": 20,
+  "status": "UNSAT; external solver only, no Lean lower bound",
+  "elapsed_seconds": 3.7659874580003816,
+  "max_rss_kb": 99304
+}

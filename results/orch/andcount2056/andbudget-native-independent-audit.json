@@ -1,0 +1,45 @@
+{
+  "utc": "2026-11-25T18:05:09.231320+00:00",
+  "verdict": "APPROVED native control artifacts and nested target phase",
+  "source_sha256": "0b7a5652d1891b11b956f93e949c7dca9d923e5f677c69723e93d222194efe3b",
+  "controls": [
+    {
+      "name": "budget-native16-fixed64",
+      "clauses_independently_replayed": 1330322,
+      "decoded_memberships_equal": true,
+      "active": 13,
+      "memberships": 78,
+      "ordinary_size": 64,
+      "boundary_errors": 0,
+      "cnf_sha256": "a6b19552e93a615fbe4f71dc8b3c5b27e125feaf0a4eb8df9f366fe793ae892c"
+    },
+    {
+      "name": "budget-native16-free464",
+      "clauses_independently_replayed": 1330006,
+      "decoded_memberships_equal": true,
+      "active": 13,
+      "memberships": 78,
+      "ordinary_size": 64,
+      "boundary_errors": 0,
+      "cnf_sha256": "7d9d5dac173a021f1096a04aa59c7210830dcef5c0da87832266b0a409f7f270"
+    }
+  ],
+  "target": {
+    "variables": 309088,
+    "clauses": 1324820,
+    "warm_false_constraints": 6,
+    "all_failures_exactly_known_positive_misses": true,
+    "missed_row_masks": [
+      33554434,
+      33554436,
+      4194432,
+      16640,
+      264192,
+      8392704
+    ],
+    "budget_lhs": 80,
+    "budget_rhs": 80,
+    "cnf_sha256": "c8db4692682c49fd6c5d84f63fba1320b4526ce472f4c73a14c66279f5554f13"
+  },
+  "invalid_fixed_star_cap63": "external UNSAT as expected; not a lower-bound claim"
+}

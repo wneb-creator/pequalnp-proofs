@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-25T17:51:42.747960+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 756,
+  "variables": 163472,
+  "clauses": 8820813,
+  "conversion_seconds": 38.12972441999955,
+  "seconds_limit": 3600,
+  "fixed_prefix": 0,
+  "warm_true_variables": 51179,
+  "complete_negative_rows": 704,
+  "minimum_and_gates": 10,
+  "first_gate_orbit_representatives": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      15
+    ],
+    [
+      0,
+      0,
+      13
+    ]
+  ],
+  "primary_input_dominance_excluded": true,
+  "encoder": "full-boundary polarity-warm AO2 with lex, clean rules, AND>=10 and primary dominance exclusion",
+  "status": "CNF emitted; solver not run"
+}

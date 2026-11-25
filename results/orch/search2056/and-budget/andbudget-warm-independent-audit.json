@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-25T18:03:09.248142+00:00",
+  "source_sha256": "0b7a5652d1891b11b956f93e949c7dca9d923e5f677c69723e93d222194efe3b",
+  "verdict": "APPROVED exact optional warm-loader delta; native controls pending",
+  "counter_and_decoder_unchanged_from_audited_950ab35b": true,
+  "warm_checks": [
+    {
+      "warm": "near",
+      "sha256": "e4fc8b19cfac0c527732531db18beec65472a59d24445ab8e7020b440983f30e",
+      "records": 16,
+      "active_records": 14,
+      "memberships": 78,
+      "budget_lhs": 80,
+      "budget_rhs": 80,
+      "errors": 3,
+      "decoded_size": 63
+    },
+    {
+      "warm": "nested",
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+      "records": 16,
+      "active_records": 16,
+      "memberships": 80,
+      "budget_lhs": 80,
+      "budget_rhs": 80,
+      "errors": 6,
+      "decoded_size": 63
+    }
+  ]
+}

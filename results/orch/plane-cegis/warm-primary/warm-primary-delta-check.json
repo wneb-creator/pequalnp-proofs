@@ -1,0 +1,12 @@
+{
+  "source_sha256": "68e04093c6c6d1f74c6a09b20a6e1cb0a867cc77176f3d63c939ec4ef2266e6b",
+  "target_old_clauses_identical": 8819172,
+  "target_old_body_sha256": "badbf786c3156bf8628b28e8f31f448c03784dab6b587acb8bc077ba70c9663e",
+  "target_extra_clauses_verified": 1638,
+  "target_added_phase_failures": 0,
+  "control_original_clauses_previously_verified": 9057123,
+  "control_extra_clauses_verified_against_saved_model": 1664,
+  "control_gate_values_independently_verified": 48384,
+  "control_extra_clauses_sha256": "d1c3e5e138674dac8638feeb2680d6d1b299432172e23b5a47eb35aac368a5b8",
+  "scope": "Only primary-input dominance added; old64 model reused and all added clauses checked, no new native run claimed."
+}

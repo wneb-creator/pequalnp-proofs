@@ -1,0 +1,97 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 10 seconds real time (due to '-t 10')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/window2056-sat/separation-lex-independent-control-2056.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/window2056-sat/separation-lex-independent-control-2056.cnf'
+c found 'p cnf 291 1550' header
+c parsed 1550 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 1534 275 95%
+c {  0.00  3  0 0   0    0    0  0% 0 1534 275 95%
+c i  0.00  3  1 0   0    1    0 18% 0 1534 271 93%
+c i  0.00  3  1 0   0    3    1 25% 0 1534 267 92%
+c i  0.00  3  1 0   0    4    1 25% 0 1534 266 91%
+c i  0.00  3  1 0   0    5    1 23% 0 1534 257 88%
+c i  0.00  3  2 0   0   22   14 47% 1 1534 256 88%
+c i  0.00  3  2 0   0   23   14 47% 1 1534 255 88%
+c i  0.00  3  2 0   0   25   14 45% 1 1534 254 87%
+c i  0.00  3  2 0   0   26   14 45% 1 1534 253 87%
+c i  0.00  3  2 0   0   28   15 46% 1 1534 252 87%
+c i  0.00  3  3 0   3   57   38 56% 1 1534 251 86%
+c }  0.00  3  3 0   6   66   46 57% 2 1534 251 86%
+c 1  0.00  3  3 0   6   66   46 57% 2 1534 251 86%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/window2056-sat/separation-lex-independent-control-2056.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   86.67% search
+c         0.00   68.05% unstable
+c         0.00   55.53% parse
+c         0.00   17.23% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   43.16% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                25        37.88 %  of conflicts
+c conflicts:                    66     41509.43    per second
+c decisions:                    96     60377.36    per second
+c fixed:                        40        13.75 %  of all variables
+c learned:                      62        93.94 %  per conflict
+c learned_lits:                270       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                     66        24.44 %  learned literals
+c minishrunken:                  1         0.37 %  learned literals
+c otfs:                          4         6.06 %  of conflict
+c propagations:               3904         2.46 M  per second
+c restarts:                      6        11.00    interval
+c subsumed:                      6         0.38 %  of all clauses
+c strengthened:                  4         0.25 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:           11.38    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

@@ -1,0 +1,145 @@
+{
+  "unique_exact_networks": 7,
+  "sizes": [
+    67,
+    68,
+    69,
+    70
+  ],
+  "nonread1_networks": 7,
+  "networks_with_shared_dirty_AND": 7,
+  "networks_with_indirect_dirty_AND_reuse": 7,
+  "results": [
+    {
+      "record": 0,
+      "gates": 69,
+      "AND": 16,
+      "accepted_without_read1": 7,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        3,
+        7
+      ],
+      "dirty_AND_multi_next_AND": {
+        "3": [
+          7,
+          9
+        ],
+        "7": [
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "record": 1,
+      "gates": 68,
+      "AND": 16,
+      "accepted_without_read1": 4,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        5
+      ],
+      "dirty_AND_multi_next_AND": {
+        "5": [
+          9,
+          25
+        ]
+      }
+    },
+    {
+      "record": 2,
+      "gates": 67,
+      "AND": 15,
+      "accepted_without_read1": 4,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        21
+      ],
+      "dirty_AND_multi_next_AND": {
+        "21": [
+          23,
+          33
+        ]
+      }
+    },
+    {
+      "record": 3,
+      "gates": 70,
+      "AND": 18,
+      "accepted_without_read1": 5,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        39
+      ],
+      "dirty_AND_multi_next_AND": {
+        "39": [
+          42,
+          49
+        ]
+      }
+    },
+    {
+      "record": 4,
+      "gates": 70,
+      "AND": 18,
+      "accepted_without_read1": 3,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        14
+      ],
+      "dirty_AND_multi_next_AND": {
+        "14": [
+          40,
+          42
+        ]
+      }
+    },
+    {
+      "record": 5,
+      "gates": 70,
+      "AND": 18,
+      "accepted_without_read1": 3,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        38
+      ],
+      "dirty_AND_multi_next_AND": {
+        "38": [
+          47,
+          64
+        ]
+      }
+    },
+    {
+      "record": 6,
+      "gates": 70,
+      "AND": 18,
+      "accepted_without_read1": 5,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [
+        27
+      ],
+      "dirty_AND_multi_next_AND": {
+        "27": [
+          31,
+          34
+        ]
+      }
+    }
+  ]
+}

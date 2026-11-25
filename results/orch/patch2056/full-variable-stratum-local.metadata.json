@@ -1,0 +1,20 @@
+{
+  "started_utc": "2026-11-25T17:30:31.499453+00:00",
+  "duration_requested_seconds": 1200,
+  "seed": 205671,
+  "source_hashes": {
+    "full_variable70_stratum.cpp": "53576de25577e2427fdad830b2ef0edea2a0814cacf87f5b7de1aca78e821a0f",
+    "full_variable_stratum_seeds.hpp": "baf3f777732172cc7fd293cef7a8468755a8e7c408403031a02832d61bfe8151",
+    "stratum_full.hpp": "aa89e8e9cbe601dff880a53223c8142d9bc1745873c80b3e49e1cd5dec1168a2",
+    "neutral_pair_care_full.hpp": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f",
+    "scatter_spares_full.hpp": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14",
+    "repair_shrink_full.hpp": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+  },
+  "binary_sha256": "3f14031be03a84072c6bb40f39a5dd3253c3623817e10ce2044c96605e465439",
+  "status": "terminated",
+  "child_pid": 31110,
+  "ended_utc": "2026-11-25T17:42:39.833191+00:00",
+  "wall_seconds": 728.3258254820012,
+  "returncode": -15,
+  "termination_reason": "Root-authorized switch: the prior class admits removable identical-operand and absorption copies; corrected live-dominance filtering is independently approved."
+}

@@ -44,3 +44,21 @@
 2026-11-25T17:30:17.081353+00:00: strategy review: retain nested/shared dirty structure in both local optimizers; broaden fixed OR helper shapes; focus one full-plane solver on all boundary rows using a three-error phase hint. Compiled cardinal/count bridges and 513-row kernel certificate preserved. No target proof or refutation.
 
 2026-11-25T17:31:56.081026+00:00: PlaneAndCountLower2056 compiled; exact incidence edge specification plus 513 distinct maximal-false rows proves at least ten actual AND gates. Independently reviewed and pushed at 2ce707ab18d8b6a952f0ba14784d5cfaf34ee297. This is not the posted total-gate result.
+
+2026-11-25T17:48:11.938+00:00: full 756-row size-63 SAT with clean normalization, at least ten ANDs, adjacent lex ordering and primary-input dominance began; 1200-second limit. Independently approved first-gate orbit successor prepared for 3600 seconds.
+
+2026-11-25T17:51:22.938004+00:00: four-stratum local search began, adding a separately maintained nested two-dirty-AND population; initial nested candidate has 63 gates, six missed positive rows and no false positives.
+
+2026-11-25T18:03:12+00:00: corrected undominated 70-slot optimizer finished normally, 292,820,488 proposals, best exact size67. All final states/complete logs preserved.
+
+2026-11-25T18:05:41.211224+00:00: global at-most12-AND/free-OR SAT began with a stable3600-second limit after independent source, row, native-model and disjoint-subset normalization controls. A model would still need its total binary gate count checked.
+
+2026-11-25T18:07:00.289419+00:00: strategy review: transition to full63 SAT, global free-OR AND-count SAT, finite component-library SAT, and bounded-cost nested AND-structure SAT. The latter two are restricted construction searches. No full proof, refutation or PR.
+
+2026-11-25T18:06:47.275+00:00: expanded component-library size63 SAT began,3600-second native cap,6107 profiles/129323 productions, strict rank/cardinality constraints. Fresh actual64-gate model and all clauses independently checked.
+
+2026-11-25T18:09:32.155+00:00: frozen first-gate/full756 size63 SAT began,3600-second native cap,8820813 clauses. Previous full query ended UNKNOWN and all diagnostics were archived first.
+
+2026-11-25T18:11:23+00:00: four-stratum local search finished normally,265012058 proposals, no witness;148 retained networks archived, including128 nested candidates.
+
+2026-11-25T18:12:24.026+00:00: frozen K16 bounded-membership size63 SAT began,3600-second native cap,309088 variables/1324820 clauses, nested6-miss phase. All cost clauses pass; native64 controls and target phase independently reviewed.

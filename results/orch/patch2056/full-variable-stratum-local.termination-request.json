@@ -1,0 +1,6 @@
+{
+  "requested_utc": "2026-11-25T17:42:39.821330+00:00",
+  "child_pid": 31110,
+  "reason": "Root-authorized switch: the prior class admits removable identical-operand and absorption copies; corrected live-dominance filtering is independently approved.",
+  "prior_status": "running"
+}

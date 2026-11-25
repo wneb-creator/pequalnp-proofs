@@ -1,0 +1,35 @@
+{
+  "variables": 163472,
+  "clauses": 8819172,
+  "failures_one_based": [
+    {
+      "index": 8752285,
+      "literals": [
+        154923
+      ]
+    },
+    {
+      "index": 8752291,
+      "literals": [
+        154929
+      ]
+    },
+    {
+      "index": 8752322,
+      "literals": [
+        154960
+      ]
+    }
+  ],
+  "seconds": 12.368675019000875,
+  "status": "APPROVED phase audit; incomplete63 candidate only",
+  "source_sha256": "296fdb9ba49c530525e5bc2c29e882a9b2c44ae160717cca9b62c8b280746779",
+  "actual_ands": 14,
+  "candidate_false_positives": 0,
+  "candidate_missing_rows": [
+    32770,
+    33554436,
+    525312
+  ],
+  "semantic_clean_rules_hold": true
+}

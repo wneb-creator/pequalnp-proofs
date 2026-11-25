@@ -1,0 +1,77 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 20 seconds real time (due to '-t 20')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/components2056/control64.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/components2056/control64.cnf'
+c found 'p cnf 484303 1321335' header
+c parsed 1321335 clauses in 1.89 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds   reductions  redundant   irredundant
+c          MB    restarts       trail       variables
+c           level   conflicts       glue         remaining
+c 
+c *  1.89 221  0 0   0    0    0  0% 0 1261769 2402  0%
+c l  1.93 221  0 0   0    0    0  0% 0 1261769 2402  0%
+c 1  1.93 221  0 0   0    0    0  0% 0 1261769 2402  0%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/components2056/control64.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         1.89 4316.10% parse
+c         0.04   99.30% search
+c         0.04   99.30% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.04    2.17% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c fixed:                    481901        99.50 %  of all variables
+c lucky:                         1       100.00 %  of tried
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                      0         0.00 %  learned literals
+c minishrunken:                  0         0.00 %  learned literals
+c propagations:             481901        11.01 M  per second
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         2.02    seconds
+c total real time since initialization:            2.53    seconds
+c maximum resident set size of process:          221.12    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

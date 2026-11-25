@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T17:42:56.714963+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 756,
+  "variables": 163472,
+  "clauses": 8820810,
+  "conversion_seconds": 40.13741023700095,
+  "seconds_limit": 1200,
+  "fixed_prefix": 0,
+  "warm_true_variables": 51087,
+  "complete_negative_rows": 704,
+  "minimum_and_gates": 10,
+  "primary_input_dominance_excluded": true,
+  "encoder": "full-boundary polarity-warm AO2 with lex, clean rules, AND>=10 and primary dominance exclusion",
+  "status": "CNF emitted; solver not run"
+}

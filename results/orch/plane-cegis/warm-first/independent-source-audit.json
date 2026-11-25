@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-25T17:54:10.251385+00:00",
+  "verdict": "APPROVED source delta and canonical-order compatibility",
+  "source_sha256": "b9b6a04cf8b0458ef835e42944e3dc852c270b222c4f3c4a90b485be5baf155f",
+  "mapper_sha256": "d9c1b99f6908eca08c2a380dde67bfbb966025ae5fd5f385a8ecab59e5657443",
+  "source_delta_exact_three_clauses_plus_record": true,
+  "four_allowed_forms": [
+    [
+      0,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      15
+    ]
+  ],
+  "checks": [
+    {
+      "label": "near63",
+      "gates": 63,
+      "errors": 3,
+      "false_positives": 0,
+      "first_gate": [
+        1,
+        0,
+        1
+      ],
+      "permutation_edges_rows": true,
+      "adjacent_ordering": true
+    },
+    {
+      "label": "control64",
+      "gates": 64,
+      "errors": 0,
+      "false_positives": 0,
+      "first_gate": [
+        1,
+        0,
+        1
+      ],
+      "permutation_edges_rows": true,
+      "adjacent_ordering": true
+    }
+  ],
+  "completeness_argument": "Conditional on audited four pair orbits: select lexicographically least gate sequence over every allowed graph automorphism and every topological ordering, with gate key (left,right,op). Its first gate must be the lexicographically least member of its input-pair/op orbit; otherwise an automorphism reduces the first tuple. Its adjacent independent gates are sorted; swapping an inversion reduces the sequence. First-gate minima are OR(0,1), OR(0,13), OR(0,15), AND(0,13). All prior primary-dominance and clean/profile restrictions are invariant under graph automorphism and topological renumbering. The mapper is only a same-side-OR warm-start construction, not a claim to exhaust arbitrary first-gate shapes."
+}

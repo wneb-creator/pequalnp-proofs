@@ -1,0 +1,20 @@
+--- andcount2056.py
++++ andcount_disjoint2056.py
+@@ -164,6 +164,8 @@
+             selectors.append([fresh(i in warm['ands'][j][key]) for i in range(26 + j)])
+         left.append(selectors[0])
+         right.append(selectors[1])
++        for left_selector, right_selector in zip(selectors[0], selectors[1]):
++            add(-left_selector, -right_selector)
+         outputs = []
+         for k, row in enumerate(rows):
+             side_values = []
+@@ -236,7 +238,7 @@
+               'warm_boundary_errors': warm_errors,
+               'conversion_seconds': time.monotonic() - started,
+               'scope': 'AND-count synthesis with free OR subsets; ordinary gate cost measured after decoding',
+-              'Lean_verified': False}
++              'disjoint_source_subsets': True, 'Lean_verified': False}
+     if args.emit_only:
+         record['status'] = 'CNF emitted; solver not run'
+         base.with_suffix('.json').write_text(json.dumps(record, indent=2) + '\n')

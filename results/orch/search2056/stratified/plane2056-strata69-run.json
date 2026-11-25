@@ -1,0 +1,21 @@
+{
+  "status": "process completed; final analysis pending",
+  "source_sha256": "8ffc0da1fa5aa89f9a2bbc81d93c9ca8d671e6b5cbdc518ec4520bc29a775f7e",
+  "config_sha256": "1855b3fe29f779ac0cf4fd221d988bd25572cc402c0715491cc6b8a43876a367",
+  "started_utc": "2026-11-25T17:27:56.745856+00:00",
+  "seconds_limit": 1200,
+  "random_seed": 205616,
+  "loaded_seeds": 624,
+  "seeds66": 52,
+  "seeds67": 468,
+  "seeds69": 104,
+  "cpu_workers": 1,
+  "strata": [
+    "plain",
+    "non-read1 preference",
+    "actual-dirty AND reuse"
+  ],
+  "final_population_export": true,
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T17:47:56.914724+00:00"
+}

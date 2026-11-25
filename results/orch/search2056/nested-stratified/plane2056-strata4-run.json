@@ -1,0 +1,21 @@
+{
+  "status": "completed; full final analysis confirms no witness",
+  "source_sha256": "b348bd725715fb7c11ccec7e32c8e4a67f70c592790827f5228629124e7c9d20",
+  "config_sha256": "1855b3fe29f779ac0cf4fd221d988bd25572cc402c0715491cc6b8a43876a367",
+  "started_utc": "2026-11-25T17:51:22.938004+00:00",
+  "deadline_utc": "2026-11-25T18:11:22.938004+00:00",
+  "seconds_limit": 1200,
+  "random_seed": 205617,
+  "loaded_seeds": 624,
+  "cpu_workers": 1,
+  "strata": [
+    "plain",
+    "non-read1 preference",
+    "actual-dirty AND reuse",
+    "nested shared actual-dirty ANDs"
+  ],
+  "final_population_export": true,
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T18:11:23.015901+00:00",
+  "analysis_finished_utc": "2026-11-25T18:11:44.587007+00:00"
+}

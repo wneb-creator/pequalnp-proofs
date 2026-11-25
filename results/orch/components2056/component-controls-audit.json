@@ -1,0 +1,16 @@
+{
+  "scope": "Native controls only; restricted-library target63 remains untested",
+  "control64_clauses_checked": 1321335,
+  "control64_variables": 484303,
+  "control64_decoded_gates": 64,
+  "rows": 756,
+  "fixed64_at63": "native UNSAT;64 pinned selections exceed63",
+  "self_cycle": "native UNSAT;strict rank self-inequality impossible",
+  "hashes": {
+    "build_library.py": "d2aeab4759eda432d13419563fb110019204cbe8174c4a237524b981e7fbfaf1",
+    "library.json": "9c5ce94536b4e0d2cee917a0b45f1ce589e4e5d9aee355e26e4cc189e6644595",
+    "encode.py": "edcd1ef1c4e62ffee36336fd42b756160d2b39e4ce65b688a969081c30fde59a",
+    "decode.py": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c"
+  },
+  "model_sha256": "af79e21c9328258f236d57a64d2373f30b229fd109417b17f220a81a151bfec4"
+}

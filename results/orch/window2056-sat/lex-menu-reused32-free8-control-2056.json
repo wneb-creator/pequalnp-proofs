@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-25T17:29:31.979974+00:00",
+  "n": 19,
+  "size": 32,
+  "sampled_rows": 83,
+  "variables": 4215,
+  "clauses": 114256,
+  "conversion_seconds": 2.1001265510003577,
+  "seconds_limit": 10,
+  "fixed_prefix": 24,
+  "prefix_menu_size": 12,
+  "prefix_menu_variants": 225,
+  "ordered_sources": true,
+  "order_independent": true,
+  "encoder": "direct one-hot binary AND/OR with exact finite prefix menu",
+  "exit_code": 0,
+  "status": "UNKNOWN; time or resource limit",
+  "elapsed_seconds": 12.127996150999024,
+  "max_rss_kb": 35840
+}

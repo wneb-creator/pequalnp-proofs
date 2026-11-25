@@ -1,0 +1,173 @@
+{
+  "scope": "Frozen preparation identities; no runtime verdict claimed",
+  "source_files": {
+    "encode.py": {
+      "path": "results/orch/components2056/encode.py",
+      "sha256": "edcd1ef1c4e62ffee36336fd42b756160d2b39e4ce65b688a969081c30fde59a",
+      "bytes": 5161
+    },
+    "decode.py": {
+      "path": "results/orch/components2056/decode.py",
+      "sha256": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c",
+      "bytes": 3195
+    },
+    "build_library.py": {
+      "path": "results/orch/components2056/build_library.py",
+      "sha256": "d2aeab4759eda432d13419563fb110019204cbe8174c4a237524b981e7fbfaf1",
+      "bytes": 5680
+    },
+    "build_library_v3.py": {
+      "path": "results/orch/components2056/build_library_v3.py",
+      "sha256": "1682efc99784e50bca5ea1292313775a2e661f1810e118e11fc058c09755b6da",
+      "bytes": 6435
+    },
+    "pair_closure.cpp": {
+      "path": "results/orch/components2056/pair_closure.cpp",
+      "sha256": "bbfabf890495c7e9f0414805ea2d41a78dee68690a961b6757cbc57e161d702e",
+      "bytes": 1408
+    },
+    "library.json": {
+      "path": "results/orch/components2056/library.json",
+      "sha256": "9c5ce94536b4e0d2cee917a0b45f1ce589e4e5d9aee355e26e4cc189e6644595",
+      "bytes": 1140933
+    },
+    "v3-library.json": {
+      "path": "results/orch/components2056/v3-library.json",
+      "sha256": "c6d14c6b269b394e743d9e00b687a7c6509f8af70675bbfedd000e86ede3f293",
+      "bytes": 3342963
+    },
+    "v3-observed-circuits.jsonl": {
+      "path": "results/orch/components2056/v3-observed-circuits.jsonl",
+      "sha256": "8902d5bcf1fdb0808efa79a22e468a0149a21d1ba453d2ff8818c86681295d08",
+      "bytes": 1026486
+    }
+  },
+  "omitted_raw_artifacts": {
+    "control64.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/control64.cnf",
+      "sha256": "b6b5abbf4ab787fd8a919b399a730fc1b6624f845c097c1b7709157272905750",
+      "bytes": 28376505
+    },
+    "control63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/control63.cnf",
+      "sha256": "f07184fbdd2e8faebcee4d8d0f930e15a999171819827f143b5ac4a153c28cd2",
+      "bytes": 25008927
+    },
+    "cycle63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/cycle63.cnf",
+      "sha256": "e1f1ca221d5e7411b0e7900e8202cd7990aa6fb3d100371011dc0b855284e22f",
+      "bytes": 748
+    },
+    "v3-control64.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v3-control64.cnf",
+      "sha256": "45a0ec26630656b0442cf88b5f7da80f015094405b6711b7c39c828f73714fa2",
+      "bytes": 54692084
+    },
+    "v3-target63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v3-target63.cnf",
+      "sha256": "cc1febf617ec57e32c5d68eb11d05ca530d2f3ec3ddb65e9e5b7ee825cb62bea",
+      "bytes": 48426975
+    },
+    "proper_productions.txt": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/proper_productions.txt",
+      "sha256": "3851101f8fe0357623ee89c02145cd0befafa7839e0f4b94cc846b1419ec287b",
+      "bytes": 51296861
+    }
+  },
+  "regenerate_commands": [
+    {
+      "name": "control64",
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode.py",
+        "--library",
+        "results/orch/components2056/library.json",
+        "--bound",
+        "64",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/control64",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; summary elapsed seconds varies"
+    },
+    {
+      "name": "control63",
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode.py",
+        "--library",
+        "results/orch/components2056/library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/control63",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; summary elapsed seconds varies"
+    },
+    {
+      "name": "cycle63",
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode.py",
+        "--library",
+        "results/orch/components2056/cyclic-control-library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/cycle63"
+      ],
+      "note": "CNF deterministic; summary elapsed seconds varies"
+    },
+    {
+      "name": "v3-control64",
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode.py",
+        "--library",
+        "results/orch/components2056/v3-library.json",
+        "--bound",
+        "64",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v3-control64",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; summary elapsed seconds varies"
+    },
+    {
+      "name": "v3-target63",
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode.py",
+        "--library",
+        "results/orch/components2056/v3-library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v3-target63"
+      ],
+      "note": "CNF deterministic; summary elapsed seconds varies"
+    }
+  ],
+  "closure_regeneration": {
+    "compile_argv": [
+      "g++",
+      "-std=c++20",
+      "-O3",
+      "results/orch/components2056/pair_closure.cpp",
+      "-o",
+      "/tmp/oec/pequalnp-pilot-121/components2056/pair_closure"
+    ],
+    "run_argv": [
+      "/tmp/oec/pequalnp-pilot-121/components2056/pair_closure",
+      "/tmp/oec/pequalnp-pilot-121/components2056/profile_words.txt",
+      "/tmp/oec/pequalnp-pilot-121/components2056/proper_productions.txt"
+    ],
+    "profile_words_format": "First decimal count len(library.profiles), then one line/profile containing12 decimal uint64 words least-significant first, derived from each189-digit hex profile in library.json"
+  }
+}

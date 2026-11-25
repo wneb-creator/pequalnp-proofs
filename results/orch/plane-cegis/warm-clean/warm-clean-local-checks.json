@@ -1,0 +1,12 @@
+{
+  "dp_local_truth_cases": 16,
+  "guarded_amo_existential_cases": 248,
+  "sizes_checked": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "status": "all passed"
+}

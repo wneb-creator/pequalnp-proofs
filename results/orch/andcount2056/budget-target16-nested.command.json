@@ -1,0 +1,13 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount_budget2056.py",
+  "--ands",
+  "16",
+  "--ordinary-limit",
+  "63",
+  "--warm-model",
+  "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-nested63-model.json",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-target16-nested",
+  "--emit-only"
+]

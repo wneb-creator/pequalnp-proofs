@@ -1,12 +1,18 @@
 {
   "warm-control64-full-free3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-near63-full-run.json": "687a94b17f30c9161708c37024a32da82c45213097fff31f6835d7991f4f19b2",
+  "warm-near63-full-run-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "warm-near63-full-emitted-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "independent-audit.json": "302bc30f3f59ad84aa88347dafc0616ba2e492fb150576084ab6a24e0c950ffb",
+  "warm-near63-full-run.sol": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
   "warm-control64-full-free3.process.json": "3672eeffd19ba86310021b64b215cf8ce299d6a91c6c255da04cb0d6435da8fa",
   "warm-control64-full-free3.mapping.json": "0b771445c8fdf5ee7c8ee7839343cad92a6c0f7a25df458e9b7a8dc324783172",
+  "warm-near63-full-run.cnf-identity.json": "dce224b8c23821c3e0aca601959180ea927500d969d5ba6fb4426e7af92e7c94",
   "warm-control64-full-free3.json": "4a1d9d8d9c6ec2e8ccbdac2dcf19357c35b5d2455b4694b23b0dbf892ed259b5",
   "warm-near63-full-emitted.phase-check.json": "4627243f9ee896580f91b2550b15db56117f02dfee98066d5e7112d7bafe71bd",
-  "README.md": "99af02b19d31df2885be6ed90f4571ee8ca693b1d06aae1722fb902aa98a606c",
+  "warm-near63-full-run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-near63-full-run.stdout": "bca0024261bbce9a1391dd08eba0fbf7305a2b706fdac814d17496702d5fb3ef",
+  "README.md": "240601d421b25508c7181518f08cc17f5d8c2456a9a8252ea9ad31ebb9221a26",
   "warm-control64-full-free3-wrapper.stdout": "95c45024bb2628b6b854028171cd112fab6b6edefc60b87f8ffa511643e5cd87",
   "direct_cnf_warm.py": "3a998470bcc86d5f0b2840d2d0fc5185f58afb9632122090a22a6fd777dccaa7",
   "rows-all756.json": "ca7b6c7c697be2aaf13b24021b68dd265a66a3ab907f1010a4cf838e985e97b9",
@@ -16,5 +22,8 @@
   "warm-control64-full-free3.stdout": "4a6369cfdc955eaac073362fc98c00b75216c3e6d08d628cd3f6762ed264002a",
   "warm-near63-full-emitted.mapping.json": "b31f48cf9cae96c132bed97839de1867bcf82b42b7edaceac0b70f6991913552",
   "near63-nonlinear-gates.json": "1f581909bc93b9ed43ccab9fbf4e858c5140e14f2e030a2aadf6bbbfbf28d51e",
-  "warm-near63-full-emitted.json": "72deccbbe247741e433b518cb9b38d0d102c26590d0240457883f3df4cf44bd4"
+  "warm-near63-full-run-wrapper.stdout": "6d18ccfb8250b55ba7fae4f165b2ed90bfe2701e6856b735be5708e7d0705482",
+  "warm-near63-full-emitted.json": "72deccbbe247741e433b518cb9b38d0d102c26590d0240457883f3df4cf44bd4",
+  "warm-near63-full-run.mapping.json": "b31f48cf9cae96c132bed97839de1867bcf82b42b7edaceac0b70f6991913552",
+  "warm-near63-full-run.process.json": "74f597c95eabbad2dcf28afe820bd87762dfae6f4d5645775fbaeff3dddfaa50"
 }

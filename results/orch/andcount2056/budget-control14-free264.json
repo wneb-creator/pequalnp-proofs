@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T18:00:50.211240+00:00",
+  "source_sha256": "950ab35b1d80ec73c4aa84dbb4ecbb27aa424fcdcd67db5ab74bb134bc8163d4",
+  "and_bound": 14,
+  "rows": 756,
+  "variables": 246050,
+  "clauses": 1062480,
+  "fixed_star_prefix": 12,
+  "ordinary_limit": 64,
+  "membership_threshold": 79,
+  "warm_budget_lhs": 79,
+  "fix_output": true,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 0,
+  "conversion_seconds": 3.1856992820012238,
+  "scope": "Restricted AND-structure synthesis with independent operand-OR cost budget; not an exhaustive total-gate lower-bound model",
+  "Lean_verified": false,
+  "status": "CNF emitted; solver not run"
+}

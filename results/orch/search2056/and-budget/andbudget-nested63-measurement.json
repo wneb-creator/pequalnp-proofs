@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T18:01:39.812618+00:00",
+  "source": "plane2056-strata4 best mode3",
+  "ordinary_original_size": 63,
+  "and_records": 16,
+  "memberships": 80,
+  "unshared_cost_bound": 63,
+  "boundary_errors": 6,
+  "false_positives": 0,
+  "decoded_size": 63,
+  "budget63_feasible": true,
+  "output_members": 14
+}

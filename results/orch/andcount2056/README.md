@@ -1,0 +1,13 @@
+# AND-structure bounded-cost synthesis for L-meta-2056
+
+These are research preparations and external solver controls. No 63-gate witness or Lean proof is present.
+
+The independent free-OR encoder, its disjoint-source variant, exhaustive 64-gate positive control, and native controls are preserved in [the free-OR archive](../andcount2056-free/). The initial bounded-cost encoder and its warm-model extension are preserved here. Their exact source hashes appear in each result and in `CNF-REGENERATION.json`.
+
+For K ordered AND records, each operand is an OR-subset of the 26 primary inputs and earlier AND outputs. An active record has two nonempty subsets; an inactive record has two empty subsets. If M is the total number of selected operand and output memberships and A is the number of active records, separately constructing these ORs costs at most M−A−1 binary gates. The encoded budget M+(K−A)≤64+K therefore guarantees at most 63 gates after decoding, constant propagation, and dead-gate pruning. The model charges ORs independently: it is a restricted constructive search, and an UNSAT answer would not establish a general 64-gate lower bound. Operand disjointness is deliberately absent because that normalization can increase memberships.
+
+The final target uses K=16 and budget 63. Its nested warm model has 16 active AND records, 80 memberships, and six missing positive rows among the complete 756-row boundary; it has no false positive. The emitted target has 309,088 variables and 1,324,820 clauses. Independent replay finds exactly those six positive-output clauses unsatisfied by the warm phase. This is a near model, not a target solution.
+
+Two native positive controls at budget 64 (all records fixed, and the last four records free) decode the 13-star baseline with 64 binary gates and zero errors on all 756 boundary rows. Every native model clause and decoded network was checked independently. Fixing that baseline under budget 63 returns external UNSAT, as its budget expression is 81 while the threshold is 80. The source, signed cardinality counter, warm loader and materializer have separate independent audits, copied here for review.
+
+All files in this directory are completed preparations or short controls. Historical command records retain their original scratch paths. `CNF-REGENERATION.json` supplies portable emit-only argument lists; create a `REGEN` directory first. Raw CNFs are omitted, with complete SHA-256 identities and sizes recorded. Native execution also requires the CaDiCaL executable named in the source. Future long-run records belong in `budget-run/` after completion. Live outputs remain in scratch.

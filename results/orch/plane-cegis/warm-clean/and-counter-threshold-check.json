@@ -1,0 +1,38 @@
+{
+  "source_sha256": "296fdb9ba49c530525e5bc2c29e882a9b2c44ae160717cca9b62c8b280746779",
+  "exact_counter_fragment_sha256": "4de0fce4f4f36c71ceadb0be77ecb1c084cdda87ed79d775620a50487e4ae63f",
+  "results": [
+    {
+      "name": "nine_AND_one_OR",
+      "AND_flags": 9,
+      "OR_flags": 1,
+      "variables": 110,
+      "clauses": 372,
+      "phase_unsatisfied_clauses": [
+        372
+      ],
+      "unit_propagation_conflict": true,
+      "accepted": false
+    },
+    {
+      "name": "ten_AND",
+      "AND_flags": 10,
+      "OR_flags": 0,
+      "variables": 110,
+      "clauses": 372,
+      "phase_unsatisfied_clauses": [],
+      "unit_propagation_conflict": false,
+      "accepted": true
+    },
+    {
+      "name": "ten_AND_one_OR",
+      "AND_flags": 10,
+      "OR_flags": 1,
+      "variables": 121,
+      "clauses": 411,
+      "phase_unsatisfied_clauses": [],
+      "unit_propagation_conflict": false,
+      "accepted": true
+    }
+  ]
+}

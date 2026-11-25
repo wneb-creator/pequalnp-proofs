@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-25T17:42:58.039548+00:00",
+  "n": 19,
+  "size": 28,
+  "sampled_rows": 83,
+  "variables": 11127,
+  "clauses": 203039,
+  "conversion_seconds": 4.084544653000194,
+  "seconds_limit": 1200,
+  "fixed_prefix": 12,
+  "prefix_menu_size": 12,
+  "prefix_menu_variants": 225,
+  "ordered_sources": true,
+  "order_independent": true,
+  "selector_separation_pairs": 235,
+  "encoder": "direct one-hot binary AND/OR with exact finite prefix menu",
+  "warm_prefix_variant": 96,
+  "warm_phase_variables": 11127,
+  "warm_replay_steps": 11026,
+  "warm_violated_output_units": 4,
+  "warm_mismatch_rows": [
+    513,
+    32769,
+    72,
+    96
+  ],
+  "status": "CNF emitted; solver not run"
+}

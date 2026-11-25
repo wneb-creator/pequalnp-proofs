@@ -1,0 +1,46 @@
+{
+  "source_sha256": "dead97d08741c098a5263c361f3309a0a118886563ebb36ac261255ecc0e3342",
+  "phase_controls": [
+    {
+      "name": "target12",
+      "variables": 128400,
+      "clauses": 580324,
+      "phase_mismatch_rows": [
+        20480,
+        36864,
+        135168,
+        8392704
+      ],
+      "expected_phase_errors": 4
+    },
+    {
+      "name": "control13-fixed",
+      "variables": 148941,
+      "clauses": 668837,
+      "phase_mismatch_rows": [],
+      "expected_phase_errors": 0
+    },
+    {
+      "name": "control13-free1",
+      "variables": 148941,
+      "clauses": 668761,
+      "phase_mismatch_rows": [],
+      "expected_phase_errors": 0
+    },
+    {
+      "name": "control12-invalid",
+      "variables": 128400,
+      "clauses": 581092,
+      "phase_mismatch_rows": [
+        20480,
+        36864,
+        135168,
+        8392704
+      ],
+      "expected_phase_errors": 4
+    }
+  ],
+  "materializer_random_models": 500,
+  "exhaustive_inputs_per_model": 64,
+  "status": "static, exact geometry, emitted phase and independent materializer checks passed; native model controls pending"
+}

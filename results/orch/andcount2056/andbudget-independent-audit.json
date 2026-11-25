@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-25T18:01:26.439915+00:00",
+  "source_sha256": "950ab35b1d80ec73c4aa84dbb4ecbb27aa424fcdcd67db5ab74bb134bc8163d4",
+  "static_verdict": "APPROVED; native SAT controls pending",
+  "counter_assignment_cases": 3584,
+  "dp_cell_truth_cases": 16,
+  "materializer_random_models": 600,
+  "inactive_models": 495,
+  "constant_false_models": 17,
+  "strict_size_reduction_models": 559,
+  "rows_per_model": 756,
+  "independent_boolean_rows_per_model": 8,
+  "fixed_star_K": 14,
+  "fixed_star_memberships": 78,
+  "fixed_star_active": 13,
+  "fixed_star_budget_lhs": 79,
+  "star_limit64_satisfies": true,
+  "star_limit63_violates_by": 1,
+  "cost_proof": "For a active records with both operand subsets nonempty and nonempty output, explicit duplicated OR expansion costs M-a-1. Counter M+(K-a)<=limit+1+K implies cost<=limit. False propagation, idempotence, exact-OR caching and dead-gate pruning can only reduce ordinary size. Primary inputs need not be selected directly at output because no singleton assignment is true in the target; the model remains explicitly a restricted synthesis search."
+}

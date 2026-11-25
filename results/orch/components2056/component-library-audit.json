@@ -1,0 +1,11 @@
+{
+  "scope": "Observed-library finite semantic and closure audit; not an unrestricted lower bound",
+  "circuits": 970,
+  "exact": 950,
+  "profiles": 5283,
+  "productions": 7487,
+  "baseline_gates": 64,
+  "library_sha256": "9c5ce94536b4e0d2cee917a0b45f1ce589e4e5d9aee355e26e4cc189e6644595",
+  "builder_sha256": "d2aeab4759eda432d13419563fb110019204cbe8174c4a237524b981e7fbfaf1",
+  "observed_sha256": "f7649c73e5fe6236417df9f013e71150b73b7c76129e0c59030040e3f60ae633"
+}

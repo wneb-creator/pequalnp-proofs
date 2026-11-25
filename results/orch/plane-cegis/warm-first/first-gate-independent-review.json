@@ -1,0 +1,31 @@
+{
+  "status": "APPROVED independent first-gate mapping audit",
+  "checks": [
+    {
+      "map_sha256": "61e3adc9df075504d8dd9f26efec9b2b9d91be3505bbe136eb13a5f58b78e1d6",
+      "name": "near63",
+      "permutation_preserves52_edges_and756_rows": true,
+      "first_gate": [
+        1,
+        0,
+        1
+      ],
+      "sorted_unsorted_boundary_equal": true,
+      "false_positives": 0,
+      "false_negatives": 3
+    },
+    {
+      "map_sha256": "27b0b730fdaa703baf7c937563046db44545b5e7cea0112e4c213034fa8e63ec",
+      "name": "control64",
+      "permutation_preserves52_edges_and756_rows": true,
+      "first_gate": [
+        1,
+        0,
+        1
+      ],
+      "sorted_unsorted_boundary_equal": true,
+      "false_positives": 0,
+      "false_negatives": 0
+    }
+  ]
+}

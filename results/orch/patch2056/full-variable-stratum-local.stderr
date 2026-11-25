@@ -1,0 +1,5 @@
+PASS755 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS66-to-65 exact shrink control; rounds=1
+PASS100 exact CNF/DNF expansion controls
+STRATUM eligible=572 nested=104

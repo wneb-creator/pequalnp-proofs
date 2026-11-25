@@ -1,0 +1,5 @@
+PASS755 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS literal-copy, absorption-copy rejection and inactive-duplicate acceptance
+PASS755 seed classes,572 eligible/104 nested; high-bit frontier and zero-positive AND barrier controls;1000 mutant metric records
+BENCH evaluations=10000 core_cpu_seconds=0.051418 refined_cpu_seconds=0.120624 ratio=2.34595 sink=23536

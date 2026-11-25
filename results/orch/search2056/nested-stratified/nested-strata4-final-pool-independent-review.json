@@ -1,0 +1,25 @@
+{
+  "scope": "Independent complete-boundary and actual dirty-frontier replay of completed four-stratum pool; not a lower bound.",
+  "pool_sha256": "9584881347ed60e6edd710f73e74763871d00e70451984ba1c5db0ba0063f691",
+  "circuits": 148,
+  "rows": 756,
+  "by_mode": {
+    "0": {
+      "count": 7,
+      "minimum_errors": 1
+    },
+    "1": {
+      "count": 6,
+      "minimum_errors": 4
+    },
+    "2": {
+      "count": 7,
+      "minimum_errors": 4
+    },
+    "3": {
+      "count": 128,
+      "minimum_errors": 9
+    }
+  },
+  "mismatches": []
+}

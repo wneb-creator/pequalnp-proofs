@@ -1,0 +1,15 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount_budget2056.py",
+  "--ands",
+  "16",
+  "--ordinary-limit",
+  "64",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-native16-fixed64",
+  "--fixed-star-prefix",
+  "16",
+  "--fix-output",
+  "--seconds",
+  "10"
+]

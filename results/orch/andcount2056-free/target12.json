@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T17:56:28.318872+00:00",
+  "source_sha256": "dead97d08741c098a5263c361f3309a0a118886563ebb36ac261255ecc0e3342",
+  "and_bound": 12,
+  "rows": 756,
+  "variables": 128400,
+  "clauses": 580324,
+  "fixed_star_prefix": 0,
+  "fix_output": false,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 4,
+  "conversion_seconds": 3.168409244999566,
+  "scope": "AND-count synthesis with free OR subsets; ordinary gate cost measured after decoding",
+  "Lean_verified": false,
+  "status": "CNF emitted; solver not run"
+}

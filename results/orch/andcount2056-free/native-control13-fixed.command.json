@@ -1,0 +1,13 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount2056.py",
+  "--ands",
+  "13",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/andcount2056/native-control13-fixed",
+  "--seconds",
+  "10",
+  "--fixed-star-prefix",
+  "13",
+  "--fix-output"
+]

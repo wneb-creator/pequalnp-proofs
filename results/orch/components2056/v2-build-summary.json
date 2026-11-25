@@ -1,0 +1,15 @@
+{
+  "observed_unique_circuits": 1042,
+  "exact_circuits": 1021,
+  "all_profiles": 6117,
+  "retained_profiles": 5914,
+  "noninput_profiles": 5888,
+  "all_productions": 8504,
+  "retained_productions": 8298,
+  "max_producers_per_profile": 89,
+  "goal_producers": 89,
+  "skipped_self_productions": 11,
+  "skipped_primary_productions": 8,
+  "baseline_unique_noninputs": 64,
+  "library_bytes": 1276247
+}

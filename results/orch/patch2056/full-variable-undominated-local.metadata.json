@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-11-25T17:43:09.743435+00:00",
+  "duration_requested_seconds": 1200,
+  "seed": 205672,
+  "source_hashes": {
+    "full_variable70_undominated.cpp": "121a03f6ffea6ddec215ea8aa3090b39bd90f58fd2b0e22ec314845ac3e6babd",
+    "full_variable_stratum_seeds.hpp": "baf3f777732172cc7fd293cef7a8468755a8e7c408403031a02832d61bfe8151",
+    "stratum_undominated_full.hpp": "4d60bd688c12f192df1f7a13a0c97aa9cbe7b2f7dba7daa833315f1af96299e4",
+    "neutral_pair_care_full.hpp": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f",
+    "scatter_spares_full.hpp": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14",
+    "repair_shrink_full.hpp": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+  },
+  "binary_sha256": "90bc846c9cdf7dac3ef7cf4532945caf0290fee698fdd73881becbc0e12e5b2d",
+  "status": "completed",
+  "child_pid": 32104,
+  "ended_utc": "2026-11-25T18:03:12.010706+00:00",
+  "wall_seconds": 1202.2350802,
+  "returncode": 0
+}

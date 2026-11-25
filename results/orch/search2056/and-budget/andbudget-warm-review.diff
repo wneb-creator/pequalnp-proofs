@@ -1,0 +1,38 @@
+--- audited-initial
++++ warm-loader
+@@ -128,6 +128,7 @@
+     parser = argparse.ArgumentParser()
+     parser.add_argument('--ands', type=int, default=14)
+     parser.add_argument('--ordinary-limit', type=int, default=63)
++    parser.add_argument('--warm-model')
+     parser.add_argument('--prefix', required=True)
+     parser.add_argument('--seconds', type=int, default=10)
+     parser.add_argument('--fixed-star-prefix', type=int, default=0)
+@@ -142,6 +143,19 @@
+     started = time.monotonic()
+     edges, rows = geometry()
+     warm = star_model(args.ands, edges)
++    warm_model_hash = None
++    if args.warm_model:
++        assert args.fixed_star_prefix == 0 and not args.fix_output
++        warm_bytes = Path(args.warm_model).read_bytes()
++        loaded = json.loads(warm_bytes)
++        assert isinstance(loaded, dict) and isinstance(loaded['ands'], list)
++        assert len(loaded['ands']) <= args.ands
++        evaluate(loaded, rows)
++        warm = {'ands': [{'left': rec['left'][:], 'right': rec['right'][:]}
++                         for rec in loaded['ands']], 'output': loaded['output'][:]}
++        warm['ands'].extend({'left': [], 'right': []}
++                            for _ in range(args.ands - len(warm['ands'])))
++        warm_model_hash = hashlib.sha256(warm_bytes).hexdigest()
+     warm_values, warm_output = evaluate(warm, rows)
+     target = (1 << 52) - 1
+     assert ordinary_eval(materialize(warm), rows) == warm_output
+@@ -270,6 +284,7 @@
+               'and_bound': args.ands, 'rows': len(rows), 'variables': len(preferred),
+               'clauses': len(clauses), 'fixed_star_prefix': args.fixed_star_prefix,
+               'ordinary_limit': args.ordinary_limit,
++              'warm_model_path': args.warm_model, 'warm_model_sha256': warm_model_hash,
+               'membership_threshold': threshold, 'warm_budget_lhs': warm_count,
+               'fix_output': args.fix_output, 'seconds_limit': args.seconds,
+               'warm_boundary_errors': warm_errors,

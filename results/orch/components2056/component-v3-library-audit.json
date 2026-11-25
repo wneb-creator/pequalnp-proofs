@@ -1,0 +1,16 @@
+{
+  "scope": "Restricted observed-profile library plus every valid proper-clean pair root OR; not all possible circuits",
+  "observed_circuits": 1042,
+  "exact_circuits": 1021,
+  "profiles": 6107,
+  "productions": 129323,
+  "observed_productions_before_closure": 8504,
+  "new_root_ors": 120829,
+  "all_proper_clean_candidates": 3261,
+  "baseline_gates": 64,
+  "hashes": {
+    "build_library_v3.py": "1682efc99784e50bca5ea1292313775a2e661f1810e118e11fc058c09755b6da",
+    "v3-library.json": "c6d14c6b269b394e743d9e00b687a7c6509f8af70675bbfedd000e86ede3f293",
+    "v3-observed-circuits.jsonl": "8902d5bcf1fdb0808efa79a22e468a0149a21d1ba453d2ff8818c86681295d08"
+  }
+}

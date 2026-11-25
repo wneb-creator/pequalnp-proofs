@@ -1,0 +1,18 @@
+{
+  "root_or_candidates": 3261,
+  "root_or_added": 120829,
+  "observed_productions_before_closure": 8504,
+  "observed_unique_circuits": 1042,
+  "exact_circuits": 1021,
+  "all_profiles": 6117,
+  "retained_profiles": 6107,
+  "noninput_profiles": 6081,
+  "all_productions": 129333,
+  "retained_productions": 129323,
+  "max_producers_per_profile": 120918,
+  "goal_producers": 120918,
+  "skipped_self_productions": 11,
+  "skipped_primary_productions": 8,
+  "baseline_unique_noninputs": 64,
+  "library_bytes": 3342963
+}

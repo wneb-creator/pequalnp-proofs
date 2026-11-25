@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T18:00:37.610683+00:00",
+  "source": "results/orch/window2056-sat/plane63-near-seed-2056.json",
+  "source_sha256": "140fcc06a04f357f52c69a2bef26549a53b5a46f3ec45c31cd0fd628604fba28",
+  "ordinary_original_size": 63,
+  "and_records": 14,
+  "memberships": 78,
+  "unshared_cost_bound": 63,
+  "boundary_errors": 3,
+  "false_positives": 0,
+  "decoded_size": 63,
+  "budget63_feasible": true,
+  "output_members": 13
+}

@@ -1,0 +1,27 @@
+{
+  "source_sha256": "447d83685a606f22f1b5be7af85fa8eb8b3bd0b68e5adb07e55f56cfbbf18bbf",
+  "audits": [
+    {
+      "prefix": "warm-separation-menu-reused28-fast-query-2056",
+      "clauses": 203039,
+      "variables": 11127,
+      "phase_failures": 4,
+      "model_checked": false
+    },
+    {
+      "prefix": "warm-separation-lex-independent-control-2056",
+      "clauses": 1550,
+      "variables": 291,
+      "phase_failures": 0,
+      "model_checked": true
+    },
+    {
+      "prefix": "warm-separation-menu-reused32-free4-control-2056",
+      "clauses": 71289,
+      "variables": 2507,
+      "phase_failures": 0,
+      "model_checked": true
+    }
+  ],
+  "status": "exact clause bijection, phase replay and both SAT models independently checked"
+}
