@@ -11,3 +11,5 @@
 - 2026-11-25T17:52:49.529956+00:00: contextual pivotality/no-unused/output-last, residual conditional bound, and free-bank matching cost checked. No general residual-cost proof.
 
 - 2026-11-25T18:02:12.426127+00:00: Combined 8308-line helper file builds, including constrained residual closure and larger lambda budget. Exact residual certificate remains unproved.
+
+- 2026-11-25T18:05:41.110120+00:00: Retired false split residual-cover bound and unrestricted per-centre bank factoring; redirected effort to paid semantic-mixing ORs and minimum-preserving buffer/absorption transformations.

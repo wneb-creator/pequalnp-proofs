@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_4675.Normalized.exists_top_form_pair_active' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.SemanticFold.least_gate_pivotal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.SemanticFold.least_no_unused' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.SemanticFold.least_output_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Residual.constrained_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Residual.bipartite_reduction_large' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.SemanticStarForest.star_forest_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

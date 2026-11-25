@@ -37,3 +37,12 @@ Free pure-bank witnesses and matching-with-two-free-side-banks are checked. Actu
 
 ## Combined residual route
 The named file now includes all checked normalization, pair-clean bridge, constrained leastness, top/OR count, original and large-lambda residual accounting, and conditional exact-target bridges. It builds but has no theorem carrying the module name. A support-cut OR-DAG count and anchored-bank matching tools are checked separately. None supplies the residual certificate.
+
+## Replan: residual budget must stay combined
+The validated 8-gate double-star example has |U|=3, tau(U)=2, c=0, j=1, o=4. Thus |U|+tau(U)=2c+j+o=5, but tau(U)<=c+j is false without further hypotheses. Retire that split as a general lemma. In raw computational reports, all_active denotes every gate in the output cone; it does not denote the separate Lean pair-active property. Earlier historical uses of optimal based only on the conjectured bound are to be read as bound-sized unless an independent lower bound was established.
+
+Semantic/algebraic agents independently verified a 13-gate T0, TopForm forest circuit with contextual gate and OR-branch necessity, lambda raw banks {a,b},{a,c}, zero raw accounting slack, and a duplicated hidden payload. It disproves an unrestricted per-centre bank-factoring shortcut, not the posted gap. Genuine constrained leastness or upstream dirty/OR slack is needed. A Lean regression is being checked.
+
+New promising local fact: semantically two-colour OR gates cannot belong to lambda, hence are already counted in the paid OR set. The remaining global masking charge needs to account for shared branches; no injection to boundary gates has been assumed.
+
+Potential normalization identity: a OR h equals a OR h with a forced false inside h. Applying it to a shared circuit requires proving every external use is shielded by a; without that boundary hypothesis the transformation is invalid.
