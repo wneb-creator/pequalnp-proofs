@@ -11,4 +11,4 @@ No final theorem for the posted statement is claimed. No PR opened for this chec
 Cleanup pass: not applicable to incomplete proof.
 Independent review: lean_setup, PASS for explicitly marked partial batch only.
 Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
-TIMING total=67.4 subagents=7
+TIMING total=74.6 subagents=7
