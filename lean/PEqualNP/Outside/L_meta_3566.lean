@@ -202,3 +202,103 @@ lemma eq_graph_iff_boundary {n p : ℕ} (G : SimpleGraph (Fin n))
     exact eq_graph_of_boundary G c e hcover f hf hedges hnegative
 
 end PEqualNP.Outside.L_meta_3566.BipartiteBoundary
+
+namespace PEqualNP.Outside.L_meta_3566.SingletonOnly
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+open scoped BigOperators
+
+/-- Nine shared OR gates compute the five functions OR_{v != j} x_v.
+  For each pair {a,b}, two AND gates conjoin the other three such functions.
+  This example concerns singleton tests only, not the full-complement theorem. -/
+def circuit : Circuit :=
+  ⟨[⟨GateOp.or, [0, 1]⟩,
+    ⟨GateOp.or, [5, 2]⟩,
+    ⟨GateOp.or, [6, 3]⟩,
+    ⟨GateOp.or, [3, 4]⟩,
+    ⟨GateOp.or, [2, 8]⟩,
+    ⟨GateOp.or, [1, 9]⟩,
+    ⟨GateOp.or, [0, 9]⟩,
+    ⟨GateOp.or, [5, 8]⟩,
+    ⟨GateOp.or, [6, 4]⟩,
+    ⟨GateOp.and, [12, 13]⟩,
+    ⟨GateOp.and, [14, 7]⟩,
+    ⟨GateOp.and, [11, 13]⟩,
+    ⟨GateOp.and, [16, 7]⟩,
+    ⟨GateOp.and, [11, 12]⟩,
+    ⟨GateOp.and, [18, 7]⟩,
+    ⟨GateOp.and, [11, 12]⟩,
+    ⟨GateOp.and, [20, 13]⟩,
+    ⟨GateOp.and, [10, 13]⟩,
+    ⟨GateOp.and, [22, 7]⟩,
+    ⟨GateOp.and, [10, 12]⟩,
+    ⟨GateOp.and, [24, 7]⟩,
+    ⟨GateOp.and, [10, 12]⟩,
+    ⟨GateOp.and, [26, 13]⟩,
+    ⟨GateOp.and, [10, 11]⟩,
+    ⟨GateOp.and, [28, 7]⟩,
+    ⟨GateOp.and, [10, 11]⟩,
+    ⟨GateOp.and, [30, 13]⟩,
+    ⟨GateOp.and, [10, 11]⟩,
+    ⟨GateOp.and, [32, 12]⟩], 33⟩
+
+def pairSets : List (Finset (Fin 5)) :=
+  [{0, 1}, {0, 2}, {0, 3}, {0, 4}, {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4}]
+
+def outputWires : List ℕ := [15, 17, 19, 21, 23, 25, 27, 29, 31, 33]
+
+def pairSet (i : Fin 10) : Finset (Fin 5) := pairSets.getD i.val ∅
+
+def outputWire (i : Fin 10) : ℕ := outputWires.getD i.val 0
+
+def wire (w : ℕ) (x : Fin 5 → Bool) : Bool :=
+  (circuit.wires (List.ofFn x)).getD w false
+
+def isOr : GateOp → Bool
+  | GateOp.or => true
+  | _ => false
+
+lemma isOr_iff (op : GateOp) : isOr op = true ↔ op = GateOp.or := by
+  cases op <;> simp [isOr]
+
+def orGates : Finset ℕ :=
+  (Finset.range circuit.size).filter fun j => isOr (gateAt circuit j).op = true
+
+lemma mem_orGates (j : ℕ) :
+    j ∈ orGates ↔ j < circuit.size ∧ (gateAt circuit j).op = GateOp.or := by
+  simp [orGates, isOr_iff]
+
+lemma circuit_ao2 : IsAO2 5 circuit := by decide
+
+lemma circuit_size : circuit.size = 29 := by decide
+
+lemma outputs_valid : ∀ i : Fin 10, outputWire i < 5 + circuit.size := by decide
+
+lemma or_count : orGates.card = 9 := by decide
+
+lemma pair_card : ∀ i : Fin 10, (pairSet i).card = 2 := by decide
+
+lemma singleton_values : ∀ (i : Fin 10) (v : Fin 5),
+    wire (outputWire i) (pairInput v v) = decide (v ∈ pairSet i) := by decide
+
+lemma outside_singletons_false : ∀ (i : Fin 10) (v : Fin 5), v ∉ pairSet i →
+    wire (outputWire i) (pairInput v v) = false := by
+  intro i v hv
+  rw [singleton_values]
+  exact decide_eq_false hv
+
+lemma pairwise_intersections : ∀ i j : Fin 10, i ≠ j →
+    (pairSet i ∩ pairSet j).card ≤ 1 := by decide
+
+lemma support_charge_sum : (∑ i : Fin 10, ((pairSet i).card - 1)) = 10 := by decide
+
+lemma full_complements_true : ∀ i : Fin 10,
+    wire (outputWire i) (fun v => decide (v ∉ pairSet i)) = true := by decide
+
+lemma singleton_only_bound_fails :
+    ¬ (∑ i : Fin 10, ((pairSet i).card - 1)) ≤ orGates.card := by
+  rw [support_charge_sum, or_count]
+  decide
+
+end PEqualNP.Outside.L_meta_3566.SingletonOnly
