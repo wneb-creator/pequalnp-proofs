@@ -57,3 +57,27 @@ Primary research read 2026-11-25: Jukna, Disproving the Single Level Conjecture,
 - Primary literature read 2026-11-25: Jukna, Disproving the single level conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, Theorem 2.4 gives an exponential gap between arbitrary and single-level conjunctive complexity for saturated non-bipartite graphs. Generic AND-count=biclique-cover normalization is therefore false; bipartite/C4-free restrictions must be essential.
 
 2026-11-25T15:51:57.139151+00:00 [AND/output budget] Extended and-bound.lean compiles (build-5 exit0). boundary_true_witness decomposes any true wire into a true singleton input in its OR reach or a true AND root in its OR closure. boundary_output_and eliminates the singleton alternative when output rejects all singleton assignments. boundary_reach_up propagates root truth to output, making exposed ANDs automatically below the output. File frozen for root assembly/review.
+
+## 2026-11-25T15:54:40.542590+00:00 Semantic boundary classification
+
+Compiled `boundary_and_star`: if two monotone operand functions have nonempty singleton supports and their conjunction lies below the bilinear edge function, the cross supports form a C4-free complete bipartite graph; one support is singleton, giving a star center. Also compiled `val_monotone` for arbitrary AND/OR gate lists and `pure_or_preserved`: a monotone function below OR(Q) agreeing on singletons equals OR(Q). Frozen snapshot scratch semantic-boundary-checked.lean. WARNING: boundary AND may accept hidden edge pairs outside its cross-singleton star; e.g. (u OR ab) AND (v OR ab) = uv OR ab. Normalization/descent remains necessary.
+
+## Refuted auxiliary zero-support count 2026-11-25T15:55:49.530853+00:00
+
+`results/orch/lemmas/counterexample.lean` compiles with a second explicit circuit (P4, 8 gates). It proves IsAO2, T0=0, exact edge-function semantics, no4cycle, every posted star witness, and cover size >=2, but exactly one gate is false on every singleton input. Therefore zero-singleton-support count >=2*tau-1 is FALSE even under the entire posted hypothesis list. Posted size bound is not refuted (8>=3+2-1). See anchored_* lemmas.
+
+Exact free-OR SMT synthesis for any4x4 C4free graph with diagonal matching found UNSAT at3AND (0.486s). Any5x5/4AND and C12/5AND timed out120s (unknown, not a result). T0-restricted retries running.
+
+## 2026-11-25T15:56:26.649747+00:00 Pure OR preservation under gate cut
+
+Compiled `Semantic.cut_zero_preserves_or`: in an AND/OR circuit `pre ++ [g] ++ post`, replace g by OR([]), a constant-false gate. If g is false on every singleton input, every output that was a pure OR(Q) remains exactly OR(Q). Supporting lemmas prove replacement pointwise decreases all wire functions and agrees with the original full circuit on any input where g was already false. No ReadsBack assumption is needed because fold evaluation already freezes prior wires. The temporary zero gate violates IsAO2 fan-in-exactly-two; a subsequent constant-elimination/normalization lemma must restore AO2. Frozen compiling snapshot: /tmp/oec/pequalnp-pilot-152/semantic-zero-cut-checked.lean.
+
+### Cofactor route — 2026-11-25T15:58:20.949657+00:00
+
+Compiled `edgeEval_set_left_false` and `forced_or_false_positive_neighbors` in ledger.lean. The latter treats a star OR Q as fresh Boolean t: if monotone H agrees with the center-deleted edge function when t=OR(Q), but H(x,true) is a false positive, then every b in Q has an active surviving neighbor point in x. C4free makes those points distinct, so stars agent cardinal lemma gives at least |Q| active points. A minimal false-positive true certificate therefore needs >=|Q| points and suggests >=|Q|-1 AND charge. No additive/disjoint charge or circuit deletion theorem yet.
+
+Cofactor induction caveat: deleting a can shrink other witnesses {a,a'} to singleton. The newly bare edges need not be matching, but they lie in a union of disjoint stars centered at N(a), since every surviving point meets N(a) in at most one line.
+
+2026-11-25T15:58:46.275965+00:00 Semantic: `cut_zero_lift` compiled. If cut gate h implies ancestor a and a lies below output F, then F = Fcut_h OR a. Thus a direct downstream AND reader of below-F a can be cut to zero and a lifted to output, preserving pure OR targets by cut_zero_preserves_or. To keep AO2 and total size, zero propagation must delete h and pay for added output OR. Existing L5779 no_and_reader increases functions and can break star targets, so cannot reuse its minimality argument unchanged. Snapshot semantic-lift-checked.lean.
+
+- status_review: all-wire zero compressor source L_meta_5138 build222ff sent to semantic agent; shortest TopForm normalization L_meta_5779 pushOr_step574/main_aux817. Own new compiled ORCover.or_restriction_bound establishes |S|−1≤ORcount whenever fixing complementS=true gives OR(S), using OR-only cost with no extra ORs. Graph-cover private-neighbor specialization in progress.

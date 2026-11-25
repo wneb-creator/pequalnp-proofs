@@ -1,0 +1,6 @@
+Checked UTC: 2026-11-25T15:56:10.818787+00:00
+SHA256: 9635b2d227b31ef7d7e8ce8aab96a83d274a94834a97f07751df032bcdbe41d3
+Command: source /tmp/oec/pequalnp-pilot-152/toolchain-env.sh && lake env lean ../results/orch/lemmas/counterexample.lean
+Exit: 0
+Compiler stdout/stderr: empty
+Scope: auxiliary counterexamples only; not a refutation of L-meta-4970.

@@ -8,3 +8,12 @@ Checker: not run against posted statement; full theorem absent.
 No claim that auxiliary audit counterexample refutes the gap.
 Sub-agents: 6 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit, AND lowerbound)
 TIMING total=30.9 subagents=6
+
+Additional compiled and independently reviewed snapshots preserved:
+- semantic-lift-checked.lean: boundary classification, singleton preservation, zero-cut and pointwise lift. Intermediate zero gate is not AO2; no completed normalization claimed.
+- review-extra-checked.lean: complement restriction and OR-count lower bound from a pure OR cofactor.
+- counterexample_checked.lean: explicit P4 audit refuting only an auxiliary residual count, not the posted statement.
+semantic-lift-checked.lean SHA256 6e1108b1a4974a6c3fd886af11d70da4f5a60af7fdd686f8cf64710f089d8430
+review-extra-checked.lean SHA256 5cbe4b0ab1d4dde9bda73c0ebb07e48e30f56471b3f68473d8068c558363137f
+counterexample_checked.lean SHA256 9635b2d227b31ef7d7e8ce8aab96a83d274a94834a97f07751df032bcdbe41d3
+TIMING total=37.1 subagents=6

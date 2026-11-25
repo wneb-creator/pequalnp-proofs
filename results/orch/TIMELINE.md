@@ -8,3 +8,4 @@
 - 2026-11-25T15:43:49.162329+00:00: empty-edge base case and five star/ownership lemmas compile; independent partial review passed; preparing first preservation push.
 - 2026-11-25T15:47:30.276681+00:00: semantic OR-only lowerbound, T0 reach facts, strengthened stars, and counterexample-to-shortcut audit compiled and independently reviewed; second preservation push.
 - 2026-11-25T15:53:30.156482+00:00: 1313-line named partial file compiled and independently reviewed; third preservation push.
+- 2026-11-25T15:59:44.683093+00:00: preserved compiled normalization semantics, OR cofactor restriction, and full-hypothesis P4 auxiliary-counterexample audit after independent review.
