@@ -66,3 +66,9 @@ OneJunk gives exact operand/reader semantics under TopForm and unique junk. Nons
 Actual local checker exit1 on the named partial: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_4675 (one lemma, one file: the theorem carries the module's name).
 This is not an accepted proof or refutation; no PR opened.
 TIMING total=53.7 subagents=7
+
+Checkpoint12: consolidated named file4107lines181714bytes passes lake build; assembly independently reviewed at SHA2562e554326a080c14c965f1c2316b3edda73dbcf14de76d978d065af946c32d72d.
+ForcedSemantics and ConeTrace independently compiled/reviewed: forcing false is monotone, below original, and agrees whenever the original selected gate is false; retained gates embed into original dependency cones with no increase in AND-pair count.
+Reviewers: inventory for forced semantics; root and combinatorial for cone trace; toolchain for consolidated assembly. Full logs archived.
+Posted theorem still absent and unproved.
+TIMING total=55.8 subagents=7

@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-161/ConeTraceAssembly.lean:16:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
