@@ -5,6 +5,7 @@
   "counterexample_repair_seed.py": "0f79dd536ae693b821b75743f580886d223549709e03437a395ce2f2a5b84ccd",
   "counterexample_charge_probe30.py": "5d80b7c062a9cbcf40dfa71352b481fb52e9ef3191ee22612c17355e8cbd01e8",
   "counterexample_walk_q3_positive.py": "1b05d79631a557cb5cbdb238ae4dd571fb039db09bb4cb0c6c7d2ec5225e613d",
+  "counterexample_q3_minimal.py": "bab6327f922c86ce55340aaee709c4218345e21f04911e7bdd1956c5f1773f0e",
   "counterexample_sat_nofirst.py": "5a0c17171f2b07a2a303ae1e6db8a82927a183a86bba4d16b3e33a052f035f2c",
   "counterexample_c6.py": "39d67b5dd41cb03159e6541bb507fd8718386088e451a951f7085f212a30f113",
   "counterexample_walk.py": "d1151eb1fc1f9a1434732dfb4fae905d10995eea75ee738352151a727fd168fe",
@@ -13,10 +14,12 @@
   "counterexample_phase_solve.cpp": "ebdbe2de32c92cc64dc5e6d16cdec819e4d0aae67eddbb0cade3f4e52ebb1b93",
   "counterexample_sat_validate.py": "14963e658e14792fdc83ce5f3e402e3d118cd2b5a0d04b4ec17bc1dbe217c3c4",
   "counterexample_walk_q3.py": "16c71b707f59594c1e2f27c26a81c855b544ed6f2f7a2f4fd82d90d008dbb34a",
+  "counterexample_q3_nonread1.py": "42abb4da778f57b8dd51aac128d1e47246a2261403f9f326478c7c6f84f2e5c3",
   "counterexample_q3_repair.py": "da2d46af4f6344de04209abff572bca301b2eeeb1e657b7e062e66ddf9b33a81",
   "counterexample_sat.py": "5c74706daa5bb1bb91c0df329b00604532ebbea7444b86ecde6ca74368512948",
   "counterexample_c5_normal.py": "a2d58758441dab98237b7867b91b8d15cd9f37dc40e9754466d598886344c211",
   "counterexample_q3_charge.py": "b09bad8366709c67c278d772b8fc2f29a1b5b386ed5933a1f9650e8e9327f2e4",
   "counterexample_repair.cpp": "8dde7cfd857a8f4da81408a00456074c55d3e24e2c4a542e44a12acb0f6bb6bb",
+  "nonread1_encoding_c5_calibration.py": "b1db9051c07c1a45414d560fd4312ff31ea520e6aa2ae568490adebd11ca228d",
   "counterexample_q3_adaptive.py": "503db46c3f2df88031d6e785932fbcf746ae188f4d2635ed2c2b8ed207303598"
 }

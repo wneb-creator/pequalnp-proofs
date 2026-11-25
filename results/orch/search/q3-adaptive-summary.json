@@ -1,0 +1,12 @@
+{
+  "finished": {
+    "event": "finished",
+    "trials": 17,
+    "seconds": 601.0239543389998
+  },
+  "queries": 38,
+  "sat": 22,
+  "unknown": 16,
+  "unsat": 0,
+  "min_false": 140
+}

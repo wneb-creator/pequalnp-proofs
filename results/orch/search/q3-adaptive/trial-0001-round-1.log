@@ -1,0 +1,98 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-76/q3-adaptive/current.cnf'
+c found 'p cnf 19262 862971' header
+c parsed 862971 clauses in 0.24 seconds process time
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     7.0e+08   89.37%  2.9e+07        23.73   79.30% search              
+c     6.5e+08   83.40%  3.0e+07        21.57   72.07% unstable            
+c     8.3e+07   10.63%  1.3e+07         6.19   20.70% simplify            
+c     4.6e+07    5.91%  2.1e+07         2.15    7.18% walk                
+c     0.0e+00    0.00%  0.0e+00         2.10    7.02% subsume             
+c     2.7e+02    0.00%  2.8e+02         0.94    3.12% congruence          
+c     2.4e+07    3.09%  3.8e+07         0.64    2.12% sweep               
+c     1.2e+07    1.50%  2.6e+07         0.44    1.49% elim                
+c     1.8e+07    2.35%  5.2e+07         0.36    1.19% vivify              
+c     0.0e+00    0.00%  0.0e+00         0.24    0.79% parse               
+c     1.2e+07    1.53%  7.8e+07         0.15    0.51% backbone            
+c     3.7e+06    0.48%  4.9e+07         0.08    0.25% ternary             
+c     1.3e+07    1.68%  2.3e+08         0.06    0.19% probe               
+c     4.7e+05    0.06%  3.2e+07         0.01    0.05% lucky               
+c   ====================================================================
+c     7.8e+08  100.00%  2.6e+07        29.92   99.20% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c backbone_phases:                    42     5506.48     interval             
+c backbone_units:                     50        1.19 per backbone_phases      
+c clauses:                        800075
+c collections:                        24     9636.33     interval             
+c compacts:                            1   231272.00     interval             
+c conflicts:                      231272     7729.15 per second               
+c congruence_rounds:                   7    33038.86     interval             
+c congruent:                         102       14.57 per congruence_rounds    
+c decisions:                     1489204    49769.48 per second               
+c decompositions:                     27     8565.63     interval             
+c deduplicated:                      111        0.58 %   subsumed             
+c deduplications:                     63     3670.98     interval             
+c eager_subsumed:                  15960       84.07 %   subsumed             
+c eliminated:                        184        0.96 %   vars                 
+c eliminations:                        9    25696.89     interval             
+c failed_literals:                     2        0.01 %   vars                 
+c hbrs:                              102       34.00 per probed               
+c inprobingphases:                    21    11012.95     interval             
+c inprobingsuccess:                    5       23.81 %   inprobingphases      
+c otfs_strengthened:                2812        1.22 %   conflicts            
+c otfs_subsumed:                      21        0.01 %   conflicts            
+c probed:                              3        0.02 %   vars                 
+c probe_failed_literals:               2        0.67 per probed               
+c propagations:                103302314        3.45 M   per second           
+c recomputed_tiers:                   18    12848.44     interval             
+c reduced:                        132646       62.87 %   learned_clauses      
+c reductions:                         23    10055.30     interval             
+c rephased:                           21    11012.95     interval             
+c restart:                         10698       21.62     interval             
+c reused:                           8694        0.81 per restart              
+c searches:                            1
+c shrunken:                      2608426       11.90 %   learned_literals     
+c shrunken_minimize:             3942502       17.99 %   learned_literals     
+c stable_phases_total:                 9    25696.89     interval             
+c strengthened:                   137330       17.16 %   clauses              
+c subsumed:                        18984        2.37 %   clauses              
+c sweepings:                           5    46254.40     interval             
+c ternary:                             1   231272.00     interval             
+c ternary_htrs:                     2314        0.12 %   ternary_resolutions  
+c ticks:                       780656529       26.09 M   per second           
+c transitive_clauses:               1323        6.97 %   subsumed             
+c transitive_rounds:                  26     8895.08     interval             
+c variables_original:              19262      100.00 %   vars                 
+c vars:                            19262
+c vivifications:                       2   115636.00     interval             
+c vivified:                         4565        0.57 %   clauses              
+c walk:                                6    38545.33     interval             
+c weakened:                         1556        0.19 %   clauses              
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 4 used 31157 clauses 5.562% accumulated 51.83% tier1
+c focused glue 5 used 23946 clauses 4.274% accumulated 56.10%
+c focused glue 6-14 used 133818 clauses 23.88% accumulated 79.99%
+c focused glue 15 used 13582 clauses 2.424% accumulated 82.42%
+c focused glue 16 used 12209 clauses 2.179% accumulated 84.60% tier2
+c 
+c stable glue 4 used 46529 clauses 5.089% accumulated 51.09% tier1
+c stable glue 5 used 37760 clauses 4.130% accumulated 55.23%
+c stable glue 6-19 used 262581 clauses 28.72% accumulated 83.95%
+c stable glue 20 used 7914 clauses 0.865% accumulated 84.81%
+c stable glue 21 used 7127 clauses 0.779% accumulated 85.59% tier2
+c 
+s UNKNOWN

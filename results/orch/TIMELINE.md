@@ -23,3 +23,7 @@
 - 2026-11-25 09:44 UTC: checkpoint7 preserves five independently reviewed compiled partials and the two full checker OOM logs. No verdict or full theorem. Search resumed after resource hold; actual 64-gate q3 solver calibration succeeded.
 
 - 2026-11-25 09:48:49 UTC: fresh pivotal and merger-count invariants compile and pass independent root review; gate_charge joins global lower-bound strategy.
+
+- 2026-11-25 09:54:29 UTC: third strategy re-plan. New upstream checked L_meta_971 gives Fano27 via fanout-surplus plus finite cases; lower_bound studies degree-sensitive extension. Counterexample focuses calibrated q3 adaptive non-read1 CEGAR. Fresh_math uses exact live-frontier search on geometric modules. Gate_charge pursues full-independent-set/fanout count. Structural explores q4 Baer-subplane decomposition. Pair-only q5 shortcut diagnoses why truncated-semantic bounds fail; no gap refutation.
+
+- 2026-11-25 10:00:45 UTC: checkpoint9 preserves reviewed boundary-merger proof and computational search artifacts. Targeted q3 non-read1 search continues; no candidate passes full boundary validation.

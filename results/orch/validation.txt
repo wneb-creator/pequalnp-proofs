@@ -98,4 +98,15 @@ Added gate_charge (gpt-6.2-astra, ultra) for an independent global counting
 attempt; eight distinct sub-agents in total, at most six active at a time.
 Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math, gate_charge.
-TIMING total=109 subagents=8
+TIMING total=106 subagents=8
+
+Checkpoint 9: boundary merger semantic bridge compiled and independently
+reviewed; complete fresh-boundary-merger.log retained. Reviewed q5 lookup
+barrier has212 gates and matches all1953 pairs but fails an explicit triple;
+it is NOT a counterexample to the gap and its Lean batch is not certified.
+Reviewed frontier search, positive controls, q3 census and q4 geometric
+probes are preserved as computational diagnostics only. No full theorem,
+no proof PR, no new checker verdict; named file remains4978 lines.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math, gate_charge.
+TIMING total=118 subagents=8

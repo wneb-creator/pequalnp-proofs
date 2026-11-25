@@ -1,0 +1,20 @@
+../results/orch/lemmas/fresh_boundary_merger.lean:179:52: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/fresh_boundary_merger.lean:203:21: warning: This simp argument is unused:
+  h.1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [labels, h, h.2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/fresh_boundary_merger.lean:203:26: warning: This simp argument is unused:
+  h.2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [labels, h, h.1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

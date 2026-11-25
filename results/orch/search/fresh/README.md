@@ -1,0 +1,11 @@
+# Projective-plane row modules
+
+The catalog restricts the plane to a subset of points and all lines, then merges the line variables with the same singleton neighborhood into one input. The recorded multiplicities expand these variables back into OR trees. Any saving against the compressed point-star circuit yields the same saving in the full plane by adjoining untouched point stars. Each orbit consists of point sets carried to one another by projective coordinate changes. The catalog includes every 2–6 point subset in the Fano plane and every 3–6 point subset of PG(2,3).
+
+The Python and C++ frontier solvers use the incident pairs and maximal independent assignments as boundary tests. They retain intermediate wires until their last use. A retained operand spends one unit from the excess of the gate limit over the number of inputs minus one. Each live state must distinguish every positive and negative test through some wire with values 1 and 0. Equivalent boundary signals and signals covering no such pair are excluded. The C++ version additionally identifies equivalent first steps under automorphisms of the compressed module.
+
+The C++ private-cell test permits consumption of an operand precisely when every positive/negative pair uniquely covered by it remains covered by the new gate. A pair jointly covered by the two operands remains covered by their union or intersection. Positive controls are decoded into numbered gates and checked against every Boolean input by a separate program.
+
+The logged UNSAT results are computational diagnostics for the listed modules and bounds. UNKNOWN records timeout. These runs do not establish a Lean lower bound for the plane circuit.
+
+Regenerate the catalog and C++ instance files in an empty work directory with the Python source files on its search path. Run `fresh_modules.py`, then `fresh_frontier_instance.py`, compile `fresh_frontier.cpp` with `g++ -std=c++20 -O3`, and invoke the executable with the module instance filename, gate adjustment (minus one or zero), and time limit in seconds. The older Python solver accepts the special subdivided-complete-graph family. Its logged bounds exceed the number of inputs minus one. The SAT generator is a separate diagnostic based on the project's earlier finite-boundary encoding.

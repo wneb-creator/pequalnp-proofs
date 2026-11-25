@@ -1,0 +1,42 @@
+{
+  "point_index": 13,
+  "line_indices": [
+    13,
+    7
+  ],
+  "point_group": 0,
+  "point_sign": 0,
+  "line_groups": [
+    0,
+    1
+  ],
+  "line_signs": [
+    0,
+    0
+  ],
+  "base_relation_true": true,
+  "completed_sign_relation_true": true,
+  "actual_incidence_function": false,
+  "reason": "The first selected line has a base edge but wrong sign; the second has a matching sign but no base edge. Both are nonincident to the sole selected point.",
+  "point_coordinates": [
+    1,
+    2,
+    0
+  ],
+  "line_coordinates": [
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      0,
+      2
+    ]
+  ],
+  "nonzero_incidence_dot_products": [
+    2,
+    1
+  ]
+}
