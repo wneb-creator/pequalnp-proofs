@@ -1,0 +1,43 @@
+'PEqualNP.Outside.L_meta_2602_aux.incidence_diagonal' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_no_rectangle' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_point_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_line_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_deleted_edge_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_deleted_cover_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_carries' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.false_trace_no_path' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.true_trace_reachable' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_true_iff_reachable' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_unique' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_shift_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidenceNeighborhood_eq_add' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_neighborhood_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_mixed_cover_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_absorb' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_lines_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_eval_stars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_star_true' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_gate_bound' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_wires0' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_wires13' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_init' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_init' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_output' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_output' does not depend on any axioms

@@ -29,3 +29,9 @@
 2026-11-25T03:26:42.244504+00:00 Phase2 replan: discarded standalone derivative-AND-count and local-nine-deletion claims after counterexamples. Continuing exact local resynthesis around65witness and combinedfour-profile charging. Checked construction+geometry preserved onfork.
 
 2026-11-25T03:26:54.978096+00:00475-line combined partial passed build and independentreview; checkpoint.
+
+2026-11-25T03:27:17.145103+00:00 lemma_route completed checked upper65_witness existential assembly.
+
+2026-11-25T03:29:12.456482+00:00 structure_proof compiled rectangle-filter semantic/classification bridge; arbitrary shared-subnet cost charging remains open.
+
+2026-11-25T03:31:55.144574+00:00 Checked upper65 existential and cleanrectangle lemmas independentlyreviewed; checkpoint.

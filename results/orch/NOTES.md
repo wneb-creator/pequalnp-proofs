@@ -122,3 +122,34 @@ PASS for canonical SHA256 b84e02ea8843461492d9272d54c91873e51a5e7337a8b944d089fc
 Exact free-AND C6 enumeration rules out ≤4 OR gates:113,456,790 candidate unions,584,971 closure states,20.17seconds, no timeout. Intersections are free and closed exhaustively; pruning functions false on all target edges is sound by replacing those wires by false. Full64-row equality is checked. File free_and_exact.cpp/logs in scratch. Fullplane65-seed mutation completed299,600,000 iterations with no64 witness. A6-AND free-OR Fano heuristic completed1,062,100,000 mutations with best3 mismatching rows; no witness, not a lower-bound proof.
 
 The proposed stronger OR≥|E| from double reread is false even for single edge xy: duplicate x AND y as two distinct gates, then AND their outputs. It has3 ANDs,0 ORs, and doublezero traces. Conversely the65-plane seed retains minimum13 ANDs but uses52 ORs. Any valid joint-optimality argument must address both counts together.
+
+2026-11-25T03:27:17.145103+00:00 upper65 existential wrapper also checked: /tmp/oec/pequalnp-pilot-65/upper65-assembly.lean,240lines, sha256973b3fa864bc62f03275afadbf732ad0d374ca18a6037f49216a522480c2df56. Build5 exit0, empty log upper65-build-5.log. Last lemma upper65_witness states the posted existential witness conditions with size upperbound65 instead of64 and outer negation removed; proves it by assembling the separately checked fields. Repository upper65 file deliberately remained230lines for reviewer/root staging; root has instruction and paths to merge wrapper afterward.
+
+## 2026-11-25T03:27:37.548721+00:00 status_review: completed supplemental searches
+
+C8 free-AND6-OR heuristic finished1,047,700,000 mutations without a circuit (best1 wrong critical row); 18 critical rows suffice (8 edges+10 maximal independent sets). This is inconclusive, not a proof.
+
+All4-input quadratic graphs containing edge01 were exhaustively classified through6 total gates, using fulltruth table and both derivative bits, while allowing2 representatives per semantic signature. 853,678,469 DAG states,18.28seconds. Every graph with ordinary optimum≤6 had double-reread minimum strictly larger. Matching2 already has overhead1 (3ordinary,4double); K4 ordinary anddouble were both beyond6 and remain undetermined. Detailed per-graph table: scratch status-review/all4-log.txt.
+
+## 2026-11-25T03:29:12.456482+00:00 structure_proof — one dirty rectangle bridge CHECKED
+
+results/orch/lemmas/rectangle_filter.lean compiled exit0 with empty log /tmp/oec/pequalnp-pilot-65/structure/rectangle-filter-build-2.log. It proves clean point/line filter iff center is adjacent to every vertex of the opposite rectangle axis; noK22 limits such centers to one on each side when both axes have size≥2; exact Boolean-propositional absorption and expansion identities convert a rectangle filtered by centers lying inside its axes into the OR of those stars.
+
+Concrete accounting for the combined pattern D=(OR X) AND (OR Y), output D AND (p OR l), where p∈X,l∈Y and both are clean centers: direct tree size is |X|+|Y|+1, whereas the equivalent double-star has |X|+|Y| gates. One gate is saved. If only one center is present, replacing D AND p by p AND OR Y saves the unused OR-X aggregate and one AND. These counts assume standalone linear aggregates; shared OR subnets in an arbitrary circuit remain the unresolved accounting issue.
+
+Residual structural lemma: for a top-form circuit with exactly one dirty AND, its earlier operands are ORs of variables, and each clean top side is OR of variables with possibly that dirty gate. Clean tops cannot contain the dirty gate on both sides. Quadratic edge contributions of dirty-gate×literal filters arise only from centers belonging to its original axes, so ≤2 extra star centers cover all such contributions. Thus a star-cover extraction should cost at most (#clean tops)+2 centers, but proving a non-increasing gate-cost transformation with shared linear subnets is still needed. For multiple dirty gates, the same extraction does not yet iterate.
+
+## 2026-11-25T03:29:42.605740+00:00 Independent review: assembled 65-gate witness and rectangle filters
+
+PASS for upper65-assembly.lean SHA256 973b3fa864bc62f03275afadbf732ad0d374ca18a6037f49216a522480c2df56,240 lines. Prior230-line proof body unchanged; normalized statement comparison confirms the existential wrapper is exactly the posted existential with only outer negation removed and size upper64 replaced by65. Wrapper assembles the existing proved size, validity, semantics and both trace witnesses. This demonstrates the next-size case only, not a refutation.
+
+PASS for rectangle_filter.lean SHA256 2cea172c750648c09383bf2469ba496877dd6dea62b2d827ad7553dd8c99ecba,95 lines. Seven generic lemmas reviewed: literal-filter correctness iff the selected row/column is complete, no-rectangle implies at most one complete center when opposite side has at least two vertices, and absorption/distributivity identities. Proofs correctly use one-hot assignments and elementary set/logic facts; no claim about arbitrary circuit normalization or counting. Both complete build logs are empty and root reports exit0. Plainfile/import/namespace/banned-pattern checks pass.
+
+2026-11-25T03:31:09.348096+00:00
+## Exact local resynthesis (SAT backend)
+
+Preserved a 57-gate prefix and resynthesized the remaining eight gates using seven, with one selected line-star AND plus the final absorption construction in the window. Candidate predecessor signatures were evaluated on all 52 edge pairs, 704 maximal independent sets, and the two singleton base assignments. Equal predecessor patterns were merged, then monotone dominance retained minimal positive and maximal negative patterns plus the singleton channels; this is exact for every monotone window. One-star cases reduce to 11–12 decisive patterns. Both derivative channels are encoded exactly, with distinct ordered earlier fanins.
+
+CaDiCaL (bundled with the Lean toolchain) proved the basic one-star windows for selected lines 0, 2, and 12 UNSAT. Line12 took 1.68 seconds; HiGHS had timed out at 240 seconds on that same instance. An eight-gate positive control was SAT in 0.05 seconds; its decoded full 65-gate circuit was independently checked on all 756 semantic test rows and both traces, with no error. Encoder: finite-search/local_sat.py; decoder/full validator: finite-search/decode_local_sat.py. Full logs: local0-sat.log, local2-sat.log, local12-sat.log, local12-control-sat.log.
+
+Expanded predecessor sets and two/three-star windows are now running. These UNSAT results cover only the selected local windows, not arbitrary 64-gate circuits.

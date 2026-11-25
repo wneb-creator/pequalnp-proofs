@@ -38,3 +38,7 @@ Any cover with neither bipartition side full has size≥16. Independent review: 
 475-line combined canonical partial: lake build exit0.
 Build completed successfully (18423 jobs).
 Independent merged-diff review PASS. Exact gap theorem remains absent.
+
+Upper65 existential wrapper: lake env lean exit0, nooutput;240linehelper.
+Rectangle-filter helper: lake env lean exit0, nooutput;95lines. IndependentreviewPASSboth.
+Axiom audit of33canonical lemmas PASS: onlypropext,Classical.choice,Quot.sound. This is not the repo exact-statement checker.
