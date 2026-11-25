@@ -1,0 +1,9 @@
+{
+  "status": "SOURCE ONLY; not Lean compiled",
+  "scope": "48OR exact behavior on empty and all ordered pairs, plus one admissible negative wrongly accepted",
+  "is_refutation_of_posted_statement": false,
+  "sample_count": 678,
+  "distinct_weight_at_most_two_samples": 352,
+  "false_generic_row_mask": 3735587,
+  "source_sha256": "b858fce6d702e40555a8b48e24cd99500e09c5757284ec2de7265147b0b8c458"
+}

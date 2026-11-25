@@ -1,0 +1,604 @@
+{
+  "scope": "Completed/frozen research only; all added Lean drafts UNCOMPILED; no posted51 result; no live solver output",
+  "checks": [
+    "All frozen package/archive hashes verified, including original/decompressed SAT inputs",
+    "Completed repair outcomes UNKNOWN; valid51 SAT and fixed invalid48 UNSAT controls have correct limited scope",
+    "Marginal48 Lean seed matches JSON and678 shadow-sample literal masks independently replay correctly",
+    "Finite nine-cover certificate verified directly from all98 table entries; actual circuit semantics bridge still separate",
+    "Pure-union Scheme ancestry and conditional assembly semantically reviewed; missing fourCap_avoiding_card explicitly documented",
+    "598 residual,7176 ray,1404 noncollinear and234 four-cap finite checks passed in Python only",
+    "Cache advice2 and NOTES/TIMELINE preserve honest provenance",
+    "No prohibited Lean mechanisms or credential patterns detected"
+  ],
+  "source_reference": {
+    "url": "https://github.com/arminbiere/cadical/blob/rel-2.1.2/src/cadical.hpp",
+    "read_date": "2026-11-25",
+    "finding": "DIMACS export excludes redundant clauses and extension-stack clauses; no complete checkpoint claim"
+  },
+  "files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "sha256": "e17edd6743858ec8c20bbd48824e58051196003a6a9e27151d5173fd12b96191"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "sha256": "94ff198bc6afa4008457a1bd160f8cdfa09c04a536dd05acb0ab666a88afb074"
+    },
+    {
+      "path": "results/orch/guard-charging-plan.md",
+      "sha256": "2a9dca4874d63761ce6353088cfc2e119aaa8329c7d56104cd66912f36a284a1"
+    },
+    {
+      "path": "results/orch/guard-geometry-draft-status.json",
+      "sha256": "b03a45969fe2b049f65c1fed81e9c415f2d667529b1a57b662989841bf50c566"
+    },
+    {
+      "path": "results/orch/guard-geometry-source-review.json",
+      "sha256": "75bffb26e7a5c3a886b9483c694490097238e5548948b401675ba1006f842c32"
+    },
+    {
+      "path": "results/orch/lemmas/CanonicalExtensionCover.lean",
+      "sha256": "2352a019d82d97c326ec311b53c7ddfcffb7e7301ca93b6f4309cc606c0eadfd"
+    },
+    {
+      "path": "results/orch/lemmas/GuardGeometry.lean",
+      "sha256": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1"
+    },
+    {
+      "path": "results/orch/lemmas/MarginalCoverFinite.lean",
+      "sha256": "bdeb3d0cc2af3b6d0a3eb40bd545eaaf10acb2364efca6957ad19b1a4c25df7b"
+    },
+    {
+      "path": "results/orch/lemmas/MarginalExtensionObstruction.lean",
+      "sha256": "07237b08b6e37c0b6fccc665ac70411fb74e74c1d2ab751b2eabfbd07090e4cb"
+    },
+    {
+      "path": "results/orch/lemmas/PureUnionAncestry.lean",
+      "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92"
+    },
+    {
+      "path": "results/orch/lemmas/RestrictedUnionBound.lean",
+      "sha256": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba"
+    },
+    {
+      "path": "results/orch/marginal-cover-finite-source.json",
+      "sha256": "e3ba10aa3808f0e3e17a94df584f3ca50b1dbf0fb8743b23273d11f9f8c4ad6e"
+    },
+    {
+      "path": "results/orch/marginal-cover-finite-source.md",
+      "sha256": "efa6c0a4e8889636c65f4a667a13b8cd04019fb52a9558480d934d46d8a31bc5"
+    },
+    {
+      "path": "results/orch/marginal-extension-source.json",
+      "sha256": "8b2d9f52a8ccec1f47b3f22808dfd1c54ecdd2fadf9f1477fdd70a8d2be99335"
+    },
+    {
+      "path": "results/orch/marginal48-research/MarginalSeed48.lean",
+      "sha256": "fa11a779b65ec3a09e80e577f4f48c9751749d716a3bce49d3910b8d409062c3"
+    },
+    {
+      "path": "results/orch/marginal48-research/MarginalShadowControl.lean",
+      "sha256": "b858fce6d702e40555a8b48e24cd99500e09c5757284ec2de7265147b0b8c458"
+    },
+    {
+      "path": "results/orch/marginal48-research/README.md",
+      "sha256": "3ffd7303d50c14c8d60e1e188beb97ed0774c1ed8418ab20f89f06941ae10e67"
+    },
+    {
+      "path": "results/orch/marginal48-research/canonicalize-marginal48.py",
+      "sha256": "ec7be4f71563aa9d286f2a3777f5677d0d534b8790a28145f6eeac246c90db88"
+    },
+    {
+      "path": "results/orch/marginal48-research/manifest.json",
+      "sha256": "96bbee9bb1f95ade7605d74d24687789392ed169e915371c2d8091cce5a71878"
+    },
+    {
+      "path": "results/orch/marginal48-research/marginal48-quadratic-shadow.json",
+      "sha256": "58bf0be640031e81d4a5e1bc7611bcae2168acf0f62d1adafa3676cf69f41298"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-canonical-invalid-masks.json",
+      "sha256": "e058fff865fc64018af463d6b8785ef682b58dfe01de12a6c4b80467aca86094"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-canonical-invalid.json",
+      "sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-canonical-report.json",
+      "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-canonical.log",
+      "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-pair-only.json",
+      "sha256": "6752556c87a767bf6b7edde751381b8cb6300738f02637c31c0127d55426a7c0"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48-report.json",
+      "sha256": "160ca256470458c9c3ab56239fb2ccbdd5fd9e18c75c332a6d4f1fa1604b3cad"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48.log",
+      "sha256": "ed28a940034599f1736f0fdf69489c927289a90568c0b17b9d7819c9aa321f87"
+    },
+    {
+      "path": "results/orch/marginal48-research/pg3-marginal48.py",
+      "sha256": "5675590bb37e1b4d0357d36916c3125b8773664f98b62398ae0d0e45ad10f402"
+    },
+    {
+      "path": "results/orch/marginal48-research/portable-canonical-replay.log",
+      "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444"
+    },
+    {
+      "path": "results/orch/marginal48-research/portable-circuit-replay.log",
+      "sha256": "ed28a940034599f1736f0fdf69489c927289a90568c0b17b9d7819c9aa321f87"
+    },
+    {
+      "path": "results/orch/marginal48-research/prepare-shadow-certificate.py",
+      "sha256": "e065465265fd7563ed681d7275e59ee80277db6a8565435f982b8f24bfb7ce58"
+    },
+    {
+      "path": "results/orch/marginal48-research/shadow-certificate-generation.log",
+      "sha256": "d324a22ca632fd1b50fa550d73e7013945069e9e1a2560536ca6fee441f6b6d1"
+    },
+    {
+      "path": "results/orch/marginal48-research/shadow-certificate-source.json",
+      "sha256": "d324a22ca632fd1b50fa550d73e7013945069e9e1a2560536ca6fee441f6b6d1"
+    },
+    {
+      "path": "results/orch/marginal48-research/theta4-control-global51-masks.json",
+      "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44"
+    },
+    {
+      "path": "results/orch/pg3-marginal48-cover-audit-data.json",
+      "sha256": "3a317ab2c4571d7d3aac97317d4f8f98e2fc96117881d5017c1dd6a1a398a20b"
+    },
+    {
+      "path": "results/orch/pg3-marginal48-cover-audit.log",
+      "sha256": "0fb0cf4323d8da1d53d41987d664f0f197592335cc369397f8fb385caffd7e18"
+    },
+    {
+      "path": "results/orch/pg3-marginal48-cover-audit.py",
+      "sha256": "120b2ccf3d5c4cd6ecaf43d53ba7833e89e8b154a7f7b8e999f980cb6106384e"
+    },
+    {
+      "path": "results/orch/pg3-marginal48-cover-review.md",
+      "sha256": "32a6a2f9215de22d836706398c1ba20afcac13f27b4463f3ffad1de63298170f"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/GuardGeometry.lean",
+      "sha256": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/MANIFEST.json",
+      "sha256": "a66e0251d570d003717dba49f9ebe0dd645973dbf2ac7760787de151fae0f9b4"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/PureUnionAncestry.lean",
+      "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/REVIEW.json",
+      "sha256": "8d7307484c3ac4062e4edb139e47a9d580927d13573cbbf5a100fdc371840816"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/RestrictedUnionBound.lean",
+      "sha256": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/SCOPE.md",
+      "sha256": "238e4dbb9b91fdd277821fd3c5e2ebb3a7c29d04ca3f5c4cd0d04eb74ead5c2c"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/SHA256SUMS",
+      "sha256": "3a6310209dfdec17fed15f7e4846797e1264158be6f527bbbadf597436a77231"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/guard-charging-plan.md",
+      "sha256": "2a9dca4874d63761ce6353088cfc2e119aaa8329c7d56104cd66912f36a284a1"
+    },
+    {
+      "path": "results/orch/restricted-39-source-20261125T061656Z/guard-geometry-source-review.json",
+      "sha256": "75bffb26e7a5c3a886b9483c694490097238e5548948b401675ba1006f842c32"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/CADICAL-PERSISTENCE-NOTES.md",
+      "sha256": "80c66360b861cb07ca6285d678a5511b7da9ee3feca6e119947803e06fd4519a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/ORIGINAL-FILES.json",
+      "sha256": "b7b704238d7d4a3ffef4c15578a1e87a466f0867f6d194780857c60c8bcfcf4d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/README.md",
+      "sha256": "9d6d7a173afffa6d94854ed0fa9e910cd21f6cb3f55b67ae94f034ce2acda559"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/SHA256SUMS",
+      "sha256": "a7138fea16ccdb0f62548515cad7eaf938ab291686ca640791db36bb6db0f1f2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.command.json",
+      "sha256": "665b9edfc489a623395a7c089e102a18cee31e8562440f244a6c161d77d19e4e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.extension.txt.gz",
+      "sha256": "80da741d9b9f0eb28c46bae7222932b647946682772a86bb2d384681e899d296"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.integrity.json",
+      "sha256": "02c1b4f3f1ab176b13eddef24b67ca129a7228606cea1724378a3d086eed7047"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.log",
+      "sha256": "c297ff240ec84d8c5417e68aaf0e2875fbd79171087e3d400c987b3dce914162"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.process.json",
+      "sha256": "b72bd525dd85dfa140fef533aa05737c24abd74156b786064fe966830e0ec163"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.simplified.cnf.gz",
+      "sha256": "4993422f4049caf044bf60dbe86da237527557f43d2bae72ca9d3fac9393bc89"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.sol",
+      "sha256": "da1550684eb2decb80365487261b62b63ef1745fa7584a427b2f61c7372fa40e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.solver.log",
+      "sha256": "0e60ebd2311ec902a72a698f1c9bb2265981657f52a59dfdb8d20f4454facc39"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.status.json",
+      "sha256": "44cd4be5a6b8c54d64ce752df38f86ee15b78ca90df12efc47ed83be6cda88c2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-smoke.witness.json",
+      "sha256": "b22bece09cc5185bc5adc8f728cfb74a35de5137ff8b05c350c515adeaa64c88"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.command.json",
+      "sha256": "c43257646093747be3a60c3d0593c142a16b7bff0b3cf663dd5ae682b362f866"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.extension.txt.gz",
+      "sha256": "f03f8d61d169781c333536c37cd7469f6e2f060633e8235ffe18787ee043f738"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.integrity.json",
+      "sha256": "1a520d9f6bdb2148d85230e4ae6ee9f31180fbfa7bc086e8ecdc81dc89e59d8a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.log",
+      "sha256": "d79fdf53949c8b2c5abf4743503d5ee35c4454938d1147d2ad6379efb83ecdae"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.process.json",
+      "sha256": "43d8efad484830b26274811ad96c4f12c51747ba53499037b589e0ad48178295"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.simplified.cnf.gz",
+      "sha256": "958ff92a9053c91a8a05701598e3d626a78400b162e9c2d00b879d68aa807a01"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.solver.log",
+      "sha256": "44fcb8bbd08d10ac09add546caee33ddf6b0e2f598c2fe8e453797aeb9252648"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/cadical-export-unknown-smoke.status.json",
+      "sha256": "09e5410dd7862d3c59bd85bdfece65324c734df1171d657ea36e390a528ec4e6"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/canonical_dnf_diagnostic.py",
+      "sha256": "a3ad8b270910ec9fa33446cabd9cbe5d26762430daad23c217d81191731db89d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/global-encoder-cycle5-control3.cnf",
+      "sha256": "13e91fb93d73f32b17ca1024f78ef2f984e8dc3a2d0b3acf4787afbb00bc4aea"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/global-encoder-cycle5-control3.mapping.json",
+      "sha256": "ec60e31b6ee29cb22150b714427464e3b859c813605a2dc0ea03d43dbb8841f4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/global-or-repair-cnf-v2-help.txt",
+      "sha256": "78f8fe89e384ba9aefabfdee86a8a08fc8401a17b3436415173755caad33b011"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/global_or_repair_cnf_v2.py",
+      "sha256": "ea366a6c82b93db04d742d9e966fc39f652b283eb86e0b3827b73c6a54230082"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/nonlinear-seed51-fixed.cnf.gz",
+      "sha256": "dbb632a11790b8040728d147c5ead24becebcfb047bd6fb8d9d17c6925e29c2e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/nonlinear-seed51-fixed.encode.log",
+      "sha256": "cafede6c66d4eaa39683f07b2a2d7e3d27b64740e283590b93f955259b400537"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/nonlinear-seed51-fixed.mapping.json",
+      "sha256": "1e6d422a0187d0af6fed234de39673353394bb5ad42805008eab4303bf65ad07"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/prune_canonical_gate.py",
+      "sha256": "739f6e23bac6ad963205cc1a0927a2e9b90e2ba43ad91ad2061ec3fce1fee751"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/repair-free5-control-deletion.json",
+      "sha256": "de705015c25d7c753ac495331a40b539a4b2fb3e4a333fcf25457c4ca6b5848f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/repair-free5-control-deletion.log",
+      "sha256": "c104c10a1cbf860ca503a52a5f0057e3284245e14e75c06e9dc1ad0677fd1c78"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/repair-free5-dnf-diagnostic.json",
+      "sha256": "f1efc716a8a1604b203a72fb6f70dfd63ea4121e938a84edeba9636f252a98de"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/repair-free5-dnf-diagnostic.log",
+      "sha256": "904e7d49620e7779234642343776b7572f56ddbd10c3dd8afed7294ef72f32f0"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/repair-free5-triple-diagnostic.json",
+      "sha256": "e7fc0b52863a8b3e21b935c0bc8fab5e02e1628e3aa7c8bc6e2df541430c745d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/solve-global-cnf-v6-help.txt",
+      "sha256": "34e2debebdd0b16c99716af6275fa66f64d74ab79d025959b586212cd493236f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/solve-global-cnf-v7-help.txt",
+      "sha256": "8f4663dbf321c61d44788f16d16fe1e61e33711a574531b6dbf3d80aabc3db10"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/solve_global_cnf_v6.py",
+      "sha256": "b2cf7156f43175fdb89c5e0e96780021bff9aea4a078eb7e093dae62187a6c32"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0547Z/solve_global_cnf_v7.py",
+      "sha256": "e3bb0b5e65acfdb81707d4884de73cf1cc4e106d68b37bdf13258e6090ae0d77"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/INPUT-REFERENCE.json",
+      "sha256": "641c75e77e4bdf8bf2d44934e533dbc8ec3158ce51e1ec4ae62533e2d48d18da"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/ORIGINAL-FILES.json",
+      "sha256": "df0081d69461c4d8f4ebb2123c7634e57d6460378f0365fde6d79513e6caff5c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/README.md",
+      "sha256": "5975130d641057bb911a17e2bd834449c1d2e685c69463720630621004ef91a7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/SHA256SUMS",
+      "sha256": "369819fdafd08c4e4c766bc3058c29b69ca6accdde1b79a0b1c912b6219ba351"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/global-or-repair-cnf-v3-help.txt",
+      "sha256": "f43b74a2cb9b432e9003e769625224d740010db3f50aa057ad053d4b191049b7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/global_or_repair_cnf_v3.py",
+      "sha256": "1f6c6e93d00602ea0385a2a0c26b286394076749a3862353edb104c056cb0554"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.command.json",
+      "sha256": "8c2c4b41f936bfd695be865d99a9e8751c9c5c8410156967e1c9918c430d55fa"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.log",
+      "sha256": "34e42a8a74dab9bdcc3163dc19529298b06d8b9949397919ea1b8ae0a74dbcff"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.process.json",
+      "sha256": "7a1463389f361bd08ff2d146897bf123d024d24b9fdbf78d0d338d3ce7bb6b6c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.solver.log",
+      "sha256": "9ff4d3796996c9dd5f5383134ec10dab267155b249ad3d8c712b4bb977915de7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repair50-late-pencils-and-joins-run.status.json",
+      "sha256": "d9f704e77ca928ae3f3fcdf134d2f0f24f28dd7dae0b0ad96534be0d1157c51a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0553Z/repo-audit-empty-conjunction-deletion.json",
+      "sha256": "9ac14cc7d62e91055a73688134b222d9b0cee51bc885adc27540b4c1156a436e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/ORIGINAL-FILES.json",
+      "sha256": "92521ee511b1fd594d792106f2bed079c03d51a9f7810065ba58510cca248437"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/README.md",
+      "sha256": "1e78016096f70a5ea5ced8db5d6b9cca9e3ff448970b6e590ef795a1adec4956"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/SHA256SUMS",
+      "sha256": "34d53ae5d026983d2f0513819c1eb71154ef86fb9d7ff6916ce6c0fb6ca80ff9"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/global-or-seed-template-cnf-help.txt",
+      "sha256": "3197a7251818bec5a02b2e95826679632e08bb1f9b95516143922db90c5dd969"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/global_or_seed_template_cnf.py",
+      "sha256": "d933318df882223df1bd405fac872d32b1ab363de52b461395828e85f7c3eae4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.command.json",
+      "sha256": "235cc30d812f459f61f18930d461c89dae9d7743194af15598643f11c91397b7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.log",
+      "sha256": "17ca9e8e2619d67357319f5e7a6d281f543e69191ab71ee5f694d2bb0808093b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.process.json",
+      "sha256": "5deb0213f88b83ead2f2f81b15db352906b6474b6fad96d244e52cdffe68c1fd"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.sol",
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.solver.log",
+      "sha256": "215212628382551666619d621cdea7574a2c9bd20917c0c53ebf4381dc488d25"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control-run.status.json",
+      "sha256": "39570c948b650e71030eede49633dad0a8991ad24ebbca7ef2c6783b0549bbc6"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control.cnf.gz",
+      "sha256": "90aaf788bceabcbf03017d7bb704f09eb57b49e3c12f08ccd71ad4c956514d0b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control.encode.log",
+      "sha256": "aeaed0677c95086315a152d933f195ca98249cd2c175189a8c174745f22b0678"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-fixed-invalid-control.mapping.json",
+      "sha256": "d23d2e258587bcf4060ceeee1539f4342608bd41ede8bd91951e90dee453a87e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal48-seed-independent-replay.json",
+      "sha256": "2c283302a1250a15895de19514758f233d651e568b933af64e76858cd1bf731a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal50-we-repair.cnf.gz",
+      "sha256": "aa54451f8f6b9d08dc0e4b4f9a2c4a18bd8e3f6f6870e8f230a797de2d244ff8"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal50-we-repair.encode.log",
+      "sha256": "d259fd40ec3b756b32d7fb44e316b7b325ba76199f078f029d7e5117c21d377b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/marginal50-we-repair.mapping.json",
+      "sha256": "a9134c52324b69a8c1631ed5a355c411379dc69ba2a598bc65eb8b1d09d643f4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.command.json",
+      "sha256": "c6f9284e1dcac8707de66b14d5d7b30ba860e3a52226c4c1ced5678357c8e7f8"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.log",
+      "sha256": "8817bba448223017bb005ac33824d33b35e154ba9af342b6a82ef2e50c331374"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.process.json",
+      "sha256": "884b62ac2a254ab23b7c520374f3f2f0030fdbdbfa2ce72b8a5b9ecae948b25e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.sol.gz",
+      "sha256": "80f17e1a0c5042d443ab3479205f426f62086e304bcdec22e3e4eb63006fce57"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.solver.log",
+      "sha256": "e24dcb908bbf3978716912c3f3c3ae70c52ddf76b2193ea55909cbaa845a351c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.status.json",
+      "sha256": "929dd13debc8730835e924ab9892a26577afc77ae07c97375dfa2496d17dd662"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/nonlinear-seed51-fixed-run.witness.json",
+      "sha256": "354aa82f20008168c2d9028d92b52b43dad633cedea3f7391e20885b1cf0a0a5"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/pg3-marginal48-canonical-invalid-masks.json",
+      "sha256": "e058fff865fc64018af463d6b8785ef682b58dfe01de12a6c4b80467aca86094"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/pg3-marginal48-canonical-invalid.json",
+      "sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0557Z/seeded-cnf-space-recovery.json",
+      "sha256": "da4768c20464b3b4bd605fc3faed40bedd314db1bb1cc9b93cb4a50f63db1dcf"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/INPUT-REFERENCE.json",
+      "sha256": "092b43a1cf81a7ebbebf49fc9ee78de2a4321aca02379274d8f32590087f0a2c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/ORIGINAL-FILES.json",
+      "sha256": "e922d94314c6bc38d56e90627905a8ae0e9b5bf6c605a9a46dbdcede24e6593d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/README.md",
+      "sha256": "a7b5a15fafc066e439f4ab7b8c9a43a88bfd9ea6eaea13709ad6f36cecf5a378"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/SHA256SUMS",
+      "sha256": "e2fa236a890502d7fcb568bec8c464bf95763c00c794487bbca582115468e7d4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.command.json",
+      "sha256": "fc9448c03c0ee548df2c65dea0d75fb98f39a90982926fd0df982482056b6d4e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.log",
+      "sha256": "3be1bdb6a4608ca1cac678fa54428c572aa6737330769e073c99a1b57d4a66fd"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.process.json",
+      "sha256": "a1ee720e5c6856ef4e872569730ad1d1d356f036fede54d460c761b432406046"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.solver.log",
+      "sha256": "5df5beda7b9c96c493cdb2cdf14dea9b9421f049db2cd3627785db1c3f1bd602"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0611Z/marginal50-we-repair-run.status.json",
+      "sha256": "c8bb69985ced3d6074af45c4baa89dac9c4c6a15ebfa659a9ba91c9b9a76f7c0"
+    },
+    {
+      "path": "results/orch/validation/lean-cache-advice-2.json",
+      "sha256": "354ffca67900ce221df07b3cf9370f84765425adf0e40ad50f6e73068e8bac7b"
+    }
+  ]
+}

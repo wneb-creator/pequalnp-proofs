@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/GuardGeometry.lean",
+  "sha256": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1",
+  "lines": 211,
+  "kernel_checked": false,
+  "status": "Source draft only; no Lean process launched during the primary solver window.",
+  "finite_sanity_check": "Passed in Python only:598 residual configurations,7176 ray cases,1404 noncollinear triples;0.068seconds.",
+  "independent_source_review": "PASS by or_lower_bound at exact source hash; Lean compilation remains pending."
+}

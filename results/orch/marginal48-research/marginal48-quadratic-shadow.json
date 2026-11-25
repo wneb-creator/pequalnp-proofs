@@ -1,0 +1,9 @@
+{
+  "input_count": 26,
+  "or_count": 48,
+  "tested_inputs_of_weight_at_most_two": 352,
+  "quadratic_incidence_pairs": 52,
+  "errors": [],
+  "source": "pg3-marginal48-canonical-invalid.json",
+  "scope": "Python finite shadow check only; original generic-negative premise still fails"
+}

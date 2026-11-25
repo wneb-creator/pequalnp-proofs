@@ -1,0 +1,50 @@
+{
+  "frozen_utc": "2026-11-25T06:16:56.085585+00:00",
+  "status": "UNCOMPILED SOURCE-ONLY ARCHIVE WITH EXPLICIT UNRESOLVED DEPENDENCY",
+  "scope": "restricted39 pure-union architecture; not the posted51 theorem",
+  "files": [
+    {
+      "path": "GuardGeometry.lean",
+      "sha256": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1",
+      "bytes": 7976,
+      "lines": 211
+    },
+    {
+      "path": "PureUnionAncestry.lean",
+      "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92",
+      "bytes": 6295,
+      "lines": 150
+    },
+    {
+      "path": "REVIEW.json",
+      "sha256": "8d7307484c3ac4062e4edb139e47a9d580927d13573cbbf5a100fdc371840816",
+      "bytes": 1215,
+      "lines": 23
+    },
+    {
+      "path": "RestrictedUnionBound.lean",
+      "sha256": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba",
+      "bytes": 7176,
+      "lines": 155
+    },
+    {
+      "path": "SCOPE.md",
+      "sha256": "238e4dbb9b91fdd277821fd3c5e2ebb3a7c29d04ca3f5c4cd0d04eb74ead5c2c",
+      "bytes": 2040,
+      "lines": 18
+    },
+    {
+      "path": "guard-charging-plan.md",
+      "sha256": "2a9dca4874d63761ce6353088cfc2e119aaa8329c7d56104cd66912f36a284a1",
+      "bytes": 6305,
+      "lines": 61
+    },
+    {
+      "path": "guard-geometry-source-review.json",
+      "sha256": "75bffb26e7a5c3a886b9483c694490097238e5548948b401675ba1006f842c32",
+      "bytes": 1046,
+      "lines": 20
+    }
+  ],
+  "missing_dependency": "GuardGeometry.fourCap_avoiding_card"
+}

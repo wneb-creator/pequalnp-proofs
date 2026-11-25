@@ -1,0 +1,19 @@
+{
+  "status": "SOURCE ONLY; no Lean process started",
+  "scope": "Canonical Program extensions of fixed98-wire sample tables; actualbase semantics and raw-circuit normalization are not claimed",
+  "files": {
+    "lemmas/CanonicalExtensionCover.lean": {
+      "sha256": "2352a019d82d97c326ec311b53c7ddfcffb7e7301ca93b6f4309cc606c0eadfd",
+      "lines": 139
+    },
+    "lemmas/MarginalCoverFinite.lean": {
+      "sha256": "bdeb3d0cc2af3b6d0a3eb40bd545eaaf10acb2364efca6957ad19b1a4c25df7b",
+      "lines": 138
+    },
+    "lemmas/MarginalExtensionObstruction.lean": {
+      "sha256": "07237b08b6e37c0b6fccc665ac70411fb74e74c1d2ab751b2eabfbd07090e4cb",
+      "lines": 22
+    }
+  },
+  "research_manifest_sha256": "96bbee9bb1f95ade7605d74d24687789392ed169e915371c2d8091cce5a71878"
+}

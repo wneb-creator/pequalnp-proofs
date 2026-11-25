@@ -1,0 +1,6 @@
+{
+  "batch": "batch-20261125T0537Z",
+  "cnf_gzip": "repair50-late-pencils-and-joins.cnf.gz",
+  "mapping": "repair50-late-pencils-and-joins.mapping.json",
+  "runner": "solve_global_cnf_v5.py"
+}

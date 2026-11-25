@@ -1,0 +1,4 @@
+{"negative_input": 65572, "points": [2, 5], "lines": [3]}
+{"negative_input": 3735587, "points": [0, 1, 5], "lines": [3, 6, 7, 8]}
+{"audit": "first_bad_triple_extension_obstruction", "available_old_wires": 98, "distinct_nonempty_false_supports": 64, "enumerated_subsets": 4096, "independent_minimum_cover_indices": [0, 1, 2, 4, 6, 8, 10, 11], "maximal_false_supports": 12, "maximum_coverage_by_cardinality": [0, 16, 28, 36, 43, 46, 49, 50, 52, 52, 52, 52, 52], "minimum_append_OR_for_this_negative": 7, "minimum_cover": 8}
+{"audit": "first_bad_row_extension_obstruction", "available_old_wires": 98, "distinct_nonempty_false_supports": 54, "enumerated_subsets": 4096, "independent_minimum_cover_indices": [0, 4, 5, 6, 7, 8, 9, 10, 11], "maximal_false_supports": 12, "maximum_coverage_by_cardinality": [0, 21, 30, 36, 42, 46, 48, 50, 51, 52, 52, 52, 52], "minimum_append_OR_for_this_negative": 8, "minimum_cover": 9}

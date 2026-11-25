@@ -1,0 +1,154 @@
+{
+  "or_count": 48,
+  "and_count": 24,
+  "all_low_samples": 2952,
+  "pair_function_correct": true,
+  "false_positive_triples_by_point_count": {
+    "0": 0,
+    "1": 54,
+    "2": 54,
+    "3": 0
+  },
+  "false_positive_triple_examples": [
+    65572,
+    1048612,
+    2097188,
+    1048644,
+    2097220,
+    4194372,
+    65668,
+    2097284
+  ],
+  "mixed_nonedge_triples": 936,
+  "all_mixed_nonedge_triples_covered_by_generic_rows": true,
+  "generic_false_positives": 378,
+  "first_bad_triple_extension_obstruction": {
+    "maximal_false_wire_supports": 12,
+    "input_mask": 65572,
+    "maximal_support_masks": [
+      34359812160,
+      292628218880,
+      554336028672,
+      1095468318720,
+      17527493099520,
+      29842525407360,
+      263882806395120,
+      477480406517760,
+      637796277031455,
+      2251804649717760,
+      4222124902321920,
+      4238617326059520
+    ],
+    "minimum_cover_witness": [
+      34359812160,
+      292628218880,
+      554336028672,
+      17527493099520,
+      263882806395120,
+      637796277031455,
+      4222124902321920,
+      4238617326059520
+    ],
+    "maximum_flags_covered_by_k_false_wires": {
+      "1": 16,
+      "2": 28,
+      "3": 36,
+      "4": 43,
+      "5": 46,
+      "6": 49,
+      "7": 50,
+      "8": 52
+    },
+    "minimum_false_wire_cover": 8,
+    "additional_OR_lower_bound": 7
+  },
+  "first_bad_row_extension_obstruction": {
+    "maximal_false_wire_supports": 12,
+    "input_mask": 3735587,
+    "maximal_support_masks": [
+      15,
+      2147488260,
+      4311779328,
+      77376520200,
+      1030792151040,
+      29842525407360,
+      263882806395120,
+      477480406517760,
+      567427524465152,
+      3694638917517600,
+      4222124650663680,
+      4238790332719584
+    ],
+    "minimum_cover_witness": [
+      15,
+      1030792151040,
+      29842525407360,
+      263882806395120,
+      477480406517760,
+      567427524465152,
+      3694638917517600,
+      4222124650663680,
+      4238790332719584
+    ],
+    "maximum_flags_covered_by_k_false_wires": {
+      "1": 21,
+      "2": 30,
+      "3": 36,
+      "4": 42,
+      "5": 46,
+      "6": 48,
+      "7": 50,
+      "8": 51,
+      "9": 52
+    },
+    "minimum_false_wire_cover": 9,
+    "additional_OR_lower_bound": 8
+  },
+  "affine_point_labels": [
+    [
+      2,
+      4,
+      10
+    ],
+    [
+      8,
+      5,
+      6
+    ],
+    [
+      12,
+      7,
+      11
+    ]
+  ],
+  "affine_line_labels": [
+    [
+      12,
+      4,
+      10
+    ],
+    [
+      2,
+      3,
+      7
+    ],
+    [
+      6,
+      8,
+      9
+    ]
+  ],
+  "infinity_point_labels": [
+    0,
+    3,
+    9,
+    1
+  ],
+  "vertical_line_labels": [
+    1,
+    5,
+    11
+  ],
+  "infinity_line_label": 0,
+  "scope": "Python finite check plus explicit algebra; no Lean theorem; not a refutation"
+}

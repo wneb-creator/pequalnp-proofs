@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T05:52:32.410100+00:00",
+  "action": "POSIX_FADV_DONTNEED on existing Lean cache artifacts after short lemma build; file contents unchanged",
+  "files": 20445,
+  "memory_before_bytes": 5751742464,
+  "memory_after_bytes": 2665979904,
+  "errors": []
+}

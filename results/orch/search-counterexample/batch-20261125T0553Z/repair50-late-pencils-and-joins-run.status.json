@@ -1,0 +1,12 @@
+{
+  "result": "unknown",
+  "solver_exit": 0,
+  "solver_wall_seconds": 900.193029692,
+  "child_user_cpu_seconds": 865.161336,
+  "child_system_cpu_seconds": 1.374273,
+  "child_max_rss_KiB": 246452,
+  "stop_reason": null,
+  "signals": [],
+  "maximum_shared_memory_bytes": 6539681792,
+  "reader_exit": null
+}

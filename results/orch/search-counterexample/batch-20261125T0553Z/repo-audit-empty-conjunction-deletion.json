@@ -1,0 +1,260 @@
+{
+  "scope": "Independent audit includes constant-true empty conjunction for all51 deletions; computational only",
+  "results": [
+    {
+      "gate": 0,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 1,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 2,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 3,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 4,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 5,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 6,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 7,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 8,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 9,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 10,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 11,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 12,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 13,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 14,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 15,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 16,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 17,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 18,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 19,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 20,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 21,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 22,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 23,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 24,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 25,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 26,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 27,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 28,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 29,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 30,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 31,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 32,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 33,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 34,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 35,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 36,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 37,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 38,
+      "negative_errors": 127,
+      "positive_errors": 0
+    },
+    {
+      "gate": 39,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 40,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 41,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 42,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 43,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 44,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 45,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 46,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 47,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 48,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 49,
+      "negative_errors": 494,
+      "positive_errors": 0
+    },
+    {
+      "gate": 50,
+      "negative_errors": 494,
+      "positive_errors": 0
+    }
+  ]
+}

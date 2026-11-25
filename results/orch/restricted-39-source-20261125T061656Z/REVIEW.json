@@ -1,0 +1,23 @@
+{
+  "status": "read-only semantic review passes; all three drafts UNCOMPILED",
+  "reviewers": [
+    "or_lower_bound (GuardGeometry source/API)",
+    "repo_audit (GuardGeometry, ancestry, restricted assembly)"
+  ],
+  "source_hashes": {
+    "GuardGeometry.lean": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1",
+    "PureUnionAncestry.lean": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92",
+    "RestrictedUnionBound.lean": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba"
+  },
+  "finite_sanity": {
+    "residual_configurations": 598,
+    "ray_cases": 7176,
+    "noncollinear_triples": 1404,
+    "four_caps_avoiding_exactly_three_points": 234,
+    "kind": "independent Python evidence only"
+  },
+  "ancestry_scope": "backward pure-union Scheme only; producing gate included among three nodes",
+  "assembly_scope": "composition sound conditional on adding explicit fourCap_avoiding_card and successful compilation",
+  "missing_lean_dependency": "GuardGeometry.fourCap_avoiding_card",
+  "review_evidence": "repo_audit messages in this session requested freeze and reported semantic and independent finite checks; original GuardGeometry review JSON is included"
+}

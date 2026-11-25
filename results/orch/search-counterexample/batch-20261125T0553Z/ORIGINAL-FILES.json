@@ -1,0 +1,52 @@
+[
+  {
+    "name": "repair50-late-pencils-and-joins-run.command.json",
+    "sha256": "8c2c4b41f936bfd695be865d99a9e8751c9c5c8410156967e1c9918c430d55fa",
+    "size": 256
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.log",
+    "sha256": "34e42a8a74dab9bdcc3163dc19529298b06d8b9949397919ea1b8ae0a74dbcff",
+    "size": 386
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.process.json",
+    "sha256": "7a1463389f361bd08ff2d146897bf123d024d24b9fdbf78d0d338d3ce7bb6b6c",
+    "size": 721
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.reader.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.sol",
+    "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "size": 10
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.solver.log",
+    "sha256": "9ff4d3796996c9dd5f5383134ec10dab267155b249ad3d8c712b4bb977915de7",
+    "size": 32088
+  },
+  {
+    "name": "repair50-late-pencils-and-joins-run.status.json",
+    "sha256": "d9f704e77ca928ae3f3fcdf134d2f0f24f28dd7dae0b0ad96534be0d1157c51a",
+    "size": 305
+  },
+  {
+    "name": "repo-audit-empty-conjunction-deletion.json",
+    "sha256": "9ac14cc7d62e91055a73688134b222d9b0cee51bc885adc27540b4c1156a436e",
+    "size": 4613
+  },
+  {
+    "name": "global_or_repair_cnf_v3.py",
+    "sha256": "1f6c6e93d00602ea0385a2a0c26b286394076749a3862353edb104c056cb0554",
+    "size": 14218
+  },
+  {
+    "name": "global-or-repair-cnf-v3-help.txt",
+    "sha256": "f43b74a2cb9b432e9003e769625224d740010db3f50aa057ad053d4b191049b7",
+    "size": 1112
+  }
+]

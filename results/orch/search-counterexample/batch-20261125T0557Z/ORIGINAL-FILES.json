@@ -1,0 +1,164 @@
+[
+  {
+    "original_name": "global_or_seed_template_cnf.py",
+    "original_sha256": "d933318df882223df1bd405fac872d32b1ab363de52b461395828e85f7c3eae4",
+    "original_size": 15088,
+    "archived_name": "global_or_seed_template_cnf.py"
+  },
+  {
+    "original_name": "global-or-seed-template-cnf-help.txt",
+    "original_sha256": "3197a7251818bec5a02b2e95826679632e08bb1f9b95516143922db90c5dd969",
+    "original_size": 1278,
+    "archived_name": "global-or-seed-template-cnf-help.txt"
+  },
+  {
+    "original_name": "pg3-marginal48-canonical-invalid.json",
+    "original_sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb",
+    "original_size": 9025,
+    "archived_name": "pg3-marginal48-canonical-invalid.json"
+  },
+  {
+    "original_name": "pg3-marginal48-canonical-invalid-masks.json",
+    "original_sha256": "e058fff865fc64018af463d6b8785ef682b58dfe01de12a6c4b80467aca86094",
+    "original_size": 18560,
+    "archived_name": "pg3-marginal48-canonical-invalid-masks.json"
+  },
+  {
+    "original_name": "marginal48-seed-independent-replay.json",
+    "original_sha256": "2c283302a1250a15895de19514758f233d651e568b933af64e76858cd1bf731a",
+    "original_size": 212,
+    "archived_name": "marginal48-seed-independent-replay.json"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control.cnf",
+    "original_sha256": "15cd78f8101183657526462f1c7010b7464490f4b3245aaab508eb5ab42aaeee",
+    "original_size": 1227716,
+    "archived_name": "marginal48-fixed-invalid-control.cnf.gz"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control.mapping.json",
+    "original_sha256": "d23d2e258587bcf4060ceeee1539f4342608bd41ede8bd91951e90dee453a87e",
+    "original_size": 77697,
+    "archived_name": "marginal48-fixed-invalid-control.mapping.json"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control.encode.log",
+    "original_sha256": "aeaed0677c95086315a152d933f195ca98249cd2c175189a8c174745f22b0678",
+    "original_size": 674,
+    "archived_name": "marginal48-fixed-invalid-control.encode.log"
+  },
+  {
+    "original_name": "marginal50-we-repair.cnf",
+    "original_sha256": "82adff91ba4c8c473290fa00221056bca7cc480e2bc97350b17bcbe8d42338ac",
+    "original_size": 29594770,
+    "archived_name": "marginal50-we-repair.cnf.gz"
+  },
+  {
+    "original_name": "marginal50-we-repair.mapping.json",
+    "original_sha256": "a9134c52324b69a8c1631ed5a355c411379dc69ba2a598bc65eb8b1d09d643f4",
+    "original_size": 80354,
+    "archived_name": "marginal50-we-repair.mapping.json"
+  },
+  {
+    "original_name": "marginal50-we-repair.encode.log",
+    "original_sha256": "d259fd40ec3b756b32d7fb44e316b7b325ba76199f078f029d7e5117c21d377b",
+    "original_size": 725,
+    "archived_name": "marginal50-we-repair.encode.log"
+  },
+  {
+    "original_name": "seeded-cnf-space-recovery.json",
+    "original_sha256": "da4768c20464b3b4bd605fc3faed40bedd314db1bb1cc9b93cb4a50f63db1dcf",
+    "original_size": 1778,
+    "archived_name": "seeded-cnf-space-recovery.json"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.command.json",
+    "original_sha256": "c6f9284e1dcac8707de66b14d5d7b30ba860e3a52226c4c1ced5678357c8e7f8",
+    "original_size": 251,
+    "archived_name": "nonlinear-seed51-fixed-run.command.json"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.log",
+    "original_sha256": "8817bba448223017bb005ac33824d33b35e154ba9af342b6a82ef2e50c331374",
+    "original_size": 524,
+    "archived_name": "nonlinear-seed51-fixed-run.log"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.process.json",
+    "original_sha256": "884b62ac2a254ab23b7c520374f3f2f0030fdbdbfa2ce72b8a5b9ecae948b25e",
+    "original_size": 708,
+    "archived_name": "nonlinear-seed51-fixed-run.process.json"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "nonlinear-seed51-fixed-run.reader.log"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.sol",
+    "original_sha256": "e44f9f7bb9e59c360b704d17fb7ceb94f3d704f6503285d79efb514a078c844e",
+    "original_size": 163720,
+    "archived_name": "nonlinear-seed51-fixed-run.sol.gz"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.solver.log",
+    "original_sha256": "e24dcb908bbf3978716912c3f3c3ae70c52ddf76b2193ea55909cbaa845a351c",
+    "original_size": 3013,
+    "archived_name": "nonlinear-seed51-fixed-run.solver.log"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.status.json",
+    "original_sha256": "929dd13debc8730835e924ab9892a26577afc77ae07c97375dfa2496d17dd662",
+    "original_size": 414,
+    "archived_name": "nonlinear-seed51-fixed-run.status.json"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed-run.witness.json",
+    "original_sha256": "354aa82f20008168c2d9028d92b52b43dad633cedea3f7391e20885b1cf0a0a5",
+    "original_size": 8222,
+    "archived_name": "nonlinear-seed51-fixed-run.witness.json"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.command.json",
+    "original_sha256": "235cc30d812f459f61f18930d461c89dae9d7743194af15598643f11c91397b7",
+    "original_size": 271,
+    "archived_name": "marginal48-fixed-invalid-control-run.command.json"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.log",
+    "original_sha256": "17ca9e8e2619d67357319f5e7a6d281f543e69191ab71ee5f694d2bb0808093b",
+    "original_size": 502,
+    "archived_name": "marginal48-fixed-invalid-control-run.log"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.process.json",
+    "original_sha256": "5deb0213f88b83ead2f2f81b15db352906b6474b6fad96d244e52cdffe68c1fd",
+    "original_size": 738,
+    "archived_name": "marginal48-fixed-invalid-control-run.process.json"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "marginal48-fixed-invalid-control-run.reader.log"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.sol",
+    "original_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "original_size": 16,
+    "archived_name": "marginal48-fixed-invalid-control-run.sol"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.solver.log",
+    "original_sha256": "215212628382551666619d621cdea7574a2c9bd20917c0c53ebf4381dc488d25",
+    "original_size": 2774,
+    "archived_name": "marginal48-fixed-invalid-control-run.solver.log"
+  },
+  {
+    "original_name": "marginal48-fixed-invalid-control-run.status.json",
+    "original_sha256": "39570c948b650e71030eede49633dad0a8991ad24ebbca7ef2c6783b0549bbc6",
+    "original_size": 428,
+    "archived_name": "marginal48-fixed-invalid-control-run.status.json"
+  }
+]

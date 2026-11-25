@@ -1,0 +1,15 @@
+{
+  "result": "unsat",
+  "solver_exit": 20,
+  "solver_wall_seconds": 0.25148010500015516,
+  "child_user_cpu_seconds": 0.011127999999999999,
+  "child_system_cpu_seconds": 0.004882,
+  "child_max_rss_KiB": 12032,
+  "stop_reason": null,
+  "signals": [],
+  "maximum_shared_memory_bytes": 2668683264,
+  "reader_exit": null,
+  "simplified_output_requested": false,
+  "simplified_cnf_exists": false,
+  "extension_stack_exists": false
+}

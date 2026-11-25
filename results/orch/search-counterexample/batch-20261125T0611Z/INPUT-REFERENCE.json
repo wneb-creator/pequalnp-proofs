@@ -1,0 +1,7 @@
+{
+  "batch": "batch-20261125T0557Z",
+  "cnf_gzip": "marginal50-we-repair.cnf.gz",
+  "mapping": "marginal50-we-repair.mapping.json",
+  "runner_batch": "batch-20261125T0547Z",
+  "runner": "solve_global_cnf_v7.py"
+}

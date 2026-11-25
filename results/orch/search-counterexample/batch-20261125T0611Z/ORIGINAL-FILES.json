@@ -1,0 +1,37 @@
+[
+  {
+    "name": "marginal50-we-repair-run.command.json",
+    "sha256": "fc9448c03c0ee548df2c65dea0d75fb98f39a90982926fd0df982482056b6d4e",
+    "size": 248
+  },
+  {
+    "name": "marginal50-we-repair-run.log",
+    "sha256": "3be1bdb6a4608ca1cac678fa54428c572aa6737330769e073c99a1b57d4a66fd",
+    "size": 493
+  },
+  {
+    "name": "marginal50-we-repair-run.process.json",
+    "sha256": "a1ee720e5c6856ef4e872569730ad1d1d356f036fede54d460c761b432406046",
+    "size": 704
+  },
+  {
+    "name": "marginal50-we-repair-run.reader.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  {
+    "name": "marginal50-we-repair-run.sol",
+    "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "size": 10
+  },
+  {
+    "name": "marginal50-we-repair-run.solver.log",
+    "sha256": "5df5beda7b9c96c493cdb2cdf14dea9b9421f049db2cd3627785db1c3f1bd602",
+    "size": 29594
+  },
+  {
+    "name": "marginal50-we-repair-run.status.json",
+    "sha256": "c8bb69985ced3d6074af45c4baa89dac9c4c6a15ebfa659a9ba91c9b9a76f7c0",
+    "size": 418
+  }
+]

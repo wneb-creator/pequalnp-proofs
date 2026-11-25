@@ -1,0 +1,22 @@
+{
+  "pid": 31462,
+  "started_utc": "2026-11-25T05:55:36.274804+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "--seed=1",
+    "-t",
+    "900",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-62/marginal50-we-repair-run.sol",
+    "/tmp/oec/pequalnp-pilot-62/marginal50-we-repair.cnf"
+  ],
+  "address_space_limit_bytes": 1073741824,
+  "input_stem": "/tmp/oec/pequalnp-pilot-62/marginal50-we-repair",
+  "shared_memory_start_limit_bytes": 4294967296,
+  "shared_memory_stop_limit_bytes": 6979321856,
+  "owned_process_group": 31462,
+  "reader_pid": null,
+  "input_gzip": null,
+  "input_uncompressed_sha256": null,
+  "process_start_ticks": 1156347
+}

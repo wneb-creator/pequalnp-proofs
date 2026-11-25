@@ -1,0 +1,20 @@
+{
+  "reviewed_utc": "2026-11-25T06:00:31.915835+00:00",
+  "source": "results/orch/lemmas/GuardGeometry.lean",
+  "sha256": "ed929a342202fef7ebe3f4e1b20c1a163d6f4d14d09536bd0d7f4e56b5fc62d1",
+  "lines": 211,
+  "verdict": "Source semantic review PASS; Lean compilation still pending",
+  "reviewer": "or_lower_bound",
+  "checks": [
+    "Exact incidence alias matches AllRows mod13 offsets0,1,3,9.",
+    "Residual cardinalities12/8/5 and ray bounds3/2 are mathematically correct.",
+    "capFor_spec hypotheses exclude degenerate triples; avoidingPoints equality gives exactly{p,q,r}.",
+    "Selected extra lines belong to capFor through three disjointness hypotheses.",
+    "Cover implication excludes the distinguished point using p notin Q and yields q or r in Q.",
+    "Final residual_cover_count arguments match the checked GuardCharging API.",
+    "All stated finite sanity checks cover the full relevant domains; no script or Lean execution was launched in this review."
+  ],
+  "prohibited_tokens": [],
+  "root_text": false,
+  "quotes": false
+}

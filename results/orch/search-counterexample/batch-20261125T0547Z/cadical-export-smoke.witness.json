@@ -1,0 +1,41 @@
+{
+  "scenario": "cycle4",
+  "input_count": 4,
+  "or_count": 2,
+  "operand_signatures": [
+    [
+      6,
+      9
+    ],
+    [
+      3,
+      12
+    ]
+  ],
+  "operand_wire_lists": [
+    [
+      [
+        2
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  ],
+  "output_wire_list": [
+    4,
+    5
+  ],
+  "checked_positive_samples": 4,
+  "checked_negative_samples": 2
+}

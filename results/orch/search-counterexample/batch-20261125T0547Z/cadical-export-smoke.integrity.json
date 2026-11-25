@@ -1,0 +1,24 @@
+[
+  {
+    "name": "cadical-export-smoke.simplified.cnf.gz",
+    "bytes": 175,
+    "uncompressed_bytes": 474,
+    "uncompressed_sha256": "f2479d3c9e81857719098f604cd693a6a06d969e91826c5204cbd14f73af9ab4",
+    "first_lines": [
+      "p cnf 206 40",
+      "181 -182 0",
+      "-181 182 0"
+    ]
+  },
+  {
+    "name": "cadical-export-smoke.extension.txt.gz",
+    "bytes": 791,
+    "uncompressed_bytes": 2292,
+    "uncompressed_sha256": "23ccbdba79dc588b062654603e2b94dc0bebb1a03ab4e463a5e7817d2607a1ac",
+    "first_lines": [
+      "-1 0 -1 0",
+      "2 0 2 0",
+      "3 0 3 0"
+    ]
+  }
+]

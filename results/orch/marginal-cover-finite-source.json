@@ -1,0 +1,33 @@
+{
+  "status": "source_only_uncompiled",
+  "input_mask": 3735587,
+  "wire_count": 98,
+  "flag_count": 52,
+  "witness_flags": [
+    0,
+    39,
+    14,
+    4,
+    25,
+    29,
+    10,
+    13,
+    12
+  ],
+  "maximal_support_witness_hits": [
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "domination_python_verified": true,
+  "wire_bad_false_count": 55
+}

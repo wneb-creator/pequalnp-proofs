@@ -1,0 +1,242 @@
+[
+  {
+    "original_name": "global_or_repair_cnf_v2.py",
+    "original_sha256": "ea366a6c82b93db04d742d9e966fc39f652b283eb86e0b3827b73c6a54230082",
+    "original_size": 13770,
+    "archived_name": "global_or_repair_cnf_v2.py"
+  },
+  {
+    "original_name": "global-or-repair-cnf-v2-help.txt",
+    "original_sha256": "78f8fe89e384ba9aefabfdee86a8a08fc8401a17b3436415173755caad33b011",
+    "original_size": 1040,
+    "archived_name": "global-or-repair-cnf-v2-help.txt"
+  },
+  {
+    "original_name": "solve_global_cnf_v6.py",
+    "original_sha256": "b2cf7156f43175fdb89c5e0e96780021bff9aea4a078eb7e093dae62187a6c32",
+    "original_size": 8782,
+    "archived_name": "solve_global_cnf_v6.py"
+  },
+  {
+    "original_name": "solve-global-cnf-v6-help.txt",
+    "original_sha256": "34e2debebdd0b16c99716af6275fa66f64d74ab79d025959b586212cd493236f",
+    "original_size": 910,
+    "archived_name": "solve-global-cnf-v6-help.txt"
+  },
+  {
+    "original_name": "solve_global_cnf_v7.py",
+    "original_sha256": "e3bb0b5e65acfdb81707d4884de73cf1cc4e106d68b37bdf13258e6090ae0d77",
+    "original_size": 9394,
+    "archived_name": "solve_global_cnf_v7.py"
+  },
+  {
+    "original_name": "solve-global-cnf-v7-help.txt",
+    "original_sha256": "8f4663dbf321c61d44788f16d16fe1e61e33711a574531b6dbf3d80aabc3db10",
+    "original_size": 1028,
+    "archived_name": "solve-global-cnf-v7-help.txt"
+  },
+  {
+    "original_name": "CADICAL-PERSISTENCE-NOTES.md",
+    "original_sha256": "80c66360b861cb07ca6285d678a5511b7da9ee3feca6e119947803e06fd4519a",
+    "original_size": 1299,
+    "archived_name": "CADICAL-PERSISTENCE-NOTES.md"
+  },
+  {
+    "original_name": "prune_canonical_gate.py",
+    "original_sha256": "739f6e23bac6ad963205cc1a0927a2e9b90e2ba43ad91ad2061ec3fce1fee751",
+    "original_size": 2264,
+    "archived_name": "prune_canonical_gate.py"
+  },
+  {
+    "original_name": "canonical_dnf_diagnostic.py",
+    "original_sha256": "a3ad8b270910ec9fa33446cabd9cbe5d26762430daad23c217d81191731db89d",
+    "original_size": 1211,
+    "archived_name": "canonical_dnf_diagnostic.py"
+  },
+  {
+    "original_name": "repair-free5-control-deletion.json",
+    "original_sha256": "de705015c25d7c753ac495331a40b539a4b2fb3e4a333fcf25457c4ca6b5848f",
+    "original_size": 5709,
+    "archived_name": "repair-free5-control-deletion.json"
+  },
+  {
+    "original_name": "repair-free5-control-deletion.log",
+    "original_sha256": "c104c10a1cbf860ca503a52a5f0057e3284245e14e75c06e9dc1ad0677fd1c78",
+    "original_size": 35,
+    "archived_name": "repair-free5-control-deletion.log"
+  },
+  {
+    "original_name": "repair-free5-triple-diagnostic.json",
+    "original_sha256": "e7fc0b52863a8b3e21b935c0bc8fab5e02e1628e3aa7c8bc6e2df541430c745d",
+    "original_size": 111,
+    "archived_name": "repair-free5-triple-diagnostic.json"
+  },
+  {
+    "original_name": "repair-free5-dnf-diagnostic.json",
+    "original_sha256": "f1efc716a8a1604b203a72fb6f70dfd63ea4121e938a84edeba9636f252a98de",
+    "original_size": 801,
+    "archived_name": "repair-free5-dnf-diagnostic.json"
+  },
+  {
+    "original_name": "repair-free5-dnf-diagnostic.log",
+    "original_sha256": "904e7d49620e7779234642343776b7572f56ddbd10c3dd8afed7294ef72f32f0",
+    "original_size": 122,
+    "archived_name": "repair-free5-dnf-diagnostic.log"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed.cnf",
+    "original_sha256": "7b6ae8fd0fbf73790f6e379c35d25e88de0f8bf1786c1231f22a9135a8a9ef76",
+    "original_size": 1286263,
+    "archived_name": "nonlinear-seed51-fixed.cnf.gz"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed.mapping.json",
+    "original_sha256": "1e6d422a0187d0af6fed234de39673353394bb5ad42805008eab4303bf65ad07",
+    "original_size": 81699,
+    "archived_name": "nonlinear-seed51-fixed.mapping.json"
+  },
+  {
+    "original_name": "nonlinear-seed51-fixed.encode.log",
+    "original_sha256": "cafede6c66d4eaa39683f07b2a2d7e3d27b64740e283590b93f955259b400537",
+    "original_size": 546,
+    "archived_name": "nonlinear-seed51-fixed.encode.log"
+  },
+  {
+    "original_name": "global-encoder-cycle5-control3.cnf",
+    "original_sha256": "13e91fb93d73f32b17ca1024f78ef2f984e8dc3a2d0b3acf4787afbb00bc4aea",
+    "original_size": 29778,
+    "archived_name": "global-encoder-cycle5-control3.cnf"
+  },
+  {
+    "original_name": "global-encoder-cycle5-control3.mapping.json",
+    "original_sha256": "ec60e31b6ee29cb22150b714427464e3b859c813605a2dc0ea03d43dbb8841f4",
+    "original_size": 1855,
+    "archived_name": "global-encoder-cycle5-control3.mapping.json"
+  },
+  {
+    "original_name": "cadical-export-smoke.command.json",
+    "original_sha256": "665b9edfc489a623395a7c089e102a18cee31e8562440f244a6c161d77d19e4e",
+    "original_size": 422,
+    "archived_name": "cadical-export-smoke.command.json"
+  },
+  {
+    "original_name": "cadical-export-smoke.extension.txt.gz",
+    "original_sha256": "80da741d9b9f0eb28c46bae7222932b647946682772a86bb2d384681e899d296",
+    "original_size": 791,
+    "archived_name": "cadical-export-smoke.extension.txt.gz"
+  },
+  {
+    "original_name": "cadical-export-smoke.integrity.json",
+    "original_sha256": "02c1b4f3f1ab176b13eddef24b67ca129a7228606cea1724378a3d086eed7047",
+    "original_size": 584,
+    "archived_name": "cadical-export-smoke.integrity.json"
+  },
+  {
+    "original_name": "cadical-export-smoke.log",
+    "original_sha256": "c297ff240ec84d8c5417e68aaf0e2875fbd79171087e3d400c987b3dce914162",
+    "original_size": 513,
+    "archived_name": "cadical-export-smoke.log"
+  },
+  {
+    "original_name": "cadical-export-smoke.process.json",
+    "original_sha256": "b72bd525dd85dfa140fef533aa05737c24abd74156b786064fe966830e0ec163",
+    "original_size": 896,
+    "archived_name": "cadical-export-smoke.process.json"
+  },
+  {
+    "original_name": "cadical-export-smoke.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "cadical-export-smoke.reader.log"
+  },
+  {
+    "original_name": "cadical-export-smoke.simplified.cnf.gz",
+    "original_sha256": "4993422f4049caf044bf60dbe86da237527557f43d2bae72ca9d3fac9393bc89",
+    "original_size": 175,
+    "archived_name": "cadical-export-smoke.simplified.cnf.gz"
+  },
+  {
+    "original_name": "cadical-export-smoke.sol",
+    "original_sha256": "da1550684eb2decb80365487261b62b63ef1745fa7584a427b2f61c7372fa40e",
+    "original_size": 897,
+    "archived_name": "cadical-export-smoke.sol"
+  },
+  {
+    "original_name": "cadical-export-smoke.solver.log",
+    "original_sha256": "0e60ebd2311ec902a72a698f1c9bb2265981657f52a59dfdb8d20f4454facc39",
+    "original_size": 3818,
+    "archived_name": "cadical-export-smoke.solver.log"
+  },
+  {
+    "original_name": "cadical-export-smoke.status.json",
+    "original_sha256": "44cd4be5a6b8c54d64ce752df38f86ee15b78ca90df12efc47ed83be6cda88c2",
+    "original_size": 411,
+    "archived_name": "cadical-export-smoke.status.json"
+  },
+  {
+    "original_name": "cadical-export-smoke.witness.json",
+    "original_sha256": "b22bece09cc5185bc5adc8f728cfb74a35de5137ff8b05c350c515adeaa64c88",
+    "original_size": 447,
+    "archived_name": "cadical-export-smoke.witness.json"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.command.json",
+    "original_sha256": "c43257646093747be3a60c3d0593c142a16b7bff0b3cf663dd5ae682b362f866",
+    "original_size": 449,
+    "archived_name": "cadical-export-unknown-smoke.command.json"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.extension.txt.gz",
+    "original_sha256": "f03f8d61d169781c333536c37cd7469f6e2f060633e8235ffe18787ee043f738",
+    "original_size": 350,
+    "archived_name": "cadical-export-unknown-smoke.extension.txt.gz"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.integrity.json",
+    "original_sha256": "1a520d9f6bdb2148d85230e4ae6ee9f31180fbfa7bc086e8ecdc81dc89e59d8a",
+    "original_size": 619,
+    "archived_name": "cadical-export-unknown-smoke.integrity.json"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.log",
+    "original_sha256": "d79fdf53949c8b2c5abf4743503d5ee35c4454938d1147d2ad6379efb83ecdae",
+    "original_size": 483,
+    "archived_name": "cadical-export-unknown-smoke.log"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.process.json",
+    "original_sha256": "43d8efad484830b26274811ad96c4f12c51747ba53499037b589e0ad48178295",
+    "original_size": 926,
+    "archived_name": "cadical-export-unknown-smoke.process.json"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "cadical-export-unknown-smoke.reader.log"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.simplified.cnf.gz",
+    "original_sha256": "958ff92a9053c91a8a05701598e3d626a78400b162e9c2d00b879d68aa807a01",
+    "original_size": 7601,
+    "archived_name": "cadical-export-unknown-smoke.simplified.cnf.gz"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.sol",
+    "original_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "original_size": 10,
+    "archived_name": "cadical-export-unknown-smoke.sol"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.solver.log",
+    "original_sha256": "44fcb8bbd08d10ac09add546caee33ddf6b0e2f598c2fe8e453797aeb9252648",
+    "original_size": 3892,
+    "archived_name": "cadical-export-unknown-smoke.solver.log"
+  },
+  {
+    "original_name": "cadical-export-unknown-smoke.status.json",
+    "original_sha256": "09e5410dd7862d3c59bd85bdfece65324c734df1171d657ea36e390a528ec4e6",
+    "original_size": 414,
+    "archived_name": "cadical-export-unknown-smoke.status.json"
+  }
+]

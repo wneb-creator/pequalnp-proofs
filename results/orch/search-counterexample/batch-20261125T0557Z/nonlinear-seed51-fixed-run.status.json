@@ -1,0 +1,15 @@
+{
+  "result": "sat",
+  "solver_exit": 10,
+  "solver_wall_seconds": 0.25149217100079113,
+  "child_user_cpu_seconds": 0.038034,
+  "child_system_cpu_seconds": 0.012707,
+  "child_max_rss_KiB": 12328,
+  "stop_reason": null,
+  "signals": [],
+  "maximum_shared_memory_bytes": 2668277760,
+  "reader_exit": null,
+  "simplified_output_requested": false,
+  "simplified_cnf_exists": false,
+  "extension_stack_exists": false
+}

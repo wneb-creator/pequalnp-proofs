@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "raw": "/tmp/oec/pequalnp-pilot-62/repair-control51-fixed.cnf",
+      "bytes_reclaimed": 1288893,
+      "archive": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-fixed.cnf.gz",
+      "sha256": "d411bfd19874a6d34e2a5a185c31fafda82b900fae9c0fa42aaf7eb49eaee99e"
+    },
+    {
+      "raw": "/tmp/oec/pequalnp-pilot-62/repair-control51-free5.cnf",
+      "bytes_reclaimed": 29010506,
+      "archive": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-free5.cnf.gz",
+      "sha256": "786553f29667bf1452c2ea1f63f6cd1ebe5919b16b9b5b09782784b837c00480"
+    },
+    {
+      "raw": "/tmp/oec/pequalnp-pilot-62/repair50-first3-pencils.cnf",
+      "bytes_reclaimed": 39180852,
+      "archive": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0537Z/repair50-first3-pencils.cnf.gz",
+      "sha256": "26ef66a200d8c4c6bf423085c746a5c1a49a67d13e3a9eb7cb3984ff2eddda5f"
+    },
+    {
+      "raw": "/tmp/oec/pequalnp-pilot-62/repair50-late-pencils-and-joins.cnf",
+      "bytes_reclaimed": 16730455,
+      "archive": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0537Z/repair50-late-pencils-and-joins.cnf.gz",
+      "sha256": "07dd9bf4360ca5b2fc27c25d3a737c22e8ddcd9d7d941f4dec8be3c70ca33f1d"
+    },
+    {
+      "raw": "/tmp/oec/pequalnp-pilot-62/nonlinear-seed51-fixed.cnf",
+      "bytes_reclaimed": 1286263,
+      "archive": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0547Z/nonlinear-seed51-fixed.cnf.gz",
+      "sha256": "7b6ae8fd0fbf73790f6e379c35d25e88de0f8bf1786c1231f22a9135a8a9ef76"
+    }
+  ],
+  "total_bytes_reclaimed": 87496969,
+  "free_bytes_after": 510193664
+}

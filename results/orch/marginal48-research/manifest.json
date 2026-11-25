@@ -1,0 +1,78 @@
+{
+  "MarginalSeed48.lean": {
+    "sha256": "fa11a779b65ec3a09e80e577f4f48c9751749d716a3bce49d3910b8d409062c3",
+    "bytes": 4121
+  },
+  "MarginalShadowControl.lean": {
+    "sha256": "b858fce6d702e40555a8b48e24cd99500e09c5757284ec2de7265147b0b8c458",
+    "bytes": 24829
+  },
+  "README.md": {
+    "sha256": "3ffd7303d50c14c8d60e1e188beb97ed0774c1ed8418ab20f89f06941ae10e67",
+    "bytes": 4068
+  },
+  "canonicalize-marginal48.py": {
+    "sha256": "ec7be4f71563aa9d286f2a3777f5677d0d534b8790a28145f6eeac246c90db88",
+    "bytes": 4405
+  },
+  "marginal48-quadratic-shadow.json": {
+    "sha256": "58bf0be640031e81d4a5e1bc7611bcae2168acf0f62d1adafa3676cf69f41298",
+    "bytes": 285
+  },
+  "pg3-marginal48-canonical-invalid-masks.json": {
+    "sha256": "e058fff865fc64018af463d6b8785ef682b58dfe01de12a6c4b80467aca86094",
+    "bytes": 18560
+  },
+  "pg3-marginal48-canonical-invalid.json": {
+    "sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb",
+    "bytes": 9025
+  },
+  "pg3-marginal48-canonical-report.json": {
+    "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444",
+    "bytes": 285
+  },
+  "pg3-marginal48-canonical.log": {
+    "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444",
+    "bytes": 285
+  },
+  "pg3-marginal48-pair-only.json": {
+    "sha256": "6752556c87a767bf6b7edde751381b8cb6300738f02637c31c0127d55426a7c0",
+    "bytes": 3721
+  },
+  "pg3-marginal48-report.json": {
+    "sha256": "160ca256470458c9c3ab56239fb2ccbdd5fd9e18c75c332a6d4f1fa1604b3cad",
+    "bytes": 6125
+  },
+  "pg3-marginal48.log": {
+    "sha256": "ed28a940034599f1736f0fdf69489c927289a90568c0b17b9d7819c9aa321f87",
+    "bytes": 2765
+  },
+  "pg3-marginal48.py": {
+    "sha256": "5675590bb37e1b4d0357d36916c3125b8773664f98b62398ae0d0e45ad10f402",
+    "bytes": 7414
+  },
+  "portable-canonical-replay.log": {
+    "sha256": "7bfefa939e1c796e6dde9b0f4dcb01877b102c49c035d106ab90ec46ebe30444",
+    "bytes": 285
+  },
+  "portable-circuit-replay.log": {
+    "sha256": "ed28a940034599f1736f0fdf69489c927289a90568c0b17b9d7819c9aa321f87",
+    "bytes": 2765
+  },
+  "prepare-shadow-certificate.py": {
+    "sha256": "e065465265fd7563ed681d7275e59ee80277db6a8565435f982b8f24bfb7ce58",
+    "bytes": 7534
+  },
+  "shadow-certificate-generation.log": {
+    "sha256": "d324a22ca632fd1b50fa550d73e7013945069e9e1a2560536ca6fee441f6b6d1",
+    "bytes": 400
+  },
+  "shadow-certificate-source.json": {
+    "sha256": "d324a22ca632fd1b50fa550d73e7013945069e9e1a2560536ca6fee441f6b6d1",
+    "bytes": 400
+  },
+  "theta4-control-global51-masks.json": {
+    "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+    "bytes": 12472
+  }
+}

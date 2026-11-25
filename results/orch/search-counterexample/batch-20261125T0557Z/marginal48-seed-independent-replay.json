@@ -1,0 +1,7 @@
+{
+  "positive_errors": 0,
+  "generic_negative_errors": 378,
+  "singleton_negative_errors": 0,
+  "comparable_operand_gates": [],
+  "scope": "Independent Boolean replay of INVALID template; not a counterexample"
+}

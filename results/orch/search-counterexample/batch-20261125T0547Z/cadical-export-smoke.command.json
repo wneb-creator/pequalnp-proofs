@@ -1,0 +1,15 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "--seed=0",
+  "-t",
+  "10",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/cadical-export-smoke.sol",
+  "-o",
+  "/tmp/oec/pequalnp-pilot-62/cadical-export-smoke.simplified.cnf.gz",
+  "-e",
+  "/tmp/oec/pequalnp-pilot-62/cadical-export-smoke.extension.txt.gz",
+  "-c",
+  "0",
+  "/tmp/oec/pequalnp-pilot-62/global-wrapper-cycle4-smoke.cnf"
+]

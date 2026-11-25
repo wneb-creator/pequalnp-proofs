@@ -1,0 +1,10 @@
+{
+  "or_count": 48,
+  "old_bad_generic_rows": 378,
+  "canonical_bad_generic_rows": 378,
+  "all52_positive_flags_preserved": true,
+  "every_wire_negative_values_only_decreased": true,
+  "operand_references_before": 120,
+  "operand_references_after": 169,
+  "is_counterexample": false
+}

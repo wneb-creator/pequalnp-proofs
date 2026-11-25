@@ -1,0 +1,8 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "-t",
+  "900",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/repair50-late-pencils-and-joins-run.sol",
+  "/tmp/oec/pequalnp-pilot-62/repair50-late-pencils-and-joins.cnf"
+]
