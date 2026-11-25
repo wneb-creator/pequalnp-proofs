@@ -56,13 +56,13 @@
   },
   {
     "source": "results/orch/lemmas/DeletionFifteen.lean",
-    "sha256": "e490e5b9a63122225299d301cfd84d648ffd7d870236745bb03d90928da18848",
-    "bytes": 2354
+    "sha256": "54f49459e9d9b83e5a258263f14e6d08a00a9965b2a9e7253142d9f572833730",
+    "bytes": 2318
   },
   {
     "source": "results/orch/lemmas/BinarySeventeen.lean",
-    "sha256": "c77093e886aaee3e6dcc88459b4ef32712997ebf1e5c6dfee2cb199942cfc102",
-    "bytes": 1596
+    "sha256": "3cf9fd3220e8a06e1567c2304cd5241c873f3238a8bf1713b28a207b1e52ca99",
+    "bytes": 1763
   },
   {
     "source": "results/orch/lemmas/SeventeenCorollaries.lean",

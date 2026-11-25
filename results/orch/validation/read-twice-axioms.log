@@ -1,0 +1,21 @@
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.collapsed_primary_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.primaryReads_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.least_primaryReads_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.primary_origin_unary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.least_petersen_singleton_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.least_sixteen_three_singletons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.least_seventeen_two_singletons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.origin_gate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.binary_read_slot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.origin_reaches_slot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.internal_productive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceCollapse.collapsed_primary_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

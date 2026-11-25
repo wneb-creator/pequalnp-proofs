@@ -1,0 +1,90 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 20 seconds real time (due to '-t 20')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-101/counterexample/star-sums-triangle-positive9.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-101/counterexample/star-sums-triangle-positive9.cnf'
+c found 'p cnf 3735 52881' header
+c parsed 52881 clauses in 0.02 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c *  0.02  9  0 0   0    0    0  0% 0 52872 3726 100%
+c {  0.02  9  0 0   0    0    0  0% 0 52872 3726 100%
+c i  0.02  9 115 0   0  136   88 63% 12 52872 3725 100%
+c i  0.02  9 107 0   0  157  103 64% 10 52872 3724 100%
+c i  0.02  9 96 0   0  185  124 64% 9 52872 3723 100%
+c i  0.03  9 92 0   0  201  139 64% 8 52872 3722 100%
+c -  0.03  9 66 1   0  310  230 61% 7 49733 3722 100%
+c }  0.03  9 66 1   0  310  230 61% 7 49733 3722 100%
+c 1  0.03  9 66 1   0  310  230 61% 7 49733 3722 100%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-101/counterexample/star-sums-triangle-positive9.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.02   99.56% search
+c         0.02   80.56% parse
+c         0.01   73.65% unstable
+c         0.00   25.74% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.02   54.31% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               132        42.58 %  of conflicts
+c conflicts:                   310     16591.74    per second
+c decisions:                  1578     84457.29    per second
+c fixed:                        13         0.35 %  of all variables
+c learned:                     239        77.10 %  per conflict
+c learned_lits:               5152       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    275         5.34 %  learned literals
+c minishrunken:                801        15.55 %  learned literals
+c otfs:                          0         0.00 %  of conflict
+c propagations:              71942         3.85 M  per second
+c subsumed:                      5         0.01 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.03    seconds
+c total real time since initialization:            0.03    seconds
+c maximum resident set size of process:            9.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

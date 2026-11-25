@@ -1,0 +1,10 @@
+'PEqualNP.Outside.L_meta_2592_aux.SingleUseAny.costs_zero_around_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SingleUseAny.no_single_use' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SingleUseAny.left_operand_twice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SingleUseAny.right_operand_twice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

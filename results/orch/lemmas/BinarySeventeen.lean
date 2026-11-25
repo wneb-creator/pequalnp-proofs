@@ -20,6 +20,8 @@ theorem binary_floor (C : Circuit) (fan : FanInTwo C)
   have costs (v : Fin 10) :
       FirstMerge.cutCost (List.ofFn (fun i : Fin 10 => some i.val)) v.val D.gates ≤ 1 := by
     rw [cutCost_eq]
+    change PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.cutCost
+      (PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.initialOrigins 10) v.val D.gates ≤ 1
     have floor := DeletionFifteen.cut_floor D fanD correctD v
     change 15 + _ ≤ nonNotCount gs at floor
     omega

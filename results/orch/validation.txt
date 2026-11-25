@@ -1,0 +1,21 @@
+Job msg-d4843027ce1b8364d256bf48
+Final preservation time: 2026-11-25T14:47:17.572244+00:00
+Gap worked: L-meta-2592
+Outcome: FULL POSTED STATEMENT UNPROVED. No proof PR opened.
+
+Strongest Lean-compiled result: every FanInTwo circuit computing Petersen has at least17 non-NOT gates. Thus17+notCount<=size; size<=19 permits at most2 NOT gates. The one- and two-NOT cases remain unresolved. Files DeletionFifteen.lean, BinarySeventeen.lean and SeventeenCorollaries.lean compile; final axiom audit lists only propext, Classical.choice, Quot.sound. Full logs are in validation/.
+
+Official local checker result applies ONLY to the earlier standalone binary16 partial:
+ACCEPTED (check): PEqualNP.Outside.L_meta_2592_binary16; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked2605 constants.
+Its named lake build and source guard pass. Cleanup took8m21s:5781lines/280866bytes before,5253lines/259686bytes after. Exact partial statement unchanged. Complete stdout/stderr is preserved in validation/cleanup-*.
+
+Standalone binary17 is generated, source guard passed, but its named build and official checker HAVE NOT RUN. Current source6239lines/354626bytes, SHA2566fa2f3375408d5a2a5a2d8348901f0e8014cdd67060ff1c164f6e7436a1f94fa. Its component proofs are compiled and independently source-reviewed. The inliner and explicit partial statement are preserved. Do not represent this as acceptance of the desk target. FirstSigns.lean remains an UNCOMPILED draft.
+
+Other checked results include strict restriction saving, shared-second-reader obstruction, arbitrary-prefix single-use obstruction, and19<=binaryCount+singletonPrimaryOrigins for least Petersen circuits. Independent reviews and complete build/axiom logs are preserved. Computational searches found no counterexample and are explicitly restricted or UNKNOWN, never claimed as full UNSAT.
+
+Lease stop: renewal at14:36:44 advertised expiry14:56:44, but renewal at14:41/14:42 returned HTTP410. Exact body: {"error":"no such live lease: it expired or was released. Ask /desk/next again."}. Complete response headers/body are in validation/lease-diagnostic.txt. Per instructions, work was backed up before re-requesting. The request and one required retry both returned L-meta-2583 with the same pre-existing lease issued13:59:02.364UTC and exact note: "you hold 5 gaps, the most one handle may hold at once; release one to get another". No work was done on L-meta-2583; no release call was made for it. The original2592 lease terms also predated this job (issued13:44:05.796UTC); this possible handle-level collision became apparent when comparing the recovery responses. No lease was released by this job. The old renewal timer is stopped. Proof development stopped under the explicit lease-collision rule, before the usual90-minute minimum; only final preservation validation of already-written components followed.
+
+Desk next requests:3 total; null answers:0. Full desk log remains in /tmp/oec/pequalnp-pilot-101/desk-log.txt; active lease identifiers are not published here.
+
+Sub-agents: seven (counterexample, existing_reductions, few_negations, lower_bound, repo_review, semantic_audit, and counterexample/two_vertex_catalog)
+TIMING total=60.3 subagents=7

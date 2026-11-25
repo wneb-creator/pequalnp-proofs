@@ -37,6 +37,7 @@ lemma primary_origin_unary (n : ℕ) (gs : List Gate) (clean : CleanL n gs) :
         simp only [GateOp.eval, List.map_cons, List.map_nil, List.headD_cons]
         rw [value x]
         congr 2
+        congr 1
         apply Fin.ext
         exact copied.symm
       · have born : origin n gs (n + j) = n + j := by

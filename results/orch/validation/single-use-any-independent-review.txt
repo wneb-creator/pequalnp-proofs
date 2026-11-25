@@ -1,0 +1,17 @@
+Independent semantic review 2026-11-25 14:45:19 UTC
+Reviewer: semantic_audit
+Source: results/orch/lemmas/SingleUseAny.lean
+SHA256: e9be0749a3924c702a5d4518c026bbfa178e78e92a438ea9b66e1f087cbfe6e9
+Lines: 134
+Verdict: PASS for this standalone partial lemma module. This is not the posted theorem.
+
+Checked the four declarations against their stated mathematical hypotheses.
+- costs_zero_around_reader: cutCost additivity and the non-NOT reader charge1 force both nonnegative surrounding costs to0 from total cost<=1.
+- no_single_use: the arbitrary prefix is handled by the derived zero prefix cost. Agreement outside the chosen primary-origin chain propagates through prefix, the canalizing gate equalizes the chosen probe pair, and zero suffix cost propagates equality to every output without that origin. Correctness forces the Petersen output origin to be none, giving a contradiction on the separating probe. No assumption that prior gates are NOT remains.
+- left_operand_twice/right_operand_twice: exact binary AND/OR shape and signed distinct-primary values supply canalization. The appropriate operand-origin hypothesis supplies readsOrigin. Their conclusion is cutCost>=2 for that primary origin, counting reader gates. The right wrapper correctly reverses the input-variable order.
+
+No unsupported semantic strengthening found. The theorem still explicitly assumes the signed-factor or signed-operand hypotheses and total Petersen correctness; it does not assert that arbitrary computed operands are signed primary literals.
+
+Author's final compile completed exit0 with empty full stdout/stderr. The reviewer independently inspected the frozen source and complete axiom report; a redundant compile was not run. Preserved build output: single-use-any-reviewed-build.log. Preserved axiom output: single-use-any-reviewed-axioms.log. All four declarations use only propext, Classical.choice, and Quot.sound.
+
+Source format scan: no sorry, axiom declarations, native_decide, root marker, quoted strings, attributes, or option commands. The import is a local partial-module dependency; final posted-proof submission would require the established standalone assembly workflow. No changes to the frozen source were made.

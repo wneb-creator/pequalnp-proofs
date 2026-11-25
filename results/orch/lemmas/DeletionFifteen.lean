@@ -17,8 +17,6 @@ lemma deletion_floor (C : Circuit) (fan : FanInTwo C)
       nonNotCount C.gates := by
     unfold nonNotCount
     congr 1
-    funext g
-    cases g.op <;> rfl
   obtain ⟨k, S, bound, run, raw⟩ := PEqualNP.Outside.L_meta_5236.raw_signed C fan
     (by rw [countEq]; omega) correct
   rw [PEqualNP.Outside.L_meta_5236.orbitAllInputs run raw] at run

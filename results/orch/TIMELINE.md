@@ -38,3 +38,5 @@
 - 2026-11-25 14:37:33 UTC: semantic_audit independently audited counterexample search sources/report and full candidate validation; PASS within explicitly restricted experimental scope.
 
 - 2026-11-25 14:41:24 UTC: semantic_audit: final singleton-v1 SAT900s UNKNOWN; all owned searches complete; star-sums restricted experiment independently reviewed PASS.
+
+2026-11-25T14:47:17.572244+00:00 Final preservation:17-binary components compiled and axiom-audited; standalone17 unbuilt. Proof work stopped after410 and repeated old-lease response; no lease released.

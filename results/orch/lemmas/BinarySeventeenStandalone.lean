@@ -6097,8 +6097,6 @@ lemma deletion_floor (C : Circuit) (fan : FanInTwo C)
       nonNotCount C.gates := by
     unfold nonNotCount
     congr 1
-    funext g
-    cases g.op <;> rfl
   obtain ⟨k, S, bound, run, raw⟩ := PEqualNP.Outside.L_meta_2592_binary17_aux.DeletionCertificate.raw_signed C fan
     (by rw [countEq]; omega) correct
   rw [PEqualNP.Outside.L_meta_2592_binary17_aux.DeletionCertificate.orbitAllInputs run raw] at run
@@ -6155,6 +6153,8 @@ theorem binary_floor (C : Circuit) (fan : FanInTwo C)
   have costs (v : Fin 10) :
       FirstMerge.cutCost (List.ofFn (fun i : Fin 10 => some i.val)) v.val D.gates ≤ 1 := by
     rw [cutCost_eq]
+    change PEqualNP.Outside.L_meta_2592_binary17_aux.Elimination.CircuitProof.cutCost
+      (PEqualNP.Outside.L_meta_2592_binary17_aux.Elimination.CircuitProof.initialOrigins 10) v.val D.gates ≤ 1
     have floor := DeletionFifteen.cut_floor D fanD correctD v
     change 15 + _ ≤ nonNotCount gs at floor
     omega

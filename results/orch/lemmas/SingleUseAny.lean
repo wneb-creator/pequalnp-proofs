@@ -16,7 +16,7 @@ lemma costs_zero_around_reader (origins : List (Option ℕ)) (u : ℕ)
     cutCost origins u pre = 0 ∧
       cutCost (originStep (pre.foldl originStep origins) g) u post = 0 := by
   rw [cutCost_append] at cost
-  simp only [cutCost, cutCharge, notFlag, reads, Bool.false_eq_true, Bool.true_eq,
+  simp only [cutCost, cutCharge, notFlag, reads, Bool.false_eq_true,
     ↓reduceIte] at cost
   omega
 
@@ -72,5 +72,63 @@ lemma no_single_use (C : Circuit) (pre post : List Gate) (g : Gate)
   change petersen (probe u v w false b) = petersen (probe u v w true b) at eq
   rw [hw,hw] at eq
   cases eq
+
+lemma left_operand_twice (C : Circuit) (pre post : List Gate) (g : Gate)
+    (split : C.gates = pre ++ g :: post)
+    (shape : g.op = .and ∨ g.op = .or) (a b : ℕ) (inputs : g.inputs = [a, b])
+    (u v : Fin 10) (different : u ≠ v) (sa sb : Bool)
+    (origin : (pre.foldl originStep (List.ofFn fun i : Fin 10 => some i.val)).getD a none = some u.val)
+    (valueA : ∀ x : Fin 10 → Bool,
+      (pre.foldl gateStep (List.ofFn x)).getD a false = if sa then !(x u) else x u)
+    (valueB : ∀ x : Fin 10 → Bool,
+      (pre.foldl gateStep (List.ofFn x)).getD b false = if sb then !(x v) else x v)
+    (correct : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) :
+    2 ≤ cutCost (List.ofFn fun i : Fin 10 => some i.val) u.val C.gates := by
+  by_contra! small
+  have flag : isNotGate g.op = false := by
+    rcases shape with op | op <;> simp [isNotGate, op]
+  have read : readsOrigin
+      (pre.foldl originStep (List.ofFn fun i : Fin 10 => some i.val)) u.val g = true := by
+    apply List.any_eq_true.mpr
+    refine ⟨a, by simp [inputs], ?_⟩
+    exact decide_eq_true origin
+  have canal : ∃ z : Bool, ∀ x : Bool,
+      g.op.eval [if sa then !x else x, if sb then !z else z] =
+        g.op.eval [if sa then !false else false, if sb then !z else z] := by
+    rcases shape with op | op <;> rw [op] <;> cases sa <;> cases sb <;> decide
+  apply no_single_use C pre post g split flag u v different
+    (fun x y => g.op.eval [if sa then !x else x, if sb then !y else y])
+    canal ?_ read (by omega) correct
+  intro x
+  simp only [inputs, List.map_cons, List.map_nil, valueA, valueB]
+
+lemma right_operand_twice (C : Circuit) (pre post : List Gate) (g : Gate)
+    (split : C.gates = pre ++ g :: post)
+    (shape : g.op = .and ∨ g.op = .or) (a b : ℕ) (inputs : g.inputs = [a, b])
+    (u v : Fin 10) (different : u ≠ v) (sa sb : Bool)
+    (origin : (pre.foldl originStep (List.ofFn fun i : Fin 10 => some i.val)).getD b none = some v.val)
+    (valueA : ∀ x : Fin 10 → Bool,
+      (pre.foldl gateStep (List.ofFn x)).getD a false = if sa then !(x u) else x u)
+    (valueB : ∀ x : Fin 10 → Bool,
+      (pre.foldl gateStep (List.ofFn x)).getD b false = if sb then !(x v) else x v)
+    (correct : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) :
+    2 ≤ cutCost (List.ofFn fun i : Fin 10 => some i.val) v.val C.gates := by
+  by_contra! small
+  have flag : isNotGate g.op = false := by
+    rcases shape with op | op <;> simp [isNotGate, op]
+  have read : readsOrigin
+      (pre.foldl originStep (List.ofFn fun i : Fin 10 => some i.val)) v.val g = true := by
+    apply List.any_eq_true.mpr
+    refine ⟨b, by simp [inputs], ?_⟩
+    exact decide_eq_true origin
+  have canal : ∃ z : Bool, ∀ x : Bool,
+      g.op.eval [if sa then !z else z, if sb then !x else x] =
+        g.op.eval [if sa then !z else z, if sb then !false else false] := by
+    rcases shape with op | op <;> rw [op] <;> cases sa <;> cases sb <;> decide
+  apply no_single_use C pre post g split flag v u different.symm
+    (fun x y => g.op.eval [if sa then !y else y, if sb then !x else x])
+    canal ?_ read (by omega) correct
+  intro x
+  simp only [inputs, List.map_cons, List.map_nil, valueA, valueB]
 
 end PEqualNP.Outside.L_meta_2592_aux.SingleUseAny
