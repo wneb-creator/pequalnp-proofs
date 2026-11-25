@@ -1,0 +1,22 @@
+Independent recovery audit of current reduction
+
+UTC: 2026-11-25T23:25:44.890588+00:00
+Source: lean/PEqualNP/Outside/R_meta_2583_1.lean
+SHA256: f1e528bea1a62990af70b5539a3a379eef11d220a365be0b9e9d5e905690addd
+Bytes: 3929
+
+Verdict: PASS as a checked reduction artifact; NOT an eligible desk submission and NOT a full proof or refutation.
+
+- Read current source and repository CONTRIBUTING.md, README.md, Outside/README.md.
+- Exact final conclusion byte-equals the supplied posted statement.txt after stripping outside whitespace.
+- Exactly one theorem; no helper declarations, namespaces, instances, or attributes.
+- Three closed propositions are the only theorem parameters. The lower and upper children do not depend on normalize or each other; all q,N,I,C variables and DecidableRel instances are bound locally.
+- normalize supplies an equivalent size-nonincreasing D whose AND operands are separated by the two input colors. lower applies to this D; upper yields a ReadK1 E. The final size argument is E.size <= N*(q+2)-1 <= D.size <= C.size. It does not assume the posted statement itself.
+- Current child line-cardinality forms use Fintype.card of a subtype. The posted conclusion retains the original Finset.filter.card text. hLcard proves the conversion using Fintype.card_subtype; this is the only necessary adapter and does not add a premise.
+- Fresh outside-guard imports command (kind reduce) PASS, including plain-file and own-namespace checks. Log recovery-reduction-plain-guard.log.
+- Fresh import of the built module and print-axioms PASS: only propext, Classical.choice, Quot.sound. Log recovery-reduction-axioms.log.
+- No forbidden source markers (_root_, sorry, native_decide, double quotes, #, execution declarations). Only allowed Mathlib + PEqualNP.Defs imports. Plain UTF-8 file, 3929 bytes, below 512 KiB.
+- Prior official full verifier log reduction-checker-v2.log reports ACCEPTED (reduce), three children, kernel rechecked 1715 constants; current source hash matches its manifest.
+- Desk guard refusal remains independent and binding: no reductions:true on L-meta-2583. No alteration of gap data or eligibility is authorized by this review.
+
+Known mathematical status: normalize is OPEN. The precise lower and upper child types have separately checked proofs in ExactLowerChildV2.lean and ExactUpperChildV2.lean. Their existence cannot discharge normalize.

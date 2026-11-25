@@ -1,4 +1,4 @@
-L-meta-2583 research status; no final theorem or submission checker acceptance yet.
+L-meta-2583 research status: no full target proof or refutation. A reduction passes the mathematical checker but is desk-ineligible; see latest update below.
 
 Pinned Lean v4.36.0; full prebuilt Mathlib cache; PEqualNP.Defs build PASS.
 Geometry.lean: root build PASS; independent build and standard-axiom audit PASS.
@@ -42,3 +42,11 @@ At-most SAT encoder: canonical24-in25 and21-in22 controls PASS, exhaustive truth
 Formal checklemma executable built successfully. No final submission exists yet.
 Sub-agents: 9 external helpers, 2 local support/audit agents, 51 helper descendants reported (62 total).
 TIMING total=85.7 subagents=62
+
+2026-11-25T23:30:21.025006+00:00 progress update
+The three-child reduction R_meta_2583_1.research.lean is archived research only. Source SHA f1e528bea1a62990af70b5539a3a379eef11d220a365be0b9e9d5e905690addd. At authoritative path on upstream9e532759: named lake build PASS; official checker ACCEPTED (reduce), standard3,1715kernel constants. Exact conclusion and plain/import/own-namespace independent review PASS. Desk eligibility REFUSED: posted L-meta-2583 row lacks reductions:true. The reduction cannot be submitted under current desk rules. No FINAL/PR/lease release.
+Child1 size-preserving operand separation OPEN. ExactLowerChildV2 and ExactUpperChildV2 prove the verbatim other two child types, builds and standard3 audits PASS. These do not prove child1 or the target.
+RefutationBridge.lean SHA0321cd3d5f5049052b0cb5e00b3f221fee2875f8daff06c8f6332feef192177c: fresh independent compile and four endpoint axiom audits PASS; only standard3. Exact posted negation appears in conditional conclusions; assumptions include actualC size<=63 and positive/negative packed checks. Packed geometry exhaustively checked169positive and8192negative point subsets. No satisfying candidate has been found.
+Environment transition stopped pending SAT processes around23:20; preserved old full logs. Only earlier unrestricted core23 and stripped20 completed their time limits UNKNOWN. Restarted ordered-at-most and sat-mode active-used core23 searches, each3000seconds. No SAT or UNSAT claim.
+Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
+TIMING total=112.0 subagents=67

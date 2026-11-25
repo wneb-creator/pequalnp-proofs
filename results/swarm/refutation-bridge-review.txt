@@ -1,0 +1,19 @@
+Independent recovery review of RefutationBridge.lean
+
+UTC: 2026-11-25T23:27:29.197287+00:00
+SHA256: 0321cd3d5f5049052b0cb5e00b3f221fee2875f8daff06c8f6332feef192177c
+Bytes: 174928
+Build: PASS, recovery-refutation-bridge-build-v3.log
+Axioms: PASS for q3_columns, q3_unique, refute_of_chunks, refute_of_eight_chunks; only propext, Classical.choice, Quot.sound. Complete log recovery-refutation-bridge-axioms.log.
+
+The bridge is conditional. It does NOT refute the gap without a concrete AO2 circuit C of size <=63 satisfying all packed checks.
+
+Both concluding negated statements byte-equal the posted statement.txt under negation. The positive check includes all169 point-line pairs. The eight1024-bit negative checks cover all8192 point subsets, paired with every line avoiding that subset. Their role is made explicit by the built monotonicity/boundary certificate lemmas. The q3 incidence matrix is the root search lex-normalized F3 projective order: first masks1170,113,2584,4372; all13 masks independently regenerated and compared. Python separately checked all26 bit input words on all169 positive and8192 negative rows (recovery-refutation-packed-audit.json).
+
+The proof applies the exact target to q=3,N=13,I,C, obtains ReadK1 D of size<=C.size, and contradicts the checked ReadK1 bound64<=D.size. It uses the joint IsReadK condition from PEqualNP.Defs.
+
+Only allowed Mathlib+Defs imports. All helper declarations stay below the target namespace. No forbidden tokens. File is below512KiB. Plain guard on this intentionally partial library reports only the expected missing final top-level theorem; see recovery-refutation-partial-guard.log.
+
+The interrupted original source failed a fresh build at refute_of_eight_chunks due the default200000-heartbeat limit. The only source edit was two permitted declaration-local limit lines above that helper: maxRecDepth100000, maxHeartbeats10000000. Fresh full compile then passed.
+
+Candidate integration: append a concrete Circuit definition and nine kernel-decide checks inside the existing target namespace, then a single top-level theorem PEqualNP.Outside.L_meta_2583 with the exact negated target, applying refute_of_eight_chunks. Run the full official refute checker; do not treat this conditional bridge as final.
