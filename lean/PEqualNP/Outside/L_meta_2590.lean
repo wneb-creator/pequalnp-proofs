@@ -15,6 +15,7 @@ import Mathlib.Data.Fin.Basic
 import Mathlib.Data.Fintype.Fin
 import Mathlib.Data.Fintype.Powerset
 
+
 namespace PEqualNP.Outside.L_meta_2590
 
 namespace DAGBridge.DagTools
@@ -3200,7 +3201,6 @@ lemma five_gate_target_exclusion {D : Dag} (hS : Strict 10 D)
 
 end OnceActualLabels
 
-
 namespace SupportCount
 
 lemma target_card_le_intermediate_card
@@ -3288,7 +3288,6 @@ lemma six_le_counted_add_free
   omega
 
 end SupportCount
-
 
 namespace SupportBirth
 
@@ -3741,7 +3740,6 @@ lemma dirty_seed {D : Dag} (hS : Strict 10 D) {g : ℕ}
 
 end S18Prefix
 
-
 namespace S18Budget
 
 open DAGBridge.DagTools OnceResource.IndexCopies OnceActualSchedule
@@ -3766,7 +3764,6 @@ lemma continuation_capacity {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
   exact (continuation_readCount_le_fanout D g w).trans (zero_fanout_le_one hS hB hw)
 
 end S18Budget
-
 
 namespace S18Resource
 
@@ -4077,7 +4074,6 @@ end ZeroTransitions
 
 end S18Resource
 
-
 namespace S18Geometry
 
 open OnceGeometry
@@ -4201,7 +4197,6 @@ lemma prune_group_pairMasks {s : State} {g : Fin 4} (hg : s.1.testBit g.val = fa
   rw [prune_leftPool hg, prune_rightPool hg]
 
 end S18Resource
-
 
 namespace S18Positive
 
@@ -4464,7 +4459,6 @@ lemma filter_candidate {used : ℕ} {ps : List ℕ} {m : ℕ}
 
 end S18Positive
 
-
 namespace S18Resource
 
 lemma set_getD_self (xs : List ℕ) (i d : ℕ) : xs.set i (xs.getD i d) = xs := by
@@ -4570,7 +4564,6 @@ lemma positive_filter_step {s : State} {k carrier : ℕ}
   exact rep_mark_prune hp hT 4 _
 
 end S18Positive
-
 
 namespace S18Simulation
 
@@ -4702,7 +4695,6 @@ lemma program_target_excluded {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ
 
 end S18Simulation
 
-
 namespace S18Simulation
 
 open S18Geometry
@@ -4722,7 +4714,6 @@ def ProgramSemantics (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
       M (start + t) = M (A (start + t)) ||| M (B (start + t))
 
 end S18Simulation
-
 
 namespace S18Simulation
 
@@ -4753,7 +4744,6 @@ lemma initial_program_inv (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
     contradiction
 
 end S18Simulation
-
 
 namespace S18Positive
 
@@ -5019,7 +5009,6 @@ lemma semantic_callback {S : Nat → Finset (Fin 10)} {M A B : Nat → Nat}
 
 end S18Simulation
 
-
 namespace S18Simulation
 
 open S18Resource S18Positive OnceGeometry OnceActualSchedule
@@ -5056,7 +5045,6 @@ lemma actual_target_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
     (final_output_available hS hg (start g + remaining D g)) hout.1 hout.2
 
 end S18Simulation
-
 
 namespace S18ActualLabels
 open DAGBridge.DagTools OnceGeometry
@@ -5275,15 +5263,12 @@ lemma six_gate_target_exclusion {D : Dag} (hS : Strict 10 D)
 
 end S18ActualLabels
 
-
-
 namespace S18Structural
 
 -- Checked helper lemmas; the final gap theorem is not declared.
 
 -- Circuit normalization and wire counting, adapted from L_meta_971.
 namespace DagTools
-
 
 def gop : Bool → Bool → Bool → Bool
   | true, a, b => a && b
@@ -5332,8 +5317,6 @@ def surplusOn (D : Dag) (K : Finset ℕ) : ℕ := ∑ w ∈ K, (fanout D w - 1)
 
 def inner (n : ℕ) (D : Dag) : Finset ℕ := Finset.range (n + D.length - 1)
 
-def totalSurplus (n : ℕ) (D : Dag) : ℕ := surplusOn D (inner n D)
-
 def Bplus (n : ℕ) (D : Dag) : ℕ :=
   surplusOn D ((inner n D).filter (fun w => (supp n D w).Nonempty))
 
@@ -5367,9 +5350,6 @@ def sources (n : ℕ) (K : Finset ℕ) : Finset ℕ := K.filter (fun w => w < n)
 
 def carrierT (n : ℕ) (D : Dag) (T : Finset (Fin n)) : Finset ℕ :=
   (Finset.range (n + D.length)).filter (fun w => (supp n D w ∩ T).Nonempty)
-
-def carrierDiff (n : ℕ) (D : Dag) (x y : Fin n) : Finset ℕ :=
-  (Finset.range (n + D.length)).filter (fun w => x ∈ supp n D w ∧ y ∉ supp n D w)
 
 def PureBranch (n : ℕ) (D : Dag) (b : Fin n → ℕ) : Prop :=
   ∀ v ∈ eligSet n D, 2 ≤ fanout D (b v) ∧ supp n D (b v) = {v}
@@ -5453,11 +5433,6 @@ lemma val_ge (D : Dag) {n : ℕ} (x : Fin n → Bool) (w : ℕ) (h : n + D.lengt
   unfold val
   exact getD_ge _ _ (by rw [wl_length]; simpa using h)
 
-lemma val_take (D : Dag) {n : ℕ} (x : Fin n → Bool) (k w : ℕ) (hw : w < n + k)
-    (hk : k ≤ D.length) : val (D.take k) x w = val D x w := by
-  unfold val
-  exact wl_take_getD D _ k w (by simpa using hw) hk
-
 lemma val_gate {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (j : ℕ)
     (hj : j < D.length) :
     val D x (n + j) = gop (tag D j) (val D x (opA D j)) (val D x (opB D j)) := by
@@ -5467,21 +5442,6 @@ lemma val_gate {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (j : �
   unfold val
   rw [h, wl_take_getD D _ j _ (by simpa using ha) hj.le,
     wl_take_getD D _ j _ (by simpa using hb) hj.le]
-
-lemma val_unique {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (f : ℕ → Bool)
-    (hin : ∀ i (h : i < n), f i = x ⟨i, h⟩)
-    (hg : ∀ j, j < D.length → f (n + j) = gop (tag D j) (f (opA D j)) (f (opB D j))) :
-    ∀ w, w < n + D.length → val D x w = f w := by
-  intro w
-  induction w using Nat.strong_induction_on with
-  | _ w ih =>
-    intro hw
-    by_cases hn : w < n
-    · rw [val_input D x w hn, hin w hn]
-    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
-      have hj : j < D.length := by omega
-      obtain ⟨ha, hb, -⟩ := hS j hj
-      rw [val_gate hS x j hj, hg j hj, ih _ ha (by omega), ih _ hb (by omega)]
 
 section SurplusFlow
 
@@ -5516,18 +5476,6 @@ lemma sb_card_arcs_filter (P : ℕ × Bool → Prop) [DecidablePred P] :
   refine Finset.sum_congr rfl (fun j _ => ?_)
   rw [Fintype.sum_bool, add_comm]
 
-lemma sb_card_arcs : (arcs D).card = 2 * D.length := by
-  simp [arcs, Finset.card_product, Nat.mul_comm]
-
-lemma sb_src_lt (hS : Strict n D) (e : ℕ × Bool) (he : e ∈ arcs D) :
-    src D e + 1 < n + D.length := by
-  obtain ⟨j, c⟩ := e
-  have hj : j < D.length := by simpa [arcs] using he
-  have := hS j hj
-  cases c
-  · rw [sb_src_false]; omega
-  · rw [sb_src_true]; omega
-
 lemma sb_fanout_arcs (hS : Strict n D) (w : ℕ) :
     fanout D w = ((arcs D).filter (fun e => src D e = w)).card := by
   rw [sb_card_arcs_filter, fanout, readers, Finset.card_filter]
@@ -5554,40 +5502,6 @@ lemma sb_surplus_add_card {K : Finset ℕ} (hL : ∀ w ∈ K, 1 ≤ fanout D w) 
     surplusOn D K + K.card = ∑ w ∈ K, fanout D w := by
   rw [surplusOn, Finset.card_eq_sum_ones, ← Finset.sum_add_distrib]
   exact Finset.sum_congr rfl (fun w hw => Nat.sub_add_cancel (hL w hw))
-
-lemma surplus_identity (h : StrictLive n D) : totalSurplus n D + n = D.length + 1 := by
-  obtain ⟨hS, hL, hne⟩ := h
-  have hpos : 0 < D.length := List.length_pos_iff.mpr hne
-  have h1 : surplusOn D (inner n D) + (inner n D).card = ∑ w ∈ inner n D, fanout D w :=
-    sb_surplus_add_card (fun w hw => hL w (sb_mem_inner.mp hw))
-  have h2 : ∑ w ∈ inner n D, fanout D w = 2 * D.length := by
-    rw [sb_sum_fanout_eq hS, Finset.filter_true_of_mem, sb_card_arcs]
-    intro e he
-    exact sb_mem_inner.mpr (sb_src_lt hS e he)
-  have h3 : (inner n D).card = n + D.length - 1 := Finset.card_range _
-  unfold totalSurplus
-  omega
-
-lemma totalSurplus_split (n : ℕ) (D : Dag) : totalSurplus n D = Bplus n D + Bzero n D := by
-  unfold totalSurplus Bplus Bzero surplusOn
-  exact (Finset.sum_filter_add_sum_filter_not _ _ _).symm
-
-lemma live_reaches_out (h : StrictLive n D) (w : ℕ) (hw : w < n + D.length) :
-    Relation.ReflTransGen (fun a b => b < n + D.length ∧ n ≤ b ∧
-      (opA D (b - n) = a ∨ opB D (b - n) = a)) w (outW n D) := by
-  obtain ⟨hS, hL, -⟩ := h
-  generalize hk : n + D.length - w = k
-  induction k using Nat.strong_induction_on generalizing w with
-  | _ k ih =>
-    by_cases hlast : w + 1 = n + D.length
-    · have hw2 : w = outW n D := by unfold outW; omega
-      rw [hw2]
-    · obtain ⟨j, hj⟩ := Finset.card_pos.mp (hL w (by omega))
-      simp only [readers, Finset.mem_filter, Finset.mem_range] at hj
-      have hs := hS j hj.1
-      refine Relation.ReflTransGen.head (b := n + j) ⟨by omega, by omega, ?_⟩
-        (ih (n + D.length - (n + j)) (by omega) (n + j) (by omega) rfl)
-      simpa using hj.2
 
 lemma mem_supp {v : Fin n} {w : ℕ} : v ∈ supp n D w ↔ val D (single v) w = true := by
   simp [supp]
@@ -5705,46 +5619,6 @@ lemma carrier_flow_union (h : StrictLive n D) (T : Finset (Fin n))
     · exact Or.inl ⟨by omega, v, Finset.mem_inter.mpr ⟨h1, hv.2⟩⟩
     · exact Or.inr ⟨by omega, v, Finset.mem_inter.mpr ⟨h1, hv.2⟩⟩
 
-lemma carrier_flow_diff (h : StrictLive n D) (x y : Fin n) (hxy : x ≠ y)
-    (hout : x ∉ supp n D (outW n D)) :
-    (exitArcs n D (carrierDiff n D x y)).card + (merges n D (carrierDiff n D x y)).card =
-      1 + surplusOn D (carrierDiff n D x y) := by
-  have hsub : carrierDiff n D x y ⊆ inner n D := by
-    intro w hw
-    simp only [carrierDiff, Finset.mem_filter, Finset.mem_range] at hw
-    rw [sb_mem_inner]
-    by_contra hc
-    have hw2 : w = outW n D := by unfold outW; omega
-    rw [hw2] at hw
-    exact hout hw.2.1
-  have hsrc : sources n (carrierDiff n D x y) = {x.val} := by
-    ext w
-    simp only [sources, carrierDiff, Finset.mem_filter, Finset.mem_range, Finset.mem_singleton]
-    constructor
-    · rintro ⟨⟨-, hx, -⟩, hw⟩
-      have hs : supp n D w = {⟨w, hw⟩} := supp_input D ⟨w, hw⟩
-      rw [hs, Finset.mem_singleton] at hx
-      rw [hx]
-    · rintro rfl
-      refine ⟨⟨by have := x.isLt; omega, ?_, ?_⟩, x.isLt⟩
-      · rw [supp_input]; exact Finset.mem_singleton_self x
-      · rw [supp_input, Finset.mem_singleton]; exact fun hc => hxy hc.symm
-  have hfl := carrier_flow h _ hsub (fun j hj hK => ?_)
-  · rw [hsrc, Finset.card_singleton] at hfl; exact hfl
-  · obtain ⟨ha, hb, -⟩ := h.1 j hj
-    simp only [carrierDiff, Finset.mem_filter, Finset.mem_range] at hK ⊢
-    obtain ⟨-, hx, hy⟩ := hK
-    rw [supp_gate h.1 j hj] at hx hy
-    split_ifs at hx hy with ht
-    · rw [Finset.mem_inter] at hx hy
-      by_cases hya : y ∈ supp n D (opA D j)
-      · exact Or.inr ⟨by omega, hx.2, fun hc => hy ⟨hya, hc⟩⟩
-      · exact Or.inl ⟨by omega, hx.1, hya⟩
-    · rw [Finset.mem_union] at hx hy
-      rcases hx with h1 | h1
-      · exact Or.inl ⟨by omega, h1, fun hc => hy (Or.inl hc)⟩
-      · exact Or.inr ⟨by omega, h1, fun hc => hy (Or.inr hc)⟩
-
 lemma mem_units {u : Σ _ : ℕ, ℕ} :
     u ∈ units n D ↔ u.1 ∈ inner n D ∧ u.2 + 1 < fanout D u.1 := by
   rw [units, Finset.mem_sigma, Finset.mem_range]
@@ -5772,19 +5646,6 @@ lemma mem_eligSet {v : Fin n} :
     by_contra hc
     rw [supp_ge D w (by omega)] at hv
     exact Finset.notMem_empty v hv
-
-lemma mem_ineligSet {v : Fin n} :
-    v ∈ ineligSet n D ↔ ∀ w, v ∈ supp n D w → fanout D w ≤ 1 := by
-  rw [ineligSet, Finset.mem_sdiff, mem_eligSet]
-  constructor
-  · rintro ⟨-, h⟩ w hw
-    by_contra hc
-    exact h ⟨w, by omega, hw⟩
-  · intro h
-    refine ⟨Finset.mem_univ v, ?_⟩
-    rintro ⟨w, hw, hv⟩
-    have := h w hv
-    omega
 
 lemma sb_singleton_inter_nonempty {v : Fin n} {T : Finset (Fin n)} :
     (({v} : Finset (Fin n)) ∩ T).Nonempty ↔ v ∈ T := by
@@ -5819,11 +5680,6 @@ lemma reserved_subset (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D
 lemma card_reserved (b : Fin n → ℕ) (hb : PureBranch n D b) :
     (reservedUnits n D b).card = (eligSet n D).card :=
   Finset.card_image_of_injOn (sb_reserved_inj b hb)
-
-lemma elig_le_Bplus (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D b) :
-    (eligSet n D).card ≤ Bplus n D := by
-  rw [← card_reserved b hb, ← card_unitsPlus]
-  exact Finset.card_le_card (reserved_subset hS b hb)
 
 lemma card_residual (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D b) :
     (residualUnits n D b).card + (eligSet n D).card = Bplus n D := by
@@ -5881,189 +5737,7 @@ lemma surplus_carrierT_eq (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch
     Finset.card_image_of_injOn ((sb_reserved_inj b hb).mono
       (Finset.coe_subset.mpr Finset.inter_subset_right))]
 
-lemma surplus_carrierT_le (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D b)
-    (T : Finset (Fin n)) :
-    surplusOn D (carrierT n D T) + (eligSet n D).card ≤
-      (T ∩ eligSet n D).card + Bplus n D := by
-  have h1 := surplus_carrierT_eq hS b hb T
-  have h2 := card_residual hS b hb
-  have h3 := Finset.card_filter_le (residualUnits n D b)
-    (fun u => (supp n D u.1 ∩ T).Nonempty)
-  omega
-
 end SurplusFlow
-
-def liftP {n : ℕ} (σ : Equiv.Perm (Fin n)) (w : ℕ) : ℕ :=
-  if h : w < n then (σ ⟨w, h⟩).val else w
-
-def relabel {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) : Dag :=
-  D.map (fun g => (g.1, liftP σ g.2.1, liftP σ g.2.2))
-
-lemma tr_liftP_lt {n : ℕ} (σ : Equiv.Perm (Fin n)) {w : ℕ} (h : w < n) :
-    liftP σ w = (σ ⟨w, h⟩).val := by
-  simp [liftP, h]
-
-lemma tr_liftP_ge {n : ℕ} (σ : Equiv.Perm (Fin n)) {w : ℕ} (h : n ≤ w) : liftP σ w = w := by
-  simp [liftP, Nat.not_lt.mpr h]
-
-lemma tr_liftP_lt_iff {n : ℕ} (σ : Equiv.Perm (Fin n)) {m : ℕ} (hm : n ≤ m) (w : ℕ) :
-    liftP σ w < m ↔ w < m := by
-  by_cases h : w < n
-  · rw [tr_liftP_lt σ h]
-    have := (σ ⟨w, h⟩).isLt
-    constructor <;> intro <;> omega
-  · rw [tr_liftP_ge σ (Nat.not_lt.mp h)]
-
-lemma liftP_inv {n : ℕ} (σ : Equiv.Perm (Fin n)) (w : ℕ) : liftP σ⁻¹ (liftP σ w) = w := by
-  by_cases h : w < n
-  · rw [tr_liftP_lt σ h, tr_liftP_lt σ⁻¹ (σ ⟨w, h⟩).isLt]; simp
-  · rw [tr_liftP_ge σ (Nat.not_lt.mp h), tr_liftP_ge σ⁻¹ (Nat.not_lt.mp h)]
-
-lemma tr_liftP_inv' {n : ℕ} (σ : Equiv.Perm (Fin n)) (w : ℕ) : liftP σ (liftP σ⁻¹ w) = w := by
-  simpa using liftP_inv σ⁻¹ w
-
-lemma tr_liftP_inj {n : ℕ} (σ : Equiv.Perm (Fin n)) {a b : ℕ} :
-    liftP σ a = liftP σ b ↔ a = b := by
-  refine ⟨fun h => ?_, congrArg _⟩
-  have := congrArg (liftP σ⁻¹) h
-  rwa [liftP_inv, liftP_inv] at this
-
-lemma relabel_length {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) :
-    (relabel σ D).length = D.length := by
-  simp [relabel]
-
-lemma tr_tag {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (j : ℕ) (hj : j < D.length) :
-    tag (relabel σ D) j = tag D j := by
-  rw [tag_eq _ j (by rw [relabel_length]; exact hj), tag_eq D j hj]; simp [relabel]
-
-lemma tr_opA {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (j : ℕ) (hj : j < D.length) :
-    opA (relabel σ D) j = liftP σ (opA D j) := by
-  rw [opA_eq _ j (by rw [relabel_length]; exact hj), opA_eq D j hj]; simp [relabel]
-
-lemma tr_opB {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (j : ℕ) (hj : j < D.length) :
-    opB (relabel σ D) j = liftP σ (opB D j) := by
-  rw [opB_eq _ j (by rw [relabel_length]; exact hj), opB_eq D j hj]; simp [relabel]
-
-lemma relabel_strict {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) :
-    Strict n (relabel σ D) := by
-  intro j hj
-  rw [relabel_length] at hj
-  obtain ⟨ha, hb, hab⟩ := hS j hj
-  rw [tr_opA σ D j hj, tr_opB σ D j hj]
-  exact ⟨(tr_liftP_lt_iff σ (Nat.le_add_right n j) _).mpr ha,
-    (tr_liftP_lt_iff σ (Nat.le_add_right n j) _).mpr hb, fun h => hab ((tr_liftP_inj σ).mp h)⟩
-
-lemma relabel_val {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D)
-    (x : Fin n → Bool) (w : ℕ) :
-    val (relabel σ D) x (liftP σ w) = val D (fun i => x (σ i)) w := by
-  by_cases hw : w < n + D.length
-  · refine (val_unique (relabel_strict σ hS) x
-      (fun w' => val D (fun i => x (σ i)) (liftP σ⁻¹ w')) ?_ ?_ (liftP σ w) ?_).trans ?_
-    · intro i hi
-      show val D (fun i => x (σ i)) (liftP σ⁻¹ i) = x ⟨i, hi⟩
-      rw [tr_liftP_lt σ⁻¹ hi, val_input D _ _ (σ⁻¹ ⟨i, hi⟩).isLt]
-      simp
-    · intro j hj
-      rw [relabel_length] at hj
-      show val D (fun i => x (σ i)) (liftP σ⁻¹ (n + j)) =
-        gop (tag (relabel σ D) j) (val D (fun i => x (σ i)) (liftP σ⁻¹ (opA (relabel σ D) j)))
-          (val D (fun i => x (σ i)) (liftP σ⁻¹ (opB (relabel σ D) j)))
-      rw [tr_liftP_ge σ⁻¹ (Nat.le_add_right n j), tr_tag σ D j hj, tr_opA σ D j hj,
-        tr_opB σ D j hj, liftP_inv, liftP_inv, val_gate hS _ j hj]
-    · rw [relabel_length]; exact (tr_liftP_lt_iff σ (Nat.le_add_right _ _) w).mpr hw
-    · show val D (fun i => x (σ i)) (liftP σ⁻¹ (liftP σ w)) = _
-      rw [liftP_inv]
-  · have hw' := Nat.not_lt.mp hw
-    rw [tr_liftP_ge σ (le_trans (Nat.le_add_right _ _) hw'),
-      val_ge _ _ _ (by rw [relabel_length]; exact hw'), val_ge _ _ _ hw']
-
-lemma relabel_fanout {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (w : ℕ) :
-    fanout (relabel σ D) (liftP σ w) = fanout D w := by
-  unfold fanout readers
-  rw [relabel_length]
-  congr 1
-  apply Finset.filter_congr
-  intro j hj
-  have hj' := Finset.mem_range.mp hj
-  rw [tr_opA σ D j hj', tr_opB σ D j hj', tr_liftP_inj, tr_liftP_inj]
-
-lemma relabel_live {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hL : Live n D) :
-    Live n (relabel σ D) := by
-  rcases eq_or_ne D [] with rfl | hne
-  · exact hL
-  · intro w' hw'
-    rw [relabel_length] at hw'
-    have hpos := List.length_pos_iff.mpr hne
-    rw [← tr_liftP_inv' σ w', relabel_fanout]
-    apply hL
-    by_cases h : w' < n
-    · have := (tr_liftP_lt_iff σ⁻¹ le_rfl w').mpr h
-      omega
-    · rw [tr_liftP_ge σ⁻¹ (Nat.not_lt.mp h)]; exact hw'
-
-lemma relabel_strictLive {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (h : StrictLive n D) :
-    StrictLive n (relabel σ D) :=
-  ⟨relabel_strict σ h.1, relabel_live σ h.2.1, by simpa [relabel] using h.2.2⟩
-
-lemma relabel_out {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) (hne : D ≠ [])
-    (x : Fin n → Bool) :
-    val (relabel σ D) x (outW n (relabel σ D)) = val D (fun i => x (σ i)) (outW n D) := by
-  have hpos := List.length_pos_iff.mpr hne
-  have e : outW n (relabel σ D) = liftP σ (outW n D) := by
-    rw [tr_liftP_ge σ (by unfold outW; omega)]; simp [outW, relabel_length]
-  rw [e, relabel_val σ hS]
-
-lemma tr_single_comp {n : ℕ} (σ : Equiv.Perm (Fin n)) (v : Fin n) :
-    (fun i => single v (σ i)) = single (σ⁻¹ v) := by
-  funext i
-  simp only [single, decide_eq_decide]
-  constructor
-  · intro h; rw [← h]; simp
-  · intro h; rw [h]; simp
-
-lemma relabel_supp {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) (w : ℕ) :
-    supp n (relabel σ D) (liftP σ w) = (supp n D w).image σ := by
-  ext v
-  simp only [supp, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_image]
-  rw [relabel_val σ hS, tr_single_comp]
-  constructor
-  · intro h; exact ⟨σ⁻¹ v, h, by simp⟩
-  · rintro ⟨a, ha, rfl⟩; simpa using ha
-
-lemma relabel_eligSet {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) :
-    eligSet n (relabel σ D) = (eligSet n D).image σ := by
-  ext v
-  simp only [eligSet, Finset.mem_biUnion, Finset.mem_image, branchW, Finset.mem_filter,
-    Finset.mem_range]
-  constructor
-  · rintro ⟨w', ⟨hw', hf⟩, hv⟩
-    obtain ⟨w, rfl⟩ : ∃ w, w' = liftP σ w := ⟨liftP σ⁻¹ w', (tr_liftP_inv' σ w').symm⟩
-    rw [relabel_supp σ hS, Finset.mem_image] at hv
-    obtain ⟨a, ha, rfl⟩ := hv
-    rw [relabel_fanout] at hf
-    rw [relabel_length, tr_liftP_lt_iff σ (Nat.le_add_right _ _)] at hw'
-    exact ⟨a, ⟨w, ⟨hw', hf⟩, ha⟩, rfl⟩
-  · rintro ⟨a, ⟨w, ⟨hw, hf⟩, ha⟩, rfl⟩
-    refine ⟨liftP σ w, ⟨?_, ?_⟩, ?_⟩
-    · rw [relabel_length]; exact (tr_liftP_lt_iff σ (Nat.le_add_right _ _) w).mpr hw
-    · rw [relabel_fanout]; exact hf
-    · rw [relabel_supp σ hS]; exact Finset.mem_image_of_mem _ ha
-
-lemma relabel_ineligSet {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) :
-    ineligSet n (relabel σ D) = (ineligSet n D).image σ := by
-  ext v
-  simp only [ineligSet, relabel_eligSet σ hS, Finset.mem_sdiff, Finset.mem_univ, true_and,
-    Finset.mem_image]
-  constructor
-  · intro h
-    exact ⟨σ⁻¹ v, fun hm => h ⟨σ⁻¹ v, hm, by simp⟩, by simp⟩
-  · rintro ⟨a, ha, rfl⟩ ⟨b, hb, hab⟩
-    exact ha (σ.injective hab ▸ hb)
-
-lemma inelig_card_add (n : ℕ) (D : Dag) : (ineligSet n D).card + (eligSet n D).card = n := by
-  have h := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ (eligSet n D))
-  rw [Finset.card_univ, Fintype.card_fin] at h
-  exact h
 
 def sem_Edge {n : ℕ} (G : Fin n → Fin n → Prop) (x : Fin n → Bool) : Prop :=
   ∃ u v : Fin n, G u v ∧ x u = true ∧ x v = true
@@ -6082,8 +5756,6 @@ def sem_two {n : ℕ} (u z : Fin n) : Fin n → Bool := fun i => decide (i = u) 
 
 def sem_ins {n : ℕ} (v : Fin n) (x : Fin n → Bool) : Fin n → Bool := fun i => decide (i = v) || x i
 
-def sem_ind {n : ℕ} (A : Finset (Fin n)) : Fin n → Bool := fun i => decide (i ∈ A)
-
 lemma sem_rtg_mono {α : Type} {r p : α → α → Prop} (h : ∀ a b, r a b → p a b) {a b : α}
     (hab : Relation.ReflTransGen r a b) : Relation.ReflTransGen p a b := by
   induction hab with
@@ -6098,9 +5770,6 @@ lemma sem_ins_agree (v : Fin n) (x : Fin n → Bool) : ∀ k, k ≠ v → x k = 
   intro k hk; simp [sem_ins, hk]
 
 lemma sem_ins_self (v : Fin n) (x : Fin n → Bool) : sem_ins v x v = true := by simp [sem_ins]
-
-lemma sem_ins_ge (v : Fin n) (x : Fin n → Bool) : ∀ i, x i = true → sem_ins v x i = true := by
-  intro i hi; simp [sem_ins, hi]
 
 lemma sem_single_le {x : Fin n → Bool} {u : Fin n} (hu : x u = true) :
     ∀ i, single u i = true → x i = true := by
@@ -6125,26 +5794,12 @@ lemma sem_supp_or (hS : Strict n D) {j : ℕ} (hj : j < D.length) (ht : tag D j 
     supp n D (n + j) = supp n D (opA D j) ∪ supp n D (opB D j) := by
   rw [supp_gate hS j hj]; simp [ht]
 
-lemma sem_supp_and_sub (hS : Strict n D) {j : ℕ} (hj : j < D.length) (ht : tag D j = true)
-    (s : Bool) : supp n D (n + j) ⊆ supp n D (src D (j, s)) := by
-  rw [sem_supp_and hS hj ht]
-  cases s
-  · rw [sb_src_false]; exact Finset.inter_subset_left
-  · rw [sb_src_true]; exact Finset.inter_subset_right
-
 lemma sem_src_lt (hS : Strict n D) {j : ℕ} (hj : j < D.length) (s : Bool) :
     src D (j, s) < n + j := by
   obtain ⟨ha, hb, -⟩ := hS j hj
   cases s
   · rw [sb_src_false]; exact ha
   · rw [sb_src_true]; exact hb
-
-lemma sem_src_ne (hS : Strict n D) {j : ℕ} (hj : j < D.length) (s : Bool) :
-    src D (j, s) ≠ src D (j, !s) := by
-  obtain ⟨-, -, hne⟩ := hS j hj
-  cases s
-  · simpa [src] using hne
-  · simpa [src] using hne.symm
 
 lemma sem_step_src {j : ℕ} (hj : j < D.length) (s : Bool) :
     sem_step n D (src D (j, s)) (n + j) := by
@@ -6153,19 +5808,6 @@ lemma sem_step_src {j : ℕ} (hj : j < D.length) (s : Bool) :
   cases s
   · exact Or.inl (sb_src_false j).symm
   · exact Or.inr (sb_src_true j).symm
-
-lemma sem_step_iff {a b : ℕ} : sem_step n D a b ↔
-    ∃ j s, j < D.length ∧ b = n + j ∧ src D (j, s) = a := by
-  constructor
-  · rintro ⟨h1, h2, h3 | h3⟩
-    · exact ⟨b - n, false, by omega, by omega, by rw [sb_src_false]; exact h3⟩
-    · exact ⟨b - n, true, by omega, by omega, by rw [sb_src_true]; exact h3⟩
-  · rintro ⟨j, s, hj, rfl, rfl⟩
-    refine ⟨by omega, by omega, ?_⟩
-    rw [Nat.add_sub_cancel_left]
-    cases s
-    · exact Or.inl (sb_src_false j).symm
-    · exact Or.inr (sb_src_true j).symm
 
 lemma sem_step_lt (hS : Strict n D) {a b : ℕ} (h : sem_step n D a b) : a < b := by
   obtain ⟨h1, h2, h3⟩ := h
@@ -6290,9 +5932,6 @@ lemma sem_single_no_edge (hG : sem_Gr G) (v : Fin n) : ¬ sem_Edge G (single v) 
   rw [ha, hc] at hac
   exact hG.2.1 _ hac
 
-lemma sem_two_edge {u v : Fin n} (huv : G u v) : sem_Edge G (sem_two u v) :=
-  ⟨u, v, huv, by simp [sem_two], by simp [sem_two]⟩
-
 lemma sem_supp_out (hG : sem_Gr G) (hC : sem_Comp n G D) : supp n D (outW n D) = ∅ :=
   Finset.eq_empty_iff_forall_notMem.2
     (fun v hv => sem_single_no_edge hG v ((hC _).1 (mem_supp.1 hv)))
@@ -6322,56 +5961,6 @@ lemma sem_dom_pure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) (v : 
   rw [← hout] at h3
   exact h1 ((hC _).mp h3)
 
-lemma sem_first_branch (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) (v : Fin n)
-    (hv : v ∈ eligSet n D) :
-    ∃ b, 2 ≤ fanout D b ∧ supp n D b = {v} ∧ sem_Chain n D v.val b := by
-  classical
-  have hex : ∃ w, 2 ≤ fanout D w ∧ v ∈ supp n D w := mem_eligSet.mp hv
-  obtain ⟨h1, h2⟩ := Nat.find_spec hex
-  have hch : sem_Chain n D v.val (Nat.find hex) :=
-    sem_carrier_chain hS v _ h2 (fun u hu huv => by
-      have := Nat.find_min hex hu
-      by_contra hc
-      exact this ⟨by omega, huv⟩)
-  exact ⟨Nat.find hex, h1, Finset.Subset.antisymm
-    (sem_dom_pure hG hS hC v _ (sem_chain_dom hS hch)) (Finset.singleton_subset_iff.mpr h2), hch⟩
-
-def sem_FirstBranch (n : ℕ) (D : Dag) (b : Fin n → ℕ) : Prop :=
-  ∀ v ∈ eligSet n D, 2 ≤ fanout D (b v) ∧ supp n D (b v) = {v} ∧ sem_Chain n D v.val (b v)
-
-lemma sem_exists_firstBranch (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) :
-    ∃ b : Fin n → ℕ, sem_FirstBranch n D b := by
-  classical
-  have h : ∀ v : Fin n, ∃ b, v ∈ eligSet n D →
-      2 ≤ fanout D b ∧ supp n D b = {v} ∧ sem_Chain n D v.val b := by
-    intro v
-    by_cases hv : v ∈ eligSet n D
-    · obtain ⟨b, hb⟩ := sem_first_branch hG hS hC v hv
-      exact ⟨b, fun _ => hb⟩
-    · exact ⟨0, fun h => absurd h hv⟩
-  choose b hb using h
-  exact ⟨b, fun v hv => hb v hv⟩
-
-lemma sem_firstBranch_pure {b : Fin n → ℕ} (hb : sem_FirstBranch n D b) : PureBranch n D b :=
-  fun v hv => ⟨(hb v hv).1, (hb v hv).2.1⟩
-
-lemma sem_exists_pureBranch (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) :
-    ∃ b : Fin n → ℕ, PureBranch n D b := by
-  obtain ⟨b, hb⟩ := sem_exists_firstBranch hG hS hC
-  exact ⟨b, sem_firstBranch_pure hb⟩
-
-lemma sem_mem_inelig {v : Fin n} : v ∈ ineligSet n D ↔ v ∉ eligSet n D := by
-  simp [ineligSet]
-
-lemma sem_inelig_chain (hS : Strict n D) {v : Fin n} (hv : v ∈ ineligSet n D) {w : ℕ}
-    (hw : v ∈ supp n D w) : sem_Chain n D v.val w :=
-  sem_carrier_chain hS v w hw (fun u _ hu => mem_ineligSet.mp hv u hu)
-
-lemma sem_inelig_pure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) {v : Fin n}
-    (hv : v ∈ ineligSet n D) {w : ℕ} (hw : v ∈ supp n D w) : supp n D w = {v} :=
-  Finset.Subset.antisymm (sem_dom_pure hG hS hC v w (sem_chain_dom hS (sem_inelig_chain hS hv hw)))
-    (Finset.singleton_subset_iff.mpr hw)
-
 lemma sem_mem_carrier1 {v : Fin n} {w : ℕ} : w ∈ carrierT n D {v} ↔ v ∈ supp n D w := by
   simp only [carrierT, Finset.mem_filter, Finset.mem_range]
   constructor
@@ -6386,447 +5975,13 @@ lemma sem_mem_exit1 {v : Fin n} {e : ℕ × Bool} : e ∈ exitArcs n D (carrierT
   simp only [exitArcs, arcs, Finset.mem_filter, Finset.mem_product, Finset.mem_range,
     Finset.mem_univ, and_true, sem_mem_carrier1]
 
-lemma sem_inelig_surplus {v : Fin n} (hv : v ∈ ineligSet n D) :
-    surplusOn D (carrierT n D {v}) = 0 := by
-  unfold surplusOn
-  refine Finset.sum_eq_zero (fun w hw => ?_)
-  have := mem_ineligSet.mp hv w (sem_mem_carrier1.mp hw)
-  omega
-
-lemma sem_joint_meeting (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {u v : Fin n} (huv : G u v) :
-    ∃ j, j < D.length ∧ tag D j = true ∧ val D (sem_two u v) (n + j) = true ∧
-      u ∉ supp n D (n + j) ∧ v ∉ supp n D (n + j) ∧
-      ∃ s : Bool, u ∈ supp n D (src D (j, s)) ∧ v ∉ supp n D (src D (j, s)) ∧
-        v ∈ supp n D (src D (j, !s)) ∧ u ∉ supp n D (src D (j, !s)) := by
-  classical
-  have hex : ∃ w, val D (sem_two u v) w = true ∧ u ∉ supp n D w ∧ v ∉ supp n D w :=
-    ⟨outW n D, (hC _).2 (sem_two_edge huv), by rw [sem_supp_out hG hC]; simp,
-      by rw [sem_supp_out hG hC]; simp⟩
-  obtain ⟨hw1, hw2, hw3⟩ := Nat.find_spec hex
-  have hmin : ∀ a, a < Nat.find hex → val D (sem_two u v) a = true →
-      u ∈ supp n D a ∨ v ∈ supp n D a := by
-    intro a ha hva
-    by_contra hc
-    rw [not_or] at hc
-    exact Nat.find_min hex ha ⟨hva, hc.1, hc.2⟩
-  generalize Nat.find hex = w at hw1 hw2 hw3 hmin
-  have hlt : w < n + D.length := by
-    by_contra hc
-    rw [val_ge D _ w (by omega)] at hw1
-    exact Bool.false_ne_true hw1
-  have hn : n ≤ w := by
-    by_contra hc
-    have hc' : w < n := by omega
-    rw [val_input D _ w hc'] at hw1
-    have hs : supp n D w = {⟨w, hc'⟩} := supp_input D ⟨w, hc'⟩
-    rw [hs, Finset.mem_singleton] at hw2 hw3
-    simp only [sem_two, Bool.or_eq_true, decide_eq_true_eq] at hw1
-    rcases hw1 with h | h
-    · exact hw2 h.symm
-    · exact hw3 h.symm
-  obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
-  have hj : j < D.length := by omega
-  obtain ⟨ha, hb, -⟩ := hS j hj
-  have hval := hw1
-  rw [val_gate hS _ j hj] at hw1
-  rw [supp_gate hS j hj] at hw2 hw3
-  cases ht : tag D j
-  · exfalso
-    rw [ht] at hw1 hw2 hw3
-    simp only [gop_false, Bool.or_eq_true] at hw1
-    simp only [Bool.false_eq_true, ite_false, Finset.mem_union, not_or] at hw2 hw3
-    rcases hw1 with h | h
-    · rcases hmin _ ha h with h' | h'
-      · exact hw2.1 h'
-      · exact hw3.1 h'
-    · rcases hmin _ hb h with h' | h'
-      · exact hw2.2 h'
-      · exact hw3.2 h'
-  · rw [ht] at hw1 hw2 hw3
-    simp only [gop_true, Bool.and_eq_true] at hw1
-    simp only [ite_true, Finset.mem_inter, not_and] at hw2 hw3
-    have hsupp : u ∉ supp n D (n + j) ∧ v ∉ supp n D (n + j) := by
-      rw [sem_supp_and hS hj ht]
-      simp only [Finset.mem_inter, not_and]
-      exact ⟨hw2, hw3⟩
-    refine ⟨j, hj, ht, hval, hsupp.1, hsupp.2, ?_⟩
-    rcases hmin _ ha hw1.1 with hA | hA
-    · have hB : u ∉ supp n D (opB D j) := hw2 hA
-      have hBv : v ∈ supp n D (opB D j) := (hmin _ hb hw1.2).resolve_left hB
-      exact ⟨false, by simpa [src] using hA, by simpa [src] using fun h => hw3 h hBv,
-        by simpa [src] using hBv, by simpa [src] using hB⟩
-    · have hB : v ∉ supp n D (opB D j) := hw3 hA
-      have hBu : u ∈ supp n D (opB D j) := (hmin _ hb hw1.2).resolve_right hB
-      exact ⟨true, by simpa [src] using hBu, by simpa [src] using hB,
-        by simpa [src] using hA, by simpa [src] using fun h => hw2 h hBu⟩
-
-lemma sem_inelig_consumer (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    {v : Fin n} (hv : v ∈ ineligSet n D) :
-    ∃ e : ℕ × Bool, e.1 < D.length ∧ tag D e.1 = true ∧ supp n D (src D e) = {v} ∧
-      supp n D (n + e.1) = ∅ ∧ (∀ a, G v a → a ∈ supp n D (src D (e.1, !e.2))) ∧
-      exitArcs n D (carrierT n D {v}) = {e} ∧ merges n D (carrierT n D {v}) = ∅ := by
-  have hS := h.1
-  have hfl := carrier_flow_union h {v} (by rw [sem_supp_out hG hC]; simp)
-  rw [sem_inelig_surplus hv, Finset.card_singleton] at hfl
-  have hmeet : ∀ a, G v a → ∃ j s, j < D.length ∧ tag D j = true ∧
-      (j, s) ∈ exitArcs n D (carrierT n D {v}) ∧ a ∈ supp n D (src D (j, !s)) := by
-    intro a hva
-    obtain ⟨j, hj, ht, -, hju, -, s, h1, -, h3, -⟩ := sem_joint_meeting hG hS hC hva
-    exact ⟨j, s, hj, ht, sem_mem_exit1.mpr ⟨hj, h1, hju⟩, h3⟩
-  obtain ⟨a0, ha0, -⟩ := hG.2.2.2 v v
-  obtain ⟨j0, s0, hj0, ht0, hm0, -⟩ := hmeet a0 ha0
-  have hcard : (exitArcs n D (carrierT n D {v})).card = 1 := by
-    have := Finset.card_pos.mpr ⟨_, hm0⟩
-    omega
-  have hmer : merges n D (carrierT n D {v}) = ∅ := Finset.card_eq_zero.mp (by omega)
-  obtain ⟨e, he⟩ := Finset.card_eq_one.mp hcard
-  rw [he, Finset.mem_singleton] at hm0
-  subst hm0
-  have hsrc : supp n D (src D (j0, s0)) = {v} :=
-    sem_inelig_pure hG hS hC hv
-      (sem_mem_exit1.mp (by rw [he]; exact Finset.mem_singleton_self _)).2.1
-  have hnot : v ∉ supp n D (n + j0) :=
-    (sem_mem_exit1.mp (by rw [he]; exact Finset.mem_singleton_self _)).2.2
-  refine ⟨(j0, s0), hj0, ht0, hsrc, ?_, ?_, he, hmer⟩
-  · refine Finset.eq_empty_of_forall_notMem (fun x hx => ?_)
-    have hx2 := sem_supp_and_sub hS hj0 ht0 s0 hx
-    rw [hsrc, Finset.mem_singleton] at hx2
-    exact hnot (hx2 ▸ hx)
-  · intro a hva
-    obtain ⟨j, s, -, -, hm, ha⟩ := hmeet a hva
-    rw [he, Finset.mem_singleton] at hm
-    rw [Prod.mk.injEq] at hm
-    obtain ⟨rfl, rfl⟩ := hm
-    exact ha
-
-lemma sem_elig_cover (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    {u v : Fin n} (huv : G u v) : u ∈ eligSet n D ∨ v ∈ eligSet n D := by
-  by_contra hc
-  rw [not_or] at hc
-  obtain ⟨eu, -, -, -, -, hnu, hxu, -⟩ := sem_inelig_consumer hG h hC (sem_mem_inelig.mpr hc.1)
-  obtain ⟨ev, -, -, hsv, -, -, hxv, -⟩ := sem_inelig_consumer hG h hC (sem_mem_inelig.mpr hc.2)
-  obtain ⟨j, hj, -, -, hju, hjv, s, h1, -, h3, -⟩ := sem_joint_meeting hG h.1 hC huv
-  have m1 : (j, s) ∈ exitArcs n D (carrierT n D {u}) := sem_mem_exit1.mpr ⟨hj, h1, hju⟩
-  have m2 : (j, !s) ∈ exitArcs n D (carrierT n D {v}) := sem_mem_exit1.mpr ⟨hj, h3, hjv⟩
-  rw [hxu, Finset.mem_singleton] at m1
-  rw [hxv, Finset.mem_singleton] at m2
-  subst m1
-  subst m2
-  obtain ⟨a, hua, hav⟩ := hG.2.2.2 u v
-  have h5 : a ∈ supp n D (src D (j, !s)) := hnu a hua
-  rw [hsv, Finset.mem_singleton] at h5
-  exact hav h5
-
-lemma sem_ind_no_edge {A : Finset (Fin n)} (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) :
-    ¬ sem_Edge G (sem_ind A) := by
-  rintro ⟨a, c, hac, ha, hc⟩
-  simp only [sem_ind, decide_eq_true_eq] at ha hc
-  exact hA a ha c hc hac
-
-lemma sem_exposure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) (x : Fin n)
-    (hnb : ∃ a ∈ A, G x a) :
-    ∃ j s, j < D.length ∧ tag D j = true ∧ x ∈ supp n D (src D (j, s)) ∧
-      x ∉ supp n D (n + j) ∧ Disjoint (supp n D (src D (j, s))) A := by
-  by_contra hcon
-  have hmask : ∀ j s, j < D.length → tag D j = true → x ∈ supp n D (src D (j, s)) →
-      x ∉ supp n D (n + j) → val D (sem_ind A) (src D (j, s)) = true ∧
-        val D (sem_ins x (sem_ind A)) (src D (j, s)) = true := by
-    intro j s hj ht h1 h2
-    have hnd : ¬ Disjoint (supp n D (src D (j, s))) A :=
-      fun hd => hcon ⟨j, s, hj, ht, h1, h2, hd⟩
-    rw [Finset.not_disjoint_iff] at hnd
-    obtain ⟨a, ha1, ha2⟩ := hnd
-    exact ⟨sem_val_of_supp hS ha1 (by simp [sem_ind, ha2]),
-      sem_val_of_supp hS ha1 (by simp [sem_ins, sem_ind, ha2])⟩
-  have key : ∀ w, x ∉ supp n D w → val D (sem_ind A) w = val D (sem_ins x (sem_ind A)) w := by
-    intro w
-    induction w using Nat.strong_induction_on with
-    | _ w ih =>
-      intro hw
-      by_cases hn : w < n
-      · rw [val_input D _ w hn, val_input D _ w hn]
-        have hs : supp n D w = {⟨w, hn⟩} := supp_input D ⟨w, hn⟩
-        rw [hs, Finset.mem_singleton] at hw
-        exact sem_ins_agree x _ _ (fun hc => hw hc.symm)
-      · by_cases hlt : w < n + D.length
-        · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
-          have hj : j < D.length := by omega
-          obtain ⟨ha, hb, -⟩ := hS j hj
-          rw [val_gate hS _ j hj, val_gate hS _ j hj]
-          cases ht : tag D j
-          · rw [sem_supp_or hS hj ht, Finset.mem_union, not_or] at hw
-            rw [ih _ ha hw.1, ih _ hb hw.2]
-          · have hw2 := hw
-            rw [sem_supp_and hS hj ht, Finset.mem_inter, not_and] at hw2
-            by_cases hxa : x ∈ supp n D (opA D j)
-            · have h1 := hmask j false hj ht (by rw [sb_src_false]; exact hxa) hw
-              rw [sb_src_false] at h1
-              rw [ih _ hb (hw2 hxa), h1.1, h1.2]
-            · by_cases hxb : x ∈ supp n D (opB D j)
-              · have h1 := hmask j true hj ht (by rw [sb_src_true]; exact hxb) hw
-                rw [sb_src_true] at h1
-                rw [ih _ ha hxa, h1.1, h1.2]
-              · rw [ih _ ha hxa, ih _ hb hxb]
-        · rw [val_ge D _ w (by omega), val_ge D _ w (by omega)]
-  have hout := key (outW n D) (by rw [sem_supp_out hG hC]; exact Finset.notMem_empty x)
-  obtain ⟨a, ha, hxa⟩ := hnb
-  have h2 : sem_Edge G (sem_ins x (sem_ind A)) :=
-    ⟨x, a, hxa, sem_ins_self x _, by simp [sem_ins, sem_ind, ha]⟩
-  have h3 := (hC _).mpr h2
-  rw [← hout] at h3
-  exact sem_ind_no_edge hA ((hC _).mp h3)
-
-lemma sem_one_exit_pure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {x : Fin n} {e : ℕ × Bool}
-    (he : exitArcs n D (carrierT n D {x}) = {e}) :
-    supp n D (src D e) = {x} := by
-  have hex : e ∈ exitArcs n D (carrierT n D {x}) := by rw [he]; simp
-  refine Finset.Subset.antisymm ?_ (Finset.singleton_subset_iff.mpr (sem_mem_exit1.mp hex).2.1)
-  intro y hy
-  rw [Finset.mem_singleton]
-  by_contra hyx
-  obtain ⟨z, hxz, hyz⟩ := hG.2.2.1 x y (Ne.symm hyx)
-  have hA : ∀ a ∈ ({y, z} : Finset (Fin n)), ∀ b ∈ ({y, z} : Finset (Fin n)), ¬ G a b := by
-    intro a ha b hb
-    simp only [Finset.mem_insert, Finset.mem_singleton] at ha hb
-    rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
-    · exact hG.2.1 _
-    · exact hyz
-    · exact fun h => hyz (hG.1 _ _ h)
-    · exact hG.2.1 _
-  obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ := sem_exposure hG hS hC {y, z} hA x ⟨z, by simp, hxz⟩
-  have hje : (j, s) = e := by
-    have hm := sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩
-    rwa [he, Finset.mem_singleton] at hm
-  exact Finset.disjoint_left.mp hd (by simpa only [hje] using hy) (by simp)
-
-lemma sem_one_exit_neighbors (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {x : Fin n} {e : ℕ × Bool}
-    (he : exitArcs n D (carrierT n D {x}) = {e}) :
-    ∀ y, G x y → y ∈ supp n D (src D (e.1, !e.2)) := by
-  intro y hxy
-  obtain ⟨j, hj, _, _, hxn, _, s, hxs, _, hys, _⟩ := sem_joint_meeting hG hS hC hxy
-  have hje : (j, s) = e := by
-    have hm := sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩
-    rwa [he, Finset.mem_singleton] at hm
-  simpa only [← hje] using hys
-
-lemma sem_two_exit_other_pure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {x z : Fin n} (hxz : x ≠ z) (hz : z ∈ ineligSet n D)
-    {e f : ℕ × Bool} {S : Finset (Fin n)}
-    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
-    (hf : f ∈ exitArcs n D (carrierT n D {x}))
-    (hSub : S ⊆ supp n D (src D e))
-    (hsep : ∀ y, y ≠ z → y ≠ x → ∃ A : Finset (Fin n),
-      (∀ a ∈ A, ∀ b ∈ A, ¬ G a b) ∧ y ∈ A ∧
-      (∃ a ∈ A, a ∈ S) ∧ ∃ a ∈ A, G x a) :
-    supp n D (src D f) = {x} := by
-  have hxf := (sem_mem_exit1.mp hf).2.1
-  refine Finset.Subset.antisymm ?_ (Finset.singleton_subset_iff.mpr hxf)
-  intro y hy
-  rw [Finset.mem_singleton]
-  by_contra hyx
-  have hyz : y ≠ z := by
-    intro hyz
-    subst y
-    have hp := sem_inelig_pure hG hS hC hz hy
-    rw [hp, Finset.mem_singleton] at hxf
-    exact hxz hxf
-  obtain ⟨A, hA, hyA, ⟨a, haA, haS⟩, hnb⟩ := hsep y hyz hyx
-  obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ := sem_exposure hG hS hC A hA x hnb
-  have heither := hW (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at heither
-  rcases heither with he | he
-  · exact Finset.disjoint_left.mp hd (by simpa only [he] using hSub haS) haA
-  · exact Finset.disjoint_left.mp hd (by simpa only [he] using hy) hyA
-
-lemma sem_nonpure_exit_card (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {x y : Fin n} {e : ℕ × Bool}
-    (he : e ∈ exitArcs n D (carrierT n D {x}))
-    (hy : y ∈ supp n D (src D e)) (hyx : y ≠ x) :
-    2 ≤ (exitArcs n D (carrierT n D {x})).card := by
-  have hpos := Finset.card_pos.mpr ⟨e, he⟩
-  by_contra hc
-  have hone : (exitArcs n D (carrierT n D {x})).card = 1 := by omega
-  obtain ⟨f, hf⟩ := Finset.card_eq_one.mp hone
-  have hef : e = f := by rwa [hf, Finset.mem_singleton] at he
-  rw [hef, sem_one_exit_pure hG hS hC hf, Finset.mem_singleton] at hy
-  exact hyx hy
-
-lemma sem_two_exit_remaining_neighbors (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) {x z : Fin n} {e f : ℕ × Bool}
-    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
-    (hbar : supp n D (src D (e.1, !e.2)) = {z}) :
-    ∀ y, G x y → y ≠ z → y ∈ supp n D (src D (f.1, !f.2)) := by
-  intro y hxy hyz
-  obtain ⟨j, hj, _, _, hxn, _, s, hxs, _, hys, _⟩ := sem_joint_meeting hG hS hC hxy
-  have heither := hW (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at heither
-  rcases heither with he | hf
-  · have hy : y ∈ supp n D (src D (e.1, !e.2)) := by simpa only [← he] using hys
-    rw [hbar, Finset.mem_singleton] at hy
-    exact False.elim (hyz hy)
-  · simpa only [← hf] using hys
-
-lemma sem_tight_exit_le_two (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (hB : Bplus n D = (eligSet n D).card) (x : Fin n) :
-    (exitArcs n D (carrierT n D {x})).card ≤ 2 := by
-  obtain ⟨b, hb⟩ := sem_exists_pureBranch hG h.1 hC
-  have hs := surplus_carrierT_le h.1 b hb {x}
-  have hf := carrier_flow_union h {x} (by rw [sem_supp_out hG hC]; simp)
-  have hi : (({x} : Finset (Fin n)) ∩ eligSet n D).card ≤ 1 :=
-    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
-  rw [Finset.card_singleton] at hf
-  omega
-
-lemma sem_two_exit_remaining_slot (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) {x z : Fin n} {e f : ℕ × Bool}
-    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
-    (hbar : supp n D (src D (e.1, !e.2)) = {z}) {y : Fin n}
-    (hxy : G x y) (hyz : y ≠ z) :
-    (f.1, !f.2) ∈ exitArcs n D (carrierT n D {y}) := by
-  obtain ⟨j, hj, _, _, hxn, hyn, s, hxs, _, hys, _⟩ := sem_joint_meeting hG hS hC hxy
-  have heither := hW (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at heither
-  rcases heither with he | hf
-  · have hy : y ∈ supp n D (src D (e.1, !e.2)) := by simpa only [← he] using hys
-    rw [hbar, Finset.mem_singleton] at hy
-    exact False.elim (hyz hy)
-  · apply sem_mem_exit1.mpr
-    simpa only [← hf] using And.intro hj (And.intro hys hyn)
-
-lemma sem_two_exit_neighbor_card (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) {x z y a : Fin n} {e f : ℕ × Bool}
-    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
-    (hbar : supp n D (src D (e.1, !e.2)) = {z})
-    (hxy : G x y) (hxa : G x a) (hyz : y ≠ z) (haz : a ≠ z) (hay : a ≠ y) :
-    2 ≤ (exitArcs n D (carrierT n D {y})).card := by
-  exact sem_nonpure_exit_card hG hS hC
-    (sem_two_exit_remaining_slot hG hS hC hW hbar hxy hyz)
-    (sem_two_exit_remaining_neighbors hG hS hC hW hbar a hxa haz) hay
-
 end SemCore
 def petersenAdj (x y : Fin 10) : Prop :=
   (([50, 69, 138, 276, 521, 385, 770, 548, 104, 208] : List Nat).getD x.val 0).testBit y.val = true
 
-def exposureMask (x y : Fin 10) : Nat :=
-  ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 104, 20, 36, 80, 208, 276, 548, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 548, 10, 0, 40, 104, 138, 770, 514, 0, 130, 276, 138, 144, 0, 208, 130, 258, 770, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : List Nat).getD (10 * x.val + y.val) 0
-
-def exposureSet (x y : Fin 10) : Finset (Fin 10) :=
-  Finset.univ.filter (fun a => (exposureMask x y).testBit a.val = true)
-
-lemma petersen_exposure_table :
-    ∀ x : Fin 10, x ∈ ({1, 4, 5} : Finset (Fin 10)) →
-    ∀ y : Fin 10, y ≠ 0 → y ≠ x →
-      (∀ a ∈ exposureSet x y, ∀ b ∈ exposureSet x y, ¬ petersenAdj a b) ∧
-      y ∈ exposureSet x y ∧
-      (∃ a ∈ exposureSet x y, a ∈ ({1, 4, 5} : Finset (Fin 10))) ∧
-      ∃ a ∈ exposureSet x y, petersenAdj x a := by
-  unfold exposureSet exposureMask petersenAdj
-  decide +kernel
-
 lemma petersen_graph_ok : sem_Gr petersenAdj := by
   unfold sem_Gr petersenAdj
   decide +kernel
-
-lemma petersen_other_exit_pure {D : Dag} (hS : Strict 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    {x : Fin 10} (hx : x ∈ ({1, 4, 5} : Finset (Fin 10)))
-    {e f : ℕ × Bool}
-    (hW : exitArcs 10 D (carrierT 10 D {x}) ⊆ {e, f})
-    (hf : f ∈ exitArcs 10 D (carrierT 10 D {x}))
-    (hSub : ({1, 4, 5} : Finset (Fin 10)) ⊆ supp 10 D (src D e)) :
-    supp 10 D (src D f) = {x} := by
-  have hx0 : x ≠ 0 := by
-    have h : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) → a ≠ 0 := by decide
-    exact h x hx
-  refine sem_two_exit_other_pure petersen_graph_ok hS hC hx0 hz hW hf hSub ?_
-  intro y hy0 hyx
-  exact ⟨exposureSet x y, petersen_exposure_table x hx y hy0 hyx⟩
-
-lemma petersen_tight_nonzero_exit_card {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ∀ x : Fin 10, x ≠ 0 → (exitArcs 10 D (carrierT 10 D {x})).card = 2 := by
-  have hle := sem_tight_exit_le_two petersen_graph_ok h hC hB
-  obtain ⟨e0, he0, _, hp0, ho0, hn0, _, _⟩ := sem_inelig_consumer petersen_graph_ok h hC hz
-  let e : ℕ × Bool := (e0.1, !e0.2)
-  have hbar : supp 10 D (src D (e.1, !e.2)) = {(0 : Fin 10)} := by
-    simpa [e] using hp0
-  have hSub : ({1, 4, 5} : Finset (Fin 10)) ⊆ supp 10 D (src D e) := by
-    intro x hx
-    apply hn0
-    have hh : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) → petersenAdj 0 a := by
-      unfold petersenAdj
-      decide
-    exact hh x hx
-  have he : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)), e ∈ exitArcs 10 D (carrierT 10 D {x}) := by
-    intro x hx
-    apply sem_mem_exit1.mpr
-    exact ⟨he0, hSub hx, by rw [show 10 + e.1 = 10 + e0.1 from rfl, ho0]; simp⟩
-  have hn : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)),
-      (exitArcs 10 D (carrierT 10 D {x})).card = 2 := by
-    intro x hx
-    have hh : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) →
-        ∃ b ∈ ({1, 4, 5} : Finset (Fin 10)), b ≠ a := by decide
-    obtain ⟨y, hy, hyx⟩ := hh x hx
-    have hge := sem_nonpure_exit_card petersen_graph_ok h.1 hC (he x hx) (hSub hy) hyx
-    exact Nat.le_antisymm (hle x) hge
-  have hrest : ∀ y : Fin 10, y ≠ 0 → y ∉ ({1, 4, 5} : Finset (Fin 10)) →
-      2 ≤ (exitArcs 10 D (carrierT 10 D {y})).card := by
-    intro y hy0 hyN
-    have hh : ∀ b : Fin 10, b ≠ 0 → b ∉ ({1, 4, 5} : Finset (Fin 10)) →
-        ∃ a ∈ ({1, 4, 5} : Finset (Fin 10)), ∃ c : Fin 10,
-          petersenAdj a b ∧ petersenAdj a c ∧ c ≠ 0 ∧ c ≠ b := by
-      unfold petersenAdj
-      decide
-    obtain ⟨x, hx, a, hxy, hxa, ha0, hay⟩ := hh y hy0 hyN
-    have hcard : ((exitArcs 10 D (carrierT 10 D {x})).erase e).card = 1 := by
-      rw [Finset.card_erase_of_mem (he x hx), hn x hx]
-    obtain ⟨f, hf⟩ := Finset.card_eq_one.mp hcard
-    have hEq : exitArcs 10 D (carrierT 10 D {x}) = {e, f} := by
-      rw [← Finset.insert_erase (he x hx), hf]
-    exact sem_two_exit_neighbor_card petersen_graph_ok h.1 hC
-      (by rw [hEq]) hbar hxy hxa hy0 ha0 hay
-  intro x hx
-  by_cases hxN : x ∈ ({1, 4, 5} : Finset (Fin 10))
-  · exact hn x hxN
-  · exact Nat.le_antisymm (hle x) (hrest x hx hxN)
-
-lemma petersen_tight_merges_empty {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) (x : Fin 10) :
-    merges 10 D (carrierT 10 D {x}) = ∅ := by
-  by_cases hx : x = 0
-  · subst x
-    obtain ⟨_, _, _, _, _, _, _, hm⟩ := sem_inelig_consumer petersen_graph_ok h hC hz
-    exact hm
-  · obtain ⟨b, hb⟩ := sem_exists_pureBranch petersen_graph_ok h.1 hC
-    have hw := petersen_tight_nonzero_exit_card h hC hz hB x hx
-    have hs := surplus_carrierT_le h.1 b hb {x}
-    have hf := carrier_flow_union h {x} (by rw [sem_supp_out petersen_graph_ok hC]; simp)
-    have hi : (({x} : Finset (Fin 10)) ∩ eligSet 10 D).card ≤ 1 :=
-      (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
-    rw [Finset.card_singleton] at hf
-    apply Finset.card_eq_zero.mp
-    omega
-
-lemma petersen_tight_ineligible_singleton {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ineligSet 10 D = {0} := by
-  apply Finset.Subset.antisymm
-  · intro x hx
-    rw [Finset.mem_singleton]
-    by_contra hx0
-    have hw := petersen_tight_nonzero_exit_card h hC hz hB x hx0
-    have hs := sem_inelig_surplus hx
-    have hf := carrier_flow_union h {x} (by rw [sem_supp_out petersen_graph_ok hC]; simp)
-    rw [Finset.card_singleton] at hf
-    omega
-  · exact Finset.singleton_subset_iff.mpr hz
 
 end DagTools
 
@@ -6834,572 +5989,20 @@ namespace DagTools
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-lemma sem_shared_two_third_avoids (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) (S : Finset (Fin n)) (P Q : ℕ × Bool)
-    (R : Fin n → ℕ × Bool)
-    (hW : ∀ x ∈ S, exitArcs n D (carrierT n D {x}) ⊆ {P, Q, R x})
-    (hP : ∀ x ∈ S, x ∈ supp n D (src D P))
-    (hQ : ∀ x ∈ S, x ∈ supp n D (src D Q))
-    {x y : Fin n} (hx : x ∈ S) (hy : y ∈ S) (hxy : x ≠ y) :
-    y ∉ supp n D (src D (R x)) := by
-  intro hbad
-  obtain ⟨z, hxz, hyz⟩ := hG.2.2.1 x y hxy
-  have hA : ∀ a ∈ ({y, z} : Finset (Fin n)), ∀ b ∈ ({y, z} : Finset (Fin n)), ¬ G a b := by
-    intro a ha b hb
-    simp only [Finset.mem_insert, Finset.mem_singleton] at ha hb
-    rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
-    · exact hG.2.1 _
-    · exact hyz
-    · exact fun h => hyz (hG.1 _ _ h)
-    · exact hG.2.1 _
-  obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ := sem_exposure hG hS hC {y, z} hA x ⟨z, by simp, hxz⟩
-  have hslots := hW x hx (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hslots
-  rcases hslots with he | he | he
-  · exact Finset.disjoint_left.mp hd (by simpa only [he] using hP y hy) (by simp)
-  · exact Finset.disjoint_left.mp hd (by simpa only [he] using hQ y hy) (by simp)
-  · exact Finset.disjoint_left.mp hd (by simpa only [he] using hbad) (by simp)
-
-lemma sem_shared_two_edge_pairs (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) (S : Finset (Fin n)) (P Q : ℕ × Bool)
-    (R : Fin n → ℕ × Bool)
-    (hW : ∀ x ∈ S, exitArcs n D (carrierT n D {x}) ⊆ {P, Q, R x})
-    (hP : ∀ x ∈ S, x ∈ supp n D (src D P))
-    (hQ : ∀ x ∈ S, x ∈ supp n D (src D Q))
-    {x y : Fin n} (hx : x ∈ S) (hy : y ∈ S) (hxy : G x y) :
-    ((R x).1, !(R x).2) = R y := by
-  obtain ⟨j, hj, _, _, hxn, hyn, s, hxs, hysn, hys, hxsn⟩ := sem_joint_meeting hG hS hC hxy
-  have hslots := hW x hx (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hslots
-  have he : (j, s) = R x := by
-    rcases hslots with he | he | he
-    · exact False.elim (hysn (by simpa only [he] using hP y hy))
-    · exact False.elim (hysn (by simpa only [he] using hQ y hy))
-    · exact he
-  have hslots' := hW y hy (sem_mem_exit1.mpr ⟨hj, hys, hyn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hslots'
-  have hf : (j, !s) = R y := by
-    rcases hslots' with hf | hf | hf
-    · exact False.elim (hxsn (by simpa only [hf] using hP x hx))
-    · exact False.elim (hxsn (by simpa only [hf] using hQ x hx))
-    · exact hf
-  simpa only [← he] using hf
-
-lemma sem_shared_two_matching (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) (S : Finset (Fin n)) (P Q : ℕ × Bool)
-    (R : Fin n → ℕ × Bool)
-    (hW : ∀ x ∈ S, exitArcs n D (carrierT n D {x}) ⊆ {P, Q, R x})
-    (hP : ∀ x ∈ S, x ∈ supp n D (src D P))
-    (hQ : ∀ x ∈ S, x ∈ supp n D (src D Q))
-    (hR : ∀ x ∈ S, x ∈ supp n D (src D (R x))) :
-    ∀ x ∈ S, ∀ y ∈ S, ∀ z ∈ S, G x y → G x z → y = z := by
-  intro x hx y hy z hz hxy hxz
-  by_contra hyz
-  have h1 := sem_shared_two_edge_pairs hG hS hC S P Q R hW hP hQ hx hy hxy
-  have h2 := sem_shared_two_edge_pairs hG hS hC S P Q R hW hP hQ hx hz hxz
-  have h3 : R y = R z := h1.symm.trans h2
-  have hnot := sem_shared_two_third_avoids hG hS hC S P Q R hW hP hQ hy hz hyz
-  exact hnot (by rw [h3]; exact hR z hz)
-
-lemma sem_three_exits_common_matching (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) (S : Finset (Fin n)) (P Q : ℕ × Bool) (hPQ : P ≠ Q)
-    (hcard : ∀ x ∈ S, (exitArcs n D (carrierT n D {x})).card = 3)
-    (hP : ∀ x ∈ S, P ∈ exitArcs n D (carrierT n D {x}))
-    (hQ : ∀ x ∈ S, Q ∈ exitArcs n D (carrierT n D {x})) :
-    ∀ x ∈ S, ∀ y ∈ S, ∀ z ∈ S, G x y → G x z → y = z := by
-  classical
-  have hex : ∀ x ∈ S, ∃ R : ℕ × Bool,
-      R ∈ exitArcs n D (carrierT n D {x}) ∧
-      exitArcs n D (carrierT n D {x}) ⊆ {P, Q, R} := by
-    intro x hx
-    have hQ' : Q ∈ (exitArcs n D (carrierT n D {x})).erase P :=
-      Finset.mem_erase.mpr ⟨Ne.symm hPQ, hQ x hx⟩
-    have hc : (((exitArcs n D (carrierT n D {x})).erase P).erase Q).card = 1 := by
-      rw [Finset.card_erase_of_mem hQ', Finset.card_erase_of_mem (hP x hx), hcard x hx]
-    obtain ⟨R, hR⟩ := Finset.card_eq_one.mp hc
-    have hRmem : R ∈ ((exitArcs n D (carrierT n D {x})).erase P).erase Q := by rw [hR]; simp
-    refine ⟨R, (Finset.mem_erase.mp (Finset.mem_erase.mp hRmem).2).2, ?_⟩
-    intro t ht
-    by_cases htP : t = P
-    · simp [htP]
-    by_cases htQ : t = Q
-    · simp [htQ]
-    have htR : t ∈ ((exitArcs n D (carrierT n D {x})).erase P).erase Q :=
-      Finset.mem_erase.mpr ⟨htQ, Finset.mem_erase.mpr ⟨htP, ht⟩⟩
-    rw [hR, Finset.mem_singleton] at htR
-    simp [htR]
-  choose! R hR using hex
-  exact sem_shared_two_matching hG hS hC S P Q R
-    (fun x hx => (hR x hx).2)
-    (fun x hx => (sem_mem_exit1.mp (hP x hx)).2.1)
-    (fun x hx => (sem_mem_exit1.mp (hQ x hx)).2.1)
-    (fun x hx => (sem_mem_exit1.mp (hR x hx).1).2.1)
-
-def h3_opp (e : ℕ × Bool) : ℕ × Bool := (e.1, !e.2)
-
-lemma h3_opp_opp (e : ℕ × Bool) : h3_opp (h3_opp e) = e := by
-  simp [h3_opp]
-
-lemma h3_pair_of_card_two {α : Type} [DecidableEq α] {W : Finset α} {e : α}
-    (he : e ∈ W) (hcard : W.card = 2) : ∃ f, f ≠ e ∧ W = {e, f} := by
-  have hc : (W.erase e).card = 1 := by rw [Finset.card_erase_of_mem he, hcard]
-  obtain ⟨f, hf⟩ := Finset.card_eq_one.mp hc
-  have hm : f ∈ W.erase e := by rw [hf]; simp
-  refine ⟨f, (Finset.mem_erase.mp hm).1, ?_⟩
-  rw [← Finset.insert_erase he, hf]
-
-lemma h3_split_edge_pair {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {x y cx cy : Fin n} {ax ay rx ry : ℕ × Bool}
-    (hWx : exitArcs n D (carrierT n D {x}) ⊆ {ax, rx})
-    (hWy : exitArcs n D (carrierT n D {y}) ⊆ {ay, ry})
-    (hax : supp n D (src D (h3_opp ax)) = {cx})
-    (hay : supp n D (src D (h3_opp ay)) = {cy})
-    (hycx : y ≠ cx) (hxcy : x ≠ cy) (hxy : G x y) : h3_opp rx = ry := by
-  obtain ⟨j, hj, _, _, hxn, hyn, s, hxs, _, hys, _⟩ := sem_joint_meeting hG hS hC hxy
-  have hsx := hWx (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hsx
-  have hx : (j, s) = rx := by
-    rcases hsx with he | he
-    · have hy : y ∈ supp n D (src D (h3_opp ax)) := by simpa only [← he, h3_opp] using hys
-      rw [hax, Finset.mem_singleton] at hy
-      exact False.elim (hycx hy)
-    · exact he
-  have hsy := hWy (sem_mem_exit1.mpr ⟨hj, hys, hyn⟩)
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hsy
-  have hy : (j, !s) = ry := by
-    rcases hsy with he | he
-    · have hx : x ∈ supp n D (src D (h3_opp ay)) := by simpa [← he, h3_opp] using hxs
-      rw [hay, Finset.mem_singleton] at hx
-      exact False.elim (hxcy hx)
-    · exact he
-  simpa only [← hx, h3_opp] using hy
-
-lemma h3_tight_petersen_five_groups {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ∃ e0 e1 e4 e5 d : ℕ × Bool,
-      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e1) = {1} ∧
-      supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
-      exitArcs 10 D (carrierT 10 D {0}) = {e0} ∧
-      exitArcs 10 D (carrierT 10 D {1}) = {h3_opp e0, e1} ∧
-      exitArcs 10 D (carrierT 10 D {2}) = {h3_opp e1, h3_opp d} ∧
-      exitArcs 10 D (carrierT 10 D {3}) = {h3_opp e4, d} ∧
-      exitArcs 10 D (carrierT 10 D {4}) = {h3_opp e0, e4} ∧
-      exitArcs 10 D (carrierT 10 D {5}) = {h3_opp e0, e5} ∧
-      exitArcs 10 D (carrierT 10 D {6}) = {h3_opp e1, d} ∧
-      exitArcs 10 D (carrierT 10 D {7}) = {h3_opp e5, d} ∧
-      exitArcs 10 D (carrierT 10 D {8}) = {h3_opp e5, h3_opp d} ∧
-      exitArcs 10 D (carrierT 10 D {9}) = {h3_opp e4, h3_opp d} := by
-  have hc := petersen_tight_nonzero_exit_card h hC hz hB
-  obtain ⟨e0, he0, _, hp0, ho0, hn0, hW0, _⟩ := sem_inelig_consumer petersen_graph_ok h hC hz
-  let A := h3_opp e0
-  have hbarA : supp 10 D (src D (h3_opp A)) = {(0 : Fin 10)} := by
-    simpa only [A, h3_opp_opp] using hp0
-  have hAN : ({1, 4, 5} : Finset (Fin 10)) ⊆ supp 10 D (src D A) := by
-    intro x hx
-    apply hn0
-    have hh : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) → petersenAdj 0 a := by
-      unfold petersenAdj
-      decide
-    exact hh x hx
-  have hAmem : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)), A ∈ exitArcs 10 D (carrierT 10 D {x}) := by
-    intro x hx
-    apply sem_mem_exit1.mpr
-    exact ⟨he0, hAN hx, by rw [show 10 + A.1 = 10 + e0.1 from rfl, ho0]; simp⟩
-  obtain ⟨e1, _, hW1⟩ := h3_pair_of_card_two (hAmem 1 (by decide)) (hc 1 (by decide))
-  obtain ⟨e4, _, hW4⟩ := h3_pair_of_card_two (hAmem 4 (by decide)) (hc 4 (by decide))
-  obtain ⟨e5, _, hW5⟩ := h3_pair_of_card_two (hAmem 5 (by decide)) (hc 5 (by decide))
-  have hp1 : supp 10 D (src D e1) = {(1 : Fin 10)} :=
-    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW1]) (by rw [hW1]; simp) hAN
-  have hp4 : supp 10 D (src D e4) = {(4 : Fin 10)} :=
-    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW4]) (by rw [hW4]; simp) hAN
-  have hp5 : supp 10 D (src D e5) = {(5 : Fin 10)} :=
-    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW5]) (by rw [hW5]; simp) hAN
-  have ha2 : h3_opp e1 ∈ exitArcs 10 D (carrierT 10 D {2}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW1]) hbarA (by unfold petersenAdj; decide) (by decide)
-  have ha6 : h3_opp e1 ∈ exitArcs 10 D (carrierT 10 D {6}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW1]) hbarA (by unfold petersenAdj; decide) (by decide)
-  have ha3 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {3}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
-  have ha9 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {9}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
-  have ha7 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {7}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
-  have ha8 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {8}) :=
-    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
-  obtain ⟨g2, _, hW2⟩ := h3_pair_of_card_two ha2 (hc 2 (by decide))
-  obtain ⟨g3, _, hW3⟩ := h3_pair_of_card_two ha3 (hc 3 (by decide))
-  obtain ⟨g6, _, hW6⟩ := h3_pair_of_card_two ha6 (hc 6 (by decide))
-  obtain ⟨g7, _, hW7⟩ := h3_pair_of_card_two ha7 (hc 7 (by decide))
-  obtain ⟨g8, _, hW8⟩ := h3_pair_of_card_two ha8 (hc 8 (by decide))
-  obtain ⟨g9, _, hW9⟩ := h3_pair_of_card_two ha9 (hc 9 (by decide))
-  have hb1 : supp 10 D (src D (h3_opp (h3_opp e1))) = {(1 : Fin 10)} := by rw [h3_opp_opp]; exact hp1
-  have hb4 : supp 10 D (src D (h3_opp (h3_opp e4))) = {(4 : Fin 10)} := by rw [h3_opp_opp]; exact hp4
-  have hb5 : supp 10 D (src D (h3_opp (h3_opp e5))) = {(5 : Fin 10)} := by rw [h3_opp_opp]; exact hp5
-  have h23 : h3_opp g2 = g3 := h3_split_edge_pair petersen_graph_ok h.1 hC
-    (by rw [hW2]) (by rw [hW3]) hb1 hb4 (by decide) (by decide) (by unfold petersenAdj; decide)
-  have h38 : h3_opp g3 = g8 := h3_split_edge_pair petersen_graph_ok h.1 hC
-    (by rw [hW3]) (by rw [hW8]) hb4 hb5 (by decide) (by decide) (by unfold petersenAdj; decide)
-  have h86 : h3_opp g8 = g6 := h3_split_edge_pair petersen_graph_ok h.1 hC
-    (by rw [hW8]) (by rw [hW6]) hb5 hb1 (by decide) (by decide) (by unfold petersenAdj; decide)
-  have h69 : h3_opp g6 = g9 := h3_split_edge_pair petersen_graph_ok h.1 hC
-    (by rw [hW6]) (by rw [hW9]) hb1 hb4 (by decide) (by decide) (by unfold petersenAdj; decide)
-  have h97 : h3_opp g9 = g7 := h3_split_edge_pair petersen_graph_ok h.1 hC
-    (by rw [hW9]) (by rw [hW7]) hb4 hb5 (by decide) (by decide) (by unfold petersenAdj; decide)
-  have hg2 : g2 = h3_opp g3 := by rw [← h23, h3_opp_opp]
-  have hg6 : g6 = g3 := by rw [← h86, ← h38, h3_opp_opp]
-  have hg9 : g9 = h3_opp g3 := by rw [← h69, hg6]
-  have hg7 : g7 = g3 := by rw [← h97, hg9, h3_opp_opp]
-  refine ⟨e0, e1, e4, e5, g3, hp0, hp1, hp4, hp5, hW0, hW1, ?_, hW3, hW4, hW5, ?_, ?_, ?_, ?_⟩
-  · simpa only [hg2] using hW2
-  · simpa only [hg6] using hW6
-  · simpa only [hg7] using hW7
-  · simpa only [← h38] using hW8
-  · simpa only [hg9] using hW9
-
 end DagTools
 
 namespace DagTools
-
-lemma h3_tight_branch_pure {n : ℕ} {D : Dag} (hS : Strict n D)
-    (b : Fin n → ℕ) (hb : PureBranch n D b)
-    (hB : Bplus n D = (eligSet n D).card) {w : ℕ}
-    (hf : 2 ≤ fanout D w) (hs : (supp n D w).Nonempty) :
-    fanout D w = 2 ∧ ∃ v ∈ eligSet n D, supp n D w = {v} := by
-  have hc := card_residual hS b hb
-  have hr : residualUnits n D b = ∅ := Finset.card_eq_zero.mp (by omega)
-  have hu : ∀ k : ℕ, k + 1 < fanout D w →
-      (⟨w, k⟩ : Σ _ : ℕ, ℕ) ∈ reservedUnits n D b := by
-    intro k hk
-    have huplus : (⟨w, k⟩ : Σ _ : ℕ, ℕ) ∈ unitsPlus n D := by
-      rw [unitsPlus, Finset.mem_filter, mem_units]
-      exact ⟨⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := w) (by omega)), hk⟩, hs⟩
-    by_contra hn
-    have hm : (⟨w, k⟩ : Σ _ : ℕ, ℕ) ∈ residualUnits n D b :=
-      Finset.mem_sdiff.mpr ⟨huplus, hn⟩
-    rw [hr] at hm
-    exact Finset.notMem_empty _ hm
-  obtain ⟨v, hv, he⟩ := Finset.mem_image.mp (hu 0 (by omega))
-  have hw : b v = w := congrArg Sigma.fst he
-  have hle : fanout D w ≤ 2 := by
-    by_contra hn
-    obtain ⟨u, _, he'⟩ := Finset.mem_image.mp (hu 1 (by omega))
-    have hz := congrArg (fun z : Σ _ : ℕ, ℕ => z.2) he'
-    simp at hz
-  exact ⟨by omega, v, hv, hw ▸ (hb v hv).2⟩
-
-lemma h3_sem_tight_branch_pure {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    (hB : Bplus n D = (eligSet n D).card) {w : ℕ}
-    (hf : 2 ≤ fanout D w) (hs : (supp n D w).Nonempty) :
-    fanout D w = 2 ∧ ∃ v ∈ eligSet n D, supp n D w = {v} := by
-  obtain ⟨b, hb⟩ := sem_exists_pureBranch hG hS hC
-  exact h3_tight_branch_pure hS b hb hB hf hs
 
 end DagTools
 
 namespace SideGeometry
 
-def adj (x y : Fin 10) : Prop :=
-  (([50, 69, 138, 276, 521, 385, 770, 548, 104, 208] : List Nat).getD x.val 0).testBit y.val = true
-
 def mask (m : Nat) : Finset (Fin 10) :=
   Finset.univ.filter (fun x => m.testBit x.val = true)
-
-def side (i : Fin 10) : Finset (Fin 10) :=
-  mask (([1, 50, 2, 68, 16, 520, 32, 384, 200, 772] : List Nat).getD i.val 0)
-
-def allowed (i : Fin 10) : Finset (Fin 10) :=
-  mask (([1, 1023, 3, 68, 17, 520, 33, 384, 200, 772] : List Nat).getD i.val 0)
-
-def witnessVertex (i y : Fin 10) : Fin 10 :=
-  ⟨(([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 6, 6, 0, 6, 6, 6, 0, 6, 6, 6, 0, 4, 4, 4, 0, 4, 4, 4, 4, 4, 9, 9, 9, 0, 9, 9, 9, 9, 9, 0, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5, 8, 8, 8, 8, 8, 8, 8, 0, 0, 8, 7, 7, 7, 0, 7, 6, 0, 0, 7, 7, 9, 9, 0, 9, 8, 9, 9, 9, 0, 0] : List Nat).getD (10 * i.val + y.val) 0) % 10, Nat.mod_lt _ (by decide)⟩
-
-def witnessSet (i y : Fin 10) : Finset (Fin 10) :=
-  mask (([0, 2, 20, 10, 16, 32, 80, 130, 258, 514, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 104, 20, 36, 80, 208, 276, 548, 385, 10, 0, 10, 146, 42, 0, 130, 384, 520, 0, 10, 548, 10, 0, 40, 104, 138, 770, 514, 69, 274, 20, 0, 20, 52, 68, 384, 272, 0, 0, 130, 276, 138, 144, 0, 208, 130, 258, 770, 69, 522, 36, 520, 52, 36, 68, 0, 0, 520, 261, 770, 260, 0, 276, 548, 0, 0, 260, 768, 73, 138, 0, 72, 208, 104, 72, 136, 0, 0] : List Nat).getD (10 * i.val + y.val) 0)
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma exposure_table : ∀ i y : Fin 10, y ∉ allowed i →
-    witnessVertex i y ∈ side i ∧
-    (∀ a ∈ witnessSet i y, ∀ b ∈ witnessSet i y, ¬ adj a b) ∧
-    y ∈ witnessSet i y ∧
-    (∃ a ∈ witnessSet i y, adj (witnessVertex i y) a) ∧
-    ∀ j : Fin 10, j ≠ i → witnessVertex i y ∈ side j →
-      (side j ∩ witnessSet i y).Nonempty := by
-  unfold allowed side witnessVertex witnessSet mask adj
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma side_intersection : ∀ i j : Fin 10, i ≠ j → (side i ∩ side j).card ≤ 1 := by
-  unfold side mask
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma incidence_count : ∀ x : Fin 10,
-    (Finset.univ.filter (fun i : Fin 10 => x ∈ side i)).card = if x = 0 then 1 else 2 := by
-  unfold side mask
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma allowed_bound : ∀ i : Fin 10, i ≠ 1 → allowed i ⊆ insert 0 (side i) := by
-  unfold allowed side mask
-  decide +kernel
-
-lemma allowed_zero : allowed 0 = ({0} : Finset (Fin 10)) := by decide +kernel
-
-lemma side_zero : side 0 = ({0} : Finset (Fin 10)) := by decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma side_nonempty : ∀ i : Fin 10, (side i).Nonempty := by
-  unfold side mask
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma side_zero_absent : ∀ i : Fin 10, i ≠ 0 → (0 : Fin 10) ∉ side i := by
-  unfold side mask
-  decide +kernel
-
-lemma support_bound (S : Fin 10 → Finset (Fin 10))
-    (hsub : ∀ i, side i ⊆ S i)
-    (hexposure : ∀ (x : Fin 10) (A : Finset (Fin 10)),
-      (∀ a ∈ A, ∀ b ∈ A, ¬ adj a b) → (∃ a ∈ A, adj x a) →
-      ∃ j : Fin 10, x ∈ side j ∧ Disjoint (S j) A) :
-    ∀ i, S i ⊆ allowed i := by
-  intro i y hy
-  by_contra hnot
-  obtain ⟨hx, hA, hyA, hnb, hhit⟩ := exposure_table i y hnot
-  obtain ⟨j, hxj, hd⟩ := hexposure (witnessVertex i y) (witnessSet i y) hA hnb
-  by_cases hji : j = i
-  · subst j
-    exact Finset.disjoint_left.mp hd hy hyA
-  · obtain ⟨a, ha⟩ := hhit j hji hxj
-    exact Finset.disjoint_left.mp hd (hsub j (Finset.mem_inter.mp ha).1)
-      (Finset.mem_inter.mp ha).2
-
-lemma supports_exact (S : Fin 10 → Finset (Fin 10))
-    (hsub : ∀ i, side i ⊆ S i)
-    (hbound : ∀ i, S i ⊆ allowed i)
-    (hzero : ∀ i, (0 : Fin 10) ∈ S i → S i = {0})
-    (hdrop : ∀ x, x ∈ S 1 → x ∉ S 0 → x ∈ side 1) :
-    ∀ i, S i = side i := by
-  have hS0 : S 0 = ({0} : Finset (Fin 10)) := by
-    apply Finset.Subset.antisymm
-    · simpa only [allowed_zero] using hbound 0
-    · simpa only [side_zero] using hsub 0
-  have hz : ∀ i : Fin 10, i ≠ 0 → (0 : Fin 10) ∉ S i := by
-    intro i hi hmem
-    obtain ⟨a, ha⟩ := side_nonempty i
-    have hsa : a ∈ S i := hsub i ha
-    rw [hzero i hmem, Finset.mem_singleton] at hsa
-    exact side_zero_absent i hi (hsa ▸ ha)
-  intro i
-  apply Finset.Subset.antisymm ?_ (hsub i)
-  intro y hy
-  by_cases hi : i = 0
-  · subst i
-    simpa only [hS0, side_zero] using hy
-  by_cases hi1 : i = 1
-  · subst i
-    apply hdrop y hy
-    rw [hS0, Finset.mem_singleton]
-    intro hy0
-    exact hz 1 (by decide) (hy0 ▸ hy)
-  have hm := allowed_bound i hi1 (hbound i hy)
-  rcases Finset.mem_insert.mp hm with hy0 | hside
-  · exact False.elim (hz i hi (hy0 ▸ hy))
-  · exact hside
-
-def opposite (i : Fin 10) : Fin 10 :=
-  ⟨((([1, 0, 3, 2, 5, 4, 7, 6, 9, 8] : List Nat).getD i.val 0) % 10),
-    Nat.mod_lt _ (by decide)⟩
-
-def dirtyVertices : Finset (Fin 10) := side 8 ∪ side 9
-
-def oppositeUnion (x : Fin 10) : Finset (Fin 10) :=
-  (Finset.univ.filter (fun i : Fin 10 => x ∈ side i)).biUnion (fun i => side (opposite i))
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma opposite_involution : ∀ i : Fin 10, opposite (opposite i) = i := by
-  unfold opposite
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma paired_disjoint : ∀ i : Fin 10, Disjoint (side i) (side (opposite i)) := by
-  unfold side opposite mask
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma outside_misses_edge : ∀ x : Fin 10, x ∉ dirtyVertices →
-    ∃ u ∈ side 8, ∃ v ∈ side 9, adj u v ∧ u ∉ oppositeUnion x ∧ v ∉ oppositeUnion x := by
-  unfold dirtyVertices side oppositeUnion opposite mask adj
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma inside_other_opposite_disjoint : ∀ x : Fin 10, x ∈ dirtyVertices →
-    ∀ i : Fin 10, i.val < 8 → x ∈ side i → Disjoint (side (opposite i)) dirtyVertices := by
-  unfold dirtyVertices side opposite mask
-  decide +kernel
-
-lemma intersecting_sides_unique {R : Finset (Fin 10)} (hR : 2 ≤ R.card)
-    {i j : Fin 10} (hi : R ⊆ side i) (hj : R ⊆ side j) : i = j := by
-  by_contra hne
-  have hcard := Finset.card_le_card (Finset.subset_inter hi hj)
-  have hbound := side_intersection i j hne
-  exact (Nat.not_succ_le_self 1) (hR.trans (hcard.trans hbound))
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma side_allowed_unique : ∀ i j : Fin 10, side i ⊆ allowed j → side j ⊆ allowed i → i = j := by
-  unfold side allowed mask
-  decide +kernel
-
-lemma zero_incidence : (Finset.univ.filter (fun i : Fin 10 => (0 : Fin 10) ∈ side i)) = {0} := by
-  unfold side mask
-  decide +kernel
-
-lemma opposite_zero : opposite 0 = 1 := by decide +kernel
-
-def incidenceIndices (x : Fin 10) : Finset (Fin 10) :=
-  ([{0}, {1, 2}, {3, 9}, {5, 8}, {1, 4}, {1, 6}, {3, 8}, {7, 8}, {7, 9}, {5, 9}] :
-    List (Finset (Fin 10))).getD x.val ∅
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma incidence_indices : ∀ x : Fin 10,
-    (Finset.univ.filter (fun i : Fin 10 => x ∈ side i)) = incidenceIndices x := by
-  unfold side mask incidenceIndices
-  decide +kernel
-
-def separator (x : Fin 10) : Finset (Fin 10) :=
-  mask (([13, 266, 12, 12, 148, 44, 320, 132, 264, 576] : List Nat).getD x.val 0)
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma separator_spec : ∀ x : Fin 10,
-    x ∈ separator x ∧
-    (∃ u ∈ side 8, ∃ v ∈ side 9, adj u v ∧ u ∈ separator x ∧ v ∈ separator x) ∧
-    ∀ i : Fin 10, i.val < 8 →
-      Disjoint (side i) (separator x) ∨ Disjoint (side (opposite i)) (separator x) := by
-  unfold separator side mask adj opposite
-  decide +kernel
 
 end SideGeometry
 
 namespace DagTools
-
-lemma h3_indexed_sources_exact {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (r : Fin 10 → ℕ × Bool)
-    (hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r)
-    (hopp : ∀ i : Fin 10, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) :
-    Function.Injective r ∧ ∀ i, supp 10 D (src D (r i)) = SideGeometry.side i := by
-  have hS := h.1
-  let S : Fin 10 → Finset (Fin 10) := fun i => supp 10 D (src D (r i))
-  have hmem : ∀ (i x : Fin 10), x ∈ SideGeometry.side i →
-      r i ∈ exitArcs 10 D (carrierT 10 D {x}) := by
-    intro i x hx
-    rw [hW]
-    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
-  have hsub : ∀ i, SideGeometry.side i ⊆ S i := by
-    intro i x hx
-    exact (sem_mem_exit1.mp (hmem i x hx)).2.1
-  have hb : ∀ i, S i ⊆ SideGeometry.allowed i := by
-    apply SideGeometry.support_bound S hsub
-    intro x A hA hnb
-    obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ :=
-      sem_exposure petersen_graph_ok hS hC A hA x hnb
-    have hm : (j, s) ∈ exitArcs 10 D (carrierT 10 D {x}) :=
-      sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩
-    rw [hW] at hm
-    obtain ⟨i, hi, hri⟩ := Finset.mem_image.mp hm
-    exact ⟨i, (Finset.mem_filter.mp hi).2, by simpa only [S, hri] using hd⟩
-  have hinj : Function.Injective r := by
-    intro i j heq
-    apply SideGeometry.side_allowed_unique i j
-    · intro x hx
-      apply hb j
-      simpa only [S, ← heq] using hsub i hx
-    · intro x hx
-      apply hb i
-      simpa only [S, heq] using hsub j hx
-  refine ⟨hinj, ?_⟩
-  apply SideGeometry.supports_exact S hsub hb
-  · intro i hi
-    exact sem_inelig_pure petersen_graph_ok hS hC hz hi
-  · intro x hx _
-    have hW0 : exitArcs 10 D (carrierT 10 D {0}) = {r 0} := by
-      rw [hW, SideGeometry.zero_incidence]
-      simp
-    obtain ⟨e, he, _, _, ho, _, hWe, _⟩ := sem_inelig_consumer petersen_graph_ok
-      h hC hz
-    have her : e = r 0 := Finset.singleton_injective (hWe.symm.trans hW0)
-    rw [her] at he ho
-    have hr : r 1 = ((r 0).1, !(r 0).2) := by
-      simpa only [SideGeometry.opposite_zero] using hopp 0
-    have hm : r 1 ∈ exitArcs 10 D (carrierT 10 D {x}) := by
-      apply sem_mem_exit1.mpr
-      refine ⟨?_, hx, ?_⟩
-      · simpa only [hr] using he
-      · have hout : supp 10 D (10 + (r 1).1) = ∅ := by simpa only [hr] using ho
-        rw [hout]
-        simp
-    rw [hW] at hm
-    obtain ⟨i, hi, hri⟩ := Finset.mem_image.mp hm
-    have hi1 : i = 1 := hinj hri
-    simpa only [hi1] using (Finset.mem_filter.mp hi).2
-
-def h3_sideMap (e0 e1 e4 e5 d : ℕ × Bool) (i : Fin 10) : ℕ × Bool :=
-  ([e0, h3_opp e0, e1, h3_opp e1, e4, h3_opp e4, e5, h3_opp e5, d, h3_opp d] :
-    List (ℕ × Bool)).getD i.val e0
-
-lemma h3_sideMap_opposite (e0 e1 e4 e5 d : ℕ × Bool) : ∀ i : Fin 10,
-    h3_sideMap e0 e1 e4 e5 d (SideGeometry.opposite i) =
-      ((h3_sideMap e0 e1 e4 e5 d i).1, !(h3_sideMap e0 e1 e4 e5 d i).2) := by
-  intro i
-  fin_cases i <;> simp [h3_sideMap, SideGeometry.opposite, h3_opp]
-
-lemma h3_tight_sources_exist {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ∃ r : Fin 10 → ℕ × Bool, Function.Injective r ∧
-      (∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) ∧
-      (∀ i, supp 10 D (src D (r i)) = SideGeometry.side i) ∧
-      ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-        (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r := by
-  obtain ⟨e0, e1, e4, e5, d, _, _, _, _, hW0, hW1, hW2, hW3, hW4,
-    hW5, hW6, hW7, hW8, hW9⟩ := h3_tight_petersen_five_groups h hC hz hB
-  let r := h3_sideMap e0 e1 e4 e5 d
-  have hopp : ∀ i : Fin 10, r (SideGeometry.opposite i) = ((r i).1, !(r i).2) :=
-    h3_sideMap_opposite e0 e1 e4 e5 d
-  have hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r := by
-    intro x
-    rw [SideGeometry.incidence_indices]
-    fin_cases x
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW0
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW1
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW2
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW3
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW4
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW5
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW6
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW7
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW8
-    · simpa [r, h3_sideMap, SideGeometry.incidenceIndices] using hW9
-  obtain ⟨hinj, hsources⟩ := h3_indexed_sources_exact h hC hz r hW hopp
-  exact ⟨r, hinj, hopp, hsources, hW⟩
 
 lemma h3_no_merges_inputs_disjoint {n : ℕ} {D : Dag} (hS : Strict n D)
     (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
@@ -7419,209 +6022,9 @@ lemma h3_no_merges_inputs_disjoint {n : ℕ} {D : Dag} (hS : Strict n D)
   rw [hM x] at hm
   exact Finset.notMem_empty j hm
 
-lemma h3_tight_inputs_disjoint {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) {j : ℕ} (hj : j < D.length) :
-    Disjoint (supp 10 D (opA D j)) (supp 10 D (opB D j)) :=
-  h3_no_merges_inputs_disjoint h.1 (petersen_tight_merges_empty h hC hz hB) hj
-
-lemma h3_indexed_and_types {D : Dag} (hS : Strict 10 D)
-    (r : Fin 10 → ℕ × Bool)
-    (hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r)
-    (hopp : ∀ i : Fin 10, r (SideGeometry.opposite i) = ((r i).1, !(r i).2))
-    (hsources : ∀ i, supp 10 D (src D (r i)) = SideGeometry.side i)
-    (hM : ∀ x : Fin 10, merges 10 D (carrierT 10 D {x}) = ∅)
-    {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
-    (∃ i : Fin 10, r i = (j, false) ∧
-      supp 10 D (opA D j) = SideGeometry.side i ∧
-      supp 10 D (opB D j) = SideGeometry.side (SideGeometry.opposite i)) ∨
-      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) := by
-  have hout : supp 10 D (10 + j) = ∅ := by
-    rw [sem_supp_and hS hj ht]
-    exact Finset.disjoint_iff_inter_eq_empty.mp (h3_no_merges_inputs_disjoint hS hM hj)
-  have hindex : ∀ s : Bool, (supp 10 D (src D (j, s))).Nonempty →
-      ∃ i : Fin 10, r i = (j, s) := by
-    intro s hs
-    obtain ⟨x, hx⟩ := hs
-    have hm : (j, s) ∈ exitArcs 10 D (carrierT 10 D {x}) :=
-      sem_mem_exit1.mpr ⟨hj, hx, by rw [hout]; simp⟩
-    rw [hW] at hm
-    obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hm
-    exact ⟨i, hi⟩
-  by_cases ha : (supp 10 D (opA D j)).Nonempty
-  · obtain ⟨i, hi⟩ := hindex false (by simpa only [sb_src_false] using ha)
-    left
-    refine ⟨i, hi, ?_, ?_⟩
-    · simpa only [hi, sb_src_false] using hsources i
-    · have hb := hopp i
-      rw [hi] at hb
-      simpa only [hb, Bool.not_false, sb_src_true] using hsources (SideGeometry.opposite i)
-  · by_cases hb : (supp 10 D (opB D j)).Nonempty
-    · obtain ⟨i, hi⟩ := hindex true (by simpa only [sb_src_true] using hb)
-      have hf := hopp i
-      rw [hi] at hf
-      have hm : (supp 10 D (opA D j)).Nonempty := by
-        have hs : supp 10 D (opA D j) = SideGeometry.side (SideGeometry.opposite i) := by
-          simpa only [hf, Bool.not_true, sb_src_false] using hsources (SideGeometry.opposite i)
-        rw [hs]
-        exact SideGeometry.side_nonempty (SideGeometry.opposite i)
-      exact False.elim (ha hm)
-    · exact Or.inr ⟨Finset.not_nonempty_iff_eq_empty.mp ha, Finset.not_nonempty_iff_eq_empty.mp hb⟩
-
-lemma h3_exit_tag_and {n : ℕ} {D : Dag} (hS : Strict n D)
-    {x : Fin n} {e : ℕ × Bool} (he : e ∈ exitArcs n D (carrierT n D {x})) :
-    tag D e.1 = true := by
-  obtain ⟨j, s⟩ := e
-  obtain ⟨hj, hx, hn⟩ := sem_mem_exit1.mp he
-  by_contra ht
-  rw [Bool.not_eq_true] at ht
-  apply hn
-  rw [sem_supp_or hS hj ht, Finset.mem_union]
-  cases s
-  · exact Or.inl (by simpa only [sb_src_false] using hx)
-  · exact Or.inr (by simpa only [sb_src_true] using hx)
-
-lemma h3_indexed_gate_valid {D : Dag} (hS : Strict 10 D)
-    (r : Fin 10 → ℕ × Bool)
-    (hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r)
-    (hM : ∀ x : Fin 10, merges 10 D (carrierT 10 D {x}) = ∅) :
-    ∀ i : Fin 10, (r i).1 < D.length ∧ tag D (r i).1 = true ∧
-      supp 10 D (10 + (r i).1) = ∅ := by
-  intro i
-  obtain ⟨x, hx⟩ := SideGeometry.side_nonempty i
-  have hm : r i ∈ exitArcs 10 D (carrierT 10 D {x}) := by
-    rw [hW]
-    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
-  have hj := (sem_mem_exit1.mp hm).1
-  have ht := h3_exit_tag_and hS hm
-  refine ⟨hj, ht, ?_⟩
-  rw [sem_supp_and hS hj ht]
-  exact Finset.disjoint_iff_inter_eq_empty.mp (h3_no_merges_inputs_disjoint hS hM hj)
-
-lemma h3_tight_typed_sources_exist {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ∃ r : Fin 10 → ℕ × Bool, Function.Injective r ∧
-      (∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) ∧
-      (∀ i, supp 10 D (src D (r i)) = SideGeometry.side i) ∧
-      (∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-        (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r) ∧
-      (∀ i : Fin 10, (r i).1 < D.length ∧ tag D (r i).1 = true ∧
-        supp 10 D (10 + (r i).1) = ∅) ∧
-      (∀ j, j < D.length → Disjoint (supp 10 D (opA D j)) (supp 10 D (opB D j))) ∧
-      ∀ j, j < D.length → tag D j = true →
-        (∃ i : Fin 10, r i = (j, false) ∧
-          supp 10 D (opA D j) = SideGeometry.side i ∧
-          supp 10 D (opB D j) = SideGeometry.side (SideGeometry.opposite i)) ∨
-        (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) := by
-  obtain ⟨r, hinj, hopp, hsources, hW⟩ := h3_tight_sources_exist h hC hz hB
-  have hM := petersen_tight_merges_empty h hC hz hB
-  refine ⟨r, hinj, hopp, hsources, hW, h3_indexed_gate_valid h.1 r hW hM, ?_, ?_⟩
-  · intro j hj
-    exact h3_no_merges_inputs_disjoint h.1 hM hj
-  · intro j hj ht
-    exact h3_indexed_and_types h.1 r hW hopp hsources hM hj ht
-
 end DagTools
 
-def geoAdj (x y : Fin 10) : Bool :=
-  (([50, 69, 138, 276, 521, 385, 770, 548, 104, 208] : List Nat).getD x.val 0).testBit y.val
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 1000000 in
-lemma petersen_induced_matching_card :
-    ∀ S : Finset (Fin 10),
-      (∀ x ∈ S, (S.filter (fun y => geoAdj x y = true)).card ≤ 1) → S.card ≤ 6 := by
-  decide +kernel
-
-def geoProfile (p : Fin 3) : List Nat :=
-  if p = 0 then [0, 8, 0, 64, 0, 128, 1, 54, 2, 4, 16, 512, 32, 256, 200, 822]
-  else if p = 1 then [0, 4, 0, 256, 0, 512, 1, 122, 2, 64, 8, 16, 32, 128, 250, 772]
-  else [0, 4, 0, 256, 0, 512, 1, 250, 2, 64, 8, 16, 32, 128, 250, 772]
-
-def geoFlip (k : Nat) : Nat := if k % 2 = 0 then k + 1 else k - 1
-
-def geoMergeMask (p : Fin 3) (i j k : Fin 16) : Nat :=
-  if k = i ∨ k = j then (geoProfile p).getD i.val 0 ||| (geoProfile p).getD j.val 0
-  else if k.val = geoFlip i.val ∨ k.val = geoFlip j.val then
-    (geoProfile p).getD (geoFlip i.val) 0 ||| (geoProfile p).getD (geoFlip j.val) 0
-  else (geoProfile p).getD k.val 0
-
-def geoWitnessVertex (p : Fin 3) : Fin 10 := if p = 0 then 8 else 3
-
-def geoWitnessSet (p : Fin 3) : Nat := if p = 0 then 520 else 144
-
-lemma geo_witness_independent :
-    ∀ p : Fin 3, ∀ a b : Fin 10,
-      (geoWitnessSet p).testBit a.val = true →
-      (geoWitnessSet p).testBit b.val = true → geoAdj a b = false := by
-  decide +kernel
-
-lemma geo_witness_neighbor :
-    ∀ p : Fin 3, ∃ a : Fin 10,
-      (geoWitnessSet p).testBit a.val = true ∧ geoAdj (geoWitnessVertex p) a = true := by
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 1000000 in
-lemma geo_exact_neighborhood_obstruction :
-    ∀ (p : Fin 3) (i j : Fin 16),
-      ((geoProfile p).getD i.val 0).testBit 4 = true →
-      ((geoProfile p).getD j.val 0).testBit 5 = true →
-      (((geoProfile p).getD i.val 0 ||| (geoProfile p).getD j.val 0).testBit 2 = false) →
-      (((geoProfile p).getD i.val 0 ||| (geoProfile p).getD j.val 0).testBit 6 = false) →
-      ∀ k : Fin 16,
-        ((geoProfile p).getD k.val 0).testBit (geoWitnessVertex p).val = true →
-        (geoMergeMask p i j k &&& geoWitnessSet p) ≠ 0 := by
-  decide +kernel
-
-
 namespace DagTools
-
-lemma h3_tight_size_budget {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) (hs : D.length ≤ 19) :
-    Bplus 10 D = 9 ∧ Bzero 10 D ≤ 1 ∧ 18 ≤ D.length := by
-  have hi := petersen_tight_ineligible_singleton h hC hz hB
-  have hc := inelig_card_add 10 D
-  rw [hi, Finset.card_singleton] at hc
-  have ht := surplus_identity h
-  rw [totalSurplus_split] at ht
-  omega
-
-lemma h3_zero_branch_mem {n : ℕ} {D : Dag} (hS : Strict n D) {w : ℕ}
-    (hf : 2 ≤ fanout D w) (he : supp n D w = ∅) :
-    w ∈ (inner n D).filter (fun u => ¬ (supp n D u).Nonempty) :=
-  Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := w) (by omega)),
-    by rw [he]; exact Finset.not_nonempty_empty⟩
-
-lemma h3_zero_fanout_le {n : ℕ} {D : Dag} (hS : Strict n D) {w : ℕ}
-    (he : supp n D w = ∅) : fanout D w ≤ Bzero n D + 1 := by
-  by_cases hf : fanout D w ≤ 1
-  · omega
-  have hsum := Finset.single_le_sum (f := fun u => fanout D u - 1)
-    (fun _ _ => Nat.zero_le _) (h3_zero_branch_mem hS (by omega) he)
-  change fanout D w - 1 ≤ Bzero n D at hsum
-  omega
-
-lemma h3_zero_branch_unique {n : ℕ} {D : Dag} (hS : Strict n D)
-    (hB : Bzero n D ≤ 1) {u v : ℕ}
-    (hu : 2 ≤ fanout D u) (hu0 : supp n D u = ∅)
-    (hv : 2 ≤ fanout D v) (hv0 : supp n D v = ∅) : u = v := by
-  by_contra hne
-  have hsub : ({u, v} : Finset ℕ) ⊆
-      (inner n D).filter (fun w => ¬ (supp n D w).Nonempty) := by
-    intro w hw
-    rw [Finset.mem_insert, Finset.mem_singleton] at hw
-    rcases hw with rfl | rfl
-    · exact h3_zero_branch_mem hS hu hu0
-    · exact h3_zero_branch_mem hS hv hv0
-  have hsum := Finset.sum_le_sum_of_subset (f := fun w => fanout D w - 1) hsub
-  rw [Finset.sum_pair hne] at hsum
-  change fanout D u - 1 + (fanout D v - 1) ≤ Bzero n D at hsum
-  omega
 
 end DagTools
 
@@ -7649,66 +6052,6 @@ lemma h3_residual_singleton_flow {n : ℕ} {D : Dag} {G : Fin n → Fin n → Pr
   rw [Finset.card_singleton, h3_residual_singleton_surplus h.1 b hb r hr] at hf
   omega
 
-lemma h3_residual_one_branch_unique {n : ℕ} {D : Dag} (hS : Strict n D)
-    (b : Fin n → ℕ) (hb : PureBranch n D b)
-    (hr : (residualUnits n D b).card ≤ 1) {u v : ℕ}
-    (hu : 2 ≤ fanout D u) (hv : 2 ≤ fanout D v)
-    (hup : (supp n D u).Nonempty) (hvp : (supp n D v).Nonempty)
-    (hru : ∀ x ∈ eligSet n D, b x ≠ u)
-    (hrv : ∀ x ∈ eligSet n D, b x ≠ v) : u = v := by
-  have hm (w : ℕ) (hw : 2 ≤ fanout D w) (hp : (supp n D w).Nonempty)
-      (hbw : ∀ x ∈ eligSet n D, b x ≠ w) :
-      (⟨w, 0⟩ : Σ _ : ℕ, ℕ) ∈ residualUnits n D b := by
-    apply Finset.mem_sdiff.mpr
-    constructor
-    · apply Finset.mem_filter.mpr
-      exact ⟨mem_units.mpr ⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := w) (by omega)), by dsimp; omega⟩, hp⟩
-    · intro hc
-      obtain ⟨x, hx, he⟩ := Finset.mem_image.mp hc
-      exact hbw x hx (congrArg Sigma.fst he)
-  exact congrArg Sigma.fst ((Finset.card_le_one.mp hr) _ (hm u hu hup hru) _ (hm v hv hvp hrv))
-
-lemma h3_residual_one_unreserved_fanout {n : ℕ} {D : Dag} (hS : Strict n D)
-    (b : Fin n → ℕ) (hb : PureBranch n D b)
-    (hr : (residualUnits n D b).card ≤ 1) {w : ℕ}
-    (hp : (supp n D w).Nonempty)
-    (hw : ∀ x ∈ eligSet n D, b x ≠ w) : fanout D w ≤ 2 := by
-  by_contra hc
-  have hm (k : ℕ) (hk : k ≤ 1) : (⟨w, k⟩ : Σ _ : ℕ, ℕ) ∈ residualUnits n D b := by
-    apply Finset.mem_sdiff.mpr
-    constructor
-    · apply Finset.mem_filter.mpr
-      exact ⟨mem_units.mpr ⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := w) (by omega)), by dsimp; omega⟩, hp⟩
-    · intro hc
-      obtain ⟨x, hx, he⟩ := Finset.mem_image.mp hc
-      exact hw x hx (congrArg Sigma.fst he)
-  have he := (Finset.card_le_one.mp hr) _ (hm 0 (by omega)) _ (hm 1 (by omega))
-  have := congrArg (fun a : Σ _ : ℕ, ℕ => a.2) he
-  change 0 = 1 at this
-  omega
-
-lemma h3_exact_i1_budget {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hi : ineligSet 10 D = {0})
-    (hs : D.length ≤ 19) :
-    (eligSet 10 D).card = 9 ∧
-      (Bplus 10 D = 9 ∧ Bzero 10 D ≤ 1 ∧ 18 ≤ D.length ∨
-       Bplus 10 D = 10 ∧ Bzero 10 D = 0 ∧ D.length = 19) := by
-  obtain ⟨b, hb⟩ := sem_exists_pureBranch petersen_graph_ok h.1 hC
-  have he := inelig_card_add 10 D
-  rw [hi, Finset.card_singleton] at he
-  have hp := elig_le_Bplus h.1 b hb
-  have ht := surplus_identity h
-  rw [totalSurplus_split] at ht
-  omega
-
-lemma h3_exact_i1_residual_le_one {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hi : ineligSet 10 D = {0})
-    (hs : D.length ≤ 19) (b : Fin 10 → ℕ) (hb : PureBranch 10 D b) :
-    (residualUnits 10 D b).card ≤ 1 := by
-  have hbgt := h3_exact_i1_budget h hC hi hs
-  have hr := card_residual h.1 b hb
-  omega
-
 end DagTools
 
 namespace DagTools
@@ -7717,20 +6060,12 @@ def sem_W (n : ℕ) (D : Dag) (x : Fin n) : Finset (ℕ × Bool) := exitArcs n D
 
 def sem_bar (e : ℕ × Bool) : ℕ × Bool := (e.1, !e.2)
 
-
 section H3ResidualCodes
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
 lemma sem_mem_W {x : Fin n} {e : ℕ × Bool} : e ∈ sem_W n D x ↔
     e.1 < D.length ∧ x ∈ supp n D (src D e) ∧ x ∉ supp n D (n + e.1) := sem_mem_exit1
-
-lemma sem_bar_bar (e : ℕ × Bool) : sem_bar (sem_bar e) = e := by simp [sem_bar]
-
-lemma sem_bar_ne (e : ℕ × Bool) : sem_bar e ≠ e := by
-  intro h
-  have h2 := congrArg Prod.snd h
-  simp [sem_bar] at h2
 
 lemma sem_same_gate {e f : ℕ × Bool} (h : e.1 = f.1) : f = e ∨ f = sem_bar e := by
   obtain ⟨j, s⟩ := e
@@ -7756,7 +6091,6 @@ lemma sem_flow1 (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D) (x : 
       1 + surplusOn D (carrierT n D {x}) := by
   have h1 := carrier_flow_union h {x} (by rw [sem_supp_out hG hC]; simp)
   rwa [Finset.card_singleton] at h1
-
 
 end H3ResidualCodes
 
@@ -7901,110 +6235,6 @@ lemma sem_descent (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
       · rw [hs]; exact hc x hx
       · rw [hs]
 
-lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (X : Finset (Fin n)) (hX : X.Nonempty)
-    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅) (r : ℕ)
-    (hr : ∀ x ∈ X, x ∈ supp n D r) (hf : 2 ≤ fanout D r)
-    (hlow : ∀ x ∈ X, ∀ w, r < w → x ∈ supp n D w → fanout D w ≤ 1) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ ∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x := by
-  classical
-  have hS := h.1
-  obtain ⟨x0, hx0⟩ := hX
-  obtain ⟨j1, hj1, j2, hj2, hne⟩ := Finset.one_lt_card.mp (show 1 < (readers D r).card from hf)
-  have hread : ∀ j ∈ readers D r, j < D.length ∧ r < n + j ∧ (opA D j = r ∨ opB D j = r) := by
-    intro j hj
-    simp only [readers, Finset.mem_filter, Finset.mem_range] at hj
-    have := hS j hj.1
-    exact ⟨hj.1, by omega, hj.2⟩
-  have hterm : ∀ j ∈ readers D r, ∃ e : ℕ × Bool, (∀ x ∈ X, e ∈ sem_W n D x) ∧
-      ((e.1 = j ∧ src D e = r) ∨ Relation.ReflTransGen (sem_Arm n D X) (n + j) (src D e)) := by
-    intro j hj
-    obtain ⟨hjl, hrj, hop⟩ := hread j hj
-    obtain ⟨s, hs⟩ : ∃ s : Bool, src D (j, s) = r := by
-      rcases hop with h1 | h1
-      · exact ⟨false, by rw [sb_src_false]; exact h1⟩
-      · exact ⟨true, by rw [sb_src_true]; exact h1⟩
-    by_cases hcar : ∃ x1 ∈ X, x1 ∈ supp n D (n + j)
-    · obtain ⟨x1, hx1, hx1c⟩ := hcar
-      have ht := (sem_zm_gate hS (hM x1 hx1) hjl hx1c).1
-      have hall : ∀ x ∈ X, x ∈ supp n D (n + j) := by
-        intro x hx
-        rw [sem_supp_or hS hjl ht, Finset.mem_union]
-        rcases hop with h1 | h1
-        · left; rw [h1]; exact hr x hx
-        · right; rw [h1]; exact hr x hx
-      obtain ⟨e, he1, he2⟩ := sem_descent hG h hC X ⟨x0, hx0⟩ hM (n + j) hall
-        (fun x hx w hw => hlow x hx w (by omega))
-      exact ⟨e, he1, Or.inr he2⟩
-    · exact ⟨(j, s), fun x hx => sem_mem_W.mpr ⟨hjl, by rw [hs]; exact hr x hx,
-        fun hc2 => hcar ⟨x, hx, hc2⟩⟩, Or.inl ⟨rfl, hs⟩⟩
-  have hRstep : ∀ a b, sem_Arm n D X a b → sem_step n D a b := fun _ _ hab => hab.1
-  have hfun : ∀ a a' b, sem_Arm n D X a b → sem_Arm n D X a' b → a = a' := by
-    intro a a' b h1 h2
-    by_contra hne2
-    obtain ⟨hb1, hb2, hba⟩ := h1.1
-    obtain ⟨-, -, hba'⟩ := h2.1
-    have hjb : b - n < D.length := by omega
-    have hcarb : x0 ∈ supp n D (n + (b - n)) := by
-      rw [Nat.add_sub_cancel' hb2]; exact (h1.2.2 x0 hx0).2
-    apply (sem_zm_gate hS (hM x0 hx0) hjb hcarb).2
-    have ha := (h1.2.2 x0 hx0).1
-    have ha' := (h2.2.2 x0 hx0).1
-    rcases hba with e1 | e1 <;> rcases hba' with e2 | e2
-    · exact absurd (e1.symm.trans e2) hne2
-    · rw [e1, e2]; exact ⟨ha, ha'⟩
-    · rw [e1, e2]; exact ⟨ha', ha⟩
-    · exact absurd (e1.symm.trans e2) hne2
-  have hcross : ∀ ja ∈ readers D r, ∀ jb ∈ readers D r, ja ≠ jb →
-      ¬ Relation.ReflTransGen (sem_Arm n D X) (n + ja) (n + jb) := by
-    intro ja hja jb hjb hab hp
-    obtain ⟨hjla, hrja, -⟩ := hread ja hja
-    obtain ⟨hjlb, hrjb, hopb⟩ := hread jb hjb
-    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨u, hu1, hu2⟩
-    · exact hab (by omega)
-    · have hle := sem_rtg_le hS hRstep hu1
-      have hur : u = r := by
-        by_contra hur
-        obtain ⟨-, -, hbu⟩ := hu2.1
-        rw [Nat.add_sub_cancel_left] at hbu
-        apply (sem_zm_gate hS (hM x0 hx0) hjlb (hu2.2.2 x0 hx0).2).2
-        have hu := (hu2.2.2 x0 hx0).1
-        have hrr := hr x0 hx0
-        rcases hbu with e1 | e1 <;> rcases hopb with e2 | e2
-        · exact absurd (e1.symm.trans e2) hur
-        · rw [e1, e2]; exact ⟨hu, hrr⟩
-        · rw [e1, e2]; exact ⟨hrr, hu⟩
-        · exact absurd (e1.symm.trans e2) hur
-      omega
-  obtain ⟨P, hP1, hP2⟩ := hterm j1 hj1
-  obtain ⟨Q, hQ1, hQ2⟩ := hterm j2 hj2
-  refine ⟨P, Q, fun hPQ => ?_, fun x hx => ⟨hP1 x hx, hQ1 x hx⟩⟩
-  have hsame : Q = P := by
-    rcases sem_same_gate hPQ with h1 | h1
-    · exact h1
-    · exfalso
-      obtain ⟨hjP, hxP, hnP⟩ := sem_mem_W.mp (hP1 x0 hx0)
-      have hxQ := (sem_mem_W.mp (hQ1 x0 hx0)).2.1
-      rw [h1] at hxQ
-      apply hnP
-      rw [sem_supp_and hS hjP (sem_W_and hS (hP1 x0 hx0)), Finset.mem_inter]
-      obtain ⟨j, s⟩ := P
-      cases s
-      · exact ⟨by simpa [src] using hxP, by simpa [src, sem_bar] using hxQ⟩
-      · exact ⟨by simpa [src, sem_bar] using hxQ, by simpa [src] using hxP⟩
-  rw [hsame] at hQ2
-  obtain ⟨-, hrj1, -⟩ := hread j1 hj1
-  obtain ⟨-, hrj2, -⟩ := hread j2 hj2
-  rcases hP2 with ⟨hPa, hPb⟩ | hPp <;> rcases hQ2 with ⟨hQa, hQb⟩ | hQp
-  · exact hne (hPa.symm.trans hQa)
-  · have := sem_rtg_le hS hRstep hQp
-    omega
-  · have := sem_rtg_le hS hRstep hPp
-    omega
-  · rcases sem_rtg_comparable hfun hPp hQp with h1 | h1
-    · exact hcross j1 hj1 j2 hj2 hne h1
-    · exact hcross j2 hj2 j1 hj1 (Ne.symm hne) h1
-
 lemma sem_saturated (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     (b : Fin n → ℕ) (hb : PureBranch n D b) {u0 : Σ _ : ℕ, ℕ}
     (hres : residualUnits n D b = {u0}) {x : Fin n} (hsat : 3 ≤ (sem_W n D x).card) :
@@ -8028,109 +6258,7 @@ lemma sem_saturated (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     rw [Finset.mem_filter, Finset.mem_singleton] at hu
     exact hu.1 ▸ hu.2
 
-lemma sem_common_terminals (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (b : Fin n → ℕ) (hb : sem_MinBranch n D b) (hone : Bplus n D = (eligSet n D).card + 1)
-    (X : Finset (Fin n)) (hX : X.Nonempty) (hsat : ∀ x ∈ X, 3 ≤ (sem_W n D x).card) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ ∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x := by
-  have hS := h.1
-  have hbp := sem_minBranch_pure hb
-  have hcard : (residualUnits n D b).card = 1 := by
-    have := card_residual hS b hbp
-    omega
-  obtain ⟨u0, hres⟩ := Finset.card_eq_one.mp hcard
-  have hu0 : u0 ∈ residualUnits n D b := by rw [hres]; exact Finset.mem_singleton_self _
-  have hu0u : u0 ∈ units n D :=
-    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu0).1).1
-  have hfr : 2 ≤ fanout D u0.1 := by
-    have := (mem_units.mp hu0u).2
-    omega
-  refine sem_two_arms hG h hC X hX (fun x hx => (sem_saturated hG h hC b hbp hres (hsat x hx)).2.1)
-    u0.1 (fun x hx => (sem_saturated hG h hC b hbp hres (hsat x hx)).2.2.2) hfr ?_
-  intro x hx w hrw hxw
-  obtain ⟨-, -, hxe, hxr⟩ := sem_saturated hG h hC b hbp hres (hsat x hx)
-  by_contra hc
-  have hw2 : 2 ≤ fanout D w := by omega
-  have hwu : (⟨w, 0⟩ : Σ _ : ℕ, ℕ) ∈ unitsPlus n D := by
-    rw [unitsPlus, Finset.mem_filter, mem_units]
-    exact ⟨⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := w) (by omega)), by show 0 + 1 < fanout D w; omega⟩,
-      ⟨x, hxw⟩⟩
-  by_cases hwr : (⟨w, 0⟩ : Σ _ : ℕ, ℕ) ∈ reservedUnits n D b
-  · obtain ⟨v, hv, hveq⟩ := Finset.mem_image.mp hwr
-    have hbv : b v = w := congrArg Sigma.fst hveq
-    have hsv := (hb v hv).2.1
-    rw [hbv] at hsv
-    rw [hsv, Finset.mem_singleton] at hxw
-    have hmin := (hb x hxe).2.2.2 u0.1 hfr hxr
-    rw [hxw, hbv] at hmin
-    omega
-  · have hwres : (⟨w, 0⟩ : Σ _ : ℕ, ℕ) ∈ residualUnits n D b :=
-      Finset.mem_sdiff.mpr ⟨hwu, hwr⟩
-    rw [hres, Finset.mem_singleton] at hwres
-    have : w = u0.1 := congrArg Sigma.fst hwres
-    omega
-
 end SemArms
-
-def h3_saturatedSet (n : ℕ) (D : Dag) : Finset (Fin n) :=
-  Finset.univ.filter (fun x => 3 ≤ (exitArcs n D (carrierT n D {x})).card)
-
-lemma h3_one_residual_common_terminals {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (hone : Bplus n D = (eligSet n D).card + 1) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧
-      ∀ x ∈ h3_saturatedSet n D,
-        P ∈ exitArcs n D (carrierT n D {x}) ∧
-        Q ∈ exitArcs n D (carrierT n D {x}) := by
-  classical
-  by_cases hX : (h3_saturatedSet n D).Nonempty
-  · obtain ⟨b, hb⟩ := sem_exists_minBranch hG h.1 hC
-    exact sem_common_terminals hG h hC b hb hone (h3_saturatedSet n D) hX
-      (fun x hx => (Finset.mem_filter.mp hx).2)
-  · refine ⟨(0, false), (1, false), by decide, ?_⟩
-    intro x hx
-    exact False.elim (hX ⟨x, hx⟩)
-
-lemma h3_one_residual_saturation {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (hone : Bplus n D = (eligSet n D).card + 1) :
-    ∀ x ∈ h3_saturatedSet n D,
-      (exitArcs n D (carrierT n D {x})).card = 3 ∧
-      merges n D (carrierT n D {x}) = ∅ ∧ x ∈ eligSet n D := by
-  classical
-  obtain ⟨b, hb⟩ := sem_exists_minBranch hG h.1 hC
-  have hbp := sem_minBranch_pure hb
-  have hcard : (residualUnits n D b).card = 1 := by
-    have := card_residual h.1 b hbp
-    omega
-  obtain ⟨u0, hres⟩ := Finset.card_eq_one.mp hcard
-  intro x hx
-  have hx3 : 3 ≤ (sem_W n D x).card := (Finset.mem_filter.mp hx).2
-  obtain ⟨hc, hm, he, _⟩ := sem_saturated hG h hC b hbp hres hx3
-  exact ⟨hc, hm, he⟩
-
-lemma h3_one_residual_matching {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (hone : Bplus n D = (eligSet n D).card + 1) :
-    ∀ x ∈ h3_saturatedSet n D, ∀ y ∈ h3_saturatedSet n D,
-      ∀ z ∈ h3_saturatedSet n D, G x y → G x z → y = z := by
-  obtain ⟨P, Q, hPQ, hterm⟩ := h3_one_residual_common_terminals hG h hC hone
-  exact sem_three_exits_common_matching hG h.1 hC (h3_saturatedSet n D) P Q
-    (fun he => hPQ (congrArg Prod.fst he))
-    (fun x hx => (h3_one_residual_saturation hG h hC hone x hx).1)
-    (fun x hx => (hterm x hx).1) (fun x hx => (hterm x hx).2)
-
-lemma h3_petersen_one_residual_card {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D)
-    (hone : Bplus 10 D = (eligSet 10 D).card + 1) :
-    (h3_saturatedSet 10 D).card ≤ 6 := by
-  have hmatch := h3_one_residual_matching petersen_graph_ok h hC hone
-  apply petersen_induced_matching_card
-  intro x hx
-  apply Finset.card_le_one.mpr
-  intro y hy z hz
-  have hy' := Finset.mem_filter.mp hy
-  have hz' := Finset.mem_filter.mp hz
-  exact hmatch x hx y hy'.1 z hz'.1 hy'.2 hz'.2
 
 end DagTools
 
@@ -8139,160 +6267,6 @@ namespace DagTools
 section H3ForkRouting
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-
-lemma h3_sem_two_arms_routed (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (X : Finset (Fin n)) (hX : X.Nonempty)
-    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅) (r : ℕ)
-    (hr : ∀ x ∈ X, x ∈ supp n D r) (hf : 2 ≤ fanout D r)
-    (hlow : ∀ x ∈ X, ∀ w, r < w → x ∈ supp n D w → fanout D w ≤ 1) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧
-      (∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x) ∧
-      ∃ j1 ∈ readers D r, ∃ j2 ∈ readers D r, j1 ≠ j2 ∧
-        ((P.1 = j1 ∧ src D P = r) ∨
-          Relation.ReflTransGen (sem_Arm n D X) (n + j1) (src D P)) ∧
-        ((Q.1 = j2 ∧ src D Q = r) ∨
-          Relation.ReflTransGen (sem_Arm n D X) (n + j2) (src D Q)) := by
-  classical
-  have hS := h.1
-  obtain ⟨x0, hx0⟩ := hX
-  obtain ⟨j1, hj1, j2, hj2, hne⟩ := Finset.one_lt_card.mp (show 1 < (readers D r).card from hf)
-  have hread : ∀ j ∈ readers D r, j < D.length ∧ r < n + j ∧ (opA D j = r ∨ opB D j = r) := by
-    intro j hj
-    simp only [readers, Finset.mem_filter, Finset.mem_range] at hj
-    have := hS j hj.1
-    exact ⟨hj.1, by omega, hj.2⟩
-  have hterm : ∀ j ∈ readers D r, ∃ e : ℕ × Bool, (∀ x ∈ X, e ∈ sem_W n D x) ∧
-      ((e.1 = j ∧ src D e = r) ∨ Relation.ReflTransGen (sem_Arm n D X) (n + j) (src D e)) := by
-    intro j hj
-    obtain ⟨hjl, hrj, hop⟩ := hread j hj
-    obtain ⟨s, hs⟩ : ∃ s : Bool, src D (j, s) = r := by
-      rcases hop with h1 | h1
-      · exact ⟨false, by rw [sb_src_false]; exact h1⟩
-      · exact ⟨true, by rw [sb_src_true]; exact h1⟩
-    by_cases hcar : ∃ x1 ∈ X, x1 ∈ supp n D (n + j)
-    · obtain ⟨x1, hx1, hx1c⟩ := hcar
-      have ht := (sem_zm_gate hS (hM x1 hx1) hjl hx1c).1
-      have hall : ∀ x ∈ X, x ∈ supp n D (n + j) := by
-        intro x hx
-        rw [sem_supp_or hS hjl ht, Finset.mem_union]
-        rcases hop with h1 | h1
-        · left; rw [h1]; exact hr x hx
-        · right; rw [h1]; exact hr x hx
-      obtain ⟨e, he1, he2⟩ := sem_descent hG h hC X ⟨x0, hx0⟩ hM (n + j) hall
-        (fun x hx w hw => hlow x hx w (by omega))
-      exact ⟨e, he1, Or.inr he2⟩
-    · exact ⟨(j, s), fun x hx => sem_mem_W.mpr ⟨hjl, by rw [hs]; exact hr x hx,
-        fun hc2 => hcar ⟨x, hx, hc2⟩⟩, Or.inl ⟨rfl, hs⟩⟩
-  have hRstep : ∀ a b, sem_Arm n D X a b → sem_step n D a b := fun _ _ hab => hab.1
-  have hfun : ∀ a a' b, sem_Arm n D X a b → sem_Arm n D X a' b → a = a' := by
-    intro a a' b h1 h2
-    by_contra hne2
-    obtain ⟨hb1, hb2, hba⟩ := h1.1
-    obtain ⟨-, -, hba'⟩ := h2.1
-    have hjb : b - n < D.length := by omega
-    have hcarb : x0 ∈ supp n D (n + (b - n)) := by
-      rw [Nat.add_sub_cancel' hb2]; exact (h1.2.2 x0 hx0).2
-    apply (sem_zm_gate hS (hM x0 hx0) hjb hcarb).2
-    have ha := (h1.2.2 x0 hx0).1
-    have ha' := (h2.2.2 x0 hx0).1
-    rcases hba with e1 | e1 <;> rcases hba' with e2 | e2
-    · exact absurd (e1.symm.trans e2) hne2
-    · rw [e1, e2]; exact ⟨ha, ha'⟩
-    · rw [e1, e2]; exact ⟨ha', ha⟩
-    · exact absurd (e1.symm.trans e2) hne2
-  have hcross : ∀ ja ∈ readers D r, ∀ jb ∈ readers D r, ja ≠ jb →
-      ¬ Relation.ReflTransGen (sem_Arm n D X) (n + ja) (n + jb) := by
-    intro ja hja jb hjb hab hp
-    obtain ⟨hjla, hrja, -⟩ := hread ja hja
-    obtain ⟨hjlb, hrjb, hopb⟩ := hread jb hjb
-    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨u, hu1, hu2⟩
-    · exact hab (by omega)
-    · have hle := sem_rtg_le hS hRstep hu1
-      have hur : u = r := by
-        by_contra hur
-        obtain ⟨-, -, hbu⟩ := hu2.1
-        rw [Nat.add_sub_cancel_left] at hbu
-        apply (sem_zm_gate hS (hM x0 hx0) hjlb (hu2.2.2 x0 hx0).2).2
-        have hu := (hu2.2.2 x0 hx0).1
-        have hrr := hr x0 hx0
-        rcases hbu with e1 | e1 <;> rcases hopb with e2 | e2
-        · exact absurd (e1.symm.trans e2) hur
-        · rw [e1, e2]; exact ⟨hu, hrr⟩
-        · rw [e1, e2]; exact ⟨hrr, hu⟩
-        · exact absurd (e1.symm.trans e2) hur
-      omega
-  obtain ⟨P, hP1, hP2⟩ := hterm j1 hj1
-  obtain ⟨Q, hQ1, hQ2⟩ := hterm j2 hj2
-  refine ⟨P, Q, fun hPQ => ?_, (fun x hx => ⟨hP1 x hx, hQ1 x hx⟩),
-    j1, hj1, j2, hj2, hne, hP2, hQ2⟩
-  have hsame : Q = P := by
-    rcases sem_same_gate hPQ with h1 | h1
-    · exact h1
-    · exfalso
-      obtain ⟨hjP, hxP, hnP⟩ := sem_mem_W.mp (hP1 x0 hx0)
-      have hxQ := (sem_mem_W.mp (hQ1 x0 hx0)).2.1
-      rw [h1] at hxQ
-      apply hnP
-      rw [sem_supp_and hS hjP (sem_W_and hS (hP1 x0 hx0)), Finset.mem_inter]
-      obtain ⟨j, s⟩ := P
-      cases s
-      · exact ⟨by simpa [src] using hxP, by simpa [src, sem_bar] using hxQ⟩
-      · exact ⟨by simpa [src, sem_bar] using hxQ, by simpa [src] using hxP⟩
-  rw [hsame] at hQ2
-  obtain ⟨-, hrj1, -⟩ := hread j1 hj1
-  obtain ⟨-, hrj2, -⟩ := hread j2 hj2
-  rcases hP2 with ⟨hPa, hPb⟩ | hPp <;> rcases hQ2 with ⟨hQa, hQb⟩ | hQp
-  · exact hne (hPa.symm.trans hQa)
-  · have := sem_rtg_le hS hRstep hQp
-    omega
-  · have := sem_rtg_le hS hRstep hPp
-    omega
-  · rcases sem_rtg_comparable hfun hPp hQp with h1 | h1
-    · exact hcross j1 hj1 j2 hj2 hne h1
-    · exact hcross j2 hj2 j1 hj1 (Ne.symm hne) h1
-
-lemma h3_tight_carrier_branch_unique (hS : Strict n D) (b : Fin n → ℕ)
-    (hb : PureBranch n D b) (hB : Bplus n D = (eligSet n D).card)
-    {x : Fin n} {u v : ℕ} (hu : 2 ≤ fanout D u) (hv : 2 ≤ fanout D v)
-    (hxu : x ∈ supp n D u) (hxv : x ∈ supp n D v) : u = v := by
-  have hs := surplus_carrierT_le hS b hb {x}
-  have hc : (({x} : Finset (Fin n)) ∩ eligSet n D).card ≤ 1 :=
-    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
-  have hbound : surplusOn D (carrierT n D {x}) ≤ 1 := by omega
-  by_contra hne
-  have hsub : ({u, v} : Finset ℕ) ⊆ carrierT n D {x} := by
-    intro w hw
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hw
-    rcases hw with rfl | rfl
-    · exact sem_mem_carrier1.mpr hxu
-    · exact sem_mem_carrier1.mpr hxv
-  have hsum := Finset.sum_le_sum_of_subset (f := fun w => fanout D w - 1) hsub
-  rw [Finset.sum_pair hne] at hsum
-  change fanout D u - 1 + (fanout D v - 1) ≤ surplusOn D (carrierT n D {x}) at hsum
-  omega
-
-lemma h3_sem_tight_fork_routes (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hB : Bplus n D = (eligSet n D).card)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    {x : Fin n} {r : ℕ} (hf : 2 ≤ fanout D r) (hx : x ∈ supp n D r) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ P ∈ sem_W n D x ∧ Q ∈ sem_W n D x ∧
-      ∃ j1 ∈ readers D r, ∃ j2 ∈ readers D r, j1 ≠ j2 ∧
-        ((P.1 = j1 ∧ src D P = r) ∨
-          Relation.ReflTransGen (sem_Arm n D {x}) (n + j1) (src D P)) ∧
-        ((Q.1 = j2 ∧ src D Q = r) ∨
-          Relation.ReflTransGen (sem_Arm n D {x}) (n + j2) (src D Q)) := by
-  obtain ⟨b, hb⟩ := sem_exists_pureBranch hG h.1 hC
-  obtain ⟨P, Q, hPQ, hmem, hroutes⟩ := h3_sem_two_arms_routed hG h hC
-    {x} (by simp) (fun y hy => hM y) r (by simpa using hx) hf (by
-      intro y hy w hrw hyw
-      have hyx : y = x := Finset.mem_singleton.mp hy
-      subst y
-      by_contra hw
-      have hw2 : 2 ≤ fanout D w := by omega
-      have he := h3_tight_carrier_branch_unique h.1 b hb hB hf hw2 hx hyw
-      omega)
-  exact ⟨P, Q, hPQ, (hmem x (by simp)).1, (hmem x (by simp)).2, hroutes⟩
-
 
 lemma h3_sem_arm_or (hS : Strict n D) {x : Fin n}
     (hM : merges n D (carrierT n D {x}) = ∅) {a b : ℕ}
@@ -8303,433 +6277,15 @@ lemma h3_sem_arm_or (hS : Strict n D) {x : Fin n}
   rw [he]
   exact (hab.2.2 x (by simp)).2
 
-lemma h3_sem_route_before (hS : Strict n D) {x : Fin n} {r j : ℕ}
-    (hj : j ∈ readers D r) {e : ℕ × Bool} (he : e ∈ sem_W n D x)
-    (hp : (e.1 = j ∧ src D e = r) ∨
-      Relation.ReflTransGen (sem_Arm n D {x}) (n + j) (src D e)) :
-    r < n + e.1 := by
-  have hj' := Finset.mem_filter.mp hj
-  have hjl : j < D.length := Finset.mem_range.mp hj'.1
-  have hS' := hS j hjl
-  have hrj : r < n + j := by rcases hj'.2 with hA | hB <;> omega
-  rcases hp with ⟨hgate, _⟩ | hp
-  · simpa only [hgate] using hrj
-  · have hle := sem_rtg_le hS (fun _ _ hab => hab.1) hp
-    have hsrc := sem_src_lt hS (sem_mem_W.mp he).1 e.2
-    exact lt_trans hrj (lt_of_le_of_lt hle hsrc)
-
-lemma h3_sem_tight_fork_routes_to (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hB : Bplus n D = (eligSet n D).card)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    {x : Fin n} {r : ℕ} (hf : 2 ≤ fanout D r) (hx : x ∈ supp n D r)
-    {P Q : ℕ × Bool} (hW : sem_W n D x = {P, Q}) :
-    ∃ j1 ∈ readers D r, ∃ j2 ∈ readers D r, j1 ≠ j2 ∧
-      ((P.1 = j1 ∧ src D P = r) ∨
-        Relation.ReflTransGen (sem_Arm n D {x}) (n + j1) (src D P)) ∧
-      ((Q.1 = j2 ∧ src D Q = r) ∨
-        Relation.ReflTransGen (sem_Arm n D {x}) (n + j2) (src D Q)) := by
-  obtain ⟨P', Q', hne, hP, hQ, j1, hj1, j2, hj2, hjne, hp, hq⟩ :=
-    h3_sem_tight_fork_routes hG h hC hB hM hf hx
-  rw [hW] at hP hQ
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hP hQ
-  rcases hP with rfl | rfl <;> rcases hQ with rfl | rfl
-  · exact (hne rfl).elim
-  · exact ⟨j1, hj1, j2, hj2, hjne, hp, hq⟩
-  · exact ⟨j2, hj2, j1, hj1, Ne.symm hjne, hq, hp⟩
-  · exact (hne rfl).elim
-
-lemma h3_sem_tight_fork_before_all_exits (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hB : Bplus n D = (eligSet n D).card)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    {x : Fin n} {r : ℕ} (hf : 2 ≤ fanout D r) (hx : x ∈ supp n D r)
-    (hc : (sem_W n D x).card ≤ 2) :
-    ∀ e ∈ sem_W n D x, r < n + e.1 := by
-  obtain ⟨P, Q, hne, hP, hQ, j1, hj1, j2, hj2, hjne, hp, hq⟩ :=
-    h3_sem_tight_fork_routes hG h hC hB hM hf hx
-  have hPQ : P ≠ Q := fun he => hne (congrArg Prod.fst he)
-  have hsub : ({P, Q} : Finset (ℕ × Bool)) ⊆ sem_W n D x := by
-    intro e he
-    simp only [Finset.mem_insert, Finset.mem_singleton] at he
-    rcases he with rfl | rfl <;> assumption
-  have heq : ({P, Q} : Finset (ℕ × Bool)) = sem_W n D x :=
-    Finset.eq_of_subset_of_card_le hsub (by simpa [Finset.card_pair hPQ] using hc)
-  intro e he
-  rw [← heq] at he
-  simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl
-  · exact h3_sem_route_before h.1 hj1 hP hp
-  · exact h3_sem_route_before h.1 hj2 hQ hq
-
-
-def h3_outsideCenterIndex (x : Fin 10) : Fin 10 :=
-  if x = 1 then 2 else if x = 4 then 4 else 6
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma h3_outside_exit_indices : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)),
-    Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i) =
-      {1, h3_outsideCenterIndex x} := by
-  unfold h3_outsideCenterIndex SideGeometry.side SideGeometry.mask
-  decide +kernel
-
-lemma h3_petersen_outside_fork_routes {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card)
-    (r : Fin 10 → ℕ × Bool)
-    (hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r)
-    {x : Fin 10} (hxout : x ∈ ({1, 4, 5} : Finset (Fin 10)))
-    {w : ℕ} (hf : 2 ≤ fanout D w) (hx : x ∈ supp 10 D w) :
-    ∃ j1 ∈ readers D w, ∃ j2 ∈ readers D w, j1 ≠ j2 ∧
-      (((r 1).1 = j1 ∧ src D (r 1) = w) ∨
-        Relation.ReflTransGen (sem_Arm 10 D {x}) (10 + j1) (src D (r 1))) ∧
-      (((r (h3_outsideCenterIndex x)).1 = j2 ∧ src D (r (h3_outsideCenterIndex x)) = w) ∨
-        Relation.ReflTransGen (sem_Arm 10 D {x}) (10 + j2) (src D (r (h3_outsideCenterIndex x)))) := by
-  apply h3_sem_tight_fork_routes_to petersen_graph_ok h hC hB
-    (petersen_tight_merges_empty h hC hz hB) hf hx
-  change exitArcs 10 D (carrierT 10 D {x}) = _
-  rw [hW, h3_outside_exit_indices x hxout]
-  simp
-
-
-
 end H3ForkRouting
 
 end DagTools
 
 namespace DagTools
 
-def h3_linear {n : ℕ} (D : Dag) (x : Fin n → Bool) (w : ℕ) : Bool :=
-  decide (∃ v : Fin n, v ∈ supp n D w ∧ x v = true)
-
-def h3_noise {n : ℕ} (D : Dag) (hS : Strict n D) (x : Fin n → Bool) (w : ℕ) : Bool :=
-  if _hn : w < n then false else
-  if _hj : w - n < D.length then
-    if tag D (w - n) then val D x w
-    else h3_noise D hS x (opA D (w - n)) || h3_noise D hS x (opB D (w - n))
-  else false
-termination_by w
-decreasing_by
-  all_goals
-    obtain ⟨ha, hb, _⟩ := hS (w - n) _hj
-    omega
-
-lemma h3_linear_le_val {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (w : ℕ)
-    (hl : h3_linear D x w = true) : val D x w = true := by
-  obtain ⟨v, hv, hx⟩ := of_decide_eq_true hl
-  exact sem_val_of_supp hS hv hx
-
-lemma h3_noise_input {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool)
-    {w : ℕ} (hw : w < n) : h3_noise D hS x w = false := by
-  rw [h3_noise]
-  simp only [hw, ↓reduceDIte]
-
-lemma h3_noise_gate {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool)
-    {j : ℕ} (hj : j < D.length) :
-    h3_noise D hS x (n + j) =
-      if tag D j then val D x (n + j)
-      else h3_noise D hS x (opA D j) || h3_noise D hS x (opB D j) := by
-  rw [h3_noise]
-  simp only [show ¬n + j < n by omega, ↓reduceDIte, Nat.add_sub_cancel_left, hj]
-
-lemma h3_linear_input {n : ℕ} (D : Dag) (x : Fin n → Bool) (i : Fin n) :
-    h3_linear D x i.val = x i := by
-  simp [h3_linear, supp_input D i]
-
-lemma h3_linear_or {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool)
-    {j : ℕ} (hj : j < D.length) (ht : tag D j = false) :
-    h3_linear D x (n + j) = (h3_linear D x (opA D j) || h3_linear D x (opB D j)) := by
-  apply Bool.eq_iff_iff.mpr
-  simp only [h3_linear, decide_eq_true_eq, Bool.or_eq_true, sem_supp_or hS hj ht,
-    Finset.mem_union, or_and_right, exists_or]
-
-lemma h3_noise_decomposition {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool)
-    (w : ℕ) : val D x w = (h3_linear D x w || h3_noise D hS x w) := by
-  induction w using Nat.strong_induction_on with
-  | _ w ih =>
-    by_cases hn : w < n
-    · rw [val_input D x w hn, h3_noise_input hS x hn]
-      have hl := h3_linear_input D x (⟨w, hn⟩ : Fin n)
-      simpa only [Bool.or_false] using hl.symm
-    · by_cases hlt : w < n + D.length
-      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
-        have hj : j < D.length := by omega
-        obtain ⟨ha, hb, _⟩ := hS j hj
-        cases ht : tag D j
-        · rw [val_gate hS x j hj, ht, gop_false, h3_noise_gate hS x hj, ht]
-          simp only [Bool.false_eq_true, ↓reduceIte]
-          rw [h3_linear_or hS x hj ht, ih _ ha, ih _ hb]
-          ac_rfl
-        · rw [h3_noise_gate hS x hj, ht]
-          simp only [↓reduceIte]
-          have hl := h3_linear_le_val hS x (n + j)
-          cases he : h3_linear D x (n + j) <;> cases hv : val D x (n + j) <;>
-            simp_all
-      · have hs : supp n D w = ∅ := by
-          apply Finset.eq_empty_of_forall_notMem
-          intro v hv
-          have := sem_supp_lt hv
-          omega
-        have hj : ¬ w - n < D.length := by omega
-        rw [val_ge D x w (by omega), h3_noise]
-        simp only [hn, ↓reduceDIte, hj, h3_linear, hs, Finset.notMem_empty,
-          false_and, exists_false, decide_false, Bool.false_or]
-
-def h3_row_left (k : Fin 6) : Fin 10 :=
-  ⟨(([2, 3, 7, 2, 2, 3] : List Nat).getD k.val 0) % 10, Nat.mod_lt _ (by decide)⟩
-
-def h3_row_right (k : Fin 6) : Fin 10 :=
-  ⟨(([6, 9, 8, 3, 7, 8] : List Nat).getD k.val 0) % 10, Nat.mod_lt _ (by decide)⟩
-
-def h3_row_input (k : Fin 6) : Fin 10 → Bool := sem_two (h3_row_left k) (h3_row_right k)
-
-def h3_side_mask (i : Fin 10) : Nat := ([0, 0, 0, 25, 0, 42, 0, 52, 63, 63] : List Nat).getD i.val 0
-
-lemma h3_sides_linear_table : ∀ (i : Fin 10) (k : Fin 6),
-    decide (∃ v : Fin 10, v ∈ SideGeometry.side i ∧ h3_row_input k v = true) =
-      (h3_side_mask i).testBit k.val := by
-  unfold SideGeometry.side SideGeometry.mask h3_row_input h3_row_left h3_row_right sem_two h3_side_mask
-  decide +kernel
-
-lemma h3_six_target_table : ∀ k : Fin 6,
-    sem_Edge petersenAdj (h3_row_input k) ↔ (56 : Nat).testBit k.val = true := by
-  unfold sem_Edge petersenAdj h3_row_input h3_row_left h3_row_right sem_two
-  decide +kernel
-
-lemma h3_six_target_of_computes {D : Dag} (hC : sem_Comp 10 petersenAdj D) (k : Fin 6) :
-    val D (h3_row_input k) (outW 10 D) = (56 : Nat).testBit k.val := by
-  have hc := (hC (h3_row_input k)).trans (h3_six_target_table k)
-  cases hv : val D (h3_row_input k) (outW 10 D) <;>
-    cases hb : (56 : Nat).testBit k.val <;> simp_all
-
-lemma h3_six_noise_output {D : Dag} (hS : Strict 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (k : Fin 6) :
-    h3_noise D hS (h3_row_input k) (outW 10 D) = (56 : Nat).testBit k.val := by
-  have hd := h3_noise_decomposition hS (h3_row_input k) (outW 10 D)
-  have hl : h3_linear D (h3_row_input k) (outW 10 D) = false := by
-    simp [h3_linear, sem_supp_out petersen_graph_ok hC]
-  rw [hl, Bool.false_or] at hd
-  exact hd.symm.trans (h3_six_target_of_computes hC k)
-
-lemma h3_linear_on_side {D : Dag} {w : ℕ} {i : Fin 10}
-    (hs : supp 10 D w = SideGeometry.side i) (k : Fin 6) :
-    h3_linear D (h3_row_input k) w = (h3_side_mask i).testBit k.val := by
-  simpa only [h3_linear, hs] using h3_sides_linear_table i k
-
-lemma h3_noise_and_sides {D : Dag} (hS : Strict 10 D) {j : ℕ}
-    (hj : j < D.length) (ht : tag D j = true) {i : Fin 10}
-    (ha : supp 10 D (opA D j) = SideGeometry.side i)
-    (hb : supp 10 D (opB D j) = SideGeometry.side (SideGeometry.opposite i)) (k : Fin 6) :
-    h3_noise D hS (h3_row_input k) (10 + j) =
-      (((h3_side_mask i).testBit k.val || h3_noise D hS (h3_row_input k) (opA D j)) &&
-      ((h3_side_mask (SideGeometry.opposite i)).testBit k.val ||
-        h3_noise D hS (h3_row_input k) (opB D j))) := by
-  rw [h3_noise_gate hS _ hj, ht]
-  simp only [↓reduceIte]
-  rw [val_gate hS _ j hj, ht, gop_true, h3_noise_decomposition hS _ (opA D j),
-    h3_noise_decomposition hS _ (opB D j), h3_linear_on_side ha k, h3_linear_on_side hb k]
-
-lemma h3_noise_and_empty {D : Dag} (hS : Strict 10 D) {j : ℕ}
-    (hj : j < D.length) (ht : tag D j = true)
-    (ha : supp 10 D (opA D j) = ∅) (hb : supp 10 D (opB D j) = ∅) (x : Fin 10 → Bool) :
-    h3_noise D hS x (10 + j) =
-      (h3_noise D hS x (opA D j) && h3_noise D hS x (opB D j)) := by
-  rw [h3_noise_gate hS x hj, ht]
-  simp only [↓reduceIte]
-  rw [val_gate hS x j hj, ht, gop_true, h3_noise_decomposition hS x (opA D j),
-    h3_noise_decomposition hS x (opB D j)]
-  simp [h3_linear, ha, hb]
-
-lemma h3_noise_dirty {D : Dag} (hS : Strict 10 D) {j : ℕ}
-    (hj : j < D.length) (ht : tag D j = true)
-    (ha : supp 10 D (opA D j) = SideGeometry.side 8)
-    (hb : supp 10 D (opB D j) = SideGeometry.side 9) (k : Fin 6) :
-    h3_noise D hS (h3_row_input k) (10 + j) = true := by
-  have hop : SideGeometry.opposite (8 : Fin 10) = 9 := by decide
-  have h := h3_noise_and_sides hS hj ht ha (by rw [hop]; exact hb) k
-  have hbits : ∀ a : Fin 6, (63 : Nat).testBit a.val = true := by decide
-  have hm8 : h3_side_mask 8 = 63 := by decide
-  have hm9 : h3_side_mask 9 = 63 := by decide
-  rw [hop, hm8, hm9, hbits k] at h
-  simpa only [Bool.true_or, Bool.true_and] using h
-
-lemma h3_noise_before_source {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool)
-    (d : ℕ)
-    (hsource : ∀ j, j < D.length → j < d → tag D j = true →
-      (h3_linear D x (opA D j) && h3_linear D x (opB D j)) = false) :
-    ∀ w, w < n + d → h3_noise D hS x w = false := by
-  intro w
-  induction w using Nat.strong_induction_on with
-  | _ w ih =>
-    intro hwd
-    by_cases hn : w < n
-    · exact h3_noise_input hS x hn
-    · by_cases hlt : w < n + D.length
-      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
-        have hj : j < D.length := by omega
-        have hjd : j < d := by omega
-        obtain ⟨ha, hb, _⟩ := hS j hj
-        have hna := ih _ ha (by omega)
-        have hnb := ih _ hb (by omega)
-        rw [h3_noise_gate hS x hj]
-        cases ht : tag D j
-        · simp only [Bool.false_eq_true, ↓reduceIte, hna, hnb, Bool.false_or]
-        · simp only [↓reduceIte]
-          rw [val_gate hS x j hj, ht, gop_true, h3_noise_decomposition hS x (opA D j),
-            h3_noise_decomposition hS x (opB D j), hna, hnb, Bool.or_false, Bool.or_false]
-          exact hsource j hj hjd ht
-      · have hj : ¬ w - n < D.length := by omega
-        rw [h3_noise]
-        simp only [hn, ↓reduceDIte, hj]
-
-lemma h3_side_products_zero : ∀ i : Fin 10, i.val < 8 → ∀ k : Fin 6,
-    ((h3_side_mask i).testBit k.val &&
-      (h3_side_mask (SideGeometry.opposite i)).testBit k.val) = false := by
-  unfold h3_side_mask SideGeometry.opposite
-  decide +kernel
-
-lemma h3_noise_before_dirty {D : Dag} (hS : Strict 10 D)
-    (r : Fin 10 → ℕ × Bool)
-    (hopp : ∀ i : Fin 10, r (SideGeometry.opposite i) = ((r i).1, !(r i).2))
-    (htypes : ∀ j, j < D.length → tag D j = true →
-      (∃ i : Fin 10, r i = (j, false) ∧
-        supp 10 D (opA D j) = SideGeometry.side i ∧
-        supp 10 D (opB D j) = SideGeometry.side (SideGeometry.opposite i)) ∨
-      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) (k : Fin 6) :
-    ∀ w, w < 10 + (r 8).1 → h3_noise D hS (h3_row_input k) w = false := by
-  apply h3_noise_before_source hS (h3_row_input k) (r 8).1
-  intro j hj hjd ht
-  rcases htypes j hj ht with ⟨i, hi, ha, hb⟩ | ⟨ha, hb⟩
-  · have hismall : i.val < 8 := by
-      by_contra hn
-      have hicases : i = 8 ∨ i = 9 := by omega
-      rcases hicases with hi8 | hi9
-      · subst i
-        have h := congrArg Prod.fst hi
-        dsimp only at h
-        omega
-      · subst i
-        have h := congrArg Prod.fst hi
-        have hop := congrArg Prod.fst (hopp 8)
-        have ho : SideGeometry.opposite (8 : Fin 10) = 9 := by decide
-        have h89 : (r 9).1 = (r 8).1 := by simpa only [ho] using hop
-        dsimp only at h
-        omega
-    rw [h3_linear_on_side ha k, h3_linear_on_side hb k]
-    exact h3_side_products_zero i hismall k
-  · simp [h3_linear, ha, hb]
-
-
 end DagTools
 
 namespace FiveGroup.CausalBarrier
-
-abbrev Wire := Finset (Fin 10) × Bool
-
-def Safe (T : Finset (Fin 10)) (w : Wire) : Prop :=
-  w.2 = true → (w.1 ∩ T).Nonempty
-
-def Join (a b : Wire) : Wire := (a.1 ∪ b.1, a.2 || b.2)
-
-def Meet (a b : Wire) : Wire := (a.1 ∩ b.1, a.2 && b.2)
-
-def Separates (T A B : Finset (Fin 10)) : Prop :=
-  ¬ ((A ∩ T).Nonempty ∧ (B ∩ T).Nonempty)
-
-lemma safe_join {T : Finset (Fin 10)} {a b : Wire}
-    (ha : Safe T a) (hb : Safe T b) : Safe T (Join a b) := by
-  intro h
-  change a.2 || b.2 = true at h
-  rcases Bool.or_eq_true_iff.mp h with h | h
-  · rcases ha h with ⟨v, hv⟩
-    refine ⟨v, ?_⟩
-    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
-      And.intro (Or.inl (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
-  · rcases hb h with ⟨v, hv⟩
-    refine ⟨v, ?_⟩
-    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
-      And.intro (Or.inr (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
-
-lemma safe_meet {T : Finset (Fin 10)} {a b : Wire}
-    (ha : Safe T a) (hb : Safe T b) (hs : Separates T a.1 b.1) :
-    Safe T (Meet a b) := by
-  intro h
-  change a.2 && b.2 = true at h
-  rcases Bool.and_eq_true_iff.mp h with ⟨ha', hb'⟩
-  exact False.elim (hs ⟨ha ha', hb hb'⟩)
-
-def Step (T : Finset (Fin 10)) (pool : List Wire) (w : Wire) : Prop :=
-  ∃ a ∈ pool, ∃ b ∈ pool,
-    w = Join a b ∨ (Separates T a.1 b.1 ∧ w = Meet a b)
-
-def Trace (T : Finset (Fin 10)) (pool : List Wire) : List Wire → Prop
-  | [] => True
-  | w :: ws => Step T pool w ∧ Trace T (w :: pool) ws
-
-lemma safe_step {T : Finset (Fin 10)} {pool : List Wire} {w : Wire}
-    (hp : ∀ a ∈ pool, Safe T a) (h : Step T pool w) : Safe T w := by
-  rcases h with ⟨a, ha, b, hb, h | ⟨hs, h⟩⟩
-  · subst w
-    exact safe_join (hp a ha) (hp b hb)
-  · subst w
-    exact safe_meet (hp a ha) (hp b hb) hs
-
-lemma safe_trace {T : Finset (Fin 10)} {pool ws : List Wire}
-    (hp : ∀ a ∈ pool, Safe T a) (h : Trace T pool ws) :
-    ∀ w ∈ ws, Safe T w := by
-  induction ws generalizing pool with
-  | nil => simp
-  | cons a ws ih =>
-      obtain ⟨hs, ht⟩ := h
-      have ha := safe_step hp hs
-      have hp' : ∀ b ∈ a :: pool, Safe T b := by
-        intro b hb
-        rcases List.mem_cons.mp hb with rfl | hb
-        · exact ha
-        · exact hp b hb
-      intro w hw
-      rcases List.mem_cons.mp hw with rfl | hw
-      · exact ha
-      · exact ih hp' ht w hw
-
-lemma safe_zero_false {T : Finset (Fin 10)} {w : Wire}
-    (h : Safe T w) (hz : w.1 = ∅) : w.2 = false := by
-  cases hv : w.2
-  · rfl
-  · have hn := h hv
-    simp [hz] at hn
-
-def OtherSides : List (Finset (Fin 10) × Finset (Fin 10)) :=
-  [({0}, {1, 4, 5}), ({1}, {2, 6}), ({4}, {3, 9}), ({5}, {7, 8}), (∅, ∅)]
-
-def DirtyEdges : List (Finset (Fin 10)) :=
-  [{2, 3}, {3, 8}, {6, 8}, {6, 9}, {2, 7}, {7, 9}]
-
-def UniversalEdge (v : Fin 10) : Finset (Fin 10) :=
-  match v.val with
-  | 0 => {2, 3}
-  | 1 => {3, 8}
-  | 2 => {2, 3}
-  | 3 => {2, 3}
-  | 4 => {6, 8}
-  | 5 => {6, 9}
-  | 6 => {6, 8}
-  | 7 => {2, 7}
-  | 8 => {3, 8}
-  | _ => {6, 9}
-
-def UniversalBarrier (v : Fin 10) : Finset (Fin 10) := insert v (UniversalEdge v)
-
-lemma universal_edge_valid : ∀ v : Fin 10, UniversalEdge v ∈ DirtyEdges := by decide
-
-lemma all_vertices_separation :
-    ∀ (v : Fin 10), ∀ AB ∈ OtherSides,
-      Separates (UniversalBarrier v) AB.1 AB.2 ∧
-      Separates (UniversalBarrier v) AB.2 AB.1 := by
-  intro v
-  simp [OtherSides, Separates]
-  revert v
-  decide
 
 end FiveGroup.CausalBarrier
 
@@ -8737,614 +6293,11 @@ namespace FiveGroup.ResourceExclusion
 
 open CausalBarrier
 
-abbrev Resource := Finset (Fin 10) × (Finset (Fin 10) → Bool)
-
-def CrossPairs : List (Finset (Fin 10)) :=
-  [{2, 3}, {3, 8}, {3, 9}, {2, 6}, {6, 8}, {6, 9}, {2, 7}, {7, 8}, {7, 9}]
-
-def RSafe (E T : Finset (Fin 10)) (w : Resource) : Prop :=
-  w.2 E = true → (w.1 ∩ T).Nonempty
-
-def Ordinary (w : Resource) : Prop := ∀ E ∈ CrossPairs, RSafe E E w
-
-def AllOrdinary (p : Multiset Resource) : Prop := ∀ w ∈ p, Ordinary w
-
-def RJoin (a b : Resource) : Resource :=
-  (a.1 ∪ b.1, fun E => a.2 E || b.2 E)
-
-def RMeet (a b : Resource) : Resource :=
-  (a.1 ∩ b.1, fun E => a.2 E && b.2 E)
-
-def AllowedSides (a b : Resource) : Prop :=
-  (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides
-
-def Keep (w : Resource) : Multiset Resource :=
-  if w.1 = ∅ then 0 else {w}
-
-def Next (a b c : Resource) (rest : Multiset Resource) : Multiset Resource :=
-  c ::ₘ (Keep a + Keep b + rest)
-
-def ResourceStep (p q : Multiset Resource) : Prop :=
-  (∃ a b c rest, p = a ::ₘ b ::ₘ rest ∧ q = Next a b c rest ∧
-    (c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b))) ∨
-  (∃ w rest, w.1 ≠ ∅ ∧ p = w ::ₘ rest ∧ q = w ::ₘ w ::ₘ rest) ∨
-  (∃ w rest, p = w ::ₘ rest ∧ q = rest)
-
-def Blocked (p : Multiset Resource) : Prop :=
-  ∃ E ∈ DirtyEdges, ∃ T : Finset (Fin 10),
-    (∀ AB ∈ OtherSides, Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1) ∧
-    ∀ w ∈ p, RSafe E T w
-
-def Exceptional (p : Multiset Resource) : Prop :=
-  ∃ d rest, p = d ::ₘ rest ∧ d.1 = ∅ ∧
-    (∀ E ∈ CrossPairs, d.2 E = true) ∧ AllOrdinary rest
-
-def Invariant (p : Multiset Resource) : Prop := Blocked p ∨ Exceptional p
-
-def Target (w : Resource) : Prop :=
-  w.1 = ∅ ∧ (∀ E ∈ DirtyEdges, w.2 E = true) ∧ w.2 {3, 9} = false
-
-lemma rsafe_join {E T : Finset (Fin 10)} {a b : Resource}
-    (ha : RSafe E T a) (hb : RSafe E T b) : RSafe E T (RJoin a b) := by
-  exact safe_join (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb
-
-lemma rsafe_meet {E T : Finset (Fin 10)} {a b : Resource}
-    (ha : RSafe E T a) (hb : RSafe E T b) (hs : Separates T a.1 b.1) :
-    RSafe E T (RMeet a b) := by
-  exact safe_meet (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb hs
-
-lemma rsafe_zero_false {E T : Finset (Fin 10)} {w : Resource}
-    (h : RSafe E T w) (hz : w.1 = ∅) : w.2 E = false :=
-  safe_zero_false (w := (w.1, w.2 E)) h hz
-
-lemma cross_separation :
-    ∀ E ∈ CrossPairs, ∀ AB ∈ OtherSides,
-      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
-  simp [CrossPairs, OtherSides, Separates]
-
-lemma dirty_mem_cross : ∀ E ∈ DirtyEdges, E ∈ CrossPairs := by
-  simp [DirtyEdges, CrossPairs]
-
-lemma ordinary_join {a b : Resource} (ha : Ordinary a) (hb : Ordinary b) :
-    Ordinary (RJoin a b) := by
-  intro E hE
-  exact rsafe_join (ha E hE) (hb E hE)
-
-lemma ordinary_meet {a b : Resource} (ha : Ordinary a) (hb : Ordinary b)
-    (hs : AllowedSides a b) : Ordinary (RMeet a b) := by
-  intro E hE
-  apply rsafe_meet (ha E hE) (hb E hE)
-  rcases hs with hs | hs
-  · exact (cross_separation E hE _ hs).1
-  · exact (cross_separation E hE _ hs).2
-
-lemma keep_mem {a w : Resource} (h : w ∈ Keep a) : w = a := by
-  classical
-  by_cases hz : a.1 = ∅
-  · simp [Keep, hz] at h
-  · simpa [Keep, hz] using h
-
-lemma allOrdinary_next {a b c : Resource} {rest : Multiset Resource}
-    (ha : Ordinary a) (hb : Ordinary b) (hc : Ordinary c) (hr : AllOrdinary rest) :
-    AllOrdinary (Next a b c rest) := by
-  intro w hw
-  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
-  rcases hw with rfl | (hw | hw) | hw
-  · exact hc
-  · exact (keep_mem hw) ▸ ha
-  · exact (keep_mem hw) ▸ hb
-  · exact hr w hw
-
-lemma allOrdinary_blocked {p : Multiset Resource} (hp : AllOrdinary p) : Blocked p := by
-  refine ⟨{2, 3}, by simp [DirtyEdges], {2, 3}, ?_, ?_⟩
-  · exact cross_separation _ (by simp [CrossPairs])
-  · intro w hw
-    exact hp w hw _ (by simp [CrossPairs])
-
-lemma blocked_no_target {p : Multiset Resource} (hp : Blocked p)
-    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
-  obtain ⟨E, hE, T, _, hs⟩ := hp
-  rintro ⟨hz, ht, _⟩
-  have hf := rsafe_zero_false (hs w hw) hz
-  rw [ht E hE] at hf
-  contradiction
-
-lemma exceptional_no_target {p : Multiset Resource} (hp : Exceptional p)
-    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
-  obtain ⟨d, rest, rfl, hd, hdt, hr⟩ := hp
-  rcases Multiset.mem_cons.mp hw with rfl | hw
-  · rintro ⟨_, _, hf⟩
-    have ht := hdt {3, 9} (by simp [CrossPairs])
-    rw [hf] at ht
-    contradiction
-  · exact blocked_no_target (allOrdinary_blocked hr) hw
-
-lemma invariant_no_target {p : Multiset Resource} (hp : Invariant p)
-    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
-  rcases hp with hp | hp
-  · exact blocked_no_target hp hw
-  · exact exceptional_no_target hp hw
-
-
-lemma all_safe_next {E T : Finset (Fin 10)} {a b c : Resource}
-    {rest : Multiset Resource}
-    (ha : RSafe E T a) (hb : RSafe E T b) (hc : RSafe E T c)
-    (hr : ∀ w ∈ rest, RSafe E T w) :
-    ∀ w ∈ Next a b c rest, RSafe E T w := by
-  intro w hw
-  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
-  rcases hw with rfl | (hw | hw) | hw
-  · exact hc
-  · exact (keep_mem hw) ▸ ha
-  · exact (keep_mem hw) ▸ hb
-  · exact hr w hw
-
-lemma blocked_step {p q : Multiset Resource} (hp : Blocked p)
-    (hstep : ResourceStep p q) : Blocked q := by
-  obtain ⟨E, hE, T, hT, hs⟩ := hp
-  refine ⟨E, hE, T, hT, ?_⟩
-  rcases hstep with ⟨a, b, c, rest, rfl, rfl, hc⟩ | ⟨w, rest, _, rfl, rfl⟩ | ⟨w, rest, rfl, rfl⟩
-  · have ha := hs a (by simp)
-    have hb := hs b (by simp)
-    have hr : ∀ w ∈ rest, RSafe E T w := fun w hw => hs w (by simp [hw])
-    apply all_safe_next ha hb ?_ hr
-    rcases hc with rfl | ⟨hside, rfl⟩
-    · exact rsafe_join ha hb
-    · apply rsafe_meet ha hb
-      rcases hside with hside | hside
-      · exact (hT _ hside).1
-      · exact (hT _ hside).2
-  · intro a ha
-    simp only [Multiset.mem_cons, or_self_left] at ha
-    exact hs a (Multiset.mem_cons.mpr ha)
-  · intro a ha
-    exact hs a (by simp [ha])
-
-lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
-    (hc : c.1.Nonempty) (hr : AllOrdinary rest) : Blocked (c ::ₘ rest) := by
-  obtain ⟨v, hv⟩ := hc
-  refine ⟨UniversalEdge v, universal_edge_valid v, UniversalBarrier v,
-    all_vertices_separation v, ?_⟩
-  intro w hw
-  rcases Multiset.mem_cons.mp hw with rfl | hw
-  · intro _
-    exact ⟨v, Finset.mem_inter.mpr ⟨hv, Finset.mem_insert_self _ _⟩⟩
-  · intro ht
-    obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
-    obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
-    exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
-
-lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
-  intro a ha
-  exact (keep_mem ha) ▸ h
-
-lemma allOrdinary_add {p q : Multiset Resource}
-    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
-  intro w hw
-  rcases Multiset.mem_add.mp hw with hw | hw
-  · exact hp w hw
-  · exact hq w hw
-
-lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
-    (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
-  intro a ha
-  rcases Multiset.mem_cons.mp ha with rfl | ha
-  · exact hw
-  · exact hp a ha
-
-lemma zero_side_of_allowed {a b : Resource} (ha : a.1 = ∅) (hs : AllowedSides a b) :
-    b.1 = ∅ := by
-  have hzero : ∀ AB ∈ OtherSides,
-      (AB.1 = ∅ → AB.2 = ∅) ∧ (AB.2 = ∅ → AB.1 = ∅) := by
-    simp [OtherSides]
-  rcases hs with hs | hs
-  · exact (hzero _ hs).1 ha
-  · exact (hzero _ hs).2 ha
-
-lemma exceptional_left_step {d b c : Resource} {rest : Multiset Resource}
-    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
-    (hb : Ordinary b) (hr : AllOrdinary rest)
-    (hc : c = RJoin d b ∨ (AllowedSides d b ∧ c = RMeet d b)) :
-    Invariant (Next d b c rest) := by
-  classical
-  rcases hc with rfl | ⟨hs, rfl⟩
-  · by_cases hbs : b.1 = ∅
-    · right
-      refine ⟨RJoin d b, rest, ?_, ?_, ?_, hr⟩
-      · simp [Next, Keep, hd, hbs]
-      · simp [RJoin, hd, hbs]
-      · intro E hE
-        simp [RJoin, hdt E hE]
-    · left
-      have hbp : (RJoin d b).1.Nonempty := by
-        simpa [RJoin, hd] using Finset.nonempty_iff_ne_empty.mpr hbs
-      have hpool : AllOrdinary (Keep d + Keep b + rest) := by
-        simpa [Keep, hd, hbs] using allOrdinary_cons hb hr
-      exact ordinary_carrier_blocked hbp hpool
-  · left
-    have hbs := zero_side_of_allowed hd hs
-    have hc : Ordinary (RMeet d b) := by
-      intro E hE ht
-      have hbf := rsafe_zero_false (hb E hE) hbs
-      simp [RMeet, hbf] at ht
-    apply allOrdinary_blocked
-    simpa [Next, Keep, hd, hbs] using allOrdinary_cons hc hr
-
-
-lemma next_swap (a b c : Resource) (rest : Multiset Resource) :
-    Next a b c rest = Next b a c rest := by
-  simp only [Next, add_comm (Keep a) (Keep b)]
-
-lemma rjoin_swap (a b : Resource) : RJoin a b = RJoin b a := by
-  apply Prod.ext
-  · exact Finset.union_comm _ _
-  · funext E
-    exact Bool.or_comm _ _
-
-lemma rmeet_swap (a b : Resource) : RMeet a b = RMeet b a := by
-  apply Prod.ext
-  · exact Finset.inter_comm _ _
-  · funext E
-    exact Bool.and_comm _ _
-
-lemma ordinary_result {a b c : Resource} (ha : Ordinary a) (hb : Ordinary b)
-    (hc : c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b)) : Ordinary c := by
-  rcases hc with rfl | ⟨hs, rfl⟩
-  · exact ordinary_join ha hb
-  · exact ordinary_meet ha hb hs
-
-lemma exceptional_step {p q : Multiset Resource} (hp : Exceptional p)
-    (hstep : ResourceStep p q) : Invariant q := by
-  classical
-  obtain ⟨d, r0, hpd, hd, hdt, hr0⟩ := hp
-  rcases hstep with ⟨a, b, c, rest, hpab, rfl, hc⟩ |
-    ⟨w, rest, hws, hpw, rfl⟩ | ⟨w, rest, hpw, hqr⟩
-  · have heq : d ::ₘ r0 = a ::ₘ b ::ₘ rest := hpd.symm.trans hpab
-    by_cases had : a = d
-    · subst a
-      have hrEq := (Multiset.cons_inj_right d).mp heq
-      rw [hrEq] at hr0
-      exact exceptional_left_step hd hdt (hr0 b (by simp))
-        (fun w hw => hr0 w (by simp [hw])) hc
-    · by_cases hbd : b = d
-      · subst b
-        rw [Multiset.cons_swap a d] at heq
-        have hrEq := (Multiset.cons_inj_right d).mp heq
-        rw [hrEq] at hr0
-        rw [next_swap]
-        apply exceptional_left_step hd hdt (hr0 a (by simp))
-          (fun w hw => hr0 w (by simp [hw]))
-        rcases hc with hc | ⟨hs, hc⟩
-        · left
-          exact hc.trans (rjoin_swap _ _)
-        · right
-          exact ⟨Or.symm hs, hc.trans (rmeet_swap _ _)⟩
-      · have hdm : d ∈ a ::ₘ b ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
-        have hdr : d ∈ rest := by
-          simpa [Ne.symm had, Ne.symm hbd] using hdm
-        obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
-        rw [Multiset.cons_swap b d, Multiset.cons_swap a d] at heq
-        have hrEq := (Multiset.cons_inj_right d).mp heq
-        rw [hrEq] at hr0
-        have ha : Ordinary a := hr0 a (by simp)
-        have hb : Ordinary b := hr0 b (by simp)
-        have hr : AllOrdinary r := fun w hw => hr0 w (by simp [hw])
-        right
-        refine ⟨d, Next a b c r, ?_, hd, hdt,
-          allOrdinary_next ha hb (ordinary_result ha hb hc) hr⟩
-        simp only [Next, Multiset.add_cons]
-        exact Multiset.cons_swap _ _ _
-  · have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
-    have hdw : d ≠ w := by
-      intro h
-      subst w
-      exact hws hd
-    have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
-    have hdr : d ∈ rest := by simpa [hdw] using hdm
-    obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
-    rw [Multiset.cons_swap w d] at heq
-    have hrEq := (Multiset.cons_inj_right d).mp heq
-    rw [hrEq] at hr0
-    right
-    refine ⟨d, w ::ₘ w ::ₘ r, ?_, hd, hdt, ?_⟩
-    · rw [Multiset.cons_swap w d, Multiset.cons_swap w d]
-    · exact allOrdinary_cons (hr0 w (by simp)) hr0
-  · rw [hqr]
-    have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
-    by_cases hdw : d = w
-    · subst w
-      have hrEq := (Multiset.cons_inj_right d).mp heq
-      rw [hrEq] at hr0
-      exact Or.inl (allOrdinary_blocked hr0)
-    · have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
-      have hdr : d ∈ rest := by simpa [hdw] using hdm
-      obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
-      rw [Multiset.cons_swap w d] at heq
-      have hrEq := (Multiset.cons_inj_right d).mp heq
-      rw [hrEq] at hr0
-      exact Or.inr ⟨d, r, rfl, hd, hdt, fun a ha => hr0 a (by simp [ha])⟩
-
-lemma invariant_step {p q : Multiset Resource} (hp : Invariant p)
-    (hstep : ResourceStep p q) : Invariant q := by
-  rcases hp with hp | hp
-  · exact Or.inl (blocked_step hp hstep)
-  · exact exceptional_step hp hstep
-
-def ResourceTrace (p : Multiset Resource) : List (Multiset Resource) → Prop
-  | [] => True
-  | q :: qs => ResourceStep p q ∧ ResourceTrace q qs
-
-lemma invariant_trace {p : Multiset Resource} {qs : List (Multiset Resource)}
-    (hp : Invariant p) (ht : ResourceTrace p qs) : ∀ q ∈ qs, Invariant q := by
-  induction qs generalizing p with
-  | nil => simp
-  | cons q qs ih =>
-      obtain ⟨hs, ht⟩ := ht
-      have hq := invariant_step hp hs
-      intro r hr
-      rcases List.mem_cons.mp hr with rfl | hr
-      · exact hq
-      · exact ih hq ht r hr
-
-lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
-    {qs : List (Multiset Resource)} {q : Multiset Resource} {out : Resource}
-    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
-    (ho : AllOrdinary ordinary) (ht : ResourceTrace (d ::ₘ ordinary) qs)
-    (hq : q ∈ qs) (hout : out ∈ q) : ¬ Target out := by
-  have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
-  exact invariant_no_target (invariant_trace hi ht q hq) hout
-
 end FiveGroup.ResourceExclusion
 
 namespace FiveGroup.IndexSchedule
 
 open ResourceExclusion
-
-def Pool (W : ℕ → Resource) (ids : Finset ℕ) : Multiset Resource := ids.val.map W
-
-def DropZero (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) : Finset ℕ :=
-  if (W i).1 = ∅ then ids.erase i else ids
-
-def NextIds (W : ℕ → Resource) (a b out : ℕ) (ids : Finset ℕ) : Finset ℕ :=
-  insert out (DropZero W b (DropZero W a ids))
-
-def Available (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) : ℕ → Finset ℕ
-  | 0 => Finset.range start
-  | t + 1 => NextIds W (A (start + t)) (B (start + t)) (start + t)
-      (Available W start A B t)
-
-lemma drop_subset (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) :
-    DropZero W i ids ⊆ ids := by
-  unfold DropZero
-  split
-  · exact Finset.erase_subset _ _
-  · exact Finset.Subset.refl _
-
-lemma mem_drop {W : ℕ → Resource} {i x : ℕ} {ids : Finset ℕ}
-    (hx : x ∈ ids) (hkeep : (W x).1 ≠ ∅ ∨ x ≠ i) : x ∈ DropZero W i ids := by
-  unfold DropZero
-  split_ifs with hi
-  · apply Finset.mem_erase.mpr
-    refine ⟨?_, hx⟩
-    rcases hkeep with hkeep | hkeep
-    · intro hxi
-      subst x
-      exact hkeep hi
-    · exact hkeep
-  · exact hx
-
-lemma available_bounded (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
-    (t : ℕ) : ∀ x ∈ Available W start A B t, x < start + t := by
-  induction t with
-  | zero => simp [Available]
-  | succ t ih =>
-      intro x hx
-      rcases Finset.mem_insert.mp hx with rfl | hx
-      · omega
-      · have hx' := drop_subset W _ _ (drop_subset W _ _ hx)
-        have hb := ih x hx'
-        omega
-
-lemma available_complete (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
-    (t : ℕ) : ∀ x, x < start + t →
-      ((W x).1 ≠ ∅ ∨ ∀ j < t, A (start + j) ≠ x ∧ B (start + j) ≠ x) →
-      x ∈ Available W start A B t := by
-  induction t with
-  | zero => simp [Available]
-  | succ t ih =>
-      intro x hbound hunused
-      by_cases hlast : x = start + t
-      · subst x
-        exact Finset.mem_insert_self _ _
-      · have hold : x < start + t := by omega
-        have hprev : (W x).1 ≠ ∅ ∨ ∀ j < t,
-            A (start + j) ≠ x ∧ B (start + j) ≠ x := by
-          rcases hunused with hp | hu
-          · exact Or.inl hp
-          · exact Or.inr (fun j hj => hu j (by omega))
-        have hmem := ih x hold hprev
-        apply Finset.mem_insert_of_mem
-        apply mem_drop
-        · apply mem_drop hmem
-          rcases hunused with hp | hu
-          · exact Or.inl hp
-          · exact Or.inr (Ne.symm (hu t (by omega)).1)
-        · rcases hunused with hp | hu
-          · exact Or.inl hp
-          · exact Or.inr (Ne.symm (hu t (by omega)).2)
-
-def Reads (A B : ℕ → ℕ) (i x : ℕ) : Prop := A i = x ∨ B i = x
-
-def LinearUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
-  ∀ i < n, ∀ j < n, ∀ x, (W x).1 = ∅ →
-    Reads A B (start + i) x → Reads A B (start + j) x → i = j
-
-lemma source_available {W : ℕ → Resource} {start n t x : ℕ} {A B : ℕ → ℕ}
-    (hlin : LinearUpTo W start A B n) (ht : t < n)
-    (hx : x < start + t) (hr : Reads A B (start + t) x) :
-    x ∈ Available W start A B t := by
-  apply available_complete W start A B t x hx
-  by_cases hp : (W x).1 = ∅
-  · right
-    intro j hj
-    constructor
-    · intro hja
-      have heq := hlin t ht j (by omega) x hp hr (Or.inl hja)
-      omega
-    · intro hjb
-      have heq := hlin t ht j (by omega) x hp hr (Or.inr hjb)
-      omega
-  · exact Or.inl hp
-
-lemma pool_insert {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∉ ids) :
-    Pool W (insert i ids) = W i ::ₘ Pool W ids := by
-  simp only [Pool, Finset.insert_val_of_notMem hi, Multiset.map_cons]
-
-lemma pool_erase_decomp {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
-    Pool W ids = W i ::ₘ Pool W (ids.erase i) := by
-  calc
-    Pool W ids = Pool W (insert i (ids.erase i)) := by rw [Finset.insert_erase hi]
-    _ = W i ::ₘ Pool W (ids.erase i) := pool_insert (Finset.notMem_erase _ _)
-
-lemma pool_two_decomp {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
-    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
-    Pool W ids = W a ::ₘ W b ::ₘ Pool W ((ids.erase a).erase b) := by
-  rw [pool_erase_decomp ha]
-  rw [pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)]
-
-lemma pool_drop_two {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
-    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
-    Pool W (DropZero W b (DropZero W a ids)) =
-      Keep (W a) + Keep (W b) + Pool W ((ids.erase a).erase b) := by
-  classical
-  by_cases hza : (W a).1 = ∅ <;> by_cases hzb : (W b).1 = ∅
-  · simp [DropZero, Keep, hza, hzb]
-  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, zero_add]
-    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)
-  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, add_zero]
-    rw [Finset.erase_right_comm]
-    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨hab, ha⟩)
-  · simp only [DropZero, Keep, hza, hzb, ite_false]
-    simpa using pool_two_decomp ha hb hab
-
-lemma index_resource_step {W : ℕ → Resource} {ids : Finset ℕ} {a b out : ℕ}
-    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) (hout : out ∉ ids)
-    (hg : W out = RJoin (W a) (W b) ∨
-      (AllowedSides (W a) (W b) ∧ W out = RMeet (W a) (W b))) :
-    ResourceStep (Pool W ids) (Pool W (NextIds W a b out ids)) := by
-  left
-  refine ⟨W a, W b, W out, Pool W ((ids.erase a).erase b),
-    pool_two_decomp ha hb hab, ?_, hg⟩
-  have hfresh : out ∉ DropZero W b (DropZero W a ids) := by
-    intro h
-    exact hout (drop_subset W _ _ (drop_subset W _ _ h))
-  rw [NextIds, pool_insert hfresh, pool_drop_two ha hb hab]
-  rfl
-
-
-def ValidUpTo (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
-  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
-    A (start + t) ≠ B (start + t)
-
-def CanonicalUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
-  ∀ t < n,
-    W (start + t) = RJoin (W (A (start + t))) (W (B (start + t))) ∨
-    (AllowedSides (W (A (start + t))) (W (B (start + t))) ∧
-      W (start + t) = RMeet (W (A (start + t))) (W (B (start + t))))
-
-lemma available_step {W : ℕ → Resource} {start n t : ℕ} {A B : ℕ → ℕ}
-    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
-    (hc : CanonicalUpTo W start A B n) (ht : t < n) :
-    ResourceStep (Pool W (Available W start A B t))
-      (Pool W (Available W start A B (t + 1))) := by
-  obtain ⟨ha, hb, hab⟩ := hv t ht
-  have haa := source_available hl ht ha (Or.inl rfl)
-  have hba := source_available hl ht hb (Or.inr rfl)
-  apply index_resource_step haa hba hab ?_ (hc t ht)
-  intro h
-  have := available_bounded W start A B t _ h
-  omega
-
-lemma program_invariant {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
-    (hp : Invariant (Pool W (Finset.range start)))
-    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
-    (hc : CanonicalUpTo W start A B n) :
-    ∀ t ≤ n, Invariant (Pool W (Available W start A B t)) := by
-  intro t
-  induction t with
-  | zero => intro _; exact hp
-  | succ t ih =>
-      intro ht
-      exact invariant_step (ih (by omega)) (available_step hv hl hc (by omega))
-
-lemma pool_mem {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
-    W i ∈ Pool W ids := by
-  exact Multiset.mem_map.mpr ⟨i, hi, rfl⟩
-
-lemma canonical_program_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
-    (hp : Invariant (Pool W (Finset.range start)))
-    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
-    (hc : CanonicalUpTo W start A B n) :
-    ∀ t < n, ¬ Target (W (start + t)) := by
-  intro t ht
-  have hinv := program_invariant hp hv hl hc (t + 1) (by omega)
-  apply invariant_no_target hinv
-  apply pool_mem
-  exact Finset.mem_insert_self _ _
-
-lemma initial_exceptional {W : ℕ → Resource} {start d : ℕ}
-    (hd : d < start) (hz : (W d).1 = ∅)
-    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
-    (ho : ∀ i < start, i ≠ d → Ordinary (W i)) :
-    Invariant (Pool W (Finset.range start)) := by
-  right
-  refine ⟨W d, Pool W ((Finset.range start).erase d),
-    pool_erase_decomp (Finset.mem_range.mpr hd), hz, ht, ?_⟩
-  intro w hw
-  obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hw
-  have hi' : i ∈ (Finset.range start).erase d := hi
-  obtain ⟨hid, hir⟩ := Finset.mem_erase.mp hi'
-  exact ho i (Finset.mem_range.mp hir) hid
-
-lemma seeded_program_exclusion {W : ℕ → Resource} {start n d : ℕ} {A B : ℕ → ℕ}
-    (hd : d < start) (hz : (W d).1 = ∅)
-    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
-    (ho : ∀ i < start, i ≠ d → Ordinary (W i))
-    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
-    (hc : CanonicalUpTo W start A B n) :
-    ∀ t < n, ¬ Target (W (start + t)) :=
-  canonical_program_exclusion (initial_exceptional hd hz ht ho) hv hl hc
-
-
-lemma program_any_wire_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
-    (hp : Invariant (Pool W (Finset.range start)))
-    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
-    (hc : CanonicalUpTo W start A B n) :
-    ∀ i < start + n, ¬ Target (W i) := by
-  intro i hi
-  by_cases hold : i < start
-  · exact invariant_no_target hp (pool_mem (Finset.mem_range.mpr hold))
-  · have ht : i - start < n := by omega
-    have heq : start + (i - start) = i := by omega
-    simpa only [heq] using canonical_program_exclusion hp hv hl hc (i - start) ht
-
-lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
-    (hp : ∀ i < start, Ordinary (W i))
-    (hv : ValidUpTo start A B n) (hc : CanonicalUpTo W start A B n) :
-    ∀ i < start + n, Ordinary (W i) := by
-  intro i
-  induction i using Nat.strong_induction_on with
-  | ind i ih =>
-      intro hi
-      by_cases hold : i < start
-      · exact hp i hold
-      · have ht : i - start < n := by omega
-        have heq : start + (i - start) = i := by omega
-        obtain ⟨ha, hb, _⟩ := hv (i - start) ht
-        rw [heq] at ha hb
-        have hca := hc (i - start) ht
-        rw [heq] at hca
-        exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
 end FiveGroup.IndexSchedule
 namespace FiveGroup.DAGBridge
@@ -9352,409 +6305,15 @@ namespace FiveGroup.DAGBridge
 open PEqualNP.Outside.L_meta_2590.S18Structural.DagTools
 open ResourceExclusion IndexSchedule CausalBarrier
 
-def DagResource (D : Dag) (w : ℕ) : Resource :=
-  (supp 10 D w, fun E => val D (fun v => decide (v ∈ E)) w)
-
-lemma zero_reader_unique {D : Dag} (hS : Strict 10 D) (hz : Bzero 10 D = 0)
-    {j k w : ℕ} (hj : j < D.length) (hk : k < D.length)
-    (he : supp 10 D w = ∅)
-    (hrj : opA D j = w ∨ opB D j = w)
-    (hrk : opA D k = w ∨ opB D k = w) : j = k := by
-  have hw : w < 10 + j := by
-    obtain ⟨ha, hb, _⟩ := hS j hj
-    rcases hrj with h | h <;> omega
-  have hinner : w ∈ (inner 10 D).filter (fun u => ¬ (supp 10 D u).Nonempty) := by
-    apply Finset.mem_filter.mpr
-    constructor
-    · simp only [DagTools.inner, Finset.mem_range]
-      omega
-    · simp [he]
-  have hsum : fanout D w - 1 ≤ Bzero 10 D := by
-    unfold Bzero surplusOn
-    exact Finset.single_le_sum (f := fun u => fanout D u - 1) (fun _ _ => Nat.zero_le _) hinner
-  have hcard : (readers D w).card ≤ 1 := by
-    change fanout D w ≤ 1
-    omega
-  apply Finset.card_le_one.mp hcard j ?_ k ?_
-  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, hrj⟩
-  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hrk⟩
-
-lemma input_ordinary (D : Dag) {i : ℕ} (hi : i < 10) : Ordinary (DagResource D i) := by
-  intro E _ ht
-  change val D (fun v => decide (v ∈ E)) i = true at ht
-  rw [val_input D _ i hi] at ht
-  have hm : (⟨i, hi⟩ : Fin 10) ∈ E := of_decide_eq_true ht
-  refine ⟨⟨i, hi⟩, Finset.mem_inter.mpr ⟨?_, hm⟩⟩
-  change (⟨i, hi⟩ : Fin 10) ∈ supp 10 D i
-  rw [supp_input D ⟨i, hi⟩]
-  simp
-
-lemma resource_gate {D : Dag} (hS : Strict 10 D) {j : ℕ} (hj : j < D.length) :
-    DagResource D (10 + j) =
-      if tag D j = true then RMeet (DagResource D (opA D j)) (DagResource D (opB D j))
-      else RJoin (DagResource D (opA D j)) (DagResource D (opB D j)) := by
-  cases ht : tag D j
-  · simp only [Bool.false_eq_true, ite_false]
-    apply Prod.ext
-    · exact (supp_gate hS j hj).trans (by simp [ht, RJoin, DagResource])
-    · funext E
-      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RJoin, DagResource])
-  · simp only [ite_true]
-    apply Prod.ext
-    · exact (supp_gate hS j hj).trans (by simp [ht, RMeet, DagResource])
-    · funext E
-      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RMeet, DagResource])
-
-lemma support_hit_true {D : Dag} (hS : Strict 10 D) {w : ℕ} {E : Finset (Fin 10)}
-    (hh : (supp 10 D w ∩ E).Nonempty) : (DagResource D w).2 E = true := by
-  obtain ⟨v, hv⟩ := hh
-  obtain ⟨hvs, hvE⟩ := Finset.mem_inter.mp hv
-  apply val_mono hS (single v) (fun u => decide (u ∈ E)) ?_ w (mem_supp.mp hvs)
-  intro u hu
-  have huv : u = v := by simpa [single] using hu
-  subst u
-  exact decide_eq_true hvE
-
-def DirtyA : Finset (Fin 10) := {3, 6, 7}
-
-def DirtyB : Finset (Fin 10) := {2, 8, 9}
-
-def DirtySides (D : Dag) (g : ℕ) : Prop :=
-  (supp 10 D (opA D g) = DirtyA ∧ supp 10 D (opB D g) = DirtyB) ∨
-  (supp 10 D (opA D g) = DirtyB ∧ supp 10 D (opB D g) = DirtyA)
-
-lemma cross_hits : ∀ E ∈ CrossPairs,
-    (DirtyA ∩ E).Nonempty ∧ (DirtyB ∩ E).Nonempty := by
-  simp [CrossPairs, DirtyA, DirtyB]
-
-lemma dirty_seed {D : Dag} (hS : Strict 10 D) {g : ℕ} (hg : g < D.length)
-    (ht : tag D g = true) (hs : DirtySides D g) :
-    (DagResource D (10 + g)).1 = ∅ ∧
-      ∀ E ∈ CrossPairs, (DagResource D (10 + g)).2 E = true := by
-  constructor
-  · change supp 10 D (10 + g) = ∅
-    rw [supp_gate hS g hg, ht]
-    simp only [ite_true]
-    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
-    · rw [ha, hb]
-      decide
-    · rw [ha, hb]
-      decide
-  · intro E hE
-    change val D (fun v => decide (v ∈ E)) (10 + g) = true
-    rw [val_gate hS _ g hg, ht]
-    change (DagResource D (opA D g)).2 E && (DagResource D (opB D g)).2 E = true
-    have hcross := cross_hits E hE
-    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
-    · rw [support_hit_true hS (by simpa [ha] using hcross.1),
-        support_hit_true hS (by simpa [hb] using hcross.2)]
-      rfl
-    · rw [support_hit_true hS (by simpa [ha] using hcross.2),
-        support_hit_true hS (by simpa [hb] using hcross.1)]
-      rfl
-
-
-def Left (D : Dag) (w : ℕ) : ℕ := opA D (w - 10)
-
-def Right (D : Dag) (w : ℕ) : ℕ := opB D (w - 10)
-
-lemma window_valid {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
-    (hbound : offset + count ≤ D.length) :
-    ValidUpTo (10 + offset) (Left D) (Right D) count := by
-  intro t ht
-  have hj : offset + t < D.length := by omega
-  have hsub : 10 + offset + t - 10 = offset + t := by omega
-  obtain ⟨ha, hb, hab⟩ := hS (offset + t) hj
-  simp only [Left, Right, hsub]
-  exact ⟨by omega, by omega, hab⟩
-
-lemma window_linear {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
-    {offset count : ℕ} (hbound : offset + count ≤ D.length) :
-    LinearUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
-  intro i hi j hj w he hri hrj
-  have his : 10 + offset + i - 10 = offset + i := by omega
-  have hjs : 10 + offset + j - 10 = offset + j := by omega
-  change supp 10 D w = ∅ at he
-  simp only [Reads, Left, Right, his] at hri
-  simp only [Reads, Left, Right, hjs] at hrj
-  have heq := zero_reader_unique hS hB (by omega : offset + i < D.length)
-    (by omega : offset + j < D.length) he hri hrj
-  omega
-
-lemma window_canonical {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
-    (hbound : offset + count ≤ D.length)
-    (hsides : ∀ j, offset ≤ j → j < offset + count → tag D j = true →
-      AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))) :
-    CanonicalUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
-  intro t ht
-  have hj : offset + t < D.length := by omega
-  have hsub : 10 + offset + t - 10 = offset + t := by omega
-  have hout : 10 + offset + t = 10 + (offset + t) := by omega
-  simp only [Left, Right, hsub]
-  rw [hout]
-  have hgate := resource_gate hS hj
-  cases ht : tag D (offset + t)
-  · left
-    simpa only [ht, Bool.false_eq_true, ite_false] using hgate
-  · right
-    exact ⟨hsides _ (by omega) (by omega) ht, by simpa only [ht, ite_true] using hgate⟩
-
-def OtherAndSides (D : Dag) (g : ℕ) : Prop :=
-  ∀ j < D.length, j ≠ g → tag D j = true →
-    AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))
-
-lemma before_seed_ordinary {D : Dag} (hS : Strict 10 D) {g : ℕ}
-    (hg : g < D.length) (hsides : OtherAndSides D g) :
-    ∀ i < 10 + g, Ordinary (DagResource D i) := by
-  apply ordinary_prefix (start := 10) (n := g) (A := Left D) (B := Right D)
-  · exact fun i hi => input_ordinary D hi
-  · exact window_valid (offset := 0) hS (by omega)
-  · apply window_canonical (offset := 0) hS (by omega)
-    intro j _ hj ht
-    exact hsides j (by omega) (by omega) ht
-
-lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
-    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
-    (hsides : OtherAndSides D g) :
-    ∀ w < 10 + D.length, ¬ Target (DagResource D w) := by
-  obtain ⟨hdz, hdt⟩ := dirty_seed hS hg ht hdirty
-  have hbefore := before_seed_ordinary hS hg hsides
-  have hinit : Invariant (Pool (DagResource D) (Finset.range (10 + (g + 1)))) := by
-    apply initial_exceptional (d := 10 + g) (by omega) hdz hdt
-    intro i hi hne
-    exact hbefore i (by omega)
-  have hcount : g + 1 + (D.length - (g + 1)) ≤ D.length := by omega
-  have hvalid := window_valid hS hcount
-  have hlinear := window_linear hS hB hcount
-  have hcanonical : CanonicalUpTo (DagResource D) (10 + (g + 1)) (Left D) (Right D)
-      (D.length - (g + 1)) := by
-    apply window_canonical hS hcount
-    intro j hlo hhi ht
-    exact hsides j (by omega) (by omega) ht
-  intro w hw
-  exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
-
 end FiveGroup.DAGBridge
 
 namespace DagTools
 
 open FiveGroup.CausalBarrier FiveGroup.ResourceExclusion FiveGroup.DAGBridge
 
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma h3r_other_sides : ∀ i : Fin 10, i ≠ 8 → i ≠ 9 →
-    (SideGeometry.side i, SideGeometry.side (SideGeometry.opposite i)) ∈ OtherSides ∨
-    (SideGeometry.side (SideGeometry.opposite i), SideGeometry.side i) ∈ OtherSides := by
-  unfold SideGeometry.side SideGeometry.mask SideGeometry.opposite OtherSides
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma h3r_dirty_edges : ∀ E ∈ DirtyEdges, sem_Edge petersenAdj (sem_ind E) := by
-  unfold DirtyEdges sem_Edge petersenAdj sem_ind
-  decide +kernel
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma h3r_bad_pair : ¬ sem_Edge petersenAdj (sem_ind ({3, 9} : Finset (Fin 10))) := by
-  unfold sem_Edge petersenAdj sem_ind
-  decide +kernel
-
-lemma h3r_output_target {D : Dag} (hC : sem_Comp 10 petersenAdj D) :
-    Target (DagResource D (outW 10 D)) := by
-  refine ⟨sem_supp_out petersen_graph_ok hC, ?_, ?_⟩
-  · intro E hE
-    exact (hC _).mpr (h3r_dirty_edges E hE)
-  · apply Bool.eq_false_iff.mpr
-    intro ht
-    exact h3r_bad_pair ((hC _).mp ht)
-
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 10000000 in
-lemma h3_tight_bzero_positive {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) : 1 ≤ Bzero 10 D := by
-  by_contra hnot
-  have hB0 : Bzero 10 D = 0 := by omega
-  obtain ⟨r, _, hopp, hsources, hW, hvalid, _, htypes⟩ := h3_tight_typed_sources_exist h hC hz hB
-  have hp : r 9 = ((r 8).1, !(r 8).2) := by
-    simpa [SideGeometry.opposite] using hopp 8
-  have hdirty : DirtySides D (r 8).1 := by
-    have h8 := hsources 8
-    have h9 := hsources 9
-    have h8S : SideGeometry.side 8 = DirtyA := by decide +kernel
-    have h9S : SideGeometry.side 9 = DirtyB := by decide +kernel
-    rw [h8S] at h8
-    rw [h9S] at h9
-    cases hb : (r 8).2
-    · left
-      exact ⟨by simpa [src, hb] using h8, by simpa [hp, src, hb] using h9⟩
-    · right
-      exact ⟨by simpa [hp, src, hb] using h9, by simpa [src, hb] using h8⟩
-  have hother : OtherAndSides D (r 8).1 := by
-    intro j hj hne ht
-    rcases htypes j hj ht with ⟨i, hi, hA, hB⟩ | ⟨hA, hB⟩
-    · have hi8 : i ≠ 8 := by
-        intro hi8
-        subst i
-        exact hne (congrArg Prod.fst hi).symm
-      have hi9 : i ≠ 9 := by
-        intro hi9
-        subst i
-        have hh := congrArg Prod.fst hi
-        rw [hp] at hh
-        exact hne hh.symm
-      change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides ∨
-        (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides
-      rw [hA, hB]
-      exact h3r_other_sides i hi8 hi9
-    · change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides ∨
-        (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides
-      simp [hA, hB, OtherSides]
-  exact canonical_dag_exclusion h.1 hB0 (hvalid 8).1 (hvalid 8).2.1 hdirty hother
-    (outW 10 D) (by unfold outW; omega) (h3r_output_target hC)
-
-lemma h3_tight_size19 {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) (hs : D.length ≤ 19) :
-    Bplus 10 D = 9 ∧ Bzero 10 D = 1 ∧ D.length = 19 := by
-  obtain ⟨hp, hzle, hlo⟩ := h3_tight_size_budget h hC hz hB hs
-  have hzpos := h3_tight_bzero_positive h hC hz hB
-  have ht := surplus_identity h
-  rw [totalSurplus_split] at ht
-  omega
-
-lemma h3_exact_i1_budget_cases {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hi : (ineligSet 10 D).card = 1) (hs : D.length ≤ 19) :
-    D.length = 19 ∧
-      ((Bplus 10 D = 9 ∧ Bzero 10 D = 1) ∨
-       (Bplus 10 D = 10 ∧ Bzero 10 D = 0)) := by
-  have hc := inelig_card_add 10 D
-  obtain ⟨b, hb⟩ := sem_exists_pureBranch petersen_graph_ok h.1 hC
-  have hplo := elig_le_Bplus h.1 b hb
-  have ht := surplus_identity h
-  rw [totalSurplus_split] at ht
-  by_cases hB : Bplus 10 D = (eligSet 10 D).card
-  · obtain ⟨hp, hz, hn⟩ := h3_tight_size19 h hC hz hB hs
-    exact ⟨hn, Or.inl ⟨hp, hz⟩⟩
-  · have hp : Bplus 10 D = 10 := by omega
-    exact ⟨by omega, Or.inr ⟨hp, by omega⟩⟩
-
-
-
 end DagTools
 
 namespace DagTools
-
-def h3_evenSide (k : Fin 5) : Fin 10 := ⟨2 * k.val, by omega⟩
-
-def h3_groupGate (r : Fin 10 → ℕ × Bool) (k : Fin 5) : ℕ :=
-  (r (h3_evenSide k)).1
-
-lemma h3_evenSide_injective : Function.Injective h3_evenSide := by
-  intro k l he
-  have := congrArg Fin.val he
-  apply Fin.ext
-  simp only [h3_evenSide] at this
-  omega
-
-lemma h3_evenSide_ne_opposite : ∀ k l : Fin 5,
-    h3_evenSide k ≠ SideGeometry.opposite (h3_evenSide l) := by
-  unfold h3_evenSide SideGeometry.opposite
-  decide +kernel
-
-lemma h3_side_in_pair : ∀ i : Fin 10, ∃ k : Fin 5,
-    i = h3_evenSide k ∨ i = SideGeometry.opposite (h3_evenSide k) := by
-  unfold h3_evenSide SideGeometry.opposite
-  decide +kernel
-
-lemma h3_groupGate_injective (r : Fin 10 → ℕ × Bool) (hinj : Function.Injective r)
-    (hopp : ∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) :
-    Function.Injective (h3_groupGate r) := by
-  intro k l hkl
-  rcases sem_same_gate hkl with he | he
-  · exact (h3_evenSide_injective (hinj he)).symm
-  · have he' : r (h3_evenSide l) = r (SideGeometry.opposite (h3_evenSide k)) := by
-      rw [hopp]
-      exact he
-    exact False.elim (h3_evenSide_ne_opposite l k (hinj he'))
-
-lemma h3_side_gate_is_group (r : Fin 10 → ℕ × Bool)
-    (hopp : ∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) (i : Fin 10) :
-    ∃ k : Fin 5, (r i).1 = h3_groupGate r k := by
-  obtain ⟨k, hk | hk⟩ := h3_side_in_pair i
-  · exact ⟨k, hk ▸ rfl⟩
-  · refine ⟨k, ?_⟩
-    rw [hk, hopp]
-    rfl
-
-lemma h3_group_supports {D : Dag} (r : Fin 10 → ℕ × Bool)
-    (hopp : ∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2))
-    (hsources : ∀ i, supp 10 D (src D (r i)) = SideGeometry.side i) (k : Fin 5) :
-    (supp 10 D (opA D (h3_groupGate r k)) = SideGeometry.side (h3_evenSide k) ∧
-      supp 10 D (opB D (h3_groupGate r k)) =
-        SideGeometry.side (SideGeometry.opposite (h3_evenSide k))) ∨
-    (supp 10 D (opA D (h3_groupGate r k)) =
-        SideGeometry.side (SideGeometry.opposite (h3_evenSide k)) ∧
-      supp 10 D (opB D (h3_groupGate r k)) = SideGeometry.side (h3_evenSide k)) := by
-  cases hs : (r (h3_evenSide k)).2 with
-  | false =>
-    have hr : r (h3_evenSide k) = (h3_groupGate r k, false) := Prod.ext rfl hs
-    have ho : r (SideGeometry.opposite (h3_evenSide k)) = (h3_groupGate r k, true) := by
-      rw [hopp, hr]
-      rfl
-    exact Or.inl ⟨by simpa only [hr, sb_src_false] using hsources (h3_evenSide k),
-      by simpa only [ho, sb_src_true] using hsources (SideGeometry.opposite (h3_evenSide k))⟩
-  | true =>
-    have hr : r (h3_evenSide k) = (h3_groupGate r k, true) := Prod.ext rfl hs
-    have ho : r (SideGeometry.opposite (h3_evenSide k)) = (h3_groupGate r k, false) := by
-      rw [hopp, hr]
-      rfl
-    exact Or.inr ⟨by simpa only [ho, sb_src_false] using hsources (SideGeometry.opposite (h3_evenSide k)),
-      by simpa only [hr, sb_src_true] using hsources (h3_evenSide k)⟩
-
-lemma h3_group_dirty_sides :
-    SideGeometry.side (h3_evenSide 4) = SideGeometry.mask 200 ∧
-    SideGeometry.side (SideGeometry.opposite (h3_evenSide 4)) = SideGeometry.mask 772 := by
-  decide +kernel
-
-lemma h3_first_four_groups_pure : ∀ k : Fin 5, k.val < 4 →
-    ∀ a ∈ SideGeometry.side (h3_evenSide k),
-      ∀ b ∈ SideGeometry.side (SideGeometry.opposite (h3_evenSide k)), petersenAdj a b := by
-  unfold h3_evenSide SideGeometry.side SideGeometry.opposite SideGeometry.mask petersenAdj
-  decide +kernel
-
-lemma h3_tight_five_gates_exist {D : Dag} (h : StrictLive 10 D)
-    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
-    (hB : Bplus 10 D = (eligSet 10 D).card) :
-    ∃ (r : Fin 10 → ℕ × Bool) (gate : Fin 5 → ℕ),
-      Function.Injective r ∧ Function.Injective gate ∧
-      (∀ k, gate k = (r (h3_evenSide k)).1) ∧
-      (∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) ∧
-      (∀ i, supp 10 D (src D (r i)) = SideGeometry.side i) ∧
-      (∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
-        (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r) ∧
-      (∀ k, gate k < D.length ∧ tag D (gate k) = true ∧ supp 10 D (10 + gate k) = ∅) ∧
-      (∀ k,
-        (supp 10 D (opA D (gate k)) = SideGeometry.side (h3_evenSide k) ∧
-          supp 10 D (opB D (gate k)) = SideGeometry.side (SideGeometry.opposite (h3_evenSide k))) ∨
-        (supp 10 D (opA D (gate k)) = SideGeometry.side (SideGeometry.opposite (h3_evenSide k)) ∧
-          supp 10 D (opB D (gate k)) = SideGeometry.side (h3_evenSide k))) ∧
-      ∀ j, j < D.length → tag D j = true →
-        (∃ k, j = gate k) ∨ (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) := by
-  obtain ⟨r, hinj, hopp, hsources, hW, hvalid, _, htypes⟩ :=
-    h3_tight_typed_sources_exist h hC hz hB
-  refine ⟨r, h3_groupGate r, hinj, h3_groupGate_injective r hinj hopp,
-    fun _ => rfl, hopp, hsources, hW, ?_, h3_group_supports r hopp hsources, ?_⟩
-  · intro k
-    exact hvalid (h3_evenSide k)
-  · intro j hj ht
-    rcases htypes j hj ht with ⟨i, hi, _, _⟩ | hzero
-    · left
-      obtain ⟨k, hk⟩ := h3_side_gate_is_group r hopp i
-      exact ⟨k, by simpa only [hi] using hk⟩
-    · exact Or.inr hzero
 
 end DagTools
 
@@ -9791,26 +6350,6 @@ lemma h3_sem_route_or_path (hS : Strict n D) {x : Fin n}
     apply Relation.ReflTransGen.head hfirst
     exact sem_rtg_mono (fun _ _ hab => ⟨hab.1, h3_sem_arm_or hS hM hab⟩) hp
 
-lemma h3_or_path_true (hS : Strict n D) {a b : ℕ}
-    (hp : Relation.ReflTransGen (h3_OrStep n D) a b) (z : Fin n → Bool)
-    (ha : val D z a = true) : val D z b = true := by
-  induction hp with
-  | refl => exact ha
-  | @tail b c hab hbc ih =>
-    obtain ⟨hc, hnc, hop⟩ := hbc.1
-    have he : n + (c - n) = c := by omega
-    have hval := val_gate hS z (c - n) (by omega)
-    rw [he, hbc.2] at hval
-    rw [hval]
-    change val D z (opA D (c - n)) || val D z (opB D (c - n)) = true
-    rcases hop with hA | hB
-    · rw [hA, ih]
-      simp
-    · rw [hB, ih]
-      simp
-
-
-
 end H3OrPaths
 
 end DagTools
@@ -9834,10 +6373,6 @@ lemma h3_or_path_support_subset (hS : Strict n D) {a b : ℕ}
     rcases hop with hA | hB
     · exact ih.trans (hA ▸ Finset.subset_union_left)
     · exact ih.trans (hB ▸ Finset.subset_union_right)
-
-noncomputable def h3_terminalPorts (D : Dag) (r : Fin 10 → ℕ × Bool) (w : ℕ) : Finset (Fin 10) :=
-  by classical exact Finset.univ.filter (fun i => Relation.ReflTransGen (h3_OrStep 10 D) w (src D (r i)))
-
 
 end H3OrPathSupport
 
@@ -10023,7 +6558,6 @@ lemma h3_common_terminals_actual_paths (hG : sem_Gr G) (h : StrictLive n D) (hC 
   exact Finset.subset_inter (h3_or_path_support_subset hS hP) (h3_or_path_support_subset hS hQ)
 
 end H3ResidualPaths
-
 
 end DagTools
 
@@ -10448,5 +6982,1881 @@ lemma profile_bzero_zero_exclusion {D : Dag} (h : StrictLive 10 D)
     h.1 hB hginj hgv hp hd htypes ⟨h3_out_empty hC, h3_output_mask hC⟩
 
 end S18Structural.S18Profile
+
+
+namespace S200Resource
+
+abbrev State := Nat × List Nat × List Nat
+
+def values (bits : Nat) : List Nat := (List.range 64).filter bits.testBit
+
+def pairMasks (op : Nat → Nat → Nat) (a b : Nat) : Nat :=
+  (values a).foldl (fun acc x =>
+    (values b).foldl (fun acc y => acc ||| (1 <<< op x y)) acc) 0
+
+def mergePools (a b : Nat) : Nat := pairMasks (· ||| ·) a b
+
+def addCarrier (pool k : Nat) : Nat := pool ||| mergePools pool (1 <<< k)
+
+def live (used loc : Nat) : Bool :=
+  if loc = 0 then !used.testBit 0
+  else if loc < 4 then !used.testBit 0 || !used.testBit loc
+  else if loc = 4 then !used.testBit 1 || !used.testBit 4
+  else !used.testBit (loc - 3) || !used.testBit 5
+
+def prune (s : State) : State :=
+  (s.1, (List.range 7).map (fun i =>
+    if live s.1 i then s.2.1.getD i 1 else 1), s.2.2)
+
+def sortedInsert (k : Nat) : List Nat → List Nat
+  | [] => [k]
+  | x :: xs => if k ≤ x then k :: x :: xs else x :: sortedInsert k xs
+
+def zeroSort : List Nat → List Nat
+  | [] => []
+  | x :: xs => sortedInsert x (zeroSort xs)
+
+def insertZero (k : Nat) (zs : List Nat) : List Nat := zeroSort (k :: zs)
+
+def basis : Nat → Nat | 0 => 0 | 1 => 25 | 2 => 42 | _ => 52
+
+def leftPool (ps : List Nat) (g : Nat) : Nat :=
+  if g < 4 then ps.getD g 1 else 1 <<< 63
+
+def rightPool (ps : List Nat) (g : Nat) : Nat :=
+  if g = 0 then mergePools (mergePools (ps.getD 1 1) (ps.getD 2 1)) (ps.getD 3 1)
+  else if g < 4 then mergePools (1 <<< basis g) (ps.getD (g + 3) 1)
+  else if g = 4 then mergePools (1 <<< 9) (ps.getD 4 1)
+  else mergePools (1 <<< 54) (mergePools (ps.getD 5 1) (ps.getD 6 1))
+
+def groupNext (s : State) : List State :=
+  (List.range 6).flatMap fun g =>
+    if s.1.testBit g then [] else
+    (values (pairMasks (· &&& ·) (leftPool s.2.1 g) (rightPool s.2.1 g))).filterMap
+      fun k => if k = 0 then none else
+        some (prune (s.1 ||| (1 <<< g), s.2.1, insertZero k s.2.2))
+
+def liftNext (s : State) : List State :=
+  s.2.2.flatMap fun k => (List.range 7).filterMap fun loc =>
+    if live s.1 loc then
+      let old := s.2.1.getD loc 1
+      let new := addCarrier old k
+      if new = old then none else
+        some (prune (s.1, s.2.1.set loc new, s.2.2.erase k))
+    else none
+
+def discardNext (s : State) : List State :=
+  s.2.2.map fun k => prune (s.1, s.2.1, s.2.2.erase k)
+
+def combineNext (s : State) : List State :=
+  s.2.2.flatMap fun a => (s.2.2.erase a).flatMap fun b =>
+    [a &&& b, a ||| b].filterMap fun k => if k = 0 then none else
+      some (prune (s.1, s.2.1, insertZero k ((s.2.2.erase a).erase b)))
+
+def successors (s : State) : List State :=
+  groupNext s ++ liftNext s ++ discardNext s ++ combineNext s
+
+def initial : State := (0, List.replicate 7 1, [])
+
+def listLess : List Nat → List Nat → Bool
+  | [], [] => false
+  | [], _ :: _ => true
+  | _ :: _, [] => false
+  | a :: as, b :: bs => if a = b then listLess as bs else decide (a < b)
+
+def stateLess (a b : State) : Bool :=
+  if a.1 ≠ b.1 then decide (a.1 < b.1)
+  else if a.2.1 ≠ b.2.1 then listLess a.2.1 b.2.1
+  else listLess a.2.2 b.2.2
+
+def safe (s : State) : Bool := !s.2.2.contains 56
+
+end S200Resource
+
+namespace S200Resource
+
+def packedPool0 : Nat := 0x80400000000002018000000000000001404000000000010140000000000000012010000000000201200000000000000110100000000001011000000000000001004000000000000100100000000000010000080400000201000008000000000100000400000000010000020100000201000002000000000100000100000000010000000400000001000000010000000100000000020102010000000002000001000000000101010100000000010000010000000000010001000000000000020100000000000001010000000000000001
+
+def packedPool1 : Nat := 0xc040000000000301c000000000000201804000000201020180400000020002018040000002000001804000000000020180100000000000018000040000000001800000010000000180000000020000018000000000010001800000000000020180000000000001018000000000000001404000000101010140400000010001014040000001000001404000000000010140000000010000014000000000010001400000000000010140000000000000013010000000000301300000000000020120100000020102012010000002000201201000000200000120100000000002012000010000000001200000000200000120000000000002012000000000000101200000000000000110100000010101011010000001000101101000000100000110100000000001011000000001000001100000000000010110000000000000010040000000010001004000000000000100100001000000010010000000010001001000000000000100000c00000002010000080400000201000008010000000100000800000002010000080000000001000004010000000100000400000001010000040000000001000003000000020100000201000002010000020000000201000002000000000100000100000001010000010000000001000000040000000100000001000000010000000000000301000000000000020100000000000001010000000000000001
+
+def packedPool2 : Nat := 0xc0400c0000000201c040000000000301c000000000000201804008040000020180400800000000018040020100000201804002000000000180400000000002018000080000000001800004000000000180000100000000018000000100000001800000000000020180000000000001018000000000000001301003000000020130100000000003013000000000000201201002010000020120100200000000012010000000000201200001000000000120000000000001012000000000000001004000040000000100400001000000010040000000000001001000010000000100100000000000010000000003010301000000000300020100000000020102010000000002000201000000000200010100000000020000010000000000010001000000000000030100000000000002010000000000000001
+
+def packedPool3 : Nat := 0xa050000000000201a040000000000001a00000000000000180400201000002018040020000000001804000000201020180400000020000018040000000000201801000000000000180000100000000018000000100000001800000000200000180000000000100018000000000000101800000000000000150500000000001015040000000000001500000000000000140400100000000014040000001010101404000000100000140400000000001014010000000000001400000000100000140000000000100014000000000000001005000000000000100400001000000010040000000010001004000000000000100000a050000020100000a040000000100000804000002010000080100000001000008000000000100000500000000010000040100000001000004000000010100000400000000010000000500000001000000040000000100000000020102010000000002010001000000000200010100000000020000010000000001010101000000000101000100000000010000010000000000010001000000000000020100000000000001010000000000000001
+
+def packedPool4 : Nat := 0x80400000000002018040000000000001800000000000000140400400000000014040000000000101400000000000000120100000000002012010000000000001200000000000000110100100000000011010000000000101100000000000000100500000000000010040000100000001004000000000000100100001000000010010000000000001000008040000020100000804000000010000080000000001000004000000000100000201000002010000020100000001000002000000000100000100000000010000000500000001000000040000000100000001000000010000000000010001000000000000020100000000000001010000000000000001
+
+def packedPool5 : Nat := 0x80400000000002018000000000000201800000000000000120100000000002012000000000000001004000000000000100100000000000010000000002010201000000000200020100000000020000010000000000010001000000000000020100000000000001010000000000000001
+
+def packedPool6 : Nat := 0x804000000000020180000000000002018000000000000001404000000000010140000000000001014000000000000001004000000000000100000c0000000201000008040000020100000800000000010000040000000001000000040000000100000000020102010000000002000201000000000200000100000000010101010000000001000101000000000100000100000000000100010000000000000301000000000000020100000000000001010000000000000001
+
+def packedPoolLookup (loc : Nat) : Nat :=
+  match loc with
+  | 0 => packedPool0
+  | 1 => packedPool1
+  | 2 => packedPool2
+  | 3 => packedPool3
+  | 4 => packedPool4
+  | 5 => packedPool5
+  | _ => packedPool6
+
+def packedZeros : Nat := 0x3f40f903d40f103640d102b40a902940a1022408101940610107626d09a22680990260097622d0890220084000
+
+def poolLookup (loc i : Nat) : Nat :=
+  (packedPoolLookup loc >>> (64 * i)) &&& 18446744073709551615
+
+def zeroLookup (i : Nat) : List Nat :=
+  let code := (packedZeros >>> (14 * i)) &&& 16383
+  (List.range (code &&& 3)).map (fun j => (code >>> (2 + 6 * j)) &&& 63)
+
+def poolSlot (code loc : Nat) : Nat :=
+  match loc with
+  | 0 => (code >>> 6) &&& 31
+  | 1 => (code >>> 11) &&& 127
+  | 2 => (code >>> 18) &&& 63
+  | 3 => (code >>> 24) &&& 63
+  | 4 => (code >>> 30) &&& 31
+  | 5 => (code >>> 35) &&& 15
+  | _ => (code >>> 39) &&& 31
+
+def decode (code : Nat) : State :=
+  (code &&& 63,
+    (List.range 7).map (fun i => poolLookup i (poolSlot code i)),
+    zeroLookup ((code >>> 44) &&& 31))
+
+def block0 : Nat := 0x2200000100010000000080100000000041500000000020000000000010000000400005c00100000002e00800000001708000000000b800000000005c0000000820ac000000040856000000020c0b000000020405800000208202c00080004101600400002080b040000010405800000008202c00000008081600000082040b000200010205801000008102c10000004081600000002040b000000000205400000200002a00004000001500040000000a802000000005420000000002a00000000001500000002002a000000010205000000010002800000104001400002002000a000200010005001000008002810000004001400000002000a000000010004c000004000026001000000013008000000009940000000004c0000000000260000000010920000000208090000008004048002000002024010000001012280000000809000000000404800000000012000000000101000000002000800000080000400001000000200010000000100080000000081400000000040000000000020000000000000
+
+def block1 : Nat := 0x15800000c02e3a800002c0141d400000300c02a000001865c15000030c02e0a8003006017054b0000300b82a000001805c15000005802a0a800002c19405400001700a02a00006b00501500060580280a960002c01405400001600a02a0000000050148000000a000a4000780000052003800000029a0000000001480000000000a400002c00085000001600a02800000b14001400000640000a00007ac000050003816000028a0000b00001400000580000a000000000504a00000b0000250000a00000128160000000095e0000000004a0000000000250000001801320000000c0a09000000070004800000b3000240000a01800120160000c00091e00000600048000000300024000000060011800000c00008c000180000046001800000023010000000011ac0000000008c00000000004600000000b8e2000000006011000000032e0880000060170440000c000b822000c00005c11008000002e08960000001704400000000b822000000000230000000002e080000000600040000016000020
+
+def block2 : Nat := 0x10000180001f000000c0000f000000600017400000300083a00000180001d000000c000b88000006000144000003005022000001800411000000c320088000006050044000003000022000001800102000000c0100100000061500080000030000040000018001a0000000c000c000000060015800000030002c0000001800500000000c0a0800000006000400000003005080000001802040000000c320200000006150100000003000080000001802c00000000c01500000000600a00000000302c000000001802000000000c322000000006151000000003000800000001864000000000c2a00000000060a0000000003028000000001800000000000c000000000405a00010000002d70000000001680000000000b400001660045800001628022c0000059810160000058a080b000001668005800000c30002c000085980016380002cc000b00000166000580000162c002c00000c1400160000458a000b1c0002c50005800001628002c00000006001580003000000ac003000000056b0000000002b
+
+def block3 : Nat := 0x100023800002000011c00020000008e001000000047028000000023800000000011c00000000171600000003000b000000b00005800011000002c00080000001600800000000b0a8000000005800000000002c000000003b06000044001983000080000cc1800400000660c000000003306000000004b830000001005c18000020002e0c000200001706001000000b830280000005c18000000002e0c000000060206000001600103000022000081800100000040c01000000020615000000010300000000008180000001f000c0000880c0006000100060003000800030001800000018000c00000046000600000803000300008001800180040000c000c0a0000060006000000030003000000b02001800011001000c0008000080060080000040030a8000002001800000001000c000005800006000046500003000081280001800400940000c000004a00006000009600003000080b00001800400580000c0a0002c00006000001600003000022100001800100080000c0100004000061500002000030
+
+def block4 : Nat := 0x8000005c19340000002e0c960000001706460000000b832280000005c19000000002e0c8000000f8206400100060103200800030081900000018040c80000046020640010003010320080001808191400000c040c800000060206400001604103200200002081902000001040caa0000008206400000004103200001600081900040940040c802004a00206400002500103200080b00081900400580040c8a0002c00206400001600103200200100081902000080040caa0000400206400000200103200340000081900180000040c802b00000206400580000103200a00000081914100000040c80080000020640a100000103204080000081964040000040caa0200000206400100000103205800000081902a00000040c814000000206458000000103204000000081964400000040caa20000002064010000001032c8000000081954000000040c940000000206450000000103200000000081900000000019c0000880000c6000100000063000800000031800000000018c00000000028e0000000040470
+
+def block5 : Nat := 0x30cc1900040004660c802000023306400000011983200001280cc19000401c0660c802000e033064000007019832002c0000cc19000a0000660c802400003306400200001983202080000cc1934040000660c80020000330640a000001983202400000cc1901000000660c9a20000033064010000019832c8000000cc1934000000660c800000003306400000004c03200000100601900040000300c802000001806450000000c032000000006019000000072e0c80000002170640000020cb832000800065c19004000032e0c8a000001970640000000cb832000001825c19000600012e0c8040000097064b0000004b832000000025c19000002802e0c800000e01706400100300b832008001805c19140000c02e0c800000601706400180200b832010001005c192c0000802e0c800000401706400300000b832001000005c19004600002e0c8a0300001706400180000b832010800005c192c0400002e0c800200001706405000000b832020000005c19148000002e0c8040000017064b1000000b832
+
+def block6 : Nat := 0x1980000000059c8000000033c64001000001632008000000b1900000000058c80000000828e4000002001472000800000a3900400000051c8a000000028e4000000001472000000005cf900000000766c80020000333640100000199b200000000ccd9000000002e6c800000003b1e400000004b8f2000001005c79000400002e3c80200000171e450000000b8f2000000005c7900000000762c80000000181640000000cb8b2000001805c59000600002e2c8040000017164b0000000b8b2000000005c590000000c042c800002c0021640040000010b204000000085954000000042c800000000216400000001f03200000000f41900000000780c800000023b0640000000dd83200000002ec19000001c0760c800000603b06400000201d83200100000ec1900060000760c800200003b06404000001d83201000000ec1900400000760c9a0000003b064b0000001d83228000000ec1900000000760c800200003706401000001b83200000000dc19000400006a0c802000003506400000001a832
+
+def block7 : Nat := 0x803800019804001c0000cc00000e000066001003000033008001800019940000c0000cc000006000066004002000033000c0100001980040080000cc100004000066020002000033008001000019d4000080000cd60000400006600000200003300340000001980180000000cc02b00000006600580000003300a00000001994100000000cc00800000006600300000003300140000001980480000000cc004000000066011800000033280c0000001980060000000cc14200000006608100000003302080000001980840000000cc022000000067901000000033a80800000019b4040000000cd60200000006650100000003300080000001982c00000000cc1500000000660a00000000332c000000001982000000000cc0a000000006604800000003302000000001994800000000cc040000000067910000000033a88000000019b4400000000cd620000000066510000000033008000000019e4000000000cea00000000066d00000000033580000000019a8000000000ccc00000000066500000000033
+
+def block8 : Nat := 0x22082001a02000041000d2a0000208006800000104003400036002001a0021a001000d0000d0008006800844004003408022002001a00011001000d010008008006950004004003400002002001a02600001000d01200000800680880000400340c000002001a02000001000d301000008006950800004003400400002001a60000001000d2a0000008006840000004003408000002001a00000001000d0000000f8006600100060003300800030001980000018000cc0000046000660010003000330080001800199400000c000cc0000006000660000001c003300080008001980400004000cc0000002000660000020c003300080006001980400003000cca000001800660000000c003300000b020019800000c1000cc00800008006600180004003300080002001982000001000cc040000080066010000040033a80000020019ac000001000cc00000008006600002c00003300081280001980400940000cc00004a00006600101600003300800b00001994000580000cc00002c00006600000a000033
+
+def block9 : Nat := 0x3022030001a48011018000d0000880c0006800030060003400816030001a0000b018000d00f0000c0006806800060003403000030001a48400018000d0020000c0006930000060003490000030001a00000018000d00000047000680000803800340080001c001a1400000e000d00000007000680000133000340000a898001a0000044c000d000011660006801000b30003428000598001a000002cc000d000028460006805800230003478000118001a0000008c000d000070060006800034030003400018018001a01a0500c000d00202806000693001403000342800a018001a0000500c000d00b0100600068f0008030003400004018001a01c0000c000d00d000060006855800030003402c00018001a3c40000c000d002000060006930000030003478000018001a2000000c000d0a0000060006800000030003400000b04001a00011002000d010000010006950000008003400000004001a00000781000d001003408006800001a04003400002b02001a00200581000d020002c080068000016040034
+
+def block10 : Nat := 0x2bc1a00200001560d00000000ab06800000008b834000000825c1a000010012e0d001000009706810000004b834000000025c1a0000000c240d0000000c0f068000140307834000000183c1a0000001f180d0000880c0c06801000060603400000030301a0000001f0a0d000000460506800008030283400800018141a1400000c0a0d000000060506800000038103400000598081a0000500c040d00b0000602068f0000030103400000018081a0000001f020d000002c08106800044004083404000002041a54000001020d00000000810680000009800340000004a001a00200024000d00000012000680000008c00340000a044001a00000022000d000001af8006800000b7c0034000000be001a0000b01f000d0000280f800680000407c00340300003e001a0160001f000d0010000f800692000007c00347800003e001a0400001f000d0000000f800680000007800340002203a001a0040001d000d0000000e80068000011600034000226b0001a00400358000d000001ac00068000700600034
+
+def block11 : Nat := 0xc000000001a82000000000d40f000000006a07000000003503400000001a81800000000d4ab000000006a05800000003590800000001abc400000000d402000000006b808000000035a8400000001a84200000000d401000000006b800000000035a8000000001acc000000000d640000000006af0000000003540000000001a94000000000d480000000006a10000000003500000000001a80000001017d0010000080b680000000405b400000002063a00000002011d00000020808e800004004047400400002023a04000001011d00000000808e80000003003f40000003001da0000500c00ed00000006007680000007c03740002203001ba0040001800dd0000000c006e80000003012740000003e013a0000008c009d00001006004e801000030027428000018013a0000000c009d00000006051680000003800b400000598005a0000500c002d00b0000600168f000003000b400000018005a000000012e1d0000000f800e800001604007400022002003a02000001001d2a000000800e8000000040074
+
+def block12 : Nat := 0xb00041a80011000020d410000000106a008000000835a8000000041a80000000020d400003c00006a00801a00003500000d00001a80001580000d401002c00006a10001600003500000b00001a800004c0000d40002a200006a00001100003500022680001a80400340000d400001a00006a00014b00003500004580001a804002c0000d4a0001600006a00000b0000350000a100001a81600080000d5e0000400006a00000200003500022080001a82000040000d401000200006b50000100003500000080001a8001c000000d4000d8000006a00868000003500034000001a81811000000d401088000006b20044000003508022000001a80011000000d400070000006a00034000003500018000001a8040b000000d400058000006a06814000003502c0a000001a80405000000d660028000006af001400000352800a000001a80005000000d40b010000006af0008000003500004000001a82001000000d401008000006b50004000003500002000001a82600000000d412000000006a088000000035
+
+def block13 : Nat := 0x400002081b60000001040daa0000008206c40000004103608000002081b00000001040d800000128106c00800090083600000048041b0000005f020d8010000f8106c1000007c08360000003e041b00000582020d810000010106d50000008083600000004041b00000781020d801003408106c00001a04083600400b02041b04000581020d800002c08106c080001040836a8000082041b00000041020d813000008106c09000004083604400002041b06000001020d810000008106d808000040836a8400002041b00200001020db00000008106d50000004083620000002041b04000001020d800000008106c00000001783500400000ac1a80000000560d400000201706a00004000b835004000005c1a840000002e0d400000001706a0000000090350000a0003c1a800000001e0d400088000c06a01000000603500000000301a800000800a0d400028000506a00008000283500800000141a940000000a0d400000000506a00000b0010350000a000081a81600000040d5e0000000206a000000001035
+
+def block14 : Nat := 0x300003e081b0160001f040d8010000f8206d2000007c10367800003e081b0400001f040d8000000f8206c0000007810360080003a081b0000001d040d8000022c0206c01000d601036000006b0081b01e00018040d80d0000c0206c06000060103690800030081b00400018040da600000c0206d20000060103600000030081b0000008e040d802000070206c5000003810360000001c081b000004cc040d800002260206c01000b30103628000598081b000002cc040d80b000460206cf0000230103600000118081b01c0000c040d80d000060206c55800030103602c00018081b3c40000c040d802000060206d30000030103678000018081b2000000c040d8a0000060206c00000030103600000b04081b02000002040daa0000010206c00000008103600000f02081b00200681040d800003408206c00801604103608000b02081b00000581040d810000208206d50000104103600000082081b02600001040d812000008206c0880000410360c000002081b02000001040db01000008206d508000041036
+
+def block15 : Nat := 0x580000025c1b080000012e0d820000009706c00000004b8360000003e4c1b00400018260d8000000c1306c0000007c903600000118481b0040000c240d8a0000061206c00000030903600000030401b0000000c200d800000110f06c0000007c7836000000343c1b000000981e0d8020000c0f06c500000607836000000303c1b0000044c1e0d800000460f06c068000307836008000183c1b4c00000c1e0d8a0000060f06c0000003078360000003e341b004000181a0d8000000c0d06c000000946036000000be301b0020001f180d8200000f8c06c0000007c60360000003a301b00400019180d8000000c8c06c00000d606036008000b0301b00000058180d80c0000c0c06c01800060603608800030301b00400018180d8010000c0c06d20000060603608000030301b00000018180d8000000f8306c000016041836040000020c1b54000001060d800000008306c0000009810360000004a081b00200024040d800000120206c0000008c103600000044081b0000035f040d8000016f8206c0000017c1036
+
+def block16 : Nat := 0x2c01b000000085e0d80000003af06c00000011783600000004bc1b000001015e0d80000060af06c00000105783601400002bc1b008000015e0d80100000af06cc0000005783658000002bc1b040000015e0d80000000af06c00800005703600000002b81b00200001580d80000000ac06c00800021583600000010ac1b00200101560d80000080ab06c03000005583601400002ac1b30200001560d80100000ab06cc0000005583600000002ac1b00000002300d800000209806c00800004c03608000002601b00000001300d800000049706c00000020b8360000008e5c1b002000072e0d820000039706c0000001cb8360000000a5c1b000000442e0d801000021706c10000010b836000000085c1b000000c22e0d804000011706cb0000008b836000000045c1b000001812e0d800000809706c00800304b836080001825c1b000000c12e0d804000209706cb0000104b836000000825c1b00e000012e0d805000009706c12000004b836010000025c1b2c2000012e0d801000009706cc0000004b836
+
+def block17 : Nat := 0x18085b00000004761d80000000bb0ec01000011987600000008cc3b000000015e1d80000000980ec0000001cb876000000085c3b000000c12e1d80400000970ecb0000004b876000000025c3b0000001f181d8020000c0c0ec0000006060760000003e083b00000581041d81000000820ed50000004107600000002083b0000001f021d800002c0810ec080000040876a8000002043b00000001021d800000024006c00000006003600400002fc1b000000017e0d80000002bb06c00000111d83600400008ec1b04000004760d800000023b06c00000009d83600000082ec1b00200001760d82000000bb06c00000005d83600000030e41b000000046a0d802000023406c00000011a0360000003acc1b00000358660d80c0000c3306d20000061983600000030cc1b00000006660d80200002b306c00000015983600000108cc1b00400044660d800000223306c01800011983608800008cc1b00400004660d801000023306c50000011983608000008cc1b00000004660d80000000b206c000000058836
+
+def block18 : Nat := 0x400000001be0000000000dea0000000006f30000000003790000000001bbc000000000dd80000000006eb0000000003740000000001b94000000000dc80000000006e20000000003708000000001b80000000000dc000000082bec000000040df6004000020adb00000001056d8010000081b6c000000040db6000000020e3b00000002051d80000020828ec008000041476080000020a3b00000001051d80000001018ec000001040c7600400002063b04000001031d80000000818ec0000003013f6000000183ddb0000001804ed800000060276c000000619b760000003031bb0000001f04dd8020000c026ec0000006013760000003e093b0000008c049d80200006024ec50000030127600000018093b000000012e5d80000000af26c00800005593600000002ac9b000000012e4d80000000af1ec00000008b8f6000000825c7b002000012e3d82000000971ec00000004b8f600000008cc5b0000000c242d8000000c0f16c0000003078b60000001c085b000002cc042d80b000060216cf000003010b6
+
+def block19 : Nat := 0x281c0b00001c000e0580000e280202c000070001016000038b8000b00001c50000580000e120002c00007050001600003800000b00001c00000780000dc01003400006e00001a00003700400b00001b84000580000dc00002c00006e00001300003700000880001b80400340000dc00001a00006e01000b00003728000580001b800002c0000dc00000c00006e00800400003700000200001b802000c0000dc20000600006e00000300003702c00100001bbc000080000dc00000400006e08000100003701000080001b80400040000dc01000200006f50000100003758000080001b80000040000dc13000000006e09000000003704400000001b86000000000dc10000000006e07800000003703800000001b81a00000000dc0c000000006e55800000003702c00000001b80e00000000dc06000000006e02800000003709000000001b80800000000dc03000000006f21000000003778800000001b84400000000dc02000000006f808000000037a8400000001bb0200000000dd61000000006e108000000037
+
+def block20 : Nat := 0x1eb00081c000e0580040e280002c00207000001600103800000b24001c0000094f000e00007ac7800700000163c003800001614001c0001194a000e000204a50007000002528003800004b14001c0004058a000e0a0002c50007000001628003800000c82001c0000f581000e000702c08007140001604003800000b02001c00000cc0000e00007e400007000003200003800001880001c0000fb00000e000705800007140002c00003800001600001c00011ac0000e000205600007000002b0000380002f280001c00013940000e00078ca00007140046500003800023280001c0004f940000e00007ca00007000502500003800241280001c000e0940000e280204a000070001025000038b8001280001c50000940000e000004a00007000009900003800080c80001c14000640000e000003200007000065600003800030b00001c00017580000e00097ac0000700013d6000038b801eb00001c1400f580000e00007ac000070003896000038a0004b00001c00002580000e000a02c000070004816000038
+
+def block21 : Nat := 0x32000001c80018000000e4000b800000720004c0000039001e2000001cd0011000000e4000880000072004bc0000039001de000001c8004f000000e6e007800000734003c00000392801e000001c8000f000000e400710000007340008000003900004000001c80140000000e4009000000072503800000039001c0000001cd0040000000e4002000000073700000000039a0000000001ca4000000000e4a0000000007200000000003900000b0002bc00000940014e00007ac000a7000001600053800000b000a1c00000581010e000005800087000046500043800081280021c00000940010e000012c00087000101600043828000b00021c00000580010e000002c0141700000162800b800000c80005c0000f580002e000702c0001714000160000b800000b00005c000005804a0e000004a0200700003d601003800000b00801c00000581280e000005801407000046500a03800081280501c00000940280e000012c01407000101600a03828000b00501c00000580280e000002c502070000019001038
+
+def block22 : Nat := 0x28000b14081d0000058a040e800003208207400381604103aa0000b02081d00000581040e800006600207400003200103a00001880081d000e0b00040ea80005800207400002c00103a00081580081d00000ac0040e800a04a00207400482500103a001c1280081d50040940040e800204a00207570002500103aa0001280081d00000940040e800203200207450001900103a00000c80081d00140580040e800902c00207450381600103a001c0b00081d50040580040e800202c00207570001600103aa0000b00081d24000580040e8a0002c00207400001600103a00000000941c8000f000400e400000002007200000004a03900022000501c8000f000280e400010001407200100000a03928000000501c80000000280e40000005020720003c0001039001c0000081cd0000000040e40000000020720000004800390001e01e001c8000000f000e40008805000720003c028003900004014001c8004000a000e4a000005000720000002800390001e002001c800e0001000e6800000080072000000040039
+
+def block23 : Nat := 0x580801805c1d000400c02e0e9a00006017074b0000300b83a300001805c1d140000c02e0e800000601707400001604a83a00001600541d000409402a0e800004a01507400101600a83a28000b00541d000005802a0e800004a5140740000161ca03a00000b08501d00000b03280e800204a1940740000250ca03a00080b06501d14000583280e800002c19407400001704a03a000c0b02501d2c000581280e800002c09407400002e00a03a00001680501d00060b00280e960005801407400002c00a03a00001580501d000409c0280e800004e01407400382500a03a00181280501d00060940280e960204a01407400102500a03aa0001280501d2c000940280e800004a01407400101700a03a28000b80501d000005c0280e800602c01407400201600a03a280c0b00501d00060580280e960202c01407400101600a03a68000b00501d2c000580280e8c0002c01407450001600a03a00000b00501d00000592040e800004a7820740000163c103a00001614081d0004094a040e800004a50207400101628103a
+
+def block24 : Nat := 0x380cc1d00000580500e800002c02707400001601303a00000b08941d000005834a0e800002c0a507400002d01283a00001600941d000409404a0e800004a02507400001701283a00100b00941d000605804a0e800202c025074d0001601283a58000b00941d140005804a0e800002c02507400002501183a00000b008c1d00000940440e800002c0220740000163d003a00001288801d00000584400e800006402007400002d01003a00001400801d00080940400e9a0004a02007400002501003a00240b00801d00080580400eae0002c020074d0001601003a00000b00801d000000c1300e800001401807400000700c03a00080180601d140000c0300e80000060180740000031cb83a000001885c1d000002832e0e800000e1970740010030cb83a280001865c1d000000c32e0e8003006097074b0000304b83a000001825c1d000602802e0e960001401707400000a00b83a000004805c1d000601c02e0e960000e01707400000700b83a001801805c1d000800c02e0e8a0300601707400180300b83a
+
+def block25 : Nat := 0xb00947d000000c12e3e80000140171f400000700b8fa000801805c7d140000c02e3e80000060171f400001604a0fa00001600507d00040940283e800004a0141f400101600a0fa28000b00507d00000580283e800002c02517400000300c0ba000001865c5d000600c02e2e960000601717400000300b8ba00000b00545d00000583282e800002e01417400181600a0ba58000b00505d00000580282e800002c5021740000190010ba001c0b00085d50000580042e800002c00217400000701f03a00000180f81d000000c0780e800000e1bb0740000030dd83a00000480ec1d000601c0760e960000e03b07400000701d83a000c0180ec1d2c0000c0760e800000603b07400002501d03a00000380dc1d000401c06c0e800000e03607400002529983a00000388cc1d000401c3660e800000e1b307400002b01983a001c1280cc1d50000940660e800004a03307400100901983a00000480cc1d000c01c0660e800400e03307400180701983a58080380cc1d000401c0660e9a0000e033074b0000701983a
+
+def block26 : Nat := 0xb0000b02001e50000581000f060002c08007810001604003c00000b02001e00000012000ec00000078007600100028003b28000014001d8000000a000ec00000038007600000010003b00080006001d94000003000ec00000018007600380004003b000c0002001dd0000001000ed60000008007600000004003b00280000001d80120000000eca0700000007600380000003b00180000001d80080000000eca0300000007600180000003ba0080000001dac040000000ec00200000007770000000003ba0000000001db4000000000ed60000000007690000000003b30000000001d94000000000ec00000000007600001600157a00000b00829d00000940054e800002c002a74000025019c3a00001280521d00000581050e800005800287400102500143a000012800a1d00040580050e8a0002c00287400001600143a000001805cfd00000580287e800000e0333740000160129ba0000128080dd00000580406e800000601737400001600a1ba00000380ec7d000000c0763e800200e0331f40000070198fa
+
+def block27 : Nat := 0x38000598001e140002cc000f000001660007800002c2c003c00023296001e0000094b000f000012c5800785000162c003c00000b16001e00000c0a000f000025e50007800002f28003c00009614001e38000b0a000f000005850007800046928003c00001494001e0001294a000f1c008ca50007800046528003c00009294001e3800094a000f000004a50007800009828003c28000c14001e0000060a000f000052c50007800025628003c00010b14001e4400458a000f0a0022c50007800011628003c70004b14001e0000258a000f220002c500078e0001628003c38000b14001e1400058a000f000002c50007800001908003c0001eb04001e50000582000f000002c10007800002404003c00001182001e00000881000f00007bc08007940001e04003c00000f02001e00000741000f0000a340800780003da04003cb0000d02001e50000681000f000003408007800005904003c08000c82001e00000641000f0000aac08007800051604003c0801eb02001e0000f581000f28000ac08007800005604003c
+
+def block28 : Nat := 0xd2a001e00000595000f000002ca000780001164c003c00000b26001e00000852000f000003c90007800001a48003c00000c24001e00007592000f000022c90007800005648003c80000b24001e38000592000f020002c90007800001648003c000012a2001e0000f591000f000002c88007800002a3c003c0000f29e001e4000094f000f000004a7800780003e13c003c0000109e001e0001658f000f20007ac7800780003d63c003c0000eb1e001e4000058f000f000002c78007800001334003c0000a89a001e0000044d000f000011668007850000b34003c0000059a001e0000054c000f000022860007800001430003c00008998001e380004cc000f000002660007800015230003c00000918001e0000644c000f1c002a260007800015130003c00008898001e3800044c000f000002260007800008c30003c28000618001e0000030c000f000051660007800024b30003c00010598001e440042cc000f0a0021660007800010b30003c70004598001e000022cc000f2200016600078e0000b30003c
+
+def block29 : Nat := 0x8b0101e00011358080f000001ac0407800001648203c00000998101e0000544c080f000002260407800008b30203c28000598101e000002cc080f000005850407800046528203c00001294101e0000258a080f0a0002c50407800001628203c0000059a081e0000030c040f0000216602078e0000b30103c00000598081e0000058b040f000003050207800011628103c70000b14081e0000058a040f000002c90107800001904083c0001eb02041e50000581020f000002c08107800000d84003c000005c2001e000042e0000f000001700007800000f7c003c000086be001e3800035f000f000001af8007800000c7c003c000085be001e380002df000f0000016f8007800000d70003c000008b6001e0001135b000f000001ad8007800001260003c000088b0001e38000458000f0000022c0007800001060003c000227b0001e000003d8000f000091ac00078e0044d60003c000226b0001e00007358000f000021ac0007900000d60003c700006b0001e00000358000f000002cb8007800001658003c
+
+def block30 : Nat := 0xb24015e0000094f00af00007ac7805780000163c02bc00000598091e0000058a048f000001af8047800000b7c023c000008b0011e00011358008f000001ac0047800001648023c00000998011e0000544c008f000002260047800008b30023c28000598011e000002cc008f000005850047800046528023c00001294011e0000258a008f0a0002c50047800001628023c00000598105e0000058a082f000001668017800000c3000bc00008598005e380002cc002f00000166001780000162c00bc00000c14005e0000458a002f1c0002c5001780000162800bc00000b02503e00000592001f00000320800f80003d604007ca0000b02003e00000581001f000002c09c07800001a04c83c00000b02641e00000582280f000003c09407800001a04a03c00002b02501e04000581280f000002c09407800000b30503c00000b14281e000042cc100f000001660807800011628403c00000b14201e000003580c0f000002c9060780000253c303c0001eb1e181e0000058f0c0f000001af8407800000b7c203c
+
+def block31 : Nat := 0xa000101e80004000080f400010000407a50000000203d00000000101e80004000040f5c0000000207a00000000103d0001e000041ed0000000020f400000000107a00058000003d0002a000001e80014000000f400090000007ae0044000003d00022000001e80010000000f600078000007ae003c000003d0801e000001e8000f000000f400050000007a00024000003d00010000001e80007000000f400030000007ae0014000003d0000a000001ec4004000000f5c0020000007a50010000003d00008000001eb8002000000f400010000007b40004000003d00002000001ed8000000000f680000000007b10000000003d80000000001eb8000000000f4e0000000007a50000000003d18000000001e84000000000f400000000007a0000160404fc00000d02025e00000581012f000002c08187800001608043c00000f02021e00000681010f00000ac08087810001604043c00000b02021e000002cc00cf000002c50067800010b3002fc00000598017e0000458a00bf000002c5005f800000d6002bc
+
+def block32 : Nat := 0x28000c14081f0000060a040fa20002c50207ce0001628103e38000b14081f1400058a040f800002c50207c00001908103ea0000b04081f00000582040f800004808207c00002304103e00001102081f50000781040f800003c08207c00001d04103eb0000d02081f50000681040f800003408207c10001904103e00000c82081f58000581040fa80002c08207c30001604103e08000b02081f00000581040f800002cb0107c00001a54083e00000b2a041f00000792020f800003490107c10001648083e00000b24041f00000642020fa80002c10107c00001608083e00001202041f000008c1020f800004408107d40001e04083e00000f02041f00000741020fac0003408107d40001a04083e00000d02041f04000641020f800003208107d60001604083ea0000b02041f0c000581020f820002c08107c00001604083e00000000701e80000000320f400008001407a10000000a03d00000000501e80000000140f400020000807a00000000403d0001e000181e800000000c0f400088000407a0003c000203d
+
+def block33 : Nat := 0x700005be081f000002df040f800001ae0207c0000116c103e000006b6081f00000498040f9c00022c0207c00001160103e00000830081f000003d8040fa00001ac0207ce0000d60103e000006b0081f00000597040f800002cb0207c00001a54103e00000b2a081f00000594040f800002c98207c00002148103e00000f24081f00000692040f800003090207d00001648103e70000b24081f04000592040f800002c90207c00002544103e00000b22081f00000a8f040fa00004a78207c0000253c103e0000109e081f4000058f040f800002c78207c00001334103e0000089a081f140002cd040f800001668207c00001530103e00000a18081f380004cc040f800002660207c00001230103e70000898081f0000044c040f8a0001860207c00000c30103e88000598081f380002cc040f8e0001660207c50000b30103e00000598081f00000b0b040f800004a58207c5000162c103e00000b16081f00000c0a040f800005e50207ce0002c28103e00001614081f00000a4a040f9c0004a50207c00002528103e
+
+def block34 : Nat := 0x28000b14281f0000058a140f800001660907c00001628483e000005c0201f000002df100f800002c98807c00001648403e00000a18201f000004cc100fa20001660807c50000b30403e00000598201f00000bca100f800005850807d10001628403e28000b14201f0000058a100f800001ac0707c00001648383e0000129e1c1f0000058f0e0f800001ac8607c00000e60303e080006b0181f000003580c0f800002cb0607c00001e48303e08000b24181f000005920c0f800002c88607c00002540303e00000b20181f0000098f0c0f820004a78607c0000253c303e0000109e181f0000078f0c0fa00002c78607c1000163c303e00000b1e181f0000035b080f800001ec0407ce0000d60203e000006b0101f0000044d080f800002460407ce0001130203e00000898101f0000094b080f800005250407ce0002528203e00001294101f00000592060f800003208307d40001604183e00000b020c1f00000361040f800001708207c00000b80103e000007be081f3800035f040f800001af8207c00000c7c103e
+
+def block35 : Nat := 0xf02541f000006812a0f820002c09507c00001604a83e00001296501f00000a4a280f9c0004a51407c00002528a03e00000b12501f00000588280f800003c39407c00001a1ca03e08000b0e501f00000587280f800002c29407c00001e10a03e08000b08501f00000584280f800002e11407cb0001608a03e00000b04501f00000801280f800003e09407cb0001e04a03e00000f02501f000006c1280f960003409407c00001a04a03e08000b82501f000005c1280f980002c09407cb0001604a03e10000b02501f04000581280f800002c09407c00001130883e0000089a3c1f0000048c1e0f9c0002260f07c00001130783e000006b0381f000000581a0f800001ad8c07c00000164603e000007b0301f38000358180f800001ac0c07c10000160603e000000b0301f00000358160f800002c90b07c0000253c583e00000b1e2c1f0000035f140f8000016f8a07c00001160503e000006b0281f00000592140f800002660a07c00001130503e28000598281f000002cc140f800005850a07c00002528503e
+
+def block36 : Nat := 0x128a801f00000585400f800004c22007c10002511003e00001288801f00000784400f820002c22007c00001611003e00000b027c1f000005813c0f800002c09d07c00001620e03e00000b0e701f00000584380f800002c11c07c00001f04e03e00000f02701f00000681380f800002e09c07cc0001604e03e58000b02701f04000581380f800002c09c07c00001a04d83e00000b026c1f00000681340f800002c09a07c00001a20c83e00000b10641f000007c1320f800003809907cc0001a04c83e00000d02641f30000581320f800002c09907c00000308c03e00000302601f00000101300f820000609807c00000304c03e000001925c1f000000c82e0f800000c39707c0000041cb83e0800018e5c1f000000c72e0f800000629707c00000610b83e080001885c1f000000c42e0f960000611707c00000308b83e580003025c1f000001812e0f800000a09707cb0000404b83e000002025c1f300000c12e0f960000609707c20000304b83e080001825c1f000000c12e0f800004a51607c00001608a83e
+
+def block37 : Nat := 0xa0000b02083f00000581041f800002c9010fc00001904087ea0000b02043f00000581021f800001ac3807c00002529c03e00000388d01f00000044680f800001adb307c00000f61983e700006b0cc1f00000358660f800004a5b307c00002929983e70001294cc1f0000094a660f800000e2b307c00000115983e00000408cc1f040001c4660f800000e23307c10000111983e00000088cc1f00000101640f80000060b207c00000305803e0000020ebc1f000000c75e0f800000622f07c00000505783e58000202bc1f000001015e0f96000060af07c00000305783e00000202b81f000001015a0f800000842b07c0000041d583e00000282ac1f30000101560f96000080ab07c00000405583e00000b08a81f00000581540f80000340a907c00001605483e00000b0a941f000007844a0f820002c22507c00001611283e00000b04941f000007814a0f80000340a507c10001605283e00000b02941f0000058f480f800004a22107c00001611083e00000b22801f0000084f400fa00002c7a007c0000163d003e
+
+def block38 : Nat := 0x598091f00000b0a048f800004a50247c50001628123e00000b14091f000000c12e5f800002c0942fc00000405593e00000b02709f00000681324f800002c09927c00000304b93e00000b02509f000001015e3f80000060af1fc0000040558fe00000b02707f000000c22e3f800000c0971fc00000404b8fe080001825c7f000000c12e3f800002c1141fc00001e04a0fe00000d02507f04000581283f800002c0941fc00000b3050be00000b14285f000002cc102f800002c50817c00000b3410be00000618085f380002cc042f800001660217c0000162c10be00000c14085f3800058a042f800002c50217c00000711987e00000088cc3f000005844a1f800002c0a50fc00002511007e00000b08803f00000581381f80000060980fc0000031cb87e000001885c3f2c0000c12e1f80000060970fc00001604a87e00000b0e503f00000584281f800002e0940fcb0001604a07e00000b02503f00000058181f800001ac060fc00001648307e0000129e183f0000058f0c1f800002c9020fc00001904107e
+
+def block39 : Nat := 0x2c0000000007f40000000003f88000000001fc0000000000fdc0000000007ec0000000003f58000000001f9c000000000fca0000000007e30000000003f10000000001f84000000000fc00000000007e0000160414fe00000b02067f00000681052f800002c08297c00001a040cbe00000b02065f00000581070f800002c10287c00001e04143e00000d020a1f04000581050f800002c08287c000016080c3e00000f02061f00000681030f820002c08187c000016040c3e00000598099f0000058a04cf80000166085fc0000162842fe00000598097f0000058a04bf800002c7a057c0000163c32be000006b0095f0000059204af800004a78257c0000163c12be000006b0cd1f0000094a668f800004a51447c000011307a3e000006b0311f00000358088f800002260447c00002528223e000006be091f000002df048f8000022c0247c00000d60123e00000b24091f000004cc048f800002260247c50000b30123e
+
+def blockLookup (k : Nat) : Nat := (if k < 20 then (if k < 10 then (if k < 5 then (if k < 2 then (if k < 1 then block0 else block1) else (if k < 3 then block2 else (if k < 4 then block3 else block4))) else (if k < 7 then (if k < 6 then block5 else block6) else (if k < 8 then block7 else (if k < 9 then block8 else block9)))) else (if k < 15 then (if k < 12 then (if k < 11 then block10 else block11) else (if k < 13 then block12 else (if k < 14 then block13 else block14))) else (if k < 17 then (if k < 16 then block15 else block16) else (if k < 18 then block17 else (if k < 19 then block18 else block19))))) else (if k < 30 then (if k < 25 then (if k < 22 then (if k < 21 then block20 else block21) else (if k < 23 then block22 else (if k < 24 then block23 else block24))) else (if k < 27 then (if k < 26 then block25 else block26) else (if k < 28 then block27 else (if k < 29 then block28 else block29)))) else (if k < 35 then (if k < 32 then (if k < 31 then block30 else block31) else (if k < 33 then block32 else (if k < 34 then block33 else block34))) else (if k < 37 then (if k < 36 then block35 else block36) else (if k < 38 then block37 else (if k < 39 then block38 else block39))))))
+
+def getCode (i : Nat) : Nat :=
+  (blockLookup (i / 64) >>> (49 * (i % 64))) &&& 562949953421311
+
+def getState (i : Nat) : State := decode (getCode i)
+
+def contains (s : State) : Bool :=
+  ResourceCertificate.searchIndex stateLess getState 2554 s 13 0 2554
+
+def checked (i : Nat) : Bool := safe (getState i) && (successors (getState i)).all contains
+
+def chunkCheck (k : Nat) : Bool :=
+  (List.range 64).all (fun j => if k * 64 + j < 2554 then checked (k * 64 + j) else true)
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk0_closed : chunkCheck 0 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk1_closed : chunkCheck 1 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk2_closed : chunkCheck 2 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk3_closed : chunkCheck 3 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk4_closed : chunkCheck 4 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk5_closed : chunkCheck 5 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk6_closed : chunkCheck 6 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk7_closed : chunkCheck 7 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk8_closed : chunkCheck 8 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk9_closed : chunkCheck 9 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk10_closed : chunkCheck 10 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk11_closed : chunkCheck 11 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk12_closed : chunkCheck 12 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk13_closed : chunkCheck 13 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk14_closed : chunkCheck 14 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk15_closed : chunkCheck 15 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk16_closed : chunkCheck 16 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk17_closed : chunkCheck 17 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk18_closed : chunkCheck 18 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk19_closed : chunkCheck 19 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk20_closed : chunkCheck 20 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk21_closed : chunkCheck 21 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk22_closed : chunkCheck 22 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk23_closed : chunkCheck 23 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk24_closed : chunkCheck 24 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk25_closed : chunkCheck 25 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk26_closed : chunkCheck 26 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk27_closed : chunkCheck 27 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk28_closed : chunkCheck 28 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk29_closed : chunkCheck 29 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk30_closed : chunkCheck 30 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk31_closed : chunkCheck 31 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk32_closed : chunkCheck 32 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk33_closed : chunkCheck 33 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk34_closed : chunkCheck 34 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk35_closed : chunkCheck 35 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk36_closed : chunkCheck 36 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk37_closed : chunkCheck 37 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk38_closed : chunkCheck 38 = true := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma chunk39_closed : chunkCheck 39 = true := by decide +kernel
+
+lemma all_chunks_checked : (List.range 40).all chunkCheck = true := by
+  change ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] : List Nat).all chunkCheck = true
+  simp only [List.all_cons, List.all_nil, chunk0_closed, chunk1_closed, chunk2_closed, chunk3_closed, chunk4_closed, chunk5_closed, chunk6_closed, chunk7_closed, chunk8_closed, chunk9_closed, chunk10_closed, chunk11_closed, chunk12_closed, chunk13_closed, chunk14_closed, chunk15_closed, chunk16_closed, chunk17_closed, chunk18_closed, chunk19_closed, chunk20_closed, chunk21_closed, chunk22_closed, chunk23_closed, chunk24_closed, chunk25_closed, chunk26_closed, chunk27_closed, chunk28_closed, chunk29_closed, chunk30_closed, chunk31_closed, chunk32_closed, chunk33_closed, chunk34_closed, chunk35_closed, chunk36_closed, chunk37_closed, chunk38_closed, chunk39_closed, Bool.and_self]
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma initial_contains : contains initial = true := by decide +kernel
+
+lemma reachable_safe {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors a) initial finish) :
+    safe finish = true := by
+  apply ResourceCertificate.chunked_searchIndex_reachable_safe stateLess getState
+    2554 64 40 13 successors safe (by decide) (by decide) ?_ initial_contains hreach
+  intro k hk
+  change chunkCheck k = true
+  exact List.all_eq_true.mp all_chunks_checked k (List.mem_range.mpr hk)
+
+lemma reachable_no_target {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors a) initial finish) :
+    56 ∉ finish.2.2 := by
+  simpa [safe] using reachable_safe hreach
+
+end S200Resource
+
+namespace S200Geometry
+
+open OnceGeometry DAGBridge.DagTools
+
+def physicalPort (g : Fin 6) (right : Bool) : Finset (Fin 10) :=
+  if right then match g.val with
+    | 0 => {1, 4, 5}
+    | 1 => {2, 6}
+    | 2 => {3, 9}
+    | 3 => {7, 8}
+    | 4 => {2}
+    | _ => {8, 9}
+  else match g.val with
+    | 0 => {0}
+    | 1 => {1}
+    | 2 => {4}
+    | 3 => {5}
+    | _ => {3, 6, 7}
+
+-- The two dirty left inputs are evaluated directly from their full row mask.
+def carrierPort (g : Fin 6) (right : Bool) : Finset (Fin 10) :=
+  if g.val < 4 ∨ right = true then physicalPort g right else ∅
+
+def locations (g : Fin 6) (right : Bool) : Finset (Fin 7) :=
+  if right then match g.val with
+    | 0 => {1, 2, 3}
+    | 1 => {4}
+    | 2 => {5}
+    | 3 => {6}
+    | 4 => {4}
+    | _ => {5, 6}
+  else if h : g.val < 4 then {⟨g.val, by omega⟩} else ∅
+
+lemma carrier_class : ∀ (g : Fin 6) (b : Bool) (v : Fin 10),
+    v ∈ carrierPort g b → vertexClass v ∈ locations g b := by decide
+
+lemma raw_physical_left : ∀ g : Fin 6,
+    rawMask (physicalPort g false) = if g.val < 4 then 0 else 63 := by decide
+
+lemma raw_physical_right : ∀ g : Fin 6,
+    rawMask (physicalPort g true) =
+      match g.val with | 0 => 0 | 1 => 25 | 2 => 42 | 3 => 52 | 4 => 9 | _ => 54 := by
+  decide
+
+lemma physical_disjoint : ∀ g : Fin 6,
+    physicalPort g false ∩ physicalPort g true = ∅ := by decide
+
+lemma dirty_left_mask {D : Dag} (hS : Strict 10 D) {w : ℕ}
+    (hw : supp 10 D w = {3, 6, 7}) : wireMask D w = 63 := by
+  have hfun : (fun r => val D (rowInput r) w) = (fun _ : Fin 6 => true) := by
+    funext r
+    apply support_row_true hS
+    rw [hw]
+    fin_cases r <;> decide
+  unfold wireMask
+  rw [hfun]
+  decide
+
+end S200Geometry
+
+
+namespace S200Geometry
+
+open OnceGeometry
+
+lemma support_class {S : Finset (Fin 10)} {g : Fin 6} {b : Bool}
+    (hS : S ⊆ carrierPort g b) {v : Fin 10} (hv : v ∈ S) :
+    vertexClass v ∈ locations g b := carrier_class g b v (hS hv)
+
+lemma port_locations_live {used : ℕ} {g : Fin 6}
+    (hg : used.testBit g.val = false) (b : Bool) {loc : Fin 7}
+    (hl : loc ∈ locations g b) : S200Resource.live used loc.val = true := by
+  fin_cases g <;> cases b <;> fin_cases loc <;>
+    simp_all [locations, S200Resource.live]
+
+lemma raw_carrier_left : ∀ g : Fin 6,
+    rawMask (carrierPort g false) = 0 := by decide
+
+lemma raw_carrier_right : ∀ g : Fin 6,
+    rawMask (carrierPort g true) =
+      match g.val with | 0 => 0 | 1 => 25 | 2 => 42 | 3 => 52 | 4 => 9 | _ => 54 := by decide
+
+end S200Geometry
+
+namespace S200Resource
+
+lemma prune_getD_of_live {s : State} {loc : ℕ}
+    (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    (prune s).2.1.getD loc 1 = s.2.1.getD loc 1 := by
+  simp [prune, List.getD_eq_getElem?_getD, List.getElem?_range hloc, hlive]
+
+lemma prune_pools_length (s : State) : (prune s).2.1.length = 7 := by simp [prune]
+
+lemma prune_port_getD {s : State} {g : Fin 6} {b : Bool} {loc : Fin 7}
+    (hg : s.1.testBit g.val = false) (hl : loc ∈ S200Geometry.locations g b) :
+    (prune s).2.1.getD loc.val 1 = s.2.1.getD loc.val 1 :=
+  prune_getD_of_live loc.isLt (S200Geometry.port_locations_live hg b hl)
+
+lemma prune_leftPool {s : State} {g : Fin 6} (hg : s.1.testBit g.val = false) :
+    leftPool (prune s).2.1 g.val = leftPool s.2.1 g.val := by
+  fin_cases g
+  · exact prune_port_getD (g := 0) (b := false) (loc := 0) hg (by decide)
+  · exact prune_port_getD (g := 1) (b := false) (loc := 1) hg (by decide)
+  · exact prune_port_getD (g := 2) (b := false) (loc := 2) hg (by decide)
+  · exact prune_port_getD (g := 3) (b := false) (loc := 3) hg (by decide)
+  · rfl
+  · rfl
+
+lemma prune_rightPool {s : State} {g : Fin 6} (hg : s.1.testBit g.val = false) :
+    rightPool (prune s).2.1 g.val = rightPool s.2.1 g.val := by
+  fin_cases g
+  · exact congrArg₂ mergePools
+      (congrArg₂ mergePools
+        (prune_port_getD (g := 0) (b := true) (loc := 1) hg (by decide))
+        (prune_port_getD (g := 0) (b := true) (loc := 2) hg (by decide)))
+      (prune_port_getD (g := 0) (b := true) (loc := 3) hg (by decide))
+  · exact congrArg (mergePools (1 <<< 25))
+      (prune_port_getD (g := 1) (b := true) (loc := 4) hg (by decide))
+  · exact congrArg (mergePools (1 <<< 42))
+      (prune_port_getD (g := 2) (b := true) (loc := 5) hg (by decide))
+  · exact congrArg (mergePools (1 <<< 52))
+      (prune_port_getD (g := 3) (b := true) (loc := 6) hg (by decide))
+  · exact congrArg (mergePools (1 <<< 9))
+      (prune_port_getD (g := 4) (b := true) (loc := 4) hg (by decide))
+  · exact congrArg (mergePools (1 <<< 54))
+      (congrArg₂ mergePools
+        (prune_port_getD (g := 5) (b := true) (loc := 5) hg (by decide))
+        (prune_port_getD (g := 5) (b := true) (loc := 6) hg (by decide)))
+
+lemma prune_group_pairMasks {s : State} {g : Fin 6} (hg : s.1.testBit g.val = false) :
+    pairMasks (· &&& ·) (leftPool (prune s).2.1 g.val) (rightPool (prune s).2.1 g.val) =
+      pairMasks (· &&& ·) (leftPool s.2.1 g.val) (rightPool s.2.1 g.val) := by
+  rw [prune_leftPool hg, prune_rightPool hg]
+
+end S200Resource
+
+
+namespace S200Positive
+
+open S200Resource OnceGeometry
+
+abbrev Pools := OncePositive.Pools
+abbrev or7 := OncePositive.or7
+abbrev PoolsGood := OncePositive.PoolsGood
+abbrev Witness := OncePositive.Witness
+abbrev liftPool := OncePositive.liftPool
+abbrev poolView := OncePositive.poolView
+
+lemma or7_or (f h : Fin 7 → ℕ) : or7 (fun i => f i ||| h i) = or7 f ||| or7 h :=
+  OncePositive.or7_or f h
+
+lemma or7_update (f : Fin 7 → ℕ) (loc : Fin 7) (k : ℕ) :
+    or7 (Function.update f loc (f loc ||| k)) = or7 f ||| k :=
+  OncePositive.or7_update f loc k
+
+lemma or7_filtered {L : Finset (Fin 7)} {f : Fin 7 → ℕ}
+    (hf : ∀ i, i ∉ L → f i = 0) :
+    or7 f = or7 (fun i => if i ∈ L then f i else 0) :=
+  OncePositive.or7_filtered hf
+
+def Rep (used : ℕ) (P : Pools) (S : Finset (Fin 10)) (m : ℕ) : Prop :=
+  ∀ (g : Fin 6) (b : Bool), used.testBit g.val = false → S ⊆ S200Geometry.carrierPort g b →
+    ∃ f, Witness P (S200Geometry.locations g b) f ∧ m = rawMask S ||| or7 f
+
+lemma rep_raw {used : ℕ} {P : Pools} (hp : PoolsGood P) (S : Finset (Fin 10)) :
+    Rep used P S (rawMask S) := by
+  intro g b _ _
+  refine ⟨fun _ => 0, ?_, ?_⟩
+  · exact fun i => ⟨(hp i).1, fun _ => rfl⟩
+  · simp [or7, OncePositive.or7]
+
+lemma rep_or {used : ℕ} {P : Pools} (hp : PoolsGood P)
+    {S T : Finset (Fin 10)} {a b : ℕ} (ha : Rep used P S a) (hb : Rep used P T b) :
+    Rep used P (S ∪ T) (a ||| b) := by
+  intro g side hu hST
+  have hS : S ⊆ S200Geometry.carrierPort g side := fun v hv => hST (Finset.mem_union_left _ hv)
+  have hT : T ⊆ S200Geometry.carrierPort g side := fun v hv => hST (Finset.mem_union_right _ hv)
+  obtain ⟨f, hf, ha⟩ := ha g side hu hS
+  obtain ⟨h, hh, hb⟩ := hb g side hu hT
+  refine ⟨fun i => f i ||| h i, ?_, ?_⟩
+  · intro i
+    refine ⟨(hp i).2 _ (hf i).1 _ (hh i).1, ?_⟩
+    intro hi
+    change f i ||| h i = 0
+    rw [(hf i).2 hi, (hh i).2 hi]
+    rfl
+  · rw [ha, hb, rawMask_union, or7_or]
+    ac_rfl
+
+lemma rep_mono {used : ℕ} {P Q : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (hPQ : ∀ i x, x ∈ values (P i) → x ∈ values (Q i))
+    (h : Rep used P S m) : Rep used Q S m := by
+  intro g b hg hS
+  obtain ⟨f, hf, hm⟩ := h g b hg hS
+  exact ⟨f, fun i => ⟨hPQ i _ (hf i).1, (hf i).2⟩, hm⟩
+
+lemma liftPool_mono (P : Pools) (loc : Fin 7) (k : ℕ) :
+    ∀ i x, x ∈ values (P i) → x ∈ values (liftPool P loc k i) :=
+  OncePositive.liftPool_mono P loc k
+
+lemma poolsGood_lift {P : Pools} (hp : PoolsGood P) (loc : Fin 7) {k : ℕ} (hk : k < 64) :
+    PoolsGood (liftPool P loc k) := OncePositive.poolsGood_lift hp loc hk
+
+lemma rep_lift {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {m k : ℕ}
+    (h : Rep used P S m) (hk : k < 64) {v : Fin 10} (hv : v ∈ S) :
+    Rep used (liftPool P (vertexClass v) k) S (m ||| k) := by
+  intro g b hg hS
+  have hvL := S200Geometry.support_class hS hv
+  obtain ⟨f, hf, hm⟩ := h g b hg hS
+  refine ⟨Function.update f (vertexClass v) (f (vertexClass v) ||| k), ?_, ?_⟩
+  · intro i
+    by_cases hi : i = vertexClass v
+    · subst i
+      constructor
+      · simpa [liftPool, OncePositive.liftPool] using OnceResource.mem_addCarrier_or (hf (vertexClass v)).1 hk
+      · intro hnot
+        exact False.elim (hnot hvL)
+    · simpa [liftPool, OncePositive.liftPool, Function.update_apply, hi] using hf i
+  · rw [or7_update, hm]
+    ac_rfl
+
+lemma rep_restrict_pools {old new : ℕ} {P Q : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (hgroups : ∀ g : Fin 6, new.testBit g.val = false → old.testBit g.val = false)
+    (hzero : ∀ i, 0 ∈ values (Q i))
+    (hpools : ∀ (g : Fin 6) (b : Bool), new.testBit g.val = false →
+      ∀ i ∈ S200Geometry.locations g b, Q i = P i)
+    (h : Rep old P S m) : Rep new Q S m := by
+  intro g b hg hS
+  obtain ⟨f, hf, hm⟩ := h g b (hgroups g hg) hS
+  refine ⟨f, ?_, hm⟩
+  intro i
+  refine ⟨?_, (hf i).2⟩
+  by_cases hi : i ∈ S200Geometry.locations g b
+  · rw [hpools g b hg i hi]
+    exact (hf i).1
+  · rw [(hf i).2 hi]
+    exact hzero i
+
+lemma poolView_prune (s : State) (i : Fin 7) :
+    poolView (prune s).2.1 i = if live s.1 i.val then poolView s.2.1 i else 1 := by
+  simp [poolView, OncePositive.poolView, prune, List.getD_eq_getElem?_getD]
+
+lemma mem_values_one_iff {x : ℕ} : x ∈ values 1 ↔ x = 0 := by
+  rw [show (x ∈ values 1) ↔ x < 64 ∧ (1 : ℕ).testBit x = true from OnceResource.mem_values_iff,
+    Nat.testBit_one_eq_true_iff_self_eq_zero]
+  constructor
+  · exact And.right
+  · intro h; subst x; exact ⟨by decide, rfl⟩
+
+lemma one_pool_good :
+    0 ∈ values 1 ∧ ∀ a ∈ values 1, ∀ b ∈ values 1, a ||| b ∈ values 1 := by
+  constructor
+  · exact mem_values_one_iff.mpr rfl
+  · intro a ha b hb
+    obtain rfl := mem_values_one_iff.mp ha
+    obtain rfl := mem_values_one_iff.mp hb
+    exact mem_values_one_iff.mpr rfl
+
+lemma poolsGood_prune {s : State} (hp : PoolsGood (poolView s.2.1)) :
+    PoolsGood (poolView (prune s).2.1) := by
+  intro i
+  rw [poolView_prune]
+  split
+  · exact hp i
+  · exact one_pool_good
+
+lemma rep_prune {s : State} {S : Finset (Fin 10)} {m : ℕ}
+    (hp : PoolsGood (poolView s.2.1)) (h : Rep s.1 (poolView s.2.1) S m) :
+    Rep (prune s).1 (poolView (prune s).2.1) S m := by
+  apply rep_restrict_pools (fun _ hg => hg) (fun i => (poolsGood_prune hp i).1) ?_ h
+  intro g b hg i hi
+  rw [poolView_prune, S200Geometry.port_locations_live hg b hi]
+  rfl
+
+lemma unused_of_or_unused {used extra i : ℕ}
+    (h : (used ||| extra).testBit i = false) : used.testBit i = false := by
+  rw [Nat.testBit_or] at h
+  exact (Bool.or_eq_false_iff.mp h).1
+
+lemma mark_used_lt {used : ℕ} (hu : used < 64) (g : Fin 6) :
+    used ||| (1 <<< g.val) < 64 := by
+  have hg : (1 <<< g.val : ℕ) < 64 := by fin_cases g <;> decide
+  exact Nat.or_lt_two_pow (n := 6) hu hg
+
+lemma rep_mark {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (h : Rep used P S m) (g : Fin 6) : Rep (used ||| (1 <<< g.val)) P S m := by
+  intro g' b hg hS
+  exact h g' b (unused_of_or_unused hg) hS
+
+lemma rep_mark_prune {used : ℕ} {ps : List ℕ} {S : Finset (Fin 10)} {m : ℕ}
+    (hp : PoolsGood (poolView ps)) (h : Rep used (poolView ps) S m)
+    (g : Fin 6) (zs : List ℕ) :
+    Rep (used ||| (1 <<< g.val))
+      (poolView (prune (used ||| (1 <<< g.val), ps, zs)).2.1) S m := by
+  exact rep_prune (s := (used ||| (1 <<< g.val), ps, zs)) hp (rep_mark h g)
+
+lemma poolView_set {ps : List ℕ} (hlen : ps.length = 7) (loc : Fin 7) (k : ℕ) :
+    poolView (ps.set loc.val (addCarrier (ps.getD loc.val 1) k)) =
+      liftPool (poolView ps) loc k := by
+  funext i
+  by_cases hi : i = loc
+  · subst i
+    have hb : loc.val < ps.length := by simpa only [hlen] using loc.isLt
+    simp [poolView, OncePositive.poolView, liftPool, OncePositive.liftPool,
+      List.getD_eq_getElem?_getD, List.getElem?_set_self hb]
+    rfl
+  · have hne : loc.val ≠ i.val := fun h => hi (Fin.ext h.symm)
+    simp [poolView, OncePositive.poolView, liftPool, OncePositive.liftPool, hi,
+      List.getD_eq_getElem?_getD, List.getElem?_set_ne hne]
+
+lemma poolsGood_set {ps : List ℕ} (hlen : ps.length = 7)
+    (hp : PoolsGood (poolView ps)) (loc : Fin 7) {k : ℕ} (hk : k < 64) :
+    PoolsGood (poolView (ps.set loc.val (addCarrier (ps.getD loc.val 1) k))) := by
+  rw [poolView_set hlen]
+  exact poolsGood_lift hp loc hk
+
+lemma poolView_replicate_one : poolView (List.replicate 7 1) = fun _ => 1 := by
+  funext i
+  fin_cases i <;> rfl
+
+lemma poolsGood_replicate_one : PoolsGood (poolView (List.replicate 7 1)) := by
+  rw [poolView_replicate_one]
+  exact fun _ => one_pool_good
+
+def leftChoices (P : Pools) (g : Fin 6) : ℕ :=
+  match g.val with | 0 => P 0 | 1 => P 1 | 2 => P 2 | 3 => P 3 | _ => 1
+
+def rightChoices (P : Pools) (g : Fin 6) : ℕ :=
+  match g.val with
+  | 0 => mergePools (mergePools (P 1) (P 2)) (P 3)
+  | 1 => mergePools (1 <<< 25) (P 4)
+  | 2 => mergePools (1 <<< 42) (P 5)
+  | 3 => mergePools (1 <<< 52) (P 6)
+  | 4 => mergePools (1 <<< 9) (P 4)
+  | _ => mergePools (1 <<< 54) (mergePools (P 5) (P 6))
+
+def portChoices (P : Pools) (g : Fin 6) (b : Bool) : ℕ :=
+  if b then rightChoices P g else leftChoices P g
+
+lemma portChoices_view (ps : List ℕ) (g : Fin 6) (b : Bool)
+    (htracked : g.val < 4 ∨ b = true) :
+    portChoices (poolView ps) g b =
+      if b then rightPool ps g.val else leftPool ps g.val := by
+  cases b with
+  | false =>
+    have hg : g.val < 4 := htracked.resolve_right (by decide)
+    have hcases : g.val = 0 ∨ g.val = 1 ∨ g.val = 2 ∨ g.val = 3 := by omega
+    rcases hcases with heq | heq | heq | heq <;>
+      simp [portChoices, leftChoices, poolView, OncePositive.poolView, leftPool, heq]
+  | true =>
+    fin_cases g <;> simp [portChoices, rightChoices, rightPool, poolView, OncePositive.poolView, basis]
+
+lemma mem_singleton {k : ℕ} (hk : k < 64) : k ∈ values (1 <<< k) :=
+  OnceResource.mem_singleton hk
+
+lemma merge_mem {p q a b : ℕ} (ha : a ∈ values p) (hb : b ∈ values q) :
+    a ||| b ∈ values (mergePools p q) := OncePositive.merge_mem ha hb
+
+lemma portChoices_membership (P : Pools) (g : Fin 6) (b : Bool) (f : Fin 7 → ℕ)
+    (hf : ∀ i, f i ∈ values (P i)) :
+    rawMask (S200Geometry.carrierPort g b) |||
+      or7 (fun i => if i ∈ S200Geometry.locations g b then f i else 0) ∈
+      values (portChoices P g b) := by
+  fin_cases g <;> cases b
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using hf 0
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (merge_mem (hf 1) (hf 2)) (hf 3)
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using hf 1
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (OnceResource.mem_singleton (by decide : 25 < 64)) (hf 4)
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using hf 2
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (OnceResource.mem_singleton (by decide : 42 < 64)) (hf 5)
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using hf 3
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (OnceResource.mem_singleton (by decide : 52 < 64)) (hf 6)
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using one_pool_good.1
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (OnceResource.mem_singleton (by decide : 9 < 64)) (hf 4)
+  · rw [S200Geometry.raw_carrier_left]
+    simpa [portChoices, leftChoices, S200Geometry.locations, or7, OncePositive.or7] using one_pool_good.1
+  · rw [S200Geometry.raw_carrier_right]
+    simpa [portChoices, rightChoices, S200Geometry.locations, or7, OncePositive.or7] using
+      merge_mem (OnceResource.mem_singleton (by decide : 54 < 64)) (merge_mem (hf 5) (hf 6))
+
+lemma rep_port_mem {used : ℕ} {P : Pools} {g : Fin 6} {b : Bool} {m : ℕ}
+    (h : Rep used P (S200Geometry.carrierPort g b) m) (hu : used.testBit g.val = false) :
+    m ∈ values (portChoices P g b) := by
+  obtain ⟨f, hf, hm⟩ := h g b hu (Finset.Subset.refl _)
+  rw [hm, or7_filtered (fun i => (hf i).2)]
+  exact portChoices_membership P g b f (fun i => (hf i).1)
+
+lemma physical_port_mem {used : ℕ} {ps : List ℕ} {g : Fin 6} {b : Bool} {m : ℕ}
+    (h : Rep used (poolView ps) (S200Geometry.physicalPort g b) m)
+    (hu : used.testBit g.val = false) (htracked : g.val < 4 ∨ b = true) :
+    m ∈ values (if b then rightPool ps g.val else leftPool ps g.val) := by
+  have hport : S200Geometry.carrierPort g b = S200Geometry.physicalPort g b := by
+    simp [S200Geometry.carrierPort, htracked]
+  have hm := rep_port_mem (g := g) (b := b) (hport ▸ h) hu
+  rwa [portChoices_view ps g b htracked] at hm
+
+lemma group_candidate {used : ℕ} {ps : List ℕ} {g : Fin 6} {a b : ℕ}
+    (ha : if g.val < 4 then Rep used (poolView ps) (S200Geometry.physicalPort g false) a
+      else a = 63)
+    (hb : Rep used (poolView ps) (S200Geometry.physicalPort g true) b)
+    (hu : used.testBit g.val = false) (hab : a &&& b < 64) :
+    a &&& b ∈ values (pairMasks (· &&& ·) (leftPool ps g.val) (rightPool ps g.val)) := by
+  have hleft : a ∈ values (leftPool ps g.val) := by
+    by_cases hg : g.val < 4
+    · rw [ite_eq_left hg] at ha
+      exact physical_port_mem ha hu (Or.inl hg)
+    · rw [ite_eq_right hg] at ha
+      subst a
+      rw [leftPool, ite_eq_right hg]
+      exact mem_singleton (by decide : 63 < 64)
+  have hright : b ∈ values (rightPool ps g.val) := physical_port_mem hb hu (Or.inr rfl)
+  exact OnceResource.mem_pairMasks hleft hright hab
+
+end S200Positive
+
+
+namespace S200Resource
+
+lemma sortedInsert_perm (k : ℕ) (xs : List ℕ) :
+    List.Perm (sortedInsert k xs) (k :: xs) := by
+  induction xs with
+  | nil => exact List.Perm.refl _
+  | cons x xs ih =>
+      simp only [sortedInsert]
+      split
+      · exact List.Perm.refl _
+      · exact (List.Perm.cons x ih).trans (List.Perm.swap _ _ _)
+
+lemma zeroSort_perm (xs : List ℕ) : List.Perm (zeroSort xs) xs := by
+  induction xs with
+  | nil => exact List.Perm.refl _
+  | cons x xs ih =>
+      exact (sortedInsert_perm x (zeroSort xs)).trans (List.Perm.cons x ih)
+
+lemma insertZero_perm (k : ℕ) (xs : List ℕ) :
+    List.Perm (insertZero k xs) (k :: xs) :=
+  zeroSort_perm (k :: xs)
+
+lemma mem_sortedInsert (a k : ℕ) (xs : List ℕ) :
+    a ∈ sortedInsert k xs ↔ a = k ∨ a ∈ xs := by
+  rw [(sortedInsert_perm k xs).mem_iff, List.mem_cons]
+
+lemma mem_zeroSort (a : ℕ) (xs : List ℕ) :
+    a ∈ zeroSort xs ↔ a ∈ xs :=
+  (zeroSort_perm xs).mem_iff
+
+lemma mem_insertZero (a k : ℕ) (xs : List ℕ) :
+    a ∈ insertZero k xs ↔ a = k ∨ a ∈ xs := by
+  rw [(insertZero_perm k xs).mem_iff, List.mem_cons]
+
+lemma sortedInsert_length (k : ℕ) (xs : List ℕ) :
+    (sortedInsert k xs).length = xs.length + 1 := by
+  simpa only [List.length_cons] using (sortedInsert_perm k xs).length_eq
+
+lemma zeroSort_length (xs : List ℕ) : (zeroSort xs).length = xs.length :=
+  (zeroSort_perm xs).length_eq
+
+lemma insertZero_length (k : ℕ) (xs : List ℕ) :
+    (insertZero k xs).length = xs.length + 1 := by
+  simpa only [List.length_cons] using (insertZero_perm k xs).length_eq
+
+lemma prune_used (s : State) : (prune s).1 = s.1 := rfl
+
+lemma prune_zeros (s : State) : (prune s).2.2 = s.2.2 := rfl
+
+lemma prune_pool_getD (s : State) (i : ℕ) (hi : i < 7) :
+    (prune s).2.1.getD i 1 = if live s.1 i then s.2.1.getD i 1 else 1 := by
+  change ((List.range 7).map (fun j =>
+    if live s.1 j then s.2.1.getD j 1 else 1)).getD i 1 = _
+  simp only [List.getD_eq_getElem?_getD, List.getElem?_map,
+    List.getElem?_range hi, Option.map_some, Option.getD_some]
+
+lemma prune_idempotent (s : State) : prune (prune s) = prune s := by
+  refine Prod.ext rfl (Prod.ext ?_ rfl)
+  change (List.range 7).map (fun i =>
+    if live s.1 i then (prune s).2.1.getD i 1 else 1) =
+      (List.range 7).map (fun i => if live s.1 i then s.2.1.getD i 1 else 1)
+  apply List.map_congr_left
+  intro i hi
+  rw [prune_pool_getD s i (List.mem_range.mp hi)]
+  split <;> rfl
+
+lemma prune_pools_congr (s t : State) (hused : s.1 = t.1)
+    (hpools : s.2.1 = t.2.1) : (prune s).2.1 = (prune t).2.1 := by
+  change (List.range 7).map (fun i => if live s.1 i then s.2.1.getD i 1 else 1) =
+    (List.range 7).map (fun i => if live t.1 i then t.2.1.getD i 1 else 1)
+  rw [hused, hpools]
+
+lemma groupNext_mem_successors {s t : State} (h : t ∈ groupNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or]
+
+lemma liftNext_mem_successors {s t : State} (h : t ∈ liftNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or, or_true]
+
+lemma discardNext_mem_successors {s t : State} (h : t ∈ discardNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or, or_true]
+
+lemma combineNext_mem_successors {s t : State} (h : t ∈ combineNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, or_true]
+
+lemma group_successor {s : State} {g k : ℕ}
+    (hg : g < 6) (hunused : s.1.testBit g = false)
+    (hk : k ∈ values (pairMasks (· &&& ·) (leftPool s.2.1 g) (rightPool s.2.1 g)))
+    (hkn : k ≠ 0) :
+    prune (s.1 ||| (1 <<< g), s.2.1, insertZero k s.2.2) ∈ successors s := by
+  apply groupNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨g, List.mem_range.mpr hg, ?_⟩
+  simp only [hunused, Bool.false_eq_true, ↓reduceIte]
+  apply List.mem_filterMap.mpr
+  exact ⟨k, hk, by simp [hkn]⟩
+
+lemma lift_successor {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2) (hloc : loc < 7) (hlive : live s.1 loc = true)
+    (hchange : addCarrier (s.2.1.getD loc 1) k ≠ s.2.1.getD loc 1) :
+    prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k),
+      s.2.2.erase k) ∈ successors s := by
+  apply liftNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨k, hk, ?_⟩
+  apply List.mem_filterMap.mpr
+  exact ⟨loc, List.mem_range.mpr hloc, by simp only [hlive, hchange, ↓reduceIte]⟩
+
+lemma discard_successor {s : State} {k : ℕ} (hk : k ∈ s.2.2) :
+    prune (s.1, s.2.1, s.2.2.erase k) ∈ successors s := by
+  apply discardNext_mem_successors
+  exact List.mem_map.mpr ⟨k, hk, rfl⟩
+
+lemma combine_successor {s : State} {a b k : ℕ}
+    (ha : a ∈ s.2.2) (hb : b ∈ s.2.2.erase a)
+    (hk : k = a &&& b ∨ k = a ||| b) (hkn : k ≠ 0) :
+    prune (s.1, s.2.1, insertZero k ((s.2.2.erase a).erase b)) ∈ successors s := by
+  apply combineNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨a, ha, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨b, hb, ?_⟩
+  apply List.mem_filterMap.mpr
+  refine ⟨k, ?_, by simp [hkn]⟩
+  simpa only [List.mem_cons, List.not_mem_nil, or_false] using hk
+
+lemma reachable_of_eq_or_successor {s t : State}
+    (h : t = s ∨ t ∈ successors s) :
+    Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t := by
+  rcases h with rfl | h
+  · exact Relation.ReflTransGen.refl
+  · exact Relation.ReflTransGen.single h
+
+namespace ZeroTransitions
+
+def token (k : ℕ) : Multiset ℕ := if k = 0 then 0 else {k}
+
+lemma mem_of_zero_eq {zs : List ℕ} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (zs : Multiset ℕ) = {a} + rest) : a ∈ zs := by
+  change a ∈ (zs : Multiset ℕ)
+  rw [hz]
+  simp
+
+lemma erase_of_zero_eq {zs : List ℕ} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (zs : Multiset ℕ) = {a} + rest) :
+    (zs.erase a : Multiset ℕ) = rest := by
+  change (zs : Multiset ℕ).erase a = rest
+  rw [hz]
+  simp
+
+lemma coe_insertZero (k : ℕ) (zs : List ℕ) :
+    (insertZero k zs : Multiset ℕ) = {k} + (zs : Multiset ℕ) := by
+  change (insertZero k zs : Multiset ℕ) = ((k :: zs : List ℕ) : Multiset ℕ)
+  exact Quot.sound (insertZero_perm k zs)
+
+lemma discard_one {s : State} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2 : Multiset ℕ) = {a} + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2 : Multiset ℕ) = rest ∧ t.1 = s.1 ∧
+      t.2.1 = (prune s).2.1 := by
+  refine ⟨prune (s.1, s.2.1, s.2.2.erase a),
+    Relation.ReflTransGen.single (discard_successor (mem_of_zero_eq hz)),
+    erase_of_zero_eq hz, rfl, rfl⟩
+
+lemma discard_two {s : State} {a b : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2 : Multiset ℕ) = {a} + {b} + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2 : Multiset ℕ) = rest ∧ t.1 = s.1 ∧
+      t.2.1 = (prune s).2.1 := by
+  have hz' : (s.2.2 : Multiset ℕ) = {a} + ({b} + rest) := by
+    simpa only [Multiset.add_assoc] using hz
+  have ha := mem_of_zero_eq hz'
+  have hz1 := erase_of_zero_eq hz'
+  have hb := mem_of_zero_eq hz1
+  have hz2 := erase_of_zero_eq hz1
+  let t1 : State := prune (s.1, s.2.1, s.2.2.erase a)
+  let t2 : State := prune (s.1, s.2.1, (s.2.2.erase a).erase b)
+  have h1 : t1 ∈ successors s := discard_successor ha
+  have h2 : t2 ∈ successors t1 := by
+    have hh := discard_successor (s := t1) (k := b) hb
+    change prune (prune (s.1, s.2.1, (s.2.2.erase a).erase b)) ∈
+      successors t1 at hh
+    rw [prune_idempotent] at hh
+    exact hh
+  exact ⟨t2, (Relation.ReflTransGen.single h1).trans (Relation.ReflTransGen.single h2),
+    hz2, rfl, rfl⟩
+
+lemma combine_nonzero {s : State} {a b k : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2 : Multiset ℕ) = {a} + {b} + rest)
+    (hop : k = a &&& b ∨ k = a ||| b) (hk : k ≠ 0) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2 : Multiset ℕ) = {k} + rest ∧ t.1 = s.1 ∧
+      t.2.1 = (prune s).2.1 := by
+  have hz' : (s.2.2 : Multiset ℕ) = {a} + ({b} + rest) := by
+    simpa only [Multiset.add_assoc] using hz
+  have ha := mem_of_zero_eq hz'
+  have hz1 := erase_of_zero_eq hz'
+  have hb := mem_of_zero_eq hz1
+  have hz2 := erase_of_zero_eq hz1
+  refine ⟨prune (s.1, s.2.1, insertZero k ((s.2.2.erase a).erase b)),
+    Relation.ReflTransGen.single (combine_successor ha hb hop hk), ?_, rfl, rfl⟩
+  change (insertZero k ((s.2.2.erase a).erase b) : Multiset ℕ) = {k} + rest
+  rw [coe_insertZero, hz2]
+
+lemma zero_binary {s : State} (a b : ℕ) (isAnd : Bool) (rest : Multiset ℕ)
+    (hz : (s.2.2 : Multiset ℕ) = token a + token b + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2 : Multiset ℕ) = token (if isAnd then a &&& b else a ||| b) + rest ∧
+      t.1 = s.1 ∧
+      (t.2.1 = s.2.1 ∨ t.2.1 = (prune s).2.1) := by
+  by_cases ha : a = 0
+  · subst a
+    cases isAnd
+    · refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, Or.inl rfl⟩
+      simpa [token] using hz
+    · by_cases hb : b = 0
+      · subst b
+        refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, Or.inl rfl⟩
+        simpa [token] using hz
+      · have hz' : (s.2.2 : Multiset ℕ) = {b} + rest := by simpa [token, hb] using hz
+        obtain ⟨t, hr, ht, hu, hp⟩ := discard_one hz'
+        exact ⟨t, hr, by simpa [token] using ht, hu, Or.inr hp⟩
+  · by_cases hb : b = 0
+    · subst b
+      cases isAnd
+      · refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, Or.inl rfl⟩
+        simpa [token] using hz
+      · have hz' : (s.2.2 : Multiset ℕ) = {a} + rest := by simpa [token, ha] using hz
+        obtain ⟨t, hr, ht, hu, hp⟩ := discard_one hz'
+        exact ⟨t, hr, by simpa [token] using ht, hu, Or.inr hp⟩
+    · have hz' : (s.2.2 : Multiset ℕ) = {a} + {b} + rest := by
+        simpa [token, ha, hb] using hz
+      let k := if isAnd then a &&& b else a ||| b
+      by_cases hk : k = 0
+      · obtain ⟨t, hr, ht, hu, hp⟩ := discard_two hz'
+        refine ⟨t, hr, ?_, hu, Or.inr hp⟩
+        change (t.2.2 : Multiset ℕ) = token k + rest
+        rw [hk]
+        simpa [token] using ht
+      · have hop : k = a &&& b ∨ k = a ||| b := by cases isAnd <;> simp [k]
+        obtain ⟨t, hr, ht, hu, hp⟩ := combine_nonzero hz' hop hk
+        refine ⟨t, hr, ?_, hu, Or.inr hp⟩
+        change (t.2.2 : Multiset ℕ) = token k + rest
+        simpa [token, hk] using ht
+
+end ZeroTransitions
+
+end S200Resource
+
+
+namespace S200Resource
+
+lemma set_getD_self (xs : List ℕ) (i d : ℕ) : xs.set i (xs.getD i d) = xs := by
+  induction xs generalizing i with
+  | nil => rfl
+  | cons x xs ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact congrArg (List.cons x) (ih i)
+
+lemma lift_successor_or_discard {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2) (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k), s.2.2.erase k) ∈ successors s := by
+  by_cases hchange : addCarrier (s.2.1.getD loc 1) k = s.2.1.getD loc 1
+  · rw [hchange, set_getD_self]
+    exact discard_successor hk
+  · exact lift_successor hk hloc hlive hchange
+
+lemma lift_reachable {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2) (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    Relation.ReflTransGen (fun a b : State => b ∈ successors a) s
+      (prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k), s.2.2.erase k)) :=
+  Relation.ReflTransGen.single (lift_successor_or_discard hk hloc hlive)
+
+end S200Resource
+
+namespace S200Positive
+
+open S200Resource OnceGeometry
+
+lemma rep_of_dead_class {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {v : Fin 10}
+    (hv : v ∈ S) (hd : live used (vertexClass v).val = false) (m : ℕ) :
+    Rep used P S m := by
+  intro g b hg hS
+  have hl := S200Geometry.port_locations_live hg b (S200Geometry.support_class hS hv)
+  simp [hd] at hl
+
+lemma positive_lift_step {s : State} {S : Finset (Fin 10)} {m k : ℕ}
+    (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (h : Rep s.1 (poolView s.2.1) S m) (hs : S.Nonempty)
+    (hk : k < 64) (hmem : k ∈ s.2.2) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t ∧
+      t.1 = s.1 ∧ t.2.2 = s.2.2.erase k ∧
+      t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) ∧
+      Rep t.1 (poolView t.2.1) S (m ||| k) := by
+  obtain ⟨v, hv⟩ := hs
+  by_cases hl : live s.1 (vertexClass v).val = true
+  · let q : State := (s.1,
+        s.2.1.set (vertexClass v).val (addCarrier (s.2.1.getD (vertexClass v).val 1) k),
+        s.2.2.erase k)
+    have hqgood : PoolsGood (poolView q.2.1) := poolsGood_set hlen hp (vertexClass v) hk
+    refine ⟨prune q, lift_reachable hmem (vertexClass v).isLt hl, rfl, rfl,
+      prune_pools_length q, poolsGood_prune hqgood, ?_, ?_⟩
+    · intro T n hT
+      apply rep_prune (s := q) hqgood
+      change Rep s.1 (poolView (s.2.1.set (vertexClass v).val
+        (addCarrier (s.2.1.getD (vertexClass v).val 1) k))) T n
+      rw [poolView_set hlen]
+      exact rep_mono (liftPool_mono _ _ _) hT
+    · apply rep_prune (s := q) hqgood
+      change Rep s.1 (poolView (s.2.1.set (vertexClass v).val
+        (addCarrier (s.2.1.getD (vertexClass v).val 1) k))) S (m ||| k)
+      rw [poolView_set hlen]
+      exact rep_lift h hk hv
+  · have hd : live s.1 (vertexClass v).val = false := Bool.eq_false_of_not_eq_true hl
+    let q : State := (s.1, s.2.1, s.2.2.erase k)
+    refine ⟨prune q, Relation.ReflTransGen.single (discard_successor hmem), rfl, rfl,
+      prune_pools_length q, poolsGood_prune hp, ?_, ?_⟩
+    · intro T n hT
+      exact rep_prune (s := q) hp hT
+    · exact rep_of_dead_class hv hd _
+
+lemma positive_group_step {s : State} {g : Fin 6} {a b : ℕ}
+    (hu : s.1 < 64) (hp : PoolsGood (poolView s.2.1))
+    (ha : if g.val < 4 then Rep s.1 (poolView s.2.1) (S200Geometry.physicalPort g false) a
+      else a = 63)
+    (hb : Rep s.1 (poolView s.2.1) (S200Geometry.physicalPort g true) b)
+    (hg : s.1.testBit g.val = false) (hab : a &&& b < 64) (hne : a &&& b ≠ 0) :
+    let t := prune (s.1 ||| (1 <<< g.val), s.2.1, insertZero (a &&& b) s.2.2)
+    t ∈ successors s ∧ t.1 < 64 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  dsimp only
+  have hc := group_candidate ha hb hg hab
+  refine ⟨group_successor g.isLt hg hc hne, mark_used_lt hu g,
+    prune_pools_length _, poolsGood_prune hp, ?_⟩
+  intro T n hT
+  exact rep_mark_prune hp hT g _
+
+end S200Positive
+
+
+namespace S200Simulation
+
+open S200Resource S200Positive
+open OnceResource.IndexCopies OnceResource.TokenMap
+
+abbrev Reach (s t : State) : Prop :=
+  Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t
+
+def contrib (S : Finset (Fin 10)) (m : ℕ) : Multiset ℕ :=
+  if S = ∅ then OnceResource.TokenMap.token m else 0
+
+def Healthy (s : State) : Prop :=
+  s.1 < 64 ∧ s.2.1.length = 7 ∧ OncePositive.PoolsGood (OncePositive.poolView s.2.1)
+
+def Preserves (s t : State) : Prop :=
+  ∀ T m, S200Positive.Rep s.1 (OncePositive.poolView s.2.1) T m →
+    S200Positive.Rep t.1 (OncePositive.poolView t.2.1) T m
+
+def LocalResult (s q : State) (S : Finset (Fin 10)) (m : ℕ)
+    (rest : Multiset ℕ) (group : Option (Fin 6)) : Prop :=
+  Reach s q ∧ Healthy q ∧ (q.2.2 : Multiset ℕ) = contrib S m + rest ∧
+  Preserves s q ∧ (S.Nonempty → Rep q.1 (OncePositive.poolView q.2.1) S m) ∧
+  (∀ g : Fin 6, q.1.testBit g.val = true → s.1.testBit g.val = true ∨ group = some g)
+
+def ProgramCallback (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 6)) (start n : ℕ) : Prop :=
+  ∀ t < n, ∀ (s : State) (rest : Multiset ℕ), Healthy s →
+    ((S (A (start + t))).Nonempty →
+      Rep s.1 (OncePositive.poolView s.2.1) (S (A (start + t))) (M (A (start + t)))) →
+    ((S (B (start + t))).Nonempty →
+      Rep s.1 (OncePositive.poolView s.2.1) (S (B (start + t))) (M (B (start + t)))) →
+    (s.2.2 : Multiset ℕ) = contrib (S (A (start + t))) (M (A (start + t))) +
+      contrib (S (B (start + t))) (M (B (start + t))) + rest →
+    (∀ g : Fin 6, G (start + t) = some g → s.1.testBit g.val = false) →
+    ∃ q, LocalResult s q (S (start + t)) (M (start + t)) rest (G (start + t))
+
+def GroupUnique (G : ℕ → Option (Fin 6)) (start n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ g : Fin 6,
+    G (start + i) = some g → G (start + j) = some g → i = j
+
+def ProgramInv (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 6)) (start n t : ℕ) (s : State) : Prop :=
+  Healthy s ∧ (s.2.2 : Multiset ℕ) =
+    project (fun w => S w = ∅) M (Available (fun w => S w = ∅) start (start+n) A B t) ∧
+  (∀ w < start + t, (S w).Nonempty →
+    Rep s.1 (OncePositive.poolView s.2.1) (S w) (M w)) ∧
+  ∀ g : Fin 6, s.1.testBit g.val = true → ∃ j < t, G (start + j) = some g
+
+lemma program_inv_step {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 6)} {start n t : ℕ} {s : State}
+    (hv : Valid start A B n)
+    (hcap : ∀ w, S w = ∅ → ReadCount start A B n w ≤ 1)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (ht : t < n) (hinv : ProgramInv S M A B G start n t s) :
+    ∃ q, Reach s q ∧ ProgramInv S M A B G start n (t+1) q := by
+  obtain ⟨hhealthy, hzeros, hreps, hused⟩ := hinv
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have hcap' : ∀ w, S w = ∅ → ReadCount start A B n w ≤ Capacity (start+n) w := by
+    intro w hw
+    apply (hcap w hw).trans
+    unfold Capacity
+    split_ifs <;> decide
+  obtain ⟨rest, hids, _⟩ := available_step_decomp (fun w => S w = ∅) hv hcap' ht
+  have hzero_input : (s.2.2 : Multiset ℕ) =
+      contrib (S (A (start + t))) (M (A (start + t))) +
+      contrib (S (B (start + t))) (M (B (start + t))) + project (fun w => S w = ∅) M rest := by
+    rw [hzeros, hids, project_cons, project_cons]
+    simp only [contrib, Multiset.add_assoc]
+  have hunused : ∀ g : Fin 6, G (start + t) = some g → s.1.testBit g.val = false := by
+    intro g hg
+    cases hbit : s.1.testBit g.val with
+    | false => rfl
+    | true =>
+      obtain ⟨j, hj, hjg⟩ := hused g hbit
+      have heq := hgroups t ht j (by omega) g hg hjg
+      omega
+  obtain ⟨q, hreach, hhealth, hzero, hpres, hnew, huse⟩ :=
+    hcallback t ht s (project (fun w => S w = ∅) M rest) hhealthy
+      (hreps _ ha) (hreps _ hb) hzero_input hunused
+  refine ⟨q, hreach, hhealth, ?_, ?_, ?_⟩
+  · rw [Available, project_step (fun w => S w = ∅) M hids hab]
+    have hne : start+t ≠ start+n := by omega
+    simpa only [hne, and_false, ite_false, Multiset.add_zero, contrib] using hzero
+  · intro w hw hSw
+    by_cases hold : w < start+t
+    · exact hpres _ _ (hreps w hold hSw)
+    · have heq : w = start+t := by omega
+      subst w
+      exact hnew hSw
+  · intro g hg
+    rcases huse g hg with hg | hg
+    · obtain ⟨j, hj, hjg⟩ := hused g hg
+      exact ⟨j, by omega, hjg⟩
+    · exact ⟨t, by omega, hg⟩
+
+lemma program_induction_prefix {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 6)} {start n : ℕ} {s₀ : State}
+    (hv : Valid start A B n) (hcap : ∀ w, S w = ∅ → ReadCount start A B n w ≤ 1)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ProgramInv S M A B G start n 0 s₀) :
+    ∀ t ≤ n, ∃ s, Reach s₀ s ∧ ProgramInv S M A B G start n t s := by
+  intro t
+  induction t with
+  | zero => intro _; exact ⟨s₀, Relation.ReflTransGen.refl, hinit⟩
+  | succ t ih =>
+    intro ht
+    obtain ⟨s, hreach, hinv⟩ := ih (by omega)
+    obtain ⟨q, hstep, hiq⟩ := program_inv_step hv hcap hgroups hcallback (by omega) hinv
+    exact ⟨q, hreach.trans hstep, hiq⟩
+
+lemma program_target_excluded {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 6)} {start n w : ℕ}
+    (hsafe : ∀ s : State, Reach initial s → 56 ∉ s.2.2)
+    (hv : Valid start A B n) (hcap : ∀ u, S u = ∅ → ReadCount start A B n u ≤ 1)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ProgramInv S M A B G start n 0 initial)
+    (hw : w ∈ Available (fun u => S u = ∅) start (start+n) A B n)
+    (hSw : S w = ∅) (hMw : M w = 56) : False := by
+  obtain ⟨s, hr, hi⟩ := program_induction_prefix hv hcap hgroups hcallback hinit n (Nat.le_refl n)
+  have hMne : M w ≠ 0 := by omega
+  have hm := project_mem (fun u => S u = ∅) M hw hSw hMne
+  rw [hMw] at hm
+  have ht : 56 ∈ s.2.2 := by
+    change 56 ∈ (s.2.2 : Multiset ℕ)
+    rw [hi.2.1]
+    exact hm
+  exact hsafe s hr ht
+
+end S200Simulation
+
+
+namespace S200Simulation
+
+open S200Geometry
+
+def ProgramSemantics (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 6)) (Op : ℕ → Bool) (start n : ℕ) : Prop :=
+  ∀ t < n,
+    if Op (start + t) then
+      S (start + t) = ∅ ∧ M (start + t) = M (A (start + t)) &&& M (B (start + t)) ∧
+        (match G (start + t) with
+        | none => S (A (start + t)) = ∅ ∧ S (B (start + t)) = ∅
+        | some g =>
+          (S (A (start + t)) = physicalPort g false ∧ S (B (start + t)) = physicalPort g true) ∨
+          (S (A (start + t)) = physicalPort g true ∧ S (B (start + t)) = physicalPort g false))
+    else G (start + t) = none ∧
+      S (start + t) = S (A (start + t)) ∪ S (B (start + t)) ∧
+      M (start + t) = M (A (start + t)) ||| M (B (start + t))
+
+end S200Simulation
+
+
+namespace S200Simulation
+
+open S200Resource S200Positive OnceGeometry
+open OnceResource.IndexCopies OnceResource.TokenMap
+
+lemma initial_program_inv (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 6)) {start n : ℕ}
+    (hsupport : ∀ w < start, (S w).Nonempty)
+    (hraw : ∀ w < start, M w = rawMask (S w)) :
+    ProgramInv S M A B G start n 0 initial := by
+  have hi : Healthy initial := ⟨by decide, rfl, poolsGood_replicate_one⟩
+  refine ⟨hi, ?_, ?_, ?_⟩
+  · have hf : ¬start+n < start := by omega
+    have he : (Multiset.range start).filter (fun w => S w = ∅ ∧ M w ≠ 0) = 0 := by
+      apply Multiset.filter_eq_nil.mpr
+      intro w hw h
+      exact (hsupport w (Multiset.mem_range.mp hw)).ne_empty h.1
+    simp [Available, Initial, hf, project, he, initial]
+  · intro w hw _
+    rw [hraw w (by omega)]
+    exact rep_raw hi.2.2 _
+  · intro g hg
+    simpa [initial] using hg
+
+end S200Simulation
+
+
+namespace S200Positive
+
+open S200Resource OnceGeometry
+
+lemma frame_preserves {s t : State}
+    (hu : s.1 < 64) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (ht : t.1 = s.1) (hps : t.2.1 = s.2.1 ∨ t.2.1 = (prune s).2.1) :
+    t.1 < 64 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  refine ⟨by simpa only [ht] using hu, ?_⟩
+  rcases hps with he | he
+  · rw [he, ht]
+    exact ⟨hlen, hp, fun _ _ h => h⟩
+  · rw [he, ht]
+    exact ⟨prune_pools_length s, poolsGood_prune hp, fun _ _ h => rep_prune hp h⟩
+
+lemma zero_binary_positive_state {s : State} (a b : ℕ) (isAnd : Bool) (rest : Multiset ℕ)
+    (hu : s.1 < 64) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (hz : (s.2.2 : Multiset ℕ) =
+      ZeroTransitions.token a + ZeroTransitions.token b + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      t.1 = s.1 ∧
+      (t.2.2 : Multiset ℕ) =
+        ZeroTransitions.token (if isAnd then a &&& b else a ||| b) + rest ∧
+      t.1 < 64 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  obtain ⟨t, hr, hz', ht, hps⟩ := ZeroTransitions.zero_binary a b isAnd rest hz
+  exact ⟨t, hr, ht, hz', frame_preserves hu hlen hp ht hps⟩
+
+end S200Positive
+
+namespace S200Simulation
+open S200Resource S200Geometry S200Positive
+
+lemma lift_token_step {s : State} {S : Finset (Fin 10)} {m k : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s) (hS : S.Nonempty) (hm : Rep s.1 (poolView s.2.1) S m)
+    (hk : k < 64) (hz : (s.2.2 : Multiset ℕ) = OnceResource.TokenMap.token k + rest) :
+    ∃ q, LocalResult s q S (m ||| k) rest none := by
+  have hne : S ≠ ∅ := hS.ne_empty
+  by_cases hk0 : k = 0
+  · subst k
+    refine ⟨s, Relation.ReflTransGen.refl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+    · simpa [contrib, OnceResource.TokenMap.token, hne] using hz
+    · intro _
+      simpa using hm
+    · exact fun _ h => Or.inl h
+  · have hmem : k ∈ s.2.2 := by
+      have hm' : k ∈ (s.2.2 : Multiset ℕ) := by rw [hz]; simp [OnceResource.TokenMap.token, hk0]
+      exact hm'
+    obtain ⟨q, hr, hu, hqz, hl, hp, hpres, hrep⟩ :=
+      positive_lift_step hs.2.1 hs.2.2 hm hS hk hmem
+    refine ⟨q, hr, ⟨by simpa [hu] using hs.1, hl, hp⟩, ?_, hpres,
+      (fun _ => hrep), ?_⟩
+    · rw [hqz, ← Multiset.coe_erase, hz]
+      simp [contrib, hne, OnceResource.TokenMap.token, hk0]
+    · intro g hg
+      exact Or.inl (hu ▸ hg)
+
+lemma or_local {s : State} {S T : Finset (Fin 10)} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s) (ha : S.Nonempty → Rep s.1 (poolView s.2.1) S a)
+    (hb : T.Nonempty → Rep s.1 (poolView s.2.1) T b)
+    (hab : a < 64 ∧ b < 64)
+    (hz : (s.2.2 : Multiset ℕ) = contrib S a + contrib T b + rest) :
+    ∃ q, LocalResult s q (S ∪ T) (a ||| b) rest none := by
+  by_cases hS : S = ∅
+  · subst S
+    by_cases hT : T = ∅
+    · subst T
+      have hz' : (s.2.2 : Multiset ℕ) =
+          ZeroTransitions.token a + ZeroTransitions.token b + rest := by
+        simpa [contrib, ZeroTransitions.token, OnceResource.TokenMap.token] using hz
+      obtain ⟨q, hr, hu, hqz, hqu, hql, hqp, hpres⟩ :=
+        zero_binary_positive_state a b false rest hs.1 hs.2.1 hs.2.2 hz'
+      refine ⟨q, hr, ⟨hqu, hql, hqp⟩, ?_, hpres, ?_, ?_⟩
+      · simpa [contrib, ZeroTransitions.token, OnceResource.TokenMap.token] using hqz
+      · simp
+      · intro g hg
+        exact Or.inl (hu ▸ hg)
+    · have hTn : T.Nonempty := Finset.nonempty_iff_ne_empty.mpr hT
+      have hz' : (s.2.2 : Multiset ℕ) = OnceResource.TokenMap.token a + rest := by
+        simpa [contrib, hT] using hz
+      obtain ⟨q, hq⟩ := lift_token_step hs hTn (hb hTn) hab.1 hz'
+      refine ⟨q, ?_⟩
+      simpa [Nat.or_comm] using hq
+  · have hSn : S.Nonempty := Finset.nonempty_iff_ne_empty.mpr hS
+    by_cases hT : T = ∅
+    · subst T
+      have hz' : (s.2.2 : Multiset ℕ) = OnceResource.TokenMap.token b + rest := by
+        simpa [contrib, hS] using hz
+      obtain ⟨q, hq⟩ := lift_token_step hs hSn (ha hSn) hab.2 hz'
+      exact ⟨q, by simpa using hq⟩
+    · have hTn : T.Nonempty := Finset.nonempty_iff_ne_empty.mpr hT
+      have hST : S ∪ T ≠ ∅ := (hSn.mono Finset.subset_union_left).ne_empty
+      refine ⟨s, Relation.ReflTransGen.refl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+      · simpa [contrib, hS, hT, hST] using hz
+      · intro _
+        exact rep_or hs.2.2 (ha hSn) (hb hTn)
+      · exact fun _ h => Or.inl h
+
+lemma marked_group {used : ℕ} {g h : Fin 6}
+    (ht : (used ||| (1 <<< g.val)).testBit h.val = true) :
+    used.testBit h.val = true ∨ g = h := by
+  rw [Nat.testBit_or, Bool.or_eq_true] at ht
+  rcases ht with ht | ht
+  · exact Or.inl ht
+  · right
+    have hsingle := OnceResource.testBit_singleton_iff.mp ht
+    exact Fin.ext hsingle
+
+lemma pure_local {s : State} {g : Fin 6} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s)
+    (ha : if g.val < 4 then Rep s.1 (poolView s.2.1) (physicalPort g false) a else a = 63)
+    (hb : Rep s.1 (poolView s.2.1) (physicalPort g true) b)
+    (hk : a &&& b < 64) (hunused : s.1.testBit g.val = false)
+    (hz : (s.2.2 : Multiset ℕ) = rest) :
+    ∃ q, LocalResult s q ∅ (a &&& b) rest (some g) := by
+  by_cases hk0 : a &&& b = 0
+  · refine ⟨s, Relation.ReflTransGen.refl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+    · simpa [contrib, OnceResource.TokenMap.token, hk0] using hz
+    · simp
+    · exact fun _ h => Or.inl h
+  · let q := prune (s.1 ||| (1 <<< g.val), s.2.1, insertZero (a &&& b) s.2.2 )
+    obtain ⟨hr, hu, hl, hp, hpres⟩ := positive_group_step hs.1 hs.2.2 ha hb hunused hk hk0
+    refine ⟨q, Relation.ReflTransGen.single hr, ⟨hu, hl, hp⟩, ?_, hpres, ?_, ?_⟩
+    · change (insertZero (a &&& b) s.2.2 : Multiset ℕ) = _
+      rw [ZeroTransitions.coe_insertZero, hz]
+      simp [contrib, OnceResource.TokenMap.token, hk0]
+    · simp
+    · intro h hh
+      change (s.1 ||| (1 <<< g.val)).testBit h.val = true at hh
+      rcases marked_group (g := g) hh with hh | hh
+      · exact Or.inl hh
+      · exact Or.inr (congrArg some hh)
+
+lemma zero_local {s : State} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s)
+    (hz : (s.2.2 : Multiset ℕ) = OnceResource.TokenMap.token a + OnceResource.TokenMap.token b + rest) :
+    ∃ q, LocalResult s q ∅ (a &&& b) rest none := by
+  obtain ⟨q, hr, hu, hqz, hqu, hql, hqp, hpres⟩ :=
+    zero_binary_positive_state a b true rest hs.1 hs.2.1 hs.2.2 hz
+  refine ⟨q, hr, ⟨hqu, hql, hqp⟩, ?_, hpres, ?_, ?_⟩
+  · exact hqz
+  · simp
+  · intro g hg
+    exact Or.inl (hu ▸ hg)
+
+end S200Simulation
+
+namespace S200Simulation
+open S200Resource S200Geometry S200Positive
+
+lemma gate_local {s : State} {S T U : Finset (Fin 10)} {a b c : Nat}
+    {rest : Multiset Nat} (op : Bool) (group : Option (Fin 6))
+    (hs : Healthy s) (ha : S.Nonempty → Rep s.1 (poolView s.2.1) S a)
+    (hb : T.Nonempty → Rep s.1 (poolView s.2.1) T b)
+    (hfullA : S = {3, 6, 7} → a = 63)
+    (hfullB : T = {3, 6, 7} → b = 63)
+    (hm : a < 64 ∧ b < 64 ∧ c < 64)
+    (hz : (s.2.2 : Multiset Nat) = contrib S a + contrib T b + rest)
+    (hunused : ∀ g : Fin 6, group = some g → s.1.testBit g.val = false)
+    (hsem : if op then
+      U = ∅ ∧ c = a &&& b ∧
+        (match group with
+        | none => S = ∅ ∧ T = ∅
+        | some g => (S = physicalPort g false ∧ T = physicalPort g true) ∨
+          (S = physicalPort g true ∧ T = physicalPort g false))
+      else group = none ∧ U = S ∪ T ∧ c = a ||| b) :
+    ∃ q, LocalResult s q U c rest group := by
+  cases op with
+  | false =>
+    simp only [Bool.false_eq_true, ↓reduceIte] at hsem
+    obtain ⟨rfl, rfl, rfl⟩ := hsem
+    exact or_local hs ha hb ⟨hm.1, hm.2.1⟩ hz
+  | true =>
+    simp only [↓reduceIte] at hsem
+    obtain ⟨rfl, rfl, hports⟩ := hsem
+    cases group with
+    | none =>
+      obtain ⟨rfl, rfl⟩ := hports
+      exact zero_local hs (by simpa [contrib] using hz)
+    | some g =>
+      have hu := hunused g rfl
+      have hl : (physicalPort g false).Nonempty := by fin_cases g <;> decide
+      have hr : (physicalPort g true).Nonempty := by fin_cases g <;> decide
+      have hdirty : ¬g.val < 4 → physicalPort g false = {3, 6, 7} := by
+        intro hg
+        fin_cases g <;> simp_all [physicalPort]
+      rcases hports with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+      · have hz' : (s.2.2 : Multiset Nat) = rest := by
+          simpa [contrib, hl.ne_empty, hr.ne_empty] using hz
+        apply pure_local hs ?_ (hb hr) hm.2.2 hu hz'
+        split
+        · exact ha hl
+        · exact hfullA (hdirty ‹¬g.val < 4›)
+      · have hz' : (s.2.2 : Multiset Nat) = rest := by
+          simpa [contrib, hl.ne_empty, hr.ne_empty] using hz
+        have hleft : if g.val < 4 then
+            Rep s.1 (poolView s.2.1) (physicalPort g false) b else b = 63 := by
+          split
+          · exact hb hl
+          · exact hfullB (hdirty ‹¬g.val < 4›)
+        obtain ⟨q, hq⟩ := pure_local hs hleft (ha hr)
+          (by simpa [Nat.and_comm] using hm.2.2) hu hz'
+        exact ⟨q, by simpa [Nat.and_comm] using hq⟩
+
+lemma semantic_callback {S : Nat → Finset (Fin 10)} {M A B : Nat → Nat}
+    {G : Nat → Option (Fin 6)} {Op : Nat → Bool} {start n : Nat}
+    (hm : ∀ w, M w < 64)
+    (hfull : ∀ w, S w = {3, 6, 7} → M w = 63)
+    (hsem : ProgramSemantics S M A B G Op start n) :
+    ProgramCallback S M A B G start n := by
+  intro t ht s rest hs ha hb hz hgroups
+  generalize hg : G (start + t) = group at hgroups ⊢
+  cases group with
+  | none =>
+    exact gate_local (Op (start + t)) none hs ha hb (hfull _) (hfull _)
+      ⟨hm _, hm _, hm _⟩ hz hgroups (by simpa [hg] using hsem t ht)
+  | some g =>
+    exact gate_local (Op (start + t)) (some g) hs ha hb (hfull _) (hfull _)
+      ⟨hm _, hm _, hm _⟩ hz hgroups (by simpa [hg] using hsem t ht)
+
+end S200Simulation
+
+
+namespace S200Budget
+
+open DAGBridge.DagTools OnceResource.IndexCopies OnceActualSchedule
+
+lemma zero_fanout_le_one {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {w : ℕ} (hz : supp 10 D w = ∅) : fanout D w ≤ 1 := by
+  by_cases hf : fanout D w ≤ 1
+  · exact hf
+  · have htwo : 2 ≤ fanout D w := by omega
+    have hi := OnceResourceBudget.zero_branch_inner hS hz htwo
+    have hm : w ∈ (inner 10 D).filter (fun w => ¬(supp 10 D w).Nonempty) := by
+      exact hi
+    have hs := Finset.single_le_sum (fun x _ => Nat.zero_le (fanout D x - 1)) hm
+    change fanout D w - 1 ≤ Bzero 10 D at hs
+    rw [hB] at hs
+    omega
+
+lemma continuation_capacity {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    (g : ℕ) : ∀ w, supp 10 D w = ∅ →
+      ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ 1 := by
+  intro w hw
+  exact (continuation_readCount_le_fanout D g w).trans (zero_fanout_le_one hS hB hw)
+
+end S200Budget
+
+
+namespace S200ActualSchedule
+
+open DAGBridge.DagTools OnceActualSchedule OnceResource.IndexCopies
+
+lemma full_valid {D : Dag} (hS : Strict 10 D) :
+    Valid 10 (sourceA D) (sourceB D) D.length := by
+  intro t ht
+  simpa only [sourceA, sourceB, Nat.add_sub_cancel_left] using hS t ht
+
+lemma full_readCount (D : Dag) (w : ℕ) :
+    ReadCount 10 (sourceA D) (sourceB D) D.length w = fanout D w := by
+  simp only [ReadCount, Readers, fanout, readers, sourceA, sourceB, Nat.add_sub_cancel_left]
+
+lemma full_capacity {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0) :
+    ∀ w, supp 10 D w = ∅ → ReadCount 10 (sourceA D) (sourceB D) D.length w ≤ 1 := by
+  intro w hw
+  rw [full_readCount]
+  exact S200Budget.zero_fanout_le_one hS hB hw
+
+lemma final_available {D : Dag} (hS : Strict 10 D) :
+    outW 10 D ∈ Available (fun w => supp 10 D w = ∅) 10 (10+D.length)
+      (sourceA D) (sourceB D) D.length := by
+  apply Multiset.count_pos.mp
+  rw [count_available _ (full_valid hS) _ (Nat.le_refl _) _, full_readCount,
+    final_fanout_zero hS]
+  have hlt : outW 10 D < 10+D.length := by unfold outW; omega
+  have hne : outW 10 D ≠ 10+D.length := by omega
+  simp [hlt, Capacity, hne]
+
+end S200ActualSchedule
+
+
+namespace S200Geometry
+
+open OnceGeometry DAGBridge.DagTools
+
+lemma input_raw (D : Dag) (i : Fin 10) :
+    wireMask D i.val = rawMask (supp 10 D i.val) := by
+  rw [supp_input]
+  unfold wireMask rawMask
+  apply congrArg mask
+  funext r
+  rw [val_input D (rowInput r) i.val i.isLt]
+  simp only [rowInput, decide_eq_decide]
+  constructor
+  · intro h
+    exact ⟨i, Finset.mem_inter.mpr ⟨Finset.mem_singleton_self i, h⟩⟩
+  · rintro ⟨v, hv⟩
+    obtain ⟨hv, hr⟩ := Finset.mem_inter.mp hv
+    have he : v = i := Finset.mem_singleton.mp hv
+    simpa only [he] using hr
+
+end S200Geometry
+
+
+namespace S200Simulation
+
+open S200Resource S200Positive OnceGeometry OnceActualSchedule
+open DAGBridge.DagTools
+
+lemma actual_target_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {G : ℕ → Option (Fin 6)}
+    (hgroups : GroupUnique G 10 D.length)
+    (hsem : ProgramSemantics (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G
+      (fun w => tag D (w - 10)) 10 D.length) :
+    ¬ (supp 10 D (outW 10 D) = ∅ ∧ wireMask D (outW 10 D) = 56) := by
+  intro hout
+  have hinit : ProgramInv (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G
+      10 D.length 0 initial := by
+    apply initial_program_inv (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G
+    · intro w hw
+      have h := supp_input D (⟨w, hw⟩ : Fin 10)
+      rw [h]
+      exact Finset.singleton_nonempty _
+    · intro w hw
+      exact S200Geometry.input_raw D ⟨w, hw⟩
+  exact program_target_excluded (fun _ hr => reachable_no_target hr)
+    (S200ActualSchedule.full_valid hS) (S200ActualSchedule.full_capacity hS hB)
+    hgroups (semantic_callback (wireMask_lt D) (fun _ hw => S200Geometry.dirty_left_mask hS hw) hsem)
+    hinit (S200ActualSchedule.final_available hS) hout.1 hout.2
+
+end S200Simulation
+
+
+namespace S200ActualLabels
+open DAGBridge.DagTools OnceGeometry
+
+noncomputable def label (gate : Fin 6 → ℕ) (j : ℕ) : Option (Fin 6) :=
+  if h : ∃ g : Fin 6, j = gate g then some (Classical.choose h) else none
+
+lemma label_some_iff {gate : Fin 6 → ℕ} (hinj : Function.Injective gate)
+    (j : ℕ) (g : Fin 6) : label gate j = some g ↔ j = gate g := by
+  classical
+  unfold label
+  split_ifs with h
+  · constructor
+    · intro he
+      have he' : Classical.choose h = g := Option.some.inj he
+      exact he' ▸ Classical.choose_spec h
+    · intro he
+      have he' : Classical.choose h = g := hinj ((Classical.choose_spec h).symm.trans he)
+      rw [he']
+  · simp only [Option.noConfusion, false_iff]
+    intro he
+    exact h ⟨g, he⟩
+
+lemma label_none_iff (gate : Fin 6 → ℕ) (j : ℕ) :
+    label gate j = none ↔ ∀ g : Fin 6, j ≠ gate g := by
+  classical
+  unfold label
+  split_ifs with h
+  · simp only [Option.some_ne_none, false_iff, not_forall, Classical.not_not]
+    exact h
+  · simp only [true_iff]
+    intro g he
+    exact h ⟨g, he⟩
+
+lemma label_unique {gate : Fin 6 → ℕ} (hinj : Function.Injective gate)
+    {j k : ℕ} {g : Fin 6} (hj : label gate j = some g)
+    (hk : label gate k = some g) : j = k :=
+  ((label_some_iff hinj j g).mp hj).trans ((label_some_iff hinj k g).mp hk).symm
+
+lemma label_semantics {D : Dag} (hS : Strict 10 D) {gate : Fin 6 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 6,
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g false ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g true) ∨
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g true ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 6, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅))
+    (j : ℕ) (hj : j < D.length) :
+    if tag D j then
+      supp 10 D (10+j) = ∅ ∧
+      wireMask D (10+j) = wireMask D (opA D j) &&& wireMask D (opB D j) ∧
+      (match label gate j with
+      | none => supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅
+      | some g =>
+        (supp 10 D (opA D j) = S200Geometry.physicalPort g false ∧ supp 10 D (opB D j) = S200Geometry.physicalPort g true) ∨
+        (supp 10 D (opA D j) = S200Geometry.physicalPort g true ∧ supp 10 D (opB D j) = S200Geometry.physicalPort g false))
+    else label gate j = none ∧
+      supp 10 D (10+j) = supp 10 D (opA D j) ∪ supp 10 D (opB D j) ∧
+      wireMask D (10+j) = wireMask D (opA D j) ||| wireMask D (opB D j) := by
+  classical
+  have hm := wireMask_gate hS hj
+  have hs := supp_gate hS j hj
+  cases ht : tag D j with
+  | false =>
+    simp only [ht, Bool.false_eq_true, ↓reduceIte] at hm hs ⊢
+    refine ⟨(label_none_iff gate j).mpr ?_, hs, hm⟩
+    intro g he
+    have hh := (hvalid g).2
+    rw [← he, ht] at hh
+    cases hh
+  | true =>
+    simp only [ht, ↓reduceIte] at hm hs ⊢
+    cases hl : label gate j with
+    | none =>
+      have hz : supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅ := by
+        rcases htypes j hj ht with ⟨k, hk⟩ | hz
+        · exact False.elim ((label_none_iff gate j).mp hl k hk)
+        · exact hz
+      refine ⟨?_, hm, hz⟩
+      simpa only [hz.1, Finset.empty_inter] using hs
+    | some g =>
+      have he := (label_some_iff hinj j g).mp hl
+      have hp := hports g
+      rw [← he] at hp
+      refine ⟨?_, hm, hp⟩
+      have hd : S200Geometry.physicalPort g false ∩ S200Geometry.physicalPort g true = ∅ := by fin_cases g <;> decide
+      rcases hp with ⟨ha,hb⟩ | ⟨ha,hb⟩
+      · simpa only [ha,hb,hd] using hs
+      · simpa only [ha,hb,Finset.inter_comm (S200Geometry.physicalPort g true) (S200Geometry.physicalPort g false),hd] using hs
+
+
+open S200Simulation OnceActualSchedule
+
+noncomputable def wireLabel (gate : Fin 6 → ℕ) (w : ℕ) : Option (Fin 6) := label gate (w - 10)
+
+lemma actual_group_unique {D : Dag} {gate : Fin 6 → ℕ} (hinj : Function.Injective gate) :
+    GroupUnique (wireLabel gate) 10 D.length := by
+  intro i hi j hj g hgi hgj
+  have he := label_unique hinj hgi hgj
+  change 10 + i - 10 = 10 + j - 10 at he
+  omega
+
+lemma actual_program_semantics {D : Dag} (hS : Strict 10 D) {gate : Fin 6 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 6,
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g false ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g true) ∨
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g true ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 6, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ProgramSemantics (supp 10 D) (wireMask D) (sourceA D) (sourceB D)
+      (wireLabel gate) (fun w => tag D (w-10)) 10 D.length := by
+  intro t ht
+  have h := label_semantics hS hinj hvalid hports htypes t ht
+  simpa only [sourceA, sourceB, wireLabel, continuation_index, Nat.add_sub_cancel_left] using h
+
+lemma six_gate_target_exclusion {D : Dag} (hS : Strict 10 D)
+    (hB : Bzero 10 D = 0) {gate : Fin 6 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 6,
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g false ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g true) ∨
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g true ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 6, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ¬ (supp 10 D (10 + D.length - 1) = ∅ ∧ wireMask D (10 + D.length - 1) = 56) := by
+  exact actual_target_exclusion hS hB (actual_group_unique hinj)
+    (actual_program_semantics hS hinj hvalid hports htypes)
+
+end S200ActualLabels
+
+namespace S200ActualLabels
+open DAGBridge.DagTools OnceGeometry
+
+lemma six_gate_petersen_exclusion {D : Dag} (hS : Strict 10 D)
+    (hC : S18Structural.DagTools.sem_Comp 10 S18Structural.DagTools.petersenAdj D)
+    (hB : Bzero 10 D = 0) {gate : Fin 6 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 6,
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g false ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g true) ∨
+      (supp 10 D (opA D (gate g)) = S200Geometry.physicalPort g true ∧
+       supp 10 D (opB D (gate g)) = S200Geometry.physicalPort g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 6, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    False := by
+  exact six_gate_target_exclusion hS hB hinj hvalid hports htypes
+    ⟨S18Structural.DagTools.h3_out_empty hC, S18Structural.DagTools.h3_output_mask hC⟩
+
+
+end S200ActualLabels
 
 end PEqualNP.Outside.L_meta_2590
