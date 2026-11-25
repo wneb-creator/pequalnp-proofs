@@ -11,3 +11,7 @@ Public desk data saved /tmp/oec/pequalnp-pilot-121/gaps.json. All three easy red
 ## First strategy review
 
 The seven-row block-cover conjecture requiring ps.length+bs.length >=12 is false: a budget11 auxiliary construction exists. This is not a counterexample to L-meta-2592. Stronger samples are needed for the ledger route. The direct eight-profile lower bound is a different statement and cannot simply replace the ledger condition. A monolithic finite kernel check exceeded memory; smaller certificate chunks are being prepared. The one-NOT decomposition and Petersen generator lemmas are compiled and their actual-circuit link is in progress. Witness searches remain inconclusive.
+
+## Stronger counting route
+
+Adding the independent core pair (0,1) to zero and six singleton rows gives eight regular rows. A complete auxiliary block-cover search found no budget11 construction, independently rerun with matching state counts. gate_elimination ports the finite CoverCheck proof; not_elimination ports terminal-class graph reasoning; toolchain_setup ports Probes and fixtures. Expected result, if linked: at least16 non-NOT gates for Petersen, excluding the four-NOT case. One/two/three-NOT cases remain.

@@ -9,3 +9,4 @@
 2026-11-25T14:32:51.861236+00:00: concrete Petersen bracket witnesses compiled and independently reviewed.
 2026-11-25T14:37:06.583030+00:00: ProfileRange and OneNotCut compiled and independently reviewed.
 2026-11-25T14:37:06.583030+00:00: first strategy review: seven-row block-cover conjecture disproved by an eleven-budget auxiliary construction; strengthen sample rows. Direct profile eight-gate certificate remains useful but lacks full circuit ledger link. Monolithic kernel certificate exceeded memory; split into smaller checks. Focus solver on essential-one-NOT nine-input and auxiliary-family cases.
+2026-11-25T14:39:20.625447+00:00: strengthened eight-row block-cover search independently reproduced no budget11 construction (212443 cover states,40266 core checks); allocating CoverCheck8, TerminalTen and ProbesTen ports. This is computational evidence pending Lean proof, not the full gap.
