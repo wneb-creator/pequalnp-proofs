@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T05:38:22.498585+00:00",
+  "sha256": "72b8c6f8c8f60b32d032fa2a138763641c11fb60bd100d6208efea4668e70330",
+  "generic_prefix_normalized_diff_lines": 0,
+  "all_128_sample_bits_match": true,
+  "all_256_initial_subsets_checked": true,
+  "only_full_input_subset_separates": true,
+  "chunks_cover_exactly_28_unordered_pairs": true,
+  "no_lower_assumptions": true,
+  "target_full_theorem_pending": true
+}
