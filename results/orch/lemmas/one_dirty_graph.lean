@@ -71,4 +71,45 @@ lemma shared_or_signal_has_no_literal_branch {α : Type} [DecidableEq α]
     intro x hx
     simp [hx]
 
+lemma shared_product_edges_have_two_centers {α : Type} [DecidableEq α]
+    (G : SimpleGraph α)
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (a d : α) (had : G.Adj a d) (A B : List α) (haa : a ∈ A) (hdb : d ∈ B)
+    (ha : ∀ x, (A.any x && B.any x) = true → x a = true → HasEdge G x)
+    (hd : ∀ x, (A.any x && B.any x) = true → x d = true → HasEdge G x)
+    (u v : α) (huv : G.Adj u v)
+    (hprod : (A.any (pairInput u v) && B.any (pairInput u v)) = true) :
+    u = a ∨ v = a ∨ u = d ∨ v = d := by
+  have hdisj (z : α) (hzA : z ∈ A) (hzB : z ∈ B) : False := by
+    apply no_shared_literal_support G htri a d had (fun x => A.any x && B.any x) ha hd z
+    intro x hx
+    exact Bool.and_eq_true_iff.mpr ⟨List.any_eq_true.mpr ⟨z, hzA, hx⟩,
+      List.any_eq_true.mpr ⟨z, hzB, hx⟩⟩
+  have cross (p q : α) (hp : p ∈ A) (hq : q ∈ B) (hpq : G.Adj p q) :
+      p = a ∨ q = d := by
+    have hpd : G.Adj p d := (hasEdge_pair_iff G p d).mp
+      (hd (pairInput p d) (Bool.and_eq_true_iff.mpr
+        ⟨List.any_eq_true.mpr ⟨p, hp, by simp [pairInput]⟩,
+          List.any_eq_true.mpr ⟨d, hdb, by simp [pairInput]⟩⟩) (by simp [pairInput]))
+    have haq : G.Adj a q := (hasEdge_pair_iff G a q).mp
+      (ha (pairInput a q) (Bool.and_eq_true_iff.mpr
+        ⟨List.any_eq_true.mpr ⟨a, haa, by simp [pairInput]⟩,
+          List.any_eq_true.mpr ⟨q, hq, by simp [pairInput]⟩⟩) (by simp [pairInput]))
+    exact hfour p q a d hpq haq.symm had hpd.symm
+  obtain ⟨hA, hB⟩ := Bool.and_eq_true_iff.mp hprod
+  obtain ⟨p, hp, hpv⟩ := List.any_eq_true.mp hA
+  obtain ⟨q, hq, hqv⟩ := List.any_eq_true.mp hB
+  simp only [pairInput, decide_eq_true_eq] at hpv hqv
+  rcases hpv with rfl | rfl <;> rcases hqv with rfl | rfl
+  · exact (hdisj _ hp hq).elim
+  · rcases cross p q hp hq huv with h | h
+    · exact Or.inl h
+    · exact Or.inr (Or.inr (Or.inr h))
+  · rcases cross p q hp hq huv.symm with h | h
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr (Or.inl h))
+  · exact (hdisj _ hp hq).elim
+
 end PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph
