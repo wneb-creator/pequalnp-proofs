@@ -38,3 +38,11 @@
 2026-11-25T14:26:12.890280+00:00 [few_not_analysis] ComparableNot.lean compiles under Lean4.36, exit0, empty output. SHA256 6a794c85ccb8a03057479f4265c5e47e354ac496b9adb30a08b5a55149f9a288. Independent reviewer checking final edits. New CircuitEndpoints.lean40-line companion pending Defs build.
 
 2026-11-25T14:28:01.874244+00:00 restriction_route: graph_stats.py exhaustively checked all10 zero-cofactors:12edges, independence4, minimum vertexcover5, star upperbound16. Setting one vertextrue leaves its3 neighbors as freeOR terms and residual6vertices/6edges degree2. Gap to proof: liveunique-input counting alone gives only parentboundary constraints; no valid argument yet that three-neighbor operand gates are private or that restriction deletes4gates. NOT gates/shared circuitry block a naive monotone charging argument. Structural agent exploring exact-sixbranch polarity rigidity separately.
+
+2026-11-25T14:29:09.772673+00:00 Structural checked result: `lemmas/structural/BooleanFactor.lean` (45 lines) compiles with pinned Lean 4.36 using only the prelude. It proves that a nonconstant Boolean target factored through one Boolean code equals that code up to a fixed negation; if the target is false at a base point, the sign is exactly the code at that point. This supports first-boundary OR/NOR rigidity. Full compile log: `/tmp/oec/pequalnp-pilot-116/boolean-factor.log` (empty; exit 0).
+
+### Checked finite Petersen tests 2026-11-25T14:29:50.873813+00:00
+- results/orch/lemmas/search/PetersenTests.lean: 66 lines, Lean exit0, compiler stdout/stderr empty.
+- Proves: listed15 maximal independent masks are all independent; every negative input is below a listed mask; every positive input contains one of the15 edge inputs. These instantiate few_not_analysis single-NOT profile lemmas.
+- Independently reviewed data by prior_status: all1024 input masks checked, exactly76 independent sets and15 maximal sets.
+- Two initial Cadical synthesis runs both ended UNKNOWN at600 seconds, no candidate. Two new canonical-order runs are active.
