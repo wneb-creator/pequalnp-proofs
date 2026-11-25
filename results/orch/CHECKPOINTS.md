@@ -14,3 +14,7 @@ Some scratch extensions duplicate names later integrated into the named file; re
 | 52832c52 | Named binaryFloor17; SensitivityExtension |
 
 BinaryFloor18NonOrExtension is checked against the named floor17 in52832c52; it does not cover first OR gates.
+
+| f668c02d | Checked firstnonOR18binary extension against namedfloor17 |
+
+SecondGate and PrefixReplay compiled against namedfloor17; currentpreservationcommit stores their logs. SharedOrThird and BinaryFloor18Compact are UNCHECKED drafts, never a full-gapclaim.

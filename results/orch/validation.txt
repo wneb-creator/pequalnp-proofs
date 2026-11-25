@@ -20,4 +20,9 @@ SensitivityExtension.lean: lake env lean exit0, independent exhaustive review PA
 Current namedfile:4804lines,297371bytes. Cleanup not started because full checker cannot run offline.
 BinaryFloor18NonOrExtension.lean: lake env lean exit0; independent implementation/data review PASS. Gives18binarygates only when firstsignedgate is AND orANDNOT; OR excluded.
 Prefix search archive SHA256 df6dc8e27e9ff65685886cd6232b7714840265f80e7d77150fa33eaeabcbe08e. Computed pruning independently reviewed, not a full Lean certificate.
-TIMING total=34.57 subagents=6
+SecondGate.lean and PrefixReplay.lean: lake env lean exit0; independent final reviews PASS. Their exact scopes are partial circuit restrictions, not the full gap.
+UNCHECKED drafts: SharedOrThird.lean, BinaryFloor18Compact.lean, combined BinaryFloor18NonOr.lean. Other standalone copies are historical sources; seeCHECKPOINTS.md for compilation contexts.
+Desk renewal returnedHTTP410 at14:41:50UTC (background) and14:43:30UTC (manual); required diagnostic confirmed410. All gapwork paused; no release of this invalidlease attempted.
+Counterexample archiveSHA256 07e5303c1cffe9585445180f06ddf5e4742fabb43167835f04ce646ffd31975f. No fullgapcounterexample found; activequeries paused withoutverdict.
+Desk nullassignments:0. Reacquisition notyetrequested; preservationcheckpointfirst.
+TIMING total=48.15 subagents=6

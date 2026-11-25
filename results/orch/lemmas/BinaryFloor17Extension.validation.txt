@@ -1,0 +1,7 @@
+UTC 2026-11-25T14:17:10.866662+00:00
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/BinaryFloor17Extension.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Lean: 4.36.0
+Exit status: 0
+Scope: Extension imports already-built binaryFloor16 checkpoint; no full target claim.
+Full stdout and stderr:

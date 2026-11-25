@@ -16,3 +16,6 @@
 
 2026-11-25T14:30:24.862320+00:00 — lower_bound_route18nonORfirstgate extension compiled exit0; rootnotified.
 2026-11-25T14:32:28.486924+00:00 —18nonOR extension compiled and independently reviewed; partial checkpoint.
+
+2026-11-25T14:44:25.289991+00:00 — lower_bound_route pausedforleasefailure; SharedOrThird compileNOTstarted.
+2026-11-25T14:46:02.930588+00:00 — HTTP410 diagnosed; all workpaused; preservecheckedpartials and explicitlyunchecked drafts before reacquisition.

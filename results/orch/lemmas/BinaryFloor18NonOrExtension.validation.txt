@@ -1,0 +1,7 @@
+UTC 2026-11-25T14:30:24.862320+00:00
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/BinaryFloor18NonOrExtension.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Lean: 4.36.0
+Exit status: 0
+Scope: Extension imports already-built binaryFloor17 checkpoint. Proves both first operands remain live, and18binary lower bound for first signed gate other than OR. Does not prove full posted gap.
+Full stdout and stderr:
