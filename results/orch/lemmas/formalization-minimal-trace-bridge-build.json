@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "source_sha256": "2ebbcfd08c4fe60e9c565e44a4230a154be0daf99292426d0b5cd22c1b249cb4",
+  "source": "results/orch/lemmas/formalization-minimal-trace-bridge.lean",
+  "lines": 991,
+  "warning": "One unused simp argument inherited from compiled directDag_trace."
+}

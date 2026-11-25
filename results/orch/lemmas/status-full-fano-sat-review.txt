@@ -1,0 +1,18 @@
+Independent full-Fano SAT encoding review PASS
+2026-11-25T10:33:36.441660+00:00
+Primitive CNF equality/AND/OR, guarded and unguarded: exhaustive truth-table PASS.
+Boundary PASS: 21 minimal positives,37 maximal negatives,2 singleton bases; target/control encodings share the same first27 gates.
+Target27 DIMACS count/range PASS: 6669 variables,195917 clauses; no satisfiability claim.
+Known28 control assigns all6944 variables and satisfies all208842 emitted clauses.
+Known28 control passes all16384 Boolean inputs and both direct derivatives; topology,distinct inputs,all-used,support and canonical ordering pass.
+Fixed flag WLOG: explicit affine incidence automorphisms map every one of21 flags to(0,0).
+Source SHA256 85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8
+
+Analytic completeness checks (not a new Lean proof):
+- Removing gates outside the output ancestry and injectively renumbering survivors preserves truth and trace recurrences; no operand alias is introduced.
+- Every input is essential to the Fano function, so a correct circuit must directly read every primary input somewhere. With every nonoutput gate used, the final listed gate can be the output.
+- For exact-size padding, take one operand a of the current output. If the output is AND, append AND(output,a); if OR, append OR(output,a). Absorption preserves the function and operands are distinct earlier wires. At each marked singleton the output base value and derivative are zero. The AND pad therefore has zero derivative; for an OR root, its operand derivative is already zero because the root derivative is their OR. Padding remains supported and keeps all gates live.
+- Choose the least available gate by (larger operand,smaller operand,AND-before-OR). A newly available gate references the last numbered wire, so its larger operand exceeds the previous key; induction gives the required global order. Equal-pair operation ordering only rearranges independent gates.
+- Positive support is justified by the previously compiled global support-normalization theorem; it is not an assumption about a fixed scaffold.
+- For a marked flag (p,l), let d=p-l modulo7 and choose a=1,4,2 for d=0,1,3 respectively. Relabel points u to a(u-p) and lines t to a(t-l). The finite audit verified incidence preservation and mapping to(0,0) for every flag.
+No solver was run by this review, and no satisfiability or unsatisfiability conclusion is drawn for size27.

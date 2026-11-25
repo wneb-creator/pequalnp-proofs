@@ -1,0 +1,7 @@
+Independent review PASS: final direct minimality trace bridge
+2026-11-25T10:51:16.681740+00:00
+SHA256 2ebbcfd08c4fe60e9c565e44a4230a154be0daf99292426d0b5cd22c1b249cb4
+Previously reviewed direct-conversion prefix and exact minimal-live tail are preserved.
+Final compositions use the SAME directDag C, with exact gatecount, outputwire, entirewirelist and every seededtrace. No transformation is hidden.
+Hypotheses remain explicit: BinaryAO, ordinary minimality, nonconstant, nonprojection and allinputsessential. This is a generic bridge, not the Fano refutation.
+Compile exit0 reported by lean_setup; newtail trust/format clean.

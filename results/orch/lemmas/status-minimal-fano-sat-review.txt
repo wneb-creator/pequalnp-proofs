@@ -1,0 +1,6 @@
+Independent minimal SAT extension review PASS
+2026-11-25T10:44:21.171530+00:00
+Relative to reviewed essential CNF: exactly28 new clauses, no variable or other metadata changes. Each new clause requires one maximal-negative output value false at its gate.
+All10192 variables from canonical28 control satisfy all218726 clauses.
+The ordinary size27 lower bound justifies the new cut by virtualtrue replacement and constant propagation; no new size28 WLOG claim.
+Source SHA256 49eb5c52d0e7f09410d80fed563ecf02d03d09e86c0c44ac9273662703a7be9e

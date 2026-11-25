@@ -1,0 +1,7 @@
+Independent boundary-essential SAT extension review PASS
+2026-11-25T10:41:37.276648+00:00
+All10192 variables assigned from the independently verified canonical28 control; all218698 clauses satisfied.
+EveryAND has both operand polarities on maximal-negative rows; everyOR has both polarities on minimal-positive rows.
+Guard signs correctly activate positive clauses only forOR, negative clauses only forAND. Each new Boolean variable is constrained as the exact conjunction of one selected input and the negation of the other.
+WLOG justification is specific to ordinary minimal size27, using acceptedFano lower bound27. The28 control passes as a concrete fact, not as a general size28 completeness claim.
+Source SHA256 560bcf4638b1cdf34330a0943b0b043735c212bbcfa785b0804a20fb9adf1248

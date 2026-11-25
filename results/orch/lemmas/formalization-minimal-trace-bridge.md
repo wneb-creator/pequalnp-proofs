@@ -1,0 +1,7 @@
+Direct minimal-circuit trace preservation
+
+The final theorem minimal_binaryAO_preserves_traces assumes the posted binary AND/OR normality, existing library IsMinimalMonoCircuit, nonconstancy, nonprojection, and essentiality of every input. It produces a StrictLive Dag with exactly the same gate count and output index, exactly the same entire wire list on every input list, and every same raw formal first-derivative trace seeded by a single input. Both directions of a marked edge therefore transport simultaneously to the very same Dag.
+
+The witness is directDag C: map each official gate to its operator tag and two operands, preserving all indices. No gate is removed, simplified, or renumbered. Ordinary minimality forces output-last and liveness because taking a shorter prefix or deleting an unread gate would produce a strictly smaller equivalent monotone Circuit. Those size-reducing constructions are used only for contradictions. The inverse Dag-to-Circuit map establishes that the library minimality condition implies the required Dag comparison. Essentiality rules out unread inputs.
+
+The source combines the frozen direct/inverse conversion and status_review minimal-live tail, with accepted L_meta_6659 elementary definitions and lemmas copied once under namespace PEqualNP.Outside.L_meta_1479.K4Equality. Full combined source compiled with exit 0; complete logs/hash receipt adjacent. This is a generic conditional bridge, not a proof of ordinary minimality or a full refutation of L-meta-1479.

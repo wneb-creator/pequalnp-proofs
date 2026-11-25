@@ -1,0 +1,6 @@
+Independent root review: PASS
+Source: results/orch/lemmas/algebraic-equality-mixed22.lean
+SHA256: f6d67630f7f70c4b7c8a85713c918d86a17f8ed5c835d994263a51d2b096d2e3
+The first9039lines match the accepted L_meta_6659 source exactly. The new theorem assumes StrictLive14, Heawood correctness, canonical ineligible set pe_I, and pe_bs7≤pe_bs3, and rules out Bplus≤12. It does not assume or establish a complete Fano equality classification.
+The residual-unit count is at most2 because10 labels are eligible. The proof reuses accepted central3/7 slot lemmas to obtain two distinct residual units and the accepted two-unit contradiction; no Bzero or total-surplus hypothesis is silently added. The ordering hypothesis remains explicit.
+Complete Lean logs report exit0 via the producing agent and are empty. Forbidden-marker scan passed. No full-target or normalized-Circuit refutation claim.

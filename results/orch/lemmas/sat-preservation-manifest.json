@@ -1,0 +1,303 @@
+{
+  "created_utc": "2026-11-25T10:48:13.122949+00:00",
+  "gap": "L-meta-1479",
+  "status": "Active target search; no SAT/UNSAT conclusion",
+  "local_encoder_dependencies": [],
+  "external_solver": "/tmp/oec/pequalnp-pilot-81/lean-4.36.0-linux/bin/cadical",
+  "mutable_active_output_included": false,
+  "target": {
+    "variables": 9801,
+    "clauses": 205448
+  },
+  "control": {
+    "gates": 28,
+    "variables": 10192,
+    "clauses": 218726,
+    "independent_review": "PASS"
+  },
+  "reproduction_argv": [
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-full.py",
+      "--size",
+      "27",
+      "--tag",
+      "sat-fano-full27-broad",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--no-solve"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-full.py",
+      "--size",
+      "28",
+      "--tag",
+      "sat-fano-full28-control",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--no-solve"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-essential.py",
+      "--size",
+      "28",
+      "--tag",
+      "sat-fano-essential28-control",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--no-solve",
+      "--boundary-essential"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-minimal.py",
+      "--size",
+      "28",
+      "--tag",
+      "sat-fano-minimal28-control",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--no-solve",
+      "--boundary-essential"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-minimal.py",
+      "--size",
+      "27",
+      "--tag",
+      "sat-fano-minimal27-broad",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--no-solve",
+      "--boundary-essential"
+    ]
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-fano-full.py",
+      "bytes": 6665,
+      "sha256": "85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8",
+      "role": "Baseline encoder and primitive-CNF dependency of the independent verifier"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-essential.py",
+      "bytes": 7568,
+      "sha256": "560bcf4638b1cdf34330a0943b0b043735c212bbcfa785b0804a20fb9adf1248",
+      "role": "Frozen polarity-specific extension encoder"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-minimal.py",
+      "bytes": 7631,
+      "sha256": "49eb5c52d0e7f09410d80fed563ecf02d03d09e86c0c44ac9273662703a7be9e",
+      "role": "Final reviewed encoder; standalone Python standard library"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-canonical28-control.json",
+      "bytes": 1380,
+      "sha256": "bf8293db74cad9df4f9c6b07138cfbc14fa967f00ac29d43a99cad2e3f7ffe0b",
+      "role": "Canonical 28-gate positive control"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-boundary-essential-control.json",
+      "bytes": 2970,
+      "sha256": "bf48dfd219c0208f466466b7a30fa11cbddf8e4ba1602bb78f4d7f47d439b5c5",
+      "role": "Explicit boundary incomparability witness rows for all 28 control gates"
+    },
+    {
+      "path": "results/orch/lemmas/status-full-fano-sat-review.py",
+      "bytes": 5533,
+      "sha256": "5dd9ab388b3f2cdc4b9467ef108eceddff8e86fa4ea7954a0172b5688b71a1a0",
+      "role": "Independent baseline verifier and dependency of the final verifier"
+    },
+    {
+      "path": "results/orch/lemmas/status-final-fano-sat-review.py",
+      "bytes": 3065,
+      "sha256": "9c7f791d85f668dd4f1f74022d18b100a338c39b7dba14f98beb3c29f5a63aa7",
+      "role": "Independent complete final-control and exact-extension verifier"
+    },
+    {
+      "path": "results/orch/lemmas/status-full-fano-sat-review.txt",
+      "bytes": 2440,
+      "sha256": "c108b95350ecb9f4adb0133fb8fc5809222d90a1c03f2ea6dcd4f0ab4fe04318",
+      "role": "Independent baseline audit report"
+    },
+    {
+      "path": "results/orch/lemmas/status-essential-fano-sat-review.txt",
+      "bytes": 783,
+      "sha256": "d5ccf7fd807e79d6f43176dc2be301958bbb33e6094a0d7925c326ac5b1069d5",
+      "role": "Independent polarity-extension audit report"
+    },
+    {
+      "path": "results/orch/lemmas/status-minimal-fano-sat-review.txt",
+      "bytes": 538,
+      "sha256": "465726c8943d229bdf26045baf552462660fa027a8466d285c0eb29abde3b597",
+      "role": "Independent final 28-clause audit report"
+    },
+    {
+      "path": "results/orch/lemmas/status-full-fano-sat-review.stdout",
+      "bytes": 784,
+      "sha256": "76b4504a362bc08967f5ba762b302b8a2ab66cc24a1e81971838374f2d4d5efd",
+      "role": "Complete baseline verifier stdout"
+    },
+    {
+      "path": "results/orch/lemmas/status-full-fano-sat-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Complete baseline verifier stderr"
+    },
+    {
+      "path": "results/orch/lemmas/status-final-fano-sat-review.stdout",
+      "bytes": 500,
+      "sha256": "ed94c25ec16c8c4f6527a9468a0e1fe8e4d99167d210e2470c89b68763a04504",
+      "role": "Complete final verifier stdout"
+    },
+    {
+      "path": "results/orch/lemmas/status-final-fano-sat-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Complete final verifier stderr"
+    },
+    {
+      "path": "results/orch/lemmas/sat-reproduce.md",
+      "bytes": 1846,
+      "sha256": "996b1871e2838b5af41142247d8c04f85ef5f5ce072ce8efd69083b454df2778",
+      "role": "Restoration and verification instructions"
+    },
+    {
+      "path": "results/orch/lemmas/sat.md",
+      "bytes": 9539,
+      "sha256": "45c16f2ffab261bcea172aea36dca1011bdcbac09ee654bfcc6aa9bbb48dfc7c",
+      "role": "Search census, mathematical scope, and active-run notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-essential28-control.cnf.gz",
+      "bytes": 836753,
+      "sha256": "1d08a353f0030671ed3410e651c0ad9363330523c37c3b290823d1aa5f67bd89",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-essential28-control.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-essential28-control.metadata.json.gz",
+      "bytes": 32164,
+      "sha256": "ebd335cb780df236e12ba4d1a02e8bbb2d39ff55505b7ad9b99fdf6835971d4d",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-essential28-control.metadata.json"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full27-broad.cnf.gz",
+      "bytes": 738335,
+      "sha256": "4f32ab140c0a976be285ba7be53db128ab56e37f926d731b14c002fd644e5267",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full27-broad.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full27-broad.metadata.json.gz",
+      "bytes": 18440,
+      "sha256": "79456756e56502e827d76cf6ff66cfc657bfde2efbe024508003ab97886b1cd4",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full27-broad.metadata.json"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full27-broad.runlog.gz",
+      "bytes": 173,
+      "sha256": "362ab50c4e7cb20808bcdd453e851054fb11e587bbb96e798829f8e0a5b73148",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full27-broad.runlog"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full27-broad.stderr.gz",
+      "bytes": 49,
+      "sha256": "1d8b8f8dab23645fa5d2a2cbcb8c988b76ac7adae0e0f8d7c086d493f4f589b5",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full27-broad.stderr"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full27-broad.stdout.gz",
+      "bytes": 11576,
+      "sha256": "e249a3f306f3551cd3ee2b260276944be8070ba3e5965ccebf11bd10d8b16893",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full27-broad.stdout"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full28-control.cnf.gz",
+      "bytes": 788793,
+      "sha256": "11ee206e67c7a47f70f41e4f54fe4a65af6ea53250071740a1223cf71e7eacd0",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full28-control.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-full28-control.metadata.json.gz",
+      "bytes": 19152,
+      "sha256": "76cf226f5e7b9cbc794a9318b426876b2fe8b5148573bbda2ecdfcf018d47871",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-full28-control.metadata.json"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.cnf.gz",
+      "bytes": 786817,
+      "sha256": "a584343861fc5f3fb3fac6478a817218a35b7e784ea86bbad40880b732443b15",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-minimal27-broad.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.metadata.json.gz",
+      "bytes": 31104,
+      "sha256": "739659a11c017396485afb8866cae9053f368c46a2243fa7cfc6fbaf83f4cb15",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-minimal27-broad.metadata.json"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal28-control.cnf.gz",
+      "bytes": 838830,
+      "sha256": "85aa4f38a286fd8855f221918de864e364c32f1e7808c26f7fe81e7c1b12b6c5",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-minimal28-control.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal28-control.metadata.json.gz",
+      "bytes": 32163,
+      "sha256": "7ec7eeee02d3b613c6d756385cf99a375f587a45a37b8efdea7c0d0a03ba572c",
+      "role": "Lossless immutable CNF/metadata or complete stopped-run diagnostic",
+      "restore_basename": "sat-fano-minimal28-control.metadata.json"
+    }
+  ],
+  "total_bytes": 4185591
+}

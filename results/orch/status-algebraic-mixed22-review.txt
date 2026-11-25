@@ -1,0 +1,9 @@
+Independent review PASS: algebraic-equality-mixed22 archival partial
+2026-11-25T10:51:48.247731+00:00
+SHA256 f6d67630f7f70c4b7c8a85713c918d86a17f8ed5c835d994263a51d2b096d2e3
+Accepted9039-line prefix is byte-identical. New126-line tail is present exactly once and has no forbidden trust/format markers.
+Hypotheses are explicit: StrictLive, exactHeawood correctness, Bplus≤12, canonicalineligible set pe_I, and pe_bs7≤pe_bs3.
+Eligiblecard10 gives atmost2 residualunits. Existing semantic position counts force one unit carrying7 butnot3 and a distinct unit carrying3; the comparison gives one relevant unit for each. Those are all residualunits. The accepted two-unit endpoint contradiction then applies without a Bzero hypothesis.
+Conclusion is only that these hypotheses are impossible; this is not the full27-gate/noquiet claim. The ordering assumption has not been silently dropped.
+Current namespace is the copied accepted helper namespace (with PeMixed section), appropriate to this archival test. Rename helpers under the target namespace before incorporating into a final proofPR.
+Agent reports Leanexit0 with completeemptylogs.

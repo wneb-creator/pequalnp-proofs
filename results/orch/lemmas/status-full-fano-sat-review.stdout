@@ -1,0 +1,9 @@
+Independent full-Fano SAT encoding review PASS
+2026-11-25T10:33:36.441660+00:00
+Primitive CNF equality/AND/OR, guarded and unguarded: exhaustive truth-table PASS.
+Boundary PASS: 21 minimal positives,37 maximal negatives,2 singleton bases; target/control encodings share the same first27 gates.
+Target27 DIMACS count/range PASS: 6669 variables,195917 clauses; no satisfiability claim.
+Known28 control assigns all6944 variables and satisfies all208842 emitted clauses.
+Known28 control passes all16384 Boolean inputs and both direct derivatives; topology,distinct inputs,all-used,support and canonical ordering pass.
+Fixed flag WLOG: explicit affine incidence automorphisms map every one of21 flags to(0,0).
+Source SHA256 85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8
