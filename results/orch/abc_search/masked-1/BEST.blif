@@ -1,0 +1,23 @@
+# Benchmark "star25" written by ABC on Wed Nov 25 12:58:47 2026
+.model star25
+.inputs x11 x0 x5 x13 x12 x10 x9 x3 x6 x2 x1 x7 x8 x4
+.outputs f
+.gate OA21    A=x3 B=x1 C=x7 Y=new_n16
+.gate OA21    A=x5 B=x6 C=x9 Y=new_n17
+.gate OR2     A=new_n16 B=new_n17 Y=new_n18
+.gate OR2     A=x0 B=x4 Y=new_n19
+.gate OA21    A=x5 B=new_n19 C=x10 Y=new_n20
+.gate OR2     A=new_n18 B=new_n20 Y=new_n21
+.gate OR2     A=x5 B=x2 Y=new_n22
+.gate OA21    A=x3 B=new_n22 C=x12 Y=new_n23
+.gate OR2     A=x3 B=x4 Y=new_n24
+.gate OA21    A=x6 B=new_n24 C=x11 Y=new_n25
+.gate OR2     A=new_n23 B=new_n25 Y=new_n26
+.gate OR2     A=x0 B=x2 Y=new_n27
+.gate OA21    A=x6 B=new_n27 C=x8 Y=new_n28
+.gate OR2     A=x2 B=x4 Y=new_n29
+.gate OA21    A=x1 B=new_n29 C=x13 Y=new_n30
+.gate OR2     A=new_n28 B=new_n30 Y=new_n31
+.gate OR2     A=new_n26 B=new_n31 Y=new_n32
+.gate OR2     A=new_n21 B=new_n32 Y=f
+.end

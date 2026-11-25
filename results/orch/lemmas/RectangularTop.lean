@@ -72,4 +72,46 @@ lemma rectangle_off_center_card {n : ℕ} (G : SimpleGraph (Fin n))
     · have he : J ∩ B = ∅ := Finset.not_nonempty_iff_eq_empty.mp hne
       simp [he]
 
+lemma rectangle_edge_set_card {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hG : NoFourCycle G)
+    (hdeg : ∀ a : Fin n, (Finset.univ.filter (G.Adj a)).card ≤ 3)
+    (z : Fin n) (I J B : Finset (Fin n))
+    (hz : ∀ b ∈ B, G.Adj z b)
+    (hrect : ∀ a ∈ I, ∀ b ∈ J ∩ B, G.Adj a b)
+    (U : Finset (Sym2 (Fin n)))
+    (hU : ∀ e ∈ U, ∃ a ∈ I, ∃ b ∈ J ∩ B, e = s(a, b) ∧ a ≠ z) :
+    U.card ≤ 2 := by
+  classical
+  have hs : U ⊆ ((I.erase z) ×ˢ (J ∩ B)).image (fun p => s(p.1, p.2)) := by
+    intro e he
+    obtain ⟨a, ha, b, hb, rfl, haz⟩ := hU e he
+    exact Finset.mem_image.mpr ⟨(a, b),
+      Finset.mem_product.mpr ⟨Finset.mem_erase.mpr ⟨haz, ha⟩, hb⟩, rfl⟩
+  exact (Finset.card_le_card hs).trans (Finset.card_image_le.trans
+    (rectangle_off_center_card G hG hdeg z I J B hz hrect))
+
+lemma colored_rectangle_edge_set_card {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hG : NoFourCycle G)
+    (hdeg : ∀ a : Fin n, (Finset.univ.filter (G.Adj a)).card ≤ 3)
+    (color : Fin n → Bool) (hcolor : ∀ a b, G.Adj a b → color a ≠ color b)
+    (z : Fin n) (hzcolor : color z = false) (I J B : Finset (Fin n))
+    (hI : ∀ a ∈ I, color a = false)
+    (hz : ∀ b ∈ B, G.Adj z b)
+    (hrect : ∀ a ∈ I, ∀ b ∈ J ∩ B, G.Adj a b)
+    (U : Finset (Sym2 (Fin n)))
+    (hU : ∀ e ∈ U, ∃ a ∈ I, ∃ b ∈ J, e = s(a, b) ∧ (a ∈ B ∨ b ∈ B))
+    (havoid : ∀ e ∈ U, z ∉ e) : U.card ≤ 2 := by
+  apply rectangle_edge_set_card G hG hdeg z I J B hz hrect U
+  intro e he
+  obtain ⟨a, ha, b, hb, heq, hB⟩ := hU e he
+  have hbB : b ∈ B := by
+    rcases hB with haB | hbB
+    · exact False.elim ((hcolor z a (hz a haB)) (hzcolor.trans (hI a ha).symm))
+    · exact hbB
+  refine ⟨a, ha, b, Finset.mem_inter.mpr ⟨hb, hbB⟩, heq, ?_⟩
+  intro haz
+  apply havoid e he
+  rw [heq, haz]
+  simp
+
 end PEqualNP.Outside.L_meta_9811.RectangularTop

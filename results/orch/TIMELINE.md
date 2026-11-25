@@ -55,3 +55,4 @@
 
 - 2026-11-25T13:02:53.209044+00:00 lemma_search: final BlockingAll local-constraint package compiled and all five versions independently approved; parent/SAT agent notified for preservation and pruning.
 2026-11-25T13:04:58.485764+00:00 preserved complete local blocking package, top-side exact semantics, common nonempty support, and unordered-edge star cardinality; all kernel-checked and independently reviewed.
+2026-11-25T13:06:17.694177+00:00 unordered-edge rectangle bound independently compiled/reviewed; masked ABC batch completed2000 valid outputs, aggregate10631, best25 and one-NOT27.

@@ -1,0 +1,44 @@
+Independent red-team review: RectangularTop unordered-edge/color extension
+Reviewer: /root/toolchain
+Verdict: PASS for the stated helper lemmas, not a proof of the full gap.
+SHA256: 618ce59a1dee333a5f895afd84a43e17e93c7e59e293d5422f27fc432f7f010a
+Actual file: 117 lines, 5054 bytes (the task's 120-line count was approximate).
+
+The earlier 75-line version is unchanged: reconstructing it by removing the two
+new lemmas gives SHA256 c9d995ecebaa6d289a167e3c73616a40d7dc6689a44cb778cc5816d0ecb5777b,
+matching the prior independent review.
+
+rectangle_edge_set_card: each e in U has a witness (a,b) with a in I, b in J
+intersection B, and a unequal to z. Hence (a,b) belongs to (I.erase z) times
+(J intersection B), and e belongs to its Sym2 image. Cardinality of U is at most
+the image cardinality, which is at most the product cardinality. No injectivity
+or ordered-pair equality is assumed. The already reviewed product bound <=2
+therefore applies exactly.
+
+colored_rectangle_edge_set_card: proper coloring, color z=false, and color
+of every member of I=false exclude a in B, since B consists of neighbors of z.
+The stated edge witness meets B, so its b endpoint must lie in B. The havoid
+hypothesis says z is absent from each unordered edge and therefore implies
+its a endpoint is not z. These are precisely the previous lemma's premises.
+No conclusion that arbitrary circuit edge sets satisfy the rectangle or
+avoidance hypotheses is claimed.
+
+Scope: NoFourCycle, maximum degree <=3, B subset neighbors(z), complete
+adjacency between I and J intersection B, and the explicit U representation
+hypotheses are all retained. The colored wrapper additionally requires proper
+coloring, all of I in z's color, and exclusion of z from every edge of U.
+No graph-representation preservation or gate-cost replacement theorem follows
+without additional work.
+
+Format inspection: imports only on import lines; one helper namespace; no
+forbidden root-namespace text, double quotes, prohibited commands, hash
+commands, attributes, or options. The file is a partial helper artifact, so it
+does not contain the final posted theorem required of a submission.
+
+Independent validation: from lean/, under the pinned environment,
+lake env lean ../results/orch/lemmas/RectangularTop.lean
+exited 0. Complete stdout/stderr was saved together as
+results/orch/rectangular-edge-independent-build.log; the log is empty, SHA256
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.
+No source file was modified during this review. The exact source SHA was
+rechecked after compilation before recording this verdict.

@@ -1,0 +1,22 @@
+# Benchmark "masked" written by ABC on Wed Nov 25 12:59:16 2026
+.model masked
+.inputs x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x11 x12 x13
+.outputs y
+.gate OAI21   A=x13 B=x7 C=x1 Y=new_n16
+.gate AND2    A=new_n16 B=x12 Y=new_n17
+.gate OR2     A=x13 B=x8 Y=new_n18
+.gate OA21    A=new_n18 B=new_n17 C=x2 Y=new_n19
+.gate OR3     A=x11 B=x9 C=x8 Y=new_n20
+.gate AND2    A=new_n20 B=x6 Y=new_n21
+.gate OR3     A=x13 B=x11 C=x10 Y=new_n22
+.gate AND2    A=new_n22 B=x4 Y=new_n23
+.gate OA21    A=x13 B=x7 C=x1 Y=new_n24
+.gate OA21    A=x10 B=x8 C=x0 Y=new_n25
+.gate OR2     A=new_n25 B=new_n24 Y=new_n26
+.gate OR3     A=new_n26 B=new_n23 C=new_n21 Y=new_n27
+.gate OR2     A=x11 B=x7 Y=new_n28
+.gate OA21    A=new_n28 B=new_n17 C=x3 Y=new_n29
+.gate OR2     A=x10 B=x9 Y=new_n30
+.gate OA21    A=new_n30 B=new_n17 C=x5 Y=new_n31
+.gate OR4     A=new_n31 B=new_n29 C=new_n27 D=new_n19 Y=y
+.end
