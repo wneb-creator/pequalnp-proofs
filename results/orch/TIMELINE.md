@@ -74,3 +74,5 @@
 2026-11-25T14:14:27.862806+00:00 Root replan: complete64-gate positive control checked283.27s, optimized version59.40s, both independently reviewed and pushed. No63gate witness. Unordered, ordered and strengthened semantic MILP routes timed out and are paused. Remaining compute: global sparse-input CEGIS; warm-phase local SAT repair; six-point CGP; one-triple exact patch analysis. Two-triple finite patch enumeration completed, awaiting final archive review.
 
 2026-11-25T14:33:53.079593+00:00 All production searches ended without a63gate witness or unrestricted refutation. Final late full-instance63gate repair returned UNKNOWN after80.72s; rejected seed has exactly two extra edges and explicit posted-negative counterexamples. Final reviewed preservation and own-lease out_of_time release follow.
+
+2026-11-25T14:38:33.590211+00:00 Own L-meta-3773 lease released withreasonout_of_time after reviewed results were pushed; desk explicitly acknowledged releasedL-meta-3773. No proof accepted or PR created; target remains unresolved.

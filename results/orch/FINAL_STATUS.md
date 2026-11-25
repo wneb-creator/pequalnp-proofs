@@ -1,6 +1,6 @@
 # Pilot79 handoff — L-meta-3773
 
-Status as of 2026-11-25T14:33:53.079593+00:00: **the posted statement is unresolved**. No63-gate witness, full refutation, reduction, or proof PR has been submitted. This branch preserves checked partial results and explicitly scoped research diagnostics. All production searches have ended. The final63-gate candidate has two unwanted quadratic terms and fails posted negative tests; its bounded repair returned unknown.
+Status as of 2026-11-25T14:38:56.555416+00:00: **the posted statement is unresolved**. No63-gate witness, full refutation, reduction, or proof PR has been submitted. This branch preserves checked partial results and explicitly scoped research diagnostics. All production searches have ended. The final63-gate candidate has two unwanted quadratic terms and fails posted negative tests; its bounded repair returned unknown.
 
 ## Checked artifacts
 
@@ -30,7 +30,7 @@ The library audit in `lemmas/meta3773-library-lower-bound-audit.md` records genu
 
 L-gct-231 was assigned at09:17:23UTC. After a successful renewal through13:20:57, the desk returned410 at13:07:08; the exact diagnostic response was reported, old-gap work stopped, and its checked components were pushed. No full old-gap proof or refutation was completed. See `lemmas/fresh_L_gct_231_FINAL_STATUS.md` and the older reviewed archives.
 
-L-meta-3773 was assigned at13:08:26UTC. All three live reduction slots were already occupied, so no fourth reduction was attempted. The current lease is still active; final release is pending until the reviewed handoff has been pushed.
+L-meta-3773 was assigned at13:08:26UTC. All three live reduction slots were already occupied, so no fourth reduction was attempted. The own L-meta-3773 lease was released at 2026-11-25T14:38:33.590211+00:00 with reason `out_of_time`; the desk explicitly returned `released: L-meta-3773`. No other lease was released.
 
 The initial polling returned10 nulls. The exact note appeared with counts4,3,2,1; the last version was:
 
@@ -39,6 +39,6 @@ The initial polling returned10 nulls. The exact note appeared with counts4,3,2,1
 `DESK_SUMMARY.json` preserves the whitelisted UTC desk chronology without lease identifiers or credentials.
 
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
-TIMING total=358.2 subagents=7
+TIMING total=363.2 subagents=7
 
 Job acknowledgment: msg-c45b10dbf9d2c833b6fc86a0.

@@ -1,6 +1,6 @@
 {
   "scope": "Whitelisted desk chronology without lease identifiers or credentials. Complete private transport log remains in task scratch.",
-  "generated_utc": "2026-11-25T14:33:53.079593+00:00",
+  "generated_utc": "2026-11-25T14:38:56.555416+00:00",
   "null_count": 10,
   "records": [
     {
@@ -394,6 +394,25 @@
       "utc": "2026-11-25T14:25:27.575965+00:00",
       "kind": "renewal",
       "expires_at": "2026-11-25T14:45:27.027Z"
+    },
+    {
+      "utc": "2026-11-25T14:35:27.233495+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:55:27.302Z"
+    },
+    {
+      "utc": "2026-11-25T14:38:33.590211+00:00",
+      "kind": "release",
+      "gap": "L-meta-3773",
+      "reason": "out_of_time",
+      "response": {
+        "released": "L-meta-3773",
+        "reason": "out_of_time",
+        "response_keys": [
+          "released",
+          "reason"
+        ]
+      }
     }
   ]
 }
