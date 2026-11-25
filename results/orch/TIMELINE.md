@@ -8,3 +8,5 @@
 - 2026-11-25T19:27:20.650647+00:00: named partial file lake build succeeded; independent partial review passed; preparing immediate push.
 - 2026-11-25 19:29:52: checker verifier prebuild passed (lake build checklemma, exit 0).
 - 2026-11-25T19:30:24.100799+00:00: target search-engine soundness helpers compiled in Lean; verifier executable built; preparing second artifact checkpoint.
+- 2026-11-25T19:32:44.924267+00:00: second checkpoint pushed as 4ffdccf7299733aee0848de21010332305955f09; complete truth-row engine makes native lower-bound13 t0 check 2.57s; 14-gate searches and kernel certificate work continue.
+- 2026-11-25T19:37:16.030664+00:00: independent review passed for checked406-line NOT-count bridge and full128-row soundness engine; preparing immediate preservation push.

@@ -17,3 +17,8 @@ Independent engine diff review: passed; original generic proofs unchanged except
 Checker executable: lake build checklemma passed, exit 0. Official theorem checker still not run.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
 TIMING total=12.7 subagents=6
+
+Third checkpoint: bounded-NOT circuit bridge and complete128-row engine compiled, each exit0. Independent artifact review passed.
+Full posted theorem remains unproved; large numeric lower-bound certificates still need kernel verification.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
+TIMING total=18.8 subagents=6
