@@ -1,0 +1,38 @@
+{
+  "neighborhood_network": {
+    "max_gates": 11,
+    "auxiliary_max": 4,
+    "found": false,
+    "exhaustive": true,
+    "depth_counts": [
+      1,
+      73,
+      6298,
+      633364,
+      73391389
+    ],
+    "lean_checked": false
+  },
+  "stochastic_neighborhood": {
+    "gates": 11,
+    "iterations": 324549594,
+    "best_hamming_sum": 16
+  },
+  "local_sat": {
+    "six_gate_neighborhoods_unsat": 14,
+    "nine_gate_seconds_unknown": [
+      60,
+      120,
+      120,
+      60
+    ],
+    "eleven_gate_seconds_unknown": [
+      60,
+      60
+    ],
+    "operation_only_all_24_unsat": true,
+    "lean_checked": false,
+    "nine_gate_at_least_one_not_unknown_seconds": 120
+  },
+  "timestamp": "2026-11-25T12:02:08.892702+00:00"
+}

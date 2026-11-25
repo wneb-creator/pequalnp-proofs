@@ -1,0 +1,142 @@
+[
+  {
+    "path": "local-sat/case-00/round-000.cnf",
+    "bytes": 4065843,
+    "sha256": "6915c6d7ffdd19ce20e18be1165daa49590948b6663356db2c45db4da4c93e00"
+  },
+  {
+    "path": "local-sat/case-01/round-000.cnf",
+    "bytes": 4065853,
+    "sha256": "7a12c8037bc36d24f679185e1df941b561d604ef2372518ce827292f9f37f185"
+  },
+  {
+    "path": "local-sat/case-02/round-000.cnf",
+    "bytes": 4065846,
+    "sha256": "ef18e19199fdbb4b85e8850a899e74a4f704fd850f5831a0a5dc21e9406fac6d"
+  },
+  {
+    "path": "local-sat/case-03/round-000.cnf",
+    "bytes": 4065840,
+    "sha256": "c842c831e63c39b6716322cde2871e476be44c9b282b3cd81b714dee6cbcab3b"
+  },
+  {
+    "path": "local-sat/case-04/round-000.cnf",
+    "bytes": 4065850,
+    "sha256": "397fb86e9aa3392f65af2b9d0ebbce5f64136e2314d76c0cd614e0935911187f"
+  },
+  {
+    "path": "local-sat/case-05/round-000.cnf",
+    "bytes": 4065843,
+    "sha256": "8c69d9cf06f3773c13596da2605d344b9620f4ecb204dc37c1674f44d4bd6359"
+  },
+  {
+    "path": "local-sat/case-06/round-000.cnf",
+    "bytes": 4065833,
+    "sha256": "ac6d6271ab7c767d1eee1d1f7b920e1bfcc83c2e8ce394445c5146e259d7bf5f"
+  },
+  {
+    "path": "local-sat/case-07/round-000.cnf",
+    "bytes": 4065793,
+    "sha256": "85de091cf5a999f271a940c49361bce006cfd33fd4b99e41890250c2e7596dc8"
+  },
+  {
+    "path": "local-sat/case-08/round-000.cnf",
+    "bytes": 4065747,
+    "sha256": "b666345ddaf67a785ca2af783ecc01379b5a7762a5b722dd91a0077bb0775500"
+  },
+  {
+    "path": "local-sat/case-09/round-000.cnf",
+    "bytes": 5441921,
+    "sha256": "fa291a7bcb90a84e92de0e29048135d960eaf48047dfeef771cfac48573339ce"
+  },
+  {
+    "path": "pair-local-sat/case-00/round-000.cnf",
+    "bytes": 5441971,
+    "sha256": "24b6fcef02cb476e6944ad1a31285ff08446ae868828fef1ca828c2c31a24192"
+  },
+  {
+    "path": "pair-local-sat/case-01/round-000.cnf",
+    "bytes": 5441981,
+    "sha256": "19d82e6c582098eff58d8b471df00a5eb12ad1ee4db375db73b2e7d7dbcff9f0"
+  },
+  {
+    "path": "pair-local-sat/case-02/round-000.cnf",
+    "bytes": 5441974,
+    "sha256": "568a2cfd23a849f07756f13b93da74b9beb201035a74b0f20e854c7279f0b688"
+  },
+  {
+    "path": "pair-local-sat/case-03/round-000.cnf",
+    "bytes": 5441968,
+    "sha256": "ca349eea1071c05159613ce1e257f0ac9fd7b006f7924893cb4553bad91e4691"
+  },
+  {
+    "path": "pair-local-sat/case-04/round-000.cnf",
+    "bytes": 5441978,
+    "sha256": "aa7008edad140b3d17e2305b9096b6d466f2a2fb002012f240889ac38e07e263"
+  },
+  {
+    "path": "pair-local-sat/case-05/round-000.cnf",
+    "bytes": 5441971,
+    "sha256": "e24f1262f87e185d0fd72e3edae9d788c25904755c3c9cf83679585b8a651f76"
+  },
+  {
+    "path": "pair-local-sat/case-06/round-000.cnf",
+    "bytes": 5441961,
+    "sha256": "2d9eb2fcbe4d1c7d1debae6eae120c94595021764509e3cceaf74310f32d275b"
+  },
+  {
+    "path": "pair-local-sat/case-07/round-000.cnf",
+    "bytes": 5441921,
+    "sha256": "fa291a7bcb90a84e92de0e29048135d960eaf48047dfeef771cfac48573339ce"
+  },
+  {
+    "path": "pair-local-sat/case-08/round-000.cnf",
+    "bytes": 5441875,
+    "sha256": "df0dd3969176c5ad4e38fea35a6696fe83899bf74f67095c693bfe129d40620f"
+  },
+  {
+    "path": "ops-both-sat/round-000.cnf",
+    "bytes": 5443073,
+    "sha256": "3c366c56d41c77a5a3022ff6b51f8990e8e64fd45f771cd3ffad04ba54d46ca5"
+  },
+  {
+    "path": "local-not-sat/round-000.cnf",
+    "bytes": 5441958,
+    "sha256": "767c09574a673c868deaf9ba2cdd7c3b67db78c46e4ff535b1becafabfdd82a0"
+  },
+  {
+    "path": "enumerate.cpp",
+    "bytes": 2723,
+    "sha256": "71b36caf0e0555b8eefe599008fac88a704895a7a39cbaea71ef0fc1e40b129e"
+  },
+  {
+    "path": "enumerate-constants.log",
+    "bytes": 3867,
+    "sha256": "3f7bd1ce2f70cbaebaad8da03a3efec72e1169b32e37eaf5f8e863d74bfd2c09"
+  },
+  {
+    "path": "local_batch.py",
+    "bytes": 1109,
+    "sha256": "7ef5d1c3d7137fe5faf086df1b036f7d67ddecac13a0c106ad06bc3df4a5ed45"
+  },
+  {
+    "path": "pair_local_batch.py",
+    "bytes": 1197,
+    "sha256": "adad52bd21b4f8eec908da2cbdf71de00a0b5f81f98c931fa49510fe4163177c"
+  },
+  {
+    "path": "ops_cegis.py",
+    "bytes": 2042,
+    "sha256": "0e3960ec01f57ab22830def14604a3ad0e6bb667479cf2ffb687fc75afc38993"
+  },
+  {
+    "path": "local_not_cegis.py",
+    "bytes": 1914,
+    "sha256": "5cea716cdb87e4f6fd08eac0ede98580f6780b24c16322afa3982ab952abb2f0"
+  },
+  {
+    "path": "validation.txt",
+    "bytes": 1138,
+    "sha256": "3dc10c95d382f8abe345c60c0d2513b368a0e70c8ab79da3fa1d072456c8d88a"
+  }
+]
