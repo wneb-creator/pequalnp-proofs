@@ -1,0 +1,8 @@
+{
+  "status": "Lean EXIT 0",
+  "scope": "On triangle-free graphs, star profile iff each pair of edges owned by one gate intersects. No optimal-circuit existence conclusion.",
+  "sha256": "8fadf5bcd41aa843fc1e0a687efc6f7c6897ab036fcd4ff48f0dc6e8e949bd8c",
+  "lines": 96,
+  "wall_seconds": 3.5134,
+  "warnings": "Four deprecated push_neg tactic notices only"
+}

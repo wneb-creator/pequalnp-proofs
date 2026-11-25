@@ -1,0 +1,22 @@
+{
+  "source": "results/meta2448/checked/Existence.lean",
+  "sha256": "9a9b9a3ce6d914eab83be6d4c215d8723d00b860424ac280aa64716a679abf36",
+  "lines": 159,
+  "exit_code": 0,
+  "kernel_checked": true,
+  "checked_utc": "2026-11-25T07:10:25.095944+00:00",
+  "wall_seconds": 16.53366483500031,
+  "peak_rss_kib": 2914008,
+  "peak_cgroup_bytes": 4636397568,
+  "scope": [
+    "Exact graph-DNF witness for any finite simple graph",
+    "Existence of a globally least Monotone2 circuit computing graphFun G empty",
+    "Minimal circuit size equality",
+    "Transfer of minimality through a size-nonincreasing same-function replacement"
+  ],
+  "not_proved": "HasStarProfile for a least circuit; the posted statement is not yet proved.",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "cache": "/tmp/oec/pequalnp-pilot-62/meta2448/Existence.olean"
+}

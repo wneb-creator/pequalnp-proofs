@@ -1,0 +1,61 @@
+import took 1.5s
+/workspace/pequalnp-proofs/results/meta2448/OwnershipCombinatorics.lean:17:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/meta2448/OwnershipCombinatorics.lean:21:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/meta2448/OwnershipCombinatorics.lean:41:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 102ms
+/workspace/pequalnp-proofs/results/meta2448/OwnershipCombinatorics.lean:93:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+cumulative profiling times:
+	.olean serialization 5.61ms
+	aesop 62.1ms
+	attribute application 0.0445ms
+	congr simp thm 1.64ms
+	declTypeLinter 3.83ms
+	elaboration 21.2ms
+	fix level params 0.233ms
+	import 1.5s
+	initialization 53.2ms
+	instantiate metavars 2.01ms
+	interpretation 546ms
+	let-to-have transformation 0.0441ms
+	linting 12ms
+	module linting 0.0354ms
+	parsing 4.97ms
+	process pre-definitions 5.39ms
+	share common exprs 1.84ms
+	simp 141ms
+	tactic execution 93.5ms
+	tacticAnalysis 3.01ms
+	type checking 14ms
+	typeclass inference 212ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 3.513391785998465
+USER_SECONDS 2.5274419999999997
+SYS_SECONDS 1.403534
+PEAK_RSS_KIB 2917920
+PEAK_CGROUP_BYTES 4631318528

@@ -1,0 +1,42 @@
+import took 9.72s
+/workspace/pequalnp-proofs/results/meta2448/lemmas/Existence.lean:117:69: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+cumulative profiling times:
+	.olean serialization 13.7ms
+	attribute application 1.02ms
+	blocked (unaccounted) 67.1ms
+	compilation (IR) 1.02ms
+	compilation (LCNF base) 18.3ms
+	compilation (LCNF impure) 4.4ms
+	compilation (LCNF mono) 13.5ms
+	congr simp thm 17.1ms
+	declTypeLinter 14.9ms
+	elaboration 89.1ms
+	fix level params 0.747ms
+	import 9.72s
+	initialization 42ms
+	instantiate metavars 2.85ms
+	interpretation 284ms
+	let-to-have transformation 0.213ms
+	linting 23.3ms
+	module linting 0.203ms
+	parsing 11.5ms
+	process pre-definitions 39.3ms
+	share common exprs 5.02ms
+	simp 527ms
+	tactic execution 330ms
+	tacticAnalysis 5.14ms
+	type checking 85.1ms
+	typeclass inference 197ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 16.53366483500031
+USER_SECONDS 5.303028
+SYS_SECONDS 4.20429
+PEAK_RSS_KIB 2914008
+PEAK_CGROUP_BYTES 4636397568
