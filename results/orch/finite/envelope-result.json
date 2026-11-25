@@ -1,0 +1,22 @@
+{
+  "point_collinear_triples": 52,
+  "line_concurrent_triples": 52,
+  "point_caps": 560,
+  "line_caps": 560,
+  "false_inputs_of_envelope": 12234,
+  "max_false_inputs_of_envelope": 468,
+  "generic_rows": 468,
+  "max_false_equals_generic_rows": true,
+  "generic_row_sizes": [
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "max_false_missing_from_generic": [],
+  "generic_missing_from_max_false": []
+}

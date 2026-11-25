@@ -1,0 +1,180 @@
+{
+  "all_seven_point_subsets": 1716,
+  "distribution": [
+    {
+      "max_false": 89,
+      "missing": 44,
+      "point_triples": 5,
+      "count": 468
+    },
+    {
+      "max_false": 99,
+      "missing": 61,
+      "point_triples": 7,
+      "count": 936
+    },
+    {
+      "max_false": 101,
+      "missing": 61,
+      "point_triples": 6,
+      "count": 234
+    },
+    {
+      "max_false": 102,
+      "missing": 66,
+      "point_triples": 8,
+      "count": 78
+    }
+  ],
+  "example0123456": {
+    "points": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "generic_projected_rows": 468,
+    "induced_max_false_count": 101,
+    "missing_max_false": 61,
+    "missing_sizes": [
+      [
+        0,
+        13
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "point_triples": 6
+  },
+  "min_missing_example": {
+    "points": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "generic_projected_rows": 468,
+    "induced_max_false_count": 89,
+    "missing_max_false": 44,
+    "missing_sizes": [
+      [
+        0,
+        13
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "point_triples": 5
+  },
+  "max_missing_example": {
+    "points": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      9,
+      10
+    ],
+    "generic_projected_rows": 468,
+    "induced_max_false_count": 102,
+    "missing_max_false": 66,
+    "missing_sizes": [
+      [
+        0,
+        13
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "point_triples": 8
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "core_points": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    9,
+    10
+  ],
+  "boundary_points": [
+    5,
+    6,
+    7,
+    8,
+    11,
+    12
+  ],
+  "core_inputs": 20,
+  "core_gates": 34,
+  "core_positive_pairs_checked": 28,
+  "negative_rows_checked": 624,
+  "distinct_negative_rows": 468,
+  "complete_inputs": 26,
+  "complete_gates": 64,
+  "complete_positive_pairs_checked": 52,
+  "all_checks_passed": true,
+  "limitation": "This is a 34/64-gate sanity baseline, not the requested 33/63-gate witness."
+}

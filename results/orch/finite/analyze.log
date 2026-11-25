@@ -1,0 +1,8 @@
+edge count 52 generic rows 468 all nonedges covered True
+per orbit [((7, 904), 78), ((13, 2848), 78), ((19, 708), 26), ((21, 2720), 78), ((25, 2656), 26), ((37, 2440), 78), ((41, 2370), 78), ((133, 808), 26)]
+size distribution {(3, 4): 234, (4, 3): 234}
+input mask max sizes 4 4
+minimal safe term degree 2 count 52 left-only 0 right-only 0
+minimal safe term degree 3 count 104 left-only 52 right-only 52
+minimal safe term degree 4 count 0 left-only 0 right-only 0
+minimal safe term degree 5 count 0 left-only 0 right-only 0

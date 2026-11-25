@@ -1,0 +1,8 @@
+L-meta-2625 reduction R_meta_2625_50
+Named module build: exit0; Build completed successfully (5147 jobs).
+Local checker: exit0; ACCEPTED (reduce): PEqualNP.Outside.R_meta_2625_50
+Guard: exit0; imports allowed: PEqualNP.Defs
+Initial source lines:60. Cleanup pending.
+Compiler remapping partial: lake env lean exit0; SHA256 4061359d12b1fd06ecbc98cac9f0f968b042bea35c9f1bac43c30d74ecbd7ae5
+Sub-agents:6 (rules/toolchain, reduction design, construction, finite checks, independent math review, compiler proof)
+TIMING total=9.2 subagents=6
