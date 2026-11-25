@@ -105,4 +105,49 @@ lemma dirty_cross_pair_wmax_induced_degree {n : ℕ} (G : SimpleGraph (Fin n))
   exact dirty_cross_pair_wmax_degree G h4 s hbip C g a b hab hsab hmono hg v
     (fun he => ha (he ▸ hv)) (fun he => hb (he ▸ hv))
 
+lemma dirty_pairs_incident_factor_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (A B : Finset (Fin n))
+    (u v : Fin n) (hA : 2 ≤ A.card) (hu : u ∉ A)
+    (hbad : ∀ a ∈ A, ∀ b ∈ B, ¬ G.Adj a b → a = u ∨ b = v) :
+    (B.erase v).card ≤ 1 := by
+  classical
+  obtain ⟨a, ha, c, hc, hac⟩ := Finset.one_lt_card.mp (by omega : 1 < A.card)
+  have hadj : ∀ x ∈ A, ∀ b ∈ B.erase v, G.Adj x b := by
+    intro x hx b hb
+    obtain ⟨hbv, hbB⟩ := Finset.mem_erase.mp hb
+    by_contra hn
+    rcases hbad x hx b hbB hn with hxu | hbv'
+    · exact hu (hxu ▸ hx)
+    · exact hbv hbv'
+  have hsub : B.erase v ⊆ Finset.univ.filter (fun w => G.Adj a w ∧ G.Adj c w) := by
+    intro b hb
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ b, hadj a ha b hb, hadj c hc b hb⟩
+  exact (Finset.card_le_card hsub).trans (h4 a c hac)
+
+lemma wide_factors_dirty_pair_avoiding {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (A B : Finset (Fin n))
+    (hA : 3 ≤ A.card) (hB : 3 ≤ B.card) (u v : Fin n) :
+    ∃ a ∈ A, ∃ b ∈ B, ¬ G.Adj a b ∧ a ≠ u ∧ b ≠ v := by
+  classical
+  by_contra hn
+  have hbad : ∀ a ∈ A.erase u, ∀ b ∈ B, ¬ G.Adj a b → a = u ∨ b = v := by
+    intro a ha b hb hab
+    by_cases hav : b = v
+    · exact Or.inr hav
+    · exact False.elim (hn ⟨a, (Finset.mem_erase.mp ha).2, b, hb,
+        hab, (Finset.mem_erase.mp ha).1, hav⟩)
+  have heA : 2 ≤ (A.erase u).card := by
+    by_cases hu : u ∈ A
+    · rw [Finset.card_erase_of_mem hu]
+      omega
+    · simpa [Finset.erase_eq_of_notMem hu] using (show 2 ≤ A.card by omega)
+  have heB : 2 ≤ (B.erase v).card := by
+    by_cases hv : v ∈ B
+    · rw [Finset.card_erase_of_mem hv]
+      omega
+    · simpa [Finset.erase_eq_of_notMem hv] using (show 2 ≤ B.card by omega)
+  have hh := dirty_pairs_incident_factor_bound G h4 (A.erase u) B u v heA
+    (Finset.notMem_erase u A) hbad
+  omega
+
 end PEqualNP.Outside.L_meta_5012.NestedCleaners
