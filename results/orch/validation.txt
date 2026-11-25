@@ -1,0 +1,8 @@
+Gap: L-meta-2592
+Status: checked partial only; posted statement not proved.
+Lean 4.36.0: results/orch/lemmas/elimination_fanout.lean compiled, exit 0.
+Complete compiler stdout/stderr: fanout-build.log (empty on success).
+Local posted-statement checker: not run; main theorem not yet present.
+Independent static/mathematical review: lemma_routes PASS for partial preservation.
+Sub-agents: 6 (status/toolchain review, circuit search, lower bound, definitions audit, lemma routes, elimination)
+TIMING total=9 subagents=6
