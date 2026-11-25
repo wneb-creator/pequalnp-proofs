@@ -1,0 +1,17 @@
+{
+  "reviewed_at_utc": "2026-11-25T04:38:37.226269+00:00",
+  "script_sha256": "3b70efc5488197512f390237c79e6d0b503818ff773a721aea3f8a5b123a6290",
+  "n": 10,
+  "gates": 19,
+  "gates_legal": true,
+  "test_set_exact_edges_and_maximal_independent": true,
+  "positive_edge_tests": 15,
+  "negative_maximal_independent_tests": 15,
+  "all_truth_table_inputs": 1024,
+  "best_test_errors": 1,
+  "best_full_truth_table_errors": 9,
+  "best_false_positives": 0,
+  "best_false_negatives": 9,
+  "final_status": "UNKNOWN",
+  "known_review_issue": "Final-step accepted improvements can be lost before next best-save check at restart."
+}

@@ -30,3 +30,5 @@
 - 2026-11-25T04:35:28.041527+00:00: reviewed and preserved pivotal-edge normalization, conditional joint-pivotal replacement, explicit P4 comparison, and search3 archive. Global combinatorial repair remains unresolved.
 
 - 2026-11-25T04:38:48.971203+00:00: preserved checked factory-boundary arithmetic and simultaneous dirty/unowned control for singleton-pivotal repair.
+
+- 2026-11-25T04:44:55.794817+00:00: after environment refresh, preserved reviewed least-junk/least-bad normal form and completed/explicitly uncompiled diagnostics. Active searches interrupted by refresh are being recorded separately as UNKNOWN.

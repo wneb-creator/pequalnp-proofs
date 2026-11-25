@@ -1,0 +1,25 @@
+{"event": "start", "n": 10, "gates": 19, "seconds": 600, "seed": 66, "tests": 30}
+{"event": "best", "errors": 5, "iterations": 1, "elapsed": 0.005106847999741149}
+{"event": "progress", "best": 5, "iterations": 1000, "restarts": 1, "elapsed": 0.007061899999825982}
+{"event": "best", "errors": 2, "iterations": 20001, "elapsed": 0.11161136500004432}
+{"event": "best", "errors": 1, "iterations": 100001, "elapsed": 0.6985404530000778}
+{"event": "progress", "best": 1, "iterations": 6560000, "restarts": 328, "elapsed": 30.013036646999808}
+{"event": "progress", "best": 1, "iterations": 14279000, "restarts": 714, "elapsed": 60.0135596099999}
+{"event": "progress", "best": 1, "iterations": 23863000, "restarts": 1194, "elapsed": 90.01520290999997}
+{"event": "progress", "best": 1, "iterations": 31840000, "restarts": 1592, "elapsed": 120.01556293800013}
+{"event": "progress", "best": 1, "iterations": 41392000, "restarts": 2070, "elapsed": 150.01731340700007}
+{"event": "progress", "best": 1, "iterations": 51201000, "restarts": 2561, "elapsed": 180.01739664099978}
+{"event": "progress", "best": 1, "iterations": 60950000, "restarts": 3048, "elapsed": 210.0206223199998}
+{"event": "progress", "best": 1, "iterations": 69416000, "restarts": 3471, "elapsed": 240.02186894099987}
+{"event": "progress", "best": 1, "iterations": 74970000, "restarts": 3749, "elapsed": 270.0224851529997}
+{"event": "progress", "best": 1, "iterations": 83076000, "restarts": 4154, "elapsed": 300.02403465099997}
+{"event": "progress", "best": 1, "iterations": 92544000, "restarts": 4628, "elapsed": 330.02541110699985}
+{"event": "progress", "best": 1, "iterations": 100233000, "restarts": 5012, "elapsed": 360.0305331659997}
+{"event": "progress", "best": 1, "iterations": 104529000, "restarts": 5227, "elapsed": 390.03102541399994}
+{"event": "progress", "best": 1, "iterations": 109094000, "restarts": 5455, "elapsed": 420.0684176139998}
+{"event": "progress", "best": 1, "iterations": 114105000, "restarts": 5706, "elapsed": 450.071043251}
+{"event": "progress", "best": 1, "iterations": 123093000, "restarts": 6155, "elapsed": 480.0726797510001}
+{"event": "progress", "best": 1, "iterations": 134859000, "restarts": 6743, "elapsed": 510.072977797}
+{"event": "progress", "best": 1, "iterations": 148394000, "restarts": 7420, "elapsed": 540.0738474489999}
+{"event": "progress", "best": 1, "iterations": 162861000, "restarts": 8144, "elapsed": 570.0751773100001}
+{"event": "finished", "status": "UNKNOWN", "best_errors": 1, "iterations": 172795000, "restarts": 8640, "elapsed": 600.000660873}

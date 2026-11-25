@@ -101,3 +101,10 @@ TIMING total=69.9 subagents=6
 FactoryBoundaryBudget.lean: standalone Lean exit0; independent review PASS; SHA256 8a012affef7e6f8e91a3c0c6013c0bb6774418981c3c9acaa9c0f61c09e2dc7b; full log factory-boundary-budget-build.log.
 PivotalDirty.lean: standalone Lean exit0; independent review PASS; SHA256 d20dd8eb54190d16d82f8f5dca29f651bc7f5428b1f4a84226197816eb39bce4; full log pivotal-dirty-build.log.
 FactoryBoundaryBudget proves explicit combinatorial/arithmetic bounds only; wiring and arbitrary-reader extraction remain obligations. PivotalDirty proves singleton-pivotal repairs preserve both dirty and unowned counts, with the appropriate strict decreases. Full statement remains unproved; repository checker not run on partial artifacts.
+
+2026-11-25T04:44:55.794817+00:00 joint normal form and diagnostic preservation
+JointNormalForm.lean:1863 lines; Lean exit0; independent review PASS; SHA256 960e0a27c94187af3ee0d28dc37443ce2bb5c1441dcec00f0332fd0c1d811135; full log joint-normal-form-build.log.
+Selects a minimum circuit with least dirty-AND count, then least unowned-AND count. Every dirty or unowned AND has at least two pivotal unordered graph edges. The full ownership theorem remains unproved; repository checker not run on partial artifacts.
+Heuristic v1 archive independently reviewed: manifest3a062058fadf473e26326774411e5f57ce862fe966ece10741bb10aa837c8e74. Completed600s Petersen19 search UNKNOWN, no correct candidate recorded; best candidate1 scored error/9 full errors. Known last-mutation save bug recorded. Reuse-cycle is an UNCOMPILED Lean attempt with only independent Python validation, explicitly excluded from checked-source census.
+Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
+TIMING total=79.3 subagents=6
