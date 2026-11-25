@@ -1,7 +1,9 @@
 import PEqualNP.Defs
 
+namespace PEqualNP.Outside.L_meta_4970_aux
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Pruning
+
+namespace H5Pruning
 
 open PEqualNP.CircuitLowerBounds
 
@@ -596,11 +598,11 @@ lemma pure_star_or_root (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
       · exact ih b (by omega) hright
     · exact ⟨j, hj, hop, fun x => by simpa [hwj] using hspec x⟩
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Pruning
+end H5Pruning
 
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Compile
+namespace H5Compile
 
 open PEqualNP.CircuitLowerBounds
 
@@ -963,10 +965,10 @@ lemma compiled_nonzero_wire (n : ℕ) (C D : Circuit) (hgs : ∀ g ∈ C.gates, 
   rw [hD]
   exact h
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Compile
+end H5Compile
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Reach
+namespace H5Reach
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.TwoColour
 
@@ -1474,9 +1476,9 @@ lemma erased_tCount_zero (n : ℕ) (C D : Circuit) (lin : ℕ → Bool)
   intro j hj hop
   exact ⟨n+j, erased_orIn_subset n C D hC hlen hg (n+j)⟩
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Reach
+end H5Reach
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5CompileReach
+namespace H5CompileReach
 open PEqualNP.CircuitLowerBounds
 open PEqualNP.Outside.L_meta_4970_aux.H5Compile
 open H5Reach
@@ -1727,10 +1729,10 @@ lemma compiled_tCount_zero (n : ℕ) (C D : Circuit) (lin : ℕ → Bool)
   subst gs
   exact compile_tCount_zero n C lin hgs hback hzero o
 
-end PEqualNP.Outside.L_meta_4970_aux.H5CompileReach
+end H5CompileReach
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Bridge
+namespace H5Bridge
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
 open H5Pruning H5Compile
@@ -1877,10 +1879,10 @@ lemma prune_bipartite_served {p l : ℕ} (E : Finset (Fin p × Fin l))
   obtain ⟨D,hcode,hD,hsize,hval⟩ := prune_bipartite_output E hE C hC j hj hzero hspec
   exact ⟨D,hD,hsize,prune_served E C D hC hD j hj hcode hzero hs,hval⟩
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Bridge
+end H5Bridge
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Bridge
+namespace H5Bridge
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
 open PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
@@ -1982,10 +1984,10 @@ lemma exists_edge_active {p l : ℕ} (E : Finset (Fin p × Fin l))
   have hle' : Nat.find hex ≤ D'.size := Nat.find_min' hex ⟨D',hD',rfl⟩
   omega
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Bridge
+end H5Bridge
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Deletion
+namespace H5Deletion
 
 def residual {p l : ℕ} (E : Finset (Fin p × Fin l)) (v : Fin l) :
     Finset (Fin p × Fin l) :=
@@ -2119,11 +2121,11 @@ lemma residual_subgraph_bound_of_endpoint_bound {p l : ℕ}
   rw [residual_subgraph_ledger E D v hfour hD]
   exact hsize
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Deletion
+end H5Deletion
 
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Count
+namespace H5Count
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
 open H5Compile H5Pruning
@@ -2206,9 +2208,9 @@ lemma compiled_zeroed_andCount_lt (n : ℕ) (C D : Circuit) (j : ℕ)
   rw [hD]
   exact compile_zeroed_andCount_lt n C j hj hop
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Count
+end H5Count
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5LiftGlue
+namespace H5LiftGlue
 
 open PEqualNP.CircuitLowerBounds
 open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
@@ -2364,10 +2366,10 @@ lemma graphFun_false_singletons {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRe
   subst v
   exact (G.ne_of_adj huv) rfl
 
-end PEqualNP.Outside.L_meta_4970_aux.H5LiftGlue
+end H5LiftGlue
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Lift
+namespace H5Lift
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
 open H5Compile H5Pruning H5Bridge H5Reach H5CompileReach
@@ -2451,10 +2453,10 @@ lemma join_tCount (n : ℕ) (gs : List Gate) (a : Option ℕ) (b : ℕ)
         rw [hempty] at hu
         simp at hu
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Lift
+end H5Lift
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Lift
+namespace H5Lift
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
 open H5Compile H5Pruning H5Bridge H5Reach H5CompileReach H5Count H5LiftGlue
@@ -2557,9 +2559,9 @@ lemma and_reader_lift (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
   rw [show D = joinCircuit n code a b from rfl, join_wire n code a b (n+k) (by omega)]
   exact hval x
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Lift
+end H5Lift
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5AndTotal
+namespace H5AndTotal
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
 open H5Compile H5Pruning H5Bridge H5Reach H5CompileReach H5Count H5LiftGlue H5Lift
@@ -2660,9 +2662,8 @@ lemma and_reader_lift_total (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
     have hz := zero_and_reader_preserves_stars n C hC F hsingle i g hg hop himem hBelow Q w hstar
     exact compiled_star n C0 D hallowed rfl hAO Q hQ w hz
 
-end PEqualNP.Outside.L_meta_4970_aux.H5AndTotal
+end H5AndTotal
 
-namespace PEqualNP.Outside.L_meta_4970_aux
 namespace H5OrLift
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
@@ -3674,9 +3675,8 @@ lemma pushOr_tCount_zero (n : ℕ) (C : Circuit) (lin : ℕ → Bool)
 
 end H5OrLift
 
-end PEqualNP.Outside.L_meta_4970_aux
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Minimum
+namespace H5Minimum
 
 lemma exists_minimizer {α : Type} (P : α → Prop) (f : α → ℕ)
     (h : ∃ a, P a) : ∃ a, P a ∧ ∀ b, P b → f a ≤ f b := by
@@ -3711,10 +3711,10 @@ lemma exists_three_minima {α : Type} (P : α → Prop) (f g h : α → ℕ)
   · intro b hb heqf heqg
     exact hmin₂ b ⟨hb, heqf.trans heq₂, heqg.trans heq₂g⟩
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Minimum
+end H5Minimum
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Count
+namespace H5Count
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
 
@@ -3753,10 +3753,10 @@ lemma output_valid_of_nonzero (n : ℕ) (C : Circuit)
   rw [hx] at hz
   contradiction
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Count
+end H5Count
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Stars
+namespace H5Stars
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
 open H5Pruning H5Count H5AndTotal
@@ -3852,10 +3852,10 @@ lemma admissible_of_keeps {p l : ℕ} (E : Finset (Fin p × Fin l))
   intro x
   exact (hfun x).trans (hC.2.1 x)
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Stars
+end H5Stars
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5OrLiftWrap
+namespace H5OrLiftWrap
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
 open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.TwoColour
@@ -3899,10 +3899,10 @@ lemma or_reader_lift_keeps (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
     exact H5OrLift.pushOr_pureStar n C hC i g y (by omega) hy hgOr hinputs hi0
       w hw Q hstar
 
-end PEqualNP.Outside.L_meta_4970_aux.H5OrLiftWrap
+end H5OrLiftWrap
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Normalize
+namespace H5Normalize
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
 open H5Pruning H5Stars
@@ -3970,10 +3970,10 @@ lemma normalize_preserving (n : ℕ) (F : (Fin n → Bool) → Bool) (lin : ℕ 
     (fun _ _ h hg hs => ⟨hg, KeepsStars.trans h.2 hs⟩)
   exact ⟨D, hD.1, hsize, hD.2, hnormal⟩
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Normalize
+end H5Normalize
 
 
-namespace PEqualNP.Outside.L_meta_4970_aux.H5Normalize
+namespace H5Normalize
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
 open H5Pruning H5Stars H5Bridge
@@ -4032,4 +4032,6 @@ lemma exists_admissible_normal_edge_active {p l : ℕ} (E : Finset (Fin p × Fin
   have hle := hmin D' hD'
   omega
 
-end PEqualNP.Outside.L_meta_4970_aux.H5Normalize
+end H5Normalize
+
+end PEqualNP.Outside.L_meta_4970_aux
