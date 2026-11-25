@@ -916,4 +916,3 @@ theorem PEqualNP.Outside.R_meta_1904_941 :
   · intro D hd he
     exact hmin D ⟨hd, he⟩
   · exact and_safe_of_no_dirty G ⟨gs, out⟩ clean
-
