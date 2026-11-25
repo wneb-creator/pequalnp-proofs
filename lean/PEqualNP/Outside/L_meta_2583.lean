@@ -3898,3 +3898,203 @@ lemma point_or_shared_siblings_need_junk
 
 
 end PEqualNP.Outside.L_meta_2583.SharedSupport
+
+namespace PEqualNP.Outside.L_meta_2583.BiasedSupport
+
+open PEqualNP.Outside.L_meta_2583.Minterm
+
+lemma pickedSupport_bias_contains
+    (n m : ℕ) (a b : ℕ → ℕ) (both : ℕ → Bool)
+    (ha : ∀ k < m, a k < n + k) (hb : ∀ k < m, b k < n + k)
+    (x : Fin n) :
+    ∀ w, x ∈ pickedSupport n m a b (fun _ => true) (fun _ => true) ha hb w →
+      x ∈ pickedSupport n m a b both
+        (fun k => decide (x ∈ pickedSupport n m a b (fun _ => true) (fun _ => true) ha hb (a k)))
+        ha hb w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hx
+    by_cases hwn : w < n
+    · simpa only [pickedSupport_input n m a b _ _ ha hb w hwn] using hx
+    by_cases hwg : w < n + m
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hk : k < m := by omega
+      rw [pickedSupport_gate n m a b _ _ ha hb k hk] at hx ⊢
+      simp only [↓reduceIte] at hx
+      by_cases hkBoth : both k = true
+      · rw [ite_eq_left hkBoth]
+        rcases Finset.mem_union.mp hx with hxa | hxb
+        · exact Finset.mem_union_left _ (ih (a k) (ha k hk) hxa)
+        · exact Finset.mem_union_right _ (ih (b k) (hb k hk) hxb)
+      · rw [ite_eq_right hkBoth]
+        simp only [decide_eq_true_eq]
+        split_ifs with hxa
+        · exact ih (a k) (ha k hk) hxa
+        · exact ih (b k) (hb k hk) ((Finset.mem_union.mp hx).resolve_left hxa)
+    · rw [pickedSupport, dite_eq_right hwn, dite_eq_right hwg] at hx
+      exact False.elim (Finset.notMem_empty _ hx)
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+def andSelector (C : Circuit) (k : ℕ) : Bool :=
+  match (gateAt C k).op with
+  | GateOp.and => true
+  | _ => false
+
+def selectedSupport (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (left : ℕ → Bool) (w : ℕ) : Finset (Fin n) :=
+  pickedSupport n C.gates.length (fun k => opnd C k 0) (fun k => opnd C k 1)
+    (andSelector C) left
+    (fun k hk => opnd_back n C hAO k hk 0)
+    (fun k hk => opnd_back n C hAO k hk 1) w
+
+lemma selectedSupport_sound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (left : ℕ → Bool) :
+    ∀ w, w < n + C.gates.length →
+      wv n C (setInput (selectedSupport n C hAO left w)) w = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hwn : w < n
+    · rw [show selectedSupport n C hAO left w = {⟨w, hwn⟩} from
+        pickedSupport_input _ _ _ _ _ _ _ _ _ hwn]
+      rw [wv_input n C _ w hwn]
+      simp [setInput]
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hk : k < C.gates.length := by omega
+      have ha := opnd_back n C hAO k hk 0
+      have hb := opnd_back n C hAO k hk 1
+      have hval (v : ℕ) (hv : v < n + k)
+          (hsub : selectedSupport n C hAO left v ⊆ selectedSupport n C hAO left (n + k)) :
+          wv n C (setInput (selectedSupport n C hAO left (n + k))) v = true :=
+        wv_mono n C hAO.1 hAO.2.1 _ _
+          (fun i hi => decide_eq_true (hsub (of_decide_eq_true hi))) v
+          (ih v hv (by omega))
+      have hrec : selectedSupport n C hAO left (n + k) =
+          if andSelector C k then
+            selectedSupport n C hAO left (opnd C k 0) ∪ selectedSupport n C hAO left (opnd C k 1)
+          else if left k then selectedSupport n C hAO left (opnd C k 0)
+          else selectedSupport n C hAO left (opnd C k 1) :=
+        pickedSupport_gate _ _ _ _ _ _ _ _ _ hk
+      rw [wv_rec n C _ hAO.2.1 k hk, inputs_two n C hAO k hk]
+      rcases hAO.1 _ (gate_mem C k hk) with hop | hop
+      · have hs : andSelector C k = true := by simp [andSelector, hop]
+        rw [hs] at hrec
+        simp only [↓reduceIte] at hrec
+        have hv0 := hval _ ha (by rw [hrec]; exact Finset.subset_union_left)
+        have hv1 := hval _ hb (by rw [hrec]; exact Finset.subset_union_right)
+        simp [hop, GateOp.eval, hv0, hv1]
+      · have hs : andSelector C k = false := by simp [andSelector, hop]
+        rw [hs] at hrec
+        simp only [Bool.false_eq_true, ↓reduceIte] at hrec
+        by_cases hl : left k = true
+        · have hv0 := hval _ ha (by rw [hrec, ite_eq_left hl])
+          simp [hop, GateOp.eval, hv0]
+        · have hv1 := hval _ hb (by rw [hrec, ite_eq_right hl])
+          simp [hop, GateOp.eval, hv1]
+
+
+def fullSupport (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (w : ℕ) : Finset (Fin n) :=
+  pickedSupport n C.gates.length (fun k => opnd C k 0) (fun k => opnd C k 1)
+    (fun _ => true) (fun _ => true)
+    (fun k hk => opnd_back n C hAO k hk 0)
+    (fun k hk => opnd_back n C hAO k hk 1) w
+
+lemma syntactic_shared_roots_support_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (W : Finset ℕ)
+    (hvalid : ∀ w ∈ W, w < n + r)
+    (x : Fin n) (hfull : ∀ w ∈ W, x ∈ fullSupport n C hAO w) :
+    ∃ T : Finset (Fin n), (∀ w ∈ W, wv n C (setInput T) w = true) ∧
+      T.card ≤ ((Finset.range r).filter (fun k => andSelector C k = true)).card + 1 := by
+  let left : ℕ → Bool := fun k => decide (x ∈ fullSupport n C hAO (opnd C k 0))
+  let T : Finset (Fin n) := W.biUnion (selectedSupport n C hAO left)
+  have hshare : ∀ w ∈ W, x ∈ selectedSupport n C hAO left w := by
+    intro w hw
+    exact pickedSupport_bias_contains n C.gates.length
+      (fun k => opnd C k 0) (fun k => opnd C k 1) (andSelector C)
+      (fun k hk => opnd_back n C hAO k hk 0)
+      (fun k hk => opnd_back n C hAO k hk 1) x w (hfull w hw)
+  refine ⟨T, ?_, ?_⟩
+  · intro w hw
+    have hv : w < n + C.gates.length := by have := hvalid w hw; omega
+    have hs := selectedSupport_sound n C hAO left w hv
+    exact wv_mono n C hAO.1 hAO.2.1
+      (setInput (selectedSupport n C hAO left w)) (setInput T)
+      (fun i hi => decide_eq_true (Finset.mem_biUnion.mpr ⟨w, hw, of_decide_eq_true hi⟩)) w hs
+  · have hb := SharedSupport.pickedSupport_family_anchor_prefix n C.gates.length
+      (fun k => opnd C k 0) (fun k => opnd C k 1) (andSelector C) left
+      (fun k hk => opnd_back n C hAO k hk 0)
+      (fun k hk => opnd_back n C hAO k hk 1) r hr W hvalid x hshare
+    exact hb
+
+end PEqualNP.Outside.L_meta_2583.BiasedSupport
+
+namespace PEqualNP.Outside.L_meta_2583.LineEntryForest
+
+/-- A finite forest potential. `children` have no shared child; AND nodes
+  conserve a cost at most one across two children. All ordinary nodes have cost
+  one. An entry node is allowed to lose cost. No circuit extraction is assumed. -/
+lemma forest_and_le_entries {n : Nat}
+    (children : Fin n → Finset (Fin n))
+    (andNodes entryNodes : Finset (Fin n)) (cost : Fin n → Nat)
+    (hdisjoint : Disjoint andNodes entryNodes)
+    (hchildren : ∀ i j, i ≠ j → Disjoint (children i) (children j))
+    (hcost : ∀ v, cost v ≤ 1)
+    (hand : ∀ v ∈ andNodes,
+      (children v).card = 2 ∧ cost v = ∑ w ∈ children v, cost w)
+    (hleaf : ∀ v, v ∉ andNodes → v ∉ entryNodes → cost v = 1) :
+    andNodes.card ≤ entryNodes.card := by
+  classical
+  let deficit : Fin n → Nat := fun v => 1 - cost v
+  have hbalance (v : Fin n) : cost v + deficit v = 1 := by
+    dsimp [deficit]
+    have hv := hcost v
+    omega
+  have hsum (v : Fin n) :
+      (∑ w ∈ children v, cost w) + (∑ w ∈ children v, deficit w) =
+        (children v).card := by
+    calc
+      _ = ∑ w ∈ children v, (cost w + deficit w) :=
+        (Finset.sum_add_distrib).symm
+      _ = ∑ _w ∈ children v, (1 : Nat) :=
+        Finset.sum_congr rfl (fun w _ => hbalance w)
+      _ = _ := by simp
+  have hlocal (v : Fin n) :
+      (if v ∈ andNodes then 1 else 0) + deficit v ≤
+        (if v ∈ entryNodes then 1 else 0) + ∑ w ∈ children v, deficit w := by
+    by_cases ha : v ∈ andNodes
+    · have he : v ∉ entryNodes := fun he => Finset.disjoint_left.mp hdisjoint ha he
+      obtain ⟨hcard, hc⟩ := hand v ha
+      have hb := hbalance v
+      have hs := hsum v
+      simp only [ite_eq_left ha, ite_eq_right he, zero_add]
+      omega
+    · by_cases he : v ∈ entryNodes
+      · simp only [ite_eq_right ha, ite_eq_left he, zero_add]
+        dsimp [deficit]
+        omega
+      · have hc := hleaf v ha he
+        simp only [ite_eq_right ha, ite_eq_right he, zero_add]
+        simp [deficit, hc]
+  have hpair :
+      (↑(Finset.univ : Finset (Fin n)) : Set (Fin n)).PairwiseDisjoint children := by
+    intro i _ j _ hij
+    exact hchildren i j hij
+  have hflow : (∑ v, ∑ w ∈ children v, deficit w) ≤ ∑ v, deficit v := by
+    rw [← Finset.sum_biUnion hpair]
+    exact Finset.sum_le_univ_sum_of_nonneg (fun _ => Nat.zero_le _)
+  have htotal := Finset.sum_le_sum (s := (Finset.univ : Finset (Fin n)))
+    (fun v _ => hlocal v)
+  simp only [Finset.sum_add_distrib] at htotal
+  have ha : (∑ v : Fin n, if v ∈ andNodes then (1 : Nat) else 0) =
+      andNodes.card := by simp
+  have he : (∑ v : Fin n, if v ∈ entryNodes then (1 : Nat) else 0) =
+      entryNodes.card := by simp
+  rw [ha, he] at htotal
+  omega
+
+end PEqualNP.Outside.L_meta_2583.LineEntryForest
