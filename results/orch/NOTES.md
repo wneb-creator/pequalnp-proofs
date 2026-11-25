@@ -139,3 +139,15 @@ Infrastructure is complete and compiled; avoid new generic lemmas without direct
 ## 2026-11-25T08:58:08.556108+00:00 minimal-route singleton filtering (frozen)
 
 singleton_filter_route.lean compiles exit 0; log /tmp/oec/pequalnp-pilot-77/singleton-filter-route-build-2.log. Clean prefix plus 4 lemmas: graph_pair_true_iff; belowF_and_singletons_adj (true singletons across safe AND operands give an edge); triangle_filter_no_two_singletons (opposite operand cannot contain both endpoints of an edge if one operand contains a fixed singleton); noFour_safe_and_singleton_star (one operand singleton-support is subsingleton). These are local graph constraints. Missing: expose a safe downstream filter through dirty intermediate ANDs, then use ownership agent singleton-disjoint-pivot witness for a cost-preserving repair.
+
+2026-11-25T08:58:40.202307+00:00 status_review
+
+Independent review PASS: and_absorption_route.lean 721 lines SHA256 b0f26b72b11e68a5a7639d784797b189182e3444de535127fb8a0534c9e6af4f; singleton_pivotal_route.lean 770 lines SHA256 bd03fc82e4ece6312d3752d41400f05d4c131258289071ea10dd064a8d1fdadc. Approved clean prefixes unchanged. Reviewed AND-bypass absorption argument (safe operand implies removable AND), generic underapproximation lost-edge lemma, and singleton-true gate forcing a disjoint pivotal edge when redirected to that input. All equality directions and monotonicity uses correct; source scans clean, logs no errors.
+
+GitHub read-only PR census: complete canonical open-goat search returned 15 results with incomplete_results=false, all closed. No open L-meta-1772 PR found. Merged PR7293 titled L-meta-1772 adds R_meta_1772_642 only. Latest PR12371 was an accepted reduction closed unrecorded because the contributor already had five live reductions. No unnoticed full completion found.
+
+Scope check: repository note notes/note-1-edge-function-exact-size.md distinguishes its checked long-thread/forest/cycle bounds from the nearest quoted single-level monotone result on K2,2-free graphs. Literature statements in that note were not independently rechecked against papers here. L1772 alone does not assert star profile, global safety, single-level form, or a gate-count lower bound; no direct implication of a known major open bound was established. The remaining exchange is a global mathematical step rather than just missing elementary Lean infrastructure.
+
+2026-11-25T09:01:30.013409+00:00 status_review
+
+Independent review PASS: singleton_filter_route.lean 755 lines SHA256 f191a9e6dc2534c58ddcacbd49c6049d3c3bdc24766c25b7a182130c8c08d0ef; sharing_route.lean 62 lines SHA256 1619062547fc4234fd24b15a89ed59fc2747a5bed96c29d260371a381f4cbdd5. Singleton filter lemmas correctly require explicit safe AND and constrain singleton supports only. Mixed-reader safety is tested at support {d,e,p}; this forces de/dp/ep adjacency. Triangle-free eliminates de, and no-four-cycle common-neighbor uniqueness gives p=a or f=d or f=e. Repeated vertex cases are covered without hidden distinctness assumptions. Source scans clean, build logs no errors.
