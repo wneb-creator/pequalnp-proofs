@@ -41,3 +41,7 @@ The remaining 5-vertex graph type is C5. CNF circuit synthesis with bundled CaDi
 ### Structural literature check (read 2026-11-25)
 
 Primary source: Stasys Jukna, Disproving the Single Level Conjecture, ECCC TR05-021 (2005), https://eccc.weizmann.ac.il/report/2005/021/download/ . Theorem 5 gives an edge-linear bound for formulas on triangle- and C4-free graphs. Pages 15–16 distinguish arbitrary-fanout circuits: dense C4-free graphs yield superlinear formula bounds, while circuit bounds require additional arguments; Problem 24 asks for a superlinear monotone circuit bound for an explicit graph function. This warns against transferring formula bounds directly to the present circuit model. Current open/closed status since 2005: UNVERIFIED (not established by this paper).
+
+Counterexample update 2026-11-25T03:07:19.408404+00:00: C6 size7 synthesis UNSAT and size8 TopForm+anyjunk UNSAT. Explicit8gate standard star circuit validated on all64 inputs, soC6 minimum8 (computational claim). Full logs Counterexample_sat_6_7_base.solver and Counterexample_sat_6_8_junk.solver. Testing theta graph with path lengths2,3,3 at11gates next.
+
+- Structural clarification 2026-11-25T03:08:08.881451+00:00: OrReaches starts at a junk AND gate and stops there, so no OR-reach between distinct junk gates is already syntactically expected; do not interpret that conclusion as a new nesting bound. The substantive partial is semantic incomparability on graph-negative assignments. No multiplicity bound for nested junk follows from incomparability alone.
