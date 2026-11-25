@@ -1,0 +1,73 @@
+Checkpoint 14 independent review: PASS for partial preservation.
+The full target theorem remains absent; no proof PR or target refutation claimed.
+
+inventory_antichain_cost.lean: 2909 lines, 146385 bytes.
+SHA256 6c5bf44dd34d75983bdb64dca15b701783bedcacc037cbcedd1042af6fb19f8f
+Exact reviewed unused_mix prefix. Read 72 new lines: split charges and the
+explicit nonsplit antichain are disjoint, and the previously proved unused OR
+adds a strict extra credit when centreless is empty. The master star-cover
+bound contradicts the proposed all-Ustar cost, using that credit in the zero
+case and the doubled centreless contribution in the positive case. Every
+path, antichain, support, exact-junk and cover hypothesis remains explicit.
+
+restriction_nested_obstruction.lean: 86 lines, 3391 bytes.
+SHA256 d3bdb404177fdb16652a73cbdfdf2aa8cc774e6a83bf16c2f3e1a572faccefc6
+Read the entire finite regression. Nine-gate nested P4 circuit, exact two junk,
+TopForm, cleaners and matching Ustar are checked by kernel decide. No clean
+AND of the stated Fin10 wires, excluding wire8, covers both required edges.
+The explicit four-gate circuit proves the example is NOT least. This blocks
+a proposed local proof strategy only; it does not refute the target.
+
+structural_cleaner_unique.lean: 287 lines, 13745 bytes.
+SHA256 2a018da6df169941cad86dbc10052dcfa4a99becc817c14b316f3f1a2cc15bcf
+Exact reviewed 181-line cleaner prefix. Read five new lemmas: dirty pure
+product supplies a nonedge; two distinct cleaner partners of one cleaner
+would have two distinct common neighbors, contradicting C4 freedom. A
+singleton/joint implication supplies the fixed cleaner for the cardinal
+wrapper. No omitted bipartite or leastness premise is used.
+
+guarded_reuse_exclusion_cases.lean: 2413 lines, 120787 bytes.
+SHA256 91187f813db05b332985b9d92d82d2a9f0e97b0e2997557fc33d4dac36a7e630
+Exact reviewed reuse-exclusion prefix before the replaced wrapper. Read new
+32 lines: package reused stars, combine non-strict guard and forest bounds
+with master to force centreless empty, then apply the explicitly assumed
+strict guard bound for that case. Whole-Ustar coverage, reused-top witnesses,
+injection and cost hypotheses remain caller obligations.
+
+restriction_clean_rewrite.lean: 1863 lines, 83628 bytes.
+SHA256 0d676fb0d7c07e5d8f59ea5840c4deadaea57727a8d5e59740fd84b5feb4f6eb
+Exact reviewed star_edges prefix modulo namespace. Read all 252 new lines.
+New clean replacement need not lower the old gate globally: on negative
+graph inputs it is false, preserving old clean gates; on positive Ustar rows
+the explicit old-acceptance-to-new-acceptance implication preserves output.
+An independent other dirty gate retains its bad witness, so junk is exactly
+a singleton. The nested wrapper edits the later gate to earlier g AND a
+cleaner w, using explicit h<=g and Ustar center coverage. Earlier operand
+availability, clean semantics and the no-one-junk premise remain explicit.
+
+All five sources were confirmed frozen after successful compilation. Logs
+are empty or contain inherited warnings only; no errors; stderr empty.
+Forbidden-syntax scans pass. Finite regression uses only allowed scoped limits.
+
+Previously completed independent reviews consolidated for this checkpoint:
+structural_guarded_mixing_budget.lean, toolchain PASS.
+SHA256 218b26ac8b020b2803ab7c692a43462a6d70292885e751223c568453123fe7fa
+structural_guarded_mixing_antichain.lean, toolchain and proof_inventory PASS.
+SHA256 3d3fc221eede5de45886f7db19fb5027726650dcbef8333e5121583e1c826f26
+structural_guarded_mixing_strict.lean, toolchain and proof_inventory PASS.
+SHA256 b2db33e8c92d20279b8dcb4f4476a259b60f80b8ca6447c828b4d4794246e98c
+guarded_star_separated_budget.lean, proof_inventory PASS.
+SHA256 a06713476484b28b66baaf5590194774d2f9b7410c25f886dd33b209c20607d4
+guarded_reuse_exclusion.lean, proof_inventory PASS.
+SHA256 4b7b159fb7dc185cab5fa2a2b2160ee7feb607d147ac795656a47f779f1abd83
+guarded_reuse_package.lean, proof_inventory PASS.
+SHA256 295156d293908cf3550a7392e8a9ac0bf9598d70272bfb1f5a08101dcdffb406
+
+PROOF_MAP.md independently reviewed and corrected: PASS.
+SHA256 8ff4d0d6bbdb66d0068e4512306457fe0aa9d8affb8da8acf5f67e00c4fab454
+The two requested precision corrections explicitly retain pointwise lowering,
+earlier-wire availability and the leastness/TopForm/nonempty-graph assumptions
+of the cited helper sources. Target absence, the actual-path gap, nonleast
+regression scope, checker fault and interrupted search status are clear.
+
+No desk or git mutations by reviewer.
