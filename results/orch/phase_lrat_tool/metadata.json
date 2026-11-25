@@ -1,0 +1,32 @@
+{
+  "source_sha256": "483193583107e3c94ce00515795aa35827f735a385d110f10f949f51d83815fe",
+  "executable_sha256": "9d902663fa2eab55599e4f3bb7f34de2c12427d9bc6928268e9166d4021fe2a9",
+  "cadical_version": "3.1.0",
+  "build_exit": 0,
+  "build_log_empty": true,
+  "api_review": "PASS, independent counterexample agent",
+  "exact25_control": {
+    "exit": 10,
+    "elapsed_seconds": 3.0126769939997757,
+    "clauses_verified": 1575093,
+    "assignments_verified": 16384,
+    "mismatches": 0,
+    "complete_log": "official25-control/control.log.gz"
+  },
+  "tests": {
+    "contradictory_phase_SAT_exit": 10,
+    "UNSAT_exit": 20,
+    "zero_time_UNKNOWN_exit": 0,
+    "overwrite_rejection_exit": 1,
+    "overwrite_original_hash_unchanged": true
+  },
+  "unsat_lrat": "3 0 1 2 0",
+  "unsat_repo_checker_tokens": [
+    2,
+    0,
+    0,
+    2,
+    1
+  ],
+  "matching_kernel_proof": "results/orch/official_sat/KernelLRATSmoke.lean: KernelLRATSmoke.tiny_unsat"
+}

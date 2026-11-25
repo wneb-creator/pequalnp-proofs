@@ -1,0 +1,61 @@
+[
+  {
+    "name": "sat",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+      "--sat",
+      "-t",
+      "10",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/sat.cnf",
+      "--phase-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-hints.txt",
+      "--lrat-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-lrat-controls/sat.lrat"
+    ],
+    "exit": 10,
+    "trace_bytes": 0
+  },
+  {
+    "name": "unsat",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+      "--sat",
+      "-t",
+      "10",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/unsat.cnf",
+      "--phase-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-hints.txt",
+      "--lrat-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-lrat-controls/unsat.lrat"
+    ],
+    "exit": 20,
+    "trace_bytes": 10
+  },
+  {
+    "name": "unknown",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+      "--sat",
+      "-t",
+      "0",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-pigeonhole.cnf",
+      "--phase-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-hints.txt",
+      "--lrat-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-lrat-controls/unknown.lrat"
+    ],
+    "exit": 0,
+    "trace_bytes": 0
+  },
+  {
+    "name": "overwrite-rejection",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/sat.cnf",
+      "--lrat-file",
+      "/tmp/oec/pequalnp-pilot-85/sat-tool/phase-lrat-controls/unsat.lrat"
+    ],
+    "exit": 1,
+    "proof_preserved": true
+  }
+]

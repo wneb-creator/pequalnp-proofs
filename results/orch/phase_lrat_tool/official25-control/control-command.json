@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-11-25T13:23:05.846436+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+    "--sat",
+    "-t",
+    "30",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official25-phase-control/official.cnf",
+    "--phase-file",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official25-phase-control/phases/phases.txt",
+    "--lrat-file",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official25-phase-control/control.lrat"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "exit_code": 10,
+  "elapsed_seconds": 3.0126769939997757,
+  "result": "SAT",
+  "proof_is_unsat_certificate": false,
+  "scope": "Positive25-gate control, expected SAT"
+}
