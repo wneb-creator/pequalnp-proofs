@@ -1,0 +1,30 @@
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean
+Exit status: 0
+Full stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean:231:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean:266:13: warning: This simp argument is unused:
+  List.getElem_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Ne.symm hgh, show t ≠ g by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean:268:13: warning: This simp argument is unused:
+  List.getElem_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, show t ≠ h by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean:282:15: warning: This simp argument is unused:
+  List.getElem_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [D, Ne.symm hkg, Ne.symm hkh, Ne.symm hkt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

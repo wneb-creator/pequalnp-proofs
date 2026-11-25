@@ -23,3 +23,15 @@ Exact statement: results/orch/statement_2448.txt. Public gap: results/orch/GAP_2
 - Counterexample search: no counterexample through six vertices; larger cases UNKNOWN/timeouts, not negative proofs. C5 witness alone Lean-checked. Full search artifacts in search/.
 - Checker infrastructure: targeted Lean build works. Actual tools/check-lean.mjs returns missing-full-Mathlib-cache FAULT; measured additional disk shortfall ~3.47GiB. No checker acceptance.
 - Latest checkpoint commits: e8bae7bc (named partial), 4ac7dbc9 (C5 and rewrite), 32428976 (cover construction).
+
+## Replan after 45 minutes on L-meta-2448
+
+2026-11-25T07:54:00Z
+
+- Checked and pushed named partial is2715 lines at67ddd24b. It now includes pivotal-edge necessity for every gate of a minimum circuit and a same-size repair for gates with a unique pivotal unordered edge. Separately preserved TwoLeafRepair handles singleton-positive gates with a two-vertex cover of their pivotal edges.
+- The remaining bad-gate case has multiple pivotal edges and can have shared OR supports. PrivateSupportLimitation is an exact8vertex15gate Lean witness: triangle/C4-free, ORcount8, edgecount10. Thus the proposed unrestricted ORcount≥edges−1 route is false. It is not a counterexample to the posted existential claim.
+- or_gate_bound is formalizing an equal-cost three-gate exchange for a matching CNF block. The whole isolated block can be repaired while keeping shared support ORs. General dirty-component decomposition is unresolved. geometry_route pursues that structural obstacle; library_route checks primary literature.
+- Primary literature only establishes the cited C4-free lower bound for single-level circuits. Applying it to arbitrary circuits is unsupported. No full proof or target refutation found.
+- Public map refreshed07:51:31 UTC still marks2448 and1035 conjectural. The two formerly open2448 reduction PRs12430 and12779 are now closed without recording: intake says each contributor already had five live reductions. Our assigned desk response lists three live reductions for the step; we will not submit a fourth.
+- The lease watchdog is alive;07:49:42 renewal expires08:09:42 UTC. Only root holds/renews this lease.
+- A reviewed bounded memfd cache experiment is in preparation to make the unmodified full checker runnable within disk/memory limits. No checker acceptance exists; current checker result is missing-cache FAULT. All compiled source has already been pushed before this infrastructure experiment.

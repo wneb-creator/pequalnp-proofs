@@ -33,3 +33,5 @@ TIMING total=58.5 subagents=7
 
 TwoLeafRepair.lean additionally compiled exit0 (empty log) and independently reviewed PASS: replaces a singleton-positive gate by OR of two inputs if their endpoints cover all pivotal edges. Preserves size/function/monotonicity; not a global normalization theorem. Artifact preserved separately from2715-line named module.
 Before commit, helper trailing blank EOF lines removed only; compiled named-module bytes unchanged. Complete compiler logs intentionally retain original whitespace. Independent reviewer confirmed named source SHA256c703581200c4c2beb6714c9175db1ba2bda4bf933fd3934f466285447f47ae09 and all new source bodies match reviewed components.
+
+MatchingExchange.lean310 lines compiled exit0; independent preflight review PASS, SHA256eede9dcae816833ebc2b948ae5e5fcf455b561d628afed348b0598c7dc288dd4. Three-gate rewrite preserves full function, size, Monotone2 and establishes two local star guarantees under explicit closed-block hypotheses. This is not the posted general existence theorem. Complete compiler log preserved. Extended15-key-lemma axiom audit exit0: only propext, Classical.choice, Quot.sound.
