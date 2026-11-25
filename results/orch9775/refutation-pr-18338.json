@@ -1,0 +1,24 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjUxMjc3MTQ=",
+    "is_bot": false,
+    "login": "ithurtstom",
+    "name": "Thomas Brovelli (Meyer)"
+  },
+  "createdAt": "2026-11-25T17:34:57Z",
+  "files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_9777.lean",
+      "additions": 7611,
+      "deletions": 0
+    }
+  ],
+  "headRefName": "L-meta-9777",
+  "headRefOid": "79345c8812d893da9c305e0d1bec931bb198594a",
+  "isDraft": false,
+  "number": 18338,
+  "state": "OPEN",
+  "title": "L-meta-9777",
+  "updatedAt": "2026-11-25T17:34:57Z",
+  "url": "https://github.com/open-goat/pequalnp-proofs/pull/18338"
+}

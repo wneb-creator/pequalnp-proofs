@@ -1,0 +1,234 @@
+{
+  "verdict": "PASS",
+  "decoder_sha256": "aa30d04d050bab40f52e50928599876d94042f1be3011754a785c34ec2bdf6a0",
+  "decoder_bytes": 3483,
+  "files": [
+    {
+      "file": "results/orch9775/search/compact-packed/P1034.lean",
+      "sha256": "07459d57ae806af55edec392db880365d36400e0aab56487e80af0874dd0c6fa",
+      "facts": 62,
+      "schemes": 76,
+      "I": 1034,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P1038.lean",
+      "sha256": "233968510ef9d47370c9e50e781dcd5842e86e9b576d9832467fe8e94e9aa6e0",
+      "facts": 152,
+      "schemes": 188,
+      "I": 1038,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P11.lean",
+      "sha256": "de2f43477aa8eb7e619691f080e8498bac70d0b5a5f3c0b31af81a1bfb1aa9c6",
+      "facts": 46,
+      "schemes": 59,
+      "I": 11,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P111.lean",
+      "sha256": "3af24e3a3c2f0d64659cc81e7137680537f6b96e838fff32fcebc304d9f2633f",
+      "facts": 323,
+      "schemes": 478,
+      "I": 111,
+      "k": 3
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P1216.lean",
+      "sha256": "c4a90f75b26fd9632334918972207b0cf06be3aeec824efa8dc4cef9aae916b1",
+      "facts": 34,
+      "schemes": 40,
+      "I": 1216,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P1220.lean",
+      "sha256": "e7309df209f4bb84eadadf06fc8f4a88ed1fcb39d928f915bb232b5b47288261",
+      "facts": 97,
+      "schemes": 116,
+      "I": 1220,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P1290.lean",
+      "sha256": "944db2d0bb341ec519dc53170083cb37cd5c922a1e5c150f6592199488691270",
+      "facts": 202,
+      "schemes": 246,
+      "I": 1290,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P164.lean",
+      "sha256": "7b04cde5fd74befa5338dabf7109be84defcc1f1b5f1d53628d3058acffa02a2",
+      "facts": 79,
+      "schemes": 92,
+      "I": 164,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P177.lean",
+      "sha256": "08478bc8ab7eab186535db1d7a693b07d25e45cdc81d553913bcdd25a34d7174",
+      "facts": 156,
+      "schemes": 195,
+      "I": 177,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P197.lean",
+      "sha256": "9a825675f06cb31477ce31400577342e11bff291456b4e09d21ca366674fbe7a",
+      "facts": 164,
+      "schemes": 195,
+      "I": 197,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P2087.lean",
+      "sha256": "963a1a8a3dd5f46476aee135ac89a7b0ee03d97d2846f533223eb553ece1d3ed",
+      "facts": 144,
+      "schemes": 191,
+      "I": 2087,
+      "k": 2
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P2213.lean",
+      "sha256": "3ee5e0e2df926f658e3679732d2a44fb9e2be0d68127796cbb4b990eab332b81",
+      "facts": 289,
+      "schemes": 395,
+      "I": 2213,
+      "k": 2
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P266.lean",
+      "sha256": "29e4c8f71fd7554a93804772a3dc9a35010f6af8862704567f512e26f9205a73",
+      "facts": 34,
+      "schemes": 40,
+      "I": 266,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P298.lean",
+      "sha256": "5835d841a789c1c121ac387cbaa71ea0712056cdd5e1b1783059c54dbe9c42d4",
+      "facts": 149,
+      "schemes": 185,
+      "I": 298,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P400.lean",
+      "sha256": "50bd618daeb2a60d31acf96fdf15d0fc8cc0e93d10b58a7a1bac311629b5b9eb",
+      "facts": 35,
+      "schemes": 41,
+      "I": 400,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P416.lean",
+      "sha256": "0dda157456d9c5bbaec7bed24d94db588f2cf716878c20c2e6003a7a69542020",
+      "facts": 43,
+      "schemes": 48,
+      "I": 416,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P4293.lean",
+      "sha256": "ed0329c33f98a3946101bc8d994289ef55f3e32b656e6f06ee8462f741b456ac",
+      "facts": 334,
+      "schemes": 435,
+      "I": 4293,
+      "k": 2
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P432.lean",
+      "sha256": "0cad31192dd5e8ee8be1af4ad49b2e763dbd32128f0636fec7233bca1af9496e",
+      "facts": 114,
+      "schemes": 131,
+      "I": 432,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P47.lean",
+      "sha256": "0362975e2f3717338b1b71f05d10957df0ea1c5e95516779ca5c806f08068fdb",
+      "facts": 153,
+      "schemes": 202,
+      "I": 47,
+      "k": 2
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P4757.lean",
+      "sha256": "be8e3496b752fe48e1b056f9e31070ffa1fd97cd13b80d18b048c334c118d3d5",
+      "facts": 371,
+      "schemes": 572,
+      "I": 4757,
+      "k": 3
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P525.lean",
+      "sha256": "bdb1a5112615d12a6d6769f556075ae5db28f7e9ea170f2560bccd685f615d0e",
+      "facts": 211,
+      "schemes": 253,
+      "I": 525,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P63.lean",
+      "sha256": "b8baecc9181b5cee997325fb2ee3986123e6d4ddfec758d6bda85bd1026ca81f",
+      "facts": 286,
+      "schemes": 439,
+      "I": 63,
+      "k": 3
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/P645.lean",
+      "sha256": "4a7c9ae2d31bec993c17a4312a4eede469c21bc09fd69d32536dbb9150cd93c6",
+      "facts": 114,
+      "schemes": 133,
+      "I": 645,
+      "k": 1
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/W127.lean",
+      "sha256": "4b62338b5d8f79d39582f3e294089d5b276dd286a6b8ed1b7e3de92ff439ecf7",
+      "facts": 380,
+      "schemes": 628,
+      "I": 127,
+      "k": 3
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/W1290.lean",
+      "sha256": "30ca2adf921ee802429d606e8a68ea79322b2cd8c90f8ad3f1d350078842b083",
+      "facts": 63,
+      "schemes": 72,
+      "I": 1290,
+      "k": 0
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/W16256.lean",
+      "sha256": "07ae5796d69ab85a0023b1a7cf9de078106df6e8ce7b69e480557ebb2b88c566",
+      "facts": 322,
+      "schemes": 556,
+      "I": 16256,
+      "k": 3
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/W4757.lean",
+      "sha256": "87669692ed36a090580568532cefd04cd40f9937607b36b2580b0d95d2ba4ca9",
+      "facts": 228,
+      "schemes": 299,
+      "I": 4757,
+      "k": 2
+    },
+    {
+      "file": "results/orch9775/search/compact-packed/W8488.lean",
+      "sha256": "661a2310da18dc2941ae95dfd2d563053028d38e89f7e3a6d09435913528d753",
+      "facts": 66,
+      "schemes": 74,
+      "I": 8488,
+      "k": 0
+    }
+  ],
+  "total_facts": 4651,
+  "total_schemes": 6379,
+  "scope": "Independent bitfield decoder and actual emitted Nat arrays checked against original semantic constructor JSON; kernel certificate checks still required."
+}

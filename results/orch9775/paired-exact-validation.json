@@ -1,0 +1,37 @@
+{
+  "records": [
+    {
+      "path": "results/orch9775/lemmas/PairedExactFramework.lean",
+      "sha256": "3d7527bb8d4d7f158c741193428aeeedd67b2608dd0e6de87234ea8c963fa093",
+      "bytes": 5974
+    },
+    {
+      "path": "results/orch9775/paired-exact-checked.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/paired-exact-checked.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/paired-axioms.stdout",
+      "sha256": "3b2f56bd030ef55f6e1e14b6e79270a80e0945501aa235b5470d834338a6ecd8",
+      "bytes": 384
+    },
+    {
+      "path": "results/orch9775/paired-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/PAIRED-EXACT.md",
+      "sha256": "6c3fe9f77bd1c7a7afc8f6bcca40d2d566542a84e191c6f722829cdc9adc76ea",
+      "bytes": 2143
+    }
+  ],
+  "compile": "Lean export exit0, empty stdout/stderr",
+  "axioms": "Only propext, Classical.choice, Quot.sound",
+  "scope": "Initial-clause soundness for pairedExact under Bzero<=1; actual finite payloads checked separately."
+}

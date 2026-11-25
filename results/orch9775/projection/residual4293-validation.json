@@ -1,0 +1,8 @@
+{
+  "source": "results/orch9775/lemmas/Residual4293.lean",
+  "sha256": "a9e3c573b2a06745e5f454864a2e365e5ae33cc512e1679d330d0ed35092f341",
+  "bytes": 777,
+  "lines": 16,
+  "exit_code": 0,
+  "scope": "Dependencycompile/export; fullBzero0/Bplus11/I4293exclusion usingResidualShape4293andPublic4293"
+}

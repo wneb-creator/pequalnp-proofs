@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch9775/lemmas/GraphSymmetry.lean",
+  "sha256": "ef9df681b3e74cae0bdf516a6fbc73ca6c0b83d9f4fedb2299d1be75e0126b9a",
+  "bytes": 2483,
+  "lines": 70,
+  "finite_checks": "Four bijective involutions, exactedge/nonedge preservation, identical orbit permutations",
+  "mathematical_review": "rename uses evaluation under x composed with sigma; move_case transports ineligibility by direct image sigma and preserves length/StrictLive/computation. Bplus/Bzero invariance not assumed; downstream classification must be re-applied to the relabeled circuit."
+}

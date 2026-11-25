@@ -1,0 +1,193 @@
+{
+  "target": "lean/PEqualNP/Outside/L_meta_9775.lean",
+  "sha256": "5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923",
+  "bytes": 513216,
+  "lines": 7441,
+  "sources": [
+    {
+      "path": "results/orch9775/lemmas/UpstreamDagTools.lean",
+      "sha256": "9b40c5b76e8629258e9e066712c57e5aa98fc72b16e223f170ff09e9ed4a629a",
+      "bytes": 161586
+    },
+    {
+      "path": "results/orch9775/lemmas/UpstreamGraph.lean",
+      "sha256": "8eed78acb6027b514de1d1d2bd21bf5259f39d7a629e65ebfb2cbe3954e714ff",
+      "bytes": 18424
+    },
+    {
+      "path": "results/orch9775/lemmas/WeightClassification.lean",
+      "sha256": "9c9c1fc9de1a43e3c5f9c1e3b086ab447c2894e0c2b51ffaf25e526789d8a037",
+      "bytes": 19342
+    },
+    {
+      "path": "results/orch9775/lemmas/GraphSymmetry.lean",
+      "sha256": "ef9df681b3e74cae0bdf516a6fbc73ca6c0b83d9f4fedb2299d1be75e0126b9a",
+      "bytes": 2483
+    },
+    {
+      "path": "results/orch9775/lemmas/RelabelSurplus.lean",
+      "sha256": "ad47b24aca4cc10e9226f14ea55e8d6b1dba36b7d8a170fcd3c6d0330a646e5b",
+      "bytes": 1716
+    },
+    {
+      "path": "results/orch9775/lemmas/CompactFramework.lean",
+      "sha256": "1e63cb9679d9b1dc38b3a2dea7646a142219c06e7029ba1af55c1060174e95f1",
+      "bytes": 38549
+    },
+    {
+      "path": "results/orch9775/lemmas/WeakCompactFramework.lean",
+      "sha256": "8305e2baa3d8c2f55930736fe662276301249dce306ab8f88140c5b2acf3ef51",
+      "bytes": 9483
+    },
+    {
+      "path": "results/orch9775/lemmas/PairedExactFramework.lean",
+      "sha256": "3d7527bb8d4d7f158c741193428aeeedd67b2608dd0e6de87234ea8c963fa093",
+      "bytes": 5974
+    },
+    {
+      "path": "results/orch9775/lemmas/CompactPacking.lean",
+      "sha256": "aa30d04d050bab40f52e50928599876d94042f1be3011754a785c34ec2bdf6a0",
+      "bytes": 3483
+    },
+    {
+      "path": "results/orch9775/lemmas/PrivateProjectionSelected.lean",
+      "sha256": "f9277fb575a9d6808779f8e883933521adcf7e4e78ea02f2cd205d9541385f14",
+      "bytes": 15965
+    },
+    {
+      "path": "results/orch9775/lemmas/Projection63.lean",
+      "sha256": "720a6d420ac8b725f59dab63ad08fe8c976a851029f8cd4e0c4796262f6f284f",
+      "bytes": 1223
+    },
+    {
+      "path": "results/orch9775/lemmas/ResidualCodeExclusions.lean",
+      "sha256": "cdda0cfe67ff87bd05df353755ce49373ace078733c854e61bb0955d10182aa5",
+      "bytes": 14681
+    },
+    {
+      "path": "results/orch9775/lemmas/ResidualShape4293.lean",
+      "sha256": "17d87f83552ed555b6f75cfeba04cf55fc54da54072ba68cca2cd58081f21be8",
+      "bytes": 4369
+    },
+    {
+      "path": "results/orch9775/lemmas/Public4293.lean",
+      "sha256": "8029db2ea407f35996febfb335ed32f4345a9ab0465f4a98e942122812c6b722",
+      "bytes": 3281
+    },
+    {
+      "path": "results/orch9775/lemmas/Residual4293.lean",
+      "sha256": "a9e3c573b2a06745e5f454864a2e365e5ae33cc512e1679d330d0ed35092f341",
+      "bytes": 777
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P11.lean",
+      "sha256": "3ced6aa8a70ae88e8615eda001fd3eb46d294814b9a9e29a25f0a8fd52ee5f6b",
+      "bytes": 3531
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P47.lean",
+      "sha256": "3774fc76fb1cf79fe560974864021e4c0819cb9c7fb7970eb725982ca71ad521",
+      "bytes": 11983
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P164.lean",
+      "sha256": "ceaf9f9f51e1a3446ab4ef53d6ee227c39e4e617be964ea07e7c23902dc0e079",
+      "bytes": 4699
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P177.lean",
+      "sha256": "a8c8f6c7ddd150d9914559c8c5c69bc9b37b774e300dbd6a5974182c7fa57260",
+      "bytes": 9710
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P197.lean",
+      "sha256": "ad86c6e9943dcdf2cbf2836bd463d6dd7268f404a9c5059e2c331072bdfb3db6",
+      "bytes": 9638
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P266.lean",
+      "sha256": "efc74931fbf8e824c2c1988e6557c9724802ecbd49bf6028cdcbf0e0810caf4a",
+      "bytes": 2941
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P298.lean",
+      "sha256": "b7aa0db97c343412a899f27dc12e69463ec399579500110628dbb55bf59cb980",
+      "bytes": 8729
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P400.lean",
+      "sha256": "5135441ee65730859ea8f41897786e728cd436d196839d35d445a368fd42432d",
+      "bytes": 3088
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P416.lean",
+      "sha256": "8a6dfb579cef7a393d740d0f8dc063a2238cc5a3f4b7a28e346f33d62b85b3fa",
+      "bytes": 3287
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P432.lean",
+      "sha256": "98a231d8a3f0a7e5f0e9407afe2e6f111f4a316bca2f22dbaaea01fb3221ee95",
+      "bytes": 6627
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P525.lean",
+      "sha256": "23b8403426b1fc7b2a23e6dd5b772e44688d40be843da6f8cc4380f34e97b34d",
+      "bytes": 11820
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P645.lean",
+      "sha256": "6a0f85854e9dc8b604f19dba975eab574d1cbe8e23a2768210429e1469567220",
+      "bytes": 6933
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P1034.lean",
+      "sha256": "d49c782c42c887fedf530015a0b71709ffaa930fc2154e7655f164e38dd27556",
+      "bytes": 4403
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P1038.lean",
+      "sha256": "cf9363bca098d53fef3eee495e8f6fac637c1afdc5c131fccd5de60a60f56082",
+      "bytes": 9436
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P1216.lean",
+      "sha256": "7ba6219474df93fb639994ab9e31efe7d0cdf28703941e6167228c1af7242f76",
+      "bytes": 2980
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P1220.lean",
+      "sha256": "bc938d5e12cf22ce21468279a4be42bab597f1b02f6e7cd17259b9c9f5b297d8",
+      "bytes": 5969
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P1290.lean",
+      "sha256": "b103c465165e90e7527943db419fe020b288b7b17ec395420132558486b706dc",
+      "bytes": 11318
+    },
+    {
+      "path": "results/orch9775/search/compact-final/P2087.lean",
+      "sha256": "7e8dc529a5c9b9165f444507fefa054f34702d0a605689ee77eeea06358482d8",
+      "bytes": 10869
+    },
+    {
+      "path": "results/orch9775/search/compact-final/W127.lean",
+      "sha256": "d0e02ad4aefa87ee425a4c62d7cf1ae8583e12b214ec8445c02eba942b1a83cf",
+      "bytes": 46834
+    },
+    {
+      "path": "results/orch9775/search/compact-final/W1290.lean",
+      "sha256": "c740921d0e0bbe68ac1eebcefb88ec850c3add77852b11a1f0feebf8d2084d84",
+      "bytes": 4258
+    },
+    {
+      "path": "results/orch9775/search/compact-final/W4757.lean",
+      "sha256": "a48739effd0a5361f69c3c802a800119b503394b4233fa486a4cb03fecdc09d7",
+      "bytes": 16018
+    },
+    {
+      "path": "results/orch9775/lemmas/CompleteRefutationSlim.lean",
+      "sha256": "fcc32a65996638b4e5a0ad7bdc2dd422e38a15ccba5fe0fcf0078aa36f557949",
+      "bytes": 18039
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "source": "results/orch9775/lemmas/Projection63.lean",
+  "sha256": "0eb8d3da8cf8e662fd9533a93b94e738a7be6c8f4557238a8d1e705dc92123e4",
+  "bytes": 1224,
+  "lines": 29,
+  "scope": "Dependency compile/export againstUpstreamGraph; Bzero0 andmask63 impliesBplus>=12"
+}

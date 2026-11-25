@@ -1,0 +1,39 @@
+{
+  "records": [
+    {
+      "path": "results/orch9775/lemmas/CompactFramework.lean",
+      "sha256": "1e63cb9679d9b1dc38b3a2dea7646a142219c06e7029ba1af55c1060174e95f1",
+      "bytes": 38549,
+      "lines": 865
+    },
+    {
+      "path": "results/orch9775/lemmas/WeakCompactFramework.lean",
+      "sha256": "8305e2baa3d8c2f55930736fe662276301249dce306ab8f88140c5b2acf3ef51",
+      "bytes": 9483,
+      "lines": 198
+    },
+    {
+      "path": "results/orch9775/compact-framework-final.stdout",
+      "sha256": "c3b15e285dddd81b89d44b7a4686d79712884bfc3b5ad827665beb440500822e",
+      "bytes": 1155
+    },
+    {
+      "path": "results/orch9775/compact-framework-final.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/weak-compact-checked.stdout",
+      "sha256": "e47d7a73fd609d124db3a9c612211cccbd3bf4dbfd4b5bfbc56fb76696bd478a",
+      "bytes": 940
+    },
+    {
+      "path": "results/orch9775/weak-compact-checked.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "checks": "Both Lean exports exit0; deprecation warnings only",
+  "provenance": "CompactFramework extracted L9774 ranges4130\u20134225,5235\u20135300,5420\u20135477,5563\u20136241,namespaceadapted,oldmaskBook/field/readFact/readScheme removed. No learned proofpayloads.",
+  "weak_scope": "construct_layout_budget needs Bplus+cardI=14+k; weak proof checker excludesexactAt andneeds no Bzero assumption. No fullgapresult."
+}

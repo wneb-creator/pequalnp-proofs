@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T17:49:18.325437+00:00",
+  "source": "results/orch9775/lemmas/CompleteRefutationSlim.lean",
+  "sha256": "fcc32a65996638b4e5a0ad7bdc2dd422e38a15ccba5fe0fcf0078aa36f557949",
+  "bytes": 18039,
+  "lines": 293,
+  "export_exit": 0,
+  "statement": "Exact negation of leased L-meta-9775",
+  "scope": "Complete modular Lean proof; standalone format/checker and negative twin lease still pending"
+}

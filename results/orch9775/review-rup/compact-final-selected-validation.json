@@ -1,0 +1,202 @@
+{
+  "verdict": "PASS for all21 final selected certificate modules; coverage and final assembled theorem separate.",
+  "selection_sha256": "c0b43c42747e3d3437c8a18b082dd2c941b7c43b151d16e76644579ac76c1f71",
+  "selected_count": 21,
+  "selected_source_bytes": 194981,
+  "all22_archived_modules_Lean_checked": true,
+  "selected_base_clauses": 3430,
+  "selected_learned_clauses": 1977,
+  "decoder_sha256": "aa30d04d050bab40f52e50928599876d94042f1be3011754a785c34ec2bdf6a0",
+  "auditor_sha256": "71537a873f939ec7fb98b4714190ffea6e3b3efe8ec0c2f568e1ec86a5550470",
+  "records": [
+    {
+      "name": "P1034",
+      "source_sha256": "d49c782c42c887fedf530015a0b71709ffaa930fc2154e7655f164e38dd27556",
+      "core_sha256": "a96f371e0d6a5d392f68ae7af23f5ec768e60c59d7d88ba94d80b9329d1c3601",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 76,
+      "learned": 43
+    },
+    {
+      "name": "P1038",
+      "source_sha256": "cf9363bca098d53fef3eee495e8f6fac637c1afdc5c131fccd5de60a60f56082",
+      "core_sha256": "29871b8c719da9fd7fb169fa87cead28baeaad9899bb19d1efc08d79dc3ddb79",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 188,
+      "learned": 105
+    },
+    {
+      "name": "P11",
+      "source_sha256": "3ced6aa8a70ae88e8615eda001fd3eb46d294814b9a9e29a25f0a8fd52ee5f6b",
+      "core_sha256": "91f6f3d9010a0fc8350b89b6151d895b02b7a810c0df2ba383e53d2704d02b47",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 59,
+      "learned": 24
+    },
+    {
+      "name": "P1216",
+      "source_sha256": "7ba6219474df93fb639994ab9e31efe7d0cdf28703941e6167228c1af7242f76",
+      "core_sha256": "11d4aef6532d33e9043399cd7452626d565a4906f5d7ade4f78249a2eda09fce",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 40,
+      "learned": 24
+    },
+    {
+      "name": "P1220",
+      "source_sha256": "bc938d5e12cf22ce21468279a4be42bab597f1b02f6e7cd17259b9c9f5b297d8",
+      "core_sha256": "46d3ea570335776d048dac587e4e0806fed0d95e8ef6769ed0ab91fbfc90a5a8",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 116,
+      "learned": 60
+    },
+    {
+      "name": "P1290",
+      "source_sha256": "b103c465165e90e7527943db419fe020b288b7b17ec395420132558486b706dc",
+      "core_sha256": "4173797567bd5bbb52283665894a1cc9547ebebf8f298c357d0caacc946598fc",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 246,
+      "learned": 110
+    },
+    {
+      "name": "P164",
+      "source_sha256": "ceaf9f9f51e1a3446ab4ef53d6ee227c39e4e617be964ea07e7c23902dc0e079",
+      "core_sha256": "5e15b8ea9b55348f07fcb98e8ba8be8b9704d5b30e721b37985772217710849b",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 92,
+      "learned": 36
+    },
+    {
+      "name": "P177",
+      "source_sha256": "a8c8f6c7ddd150d9914559c8c5c69bc9b37b774e300dbd6a5974182c7fa57260",
+      "core_sha256": "0640e31fee1c3b165286f320e2668178b25fa35ba9c5b88e8a0c2b4fbdad6538",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 195,
+      "learned": 101
+    },
+    {
+      "name": "P197",
+      "source_sha256": "ad86c6e9943dcdf2cbf2836bd463d6dd7268f404a9c5059e2c331072bdfb3db6",
+      "core_sha256": "fb0696ca1b06da49309a54f2c4ab7c4d61eddc0c0cdfc5317cc17c63b05a1637",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 195,
+      "learned": 106
+    },
+    {
+      "name": "P2087",
+      "source_sha256": "7e8dc529a5c9b9165f444507fefa054f34702d0a605689ee77eeea06358482d8",
+      "core_sha256": "2b1ffdea2fe8ca8c45b30e85087721004f3a7d4583c64c838548b0099287a13f",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 191,
+      "learned": 110
+    },
+    {
+      "name": "P266",
+      "source_sha256": "efc74931fbf8e824c2c1988e6557c9724802ecbd49bf6028cdcbf0e0810caf4a",
+      "core_sha256": "6bd43c18c0178d1cb30b7bdf145ee6b94bbb457ade70935c0e5f10b26254e445",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 40,
+      "learned": 24
+    },
+    {
+      "name": "P298",
+      "source_sha256": "b7aa0db97c343412a899f27dc12e69463ec399579500110628dbb55bf59cb980",
+      "core_sha256": "0c8e858cb22538a77803c137e3d5ea32ff1907f8ecc1b82eb968650783febf7a",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 185,
+      "learned": 85
+    },
+    {
+      "name": "P400",
+      "source_sha256": "5135441ee65730859ea8f41897786e728cd436d196839d35d445a368fd42432d",
+      "core_sha256": "d8f3412e18bffeaccb03d401ad541a5be9c61ec01f7e8cc9356d8fa4e3a0201b",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 41,
+      "learned": 24
+    },
+    {
+      "name": "P416",
+      "source_sha256": "8a6dfb579cef7a393d740d0f8dc063a2238cc5a3f4b7a28e346f33d62b85b3fa",
+      "core_sha256": "059efc42b714663c93c3ab50db09215057047bbc8b0d07b3338fc43812eaa879",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 48,
+      "learned": 24
+    },
+    {
+      "name": "P432",
+      "source_sha256": "98a231d8a3f0a7e5f0e9407afe2e6f111f4a316bca2f22dbaaea01fb3221ee95",
+      "core_sha256": "814782c378efb8655680034448e87022096523a12e94e3190d6f1fa57efdc5f3",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 131,
+      "learned": 71
+    },
+    {
+      "name": "P47",
+      "source_sha256": "3774fc76fb1cf79fe560974864021e4c0819cb9c7fb7970eb725982ca71ad521",
+      "core_sha256": "3e192be2116d46b42fc016cd8e156d92d92cdb54d4ee78fba09d8ac7819c1410",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 202,
+      "learned": 144
+    },
+    {
+      "name": "P525",
+      "source_sha256": "23b8403426b1fc7b2a23e6dd5b772e44688d40be843da6f8cc4380f34e97b34d",
+      "core_sha256": "40aed5609ed39df8c89a509bf83340689b5cc82359cfbf104915e97eebd97316",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 253,
+      "learned": 123
+    },
+    {
+      "name": "P645",
+      "source_sha256": "6a0f85854e9dc8b604f19dba975eab574d1cbe8e23a2768210429e1469567220",
+      "core_sha256": "95ecb9700a3ef03b8aa5fbdaa70b03c115137aa39999e2126b6f68536c7deaa1",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 133,
+      "learned": 77
+    },
+    {
+      "name": "W127",
+      "source_sha256": "d0e02ad4aefa87ee425a4c62d7cf1ae8583e12b214ec8445c02eba942b1a83cf",
+      "core_sha256": "76f2091fcb59981e136fe2f036a252de8251c71970560cca61b7a142eee20deb",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 628,
+      "learned": 464
+    },
+    {
+      "name": "W4757",
+      "source_sha256": "a48739effd0a5361f69c3c802a800119b503394b4233fa486a4cb03fecdc09d7",
+      "core_sha256": "c3fd426def794dd3bc9d579f95253449e53fbe7638128480dd00fb9c615c6c8e",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 299,
+      "learned": 176
+    },
+    {
+      "name": "W1290",
+      "source_sha256": "c740921d0e0bbe68ac1eebcefb88ec850c3add77852b11a1f0feebf8d2084d84",
+      "core_sha256": "f287722c495ad72d91d7313b9fcac33e9008c77f20844f1a1632dffc54c98726",
+      "kernel_check_exit": 0,
+      "complete_logs_empty": true,
+      "base": 72,
+      "learned": 46
+    }
+  ]
+}

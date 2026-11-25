@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-25T17:50:57.390658+00:00",
+  "target": "lean/PEqualNP/Outside/L_meta_9775.lean",
+  "sha256": "5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923",
+  "bytes": 513216,
+  "lines": 7441,
+  "source_count": 37,
+  "remaining_bytes_before_512KiB": 11072,
+  "exact_concatenation_verified": true,
+  "private_selection_verified": [
+    55,
+    95,
+    103,
+    119,
+    123,
+    181,
+    229,
+    245,
+    661,
+    2693,
+    4245,
+    4309,
+    5190
+  ],
+  "only_import": "PEqualNP.Defs",
+  "format_scan": "PASS",
+  "build_status": "Root standalone lake build in progress; no checker verdict yet"
+}

@@ -1,0 +1,7 @@
+Independent review: PASS at CompactPacking.lean SHA256 aa30d04d050bab40f52e50928599876d94042f1be3011754a785c34ec2bdf6a0 (3483 bytes).
+
+The decoder uses five tag bits followed by six bits per field. I checked every constructor against the declared Fact, Scheme, and BudgetScheme parameter order. Vertex and edge fields are converted to Fin14 and Fin19; all emitted values lie strictly inside those ranges, so modular conversion changes nothing. Boolean fields are exactly0 or1. Mask-index fields refer to the exact36-entry maximal-independent mask list. Tag21 decodes pairedExact, and all other budget tags wrap the corresponding plain scheme.
+
+An independent Python decoder parsed the actual emitted Nat arrays/lists in all28 current compact-packed Lean files, decoded4651 facts and6379 schemes, and compared each list exactly against its original semantic JSON. All comparisons passed, including weak/paired cases and literal direction fields. The audit rejects invalid tags, out-of-range fields, truncated high bits, and mask indices outside the table. File hashes are recorded in packing-independent.json.
+
+This representation change adds no trusted premise: `inputsOK` or `inputsOKBudget` still kernel-evaluates each decoded scheme and clause, and the resolution checker still checks the derived proof. Successful decoder compilation alone does not establish a certificate; the generated certificate theorem must also compile.

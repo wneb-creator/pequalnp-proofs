@@ -1,0 +1,108 @@
+{
+  "scope": "Framework/source audit; final packed payload audit pending final serializer and Lean batch.",
+  "records": [
+    {
+      "path": "results/orch9775/lemmas/CompactFramework.lean",
+      "sha256": "1e63cb9679d9b1dc38b3a2dea7646a142219c06e7029ba1af55c1060174e95f1",
+      "bytes": 38549,
+      "flags": {
+        "sorry": false,
+        "axiom_declaration": false,
+        "native_decide": false,
+        "unsafe": false,
+        "root_marker": false,
+        "quotes": false
+      },
+      "attributes": [],
+      "options": [
+        "maxHeartbeats",
+        "maxRecDepth"
+      ]
+    },
+    {
+      "path": "results/orch9775/lemmas/WeakCompactFramework.lean",
+      "sha256": "8305e2baa3d8c2f55930736fe662276301249dce306ab8f88140c5b2acf3ef51",
+      "bytes": 9483,
+      "flags": {
+        "sorry": false,
+        "axiom_declaration": false,
+        "native_decide": false,
+        "unsafe": false,
+        "root_marker": false,
+        "quotes": false
+      },
+      "attributes": [],
+      "options": []
+    },
+    {
+      "path": "results/orch9775/lemmas/PairedExactFramework.lean",
+      "sha256": "3d7527bb8d4d7f158c741193428aeeedd67b2608dd0e6de87234ea8c963fa093",
+      "bytes": 5974,
+      "flags": {
+        "sorry": false,
+        "axiom_declaration": false,
+        "native_decide": false,
+        "unsafe": false,
+        "root_marker": false,
+        "quotes": false
+      },
+      "attributes": [],
+      "options": []
+    },
+    {
+      "path": "results/orch9775/search/compact_cnf.py",
+      "sha256": "0d830650fcbae64b0e04d9e00f61d1361fdec7ce2f0e594152467ceb044a9852",
+      "bytes": 6799
+    },
+    {
+      "path": "results/orch9775/search/compact_certificate.py",
+      "sha256": "96c4def63d30aa72be821988d5955973d55b1d1387f2dc6a6cd9878a08c1a511",
+      "bytes": 7917
+    },
+    {
+      "path": "results/orch9775/search/compact_trim.py",
+      "sha256": "a68b6bcdfd7459821a957cfc167c4299ae9370a3bc2eb20d4d78f5256417d4ed",
+      "bytes": 1283
+    },
+    {
+      "path": "results/orch9775/compact-framework-final.stdout",
+      "sha256": "c3b15e285dddd81b89d44b7a4686d79712884bfc3b5ad827665beb440500822e",
+      "bytes": 1155
+    },
+    {
+      "path": "results/orch9775/compact-framework-final.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/weak-compact-checked.stdout",
+      "sha256": "e47d7a73fd609d124db3a9c612211cccbd3bf4dbfd4b5bfbc56fb76696bd478a",
+      "bytes": 940
+    },
+    {
+      "path": "results/orch9775/weak-compact-checked.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/paired-exact-checked.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/paired-exact-checked.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/paired-axioms.stdout",
+      "sha256": "3b2f56bd030ef55f6e1e14b6e79270a80e0945501aa235b5470d834338a6ecd8",
+      "bytes": 384
+    },
+    {
+      "path": "results/orch9775/paired-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

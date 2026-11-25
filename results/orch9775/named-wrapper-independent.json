@@ -1,0 +1,106 @@
+{
+  "verdict": "PASS for actual named finalstatement, casecoverage andtransport; lakebuildpending",
+  "source": "lean/PEqualNP/Outside/L_meta_9775.lean",
+  "sha256": "5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923",
+  "bytes": 513216,
+  "lines": 7441,
+  "posted_statement": "exact syntactic negation after whitespace normalization",
+  "cap9_survivors": 0,
+  "cap10_cases": [
+    127,
+    1290,
+    4757,
+    8488,
+    16256
+  ],
+  "cap11_cases": 117,
+  "cap11_dispatch_counts": {
+    "Compact_orbits": 18,
+    "private_orbits": 13,
+    "short_orbits": 5,
+    "side_orbits": 1
+  },
+  "named_permutations": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      4,
+      1,
+      6,
+      12,
+      8,
+      9,
+      13,
+      11,
+      7,
+      10
+    ],
+    [
+      7,
+      10,
+      12,
+      8,
+      9,
+      13,
+      11,
+      0,
+      3,
+      4,
+      1,
+      6,
+      2,
+      5
+    ],
+    [
+      12,
+      13,
+      7,
+      8,
+      9,
+      10,
+      11,
+      2,
+      3,
+      4,
+      5,
+      6,
+      0,
+      1
+    ]
+  ],
+  "cap10_transfers": [
+    [
+      "8488",
+      "1290",
+      "1",
+      "1",
+      "1290"
+    ],
+    [
+      "16256",
+      "127",
+      "2",
+      "2",
+      "127"
+    ]
+  ],
+  "semantic_review": "cap10 relabel uses explicitlyprovedsupport-surplusbijection; cap11 re-appliesno_empty_surplusafterrelabel; normalizedCircuit\u21d2strictliveDag preservesfunction/size. NoBzeroassumptionleaksintocap10."
+}

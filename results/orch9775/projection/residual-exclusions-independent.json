@@ -1,0 +1,176 @@
+{
+  "utc": "2026-11-25T17:45:52.507409+00:00",
+  "source_sha256": "cdda0cfe67ff87bd05df353755ce49373ace078733c854e61bb0955d10182aa5",
+  "cases": [
+    {
+      "mask": 111,
+      "residual_card": 3,
+      "variables": [
+        9,
+        10,
+        11,
+        13
+      ],
+      "relations": [
+        [
+          "diff",
+          9,
+          11
+        ],
+        [
+          "diff",
+          9,
+          13
+        ],
+        [
+          "diff",
+          10,
+          9
+        ],
+        [
+          "excludes",
+          10,
+          13
+        ],
+        [
+          "diff",
+          11,
+          9
+        ],
+        [
+          "excludes",
+          11,
+          10
+        ],
+        [
+          "excludes",
+          11,
+          13
+        ],
+        [
+          "diff",
+          13,
+          9
+        ],
+        [
+          "excludes",
+          13,
+          10
+        ],
+        [
+          "excludes",
+          13,
+          11
+        ]
+      ],
+      "all_geometry_verified": true,
+      "assignments_checked": 4096,
+      "survivors": []
+    },
+    {
+      "mask": 4757,
+      "residual_card": 3,
+      "variables": [
+        3,
+        5,
+        8,
+        13
+      ],
+      "relations": [
+        [
+          "diff",
+          3,
+          5
+        ],
+        [
+          "excludes",
+          3,
+          13
+        ],
+        [
+          "diff",
+          5,
+          3
+        ],
+        [
+          "excludes",
+          5,
+          8
+        ],
+        [
+          "excludes",
+          5,
+          13
+        ],
+        [
+          "excludes",
+          8,
+          3
+        ],
+        [
+          "diff",
+          8,
+          13
+        ],
+        [
+          "excludes",
+          13,
+          3
+        ],
+        [
+          "excludes",
+          13,
+          5
+        ],
+        [
+          "diff",
+          13,
+          8
+        ]
+      ],
+      "all_geometry_verified": true,
+      "assignments_checked": 4096,
+      "survivors": []
+    },
+    {
+      "mask": 2213,
+      "residual_card": 2,
+      "variables": [
+        3,
+        6,
+        8,
+        10
+      ],
+      "relations": [
+        [
+          "diff",
+          3,
+          6
+        ],
+        [
+          "excludes",
+          8,
+          3
+        ],
+        [
+          "diff",
+          8,
+          10
+        ],
+        [
+          "excludes",
+          10,
+          3
+        ],
+        [
+          "diff",
+          10,
+          8
+        ]
+      ],
+      "all_geometry_verified": true,
+      "assignments_checked": 256,
+      "survivors": []
+    }
+  ]
+}

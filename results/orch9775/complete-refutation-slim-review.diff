@@ -1,0 +1,74 @@
+--- reviewed-initial
++++ CompleteRefutationSlim
+@@ -1,5 +1,6 @@
+ import WeightClassification
+ import GraphSymmetry
++import RelabelSurplus
+ import PrivateProjection
+ import Projection63
+ import ResidualCodeExclusions
+@@ -21,12 +22,10 @@
+ import P1220
+ import P1290
+ import P2087
+-import P4293
++import Residual4293
+ import W127
+ import W1290
+ import W4757
+-import W8488
+-import W16256
+ 
+ namespace PEqualNP.Outside.L_meta_9775.UpstreamCore
+ 
+@@ -42,18 +41,29 @@
+   have bz : Bzero 14 D≤1 := by omega
+   have ten := ht small
+   simp only [tenMasks,List.mem_cons,List.not_mem_nil,or_false] at ten
++  have transfer (i j : Nat) (a : Equiv.Perm V) (perm : auto a)
++      (ei : mask i=ineligSet 14 D) (mv : (mask i).image a=mask j)
++      (impossible : ∀ {E : Dag}, StrictLive 14 E → sem_Comp 14 adj E →
++        Bzero 14 E≤1 → Bplus 14 E=10 → mask j=ineligSet 14 E → False) : False := by
++    have strict := relabel_strictLive a h
++    have comp := rename h hc a perm
++    have zero : Bzero 14 (relabel a D)≤1 := by simpa only [relabel_Bzero a h] using bz
++    have plus : Bplus 14 (relabel a D)=10 := by simpa only [relabel_Bplus a h] using bp
++    have pat : mask j=ineligSet 14 (relabel a D) := by
++      rw [relabel_ineligSet a h.1, ←ei, mv]
++    exact impossible strict comp zero plus pat
+   rcases ten with rfl | rfl | rfl | rfl | rfl
+   · exact Compact.excludeW127 h hc bz bp eq
+   · exact Compact.excludeW1290 h hc bz bp eq
+   · exact Compact.excludeW4757 h hc bz bp eq
+-  · exact Compact.excludeW8488 h hc bz bp eq
+-  · exact Compact.excludeW16256 h hc bz bp eq
++  · exact transfer 8488 1290 graphPerm1 auto1 eq (by decide +kernel) Compact.excludeW1290
++  · exact transfer 16256 127 graphPerm2 auto2 eq (by decide +kernel) Compact.excludeW127
+ 
+ theorem no_empty_surplus {D : Dag} (h : StrictLive 14 D) (hc : sem_Comp 14 adj D)
+     (short : D.length ≤ 24) : Bplus 14 D=11 ∧ Bzero 14 D=0 := by
+   have total := surplus_identity h
+   rw [totalSurplus_split] at total
+-  have notSmall := cap_ten_impossible h hc short
++  have high : 10 < Bplus 14 D := lt_of_not_ge (cap_ten_impossible h hc short)
+   omega
+ 
+ theorem reject55 {D : Dag} (h : StrictLive 14 D) (hc : sem_Comp 14 adj D)
+@@ -213,7 +223,7 @@
+   · exact shift 4241 645 graphPerm2 auto2 eq (by decide +kernel) Compact.excludeP645
+   · exact shift 4244 645 graphPerm3 auto3 eq (by decide +kernel) Compact.excludeP645
+   · exact shift 4245 4245 graphPerm0 auto0 eq (by decide +kernel) reject4245
+-  · exact shift 4293 4293 graphPerm0 auto0 eq (by decide +kernel) Compact.excludeP4293
++  · exact shift 4293 4293 graphPerm0 auto0 eq (by decide +kernel) residual_exclude4293
+   · exact shift 4305 2693 graphPerm2 auto2 eq (by decide +kernel) reject2693
+   · exact shift 4308 2693 graphPerm3 auto3 eq (by decide +kernel) reject2693
+   · exact shift 4309 4309 graphPerm0 auto0 eq (by decide +kernel) reject4309
+@@ -236,7 +246,7 @@
+   · exact shift 6151 2213 graphPerm1 auto1 eq (by decide +kernel) reject2213
+   · exact shift 6273 197 graphPerm2 auto2 eq (by decide +kernel) Compact.excludeP197
+   · exact shift 6276 197 graphPerm3 auto3 eq (by decide +kernel) Compact.excludeP197
+-  · exact shift 6277 4293 graphPerm2 auto2 eq (by decide +kernel) Compact.excludeP4293
++  · exact shift 6277 4293 graphPerm2 auto2 eq (by decide +kernel) residual_exclude4293
+   · exact shift 6661 2693 graphPerm1 auto1 eq (by decide +kernel) reject2693
+   · exact shift 6789 4309 graphPerm2 auto2 eq (by decide +kernel) reject4309
+   · exact shift 7174 5190 graphPerm2 auto2 eq (by decide +kernel) reject5190

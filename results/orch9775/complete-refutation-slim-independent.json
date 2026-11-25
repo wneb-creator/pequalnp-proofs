@@ -1,0 +1,24 @@
+{
+  "reviewed_utc": "2026-11-25T17:49:49.636802+00:00",
+  "source_sha256": "fcc32a65996638b4e5a0ad7bdc2dd422e38a15ccba5fe0fcf0078aa36f557949",
+  "bytes": 18039,
+  "lines": 293,
+  "compiled_export_exit": 0,
+  "full_success_streams_empty": true,
+  "unchanged_final_theorem_and_proof": true,
+  "all_117_branches_preserved": true,
+  "new_weak_transfers_verified": [
+    [
+      8488,
+      1290,
+      1
+    ],
+    [
+      16256,
+      127,
+      2
+    ]
+  ],
+  "replaced_strong_representative": 4293,
+  "standalone_checker_pending": true
+}

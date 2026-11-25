@@ -1,0 +1,741 @@
+{
+  "verdict": "PASS for exhaustive finite coverage/arithmetic/graph automorphisms; full Lean assembly pending",
+  "graph_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      12
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      11
+    ]
+  ],
+  "weight_rows": 130,
+  "all_masks_tested": 16384,
+  "cap9_survivors": 0,
+  "cap10_survivors": [
+    127,
+    1290,
+    4757,
+    8488,
+    16256
+  ],
+  "cap10_residual_counts": {
+    "127": 3,
+    "1290": 0,
+    "4757": 2,
+    "8488": 0,
+    "16256": 3
+  },
+  "cap11_survivors": 117,
+  "automorphisms_verified": 4,
+  "orbits": 37,
+  "certificate_orbits": 36,
+  "side_masks": [
+    127,
+    16256
+  ],
+  "transport": [
+    {
+      "source": 11,
+      "representative": 11,
+      "permutation_index": 0
+    },
+    {
+      "source": 44,
+      "representative": 11,
+      "permutation_index": 1
+    },
+    {
+      "source": 1408,
+      "representative": 11,
+      "permutation_index": 2
+    },
+    {
+      "source": 12544,
+      "representative": 11,
+      "permutation_index": 3
+    },
+    {
+      "source": 47,
+      "representative": 47,
+      "permutation_index": 0
+    },
+    {
+      "source": 13696,
+      "representative": 47,
+      "permutation_index": 2
+    },
+    {
+      "source": 55,
+      "representative": 55,
+      "permutation_index": 0
+    },
+    {
+      "source": 13952,
+      "representative": 55,
+      "permutation_index": 2
+    },
+    {
+      "source": 63,
+      "representative": 63,
+      "permutation_index": 0
+    },
+    {
+      "source": 14208,
+      "representative": 63,
+      "permutation_index": 2
+    },
+    {
+      "source": 95,
+      "representative": 95,
+      "permutation_index": 0
+    },
+    {
+      "source": 125,
+      "representative": 95,
+      "permutation_index": 1
+    },
+    {
+      "source": 8064,
+      "representative": 95,
+      "permutation_index": 2
+    },
+    {
+      "source": 15232,
+      "representative": 95,
+      "permutation_index": 3
+    },
+    {
+      "source": 103,
+      "representative": 103,
+      "permutation_index": 0
+    },
+    {
+      "source": 15488,
+      "representative": 103,
+      "permutation_index": 2
+    },
+    {
+      "source": 111,
+      "representative": 111,
+      "permutation_index": 0
+    },
+    {
+      "source": 15744,
+      "representative": 111,
+      "permutation_index": 2
+    },
+    {
+      "source": 119,
+      "representative": 119,
+      "permutation_index": 0
+    },
+    {
+      "source": 16000,
+      "representative": 119,
+      "permutation_index": 2
+    },
+    {
+      "source": 123,
+      "representative": 123,
+      "permutation_index": 0
+    },
+    {
+      "source": 126,
+      "representative": 123,
+      "permutation_index": 1
+    },
+    {
+      "source": 12160,
+      "representative": 123,
+      "permutation_index": 2
+    },
+    {
+      "source": 16128,
+      "representative": 123,
+      "permutation_index": 3
+    },
+    {
+      "source": 127,
+      "representative": 127,
+      "permutation_index": 0
+    },
+    {
+      "source": 16256,
+      "representative": 127,
+      "permutation_index": 2
+    },
+    {
+      "source": 164,
+      "representative": 164,
+      "permutation_index": 0
+    },
+    {
+      "source": 1156,
+      "representative": 164,
+      "permutation_index": 3
+    },
+    {
+      "source": 4099,
+      "representative": 164,
+      "permutation_index": 1
+    },
+    {
+      "source": 12289,
+      "representative": 164,
+      "permutation_index": 2
+    },
+    {
+      "source": 177,
+      "representative": 177,
+      "permutation_index": 0
+    },
+    {
+      "source": 4118,
+      "representative": 177,
+      "permutation_index": 1
+    },
+    {
+      "source": 5636,
+      "representative": 177,
+      "permutation_index": 3
+    },
+    {
+      "source": 8833,
+      "representative": 177,
+      "permutation_index": 2
+    },
+    {
+      "source": 181,
+      "representative": 181,
+      "permutation_index": 0
+    },
+    {
+      "source": 4119,
+      "representative": 181,
+      "permutation_index": 1
+    },
+    {
+      "source": 5764,
+      "representative": 181,
+      "permutation_index": 3
+    },
+    {
+      "source": 12929,
+      "representative": 181,
+      "permutation_index": 2
+    },
+    {
+      "source": 197,
+      "representative": 197,
+      "permutation_index": 0
+    },
+    {
+      "source": 4165,
+      "representative": 197,
+      "permutation_index": 1
+    },
+    {
+      "source": 6273,
+      "representative": 197,
+      "permutation_index": 2
+    },
+    {
+      "source": 6276,
+      "representative": 197,
+      "permutation_index": 3
+    },
+    {
+      "source": 229,
+      "representative": 229,
+      "permutation_index": 0
+    },
+    {
+      "source": 4167,
+      "representative": 229,
+      "permutation_index": 1
+    },
+    {
+      "source": 7300,
+      "representative": 229,
+      "permutation_index": 3
+    },
+    {
+      "source": 14465,
+      "representative": 229,
+      "permutation_index": 2
+    },
+    {
+      "source": 245,
+      "representative": 245,
+      "permutation_index": 0
+    },
+    {
+      "source": 4183,
+      "representative": 245,
+      "permutation_index": 1
+    },
+    {
+      "source": 7812,
+      "representative": 245,
+      "permutation_index": 3
+    },
+    {
+      "source": 14977,
+      "representative": 245,
+      "permutation_index": 2
+    },
+    {
+      "source": 266,
+      "representative": 266,
+      "permutation_index": 0
+    },
+    {
+      "source": 296,
+      "representative": 266,
+      "permutation_index": 1
+    },
+    {
+      "source": 1288,
+      "representative": 266,
+      "permutation_index": 2
+    },
+    {
+      "source": 8456,
+      "representative": 266,
+      "permutation_index": 3
+    },
+    {
+      "source": 298,
+      "representative": 298,
+      "permutation_index": 0
+    },
+    {
+      "source": 9480,
+      "representative": 298,
+      "permutation_index": 2
+    },
+    {
+      "source": 400,
+      "representative": 400,
+      "permutation_index": 0
+    },
+    {
+      "source": 521,
+      "representative": 400,
+      "permutation_index": 2
+    },
+    {
+      "source": 524,
+      "representative": 400,
+      "permutation_index": 3
+    },
+    {
+      "source": 4368,
+      "representative": 400,
+      "permutation_index": 1
+    },
+    {
+      "source": 416,
+      "representative": 416,
+      "permutation_index": 0
+    },
+    {
+      "source": 1036,
+      "representative": 416,
+      "permutation_index": 3
+    },
+    {
+      "source": 4354,
+      "representative": 416,
+      "permutation_index": 1
+    },
+    {
+      "source": 8201,
+      "representative": 416,
+      "permutation_index": 2
+    },
+    {
+      "source": 432,
+      "representative": 432,
+      "permutation_index": 0
+    },
+    {
+      "source": 1548,
+      "representative": 432,
+      "permutation_index": 3
+    },
+    {
+      "source": 4370,
+      "representative": 432,
+      "permutation_index": 1
+    },
+    {
+      "source": 8713,
+      "representative": 432,
+      "permutation_index": 2
+    },
+    {
+      "source": 525,
+      "representative": 525,
+      "permutation_index": 0
+    },
+    {
+      "source": 4496,
+      "representative": 525,
+      "permutation_index": 2
+    },
+    {
+      "source": 645,
+      "representative": 645,
+      "permutation_index": 0
+    },
+    {
+      "source": 4241,
+      "representative": 645,
+      "permutation_index": 2
+    },
+    {
+      "source": 4244,
+      "representative": 645,
+      "permutation_index": 3
+    },
+    {
+      "source": 4613,
+      "representative": 645,
+      "permutation_index": 1
+    },
+    {
+      "source": 661,
+      "representative": 661,
+      "permutation_index": 0
+    },
+    {
+      "source": 4629,
+      "representative": 661,
+      "permutation_index": 1
+    },
+    {
+      "source": 4753,
+      "representative": 661,
+      "permutation_index": 2
+    },
+    {
+      "source": 4756,
+      "representative": 661,
+      "permutation_index": 3
+    },
+    {
+      "source": 1034,
+      "representative": 1034,
+      "permutation_index": 0
+    },
+    {
+      "source": 1282,
+      "representative": 1034,
+      "permutation_index": 2
+    },
+    {
+      "source": 8232,
+      "representative": 1034,
+      "permutation_index": 1
+    },
+    {
+      "source": 8480,
+      "representative": 1034,
+      "permutation_index": 3
+    },
+    {
+      "source": 1038,
+      "representative": 1038,
+      "permutation_index": 0
+    },
+    {
+      "source": 5378,
+      "representative": 1038,
+      "permutation_index": 2
+    },
+    {
+      "source": 8233,
+      "representative": 1038,
+      "permutation_index": 1
+    },
+    {
+      "source": 8608,
+      "representative": 1038,
+      "permutation_index": 3
+    },
+    {
+      "source": 1216,
+      "representative": 1216,
+      "permutation_index": 0
+    },
+    {
+      "source": 2051,
+      "representative": 1216,
+      "permutation_index": 2
+    },
+    {
+      "source": 2084,
+      "representative": 1216,
+      "permutation_index": 3
+    },
+    {
+      "source": 12352,
+      "representative": 1216,
+      "permutation_index": 1
+    },
+    {
+      "source": 1220,
+      "representative": 1220,
+      "permutation_index": 0
+    },
+    {
+      "source": 2212,
+      "representative": 1220,
+      "permutation_index": 3
+    },
+    {
+      "source": 6147,
+      "representative": 1220,
+      "permutation_index": 2
+    },
+    {
+      "source": 12353,
+      "representative": 1220,
+      "permutation_index": 1
+    },
+    {
+      "source": 1290,
+      "representative": 1290,
+      "permutation_index": 0
+    },
+    {
+      "source": 8488,
+      "representative": 1290,
+      "permutation_index": 1
+    },
+    {
+      "source": 2087,
+      "representative": 2087,
+      "permutation_index": 0
+    },
+    {
+      "source": 13504,
+      "representative": 2087,
+      "permutation_index": 2
+    },
+    {
+      "source": 2213,
+      "representative": 2213,
+      "permutation_index": 0
+    },
+    {
+      "source": 5316,
+      "representative": 2213,
+      "permutation_index": 3
+    },
+    {
+      "source": 6151,
+      "representative": 2213,
+      "permutation_index": 1
+    },
+    {
+      "source": 12481,
+      "representative": 2213,
+      "permutation_index": 2
+    },
+    {
+      "source": 2693,
+      "representative": 2693,
+      "permutation_index": 0
+    },
+    {
+      "source": 4305,
+      "representative": 2693,
+      "permutation_index": 2
+    },
+    {
+      "source": 4308,
+      "representative": 2693,
+      "permutation_index": 3
+    },
+    {
+      "source": 6661,
+      "representative": 2693,
+      "permutation_index": 1
+    },
+    {
+      "source": 4245,
+      "representative": 4245,
+      "permutation_index": 0
+    },
+    {
+      "source": 4741,
+      "representative": 4245,
+      "permutation_index": 2
+    },
+    {
+      "source": 4293,
+      "representative": 4293,
+      "permutation_index": 0
+    },
+    {
+      "source": 6277,
+      "representative": 4293,
+      "permutation_index": 2
+    },
+    {
+      "source": 4309,
+      "representative": 4309,
+      "permutation_index": 0
+    },
+    {
+      "source": 6789,
+      "representative": 4309,
+      "permutation_index": 2
+    },
+    {
+      "source": 4757,
+      "representative": 4757,
+      "permutation_index": 0
+    },
+    {
+      "source": 5190,
+      "representative": 5190,
+      "permutation_index": 0
+    },
+    {
+      "source": 7174,
+      "representative": 5190,
+      "permutation_index": 2
+    },
+    {
+      "source": 8417,
+      "representative": 5190,
+      "permutation_index": 1
+    },
+    {
+      "source": 10401,
+      "representative": 5190,
+      "permutation_index": 3
+    }
+  ],
+  "cap10_solver_results": [
+    {
+      "I": 127,
+      "k": 3,
+      "exit_code": 20,
+      "seconds": 0.07471942901611328,
+      "verdict": "UNSAT"
+    },
+    {
+      "I": 1290,
+      "k": 0,
+      "exit_code": 20,
+      "seconds": 0.09771180152893066,
+      "verdict": "UNSAT"
+    },
+    {
+      "I": 4757,
+      "k": 2,
+      "exit_code": 20,
+      "seconds": 0.023505210876464844,
+      "verdict": "UNSAT"
+    },
+    {
+      "I": 8488,
+      "k": 0,
+      "exit_code": 20,
+      "seconds": 0.009179115295410156,
+      "verdict": "UNSAT"
+    },
+    {
+      "I": 16256,
+      "k": 3,
+      "exit_code": 20,
+      "seconds": 0.061630964279174805,
+      "verdict": "UNSAT"
+    }
+  ],
+  "cap11_solver_counts": {
+    "UNSAT": 115,
+    "SAT_handled_by_side_lemma": 2
+  },
+  "hashes": {
+    "results/orch9775/lemmas/WeightClassification.lean": "9c9c1fc9de1a43e3c5f9c1e3b086ab447c2894e0c2b51ffaf25e526789d8a037",
+    "results/orch9775/lemmas/UpstreamGraph.lean": "8eed78acb6027b514de1d1d2bd21bf5259f39d7a629e65ebfb2cbe3954e714ff",
+    "results/orch9775/search/compact-orbits.json": "e77b8ebb2ffec1453946161cd264798d3fe58c8aca933dd09615c4d6e86fdad1",
+    "results/orch9775/search/compact-certificates/summary.json": "6b117704f35bbbba629c11906b0f4a42610e1eb21a63623c458679cd51c4808c"
+  },
+  "caveat": "Solver UNSAT is evidence only until generated resolution proofs pass Lean; permutation transport theorem not yet supplied."
+}

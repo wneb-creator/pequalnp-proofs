@@ -1,0 +1,7 @@
+{
+  "source": "results/orch9775/lemmas/GraphSymmetry.lean",
+  "sha256": "ef9df681b3e74cae0bdf516a6fbc73ca6c0b83d9f4fedb2299d1be75e0126b9a",
+  "export_exit": 0,
+  "stdout": "graph-symmetry-checked.stdout",
+  "stderr": "graph-symmetry-checked.stderr"
+}

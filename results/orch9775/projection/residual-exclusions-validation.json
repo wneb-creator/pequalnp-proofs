@@ -1,0 +1,13 @@
+{
+  "source": "results/orch9775/lemmas/ResidualCodeExclusions.lean",
+  "sha256": "cdda0cfe67ff87bd05df353755ce49373ace078733c854e61bb0955d10182aa5",
+  "bytes": 14681,
+  "lines": 104,
+  "exit_code": 0,
+  "scope": "Compiled and exported importingCompactFramework; directkerneldecide finite4-set contradictions; noSATaxiom",
+  "theorems": [
+    "residual_exclude111",
+    "residual_exclude4757",
+    "residual_exclude2213"
+  ]
+}

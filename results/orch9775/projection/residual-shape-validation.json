@@ -1,0 +1,8 @@
+{
+  "source": "results/orch9775/lemmas/ResidualShape4293.lean",
+  "sha256": "17d87f83552ed555b6f75cfeba04cf55fc54da54072ba68cca2cd58081f21be8",
+  "bytes": 4369,
+  "lines": 33,
+  "exit_code": 0,
+  "scope": "Dependencycompile/export; Bzero0,I4293,Fin2residualbijection gives emptycodes5/10. Notstandaloneexclusionuntilslotlemma."
+}

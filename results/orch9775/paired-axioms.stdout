@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_9775.UpstreamCore.Compact.Layout.paired_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_9775.UpstreamCore.Compact.book_start_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_9775.UpstreamCore.Compact.book_end' depends on axioms: [propext, Classical.choice, Quot.sound]

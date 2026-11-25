@@ -1,0 +1,58 @@
+{
+  "cap11_compact_representatives": [
+    11,
+    47,
+    164,
+    177,
+    197,
+    266,
+    298,
+    400,
+    416,
+    432,
+    525,
+    645,
+    1034,
+    1038,
+    1216,
+    1220,
+    1290,
+    2087
+  ],
+  "cap11_private_projection_representatives": [
+    55,
+    95,
+    103,
+    119,
+    123,
+    181,
+    229,
+    245,
+    661,
+    2693,
+    4245,
+    4309,
+    5190
+  ],
+  "cap11_new_short_representatives": [
+    63,
+    111,
+    2213,
+    4293,
+    4757
+  ],
+  "side_masks": [
+    127,
+    16256
+  ],
+  "cap10_all_masks": [
+    127,
+    1290,
+    4757,
+    8488,
+    16256
+  ],
+  "total_cap11_orbits": 37,
+  "coverage": "18Compact+13private+5other+1sideorbit=37 disjointorbits; 117masks",
+  "pending": "Finalassembledsourceandkernelbuild"
+}

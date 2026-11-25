@@ -1,0 +1,65 @@
+{
+  "utc": "2026-11-25T17:49:00.472319+00:00",
+  "shape_sha256": "17d87f83552ed555b6f75cfeba04cf55fc54da54072ba68cca2cd58081f21be8",
+  "wrapper_sha256": "a9e3c573b2a06745e5f454864a2e365e5ae33cc512e1679d330d0ed35092f341",
+  "I": 4293,
+  "I_card": 5,
+  "geometry_constraints": [
+    [
+      "diff",
+      3,
+      5
+    ],
+    [
+      "excludes",
+      3,
+      8
+    ],
+    [
+      "excludes",
+      3,
+      10
+    ],
+    [
+      "excludes",
+      5,
+      8
+    ],
+    [
+      "excludes",
+      8,
+      3
+    ],
+    [
+      "excludes",
+      8,
+      5
+    ],
+    [
+      "diff",
+      8,
+      10
+    ],
+    [
+      "excludes",
+      10,
+      3
+    ]
+  ],
+  "assignments_checked": 256,
+  "survivors": [
+    [
+      1,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      0,
+      1,
+      0
+    ]
+  ],
+  "all_survivors_have_empty_code5_code10": true
+}
