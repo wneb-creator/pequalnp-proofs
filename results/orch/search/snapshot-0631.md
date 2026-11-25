@@ -1,0 +1,3 @@
+Research snapshot captured 2026-11-25T06:30:25.373703+00:00.
+
+See ../lemmas/artifact-review.md for independent audit and exact reproduction commands. Factor sources and logs are complete; the factor result is36gates, not a26gate solution or optimality claim. Shadow-three necessity has mathematical review but is not Lean formalized. Current CEGIS status and run log are live snapshots only; the complete final log will be preserved after termination. The base CNF and shadow CNF hashes are in config-hashes-0631.json. Both CEGIS headers and symmetry-generation dependencies are included. No official checker acceptance is claimed.

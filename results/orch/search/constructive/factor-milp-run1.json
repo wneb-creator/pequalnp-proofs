@@ -1,0 +1,1379 @@
+{
+  "duration_seconds": 90.16899878999993,
+  "records": [
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 39.01799999999997,
+      "orbit": 0,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 36.518,
+      "orbit": 1,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 37.017999999998935,
+      "orbit": 2,
+      "alpha": 0.5,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 41.51699999999997,
+      "orbit": 3,
+      "alpha": 0.5,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 39.517999999999944,
+      "orbit": 4,
+      "alpha": 0.5,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 37.51699999999976,
+      "orbit": 5,
+      "alpha": 0.5,
+      "size": 39
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 37.517,
+      "orbit": 6,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 36.51800000000001,
+      "orbit": 7,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 43.017,
+      "orbit": 8,
+      "alpha": 0.5,
+      "size": 45
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 36.51499999999999,
+      "orbit": 9,
+      "alpha": 0.5,
+      "size": 39
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 39.51700000000551,
+      "orbit": 10,
+      "alpha": 0.5,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 40.515,
+      "orbit": 11,
+      "alpha": 0.5,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 40.517999999999965,
+      "orbit": 12,
+      "alpha": 0.5,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 47.01600000000002,
+      "orbit": 13,
+      "alpha": 0.5,
+      "size": 47
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 41.517,
+      "orbit": 14,
+      "alpha": 0.5,
+      "size": 43
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 36.01599999999999,
+      "orbit": 15,
+      "alpha": 0.5,
+      "size": 38
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 41.51599999999996,
+      "orbit": 16,
+      "alpha": 0.5,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 38.01799999999967,
+      "orbit": 17,
+      "alpha": 0.5,
+      "size": 39
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 71.016,
+      "orbit": 18,
+      "alpha": 0.5,
+      "size": 56
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 107.009,
+      "orbit": 19,
+      "alpha": 0.5,
+      "size": 69
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 95.509,
+      "orbit": 20,
+      "alpha": 0.5,
+      "size": 72
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 101.008,
+      "orbit": 21,
+      "alpha": 0.5,
+      "size": 67
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 107.01,
+      "orbit": 22,
+      "alpha": 0.5,
+      "size": 66
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 41.01699999999992,
+      "orbit": 23,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 118.508,
+      "orbit": 24,
+      "alpha": 0.5,
+      "size": 74
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 41.51799999999999,
+      "orbit": 25,
+      "alpha": 0.5,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 42.018,
+      "orbit": 26,
+      "alpha": 0.5,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 103.01,
+      "orbit": 27,
+      "alpha": 0.5,
+      "size": 67
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 49.018,
+      "orbit": 28,
+      "alpha": 0.5,
+      "size": 49
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 36.516999999999996,
+      "orbit": 29,
+      "alpha": 0.5,
+      "size": 37
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 114.007,
+      "orbit": 30,
+      "alpha": 0.5,
+      "size": 71
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 42.513999999999335,
+      "orbit": 31,
+      "alpha": 0.5,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 76.008,
+      "orbit": 32,
+      "alpha": 0.5,
+      "size": 54
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 39.018,
+      "orbit": 33,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 102.509,
+      "orbit": 34,
+      "alpha": 0.5,
+      "size": 64
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 39.51800000000093,
+      "orbit": 35,
+      "alpha": 0.5,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 38.01499999999979,
+      "orbit": 36,
+      "alpha": 0.5,
+      "size": 37
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 111.507,
+      "orbit": 37,
+      "alpha": 0.5,
+      "size": 74
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 114.011,
+      "orbit": 38,
+      "alpha": 0.5,
+      "size": 67
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 81.007,
+      "orbit": 39,
+      "alpha": 0.5,
+      "size": 73
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 96.509,
+      "orbit": 40,
+      "alpha": 0.5,
+      "size": 70
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 101.509,
+      "orbit": 41,
+      "alpha": 0.5,
+      "size": 69
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 40.516999999999584,
+      "orbit": 42,
+      "alpha": 0.5,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 102.007,
+      "orbit": 43,
+      "alpha": 0.5,
+      "size": 69
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 86.006,
+      "orbit": 44,
+      "alpha": 0.5,
+      "size": 63
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 29.018,
+      "orbit": 0,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 28.018,
+      "orbit": 1,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 25.018,
+      "orbit": 2,
+      "alpha": 0,
+      "size": 38
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 34.0160000000003,
+      "orbit": 3,
+      "alpha": 0,
+      "size": 43
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 32.01799999999992,
+      "orbit": 4,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 5,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 6,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 28.017999999999997,
+      "orbit": 7,
+      "alpha": 0,
+      "size": 39
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 33.015,
+      "orbit": 8,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 29.015,
+      "orbit": 9,
+      "alpha": 0,
+      "size": 39
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 10,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 32.01499999999998,
+      "orbit": 11,
+      "alpha": 0,
+      "size": 42
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016999999999996,
+      "orbit": 12,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 32.014,
+      "orbit": 13,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 33.01799999999976,
+      "orbit": 14,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 28.016,
+      "orbit": 15,
+      "alpha": 0,
+      "size": 37
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 31.015999999999966,
+      "orbit": 16,
+      "alpha": 0,
+      "size": 39
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 17,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.015,
+      "orbit": 18,
+      "alpha": 0,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.01600000000003,
+      "orbit": 19,
+      "alpha": 0,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 80.015,
+      "orbit": 20,
+      "alpha": 0,
+      "size": 51
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 37.01699999999987,
+      "orbit": 21,
+      "alpha": 0,
+      "size": 46
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 22,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.016,
+      "orbit": 23,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 32.014,
+      "orbit": 24,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 36.01400000000002,
+      "orbit": 25,
+      "alpha": 0,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 83.007,
+      "orbit": 26,
+      "alpha": 0,
+      "size": 73
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.01600000000007,
+      "orbit": 27,
+      "alpha": 0,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 66.018,
+      "orbit": 28,
+      "alpha": 0,
+      "size": 56
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.014999999999876,
+      "orbit": 29,
+      "alpha": 0,
+      "size": 36
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.01399999999995,
+      "orbit": 30,
+      "alpha": 0,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.016,
+      "orbit": 31,
+      "alpha": 0,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 35.01399999999999,
+      "orbit": 32,
+      "alpha": 0,
+      "size": 42
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 33.01799999999999,
+      "orbit": 33,
+      "alpha": 0,
+      "size": 39
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 62.014,
+      "orbit": 34,
+      "alpha": 0,
+      "size": 62
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 33.01799999999994,
+      "orbit": 35,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 31.017999999999976,
+      "orbit": 36,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 90.012,
+      "orbit": 37,
+      "alpha": 0,
+      "size": 66
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 32.018,
+      "orbit": 38,
+      "alpha": 0,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 31.01599999999999,
+      "orbit": 39,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 47.018,
+      "orbit": 40,
+      "alpha": 0,
+      "size": 50
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 33.01799999999973,
+      "orbit": 41,
+      "alpha": 0,
+      "size": 42
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 28.018,
+      "orbit": 42,
+      "alpha": 0,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 31.017,
+      "orbit": 43,
+      "alpha": 0,
+      "size": 41
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 25.018,
+      "orbit": 44,
+      "alpha": 0,
+      "size": 38
+    },
+    {
+      "solver_status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "proxy_objective": 48.01799999999998,
+      "orbit": 0,
+      "alpha": 1,
+      "size": 39
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 49.018,
+      "orbit": 1,
+      "alpha": 1,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 43.01799999999944,
+      "orbit": 2,
+      "alpha": 1,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 48.017,
+      "orbit": 3,
+      "alpha": 1,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 46.018,
+      "orbit": 4,
+      "alpha": 1,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 43.015,
+      "orbit": 5,
+      "alpha": 1,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 48.017,
+      "orbit": 6,
+      "alpha": 1,
+      "size": 44
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 45.017999999999475,
+      "orbit": 7,
+      "alpha": 1,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 49.015,
+      "orbit": 8,
+      "alpha": 1,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 47.018,
+      "orbit": 9,
+      "alpha": 1,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 46.01800000000024,
+      "orbit": 10,
+      "alpha": 1,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 47.014999999999986,
+      "orbit": 11,
+      "alpha": 1,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 49.01599999999999,
+      "orbit": 12,
+      "alpha": 1,
+      "size": 47
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 47.01799999999999,
+      "orbit": 13,
+      "alpha": 1,
+      "size": 43
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 45.018,
+      "orbit": 14,
+      "alpha": 1,
+      "size": 42
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 50.017,
+      "orbit": 15,
+      "alpha": 1,
+      "size": 45
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 44.01799999999999,
+      "orbit": 16,
+      "alpha": 1,
+      "size": 41
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 44.016999999999996,
+      "orbit": 17,
+      "alpha": 1,
+      "size": 40
+    },
+    {
+      "solver_status": 1,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "proxy_objective": 76.012,
+      "orbit": 18,
+      "alpha": 1,
+      "size": 63
+    }
+  ],
+  "best": {
+    "gates": [
+      [
+        "or",
+        0,
+        2
+      ],
+      [
+        "or",
+        6,
+        14
+      ],
+      [
+        "or",
+        1,
+        5
+      ],
+      [
+        "or",
+        4,
+        15
+      ],
+      [
+        "or",
+        6,
+        16
+      ],
+      [
+        "or",
+        7,
+        9
+      ],
+      [
+        "or",
+        10,
+        11
+      ],
+      [
+        "or",
+        13,
+        19
+      ],
+      [
+        "or",
+        8,
+        9
+      ],
+      [
+        "or",
+        7,
+        10
+      ],
+      [
+        "or",
+        9,
+        10
+      ],
+      [
+        "or",
+        7,
+        11
+      ],
+      [
+        "or",
+        12,
+        13
+      ],
+      [
+        "or",
+        13,
+        20
+      ],
+      [
+        "or",
+        20,
+        21
+      ],
+      [
+        "or",
+        12,
+        24
+      ],
+      [
+        "or",
+        12,
+        25
+      ],
+      [
+        "and",
+        3,
+        30
+      ],
+      [
+        "and",
+        0,
+        23
+      ],
+      [
+        "and",
+        6,
+        11
+      ],
+      [
+        "and",
+        17,
+        8
+      ],
+      [
+        "and",
+        18,
+        21
+      ],
+      [
+        "and",
+        2,
+        26
+      ],
+      [
+        "and",
+        4,
+        27
+      ],
+      [
+        "and",
+        1,
+        28
+      ],
+      [
+        "and",
+        15,
+        22
+      ],
+      [
+        "and",
+        5,
+        29
+      ],
+      [
+        "or",
+        31,
+        32
+      ],
+      [
+        "or",
+        33,
+        36
+      ],
+      [
+        "or",
+        37,
+        40
+      ],
+      [
+        "or",
+        41,
+        42
+      ],
+      [
+        "or",
+        43,
+        44
+      ],
+      [
+        "or",
+        38,
+        39
+      ],
+      [
+        "or",
+        34,
+        35
+      ],
+      [
+        "and",
+        46,
+        47
+      ],
+      [
+        "or",
+        45,
+        48
+      ]
+    ],
+    "output": 49,
+    "size": 36,
+    "common_edge_count": 14,
+    "rectangles": [
+      [
+        8,
+        49,
+        3
+      ],
+      [
+        1,
+        9,
+        3
+      ],
+      [
+        64,
+        16,
+        3
+      ],
+      [
+        85,
+        2,
+        2
+      ],
+      [
+        98,
+        69,
+        2
+      ],
+      [
+        4,
+        96,
+        3
+      ],
+      [
+        16,
+        88,
+        3
+      ],
+      [
+        2,
+        93,
+        1
+      ],
+      [
+        69,
+        6,
+        1
+      ],
+      [
+        32,
+        44,
+        3
+      ]
+    ],
+    "shadow_edge_count": 14,
+    "factor_edge_counts": [
+      25,
+      26
+    ],
+    "orbit": 29,
+    "alpha": 0,
+    "additions": [
+      609,
+      160563200
+    ],
+    "full_truth_table_errors": 0
+  },
+  "best_nontrivial": {
+    "gates": [
+      [
+        "or",
+        0,
+        2
+      ],
+      [
+        "or",
+        6,
+        14
+      ],
+      [
+        "or",
+        1,
+        5
+      ],
+      [
+        "or",
+        4,
+        15
+      ],
+      [
+        "or",
+        6,
+        16
+      ],
+      [
+        "or",
+        7,
+        9
+      ],
+      [
+        "or",
+        10,
+        11
+      ],
+      [
+        "or",
+        13,
+        19
+      ],
+      [
+        "or",
+        8,
+        9
+      ],
+      [
+        "or",
+        7,
+        10
+      ],
+      [
+        "or",
+        9,
+        10
+      ],
+      [
+        "or",
+        7,
+        11
+      ],
+      [
+        "or",
+        12,
+        13
+      ],
+      [
+        "or",
+        13,
+        20
+      ],
+      [
+        "or",
+        20,
+        21
+      ],
+      [
+        "or",
+        12,
+        24
+      ],
+      [
+        "or",
+        12,
+        25
+      ],
+      [
+        "and",
+        3,
+        30
+      ],
+      [
+        "and",
+        0,
+        23
+      ],
+      [
+        "and",
+        6,
+        11
+      ],
+      [
+        "and",
+        17,
+        8
+      ],
+      [
+        "and",
+        18,
+        21
+      ],
+      [
+        "and",
+        2,
+        26
+      ],
+      [
+        "and",
+        4,
+        27
+      ],
+      [
+        "and",
+        1,
+        28
+      ],
+      [
+        "and",
+        15,
+        22
+      ],
+      [
+        "and",
+        5,
+        29
+      ],
+      [
+        "or",
+        31,
+        32
+      ],
+      [
+        "or",
+        33,
+        36
+      ],
+      [
+        "or",
+        37,
+        40
+      ],
+      [
+        "or",
+        41,
+        42
+      ],
+      [
+        "or",
+        43,
+        44
+      ],
+      [
+        "or",
+        38,
+        39
+      ],
+      [
+        "or",
+        34,
+        35
+      ],
+      [
+        "and",
+        46,
+        47
+      ],
+      [
+        "or",
+        45,
+        48
+      ]
+    ],
+    "output": 49,
+    "size": 36,
+    "common_edge_count": 14,
+    "rectangles": [
+      [
+        8,
+        49,
+        3
+      ],
+      [
+        1,
+        9,
+        3
+      ],
+      [
+        64,
+        16,
+        3
+      ],
+      [
+        85,
+        2,
+        2
+      ],
+      [
+        98,
+        69,
+        2
+      ],
+      [
+        4,
+        96,
+        3
+      ],
+      [
+        16,
+        88,
+        3
+      ],
+      [
+        2,
+        93,
+        1
+      ],
+      [
+        69,
+        6,
+        1
+      ],
+      [
+        32,
+        44,
+        3
+      ]
+    ],
+    "shadow_edge_count": 14,
+    "factor_edge_counts": [
+      25,
+      26
+    ],
+    "orbit": 29,
+    "alpha": 0,
+    "additions": [
+      609,
+      160563200
+    ],
+    "full_truth_table_errors": 0
+  }
+}

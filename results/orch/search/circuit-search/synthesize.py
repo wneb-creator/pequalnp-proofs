@@ -1,5 +1,6 @@
 import argparse
 import json
+from itertools import combinations
 from pathlib import Path
 
 parser=argparse.ArgumentParser()
@@ -13,6 +14,7 @@ parser.add_argument('--no-liveness',action='store_true')
 parser.add_argument('--minimal',action='store_true')
 parser.add_argument('--dirty-and',action='store_true')
 parser.add_argument('--edge-file')
+parser.add_argument('--shadow-missing',type=int,choices=[0,1,2,3],default=0)
 parser.add_argument('--output',required=True)
 args=parser.parse_args()
 
@@ -51,6 +53,14 @@ def exactly_one(xs):
 
 truth=var();clause(truth)
 values=[[truth if (r>>i)&1 else -truth for r in rows] for i in range(ninputs)]
+linear=[[truth if i==j else -truth for j in range(ninputs)] for i in range(ninputs)]
+quadratic=[[-truth]*positive_count for _ in range(ninputs)]
+def mux_vector(selectors,vectors):
+ result=[var() for _ in vectors[0]]
+ for selector,source in zip(selectors,vectors):
+  for y,x in zip(result,source):
+   clause(-selector,-y,x);clause(-selector,y,-x)
+ return result
 structure=[]
 for i in range(args.gates):
  n=ninputs+i
@@ -100,8 +110,28 @@ for i in range(args.gates):
     clause(dep,-prev['left'][a],-left[b])
     clause(dep,-eql,-prev['right'][a],-right[b])
   clause(dep,-eql,-eqr,-prev['op'],op)
+ if args.shadow_missing:
+  la=mux_vector(left,linear);lb=mux_vector(right,linear)
+  qa=mux_vector(left,quadratic);qb=mux_vector(right,quadratic)
+  lo=[var() for _ in range(ninputs)];qo=[var() for _ in edges]
+  for y,a,b in zip(lo,la,lb):
+   # AND has minimum degree at least two; OR unions linear support.
+   clause(op,-y)
+   clause(-op,y,-a);clause(-op,y,-b);clause(-op,-y,a,b)
+  for r,(u,v) in enumerate(edges):
+   y=qo[r]
+   # OR unions the quadratic supports.
+   clause(-op,y,-qa[r]);clause(-op,y,-qb[r]);clause(-op,-y,qa[r],qb[r])
+   # AND produces uv exactly from u*v or v*u linear factors.
+   a,b,c,d=la[u],lb[v],la[v],lb[u]
+   clause(op,-y,a,c);clause(op,-y,a,d)
+   clause(op,-y,b,c);clause(op,-y,b,d)
+   clause(op,y,-a,-b);clause(op,y,-c,-d)
+  linear.append(lo);quadratic.append(qo)
  values.append(out)
- structure.append({'left':left,'right':right,'op':op,'out':out})
+ entry={'left':left,'right':right,'op':op,'out':out}
+ if args.shadow_missing:entry.update({'linear':lo,'quadratic':qo})
+ structure.append(entry)
 
 if not args.no_liveness:
  for wire in range(ninputs-1+args.gates):
@@ -118,6 +148,13 @@ if args.dirty_and:
    clause(-d,-s['op']);clause(-d,y)
  clause(*dirty)
 
+if args.shadow_missing:
+ if args.shadow_missing>positive_count:raise SystemExit('Shadow bound exceeds number of edges')
+ # At least k missing bits iff deleting any k-1 positions leaves a missing bit.
+ missing=[-x for x in quadratic[-1]]
+ for omitted in combinations(range(positive_count),args.shadow_missing-1):
+  clause(*(x for i,x in enumerate(missing) if i not in omitted))
+
 if not args.no_canon:
  first,second=structure[:2]
  clause(first['left'][0])
@@ -133,5 +170,5 @@ path=Path(args.output)
 with path.open('w') as f:
  f.write(f'p cnf {nv} {len(clauses)}\n')
  for c in clauses:f.write(' '.join(map(str,c))+' 0\n')
-path.with_suffix('.map.json').write_text(json.dumps({'gates':args.gates,'structure':structure,'rows':rows,'nv':nv,'clauses':len(clauses),'prefix':args.prefix,'ninputs':ninputs,'edges':edges}))
+path.with_suffix('.map.json').write_text(json.dumps({'gates':args.gates,'structure':structure,'rows':rows,'nv':nv,'clauses':len(clauses),'prefix':args.prefix,'ninputs':ninputs,'edges':edges,'shadow_missing':args.shadow_missing}))
 print(json.dumps({'file':str(path),'gates':args.gates,'variables':nv,'clauses':len(clauses),'rows':len(rows),'prefix':args.prefix}),flush=True)

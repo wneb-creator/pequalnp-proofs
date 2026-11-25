@@ -1,0 +1,20 @@
+{
+  "captured_utc": "2026-11-25T06:30:25.373703+00:00",
+  "files": [
+    {
+      "path": "circuit-search/shadow3-26.cnf",
+      "bytes": 5390816,
+      "sha256": "5ddcd67e23eeffa526c7369c0105468dcf8d10c6fee424640e6bf470adedd73f"
+    },
+    {
+      "path": "circuit-search/shadow3-26.map.json",
+      "bytes": 24878,
+      "sha256": "646fcf88c3d709bfe2a1ffca010cb1d3d0ac1530265569bfca5fa1bf57362307"
+    },
+    {
+      "path": "lower-bound/cegis26.cnf",
+      "bytes": 3512765,
+      "sha256": "efef42ac2ac35bc388c69d43fccc8862ec4d9605e513a1f366a3cfbc029d7696"
+    }
+  ]
+}

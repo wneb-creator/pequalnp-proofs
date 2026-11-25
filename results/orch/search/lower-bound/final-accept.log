@@ -1,0 +1,67 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-0.cnf'
+c found 'p cnf 7381 201783' header
+c parsed 201783 clauses in 0.09 seconds process time
+iteration 0 active 23
+warm unpadded 14 available 1
+warm_probe result 10 elapsed_ms 7
+result 10 elapsed_ms 7
+new_violations 35
+selected_row 22 mask 244 weight 5 distance 14
+iteration 1 active 24
+warm unpadded 15 available 1
+warm_probe result 20 elapsed_ms 8
+warm_candidate_failed retry_unconstrained
+slice 0 result 20 elapsed_ms 8
+result 20 elapsed_ms 8
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.09 1648.59% parse               
+c     1.7e+05   68.86%  1.2e+08         0.00   25.23% lucky               
+c     1.7e+05   68.86%  1.2e+08         0.00   25.23% search              
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     2.5e+05  100.00%  4.4e+07         0.01    5.53% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                        159456
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          1       33.33 %   searches             
+c propagations:                     7333        1.30 M   per second           
+c searches:                            3
+c ticks:                          246277       43.58 M   per second           
+c variables_original:               7381      100.00 %   vars                 
+c vars:                             7381
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.10    seconds
+c total real time since initialization:            0.14    seconds
+c maximum resident set size of process:           20.64    MB
+s UNSATISFIABLE_SUBSET

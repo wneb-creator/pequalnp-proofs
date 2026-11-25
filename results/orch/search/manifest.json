@@ -2,94 +2,108 @@
   "snapshot_utc": "2026-11-25T05:55:32.835429+00:00",
   "files": [
     {
-      "path": "circuit-search/subgraph_smoke.py",
-      "bytes": 2209,
-      "sha256": "41fde69d1d0354014a7af5eed645b23bee1f417270abf1a5c05d43e8bd12c927"
-    },
-    {
-      "path": "circuit-search/phased.cpp",
-      "bytes": 1207,
-      "sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51"
-    },
-    {
-      "path": "circuit-search/star_smoke.py",
-      "bytes": 1413,
-      "sha256": "acd15e62a6161c17e94664fd0796da9dd0c3f02980c43cf0b1d95ef5d76af8b3"
-    },
-    {
       "path": "circuit-search/decode.py",
       "bytes": 1070,
       "sha256": "76359ac080495f46758e02de734a5454556efc00e658252d90490eb43a23f79f"
     },
     {
-      "path": "circuit-search/synthesize.py",
-      "bytes": 5143,
-      "sha256": "4c0e99971623c49dad77eb1c6a7bbce93df403969e62d59f4b7305f5d8a76b93"
+      "path": "circuit-search/encode-shadow3-26.log",
+      "bytes": 149,
+      "sha256": "046a1d61f31cec21f11d666fb8db6177713ab57fdba19ff6cfabfba7af4e0b8d",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "circuit-search/general-reproduction.json",
+      "bytes": 194,
+      "sha256": "195289944572748a1fcde784ecd36408dad58727ad5fff99618a7070c4ae7a49"
+    },
+    {
+      "path": "circuit-search/general26-result.json",
+      "bytes": 786,
+      "sha256": "bdde15a42ad213bd13fcfdad79012288d2123478b9740ffba42103a6601d79fa"
+    },
+    {
+      "path": "circuit-search/heawood26-solve.log",
+      "bytes": 112322,
+      "sha256": "75e5a4a570be512136eb8fa56edbfcc15bed46ea4bfafe1e2fd75123da261f03"
+    },
+    {
+      "path": "circuit-search/near26-shadow3.phases",
+      "bytes": 16616,
+      "sha256": "c2b320479844cff1767437142df1c933b88398b0fad523ea12be45878279878c",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "circuit-search/near26.json",
+      "bytes": 400,
+      "sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "circuit-search/phased.cpp",
+      "bytes": 1207,
+      "sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
       "path": "circuit-search/phases.py",
       "bytes": 1799,
-      "sha256": "a9f7140736c541891305e645ff10e860a3bee8634d9ad7cba5ee81810468758d"
+      "sha256": "a9f7140736c541891305e645ff10e860a3bee8634d9ad7cba5ee81810468758d",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "circuit-search/subgraph_round.py",
-      "bytes": 2220,
-      "sha256": "2816057fcf101960bdaa604f4dee84231f0fe2f36770ef9086bdaada09feef0a"
+      "path": "circuit-search/shadow-smoke-27-encode.log",
+      "bytes": 154,
+      "sha256": "cfa58c790455eafd248ce39ae121a85e3d691517ddc1678ec04c3f73cf9efb05",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/prepare_cegis.py",
-      "bytes": 1588,
-      "sha256": "7d39c15c0532e84c852eefa6b875e925f2483161ee105a6b2c1a9fbeff78d2a1"
+      "path": "circuit-search/shadow-smoke-27-solve.log",
+      "bytes": 4049,
+      "sha256": "320e9431ddb03a2b4c4f448f6fa46926cad4561de2c7a4db8d15a3f201fd8b25",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/pairdirty_synthesize.py",
-      "bytes": 4998,
-      "sha256": "9c5c4a02d2839ae2cba716a8ab8eb3f63d50d3dda8a8c9e54222ae2ee8bba2cc"
+      "path": "circuit-search/shadow-smoke-28-encode.log",
+      "bytes": 154,
+      "sha256": "bc8ad873b4b202f1367f88be59949c65828416c7e4fc4c7f5724ba5c76cf09a7",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/pairdirty_first_synthesize.py",
-      "bytes": 5061,
-      "sha256": "268920f77fb4af7755b8e3e647e81d48757c9ab6777e69ced7c8b7a294c7536a"
+      "path": "circuit-search/shadow-smoke-28-solve.log",
+      "bytes": 69314,
+      "sha256": "a09ca57fb59fb0d89a6d021703fbfc872d9297517a383ab788dc0c03aaead334",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/cegis-all.cpp",
-      "bytes": 7093,
-      "sha256": "5439a30e2969e8252b508da0938aaf953e284a36e099403b63a6e992bd421339"
+      "path": "circuit-search/shadow-smoke-28-verified.log",
+      "bytes": 1142,
+      "sha256": "8be1f78027fd1d83e4d9c5396ac5a1d1afe99f05ba9dcb0d9718a9700d05f143",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/cegis.cpp",
-      "bytes": 7923,
-      "sha256": "f5c811d579e857c5104ff264963f3462749073ccad99e8d566107c18bb5ab8bb"
+      "path": "circuit-search/shadow-smoke.log",
+      "bytes": 146,
+      "sha256": "58f57358ece1b820b0db5038027ec4a786849ba7adcab970c641d29d231a5a84",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/fix_cegis_smoke.py",
-      "bytes": 1731,
-      "sha256": "9af62e198dbf0aeedeb1e9844d8824f99bc32998b8c3a406c755c90a7878eda9"
+      "path": "circuit-search/shadow3-phases.log",
+      "bytes": 77,
+      "sha256": "b73ca7a057b68b56d51c5e61afab3e7b11bd01511c0453b279b105f434797237",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "lower-bound/make_pairdirty.py",
-      "bytes": 1079,
-      "sha256": "9aa8bc15708b3f0bb390a3eef51fedb710156f12beca74860d62b6b0352d5afd"
-    },
-    {
-      "path": "constructive/induced_subproblems.py",
-      "bytes": 2159,
-      "sha256": "8e191f3cfdff73103bbb0c0883c92656dd8979bbd637f7296faf2aea7c9c5b0d"
-    },
-    {
-      "path": "constructive/search.cpp",
-      "bytes": 5507,
-      "sha256": "b47e80e5bea90c4bcc74d11b3fe8db7a6299681ab65806c03e4d981a13e3e9d2"
-    },
-    {
-      "path": "constructive/neutral.cpp",
-      "bytes": 5943,
-      "sha256": "f284785115b01ffd7a639e8ea053b9bd46c4b8f5ce582f95051cffcad7b343d1"
+      "path": "circuit-search/shadow_smoke.py",
+      "bytes": 1779,
+      "sha256": "181a250ea4adb6a4cc920f5a6d4be28d8ecc87bd5b551498cfc19bcc55dd6994",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
       "path": "circuit-search/solver-metadata.json",
       "bytes": 444,
-      "sha256": "2d0f76af7ac2886bad49d4475fe07cd55d474b17378d9f34063a13a0d6da7709"
+      "sha256": "2d0f76af7ac2886bad49d4475fe07cd55d474b17378d9f34063a13a0d6da7709",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
       "path": "circuit-search/star27.json",
@@ -97,9 +111,49 @@
       "sha256": "7710c19212e6412b4d13cc4ef81d0bc5d1ad001dc4dbde43507bfb4ee78e12aa"
     },
     {
-      "path": "circuit-search/near26.json",
-      "bytes": 400,
-      "sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c"
+      "path": "circuit-search/star_smoke.py",
+      "bytes": 1413,
+      "sha256": "acd15e62a6161c17e94664fd0796da9dd0c3f02980c43cf0b1d95ef5d76af8b3"
+    },
+    {
+      "path": "circuit-search/subgraph-3-0-solve.log",
+      "bytes": 47130,
+      "sha256": "64c236b7af94b04fe97434b5799f3ab8456b059b2e2d37c92ebc14252c538a21"
+    },
+    {
+      "path": "circuit-search/subgraph-3-0.json",
+      "bytes": 273,
+      "sha256": "ba958bf3b325b932836f41093006254f62bd83736922b882467c2edbe870baab"
+    },
+    {
+      "path": "circuit-search/subgraph-3-1-solve.log",
+      "bytes": 51813,
+      "sha256": "d87ebefdb852cd2e865dcd62dbaae609846d8f0fc93fcd9f0e0aec4f65018355"
+    },
+    {
+      "path": "circuit-search/subgraph-3-1.json",
+      "bytes": 278,
+      "sha256": "a1cd0c0be975a66f3b41b29337634de33d2c65ea8782113413fa527eca78d7fe"
+    },
+    {
+      "path": "circuit-search/subgraph-4-0-solve.log",
+      "bytes": 42643,
+      "sha256": "2500eb54eedfd6ca41ba09bc006e8345e8303c664ac8c314e7fdce4be82efa7b"
+    },
+    {
+      "path": "circuit-search/subgraph-4-0.json",
+      "bytes": 336,
+      "sha256": "6fb67ff3715de53bc28fdf64b5f79e752834b15cdf85890179a1b5ee20760782"
+    },
+    {
+      "path": "circuit-search/subgraph-4-1-solve.log",
+      "bytes": 57240,
+      "sha256": "605e518e386931fe708ad6dd2e8d59c10e5b7c32dc443c811b05a16000acbb3b"
+    },
+    {
+      "path": "circuit-search/subgraph-4-1.json",
+      "bytes": 330,
+      "sha256": "1a6b1d1becc71417fec90ba5ed1915d641eb0e0f56816b22e5137c8a6b3ccc10"
     },
     {
       "path": "circuit-search/subgraph-round.json",
@@ -112,19 +166,103 @@
       "sha256": "8d858d5e245f1fa81af8ecdee9673b15244df5dfca5450bfff86834aa73988fe"
     },
     {
-      "path": "constructive/run1.log",
-      "bytes": 1933,
-      "sha256": "38c2ea39148ee44993814d7a9a4128c621483199eef3121389cab9846c1b8dbc"
+      "path": "circuit-search/subgraph_round.py",
+      "bytes": 2220,
+      "sha256": "2816057fcf101960bdaa604f4dee84231f0fe2f36770ef9086bdaada09feef0a"
     },
     {
-      "path": "constructive/run1-best.json",
-      "bytes": 358,
-      "sha256": "c2182d5d97fca6c413666a5ce4ea5d4492b6617515be763cba06655553ff749d"
+      "path": "circuit-search/subgraph_smoke.py",
+      "bytes": 2209,
+      "sha256": "41fde69d1d0354014a7af5eed645b23bee1f417270abf1a5c05d43e8bd12c927"
     },
     {
-      "path": "constructive/neutral-run1.log",
-      "bytes": 1892,
-      "sha256": "fd1e93e02b432ad68df846c3c0f7bcf4705f9148dd2b23e77ace3e674677ca78"
+      "path": "circuit-search/synthesize.py",
+      "bytes": 6903,
+      "sha256": "5c0bb7657f0f45ae074aae6d46ccba8816746c560ce8b152911bbee873618469",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/compatible-pairs.json",
+      "bytes": 781193,
+      "sha256": "1b4ef24559d828a0d4a82a55c27d9fec9115ae33980385622614849cb7e419ba",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/compatible-pairs.log",
+      "bytes": 587,
+      "sha256": "9c93f3b26b1ff810150711cfb29edc91313104d0b08d2edb450b9eeb7be023b1",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-milp-run1.json",
+      "bytes": 28642,
+      "sha256": "162f8f666a586e39dcc915fd97c54ebe617f8b3d3d2f813570c7b9bb3ea82854",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-milp-run1.log",
+      "bytes": 534,
+      "sha256": "aaa3938c8d59383c2b419d609e88bd058a5275c0c565783a5540f01e7c0736da",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-orbits.json",
+      "bytes": 8183,
+      "sha256": "2cf325e87e1f1a893bc7cb2f8c9fab8787b268ce5fd16de7fa16f3144b42be44",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-orbits.log",
+      "bytes": 192,
+      "sha256": "55d96759b7c9d786d6982621cebc5ff08ad6675092cd25391bde9427efa7319a",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-score-smoke.json",
+      "bytes": 9578,
+      "sha256": "6ae8a4c26e1d210772634eeffbc036016cac6c5f5491c5d8cd5340a1637eb5bd",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor-score-smoke.log",
+      "bytes": 513,
+      "sha256": "a86e6dcb51385ad92305d738a8c3791623c57c252688ac3a715f0d485cf2698e",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor_compatibility.py",
+      "bytes": 3561,
+      "sha256": "b690391baaf3756d5ffd89063cde9b43f282815a72a684df77d24abe8d45123e",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor_milp.py",
+      "bytes": 5186,
+      "sha256": "4f745cd1ac87055b5f4967bcd917f5d7502b513adb0c47f0daebd9982cc98a60",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor_orbits.py",
+      "bytes": 2399,
+      "sha256": "881a440828cc0032343f07c15f3edb092f2c17de2d30ef45de5c0626e14b1617",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor_partition.py",
+      "bytes": 12653,
+      "sha256": "264628db96cb896e5cf6170faa62b0e695bdbf15c7c3db9c68f0818ec9adb909",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/factor_score.py",
+      "bytes": 2756,
+      "sha256": "edbbae4e918e5c120b39520cc93f4703b40ca5a84d924f348acb64fcd377e514",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "constructive/induced_subproblems.py",
+      "bytes": 2159,
+      "sha256": "8e191f3cfdff73103bbb0c0883c92656dd8979bbd637f7296faf2aea7c9c5b0d"
     },
     {
       "path": "constructive/neutral-run1-best.json",
@@ -132,9 +270,167 @@
       "sha256": "d3d27ab256df8c859f3ca54c2f2b8356c543cdb4134c57ad84d3e578fffe12d3"
     },
     {
-      "path": "lower-bound/smoke27.log",
-      "bytes": 2770,
-      "sha256": "146f72c3c1c7f78d76da51dc83e4b733f7ea74c59a330aacc4849af4af11a5f7"
+      "path": "constructive/neutral-run1.log",
+      "bytes": 1892,
+      "sha256": "fd1e93e02b432ad68df846c3c0f7bcf4705f9148dd2b23e77ace3e674677ca78"
+    },
+    {
+      "path": "constructive/neutral.cpp",
+      "bytes": 5943,
+      "sha256": "f284785115b01ffd7a639e8ea053b9bd46c4b8f5ce582f95051cffcad7b343d1"
+    },
+    {
+      "path": "constructive/run1-best.json",
+      "bytes": 358,
+      "sha256": "c2182d5d97fca6c413666a5ce4ea5d4492b6617515be763cba06655553ff749d"
+    },
+    {
+      "path": "constructive/run1.log",
+      "bytes": 1933,
+      "sha256": "38c2ea39148ee44993814d7a9a4128c621483199eef3121389cab9846c1b8dbc"
+    },
+    {
+      "path": "constructive/search.cpp",
+      "bytes": 5507,
+      "sha256": "b47e80e5bea90c4bcc74d11b3fe8db7a6299681ab65806c03e4d981a13e3e9d2"
+    },
+    {
+      "path": "lower-bound/biclique30-fixed.log",
+      "bytes": 3133,
+      "sha256": "a56d7565ab0e3d139a083b3538286ca2b411c873f7c53600a3389b32b8155bf9",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/biclique30.hint",
+      "bytes": 190,
+      "sha256": "87a96e8b323787dd9520077f1d265917a6fd8b68ab569c10957635e4a3252212",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/biclique30.json",
+      "bytes": 1714,
+      "sha256": "007c64ca9aea888d56308b8484f81cba8b4989e6d9df7843ff97e550c9c52352",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/biclique30.log",
+      "bytes": 212,
+      "sha256": "26f11564f3d20c6eeedff2d9f2072127bd37453ab2c7c70a2901596293f62bfb",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/biclique_warm.py",
+      "bytes": 5304,
+      "sha256": "bd9e272f1b4c59906cf5306e97131b222d82147183d296305fa372272a219bb6",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis-all.cpp",
+      "bytes": 7093,
+      "sha256": "5439a30e2969e8252b508da0938aaf953e284a36e099403b63a6e992bd421339"
+    },
+    {
+      "path": "lower-bound/cegis-hints.cpp",
+      "bytes": 11324,
+      "sha256": "16ef8db042b9b56ee8be56cb3b59dd652b7224efb29e9ac3a29544237e1f2f4c",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis-hints.hpp",
+      "bytes": 1171,
+      "sha256": "2089bb4a9b37bd34f7fcd03cc0df62bbaf5347a99bef3f818526f7ee7af820bd",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis-warm.hpp",
+      "bytes": 5150,
+      "sha256": "e192a9f1809113668b4186589be1c70eccae1dc0589d456a2426b2952fbace9f",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis.cpp",
+      "bytes": 7923,
+      "sha256": "f5c811d579e857c5104ff264963f3462749073ccad99e8d566107c18bb5ab8bb"
+    },
+    {
+      "path": "lower-bound/cegis26-hints-run.log",
+      "bytes": 2588,
+      "sha256": "370c8527ad896e01ef25f0a0abe951df20da8fb6379910c054964338850036c1",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis26-hints-status.json",
+      "bytes": 81,
+      "sha256": "96318e03b8d5332a01f45cad30f80ed2c636240d0cee83baaf08f8e80ef46d62",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis26-hints.hint",
+      "bytes": 190,
+      "sha256": "87a96e8b323787dd9520077f1d265917a6fd8b68ab569c10957635e4a3252212",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/cegis26.meta",
+      "bytes": 7709,
+      "sha256": "9a40b85f3c3b3d999d980efea8226ce58991158229e9a80a9502b44b6ad128b0",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
+    },
+    {
+      "path": "lower-bound/final-accept.log",
+      "bytes": 3049,
+      "sha256": "d2573cabf9cfb95f3cf0c6dc1e044fb20c69d43554f22a00485112164d6442de",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/final-fallback.log",
+      "bytes": 2905,
+      "sha256": "f0d3e9866918bc821e3da3a6c6aefce32f35cd49fbdd0608c1eb24ada237e1a6",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/fix_cegis_smoke.py",
+      "bytes": 1731,
+      "sha256": "9af62e198dbf0aeedeb1e9844d8824f99bc32998b8c3a406c755c90a7878eda9"
+    },
+    {
+      "path": "lower-bound/hint-accept.log",
+      "bytes": 3159,
+      "sha256": "2aa20d6497a3c0076d6cd052ce27167015ba2af4786b9fb9c54cd0525ca14e83",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/hint-fallback.log",
+      "bytes": 3008,
+      "sha256": "c467ed13e2219f392a124ae31972c0ea88440ac15913f3990a187bdb54c16ab7",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/hint-invalid.log",
+      "bytes": 2935,
+      "sha256": "29921a86e451e56739969aab27a798533547e26bbc46ae5b897f318fc7092528",
+      "captured_utc": "2026-11-25T06:30:46.076816+00:00"
+    },
+    {
+      "path": "lower-bound/make_pairdirty.py",
+      "bytes": 1079,
+      "sha256": "9aa8bc15708b3f0bb390a3eef51fedb710156f12beca74860d62b6b0352d5afd"
+    },
+    {
+      "path": "lower-bound/pairdirty_first_synthesize.py",
+      "bytes": 5061,
+      "sha256": "268920f77fb4af7755b8e3e647e81d48757c9ab6777e69ced7c8b7a294c7536a"
+    },
+    {
+      "path": "lower-bound/pairdirty_synthesize.py",
+      "bytes": 4998,
+      "sha256": "9c5c4a02d2839ae2cba716a8ab8eb3f63d50d3dda8a8c9e54222ae2ee8bba2cc"
+    },
+    {
+      "path": "lower-bound/prepare_cegis.py",
+      "bytes": 1588,
+      "sha256": "7d39c15c0532e84c852eefa6b875e925f2483161ee105a6b2c1a9fbeff78d2a1",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
       "path": "lower-bound/smoke26complete.log",
@@ -142,60 +438,34 @@
       "sha256": "d0b6f7669092100455c82663ca7d6c3dd0cfbd5b90d5e5cd0fba053777381bdd"
     },
     {
-      "path": "circuit-search/general-reproduction.json",
-      "bytes": 194,
-      "sha256": "195289944572748a1fcde784ecd36408dad58727ad5fff99618a7070c4ae7a49"
+      "path": "lower-bound/smoke27.log",
+      "bytes": 2770,
+      "sha256": "146f72c3c1c7f78d76da51dc83e4b733f7ea74c59a330aacc4849af4af11a5f7"
     },
     {
-      "path": "circuit-search/subgraph-3-0.json",
-      "bytes": 273,
-      "sha256": "ba958bf3b325b932836f41093006254f62bd83736922b882467c2edbe870baab"
+      "path": "sat-review/shadow-property.log",
+      "bytes": 116,
+      "sha256": "42f20840c57dd90fbe66e518cd0b0c5351b413cddbab4594c0d20152bddc6ae8",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "circuit-search/subgraph-3-0-solve.log",
-      "bytes": 47130,
-      "sha256": "64c236b7af94b04fe97434b5799f3ab8456b059b2e2d37c92ebc14252c538a21"
+      "path": "sat-review/shadow_property.py",
+      "bytes": 2438,
+      "sha256": "1016d8d17e0e51e3e020938e9531b2e4ab0996dcb54ea0fad234c5ccb46598e9",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "circuit-search/subgraph-3-1.json",
-      "bytes": 278,
-      "sha256": "a1cd0c0be975a66f3b41b29337634de33d2c65ea8782113413fa527eca78d7fe"
+      "path": "sat-review/verified_symmetry.json",
+      "bytes": 16845,
+      "sha256": "313b85c5ae5857d1f1f11c0845f6f51e03706ff6ea852903b8a73eb5dda3209d",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
-      "path": "circuit-search/subgraph-3-1-solve.log",
-      "bytes": 51813,
-      "sha256": "d87ebefdb852cd2e865dcd62dbaae609846d8f0fc93fcd9f0e0aec4f65018355"
-    },
-    {
-      "path": "circuit-search/subgraph-4-0.json",
-      "bytes": 336,
-      "sha256": "6fb67ff3715de53bc28fdf64b5f79e752834b15cdf85890179a1b5ee20760782"
-    },
-    {
-      "path": "circuit-search/subgraph-4-0-solve.log",
-      "bytes": 42643,
-      "sha256": "2500eb54eedfd6ca41ba09bc006e8345e8303c664ac8c314e7fdce4be82efa7b"
-    },
-    {
-      "path": "circuit-search/subgraph-4-1.json",
-      "bytes": 330,
-      "sha256": "1a6b1d1becc71417fec90ba5ed1915d641eb0e0f56816b22e5137c8a6b3ccc10"
-    },
-    {
-      "path": "circuit-search/subgraph-4-1-solve.log",
-      "bytes": 57240,
-      "sha256": "605e518e386931fe708ad6dd2e8d59c10e5b7c32dc443c811b05a16000acbb3b"
-    },
-    {
-      "path": "circuit-search/heawood26-solve.log",
-      "bytes": 112322,
-      "sha256": "75e5a4a570be512136eb8fa56edbfcc15bed46ea4bfafe1e2fd75123da261f03"
-    },
-    {
-      "path": "circuit-search/general26-result.json",
-      "bytes": 786,
-      "sha256": "bdde15a42ad213bd13fcfdad79012288d2123478b9740ffba42103a6601d79fa"
+      "path": "sat-review/verify_rows_symmetry.py",
+      "bytes": 3192,
+      "sha256": "9f1115c073ba29e7615a0ee45ca17bda3964a81ae12ddff93f006691b6d162a5",
+      "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     }
   ],
-  "updated_utc": "2026-11-25T06:04:52.123267+00:00"
+  "updated_utc": "2026-11-25T06:30:46.076816+00:00"
 }

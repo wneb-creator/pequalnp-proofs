@@ -1,0 +1,81 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26.cnf'
+c found 'p cnf 7381 201682' header
+c parsed 201682 clauses in 0.16 seconds process time
+iteration 0 active 23
+warm unpadded 14 available 1
+warm_probe result 10 elapsed_ms 18
+result 10 elapsed_ms 18
+new_violations 35
+selected_row 22 mask 244 weight 5 distance 14
+iteration 1 active 24
+warm unpadded 15 available 1
+warm_probe result 10 elapsed_ms 21
+result 10 elapsed_ms 21
+new_violations 34
+selected_row 45 mask 7426 weight 5 distance 10
+iteration 2 active 25
+warm unpadded 17 available 1
+warm_probe result 10 elapsed_ms 26
+result 10 elapsed_ms 26
+new_violations 33
+selected_row 23 mask 314 weight 5 distance 6
+iteration 3 active 26
+warm unpadded 18 available 1
+warm_probe result 10 elapsed_ms 31
+result 10 elapsed_ms 31
+new_violations 31
+selected_row 25 mask 541 weight 5 distance 6
+iteration 4 active 27
+warm unpadded 21 available 1
+warm_probe result 10 elapsed_ms 37
+result 10 elapsed_ms 37
+new_violations 28
+selected_row 28 mask 1102 weight 5 distance 6
+iteration 5 active 28
+warm unpadded 23 available 1
+warm_probe result 10 elapsed_ms 42
+result 10 elapsed_ms 42
+new_violations 24
+selected_row 32 mask 2087 weight 5 distance 6
+iteration 6 active 29
+warm unpadded 26 available 1
+warm_probe result 10 elapsed_ms 47
+result 10 elapsed_ms 47
+new_violations 18
+selected_row 38 mask 4179 weight 5 distance 6
+iteration 7 active 30
+warm unpadded 27 available 0
+hint_valid_active_rows
+hint_probe result 10 elapsed_ms 52
+result 10 elapsed_ms 52
+new_violations 11
+selected_row 46 mask 8297 weight 5 distance 6
+iteration 8 active 31
+warm unpadded 27 available 0
+slice 0 result 0 elapsed_ms 30053
+slice 1 result 0 elapsed_ms 60054
+slice 2 result 0 elapsed_ms 90070
+slice 3 result 0 elapsed_ms 120071
+slice 4 result 0 elapsed_ms 150099
+slice 5 result 0 elapsed_ms 180135
+slice 6 result 0 elapsed_ms 210136
+slice 7 result 0 elapsed_ms 240137
+slice 8 result 0 elapsed_ms 270137
+slice 9 result 0 elapsed_ms 300140
+slice 10 result 0 elapsed_ms 330142
+slice 11 result 0 elapsed_ms 360142
+slice 12 result 0 elapsed_ms 390143
+slice 13 result 0 elapsed_ms 420143
+slice 14 result 0 elapsed_ms 450145
+slice 15 result 0 elapsed_ms 480145
+slice 16 result 0 elapsed_ms 510147
+slice 17 result 0 elapsed_ms 540148
+slice 18 result 0 elapsed_ms 570148
+slice 19 result 0 elapsed_ms 600148
+slice 20 result 0 elapsed_ms 630149
+slice 21 result 0 elapsed_ms 660155
+slice 22 result 0 elapsed_ms 690158
+slice 23 result 0 elapsed_ms 720158
+slice 24 result 0 elapsed_ms 750159
+slice 25 result 0 elapsed_ms 780160
+slice 26 result 0 elapsed_ms 810161

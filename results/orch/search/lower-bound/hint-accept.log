@@ -1,0 +1,70 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-70/lower-bound/biclique30-fixed.cnf'
+c found 'p cnf 7381 201790' header
+c parsed 201790 clauses in 0.30 seconds process time
+iteration 0 active 23
+warm unpadded 14 available 1
+warm_probe result 20 elapsed_ms 49
+warm_candidate_failed retry_unconstrained
+hint_valid_active_rows
+hint_probe result 10 elapsed_ms 53
+result 10 elapsed_ms 53
+new_violations 11
+selected_row 46 mask 8297 weight 5 distance 14
+iteration 1 active 24
+warm unpadded 16 available 1
+warm_probe result 20 elapsed_ms 57
+warm_candidate_failed retry_unconstrained
+slice 0 result 20 elapsed_ms 57
+result 20 elapsed_ms 57
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.30 2197.80% parse               
+c     1.7e+05   70.95%  3.9e+07         0.00   32.33% search              
+c     1.7e+05   70.95%  3.9e+07         0.00   32.32% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     2.4e+05  100.00%  1.8e+07         0.01    4.20% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                        159456
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          1       25.00 %   searches             
+c propagations:                     7344        0.55 M   per second           
+c searches:                            4
+c ticks:                          238991       17.79 M   per second           
+c variables_original:               7381      100.00 %   vars                 
+c vars:                             7381
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.32    seconds
+c total real time since initialization:            0.49    seconds
+c maximum resident set size of process:           20.33    MB
+s UNSATISFIABLE_SUBSET

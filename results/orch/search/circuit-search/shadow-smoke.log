@@ -1,0 +1,2 @@
+fixed circuit 27 gates: UNSAT as expected for read-1 star
+fixed circuit 28 gates: SAT with all quadratic target bits absent; truth table verified

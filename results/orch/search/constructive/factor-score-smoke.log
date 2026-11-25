@@ -1,0 +1,5 @@
+{"event": "best", "size": 27, "orbit": 0, "shadow_edges": 21, "seconds": 0.022844658000394702}
+{"event": "nontrivial_best", "size": 43, "orbit": 0, "shadow_edges": 12, "seconds": 0.02327111700014939}
+{"event": "nontrivial_best", "size": 39, "orbit": 1, "shadow_edges": 18, "seconds": 0.04307698299999174}
+{"event": "nontrivial_best", "size": 37, "orbit": 2, "shadow_edges": 18, "seconds": 0.10079085699999268}
+{"event": "done", "seconds": 2.0897675360001813, "evaluations": 45, "best": 27, "best_nontrivial": 37}

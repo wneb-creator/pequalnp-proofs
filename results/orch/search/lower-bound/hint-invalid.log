@@ -1,0 +1,63 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-70/lower-bound/cegis27-fixed.cnf'
+c found 'p cnf 7714 213966' header
+c parsed 213966 clauses in 0.17 seconds process time
+iteration 0 active 23
+warm unpadded 14 available 1
+warm_probe result 20 elapsed_ms 39
+warm_candidate_failed retry_unconstrained
+hint_rejected invalid_gate
+slice 0 result 10 elapsed_ms 42
+result 10 elapsed_ms 42
+new_violations 0
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.17 1642.01% parse               
+c     1.8e+05   71.28%  8.4e+07         0.00   21.18% lucky               
+c     1.8e+05   71.28%  8.4e+07         0.00   21.18% search              
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     2.5e+05  100.00%  2.5e+07         0.01    5.40% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                        170035
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          1       50.00 %   searches             
+c propagations:                     7676        0.76 M   per second           
+c searches:                            2
+c ticks:                          253644       25.10 M   per second           
+c variables_original:               7714      100.00 %   vars                 
+c vars:                             7714
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.19    seconds
+c total real time since initialization:            0.29    seconds
+c maximum resident set size of process:           21.33    MB
+s SATISFIABLE_FULL_CHECKED_16384
