@@ -2842,4 +2842,122 @@ lemma full_mono_gate_inCone_active_other {n : ℕ} {G : SimpleGraph (Fin n)}
 
 end BothMono
 
+namespace LargeOverlapException
+
+open PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+
+lemma common_neighbors_unique {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) {a b u v : Fin n}
+    (hab : a ≠ b) (hau : G.Adj a u) (hbu : G.Adj b u)
+    (hav : G.Adj a v) (hbv : G.Adj b v) : u = v := by
+  by_contra huv
+  have hlarge : 1 < (Finset.univ.filter fun w => G.Adj a w ∧ G.Adj b w).card := by
+    apply Finset.one_lt_card.mpr
+    exact ⟨u, by simp [hau, hbu], v, by simp [hav, hbv], huv⟩
+  have hsmall := h4 a b hab
+  omega
+
+lemma noncentral_universal_of_clean_triples {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (I P Q : Finset (Fin n))
+    (w : Fin n) (hI : 2 ≤ I.card) (hIw : ∀ i ∈ I, G.Adj i w)
+    (hIP : ∀ i ∈ I, ∀ p ∈ P, ¬ G.Adj i p)
+    (hTriple : ∀ i ∈ I, ∀ p ∈ P, ∀ q ∈ Q,
+      G.Adj i p ∨ G.Adj i q ∨ G.Adj p q)
+    {q : Fin n} (hq : q ∈ Q) (hqw : q ≠ w) : ∀ p ∈ P, G.Adj p q := by
+  intro p hp
+  by_contra hpq
+  have hIq : ∀ i ∈ I, G.Adj i q := by
+    intro i hi
+    exact ((hTriple i hi p hp q hq).resolve_left (hIP i hi p hp)).resolve_right hpq
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (by omega : 1 < I.card)
+  exact hqw (common_neighbors_unique h4 hab (hIw a ha) (hIw b hb) (hIq a ha) (hIq b hb)).symm
+
+lemma noncentral_card_le_one_of_clean_triples {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (I P Q : Finset (Fin n))
+    (w : Fin n) (hI : 2 ≤ I.card) (hP : 2 ≤ P.card)
+    (hIw : ∀ i ∈ I, G.Adj i w)
+    (hIP : ∀ i ∈ I, ∀ p ∈ P, ¬ G.Adj i p)
+    (hTriple : ∀ i ∈ I, ∀ p ∈ P, ∀ q ∈ Q,
+      G.Adj i p ∨ G.Adj i q ∨ G.Adj p q) : (Q.erase w).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro q hq r hr
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (by omega : 1 < P.card)
+  have hqP := noncentral_universal_of_clean_triples h4 I P Q w hI hIw hIP hTriple
+    (Finset.mem_erase.mp hq).2 (Finset.mem_erase.mp hq).1
+  have hrP := noncentral_universal_of_clean_triples h4 I P Q w hI hIw hIP hTriple
+    (Finset.mem_erase.mp hr).2 (Finset.mem_erase.mp hr).1
+  exact common_neighbors_unique h4 hab (hqP a ha) (hqP b hb) (hrP a ha) (hrP b hb)
+
+lemma two_point_factor_of_clean_triples {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (I P Q : Finset (Fin n))
+    (w : Fin n) (hI : 2 ≤ I.card) (hP : 2 ≤ P.card) (hQ : 2 ≤ Q.card)
+    (hIw : ∀ i ∈ I, G.Adj i w)
+    (hIP : ∀ i ∈ I, ∀ p ∈ P, ¬ G.Adj i p)
+    (hTriple : ∀ i ∈ I, ∀ p ∈ P, ∀ q ∈ Q,
+      G.Adj i p ∨ G.Adj i q ∨ G.Adj p q) :
+    w ∈ Q ∧ ∃ q₀ : Fin n, q₀ ≠ w ∧ Q = {w, q₀} ∧
+      (∀ p ∈ P, G.Adj p q₀) ∧ ∃ p ∈ P, ¬ G.Adj p w := by
+  have hsmall := noncentral_card_le_one_of_clean_triples h4 I P Q w hI hP hIw hIP hTriple
+  have hw : w ∈ Q := by
+    by_contra hn
+    rw [Finset.erase_eq_of_notMem hn] at hsmall
+    omega
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (by omega : 1 < Q.card)
+  have hother : ∃ q₀ ∈ Q, q₀ ≠ w := by
+    by_cases haw : a = w
+    · exact ⟨b, hb, fun hbw => hab (haw.trans hbw.symm)⟩
+    · exact ⟨a, ha, haw⟩
+  obtain ⟨q₀, hq, hqw⟩ := hother
+  have hqe : q₀ ∈ Q.erase w := Finset.mem_erase.mpr ⟨hqw, hq⟩
+  have herase : Q.erase w = {q₀} := by
+    apply Finset.eq_singleton_iff_nonempty_unique_mem.mpr
+    exact ⟨⟨q₀, hqe⟩, fun r hr => Finset.card_le_one.mp hsmall r hr q₀ hqe⟩
+  have hQeq : Q = {w, q₀} := by
+    calc
+      Q = insert w (Q.erase w) := (Finset.insert_erase hw).symm
+      _ = {w, q₀} := by rw [herase]
+  have hPq := noncentral_universal_of_clean_triples h4 I P Q w hI hIw hIP hTriple hq hqw
+  refine ⟨hw, q₀, hqw, hQeq, hPq, ?_⟩
+  by_contra hn
+  push Not at hn
+  obtain ⟨p, hp, r, hr, hpr⟩ := Finset.one_lt_card.mp (by omega : 1 < P.card)
+  exact hqw (common_neighbors_unique h4 hpr (hn p hp) (hn r hr) (hPq p hp) (hPq r hr)).symm
+
+lemma clean_raw_filter_triple {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (P Q : Finset (Fin n)) (i : Fin n)
+    (hFilter : ∀ x : Fin n → Bool, (∃ p ∈ P, x p = true) →
+      (∃ q ∈ Q, x q = true) → x i = true → graphFun G ∅ x = true)
+    {p q : Fin n} (hp : p ∈ P) (hq : q ∈ Q) :
+    G.Adj i p ∨ G.Adj i q ∨ G.Adj p q := by
+  let x : Fin n → Bool := fun v => decide (v = i ∨ v = p ∨ v = q)
+  have hF := hFilter x ⟨p, hp, by simp [x]⟩ ⟨q, hq, by simp [x]⟩ (by simp [x])
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+    Bool.false_or, decide_eq_true_eq, x] at hF
+  obtain ⟨a, b, hab, ha, hb⟩ := hF
+  rcases ha with rfl | rfl | rfl <;> rcases hb with rfl | rfl | rfl
+  · exact (G.irrefl hab).elim
+  · exact Or.inl hab
+  · exact Or.inr (Or.inl hab)
+  · exact Or.inl hab.symm
+  · exact (G.irrefl hab).elim
+  · exact Or.inr (Or.inr hab)
+  · exact Or.inr (Or.inl hab.symm)
+  · exact Or.inr (Or.inr hab.symm)
+  · exact (G.irrefl hab).elim
+
+lemma two_point_factor_of_raw_filters {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (I P Q : Finset (Fin n))
+    (w : Fin n) (hI : 2 ≤ I.card) (hP : 2 ≤ P.card) (hQ : 2 ≤ Q.card)
+    (hIw : ∀ i ∈ I, G.Adj i w)
+    (hIP : ∀ i ∈ I, ∀ p ∈ P, ¬ G.Adj i p)
+    (hFilter : ∀ i ∈ I, ∀ x : Fin n → Bool, (∃ p ∈ P, x p = true) →
+      (∃ q ∈ Q, x q = true) → x i = true → graphFun G ∅ x = true) :
+    w ∈ Q ∧ ∃ q₀ : Fin n, q₀ ≠ w ∧ Q = {w, q₀} ∧
+      (∀ p ∈ P, G.Adj p q₀) ∧ ∃ p ∈ P, ¬ G.Adj p w := by
+  apply two_point_factor_of_clean_triples h4 I P Q w hI hP hQ hIw hIP
+  intro i hi p hp q hq
+  exact clean_raw_filter_triple P Q i (hFilter i hi) hp hq
+
+end LargeOverlapException
+
 end PEqualNP.Outside.L_meta_5012
