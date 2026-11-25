@@ -45,3 +45,5 @@
 2026-11-25T01:35:08.732278+00:00 — L1342 composition partial named build passed in2.3s; immediate independent review requested before push. Full21-gate goal remains unresolved.
 
 2026-11-25T01:44:32.804504+00:00 — Full22-gate baseline correctness passed the named Lean build in4.6s. The successful proof expands the Boolean formula, distributes conjunction, then uses associativity/commutativity; no exhaustive native computation.21-gate target remains open.
+
+2026-11-25T01:54:39.617978+00:00 — Generic three-gate prefix constructor and exact two-junk22-gate witness compiled and independently reviewed. R1342_46 named build passed4.8s after replacing simplification-generated foreign equation lemmas with a direct fold calculation. First local checker rejected reduce-extra; corrected full checker is running.21-gate existence and18-gate continuation remain unresolved.

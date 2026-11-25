@@ -1,0 +1,6 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+checker stage: building the file and the definitions root t=4s
+checker stage: verifier reading the built file t=7s
+REJECTED (reduce-extra): PEqualNP.Outside.R_meta_1342_46 declares more than its theorem: [PEqualNP.CircuitLowerBounds.Circuit.wires.eq_1, PEqualNP.CircuitLowerBounds.Circuit.eval.eq_1]. A reduction file holds the one theorem and nothing else
