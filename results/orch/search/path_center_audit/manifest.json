@@ -1,0 +1,133 @@
+{
+  "scope": "Four-input uv OR uA OR vD with both formal central-edge derivatives false, all 16 assignments, binary distinct earlier inputs, output last gate.",
+  "status": "Computational only; not kernel checked; not a lower bound for the eight-input double-star or L-meta-2602.",
+  "files": [
+    {
+      "file": "audit_path_center.py",
+      "bytes": 1860,
+      "sha256": "d66f1dacb5bc19855c303a8fef41b209309407aaa256b4a013ff09a13484f932"
+    },
+    {
+      "file": "audit_path_center6.py",
+      "bytes": 1860,
+      "sha256": "c1eb6b4786a0c8a7035172a52c4c12e40241d5a58c3a120ec4f7f8d687ea3352"
+    },
+    {
+      "file": "audit-path-center5-summary.log",
+      "bytes": 99,
+      "sha256": "1b808bdd55ee042de147df0ff55e23652b292a750f79b2e5e1b008093386a234"
+    },
+    {
+      "file": "audit-path-center6-summary.log",
+      "bytes": 166,
+      "sha256": "507ab31173626a92382865c7a6ace9646e744748cfe46a26a80e032ab16b25e7"
+    },
+    {
+      "file": "audit-path-center-validation.json",
+      "bytes": 783,
+      "sha256": "bb1350a31d98c6e2a7e55c37baf80c460d5b8a77e897ed59886964624f0acb29"
+    },
+    {
+      "file": "audit-path-center5.stdout.gz",
+      "bytes": 1551,
+      "sha256": "b13887b16b5aee43be63f2916e3efb97da8f813c475bb87aae0d6eb0d1419eeb",
+      "original_bytes": 4814,
+      "original_sha256": "7721a5565e13ff30c2ff14d69d2ed592ca14c4008fe73c386cbbf8cc134e9f80"
+    },
+    {
+      "file": "audit-path-center5.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit-path-center6.stdout.gz",
+      "bytes": 2579,
+      "sha256": "53d4f41917a86bbad4aa9ce69df1b737a6a26d859c17623b5c255965e3944146",
+      "original_bytes": 6290,
+      "original_sha256": "2ed33dca2a9f49d65db4c6910db6822c56fa6fe450cf1db9cbedbe621c50c424"
+    },
+    {
+      "file": "audit-path-center6.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1608,
+      "sha256": "4558c1a91b6174e9fb2879a856851f9de7982e72e818e4e3a4b2de46efd8e560"
+    },
+    {
+      "file": "validate.py",
+      "bytes": 1266,
+      "sha256": "19ba416dc6a4ee58b6381f52283e21bd44318b1cb700fb027cb9cebe40a46d22"
+    },
+    {
+      "file": "validation.log",
+      "bytes": 83,
+      "sha256": "b155f2b69de09dc577e1fbf725051584525b33f126d9ba761f1d6ac49a06b0d9"
+    }
+  ],
+  "runs": [
+    {
+      "gates": 5,
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "20",
+        "/tmp/oec/pequalnp-pilot-64/audit-path-center5.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 33450,
+      "cnf_sha256": "7adbc353eec649e79e41f2cf4023e797f942261055317a4617da9ce70a48f976",
+      "summary": {
+        "gates": 5,
+        "variables": 452,
+        "clauses": 2537,
+        "solver_code": 20,
+        "seconds": 0.04462695121765137
+      },
+      "summary_file_mtime_utc": "2026-11-25T03:36:37.219813+00:00"
+    },
+    {
+      "gates": 6,
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "20",
+        "/tmp/oec/pequalnp-pilot-64/audit-path-center6.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 44924,
+      "cnf_sha256": "2f6a38f38324a2abb3e5b256845e69560c9ea08133b8069228f6bfceb9a3567b",
+      "summary": {
+        "gates": 6,
+        "variables": 555,
+        "clauses": 3312,
+        "solver_code": 10,
+        "seconds": 0.04187774658203125
+      },
+      "summary_file_mtime_utc": "2026-11-25T03:36:51.115775+00:00"
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "results/orch/search/and_count_search.py",
+      "bytes": 6697,
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1"
+    }
+  ],
+  "solver": {
+    "file": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "bytes": 1115504,
+    "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+  }
+}

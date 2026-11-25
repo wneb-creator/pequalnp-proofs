@@ -1,0 +1,64 @@
+{
+  "independent_validation": "PASS",
+  "assignments": 16,
+  "legal_distinct_topological": true,
+  "gates": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      0,
+      4
+    ],
+    [
+      1,
+      0,
+      6
+    ],
+    [
+      1,
+      4,
+      7
+    ],
+    [
+      0,
+      5,
+      8
+    ]
+  ],
+  "derivative_traces": [
+    [
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false,
+      false
+    ],
+    [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ]
+  ],
+  "limitation": "5-gate UNSAT is only the 4-input path macro class; no 8-input double-star lower bound or Lean proof claimed"
+}

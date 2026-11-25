@@ -36,3 +36,6 @@ SupportConnect.lean: lake env lean passed, exit0;106 lines, no output. Singleton
 
 OrFamilyBound.lean initial: lake env lean passed, exit0;92 lines. Finite union-DAG count extended by uncharged unary redirects; independent review passed.
 Witness65.lean semantic extension: lake env lean passed, exit0;373 lines. Exact incidence specification for all26-bit inputs; legality and formal derivative traces not yet included. Independent review passed.
+
+CircuitAdapter.lean: lake env lean passed, exit0;164 lines. Actual topologicalCircuit wire equations and monotonicity; independent review passed.
+OrFamilyBound.lean clause extension: lake env lean passed, exit0;238 lines. Single-clause support requires card A minus1 chargedOR gates; independent review passed. This does not compare different point cofactors.

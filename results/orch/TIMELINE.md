@@ -30,3 +30,5 @@
 2026-11-25T03:36:07.219926+00:00 structural geometry completed; generic nine-gate cut route blocked by unproved cross-sharing/derivative-preserving pruning inequality.
 
 2026-11-25T03:38:40.135363+00:00 Witness65 full incidence semantics and unary-DAG count compiled and independently reviewed.
+
+2026-11-25T03:42:15.581305+00:00 ActualCircuit adapter and single-clause charging bound compiled and independently reviewed.

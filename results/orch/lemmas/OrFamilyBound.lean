@@ -1,5 +1,7 @@
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Union
+import Mathlib.Data.Fintype.Card
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
 
 namespace PEqualNP.Outside.L_meta_2602_aux.OrFamilyBound
 
@@ -88,5 +90,149 @@ lemma unary_union_bound {α : Type} [DecidableEq α] (U : Finset ℕ) (f : ℕ �
       have h1 := ih (by omega) V hV'
       omega
 
+
+def BitMonotone {n : ℕ} (f : (Fin n → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ i, x i = true → y i = true) → f x = true → f y = true
+
+def singleton {n : ℕ} (i : Fin n) : Fin n → Bool := fun j => decide (j = i)
+
+def Below {n : ℕ} (A : Finset (Fin n)) (f : (Fin n → Bool) → Bool) : Prop :=
+  ∀ x, f x = true → ∃ i ∈ A, x i = true
+
+lemma and_below {n : ℕ} (A : Finset (Fin n)) (f g : (Fin n → Bool) → Bool)
+    (hf : BitMonotone f) (hg : BitMonotone g)
+    (hfg : Below A (fun x => f x && g x)) : Below A f ∨ Below A g := by
+  let z : Fin n → Bool := fun i => decide (i ∉ A)
+  have hzero : (f z && g z) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro h
+    have := hfg z h
+    simp [z] at this
+  have recover (h : (Fin n → Bool) → Bool) (hm : BitMonotone h)
+      (hz : h z = false) : Below A h := by
+    intro x hx
+    by_contra hno
+    have hle : ∀ i, x i = true → z i = true := by
+      intro i hi
+      simp only [z, decide_eq_true_eq]
+      exact fun hiA => hno ⟨i, hiA, hi⟩
+    have ht := hm x z hle hx
+    rw [hz] at ht
+    contradiction
+  cases hF : f z
+  · exact Or.inl (recover f hf hF)
+  · exact Or.inr (recover g hg (by simpa [hF] using hzero))
+
+def support (n : ℕ) (F : ℕ → (Fin n → Bool) → Bool) (i : ℕ) : Finset (Fin n) :=
+  Finset.univ.filter (fun p => F i (singleton p) = true)
+
+noncomputable def charged (n k : ℕ) (A : Finset (Fin n))
+    (F : ℕ → (Fin n → Bool) → Bool) (op : ℕ → Bool) : Finset ℕ := by
+  classical
+  exact (Finset.range (n + k)).filter (fun i => n ≤ i ∧ op (i - n) = true ∧
+    Below A (F i) ∧ 2 ≤ (support n F i).card)
+
+lemma clause_charge_bound (n k : ℕ) (A : Finset (Fin n))
+    (F : ℕ → (Fin n → Bool) → Bool) (op : ℕ → Bool) (a b : ℕ → ℕ)
+    (hinput : ∀ i (hi : i < n) x, F i x = x ⟨i, hi⟩)
+    (hgate : ∀ j < k, ∀ x, F (n + j) x =
+      if op j then F (a j) x || F (b j) x else F (a j) x && F (b j) x)
+    (ha : ∀ j < k, a j < n + j) (hb : ∀ j < k, b j < n + j)
+    (hmono : ∀ i < n + k, BitMonotone (F i))
+    (out : ℕ) (hout : out < n + k)
+    (hspec : ∀ x, F out x = true ↔ ∃ i ∈ A, x i = true) :
+    A.card ≤ (charged n k A F op).card + 1 := by
+  classical
+  let fs (i : ℕ) := if Below A (F i) then support n F i else ∅
+  let l (i : ℕ) := a (i - n)
+  let r (i : ℕ) := b (i - n)
+  have input_small (i : ℕ) (hi : i < n) : (fs i).card ≤ 1 := by
+    by_cases hbelow : Below A (F i)
+    · have hsub : support n F i ⊆ {⟨i, hi⟩} := by
+        intro p hp
+        have ht := (Finset.mem_filter.mp hp).2
+        rw [hinput i hi] at ht
+        simp only [singleton, decide_eq_true_eq] at ht
+        exact Finset.mem_singleton.mpr ht.symm
+      simpa [fs, hbelow] using Finset.card_le_card hsub
+    · simp [fs, hbelow]
+  have union_step (w : ℕ) (hw : w ∈ charged n k A F op) :
+      l w < w ∧ r w < w ∧ fs w = fs (l w) ∪ fs (r w) := by
+    simp only [charged, Finset.mem_filter, Finset.mem_range] at hw
+    obtain ⟨hwk, hwn, hop, hbelow, _⟩ := hw
+    have hj : w - n < k := by omega
+    have heq : n + (w - n) = w := by omega
+    have hba : Below A (F (a (w - n))) := by
+      intro x hx
+      apply hbelow x
+      rw [← heq, hgate (w - n) hj x, hop]
+      simp [hx]
+    have hbb : Below A (F (b (w - n))) := by
+      intro x hx
+      apply hbelow x
+      rw [← heq, hgate (w - n) hj x, hop]
+      simp [hx]
+    refine ⟨by dsimp [l]; have := ha (w - n) hj; omega,
+      by dsimp [r]; have := hb (w - n) hj; omega, ?_⟩
+    simp only [fs, l, r, if_pos hbelow, if_pos hba, if_pos hbb]
+    ext p
+    simp only [support, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_union]
+    rw [← heq, hgate (w - n) hj (singleton p), hop]
+    simp
+  have unary_step (w : ℕ) (hw : w < n + k) (hnu : w ∉ charged n k A F op) :
+      (fs w).card ≤ 1 ∨ ∃ p < w, fs w ⊆ fs p := by
+    by_cases hsmall : (fs w).card ≤ 1
+    · exact Or.inl hsmall
+    · right
+      have hbelow : Below A (F w) := by
+        by_contra hno
+        simp [fs, hno] at hsmall
+      have hwn : n ≤ w := by
+        by_contra hno
+        exact hsmall (input_small w (by omega))
+      have hj : w - n < k := by omega
+      have heq : n + (w - n) = w := by omega
+      have hcard : 2 ≤ (support n F w).card := by
+        simp only [fs, if_pos hbelow] at hsmall
+        omega
+      have hop : op (w - n) = false := by
+        cases hop : op (w - n)
+        · rfl
+        · exact False.elim (hnu (by
+            simp only [charged, Finset.mem_filter, Finset.mem_range]
+            exact ⟨hw, hwn, hop, hbelow, hcard⟩))
+      have haj : a (w - n) < w := by have := ha (w - n) hj; omega
+      have hbj : b (w - n) < w := by have := hb (w - n) hj; omega
+      have hand : Below A (fun x => F (a (w - n)) x && F (b (w - n)) x) := by
+        intro x hx
+        apply hbelow x
+        rw [← heq, hgate (w - n) hj x, hop]
+        exact hx
+      rcases and_below A (F (a (w - n))) (F (b (w - n)))
+          (hmono _ (by omega)) (hmono _ (by omega)) hand with hba | hbb
+      · refine ⟨a (w - n), haj, ?_⟩
+        intro p hp
+        have ht : F w (singleton p) = true := by simpa [fs, hbelow, support] using hp
+        rw [← heq, hgate (w - n) hj (singleton p), hop] at ht
+        have hpa := (Bool.and_eq_true_iff.mp ht).1
+        simpa [fs, hba, support] using hpa
+      · refine ⟨b (w - n), hbj, ?_⟩
+        intro p hp
+        have ht : F w (singleton p) = true := by simpa [fs, hbelow, support] using hp
+        rw [← heq, hgate (w - n) hj (singleton p), hop] at ht
+        have hpb := (Bool.and_eq_true_iff.mp ht).2
+        simpa [fs, hbb, support] using hpb
+  have hbelowout : Below A (F out) := fun x hx => (hspec x).1 hx
+  have hfout : fs out = A := by
+    ext p
+    simp only [fs, if_pos hbelowout, support, Finset.mem_filter, Finset.mem_univ, true_and]
+    simpa [singleton] using hspec (singleton p)
+  have hfil : (charged n k A F op).filter (fun j => j < n + k) = charged n k A F op := by
+    apply Finset.filter_true_of_mem
+    intro j hj
+    exact Finset.mem_range.mp (Finset.mem_filter.mp hj).1
+  have h := unary_union_bound (charged n k A F op) fs l r (n + k) unary_step union_step
+    (n + k) le_rfl {out} (by simpa using hout)
+  simpa only [Finset.singleton_biUnion, Finset.card_singleton, hfout, hfil, Nat.add_comm] using h
 
 end PEqualNP.Outside.L_meta_2602_aux.OrFamilyBound
