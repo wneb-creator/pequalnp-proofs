@@ -1,0 +1,39 @@
+command: lean -j1 --profile AllDomainsEquality.lean
+exit: 0
+stdout:
+elaboration took 158ms
+elaboration took 610ms
+elaboration took 230ms
+elaboration took 464ms
+type checking took 283ms
+elaboration took 158ms
+type checking took 3.23s
+type checking took 671ms
+elaboration took 154ms
+type checking took 1.99s
+
+stderr:
+import took 4.58s
+cumulative profiling times:
+	attribute application 0.973ms
+	blocked (unaccounted) 22.3s
+	compilation (IR) 43.4ms
+	compilation (LCNF base) 214ms
+	compilation (LCNF impure) 51.2ms
+	compilation (LCNF mono) 170ms
+	congr simp thm 0.222ms
+	elaboration 2.12s
+	fix level params 1.01ms
+	import 4.58s
+	initialization 130ms
+	instantiate metavars 4.81ms
+	interpretation 6.94ms
+	let-to-have transformation 7.2ms
+	linting 77.1ms
+	parsing 43ms
+	process pre-definitions 74.2ms
+	share common exprs 8.14ms
+	simp 3.15ms
+	tactic execution 43.1ms
+	type checking 6.32s
+	typeclass inference 585ms

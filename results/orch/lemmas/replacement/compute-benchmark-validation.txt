@@ -1,0 +1,42 @@
+Original single-node certificate benchmark
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/ComputeBench.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j2",
+    "/tmp/oec/pequalnp-pilot-184/replacement/ComputeBench.lean"
+  ],
+  "elapsed_s": 4.796096732000024,
+  "exit_code": 0
+}
+
+STDOUT
+elaboration took 361ms
+type checking took 633ms
+
+STDERR
+import took 991ms
+cumulative profiling times:
+	attribute application 1.47ms
+	blocked (unaccounted) 114ms
+	compilation (IR) 11.9ms
+	compilation (LCNF base) 348ms
+	compilation (LCNF impure) 60.4ms
+	compilation (LCNF mono) 129ms
+	elaboration 907ms
+	fix level params 1.24ms
+	import 991ms
+	initialization 42.1ms
+	instantiate metavars 1.89ms
+	interpretation 4.83ms
+	let-to-have transformation 7.29ms
+	linting 103ms
+	parsing 36.8ms
+	process pre-definitions 87.3ms
+	share common exprs 6.74ms
+	tactic execution 0.826ms
+	type checking 690ms
+	typeclass inference 360ms

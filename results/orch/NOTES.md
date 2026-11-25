@@ -44,3 +44,7 @@ Initial scan1185 one-NOT proofs found no isomorphic target; exact-edge scan no c
 
 ## circuit_search SAT result — 2026-11-25T19:49:19.517582+00:00
 CaDiCaL monotone13 on boundary21 rows,38,304clauses hit its180s wall limit with exit0/no SAT-or-UNSAT verdict.2,075,720conflicts;34.36MB resident. No13-gate witness. Full logs saved in results/orch/lemmas/search/. Exploratory route finished; root prior-PR certificate route remains primary.
+
+### lower_bound: certificate reuse and optimization 2026-11-25T19:54:19.769893+00:00
+Existing same-gap PR16243 by MohamadEidAlAktaa contains full signed-binary lower13 + monotone witness14, but both remote checks timed out. Source517777bytes7860lines. Static helper pruning initially missed field notation; corrected closure restores CompactTable.live/bucket and BoundPool.wires, leaving48 unused declarations removed. Corrected Pruned.lean494996bytes7573lines.
+FastData.lean precomputes all436 rich-domain entries via85 literal128-bit masks; FastDataGraph.lean additionally memoizes graphGoal127 using the existing graph truth word. Core Lean DomainEquality.lean verifies exact129 main-domain equality and the generic fast-graph equality (exit0, kernel1.76s). Full theorem compatibility/runtime still pending. Root notified to preserve compiled optimization certificate and logs.
