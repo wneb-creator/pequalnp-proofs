@@ -3511,4 +3511,1398 @@ lemma eight_merges_general {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj
 
 end Four
 
+
+namespace SevenRows
+
+def base : List Nat := [0, 26, 44, 49, 59, 61, 62, 63, 73, 84, 91, 93, 94, 95, 98, 107, 109, 110, 111, 115, 117, 118, 119, 121, 122, 123, 124, 125, 126, 127]
+def first : List Nat := [0, 1, 2, 4, 8, 9, 10, 12, 16, 17, 18, 20, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+def stage (f : Nat) : List Nat := base ++ base.map (fun a => a ||| f)
+
+set_option maxHeartbeats 0 in
+lemma base_closed : ∀ a ∈ base, ∀ b ∈ base, a ||| b ∈ base := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma first_covers : ∀ a ∈ base, ∀ b ∈ base, a &&& b ∈ first := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma base_target : ∀ a ∈ base, a ≠ 7 := by decide +kernel
+
+def safe (f : Nat) : Bool := decide (f ≠ 7) &&
+  (stage f).all (fun a => (stage f).all (fun b => decide (a &&& b ≠ 7 ∧ f ||| (a &&& b) ≠ 7)))
+
+set_option maxHeartbeats 0 in
+lemma checked_0 : safe 0 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_1 : safe 1 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_2 : safe 2 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_3 : safe 4 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_4 : safe 8 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_5 : safe 9 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_6 : safe 10 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_7 : safe 12 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_8 : safe 16 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_9 : safe 17 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_10 : safe 18 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_11 : safe 20 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_12 : safe 24 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_13 : safe 25 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_14 : safe 26 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_15 : safe 27 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_16 : safe 28 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_17 : safe 29 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_18 : safe 30 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_19 : safe 31 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_20 : safe 32 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_21 : safe 33 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_22 : safe 34 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_23 : safe 36 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_24 : safe 40 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_25 : safe 41 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_26 : safe 42 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_27 : safe 43 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_28 : safe 44 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_29 : safe 45 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_30 : safe 46 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_31 : safe 47 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_32 : safe 48 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_33 : safe 49 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_34 : safe 50 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_35 : safe 51 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_36 : safe 52 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_37 : safe 53 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_38 : safe 54 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_39 : safe 55 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_40 : safe 56 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_41 : safe 57 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_42 : safe 58 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_43 : safe 59 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_44 : safe 60 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_45 : safe 61 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_46 : safe 62 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_47 : safe 63 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_48 : safe 64 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_49 : safe 65 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_50 : safe 66 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_51 : safe 68 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_52 : safe 72 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_53 : safe 73 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_54 : safe 74 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_55 : safe 75 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_56 : safe 76 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_57 : safe 77 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_58 : safe 78 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_59 : safe 79 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_60 : safe 80 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_61 : safe 81 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_62 : safe 82 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_63 : safe 83 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_64 : safe 84 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_65 : safe 85 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_66 : safe 86 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_67 : safe 87 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_68 : safe 88 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_69 : safe 89 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_70 : safe 90 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_71 : safe 91 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_72 : safe 92 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_73 : safe 93 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_74 : safe 94 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_75 : safe 95 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_76 : safe 96 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_77 : safe 97 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_78 : safe 98 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_79 : safe 99 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_80 : safe 100 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_81 : safe 101 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_82 : safe 102 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_83 : safe 103 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_84 : safe 104 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_85 : safe 105 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_86 : safe 106 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_87 : safe 107 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_88 : safe 108 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_89 : safe 109 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_90 : safe 110 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_91 : safe 111 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_92 : safe 112 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_93 : safe 113 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_94 : safe 114 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_95 : safe 115 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_96 : safe 116 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_97 : safe 117 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_98 : safe 118 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_99 : safe 119 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_100 : safe 120 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_101 : safe 121 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_102 : safe 122 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_103 : safe 123 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_104 : safe 124 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_105 : safe 125 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_106 : safe 126 = true := by decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma checked_107 : safe 127 = true := by decide +kernel
+
+lemma checked : first.all safe = true := by
+  simp only [first, List.all_cons, List.all_nil, Bool.and_eq_true]
+  exact ⟨checked_0, checked_1, checked_2, checked_3, checked_4, checked_5, checked_6, checked_7, checked_8, checked_9, checked_10, checked_11, checked_12, checked_13, checked_14, checked_15, checked_16, checked_17, checked_18, checked_19, checked_20, checked_21, checked_22, checked_23, checked_24, checked_25, checked_26, checked_27, checked_28, checked_29, checked_30, checked_31, checked_32, checked_33, checked_34, checked_35, checked_36, checked_37, checked_38, checked_39, checked_40, checked_41, checked_42, checked_43, checked_44, checked_45, checked_46, checked_47, checked_48, checked_49, checked_50, checked_51, checked_52, checked_53, checked_54, checked_55, checked_56, checked_57, checked_58, checked_59, checked_60, checked_61, checked_62, checked_63, checked_64, checked_65, checked_66, checked_67, checked_68, checked_69, checked_70, checked_71, checked_72, checked_73, checked_74, checked_75, checked_76, checked_77, checked_78, checked_79, checked_80, checked_81, checked_82, checked_83, checked_84, checked_85, checked_86, checked_87, checked_88, checked_89, checked_90, checked_91, checked_92, checked_93, checked_94, checked_95, checked_96, checked_97, checked_98, checked_99, checked_100, checked_101, checked_102, checked_103, checked_104, checked_105, checked_106, checked_107, True.intro⟩
+
+lemma two_and_excluded (f : Nat) (hf : f ∈ first) (a b : Nat)
+    (ha : a ∈ stage f) (hb : b ∈ stage f) :
+    f ≠ 7 ∧ a &&& b ≠ 7 ∧ f ||| (a &&& b) ≠ 7 := by
+  have h := List.all_eq_true.mp checked f hf
+  simp only [safe, Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at h
+  exact ⟨h.1, h.2 a ha b hb⟩
+
+end SevenRows
+
+
+namespace SevenRows
+
+def extend (S : List Nat) (f : Nat) : List Nat := S ++ S.map (fun a => a ||| f)
+
+def Closed (S : List Nat) : Prop := 0 ∈ S ∧ ∀ a ∈ S, ∀ b ∈ S, a ||| b ∈ S
+
+lemma extend_mem_left {S : List Nat} {f a : Nat} (h : a ∈ S) : a ∈ extend S f :=
+  List.mem_append_left _ h
+
+lemma extend_mem_self {S : List Nat} (h : 0 ∈ S) (f : Nat) : f ∈ extend S f := by
+  apply List.mem_append_right
+  exact List.mem_map.mpr ⟨0, h, Nat.zero_or f⟩
+
+lemma extend_closed {S : List Nat} (h : Closed S) (f : Nat) : Closed (extend S f) := by
+  refine ⟨extend_mem_left h.1, ?_⟩
+  intro a ha b hb
+  rcases List.mem_append.mp ha with ha | ha <;> rcases List.mem_append.mp hb with hb | hb
+  · exact extend_mem_left (h.2 a ha b hb)
+  · obtain ⟨c, hc, rfl⟩ := List.mem_map.mp hb
+    apply List.mem_append_right
+    exact List.mem_map.mpr ⟨a ||| c, h.2 a ha c hc, by ac_rfl⟩
+  · obtain ⟨c, hc, rfl⟩ := List.mem_map.mp ha
+    apply List.mem_append_right
+    exact List.mem_map.mpr ⟨c ||| b, h.2 c hc b hb, by ac_rfl⟩
+  · obtain ⟨c, hc, rfl⟩ := List.mem_map.mp ha
+    obtain ⟨d, hd, rfl⟩ := List.mem_map.mp hb
+    apply List.mem_append_right
+    refine List.mem_map.mpr ⟨c ||| d, h.2 c hc d hd, ?_⟩
+    calc
+      (c ||| d) ||| f = (c ||| d) ||| (f ||| f) := by rw [Nat.or_self]
+      _ = (c ||| f) ||| (d ||| f) := by ac_rfl
+
+lemma base_is_closed : Closed base := ⟨by decide +kernel, base_closed⟩
+
+lemma stage_is_closed (f : Nat) : Closed (stage f) := extend_closed base_is_closed f
+
+lemma stage_mem_self (f : Nat) : f ∈ stage f := extend_mem_self base_is_closed.1 f
+
+lemma first_target (f : Nat) (hf : f ∈ first) : f ≠ 7 := by
+  exact (two_and_excluded f hf 0 0 (extend_mem_left base_is_closed.1)
+    (extend_mem_left base_is_closed.1)).1
+
+set_option maxHeartbeats 0 in
+lemma base_small : ∀ a ∈ base, a ≤ 7 → a = 0 := by decide +kernel
+
+lemma base_or_not_target (a v : Nat) (ha : a ∈ base) (hv : v ≠ 7) : a ||| v ≠ 7 := by
+  intro eq
+  have le : a ≤ 7 := eq ▸ Nat.left_le_or
+  have az := base_small a ha le
+  exact hv (by simpa [az] using eq)
+
+lemma stage_target (f : Nat) (hf : f ∈ first) : ∀ a ∈ stage f, a ≠ 7 := by
+  intro a ha
+  rcases List.mem_append.mp ha with ha | ha
+  · exact base_target a ha
+  · obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
+    exact base_or_not_target b f hb (first_target f hf)
+
+lemma two_stage_target (f : Nat) (hf : f ∈ first) (a b : Nat)
+    (ha : a ∈ stage f) (hb : b ∈ stage f) :
+    ∀ v ∈ extend (stage f) (a &&& b), v ≠ 7 := by
+  intro v hv
+  rcases List.mem_append.mp hv with hv | hv
+  · exact stage_target f hf v hv
+  · obtain ⟨c, hc, rfl⟩ := List.mem_map.mp hv
+    have safe := two_and_excluded f hf a b ha hb
+    rcases List.mem_append.mp hc with hc | hc
+    · exact base_or_not_target c (a &&& b) hc safe.2.1
+    · obtain ⟨d, hd, rfl⟩ := List.mem_map.mp hc
+      rw [Nat.or_assoc]
+      exact base_or_not_target d (f ||| (a &&& b)) hd safe.2.2
+
+def Holds (S w : List Nat) : Prop := ∀ a ∈ w, a ∈ S
+
+def State (k : Nat) (w : List Nat) : Prop :=
+  match k with
+  | 0 => Holds base w
+  | 1 => ∃ f ∈ first, Holds (stage f) w
+  | 2 => ∃ f ∈ first, ∃ a ∈ stage f, ∃ b ∈ stage f, Holds (extend (stage f) (a &&& b)) w
+  | _ + 3 => False
+
+lemma read_mem {S w : List Nat} (hz : 0 ∈ S) (hw : Holds S w) (i : Nat) : w.getD i 0 ∈ S := by
+  by_cases hi : i < w.length
+  · rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hi]
+    exact hw _ (List.getElem_mem hi)
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega : w.length ≤ i), hz]
+
+lemma holds_append {S w : List Nat} (hw : Holds S w) {v : Nat} (hv : v ∈ S) : Holds S (w ++ [v]) := by
+  intro x hx
+  rcases List.mem_append.mp hx with hx | hx
+  · exact hw _ hx
+  · simpa using (List.mem_singleton.mp hx) ▸ hv
+
+lemma or_holds {S w : List Nat} (hc : Closed S) (hw : Holds S w) (a b : Nat) :
+    Holds S (w ++ [w.getD a 0 ||| w.getD b 0]) :=
+  holds_append hw (hc.2 _ (read_mem hc.1 hw a) _ (read_mem hc.1 hw b))
+
+lemma or_state {k : Nat} {w : List Nat} (h : State k w) (a b : Nat) :
+    State k (w ++ [w.getD a 0 ||| w.getD b 0]) := by
+  cases k with
+  | zero => exact or_holds base_is_closed h a b
+  | succ k =>
+    cases k with
+    | zero =>
+      obtain ⟨f, hf, hw⟩ := h
+      exact ⟨f, hf, or_holds (stage_is_closed f) hw a b⟩
+    | succ k =>
+      cases k with
+      | zero =>
+        obtain ⟨f, hf, c, hc, d, hd, hw⟩ := h
+        exact ⟨f, hf, c, hc, d, hd, or_holds (extend_closed (stage_is_closed f) _) hw a b⟩
+      | succ k => exact False.elim h
+
+lemma and_state {k : Nat} {w : List Nat} (hk : k ≤ 1) (h : State k w) (a b : Nat) :
+    State (k+1) (w ++ [w.getD a 0 &&& w.getD b 0]) := by
+  cases k with
+  | zero =>
+    let f := w.getD a 0 &&& w.getD b 0
+    have hf : f ∈ first := first_covers _ (read_mem base_is_closed.1 h a) _ (read_mem base_is_closed.1 h b)
+    exact ⟨f, hf, holds_append (fun x hx => extend_mem_left (h x hx)) (stage_mem_self f)⟩
+  | succ k =>
+    have k0 : k = 0 := by omega
+    subst k
+    obtain ⟨f, hf, hw⟩ := h
+    have ha := read_mem (stage_is_closed f).1 hw a
+    have hb := read_mem (stage_is_closed f).1 hw b
+    exact ⟨f, hf, _, ha, _, hb,
+      holds_append (fun x hx => extend_mem_left (hw x hx)) (extend_mem_self (stage_is_closed f).1 _)⟩
+
+def step (w : List Nat) (g : Bool × Nat × Nat) : List Nat :=
+  w ++ [if g.1 then w.getD g.2.1 0 &&& w.getD g.2.2 0 else w.getD g.2.1 0 ||| w.getD g.2.2 0]
+
+def run (D : List (Bool × Nat × Nat)) (w : List Nat) : List Nat := D.foldl step w
+
+def ands (D : List (Bool × Nat × Nat)) : Nat := D.countP (fun g => g.1)
+
+lemma run_state (D : List (Bool × Nat × Nat)) {k : Nat} {w : List Nat}
+    (h : State k w) (bound : k + ands D ≤ 2) : State (k + ands D) (run D w) := by
+  induction D generalizing k w with
+  | nil => simpa [run, ands] using h
+  | cons g D ih =>
+    rcases g with ⟨tag,a,b⟩
+    cases tag
+    · have hc : ands ((false,a,b)::D) = ands D := by simp [ands]
+      rw [hc] at bound ⊢
+      exact ih (or_state h a b) bound
+    · have hc : ands ((true,a,b)::D) = ands D + 1 := by simp [ands]
+      rw [hc] at bound ⊢
+      have hk : k ≤ 1 := by omega
+      have hnext := ih (and_state hk h a b) (by omega : (k+1) + ands D ≤ 2)
+      have arith : k + (ands D + 1) = k + 1 + ands D := by omega
+      rw [arith]
+      exact hnext
+
+lemma state_target {k : Nat} {w : List Nat} (h : State k w) : ∀ a ∈ w, a ≠ 7 := by
+  cases k with
+  | zero => exact fun a ha => base_target a (h a ha)
+  | succ k =>
+    cases k with
+    | zero =>
+      obtain ⟨f,hf,hw⟩ := h
+      exact fun a ha => stage_target f hf a (hw a ha)
+    | succ k =>
+      cases k with
+      | zero =>
+        obtain ⟨f,hf,a,ha,b,hb,hw⟩ := h
+        exact fun c hc => two_stage_target f hf a b ha hb c (hw c hc)
+      | succ k => exact False.elim h
+
+lemma trace_bound (D : List (Bool × Nat × Nat)) (w : List Nat)
+    (hw : Holds base w) (bound : ands D ≤ 2) : ∀ a ∈ run D w, a ≠ 7 := by
+  exact state_target (run_state D (k := 0) hw (by simpa using bound))
+
+lemma trace_getD_bound (D : List (Bool × Nat × Nat)) (w : List Nat)
+    (hw : Holds base w) (bound : ands D ≤ 2) (i : Nat) : (run D w).getD i 0 ≠ 7 := by
+  have h := trace_bound D w hw bound
+  by_cases hi : i < (run D w).length
+  · rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hi]
+    exact h _ (List.getElem_mem hi)
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega : (run D w).length ≤ i)]
+
+lemma three_ands (D : List (Bool × Nat × Nat)) (w : List Nat)
+    (hw : Holds base w) (i : Nat) (hval : (run D w).getD i 0 = 7) : 3 ≤ ands D := by
+  by_contra hn
+  exact trace_getD_bound D w hw (by omega) i hval
+
+end SevenRows
+
+
+namespace SevenRows
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma testBit_getD (w : List Nat) (r i : Nat) :
+    (w.getD i 0).testBit r = (w.map (fun a => a.testBit r)).getD i false := by
+  induction w generalizing i with
+  | nil => simp
+  | cons a w ih =>
+    cases i with
+    | zero => rfl
+    | succ i => simpa using ih i
+
+lemma step_testBits (w : List Nat) (g : Bool × Nat × Nat) (r : Nat) :
+    (step w g).map (fun a => a.testBit r) =
+      wstep (w.map (fun a => a.testBit r)) g := by
+  rcases g with ⟨b, i, j⟩
+  cases b <;> dsimp [step, wstep, gop] <;> rw [List.map_append] <;>
+    simp only [List.map_cons, List.map_nil, Nat.testBit_or, Nat.testBit_and, testBit_getD]
+
+lemma run_testBits (D : Dag) (w : List Nat) (r : Nat) :
+    (run D w).map (fun a => a.testBit r) = wl D (w.map (fun a => a.testBit r)) := by
+  induction D generalizing w with
+  | nil => rfl
+  | cons g D ih =>
+    change (run D (step w g)).map (fun a => a.testBit r) =
+      wl D (wstep (w.map (fun a => a.testBit r)) g)
+    rw [ih, step_testBits]
+
+lemma run_getD_testBit (D : Dag) (w : List Nat) (r i : Nat) :
+    ((run D w).getD i 0).testBit r =
+      (wl D (w.map (fun a => a.testBit r))).getD i false := by
+  rw [testBit_getD, run_testBits]
+
+lemma run_testBit_val {n : Nat} (D : Dag) (masks : Fin n → Nat) (r i : Nat) :
+    ((run D (List.ofFn masks)).getD i 0).testBit r =
+      val D (fun v => (masks v).testBit r) i := by
+  rw [run_getD_testBit]
+  simp only [val, List.map_ofFn, Function.comp_def]
+
+lemma getD_lt_two_pow (w : List Nat) (b i : Nat)
+    (hw : ∀ a ∈ w, a < 2 ^ b) : w.getD i 0 < 2 ^ b := by
+  by_cases hi : i < w.length
+  · rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hi]
+    exact hw _ (List.getElem_mem hi)
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega : w.length ≤ i)]
+
+lemma step_lt_two_pow (w : List Nat) (g : Bool × Nat × Nat) (b : Nat)
+    (hw : ∀ a ∈ w, a < 2 ^ b) : ∀ a ∈ step w g, a < 2 ^ b := by
+  intro a ha
+  rcases List.mem_append.mp ha with ha | ha
+  · exact hw a ha
+  · have he := List.mem_singleton.mp ha
+    subst a
+    split
+    · exact Nat.and_lt_two_pow _ (getD_lt_two_pow w b g.2.2 hw)
+    · exact Nat.or_lt_two_pow (getD_lt_two_pow w b g.2.1 hw) (getD_lt_two_pow w b g.2.2 hw)
+
+lemma run_lt_two_pow (D : Dag) (w : List Nat) (b : Nat)
+    (hw : ∀ a ∈ w, a < 2 ^ b) : ∀ a ∈ run D w, a < 2 ^ b := by
+  induction D generalizing w with
+  | nil => exact hw
+  | cons g D ih => exact ih (step w g) (step_lt_two_pow w g b hw)
+
+lemma nat_eq_of_low_testBits {a c b : Nat} (ha : a < 2 ^ b) (hc : c < 2 ^ b)
+    (hbits : ∀ r : Fin b, a.testBit r.val = c.testBit r.val) : a = c := by
+  apply Nat.eq_of_testBit_eq
+  intro r
+  by_cases hr : r < b
+  · exact hbits ⟨r, hr⟩
+  · have hle : 2 ^ b ≤ 2 ^ r := Nat.pow_le_pow_right Nat.zero_lt_two (by omega)
+    rw [Nat.testBit_lt_two_pow (ha.trans_le hle), Nat.testBit_lt_two_pow (hc.trans_le hle)]
+
+lemma seven_target_bits : ∀ r : Fin 7, (7 : Nat).testBit r.val = decide (r.val < 3) := by
+  decide +kernel
+
+lemma run_eq_seven_of_rows {n : Nat} (D : Dag) (masks : Fin n → Nat) (i : Nat)
+    (small : ∀ v, masks v < 128)
+    (rows : ∀ r : Fin 7, val D (fun v => (masks v).testBit r.val) i = decide (r.val < 3)) :
+    (run D (List.ofFn masks)).getD i 0 = 7 := by
+  have init : ∀ a ∈ List.ofFn masks, a < 2 ^ 7 := by
+    intro a ha
+    obtain ⟨v, rfl⟩ := List.mem_ofFn.mp ha
+    exact small v
+  have bound := getD_lt_two_pow (run D (List.ofFn masks)) 7 i (run_lt_two_pow D _ 7 init)
+  apply nat_eq_of_low_testBits bound (by decide : 7 < 2 ^ 7)
+  intro r
+  rw [run_testBit_val, rows, seven_target_bits]
+
+
+lemma run_getD_ne_seven (D : Dag) (w : List Nat)
+    (hw : Holds base w) (bound : ands D ≤ 2) (i : Nat) :
+    (run D w).getD i 0 ≠ 7 := by
+  by_cases hi : i < (run D w).length
+  · rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hi]
+    exact trace_bound D w hw bound _ (List.getElem_mem hi)
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega : (run D w).length ≤ i)]
+
+lemma three_ands_of_seven_rows {n : Nat} (D : Dag) (masks : Fin n → Nat) (i : Nat)
+    (small : ∀ v, masks v < 128) (hw : Holds base (List.ofFn masks))
+    (rows : ∀ r : Fin 7, val D (fun v => (masks v).testBit r.val) i = decide (r.val < 3)) :
+    3 ≤ ands D := by
+  by_contra hc
+  have he := run_eq_seven_of_rows D masks i small rows
+  exact run_getD_ne_seven D _ hw (by omega) i he
+
+
+lemma step_eq_copy_of_bit_rows (w : List Nat) (g : Bool × Nat × Nat) (p : Nat)
+    (small : ∀ a ∈ w, a < 128)
+    (rows : ∀ r : Fin 7,
+      gop g.1 ((w.getD g.2.1 0).testBit r.val) ((w.getD g.2.2 0).testBit r.val) =
+        (w.getD p 0).testBit r.val) :
+    step w g = w ++ [w.getD p 0] := by
+  let q := if g.1 then w.getD g.2.1 0 &&& w.getD g.2.2 0 else w.getD g.2.1 0 ||| w.getD g.2.2 0
+  have ha : w.getD g.2.1 0 < 2 ^ 7 := getD_lt_two_pow w 7 _ small
+  have hb : w.getD g.2.2 0 < 2 ^ 7 := getD_lt_two_pow w 7 _ small
+  have hp : w.getD p 0 < 2 ^ 7 := getD_lt_two_pow w 7 _ small
+  have hq : q < 2 ^ 7 := by
+    dsimp [q]
+    split
+    · exact Nat.and_lt_two_pow _ hb
+    · exact Nat.or_lt_two_pow ha hb
+  have eq : q = w.getD p 0 := by
+    apply nat_eq_of_low_testBits hq hp
+    intro r
+    cases ht : g.1 <;> simpa [q, ht, gop] using rows r
+  change w ++ [q] = w ++ [w.getD p 0]
+  rw [eq]
+
+
+lemma step_eq_copy_of_val_rows {n : Nat} (D : Dag) (masks : Fin n → Nat)
+    (hS : Strict n D) {j : Nat} (hj : j < D.length) (p : Nat) (hp : p < n + j)
+    (small : ∀ v, masks v < 128)
+    (rows : ∀ r : Fin 7,
+      val D (fun v => (masks v).testBit r.val) (n + j) =
+        val D (fun v => (masks v).testBit r.val) p) :
+    step (run (D.take j) (List.ofFn masks)) (D.getD j (false, 0, 0)) =
+      run (D.take j) (List.ofFn masks) ++ [(run (D.take j) (List.ofFn masks)).getD p 0] := by
+  apply step_eq_copy_of_bit_rows
+  · apply run_lt_two_pow (D.take j) (List.ofFn masks) 7
+    intro a ha
+    obtain ⟨v, rfl⟩ := List.mem_ofFn.mp ha
+    exact small v
+  · intro r
+    rw [run_testBit_val, run_testBit_val, run_testBit_val]
+    change gop (tag D j)
+      (val (D.take j) (fun v => (masks v).testBit r.val) (opA D j))
+      (val (D.take j) (fun v => (masks v).testBit r.val) (opB D j)) =
+      val (D.take j) (fun v => (masks v).testBit r.val) p
+    rw [val_take D _ j _ (hS j hj).1 hj.le,
+      val_take D _ j _ (hS j hj).2.1 hj.le, val_take D _ j p hp hj.le,
+      ← val_gate hS _ j hj]
+    exact rows r
+
+end SevenRows
+
+
+namespace Neutral
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma exit_gate_injective {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) {i j : Fin n} (hne : i ≠ j)
+    {gi gj : Nat} {si sj : Bool}
+    (hi : supp n D (src D (gi,si)) = {i})
+    (hj : supp n D (src D (gj,sj)) = {j})
+    (hn : ∀ a, G i a → a ∈ supp n D (src D (gi,!si))) : gi ≠ gj := by
+  intro heq
+  subst gj
+  obtain ⟨a, hia, haj⟩ := hG.2.2.2 i j
+  have ha := hn a hia
+  cases si <;> cases sj
+  · exact hne (Finset.singleton_injective (hi.symm.trans hj))
+  · simp only [Bool.not_false] at ha
+    rw [hj, Finset.mem_singleton] at ha
+    exact haj ha
+  · simp only [Bool.not_true] at ha
+    rw [hj, Finset.mem_singleton] at ha
+    exact haj ha
+  · exact hne (Finset.singleton_injective (hi.symm.trans hj))
+
+lemma neutral_ineligible_family {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (I : Finset (Fin n)) (hin : I ⊆ ineligSet n D)
+    (R : Finset (Fin n → Bool))
+    (hit : ∀ i ∈ I, ∀ x ∈ R, ∃ a, G i a ∧ x a = true) :
+    ∃ T : Finset Nat, T.card = I.card ∧ ∀ g ∈ T,
+      g < D.length ∧ tag D g = true ∧ ∃ s : Bool,
+        ∀ x ∈ R, val D x (n+g) = val D x (src D (g,s)) := by
+  classical
+  have hex : ∀ i : Fin n, ∃ e : Nat × Bool, i ∈ I →
+      e.1 < D.length ∧ tag D e.1 = true ∧ supp n D (src D e) = {i} ∧
+        ∀ a, G i a → a ∈ supp n D (src D (e.1,!e.2)) := by
+    intro i
+    by_cases hi : i ∈ I
+    · obtain ⟨e, he, ht, hs, _, hn, _, _⟩ := sem_inelig_consumer hG h hc (hin hi)
+      exact ⟨e, fun _ => ⟨he,ht,hs,hn⟩⟩
+    · exact ⟨(0,false), fun hh => False.elim (hi hh)⟩
+  choose e he using hex
+  refine ⟨I.image (fun i => (e i).1), ?_, ?_⟩
+  · apply Finset.card_image_of_injOn
+    intro i hi j hj eq
+    by_contra ne
+    exact exit_gate_injective hG ne (he i hi).2.2.1 (he j hj).2.2.1 (he i hi).2.2.2 eq
+  · intro g hg
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hg
+    obtain ⟨hlt, ht, _, hn⟩ := he i hi
+    refine ⟨hlt, ht, (e i).2, ?_⟩
+    intro x hx
+    obtain ⟨a, hia, hxa⟩ := hit i hi x hx
+    have htval : val D x (src D ((e i).1,!(e i).2)) = true :=
+      sem_val_of_supp h.1 (hn a hia) hxa
+    rw [sem_val_gate_src h.1 x hlt (e i).2, ht, gop_true, htval, Bool.and_true]
+
+end Neutral
+
+
+namespace Neutral
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma chain_and_neighbors {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {i : Fin n} {g : Nat} (hg : g < D.length) (ht : tag D g = true) (s : Bool)
+    (hi : sem_Chain n D i.val (src D (g,s)))
+    (hf : fanout D (src D (g,s)) = 1) :
+    ∀ a, G i a → a ∈ supp n D (src D (g,!s)) := by
+  intro a hia
+  have hind : val D (single a) (src D (g,!s)) =
+      val D (sem_ins i (single a)) (src D (g,!s)) :=
+    sem_sibling_indep hS i hg (!s) (by simpa using hi) (by simpa using hf)
+      _ _ (sem_ins_agree i (single a))
+  have hch : sem_Chain n D i.val (n+g) :=
+    Relation.ReflTransGen.tail hi ⟨sem_step_src hg s, hf⟩
+  have he : sem_Edge G (sem_ins i (single a)) :=
+    ⟨i,a,hia,sem_ins_self i _,by simp [sem_ins,single]⟩
+  have hv := (sem_dom_split hS hC (single a) i (n+g)
+    (sem_chain_dom hS hch) (sem_single_no_edge hG a) he).2
+  rw [sem_val_gate_src hS _ hg s, ht, gop_true, Bool.and_eq_true] at hv
+  exact mem_supp.mpr (hind.trans hv.2)
+
+lemma chain_and_neutral {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {i : Fin n} {g : Nat} (hg : g < D.length) (ht : tag D g = true) (s : Bool)
+    (hi : sem_Chain n D i.val (src D (g,s)))
+    (hf : fanout D (src D (g,s)) = 1)
+    (x : Fin n → Bool) (hit : ∃ a, G i a ∧ x a = true) :
+    val D x (n+g) = val D x (src D (g,s)) := by
+  obtain ⟨a, hia, hxa⟩ := hit
+  have hp := chain_and_neighbors hG hS hC hg ht s hi hf a hia
+  have hv := sem_val_of_supp hS hp hxa
+  rw [sem_val_gate_src hS _ hg s, ht, gop_true, hv, Bool.and_true]
+
+end Neutral
+
+
+namespace SevenRows
+
+def neutralizeFrom : List (Bool × Nat × Nat) → Nat → Finset Nat → (Nat → Nat) → List (Bool × Nat × Nat)
+  | [], _, _, _ => []
+  | g :: D, off, T, p => (if off ∈ T then (false,p off,p off) else g) :: neutralizeFrom D (off+1) T p
+
+def NeutralFrom (D : List (Bool × Nat × Nat)) (w : List Nat) (off : Nat)
+    (T : Finset Nat) (p : Nat → Nat) : Prop :=
+  ∀ j, j < D.length → off+j ∈ T →
+    step (run (D.take j) w) (D.getD j (false,0,0)) =
+      run (D.take j) w ++ [(run (D.take j) w).getD (p (off+j)) 0]
+
+lemma neutralize_run (D : List (Bool × Nat × Nat)) (w : List Nat) (off : Nat)
+    (T : Finset Nat) (p : Nat → Nat) (h : NeutralFrom D w off T p) :
+    run (neutralizeFrom D off T p) w = run D w := by
+  induction D generalizing w off with
+  | nil => rfl
+  | cons g D ih =>
+    have head : step w (if off ∈ T then (false,p off,p off) else g) = step w g := by
+      by_cases ho : off ∈ T
+      · have hh := h 0 (by simp) (by simpa using ho)
+        simp only [List.take_zero, run, List.foldl_nil, List.getD_cons_zero, Nat.add_zero] at hh
+        simpa [ho, step, Nat.or_self] using hh.symm
+      · simp [ho]
+    have tail : NeutralFrom D (step w g) (off+1) T p := by
+      intro j hj ht
+      have same : off+(j+1) = off+1+j := by omega
+      have hh := h (j+1) (by simpa using hj) (by simpa [same] using ht)
+      simpa only [List.take_succ_cons, List.getD_cons_succ, run, List.foldl_cons, same] using hh
+    change run (neutralizeFrom D (off+1) T p) (step w (if off ∈ T then (false,p off,p off) else g)) =
+      run D (step w g)
+    rw [head]
+    exact ih (step w g) (off+1) tail
+
+def removed (D : List (Bool × Nat × Nat)) (off : Nat) (T : Finset Nat) : Nat :=
+  ∑ j ∈ Finset.range D.length, if off+j ∈ T then 1 else 0
+
+lemma removed_cons (g : Bool × Nat × Nat) (D : List (Bool × Nat × Nat)) (off : Nat) (T : Finset Nat) :
+    removed (g::D) off T = removed D (off+1) T + if off ∈ T then 1 else 0 := by
+  unfold removed
+  rw [List.length_cons, Finset.sum_range_succ']
+  simp only [Nat.add_zero]
+  congr 1
+  apply Finset.sum_congr rfl
+  intro j hj
+  have eq : off+(j+1)=off+1+j := by omega
+  rw [eq]
+
+lemma neutralize_count (D : List (Bool × Nat × Nat)) (off : Nat) (T : Finset Nat) (p : Nat → Nat)
+    (h : ∀ j, j < D.length → off+j ∈ T → (D.getD j (false,0,0)).1 = true) :
+    ands (neutralizeFrom D off T p) + removed D off T = ands D := by
+  induction D generalizing off with
+  | nil => simp [ands, neutralizeFrom, removed]
+  | cons g D ih =>
+    have tail : ∀ j, j<D.length → off+1+j ∈ T → (D.getD j (false,0,0)).1 = true := by
+      intro j hj ht
+      have same : off+(j+1)=off+1+j := by omega
+      simpa only [List.getD_cons_succ] using h (j+1) (by simpa using hj) (by simpa [same] using ht)
+    have hit := ih (off+1) tail
+    rw [neutralizeFrom, removed_cons]
+    by_cases ho : off ∈ T
+    · have hg : g.1=true := by simpa using h 0 (by simp) (by simpa using ho)
+      simp [ho, ands, hg] at hit ⊢
+      omega
+    · simp [ho, ands, List.countP_cons] at hit ⊢
+      omega
+
+lemma removed_zero (D : List (Bool × Nat × Nat)) (T : Finset Nat)
+    (h : ∀ j ∈ T, j < D.length) : removed D 0 T = T.card := by
+  unfold removed
+  simp only [Nat.zero_add]
+  rw [←Finset.card_filter]
+  congr 1
+  ext j
+  simp only [Finset.mem_filter, Finset.mem_range]
+  exact ⟨fun hj => hj.2, fun hj => ⟨h j hj,hj⟩⟩
+
+lemma neutralize_count_zero (D : List (Bool × Nat × Nat)) (T : Finset Nat) (p : Nat → Nat)
+    (sub : ∀ j ∈ T, j < D.length)
+    (h : ∀ j ∈ T, (D.getD j (false,0,0)).1=true) :
+    ands (neutralizeFrom D 0 T p) + T.card = ands D := by
+  have hc := neutralize_count D 0 T p (fun j _ hj => h j (by simpa using hj))
+  rw [removed_zero D T sub] at hc
+  exact hc
+
+end SevenRows
+
+
+namespace SevenGeneral
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.SevenRows
+open PEqualNP.Outside.L_meta_2590_aux.Neutral
+
+lemma and_bound_of_rows {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (I : Finset (Fin 10)) (hin : I ⊆ ineligSet 10 D) (masks : Fin 10 → Nat)
+    (small : ∀ v, masks v < 128) (inputBase : Holds base (List.ofFn masks))
+    (hit : ∀ i ∈ I, ∀ r : Fin 7, ∃ a : Fin 10, Adj i a ∧ (masks a).testBit r.val = true)
+    (rows : ∀ r : Fin 7, sem_Edge Adj (fun v => (masks v).testBit r.val) ↔ r.val < 3) :
+    I.card + 3 ≤ ands D := by
+  classical
+  let row (r : Fin 7) (v : Fin 10) : Bool := (masks v).testBit r.val
+  let R : Finset (Fin 10 → Bool) := Finset.univ.image row
+  have hitR : ∀ i ∈ I, ∀ x ∈ R, ∃ a, Adj i a ∧ x a = true := by
+    intro i hi x hx
+    obtain ⟨r, _, rfl⟩ := Finset.mem_image.mp hx
+    exact hit i hi r
+  obtain ⟨T, htcard, hT⟩ := neutral_ineligible_family graph_ok h hc I hin R hitR
+  have hex : ∀ g : Nat, ∃ s : Bool, g ∈ T → ∀ r : Fin 7,
+      val D (row r) (10+g) = val D (row r) (src D (g,s)) := by
+    intro g
+    by_cases hg : g ∈ T
+    · obtain ⟨_, _, s, hs⟩ := hT g hg
+      exact ⟨s, fun _ r => hs _ (Finset.mem_image.mpr ⟨r, Finset.mem_univ _, rfl⟩)⟩
+    · exact ⟨false, fun hh => False.elim (hg hh)⟩
+  choose side hs using hex
+  let p (g : Nat) := src D (g,side g)
+  have neu : NeutralFrom D (List.ofFn masks) 0 T p := by
+    intro j hj ht
+    simp only [Nat.zero_add] at ht ⊢
+    exact step_eq_copy_of_val_rows D masks h.1 hj (p j) (sem_src_lt h.1 hj (side j)) small (hs j ht)
+  have same := neutralize_run D (List.ofFn masks) 0 T p neu
+  have cnt := neutralize_count_zero D T p (fun g hg => (hT g hg).1)
+    (fun g hg => (hT g hg).2.1)
+  have target : (run D (List.ofFn masks)).getD (outW 10 D) 0 = 7 := by
+    apply run_eq_seven_of_rows D masks _ small
+    intro r
+    apply Bool.eq_iff_iff.mpr
+    simp only [decide_eq_true_eq]
+    exact (hc _).trans (rows r)
+  have three : 3 ≤ ands (neutralizeFrom D 0 T p) := by
+    apply three_ands _ (List.ofFn masks) inputBase (outW 10 D)
+    rw [same]
+    exact target
+  rw [htcard] at cnt
+  omega
+
+def casesI (k : Fin 5) : Finset (Fin 10) :=
+  ([{0,2,8,9},{0,3,6,7},{1,3,5,9},{1,4,7,8},{2,4,5,6}] : List (Finset (Fin 10))).getD k.val ∅
+
+def casesMasks (k : Fin 5) (v : Fin 10) : Nat :=
+  (([[0,26,0,49,73,44,98,84,0,0],
+     [0,44,84,0,26,73,0,0,49,98],
+     [44,0,26,0,84,0,73,98,49,0],
+     [26,0,44,84,0,98,73,0,0,49],
+     [49,73,0,26,0,0,0,44,98,84]] : List (List Nat)).getD k.val []).getD v.val 0
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma classify_four : ∀ S : Finset (Fin 10), S.card = 4 →
+    (∀ a ∈ S, ∀ b ∈ S, ¬ Adj a b) → ∃ k : Fin 5, casesI k = S := by
+  unfold Adj
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma cases_geometry : ∀ k : Fin 5,
+    (casesI k).card = 4 ∧ (∀ v, casesMasks k v < 128) ∧ Holds base (List.ofFn (casesMasks k)) ∧
+    (∀ i ∈ casesI k, ∀ r : Fin 7, ∃ a : Fin 10, Adj i a ∧ (casesMasks k a).testBit r.val = true) ∧
+    (∀ r : Fin 7, sem_Edge Adj (fun v => (casesMasks k v).testBit r.val) ↔ r.val < 3) := by
+  unfold Holds sem_Edge Adj
+  decide +kernel
+
+lemma seven_ands_of_four_ineligible {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (four : (ineligSet 10 D).card = 4) : 7 ≤ ands D := by
+  have hind : ∀ a ∈ ineligSet 10 D, ∀ b ∈ ineligSet 10 D, ¬ Adj a b := by
+    intro a ha b hb hab
+    rcases sem_elig_cover graph_ok h hc hab with ea | eb
+    · exact (sem_mem_inelig.mp ha) ea
+    · exact (sem_mem_inelig.mp hb) eb
+  obtain ⟨k, hk⟩ := classify_four (ineligSet 10 D) four hind
+  have geo := cases_geometry k
+  have bound := and_bound_of_rows h hc (casesI k) (hk ▸ Finset.Subset.refl _) (casesMasks k)
+    geo.2.1 geo.2.2.1 geo.2.2.2.1 geo.2.2.2.2
+  rw [geo.1] at bound
+  exact bound
+
+end SevenGeneral
+
+
+namespace Rigidity
+
+variable {α : Type} [DecidableEq α]
+
+def Serves (A T : Finset α) : Prop :=
+  (A.card = 2 ∧ A ⊆ T) ∨ (A.card = 4 ∧ T ⊆ A)
+
+lemma serves_unique {A T U : Finset α} (hT : T.card = 3) (hU : U.card = 3)
+    (hint : (T ∩ U).card ≤ 1) (ha : Serves A T) (hb : Serves A U) : False := by
+  rcases ha with ⟨h2, hat⟩ | ⟨h4, hta⟩ <;>
+    rcases hb with ⟨h2', hau⟩ | ⟨h4', hua⟩
+  · have hsub : A ⊆ T ∩ U := fun x hx => Finset.mem_inter.mpr ⟨hat hx, hau hx⟩
+    have := Finset.card_le_card hsub
+    omega
+  · omega
+  · omega
+  · have hsub : T ∪ U ⊆ A := Finset.union_subset hta hua
+    have hle := Finset.card_le_card hsub
+    have heq := Finset.card_union_add_card_inter T U
+    omega
+
+lemma proper_inter_large {T P Q : Finset α} (hT : T.card = 3)
+    (hP : P ≠ T) (hQ : Q ≠ T) (hinter : T = P ∩ Q) :
+    4 ≤ P.card ∧ 4 ≤ Q.card := by
+  have htp : T ⊆ P := by rw [hinter]; exact Finset.inter_subset_left
+  have htq : T ⊆ Q := by rw [hinter]; exact Finset.inter_subset_right
+  constructor
+  · by_contra h
+    have hEq : T = P := Finset.eq_of_subset_of_card_le htp (by omega)
+    exact hP hEq.symm
+  · by_contra h
+    have hEq : T = Q := Finset.eq_of_subset_of_card_le htq (by omega)
+    exact hQ hEq.symm
+
+lemma inter_serves {S T P Q : Finset α} (hS : S.card ≤ 6) (hT : T.card = 3)
+    (hPS : P ⊆ S) (hQS : Q ⊆ S) (hP : P ≠ T) (hQ : Q ≠ T)
+    (hinter : T = P ∩ Q) : Serves P T ∨ Serves Q T := by
+  have large := proper_inter_large hT hP hQ hinter
+  have hsum := Finset.card_union_add_card_inter P Q
+  have hu : (P ∪ Q).card ≤ 6 := (Finset.card_le_card (Finset.union_subset hPS hQS)).trans hS
+  have hi : (P ∩ Q).card = 3 := by rw [← hinter]; exact hT
+  have small : P.card = 4 ∨ Q.card = 4 := by omega
+  rcases small with hp | hq
+  · exact Or.inl (Or.inr ⟨hp, by rw [hinter]; exact Finset.inter_subset_left⟩)
+  · exact Or.inr (Or.inr ⟨hq, by rw [hinter]; exact Finset.inter_subset_right⟩)
+
+lemma union_pair {T P Q : Finset α} (hT : T.card = 3)
+    (hP : P ≠ T) (hQ : Q ≠ T) (hunion : T = P ∪ Q) :
+    (P.card = 2 ∧ P ⊆ T) ∨ (Q.card = 2 ∧ Q ⊆ T) := by
+  have hpt : P ⊆ T := by rw [hunion]; exact Finset.subset_union_left
+  have hqt : Q ⊆ T := by rw [hunion]; exact Finset.subset_union_right
+  have hp : P.card ≤ 2 := by
+    have hle := Finset.card_le_card hpt
+    by_contra h
+    have hEq : P = T := Finset.eq_of_subset_of_card_le hpt (by omega)
+    exact hP hEq
+  have hq : Q.card ≤ 2 := by
+    have hle := Finset.card_le_card hqt
+    by_contra h
+    have hEq : Q = T := Finset.eq_of_subset_of_card_le hqt (by omega)
+    exact hQ hEq
+  have hle := Finset.card_union_le P Q
+  have hcard : (P ∪ Q).card = 3 := by rw [← hunion]; exact hT
+  have cases : P.card = 2 ∨ Q.card = 2 := by omega
+  rcases cases with hp | hq
+  · exact Or.inl ⟨hp, hpt⟩
+  · exact Or.inr ⟨hq, hqt⟩
+
+lemma parent_cases {L A : Finset (Finset α)}
+    (hL : ∀ T ∈ L, T.card = 3) {T : Finset α} (hT : T ∈ L)
+    (hpar : ∃ P Q : Finset α,
+      (P.card ≤ 1 ∨ P ∈ L ∨ P ∈ A) ∧ (Q.card ≤ 1 ∨ Q ∈ L ∨ Q ∈ A) ∧
+      P ≠ T ∧ Q ≠ T ∧ (T = P ∪ Q ∨ T = P ∩ Q)) :
+    (∃ M ∈ A, M.card = 2 ∧ M ⊆ T) ∨
+      ∃ P ∈ A, ∃ Q ∈ A, P ≠ T ∧ Q ≠ T ∧ T = P ∩ Q := by
+  obtain ⟨P,Q,hP,hQ,hPT,hQT,hpq⟩ := hpar
+  rcases hpq with hu | hi
+  · left
+    rcases union_pair (hL T hT) hPT hQT hu with ⟨h2, hsub⟩ | ⟨h2,hsub⟩
+    · refine ⟨P, ?_, h2, hsub⟩
+      rcases hP with h | h | h
+      · omega
+      · have := hL P h; omega
+      · exact h
+    · refine ⟨Q, ?_, h2, hsub⟩
+      rcases hQ with h | h | h
+      · omega
+      · have := hL Q h; omega
+      · exact h
+  · right
+    have large := proper_inter_large (hL T hT) hPT hQT hi
+    have pa : P ∈ A := by
+      rcases hP with h | h | h
+      · omega
+      · have := hL P h; omega
+      · exact h
+    have qa : Q ∈ A := by
+      rcases hQ with h | h | h
+      · omega
+      · have := hL Q h; omega
+      · exact h
+    exact ⟨P,pa,Q,qa,hPT,hQT,hi⟩
+
+lemma eight_family_rigid {S : Finset α} {L A : Finset (Finset α)}
+    (hS : S.card ≤ 6) (hLcard : L.card = 4) (hAcard : A.card ≤ 4)
+    (hL : ∀ T ∈ L, T.card = 3)
+    (hint : ∀ T ∈ L, ∀ U ∈ L, T ≠ U → (T ∩ U).card ≤ 1)
+    (hAS : ∀ M ∈ A, M ⊆ S)
+    (hpar : ∀ T ∈ L, ∃ P Q : Finset α,
+      (P.card ≤ 1 ∨ P ∈ L ∨ P ∈ A) ∧ (Q.card ≤ 1 ∨ Q ∈ L ∨ Q ∈ A) ∧
+      P ≠ T ∧ Q ≠ T ∧ (T = P ∪ Q ∨ T = P ∩ Q)) :
+    A.card = 4 ∧ (∀ M ∈ A, M.card = 2 ∧ ∃ T ∈ L, M ⊆ T) ∧
+      ∀ T ∈ L, ∃ M ∈ A, M.card = 2 ∧ M ⊆ T := by
+  classical
+  have cases (T) (hT : T ∈ L) := parent_cases hL hT (hpar T hT)
+  have has (T) (hT : T ∈ L) : ∃ M ∈ A, Serves M T := by
+    rcases cases T hT with ⟨M,hM,h2,hsub⟩ | ⟨P,hP,Q,hQ,hPT,hQT,hi⟩
+    · exact ⟨M,hM,Or.inl ⟨h2,hsub⟩⟩
+    · rcases inter_serves hS (hL T hT) (hAS P hP) (hAS Q hQ) hPT hQT hi with hp | hq
+      · exact ⟨P,hP,hp⟩
+      · exact ⟨Q,hQ,hq⟩
+  let f : Finset α → Finset α := fun T => if hT : T ∈ L then Classical.choose (has T hT) else ∅
+  have hf (T) (hT : T ∈ L) : f T ∈ A ∧ Serves (f T) T := by
+    simp only [f, dite_eq_left hT]
+    exact Classical.choose_spec (has T hT)
+  have hinj : Set.InjOn f L := by
+    intro T hT U hU he
+    by_contra ne
+    exact serves_unique (hL T hT) (hL U hU) (hint T hT U hU ne)
+      (hf T hT).2 (he ▸ (hf U hU).2)
+  have himage : L.image f = A := by
+    refine Finset.eq_of_subset_of_card_le (by
+      intro M hM
+      obtain ⟨T,hT,rfl⟩ := Finset.mem_image.mp hM
+      exact (hf T hT).1) ?_
+    rw [Finset.card_image_of_injOn hinj, hLcard]
+    exact hAcard
+  have unique (M) (hM : M ∈ A) (T) (hT : T ∈ L) (hm : Serves M T) : M = f T := by
+    have hmem : M ∈ L.image f := by rw [himage]; exact hM
+    obtain ⟨U,hU,he⟩ := Finset.mem_image.mp hmem
+    have eq : U = T := by
+      by_contra ne
+      exact serves_unique (hL U hU) (hL T hT) (hint U hU T hT ne)
+        (he ▸ (hf U hU).2) hm
+    subst U
+    exact he.symm
+  have pair (T) (hT : T ∈ L) : (f T).card = 2 ∧ f T ⊆ T := by
+    rcases cases T hT with ⟨M,hM,h2,hsub⟩ | ⟨P,hP,Q,hQ,hPT,hQT,hi⟩
+    · have eq := unique M hM T hT (Or.inl ⟨h2,hsub⟩)
+      rw [← eq]
+      exact ⟨h2,hsub⟩
+    · have large := proper_inter_large (hL T hT) hPT hQT hi
+      have sizes (M) (hM : M ∈ A) : M.card = 2 ∨ M.card = 4 := by
+        have hm : M ∈ L.image f := by rw [himage]; exact hM
+        obtain ⟨U,hU,rfl⟩ := Finset.mem_image.mp hm
+        rcases (hf U hU).2 with h | h
+        · exact Or.inl h.1
+        · exact Or.inr h.1
+      have hp4 : P.card = 4 := by have := sizes P hP; omega
+      have hq4 : Q.card = 4 := by have := sizes Q hQ; omega
+      have ep : P = f T := unique P hP T hT (Or.inr ⟨hp4, by rw [hi]; exact Finset.inter_subset_left⟩)
+      have eq : Q = f T := unique Q hQ T hT (Or.inr ⟨hq4, by rw [hi]; exact Finset.inter_subset_right⟩)
+      have same : P = Q := ep.trans eq.symm
+      rw [← same, Finset.inter_self] at hi
+      exact False.elim (hPT hi.symm)
+  refine ⟨?_, ?_⟩
+  · rw [← himage, Finset.card_image_of_injOn hinj, hLcard]
+  constructor
+  · intro M hM
+    have hm : M ∈ L.image f := by rw [himage]; exact hM
+    obtain ⟨T,hT,rfl⟩ := Finset.mem_image.mp hm
+    exact ⟨(pair T hT).1,T,hT,(pair T hT).2⟩
+  · intro T hT
+    exact ⟨f T,(hf T hT).1,(pair T hT).1,(pair T hT).2⟩
+
+lemma standard_family_no_intersection {L A : Finset (Finset α)}
+    (hint : ∀ T ∈ L, ∀ U ∈ L, T ≠ U → (T ∩ U).card ≤ 1)
+    (hA : ∀ M ∈ A, M.card = 2) {M P Q : Finset α}
+    (hm : 2 ≤ M.card)
+    (hP : P.card ≤ 1 ∨ P ∈ L ∨ P ∈ A)
+    (hQ : Q.card ≤ 1 ∨ Q ∈ L ∨ Q ∈ A)
+    (hPM : P ≠ M) (hQM : Q ≠ M) (heq : M = P ∩ Q) : False := by
+  have mp : M ⊆ P := by rw [heq]; exact Finset.inter_subset_left
+  have mq : M ⊆ Q := by rw [heq]; exact Finset.inter_subset_right
+  have hp3 : 3 ≤ P.card := by
+    have le := Finset.card_le_card mp
+    by_contra bad
+    have same : M = P := Finset.eq_of_subset_of_card_le mp (by omega)
+    exact hPM same.symm
+  have hq3 : 3 ≤ Q.card := by
+    have le := Finset.card_le_card mq
+    by_contra bad
+    have same : M = Q := Finset.eq_of_subset_of_card_le mq (by omega)
+    exact hQM same.symm
+  have pl : P ∈ L := by
+    rcases hP with h | h | h
+    · omega
+    · exact h
+    · have := hA P h; omega
+  have ql : Q ∈ L := by
+    rcases hQ with h | h | h
+    · omega
+    · exact h
+    · have := hA Q h; omega
+  have ne : P ≠ Q := by
+    intro e
+    rw [e, Finset.inter_self] at heq
+    exact hQM heq.symm
+  have le := hint P pl Q ql ne
+  rw [← heq] at le
+  omega
+
+end Rigidity
+
+namespace DagRigidity
+open DagTools Rigidity
+
+variable {n : Nat} {D : Dag}
+
+def bigFamily (n : Nat) (D : Dag) (P : Finset (Fin n)) : Finset (Finset (Fin n)) :=
+  (sup_big n D P).image (fun j => supp n D (n+j) ∩ P)
+
+lemma mem_bigFamily (hS : Strict n D) {P M : Finset (Fin n)}
+    (hM : 2 ≤ M.card) (hocc : sup_Occ n D P M) : M ∈ bigFamily n D P := by
+  obtain ⟨j,hj,heq⟩ := sup_occ_big hS hM hocc
+  exact Finset.mem_image.mpr ⟨j,hj,heq⟩
+
+lemma first_parents (hS : Strict n D) {P M : Finset (Fin n)}
+    (hM : 2 ≤ M.card) (hocc : sup_Occ n D P M) :
+    ∃ A B : Finset (Fin n), sup_Occ n D P A ∧ sup_Occ n D P B ∧
+      A ≠ M ∧ B ≠ M ∧ (M = A ∪ B ∨ M = A ∩ B) := by
+  obtain ⟨w,hw⟩ := hocc
+  obtain ⟨j,hj,_,heq,_,hmin,hcases⟩ := sem_first_mask hS P M hM w hw
+  obtain ⟨ha,hb,_⟩ := hS j hj
+  refine ⟨supp n D (opA D j) ∩ P, supp n D (opB D j) ∩ P,
+    sup_occ_wire P _, sup_occ_wire P _, hmin _ ha, hmin _ hb, ?_⟩
+  rcases hcases with ⟨ht,_,_⟩ | ⟨_,_,_,hu,_,_⟩
+  · right
+    rw [sem_supp_and hS hj ht] at heq
+    rw [← heq]
+    ext v
+    simp only [Finset.mem_inter]
+    tauto
+  · exact Or.inl hu.symm
+
+lemma family_rigid (hS : Strict n D) (P : Finset (Fin n))
+    (hP : P.card ≤ 6) (L : Finset (Finset (Fin n)))
+    (hLcard : L.card = 4) (hL : ∀ T ∈ L, T.card = 3 ∧ sup_Occ n D P T)
+    (hint : ∀ T ∈ L, ∀ U ∈ L, T ≠ U → (T ∩ U).card ≤ 1)
+    (hmerges : (merges n D (carrierT n D P)).card ≤ 8) :
+    (bigFamily n D P).card = 8 ∧
+    (∀ M ∈ bigFamily n D P \ L, M.card = 2 ∧ ∃ T ∈ L, M ⊆ T) ∧
+    ∀ T ∈ L, ∃ M ∈ bigFamily n D P \ L, M.card = 2 ∧ M ⊆ T := by
+  classical
+  let F := bigFamily n D P
+  let A := F \ L
+  have hLF : L ⊆ F := by
+    intro T hT
+    exact mem_bigFamily hS (by have := (hL T hT).1; omega) (hL T hT).2
+  have hFcard : F.card ≤ 8 := by
+    have hsub : sup_big n D P ⊆ merges n D (carrierT n D P) := Finset.filter_subset _ _
+    exact (Finset.card_image_le).trans ((Finset.card_le_card hsub).trans hmerges)
+  have hsum : A.card + L.card = F.card := Finset.card_sdiff_add_card_eq_card hLF
+  have hAcard : A.card ≤ 4 := by omega
+  have hAS : ∀ M ∈ A, M ⊆ P := by
+    intro M hM
+    obtain ⟨j,_,rfl⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hM).1
+    exact Finset.inter_subset_right
+  have parent (T) (hT : T ∈ L) : ∃ A' B' : Finset (Fin n),
+      (A'.card ≤ 1 ∨ A' ∈ L ∨ A' ∈ A) ∧ (B'.card ≤ 1 ∨ B' ∈ L ∨ B' ∈ A) ∧
+      A' ≠ T ∧ B' ≠ T ∧ (T = A' ∪ B' ∨ T = A' ∩ B') := by
+    obtain ⟨U,V,hu,hv,hut,hvt,hcases⟩ := first_parents hS
+      (by have := (hL T hT).1; omega) (hL T hT).2
+    have member (M) (hm : sup_Occ n D P M) : M.card ≤ 1 ∨ M ∈ L ∨ M ∈ A := by
+      by_cases small : M.card ≤ 1
+      · exact Or.inl small
+      · right
+        by_cases hmem : M ∈ L
+        · exact Or.inl hmem
+        · exact Or.inr (Finset.mem_sdiff.mpr ⟨mem_bigFamily hS (by omega) hm,hmem⟩)
+    exact ⟨U,V,member U hu,member V hv,hut,hvt,hcases⟩
+  have result := eight_family_rigid hP hLcard hAcard (fun T ht => (hL T ht).1) hint hAS parent
+  refine ⟨?_,result.2⟩
+  change F.card = 8
+  omega
+
+lemma all_merges_or (hS : Strict n D) (P : Finset (Fin n))
+    (hP : P.card ≤ 6) (L : Finset (Finset (Fin n)))
+    (hLcard : L.card = 4) (hL : ∀ T ∈ L, T.card = 3 ∧ sup_Occ n D P T)
+    (hint : ∀ T ∈ L, ∀ U ∈ L, T ≠ U → (T ∩ U).card ≤ 1)
+    (hmerges : (merges n D (carrierT n D P)).card ≤ 8) :
+    ∀ j ∈ merges n D (carrierT n D P), tag D j = false := by
+  classical
+  obtain ⟨hF, hA, _⟩ := family_rigid hS P hP L hLcard hL hint hmerges
+  have hsub : sup_big n D P ⊆ merges n D (carrierT n D P) := Finset.filter_subset _ _
+  have hbig : (sup_big n D P).card = 8 := by
+    have him : (bigFamily n D P).card ≤ (sup_big n D P).card := Finset.card_image_le
+    have hs := Finset.card_le_card hsub
+    omega
+  have same : sup_big n D P = merges n D (carrierT n D P) :=
+    Finset.eq_of_subset_of_card_le hsub (by omega)
+  have hinj : Set.InjOn (fun j => supp n D (n+j) ∩ P) (sup_big n D P) :=
+    Finset.card_image_iff.mp (by change (bigFamily n D P).card = _; omega)
+  intro j hj
+  have hjbig : j ∈ sup_big n D P := by rw [same]; exact hj
+  have hjlt : j < D.length := (Finset.mem_range.mp (Finset.mem_filter.mp hj).1)
+  let M := supp n D (n+j) ∩ P
+  have hM : 2 ≤ M.card := (Finset.mem_filter.mp hjbig).2
+  have proper (w : Nat) (hw : w < n+j) : supp n D w ∩ P ≠ M := by
+    intro he
+    obtain ⟨k,hk,hkw,hmask,hmerge,_,_⟩ := sem_first_mask hS P M hM w he
+    have hkbig : k ∈ sup_big n D P := Finset.mem_filter.mpr ⟨hmerge,by rw [hmask]; exact hM⟩
+    have keq : k = j := hinj hkbig hjbig hmask
+    omega
+  have member (w : Nat) : (supp n D w ∩ P).card ≤ 1 ∨
+      supp n D w ∩ P ∈ L ∨ supp n D w ∩ P ∈ bigFamily n D P \ L := by
+    by_cases hs : (supp n D w ∩ P).card ≤ 1
+    · exact Or.inl hs
+    · right
+      by_cases ht : supp n D w ∩ P ∈ L
+      · exact Or.inl ht
+      · exact Or.inr (Finset.mem_sdiff.mpr ⟨mem_bigFamily hS (by omega) (sup_occ_wire P w),ht⟩)
+  cases ht : tag D j
+  · rfl
+  · exfalso
+    have heq : M = (supp n D (opA D j) ∩ P) ∩ (supp n D (opB D j) ∩ P) := by
+      dsimp [M]
+      rw [sem_supp_and hS hjlt ht]
+      ext v
+      simp only [Finset.mem_inter]
+      tauto
+    exact standard_family_no_intersection hint (fun A ha => (hA A ha).1) hM
+      (member _) (member _) (proper _ (hS j hjlt).1) (proper _ (hS j hjlt).2.1) heq
+
+end DagRigidity
+
+
+namespace ZeroFlow
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+variable {n : Nat} {D : Dag}
+
+def boundaryOrGates (n : Nat) (D : Dag) (K : Finset Nat) : Finset Nat :=
+  ((exitArcs n D K).image Prod.fst) ∪ merges n D K
+
+lemma exit_fst_injective (K : Finset Nat)
+    (he : ∀ e ∈ exitArcs n D K, tag D e.1 = false)
+    (hclosed : ∀ j, j < D.length → tag D j = false →
+      opA D j ∈ K → opB D j ∈ K → n+j ∈ K) :
+    Set.InjOn (fun e : Nat × Bool => e.1) (exitArcs n D K) := by
+  intro a ha b hb hab
+  obtain ⟨j,s⟩ := a
+  obtain ⟨k,t⟩ := b
+  dsimp at hab
+  subst k
+  have ha' : (j,s) ∈ exitArcs n D K := ha
+  have hb' : (j,t) ∈ exitArcs n D K := hb
+  have ht := he (j,s) ha'
+  have hsa : src D (j,s) ∈ K := (Finset.mem_filter.mp ha').2.1
+  have hsb : src D (j,t) ∈ K := (Finset.mem_filter.mp hb').2.1
+  have hout : n+j ∉ K := (Finset.mem_filter.mp ha').2.2
+  have hjlt : j < D.length :=
+    Finset.mem_range.mp (Finset.mem_product.mp (Finset.mem_filter.mp ha').1).1
+  by_cases hst : s=t
+  · subst t
+    rfl
+  · exfalso
+    have both : opA D j ∈ K ∧ opB D j ∈ K := by
+      cases s <;> cases t
+      · exact False.elim (hst rfl)
+      · simpa [src] using And.intro hsa hsb
+      · simpa [src] using And.intro hsb hsa
+      · exact False.elim (hst rfl)
+    exact hout (hclosed j hjlt ht both.1 both.2)
+
+lemma boundary_disjoint (K : Finset Nat) :
+    Disjoint ((exitArcs n D K).image Prod.fst) (merges n D K) := by
+  rw [Finset.disjoint_left]
+  intro j hj hm
+  obtain ⟨e,he,rfl⟩ := Finset.mem_image.mp hj
+  have hout : n+e.1 ∉ K := (Finset.mem_filter.mp he).2.2
+  exact hout (Finset.mem_filter.mp hm).2.1
+
+lemma boundary_or_count (h : StrictLive n D) (K : Finset Nat)
+    (hK : K ⊆ inner n D)
+    (hpred : ∀ j, j < D.length → n+j ∈ K → opA D j ∈ K ∨ opB D j ∈ K)
+    (hz : surplusOn D K=0)
+    (he : ∀ e ∈ exitArcs n D K, tag D e.1=false)
+    (hm : ∀ j ∈ merges n D K, tag D j=false)
+    (hclosed : ∀ j, j < D.length → tag D j=false →
+      opA D j ∈ K → opB D j ∈ K → n+j ∈ K) :
+    (boundaryOrGates n D K).card = (sources n K).card ∧
+      ∀ j ∈ boundaryOrGates n D K,
+        j < D.length ∧ tag D j=false ∧ (opA D j ∈ K ∨ opB D j ∈ K) := by
+  constructor
+  · rw [boundaryOrGates, Finset.card_union_of_disjoint (boundary_disjoint K),
+      Finset.card_image_of_injOn (exit_fst_injective K he hclosed), carrier_flow h K hK hpred, hz]
+    omega
+  · intro j hj
+    rcases Finset.mem_union.mp hj with he' | hm'
+    · obtain ⟨e,hearc,rfl⟩ := Finset.mem_image.mp he'
+      have hjlt : e.1 < D.length :=
+        Finset.mem_range.mp (Finset.mem_product.mp (Finset.mem_filter.mp hearc).1).1
+      refine ⟨hjlt, he e hearc, ?_⟩
+      have hs : src D e ∈ K := (Finset.mem_filter.mp hearc).2.1
+      rcases e with ⟨j,s⟩
+      cases s <;> simp_all [src]
+    · exact ⟨Finset.mem_range.mp (Finset.mem_filter.mp hm').1, hm j hm',
+        Or.inl (Finset.mem_filter.mp hm').2.2.1⟩
+
+end ZeroFlow
+
 end PEqualNP.Outside.L_meta_2590_aux
