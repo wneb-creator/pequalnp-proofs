@@ -1047,6 +1047,141 @@ lemma sample_or_budget {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
   rw [sampleSafeOr_eq_restricted]
   exact sample_or_budget_restriction C hao z sample hinput w hw hz hsample
 
+def sampleSupport {n m : ℕ} (C : Circuit) (sample : Fin m → Fin n → Bool)
+    (w : ℕ) : Finset (Fin m) :=
+  Finset.univ.filter fun q => (C.wires (List.ofFn (sample q))).getD w false = true
+
+noncomputable def certificateSampleOr {n m : ℕ} (C : Circuit)
+    (sample : Fin m → Fin n → Bool) (cert : Finset ℕ) : Finset ℕ := by
+  classical
+  exact cert.filter fun w => n ≤ w ∧ (gateAt C (w-n)).op = .or ∧
+    2 ≤ (sampleSupport C sample w).card
+
+noncomputable def certificateOr (n : ℕ) (C : Circuit) (cert : Finset ℕ) : Finset ℕ := by
+  classical
+  exact cert.filter fun w => n ≤ w ∧ (gateAt C (w-n)).op = .or
+
+lemma certificate_sample_or_budget {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool)
+    (hinput : ∀ i : Fin n, z i = false →
+      (Finset.univ.filter fun q => sample q i = true).card ≤ 1)
+    (cert : Finset ℕ)
+    (hvalid : ∀ v ∈ cert, v < n+C.gates.length)
+    (hfalse : ∀ v ∈ cert, (C.wires (List.ofFn z)).getD v false = false)
+    (hor : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .or →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∀ u ∈ (gateAt C j).inputs, u ∈ cert)
+    (hand : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .and →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∃ u ∈ (gateAt C j).inputs, u ∈ cert)
+    (w : ℕ) (hw : w ∈ cert)
+    (hsample : ∀ q, (C.wires (List.ofFn (sample q))).getD w false = true) :
+    m ≤ 1 + (certificateSampleOr C sample cert).card := by
+  classical
+  let T := sampleSupport C sample
+  let paid := fun v => v ∈ certificateSampleOr C sample cert
+  have hTroot : T w = Finset.univ := by
+    ext q
+    simp only [T,sampleSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+    exact iff_true_intro (hsample q)
+  have hstep : ∀ v, v ∈ cert → (T v).card ≤ 1 ∨
+      (∃ a < v, a ∈ cert ∧ T v ⊆ T a) ∨
+      (paid v ∧ ∃ a b, a < v ∧ b < v ∧ a ∈ cert ∧ b ∈ cert ∧ T v ⊆ T a ∪ T b) := by
+    intro v hv
+    by_cases hsmall : (T v).card ≤ 1
+    · exact Or.inl hsmall
+    by_cases hn : v < n
+    · left
+      have hz : z ⟨v,hn⟩ = false := by
+        have hh := hfalse v hv
+        have heq := congrFun (input_wire C.gates v hn) z
+        change ((C.wires (List.ofFn z)).getD v false = true) = (z ⟨v,hn⟩ = true) at heq
+        cases hzi : z ⟨v,hn⟩
+        · rfl
+        · rw [hh,hzi] at heq
+          contradiction
+      have hTi : T v = Finset.univ.filter (fun q => sample q ⟨v,hn⟩ = true) := by
+        ext q
+        simp only [T,sampleSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+        exact Iff.of_eq (congrFun (input_wire C.gates v hn) (sample q))
+      rw [hTi]
+      exact hinput ⟨v,hn⟩ hz
+    · obtain ⟨j,b,a,d,hj,hvj,hgate,ha,hd,hsem⟩ :=
+        wire_decompose C.gates (layout_of hao) v (by omega) (hvalid v hv)
+      have hgj : gateAt C j = binary b a d := by
+        simp [gateAt,List.getD,hj,hgate]
+      have hvjmem : n+j ∈ cert := hvj ▸ hv
+      have hlarge : 2 ≤ (sampleSupport C sample (n+j)).card := by
+        change 2 ≤ (T (n+j)).card
+        rw [← hvj]
+        omega
+      have hTsem (q : Fin m) :
+          q ∈ T v ↔ combine b (W n C.gates a) (W n C.gates d) (sample q) := by
+        simp only [T,sampleSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+        change W n C.gates v (sample q) ↔ _
+        rw [hsem]
+      cases b
+      · have hclosed := hor j hj hvjmem (by simp [hgj,binary]) hlarge
+        have haC : a ∈ cert := hclosed a (by simp [hgj,binary])
+        have hdC : d ∈ cert := hclosed d (by simp [hgj,binary])
+        right
+        right
+        refine ⟨?_,a,d,ha,hd,haC,hdC,?_⟩
+        · change v ∈ certificateSampleOr C sample cert
+          simp only [certificateSampleOr,Finset.mem_filter]
+          refine ⟨hv,by omega,?_,by change 2 ≤ (T v).card; omega⟩
+          have hjv : v-n = j := by omega
+          simp [hjv,hgj,binary]
+        · intro q hq
+          have hh := (hTsem q).mp hq
+          rcases hh with hh | hh
+          · exact Finset.mem_union_left _ (Finset.mem_filter.mpr ⟨Finset.mem_univ q,hh⟩)
+          · exact Finset.mem_union_right _ (Finset.mem_filter.mpr ⟨Finset.mem_univ q,hh⟩)
+      · obtain ⟨u,hu,huC⟩ := hand j hj hvjmem (by simp [hgj,binary]) hlarge
+        have hu' : u = a ∨ u = d := by simpa [hgj,binary] using hu
+        right
+        left
+        rcases hu' with hu' | hu'
+        · refine ⟨a,ha,hu' ▸ huC,?_⟩
+          intro q hq
+          exact Finset.mem_filter.mpr ⟨Finset.mem_univ q,((hTsem q).mp hq).1⟩
+        · refine ⟨d,hd,hu' ▸ huC,?_⟩
+          intro q hq
+          exact Finset.mem_filter.mpr ⟨Finset.mem_univ q,((hTsem q).mp hq).2⟩
+  have hbound := safe_leaf_budget (fun v => v ∈ cert) paid T hstep
+    (n+C.gates.length) {w}
+    (by intro v hv; simp only [Finset.mem_singleton] at hv; subst v; exact ⟨hvalid w hw,hw⟩)
+  have hfilter : (Finset.range (n+C.gates.length)).filter paid =
+      certificateSampleOr C sample cert := by
+    ext v
+    simp only [Finset.mem_filter,Finset.mem_range,paid]
+    exact ⟨fun h => h.2,fun h => ⟨hvalid v (Finset.mem_filter.mp h).1,h⟩⟩
+  simpa [hfilter,hTroot] using hbound
+
+lemma certificate_sample_or_budget_all {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool)
+    (hinput : ∀ i : Fin n, z i = false →
+      (Finset.univ.filter fun q => sample q i = true).card ≤ 1)
+    (cert : Finset ℕ)
+    (hvalid : ∀ v ∈ cert, v < n+C.gates.length)
+    (hfalse : ∀ v ∈ cert, (C.wires (List.ofFn z)).getD v false = false)
+    (hor : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .or →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∀ u ∈ (gateAt C j).inputs, u ∈ cert)
+    (hand : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .and →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∃ u ∈ (gateAt C j).inputs, u ∈ cert)
+    (w : ℕ) (hw : w ∈ cert)
+    (hsample : ∀ q, (C.wires (List.ofFn (sample q))).getD w false = true) :
+    m ≤ 1 + (certificateOr n C cert).card := by
+  classical
+  have hbound := certificate_sample_or_budget C hao z sample hinput cert hvalid hfalse hor hand w hw hsample
+  have hsub : certificateSampleOr C sample cert ⊆ certificateOr n C cert := by
+    intro v hv
+    have hh := Finset.mem_filter.mp hv
+    exact Finset.mem_filter.mpr ⟨hh.1,hh.2.1,hh.2.2.1⟩
+  exact hbound.trans (Nat.add_le_add_left (Finset.card_le_card hsub) 1)
+
 end Kernel
 
 namespace Boundary
