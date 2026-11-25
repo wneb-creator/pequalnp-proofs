@@ -1,0 +1,11 @@
+Partial minimum-circuit edge-profile domination criterion for L-meta-1031; not the complete assigned theorem.
+Source: results/orch/lemmas/proof_edge_domination.lean
+Source SHA256: 6a40d3b6a57831cd607d1ec2483b154bfd670185838147b896cba6f0e4a482e6
+Source lines: 1042
+UTC: 2026-11-25T02:05:38.986459+00:00
+Checked with pinned Lean4.36.0 via tools/bin/lake env lean, LAKE_ARTIFACT_CACHE=false.
+Exit code: 0
+Complete combined stdout/stderr: results/orch/edge-domination-build.log
+Original full output: /tmp/oec/pequalnp-pilot-56/edge-domination-001.log
+Diagnostics: inherited if_pos/if_neg deprecation warnings only.
+Local checker not run on this research artifact; root coordinates named-file checker.
