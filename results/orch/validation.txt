@@ -7,3 +7,6 @@ Local checker: pending; incomplete posted theorem.
 Line count503. Full-proof cleanup pending.
 Sub-agents: 6 (status_review,lower_bound,counterexample,library_route,reduction_strategy,sat_encoding)
 TIMING total=20 subagents=6
+
+Additional compiled partials (each lake env lean exit0): CompleteCNF (circuit-to-SAT completeness,529lines),OneNotCross (48lines),Partial16 (non-NOT bound,4579lines). None provesfullstatement. Exactsource archived underresults/orch/lemmas/checked; all independentlyreviewed beforepush.
+TIMING total=24 subagents=6

@@ -48,3 +48,7 @@ Read Defs/LratEncoding.lean. `enc` and `enc2` encode AND/OR/TRUE-padding circuit
 A direct completeness proof for unnormalized NOT circuits could avoid the expensive structural part: four operation slots AND/OR/NOT/TRUE, false extra source at each step, arbitrary output, pad with OR(false,false), encode invalid/future reads as false, duplicate unary AND/OR sources. Existing solver symmetry constraints would need their own normalization proofs before a certificate covers all possible circuits.
 
 Further finite-search lead: L_meta_4807.lean defines `Live target k t S` with both total gate count k and NOT count t (lines 18-24), explicit unary NOT and binary AND/OR transitions, and a verified cover/checker framework. This is not CNF, but it is a ready semantic model for counting negations, unlike the free-complement certificate in Partial16. Existing instance uses BitVec512 / nine inputs and seeded monotone final theorem; no full ten-input nineteen-gate instance found.
+
+## Compilation result
+
+2026-11-25T14:09:50.240117+00:00: Partial16.lean compiled with exit 0 using pinned Lean v4.36.0 via lake env lean. Full logs: /tmp/oec/pequalnp-pilot-99/library_route/partial16.stdout and .stderr. 172 inherited linter warnings, zero errors. This is a checked partial bound, not the full posted theorem. Parent notified immediately for push.
