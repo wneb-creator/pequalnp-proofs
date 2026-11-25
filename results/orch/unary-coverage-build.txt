@@ -1,0 +1,10 @@
+/tmp/oec/pequalnp-pilot-178/lrat_route/UnaryCoverage.lean:20:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-178/lrat_route/UnaryCoverage.lean:326:2: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-178/lrat_route/UnaryCoverage.lean:322:0: warning: Definition `unaryCoverage` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`

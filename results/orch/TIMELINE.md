@@ -25,3 +25,5 @@
 - 2026-11-25 19:46 UTC: Resumed three interrupted proof workers after environment/session interruption. Restarted lease timer after19:45:51 manual renewal (expiry20:05:51). Resource plan remains small continuation-cut leaves, with proof-valued definitions for serial kernel evaluation. Generic cut and normalized initialization already saved in e0db457.
 
 - 2026-11-25 19:47 UTC: Largest unary leaf (519 recursive search states) kernel-checked under6000MB cap; kernel time1.18seconds. Independent source review by root confirmed ordinary kernel equality, no extra hypotheses, no banned declarations; parent coverage still being completed.
+
+- 2026-11-25 19:49 UTC: Generic54-row unary continuation coverage and recursive one-step cut equations kernel-checked under6000MB. Root reviewed equations and ordinary reflexivity proof; earlier independent proof_route review confirmed exact-key restoration. Preserving complete source/log.
