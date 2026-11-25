@@ -13,3 +13,5 @@ Additional checked partials (direct lake env lean, exit 0):
 - results/orch/lemmas/Algebraic.lean: finite rectangle-cover bound.
 - results/orch/lemmas/Counterexample.lean: positive P4 sanity example, not a refutation.
 Independent review: status_review accepted all three for archival, with explicit assumptions and incomplete overall gap.
+
+StructuralExamples.lean: direct Lean exit0, empty diagnostics. Root independently reviewed all finite decide proofs and exact claims. These exclude read-once and dirty-gate-capacity shortcuts; they do not refute L-meta-4675.

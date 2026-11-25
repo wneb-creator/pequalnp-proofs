@@ -64,3 +64,9 @@ Algebraic update 2026-11-25T17:14:37.415792+00:00: `Algebraic.lean` compiled suc
 ### Counterexample strategy: checked P4 sanity witness
 
 `results/orch/lemmas/Counterexample.lean` compiled with pinned Lean, exit 0, stdout/stderr empty. It proves the 4-gate absorption circuit `by; a OR by; x OR y; final AND` satisfies all concrete gap hypotheses and reaches the claimed bound. Thus a valid tight circuit can have AND output and a clean AND strictly beneath another AND. This is not a refutation. A 4-gate P4 circuit containing a dirty AND was numerically infeasible in the MILP. C6 7-gate and forced-dirty 8-gate searches are ongoing.
+
+### Structural checked results
+
+- All five rectangle helpers compiled unchanged as part of Algebraic.lean (Defs-only imports).
+- StructuralExamples.lean compiled with exit 0, no diagnostics at 17:16 UTC. It records the C4-free P4 function on points a,b and lines x,y, computed as `(a OR (b AND y)) AND (x OR y)`. It has tCount zero but is not READ-1 (edge by repeats y). The buffered version additionally has a dirty AND accepting two distinct output edges without READ-1 proofs. These are counterexamples to attempted bridge hypotheses, not to the posted statement.
+- First-dirty-gate analysis: before the first dirty AND, each operand has a one-colour singleton support equal to OR-reach, plus clean edge terms. Disjoint same-colour pure supports give a gate false on all edge inputs and can be removed. Hard cases are overlapping same-colour supports (intersection) and opposite-colour rectangles containing nonedges (downstream filtering).

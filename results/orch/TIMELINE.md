@@ -10,3 +10,5 @@
 - 2026-11-25T17:14:41.218103+00:00: first named-file partial compiled successfully; preparing immediate archival push.
 - 2026-11-25T17:14:53.584406+00:00: counterexample strategy compiled concrete P4 sanity witness (all gap hypotheses, tight bound, nonlinear absorption).
 - 2026-11-25T17:16:00.819329+00:00: independently reviewed compiled clean-circuit bound, rectangle-cover bound, and nonlinear P4 sanity example; preparing second partial archival push.
+- 2026-11-25T17:17:04.338477+00:00: structural strategy exclusions checked in StructuralExamples.lean; rectangle helpers checked in Algebraic.lean. Main normalization strategy still open.
+- 2026-11-25T17:17:42.685682+00:00: root independently reviewed compiled P4 strategy-exclusion examples; preserving them.
