@@ -7012,4 +7012,197 @@ lemma source_rejects_singletons_of_once {n : ℕ} (G : SimpleGraph (Fin n))
 
 end SoleOrSingleton
 
+namespace MeasureNormalization
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover Normalization.LiftFix
+
+lemma normalize_of_minimum_measure {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (M : Circuit → ℕ) (C : Circuit) (hC : IsLeastAO G C)
+    (hmin : ∀ E : Circuit, IsLeastAO G E → M C ≤ M E)
+    (hnonincreasing : ∀ (D : Circuit), IsLeastAO G D → ∀ (k u t : ℕ) (g : Gate),
+      D.gates[k]? = some g → g.op = GateOp.or → u ∈ g.inputs → t ∈ g.inputs →
+      (∀ w : List Bool, GateOp.or.eval ([u, t].map fun i => w.getD i false) =
+        g.op.eval (g.inputs.map fun i => w.getD i false)) →
+      D.output < n + D.gates.length →
+      (∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD t false = true →
+        graphFun G ∅ x = true) →
+      IsAO2 n (HoistNegative.hoisted n D k u t) →
+      (HoistNegative.hoisted n D k u t).size = D.size →
+      circuitFun n (HoistNegative.hoisted n D k u t) = circuitFun n D →
+      M (HoistNegative.hoisted n D k u t) ≤ M D) :
+    ∃ (D : Circuit) (T : Finset ℕ), IsLeastAO G D ∧ D.size = C.size ∧
+      circuitFun n D = circuitFun n C ∧ PA D T ∧ PB n D T ∧ PC n D T ∧
+      M D = M C ∧ (∀ E : Circuit, IsLeastAO G E → M D ≤ M E) ∧
+      PEqualNP.Core.IsLiftFixedPoint G D ∧ TopForm G D ∧
+      (∀ k < D.gates.length, (gateAt D k).op = GateOp.and → ∀ t ∈ (gateAt D k).inputs,
+        ¬ (∀ x : Fin n → Bool, Circuit.eval ⟨D.gates, t⟩ (List.ofFn x) = true →
+          graphFun G ∅ x = true)) := by
+  let P : Circuit → Prop := fun D => IsLeastAO G D ∧ M D = M C
+  have hstep : NormalizerInvariant.StepPreserves n P := by
+    intro D T hAO hA hB hPD hPC
+    obtain ⟨hLeastD, hMetricD⟩ := hPD
+    unfold PC at hPC
+    push Not at hPC
+    obtain ⟨k, g, hkg, hor, t, ht, hsat, himp, hkT⟩ := hPC
+    obtain ⟨D1, T1, hM1, hR1, hL1, hlen, hfun, hA1, hB1, hcard, hP1⟩ :=
+      NormalizerJunk.lift_step_AO_preserving_admissible n D T P
+        (mono_of_AO2 n D hAO) hAO.2.1 hAO.2.2 hA hB k g hkg hor t ht hsat himp hkT
+        (by
+          intro u hu hequ hout hAO' hsize' hfun'
+          have hLeastE : IsLeastAO G (HoistNegative.hoisted n D k u t) := by
+            refine ⟨hAO', hfun'.trans hLeastD.2.1, ?_⟩
+            intro E hE hEF
+            exact hsize'.trans_le (hLeastD.2.2 E hE hEF)
+          have hclean : ∀ x : Fin n → Bool,
+              (D.wires (List.ofFn x)).getD t false = true → graphFun G ∅ x = true := by
+            intro x hx
+            rw [← hLeastD.2.1]
+            exact himp x hx
+          have hle := hnonincreasing D hLeastD k u t g hkg hor hu ht hequ hout
+            hclean hAO' hsize' hfun'
+          have hleC : M (HoistNegative.hoisted n D k u t) ≤ M C := by
+            simpa only [hMetricD] using hle
+          exact ⟨hLeastE, Nat.le_antisymm hleC (hmin _ hLeastE)⟩)
+    exact ⟨D1, T1, AO2_of n D1 hM1 hR1 hL1, hlen, hfun, hA1, hB1, hcard, hP1⟩
+  obtain ⟨D, T, hD, hsize, hfun, hA, hB, hPC, hPD, hfixed, htop, hbelow⟩ :=
+    NormalizerInvariant.normalize_least P hstep G C hC ⟨hC, rfl⟩
+  exact ⟨D, T, hD, hsize, hfun, hA, hB, hPC, hPD.2,
+    fun E hE => hPD.2.trans_le (hmin E hE), hfixed, htop, hbelow⟩
+
+lemma normalize_of_wire_minimum {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C)
+    (hmin : ∀ E : Circuit, IsLeastAO G E → WireMass.mass G C ≤ WireMass.mass G E) :
+    ∃ (D : Circuit) (T : Finset ℕ), IsLeastAO G D ∧ D.size = C.size ∧
+      circuitFun n D = circuitFun n C ∧ PA D T ∧ PB n D T ∧ PC n D T ∧
+      WireMass.mass G D = WireMass.mass G C ∧
+      (∀ E : Circuit, IsLeastAO G E → WireMass.mass G D ≤ WireMass.mass G E) ∧
+      PEqualNP.Core.IsLiftFixedPoint G D ∧ TopForm G D ∧
+      (∀ k < D.gates.length, (gateAt D k).op = GateOp.and → ∀ t ∈ (gateAt D k).inputs,
+        ¬ (∀ x : Fin n → Bool, Circuit.eval ⟨D.gates, t⟩ (List.ofFn x) = true →
+          graphFun G ∅ x = true)) := by
+  apply normalize_of_minimum_measure G (WireMass.mass G) C hC hmin
+  intro D hD k u t g hkg hor hu ht hequ hout hclean hAO hsize hfun
+  exact WireMass.hoist_mass_le G D k u t g hD.1.2.1 hkg hu ht hequ hout hD.2.1 hclean
+
+end MeasureNormalization
+
+
+namespace SingletonPivotal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma pivotal_rejects_downward_or {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : JunkMinimum.IsJunkLeastAO G C)
+    (j : ℕ) (hDirty : j ∈ junk G C) (g : Gate) (hor : g.op = GateOp.or)
+    (hlen : g.inputs.length = 2) (hback : ∀ i ∈ g.inputs, i < n + j)
+    (hDown : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = false := by
+  classical
+  by_contra hnone
+  have hj := ((JunkNormalize.mem_junk_iff G C j).mp hDirty).1
+  have hPos : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = true := by
+    intro a b hab hp
+    apply Bool.eq_true_of_not_eq_false
+    intro hf
+    exact hnone ⟨a, b, hab, hp, hf⟩
+  obtain ⟨hAO, hFun, hsize⟩ := correct_of_pivotal_cover_below G C hC.1.1 hC.1.2.1
+    j hj g (Or.inr hor) hlen hback hPos hDown
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j g) := by
+    refine ⟨hAO, hFun, ?_⟩
+    intro D hD hDF
+    exact hsize.trans_le (hC.1.2.2 D hD hDF)
+  have hlt := junk_card_lt_of_or_replace G C hC.1.1.1 j hj g hor hback hDown hDirty
+  have hle := hC.2 _ hLeast
+  omega
+
+lemma pivotal_rejects_two_wires {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : JunkMinimum.IsJunkLeastAO G C)
+    (j : ℕ) (hDirty : j ∈ junk G C) (s t : ℕ) (hs : s < n + j) (ht : t < n + j)
+    (hS : ∀ x : Fin n → Bool, wireVal n C s x ≤ gateVal n C j x)
+    (hT : ∀ x : Fin n → Bool, wireVal n C t x ≤ gateVal n C j x) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      wireVal n C s (pairInput a b) = false ∧
+      wireVal n C t (pairInput a b) = false := by
+  let g : Gate := ⟨GateOp.or, [s, t]⟩
+  have hback : ∀ i ∈ g.inputs, i < n + j := by
+    intro i hi
+    simp only [g, List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl
+    · exact hs
+    · exact ht
+  have hDown : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false := by
+    intro x
+    apply Bool.le_iff_imp.mpr
+    intro h
+    have hab : wireVal n C s x = true ∨ wireVal n C t x = true := by
+      simpa [g, GateOp.eval, wireVal] using h
+    rcases hab with h | h
+    · exact Bool.le_iff_imp.mp (hS x) h
+    · exact Bool.le_iff_imp.mp (hT x) h
+  obtain ⟨a, b, hab, hp, hf⟩ := pivotal_rejects_downward_or G C hC j hDirty g rfl rfl hback hDown
+  refine ⟨a, b, hab, hp, ?_⟩
+  simpa [g, GateOp.eval, wireVal] using hf
+
+end SingletonPivotal
+
+namespace WireFirst
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+def IsWireLeast {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : Prop :=
+  IsLeastAO G C ∧ ∀ D, IsLeastAO G D → WireMass.mass G C ≤ WireMass.mass G D
+
+end WireFirst
+
+namespace WireFirstNormalized
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover Normalization.LiftFix
+
+def IsNormalizedWireLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : Prop :=
+  WireFirst.IsWireLeast G C ∧ ∃ T : Finset ℕ,
+    PA C T ∧ PB n C T ∧ PC n C T ∧ PEqualNP.Core.IsLiftFixedPoint G C ∧
+    TopForm G C ∧
+    (∀ k < C.gates.length, (gateAt C k).op = GateOp.and →
+      ∀ t ∈ (gateAt C k).inputs,
+      ¬ (∀ x : Fin n → Bool, Circuit.eval ⟨C.gates, t⟩ (List.ofFn x) = true →
+        graphFun G ∅ x = true))
+
+lemma same_wire_minimum_normal_form {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : WireFirst.IsWireLeast G C) :
+    ∃ D : Circuit, IsNormalizedWireLeastAO G D ∧ D.size = C.size ∧
+      circuitFun n D = circuitFun n C ∧ WireMass.mass G D = WireMass.mass G C := by
+  obtain ⟨D, T, hD, hs, hf, hA, hB, hPC, hm, hmin, hfixed, htop, hbelow⟩ :=
+    MeasureNormalization.normalize_of_wire_minimum G C hC.1 hC.2
+  exact ⟨D, ⟨⟨hD, hmin⟩, T, hA, hB, hPC, hfixed, htop, hbelow⟩, hs, hf, hm⟩
+
+lemma peel_of_normalized_wire_minimum {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hpos : ∃ z : Fin n, 0 < G.degree z)
+    (h : ∀ C : Circuit, IsNormalizedWireLeastAO G C →
+      ∃ z : Fin n, 0 < G.degree z ∧ CutWitness G z C) :
+    ∃ z : Fin n, 0 < G.degree z ∧ ∀ C : Circuit, IsAO2 n C →
+      circuitFun n C = graphFun G ∅ → CutWitness G z C := by
+  apply peel_of_least G hpos
+  intro C hC
+  obtain ⟨A, hA, hm⟩ := WireMass.exists_minimum G (IsLeastAO G) ⟨C, hC⟩
+  obtain ⟨D, hD, hs, _, _⟩ := same_wire_minimum_normal_form G A ⟨hA, hm⟩
+  have hAC : A.size = C.size := Nat.le_antisymm
+    (hA.2.2 C hC.1 hC.2.1) (hC.2.2 A hA.1 hA.2.1)
+  obtain ⟨z, hz, hcut⟩ := h D hD
+  exact ⟨z, hz, cutWitness_mono G z D C (hs.trans hAC).le hcut⟩
+
+end WireFirstNormalized
+
 end PEqualNP.Outside.L_meta_3566
