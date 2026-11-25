@@ -1,0 +1,7 @@
+{
+  "sha256": "abcbe71b43209bca6e4b35acf5f95fe4cbc917bc48fab8a4eef0958ae8ec58be",
+  "lines": 76,
+  "exit_code": 0,
+  "independent_review": "Parent reviewed every line. Double counting and natural-number rounding are valid. All geometric touch-count and row-capacity assumptions are explicit; this is not the posted theorem.",
+  "claim": "A disjoint singleton/pair packing with stated counts and row capacity has union at most eight."
+}
