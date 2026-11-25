@@ -1,0 +1,23 @@
+{
+  "pid": 35170,
+  "started_utc": "2026-11-25T06:44:07.919020+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "--seed=0",
+    "-t",
+    "900",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-62/cap4-separator14-run900.sol",
+    "/tmp/oec/pequalnp-pilot-62/cap4-separator14.cnf"
+  ],
+  "address_space_limit_bytes": 1073741824,
+  "input_stem": "/tmp/oec/pequalnp-pilot-62/cap4-separator14",
+  "shared_memory_start_limit_bytes": 4294967296,
+  "shared_memory_stop_limit_bytes": 5905580032,
+  "owned_process_group": 35170,
+  "reader_pid": null,
+  "input_gzip": null,
+  "input_composition": null,
+  "input_uncompressed_sha256": null,
+  "process_start_ticks": 1447512
+}

@@ -1,0 +1,198 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS immediate preservation after lease-loss interruption",
+  "scope": "Both live solvers externally interrupted on HTTP410, UNKNOWN/-2 with no result. Two-useful39 input generated but never solved. Useful-pencil count is reviewed mathematics only; no new Lean theorem or held-gap result. counterexample.md ends with explicit final stop; library.md retains historical03:07-03:16 strategy/audit observations.",
+  "checks": {
+    "archive_hashes": 27,
+    "original_decompressed_hashes": 25,
+    "new_CNF_preserves_every_old_body_line": 2848065,
+    "new_CNF_added_variables": 936,
+    "new_CNF_added_clauses": 32761,
+    "mapping_existing_fields_unchanged_except_counts": true,
+    "no_solver_SAT_or_UNSAT_verdict_in_interrupted_logs": true,
+    "no_credential_patterns_found": true
+  },
+  "outcomes": [
+    {
+      "stem": "global50-ordered-run1800",
+      "result": "interrupted_UNKNOWN",
+      "exit": -2,
+      "wall_seconds": 1114.8375401580015,
+      "external_stop": "2026-11-25T06:59:01.932790+00:00"
+    },
+    {
+      "stem": "cap4-separator14-run900",
+      "result": "interrupted_UNKNOWN",
+      "exit": -2,
+      "wall_seconds": 894.2737770139993,
+      "external_stop": "2026-11-25T06:59:01.933627+00:00"
+    }
+  ],
+  "files": [
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/ORIGINAL-FILES.json",
+      "sha256": "f7afc230b6944f5c146fc79c298edefbe1f5255dad8709765a49d00164415b55",
+      "bytes": 6233
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/README.md",
+      "sha256": "2d5af723ad44c21b15e554765801aef1c6a9478d57a8e4478da395c8f0bb7db9",
+      "bytes": 1672
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/SHA256SUMS",
+      "sha256": "43ea967e559f809d04622d69929bf426b5ad33cfb7f569b475aef8ec12ea9543",
+      "bytes": 2760
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.command.json",
+      "sha256": "1f3e9eda716794f58c099d71542dac35046abf77095a6433cde474abee1e94c0",
+      "bytes": 243
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.lease-lost-stop-request.json",
+      "sha256": "1f0deec92523e687d1223fb753b01c2c014a670affa996c3c58d99cf57bdc1c8",
+      "bytes": 212
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.log",
+      "sha256": "9bbc05054df779fda61bd7617890d7bb2b29721948ee7bc6ee003daeffdedb59",
+      "bytes": 503
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.process.json",
+      "sha256": "f7b9ed85453ea0794d998dd4a63343d12b2fdeb765f702222c703c266d43b094",
+      "bytes": 724
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.solver.log",
+      "sha256": "936349b84a7460eca190182054bef5ec1b5323063901975fe99633f9e6265844",
+      "bytes": 38562
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/cap4-separator14-run900.status.json",
+      "sha256": "df9d31b1c4410d75dfd572167d6f4f7586767debeda4b8de9bb2fa1a056a4b1e",
+      "bytes": 429
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.command.json",
+      "sha256": "459607761ea19b92205438dab70c4e6aa7f185d9c1c125b7cdf865605313173e",
+      "bytes": 199
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.input-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.lease-lost-stop-request.json",
+      "sha256": "f028ba7a3eae205b3dd0a015a0bfe48ee2c8bbd87c6dee4e44faea30c7069247",
+      "bytes": 212
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.log",
+      "sha256": "79b64e14968d6b46bb79794acc0ab2c2a3663c472d5aab564f2b8f0595b1a2ed",
+      "bytes": 496
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.process.json",
+      "sha256": "419f3317d3afd18367f9aecdf0954384c719836b3f8b4136181578599bcaeb64",
+      "bytes": 809
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.solver.log",
+      "sha256": "ae9b22994060cfb2473d9f4670cf6e3864ec300874dce042a2cac1073dfe8bb7",
+      "bytes": 22474
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/global50-ordered-run1800.status.json",
+      "sha256": "245ac8b3111b2d02f324357440e5491a97b64de28ec0dcc9ea95af8c6ee28071",
+      "bytes": 420
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/lease-lost-search-input-references.json",
+      "sha256": "59d8c5c505502b9abb08d5076ec9496feeb718eb0497fc57b85dcd6bd299c6c4",
+      "bytes": 910
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/multi_output_two_useful_ordered_cnf.py",
+      "sha256": "fa4a619abcd3a216786a3577e2980fd72524afa70cbeae45b7dc89718e04649b",
+      "bytes": 16846
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/repo_audit_two_useful.py",
+      "sha256": "3fe5ff25074d7f317ed607145d0f61375ca393d4233c2fbd663a70613943ba29",
+      "bytes": 3907
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/solve_multi_cnf_v4.py",
+      "sha256": "92dd33372e511fb4a43094d682999922def74396ce84163517db20413945b35a",
+      "bytes": 12386
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-independent-audit.json",
+      "sha256": "c5e6552e0dd4c2d64f4307890d242f9c5d27ed4f4db7c171c9ddd1fc0ded6f2c",
+      "bytes": 1901
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-independent-audit.log",
+      "sha256": "c5e6552e0dd4c2d64f4307890d242f9c5d27ed4f4db7c171c9ddd1fc0ded6f2c",
+      "bytes": 1901
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-ordered-pencil-cnf-help.txt",
+      "sha256": "5e0b373251a87fa5ab7ba7c6fa231b277101cb12acdfee2acae6acf49b62785f",
+      "bytes": 928
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-ordered-pencil39-control.cnf.gz",
+      "sha256": "f2dd44301b9741480940fb63dd4981855fde719dabd29a00b5f89dc8d6738807",
+      "bytes": 12909975
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-ordered-pencil39-control.encode.log",
+      "sha256": "4361f96c00cba19f2c246e24688e68177fc25d20bd24688cf4f9a58529e464f9",
+      "bytes": 209
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0659Z/two-useful-ordered-pencil39-control.mapping.json",
+      "sha256": "824b91403bf9406509d6579947f94be104ac4691ce10132ffb281bec42888c7c",
+      "bytes": 27993
+    },
+    {
+      "path": "results/orch/counterexample.md",
+      "sha256": "3cb4793ce99d28df6f47b8d0ec0a177c7cf143e3cd93189530af5d3a1761d38f",
+      "bytes": 25353
+    },
+    {
+      "path": "results/orch/useful-pencil-count-observation.md",
+      "sha256": "226b1f063d4b9fd9b49c74e1ad2eb82f59f08d630b1b5987fd24c076fb0a3f9f",
+      "bytes": 2185
+    },
+    {
+      "path": "results/orch/useful-pencil-count-review.json",
+      "sha256": "b8677a441632fabe1168f035a7035f0afaf43883ed1e6de77634df4326fa81d8",
+      "bytes": 1220
+    },
+    {
+      "path": "results/orch/search-counterexample/TWO-USEFUL-PENCILS-REVIEW.md",
+      "sha256": "1401661a47df8c54b7fc14e8b3ccd0b79fb9c86037633868270c4c2352c13e20",
+      "bytes": 3418
+    },
+    {
+      "path": "results/orch/library.md",
+      "sha256": "51d4123cd1c219fa754329305f7bfa3b416be91e5720a992d0d6aec235de6373",
+      "bytes": 4519
+    }
+  ]
+}

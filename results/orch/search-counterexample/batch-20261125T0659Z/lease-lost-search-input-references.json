@@ -1,0 +1,29 @@
+{
+  "global50_ordered_input": {
+    "archive": "batch-20261125T0628Z",
+    "base_archive": "batch-20261125T0512Z",
+    "composed_uncompressed_sha256": "d6f839f5b3c6b3592ebadf6bfc296cd6c3dc2dc9abab8692e0a78c67083cfc0b"
+  },
+  "cap4_input": {
+    "archive": "batch-20261125T0644Z",
+    "original_name": "cap4-separator14.cnf"
+  },
+  "two_useful_control_generation": [
+    "python3",
+    "multi_output_two_useful_ordered_cnf.py",
+    "39",
+    "--fixed-baseline",
+    "--cover-suffix",
+    "3",
+    "--exact-pencil",
+    "--useful-exact-pencil",
+    "--two-useful-pencils",
+    "--ordered-independent",
+    "--cnf-only",
+    "--tag",
+    "two-useful-ordered-pencil39-control"
+  ],
+  "no_two_useful_control_solver_ran": true,
+  "no_collinear10_query_ran": true,
+  "stopped_reason": "Parent reported lease lost HTTP410 and instructed immediate stop; both owned solver groups received externally recorded SIGINT."
+}

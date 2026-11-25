@@ -1,0 +1,10 @@
+{
+  "reason": "lease_lost_HTTP410_root_stop",
+  "requested_utc": "2026-11-25T06:59:01.933627+00:00",
+  "pid": 35170,
+  "owned_process_group": 35170,
+  "already_finished": false,
+  "signals": [
+    "SIGINT"
+  ]
+}

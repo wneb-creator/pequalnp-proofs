@@ -1,0 +1,17 @@
+{
+  "status": "Independent mathematical review PASS; unformalized prefix and counting bridge",
+  "note": "results/orch/useful-pencil-count-observation.md",
+  "sha256": "226b1f063d4b9fd9b49c74e1ad2eb82f59f08d630b1b5987fd24c076fb0a3f9f",
+  "reviewer": "/root/algebraic_witness",
+  "conclusion": "k >= 41 - 2e, hence k <= 38 forces at least two distinct useful exact-pencil singleton supports",
+  "essential_condition": "U consists of OR gates actually false on some four-cap, not merely gates whose singleton supports avoid a cap.",
+  "checks": [
+    "Reindexing to U retains all output/cap separation witnesses.",
+    "The earliest target-containing U gate is false on a cap outside its contained pencil by monotonicity.",
+    "Prefix false-baseline sensitivity supplies at least three false OR gates; at least two are earlier and cannot contain any pencil.",
+    "Those two gates are disjoint from the active guards and exact representatives.",
+    "An exact representative cannot be an active-target guard because distinct equal-size pencils differ."
+  ],
+  "scope": "Thirteen-line-input, thirteen-output cap-promise architecture; does not apply directly to global twenty-six-input50 model.",
+  "lean_checked": false
+}

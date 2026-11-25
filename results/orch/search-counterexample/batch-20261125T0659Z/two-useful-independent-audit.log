@@ -1,0 +1,54 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS source-only second useful-pencil encoding and runner replay; new SAT control pending",
+  "scope": "The second witness is an actual OR output with exactly one of the12 nonzero pencil singleton supports AND false on one of that pencil\u2019s54 encoded disjoint four-caps. Existing usefulP0 remains required. Distinct target supports force distinct gate witnesses. This is a necessary-condition cut for the restricted13-output model, not a held-gap proof.",
+  "checks": {
+    "all_old_cnf_body_generation_unchanged_before_append": true,
+    "old_variable_ids_preserved": true,
+    "second_targets": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "rows_per_target": 54,
+    "positive_row_offset": 13,
+    "P0_stabilizer_permutes_other_targets_and_false_cap_rows": true,
+    "ordering_preserves_useful_witnesses_by_unchanged_support_and_decreasing_values": true,
+    "previous_forced39_SAT_control_useful_targets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "runner_requires_distinct_useful_targets_and_matches_serialized_string_keys": true
+  },
+  "estimated_increment_without_unexpected_simplification": {
+    "control39_variables": 936,
+    "control39_clauses": 32761,
+    "query38_variables": 912,
+    "query38_clauses": 31921
+  },
+  "files": {
+    "multi_output_two_useful_ordered_cnf.py": "fa4a619abcd3a216786a3577e2980fd72524afa70cbeae45b7dc89718e04649b",
+    "solve_multi_cnf_v4.py": "92dd33372e511fb4a43094d682999922def74396ce84163517db20413945b35a"
+  },
+  "limit": "No new CNF generation, solver, or Lean process was run by this audit. The new forced39 control must still pass before launching the changed38 query. Delta packaging, if introduced, needs its own header/hash review."
+}
