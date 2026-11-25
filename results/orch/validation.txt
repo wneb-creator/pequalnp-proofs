@@ -13,3 +13,15 @@ Additional checked partials (lake env lean, exit 0):
 - algebraic-mask.lean (empty diagnostics)
 - algebraic-certificate.lean (empty diagnostics)
 - library-buffer.lean (empty diagnostics; function-preserving full-input buffer construction, size increment n, T=0)
+
+Checked partial snapshot 3:
+library-onecolour.lean: lake env lean exit 0; SHA256 6b51ed73b0f7d5e7f61bccab7930e303bcb69bfb49659266bfbb4a816e5f10b4
+semantic-linear.lean: lake env lean exit 0; SHA256 8b5f0e2b5a6a2bb66f52787feaa2ec23064fab353a0726c0a040d4fd201410ea
+semantic-starforest.lean: lake env lean exit 0; SHA256 d3a7dc9b805bf106a405bf4265cefc5991aa06297202252ab439d4a6153c509d
+semantic-minterms.lean: lake env lean exit 0; SHA256 5d3027aa468d1ace0e132c7d659b60706d5f594c3c94772863e82243076159db
+semantic-fold.lean: lake env lean exit 0; SHA256 38641a5b727e71f04d81c824af3e6a215097b7e88f6ac63db7917916674c8c69
+algebraic-private.lean: lake env lean exit 0; SHA256 03362470cd0f5f4f75a5132b12c37de24efe345f03d779cccd60e10a9a3f9719
+library-pairclean.lean: lake env lean exit 0; SHA256 602e46aba2333e4c4470ad4e2a782ea8240a54086e83cf054dc176678c6ff7a4
+structural-partners.lean: lake env lean exit 0; SHA256 7d6da6481fa6aac4fb253ed59e80c8134247e5f66e0711ab6f77058ea2e0cd66
+Named file assembles helpers plus star_forest_bound; lake build PEqualNP.Outside.L_meta_4675 exit 0. Exact posted theorem absent; no PR acceptance claimed.
+Exact posted-statement checker: REJECTED (no-theorem): target declaration absent. This is the expected status of the helper-only snapshot.
