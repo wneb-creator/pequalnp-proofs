@@ -129,3 +129,8 @@ Desk null responses:1. Exact message: no step is free that you have not already 
 Only this job's lease will be released with reason other after the final preservation push; no other pilot lease has been modified.
 Sub-agents: six; independent rules/source review, minimality and normalization, semantic normal forms, counterexample search, algebraic replacement, graph repair/counting.
 TIMING total=93.8 subagents=6
+
+2026-11-25T05:01:44.968744+00:00 lease release confirmed
+Desk response: released L-meta-1772; reason other. Automatic renewal stopped before release. No other lease was changed. All proof/search artifacts were pushed before release; this entry records the completion receipt.
+Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, graph repair.
+TIMING total=96.2 subagents=6

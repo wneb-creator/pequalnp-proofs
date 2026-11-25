@@ -38,3 +38,5 @@
 - 2026-11-25T04:56:06.147479+00:00: integrated triple normalization compiled and independently reviewed. It is a partial theorem; arbitrary shared-gate repair/budget remains the exact unresolved step.
 
 - 2026-11-25T04:59:21.594461+00:00: proof strategies frozen without a full ownership proof or target refutation. Minimality/normal-form route produced IntegratedNormalForm; algebraic route stopped at conditional joint-pivotal replacement; geometry route stopped at arbitrary dirty external readers; finite search ended UNKNOWN. Independent final archive review is in progress. No proof was accepted. Own lease release follows the preservation push.
+
+- 2026-11-25T05:01:44.968744+00:00: desk confirmed release of this job's L-meta-1772 lease with reason other after preservation push fabf571aa6b89412fdfe2c67f20e66238466acfb. Renewal stopped. Exact theorem remains unproved; no proof accepted and no proof PR opened.
