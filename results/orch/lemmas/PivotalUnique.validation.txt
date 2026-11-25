@@ -1,0 +1,7 @@
+Checked 2026-11-25T07:44:38.876825+00:00
+Command: /tmp/oec/pequalnp-pilot-74/toolchain/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/PivotalUnique.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit status: 0
+Complete stdout:
+
+Complete stderr:

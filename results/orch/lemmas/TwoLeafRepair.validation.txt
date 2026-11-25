@@ -1,0 +1,3 @@
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/TwoLeafRepair.lean
+Exit status: 0
+Full stdout/stderr:

@@ -26,3 +26,10 @@ Cleanup not performed because full checker could not run. Line counts before/aft
 
 PivotalStarLimitation.lean compiled exit0 with empty stdout/stderr. Root independently reviewed41-line finite proof: a computingC5 circuit has starprofile yet gate5 pivotaledges have no commoncenter. This refutes an OVERSTRONG ROUTE assumption, not the posted statement; no minimumclaim.
 Sub-agents used so far:7 total (six direct agents plus preflight_review/critical_structure).
+
+Named partial now2715 lines: combined lake build exit0, Build completed successfully (5149 jobs). Added every-gate pivotal necessity, unique-pivotal-edge replacement, and a finite private-support counterexample to an overstrong OR-count route. Full posted theorem remains ABSENT. Independent reviews for Necessary and Unique passed; root reviewed finite witness. Full stdout/stderr saved alongside this validation. Cleanup not performed: no full proof or passing checker. Lines before/after cleanup2715/2715.
+Sub-agents: 7 total (six direct agents plus one reviewer child).
+TIMING total=58.5 subagents=7
+
+TwoLeafRepair.lean additionally compiled exit0 (empty log) and independently reviewed PASS: replaces a singleton-positive gate by OR of two inputs if their endpoints cover all pivotal edges. Preserves size/function/monotonicity; not a global normalization theorem. Artifact preserved separately from2715-line named module.
+Before commit, helper trailing blank EOF lines removed only; compiled named-module bytes unchanged. Complete compiler logs intentionally retain original whitespace. Independent reviewer confirmed named source SHA256c703581200c4c2beb6714c9175db1ba2bda4bf933fd3934f466285447f47ae09 and all new source bodies match reviewed components.
