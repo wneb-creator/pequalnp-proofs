@@ -7,7 +7,7 @@ Updated 2026-11-25 13:42 UTC. All sets use the accepted edgeList labeling; point
 | 7 | {0,1,2,3,4,5,6} | Standalone compiled | Unique-reader chains |
 | 8 | {0,1,2,3,4,5} | Standalone compiled | Saturated carrier count and linearity |
 | 9 | {0,1,2,3,4} | Standalone compiled ordinary impossibility | Finite residual masks, protected inputs, and sharp cofactor count |
-| 9 | {0,1,2,5,11} | Open | All two-missing patterns excluded in full standalone proof; one-missing case remains open |
+| 9 | {0,1,2,5,11} | Unconditional cached ordinary impossibility; full standalone pending | All one- and two-missing patterns excluded; no extra certificate premise |
 | 10 | {0,1,2,3} | Open; three missing-mask subcases excluded standalone | Missing neighborhoods{4,5,6}+q impossible for q in{0,1,3}; q2 missing{2,4,5,6}/Bplus≤13 excluded in unconditional cached composition; full standalone assembly pending. Bplus14/Bzero0 remains; Bplus at least13; Bzero at most1 |
 | 10 | {0,1,2,5} | Standalone compiled ordinary impossibility | Seven-mask family obstruction and sharp support counting |
 | 10 | {0,1,2,11} | Open | Standalone Bplus at least13; Bzero at most1 by analytic cofactor bound |
@@ -39,3 +39,5 @@ Checkpoint1335: the mixed-p9 two-missing theorem is unconditional in the checked
 Checkpoint1348 (2026-11-25T13:47:49.638632+00:00): complete q2 cached subcase theorem now has no finite-certificate premise, exit0, independent review and axiom audit. The new structural off-route and empty-opposite lemmas retain their stated circuit hypotheses. Full target remains open.
 
 Checkpoint1353 (2026-11-25T13:53:22.171769+00:00): all mixed-p9 two-missing cases now have full standalone exit0 and exact composition review. Shared-slot productivity is also standalone checked. One-missing mixed-p9 and the full target remain open. Combined q2 exact-subcase standalone is actively building; no success is claimed.
+
+Checkpoint1403 (2026-11-25T14:03:19.293067+00:00): full mixed-p9 case closed in cached Lean with independent review; full standalone pending. The combined q2 standalone had a resource failure134; independently reviewed pruning candidate is under preliminary checking, so its previous cached result is the strongest complete combined result. Public reduction quota is full.

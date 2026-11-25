@@ -1,0 +1,20 @@
+{
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:01:32.570216+00:00",
+  "verdict": "PASS: exact textual pruning and scope; cached/full compilation pending",
+  "original_sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
+  "pruned_sha256": "dcf552e93876198f9c6c21d6cf0ef2054be0a13d34418b9021c75c848f3cce3a",
+  "cached_sha256": "030b43fec12176eb23ecb22458a390d96dc9faca8fe15d4a7b3d6d1240c3a112",
+  "plan_sha256": "623b7bd3063de9ffd8b6c8de1811d36c26f0b6004579d1ee9923fe84f3866663",
+  "pruned_bytes": 452362,
+  "pruned_lines": 8014,
+  "findings": [
+    "Replayed every one of219 disjoint character-range deletions from the original source; resulting bytes exactly match the pruned standalone. No insertion or alteration of retained theorem statements/proofs occurs.",
+    "Every deleted name is outside the transitive compiled-constant dependency name set for qa_q2_exclusion. The dependency visitor follows getUsedConstantsAsSet recursively under the shared namespace; original source contains no private declarations. This is only a pruning guide, not a substitute for compilation.",
+    "No deleted range contains namespace/section/end/variable/open/attribute context commands. Namespace context and declaration order of every retained proof are preserved.",
+    "The cached companion adds only import PNPQ2FFinite and deletes one contiguous block comprising exactly the200 already checked finite declarations; no other changes or context deletions occur.",
+    "Standalone imports only PEqualNP.Defs and trust/format scans are clean; only inherited simp/local simp attributes and permitted recursion/heartbeat limits remain.452362bytes is below512KiB.",
+    "Final qa_q2_exclusion statement and proof are unchanged. Scope remains the exact0123/2456/Bplus\u226413/surplus\u226414 subcase, not full L-meta-1479."
+  ],
+  "build_status": "Both cached companion and full pruned source require successful compilation before a build-pass claim. Original oversized attempt134 memory_exception remains separately archived."
+}

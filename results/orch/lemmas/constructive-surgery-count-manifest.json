@@ -1,0 +1,83 @@
+{
+  "created_utc": "2026-11-25T13:55:00.350833+00:00",
+  "scope": "Generic ordinary normalization size bound, independently reviewed and permitted-import standalone checked. No quietness or circuit-replacement premise is discharged.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-tail.lean",
+      "bytes": 4814,
+      "sha256": "2a931f3fed2face7b8556c1a6178d5f272a32b4f594c905c263fbf30ca047d1c"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-cache.lean",
+      "bytes": 4837,
+      "sha256": "c22fcc581352733d24496d9f87ccc1a91c6289290440314649005a2cd7e3c20a"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-cache-build.json",
+      "bytes": 561,
+      "sha256": "ae002fbbecb513c12109558c6d5bfeed750c41053c29c82449cb7dfc64a91708"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count.lean",
+      "bytes": 25956,
+      "sha256": "267649ab59df3ee8f726c9d0c26e3b4fc832aa6315f17c34c07cfdef52e29ee3"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-build.json",
+      "bytes": 627,
+      "sha256": "285ac181592c8c3634d07154282089cd04e850f05abff327d2b75d3c3ee810f9"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-attempt1.lean",
+      "bytes": 4851,
+      "sha256": "17afae508dcd9806702bb82064a858e9391bfaadf2e035e4a156711a32f9d680"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-attempt1.json",
+      "bytes": 536,
+      "sha256": "32e15a69c984cffa1bbc700ef6535b9eb3ea881bb5c82c427307f58bfd2b7c60"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-attempt1.stdout",
+      "bytes": 103,
+      "sha256": "01ef95feb1888efeae4135556292a7c4949da0eab59f8898a16c7685d0f719dd"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-surgery-count.md",
+      "bytes": 1251,
+      "sha256": "a014844ecede33ecf93db26d1105986ba98d2ee219f3d55702d2013a3f797e15"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-surgery-count.json",
+      "bytes": 2370,
+      "sha256": "9a48000478e5710236e10ac8278063b00cf453acad0cf2881383e8edd926eb9b"
+    }
+  ],
+  "file_count": 15,
+  "bytes": 45906
+}

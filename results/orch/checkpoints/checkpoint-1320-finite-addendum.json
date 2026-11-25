@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "path": "results/orch/CASE_LEDGER.md",
+      "bytes": 4718,
+      "sha256": "b5ce828df07c0eef994e0a0a130bd45c017100c55357a1517bc51667e486911e"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 13684,
+      "sha256": "777470b83345381d811b5319bc8e2c02e88e7dd539d649f0c6340740d3a2a486"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 7730,
+      "sha256": "71a468e7c3a8a128ffc59e7a697b62a8875098083fefabc90e93eaad6f4ee940"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite-build.json",
+      "bytes": 1149,
+      "sha256": "bf49ebd3754b274e2c3dd0eafdb66cbf20e15d21eb2db543d2efc66023e2fc2c"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite-build.stdout",
+      "bytes": 668,
+      "sha256": "f97993354ffe861f833cc85c3509c0a0e1c0cc162379dff24a7eab526bd0154e"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite.lean",
+      "bytes": 33989,
+      "sha256": "763ee35ab89eb6933cc91ad866468b703bb10dc4e4f9a273d6c9c4532bbb2adb"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-progress.md",
+      "bytes": 4319,
+      "sha256": "cd6c5392edc6e6df78a40f8f0181e6c0bcba11c9fa5b1dc7292db1b5cfa0a724"
+    },
+    {
+      "path": "results/orch/lemmas/status-mixed9-finite-review.json",
+      "bytes": 1614,
+      "sha256": "cf1813f28962120309ef399fc187444b64180ac05633ef71eeb0f0e662f7b23b"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 17597,
+      "sha256": "2b11b817a2cb5edf73aa53e6fc4218df56dd01ea5681195150943461cdb2182f"
+    }
+  ],
+  "file_count": 10,
+  "bytes": 85468,
+  "created_utc": "2026-11-25T13:21:29.307409+00:00",
+  "scope": "Finite-success addendum only: complete finite residual certificate, finalized independent review and metadata correction. Circuit instantiation/standalone case and posted target remain unclaimed.",
+  "base_manifest": "/tmp/oec/pequalnp-pilot-81/checkpoint-1320-files.json",
+  "base_manifest_sha256": "e02a0901f7f68163dd258523660770bb1cea817e60ede2e68493c4af3797ee96",
+  "supersedes_metadata_paths": [
+    "results/orch/NOTES.md",
+    "results/orch/TIMELINE.md",
+    "results/orch/validation.txt",
+    "results/orch/CASE_LEDGER.md",
+    "results/orch/lemmas/constructive-mixed9-progress.md"
+  ],
+  "subagents": 6,
+  "timing_total_minutes": 264.3
+}

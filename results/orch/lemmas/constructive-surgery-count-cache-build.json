@@ -1,0 +1,10 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-surgery-count-cache.lean",
+  "source_sha256": "c22fcc581352733d24496d9f87ccc1a91c6289290440314649005a2cd7e3c20a",
+  "tail_sha256": "2a931f3fed2face7b8556c1a6178d5f272a32b4f594c905c263fbf30ca047d1c",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:52:02.771895+00:00",
+  "finished_utc": "2026-11-25T13:52:13.126944+00:00",
+  "elapsed_seconds": 10.355053547998978,
+  "scope": "Generic ordinary normalization gate count; no circuit replacement equivalence or derivative preservation."
+}

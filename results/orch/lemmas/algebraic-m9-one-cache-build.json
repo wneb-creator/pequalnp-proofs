@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/algebraic-m9-one-cache.lean",
+  "sha256": "0264a4d2179a59961cca948d37af297bc7a06d6b8242a22a60c068ece9512956",
+  "exit_code": 0,
+  "completed_observed_utc": "2026-11-25T13:54:54.858048+00:00",
+  "scope": "Canonical one-missing mixedp9 ordinary impossibility: I0125+11, missing{5}, total\u226414. Uses existing cap-seven certificate in six eligible line coordinates; no new finite census. Cached imports, standalone pending."
+}

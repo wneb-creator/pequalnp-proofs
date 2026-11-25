@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-11-25T14:00:28.974259+00:00",
+  "status": "UNKNOWN",
+  "scope": "20-minute computational SAT timeout; no witness and no impossibility claim.",
+  "source_sha256": "4c8e6af4b526949c6fdb17dea5433c4a56744971a910ec0d8aea3bcf13087bc1",
+  "started_utc": "2026-11-25T13:40:12.011189+00:00",
+  "completed_utc": "2026-11-25T14:00:12.861788+00:00",
+  "wall_seconds": 1200.8508195879986,
+  "driver_exit": 0,
+  "immutable_inputs": [
+    {
+      "suffix": ".cnf",
+      "archived_path": "results/orch/lemmas/sat-p14-compact-empty18-target.cnf.gz",
+      "sha256": "93151be730bbd301e21514d8368df6a0bb18b7f5bbccd28e942c6bbd12bcb0b9",
+      "exact_match": true
+    },
+    {
+      "suffix": ".metadata.json",
+      "archived_path": "results/orch/lemmas/sat-p14-compact-empty18-target.metadata.json.gz",
+      "sha256": "a681f184b5cf31f62a0fb4af32e15edd358ac3cabe66f9bc00d98fdb25b83eca",
+      "exact_match": true
+    }
+  ],
+  "requires": [
+    "results/orch/lemmas/sat-p14-empty-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-run.stdout.gz",
+      "bytes": 9837,
+      "sha256": "36466f09a896faae65b8c513ac26eb9164a11c9390dd1718a986039fd2b48bfb",
+      "restore_as": "sat-p14-compact-empty18-run.stdout",
+      "gzip": true,
+      "raw_bytes": 37996,
+      "raw_sha256": "5f01fa6cf6431a442fc76c39b1c18ffc049c1dceb3247bb5d9d9dd3f984029bf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-empty18-run.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-run.runlog.gz",
+      "bytes": 159,
+      "sha256": "f55cc26d249adf11032f142a06fd24e1df8b76d2078f469701994e4aca185512",
+      "restore_as": "sat-p14-compact-empty18-run.runlog",
+      "gzip": true,
+      "raw_bytes": 176,
+      "raw_sha256": "9fa4e5b8664d1245866b21dd3aa83a68c9759a26f1031961294e247cc0960299"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-run.driver.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-empty18-run.driver.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-empty18-run.receipt.json.gz",
+      "bytes": 345,
+      "sha256": "54ab2d64d8f4192019b467429c83f900e7b26b2edba074605e05b3d0b05b44ae",
+      "restore_as": "sat-p14-compact-empty18-run.receipt.json",
+      "gzip": true,
+      "raw_bytes": 531,
+      "raw_sha256": "2d4461f240ed6daf5f404495c2021235bf697779c726edd2afc16608823ff87b"
+    }
+  ]
+}

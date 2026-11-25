@@ -1,0 +1,30 @@
+{
+  "reviewer": "lean_setup",
+  "reviewed_utc": "2026-11-25T13:54:42.578256+00:00",
+  "verdict": "PASS: mathematics/source, exact cached and permitted-import standalone composition/build bindings",
+  "files": {
+    "results/orch/lemmas/constructive-surgery-count-tail.lean": "2a931f3fed2face7b8556c1a6178d5f272a32b4f594c905c263fbf30ca047d1c",
+    "results/orch/lemmas/constructive-surgery-count-cache.lean": "c22fcc581352733d24496d9f87ccc1a91c6289290440314649005a2cd7e3c20a",
+    "results/orch/lemmas/constructive-surgery-count-cache-build.json": "ae002fbbecb513c12109558c6d5bfeed750c41053c29c82449cb7dfc64a91708",
+    "results/orch/lemmas/constructive-surgery-count-cache-build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/orch/lemmas/constructive-surgery-count-cache-build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "findings": [
+    "na_step emits zero gates on constant or unary input lists and at most one otherwise. The additive fold estimate does not assume semantics.",
+    "The strengthened strict-normalization theorem reuses accepted na_fold_spec semantics and the original output-prefix truncation argument with the new emission bound. Constant and projection cases remain explicit.",
+    "Any short original gate reduces the binary-count bound below the original Circuit.size, including an unused short gate.",
+    "No row-replacement equivalence, preservation of derivative traces, or full-gap conclusion is assumed or claimed."
+  ],
+  "accepted_reference": "status-L_meta_6659.lean na_step256-263, na_fold_spec459-476, exists_strict_of_monotone2487-526",
+  "standalone": {
+    "source": "results/orch/lemmas/constructive-surgery-count.lean",
+    "sha256": "267649ab59df3ee8f726c9d0c26e3b4fc832aa6315f17c34c07cfdef52e29ee3",
+    "lines": 599,
+    "receipt": "results/orch/lemmas/constructive-surgery-count-build.json",
+    "receipt_sha256": "285ac181592c8c3634d07154282089cd04e850f05abff327d2b75d3c3ee810f9",
+    "exit_code": 0,
+    "complete_logs": "stdout and stderr empty",
+    "composition": "Exact accepted first484lines with namespace-only rename to L_meta_1479.SurgeryCount, plus the reviewed tail with its opening namespace removed and closing namespace renamed; remaining separator whitespace only.",
+    "format": "Defs-only and trust/format scans clean"
+  }
+}

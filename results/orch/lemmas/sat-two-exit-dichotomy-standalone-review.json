@@ -1,0 +1,26 @@
+{
+  "status": "PASS exact standalone composition and existing source review binding",
+  "utc": "2026-11-25T14:00:58.964304+00:00",
+  "source": "results/orch/lemmas/structural-two-exit-dichotomy-standalone.lean",
+  "source_sha256": "f86ff75d9784a723be6f64a1748cbf12df0272e89690c2c6c8ca0fb0ec3b4a18",
+  "lines": 2788,
+  "tail_sha256": "38975e443c905004f372e9a0dcf6021d9f473ff6da9ed89c2a9ea9400fce66cc",
+  "composition": "Accepted PNPAccepted6659 first2695lines, close namespace, exact reviewed90line tail; uniform namespace rename only.",
+  "prior_math_review": "results/orch/lemmas/sat-two-exit-dichotomy-review.json",
+  "prior_math_review_sha256": "5da86676de2fae1c65a736458c7afb27951a6900850f99c4345d6cb09155f1fa",
+  "receipt_sha256": "e92674c7d5d5e48ebc0dffc43a51f8e244da66f13fb7c63bc7628f0e9e0d43e3",
+  "exit_code": 0,
+  "full_logs": [
+    {
+      "path": "results/orch/lemmas/structural-two-exit-dichotomy-standalone-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/structural-two-exit-dichotomy-standalone-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "scope": "Two-consumption cross adjacency/support dichotomy under StrictLive, Correct and explicit W={e,f}; no p14 circuit or assigned-gap conclusion."
+}

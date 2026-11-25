@@ -1,0 +1,223 @@
+{
+  "files": [
+    {
+      "path": "results/orch/CASE_LEDGER.md",
+      "bytes": 2518,
+      "sha256": "e237b63c1c5727f8dac3d05bf60b9ae187c0fed6a434561fc457e08d02206c6b"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 10262,
+      "sha256": "b5b21efe833a4090ec9477fa0ba9b67632829c325c085323ac2c56b14db1ecf0"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 5141,
+      "sha256": "991af5bf6826f8d9c1077460d8dd11b550d13f6bc682b3ed641c69956aa48882"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-onesided-build.json",
+      "bytes": 884,
+      "sha256": "48441569170f0ca0ef331f674e8a3e46dd7d24d524dfdb1f9b885cf221c94fce"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-onesided-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-onesided-build.stdout",
+      "bytes": 1380,
+      "sha256": "e8b803c16986e3a722b191de82f2946f341da225579cb19a97f9045b8d820695"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-onesided.lean",
+      "bytes": 458640,
+      "sha256": "ab03e0491cb6f2a27b9b041608d24efd62c169391a0e2642bf9471d403c412d3"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-pilot-p10-standalone.json",
+      "bytes": 786,
+      "sha256": "50f1476c2f53a2a96f44caf78ea2c7d6cbdd55d0f262efa7887dcc40abcb97e8"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-p9-composition.json",
+      "bytes": 2394,
+      "sha256": "6062eb4d0a31acb6d9f87b619228f97cdd26e33c6c6b624db239cf1f5e704fc9"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-cache-build.json",
+      "bytes": 199,
+      "sha256": "bdab538013a9899eef01646889a9ca5febcd7158547caff213df50a36075e306"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-standalone-build.json",
+      "bytes": 567,
+      "sha256": "3a9ce31418e2507d1c491a7337d8e7df9ccea9f64383ec57bc6d9908e05d7c9c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-standalone.lean",
+      "bytes": 152128,
+      "sha256": "99b285c9740e52d6a646472707b4790c9f57e0b682e88bc431e2d6163676c003"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-branch-boundary-tail.lean",
+      "bytes": 1550,
+      "sha256": "88dfedc1e6bd55f5e69baaed57bafbfe7d046a201dfedae239603a62534e4b98"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-consequence-tail.lean",
+      "bytes": 527,
+      "sha256": "6a3e63ad4e56302c93ec3127ca310b649e26633208bfeacc349686a02bb40518"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-standalone-build.json",
+      "bytes": 396,
+      "sha256": "a728bc86cff78488fa724050ff30905503fcd933cf2230e69d2ae042901eb405"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-standalone.lean",
+      "bytes": 395323,
+      "sha256": "6581dc8b211f1596bd2cc08f402bb6ec62946d28ae3fba37e04594dba7de3894"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-close-review.json",
+      "bytes": 3510,
+      "sha256": "7c54cf7145a30a1bd818f06285fd9da0c2da5c007b453acf88e2de0a8fab7f8d"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-coordinate-review.json",
+      "bytes": 3398,
+      "sha256": "adb3f4d9ee00c86671dab27c56b97f7f912c4b326c74877dc22ff890a654c065"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-mask-certificates.lean",
+      "bytes": 829,
+      "sha256": "537d9988d70e808a3bac680a1762023f076e3703243bbede65eadb79fa16b2fd"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-residual-one-review.json",
+      "bytes": 9322,
+      "sha256": "b75339eae73879231f6a890f795b7e1a3ea5ac3d4a50e3ec7e86f239f3c6c1da"
+    },
+    {
+      "path": "results/orch/lemmas/status-branch-boundary-review.json",
+      "bytes": 1166,
+      "sha256": "ed07200191bbb5c5bad2770d97cebc91167dbbb086e714ff46b3bea7b10af72b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-k4-preservation-review.json",
+      "bytes": 3936,
+      "sha256": "316dac1f3adf77e00e6083d10022cf1bbb7d5e63322a39ee86a4f5bffab29cae"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.json",
+      "bytes": 443,
+      "sha256": "c49770b54a062dbdf1e75d68d9eaf9bbfd824fa44ec52b167561af18844f1855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-manifest.json",
+      "bytes": 3394,
+      "sha256": "6a8ab9688eaa1395567cc5be7d3b4033ba5f22bef14133423c8207e76c1fa115"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.json",
+      "bytes": 475,
+      "sha256": "23e72c635a7c6027b25373f0278fe1b55cd764f0b44f05f16439182b62ecfda3"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.stdout",
+      "bytes": 798,
+      "sha256": "a17f8d2c4c4a657f2dc2346c4d414a6cb1b34a6025dec9e7ecd93e750db48530"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+      "bytes": 373930,
+      "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two.lean",
+      "bytes": 9485,
+      "sha256": "6cb690326bca2a97974f14c3696c535cba173bf7c190d5a383e57b966efff9fc"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.json",
+      "bytes": 378,
+      "sha256": "a33d2f773c6945de971902dacf6bf1450df5c16aed10a4554c6f344bd064692d"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.stdout",
+      "bytes": 724,
+      "sha256": "813de19926a0866f169f6c73e0c0d4d43ae4443631280dbf98429d3b7a3a5b1e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base.lean",
+      "bytes": 12950,
+      "sha256": "a1f2e7d82187553bb7bad6000d690102d58b652ab18311909bd13b330eebec7a"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-close-tail.lean",
+      "bytes": 4667,
+      "sha256": "2e90297498e825083051d2126b5c2c1be8112943c0001617c9ed858147c5b47f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-low-elig-tail.lean",
+      "bytes": 4744,
+      "sha256": "7074fb8266a0f775c680b0ec1fd6e279bc0e6c8ae3b25c9e541d6e86a424f3b6"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-residual-one-tail.lean",
+      "bytes": 12041,
+      "sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 10322,
+      "sha256": "e51941d0a82490b9a39b7e106bcfdb192cf6ec275bf51011780722a5e5b85d1b"
+    }
+  ],
+  "file_count": 43,
+  "bytes": 1489207,
+  "created_utc": "2026-11-25T12:12:12.875241+00:00",
+  "scope": "Four standalone checked components, including full K4 bound; full gap remains unproved."
+}

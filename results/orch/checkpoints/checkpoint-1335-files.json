@@ -1,0 +1,1230 @@
+{
+  "created_utc": "2026-11-25T13:42:28.757462+00:00",
+  "file_count": 244,
+  "bytes": 4124897,
+  "scope": "Completed checked partials, explicit-condition q2 composition, complete finite artifact with original exit unavailable/import+axiom exit0, immutable reviewed search/delivery controls, and complete failed/historical diagnostics. Active workers and full target claims excluded.",
+  "subagents": 6,
+  "timing_total_minutes": 285.3,
+  "files": [
+    {
+      "path": "results/orch/CASE_LEDGER.md",
+      "bytes": 5508,
+      "sha256": "c542d2e858768f0bf5815ca65cdfe57461c1b7376995f693d97fd75cacd877bb"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 14487,
+      "sha256": "1528e26582fab1851c87afe90c0a8a0af99dbdf74a625631b0994a9ae79da58a"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 8038,
+      "sha256": "49ccf5db5f273480f4674a47241ab6748ddbbf403df54ac2a09266d33dfa8971"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.json",
+      "bytes": 535,
+      "sha256": "fd96e68d106508c8adf0532d419b0b8ff920de90599772445783ce4ea5928175"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.stdout",
+      "bytes": 1457,
+      "sha256": "9ba68d03d238eb27f9e6208f6c3d043888e4c35fa4ebe74181882d7de6021b5c"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache.lean",
+      "bytes": 119278,
+      "sha256": "cec1857bbbd61f497c78181a3378b01c007f6f4c06118beddaf4f2241585df33"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-manifest.json",
+      "bytes": 2802,
+      "sha256": "21a543852b475a265d5f911fae7db98ca5379f0a2e3c6e30723b3f0e379cabd5"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-pair-automorphisms.json",
+      "bytes": 1221,
+      "sha256": "37ab6f0f24c4d5b228f445d63800dff978e40fc2b75d2c42396eb956bad7b985"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.json",
+      "bytes": 762,
+      "sha256": "5bd8e6ac90f79a6c8f2df005db8151944803eac7f256987f54677be5bdee579a"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache.lean",
+      "bytes": 5155,
+      "sha256": "a3ccf663b74b4ed1a9c04e6886a9aad4bde52eb8886547bcbde38d6ecf61d3bc"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-tail.lean",
+      "bytes": 4809,
+      "sha256": "5be4bc4e625db2e3b742ea554a2da6bf3a01172275f02a5159f8b5915809dfc1"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-unconditional-tail.lean",
+      "bytes": 674,
+      "sha256": "77d9d645189f3536f3e317ddb5a7ebd22dce09e6bcb9cd067ba17867eaf96ccb"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-operand-small.json",
+      "bytes": 1243,
+      "sha256": "90b330efdb94d48790d151ec70f3aab2e6a74a0462ae8f5c4521e57d94b4c678"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-operand.json",
+      "bytes": 1947,
+      "sha256": "f3ea7d7bc07289f5271e4797b30893fae6d28b99eb169d0f51db865921589cfe"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-q2-composition.json",
+      "bytes": 1331,
+      "sha256": "3eb2354c627a79dad69c747a6f9d859d2509c4fb7d147d43d4b0245f5702da5c"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-collinear-driver-review.json",
+      "bytes": 1051,
+      "sha256": "274bf87dce50505dae94dc417931fc83505271f941475d6f30f0717b444dad9e"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-collinear4-controls.json",
+      "bytes": 18790,
+      "sha256": "8279fde70b2ad4ff41c13e642e5f9faa44093bc617d8f1e6b045c47dde8a01ce"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-symmetry.json",
+      "bytes": 1290,
+      "sha256": "c7bcdfe8c8ced84d29ed476a8971b9c5a3a61f5a55e6d2c8e861af9a62da9d20"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-two-missing-composition.json",
+      "bytes": 1498,
+      "sha256": "d7a4f95082ad8a91b48863819989cbd3f9d5dbb97e17c6cd5c9fcb6fbf3c6eda"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-two-slot-transitivity.json",
+      "bytes": 1262,
+      "sha256": "55e2ad1dfe6257acc34368acc64e691c76cf5418d7a1179e0034c91238edc6ef"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.json",
+      "bytes": 560,
+      "sha256": "199190e45b28c272934e7b1c7f32ca57fddc62931192ff9e2cf049b9c1c6a5e9"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control.delivery.json",
+      "bytes": 3858,
+      "sha256": "b1523cffd09e5fc5384d44c3abbb4ee8be20aa70b7377eadfca1b292eb5f1853"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control.lean",
+      "bytes": 17021,
+      "sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-delivery-manifest.json",
+      "bytes": 2019,
+      "sha256": "5fb952052bafb1b2648e687ed04fd7371379a8bb466db13de62fabdf02813bde"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-delivery.md",
+      "bytes": 1654,
+      "sha256": "6fcc5ff4c48432c7c5cbc71f7df10c0739c6f917acacbbb41953af806f344b3a"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-delivery.py",
+      "bytes": 9056,
+      "sha256": "f6c7583347bf6fedc2cadbde5c9cd00312975cde0ca7c3ed1be38b90c39c0683"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-prefix.txt",
+      "bytes": 11899,
+      "sha256": "9c9f942118318eeadd102d8dca458a9cff955af5b6890581157ef250382b7d7a"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-statement.txt",
+      "bytes": 1756,
+      "sha256": "946228bccd22fc545145b539b88eaed82998ed5d5a7285e77fb8b30e324d475e"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.json",
+      "bytes": 427,
+      "sha256": "85211c5f66220257851f1cdf1a86ee0491979c7528672331c4d7e49c58735071"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.lean",
+      "bytes": 26362,
+      "sha256": "ab97383016e53122bdcd876b1beeb45834524d2b6cb1ec23e316e5b2e814d9f6"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.stderr",
+      "bytes": 666,
+      "sha256": "fc6b8498b162ff14632e4d2b98c2f45a765fa89c604c2be31195737cea61774e"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.stdout",
+      "bytes": 1454,
+      "sha256": "9a25e29f4b99e2a1944ff2c31feb47103b3457321f5286f87f7c1a62fb9b55be"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.json",
+      "bytes": 478,
+      "sha256": "5a007893c4d509902b75d9ea220c0998f823f946d349ae8ee63bbb68e22ab82a"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.lean",
+      "bytes": 26910,
+      "sha256": "66c1cd44eec6bcfd97206849d0ba72877124d869431f7861349aefdac24223b8"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.stderr",
+      "bytes": 662,
+      "sha256": "a6d290caa05d66a3534c1c91e0a51a124cb5ef71a423da36d10b76ec18cd3181"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.stdout",
+      "bytes": 1461,
+      "sha256": "b167b2085a95ec52c5c9c7de7658d8565b26d9b6ec1840fb158edeba5d540bce"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.json",
+      "bytes": 401,
+      "sha256": "8cf05e4ed998d6819658e2c6be23a5de7b237178897ef684d9fe5ff76e9b961f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.lean",
+      "bytes": 26940,
+      "sha256": "7340eb340678ee08bebdc6f0c23dd6075f772f6da6d434a9466a53ce0d48425c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.stderr",
+      "bytes": 660,
+      "sha256": "cdde487aa8757626c8f82dbd30558f336fb8c7cb07928dff5441c9e73ec75c8b"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.stdout",
+      "bytes": 2098,
+      "sha256": "04849352e1d8b7d068584390d52e6bf41c25d54edb745797e8e5914fce240e17"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache-build.json",
+      "bytes": 531,
+      "sha256": "a995c3501dc0e8c7917a516c7155aca409670f7455dd177ac5d7b0906cc7abdc"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.lean",
+      "bytes": 30395,
+      "sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-closure-tail.lean",
+      "bytes": 3140,
+      "sha256": "1660552b949a59c5a43b814f32c8dc2584512f1f5acdeffb58eb94d81f29fb34"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1-build.json",
+      "bytes": 498,
+      "sha256": "ba453ac349f3a153f11c3c4c74edf18c8f00ba9fc56f276959ddf345d9450135"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.lean",
+      "bytes": 363189,
+      "sha256": "70faece81cae4a0a916dac53f303ce305b183da1e555663e44603853a912c202"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.stdout",
+      "bytes": 639,
+      "sha256": "20a688a182791f88fd2373c907dc04aace3150a8294327de27db8b84264f455f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-build.json",
+      "bytes": 498,
+      "sha256": "c9b1c2fc3ee0967ddb6ec7f4618cb7cd5f7b35479834750bcbcfa26be34cc550"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.lean",
+      "bytes": 363280,
+      "sha256": "d7229dcbfec618dbb4c7f41e9abdfc854f20521d40ababff73c73cf5ee4664c3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-circuit-tail.lean",
+      "bytes": 8646,
+      "sha256": "093f3f74c7e02de5eca3835fe85dd83035708919e34f31f0bfeaf271d4bbf23d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.json",
+      "bytes": 548,
+      "sha256": "9fc63b2d4f430d28fe088b32e1307cd6f4303a1ff393ebefdf4679b3b4ec988c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.lean",
+      "bytes": 12933,
+      "sha256": "1930ff8e63be45e0284a035a6866ba62a2e7e53d1c28f90bc2cd982fda1eeab7"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache-build.json",
+      "bytes": 484,
+      "sha256": "7759889d238cd0f31c48b635fa3e3508b92190af6e362d64cc916c0e8966c173"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+      "bytes": 17120,
+      "sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.json",
+      "bytes": 446,
+      "sha256": "ed4a22da149c5bf4e8b1aab584dc874dcbd4f34b12ceacef0bc680e5b4275855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.lean",
+      "bytes": 16895,
+      "sha256": "7f460d1ceaf355d11d8f1f9705c728d237475d4e77a20e55926db63804e5d167"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.stderr",
+      "bytes": 666,
+      "sha256": "429f0a4da62da5299e1bbb9e150f3571bdc4fdebc51cbec9fe5c6cecf3468c79"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.stdout",
+      "bytes": 1981,
+      "sha256": "b4960e22e5ef91a71399ce5991c609c4aaa477a21311382b2acec3c80f46c3d3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-helpers.lean",
+      "bytes": 7797,
+      "sha256": "2b56a25b3809b7f1a70dcc9c2dba831dc94820d9840ec8e62caad19b561e09d4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1-build.json",
+      "bytes": 507,
+      "sha256": "0c7d346a0837adf74a55181f0435f9dfd2b342d6f1dcad3b770fc258e8212ded"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.lean",
+      "bytes": 119775,
+      "sha256": "964fee9e1ac0ee8d4c186fffdbce1b36f750b26f7b9414605fcf16b785808f38"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.stdout",
+      "bytes": 262,
+      "sha256": "f9f91c25be7a260107a101ce97038762e7146f5acc8035dded7f987001664761"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-build.json",
+      "bytes": 507,
+      "sha256": "7dff10f32556531fa4ce9729f6102dd25e9607fedc0b8777eb2e30774e21949f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.lean",
+      "bytes": 119837,
+      "sha256": "e607fc0ebd0336bc3bddf9c477eee23f9d27d61c121af4e8af9458a66df07c9d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-tail.lean",
+      "bytes": 6111,
+      "sha256": "4fc7c453cdbf16f14c1976362ec584f772a404914ab3bee1ec38eb57fc63d2fb"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-final-preservation-manifest.json",
+      "bytes": 16714,
+      "sha256": "fbf19e07a970a97f5b5e7975266cb1909e09ef750e6ac8b8923b05afa37c5880"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-foundations-tail.lean",
+      "bytes": 2722,
+      "sha256": "69988cb58551dd56b9f4cea6c3441046b8087e8531d9bf1721d6c2bb61f8a942"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.json",
+      "bytes": 414,
+      "sha256": "6b41c29dc97e8209cfa3f65e9ba08ad48953d8014f2a54013de62e38f1872491"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.lean",
+      "bytes": 6940,
+      "sha256": "fab7adeecc9cdd2a79bce213e34317cf920a88efd5e4f99d2b1dcc24897ad9e5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.stderr",
+      "bytes": 18,
+      "sha256": "1f8ff7d3902cde07721f3d55baeb6ce5371a484d1b57872d4b43388765393df4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.json",
+      "bytes": 454,
+      "sha256": "9e8cbfd285e61fa46788a2f6e56f5fb49a73310a2c72d4d865148095824a9c14"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.lean",
+      "bytes": 7597,
+      "sha256": "b63485fb9bf90ce9d6e2da657bb27ac5190742d64f543faba7b8203def123ab5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.stderr",
+      "bytes": 605,
+      "sha256": "796ae7af44f36530e85742bbd31e170104e86b7e764c33daf01e68e502b18bce"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.stdout",
+      "bytes": 8354,
+      "sha256": "347c2812bd505287cf79d1750fe90b2887ae2baa01eab138b1e9cc142a1595bf"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.json",
+      "bytes": 353,
+      "sha256": "e93442c4dc25448cf3bc625d7932a17df7e09c22f2931baeecd394fa012d7f2a"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.lean",
+      "bytes": 7670,
+      "sha256": "820a504dea0e1adaa219f39bf14c9da76e0c252ef48697b8b446bf103e92c89b"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.stderr",
+      "bytes": 540,
+      "sha256": "1431c79f627435bbb903f9c7f0942f5054fd49ae369deca8d4c58800ffce5bc8"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.stdout",
+      "bytes": 855,
+      "sha256": "e0f13baca83131e716911a466a9a4ce4814a03c181ab82f8821b79989ba43f09"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.json",
+      "bytes": 366,
+      "sha256": "bd78f8e53bece84070e20bfc21d5849ed8453c72e03e3de2e4af5b2b240552b1"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.lean",
+      "bytes": 7690,
+      "sha256": "ac8c27bf3be63f1cc78adac1f0d78f914db3a94277f1e3c207771b34a805913c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.stdout",
+      "bytes": 1228,
+      "sha256": "1e5b05ba327cecdaa2be2a1b6c778342b532f9bdc2843737b33f7df051ed911d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache-build.json",
+      "bytes": 541,
+      "sha256": "a3a23a718aaeb4c7fcea3eefad85ceffab43e442e40914aab7258bf7148faf07"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.lean",
+      "bytes": 7882,
+      "sha256": "7fcc0ac20ca8df60f34fac918c016b4873bc68a02f01bd21b49f1d52ecff8848"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-lower-tail.lean",
+      "bytes": 3317,
+      "sha256": "20aeb7ae74e0b78c26ad326dc4d41b0e6555ee15cc846b94ca66d9ebae983505"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-shape-tail.lean",
+      "bytes": 2316,
+      "sha256": "717af71f40582fe2956db1884002d01bb068bdb8bdf1a4a481aac600706d1818"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-q2-composition.json",
+      "bytes": 1139,
+      "sha256": "baf72e6c98a6d882e92dea6cfd1cefd1aa7610acc244ef9d6e0cd989d672eb1c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-supported-eight-standalone.json",
+      "bytes": 2545,
+      "sha256": "0a0b52f18f0bab1c32b8368dcb3b025878548f3b1d3105b2826fe1a8af5b44f4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-witness-delivery-review.json",
+      "bytes": 3138,
+      "sha256": "2936cc664eff136b11b93f13c80049c0c62b0b6eb3fa0151bd1c75f1950680c2"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-cache-emit.json",
+      "bytes": 361,
+      "sha256": "f1c32625bd911d9052860049b312b8c1fb1409f366692ff88a5acb618a8ff1a6"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-cache-emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-cache-emit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-attempt1.json",
+      "bytes": 399,
+      "sha256": "4ffbceb555a03bf931f8bc35fc97c18b88ad4a310d32942209de9debca748af9"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-attempt1.lean",
+      "bytes": 2576,
+      "sha256": "07471e945b961c735b19bfadc0a6d18dc63b189f5ff02d4e0bc724bd49213c4b"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-attempt1.stdout",
+      "bytes": 283,
+      "sha256": "cf2cbf977a90bdcae10db868b70d22ee1a8867231955fde7ff267464ae494dcb"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-cache-build.json",
+      "bytes": 399,
+      "sha256": "9a46d122137e4d83f5573ebfeece63f550a2f4863f75040f6b1d0091af364088"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-cache.lean",
+      "bytes": 2580,
+      "sha256": "3eb1557703e745d29e9730f5297b8e5bb34b8822b0a4daf46e32fe1a89761f7c"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-composition-tail.lean",
+      "bytes": 2396,
+      "sha256": "e385c4adbd8f237c2025221126c63a1a90d6fe3edd3b2fe25d7e55d4515709fb"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-transfer-standalone-build.json",
+      "bytes": 450,
+      "sha256": "f9a542d77b9bc2c7f00cc9566cdf5e51ab70cebf812314cc5e6f383a0155556c"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-transfer-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-transfer-standalone-build.stdout",
+      "bytes": 782,
+      "sha256": "6095fb8e5ec7aa2949bc23d0b9c0f3a9e0bbd359f58860c8807b0d2e08de519e"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-q2-transfer-standalone.lean",
+      "bytes": 443453,
+      "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-target.cnf.gz",
+      "bytes": 141415,
+      "sha256": "74f8daf70ff3f10402400b54140fa1f54ede9437bf54e0029efcb968ae0fb3f9"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-target.metadata.json.gz",
+      "bytes": 6341,
+      "sha256": "3092b786f759149844ccf6c3aeed223e7e2989fa3f7dbcd1fdc8e13918947b83"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.json",
+      "bytes": 1802,
+      "sha256": "0363cb95a1f822be5b7765c13fe4f74a516a83b0a712115febc00e8fd49a38f6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.py",
+      "bytes": 3424,
+      "sha256": "e5d3ff58a71b810f9c60ee8e409479c367857855c6599f9c421024507e9a3a78"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.stdout",
+      "bytes": 1468,
+      "sha256": "0f79f1d568f2aa53e31d1e464433f469691f1fcd0c95e1cde85b71d4360b1679"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-driver.py",
+      "bytes": 3004,
+      "sha256": "b99c9d9003c758bd285852bf8a925c1346a67d70d59f63c8086dfffb82a304c6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-model.md",
+      "bytes": 2193,
+      "sha256": "df6f6c1ad60bcdc702862f35d9094a9b7ad503886bbdfebce8df8aae8b481817"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.cnf.gz",
+      "bytes": 141411,
+      "sha256": "975e28588602615c006a6347f12d90c1f9db66254fa1041dfdd7bb382b34e8d1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.complete-controls.json.gz",
+      "bytes": 10271,
+      "sha256": "6cbe7998aafd9b8c50ed1894b6391865924a592457bb9d61bce967d704fb9596"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.metadata.json.gz",
+      "bytes": 6348,
+      "sha256": "34bc4c0632fbc41a180161aa7192a8da2d88c55dbae75926d1ba53ed2860ee9b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-preservation-manifest.json",
+      "bytes": 11150,
+      "sha256": "9b771bb55a1c475c15e1906c9a1b93c161f941aaf44b5fd1cb610661a87c3ea2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.complete-controls.json.gz",
+      "bytes": 8392,
+      "sha256": "2ca15dc76975100f265d7508bdb0c153cae8866e472edc2f14bf73dc8d450318"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.complete-controls.json.gz",
+      "bytes": 8333,
+      "sha256": "7260d619cc364db9ecfaf4e604fa9df8be2964f94040ae7340531437bad5be1b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.complete-controls.json.gz",
+      "bytes": 8293,
+      "sha256": "517b3aa2855cdacdd55be58c622a478025382608bfcc7d2fc119cc8a2721b89e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.complete-controls.json.gz",
+      "bytes": 8339,
+      "sha256": "e0b81f40f8b3f6da5762b49cda292d022c16b341cbd14a06f56e0680e030b81f"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.json",
+      "bytes": 341,
+      "sha256": "fa82aa30fcd53c5bcc9c066e869de6e899aec4e507f09b537c4c350367732b4e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.stdout",
+      "bytes": 2103,
+      "sha256": "426111416038017f0657d83f6212f4cb7ceaf782fc00829bcb1810a9cff8e9fc"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4.py",
+      "bytes": 7104,
+      "sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-full.py",
+      "bytes": 6665,
+      "sha256": "85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-actual-final-review.json",
+      "bytes": 2664,
+      "sha256": "8ced2758b805df164f1998af6eb7f6281e76c8535ff39cd3d21688eb2ed77dfc"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-actual-standalone-review.json",
+      "bytes": 2426,
+      "sha256": "6b97caaa8a6753cb68267ed59205f5ee8005c5f9debaeb9db6f266fce8296cd2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-finite-final-review.json",
+      "bytes": 1498,
+      "sha256": "ac49eff28a76ecf9f30322665ccd2014dc0fb649b11fc5c0a733c05b71421b4a"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-lower-review.json",
+      "bytes": 1269,
+      "sha256": "73f9fb38b2483006754c3f4abc5fcc6f599964a1fe35851361399adc1f72a770"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-parents-family-review.json",
+      "bytes": 2477,
+      "sha256": "8efb29caa56a7f35304c75c0c5d737dc44558b791867bdb81b41b164ab002b09"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache-build.json",
+      "bytes": 695,
+      "sha256": "5a7df654e7188c8a8cf51345412975ab437489848cfff2397687f9a975dc7e45"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.lean",
+      "bytes": 1356,
+      "sha256": "ebc496e78e6d8863493d87fe5de9724ee57e85f66897de4f21d2fb648470c3b3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-manifest.json",
+      "bytes": 1367,
+      "sha256": "ca7cea0bc7876d36ad7ec4f5ae967ec45169b128a90f130d3de112efed921fe2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-tail.lean",
+      "bytes": 1271,
+      "sha256": "5c5c0776d5a5b2365330ff69065343c1aa66553c5bbe13eb1bee8c16b812f8df"
+    },
+    {
+      "path": "results/orch/lemmas/status-brightness-literature.md",
+      "bytes": 3390,
+      "sha256": "d998b99f1a590efb373dae07824b8ac31f1572b9b2937b15c925fab49e64d11e"
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.json",
+      "bytes": 2103,
+      "sha256": "426111416038017f0657d83f6212f4cb7ceaf782fc00829bcb1810a9cff8e9fc"
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.md",
+      "bytes": 2950,
+      "sha256": "f8459c2305c967995818261e052cb1da787b94ebbd9b26295edc7c16ae6f0984"
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.py",
+      "bytes": 7091,
+      "sha256": "c4804e1c34aa17705684e484eae4b9b7aa2e04a299c1d6b850fe520954343463"
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-gaps.json.gz",
+      "bytes": 451737,
+      "sha256": "83cf5d7ef7b898c8a7970e08fef8fb84262ce14de6114b38385e20f95c6fc646"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-gaps.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-head.json.gz",
+      "bytes": 1308,
+      "sha256": "06c9e385bc7702dd8319bd1ddc951f55ffd462cfe51f641dfdc9438555ea4e48"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-head.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-map.json.gz",
+      "bytes": 6380,
+      "sha256": "417504e0927a3b59f07eb22b735d512f19f9873b6b4cbe26a90978ee662bb536"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-map.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-meta.json.gz",
+      "bytes": 149601,
+      "sha256": "2386d473c20016e55e1f63bb1513f18fc43e3d6755503d7e5493585c5ff8d9d7"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-meta.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1479.json.gz",
+      "bytes": 6914,
+      "sha256": "95bacc4bfb7077760e3bb082e2842575abbf5af3db19080a451eb514ea74318d"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1479.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1480.json.gz",
+      "bytes": 27167,
+      "sha256": "468a7cd192111935cc1f2d42a84f5f1d9e7e5d7a76b93cb1174c2078476470ad"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1480.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr14820-files.json.gz",
+      "bytes": 1836,
+      "sha256": "5d5a6c97db5dbb44440aea2071c62a4c176b295c03e81482cff9d3fd1e3f9d0f"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr14820-files.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-preservation-manifest.json",
+      "bytes": 5052,
+      "sha256": "a2a5066f042235384fb12e339fedbb616fc8843e2dbf4f41c36362b64450d50a"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-report.json.gz",
+      "bytes": 1229,
+      "sha256": "d5a1ac29d50a1d76e9b3411e8e848d9412e819828da8a294dc72377ea86583bd"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-transfer-composition-review.json",
+      "bytes": 3029,
+      "sha256": "b7f079501906905ff7b82f0010c1b59a91e176ee14e6feb91a29da3cf75f0719"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-circuit-final-review.json",
+      "bytes": 2970,
+      "sha256": "c39eb8d4fe975648702838404fa9918ea787b6cb0fe98f60722c253511e71f6f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-circuit-review.json",
+      "bytes": 3099,
+      "sha256": "4e50138e880ae140fa3ca677db1513414ff13047616503b5376b398859d685ee"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-closure-cache-composition-review.json",
+      "bytes": 3181,
+      "sha256": "8fc8489a772eee540c87853b2e7b1762876c66a6ee52dad6afd11153b3c44417"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-closure-review.json",
+      "bytes": 3158,
+      "sha256": "21dfe67a5f494bcc336b28ee821a75311177a40d59626dde30aadb27f74460d6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-family-tail.lean",
+      "bytes": 2533,
+      "sha256": "be1704bd772ff56b517f361d48faffb838e0ccb6acb1401d31ca08be187b3ef9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.lean",
+      "bytes": 9152,
+      "sha256": "6b251a0cd12b448ba12ac3699691f2d478d5484374ed8aad98fd34f6b1069bd6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.stderr",
+      "bytes": 662,
+      "sha256": "2d0d453a9dd0c530a1a2ae5695c12f508b0a2ddbb75a804011ee59a245e1c2b6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.stdout",
+      "bytes": 23189,
+      "sha256": "202b0cc0476ab930da12cccd52569fcfe26efa18a422f0abe13fb504d071376d"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.lean",
+      "bytes": 9175,
+      "sha256": "8d33c95d6e35e4deb5f10347358445b393a08f7113fda6d1a44cd120021c5913"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.stderr",
+      "bytes": 668,
+      "sha256": "75f5f36a81fcaf4217c08fb7d9ee7c50616b4792d395c8f2f0c95d7bd4ff9f13"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.stdout",
+      "bytes": 23351,
+      "sha256": "245b6820803becf0ba5bbdbb087ead0d545f2b1712bda229b06c28c4f97f3a97"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-build.json",
+      "bytes": 1205,
+      "sha256": "40212fbd1cc945c1dd51a84a5e7852e8002db427906c6e5160073c22c86031e5"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.lean",
+      "bytes": 9147,
+      "sha256": "dd3ba5b522627d798016bda4bf0823d9a63ce773879b53b2179822ad4f719121"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.stderr",
+      "bytes": 665,
+      "sha256": "4ae7d7aaecb678c9d9fcef6f4e79b484283bd77403fdb993c5422328c97d1424"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.stdout",
+      "bytes": 22436,
+      "sha256": "fd9830e908ebe7fbc5007a33fa7a99c3b985c359a13a336d8cff58aec3e3a6f2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-manifest.json",
+      "bytes": 2472,
+      "sha256": "96405a5f74411bc74bf6eb0ea2b840d043cea1286b48f0aee1fa8fe153170a14"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-tail.lean",
+      "bytes": 8847,
+      "sha256": "61f79c7b8eb6eb22504546e6160ceacca21a760c34a3173f473f1b16f83c4c6e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-axioms-build.json",
+      "bytes": 1030,
+      "sha256": "3e5564807a5ed8e9d5bf85d482a8403168686d7cc50e5dec0c4079c3a340e254"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-axioms-manifest.json",
+      "bytes": 890,
+      "sha256": "0291c0904efe60a9764047c5a18f3aede976dad01de544fad132a491fe4027a6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.lean",
+      "bytes": 87,
+      "sha256": "8f6b3945d3a1e7a2f261f35a5189f0de81d68a36d8b8cd7f41a9d5ed5a74d856"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.stdout",
+      "bytes": 114,
+      "sha256": "ae3c1795e59c825996cdf75233391516b81250e471a5784dfdc18b8127c23367"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-build.json",
+      "bytes": 3553,
+      "sha256": "34653300b606a36cccb19e913d583fc22a823a68f997b6cd57e3b8b7e7817fa6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.lean",
+      "bytes": 80,
+      "sha256": "6cfe55577aa509008a3466eeee9e286445b64658615be22654d8b1cac52824d5"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.stdout",
+      "bytes": 151,
+      "sha256": "5b70099f3772dd145d226a7aaaac31a9c6c8ea0dbe09880aa1ab7607f816d4e7"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-manifest.json",
+      "bytes": 1704,
+      "sha256": "3b9cec0623e6c6dd8e4ed9cd376f41ccc09c218dcb990f88e893f1b7a2c47342"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.lean",
+      "bytes": 119729,
+      "sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.stderr",
+      "bytes": 722,
+      "sha256": "f116aa2c2dd373b407d430e75e542a17945436616dd4a77f1f82a9fa1a5e8dd4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.stdout",
+      "bytes": 4269,
+      "sha256": "bd404d96510e328f78e7e9d68300f2c5aee532779995dcfc32df582871bd594b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-helpers-review.json",
+      "bytes": 2225,
+      "sha256": "d03134c12656b0b052f51a30f8fc7c1423244ee62ce38ed34d7423e6cf5c22ff"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-over30-status.json",
+      "bytes": 682,
+      "sha256": "cff7991b426e6e22185a81b2d3d1796b60734df164f54fa4d9cce2df7e028792"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-parents-fast-tail.lean",
+      "bytes": 5993,
+      "sha256": "eb3d303e41bc3d4fedf53c58c571d5daac22665fb80a711dfbe4786b27850c6b"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.json",
+      "bytes": 274,
+      "sha256": "a916318451f826092e535489c6614d1e3243243566bd0152bb21e4ade3156669"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.stdout",
+      "bytes": 284,
+      "sha256": "d170fd25b94d2e2b2dbb4ce49a044ad0d4c59056aca68aa6fc33efbafa87449f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.lean",
+      "bytes": 5340,
+      "sha256": "0d6a13360b6fa411d7ba4cf53e31251ff6e107d19b0c1d9558b2368b84c17fbb"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.json",
+      "bytes": 274,
+      "sha256": "84bd6848cc144b8c8d0f7b978543f3d327dac11a87cda8b64659bd2ef4dec9d3"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-preservation-manifest.json",
+      "bytes": 5289,
+      "sha256": "e3fc9d45879d59e5eb7c4d3401a1fb08d5d8ce61804bdd575c512889f47dfbf9"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.json",
+      "bytes": 280,
+      "sha256": "663747980fbddc08277ae6702a56cd404d253f2d20815586b56aefad2a5cdb06"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.lean",
+      "bytes": 8493,
+      "sha256": "cde32b0f20ff652d13ecc30151698a46842e0f2395fbeeda35222538eb4d1ec2"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.stdout",
+      "bytes": 1834,
+      "sha256": "131771a3cd0f67f2bad8d1bd20b26ba1a1f3823d442250476c8bb2d9ed48c43e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.json",
+      "bytes": 280,
+      "sha256": "d70237dcf9af6fdc1d1a9e0fa15f76e71a5dd3440d2f445f0183db63a1e10175"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-tail.lean",
+      "bytes": 3260,
+      "sha256": "68b60083868f86b6a03f6cb3e924046092a064b058dc741cda964f8200c22b72"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small.lean",
+      "bytes": 8557,
+      "sha256": "7d0dd5bc4c2f604fd06fa6cb7c038f743d5a1fcdc1300eb95032e7d77917727e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.json",
+      "bytes": 326,
+      "sha256": "ab3d7864f90ac4c88f08f40fe0e36b593c1d6f0f2e37bd8e6302270ac501cb41"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone.lean",
+      "bytes": 129992,
+      "sha256": "0804deac4174ecbd7c975a61f5c9efbee6bbf4316dae4372c16eea7fc6253b45"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-tail.lean",
+      "bytes": 5272,
+      "sha256": "f4683ce6d8c26b4657109828dab4941ec2aff04aa6b19e57a3d9cfcb96fe9491"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand.lean",
+      "bytes": 5296,
+      "sha256": "b7a90f3dca26c5b4cc96810214d94ab32869129738205021b1d86be750926eed"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand.md",
+      "bytes": 2081,
+      "sha256": "3defb518ffd70c9dd139a2ba01d5b226b612883f12de808b69997cfbae013e2b"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 19981,
+      "sha256": "3d5a9de74daad64e15d205f1bb4aa320c58cea1993ed7b8d95ed4c8cb6644f9a"
+    }
+  ]
+}

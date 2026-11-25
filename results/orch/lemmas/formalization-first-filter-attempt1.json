@@ -1,0 +1,13 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-cache.lean",
+  "sha256": "23af4e9669b49e05fa84926216d8b54f5571a1dc7a73d48fac1e7010bd931b3a",
+  "tail_sha256": "f2f1a4d9c239bf92fdd79d426da44e1715f66f35f1078806174af4e8bf3f76c9",
+  "module": "PNPFirstFilter",
+  "exit_code": 1,
+  "started_utc": "2026-11-25T13:55:31.650783+00:00",
+  "finished_utc": "2026-11-25T13:55:46.698347+00:00",
+  "elapsed_seconds": 15.047566315999575,
+  "stdout": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-cache-build.stdout",
+  "stderr": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-cache-build.stderr",
+  "scope": "Generic first-false-filter on explicitly unbranched true-wire cone; no p14 conclusion."
+}

@@ -1,0 +1,83 @@
+{
+  "created_utc": "2026-11-25T14:02:36.553390+00:00",
+  "scope": "Generic first-false-filter lemma under explicit reachable-true no-branching hypothesis. Cached and Defs-only standalone builds exit0 with independent final composition review. Historical attempt1 had only omitted explicit proof steps and is retained with exit1/full diagnostics. No p14 or full-gap conclusion.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-tail.lean",
+      "bytes": 2151,
+      "sha256": "e9e6ffa1cab392f4c40772a39763d396129147f44c1d3cfe8b333ce44c457967"
+    },
+    {
+      "path": "results/orch/lemmas/status-first-filter-review.json",
+      "bytes": 1547,
+      "sha256": "bf72d62b2beb18e5df58f55b2f368fbc52c31dbdf77f5c248d93c2f27bb74011"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-cache.lean",
+      "bytes": 2236,
+      "sha256": "a5aa82c676113b6d40c701044bcbf181ca7abb6d2ea35b5aabf3f9b2b5ddfcf3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-cache-build.json",
+      "bytes": 912,
+      "sha256": "4adc9c60062df93dc5ce6bd6eb59a8f0b0bb05d9421f9e60adfbbbf29f0511b5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-standalone.lean",
+      "bytes": 92959,
+      "sha256": "d2924303ab590a88431dafd1cfd1b9e2e95161a4520665abdb868f8eb94e4e90"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-standalone-build.json",
+      "bytes": 853,
+      "sha256": "33ada528b0a1d37f6dc7642c60a9c956619ed772530a65f67513fe4060ee65cd"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-attempt1-tail.lean",
+      "bytes": 2092,
+      "sha256": "f2f1a4d9c239bf92fdd79d426da44e1715f66f35f1078806174af4e8bf3f76c9"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-attempt1.lean",
+      "bytes": 2177,
+      "sha256": "23af4e9669b49e05fa84926216d8b54f5571a1dc7a73d48fac1e7010bd931b3a"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-attempt1.json",
+      "bytes": 781,
+      "sha256": "750411e6434e324679973c2e293d821630d733d89c2fa17ca2a089bcd7b4f625"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-attempt1.stdout",
+      "bytes": 3219,
+      "sha256": "1beda4a57c4d65fde689dd753bdfd85a15bdc1a09a2e3619a99ee2aad0287b23"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-first-filter-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 15,
+  "bytes": 108927
+}

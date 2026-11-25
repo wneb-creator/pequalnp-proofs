@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-two-exit-dichotomy.lean",
+  "sha256": "6bd76d29bcc26a179828bf70c145a5a548eea41504bffafb2e91bc30fed19ad3",
+  "lines": 92,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:54:04.614941+00:00",
+  "completed_utc": "2026-11-25T13:54:08.835246+00:00"
+}

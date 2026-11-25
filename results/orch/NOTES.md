@@ -109,3 +109,5 @@ TIMING total=285.3 subagents=6
 - 2026-11-25T13:47:49.638632+00:00: Unconditional q2 cached composition passed at13:45:35, with independent review and exact-source axiom audit. Remaining Bplus14/high cases remain open; combined source assembly is pending. Strong empty-opposite and off-route standalone components passed.
 
 - 2026-11-25T13:53:22.171769+00:00: Mixed-p9 ANY-two-missing full standalone exit0 is preserved with final independent review; one-missing still open. Shared-slot full standalone passed. Full q2 subcase source is frozen and under a long standalone check, not yet claimed successful.
+
+- 2026-11-25T14:03:19.293067+00:00: Entiremixedp9 cached ordinary impossibility passed with no extra premises; standalone pending. Original combinedq2 standalone hit-M6000memorylimit134; pruned candidate452362bytes has independent source/context review and active preliminary check. New structural partials passed; both earlier semantic searches returnedUNKNOWN. Public1479 reduction quota full.

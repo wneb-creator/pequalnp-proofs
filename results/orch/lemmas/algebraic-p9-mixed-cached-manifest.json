@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-11-25T13:58:26.653409+00:00",
+  "scope": "Entire canonical mixedp9 ordinary impossibility under only StrictLive14,Correct,totalSurplus\u226414 and exactI0125+11. One- and two-missing cases both covered, with all finite certificates instantiated. Cached checks exit0 and independent full-source/math reviews PASS.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/algebraic-m9-parent-subset-tail.lean",
+      "sha256": "19a711d71d04a47b9d2252ff59fb17c027020cda58a20d7a64dd74379b7803b4",
+      "bytes": 2708
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-missing-tail.lean",
+      "sha256": "63bd48bb802611f859c2d1bc42930037525e90bda2b60e1afaa108ba2806f216",
+      "bytes": 5971
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-endgame-tail.lean",
+      "sha256": "9fc1ef991bc27c7c6332c979e82e4a392e90a2f5fbcf17a99882f5b89c9a9f41",
+      "bytes": 3749
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-cache.lean",
+      "sha256": "0264a4d2179a59961cca948d37af297bc7a06d6b8242a22a60c068ece9512956",
+      "bytes": 15558
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-cache-build.json",
+      "sha256": "f2b6327276fe3de6482865a2672cddf4a4a15476bc4e84b47b07df4aba4c0e53",
+      "bytes": 461
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-cache.lean",
+      "sha256": "d70153a1ff9e0e7a0c3077c2334fbb9b172835f5a81d2b4b9a89e38b5adfe7fc",
+      "bytes": 3910
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-cache-build.json",
+      "sha256": "db32d953329f66539c2dcf228abd37cd0a39d12085b33448804c84bfbeb984b7",
+      "bytes": 559
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-p9-mixed.json",
+      "sha256": "453cb48bb426ecb5afc5c07b39fa31903d8c46135c75e80e8648f729daa0dbc3",
+      "bytes": 3895
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-manifest.json",
+      "sha256": "85b126fa11d06124df8c7bc8c6427c7fc8ff2dd74524ab701e11193da824eeb9",
+      "bytes": 895
+    }
+  ],
+  "frozen_pending_standalone": {
+    "path": "results/orch/lemmas/algebraic-p9-mixed.lean",
+    "sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+    "bytes": 582084,
+    "status": "Frozen and independently reviewed; full standalone currently running. Active logs excluded. File exceeds512KiB submission limit and is an archival partial, not the posted theorem proof."
+  },
+  "dependencies": "Previously preserved full two-missing result, accepted prefix, cap-seven certificate, generic mask-pull/count tails."
+}

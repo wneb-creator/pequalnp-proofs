@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/constructive-surgery-count-attempt1.lean",
+  "source_sha256": "17afae508dcd9806702bb82064a858e9391bfaadf2e035e4a156711a32f9d680",
+  "exit_code": 1,
+  "reason": "A redundant omega ran after simp had closed the contradiction. Final successful source removes that line only.",
+  "stdout": "results/orch/lemmas/constructive-surgery-count-attempt1.stdout",
+  "stderr": "results/orch/lemmas/constructive-surgery-count-attempt1.stderr",
+  "scope": "Historical failed cached attempt, not a checked result."
+}

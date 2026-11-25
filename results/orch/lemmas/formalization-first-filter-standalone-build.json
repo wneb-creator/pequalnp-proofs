@@ -1,0 +1,13 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-standalone.lean",
+  "sha256": "d2924303ab590a88431dafd1cfd1b9e2e95161a4520665abdb868f8eb94e4e90",
+  "line_count": 2030,
+  "tail_sha256": "e9e6ffa1cab392f4c40772a39763d396129147f44c1d3cfe8b333ce44c457967",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:56:37.766703+00:00",
+  "finished_utc": "2026-11-25T13:57:37.751588+00:00",
+  "elapsed_seconds": 59.98492635100047,
+  "stdout": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-standalone-build.stdout",
+  "stderr": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-first-filter-standalone-build.stderr",
+  "scope": "Permitted-import standalone generic first-false-filter on explicitly unbranched true-wire cone; no p14 conclusion. Accepted prefix1982 plus frozen tail."
+}

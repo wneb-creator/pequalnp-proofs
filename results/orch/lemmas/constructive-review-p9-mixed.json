@@ -1,0 +1,64 @@
+{
+  "verdict": "PASS independent mathematical/source/composition review; both cached builds exit0; full standalone pending",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:57:36.044824+00:00",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/algebraic-m9-parent-subset-tail.lean",
+      "sha256": "19a711d71d04a47b9d2252ff59fb17c027020cda58a20d7a64dd74379b7803b4",
+      "lines": 56,
+      "bytes": 2708
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-missing-tail.lean",
+      "sha256": "63bd48bb802611f859c2d1bc42930037525e90bda2b60e1afaa108ba2806f216",
+      "lines": 116,
+      "bytes": 5971
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-endgame-tail.lean",
+      "sha256": "9fc1ef991bc27c7c6332c979e82e4a392e90a2f5fbcf17a99882f5b89c9a9f41",
+      "lines": 69,
+      "bytes": 3749
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-one-cache.lean",
+      "sha256": "0264a4d2179a59961cca948d37af297bc7a06d6b8242a22a60c068ece9512956",
+      "lines": 316,
+      "bytes": 15558
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-full-cache.lean",
+      "sha256": "d70153a1ff9e0e7a0c3077c2334fbb9b172835f5a81d2b4b9a89e38b5adfe7fc",
+      "lines": 76,
+      "bytes": 3910
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed.lean",
+      "sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+      "lines": 12107,
+      "bytes": 582084
+    }
+  ],
+  "cached_receipts": [
+    "algebraic-m9-one-cache-build.json",
+    "algebraic-m9-full-cache-build.json"
+  ],
+  "cached_exit_codes": [
+    0,
+    0
+  ],
+  "checks": [
+    "Parent pullback requires onlyPsubsetrange and injective embedding; every occurring mask lies inP, so projected cardinality and exact images/intersections are preserved even with unusedFin7coordinate4.",
+    "Missing-cap is defined relative to mx_L itself. Therefore missing5 forces a strict projected superset of its neighborhood; adding only removedline11 cannot satisfy this hypothesis.",
+    "Requiredtriples map exactly to codes11/69/98 and missingNb5 to44. Existing unconditional cap-seven certificate applies to the pulled occurrence predicate, giving\u22657masks with allpair masks subordinate to the three known neighborhoods.",
+    "P=mx_L has6eligibleline labels; Oc012, Icap0125, Ct346 satisfy the exact generic family-count premises. Ct projected neighborhoods are disjointpairs{7,12},{10,13},{8,9}, unioncard6. The bound7+4+6+9\u226412+Bplus givesBplus\u226514, while saturationmissingcard1 givesBzero1 and total\u226414 impliesBplus\u226413.",
+    "Missing-card case split uses accepted mx_star/hw_count/hw_lost and total surplus to establish exactly1or2; no zero or\u22653 class is omitted.",
+    "Two composed reviewed Fano automorphisms normalize each of the four singleton missing sets to{5}; they preserve ineligibility and total surplus. The final theorem then combines one-missing exclusion with the already standalone-checked all-two-missing exclusion.",
+    "Complete12107line assembly exactly equals the passed11461line two-missing source, the previously checked cap-seven complete body, and the two exact cached bodies, modulo whitespace and intended namespace renaming only.",
+    "Both cached source hashes match explicitexit0 receipts and complete emptylogs. Final fullsource contains onlyDefsimport and no forbidden trust/string/root markers."
+  ],
+  "scope": "Entire canonical mixedp9 ordinary class: StrictLive14, Correct, totalSurplus\u226414, ineligSet0125+11 implyFalse. No missing-mask or finite-certificate premise remains. Other canonical classes and full postedtarget remainopen.",
+  "standalone_status": "Pending separate full12107line build.",
+  "archive_size_note": "582084bytes exceeds512KiB PRcap. This is a partial-case archival source; any eventual submission requires a separate size-compliant assembly."
+}

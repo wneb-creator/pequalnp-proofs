@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-11-25T14:02:36.553390+00:00",
+  "source_sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
+  "actual_exit_code": 134,
+  "elapsed_seconds": 499.3246369189983,
+  "reason": "Lean interpreter memory_exception under -M6000",
+  "diagnostics": "No theorem diagnostic before interpreter abort; full stdout0bytes/stderr214bytes retained. This is not a standalone build pass.",
+  "scope": "Original oversize11411line exact q2 subcase archive. Prior cached composition remains checked, while the pruned replacement is separate and not claimed here.",
+  "historical_review": "The exact assembly review remains valid for source composition; its pending-build qualification is superseded by this failed-run record."
+}

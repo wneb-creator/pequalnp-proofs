@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "256582dc40654dcd81a96db7bf323e9fc8cbd2364abeb45beb49c6b48f7c8336",
+  "controls": [
+    {
+      "tag": "sat-p14-compact-shared28-control",
+      "active_atoms": 7,
+      "cap": 8,
+      "variables": 6624,
+      "clauses": 25632,
+      "truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ],
+      "incomparability": true,
+      "equality": false,
+      "nine_free": false,
+      "partition": false,
+      "empty_opposite": false,
+      "shared_slot": true,
+      "scope": "Exact28 Fano quiet control: shared-slot and incomparability enabled; empty-opposite, partition, equality and nine-free cuts disabled"
+    },
+    {
+      "tag": "sat-p14-compact-shared-host-control",
+      "active_atoms": 20,
+      "cap": 21,
+      "variables": 78655,
+      "clauses": 359284,
+      "truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ],
+      "incomparability": false,
+      "equality": true,
+      "nine_free": true,
+      "partition": true,
+      "empty_opposite": true,
+      "shared_slot": true,
+      "scope": "Hosted matching, not Fano: shared-slot, empty-opposite, partition, equality and nine-free enabled; Fano-minimality incomparability disabled"
+    }
+  ],
+  "scope": "Author complete controls; no solver launched and no target existence/refutation claim"
+}

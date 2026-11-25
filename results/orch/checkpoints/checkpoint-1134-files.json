@@ -1,0 +1,172 @@
+[
+  {
+    "path": "results/orch/CASE_LEDGER.md",
+    "bytes": 2038,
+    "sha256": "bcaa27f3a985534a4c14197df17a3fffff696afb24bd9312663f773a14b3b83b"
+  },
+  {
+    "path": "results/orch/NOTES.md",
+    "bytes": 7667,
+    "sha256": "10ff58d898fc5be6672fc0c1d64ea9b59cc1dbe2102d88da17e7c84c15fdf4d1"
+  },
+  {
+    "path": "results/orch/TIMELINE.md",
+    "bytes": 3845,
+    "sha256": "f88118cdba72feac659f6c96991ec3d860008d5b132063e891b4a99d96173a49"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-review-p14-and-empty.md",
+    "bytes": 1273,
+    "sha256": "07696f5db56ee8be34bdd6c5ea8fe16eff66cc314161cfdb816c4f79fcd1ecfd"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-review-p14-composition.md",
+    "bytes": 462,
+    "sha256": "a0598004557ab2e7b42438117d801e3a64253c8cfb8479fd6c81298bd93ea5d2"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-all-mask-build.json",
+    "bytes": 694,
+    "sha256": "253972e12cd323a77d67776e5e9358b42f2102710dcb125aa258d42719541f4d"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-all-mask-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-all-mask-build.stdout",
+    "bytes": 3917,
+    "sha256": "5bba2ed2a3db69940703d4f0ecb2faab7b1831f408071ec4b984ae2447c731e5"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-all-mask.lean",
+    "bytes": 385359,
+    "sha256": "faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-all-mask-composition.json",
+    "bytes": 774,
+    "sha256": "3aaff6bab6b85006acaa9634a1ef9f3e48d616852fc5ad3f1f8330373521c86f"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-case-ledger.md",
+    "bytes": 1437,
+    "sha256": "b2fa361367062698b01ea54e5fdb03781a6f450fc7f756e0d186cc58e4e16e21"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-p8-combined.md",
+    "bytes": 1360,
+    "sha256": "5cff713ff3c1fa14f1d4ae288398182cc475ebde7efe78bfe1126a731fed5874"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-p8-endgame.md",
+    "bytes": 1479,
+    "sha256": "98bd1275cbe7a1410f437384832e36a1a18e468c719cae02c547e5f6c02f7102"
+  },
+  {
+    "path": "results/orch/lemmas/sat-all-mask-review.json",
+    "bytes": 3356,
+    "sha256": "5a4680eff1e0d8e58f9ce717d5e14bc7f1db959086932ac4581ab1e6b7c3b7ac"
+  },
+  {
+    "path": "results/orch/lemmas/structural-p14-and-empty-build.json",
+    "bytes": 631,
+    "sha256": "a4c09b1fb456990718e60ab58df0e990d7a01fceda4122f597bd1e0a87a536f8"
+  },
+  {
+    "path": "results/orch/lemmas/structural-p14-and-empty-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-p14-and-empty-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-p14-and-empty.lean",
+    "bytes": 362627,
+    "sha256": "149b25b27bbdec5b19d01cfb4d933189aa9f89a4301ab4563dd5011bc6cc885e"
+  },
+  {
+    "path": "results/orch/lemmas/structural-p14-and-empty.md",
+    "bytes": 1944,
+    "sha256": "8d3c51737fc1d90464561ce81e3c47f6fef86fd936a14804c64153f58ed4afe1"
+  },
+  {
+    "path": "results/orch/root-masked-control-verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/root-masked-control-verification.stdout",
+    "bytes": 2923,
+    "sha256": "6cfc6a8823f976eec3937d93c9efc2164b5311785088fd585502a6cf2b15f4f2"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/MANIFEST.json",
+    "bytes": 1586,
+    "sha256": "963e401d4038a7b258a75579753daf5c1dd2ef857ef103b09f2d5f027f54ea18"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/README.md",
+    "bytes": 1004,
+    "sha256": "ab26dee3b4b63a3a85929de88f233e8ce81fc789ae7b80adaf06dd0363d8b66f"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/algebraic-both-blocking-best.json",
+    "bytes": 1982,
+    "sha256": "7d3723bbdf1eeb109087e4468a341d59e84974774cab630022524b5f35d2de1f"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked-control-check.json",
+    "bytes": 2016,
+    "sha256": "0ed0ad55a5f7ab8c85b3e1ba02d2fef116dabc0a409937de3db494975cd17f4a"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked-control-check.log",
+    "bytes": 2016,
+    "sha256": "0ed0ad55a5f7ab8c85b3e1ba02d2fef116dabc0a409937de3db494975cd17f4a"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked-control-check.py",
+    "bytes": 2424,
+    "sha256": "38fab3b9c415609de1bca94da211eb348704a908234795c44fb53ba45549de49"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked41-exact-distinct-supported.json",
+    "bytes": 1997,
+    "sha256": "19878d6b65ea447e8ee0fda107b341b9722bbf853dc10e381696cb5ab025e682"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked41-exact-original.json",
+    "bytes": 1997,
+    "sha256": "7e1f83617c9350806119683616a00b7f67b131be07a9458e62b8abf6b9c07739"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-masked41-exact-supported.json",
+    "bytes": 1954,
+    "sha256": "b708e5cd8e5f5472af8f74f081b69686f8293ec1d02e726b4f6190a3ca0b0582"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/stochastic-result-verify.py",
+    "bytes": 2951,
+    "sha256": "1780d80ce23ce34d173b0be9f08dfbd47ba2ce9a90b0dc668d95bdfa888ccb06"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/stochastic-masked-controls-1130/verification.stdout.json",
+    "bytes": 2923,
+    "sha256": "6cfc6a8823f976eec3937d93c9efc2164b5311785088fd585502a6cf2b15f4f2"
+  },
+  {
+    "path": "results/orch/validation.txt",
+    "bytes": 6485,
+    "sha256": "b43149f85b5531d1ea61b4318e0b21e5eed1454391aab5c68a56a2ffe05a4e61"
+  }
+]

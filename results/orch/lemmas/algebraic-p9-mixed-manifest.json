@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/lemmas/algebraic-p9-mixed.lean",
+  "sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+  "lines": 12107,
+  "bytes": 582084,
+  "scope": "Entire canonical mixedp9 class is ordinarily impossible: StrictLive14, Correct, totalSurplus\u226414, exact ineligible set{0,1,2,5,11}. No missing-mask, derivative, or extra certificate hypothesis. Cached endgame composes independently compiled one-/two-missing proofs and finite certificates; full standalone next.",
+  "assembly": [
+    "Exact passed algebraic-m9-two-missing.lean renamed MixedNineTwo\u2192MixedNine",
+    "Exact formalization-cap-seven-complete body without imports/namespace wrappers",
+    "Exact mask-pull, new parent-subset, generic cap-count, one-missing, and full-endgame tails"
+  ],
+  "build_status": "Prepared; independent composition review requested; standalone not started"
+}

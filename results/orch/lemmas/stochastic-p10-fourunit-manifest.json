@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-11-25T14:00:16.918327+00:00",
+  "scope": "Completed brief finite research only: 81 constructible parent families,49 residual models/12orbits. No kernel certificate, actual circuit or full-case contradiction claimed.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourtriples.py",
+      "sha256": "883aac119942e9140963aee6f350e25fd895d7af9155e498c5511d167361cc80",
+      "bytes": 2245
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourtriples.json",
+      "sha256": "195f3ed410ebad23dd968232f8908edf27c469efdef8ebc24b6dac427a54a217",
+      "bytes": 1329759
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourtriples.stdout",
+      "sha256": "3c1d56866bf06c501c0a320b3f1455cae2051029ebe4e101078146960fee9014",
+      "bytes": 534
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourtriples.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit.py",
+      "sha256": "6f0632ab52491682814a98bbaf426eb8cdc9d2ae5e0105c9638a389358459935",
+      "bytes": 2218
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit.json",
+      "sha256": "c30b7cdc992a0c0ca110373edded107d90010f13c4c26c8eb168ff546f718d74",
+      "bytes": 15996
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit.stdout",
+      "sha256": "732713db5b356ff15c886a6fdf11e2583347d5fd76b01438b17709e9ac83dca8",
+      "bytes": 769
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-classes.py",
+      "sha256": "2c9b8bebcc47d2bd118dc562693e62cfeda2fd8d025c9e6ceb0d11faf49340b2",
+      "bytes": 1333
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-classes.json",
+      "sha256": "450a78a8fc82bea7bc800af950cb2dc4e534accddbaac527f8c4a8ee85693d79",
+      "bytes": 22663
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-classes.stdout",
+      "sha256": "e344c38068284df36f032232544da99d1ca677e853eb7c165d6f63d1bea7a5ef",
+      "bytes": 675
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-classes.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-notes.md",
+      "sha256": "cafcd75eb80039af59b337c13f6c45803fbc8e819fb78f16fb1ff7073869d46d",
+      "bytes": 3646
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "created_utc": "2026-11-25T11:56:17.197695+00:00",
+  "scope": "Preservation of checked partials and exact finite research only; no final target proof or refutation.",
+  "files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 9469,
+      "sha256": "60e808840f223bc0f40842672518e056059ddd53e4fb8969dc47814b23c71852"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 4570,
+      "sha256": "921af14c20cc068ad9e7c7fc93a18f4b5a6627083aed70adefb5f302a7c9301e"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-p10-two-unit.json",
+      "bytes": 848,
+      "sha256": "11a0a75ad61ec4e84babe2690fd4156a50efa1f1a13e2ffce84e3d72b7fd463a"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-pilot-p10-transfer.json",
+      "bytes": 1072,
+      "sha256": "5499ea2db89da78a176da51dec90e0cdaff32c0fcb9a7a22cb54e70b55c16092"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-compact-masks.json",
+      "bytes": 1118,
+      "sha256": "cb252285a3798abe88c8067e880314436b083451727a8ce30a2700decb8a10a3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-compact-masks-core-build.json",
+      "bytes": 397,
+      "sha256": "112deb12238b23eb7cb268c8f9dc608ecf22c8be2e216fadf4df7564803cfeed"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-compact-masks-core.lean",
+      "bytes": 7833,
+      "sha256": "51a43f58f815b793a3d9ca3db85d1970206925438443f4b1edbb4622f7d874ce"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-compact-masks-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-compact-masks-core.stdout",
+      "bytes": 1400,
+      "sha256": "6b4bd2f5cbd50880479084c7d3a786c02ece6231ddd389a8edaa8ab96f9cf83d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-p10-finite-complete-build.json",
+      "bytes": 468,
+      "sha256": "4aaff8c2f598e79bca8c39309c5d002908e40d7e03c22a3e88de188d68e0d3c5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-p10-finite-complete-independent-review.txt",
+      "bytes": 891,
+      "sha256": "017ee402df80285e456bc60aa59142da361951a96d3529e1cb43d893359df758"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-p10-finite-complete.lean",
+      "bytes": 19679,
+      "sha256": "c048aeea92bb1a1c4831caf425746ebab85053e90107de37457561f730af7d59"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-p10-finite-complete.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-p10-finite-complete.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-transfer-cache-build.json",
+      "bytes": 346,
+      "sha256": "1ce9a6d4ec9f35f65c10876bac989cb3eab130ba396aa8c0b12792fb6ac9e9e3"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-transfer-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-transfer-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-p10-transfer-tail.lean",
+      "bytes": 4655,
+      "sha256": "f6ccaf44fada6a96b55087f1a59d049f30d225388dd66c1ac0fa2d359a98710b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-cofactor-multi-review.json",
+      "bytes": 3127,
+      "sha256": "af26b630a5cd9ce026a68cae24f2c6e62fd23ce6e934a9707d81614aedb419d9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-finite-research.md",
+      "bytes": 2780,
+      "sha256": "7b5292a2281c7ac6e2342b38ec8931c7b38ea907521e687e130098ce75ca4a64"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-manifest.json",
+      "bytes": 6635,
+      "sha256": "ead59a24dedf2a2a48723b5de1cf49ebc6633507ed06cc7549d6c48e2b330731"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-minimal-constraints.json",
+      "bytes": 540,
+      "sha256": "5f70893d93e6d7b7bd30c11e375484f8d1c3d152a61d1d868317266f2e221613"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-minimal-constraints.log",
+      "bytes": 165,
+      "sha256": "65e5a002c8c95d5257247cb8e2fab122d505d27a7d03d46985db6688767775ab"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-minimal-constraints.py",
+      "bytes": 1345,
+      "sha256": "1bd11d37806fcc7b25f09d41519f019813b0ab873e19f63e16c5a4f5ffa3e6b8"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-minimal-constraints.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-pattern-input.json",
+      "bytes": 4604,
+      "sha256": "46ef8540e6939915851f245a81e45aa3b04b4a53fd1d23e11a6a841997d9c1cd"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-enum.cpp",
+      "bytes": 2064,
+      "sha256": "b8747523c0273fa514c2224fb283e1eaa726ea5cc4f964aec9446d75680ef340"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-three.json.gz",
+      "bytes": 404581,
+      "sha256": "66ca05cb37bee50cb49db306ec19337379fd4ea378edbf07995a62bf0c699121"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-three.log",
+      "bytes": 61,
+      "sha256": "3ce0018f2f932317a9a2cf3dbf1a2614273bc186bf3d5107f12c9be6a7432ae0"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-three.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-two.json",
+      "bytes": 179,
+      "sha256": "8ab3452a62f8bde8d65a9f9504a4bdd803615259d5fa6cee9e4eb227cf8433c9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-two.log",
+      "bytes": 57,
+      "sha256": "96f9422c9ac18df4dd5c0a9ba0b3c20e4fc1da37f690cc1c954426c6b03037ab"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-residual-two.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement-build.json",
+      "bytes": 462,
+      "sha256": "0f434cc5420ff7691543a1fdae93707b01be894778bc006005251939904269f9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement-recheck.json",
+      "bytes": 228891,
+      "sha256": "3cc4a2a93b055d87cc81b85a4246e57c5dca9f011709d6dc70a75e3f4b114a7c"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement-recheck.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement-recheck.stdout",
+      "bytes": 850,
+      "sha256": "dde6fc7ace52bb0074fb9b5c598f5d93e1499b36d20e3203daca1b28c12df6e4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement.json",
+      "bytes": 228891,
+      "sha256": "742885d8a8d422eef0d562003b16e0e610d38e78da99edd8d2ba239c576dc10f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement.py",
+      "bytes": 3718,
+      "sha256": "01ff529e29e66e5e05fd3bde62a0594ab398936de11e2b81e5710ead731543d4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-three-unit-refinement.stdout",
+      "bytes": 850,
+      "sha256": "5d0f84fc5854abcb299f49b200b1944f9643f5339a82184e52085e347d49ee93"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-enum.json",
+      "bytes": 8711,
+      "sha256": "b1d73e50498a68fa8180b541d3c9aba74de6c299d03dd895121ad5ae44425e0b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-enum.log",
+      "bytes": 2403,
+      "sha256": "98de2ae928e6edebb7c872c748490db43b8e750888e9597fd80bd8a0d5dc0817"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-enum.py",
+      "bytes": 3513,
+      "sha256": "7dd347c922842ea60c42731b6905bb2ed0a0321d0eb1e9edc3ce3db29eb430ca"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite-attempt-m3.stderr",
+      "bytes": 214,
+      "sha256": "70311120f85a4a74294bfc19304899e5e34520a035d1d6e8416cbf04692bc822"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite-attempt-m3.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite-attempt-m6.stderr",
+      "bytes": 628,
+      "sha256": "cf29b238e36dfdd4bcb9e75e1e77f1b6bbdd82817d131e3a2a9b35648e9feed4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite-attempt-m6.stdout",
+      "bytes": 1593,
+      "sha256": "6a4261015bd92e04fec7c1dfbb3a13a966f47c6cbce2a7d814563957b4d5619e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite-build.json",
+      "bytes": 627,
+      "sha256": "1acd5daf6283da2ea08da2b4fca2604a17e2978707b95e83c283912ca95493f7"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite.lean",
+      "bytes": 17191,
+      "sha256": "f8ee44cc4553c657cc979a577b0f6c6ba5984456e5c1c71099103bc4d68d7e92"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite.stderr",
+      "bytes": 628,
+      "sha256": "cf29b238e36dfdd4bcb9e75e1e77f1b6bbdd82817d131e3a2a9b35648e9feed4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-two-unit-finite.stdout",
+      "bytes": 1593,
+      "sha256": "6a4261015bd92e04fec7c1dfbb3a13a966f47c6cbce2a7d814563957b4d5619e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-standalone-build.json",
+      "bytes": 423,
+      "sha256": "5243d0215c8d4671335596412aa7037b6d0c51660b6a06bd44bb8a12e3ef8ee7"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-standalone.lean",
+      "bytes": 303348,
+      "sha256": "229a79f0770e6f42ac1b6aff747af6df598cbec4640b6ca4de8245fc0c4c10b5"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 8658,
+      "sha256": "d3a847bde9552a49f041bc3d6697b56c20ab066d9c4629dd9d64c4833fe5ee24"
+    }
+  ],
+  "file_count": 57,
+  "bytes": 1292076
+}

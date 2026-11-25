@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/structural-two-exit-dichotomy-standalone.lean",
+  "sha256": "f86ff75d9784a723be6f64a1748cbf12df0272e89690c2c6c8ca0fb0ec3b4a18",
+  "lines": 2788,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:56:39.791099+00:00",
+  "completed_utc": "2026-11-25T13:58:44.194074+00:00",
+  "command_scope": "Permitted-import standalone, lean -j1"
+}

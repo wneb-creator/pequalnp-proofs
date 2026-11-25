@@ -1,0 +1,137 @@
+[
+  {
+    "path": "results/orch/CASE_LEDGER.md",
+    "bytes": 2008,
+    "sha256": "a849f770d3f06224b819ddaa8eaaff2f74d103fdb73858edba2723149ab48c94"
+  },
+  {
+    "path": "results/orch/NOTES.md",
+    "bytes": 8084,
+    "sha256": "105ca2555670f9fe0fd5e4711a60b13f0986d6b9354156c598ea65aa43c59378"
+  },
+  {
+    "path": "results/orch/TIMELINE.md",
+    "bytes": 4075,
+    "sha256": "7822ed761b774925428b37383832c7534d0f7380ad059516dca7752959b8eb60"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge-standalone-build.json",
+    "bytes": 646,
+    "sha256": "2465b144b4a758438766c65cb172f833c532238ff468b6a1c73463a9e46fdf20"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge-standalone.lean",
+    "bytes": 502345,
+    "sha256": "6f104d87501947ac8d0cbdb6753976a4e595ab0149c59d8c93f841fc23cb5f8a"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge-standalone.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge-standalone.stdout",
+    "bytes": 311,
+    "sha256": "5bc36b2f3c9845b4264f5580b303175924d1cab52c73bf1d4dfb869017852bde"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge-tail.lean",
+    "bytes": 33494,
+    "sha256": "bccb7584151b38f216b07c2cdab44da33dcecc0c54cc9385988d167b398291e6"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-posted-bridge.md",
+    "bytes": 1668,
+    "sha256": "e09412e987ab741ee8c12dda6727e2100f941efc929cf830c8ca8fc879579bf2"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-p14-27.cnf.gz",
+    "bytes": 1077831,
+    "sha256": "5978a7eb75be63832b56aff890d3da4565ed7e1a694b30990d98a805fd1abb96"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-p14-27.metadata.json.gz",
+    "bytes": 110086,
+    "sha256": "0a47e38456eecd8671b0deaa31b70ab720c6085dd01b264a47fb2abfe66dbf1c"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-p14-35control.cnf.gz",
+    "bytes": 1583222,
+    "sha256": "ff6f11e2831f785b66533c6dfa4d55c29d2e8aafed6aed0493119678085b31f8"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-p14-35control.metadata.json.gz",
+    "bytes": 123280,
+    "sha256": "1484238775587bf383ab5395a428e86bffbed85671563f38fb6134eeb664c50b"
+  },
+  {
+    "path": "results/orch/lemmas/sat-fano-p14.py",
+    "bytes": 10906,
+    "sha256": "4eb804feeec01da565c01fed54bb1cbf1076aed86a5bd618d9ae2c36cf155e0f"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-canonical35-control.json",
+    "bytes": 1584,
+    "sha256": "77cbb962f8378237cdc9f4a5b0aea4f0f07558ec4b4c51fbf1504f5a78bb6bcc"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-control-test.json",
+    "bytes": 538,
+    "sha256": "a04c51aab944ba9f423b7ff6c9e9358e51ef32faed1f5768e1973b943bf75aef"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-control-test.py",
+    "bytes": 4998,
+    "sha256": "fbc3c220b8a747c2b076a5c94a8af04a3a85eba9db895d70eb810e5cc3dbc55d"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-control-test.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-control-test.stdout",
+    "bytes": 456,
+    "sha256": "2a0589904a018d1a615bb1e8e6ea91b8e6807e5a7ec05e5f3103bafc1b6e8a51"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-matching27-structural-control.json",
+    "bytes": 1300,
+    "sha256": "976df13fefff8aba4c3ed17dc1bcbb64d64cdb75d3cb562bcca74ca1750603c9"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-preservation-manifest.json",
+    "bytes": 5482,
+    "sha256": "488ea32735ea9cc2be62fbbc900375e1f808980541ef512b5d192f08d65b98e5"
+  },
+  {
+    "path": "results/orch/lemmas/sat-p14-threshold-test.json",
+    "bytes": 172,
+    "sha256": "31ce861565e0d66a933c124df195066b803eabff660c3a337a1ab17dc5e9fbca"
+  },
+  {
+    "path": "results/orch/lemmas/sat-posted-bridge-review.json",
+    "bytes": 2441,
+    "sha256": "7362c49eba7627714ef989d80421cd8546acb5108b40f58be6f10d97d122fbea"
+  },
+  {
+    "path": "results/orch/lemmas/status-p14-sat-review.py",
+    "bytes": 7168,
+    "sha256": "b14fae5e44c6b24372a86ad8e038e8f16436bb27e9ce830b5089dd389120aa97"
+  },
+  {
+    "path": "results/orch/lemmas/status-p14-sat-review.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/status-p14-sat-review.stdout",
+    "bytes": 700,
+    "sha256": "6647e0451dacf089892bd7a3bda37cc4640f165b9d7a07c6109c94bf12fec1ce"
+  },
+  {
+    "path": "results/orch/validation.txt",
+    "bytes": 7123,
+    "sha256": "e2ad0e84f11223342de264e27f9c381adf791a863bb57b75cc7f69ac35ede56d"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS independent exact-extension, Fano geometry and complete-control audit",
+  "encoder_sha256": "256582dc40654dcd81a96db7bf323e9fc8cbd2364abeb45beb49c6b48f7c8336",
+  "abstract_pair_guard_assignments": 21504,
+  "reports": [
+    {
+      "tag": "sat-p14-compact-shared18-target",
+      "variables": 32651,
+      "clauses": 141185,
+      "added_clauses": 1512,
+      "unchanged_empty_prefix": true
+    },
+    {
+      "tag": "sat-p14-compact-shared28-control",
+      "variables": 6624,
+      "clauses": 25632,
+      "added_clauses": 672,
+      "unchanged_empty_prefix": true,
+      "complete_assignment_pass": true,
+      "truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "fano",
+      "shared_slot_enabled": true
+    },
+    {
+      "tag": "sat-p14-compact-shared-host-control",
+      "variables": 78655,
+      "clauses": 359284,
+      "added_clauses": 1764,
+      "unchanged_empty_prefix": true,
+      "complete_assignment_pass": true,
+      "truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "matching",
+      "shared_slot_enabled": true
+    }
+  ],
+  "scope": "Only the newly proved shared-slot productivity extension and exact preserved encoder prefix; controls checked independently on every clause, all16384 truth inputs and both direct traces. No solver outcome or target theorem."
+}

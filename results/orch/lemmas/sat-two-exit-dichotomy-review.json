@@ -1,0 +1,30 @@
+{
+  "status": "PASS independent mathematical/source/composition review; cached exit0 confirmed",
+  "utc": "2026-11-25T13:55:28.731204+00:00",
+  "source": "results/orch/lemmas/structural-two-exit-dichotomy.lean",
+  "source_sha256": "6bd76d29bcc26a179828bf70c145a5a548eea41504bffafb2e91bc30fed19ad3",
+  "tail": "results/orch/lemmas/structural-two-exit-dichotomy-tail.lean",
+  "tail_sha256": "38975e443c905004f372e9a0dcf6021d9f473ff6da9ed89c2a9ea9400fce66cc",
+  "receipt": "results/orch/lemmas/structural-two-exit-dichotomy-build.json",
+  "receipt_sha256": "f3e7d6f1f2deef236d966d295fade9d9488d098f39eb58c2fc400176a5e5359b",
+  "checks": [
+    "Cover-freeness applied to any nonadjacent pair of extra labels yields a third x-consumption position; the explicit two-position equality makes either position contradict its carried label.",
+    "The two extra supports are disjoint by irreflexivity. If both had two distinct members, their cross adjacencies would form a forbidden C4; the sem_hw_common application has all four orientations correct.",
+    "Each named position carries x by sem_mem_W, even without assuming e and f distinct. Erase-cardinality at most one then gives pure {x} or pair {x,a}; the cross-adjacency alternatives use the correct orientation.",
+    "No p14, surplus equality or gate-count premise is hidden: the exact explicit two-position W equality is the only new combinatorial restriction.",
+    "Cached source consists solely of accepted-module import plus the exact90-line tail; no admission or full target claim."
+  ],
+  "full_logs": [
+    {
+      "path": "results/orch/lemmas/structural-two-exit-dichotomy-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/structural-two-exit-dichotomy-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "qualification": "Cached theorem only; no new standalone build, SAT result or full assigned-gap conclusion is claimed."
+}

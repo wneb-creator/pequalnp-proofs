@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-11-25T14:02:36.553390+00:00",
+  "scope": "Immutable original full q2 standalone attempt1: source/launch/exact-assembly review plus complete actual exit134 memory-failure receipt and diagnostics. No standalone success, full target, or replacement-pruning result claimed.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-standalone-attempt1.lean",
+      "bytes": 624101,
+      "sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-standalone-attempt1-launch.json",
+      "bytes": 493,
+      "sha256": "8f8746ff21f19e648135b943655597c966d0286557871b1bdb27389cc6de4791"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-standalone-attempt1-build.json",
+      "bytes": 863,
+      "sha256": "e8112bf0b2ff67534604663df1576de031588068f3df1d5ae1403944a1f95363"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-standalone-attempt1-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-standalone-attempt1-build.stderr",
+      "bytes": 214,
+      "sha256": "8280bd5e86cf41a280d58329a618bfbfbe3b580a8b80f139a5b032f566acb074"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-complete-assembly.json",
+      "bytes": 1868,
+      "sha256": "1c9e00fca892a00abdb27685c3d78fc981ff07d8c7b51311090018eca22c0e79"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2-complete-assembly-review.json",
+      "bytes": 2651,
+      "sha256": "d30a3e3129171ba67d0507247afaca84eeb0cdd79b5e5d6ebfbf029631d7dd3e"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2-original-memory-failure.json",
+      "bytes": 756,
+      "sha256": "271dc6c4ba96033fd4af6ae01967601c3722d7c82c377621ef8d1df7f1e4efb1"
+    }
+  ],
+  "file_count": 8,
+  "bytes": 630946
+}

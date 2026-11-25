@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS independent mathematical/source and cached-build review",
+  "checked_utc": "2026-11-25T13:58:27.529446+00:00",
+  "source_sha256": "a5aa82c676113b6d40c701044bcbf181ca7abb6d2ea35b5aabf3f9b2b5ddfcf3",
+  "tail_sha256": "e9e6ffa1cab392f4c40772a39763d396129147f44c1d3cfe8b333ce44c457967",
+  "cached_receipt": "formalization-first-filter-cache-build.json",
+  "exit_code": 0,
+  "complete_logs_empty": true,
+  "argument": "Head induction along the supplied read path extends the chain while the next value remains true. The explicit fanout bound and existence of the next read give exact fanout1. At the first false next value, a gate reading a true operand must be AND and its opposite operand false. Strict gate semantics and the explicit path make every index valid.",
+  "scope": "Generic first false filter, under an explicit unbranched true reachable cone. It does not prove that premise for a p14 circuit and does not claim a no-quiet conclusion.",
+  "repairs": "Final differences from reviewed draft only fill explicit residual Boolean and reflexivity proof goals.",
+  "standalone": {
+    "verdict": "PASS exact permitted-import standalone composition and successful build",
+    "sha256": "d2924303ab590a88431dafd1cfd1b9e2e95161a4520665abdb868f8eb94e4e90",
+    "lines": 2030,
+    "exit_code": 0,
+    "complete_logs_empty": true,
+    "receipt": "formalization-first-filter-standalone-build.json",
+    "composition": "Exact acceptedfirst1982lines, close SemCore/originalnamespace, allowedlimits and unchanged reviewedtail."
+  }
+}

@@ -1,0 +1,91 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPFirstFilter.lean:36:73: error: unsolved goals
+case true.false
+n : ℕ
+D : Dag
+hS : Strict n D
+x : Fin n → Bool
+a✝ b : ℕ
+finish : val D x b = false
+a : ℕ
+start : val D x a = true
+unbranched : ∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) a w → val D x w = true → fanout D w ≤ 1
+j : ℕ
+hj : j < List.length D
+step : sem_step n D a (n + j)
+rest : Relation.ReflTransGen (sem_step n D) (n + j) b
+ih :
+  val D x (n + j) = true →
+    (∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) (n + j) w → val D x w = true → fanout D w ≤ 1) →
+      ∃ j_1 s,
+        j_1 < List.length D ∧
+          sem_Chain n D (n + j) (src D (j_1, s)) ∧
+            val D x (src D (j_1, s)) = true ∧
+              tag D j_1 = true ∧ val D x (src D (j_1, !s)) = false ∧ val D x (n + j_1) = false
+nextTrue : ¬val D x (n + j) = true
+nextFalse : val D x (n + j) = false
+ht : tag D j = true
+source : src D (j, false) = a
+carried : val D x (opA D j) = true
+operation : val D x (opB D j) = false
+⊢ val D x (opB D j) = false
+
+case true.true
+n : ℕ
+D : Dag
+hS : Strict n D
+x : Fin n → Bool
+a✝ b : ℕ
+finish : val D x b = false
+a : ℕ
+start : val D x a = true
+unbranched : ∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) a w → val D x w = true → fanout D w ≤ 1
+j : ℕ
+hj : j < List.length D
+step : sem_step n D a (n + j)
+rest : Relation.ReflTransGen (sem_step n D) (n + j) b
+ih :
+  val D x (n + j) = true →
+    (∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) (n + j) w → val D x w = true → fanout D w ≤ 1) →
+      ∃ j_1 s,
+        j_1 < List.length D ∧
+          sem_Chain n D (n + j) (src D (j_1, s)) ∧
+            val D x (src D (j_1, s)) = true ∧
+              tag D j_1 = true ∧ val D x (src D (j_1, !s)) = false ∧ val D x (n + j_1) = false
+nextTrue : ¬val D x (n + j) = true
+nextFalse : val D x (n + j) = false
+ht : tag D j = true
+source : src D (j, true) = a
+carried : val D x (opB D j) = true
+operation : val D x (opA D j) = false
+⊢ val D x (opA D j) = false
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPFirstFilter.lean:31:4: error: unsolved goals
+case neg
+n : ℕ
+D : Dag
+hS : Strict n D
+x : Fin n → Bool
+a✝ b : ℕ
+finish : val D x b = false
+a : ℕ
+start : val D x a = true
+unbranched : ∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) a w → val D x w = true → fanout D w ≤ 1
+j : ℕ
+s : Bool
+hj : j < List.length D
+source : src D (j, s) = a
+step : sem_step n D a (n + j)
+rest : Relation.ReflTransGen (sem_step n D) (n + j) b
+ih :
+  val D x (n + j) = true →
+    (∀ (w : ℕ), Relation.ReflTransGen (sem_step n D) (n + j) w → val D x w = true → fanout D w ≤ 1) →
+      ∃ j_1 s,
+        j_1 < List.length D ∧
+          sem_Chain n D (n + j) (src D (j_1, s)) ∧
+            val D x (src D (j_1, s)) = true ∧
+              tag D j_1 = true ∧ val D x (src D (j_1, !s)) = false ∧ val D x (n + j_1) = false
+nextTrue : ¬val D x (n + j) = true
+nextFalse : val D x (n + j) = false
+carried : val D x (src D (j, s)) = true
+operation : val D x (n + j) = gop (tag D j) (val D x (opA D j)) (val D x (opB D j))
+andFalse : tag D j = true ∧ val D x (src D (j, !s)) = false
+⊢ sem_Chain n D a a

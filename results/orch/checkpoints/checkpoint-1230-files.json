@@ -1,0 +1,163 @@
+{
+  "files": [
+    {
+      "path": "results/orch/CASE_LEDGER.md",
+      "bytes": 2604,
+      "sha256": "f8471fed4ac14e2adb68e41731618d9d38b981a2c2c3484495f9e5bec7ef5760"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 10897,
+      "sha256": "24fe816737452cf58d6f07474771ac112cd3851024cfbf7329ef47c7f93b3eca"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 5661,
+      "sha256": "99088813d962a72106d8aef4a00a97ff654a26b80b993f588f0040423912cbb1"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p10-cap-build.json",
+      "bytes": 787,
+      "sha256": "2dfa204b747ca8cce3537d437e0ba0729fc4b8519cd77fd82775881551c1a72e"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p10-cap-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p10-cap-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p10-cap.lean",
+      "bytes": 371118,
+      "sha256": "3720cc43d175dfdaf12de4b932feac34f7d832d728ee116529f254cb042b50bf"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-cofactor-main-many.json",
+      "bytes": 1179,
+      "sha256": "ef90c3df3b1ae11fc02ab607ccdc4f1681ef40a97f379daf37dc563b34d72cd5"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-saturated-full.json",
+      "bytes": 802,
+      "sha256": "75c2b9afef8e988d7bba04af3914a19a54e8a544fe9bd1a4050838ada4abe911"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-saturated-full-cache-build.json",
+      "bytes": 816,
+      "sha256": "763b4a30e89dc5094e1ffe6abcfe5b6e6c4fdb321f3ca769e05e32f7cb6a7fe6"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-saturated-full-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-saturated-full-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-saturated-full-tail.lean",
+      "bytes": 2354,
+      "sha256": "7e4d2c6c10f025f8eb7c552a05f988b32a4aa02359440dea88250bff7d76c2a4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-line-seven-complete-build.json",
+      "bytes": 863,
+      "sha256": "f129ddfb316538dcac5ad44a89fcc53a56c8d50b6db5c8517f18127ad31c93e7"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-line-seven-complete.lean",
+      "bytes": 12998,
+      "sha256": "af4b17cdc2de73f6af1bc217474af40c7d2b877f99028652892a72a529dae8d7"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-line-seven-complete.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-line-seven-complete.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-line-seven-tail.lean",
+      "bytes": 6818,
+      "sha256": "33073f4e9c7c592c6975a147d6f6497cc42735ae076d4140e829cbd6b5ff8e49"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-mixed-p10-standalone-build.json",
+      "bytes": 401,
+      "sha256": "a9da86b9c9d16331dd962e73a71110006ee5a04457dbfe5272ece641941419d3"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-mixed-p10-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-mixed-p10-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/pilot-mixed-p10-standalone.lean",
+      "bytes": 408499,
+      "sha256": "43741f2c910ac1ec980b08230c4eaad8b807eba848a20cca908304ae713f0e87"
+    },
+    {
+      "path": "results/orch/lemmas/status-mixed-p10-review.json",
+      "bytes": 2337,
+      "sha256": "4294241d61e0ae054f255d381d78b4e3c796ff0a7811f12b7b756a44b139cd13"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-cap-standalone-composition-review.json",
+      "bytes": 3267,
+      "sha256": "e7b5aa10e8467dc8d5db156ce648bbb87b832d9ce156078e246e9d4e9ec0209d"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-line-seven-review.json",
+      "bytes": 2263,
+      "sha256": "913b44da1417f648bb3678910b4195bd5fbdc278b91252b8a99323014b11fc23"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-main-many-build.json",
+      "bytes": 531,
+      "sha256": "1b6a061966f0dbe0af7a603fa53af18c4b3cd64c9b97bb6e926ef2275a32d284"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-main-many-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-main-many-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-main-many-tail.lean",
+      "bytes": 8415,
+      "sha256": "08333bcd1a2300db2042344c2ff005ad2509e98a7f71e38fb086a2833cb1088d"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-main-many.lean",
+      "bytes": 17097,
+      "sha256": "ceb2269c4b67b2e9521eff63c598df8121cbde19b9746167f3fae67446390f57"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 11769,
+      "sha256": "7eff2e8103fd2e89dcac98093a3b9bb9de3939e0942873ab723459ee0aabb050"
+    }
+  ],
+  "file_count": 31,
+  "bytes": 871476,
+  "created_utc": "2026-11-25T12:30:58.577912+00:00",
+  "scope": "Completed canonical case and component results; full target remains unresolved."
+}

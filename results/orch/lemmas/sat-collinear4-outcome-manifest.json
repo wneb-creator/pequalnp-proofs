@@ -1,0 +1,74 @@
+{
+  "created_utc": "2026-11-25T13:54:27.572893+00:00",
+  "status": "UNKNOWN",
+  "scope": "20-minute computational SAT timeout; no witness and no impossibility claim.",
+  "source_sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e",
+  "started_utc": "2026-11-25T13:32:26.204106+00:00",
+  "completed_utc": "2026-11-25T13:52:26.721165+00:00",
+  "wall_seconds": 1200.5172800340006,
+  "driver_exit": 0,
+  "immutable_inputs": [
+    {
+      "suffix": ".cnf",
+      "archived_path": "results/orch/lemmas/sat-collinear4-15-target.cnf.gz",
+      "sha256": "460553dce94b00476da651ebde1be71737abeb260c513f9f672ae6e9db4b6feb",
+      "exact_match": true
+    },
+    {
+      "suffix": ".metadata.json",
+      "archived_path": "results/orch/lemmas/sat-collinear4-15-target.metadata.json.gz",
+      "sha256": "e37fc5f18abf4b51842539de975c6828282efc8b7980e69a371e16b7e73444e3",
+      "exact_match": true
+    }
+  ],
+  "requires": [
+    "results/orch/lemmas/sat-collinear4-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-run.stdout.gz",
+      "bytes": 14817,
+      "sha256": "192e743d16e56c320d5595c44132c71c25498d1ae4b5b47c84ce240ccb22b5f5",
+      "restore_as": "sat-collinear4-15-run.stdout",
+      "gzip": true,
+      "raw_bytes": 56182,
+      "raw_sha256": "e8ae8f227fdae00d29cef04a978cd2fc7025196357d8c4545b5d12a7e1433a8a"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-collinear4-15-run.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-run.runlog.gz",
+      "bytes": 140,
+      "sha256": "eee71e4c4b11067e076b08130dcc7f0ab4b504c758ec5e581ff136120d477970",
+      "restore_as": "sat-collinear4-15-run.runlog",
+      "gzip": true,
+      "raw_bytes": 146,
+      "raw_sha256": "8481669a2bb5f9bc49aa0976e361aa7094f53a15652a26bfb2b9917b605f3632"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-run.driver.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-collinear4-15-run.driver.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-run.receipt.json.gz",
+      "bytes": 329,
+      "sha256": "73e29c9efe69239cd8e686aaeb3726114aed0621fffd4419a9b8e11f9d204839",
+      "restore_as": "sat-collinear4-15-run.receipt.json",
+      "gzip": true,
+      "raw_bytes": 490,
+      "raw_sha256": "2543bc688e76538e917dfb405aeed4ac01f0f301559ad28638a34b4995e69c54"
+    }
+  ]
+}

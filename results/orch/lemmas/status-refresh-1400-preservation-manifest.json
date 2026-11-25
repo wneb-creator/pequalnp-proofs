@@ -1,0 +1,127 @@
+{
+  "scope": "Complete read-only public status and paginated GitHub snapshots;1479 live reductions now3 afterR538merged, no new target proof or checked tracked child. No lease actions.",
+  "created_utc": "2026-11-25T13:56:12.458693+00:00",
+  "files": [
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-head.json.gz",
+      "bytes": 1330,
+      "sha256": "aab9d56b153470fae5623bd1c4f3be6040c655356a5b3626def98b41c0387688",
+      "uncompressed_bytes": 2649,
+      "uncompressed_sha256": "cdc5230547fb78e821ae49c0e1e6b58adc2996f1d32268f073493257fd57eea5"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-head.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-gaps.json.gz",
+      "bytes": 438783,
+      "sha256": "770c1265650caf27536ca9302f9a12813210f49c526591d385c69bb9a4667635",
+      "uncompressed_bytes": 4301846,
+      "uncompressed_sha256": "3c28bc3343d5ffb83c680225cc5b6da51e81158f7c3385bc09d39f5ba97e24de"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-gaps.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-map.json.gz",
+      "bytes": 6414,
+      "sha256": "604412c3f9e7c43e26207b2c7073c3911d520fd84a3d476c6214dccf615083bb",
+      "uncompressed_bytes": 24918,
+      "uncompressed_sha256": "5e7d2b28312f28e03910f388d8eb761986b6cf22c4941e1fd19fa9cd368c6fbd"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-map.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-meta.json.gz",
+      "bytes": 154324,
+      "sha256": "a56c4496a714988fa99698f0aa02de7274946e2134e51e123e1711a5fa1feabf",
+      "uncompressed_bytes": 480724,
+      "uncompressed_sha256": "f01c90c9ef28a461015fb7035bb1a26365a858ba040d8de1cdcb8fb3f7992b6f"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-meta.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr1479.json.gz",
+      "bytes": 6932,
+      "sha256": "bc2162f02095cf5d3c616f74d8b3aa0d602bce3fcdd1591d64f6c41ed740931c",
+      "uncompressed_bytes": 42658,
+      "uncompressed_sha256": "101e6921d5c2c8d402403a5be389f95688269b0de78841a1656289d3c8f37cf1"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr1479.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr1480.json.gz",
+      "bytes": 27167,
+      "sha256": "468a7cd192111935cc1f2d42a84f5f1d9e7e5d7a76b93cb1174c2078476470ad",
+      "uncompressed_bytes": 111852,
+      "uncompressed_sha256": "f2f37c103dc9dd1868a7ac453fa9e8b2441934c24b98a68d63610b5b1ac335c3"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr1480.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr14820.json.gz",
+      "bytes": 2778,
+      "sha256": "806971268e8c1e7dcad626590697ae710550de164cba83773c5f8627aa29c540",
+      "uncompressed_bytes": 18071,
+      "uncompressed_sha256": "aba0c6fa81558c5c510dade0a6619b69a150d87fe06bd13402087c4898b395d3"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr14820.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr14222.json.gz",
+      "bytes": 2613,
+      "sha256": "17507b5ef8ff66d49b038950555b519ff42e7a8c9642370e34a6c52b1bfeabf3",
+      "uncompressed_bytes": 16886,
+      "uncompressed_sha256": "bb5fe5618991b1dccc56c8c9edbc8a5910d675bf5ccc65956dcca95465c43468"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-pr14222.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1400-report.json.gz",
+      "bytes": 801,
+      "sha256": "37d64437de38e0597ef965dc51fc34750956fe46fab4b7ed6d265a817a47d856",
+      "uncompressed_bytes": 2347,
+      "uncompressed_sha256": "650a85b70fee205556252780db413f4bb23ebd159dd89bec1c4bf036dc5a8545"
+    }
+  ],
+  "file_count": 17,
+  "bytes": 641302
+}

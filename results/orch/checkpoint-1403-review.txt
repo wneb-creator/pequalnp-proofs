@@ -1,0 +1,14 @@
+PASS — independent checkpoint1403 preservation review
+Reviewer: status_review
+Checked UTC: 2026-11-25T14:04:07.583404+00:00
+Manifest SHA256: c75dfe43b0b4c392f805526279dc3459a20fb24d5dd8812880086e3ce5e336dc
+Exact manifest:153distinct files,9,040,105bytes, all under results/orch/. Every hash/size verified, no named target change.
+
+Latest CASE_LEDGER/NOTES/TIMELINE/validation claims agree with the component receipts/reviews: entire canonical mixedp9 has an unconditional cached ordinary-impossibility theorem, with full standalone pending; original combinedq2 standalone failed134 from its memory limit; the reviewed pruned source and preliminary checking are correctly pending. Previously successful cached q2 result remains separate. Structural standalones retain their stated hypotheses. Completed SAT outcomes are UNKNOWN, and49 abstract residual survivors are not circuits. Complete public snapshots support1479 live reduction quota3. Active diagnostics are excluded.
+
+The retained historical q2 assembly review still says standalone pending, while the newer failure manifest/receipt explicitly supersede that run state. No standalone success is fabricated. The dependency-audit Lean file contains strings as explicit diagnostic tooling; it is not a proposed theorem file. No admissions, new axioms/opaque declarations, native_decide/bv_decide or forbidden root markers found in23archived Lean sources. All full proof claims remain bounded to their actual canonical/subcase statements. No full target acceptance or PR is implied; checker stays REJECTED(no-theorem), named file1301lines.
+
+All payloads, including decompressed gzip responses/search archives, were scanned for recognizable token/private-key/authorization/credential-URL markers without accessing environment credentials or printing matched contents; no sensitive markers found. Measurement lines and complete successful/failed diagnostics are retained. Ready for the authorized preservation commit/push of this exact manifest plus this review. Reviewer did not stage, commit or alter frozen metadata.
+
+PASS provenance addendum 2026-11-25T14:04:34.516498+00:00
+Manifest SHA25645c36b302123e9bf5c4b2f875e4ce072aed7b9b252f3eb11d29d69aac478caf5: all18copies/346260bytes match both their listed hash/size and original scratch manifest byte-for-byte. Historical payload hashes are historical freeze records, not assertions about current subsequently edited files. No metadata/source/result change. Ready to include with the base checkpoint.

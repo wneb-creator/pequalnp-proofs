@@ -1,0 +1,11 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-surgery-count.lean",
+  "source_sha256": "267649ab59df3ee8f726c9d0c26e3b4fc832aa6315f17c34c07cfdef52e29ee3",
+  "tail_sha256": "2a931f3fed2face7b8556c1a6178d5f272a32b4f594c905c263fbf30ca047d1c",
+  "lines": 599,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:52:49.561295+00:00",
+  "finished_utc": "2026-11-25T13:53:05.617928+00:00",
+  "elapsed_seconds": 16.05663599900072,
+  "scope": "Defs-only standalone generic ordinary normalization gate count. Exact accepted first484lines plus reviewed weighted-count tail; no row replacement or trace claim."
+}

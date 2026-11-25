@@ -1,0 +1,382 @@
+[
+  {
+    "path": "results/orch/NOTES.md",
+    "bytes": 6365,
+    "sha256": "fce6372a3cad4548a61bee28d2f11118f06e0cf23d1bf00bc56a4fc179d8dad5"
+  },
+  {
+    "path": "results/orch/TIMELINE.md",
+    "bytes": 3369,
+    "sha256": "9deec0d6cfa1d6179103368afe56b28ba47d29bd593040596c80df7f6119e486"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-protected-build.receipt",
+    "bytes": 114,
+    "sha256": "10e6f273d143d8bde66fc76f9c1c5ff5c1c55c5b0353dd10dbe18990aef615a7"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-protected-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-protected-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-protected.lean",
+    "bytes": 377109,
+    "sha256": "9528339b86c8c68163736e22053db23b47a9a20a5a06b6b1aa6a35b78e8d0157"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-review-cofactor-restriction.md",
+    "bytes": 853,
+    "sha256": "cc156e3864f87511611e9095681e19614f42849fd9b16997b8570edea19f83b2"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-review-cofactor-slack.md",
+    "bytes": 825,
+    "sha256": "f858542e26fb625e77dcfe7765fa4c955cfcb5c50ea989dc1049a6bb913afda0"
+  },
+  {
+    "path": "results/orch/lemmas/algebraic-review-high-mixed.md",
+    "bytes": 846,
+    "sha256": "0c483e99e1a455316e7c6b99c25c32bec0b970c74a62de96e8e901c366da64ba"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-carrier-linearity-build.json",
+    "bytes": 196,
+    "sha256": "9c662b65d120ab901fc54bf91d95448e1c0146b0b57a02d9b474e75b620b4921"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-carrier-linearity-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-carrier-linearity-build.stdout",
+    "bytes": 1738,
+    "sha256": "99ed8547c6f73b2cc8a88cc4f6932fa2a875acb7efe568cba0bbf5ef1a25c6d6"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-carrier-linearity.lean",
+    "bytes": 116786,
+    "sha256": "2092f4801ae2990ec8e9f527bffccf163ac82a6e55474b53ca96dadcd41ca6c4"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-p8-build.json",
+    "bytes": 304,
+    "sha256": "90b30b2e9d27e58957ca3d7ce211801fb51fefdffea41173f49e0d3c1a07806c"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-p8-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-p8-build.stdout",
+    "bytes": 3527,
+    "sha256": "117af3696b826074b02bdf43cf27cd6899f1b45949b9a3885c0e7723bbe68c8e"
+  },
+  {
+    "path": "results/orch/lemmas/constructive-p8.lean",
+    "bytes": 367906,
+    "sha256": "b2311c73e3e15a7f9ea45e7e48a138bc832b48114f4aefa909993b9db9cf9f4d"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-p8-saturation-standalone-build.json",
+    "bytes": 336,
+    "sha256": "4d50e2ec779a247a1861d84e43a3ab4f863a97e56bf43b3e34e05ff214c2dda8"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-p8-saturation-standalone-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-p8-saturation-standalone-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-p8-saturation-standalone.lean",
+    "bytes": 485385,
+    "sha256": "7c9b5e95d326ef5414bc148207b8dbb46a8d8b69ef1e52d727788710135452ea"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-p8-combined.md",
+    "bytes": 1273,
+    "sha256": "d3c99d8d5f3a9dbdbd08680a41274567fd87e101464dce650af1ce408b3006ee"
+  },
+  {
+    "path": "results/orch/lemmas/formalization-review-p8-endgame.md",
+    "bytes": 1465,
+    "sha256": "c466400d733cf3ed837b97aa0a8f9dd1d04ef13158a0be222403353e7ffacfef"
+  },
+  {
+    "path": "results/orch/lemmas/sat-algebraic-protected-review.json",
+    "bytes": 2467,
+    "sha256": "541e53398e7ad47610c3fe5088ec8a89f1e7685e35910528e3e38e97c0ca13fc"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.runlog.gz",
+    "bytes": 182,
+    "sha256": "713ebf469aa2ac083abde4f2875d6ff1e21f91fb36527370c094f0516f74703b"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.stderr.gz",
+    "bytes": 52,
+    "sha256": "a2905368be863dfbcbca769ca0cb5a5b711b40448136e5db8fc2eda2de0faf04"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.stdout.gz",
+    "bytes": 13037,
+    "sha256": "f4d691edc7399830ba7bcfd184e86c6ec6b831500f04d8695f2397d136ccc434"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.cnf.gz",
+    "bytes": 901335,
+    "sha256": "b15c0dad68fa59cbb7a4fbfb0fb83af92ba4ba5e46e1efcd3183b283626e6bf6"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.metadata.json.gz",
+    "bytes": 76075,
+    "sha256": "914c2e9cf036e5d6a38961a86c372c63207d4fba69139e8f0e2e3cdf3cce134b"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-orcount28-control.cnf.gz",
+    "bytes": 958632,
+    "sha256": "4b7dacab1b91e2f4e7da762398bb472ec879eca3176c8ba28511b80bdd071ae5"
+  },
+  {
+    "path": "results/orch/lemmas/sat-archive/sat-fano-orcount28-control.metadata.json.gz",
+    "bytes": 78764,
+    "sha256": "8df11b16a35b4e362f91815ae76b6966dc90a82ff92366c44049fee3e0bc3fe6"
+  },
+  {
+    "path": "results/orch/lemmas/sat-carrier-linearity-review.json",
+    "bytes": 1554,
+    "sha256": "62a5bc7765fb0a3ac3afaa5dee7dc17b824500ab7d969680041f7ab6c1477d1d"
+  },
+  {
+    "path": "results/orch/lemmas/sat-fano-orcount.py",
+    "bytes": 8953,
+    "sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount-control-test.json",
+    "bytes": 3558,
+    "sha256": "a871ece2a847142fdbf4f365d3eef8d51ecc82c5ec5b226931c19442bd4da8aa"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount-control-test.py",
+    "bytes": 2158,
+    "sha256": "f4b514e5420b05c9a758f1df89e16edb487927ef8fd74114888076d48e40ae70"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount-control-test.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount-control-test.stdout",
+    "bytes": 692,
+    "sha256": "7c57974f1fa21425e2db31c1c216a6df9ec3e40f8e5e23b71502099e1894384f"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount-preservation-manifest.json",
+    "bytes": 7322,
+    "sha256": "6527ad764a5ae3739411cf5a268f52aa896c8cd4e3c0b0e7d99d01ba0c0c6098"
+  },
+  {
+    "path": "results/orch/lemmas/sat-orcount.md",
+    "bytes": 2162,
+    "sha256": "c87d968b10cd0383f710729b9a870f317f1714486635c04eac5819453ae33886"
+  },
+  {
+    "path": "results/orch/lemmas/sat-threshold-dp-test.json",
+    "bytes": 2848,
+    "sha256": "1d33bab38091b71317f1d0d2aa88d75bad3373ac3d37b559b7c78efcc8cf0c40"
+  },
+  {
+    "path": "results/orch/lemmas/sat-threshold-dp-test.py",
+    "bytes": 1572,
+    "sha256": "bd94a7383e9458ac03fd5fae3a218edf4b8d65ca287f289527f43f43968475ae"
+  },
+  {
+    "path": "results/orch/lemmas/sat-threshold-dp-test.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/sat-threshold-dp-test.stdout",
+    "bytes": 2030,
+    "sha256": "86642d30d7edf716408b6905c951c5132686d1a7b5ed9574b9243cf1657d038a"
+  },
+  {
+    "path": "results/orch/lemmas/status-orcount-fano-sat-review.py",
+    "bytes": 3634,
+    "sha256": "19fd7fc605427f6f32e8b9381b6b00462f2e9fe93ef7a8ddb02f51f2c1e8fa9a"
+  },
+  {
+    "path": "results/orch/lemmas/status-orcount-fano-sat-review.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/status-orcount-fano-sat-review.stdout",
+    "bytes": 1002,
+    "sha256": "3715f1ff263bb172452a05cf9238f451efe5217469a872958a98e2bed4949843"
+  },
+  {
+    "path": "results/orch/lemmas/status-p8-saturation-review.txt",
+    "bytes": 1220,
+    "sha256": "0e6fe23a686387369bfb0cd7282221e10740f618e0b1fed23f1831f1b8a0f0f1"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-build.json",
+    "bytes": 483,
+    "sha256": "4e0b86187119615595607214ba57cb038756e62eda5b6d77bd1a559686832b46"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-next-build.json",
+    "bytes": 488,
+    "sha256": "4c6b75b2af44ffd753aaae858c100d050a51185b19da0e3b2413f0baf0616855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-next-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-next-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack-next.lean",
+    "bytes": 302249,
+    "sha256": "411e53a60d058eba7c2d7ce30016a2f00d07126995fee461c73c5205ef640930"
+  },
+  {
+    "path": "results/orch/lemmas/structural-cofactor-slack.lean",
+    "bytes": 287276,
+    "sha256": "944a32436f5e97e368f030a1e9636ec848bc3ee031ce80d2da4f998594117741"
+  },
+  {
+    "path": "results/orch/lemmas/structural-high-equality-next-build.json",
+    "bytes": 487,
+    "sha256": "d5d11ee855e1cd7c49d11f24257b3ba523d8fb2f51b7c6cc67ab86be4932f819"
+  },
+  {
+    "path": "results/orch/lemmas/structural-high-equality-next-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-high-equality-next-build.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/structural-high-equality-next.lean",
+    "bytes": 424534,
+    "sha256": "bad45d3a7f9d208e135fb9273d30f0c635643a381f84e73a5b6c24de9146b569"
+  },
+  {
+    "path": "results/orch/root-high-seed-verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/root-high-seed-verification.stdout",
+    "bytes": 877,
+    "sha256": "73e896161ac903934dda624130f8b53bfedac4942a976671284e6a678e3f89be"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/MANIFEST.json",
+    "bytes": 1873,
+    "sha256": "e6098cf17f2ea142aecad7289465f6cd6fae3334c495d539466765abea352823"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/README.md",
+    "bytes": 975,
+    "sha256": "fa962d458a25c5adb1aa5a278c2e9ddf7ca36685559c0ce3e88b47331fc56235"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-global-high-verification.json",
+    "bytes": 904,
+    "sha256": "33b4ea76d6e1b0405e234b9756213638bff043c83bfa83092baf35b619fb4286"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-global-high-verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-global-high.cfg",
+    "bytes": 110675,
+    "sha256": "400290e9a4078743a4b5f282a3a21e8aab12fb85ddfd5bf01f364e160b1cc153"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-config-verify.py",
+    "bytes": 2489,
+    "sha256": "0361eb81687a63c084ade2a9860872aff454eccfdaffffa96aa475f5f5aa4b2c"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-phase.cpp",
+    "bytes": 10259,
+    "sha256": "aa6bca3f54aca30115339c2d92487e76f48ab2be15d37730acfbe2adaeafc9d5"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-seeds-verification.json",
+    "bytes": 534,
+    "sha256": "5859c3f8f800f2d78a696d18645fffded22f9b06dca72558f53eff0328b22575"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-seeds.json",
+    "bytes": 55167,
+    "sha256": "5e0dc6f0bdeff76d23fdbe6c85d8b8ffcdac963e3de98975f9cc6abc1bdfb8e2"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-seeds.log",
+    "bytes": 441,
+    "sha256": "cc637f9315f30a83a8f03bdbc780f1d2f62408a0d079ff87e911c67eaef49ee3"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-high-seeds.py",
+    "bytes": 3508,
+    "sha256": "f34d72d1dd59725eb9cb884a2319576475d28f6fdd88b72640a64ce6b8c7f5fd"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-ordinary27-seeds.json",
+    "bytes": 67329,
+    "sha256": "c80483d176ccfa07c317cceaa22bfe9ff0547cd721ae07932853793b75ca8145"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-ordinary27-seeds.log",
+    "bytes": 113,
+    "sha256": "12434569fc21d26d7c7543048ff8e8826dd790222416ae887a4111b11c490cc3"
+  },
+  {
+    "path": "results/orch/stochastic-high-inputs-1113/stochastic-ordinary27-seeds.py",
+    "bytes": 1952,
+    "sha256": "b98452456301bf952ffe55f1f1de7b1773d514ee83e5841ad32e074045459e23"
+  },
+  {
+    "path": "results/orch/validation.txt",
+    "bytes": 5378,
+    "sha256": "173ab52d1461f33d638d02dbbcc5ff13fbd781753885d9a131091d30da373b6a"
+  }
+]
