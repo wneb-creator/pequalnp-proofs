@@ -1,0 +1,43 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS preservation metadata only",
+  "scope": "Root06:41 update accurately distinguishes exact-premise21 partial, restricted39, weakened-shadow48 counterexample and still-running search. Checker remains cache FAULT; no acceptance, full51 proof or held-gap refutation claimed. Cache diagnostics record POSIX_FADV_DONTNEED only; this advisory action does not modify file bytes.",
+  "inventory_result": {
+    "untracked_lean_snapshots": 12,
+    "declaration_blocks": 884,
+    "missing_exact_normalized_blocks": 0
+  },
+  "capacity_result": "All3 reduction slots occupied in public feed updated06:35:06.308Z, fetched06:35:33Z.",
+  "files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "sha256": "7741d05542a46405329c52047f6ab9b2290fa9e9fb4e49a86dbe694831507299",
+      "bytes": 19520
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "sha256": "8e24bae96db7612949b905e753f9d14a67f313ac68e52413f00f0d3329473a50",
+      "bytes": 7411
+    },
+    {
+      "path": "results/orch/validation/lean-cache-advice-3.json",
+      "sha256": "ff0b491dc678a4c1d4c83623afdbe0f25b88d1e618ee922eafa5e377df7a3d3e",
+      "bytes": 224
+    },
+    {
+      "path": "results/orch/validation/lean-cache-advice-4.json",
+      "sha256": "7b571167f06644d1a3376da4e021c25f49260a1034d93632a9ae88c01bdc66db",
+      "bytes": 249
+    },
+    {
+      "path": "results/orch/validation/checked-declaration-preservation-inventory.json",
+      "sha256": "1d289265878b2a2eab9022044f23f735142d421e618351865d3feea0278205d8",
+      "bytes": 4433
+    },
+    {
+      "path": "results/orch/validation/reduction-capacity-20261125T063533Z.json",
+      "sha256": "d6ea8b31877526ff708d4fa11f3fe0104a08585e6e48c79625afa1bbb6bfbca6",
+      "bytes": 1688
+    }
+  ]
+}

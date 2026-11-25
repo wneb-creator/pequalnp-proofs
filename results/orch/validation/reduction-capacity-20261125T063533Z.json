@@ -1,0 +1,47 @@
+{
+  "url": "https://data.pequalnp.com/data/desk/gaps.json",
+  "url_provenance": ".github/workflows/authoritative.yml:69",
+  "fetched_at_utc": "2026-11-25T06:35:33Z",
+  "feed_updated_at": "2026-11-25T06:35:06.308Z",
+  "gap": "L-meta-1896",
+  "reductions_enabled": true,
+  "reductions_live": 3,
+  "maximum_live_reductions_from_join": 3,
+  "capacity_available": false,
+  "open_reductions": [
+    {
+      "id": "R-L-meta-1896-1",
+      "parent": "L-meta-1896",
+      "state": "open",
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/R_meta_1896_1.lean",
+        "content_hash": "sha256:9893aad2ae7a96581cae5148ccf2f2fb7fc571c5171695e978224b7bc5442ae5"
+      }
+    },
+    {
+      "id": "R-L-meta-1896-52",
+      "parent": "L-meta-1896",
+      "state": "open",
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/R_meta_1896_52.lean",
+        "content_hash": "sha256:6c34685a5f90264aec56960a2b51e0ec69f72ed5dca91d441f004ea29d619522"
+      }
+    },
+    {
+      "id": "R-L-meta-1896-347",
+      "parent": "L-meta-1896",
+      "state": "open",
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/R_meta_1896_347.lean",
+        "content_hash": "sha256:69504c34104f6b8bd065f7cd14c77b79e131aa9e3cbabbb64c2f076a94817cf2"
+      }
+    }
+  ],
+  "response_sha256": "d9cb964a4ce6201b727687b26e962f33bb3a065d0441d4939c75d2c8732c0568",
+  "response_bytes": 3256061,
+  "curl_exit_code": 0,
+  "desk_mutations": false,
+  "posted_statement_unchanged": true,
+  "response_body_archived": false,
+  "scope": "Read-only public feed capacity snapshot; no lease identifiers or mutating desk request. Full public response was retained in scratch and its digest is recorded here."
+}

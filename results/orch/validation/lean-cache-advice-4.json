@@ -1,0 +1,8 @@
+{
+  "time_utc": "2026-11-25T06:40:11Z",
+  "action": "POSIX_FADV_DONTNEED on existing Lean cache artifacts after serial Lean checks; no file bytes changed",
+  "files": 20445,
+  "before_bytes": 4004724736,
+  "after_bytes": 743989248,
+  "errors": []
+}

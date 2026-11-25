@@ -1,0 +1,126 @@
+[
+  {
+    "source": "results/orch/checked/CleanOrExcluding.lean",
+    "sha256": "14117ab3fb49a4a317b1b70c66ecfb87f8cc786b35335181571b572df42f3c41",
+    "declarations": 37,
+    "exact_normalized_blocks_preserved": 37,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/CleanOrGeneral-20261125T0333.lean",
+    "sha256": "0c338d2cf653d0f3d2249990e2c5e57c35ee29008e90d8ef2ab782d77912ba87",
+    "declarations": 48,
+    "exact_normalized_blocks_preserved": 48,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean",
+      "results/orch/checked/CleanOr-20261125T0330.lean",
+      "results/orch/checked/Nineteen.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/CleanOrGeneral-cleaned.lean",
+    "sha256": "4d93d57c7d3b92b017387a3adf7fecad220df443838f1a89a8a88fdc42849058",
+    "declarations": 48,
+    "exact_normalized_blocks_preserved": 48,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean",
+      "results/orch/checked/CleanOr-20261125T0330.lean",
+      "results/orch/checked/Nineteen.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/packing_three_small.lean",
+    "sha256": "d545c52767651e5e189fbfd25611a1108cebf29136094501a70959b78f063ade",
+    "declarations": 5,
+    "exact_normalized_blocks_preserved": 5,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "results/orch/geometry-module-sources/PackingThreeSmall.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-dirty-or-concrete.lean",
+    "sha256": "62d8e421b3a34f69914acd2f272fa49125dc07c6090ef54eed8f475cfcde298b",
+    "declarations": 92,
+    "exact_normalized_blocks_preserved": 92,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-dirty-or-generic.lean",
+    "sha256": "32e6739cf8463a09c15d34f8acb17ae25d3cae3f5a8161e35dd3d9767cb3c8f7",
+    "declarations": 74,
+    "exact_normalized_blocks_preserved": 74,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-first-blocks-capacity.lean",
+    "sha256": "5e55fe55dbb490cb6f28b29a2491fb3c3066d439895f5488df527dcdcdf52d3d",
+    "declarations": 113,
+    "exact_normalized_blocks_preserved": 113,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-first-introduction-partition.lean",
+    "sha256": "734d27d45ff06dc8aeb29d4d4c12b87ebff0d81cbfe275958a11c0b24efd3f29",
+    "declarations": 105,
+    "exact_normalized_blocks_preserved": 105,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-four-bad-coordinates.lean",
+    "sha256": "2aa1ebea94e88ecd2677734b4579ec79bd8a37c76089deb7c7a3bd6eb8480218",
+    "declarations": 98,
+    "exact_normalized_blocks_preserved": 98,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-four-row-saturation.lean",
+    "sha256": "82af8d2efc7439bf69497c29f6c8189497ee403f996ec4de63f8e420a5f2fb2e",
+    "declarations": 71,
+    "exact_normalized_blocks_preserved": 71,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-fresh-dead-operand.lean",
+    "sha256": "e06b11eb3e95169309ead05a7e9d6a78aa978d2ba7a7a7d91e19cfa82434751e",
+    "declarations": 116,
+    "exact_normalized_blocks_preserved": 116,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  },
+  {
+    "source": "results/orch/checked/routes-small-singleton-support.lean",
+    "sha256": "7a5b4dd86972eee174f9c5f8a6069c9d5fe87be6a3547085dfacc96b94e5a8b7",
+    "declarations": 77,
+    "exact_normalized_blocks_preserved": 77,
+    "missing_exact_blocks": [],
+    "sample_preserved_locations": [
+      "lean/PEqualNP/Outside/L_meta_1896.lean"
+    ]
+  }
+]

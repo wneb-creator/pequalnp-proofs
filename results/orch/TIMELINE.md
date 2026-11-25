@@ -67,5 +67,8 @@
 
 - 2026-11-25T06:22:15.949861+00:00: Replan: calibratedrefinement producedanINVALID50-ORsamplecandidate; fullcheckfound396genericfailures. Continuousglobal50 stillrunning. Orderedvariant reviewed; restricted39workingdraft dependencies nowcompletebutuncompiled.
 - 2026-11-25T06:31:00+00:00: Correction: the global50 run had stopped around06:21 with std::bad_alloc/SIGABRT after1819.61seconds under its3GiB address-space cap. No verdict, witness or export. Ordered controls passed; reviewed4GiB cap approved for the next sole full solver after a short serial Lean build window. Lease renewed06:30:31, expiry06:50:31.
+- 2026-11-25T06:41:00+00:00: Serial Lean window completed: restricted39 modules, extension obstruction and the weakened48-OR shadow example all compiled. The shadow circuit explicitly fails a posted negative. Ordered full50 search started06:40:27 for1800seconds under reviewed4GiB/6.5GiB guards; a small four-cap projected-row query is being independently checked. Lease renewal06:40:04 expires07:00:04.
 - 2026-11-25T06:27:18.067939+00:00: lease renewed; expires 2026-11-25T06:47:18.294Z.
 - 2026-11-25T06:30:31.582775+00:00: lease renewed; expires 2026-11-25T06:50:31.754Z.
+- 2026-11-25T06:40:04.469153+00:00: lease renewed; expires 2026-11-25T07:00:04.627Z.
+- 2026-11-25T06:44:00.409829+00:00: lease renewed; expires 2026-11-25T07:04:00.605Z.
