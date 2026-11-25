@@ -33,3 +33,13 @@ Full10-input orbit queue started with workerlimit1, now2 afterolder jobsfinished
 All12 ten-input support controls returnedUNSAT (3–49seconds percase). Results:structural/sat-control-summary.json. Three10gate/9input cases remain unresolved; earlier runs timedout, currentfinal pattern-pruned runs ongoing.
 
 The generic fanout budget is r=g-m+1 extra operand arcs beyond one per used nonroot wire. New optional forward-threshold encoding limits their sum to r; independently reviewed and validated on a pinned6gate/5input positive core with one input readthree times. FullCNF and independenttruth-table checks pass. After parentrenewal06:50:18(expiry07:10:18), launched budget-pruned g11/S3007 and g10/S2975, each300secondcap.
+
+## Completed ten-gate exclusion and sharing search, 06:59 UTC
+
+All fifteen necessary support-orbit cases for a single ten-gate Fano core have now returned UNSAT. The twelve ten-input cases are in `sat-control-summary.json`; the three nine-input budget cases are S959 (31.64 seconds), S1951 (33.77 seconds), and S2975 (43.52 seconds). The eleven-gate budget searches S3007, S1983, and S3999 each timed out after 300 seconds. Those timeouts have no UNSAT interpretation. A consolidated manifest `fano-all-search-summary.json` records statuses, parameters, wall times, and CNF SHA256 hashes.
+
+New encoder `fano_multi_sat.py` supports multiple designated maximal cores. The last r gates are outputs and are forbidden from reading one another; every earlier gate is read later, so the union of output cones contains all g gates and the designated roots are exactly the maximal cores. Every root independently meets the core conditions. Accepted edges are unioned across roots. The strict target is q+7 > g+r+card Y; the extra-reader budget is g-m+r. Symmetry ordering applies independently to the internal-gate prefix and root suffix. Independent initial review found these changes sound.
+
+Pinned positive control `fano-multi-calibration` has seven gates, six inputs, two P4 cores sharing their central AND, five accepted edges, and target margin 4. Both full CNF checking and independent truth-table/core evaluation pass. `pin_multicore_control.py` reproduces its CNF byte for byte; the metadata records the 19,551 base clauses, and pinning adds 21 unit clauses, giving 19,572 clauses in the CNF header.
+
+Two-core S2975 with nine gates returned UNSAT in 13.41 seconds. Three two-core ten-gate searches on S3007, S1983, and S3999 are running with 300-second caps. These target actual sharing between incomparable cores; they are separate from the completed single-core exclusion.

@@ -10,3 +10,7 @@ Agents write independent findings under results/orch/lemmas and notify parent.
 # Active step L-meta-2962
 
 Assigned at 06:06:37 UTC. Exact statement /tmp/oec/pequalnp-pilot-71/statement-2962.txt. New lease confirmed 06:06:53, expires06:26:53. Old L2602 work remains paused. Four agents reassigned: core review, core structural, core charging, core counterexample.
+
+## Checkpoint 2026-11-25T07:01:48.897840+00:00
+
+The six-agent phase now separately tests shared maximal cores, an AND-budget model with free OR gates, and its OR-budget dual. The gap row remains posted with no reductions flag at 07:00 UTC. GateCharges and ProspectiveGateCut compile, but neither charge is proved and no reduction is eligible. The repository checker rejected the main partial for its missing final theorem, as expected.

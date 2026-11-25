@@ -1,0 +1,6 @@
+Validated 2026-11-25 07:02:56 UTC.
+Working directory: /workspace/pequalnp-proofs/lean
+Command: PATH=/tmp/oec/pequalnp-pilot-71/elan/bin:$PATH ELAN_HOME=/tmp/oec/pequalnp-pilot-71/elan lake env lean /tmp/oec/pequalnp-pilot-71/structural/DisjointAssembly.lean
+Exit status: 0
+Complete stdout and stderr: disjoint-assembly-build.log (empty).
+This is a conditional partial theorem. It does not prove L-meta-2962.

@@ -26,3 +26,12 @@ Final structured search summaries:
 - evolve-core.log: {"done": true, "best": 0, "steps": 15498000, "seconds": 300.1360356807709}
 
 No counterexample found in these searches. This is computational evidence only, not a proof of the universal statement. The sole completed Lean proof component on this strategy remains DeletedCover.lean.
+# Disjoint-cone assembly checked at 07:03 UTC
+
+`/tmp/oec/pequalnp-pilot-71/structural/DisjointAssembly.lean` compiles with `lake env lean` and an empty final build log. It contains:
+
+- `disjoint_cost_assembly`: local inequalities `card (D i) + card (S i) ≤ card (U i) + 1` sum to the corresponding union inequality when the `U i` are pairwise disjoint. Edge and cover unions need not be disjoint.
+- `union_covers_deleted`: the union of local covers covers the union of deleted-edge sets.
+- `cover_bound_of_disjoint_local_certificates`: these facts and minimality of the original cover imply the exact target inequality for a family of pairwise-disjoint cones.
+
+This is a conditional assembly theorem, not a proof that actual circuit cores admit the local certificates or have disjoint cones. Those are precisely the unresolved hypotheses. No target file was edited.

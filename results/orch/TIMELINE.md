@@ -11,3 +11,5 @@
 - 2026-11-25T06:28:02.900322+00:00: strict shared-cone leaf count compiled and independently reviewed; preserved separately from target.
 - 2026-11-25T06:32:02.592961+00:00: star-forest special case compiled with empty output and independently reviewed.
 - 2026-11-25T06:39:43.011423+00:00: checked auxiliary duplicate-gate example preserved; it does not refute the assigned statement.
+
+- 2026-11-25T07:01:48.897840+00:00: local checker completed with REJECTED (no-theorem); named partial build passed, full theorem remains unproved. Six sub-agents used by this point; combinatorial_bound joined the original five.

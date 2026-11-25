@@ -1,6 +1,9 @@
-L-meta-2602 preservation only. No full proof or refutation.
-Lean drafts Guard.lean and CoverClass.lean are UNVERIFIED: no build or checker run.
-First renewal HTTP 410: no such live lease: it expired or was released. Ask /desk/next again.
-No null assignment responses.
-Sub-agents: 4 (status_review, structural_proof, counterexample, lemma_search)
-TIMING total=5 subagents=4
+Checkpoint only; no full proof or refutation of L-meta-2962.
+Named partial: lean/PEqualNP/Outside/L_meta_2962.lean, 856 lines, lake build passed.
+Checker: REJECTED (no-theorem); complete output in checker-partial-output.txt.
+Additional checked components and exact validation records are under results/orch/lemmas/.
+L-meta-2602 drafts remain UNVERIFIED; first renewal returned HTTP 410 despite advertised expiry.
+Three null assignment replies preceded L-meta-2962. Full desk log is in scratch and will be preserved at the final checkpoint.
+No proof cleanup pass yet: its full-proof/checker-pass prerequisites are unmet.
+Sub-agents: status_review, structural_proof, counterexample, lemma_search, single_core, combinatorial_bound
+TIMING total=72.5 subagents=6

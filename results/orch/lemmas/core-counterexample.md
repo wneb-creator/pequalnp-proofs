@@ -29,3 +29,67 @@ One-extra-fanout acyclic-gamma argument (informal): if a closed cone hasg gates 
 SAT symmetry independently checked: after sorting eachbinarygate inputs a<=b, everyDAG admits topological order nondecreasing lexicographic(b,a,operation). Greedily pick availablegate withminimumkey; newlyavailablegates necessarily read thenew highestwire andtherefore have strictlylargerb. No gateCSE/dedup restriction wasassumed.
 
 MIS-compressed evaluator: for monotone AO2 gates, BelowF is equivalent torejecting all maximal independentsets. Store truth bits onlyfor these rows plusedgepairrows. Exactmatch withfull2^14 evaluator on10,000 seeded/mutatedFano networks. Order3plane26 has52edges and704MIS; data in plane13-mis.json. Current15min search uses fullplane52edges andC4free subgraphs44/40edges, allowsoneortwo overlappingdensecores, andtests cyclicgamma withatleasttwo-thirds ofedges. NooldL-meta-2602 goalisbeingworked; these areinstances ofhelduniversal L-meta-2962.
+
+## 06:57 UTC: exact MIS semantics and component searches
+
+The order-3 plane run finished after 900 seconds: 2,283,000 circuit evaluations,
+1,013,115 eligible cases with a cyclic accepted-edge graph and at least two thirds
+of the graph edges accepted. No target or stronger-bound counterexample appeared.
+Best target margins were 2 for the full 52-edge plane, and 1 for the sampled
+44-edge and 40-edge subgraphs. These are heuristic evaluations with repeats,
+not an exhaustive census. Full stdout is in scratch `plane-dense.log`.
+
+The sparse evaluator checks each graph edge and every maximal independent set.
+This is exact for positive AND/OR circuits: any input where the graph function
+is false extends to a maximal independent set, so monotonicity reduces BelowF
+to rejection of those rows. READ-1 tests use the exact singleton/pair recurrence,
+with singleton READ-1 support empty at every AND gate. Ten thousand random Fano
+networks were compared against the independent full truth-table evaluator; all
+results matched, including maximal cores, D, U, and both numerical margins.
+
+Separate component checks on saved candidates and fresh mutations found no
+failure in 187,631 evaluations of
+`|D| <= OR(U) + mc` and `tau(G) - tau(G-D) <= AND(U)`.
+A second 45-second run checked the stronger `tau(D) <= AND(U)` on 227,440
+networks, also without a failure. Both component margins attained zero.
+These tests do not prove either proposed decomposition.
+
+Explicit full-plane seeds are saved as `explicit-one-over-plane7.json` and
+`explicit-one-over-plane13.json`. Given a star decomposition `W OR (a AND B)`,
+replace its final join by `(W OR a) AND (W OR B)`. The function is unchanged,
+and the root is a repeated-read core. The Fano example has 28 gates (7 AND,
+21 OR), all 21 edges in D, and target margin 1. The order-3 example has
+65 gates (13 AND, 52 OR), all 52 edges in D, and target margin 1.
+
+Parent authorized a new 20-minute phase optimizing three objectives separately:
+OR(U)+mc-|D|, AND(U)-tau(D), and AND(U)-tau(G)+tau(G-D). It uses both planes,
+allows the uncharged gate type to increase, and starts with the explicit seeds,
+shifted overlapping copies, and randomized star/guard constructions. Its complete
+log is `cuts-optimized.log`; findings will be appended after completion.
+
+## 07:04 UTC: normalized AND-budget SAT
+
+Implemented `and_free_or_sat.py`: each of k AND gates takes two arbitrary nonempty
+OR-subsets of original inputs and earlier AND outputs. The final output is an
+OR-subset of AND outputs. This represents every monotone circuit with at most k
+AND gates; direct input terms at the final OR are impossible under BelowF. A
+smaller circuit can be padded using idempotent AND gates.
+
+Two six-AND Fano instances are running with 300-second solver limits: exact fG
+(all 21 edges accepted and all 37 maximal independent sets rejected), and the
+weaker condition accepting the fixed seven-edge diagonal perfect matching while
+rejecting those 37 maximal independent sets. The latter would already produce
+an accepted-edge graph with matching number 7. No SAT/UNSAT result is claimed yet.
+
+The pinned seven-AND positive control passed. Its decoded binary circuit has
+7 AND and 20 OR gates and computes Fano exactly on all 16,384 assignments.
+Independent status_review checked both the encoding and all 16,715 pinned CNF
+clauses and all truth assignments. The decoder now replays all CNF clauses itself
+before checking semantics. Exact-size instance: 3,395 variables, 12,742 clauses;
+matching-only instance: 2,625 variables, 9,942 clauses.
+
+An optional ordered mode was separately reviewed: order the two interchangeable
+AND ports lexicographically; order AND nodes by nondecreasing largest selected
+source-wire index using greedy topological ordering; require every AND output to
+be consumed or output. Dead-node deletion and idempotent padding preserve
+completeness. The ordered seven-AND control also passes CNF and full truth replay.

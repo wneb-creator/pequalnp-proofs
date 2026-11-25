@@ -8,3 +8,5 @@ TIMING total=39 subagents=5
 Additional checked component: results/orch/lemmas/LeafUnionStrict.lean proves distinct core input vertices <= union cone gates; its standalone Lean run passed with empty output. Not the full posted theorem.
 Additional checked component: StrictStar.lean proves the target when accepted core edges form a star forest. Standalone Lean compilation exit 0, empty output. Full target still unproved.
 Axiom audit: the named singleton/matching/core-AND components and strict-leaf/star-forest components use only propext, Classical.choice, Quot.sound. Outputs in axioms-main.txt and axioms-star.txt. This is not an acceptance verdict for the posted theorem.
+
+2026-11-25T07:01:48.897840+00:00: authoritative local checker run on current 856-line partial exited 1. Verdict: REJECTED (no-theorem), because PEqualNP.Outside.L_meta_2962 is absent. Full output preserved in checker-partial-output.txt. Partial compilation does not establish the posted statement.
