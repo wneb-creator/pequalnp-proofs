@@ -18,3 +18,4 @@
 2026-11-25T05:03:15Z: real lake build started on coalesced48/noncomputable candidate42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6.
 2026-11-25T05:05:11.813160+00:00: primary and secondary unvalidated full candidates plus interrupted baseline logs independently reviewed and preserved.
 2026-11-25T05:10:12.112993+00:00: product-based fallback and cheap interface analogue check preserved after independent review; full fallback unvalidated.
+2026-11-25T05:24:27.463795+00:00: exact known-bound usage census and coalesced product fallback independently reviewed and preserved; neither pruning nor fallback full proof has been validated.

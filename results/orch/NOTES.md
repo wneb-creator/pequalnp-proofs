@@ -67,3 +67,9 @@ The earlier single-List.all harness was unrepresentative and is labeled separate
 
 
 2026-11-25T04:55:34.426940+00:00 root re-plan: focus full proof performance. Counterexample search returned unknown; structural partials and normalization are checked. Guards, forced batches and lazy lanes gave no consistent gain. Batches of48 checked the same96 states about14.3% faster than batches of16. Noncomputable declarations reduce compiler payload. Testing sample width320 as a possible memory reduction; no established standalone speed gain. Preparing full candidate while original baseline finishes.
+
+### 2026-11-25T05:21:09.052056+00:00 — case_decomposition: secondary product batching fallback
+
+Prepared `secondary12203/products48/L_meta_670_products48_12203.lean` without editing originals/main. Per optimizer guidance, only38 literal cells split depths changed to minimum depth with each leaf≤48states. All52 generic cells claims preserve forest/level/start/count/arity and row split depth:1624states,292→69batches,max48. Panel/mixed certificates untouched. Exact reversible manifest+generator provided; final theorem/imports byte-identical,520939bytes,source/plain guards PASS. Full Lean build/checker UNVALIDATED; no heavy builds started. Structural reviewer asked to independently verify partitions and product types.
+
+2026-11-25T05:22:34.636351+00:00 counterexample_search: completed offline query census, independently matched by status_review.52 carried entries (including all47 proposed) have no numeric consumers; deleting them preserves all1106 query values across every prior-list version. All25,500 packed rule references select already-audited static columns. Scope is fixed-source dependency analysis, not a Lean check. Seven whole carry groups are unused, but earlier speculation that x383 could be removed was corrected: it has five other low* roots.

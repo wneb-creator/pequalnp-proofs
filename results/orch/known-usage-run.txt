@@ -1,0 +1,19 @@
+{
+  "source_sha256": "42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6",
+  "counts": {
+    "forests": 17,
+    "column_tables": 17,
+    "static_columns": 1072,
+    "known_entries": 432,
+    "known_lists": 61,
+    "closed_calls": 51,
+    "numeric_query_sites": 1106,
+    "distinct_queried_ids": 380,
+    "used_origins": 380,
+    "unused_origins": 52,
+    "candidate_entries": 47,
+    "queried_candidates": 0,
+    "packed_nodes": 5348,
+    "packed_rule_references": 25500
+  }
+}

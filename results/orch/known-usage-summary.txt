@@ -1,0 +1,46 @@
+Offline known-bound dependency census for L-meta-670
+
+Source: lean/PEqualNP/Outside/L_meta_670.lean
+SHA256: 42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6
+
+Result: all47 entries proposed by the earlier textual census are unused by numeric bound lookups. The complete query census identifies52 unused carried entries out of432, including five additional entries listed below. This is a finite offline analysis, not a Lean theorem or checker acceptance. Any pruning still needs the ordinary build and checker.
+
+Why packed data does not hide additional known-bound IDs:
+- boundsBefore searches a known list only for its explicit q argument.
+- colCheck passes the third field of its ColumnInfo tuple to prior q. rawMask, colFree, supportPairs, and graphGoal compute other numbers but do not feed them back to prior.
+- graphValid checks every entry of each literal g.cols list, not only the columns selected by packed nodes.
+- nodeVerified/contextOf decode pairs (column index, paid-mask) from packed data. buildRule indexes g.cols; a successful index therefore selects one of the already-audited ColumnInfo tuples. All decoded indices in this source are in range.
+- The separate forest hash index returns a state index and an automorphism index. linkedSet/linkedFast use them to select earlier states and permutations; neither calls boundsBefore or prior.
+- plainA is the other numeric lookup entry point; all nine closed q arguments are included.
+- All25 closed cut_root column arguments are also included.
+
+Parser coverage: strict parsing of all61 known-list declarations, all17 literal column tables/forest descriptors, all closed uses of boundsBefore, every explicit packing level, and each relevant packed Nat word table. Unrecognized forms cause the census to fail rather than silently skip data. The report records every query with its prior list, return value, and exact first matching carried-entry origin. This handles prior-list versions and shadowing, rather than assuming that an ID is globally available.
+
+Counts:
+- forests: 17
+- column_tables: 17
+- static_columns: 1072
+- known_entries: 432
+- known_lists: 61
+- closed_calls: 51
+- numeric_query_sites: 1106
+- distinct_queried_ids: 380
+- used_origins: 380
+- unused_origins: 52
+- candidate_entries: 47
+- queried_candidates: 0
+- packed_nodes: 5348
+- packed_rule_references: 25500
+
+Additional unused entries beyond the47 proposed:
+- known47, entry index2, ID94, bound5
+- known47, entry index3, ID181, bound5
+- known17151, entry index0, ID17151, bound12
+- known58623, entry index0, ID58623, bound12
+- known42751, entry index0, ID42751, bound12
+
+Artifacts: known_usage_census.py, known-usage-report.json, known-usage-run.txt.
+
+Independent review: status_review independently rebuilt all61 lists, all432 entries, and all1106 query sites, matching every line/prior/q/origin/value record. Exact boundsBefore occurrence count is54:3 generic definitions/proof references,17 graphValid,25 cut_root,9 plainA. All52 unused IDs are globally unique. The executable census now asserts exact occurrence coverage and rejects any out-of-range packed column index.
+
+Correction to an exploratory message: seven entire carry groups are numerically unqueried (known17151, known2815, known6911, known1791, known58623, known58111, known1407). This does not establish that their associated certificate forests are unused. In particular x383 is shared by low2431, low54143, low44415, low43903, and low42879 as well as low1407. Removing known1407 alone does not justify removing x383. No forest-removal recommendation is made.

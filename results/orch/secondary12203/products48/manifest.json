@@ -1,0 +1,2556 @@
+{
+  "status": "STATIC CHECKS ONLY; FULL LEAN BUILD AND CHECKER UNVALIDATED",
+  "utc": "2026-11-25T05:20:29.971220+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/secondary12203/products/L_meta_670_products12203.lean",
+  "source_sha256": "5bc525d5cb458b98349192f030f85ef54af91f0c6c8f2fccd908aa709da73514",
+  "candidate": "/workspace/pequalnp-proofs/results/orch/secondary12203/products48/L_meta_670_products48_12203.lean",
+  "candidate_sha256": "3b6657cbc2adc27ab005b250b231e72f59d29d881af415610e7240ca67c6a364",
+  "candidate_bytes": 520939,
+  "size_headroom": 3349,
+  "cap": 48,
+  "claims": 52,
+  "changed_claims": 38,
+  "states_in_cells_claims": 1624,
+  "old_state_batches": 292,
+  "new_state_batches": 69,
+  "maximum_new_state_batch": 48,
+  "state_census_by_forest": {
+    "g191": 250,
+    "g383": 239,
+    "mo": 432,
+    "sg": 698,
+    "x189": 5
+  },
+  "invariants": {
+    "source_untouched": true,
+    "reversible_exact_bytes": true,
+    "exact_final_declaration_unchanged": true,
+    "imports_unchanged": true,
+    "per_state_forest_level_index_arity_unchanged": true,
+    "row_split_depths_unchanged": true,
+    "panel_and_mixed_proofs_unchanged": true,
+    "all_edits_are_numeric_cells_depth_only": true
+  },
+  "claims_detail": [
+    {
+      "theorem": "sg191_9_0",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 9,
+      "start": 0,
+      "count": 12,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          12
+        ]
+      ],
+      "expanded_state_arity_sha256": "a4fa3a96e993b93bdf119d87e56e4e29e549aa224b1ee75e7ae4ea0a2cbda509"
+    },
+    {
+      "theorem": "sg191_8_3",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 3,
+      "count": 36,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          16,
+          5
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          30,
+          4
+        ],
+        [
+          34,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "1068d99a393ac0de9124adac19542a6e303f303a1bf8bed44127c23567c829a2"
+    },
+    {
+      "theorem": "sg191_8_39",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 39,
+      "count": 31,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          39,
+          3
+        ],
+        [
+          42,
+          4
+        ],
+        [
+          46,
+          4
+        ],
+        [
+          50,
+          4
+        ],
+        [
+          54,
+          4
+        ],
+        [
+          58,
+          4
+        ],
+        [
+          62,
+          4
+        ],
+        [
+          66,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          39,
+          31
+        ]
+      ],
+      "expanded_state_arity_sha256": "e298af390f75819ef21576cd48709fbf63d071d94786f4c0e7de086a3a4f4ffc"
+    },
+    {
+      "theorem": "sg191_8_70",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 70,
+      "count": 36,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          70,
+          4
+        ],
+        [
+          74,
+          5
+        ],
+        [
+          79,
+          4
+        ],
+        [
+          83,
+          5
+        ],
+        [
+          88,
+          4
+        ],
+        [
+          92,
+          5
+        ],
+        [
+          97,
+          4
+        ],
+        [
+          101,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          70,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "9f3d780698a1662af58df8128543e654ba1b5bc47b925051a6b06382f1fac01a"
+    },
+    {
+      "theorem": "sg191_8_106",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 106,
+      "count": 7,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          106,
+          3
+        ],
+        [
+          109,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          106,
+          7
+        ]
+      ],
+      "expanded_state_arity_sha256": "e101fdb43b3e622c3a2bab478d3d292b21d7a0c70c6fdc15a453a53bdd6b8575"
+    },
+    {
+      "theorem": "sg191_7_0",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 0,
+      "count": 13,
+      "arity": 7,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          13
+        ]
+      ],
+      "expanded_state_arity_sha256": "7dfaec26fe070c23c9d3f3fcea08efcc622739614d8339142d436122793e6e8e"
+    },
+    {
+      "theorem": "sg191_7_13",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 13,
+      "count": 36,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          13,
+          4
+        ],
+        [
+          17,
+          5
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          26,
+          5
+        ],
+        [
+          31,
+          4
+        ],
+        [
+          35,
+          5
+        ],
+        [
+          40,
+          4
+        ],
+        [
+          44,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          13,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "4e5c882c839ebc9c8e13a43fed81cb16ad1a0ea8c3cf16f476f2f608cabfbfe8"
+    },
+    {
+      "theorem": "sg191_7_49",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 49,
+      "count": 36,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          49,
+          4
+        ],
+        [
+          53,
+          5
+        ],
+        [
+          58,
+          4
+        ],
+        [
+          62,
+          5
+        ],
+        [
+          67,
+          4
+        ],
+        [
+          71,
+          5
+        ],
+        [
+          76,
+          4
+        ],
+        [
+          80,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          49,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "a723fbc2fa664df3d78ac98bb87038b42a6a2bec86180f86a4d4e06973782194"
+    },
+    {
+      "theorem": "sg191_7_85",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 85,
+      "count": 31,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          85,
+          3
+        ],
+        [
+          88,
+          4
+        ],
+        [
+          92,
+          4
+        ],
+        [
+          96,
+          4
+        ],
+        [
+          100,
+          4
+        ],
+        [
+          104,
+          4
+        ],
+        [
+          108,
+          4
+        ],
+        [
+          112,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          85,
+          31
+        ]
+      ],
+      "expanded_state_arity_sha256": "035c981eb4e75c2bd0cb4b3bdb51c0c4a9884cb5c74ee989810c9009ea094676"
+    },
+    {
+      "theorem": "sg191_6_0",
+      "claim_kind": "block",
+      "forest": "g191",
+      "level": 6,
+      "start": 0,
+      "count": 12,
+      "arity": 7,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          12
+        ]
+      ],
+      "expanded_state_arity_sha256": "925984892393a9292242014d307eaf5d20c7a8c99f5f73530e968de7f0ab76ea"
+    },
+    {
+      "theorem": "sg383_11_0",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 11,
+      "start": 0,
+      "count": 6,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ],
+      "expanded_state_arity_sha256": "c16b4016a36d4e6fd6a3b7b6fda9ee941b851f07a6e6c797ec1d18f249012777"
+    },
+    {
+      "theorem": "sg383_10_0",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 0,
+      "count": 6,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ],
+      "expanded_state_arity_sha256": "386c241d69a8c25645b251371f9cc19f8d1307276a069438023c4ff2efd10b35"
+    },
+    {
+      "theorem": "sg383_10_6",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 6,
+      "count": 13,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          15,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          6,
+          13
+        ]
+      ],
+      "expanded_state_arity_sha256": "681da9b9a071334d2886317bef07bd82f88fa82771635a25c0e6de59a1f5d8ce"
+    },
+    {
+      "theorem": "sg383_10_19",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 19,
+      "count": 28,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          19,
+          3
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          26,
+          3
+        ],
+        [
+          29,
+          4
+        ],
+        [
+          33,
+          3
+        ],
+        [
+          36,
+          4
+        ],
+        [
+          40,
+          3
+        ],
+        [
+          43,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          19,
+          28
+        ]
+      ],
+      "expanded_state_arity_sha256": "74b93868b4fafc16edefbfe5f8623346289daebac019f8446676678c3b827677"
+    },
+    {
+      "theorem": "sg383_9_3",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 3,
+      "count": 36,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          16,
+          5
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          30,
+          4
+        ],
+        [
+          34,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "e6dc4b3177df30595749a4a7ad24835b09813f86f43c6dd919b1ccff05201dfb"
+    },
+    {
+      "theorem": "sg383_9_39",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 39,
+      "count": 36,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          39,
+          4
+        ],
+        [
+          43,
+          5
+        ],
+        [
+          48,
+          4
+        ],
+        [
+          52,
+          5
+        ],
+        [
+          57,
+          4
+        ],
+        [
+          61,
+          5
+        ],
+        [
+          66,
+          4
+        ],
+        [
+          70,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          39,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "c5702472b8399bafe73a680ba4b73b0ef699b9fd5c03edb858e79b2c4a65f6b0"
+    },
+    {
+      "theorem": "sg383_9_75",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 75,
+      "count": 36,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          75,
+          4
+        ],
+        [
+          79,
+          5
+        ],
+        [
+          84,
+          4
+        ],
+        [
+          88,
+          5
+        ],
+        [
+          93,
+          4
+        ],
+        [
+          97,
+          5
+        ],
+        [
+          102,
+          4
+        ],
+        [
+          106,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          75,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "11fd8350515f196d1c9abd30c03a467be5154aad16409ad73822506b46914d5d"
+    },
+    {
+      "theorem": "sg383_9_111",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 111,
+      "count": 8,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          111,
+          4
+        ],
+        [
+          115,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          111,
+          8
+        ]
+      ],
+      "expanded_state_arity_sha256": "fe6c5ee09970527daf2288122b20fd38d8a8ffde2ed13593e327ff4dbf4b22b5"
+    },
+    {
+      "theorem": "sg383_9_119",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 119,
+      "count": 17,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          119,
+          4
+        ],
+        [
+          123,
+          4
+        ],
+        [
+          127,
+          4
+        ],
+        [
+          131,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          119,
+          17
+        ]
+      ],
+      "expanded_state_arity_sha256": "e889e044f120dd1c30939df57e69fcbeb3be63bfb32e97202b2aaf8b8eb465c4"
+    },
+    {
+      "theorem": "sg383_8_0",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 0,
+      "count": 36,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          22,
+          5
+        ],
+        [
+          27,
+          4
+        ],
+        [
+          31,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          36
+        ]
+      ],
+      "expanded_state_arity_sha256": "a49c7d3cf7af9d6212547b493e7b667b75b2911ce9cec4b933eb42190af30c5f"
+    },
+    {
+      "theorem": "sg383_8_36",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 36,
+      "count": 8,
+      "arity": 8,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          36,
+          4
+        ],
+        [
+          40,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          36,
+          8
+        ]
+      ],
+      "expanded_state_arity_sha256": "5c91193ee0720c3e3a88e3e2f86a739ba9fc8cca5a72c9f9b36a2ed7b15b5824"
+    },
+    {
+      "theorem": "sg383_8_44",
+      "claim_kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 44,
+      "count": 9,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          44,
+          4
+        ],
+        [
+          48,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          44,
+          9
+        ]
+      ],
+      "expanded_state_arity_sha256": "7cc0481fcd11097c48eafa93dfd3ecdd3982a62bdfe82732888b5bf2d78b908c"
+    },
+    {
+      "theorem": "krx189_7_0",
+      "claim_kind": "CutRow",
+      "forest": "x189",
+      "level": 7,
+      "start": 0,
+      "count": 5,
+      "arity": 7,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expanded_state_arity_sha256": "f74a2cabf1462be95835ec5566cb7147ecc2e2b40ae106d02be18e6b8401ef97"
+    },
+    {
+      "theorem": "hb10_0",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 10,
+      "start": 0,
+      "count": 5,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expanded_state_arity_sha256": "4680391e920392563f4de9a4a6ee51a383a5bcd270bfbc372ea97a0d80c89d25"
+    },
+    {
+      "theorem": "hb11_0",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 0,
+      "count": 7,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          7
+        ]
+      ],
+      "expanded_state_arity_sha256": "e3fe11dc334821954b16ef1ad707b31e298e50c2b85832e45b7ab922b33b0fa1"
+    },
+    {
+      "theorem": "hb11_7",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 7,
+      "count": 96,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 1,
+      "old_leaves": [
+        [
+          7,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          19,
+          6
+        ],
+        [
+          25,
+          6
+        ],
+        [
+          31,
+          6
+        ],
+        [
+          37,
+          6
+        ],
+        [
+          43,
+          6
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          6
+        ],
+        [
+          61,
+          6
+        ],
+        [
+          67,
+          6
+        ],
+        [
+          73,
+          6
+        ],
+        [
+          79,
+          6
+        ],
+        [
+          85,
+          6
+        ],
+        [
+          91,
+          6
+        ],
+        [
+          97,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          7,
+          48
+        ],
+        [
+          55,
+          48
+        ]
+      ],
+      "expanded_state_arity_sha256": "0f3d67f516a5161e9a2e568ef81bf821a512a34f34d5d397d2c3b7f7110fb866"
+    },
+    {
+      "theorem": "hb11_103",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 103,
+      "count": 9,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          103,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          103,
+          9
+        ]
+      ],
+      "expanded_state_arity_sha256": "37973e21ee3e52d9f87dad1d065ec329522ce39a2537a0aa4acf46d626a457c5"
+    },
+    {
+      "theorem": "hb12_0",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 0,
+      "count": 62,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 1,
+      "old_leaves": [
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          8
+        ],
+        [
+          23,
+          8
+        ],
+        [
+          31,
+          7
+        ],
+        [
+          38,
+          8
+        ],
+        [
+          46,
+          8
+        ],
+        [
+          54,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          31
+        ],
+        [
+          31,
+          31
+        ]
+      ],
+      "expanded_state_arity_sha256": "4949aa78fd9430b9786f35918f718be6b386acc578c1e591f364f67a5d76737f"
+    },
+    {
+      "theorem": "hb12_62",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 62,
+      "count": 96,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 1,
+      "old_leaves": [
+        [
+          62,
+          6
+        ],
+        [
+          68,
+          6
+        ],
+        [
+          74,
+          6
+        ],
+        [
+          80,
+          6
+        ],
+        [
+          86,
+          6
+        ],
+        [
+          92,
+          6
+        ],
+        [
+          98,
+          6
+        ],
+        [
+          104,
+          6
+        ],
+        [
+          110,
+          6
+        ],
+        [
+          116,
+          6
+        ],
+        [
+          122,
+          6
+        ],
+        [
+          128,
+          6
+        ],
+        [
+          134,
+          6
+        ],
+        [
+          140,
+          6
+        ],
+        [
+          146,
+          6
+        ],
+        [
+          152,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          62,
+          48
+        ],
+        [
+          110,
+          48
+        ]
+      ],
+      "expanded_state_arity_sha256": "faa325bd1c9405a6d37c5490688af5a317e0da2f027a67883a5daa0c894ff162"
+    },
+    {
+      "theorem": "hb12_158",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 158,
+      "count": 75,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 1,
+      "old_leaves": [
+        [
+          158,
+          4
+        ],
+        [
+          162,
+          5
+        ],
+        [
+          167,
+          4
+        ],
+        [
+          171,
+          5
+        ],
+        [
+          176,
+          4
+        ],
+        [
+          180,
+          5
+        ],
+        [
+          185,
+          5
+        ],
+        [
+          190,
+          5
+        ],
+        [
+          195,
+          4
+        ],
+        [
+          199,
+          5
+        ],
+        [
+          204,
+          5
+        ],
+        [
+          209,
+          5
+        ],
+        [
+          214,
+          4
+        ],
+        [
+          218,
+          5
+        ],
+        [
+          223,
+          5
+        ],
+        [
+          228,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          158,
+          37
+        ],
+        [
+          195,
+          38
+        ]
+      ],
+      "expanded_state_arity_sha256": "24e27475cf68b13c5eeaae972f285acec31cb5094640734932a56eee2609d0e0"
+    },
+    {
+      "theorem": "hb12_318",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 318,
+      "count": 7,
+      "arity": 12,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          318,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          318,
+          7
+        ]
+      ],
+      "expanded_state_arity_sha256": "be36b125880ff38b050982aa5309e758f9f36ee7245053011157af5647d884f5"
+    },
+    {
+      "theorem": "hb13_0",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 0,
+      "count": 5,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "expanded_state_arity_sha256": "4320b73b87a67d2bc51bff7495978768ece1397c4909dff0eb20b6a0df8b31e1"
+    },
+    {
+      "theorem": "hb13_5",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 5,
+      "count": 18,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          5,
+          9
+        ],
+        [
+          14,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          5,
+          18
+        ]
+      ],
+      "expanded_state_arity_sha256": "099e9d0edc8e886e14db722cd42c781fb26d5c5d7a7ee9a44524f46397a1c9c2"
+    },
+    {
+      "theorem": "hb13_23",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 23,
+      "count": 43,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          23,
+          5
+        ],
+        [
+          28,
+          5
+        ],
+        [
+          33,
+          5
+        ],
+        [
+          38,
+          6
+        ],
+        [
+          44,
+          5
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          5
+        ],
+        [
+          60,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          23,
+          43
+        ]
+      ],
+      "expanded_state_arity_sha256": "02288868fff3c000d12c263034658c9f4be7e6b44129a6f43bad666edb5f336c"
+    },
+    {
+      "theorem": "hb14_0",
+      "claim_kind": "CutRow",
+      "forest": "mo",
+      "level": 14,
+      "start": 0,
+      "count": 9,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          9
+        ]
+      ],
+      "expanded_state_arity_sha256": "bd78162aef9fc7a58af6028428382f0a7bc99bdc344e11a4610efa2f7de70471"
+    },
+    {
+      "theorem": "sgPart8_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 8,
+      "start": 0,
+      "count": 6,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ],
+      "expanded_state_arity_sha256": "6231bb34bff9147116de0643ee61c084580ae4ba768eae118acc432002d183d0"
+    },
+    {
+      "theorem": "sgPart9_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 9,
+      "start": 0,
+      "count": 21,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          15,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          21
+        ]
+      ],
+      "expanded_state_arity_sha256": "3ce1487098fe7fc81659eef4100786e4293863adc717001a3fe4a75753abb142"
+    },
+    {
+      "theorem": "sgPart9_21",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 9,
+      "start": 21,
+      "count": 48,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          21,
+          6
+        ],
+        [
+          27,
+          6
+        ],
+        [
+          33,
+          6
+        ],
+        [
+          39,
+          6
+        ],
+        [
+          45,
+          6
+        ],
+        [
+          51,
+          6
+        ],
+        [
+          57,
+          6
+        ],
+        [
+          63,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          21,
+          48
+        ]
+      ],
+      "expanded_state_arity_sha256": "03cd0dceadfbc580718970941211afd121e3c4349b1f93e2ad1248f1a6d4f92f"
+    },
+    {
+      "theorem": "sgPart10_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 0,
+      "count": 3,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "expanded_state_arity_sha256": "61814be911f2df7415fb43a97eb3c59bd9af7e8cddd2330e7c053b1e11d30387"
+    },
+    {
+      "theorem": "sgPart10_3",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 3,
+      "count": 128,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 2,
+      "old_leaves": [
+        [
+          3,
+          8
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          19,
+          8
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          35,
+          8
+        ],
+        [
+          43,
+          8
+        ],
+        [
+          51,
+          8
+        ],
+        [
+          59,
+          8
+        ],
+        [
+          67,
+          8
+        ],
+        [
+          75,
+          8
+        ],
+        [
+          83,
+          8
+        ],
+        [
+          91,
+          8
+        ],
+        [
+          99,
+          8
+        ],
+        [
+          107,
+          8
+        ],
+        [
+          115,
+          8
+        ],
+        [
+          123,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          32
+        ],
+        [
+          35,
+          32
+        ],
+        [
+          67,
+          32
+        ],
+        [
+          99,
+          32
+        ]
+      ],
+      "expanded_state_arity_sha256": "9ce071243cd5c9c14e26685fb1ed43b1b918333c9322db211ecebae983c0b803"
+    },
+    {
+      "theorem": "sgPart10_131",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 131,
+      "count": 111,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 2,
+      "old_leaves": [
+        [
+          131,
+          6
+        ],
+        [
+          137,
+          7
+        ],
+        [
+          144,
+          7
+        ],
+        [
+          151,
+          7
+        ],
+        [
+          158,
+          7
+        ],
+        [
+          165,
+          7
+        ],
+        [
+          172,
+          7
+        ],
+        [
+          179,
+          7
+        ],
+        [
+          186,
+          7
+        ],
+        [
+          193,
+          7
+        ],
+        [
+          200,
+          7
+        ],
+        [
+          207,
+          7
+        ],
+        [
+          214,
+          7
+        ],
+        [
+          221,
+          7
+        ],
+        [
+          228,
+          7
+        ],
+        [
+          235,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          131,
+          27
+        ],
+        [
+          158,
+          28
+        ],
+        [
+          186,
+          28
+        ],
+        [
+          214,
+          28
+        ]
+      ],
+      "expanded_state_arity_sha256": "5957128f44d8537ed0309993d9fd80f6e78a30bd04d024b75a085cdc946b16a1"
+    },
+    {
+      "theorem": "sgPart10_242",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 242,
+      "count": 128,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 2,
+      "old_leaves": [
+        [
+          242,
+          8
+        ],
+        [
+          250,
+          8
+        ],
+        [
+          258,
+          8
+        ],
+        [
+          266,
+          8
+        ],
+        [
+          274,
+          8
+        ],
+        [
+          282,
+          8
+        ],
+        [
+          290,
+          8
+        ],
+        [
+          298,
+          8
+        ],
+        [
+          306,
+          8
+        ],
+        [
+          314,
+          8
+        ],
+        [
+          322,
+          8
+        ],
+        [
+          330,
+          8
+        ],
+        [
+          338,
+          8
+        ],
+        [
+          346,
+          8
+        ],
+        [
+          354,
+          8
+        ],
+        [
+          362,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          242,
+          32
+        ],
+        [
+          274,
+          32
+        ],
+        [
+          306,
+          32
+        ],
+        [
+          338,
+          32
+        ]
+      ],
+      "expanded_state_arity_sha256": "8cab0799cb27bfeb8596aeebc02dcd5085f2e10f7ec56682b221258a2837a887"
+    },
+    {
+      "theorem": "sgPart10_370",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 370,
+      "count": 3,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          370,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          370,
+          3
+        ]
+      ],
+      "expanded_state_arity_sha256": "afc0047688a8cc06d4a7c67f25e42bc396909397adefa5c5d578c732871b2e29"
+    },
+    {
+      "theorem": "sgPart11_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 0,
+      "count": 2,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          2
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          2
+        ]
+      ],
+      "expanded_state_arity_sha256": "139a2cdc2251a4a69442307b7e070ee081f8b3a36e8c16d7633b143210673fcd"
+    },
+    {
+      "theorem": "sgPart11_2",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 2,
+      "count": 62,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 3,
+      "new_depth": 1,
+      "old_leaves": [
+        [
+          2,
+          7
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          25,
+          8
+        ],
+        [
+          33,
+          7
+        ],
+        [
+          40,
+          8
+        ],
+        [
+          48,
+          8
+        ],
+        [
+          56,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          2,
+          31
+        ],
+        [
+          33,
+          31
+        ]
+      ],
+      "expanded_state_arity_sha256": "aa27f50fafbc49e3f9641a339e0c638e4d49aa73c6a7bc32ed4e88b53eb23b88"
+    },
+    {
+      "theorem": "sgPart11_64",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 64,
+      "count": 123,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 4,
+      "new_depth": 2,
+      "old_leaves": [
+        [
+          64,
+          7
+        ],
+        [
+          71,
+          8
+        ],
+        [
+          79,
+          7
+        ],
+        [
+          86,
+          8
+        ],
+        [
+          94,
+          7
+        ],
+        [
+          101,
+          8
+        ],
+        [
+          109,
+          8
+        ],
+        [
+          117,
+          8
+        ],
+        [
+          125,
+          7
+        ],
+        [
+          132,
+          8
+        ],
+        [
+          140,
+          8
+        ],
+        [
+          148,
+          8
+        ],
+        [
+          156,
+          7
+        ],
+        [
+          163,
+          8
+        ],
+        [
+          171,
+          8
+        ],
+        [
+          179,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          64,
+          30
+        ],
+        [
+          94,
+          31
+        ],
+        [
+          125,
+          31
+        ],
+        [
+          156,
+          31
+        ]
+      ],
+      "expanded_state_arity_sha256": "9bca0fbbd06df7fba32e8ce0393f4812a5915fb2ec929060d585c7aa3cd742d7"
+    },
+    {
+      "theorem": "sgPart11_187",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 187,
+      "count": 29,
+      "arity": 12,
+      "rows_depth_unchanged": 0,
+      "old_depth": 2,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          187,
+          7
+        ],
+        [
+          194,
+          7
+        ],
+        [
+          201,
+          7
+        ],
+        [
+          208,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          187,
+          29
+        ]
+      ],
+      "expanded_state_arity_sha256": "689fc1f2af488f3e3464e72f706ed75a17133ec2c5ebc95289e38b6eceee94b5"
+    },
+    {
+      "theorem": "sgPart12_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 0,
+      "count": 1,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expanded_state_arity_sha256": "90ea83f05d0d94f10be2a93f5e74498f4dad0976ede0fa3ad68be6595fd7f463"
+    },
+    {
+      "theorem": "sgPart12_1",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 1,
+      "count": 12,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          1,
+          12
+        ]
+      ],
+      "expanded_state_arity_sha256": "771573d907d1ed325f1cb7a1e84befefba3a30993e33367a8183462b4bc6a734"
+    },
+    {
+      "theorem": "sgPart12_13",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 13,
+      "count": 17,
+      "arity": 11,
+      "rows_depth_unchanged": 0,
+      "old_depth": 1,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          13,
+          8
+        ],
+        [
+          21,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          13,
+          17
+        ]
+      ],
+      "expanded_state_arity_sha256": "c44cc1bde53a81062b6d6c7b370f4345b628d37b0e6842314ddad3142f8575c8"
+    },
+    {
+      "theorem": "sgPart13_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 13,
+      "start": 0,
+      "count": 3,
+      "arity": 10,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "expanded_state_arity_sha256": "7d77621e9b863b2c5128fe4cc1c0bea68f2394503f9939bbd80de07b15548820"
+    },
+    {
+      "theorem": "sgPart14_0",
+      "claim_kind": "block",
+      "forest": "sg",
+      "level": 14,
+      "start": 0,
+      "count": 1,
+      "arity": 9,
+      "rows_depth_unchanged": 0,
+      "old_depth": 0,
+      "new_depth": 0,
+      "old_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expanded_state_arity_sha256": "72ffc16aa75332e8e66ff920ee19aca074e27cb03317f04a2e0be3457b9bf73c"
+    }
+  ],
+  "reversible_edits": [
+    {
+      "line": 4533,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4544,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4551,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4558,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4565,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4573,
+      "old": "  apply q08 (ar:=7) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=7) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4580,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4587,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4594,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4602,
+      "old": "  apply q08 (ar:=7) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=7) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4692,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4700,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4707,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4714,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4725,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4732,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4739,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4746,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4753,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4761,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4768,
+      "old": "  apply q08 (ar:=8) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=8) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 4775,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6391,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=1)\n"
+    },
+    {
+      "line": 6532,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=1)\n"
+    },
+    {
+      "line": 6540,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=1)\n"
+    },
+    {
+      "line": 6548,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=1)\n"
+    },
+    {
+      "line": 6664,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6672,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6723,
+      "old": "  apply q08 (ar:=9) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=9) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6730,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6745,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=2)\n"
+    },
+    {
+      "line": 6752,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=2)\n"
+    },
+    {
+      "line": 6759,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=2)\n"
+    },
+    {
+      "line": 6781,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=3)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=1)\n"
+    },
+    {
+      "line": 6788,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=4)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=2)\n"
+    },
+    {
+      "line": 6795,
+      "old": "  apply q08 (ar:=12) (rows:=0) (d:=2)\n",
+      "new": "  apply q08 (ar:=12) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6810,
+      "old": "  apply q08 (ar:=10) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=10) (rows:=0) (d:=0)\n"
+    },
+    {
+      "line": 6817,
+      "old": "  apply q08 (ar:=11) (rows:=0) (d:=1)\n",
+      "new": "  apply q08 (ar:=11) (rows:=0) (d:=0)\n"
+    }
+  ]
+}
