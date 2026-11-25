@@ -1,0 +1,507 @@
+{
+  "sample_files": 100,
+  "sample_bytes": 462869512,
+  "aligned_zero_bytes": 0,
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/L_meta_10760.olean",
+      "bytes": 15176360,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/BitVec/Lemmas.olean.private",
+      "bytes": 13057336,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Lemmas.olean.private",
+      "bytes": 8699224,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/Internal/List/Associative.olean.private",
+      "bytes": 7423160,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/FunInd.olean.private",
+      "bytes": 7080992,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Array/Lemmas.olean.private",
+      "bytes": 7005704,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/App.olean.private",
+      "bytes": 6967856,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Structure.olean.private",
+      "bytes": 6840280,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/MutualDef.olean.private",
+      "bytes": 6787968,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Polynomial/Resultant/Basic.olean.private",
+      "bytes": 6657544,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/DocString/Builtin.olean.private",
+      "bytes": 6581936,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/DocString.olean.private",
+      "bytes": 6522136,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/BitVec/Bitblast.olean.private",
+      "bytes": 6313376,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/List/Lemmas.olean.private",
+      "bytes": 6256216,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/MutualInductive.olean.private",
+      "bytes": 6230024,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Balancing.olean.private",
+      "bytes": 6143440,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Array/Extract.olean.private",
+      "bytes": 5990000,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Widget/StringDiagram.olean.private",
+      "bytes": 5983752,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DHashMap/Internal/RawLemmas.olean.private",
+      "bytes": 5734192,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Command.olean.private",
+      "bytes": 5681136,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Module.olean.private",
+      "bytes": 5599600,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Parser/Term.olean.private",
+      "bytes": 5537584,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/StructInst.olean.private",
+      "bytes": 5400656,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Sym/Simp/EvalGround.olean.private",
+      "bytes": 5211840,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Do/Legacy.olean.private",
+      "bytes": 5138120,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/FieldSimp.olean.private",
+      "bytes": 5085672,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/CategoryTheory/Monoidal/Basic.olean.private",
+      "bytes": 5045776,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Int/DivMod/Lemmas.olean.private",
+      "bytes": 5038512,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Iterators/Lemmas/Combinators/Monadic/FilterMap.olean.private",
+      "bytes": 4978064,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lake/CLI/Main.olean.private",
+      "bytes": 4760336,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Vector/Extract.olean.private",
+      "bytes": 4738920,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lake/Build/Module.olean.private",
+      "bytes": 4731960,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/CategoryTheory/Bicategory/Basic.olean.private",
+      "bytes": 4704688,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/PrettyPrinter/Delaborator/Builtins.olean.private",
+      "bytes": 4652712,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Translate/Core.olean.private",
+      "bytes": 4603488,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Term/TermElabM.olean.private",
+      "bytes": 4591624,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/List/Lemmas.olean.private",
+      "bytes": 4511432,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/ExprDefEq.olean.private",
+      "bytes": 4508544,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Operations.olean.private",
+      "bytes": 4416784,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Compiler/LCNF/EmitC.olean.private",
+      "bytes": 4290408,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Basic.olean.private",
+      "bytes": 4270376,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/Try.olean.private",
+      "bytes": 4247992,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DHashMap/RawLemmas.olean.private",
+      "bytes": 4233776,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/BuiltinCommand.olean.private",
+      "bytes": 4194784,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/Grind/EMatchTheorem.olean.private",
+      "bytes": 4177544,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Spectrum/Prime/ChevalleyComplexity.olean.private",
+      "bytes": 4172152,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Parser/Command.olean.private",
+      "bytes": 4095520,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/WF/Lemmas.olean.private",
+      "bytes": 4081208,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Polynomial/Chebyshev.olean.private",
+      "bytes": 4066112,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Vector/Lemmas.olean.private",
+      "bytes": 4062952,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Match.olean.private",
+      "bytes": 4029856,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Match/Match.olean.private",
+      "bytes": 4013504,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Sym/Arith/Norm.olean.private",
+      "bytes": 4008952,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/Do/VCGen.olean.private",
+      "bytes": 4006304,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Simps/Basic.olean.private",
+      "bytes": 3994240,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/BuiltinTactic.olean.private",
+      "bytes": 3985696,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Model.olean.private",
+      "bytes": 3903232,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Positivity/Basic.olean.private",
+      "bytes": 3902200,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Compiler/LCNF/Simp/ConstantFold.olean.private",
+      "bytes": 3872336,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/Grind/Types.olean.private",
+      "bytes": 3853624,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Environment.olean.private",
+      "bytes": 3852304,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/Simp.olean.private",
+      "bytes": 3831832,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean/Aesop/Forward/State.olean.private",
+      "bytes": 3820512,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/UInt/Lemmas.olean.private",
+      "bytes": 3802840,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Quotation.olean.private",
+      "bytes": 3795520,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Range/Polymorphic/RangeIterator.olean.private",
+      "bytes": 3757968,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Polynomial/UniversalFactorizationRing.olean.private",
+      "bytes": 3747384,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/BoundedVariation.olean.private",
+      "bytes": 3707824,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Ring/Common.olean.private",
+      "bytes": 3693704,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lake/Load/Toml.olean.private",
+      "bytes": 3685272,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Util/Notation3.olean.private",
+      "bytes": 3677560,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Widget/StringDiagram.olean",
+      "bytes": 3662264,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Server/Watchdog.olean.private",
+      "bytes": 3638768,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/BVDecide/Normalize/Simproc.olean.private",
+      "bytes": 3635168,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/IsTensorProduct.olean.private",
+      "bytes": 3581768,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Prelude.olean",
+      "bytes": 3432560,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/Induction.olean.private",
+      "bytes": 3416624,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Range/Polymorphic/Lemmas.olean.private",
+      "bytes": 3406336,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/Simp/BuiltinSimprocs/SInt.olean.private",
+      "bytes": 3383248,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Server/Test/Runner.olean.private",
+      "bytes": 3379912,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/SynthInstance.olean.private",
+      "bytes": 3368280,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/SInt/Lemmas.olean.private",
+      "bytes": 3358320,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/Grind/EMatch.olean.private",
+      "bytes": 3352064,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean/Qq/Macro.olean.private",
+      "bytes": 3351368,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Tactic/Grind/Arith/Cutsat/Proof.olean.private",
+      "bytes": 3348664,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Module/LocalizedModule/Basic.olean.private",
+      "bytes": 3313248,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Meta/Sym/DSimp/EvalGround.olean.private",
+      "bytes": 3303152,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/ZariskisMainTheorem.olean.private",
+      "bytes": 3291520,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Exact/Basic.olean.private",
+      "bytes": 3203568,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Expr.olean.private",
+      "bytes": 3191872,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean/Aesop/RuleSet.olean.private",
+      "bytes": 3177664,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Expr.olean.private",
+      "bytes": 3174024,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/TensorProduct/Tower.olean",
+      "bytes": 3156912,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Lean/Elab/Tactic/Omega/Frontend.olean.private",
+      "bytes": 3142928,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Lemmas.olean",
+      "bytes": 3139152,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/Nat/Lemmas.olean.private",
+      "bytes": 3104568,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Init/Data/String/Lemmas/Pattern/String/ForwardSearcher.olean.private",
+      "bytes": 3094264,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Kaehler/Basic.olean.private",
+      "bytes": 3019568,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Sets/VietorisTopology.olean.private",
+      "bytes": 3017504,
+      "zero_pages_bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-184/setup/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Model.olean",
+      "bytes": 2999792,
+      "zero_pages_bytes": 0
+    }
+  ]
+}

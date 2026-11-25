@@ -1,0 +1,19 @@
+{
+  "time": "2026-11-25T21:13:15Z",
+  "holder": {
+    "pid": 29634,
+    "old_pid": 29410,
+    "phase": "put_back_batch",
+    "files": 9211,
+    "bytes": 2838564880
+  },
+  "original_memfd_bytes": 3006414760,
+  "disk_restored_bytes": 167849880,
+  "disk_available": 312250368,
+  "runtime_facets_removed": false,
+  "complete_audit": {
+    "verified": 9273
+  },
+  "post_maintenance_checklemma_exit": 0,
+  "post_maintenance_checklemma_output": "All targets up-to-date (5 jobs).\n"
+}

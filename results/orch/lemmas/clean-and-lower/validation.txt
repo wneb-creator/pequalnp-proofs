@@ -1,0 +1,48 @@
+This is a checked counterexample to the simple unsafe-AND bypass strategy only. It does NOT refute L-meta-1904.
+
+Command: lake env lean -j1 -M6500 --profile /workspace/pequalnp-proofs/results/orch/lemmas/clean-and-lower/UnsafeBypass.lean
+SHA256: 22ae9381d4bc3381c8b171ad567ae45a2fbba33f8cfd0a389eaa3358f06cecef
+{
+  "exit_code": 0,
+  "elapsed_seconds": 5.4171739990006245,
+  "peak_rss_kib": 2926008
+}
+
+Complete stdout:
+type checking took 122ms
+simp took 178ms
+/workspace/pequalnp-proofs/results/orch/lemmas/clean-and-lower/UnsafeBypass.lean:85:18: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/clean-and-lower/UnsafeBypass.lean:85:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+Complete stderr:
+import took 2.15s
+cumulative profiling times:
+	attribute application 1.98ms
+	blocked (unaccounted) 5.73s
+	compilation (IR) 0.519ms
+	compilation (LCNF base) 10ms
+	compilation (LCNF impure) 2.07ms
+	compilation (LCNF mono) 5.24ms
+	congr simp thm 36.2ms
+	declTypeLinter 4.3ms
+	elaboration 64.4ms
+	fix level params 0.486ms
+	import 2.15s
+	initialization 71.2ms
+	instantiate metavars 0.239ms
+	interpretation 343ms
+	let-to-have transformation 0.179ms
+	linting 9.61ms
+	module linting 0.0627ms
+	parsing 5.2ms
+	process pre-definitions 41.7ms
+	share common exprs 2.91ms
+	simp 303ms
+	tactic execution 91.4ms
+	tacticAnalysis 2.64ms
+	type checking 452ms
+	typeclass inference 86.9ms

@@ -1,0 +1,12 @@
+{
+  "command": "lake env lean -M6500 /tmp/oec/pequalnp-pilot-184/setup/RuntimeImport.lean",
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "completed_at": "2026-11-25T20:46:56.882798+00:00",
+  "cgroup_oom_kill": 0
+}

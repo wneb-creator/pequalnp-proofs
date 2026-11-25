@@ -1,0 +1,194 @@
+{
+  "scope": "Preservation of official toolchain/cache recovery scripts, diagnostics and verified byte-preserving storage maintenance; no proof or checker source changes.",
+  "status": "Mathlib runtime import smoke test passed. Historical L-meta-10760 checker attempt ended FAULT without verdict. Maintenance finished with 9273 artifacts audited and cached checklemma build check passing; no checker acceptance is claimed.",
+  "live_holder_at_handoff": 29634,
+  "runtime_facets_removed_at_handoff": false,
+  "storage_notes": "Holder lifetime and restoration phase restrictions are documented in RECOVERY.md. These are container-local operational artifacts, not files for a proof PR.",
+  "inventory": [
+    {
+      "path": "results/orch/setup/BACKUP-FILES.txt",
+      "bytes": 1711,
+      "sha256": "4f7e5e8707360e3ddd2bff1943feb172f9d1c44b80f0d33e5dd6f217284a865f"
+    },
+    {
+      "path": "results/orch/setup/RECOVERY.md",
+      "bytes": 6393,
+      "sha256": "6e6ac844d16d84a5c923ad1abf2a9626a4edb20957cfd9d991d759341a8cd5a7"
+    },
+    {
+      "path": "results/orch/setup/artifact-memory-adopt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/artifact-memory-adopt.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/artifact-memory-adopt2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/artifact-memory-adopt2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/artifact_memory_adopt.py",
+      "bytes": 13354,
+      "sha256": "e3de880a0abb16a1131fc02fc2b7dfb8bbf1ec2790556982771cb1987b5c719e"
+    },
+    {
+      "path": "results/orch/setup/artifact_memory_adopt2.py",
+      "bytes": 13417,
+      "sha256": "996fac535f99cc19d6ca5040749d3706681f687039f0186c93a27b8f7a0d685f"
+    },
+    {
+      "path": "results/orch/setup/cache-get.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/orch/setup/cache-help.stdout",
+      "bytes": 4518,
+      "sha256": "5a285387d13f1198fa4f6a040999e8dc2582ef3e3512bca5a901d22a1b5ccd77"
+    },
+    {
+      "path": "results/orch/setup/checker-resource-monitor.jsonl",
+      "bytes": 912,
+      "sha256": "a6477ca86deb33f0aa09539bf7e31f5c2e4df8e7244f292f2556744a08759797"
+    },
+    {
+      "path": "results/orch/setup/full-cache-audit.json",
+      "bytes": 112,
+      "sha256": "e45d4334b761a131982dcaba6030b9b7f13b48cf28696eb2a48ae9ddb5051df5"
+    },
+    {
+      "path": "results/orch/setup/full-cache-install-6.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/full-cache-install-6.stdout",
+      "bytes": 10823,
+      "sha256": "27bace0eddd63565ff7e2a52eb688eea96154525fc782cfb06c210569c768954"
+    },
+    {
+      "path": "results/orch/setup/fuse-probe.stderr",
+      "bytes": 51,
+      "sha256": "20fcf9801fcdb5c7284e2da69ffdb3f95a9f99fd0f17246703fccf4894450f7c"
+    },
+    {
+      "path": "results/orch/setup/fuse-probe.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/holder-audit-001.result.json",
+      "bytes": 19,
+      "sha256": "15de29549b01f6535441f50f9d386af9b43c957cb2e5b429f38510ccabfd5a44"
+    },
+    {
+      "path": "results/orch/setup/holder-migrate-001.result.json",
+      "bytes": 19,
+      "sha256": "66bda9389b54862e4d5e7440207a1a230ec7f831dad4cf3d9f90ee41c1fabaaf"
+    },
+    {
+      "path": "results/orch/setup/holder-putback-001.result.json",
+      "bytes": 46,
+      "sha256": "d2ff5ded8a2b091be0ee8b2738a2789fc28b8ac7857479382774fa41c2b2d16d"
+    },
+    {
+      "path": "results/orch/setup/holder-restore-001.result.json",
+      "bytes": 52,
+      "sha256": "4ad38eba3fa3195e3eac4c1e5ad12cf5c2db0e0330035dc7024aaf6c832c5e5c"
+    },
+    {
+      "path": "results/orch/setup/post-maintenance-checklemma.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/post-maintenance-checklemma.stdout",
+      "bytes": 33,
+      "sha256": "45c81825b2814df6cb63a693f65f14c535d6db30c92afc12c0ca8941e918fb52"
+    },
+    {
+      "path": "results/orch/setup/reclaim-closure-audit.json",
+      "bytes": 99051,
+      "sha256": "daf59b24d9649e077e4e58cc92a08160d43095e900a244c62c81377402cf451c"
+    },
+    {
+      "path": "results/orch/setup/reclaim-facets-prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/reclaim-facets-prepare.stdout",
+      "bytes": 84,
+      "sha256": "08b2bec469219669f0ec88eb69c9d7cc9c9958c5e5635f1e2f4368bbfdff63b0"
+    },
+    {
+      "path": "results/orch/setup/reclaim-metadata-apply.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/reclaim-metadata-apply.stdout",
+      "bytes": 37,
+      "sha256": "9ba4b82956801ed2ee1ce497fbf1520bea5d039583c5d63d3ee115fe209f785c"
+    },
+    {
+      "path": "results/orch/setup/reclaim-metadata-prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/reclaim-metadata-prepare.stdout",
+      "bytes": 91,
+      "sha256": "d2d75162fd6eb2877f7f7dcd12f93160eb5906c9ca21077298065ccd068ea47b"
+    },
+    {
+      "path": "results/orch/setup/reclaim_facets.py",
+      "bytes": 7930,
+      "sha256": "b35bb4642896eebfcb2a26eb9b369d176ca6896ada80f25e1c312047c625bf05"
+    },
+    {
+      "path": "results/orch/setup/reclaim_metadata.py",
+      "bytes": 8284,
+      "sha256": "9952912b5647799cbc5425c3ac08343ffef6f1a529544b5cc0d4d27da101fdf0"
+    },
+    {
+      "path": "results/orch/setup/runtime-import-result.json",
+      "bytes": 286,
+      "sha256": "18366e3dc0b5f063b0696c0448a9ac4061ec0051e8c8af5c7baa3057a1924c45"
+    },
+    {
+      "path": "results/orch/setup/runtime-import.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/runtime-import.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/setup/storage-files-sha256.json",
+      "bytes": 3483,
+      "sha256": "4c38fe1bd7696ccae998663d64658329ef337cda148f46b0d22d76c265da610e"
+    },
+    {
+      "path": "results/orch/setup/storage-maintenance-status.json",
+      "bytes": 477,
+      "sha256": "664ee6557b19a50890be15e37ead0d62d753080d88f341c075c33570b2e21626"
+    },
+    {
+      "path": "results/orch/setup/zero-page-sample.json",
+      "bytes": 19114,
+      "sha256": "fe2de5838f6a4f3cdc24d1a9f2f779ef4700f4f33020c1f337f74473066e19d5"
+    }
+  ]
+}
