@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-178/root_helpers/NotCount.lean:32:12: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

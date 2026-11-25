@@ -13,3 +13,6 @@ Lower13 partial: scratch Lean compile passed19:11:12 UTC, exit0.
 Source and complete compiler output preserved in results/orch.
 Independent red-team review: gate_elimination PASS conditional on Lean; Lean now passed.
 Full target theorem remains unproved.
+
+Compiled auxiliary partials preserved: LRAT fallback engine, NOT-count uniqueness helper, tracked extraction core.
+Independent reviews: proof_route for LRAT and tracked core; gate_elimination for NOT-count helper. All passed for partial preservation.
