@@ -1,0 +1,42 @@
+{
+  "n": 2,
+  "edges": [
+    [
+      0,
+      1
+    ]
+  ],
+  "gates": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      2,
+      3
+    ]
+  ],
+  "cores": 12,
+  "maximal": 12,
+  "union": 15,
+  "incidences": 1,
+  "tau": 1,
+  "tau_remainder": 0,
+  "left": 2,
+  "right": 6,
+  "margin": 4,
+  "tau_D": 1,
+  "strong_margin": 4
+}

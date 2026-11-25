@@ -14,3 +14,18 @@ CountingShared.lean: lake env lean exit 0; lines=64; bytes=2581; sha256=224b10e1
 StructuralBudget.lean: lake env lean exit 0; lines=332; bytes=15364; sha256=51f2d0c3cdd63dad7708242102ba0d03a5f16d0b7e8f415575216f819ebc6a80
 SemanticNested.lean: lake env lean exit 0; lines=802; bytes=34250; sha256=000c13937adf76922c56b292cd06a76182f3e7f4e1def2317c09f25494e1c3f8
 SemanticActiveNested.lean: lake env lean exit 0; lines=818; bytes=35190; sha256=c81731c2542b7e6671497b974f0742da49b29b144abaf0146939b8c6133d4fe8
+2026-11-25T15:58:11.114694+00:00
+CountingTight.lean: lake env lean exit 0; lines=58; bytes=2236; sha256=e5325241a08bf41321d15adc31b91968878dc609f243f85090fbd292658209b4
+CountingGeometry.lean: lake env lean exit 0; lines=58; bytes=2620; sha256=9ed0db76bb4e4627cc87a60a401306a6a9997a317556fbe3629863ad6f5fb1cd
+StructuralEssential.lean: lake env lean exit 0; lines=560; bytes=24671; sha256=da94d1df63773fe5c9adfd04263e2d1b76011229e22b99c6d8caf5fc39ff00f0
+StructuralSupport.lean: lake env lean exit 0; lines=602; bytes=26763; sha256=f2c17351f657c30d4092492f109813a7257125d1f70a490c0c53b8d360a7ab27
+CombinatorialStars.lean: lake env lean exit 0; lines=125; bytes=5066; sha256=88b2c61f28ff9cc34579bbfdfed2caf95c75f5cd5313117488df29618878c48b
+CombinatorialStarCores.lean: lake env lean exit 0; lines=748; bytes=32900; sha256=2c5cc242126c810940c818be95a8e90ca28587bacafa919ffd96e208533c2f08
+StructuralP4.lean: lake env lean exit 0; lines=111; bytes=4977; sha256=58b0109ddd04c9d068541fa77d6339e953ddb748f7c25d1ad68127096bf58055
+2026-11-25T15:59:28.867556+00:00
+RootMatching.lean: lake env lean exit 0; lines=219; bytes=9227; sha256=28e827fd00472ec67a8f206699c94990a7060416943a24fc32ac962d3f2daaed
+StructuralP4Sharp.lean: lake env lean exit 0; lines=197; bytes=9157; sha256=8b33ca13d0d4f4c61804ef017a9617d59a41280d6900c89635e4b5607b2cec7f
+UNCOMPILED drafts: StructuralCores.lean and CountingPathFamily.lean (and its suffix). Other suffix files are source assembly fragments, not standalone modules.
+No full target build or checker ACCEPTED verdict: all checked artifacts are partial results, examples, or conditional bounds. Official parser-only checks are recorded separately and do not prove the target.
+Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
+TIMING total=120.65 subagents=6

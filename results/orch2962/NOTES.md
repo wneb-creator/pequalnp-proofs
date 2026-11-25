@@ -43,3 +43,33 @@ C6: more than3million mutations, no violation; minimum posted margin1. K4 incide
 A posted equality example exists on the path x-y-z-w: dead gates a=x AND y; b=a OR z; c=y OR w; d=b AND c. The last gate is a core because the accepted edge xy must reread y. With an independent live path circuit appended, D is all3 edges, minimum cover2, union-cone size4, one maximal core, and residual cover0. Thus5=5. This is not a refutation.
 
 Primary-input port inequalities are diagnostic only: the input-cloning construction supplied by root/few_nots disproves that stronger route at sufficient graph density.
+
+2026-11-25T15:53:26.027352+00:00 semantic_proof: global weighted charge investigation
+Sufficient target for matching M is |D|+|M intersect D|<=|U|+mc. The exact topology budget is primary-input operand occurrences P plus internal fanout surplus R. Here R is the sum over non-sink gates of operand-occurrence outdegree minus1; the maximal cores are the sinks. Fan-in2 gives U+mc=P+R. Repeated operands must count twice. This corrects the false primary-port-only bound and survives input-AND cloning. StructuralBudget independently checks the equivalent internal-edge formula.
+Precise obstruction: graph-edge support is not a bounded potential on an intermediate junk gate. For a Fano incidence graph, H=(OR of7 point inputs) AND (OR of7 line inputs) uses13 gates but accepts all21 graph edges and all7 edges of a perfect matching, giving weighted28. It also accepts nonedges, so H is not BelowF. Only downstream context removes those nonedges. Any inductive charge that ignores nonedge acceptance or context therefore fails even on a simple rectangle.
+The checked active nested-AND witness is not an injection: one shared junk AND can be true on many edges and lie in many maximal-core cones. C4 exclusion can constrain a family of immediate pure-OR filters of one rectangle to a double-star, but a general core may have intervening ORs and multiple junk ANDs. Fixedpoint cannot normalize dead cones, because its definition only sees the original output cone. This is the precise gap in extending the one-junk/double-star argument globally.
+A plausible structural route is to charge weighted edge surplus beyond distinct incident variables to repeated primary occurrences and internal reconvergence. Equivalently, with all used primary variables V, undirected circuit cycle rank r and component count c, U+mc=|V|+r+mc-c. P4 equality has4 used variables and one reconvergence cycle, paying exactly3 edges+2 matching tokens. Turning this identity into a semantic lower bound needs a cycle-elimination or nonedge-context lemma; no complete argument has been found.
+
+### Shared P4 family bound — 2026-11-25T15:55:19.020028+00:00
+
+`StructuralP4.lean` compiled exit 0, complete logs `2962-structural-p4.stdout/.stderr` (only an unused-section-variable warning). Namespace `PEqualNP.Outside.L_meta_2962.SharedP4`.
+
+For each index t let a=xy, b=a OR z, c=y OR w, d=b AND c. Define distinct gate keys A={unordered(x,y)}, B={(A,z)}, C={unordered(y,w)}, and O={(B,C)}. The outputs represent the three-edge path xy OR yz OR zw by Boolean absorption. The theorem `shared_family_cover` constructs a cover S of the union D of all path edges and proves `D.card + S.card ≤ A.card + B.card + C.card + 2*O.card`. Thus arbitrary sharing among these P4 blocks satisfies the desired numerical bound when U consists of those deduplicated gates and O is its core set. The abstract theorem is about these finite gate keys and edge families; no general circuit-normalization theorem is claimed.
+
+The proof needs only a coloring with color(x)=color(z) and color(y) different. A shared B determines y uniquely: swapping the two endpoints of A would violate the colors. A shared output O then also determines w. Thus xy edges charge to A, yz edges to B, and zw edges to O. The endpoints of all C keys cover D using at most twice as many vertices as C keys; every C is used by an O, so C.card≤O.card. This is the required accounting. C4-freeness is unnecessary for this block class.
+
+The preceding computational check exhaustively glued two oriented P4 blocks (47 valid canonical bipartite/C4-free unions), and randomly sampled larger families; no negative posted margin occurred. Complete script and numerical results are SharedP4Search.py and SharedP4Search.json. The checked theorem now covers all such shared families, beyond those finite samples.
+
+## Final counterexample-search preservation, 2026-11-25 15:58 UTC
+
+All search processes are stopped. Five completed phases examined exactly10,058,361 circuit mutations: C6 4,240,047; K4 incidence2,435,282; Fano601,577; stronger-objective Fano598,774; carryover K4 incidence2,182,681. One OR-sharing phase was interrupted for disk pressure after at least152,018 mutations; its final in-memory count is unknown. No posted counterexample and no exhaustive UNSAT result. Minimum random posted margin1, stronger D-cover margin0. The explicit P4 equality case was kernel-checked separately in CountingTight.lean.
+
+Final code and all38 complete log/data files are in search/counterexample/, with exact counts and SHA256 hashes in VALIDATION.txt. Source SHA256:45b7397a730d1e3e7bed04c2a153cba1b109ed2604297862bdeebd503238bf35. All26 JSON files parsed successfully after the disk interruption.
+
+### Sharper P4 AND/OR split — 2026-11-25T15:58:45.840715+00:00
+
+`StructuralP4Sharp.lean` compiled exit 0, complete `2962-structural-p4-sharp.stdout/.stderr` contain only unused-section-variable warnings. It appends StructuralP4SharpSuffix to frozen StructuralP4.
+
+New `and_cover` gives a cover of D of cardinality at most A.card+O.card: choose one endpoint from every A edge and the middle vertex z for each O. New `or_edge_bound` gives D.card≤B.card+C.card+O.card under the earlier color orientation plus the condition that a shared C key determines z. `common_center_of_no_four` derives that condition from NoFourCycle and distinct endpoints y,w adjacent to z. Thus, for arbitrary shared P4 families, OR gates plus maximal outputs pay for the edges, while AND gates pay for the cover. The residual zw edges not already among yz edges inject into C keys: if a shared C reverses its endpoints, that zw edge is already a yz edge. `path_identity` also checks the Boolean absorption identity for each block.
+
+This is a proved finite-family accounting theorem with explicit gate keys; connecting arbitrary circuits to this block class remains outside its scope. No new searches were started after the disk-pressure pause.

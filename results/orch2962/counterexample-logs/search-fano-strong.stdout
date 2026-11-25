@@ -1,0 +1,10 @@
+{"leaf_margin": 1, "posted_leaf_margin": 2, "posted_margin": 2, "trials": 1}
+{"strong_margin": 1, "posted_margin": 2, "trials": 1}
+{"best": [2, 1, 1, 1, 1, 2], "trials": 1, "elapsed": 0.001748654000039096}
+{"leaf_margin": 0, "posted_leaf_margin": 1, "posted_margin": 2, "trials": 9465}
+{"best": [2, 2, 1, 1, 0, 1], "trials": 9465, "elapsed": 1.1027977640005702}
+{"strong_margin": 0, "posted_margin": 2, "trials": 69180}
+{"best": [2, 3, 1, 0, 0, 2], "trials": 69180, "elapsed": 9.584557099999984}
+{"best": [2, 4, 2, 1, 0, 1], "trials": 488365, "elapsed": 73.22938312699989}
+{"best": [1, 3, 1, 1, 1, 1], "trials": 488409, "elapsed": 73.24005968900019}
+{"status": "inconclusive", "trials": 598774, "best": [1, 3, 1, 1, 1, 1], "elapsed": 90.0000919260001}
