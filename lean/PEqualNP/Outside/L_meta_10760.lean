@@ -3297,4 +3297,89 @@ lemma lowN_of_signed_sample_rejection {width : Nat} (rows : Fin width → Fin 12
   obtain ⟨g, hg, run⟩ := reach_samplePack_build rows hr rootsh hit hzero hones
   exact reject p (by omega) g hg run
 
+namespace AutoPool
+
+def full : Nat := 0xffffffffffffffffffffffffffffffff
+
+def inputs : List Nat := [0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 0xcccccccccccccccccccccccccccccccc, 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0, 0xff00ff00ff00ff00ff00ff00ff00ff00, 0xffff0000ffff0000ffff0000ffff0000, 0xffffffff00000000ffffffff00000000, 0xffffffffffffffff0000000000000000]
+
+def var (v : Nat) : Nat := inputs.getD v 0
+
+def low (v : Nat) : Nat := full ^^^ var v
+
+def flip (w v : Nat) : Nat :=
+  ((w &&& low v) <<< (1 <<< v)) ||| ((w >>> (1 <<< v)) &&& low v)
+
+def table : Nat := 0xa0601a00aa05000a07a0800000660921900000000000090600060b000000000000000c0860c00000050a00080c00001900000021b000000000000c0721c00000011a00000041c00900000000000000000000000000080b41b005000000000905000000000000000000000c0500000000000000000000000000000000000000031a00000b00080900000000000700031900000000000000000070a01b000000419000000000008709000000000000000000000c06b0601c00cb0500080a41a000
+
+def op (o a b : Nat) : Nat :=
+  if o == 0 then a &&& b else if o == 1 then a ||| b
+  else if o == 2 then a ^^^ (a &&& b) else b ^^^ (a &&& b)
+
+def poolRun : List Nat → List (Nat × Nat × Nat) → List Nat
+  | pool, [] => pool
+  | pool, (o,a,b) :: cs => poolRun
+      (pool ++ [op o (pool.getD a 0) (pool.getD b 0)]) cs
+
+def available (d : Nat) (pool : List Nat) (raw : Nat) : Bool :=
+  let w := raw &&& d
+  w == 0 || w == d || pool.any (fun a => w == (a &&& d) || w == (a &&& d ^^^ d))
+
+def truth (anchor : Nat) (support : List Nat) (w : Nat) : Nat :=
+  (List.range 8).foldl (fun bits r =>
+    let pos := (support.zipIdx).foldl (fun pos (v,i) =>
+      if r.testBit i then pos ||| (1 <<< v) else pos) anchor
+    if w.testBit pos then bits ||| (1 <<< r) else bits) 0
+
+def guessOne (d : Nat) (vs pool : List Nat) (raw : Nat) : List (Nat × Nat × Nat) :=
+  if available d pool raw then [] else
+  let anchor := Nat.log2 (d ^^^ (d - 1))
+  let masked := raw &&& d
+  let w := if masked.testBit anchor then masked ^^^ d else masked
+  let support := vs.filter (fun v => (w ^^^ flip w v) &&& d != 0)
+  if support.length < 2 || 3 < support.length then [] else
+  let code := (table >>> (12 * (truth anchor support w / 2))) &&& 4095
+  if code == 0 then [] else
+  let c := (code &&& 255) - 1
+  let o := c % 4
+  let a := vs.idxOf (support.getD ((c / 4) % 4) 0)
+  let b := vs.idxOf (support.getD (c / 16) 0)
+  if code < 256 then [(o,a,b)] else
+  let c' := code / 256 - 1
+  [(o,a,b), (c' % 4, pool.length, vs.idxOf (support.getD (c' / 4) 0))]
+
+def guessAux (d : Nat) (vs : List Nat) : List Nat → List Nat → List (Nat × Nat × Nat)
+  | _, [] => []
+  | pool, w :: ws =>
+    let program := guessOne d vs pool w
+    program ++ guessAux d vs (poolRun pool program) ws
+
+def guess (d : Nat) (vs ws : List Nat) : List (Nat × Nat × Nat) :=
+  guessAux d vs (vs.map (fun v => var v &&& d)) ws
+
+end AutoPool
+
+namespace RestrictionSixProof
+
+def autoCuts (Z : List SliceD) (ws : List Nat)
+    (k : Nat) (rest : List Nat) (a b z : Nat) (ka kb : Bool) : Bool :=
+  guessCuts Z (fun s => AutoPool.guess s.1 s.2.2 ws) k rest a b z ka kb
+
+lemma autoCut_sound {R T s k rest a b o ka kb}
+    (hs : SliceN R T s) (ws : List Nat)
+    (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
+    (h : cutEval k rest a b (nb o a b) ka kb
+      (programCut s (AutoPool.guess s.1 s.2.2 ws)) = true) :
+    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset :=
+  guessCut_sound hs (AutoPool.guess s.1 s.2.2 ws) nd h
+
+lemma autoCuts_sound {R T Z k rest a b o ka kb}
+    (hZ : ∀ s ∈ Z, SliceN R T s) (ws : List Nat)
+    (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
+    (h : autoCuts Z ws k rest a b (nb o a b) ka kb = true) :
+    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset :=
+  guessCuts_sound hZ (fun s => AutoPool.guess s.1 s.2.2 ws) nd h
+
+end RestrictionSixProof
+
 end PEqualNP.Outside.L_meta_10760
