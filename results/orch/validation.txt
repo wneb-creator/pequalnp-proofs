@@ -19,3 +19,5 @@ Independent reviews: proof_route for LRAT and tracked core; gate_elimination for
 
 Combined named-file build passed at19:14:53 UTC:3813lines, checked lower13+upper14. Independent composition review proof_route PASS.
 Full tracked bridge compiled separately with exit0; root reviewed unchanged bridge logic and strengthened accounting.
+
+Fixed-NOT endpoint and exact-statement wrapper conditional on finite certificate compiled successfully. Independent wrapper review proof_route PASS. Remaining computation is being split to meet memory budget.

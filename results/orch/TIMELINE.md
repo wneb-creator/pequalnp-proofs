@@ -17,3 +17,5 @@
 -2026-11-25 19:13 UTC: one-NOT root search returned false after350852states/24seconds; Lean verification pending.
 -2026-11-25 19:14:53 UTC: combined named-file partial build passed.
 -2026-11-25 19:15 UTC: full tracked bridge passed.
+-2026-11-25 19:15:40 UTC: fixed-NOT endpoint checked.
+-2026-11-25 19:18 UTC: conditional final wrapper checked; monolithic computation stopped at7.7GB RSS; splitting certificate.
