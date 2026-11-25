@@ -6393,4 +6393,153 @@ lemma no_build_of_searchFast {goal g : Mask} (hg : g = goal ∨ g = ~~~goal)
 
 end Endpoint64
 
+
+namespace PNGraphBridge
+
+variable {width : Nat}
+
+def pat (ws : List (BitVec width)) (r : Fin width) : Nat :=
+  (BitVec.ofBoolListLE (ws.map (fun w => w[r.val]))).toNat
+
+lemma pat_bit (ws : List (BitVec width)) (r : Fin width) (i : Nat) :
+    (pat ws r).testBit i = (ws.getD i 0)[r.val] := by
+  simp only [pat, BitVec.testBit_toNat, BitVec.getLsbD_ofBoolListLE]
+  simpa using
+    (List.getD_map ws (0 : BitVec width) (n := i) (fun w => w[r.val]))
+
+lemma xor_uniqueSep (ws : List (BitVec width)) (i : Nat)
+    (p q : Fin width) (he : pat ws q = pat ws p ^^^ 2^i) :
+    uniqueSep ws.toFinset (ws.getD i 0) p q := by
+  have bits (j : Nat) :
+      (ws.getD j 0)[q.val] = ((ws.getD j 0)[p.val] ^^ decide (i = j)) := by
+    have h := congrArg (fun n : Nat => n.testBit j) he
+    simpa only [pat_bit, Nat.testBit_xor, Nat.testBit_two_pow] using h
+  constructor
+  · have h := bits i
+    simp only [decide_true, Bool.bne_true] at h
+    rw [h]
+    cases (ws.getD i 0)[p.val] <;> decide
+  · intro w hw hne
+    obtain ⟨j,hj,rfl⟩ := List.mem_iff_getElem.mp (List.mem_toFinset.mp hw)
+    have hji : i ≠ j := by
+      intro h
+      subst j
+      exact hne (List.getD_eq_getElem _ _ hj).symm
+    have h := bits j
+    simp only [hji, decide_false, Bool.bne_false] at h
+    simpa only [List.getD_eq_getElem _ _ hj] using h.symm
+
+lemma uniqueSep_swap {S : Finset (BitVec width)} {a : BitVec width}
+    {p q : Fin width} (h : uniqueSep S a p q) : uniqueSep S a q p := by
+  exact ⟨h.1.symm, fun w hw hne => (h.2 w hw hne).symm⟩
+
+lemma getD_ne (ws : List (BitVec width)) (hn : ws.Nodup) (i j : Nat)
+    (hi : i < ws.length) (hj : j < ws.length) (hne : i ≠ j) :
+    ws.getD i 0 ≠ ws.getD j 0 := by
+  rw [List.getD_eq_getElem _ _ hi, List.getD_eq_getElem _ _ hj]
+  exact (not_congr hn.getElem_inj_iff).mpr hne
+
+lemma pat_lt (ws : List (BitVec width)) (r : Fin width) :
+    pat ws r < 2^ws.length := by
+  simpa only [pat, List.length_map] using
+    (BitVec.ofBoolListLE (ws.map (fun w => w[r.val]))).isLt
+
+lemma witness_criticalPair (goal : BitVec width) (ws : List (BitVec width))
+    (hn : ws.Nodup) (i j : Nat) (hi : i < ws.length) (hj : j < ws.length)
+    (hij : i ≠ j) (P N p q : Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ pat ws r = x)
+    (hp : P.testBit p = true) (hq : N.testBit q = true)
+    (hpi : N.testBit (p ^^^ 2^i) = true) (hpj : N.testBit (p ^^^ 2^j) = true)
+    (hqi : P.testBit (q ^^^ 2^i) = true) (hqj : P.testBit (q ^^^ 2^j) = true)
+    (hphasei : p.testBit i ≠ q.testBit i)
+    (hphasej : p.testBit j ≠ q.testBit j) :
+    criticalPair goal ws.toFinset (ws.getD i 0) (ws.getD j 0) := by
+  obtain ⟨rp,hrp,erp⟩ := hP p hp
+  obtain ⟨rq,hrq,erq⟩ := hN q hq
+  obtain ⟨ri,hri,eri⟩ := hN _ hpi
+  obtain ⟨rj,hrj,erj⟩ := hN _ hpj
+  obtain ⟨si,hsi,esi⟩ := hP _ hqi
+  obtain ⟨sj,hsj,esj⟩ := hP _ hqj
+  have ui := xor_uniqueSep ws i rp ri (by rw [erp]; exact eri)
+  have uj := xor_uniqueSep ws j rp rj (by rw [erp]; exact erj)
+  have vi := uniqueSep_swap (xor_uniqueSep ws i rq si (by rw [erq]; exact esi))
+  have vj := uniqueSep_swap (xor_uniqueSep ws j rq sj (by rw [erq]; exact esj))
+  have mem (a : Nat) (ha : a < ws.length) : ws.getD a 0 ∈ ws.toFinset := by
+    apply List.mem_toFinset.mpr
+    rw [List.getD_eq_getElem _ _ ha]
+    exact List.getElem_mem ha
+  apply (criticalPair_iff_endpointWitness goal ws.toFinset _ _).mpr
+  refine ⟨mem i hi, mem j hj, getD_ne ws hn i j hi hj hij,
+    rp,rq,⟨hrp,ri,hri,ui⟩,⟨hrp,rj,hrj,uj⟩,
+    ⟨hrq,si,hsi,vi⟩,⟨hrq,sj,hsj,vj⟩,?_,?_⟩
+  · simpa only [← pat_bit, erp, erq] using hphasei
+  · simpa only [← pat_bit, erp, erq] using hphasej
+
+def maskWitness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Nat) : Prop :=
+  ∃ p q,
+    (P &&& flip i N).testBit p = true ∧ (P &&& flip j N).testBit p = true ∧
+    (N &&& flip i P).testBit q = true ∧ (N &&& flip j P).testBit q = true ∧
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j
+
+lemma maskWitness_criticalPair (goal : BitVec width) (ws : List (BitVec width))
+    (hn : ws.Nodup) (i j : Nat) (hi : i < ws.length) (hj : j < ws.length)
+    (hij : i ≠ j) (P N : Nat) (flip : Nat → Nat → Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ pat ws r = x)
+    (hflip : ∀ a, a < ws.length → ∀ B x, x < 2^ws.length →
+      (flip a B).testBit x = B.testBit (x ^^^ 2^a))
+    (h : maskWitness P N flip i j) :
+    criticalPair goal ws.toFinset (ws.getD i 0) (ws.getD j 0) := by
+  obtain ⟨p,q,hpi,hpj,hqi,hqj,phasei,phasej⟩ := h
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hpi hpj hqi hqj
+  have hpbound : p < 2^ws.length := by
+    obtain ⟨r,_,hr⟩ := hP p hpi.1
+    rw [← hr]
+    exact pat_lt ws r
+  have hqbound : q < 2^ws.length := by
+    obtain ⟨r,_,hr⟩ := hN q hqi.1
+    rw [← hr]
+    exact pat_lt ws r
+  rw [hflip i hi N p hpbound] at hpi
+  rw [hflip j hj N p hpbound] at hpj
+  rw [hflip i hi P q hqbound] at hqi
+  rw [hflip j hj P q hqbound] at hqj
+  exact witness_criticalPair goal ws hn i j hi hj hij P N p q hP hN
+    hpi.1 hqi.1 hpi.2 hpj.2 hqi.2 hqj.2 phasei phasej
+
+lemma graph_colorable_of_live {goal g : BitVec width} {k : Nat}
+    {ws : List (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (hn : ws.Nodup)
+    (hl : live basicOps g k ws.toFinset) (P N : Nat) (flip : Nat → Nat → Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ pat ws r = x)
+    (hflip : ∀ a, a < ws.length → ∀ B x, x < 2^ws.length →
+      (flip a B).testBit x = B.testBit (x ^^^ 2^a))
+    (graph : List Nat) (hlen : graph.length = ws.length)
+    (hedge : ∀ i, i < ws.length → ∀ j, j < ws.length →
+      (graph.getD i 0).testBit j = true → i ≠ j ∧ maskWitness P N flip i j) :
+    graphColorable graph (k + 2 - ws.length) := by
+  obtain ⟨color,hbound,hproper⟩ := live_criticalPair_coloring hl hg
+  have mem (a : Nat) (ha : a < ws.length) : ws.getD a 0 ∈ ws.toFinset := by
+    apply List.mem_toFinset.mpr
+    rw [List.getD_eq_getElem _ _ ha]
+    exact List.getElem_mem ha
+  refine ⟨fun i => color (ws.getD i 0), ?_, ?_⟩
+  · intro i hi
+    rw [hlen] at hi
+    simpa only [List.toFinset_card_of_nodup hn] using hbound _ (mem i hi)
+  · intro i hi j hj he
+    rw [hlen] at hi hj
+    obtain ⟨hne,hw⟩ := hedge i hi j hj he
+    exact hproper _ _ (maskWitness_criticalPair goal ws hn i j hi hj hne P N flip
+      hP hN hflip hw)
+
+end PNGraphBridge
+
 end PEqualNP.Outside.L_meta_10760
