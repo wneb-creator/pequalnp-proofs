@@ -1,0 +1,88 @@
+L-meta-1031 checked research components. The full posted theorem is unproved.
+
+File: results/orch/lemmas/two_choice_rectangle.lean
+Lines: 283
+SHA256: ab3dfd90119079e5ded12e379055c5e638f2bd277458919ca2aca445899b8749
+Direct Lean compile exit0; complete stdout/stderr empty.
+Independent review PASS (normal_form and/or lean_setup).
+Complete axiom audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.factor_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.hasEdge_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.corners_repeat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.edgeCorners_card_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.HasEdge.card_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_choices_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.three_monomials_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_or_pattern_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete axiom audit stderr:
+
+File: results/orch/lemmas/unique_bare_cover.lean
+Lines: 169
+SHA256: 26dbe7e3c4eb684aab48c51eafdadb6330fa07919624dff86abb090d48af5485
+Direct Lean compile exit0; complete stdout/stderr empty.
+Independent review PASS (normal_form and/or lean_setup).
+Complete axiom audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.side_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.fuel_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.eval_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.eval_true_has_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_left_hit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_right_hit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_cross_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.computes_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.edge_has_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.unique_bare_biclique_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete axiom audit stderr:
+
+File: results/orch/lemmas/semantic_case_assembly.lean
+Lines: 238
+SHA256: 5f329291be60b4bdc97bb3a02cb9f0f6dede7e70af1bdddf21a2da1e1dfc6df7
+Direct Lean compile exit0; complete stdout/stderr empty.
+Independent review PASS (normal_form and/or lean_setup).
+Complete axiom audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.ors_initial_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.assemble_checks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete axiom audit stderr:
+
+
+Scope: two_choice_rectangle bounds a two-OR expression pattern, not arbitrary programs; unique_bare_cover assumes at most one bare-gate occurrence per vertex; semantic_case_assembly assumes102 individual checker facts.
+Checker: not run; these are partial lemmas, not the posted theorem.
+Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
+TIMING total=55.92 subagents=6
