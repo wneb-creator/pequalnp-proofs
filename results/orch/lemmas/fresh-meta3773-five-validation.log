@@ -1,0 +1,3 @@
+extended 64-bit C++ recurrence compared to Python 96 theta4 cases, including 17 negative test rows
+theta4 no raw-token repeats: no earliest cone candidate, independent direct separation test
+known 16-gate theta4 positive accepted; raw extra counts 7

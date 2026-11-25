@@ -1,0 +1,2 @@
+{"label": "c8", "inputs": 8, "budget": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 0]], "positive_samples": 8, "maximal_negative_samples": 10, "variables": 3460, "clauses": 61282, "cnf_sha256": "aa6a5891576d8c1047f3a4e1b8bf91271477ed6e2f7816bb26de60f9fa5a4b43"}
+{"exit_code": 0, "seconds": 90.06703595299768, "cnf_sha256": "aa6a5891576d8c1047f3a4e1b8bf91271477ed6e2f7816bb26de60f9fa5a4b43"}

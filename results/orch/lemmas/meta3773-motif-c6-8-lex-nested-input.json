@@ -1,0 +1,51 @@
+{
+  "require_and_ancestor": true,
+  "canonical_adjacent_independent_gates": true,
+  "label": "c6",
+  "inputs": 6,
+  "budget": 8,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "positive_samples": [
+    3,
+    6,
+    12,
+    24,
+    33,
+    48
+  ],
+  "maximal_negative_samples": [
+    9,
+    18,
+    21,
+    36,
+    42
+  ],
+  "variables": 1624,
+  "clauses": 50115,
+  "cnf_sha256": "e1e20956b74f849e1ef36e8f0aa7b4a0e9f5e327d05ddad48135984cbbccd50b"
+}

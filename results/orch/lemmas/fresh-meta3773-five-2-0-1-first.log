@@ -1,0 +1,6 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+case 1 of 4 result False states 16 seconds 0.012
+case 2 of 4 result False states 32 seconds 0.022
+case 3 of 4 result False states 48 seconds 0.031
+case 4 of 4 result False states 64 seconds 0.039
+{'cases': 4, 'tested': 4, 'solutions': [], 'seconds': 0.03934095799922943}

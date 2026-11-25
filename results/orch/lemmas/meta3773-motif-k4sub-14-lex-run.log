@@ -1,0 +1,2 @@
+{"canonical_adjacent_independent_gates": true, "label": "k4sub", "inputs": 10, "budget": 14, "edges": [[0, 4], [1, 4], [0, 5], [2, 5], [0, 6], [3, 6], [1, 7], [2, 7], [1, 8], [3, 8], [2, 9], [3, 9]], "positive_samples": 12, "maximal_negative_samples": 12, "variables": 8400, "clauses": 769380, "cnf_sha256": "552b1a236bda900b89dbded1361e892fb73cdf075c47ef3def52f5d7d129334a"}
+{"exit_code": 0, "seconds": 180.04052289299943, "cnf_sha256": "552b1a236bda900b89dbded1361e892fb73cdf075c47ef3def52f5d7d129334a"}

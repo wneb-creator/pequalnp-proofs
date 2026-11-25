@@ -1,0 +1,3 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+case 1 of 1 result False states 1 seconds 0.0
+{'cases': 1, 'tested': 1, 'solutions': [], 'seconds': 0.0004941249972034711}

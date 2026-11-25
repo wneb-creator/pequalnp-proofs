@@ -1,0 +1,17 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+case 3 of 212 result False branch-eligible False states 0 seconds 0.001
+case 4 of 212 result False branch-eligible False states 0 seconds 0.001
+case 5 of 212 result False branch-eligible False states 0 seconds 0.002
+case 6 of 212 result False branch-eligible False states 0 seconds 0.002
+case 7 of 212 result False branch-eligible False states 0 seconds 0.002
+case 8 of 212 result False branch-eligible False states 0 seconds 0.002
+case 9 of 212 result False branch-eligible False states 0 seconds 0.002
+case 10 of 212 result False branch-eligible False states 0 seconds 0.003
+case 11 of 212 result False branch-eligible False states 0 seconds 0.003
+case 12 of 212 result False branch-eligible False states 0 seconds 0.003
+case 13 of 212 result False branch-eligible False states 0 seconds 0.003
+case 14 of 212 result False branch-eligible False states 0 seconds 0.003
+case 15 of 212 result False branch-eligible False states 0 seconds 0.004
+case 16 of 212 result False branch-eligible False states 0 seconds 0.004
+case 17 of 212 result False branch-eligible False states 0 seconds 0.004
+case 18 of 212 result False branch-eligible False states 0 seconds 0.004

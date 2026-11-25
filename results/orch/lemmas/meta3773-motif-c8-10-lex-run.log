@@ -1,0 +1,2 @@
+{"canonical_adjacent_independent_gates": true, "label": "c8", "inputs": 8, "budget": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 0]], "positive_samples": 8, "maximal_negative_samples": 10, "variables": 3460, "clauses": 180190, "cnf_sha256": "88f279703498e1c8cd50860f0d1fd09f0fd51c84943e1f64bdb5964ddb274688"}
+{"exit_code": 0, "seconds": 90.07701437899959, "cnf_sha256": "88f279703498e1c8cd50860f0d1fd09f0fd51c84943e1f64bdb5964ddb274688"}

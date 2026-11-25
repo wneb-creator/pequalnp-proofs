@@ -1,0 +1,8 @@
+fresh_meta3773_readonce_ext.cpp: In member function ‘bool {anonymous}::Solver::rec(int, int, int)’:
+fresh_meta3773_readonce_ext.cpp:16:57: warning: comparison of integer expressions of different signedness: ‘uint32_t’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+   16 |   for(int q=A;q;q&=q-1) if((cover(S,__builtin_ctz(q))&B)!=B) return memo[key]=false;
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+fresh_meta3773_readonce_ext.cpp: In function ‘int splits(int, const uint64_t*, int, int, uint32_t*)’:
+fresh_meta3773_readonce_ext.cpp:50:72: warning: comparison of integer expressions of different signedness: ‘__gnu_cxx::__alloc_traits<std::allocator<unsigned int>, unsigned int>::value_type’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+   50 |   bool ok=true;for(int q=gp;q;q&=q-1)if((cov[s*np+__builtin_ctz(q)]&gn)!=gn){ok=false;break;}
+      |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~

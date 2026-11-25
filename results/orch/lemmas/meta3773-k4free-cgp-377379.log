@@ -1,0 +1,4 @@
+{"stage":"start","seed":377379,"samples":24,"genotype_gates":40,"free_or_pairs":[[4,9],[5,8],[6,7]]}
+{"stage":"best","iterations":2,"size":17}
+{"stage":"best","iterations":160004,"size":15}
+{"stage":"finished","iterations":136305664,"restarts":1704,"best_valid_size":15,"seconds":60.0006}

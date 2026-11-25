@@ -1,0 +1,4 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+case 3 of 92 result False branch-eligible False states 0 seconds 0.001
+case 4 of 92 result False branch-eligible False states 0 seconds 0.001
+case 5 of 92 result False branch-eligible False states 0 seconds 0.001

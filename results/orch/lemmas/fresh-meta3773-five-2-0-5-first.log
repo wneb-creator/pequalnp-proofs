@@ -1,0 +1,3 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+case 1 of 212 result False states 6 seconds 0.011
+case 2 of 212 result False states 24 seconds 0.053

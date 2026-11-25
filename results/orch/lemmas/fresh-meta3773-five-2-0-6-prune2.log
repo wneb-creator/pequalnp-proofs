@@ -1,0 +1,2 @@
+model [0, 1, 2, 3, 9] rows 12 17 group 24
+{'cases': 459, 'tested': 459, 'solutions': [], 'seconds': 0.0004312800010666251}
