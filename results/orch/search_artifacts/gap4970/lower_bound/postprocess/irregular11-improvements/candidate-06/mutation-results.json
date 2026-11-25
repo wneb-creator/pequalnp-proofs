@@ -1,0 +1,2922 @@
+[
+  {
+    "mutation": "original",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 15,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-0-1-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-0-2-8",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-0-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-0-7",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-0-8",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-1-2-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-1-11",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-2-1-7",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-2-2-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-2-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-2-7",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-2-8",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-3-1-0",
+    "edges": [
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 15,
+    "gates": 15,
+    "bound": 15,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-4-1-9",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-4-2-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-4-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-4-8",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-4-10",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-2-6",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-5-13",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-5-14",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 22,
+    "gates": 13,
+    "bound": 11,
+    "margin": 2,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-6-2-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-6-14",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 26,
+    "gates": 13,
+    "bound": 11,
+    "margin": 2,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-6-15",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-7-1-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-7-2-7",
+    "edges": [
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-7-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-7-7",
+    "edges": [
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-7-9",
+    "edges": [
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-8-1-0",
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 27,
+    "gates": 15,
+    "bound": 15,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-8-14",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 26,
+    "gates": 12,
+    "bound": 11,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-9-2-5",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 15,
+    "bound": 14,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-9-14",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 28,
+    "gates": 13,
+    "bound": 11,
+    "margin": 2,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-9-18",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-11-1-0",
+    "edges": [
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 23,
+    "gates": 15,
+    "bound": 15,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-11-2-21",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-11-14",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 22,
+    "gates": 12,
+    "bound": 11,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-13-1-0",
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 29,
+    "gates": 15,
+    "bound": 15,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-13-2-21",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 4,
+    "cover_mask": 30,
+    "gates": 14,
+    "bound": 14,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-13-14",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 28,
+    "gates": 12,
+    "bound": 11,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-14-1-19",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 14,
+    "gates": 12,
+    "bound": 11,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-14-14",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 28,
+    "gates": 11,
+    "bound": 11,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-14-19",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 2,
+    "cover_mask": 12,
+    "gates": 8,
+    "bound": 7,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-14-24",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 14,
+    "gates": 11,
+    "bound": 11,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-15-14",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 2,
+    "cover_mask": 20,
+    "gates": 7,
+    "bound": 7,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-15-19",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 4,
+    "gates": 4,
+    "bound": 3,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-15-22",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 2,
+    "cover_mask": 12,
+    "gates": 7,
+    "bound": 7,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-15-24",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "tau": 2,
+    "cover_mask": 6,
+    "gates": 7,
+    "bound": 7,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-15-25",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 22,
+    "gates": 11,
+    "bound": 11,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-14",
+    "edges": [
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 16,
+    "gates": 3,
+    "bound": 3,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-19",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 4,
+    "gates": 3,
+    "bound": 3,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-22",
+    "edges": [
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 8,
+    "gates": 3,
+    "bound": 3,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-24",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 2,
+    "gates": 3,
+    "bound": 3,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-25",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 2,
+    "cover_mask": 18,
+    "gates": 7,
+    "bound": 7,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-16-26",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "cover_mask": 26,
+    "gates": 11,
+    "bound": 11,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  }
+]

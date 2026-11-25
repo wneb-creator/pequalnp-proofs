@@ -1,0 +1,132 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-05.json",
+  "sha256": "3f71b9320ac4e141bf3a52712d7e75e00052b87a896894e2e283b26bc9e29f07",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "removed_edges": [
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 14,
+  "tau": 4,
+  "minimum_cover_mask": 23,
+  "posted_bound": 14,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 2,
+      "support_mask": 544,
+      "coverage": 96
+    },
+    {
+      "gate": 1,
+      "center": 1,
+      "support_mask": 384,
+      "coverage": 24
+    },
+    {
+      "gate": 2,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 224
+    },
+    {
+      "gate": 3,
+      "center": 4,
+      "support_mask": 1280,
+      "coverage": 1536
+    },
+    {
+      "gate": 4,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 3
+    },
+    {
+      "gate": 11,
+      "center": 4,
+      "support_mask": 1344,
+      "coverage": 1792
+    },
+    {
+      "gate": 13,
+      "center": 1,
+      "support_mask": 416,
+      "coverage": 28
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 14,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 129503,
+  "is_counterexample": false
+}

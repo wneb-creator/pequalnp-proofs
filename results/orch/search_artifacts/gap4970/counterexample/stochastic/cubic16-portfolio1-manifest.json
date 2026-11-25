@@ -1,0 +1,72 @@
+{
+  "frozen_utc": "2026-11-25T16:31:08.121532+00:00",
+  "graph": "cubic16",
+  "notes": "Frozen terminated stochastic phase; inspect portfolio1-results.json for exit status. No counterexample found. All hypothesis-satisfying improvement snapshots extracted from immutable full log.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.stdout",
+      "size": 5727,
+      "sha256": "c305e8a4469a087c4ba76bbb9fa4793ad6de01eec295db91bc03c99b932ae259"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.best.json",
+      "size": 640,
+      "sha256": "4a7d6c9ea07fccf20462e281e15253b86883ca80c2dc4371bf8f1507e2f7e902"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.best-hyp.json",
+      "size": 638,
+      "sha256": "d89409e3c93d13b79791fca70e932165d27226cb1bf08c32e8228c2051e7c2bb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.control0.json",
+      "size": 549,
+      "sha256": "ba8f349cef3100c87393e6f4167e7b4b6ae8878067de2d8f97e4754b65fc3fb4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.control1.json",
+      "size": 566,
+      "sha256": "09ade827a6b9c9cb0e02cff5707d71cf39b4beed015d8fd50cdb08993710b13f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1.control2.json",
+      "size": 583,
+      "sha256": "a35e76c1612e04db034ed013c37426870b37509bcf484283b77b624b865ab740"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-00.json",
+      "size": 1471,
+      "sha256": "2536a12b05620af11aefe91a4edc15bb5913f805a1ba992864ffc9e17ccc6877"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-01.json",
+      "size": 1468,
+      "sha256": "e53a29ad20cc8926c3d10a8c6041005400254c307d841f552fddb16e30b2a88d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-02.json",
+      "size": 1469,
+      "sha256": "22b1bc1780120804ed0a8c521c36f6c083aef1d079c86f19178c93649f1d4b35"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-03.json",
+      "size": 1469,
+      "sha256": "dcd343fb7260479b71bdd9af5a90bf0fc4437ed7d1a3e5264d4e192119ebfbd4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-04.json",
+      "size": 1469,
+      "sha256": "ace521b5ae09db92309ee8db93e15cb7d7e6584a6dc7293ee29465c8e21990a4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1-candidates/candidate-05.json",
+      "size": 1474,
+      "sha256": "b04274b13b8efea4b1a8247c95070e20f693e399a78ea7efee4d817e91668c14"
+    }
+  ]
+}

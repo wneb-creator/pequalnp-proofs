@@ -1,0 +1,76 @@
+{
+  "name": "fano_minus_nonincident",
+  "n": 12,
+  "p": 6,
+  "l": 6,
+  "edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "tau": 6,
+  "bound": 20,
+  "target_gates": 19,
+  "independent_sets": 250,
+  "maximal_independent_sets": 26,
+  "star_supports": 30,
+  "evaluation_rows": 71,
+  "no_four_cycle": true
+}

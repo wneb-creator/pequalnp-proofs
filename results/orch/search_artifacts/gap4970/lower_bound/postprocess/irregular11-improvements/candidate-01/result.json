@@ -1,0 +1,86 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-01.json",
+  "sha256": "f2037525cbb8bf819d070e346ef3f3ff91fe3c7b2bdbc3eec9b87ce426988e8b",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      2,
+      4
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "extra_pairs": [
+    [
+      2,
+      4
+    ]
+  ],
+  "bipartite": false,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 2
+}

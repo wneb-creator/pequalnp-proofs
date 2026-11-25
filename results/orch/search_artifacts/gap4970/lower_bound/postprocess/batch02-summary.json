@@ -1,0 +1,110 @@
+[
+  {
+    "batch": "irregular11-improvements",
+    "snapshots": 7,
+    "mutations": 6671,
+    "outputs": 44,
+    "successful_mutation_records": 272,
+    "counterexample_found": false,
+    "cases": [
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-00.json",
+        "wrong_rows": 4,
+        "derived_edges": 36,
+        "tau": null,
+        "pruned_gates": null,
+        "bound": null
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-01.json",
+        "wrong_rows": 0,
+        "derived_edges": 1,
+        "tau": null,
+        "pruned_gates": null,
+        "bound": null
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-02.json",
+        "wrong_rows": 0,
+        "derived_edges": 6,
+        "tau": 3,
+        "pruned_gates": null,
+        "bound": 8
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-03.json",
+        "wrong_rows": 0,
+        "derived_edges": 10,
+        "tau": 4,
+        "pruned_gates": 13,
+        "bound": 13
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-04.json",
+        "wrong_rows": 0,
+        "derived_edges": 8,
+        "tau": 3,
+        "pruned_gates": 12,
+        "bound": 10
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-05.json",
+        "wrong_rows": 0,
+        "derived_edges": 11,
+        "tau": 4,
+        "pruned_gates": 14,
+        "bound": 14
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-06.json",
+        "wrong_rows": 0,
+        "derived_edges": 12,
+        "tau": 4,
+        "pruned_gates": 15,
+        "bound": 15
+      }
+    ]
+  },
+  {
+    "batch": "fano_minus_incident-improvements",
+    "snapshots": 4,
+    "mutations": 5084,
+    "outputs": 37,
+    "successful_mutation_records": 272,
+    "counterexample_found": false,
+    "cases": [
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-00.json",
+        "wrong_rows": 0,
+        "derived_edges": 14,
+        "tau": 5,
+        "pruned_gates": 18,
+        "bound": 18
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-01.json",
+        "wrong_rows": 0,
+        "derived_edges": 17,
+        "tau": null,
+        "pruned_gates": null,
+        "bound": null
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-02.json",
+        "wrong_rows": 0,
+        "derived_edges": 10,
+        "tau": 4,
+        "pruned_gates": 13,
+        "bound": 13
+      },
+      {
+        "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-03.json",
+        "wrong_rows": 0,
+        "derived_edges": 13,
+        "tau": 5,
+        "pruned_gates": 17,
+        "bound": 17
+      }
+    ]
+  }
+]

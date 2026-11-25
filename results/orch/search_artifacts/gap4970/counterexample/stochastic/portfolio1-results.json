@@ -1,0 +1,77 @@
+[
+  {
+    "graph": "subk4",
+    "seconds": 120,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4.dat",
+      "120",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1",
+      "497010"
+    ],
+    "started_utc": "2026-11-25T16:11:15.099149+00:00",
+    "pid": 34776,
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T16:13:15.110564+00:00"
+  },
+  {
+    "graph": "irregular11",
+    "seconds": 240,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11.dat",
+      "240",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1",
+      "497011"
+    ],
+    "started_utc": "2026-11-25T16:13:15.113772+00:00",
+    "pid": 34901,
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T16:17:15.129165+00:00"
+  },
+  {
+    "graph": "fano_minus_incident",
+    "seconds": 360,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident.dat",
+      "360",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1",
+      "497012"
+    ],
+    "started_utc": "2026-11-25T16:17:15.136287+00:00",
+    "pid": 35044,
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T16:23:15.160604+00:00"
+  },
+  {
+    "graph": "fano_minus_nonincident",
+    "seconds": 240,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident.dat",
+      "240",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1",
+      "497013"
+    ],
+    "started_utc": "2026-11-25T16:23:15.165782+00:00",
+    "pid": 35460,
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T16:27:15.204168+00:00"
+  },
+  {
+    "graph": "cubic16",
+    "seconds": 240,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16.dat",
+      "240",
+      "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1",
+      "497014"
+    ],
+    "started_utc": "2026-11-25T16:27:15.206624+00:00",
+    "pid": 36350,
+    "exit_code": 75,
+    "finished_utc": "2026-11-25T16:30:10.006331+00:00"
+  }
+]

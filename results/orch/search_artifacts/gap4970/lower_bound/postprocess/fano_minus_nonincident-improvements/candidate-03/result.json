@@ -1,0 +1,130 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-03.json",
+  "sha256": "e3bbedd2eb310a12b3a93e522be82cfa3dcd6d6bd91c3f38ab246cc717387b6e",
+  "original_graph": "fano_minus_nonincident",
+  "n": 12,
+  "p": 6,
+  "original_gates": 19,
+  "derived_edges": [
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 4096,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 14,
+  "tau": 4,
+  "minimum_cover_mask": 58,
+  "posted_bound": 13,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 4,
+      "support_mask": 1536,
+      "coverage": 96
+    },
+    {
+      "gate": 3,
+      "center": 5,
+      "support_mask": 1280,
+      "coverage": 384
+    },
+    {
+      "gate": 5,
+      "center": 5,
+      "support_mask": 3328,
+      "coverage": 896
+    },
+    {
+      "gate": 6,
+      "center": 1,
+      "support_mask": 2176,
+      "coverage": 3
+    },
+    {
+      "gate": 12,
+      "center": 3,
+      "support_mask": 640,
+      "coverage": 20
+    },
+    {
+      "gate": 13,
+      "center": 3,
+      "support_mask": 896,
+      "coverage": 28
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 14,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 522729,
+  "is_counterexample": false
+}

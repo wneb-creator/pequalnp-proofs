@@ -1,0 +1,72 @@
+{
+  "frozen_utc": "2026-11-25T16:22:41.213715+00:00",
+  "graph": "irregular11",
+  "notes": "Completed stochastic phase, no counterexample. All hypothesis-satisfying improvement snapshots extracted from immutable full log.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.stdout",
+      "size": 3192,
+      "sha256": "1fd38cd29f9bbfc5faf6444dad37639fc587a6555870bb1439c3979ceea254d0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.best-hyp.json",
+      "size": 416,
+      "sha256": "223a56f97d96c745d6aa7afc08d2a38db1d7f3d840a199ac493d3ced35ddb057"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.control0.json",
+      "size": 325,
+      "sha256": "0e3f530902555cd0d519b44493f0ba6e207bd51bc55ad0a2a9f2e728c4627ff7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.control1.json",
+      "size": 342,
+      "sha256": "e869d1990d4a861d3226fcabe7d07fdb52fccd41f01e79806188f59fb05bb4f3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.control2.json",
+      "size": 359,
+      "sha256": "8e3dc691f6ec2dac701debcc5ecb1539409ead02b2b7bf95e2df4d984bfb2f3e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-00.json",
+      "size": 933,
+      "sha256": "a2e95114180e58b45a21dbf1ddabaa4515aa03d6ad25fc0de5dd1a89596dd1a2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-01.json",
+      "size": 932,
+      "sha256": "f2037525cbb8bf819d070e346ef3f3ff91fe3c7b2bdbc3eec9b87ce426988e8b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-02.json",
+      "size": 931,
+      "sha256": "68af97d4b107832fdaabbe3ea23adb215b7f6d3bf93b54b84379cd79c875f332"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-03.json",
+      "size": 932,
+      "sha256": "9e4dadf25d64702549dc8e1dcc9e722eb803124c6bae78a2b39fd8f69ab3bcce"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-04.json",
+      "size": 933,
+      "sha256": "0f8838f2e96045a76d9eed4987676b8cf5a62f24527a6ef892286e80126f8b9a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-05.json",
+      "size": 933,
+      "sha256": "3f71b9320ac4e141bf3a52712d7e75e00052b87a896894e2e283b26bc9e29f07"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-06.json",
+      "size": 933,
+      "sha256": "e1e9f8d5b98781304455ee94a7a2e838a03949496729c5897d5a9f037d31d89e"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+fano_minus_incident-improvements/candidate-00 PASS
+fano_minus_incident-improvements/candidate-01 PASS
+fano_minus_incident-improvements/candidate-02 PASS
+fano_minus_incident-improvements/candidate-03 PASS
+fano_minus_nonincident-improvements/candidate-00 PASS
+fano_minus_nonincident-improvements/candidate-01 PASS
+fano_minus_nonincident-improvements/candidate-02 PASS
+fano_minus_nonincident-improvements/candidate-03 PASS
+fano_minus_nonincident-improvements/candidate-04 PASS
+fano_minus_nonincident-improvements/candidate-05 PASS
+irregular11-improvements/candidate-00 PASS
+irregular11-improvements/candidate-01 PASS
+irregular11-improvements/candidate-02 PASS
+irregular11-improvements/candidate-03 PASS
+irregular11-improvements/candidate-04 PASS
+irregular11-improvements/candidate-05 PASS
+irregular11-improvements/candidate-06 PASS
+{"files": 135, "inputs": 17, "recorded_outputs": 135, "recorded_rewires": 897, "saved_pruned": 11}
+All saved positive claims verified; rejected heuristic variants not rerun. No counterexample or general proof.

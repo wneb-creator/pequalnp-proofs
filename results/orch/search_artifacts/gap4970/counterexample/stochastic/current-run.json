@@ -1,0 +1,13 @@
+{
+  "graph": "cubic16",
+  "seconds": 240,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search",
+    "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16.dat",
+    "240",
+    "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-portfolio1",
+    "497014"
+  ],
+  "started_utc": "2026-11-25T16:27:15.206624+00:00",
+  "pid": 36350
+}

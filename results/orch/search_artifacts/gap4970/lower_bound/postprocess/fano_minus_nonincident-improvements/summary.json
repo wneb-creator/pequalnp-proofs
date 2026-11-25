@@ -1,0 +1,116 @@
+[
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-00.json",
+    "wrong_rows": 0,
+    "derived_edges": 10,
+    "tau": 4,
+    "pruned_gates": 13,
+    "bound": 13,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 635,
+      "star_covered": 78,
+      "counterexamples": 0,
+      "seconds": 0.05889371200100868,
+      "distinct_graphs": 63,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-01.json",
+    "wrong_rows": 1,
+    "derived_edges": 16,
+    "tau": null,
+    "pruned_gates": null,
+    "bound": null,
+    "outputs_checked": 7,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 41,
+      "star_covered": 24,
+      "counterexamples": 0,
+      "seconds": 0.01898527100092906,
+      "distinct_graphs": 21,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-02.json",
+    "wrong_rows": 1,
+    "derived_edges": 22,
+    "tau": null,
+    "pruned_gates": null,
+    "bound": null,
+    "outputs_checked": 8,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 24,
+      "star_covered": 11,
+      "counterexamples": 0,
+      "seconds": 0.016473673000291456,
+      "distinct_graphs": 9,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-03.json",
+    "wrong_rows": 0,
+    "derived_edges": 10,
+    "tau": 4,
+    "pruned_gates": 14,
+    "bound": 13,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 524,
+      "star_covered": 92,
+      "counterexamples": 0,
+      "seconds": 0.05609687499963911,
+      "distinct_graphs": 71,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-04.json",
+    "wrong_rows": 0,
+    "derived_edges": 12,
+    "tau": 5,
+    "pruned_gates": 16,
+    "bound": 16,
+    "outputs_checked": 9,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 497,
+      "star_covered": 69,
+      "counterexamples": 0,
+      "seconds": 0.05913165600031789,
+      "distinct_graphs": 51,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-05.json",
+    "wrong_rows": 0,
+    "derived_edges": 13,
+    "tau": 5,
+    "pruned_gates": 17,
+    "bound": 17,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1179,
+      "quadratic_C4free": 392,
+      "star_covered": 79,
+      "counterexamples": 0,
+      "seconds": 0.06698190899987821,
+      "distinct_graphs": 58,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  }
+]

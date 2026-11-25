@@ -1,0 +1,5 @@
+{
+  "status": "NOT_LAUNCHED",
+  "recorded_utc": "2026-11-25T16:31:28.961380+00:00",
+  "reason": "Parent ordered STOP after HTTP410 renewal at16:30UTC. Variable source and controls were ready and independently reviewed; no variable search ran."
+}

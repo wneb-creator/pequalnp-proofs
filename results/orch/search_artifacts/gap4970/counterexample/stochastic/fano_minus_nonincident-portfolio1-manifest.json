@@ -1,0 +1,72 @@
+{
+  "frozen_utc": "2026-11-25T16:27:18.544690+00:00",
+  "graph": "fano_minus_nonincident",
+  "notes": "Completed stochastic phase, no counterexample. All hypothesis-satisfying improvement snapshots extracted from immutable full log.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.stdout",
+      "size": 3657,
+      "sha256": "4523e32266f5674c2224cfd019634eeef1214e62dcba163b3b81fc7156cfec52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.best.json",
+      "size": 452,
+      "sha256": "b0fe391dbd1f104797402014c60df34a6652ef4ac9c4f8beb4309e4310cfcb3f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.best-hyp.json",
+      "size": 451,
+      "sha256": "b6fba6917a99a9b4bee1b25056afa449125eb87df606c0d02b7ec7785d5eb05e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.control0.json",
+      "size": 360,
+      "sha256": "91c3b4f5bbe6a93e5b17aa51ba23f973a35ff0a93bdfbe3769cac231e2aeb26a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.control1.json",
+      "size": 377,
+      "sha256": "f8a3e9371d40778c8b6bb634c9818fc6c98e677f31148bc5504b2bfb3af35637"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1.control2.json",
+      "size": 394,
+      "sha256": "4f77c7714827883bf174207ca55c4850da9c0b3835d8804a9851f600da8f8b60"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-00.json",
+      "size": 998,
+      "sha256": "11d23bdf34ddd5b64dea70ca16b55425b271159aec83e73a4c63a99cae266366"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-01.json",
+      "size": 1013,
+      "sha256": "7b84918096b1504b2413f55068c04c8709a507deab105e7326b46ea3355f48dd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-02.json",
+      "size": 1016,
+      "sha256": "0a00180affb65de75af5ef59c3882752cba8df4a9cd7a3de3f224984f5f26a14"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-03.json",
+      "size": 1015,
+      "sha256": "e3bbedd2eb310a12b3a93e522be82cfa3dcd6d6bd91c3f38ab246cc717387b6e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-04.json",
+      "size": 1001,
+      "sha256": "bd225edb6bf39327567ee86b3e54382caf1f3d7b06fcd87b71f63ab4611050e0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-05.json",
+      "size": 1016,
+      "sha256": "a4c5718aea165b32f85b24185dffa4bf3c1e2d3f7aea96fcc94b1c38e375b9a1"
+    }
+  ]
+}

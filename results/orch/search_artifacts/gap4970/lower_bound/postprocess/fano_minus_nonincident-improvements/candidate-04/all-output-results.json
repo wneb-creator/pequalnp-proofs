@@ -1,0 +1,315 @@
+[
+  {
+    "output": 13,
+    "edges": [
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "tau": 1,
+    "bound": 2,
+    "cover_mask": 2,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 2,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 16,
+    "edges": [
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 1,
+    "bound": 2,
+    "cover_mask": 16,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 2,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 18,
+    "edges": [
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 2,
+    "bound": 5,
+    "cover_mask": 18,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 5,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 22,
+    "edges": [
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "tau": 1,
+    "bound": 3,
+    "cover_mask": 1,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 3,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 24,
+    "edges": [
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 1,
+    "bound": 3,
+    "cover_mask": 8,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 3,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 25,
+    "edges": [
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "tau": 2,
+    "bound": 7,
+    "cover_mask": 9,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 7,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 28,
+    "edges": [
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "tau": 1,
+    "bound": 2,
+    "cover_mask": 4,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 2,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 29,
+    "edges": [
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 3,
+    "bound": 8,
+    "cover_mask": 22,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 8,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 30,
+    "edges": [
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 5,
+    "bound": 16,
+    "cover_mask": 31,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 16,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  }
+]

@@ -1,0 +1,1018 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-00.json",
+  "sha256": "a2e95114180e58b45a21dbf1ddabaa4515aa03d6ad25fc0de5dd1a89596dd1a2",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      9,
+      10
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      7
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "extra_pairs": [
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      9,
+      10
+    ]
+  ],
+  "bipartite": false,
+  "c4free": false,
+  "singleton_true_inputs": [
+    5,
+    8,
+    9,
+    10
+  ],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 4,
+  "first_wrong_rows": [
+    32,
+    256,
+    512,
+    1024
+  ],
+  "tCount": 0,
+  "output_cone_size": 10
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-00/input.circuit.json", "quadratic_C4free_outputs": 5, "star_covered_outputs": 5, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 5, "star_covered": 5, "counterexamples": 0, "seconds": 0.012113877999581746, "distinct_graphs": 5, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-01.json",
+  "sha256": "f2037525cbb8bf819d070e346ef3f3ff91fe3c7b2bdbc3eec9b87ce426988e8b",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      2,
+      4
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "extra_pairs": [
+    [
+      2,
+      4
+    ]
+  ],
+  "bipartite": false,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 2
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-01/input.circuit.json", "quadratic_C4free_outputs": 5, "star_covered_outputs": 5, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 26, "star_covered": 7, "counterexamples": 0, "seconds": 0.021443214998726035, "distinct_graphs": 7, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-02.json",
+  "sha256": "68af97d4b107832fdaabbe3ea23adb215b7f6d3bf93b54b84379cd79c875f332",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 8,
+  "tau": 3,
+  "minimum_cover_mask": 11,
+  "posted_bound": 8,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 3
+    },
+    {
+      "gate": 4,
+      "center": 1,
+      "support_mask": 288,
+      "coverage": 20
+    },
+    {
+      "gate": 6,
+      "center": 1,
+      "support_mask": 416,
+      "coverage": 28
+    }
+  ],
+  "pruning": {
+    "missing_edge_indices": [
+      5
+    ]
+  }
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-02/input.circuit.json", "quadratic_C4free_outputs": 8, "star_covered_outputs": 5, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 635, "star_covered": 21, "counterexamples": 0, "seconds": 0.06960008699934406, "distinct_graphs": 18, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-03.json",
+  "sha256": "9e4dadf25d64702549dc8e1dcc9e722eb803124c6bae78a2b39fd8f69ab3bcce",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      8
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "extra_pairs": [
+    [
+      4,
+      5
+    ]
+  ],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 13,
+  "tau": 4,
+  "minimum_cover_mask": 29,
+  "posted_bound": 13,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 2,
+      "support_mask": 1056,
+      "coverage": 20
+    },
+    {
+      "gate": 1,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 3
+    },
+    {
+      "gate": 2,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 28
+    },
+    {
+      "gate": 5,
+      "center": 4,
+      "support_mask": 288,
+      "coverage": 768
+    },
+    {
+      "gate": 8,
+      "center": 3,
+      "support_mask": 192,
+      "coverage": 96
+    },
+    {
+      "gate": 11,
+      "center": 3,
+      "support_mask": 704,
+      "coverage": 224
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 13,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 121663,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-03/input.circuit.json", "quadratic_C4free_outputs": 8, "star_covered_outputs": 8, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 437, "star_covered": 64, "counterexamples": 0, "seconds": 0.03282660199874954, "distinct_graphs": 48, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-04.json",
+  "sha256": "0f8838f2e96045a76d9eed4987676b8cf5a62f24527a6ef892286e80126f8b9a",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 12,
+  "tau": 3,
+  "minimum_cover_mask": 13,
+  "posted_bound": 10,
+  "valid_witnesses": [
+    {
+      "gate": 3,
+      "center": 2,
+      "support_mask": 1056,
+      "coverage": 20
+    },
+    {
+      "gate": 5,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 28
+    },
+    {
+      "gate": 6,
+      "center": 3,
+      "support_mask": 640,
+      "coverage": 192
+    },
+    {
+      "gate": 7,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 3
+    },
+    {
+      "gate": 8,
+      "center": 3,
+      "support_mask": 704,
+      "coverage": 224
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 12,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 130536,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-04/input.circuit.json", "quadratic_C4free_outputs": 3, "star_covered_outputs": 3, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 364, "star_covered": 57, "counterexamples": 0, "seconds": 0.03262721899955068, "distinct_graphs": 44, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-05.json",
+  "sha256": "3f71b9320ac4e141bf3a52712d7e75e00052b87a896894e2e283b26bc9e29f07",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "removed_edges": [
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 14,
+  "tau": 4,
+  "minimum_cover_mask": 23,
+  "posted_bound": 14,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 2,
+      "support_mask": 544,
+      "coverage": 96
+    },
+    {
+      "gate": 1,
+      "center": 1,
+      "support_mask": 384,
+      "coverage": 24
+    },
+    {
+      "gate": 2,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 224
+    },
+    {
+      "gate": 3,
+      "center": 4,
+      "support_mask": 1280,
+      "coverage": 1536
+    },
+    {
+      "gate": 4,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 3
+    },
+    {
+      "gate": 11,
+      "center": 4,
+      "support_mask": 1344,
+      "coverage": 1792
+    },
+    {
+      "gate": 13,
+      "center": 1,
+      "support_mask": 416,
+      "coverage": 28
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 14,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 129503,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-05/input.circuit.json", "quadratic_C4free_outputs": 8, "star_covered_outputs": 8, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 378, "star_covered": 62, "counterexamples": 0, "seconds": 0.03606829199998174, "distinct_graphs": 42, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1-candidates/candidate-06.json",
+  "sha256": "e1e9f8d5b98781304455ee94a7a2e838a03949496729c5897d5a9f037d31d89e",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 15,
+  "tau": 4,
+  "minimum_cover_mask": 30,
+  "posted_bound": 15,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 4,
+      "support_mask": 320,
+      "coverage": 1536
+    },
+    {
+      "gate": 1,
+      "center": 4,
+      "support_mask": 1344,
+      "coverage": 3584
+    },
+    {
+      "gate": 2,
+      "center": 3,
+      "support_mask": 192,
+      "coverage": 192
+    },
+    {
+      "gate": 4,
+      "center": 2,
+      "support_mask": 1056,
+      "coverage": 40
+    },
+    {
+      "gate": 5,
+      "center": 3,
+      "support_mask": 704,
+      "coverage": 448
+    },
+    {
+      "gate": 6,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 56
+    },
+    {
+      "gate": 7,
+      "center": 1,
+      "support_mask": 160,
+      "coverage": 3
+    },
+    {
+      "gate": 9,
+      "center": 1,
+      "support_mask": 416,
+      "coverage": 7
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 15,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 125951,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-06/input.circuit.json", "quadratic_C4free_outputs": 7, "star_covered_outputs": 7, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 328, "star_covered": 56, "counterexamples": 0, "seconds": 0.03352783700029249, "distinct_graphs": 35, "minimum_margin": 0}

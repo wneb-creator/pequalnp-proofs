@@ -1,0 +1,158 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-02.json",
+  "sha256": "0a00180affb65de75af5ef59c3882752cba8df4a9cd7a3de3f224984f5f26a14",
+  "original_graph": "fano_minus_nonincident",
+  "n": 12,
+  "p": 6,
+  "original_gates": 19,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "removed_edges": [
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ]
+  ],
+  "extra_pairs": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      11
+    ]
+  ],
+  "bipartite": false,
+  "c4free": false,
+  "singleton_true_inputs": [
+    4
+  ],
+  "full_rows_checked": 4096,
+  "quadratic_wrong_rows": 1,
+  "first_wrong_rows": [
+    16
+  ],
+  "tCount": 0,
+  "output_cone_size": 18
+}

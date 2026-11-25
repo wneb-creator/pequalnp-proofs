@@ -51,3 +51,6 @@
 2026-11-25T16:07:16.962959+00:00 — Exactpostedwitnesshalf-edgeORboundcompiled standaloneandnamed(909lines), independentreviewPASS. Conditionalstrengthtransfercompiledstandalone(1873lines), explicitlyassumesPosted. Bothpreserved.
 
 2026-11-25T16:15:58.824916+00:00 — Replanned after the checked half-edge bound and conditional strength transfer. Full target remains open; one-CPU portfolio and independent near-miss post-processing continue. Consolidated status replaces stale current-file paragraphs.
+
+- 2026-11-25T16:30:09Z: fourth premature HTTP410, for L-meta-4970, despite16:46:08.437Z advertised expiry. Timer confirmed once with curl -si. All agents stopped. Fixed portfolio cancelled; variable search never launched. No full theorem or counterexample.
+- 2026-11-25T16:34:08.118283+00:00: final checked matching criterion and frozen search/postprocessing archives preserved after independent review; preparing push before mandatory recovery.

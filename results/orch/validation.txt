@@ -1,10 +1,9 @@
 Research checkpoints; no completed proof, refutation, reduction submission, or PR.
-Updated 2026-11-25T16:15:58.824916+00:00
+Updated 2026-11-25T16:34:08.118283+00:00
 Job pequalnp-pilot-99. KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
 Branch pnp/pilot-99; all pushes went only to origin, wneb-creator/pequalnp-proofs.
 
-Current assignment: L-meta-4970, assigned by desk poll003 around15:40UTC.
-Root holds and renews this lease. Last recorded successful expiry: 2026-11-25T16:34:07.479Z (beat-auto-09.json). No STOP response has been received for this lease. Three earlier assigned leases ended with HTTP410; no release call has been made for any lease, and no other pilot's lease was touched.
+No current live lease. Last assignment: L-meta-4970, assigned around15:40UTC, withdrawn by HTTP410 at16:30:09UTC. Last successful renewal advertised expiry16:46:08.437UTC. All proof and search work stopped; the automatic timer repeated the same call once with curl -si, whose complete response is validation/4970-beat-auto-13-response.txt. Exact body: { "error": "no such live lease: it expired or was released. Ask /desk/next again." } Four assigned leases have now ended with HTTP410. No release call has been made; no other pilot's lease was touched.
 
 Current named file: lean/PEqualNP/Outside/L_meta_4970.lean.
 Exact snapshot: 909 lines,40260 bytes; SHA256 ae68dec66a8597198f79ee6e9b367a5df8be1fd77599520b72297fea44f493c1.
@@ -18,7 +17,9 @@ Other checked4970 results are preserved under lemmas/checked4970: semantic suppo
 
 StrengthTransferStandalone.lean is a separate portable CONDITIONAL result:1873 lines,87786 bytes; SHA256 9c58f3b3c4d3ef48c2fcff24ebd04918790c3550c3cfce16ed73fb3842a9322e. Its exact Posted hypothesis is the desk's full statement. Assuming that statement, it derives E.card+2*tau+6 <=12*C.size for nonempty C4-free bipartite graphs with even left degrees and any vertex-cover lower bound tau. It compiled successfully with inherited deprecation warnings only; independent review passed. Logs: validation/4970-strength-transfer-standalone.*. It is neither a proof/refutation of4970 nor a valid reduction submission, because it assumes the posted theorem.
 
-Search status: no counterexample or completed proof found. Reviewed positive controls satisfy every actual premise and were evaluated on all inputs. Counterexamples to auxiliary counting/deletion claims are not refutations of4970. A20-minute,one-CPU stochastic portfolio began around16:11UTC; it is heuristic. Near-miss circuits are independently checked as possible different graph functions, with unused gates pruned and their own covers/star witnesses re-evaluated. Existing verified near misses meet the bound rather than violate it. Complete completed-run logs, source manifests and controls are archived under search_artifacts; active phase outputs will be frozen and archived when finished.
+MatchingRefutation.lean is a separate checked84-line conditional lemma (SHA256 d35aae52947f4c4cc4e0153802a69cbbce33833a738f2f47c2412926fbf284e9). A matching lower-bounds every cover; a circuit satisfying all five posted premises and the strict matching budget would refute the posted statement. No such circuit has been found. Independent review and its standalone Lean check passed. This is not a concrete refutation.
+
+Final search status: no counterexample or completed proof found. The fixed portfolio completed four phases; the fifth stopped on lease withdrawal with exit75 after174.74seconds. Total2,896,166,912 heuristic mutation attempts over1134.77seconds. Best saved near misses still fail target correctness on two edge rows. The variable-graph search was never launched. The final205-file search manifest and full logs are preserved and independently audited. Independent postprocessing of23 unique circuits tested23500 local variants and verified172 output records and1151 successful full-premise mutation records; all proved computational margins are nonnegative. Its final135-file supplement was independently checked, with the earlier93 files unchanged. Auxiliary counterexamples only disprove stronger counting/deletion claims, not L-meta-4970. No exhaustive impossibility result is claimed.
 
 Prior assignment L-meta-2590: final1967-line named partial is preserved byte-for-byte as lemmas/checked2590/NormalizedReplay.lean, SHA256 d6c8de40fecb32c7e0cf0ed197c04b38c6932ee2c13bbf385eeb88383d262b06. Named build passed18423 jobs; checker REJECTED(no-theorem), validation/2590-build-replay.* and2590-checker-replay.*. Checked normalized CNF/replay bridges and a modular six-case structural reduction do not supply a final contradiction. The separate FourOrbitLowSharing draft is UNCOMPILED. The solver ended SIGINT/UNKNOWN at withdrawal; its1,689,837,568-byte unverified incomplete LRAT prefix remains scratch-only. No certificate is claimed. Third410 confirmed15:22:26 before advertised15:34:37.944; full headers/body in validation/2590-beat-03-response.txt.
 
@@ -36,4 +37,4 @@ desk-poll-001.json: The checker is behind: 521 proofs are queued for a check and
 desk-poll-002.json: The checker is behind: 521 proofs are queued for a check and 478 were checked in the last hour, about 65 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
 
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=149.5 subagents=6
+TIMING total=167.7 subagents=6

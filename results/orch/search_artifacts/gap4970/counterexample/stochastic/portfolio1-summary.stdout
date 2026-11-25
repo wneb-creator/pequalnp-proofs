@@ -1,0 +1,6 @@
+subk4 353763328 mutations; 120.0 seconds; best errors 2 0
+irregular11 610140160 mutations; 240.0 seconds; best errors 2 0
+fano_minus_incident 919732224 mutations; 360.01 seconds; best errors 2 0
+fano_minus_nonincident 635174912 mutations; 240.02 seconds; best errors 2 0
+cubic16 377356288 mutations; 174.74 seconds; best errors 2 0
+TOTAL 2896166912 mutations; 1134.77 seconds; no counterexample

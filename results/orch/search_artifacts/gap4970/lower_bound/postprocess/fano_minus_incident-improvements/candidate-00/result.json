@@ -1,0 +1,152 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-00.json",
+  "sha256": "ae76b44307f71fd7723a7a37e7308fd370d63d8105a278050d1b6141135c3f6e",
+  "original_graph": "fano_minus_incident",
+  "n": 12,
+  "p": 6,
+  "original_gates": 20,
+  "derived_edges": [
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      10
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 4096,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 18,
+  "tau": 5,
+  "minimum_cover_mask": 62,
+  "posted_bound": 18,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 1,
+      "support_mask": 192,
+      "coverage": 3
+    },
+    {
+      "gate": 1,
+      "center": 5,
+      "support_mask": 3072,
+      "coverage": 12288
+    },
+    {
+      "gate": 2,
+      "center": 2,
+      "support_mask": 384,
+      "coverage": 24
+    },
+    {
+      "gate": 5,
+      "center": 3,
+      "support_mask": 576,
+      "coverage": 160
+    },
+    {
+      "gate": 6,
+      "center": 1,
+      "support_mask": 2240,
+      "coverage": 7
+    },
+    {
+      "gate": 7,
+      "center": 3,
+      "support_mask": 832,
+      "coverage": 224
+    },
+    {
+      "gate": 10,
+      "center": 4,
+      "support_mask": 640,
+      "coverage": 768
+    },
+    {
+      "gate": 11,
+      "center": 4,
+      "support_mask": 1664,
+      "coverage": 1792
+    },
+    {
+      "gate": 15,
+      "center": 5,
+      "support_mask": 3328,
+      "coverage": 14336
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 18,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 1048047,
+  "is_counterexample": false
+}

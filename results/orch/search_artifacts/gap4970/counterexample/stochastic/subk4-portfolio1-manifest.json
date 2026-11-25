@@ -1,0 +1,67 @@
+{
+  "frozen_utc": "2026-11-25T16:14:26.712559+00:00",
+  "graph": "subk4",
+  "notes": "Completed120s phase; no counterexample. Candidate snapshots extracted from full immutable improvement log for independent subgraph postprocessing.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.stdout",
+      "size": 2894,
+      "sha256": "2adf7101445a015a53ae93e799be3e5803f2ca91ec9b7edad9f446f7a275ea44"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.best.json",
+      "size": 367,
+      "sha256": "b260f3fc0bebabd32d06d7496c37bad5b31a1e65d8f9cda5f0938d3133919b85"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.best-hyp.json",
+      "size": 366,
+      "sha256": "41e1035b5caf0c32fd6675d6c1add8a4751e56ea95aea2a1bfa9ee34317557fe"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.control0.json",
+      "size": 275,
+      "sha256": "c74524d04aac7d76f8f15a471aa8563eebe2ccc39b059e20ff05aff57d0f197b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.control1.json",
+      "size": 292,
+      "sha256": "acb9c889a2c76b6d75ec3c01be749fceda20f44bdaf7add7a207f6e7867f0d80"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.control2.json",
+      "size": 309,
+      "sha256": "068628ca8efedc65a5f26adae560e5514c4d8311add82cae2b587034f3f8dcaf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-00.json",
+      "size": 811,
+      "sha256": "0cbbcd0a3f6a311c0bd51fcd54620c79182845e24625c057ea5983523497dcc4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-01.json",
+      "size": 811,
+      "sha256": "3352e173004d50c9ed4771a2799a93196f3475306755075cb21e8c2a73babed3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-02.json",
+      "size": 810,
+      "sha256": "df301903b68fb21fecb5d1e25db58d4360b65eec3fe76b29dc83c54a9b6c5598"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-03.json",
+      "size": 811,
+      "sha256": "ee0f7d51e4d46af4094be9e22eccffc7c7c8846b38d866303217cc3f7ea6fe41"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-04.json",
+      "size": 815,
+      "sha256": "595d8b39e8bfba6438d9fe3f1970a958063515759e7d3499db0d5ddf0c4d5505"
+    }
+  ]
+}

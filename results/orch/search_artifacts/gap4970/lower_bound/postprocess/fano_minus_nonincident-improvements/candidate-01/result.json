@@ -1,0 +1,150 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-portfolio1-candidates/candidate-01.json",
+  "sha256": "7b84918096b1504b2413f55068c04c8709a507deab105e7326b46ea3355f48dd",
+  "original_graph": "fano_minus_nonincident",
+  "n": 12,
+  "p": 6,
+  "original_gates": 19,
+  "derived_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      8,
+      11
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      8,
+      11
+    ]
+  ],
+  "bipartite": false,
+  "c4free": false,
+  "singleton_true_inputs": [
+    8
+  ],
+  "full_rows_checked": 4096,
+  "quadratic_wrong_rows": 1,
+  "first_wrong_rows": [
+    256
+  ],
+  "tCount": 0,
+  "output_cone_size": 10
+}

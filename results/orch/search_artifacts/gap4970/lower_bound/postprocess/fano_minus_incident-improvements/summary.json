@@ -1,0 +1,78 @@
+[
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-00.json",
+    "wrong_rows": 0,
+    "derived_edges": 14,
+    "tau": 5,
+    "pruned_gates": 18,
+    "bound": 18,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1271,
+      "quadratic_C4free": 402,
+      "star_covered": 76,
+      "counterexamples": 0,
+      "seconds": 0.06923373099925811,
+      "distinct_graphs": 52,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-01.json",
+    "wrong_rows": 0,
+    "derived_edges": 17,
+    "tau": null,
+    "pruned_gates": null,
+    "bound": null,
+    "outputs_checked": 7,
+    "mutations": {
+      "variants": 1271,
+      "quadratic_C4free": 55,
+      "star_covered": 19,
+      "counterexamples": 0,
+      "seconds": 0.03894599900013418,
+      "distinct_graphs": 16,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-02.json",
+    "wrong_rows": 0,
+    "derived_edges": 10,
+    "tau": 4,
+    "pruned_gates": 13,
+    "bound": 13,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1271,
+      "quadratic_C4free": 627,
+      "star_covered": 97,
+      "counterexamples": 0,
+      "seconds": 0.05967454699930386,
+      "distinct_graphs": 78,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  },
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-03.json",
+    "wrong_rows": 0,
+    "derived_edges": 13,
+    "tau": 5,
+    "pruned_gates": 17,
+    "bound": 17,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1271,
+      "quadratic_C4free": 451,
+      "star_covered": 80,
+      "counterexamples": 0,
+      "seconds": 0.06617050199929508,
+      "distinct_graphs": 57,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  }
+]

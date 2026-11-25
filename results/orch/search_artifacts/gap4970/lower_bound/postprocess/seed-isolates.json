@@ -1,0 +1,28 @@
+[
+  {
+    "name": "incident-smoke",
+    "isolated": [
+      0
+    ],
+    "isolated_still_read": []
+  },
+  {
+    "name": "subk4-improvements/candidate-03",
+    "isolated": [
+      2
+    ],
+    "isolated_still_read": []
+  },
+  {
+    "name": "subk4-improvements/candidate-04",
+    "isolated": [],
+    "isolated_still_read": []
+  },
+  {
+    "name": "irregular11-portfolio1-snapshot1/irregular11-portfolio1.best-hyp",
+    "isolated": [
+      0
+    ],
+    "isolated_still_read": []
+  }
+]

@@ -1,0 +1,146 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1-candidates/candidate-03.json",
+  "sha256": "36d4d90d12ca39313f58fa3b4fc286ac54eb150ef8b6b2663a3423ddb0492b3f",
+  "original_graph": "fano_minus_incident",
+  "n": 12,
+  "p": 6,
+  "original_gates": 20,
+  "derived_edges": [
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "removed_edges": [
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 4096,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 17,
+  "tau": 5,
+  "minimum_cover_mask": 55,
+  "posted_bound": 17,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 0,
+      "support_mask": 1088,
+      "coverage": 3
+    },
+    {
+      "gate": 1,
+      "center": 5,
+      "support_mask": 1280,
+      "coverage": 3072
+    },
+    {
+      "gate": 2,
+      "center": 4,
+      "support_mask": 1536,
+      "coverage": 768
+    },
+    {
+      "gate": 3,
+      "center": 5,
+      "support_mask": 3328,
+      "coverage": 7168
+    },
+    {
+      "gate": 6,
+      "center": 1,
+      "support_mask": 2176,
+      "coverage": 24
+    },
+    {
+      "gate": 8,
+      "center": 1,
+      "support_mask": 2240,
+      "coverage": 28
+    },
+    {
+      "gate": 11,
+      "center": 2,
+      "support_mask": 384,
+      "coverage": 96
+    },
+    {
+      "gate": 13,
+      "center": 4,
+      "support_mask": 1664,
+      "coverage": 896
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 17,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 1047407,
+  "is_counterexample": false
+}

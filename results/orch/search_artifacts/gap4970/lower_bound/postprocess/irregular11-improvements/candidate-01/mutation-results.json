@@ -1,0 +1,156 @@
+[
+  {
+    "mutation": "redirect-1-11",
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 4,
+    "gates": 2,
+    "bound": 2,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-1-13",
+    "edges": [
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        9
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 4,
+    "gates": 2,
+    "bound": 2,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-1-14",
+    "edges": [
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 4,
+    "gates": 2,
+    "bound": 2,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-2-11",
+    "edges": [
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 16,
+    "gates": 3,
+    "bound": 2,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-2-13",
+    "edges": [
+      [
+        4,
+        7
+      ],
+      [
+        4,
+        9
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 16,
+    "gates": 3,
+    "bound": 2,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "read-5-2-14",
+    "edges": [
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 16,
+    "gates": 3,
+    "bound": 2,
+    "margin": 1,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  },
+  {
+    "mutation": "redirect-5-15",
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ]
+    ],
+    "tau": 1,
+    "cover_mask": 1,
+    "gates": 2,
+    "bound": 2,
+    "margin": 0,
+    "pruning": {
+      "search_states": 1,
+      "distinct_states": 1
+    }
+  }
+]
