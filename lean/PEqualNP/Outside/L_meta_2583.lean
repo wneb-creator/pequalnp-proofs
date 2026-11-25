@@ -1471,4 +1471,461 @@ lemma ustar_two_dirty_frontier (hAO : IsAO2 n C)
 
 end Frontier
 
+
+namespace Repair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def stepWire (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma wires_eq_foldl (C : Circuit) (x : List Bool) :
+    C.wires x = C.gates.foldl stepWire x := rfl
+
+lemma foldl_length (gs : List Gate) (w : List Bool) :
+    (gs.foldl stepWire w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [stepWire]
+    omega
+
+lemma foldl_getD_lt (gs : List Gate) (w : List Bool) (i : ℕ) (hi : i < w.length) :
+    (gs.foldl stepWire w).getD i false = w.getD i false := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    have hlt : i < (stepWire w g).length := by simp [stepWire]; omega
+    rw [ih (stepWire w g) hlt]
+    simp [stepWire, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma getD_ge (w : List Bool) (i : ℕ) (hi : w.length ≤ i) : w.getD i false = false := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none hi]
+
+lemma foldl_getD_gate (gs : List Gate) (w : List Bool) (j : ℕ) (hj : j < gs.length) :
+    (gs.foldl stepWire w).getD (w.length + j) false =
+      (gs[j]).op.eval ((gs[j]).inputs.map fun i =>
+        if i < w.length + j then (gs.foldl stepWire w).getD i false else false) := by
+  induction gs generalizing w j with
+  | nil => simp at hj
+  | cons g gs ih =>
+    rw [List.foldl_cons]
+    cases j with
+    | zero =>
+      have h1 : w.length < (stepWire w g).length := by simp [stepWire]
+      rw [Nat.add_zero, foldl_getD_lt gs (stepWire w g) w.length h1]
+      simp only [List.getElem_cons_zero]
+      have h2 : (stepWire w g).getD w.length false =
+          g.op.eval (g.inputs.map fun i => w.getD i false) := by
+        simp [stepWire, List.getD_eq_getElem?_getD]
+      rw [h2]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      by_cases hi : i < w.length
+      · rw [ite_eq_left hi, foldl_getD_lt gs (stepWire w g) i (by simp [stepWire]; omega)]
+        simp [stepWire, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+      · rw [ite_eq_right hi]; exact getD_ge w i (by omega)
+    | succ j =>
+      have hj' : j < gs.length := by simpa using hj
+      have key := ih (stepWire w g) j hj'
+      have hl : (stepWire w g).length = w.length + 1 := by simp [stepWire]
+      rw [hl] at key
+      have e : w.length + (j + 1) = w.length + 1 + j := by omega
+      simp only [List.getElem_cons_succ]
+      rw [e]
+      exact key
+
+def val (C : Circuit) (x : List Bool) (u : ℕ) : Bool := (C.wires x).getD u false
+
+lemma gateAt_eq {C : Circuit} {j : ℕ} (hj : j < C.gates.length) : gateAt C j = C.gates[j] := by
+  simp [gateAt, List.getD_eq_getElem?_getD, hj]
+
+lemma gateAt_mem {C : Circuit} {j : ℕ} (hj : j < C.gates.length) : gateAt C j ∈ C.gates := by
+  rw [gateAt_eq hj]; exact List.getElem_mem hj
+
+lemma val_input {n : ℕ} {C : Circuit} {x : List Bool} (hx : x.length = n) {u : ℕ} (hu : u < n) :
+    val C x u = x.getD u false := by
+  unfold val; rw [wires_eq_foldl]; exact foldl_getD_lt _ _ _ (by omega)
+
+lemma val_ge {n : ℕ} {C : Circuit} {x : List Bool} (hx : x.length = n) {u : ℕ}
+    (hu : n + C.gates.length ≤ u) : val C x u = false := by
+  unfold val; apply getD_ge; rw [wires_eq_foldl, foldl_length]; omega
+
+lemma val_gate {n : ℕ} {C : Circuit} {x : List Bool} (hx : x.length = n) {j : ℕ}
+    (hj : j < C.gates.length) :
+    val C x (n + j) = (gateAt C j).op.eval ((gateAt C j).inputs.map fun i =>
+      if i < n + j then val C x i else false) := by
+  subst hx
+  rw [gateAt_eq hj]
+  exact foldl_getD_gate C.gates x j hj
+
+lemma val_or {n : ℕ} {C : Circuit} {x : List Bool} (hx : x.length = n) {r : ℕ}
+    (hr : r < C.gates.length) (hop : (gateAt C r).op = GateOp.or) :
+    val C x (n + r) = true ↔ ∃ i ∈ (gateAt C r).inputs, i < n + r ∧ val C x i = true := by
+  rw [val_gate hx hr, hop]
+  simp only [GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq]
+  constructor
+  · rintro ⟨i, hi, h⟩
+    by_cases hlt : i < n + r
+    · rw [ite_eq_left hlt] at h; exact ⟨i, hi, hlt, h⟩
+    · rw [ite_eq_right hlt] at h; cases h
+  · rintro ⟨i, hi, hlt, h⟩
+    exact ⟨i, hi, by rw [ite_eq_left hlt]; exact h⟩
+
+lemma val_and {n : ℕ} {C : Circuit} {x : List Bool} (hx : x.length = n) {r : ℕ}
+    (hr : r < C.gates.length) (hop : (gateAt C r).op = GateOp.and) :
+    val C x (n + r) = true ↔ ∀ i ∈ (gateAt C r).inputs, i < n + r ∧ val C x i = true := by
+  rw [val_gate hx hr, hop]
+  simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply, id_eq]
+  constructor
+  · intro h i hi
+    have h' := h i hi
+    by_cases hlt : i < n + r
+    · rw [ite_eq_left hlt] at h'; exact ⟨hlt, h'⟩
+    · rw [ite_eq_right hlt] at h'; cases h'
+  · intro h i hi
+    rw [ite_eq_left (h i hi).1]; exact (h i hi).2
+
+lemma val_ofFn {n : ℕ} (C : Circuit) (x : Fin n → Bool) (u : Fin n) :
+    val C (List.ofFn x) u.val = x u := by
+  rw [val_input (n := n) (by simp) u.isLt]
+  simp [List.getD_eq_getElem?_getD]
+
+lemma gate_op {C : Circuit} (hm : Monotone2 C) {k : ℕ} (hk : k < C.gates.length) :
+    (gateAt C k).op = GateOp.and ∨ (gateAt C k).op = GateOp.or := by
+  simpa using (hm _ (gateAt_mem hk)).1
+
+lemma pair_mono {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    {x y : Fin n → Bool} (hxy : ∀ u, x u = true → y u = true) :
+    ∀ w, val C (List.ofFn x) w = true → val C (List.ofFn y) w = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hinput : w < n
+    · let u : Fin n := ⟨w, hinput⟩
+      change val C (List.ofFn x) u.val = true at hw
+      change val C (List.ofFn y) u.val = true
+      rw [val_ofFn] at *
+      exact hxy u hw
+    · have hwlt : w < n + C.gates.length := by
+        by_contra! h
+        rw [val_ge (by simp : (List.ofFn x).length = n) h] at hw
+        cases hw
+      obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hk : k < C.gates.length := by omega
+      rcases gate_op hm hk with hop | hop
+      · apply (val_and (by simp) hk hop).2
+        intro i hi
+        obtain ⟨hlt, ht⟩ := (val_and (by simp) hk hop).1 hw i hi
+        exact ⟨hlt, ih i hlt ht⟩
+      · obtain ⟨i, hi, hlt, ht⟩ := (val_or (by simp) hk hop).1 hw
+        exact (val_or (by simp) hk hop).2 ⟨i, hi, hlt, ih i hlt ht⟩
+
+def edgeTrue {n : ℕ} (G : SimpleGraph (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true
+
+lemma graph_true {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {x : Fin n → Bool} : graphFun G ∅ x = true ↔ edgeTrue G x := by
+  simp [graphFun, edgeTrue]
+
+def dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) : Prop :=
+  (gateAt C j).op = GateOp.and ∧ ¬ BelowF G C j
+
+noncomputable def repair {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (pick : ℕ → Fin n × Fin n) : Circuit := by
+  classical
+  exact ⟨(List.range C.gates.length).map fun j =>
+    if dirty G C j then ⟨GateOp.and, [(pick j).1.val, (pick j).2.val]⟩ else gateAt C j,
+    C.output⟩
+
+lemma repair_len {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (pick : ℕ → Fin n × Fin n) :
+    (repair G C pick).gates.length = C.gates.length := by
+  simp [repair]
+
+lemma repair_gate {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (pick : ℕ → Fin n × Fin n) {j : ℕ} (hj : j < C.gates.length) :
+    gateAt (repair G C pick) j =
+      @ite Gate (dirty G C j) (Classical.propDecidable _)
+        ⟨GateOp.and, [(pick j).1.val, (pick j).2.val]⟩ (gateAt C j) := by
+  classical
+  have hj' : j < (repair G C pick).gates.length := by rwa [repair_len]
+  rw [gateAt_eq hj']
+  simp [repair]
+
+lemma repair_ao {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) (pick : ℕ → Fin n × Fin n) :
+    IsAO2 n (repair G C pick) := by
+  classical
+  have hgate (j : ℕ) (hj : j < (repair G C pick).gates.length) :
+      ((gateAt (repair G C pick) j).op = GateOp.and ∨
+        (gateAt (repair G C pick) j).op = GateOp.or) ∧
+      (gateAt (repair G C pick) j).inputs.length = 2 ∧
+      ∀ w ∈ (gateAt (repair G C pick) j).inputs, w < n + j := by
+    rw [repair_len] at hj
+    rw [repair_gate pick hj]
+    split_ifs
+    · refine ⟨Or.inl rfl, rfl, ?_⟩
+      intro w hw
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl
+      · have := (pick j).1.isLt
+        omega
+      · have := (pick j).2.isLt
+        omega
+    · exact ⟨hC.1 _ (gateAt_mem hj), hC.2.2 _ (gateAt_mem hj), hC.2.1 j hj⟩
+  refine ⟨?_, fun j hj => (hgate j hj).2.2, ?_⟩
+  · intro g hg
+    obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem hg
+    rw [← gateAt_eq hj]
+    exact (hgate j hj).1
+  · intro g hg
+    obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem hg
+    rw [← gateAt_eq hj]
+    exact (hgate j hj).2.1
+
+lemma repair_kept {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (pick : ℕ → Fin n × Fin n) {j : ℕ} (hj : j < C.gates.length)
+    (h : ¬ dirty G C j) : gateAt (repair G C pick) j = gateAt C j := by
+  classical
+  rw [repair_gate pick hj, ite_eq_right h]
+
+lemma repair_replaced_val {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (pick : ℕ → Fin n × Fin n) {j : ℕ} (hj : j < C.gates.length)
+    (hd : dirty G C j) (x : Fin n → Bool) :
+    val (repair G C pick) (List.ofFn x) (n + j) = true ↔
+      x (pick j).1 = true ∧ x (pick j).2 = true := by
+  classical
+  have hj' : j < (repair G C pick).gates.length := by rwa [repair_len]
+  have hg := (repair_gate (G := G) pick hj).trans (ite_eq_left hd)
+  rw [val_and (by simp) hj' (congrArg Gate.op hg), hg]
+  have h₁ : (pick j).1.val < n + j := by have := (pick j).1.isLt; omega
+  have h₂ : (pick j).2.val < n + j := by have := (pick j).2.isLt; omega
+  simp [h₁, h₂, val_ofFn]
+
+lemma repair_compare {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) (pick : ℕ → Fin n × Fin n)
+    (x : Fin n → Bool) (forward : Bool)
+    (hreplaced : ∀ j < C.gates.length, dirty G C j →
+      if forward then
+        val C (List.ofFn x) (n + j) = true → val (repair G C pick) (List.ofFn x) (n + j) = true
+      else
+        val (repair G C pick) (List.ofFn x) (n + j) = true → val C (List.ofFn x) (n + j) = true) :
+    ∀ w : ℕ, if forward then
+      val C (List.ofFn x) w = true → val (repair G C pick) (List.ofFn x) w = true
+    else
+      val (repair G C pick) (List.ofFn x) w = true → val C (List.ofFn x) w = true := by
+  let D := repair G C pick
+  let xs := List.ofFn x
+  have hl : D.gates.length = C.gates.length := repair_len G C pick
+  have hx : xs.length = n := List.length_ofFn
+  have transfer (A B : Circuit) (heq : A.gates.length = C.gates.length)
+      (heq' : B.gates.length = C.gates.length)
+      (hkeep : ∀ j < C.gates.length, ¬ dirty G C j →
+        gateAt A j = gateAt C j ∧ gateAt B j = gateAt C j)
+      (hchange : ∀ j < C.gates.length, dirty G C j →
+        val A xs (n + j) = true → val B xs (n + j) = true) :
+      ∀ w, val A xs w = true → val B xs w = true := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | ind w ih =>
+      intro ht
+      by_cases hi : w < n
+      · rwa [val_input hx hi, ← val_input (C := A) hx hi]
+      by_cases hj : w < n + C.gates.length
+      · obtain ⟨j, rfl⟩ := Nat.exists_eq_add_of_le (Nat.le_of_not_gt hi)
+        have hj' : j < C.gates.length := by omega
+        by_cases hd : dirty G C j
+        · exact hchange j hj' hd ht
+        obtain ⟨ha, hb⟩ := hkeep j hj' hd
+        have hjA : j < A.gates.length := by rwa [heq]
+        have hjB : j < B.gates.length := by rwa [heq']
+        rcases hC.1 _ (gateAt_mem hj') with op | op
+        · rw [val_and hx hjA (by rwa [ha]), ha] at ht
+          rw [val_and hx hjB (by rwa [hb]), hb]
+          exact fun i hi => ⟨(ht i hi).1, ih i (ht i hi).1 (ht i hi).2⟩
+        · rw [val_or hx hjA (by rwa [ha]), ha] at ht
+          rw [val_or hx hjB (by rwa [hb]), hb]
+          obtain ⟨i, hi, hlt, hv⟩ := ht
+          exact ⟨i, hi, hlt, ih i hlt hv⟩
+      · rw [val_ge hx (by omega)] at ht
+        cases ht
+  cases forward
+  · exact transfer D C hl rfl (fun j hj hn => ⟨repair_kept pick hj hn, rfl⟩) hreplaced
+  · exact transfer C D rfl hl (fun j hj hn => ⟨rfl, repair_kept pick hj hn⟩) hreplaced
+
+lemma arbitrary_edge_repair {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) (hc : circuitFun n C = graphFun G ∅)
+    (pick : ℕ → Fin n × Fin n)
+    (hp : ∀ j < C.gates.length, dirty G C j → G.Adj (pick j).1 (pick j).2) :
+    IsAO2 n (repair G C pick) ∧ (repair G C pick).size = C.size ∧
+      (∀ x : Fin n → Bool, circuitFun n (repair G C pick) x = true → graphFun G ∅ x = true) ∧
+      (∀ j < (repair G C pick).gates.length, (gateAt (repair G C pick) j).op = GateOp.and →
+        BelowF G (repair G C pick) j) := by
+  have hreflect (x : Fin n → Bool) (hn : graphFun G ∅ x ≠ true) (w : ℕ) :
+      val (repair G C pick) (List.ofFn x) w = true → val C (List.ofFn x) w = true :=
+    repair_compare hC pick x false (by
+      intro j hj hd hval
+      have hpv := (repair_replaced_val pick hj hd x).1 hval
+      exact (hn (graph_true.2 ⟨_, _, hp j hj hd, hpv.1, hpv.2⟩)).elim) w
+  refine ⟨repair_ao hC pick, ?_, ?_, ?_⟩
+  · exact repair_len G C pick
+  · intro x hx
+    by_contra hn
+    have h := hreflect x hn C.output hx
+    change circuitFun n C x = true at h
+    rw [hc] at h
+    exact hn h
+  · intro j hj hop x hv
+    have hj' : j < C.gates.length := by rwa [repair_len] at hj
+    by_cases hd : dirty G C j
+    · have h := (repair_replaced_val pick hj' hd x).1 hv
+      exact graph_true.2 ⟨_, _, hp j hj' hd, h.1, h.2⟩
+    · have hop' : (gateAt C j).op = GateOp.and := by
+        rwa [repair_kept pick hj' hd] at hop
+      by_contra hn
+      have hbelow : BelowF G C j := by
+        by_contra h
+        exact hd ⟨hop', h⟩
+      exact hn (hbelow x (hreflect x hn (n + j) hv))
+
+lemma arbitrary_edge_repair_exact_iff {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) (hc : circuitFun n C = graphFun G ∅)
+    (pick : ℕ → Fin n × Fin n)
+    (hp : ∀ j < C.gates.length, dirty G C j → G.Adj (pick j).1 (pick j).2) :
+    circuitFun n (repair G C pick) = graphFun G ∅ ↔
+      ∀ u v : Fin n, G.Adj u v → circuitFun n (repair G C pick) (pairInput u v) = true := by
+  obtain ⟨hD, _, hsound, _⟩ := arbitrary_edge_repair hC hc pick hp
+  constructor
+  · intro heq u v huv
+    rw [heq]
+    exact graph_true.mpr ⟨u, v, huv, by simp [pairInput], by simp [pairInput]⟩
+  · intro hcover
+    have hDM : Monotone2 (repair G C pick) := by
+      intro g hg
+      refine ⟨?_, ?_⟩
+      · simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using hD.1 g hg
+      · rw [hD.2.2 g hg]
+    funext x
+    apply Bool.eq_iff_iff.mpr
+    refine ⟨hsound x, ?_⟩
+    intro hx
+    obtain ⟨u, v, huv, hxu, hxv⟩ := graph_true.mp hx
+    apply pair_mono hDM (x := pairInput u v) (y := x) ?_
+      (repair G C pick).output (hcover u v huv)
+    intro i hi
+    have hiuv : i = u ∨ i = v := by simpa [pairInput] using hi
+    rcases hiuv with rfl | rfl
+    · exact hxu
+    · exact hxv
+
+end Repair
+
+namespace Labeling
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+variable {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Circuit}
+
+lemma or_step_repair (pick : ℕ → Fin n × Fin n) {w w' : ℕ}
+    (h : Frontier.OrStep n C w w') : Frontier.OrStep n (Repair.repair G C pick) w w' := by
+  obtain ⟨j, hj, rfl, hop, hin, hlt⟩ := h
+  have hkeep : gateAt (Repair.repair G C pick) j = gateAt C j :=
+    Repair.repair_kept pick hj (fun hd => by cases hop.symm.trans hd.1)
+  refine ⟨j, ?_, rfl, ?_, ?_, hlt⟩
+  · rwa [Repair.repair_len]
+  · rwa [hkeep]
+  · rwa [hkeep]
+
+lemma or_path_repair (pick : ℕ → Fin n × Fin n) {w w' : ℕ}
+    (h : Relation.ReflTransGen (Frontier.OrStep n C) w w') :
+    Relation.ReflTransGen (Frontier.OrStep n (Repair.repair G C pick)) w w' := by
+  induction h using Relation.ReflTransGen.head_induction_on with
+  | refl => exact Relation.ReflTransGen.refl
+  | head hstep _ ih => exact Relation.ReflTransGen.head (or_step_repair pick hstep) ih
+
+lemma or_reaches_repair_value (pick : ℕ → Fin n × Fin n) {w j : ℕ} {x : Fin n → Bool}
+    (hr : OrReaches n C w j)
+    (hv : gateVal n (Repair.repair G C pick) j x = true) :
+    Frontier.val (Repair.repair G C pick) (List.ofFn x) w = true :=
+  Frontier.orStep_up (n := n) (by simp)
+    (or_path_repair pick (Frontier.orReaches_reach j w hr).1) hv
+
+lemma raw_side_repair_value (pick : ℕ → Fin n × Fin n) {a : ℕ} {b : Fin 2}
+    {x : Fin n → Bool} {t : Fin n} (ht : t ∈ side (n := n) C a b) (hxt : x t = true) :
+    Frontier.val (Repair.repair G C pick) (List.ofFn x) (opnd C a b) = true :=
+  Frontier.reach_var_val x _ t (or_path_repair pick (Frontier.mem_orIn_reach t ht)) hxt
+
+lemma junk_is_dirty {j : ℕ} (hj : j ∈ junk G C) : Repair.dirty G C j := by
+  obtain ⟨_, hop, x, hx, hFx⟩ := Frontier.junkData hj
+  refine ⟨hop, ?_⟩
+  intro hbelow
+  have h := hbelow x hx
+  rw [hFx] at h
+  cases h
+
+lemma repair_accepts_frontier_certificate (hAO : IsAO2 n C) (pick : ℕ → Fin n × Fin n)
+    {a : ℕ} {u v : Fin n} (ha : a ∈ tops G C) (hr : OrReaches n C C.output a)
+    (hcert : ∀ b : Fin 2, (∃ t ∈ side (n := n) C a b, t = u ∨ t = v) ∨
+      ∃ j ∈ junk G C, OrReaches n C (opnd C a b) j ∧ s((pick j).1, (pick j).2) = s(u, v)) :
+    circuitFun n (Repair.repair G C pick) (pairInput u v) = true := by
+  have hD := Repair.repair_ao (G := G) hAO pick
+  obtain ⟨haLen, haOp, haBelow⟩ := Frontier.topData ha
+  have haKeep : gateAt (Repair.repair G C pick) a = gateAt C a :=
+    Repair.repair_kept pick haLen (fun hd => hd.2 haBelow)
+  have haDLen : a < (Repair.repair G C pick).gates.length := by rwa [Repair.repair_len]
+  have hTop : gateVal n (Repair.repair G C pick) a (pairInput u v) = true := by
+    apply (Frontier.andValOperands hD haDLen (by rwa [haKeep]) _).mpr
+    intro b
+    have hopnd : opnd (Repair.repair G C pick) a b = opnd C a b := by
+      unfold opnd
+      rw [haKeep]
+    rw [hopnd]
+    rcases hcert b with ⟨t, ht, hte⟩ | ⟨j, hj, hjr, hlabel⟩
+    · apply raw_side_repair_value pick ht
+      simpa [pairInput] using hte
+    · have hjLen := (Frontier.junkData hj).1
+      have hjTrue : gateVal n (Repair.repair G C pick) j (pairInput u v) = true := by
+        apply (Repair.repair_replaced_val pick hjLen (junk_is_dirty hj) _).mpr
+        rcases Sym2.eq_iff.mp hlabel with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp [h₁, h₂, pairInput]
+      exact or_reaches_repair_value pick hjr hjTrue
+  exact or_reaches_repair_value pick hr hTop
+
+lemma repair_accepts_raw_top_pair (hAO : IsAO2 n C) (pick : ℕ → Fin n × Fin n)
+    {a : ℕ} {u v : Fin n} (ha : a ∈ tops G C) (hr : OrReaches n C C.output a)
+    (hu : u ∈ side (n := n) C a 0) (hv : v ∈ side (n := n) C a 1) :
+    circuitFun n (Repair.repair G C pick) (pairInput u v) = true := by
+  apply repair_accepts_frontier_certificate hAO pick ha hr
+  intro b
+  fin_cases b
+  · exact Or.inl ⟨u, hu, Or.inl rfl⟩
+  · exact Or.inl ⟨v, hv, Or.inr rfl⟩
+
+lemma repair_exact_of_frontier_certificates (hAO : IsAO2 n C)
+    (hfun : circuitFun n C = graphFun G ∅) (pick : ℕ → Fin n × Fin n)
+    (hp : ∀ j < C.gates.length, Repair.dirty G C j → G.Adj (pick j).1 (pick j).2)
+    (hcover : ∀ u v : Fin n, G.Adj u v → ∃ a ∈ tops G C,
+      OrReaches n C C.output a ∧
+      ∀ b : Fin 2, (∃ t ∈ side (n := n) C a b, t = u ∨ t = v) ∨
+        ∃ j ∈ junk G C, OrReaches n C (opnd C a b) j ∧ s((pick j).1, (pick j).2) = s(u, v)) :
+    IsAO2 n (Repair.repair G C pick) ∧ (Repair.repair G C pick).size = C.size ∧
+      circuitFun n (Repair.repair G C pick) = graphFun G ∅ ∧
+      (∀ j < (Repair.repair G C pick).gates.length,
+        (gateAt (Repair.repair G C pick) j).op = GateOp.and → BelowF G (Repair.repair G C pick) j) := by
+  obtain ⟨hD, hsize, _, hclean⟩ := Repair.arbitrary_edge_repair hAO hfun pick hp
+  refine ⟨hD, hsize, ?_, hclean⟩
+  apply (Repair.arbitrary_edge_repair_exact_iff hAO hfun pick hp).mpr
+  intro u v huv
+  obtain ⟨a, ha, hr, hcert⟩ := hcover u v huv
+  exact repair_accepts_frontier_certificate hAO pick ha hr hcert
+
+end Labeling
+
 end PEqualNP.Outside.L_meta_2583
