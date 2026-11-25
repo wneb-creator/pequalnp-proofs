@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "elapsed_s": 7.5557593200001065,
+  "max_child_rss_kib": 2877200,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-M6500",
+    "-j1",
+    "--profile",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/petersen-proof/InputReindex.lean"
+  ],
+  "source_sha256": "b324149015f757449f16179df2ce4b54f13dacfcb9c973b27613a7587d8975d9",
+  "validation": "Canonical aggregate PEqualNP.Defs import; proof extracted with attribution from accepted R_meta_1890_1."
+}
