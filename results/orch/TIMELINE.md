@@ -42,3 +42,4 @@
 - 2026-11-25T16:28:20+00:00 cofactor_route: Fano six-AND T0 CNF UNSAT with independent Std LRAT certificate verification; complete artifacts preserved in results/orch/fano-and6. No auxiliary solver remains running.
 2026-11-25T16:30:23.277144+00:00 Preserving full partial ledger, output separator/boundary and verified auxiliary CNF certificate.
 2026-11-25T16:32:49.609480+00:00 All work paused after410; preserving artifacts before one authorized recovery request.
+2026-11-25T16:36:36.170210+00:00 Recovery assigned replacement L-meta-12179; old work frozen.

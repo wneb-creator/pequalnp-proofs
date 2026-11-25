@@ -1,0 +1,5 @@
+Partial results only; no final theorem yet.
+TableFacts, FunctionStructure, UpperBound: Lean compilation exit 0, complete empty logs included.
+Independent review: status_review PASS for exact table, kernel decisions, allowed declarations, malformed-wire semantics.
+Sub-agents: status_review, counting_proof, counterexample, semantic_bound, toolchain, cofactor_route
+TIMING total=56 subagents=6
