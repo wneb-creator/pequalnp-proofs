@@ -1,6 +1,11 @@
-Compiled fixed-size reduction checkpoint (294 lines).
-Lean: lake env lean, exit 0, no warnings.
-Full local checker first attempt: CHECKER FAULT, exit137 from cgroup memory limit, no proof verdict.
-Retry preparation in progress.
-Sub-agents: 5 (status/review, toolchain, structural proof, counterexample search, reduction)
-TIMING total=20 subagents=5
+Gap: L-meta-4340; reduction R_meta_4340_47.
+File: lean/PEqualNP/Outside/R_meta_4340_47.lean
+SHA256: b5efffb478cc18cfbc85bab4f2be16c9b28f77b1b82c2b7322b1c39996c36e80
+Build completed successfully (5147 jobs).
+Local checker: CHECKER FAULT, exit137 from the container memory limit; no proof verdict.
+Independent proof review: PASS. Exact posted conclusion preserved; two finite lower-bound hypotheses.
+Cleanup skipped because the local checker could not complete; lines294 ->294.
+Only one Lean file will remain in the PR diff; these logs remain in branch history.
+Desk nulls:0; first request assigned L-meta-4340. No null message occurred.
+Sub-agents: 5 (structural proof, counterexample search, reduction, Lean setup, independent review/status)
+TIMING total=50.0 subagents=5

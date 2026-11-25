@@ -1,0 +1,10 @@
+Independent fourth checkpoint review: PASS
+UTC: 2026-11-24T23:30:24.435479+00:00
+File: lean/PEqualNP/Outside/R_meta_4340_47.lean
+SHA256: b5efffb478cc18cfbc85bab4f2be16c9b28f77b1b82c2b7322b1c39996c36e80
+Lines: 294
+Exact conclusion text comparison and forbidden-format scan passed.
+Reviewed padding: append 14-E.size OR gates reading the existing E.output twice. Original E.output remains accessible, each added gate copies it, and wire23 is the last copy (or old output when already14).
+FanInTwo and special leaf restriction are preserved because added gates are binary OR. Existing topological normalization handles the resulting14gate circuit.
+Independent padding test:100 random circuits of lengths1..14, every512nine-bit input,51200 comparisons, all passed.
+No Lean build launched; fullchecker verdict and finalsingle-file tree remain required.
