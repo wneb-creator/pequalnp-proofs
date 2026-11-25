@@ -23,3 +23,6 @@ Named-file extension: size-preserving relabeling reduces arbitrary input maps to
 Build: lake build PEqualNP.Outside.L_meta_1890 exited 0; Build completed successfully (5149 jobs). Named file now 124 lines. Independent status_review review passed.
 Additional checked partial: results/orch/lemmas/finite/FirstStep.lean (39 lines). lake env lean exited 0, empty stdout/stderr. Root independently reviewed the finite witness argument and format.
 Full posted theorem remains absent; local checker would reject no-theorem, so no full-proof checker pass or PR is claimed.
+
+Additional checked partials: GraphFacts.lean (Petersen has no triangles or four-cycles), and SeedNotCollisions.lean (explicit endpoint/negated-seed collision witnesses under the stated retained raw-input observations).
+Both lake env lean runs exited 0; complete logs preserved. Root independently reviewed both finite statements, kernel proofs, and file format.

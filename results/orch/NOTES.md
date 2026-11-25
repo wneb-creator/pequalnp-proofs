@@ -97,3 +97,6 @@ The endpoint OR-only equality discussion is conditional: seed may be unused, and
 ### Root relabel partial review 2026-11-25T14:59:54+00:00
 - Independent status reviewer PASS for current L_meta_1890.lean (124 lines,5256 bytes,SHA256 345da3289a2e0e4d1e01944a5177f7232ae0f9c25d2e68863286d12d7e5ba7e7). Address map affects exactly raw0..9; seed10 and generated addresses remain fixed. Getter relation handles arbitraryp, defaultfalse reads, and forward addresses. FanInTwo and size preserved. Raw surjectivity witness proof reviewed earlier remains valid. Root reports lake build exit0. Format scans and git diff --check pass; partial only.
 - Checker source inspected without running: CheckLemma.lean408-419 replays project constants;432-436 rejects no-theorem when module-named final theorem is absent. Modes are only check/refute/reduce; no helper-only acceptance mode. Posted statement must remain unchanged.
+
+## readtwice 2026-11-25T15:01:16.181280+00:00
+GraphFacts.lean compiled exit0: kernelchecked Petersen has no triangles and noC4. FiniteDecidable synthesis required allowed synthInstance.maxSize100000 for3/4 quantifiers. Full FormulaLower now rerunning with thisfix; previousrun otherfinitefacts (edgecount15,cover≥6,edgeevalidentity) and extractedproofs had noerrors.
