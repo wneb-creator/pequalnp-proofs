@@ -1,3 +1,5 @@
+Current4970 namedfile1099lines46956bytes SHAe60de0f62b0ec8c7905dd37dbaf592f55b16aa2b4ec8020660b5766bd8d539a2. Exact5-sourcecompositionreviewPASS; namedlakebuildPASSED18423jobs. Lastactualofficialchecker (593linepreviouscheckpoint) REJECTED(no-theorem), fulllogsarchived. Currentfilealsolacksfinaltheorem; guardonlymissingmain. Addedcheckedstargraphbasecases, servingendpointcoverassignment, C4freeneighborhoodintersection, genericMergeGraph/MergeRank. Deadstarcontrolrefutesonlyanauxiliarycountingclaim, notpostedtheorem.
+
 Current4970 namedfile updatedto593lines25839bytes SHA825fd5fc2fb26a97e1e0eef366df29bcc3d42c7d0d85ba0bfc0e00fa6b61377b. Exact3sourcecomposition independentlyreviewed; namedlakebuild passed18423jobs. Guardonlymissingmaintheorem. NewhelpersboundsemanticORsupportcost anduniquestarcenters; fullgatecountstillunproved.
 
 CURRENT ASSIGNMENT: L-meta-4970, assigned after three null responses. Live root lease renewed at15:46UTC; advertised expiry16:06:04. No proof PR yet.

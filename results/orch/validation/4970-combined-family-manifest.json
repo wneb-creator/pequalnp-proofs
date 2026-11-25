@@ -1,0 +1,43 @@
+[
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/sat_encoding/SupportFamily.lean",
+    "sha256": "7f127d69efd6d855c8b74cf9e93241c8b1bf6e2257b6a7a92518fe91c77babde",
+    "bytes": 26431,
+    "lines": 603,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/reduction_strategy/StarUniqueness.lean",
+    "sha256": "25ebaee138b5b21888ba5a96128682681ae21022a7f44b5368d8221dd140522a",
+    "bytes": 3084,
+    "lines": 77,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/reduction_strategy/EdgeAssignment.lean",
+    "sha256": "0c411a273c5493662cc0fe47c361cf510d393c1e6eecf0ddbb31c87e0b53c6ff",
+    "bytes": 1852,
+    "lines": 43,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/Neighbourhoods.lean",
+    "sha256": "65937c9e89fa9a5c4b1397655affcdace97090b774cdab231f0a4f61777cfeda",
+    "bytes": 3916,
+    "lines": 92,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/library_route/EssentialStar.lean",
+    "sha256": "7ee79c0d4e15da23c66e9b8dea991aa25ac5a38ec2d8947555cf2f82cafa4226",
+    "bytes": 11772,
+    "lines": 289,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "target": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_4970.lean",
+    "sha256": "e60de0f62b0ec8c7905dd37dbaf592f55b16aa2b4ec8020660b5766bd8d539a2",
+    "bytes": 46956,
+    "lines": 1099
+  }
+]

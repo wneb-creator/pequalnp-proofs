@@ -1,0 +1,26 @@
+{
+  "frozen_utc": "2026-11-25T15:49:41.333184+00:00",
+  "scope": "Counterexample to remaining-gates >= K+tau-1 for ALL available star components. All actual posted premises and conclusion hold. No Lean/kernel claim.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/dead_star_ledger.py",
+      "size": 2936,
+      "sha256": "281e686b068c8492c67e63857d0cb3ad97cbc8dd6b3df93bbd57e8f1f67bcb8b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/dead_star_ledger.json",
+      "size": 2121,
+      "sha256": "a25e534f18b0cce034c2f81d051a2fd2a320732f358d25cf6be2a38ae5f7b1b7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/dead_star_ledger.stdout",
+      "size": 113,
+      "sha256": "62fdf179fd5afe72ee6f1b836081c3a716252aeb9b4a7c65a780f0332d417ccc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/dead_star_ledger.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

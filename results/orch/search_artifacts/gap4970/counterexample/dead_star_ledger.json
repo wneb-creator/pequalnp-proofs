@@ -1,0 +1,193 @@
+{
+  "p": 3,
+  "l": 3,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "gates": [
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      0,
+      6
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      8
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      0,
+      2,
+      10
+    ],
+    [
+      1,
+      7,
+      9
+    ],
+    [
+      1,
+      12,
+      11
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      2
+    ]
+  ],
+  "output": 13,
+  "AO2": true,
+  "truth_rows_checked": 64,
+  "tCount": 0,
+  "star_witnesses": [
+    {
+      "gate": 0,
+      "center": 0,
+      "support": [
+        3,
+        5
+      ]
+    },
+    {
+      "gate": 2,
+      "center": 1,
+      "support": [
+        3,
+        4
+      ]
+    },
+    {
+      "gate": 4,
+      "center": 2,
+      "support": [
+        4,
+        5
+      ]
+    },
+    {
+      "gate": 8,
+      "center": 3,
+      "support": [
+        0,
+        1
+      ]
+    },
+    {
+      "gate": 9,
+      "center": 4,
+      "support": [
+        1,
+        2
+      ]
+    },
+    {
+      "gate": 10,
+      "center": 5,
+      "support": [
+        0,
+        2
+      ]
+    }
+  ],
+  "components": [
+    {
+      "center": 0,
+      "support": [
+        3,
+        5
+      ]
+    },
+    {
+      "center": 1,
+      "support": [
+        3,
+        4
+      ]
+    },
+    {
+      "center": 2,
+      "support": [
+        4,
+        5
+      ]
+    },
+    {
+      "center": 3,
+      "support": [
+        0,
+        1
+      ]
+    },
+    {
+      "center": 4,
+      "support": [
+        1,
+        2
+      ]
+    },
+    {
+      "center": 5,
+      "support": [
+        0,
+        2
+      ]
+    }
+  ],
+  "K": 6,
+  "d": 12,
+  "tau": 3,
+  "pure_star_OR_gates": 6,
+  "remaining_gates": 5,
+  "proposed_remaining_lower_bound": 8,
+  "posted_conclusion_holds": true,
+  "note": "Counterexample to the proposed stronger component ledger only; not a refutation of L-meta-4970."
+}
