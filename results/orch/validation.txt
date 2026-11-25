@@ -14,6 +14,6 @@ Auxiliary result: PetersenOrCounterexample.lean refutes an unconditional OR-coun
 Final total-gate searches: Petersen-minus-one at 15 gates and Petersen at 19 gates both UNKNOWN at 900 seconds. No witness or UNSAT certificate. P5 experimental Lean drafts are unverified and failed compilation; no native-reflection source is preserved.
 Initial special task: L-meta-1035 was already refuted in merged PR2095, so the desk-assigned different gap was researched.
 Desk: acquired L-meta-1031 at 2026-11-25T01:04:49Z. Null answers: 0; no null message occurred. Own lease renewed throughout. Reduction slots were full (3); no fourth reduction attempted.
-Lease closing status: pending preservation push and own-lease release.
+Lease closing status: own lease released successfully with reason=other after more than 90 minutes; all checked results had already been pushed. No other lease was touched.
 Sub-agents: 9 used for parallel proof routes, counterexample searches, and independent reviews; two fresh-core agents used gpt-6.2-astra at ultra effort.
-TIMING total=89.3 subagents=9
+TIMING total=90.3 subagents=9
