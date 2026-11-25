@@ -1,0 +1,7 @@
+⚠ [1622/1623] Built PEqualNP.Outside.L_meta_2592 (68s)
+warning: PEqualNP/Outside/L_meta_2592.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2592.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1623/1623] Ran PEqualNP.Outside.L_meta_2592:irArts
+warning: PEqualNP/Outside/L_meta_2592.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2592.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (1623 jobs).

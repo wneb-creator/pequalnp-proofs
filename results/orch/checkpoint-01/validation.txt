@@ -1,0 +1,12 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap: L-meta-2592
+File: lean/PEqualNP/Outside/L_meta_2592.lean
+Named module lake build: PASS
+Contents: Petersen independence number 4 and minimum vertex cover 6, with witnesses and exact posted edge-function expansion.
+The posted circuit lower bound is not proved. The final theorem is absent. No PR is opened for this checkpoint.
+Local checker: not run at this checkpoint; full Mathlib cache is still being restored.
+Independent red-team review: PASS for partial checkpoint, results/orch/partial-review.md
+Lines before cleanup: 53
+Lines after cleanup: 53 (cleanup not applicable to incomplete proof)
+Sub-agents: 6 (environment/review, direct lower bound, counterexample search, existing reductions/graph facts, Lean structure/review, exact synthesis)
+TIMING total=13.6 subagents=6
