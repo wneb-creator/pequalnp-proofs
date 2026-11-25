@@ -1,0 +1,2 @@
+n=5 p=2 limit=6 family=0 pruning=1 target_count=35
+DONE visits=54396663 target_hits=17392418 served_checks=15213616 minimal_checks=15213616 no_counterexample

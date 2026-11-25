@@ -1,0 +1,9 @@
+Validated all 64 input assignments; size 8 OR count 5 T 0 star-served 6 / 6
+6 ('or', 4, 5)
+7 ('or', 3, 4)
+8 ('or', 3, 5)
+9 ('and', 1, 6)
+10 ('and', 2, 8)
+11 ('and', 0, 7)
+12 ('or', 9, 11)
+13 ('or', 10, 12)

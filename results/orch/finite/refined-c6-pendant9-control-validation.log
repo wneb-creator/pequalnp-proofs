@@ -1,0 +1,11 @@
+Validated all 128 assignments; output 15 T0; every edge pure-star served
+mode 1 gates 9 starGates 4 nonStar 5 q 3 L 7 E 7 tau 3 ledgerSlack 0
+7 ('or', 3, 4)
+8 ('or', 6, 7)
+9 ('or', 4, 5)
+10 ('or', 3, 5)
+11 ('and', 0, 8)
+12 ('and', 1, 9)
+13 ('and', 2, 10)
+14 ('or', 11, 12)
+15 ('or', 13, 14)

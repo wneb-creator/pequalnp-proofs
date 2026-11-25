@@ -1,0 +1,25 @@
+{
+  "reviewer": "pilot158_global_argument",
+  "time_utc": "2026-11-25T16:33:22.026108+00:00",
+  "file": "results/orch/lemmas/L11929Positive.lean",
+  "sha256": "4c801c7501e70798365916512ffd04fc6420aaeeade035b1acc17407f216d43d",
+  "generic_prefix_unchanged": true,
+  "final_type_exact_negation_of_desk_statement": true,
+  "all_16_projected_core_inputs_preserve_K4": true,
+  "monotone_9_gate_witness_independently_checked_all_128_inputs": true,
+  "witness_module_kernel_build": "exit 0, empty log",
+  "forbidden_patterns": [],
+  "attributes": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "verdict": "PASS independent source and mathematical review for archiving the refutation; auxiliary kernel build verified. This does not prove the posted statement.",
+  "auxiliary_build": "exit 0; inherited if_neg deprecation warning only; full log reviewed",
+  "named_file": "lean/PEqualNP/Outside/L_meta_11929.lean",
+  "named_file_sha256": "a245d2f64e731134b0211e8e9bcc53bbf27360da81912b7ba9035340b1f5f31d",
+  "named_file_diff": "Only positive theorem moved into auxiliary namespace, final canonical theorem renamed, and reference updated; final type remains exact negation of posted statement."
+}

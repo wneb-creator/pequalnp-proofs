@@ -1,0 +1,6 @@
+path_with_dirty_rectangle E 3 tau 2 gates 5 J 2 minimum_U 1 A_pure 2 A_expanded 2 first_slack 2 second_slack 0
+split_star E 4 tau 1 gates 2 J 0 minimum_U 2 A_pure 2 A_expanded 2 first_slack 0 second_slack 1
+expanded_only_star_gate E 3 tau 1 gates 4 J 1 minimum_U 2 A_pure 2 A_expanded 3 first_slack 3 second_slack 1
+C6_standard_residual E 6 tau 3 gates 3 J 0 minimum_U 3 A_pure 3 A_expanded 3 first_slack 0 second_slack 0
+C6_with_dead_opposite_stars E 6 tau 3 gates 6 J 0 minimum_U 3 A_pure 6 A_expanded 6 first_slack 3 second_slack 0
+Fano_standard_residual E 21 tau 7 gates 14 J 0 minimum_U 7 A_pure 14 A_expanded 14 first_slack 0 second_slack 0

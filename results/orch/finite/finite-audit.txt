@@ -1,0 +1,12 @@
+Independent reviewer: /root/pilot158_counterexample/finite_audit
+Verdict: safe to archive as computational evidence; no encoding defect found within the tested bounds.
+
+Reviewed component construction, exact pure-witness coverage, adjusted inequality, and minimal-subfamily tests. Reviewed SAT truth tables, OR reach, arbitrary output selection, dead gates, and ledger threshold. Independently reran the 128-input positive-control decoder.
+
+Independently checked the supplied Fano graph on all 2^14 assignments: 21 edges, no four-cycle, every degree 3, vertex-cover number 7, exactly 37 maximal independent sets, and 56 star supports. The 128 sparse test rows are complete for the monotonicity arguments. Reviewed factorized operand multiplexers and pure-OR characterization.
+
+Caveats resolved after review: documented C++ bounds and added argument guards; separated pruned from unpruned results; documented new scripts and the stronger selected-subfamily test; full sparse-search mode now asserts gate_count < |E| + tau - 1.
+
+The additional guards and documentation do not alter the mathematical encoding. UNSAT logs are not Lean certificates. UNKNOWN searches establish no lower bound.
+
+Follow-up audit: normalized_bounds.py and five original models passed independent full-table evaluation and minimum-|U| validation. The auditor supplied an expanded-only star example, subsequently added as a sixth case. The extra selected-nonminimum SAT clauses were checked and their UNKNOWN status confirmed. normalized-enumeration.cpp was added afterward and awaits the parent’s independent review.

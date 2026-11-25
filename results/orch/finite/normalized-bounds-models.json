@@ -1,0 +1,548 @@
+[
+ {
+  "name": "path_with_dirty_rectangle",
+  "p": 2,
+  "l": 2,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    0,
+    1
+   ],
+   [
+    "or",
+    2,
+    3
+   ],
+   [
+    "and",
+    4,
+    5
+   ],
+   [
+    "and",
+    0,
+    0
+   ],
+   [
+    "or",
+    2,
+    7
+   ]
+  ],
+  "tau": 2,
+  "U": [
+   [
+    6,
+    8
+   ]
+  ],
+  "pair_count": 1,
+  "A_pure": 2,
+  "A_expanded": 2,
+  "J": 2,
+  "B_pure": 1,
+  "first_slack_pure": 2,
+  "second_slack_pure": 0,
+  "B_expanded": 1,
+  "first_slack_expanded": 2,
+  "second_slack_expanded": 0
+ },
+ {
+  "name": "split_star",
+  "p": 1,
+  "l": 4,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    1,
+    2
+   ],
+   [
+    "or",
+    3,
+    4
+   ]
+  ],
+  "tau": 1,
+  "U": [
+   [
+    0,
+    5
+   ],
+   [
+    0,
+    6
+   ]
+  ],
+  "pair_count": 2,
+  "A_pure": 2,
+  "A_expanded": 2,
+  "J": 0,
+  "B_pure": 0,
+  "first_slack_pure": 0,
+  "second_slack_pure": 1,
+  "B_expanded": 0,
+  "first_slack_expanded": 0,
+  "second_slack_expanded": 1
+ },
+ {
+  "name": "expanded_only_star_gate",
+  "p": 3,
+  "l": 2,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    0,
+    1
+   ],
+   [
+    "and",
+    2,
+    4
+   ],
+   [
+    "or",
+    5,
+    6
+   ],
+   [
+    "or",
+    1,
+    2
+   ]
+  ],
+  "tau": 1,
+  "U": [
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    8
+   ]
+  ],
+  "pair_count": 2,
+  "A_pure": 2,
+  "A_expanded": 3,
+  "J": 1,
+  "B_pure": 1,
+  "first_slack_pure": 2,
+  "second_slack_pure": 2,
+  "B_expanded": 0,
+  "first_slack_expanded": 3,
+  "second_slack_expanded": 1
+ },
+ {
+  "name": "C6_standard_residual",
+  "p": 3,
+  "l": 3,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    4,
+    5
+   ],
+   [
+    "or",
+    3,
+    4
+   ],
+   [
+    "or",
+    3,
+    5
+   ]
+  ],
+  "tau": 3,
+  "U": [
+   [
+    0,
+    7
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    2,
+    8
+   ]
+  ],
+  "pair_count": 3,
+  "A_pure": 3,
+  "A_expanded": 3,
+  "J": 0,
+  "B_pure": 0,
+  "first_slack_pure": 0,
+  "second_slack_pure": 0,
+  "B_expanded": 0,
+  "first_slack_expanded": 0,
+  "second_slack_expanded": 0
+ },
+ {
+  "name": "C6_with_dead_opposite_stars",
+  "p": 3,
+  "l": 3,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    0
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    4,
+    5
+   ],
+   [
+    "or",
+    3,
+    4
+   ],
+   [
+    "or",
+    3,
+    5
+   ],
+   [
+    "or",
+    0,
+    2
+   ],
+   [
+    "or",
+    0,
+    1
+   ],
+   [
+    "or",
+    1,
+    2
+   ]
+  ],
+  "tau": 3,
+  "U": [
+   [
+    0,
+    7
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    2,
+    8
+   ]
+  ],
+  "pair_count": 3,
+  "A_pure": 6,
+  "A_expanded": 6,
+  "J": 0,
+  "B_pure": 0,
+  "first_slack_pure": 3,
+  "second_slack_pure": 0,
+  "B_expanded": 0,
+  "first_slack_expanded": 3,
+  "second_slack_expanded": 0
+ },
+ {
+  "name": "Fano_standard_residual",
+  "p": 7,
+  "l": 7,
+  "E": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    5,
+    4
+   ],
+   [
+    5,
+    5
+   ],
+   [
+    6,
+    3
+   ],
+   [
+    6,
+    5
+   ],
+   [
+    6,
+    6
+   ]
+  ],
+  "gates": [
+   [
+    "or",
+    7,
+    11
+   ],
+   [
+    "or",
+    13,
+    14
+   ],
+   [
+    "or",
+    7,
+    8
+   ],
+   [
+    "or",
+    12,
+    16
+   ],
+   [
+    "or",
+    8,
+    9
+   ],
+   [
+    "or",
+    13,
+    18
+   ],
+   [
+    "or",
+    7,
+    9
+   ],
+   [
+    "or",
+    10,
+    20
+   ],
+   [
+    "or",
+    8,
+    10
+   ],
+   [
+    "or",
+    11,
+    22
+   ],
+   [
+    "or",
+    9,
+    11
+   ],
+   [
+    "or",
+    12,
+    24
+   ],
+   [
+    "or",
+    10,
+    12
+   ],
+   [
+    "or",
+    13,
+    26
+   ]
+  ],
+  "tau": 7,
+  "U": [
+   [
+    0,
+    15
+   ],
+   [
+    1,
+    17
+   ],
+   [
+    2,
+    19
+   ],
+   [
+    3,
+    21
+   ],
+   [
+    4,
+    23
+   ],
+   [
+    5,
+    25
+   ],
+   [
+    6,
+    27
+   ]
+  ],
+  "pair_count": 7,
+  "A_pure": 14,
+  "A_expanded": 14,
+  "J": 0,
+  "B_pure": 0,
+  "first_slack_pure": 0,
+  "second_slack_pure": 0,
+  "B_expanded": 0,
+  "first_slack_expanded": 0,
+  "second_slack_expanded": 0
+ }
+]

@@ -1,0 +1,2 @@
+n=5 p=2 limit=4 target_count=35
+DONE visits=2614162 target_hits=0 no_counterexample

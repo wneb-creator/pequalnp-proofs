@@ -1,0 +1,626 @@
+{
+  "vertices": 8,
+  "edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "gates": [
+    [
+      "or",
+      6,
+      7
+    ],
+    [
+      "or",
+      5,
+      6
+    ],
+    [
+      "and",
+      1,
+      9
+    ],
+    [
+      "or",
+      8,
+      10
+    ],
+    [
+      "or",
+      7,
+      5
+    ],
+    [
+      "or",
+      6,
+      7
+    ],
+    [
+      "and",
+      2,
+      13
+    ],
+    [
+      "or",
+      12,
+      14
+    ],
+    [
+      "or",
+      5,
+      6
+    ],
+    [
+      "or",
+      7,
+      5
+    ],
+    [
+      "and",
+      3,
+      17
+    ],
+    [
+      "or",
+      16,
+      18
+    ],
+    [
+      "and",
+      11,
+      15
+    ],
+    [
+      "and",
+      20,
+      19
+    ],
+    [
+      "or",
+      2,
+      3
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "and",
+      5,
+      23
+    ],
+    [
+      "or",
+      22,
+      24
+    ],
+    [
+      "or",
+      3,
+      1
+    ],
+    [
+      "or",
+      2,
+      3
+    ],
+    [
+      "and",
+      6,
+      27
+    ],
+    [
+      "or",
+      26,
+      28
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "or",
+      3,
+      1
+    ],
+    [
+      "and",
+      7,
+      31
+    ],
+    [
+      "or",
+      30,
+      32
+    ],
+    [
+      "and",
+      25,
+      29
+    ],
+    [
+      "and",
+      34,
+      33
+    ],
+    [
+      "or",
+      5,
+      6
+    ],
+    [
+      "or",
+      36,
+      7
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "or",
+      38,
+      3
+    ],
+    [
+      "or",
+      4,
+      5
+    ],
+    [
+      "or",
+      4,
+      6
+    ],
+    [
+      "or",
+      4,
+      7
+    ]
+  ],
+  "U": [
+    [
+      21,
+      35
+    ],
+    [
+      0,
+      37
+    ],
+    [
+      4,
+      39
+    ]
+  ],
+  "gate_count": 35,
+  "and_count": 10,
+  "or_count": 25,
+  "eligible_or_count": 25,
+  "B": 0,
+  "tau": 4,
+  "U_card": 3,
+  "matching": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "all_AND_dirty": true,
+  "all_pairs_sound": true,
+  "pairs_cover_exactly_F": true,
+  "all_OR_raw_reach_monochromatic": true,
+  "star_witness_wires": {
+    "allB": 37,
+    "allA": 39,
+    "matching": [
+      40,
+      41,
+      42
+    ]
+  },
+  "or_details": [
+    {
+      "wire": 8,
+      "support": [
+        6,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        6,
+        7
+      ]
+    },
+    {
+      "wire": 9,
+      "support": [
+        5,
+        6
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "wire": 11,
+      "support": [
+        6,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        6,
+        7
+      ]
+    },
+    {
+      "wire": 12,
+      "support": [
+        5,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        7
+      ]
+    },
+    {
+      "wire": 13,
+      "support": [
+        6,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        6,
+        7
+      ]
+    },
+    {
+      "wire": 15,
+      "support": [
+        5,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        7
+      ]
+    },
+    {
+      "wire": 16,
+      "support": [
+        5,
+        6
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "wire": 17,
+      "support": [
+        5,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        7
+      ]
+    },
+    {
+      "wire": 19,
+      "support": [
+        5,
+        6
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "wire": 22,
+      "support": [
+        2,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        2,
+        3
+      ]
+    },
+    {
+      "wire": 23,
+      "support": [
+        1,
+        2
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        2
+      ]
+    },
+    {
+      "wire": 25,
+      "support": [
+        2,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        2,
+        3
+      ]
+    },
+    {
+      "wire": 26,
+      "support": [
+        1,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        3
+      ]
+    },
+    {
+      "wire": 27,
+      "support": [
+        2,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        2,
+        3
+      ]
+    },
+    {
+      "wire": 29,
+      "support": [
+        1,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        3
+      ]
+    },
+    {
+      "wire": 30,
+      "support": [
+        1,
+        2
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        2
+      ]
+    },
+    {
+      "wire": 31,
+      "support": [
+        1,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        3
+      ]
+    },
+    {
+      "wire": 33,
+      "support": [
+        1,
+        2
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        2
+      ]
+    },
+    {
+      "wire": 36,
+      "support": [
+        5,
+        6
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "wire": 37,
+      "support": [
+        5,
+        6,
+        7
+      ],
+      "eligible_centers": [
+        0
+      ],
+      "raw_or_inputs": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "wire": 38,
+      "support": [
+        1,
+        2
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        2
+      ]
+    },
+    {
+      "wire": 39,
+      "support": [
+        1,
+        2,
+        3
+      ],
+      "eligible_centers": [
+        4
+      ],
+      "raw_or_inputs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "wire": 40,
+      "support": [
+        4,
+        5
+      ],
+      "eligible_centers": [
+        1
+      ],
+      "raw_or_inputs": [
+        4,
+        5
+      ]
+    },
+    {
+      "wire": 41,
+      "support": [
+        4,
+        6
+      ],
+      "eligible_centers": [
+        2
+      ],
+      "raw_or_inputs": [
+        4,
+        6
+      ]
+    },
+    {
+      "wire": 42,
+      "support": [
+        4,
+        7
+      ],
+      "eligible_centers": [
+        3
+      ],
+      "raw_or_inputs": [
+        4,
+        7
+      ]
+    }
+  ]
+}

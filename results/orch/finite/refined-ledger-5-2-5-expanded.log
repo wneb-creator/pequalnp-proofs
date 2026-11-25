@@ -1,0 +1,2 @@
+n=5 p=2 limit=5 family=1 target_count=35
+DONE visits=209272048 target_hits=13791615 served_checks=12619071 minimal_checks=12619071 no_counterexample
