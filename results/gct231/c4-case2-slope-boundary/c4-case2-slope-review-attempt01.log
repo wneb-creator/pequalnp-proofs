@@ -1,0 +1,11 @@
+Start UTC 2026-11-25T12:16:50.792815+00:00
+Exact source, F/saturation/K identity and original-r reduction by8K^3: PASS
+Independent quadratic/linear Sylvester norm identity rU PASS
+Independent quadratic/linear Sylvester norm identity rV PASS
+Independent quadratic/linear Sylvester norm identity r0 PASS
+R13/S13 explicit Bezout identity =1: PASS; common norm factors imply Q=0 under P*K nonzero.
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_case2_slope_review.py", line 34, in <module>
+    assert s.rem(s.Poly(g,P,domain=s.QQ[B]),s.Poly(Q,P,domain=s.QQ[B])).as_expr()==s.expand(parse(ad[name]['remainder']))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,79 @@
+namespace PEqualNP.Outside.L_gct_231_aux.Case2Necessity
+
+open Polynomial
+
+noncomputable def reverseAffinePolynomial (P B : ℂ) : Polynomial ℂ :=
+  C (rA P B) * X + C (rC P B)
+
+noncomputable def reverseQEliminant (P B : ℂ) : Polynomial ℂ :=
+  C (3*B-4) * reverseAffinePolynomial P B ^ 2 -
+  C (rB P B) * (C (4*P) * X) * reverseAffinePolynomial P B +
+  C (rB P B ^ 2) * (C (4*P^2-6*B) * X^2 + C (36*B))
+
+noncomputable def reverseLEliminant (P B : ℂ) : Polynomial ℂ :=
+  C (l02 P B) * reverseAffinePolynomial P B ^ 2 -
+  C (rB P B) * (C (l11 P B) * X + C (l01 P B)) * reverseAffinePolynomial P B +
+  C (rB P B ^ 2) * (C (l20 P B) * X^2 + C (l10 P B) * X)
+
+noncomputable def reverseCEliminant (P B : ℂ) : Polynomial ℂ :=
+  -C (-1) * reverseAffinePolynomial P B ^ 3 +
+  C (rB P B) * (C (9*B-2) - C (2*P) * X) * reverseAffinePolynomial P B ^ 2 -
+  C (rB P B ^ 2) * (-C (4*P) * X^2 + C (20*P) * X) * reverseAffinePolynomial P B +
+  C (rB P B ^ 3) * (C (2*P^2) * X^3 - C (28*P^2) * X^2 - C (36*B))
+
+theorem reverse_eliminant_degree_bounds (P B : ℂ) :
+    (reverseQEliminant P B).natDegree ≤ 2 ∧
+    (reverseLEliminant P B).natDegree ≤ 2 ∧
+    (reverseCEliminant P B).natDegree ≤ 3 := by
+  unfold reverseQEliminant reverseLEliminant reverseCEliminant reverseAffinePolynomial
+  constructor
+  · compute_degree
+  constructor <;> compute_degree
+
+set_option maxHeartbeats 600000 in
+set_option maxRecDepth 4096 in
+theorem reverse_eliminants_vanish (P B U V : ℂ)
+    (hq : originalQ P B U V = 0) (hc : originalC P B U V = 0)
+    (hF : scaleCurve P B = 0) (hr : originalR P B U V = 0)
+    (hl : originalL P B U V = 0) :
+    (reverseQEliminant P B).eval U = 0 ∧
+    (reverseLEliminant P B).eval U = 0 ∧
+    (reverseCEliminant P B).eval U = 0 := by
+  have hr' := reduced_linear P B U V hF hr
+  have hl' := reduced_quadratic P B U V hF hl
+  have hline : rB P B * V + (rA P B * U + rC P B) = 0 := by
+    linear_combination hr'
+  have hq' : (3*B-4)*V^2+(4*P*U)*V+((4*P^2-6*B)*U^2+36*B)=0 := by
+    unfold originalQ at hq
+    linear_combination hq
+  have hl'' : l02 P B * V^2 + (l11 P B * U + l01 P B) * V +
+      (l20 P B * U^2 + l10 P B * U) = 0 := by
+    linear_combination hl'
+  have hc' : (-1 : ℂ)*V^3+(9*B-2-2*P*U)*V^2+
+      (-4*P*U^2+20*P*U)*V+(2*P^2*U^3-28*P^2*U^2-36*B)=0 := by
+    unfold originalC at hc
+    linear_combination hc
+  have hqe := eliminate_quadratic (rB P B) (rA P B * U + rC P B) V _ _ _ hline hq'
+  have hle := eliminate_quadratic (rB P B) (rA P B * U + rC P B) V _ _ _ hline hl''
+  have hce := eliminate_cubic (rB P B) (rA P B * U + rC P B) V _ _ _ _ hline hc'
+  simp only [reverseQEliminant, reverseLEliminant, reverseCEliminant, reverseAffinePolynomial,
+    Polynomial.eval_add, Polynomial.eval_sub, Polynomial.eval_mul,
+    Polynomial.eval_pow, Polynomial.eval_neg, Polynomial.eval_C, Polynomial.eval_X]
+  constructor
+  · linear_combination hqe
+  constructor
+  · linear_combination hle
+  · linear_combination hce
+
+theorem reverse_raw_resultants_vanish (P B U V : ℂ)
+    (hq : originalQ P B U V = 0) (hc : originalC P B U V = 0)
+    (hF : scaleCurve P B = 0) (hr : originalR P B U V = 0)
+    (hl : originalL P B U V = 0) :
+    Polynomial.resultant (reverseQEliminant P B) (reverseLEliminant P B) 2 2 = 0 ∧
+    Polynomial.resultant (reverseQEliminant P B) (reverseCEliminant P B) 2 3 = 0 := by
+  obtain ⟨hqe, hle, hce⟩ := reverse_eliminants_vanish P B U V hq hc hF hr hl
+  obtain ⟨hqdeg, hldeg, hcdeg⟩ := reverse_eliminant_degree_bounds P B
+  exact ⟨resultant_zero_of_common_root _ _ U 2 2 hqdeg hldeg (by decide) hqe hle,
+    resultant_zero_of_common_root _ _ U 2 3 hqdeg hcdeg (by decide) hqe hce⟩
+
+end PEqualNP.Outside.L_gct_231_aux.Case2Necessity

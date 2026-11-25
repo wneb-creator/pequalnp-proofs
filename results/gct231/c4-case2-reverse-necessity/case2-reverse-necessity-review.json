@@ -1,0 +1,12 @@
+{
+  "status": "PASS_INDEPENDENT_REVERSE_SOURCE_REVIEW",
+  "addition_sha256": "03ee0ae9bec007a1594e312e35e8487ed7a2ab826c6018ba16847dc696bf1189",
+  "combined_sha256": "04284090e7df73dcdeae0b4ac44df09bce48dedce7e2f3b593ddd5b3869f7173",
+  "checks": [
+    "Direct expansion verifies original Q,C as polynomials in V with the displayed coefficients.",
+    "Source-level review verifies reduced L coefficient swap l20/l02 and l10/l01, affine rA*U+rC and slope rB.",
+    "The three displayed reverse polynomials are the same generic quadratic/cubic elimination formulas at those coefficients; no division occurs.",
+    "Degree bounds are 2,2,3; common root is U; resultant bounds remain fixed even when rB vanishes."
+  ],
+  "scope": "Original five equations imply two raw reverse resultants vanish; no divided polynomial or norm assertion."
+}

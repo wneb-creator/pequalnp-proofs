@@ -1,0 +1,1 @@
+{"status": "FAIL", "returncode": 1, "wall_seconds": 52.758045881000726, "seconds_limit": 180, "resident_memory_mib_limit": 6144, "peak_group_rss_kib": 4341376, "rss_sample_seconds": 0.5, "input": "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean"}

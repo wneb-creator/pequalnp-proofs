@@ -1,0 +1,9 @@
+primes 4 modulus_bits 121
+primes 8 modulus_bits 241
+primes 16 modulus_bits 481
+primes 32 modulus_bits 961
+primes 64 modulus_bits 1921
+primes 128 modulus_bits 3841
+primes 256 modulus_bits 7681
+primes 512 modulus_bits 15361
+VERIFIED_EXACT_BEZOUT primes 512

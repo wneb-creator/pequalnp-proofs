@@ -1,0 +1,8 @@
+{
+  "status": "UNKNOWN_OUTPUT_FILE_SIZE_LIMIT",
+  "trace_bytes": 67108864,
+  "trace_sha256": "ad5f235a6510f6fc90a768609e99a0133d0c05a25110daf127517299ae9df207",
+  "complete_rounds": 15,
+  "last_complete_round": "  5      33    1798    1322 x 2093       11.89%      3 new      30 zero         0.67 | 0.67         ",
+  "scope": "Failed trace omitted from archive; no exactQQ basis or certificate verdict."
+}

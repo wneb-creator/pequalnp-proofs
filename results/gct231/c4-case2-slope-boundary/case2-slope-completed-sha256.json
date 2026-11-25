@@ -1,0 +1,13 @@
+{
+  "case2-necessity/Case2SlopeBoundary.lean": "707e23e11549155ca65fe3d04b607d29d0d0173a277ccafef1c4a5b3c27f5480",
+  "case2-necessity/Case2SlopeBoundaryAudit.lean": "a00d07c4d3e3a4266d94fbb4392064e0b3154f432b9e6dc05cb6a0275c734205",
+  "case2-necessity/generate_slope.py": "5864d3c68ff0a3249269fafb34d9a5177f5586d8ec57347f7efbb7c2a233da67",
+  "case2-necessity/generate-slope.log": "f7d69419b7113392eaa8b4b8fe6c3968a1b85300be103c58da26ecd93baae61a",
+  "case2-necessity/slope-build01.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "case2-necessity/slope-build01.json": "bd6fe12d5276656e700c96cf0184ba59c6c7ed9714717b498433486afa1cdadb",
+  "case2-necessity/slope-audit01.log": "e3464ce56b6e73b2d0cc9a2b28945ddac5d625fd0f00c3ee3b141cfd83abc47b",
+  "case2-necessity/slope-audit01.json": "54cae30bb3f217e6bc3d8dc89057a66290320a46a28212e3a48b4abc448bd0aa",
+  "c4_case2_slope_review.py": "0a428aeb2cd707b264be40c4d9257eab1a041db7a66a1dee05669f096b89438a",
+  "c4-case2-slope-review.log": "88599ce87dcde235899d6734dff768ed6f75f7af99102bd9fc15389e630d1ef6",
+  "c4-case2-slope-review-certificates.json": "6f69a2dfa7fe76cc5f2a3a5c13a24e871a25df195ffb947094d1602bec186489"
+}

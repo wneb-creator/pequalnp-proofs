@@ -1,0 +1,265 @@
+{
+  "unknowns": [
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "A",
+    "B",
+    "C",
+    "S",
+    "T",
+    "w"
+  ],
+  "equations": [
+    {
+      "monomial": [
+        3,
+        0,
+        0
+      ],
+      "coefficient": "A**2*F + 2*A*B - 2*A*D*F - 2*A + B**2*D - 2*B*D*F - 2*B - D**2*F - D*F**2 - 2*D*F - D - F - 2",
+      "content": "1",
+      "terms": 13
+    },
+    {
+      "monomial": [
+        2,
+        2,
+        0
+      ],
+      "coefficient": "-2*A**2*F*H - 2*A*B*H + 2*A*C*F*S + 2*A*D*F*H - 2*A*E*F*H - 2*A*F*S**2 + 2*A*H + B**2*E*H + B**2*S**2 + 2*B*C*S - 2*B*E*F*H - 2*B*F*S**2 + C**2*D*F + C**2 - 2*C*D*F*H - 2*C*H - 2*D*E*F*H - D*F*H**2 - 2*D*F*H*S - D*F*S**2 - E*F**2*H - 2*E*F*H - E*H - F**2*S**2 - 2*F*S**2 - H**2 - 2*H*S",
+      "content": "1",
+      "terms": 27
+    },
+    {
+      "monomial": [
+        2,
+        1,
+        0
+      ],
+      "coefficient": "-2*A**2*F + A**2*H + 2*A*B*H + 2*A*B*S - 2*A*B + 2*A*C*F + 2*A*C + 2*A*D*F - 2*A*D*H - 2*A*E*F - 2*A*F*S - 2*A*H - 4*A*S + 2*A + B**2*E + B**2*H + 2*B**2*S + 2*B*C*D + 2*B*C - 2*B*E*F - 2*B*F*H - 4*B*F*S - 2*B*H - 2*B*S - D**2*H - 2*D*E*F - 2*D*F*H - 4*D*F*S - 4*D*H - 2*D*S - E*F**2 - 2*E*F - E - F**2*H - 2*F**2*S - 4*F*H - 6*F*S - 4*H - 6*S",
+      "content": "1",
+      "terms": 39
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        2
+      ],
+      "coefficient": "-A**2*D*G - A**2*E*G - A**2*F*G - A**2*G**2 - A**2*G*H - 2*A**2*G*S - 2*A**2*G*T - 2*A**2*G + A**2*T**2 + 2*A*B*D + 2*A*B*E + 2*A*B*F + 2*A*B*G + 2*A*B*H + 4*A*B*S + 4*A*B*T + 4*A*B - 2*A*C*T + 2*A*D**2*G + 2*A*D*E*G + 2*A*D*F*G + 2*A*D*G**2 + 2*A*D*G*H + 4*A*D*G*S + 4*A*D*G*T + 4*A*D*G - 2*A*D*T**2 + 2*B**2*D**2 + 2*B**2*D*E + 2*B**2*D*F + 2*B**2*D*G + 2*B**2*D*H + 4*B**2*D*S + 4*B**2*D*T + 4*B**2*D - 2*B*C*D*T - 2*B*D**2*F + 2*B*D**2*G - 2*B*D*E*F + 2*B*D*E*G - 2*B*D*F**2 - 2*B*D*F*H - 4*B*D*F*S - 4*B*D*F*T - 4*B*D*F + 2*B*D*G**2 + 2*B*D*G*H + 4*B*D*G*S + 4*B*D*G*T + 4*B*D*G - 2*B*D*T**2 - 2*B*D - 2*B*E - 2*B*F - 2*B*G - 2*B*H - 4*B*S - 4*B*T - 4*B + C**2*D*F + C**2 - 2*C*D**2*F - 2*C*D*E*F - 2*C*D*F**2 - 2*C*D*F*G - 2*C*D*F*H - 4*C*D*F*S - 4*C*D*F*T - 4*C*D*F - 2*C*D - 2*C*E - 2*C*F - 2*C*G - 2*C*H - 4*C*S - 4*C*T - 4*C - D**3*F + D**3*G - 2*D**2*E*F + D**2*E*G - 2*D**2*F**2 + D**2*F*G - 2*D**2*F*H - 4*D**2*F*S - 2*D**2*F*T - 4*D**2*F + D**2*G**2 + D**2*G*H + 2*D**2*G*S + 2*D**2*G*T + 4*D**2*G - D**2*T**2 - D**2 - D*E**2*F - 2*D*E*F**2 - 2*D*E*F*H - 4*D*E*F*S - 2*D*E*F*T - 4*D*E*F + 2*D*E*G - 2*D*E - D*F**3 - 2*D*F**2*H - 4*D*F**2*S - 2*D*F**2*T - 4*D*F**2 + D*F*G**2 + 2*D*F*G*T + 2*D*F*G - D*F*H**2 - 4*D*F*H*S - 2*D*F*H*T - 4*D*F*H - 4*D*F*S**2 - 4*D*F*S*T - 8*D*F*S - D*F*T**2 - 4*D*F*T - 6*D*F + 2*D*G**2 + 2*D*G*H + 4*D*G*S + 4*D*G*T + 3*D*G - 2*D*H - 4*D*S - 2*D*T**2 - 2*D*T - 4*D - E**2 - 2*E*F - E*G - 2*E*H - 4*E*S - 2*E*T - 4*E - F**2 - F*G - 2*F*H - 4*F*S - 2*F*T - 4*F - G*H - 2*G*S - 2*G - H**2 - 4*H*S - 2*H*T - 4*H - 4*S**2 - 4*S*T - 8*S - 4*T - 4",
+      "content": "1",
+      "terms": 155
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        1
+      ],
+      "coefficient": "-A**2*D - A**2*E - A**2*F - A**2*H - 2*A**2*S - 2*A**2 - 2*A*B*D - 2*A*B*E - 2*A*B*F - 2*A*B*G - 2*A*B*H - 4*A*B*S - 2*A*B*T - 6*A*B - 2*A*C*F - 2*A*C + 2*A*D**2 + 2*A*D*E + 2*A*D*F + 2*A*D*H + 4*A*D*S + 6*A*D + 2*A*E + 2*A*F + 2*A*G + 2*A*H + 4*A*S + 2*A*T + 4*A - 3*B**2*D - B**2*E - B**2*F - B**2*G - B**2*H - 2*B**2*S - 2*B**2*T - 2*B**2 - 2*B*C*D - 2*B*C + 4*B*D*F - 2*B*D*G - 2*B*D*T + 2*B*D + 2*B*E*F + 2*B*E + 2*B*F**2 + 2*B*F*G + 2*B*F*H + 4*B*F*S + 4*B*F*T + 6*B*F + 2*B*G + 2*B*H + 4*B*S + 6*B + D**3 + D**2*E + 3*D**2*F + D**2*H + 2*D**2*S + 6*D**2 + 2*D*E*F + 4*D*E + 3*D*F**2 + 2*D*F*H + 4*D*F*S + 12*D*F + 2*D*G + 4*D*H + 8*D*S + 2*D*T + 12*D + E*F**2 + 4*E*F + 4*E + F**3 + F**2*G + F**2*H + 2*F**2*S + 2*F**2*T + 6*F**2 + 4*F*G + 4*F*H + 8*F*S + 6*F*T + 12*F + 3*G + 4*H + 8*S + 2*T + 8",
+      "content": "1",
+      "terms": 91
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        0
+      ],
+      "coefficient": "A**2 + 2*A*B - 2*A*D - 2*A + B**2 - 2*B*F - 2*B - D**2 - D*F - 4*D - F**2 - 4*F - 3",
+      "content": "2",
+      "terms": 13
+    },
+    {
+      "monomial": [
+        1,
+        2,
+        0
+      ],
+      "coefficient": "A**2*F - 2*A**2*H - 2*A*B*H - 2*A*B*S - 2*A*C*F + 2*A*C*S - 2*A*C + 2*A*D*H + 2*A*E*F - 2*A*E*H + 2*A*F*S + 2*A*H - 2*A*S**2 + 4*A*S + 2*B*C*E + 2*B*C*S + C**2*D + C**2*F + 2*C**2 - 2*C*D*H - 2*C*F*H - 2*C*F*S - 4*C*H - 2*C*S - 2*D*E*H - D*H**2 - 2*D*H*S - D*S**2 - E**2*F - 2*E*F*H - 4*E*F*S - 4*E*H - 2*E*S - F*H**2 - 4*F*H*S - 4*F*S**2 - 2*H**2 - 6*H*S - 6*S**2",
+      "content": "1",
+      "terms": 39
+    },
+    {
+      "monomial": [
+        1,
+        1,
+        1
+      ],
+      "coefficient": "A**2*D + A**2*E + A**2*F + A**2*H + 2*A**2*S + 2*A**2 + A*B*D + A*B*E + A*B*F + A*B*G + A*B*S + A*B*T + 3*A*B + A*C*F + A*C*G - A*C*S + A*C*T + A*C - A*D**2 - A*D*F - A*D*H - 2*A*D*S - 3*A*D + A*E**2 + A*E*F + A*E*H + 2*A*E*S + A*E - A*F - A*G*S - A*G - A*H - A*S*T - 2*A*S - A*T - 2*A - B**2*E - B**2*H - 2*B**2*S - B*C*D - B*C*E - B*C*S + B*C*T - B*C + B*E*F - B*E*G - B*E*T + B*F*H + 2*B*F*S - B*G*H - 2*B*G*S + B*H - B*S*T + B*S - C**2*D - C**2*F - 2*C**2 + C*D**2 + C*D*E + 2*C*D*F + C*D*G + 2*C*D*H + 2*C*D*S + C*D*T + 4*C*D + C*E*F + 2*C*E + C*F**2 + C*F*G + 2*C*F*H + 3*C*F*S + 2*C*F*T + 4*C*F + 2*C*G + 4*C*H + 5*C*S + 3*C*T + 4*C + D**2*E + D**2*H + D**2*S + D*E**2 + 2*D*E*F + 2*D*E*H + 3*D*E*S + 4*D*E + 2*D*F*H + 3*D*F*S - D*G*S + D*H**2 + 3*D*H*S + 4*D*H + 2*D*S**2 - D*S*T + 5*D*S + E**2*F + 2*E**2 + E*F**2 + 2*E*F*H + 4*E*F*S + 4*E*F + E*G + 4*E*H + 7*E*S + E*T + 4*E + F**2*H + 2*F**2*S + F*H**2 + 4*F*H*S + F*H*T + 4*F*H + 4*F*S**2 + F*S*T + 7*F*S + 2*H**2 + 7*H*S + H*T + 4*H + 6*S**2 + S*T + 6*S",
+      "content": "2",
+      "terms": 122
+    },
+    {
+      "monomial": [
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-2*A**2 - 2*A*B + 2*A*C + 2*A*D - 2*A*E - 2*A*S + 2*A + 2*B*C - 2*D*E - D*H - 4*D*S - E*F - 4*E - F*H - 2*F*S - 2*H - 6*S",
+      "content": "2",
+      "terms": 17
+    },
+    {
+      "monomial": [
+        1,
+        0,
+        2
+      ],
+      "coefficient": "2*A*B*D + 2*A*B*E + 2*A*B*F + 2*A*B*G + 2*A*B*H + 4*A*B*S + 2*A*B*T + 4*A*B - 2*A*C*G - 2*A*C*T + 3*B**2*D + 2*B**2*E + 2*B**2*F + 2*B**2*G + 2*B**2*H + 4*B**2*S + 4*B**2*T + 4*B**2 + 2*B*C*D - 2*B*C*T + 2*B*C - 2*B*D*F + 4*B*D*G + 2*B*D*T - 2*B*D - 2*B*E*F + 2*B*E*G - 2*B*E - 2*B*F**2 - 2*B*F*H - 4*B*F*S - 4*B*F*T - 6*B*F + 2*B*G**2 + 2*B*G*H + 4*B*G*S + 4*B*G*T + 2*B*G - 2*B*H - 4*B*S - 2*B*T**2 - 4*B + C**2*D + C**2*F + 2*C**2 - 2*C*D**2 - 2*C*D*E - 4*C*D*F - 2*C*D*G - 2*C*D*H - 4*C*D*S - 2*C*D*T - 8*C*D - 2*C*E*F - 4*C*E - 2*C*F**2 - 2*C*F*G - 2*C*F*H - 4*C*F*S - 4*C*F*T - 8*C*F - 4*C*G - 4*C*H - 8*C*S - 6*C*T - 8*C - D**3 - 2*D**2*E - 3*D**2*F - 2*D**2*H - 4*D**2*S - 6*D**2 - D*E**2 - 4*D*E*F - 2*D*E*H - 4*D*E*S - 8*D*E - 3*D*F**2 - 4*D*F*H - 8*D*F*S - 2*D*F*T - 12*D*F - D*H**2 - 4*D*H*S - 8*D*H - 4*D*S**2 - 16*D*S - 2*D*T - 12*D - E**2*F - 2*E**2 - 2*E*F**2 - 2*E*F*H - 4*E*F*S - 2*E*F*T - 8*E*F - 4*E*H - 8*E*S - 2*E*T - 8*E - F**3 - 2*F**2*H - 4*F**2*S - 2*F**2*T - 6*F**2 + F*G**2 + 2*F*G*T - F*H**2 - 4*F*H*S - 2*F*H*T - 8*F*H - 4*F*S**2 - 4*F*S*T - 16*F*S - F*T**2 - 6*F*T - 12*F + 2*G**2 + 4*G*T - 2*H**2 - 8*H*S - 2*H*T - 8*H - 8*S**2 - 4*S*T - 16*S - 2*T**2 - 4*T - 8",
+      "content": "1",
+      "terms": 129
+    },
+    {
+      "monomial": [
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-2*A*B - 2*A*C - 2*B**2 - 2*B*C + 2*B*F - 2*B*G - 2*B*T + 2*B + D**2 + D*E + 2*D*F + D*H + 2*D*S + 4*D + E*F + 2*E + F**2 - F*G + F*H + 2*F*S - 2*F*T + 4*F - 2*G + 2*H + 4*S - 2*T + 4",
+      "content": "2",
+      "terms": 27
+    },
+    {
+      "monomial": [
+        0,
+        3,
+        0
+      ],
+      "coefficient": "A**2*H - 2*A*C*S + 2*A*E*H + 2*A*S**2 + C**2*E - 2*C*E*H - 2*C*S**2 - E**2*H - E*H**2 - 2*E*H*S - E*S**2 - H*S**2 - 2*S**3",
+      "content": "1",
+      "terms": 13
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        2
+      ],
+      "coefficient": "-A**2*D*G - A**2*E*G - A**2*F*G - A**2*G**2 - A**2*G*H - 2*A**2*G*S - 2*A**2*G*T - 2*A**2*G + A**2*T**2 + 2*A*B*S*T + 2*A*C*G*S - 2*A*D*E*G - 2*A*E**2*G - 2*A*E*F*G - 2*A*E*G**2 - 2*A*E*G*H - 4*A*E*G*S - 4*A*E*G*T - 4*A*E*G + 2*A*E*T**2 + B**2*E*H + B**2*S**2 - 2*B*C*E*T + 2*B*E*G*H + 2*B*G*S**2 - 2*C**2*E*G + 2*C*D*E*G + 2*C*E**2*G + 2*C*E*F*G + 2*C*E*G**2 + 4*C*E*G*H + 4*C*E*G*S + 4*C*E*G*T + 4*C*E*G - 2*C*E*T**2 + 2*C*G*S**2 + D*E**2*G + 2*D*E*G*H + 2*D*E*G*S + D*G*S**2 + E**3*G + E**2*F*G + E**2*G**2 + 3*E**2*G*H + 4*E**2*G*S + 2*E**2*G*T + 2*E**2*G - E**2*T**2 + 2*E*F*G*H + 2*E*F*G*S + E*G**2*H + 2*E*G**2*S + 2*E*G*H**2 + 6*E*G*H*S + 2*E*G*H*T + 4*E*G*H + 5*E*G*S**2 + 4*E*G*S*T + 4*E*G*S - E*H*T**2 - 2*E*S*T**2 + F*G*S**2 + G*H*S**2 + 2*G*S**3 + 2*G*S**2",
+      "content": "1",
+      "terms": 65
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-A**2*D - A**2*E - A**2*F - A**2*H - 2*A**2*S - 2*A**2 + 2*A*B*H + 2*A*B*S - 2*A*C*G + 2*A*C*S - 2*A*C*T - 2*A*D*E - 2*A*E**2 - 2*A*E*F - 2*A*E*H - 4*A*E*S - 4*A*E + 2*A*G*S + 2*A*S*T - 2*B*C*E - 2*B*C*S - 2*C**2*E + C**2*G + 2*C*D*E + 2*C*E**2 + 2*C*E*F + 2*C*E*G + 4*C*E*H + 4*C*E*S + 2*C*E*T + 4*C*E - 2*C*G*H - 2*C*G*S + 2*C*S**2 - 4*C*S*T + D*E**2 + 2*D*E*H + 2*D*E*S + D*S**2 + E**3 + E**2*F + 3*E**2*H + 4*E**2*S + 2*E**2 + 2*E*F*H + 2*E*F*S - 2*E*G*S + 2*E*H**2 + 6*E*H*S + 4*E*H + 5*E*S**2 - 2*E*S*T + 4*E*S + F*S**2 - G*H**2 - 4*G*H*S - 3*G*S**2 + H*S**2 - 2*H*S*T + 2*S**3 - 4*S**2*T + 2*S**2",
+      "content": "1",
+      "terms": 62
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        0
+      ],
+      "coefficient": "A**2 - 2*A*C + 2*A*E + 2*A*S + C**2 - 2*C*H - 2*C*S - E**2 - E*H - 4*E*S - H**2 - 4*H*S - 3*S**2",
+      "content": "2",
+      "terms": 13
+    },
+    {
+      "monomial": [
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-2*A*B*D - 2*A*B*E - 2*A*B*F - 2*A*B*G - 2*A*B*H - 4*A*B*S - 2*A*B*T - 4*A*B + 2*A*C*G + 2*A*C*T + B**2*E + B**2*H + 2*B**2*S + 2*B*C*E + 2*B*C*S - 2*B*C*T + 2*B*E*G + 2*B*E*T + 2*B*G*H + 4*B*G*S + 2*B*S*T + C**2*E - 2*C**2*G - 2*C*D*E + 2*C*D*G - 2*C*E**2 - 2*C*E*F - 2*C*E*H - 4*C*E*S - 2*C*E*T - 4*C*E + 2*C*F*G + 2*C*G**2 + 4*C*G*H + 6*C*G*S + 4*C*G*T + 4*C*G + 4*C*S*T - 2*C*T**2 - D**2*E - 2*D*E**2 - 2*D*E*F - 2*D*E*H - 4*D*E*S - 4*D*E + 2*D*G*H + 4*D*G*S + 2*D*S*T - E**3 - 2*E**2*F - 2*E**2*H - 4*E**2*S - 4*E**2 - E*F**2 - 2*E*F*H - 4*E*F*S - 4*E*F + 2*E*G*H + 4*E*G*S - E*H**2 - 4*E*H*S - 4*E*H - 4*E*S**2 + 2*E*S*T - 8*E*S - 4*E + 2*F*G*H + 4*F*G*S + 2*F*S*T + G**2*H + 2*G**2*S + 2*G*H**2 + 8*G*H*S + 2*G*H*T + 4*G*H + 8*G*S**2 + 4*G*S*T + 8*G*S + 2*H*S*T - H*T**2 + 4*S**2*T - 2*S*T**2 + 4*S*T",
+      "content": "1",
+      "terms": 83
+    },
+    {
+      "monomial": [
+        0,
+        1,
+        1
+      ],
+      "coefficient": "2*A*B + 2*A*C - 2*B*C - 2*C**2 + 2*C*D + 2*C*E + 2*C*F + 2*C*G + 4*C*H + 6*C*S + 2*C*T + 4*C + D*E + 2*D*H + 4*D*S + E**2 + E*F + 3*E*H + 6*E*S + 2*E + 2*F*H + 4*F*S + G*H + 2*G*S + 2*H**2 + 8*H*S + 4*H + 8*S**2 + 2*S*T + 8*S",
+      "content": "2",
+      "terms": 30
+    },
+    {
+      "monomial": [
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-B**2*D - B**2*E - B**2*F - B**2*G - B**2*H - 2*B**2*S - 2*B**2*T - 2*B**2 + 2*B*C*T - 2*B*D*G - 2*B*E*G - 2*B*F*G - 2*B*G**2 - 2*B*G*H - 4*B*G*S - 4*B*G*T - 4*B*G + 2*B*T**2 + C**2*G - 2*C*D*G - 2*C*E*G - 2*C*F*G - 2*C*G**2 - 2*C*G*H - 4*C*G*S - 4*C*G*T - 4*C*G + 2*C*T**2 - D**2*G - 2*D*E*G - 2*D*F*G - D*G**2 - 2*D*G*H - 4*D*G*S - 2*D*G*T - 4*D*G + D*T**2 - E**2*G - 2*E*F*G - E*G**2 - 2*E*G*H - 4*E*G*S - 2*E*G*T - 4*E*G + E*T**2 - F**2*G - F*G**2 - 2*F*G*H - 4*F*G*S - 2*F*G*T - 4*F*G + F*T**2 - G**2*H - 2*G**2*S - 2*G**2 - G*H**2 - 4*G*H*S - 2*G*H*T - 4*G*H - 4*G*S**2 - 4*G*S*T - 8*G*S - 4*G*T - 4*G + H*T**2 + 2*S*T**2 + 2*T**2",
+      "content": "1",
+      "terms": 67
+    },
+    {
+      "monomial": [
+        0,
+        0,
+        2
+      ],
+      "coefficient": "B**2 + 2*B*C + 2*B*G + 2*B*T + C**2 - 2*C*D - 2*C*E - 2*C*F - 2*C*G - 2*C*H - 4*C*S - 2*C*T - 4*C - D**2 - 2*D*E - 2*D*F - D*G - 2*D*H - 4*D*S - 4*D - E**2 - 2*E*F - E*G - 2*E*H - 4*E*S - 4*E - F**2 - F*G - 2*F*H - 4*F*S - 4*F - G**2 - G*H - 2*G*S - 2*G*T - 2*G - H**2 - 4*H*S - 4*H - 4*S**2 - 8*S + T**2 - 4",
+      "content": "2",
+      "terms": 43
+    },
+    {
+      "monomial": null,
+      "coefficient": "S*T*w - 1",
+      "content": "1",
+      "terms": 2,
+      "kind": "nonzero_kernel_coordinates"
+    }
+  ],
+  "matrix": [
+    [
+      "D*X + E*Y",
+      "X",
+      "S*Y",
+      "A*(X - Y)"
+    ],
+    [
+      "X",
+      "F*X + G*Z",
+      "T*Z",
+      "B*(X - Z)"
+    ],
+    [
+      "S*Y",
+      "T*Z",
+      "H*Y + Z*(-D - E - F - G - H - 2*S - 2*T - 2)",
+      "C*(Y - Z)"
+    ],
+    [
+      "A*(X - Y)",
+      "B*(X - Z)",
+      "C*(Y - Z)",
+      "(X - Y)*(-2*A + 2*C + E + H + 2*S) + (X - Z)*(-2*B - 2*C - D - E - F - H - 2*S - 2)"
+    ]
+  ],
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/triangle_concept/triangle-twelve-equations.json",
+  "source_sha256": "03a8aa61b2a83e2918457d922059fb481128cc02b3d1532c2cfcc11677ed0ce7",
+  "parameter_substitution": {
+    "d0": "D",
+    "d1": "E/S",
+    "d3": "F",
+    "d5": "G/T",
+    "d7": "H/S",
+    "d8": "(-D - E - F - G - H - 2*S - 2*T - 2)/T",
+    "o0": "A",
+    "o1": "-A/S",
+    "o3": "B",
+    "o5": "-B/T",
+    "o7": "C/S",
+    "o8": "-C/T",
+    "x": "X",
+    "y": "S*Y",
+    "z": "T*Z"
+  },
+  "kernel_in_original_coordinates": [
+    "1",
+    "S",
+    "T"
+  ],
+  "scope": "Necessary generic-kernel triangle system only: all three kernel coordinates nonzero, four star kernels forced; keeps six Q, ten C and three quartic coefficients, plus S*T inverse. All edge weights preserved. No ideal or inconsistency verdict."
+}

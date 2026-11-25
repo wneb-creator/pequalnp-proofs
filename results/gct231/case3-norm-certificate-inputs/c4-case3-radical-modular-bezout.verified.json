@@ -1,0 +1,14 @@
+{
+  "status": "PASS_EXACT_FRACTION_MULTIPLICATION",
+  "input_degrees": [
+    67,
+    85
+  ],
+  "multiplier_degrees": [
+    84,
+    66
+  ],
+  "scale_digits": 1694,
+  "total_integer_coefficient_digits": 261212,
+  "source_inputs_integral": true
+}

@@ -1,0 +1,37 @@
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:113:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:116:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:119:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:106:27: warning: Variable name `U` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _U
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:106:29: warning: Variable name `V` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _V
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:139:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.semiring', which is 'noncomputable'
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:142:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.semiring', which is 'noncomputable'
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:147:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.semiring', which is 'noncomputable'
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:152:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.semiring', which is 'noncomputable'
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultants.lean:195:19: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

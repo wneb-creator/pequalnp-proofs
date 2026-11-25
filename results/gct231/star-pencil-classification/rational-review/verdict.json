@@ -1,0 +1,11 @@
+{
+  "status": "PASS_INDEPENDENT_EXACT_RATIONAL_CONVOLUTION",
+  "source_sha256": "6a9a0555b52ae2feaa87a5de76a2d135e506487554f055d29926790982b2d71c",
+  "certificate_sha256": "a83f574f9f3e2af492dc7c4d71f213239fd2ef2271e7f044a8419c1a94f6b136",
+  "generators": 8,
+  "nonzero_multipliers": 7,
+  "multiplier_terms": 991,
+  "identity": "sum multiplier_i * exact primitive source_generator_i = r",
+  "seconds": 0.17856070099878707,
+  "scope": "Conditional explicit polynomial identity; geometry and nonzero-a/b derivation of added E equations separately reviewed by c3; no Lean build here."
+}

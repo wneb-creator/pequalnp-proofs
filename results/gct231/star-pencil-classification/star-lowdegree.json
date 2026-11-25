@@ -1,0 +1,68 @@
+{
+  "unknowns": [
+    "p",
+    "q",
+    "r",
+    "a",
+    "b"
+  ],
+  "equations": [
+    {
+      "monomial": [
+        2,
+        2
+      ],
+      "coefficient": "-2*a*b*p*q*r**2 - 4*a*b*p*q*r + 2*a*b*p*q - a*p*q**2*r - 2*a*p*q*r + a*p*r - b*p**2*q*r - 2*b*p*q*r + b*q*r"
+    },
+    {
+      "monomial": [
+        2,
+        1
+      ],
+      "coefficient": "-a**2*q*r**2 - 2*a**2*q*r + a**2*q - 2*a*b*p*r**2 - 4*a*b*p*r + 2*a*b*p - 2*a*p*q*r + 2*a*p + 2*a*q + 2*a*r - b*p**2*r - 2*b*p*r + b*r - p**2*q - 2*p*q + q"
+    },
+    {
+      "monomial": [
+        2,
+        0
+      ],
+      "coefficient": "-2*a**2*r**2 - 4*a**2*r + 2*a**2 - 2*a*p*r + 4*a - 2*p**2 - 4*p + 2"
+    },
+    {
+      "monomial": [
+        1,
+        2
+      ],
+      "coefficient": "-2*a*b*q*r**2 - 4*a*b*q*r + 2*a*b*q - a*q**2*r - 2*a*q*r + a*r - b**2*p*r**2 - 2*b**2*p*r + b**2*p - 2*b*p*q*r + 2*b*p + 2*b*q + 2*b*r - p*q**2 - 2*p*q + p"
+    },
+    {
+      "monomial": [
+        1,
+        1
+      ],
+      "coefficient": "-4*a*b*r**2 - 8*a*b*r + 4*a*b - 2*a*q*r + 4*a - 2*b*p*r + 4*b - 2*p*q + 4"
+    },
+    {
+      "monomial": [
+        0,
+        2
+      ],
+      "coefficient": "-2*b**2*r**2 - 4*b**2*r + 2*b**2 - 2*b*q*r + 4*b - 2*q**2 - 4*q + 2"
+    },
+    {
+      "monomial": null,
+      "coefficient": "-a*r*(r**2 + 2*r - 1) + p*(2*r - 1) + 2*r",
+      "kind": "pure_cubic_quadratic_consequence_dividing_nonzero_a_squared"
+    },
+    {
+      "monomial": null,
+      "coefficient": "-b*r*(r**2 + 2*r - 1) + q*(2*r - 1) + 2*r",
+      "kind": "pure_cubic_quadratic_consequence_dividing_nonzero_b_squared"
+    }
+  ],
+  "nonzero_assumptions": [
+    "a",
+    "b"
+  ],
+  "scope": "Necessary star-pencil equations on a,b nonzero; E identities checked exactly, no denominator2r-1 assumed."
+}

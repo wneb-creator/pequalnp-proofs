@@ -1,0 +1,21 @@
+{
+  "prepared_utc": "2026-11-25T12:16:07.539358+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset/neogb_cli_checkpoint",
+    "/tmp/oec/pequalnp-pilot-75/gct231/triangle_generic/generic-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/triangle_generic/generic-p1009.basis.json",
+    "32",
+    "1",
+    "/tmp/oec/pequalnp-pilot-75/gct231/triangle_generic/generic-p1009-run.checkpoint",
+    "3600.0",
+    "0",
+    "20"
+  ],
+  "input_sha256": "bacc87ff96af321a3b15be71a0ed38ce4c80b2b7796481f18849bafadaccef54",
+  "base_input": "/tmp/oec/pequalnp-pilot-75/gct231/triangle_generic/generic-p1009.in",
+  "base_input_sha256": "bacc87ff96af321a3b15be71a0ed38ce4c80b2b7796481f18849bafadaccef54",
+  "base_generators": 20,
+  "binary_sha256": "d6f8f11dd46e613bf7b0cb3f357cb5128d60a440d221749dae67575abe734246",
+  "library_sha256": "dcf664df8036b637aae4b064662017b4fe20983b0c71be74f4c0b7474270e12f",
+  "scope": "Finite-field research computation; checkpoints are partial polynomial consequences."
+}

@@ -1,0 +1,13 @@
+Start UTC 2026-11-25T12:17:02.564881+00:00
+Exact source, F/saturation/K identity and original-r reduction by8K^3: PASS
+Independent quadratic/linear Sylvester norm identity rU PASS
+Independent quadratic/linear Sylvester norm identity rV PASS
+Independent quadratic/linear Sylvester norm identity r0 PASS
+R13/S13 explicit Bezout identity =1: PASS; common norm factors imply Q=0 under P*K nonzero.
+a mod Q and explicit multiplier/Q Bezout =1: PASS
+b mod Q and explicit multiplier/Q Bezout =1: PASS
+W=P^2*Q modulo affine relation: PASS
+Over C, F=0 and P*B*W nonzero imply a!=0 or b!=0 for the stated reduced slopes. No r=0 premise is needed. All norm identities valid at vanishing slope-leading coefficients. K!=0 follows from F and P*B!=0. No chart classification or Lean compilation claimed.
+Certificate prospects: quadratic-linear norm ring identities; univariate R13/S13 Bezout degree12; multiplier/Q Bezout degree3; affine determinant factorization.
+Finish UTC 2026-11-25T12:17:04.378694+00:00
+PASS

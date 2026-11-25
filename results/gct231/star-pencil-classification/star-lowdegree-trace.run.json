@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 0.017190506998304045,
+  "seconds_limit": 120,
+  "memory_mib_limit": 2048,
+  "output_file_mib_limit": 64,
+  "pairs": 32,
+  "input": "gct231/triangle-kernel-zero/star-lowdegree.in",
+  "input_sha256": "c61e6af70dccc4fce54d64c516ce9ca1dcf7d01d3a86289428d3bb60346085b6",
+  "companion_sha256": "f28ddefa2f6a13858e2c40385df3875525f57e10a01e56002ad27dcf02047131",
+  "binary_sha256": "7f424fb398ca7c5a758ba39e63461e9f0410f44975031f13936e4a7c1f89c669"
+}

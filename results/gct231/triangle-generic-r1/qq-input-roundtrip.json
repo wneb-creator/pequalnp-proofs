@@ -1,0 +1,9 @@
+{
+  "status": "PASS_EXACT_SIGNED_INTEGER_ROW_MATCH",
+  "source_input_sha256": "bacc87ff96af321a3b15be71a0ed38ce4c80b2b7796481f18849bafadaccef54",
+  "qq_input_sha256": "349ed83724496ebeccc7efc563ad57a3698224e1515d74b8c908f62a7d84bcdd",
+  "nvars": 11,
+  "rows": 20,
+  "terms": 1050,
+  "only_difference": "characteristic header1009 versus0"
+}

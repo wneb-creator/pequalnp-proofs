@@ -1,0 +1,7 @@
+{
+  "source_sha256": "7bdbee0dc04cb54742c6a0e3a60c474cbd5a9bc50dc1df6529bca5899db32603",
+  "compile_status": "PASS",
+  "compile_log": "star-lean-build03.log",
+  "axiom_audit_status": "PENDING_SEPARATE_RUN",
+  "scope": "Seven explicit normalized polynomial equations imply the standard zero-diagonal star-pencil parameter values. No geometric chart-coverage or full-gap theorem."
+}

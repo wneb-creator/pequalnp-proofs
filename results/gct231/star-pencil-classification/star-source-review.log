@@ -1,0 +1,10 @@
+Start UTC 2026-11-25T12:17:48.282677+00:00
+All16 star matrix entries, tangent, and all10 coefficient rows independently verified by Ryser: PASS
+Exact E identities:2a^2 Ep=a*r*Q20-2*C30 and2b^2 Eq=b*r*Q02-2*C03: PASS
+Only a,b nonzero is needed to deduce E=0; no division by2r-1. Retained quartic is x^2*y^2.
+Lowdegree export8rows/5variables/78terms: PASS
+Known zero-diagonal star pencil p=q=r=0,a=b=-1 satisfies the full permanent identity. This source review does not independently certify the reported ideal classification.
+Geometry: for each leaf, vanishing of its diagonal on the kernel of its nonzero edge linear form yields the corresponding scalar p/q/r. Choosing two independent leaf edges as x,y yields this form. Review is conditional on star support and a,b nonzero; no coverage of other support strata.
+Hashes {"star_pencil.py": "ade678ecb5edbae6ab699ac370e14e01e1ddec0aac4dc850da1ff69c4e4aca8c", "star-pencil-five.json": "e40896027a1426870998ac2f1f3396c618ae4823cb01820685cceece464a81f4", "star-lowdegree.json": "6a9a0555b52ae2feaa87a5de76a2d135e506487554f055d29926790982b2d71c"}
+Finish UTC 2026-11-25T12:17:48.592547+00:00
+PASS

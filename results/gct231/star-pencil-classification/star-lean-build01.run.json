@@ -1,0 +1,10 @@
+{
+  "status": "UNKNOWN_RESIDENT_MEMORY_LIMIT",
+  "returncode": -15,
+  "wall_seconds": 40.86145663100251,
+  "seconds_limit": 180,
+  "resident_memory_mib_limit": 4096,
+  "peak_group_rss_kib": 4197796,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean"
+}

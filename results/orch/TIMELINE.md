@@ -59,3 +59,5 @@ No complete proof or accepted submission yet.
 2026-11-25T11:35:50.798426+00:00 — Replan: named1528-line partial passes build07/audit07; checker07no-theorem. Full factor matching and common-isotropic-plane criterion checked and pushed. First C4 scalar contradiction checked/pushed; second reviewed and awaiting archive. Fullstar grouped search active with bounded partial checkpoints. Desk heartbeat shortened to4minutes after five-minute request. No proof accepted.
 
 - 2026-11-25 12:03 UTC: checkpoint43 pushed7015b5d4d7a4073be61c32d59257eeacf2af4831. Exact C4 cases2/3 resultant classifications reported, audit pending. Replanned final hour around exact certificates, combined partial integration, and durable reviewed artifacts. Main theorem unresolved.
+
+- 2026-11-25T12:28:15.892343+00:00: Checked raw C4 necessity in bothdirections, slopeboundary, and star-pencil classification; normcertificate alreadypushed. Root caught V5multiple-top-level-namespace issue before namedintegration. Modular univariate certificate compression started. No accepted proof.

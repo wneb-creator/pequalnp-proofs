@@ -1,0 +1,108 @@
+{
+  "unknowns": [
+    "p",
+    "q",
+    "r",
+    "a",
+    "b"
+  ],
+  "equations": [
+    {
+      "monomial": [
+        3,
+        1
+      ],
+      "coefficient": "-a*q*(a*p*r**2 + 2*a*p*r - a*p + p**2*r + 2*p*r - r)"
+    },
+    {
+      "monomial": [
+        3,
+        0
+      ],
+      "coefficient": "-a*(a*p*r**2 + 2*a*p*r - a*p + p**2*r + 2*p*r - r)"
+    },
+    {
+      "monomial": [
+        2,
+        2
+      ],
+      "coefficient": "-2*a*b*p*q*r**2 - 4*a*b*p*q*r + 2*a*b*p*q - a*p*q**2*r - 2*a*p*q*r + a*p*r - b*p**2*q*r - 2*b*p*q*r + b*q*r"
+    },
+    {
+      "monomial": [
+        2,
+        1
+      ],
+      "coefficient": "-a**2*q*r**2 - 2*a**2*q*r + a**2*q - 2*a*b*p*r**2 - 4*a*b*p*r + 2*a*b*p - 2*a*p*q*r + 2*a*p + 2*a*q + 2*a*r - b*p**2*r - 2*b*p*r + b*r - p**2*q - 2*p*q + q"
+    },
+    {
+      "monomial": [
+        2,
+        0
+      ],
+      "coefficient": "-2*(a**2*r**2 + 2*a**2*r - a**2 + a*p*r - 2*a + p**2 + 2*p - 1)"
+    },
+    {
+      "monomial": [
+        1,
+        3
+      ],
+      "coefficient": "-b*p*(b*q*r**2 + 2*b*q*r - b*q + q**2*r + 2*q*r - r)"
+    },
+    {
+      "monomial": [
+        1,
+        2
+      ],
+      "coefficient": "-2*a*b*q*r**2 - 4*a*b*q*r + 2*a*b*q - a*q**2*r - 2*a*q*r + a*r - b**2*p*r**2 - 2*b**2*p*r + b**2*p - 2*b*p*q*r + 2*b*p + 2*b*q + 2*b*r - p*q**2 - 2*p*q + p"
+    },
+    {
+      "monomial": [
+        1,
+        1
+      ],
+      "coefficient": "-2*(2*a*b*r**2 + 4*a*b*r - 2*a*b + a*q*r - 2*a + b*p*r - 2*b + p*q - 2)"
+    },
+    {
+      "monomial": [
+        0,
+        3
+      ],
+      "coefficient": "-b*(b*q*r**2 + 2*b*q*r - b*q + q**2*r + 2*q*r - r)"
+    },
+    {
+      "monomial": [
+        0,
+        2
+      ],
+      "coefficient": "-2*(b**2*r**2 + 2*b**2*r - b**2 + b*q*r - 2*b + q**2 + 2*q - 1)"
+    }
+  ],
+  "matrix": [
+    [
+      "-2*a*x - 2*b*y - p*x - q*y - r*(a*x + b*y) - 2*x - 2*y",
+      "x",
+      "y",
+      "a*x + b*y"
+    ],
+    [
+      "x",
+      "p*x",
+      "0",
+      "0"
+    ],
+    [
+      "y",
+      "0",
+      "q*y",
+      "0"
+    ],
+    [
+      "a*x + b*y",
+      "0",
+      "0",
+      "r*(a*x + b*y)"
+    ]
+  ],
+  "scope": "Star-supported two-parameter symmetric pencil with leaf diagonals in the corresponding incident-edge spans; tangent sum identically zero. Necessary for coordinate-two-support center-kernel branch; no contradiction yet."
+}

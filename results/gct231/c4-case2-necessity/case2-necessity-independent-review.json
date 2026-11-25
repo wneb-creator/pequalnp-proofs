@@ -1,0 +1,5 @@
+{
+  "status": "PASS_INDEPENDENT_LITERAL_SOURCE_AND_POLYNOMIAL_IDENTITIES",
+  "source_sha256": "7c6d9874977e4d112adec83a91c73bd82392d7e8ed67aefd77c385b89a8769f1",
+  "scope": "Six original equations imply nonzero P/B/K/W and two raw fixed-degree resultants. No divided-resultant or norm necessity assertion. Polynomial eliminant definitions checked by direct source inspection against the independently evaluated formulas."
+}

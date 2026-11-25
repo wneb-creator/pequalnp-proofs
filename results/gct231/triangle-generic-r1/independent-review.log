@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:12:54.027843+00:00
+All16 matrix entries, weighted edge pivots1/S/T, tangent, center kernel(1,1,1), and old star/minor equations: PASS
+Independent Ryser verifies every retained row and primitive content;6Q+10C+3quartics+inverse,11variables/20equations/1050terms: PASS
+Reverse assignment: center star equations fix outer ratios; center diagonal zero and tangent force T*d8=I. S*T inverse precisely covers the nonzero-coordinate assumption: PASS
+Scope: necessary system only on the triangle stratum admitting a center-star kernel vector with all three coordinates nonzero. Edge weights retained; zero-coordinate kernel branches and sufficiency of omitted quartics are not claimed. No solver run.
+Finish UTC 2026-11-25T12:12:59.567241+00:00
+PASS

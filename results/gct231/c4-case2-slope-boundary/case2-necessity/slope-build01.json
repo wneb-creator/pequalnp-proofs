@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2SlopeBoundary.lean",
+  "source_sha256": "707e23e11549155ca65fe3d04b607d29d0d0173a277ccafef1c4a5b3c27f5480",
+  "source_unchanged": true,
+  "exit_code": 0,
+  "seconds": 7.927830366999842,
+  "peak_rss_kib": 2017940,
+  "resource_rss_kib": 2017752,
+  "reason": null,
+  "finished_utc": "2026-11-25T12:22:39.032991+00:00"
+}

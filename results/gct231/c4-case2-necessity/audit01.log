@@ -1,0 +1,33 @@
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultantsAudit.lean:113:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultantsAudit.lean:116:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultantsAudit.lean:119:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at hs'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_linear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.raw_resultants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.six_equations_necessary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

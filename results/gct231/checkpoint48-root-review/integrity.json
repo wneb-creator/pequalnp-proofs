@@ -1,0 +1,37 @@
+[
+  {
+    "archive": "c4-case2-necessity",
+    "files": 28,
+    "manifest_sha256": "5640572c67451d9ddaca920f85b43f2165b3a0d49a6ba34c8f6f807d3afdbb26"
+  },
+  {
+    "archive": "c4-case2-reverse-necessity",
+    "files": 13,
+    "manifest_sha256": "805478602dd01970ff1d347bf088221c08a046f4769f022cf5002764c68b221b"
+  },
+  {
+    "archive": "c4-case2-slope-boundary",
+    "files": 24,
+    "manifest_sha256": "077d9fc672e8a739b2937feb826de176291429595a4a9724638140115cd3efdd"
+  },
+  {
+    "archive": "case3-norm-certificate-inputs",
+    "files": 40,
+    "manifest_sha256": "6fc3e71c91934dcff92c66c3bc8073b3c17ec3d989fdf6a9aa8c69439b43fcc9"
+  },
+  {
+    "archive": "star-pencil-classification",
+    "files": 44,
+    "manifest_sha256": "bb183a2f820ea3ede274870dcd9ea1b947695b74ce6ed06582fa36b00f207cb3"
+  },
+  {
+    "archive": "star-pencil-classification/rational-review",
+    "files": 4,
+    "manifest_sha256": "8694cfe17fc343fa68cf17f6b4b5022ab1281fa71a2ffd778816dfa6ea974a0c"
+  },
+  {
+    "archive": "triangle-generic-r1",
+    "files": 35,
+    "manifest_sha256": "690060510035e938efaf9e491447e5fe1c621f35463eb7f27617aeecc3a174cb"
+  }
+]

@@ -1,0 +1,8 @@
+Start UTC 2026-11-25T12:20:12.433555+00:00
+All20 exact QQ rows/scalings, F1009 header-only delta,11variable order/1050terms and replay companion: PASS
+F1009 actual basis[1], exit0,2.234835s/22652KiB,78pairrounds, engine hashes and final checkpoint original20rows+unit: PASS
+QQ UNKNOWN_OUTPUT_FILE_SIZE_LIMIT,SIGXFSZ-25,4.798032s;15timedrounds+unfinished1328x2094; no basis/replay. Compact adapter binary/RUNPATH matches metadata: PASS
+Truncated trace bytes/hash/newlines/ends_newline 67108864 ad5f235a6510f6fc90a768609e99a0133d0c05a25110daf127517299ae9df207 244653 False
+Scope: finite-field unit computation only; QQ remains UNKNOWN. No trace algebra/replay, solver rerun, or characteristic-zero conclusion. Additional untraced trial is outside this review.
+Finish UTC 2026-11-25T12:20:14.718738+00:00
+PASS

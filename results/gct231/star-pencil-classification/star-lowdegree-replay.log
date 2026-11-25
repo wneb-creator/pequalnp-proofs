@@ -1,0 +1,2 @@
+{"input": "gct231/triangle-kernel-zero/star-lowdegree-trace.f4.in", "trace": "gct231/triangle-kernel-zero/star-lowdegree-trace.trace", "variables": ["x0", "x1", "x2", "x3", "x4"], "record_counts": {"G": 8, "I": 8, "O": 97, "M": 649, "A": 3783, "S": 1305}, "verified_output_count": 97, "proved_nonzero_constant": false, "constant_step": null}
+needed_steps 0 all_steps 99

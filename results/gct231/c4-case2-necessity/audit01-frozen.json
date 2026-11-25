@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/case2-necessity/Case2NecessaryResultantsAudit.lean",
+  "source_sha256": "a7deb312ebb5b13e320fc59e58637849fba30280d5d5e50438232667a4573dac",
+  "source_unchanged": true,
+  "exit_code": 0,
+  "seconds": 18.881003181999404,
+  "peak_rss_kib": 2819048,
+  "resource_rss_kib": 2818816,
+  "reason": null,
+  "finished_utc": "2026-11-25T12:21:51.350803+00:00"
+}

@@ -1,0 +1,14 @@
+literal original originalQ PASS
+literal original originalC PASS
+literal original scaleCurve PASS
+literal original originalR PASS
+literal original originalL PASS
+literal original originalSaturation PASS
+reduction identity linear_r PASS
+reduction identity quadratic_l PASS
+saturation and safe-factor domain identities PASS
+linear-eliminant formula and V degree q 2 PASS
+linear-eliminant formula and V degree l 2 PASS
+linear-eliminant formula and V degree c 3 PASS
+generic common-root helper exact frozen body PASS
+{"status": "PASS_INDEPENDENT_LITERAL_SOURCE_AND_POLYNOMIAL_IDENTITIES", "source_sha256": "113545454db4c7c0523465510ef3cbf45d26ee6451e6480bc141643cd19d84d9", "scope": "Six original equations imply nonzero P/B/K/W and two raw fixed-degree resultants. No divided-resultant or norm necessity assertion. Polynomial eliminant definitions checked by direct source inspection against the independently evaluated formulas."}

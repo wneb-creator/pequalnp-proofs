@@ -1,0 +1,66 @@
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:42:26: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:43:26: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:36:43: warning: This simp argument is unused:
+  zero_pow (by decide : 4 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hr, zero_mul, mul_zero, zero_pow (by decide : 3 ≠ 0), zero_pow (by decide : 2 ≠ 0), add_zero,
+    sub_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:36:73: warning: This simp argument is unused:
+  zero_pow (by decide : 3 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 2 ≠ 0), add_zero,
+    sub_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:36:143: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 3 ≠ 0),
+    zero_pow (by decide : 2 ≠ 0), add_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:36:153: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hp, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 3 ≠ 0),
+    zero_pow (by decide : 2 ≠ 0), add_zero, sub_zero, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:40:43: warning: This simp argument is unused:
+  zero_pow (by decide : 4 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, hr, zero_mul, mul_zero, zero_pow (by decide : 3 ≠ 0), zero_pow (by decide : 2 ≠ 0), add_zero,
+    sub_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:40:73: warning: This simp argument is unused:
+  zero_pow (by decide : 3 ≠ 0)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 2 ≠ 0), add_zero,
+    sub_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:40:143: warning: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 3 ≠ 0),
+    zero_pow (by decide : 2 ≠ 0), add_zero, zero_add, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/StarPencilClassification.lean:40:153: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, hr, zero_mul, mul_zero, zero_pow (by decide : 4 ≠ 0), zero_pow (by decide : 3 ≠ 0),
+    zero_pow (by decide : 2 ≠ 0), add_zero, sub_zero, neg_zero] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
