@@ -1,0 +1,11 @@
+L-meta-2592 archival partial; original statement remains unresolved.
+UTC: 2026-11-25T14:29:37.665829+00:00
+Compiled: results/orch/lemmas/RetentionStandalone.lean
+Command: lake env lean /tmp/oec/pequalnp-pilot-118/RetentionStandalone.lean
+Exit: 0
+Complete stdout/stderr: retention-standalone.log (empty)
+Independent review: PASS for partial; 360 retention witnesses and 1024 target rows checked independently.
+Original-statement checker: not run; no full theorem yet.
+Desk null responses: 0
+Sub-agents: six (status/library, counterexample, lower bound, toolchain, descendants, independent review)
+TIMING total=16.4 subagents=6
