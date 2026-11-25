@@ -27,3 +27,12 @@ TIMING total=16.4 subagents=7
 
 Final preservation review: PASS; checked lemmas unchanged, drafts clearly unverified, no credentials detected.
 TIMING total=17.6 subagents=7
+
+STOP: repeated existing lease after HTTP410; shared-handle stop rule.
+Exact desk message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk null count:0. Final target checker: NOT RUN; target proof incomplete.
+No proof PR opened. Cleanup not applicable; checked partial line counts before/after: Construction1175/1175, Necessity2087/2087, Structure117/117, Equivalence3291/3291.
+Sub-agents:7 (audit; structural proof; counterexample search; construction/SAT; library route; toolchain; restriction analysis)
+TIMING total=18.7 subagents=7
+Final metadata review: PASS.
+TIMING total=19.3 subagents=7

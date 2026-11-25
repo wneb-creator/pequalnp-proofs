@@ -19,3 +19,4 @@
 2026-11-25T15:11:15.010783+00:00 work stopped after HTTP410; complete artifacts preserved for push before any lease re-request
 2026-11-25T15:11:24.320313+00:00 construction agent stopped allSAT searches on root HTTP410 instruction; no witness found
 2026-11-25T15:12:27.054869+00:00 preservation diff independently reviewed; pushing complete artifact archive
+2026-11-25T15:13:32.846186+00:00 same pre-existing L-meta-2590 lease returned twice with held-limit note; stop under shared-handle rule

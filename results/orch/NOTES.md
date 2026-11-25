@@ -70,3 +70,7 @@ At 15:09:47 UTC renewal returned HTTP 410 despite the preceding expiry 15:24:46 
 
 ## SAT stop on lease loss
 Root reported HTTP410 renewal and required immediate halt. All construction-agent solver processes and sweep launcher stopped; stdout/stderr preserved. Unrestricted26 interrupted at501.70seconds,3737547conflicts; firstpair01 irredundant26 interrupted413.29seconds,3151350conflicts. Neither gave a verdict. The3-line nonconcurrent10gate instance timed out120seconds. Six2-star fixed-template repair scopes returned UNSAT, five3-star and one4-star timed out60seconds, next4-star interrupted. These scoped UNSAT results do not prove global optimality. Canonical27 SAT encoding/model verified independently on16384inputs. Artifactmanifest /tmp/oec/pequalnp-pilot-147/fano-sat-artifacts.json.
+
+## Shared-handle stop 2026-11-25T15:13:32.846186+00:00
+
+After preserving all results, the specific 410 rule was followed with another hard-step request. The desk returned L-meta-2590 with lease issued 15:07:28 UTC (before our request) and note: you hold 5 gaps, the most one handle may hold at once; release one to get another. The one permitted shared-handle retry returned the same lease and note. Treating it as another pilot’s existing lease, no work, beat or release was performed on L-meta-2590. This job stops under the shared-handle rule. The expired L-meta-2583 lease was not released again. No full proof, refutation, or proof PR was produced. All completed Lean partials and searches are preserved.
