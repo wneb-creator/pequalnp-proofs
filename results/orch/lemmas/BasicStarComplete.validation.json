@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "build_exit_code": 0,
+  "stdout": "Four harmless tactic sequencing linter warnings; no errors",
+  "stderr": "Existing Mathlib local-changes warning",
+  "independent_review": "PASS by status_review for Constant andRankGlue/Ambient; by geometry_search for Kernel; BasicStarRows separatelyreviewed",
+  "files": {
+    "BasicStarComplete.lean": {
+      "sha256": "adfa51d8752f4ea49bc7a3126547022eeed930cb52335a1ef3bec91a295c2e36",
+      "line_count": 491
+    },
+    "DuplicateConstant.lean": {
+      "sha256": "e0b1c90a61b1fbbe5e27e32b13e279e4499ed129b8bccad06a457fdcaeb028f0",
+      "line_count": 157
+    },
+    "DuplicateRankGlue.lean": {
+      "sha256": "48280aff994643fa81a3473007945790ca3b69e66187b4151e77595fdc9de272",
+      "line_count": 25
+    },
+    "BasicStarAmbient.lean": {
+      "sha256": "86317bf2505102aa091195f2c319a4d09afc2940522f90bc2a36c723a03093a0",
+      "line_count": 106
+    }
+  },
+  "theorem": "containing_basic_star_line_finrank_le_two",
+  "statement": "A complex linear subspace of symmetric4x4 perturbations with permanent(J+V)=24 containing starMatrix1(-1) has dimension at most2.",
+  "additional_theorem": "duplicate_row_flat_finrank_le_one",
+  "final_component_frozen": true,
+  "stdout_bytes": 914,
+  "stderr_bytes": 105
+}

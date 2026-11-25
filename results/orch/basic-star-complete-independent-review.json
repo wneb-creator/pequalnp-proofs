@@ -1,0 +1,10 @@
+{
+  "reviewer": "status_review",
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/BasicStarComplete.lean",
+  "sha256": "adfa51d8752f4ea49bc7a3126547022eeed930cb52335a1ef3bec91a295c2e36",
+  "lines": 491,
+  "integration": "Exact reviewed Kernel, Constant, RankGlue, BasicStarRows and Ambient bodies present unchanged.",
+  "mathematics": "All valid symmetric subspaces containing starMatrix 1 (-1) have dimension at most two. No global posted claim.",
+  "independent_rebuild": false
+}
