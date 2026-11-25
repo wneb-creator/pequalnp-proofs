@@ -1,0 +1,141 @@
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1692:12: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1699:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, fv] at ea eb ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1711:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ea, eb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1746:56: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1745:43: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1865:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1876:98: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andStep, hfa, hfb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1872:37: warning: Unused tactic linter: `skip` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1882:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1882:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1882:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1882:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1886:98: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andStep, hfa, hfb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:1882:66: warning: Unused tactic linter: `skip` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2212:25: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2212:45: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2222:4: warning: This simp argument is unused:
+  ite_eq_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := omega) only [lift_snoc_read, List.length_append, List.length_cons, List.length_nil,
+    Nat.add_assoc, Nat.reduceAdd, Nat.add_left_cancel_iff, ite_eq_right, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2399:25: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2399:45: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2409:4: warning: This simp argument is unused:
+  ite_eq_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := omega) only [lift_snoc_read, List.length_append, List.length_cons, List.length_nil,
+    Nat.add_assoc, Nat.reduceAdd, Nat.add_left_cancel_iff, ite_eq_right, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2440:50: warning: This simp argument is unused:
+  List.get_eq_getElem
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [appendStar, starTail, List.getElem_append, h] at hop
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2440:71: warning: This simp argument is unused:
+  List.getElem_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [appendStar, starTail, List.get_eq_getElem, h] at hop
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean:2480:42: warning: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [function_five, PEqualNP.Outside.L_meta_650_aux.FiveOwnerNegatives.hasEdge,
+    PEqualNP.Outside.L_meta_650_aux.FiveOwnerNegatives.edgePairs, or_and_right, exists_or, and_or_left, or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

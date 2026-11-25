@@ -1,0 +1,8 @@
+UTC 2026-11-25T07:04:39.562060+00:00
+SHA256 17b06f580cf711b80d0b8a3b62362d8eea0ce4e48ffe0f54eb574a9b504b1f26
+Lean build exit0 at4GB; complete stdout/stderr retained, inherited warnings only.
+New checked raw-core theorem five_core_size_lower: any Monotone2 circuit on16 raw inputs computing exactly function_five, with≤5 totalAND opcodes and validoutput, has size≥24. Corollary small_five_core_has_six_ands: an exactrawcore ofsize≤23 must have≥6ANDs.
+Raw map [0,1,2,5,7,13,14,15,16,17,19,20,21,22,24,25]; five owners[0,1,2,5,7]. Eight remaining fullrows[3,4,6,8,9,10,11,12]. Reindex+eight degree4stars adds40 gates. OrdinaryClean, reindex and append-star soundness make all completedANDs output-sound; exact52-edge completion and pairClean64 yield thebound.
+Includes frozen PairDirtyNecessary, FiveOwnerOrdinaryClean, FiveOwnerLiftSound and root AppendStarSound tail unchanged modulo imports/namespace wrapper/one duplicate AllAndSound definition removal.
+Research-only import PEqualNP.Outside.L_meta_2656. Scratch dependency and isolated Lean package path reproduce exactly as documented in PairDirtyNecessary.rebuild.txt. No finalL650 allowed-import compliance or fullgap proof/refutation claimed. No joint52 paid23 assembly theorem claimed: this is raw16 andfixed+40completion.
+Command from lean/: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env bash -c [LEAN_PATH=/tmp/oec/pequalnp-pilot-57/research followed by existingLEAN_PATH; exec lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerCompletionLower.lean]
