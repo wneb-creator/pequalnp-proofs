@@ -1,0 +1,1 @@
+{"base_edge_global_wires": [0, 8], "group_order": 168, "edge_count": 21, "edge_orbit_size": 21, "edge_stabilizer_order": 8, "checks": "all 64 dot products, both inverse identities, both permutations, and all21 edges for each action"}
