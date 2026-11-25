@@ -1,0 +1,32 @@
+import took 5.69s
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/CertifiedAugmented17.lean:176:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+elaboration took 279ms
+type checking took 731ms
+cumulative profiling times:
+	attribute application 7.31ms
+	compilation (IR) 1.47ms
+	compilation (LCNF base) 42ms
+	compilation (LCNF impure) 11.9ms
+	compilation (LCNF mono) 42.3ms
+	congr simp thm 12.6ms
+	declTypeLinter 41.5ms
+	elaboration 538ms
+	fix level params 4.85ms
+	import 5.69s
+	initialization 73.9ms
+	instantiate metavars 7.49ms
+	interpretation 872ms
+	let-to-have transformation 0.244ms
+	linting 55.7ms
+	module linting 0.0293ms
+	parsing 19.1ms
+	process pre-definitions 38.2ms
+	share common exprs 6.03ms
+	simp 577ms
+	tactic execution 312ms
+	tacticAnalysis 13ms
+	type checking 797ms
+	typeclass inference 154ms
