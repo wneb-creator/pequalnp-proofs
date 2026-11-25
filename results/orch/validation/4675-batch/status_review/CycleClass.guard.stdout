@@ -1,0 +1,5 @@
+REFUSED: line 1: import SurplusCover is not allowed (only Mathlib and the modules the gap lists)
+REFUSED: line 2: import BipartiteGeometry is not allowed (only Mathlib and the modules the gap lists)
+REFUSED: line 3: import DegreeTwoCard is not allowed (only Mathlib and the modules the gap lists)
+REFUSED: the file holds no theorem
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside

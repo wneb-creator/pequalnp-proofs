@@ -1,0 +1,17 @@
+{
+  "status": "PASS restricted forest partial",
+  "source_sha256": "f7d31eeb2f63126050435f0a14e4e6af619bd1cfe827259ac3554488bde3ae98",
+  "lines": 1812,
+  "bytes": 79915,
+  "provenance": "Exact L_meta_3525 after targeted import and namespace/final method renaming; exact cross/graph/counts from L_meta_4897; only final bipartite minimum-cover wrapper is new",
+  "claim": "Exact posted cover conclusion under graph(E).IsAcyclic, IsAO2 and correctness; no T0 requirement",
+  "scope": "Acyclic bipartite graphs only; C4-free graphs with longer cycles are not covered",
+  "stdout_bytes": 6064,
+  "stderr_bytes": 0,
+  "warning_lines": 23,
+  "error_lines": 0,
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+  "guard_stderr": "",
+  "forbidden": []
+}

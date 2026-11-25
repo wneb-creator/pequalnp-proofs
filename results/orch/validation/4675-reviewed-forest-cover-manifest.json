@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-11-25T17:19:07.202925+00:00",
+  "gap": "L-meta-4675",
+  "status": "PASS compiled forest-only partial; no full theorem",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/ForestCover.lean",
+      "relative_path": "sat_encoding/ForestCover.lean",
+      "bytes": 79915,
+      "sha256": "f7d31eeb2f63126050435f0a14e4e6af619bd1cfe827259ac3554488bde3ae98"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/forest-cover-01.stdout",
+      "relative_path": "sat_encoding/forest-cover-01.stdout",
+      "bytes": 6064,
+      "sha256": "d8cc2f83b956854a9e043622ea3b11b4d7ca1e6b71ef89a318ac3a33a0235a91"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/forest-cover-01.stderr",
+      "relative_path": "sat_encoding/forest-cover-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/ForestCover.guard.stdout",
+      "relative_path": "status_review/ForestCover.guard.stdout",
+      "bytes": 279,
+      "sha256": "3982e1282d0f066a62d1a1b2026856cfbc6d2523c5c40d6c216c1f97e96f942c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/ForestCover.guard.stderr",
+      "relative_path": "status_review/ForestCover.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/forest-cover-audit.json",
+      "relative_path": "status_review/forest-cover-audit.json",
+      "bytes": 1016,
+      "sha256": "e9064913de1636476d8cdd40e6c7f98497854f7c14200bc5d765618ca3fc5526"
+    }
+  ]
+}

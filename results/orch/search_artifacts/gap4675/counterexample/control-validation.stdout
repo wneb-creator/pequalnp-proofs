@@ -1,0 +1,37 @@
+CONTROL 11 0 rows 2048 gates 18 margin 0 COUNTEREXAMPLE False
+CONTROL 11 1 rows 2048 gates 11 margin 0 COUNTEREXAMPLE False
+CONTROL 11 2 rows 2048 gates 13 margin 0 COUNTEREXAMPLE False
+CONTROL 11 3 rows 2048 gates 15 margin 0 COUNTEREXAMPLE False
+CONTROL 11 4 rows 2048 gates 15 margin 0 COUNTEREXAMPLE False
+CONTROL 11 5 rows 2048 gates 16 margin 1 COUNTEREXAMPLE False
+CONTROL 11 6 rows 2048 gates 17 margin 2 COUNTEREXAMPLE False
+CONTROL 11 7 rows 2048 gates 18 margin 0 COUNTEREXAMPLE False
+CONTROL 11 8 rows 2048 gates 19 margin 1 COUNTEREXAMPLE False
+CONTROL 11 9 rows 2048 gates 20 margin 2 COUNTEREXAMPLE False
+CONTROL 16 0 rows 65536 gates 18 margin 0 COUNTEREXAMPLE False
+CONTROL 16 1 rows 65536 gates 11 margin 0 COUNTEREXAMPLE False
+CONTROL 16 2 rows 65536 gates 13 margin 0 COUNTEREXAMPLE False
+CONTROL 16 3 rows 65536 gates 15 margin 0 COUNTEREXAMPLE False
+CONTROL 16 4 rows 65536 gates 15 margin 0 COUNTEREXAMPLE False
+CONTROL 16 5 rows 65536 gates 16 margin 1 COUNTEREXAMPLE False
+CONTROL 16 6 rows 65536 gates 17 margin 2 COUNTEREXAMPLE False
+CONTROL 16 7 rows 65536 gates 18 margin 0 COUNTEREXAMPLE False
+CONTROL 16 8 rows 65536 gates 19 margin 1 COUNTEREXAMPLE False
+CONTROL 16 9 rows 65536 gates 20 margin 2 COUNTEREXAMPLE False
+CONTROL 16 10 rows 65536 gates 15 margin 0 COUNTEREXAMPLE False
+CONTROL 16 11 rows 65536 gates 16 margin 1 COUNTEREXAMPLE False
+CONTROL 16 12 rows 65536 gates 17 margin 2 COUNTEREXAMPLE False
+CONTROL 16 13 rows 65536 gates 18 margin 0 COUNTEREXAMPLE False
+CONTROL 16 14 rows 65536 gates 19 margin 1 COUNTEREXAMPLE False
+CONTROL 16 15 rows 65536 gates 20 margin 2 COUNTEREXAMPLE False
+CONTROL 16 16 rows 65536 gates 21 margin 0 COUNTEREXAMPLE False
+CONTROL 16 17 rows 65536 gates 22 margin 1 COUNTEREXAMPLE False
+CONTROL 16 18 rows 65536 gates 23 margin 2 COUNTEREXAMPLE False
+CONTROL 16 19 rows 65536 gates 20 margin 0 COUNTEREXAMPLE False
+CONTROL 16 20 rows 65536 gates 21 margin 1 COUNTEREXAMPLE False
+CONTROL 16 21 rows 65536 gates 22 margin 2 COUNTEREXAMPLE False
+CONTROL 16 22 rows 65536 gates 31 margin 0 COUNTEREXAMPLE False
+CONTROL 16 23 rows 65536 gates 32 margin 1 COUNTEREXAMPLE False
+CONTROL 16 24 rows 65536 gates 33 margin 2 COUNTEREXAMPLE False
+PRUNING CONTROL: actual saved circuit has T0 after removing and renumbering one dead mixed OR
+TOTAL 72 full truth/certificate checks; counterexamples 0

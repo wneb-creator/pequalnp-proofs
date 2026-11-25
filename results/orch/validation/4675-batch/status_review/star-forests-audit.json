@@ -1,0 +1,13 @@
+{
+  "status": "PASS for partial preservation",
+  "source_sha256": "6826c168c7bf54cdc879693693561f7fd296d0794b6f838b21bd2617439eb2c8",
+  "lines": 230,
+  "bytes": 9668,
+  "baseline_prefix": "Exact EssentialStar prefix through active_bound, modulo namespace rename and Mathlib-import deletion",
+  "new_claim": "Exact posted cover budget for one-sided star forests: injective first edge projection or injective second edge projection; arbitrary FanInTwo circuit computing the graph",
+  "limitation": "Not all forests and not a full L-meta-4675 proof; no C4/T0 assumptions needed for this restricted graph class",
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+  "guard_stderr": "",
+  "forbidden": []
+}

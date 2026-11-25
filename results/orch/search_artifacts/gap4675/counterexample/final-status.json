@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-25T17:20:44.748052+00:00",
+  "search_status": "NOT_LAUNCHED",
+  "stop_reason": "Root ordered stop after renewal HTTP405 and required diagnostic; no new searches or builds were run after STOP.",
+  "active_processes": 0,
+  "completed_checks": {
+    "prior_output_cones": 18,
+    "counterexamples_found": 0,
+    "positive_controls": 35,
+    "full_truth_and_certificate_checks": 72,
+    "dead_mixed_OR_pruning_fixture_passed": true
+  },
+  "intended_search": [
+    {
+      "n": 11,
+      "p": 5,
+      "gate_pool": 28,
+      "seconds": 300
+    },
+    {
+      "n": 16,
+      "p": 8,
+      "gate_pool": 40,
+      "seconds": 600
+    }
+  ],
+  "compiled_before_stop": [
+    {
+      "binary": "search11",
+      "flags": [
+        "-O3",
+        "-std=c++20",
+        "-DSEARCH_N=11",
+        "-DSEARCH_P=5",
+        "-DSEARCH_G=28"
+      ]
+    },
+    {
+      "binary": "search16",
+      "flags": [
+        "-O3",
+        "-std=c++20",
+        "-DSEARCH_N=16",
+        "-DSEARCH_P=8",
+        "-DSEARCH_G=40"
+      ]
+    }
+  ]
+}

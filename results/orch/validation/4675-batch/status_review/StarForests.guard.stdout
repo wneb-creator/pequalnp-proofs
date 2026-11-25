@@ -1,0 +1,1 @@
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside

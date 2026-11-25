@@ -1,0 +1,67 @@
+{
+  "status": "PASS preservation of four compiled modules and explicitly UNCOMPILED assembly",
+  "manifest_sha256": "8e896766845dfbfe839734c8c9db0cf7929d035e21c53f9ff30027e135cb6d6d",
+  "manifest_files": 17,
+  "dependency_hashes_verified": 3,
+  "components": [
+    {
+      "name": "SurplusCover",
+      "log": "surplus-cover-02",
+      "sha256": "871719401c298d90a75b0c52c77057964b0653cddc5945c48faad6466a66cdaa",
+      "lines": 65,
+      "bytes": 2862,
+      "stdout": "",
+      "stderr": "",
+      "guard_exit": 1,
+      "guard_stdout": "REFUSED: line 1: import PetersenSurplus is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+      "guard_stderr": "",
+      "forbidden": []
+    },
+    {
+      "name": "BipartiteGeometry",
+      "log": "bipartite-geometry",
+      "sha256": "fb8ec07f94788b6ff689b697860afc8257376904cbdfdf596b2fcc7babdaae32",
+      "lines": 92,
+      "bytes": 3589,
+      "stdout": "",
+      "stderr": "",
+      "guard_exit": 1,
+      "guard_stdout": "REFUSED: line 1: import PetersenSurplus is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: line 2: import Neighbourhoods is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+      "guard_stderr": "",
+      "forbidden": []
+    },
+    {
+      "name": "DegreeTwoCard",
+      "log": "degree-two-card-02",
+      "sha256": "3f27ee7fd1a347b9d645c50f44857acde7fdf62c00a269c8fddb88dbc94fcc96",
+      "lines": 44,
+      "bytes": 1584,
+      "stdout": "",
+      "stderr": "",
+      "guard_exit": 1,
+      "guard_stdout": "REFUSED: line 1: import Neighbourhoods is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: line 2: import PairDecomposition is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+      "guard_stderr": "",
+      "forbidden": []
+    },
+    {
+      "name": "CycleClass",
+      "log": "cycle-class",
+      "sha256": "a311913449c19eebbe1fb453562d83a3a32493c1e576d1f9601357aa40386bf7",
+      "lines": 63,
+      "bytes": 2923,
+      "stdout": "",
+      "stderr": "",
+      "guard_exit": 1,
+      "guard_stdout": "REFUSED: line 1: import SurplusCover is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: line 2: import BipartiteGeometry is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: line 3: import DegreeTwoCard is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4675 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4675` ... `end PEqualNP.Outside.L_meta_4675`; only the imports and the theorem stay outside\n",
+      "guard_stderr": "",
+      "forbidden": []
+    }
+  ],
+  "uncompiled_assembly": {
+    "sha256": "e59e933788d2a9b6e36b4925e1170d686ba1cb8a5262cfe7c75f9f35bd2fe0bd",
+    "bytes": 94902,
+    "lines": 2148,
+    "forbidden": [],
+    "archive_extension": ".lean.txt"
+  }
+}

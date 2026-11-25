@@ -1,0 +1,121 @@
+{
+  "utc": "2026-11-25T17:20:30.432119+00:00",
+  "status": "STOP obeyed after desk405; no active process",
+  "exact_proven_class": "every vertex has degree EXACTLY two; no automatic path/isolated-vertex composition",
+  "successful_logs": {
+    "SurplusCover": "surplus-cover-02.stdout/stderr",
+    "BipartiteGeometry": "bipartite-geometry.stdout/stderr",
+    "DegreeTwoCard": "degree-two-card-02.stdout/stderr",
+    "CycleClass": "cycle-class.stdout/stderr"
+  },
+  "standalone_status": "CycleClassStandalone.lean is UNCOMPILED; modular components pass, assembly not yet tested",
+  "files": [
+    {
+      "file": "BipartiteGeometry.lean",
+      "bytes": 3589,
+      "sha256": "fb8ec07f94788b6ff689b697860afc8257376904cbdfdf596b2fcc7babdaae32",
+      "compile_status": "compiled/exported exit0"
+    },
+    {
+      "file": "CycleClass.lean",
+      "bytes": 2923,
+      "sha256": "a311913449c19eebbe1fb453562d83a3a32493c1e576d1f9601357aa40386bf7",
+      "compile_status": "compiled/exported exit0"
+    },
+    {
+      "file": "CycleClassStandalone.lean",
+      "bytes": 94902,
+      "sha256": "e59e933788d2a9b6e36b4925e1170d686ba1cb8a5262cfe7c75f9f35bd2fe0bd",
+      "compile_status": "UNCOMPILED assembly; STOP before build"
+    },
+    {
+      "file": "DegreeTwoCard.lean",
+      "bytes": 1584,
+      "sha256": "3f27ee7fd1a347b9d645c50f44857acde7fdf62c00a269c8fddb88dbc94fcc96",
+      "compile_status": "compiled/exported exit0"
+    },
+    {
+      "file": "SurplusCover.lean",
+      "bytes": 2862,
+      "sha256": "871719401c298d90a75b0c52c77057964b0653cddc5945c48faad6466a66cdaa",
+      "compile_status": "compiled/exported exit0"
+    },
+    {
+      "file": "bipartite-geometry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "bipartite-geometry.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "cycle-class.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "cycle-class.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "degree-two-card-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "degree-two-card-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "degree-two-card.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "degree-two-card.stdout",
+      "bytes": 248,
+      "sha256": "8c806891084544825b74d170a5a5343a984609b0d913ef0264a432dccda31152"
+    },
+    {
+      "file": "surplus-cover-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "surplus-cover-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "surplus-cover.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "surplus-cover.stdout",
+      "bytes": 1016,
+      "sha256": "c92a6b812dc8f4517a68c041070831a4b47b8961e9283ed23b34e1981863afbb"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/library_route/PetersenSurplus.lean",
+      "sha256": "c4263050aec6af424fc64504f463e33ae5f002dab9e25b942a0bb8b98f16e19d",
+      "status": "previously checked/exported module; research scratch dependency"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/Neighbourhoods.lean",
+      "sha256": "65937c9e89fa9a5c4b1397655affcdace97090b774cdab231f0a4f61777cfeda",
+      "status": "previously checked/exported module; research scratch dependency"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/PairDecomposition.lean",
+      "sha256": "567f3375f84d09d8bc0cd9b44de68b37d814c91534846fd1ac826781b260ca74",
+      "status": "previously checked/exported module; research scratch dependency"
+    }
+  ]
+}

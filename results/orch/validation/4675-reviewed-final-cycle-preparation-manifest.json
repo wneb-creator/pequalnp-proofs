@@ -1,0 +1,176 @@
+{
+  "created_utc": "2026-11-25T17:22:00.874286+00:00",
+  "status": "PASS four compiled modular partials, one explicitly UNCOMPILED assembly, and preparation/control evidence only",
+  "file_count": 28,
+  "total_bytes": 132615,
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/SurplusCover.lean",
+      "relative_path": "lower_bound/SurplusCover.lean",
+      "bytes": 2862,
+      "sha256": "871719401c298d90a75b0c52c77057964b0653cddc5945c48faad6466a66cdaa"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/surplus-cover-02.stdout",
+      "relative_path": "lower_bound/surplus-cover-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/surplus-cover-02.stderr",
+      "relative_path": "lower_bound/surplus-cover-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/SurplusCover.guard.stdout",
+      "relative_path": "status_review/SurplusCover.guard.stdout",
+      "bytes": 414,
+      "sha256": "0f43be1a5d71d800ce021b9293da27329abb830e024ee7e56f8198a13be60b78"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/SurplusCover.guard.stderr",
+      "relative_path": "status_review/SurplusCover.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/BipartiteGeometry.lean",
+      "relative_path": "lower_bound/BipartiteGeometry.lean",
+      "bytes": 3589,
+      "sha256": "fb8ec07f94788b6ff689b697860afc8257376904cbdfdf596b2fcc7babdaae32"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/bipartite-geometry.stdout",
+      "relative_path": "lower_bound/bipartite-geometry.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/bipartite-geometry.stderr",
+      "relative_path": "lower_bound/bipartite-geometry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/BipartiteGeometry.guard.stdout",
+      "relative_path": "status_review/BipartiteGeometry.guard.stdout",
+      "bytes": 513,
+      "sha256": "71b3dcb69d0c526a8e90a71a0f3d94cd10c3f81045bf7d541b793037a7b012b9"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/BipartiteGeometry.guard.stderr",
+      "relative_path": "status_review/BipartiteGeometry.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/DegreeTwoCard.lean",
+      "relative_path": "lower_bound/DegreeTwoCard.lean",
+      "bytes": 1584,
+      "sha256": "3f27ee7fd1a347b9d645c50f44857acde7fdf62c00a269c8fddb88dbc94fcc96"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/degree-two-card-02.stdout",
+      "relative_path": "lower_bound/degree-two-card-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/degree-two-card-02.stderr",
+      "relative_path": "lower_bound/degree-two-card-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/DegreeTwoCard.guard.stdout",
+      "relative_path": "status_review/DegreeTwoCard.guard.stdout",
+      "bytes": 515,
+      "sha256": "53a85f4add232cc6e65400d938e093aa506b9ea6107471a731950496c951d41a"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/DegreeTwoCard.guard.stderr",
+      "relative_path": "status_review/DegreeTwoCard.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/CycleClass.lean",
+      "relative_path": "lower_bound/CycleClass.lean",
+      "bytes": 2923,
+      "sha256": "a311913449c19eebbe1fb453562d83a3a32493c1e576d1f9601357aa40386bf7"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/cycle-class.stdout",
+      "relative_path": "lower_bound/cycle-class.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/cycle-class.stderr",
+      "relative_path": "lower_bound/cycle-class.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/CycleClass.guard.stdout",
+      "relative_path": "status_review/CycleClass.guard.stdout",
+      "bytes": 611,
+      "sha256": "546976b71a96cf13a33797031f0672723780fd9209e11438dcf594a4df04e05d"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/CycleClass.guard.stderr",
+      "relative_path": "status_review/CycleClass.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/CycleClassStandalone.lean",
+      "relative_path": "lower_bound/CycleClassStandalone.lean.txt",
+      "bytes": 94902,
+      "sha256": "e59e933788d2a9b6e36b4925e1170d686ba1cb8a5262cfe7c75f9f35bd2fe0bd"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/cycle-class-audit.json",
+      "relative_path": "status_review/cycle-class-audit.json",
+      "bytes": 3897,
+      "sha256": "0a31454f56ff854e2ba81bf4a3e07b71d9d11ebe19f4809f3b49e75e4f40034a"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/cycle-class-review.md",
+      "relative_path": "status_review/cycle-class-review.md",
+      "bytes": 1915,
+      "sha256": "4be02abb7a5aa157a4db91686b1d39e63bf16f2bb9a023257b845ffdf255ceb4"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/audit_controls.py",
+      "relative_path": "status_review/audit_controls.py",
+      "bytes": 3415,
+      "sha256": "1f175f3f90048bbacefc765869b881357baecd3063d4fc1dccc5bb8cb7d06fb6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/presearch-controls-audit.json",
+      "relative_path": "status_review/presearch-controls-audit.json",
+      "bytes": 14085,
+      "sha256": "052a0b5979eeb5d5129ef61f3a16f338d0ae5fc1e7a14b14b1df6f1eedfc6079"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/presearch-controls-audit.stdout",
+      "relative_path": "status_review/presearch-controls-audit.stdout",
+      "bytes": 330,
+      "sha256": "0be32253ab41b1507e72db1e325520e6677526a77fb605d54343db029c734498"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/presearch-controls-audit.stderr",
+      "relative_path": "status_review/presearch-controls-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/final-preparation-audit.json",
+      "relative_path": "status_review/final-preparation-audit.json",
+      "bytes": 1060,
+      "sha256": "006467572c2c0a6fcd1606f77af01667291871f39856fd0755ff82597f128dfe"
+    }
+  ]
+}

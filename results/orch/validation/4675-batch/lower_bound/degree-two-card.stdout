@@ -1,0 +1,8 @@
+/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/DegreeTwoCard.lean:25:38: error: Application type mismatch: The argument
+  he
+has type
+  Fin.castAdd l a = Fin.castAdd l c
+but is expected to have type
+  a = c
+in the application
+  congrArg Fin.val he

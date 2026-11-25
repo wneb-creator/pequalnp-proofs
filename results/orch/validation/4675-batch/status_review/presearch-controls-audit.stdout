@@ -1,0 +1,10 @@
+{
+  "status": "PASS preservation-only source/control review; no search launched",
+  "manifest_files": 168,
+  "full_control_replays": 72,
+  "truth_rows_checked": 3321856,
+  "t0_controls": 71,
+  "deliberately_dead_mixed_OR_input_controls": 1,
+  "all_matching_and_cover_certificates_valid": true,
+  "all_margins_nonnegative": true
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS preservation-only preparation; no long search launched",
+  "final_manifest_sha256": "ea5eae104cf098fedc282690517d79a9e7a1ab0fa5cf6efb8922d7590cd52a84",
+  "manifest_files": 173,
+  "manifest_bytes": 227925,
+  "source_review": "Full truth tables; derived bipartite graph; exact C4/matching/cover; only output-cone gates counted and actually pruned/renumbered before saving; no old star-witness premise; 64-bit initialized cache handles key0 and all64bits; root STOP path is correct",
+  "controls": "Independent checker replayed72 saved inputs/outputs over3321856 truth rows, validated matching and cover certificates;71 T0 and one deliberate dead mixed-OR input; all margins nonnegative",
+  "prior_cone_screen": {
+    "records": 18,
+    "all_recorded_counts_and_nonnegative_margins_verified": true
+  },
+  "driver": "Sequential oneCPU300s+600s proposal; exact candidate validation; stopped before launch",
+  "limitation": "Heuristic preparation/control evidence only. No proof, lower-bound certificate, exhaustive search, or counterexample."
+}

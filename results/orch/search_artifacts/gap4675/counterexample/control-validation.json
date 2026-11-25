@@ -1,0 +1,3078 @@
+[
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed0.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control0.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed1.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed1.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 9,
+    "gates": 11,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 3,
+    "matching": [
+      [
+        1,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control1.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control1.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 9,
+    "gates": 11,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 3,
+    "matching": [
+      [
+        1,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed2.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed2.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 10,
+    "gates": 13,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        1,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control2.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control2.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 10,
+    "gates": 13,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        1,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed3.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed3.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control3.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control3.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed4.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed4.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control4.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control4.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed5.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed5.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control5.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control5.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed6.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed6.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control6.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control6.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed7.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed7.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control7.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control7.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed8.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed8.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control8.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control8.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed9.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed9.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control9.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/control.control9.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed0.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        0,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control0.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        0,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed1.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed1.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 9,
+    "gates": 11,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 3,
+    "matching": [
+      [
+        1,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control1.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control1.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 9,
+    "gates": 11,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 3,
+    "matching": [
+      [
+        1,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        2,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed2.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed2.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 10,
+    "gates": 13,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        1,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control2.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control2.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 10,
+    "gates": 13,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        1,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed3.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed3.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        1,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control3.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control3.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        1,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed4.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed4.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control4.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control4.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed5.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed5.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control5.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control5.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed6.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed6.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control6.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control6.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed7.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed7.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control7.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control7.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed8.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed8.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control8.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control8.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed9.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed9.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control9.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control9.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed10.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed10.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control10.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control10.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 15,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed11.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed11.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control11.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control11.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 16,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed12.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed12.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control12.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control12.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 12,
+    "gates": 17,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 4,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        3,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed13.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed13.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control13.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control13.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed14.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed14.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control14.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control14.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed15.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed15.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control15.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control15.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 14,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        11
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed16.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed16.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 21,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control16.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control16.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 21,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed17.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed17.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 22,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control17.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control17.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 22,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed18.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed18.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 23,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control18.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control18.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 16,
+    "gates": 23,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        1,
+        13
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed19.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed19.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control19.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control19.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 20,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed20.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed20.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 21,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control20.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control20.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 21,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed21.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed21.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 22,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control21.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control21.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 15,
+    "gates": 22,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 6,
+    "matching": [
+      [
+        2,
+        8
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        12
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed22.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed22.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 31,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control22.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control22.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 31,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed23.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed23.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 32,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control23.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control23.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 32,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed24.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/seed24.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 33,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control24.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case16/control.control24.circuit.json",
+    "n": 16,
+    "p": 8,
+    "edges": 24,
+    "gates": 33,
+    "full_rows": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 8,
+    "matching": [
+      [
+        0,
+        8
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        2,
+        14
+      ],
+      [
+        1,
+        13
+      ],
+      [
+        4,
+        15
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "margin": 2,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/seed0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/pruning-probe.input.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 19,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 1,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 1,
+    "is_counterexample": false
+  },
+  {
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/pruning-probe.control0.graph.json",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4675/counterexample/case11/pruning-probe.control0.circuit.json",
+    "n": 11,
+    "p": 5,
+    "edges": 14,
+    "gates": 18,
+    "full_rows": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "tau": 5,
+    "matching": [
+      [
+        2,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cover": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "margin": 0,
+    "is_counterexample": false
+  }
+]

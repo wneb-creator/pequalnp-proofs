@@ -1,0 +1,29 @@
+/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/SurplusCover.lean:12:16: error: don't know how to synthesize implicit argument `v`
+  @sem_elig_cover n G D hG h hC ?m.29 ?m.30
+context:
+n : ℕ
+G : Fin n → Fin n → Prop
+D : Dag
+hG : sem_Gr G
+h : StrictLive n D
+hC : sem_Comp n G D
+⊢ Fin n
+/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/SurplusCover.lean:12:16: error: don't know how to synthesize implicit argument `u`
+  @sem_elig_cover n G D hG h hC ?m.29 ?m.30
+context:
+n : ℕ
+G : Fin n → Fin n → Prop
+D : Dag
+hG : sem_Gr G
+h : StrictLive n D
+hC : sem_Comp n G D
+⊢ Fin n
+/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/SurplusCover.lean:12:7: error: failed to infer `have` declaration type
+/tmp/oec/pequalnp-pilot-99/gap4675/lower_bound/SurplusCover.lean:11:47: error: unsolved goals
+n : ℕ
+G : Fin n → Fin n → Prop
+D : Dag
+hG : sem_Gr G
+h : StrictLive n D
+hC : sem_Comp n G D
+⊢ (∀ (u v : Fin n), G u v → u ∈ eligSet n D ∨ v ∈ eligSet n D) ∧ n + (eligSet n D).card ≤ List.length D + 1

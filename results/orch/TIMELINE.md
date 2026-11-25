@@ -64,3 +64,7 @@
 - 2026-11-25T17:03:59Z: fifth premature410, L-meta-1884, before17:21:29.436Z advertised expiry. Automatic curl-si confirmation preserved. Allagents halted; zeroNOT solvercancelled withoutverdict.
 - 2026-11-25T17:05:05Z: root stopped pending named5084 build(SIGTERM,exit1). Exact standalone5084 source had already compiled and been pushed.
 - 2026-11-25T17:06:44.187345+00:00: final1884 preservation inprogress; allcheckedcaseproofs and lastcomponents frozen. No full theorem/refutation; recovery05 waits for finalpush.
+
+- 2026-11-25T17:11:38.918584+00:00: recovery05 assigned L-meta-4675, ownlease a8d48e82-8584-4066-8dbd-501b87c7a4a0, initialexpiry17:29:58.940Z. Exact stronger no-star-witness bound. Restartedsix parallel routes; previousfinalartifacts pushed345d987c.
+
+- 2026-11-25T17:21:54.268319+00:00: final4675 preservation after mandatory stop. Manual GET renewal returned405 beat takes POST at17:19UTC; required curl-si repeat17:19:46, complete response saved. Last successful POST expiry17:39:39.942. All agents/research/beater stopped. StarForests namedbuild passed5149jobs; ForestCover and four degree-exactly-two modules checked; portableassembly uncompiled. No full theorem, no4675 officialchecker run, no long search launched, no PR/release. Preserve/push only.

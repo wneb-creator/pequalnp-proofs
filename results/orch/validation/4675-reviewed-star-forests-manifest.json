@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-11-25T17:16:26.598759+00:00",
+  "gap": "L-meta-4675",
+  "status": "PASS compiled restricted star-forest partial; no full theorem",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/StarForests.lean",
+      "relative_path": "sat_encoding/StarForests.lean",
+      "bytes": 9668,
+      "sha256": "6826c168c7bf54cdc879693693561f7fd296d0794b6f838b21bd2617439eb2c8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/star-forests-01.stdout",
+      "relative_path": "sat_encoding/star-forests-01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/sat_encoding/star-forests-01.stderr",
+      "relative_path": "sat_encoding/star-forests-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/StarForests.guard.stdout",
+      "relative_path": "status_review/StarForests.guard.stdout",
+      "bytes": 279,
+      "sha256": "3982e1282d0f066a62d1a1b2026856cfbc6d2523c5c40d6c216c1f97e96f942c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/StarForests.guard.stderr",
+      "relative_path": "status_review/StarForests.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap4675/status_review/star-forests-audit.json",
+      "relative_path": "status_review/star-forests-audit.json",
+      "bytes": 972,
+      "sha256": "12909d54fdde54579a6f99fc7324f45fc2c2dba6dbe3a5ab9ad6c88e6aa6e84e"
+    }
+  ]
+}

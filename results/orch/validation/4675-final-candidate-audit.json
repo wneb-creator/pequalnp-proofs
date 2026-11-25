@@ -1,0 +1,20 @@
+{
+  "independent_verdict": "PASS preservation-only final commit/push; no full proof/refutation or PR",
+  "manifest_sha256": "bebfa7a7311e63e15bc97580af1c4093dd2740a3b08a1a5fa7af824657c71c16",
+  "paths": 255,
+  "bytes": 726452,
+  "all_manifest_hashes_match": true,
+  "unchanged_frozen_owned_note": true,
+  "all_238_direct_artifact_copies_match": true,
+  "six_remaining_manifest_assignment_copies_match": true,
+  "historical_validation_snapshot_matches_HEAD": true,
+  "nine_metadata_files_reviewed": true,
+  "deleted1884_target_matches_already_pushed_standalone_archive": true,
+  "current_target_matches_reviewed_230line_StarForests": true,
+  "named_build": "PASSED5149jobs",
+  "official_checker_4675": "NOT RUN; independent guard rejects missing posted theorem",
+  "cycle_standalone": "UNCOMPILED .lean.txt",
+  "source_metadata_diff_check_exit": 0,
+  "unlisted_changed_or_untracked_files": [],
+  "stop_status": "HTTP405 wrong-method renewal; five earlierHTTP410 withdrawals; no subsequent desk calls/release or search launch claimed"
+}

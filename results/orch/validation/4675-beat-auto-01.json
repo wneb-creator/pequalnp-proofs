@@ -1,0 +1,17 @@
+{
+ "lease": {
+  "id": "a8d48e82-8584-4066-8dbd-501b87c7a4a0",
+  "expires_at": "2026-11-25T17:31:38.353Z",
+  "renew": "POST /desk/beat?lease=a8d48e82-8584-4066-8dbd-501b87c7a4a0",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a8d48e82-8584-4066-8dbd-501b87c7a4a0&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 151,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:06:33.711Z"
+  }
+ },
+ "next_beat_s": 300
+}

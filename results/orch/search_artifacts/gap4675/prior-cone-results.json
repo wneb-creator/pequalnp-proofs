@@ -1,0 +1,146 @@
+[
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-04/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-04/derived.graph.json",
+    "all_gates": 13,
+    "output_cone": 13,
+    "bound": 13,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-03/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-03/derived.graph.json",
+    "all_gates": 11,
+    "output_cone": 11,
+    "bound": 11,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-02/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-02/derived.graph.json",
+    "all_gates": 9,
+    "output_cone": 9,
+    "bound": 7,
+    "margin": 2
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-04/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-04/derived.graph.json",
+    "all_gates": 16,
+    "output_cone": 16,
+    "bound": 16,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-00/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-00/derived.graph.json",
+    "all_gates": 13,
+    "output_cone": 13,
+    "bound": 13,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-03/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-03/derived.graph.json",
+    "all_gates": 14,
+    "output_cone": 14,
+    "bound": 13,
+    "margin": 1
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-portfolio1-snapshot1/irregular11-portfolio1.best-hyp/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-portfolio1-snapshot1/irregular11-portfolio1.best-hyp/derived.graph.json",
+    "all_gates": 15,
+    "output_cone": 15,
+    "bound": 15,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-portfolio1/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-portfolio1/derived.graph.json",
+    "all_gates": 13,
+    "output_cone": 13,
+    "bound": 13,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-03/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-03/derived.graph.json",
+    "all_gates": 17,
+    "output_cone": 17,
+    "bound": 17,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-00/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-00/derived.graph.json",
+    "all_gates": 18,
+    "output_cone": 18,
+    "bound": 18,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-02/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-improvements/candidate-02/derived.graph.json",
+    "all_gates": 13,
+    "output_cone": 13,
+    "bound": 13,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-portfolio1-snapshot1/fano_minus_incident-portfolio1.best-hyp/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_incident-portfolio1-snapshot1/fano_minus_incident-portfolio1.best-hyp/derived.graph.json",
+    "all_gates": 18,
+    "output_cone": 18,
+    "bound": 18,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/incident-smoke/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/incident-smoke/derived.graph.json",
+    "all_gates": 18,
+    "output_cone": 18,
+    "bound": 18,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-05/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-05/derived.graph.json",
+    "all_gates": 14,
+    "output_cone": 14,
+    "bound": 14,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-06/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-06/derived.graph.json",
+    "all_gates": 15,
+    "output_cone": 15,
+    "bound": 15,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-03/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-03/derived.graph.json",
+    "all_gates": 13,
+    "output_cone": 13,
+    "bound": 13,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-05/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/fano_minus_nonincident-improvements/candidate-05/derived.graph.json",
+    "all_gates": 17,
+    "output_cone": 17,
+    "bound": 17,
+    "margin": 0
+  },
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-04/pruned.circuit.json",
+    "graph": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-improvements/candidate-04/derived.graph.json",
+    "all_gates": 12,
+    "output_cone": 12,
+    "bound": 10,
+    "margin": 2
+  }
+]

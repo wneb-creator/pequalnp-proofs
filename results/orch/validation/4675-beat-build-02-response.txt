@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 17:19:46 GMT
+server: envoy
+
+HTTP/2 405 
+date: Wed, 25 Nov 2026 17:19:46 GMT
+content-type: application/json; charset=utf-8
+content-length: 32
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=nDcP00alJXYJA7MdaUg0sxrozo97sd850LELMFQBEPz4IIwUuyfiGbxMmZLuDm0uQxPY9BEm93kleJhqjH5SpudbAHh%2BtLIYewByk%2F%2FNPLFG%2FSHnUcR7MrmZW6YZjqo%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a60251fda873d498-LAX
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 28
+
+{
+ "error": "beat takes POST"
+}

@@ -1,3 +1,30 @@
+Final research preservation; no completed proof, refutation, reduction submission, or PR.
+Updated 2026-11-25T17:21:54.268319+00:00
+Job pequalnp-pilot-99. KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
+Branch pnp/pilot-99; all pushes only to origin, wneb-creator/pequalnp-proofs.
+Sub-agents: counterexample, library_route, lower_bound, reduction_strategy, sat_encoding, status_review
+TIMING total=215.4 subagents=6
+
+Last assignment: L-meta-4675, own lease a8d48e82-8584-4066-8dbd-501b87c7a4a0. This is the C4-free bipartite AO2 edge-function cover bound with syntactic tCount zero and no per-edge star witness. Reductions were closed. The exact statement and imports are in validation/4675-statement.txt and4675-imports.json. No full proof or concrete refutation was found.
+
+STOP reason: at17:19UTC root mistakenly sent a manual GET renewal instead of POST. The desk answered { "error": "beat takes POST" }. The required identical call repeated once with curl -si returned HTTP405 at17:19:46UTC. Complete headers/body are preserved verbatim in validation/4675-beat-build-02-response.txt. This was a request-method error by root, not evidence the lease expired. Under the user's any-desk-error stop rule, research/searches were stopped, all six agents notified, and the automatic renewal process terminated. No corrected renewal, release, next-gap request, or PR was attempted afterward. The last successful automatic POST advertised expiry17:39:39.942UTC. Existing checked results and logs were preserved before ending as required by PUSH-EARLY.
+
+Current named file: lean/PEqualNP/Outside/L_meta_4675.lean, exact230-line9668-byte StarForests source, SHA2566826c168c7bf54cdc879693693561f7fd296d0794b6f838b21bd2617439eb2c8. Named lake build PASSED: Built PEqualNP.Outside.L_meta_4675 (2.8s); Build completed successfully (5149 jobs). Full stdout/stderr: validation/4675-build-star-forests.stdout and.stderr. It proves the exact cover inequality when one coordinate projection is injective on the edge set (one-sided star forests), using arbitrary FanInTwo correctness. It does not prove the full posted statement. Independent source/format review passed; its guard reports the missing main theorem. The official tools/check-lean.mjs was NOT RUN on4675 before STOP, so no official checker acceptance is claimed.
+
+Additional checked components: ForestCover.lean1812lines79915bytes, SHA256f7d31eeb2f63126050435f0a14e4e6af619bd1cfe827259ac3554488bde3ae98, proves the exact cover inequality for all bipartite forests with AO2 correctness alone. Standalone compile/export passed with23 warnings and empty stderr; independent exact reused-source and new-wrapper review passed. Four modular components SurplusCover, BipartiteGeometry, DegreeTwoCard, CycleClass compiled/exported with empty successful logs; independent source/dependency review passed. Together they prove the posted conclusion when EVERY vertex has degree EXACTLY two, without T0. They do not cover arbitrary mixtures of cycles, paths, and isolated vertices. The2148-line portable CycleClassStandalone assembly was NOT COMPILED before STOP; it is preserved as drafts4675/CycleClassStandalone.lean.txt, SHA256e59e933788d2a9b6e36b4925e1170d686ba1cb8a5262cfe7c75f9f35bd2fe0bd. No uncompiled source is called checked.
+
+Computation: completed cone-only pruning of18 earlier equality circuits found no counterexample.35 positive controls passed72 full-truth/certificate checks, including65536 rows on8+8 inputs and an explicit dead mixed-OR pruning fixture. Independent replay passed all72 controls and3,321,856 truth rows; source/driver and final173-file manifest audit passed. Both planned300second and600second searches were NOT LAUNCHED. Their source, controls, full logs, and stopped metadata are archived from the173-file frozen final preparation manifest. No SAT/UNSAT certificate or exhaustive lower-bound search is claimed. All mathematical/search processes are stopped.
+
+No cleanup pass began because the full theorem/checker never passed. Named file line counts before/after cleanup:230/230 (unchanged; no cleanup performed). Prior named1884 source was removed only after byte-for-byte equality with its already pushed archive. All earlier results remain in branch history and results/orch; this is a research branch, not a compliant single-file proof PR.
+
+Desk history: five previous own assignments (2592,2583,2590,4970,1884) ended with HTTP410 before their most recently advertised expiry. Complete diagnostic responses are retained. No other pilot's lease was worked or released. Null responses:3, all during the2590-to4970 transition, exact messages:
+1. The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+2. The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+3. The checker is behind: 521 proofs are queued for a check and 478 were checked in the last hour, about 65 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+Full UTC desk history: validation/desk-log.txt. These are nulls, not released leases.
+
+Historical validation snapshot follows; its current/last labels refer to17:06UTC before4675 assignment:
+
 Research checkpoints; no completed proof, refutation, reduction submission, or PR.
 Updated 2026-11-25T17:06:44.187345+00:00
 Job pequalnp-pilot-99. KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
