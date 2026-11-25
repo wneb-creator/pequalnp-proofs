@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/Sym3MatrixBridge.lean",
+  "sha256": "af2443d8790f7cf2e404167ae4ce37293b11cfd65bd77df3841ad49683cd440e",
+  "started_utc": "2026-11-25T11:23:27.575779+00:00",
+  "limits": {
+    "lean_memory_mib": 10000,
+    "process_tree_rss_gib": 4,
+    "cpu_seconds": 180,
+    "wall_seconds": 300
+  },
+  "pid": 29427,
+  "peak_rss_bytes": 864129024,
+  "exit_code": 0,
+  "seconds": 11.192959177000375,
+  "finished_utc": "2026-11-25T11:23:38.768646+00:00",
+  "source_sha256_after": "af2443d8790f7cf2e404167ae4ce37293b11cfd65bd77df3841ad49683cd440e"
+}

@@ -1,0 +1,3 @@
+APPROVED RowChartScaffold.lean exact SHA256 109286785dbc2c8b0453e394333d643b86d25429d5a14a51738313c031473ef5
+Reviewed RowKernelScaffold copied verbatim. Bijective row difference map becomes a linear equivalence; composing its inverse with the submodule inclusion gives injective F, exact range L, and the claimed row coordinates. Dimension3 converts surjectivity to bijectivity. No symmetry/permanent conclusion is implicitly added to the new parametrization.
+Format clean; recorded Lean exit0 with empty log.

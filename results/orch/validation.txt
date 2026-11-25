@@ -160,3 +160,11 @@ Scope: same repeated-kernel coefficient chart excluded; automatic leaf nonzero c
 DoubleSingleCrossCertificate.lean: SHA256 375ce65329b3754cf78169a50fcee872e4c4e4ec9a0197844042a3216e521b6e;90lines;exit0 in52.23s. Complete log lemmas/construction_search_double-single-cross-certificate.log; independent review lemmas/double-single-cross-independent-review.log.
 ProjectiveNormalization.lean: SHA256 4da23b5f3d478a410ce18c8ae74bddcc4f0d5796dc07d61ddc01078e7342e6b1;102lines;exit0 in3.52s. Complete log lemmas/projective-normalization-lean-v4.log; independent review lemmas/projective-normalization-independent-review.log.
 Scope: cross repeated-kernel coefficient chart excluded; abstract projective/frame normalization and dimension contradiction helpers proved. Full target remains unresolved; no target checker run.
+
+2026-11-25T11:25:49.819893+00:00 Additional checked, independently reviewed partials.
+DependentTripleNormalization.lean: SHA256 1972bbc6d6e32a5e28135194835be1f94a72d178051e906750592e4793b75c8e; exit0 in2.51s; full log lemmas/dependent-triple-normalization-lean-v2.log; independent review lemmas/dependent-triple-normalization-independent-review.log.
+RowChartScaffold.lean: SHA256 109286785dbc2c8b0453e394333d643b86d25429d5a14a51738313c031473ef5; exit0 in3.52s; full log lemmas/row-chart-scaffold-lean.log; independent review lemmas/row-chart-scaffold-independent-review.log.
+Sym3MatrixBridge.lean: SHA256 af2443d8790f7cf2e404167ae4ce37293b11cfd65bd77df3841ad49683cd440e; exit0 in11.19s; full log lemmas/geometry-sym3matrixbridge-lean.log; independent review lemmas/sym3-matrix-bridge-independent-review.log.
+Scope: dependent-triple normalization, surjective row-chart construction, and conditional Sym3 actual-matrix bridge. The posted target remains unresolved; target checker not run.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=170.1 subagents=7

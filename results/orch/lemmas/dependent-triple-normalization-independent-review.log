@@ -1,0 +1,3 @@
+APPROVED DependentTripleNormalization.lean exact SHA256 1972bbc6d6e32a5e28135194835be1f94a72d178051e906750592e4793b75c8e
+Dependent triple plus pairwise independent pairs gives membership in span(A,B) by finCons independence criterion. Zero coefficient would place D in the span of one of the two vectors, contradicting the corresponding independent pair. Nonzero scaling lemma converts any relation to coefficients g_i*a_i then cancels each nonzero scalar. Scope is generic complex modules, no finite dimension assumption needed.
+Format clean; recorded Lean exit0 with empty log.
