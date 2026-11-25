@@ -3702,4 +3702,131 @@ lemma selected_matching_lower_bound_on_tests {I : Type*} [Fintype I] [DecidableE
 
 end SelectedExtraction
 
+
+namespace PrivateCleanup
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma cleanup_identity (A D b c : Bool) (hcA : c = true → A = true)
+    (hbD : b = true → D = true) :
+    ((b || c) && (A && D)) = ((b && A) || (c && D)) := by
+  cases A <;> cases D <;> cases b <;> cases c <;> simp_all
+
+def oldBlock {m : ℕ} (A D b c : Fin m) : Circuit :=
+  ⟨[⟨.or,[b.val,c.val]⟩,⟨.and,[A.val,D.val]⟩,⟨.and,[m,m+1]⟩],m+2⟩
+
+def newBlock {m : ℕ} (A D b c : Fin m) : Circuit :=
+  ⟨[⟨.and,[b.val,A.val]⟩,⟨.and,[c.val,D.val]⟩,⟨.or,[m,m+1]⟩],m+2⟩
+
+lemma oldBlock_eval {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool) :
+    (oldBlock A D b c).eval (List.ofFn x) = ((x b || x c) && (x A && x D)) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen,oldBlock,Circuit.eval,Circuit.wires,GateOp.eval,
+    List.getD_eq_getElem?_getD,List.getElem?_append_left,List.getElem?_append_right]
+  rfl
+
+lemma newBlock_eval {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool) :
+    (newBlock A D b c).eval (List.ofFn x) = ((x b && x A) || (x c && x D)) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen,newBlock,Circuit.eval,Circuit.wires,GateOp.eval,
+    List.getD_eq_getElem?_getD,List.getElem?_append_left,List.getElem?_append_right]
+  rfl
+
+lemma blocks_agree {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool)
+    (hcA : x c = true → x A = true) (hbD : x b = true → x D = true) :
+    (oldBlock A D b c).eval (List.ofFn x) = (newBlock A D b c).eval (List.ofFn x) := by
+  rw [oldBlock_eval,newBlock_eval]
+  exact cleanup_identity (x A) (x D) (x b) (x c) hcA hbD
+
+lemma oldBlock_size {m : ℕ} (A D b c : Fin m) : (oldBlock A D b c).size = 3 := rfl
+
+lemma newBlock_size {m : ℕ} (A D b c : Fin m) : (newBlock A D b c).size = 3 := rfl
+
+lemma oldBlock_monotone {m : ℕ} (A D b c : Fin m) : Monotone2 (oldBlock A D b c) := by
+  simp [Monotone2,oldBlock]
+
+lemma newBlock_monotone {m : ℕ} (A D b c : Fin m) : Monotone2 (newBlock A D b c) := by
+  simp [Monotone2,newBlock]
+
+lemma newBlock_left_and {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool) :
+    ((newBlock A D b c).wires (List.ofFn x)).getD m false = (x b && x A) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen,newBlock,Circuit.wires,GateOp.eval,
+    List.getD_eq_getElem?_getD,List.getElem?_append_left,List.getElem?_append_right]
+  rfl
+
+lemma newBlock_right_and {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool) :
+    ((newBlock A D b c).wires (List.ofFn x)).getD (m+1) false = (x c && x D) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen,newBlock,Circuit.wires,GateOp.eval,
+    List.getD_eq_getElem?_getD,List.getElem?_append_left,List.getElem?_append_right]
+  rfl
+
+lemma newBlock_and_indices {m : ℕ} (A D b c : Fin m) (j : ℕ) (g : Gate)
+    (hj : (newBlock A D b c).gates[j]? = some g) (hop : g.op = GateOp.and) : j = 0 ∨ j = 1 := by
+  have hjlt : j < 3 := by
+    have h := (List.getElem?_eq_some_iff.mp hj).choose
+    simpa [newBlock] using h
+  interval_cases j <;> simp [newBlock] at hj <;> subst g <;> simp_all
+
+lemma newBlock_all_ands_safe {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool) (Q : Prop)
+    (hbA : (x b && x A) = true → Q) (hcD : (x c && x D) = true → Q) :
+    ∀ j g, (newBlock A D b c).gates[j]? = some g → g.op = GateOp.and →
+      ((newBlock A D b c).wires (List.ofFn x)).getD (m+j) false = true → Q := by
+  intro j g hj hop
+  rcases newBlock_and_indices A D b c j g hj hop with rfl | rfl
+  · simpa only [Nat.add_zero,newBlock_left_and] using hbA
+  · simpa only [newBlock_right_and] using hcD
+
+/-- The cleanup and product wires are not read later; only the final wire may be exported. -/
+def internalWires (m : ℕ) : Finset ℕ := {m,m+1}
+
+lemma blocks_agree_outside {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool)
+    (hcA : x c = true → x A = true) (hbD : x b = true → x D = true) :
+    BlockSubstitution.AgreeOutside (internalWires m)
+      ((oldBlock A D b c).wires (List.ofFn x)) ((newBlock A D b c).wires (List.ofFn x)) := by
+  have hclen : ((oldBlock A D b c).wires (List.ofFn x)).length = m + 3 := by
+    change (run _ _).length = _
+    simp [run_length,oldBlock]
+  have hdlen : ((newBlock A D b c).wires (List.ofFn x)).length = m + 3 := by
+    change (run _ _).length = _
+    simp [run_length,newBlock]
+  intro i hi
+  by_cases him : i < m
+  · change (run _ _).getD i false = (run _ _).getD i false
+    rw [run_old_read _ _ _ (by simpa using him),run_old_read _ _ _ (by simpa using him)]
+  · by_cases hiend : i < m + 3
+    · have hnot : i ≠ m ∧ i ≠ m+1 := by simpa [internalWires] using hi
+      have he : i = m+2 := by omega
+      subst i
+      exact blocks_agree A D b c x hcA hbD
+    · rw [List.getD_eq_default _ _ (by omega),List.getD_eq_default _ _ (by omega)]
+
+lemma blocks_suffix_eq {m : ℕ} (A D b c : Fin m) (x : Fin m → Bool)
+    (hcA : x c = true → x A = true) (hbD : x b = true → x D = true)
+    (post : List Gate) (out : ℕ)
+    (hpost : ∀ g ∈ post, ∀ i ∈ g.inputs, i ∉ internalWires m)
+    (hout : out ∉ internalWires m) :
+    (⟨(oldBlock A D b c).gates ++ post,out⟩ : Circuit).eval (List.ofFn x) =
+      (⟨(newBlock A D b c).gates ++ post,out⟩ : Circuit).eval (List.ofFn x) := by
+  apply BlockSubstitution.append_suffix_eval_eq (internalWires m)
+    (oldBlock A D b c) (newBlock A D b c) post out (List.ofFn x) ?_
+    (blocks_agree_outside A D b c x hcA hbD) hpost hout
+  change (run _ _).length = (run _ _).length
+  simp [run_length,oldBlock,newBlock]
+
+end PrivateCleanup
+
+namespace IndependentSourcesCounterexample
+
+/-- The edge function of the six-vertex path is determined by five independent
+    OR sources. Thus twice the matching number does not bound source count. -/
+lemma path6_five_sources (a b c d e f : Bool) :
+    ((a && b) || (b && c) || (c && d) || (d && e) || (e && f)) =
+      (((b || e) && (((a || c) && (b || d)) || ((c || e) && (d || f)))) ||
+        (((a || c) && (b || d)) && ((c || e) && (d || f)))) := by
+  cases a <;> cases b <;> cases c <;> cases d <;> cases e <;> cases f <;> decide
+
+end IndependentSourcesCounterexample
+
 end PEqualNP.Outside.L_meta_1904_aux
