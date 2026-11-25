@@ -20,3 +20,8 @@
 2026-11-25T00:48:52.274333+00:00 named-file build passed: pair-only/full equivalence, 1119 lines
 2026-11-25T00:51:04.325751+00:00 renewed; expiry 2026-11-25T01:11:04.147Z
 2026-11-25T00:53:15.761290+00:00 named-file build passed: local3-gate surgery included,1297lines
+2026-11-25T00:53:55.055169+00:00 all16 N2 witness circuits and C.size≥4 normalization compiled cleanly.
+2026-11-25T00:53:55.627908+00:00 boundary worker finished checked finite boundary compression theorem and SAT one-bit-extension API.
+
+2026-11-25T00:56:33.413645+00:00 finite four-input kernel certificate and general enumeration soundness completed.
+2026-11-25T00:56:57.522195+00:00 named-file build passed: boundary/finite certificates/local cleanup,1789lines
