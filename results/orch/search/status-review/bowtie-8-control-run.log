@@ -1,0 +1,3 @@
+bowtie-8-ordinary: variables=912 clauses=8624
+bowtie-8-ordinary: exit=10 seconds=1.33 status=['s SATISFIABLE']
+witness [['and', 1, 2], ['or', 0, 3], ['or', 0, 5], ['or', 1, 3], ['or', 2, 8], ['and', 7, 9], ['and', 4, 6], ['or', 10, 11]] bad_rows [] traces [True, True]

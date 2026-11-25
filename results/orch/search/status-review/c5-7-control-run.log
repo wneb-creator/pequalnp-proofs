@@ -1,0 +1,3 @@
+c5-7-ordinary: variables=791 clauses=7004
+c5-7-ordinary: exit=10 seconds=0.20 status=['s SATISFIABLE']
+witness [['and', 1, 2], ['or', 1, 4], ['and', 0, 6], ['or', 2, 4], ['or', 5, 7], ['and', 3, 8], ['or', 9, 10]] bad_rows [] traces [True, True]

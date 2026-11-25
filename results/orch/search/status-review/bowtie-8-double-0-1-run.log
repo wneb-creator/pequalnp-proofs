@@ -1,0 +1,2 @@
+bowtie-8-double-0-1: variables=992 clauses=9202
+bowtie-8-double-0-1: exit=20 seconds=37.39 status=['s UNSATISFIABLE']

@@ -1,0 +1,23 @@
+level=0 nodes=31 processed=0 tests=0 seconds=5.8668e-05
+level=1 nodes=329 processed=20 tests=190 seconds=0.000309533
+level=2 nodes=7201 processed=253 tests=29228 seconds=0.00345948
+level=3 nodes=45694 processed=1253 tests=736021 seconds=0.0414322
+level=4 nodes=121268 processed=2253 tests=2418482 seconds=0.134134
+level=5 nodes=190912 processed=3253 tests=5088028 seconds=0.28505
+level=6 nodes=250884 processed=4253 tests=8751979 seconds=0.500805
+level=7 nodes=290512 processed=5253 tests=13413069 seconds=0.727733
+level=8 nodes=318673 processed=6254 tests=19079730 seconds=0.980596
+level=9 nodes=332663 processed=7254 tests=25740792 seconds=1.24794
+level=10 nodes=336138 processed=8254 tests=33401292 seconds=1.55059
+DONE found=0 nodes=338722 accepted=337970 processed=9254 pairs=42061792 seconds=1.90283 beam=1000
+expanded[0]=20
+expanded[1]=233
+expanded[2]=1000
+expanded[3]=1000
+expanded[4]=1000
+expanded[5]=1000
+expanded[6]=1000
+expanded[7]=1001
+expanded[8]=1000
+expanded[9]=1000
+expanded[10]=1000

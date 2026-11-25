@@ -1,0 +1,2 @@
+C4free 3x3 graphs tau3=120
+finished pairs=5439892

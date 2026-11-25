@@ -1,0 +1,2 @@
+house-5-ordinary: variables=555 clauses=4247
+house-5-ordinary: exit=20 seconds=0.03 status=['s UNSATISFIABLE']

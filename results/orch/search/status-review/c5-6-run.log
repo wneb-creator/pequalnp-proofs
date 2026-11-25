@@ -1,0 +1,2 @@
+c5-6-ordinary: variables=672 clauses=5546
+c5-6-ordinary: exit=20 seconds=0.49 status=['s UNSATISFIABLE']

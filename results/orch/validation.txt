@@ -67,3 +67,5 @@ Integrated canonical partial: 1402 lines; lake build exit 0, 29.38 seconds, peak
 General graph lift of four-clause certificate: 146 lines; standalone Lean exit 0, empty output; independent review PASS.
 
 Reusable SAT-to-kernel certificate pipeline preserved. Exact 65-gate Boolean wiring identity compiled with only the three standard axioms; independently reconstructed CNF and all 206 RUP steps PASS. This is not a 64-gate counterexample.
+
+Finite search archive: 172 exact text artifacts, 2,324,918 bytes, manifest verified; independent symbolic evaluation PASS for all 14 witnesses. Heuristic no-hit and SAT timeout results remain inconclusive. Fixed-theta source-cover bound is at least 8 in its stated restricted model. No posted-gap result claimed.

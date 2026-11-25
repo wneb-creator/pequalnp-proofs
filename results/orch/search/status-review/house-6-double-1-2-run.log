@@ -1,0 +1,2 @@
+house-6-double-1-2: variables=732 clauses=5932
+house-6-double-1-2: exit=20 seconds=0.13 status=['s UNSATISFIABLE']

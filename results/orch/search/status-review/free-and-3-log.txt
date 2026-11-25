@@ -1,0 +1,1 @@
+limit=3 found=0 timeout=0 nodes=4573 candidates=584970 seconds=0.261974

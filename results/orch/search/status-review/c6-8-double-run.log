@@ -1,0 +1,2 @@
+c6-8-double-0-1: variables=1776 clauses=18182
+c6-8-double-0-1: exit=20 seconds=29.79 status=['s UNSATISFIABLE']

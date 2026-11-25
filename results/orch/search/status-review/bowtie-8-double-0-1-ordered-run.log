@@ -1,0 +1,2 @@
+bowtie-8-double-0-1-ordered-live: variables=992 clauses=11309
+bowtie-8-double-0-1-ordered-live: exit=20 seconds=13.93 status=['s UNSATISFIABLE']

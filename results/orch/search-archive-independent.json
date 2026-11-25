@@ -1,0 +1,93 @@
+{
+  "manifest_entries": 172,
+  "total_bytes": 2324918,
+  "text_only": true,
+  "manifest_checks": "PASS",
+  "independent_witness_semantics": [
+    {
+      "file": "bowtie-8-double-1-2-ordered-live.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "bowtie-8-double-1-2.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "bowtie-8-ordinary-ordered-live.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "bowtie-8-ordinary.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "c5-7-ordinary.witness.json",
+      "gates": 7,
+      "exact_graph_edges": 5,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "c5-8-double-0-1.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 5,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "c6-9-double-0-1.witness.json",
+      "gates": 9,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "house-6-ordinary.witness.json",
+      "gates": 6,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "house-8-double-1-2.witness.json",
+      "gates": 8,
+      "exact_graph_edges": 6,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "mixed-027.json",
+      "gates": 17,
+      "exact_graph_edges": 12,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "plane65-witness.json",
+      "gates": 65,
+      "exact_graph_edges": 52,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "polarized-225.json",
+      "gates": 17,
+      "exact_graph_edges": 12,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "polarized-227.json",
+      "gates": 17,
+      "exact_graph_edges": 12,
+      "semantics": "PASS via independent antichain evaluation"
+    },
+    {
+      "file": "tree10-double12-witness.json",
+      "gates": 12,
+      "exact_graph_edges": 10,
+      "semantics": "PASS via independent antichain evaluation"
+    }
+  ],
+  "limitations": "No additional minimum-circuit or UNSAT certification; solver results retain their stated restricted scope."
+}

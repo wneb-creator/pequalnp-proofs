@@ -1,0 +1,3 @@
+bowtie-8-double-1-2-ordered-live: variables=992 clauses=11309
+bowtie-8-double-1-2-ordered-live: exit=10 seconds=3.71 status=['s SATISFIABLE']
+witness [['and', 1, 2], ['or', 1, 3], ['or', 0, 5], ['or', 2, 6], ['or', 3, 7], ['and', 7, 8], ['or', 4, 10], ['and', 9, 11]] bad_rows [] traces [False, False]

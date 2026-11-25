@@ -1,0 +1,14 @@
+{"file": "bowtie-8-double-1-2-ordered-live.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [[1, 2]], "status": "PASS"}
+{"file": "bowtie-8-double-1-2.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [[1, 2]], "status": "PASS"}
+{"file": "bowtie-8-ordinary-ordered-live.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [], "status": "PASS"}
+{"file": "bowtie-8-ordinary.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [], "status": "PASS"}
+{"file": "c5-7-ordinary.witness.json", "gates": 7, "checked_rows": 32, "double_edges": [], "status": "PASS"}
+{"file": "c5-8-double-0-1.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [[0, 1]], "status": "PASS"}
+{"file": "c6-9-double-0-1.witness.json", "gates": 9, "checked_rows": 64, "double_edges": [[0, 1]], "status": "PASS"}
+{"file": "house-6-ordinary.witness.json", "gates": 6, "checked_rows": 32, "double_edges": [], "status": "PASS"}
+{"file": "house-8-double-1-2.witness.json", "gates": 8, "checked_rows": 32, "double_edges": [[1, 2]], "status": "PASS"}
+{"file": "polarized-225.json", "gates": 17, "checked_rows": 1024, "double_edges": [[1, 7], [2, 6]], "status": "PASS"}
+{"file": "polarized-227.json", "gates": 17, "checked_rows": 1024, "double_edges": [[1, 7], [2, 6]], "status": "PASS"}
+{"file": "mixed-027.json", "gates": 17, "checked_rows": 1024, "double_edges": [[1, 7]], "status": "PASS"}
+{"file": "tree10-double12-witness.json", "gates": 12, "checked_rows": 2048, "double_edges": [[1, 7]], "status": "PASS"}
+{"file": "plane65-witness.json", "gates": 65, "checked_rows": 756, "double_edges": [[0, 13]], "status": "PASS"}
