@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:32:25.548196+00:00
+Lean build exit0, full log empty.
+FiveOwnerBudget prefix unchanged. Generic two_events_exhaust counts dependent-pair cells: a fixed event occurring on two distinct family elements exhausts total event-cardinality≤2, so everyevent is that same index. other_gate_false_after_two_bad_inputs applies this to AndCount wildcard sets, making everyotherAND false on the whole rejected family. No concrete localA5 conclusion claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerBudgetFull.lean
+SHA256 34443fa5f7753aeae487862cda37850c0b0c940c7bf68b16d047c08229ef7539

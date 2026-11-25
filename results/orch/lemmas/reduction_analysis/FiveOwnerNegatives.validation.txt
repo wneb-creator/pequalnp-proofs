@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:31:11.743691+00:00
+Lean build exit0; complete successful log empty. Earlier finite-check attempt was stopped cleanly at about10GB RSS; its complete empty diagnostic log is retained separately. Final checks use explicit lists and ordinary kernel decision.
+Defs-only concrete raw16 five-owner data: exact20edges and15 dirty-pair exceptions;30 distinct rejecting sets; every distinct pairwise union contains a targetedge; all singleton extensioncounts≥4; every pair outside allowed edges/exceptions extends≥3 rejecting sets; four dirtytemplates each activate a displayed two-element rejecting family;16 other-owner absence/true-neighbor witnesses. No completeness proof or full A5 circuit theorem asserted.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerNegatives.lean
+SHA256 cecd0c918a5eb8974ed3c79ba43ac1f21ac926ab6673163eeaa287fca8e1b6f4
