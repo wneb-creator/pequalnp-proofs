@@ -626,4 +626,592 @@ lemma mixed_partial_cover_penalty (q N u t penalty : ℕ) (I : Fin N → Fin N �
   have h := plane_partial_cover_bound q N I hq hN hcol hunique A B hA hB
   omega
 
+
+namespace LowerBound
+
+open PEqualNP.CircuitLowerBounds
+
+def sel4 (i : BitVec 3) : BitVec 16 :=
+  if i = 0 then 0xAAAA else if i = 1 then 0xCCCC else
+    if i = 2 then 0xF0F0 else if i = 3 then 0xFF00 else 0
+
+def sel5 (i : BitVec 3) (g0 : BitVec 16) : BitVec 16 :=
+  if i = 4 then g0 else sel4 i
+
+def sel6 (i : BitVec 3) (g0 g1 : BitVec 16) : BitVec 16 :=
+  if i = 5 then g1 else sel5 i g0
+
+def sel7 (i : BitVec 3) (g0 g1 g2 : BitVec 16) : BitVec 16 :=
+  if i = 6 then g2 else sel6 i g0 g1
+
+def tableGate (isAnd : Bool) (a b : BitVec 16) : BitVec 16 :=
+  if isAnd then a &&& b else a ||| b
+
+def target : BitVec 16 :=
+  (0xAAAA &&& 0xCCCC) ||| (0xCCCC &&& 0xF0F0) ||| (0xF0F0 &&& 0xFF00)
+
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_0_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 0))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_1_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 1))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_1_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 1))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_2_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 2))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_2_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 2))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_3_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_0_3_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 0)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_1_1_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 1)) (sel4 (BitVec.ofNat 3 1))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_1_2_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 1)) (sel4 (BitVec.ofNat 3 2))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_1_2_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 1)) (sel4 (BitVec.ofNat 3 2))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_1_3_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 1)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_1_3_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 1)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_2_2_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 2)) (sel4 (BitVec.ofNat 3 2))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_2_3_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 2)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_2_3_true : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate true (sel4 (BitVec.ofNat 3 2)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma case_3_3_false : ∀ (o1 o2 : Bool)
+    (a1 b1 : Fin 5), a1 ≤ b1 → ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate false (sel4 (BitVec.ofNat 3 3)) (sel4 (BitVec.ofNat 3 3))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+lemma threeGate_sorted_final : ∀ (o0 o1 o2 : Bool)
+    (a0 b0 : Fin 4), a0 ≤ b0 → ∀ (a1 b1 : Fin 5), a1 ≤ b1 →
+    ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate o0 (sel4 (BitVec.ofNat 3 a0.val)) (sel4 (BitVec.ofNat 3 b0.val))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1) (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target := by
+  intro o0 o1 o2 a0 b0 h0 a1 b1 h1 a2 b2 h2
+  fin_cases a0 <;> fin_cases b0 <;> cases o0
+  all_goals first
+    | omega
+    | exact case_0_0_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_1_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_1_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_2_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_2_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_3_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_0_3_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_1_1_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_1_2_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_1_2_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_1_3_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_1_3_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_2_2_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_2_3_false o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_2_3_true o1 o2 a1 b1 h1 a2 b2 h2
+    | exact case_3_3_false o1 o2 a1 b1 h1 a2 b2 h2
+
+def inputTables : List (BitVec 16) := [0xAAAA, 0xCCCC, 0xF0F0, 0xFF00]
+
+def clip (i : ℕ) : BitVec 3 := if i < 7 then BitVec.ofNat 3 i else 7
+
+lemma sel4_getD (i : ℕ) : inputTables.getD i 0 = sel4 (clip i) := by
+  by_cases h : i < 7
+  · interval_cases i <;> rfl
+  · have hn : inputTables.length ≤ i := by simp [inputTables]; omega
+    simp [List.getD, List.getElem?_eq_none hn, clip, h, sel4]
+
+lemma sel5_getD (i : ℕ) (g0 : BitVec 16) :
+    (inputTables ++ [g0]).getD i 0 = sel5 (clip i) g0 := by
+  by_cases h : i < 7
+  · interval_cases i <;> rfl
+  · have hn : (inputTables ++ [g0]).length ≤ i := by simp [inputTables]; omega
+    simp [List.getD, List.getElem?_eq_none hn, clip, h, sel5, sel4]
+
+lemma sel6_getD (i : ℕ) (g0 g1 : BitVec 16) :
+    (inputTables ++ [g0, g1]).getD i 0 = sel6 (clip i) g0 g1 := by
+  by_cases h : i < 7
+  · interval_cases i <;> rfl
+  · have hn : (inputTables ++ [g0, g1]).length ≤ i := by simp [inputTables]; omega
+    simp [List.getD, List.getElem?_eq_none hn, clip, h, sel6, sel5, sel4]
+
+lemma sel7_getD (i : ℕ) (g0 g1 g2 : BitVec 16) :
+    (inputTables ++ [g0, g1, g2]).getD i 0 = sel7 (clip i) g0 g1 g2 := by
+  by_cases h : i < 7
+  · interval_cases i <;> rfl
+  · have hn : (inputTables ++ [g0, g1, g2]).length ≤ i := by simp [inputTables]; omega
+    simp [List.getD, List.getElem?_eq_none hn, clip, h, sel7, sel6, sel5, sel4]
+
+lemma getD_map_eq {α β : Type} (f : α → β) (w : List α) (i : ℕ) (d : α) :
+    (w.map f).getD i (f d) = f (w.getD i d) := by
+  induction w generalizing i with
+  | nil => simp [List.getD]
+  | cons a w ih => cases i <;> simp_all [List.getD]
+
+def inputOf (r : Fin 16) : Fin 4 → Bool := fun i => r.val.testBit i.val
+
+def p4Fun (z : Fin 4 → Bool) : Bool :=
+  (z 0 && z 1) || (z 1 && z 2) || (z 2 && z 3)
+
+lemma inputTables_sem : ∀ r : Fin 16,
+    inputTables.map (fun t => t.getLsbD r.val) = List.ofFn (inputOf r) := by
+  decide
+
+lemma target_sem : ∀ r : Fin 16, target.getLsbD r.val = p4Fun (inputOf r) := by
+  decide
+
+def gateFrom (o : Bool) (a b : ℕ) : Gate := ⟨if o then .and else .or, [a, b]⟩
+
+def tableStep (w : List (BitVec 16)) (g : Gate) : List (BitVec 16) :=
+  let a := w.getD (g.inputs.getD 0 0) 0
+  let b := w.getD (g.inputs.getD 1 0) 0
+  w ++ [match g.op with
+    | .and => a &&& b
+    | .or => a ||| b
+    | _ => 0]
+
+lemma tableStep_from (w : List (BitVec 16)) (o : Bool) (a b : ℕ) :
+    tableStep w (gateFrom o a b) = w ++ [tableGate o (w.getD a 0) (w.getD b 0)] := by
+  cases o <;> rfl
+
+lemma tableStep_sem (w : List (BitVec 16)) (r : Fin 16) (o : Bool) (a b : ℕ) :
+    (tableStep w (gateFrom o a b)).map (fun t => t.getLsbD r.val) =
+      w.map (fun t => t.getLsbD r.val) ++
+        [(gateFrom o a b).op.eval ((gateFrom o a b).inputs.map fun i =>
+          (w.map (fun t => t.getLsbD r.val)).getD i false)] := by
+  have hm (i : ℕ) : (w.map (fun t => t.getLsbD r.val)).getD i false =
+      (w.getD i 0).getLsbD r.val := by
+    simpa using getD_map_eq (fun t : BitVec 16 => t.getLsbD r.val) w i 0
+  rw [tableStep_from]
+  simp only [List.map_append, List.map_cons, List.map_nil, gateFrom]
+  rw [hm a, hm b]
+  cases o <;> simp [tableGate, GateOp.eval]
+
+lemma gate_shape (g : Gate) (ho : g.op = .and ∨ g.op = .or)
+    (hl : g.inputs.length = 2) : ∃ o a b, g = gateFrom o a b := by
+  rcases g with ⟨op, inputs⟩
+  rcases List.length_eq_two.mp hl with ⟨a, b, rfl⟩
+  rcases ho with rfl | rfl
+  · exact ⟨true, a, b, rfl⟩
+  · exact ⟨false, a, b, rfl⟩
+
+def boolStep (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma fold_sem (gs : List Gate) (w : List (BitVec 16)) (r : Fin 16)
+    (h : ∀ g ∈ gs, ∃ o a b, g = gateFrom o a b) :
+    (gs.foldl tableStep w).map (fun t => t.getLsbD r.val) =
+      gs.foldl boolStep (w.map (fun t => t.getLsbD r.val)) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    obtain ⟨o, a, b, rfl⟩ := h g (by simp)
+    have ht : ∀ g ∈ gs, ∃ o a b, g = gateFrom o a b := by
+      intro g hg
+      exact h g (by simp [hg])
+    simp only [List.foldl_cons]
+    rw [ih _ ht, tableStep_sem]
+    rfl
+
+lemma table_output_sem (C : Circuit) (r : Fin 16)
+    (h : ∀ g ∈ C.gates, ∃ o a b, g = gateFrom o a b) :
+    ((C.gates.foldl tableStep inputTables).getD C.output 0).getLsbD r.val =
+      PEqualNP.MetaComplexity.circuitFun 4 C (inputOf r) := by
+  have hm := getD_map_eq (fun t : BitVec 16 => t.getLsbD r.val)
+    (C.gates.foldl tableStep inputTables) C.output 0
+  rw [← hm, fold_sem C.gates inputTables r h, inputTables_sem]
+  simp [PEqualNP.MetaComplexity.circuitFun, Circuit.eval, Circuit.wires]
+  rfl
+
+lemma table_of_function (C : Circuit)
+    (h : ∀ g ∈ C.gates, ∃ o a b, g = gateFrom o a b)
+    (hf : ∀ z : Fin 4 → Bool, PEqualNP.MetaComplexity.circuitFun 4 C z = p4Fun z) :
+    (C.gates.foldl tableStep inputTables).getD C.output 0 = target := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro i hi
+  exact (table_output_sem C ⟨i, hi⟩ h).trans ((hf _).trans (target_sem ⟨i, hi⟩).symm)
+
+
+def Certificate : Prop := ∀ (o0 o1 o2 : Bool)
+    (a0 b0 : Fin 4) (a1 b1 : Fin 5) (a2 b2 : Fin 6) (out : Fin 7),
+    let g0 := tableGate o0 (sel4 (BitVec.ofNat 3 a0.val)) (sel4 (BitVec.ofNat 3 b0.val))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    let g2 := tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1)
+      (sel6 (BitVec.ofNat 3 b2.val) g0 g1)
+    sel7 (BitVec.ofNat 3 out.val) g0 g1 g2 ≠ target
+
+def FinalCertificate : Prop := ∀ (o0 o1 o2 : Bool)
+    (a0 b0 : Fin 4) (a1 b1 : Fin 5) (a2 b2 : Fin 6),
+    let g0 := tableGate o0 (sel4 (BitVec.ofNat 3 a0.val)) (sel4 (BitVec.ofNat 3 b0.val))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1)
+      (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target
+
+def SortedFinalCertificate : Prop := ∀ (o0 o1 o2 : Bool)
+    (a0 b0 : Fin 4), a0 ≤ b0 → ∀ (a1 b1 : Fin 5), a1 ≤ b1 →
+    ∀ (a2 b2 : Fin 6), a2 ≤ b2 →
+    let g0 := tableGate o0 (sel4 (BitVec.ofNat 3 a0.val)) (sel4 (BitVec.ofNat 3 b0.val))
+    let g1 := tableGate o1 (sel5 (BitVec.ofNat 3 a1.val) g0) (sel5 (BitVec.ofNat 3 b1.val) g0)
+    tableGate o2 (sel6 (BitVec.ofNat 3 a2.val) g0 g1)
+      (sel6 (BitVec.ofNat 3 b2.val) g0 g1) ≠ target
+
+lemma gate_min_max {α : Type} [LinearOrder α] (o : Bool) (f : α → BitVec 16) (a b : α) :
+    tableGate o (f (min a b)) (f (max a b)) = tableGate o (f a) (f b) := by
+  rcases le_total a b with h | h
+  · simp [min_eq_left h, max_eq_right h]
+  · simp only [min_eq_right h, max_eq_left h]
+    cases o <;> simp [tableGate, BitVec.and_comm, BitVec.or_comm]
+
+lemma finalCertificate_of_sorted (hs : SortedFinalCertificate) : FinalCertificate := by
+  intro o0 o1 o2 a0 b0 a1 b1 a2 b2
+  have h := hs o0 o1 o2 (min a0 b0) (max a0 b0) min_le_max
+    (min a1 b1) (max a1 b1) min_le_max (min a2 b2) (max a2 b2) min_le_max
+  dsimp only at h ⊢
+  rw [gate_min_max o0 (fun i : Fin 4 => sel4 (BitVec.ofNat 3 i.val)) a0 b0] at h
+  rw [gate_min_max o1 (fun i : Fin 5 => sel5 (BitVec.ofNat 3 i.val) _) a1 b1] at h
+  rw [gate_min_max o2 (fun i : Fin 6 => sel6 (BitVec.ofNat 3 i.val) _ _) a2 b2] at h
+  exact h
+
+lemma certificate_of_final (hf : FinalCertificate) : Certificate := by
+  intro o0 o1 o2 a0 b0 a1 b1 a2 b2 out
+  fin_cases out
+  · change (0xAAAA : BitVec 16) ≠ target
+    decide
+  · change (0xCCCC : BitVec 16) ≠ target
+    decide
+  · change (0xF0F0 : BitVec 16) ≠ target
+    decide
+  · change (0xFF00 : BitVec 16) ≠ target
+    decide
+  · have h := hf o0 false false a0 b0 4 4 5 5
+    simpa [sel7, sel6, sel5, tableGate] using h
+  · have h := hf o0 o1 false a0 b0 a1 b1 5 5
+    simpa [sel7, sel6, sel5, tableGate] using h
+  · exact hf o0 o1 o2 a0 b0 a1 b1 a2 b2
+
+lemma fold_length (gs : List Gate) (w : List (BitVec 16)) :
+    (gs.foldl tableStep w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [tableStep, Nat.add_assoc, Nat.add_comm]
+
+lemma getD_append_prefix (w v : List (BitVec 16)) (i : ℕ) (hi : i < w.length) :
+    (w ++ v).getD i 0 = w.getD i 0 := by
+  induction w generalizing i with
+  | nil => simp at hi
+  | cons a w ih => cases i <;> simp_all [List.getD]
+
+lemma fold_preserve_getD (gs : List Gate) (w : List (BitVec 16)) (i : ℕ)
+    (hi : i < w.length) :
+    (gs.foldl tableStep w).getD i 0 = w.getD i 0 := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih (tableStep w g) (by simp [tableStep]; omega)]
+    exact getD_append_prefix w _ i hi
+
+lemma threeGate_bounded_ne (hcert : Certificate) (o0 o1 o2 : Bool)
+    (a0 b0 a1 b1 a2 b2 out : ℕ)
+    (ha0 : a0 < 4) (hb0 : b0 < 4) (ha1 : a1 < 5) (hb1 : b1 < 5)
+    (ha2 : a2 < 6) (hb2 : b2 < 6) (hout : out < 7) :
+    ([gateFrom o0 a0 b0, gateFrom o1 a1 b1, gateFrom o2 a2 b2].foldl
+      tableStep inputTables).getD out 0 ≠ target := by
+  have hc := hcert o0 o1 o2 ⟨a0, ha0⟩ ⟨b0, hb0⟩ ⟨a1, ha1⟩ ⟨b1, hb1⟩
+    ⟨a2, ha2⟩ ⟨b2, hb2⟩ ⟨out, hout⟩
+  simpa only [List.foldl_cons, List.foldl_nil, tableStep_from,
+    List.append_assoc, List.cons_append, List.nil_append,
+    sel4_getD, sel5_getD, sel6_getD, sel7_getD, clip,
+    ite_eq_left (show a0 < 7 by omega), ite_eq_left (show b0 < 7 by omega),
+    ite_eq_left (show a1 < 7 by omega), ite_eq_left (show b1 < 7 by omega),
+    ite_eq_left (show a2 < 7 by omega), ite_eq_left (show b2 < 7 by omega), ite_eq_left hout] using hc
+
+lemma small_table_ne (hcert : Certificate) (gs : List Gate) (out : ℕ)
+    (hs : gs.length ≤ 3) (hout : out < 4 + gs.length)
+    (hb : PEqualNP.MetaComplexity.NestedCover.ReadsBack 4 ⟨gs, out⟩)
+    (h : ∀ g ∈ gs, ∃ o a b, g = gateFrom o a b) :
+    (gs.foldl tableStep inputTables).getD out 0 ≠ target := by
+  have ho7 : out < 7 := by omega
+  cases gs with
+  | nil =>
+    have hn := threeGate_bounded_ne hcert false false false 0 0 0 0 0 0 out
+      (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) ho7
+    rw [fold_preserve_getD _ inputTables out (by simpa [inputTables] using hout)] at hn
+    exact hn
+  | cons g0 gs =>
+    obtain ⟨o0, a0, b0, rfl⟩ := h g0 (by simp)
+    have ha0 : a0 < 4 := by
+      exact hb 0 (by simp) a0 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+    have hb0 : b0 < 4 := by
+      exact hb 0 (by simp) b0 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+    cases gs with
+    | nil =>
+      have hn := threeGate_bounded_ne hcert o0 false false a0 b0 0 0 0 0 out
+        ha0 hb0 (by decide) (by decide) (by decide) (by decide) ho7
+      change (([gateFrom false 0 0, gateFrom false 0 0]).foldl tableStep
+        (tableStep inputTables (gateFrom o0 a0 b0))).getD out 0 ≠ target at hn
+      rw [fold_preserve_getD _ _ out (by simpa [tableStep, inputTables] using hout)] at hn
+      exact hn
+    | cons g1 gs =>
+      obtain ⟨o1, a1, b1, rfl⟩ := h g1 (by simp)
+      have ha1 : a1 < 5 := by
+        exact hb 1 (by simp) a1 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+      have hb1 : b1 < 5 := by
+        exact hb 1 (by simp) b1 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+      cases gs with
+      | nil =>
+        have hn := threeGate_bounded_ne hcert o0 o1 false a0 b0 a1 b1 0 0 out
+          ha0 hb0 ha1 hb1 (by decide) (by decide) ho7
+        change (([gateFrom false 0 0]).foldl tableStep
+          (tableStep (tableStep inputTables (gateFrom o0 a0 b0)) (gateFrom o1 a1 b1))).getD out 0
+          ≠ target at hn
+        rw [fold_preserve_getD _ _ out (by simpa [tableStep, inputTables] using hout)] at hn
+        exact hn
+      | cons g2 gs =>
+        have hnil : gs = [] := by
+          apply List.length_eq_zero_iff.mp
+          simp only [List.length_cons] at hs
+          omega
+        subst gs
+        obtain ⟨o2, a2, b2, rfl⟩ := h g2 (by simp)
+        have ha2 : a2 < 6 := by
+          exact hb 2 (by simp) a2 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+        have hb2 : b2 < 6 := by
+          exact hb 2 (by simp) b2 (by simp [PEqualNP.MetaComplexity.NestedCover.gateAt, gateFrom])
+        exact threeGate_bounded_ne hcert o0 o1 o2 a0 b0 a1 b1 a2 b2 out ha0 hb0 ha1 hb1
+          ha2 hb2 ho7
+
+lemma p4_size_lower_bound_of_certificate (hcert : Certificate) (C : Circuit)
+    (hAO : PEqualNP.TopForm.IsAO2 4 C)
+    (hf : ∀ z : Fin 4 → Bool, PEqualNP.MetaComplexity.circuitFun 4 C z = p4Fun z) :
+    4 ≤ C.size := by
+  have hshape : ∀ g ∈ C.gates, ∃ o a b, g = gateFrom o a b := by
+    intro g hg
+    exact gate_shape g (hAO.1 g hg) (hAO.2.2 g hg)
+  have ht := table_of_function C hshape hf
+  have hout : C.output < 4 + C.gates.length := by
+    by_contra hn
+    have hh : (C.gates.foldl tableStep inputTables).length ≤ C.output := by
+      rw [fold_length]
+      simpa [inputTables] using Nat.le_of_not_gt hn
+    rw [List.getD, List.getElem?_eq_none hh] at ht
+    exact (by decide : (0 : BitVec 16) ≠ target) ht
+  by_contra hn
+  exact small_table_ne hcert C.gates C.output (by change ¬ 4 ≤ C.gates.length at hn; omega)
+    hout hAO.2.1 hshape ht
+
+
+lemma p4_size_lower_bound (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 4 C)
+    (hf : ∀ z : Fin 4 → Bool, PEqualNP.MetaComplexity.circuitFun 4 C z = p4Fun z) :
+    4 ≤ C.size := by
+  exact p4_size_lower_bound_of_certificate
+    (certificate_of_final (finalCertificate_of_sorted threeGate_sorted_final)) C hAO hf
+
+end LowerBound
+
+namespace PlaneP4
+
+lemma induced_path (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcard : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1)
+    (huniq : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) :
+    ∃ a c l m : Fin N, a ≠ c ∧ l ≠ m ∧ I a l ∧ I c l ∧ I c m ∧ ¬ I a m := by
+  classical
+  have hpos : 0 < N := by omega
+  let l : Fin N := ⟨0, hpos⟩
+  have hline : 1 < (Finset.univ.filter fun p => I p l).card := by
+    rw [hcard l]
+    omega
+  obtain ⟨a, ha, c, hc, hac⟩ := Finset.one_lt_card.mp hline
+  have hal : I a l := (Finset.mem_filter.mp ha).2
+  have hcl : I c l := (Finset.mem_filter.mp hc).2
+  have hout : ∃ x : Fin N, ¬ I x l := by
+    by_contra hn
+    push Not at hn
+    have heq : (Finset.univ.filter fun p => I p l) = Finset.univ := by
+      ext p
+      simp [hn p]
+    have hh := hcard l
+    rw [heq] at hh
+    simp only [Finset.card_univ, Fintype.card_fin] at hh
+    nlinarith [sq_nonneg (q : ℤ)]
+  obtain ⟨x, hx⟩ := hout
+  have hcx : c ≠ x := by
+    rintro rfl
+    exact hx hcl
+  obtain ⟨m, hm, _⟩ := huniq c x hcx
+  have hlm : l ≠ m := by
+    intro heq
+    exact hx (heq ▸ hm.2)
+  have hnot : ¬ I a m := by
+    intro ham
+    obtain ⟨u, _, hu⟩ := huniq a c hac
+    have hmu := hu m ⟨ham, hm.1⟩
+    have hlu := hu l ⟨hal, hcl⟩
+    exact hlm (hlu.trans hmu.symm)
+  exact ⟨a, c, l, m, hac, hlm, hal, hcl, hm.1, hnot⟩
+
+lemma induced_five_path (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcard : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1)
+    (huniq : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) :
+    ∃ a c d l m : Fin N, a ≠ c ∧ c ≠ d ∧ a ≠ d ∧ l ≠ m ∧
+      I a l ∧ I c l ∧ I c m ∧ I d m ∧ ¬ I a m ∧ ¬ I d l := by
+  obtain ⟨a, c, l, m, hac, hlm, hal, hcl, hcm, hnot⟩ :=
+    induced_path q N I hq hN hcard huniq
+  have hline : 1 < (Finset.univ.filter fun p => I p m).card := by
+    rw [hcard m]
+    omega
+  obtain ⟨u, hu, v, hv, huv⟩ := Finset.one_lt_card.mp hline
+  have hd : ∃ d, I d m ∧ c ≠ d := by
+    by_cases hcu : c = u
+    · exact ⟨v, (Finset.mem_filter.mp hv).2, hcu ▸ huv⟩
+    · exact ⟨u, (Finset.mem_filter.mp hu).2, hcu⟩
+  obtain ⟨d, hdm, hcd⟩ := hd
+  have had : a ≠ d := by
+    rintro rfl
+    exact hnot hdm
+  have hdnot : ¬ I d l := by
+    intro hdl
+    obtain ⟨s, _, hs⟩ := huniq c d hcd
+    exact hlm ((hs l ⟨hcl, hdl⟩).trans (hs m ⟨hcm, hdm⟩).symm)
+  exact ⟨a, c, d, l, m, hac, hcd, had, hlm, hal, hcl, hcm, hdm, hnot, hdnot⟩
+
+end PlaneP4
+
+lemma p4Mixed_minimal (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 4 C)
+    (hf : ∀ z : Fin 4 → Bool, PEqualNP.MetaComplexity.circuitFun 4 C z = p4Fun z) :
+    Additional.p4Mixed.size ≤ C.size := by
+  change 4 ≤ C.size
+  exact LowerBound.p4_size_lower_bound C hAO hf
+
+lemma p4Mixed_least :
+    @PEqualNP.TopForm.IsLeastAO 4 p4Graph p4GraphDec Additional.p4Mixed := by
+  refine ⟨Additional.p4Mixed_ao2, ?_, ?_⟩
+  · funext z
+    exact (Additional.p4Mixed_eval z).trans (p4Fun_graph z).symm
+  · intro C hC hf
+    apply p4Mixed_minimal C hC
+    intro z
+    rw [hf]
+    exact p4Fun_graph z
+
+lemma least_ao_not_read_one :
+    @PEqualNP.TopForm.IsLeastAO 4 p4Graph p4GraphDec Additional.p4Mixed ∧
+      ¬ PEqualNP.ReadK.IsReadK 4 Additional.p4Mixed 1 :=
+  ⟨p4Mixed_least, Additional.p4Mixed_not_readOne⟩
+
 end PEqualNP.Outside.L_meta_2583
