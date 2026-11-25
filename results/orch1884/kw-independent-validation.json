@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-25T15:46:09.962382+00:00",
+  "source_sha256": "835dfeb7c4c7d691f03cc4e3c7bd9642d3bcf9cb4263c4a7f811229df6325da5",
+  "matrix_shape": [
+    15,
+    15
+  ],
+  "matrix_total": 40,
+  "all_positive_rows_are_edges": true,
+  "negative_rows_exactly_all_maximal_independent_sets": true,
+  "checked_coordinate_subset_certificates": 80,
+  "max_cap_by_vertex": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ]
+}

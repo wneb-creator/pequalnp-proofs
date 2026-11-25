@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-25T15:46:41.186867+00:00",
+  "source_sha256": "7c2b16f0f72f9a6aff93389bf20c612631c0967290cc5ba6c597637620310280",
+  "prefix_exactly_preserves_sole_or_partner": true,
+  "unordered_admissible_cases": 216,
+  "exceptional_triples": [
+    [
+      1,
+      3,
+      9
+    ],
+    [
+      1,
+      7,
+      8
+    ],
+    [
+      4,
+      2,
+      6
+    ],
+    [
+      4,
+      7,
+      8
+    ],
+    [
+      5,
+      2,
+      6
+    ],
+    [
+      5,
+      3,
+      9
+    ]
+  ],
+  "zero_extension_property": true
+}
