@@ -674,6 +674,41 @@ lemma three_unit_profiles : ∀ A B C : Finset (Fin 3),
 
 end ResidualCodes
 
+namespace I4Codes
+
+lemma two_incomparable_avoiding_nonempty_need_three {α : Type*} [DecidableEq α]
+    (U A B C : Finset α) (hA : A ⊆ U) (hB : B ⊆ U) (hC : C ⊆ U)
+    (hne : C.Nonempty) (hAB : ¬ A ⊆ B) (hBA : ¬ B ⊆ A)
+    (hAC : ¬ A ⊆ C) (hBC : ¬ B ⊆ C) : 3 ≤ U.card := by
+  obtain ⟨a, haA, haB⟩ := Finset.not_subset.mp hAB
+  obtain ⟨b, hbB, hbA⟩ := Finset.not_subset.mp hBA
+  obtain ⟨c, hcC⟩ := hne
+  have hab : a ≠ b := by
+    intro he
+    exact hbA (he ▸ haA)
+  by_cases hca : c = a
+  · obtain ⟨d, hdA, hdC⟩ := Finset.not_subset.mp hAC
+    have had : a ≠ d := by
+      intro he
+      exact hdC ((hca.trans he) ▸ hcC)
+    have hbd : b ≠ d := by
+      intro he
+      exact hbA (he ▸ hdA)
+    exact Finset.two_lt_card.mpr ⟨a, hA haA, b, hB hbB, d, hA hdA, hab, had, hbd⟩
+  · by_cases hcb : c = b
+    · obtain ⟨d, hdB, hdC⟩ := Finset.not_subset.mp hBC
+      have had : a ≠ d := by
+        intro he
+        exact haB (he ▸ hdB)
+      have hbd : b ≠ d := by
+        intro he
+        exact hdC ((hcb.trans he) ▸ hcC)
+      exact Finset.two_lt_card.mpr ⟨a, hA haA, b, hB hbB, d, hB hdB, hab, had, hbd⟩
+    · exact Finset.two_lt_card.mpr
+        ⟨a, hA haA, b, hB hbB, c, hC hcC, hab, Ne.symm hca, Ne.symm hcb⟩
+
+end I4Codes
+
 namespace I3Branch
 
 -- Circuit normalization and wire counting, adapted from L_meta_971.
@@ -5675,6 +5710,383 @@ lemma center_positive_branch_pure {D : Dag} (h : StrictLive 10 D)
     simpa only [← h0v] using hpure
 
 end NeighborCover
+
+def oneStarMask (i x c : V) : Nat :=
+  let row : List Nat := match i.val, x.val with
+    | 0, 1 => [0, 0, 0, 104, 0, 0, 0, 208, 276, 548]
+    | 0, 4 => [0, 0, 548, 0, 0, 0, 104, 138, 770, 0]
+    | 0, 5 => [0, 0, 276, 138, 0, 0, 208, 0, 0, 770]
+    | 1, 0 => [0, 0, 0, 104, 0, 0, 0, 208, 276, 548]
+    | 1, 2 => [0, 0, 0, 0, 208, 104, 0, 0, 385, 521]
+    | 1, 6 => [0, 0, 0, 521, 276, 548, 0, 385, 0, 0]
+    | 2, 1 => [0, 0, 0, 0, 208, 104, 0, 0, 385, 521]
+    | 2, 3 => [385, 0, 0, 0, 0, 50, 208, 0, 0, 770]
+    | 2, 7 => [521, 0, 0, 0, 50, 0, 104, 0, 770, 0]
+    | 3, 2 => [385, 0, 0, 0, 0, 50, 208, 0, 0, 770]
+    | 3, 4 => [0, 770, 0, 0, 0, 548, 69, 385, 0, 0]
+    | 3, 8 => [69, 50, 0, 0, 0, 0, 0, 208, 0, 548]
+    | 4, 0 => [0, 0, 548, 0, 0, 0, 104, 138, 770, 0]
+    | 4, 3 => [0, 770, 0, 0, 0, 548, 69, 385, 0, 0]
+    | 4, 9 => [0, 138, 69, 0, 0, 104, 0, 0, 385, 0]
+    | 5, 0 => [0, 0, 276, 138, 0, 0, 208, 0, 0, 770]
+    | 5, 7 => [0, 770, 0, 521, 276, 0, 69, 0, 0, 0]
+    | 5, 8 => [0, 138, 69, 0, 208, 0, 0, 0, 0, 521]
+    | 6, 1 => [0, 0, 0, 521, 276, 548, 0, 385, 0, 0]
+    | 6, 8 => [521, 0, 548, 0, 50, 0, 0, 138, 0, 0]
+    | 6, 9 => [385, 0, 276, 138, 0, 50, 0, 0, 0, 0]
+    | 7, 2 => [521, 0, 0, 0, 50, 0, 104, 0, 770, 0]
+    | 7, 5 => [0, 770, 0, 521, 276, 0, 69, 0, 0, 0]
+    | 7, 9 => [69, 50, 0, 104, 0, 0, 0, 0, 276, 0]
+    | 8, 3 => [69, 50, 0, 0, 0, 0, 0, 208, 0, 548]
+    | 8, 5 => [0, 138, 69, 0, 208, 0, 0, 0, 0, 521]
+    | 8, 6 => [521, 0, 548, 0, 50, 0, 0, 138, 0, 0]
+    | 9, 4 => [0, 138, 69, 0, 0, 104, 0, 0, 385, 0]
+    | 9, 6 => [385, 0, 276, 138, 0, 50, 0, 0, 0, 0]
+    | 9, 7 => [69, 50, 0, 104, 0, 0, 0, 0, 276, 0]
+    | _, _ => []
+  row.getD c.val 0
+
+def oneStarExposure (i x c : V) : Finset V :=
+  Finset.univ.filter (fun a => (oneStarMask i x c).testBit a.val = true)
+
+lemma one_star_exposure_geometry : ∀ i x c : V,
+    adj i x → c ≠ x → ¬ adj x c → ¬ adj i c →
+      (∀ a ∈ oneStarExposure i x c, ∀ d ∈ oneStarExposure i x c, ¬ adj a d) ∧
+      c ∈ oneStarExposure i x c ∧
+      (∃ a ∈ oneStarExposure i x c, adj i a) ∧
+      ∃ a ∈ oneStarExposure i x c, adj x a := by
+  decide +kernel
+
+lemma code_separation_of_exit_and_exposure {n : ℕ} {G : Fin n → Fin n → Prop}
+    {D : Dag} (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) {x c : Fin n}
+    (hcx : c ≠ x) (hx : x ∈ eligSet n D)
+    (hnonempty : ((residualUnits n D b).filter (fun u => x ∈ supp n D u.1)).Nonempty)
+    {e : ℕ × Bool} (he : e ∈ sem_W n D x) (hce : c ∉ supp n D (src D e))
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ d ∈ A, ¬ G a d)
+    (hcA : c ∈ A) (hxA : ∃ a ∈ A, G x a)
+    (heA : ∃ a ∈ A, a ∈ supp n D (src D e)) :
+    ¬ (∀ u ∈ residualUnits n D b, x ∈ supp n D u.1 → c ∈ supp n D u.1) := by
+  intro hres
+  obtain ⟨u, hu⟩ := hnonempty
+  obtain ⟨huR, hxu⟩ := Finset.mem_filter.mp hu
+  have hcu := hres u huR hxu
+  obtain ⟨exception, hrest⟩ := ri_gen hG h hc b hb hcx.symm hx hres ⟨hxu, hcu⟩
+  obtain ⟨j, side, hj, _, hxj, hxout, hdis⟩ := sem_exposure hG h.1 hc A hA x hxA
+  have hexpose : (j, side) ∈ sem_W n D x := sem_mem_W.mpr ⟨hj, hxj, hxout⟩
+  have hexpose_c : c ∉ supp n D (src D (j, side)) :=
+    fun hcs => Finset.disjoint_left.mp hdis hcs hcA
+  have hne : e ≠ (j, side) := by
+    intro heq
+    obtain ⟨a, haA, hae⟩ := heA
+    rw [heq] at hae
+    exact Finset.disjoint_left.mp hdis hae haA
+  have he_exception : e = exception := by
+    by_contra hnot
+    exact hce (hrest e he hnot)
+  have hexpose_exception : (j, side) = exception := by
+    by_contra hnot
+    exact hexpose_c (hrest (j, side) hexpose hnot)
+  exact hne (he_exception.trans hexpose_exception.symm)
+
+lemma one_exact_star_separates {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (b : V → ℕ) (hb : PureBranch 10 D b)
+    {i x c : V} (hix : adj i x) (hcx : c ≠ x) (hxc : ¬ adj x c) (hic : ¬ adj i c)
+    (hx : x ∈ eligSet 10 D)
+    (hnonempty : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).Nonempty)
+    {e : ℕ × Bool} (he : e ∈ sem_W 10 D x)
+    (hexact : ∀ a, a ∈ supp 10 D (src D e) ↔ adj i a) :
+    ¬ (∀ u ∈ residualUnits 10 D b, x ∈ supp 10 D u.1 → c ∈ supp 10 D u.1) := by
+  obtain ⟨hA, hcA, ⟨a, haA, hia⟩, hxA⟩ := one_star_exposure_geometry i x c hix hcx hxc hic
+  exact code_separation_of_exit_and_exposure graph_ok h hc b hb hcx hx hnonempty he
+    (fun hcs => hic ((hexact c).mp hcs)) (oneStarExposure i x c) hA hcA hxA
+    ⟨a, haA, (hexact a).mpr hia⟩
+
+lemma val_agrees_outside_support_of_false_exits {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z : Fin n) (x y : Fin n → Bool)
+    (hxy : ∀ i, x i = true → y i = true)
+    (hagree : ∀ i, i ≠ z → x i = y i)
+    (hexit : ∀ e ∈ sem_W n D z, val D y (n + e.1) = false) :
+    ∀ w, z ∉ supp n D w → val D y w = val D x w := by
+  have hfalse (w : ℕ) (hy : val D y w = false) : val D x w = false := by
+    by_contra hx
+    have hxtrue : val D x w = true := by rwa [Bool.not_eq_false] at hx
+    have hytrue := val_mono hS x y hxy w hxtrue
+    rw [hy] at hytrue
+    contradiction
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hn : w < n
+    · have hne : (⟨w, hn⟩ : Fin n) ≠ z := by
+        intro heq
+        apply hw
+        rw [← heq]
+        exact (supp_input D ⟨w, hn⟩).symm ▸ Finset.mem_singleton_self _
+      rw [val_input D y w hn, val_input D x w hn]
+      exact (hagree ⟨w, hn⟩ hne).symm
+    · by_cases hbound : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        obtain ⟨ha, hb, _⟩ := hS j hj
+        have hexit_zero (s : Bool) (hs : z ∈ supp n D (src D (j, s))) :
+            val D y (n + j) = val D x (n + j) := by
+          have he : (j, s) ∈ sem_W n D z := sem_mem_W.mpr ⟨hj, hs, hw⟩
+          have hy := hexit (j, s) he
+          exact hy.trans (hfalse (n + j) hy).symm
+        by_cases hzA : z ∈ supp n D (opA D j)
+        · exact hexit_zero false (by simpa only [sb_src_false] using hzA)
+        · by_cases hzB : z ∈ supp n D (opB D j)
+          · exact hexit_zero true (by simpa only [sb_src_true] using hzB)
+          · rw [val_gate hS y j hj, val_gate hS x j hj, ih _ ha hzA, ih _ hb hzB]
+      · rw [val_ge D y w (by omega), val_ge D x w (by omega)]
+
+lemma val_two_eq_single_of_false_exits {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z v : Fin n)
+    (hexit : ∀ e ∈ sem_W n D z, val D (sem_two z v) (n + e.1) = false) :
+    ∀ w, z ∉ supp n D w → val D (sem_two z v) w = val D (single v) w := by
+  apply val_agrees_outside_support_of_false_exits hS z (single v) (sem_two z v) ?_ ?_ hexit
+  · intro i hi
+    simp only [sem_two, Bool.or_eq_true]
+    exact Or.inr hi
+  · intro i hi
+    simp [single, sem_two, hi]
+
+lemma two_support_of_false_exits {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z v : Fin n)
+    (hexit : ∀ e ∈ sem_W n D z, val D (sem_two z v) (n + e.1) = false) (w : ℕ) :
+    val D (sem_two z v) w = true ↔ z ∈ supp n D w ∨ v ∈ supp n D w := by
+  by_cases hz : z ∈ supp n D w
+  · have htrue : val D (sem_two z v) w = true := sem_val_of_supp hS hz (by simp [sem_two])
+    simp only [htrue, hz, true_or]
+  · rw [val_two_eq_single_of_false_exits hS z v hexit w hz]
+    simp only [hz, false_or, mem_supp]
+
+namespace NeighborCover
+
+lemma center_exits_false_on_nonedge {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1)
+    (v : V) (hv : ¬ adj 0 v) :
+    ∀ e ∈ sem_W 10 D (0 : V), val D (sem_two 0 v) (10 + e.1) = false := by
+  have hind : ¬ sem_Edge adj (sem_two (0 : V) v) := by
+    rintro ⟨a, c, hac, ha, hc⟩
+    simp only [sem_two, Bool.or_eq_true, decide_eq_true_eq] at ha hc
+    rcases ha with ha | ha <;> rcases hc with hc | hc <;> rw [ha, hc] at hac
+    · exact graph_ok.2.1 _ hac
+    · exact hv hac
+    · exact hv (graph_ok.1 _ _ hac)
+    · exact graph_ok.2.1 _ hac
+  obtain ⟨pos, hp, he, _, _⟩ := one_center_code_data h hc hi b hb hcode
+  intro e heW
+  rw [he] at heW
+  obtain ⟨i, hiJ, rfl⟩ := Finset.mem_image.mp heW
+  by_contra bad
+  have htrue : val D (sem_two 0 v) (10 + (pos i).1) = true := by
+    rwa [Bool.not_eq_false] at bad
+  exact hind (assigned_below_target h hc hz hi hp he hiJ (sem_two 0 v) htrue)
+
+lemma center_restriction_preserves_labels {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1)
+    (v : V) (hv : ¬ adj 0 v) (w : ℕ) (hw : (0 : V) ∉ supp 10 D w) :
+    val D (sem_two 0 v) w = val D (single v) w :=
+  val_two_eq_single_of_false_exits h.1 0 v
+    (center_exits_false_on_nonedge h hc hz hi b hb hcode v hv) w hw
+
+lemma center_restriction_support {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1)
+    (v : V) (hv : ¬ adj 0 v) (w : ℕ) :
+    val D (sem_two 0 v) w = true ↔ (0 : V) ∈ supp 10 D w ∨ v ∈ supp 10 D w :=
+  two_support_of_false_exits h.1 0 v
+    (center_exits_false_on_nonedge h hc hz hi b hb hcode v hv) w
+
+lemma center_restriction_carrier_true {D : Dag} (hS : Strict 10 D)
+    {w : ℕ} (hw : (0 : V) ∈ supp 10 D w) (x : V → Bool) :
+    val D (sem_ins 0 x) w = true :=
+  sem_val_of_supp hS hw (sem_ins_self 0 x)
+
+lemma center_restriction_C_labels {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1) (w : ℕ) :
+    C.filter (fun v => val D (sem_two 0 v) w = true) =
+      if (0 : V) ∈ supp 10 D w then C else supp 10 D w ∩ C := by
+  have hgeom : ∀ v ∈ C, ¬ adj 0 v := by decide +kernel
+  ext v
+  by_cases hv : v ∈ C
+  · simp only [Finset.mem_filter, hv, true_and]
+    rw [center_restriction_support h hc hz hi b hb hcode v (hgeom v hv) w]
+    by_cases hw : (0 : V) ∈ supp 10 D w <;> simp [hw, hv]
+  · by_cases hw : (0 : V) ∈ supp 10 D w <;> simp [hv, hw]
+
+end NeighborCover
+
+namespace I4Geometry
+
+def witnesses (i j : V) : V × V × V × V × V :=
+  [(0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (5, 3, 6, 8, 9),
+   (1, 8, 9, 6, 7),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (4, 8, 2, 3, 7),
+   (4, 2, 8, 3, 6),
+   (1, 3, 7, 2, 9),
+   (1, 7, 3, 2, 8),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (0, 8, 7, 5, 9),
+   (2, 9, 5, 7, 8),
+   (2, 8, 4, 3, 9),
+   (0, 0, 0, 0, 0),
+   (0, 9, 3, 4, 8),
+   (0, 3, 9, 4, 7),
+   (2, 4, 8, 3, 5),
+   (3, 5, 6, 8, 9),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (7, 0, 8, 5, 6),
+   (3, 0, 9, 4, 6),
+   (3, 9, 0, 4, 5),
+   (0, 0, 0, 0, 0),
+   (1, 5, 4, 0, 9),
+   (1, 4, 5, 0, 8),
+   (8, 1, 9, 6, 7),
+   (8, 0, 7, 5, 9),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (2, 0, 6, 1, 9),
+   (4, 1, 5, 0, 7),
+   (4, 5, 1, 0, 6),
+   (0, 0, 0, 0, 0),
+   (2, 6, 0, 1, 5),
+   (0, 0, 0, 0, 0),
+   (9, 2, 5, 7, 8),
+   (0, 7, 8, 5, 6),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (3, 7, 1, 2, 6),
+   (3, 1, 7, 2, 5),
+   (0, 2, 6, 1, 8),
+   (0, 6, 2, 1, 7),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (8, 2, 4, 3, 9),
+   (0, 3, 9, 4, 6),
+   (0, 2, 6, 1, 9),
+   (7, 3, 1, 2, 6),
+   (0, 0, 0, 0, 0),
+   (7, 1, 3, 2, 4),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (0, 6, 2, 1, 3),
+   (8, 4, 2, 3, 7),
+   (0, 0, 0, 0, 0),
+   (9, 3, 0, 4, 5),
+   (1, 4, 5, 0, 7),
+   (1, 3, 7, 2, 5),
+   (1, 7, 3, 2, 4),
+   (0, 0, 0, 0, 0),
+   (1, 5, 4, 0, 3),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (2, 4, 8, 3, 6),
+   (9, 0, 3, 4, 8),
+   (0, 0, 0, 0, 0),
+   (5, 4, 1, 0, 6),
+   (2, 0, 6, 1, 8),
+   (0, 0, 0, 0, 0),
+   (5, 1, 4, 0, 3),
+   (0, 0, 0, 0, 0),
+   (2, 6, 0, 1, 4),
+   (0, 0, 0, 0, 0),
+   (3, 1, 7, 2, 9),
+   (3, 0, 9, 4, 7),
+   (5, 1, 4, 0, 9),
+   (0, 0, 0, 0, 0),
+   (6, 0, 2, 1, 7),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (6, 2, 0, 1, 4),
+   (0, 0, 0, 0, 0),
+   (5, 4, 1, 0, 2),
+   (7, 1, 3, 2, 8),
+   (4, 2, 8, 3, 5),
+   (4, 1, 5, 0, 8),
+   (6, 2, 0, 1, 5),
+   (0, 0, 0, 0, 0),
+   (6, 0, 2, 1, 3),
+   (0, 0, 0, 0, 0),
+   (0, 0, 0, 0, 0),
+   (4, 5, 1, 0, 2),
+   (0, 0, 0, 0, 0)].getD
+    (10 * i.val + j.val) (0, 0, 0, 0, 0)
+
+def Good (I : Finset V) (i j : V) (w : V × V × V × V × V) : Prop :=
+  let x := w.1
+  let y := w.2.1
+  let z := w.2.2.1
+  let k := w.2.2.2.1
+  let l := w.2.2.2.2
+  x ∉ I ∧ y ∉ I ∧ z ∉ I ∧
+    adj i x ∧ ¬ adj i y ∧ ¬ adj i z ∧
+    adj j y ∧ ¬ adj j x ∧ ¬ adj j z ∧
+    x ≠ y ∧ x ≠ z ∧ y ≠ z ∧
+    ¬ adj x y ∧ ¬ adj x z ∧ ¬ adj y z ∧
+    k ∈ I ∧ l ∈ I ∧ k ≠ l ∧ adj k z ∧ adj l z
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma certificate : ∀ I : Finset V, I.card = 4 →
+    (∀ a ∈ I, ∀ b ∈ I, ¬ adj a b) →
+    ∀ i ∈ I, ∀ j ∈ I, i ≠ j → Good I i j (witnesses i j) := by
+  unfold Good
+  decide +kernel
+
+lemma clean_pair_geometry (I : Finset V) (hI : I.card = 4)
+    (hInd : ∀ a ∈ I, ∀ b ∈ I, ¬ adj a b)
+    {i j : V} (hi : i ∈ I) (hj : j ∈ I) (hij : i ≠ j) :
+    ∃ x y z k l : V, x ∉ I ∧ y ∉ I ∧ z ∉ I ∧
+      adj i x ∧ ¬ adj i y ∧ ¬ adj i z ∧
+      adj j y ∧ ¬ adj j x ∧ ¬ adj j z ∧
+      x ≠ y ∧ x ≠ z ∧ y ≠ z ∧
+      ¬ adj x y ∧ ¬ adj x z ∧ ¬ adj y z ∧
+      k ∈ I ∧ l ∈ I ∧ k ≠ l ∧ adj k z ∧ adj l z := by
+  let w := witnesses i j
+  exact ⟨w.1, w.2.1, w.2.2.1, w.2.2.2.1, w.2.2.2.2,
+    certificate I hI hInd i hi j hj hij⟩
+
+end I4Geometry
+
+namespace I4Geometry
+
+lemma two_clean_labels_need_three {α : Type*} [DecidableEq α]
+    (U : Finset α) (F : V → Finset α) (I : Finset V)
+    (hI : I.card = 4) (hInd : ∀ a ∈ I, ∀ b ∈ I, ¬ adj a b)
+    (hsub : ∀ x, F x ⊆ U)
+    (hne : ∀ z, z ∉ I → ∀ k ∈ I, ∀ l ∈ I, k ≠ l →
+      adj k z → adj l z → (F z).Nonempty)
+    {i j : V} (hi : i ∈ I) (hj : j ∈ I) (hij : i ≠ j)
+    (hsepi : ∀ x y, x ∉ I → y ∉ I → adj i x → ¬ adj i y →
+      ¬ adj x y → ¬ F x ⊆ F y)
+    (hsepj : ∀ x y, x ∉ I → y ∉ I → adj j x → ¬ adj j y →
+      ¬ adj x y → ¬ F x ⊆ F y) : 3 ≤ U.card := by
+  obtain ⟨x, y, z, k, l, hxI, hyI, hzI, hix, hiy, hiz, hjy, hjx, hjz,
+    _, _, _, hxy, hxz, hyz, hkI, hlI, hkl, hkz, hlz⟩ := clean_pair_geometry I hI hInd hi hj hij
+  exact PEqualNP.Outside.L_meta_2590_aux.I4Codes.two_incomparable_avoiding_nonempty_need_three
+    U (F x) (F y) (F z) (hsub x) (hsub y) (hsub z)
+    (hne z hzI k hkI l hlI hkl hkz hlz)
+    (hsepi x y hxI hyI hix hiy hxy)
+    (hsepj y x hyI hxI hjy hjx (fun h => hxy (graph_ok.1 _ _ h)))
+    (hsepi x z hxI hzI hix hiz hxz) (hsepj y z hyI hzI hjy hjz hyz)
+
+end I4Geometry
 
 end I3Branch
 
