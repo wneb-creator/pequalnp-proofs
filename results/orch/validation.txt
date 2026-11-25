@@ -1,25 +1,27 @@
 Gap: L-meta-2583
-Status: PARTIAL ONLY. The posted theorem is not proved.
-File: lean/PEqualNP/Outside/L_meta_2583.lean
-Lean: 4.36.0
+Status: PARTIAL ONLY; the posted theorem remains unproved.
+Canonical file: lean/PEqualNP/Outside/L_meta_2583.lean
+Lean: 4.36.0; pinned Mathlib cache fetched; no lake update.
 Build command: lake build PEqualNP.Outside.L_meta_2583
 Build exit: 0
 Build output: Build completed successfully (18423 jobs).
-Checker: not accepted; target theorem is absent.
-Independent source review: PASS for partial preservation.
-Lines: 659 before cleanup; 659 after (cleanup not started).
+Checker command: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_2583.lean statement.txt check
+Checker exit: 1
+Checker verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583 (one lemma, one file: the theorem carries the module's name)
+Canonical lines before cleanup: 659
+Canonical lines after cleanup: 659; cleanup not started because the target checker did not pass.
+Supporting Lean-compiled sources: dirty_obstruction 93 lines; semantic_frontier 54; semantic_frontier_dual 56; forced_gate_semantics 134; gate_pruning_semantics 322; constant_folding 459.
+Each successful supporting source compiled with ordinary Lean and passed independent source review.
+Search archive: 144 reviewed text files, 1158879 bytes; no 26-gate Fano witness or complete 26-gate UNSAT result.
+Heuristics: 8967290883 mutations; all runs stopped at one incorrect test.
+Unrestricted 26-gate Fano SMT encodings: UNKNOWN after 900 seconds each.
+Normalized searches: interrupted after lease loss; no conclusion.
+Desk status: HTTP 410 despite the preceding successful renewal; complete response headers and body preserved.
+Recovery: two responses returned the same pre-existing L-meta-2590 lease and five-gap capacity notice; stopped under the already-held rule.
+Exact desk note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk-next requests: 3
+Desk null responses: 0
+The recovery lease was not worked, and no beat or release was called for it.
+PR: none; incomplete target not submitted.
 Sub-agents: intake_review, proof_route, counterexample, combinatorial_route, lower_bound
-TIMING total=28.1 subagents=5
-Supporting partial: results/orch/lemmas/dirty_obstruction.lean
-Supporting partial build: lake env lean, exit0; independent finite semantics/source review PASS.
-Supporting partial: results/orch/lemmas/semantic_frontier.lean, lake env lean exit0, independent review PASS.
-Actual checker verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583.
-Supporting partial: results/orch/lemmas/semantic_frontier_dual.lean, lake env lean exit0, independent review PASS.
-Supporting partial: results/orch/lemmas/constant_folding.lean, lake env lean exit0, independent review PASS; generic semantics only.
-Constant-folding extension:327lines, lake env lean exit0, independent review PASS; AO2 gate-list preservation proved.
-Constant-folding final:459lines, strict forced-gate deletion and minimal_forced_ne compile; independent review PASS.
-Forced gate semantics:134lines, exit0, independent review PASS.
-Gate pruning semantics:322lines, exit0, independent review PASS.
-Desk status: HTTP410; error body and complete headers preserved.
-Desk null responses:0.
-Search archive:144reviewedtextfiles,1158879bytes; no Fano witness or UNSAT result.
+TIMING total=34.6 subagents=5

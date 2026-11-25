@@ -14,4 +14,7 @@
 - 2026-11-25T15:04:54Z: lease renewed successfully through15:24:53Z.
 - 2026-11-25T15:05:21Z: manual renewal unexpectedly returned no-live-lease error.
 - 2026-11-25T15:05:35Z: prescribed diagnostic confirmed HTTP410; all proof and search work stopped.
-- 2026-11-25T15:11:23.570888+00:00: archived all144 reviewed research textfiles after stopping searches; no Fano counterexample or UNSAT conclusion.
+- 2026-11-25T15:11:23.570888+00:00: archived all144 reviewed research textfiles after stopping searches; no 26-gate Fano counterexample or complete 26-gate UNSAT conclusion.
+- 2026-11-25T15:11:48Z: after preserving all work, recovery returned L-meta-2590 lease issued 15:07:28Z plus five-gap capacity notice.
+- 2026-11-25T15:12:22Z: single permitted retry returned same pre-existing lease and capacity notice; stopped without touching that lease.
+- 2026-11-25T15:14:50.045262+00:00: final independent review confirmed partial status, build/checker evidence, search limits, and stop record.

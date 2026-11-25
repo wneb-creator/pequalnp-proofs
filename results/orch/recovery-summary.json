@@ -1,0 +1,12 @@
+{
+  "requests": 3,
+  "null_responses": 0,
+  "original_gap": "L-meta-2583",
+  "original_lease_status": "HTTP410, expired or released according to desk",
+  "recovery_gap": "L-meta-2590",
+  "same_preexisting_lease_on_both_recovery_requests": true,
+  "recovery_issued_at": "2026-11-25T15:07:28.124Z",
+  "holding": 5,
+  "exact_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "action": "Stopped under the already-held-gap rule. Did not work, renew, or release recovery lease."
+}

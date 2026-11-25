@@ -42,4 +42,8 @@ The constant-folding extension now proves AO2 gate-list preservation: emitted ga
 
 A renewal succeeded at15:04:54UTC, extending expiry to15:24:53UTC. At15:05:21UTC the desk instead reported no live lease; curl-si confirmed HTTP410. All agents stopped. No proof or refutation was obtained. The original target remains absent, and the exact checker verdict remains REJECTED(no-theorem). Already compiled strict gate-deletion and forcing-semantics lemmas are preserved.
 
-Search archive: three heuristic runs performed8967290883mutations and all stopped at one incorrect characterization test. Both unrestricted26-gate SMT encodings timed out with UNKNOWN; pruned variants were interrupted afterlease410. SAT controls at27gates passed exhaustive16384-input validation. Complete sources, solverinputs, statusrecords and logs are underresearch/.
+Search archive: three heuristic runs performed8967290883mutations and all stopped at one incorrect characterization test. Both unrestricted26-gate SMT encodings timed out with UNKNOWN; pruned variants were interrupted after lease HTTP 410. SAT controls at27gates passed exhaustive16384-input validation. Complete sources, solverinputs, statusrecords and logs are underresearch/.
+
+## Final stop
+
+The user-directed 410 recovery and one already-held retry both returned the same pre-existing L-meta-2590 lease, issued before our request, with the exact note: you hold 5 gaps, the most one handle may hold at once; release one to get another. That lease was not worked, renewed, or released. All L-meta-2583 compiled components and research files had already been pushed before recovery. No PR was opened, because the posted theorem is not proved. There were3 desk-next requests and0 nulls.
