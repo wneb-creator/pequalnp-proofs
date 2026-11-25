@@ -387,6 +387,7 @@ private theorem compile (gs : List Gate) (out : ℕ) (hg : ∀ g ∈ gs, legal g
 def dispatch (extra : ℕ) (next : ℕ → List W → Bool) (a b : W) (r : List W) : Bool :=
   let base := cuts r
   (ops a b).any fun w =>
+    if w ∈ a :: b :: r then false else
     let v := sep w ||| base
     ((v == -1) && next extra (w :: r)) ||
     ((extra != 0) && (((v ||| sep a == -1) && next (extra - 1) (w :: a :: r)) ||
@@ -400,12 +401,13 @@ def optimized : ℕ → ℕ → List W → Bool
 
 theorem dispatch_complete {k extra : ℕ} {a b z : W} {r kept : List W}
     (next : ℕ → List W → Bool)
-    (hz : z ∈ basicOps a b) (hk : kept ∈ keepChoices a b r)
+    (hz : z ∈ basicOps a b) (hnew : z ∉ a :: b :: r) (hk : kept ∈ keepChoices a b r)
     (he : extra + r.length = k) (hn : kept.length ≤ k)
     (hc : cuts (z :: kept) = -1) (ht : next (k - kept.length) (z :: kept) = true) :
     dispatch extra next a b r = true := by
   apply List.any_eq_true.mpr
   refine ⟨z, List.mem_toFinset.mp hz, ?_⟩
+  simp only [if_neg hnew]
   simp [keepChoices] at hk
   rcases hk with rfl | rfl | rfl | rfl <;>
     simp only [cuts, List.foldr_cons] at hc ⊢ <;>
@@ -441,7 +443,10 @@ theorem optimized_complete (n : ℕ) (ws : List W) (extra : ℕ) (hn : ws.Nodup)
         rw [List.toFinset_card_of_nodup hnd, List.length_cons] at hc
         have len := perm.length_eq
         simp only [List.length_cons] at len
-        apply dispatch_complete (k := k) (extra := extra) (optimized k) hop hk (by omega) (by omega) (cuts_full hl)
+        have hzfresh : z ∉ a :: b :: r := by
+          intro hzmem
+          exact hout (List.mem_toFinset.mpr (perm.mem_iff.mpr hzmem))
+        apply dispatch_complete (k := k) (extra := extra) (optimized k) hop hzfresh hk (by omega) (by omega) (cuts_full hl)
         apply ih _ _ hnd _ hl
         simp; omega
       simp only [optimized, Bool.or_eq_true, List.any_eq_true]
