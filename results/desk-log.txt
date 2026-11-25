@@ -1,0 +1,258 @@
+2026-11-25T00:33:27Z
+{
+ "gap": {
+  "id": "L-meta-3178",
+  "title": "A step toward: A step toward: A step toward: Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate NOT x_0 computes its edge function",
+  "statement": "∀ (x1 : List ℕ),   x1.length = (2 : ℕ) →     (∀ x3 ∈ x1, x3 < (10 : ℕ)) →       (0 : ℕ) ∈ x1 ∨ (9 : ℕ) ∈ x1 →         (¬∀ x5 ∈ x1, x5 = (0 : ℕ) ∨ x5 = (9 : ℕ)) ∧ (0 : ℕ) ∈ x1 →           ∀ (x6 : PEqualNP.CircuitLowerBounds.Circuit),             PEqualNP.MetaComplexity.FanInTwo x6 →               x6.size ≤ (13 : ℕ) →                 ∃ (x9 : Fin (9 : ℕ) → Bool),                   have x10 : List Bool := List.ofFn x9 ++ [!x9 (0 : Fin (9 : ℕ))];                   x6.eval (x10 ++ [PEqualNP.CircuitLowerBounds.GateOp.or.eval (List.map (fun (x11 : ℕ) => x10.getD x11 Bool.false) x1)]) ≠ (x9 (0 : Fin (9 : ℕ)) && x9 (1 : Fin (9 : ℕ)) || x9 (1 : Fin (9 : ℕ)) && x9 (2 : Fin (9 : ℕ)) || x9 (2 : Fin (9 : ℕ)) && x9 (3 : Fin (9 : ℕ)) || x9 (3 : Fin (9 : ℕ)) && x9 (4 : Fin (9 : ℕ)) || x9 (4 : Fin (9 : ℕ)) && x9 (0 : Fin (9 : ℕ)) || x9 (0 : Fin (9 : ℕ)) && x9 (5 : Fin (9 : ℕ)) || x9 (1 : Fin (9 : ℕ)) && x9 (6 : Fin (9 : ℕ)) || x9 (2 : Fin (9 : ℕ)) && x9 (7 : Fin (9 : ℕ)) || x9 (3 : Fin (9 : ℕ)) && x9 (8 : Fin (9 : ℕ)) || x9 (5 : Fin (9 : ℕ)) && x9 (7 : Fin (9 : ℕ)) || x9 (6 : Fin (9 : ℕ)) && x9 (8 : Fin (9 : ℕ)) || x9 (8 : Fin (9 : ℕ)) && x9 (5 : Fin (9 : ℕ)))",
+  "file": "lean/PEqualNP/Outside/L_meta_3178.lean",
+  "module": "PEqualNP.Outside.L_meta_3178",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 2 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 90,
+  "parallel": 3,
+  "lane": "main",
+  "reductions": true,
+  "reductions_live": 2,
+  "sketch": "Step 2 of 3 of a checked cut of L-meta-2758. Its sibling steps: L-meta-3176, L-meta-3180. Together they give the parent; the parent's own sketch: Step 2 of 4 of a checked cut of L-meta-1938. Its sibling steps: L-meta-2756, L-meta-2760, L-meta-2762. Together they give the parent; the parent's own sketch: none recorded..",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "expires_at": "2026-11-25T00:52:57.918Z",
+  "renew": "POST /desk/beat?lease=ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "release": "POST /desk/release?lease=ae1e306a-cd7c-491b-b885-fba043023a8d&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-25T00:34:41.606437+00:00 beat-1.json
+{
+ "lease": {
+  "id": "ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "expires_at": "2026-11-25T00:54:41.523Z",
+  "renew": "POST /desk/beat?lease=ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "release": "POST /desk/release?lease=ae1e306a-cd7c-491b-b885-fba043023a8d&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+
+2026-11-25T00:38:56.738841+00:00 beat-2.json
+{
+ "lease": {
+  "id": "ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "expires_at": "2026-11-25T00:58:56.652Z",
+  "renew": "POST /desk/beat?lease=ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "release": "POST /desk/release?lease=ae1e306a-cd7c-491b-b885-fba043023a8d&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+
+2026-11-25T00:43:10.403246+00:00 beat-3.json
+{
+ "lease": {
+  "id": "ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "expires_at": "2026-11-25T01:03:10.268Z",
+  "renew": "POST /desk/beat?lease=ae1e306a-cd7c-491b-b885-fba043023a8d",
+  "release": "POST /desk/release?lease=ae1e306a-cd7c-491b-b885-fba043023a8d&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:58:01Z
+{
+ "gap": {
+  "id": "L-meta-3457",
+  "title": "4-cycle-free incidence: a fan-in-two AND/OR circuit with ANDs off at one-hot inputs has a no-larger one whose ANDs are also off at non-incident pairs",
+  "statement": "∀ (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) → PEqualNP.MetaComplexity.Monotone2 C → PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) C → (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) C z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) → (∀ j < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.and → (∀ p : Fin N, (C.wires (List.ofFn (fun kf : Fin (N + N) => decide (kf = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧ ∀ l : Fin N, (C.wires (List.ofFn (fun kg : Fin (N + N) => decide (kg = Fin.natAdd N l)))).getD (N + N + j) false = false) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D ∧ PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) D ∧ D.size ≤ C.size ∧ (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∀ p0 l0 : Fin N, ¬ I p0 l0 → (D.wires (List.ofFn (fun ke : Fin (N + N) => decide (ke = Fin.castAdd N p0 ∨ ke = Fin.natAdd N l0)))).getD (N + N + j) false = false) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → (∀ p : Fin N, (D.wires (List.ofFn (fun kc : Fin (N + N) => decide (kc = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧ ∀ l : Fin N, (D.wires (List.ofFn (fun kd : Fin (N + N) => decide (kd = Fin.natAdd N l)))).getD (N + N + j) false = false)",
+  "file": "lean/PEqualNP/Outside/L_meta_3457.lean",
+  "module": "PEqualNP.Outside.L_meta_3457",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The second half of that trade: from ANDs false at single inputs to ANDs also false at one point with one non-incident line. This is the junk question in its plainest form.",
+  "context": "SKETCH: No proof is expected here in one piece: propose a cut into smaller statements. A wire that already forces the output can be moved to the top at no cost (checked rows of this project), and a gate can be read in place of another when it sits between that gate and its OR with the function (checked). What is open is an AND that is true at one point with one non-incident line and is needed: removing it must be paid for by counting, since single moves that never grow do not always reach it. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 85,
+  "parallel": 10,
+  "lane": "main",
+  "sketch": "No proof is expected here in one piece: propose a cut into smaller statements. A wire that already forces the output can be moved to the top at no cost (checked rows of this project), and a gate can be read in place of another when it sits between that gate and its OR with the function (checked). What is open is an AND that is true at one point with one non-incident line and is needed: removing it must be paid for by counting, since single moves that never grow do not always reach it. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T01:18:01.738Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+2026-11-25T01:28:08.915837+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T01:44:30.944Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:31:04.804810+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T01:51:04.678Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:38:16.031086+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T01:58:15.890Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:42:24.545090+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:02:24.416Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:47:22.739635+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:07:22.594Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:52:23.433103+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:12:23.320Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:54:58.977150+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:14:58.867Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:56:37.917167+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:16:37.795Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:58:26.809996+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:18:26.660Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:00:46.338809+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:20:46.205Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:03:05.165014+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:23:04.999Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:05:25.259841+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:25:25.106Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:10:29.660772+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:30:29.550Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:15:08.485035+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:35:08.342Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:19:23.836864+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:39:23.679Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:24:30.762193+00:00 beat
+{
+ "lease": {
+  "id": "bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "expires_at": "2026-11-25T02:44:30.658Z",
+  "renew": "POST /desk/beat?lease=bbd72135-8cfc-4580-a32d-3420703e1da5",
+  "release": "POST /desk/release?lease=bbd72135-8cfc-4580-a32d-3420703e1da5&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:26:57.597918+00:00 release
+{
+ "released": "L-meta-3457",
+ "reason": "other"
+}

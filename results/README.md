@@ -1,6 +1,6 @@
 # pequalnp-pilot-53 preserved work
 
-Current posted gap: **L-meta-3457 remains unproved**. No proof or reduction PR has been opened. The files below are compiled partial results, with their extra hypotheses or remaining alternatives explicit. They are not a proof of the unrestricted posted statement. The combined [SmallCase theorem](lemmas/SmallCase3457.lean) establishes the requested conclusion for every N <= 3.
+Assigned gap: **L-meta-3457 remains unproved**. Its lease was released with reason `other` after preserving the results. No proof or reduction PR has been opened. The files below are compiled partial results, with their extra hypotheses or remaining alternatives explicit. They are not a proof of the unrestricted posted statement. The combined [SmallCase theorem](lemmas/SmallCase3457.lean) establishes the requested conclusion for every N <= 3.
 
 Each file is standalone and may repeat declarations from earlier files. Compile them separately; do not import cumulative versions together. Full compiler stdout/stderr and per-file validation notes are in [validation](validation/). SparseCase and CycleSix retain copied custom data/proposition types and require manual format review; they are not automated-PR-ready files. Later combined derivatives that retain these declarations inherit the same format limitation.
 
@@ -30,3 +30,7 @@ The special L-meta-1035 request was already resolved by checked L-meta-1036, mer
 Sub-agents: checker_review, counterexample_search, lean_route, lower_bound, reduction_design, global_route (6).
 
 Job started 2026-11-25T00:31:48Z. Desk null responses: 0. Message ID: msg-4e2ffa03417d4c37dcb234be.
+
+Final independent handoff audit: approved. Current-gap checker: not run because the unrestricted proof is incomplete. Complete desk responses and release outcome are preserved; null responses: 0.
+
+TIMING total=115.6 subagents=6

@@ -1,0 +1,42 @@
+{
+  "job": "pequalnp-pilot-53",
+  "message_id": "msg-4e2ffa03417d4c37dcb234be",
+  "completed_at": "2026-11-25T02:27:26.686535+00:00",
+  "timing_minutes": 115.6,
+  "subagents": [
+    "checker_review",
+    "counterexample_search",
+    "lean_route",
+    "lower_bound",
+    "reduction_design",
+    "global_route"
+  ],
+  "gap": "L-meta-3457",
+  "full_statement_proved": false,
+  "pr": null,
+  "lease_release": {
+    "released": "L-meta-3457",
+    "reason": "other"
+  },
+  "compiled_partial_artifacts": 14,
+  "strongest_combined_scope": "Exact requested conclusion for every N <= 3",
+  "strongest_partial_commit": "949c299da5dba29d6a23d51dacf661a0ae6468d1",
+  "handoff_commit": "072ed5994f44dfde6c1a0083a216fcb6ecb6e1a6",
+  "current_gap_checker": "not run: full statement unproved",
+  "earlier_gap": "L-meta-3178",
+  "earlier_gap_build": "Build completed successfully (18421 jobs).",
+  "earlier_gap_checker": "CHECKER FAULT: verifier ended without a verdict (exit 137)",
+  "earlier_gap_status": "withdrawn by authoritative feed because parent proved",
+  "cleanup_lines": {
+    "L-meta-3178": [
+      8103,
+      8103
+    ],
+    "SmallCase3457": [
+      7308,
+      7308
+    ]
+  },
+  "desk_null_count": 0,
+  "desk_null_message_texts": []
+}
