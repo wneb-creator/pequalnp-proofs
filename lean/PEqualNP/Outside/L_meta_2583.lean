@@ -1844,3 +1844,113 @@ lemma replace_intersection_covered_by_wires (n : ℕ) (C : Circuit) (hAO : IsAO2
   exact replace_dirty_and_wires n C hAO G hfun g hg a b ha hb hle hpairs
 
 end PEqualNP.Outside.L_meta_2583.WireGateRewrite
+
+namespace PEqualNP.Outside.L_meta_2583.ShadowGateRewrite
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.GateRewrite
+  PEqualNP.Outside.L_meta_2583.WireGateRewrite
+
+lemma one_color_pair_acceptance (n : ℕ) (f : (Fin n → Bool) → Bool)
+    (color : Fin n → Bool) (c : Bool)
+    (hdep : ∀ x, f x = f (fun r => if color r = c then x r else false))
+    (hzero : f (fun _ => false) = false)
+    (u v : Fin n) (hcol : color u ≠ color v) (hf : f (pairInput u v) = true) :
+    f (pairInput u u) = true ∨ f (pairInput v v) = true := by
+  have hp := (hdep (pairInput u v)).symm.trans hf
+  by_cases hu : color u = c
+  · have hv : color v ≠ c := fun hv => hcol (hu.trans hv.symm)
+    have heq : (fun r => if color r = c then pairInput u v r else false) = pairInput u u := by
+      funext r
+      by_cases hru : r = u
+      · subst r; simp [pairInput, hu]
+      by_cases hrv : r = v
+      · subst r; simp [pairInput, hv, hru]
+      · simp [pairInput, hru, hrv]
+    exact Or.inl (heq ▸ hp)
+  · by_cases hv : color v = c
+    · have heq : (fun r => if color r = c then pairInput u v r else false) = pairInput v v := by
+        funext r
+        by_cases hrv : r = v
+        · subst r; simp [pairInput, hv]
+        by_cases hru : r = u
+        · subst r; simp [pairInput, hu, hrv]
+        · simp [pairInput, hru, hrv]
+      exact Or.inr (heq ▸ hp)
+    · have heq : (fun r => if color r = c then pairInput u v r else false) = fun _ => false := by
+        funext r
+        by_cases hru : r = u
+        · subst r; simp [hu]
+        by_cases hrv : r = v
+        · subst r; simp [hv]
+        · simp [pairInput, hru, hrv]
+      rw [heq, hzero] at hp
+      cases hp
+
+lemma replace_one_color_shadow_wires (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfun : circuitFun n C = graphFun G ∅)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : Bool) (R : Finset (Fin n)) (g : ℕ) (hg : g ∈ junk G C)
+    (hdep : ∀ x : Fin n → Bool, wv n C x (n + g) =
+      wv n C (fun r => if color r = c then x r else false) (n + g))
+    (hzero : wv n C (fun _ => false) (n + g) = false)
+    (hshadow : ∀ r : Fin n, wv n C (pairInput r r) (n + g) = true ↔ r ∈ R)
+    (a b : ℕ) (ha : a < n + g) (hb : b < n + g)
+    (hnew : ∀ x : Fin n → Bool,
+      (wv n C x a || wv n C x b) = true ↔ ∃ r ∈ R, x r = true) :
+    IsAO2 n (orReplace C g a b) ∧ (orReplace C g a b).size = C.size ∧
+    circuitFun n (orReplace C g a b) = graphFun G ∅ ∧
+    (junk G (orReplace C g a b)).card < (junk G C).card := by
+  have hle : ∀ x : Fin n → Bool,
+      (wv n C x a || wv n C x b) = true → gateVal n C g x = true := by
+    intro x hx
+    obtain ⟨r, hr, hrx⟩ := (hnew x).mp hx
+    have hs := (hshadow r).mpr hr
+    exact wv_mono n C hAO.1 hAO.2.1 (pairInput r r) x
+      (fun i hi => by
+        have hir : i = r := by simpa [pairInput] using hi
+        simpa [hir] using hrx) (n + g) hs
+  have hpairs : ∀ u v : Fin n, G.Adj u v →
+      (wv n C (pairInput u v) a || wv n C (pairInput u v) b) = gateVal n C g (pairInput u v) := by
+    intro u v huv
+    apply Bool.eq_iff_iff.mpr
+    constructor
+    · exact hle (pairInput u v)
+    · intro hval
+      have hs := one_color_pair_acceptance n (fun x => wv n C x (n + g))
+        color c hdep hzero u v (hbip u v huv) hval
+      apply (hnew (pairInput u v)).mpr
+      rcases hs with hu | hv
+      · exact ⟨u, (hshadow u).mp hu, by simp [pairInput]⟩
+      · exact ⟨v, (hshadow v).mp hv, by simp [pairInput]⟩
+  exact replace_dirty_and_wires n C hAO G hfun g hg a b ha hb hle hpairs
+
+lemma replace_two_point_color_shadow (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfun : circuitFun n C = graphFun G ∅)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : Bool) (g : ℕ) (hg : g ∈ junk G C) (a b : Fin n)
+    (hdep : ∀ x : Fin n → Bool, wv n C x (n + g) =
+      wv n C (fun r => if color r = c then x r else false) (n + g))
+    (hzero : wv n C (fun _ => false) (n + g) = false)
+    (hshadow : ∀ r : Fin n, wv n C (pairInput r r) (n + g) = true ↔ r = a ∨ r = b) :
+    IsAO2 n (orReplace C g a.val b.val) ∧ (orReplace C g a.val b.val).size = C.size ∧
+    circuitFun n (orReplace C g a.val b.val) = graphFun G ∅ ∧
+    (junk G (orReplace C g a.val b.val)).card < (junk G C).card := by
+  apply replace_one_color_shadow_wires n C hAO G hfun color hbip c {a, b} g hg hdep hzero
+    (fun r => by simpa using hshadow r) a.val b.val (by omega) (by omega)
+  intro x
+  rw [wv_input n C x a.val a.isLt, wv_input n C x b.val b.isLt]
+  simp only [Bool.or_eq_true, Finset.mem_insert, Finset.mem_singleton]
+  constructor
+  · rintro (ha | hb)
+    · exact ⟨a, Or.inl rfl, ha⟩
+    · exact ⟨b, Or.inr rfl, hb⟩
+  · rintro ⟨r, hr, hrx⟩
+    rcases hr with rfl | rfl
+    · exact Or.inl hrx
+    · exact Or.inr hrx
+
+end PEqualNP.Outside.L_meta_2583.ShadowGateRewrite
