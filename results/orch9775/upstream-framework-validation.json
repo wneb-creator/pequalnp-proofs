@@ -1,0 +1,43 @@
+{
+  "upstream_revision": "790ef40780fc680c09cde228f2229fe058bd6e08",
+  "upstream_source": "results/orch9775/new-upstream/L_meta_9774.lean",
+  "upstream_sha256": "520735eab64913c4e1c8d0146abec81ef2c08c8a825a2c98b92f7dc86cd1454d",
+  "records": [
+    {
+      "path": "results/orch9775/lemmas/UpstreamDagTools.lean",
+      "sha256": "9b40c5b76e8629258e9e066712c57e5aa98fc72b16e223f170ff09e9ed4a629a",
+      "bytes": 161586,
+      "lines": 3470
+    },
+    {
+      "path": "results/orch9775/lemmas/UpstreamGraph.lean",
+      "sha256": "8eed78acb6027b514de1d1d2bd21bf5259f39d7a629e65ebfb2cbe3954e714ff",
+      "bytes": 18424,
+      "lines": 352
+    },
+    {
+      "path": "results/orch9775/upstream-tools-first.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/upstream-tools-first.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/upstream-graph-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/upstream-graph-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "exports": "Both Lean exports exit0 with empty stdout/stderr",
+  "generic_prefix": "Upstream lines1\u20133468, namespace renamed and closed only",
+  "graph_framework": "Upstream3470\u20133776; graph edges/neighborhoodbitsets replaced by9775; side127 andside16256 finite neighborhoodsets andwitnessindices adapted. Genericweight APIs from3933 and4055\u20134089 included unchanged exceptnamespace.",
+  "scope": "Reusable normalization and structural lower-bound framework for exact9775 graph. No full25 lowerbound or posted24existence/refutation claimed."
+}

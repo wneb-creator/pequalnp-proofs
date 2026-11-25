@@ -1,0 +1,15 @@
+/workspace/pequalnp-proofs/results/orch9775/lemmas/WeightClassification.lean:345:45: error: Application type mismatch: The argument
+  yes
+has type
+  possible 9 ↑m = true
+but is expected to have type
+  (!possible 9 ↑m) = ?m.63
+in the application
+  Eq.trans (Eq.symm cls.left.left) yes
+/workspace/pequalnp-proofs/results/orch9775/lemmas/WeightClassification.lean:342:42: warning: This simp argument is unused:
+  Bool.not_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [classTest, Bool.and_eq_true] at cls
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

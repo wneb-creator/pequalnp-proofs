@@ -1,0 +1,11 @@
+{
+  "actual_K_count": 560,
+  "T_count": 261,
+  "mismatches": [],
+  "complete_for_T_sizes": [
+    1,
+    2,
+    3
+  ],
+  "independent_validation": "For each actualK directlymaximizeJsubsetK;geometryusesallKvertices"
+}

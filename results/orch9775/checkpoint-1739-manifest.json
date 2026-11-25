@@ -1,0 +1,150 @@
+{
+  "results/orch9775/lemmas/UpstreamDagTools.lean": {
+    "bytes": 161586,
+    "sha256": "9b40c5b76e8629258e9e066712c57e5aa98fc72b16e223f170ff09e9ed4a629a"
+  },
+  "results/orch9775/lemmas/UpstreamGraph.lean": {
+    "bytes": 18424,
+    "sha256": "8eed78acb6027b514de1d1d2bd21bf5259f39d7a629e65ebfb2cbe3954e714ff"
+  },
+  "results/orch9775/lemmas/PrivateProjection.lean": {
+    "bytes": 40391,
+    "sha256": "44b9b39221be13e8502eeaf2b3393ee1b2201151c98159b58e4f8373e8b413f4"
+  },
+  "results/orch9775/lemmas/WeightClassification.lean": {
+    "bytes": 19342,
+    "sha256": "9c9c1fc9de1a43e3c5f9c1e3b086ab447c2894e0c2b51ffaf25e526789d8a037"
+  },
+  "results/orch9775/new-upstream/L_meta_9774.lean": {
+    "bytes": 507984,
+    "sha256": "520735eab64913c4e1c8d0146abec81ef2c08c8a825a2c98b92f7dc86cd1454d"
+  },
+  "results/orch9775/upstream-framework-validation.json": {
+    "bytes": 1913,
+    "sha256": "8c8da23abf58f9441f3c78869f19aac51d12a4bd9e76475fe52bc361e2bd9eea"
+  },
+  "results/orch9775/upstream-tools-first.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/upstream-tools-first.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/upstream-graph-second.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/upstream-graph-second.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/REVIEW-upstream-dag-tools.md": {
+    "bytes": 4198,
+    "sha256": "464c47b3b396f97e686470f8a80197081ede39016f88799b41eeccfa825c7fac"
+  },
+  "results/orch9775/REVIEW-upstream-graph.md": {
+    "bytes": 2461,
+    "sha256": "22b525846269825ae3c435c07f9d61510c0b0d6f88d0afe97584166b74b2e3bd"
+  },
+  "results/orch9775/upstream-tools-independent-validation.json": {
+    "bytes": 800,
+    "sha256": "543cb8363a444a6fc9149e6d257543409ed85f40c4285ec66960a59fc0590bf1"
+  },
+  "results/orch9775/upstream-graph-independent.json": {
+    "bytes": 1516,
+    "sha256": "cb71994398850886808d98aa2244db1e91acfa67fc2c03875f43008c926801c8"
+  },
+  "results/orch9775/upstream-graph-independent.diff": {
+    "bytes": 4720,
+    "sha256": "e30671690ee0ec592406c3b00b8542fc522a58bb26887ff9385886b566a7fda4"
+  },
+  "results/orch9775/projection/private-projection-checked.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/projection/private-projection-checked.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/projection/private-projection-validation.json": {
+    "bytes": 342,
+    "sha256": "1abe7039e20e7bcd22a8b87bd5584a62b6d72cc71289616afac5687d5f7f0a74"
+  },
+  "results/orch9775/projection/validated-exclusions.json": {
+    "bytes": 9049,
+    "sha256": "25c94a1fc7356a340a131d2953cb397b44e98361b466aaa130cd41e16fae11f1"
+  },
+  "results/orch9775/projection/private-projection-independent.json": {
+    "bytes": 16798,
+    "sha256": "857d2b0e9868181ca2f6a66ca441bfb5b3e1300ee9d1ed8d5e6b555ba9ce6bc6"
+  },
+  "results/orch9775/projection/private-projection-generic-independent.json": {
+    "bytes": 461,
+    "sha256": "4cf04bca11c6f57a2d2d3b5ff8442ac3c34d93388de5461ed319b72f26d98fd0"
+  },
+  "results/orch9775/REVIEW-private-projection-finite.md": {
+    "bytes": 1865,
+    "sha256": "e6da95651b0056128005495c166495bcf0b74b95f05072b8c488fd4e494a6262"
+  },
+  "results/orch9775/REVIEW-private-projection-generic.md": {
+    "bytes": 3091,
+    "sha256": "553497178de0d710393815975086126341788773180b687063de487e72e0a714"
+  },
+  "results/orch9775/weight-classification-first.stdout": {
+    "bytes": 613,
+    "sha256": "aae637514e87a1188293bf1f2e9c807ab4ef3263ee06e1b7783ab3dc889c5704"
+  },
+  "results/orch9775/weight-classification-first.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/weight-classification-second.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/weight-classification-second.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/weight-classification-validation.json": {
+    "bytes": 514,
+    "sha256": "8db5e74385b2b83aa479601b150bfdea91a8b8bf603d6495fba14b6a957be7d8"
+  },
+  "results/orch9775/weight-axioms.stdout": {
+    "bytes": 253,
+    "sha256": "2f9fe641a68b8bb37e241edc3a9e909d9bac7115be72ccf2d789394c3cf2a785"
+  },
+  "results/orch9775/weight-axioms.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/REVIEW-weight-classification-fresh.md": {
+    "bytes": 1985,
+    "sha256": "bfbd6c08bf445fa00a36f794c1704fd30072850c97029c96a07af795ef50b756"
+  },
+  "results/orch9775/lemmas/notes/private_weights.py": {
+    "bytes": 5205,
+    "sha256": "a4ec43f62ec013385d49d451cd23ad180ca364ef96f3433c9f26736cd646da74"
+  },
+  "results/orch9775/lemmas/notes/private_weights.json": {
+    "bytes": 106555,
+    "sha256": "b02e98b0e2293725caf138f2f24b655b8d15e9154a4fe21466773dc4fb69c845"
+  },
+  "results/orch9775/lemmas/notes/private_weights_generated.txt": {
+    "bytes": 9056,
+    "sha256": "01e65b5900350e99801594fc05f1f491c1f6028b39f91f73ac0e7067c24f2712"
+  },
+  "results/orch9775/lemmas/notes/verify_private_coverage.py": {
+    "bytes": 1940,
+    "sha256": "0f04f027e7994d71f81f2005d0c3518ddb2f4007dc1d3e725b20a446fa4245eb"
+  },
+  "results/orch9775/lemmas/notes/private_weights_coverage.json": {
+    "bytes": 217,
+    "sha256": "64ab489f1a835d1273a9cd37af979e561b94b5b3b7c0ee0004ad4ee2094c6410"
+  },
+  "results/orch9775/REVIEW-checkpoint-1739.md": {
+    "bytes": 2006,
+    "sha256": "15557e9ccdc00ce276bf968084b04acf941727d354ec1ae54470c6319011f65a"
+  }
+}

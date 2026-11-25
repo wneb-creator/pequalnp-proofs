@@ -1,0 +1,25 @@
+{
+  "generic_prefix_exact": true,
+  "adapted_lines": [
+    4,
+    108
+  ],
+  "upstream_lines": [
+    4754,
+    4858
+  ],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "flags": {
+    "sorry": false,
+    "axiom": false,
+    "native_decide": false,
+    "root_marker": false,
+    "string_literal": false,
+    "attribute": false
+  },
+  "finite_theorems": 44,
+  "scope": "Generic prefix review; finite witnesses reviewed separately by status_check."
+}

@@ -1,0 +1,93 @@
+--- upstream-selected-renamed
++++ UpstreamGraph
+@@ -1,7 +1,11 @@
++import UpstreamDagTools
++
++namespace PEqualNP.Outside.L_meta_9775.UpstreamCore
++
+ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+ open PEqualNP.Outside.L_meta_9775.UpstreamCore.DagTools
+ 
+-def edges : List (Nat × Nat) := [(0,8),(0,10),(1,7),(1,13),(2,8),(2,12),(2,13),(3,7),(3,11),(3,12),(4,10),(4,11),(4,13),(5,9),(5,10),(5,12),(6,8),(6,9),(6,11)]
++def edges : List (Nat × Nat) := [(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)]
+ 
+ def hit (x : Fin 14 → Bool) := ∃ u v : Fin 14, (u.val,v.val) ∈ edges ∧ x u = true ∧ x v = true
+ 
+@@ -14,7 +18,7 @@
+ 
+ abbrev V := Fin 14
+ 
+-def neigh (v : V) : Nat := [1280, 8320, 12544, 6272, 11264, 5632, 2816, 10, 69, 96, 49, 88, 44, 22].getD v.val 0
++def neigh (v : V) : Nat := [1280, 8832, 8448, 6272, 11264, 5632, 2816, 10, 69, 98, 49, 88, 40, 22].getD v.val 0
+ 
+ def adj (u v : V) : Prop := (neigh u).testBit v.val = true
+ 
+@@ -150,8 +154,8 @@
+     (hz : Bzero 14 D=0) (sub : mask 127 = ineligSet 14 D) : 12≤Bplus 14 D := by
+   let P := mask 16256
+   let I := mask 127
+-  let L : Finset (Finset V) := {mask 12544,mask 6272,mask 11264,mask 5632,mask 2816}
+-  let X : Finset (Finset V) := {mask 1280,mask 8320}
++  let L : Finset (Finset V) := {mask 8832,mask 6272,mask 11264,mask 5632,mask 2816}
++  let X : Finset (Finset V) := {mask 1280,mask 8448}
+   have hsub : I ⊆ ineligSet 14 D := sub ▸ Finset.Subset.rfl
+   have tri : ∀ T∈L, T.card=3 := by
+     intro T ht; simp only [L,Finset.mem_insert,Finset.mem_singleton] at ht
+@@ -163,13 +167,13 @@
+   have hits : ∀ M∈L∪X, ∃ i∈I, projected P i=M := by
+     intro M hm; simp only [L,X,Finset.mem_union,Finset.mem_insert,Finset.mem_singleton] at hm
+     rcases hm with (rfl | rfl | rfl | rfl | rfl) | (rfl | rfl)
+-    · exact ⟨2,by decide +kernel,by decide +kernel⟩
++    · exact ⟨1,by decide +kernel,by decide +kernel⟩
+     · exact ⟨3,by decide +kernel,by decide +kernel⟩
+     · exact ⟨4,by decide +kernel,by decide +kernel⟩
+     · exact ⟨5,by decide +kernel,by decide +kernel⟩
+     · exact ⟨6,by decide +kernel,by decide +kernel⟩
+     · exact ⟨0,by decide +kernel,by decide +kernel⟩
+-    · exact ⟨1,by decide +kernel,by decide +kernel⟩
++    · exact ⟨2,by decide +kernel,by decide +kernel⟩
+   have sep : ∀ M∈X, M.card=2 ∧ M∉L ∧ ∀ T∈L, ¬M⊆T := by
+     intro M hm; simp only [X,Finset.mem_insert,Finset.mem_singleton] at hm
+     rcases hm with rfl | rfl <;> refine ⟨by decide +kernel,by decide +kernel,?_⟩ <;>
+@@ -187,8 +191,8 @@
+     (hz : Bzero 14 D=0) (sub : mask 16256 = ineligSet 14 D) : 12≤Bplus 14 D := by
+   let P := mask 127
+   let I := mask 16256
+-  let L : Finset (Finset V) := {mask 69,mask 49,mask 88,mask 44,mask 22}
+-  let X : Finset (Finset V) := {mask 10,mask 96}
++  let L : Finset (Finset V) := {mask 69,mask 98,mask 49,mask 88,mask 22}
++  let X : Finset (Finset V) := {mask 10,mask 40}
+   have hsub : I ⊆ ineligSet 14 D := sub ▸ Finset.Subset.rfl
+   have tri : ∀ T∈L, T.card=3 := by
+     intro T ht; simp only [L,Finset.mem_insert,Finset.mem_singleton] at ht
+@@ -201,12 +205,12 @@
+     intro M hm; simp only [L,X,Finset.mem_union,Finset.mem_insert,Finset.mem_singleton] at hm
+     rcases hm with (rfl | rfl | rfl | rfl | rfl) | (rfl | rfl)
+     · exact ⟨8,by decide +kernel,by decide +kernel⟩
++    · exact ⟨9,by decide +kernel,by decide +kernel⟩
+     · exact ⟨10,by decide +kernel,by decide +kernel⟩
+     · exact ⟨11,by decide +kernel,by decide +kernel⟩
+-    · exact ⟨12,by decide +kernel,by decide +kernel⟩
+     · exact ⟨13,by decide +kernel,by decide +kernel⟩
+     · exact ⟨7,by decide +kernel,by decide +kernel⟩
+-    · exact ⟨9,by decide +kernel,by decide +kernel⟩
++    · exact ⟨12,by decide +kernel,by decide +kernel⟩
+   have sep : ∀ M∈X, M.card=2 ∧ M∉L ∧ ∀ T∈L, ¬M⊆T := by
+     intro M hm; simp only [X,Finset.mem_insert,Finset.mem_singleton] at hm
+     rcases hm with rfl | rfl <;> refine ⟨by decide +kernel,by decide +kernel,?_⟩ <;>
+@@ -306,7 +310,9 @@
+   omega
+ 
+ 
++
+ abbrev WeightSpec := Nat × Nat × Nat × Nat × Nat × Nat × Nat
++
+ def weightKey (r : WeightSpec) := (r.1,r.2.2.2.1)
+ 
+ def weightWitness (a : Nat) (v : V) := mask ((a >>> (14*v.val)) &&& 16383)
+@@ -342,3 +348,5 @@
+   obtain ⟨valid,small,size,geom⟩ := of_decide_eq_true ok
+   exact bound_rule h hc (mask T) (mask J) (weightWitness a) valid (small.trans sub) m k
+     (geometricCost h hc (mask K) (mask T) m p geom sub) size
++
++end PEqualNP.Outside.L_meta_9775.UpstreamCore

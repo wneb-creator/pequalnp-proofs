@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T17:38:00.375939+00:00",
+  "source": "results/orch9775/lemmas/WeightClassification.lean",
+  "sha256": "9c9c1fc9de1a43e3c5f9c1e3b086ab447c2894e0c2b51ffaf25e526789d8a037",
+  "bytes": 19342,
+  "lines": 375,
+  "export_exit": 0,
+  "scope": "Unconditional monotone circuit size >=23 and complete117/5 structural mask classification; not full25lower bound yet",
+  "stdout": "results/orch9775/weight-classification-second.stdout",
+  "stderr": "results/orch9775/weight-classification-second.stderr"
+}

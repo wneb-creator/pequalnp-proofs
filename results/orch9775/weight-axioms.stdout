@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_9775.UpstreamCore.monotone_twenty_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_9775.UpstreamCore.small_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

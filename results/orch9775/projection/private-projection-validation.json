@@ -1,0 +1,10 @@
+{
+  "file": "results/orch9775/lemmas/PrivateProjection.lean",
+  "sha256": "44b9b39221be13e8502eeaf2b3393ee1b2201151c98159b58e4f8373e8b413f4",
+  "bytes": 40391,
+  "lines": 637,
+  "exit_code": 0,
+  "scope": "Dependency compilation importing UpstreamGraph; 44 finite Bzero=0 private_bound exclusions",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

@@ -1,0 +1,31 @@
+{
+  "upstream_revision": "790ef40780fc680c09cde228f2229fe058bd6e08",
+  "git_blob_matches_archived_source": true,
+  "upstream_sha256": "520735eab64913c4e1c8d0146abec81ef2c08c8a825a2c98b92f7dc86cd1454d",
+  "adapted_sha256": "9b40c5b76e8629258e9e066712c57e5aa98fc72b16e223f170ff09e9ed4a629a",
+  "prefix_exact_except_namespace_and_closure": true,
+  "prefix_lines": 3468,
+  "flags": {
+    "sorry": [],
+    "axiom_declaration": [],
+    "native_decide": [],
+    "unsafe": [],
+    "root_marker": [],
+    "string_quote": [],
+    "options": [],
+    "attributes": [
+      {
+        "line": 14,
+        "match": "@[simp]"
+      },
+      {
+        "line": 16,
+        "match": "@[simp]"
+      }
+    ]
+  },
+  "complete_log_sizes": {
+    "upstream-tools-first.stdout": 0,
+    "upstream-tools-first.stderr": 0
+  }
+}
