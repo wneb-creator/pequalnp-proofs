@@ -7,3 +7,8 @@ Stdout: empty
 Stderr: empty
 Independent source review: APPROVED by checker_review.
 Constructs a ReadsBack Monotone2 circuit from any graph vertex cover, with exact graph semantics, size at most edges+cover-1, and every true AND implying an edge. It does not compare this size with arbitrary input C.size and does not prove the full posted gap.
+
+Updated 2026-11-25T01:35:13.406629+00:00
+SHA256 b71f943f6d382947cca65664ad4ce39fb808ff2c4fd191695cadf974fa0f213b; lines 567
+Central lake env lean: exit 0, empty stdout and stderr (star-567.stdout/.stderr). Independent review approved this exact hash.
+Adds incidenceGraph and exact incidence-function bridge; derives both requested negative-test conditions. The comparison with arbitrary C.size is still unproved. This is a partial construction, not the full gap.

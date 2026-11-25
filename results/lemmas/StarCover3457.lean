@@ -434,4 +434,134 @@ lemma main (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Finset 
       change (wf gs (List.ofFn x)).getD (n + j) false = true at hx
       rwa [hs x, V_read _ _ _ (by omega)] at hx
 
+lemma clean_off_unit {n : ℕ} (G : SimpleGraph (Fin n)) (D : Circuit)
+    (hclean : ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+      ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD (n + j) false = true →
+        ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true) :
+    ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+      ∀ t : Fin n,
+        (D.wires (List.ofFn (fun k : Fin n => decide (k = t)))).getD (n + j) false = false := by
+  intro j hj hand t
+  cases hval : (D.wires (List.ofFn (fun k : Fin n => decide (k = t)))).getD (n + j) false with
+  | false => rfl
+  | true =>
+    obtain ⟨u, v, huv, hu, hv⟩ := hclean j hj hand _ hval
+    simp only [decide_eq_true_eq] at hu hv
+    subst u
+    subst v
+    exact False.elim (G.irrefl huv)
+
+lemma clean_off_pair {n : ℕ} (G : SimpleGraph (Fin n)) (D : Circuit)
+    (hclean : ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+      ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD (n + j) false = true →
+        ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true) :
+    ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+      ∀ a b : Fin n, ¬ G.Adj a b →
+        (D.wires (List.ofFn (fun k : Fin n => decide (k = a ∨ k = b)))).getD (n + j) false = false := by
+  intro j hj hand a b hab
+  cases hval : (D.wires (List.ofFn (fun k : Fin n => decide (k = a ∨ k = b)))).getD (n + j) false with
+  | false => rfl
+  | true =>
+    obtain ⟨u, v, huv, hu, hv⟩ := hclean j hj hand _ hval
+    simp only [decide_eq_true_eq] at hu hv
+    rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+    · exact False.elim (G.irrefl huv)
+    · exact False.elim (hab huv)
+    · exact False.elim (hab huv.symm)
+    · exact False.elim (G.irrefl huv)
+
+lemma left_ne_right {N : ℕ} (p l : Fin N) :
+    Fin.castAdd N p ≠ Fin.natAdd N l := by
+  intro h
+  have hv := congrArg Fin.val h
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hv
+  omega
+
+def incidenceGraph (N : ℕ) (I : Fin N → Fin N → Prop) : SimpleGraph (Fin (N + N)) where
+  Adj u v := (∃ p l : Fin N, I p l ∧ u = Fin.castAdd N p ∧ v = Fin.natAdd N l) ∨
+    (∃ p l : Fin N, I p l ∧ u = Fin.natAdd N l ∧ v = Fin.castAdd N p)
+  symm := by
+    constructor
+    intro u v h
+    rcases h with ⟨p, l, hI, hp, hl⟩ | ⟨p, l, hI, hl, hp⟩
+    · exact Or.inr ⟨p, l, hI, hl, hp⟩
+    · exact Or.inl ⟨p, l, hI, hp, hl⟩
+  loopless := by
+    constructor
+    intro u h
+    rcases h with ⟨p, l, _, hp, hl⟩ | ⟨p, l, _, hl, hp⟩
+    · exact left_ne_right p l (hp.symm.trans hl)
+    · exact left_ne_right p l (hp.symm.trans hl)
+
+lemma incidenceGraph_left_right (N : ℕ) (I : Fin N → Fin N → Prop) (p l : Fin N) :
+    (incidenceGraph N I).Adj (Fin.castAdd N p) (Fin.natAdd N l) ↔ I p l := by
+  constructor
+  · intro h
+    rcases h with ⟨p', l', hI, hp, hl⟩ | ⟨p', l', _, hp, _⟩
+    · have hp' : p = p' := Fin.ext (by simpa only [Fin.val_castAdd] using congrArg Fin.val hp)
+      have hl' : l = l' := Fin.ext (by
+        have hv := congrArg Fin.val hl
+        simp only [Fin.val_natAdd] at hv
+        omega)
+      subst p'
+      subst l'
+      exact hI
+    · exact False.elim (left_ne_right p l' hp)
+  · intro hI
+    exact Or.inl ⟨p, l, hI, rfl, rfl⟩
+
+lemma incidence_graphFun (N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel (incidenceGraph N I).Adj] (z : Fin (N + N) → Bool) :
+    PEqualNP.MetaComplexity.NestedCover.graphFun (incidenceGraph N I) ∅ z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true := by
+  simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Bool.or_eq_true,
+    decide_eq_true_eq, Finset.notMem_empty, false_and, exists_false, false_or]
+  constructor
+  · rintro ⟨u, v, h, hu, hv⟩
+    rcases h with ⟨p, l, hI, rfl, rfl⟩ | ⟨p, l, hI, rfl, rfl⟩
+    · exact ⟨p, l, hI, hu, hv⟩
+    · exact ⟨p, l, hI, hv, hu⟩
+  · rintro ⟨p, l, hI, hp, hl⟩
+    exact ⟨Fin.castAdd N p, Fin.natAdd N l, Or.inl ⟨p, l, hI, rfl, rfl⟩, hp, hl⟩
+
+lemma incidence_cover (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (S : Finset (Fin (N + N)))
+    (hcover : ∀ p l : Fin N, I p l → Fin.castAdd N p ∈ S ∨ Fin.natAdd N l ∈ S) :
+    ∃ D : Circuit, PEqualNP.MetaComplexity.Monotone2 D ∧
+      PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) D ∧
+      D.size ≤ (incidenceGraph N I).edgeSet.ncard + S.card - 1 ∧
+      (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D z = true ↔
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+      (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+        ∀ p l : Fin N, ¬ I p l →
+          (D.wires (List.ofFn (fun k : Fin (N + N) => decide (k = Fin.castAdd N p ∨ k = Fin.natAdd N l)))).getD (N + N + j) false = false) ∧
+      (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+        (∀ p : Fin N, (D.wires (List.ofFn (fun k : Fin (N + N) => decide (k = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧
+        ∀ l : Fin N, (D.wires (List.ofFn (fun k : Fin (N + N) => decide (k = Fin.natAdd N l)))).getD (N + N + j) false = false) := by
+  classical
+  let G := incidenceGraph N I
+  have hS : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G S := by
+    intro u v h
+    rcases h with ⟨p, l, hI, rfl, rfl⟩ | ⟨p, l, hI, rfl, rfl⟩
+    · exact hcover p l hI
+    · exact (hcover p l hI).symm
+  obtain ⟨D, hmono, hback, hfun, hsize, hclean⟩ := main (N + N) G S hS
+  refine ⟨D, hmono, hback, hsize, ?_, ?_, ?_⟩
+  · intro z
+    rw [hfun]
+    exact incidence_graphFun N I z
+  · intro j hj hand p l hI
+    exact clean_off_pair G D hclean j hj hand (Fin.castAdd N p) (Fin.natAdd N l)
+      (fun h => hI ((incidenceGraph_left_right N I p l).1 h))
+  · intro j hj hand
+    constructor
+    · intro p
+      exact clean_off_unit G D hclean j hj hand (Fin.castAdd N p)
+    · intro l
+      exact clean_off_unit G D hclean j hj hand (Fin.natAdd N l)
+
 end PEqualNP.Outside.L_meta_3457.StarCover
