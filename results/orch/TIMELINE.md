@@ -22,3 +22,5 @@
 - 2026-11-25T20:28:40.859115+00:00: complete frozen candidate undergoing named build; reviewed optimized root proofs and candidate archived before completion.
 
 - 2026-11-25T20:41:27.885285+00:00 Renewal returned HTTP410 despite preceding expiry20:50:23Z; full response preserved. Named full build remains in progress; preserving source immediately.
+
+- 2026-11-25T20:48:04.031841+00:00 Complete named-file lake build PASSED:1196.55s,5695056KiB peakRSS,3threads; exact frozen source0199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d.
