@@ -40,4 +40,9 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 
 - 2026-11-25 21:56:40 UTC: Merged AliasRemoval named build passed (5149 jobs); independent canonical-source, exact-diff, hygiene and four-axiom review passed. No full target theorem.
 
-TIMING total=55.4 subagents=10
+- 2026-11-25 21:57 UTC: Pushed reviewed false-wire checkpoint a15377fa4e8e0154696eb2f78ba2a785ecfc6fa2; remote SHA verified; bus 2909 marked PARTIAL.
+- 2026-11-25 22:00:38 UTC: Concrete clean-operand hoist bridge compiled, preserving every surviving original gate on graph-negative assignments under the actual deletion renaming.
+- 2026-11-25 22:01 UTC: Third full-route re-plan posted (bus 3006), concentrating proof work on joint normalization and shared gates while full-function searches continue.
+- 2026-11-25 22:03:16 UTC: Hoist bridge independently source/axiom reviewed and exact append checked; merged named-file build passed. Cardinality/minimum-preservation composition remains separate work.
+
+TIMING total=62.0 subagents=10
