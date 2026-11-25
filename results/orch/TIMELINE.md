@@ -12,3 +12,9 @@
 2026-11-25T14:02:26.655364+00:00 OneNotSamples.lean compiled; exact38-row single-input-negation sufficiency established.
 2026-11-25T14:02:51.124067+00:00 Lower-bound strategy: restriction compiler and seed invariants compiled; working toward16-binary partial floor.
 2026-11-25T14:04:00.639007+00:00 FirstMerge, OneNotSamples and restriction seed helpers compiled and independently reviewed; preparing backup.
+2026-11-25T14:05:25.225517+00:00 OrCompanion.lean compiled; structural constraint on exceptional three-gate restriction case established.
+2026-11-25T14:06:04.696328+00:00 Semantic/SAT: NOT-first187row run UNKNOWN at240s; incremental NOT-first and exactly1NOT still unresolved after first180s slices. No counterexample.
+
+2026-11-25T14:08:01.301682+00:00 Counterexample broadsearch stopped; nofullwitness. Specializedfixed-prefixhexagonUNSAT only; maincasesUNKNOWN.
+2026-11-25T14:08:15.859071+00:00 Lease renewed; expires 2026-11-25T14:28:15.231Z
+2026-11-25T14:09:38.580159+00:00 FirstBinary, FirstOrigin, Compression, CutCost, OrCompanion and NoConstant compiled and independently reviewed; preparing backup.

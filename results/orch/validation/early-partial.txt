@@ -11,3 +11,10 @@ FirstMerge.lean: lake env lean exit 0; independently reviewed by root; 116 lines
 OneNotSamples.lean: lake env lean exit 0; independently reviewed by root; 136 lines; sha256 31ee2bc336f89cf94a5d04a3b5487eaf05f5df8a880a0d829f8c0311bb289673.
 Restriction.lean: lake env lean exit 0; independently reviewed by repo_review; 729 lines; sha256 6981b6dd252ad9205568e4972ff934dff07f68cd84b75e48da53c8d12ef81110.
 FirstMerge and OneNotSamples have no forbidden proof constructs; source proofs independently inspected in full. Restriction update adds proved input-seed invariants.
+CutCost.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 47 lines; sha256 931ecbcf068e32c93f3d51792a1d15020d4b6288cc3fe000c59f0f6cc5be7fee.
+FirstBinary.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 121 lines; sha256 166ddd1c11bed8499acd31dc747cc02fc88e449cea2af9a622e51aa10a40a95f.
+FirstOrigin.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 99 lines; sha256 10d89fdd4433540caca0bf453c58f052175f01825b07c3a7a862c769153583b6.
+Compression.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 86 lines; sha256 e386c1ab2147e1aec34cf900203d10b3bde93372e82281d4337ca0d36c989430.
+OrCompanion.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 63 lines; sha256 68048c4c06347d184b8180d33ebe677a880083e0fea7e7e94efec9e15d637140.
+NoConstant.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 25 lines; sha256 2f5de2ce08b0ded8975a20afc1cba6f9e4f9ea0eddd56d4de4b0e399f4d23abf.
+Development modules importing other helper files or L_meta_7493 must be inlined into the permitted namespace and allowed imports for any final single-file submission. No full target acceptance is claimed.

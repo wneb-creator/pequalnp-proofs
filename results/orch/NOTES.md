@@ -64,3 +64,23 @@ Found existing checked L_meta_8035 (490842bytes): Petersen-minus-vertex circuits
 ## Lower-bound compiler progress 2026-11-25T14:02:51.123938+00:00
 
 Restriction.lean compiled (731 lines): root-model constant propagation now counts all binary gates reading a primary input through any chain of NOT gates. Proven `restriction_with_cutCost` produces an equivalent restricted circuit with nonNotCount(new)+cutCost<=nonNotCount(old), for an arbitrary seeded input map. The arbitrary map supports9-input Petersen vertex deletion via automorphisms. `inv_seed` and `originConstant_seed` discharge seeded input invariants. First534 lines adapted from checked L_meta_7493; original new proof starts at originStep. This is sound partial progress; it does not establish the posted19-gate lower bound. Root assembling the14-binary deletion floor, existing_reductions assembling first-binary compression contradiction to obtain16 binary globally.
+
+## Exceptional OR/AND cut 2026-11-25T14:05:25.225517+00:00
+
+`lemmas/OrCompanion.lean` compiled without warnings. Model the only hard three-deletion pattern as g=x0 OR A and h=(NOT x0) AND B, with no other x0 influence and monotone residual R. Its cofactors are F0=R(A,B) and F1=R(true,false). The checked lemma proves monotone A is false on every independent input of weight at most2. The finite graph ingredient: every such independent set avoiding0 extends by at least one neighbor of0 to another independent set; turning0 on then makes target true. Thus A true would make the falsecofactor at least the truecofactor there, a contradiction. This rules out all singleton minterms ofA and all nongraph pair minterms. Still missing cost or rigidity argument turning this into a20-gate lowerbound.
+
+## Counterexample route checkpoint
+Stopped stochastic search on orchestrator instruction. Independent Python validation checked43logged candidates on all1024rows: bestany9errors/noNOT; bestwithNOT10errors/unusedNOT. FullPetersenAND-edge(187explicitrows) andAND-nonedge(192explicitrows) eachUNKNOWN after300s. Hexagon10gatefree-prefix1NOT alsoUNKNOWN300s. No validcounterexample; noLeanproof fromtheseexperiments. SharedOR-nonedge logcollision excludedfromresults. Reproducible commands andlimitations: COUNTEREXAMPLE_SEARCH.md. No searchprocesses remain fromcounterexampleagent.
+
+## Restriction and compression route (2026-11-25T14:08:39.220930+00:00)
+
+Completed and Lean-compiled components from existing_reductions:
+- PairCode.lean (128 lines): no pair of distinct primary variables can be compressed into one arbitrary Boolean code for Petersen; also explicit automorphisms sending vertex9 to any chosenvertex, inverse maps and 9-input lifts.
+- FirstMerge.lean (116 lines): provenance-aware semantic agreement propagates through suffixes where neither selected input-origin enters any binary gate. NOT chains preserve ignored origins and are covered.
+- FirstOrigin.lean (99 lines): every wire with a primary-variable origin computes a unary function of that variable; consequently any circuit computing Petersen has output provenance none.
+- Compression.lean (86 lines): combines those facts with CutCost suffix accounting to refute a circuit whose first proper binary gate merges two distinct origins each entering at mostone binary gate in total.
+All modules have compiled oleans under /tmp/oec/pequalnp-pilot-101/root-lemmas/; development-only imports are to be inlined in the single final source.
+
+Target substantial partial: 16 binary gates for Petersen (therefore no <=19-gate circuit with >=4NOTs). Remaining assembly is the arbitrary-vertex deletionfloor14 (root CutFloor) and least-circuit firstproperbinary existence/literal form (repo_review FirstBinary).
+
+Possible further strengthening, unproved: for a first AND of positive literals or OR of negative literals, fixing either inputfalse makes the gateconstant. If totalbinarycount<=16, deletionfloor14 permits at mosttwo removals; both inputs must have another binary consumer, and a consumer of the firstgate would have to coincide with both other consumers, requiring fanin3. PositiveOR does not admit this argument because fixingfalse only copies the otherinput.

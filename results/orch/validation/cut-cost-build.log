@@ -1,0 +1,14 @@
+../results/orch/lemmas/CutCost.lean:29:69: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cutCost, cutCharge, notFlag, reads, Bool.false_eq_true, ↓reduceIte] at cost
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CutCost.lean:45:10: warning: This simp argument is unused:
+  List.getD_eq_default
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.length_ofFn, Nat.le_of_not_gt before]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
