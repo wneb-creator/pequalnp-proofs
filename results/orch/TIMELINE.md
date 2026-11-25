@@ -10,3 +10,7 @@
 - 2026-11-25T08:52:59Z: checkpoint 2 pushed, commit e1e241173b5485e20c9a36b66902f207b8263d05.
 - 2026-11-25T08:55:03Z: renewed lease; expiry 09:15:03Z.
 - 2026-11-25T08:55:38Z: checkpoint 3 integrated; subsequent independent review PASS AS PARTIAL.
+- 2026-11-25T08:57:39Z: checkpoint 3 pushed, commit 8e64969e20e7f3acf405aafa5365333b048fbc20.
+- 2026-11-25T08:58:32Z: exact replacement/lower-bound equivalence compiled.
+- 2026-11-25T09:00:10Z: renewed lease; expiry 09:20:10Z.
+- 2026-11-25T09:00:12Z: checkpoint 4 combined; full normalization and exact equivalence compiled individually and independently reviewed. Reassigned direct and decomposition strategies to new algebraic and core-cost attempts.

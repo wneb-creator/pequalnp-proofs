@@ -24,3 +24,14 @@ a35586f6b1b57fc94605a10755def1ae215c35b617bee8d829b46f93916c920b.
 No declaration collisions. Source guard reports only absent final theorem.
 Complete named build output: build-checkpoint-3.log. Full goal still open.
 TIMING total=54 subagents=6
+
+Checkpoint 4: 4978 lines, 237861 bytes. The exact requested replacement
+conclusion is now proved equivalent to the sharp arbitrary-AO2 gate bound.
+Read1 upper/lower bounds and least-circuit full normalization are proved;
+the unrestricted gate lower bound remains open. Also proved all least
+circuit gates are used.
+Independent review PASS AS PARTIAL, SHA256
+d9642178aa58d892e8c5bbb940e85ce184a1df8512878a28f67dda71f5add5d7.
+Guard finds only absent final theorem; no proof PR or accepted verdict.
+Full named-module build output: build-checkpoint-4.log.
+TIMING total=58 subagents=6
