@@ -1,0 +1,185 @@
+{
+  "total_classes": 25,
+  "completed_unrestricted": 25,
+  "unsat_classes": [
+    {
+      "mask": 38673,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 44.46214754499988,
+      "clean_upper": 9
+    },
+    {
+      "mask": 38690,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 59.31945290600015,
+      "clean_upper": 9
+    },
+    {
+      "mask": 39047,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 37.91602386600016,
+      "clean_upper": 9
+    },
+    {
+      "mask": 34097,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 49.39246948200025,
+      "clean_upper": 9
+    },
+    {
+      "mask": 34098,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 32.35363822799991,
+      "clean_upper": 9
+    },
+    {
+      "mask": 38433,
+      "gates": 8,
+      "status": "unsat",
+      "elapsed_s": 21.90350281999963,
+      "clean_upper": 9
+    },
+    {
+      "mask": 61713,
+      "gates": 7,
+      "status": "unsat",
+      "elapsed_s": 4.084315151999817,
+      "clean_upper": 8
+    },
+    {
+      "mask": 34577,
+      "gates": 7,
+      "status": "unsat",
+      "elapsed_s": 2.765232266000112,
+      "clean_upper": 8
+    },
+    {
+      "mask": 34899,
+      "gates": 7,
+      "status": "unsat",
+      "elapsed_s": 2.873684864000097,
+      "clean_upper": 8
+    },
+    {
+      "mask": 34929,
+      "gates": 7,
+      "status": "unsat",
+      "elapsed_s": 11.045379290000255,
+      "clean_upper": 8
+    },
+    {
+      "mask": 33841,
+      "gates": 7,
+      "status": "unsat",
+      "elapsed_s": 10.824706307999804,
+      "clean_upper": 8
+    },
+    {
+      "mask": 34951,
+      "gates": 6,
+      "status": "unsat",
+      "elapsed_s": 1.4283534400001372,
+      "clean_upper": 7
+    },
+    {
+      "mask": 33859,
+      "gates": 6,
+      "status": "unsat",
+      "elapsed_s": 0.45236718800015296,
+      "clean_upper": 7
+    },
+    {
+      "mask": 33825,
+      "gates": 6,
+      "status": "unsat",
+      "elapsed_s": 0.505898698999772,
+      "clean_upper": 7
+    }
+  ],
+  "unknown_classes": [
+    {
+      "mask": 51863,
+      "gates": 11,
+      "status": "unknown",
+      "elapsed_s": 90.05613901600009,
+      "clean_upper": 12
+    },
+    {
+      "mask": 38483,
+      "gates": 10,
+      "status": "unknown",
+      "elapsed_s": 90.0099396380001,
+      "clean_upper": 11
+    },
+    {
+      "mask": 43365,
+      "gates": 10,
+      "status": "unknown",
+      "elapsed_s": 90.0242324809999,
+      "clean_upper": 11
+    },
+    {
+      "mask": 43377,
+      "gates": 10,
+      "status": "unknown",
+      "elapsed_s": 90.007231456,
+      "clean_upper": 11
+    },
+    {
+      "mask": 43399,
+      "gates": 10,
+      "status": "unknown",
+      "elapsed_s": 90.00724119000006,
+      "clean_upper": 11
+    },
+    {
+      "mask": 34387,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.0400872539999,
+      "clean_upper": 10
+    },
+    {
+      "mask": 38193,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.04880813499994,
+      "clean_upper": 10
+    },
+    {
+      "mask": 38194,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.1164911159999,
+      "clean_upper": 10
+    },
+    {
+      "mask": 38449,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.03861274799988,
+      "clean_upper": 10
+    },
+    {
+      "mask": 38467,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.0353240710001,
+      "clean_upper": 10
+    },
+    {
+      "mask": 38689,
+      "gates": 9,
+      "status": "unknown",
+      "elapsed_s": 90.01183320099972,
+      "clean_upper": 10
+    }
+  ],
+  "sat_classes": [],
+  "interpretation": "UNSAT at clean_upper-1 plus independently verified clean_upper witness establishes that reduced binary model minimum; solver evidence only, not Lean checked."
+}

@@ -1,0 +1,10 @@
+{"starting": {"N": 4, "mask": 51863, "edges": 9, "cover_number": 4, "clean_upper": 12}, "clean": false}
+{"solver": "5.3.3", "source_sha256": "2e8c8cbf19d705783169abedeeacfec6373e13cf0602179711dcdcce0d7d7323", "N": 4, "mask": 51863, "gates": 11, "clean": false, "timeout_s": 90, "status": "unknown", "elapsed_s": 90.03874486500001, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "reason": "timeout"}
+{"starting": {"N": 4, "mask": 38483, "edges": 8, "cover_number": 4, "clean_upper": 11}, "clean": false}
+{"solver": "5.3.3", "source_sha256": "2e8c8cbf19d705783169abedeeacfec6373e13cf0602179711dcdcce0d7d7323", "N": 4, "mask": 38483, "gates": 10, "clean": false, "timeout_s": 90, "status": "unknown", "elapsed_s": 90.03120788399997, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "reason": "timeout"}
+{"starting": {"N": 4, "mask": 43365, "edges": 8, "cover_number": 4, "clean_upper": 11}, "clean": false}
+{"solver": "5.3.3", "source_sha256": "2e8c8cbf19d705783169abedeeacfec6373e13cf0602179711dcdcce0d7d7323", "N": 4, "mask": 43365, "gates": 10, "clean": false, "timeout_s": 90, "status": "unknown", "elapsed_s": 90.02934079199997, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "reason": "timeout"}
+{"starting": {"N": 4, "mask": 43377, "edges": 8, "cover_number": 4, "clean_upper": 11}, "clean": false}
+{"solver": "5.3.3", "source_sha256": "2e8c8cbf19d705783169abedeeacfec6373e13cf0602179711dcdcce0d7d7323", "N": 4, "mask": 43377, "gates": 10, "clean": false, "timeout_s": 90, "status": "unknown", "elapsed_s": 91.02372482499982, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "reason": "timeout"}
+{"starting": {"N": 4, "mask": 43399, "edges": 8, "cover_number": 4, "clean_upper": 11}, "clean": false}
+{"solver": "5.3.3", "source_sha256": "2e8c8cbf19d705783169abedeeacfec6373e13cf0602179711dcdcce0d7d7323", "N": 4, "mask": 43399, "gates": 10, "clean": false, "timeout_s": 90, "status": "unknown", "elapsed_s": 90.16931640500002, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "reason": "timeout"}

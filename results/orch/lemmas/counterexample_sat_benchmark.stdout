@@ -1,0 +1,2 @@
+{"N": 3, "mask": 427, "gates": 7, "clean": false, "timeout_s": 30.0, "status": "unsat", "elapsed_s": 11.512057335999998, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs"}
+{"N": 3, "mask": 427, "gates": 8, "clean": true, "timeout_s": 30.0, "status": "sat", "elapsed_s": 3.7929244530000688, "encoding": "binary AND/OR with repeated operands allowed, all 2^(2N) inputs", "verified_circuit": [["or", 3, 5], ["and", 1, 6], ["or", 4, 5], ["or", 3, 4], ["and", 2, 8], ["and", 0, 9], ["or", 10, 11], ["or", 7, 12]]}

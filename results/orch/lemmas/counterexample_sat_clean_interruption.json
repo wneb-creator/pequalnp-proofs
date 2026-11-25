@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-25T01:11:37.040534+00:00",
+  "action": "stopped_clean_batch_to_free_CPU",
+  "last_started": {
+    "starting": {
+      "N": 4,
+      "mask": 34097,
+      "edges": 6,
+      "cover_number": 4,
+      "clean_upper": 9
+    },
+    "gates": 8,
+    "clean": true,
+    "at": "2026-11-25T01:10:40.468330+00:00"
+  },
+  "completed_results": 14,
+  "current_case_status": "unfinished",
+  "exit_code": 143
+}

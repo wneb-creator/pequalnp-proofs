@@ -1,0 +1,12 @@
+{
+  "case": "C6 seven-gate boundary/symmetry CNF",
+  "cnf_sha256": "56c41b184795411d49abb37c69011a9c3fa77570e5c619f171ee6fa3b562dfcf",
+  "cnf_bytes": 935887,
+  "binary_lrat_bytes": 4840472,
+  "zlib9_bytes": 2558278,
+  "xz6_bytes": 1983428,
+  "status": "CaDiCaL UNSAT; not Lean checked",
+  "source_limit_bytes": 524288,
+  "raw_certificate_location": "/tmp/oec/pequalnp-pilot-51/c6-seven.lrat",
+  "reproduce": "counterexample_cnf.py then pinned Lean distribution cadical --lrat=true"
+}

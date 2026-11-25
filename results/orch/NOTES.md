@@ -137,3 +137,43 @@ CaDiCaL on ordered boundary CNFs reachedUNKNOWN90s for C8≤10 and9edge N4≤11 
 
 Independent `#print axioms` audit of all 277 source declarations in the frozen 3540-line compiled main passed. Complete stdout/stderr, wrapper, declaration names, source SHA256, and machine-readable summary are mirrored under results/orch/axiom-*. Every reported dependency is in {propext, Classical.choice, Quot.sound}; no sorryAx or custom axiom. Source SHA256 84d7fdba8950569d0e042945a623b1c18a69fb012574578f3f1f6b38209ffa60. This audit is not the repository checker and does not establish the posted statement.
 Full-cache feasibility rechecked read-only: 494MB free; existing 3233-module closure uses 1.46GB private oleans plus790MB ordinary oleans. Full Mathlib aggregate directly imports8714modules; optional C/ilean/server cleanup cannot supply space for the missing required closure. No build outputs removed, no fake aggregate, no checker modifications. Official checker infrastructure fault remains.
+
+Independent pruning review: PASS. Reviewer checked the exact 3540-line integrated main checkpoint and recorded `results/orch/review-partial-012.md`.
+
+### Post-pruning structural route
+
+Edge activity alone still does not promote small-test domination to full semantic domination: for a relation containing the edge p4-l0 and with p3 a different point, the gate e = p4 AND (l0 OR p3) accepts a real edge and is weak-clean, but e implies l0 only on singleton/crosspair tests, not on the same-side independent assignment {p4,p3}. Mixed useful terms and larger independent terms remain possible after edge-inert pruning.
+
+A stronger invariant follows by choosing, among equivalent circuits under the original gate budget, one with the minimum number of ANDs. Every AND must then have a positive incidence edge whose GLOBAL output becomes false when that one gate is zeroed. Otherwise the downward edit preserves all positive edges and therefore the exact quadratic function, while strictly lowering the number of ANDs. This supplies an actual downstream sensitivity witness rather than mere edge activity. Global exposure through shared ORs remains unproved. A separate tight fragment is being checked for this invariant.
+
+## Structural normalization attempt — 2026-11-25T01:29:30.419097+00:00
+
+The rank-two / edge-trace route can safely use downward circuit edits: if the edited monotone circuit is pointwise below the old circuit and preserves every positive edge assignment, it preserves the full incidence function. This avoids the stronger false-input-context domination required by upward bypass rewrites. However, AND edge-essentiality does not itself give clean gates. Concrete P4 obstruction: points p,r and lines q,s; compute g=(p OR r) AND (q OR s), then F=g AND (p OR q). This uses five gates and computes exactly pq OR ps OR rq, a C4-free graph. Both ANDs are essential on every positive edge (zeroing either kills the entire output), but g accepts the forbidden pair r,s. Bypassing g with either child also creates a false singleton. The clean factorization p AND (q OR s), OR r AND q uses four gates, so a coordinated rewrite exists but cannot follow by deleting a nonessential AND.
+
+A general proof still needs an accounting or simultaneous rewrite for shared mixed rectangles. The candidate exact lower bound |E| + vertex-cover-number - 1 would imply the target via clean star-cover circuits; it is substantially stronger than the checked dependency bound, and no proof was found. Repository note notes/note-1-edge-function-exact-size.md explicitly limits its checked exact lower bounds to forests, cycles, and long-thread graphs. Its cited lower bound for general K2,2-free graphs concerns single-level circuits, not arbitrary circuits. No literature claim beyond that repository text was established.
+
+First-AND OR-only operands remain a possible tractable frontier: linear operand domination violations have singleton witnesses, and pure cross-bilinear operand violations have crosspair witnesses. Mixed OR operands can create same-side pairs and the P4 example shows why a complete induction must coordinate downstream filters.
+
+## Global counting research
+
+Research time: 2026-11-25T01:31:05.907073+00:00. No full proof or counterexample to the posted statement found.
+
+A genuine three-part route to the stronger exact bound |E|+tau-1 is:
+1. OR accounting: every fan-in-two monotone circuit for a C4-free incidence relation has at least |E|-1 OR gates.
+2. AND cover extraction: its AND gates can pay for a vertex cover, equivalently at least tau AND gates.
+3. Given a vertex cover T, construct the usual OR of assigned stars using at most |E|+|T|-1 gates and with every AND globally below the output.
+The third part is constructive and already matches the repository's published general upper-bound discussion (notes/note-1-edge-function-exact-size.md, L-meta-105/L-meta-154). The first two are independent, smaller resource inequalities, not proved here. The repository's Defs/AndCountCircuit.lean shows the second is already an explicit research family. A nonminimal circuit could trade fewer ORs for extra ANDs (or vice versa), so neither individual inequality may be assumed merely from a total-size conjecture. Counterexample agent is testing both directions on C6 with at most10 gates; retain eventual exact SAT status separately.
+
+Concrete obstruction to a rank shortcut: the C8 bipartite adjacency matrix with rows1100,0110,0011,1001 is C4-free and has matching/cover number4, but real rank3: (1,-1,1,-1) is a nullvector and its leading3x3 minor has determinant1. Thus ordinary adjacency rank cannot recover tau even on cycles. Nonnegative rank would recover the C4-free star-cover quantity, but deriving a nonnegative decomposition from arbitrary circuits is the unproved normalization issue.
+
+Concrete obstruction to earliest-join star ownership, even after all ANDs are edge-active and singleton-clean: let g1=(a OR c) AND (b OR d), g2=(a OR d) AND (b OR c), output=g1 AND g2. The output is ab OR cd. Every AND accepts both positive pairs; neither g1 nor g2 is pair-clean, and the first join g1 owns two disjoint edges. Thus edge-inert pruning does not imply star ownership. The extra cleanup gates pay for this example, but a global disjoint charging rule is still needed when cleanup is shared.
+
+The known selector-family single-level counterexample shape in Defs/SingleLevel.lean has a universal x0 row and columns indexed by graph edges adjacent to both endpoints. Every degree>=2 vertex creates a4-cycle with x0. Hence it does not directly refute the C4-free exact-count conjecture except in its trivial matching case.
+
+## Global strategy: positive-edge sensitivity at minimum size, checked
+
+`results/orch/lemmas/global_sensitive_min_fragment.lean` is the frozen imports-free stronger fragment, verified by `global_sensitive_min.lean` importing the current compiled module. `global-sensitive-min-001` exited 0 with empty full stdout and stderr. It reuses the existing `Prune` zeroing construction. The earlier `global_sensitive_fragment.lean` is superseded; do not integrate both because their declarations coincide.
+
+Main theorem `Prune.edge_sensitive_normalization` chooses a globally minimum-size Monotone2/ReadsBack circuit computing the incidence function, then minimizes its number of ANDs. It returns the original size bound, model invariants and exact incidence semantics, explicit minimum size among all circuits of the model computing that relation, and the following sensitivity property: zeroing any AND destroys the global output on at least one positive incidence edge. A zeroed gate cannot introduce false positives. If all positive edges survived, monotonicity would preserve the exact quadratic function, and the AND count would strictly decrease at the same gate size, contradicting its choice. No C4-free condition is used.
+
+This still does not prove the posted rejection clauses. As the normalization agent noted, the five-gate P4 circuit ((p OR r) AND (q OR s)) AND (p OR q) has both ANDs sensitive on positive edges while its first AND accepts forbidden pair {r,s}. A coordinated rewrite is necessary; a four-gate clean alternative exists. Thus sensitivity by itself does not imply cleanliness, although explicit global size-minimality rules out that particular nonoptimal circuit.

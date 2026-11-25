@@ -49,3 +49,10 @@
 - 2026-11-25T01:21:12.120165+00:00: renewed own lease; expiry 2026-11-25T01:41:11.939Z.
 2026-11-25T01:23:06.974087+00:00 independent compiled axiom audit passed for277 declarations; full official checker still blocked by cache storage.
 2026-11-25T01:26:00.893197+00:00 named-file build passed: edge-pruning, 3540 lines
+
+- 2026-11-25T01:28:29.355607+00:00: renewed own lease; expiry 2026-11-25T01:48:29.140Z.
+
+2026-11-25T01:31:05.907073+00:00 global-count route review completed: two unproved resource inequalities identified; rank and first-join ownership shortcuts obstructed.
+
+2026-11-25T01:31:16.102124+00:00 global_strategy: checked minimum-size positive-edge sensitivity; global_sensitive_min_fragment.lean, exit0 global-sensitive-min-001; independent review requested.
+2026-11-25T01:31:27.699418+00:00 named-file build passed: search-evidence, 3540 lines

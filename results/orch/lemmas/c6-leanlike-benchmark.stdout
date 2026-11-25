@@ -1,0 +1,2 @@
+{"rows": 17, "gates": 7, "free_constants": true, "constraints": ["earlier selectors", "a<=b"], "cnf_header": "p cnf 2255 14804", "cnf_sha256": "ca8c407b71c049f448a803a82c46fdde0bdf2a1c8233f18bfbe664443ba65c6c"}
+{"exit_code": 20, "status": "unsat", "elapsed_s": 9.923394276999943}

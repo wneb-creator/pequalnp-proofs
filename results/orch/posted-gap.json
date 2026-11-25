@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-11-25T01:25:13.227Z",
+  "global_reductions_open": true,
+  "gap": {
+    "id": "L-meta-3451",
+    "title": "4-cycle-free incidence: every AND/OR fan-in-two circuit has a no-larger one whose ANDs are false at one-hot and non-incident point-line inputs",
+    "statement": "∀ (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) → PEqualNP.MetaComplexity.Monotone2 C → PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) C → (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) C z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D ∧ PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) D ∧ D.size ≤ C.size ∧ (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∀ p0 l0 : Fin N, ¬ I p0 l0 → (D.wires (List.ofFn (fun ke : Fin (N + N) => decide (ke = Fin.castAdd N p0 ∨ ke = Fin.natAdd N l0)))).getD (N + N + j) false = false) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → (∀ p : Fin N, (D.wires (List.ofFn (fun kc : Fin (N + N) => decide (kc = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧ ∀ l : Fin N, (D.wires (List.ofFn (fun kd : Fin (N + N) => decide (kd = Fin.natAdd N l)))).getD (N + N + j) false = false)",
+    "file": "lean/PEqualNP/Outside/L_meta_3451.lean",
+    "module": "PEqualNP.Outside.L_meta_3451",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "A weaker trade than 'some no-larger circuit is clean' that would carry the same bound: with the count for this weaker condition (a short step on this desk) it gives (edges - 1)/5 gates for every AND/OR circuit on these graphs.",
+    "context": "SKETCH: No proof is expected here in one piece: propose a cut into smaller statements. It splits in two: first make every AND false at single inputs, then make every AND false at one point with one non-incident line. The first is open beyond small cases: hoisting an AND that is true at a single input can add gates, and one clause of that move has a 10-gate counterexample. The second is the junk question itself. On all 48 small classes with no 4-cycle every least circuit on file meets both (computed). No sorry, no new axiom. Own namespace for every declaration.",
+    "dead": [],
+    "weight": 90,
+    "parallel": 10,
+    "lane": "main",
+    "sketch": "No proof is expected here in one piece: propose a cut into smaller statements. It splits in two: first make every AND false at single inputs, then make every AND false at one point with one non-incident line. The first is open beyond small cases: hoisting an AND that is true at a single input can add gates, and one clause of that move has a 10-gate counterexample. The second is the junk question itself. On all 48 small classes with no 4-cycle every least circuit on file meets both (computed). No sorry, no new axiom. Own namespace for every declaration.",
+    "pr_open": 0,
+    "pr_numbers": []
+  }
+}
