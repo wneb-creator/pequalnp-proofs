@@ -1,0 +1,8 @@
+Reviewed full source SHA256 d9a9ba8627749e151dc95239720b40311d107da8a90b652425007863e52db03d.
+Independent mathematical review: PASS, conditional on build/checker.
+Exact theorem: negation of the unchanged desk statement.
+All512 restriction rows and all256 upper-witness rows independently verified.
+Repository checkPlain and checkProofFile: PASS.
+No forbidden constructs, imports, namespaces, axioms, types or instances.
+Submission limitation: public gap row defaults to check; actual guard refuses refute mode.
+Final PR must have only named Lean file in its net diff.
