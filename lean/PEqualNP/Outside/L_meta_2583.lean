@@ -1841,4 +1841,257 @@ lemma ao2_exact_certificate {n m : ℕ} (I : Fin n → Fin m → Prop) [Decidabl
 
 end CircuitCheckWrapper
 
+
+namespace PurePointBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.Outside.L_meta_2583.Repair
+
+noncomputable def orPool {n : ℕ} (C : Circuit) (x : Fin n → Bool) (m : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.range m).filter fun k => (gateAt C k).op = GateOp.or ∧
+    1 < (singletonSupport n C (n + k)).card ∧ val C (List.ofFn x) (n + k) = false
+
+lemma mem_orPool {n : ℕ} {C : Circuit} {x : Fin n → Bool} {m k : ℕ} :
+    k ∈ orPool C x m ↔ k < m ∧ (gateAt C k).op = GateOp.or ∧
+      1 < (singletonSupport n C (n + k)).card ∧ val C (List.ofFn x) (n + k) = false := by
+  classical
+  simp [orPool]
+
+lemma frontier_budget {n : ℕ} {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (x : Fin n → Bool) (m : ℕ) (roots : Finset ℕ)
+    (hvalid : ∀ w ∈ roots, w < n + C.gates.length)
+    (hfalse : ∀ w ∈ roots, val C (List.ofFn x) w = false)
+    (hbound : ∀ w ∈ roots, 1 < (singletonSupport n C w).card → w < n + m) :
+    (roots.biUnion (singletonSupport n C)).card ≤ roots.card + (orPool C x m).card := by
+  classical
+  induction m generalizing roots with
+  | zero =>
+    have hsmall : ∀ w ∈ roots, (singletonSupport n C w).card ≤ 1 := by
+      intro w hw
+      by_contra! hb
+      have hw' := hbound w hw hb
+      have hs := support_input (C := C) (⟨w, by omega⟩ : Fin n)
+      simp [hs] at hb
+    calc
+      _ ≤ ∑ w ∈ roots, (singletonSupport n C w).card := Finset.card_biUnion_le
+      _ ≤ ∑ _w ∈ roots, 1 := Finset.sum_le_sum hsmall
+      _ = _ := by simp [orPool]
+  | succ m ih =>
+    have hpool : orPool C x m ⊆ orPool C x (m + 1) := by
+      intro k hk
+      obtain ⟨hk, hh⟩ := mem_orPool.1 hk
+      exact mem_orPool.2 ⟨by omega, hh⟩
+    by_cases htop : n + m ∈ roots ∧ 1 < (singletonSupport n C (n + m)).card
+    · obtain ⟨hmem, hlarge⟩ := htop
+      have hmC : m < C.gates.length := by have := hvalid _ hmem; omega
+      rcases gate_op hm hmC with hand | hor
+      · have hex : ∃ a ∈ (gateAt C m).inputs, val C (List.ofFn x) a = false := by
+          by_contra! h
+          have ht : val C (List.ofFn x) (n + m) = true :=
+            (val_and (by simp) hmC hand).2 fun a ha =>
+              ⟨rb m hmC a ha, Bool.eq_true_of_not_eq_false (h a ha)⟩
+          rw [hfalse _ hmem] at ht
+          cases ht
+        obtain ⟨a, ha, hfa⟩ := hex
+        let T := roots.erase (n + m) ∪ {a}
+        have haback : a < n + m := rb m hmC a ha
+        have hTvalid : ∀ w ∈ T, w < n + C.gates.length := by
+          intro w hw
+          rcases Finset.mem_union.1 hw with hw | hw
+          · exact hvalid _ (Finset.mem_of_mem_erase hw)
+          · have : w = a := Finset.mem_singleton.1 hw
+            omega
+        have hTfalse : ∀ w ∈ T, val C (List.ofFn x) w = false := by
+          intro w hw
+          rcases Finset.mem_union.1 hw with hw | hw
+          · exact hfalse _ (Finset.mem_of_mem_erase hw)
+          · simpa only [Finset.mem_singleton.1 hw] using hfa
+        have hTbound : ∀ w ∈ T, 1 < (singletonSupport n C w).card → w < n + m := by
+          intro w hw hcard
+          rcases Finset.mem_union.1 hw with hw | hw
+          · have hlt := hbound w (Finset.mem_of_mem_erase hw) hcard
+            have hne := (Finset.mem_erase.1 hw).1
+            omega
+          · have : w = a := Finset.mem_singleton.1 hw
+            omega
+        have hsub : roots.biUnion (singletonSupport n C) ⊆ T.biUnion (singletonSupport n C) := by
+          intro u hu
+          obtain ⟨w, hw, huw⟩ := Finset.mem_biUnion.1 hu
+          by_cases he : w = n + m
+          · subst w
+            have hua : u ∈ singletonSupport n C a := mem_support.2
+              ((val_and (by simp) hmC hand).1 (mem_support.1 huw) a ha).2
+            exact Finset.mem_biUnion.2 ⟨a, Finset.mem_union_right _ (Finset.mem_singleton_self _), hua⟩
+          · exact Finset.mem_biUnion.2 ⟨w, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨he, hw⟩), huw⟩
+        have hfirst := (Finset.card_le_card hsub).trans (ih T hTvalid hTfalse hTbound)
+        have hTcard := Finset.card_union_le (roots.erase (n + m)) {a}
+        have herase := Finset.card_erase_add_one hmem
+        have hinc := Finset.card_le_card hpool
+        simp only [Finset.card_singleton] at hTcard
+        change T.card ≤ (roots.erase (n + m)).card + 1 at hTcard
+        omega
+      · let P := positiveInputs n C m
+        let T := roots.erase (n + m) ∪ P
+        have hback : ∀ w ∈ P, w < n + m :=
+          fun w hw => rb m hmC w (mem_positiveInputs.1 hw).1
+        have hTvalid : ∀ w ∈ T, w < n + C.gates.length := by
+          intro w hw
+          rcases Finset.mem_union.1 hw with hw | hw
+          · exact hvalid _ (Finset.mem_of_mem_erase hw)
+          · have := hback w hw
+            omega
+        have hTfalse : ∀ w ∈ T, val C (List.ofFn x) w = false := by
+          intro w hw
+          rcases Finset.mem_union.1 hw with hw | hw
+          · exact hfalse _ (Finset.mem_of_mem_erase hw)
+          · cases hf : val C (List.ofFn x) w with
+            | false => rfl
+            | true =>
+              have ht : val C (List.ofFn x) (n + m) = true :=
+                (val_or (by simp) hmC hor).2
+                  ⟨w, (mem_positiveInputs.1 hw).1, hback w hw, hf⟩
+              rw [hfalse _ hmem] at ht
+              cases ht
+        have hTbound : ∀ w ∈ T, 1 < (singletonSupport n C w).card → w < n + m := by
+          intro w hw hcard
+          rcases Finset.mem_union.1 hw with hw | hw
+          · have hlt := hbound w (Finset.mem_of_mem_erase hw) hcard
+            have hne := (Finset.mem_erase.1 hw).1
+            omega
+          · exact hback w hw
+        have hsub : roots.biUnion (singletonSupport n C) ⊆ T.biUnion (singletonSupport n C) := by
+          intro u hu
+          obtain ⟨w, hw, huw⟩ := Finset.mem_biUnion.1 hu
+          by_cases he : w = n + m
+          · subst w
+            obtain ⟨a, ha, hua⟩ := (support_or rb hmC hor u).1 huw
+            exact Finset.mem_biUnion.2 ⟨a, Finset.mem_union_right _
+              (mem_positiveInputs.2 ⟨ha, u, hua⟩), hua⟩
+          · exact Finset.mem_biUnion.2 ⟨w, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨he, hw⟩), huw⟩
+        have hfirst := (Finset.card_le_card hsub).trans (ih T hTvalid hTfalse hTbound)
+        have hTcard := Finset.card_union_le (roots.erase (n + m)) P
+        have herase := Finset.card_erase_add_one hmem
+        have hPc : P.card ≤ 2 := (Finset.card_filter_le _ _).trans (input_card hm hmC)
+        have hnew : m ∈ orPool C x (m + 1) :=
+          mem_orPool.2 ⟨by omega, hor, hlarge, hfalse _ hmem⟩
+        have hn : m ∉ orPool C x m := fun h => (Nat.lt_irrefl m) (mem_orPool.1 h).1
+        have hsubpool : insert m (orPool C x m) ⊆ orPool C x (m + 1) :=
+          Finset.insert_subset_iff.2 ⟨hnew, hpool⟩
+        have hinc := Finset.card_le_card hsubpool
+        rw [Finset.card_insert_of_notMem hn] at hinc
+        change T.card ≤ (roots.erase (n + m)).card + P.card at hTcard
+        omega
+    · have hnew : ∀ w ∈ roots, 1 < (singletonSupport n C w).card → w < n + m := by
+        intro w hw hw'
+        have hlt := hbound w hw hw'
+        have hne : w ≠ n + m := fun he => htop ⟨he ▸ hw, he ▸ hw'⟩
+        omega
+      have hfirst := ih roots hvalid hfalse hnew
+      have hinc := Finset.card_le_card hpool
+      omega
+
+def complementInput {n : ℕ} (S : Finset (Fin n)) : Fin n → Bool :=
+  fun p => decide (p ∉ S)
+
+lemma support_subset_of_false {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    {S : Finset (Fin n)} {w : ℕ} (hw : val C (List.ofFn (complementInput S)) w = false) :
+    singletonSupport n C w ⊆ S := by
+  intro p hp
+  by_contra hnot
+  have hle : ∀ i, pairInput p p i = true → complementInput S i = true := by
+    intro i hi
+    have hip : i = p := by simpa [pairInput] using hi
+    simp [complementInput, hip, hnot]
+  have ht := pair_mono hm hle w (mem_support.1 hp)
+  rw [hw] at ht
+  cases ht
+
+lemma orPool_disjoint {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    {S T : Finset (Fin n)} (hST : (S ∩ T).card ≤ 1) (m : ℕ) :
+    Disjoint (orPool C (complementInput S) m) (orPool C (complementInput T) m) := by
+  apply Finset.disjoint_left.2
+  intro k hkS hkT
+  obtain ⟨_, _, hlarge, hS⟩ := mem_orPool.1 hkS
+  obtain ⟨_, _, _, hT⟩ := mem_orPool.1 hkT
+  have hsub : singletonSupport n C (n + k) ⊆ S ∩ T :=
+    Finset.subset_inter (support_subset_of_false hm hS) (support_subset_of_false hm hT)
+  have hcard := (Finset.card_le_card hsub).trans hST
+  omega
+
+lemma computes_or_budget {n : ℕ} {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (S : Finset (Fin n)) (w : ℕ) (hvalid : w < n + C.gates.length)
+    (hcomp : ∀ z : Fin n → Bool, val C (List.ofFn z) w = decide (∃ p ∈ S, z p = true)) :
+    S.card - 1 ≤ (orPool C (complementInput S) C.gates.length).card := by
+  classical
+  have hs : singletonSupport n C w = S := by
+    ext p
+    rw [mem_support, hcomp]
+    simp [pairInput, eq_comm]
+  have hf : val C (List.ofFn (complementInput S)) w = false := by
+    rw [hcomp]
+    simp [complementInput]
+  have hb := frontier_budget hm rb (complementInput S) C.gates.length {w}
+    (by simpa using hvalid) (by simpa using hf)
+    (by intro u hu _; simpa only [Finset.mem_singleton.1 hu] using hvalid)
+  simp only [Finset.singleton_biUnion, hs, Finset.card_singleton] at hb
+  omega
+
+noncomputable def orGates (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun k => (gateAt C k).op = GateOp.or
+
+lemma multioutput_or_budget {n : ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (S : ι → Finset (Fin n)) (output : ι → ℕ)
+    (hvalid : ∀ i, output i < n + C.gates.length)
+    (hcomp : ∀ i (z : Fin n → Bool),
+      val C (List.ofFn z) (output i) = decide (∃ p ∈ S i, z p = true))
+    (hpair : ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1) :
+    (∑ i, ((S i).card - 1)) ≤ (orGates C).card := by
+  classical
+  let pools := fun i => orPool C (complementInput (S i)) C.gates.length
+  have hdis : ((Finset.univ : Finset ι) : Set ι).PairwiseDisjoint pools := by
+    intro i _ j _ hij
+    exact orPool_disjoint hm (hpair i j hij) C.gates.length
+  have hsub : Finset.univ.biUnion pools ⊆ orGates C := by
+    intro k hk
+    obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.1 hk
+    obtain ⟨hk, hop, _⟩ := mem_orPool.1 hi
+    exact Finset.mem_filter.2 ⟨Finset.mem_range.2 hk, hop⟩
+  calc
+    _ ≤ ∑ i, (pools i).card := Finset.sum_le_sum fun i _ =>
+      computes_or_budget hm rb (S i) (output i) (hvalid i) (hcomp i)
+    _ = (Finset.univ.biUnion pools).card := (Finset.card_biUnion hdis).symm
+    _ ≤ _ := Finset.card_le_card hsub
+
+lemma incidence_or_budget {q N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hsize : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1)
+    (hunique : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack N C) (output : Fin N → ℕ)
+    (hvalid : ∀ l, output l < N + C.gates.length)
+    (hcomp : ∀ l (z : Fin N → Bool),
+      val C (List.ofFn z) (output l) = decide (∃ p, I p l ∧ z p = true)) :
+    N * q ≤ (orGates C).card := by
+  classical
+  let S : Fin N → Finset (Fin N) := fun l => Finset.univ.filter fun p => I p l
+  have hpair : ∀ l l', l ≠ l' → (S l ∩ S l').card ≤ 1 := by
+    intro l l' hll
+    apply Finset.card_le_one.2
+    intro p hp p' hp'
+    by_contra hpp
+    have hpI : I p l ∧ I p l' := by simpa [S] using hp
+    have hp'I : I p' l ∧ I p' l' := by simpa [S] using hp'
+    obtain ⟨a, _, ha⟩ := hunique p p' hpp
+    exact hll ((ha l ⟨hpI.1, hp'I.1⟩).trans (ha l' ⟨hpI.2, hp'I.2⟩).symm)
+  have hcomp' : ∀ l (z : Fin N → Bool),
+      val C (List.ofFn z) (output l) = decide (∃ p ∈ S l, z p = true) := by
+    intro l z
+    exact (hcomp l z).trans (Bool.decide_congr (by simp [S]))
+  have hb := multioutput_or_budget hm rb S output hvalid hcomp' hpair
+  have hcards : ∀ l, (S l).card = q + 1 := hsize
+  simpa [hcards] using hb
+
+end PurePointBudget
+
 end PEqualNP.Outside.L_meta_2583
