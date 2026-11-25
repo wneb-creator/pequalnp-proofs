@@ -14,3 +14,5 @@ UTC timeline for pilot-113
 2026-11-25T14:35:48.780558+00:00: first strategy replan: stop redundant last-NOT work and invalid duplicate contraction; focus on global17binary floor from first-AND/OR cases, retain exact synthesis and local repair.
 2026-11-25T14:39:24.099867+00:00: FirstAnd actual compile and independent audit passed; 6581 baseline cache completed. Global17 binary-count strengthening is being assembled.
 2026-11-25T14:39:30.656476+00:00: genuine cofactor certificate compiled; first-AND18, first-OR17, first-step decomposition and canonical first-gate cases compiled.
+2026-11-25T14:43:08.910808+00:00: GlobalData and GlobalWitness actual Lean checks passed; global17 ordinary proof assembly handed to library_route.
+2026-11-25T14:48:13.909386+00:00: unconditional17nonNOT bound compiled and independently approved; sixth sub-agent added for global proof review.

@@ -68,3 +68,27 @@ Do not claim an extra charge for duplicate projected wires: that suggested invar
 - Explicit two-row witnesses force pin0 to remain live after the operation. Restricting pin0=0 makes both that retained input and the computed AND constant. The checked nine-input lower bound15 plus two constant charges gives tail17 and total18. Independent mathematical/format audit passed.
 - Generic OR gives total17. Draft GlobalData maps each vertex-deleted cofactor to the checked nine-input graph; GlobalWitness forces retention for all270 ordered raw-pair/operator cases. Their finite checks are serialized to fit memory.
 - Avoid decidable `forall a in initial` over1024-bit words: it can select full BitVec enumeration. Use initial.all explicitly.
+
+2026-11-25T14:41:58.772622+00:00
+DropFirst.lean (236 lines) checked with exit0 and empty log. It includes first-copy deletion (AND/OR with [a] or[a,a], valid raw a) and first-constant-false deletion (including OR[]). Both save exactly1 gate while preserving all evaluations on length-n inputs, FanInTwo, and remaining NOT operations. False wire is redirected to n+tail.length, permanently missing in the shortened circuit. These normalize degenerate first gates in minimal NOT-containing counterexamples; they do not eliminate an essential NOT. Independent review pending.
+
+2026-11-25T14:43:08.910808+00:00
+## Globalization certificates checked
+
+- GlobalData.lean passed actual Lean with saved GlobalData.olean. It certifies all ten cofactor embeddings, all5120 target row equalities, all51200 raw-input restrictions, chosen-pin-zero and input availability. Log global-data-actual-002.log is empty success.
+- GlobalWitness.lean passed actual Lean with saved GlobalWitness.olean. Its270 ordered first-gate cases cover AND, OR, and signed AND; all use explicit List.all over ten raw pins. It proves first_pin_retained for arbitrary distinct input pair. Log global-witness-actual-001.log is empty success.
+- GlobalAnd.lean generalizes the compiled first-AND18 bound using those certificates and explicit hNineFloor. library_route is checking the ordinary combined GlobalAnd/GlobalOr/GlobalCount proof for an unconditional17 non-NOT gate floor; that final combined result is not yet checked as of this note.
+
+2026-11-25T14:43:35.756463+00:00
+Independent global partial-proof review:
+
+- Mathematical/source review PASS for GlobalData, GlobalWitness, FirstAnd, FirstOr, FirstStep, GlobalAnd, GlobalOr, and GlobalCount. Independent Python read their literal certificates and the actual L_meta_6581 tables: all1024 Petersen target rows, all5120 cofactor rows, all51200 pin restrictions, and all270 retention witness cases passed. Every embedAt maps bijectively onto the corresponding vertex-zero cofactor; all10 vertex maps preserve Petersen edges.
+- Retention forces the first positive input to stay in the raw frontier. AND and signed-AND project both retained input and distinct gate output to constants, charging2; OR charges only the retained input, charging1. Signed operation3 equals operation2 with swapped arguments. FirstStep covers every normalized Live derivation via the upstream actual-circuit realization. No duplicate-wire charge or circular premise found.
+- GlobalCount currently assumes exactly Lower true inputs graph15, independently proved by upstream nineFloor. Applying that theorem gives17 non-NOT gates, and the exact partition of all gates into NOT/non-NOT excludes at least3 NOT gates when total size is at most19. This does not settle the remaining one-NOT/two-NOT cases or L-meta-2592.
+- Compilation status at review: GlobalData, GlobalWitness, FirstAnd, FirstOr, FirstStep reported actual Lean exit0 by authors, with all five corresponding logs independently confirmed empty. GlobalAnd/GlobalOr/GlobalCount combined ordinary build still pending; no independent compiler run was performed. Scratch imports of Outside proof/dependency modules must be replaced by allowed inlined helpers before any final submission, and the exact posted theorem/checker still must pass.
+
+2026-11-25T14:48:04.920000+00:00
+Independent final partial-source review update: PASS. CombinedOrdinary.lean, GlobalSeventeen.lean, and GenericBounds.lean now have author-reported Lean exit0; reviewed logs contain only if_pos deprecation warnings for combined/generic and no output for the unconditional wrapper. Reviewed final Finset/cost fixes preserve prior mathematics. GlobalSeventeen correctly applies actual nineFloor and establishes unconditional17 non-NOT gates and the three-or-more-NOT exclusion. GenericBounds consistently preserves arbitrary mode u and floor L: raw/constant pin availability works for both modes, OR gives L+2, (signed)AND gives L+3, and two_more gives global L+2. Its monotone_eighteen still requires the unprovided premise Lower false inputs graph16; no unconditional monotone18 claim is established here. No new concerns; exact gap remains open. No independent compilation performed.
+CombinedOrdinary.lean SHA256 117ecf85745feef6db14499411ce78daed9759505c9c311a79ae0a446a56691b
+GlobalSeventeen.lean SHA256 9d727a36b47d0b4a8373f933f75a90c59b9354eaf352047206858779177f3fa8
+GenericBounds.lean SHA256 b0ac69dce45854aed67bce16297274b18301cf4ae4f6f4eaa0990ee58704efdb
