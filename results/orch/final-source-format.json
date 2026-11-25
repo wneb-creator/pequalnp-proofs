@@ -1,0 +1,14 @@
+{
+  "sha256": "9389dd60a783de695646467b32ad566358b595976d6a9f4d96d0fc099c879f3d",
+  "lines": 5210,
+  "bytes": 309284,
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "attributes": [],
+  "forbidden_markers": []
+}

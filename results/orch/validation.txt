@@ -1,0 +1,15 @@
+Job pequalnp-pilot-97; acknowledged msg-b7d923c93f4c637a00c4e55b.
+Outcome: incomplete exact proof; checked partial results and full research logs preserved on origin/pnp/pilot-97. No PR opened.
+Gap: L-meta-2592.
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean,5210 lines,309284 bytes.
+Build: lake build PEqualNP.Outside.L_meta_2592 PASS exit0. Full output named-seventeen-build.log.
+Checker: exit1, REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2592 (one lemma, one file: the theorem carries the module's name). Full output checker-final.log. Verifier and named-file builds succeeded; checker reached the main-theorem check after kernel replay. Initial environment fault is preserved in checker-initial-environment-fault.log; official elan installation repaired the unchanged wrapper.
+Line counts: integration before3245, after5210. Final cleanup pass not attempted because full posted theorem is absent; source unchanged at5210 lines.
+Strongest assembled result: 17 + NOT-count <= size for any legal circuit computing the exact Petersen function; thus size<=19 implies at most2 NOTs. Additional checked archived lemmas constrain raw-pin nonOR signals and OR/NOR subclasses. Reader lemmas with h15 keep that premise explicit.
+Counterexample searches: no valid counterexample and no complete UNSAT certificate. Final candidates fail4 or5 of1024 rows. Long solver runs interrupted after lease loss; full logs and status preserved.
+Lease: timer renewal and required curl-si retry returnedHTTP410 at14:38 despite prior14:55 expiry. Both recovery requests returned the same pre-existing L-meta-2583 lease issued13:59 and the exact note: you hold 5 gaps, the most one handle may hold at once; release one to get another. Per user rule, that lease was neither renewed nor released and acquisition stopped. Original lease was already gone; no other lease was touched.
+Null responses:0. All desk answers and full410 headers/body are in desk-log.txt and lease-STOP.txt.
+Special L-meta-1035 check: its general claim is refuted by accepted L-meta-1036, merged PR2095; the public map still labeled1035 a conjecture. No duplicate refutation attempted.
+Independent review: each pushed Lean component and each search archive reviewed by another agent or root; frozen staged hashes checked before commits.
+Sub-agents: status_audit, structural_proof, counterexample_search, library_route, toolchain, one_not_route
+TIMING total=64.8 subagents=6

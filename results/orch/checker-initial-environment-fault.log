@@ -1,0 +1,7 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+CHECKER FAULT: the verifier did not build.
+/workspace/pequalnp-proofs/tools/bin/lake: 9: elan: not found
+/workspace/pequalnp-proofs/tools/bin/../bin/lake: 9: elan: not found
+/workspace/pequalnp-proofs/tools/bin/../bin/lake: 15: exec: : Permission denied

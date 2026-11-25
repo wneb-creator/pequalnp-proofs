@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS for final archival push; exact proof remains incomplete",
+  "checker_verdict": "REJECTED (no-theorem)",
+  "named_sha256": "9389dd60a783de695646467b32ad566358b595976d6a9f4d96d0fc099c879f3d",
+  "hashes": {
+    "results/orch/validation.txt": "ecf59cc787b5e8023f0bb69f24897b92d8786c76d2c162c4b76dd9b170fea7d8",
+    "results/orch/final-source-format.json": "7f654b7b62cd1b2dec60dd4180e99529e845f5a8e1002c7d7f521e1c17e94bf0",
+    "results/orch/checker-final.log": "fd2c4c5aaa8eb461e3961d423ed86a5579d324075f29d6b51a46fd724a2ff5c8",
+    "results/orch/checkpoint-validation.txt": "4be48811fc4aa660c996cd339a667d7b33eacd4019ce4b46cf50d65bc6addbf9",
+    "results/orch/TIMELINE.md": "ab615ca37a9bf2f90a60e705fbb42a9bfc1eca0779afb49fcb371af7daf2d028"
+  },
+  "strongest_assembled_result": "17 + notCount C <= C.size for FanInTwo C computing exact Petersen function; size<=19 implies notCount<=2",
+  "lease_narrative": "consistent with recorded410 and two identical pre-existing2583 responses; no other lease acted on",
+  "timing": "64.8min,6agents at final checker completion; later final push latency not yet included"
+}

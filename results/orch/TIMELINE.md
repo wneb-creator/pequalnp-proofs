@@ -26,3 +26,5 @@
 2026-11-25T14:33:46.722722+00:00 Replan: unconditional17+NOT is built and pushed; focus on one/two-NOT OR-first cases. Long17binary/2NOT NOR01 SAT running until about15:22; strengthened readers diagnostic follows. Structural NOR compression, CleanReader, and TwoNotSwap compiled, reviewed, pushed. Next combine unused-negative conditions, classify secondgate seeds, and investigate NOR singleuse reassociation.
 
 2026-11-25T14:38:23Z Lease renewal and required diagnostic retry returned HTTP410 unexpectedly, despite renewal at14:35 showing expiry14:55:57. Paused new proof/search launches, preserved every checked component and active search snapshots before requesting replacement lease.
+
+2026-11-25T14:50:22.795352+00:00 Final local checker returned REJECTED(no-theorem), exit1, after successful verifier/module builds and kernel replay. Exact main theorem absent; no PR opened. Research stopped under other-pilot lease rule. Final artifact review and push follow.
