@@ -1,0 +1,874 @@
+import took 1.35s
+parsing took 454ms
+parsing took 135ms
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:22: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:24: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:26: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:28: warning: Variable name `l` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:30: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:394:32: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:397:28: warning: Variable name `l` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:403:30: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:412:32: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:415:28: warning: Variable name `l` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:424:31: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:442:33: warning: Variable name `n` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _n
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:466:23: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:466:29: warning: Variable name `l` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _l
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:466:31: warning: Variable name `m` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _m
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+instantiate metavars took 111ms
+process pre-definitions took 158ms
+elaboration took 3.96s
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 117ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 150ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 294ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 433ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 138ms
+linting took 268ms
+elaboration took 973ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 112ms
+simp took 514ms
+tactic execution of Lean.Parser.Tactic.simp took 259ms
+ring took 6.69s
+share common exprs took 11.1s
+fix level params took 1.08s
+process pre-definitions took 19.8s
+elaboration took 5.81s
+type checking took 22.5s
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:484:5: warning: Variable name `e3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:485:5: warning: Variable name `e4` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e4
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:486:5: warning: Variable name `e5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:487:5: warning: Variable name `e6` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e6
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:490:5: warning: Variable name `e9` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e9
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:491:5: warning: Variable name `e10` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e10
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:492:5: warning: Variable name `e11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:494:5: warning: Variable name `e13` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e13
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:495:5: warning: Variable name `e14` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e14
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:496:5: warning: Variable name `e15` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e15
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:497:5: warning: Variable name `e16` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e16
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:499:5: warning: Variable name `e18` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e18
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:500:5: warning: Variable name `e19` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e19
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:25: warning: This simp argument is unused:
+  p3
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:29: warning: This simp argument is unused:
+  p4
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:33: warning: This simp argument is unused:
+  p5
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:37: warning: This simp argument is unused:
+  p6
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:49: warning: This simp argument is unused:
+  p9
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:53: warning: This simp argument is unused:
+  p10
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:58: warning: This simp argument is unused:
+  p11
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, p13, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:68: warning: This simp argument is unused:
+  p13
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p14, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:73: warning: This simp argument is unused:
+  p14
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:78: warning: This simp argument is unused:
+  p15
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p16, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:83: warning: This simp argument is unused:
+  p16
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p17, p18, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:93: warning: This simp argument is unused:
+  p18
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p19, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:503:98: warning: This simp argument is unused:
+  p19
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, m1, m2, m7,
+    m8, m12, m17, fp, qp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167,
+    k168, k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186,
+    k187, k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205,
+    k206, k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224,
+    k225, k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243,
+    k244, k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262,
+    k263, k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281,
+    k282, k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300,
+    k301, k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319,
+    k320, k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338,
+    k339, k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357,
+    k358, k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376,
+    k377, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 7.56s
+simp took 754ms
+ring took 14.7s
+share common exprs took 21.7s
+fix level params took 1.67s
+process pre-definitions took 34s
+elaboration took 10.3s
+type checking took 36s
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:247: warning: This simp argument is unused:
+  k48
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66, k67,
+    k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89, k90,
+    k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110, k111,
+    k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129, k130,
+    k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148, k149,
+    k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:252: warning: This simp argument is unused:
+  k49
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66, k67,
+    k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89, k90,
+    k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110, k111,
+    k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129, k130,
+    k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148, k149,
+    k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:543: warning: This simp argument is unused:
+  k106
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k107, k108, k109, k110, k111,
+    k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129, k130,
+    k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148, k149,
+    k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:549: warning: This simp argument is unused:
+  k107
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k108, k109, k110, k111,
+    k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129, k130,
+    k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148, k149,
+    k150, k151, k152, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:819: warning: This simp argument is unused:
+  k152
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k153, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:510:825: warning: This simp argument is unused:
+  k153
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fp, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20,
+    k21, k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, k43,
+    k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, k54, k55, k56, k57, k58, k59, k60, k61, k62, k63, k64, k65, k66,
+    k67, k68, k69, k70, k71, k72, k73, k74, k75, k76, k77, k78, k79, k80, k81, k82, k83, k84, k85, k86, k87, k88, k89,
+    k90, k91, k92, k93, k94, k95, k96, k97, k98, k99, k100, k101, k102, k103, k104, k105, k106, k107, k108, k109, k110,
+    k111, k112, k113, k114, k115, k116, k117, k118, k119, k120, k121, k122, k123, k124, k125, k126, k127, k128, k129,
+    k130, k131, k132, k133, k134, k135, k136, k137, k138, k139, k140, k141, k142, k143, k144, k145, k146, k147, k148,
+    k149, k150, k151, k152, k154, k155, k156, k157, k158, k159, k160, k161, k162, k163, k164, k165, k166, k167, k168,
+    k169, k170, k171, k172, k173, k174, k175, k176, k177, k178, k179, k180, k181, k182, k183, k184, k185, k186, k187,
+    k188, k189, k190, k191, k192, k193, k194, k195, k196, k197, k198, k199, k200, k201, k202, k203, k204, k205, k206,
+    k207, k208, k209, k210, k211, k212, k213, k214, k215, k216, k217, k218, k219, k220, k221, k222, k223, k224, k225,
+    k226, k227, k228, k229, k230, k231, k232, k233, k234, k235, k236, k237, k238, k239, k240, k241, k242, k243, k244,
+    k245, k246, k247, k248, k249, k250, k251, k252, k253, k254, k255, k256, k257, k258, k259, k260, k261, k262, k263,
+    k264, k265, k266, k267, k268, k269, k270, k271, k272, k273, k274, k275, k276, k277, k278, k279, k280, k281, k282,
+    k283, k284, k285, k286, k287, k288, k289, k290, k291, k292, k293, k294, k295, k296, k297, k298, k299, k300, k301,
+    k302, k303, k304, k305, k306, k307, k308, k309, k310, k311, k312, k313, k314, k315, k316, k317, k318, k319, k320,
+    k321, k322, k323, k324, k325, k326, k327, k328, k329, k330, k331, k332, k333, k334, k335, k336, k337, k338, k339,
+    k340, k341, k342, k343, k344, k345, k346, k347, k348, k349, k350, k351, k352, k353, k354, k355, k356, k357, k358,
+    k359, k360, k361, k362, k363, k364, k365, k366, k367, k368, k369, k370, k371, k372, k373, k374, k375, k376, k377,
+    ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ring took 204ms
+ring took 200ms
+ring took 103ms
+ring took 267ms
+ring took 105ms
+ring took 121ms
+ring took 101ms
+ring took 106ms
+ring took 105ms
+ring took 225ms
+ring took 101ms
+ring took 253ms
+ring took 101ms
+instantiate metavars took 600ms
+share common exprs took 5.77s
+fix level params took 130ms
+process pre-definitions took 2.76s
+elaboration took 3.21s
+type checking took 4.48s
+linting took 5.15s
+simp took 134ms
+ring took 2.97s
+share common exprs took 3.1s
+fix level params took 225ms
+process pre-definitions took 3.42s
+elaboration took 1.73s
+type checking took 6.87s
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:913:47: warning: This simp argument is unused:
+  p0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [quad, cubic, bracket, correction, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15,
+    p16, p17, p18, p19, TopAllZeroSplit.p0, TopAllZeroSplit.p1, TopAllZeroSplit.p2, TopAllZeroSplit.p3,
+    TopAllZeroSplit.p4, TopAllZeroSplit.p5, TopAllZeroSplit.p6, TopAllZeroSplit.p7, TopAllZeroSplit.p8,
+    TopAllZeroSplit.p9, TopAllZeroSplit.p10, TopAllZeroSplit.p11, TopAllZeroSplit.p12, TopAllZeroSplit.p13,
+    TopAllZeroSplit.p14, TopAllZeroSplit.p15, TopAllZeroSplit.p16, TopAllZeroSplit.p17, TopAllZeroSplit.p18,
+    TopAllZeroSplit.p19, TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp, TopAllZeroSplit.cz, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:913:137: warning: This simp argument is unused:
+  TopAllZeroSplit.p0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [quad, cubic, bracket, correction, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14,
+    p15, p16, p17, p18, p19, TopAllZeroSplit.p1, TopAllZeroSplit.p2, TopAllZeroSplit.p3, TopAllZeroSplit.p4,
+    TopAllZeroSplit.p5, TopAllZeroSplit.p6, TopAllZeroSplit.p7, TopAllZeroSplit.p8, TopAllZeroSplit.p9,
+    TopAllZeroSplit.p10, TopAllZeroSplit.p11, TopAllZeroSplit.p12, TopAllZeroSplit.p13, TopAllZeroSplit.p14,
+    TopAllZeroSplit.p15, TopAllZeroSplit.p16, TopAllZeroSplit.p17, TopAllZeroSplit.p18, TopAllZeroSplit.p19,
+    TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp, TopAllZeroSplit.cz, ca, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 5.77s
+share common exprs took 139ms
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:997:119: warning: This simp argument is unused:
+  ca
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, TopAllZeroSplit.p0, TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp,
+    TopAllZeroSplit.cz, cm, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:997:123: warning: This simp argument is unused:
+  cm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, TopAllZeroSplit.p0, TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp,
+    TopAllZeroSplit.cz, ca, cp, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:997:127: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, TopAllZeroSplit.p0, TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp,
+    TopAllZeroSplit.cz, ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:997:131: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [p0, TopAllZeroSplit.p0, TopAllZeroSplit.ca, TopAllZeroSplit.cm, TopAllZeroSplit.cp,
+    TopAllZeroSplit.cz, ca, cm, cp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 102ms
+ring took 225ms
+ring took 212ms
+share common exprs took 307ms
+elaboration took 179ms
+type checking took 487ms
+linting took 298ms
+simp took 115ms
+simp took 115ms
+simp took 115ms
+simp took 117ms
+simp took 112ms
+simp took 140ms
+simp took 125ms
+simp took 116ms
+simp took 117ms
+simp took 134ms
+simp took 111ms
+simp took 132ms
+simp took 111ms
+simp took 110ms
+simp took 109ms
+simp took 112ms
+instantiate metavars took 262ms
+share common exprs took 186ms
+process pre-definitions took 101ms
+elaboration took 117ms
+type checking took 313ms
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1312:33: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, add_zero, raw_xz] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1317:24: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, zero_add, raw_yz] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1308:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1313:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1318:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1308:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1313:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean:1318:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+linting took 210ms
+cumulative profiling times:
+	attribute application 2.31ms
+	congr simp thm 38.2ms
+	declTypeLinter 132ms
+	elaboration 27.3s
+	fix level params 3.14s
+	import 1.35s
+	initialization 55ms
+	instantiate metavars 1.1s
+	interpretation 8.41s
+	let-to-have transformation 5.14ms
+	linting 19.9s
+	module linting 0.352ms
+	norm_num 18.5s
+	parsing 800ms
+	process pre-definitions 60.6s
+	ring 32.4s
+	share common exprs 42.6s
+	simp 4.76s
+	tactic execution 1.3s
+	tacticAnalysis 78.8ms
+	type checking 71.1s
+	typeclass inference 6.39s

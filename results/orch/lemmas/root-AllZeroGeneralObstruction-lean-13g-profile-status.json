@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/AllZeroGeneralObstruction.lean",
+  "sha256": "46bbf66a2c41cd5d368d32d670ee4fa768382ad543f6de1b7efded4dcb578dad",
+  "source_sha256_after": "46bbf66a2c41cd5d368d32d670ee4fa768382ad543f6de1b7efded4dcb578dad",
+  "started_utc": "2026-11-25T12:52:00.962146+00:00",
+  "finished_utc": "2026-11-25T12:57:02.032456+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 11029078016,
+  "seconds": 301.07033664200026,
+  "rss_limit_bytes": 13958643712,
+  "wall_limit_seconds": 600
+}
