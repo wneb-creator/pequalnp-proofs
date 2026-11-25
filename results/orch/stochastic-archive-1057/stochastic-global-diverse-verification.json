@@ -1,0 +1,71 @@
+{
+  "config": "/tmp/oec/pequalnp-pilot-81/stochastic-global-diverse.cfg",
+  "sha256": "69bf538b747ffc987379c7715d687b59d28ba5a6f3ca4ff6ff98d026c7f9763e",
+  "verified_seeds": 640,
+  "full_truth_rows_per_seed": 16384,
+  "both_directional_derivatives_at": [
+    0,
+    7
+  ],
+  "boundary_rows": {
+    "positive": 21,
+    "maximal_negative": 37
+  },
+  "sizes": {
+    "28": 64,
+    "29": 512,
+    "31": 64
+  },
+  "structures_gate_p_Bplus_Bzero": [
+    [
+      28,
+      7,
+      14,
+      1,
+      64
+    ],
+    [
+      29,
+      9,
+      15,
+      1,
+      512
+    ],
+    [
+      31,
+      8,
+      18,
+      0,
+      1
+    ],
+    [
+      31,
+      9,
+      18,
+      0,
+      8
+    ],
+    [
+      31,
+      10,
+      18,
+      0,
+      22
+    ],
+    [
+      31,
+      11,
+      18,
+      0,
+      24
+    ],
+    [
+      31,
+      12,
+      18,
+      0,
+      9
+    ]
+  ],
+  "verdict": "PASS"
+}

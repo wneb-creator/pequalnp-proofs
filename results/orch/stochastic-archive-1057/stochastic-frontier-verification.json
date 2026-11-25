@@ -1,0 +1,1013 @@
+[
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-13.json",
+    "sha256": "cab833dfc60e6aedf22a8ddbeb4de02d1362eaac1f2c02a83135a3729d50c8fc",
+    "gates": 27,
+    "failed_boundary_bits": [
+      13
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-18.json",
+    "sha256": "7f3189dfecece1e3c92155e9bab0285aa4ce8e4a42bd71b3aa26290a993a8df4",
+    "gates": 27,
+    "failed_boundary_bits": [
+      18
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-2.json",
+    "sha256": "07fe0417718ddd52033330c066d5fad8fce6765a16cac6b39eb925d9561a91aa",
+    "gates": 27,
+    "failed_boundary_bits": [
+      2
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz2.json",
+    "sha256": "af900800e211b2231d92bafa9c40a105727bd1df9c14fdb58a6ed2cda2c678d3",
+    "gates": 27,
+    "failed_boundary_bits": [
+      8,
+      13,
+      15
+    ],
+    "false_positives": 0,
+    "false_negatives": 232,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p11-bz1.json",
+    "sha256": "7ff3fc8ad9bee235d8f61461e8e30a62e3918a5e7b53cba307a4f5f87f9fe88e",
+    "gates": 22,
+    "failed_boundary_bits": [
+      9,
+      17,
+      23,
+      24,
+      25,
+      26,
+      27,
+      30,
+      31,
+      34,
+      35,
+      36,
+      40,
+      41,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57
+    ],
+    "false_positives": 242,
+    "false_negatives": 48,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p11-bz3.json",
+    "sha256": "dc94975311791115c2bba072b49afe8f49fa99b40bc1e10e9b4e7566ca7543f0",
+    "gates": 27,
+    "failed_boundary_bits": [
+      1,
+      5,
+      8,
+      10,
+      12,
+      13,
+      15,
+      17,
+      21,
+      25,
+      27,
+      31,
+      32,
+      33,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      52
+    ],
+    "false_positives": 96,
+    "false_negatives": 722,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-7.json",
+    "sha256": "dfeeca1a1b45b3429aaff903f57c584cde88af75f4ae7daf63ddce34e4e19a87",
+    "gates": 27,
+    "failed_boundary_bits": [
+      7
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-6.json",
+    "sha256": "7ca2f73baf688a88b949000afe42290c788f2026f250ee2c1e733d3ddb4391b1",
+    "gates": 27,
+    "failed_boundary_bits": [
+      6
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-5.json",
+    "sha256": "87de7951ffc8aa3d3d41c9c5f396296a102d62f89c3a0fa6a17588baa76ac1ba",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz3.json",
+    "sha256": "15995d9bb64eb52fca595a4cc7a70c644b7c46125c848b099d66bbaa3217c441",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5,
+      10,
+      12
+    ],
+    "false_positives": 0,
+    "false_negatives": 232,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-20.json",
+    "sha256": "331caacc3cd9029b81570ec9c02d8a22f771ce990c0e27e597a1191b286a2c2b",
+    "gates": 27,
+    "failed_boundary_bits": [
+      20
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz5.json",
+    "sha256": "47a59ed28ac1146a0fade4688dc2a6b895c27782067af6235cd80b9fb8f8fa2b",
+    "gates": 27,
+    "failed_boundary_bits": [
+      0,
+      5,
+      7,
+      8,
+      13,
+      15,
+      17,
+      18,
+      25,
+      27,
+      31,
+      38,
+      40,
+      41,
+      42,
+      43
+    ],
+    "false_positives": 31,
+    "false_negatives": 543,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-19.json",
+    "sha256": "6b58e28dba9064922243ebe93d89c2c9ac6093a0f42dfb19906df68257a992dc",
+    "gates": 27,
+    "failed_boundary_bits": [
+      19
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-0.json",
+    "sha256": "1f89bdc6dada11460dc18e98a9471ff7caacb4ece2474acd9988a06dd5c5ebe1",
+    "gates": 27,
+    "failed_boundary_bits": [
+      0
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz0.json",
+    "sha256": "60ceafb889a1a09f1cffbc48e0b16c8a6cc0cccc058258afb6bd1241f86dc8c5",
+    "gates": 25,
+    "failed_boundary_bits": [
+      0,
+      11,
+      16,
+      18,
+      21,
+      23,
+      28,
+      30
+    ],
+    "false_positives": 41,
+    "false_negatives": 279,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz1.json",
+    "sha256": "e7a1441626aac9dea069d3e11351a3e3b1a78e205b139d723244d8b8b1d134e6",
+    "gates": 27,
+    "failed_boundary_bits": [
+      4,
+      5
+    ],
+    "false_positives": 0,
+    "false_negatives": 119,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p11-bz0.json",
+    "sha256": "049f6aba8fe1ea998893d4e7a8788de18a2a95329b88962afa1c61221bf29984",
+    "gates": 27,
+    "failed_boundary_bits": [
+      1,
+      21,
+      22,
+      23,
+      24,
+      25,
+      28,
+      29,
+      30,
+      31,
+      32,
+      46,
+      47,
+      48,
+      50,
+      51,
+      52
+    ],
+    "false_positives": 151,
+    "false_negatives": 34,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz2.json",
+    "sha256": "9d44dc79e0e990cfe816b5f52cf19cce17dbaac50a3acea417425ed036bcfa42",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5,
+      13,
+      14
+    ],
+    "false_positives": 0,
+    "false_negatives": 166,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-10.json",
+    "sha256": "61b58772f1419903c56d9b845dd8372fa34cb0dbe17be730515eba3032711083",
+    "gates": 27,
+    "failed_boundary_bits": [
+      10
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz0.json",
+    "sha256": "3bc33b38b209195620ae4d0d2816dcdce05dc0d55a8c8487dd2c2b892e1e925c",
+    "gates": 25,
+    "failed_boundary_bits": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "false_positives": 0,
+    "false_negatives": 246,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-best.json",
+    "sha256": "b84cc9045f4e5d9ee1ddc4fa52de848cc8f45a2534c5453e7e5f40757cbc98db",
+    "gates": 28,
+    "failed_boundary_bits": [],
+    "false_positives": 0,
+    "false_negatives": 0,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": true
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-9.json",
+    "sha256": "83b88a7bace64d13fd0f903f12a09fabfe828f524ffc69404ce1ac7a38ea75a4",
+    "gates": 27,
+    "failed_boundary_bits": [
+      9
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-16.json",
+    "sha256": "61eed4e823fd4f135c21cf83807d9824938cdbf020f66c5d8edbad59ebdcdff5",
+    "gates": 27,
+    "failed_boundary_bits": [
+      16
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz1.json",
+    "sha256": "0307caab434f173a5a1416498936cac0173431fe0766279546503277e629a3e4",
+    "gates": 27,
+    "failed_boundary_bits": [
+      8,
+      13,
+      15
+    ],
+    "false_positives": 0,
+    "false_negatives": 232,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p10-bz0.json",
+    "sha256": "2d5d1f2b9603b2c4e146a9b4a7b0c20d016d36ba1eb87e3ce9ad4d5c2aaee7f0",
+    "gates": 26,
+    "failed_boundary_bits": [
+      0,
+      11,
+      16,
+      18,
+      21,
+      25,
+      38,
+      41
+    ],
+    "false_positives": 41,
+    "false_negatives": 279,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz5.json",
+    "sha256": "b537994cc7cf30629c2993d363c392d18af1c0d5ba6c66dc4c5fc2ae96cfac60",
+    "gates": 26,
+    "failed_boundary_bits": [
+      0,
+      5,
+      7,
+      9,
+      14,
+      17,
+      18
+    ],
+    "false_positives": 0,
+    "false_negatives": 466,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-8.json",
+    "sha256": "a85f6fd71fbc5d8d71bdcd63aa903b1b4432bc518ec577be0f8f480c418423cb",
+    "gates": 27,
+    "failed_boundary_bits": [
+      8
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-4.json",
+    "sha256": "ae3bfb488eef2ef8fb47b0bc9ae66007f74206b6675cbfe3a928d44f102e3798",
+    "gates": 27,
+    "failed_boundary_bits": [
+      4
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-15.json",
+    "sha256": "e787571f26d944b49f8b34906b617ed0bae61af767654521a84252223476a7e0",
+    "gates": 27,
+    "failed_boundary_bits": [
+      15
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-3.json",
+    "sha256": "b25ec96770ec2521474cf7b2c23003f61698260973971ea1d50d5ab0b916f6ee",
+    "gates": 27,
+    "failed_boundary_bits": [
+      3
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p8-bz4.json",
+    "sha256": "0912c90717b93ecacd9b8f26e7257ffb30f11142f8663defa16da9b7862287d6",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5,
+      10,
+      12,
+      20
+    ],
+    "false_positives": 0,
+    "false_negatives": 300,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-14.json",
+    "sha256": "7f19e46a2e99f3b7137e9e378f34624e4ac77e2266dc1249a4d11d2d983680b2",
+    "gates": 27,
+    "failed_boundary_bits": [
+      14
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz4.json",
+    "sha256": "1fc775609775740db3855c8d7980878546411316779adf6c256c90decec35249",
+    "gates": 26,
+    "failed_boundary_bits": [
+      5,
+      8,
+      13,
+      15,
+      16,
+      17,
+      18
+    ],
+    "false_positives": 0,
+    "false_negatives": 710,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p10-bz3.json",
+    "sha256": "81a842f0c876a8bf7875570af57482ce104a16df3b8e9331978492bf2003d095",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5,
+      8,
+      9,
+      13,
+      15,
+      17,
+      18,
+      23,
+      34,
+      38,
+      40,
+      44,
+      48,
+      54,
+      56
+    ],
+    "false_positives": 31,
+    "false_negatives": 435,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p9-bz3.json",
+    "sha256": "54f31f60ca09c452358e4fe3ff052ba7811367dfc6b9897418e2b1732b865dcd",
+    "gates": 27,
+    "failed_boundary_bits": [
+      2,
+      8,
+      13,
+      15
+    ],
+    "false_positives": 0,
+    "false_negatives": 300,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-11.json",
+    "sha256": "e442f46d6e13f17d24161cb52ae4c43e9a48ede321f0a05ac2cc04055963aa9a",
+    "gates": 27,
+    "failed_boundary_bits": [
+      11
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p10-bz2.json",
+    "sha256": "8c6ad1e837af4ce1cacaa9274b09986d8dcc617cb8d9fbc54c4125de0dff9930",
+    "gates": 27,
+    "failed_boundary_bits": [
+      5,
+      6,
+      8,
+      13,
+      15,
+      17,
+      18,
+      20
+    ],
+    "false_positives": 0,
+    "false_negatives": 700,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-frontier-p10-bz1.json",
+    "sha256": "96414926c814675a13ce88cf7aa067f64c8e5a85b5e936f7529c88296b70b05d",
+    "gates": 27,
+    "failed_boundary_bits": [
+      4,
+      6,
+      11,
+      16,
+      18
+    ],
+    "false_positives": 0,
+    "false_negatives": 408,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-17.json",
+    "sha256": "27445b9e1efe98cec3deb0fa185aeed1963322ded71be456862898451d698410",
+    "gates": 27,
+    "failed_boundary_bits": [
+      17
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-1.json",
+    "sha256": "86ddfa2d4756937509ed74fbefcde8d7bde1e99183f1f7640c2b652819b1ea0b",
+    "gates": 27,
+    "failed_boundary_bits": [
+      1
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-81/stochastic-branch-biased-near-12.json",
+    "sha256": "034b540497f485c22912674badd447cac190d4df4b75cf268931a8532a4b1d82",
+    "gates": 27,
+    "failed_boundary_bits": [
+      12
+    ],
+    "false_positives": 0,
+    "false_negatives": 47,
+    "bases_derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ],
+    "full_witness": false
+  }
+]

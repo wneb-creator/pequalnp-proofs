@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "source_sha256": "c99bb43c628b3c412a345658518678d881845be0d940e54ac96c575da9e8ffe7",
+  "lines": 2630,
+  "source": "results/orch/lemmas/constructive-fresh-count.lean"
+}

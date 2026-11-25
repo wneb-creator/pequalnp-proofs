@@ -38,3 +38,13 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 - A joint25 G/P/L mask reduction was considered but paused: it requires all21 edges quiet, and no plausible near-bound construction is known. Do not submit a likely false premise just because a slot opened.
 - Algebraic and status agents examine low/high eligible-cardinality cases for exact27 Fano circuits. Full refutation would target the exact negated twin L-meta-1480, without taking another lease.
 - Current full global CSE and generic SAT searches remain complementary to the equality analysis. Machine budget: five logical CPUs, coordinate proof builds with search workers.
+
+## Re-plan at 11:00 UTC
+
+- Direct minimal-circuit conversion now preserves the exact size, output, wires and all derivative traces while proving StrictLive; no destructive normalization of the witness is needed.
+- Compiled low equality: p7/p8 one-sided cases have Bzero=0. Compiled mixed2+2: Bplus>=13, hence Bzero<=1 at total surplus14.
+- Compiled high equality: Bzero=0 for p14, canonical p13, both p12 patterns, and p11 noncollinear. The p11 collinear/mixed cases remain unresolved.
+- Canonical p8 closure is in progress:14 carrier gates +7 exits +6 false OR gates exhaust27; carrier-linearity is intended to rule out quiet at the sole eligible point.
+- K4 minimum no-double-quiet is compiled in the exact strict-live10-input model. Strengthening cofactor bounds using its equality case needs explicit protected-input or lost-unit/fiber-slack bookkeeping.
+- Generic critical-input false-OR count is compiled: k individually critical inputs at a false base require at least k-1 false OR gates. This supplies37 new possible SAT cardinality constraints; any encoding extension needs independent review before a restart.
+- Broad SAT cutoff remains12:34UTC. One variable-length stochastic worker runs640 verified28/29/31 seeds with mixed branching preferences, capped at11:17:45UTC.

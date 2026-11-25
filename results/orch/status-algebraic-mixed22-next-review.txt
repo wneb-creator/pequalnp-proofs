@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "sha256": "a839b0aa0f03f1141a73c3b424dc760c0c54ce2103fc028d15fc47badd320495",
+  "lines": 9191,
+  "prior_reviewed_prefix_exact": true,
+  "new_lines": 22,
+  "full_log_bytes": [
+    0,
+    0
+  ],
+  "forbidden_markers": [],
+  "scope": "Automorphism pe_tau swaps pe_bs 3 and 7 and preserves pe_I, removing the ordering premise from the canonical mixed2+2 lower bound. Bplus>=13 plus totalSurplus<=14 yields Bzero<=1. No full equality/no-quiet claim."
+}

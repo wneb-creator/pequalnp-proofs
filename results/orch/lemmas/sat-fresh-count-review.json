@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T10:59:09.953501+00:00",
+  "source": "results/orch/lemmas/constructive-fresh-count.lean",
+  "sha256": "c99bb43c628b3c412a345658518678d881845be0d940e54ac96c575da9e8ffe7",
+  "scope": "exitGates and fresh_exit_count; intended logic unchanged after explicit Bool.not parse fix; source matches successful rebuild",
+  "checks": [
+    "Every selected ineligible consumer belongs to exitGates because its output singleton support is empty while its opposite operand contains a neighbor in P.",
+    "Gate-level injectivity handles both cases: equal operand positions yield equality of singleton labels; opposite positions force a label outside P to equal a neighbor in P, a contradiction.",
+    "The independently obtained fresh exit gate belongs to exitGates by its empty P-support and entering P-supported operand.",
+    "fresh_exit_not_pure excludes that gate from every selected consumer using i outside P and i\u2260v; the image equation is used in the correct direction.",
+    "The finite image is injective on I, and inserting the distinct fresh gate gives exactly I.card+1 elements inside exitGates.",
+    "No assumption that P is a full bipartition or consists of eligible labels is used; the stated per-label neighbor premise is sufficient.",
+    "The only source change after the initial review is explicit Bool.not in the opposite-slot identity. The new source hash matches the exit0 rebuild with empty stdout/stderr. No new Lean process started by this review."
+  ],
+  "issues": []
+}

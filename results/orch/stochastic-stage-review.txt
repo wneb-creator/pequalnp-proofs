@@ -1,0 +1,9 @@
+Independent preservation review by stochastic_search, 2026-11-25 around11:06 UTC: PASS, push-ready as an archival partial-results commit.
+
+Scope:102 staged files, all under results/orch/. No staged main proof change and no file outside that results tree. The six new Lean partial line counts exactly match validation.txt:7998,9191,2630,438,485,48. Existing mathematical reviews were not repeated.
+
+Claims: staged NOTES.md, TIMELINE.md and validation.txt consistently describe compiled partial lemmas and unresolved cases, retain checker REJECTED(no-theorem), make no target proof or full equality-classification claim, and describe search failure as bounded heuristic failure rather than UNSAT. The active640-seed stochastic run and11:17:45 UTC cap match the actual run. The64 selected immutable archive files and956340-byte total match the preservation manifest; the41 archived frontier-verification hashes match their snapshots.
+
+Sensitive-data hygiene: every staged blob was scanned for common GitHub/API credential formats, private-key markers, credential-bearing URL userinfo and literal Authorization values. No matches; no credential values were printed or written. No desk/lease payload is among the added search artifacts.
+
+Verdict: no blocking findings. This review approves preserving partial results on the designated fork branch, not submitting an incomplete proof PR.

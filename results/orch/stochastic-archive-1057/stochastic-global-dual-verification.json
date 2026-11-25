@@ -1,0 +1,25 @@
+{
+  "seeds": 64,
+  "full_truth_assignments_each": 16384,
+  "marked_inputs": [
+    0,
+    7
+  ],
+  "both_derivatives": false,
+  "duality_input_permutation": [
+    7,
+    13,
+    12,
+    11,
+    10,
+    9,
+    8,
+    0,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ]
+}

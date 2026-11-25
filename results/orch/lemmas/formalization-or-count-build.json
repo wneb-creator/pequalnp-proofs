@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "source_sha256": "6f052a59d08b08b4e961dce2f1490c3d4503c4f6a960f5efe6c3a3a942f60e90",
+  "source": "results/orch/lemmas/formalization-or-count.lean",
+  "lines": 438,
+  "warnings": "Only unused simp arguments and unnecessary simpa suggestions."
+}

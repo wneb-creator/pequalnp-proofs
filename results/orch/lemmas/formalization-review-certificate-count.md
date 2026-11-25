@@ -1,0 +1,3 @@
+Independent review: PASS.
+
+Reviewed structural-certificate-count.lean SHA256 692758418e024817da6a6757ef2d9db762be3b08a347806cb6ebbef1001ccd59. Inputs I lie below n while translated gate indices n+J lie at or above n, so their disjoint union has cardinality |I|+|J| and is contained in W. The cover of W by one output plus sources of one mandatory arc per J and one optional arc per O gives |W|≤|J|+|O|+1, without any injectivity assumption on sources. Combining the inequalities proves |I|≤|O|+1. No graph or semantic assumptions are hidden in the combinatorial lemma. Source reported compiled exit 0.

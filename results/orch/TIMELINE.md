@@ -24,3 +24,5 @@
 2026-11-25T10:47:20.143078+00:00 — Combined strict-live K4 obstruction compiled and independently reviewed. Preserving it. Full Fano equality analysis continues in low/high cases, together with direct Circuit/DAG trace transport.
 
 2026-11-25T10:52:31.545993+00:00 — Preserving direct trace-preserving minimality bridge, mixed2+2 bound, and independently reproducible SAT bundle. Searches and remaining Fano equality cases continue.
+
+2026-11-25T11:00:59.937110+00:00 — Equality and OR-count partials compiled and reviewed. Re-plan: close p8 by disjoint counts14+7+6 and carrier linearity; strengthen cofactor equality using protected inputs and strict loss; continue broad SAT and diversified stochastic search.

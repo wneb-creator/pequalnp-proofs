@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "source": "results/orch/lemmas/formalization-or-count.lean",
+  "sha256": "6f052a59d08b08b4e961dce2f1490c3d4503c4f6a960f5efe6c3a3a942f60e90",
+  "lines": 438,
+  "review_scope": "false_path_zero, exact copied certificate_input_card_le, and final false_or_count composition; prior false-certificate paths independently reviewed by sat_decomposition",
+  "checks": [
+    "Each critical input maps injectively into W using its false-to-true certificate path.",
+    "Every nonroot node in W has a first retained arc whose parent gate is in J. The true slot occurs only for OR gates in O.",
+    "Shifted gate indices n+J are disjoint from input indices I below n, yielding the lower node count.",
+    "Every O gate is false at the base by its path to the false output, so counting all base-false OR gates is a valid upper bound.",
+    "No output-last, liveness, ordinary-minimality, or no-quiet claim is added. The critical-input hypothesis is explicit.",
+    "Source hash matches exit0 receipt; complete stdout contains only linter suggestions and stderr is empty.",
+    "Namespace, exact helper inclusion, trust and format scans passed."
+  ]
+}
