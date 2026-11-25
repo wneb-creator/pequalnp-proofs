@@ -1,0 +1,19 @@
+{
+  "c4-qc-input-crosscheck.log": "2547da814fe7a52f3806562873d73845394f164603ff61c044767dd2f9c3526b",
+  "extract_c4_qc.py": "75b370d5898549d274e8554d89332fbf534c7581804deedb7005e34ba9adcd58",
+  "neogb-path-c4-qc-native-p1009-t1-b32-r1-basis.json": "c3cf6183caf060b9303583270b839fd8c32ca9a69d5563a7782731b581725f22",
+  "neogb-path-c4-qc-native-p1009-t1-b32-r1-wrapper.log": "288050fbb7bc4b3c3ee49e0e98a8455a2029ad07ab08e40a7331ce6b5fa651b1",
+  "neogb-path-c4-qc-native-p1009-t1-b32-r1.launch.json": "42234fdd91004749e5c42735621a3189d36bcb314e0f55507e0dfd1dd8d889f1",
+  "neogb-path-c4-qc-native-p1009-t1-b32-r1.log": "2a97360500779434134bb63fe03e972f0d25ddce7321268d72e055178c04d66a",
+  "neogb-path-c4-qc-native-p1009-t1-b32-r1.result.json": "3a8c6dda9cb2552260569e9c8aafd79d4c0bdeab0461644f20e1fb69d2771d8a",
+  "neogb-path-c4-qc-p1009-convert.log": "5c096987a473de980b7bc87da2a802e8d6ba82adbb40fe05adc6611e7db22248",
+  "neogb-path-c4-qc-p1009-preflight.log": "35eda434ba9b5bf528f756903c35c0183ca20fd2eee785eaa0100c1a855b2c4d",
+  "neogb-path-c4-qc-p1009.in": "fa5cca4d19043a2277eb4c74560c83890611761d3b0c4c2fdc82974a73bfc88d",
+  "neogb-path-c4-qc-p1009.provenance.json": "d48b527c408ca52b20dd83502320d697166308493de1d3a0d0c2db78ff070279",
+  "neogb_convert.py": "09b461db367df308982f51de66aa41535f0447b2a7e5e4d9b897b157e595b5d7",
+  "path-c4-equations.json": "95581baa94cc80db67d9a6a6025dfd9de935ae13f825cac51ef52f88081b50e1",
+  "path-c4-qc-equations.json": "3c88735245a6b44b3acb32fbee4997f5a543037d44eb79264af5ef11f9d08908",
+  "path-c4-qc-extraction.log": "df6d36503d3e34f3b7af9001fe9a822e2fb1a862e063a6b4ca83d29b84e8b753",
+  "review_neogb_field_input.py": "126e88533e97f16b475e931879c9115336f5e17f0b09892567a6ede51640a2f8",
+  "run_neogb_native.py": "c401c7783498b87691d6427570158b4ff9fc3d462b87c027dc40dfe15c7e5b40"
+}

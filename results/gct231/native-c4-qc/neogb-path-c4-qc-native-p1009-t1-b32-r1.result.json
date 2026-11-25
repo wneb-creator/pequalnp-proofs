@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-native-p1009-t1-b32-r1-basis.json",
+    "32",
+    "1"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 17.229024378999384,
+  "wall_limit_seconds": 600,
+  "memory_mib": 4096,
+  "threads": 1,
+  "cpu_soft_seconds": 602,
+  "library_sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711",
+  "child_maxrss_kib": 81300,
+  "binary_sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441",
+  "input_sha256": "fa5cca4d19043a2277eb4c74560c83890611761d3b0c4c2fdc82974a73bfc88d",
+  "unit_basis": true,
+  "basis_size": 1,
+  "output_sha256": "c3cf6183caf060b9303583270b839fd8c32ca9a69d5563a7782731b581725f22"
+}

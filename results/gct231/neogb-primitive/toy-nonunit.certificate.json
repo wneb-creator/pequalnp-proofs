@@ -1,0 +1,66 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/toy-nonunit.f4.in",
+  "trace": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/toy-nonunit.trace",
+  "variables": [
+    "x0",
+    "x1"
+  ],
+  "record_counts": {
+    "G": 2,
+    "I": 2,
+    "O": 4,
+    "M": 2
+  },
+  "verified_output_count": 4,
+  "proved_nonzero_constant": false,
+  "constant_step": null,
+  "needed_steps": [],
+  "steps": [
+    {
+      "index": 0,
+      "polynomial": [
+        [
+          [
+            0,
+            1
+          ],
+          "-1"
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 0
+      },
+      "parents": []
+    },
+    {
+      "index": 1,
+      "polynomial": [
+        [
+          [
+            0,
+            0
+          ],
+          "-1"
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 1
+      },
+      "parents": []
+    }
+  ]
+}

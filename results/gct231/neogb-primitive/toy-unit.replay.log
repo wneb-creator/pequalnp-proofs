@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/toy-unit.f4.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/toy-unit.trace", "variables": ["x0", "x1"], "record_counts": {"G": 3, "I": 3, "O": 6, "M": 7, "A": 4, "S": 2}, "verified_output_count": 6, "proved_nonzero_constant": true, "constant_step": 4}
+needed_steps 5 all_steps 5

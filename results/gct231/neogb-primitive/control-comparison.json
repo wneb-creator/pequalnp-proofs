@@ -1,0 +1,56 @@
+[
+  {
+    "name": "toy-unit",
+    "same_established_polynomials": true,
+    "old_trace_bytes": 441,
+    "new_trace_bytes": 441,
+    "counts": {
+      "G": 3,
+      "I": 3,
+      "O": 6,
+      "M": 7,
+      "A": 4,
+      "S": 2
+    }
+  },
+  {
+    "name": "toy-nonunit",
+    "same_established_polynomials": true,
+    "old_trace_bytes": 216,
+    "new_trace_bytes": 216,
+    "counts": {
+      "G": 2,
+      "I": 2,
+      "O": 4,
+      "M": 2
+    }
+  },
+  {
+    "name": "toy-rational",
+    "same_established_polynomials": true,
+    "old_trace_bytes": 278,
+    "new_trace_bytes": 278,
+    "counts": {
+      "G": 2,
+      "I": 2,
+      "O": 5,
+      "M": 4,
+      "A": 2,
+      "S": 2
+    }
+  },
+  {
+    "name": "rowzero",
+    "same_established_polynomials": true,
+    "old_trace_bytes": 29728,
+    "new_trace_bytes": 30029,
+    "counts": {
+      "G": 11,
+      "I": 11,
+      "O": 43,
+      "M": 141,
+      "S": 209,
+      "A": 566
+    }
+  }
+]

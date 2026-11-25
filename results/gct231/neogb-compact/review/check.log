@@ -1,0 +1,10 @@
+Frozen source: sparse-engine/cert_trace_compact.c 107f123fa3e4272a723ddb3877d770254a9d56b5cca945cc8125e184a7a2c24d
+Frozen source: sparse-engine/make_cert_trace_compact.py 0d31a55cd9fe29ad8e3314a7ddc201b241661ddc1c5f740875aa84b77809834f
+Frozen source: sparse-engine/run_neogb_trace_compact.py 85db8c94c59067bc83e1dd9bb95809508ab4820787da290c70b6b82f3a1c471d
+Frozen source: replay_neogb_compact.py a8151e7276578bc979b82d6bce6bba942e6ce9f1a2844a26a00527c173a47fa0
+PASS toy-unit M records 7 outputs 6 verified certificate steps 5 nonzero constant True
+PASS toy-nonunit M records 2 outputs 4 verified certificate steps 2 nonzero constant False
+PASS toy-rational M records 4 outputs 5 verified certificate steps 6 nonzero constant False
+PASS rowzero M records 141 outputs 43 verified certificate steps 51 nonzero constant True
+PASS all new M rows equal their corresponding independently recorded old input rows.
+PASS all compact output identities independently recomputed over exact QQ.

@@ -1,0 +1,9 @@
+# Compact exact-QQ trace adapter and capped C4 attempt
+
+The compact adapter replaces repeated input-polynomial snapshots with an earlier verified output node and a nonnegative monomial shift. Exact replay reconstructs that polynomial and verifies every subsequent output identity. It does not trust a solver basis verdict. The original adapter, provenance, license, and exact row-zero Lean calibration are preserved in `../neogb-trace/`.
+
+Independent review **PASS**: every one of 154 monomial references across three toy controls and the row-zero control matched the corresponding old actual input polynomial; all output polynomial sequences and all serialized certificate identities were independently checked over QQ. The review sources, full log, diffs, and original manifest are in `review/`. The row-zero trace fell from 57,269 to 29,728 bytes. Certificate parent decompositions may differ because a normalized prior output can replace an earlier scalar-equivalent generator; all identities are checked.
+
+The first compact C4 quadratic+cubic search ended **UNKNOWN_OUTPUT_FILE_SIZE_LIMIT**, SIGXFSZ after 86.7516 seconds at a 512 MiB trace cap. It completed 31 rounds and obtained no basis or unit verdict. Limits were 600 seconds, 4 GiB address space, one thread, and 32 critical pairs per batch. The 12-variable input contains only 6 quadratic and 10 cubic necessary equations; all 15 quartic coefficients are omitted. This concerns the fixed-C4 support family, not the full gap.
+
+The complete stdout/stderr, run metadata, exact input, source selection, and trace statistics/hash are preserved. The failed 512 MiB trace stays in scratch and is intentionally omitted; SHA256 `57e1677e9230c7bff9473ccb7d14ae62ab10ca501926575dc339bf5ece09185c`. A separately authorized enlarged run is outside this frozen snapshot. No new Lean theorem is claimed here.

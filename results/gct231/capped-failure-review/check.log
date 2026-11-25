@@ -1,0 +1,5 @@
+archive PASS c4-trace-capped 11 9e33fc8bae427fca26b5679aced397870da6f5d15a9a72ef72fd112d07f768eb
+status PASS SIGXFSZ 256 MiB 14.988737917001345 seconds; no basis/certificate; retainedinputhashesmatch
+archive PASS neogb-compact 57 9b5a8e468f97cd3a2a0c8eba8e03dd537bfc205ab83543366b4c32ddb75654c4
+status PASS SIGXFSZ 512 MiB 86.75161443699835 seconds; no basis/certificate; retainedinputhashesmatch
+PASS omitted failed raw traces were not reread or replayed; summaries remain diagnostics only

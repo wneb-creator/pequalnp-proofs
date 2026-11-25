@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 0.005748063998908037,
+  "seconds_limit": 30,
+  "memory_mib_limit": 1024,
+  "output_file_mib_limit": 256,
+  "pairs": 32,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/qqfix-sanity-rational-p0.in",
+  "input_sha256": "4a5520c71e1027da2f36bc4854e9f560907a67c288fb69a4373858874ea17dd9",
+  "companion_sha256": "b54961c21da6c1ec9576bd447e7362c51553e0fd7afd58c0d9c10bdc3a1b417f",
+  "binary_sha256": "7f424fb398ca7c5a758ba39e63461e9f0410f44975031f13936e4a7c1f89c669"
+}

@@ -1,0 +1,23 @@
+{
+  "raw_bytes": 536870912,
+  "raw_sha256": "57e1677e9230c7bff9473ccb7d14ae62ab10ca501926575dc339bf5ece09185c",
+  "counts": {
+    "G": 16,
+    "I": 16,
+    "O": 808,
+    "M": 61220,
+    "A": 512387,
+    "S": 24286
+  },
+  "bytes_by_kind": {
+    "G": 9606,
+    "I": 8279,
+    "O": 246427667,
+    "M": 2241777,
+    "A": 287048695,
+    "S": 1134888
+  },
+  "largest_line_bytes": 2860936,
+  "elapsed_seconds": 1.6655361859993718,
+  "scope": "Truncated unsuccessful trace; no certificate or solver verdict."
+}

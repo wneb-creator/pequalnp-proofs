@@ -1,0 +1,5 @@
+{"stem": "toy-unit", "trace_sha256": "664d918bc3923a8a42b03d1ffb096ee6f6ab6dec76f7499ea96ff8865c3bb6c7", "counts": {"G": 3, "I": 3, "O": 6, "M": 7, "A": 4, "S": 2}, "nonzero_constants": ["1", "1"], "verdict": "PASS"}
+{"stem": "toy-nonunit", "trace_sha256": "f53e521134ef434c0ceb68890c5df7e4b126e3e860d895ab32d6d05927d2c0ac", "counts": {"G": 2, "I": 2, "O": 4, "M": 2}, "nonzero_constants": [], "verdict": "PASS"}
+{"stem": "toy-rational", "trace_sha256": "0141fc3237c41cdde7435ff94dcb7de6ea49aaf61c806035007f68f29340cae7", "counts": {"G": 2, "I": 2, "O": 5, "M": 4, "A": 2, "S": 2}, "nonzero_constants": [], "verdict": "PASS"}
+{"stem": "rowzero", "trace_sha256": "41d6fba855ba506a92f6130cebd7d9b8ca9e460a0a1c4b3145aacfe26fbf4b4a", "counts": {"G": 11, "I": 11, "O": 43, "M": 141, "S": 209, "A": 566}, "nonzero_constants": ["1", "1"], "verdict": "PASS"}
+PASS exact original11equations/98terms -> sparse -> x0,x1,x2,x3 companion

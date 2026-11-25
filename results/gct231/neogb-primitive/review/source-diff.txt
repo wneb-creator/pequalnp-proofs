@@ -1,0 +1,51 @@
+--- sparse-engine/cert_trace_compact.c
++++ sparse-engine/cert_trace_primitive.c
+@@ -88,6 +88,30 @@
+     mpz_t negative;mpz_init(negative);mpz_neg(negative,v);gmp_fprintf(ct_log,"%Zd\n",negative);mpz_clear(negative);
+     ct_put(&ct_nodes,target,id);
+ }
++/* Divide the entire logical row by its positive content. Earlier consumed
++ * dense entries are intentionally excluded: their columns have already been
++ * eliminated. Retained cf entries are part of the row and must be included. */
++static void ct_primitive_dense_row(mpz_t *dense,mpz_t *retained,len_t retained_count,
++                                   hi_t first,hi_t end) {
++    mpz_t content;
++    mpz_init_set_ui(content,0);
++    for (len_t j=0;j<retained_count && mpz_cmp_ui(content,1)!=0;j++) {
++        if (mpz_sgn(retained[j])) mpz_gcd(content,content,retained[j]);
++    }
++    for (hi_t j=first;j<end && mpz_cmp_ui(content,1)!=0;j++) {
++        if (mpz_sgn(dense[j])) mpz_gcd(content,content,dense[j]);
++    }
++    if (mpz_cmp_ui(content,1)>0) {
++        for (len_t j=0;j<retained_count;j++) mpz_divexact(retained[j],retained[j],content);
++        for (hi_t j=first;j<end;j++) {
++            if (mpz_sgn(dense[j])) mpz_divexact(dense[j],dense[j],content);
++        }
++        mpz_t one;mpz_init_set_ui(one,1);
++        ct_scale(dense,one,content);
++        mpz_clear(one);
++    }
++    mpz_clear(content);
++}
+ static void ct_print_poly(const hm_t *row,mpz_t *coefficients,const ht_t *ht) {
+     for (len_t i=0;i<row[LENGTH];i++) {
+         if (i) fputs(" + ",ct_log);
+--- sparse-engine/certificate-trace-compact/src/neogb/la_qq.c
++++ sparse-engine/certificate-trace-primitive/src/neogb/la_qq.c
+@@ -275,6 +275,7 @@
+     hm_t *dts;
+     mpz_t *cfs;
+     int64_t np  = -1;
++    unsigned ct_reductions=0;
+     const len_t ncols         = mat->nc;
+     const len_t ncl           = mat->ncl;
+     mpz_t * const * const mcf = mat->cf_qq;
+@@ -343,6 +344,7 @@
+             mpz_submul(dr[ds[j+2]], mul2, cfs[j+2]);
+             mpz_submul(dr[ds[j+3]], mul2, cfs[j+3]);
+         }
++        if (++ct_reductions % 8 == 0) ct_primitive_dense_row(dr,cf,rlen,i+1,ncols);
+     }
+     if (rlen != 0) {
+         row     = realloc(row, (unsigned long)(rlen+OFFSET) * sizeof(hm_t));

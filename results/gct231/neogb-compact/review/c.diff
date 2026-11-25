@@ -1,0 +1,72 @@
+--- sparse-engine/cert_trace.c
++++ sparse-engine/cert_trace_compact.c
+@@ -6,6 +6,7 @@
+ 
+ typedef struct { uintptr_t *keys; uint64_t *values; size_t cap, used; } ct_map;
+ static ct_map ct_nodes = {0}, ct_coeff_rows = {0};
++static ct_map ct_source_nodes = {0}, ct_source_exps = {0};
+ static FILE *ct_log = NULL;
+ static uint64_t ct_next = 0;
+ static int ct_nvars = 0;
+@@ -49,6 +50,21 @@
+     while (m->keys[i] && m->keys[i]!=key) i=(i+1)&(m->cap-1);
+     if (!m->keys[i]) ct_fail("untracked row or coefficient array");
+     return m->values[i];
++}
++static uint64_t ct_find(const ct_map *m,const void *pointer) {
++    if (!m->cap || !pointer) return 0;
++    uintptr_t key=(uintptr_t)pointer;
++    size_t i=ct_hash(key,m->cap);
++    while (m->keys[i] && m->keys[i]!=key) i=(i+1)&(m->cap-1);
++    return m->keys[i] ? m->values[i] : 0;
++}
++static void ct_copy_exps(int *target,const exp_t *source,const ht_t *ht) {
++    int variable=0;
++    for (len_t j=1;j<ht->evl;j++) {
++        if (j==ht->ebl) continue;
++        target[variable++]=(int)source[j];
++    }
++    if (variable!=ct_nvars) ct_fail("exponent-vector dimension");
+ }
+ static void ct_bind(const void *target,const void *source) {
+     if (ct_log) ct_put(&ct_nodes,target,ct_get(&ct_nodes,source));
+@@ -96,13 +112,37 @@
+     if (!ct_log) return;
+     if (!ct_basis) ct_fail("basis unavailable");
+     uint64_t id=++ct_next;ct_put(&ct_nodes,row,id);
+-    fprintf(ct_log,"I\t%"PRIu64"\t",id);
+-    ct_print_poly(row,ct_basis->cf_qq[row[COEFFS]],ht);
++    mpz_t *coefficients=ct_basis->cf_qq[row[COEFFS]];
++    uint64_t parent=ct_find(&ct_source_nodes,coefficients);
++    if (parent) {
++        int *old_exps=(int*)(uintptr_t)ct_get(&ct_source_exps,coefficients);
++        int *new_exps=malloc((size_t)ct_nvars*sizeof(*new_exps));
++        if (!new_exps) ct_fail("exponent allocation");
++        ct_copy_exps(new_exps,ht->ev[row[OFFSET]],ht);
++        fprintf(ct_log,"M\t%"PRIu64"\t%"PRIu64"\t",id,parent);
++        for (int j=0;j<ct_nvars;j++) {
++            int shift=new_exps[j]-old_exps[j];
++            if (shift<0) ct_fail("negative monomial shift");
++            fprintf(ct_log,j ? ",%d" : "%d",shift);
++        }
++        fputc('\n',ct_log);free(new_exps);
++    } else {
++        fprintf(ct_log,"I\t%"PRIu64"\t",id);
++        ct_print_poly(row,coefficients,ht);
++    }
+ }
+ static void ct_output(hm_t *row,mpz_t *coefficients,const ht_t *ht) {
+     if (!ct_log) return;
+     fprintf(ct_log,"O\t%"PRIu64"\t",ct_get(&ct_nodes,row));
+     ct_print_poly(row,coefficients,ht);fflush(ct_log);
++    int *exps=(int*)(uintptr_t)ct_find(&ct_source_exps,coefficients);
++    if (!exps) {
++        exps=malloc((size_t)ct_nvars*sizeof(*exps));
++        if (!exps) ct_fail("source exponent allocation");
++        ct_put(&ct_source_exps,coefficients,(uint64_t)(uintptr_t)exps);
++    }
++    ct_copy_exps(exps,ht->ev[row[OFFSET]],ht);
++    ct_put(&ct_source_nodes,coefficients,ct_get(&ct_nodes,row));
+ }
+ static void ct_initialize_basis(bs_t *bs) {
+     if (!ct_log) return;

@@ -1,0 +1,48 @@
+{
+  "prepared_utc": "2026-11-25T10:49:16.336664+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/run_neogb_native.py",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-native-p1009-t2-b32-r2-basis.json",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-native-p1009-t2-b32-r2",
+    "--seconds",
+    "600",
+    "--memory-mib",
+    "6144",
+    "--pairs",
+    "32",
+    "--threads",
+    "2"
+  ],
+  "files": {
+    "input": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-p1009.in",
+      "sha256": "202aaa5800a1c3bf5ad98a2ee245d8c746c739a12055cf9058cb622cc6a7e242"
+    },
+    "wrapper": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/run_neogb_native.py",
+      "sha256": "c401c7783498b87691d6427570158b4ff9fc3d462b87c027dc40dfe15c7e5b40"
+    },
+    "binary": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+      "sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441"
+    },
+    "library": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/libneogb_native.so",
+      "sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711"
+    },
+    "control_result": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-support-native-p1009-b32-control.result.json",
+      "sha256": "45ca6b76fe4c3b76d6a3dde645f75cda253ffac2475c3cc1fbec1749cb8646ac"
+    },
+    "source_equations": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/star-full-generate-equations.json",
+      "sha256": "805790ef29f0a42c6a57f50e05ef991bd0c2bce219fcd951a4b0965cafcfa1af"
+    }
+  },
+  "pair_setting": 32,
+  "pair_behavior": "Upstream may include additional pairs sharing an LCM at the selection boundary; control has32 and33 selections.",
+  "lease_renewed_utc": "2026-11-25T10:48:46+00:00",
+  "lease_expiry_utc": "2026-11-25T11:08:46.263+00:00"
+}

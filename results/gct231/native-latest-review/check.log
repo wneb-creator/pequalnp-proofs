@@ -1,0 +1,8 @@
+archive PASS native-star-b32-r2 7 8e7952e8fc121c96dea4006f4bc6eae2d4f92cda1dc844f31172b79494829f44
+status PASS UNKNOWN600.085s;126completedrounds;no basis;input unchanged
+archive PASS native-c4-qc 17 f1be8e19526bbf50bdde4baf975b2c1e9f910827e5e84d57872741e2886f72d4
+status PASS modular[1];17.229s;144pairrounds+finalreduction;notQQcertificate
+selection PASS exact ordered6quadratic+10cubic subset; other chart data unchanged
+input PASS all16 exact primitiveQQ rows/492terms; hence equalF1009; invertible scalings
+crosscheck PASS QQ input body byte-identical; only characteristic differs
+PASS no solver rerun, no claim of characteristic-zero inconsistency

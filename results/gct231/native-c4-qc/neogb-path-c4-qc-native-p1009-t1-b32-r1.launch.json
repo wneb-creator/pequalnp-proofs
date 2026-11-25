@@ -1,0 +1,57 @@
+{
+  "prepared_utc": "2026-11-25T11:00:01.873306+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/run_neogb_native.py",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-native-p1009-t1-b32-r1-basis.json",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-native-p1009-t1-b32-r1",
+    "--seconds",
+    "600",
+    "--memory-mib",
+    "4096",
+    "--pairs",
+    "32",
+    "--threads",
+    "1"
+  ],
+  "files": {
+    "input": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-p1009.in",
+      "sha256": "fa5cca4d19043a2277eb4c74560c83890611761d3b0c4c2fdc82974a73bfc88d"
+    },
+    "wrapper": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/run_neogb_native.py",
+      "sha256": "c401c7783498b87691d6427570158b4ff9fc3d462b87c027dc40dfe15c7e5b40"
+    },
+    "binary": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+      "sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441"
+    },
+    "library": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/libneogb_native.so",
+      "sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711"
+    },
+    "source_equations": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/path-c4-qc-equations.json",
+      "sha256": "3c88735245a6b44b3acb32fbee4997f5a543037d44eb79264af5ef11f9d08908"
+    },
+    "full_source": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/path-c4-equations.json",
+      "sha256": "95581baa94cc80db67d9a6a6025dfd9de935ae13f825cac51ef52f88081b50e1"
+    },
+    "qq_crosscheck": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/c4-qc-input-crosscheck.log",
+      "sha256": "2547da814fe7a52f3806562873d73845394f164603ff61c044767dd2f9c3526b"
+    },
+    "preflight": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-path-c4-qc-p1009-preflight.log",
+      "sha256": "35eda434ba9b5bf528f756903c35c0183ca20fd2eee785eaa0100c1a855b2c4d"
+    }
+  },
+  "scope": "Only quadratic and cubic necessary equations; quartic constraints omitted.",
+  "pair_setting": 32,
+  "pair_behavior": "Upstream may include extra same-LCM boundary ties.",
+  "lease_renewed_utc": "2026-11-25T10:59:27+00:00",
+  "lease_expiry_utc": "2026-11-25T11:19:26.864+00:00"
+}
