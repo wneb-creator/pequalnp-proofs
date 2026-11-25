@@ -8,3 +8,7 @@
 - 2026-11-25T15:44:19.977326+00:00: three combinatorial helpers built and independently reviewed; preparing first partial push.
 - 2026-11-25T15:47:03.428976+00:00: lemma_search compiled three centre/support helpers; full library-route candidate passes.
 - 2026-11-25T15:47:24.578185+00:00: combined semantic support and monotone AND-bypass helpers compiled; partial checkpoint 2.
+- 2026-11-25T15:49:28.493056+00:00: ledger checkpoint of 11 helper lemmas compiled and published.
+- 2026-11-25T15:50:12.800153+00:00: lemma_search compiled abstract selected-DAG vertex cover and paid-union cardinal bound.
+- 2026-11-25T15:50:54.695788+00:00: ledger private-edge selection lemma compiled; 12-helper checkpoint published.
+- 2026-11-25T15:52:15.595234+00:00: semantic DAG gate-count helpers and abstract output pruning reviewed; partial checkpoint 3.

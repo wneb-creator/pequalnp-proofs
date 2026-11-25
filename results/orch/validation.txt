@@ -8,3 +8,7 @@ TIMING total=21 subagents=6
 
 Checkpoint 2: named module build passed; independent review approved helpers only.
 Exact posted theorem remains unproved; no exact-statement checker acceptance.
+
+Checkpoint 3: named module (391 lines) build passed; independently reviewed semantic DAG count.
+Pruning candidate compiled separately; full log library-pruning-build.txt.
+Full target theorem still absent; no PR or exact-statement acceptance.

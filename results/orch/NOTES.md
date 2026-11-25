@@ -38,3 +38,29 @@ Only exact tCount occurrence in Outside is L_meta_4791 (T=0 conversion at factor
 `results/orch/lemmas/library_route.lean` compiles with pinned Lean (exit 0): row_centres_unique, column_centres_unique, or_support_injective. These are generic C4-free centre uniqueness and OR support extensionality facts, helpers in final namespace. Log: /tmp/oec/pequalnp-pilot-154/library-route-build.log.
 
 Further search: L_meta_1006 refutes generic C4-free AND-count >= cover using a nonbipartite 11-vertex graph, 6 AND gates, cover >=7. L_meta_217 and L_meta_2399 prove that count only for t<=5. L_meta_7653 proves |accepted edges|+|accepted matching|<=size+1 for OR-block then AND-block shape.
+
+## Ledger 2026-11-25T15:48:05.977538+00:00
+
+Eight helper lemmas compile (ledger-build-4.log empty, exit 0). Added same-side finite-OR support uniqueness, impossibility of nonempty point OR = line OR, and star_family_cover_card / star_family_ledger. The latter extracts a vertex cover S from any finite edge-covering star family indexed by I: |S| <= |I|, |E| <= sum_i |B_i|, and final desired graph bound follows from sum_i |B_i| + |I| <= circuit size + 1. Multiple disjoint witness supports at one centre require retaining their root/component count, not replacing it by one.
+
+- 2026-11-25T15:48:37.940564+00:00 structural_proof: checked pure_or_root_count (245 lines total structural candidate). For any monotone binary AND/OR DAG with singleton-support small on inputs, roots all semantically below OR(Q), total union of root singleton supports has cardinal <= number of roots + number of OR gates below OR(Q) with singleton-support cardinal >1. Correctly handles arbitrary AND intersections via maximal-complement bypass. Snapshot structural-checked-2.lean, clean compile log structural-count-build.log.
+
+## Ledger 2026-11-25T15:49:28.493056+00:00
+
+Published checked checkpoint with 11 lemmas (ledger-build-5.log, exit 0). Added star_line_centre_unique and point_centre_unique_of_same_function / line_centre_unique_of_same_function, so same semantic star-OR function cannot be assigned distinct centres. Candidate is stable; further development stays in scratch until checked.
+
+- 2026-11-25T15:49:39.666273+00:00 counterexample: Random search completed 6,462,553 valid T=0 AND/OR circuits (6/8/10 inputs, 360 s). It found 534,496 C4-free quadratic outputs, covering 9,351 distinct labeled graphs, and no gate count below |E|+matching−1 after pruning unused gates. Every candidate function was checked by its complete truth table. This is randomized evidence only and does not prove the general statement. Full script/log: /tmp/oec/pequalnp-pilot-154/counterexample/random_search.py and random-search.log.
+
+- Counterexample audit: L_meta_1006 only verifies a six-AND circuit on maximal independent sets and their one-vertex extensions, not on every input; it does not directly refute the AND-count lower bound for an exact edge function. Its graph also has triangles and a pentagon, hence is not bipartite.
+
+- 2026-11-25T15:50:05.300107+00:00 counterexample: C6 seven-gate T=0 MILP search reached its 120-second limit with no feasible solution and no infeasibility proof (2,993 nodes). A fixed eight-gate positive control passed the same encoding with all constraints satisfied. Treat seven-gate feasibility as UNVERIFIED, not disproved. Logs: counterexample/milp-search.log and milp-control.log under task scratch. Counterexample strategy has produced no refutation; ready for reassignment.
+
+## Abstract output-pruning engine — 2026-11-25T15:50:12.800153+00:00
+
+`results/orch/lemmas/library_route.lean` now has only substantive pruning helpers in namespace PEqualNP.Outside.L_meta_4970.Pruning; duplicate centre facts removed. Pinned Lean compilation passed, exit 0, log /tmp/oec/pequalnp-pilot-154/library-pruning-build.log. `selected_dag_cover` handles arbitrary bipartite endpoint embeddings: input supports size<=1, selected-child gates, paid binary-union gates, dead gates. Accepted graph edges induce a vertex cover support(root), with cardinal <=1+(range total intersect paid). For parent retained-subDAG application, use empty support and false hit at inactive wires, and put active OR gates in paid.
+
+Canonical simultaneous choice tools found in L_meta_3765 and L_meta_6015; latter canon_sub gives a single selector assignment simultaneously respecting any target support bound available under some assignment.
+
+## Ledger 2026-11-25T15:50:54.695788+00:00
+
+Published checked checkpoint with 12 lemmas (ledger-build-6.log, exit 0). New exists_private_edge_subfamily: from any finite star/edge family covering E, selects a subfamily J still covering E such that each selected index has a private edge e in E belonging to its set and no other selected set. Proof chooses minimum cardinality with Nat.find and deletes redundant members. This may support careful root selection; it does not prove any circuit AND count.
