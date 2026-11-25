@@ -860,4 +860,259 @@ lemma first_or_twins_uniform {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
 
 end TwinLeaf
 
+namespace TwinLeaf
+namespace SingleRead
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+
+lemma fold_length (gs : List Gate) (xs : List Bool) :
+    (gs.foldl step xs).length = xs.length + gs.length := by
+  induction gs generalizing xs with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [step]
+    omega
+
+lemma pair_input_compare {n : ℕ} (u v w : Fin n) :
+    ∀ i, i ≠ u.val → (List.ofFn (pairInput u w)).getD i false = true →
+      (List.ofFn (pairInput v w)).getD i false = true := by
+  intro i hi hx
+  by_cases hin : i < n
+  · let j : Fin n := ⟨i, hin⟩
+    change (List.ofFn (pairInput u w)).getD j.val false = true at hx
+    change (List.ofFn (pairInput v w)).getD j.val false = true
+    rw [ofFn_get] at hx ⊢
+    simp only [pairInput, decide_eq_true_eq] at hx ⊢
+    rcases hx with h | h
+    · exact False.elim (hi (congrArg Fin.val h))
+    · exact Or.inr h
+  · simp [List.getD_eq_getElem?_getD, hin] at hx
+
+lemma singleton_input_compare {n : ℕ} (v w : Fin n) :
+    ∀ i, (List.ofFn (pairInput v v)).getD i false = true →
+      (List.ofFn (pairInput v w)).getD i false = true := by
+  intro i hx
+  by_cases hin : i < n
+  · let j : Fin n := ⟨i, hin⟩
+    change (List.ofFn (pairInput v v)).getD j.val false = true at hx
+    change (List.ofFn (pairInput v w)).getD j.val false = true
+    rw [ofFn_get] at hx ⊢
+    simp only [pairInput, decide_eq_true_eq, or_self] at hx
+    simp [pairInput, hx]
+  · simp [List.getD_eq_getElem?_getD, hin] at hx
+
+lemma arbitrary_or_pair_compare {n : ℕ} (C : Circuit) (u v w : Fin n)
+    (pre post : List Gate) (g : Gate) (t : ℕ) (huv : u ≠ v)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hsupport : (C.wires (List.ofFn (pairInput v v))).getD t false = true)
+    (hout : C.output ≠ u.val) :
+    circuitFun n C (pairInput u w) = true → circuitFun n C (pairInput v w) = true := by
+  have htmem : t ∈ g.inputs := by rcases hinputs with h | h <;> simp [h]
+  have hgate : gateAt C pre.length = g := by
+    simp [gateAt, hshape, List.getD_eq_getElem?_getD]
+  have ht : t < n + pre.length := by
+    apply hao.2.1 pre.length (by simp [hshape])
+    rwa [hgate]
+  have hs : (pre.foldl step (List.ofFn (pairInput v v))).getD t false = true := by
+    unfold Circuit.wires at hsupport
+    rw [hshape, List.foldl_append] at hsupport
+    change ((g :: post).foldl step (pre.foldl step (List.ofFn (pairInput v v)))).getD t false = true at hsupport
+    rw [fold_get _ _ _ (by simpa [fold_length] using ht)] at hsupport
+    exact hsupport
+  have htn : t ≠ u.val := by
+    intro he
+    rw [he, fold_get _ _ _ (by simp), ofFn_get] at hs
+    simp [pairInput, huv] at hs
+  have hpre : ∀ q ∈ pre, q.op = GateOp.and ∨ q.op = GateOp.or := by
+    intro q hq
+    exact hao.1 q (by rw [hshape]; simp [hq])
+  have hnpre : ∀ q ∈ pre, u.val ∉ q.inputs := by
+    intro q hq
+    exact hno q (by simp [hq])
+  have hpost : ∀ q ∈ post, q.op = GateOp.and ∨ q.op = GateOp.or := by
+    intro q hq
+    exact hao.1 q (by rw [hshape]; simp [hq])
+  have hnpost : ∀ q ∈ post, u.val ∉ q.inputs := by
+    intro q hq
+    exact hno q (by simp [hq])
+  have httrue : (pre.foldl step (List.ofFn (pairInput v w))).getD t false = true := by
+    apply fold_compare pre _ _ (by simp) _ hpre hnpre t htn hs
+    intro i _ hi
+    exact singleton_input_compare v w i hi
+  have hright : g.op.eval (g.inputs.map fun i =>
+      (pre.foldl step (List.ofFn (pairInput v w))).getD i false) = true := by
+    rcases hinputs with hi | hi <;>
+      simp only [hop, hi, List.map_cons, List.map_nil, GateOp.eval, List.any_cons,
+        List.any_nil, id_eq, Bool.or_false, httrue, Bool.or_true, Bool.true_or]
+  unfold circuitFun Circuit.eval Circuit.wires
+  rw [hshape, List.foldl_append, List.foldl_append, List.foldl_cons, List.foldl_cons]
+  change (post.foldl step (step (pre.foldl step (List.ofFn (pairInput u w))) g)).getD C.output false = true →
+    (post.foldl step (step (pre.foldl step (List.ofFn (pairInput v w))) g)).getD C.output false = true
+  apply fold_compare post _ _ (by simp [step, fold_length]) _ hpost hnpost C.output hout
+  apply append_compare (by simp [fold_length])
+  · exact fold_compare pre _ _ (by simp) (pair_input_compare u v w) hpre hnpre
+  · intro _
+    exact hright
+
+lemma arbitrary_or_single_read {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u v : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ) (huv : u ≠ v)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hsupport : (C.wires (List.ofFn (pairInput v v))).getD t false = true)
+    (hfun : circuitFun n C = graphFun G ∅) :
+    ¬ G.Adj u v ∧ G.neighborSet u ⊆ G.neighborSet v := by
+  have hc (w : Fin n) (hw : G.Adj u w) : G.Adj v w := by
+    apply (graph_pair G v w).1
+    rw [← hfun]
+    apply arbitrary_or_pair_compare C u v w pre post g t huv hshape hop hinputs hao hno hsupport
+      (output_ne G C hfun u)
+    rw [hfun]
+    exact (graph_pair G u w).2 hw
+  exact ⟨fun huv => G.irrefl (hc v huv), hc⟩
+
+lemma arbitrary_or_single_read_degree {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u v : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ) (huv : u ≠ v)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hsupport : (C.wires (List.ofFn (pairInput v v))).getD t false = true)
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G) :
+    G.degree u ≤ 1 := by
+  have hsub := (arbitrary_or_single_read G C u v pre post g t huv hshape hop hinputs hao hno hsupport hfun).2
+  have hcard : (G.neighborFinset u).card ≤
+      (Finset.univ.filter fun w => G.Adj u w ∧ G.Adj v w).card := by
+    apply Finset.card_le_card
+    intro w hw
+    have huw := (G.mem_neighborFinset u w).1 hw
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+    exact ⟨huw, hsub huw⟩
+  rw [G.card_neighborFinset_eq_degree] at hcard
+  exact hcard.trans (hfour u v huv)
+
+end SingleRead
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+
+lemma deadRun_reader_saves (pre post : List Gate) (g : Gate) (t i : ℕ)
+    (hinputs : g.inputs = [i, t] ∨ g.inputs = [t, i])
+    (bs : List Bool) (hi : i < bs.length) (hb : bs.getD i true = true) :
+    1 ≤ (Restrict.deadRun bs (pre ++ g :: post)).2 := by
+  induction pre generalizing bs with
+  | nil =>
+    rcases hinputs with h | h <;>
+      simp only [List.nil_append, Restrict.deadRun, h, List.getD_cons_zero, List.getD_cons_succ] <;>
+      rw [hb] <;> simp
+  | cons q pre ih =>
+    let a := bs.getD (q.inputs.getD 0 0) true
+    let b := bs.getD (q.inputs.getD 1 0) true
+    let bs' := bs ++ [Restrict.blockStep q.op a b]
+    have hi' : i < bs'.length := by simp [bs']; omega
+    have hb' : bs'.getD i true = true := by
+      rw [List.getD_append _ _ _ _ hi]
+      exact hb
+    have h := ih bs' hi' hb'
+    simp only [List.cons_append, Restrict.deadRun]
+    change 1 ≤ (if a || b then 1 else 0) + (Restrict.deadRun bs' (pre ++ g :: post)).2
+    omega
+
+lemma or_reader_saves_one {n : ℕ} (C : Circuit) (u v : Fin n)
+    (pre post : List Gate) (g : Gate)
+    (hshape : C.gates = pre ++ g :: post) (hinputs : g.inputs = [u.val, v.val]) :
+    1 ≤ Restrict.blockedCount n u C := by
+  unfold Restrict.blockedCount
+  rw [hshape]
+  apply deadRun_reader_saves pre post g v.val u.val (Or.inl hinputs)
+  · simp [Restrict.initialDead]
+  · simp [Restrict.initialDead]
+
+lemma input_singleton_support {n : ℕ} (C : Circuit) (v : Fin n) :
+    (C.wires (List.ofFn (PEqualNP.EdgeOwnership.pairInput v v))).getD v.val false = true := by
+  change (C.gates.foldl SingleRead.step (List.ofFn (PEqualNP.EdgeOwnership.pairInput v v))).getD v.val false = true
+  rw [SingleRead.fold_get _ _ _ (by simp)]
+  simp [PEqualNP.EdgeOwnership.pairInput]
+
+lemma or_reader_positive_of_least {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (u v : Fin n) (pre post : List Gate) (g : Gate)
+    (hshape : C.gates = pre ++ g :: post) (hinputs : g.inputs = [u.val, v.val])
+    (hmin : IsLeastAO G C) : 0 < G.degree u := by
+  classical
+  by_contra hpos
+  have hn : ∀ t : Fin n, ¬ G.Adj u t := by
+    intro t ht
+    exact hpos ht.degree_pos_left
+  have hcut : G.deleteEdges (G.incidenceSet u) = G := by
+    ext a b
+    rw [cut_adj_iff]
+    constructor
+    · exact fun h => h.1
+    · intro hab
+      refine ⟨hab, ?_, ?_⟩
+      · intro ha
+        subst a
+        exact hn b hab
+      · intro hb
+        subst b
+        exact hn a hab.symm
+  obtain ⟨D, hD, hf, hsize⟩ := Restrict.exists_blocked_restriction n u C hmin.1
+  have hfunD : circuitFun n D = NestedCover.graphFun G ∅ := by
+    rw [hmin.2.1] at hf
+    rw [← cut_semantics G u] at hf
+    refine hf.trans ?_
+    funext y
+    simp [hcut, NestedCover.graphFun]
+  have hm := hmin.2.2 D hD hfunD
+  have hs := or_reader_saves_one C u v pre post g hshape hinputs
+  omega
+
+lemma arbitrary_or_twin_cut {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u v : Fin n) (pre post : List Gate) (g : Gate) (huv : u ≠ v)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, v.val])
+    (hAO : IsAO2 n C) (hfun : circuitFun n C = NestedCover.graphFun G ∅)
+    (hno_u : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hno_v : ∀ q ∈ pre ++ post, v.val ∉ q.inputs)
+    (hfour : NoFourCycle G) (hpos : 0 < G.degree u) : CutWitness G u C := by
+  have hsupportu := input_singleton_support C u
+  have hsupportv := input_singleton_support C v
+  have hdeg : G.degree u = 1 := by
+    have := SingleRead.arbitrary_or_single_read_degree G C u v pre post g v.val huv
+      hshape hop (Or.inl hinputs) hAO hno_u hsupportv hfun hfour
+    omega
+  obtain ⟨w, huw, hu⟩ := SimpleGraph.degree_eq_one_iff_existsUnique_adj.mp hdeg
+  have hsubu := (SingleRead.arbitrary_or_single_read G C u v pre post g v.val huv
+    hshape hop (Or.inl hinputs) hAO hno_u hsupportv hfun).2
+  have hsubv := (SingleRead.arbitrary_or_single_read G C v u pre post g u.val huv.symm
+    hshape hop (Or.inr hinputs) hAO hno_v hsupportu hfun).2
+  have hvw : G.Adj v w := hsubu huw
+  have hv : ∀ t : Fin n, G.Adj v t → t = w := fun t ht => hu t (hsubv ht)
+  obtain ⟨D, hD, hf, hsize⟩ := Restrict.exists_blocked_restriction n u C hAO
+  have hfunD : circuitFun n D = (fun y : Fin n → Bool =>
+      @decide (∃ a b : Fin n, (G.deleteEdges (G.incidenceSet u)).Adj a b ∧
+        y a = true ∧ y b = true) (Classical.propDecidable _)) := by
+    rw [hfun] at hf
+    exact hf.trans (cut_semantics G u).symm
+  apply cutWitness_of_twin_leaves G u v w huv huw hvw hu hv C D hD hfunD
+  have hs := or_reader_saves_one C u v pre post g hshape hinputs
+  omega
+
+lemma arbitrary_or_twins_uniform {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u v : Fin n) (pre post : List Gate) (g : Gate) (huv : u ≠ v)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, v.val])
+    (hno_u : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hno_v : ∀ q ∈ pre ++ post, v.val ∉ q.inputs)
+    (hfour : NoFourCycle G) (hmin : IsLeastAO G C) :
+    ∃ z : Fin n, 0 < G.degree z ∧ ∀ E : Circuit, IsAO2 n E →
+      circuitFun n E = NestedCover.graphFun G ∅ → CutWitness G z E := by
+  have hpos := or_reader_positive_of_least G C u v pre post g hshape hinputs hmin
+  have hcut := arbitrary_or_twin_cut G C u v pre post g huv hshape hop hinputs
+    hmin.1 hmin.2.1 hno_u hno_v hfour hpos
+  exact ⟨u, hpos, fun E hE hf => cutWitness_mono G u C E (hmin.2.2 E hE hf) hcut⟩
+
+end TwinLeaf
+
 end PEqualNP.Outside.L_meta_3566
