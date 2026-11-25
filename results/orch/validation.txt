@@ -156,3 +156,16 @@ Named file remains7090 lines; official checker still has no verdict after
 its documented memory failures. Additional line-word correspondence is
 being checked separately and is not claimed here.
 TIMING total=158 subagents=10
+
+Checkpoint 14: the complete q3 word-certificate engine is kernel checked
+and independently reviewed at SHA256
+dde1d025dc56067bfbe129cd1b6b5bafcbb3711f3768dc353cca0c425fbbb4e0.
+It proves full semantics for any AO2 circuit satisfying its two numeric
+word equalities; all positive/negative table correspondence is now proved
+in Lean. The known64-gate control instantiates it. This remains partial:
+no63-gate counterexample and no proof of the posted universal statement.
+The complete compiler log is q3word-certificate-build.log (exit0).
+Initial checkpoint13 push failed GitHub authentication; the installed
+shared helper recovered on its safe read retry and the identical immutable
+commit was then pushed successfully. Existing credentials were unchanged.
+TIMING total=159 subagents=10
