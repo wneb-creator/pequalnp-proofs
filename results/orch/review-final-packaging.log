@@ -1,0 +1,9 @@
+Staged files 96 total bytes 1029588 all under results/orch, regular files, index equals working copies
+Credential-shaped pattern scan: no hits; no environment credentials accessed
+Staged path/content fingerprint SHA256 f36a130271537a53737ceff5a053400379d73d9fb11d3a965d18c91b53b2e345
+Named Lean unchanged from HEAD/index: 7090 lines,333774 bytes; expected reviewed hash and forbidden-text checks pass
+Nine text-only draft snapshots match all manifest hashes/counts; no admission/axiom/evaluation-shortcut tokens; explicit no-build-claim status
+Seven finished search archives verified: 147 query JSON records, every status UNKNOWN
+subset-roots7-core complete server log byte-identical to finished scratch log
+subset-roots8-core complete server log byte-identical to finished scratch log
+Build and checker reports match retained logs; final theorem absent, no full-proof or checker-acceptance claim

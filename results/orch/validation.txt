@@ -207,3 +207,15 @@ Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math, gate_charge, restriction_charge,
 boolean_identity, quadratic_structure.
 TIMING total=200 subagents=11
+
+Final archive: full statement unproved; no counterexample and no PR.
+The last official checker attempt exited3 without a verdict because the
+cached Batteries.olean was unavailable. Earlier OOM faults are retained.
+Final named build still passes5149jobs, source unchanged at7090lines.
+No cleanup pass: checker did not pass. All later research results remain
+explicitly mathematical/computational partials, independently reviewed.
+Latest seven bounded SAT runs:147UNKNOWN queries, no UNSAT proof.
+Desk null count10; exact latest text: no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes
+Sub-agents:11 (full names and roles in NOTES/FINAL).
+TIMING total=209 subagents=11
+Lease release pending after archive push; reason other. No new gap requested.

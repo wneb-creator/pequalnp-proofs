@@ -1,0 +1,4 @@
+subset-core7-control verified SAT+contradictionUNSAT metadata, exact boundary truth, dirty AND, distinct operands, block ordering, and full-plane embedding; mode None
+subset-core8-control verified SAT+contradictionUNSAT metadata, exact boundary truth, dirty AND, distinct operands, block ordering, and full-plane embedding; mode None
+subset-reassociate1-control verified SAT+contradictionUNSAT metadata, exact boundary truth, dirty AND, distinct operands, block ordering, and full-plane embedding; mode 1
+subset-reassociate2-control verified SAT+contradictionUNSAT metadata, exact boundary truth, dirty AND, distinct operands, block ordering, and full-plane embedding; mode 2

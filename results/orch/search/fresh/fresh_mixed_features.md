@@ -1,0 +1,58 @@
+# Formula OR rank after exposing mixed features
+
+These mathematical and finite arithmetic results concern restricted forms of internal sharing. They do not establish an unrestricted circuit lower bound. The two point-module calculations use the separately archived full Singer instances and every maximal negative, including the two monochrome extremes.
+
+## Component columns
+
+Let G be a linear bipartite incidence graph with shores P,L and flag set E. For a negative assignment Z, connect positive flag rows whenever they share an endpoint absent from Z. The connected-component indicator vectors are admissible matrix columns for the formula OR-rank argument: on the complete set of flag rows on which a given omitted raw variable can be returned, each such column is constant. If auxiliary monotone features are provided as additional free formula leaves, at each Z merge all components touched by the positive rows of each feature that is false on Z. The resulting component columns retain the leaf-rectangle property. The rank r of their span gives at least r−1 OR gates in the formula, by the augmented-column-rank argument in the earlier formula note. This works over any field, including GF(2).
+
+At the all-lines negative, the original components are the individual point stars P_p. Dually the all-points negative supplies each line star L_l. A mixed feature that accepts at least one singleton of each shore is true on both negatives and imposes no extra constraint there.
+
+At M_p, the negative consisting of p plus all nonneighbor lines, the omitted vertices comprise the other points and the lines through p. Distinct lines through p have no other common point. The component at l through p has indicator
+
+    unit_(p,l) + sum(P_r for r on l other than p).
+
+Any remaining isolated point r contributes P_r. There is a dual formula at M_l. In particular, if every feature is true on M_p or every feature is true on M_l, the unit column of flag (p,l) lies in the augmented span.
+
+## One arbitrary mixed feature and the common-label case
+
+Suppose f is an arbitrary feature accepting point singleton a and line singleton b. For a flag (p,l) whose unit is not immediately recovered, f must be false on both M_p and M_l. This implies p≠a, a lies on l, b passes through p, and l≠b. At any given p≠a there is at most one such incident l, by linearity. Its unit follows by subtracting all the other flag units from the point-star P_p. At p=a all units were already available. Thus the augmented formula rank is |E| even when the feature can be used freely any number of times.
+
+More generally, if arbitrarily many mixed features all accept one common point singleton a, every M_a is unchanged, and for p≠a the only potentially missing line is again the unique line through p and a. The same result holds with the shores interchanged.
+
+## Two arbitrary features
+
+Choose one point and one line singleton anchor (a_i,b_i) for each exposed feature i. Let U be the union over i of the points on b_i other than a_i, and V the union over i of the lines through a_i other than b_i. All potentially missing unit flags lie in the graph H induced by U,V. The point and line star vectors already belong to the span. Consequently its rank is at least |E|−beta(H), where beta is the number of independent cycles. Indeed a vector orthogonal to all those columns can be supported only on flags of H and must sum to zero around every vertex there. These are the equations for a circulation, after changing the signs on one shore. Their solution space has dimension beta(H).
+
+The program fresh_mixedrank.py takes the maximum beta(H) over all pairs of singleton-anchor pairs. It gives at most four on each of the full seven-point type-3 and eight-point type-2 modules. For type 3 exactly nine anchor pairs attain four; for type 2 exactly 36 do. This upper bound on lost rank does not require knowing the features' other positive or negative values.
+
+## Two primitive point-line ORs
+
+For a primitive feature x_a OR y_b, its positive flags are precisely the stars of a and b. When a is on b it introduces no new merge among the nontrivial M_p or M_l components. Otherwise, each length-three incidence path a-l-p-b merges the flag slots (a,l),(p,l) at the line test M_l and (p,l),(p,b) at the point test M_p. Different such paths have no common flags. A case in which e.g. a and p have no common line can only merge a known isolated point-star with an existing component and loses no slot constraint. For any family of primitive mixed features, split each original incidence vertex into the resulting equivalence classes of its local incident slots. Subtracting the previously available point/line star columns from merged M_p and M_l component columns leaves the sum of the units on each split vertex. Therefore the rank defect is bounded by the cycle number of the split incidence graph.
+
+For two primitive features this number is at most one. To see this, begin with disjoint intervals for all original flags, and connect two endpoints at their common original vertex by a tie edge when a feature merges their slots. Deduplicate identical tie edges. There are at most two ties at each original vertex, hence their local graph is a forest and contraction does not increase the cycle number. A single nonincident feature supplies disjoint paths, each consisting of the three flag intervals of its length-three incidence path and its two ties.
+
+Common point or line anchors already give full rank. For distinct point anchors a,c and distinct line anchors b,d, assume a is off b and c is off d. The components of the intersection of the two path forests determine their union's cycle number: because the two forests and their intersection are acyclic, Euler's formula identifies this number with that of the bipartite multigraph whose nodes are their paths and whose edges are the connected components of their intersection. Isolated flag intervals outside these paths cannot create a cycle.
+
+If neither a is on d nor c on b, the forests share at most the single middle flag at (b intersect d, line ac), so introduce no cycle. Assume just a is on d. Write h for the line through a,c and t for the intersection of b,d when they exist. The only possible shared flags are (a,d),(a,h),(t,d). In the full plane let each first-forest path be indexed by its ray through a, each second-forest path by its ray through c. The shared flags respectively join the path pairs (d,h),(h,h),(d,ct). The two rays h and ct differ: t is on d, the intersection of h and d is a, and a is off b. These three edges form a tree. The other one-sided case is dual.
+
+If both a is on d and c on b, the six possible shared flags are (a,d),(a,h),(t,d),(c,b),(c,h),(t,b). The common ties at h and t join (a,h) to (c,h), and (t,d) to (t,b), respectively, leaving four intersection components. Their first-forest paths have indices d,h and their second-forest paths h,b; the four components join precisely the four pairs in a 2-by-2 complete bipartite graph. This gives one cycle. All these slot/tie graphs for an incidence subgraph of a plane embed in the corresponding full-plane graph by deleting absent flag intervals and their ties. Hence two primitive mixed ORs reduce the outer formula rank by at most one on any such module. Their two construction ORs more than cover this loss.
+
+## Full seven- and eight-point modules with at most two mixed branch wires
+
+Suppose each non-input wire of fanout at least two in an exact circuit is one of at most two features, and every such feature accepts a singleton of each color. Remove their source cones and make the features free leaves in the remaining formula. No other internal gate of the source cones can be needed in the remainder, since that would require branching outside the given list. When one feature feeds the other, treat it as an extra literal in the latter's source formula. Let o count the distinct source OR gates. The outer formula uses at least |E|−beta(H)−1 more ORs.
+
+With o≥4 the preceding numerical bound beta≤4 therefore implies at least |E|−1 ORs overall. With common singleton labels the full-rank result gives this directly at every o. Otherwise the two features' point singleton supports are disjoint, as are their line singleton supports. Each source requires at least one OR to accept its two singleton anchors, even after abstracting an earlier feature that accepts neither new anchor. A formula with at most one OR accepting two distinct singletons equals their disjunction. A formula with at most two ORs accepting two designated singletons equals their disjunction, possibly with one additional monomial. For the latter assertion, at an AND root both children must accept both singletons and, if they each use at most one OR, both are precisely their disjunction. At an OR root split the target singletons between the children. An OR-free child accepting a singleton equals that literal; a one-OR child accepting v is either v or v OR one monomial, since an AND root would have an OR-free child equal to v. The remaining OR-free child in the case of two designated singletons on one side is again one monomial.
+
+Consequently, when o=2 both features are primitive mixed ORs. When o=3 one is primitive and the other is the disjunction of its two anchors with one monomial. If the latter monomial also uses the primitive feature as a literal, using it alone yields common singleton labels. With an additional raw literal, either the supports intersect or the monomial's added positive flags are contained in one flag. More than one distinct raw literal also leaves at most one flag. A nontrivial monomial without the feature either contributes one raw singleton, at most one flag, or no positive flag. If it contributes at most one flag, treating its additional negative values as zero can only make the outer rank lower, since the feature then rejects more tests. This reduces the outer check to two primitive mixed ORs, optionally augmented on either side by one raw singleton or one true flag. The case o=3 only needs a separate check on the geometric anchor pairs with beta=4.
+
+The independent positive/negative masks of the full modules feed fresh_mixedpair_exact.py and fresh_mixed_spare.py. The lower ranks over GF(2) are as follows.
+
+| module | flags | pairs of distinct primitive features | minimum rank | beta=4 pairs | augmented checks | minimum augmented rank |
+|--------|-------|--------------------------------------|--------------|--------------|------------------|------------------------|
+| seven-point type 3 | 28 | 3,486 | 27 | 9 | 864 | 27 |
+| eight-point type 2 | 32 | 4,560 | 31 | 36 | 3,816 | 31 |
+
+Thus all cases give at least |E|−1 total ORs. Every full exact circuit also needs at least 7 or 8 ANDs, respectively, since the numbers of maximal negatives are 89 and 136 and each AND switch assignment can account for at most one maximal negative. This proves the sharp 34 and 39 gate bounds in the stated restricted class, conditional on the mathematical arguments and finite arithmetic. It permits arbitrary repeated uses of raw inputs and arbitrary internal AND/OR shapes between the two branch wires. It does not cover three mixed branch wires, any internal shared wire carrying only one shore, or shared wires carrying no singleton.
+
+To reproduce the finite checks, run fresh_mixedrank.py and fresh_mixedpair_exact.py, then run fresh_mixed_spare.py with each fresh-singer input JSON path as its argument. They use Python 3 and the earlier archived fresh_case_charge.py, fresh_gadget_frontier.py, and fresh_affine_charge.py. No solver or Lean certificate is involved.

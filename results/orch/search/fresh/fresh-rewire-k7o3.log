@@ -1,0 +1,2 @@
+canonical34 PASS full boundary 117, all 28 distinct one-flag controls PASS, seed 20261125
+{"status":"NO_WITNESS_IN_BOUNDED_SEARCH","steps":892940,"evaluated_mutations":1292562478,"epochs":24135,"best_errors":1,"distinct_one_error_masks":28,"seconds":60.0003}

@@ -1,0 +1,17 @@
+affine3 cap 16 stdout {"k":9,"b":12,"surplus_cap":16,"all_status":0,"clean_status":0,"eligible_status":0,"clean_eligible_status":0}
+ stderr 
+q3k7o3 cap 13 stdout {"k":7,"b":11,"surplus_cap":13,"all_status":0,"clean_status":0,"eligible_status":0,"clean_eligible_status":0}
+ stderr 
+q3k8o2 cap 15 stdout {"k":8,"b":12,"surplus_cap":15,"all_status":4,"clean_status":0,"eligible_status":4,"clean_eligible_status":0}
+ stderr 
+All claimed smaller surplus caps rejected; seconds 0.0135
+affine3 cap 17 stdout {"k":9,"b":12,"surplus_cap":17,"all_status":12,"clean_status":12,"eligible_status":12,"clean_eligible_status":12}
+ stderr 
+q3k7o3 cap 14 stdout {"k":7,"b":11,"surplus_cap":14,"all_status":47,"clean_status":9,"eligible_status":41,"clean_eligible_status":9}
+ stderr 
+q3k8o2 cap 16 stdout {"k":8,"b":12,"surplus_cap":16,"all_status":213,"clean_status":77,"eligible_status":97,"clean_eligible_status":49}
+ stderr 
+The stated minimum feasible surplus values are exact for the numerical relaxation.
+affine3 minimum degree, linearity and pair nonblocking premises verified
+q3k7o3 minimum degree, linearity and pair nonblocking premises verified
+q3k8o2 minimum degree, linearity and pair nonblocking premises verified

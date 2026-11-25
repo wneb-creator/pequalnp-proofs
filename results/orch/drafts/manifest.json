@@ -1,0 +1,47 @@
+{
+  "decomposition_core.lean": {
+    "sha256": "36485ab3db6fd58a52868e4761127c83a9593ea829e133420a6db9b482dfc2a5",
+    "lines": 698,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "decomposition_pair_lookup_checked.lean": {
+    "sha256": "ecbd736d27a014ebd53e04b8127be28d9291bbd5b13df7818957f22ec0f2132e",
+    "lines": 266,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "decomposition_topform.lean": {
+    "sha256": "dd1c03c075692ceb26d51cafde4fdd4622ee783b9bec09e6377d1c34eed837d3",
+    "lines": 892,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "direct_matrix_circuit.lean": {
+    "sha256": "b8b2fd25989852496af7459a117cd8cef421d4410ed543d0c7b0fffa90e3f86b",
+    "lines": 176,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "lower_bound_and_negative_strict.lean": {
+    "sha256": "73b531c3c1dc81ed86a956ad31368b8741ef66952e83ef9d4db0013e1f17f31d",
+    "lines": 1330,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "lower_bound_and_negative_strict_basic.lean": {
+    "sha256": "73b531c3c1dc81ed86a956ad31368b8741ef66952e83ef9d4db0013e1f17f31d",
+    "lines": 1330,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "q3word_point0_control.lean": {
+    "sha256": "fa09a55484182ba9d716cd04947d2df888d2fa8e750e6cb4eb2e9adc378e0d8c",
+    "lines": 292,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "q3word_positive_control.lean": {
+    "sha256": "9a9f9cc3c7e2507cdcc4d6430f74c5e5a758b9ea60c6b94d7a00ce070bfcbf36",
+    "lines": 255,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  },
+  "structural_affine_expansion.lean": {
+    "sha256": "d4035b2851d321caba2896d19c841aa7465758c158abc69fa18665b1fd5d36bd",
+    "lines": 199,
+    "status": "superseded or unverified authoring draft; no build claim for this snapshot"
+  }
+}

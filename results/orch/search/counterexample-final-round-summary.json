@@ -1,0 +1,140 @@
+{
+  "at": "2026-11-25T11:28:16.232431+00:00",
+  "runs": [
+    {
+      "folder": "affine43",
+      "target": "AG(2,3) module43 extending to full63",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.7396762850003,
+      "seed": 76,
+      "initial_positive": 36,
+      "initial_negative": 197,
+      "singletons": 21,
+      "all_boundary_rows": true,
+      "forced_nonread1_edge": [
+        0,
+        12
+      ],
+      "scope": "exact43 gates with existing leastness restrictions; no UNSAT/theorem claim"
+    },
+    {
+      "folder": "subset33",
+      "target": "k7o3 full33 extending to full63",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.6155550799995,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "forced_nonread1_edge": null,
+      "scope": "exact33 with leastness restrictions; no exhaustive lower-bound claim"
+    },
+    {
+      "folder": "subset-normal33",
+      "target": "k7o3 normal33 extending to full63",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.3235501610015,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "strong_normality": true,
+      "rhs_ordered": true,
+      "scope": "exact33 normal class with leastness restrictions; no exhaustive lower-bound claim"
+    },
+    {
+      "folder": "subset-roots6",
+      "target": "k7o3 root6/dirty22 exact33",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.426001120999,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "require_dirty_and": true,
+      "distinct_operands": true,
+      "scope": "restricted exact33 root6 class; no exhaustive lower-bound claim"
+    },
+    {
+      "folder": "subset-roots7",
+      "target": "k7o3 root7/dirty20 exact33, canonical phases",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.4310337890001,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "require_dirty_and": true,
+      "distinct_operands": true,
+      "scope": "restricted exact33 root7 class; no exhaustive lower-bound claim"
+    },
+    {
+      "folder": "subset-roots8-core",
+      "target": "k7o3 root8/dirty18 exact33, strongnormal37-minus4 phases",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.3515465600012,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "require_dirty_and": true,
+      "distinct_operands": true,
+      "scope": "restricted exact33 root8 class; no exhaustive lower-bound claim",
+      "completed_utc": "2026-11-25T11:24:40.307329+00:00"
+    },
+    {
+      "folder": "subset-roots7-core",
+      "target": "k7o3 root7/dirty20 exact33, strongnormal36-minus3 reassociated phases",
+      "queries": 21,
+      "statuses": {
+        "0": 21,
+        "10": 0,
+        "20": 0
+      },
+      "seconds": 600.3043920559994,
+      "seed": 76,
+      "positive": 28,
+      "maximal_negative": 89,
+      "singletons": 19,
+      "require_dirty_and": true,
+      "distinct_operands": true,
+      "scope": "restricted exact33 root7 class; no exhaustive lower-bound claim",
+      "completed_utc": "2026-11-25T11:27:37.979670+00:00"
+    }
+  ],
+  "total_queries": 147,
+  "total_solver_seconds": 4203.191755052001,
+  "valid_counterexamples": 0,
+  "all_statuses_unknown": true,
+  "live_counterexample_solver_processes": 0
+}

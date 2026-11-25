@@ -1,0 +1,18 @@
+{
+  "target": "k7o3 root8/dirty18 exact33, strongnormal37-minus4 phases",
+  "queries": 21,
+  "statuses": {
+    "0": 21,
+    "10": 0,
+    "20": 0
+  },
+  "seconds": 600.3515465600012,
+  "seed": 76,
+  "positive": 28,
+  "maximal_negative": 89,
+  "singletons": 19,
+  "require_dirty_and": true,
+  "distinct_operands": true,
+  "scope": "restricted exact33 root8 class; no exhaustive lower-bound claim",
+  "completed_utc": "2026-11-25T11:24:40.307329+00:00"
+}

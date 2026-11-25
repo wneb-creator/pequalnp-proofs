@@ -1,0 +1,176 @@
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_2583_aux.MatrixProbe
+
+def pointWires : List (Fin 16) := (List.finRange 8).map (Fin.castAdd 8)
+
+def lineWires : List (Fin 16) := (List.finRange 8).map (Fin.natAdd 8)
+
+def bitPointWires (b : ℕ) (v : Bool) : List (Fin 16) :=
+  ((List.finRange 8).filter (fun i => i.val.testBit b == v)).map (Fin.castAdd 8)
+
+def bitLineWires (b : ℕ) (v : Bool) : List (Fin 16) :=
+  ((List.finRange 8).filter (fun i => i.val.testBit b == v)).map (Fin.natAdd 8)
+
+def clauses : List (List (Fin 16)) :=
+  [pointWires, lineWires] ++ (List.range 3).flatMap (fun b =>
+    [bitPointWires b false ++ bitLineWires b true,
+      bitPointWires b true ++ bitLineWires b false])
+
+def value (z : Fin 16 → Bool) : Bool := clauses.all (fun c => c.any z)
+
+def pairInput (p l : Fin 8) : Fin 16 → Bool :=
+  fun i => decide (i = Fin.castAdd 8 p ∨ i = Fin.natAdd 8 l)
+
+def witness : Fin 16 → Bool := fun i => decide (i.val ∈ [0, 7, 9, 14])
+
+lemma clause_count : clauses.length = 8 := by decide
+
+lemma clause_lengths : ∀ c ∈ clauses, c.length = 8 := by decide
+
+set_option maxRecDepth 10000 in
+lemma pair_matching : ∀ p l : Fin 8, value (pairInput p l) = decide (p = l) := by
+  decide
+
+lemma mixed_matrix_eq :
+    (fun p l : Fin 8 => if value (pairInput p l) then (1 : ℚ) else 0) =
+      (1 : Matrix (Fin 8) (Fin 8) ℚ) := by
+  ext p l
+  simp [pair_matching, Matrix.one_apply]
+
+lemma mixed_matrix_rank :
+    Matrix.rank (fun p l : Fin 8 => if value (pairInput p l) then (1 : ℚ) else 0) = 8 := by
+  rw [mixed_matrix_eq, Matrix.rank_one]
+  simp
+
+lemma no_points (z : Fin 16 → Bool) (h : ∀ p : Fin 8, z (Fin.castAdd 8 p) = false) :
+    value z = false := by
+  have hz : pointWires.any z = false := by
+    simp only [pointWires, List.any_eq_false, List.mem_map]
+    rintro i ⟨p, hp, rfl⟩
+    intro htrue
+    rw [h p] at htrue
+    cases htrue
+  simp [value, clauses, hz]
+
+lemma no_lines (z : Fin 16 → Bool) (h : ∀ l : Fin 8, z (Fin.natAdd 8 l) = false) :
+    value z = false := by
+  have hz : lineWires.any z = false := by
+    simp only [lineWires, List.any_eq_false, List.mem_map]
+    rintro i ⟨l, hl, rfl⟩
+    intro htrue
+    rw [h l] at htrue
+    cases htrue
+  simp [value, clauses, hz]
+
+lemma witness_accepted : value witness = true := by decide
+
+lemma witness_has_no_matching_edge :
+    ¬ ∃ i : Fin 8, witness (Fin.castAdd 8 i) = true ∧
+      witness (Fin.natAdd 8 i) = true := by decide
+
+end PEqualNP.Outside.L_meta_2583_aux.MatrixProbe
+
+namespace PEqualNP.Outside.L_meta_2583_aux.MatrixProbe
+
+def probeCircuit : PEqualNP.CircuitLowerBounds.Circuit :=
+  ⟨[
+    ⟨.or , [6, 7]⟩,
+    ⟨.or , [5, 16]⟩,
+    ⟨.or , [4, 17]⟩,
+    ⟨.or , [3, 18]⟩,
+    ⟨.or , [2, 19]⟩,
+    ⟨.or , [1, 20]⟩,
+    ⟨.or , [0, 21]⟩,
+    ⟨.or , [14, 15]⟩,
+    ⟨.or , [13, 23]⟩,
+    ⟨.or , [12, 24]⟩,
+    ⟨.or , [11, 25]⟩,
+    ⟨.or , [10, 26]⟩,
+    ⟨.or , [9, 27]⟩,
+    ⟨.or , [8, 28]⟩,
+    ⟨.or , [13, 15]⟩,
+    ⟨.or , [11, 30]⟩,
+    ⟨.or , [9, 31]⟩,
+    ⟨.or , [6, 32]⟩,
+    ⟨.or , [4, 33]⟩,
+    ⟨.or , [2, 34]⟩,
+    ⟨.or , [0, 35]⟩,
+    ⟨.or , [12, 14]⟩,
+    ⟨.or , [10, 37]⟩,
+    ⟨.or , [8, 38]⟩,
+    ⟨.or , [7, 39]⟩,
+    ⟨.or , [5, 40]⟩,
+    ⟨.or , [3, 41]⟩,
+    ⟨.or , [1, 42]⟩,
+    ⟨.or , [14, 15]⟩,
+    ⟨.or , [11, 44]⟩,
+    ⟨.or , [10, 45]⟩,
+    ⟨.or , [5, 46]⟩,
+    ⟨.or , [4, 47]⟩,
+    ⟨.or , [1, 48]⟩,
+    ⟨.or , [0, 49]⟩,
+    ⟨.or , [12, 13]⟩,
+    ⟨.or , [9, 51]⟩,
+    ⟨.or , [8, 52]⟩,
+    ⟨.or , [7, 53]⟩,
+    ⟨.or , [6, 54]⟩,
+    ⟨.or , [3, 55]⟩,
+    ⟨.or , [2, 56]⟩,
+    ⟨.or , [14, 15]⟩,
+    ⟨.or , [13, 58]⟩,
+    ⟨.or , [12, 59]⟩,
+    ⟨.or , [3, 60]⟩,
+    ⟨.or , [2, 61]⟩,
+    ⟨.or , [1, 62]⟩,
+    ⟨.or , [0, 63]⟩,
+    ⟨.or , [10, 11]⟩,
+    ⟨.or , [9, 65]⟩,
+    ⟨.or , [8, 66]⟩,
+    ⟨.or , [7, 67]⟩,
+    ⟨.or , [6, 68]⟩,
+    ⟨.or , [5, 69]⟩,
+    ⟨.or , [4, 70]⟩,
+    ⟨.and , [64, 71]⟩,
+    ⟨.and , [57, 72]⟩,
+    ⟨.and , [50, 73]⟩,
+    ⟨.and , [43, 74]⟩,
+    ⟨.and , [36, 75]⟩,
+    ⟨.and , [29, 76]⟩,
+    ⟨.and , [22, 77]⟩
+  ], 78⟩
+
+lemma probe_ao : PEqualNP.TopForm.IsAO2 16 probeCircuit := by decide
+
+lemma probe_and_count :
+    (probeCircuit.gates.filter (fun g => match g.op with
+      | .and => true
+      | _ => false)).length = 7 := by decide
+
+lemma probe_or_count :
+    (probeCircuit.gates.filter (fun g => match g.op with
+      | .or => true
+      | _ => false)).length = 56 := by decide
+
+set_option maxRecDepth 10000 in
+lemma probe_pair_matching : ∀ p l : Fin 8,
+    PEqualNP.MetaComplexity.circuitFun 16 probeCircuit (pairInput p l) = decide (p = l) := by
+  decide
+
+lemma probe_matrix_rank :
+    Matrix.rank (fun p l : Fin 8 =>
+      if PEqualNP.MetaComplexity.circuitFun 16 probeCircuit (pairInput p l) then (1 : ℚ) else 0) =
+      8 := by
+  have heq : (fun p l : Fin 8 =>
+      if PEqualNP.MetaComplexity.circuitFun 16 probeCircuit (pairInput p l) then (1 : ℚ) else 0) =
+      (1 : Matrix (Fin 8) (Fin 8) ℚ) := by
+    ext p l
+    simp [probe_pair_matching, Matrix.one_apply]
+  rw [heq, Matrix.rank_one]
+  simp
+
+set_option maxRecDepth 10000 in
+lemma probe_witness_accepted :
+    PEqualNP.MetaComplexity.circuitFun 16 probeCircuit witness = true := by decide
+
+end PEqualNP.Outside.L_meta_2583_aux.MatrixProbe
