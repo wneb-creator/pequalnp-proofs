@@ -234,3 +234,33 @@ Private-boundary SAT constraints permit either both operand-private boundary wit
 Next search varies the C4-free6x6 incidence graph itself while fixing a diagonal perfect matching and5AND gates, with unrestricted OR regions. Initial2-hot assignments enforce the chosen graph; full truth tables find higher-order false positives, which become dynamic graph/circuit SAT constraints. Script `variable_graph_search.py`; no result yet.
 
 Additional checked components: LeastGatePrivateBoundary proves necessary private positive/negative boundary conditions for gates in a globally least circuit. CoverLowerBound contains the checked read1 cover-cost bound and matching-based conditional refutation adapter. The adapter would turn an actual26gateFano or11gateTheta witness into a refutation; none has been found. These are partials, not a proof/refutation of2585. The source for the current accepted conditional reduction is unchanged.
+
+### 2026-11-25T01:00:09.611115+00:00 — dirty NF finite check
+C6 at optimum8 gates with strong NF and at least2 dirty ANDs is SAT-UNSAT (1.571s,496vars4521clauses), recorded in direct/dirty_nf_search.py and direct/c6-size8-nf-dirty2-boundary.log. No Lean UNSAT certificate, hence evidence only. Counterexample agent resumed the sole solver slot. Direct/FINDINGS.md records the exact missing global debt and why unique-dirty lemmas do not iterate automatically.
+
+### 2026-11-25T01:01:05.223085+00:00 structural GitHub census
+
+Fully paginated targeted searches found no new complete2585 proof. PR9697/9707 heads unchanged; read actual126line9659 and81line11141 sources, both conditional reductions with no closed charge. Full report/sources: /tmp/oec/pequalnp-pilot-46/gap-2585/structural/PR_CENSUS.md.
+
+Explicit fresh bot eligibility rejection: https://github.com/open-goat/pequalnp-proofs/pull/11110#issuecomment-7149020857
+
+Closed: this step is not open to reductions (its row in the desk file does not say reductions: true), so this reduction will not be checked. A proof of the step is still welcome. This is an automatic message.
+
+Root re-read Jukna single1.pdf on2026-11-25: Theorem2.4 refutes the generic all-graph AND-count/biclique-cover inequality using saturated non-bipartite matchings. It does not settle the bipartite C4-free case. Historical Problem8.2 asks for explicit superlinear quadratic monotone lower bounds; current global open status remains UNVERIFIED. Source: https://web.vu.lt/mif/s.jukna/ftp/single1.pdf .
+
+### 2026-11-25T01:06:24.685418+00:00 focused biclique/AND route
+
+No new proof/counterexample. Generalgraph biclique≤AND is false by Jukna; bipartiteC4-free case remains unresolved here. Katz low-CNF result is graphrepresentation only; semi-disjoint bilinear methods assume matchinglike outputs. Detailed source distinction and dirtypath obstruction: structural/BICLIQUE_AND_RESEARCH.md.
+
+### 2026-11-25T01:11:02.328261+00:00 — forest gate elimination pieces checked
+Within the capped forest investigation, direct/ForestElimAO.lean compiled EXIT0, SHA256 `19d902c7a0af4b85ca07de07c688831acf7091874097ca8e03300321b924df3f`; complete log forest-elim-ao.log. Attributed compiler prefix from L2502→L1543 and operation-count helpers from L2752; new annihilator status, two-gate budget, selected-operation count drop, and exact AO2 shape preservation. Reviewer has frozen source. Earlier checkpoints ForestElim.lean and ForestElimCounts.lean also compiled. Full input-restriction wrapper/path lemma/forest induction are not assembled.
+Mathematical forest route in direct/FOREST_ROUTE.md: leaf=0 loses one OR if residual function nonzero; leaf=1 loses one AND since singleton leaf is rejected; then neighbor=0 yields graph minus pendant pair, whose cover number is one less. This plausibly proves the sharp forest bound. Explicit obstruction on cyclic cores: a degree-d deletion removes d edges/possibly d cover contribution but path reasoning guarantees only one corresponding operation, leaving d−1 uncharged. Root requested freeze and preserve before pivot; no running helper process.
+
+
+### Counterexample strategy frozen 2026-11-25T01:12:01.291017+00:00
+
+No full-function counterexample or Lean proof/refutation was found. Final queued C8 OR-count search is UNSAT76.503s, excluding≤6OR with unlimitedAND. C12 AND-count search had already excluded≤5AND/freeOR in45.089s. These are external SAT evidence only.
+
+Graph-varying6x6/5AND search rejected20 models on full4096-input truth tables; its sorted-degree continuation at344inputs timed out299.14s, so the6x6 question remains unresolved. Relaxed4x4 fooling-set family (other4cycles allowed) at3AND is UNSAT0.31s. Independent scalar fulltruth audit rejected all25 retained candidate models and produced concrete failure assignments.
+
+Evidence archive: `/tmp/oec/pequalnp-pilot-46/gap-2585/counterexample-evidence.tar.gz`,641877bytes, SHA256 `b7a698c677cc833088a6abd8dae642e39df1672762a475c44ded6b2abc349819`.168files include portable scripts, complete stdout/stderr, summaries, models, independent rejection audit, successor cutsets, manifest/inventory and8 small completed-UNSAT CNFs.63 large/regenerable CNFs (~15MB) were omitted with hashes recorded. Five completed macro CNFs regenerate byte-identically under named profiles. Archive content hash audit passed; no solver remains active.

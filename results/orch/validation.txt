@@ -28,3 +28,9 @@ TIMING total=96.0 subagents=6
 LeastGatePrivateBoundary2585 and CoverLowerBound2585: standalone Lean exit0, independent source/provenance/log review PASS. The latter is a conditional refutation adapter only; no circuit witness is asserted. Current R46 remains locally ACCEPTED(reduce), publication ineligible.
 Sub-agents: 7 (six primary delegates plus an independent matching-bound brainstorm)
 TIMING total=108.1 subagents=7
+
+ForestElim2585: standalone Lean exit0; generic two-gate propagation budget only, not a forest theorem or full L2585 proof. Source SHA256 d27f38bec193ccb8b35853ae85da7833ae5d8a2efb24f9fe2d1e7a587028291c. Independent review requested before push.
+Sub-agents: 7 (same delegates and matching-bound brainstorm)
+TIMING total=116.9 subagents=7
+ForestElimCounts2585: standalone Lean exit0; selected-operation count drop only. Source SHA256 c4323622374375adb318bd796af1a597e034bb2c6a58e530658f0be918d0dc79. Independent review requested before push.
+ForestElimAO2585: standalone Lean exit0; exact binary AND/OR and reads-back compiler preservation under Inv. Source SHA256 19d902c7a0af4b85ca07de07c688831acf7091874097ca8e03300321b924df3f. Full posted theorem and forest induction remain unproved.
