@@ -1645,4 +1645,662 @@ lemma sharedCircuit_below_pattern :
 
 end SharedBlock
 
+namespace PathCover
+
+lemma cross_endpoints_cover {α : Type} (G : SimpleGraph α)
+    (hnf : ∀ a b : α, a ≠ b → ∀ c d : α,
+      G.Adj a c → G.Adj b c → G.Adj a d → G.Adj b d → c = d)
+    (S T : Finset α) (hcomplete : ∀ s ∈ S, ∀ t ∈ T, G.Adj s t)
+    (s : α) (hs : s ∈ S) (t : α) (ht : t ∈ T) :
+    ∀ a ∈ S, ∀ b ∈ T, a = s ∨ b = t := by
+  intro a ha b hb
+  by_cases has : a = s
+  · exact Or.inl has
+  · right
+    exact hnf s a (Ne.symm has) b t
+      (hcomplete s hs b hb) (hcomplete a ha b hb)
+      (hcomplete s hs t ht) (hcomplete a ha t ht)
+
+lemma biclique_vertex_cover_two {α : Type} (G : SimpleGraph α)
+    (hnf : ∀ a b : α, a ≠ b → ∀ c d : α,
+      G.Adj a c → G.Adj b c → G.Adj a d → G.Adj b d → c = d)
+    (S T : Finset α) (hcomplete : ∀ s ∈ S, ∀ t ∈ T, G.Adj s t)
+    (hedges : ∀ a b : α, G.Adj a b →
+      (a ∈ S ∧ b ∈ T) ∨ (b ∈ S ∧ a ∈ T)) :
+    ∃ K : Finset α, K.card ≤ 2 ∧ ∀ a b : α, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  classical
+  by_cases hs : S.Nonempty
+  · by_cases ht : T.Nonempty
+    · obtain ⟨s, hs⟩ := hs
+      obtain ⟨t, ht⟩ := ht
+      refine ⟨{s, t}, ?_, ?_⟩
+      · calc
+          ({s, t} : Finset α).card ≤ ({t} : Finset α).card + 1 := Finset.card_insert_le _ _
+          _ = 2 := by simp
+      · intro a b hab
+        rcases hedges a b hab with ⟨ha, hb⟩ | ⟨hb, ha⟩
+        · rcases cross_endpoints_cover G hnf S T hcomplete s hs t ht a ha b hb with h | h
+          · left; simp [h]
+          · right; simp [h]
+        · rcases cross_endpoints_cover G hnf S T hcomplete s hs t ht b hb a ha with h | h
+          · right; simp [h]
+          · left; simp [h]
+    · refine ⟨∅, by simp, ?_⟩
+      intro a b hab
+      rcases hedges a b hab with ⟨ha, hb⟩ | ⟨hb, ha⟩
+      · exact False.elim (ht ⟨b, hb⟩)
+      · exact False.elim (ht ⟨a, ha⟩)
+  · refine ⟨∅, by simp, ?_⟩
+    intro a b hab
+    rcases hedges a b hab with ⟨ha, hb⟩ | ⟨hb, ha⟩
+    · exact False.elim (hs ⟨a, ha⟩)
+    · exact False.elim (hs ⟨b, hb⟩)
+
+lemma blowup_path_vertex_cover_two {α : Type} (G : SimpleGraph α)
+    (hnf : ∀ a b : α, a ≠ b → ∀ c d : α,
+      G.Adj a c → G.Adj b c → G.Adj a d → G.Adj b d → c = d)
+    (A U V D : Finset α)
+    (hAU : ∀ a ∈ A, ∀ u ∈ U, G.Adj a u)
+    (hUV : ∀ u ∈ U, ∀ v ∈ V, G.Adj u v)
+    (hVD : ∀ v ∈ V, ∀ d ∈ D, G.Adj v d)
+    (hedges : ∀ a b : α, G.Adj a b →
+      (a ∈ A ∧ b ∈ U) ∨ (b ∈ A ∧ a ∈ U) ∨
+      (a ∈ U ∧ b ∈ V) ∨ (b ∈ U ∧ a ∈ V) ∨
+      (a ∈ V ∧ b ∈ D) ∨ (b ∈ V ∧ a ∈ D)) :
+    ∃ K : Finset α, K.card ≤ 2 ∧ ∀ a b : α, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  classical
+  by_cases hU : U.Nonempty
+  · by_cases hV : V.Nonempty
+    · obtain ⟨u, hu⟩ := hU
+      obtain ⟨v, hv⟩ := hV
+      let K : Finset α := {u, v}
+      have leftCover : ∀ a ∈ A, ∀ b ∈ U, a ∈ K ∨ b ∈ K := by
+        intro a ha b hb
+        by_cases hav : a = v
+        · left; simp [K, hav]
+        by_cases hbu : b = u
+        · right; simp [K, hbu]
+        have hav' := hnf u b (Ne.symm hbu) a v
+          (hAU a ha u hu).symm (hAU a ha b hb).symm
+          (hUV u hu v hv) (hUV b hb v hv)
+        exact False.elim (hav hav')
+      have middleCover : ∀ a ∈ U, ∀ b ∈ V, a ∈ K ∨ b ∈ K := by
+        intro a ha b hb
+        rcases cross_endpoints_cover G hnf U V hUV u hu v hv a ha b hb with h | h
+        · left; simp [K, h]
+        · right; simp [K, h]
+      have rightCover : ∀ a ∈ V, ∀ b ∈ D, a ∈ K ∨ b ∈ K := by
+        intro a ha b hb
+        by_cases hav : a = v
+        · left; simp [K, hav]
+        by_cases hbu : b = u
+        · right; simp [K, hbu]
+        have hub := hnf v a (Ne.symm hav) u b
+          (hUV u hu v hv).symm (hUV u hu a ha).symm
+          (hVD v hv b hb) (hVD a ha b hb)
+        exact False.elim (hbu hub.symm)
+      refine ⟨K, ?_, ?_⟩
+      · calc
+          K.card ≤ ({v} : Finset α).card + 1 := Finset.card_insert_le _ _
+          _ = 2 := by simp
+      · intro a b hab
+        rcases hedges a b hab with h | h | h | h | h | h
+        · exact leftCover a h.1 b h.2
+        · exact (leftCover b h.1 a h.2).symm
+        · exact middleCover a h.1 b h.2
+        · exact (middleCover b h.1 a h.2).symm
+        · exact rightCover a h.1 b h.2
+        · exact (rightCover b h.1 a h.2).symm
+    · apply biclique_vertex_cover_two G hnf A U hAU
+      intro a b hab
+      rcases hedges a b hab with h | h | h | h | h | h
+      · exact Or.inl h
+      · exact Or.inr h
+      · exact False.elim (hV ⟨b, h.2⟩)
+      · exact False.elim (hV ⟨a, h.2⟩)
+      · exact False.elim (hV ⟨a, h.1⟩)
+      · exact False.elim (hV ⟨b, h.1⟩)
+  · apply biclique_vertex_cover_two G hnf V D hVD
+    intro a b hab
+    rcases hedges a b hab with h | h | h | h | h | h
+    · exact False.elim (hU ⟨b, h.2⟩)
+    · exact False.elim (hU ⟨a, h.2⟩)
+    · exact False.elim (hU ⟨a, h.1⟩)
+    · exact False.elim (hU ⟨b, h.1⟩)
+    · exact Or.inl h
+    · exact Or.inr h
+
+lemma blowup_path_vertex_cover_two_of_noFourCycle {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hnf : PEqualNP.TopForm.NoFourCycle G)
+    (A U V D : Finset (Fin n))
+    (hAU : ∀ a ∈ A, ∀ u ∈ U, G.Adj a u)
+    (hUV : ∀ u ∈ U, ∀ v ∈ V, G.Adj u v)
+    (hVD : ∀ v ∈ V, ∀ d ∈ D, G.Adj v d)
+    (hedges : ∀ a b : Fin n, G.Adj a b →
+      (a ∈ A ∧ b ∈ U) ∨ (b ∈ A ∧ a ∈ U) ∨
+      (a ∈ U ∧ b ∈ V) ∨ (b ∈ U ∧ a ∈ V) ∨
+      (a ∈ V ∧ b ∈ D) ∨ (b ∈ V ∧ a ∈ D)) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧
+      ∀ a b : Fin n, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  apply blowup_path_vertex_cover_two G ?_ A U V D hAU hUV hVD hedges
+  intro a b hab c d hac hbc had hbd
+  apply Finset.card_le_one.mp (hnf a b hab)
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_univ c, hac, hbc⟩
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_univ d, had, hbd⟩
+
+lemma three_clause_missing_pair_cover_two {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hnf : PEqualNP.TopForm.NoFourCycle G)
+    (P Q R : Fin n → Prop)
+    (hedges : ∀ a b : Fin n, G.Adj a b ↔
+      (P a ∨ P b) ∧ (Q a ∨ Q b) ∧ (R a ∨ R b))
+    (hmiss : ∀ a : Fin n, ¬ (Q a ∧ R a)) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧
+      ∀ a b : Fin n, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  classical
+  let A := Finset.univ.filter (fun a : Fin n => R a ∧ ¬ P a)
+  let U := Finset.univ.filter (fun a : Fin n => P a ∧ Q a)
+  let V := Finset.univ.filter (fun a : Fin n => P a ∧ R a)
+  let D := Finset.univ.filter (fun a : Fin n => Q a ∧ ¬ P a)
+  apply blowup_path_vertex_cover_two_of_noFourCycle G hnf A U V D
+  · intro a ha u hu
+    have ha' := (Finset.mem_filter.mp ha).2
+    have hu' := (Finset.mem_filter.mp hu).2
+    exact (hedges a u).mpr ⟨Or.inr hu'.1, Or.inr hu'.2, Or.inl ha'.1⟩
+  · intro u hu v hv
+    have hu' := (Finset.mem_filter.mp hu).2
+    have hv' := (Finset.mem_filter.mp hv).2
+    exact (hedges u v).mpr ⟨Or.inl hu'.1, Or.inl hu'.2, Or.inr hv'.2⟩
+  · intro v hv d hd
+    have hv' := (Finset.mem_filter.mp hv).2
+    have hd' := (Finset.mem_filter.mp hd).2
+    exact (hedges v d).mpr ⟨Or.inl hv'.1, Or.inr hd'.1, Or.inl hv'.2⟩
+  · intro a b hab
+    simp only [A, U, V, D, Finset.mem_filter, Finset.mem_univ, true_and]
+    have he := (hedges a b).mp hab
+    have ha := hmiss a
+    have hb := hmiss b
+    tauto
+
+lemma three_clause_vertex_cover_two {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hnf : PEqualNP.TopForm.NoFourCycle G)
+    (htri : ∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (P Q R : Fin n → Prop)
+    (hedges : ∀ a b : Fin n, G.Adj a b ↔
+      (P a ∨ P b) ∧ (Q a ∨ Q b) ∧ (R a ∨ R b)) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧
+      ∀ a b : Fin n, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  classical
+  by_cases hpq : ∃ a : Fin n, P a ∧ Q a
+  · by_cases hpr : ∃ a : Fin n, P a ∧ R a
+    · by_cases hqr : ∃ a : Fin n, Q a ∧ R a
+      · obtain ⟨a, haP, haQ⟩ := hpq
+        obtain ⟨b, hbP, hbR⟩ := hpr
+        obtain ⟨c, hcQ, hcR⟩ := hqr
+        have hab : G.Adj a b := (hedges a b).mpr ⟨Or.inl haP, Or.inl haQ, Or.inr hbR⟩
+        have hbc : G.Adj b c := (hedges b c).mpr ⟨Or.inl hbP, Or.inr hcQ, Or.inl hbR⟩
+        have hca : G.Adj c a := (hedges c a).mpr ⟨Or.inr haP, Or.inl hcQ, Or.inl hcR⟩
+        exact False.elim (htri a b c hab hbc hca)
+      · exact three_clause_missing_pair_cover_two G hnf P Q R hedges
+          (fun a ha => hqr ⟨a, ha⟩)
+    · apply three_clause_missing_pair_cover_two G hnf Q P R
+      · intro a b
+        rw [hedges a b]
+        tauto
+      · intro a ha
+        exact hpr ⟨a, ha⟩
+  · apply three_clause_missing_pair_cover_two G hnf R P Q
+    · intro a b
+      rw [hedges a b]
+      tauto
+    · intro a ha
+      exact hpq ⟨a, ha⟩
+
+lemma three_bool_clause_vertex_cover_two {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hnf : PEqualNP.TopForm.NoFourCycle G)
+    (htri : ∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (P Q R : Fin n → Bool)
+    (hedges : ∀ a b : Fin n, G.Adj a b ↔
+      ((P a || P b) && (Q a || Q b) && (R a || R b)) = true) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧
+      ∀ a b : Fin n, G.Adj a b → a ∈ K ∨ b ∈ K := by
+  apply three_clause_vertex_cover_two G hnf htri (fun a => P a = true)
+    (fun a => Q a = true) (fun a => R a = true)
+  intro a b
+  simpa only [Bool.and_eq_true, Bool.or_eq_true, and_assoc] using hedges a b
+
+lemma three_bool_clause_safe_vertex_cover_two {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hnf : PEqualNP.TopForm.NoFourCycle G)
+    (htri : ∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (P Q R : Fin n → Bool)
+    (hsafe : ∀ a b : Fin n,
+      ((P a || P b) && (Q a || Q b) && (R a || R b)) = true → G.Adj a b) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧ ∀ a b : Fin n,
+      ((P a || P b) && (Q a || Q b) && (R a || R b)) = true → a ∈ K ∨ b ∈ K := by
+  classical
+  let H : SimpleGraph (Fin n) := {
+    Adj := fun a b => ((P a || P b) && (Q a || Q b) && (R a || R b)) = true
+    symm := ⟨fun a b h => by simpa only [Bool.or_comm] using h⟩
+    loopless := ⟨fun a h => G.irrefl (hsafe a a h)⟩ }
+  have hsub : ∀ a b, H.Adj a b → G.Adj a b := hsafe
+  have hHnf : PEqualNP.TopForm.NoFourCycle H := by
+    intro a b hab
+    calc
+      (Finset.univ.filter (fun w => H.Adj a w ∧ H.Adj b w)).card ≤
+          (Finset.univ.filter (fun w => G.Adj a w ∧ G.Adj b w)).card := by
+        apply Finset.card_le_card
+        intro w hw
+        have hw' := (Finset.mem_filter.mp hw).2
+        exact Finset.mem_filter.mpr ⟨Finset.mem_univ w, hsub a w hw'.1, hsub b w hw'.2⟩
+      _ ≤ 1 := hnf a b hab
+  have hHtri : ∀ a b c, H.Adj a b → H.Adj b c → ¬ H.Adj c a := by
+    intro a b c hab hbc hca
+    exact htri a b c (hsub a b hab) (hsub b c hbc) (hsub c a hca)
+  exact three_bool_clause_vertex_cover_two H hHnf hHtri P Q R (fun _ _ => Iff.rfl)
+
+end PathCover
+
+namespace MatchingCNF
+
+lemma separated_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hzero : ∃ c : Fin k, ∀ i : Fin r, ¬ Sp c (p i))
+    (hline : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sl c (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp c (p j)) :
+    r + 1 ≤ k := by
+  classical
+  obtain ⟨c0, hc0⟩ := hzero
+  choose c hc using hline
+  let f : Option (Fin r) → Fin k := fun i => i.elim c0 c
+  have hinj : Function.Injective f := by
+    intro a b hab
+    cases a with
+    | none =>
+      cases b with
+      | none => rfl
+      | some i =>
+        change c0 = c i at hab
+        rcases hcover (c i) i with hp | hl
+        · rw [← hab] at hp
+          exact False.elim (hc0 i hp)
+        · exact False.elim ((hc i).1 hl)
+    | some i =>
+      cases b with
+      | none =>
+        change c i = c0 at hab
+        rcases hcover (c i) i with hp | hl
+        · rw [hab] at hp
+          exact False.elim (hc0 i hp)
+        · exact False.elim ((hc i).1 hl)
+      | some j =>
+        change c i = c j at hab
+        by_cases hij : i = j
+        · subst j
+          rfl
+        · have hpi : Sp (c i) (p i) := (hcover (c i) i).resolve_right (hc i).1
+          have hpj : Sp (c j) (p j) := (hcover (c j) j).resolve_right (hc j).1
+          have hsep : ¬ I (p i) (l j) ∨ ¬ I (p j) (l i) := not_and_or.mp (hcross i j hij)
+          rcases hsep with hsep | hsep
+          · rw [hab] at hpi
+            exact False.elim ((hc j).2 i hsep hpi)
+          · rw [← hab] at hpj
+            exact False.elim ((hc i).2 j hsep hpj)
+  have hcard := Fintype.card_le_of_injective f hinj
+  simpa only [Fintype.card_option, Fintype.card_fin] using hcard
+
+lemma full_safety_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  classical
+  apply separated_clause_count I p l Sp Sl hcross hcover
+  · by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (true : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (false : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sp c (p i) := by
+        by_contra h
+        apply hnone
+        exact ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inl ⟨p i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => true) (fun _ => false) hhits
+    cases hb
+  · intro i
+    let x : Fin P → Bool := fun a => decide (¬ I a (l i))
+    let y : Fin L → Bool := fun b => decide (b = l i)
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hli : Sl c (l i)
+      · exact Or.inr ⟨l i, hli, by simp [y]⟩
+      · have hex : ∃ j : Fin r, ¬ I (p j) (l i) ∧ Sp c (p j) := by
+          by_contra h
+          apply hnone
+          exact ⟨c, hli, fun j hj hSp => h ⟨j, hj, hSp⟩⟩
+        obtain ⟨j, hj, hSp⟩ := hex
+        exact Or.inl ⟨p j, hSp, by simp [x, hj]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+    have heq : b = l i := by simpa only [y, decide_eq_true_eq] using hb
+    have hnot : ¬ I a (l i) := by simpa only [x, decide_eq_true_eq] using ha
+    exact hnot (heq ▸ hab)
+
+lemma no_four_cycle_full_safety_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  apply full_safety_clause_count I p l Sp Sl ?_ hcover hsafe
+  intro i j hij hcross
+  have hpp : p i ≠ p j := fun h => hij (hp h)
+  have hll : l i = l j := hfour (p i) (p j) hpp (l i) (l j)
+    (hdiag i) hcross.2 hcross.1 (hdiag j)
+  exact hij (hl hll)
+
+lemma unified_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (S : Fin k → Fin (P + L) → Bool)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r,
+      S c (Fin.castAdd L (p i)) = true ∨ S c (Fin.natAdd P (l i)) = true)
+    (hsafe : ∀ z : Fin (P + L) → Bool,
+      (∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true) →
+      ∃ a b, I a b ∧ z (Fin.castAdd L a) = true ∧ z (Fin.natAdd P b) = true) :
+    r + 1 ≤ k := by
+  apply no_four_cycle_full_safety_clause_count I p l hp hl hdiag hfour
+    (fun c a => S c (Fin.castAdd L a) = true)
+    (fun c b => S c (Fin.natAdd P b) = true) hcover
+  intro x y hhits
+  let z : Fin (P + L) → Bool := Fin.addCases x y
+  have hhits' : ∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true := by
+    intro c
+    rcases hhits c with ⟨a, ha, hxa⟩ | ⟨b, hb, hyb⟩
+    · exact ⟨Fin.castAdd L a, ha, by simpa only [z, Fin.addCases_left] using hxa⟩
+    · exact ⟨Fin.natAdd P b, hb, by simpa only [z, Fin.addCases_right] using hyb⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe z hhits'
+  exact ⟨a, b, hab, by simpa only [z, Fin.addCases_left] using ha,
+    by simpa only [z, Fin.addCases_right] using hb⟩
+
+end MatchingCNF
+
+namespace CNF
+
+lemma clause_of_maximal_false
+    {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (clauses : Finset (Finset (Fin n))) (M : Finset (Fin n))
+    (hcnf : ∀ z, F z = true ↔ ∀ K ∈ clauses, ∃ v ∈ K, z v = true)
+    (hfalse : F (PEqualNP.ReadK.setInput M) = false)
+    (hmax : ∀ i ∉ M, F (PEqualNP.ReadK.setInput (insert i M)) = true) :
+    Mᶜ ∈ clauses := by
+  classical
+  have hnot : ¬ ∀ K ∈ clauses, ∃ v ∈ K, PEqualNP.ReadK.setInput M v = true := by
+    intro h
+    have ht := (hcnf _).mpr h
+    rw [hfalse] at ht
+    cases ht
+  push Not at hnot
+  obtain ⟨K, hK, havoid⟩ := hnot
+  have hKM : K ⊆ Mᶜ := by
+    intro v hv
+    simpa [PEqualNP.ReadK.setInput] using havoid v hv
+  have hMK : Mᶜ ⊆ K := by
+    intro i hi
+    have hiM : i ∉ M := by simpa using hi
+    obtain ⟨v, hv, ht⟩ := (hcnf _).mp (hmax i hiM) K hK
+    have hvi : v = i ∨ v ∈ M := by simpa [PEqualNP.ReadK.setInput] using ht
+    rcases hvi with rfl | hvm
+    · exact hv
+    · have hvnot : v ∉ M := by simpa using hKM hv
+      exact (hvnot hvm).elim
+  have heq : K = Mᶜ := Finset.Subset.antisymm hKM hMK
+  exact heq ▸ hK
+
+lemma maximal_false_family_card_le
+    {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (clauses family : Finset (Finset (Fin n)))
+    (hcnf : ∀ z, F z = true ↔ ∀ K ∈ clauses, ∃ v ∈ K, z v = true)
+    (hfalse : ∀ M ∈ family, F (PEqualNP.ReadK.setInput M) = false)
+    (hmax : ∀ M ∈ family, ∀ i ∉ M,
+      F (PEqualNP.ReadK.setInput (insert i M)) = true) :
+    family.card ≤ clauses.card := by
+  classical
+  have hsub : family.image (fun M => Mᶜ) ⊆ clauses := by
+    intro K hK
+    obtain ⟨M, hM, rfl⟩ := Finset.mem_image.mp hK
+    exact clause_of_maximal_false F clauses M hcnf (hfalse M hM) (hmax M hM)
+  calc
+    family.card = (family.image (fun M => Mᶜ)).card := by
+      rw [Finset.card_image_of_injective]
+      intro A B h
+      simpa only [compl_compl] using congrArg (fun M : Finset (Fin n) => Mᶜ) h
+    _ ≤ clauses.card := Finset.card_le_card hsub
+
+def incidenceSet {P L : ℕ} (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (S : Finset (Fin P)) : Finset (Fin (P + L)) :=
+  S.image (Fin.castAdd L) ∪
+    (Finset.univ.filter (fun l => ∀ p ∈ S, ¬ I p l)).image (Fin.natAdd P)
+
+lemma incidenceSet_point {P L : ℕ} (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (S : Finset (Fin P)) (p : Fin P) :
+    Fin.castAdd L p ∈ incidenceSet I S ↔ p ∈ S := by
+  simp [incidenceSet]
+  intro x hx heq
+  have hv := congrArg Fin.val heq
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hv
+  omega
+
+lemma incidenceSet_line {P L : ℕ} (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (S : Finset (Fin P)) (l : Fin L) :
+    Fin.natAdd P l ∈ incidenceSet I S ↔ ∀ p ∈ S, ¬ I p l := by
+  simp [incidenceSet]
+  intro x hx heq
+  have hv := congrArg Fin.val heq
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hv
+  omega
+
+lemma incidenceSet_false {P L : ℕ} (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (S : Finset (Fin P)) :
+    ¬ ∃ p l, I p l ∧ Fin.castAdd L p ∈ incidenceSet I S ∧
+      Fin.natAdd P l ∈ incidenceSet I S := by
+  rintro ⟨p, l, hpl, hp, hl⟩
+  exact (incidenceSet_line I S l).mp hl p ((incidenceSet_point I S p).mp hp) hpl
+
+lemma incidenceSet_maximal {P L : ℕ} (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (S : Finset (Fin P))
+    (hsep : ∀ p ∉ S, ∃ l, I p l ∧ ∀ s ∈ S, ¬ I s l) :
+    ∀ i ∉ incidenceSet I S,
+      ∃ p l, I p l ∧ Fin.castAdd L p ∈ insert i (incidenceSet I S) ∧
+        Fin.natAdd P l ∈ insert i (incidenceSet I S) := by
+  intro i
+  refine Fin.addCases ?_ ?_ i
+  · intro p hp
+    have hpS : p ∉ S := by simpa only [incidenceSet_point] using hp
+    obtain ⟨l, hpl, hl⟩ := hsep p hpS
+    refine ⟨p, l, hpl, Finset.mem_insert_self _ _, Finset.mem_insert_of_mem ?_⟩
+    exact (incidenceSet_line I S l).mpr hl
+  · intro l hl
+    have hnot : ¬ ∀ p ∈ S, ¬ I p l := by simpa only [incidenceSet_line] using hl
+    push Not at hnot
+    obtain ⟨p, hp, hpl⟩ := hnot
+    refine ⟨p, l, hpl, Finset.mem_insert_of_mem ?_, Finset.mem_insert_self _ _⟩
+    exact (incidenceSet_point I S p).mpr hp
+
+lemma incidence_clause_family_bound {P L : ℕ}
+    (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (family : Finset (Finset (Fin P)))
+    (clauses : Finset (Finset (Fin (P + L))))
+    (hsep : ∀ S ∈ family, ∀ p ∉ S, ∃ l, I p l ∧ ∀ s ∈ S, ¬ I s l)
+    (hcnf : ∀ z : Fin (P + L) → Bool,
+      (∃ p l, I p l ∧ z (Fin.castAdd L p) = true ∧ z (Fin.natAdd P l) = true) ↔
+      ∀ K ∈ clauses, ∃ v ∈ K, z v = true) :
+    family.card ≤ clauses.card := by
+  classical
+  let F := fun z : Fin (P + L) → Bool =>
+    decide (∃ p l, I p l ∧ z (Fin.castAdd L p) = true ∧ z (Fin.natAdd P l) = true)
+  have hF : ∀ z, F z = true ↔ ∀ K ∈ clauses, ∃ v ∈ K, z v = true := by
+    intro z
+    simpa only [F, decide_eq_true_eq] using hcnf z
+  have hinj : Function.Injective (incidenceSet I) := by
+    intro S T h
+    apply Finset.ext
+    intro p
+    rw [← incidenceSet_point I S p, h, incidenceSet_point I T p]
+  have hc := maximal_false_family_card_le F clauses (family.image (incidenceSet I)) hF
+    (by
+      intro M hM
+      obtain ⟨S, hS, rfl⟩ := Finset.mem_image.mp hM
+      apply decide_eq_false
+      simpa only [PEqualNP.ReadK.setInput, decide_eq_true_eq] using incidenceSet_false I S)
+    (by
+      intro M hM i hi
+      obtain ⟨S, hS, rfl⟩ := Finset.mem_image.mp hM
+      apply decide_eq_true
+      simpa only [PEqualNP.ReadK.setInput, decide_eq_true_eq] using
+        incidenceSet_maximal I S (hsep S hS) i hi)
+  simpa only [Finset.card_image_of_injective family hinj] using hc
+
+lemma small_point_subsets_clause_bound {P L : ℕ}
+    (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (clauses : Finset (Finset (Fin (P + L))))
+    (huniq : ∀ p p' : Fin P, p ≠ p' →
+      ∀ l l' : Fin L, I p l → I p' l → I p l' → I p' l' → l = l')
+    (hdeg : ∀ p : Fin P, 2 < (Finset.univ.filter (I p)).card)
+    (hcnf : ∀ z : Fin (P + L) → Bool,
+      (∃ p l, I p l ∧ z (Fin.castAdd L p) = true ∧ z (Fin.natAdd P l) = true) ↔
+      ∀ K ∈ clauses, ∃ v ∈ K, z v = true) :
+    1 + P + Nat.choose P 2 ≤ clauses.card := by
+  classical
+  let U : Finset (Fin P) := Finset.univ
+  let family := U.powersetCard 0 ∪ (U.powersetCard 1 ∪ U.powersetCard 2)
+  have hmem : ∀ S ∈ family, S.card ≤ 2 := by
+    intro S hS
+    rcases Finset.mem_union.mp hS with h | h
+    · have := (Finset.mem_powersetCard.mp h).2
+      omega
+    · rcases Finset.mem_union.mp h with h | h
+      · have := (Finset.mem_powersetCard.mp h).2
+        omega
+      · have := (Finset.mem_powersetCard.mp h).2
+        omega
+  have hcard : family.card = 1 + P + Nat.choose P 2 := by
+    unfold family
+    rw [Finset.card_union_of_disjoint, Finset.card_union_of_disjoint]
+    · simp [U, Nat.add_assoc]
+    · exact Finset.disjoint_powersetCard_of_ne (by decide) U U
+    · exact Finset.disjoint_union_right.mpr ⟨
+        Finset.disjoint_powersetCard_of_ne (m := 0) (n := 1) (by decide) U U,
+        Finset.disjoint_powersetCard_of_ne (m := 0) (n := 2) (by decide) U U⟩
+  rw [← hcard]
+  exact incidence_clause_family_bound I family clauses
+    (fun S hS p hp => PEqualNP.Outside.L_meta_2583.Geometry.exists_line_avoiding_small_set
+      I huniq S p hp (lt_of_le_of_lt (hmem S hS) (hdeg p))) hcnf
+
+lemma plane_size_small_subsets_bound (q N : ℕ) (hq : 2 ≤ q)
+    (hN : N = q ^ 2 + q + 1) : N * (q + 2) + 1 ≤ 1 + N + Nat.choose N 2 := by
+  have hq2 : 2 * q ≤ q * q := Nat.mul_le_mul_right q hq
+  have hN0 : 1 ≤ N := by nlinarith
+  have hNbig : 2 * q + 3 ≤ N := by nlinarith
+  have hsub : N - 1 + 1 = N := by omega
+  have hc := Nat.add_one_mul_choose_eq (N - 1) 1
+  simp only [Nat.choose_one_right, hsub] at hc
+  have hm := Nat.mul_le_mul_left N hNbig
+  have hsubmul : N * (N - 1) + N = N * N := by
+    calc
+      N * (N - 1) + N = N * (N - 1 + 1) := by simp [Nat.mul_add]
+      _ = N * N := by rw [hsub]
+  nlinarith
+
+end CNF
+
+
+namespace CNF
+
+lemma plane_point_degree_three
+    (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hlines : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hjoin : ∀ p p' : Fin N, p ≠ p' → ∃ l : Fin N, I p l ∧ I p' l) :
+    ∀ p : Fin N, 2 < (Finset.univ.filter (I p)).card := by
+  classical
+  intro p
+  have hNpos : 1 < N := by omega
+  have hpother : ∃ p' : Fin N, p ≠ p' := by
+    by_cases hp0 : p.val = 0
+    · refine ⟨⟨1, hNpos⟩, ?_⟩
+      intro h
+      have hh := congrArg Fin.val h
+      change p.val = 1 at hh
+      omega
+    · refine ⟨⟨0, by omega⟩, ?_⟩
+      intro h
+      exact hp0 (congrArg Fin.val h)
+  obtain ⟨p', hpp'⟩ := hpother
+  obtain ⟨l0, hp0, hp'0⟩ := hjoin p p' hpp'
+  let lines : Finset (Fin N) := Finset.univ.filter (I p)
+  let points : Fin N → Finset (Fin N) := fun l => Finset.univ.filter (fun x => I x l)
+  have hcover : Finset.univ ⊆ lines.biUnion points := by
+    intro x hx
+    by_cases hpx : p = x
+    · subst x
+      exact Finset.mem_biUnion.mpr ⟨l0, by simp [lines, hp0], by simp [points, hp0]⟩
+    · obtain ⟨l, hpl, hxl⟩ := hjoin p x hpx
+      exact Finset.mem_biUnion.mpr ⟨l, by simp [lines, hpl], by simp [points, hxl]⟩
+  have hbound : N ≤ lines.card * (q + 1) := calc
+    N = (Finset.univ : Finset (Fin N)).card := by simp
+    _ ≤ (lines.biUnion points).card := Finset.card_le_card hcover
+    _ ≤ ∑ l ∈ lines, (points l).card := Finset.card_biUnion_le
+    _ = lines.card * (q + 1) := by simp [points, hlines]
+  by_contra hsmall
+  have hsmall' : lines.card ≤ 2 := Nat.le_of_not_gt hsmall
+  have hprod := Nat.mul_le_mul_right (q + 1) hsmall'
+  have hq2 : 2 * q ≤ q * q := Nat.mul_le_mul_right q hq
+  nlinarith
+
+end CNF
+
+namespace CNF
+
+lemma plane_cnf_clause_bounds
+    (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hlines : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (huniq : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (clauses : Finset (Finset (Fin (N + N))))
+    (hcnf : ∀ z : Fin (N + N) → Bool,
+      (∃ p l, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ↔
+      ∀ K ∈ clauses, ∃ v ∈ K, z v = true) :
+    1 + N + Nat.choose N 2 ≤ clauses.card ∧ N * (q + 2) + 1 ≤ clauses.card := by
+  have hdeg : ∀ p : Fin N, 2 < (Finset.univ.filter (I p)).card :=
+    plane_point_degree_three q N I hq hN hlines (fun p p' h => (huniq p p' h).exists)
+  have hunique : ∀ p p' : Fin N, p ≠ p' →
+      ∀ l l' : Fin N, I p l → I p' l → I p l' → I p' l' → l = l' := by
+    intro p p' hpp l l' hpl hp'l hpl' hp'l'
+    obtain ⟨k, hk, hku⟩ := huniq p p' hpp
+    exact (hku l ⟨hpl, hp'l⟩).trans (hku l' ⟨hpl', hp'l'⟩).symm
+  have hbound := small_point_subsets_clause_bound I clauses hunique hdeg hcnf
+  exact ⟨hbound, (plane_size_small_subsets_bound q N hq hN).trans hbound⟩
+
+end CNF
+
 end PEqualNP.Outside.L_meta_2583
