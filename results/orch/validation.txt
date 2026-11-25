@@ -73,3 +73,6 @@ results/orch/lemmas/structural-clean-masking.lean SHA256 d3b422d78cac6179b09cc4d
 results/orch/lemmas/structural-clean-reach.lean SHA256 57e20baa1e27dbc6230fcab2bdb08eac1d764df1eee16c2c782900c0bc894aea; compiled exit0, independently reviewed.
 results/orch/lemmas/semantic-bank-factor-impossible.lean SHA256 442084bd3c808da9522301929d5058e1d309e8d1ed6e71faaa05457b29ab7264; compiled exit0, independently reviewed.
 Critical seven-lemma axiom audit exit0: only propext, Classical.choice, Quot.sound. The factor-impossibility lemma refutes a proposed shortcut, not L-meta-4675.
+
+Snapshot11 2026-11-25T18:07:56.551777+00:00
+results/orch/lemmas/structural-semantic-mixed-paid.lean SHA256 21aaf382f79fc25165e3dc3a9225c70cf207a17136aee4cbebcbd30092c05f5f, compiled exit0, independent review passed. Semantic mixing means true singleton witnesses of both colours, not arbitrary semantic dependency.

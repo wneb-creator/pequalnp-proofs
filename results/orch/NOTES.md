@@ -46,3 +46,5 @@ Semantic/algebraic agents independently verified a 13-gate T0, TopForm forest ci
 New promising local fact: semantically two-colour OR gates cannot belong to lambda, hence are already counted in the paid OR set. The remaining global masking charge needs to account for shared branches; no injection to boundary gates has been assumed.
 
 Potential normalization identity: a OR h equals a OR h with a forced false inside h. Applying it to a shared circuit requires proving every external use is shielded by a; without that boundary hypothesis the transformation is invalid.
+
+The checked semantic-mixing charge specifically concerns OR gates accepting singleton inputs of both colours; it does not classify arbitrary semantic dependency support. Such gates lie outside lambda and can be charged to its complement.
