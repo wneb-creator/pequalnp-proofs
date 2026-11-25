@@ -25,3 +25,4 @@
 - 2026-11-25T06:52:01.353536+00:00: strict-growth OR credit, robust matching certificate, and auxiliary-strategy counterexample compiled and independently reviewed; preserving results.
 - 2026-11-25T06:55:58.259932+00:00: complete one-dirty accounting and at-least-three lost-edge restriction compiled and independently reviewed; unrestricted target remains unresolved.
 - 2026-11-25T07:09:50.448417+00:00: no-liveness three-loss restriction and full support ownership compiled and independently reviewed. Full Mathlib cache no-build check passed18249jobs; official checker rerun underway.
+- 2026-11-25T07:30:16.905036+00:00: shared-frontier, disjoint gate budget, selected-DAG support/fork and local-filter lemmas compiled before restart and independently reviewed. Checkpoint preserving exact sources and logs. Full-cache checker ended exit137 without a verdict; environment restart killed memfd cache and two solver processes. Lease renewed through07:48:56UTC.

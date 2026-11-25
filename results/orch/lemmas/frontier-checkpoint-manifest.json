@@ -1,0 +1,122 @@
+[
+  {
+    "source": "formalization/frontier/Frontier.lean",
+    "target": "results/orch/lemmas/Frontier.lean",
+    "sha256": "12f546b48efece57208230fbe8cca2b4515d0c12336a79002dfb2a8e77a81cbc",
+    "bytes": 4503
+  },
+  {
+    "source": "formalization/frontier/SharedCover.lean",
+    "target": "results/orch/lemmas/SharedCover.lean",
+    "sha256": "7a691ab95bb0493ae0e7588139e7fcc856501722634875091aefc5f58a49a90c",
+    "bytes": 19329
+  },
+  {
+    "source": "formalization/frontier/FrontierBudget.lean",
+    "target": "results/orch/lemmas/FrontierBudget.lean",
+    "sha256": "30fa068c61761a0804e2ca15d43b5b630b8a85652067fa4d777163ecb256dfd0",
+    "bytes": 22203
+  },
+  {
+    "source": "formalization/frontier/frontier-check-1.log",
+    "target": "results/orch/lemmas/frontier-check-1.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "formalization/frontier/shared-cover-check-3.log",
+    "target": "results/orch/lemmas/shared-cover-check-3.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "formalization/frontier/frontier-budget-check-1.log",
+    "target": "results/orch/lemmas/frontier-budget-check-1.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/CommonSingletonFilter.lean",
+    "target": "results/orch/lemmas/CommonSingletonFilter.lean",
+    "sha256": "0d8c580b317fef35c2a56458d4661f41f79d85d05754c1208ac8ad3b8d80c185",
+    "bytes": 1417
+  },
+  {
+    "source": "lower-bound/common-singleton-filter-lean.log",
+    "target": "results/orch/lemmas/common-singleton-filter-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/GoodOrSmallAndBound.lean",
+    "target": "results/orch/lemmas/GoodOrSmallAndBound.lean",
+    "sha256": "19d2ed860e92c3f31054146c5de11f312e1755df31f0e24a1f8b83aa755f267a",
+    "bytes": 11617
+  },
+  {
+    "source": "lower-bound/good-or-small-and-bound-lean.log",
+    "target": "results/orch/lemmas/good-or-small-and-bound-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/OwnerOverlapBudget.lean",
+    "target": "results/orch/lemmas/OwnerOverlapBudget.lean",
+    "sha256": "04cb877e0e54bddabe5949aad04dfbf82a5ebf241fbeef619778e96fa6f0f1fd",
+    "bytes": 1885
+  },
+  {
+    "source": "lower-bound/owner-overlap-budget-lean-2.log",
+    "target": "results/orch/lemmas/owner-overlap-budget-lean-2.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/LiveDagCredit.lean",
+    "target": "results/orch/lemmas/LiveDagCredit.lean",
+    "sha256": "674524342fc0aeecf4c44a6a24b37fff7e67fb9a617b1af2414366cc6ca7c1a9",
+    "bytes": 3221
+  },
+  {
+    "source": "lower-bound/live-dag-credit-lean-2.log",
+    "target": "results/orch/lemmas/live-dag-credit-lean-2.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/LiveDagSupportBound.lean",
+    "target": "results/orch/lemmas/LiveDagSupportBound.lean",
+    "sha256": "9a902588819938e75f43f1d287254da9156ea519637a705be4b3c4481ffc40a1",
+    "bytes": 5681
+  },
+  {
+    "source": "lower-bound/live-dag-support-bound-lean.log",
+    "target": "results/orch/lemmas/live-dag-support-bound-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/TwoPathFork.lean",
+    "target": "results/orch/lemmas/TwoPathFork.lean",
+    "sha256": "1aa1acd2989251504ab823bda2fbb695da34bb958b7be1389dff828aa177f0a3",
+    "bytes": 1504
+  },
+  {
+    "source": "lower-bound/two-path-fork-lean.log",
+    "target": "results/orch/lemmas/two-path-fork-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "lower-bound/CoverStarOrOuter.lean",
+    "target": "results/orch/lemmas/CoverStarOrOuter.lean",
+    "sha256": "2d1355fe815d5c13c9afb9391a7fef6bb2adc5c69fe239b1a006a03395d0e9cc",
+    "bytes": 1579
+  },
+  {
+    "source": "lower-bound/cover-star-or-outer-lean.log",
+    "target": "results/orch/lemmas/cover-star-or-outer-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  }
+]

@@ -1,11 +1,13 @@
 Gap: L-meta-2732
-Status: checked filtering, prefix normalization, and27-gate baseline; assigned26-gate theorem is not yet proved.
+Status: partial checked lemmas and27-gate baseline; assigned26-gate theorem remains unresolved.
 File: lean/PEqualNP/Outside/L_meta_2732.lean
-Build: lake build PEqualNP.Outside.L_meta_2732, exit0,5149jobs.
-Independent review: sat_review passed filtering; repo_review passed input renaming and full prefix normalization.
-Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing. Exit3.
-Line count:518. Cleanup: skipped; full Mathlib cache unavailable to checker.
+Build: lake build PEqualNP.Outside.L_meta_2732 passed, exit0,5149jobs before restart.
+Full cache: lake build --no-build Mathlib passed18249jobs before restart; no Mathlib source compilation.
+Checker: CHECKER FAULT: the verifier ended without a verdict (exit137). Complete output in checker-partial-full-cache.log. No accepted theorem claimed.
+Line count before cleanup:518. After:518. Cleanup skipped because full proof and checker acceptance are absent.
+Independent reviews: helper proofs and search encodings reviewed by separate agents; individual notes retained.
 Sub-agents: repo_review; circuit_search; lower_bound; formalization; formalization/rename_wires; constructive; sat_review
-TIMING total=97.8 subagents=7
-Standalone adjacent-cover helpers: Lean exit0, independent review passed. No global gate bound claimed.
-Checked standalone result: one-dirty-slot accounting and at least three lost target edges after zero forcing; successful Lean checks and independent reviews. This does not prove or refute the posted statement.
+TIMING total=132.1 subagents=7
+Desk null count:2
+Exact message both times: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
+This checkpoint includes standalone research components. It is not a one-file proof PR and must not be submitted as one.
