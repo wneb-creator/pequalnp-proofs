@@ -1,0 +1,8 @@
+MergeValid partial component
+UTC: 2026-11-25 12:43:53 UTC
+Lean 4.36.0; lake env lean ../results/orch/lemmas/MergeValid.lean
+Exit: 0
+Diagnostics: none
+SHA256: 464ad1fa619bf8eac7533157c0af27c2d3857ee8c991a04edd4bd7d9f1e5adb3
+Logs: results/orch/logs/merge-valid.stdout and merge-valid.stderr
+Local full checker: not run; helper component only, no final target theorem.

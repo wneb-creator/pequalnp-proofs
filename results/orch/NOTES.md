@@ -120,3 +120,38 @@ Also checked UnionCount.lean (223 lines), the same charging theorem for any fini
 ## 2026-11-25T12:40:31.032753+00:00 — dirty-block obstruction checked (math_bound)
 
 DirtyBlockExample.lean compiled exit0, complete empty logs saved. For matching edges p0-l0 and p1-l1, C = ((p0 OR p1) AND (l0 OR l1)) AND ((p0 OR l1) AND (p1 OR l0)), seven gates. Lean proves AO2 validity, exact matching function, every interior wire (all ten wires before output) NOT below output, and NOT ReadK1. Therefore lift fixedpoint / no below-function interior wires cannot alone imply star/read1 form. A three-gate star circuit exists, so minimum-size remains essential; this is NOT a refutation of L2585.
+
+## Candidate-verification lemmas, 2026-11-25T12:42:33.357336+00:00
+
+GraphTests.lean and IncidenceTests.lean both compiled with queued lake env lean, exit0 and no diagnostics. Normalization agent independently reviewed both, PASS. These are general monotone-function test criteria, not a proof of the leased step. IncidenceTests reduces verification to all point subsets by completing each to an independent assignment on the line side. CircuitMonotone.lean is being prepared by the normalization agent to connect these criteria to AO2 circuits.
+
+CycleSix.lean compilation was cancelled after several minutes, because its finite upper bound is already known and it contributes nothing to the general open step; do not report that file as checked.
+
+Additional target: projective-plane order3,13+13 inputs,52 edges, star bound64; a63-gate stochastic search uses756 exact monotone tests (52 edges+704 maximal independent sets). Upstream census found only restricted64-gate lower bounds, not an unrestricted one.
+
+CORRECTION 2026-11-25T12:42:45.459289+00:00: CycleSix.lean finished successfully before the cancellation request arrived. Tool result was exit0, stdout/stderr empty. All its lemmas, including read1, compiled. The preceding cancellation statement is superseded.
+
+## Re-plan 1 — 2026-11-25T12:43:47.316148+00:00
+
+The checked clean-block, OR-only cost, prime-implicant, normalization, multilinearity/read-1, and exact P=1 components are preserved. Stop producing alternate OR-only formulations. A checked seven-gate matching circuit refutes the shortcut from lift-normalization alone to read-1; a minimum path circuit can still reread before lifting. Focus mathematical work on a representative that is both least-size and lift-normalized, and on charging its genuinely dirty AND blocks.
+
+Counterexample searches moved away from subdivided K4 and Fano after refreshed upstream revealed accepted lower bounds. Active targets are subdivided K5 and PG(2,3), with SAT positive controls and finite verification criteria. Formal work continues on clean-normal-form-to-read1 and concatenating read1 star blocks.
+
+The assigned file now assembles six checked components, 2251 lines, pending combined build. The local checker returned CHECKER FAULT because full Mathlib.olean cache is absent; this is not an acceptance or rejection of the partial theorem. Full posted target remains unproved; reductions are unavailable for this lease.
+
+## Circuit concatenation validity checked (status_review, 2026-11-25 12:43:53 UTC)
+- MergeValid.lean compiled exit 0, no diagnostics. Full logs and validation file copied to results/orch.
+- shIdx preserves input indices and shifts non-input indices; concat appends a shifted copy of D after C. concat_valid preserves AO2; concat_size is additive; concat_output preserves a valid output bound.
+- Independent review requested from normalization agent before root preservation push.
+
+## 2026-11-25T12:44:50.560962+00:00 new compiled bridges
+
+CircuitMonotone.lean compiled: all AND/OR circuits preserve pointwise truth, with an IsAO2 wrapper for candidate verification. CleanTopForm.lean compiled and independently reviewed by proof_route: TopForm plus all AND gates below the graph function implies no nested ANDs and singleton rejection at each AND. These are conditional preprocessing bridges; arbitrary dirty AND gates remain unresolved.
+
+## 2026-11-25T12:45:26.635618+00:00 — checked no-nested-AND bridge
+
+Multilinear.lean now also proves `no_nested_and_multilinear`: AO2, no AND gate in the strict cone of another AND, and every AND false on singleton assignments imply syntactic multilinearity. The support of an AND-free operand is witnessed by an OR path, so a variable shared by both operands would make the AND true on its singleton. `and_pairs_zero_read_one` packages this with the previous read-vector theorem. Lean exit 0; complete stdout/stderr empty. No claim is made that every least incidence circuit has these conditions.
+
+## 2026-11-25T12:46:22.946288+00:00 clean-case bridge underway
+
+CleanJunk.lean compiled (empty junk implies every AND below graph function). CleanReadOne.lean combines checked clean topology with proof_route agent multilinear result to prove read1 conditional on TopForm and empty junk; it is being compiled. These hypotheses are still not established for arbitrary input circuits. Combined file replaces individual Multilinear/CleanTopForm/CleanJunk assembly entries.

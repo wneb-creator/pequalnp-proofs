@@ -13,3 +13,6 @@
 - 2026-11-25T12:39:39.940565+00:00: construction strategy completed checked P=1 exact-size/read-1 replacement.
 - 2026-11-25T12:40:35.054331+00:00: exact one-point replacement compiled and independently reviewed.
 - 2026-11-25T12:41:52.781261+00:00: checked finite verification criteria and dirty-block obstruction; independent reviews passed.
+- 2026-11-25T12:43:47.316148+00:00: first 20-minute re-plan; prioritize least normalized dirty-block charging and larger counterexample targets.
+- 2026-11-25T12:45:26.635720+00:00: no-nested-AND plus singletonfalse bridge checked by Lean.
+- 2026-11-25T12:46:30.575189+00:00: combined assigned partial built and reviewed; checker fault recorded; additional checked bridges preserved.

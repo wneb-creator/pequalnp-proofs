@@ -6,7 +6,7 @@ Independent red-team review: status_review passed semantics and format.
 The full posted statement has not been proved. No proof PR is ready.
 Local checker not yet applicable: final theorem absent.
 Sub-agents: six (toolchain/review, direct proof, independent bound, counterexample search, construction, normalization)
-TIMING total=16 subagents=6
+TIMING total=25 subagents=6
 
 RelCount.lean: lake env lean exit 0; empty complete logs saved. Independent review passed.
 
@@ -23,3 +23,8 @@ SinglePoint.lean: lake env lean exit 0, full logs retained; independent exact-so
 
 GraphTests.lean and IncidenceTests.lean: lake env lean exit 0, complete logs empty. Independent normalization-agent review passed.
 DirtyBlockExample.lean: lake env lean exit 0. Root independently reviewed exact source: 7-gate matching circuit is normalized but not read-1, proving a stronger attempted route false; this is NOT a refutation of L-meta-2585.
+
+Combined assigned file: lake build PEqualNP.Outside.L_meta_2585 PASSED exit 0, 2251 lines. Independent assembly review passed; six bodies concatenated without changes. Full stdout/stderr retained.
+Local checker exit 3: CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+Checker did not judge the full statement. Cleanup pass skipped because checker cannot start with installed partial cache; current before/after cleanup counts 2251/2251.
+Additional checked and independently reviewed artifacts: extended Multilinear, MergeValid, CleanTopForm, CircuitMonotone, ClosedIncidenceTests. CycleSix is a kernel-decided known upper-bound example; root inspected its exact explicit circuit and source format. Full statement remains unproved.

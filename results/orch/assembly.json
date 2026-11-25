@@ -1,0 +1,26 @@
+[
+  {
+    "file": "results/orch/lemmas/SinglePoint.lean",
+    "sha256": "e7e5e7a1e47347bfa68eb6de35188df22505886183afd03fc0e358aa113ecc30"
+  },
+  {
+    "file": "results/orch/lemmas/StarBlock.lean",
+    "sha256": "884b5010b8b2556f0bcd2e6f74aa7fef210447ecebf9bdadc13f96f11db9709b"
+  },
+  {
+    "file": "results/orch/lemmas/Prime.lean",
+    "sha256": "b45f90b9b0cf3708aad980afbbaea98f319f5efa77aa845e775a1cab4da01083"
+  },
+  {
+    "file": "results/orch/lemmas/Normalization.lean",
+    "sha256": "7a3aefa03887152b8ac808a508f8a5fcbb2327a36bcb41eef02787616953b87c"
+  },
+  {
+    "file": "results/orch/lemmas/Multilinear.lean",
+    "sha256": "9a79dbabb36dc621b360cd14536e264c4d75b2fd6436fc33dd1dd5edfc09167f"
+  },
+  {
+    "file": "results/orch/lemmas/OrBound.lean",
+    "sha256": "135dda028d175dabecee8b872a811b925279dc5b67bad0b18751f490abcad045"
+  }
+]
