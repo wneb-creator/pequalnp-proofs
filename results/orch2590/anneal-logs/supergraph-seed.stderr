@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/pequalnp-proofs/results/orch2590/supergraph_seed.py", line 6, in <module>
-    values = list(map(int((scratch / 'petersen.txt').read_text().split())) )
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'

@@ -1,6 +1,0 @@
-{"pair": [0, 1], "children": 712, "restriction": 396, "separation": 276, "open_unique": 40, "states": 9, "depth": 2, "cap": 17, "parents_processed": 1, "parents_total": 1, "stabilizer": 8}
-{"pair": [0, 1], "children": 7256, "restriction": 4864, "separation": 2034, "open_unique": 358, "states": 139, "depth": 3, "cap": 17, "parents_processed": 9, "parents_total": 9, "stabilizer": 8}
-{"pair": [0, 1], "children": 122932, "restriction": 92972, "separation": 25254, "open_unique": 4706, "states": 1793, "depth": 4, "cap": 17, "parents_processed": 139, "parents_total": 139, "stabilizer": 8}
-{"pair": [0, 1], "children": 645504, "restriction": 450592, "separation": 111376, "open_unique": 17220, "length": 66316, "states": 7836, "depth": 5, "cap": 17, "parents_processed": 715, "parents_total": 1793, "stabilizer": 8}
-{"pair": [0, 2], "children": 712, "separation": 298, "restriction": 357, "open_unique": 57, "states": 24, "depth": 2, "cap": 17, "parents_processed": 1, "parents_total": 1, "stabilizer": 4}
-{"elapsed_seconds": 301.99581718444824}

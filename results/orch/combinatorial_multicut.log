@@ -1,7 +1,0 @@
-{"pair": [0, 1], "children": 852, "restriction": 528, "separation": 284, "open_unique": 40, "states": 9, "depth": 2, "cap": 17, "parents_processed": 1, "parents_total": 1, "stabilizer": 8}
-{"pair": [0, 1], "children": 8544, "restriction": 6024, "separation": 2159, "open_unique": 361, "states": 142, "depth": 3, "cap": 17, "parents_processed": 9, "parents_total": 9, "stabilizer": 8}
-{"pair": [0, 1], "children": 146440, "restriction": 113863, "separation": 27729, "open_unique": 4848, "states": 1895, "depth": 4, "cap": 17, "parents_processed": 142, "parents_total": 142, "stabilizer": 8}
-{"pair": [0, 2], "children": 852, "restriction": 481, "separation": 314, "open_unique": 57, "states": 24, "depth": 2, "cap": 17, "parents_processed": 1, "parents_total": 1, "stabilizer": 4}
-{"pair": [0, 2], "children": 22488, "restriction": 15381, "separation": 6016, "open_unique": 1091, "states": 480, "depth": 3, "cap": 17, "parents_processed": 24, "parents_total": 24, "stabilizer": 4}
-{"pair": [0, 2], "children": 285884, "restriction": 216239, "separation": 59297, "open_unique": 10348, "states": 4956, "depth": 4, "cap": 17, "parents_processed": 286, "parents_total": 480, "stabilizer": 4}
-{"elapsed_seconds": 240.70079684257507}
