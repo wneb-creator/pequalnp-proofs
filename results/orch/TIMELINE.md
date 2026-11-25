@@ -21,3 +21,5 @@
 2026-11-25T14:45:17Z — L-meta-2583 lift and block decomposition compiled and independently reviewed; copied into named target as an explicitly incomplete checkpoint.
 
 2026-11-25T14:47:44.135283+00:00 — Named L-meta-2583 block build passed (5149 jobs). Constructor, plane geometry and read-one cost artifacts compiled and independently reviewed. New target appendix was appended during prior snapshot copy; its exact frozen hash subsequently compiled and independently passed review.
+
+2026-11-25T14:52:25.170505+00:00 — Standalone exact cost equivalence and finite Fano construction compiled and independently reviewed. The general lower bound remains open.
