@@ -1,0 +1,28 @@
+Independent FreshCore review
+Reviewer: reductions_review
+UTC: 2026-11-25T01:37:34.828456+00:00
+SHA256: 5d0ad7449fc6a75b16bedd68b598708bf45f60a967e477767a019493beda370e
+Verdict: PASS for a compiled partial artifact; not a completed L-meta-1031 proof.
+
+Reviewed all 445 lines (18772 bytes). Source unchanged.
+
+Semantic scope:
+- Exact states that a specified abstract context K with a specified signal computes graph-edge existence.
+- ContextMono explicitly assumes monotonicity in both the input set and the substituted proposition. Required and Permitted describe the interval of valid monotone substitute signals.
+- least_signal_exact and greatest_signal_exact establish semantic extremal signals only. Their names do not assert any minimum gate count or circuit-size bound.
+- center_rewire and the repair case lemmas preserve Exact under their stated dominance, support, star, or disjointness assumptions; they do not manufacture those assumptions for arbitrary circuits.
+- Critical-independent-set biclique and domination lemmas use all required monotonicity/exactness/independence hypotheses explicitly. The no-four-cycle and triangle-free assumptions occur only in the combinatorial conclusions that require them.
+- Realize explicitly constructs an abstract context with prescribed pivotal subgraph. It gives no bounded-size circuit realization or minimality result.
+- No hidden cost, size-preserving implementation, or full gap claim was found. The missing bridge is still to actual circuits and an admissible size bound.
+
+Format/security:
+- Only Mathlib and PEqualNP.Defs imports, at the top.
+- All declarations are isolated under PEqualNP.Outside.L_meta_1031.FreshCore; no instances, attributes, string literals, custom syntax, unsafe declarations, forbidden root spelling, or option changes.
+- No sorry, axioms, native_decide, or compile-time commands in source.
+- As a helper-only partial outside lean/, this is not itself a submission file proving the posted theorem.
+
+Validation:
+- Independent recompilation of an exact source copy plus axiom-audit commands passed with exit 0.
+- Audited exact_iff_interval, least_signal_exact, greatest_signal_exact, center_rewire, residual_side_subsingleton, failed_bypass_certificate, pivotal_repair_cases, disjoint_support_repair, realize_exact, realize_pivotal, realize_negative.
+- Every audited declaration uses only propext, Classical.choice, Quot.sound; realize_negative uses no axioms.
+- Complete audit output: /tmp/oec/pequalnp-pilot-54/freshcore-review-axioms.log.

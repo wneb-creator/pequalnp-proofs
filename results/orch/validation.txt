@@ -1,10 +1,10 @@
 L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
-Named file: 9,386 lines, 477,463 bytes; byte-identical to independently reviewed OneJunk.lean.
+Named file: 10,255 lines, 519,908 bytes; independently reviewed OneJunkProfile.lean.
 Lean 4.36.0: lake build PEqualNP.Outside.L_meta_1031 passed (exit 0).
-Strongest partial: triangle/C4-free least AO2 circuits with exactly one unsound AND admit a vertex cover with |E|+|T| ≤ C.size+1.
-Independent review: PASS for partial scope; standard axioms only.
-Latest checker run on prior helper-only target: REJECTED (no-theorem); posted theorem remains absent in current target.
-Other checked partials and full outputs are under results/orch/.
-No full-proof PR opened. Cleanup rule requiring a full checker pass has not been triggered.
-Sub-agents: 7 (construction, structure/review, counterexample search, exchanges, one-junk normalization, direct ownership, OR-count potential)
-TIMING total=21.6 subagents=7
+Strongest partial: exact posted existential conclusion follows if a globally least public circuit is AO2 and has exactly one unsound AND. The extra premise remains unproved in general.
+Independent review: PASS for conditional partial scope; prior core axiom audit uses only propext, Classical.choice, Quot.sound.
+Latest full checker run on previous OneJunk target: REJECTED (no-theorem). Current target still lacks the unconditional named theorem.
+Other checked partials, numerical evidence, source reviews and full outputs are under results/orch/. Numerical UNSAT claims have no Lean certificate; timeouts are inconclusive.
+No full-proof PR opened. Cleanup requiring a full checker pass has not been triggered.
+Sub-agents: 9 across proof strategies, counterexample search and independent reviews; two fresh-core agents use gpt-6.2-astra at ultra effort.
+TIMING total=36.0 subagents=9

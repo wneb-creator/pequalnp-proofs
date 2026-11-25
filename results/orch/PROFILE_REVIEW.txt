@@ -1,0 +1,4 @@
+Independent root review: PASS for conditional partial scope.
+The core proof matches independently checked OneJunk except deletion of three unused helpers and namespace relocation. New wrapper derives exact posted existential conclusion from a globally least public circuit additionally satisfying IsAO2 and exactly one junk AND. Public minimality is transferred via the constructed circuit size bound. Explicit no-four-cycle hypothesis is converted correctly to NoFourCycle; graph edge-set cardinalities match.
+No unconditional theorem is claimed. The extra premises remain unproved in general.
+Format scan: no forbidden constructs; source519908bytes, below512KiB.
