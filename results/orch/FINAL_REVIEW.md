@@ -1,6 +1,6 @@
 # Final independent checkpoint review
 
-Verdict: PASS for research-checkpoint preservation after the final named-file build succeeds. NOT PR-ready: the actual format guard refuses the missing final theorem, and no accepted statement-checker verdict exists. This is not a full format-guard PASS.
+Verdict: PASS for research-checkpoint preservation. The renamed final named-file build succeeded. NOT PR-ready: the actual format guard refuses the missing final theorem, and no accepted statement-checker verdict exists. This is not a full format-guard PASS.
 
 Named source: lean/PEqualNP/Outside/L_meta_2448.lean, 4450 lines. Current SHA256: 8a991769ac9ad2c61ed2d42d4b418772f96b5534ecd902af9794f010d8e85742.
 
@@ -15,3 +15,5 @@ HANDOFF.md correctly distinguishes checked conditional helpers and finite witnes
 Artifact hygiene scanned all 73 changed or new files at review time, including decompressed archives and JSON manifests: 26,022,639 bytes, 272 tar members, and 17,239 valid JSON objects. No credential-value or private-key patterns, unsafe archive paths, links or other special member types, unexpected project paths, or JSON parsing errors were found. Archive contents were inspected in memory and were not extracted or executed.
 
 The infrastructure report openly records the missing Batteries.olean checker fault, the bounded dependency-wrapper attempt, and restoration of the original targeted environment. It does not claim that the full checker succeeded or that the full cache fits the memory budget. This review did not rerun the final build or checker; parent records their exact outputs separately.
+
+Final metadata confirmation: the named source hash remains unchanged at the current value above. I inspected the complete saved final-fixed axiom audit, which reports only propext, Classical.choice, and Quot.sound for all 23 selected declarations; stderr is empty. The saved build stdout records Build completed successfully (5149 jobs), with empty stderr. The final checker stderr gives the exact missing-prebuilt-Mathlib-cache fault, with empty stdout. All build, audit, checker, and format-guard outputs are also preserved under results/orch. VALIDATION.txt and the updated HANDOFF.md accurately report these limited outcomes and do not claim a completed theorem, accepted checker verdict, or PR readiness.

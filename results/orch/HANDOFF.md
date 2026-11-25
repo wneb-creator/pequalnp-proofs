@@ -33,3 +33,5 @@ VALIDATION.txt and TIMELINE.md record exact build, review, checkpoint, and check
 Local build environment uses Lean4.36.0 and the repository-pinned Mathlib. No project configuration was changed. The standard source file is lean/PEqualNP/Outside/L_meta_2448.lean. Helpers are independently available in results/orch/lemmas, and final integration preserves their bodies under permitted namespaces.
 
 Final integration:4450 lines, buildexit0 and23-key axiom audit with standardaxioms only. Actual sourceguard rejects only the absent posted theorem after the identifier-format correction. Full localchecker still faults on missing full Mathlib cache. The concrete RectangleRepair and separate IsAO2 model lemma are checked under their stated reachability/support assumptions; DoubleStarGeometry does not by itself prove the stronger arbitrary-reader coverage requirement.
+
+Lease closure: the root renewal timer was stopped, then only L-meta-2448 was released with reason other after the full checked checkpoint was pushed. No PR was opened. The full task remains unproved and unrefuted; this handoff preserves partial results only.

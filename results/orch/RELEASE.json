@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T08:26:41.891234+00:00",
+  "released": "L-meta-2448",
+  "reason": "other",
+  "checked_source_checkpoint": "49be01a11b708992ed7b5120b97111f57e16c5ae",
+  "pr": null,
+  "target_proved": false,
+  "target_refuted": false
+}
