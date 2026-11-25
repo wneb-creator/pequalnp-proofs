@@ -93,3 +93,6 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:08:10.983519+00:00 local_near.lean compiled successfully; independent exhaustive truth-table and format review passed.
 2026-11-25T14:08:11.460115+00:00 renewed; expiry 2026-11-25T14:28:11.151Z
 2026-11-25T14:08:25.136227+00:00 local_near.lean compiled and independently reviewed; preserving exact near-witness.
+
+- 2026-11-25T14:10:02.466402+00:00: structural transport (row permutation, Live preservation, canonical first-pair normalization) compiled PASS. Root and independent reviewer notified.
+2026-11-25T14:10:55.558218+00:00 transport compiled/reviewed; preserving snapshot. Replan: retain17binary firstgate route, one-NOT analysis, exact15template SAT; drop generic duplicate-charge route (counterexamples).

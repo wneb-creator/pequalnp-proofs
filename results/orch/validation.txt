@@ -27,3 +27,6 @@ Root independent review PASS: CanonicalBank.lower proves16residual binary gates 
 Axiom inspection of sixteen_binary_floor and four_not_exclusion passed: only propext, Classical.choice, Quot.sound.
 local_near.lean compiled exit0 (empty output); independent review by petersen_search passed all1024 inputs and64 K4 identity rows.
 This18gate circuit is an overapproximation with exactly4false positives, NOT a counterexample.
+
+structural_transport.lean compiled exit0 with empty output.
+Independent review by reduction_design PASS: vertex permutation and row encoding directions are correct; target invariance preserves Petersen function; bijective row maps preserve Live properness, freshness, distinct inputs and exact binary-gate cost. Arbitrary first pair becomes edge(0,1) or nonedge(0,2). Scratch import structural is only a harness and will be removed in final single-file integration.
