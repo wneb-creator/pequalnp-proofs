@@ -20,3 +20,6 @@ TIMING total=30 subagents=6
 
 InitialRetained andPetersenReplay eachcompiled exit0; independentreview passed. Replay derivesexactpostedstatement from checkW=true, stillunproved. Bothfirstgateinputsretained nowproved;17boundpending.
 TIMING total=34 subagents=6
+
+AtMostThree compiled exit0 and independentlyreviewed: countpreservation plus3876CNFclauses; ReplayControls acceptedvalidfixture andrejectedcorruption via kerneldecide. Namedpartialguard fails solelymissingmaintheorem; outputarchived.
+TIMING total=37 subagents=6

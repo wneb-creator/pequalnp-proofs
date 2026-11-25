@@ -10,3 +10,4 @@
 2026-11-25T14:13:52.343627+00:00 PetersenCNF exact-statement conditional wrapper compiled and reviewed; local checker on503line partial returned REJECTED(no-theorem), as expected.
 2026-11-25T14:16:15.651457+00:00 RetainedInput andFirstCollision compiled and independentlyreviewed; preservepartial17/18bound components.
 2026-11-25T14:20:50.159569+00:00 InitialRetained andPetersenReplay compiled and independentlyreviewed; preservingexactsource/fullcompilelogs.
+2026-11-25T14:23:12.663900+00:00 AtMostThree andReplayControls compiled+reviewed, hashesmatchedbeforearchival; preserving.

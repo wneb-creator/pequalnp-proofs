@@ -1,0 +1,181 @@
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:166:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:168:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:168:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:169:125: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:169:23: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:169:36: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:169:49: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:169:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:199:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:212:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:180:32: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:180:45: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:180:58: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:180:84: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:204:33: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:204:46: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:204:59: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:382:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2592_aux.SatEncoding.s_fSrcEq`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:435:16: warning: This simp argument is unused:
+  or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch :=
+    first
+    | omega
+    | (apply wd_lt1; omega)
+    | (apply wd_lt2; assumption)) only [cs_cons,
+    cs_nil, litVal_Q, litVal_P, v_op, v_w, v_u1, v_u2, or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:455:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:457:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:458:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:464:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:467:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:469:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:475:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:475:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:478:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:480:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:486:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:486:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:490:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/sat_encoding/ReplayControls.lean:493:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2592_aux.SatEncoding.s_fHasNot`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

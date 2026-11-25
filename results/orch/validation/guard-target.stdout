@@ -1,0 +1,2 @@
+REFUSED: the file holds no theorem
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_2592 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_2592` ... `end PEqualNP.Outside.L_meta_2592`; only the imports and the theorem stay outside
