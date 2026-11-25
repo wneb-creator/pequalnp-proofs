@@ -66,3 +66,10 @@ DownwardOwnership.lean: lake env lean ../results/orch/lemmas/DownwardOwnership.l
 CaptureRewrite.lean: lake env lean ../results/orch/lemmas/CaptureRewrite.lean; exit 0, full output capture-rewrite-build.log.
 ClassSplice.lean: lake env lean ../results/orch/lemmas/ClassSplice.lean; exit 0, full output class-splice-build-001.log.
 Independent source review: rules_review PASS; all five reviewed hashes verified before staging. MinimalBadNormalForm eliminates singleton-edge bad gates, but does not eliminate every unowned AND. ClassSplice currently proves an earlier-wire deletion criterion, not an arbitrary class construction.
+
+2026-11-25T04:19:03.305376+00:00 frozen partial preservation
+NormalizedExistence.lean: standalone Lean build exit 0; independent reviewer PASS; SHA256 72722883ecd83d7f5a47b2c33be036be4ae38baf16dbf0e6297eb389b99d3ae5; full log normalized-existence-build.log.
+CleanClassReplacement.lean: standalone Lean build exit 0; independent reviewer PASS; SHA256 b25f86d89912d1e085b866e05b5136c0e492bdb4942aff7631e67904a26a3b52; full log clean-class-build-002.log.
+NormalizedExistence gives a minimum circuit whose unowned ANDs accept at least two unordered graph edges. CleanClassReplacement gives the conditional budgeted class replacement, including arbitrary shared readers. Neither proves the posted theorem. Repository checker not run on partial artifacts.
+Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
+TIMING total=53.5 subagents=6
