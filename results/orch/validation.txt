@@ -38,3 +38,5 @@ TIMING total=37.2 subagents=9
 Seventh checkpoint: final root, symmetry, catalogue helpers and21 further modules reviewed and reported compiled exit0. Static full candidate passes guard/exactstatement/catalogue review, but NOT YET COMPILED. Heavy case8 failed twice exit137; numerical hash-partition refinements in progress to reduce kernel memory.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
 TIMING total=46.1 subagents=9
+
+Memory checkpoint: StrictSym8,RootShardAdapter,Sym8PhaseOnly compiled exit0 and reviewed. StrictSym8 peak7003760KiB remains over target; no final acceptance claim.

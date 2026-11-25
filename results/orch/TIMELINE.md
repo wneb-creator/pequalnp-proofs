@@ -16,3 +16,4 @@
 - 2026-11-25T19:55:35.574985+00:00: advanced bound13 and first three catalogue cases checked and reviewed; complete native catalogue found, kernel verification ongoing.
 - 2026-11-25T20:04:32.817239+00:00: complete staticcandidate reviewed; mostnumericcases checked; individualcaseOOM requires smaller hash partitions; archival checkpoint.
 - 2026-11-25T20:06:26.763634+00:00: generic complete-hash-cover adapter checked and independently reviewed; smaller numerical partitions now being checked.
+- 2026-11-25T20:15:44.756644+00:00: refined problematic case checked; peakmemory diagnosis continues; checkpointing valid proof and metrics.
