@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/LeafUnionStrict.lean
+exit code: 0
+stdout: empty
+stderr: empty
+Checks the input-leaf count for any finite family of cores; not the full L-meta-2962 theorem.

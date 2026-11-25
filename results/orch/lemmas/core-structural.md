@@ -14,3 +14,15 @@ Core definitions: coneSet includes the core gate itself; IsCore requires NOT BOT
 Relevant existing refutations: L_meta_3446 disproves analogous bound using only private core-cone gates; L_meta_2969 disproves companion outside-cone count; neither directly refutes current unfiltered U bound.
 
 Structured search: glued P4 deadcore gadgets with globally deduplicated gate expressions. Script structural/glue_p4.py, output structural/glue-p4.log. Minimum observed margin zero; no negative candidate. Parent requested second route: 5-minute evolutionary mutations seeded by P4, fixed random C4-free bipartite graphs n=6..9, exact truth-table below-F and exact read-once pair mask, score uses target tau(G)-tau(G-D). Script structural/evolve_core.py, output structural/evolve-core.log. Currently running.
+
+Completed larger tight-tree gluing search: 488,192 candidate additions across 30,000 random C4-free bipartite graphs (up to20 vertices), 17.96seconds, no negative margins, minimum0.
+
+Useful pair-sharing identity: for two individually tight cores, union margin equals shared-edge count + tau(G1)+tau(G2)-tau(G1 union G2) minus shared-gate count. Thus a counterexample needs shared DAG gates to exceed edge overlap plus cover overlap. Shared matching subcircuits can exceed their edge count, but ensuring both outputs are cores has so far imposed gate overhead canceling the excess.
+
+Final structured search summaries:
+- glue-p4.log: {"done": true, "count": 1246772, "best": 0, "seconds": 79.7976450920105}
+- glue-trees.log: {"done": true, "count": 488192, "best": 0, "seconds": 17.95907473564148}
+- glue-planes.log: {"done": true, "count": 2189703, "best": 0, "seconds": 108.55681133270264}
+- evolve-core.log: {"done": true, "best": 0, "steps": 15498000, "seconds": 300.1360356807709}
+
+No counterexample found in these searches. This is computational evidence only, not a proof of the universal statement. The sole completed Lean proof component on this strategy remains DeletedCover.lean.

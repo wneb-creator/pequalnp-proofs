@@ -18,3 +18,12 @@
 ## Checked matching case
 
 `core_cover_matching_incidence` proves the posted conclusion when D is a matching. It allows every core to accept many edges and arbitrary overlap between core cones. The graph endpoints have cardinal exactly 2|D|, so the checked leaf bound pays for one endpoint per edge plus all edges. Combined `Matching.lean` compiles with exit 0 and empty stdout/stderr. This remains a special case, not the full posted theorem.
+
+## Checked strict shared-cone leaf bound
+
+- `LeafUnionStrict.lean`, namespace `PEqualNP.Outside.L_meta_2962_aux.StrictLeaf`, strengthens the previous bound by removing the number of cores entirely.
+- `core_family_leaf_count`: for ANY finite family M of cores in an AO2 circuit, all distinct input wires occurring in their cone union U have cardinal at most |U|. No maximality, bipartiteness, C4-freeness, exact output semantics, or lift-fixedpoint assumption is needed.
+- `core_family_endpoints_count` and `maximal_core_endpoints_count`: |vertices(D)| <= |U|.
+- New argument: when adding a cone that shares an old gate, the first entry into the old cone union names an old gate wire in a new operand slot. Every fresh non-output gate also consumes a slot, leaving at most one new input per new gate. A cone sharing no old gate uses the previously checked strict single-core leaf bound from its repeated-read witness.
+- Kernel validation: lake env lean exited 0, stdout/stderr empty. Source saved with validation record for immediate preservation.
+- This still does not imply |D| + tau(D) <= |U| + mc for general D; graph-edge density beyond vertex count remains the obstacle. It does settle the circuit side for star forests.

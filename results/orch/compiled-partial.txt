@@ -4,4 +4,5 @@ Named build: lake build PEqualNP.Outside.L_meta_2962, exit 0. Full output: parti
 Local checker not run: the full theorem is absent.
 Target line count: 856. No final cleanup pass yet.
 Sub-agents: 5 (status_review, structural_proof, counterexample, lemma_search, single_core)
-TIMING total=28 subagents=5
+TIMING total=39 subagents=5
+Additional checked component: results/orch/lemmas/LeafUnionStrict.lean proves distinct core input vertices <= union cone gates; its standalone Lean run passed with empty output. Not the full posted theorem.
