@@ -1,0 +1,2 @@
+{"tests": 80, "variables": 29988, "clauses": 950553, "cnf_bytes": 18133037}
+{"returncode": 0, "seconds": 110.07343372299874, "samples": 80, "first_gate_case": 1}

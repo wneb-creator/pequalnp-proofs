@@ -1,0 +1,86 @@
+{
+  "utc": "2026-11-25T14:02:08.443195+00:00",
+  "scope": "Unsuccessful follow-up core construction heuristics; bestcorrectcore60, target58notmet.",
+  "artifacts": [
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-cgp-v7.cpp",
+      "bytes": 8439,
+      "sha256": "f3b7c546be748ed28113b7a30b2f028a92345a8feec84c748d12469008e7ef01"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-cgp-v10.cpp",
+      "bytes": 10248,
+      "sha256": "529b511209e508d5745d0c57084ef8ae3688752442d017a1a1502ad77b051729"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-cgp-v7-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-cgp-v10-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-meta3773-pencil56-union-data.txt",
+      "bytes": 6167,
+      "sha256": "2dcc2a7593994e9cbcdb64c3eb0cb3125a2b83c71877966935363e3e2c16faa6"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/meta3773-pencil56-union-core-overapprox.json",
+      "bytes": 2242,
+      "sha256": "1e90cfc0d346afad938400d1801567b91d123eef12fb1f8b3e113ec5c4aea30f"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7907-best.json",
+      "bytes": 249,
+      "sha256": "86215aed7779a3f978453f752c01757554ccccf7df050bfc1edb47c40ad6fc4a"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7907-bestfull.json",
+      "bytes": 290,
+      "sha256": "ca460ae769a4e96dc16c29a35babe64843c56abf4121ec8cc851725a00804cbf"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7907.log",
+      "bytes": 6827,
+      "sha256": "fdad1168c72bc52ee22a0e3d09b9ab4793b180ddbbbeccb95e5ea577c25a64c0"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7910-best.json",
+      "bytes": 628,
+      "sha256": "0af8c094a3d68598cf5d47123511b4db46daba610dea5335b322f6f21d35f2f0"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7910.log",
+      "bytes": 1865,
+      "sha256": "d39a289c42d6a35f8999cca441f3c186ebb8f7f0b0bb0ab2cc615b922a005c5a"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7998.log",
+      "bytes": 391,
+      "sha256": "546de35b07320d44f13cd168e5aebd542258d4bfff5afb7eedca6a20d55d4c23"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-core-search7998-best.json",
+      "bytes": 638,
+      "sha256": "87718567f88e89c43e2d2e928233e6108c5b3d6ec42217b53154703170d8ec59"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/FOLLOWUP.md",
+      "bytes": 1425,
+      "sha256": "2c3c9e0a37495242c2cf53e21d6a613ebf8b72070daa477654dccb01288b90c6"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-meta3773-core-validation-followup.json",
+      "bytes": 59495,
+      "sha256": "c813ad95bbf566052e523b8e62bf9dc704cbb1ad90a0161c5b9b236a95d9a8b5"
+    },
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/meta3773_geometry/geometry-meta3773-core-validation-followup.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

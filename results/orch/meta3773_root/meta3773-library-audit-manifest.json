@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T14:04:42.916813+00:00",
+  "scope": "Read-only bounded library audit; no new mathematical result.",
+  "artifacts": [
+    {
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/meta3773-library-lower-bound-audit.md",
+      "bytes": 4625,
+      "sha256": "6442b2834e5b6a6770fabc0691736c5006e2ca4f1e5e58fea5fe8f9bd51ea3e6"
+    }
+  ]
+}

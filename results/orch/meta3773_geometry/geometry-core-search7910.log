@@ -1,0 +1,37 @@
+initial err=282 cost=56 score=282.056
+improved evals=151281 err=227 cost=58 score=276.058
+improved evals=152196 err=227 cost=57 score=276.057
+improved evals=154321 err=5 cost=56 score=250.056
+improved evals=154967 err=5 cost=55 score=250.055
+improved evals=191761 err=4 cost=58 score=200.058
+improved evals=194488 err=4 cost=57 score=200.057
+improved evals=219004 err=3 cost=59 score=160.059
+improved evals=285761 err=2 cost=60 score=120.06
+improved evals=287281 err=1 cost=61 score=80.061
+improved evals=297002 err=0 cost=62 score=40.062
+time=5.0001 evals=588082 best=0,62 current=0,62
+time=10.0001 evals=1195442 best=0,62 current=0,62
+time=15.0001 evals=1803699 best=0,62 current=282,56
+time=20.0002 evals=2369202 best=0,62 current=0,62
+time=25.013 evals=2952003 best=0,62 current=0,62
+time=30.0131 evals=3543042 best=0,62 current=282,56
+improved evals=3825601 err=0 cost=61 score=30.061
+time=35.0131 evals=4067683 best=0,61 current=0,61
+time=40.0131 evals=4657372 best=0,61 current=0,61
+time=45.0131 evals=5227835 best=0,61 current=282,56
+time=50.0167 evals=5823003 best=0,61 current=0,61
+time=55.0167 evals=6412394 best=0,61 current=0,61
+time=60.0174 evals=6980396 best=0,61 current=282,56
+improved evals=7138465 err=0 cost=60 score=20.06
+time=65.0174 evals=7574808 best=0,60 current=0,60
+time=70.0174 evals=8066937 best=0,60 current=0,60
+time=75.0175 evals=8623922 best=0,60 current=282,56
+time=80.0175 evals=9173733 best=0,60 current=0,60
+time=85.0176 evals=9703122 best=0,60 current=0,60
+time=90.0176 evals=10274490 best=0,60 current=282,56
+time=95.0176 evals=10824090 best=0,60 current=0,60
+time=100.018 evals=11388398 best=0,60 current=0,60
+time=105.029 evals=11958034 best=0,60 current=282,56
+time=110.029 evals=12564253 best=0,60 current=0,60
+time=115.029 evals=13193220 best=0,60 current=0,60
+finished evals=13749001 best_err=0 best_cost=60 restarts=23

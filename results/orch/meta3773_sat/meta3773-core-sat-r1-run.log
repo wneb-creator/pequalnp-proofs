@@ -1,0 +1,2 @@
+{"samples": 109, "variables": 31928, "clauses": 1107805, "cnf_bytes": 21172402}
+{"returncode": 20, "seconds": 56.07259509999858, "samples": 109, "max_changed_gates": 2}

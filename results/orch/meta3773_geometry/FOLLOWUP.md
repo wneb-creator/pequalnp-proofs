@@ -1,0 +1,7 @@
+# Follow-up core searches
+
+Run7907 (120seconds) starts a23-gate dense overapproximation, introduces negative tests in stages, and heavily penalizes missing positive edges. It does not refine effectively: the finalbestcandidate has685 wrong tests. This is an unsuccessful heuristic.
+
+Run7998 is a3-second smoke test; run7910 is a120-second full follow-up using version10. They start from the separately constructed56-gate pencil-union overapproximation. Independent replay confirms that seed accepts all45 required edges and computes both reserve outputs correctly, but has282 false positives. Version10 searches coordinated changes to two gates using a structurally unused earlier gate and a live later gate, and greedily removes gates from fully correct candidates when replacing a gate by one operand preserves all737 required outputs. All scoring and pruning still use the finite test set; saved candidates are separately replayed.
+
+Run7910 ends after13,749,001 mutation evaluations with a correct60-gate core. This matches the existing60-gate baseline; it does not meet the58-gate reduced target and gives no63-gate result. No optimality or lower-bound claim follows from any of these searches. The two-gate and pruning source is preserved for further research. Each executable is single-threaded, enforces2GiB address space and the specified CPU/wall search bounds, and writes complete diagnostics to the archived logs.

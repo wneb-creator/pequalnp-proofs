@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/meta3773_core_verify_encoding.py", line 34, in <module>
+    assert any(assignment[abs(x)] == (x > 0) for x in literals), (count, literals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (1154423, [-32722, 30938])

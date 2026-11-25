@@ -1,0 +1,23 @@
+# L-meta-3773 library audit
+
+Read-only audit, 2026-11-25 13:57–14:05 UTC. No general theorem refuting the requested 63-gate circuit was found. This is a bounded search result, not a claim that no such theorem exists. No new Lean result or lower bound is claimed.
+
+The audit inspected the 68 Outside files mentioning 63/64 in the circuit setting, the relevant degree/normalization files, and the MetaComplexity helper filenames. Public map and search-index snapshots were read from data.pequalnp.com on this date. The cached program map still marks L-meta-3773 as conjectural; the inspected lower-bound nodes are checked. No matching graveyard entry for the target or the principal candidate lemmas was present.
+
+## Exact useful theorem relationships
+
+- `L_meta_4101_aux.plane_lower_bound` in `lean/PEqualNP/Outside/L_meta_4101.lean:1822` proves 64 <= C.size from IsAO2, full graph-function correctness, and Productive: every AND gate being true implies the final function is true. The main L_meta_4101 theorem is a further specialized local contradiction, not an unconditional 64 bound. L_meta_4103 treats a related local predecessor case.
+- `L_meta_4803` proves 64 <= C.size under full graph-function correctness, IsAO2, and no AND gate in the ancestor cone of another AND. It does not prove the required flattening transformation.
+- `L_meta_7503` superficially supplies exactly that flattening, but its hypotheses include both an explicit NOT gate and IsAO2. These are incompatible. The theorem is vacuous for monotone circuits and cannot discharge L_meta_4803's missing hypothesis. `L_meta_7557` similarly assumes a NOT gate and Monotone2; its apparent OR-output lower bound is vacuous here.
+- `L_meta_1500` rules out <=63 circuits under an additional HasLineDegree 1 hypothesis and specified incidence tests. `L_meta_738` decomposes circuits assuming this same degree restriction; it does not normalize arbitrary monotone circuits to it. The degree-one results L_meta_7111, L_meta_3795 and L_meta_2225 concern smaller Fano/formula or no-sharing situations and do not supply the missing normalization for the 26-input DAG.
+- `L_meta_1693` proves a 64 bound for an explicitly typed separated homogeneous normal form: left-only ORs, right-only ORs, cross ANDs, then output ORs. The kind assignment and all its gate constraints are hypotheses. No size-preserving conversion of arbitrary circuits to this form was found.
+- `L_meta_1751`, `L_meta_2059` and `L_meta_5158` retain no-nested-AND or zero-AND-pair assumptions. The local size-reduction lemmas L_meta_1959, L_meta_3777 and L_meta_1961 cover selected degenerate cases, not every nested-AND circuit.
+- `L_meta_8141` is a genuine obstruction: a backward-reading exact circuit of size <=63 must have an AND gate true on an input supported on at most two vertices and containing no graph edge. The two vertices may coincide or lie on the same side; this is not restricted to a nonincident point-line pair. It supports searching circuits with a bad AND on such a sparse input; it does not forbid such circuits. Productive-only search cannot settle the target.
+- `L_meta_8750` proves a lower bound of 13 on intersection operations in a set-union/intersection sequence satisfying the exact finite tests. This supplies an AND-count bound, not total gate count 64. L_meta_1898 is related. The one-junk-gate contradiction L_meta_7249 retains additional least-circuit, counting and Ustar hypotheses that were not automatically discharged.
+- `L_meta_6392` supplies a 64-gate upper bound. L_meta_7177 and L_meta_8233 normalize/pad/encode hypothetical small circuits; they do not refute them. L_meta_5989 combines two wires by one additional OR and is also not a lower bound.
+
+Most lower bounds use p-l incidence, whereas L-meta-3773 uses p+l. The right-input permutation l -> -l relates these graphs, but function correctness, wire discipline and any structural hypotheses still require explicit transport. The finite test suite should not silently be substituted for full graph correctness without the needed coverage lemma.
+
+## Practical consequence
+
+The inspected library supports the 64-gate star construction and excludes several restricted 63-gate normal forms. It does not presently supply a complete refutation of the posted unrestricted monotone circuit statement. Continue only searches that can retain a semantically necessary bad/nested AND; do not infer impossibility from the productive-only bound or from restricted SAT UNSAT reports. The independently checked result in this branch is still the 64-gate positive control, not a proof or refutation of L-meta-3773.

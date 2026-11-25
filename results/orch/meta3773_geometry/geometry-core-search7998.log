@@ -1,0 +1,8 @@
+initial err=282 cost=56 score=282.056
+improved evals=84007 err=5 cost=55 score=250.055
+improved evals=102004 err=4 cost=57 score=200.057
+improved evals=111005 err=3 cost=58 score=150.058
+improved evals=182081 err=2 cost=59 score=110.059
+improved evals=238001 err=1 cost=60 score=70.06
+improved evals=291004 err=0 cost=61 score=30.061
+finished evals=340278 best_err=0 best_cost=61 restarts=0
