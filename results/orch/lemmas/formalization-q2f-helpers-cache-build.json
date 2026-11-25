@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-helpers-cache.lean",
+  "source_sha256": "7fcc0ac20ca8df60f34fac918c016b4873bc68a02f01bd21b49f1d52ecff8848",
+  "tail_sha256": "2b56a25b3809b7f1a70dcc9c2dba831dc94820d9840ec8e62caad19b561e09d4",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T13:17:24.584638+00:00",
+  "scope": "Cached compile of semantic code membership, small-mask downward/seed/grow closure and generator projections. Depends on compiled PNPQ2FBenchmark foundations. No full closure/circuit/family certificate claim."
+}

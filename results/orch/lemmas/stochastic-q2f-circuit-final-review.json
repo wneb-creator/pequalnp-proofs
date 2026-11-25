@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS: final exact-tail source reread plus successful standalone receipt binding",
+  "utc": "2026-11-25T13:41:03.417141+00:00",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-circuit-tail.lean",
+      "sha256": "093f3f74c7e02de5eca3835fe85dd83035708919e34f31f0bfeaf271d4bbf23d",
+      "bytes": 8646
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-closure-tail.lean",
+      "sha256": "1660552b949a59c5a43b814f32c8dc2584512f1f5acdeffb58eb94d81f29fb34",
+      "bytes": 3140
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.lean",
+      "sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1",
+      "bytes": 30395
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.lean",
+      "sha256": "d7229dcbfec618dbb4c7f41e9abdfc854f20521d40ababff73c73cf5ee4664c3",
+      "bytes": 363280
+    }
+  ],
+  "receipt": {
+    "path": "results/orch/lemmas/formalization-q2f-actual-standalone-build.json",
+    "sha256": "c9b1c2fc3ee0967ddb6ec7f4618cb7cd5f7b35479834750bcbcfa26be34cc550",
+    "bytes": 498
+  },
+  "exit_code": 0,
+  "full_logs": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "prior_review": "stochastic-q2f-circuit-review.json remains preserved as historical pending-build source review. This addendum binds current final hashes.",
+  "independent_composition_review": {
+    "path": "results/orch/lemmas/sat-q2f-actual-standalone-review.json",
+    "sha256": "6b97caaa8a6753cb68267ed59205f5ee8005c5f9debaeb9db6f266fce8296cd2",
+    "bytes": 2426
+  },
+  "checks": [
+    "Reread both final actual-closure and circuit tails: explicit Strict induction preserves masks under union and intersection, with empty/singleton bases and injective projection.",
+    "Missing point2 assigned operand yields strict superset of98; required points0/1/3 yield11/69/49 and parent families.",
+    "Saturated count retains every allowed outside pair, then the finite certificate and occurrence induction force every large projected mask to be11,69,49 orS.",
+    "Final proof still receives finite all-case certificate explicitly. The now-completed separately checked q2f_certificate_all supplies that premise; no original gap theorem is claimed.",
+    "Final standalone includes the accepted hw_mem_nb alias omitted in historical failed assembly; exact source hash and successful receipt agree."
+  ],
+  "scope": "Conditional actual circuit-to-large-mask classification for canonical I0123 missingpoints2/4/5/6 and Bplus\u226413; separate from residual contradiction and remaining eligibility cases."
+}

@@ -1,0 +1,3 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-operand.lean:112:58: error(lean.invalidField): Invalid field `symm`: The environment does not contain `Function.symm`, so it is not possible to project the field `symm` from an expression
+  hax
+of type `a = x → False`

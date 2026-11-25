@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-cache.lean",
+  "source_sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T13:23:58.675165+00:00",
+  "scope": "Cached actual q2 circuit\u2192finite occurring mask family\u2192allowed large-mask shape, conditional on explicit full family certificate, plus Bplus\u226513 from the same family count. No full q2/Fano exclusion or unconditional finite certificate claimed."
+}

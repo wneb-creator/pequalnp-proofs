@@ -76,3 +76,5 @@
 2026-11-25T13:19:03.269765+00:00: Checkpoint1320 prepared for independent audit; full posted target remains unresolved.
 
 2026-11-25T13:21:29.307409+00:00: Complete repaired mixed-p9 finite certificate observed exit0; unconditional m9_point_empty exported. Independent source/build review finalized; preserving before subsequent circuit composition.
+
+- 2026-11-25 13:42:28 UTC: checkpoint1335 frozen for independent review. M9 two-missing cached theorem unconditional; q2 backend/family standalones complete; full finite artifact import/axioms validated with original exit unavailable and >30min runtime. Two witness searches active; full target unresolved.

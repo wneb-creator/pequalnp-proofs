@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/algebraic-m9-symmetry-cache.lean",
+  "sha256": "a3ccf663b74b4ed1a9c04e6886a9aad4bde52eb8886547bcbde38d6ecf61d3bc",
+  "tail_sha256": "5be4bc4e625db2e3b742ea554a2da6bf3a01172275f02a5159f8b5915809dfc1",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T13:19:32.053248+00:00",
+  "checked_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/AlgebraicM9Symmetry.lean",
+  "scope": "Transfers a canonical missing{2,5} contradiction to any two missing cap neighborhoods, under exact I={0,1,2,5,11}; canonical contradiction remains an explicit parameter. Cached accepted source import.",
+  "stdout": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stdout",
+  "stderr": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stderr"
+}

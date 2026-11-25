@@ -1,0 +1,111 @@
+{
+  "created_utc": "2026-11-25T13:36:18.899801+00:00",
+  "scope": "Complete read-only public feed/GitHub response snapshots and summarized unchanged1479/1480 status; no desk lease actions. Full GitHub searches checked for complete pagination.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-head.json.gz",
+      "bytes": 1308,
+      "sha256": "06c9e385bc7702dd8319bd1ddc951f55ffd462cfe51f641dfdc9438555ea4e48",
+      "uncompressed_sha256": "a16007c51c7a4b4e8db27086a68e4dadbeb50d1545f022c6b3aaacca4d524a24",
+      "uncompressed_bytes": 2673
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-head.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-map.json.gz",
+      "bytes": 6380,
+      "sha256": "417504e0927a3b59f07eb22b735d512f19f9873b6b4cbe26a90978ee662bb536",
+      "uncompressed_sha256": "4443c1c7063bdda95e08f68e04acab2fd64399a8a5df7329db539b074df16f48",
+      "uncompressed_bytes": 24673
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-map.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-meta.json.gz",
+      "bytes": 149601,
+      "sha256": "2386d473c20016e55e1f63bb1513f18fc43e3d6755503d7e5493585c5ff8d9d7",
+      "uncompressed_sha256": "359273a47304a07b1439720b93a91ce5a870846bee61086e12d2a97e3eb38650",
+      "uncompressed_bytes": 465609
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-meta.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-gaps.json.gz",
+      "bytes": 451737,
+      "sha256": "83cf5d7ef7b898c8a7970e08fef8fb84262ce14de6114b38385e20f95c6fc646",
+      "uncompressed_sha256": "440ad69c2e03398c2c8606987a94c175e38bd7334894823e88590c7539d8e7f6",
+      "uncompressed_bytes": 4356449
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-gaps.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1479.json.gz",
+      "bytes": 6914,
+      "sha256": "95bacc4bfb7077760e3bb082e2842575abbf5af3db19080a451eb514ea74318d",
+      "uncompressed_sha256": "202665a01eaccdc38608584ee7b0d235eee5195e57822d16446f7a9a559ea39f",
+      "uncompressed_bytes": 42600
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1479.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1480.json.gz",
+      "bytes": 27167,
+      "sha256": "468a7cd192111935cc1f2d42a84f5f1d9e7e5d7a76b93cb1174c2078476470ad",
+      "uncompressed_sha256": "f2f37c103dc9dd1868a7ac453fa9e8b2441934c24b98a68d63610b5b1ac335c3",
+      "uncompressed_bytes": 111852
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr1480.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr14820-files.json.gz",
+      "bytes": 1836,
+      "sha256": "5d5a6c97db5dbb44440aea2071c62a4c176b295c03e81482cff9d3fd1e3f9d0f",
+      "uncompressed_sha256": "38dc1304c6310561752e34b0a96ef90624617d96c6d45403b00d9a34fcaf839f",
+      "uncompressed_bytes": 6155
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-pr14820-files.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/status-refresh-1333-report.json.gz",
+      "bytes": 1229,
+      "sha256": "d5a1ac29d50a1d76e9b3411e8e848d9412e819828da8a294dc72377ea86583bd",
+      "uncompressed_sha256": "0c4de94488040fa5c52b34fb9779244ec8517c1a80e3090381f0223bd10458b5",
+      "uncompressed_bytes": 4783
+    }
+  ]
+}

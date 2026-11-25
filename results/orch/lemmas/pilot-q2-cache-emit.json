@@ -1,0 +1,8 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2Residual.lean",
+  "sha256": "045d09bd457c9e9ebb5c6ffd244f20c3a78f24368f1f967fad32ca6ec3c5efff",
+  "started_utc": "2026-11-25T13:18:45.161413+00:00",
+  "finished_utc": "2026-11-25T13:18:57.073291+00:00",
+  "exit_code": 0,
+  "scope": "Development cache emission for checked q2 actual residual transfer"
+}

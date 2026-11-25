@@ -98,3 +98,10 @@ K4 update: the full7570-line permitted-import standalone also completed exit0 an
 The first mixed-p9 finite build is archived separately with exit1: all128 decision blocks and certificate assembly checked, but its final API wrappers had elaboration/heartbeat failures. The repaired build is active and is not claimed as complete at this freeze.
 
 2026-11-25T13:21:29.307409+00:00: Checkpoint1320 addendum: the repaired996-line mixed-p9 finite certificate completed permitted-import Lean exit0, with two unused-simp warnings and empty stderr. Its exact source and emitted backend match the finalized independent review. The unconditional finite API is now available; actual-circuit instantiation and full standalone case composition remain separate and are not claimed in this addendum.
+
+## 2026-11-25 13:42 UTC — checkpoint1335
+
+Preserving unconditional cached mixed-p9 two-missing exclusion; standalone q2 residual backend, closure and actual-family/lower components; complete q2 family certificate artifact with honest original-exit/runtime qualifications; reviewed alternative benchmark; empty-opposite and slot-transitivity tools; public status provenance; and independently audited local15 search/delivery controls. The q2 finite artifact still needs cache rebasing for the thin unconditional composition. M9 full standalone and witness searches remain active. Higher canonical cases and the full posted target remain unresolved.
+
+Sub-agents: six (algebraic, constructive, Lean formalization, structural review, SAT decomposition, stochastic search).
+TIMING total=285.3 subagents=6

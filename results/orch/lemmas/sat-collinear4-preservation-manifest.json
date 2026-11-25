@@ -1,0 +1,262 @@
+{
+  "created_utc": "2026-11-25T13:33:50.936080+00:00",
+  "scope": "Independent exact encoding/control/splice review for the noncap four-point15 search; no local15 quiet witness or UNSAT claim.",
+  "source_sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-collinear4.py",
+      "bytes": 7104,
+      "sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e",
+      "restore_as": "sat-collinear4.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-driver.py",
+      "bytes": 3004,
+      "sha256": "b99c9d9003c758bd285852bf8a925c1346a67d70d59f63c8086dfffb82a304c6",
+      "restore_as": "sat-collinear4-driver.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.py",
+      "bytes": 3424,
+      "sha256": "e5d3ff58a71b810f9c60ee8e409479c367857855c6599f9c421024507e9a3a78",
+      "restore_as": "sat-collinear4-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.json",
+      "bytes": 1802,
+      "sha256": "0363cb95a1f822be5b7765c13fe4f74a516a83b0a712115febc00e8fd49a38f6",
+      "restore_as": "sat-collinear4-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.stdout",
+      "bytes": 1468,
+      "sha256": "0f79f1d568f2aa53e31d1e464433f469691f1fcd0c95e1cde85b71d4360b1679",
+      "restore_as": "sat-collinear4-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-collinear4-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-full.py",
+      "bytes": 6665,
+      "sha256": "85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8",
+      "restore_as": "sat-fano-full.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-collinear4-controls.json",
+      "bytes": 18790,
+      "sha256": "8279fde70b2ad4ff41c13e642e5f9faa44093bc617d8f1e6b045c47dde8a01ce",
+      "restore_as": "constructive-collinear4-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.py",
+      "bytes": 7091,
+      "sha256": "c4804e1c34aa17705684e484eae4b9b7aa2e04a299c1d6b850fe520954343463",
+      "restore_as": "status-collinear4-review.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.json",
+      "bytes": 2103,
+      "sha256": "426111416038017f0657d83f6212f4cb7ceaf782fc00829bcb1810a9cff8e9fc",
+      "restore_as": "status-collinear4-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "status-collinear4-review.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-collinear4-review.md",
+      "bytes": 2950,
+      "sha256": "f8459c2305c967995818261e052cb1da787b94ebbd9b26295edc7c16ae6f0984",
+      "restore_as": "status-collinear4-review.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-collinear-driver-review.json",
+      "bytes": 1051,
+      "sha256": "274bf87dce50505dae94dc417931fc83505271f941475d6f30f0717b444dad9e",
+      "restore_as": "constructive-collinear-driver-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-target.cnf.gz",
+      "bytes": 141415,
+      "sha256": "74f8daf70ff3f10402400b54140fa1f54ede9437bf54e0029efcb968ae0fb3f9",
+      "restore_as": "sat-collinear4-15-target.cnf",
+      "gzip": true,
+      "raw_sha256": "460553dce94b00476da651ebde1be71737abeb260c513f9f672ae6e9db4b6feb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-15-target.metadata.json.gz",
+      "bytes": 6341,
+      "sha256": "3092b786f759149844ccf6c3aeed223e7e2989fa3f7dbcd1fdc8e13918947b83",
+      "restore_as": "sat-collinear4-15-target.metadata.json",
+      "gzip": true,
+      "raw_sha256": "e37fc5f18abf4b51842539de975c6828282efc8b7980e69a371e16b7e73444e3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.cnf.gz",
+      "bytes": 141411,
+      "sha256": "975e28588602615c006a6347f12d90c1f9db66254fa1041dfdd7bb382b34e8d1",
+      "restore_as": "sat-collinear4-ordinary15-control.cnf",
+      "gzip": true,
+      "raw_sha256": "0a7c949130b404de5bcc32aa24df754e0cfb4798c4dc006c411d7042971898a0"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.metadata.json.gz",
+      "bytes": 6348,
+      "sha256": "34bc4c0632fbc41a180161aa7192a8da2d88c55dbae75926d1ba53ed2860ee9b",
+      "restore_as": "sat-collinear4-ordinary15-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "8ae929377b34d223c8393c6faed51aee9b5aca72794730a0f04029d91728a10d"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-ordinary15-control.complete-controls.json.gz",
+      "bytes": 10271,
+      "sha256": "6cbe7998aafd9b8c50ed1894b6391865924a592457bb9d61bce967d704fb9596",
+      "restore_as": "sat-collinear4-ordinary15-control.complete-controls.json",
+      "gzip": true,
+      "raw_sha256": "55b996b44bdb6794a39410d09396852c26bde40c235fe034d8f1dbb5c61fec4c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476",
+      "restore_as": "sat-collinear4-quiet16-0-control.cnf",
+      "gzip": true,
+      "raw_sha256": "c1324865741233d4a55bdde4354f2ee51c5c7012ff246b89bdf3b8caad011ce1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244",
+      "restore_as": "sat-collinear4-quiet16-0-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "edc5e00920b2a4271489bef3c388aa9ed0604aa762635b507679bf02ebb93aa2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-0-control.complete-controls.json.gz",
+      "bytes": 8392,
+      "sha256": "2ca15dc76975100f265d7508bdb0c153cae8866e472edc2f14bf73dc8d450318",
+      "restore_as": "sat-collinear4-quiet16-0-control.complete-controls.json",
+      "gzip": true,
+      "raw_sha256": "b3e5c053ee591086fd374af52938cc0a606f541dfae1ed78f42f2794774e072b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476",
+      "restore_as": "sat-collinear4-quiet16-1-control.cnf",
+      "gzip": true,
+      "raw_sha256": "c1324865741233d4a55bdde4354f2ee51c5c7012ff246b89bdf3b8caad011ce1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244",
+      "restore_as": "sat-collinear4-quiet16-1-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "edc5e00920b2a4271489bef3c388aa9ed0604aa762635b507679bf02ebb93aa2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-1-control.complete-controls.json.gz",
+      "bytes": 8333,
+      "sha256": "7260d619cc364db9ecfaf4e604fa9df8be2964f94040ae7340531437bad5be1b",
+      "restore_as": "sat-collinear4-quiet16-1-control.complete-controls.json",
+      "gzip": true,
+      "raw_sha256": "55c590fafe048be78d7f4f127608d656da31bebb6829be608ec4be1f160d9ce6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476",
+      "restore_as": "sat-collinear4-quiet16-2-control.cnf",
+      "gzip": true,
+      "raw_sha256": "c1324865741233d4a55bdde4354f2ee51c5c7012ff246b89bdf3b8caad011ce1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244",
+      "restore_as": "sat-collinear4-quiet16-2-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "edc5e00920b2a4271489bef3c388aa9ed0604aa762635b507679bf02ebb93aa2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-2-control.complete-controls.json.gz",
+      "bytes": 8293,
+      "sha256": "517b3aa2855cdacdd55be58c622a478025382608bfcc7d2fc119cc8a2721b89e",
+      "restore_as": "sat-collinear4-quiet16-2-control.complete-controls.json",
+      "gzip": true,
+      "raw_sha256": "ee8937b29accc3f8f62ea83974cd2efb8e70c083c48b1dc2d4af92b920a1fdc6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.cnf.gz",
+      "bytes": 156729,
+      "sha256": "d687d1657d22fd9649efa673bfbd302a4fa5e0df23aee97ce26c9be44a004476",
+      "restore_as": "sat-collinear4-quiet16-3-control.cnf",
+      "gzip": true,
+      "raw_sha256": "c1324865741233d4a55bdde4354f2ee51c5c7012ff246b89bdf3b8caad011ce1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.metadata.json.gz",
+      "bytes": 6785,
+      "sha256": "4ea17610ed98a6e941c01d9eb76ef4f51268e471f95bfb77e960da1777861244",
+      "restore_as": "sat-collinear4-quiet16-3-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "edc5e00920b2a4271489bef3c388aa9ed0604aa762635b507679bf02ebb93aa2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-quiet16-3-control.complete-controls.json.gz",
+      "bytes": 8339,
+      "sha256": "e0b81f40f8b3f6da5762b49cda292d022c16b341cbd14a06f56e0680e030b81f",
+      "restore_as": "sat-collinear4-quiet16-3-control.complete-controls.json",
+      "gzip": true,
+      "raw_sha256": "d68028efca2152c2f36961ccd35e004800e954698339fdd7446081e1dbaa5c4b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-model.md",
+      "bytes": 2193,
+      "sha256": "df6f6c1ad60bcdc702862f35d9094a9b7ad503886bbdfebce8df8aae8b481817",
+      "restore_as": "sat-collinear4-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.stdout",
+      "bytes": 2103,
+      "sha256": "426111416038017f0657d83f6212f4cb7ceaf782fc00829bcb1810a9cff8e9fc",
+      "restore_as": "sat-collinear4-reproduction-check.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-collinear4-reproduction-check.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-reproduction-check.json",
+      "bytes": 341,
+      "sha256": "fa82aa30fcd53c5bcc9c066e869de6e899aec4e507f09b537c4c350367732b4e",
+      "restore_as": "sat-collinear4-reproduction-check.json",
+      "gzip": false
+    }
+  ]
+}

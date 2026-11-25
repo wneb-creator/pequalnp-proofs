@@ -1,0 +1,53 @@
+{
+  "verdict": "PASS exact cached and flattened standalone composition, both successful build receipts",
+  "cached_source": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+  "cached_sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+  "receipt": {
+    "source": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+    "source_sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T13:19:03.956533+00:00",
+    "scope": "Cached complete generator-to-union/intersection closure, Finset closure, certificate-to-shape implication and exact parent/occurring-family classification. Finite family certificate and actual circuit transfer remain explicit/separate."
+  },
+  "cached_dependency": "PNPQ2FHelpers; independently reviewed successful source7fcc0ac2 and helper-tail2b56a25b, via PNPQ2FBenchmark foundations",
+  "parts_in_order": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-tail.lean",
+      "sha256": "4fc7c453cdbf16f14c1976362ec584f772a404914ab3bee1ec38eb57fc63d2fb",
+      "lines": 131
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-shape-tail.lean",
+      "sha256": "717af71f40582fe2956db1884002d01bb068bdb8bdf1a4a481aac600706d1818",
+      "lines": 58
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-parents-fast-tail.lean",
+      "sha256": "eb3d303e41bc3d4fedf53c58c571d5daac22665fb80a711dfbe4786b27850c6b",
+      "lines": 120
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-family-tail.lean",
+      "sha256": "be1704bd772ff56b517f361d48faffb838e0ccb6acb1401d31ca08be187b3ef9",
+      "lines": 49
+    }
+  ],
+  "standalone_source": "results/orch/lemmas/formalization-q2f-closure-standalone.lean",
+  "standalone_sha256": "e607fc0ebd0336bc3bddf9c477eee23f9d27d61c121af4e8af9458a66df07c9d",
+  "standalone_lines": 793,
+  "scope": "Conditional generic closure, certificate-to-shape and parent/occurring-family classification. Includes core/foundations, but not the expensive all-case finite certificate or actual circuit theorem.",
+  "family_fix": "The only choose_family change from the reviewed draft is an explicit target change exposing decode(superCode s) before rewriting decodeS; theorem and mathematics unchanged.",
+  "standalone_receipt": {
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-standalone.lean",
+    "source_sha256": "e607fc0ebd0336bc3bddf9c477eee23f9d27d61c121af4e8af9458a66df07c9d",
+    "started_utc": "2026-11-25T13:26:42.742180+00:00",
+    "finished_utc": "2026-11-25T13:27:59.760162+00:00",
+    "exit_code": 0,
+    "scope": "Defs-only standalone complete code/Finset closure foundations and parent/family classification. Full15000case family certificate and actual circuit transfer remain separate."
+  },
+  "standalone_previous_attempt": {
+    "sha256": "964fee9e1ac0ee8d4c186fffdbce1b36f750b26f7b9414605fcf16b785808f38",
+    "source": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.lean",
+    "status": "Failed maxRecDepth; archived unchanged. Final source adds only the two allowed header limits."
+  }
+}

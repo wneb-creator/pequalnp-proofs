@@ -1,0 +1,16 @@
+PASS — independent checkpoint1335 preservation review
+Reviewed UTC: 2026-11-25T13:46:37.910042+00:00
+Reviewer: status_review
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1335-files.json
+Manifest SHA256: 94eeb574dfb2303d90baae1cf1c6098c187a1779cb8ba00537430df8ace76e53
+Exact scope: 244 distinct files, 4,124,897 bytes, all under results/orch/. Every manifest hash and byte count matches; no named target file change is included.
+
+Read the complete current CASE_LEDGER and latest NOTES/TIMELINE/validation entries; checked build receipts, source hashes, independent review conclusions and archive scope. Current statements consistently distinguish standalone success, cached success, explicit assumptions, historical failures and pending integration. M9 covers only the two-missing subcase; its full standalone is not claimed complete. Q2 components retain their explicit family premise until integration; no full canonical no-quiet result is claimed.
+
+The finite15000-case artifact is honestly reported: original terminal numeric exit unavailable; separate module import and axiom census exit0; only propext, Classical.choice and Quot.sound; observed runtime over30 minutes and no checker acceptance. Failed attempts are retained with their failure/interruption codes. Three old receipts name their then-current source path; their exact hashes match the separately archived attempt files, not the later successful source. This is consistent historical provenance.
+
+Trust/format scan found no Lean admissions, new axiom/opaque declarations, native_decide/bv_decide, forbidden root marker or string literal in the50 archived Lean sources. Attribute matches are inherited local simp declarations. Cached imports and diagnostic #commands remain archival tooling, not a submitted single-file proof. Completed encoder/control/splice audits are distinguished from the excluded active solver outcomes. Public-response provenance is read-only. Measurement lines are present.
+
+Scanned every payload, including decompressed gzip contents, for recognizable credential/token/private-key/authorization-value patterns without reading environment credentials or printing matched contents; no sensitive markers found. All scope is related to this task.
+
+Named target remains1301 lines; exact checker verdict remains REJECTED(no-theorem). No complete target proof/refutation, cleanup acceptance or proof PR is implied. Ready for the authorized preservation commit/push of this exact manifest plus this review. No files were staged or committed by the reviewer.

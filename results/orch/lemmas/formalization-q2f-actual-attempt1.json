@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-attempt1.lean",
+  "source_sha256": "ab97383016e53122bdcd876b1beeb45834524d2b6cb1ec23e316e5b2e814d9f6",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:20:52.346030+00:00",
+  "scope": "Cached actual-family attempt: wrong filter_false spelling and image-family elaboration timeout; full diagnostics retained. No successful build claim."
+}

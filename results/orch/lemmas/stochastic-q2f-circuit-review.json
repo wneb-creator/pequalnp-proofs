@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS independent mathematical/source review; compilation pending",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-shape-tail.lean",
+      "sha256": "717af71f40582fe2956db1884002d01bb068bdb8bdf1a4a481aac600706d1818",
+      "lines": 58
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-circuit-tail.lean",
+      "sha256": "829ac0ff682beb847cfe13335e90cff76bb14261a26e974542909392ff1107dd",
+      "lines": 163
+    }
+  ],
+  "checks": [
+    "Certificate alternatives retain the explicit global certificate premise, derive seven-family lower bound, and eliminate the eight-family/closed-missing branches under the supplied cardinality and closure hypotheses.",
+    "Shape extraction ranges over every raw family member and then every allowed mask; small outside pairs remain admitted.",
+    "Line embedding is exactly local0..6 to actual7..13; required triples map to points0,1,3 and missing98 maps to point2.",
+    "Missing-point2 assigned operand supplies a strict neighborhood superset: containment comes from assigned-star coverage and inequality from the explicit missing-neighborhood premise.",
+    "Actual family membership/goodness is transported through injective decode and image maps, preserving cardinality and qualifying pair subsets.",
+    "The saturated count is applied to the entire chosen image family, obtaining both size\u22647 and the three-way allowed-mask alternative for every wire.",
+    "Pullback/cardinality recovery covers all three allowed alternatives, including unrelated pairs; none is silently discarded.",
+    "Final classification of every projected wire mask depends explicitly on the all-case finite certificate and establishes only small masks, the three required triples, or one strict superset S.",
+    "Although the final wrapper does not expose its assigned-position witness, any later point2 assigned mask must equal S: it contains98, has cardinality\u22653, and cannot equal one of the three distinct required triples. This supports later coordinate transfer without requiring the same assignment choice."
+  ],
+  "scope": "Conditional family construction, saturated allowed-mask transfer and large-mask classification for I0123 with missingpoints{2,4,5,6}, Bplus\u226413. Full finite certificate, residual contradiction and final gap theorem remain separate.",
+  "shape_build_binding": {
+    "source": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+    "source_sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T13:19:03.956533+00:00",
+    "scope": "Cached complete generator-to-union/intersection closure, Finset closure, certificate-to-shape implication and exact parent/occurring-family classification. Finite family certificate and actual circuit transfer remain explicit/separate."
+  },
+  "final_shape_refresh": "Final shape source uses explicit ten-case projections and Boolean iff wrappers, with unchanged mathematical statements. Shape cached compilation passed; actual circuit source still pending."
+}

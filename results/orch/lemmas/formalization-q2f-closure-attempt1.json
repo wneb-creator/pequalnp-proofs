@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-closure-attempt1.lean",
+  "source_sha256": "1930ff8e63be45e0284a035a6866ba62a2e7e53d1c28f90bc2cd982fda1eeab7",
+  "exit_code": 143,
+  "finished_utc": "2026-11-25T13:11:04.595641+00:00",
+  "scope": "Interrupted cached helper/parent-classifier development check. Not a successful proof build. A definite redundant tactic was found in the copied source while expensive finite checks continued; full diagnostics preserved. Retry will separate helper elaboration from optimized parent classifiers."
+}

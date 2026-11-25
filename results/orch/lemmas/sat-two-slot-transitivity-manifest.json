@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-11-25T13:25:28.058625+00:00",
+  "scope": "Cached-compiled and independently reviewed generic two-slot co-consumption transitivity; no standalone or full-gap claim.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-tail.lean",
+      "bytes": 1271,
+      "sha256": "5c5c0776d5a5b2365330ff69065343c1aa66553c5bbe13eb1bee8c16b812f8df"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.lean",
+      "bytes": 1356,
+      "sha256": "ebc496e78e6d8863493d87fe5de9724ee57e85f66897de4f21d2fb648470c3b3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache-build.json",
+      "bytes": 695,
+      "sha256": "5a7df654e7188c8a8cf51345412975ab437489848cfff2397687f9a975dc7e45"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-two-slot-transitivity-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-two-slot-transitivity.json",
+      "bytes": 1262,
+      "sha256": "55e2ad1dfe6257acc34368acc64e691c76cf5418d7a1179e0034c91238edc6ef"
+    }
+  ]
+}

@@ -1,0 +1,1065 @@
+{
+  "accepted_point_map": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "accepted_line_map": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "wire_convention": "Inputs0..10; gatei output11+i; triples[operation,inputA,inputB].",
+  "truth_rows_each": 2048,
+  "controls": [
+    {
+      "kind": "ordinary15",
+      "n": 11,
+      "gates": [
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "or",
+          11,
+          9
+        ],
+        [
+          "and",
+          0,
+          12
+        ],
+        [
+          "or",
+          7,
+          8
+        ],
+        [
+          "or",
+          14,
+          10
+        ],
+        [
+          "and",
+          1,
+          15
+        ],
+        [
+          "or",
+          6,
+          7
+        ],
+        [
+          "or",
+          17,
+          9
+        ],
+        [
+          "and",
+          2,
+          18
+        ],
+        [
+          "or",
+          5,
+          6
+        ],
+        [
+          "or",
+          20,
+          8
+        ],
+        [
+          "and",
+          3,
+          21
+        ],
+        [
+          "or",
+          13,
+          16
+        ],
+        [
+          "or",
+          23,
+          19
+        ],
+        [
+          "or",
+          24,
+          22
+        ]
+      ],
+      "output": 25,
+      "flags": [
+        {
+          "point_local": 0,
+          "line_local": 4,
+          "accepted_point": 3,
+          "accepted_line": 7,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 8,
+          "accepted_point": 3,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 9,
+          "accepted_point": 3,
+          "accepted_line": 12,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 7,
+          "accepted_point": 4,
+          "accepted_line": 10,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 8,
+          "accepted_point": 4,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 10,
+          "accepted_point": 4,
+          "accepted_line": 13,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 6,
+          "accepted_point": 5,
+          "accepted_line": 9,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 7,
+          "accepted_point": 5,
+          "accepted_line": 10,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 9,
+          "accepted_point": 5,
+          "accepted_line": 12,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 5,
+          "accepted_point": 6,
+          "accepted_line": 8,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 6,
+          "accepted_point": 6,
+          "accepted_line": 9,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 8,
+          "accepted_point": 6,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "quiet16",
+      "excluded_local_point": 0,
+      "n": 11,
+      "gates": [
+        [
+          "or",
+          7,
+          8
+        ],
+        [
+          "or",
+          11,
+          10
+        ],
+        [
+          "and",
+          1,
+          12
+        ],
+        [
+          "or",
+          6,
+          7
+        ],
+        [
+          "or",
+          14,
+          9
+        ],
+        [
+          "and",
+          2,
+          15
+        ],
+        [
+          "or",
+          5,
+          6
+        ],
+        [
+          "or",
+          17,
+          8
+        ],
+        [
+          "and",
+          3,
+          18
+        ],
+        [
+          "or",
+          13,
+          16
+        ],
+        [
+          "or",
+          20,
+          19
+        ],
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "or",
+          22,
+          9
+        ],
+        [
+          "or",
+          21,
+          0
+        ],
+        [
+          "or",
+          21,
+          23
+        ],
+        [
+          "and",
+          24,
+          25
+        ]
+      ],
+      "output": 26,
+      "flags": [
+        {
+          "point_local": 0,
+          "line_local": 4,
+          "accepted_point": 3,
+          "accepted_line": 7,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 8,
+          "accepted_point": 3,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 9,
+          "accepted_point": 3,
+          "accepted_line": 12,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 7,
+          "accepted_point": 4,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 8,
+          "accepted_point": 4,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 10,
+          "accepted_point": 4,
+          "accepted_line": 13,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 6,
+          "accepted_point": 5,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 7,
+          "accepted_point": 5,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 9,
+          "accepted_point": 5,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 5,
+          "accepted_point": 6,
+          "accepted_line": 8,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 6,
+          "accepted_point": 6,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 8,
+          "accepted_point": 6,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "quiet16",
+      "excluded_local_point": 1,
+      "n": 11,
+      "gates": [
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "or",
+          11,
+          9
+        ],
+        [
+          "and",
+          0,
+          12
+        ],
+        [
+          "or",
+          6,
+          7
+        ],
+        [
+          "or",
+          14,
+          9
+        ],
+        [
+          "and",
+          2,
+          15
+        ],
+        [
+          "or",
+          5,
+          6
+        ],
+        [
+          "or",
+          17,
+          8
+        ],
+        [
+          "and",
+          3,
+          18
+        ],
+        [
+          "or",
+          13,
+          16
+        ],
+        [
+          "or",
+          20,
+          19
+        ],
+        [
+          "or",
+          7,
+          8
+        ],
+        [
+          "or",
+          22,
+          10
+        ],
+        [
+          "or",
+          21,
+          1
+        ],
+        [
+          "or",
+          21,
+          23
+        ],
+        [
+          "and",
+          24,
+          25
+        ]
+      ],
+      "output": 26,
+      "flags": [
+        {
+          "point_local": 0,
+          "line_local": 4,
+          "accepted_point": 3,
+          "accepted_line": 7,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 8,
+          "accepted_point": 3,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 9,
+          "accepted_point": 3,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 7,
+          "accepted_point": 4,
+          "accepted_line": 10,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 8,
+          "accepted_point": 4,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 10,
+          "accepted_point": 4,
+          "accepted_line": 13,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 6,
+          "accepted_point": 5,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 7,
+          "accepted_point": 5,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 9,
+          "accepted_point": 5,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 5,
+          "accepted_point": 6,
+          "accepted_line": 8,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 6,
+          "accepted_point": 6,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 8,
+          "accepted_point": 6,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "quiet16",
+      "excluded_local_point": 2,
+      "n": 11,
+      "gates": [
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "or",
+          11,
+          9
+        ],
+        [
+          "and",
+          0,
+          12
+        ],
+        [
+          "or",
+          7,
+          8
+        ],
+        [
+          "or",
+          14,
+          10
+        ],
+        [
+          "and",
+          1,
+          15
+        ],
+        [
+          "or",
+          5,
+          6
+        ],
+        [
+          "or",
+          17,
+          8
+        ],
+        [
+          "and",
+          3,
+          18
+        ],
+        [
+          "or",
+          13,
+          16
+        ],
+        [
+          "or",
+          20,
+          19
+        ],
+        [
+          "or",
+          6,
+          7
+        ],
+        [
+          "or",
+          22,
+          9
+        ],
+        [
+          "or",
+          21,
+          2
+        ],
+        [
+          "or",
+          21,
+          23
+        ],
+        [
+          "and",
+          24,
+          25
+        ]
+      ],
+      "output": 26,
+      "flags": [
+        {
+          "point_local": 0,
+          "line_local": 4,
+          "accepted_point": 3,
+          "accepted_line": 7,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 8,
+          "accepted_point": 3,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 9,
+          "accepted_point": 3,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 7,
+          "accepted_point": 4,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 8,
+          "accepted_point": 4,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 10,
+          "accepted_point": 4,
+          "accepted_line": 13,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 6,
+          "accepted_point": 5,
+          "accepted_line": 9,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 7,
+          "accepted_point": 5,
+          "accepted_line": 10,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 9,
+          "accepted_point": 5,
+          "accepted_line": 12,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 5,
+          "accepted_point": 6,
+          "accepted_line": 8,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 6,
+          "accepted_point": 6,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 8,
+          "accepted_point": 6,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "quiet16",
+      "excluded_local_point": 3,
+      "n": 11,
+      "gates": [
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "or",
+          11,
+          9
+        ],
+        [
+          "and",
+          0,
+          12
+        ],
+        [
+          "or",
+          7,
+          8
+        ],
+        [
+          "or",
+          14,
+          10
+        ],
+        [
+          "and",
+          1,
+          15
+        ],
+        [
+          "or",
+          6,
+          7
+        ],
+        [
+          "or",
+          17,
+          9
+        ],
+        [
+          "and",
+          2,
+          18
+        ],
+        [
+          "or",
+          13,
+          16
+        ],
+        [
+          "or",
+          20,
+          19
+        ],
+        [
+          "or",
+          5,
+          6
+        ],
+        [
+          "or",
+          22,
+          8
+        ],
+        [
+          "or",
+          21,
+          3
+        ],
+        [
+          "or",
+          21,
+          23
+        ],
+        [
+          "and",
+          24,
+          25
+        ]
+      ],
+      "output": 26,
+      "flags": [
+        {
+          "point_local": 0,
+          "line_local": 4,
+          "accepted_point": 3,
+          "accepted_line": 7,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 8,
+          "accepted_point": 3,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 0,
+          "line_local": 9,
+          "accepted_point": 3,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 7,
+          "accepted_point": 4,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 8,
+          "accepted_point": 4,
+          "accepted_line": 11,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 1,
+          "line_local": 10,
+          "accepted_point": 4,
+          "accepted_line": 13,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 6,
+          "accepted_point": 5,
+          "accepted_line": 9,
+          "derivatives": [
+            false,
+            true
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 7,
+          "accepted_point": 5,
+          "accepted_line": 10,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 2,
+          "line_local": 9,
+          "accepted_point": 5,
+          "accepted_line": 12,
+          "derivatives": [
+            false,
+            false
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 5,
+          "accepted_point": 6,
+          "accepted_line": 8,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 6,
+          "accepted_point": 6,
+          "accepted_line": 9,
+          "derivatives": [
+            true,
+            true
+          ]
+        },
+        {
+          "point_local": 3,
+          "line_local": 8,
+          "accepted_point": 6,
+          "accepted_line": 11,
+          "derivatives": [
+            true,
+            true
+          ]
+        }
+      ]
+    }
+  ]
+}

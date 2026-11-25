@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-composition-cache.lean",
+  "sha256": "3eb1557703e745d29e9730f5297b8e5bb34b8822b0a4daf46e32fe1a89761f7c",
+  "started_utc": "2026-11-25T13:32:07.059134+00:00",
+  "finished_utc": "2026-11-25T13:32:13.737298+00:00",
+  "exit_code": 0,
+  "scope": "q2 actual circuit exclusion conditional only on the finite mask-family certificate"
+}

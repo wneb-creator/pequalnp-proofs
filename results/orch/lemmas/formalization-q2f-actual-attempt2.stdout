@@ -1,0 +1,25 @@
+type checking took 360ms
+tactic execution of Lean.Parser.Tactic.decide took 308ms
+type checking took 395ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 281ms
+type checking took 477ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:485:20: error: Application type mismatch: The argument
+  hm
+has type
+  Finset.image q2f_line_embed (cap7_decode m) ∈ Finset.image (fun m => Finset.image q2f_line_embed (cap7_decode m)) C
+but is expected to have type
+  m ∈ C
+in the application
+  good m hm
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:527:8: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:496:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+tactic execution of Lean.Parser.Tactic.assumption took 39.2s
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:556:6: error: (kernel) unknown constant 'PEqualNP.Outside.L_meta_6659_aux.q2f_circuit_allowed'

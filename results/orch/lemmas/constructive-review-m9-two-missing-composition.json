@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS independent source/composition review; full standalone pending",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:23:23.606017+00:00",
+  "source_sha256": "17e795922ea93d4581884e7d404be83f8eeb2e9032a9c2b274c5bc2cfea6da65",
+  "lines": 11461,
+  "cached_source_sha256": "cec1857bbbd61f497c78181a3378b01c007f6f4c06118beddaf4f2241585df33",
+  "cached_receipt": "algebraic-m9-complete-cache-build.json",
+  "cached_exit_code": 0,
+  "scope": "Unconditional ordinary impossibility for exact ineligible set{0,1,2,5,11} and ANY TWO missing cap-neighborhood masks. One-missing and full posted target remain open.",
+  "checks": [
+    "Exact accepted first7507lines preserved modulo namespace rename.",
+    "Entire assembly equals previously standalone-checked supported-eight tail, completed independently reviewed finite certificate body, and reviewed M9 semantic/circuit/upper/endgame/symmetry cachebody modulo whitespace, namespace rename and one namespace close/reopen. No other declarations inserted.",
+    "Final canonical theorem instantiates the finite premise with completed m9_point_empty; final any-two theorem instantiates the reviewed six-automorphism normalization with that unconditional canonical contradiction.",
+    "The complete unconditional cached source passed exit0 and emitted an olean; this full11461line permitted-import build remains a separate pending requirement.",
+    "Single permitted PEqualNP.Defs import; trust/format scan clean."
+  ]
+}

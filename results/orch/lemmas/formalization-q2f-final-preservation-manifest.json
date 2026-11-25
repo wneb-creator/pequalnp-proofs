@@ -1,0 +1,424 @@
+{
+  "created_utc": "2026-11-25T13:37:16.727859+00:00",
+  "supersedes": "formalization-q2f-cache-preservation-manifest.json",
+  "scope": "Successful independently reviewed Defs-only q2f closure and actual-family/lower-bound standalones, their cached components, and complete historical failed/interrupted diagnostics. Full15000case family certificate remains explicit and is not included. No full q2/Fano claim. Active consuming-blocker and fast-validator work excluded.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.json",
+      "bytes": 427,
+      "sha256": "85211c5f66220257851f1cdf1a86ee0491979c7528672331c4d7e49c58735071"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.lean",
+      "bytes": 26362,
+      "sha256": "ab97383016e53122bdcd876b1beeb45834524d2b6cb1ec23e316e5b2e814d9f6"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.stderr",
+      "bytes": 666,
+      "sha256": "fc6b8498b162ff14632e4d2b98c2f45a765fa89c604c2be31195737cea61774e"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt1.stdout",
+      "bytes": 1454,
+      "sha256": "9a25e29f4b99e2a1944ff2c31feb47103b3457321f5286f87f7c1a62fb9b55be"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.json",
+      "bytes": 478,
+      "sha256": "5a007893c4d509902b75d9ea220c0998f823f946d349ae8ee63bbb68e22ab82a"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.lean",
+      "bytes": 26910,
+      "sha256": "66c1cd44eec6bcfd97206849d0ba72877124d869431f7861349aefdac24223b8"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.stderr",
+      "bytes": 662,
+      "sha256": "a6d290caa05d66a3534c1c91e0a51a124cb5ef71a423da36d10b76ec18cd3181"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt2.stdout",
+      "bytes": 1461,
+      "sha256": "b167b2085a95ec52c5c9c7de7658d8565b26d9b6ec1840fb158edeba5d540bce"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.json",
+      "bytes": 401,
+      "sha256": "8cf05e4ed998d6819658e2c6be23a5de7b237178897ef684d9fe5ff76e9b961f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.lean",
+      "bytes": 26940,
+      "sha256": "7340eb340678ee08bebdc6f0c23dd6075f772f6da6d434a9466a53ce0d48425c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.stderr",
+      "bytes": 660,
+      "sha256": "cdde487aa8757626c8f82dbd30558f336fb8c7cb07928dff5441c9e73ec75c8b"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-attempt3.stdout",
+      "bytes": 2098,
+      "sha256": "04849352e1d8b7d068584390d52e6bf41c25d54edb745797e8e5914fce240e17"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache-build.json",
+      "bytes": 531,
+      "sha256": "a995c3501dc0e8c7917a516c7155aca409670f7455dd177ac5d7b0906cc7abdc"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.lean",
+      "bytes": 30395,
+      "sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-closure-tail.lean",
+      "bytes": 3140,
+      "sha256": "1660552b949a59c5a43b814f32c8dc2584512f1f5acdeffb58eb94d81f29fb34"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1-build.json",
+      "bytes": 498,
+      "sha256": "ba453ac349f3a153f11c3c4c74edf18c8f00ba9fc56f276959ddf345d9450135"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.lean",
+      "bytes": 363189,
+      "sha256": "70faece81cae4a0a916dac53f303ce305b183da1e555663e44603853a912c202"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-attempt1.stdout",
+      "bytes": 639,
+      "sha256": "20a688a182791f88fd2373c907dc04aace3150a8294327de27db8b84264f455f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone-build.json",
+      "bytes": 498,
+      "sha256": "c9b1c2fc3ee0967ddb6ec7f4618cb7cd5f7b35479834750bcbcfa26be34cc550"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.lean",
+      "bytes": 363280,
+      "sha256": "d7229dcbfec618dbb4c7f41e9abdfc854f20521d40ababff73c73cf5ee4664c3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-circuit-tail.lean",
+      "bytes": 8646,
+      "sha256": "093f3f74c7e02de5eca3835fe85dd83035708919e34f31f0bfeaf271d4bbf23d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.json",
+      "bytes": 548,
+      "sha256": "9fc63b2d4f430d28fe088b32e1307cd6f4303a1ff393ebefdf4679b3b4ec988c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.lean",
+      "bytes": 12933,
+      "sha256": "1930ff8e63be45e0284a035a6866ba62a2e7e53d1c28f90bc2cd982fda1eeab7"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-attempt1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache-build.json",
+      "bytes": 484,
+      "sha256": "7759889d238cd0f31c48b635fa3e3508b92190af6e362d64cc916c0e8966c173"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+      "bytes": 17120,
+      "sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.json",
+      "bytes": 446,
+      "sha256": "ed4a22da149c5bf4e8b1aab584dc874dcbd4f34b12ceacef0bc680e5b4275855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.lean",
+      "bytes": 16895,
+      "sha256": "7f460d1ceaf355d11d8f1f9705c728d237475d4e77a20e55926db63804e5d167"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.stderr",
+      "bytes": 666,
+      "sha256": "429f0a4da62da5299e1bbb9e150f3571bdc4fdebc51cbec9fe5c6cecf3468c79"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.stdout",
+      "bytes": 1981,
+      "sha256": "b4960e22e5ef91a71399ce5991c609c4aaa477a21311382b2acec3c80f46c3d3"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-helpers.lean",
+      "bytes": 7797,
+      "sha256": "2b56a25b3809b7f1a70dcc9c2dba831dc94820d9840ec8e62caad19b561e09d4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1-build.json",
+      "bytes": 507,
+      "sha256": "0c7d346a0837adf74a55181f0435f9dfd2b342d6f1dcad3b770fc258e8212ded"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.lean",
+      "bytes": 119775,
+      "sha256": "964fee9e1ac0ee8d4c186fffdbce1b36f750b26f7b9414605fcf16b785808f38"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-attempt1.stdout",
+      "bytes": 262,
+      "sha256": "f9f91c25be7a260107a101ce97038762e7146f5acc8035dded7f987001664761"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone-build.json",
+      "bytes": 507,
+      "sha256": "7dff10f32556531fa4ce9729f6102dd25e9607fedc0b8777eb2e30774e21949f"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.lean",
+      "bytes": 119837,
+      "sha256": "e607fc0ebd0336bc3bddf9c477eee23f9d27d61c121af4e8af9458a66df07c9d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-tail.lean",
+      "bytes": 6111,
+      "sha256": "4fc7c453cdbf16f14c1976362ec584f772a404914ab3bee1ec38eb57fc63d2fb"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-foundations-tail.lean",
+      "bytes": 2722,
+      "sha256": "69988cb58551dd56b9f4cea6c3441046b8087e8531d9bf1721d6c2bb61f8a942"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.json",
+      "bytes": 414,
+      "sha256": "6b41c29dc97e8209cfa3f65e9ba08ad48953d8014f2a54013de62e38f1872491"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.lean",
+      "bytes": 6940,
+      "sha256": "fab7adeecc9cdd2a79bce213e34317cf920a88efd5e4f99d2b1dcc24897ad9e5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.stderr",
+      "bytes": 18,
+      "sha256": "1f8ff7d3902cde07721f3d55baeb6ce5371a484d1b57872d4b43388765393df4"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.json",
+      "bytes": 454,
+      "sha256": "9e8cbfd285e61fa46788a2f6e56f5fb49a73310a2c72d4d865148095824a9c14"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.lean",
+      "bytes": 7597,
+      "sha256": "b63485fb9bf90ce9d6e2da657bb27ac5190742d64f543faba7b8203def123ab5"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.stderr",
+      "bytes": 605,
+      "sha256": "796ae7af44f36530e85742bbd31e170104e86b7e764c33daf01e68e502b18bce"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt3.stdout",
+      "bytes": 8354,
+      "sha256": "347c2812bd505287cf79d1750fe90b2887ae2baa01eab138b1e9cc142a1595bf"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.json",
+      "bytes": 353,
+      "sha256": "e93442c4dc25448cf3bc625d7932a17df7e09c22f2931baeecd394fa012d7f2a"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.lean",
+      "bytes": 7670,
+      "sha256": "820a504dea0e1adaa219f39bf14c9da76e0c252ef48697b8b446bf103e92c89b"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.stderr",
+      "bytes": 540,
+      "sha256": "1431c79f627435bbb903f9c7f0942f5054fd49ae369deca8d4c58800ffce5bc8"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt4.stdout",
+      "bytes": 855,
+      "sha256": "e0f13baca83131e716911a466a9a4ce4814a03c181ab82f8821b79989ba43f09"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.json",
+      "bytes": 366,
+      "sha256": "bd78f8e53bece84070e20bfc21d5849ed8453c72e03e3de2e4af5b2b240552b1"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.lean",
+      "bytes": 7690,
+      "sha256": "ac8c27bf3be63f1cc78adac1f0d78f914db3a94277f1e3c207771b34a805913c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-attempt5.stdout",
+      "bytes": 1228,
+      "sha256": "1e5b05ba327cecdaa2be2a1b6c778342b532f9bdc2843737b33f7df051ed911d"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache-build.json",
+      "bytes": 541,
+      "sha256": "a3a23a718aaeb4c7fcea3eefad85ceffab43e442e40914aab7258bf7148faf07"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.lean",
+      "bytes": 7882,
+      "sha256": "7fcc0ac20ca8df60f34fac918c016b4873bc68a02f01bd21b49f1d52ecff8848"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-helpers-cache.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-lower-tail.lean",
+      "bytes": 3317,
+      "sha256": "20aeb7ae74e0b78c26ad326dc4d41b0e6555ee15cc846b94ca66d9ebae983505"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-shape-tail.lean",
+      "bytes": 2316,
+      "sha256": "717af71f40582fe2956db1884002d01bb068bdb8bdf1a4a481aac600706d1818"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-q2-composition.json",
+      "bytes": 1139,
+      "sha256": "baf72e6c98a6d882e92dea6cfd1cefd1aa7610acc244ef9d6e0cd989d672eb1c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-supported-eight-standalone.json",
+      "bytes": 2545,
+      "sha256": "0a0b52f18f0bab1c32b8368dcb3b025878548f3b1d3105b2826fe1a8af5b44f4"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-actual-final-review.json",
+      "bytes": 2664,
+      "sha256": "8ced2758b805df164f1998af6eb7f6281e76c8535ff39cd3d21688eb2ed77dfc"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-actual-standalone-review.json",
+      "bytes": 2426,
+      "sha256": "6b97caaa8a6753cb68267ed59205f5ee8005c5f9debaeb9db6f266fce8296cd2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-lower-review.json",
+      "bytes": 1269,
+      "sha256": "73f9fb38b2483006754c3f4abc5fcc6f599964a1fe35851361399adc1f72a770"
+    },
+    {
+      "path": "results/orch/lemmas/sat-q2f-parents-family-review.json",
+      "bytes": 2477,
+      "sha256": "8efb29caa56a7f35304c75c0c5d737dc44558b791867bdb81b41b164ab002b09"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-circuit-review.json",
+      "bytes": 3099,
+      "sha256": "4e50138e880ae140fa3ca677db1513414ff13047616503b5376b398859d685ee"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-closure-cache-composition-review.json",
+      "bytes": 3181,
+      "sha256": "8fc8489a772eee540c87853b2e7b1762876c66a6ee52dad6afd11153b3c44417"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-closure-review.json",
+      "bytes": 3158,
+      "sha256": "21dfe67a5f494bcc336b28ee821a75311177a40d59626dde30aadb27f74460d6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-family-tail.lean",
+      "bytes": 2533,
+      "sha256": "be1704bd772ff56b517f361d48faffb838e0ccb6acb1401d31ca08be187b3ef9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-helpers-review.json",
+      "bytes": 2225,
+      "sha256": "d03134c12656b0b052f51a30f8fc7c1423244ee62ce38ed34d7423e6cf5c22ff"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-parents-fast-tail.lean",
+      "bytes": 5993,
+      "sha256": "eb3d303e41bc3d4fedf53c58c571d5daac22665fb80a711dfbe4786b27850c6b"
+    }
+  ],
+  "file_count": 83,
+  "bytes": 1257775
+}

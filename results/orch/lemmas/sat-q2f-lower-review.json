@@ -1,0 +1,15 @@
+{
+  "status": "PASS: independent source/mathematical review; compilation pending",
+  "utc": "2026-11-25T13:23:31.507891+00:00",
+  "source": "results/orch/lemmas/formalization-q2f-lower-tail.lean",
+  "sha256": "20aeb7ae74e0b78c26ad326dc4d41b0e6555ee15cc846b94ca66d9ebae983505",
+  "lines": 74,
+  "proof_body_exactly_matches": "algebraic-line-q2-saturation-tail.lean:first theorem",
+  "checks": [
+    "The first proof body is byte-identical after trimming separators to the previously reviewed mask-bound proof. Only its statement removes Bplus\u226413 and retains the raw Y.card+6\u2264Bplus inequality.",
+    "Substitution into the existing family bound gives Y.card+4+6+10\u226414+Bplus, hence Y.card+6\u2264Bplus, without any upper-bound or zero-surplus premise.",
+    "The second result constructs an actually occurring family and uses injectivity of decoded line masks to identify cardinality. The explicit finite certificate gives at least7 family masks, hence Bplus\u226513.",
+    "The explicit finite certificate hypothesis remains visible; no completed finite build or full q2 exclusion is silently assumed."
+  ],
+  "qualification": "No compilation is claimed for this new tail. The actual-family transfer and q2f_image_good helper are separate dependencies."
+}

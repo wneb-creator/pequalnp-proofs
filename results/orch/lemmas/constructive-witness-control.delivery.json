@@ -1,0 +1,275 @@
+{
+  "scope": "28-gate control only",
+  "input": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-collinear4-controls.json",
+  "output": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control.lean",
+  "source_sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f",
+  "source_lines": 345,
+  "size": 28,
+  "output_wire": 41,
+  "marked_edge": [
+    4,
+    4
+  ],
+  "local_truth_rows": 2048,
+  "full_truth_rows": 16384,
+  "all_edge_derivatives": [
+    {
+      "point": 0,
+      "line": 0,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 0,
+      "line": 4,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 0,
+      "line": 6,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 1,
+      "line": 0,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 1,
+      "line": 1,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 1,
+      "line": 5,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 2,
+      "line": 1,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 2,
+      "line": 2,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 2,
+      "line": 6,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 3,
+      "line": 0,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 3,
+      "line": 2,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 3,
+      "line": 3,
+      "derivatives": [
+        true,
+        true
+      ]
+    },
+    {
+      "point": 4,
+      "line": 1,
+      "derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "point": 4,
+      "line": 3,
+      "derivatives": [
+        false,
+        true
+      ]
+    },
+    {
+      "point": 4,
+      "line": 4,
+      "derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "point": 5,
+      "line": 2,
+      "derivatives": [
+        false,
+        true
+      ]
+    },
+    {
+      "point": 5,
+      "line": 4,
+      "derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "point": 5,
+      "line": 5,
+      "derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "point": 6,
+      "line": 3,
+      "derivatives": [
+        false,
+        true
+      ]
+    },
+    {
+      "point": 6,
+      "line": 5,
+      "derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "point": 6,
+      "line": 6,
+      "derivatives": [
+        false,
+        false
+      ]
+    }
+  ],
+  "forward_trace": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "reverse_trace": [
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "helper_sha256": "9c9f942118318eeadd102d8dca458a9cff955af5b6890581157ef250382b7d7a",
+  "statement_sha256": "946228bccd22fc545145b539b88eaed82998ed5d5a7285e77fb8b30e324d475e"
+}

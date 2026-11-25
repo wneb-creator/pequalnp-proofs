@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS independent delivery-pipeline source review and successful exact28-control Lean build",
+  "reviewer": "lean_setup",
+  "reviewed_utc": "2026-11-25T13:39:25.555254+00:00",
+  "script": "results/orch/lemmas/constructive-witness-delivery.py",
+  "script_sha256": "f6c7583347bf6fedc2cadbde5c9cd00312975cde0ca7c3ed1be38b90c39c0683",
+  "prefix_sha256": "9c9f942118318eeadd102d8dca458a9cff955af5b6890581157ef250382b7d7a",
+  "statement_sha256": "946228bccd22fc545145b539b88eaed82998ed5d5a7285e77fb8b30e324d475e",
+  "control_source_sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f",
+  "checks": [
+    "Frozen267line prefix exactly equals main lines1\u2013114 and529\u2013681; previously checked validator/monotonicity/boundary helpers are unchanged.",
+    "Frozen theorem statement matches desk statement modulo whitespace; only control mode replaces the unique27 bound by28 and uses a distinct theorem namespace.",
+    "Local accepted-label points3,4,5,6 and lines0..6 map to posted points unchanged and lines negated modulo7; p+t incidence becomes posted p-line incidence.",
+    "Three remaining point stars cost9 gates, then3 OR gates; all forward wire indices/output indices are correct. Production requires local15/full27, control local16/full28.",
+    "Both local and full truth tables are exhaustively checked, including all16384 full assignments; both marked raw traces use exact derivative recurrence and must endfalse.",
+    "Forward trace uses point singleton base/line singleton seed; reverse swaps these. Final input and recurrence clauses exactly match the posted existential witnesses.",
+    "Lean correctness uses the independent21positive/37negative boundary certificate plus checked BinaryAO monotonicity; no SAT assertion is imported as a proof.",
+    "Gates restrict operation/arity/integer backward distinct operands. Output writes are confined to scratch/results, cannot overwrite existing files/main, and dynamic Lean data is restricted to validated operations/integers/Booleans."
+  ],
+  "scope": "Emergency delivery template only. The current generated control has28 gates and is not a posted27 witness. Direct14-input JSON must already use posted cyclic labeling; full truth validation rejects a mislabeled input.",
+  "control_build_receipt": {
+    "source": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control.lean",
+    "source_sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f",
+    "started_utc": "2026-11-25T13:38:11.412993+00:00",
+    "finished_utc": "2026-11-25T13:38:30.716177+00:00",
+    "elapsed_seconds": 19.303189416998066,
+    "exit_code": 0,
+    "scope": "28-gate delivery control, not posted27 result",
+    "stdout": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control-build.stdout",
+    "stderr": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control-build.stderr"
+  },
+  "control_archived_source": "results/orch/lemmas/constructive-witness-control.lean",
+  "control_full_logs": [
+    "results/orch/lemmas/constructive-witness-control-build.stdout",
+    "results/orch/lemmas/constructive-witness-control-build.stderr"
+  ]
+}

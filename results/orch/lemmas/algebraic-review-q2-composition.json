@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "source": "results/orch/lemmas/pilot-q2-composition-tail.lean",
+  "sha256": "e385c4adbd8f237c2025221126c63a1a90d6fe3edd3b2fe25d7e55d4515709fb",
+  "reviewed_utc": "2026-11-25T13:33:57.030972+00:00",
+  "scope": "Actual q2 circuit exclusion under explicit finite family certificate; exact I0123, missing2456, Bplus\u226413,total\u226414. No full1479 or fullp10 claim.",
+  "checks": [
+    "The family lower bound and Bplus\u226413 give exactBplus13 needed by the residual backend.",
+    "The q2 line embedding is exactly qa_line, so pulling the line-side support recovers qa_mask.",
+    "Missing set2456 gives occurrence of all three required neighborhoods at point0/1/3.",
+    "Decoded fixed masks11/69/49 are precisely qa_nb0/1/3.",
+    "The large-mask shape is exactly qa_allowed; its supplied S is passed unchanged to the independently reviewed actual residual backend.",
+    "The finite certificate remains a visible premise and is not inferred from computation outside Lean."
+  ],
+  "cached_source_sha256": "3eb1557703e745d29e9730f5297b8e5bb34b8822b0a4daf46e32fe1a89761f7c",
+  "receipt": "results/orch/lemmas/pilot-q2-composition-cache-build.json",
+  "exit_code": 0,
+  "repairs": "Only Fin.castLE replaced a Fin constructor whose proof captured a local variable in the closed finite geometry theorem."
+}

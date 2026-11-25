@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-helpers-attempt4.lean",
+  "source_sha256": "820a504dea0e1adaa219f39bf14c9da76e0c252ef48697b8b446bf103e92c89b",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:16:12.973364+00:00",
+  "scope": "Fast cached development check, three grow-consequence simplification errors only; full logs retained."
+}

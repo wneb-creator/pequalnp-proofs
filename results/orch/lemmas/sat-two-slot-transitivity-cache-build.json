@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/sat-two-slot-transitivity-cache.lean",
+  "source_sha256": "ebc496e78e6d8863493d87fe5de9724ee57e85f66897de4f21d2fb648470c3b3",
+  "tail": "results/orch/lemmas/sat-two-slot-transitivity-tail.lean",
+  "tail_sha256": "5c5c0776d5a5b2365330ff69065343c1aa66553c5bbe13eb1bee8c16b812f8df",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T13:23:42.072846+00:00",
+  "scope": "Cached check against PNPAccepted6659. Generic co-consumption transitivity for nonadjacent endpoints and at most2 consuming positions of the middle label; no full p14 or gap conclusion.",
+  "stdout": "sat-two-slot-transitivity-cache.stdout",
+  "stderr": "sat-two-slot-transitivity-cache.stderr"
+}

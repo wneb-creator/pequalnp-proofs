@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS exact standalone composition and final standalone exit-0 receipt",
+  "source": "results/orch/lemmas/pilot-q2-transfer-standalone.lean",
+  "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495",
+  "bytes": 443453,
+  "characters": 423694,
+  "lines": 8984,
+  "foundation": {
+    "source": "structural-cofactor-nine-free-standalone.lean",
+    "sha256": "ee4e35f40a96e21de5bfc084f34c7655c4f6d2aa279bc6af951de75abb483c6f",
+    "namespace_rename": {
+      "from": "PEqualNP.Outside.L_meta_1479.HighEquality",
+      "to": "PEqualNP.Outside.L_meta_6659_aux"
+    },
+    "change": "Exact global namespace rename and removal of final namespace end only"
+  },
+  "parts_in_order": [
+    {
+      "source": "results/orch/lemmas/algebraic-protected-full-tail.lean",
+      "sha256": "897e5b1ab9f68fccf016a585a540a10729a418e11dd4c013e89865f21c23b282",
+      "lines": 168
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-q2-analytic.lean",
+      "sha256": "cce10b1a328b25900d7beac6a5b876428d380431bd28dae965215f688ab80c8a",
+      "lines": 218
+    },
+    {
+      "source": "results/orch/lemmas/pilot-q2-transfer-tail.lean",
+      "sha256": "92f67057003943041d8902f8debe8111fc123c543b75ef8b40a7580c12ac02a3",
+      "lines": 181
+    }
+  ],
+  "cached_receipt": {
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-cache.lean",
+    "sha256": "045d09bd457c9e9ebb5c6ffd244f20c3a78f24368f1f967fad32ca6ec3c5efff",
+    "started_utc": "2026-11-25T13:17:03.990257+00:00",
+    "finished_utc": "2026-11-25T13:17:20.616067+00:00",
+    "exit_code": 0,
+    "scope": "Cached q2 actual residual transfer under explicit occurring-triples and allowed-family hypotheses"
+  },
+  "scope": "Actual residual-unit contradiction under explicit occurring-triples and allowed-family hypotheses. All-case family certificate and its saturation transfer are separate; no full L-meta-1479 conclusion.",
+  "checks": [
+    "No unexplained additions/deletions: namespace-renamed complete8418line foundation, exact168line protected tail, exact218line analytic body, exact181line transfer tail, closing namespace.",
+    "Only PEqualNP.Defs imported. No sorry, new axiom declaration, native_decide, string literal or forbidden root text.",
+    "Byte/character counts distinguished:443453 UTF8 bytes versus423694 Unicode characters."
+  ],
+  "cached_source_hash_verified": true,
+  "standalone_receipt": {
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-standalone.lean",
+    "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495",
+    "started_utc": "2026-11-25T13:20:28.339460+00:00",
+    "finished_utc": "2026-11-25T13:28:46.112279+00:00",
+    "exit_code": 0,
+    "scope": "Defs-only actual q2 residual exclusion under explicit occurring-triples/allowed-mask-family hypotheses; not the full posted theorem"
+  },
+  "standalone_diagnostics": "Two inherited unused-variable warnings for hi/hix at line7628; complete stdout782bytes, stderr0. No errors."
+}

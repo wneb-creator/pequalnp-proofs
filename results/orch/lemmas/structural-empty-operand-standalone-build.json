@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/structural-empty-operand-standalone.lean",
+  "sha256": "0804deac4174ecbd7c975a61f5c9efbee6bbf4316dae4372c16eea7fc6253b45",
+  "lines": 2821,
+  "prefix_lines": 2695,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:24:17.256315+00:00",
+  "completed_utc": "2026-11-25T13:26:36.637887+00:00"
+}

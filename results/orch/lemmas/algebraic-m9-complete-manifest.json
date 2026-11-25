@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-11-25T13:27:48.554685+00:00",
+  "scope": "Cached unconditional ANY-two-missing mixedp9 exclusion plus automorphism wrapper. All source/build reviews PASS. Full11461line standalone still running and excluded from this compiled-result list. One-missing case open.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-tail.lean",
+      "sha256": "5be4bc4e625db2e3b742ea554a2da6bf3a01172275f02a5159f8b5915809dfc1",
+      "bytes": 4809
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache.lean",
+      "sha256": "a3ccf663b74b4ed1a9c04e6886a9aad4bde52eb8886547bcbde38d6ecf61d3bc",
+      "bytes": 5155
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.json",
+      "sha256": "5bd8e6ac90f79a6c8f2df005db8151944803eac7f256987f54677be5bdee579a",
+      "bytes": 762
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-symmetry-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-pair-automorphisms.json",
+      "sha256": "37ab6f0f24c4d5b228f445d63800dff978e40fc2b75d2c42396eb956bad7b985",
+      "bytes": 1221
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-symmetry.json",
+      "sha256": "c7bcdfe8c8ced84d29ed476a8971b9c5a3a61f5a55e6d2c8e861af9a62da9d20",
+      "bytes": 1290
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-unconditional-tail.lean",
+      "sha256": "77d9d645189f3536f3e317ddb5a7ebd22dce09e6bcb9cd067ba17867eaf96ccb",
+      "bytes": 674
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache.lean",
+      "sha256": "cec1857bbbd61f497c78181a3378b01c007f6f4c06118beddaf4f2241585df33",
+      "bytes": 119278
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.json",
+      "sha256": "fd96e68d106508c8adf0532d419b0b8ff920de90599772445783ce4ea5928175",
+      "bytes": 535
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.stdout",
+      "sha256": "9ba68d03d238eb27f9e6208f6c3d043888e4c35fa4ebe74181882d7de6021b5c",
+      "bytes": 1457
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-complete-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-two-missing-composition.json",
+      "sha256": "d7a4f95082ad8a91b48863819989cbd3f9d5dbb97e17c6cd5c9fcb6fbf3c6eda",
+      "bytes": 1498
+    }
+  ]
+}

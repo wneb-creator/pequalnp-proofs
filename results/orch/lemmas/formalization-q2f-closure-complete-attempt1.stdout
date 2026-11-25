@@ -1,0 +1,45 @@
+type checking took 745ms
+type checking took 772ms
+type checking took 738ms
+type checking took 597ms
+type checking took 431ms
+type checking took 254ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FClosureComplete.lean:352:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  cap7_decode (q2f_superCode s)
+in the target expression
+  Q (cap7_decode (q2f_raw s a b c 3)) ∧
+    2 ≤ (cap7_decode (q2f_raw s a b c 3)).card ∧
+      ((cap7_decode (q2f_raw s a b c 3)).card = 2 → ∃ i, cap7_decode (q2f_raw s a b c 3) ⊆ q2f_triple i)
+
+case inr.inr.inr.inl
+Q : Finset (Fin 7) → Prop
+base : ∀ (i : Fin 3), Q (q2f_triple i)
+parents : ∀ (i : Fin 3), q2f_Parent Q (q2f_triple i)
+S : Finset (Fin 7)
+strict : q2f_missingTriple ⊂ S
+hS : Q S
+a : Fin 10
+ha0 : Q (cap7_decode (q2f_parentCode 0 a 0))
+ha1 : Q (cap7_decode (q2f_parentCode 0 a 1))
+b : Fin 10
+hb0 : Q (cap7_decode (q2f_parentCode 1 b 0))
+hb1 : Q (cap7_decode (q2f_parentCode 1 b 1))
+c : Fin 10
+hc0 : Q (cap7_decode (q2f_parentCode 2 c 0))
+hc1 : Q (cap7_decode (q2f_parentCode 2 c 1))
+s : Fin 15
+hs : q2f_superCode s = cap7_encode S
+decodeS : cap7_decode (q2f_superCode s) = S
+large : ∀ (M : Finset (Fin 7)), 3 ≤ M.card → 2 ≤ M.card ∧ (M.card = 2 → ∃ i, M ⊆ q2f_triple i)
+basic :
+  ∀ (i : Fin 3),
+    Q (q2f_triple i) ∧ 2 ≤ (q2f_triple i).card ∧ ((q2f_triple i).card = 2 → ∃ j, q2f_triple i ⊆ q2f_triple j)
+parentGood :
+  ∀ (i : Fin 3) (k : Fin 10) (side : Fin 2),
+    Q (cap7_decode (q2f_parentCode i k side)) →
+      Q (cap7_decode (q2f_parentCode i k side)) ∧
+        2 ≤ (cap7_decode (q2f_parentCode i k side)).card ∧
+          ((cap7_decode (q2f_parentCode i k side)).card = 2 → ∃ j, cap7_decode (q2f_parentCode i k side) ⊆ q2f_triple j)
+⊢ Q (cap7_decode (q2f_raw s a b c 3)) ∧
+    2 ≤ (cap7_decode (q2f_raw s a b c 3)).card ∧
+      ((cap7_decode (q2f_raw s a b c 3)).card = 2 → ∃ i, cap7_decode (q2f_raw s a b c 3) ⊆ q2f_triple i)

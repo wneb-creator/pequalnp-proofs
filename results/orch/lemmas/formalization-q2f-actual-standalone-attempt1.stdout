@@ -1,0 +1,4 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-standalone.lean:5339:77: error(lean.unknownIdentifier): Unknown identifier `hw_mem_nb`
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-standalone.lean:5352:53: error(lean.unknownIdentifier): Unknown identifier `hw_mem_nb`
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-standalone.lean:5358:50: error(lean.unknownIdentifier): Unknown identifier `hw_mem_nb`
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-standalone.lean:5704:63: error(lean.unknownIdentifier): Unknown identifier `hw_mem_nb.mp`

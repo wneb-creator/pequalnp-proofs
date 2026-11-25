@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-standalone.lean",
+  "source_sha256": "70faece81cae4a0a916dac53f303ce305b183da1e555663e44603853a912c202",
+  "started_utc": "2026-11-25T13:29:05.109367+00:00",
+  "finished_utc": "2026-11-25T13:32:28.363038+00:00",
+  "exit_code": 1,
+  "scope": "Defs-only standalone actual q2 family/large-mask transfer and Bplus\u226513, conditional on explicit finite family certificate. No full q2 or posted theorem claimed."
+}

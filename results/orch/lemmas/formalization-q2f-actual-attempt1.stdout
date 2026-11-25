@@ -1,0 +1,23 @@
+type checking took 174ms
+tactic execution of Lean.Parser.Tactic.decide took 169ms
+type checking took 180ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:374:57: error(lean.unknownIdentifier): Unknown constant `Finset.filter_False`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:374:4: error: Type mismatch: After simplification, term
+  q2f_closed_empty s a b c
+ has type
+  @Eq Bool (q2f_closed s a b c (cap7_encode ∅)) true
+but is expected to have type
+  @Eq Bool (q2f_closed s a b c (cap7_encode {x | False})) true
+type checking took 310ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:497:20: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:474:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+tactic execution of Lean.Parser.Tactic.refine took 27.5s
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FActualDraft.lean:544:6: error: (kernel) unknown constant 'PEqualNP.Outside.L_meta_6659_aux.q2f_circuit_allowed'

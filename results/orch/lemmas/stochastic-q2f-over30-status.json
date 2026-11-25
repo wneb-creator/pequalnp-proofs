@@ -1,0 +1,10 @@
+{
+  "status": "Still running; no completion or failure claimed",
+  "sampled_utc": "2026-11-25T13:34:12.749632+00:00",
+  "source_sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+  "cached_source_prepared_utc": "2026-11-25T13:00:56.385654+00:00",
+  "process_snapshot": "    PID     ELAPSED     TIME %CPU   RSS COMMAND\n  51659       33:08 00:28:11 85.0 4037108 lean\n",
+  "stdout_bytes": 0,
+  "stderr_bytes": 18,
+  "note": "Current whole-file compilation exceeds30minutes; complete profile output is buffered until completion, so no completed-block estimate is available. Original source/run retained; no switch based on uncertain optimization timings."
+}

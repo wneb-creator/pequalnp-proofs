@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control.lean",
+  "source_sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f",
+  "started_utc": "2026-11-25T13:38:11.412993+00:00",
+  "finished_utc": "2026-11-25T13:38:30.716177+00:00",
+  "elapsed_seconds": 19.303189416998066,
+  "exit_code": 0,
+  "scope": "28-gate delivery control, not posted27 result",
+  "stdout": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control-build.stdout",
+  "stderr": "/tmp/oec/pequalnp-pilot-81/constructive-witness-control-build.stderr"
+}

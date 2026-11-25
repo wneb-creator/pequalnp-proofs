@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T13:24:25.443259+00:00",
+  "source": "results/orch/lemmas/structural-empty-operand.lean",
+  "source_sha256": "b7a90f3dca26c5b4cc96810214d94ab32869129738205021b1d86be750926eed",
+  "tail": "results/orch/lemmas/structural-empty-operand-tail.lean",
+  "tail_sha256": "f4683ce6d8c26b4657109828dab4941ec2aff04aa6b19e57a3d9cfcb96fe9491",
+  "receipt": "results/orch/lemmas/structural-empty-operand-build.json",
+  "exit_code": 0,
+  "scope": "Under strict-live correctness, W cardinal\u22642, empty gate-output support and empty opposite-operand support, every carried label has one other exit covering all neighbors; induced support degree\u22641; an internal edge forces support exactly its two endpoints. No minimality or derivative conclusion.",
+  "checks": [
+    "An edge-witness slot cannot equal the given slot because its opposite support is empty.",
+    "The two-slot budget then exhausts the exit set and forces all edge witnesses through the second slot.",
+    "Induced-degree exclusion correctly applies the support antichain property to the two alleged neighbors.",
+    "For edge support, the two labels second slots are opposites. Cover-free separation forces every extra label to be adjacent to two distinct neighbors of one endpoint; noC4 then identifies it with the other endpoint.",
+    "Final edits only replaced inequality symmetry syntax and removed an unused local; complete cached check has empty stdout/stderr."
+  ],
+  "standalone": {
+    "source": "results/orch/lemmas/structural-empty-operand-standalone.lean",
+    "sha256": "0804deac4174ecbd7c975a61f5c9efbee6bbf4316dae4372c16eea7fc6253b45",
+    "exit_code": 0,
+    "receipt": "structural-empty-operand-standalone-build.json",
+    "composition": "Exact accepted2695-line prefix, close/reopen namespace, exact reviewedtail under renamed namespace, no new mathematics",
+    "reviewed_utc": "2026-11-25T13:28:46.993209+00:00"
+  }
+}

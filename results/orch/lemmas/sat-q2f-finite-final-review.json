@@ -1,0 +1,23 @@
+{
+  "status": "PASS: completed compiled finite artifact independently verified; original terminal exit remains unavailable",
+  "utc": "2026-11-25T13:40:43.129775+00:00",
+  "source_sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+  "source_lines": 1085,
+  "all_finite_cases": 15000,
+  "source_coverage_review": "sat-q2f-finite-coverage-review.json",
+  "independent_finite_data_review": "sat-q2f-independent-review.json",
+  "manifest_entries_verified": 12,
+  "olean_sha256": "76fb32305854d484fbfed5b4cae9a6d2d90cad5e3fc9c2f0484a84553976f7d1",
+  "source_cache_byte_identity": true,
+  "original_process_exit_code": null,
+  "original_exit_qualification": "No original numeric exit is asserted. Exact source/cache identity, completed olean, complete diagnostic-free profiling, explicit exit0 import of the final full theorem, and separate exit0 axiom census establish the verified compiled artifact.",
+  "import_verification_exit_code": 0,
+  "axiom_census_exit_code": 0,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "timing_limitation": "Original observed run took about2043 seconds from source preparation, exceeding the repository checker30-minute cap; this is not a checker pass. Whole proof assembly/timing remains separate.",
+  "scope": "All15x10^3 finite q2 family certificates are established. This is not the whole L-meta-1479 statement or a full q2/Fano exclusion; actual-circuit transfer and remaining case arguments are separate."
+}

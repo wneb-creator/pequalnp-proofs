@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-attempt2.lean",
+  "source_sha256": "66c1cd44eec6bcfd97206849d0ba72877124d869431f7861349aefdac24223b8",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:22:25.539790+00:00",
+  "scope": "Cached actual-family attempt: a shadowed membership hypothesis and generic assumption-search timeout. Fixed with distinct hypothesis names and explicit supplied lower bound; full diagnostics retained."
+}

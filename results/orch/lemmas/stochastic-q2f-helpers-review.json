@@ -1,0 +1,24 @@
+{
+  "verdict": "PASS independent mathematical/source review, exact cached exit-0 receipt and complete empty logs",
+  "source": "results/orch/lemmas/formalization-q2f-closure-helpers.lean",
+  "sha256": "2b56a25b3809b7f1a70dcc9c2dba831dc94820d9840ec8e62caad19b561e09d4",
+  "receipt": {
+    "source": "results/orch/lemmas/formalization-q2f-helpers-cache.lean",
+    "source_sha256": "7fcc0ac20ca8df60f34fac918c016b4873bc68a02f01bd21b49f1d52ecff8848",
+    "tail_sha256": "2b56a25b3809b7f1a70dcc9c2dba831dc94820d9840ec8e62caad19b561e09d4",
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T13:17:24.584638+00:00",
+    "scope": "Cached compile of semantic code membership, small-mask downward/seed/grow closure and generator projections. Depends on compiled PNPQ2FBenchmark foundations. No full closure/circuit/family certificate claim."
+  },
+  "checks": [
+    "Code membership expands exactly into the ten raw family positions; existential membership returns the corresponding Fin10 witness.",
+    "Outside-pair characterization is checked through bitwise subset predicates and lifted through independently checked decode/subset semantics.",
+    "Small-mask downward closure is sound: either the subset has size\u22641, or both sets have size2 and inclusion forces equality.",
+    "Small+small union generation uses the841-pair subordinate cut certificate and downward closure; large+small generation uses union containment and set-difference inclusion.",
+    "Known-mask and small-mask closed cases are exact Boolean disjunctions.",
+    "Every one of ten node conditions is extracted explicitly from the13-condition generator conjunction; packed table evaluation is not required for this symbolic projection.",
+    "Seed and growth closure handle allowed small masks directly; family members use their exact node condition and refute the corresponding forbidden-generator flag.",
+    "Cached source depends on the previously checked PNPQ2FBenchmark foundations; full family finite certificate and actual-circuit transfer are not asserted by these helpers."
+  ],
+  "scope": "Semantic membership, downward closure, seed/growth and generator projection helpers only. Cached kernel check, not a fresh flattened standalone build."
+}

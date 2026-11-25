@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/structural-empty-operand-small.lean",
+  "sha256": "cde32b0f20ff652d13ecc30151698a46842e0f2395fbeeda35222538eb4d1ec2",
+  "exit_code": 1,
+  "started_utc": "2026-11-25T13:29:13.278889+00:00",
+  "completed_utc": "2026-11-25T13:29:28.237820+00:00"
+}

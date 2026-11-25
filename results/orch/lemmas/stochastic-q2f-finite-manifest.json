@@ -1,0 +1,45 @@
+{
+  "scope": "Completed original finite certificate with complete profiling, honest missing original terminal numeric code, and explicit exit-0 emitted-module verification. No full-gap/checker claim.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.lean",
+      "sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+      "bytes": 119729
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.stdout",
+      "sha256": "bd404d96510e328f78e7e9d68300f2c5aee532779995dcfc32df582871bd594b",
+      "bytes": 4269
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite.stderr",
+      "sha256": "f116aa2c2dd373b407d430e75e542a17945436616dd4a77f1f82a9fa1a5e8dd4",
+      "bytes": 722
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-build.json",
+      "sha256": "34653300b606a36cccb19e913d583fc22a823a68f997b6cd57e3b8b7e7817fa6",
+      "bytes": 3553
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.lean",
+      "sha256": "6cfe55577aa509008a3466eeee9e286445b64658615be22654d8b1cac52824d5",
+      "bytes": 80
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.stdout",
+      "sha256": "5b70099f3772dd145d226a7aaaac31a9c6c8ea0dbe09880aa1ab7607f816d4e7",
+      "bytes": 151
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-finite-import.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-over30-status.json",
+      "sha256": "cff7991b426e6e22185a81b2d3d1796b60734df164f54fa4d9cce2df7e028792",
+      "bytes": 682
+    }
+  ]
+}

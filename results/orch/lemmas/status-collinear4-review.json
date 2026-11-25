@@ -1,0 +1,67 @@
+{
+  "verdict": "PASS independent source, complete CNF assignment, truth-table and raw-derivative audit",
+  "encoder_sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e",
+  "primitive_sha256": "85289e48fb62171d4df6db180a5f0895e5f1232a7c3fd2fa3d49caec57003bf8",
+  "positive_rows": 12,
+  "maximal_negative_rows": 15,
+  "all_12_edge_flags_have_quiet_positive_controls": true,
+  "reports": [
+    {
+      "tag": "sat-collinear4-ordinary15-control",
+      "variables": 2074,
+      "clauses": 37767,
+      "complete_assignments": 12,
+      "local_truth_rows": 2048,
+      "full_truth_rows": 16384,
+      "splice_size": 27,
+      "all_checks_passed": true
+    },
+    {
+      "tag": "sat-collinear4-quiet16-0-control",
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_truth_rows": 16384,
+      "splice_size": 28,
+      "all_checks_passed": true
+    },
+    {
+      "tag": "sat-collinear4-quiet16-1-control",
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_truth_rows": 16384,
+      "splice_size": 28,
+      "all_checks_passed": true
+    },
+    {
+      "tag": "sat-collinear4-quiet16-2-control",
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_truth_rows": 16384,
+      "splice_size": 28,
+      "all_checks_passed": true
+    },
+    {
+      "tag": "sat-collinear4-quiet16-3-control",
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_truth_rows": 16384,
+      "splice_size": 28,
+      "all_checks_passed": true
+    },
+    {
+      "tag": "sat-collinear4-15-target",
+      "variables": 2074,
+      "clauses": 37769,
+      "exact_source_regeneration": true
+    }
+  ],
+  "scope": "Control and encoding review only. No local15 SAT witness or UNSAT certificate. Positive-support/live/essential/order constraints retain the mathematical normalization obligations described in the review."
+}

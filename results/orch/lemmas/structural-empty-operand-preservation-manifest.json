@@ -1,0 +1,133 @@
+{
+  "created_utc": "2026-11-25T13:35:47.140500+00:00",
+  "scope": "First empty-opposite package: successful Defs-only standalone2821lines and independent exact composition review. Stronger support-card\u22642 package: cached exit0 and independent review only; standalone queued. Historical failed elaboration attempts retained separately. No no-quiet/full-target claim.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-tail.lean",
+      "bytes": 5272,
+      "sha256": "f4683ce6d8c26b4657109828dab4941ec2aff04aa6b19e57a3d9cfcb96fe9491"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand.lean",
+      "bytes": 5296,
+      "sha256": "b7a90f3dca26c5b4cc96810214d94ab32869129738205021b1d86be750926eed"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.json",
+      "bytes": 274,
+      "sha256": "84bd6848cc144b8c8d0f7b978543f3d327dac11a87cda8b64659bd2ef4dec9d3"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone.lean",
+      "bytes": 129992,
+      "sha256": "0804deac4174ecbd7c975a61f5c9efbee6bbf4316dae4372c16eea7fc6253b45"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.json",
+      "bytes": 326,
+      "sha256": "ab3d7864f90ac4c88f08f40fe0e36b593c1d6f0f2e37bd8e6302270ac501cb41"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-operand.json",
+      "bytes": 1947,
+      "sha256": "f3ea7d7bc07289f5271e4797b30893fae6d28b99eb169d0f51db865921589cfe"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-tail.lean",
+      "bytes": 3260,
+      "sha256": "68b60083868f86b6a03f6cb3e924046092a064b058dc741cda964f8200c22b72"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small.lean",
+      "bytes": 8557,
+      "sha256": "7d0dd5bc4c2f604fd06fa6cb7c038f743d5a1fcdc1300eb95032e7d77917727e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.json",
+      "bytes": 280,
+      "sha256": "d70237dcf9af6fdc1d1a9e0fa15f76e71a5dd3440d2f445f0183db63a1e10175"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-operand-small.json",
+      "bytes": 1243,
+      "sha256": "90b330efdb94d48790d151ec70f3aab2e6a74a0462ae8f5c4521e57d94b4c678"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand.md",
+      "bytes": 2081,
+      "sha256": "3defb518ffd70c9dd139a2ba01d5b226b612883f12de808b69997cfbae013e2b"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.lean",
+      "bytes": 5340,
+      "sha256": "0d6a13360b6fa411d7ba4cf53e31251ff6e107d19b0c1d9558b2368b84c17fbb"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.json",
+      "bytes": 274,
+      "sha256": "a916318451f826092e535489c6614d1e3243243566bd0152bb21e4ade3156669"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.stdout",
+      "bytes": 284,
+      "sha256": "d170fd25b94d2e2b2dbb4ce49a044ad0d4c59056aca68aa6fc33efbafa87449f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-attempt1.build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.lean",
+      "bytes": 8493,
+      "sha256": "cde32b0f20ff652d13ecc30151698a46842e0f2395fbeeda35222538eb4d1ec2"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.json",
+      "bytes": 280,
+      "sha256": "663747980fbddc08277ae6702a56cd404d253f2d20815586b56aefad2a5cdb06"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.stdout",
+      "bytes": 1834,
+      "sha256": "131771a3cd0f67f2bad8d1bd20b26ba1a1f3823d442250476c8bb2d9ed48c43e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 25,
+  "bytes": 175033
+}

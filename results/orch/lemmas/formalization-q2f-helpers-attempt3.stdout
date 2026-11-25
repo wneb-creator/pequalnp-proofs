@@ -1,0 +1,129 @@
+PEqualNP.Outside.L_meta_6659_aux.q2f_or_true_iff {a b : Bool} : (a || b) = true ↔ a = true ∨ b = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_and_true_iff {a b : Bool} : (a && b) = true ↔ a = true ∧ b = true
+tactic execution of Lean.Parser.Tactic.contradiction took 102ms
+tactic execution of Lean.Parser.Tactic.contradiction took 107ms
+tactic execution of Lean.Parser.Tactic.contradiction took 106ms
+tactic execution of Lean.Parser.Tactic.contradiction took 119ms
+tactic execution of Lean.Parser.Tactic.contradiction took 111ms
+tactic execution of Lean.Parser.Tactic.contradiction took 109ms
+tactic execution of Lean.Parser.Tactic.contradiction took 106ms
+tactic execution of Lean.Parser.Tactic.contradiction took 125ms
+tactic execution of Lean.Parser.Tactic.contradiction took 187ms
+tactic execution of Lean.Parser.Tactic.assumption took 129ms
+tactic execution of Lean.Parser.Tactic.contradiction took 141ms
+tactic execution of Lean.Parser.Tactic.contradiction took 177ms
+tactic execution of Lean.Parser.Tactic.contradiction took 147ms
+tactic execution of Lean.Parser.Tactic.contradiction took 119ms
+tactic execution of Lean.Parser.Tactic.contradiction took 160ms
+tactic execution of Lean.Parser.Tactic.contradiction took 174ms
+tactic execution of Lean.Parser.Tactic.contradiction took 121ms
+tactic execution of Lean.Parser.Tactic.contradiction took 234ms
+tactic execution of Lean.Parser.Tactic.contradiction took 235ms
+tactic execution of Lean.Parser.Tactic.contradiction took 219ms
+tactic execution of Lean.Parser.Tactic.contradiction took 152ms
+tactic execution of Lean.Parser.Tactic.contradiction took 193ms
+tactic execution of Lean.Parser.Tactic.contradiction took 138ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 2.81s
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:17:44: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:17:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+PEqualNP.Outside.L_meta_6659_aux.q2f_mem_iff (s : Fin 15) (a b c : Fin 10) (m : Fin 128) :
+  q2f_mem s a b c m = true ↔ m ∈ q2f_codes s a b c
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:24:13: error: Application type mismatch: The argument
+  h
+has type
+  (((((((m = q2f_raw s a b c 0 ∨ m = q2f_raw s a b c 1) ∨ m = q2f_raw s a b c 2) ∨ m = q2f_raw s a b c 3) ∨
+            m = q2f_raw s a b c 4) ∨
+          m = q2f_raw s a b c 5) ∨
+        m = q2f_raw s a b c 6) ∨
+      m = q2f_raw s a b c 7) ∨
+    m = q2f_raw s a b c 8
+but is expected to have type
+  m = q2f_raw s a b c 0
+in the application
+  Exists.intro 0 h
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:25:13: error(lean.unknownIdentifier): Unknown identifier `h`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:26:2: error: No goals to be solved
+PEqualNP.Outside.L_meta_6659_aux.q2f_mem_exists (s : Fin 15) (a b c : Fin 10) (m : Fin 128)
+  (h : q2f_mem s a b c m = true) : ∃ i, m = q2f_raw s a b c i
+type checking took 1.56s
+PEqualNP.Outside.L_meta_6659_aux.q2f_outside_correct (m : Fin 128) :
+  q2f_outside m = true ↔ (cap7_decode m).card = 2 ∧ ∀ (i : Fin 3), ¬cap7_decode m ⊆ cap7_decode (q2f_tripleCode i)
+PEqualNP.Outside.L_meta_6659_aux.q2f_small_card (s : Fin 15) (a b c : Fin 10) (m : Fin 128)
+  (h : q2f_small s a b c m = true) : cap7_card m ≤ 2
+PEqualNP.Outside.L_meta_6659_aux.q2f_small_of_one (s : Fin 15) (a b c : Fin 10) (m : Fin 128) (h : cap7_card m ≤ 1) :
+  q2f_small s a b c m = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_small_of_allowed (s : Fin 15) (a b c : Fin 10) (m : Fin 128)
+  (h : q2f_allowed s a b c m = true) (low : cap7_card m ≤ 2) : q2f_small s a b c m = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_small_downward (s : Fin 15) (a b c : Fin 10) (x y : Fin 128)
+  (hy : q2f_small s a b c y = true) (sub : cap7_decode x ⊆ cap7_decode y) : q2f_small s a b c x = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:111:18: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:111:18: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:111:18: error: `simp` made no progress
+PEqualNP.Outside.L_meta_6659_aux.q2f_small_union_seed (s : Fin 15) (a b c : Fin 10) (x y : Fin 128)
+  (hx : q2f_small s a b c x = true) (hy : q2f_small s a b c y = true) (large : 3 ≤ cap7_card (q2f_union x y)) :
+  q2f_seed s a b c (q2f_union x y) = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_grow_union (s : Fin 15) (a b c : Fin 10) (x y : Fin 128)
+  (hy : q2f_small s a b c y = true) : q2f_grow s a b c x (q2f_union x y) = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_closed_of_small (s : Fin 15) (a b c : Fin 10) (m : Fin 128)
+  (h : q2f_small s a b c m = true) : q2f_closed s a b c m = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_closed_known (s : Fin 15) (a b c : Fin 10) (j : Fin 3) :
+  q2f_closed s a b c (q2f_known s a b c j) = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:144:17: error: Application type mismatch: The argument
+  small
+has type
+  (q2f_small s a b c m = true ∨ m = q2f_known s a b c 0) ∨ m = q2f_known s a b c 1
+but is expected to have type
+  q2f_small s a b c m = true
+in the application
+  Or.inl small
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:145:20: error(lean.unknownIdentifier): Unknown identifier `h`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:146:2: error: No goals to be solved
+PEqualNP.Outside.L_meta_6659_aux.q2f_closed_cases (s : Fin 15) (a b c : Fin 10) (m : Fin 128)
+  (h : q2f_closed s a b c m = true) : q2f_small s a b c m = true ∨ ∃ j, m = q2f_known s a b c j
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:150:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+tactic execution of Lean.Parser.Tactic.assumption took 22.5s
+tactic execution of Lean.Parser.Tactic.assumption took 6.73s
+PEqualNP.Outside.L_meta_6659_aux.q2f_generators_node (s : Fin 15) (a b c : Fin 10) (h : q2f_generators s a b c = true)
+  (i : Fin 10) : q2f_node s a b c i = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:156:6: error: (kernel) unknown constant 'PEqualNP.Outside.L_meta_6659_aux.q2f_generators_node'
+PEqualNP.Outside.L_meta_6659_aux.q2f_closed_seed (s : Fin 15) (a b c : Fin 10) (h : q2f_generators s a b c = true)
+  (m : Fin 128) (allowed : q2f_allowed s a b c m = true) (seed : q2f_seed s a b c m = true) :
+  q2f_closed s a b c m = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:177:6: error: Type mismatch: After simplification, term
+  node
+ has type
+  (q2f_closed s a b c m ||
+      !q2f_seed s a b c m && !q2f_grow s a b c (q2f_known s a b c 0) m && !q2f_grow s a b c (q2f_known s a b c 1) m &&
+        !q2f_grow s a b c (q2f_known s a b c 2) m) =
+    true
+but is expected to have type
+  q2f_closed s a b c m = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:177:6: error: Type mismatch: After simplification, term
+  node
+ has type
+  (q2f_closed s a b c m ||
+      !q2f_seed s a b c m && !q2f_grow s a b c (q2f_known s a b c 0) m && !q2f_grow s a b c (q2f_known s a b c 1) m &&
+        !q2f_grow s a b c (q2f_known s a b c 2) m) =
+    true
+but is expected to have type
+  q2f_closed s a b c m = true
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:177:6: error: Type mismatch: After simplification, term
+  node
+ has type
+  (q2f_closed s a b c m ||
+      !q2f_seed s a b c m && !q2f_grow s a b c (q2f_known s a b c 0) m && !q2f_grow s a b c (q2f_known s a b c 1) m &&
+        !q2f_grow s a b c (q2f_known s a b c 2) m) =
+    true
+but is expected to have type
+  q2f_closed s a b c m = true
+PEqualNP.Outside.L_meta_6659_aux.q2f_closed_grow (s : Fin 15) (a b c : Fin 10) (h : q2f_generators s a b c = true)
+  (m : Fin 128) (allowed : q2f_allowed s a b c m = true) (j : Fin 3)
+  (grow : q2f_grow s a b c (q2f_known s a b c j) m = true) : q2f_closed s a b c m = true

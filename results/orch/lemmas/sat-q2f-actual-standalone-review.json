@@ -1,0 +1,58 @@
+{
+  "status": "PASS: independent exact standalone composition/source review; permitted-import standalone compilation confirmed",
+  "utc": "2026-11-25T13:36:57.950871+00:00",
+  "source": "results/orch/lemmas/formalization-q2f-actual-standalone.lean",
+  "source_sha256": "d7229dcbfec618dbb4c7f41e9abdfc854f20521d40ababff73c73cf5ee4664c3",
+  "line_count": 5915,
+  "composition": [
+    {
+      "part": "accepted first4449 lines",
+      "source_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20"
+    },
+    {
+      "part": "accepted lines6400 through6401",
+      "contents": "hw_mem_nb membership equivalence alias"
+    },
+    {
+      "part": "accepted lines6598 through6602",
+      "contents": "os_pt definition, injectivity and neighborhood-side helper"
+    },
+    {
+      "part": "closure standalone with only import removed",
+      "source_sha256": "e607fc0ebd0336bc3bddf9c477eee23f9d27d61c121af4e8af9458a66df07c9d"
+    },
+    {
+      "part": "actual cached package with only imports removed",
+      "source_sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1"
+    }
+  ],
+  "only_extra_text": [
+    "",
+    "\n\nend K4Generic\n\n",
+    "\n\n",
+    "\n\nend PEqualNP.Outside.L_meta_6659_aux\n\n",
+    "\n",
+    "\n\n"
+  ],
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "prior_math_review": "sat-q2f-actual-final-review.json",
+  "qualification": "Permitted-import standalone has compiled successfully. The full finite family certificate remains an explicit hypothesis, and no full q2/Fano or gap exclusion is claimed.",
+  "historical_attempt": "The initial70faece8 assembly failed only because hw_mem_nb was absent from the shortened accepted prefix. The exact accepted alias is now added; no proof body changed. Historical attempt1 diagnostics are retained by the owner.",
+  "build_receipt": "results/orch/lemmas/formalization-q2f-actual-standalone-build.json",
+  "build_receipt_sha256": "c9b1c2fc3ee0967ddb6ec7f4618cb7cd5f7b35479834750bcbcfa26be34cc550",
+  "exit_code": 0,
+  "full_logs": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

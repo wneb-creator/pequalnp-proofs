@@ -1,0 +1,28 @@
+{
+  "exit_code": 0,
+  "completed_observed_utc": "2026-11-25T13:39:57.122241+00:00",
+  "scope": "Independent import and axiom census of emitted PNPQ2FFinite module, not a rerun of the complete kernel certificate.",
+  "module_sha256": "76fb32305854d484fbfed5b4cae9a6d2d90cad5e3fc9c2f0484a84553976f7d1",
+  "source": {
+    "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.lean",
+    "bytes": 87,
+    "sha256": "8f6b3945d3a1e7a2f261f35a5189f0de81d68a36d8b8cd7f41a9d5ed5a74d856"
+  },
+  "stdout": {
+    "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.stdout",
+    "bytes": 114,
+    "sha256": "ae3c1795e59c825996cdf75233391516b81250e471a5784dfdc18b8127c23367"
+  },
+  "stderr": {
+    "path": "results/orch/lemmas/stochastic-q2f-finite-axioms.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "theorem": "PEqualNP.Outside.L_meta_6659_aux.q2f_certificate_all",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "no_sorryAx": true
+}

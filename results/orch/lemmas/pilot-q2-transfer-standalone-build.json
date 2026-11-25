@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-standalone.lean",
+  "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495",
+  "started_utc": "2026-11-25T13:20:28.339460+00:00",
+  "finished_utc": "2026-11-25T13:28:46.112279+00:00",
+  "exit_code": 0,
+  "scope": "Defs-only actual q2 residual exclusion under explicit occurring-triples/allowed-mask-family hypotheses; not the full posted theorem"
+}

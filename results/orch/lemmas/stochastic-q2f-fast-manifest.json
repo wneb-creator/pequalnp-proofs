@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-11-25T13:38:43.572512+00:00",
+  "scope": "Completed cached validator equivalence and ten-case benchmark only. Performance inconclusive; not a full finite certificate. Includes all three source attempts and their complete diagnostics. Active original finite source/output excluded.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.lean",
+      "sha256": "6b251a0cd12b448ba12ac3699691f2d478d5484374ed8aad98fd34f6b1069bd6",
+      "bytes": 9152
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.stderr",
+      "sha256": "2d0d453a9dd0c530a1a2ae5695c12f508b0a2ddbb75a804011ee59a245e1c2b6",
+      "bytes": 662
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt1.stdout",
+      "sha256": "202b0cc0476ab930da12cccd52569fcfe26efa18a422f0abe13fb504d071376d",
+      "bytes": 23189
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.lean",
+      "sha256": "8d33c95d6e35e4deb5f10347358445b393a08f7113fda6d1a44cd120021c5913",
+      "bytes": 9175
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.stderr",
+      "sha256": "75f5f36a81fcaf4217c08fb7d9ee7c50616b4792d395c8f2f0c95d7bd4ff9f13",
+      "bytes": 668
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-attempt2.stdout",
+      "sha256": "245b6820803becf0ba5bbdbb087ead0d545f2b1712bda229b06c28c4f97f3a97",
+      "bytes": 23351
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark-build.json",
+      "sha256": "40212fbd1cc945c1dd51a84a5e7852e8002db427906c6e5160073c22c86031e5",
+      "bytes": 1205
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.lean",
+      "sha256": "dd3ba5b522627d798016bda4bf0823d9a63ce773879b53b2179822ad4f719121",
+      "bytes": 9147
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.stderr",
+      "sha256": "4ae7d7aaecb678c9d9fcef6f4e79b484283bd77403fdb993c5422328c97d1424",
+      "bytes": 665
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-benchmark.stdout",
+      "sha256": "fd9830e908ebe7fbc5007a33fa7a99c3b985c359a13a336d8cff58aec3e3a6f2",
+      "bytes": 22436
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-fast-tail.lean",
+      "sha256": "61f79c7b8eb6eb22504546e6160ceacca21a760c34a3173f473f1b16f83c4c6e",
+      "bytes": 8847
+    }
+  ]
+}

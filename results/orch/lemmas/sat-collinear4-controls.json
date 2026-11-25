@@ -1,0 +1,62 @@
+{
+  "verdict": "PASS",
+  "encoder_sha256": "b7845b9ddccb223facc2454c9c047170f38fa8965fe6103554b53f773560934e",
+  "controls": [
+    {
+      "tag": "sat-collinear4-ordinary15-control",
+      "size": 15,
+      "variables": 2074,
+      "clauses": 37767,
+      "complete_assignments": 12,
+      "local_truth_rows": 2048,
+      "full_splice_size": 27,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 12
+    },
+    {
+      "tag": "sat-collinear4-quiet16-0-control",
+      "size": 16,
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 6
+    },
+    {
+      "tag": "sat-collinear4-quiet16-1-control",
+      "size": 16,
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 6
+    },
+    {
+      "tag": "sat-collinear4-quiet16-2-control",
+      "size": 16,
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 6
+    },
+    {
+      "tag": "sat-collinear4-quiet16-3-control",
+      "size": 16,
+      "variables": 2226,
+      "clauses": 41931,
+      "complete_assignments": 6,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 6
+    }
+  ],
+  "scope": "Author control validation only. Ordinary15 uses doublequiet disabled; quiet16 uses exactly the target restrictions at one extra gate. All12 selectable flags are covered. No local15 quiet witness or solver result."
+}

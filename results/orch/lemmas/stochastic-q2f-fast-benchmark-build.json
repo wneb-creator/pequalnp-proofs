@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "source": "results/orch/lemmas/stochastic-q2f-fast-benchmark.lean",
+  "sha256": "dd3ba5b522627d798016bda4bf0823d9a63ce773879b53b2179822ad4f719121",
+  "tail": "stochastic-q2f-fast-tail.lean",
+  "tail_sha256": "61f79c7b8eb6eb22504546e6160ceacca21a760c34a3173f473f1b16f83c4c6e",
+  "completed_utc": "2026-11-25T13:33:55.463096+00:00",
+  "lines": 143,
+  "bytes": 9147,
+  "cached_dependency": "PNPQ2FBenchmark, compiled ten-case core and foundations dc0e2f4f",
+  "stdout": "stochastic-q2f-fast-benchmark.stdout",
+  "stderr": "stochastic-q2f-fast-benchmark.stderr",
+  "stdout_bytes": 22436,
+  "stderr_bytes": 665,
+  "diagnostics": "Unused simp-argument warnings plus profiling; no errors. Two prior failed attempts preserved separately.",
+  "timing": "Successful final run reports mask-card correctness typecheck2.36s and ten-case benchmark3.32s. Earlier failed-file timings0.658s/0.994s do not establish speedup; paired comparison needed.",
+  "scope": "Cached proof of duplicate-count list cardinality, seven-bit mask cardinality and exact pointwise Boolean equivalence of fast/original validators, plus ten fast-certificate cases. No all-case certificate or speed improvement claimed."
+}

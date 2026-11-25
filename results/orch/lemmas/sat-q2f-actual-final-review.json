@@ -1,0 +1,51 @@
+{
+  "status": "PASS: independent final mathematical/source/composition review; cached compilation confirmed",
+  "utc": "2026-11-25T13:24:55.072528+00:00",
+  "source": "results/orch/lemmas/formalization-q2f-actual-cache.lean",
+  "source_sha256": "4bfb6a737a962f3b3ed8e2e3faff8f306696328ae8775545a78a9df071adecd1",
+  "line_count": 662,
+  "receipt": "results/orch/lemmas/formalization-q2f-actual-cache-build.json",
+  "exit_code": 0,
+  "full_logs_empty": true,
+  "components": [
+    {
+      "path": "results/orch/lemmas/formalization-q2f-actual-closure-tail.lean",
+      "sha256": "1660552b949a59c5a43b814f32c8dc2584512f1f5acdeffb58eb94d81f29fb34",
+      "lines": 74,
+      "exact_occurrences_in_cache": 1
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-circuit-tail.lean",
+      "sha256": "093f3f74c7e02de5eca3835fe85dd83035708919e34f31f0bfeaf271d4bbf23d",
+      "lines": 179,
+      "exact_occurrences_in_cache": 1
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-lower-tail.lean",
+      "sha256": "20aeb7ae74e0b78c26ad326dc4d41b0e6555ee15cc846b94ca66d9ebae983505",
+      "lines": 74,
+      "exact_occurrences_in_cache": 1
+    }
+  ],
+  "imports": [
+    "PNPAccepted6659",
+    "PNPQ2FClosureComplete"
+  ],
+  "previous_reviews": [
+    "sat-q2f-circuit-review.json (draft mathematical review, superseded source binding)",
+    "sat-q2f-lower-review.json",
+    "sat-q2f-parents-family-review.json"
+  ],
+  "final_changes": [
+    "Empty pullback simplification now uses the applicable filter-false lemma; no theorem scope changes.",
+    "Extracted q2f_image_good is the earlier local image/cardinality/neighbor argument, now generic over a Finset of codes; occurrence and pair-containment hypotheses remain explicit.",
+    "Membership names and explicit card/geometry rewrites resolve elaboration without adding assumptions.",
+    "All three final tails, the previously reviewed generic support closure and q2 saturation tail occur verbatim once in the successful cached assembly."
+  ],
+  "scope": [
+    "For exact ineligible points0123 and missing neighborhoods2456, an actual occurring family is chosen from the finite parent-code catalogue.",
+    "Under Bplus\u226413 and the explicit full family certificate premise, every large pulled line mask is one of11,69,49 or an occurring strict superset S of98.",
+    "The same occurring family plus the explicit certificate gives Bplus\u226513 without an upper-bound assumption."
+  ],
+  "qualification": "Cached imports are explicitly not a standalone permitted-import build. The15000-case certificate and full q2/Fano exclusion are separate. No unconditional final-gap result is claimed."
+}

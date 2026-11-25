@@ -1,0 +1,11 @@
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 727ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:15:44: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:15:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+type checking took 857ms
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:178:8: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:179:8: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:180:8: error: `simp` made no progress

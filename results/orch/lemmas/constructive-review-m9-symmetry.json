@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:20:59.296930+00:00",
+  "tail_sha256": "5be4bc4e625db2e3b742ea554a2da6bf3a01172275f02a5159f8b5915809dfc1",
+  "cached_source_sha256": "a3ccf663b74b4ed1a9c04e6886a9aad4bde52eb8886547bcbde38d6ecf61d3bc",
+  "receipt": "algebraic-m9-symmetry-cache-build.json",
+  "build_status": "Cached Lean passed exit0 with empty logs; exact tail inclusion and all six maps independently verified.",
+  "scope": "Relabels an explicit canonical missing-{2,5} contradiction into any two-missing subset of cap{0,1,2,5}. Canonical contradiction remains a premise; no full Fano case or target claimed.",
+  "checks": [
+    "All six permutations are involutions preserving the accepted Fano edge set, cap, exact ineligible set and six-line support domain; each maps its listed pair to{2,5}.",
+    "Occurrence relabeling uses bijective support images and liftP inverse, preserving the same intersected mask semantics in both directions.",
+    "Missing-cap relabeling preserves both cap membership and the absence of the relabeled neighborhood mask.",
+    "The six powersetCard2 cases cover every size2 subset of the cap; StrictLive, correctness and total surplus transport through the established automorphism theorem."
+  ]
+}

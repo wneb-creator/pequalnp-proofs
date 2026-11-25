@@ -1,0 +1,172 @@
+type checking took 153ms
+type checking took 310ms
+type checking took 995ms
+elaboration took 647ms
+typeclass inference of OfNat took 155ms
+elaboration took 767ms
+elaboration took 635ms
+elaboration took 785ms
+elaboration took 691ms
+elaboration took 620ms
+elaboration took 798ms
+elaboration took 683ms
+elaboration took 733ms
+elaboration took 671ms
+elaboration took 695ms
+elaboration took 725ms
+elaboration took 602ms
+elaboration took 850ms
+elaboration took 626ms
+elaboration took 767ms
+type checking took 6.54s
+type checking took 7.41s
+type checking took 8.53s
+type checking took 13.3s
+type checking took 20.2s
+type checking took 13.1s
+type checking took 33.6s
+type checking took 2.65s
+type checking took 2.85s
+type checking took 3.68s
+type checking took 12.4s
+type checking took 13.3s
+type checking took 9.99s
+type checking took 10.3s
+type checking took 8.06s
+type checking took 12s
+type checking took 10.4s
+type checking took 1.02s
+type checking took 1.24s
+type checking took 2.21s
+type checking took 13.9s
+type checking took 14.8s
+type checking took 11.6s
+type checking took 23.2s
+type checking took 20.1s
+type checking took 18.4s
+type checking took 19.2s
+type checking took 1.79s
+type checking took 1.59s
+type checking took 2.29s
+type checking took 8.13s
+type checking took 8.04s
+type checking took 11.9s
+type checking took 16.7s
+type checking took 9.94s
+type checking took 13.3s
+type checking took 17.1s
+type checking took 2.81s
+type checking took 2.59s
+type checking took 4.36s
+type checking took 12.6s
+type checking took 8.16s
+type checking took 8.03s
+type checking took 20.5s
+type checking took 27.1s
+type checking took 20.3s
+type checking took 20.8s
+type checking took 26s
+type checking took 2.28s
+type checking took 3.61s
+type checking took 8.95s
+type checking took 13.2s
+type checking took 16.6s
+type checking took 23.7s
+type checking took 33.6s
+type checking took 28.2s
+type checking took 13.3s
+type checking took 2.17s
+type checking took 1.44s
+type checking took 3.02s
+type checking took 24.7s
+type checking took 30.9s
+type checking took 19.6s
+type checking took 13.3s
+type checking took 15.2s
+type checking took 13.4s
+type checking took 16.2s
+type checking took 1.08s
+type checking took 2.24s
+type checking took 2.06s
+type checking took 8.75s
+type checking took 7.23s
+type checking took 6.14s
+type checking took 9.19s
+type checking took 9.31s
+type checking took 11.8s
+type checking took 16.4s
+type checking took 1.73s
+type checking took 2.28s
+type checking took 2.45s
+type checking took 11.5s
+type checking took 13.1s
+type checking took 9.41s
+type checking took 13.7s
+type checking took 26.2s
+type checking took 27s
+type checking took 17.4s
+type checking took 2.11s
+type checking took 1.77s
+type checking took 1.68s
+type checking took 15.4s
+type checking took 10.5s
+type checking took 8.11s
+type checking took 12.3s
+type checking took 12.2s
+type checking took 14s
+type checking took 17.2s
+type checking took 1.43s
+type checking took 2.04s
+type checking took 2.68s
+type checking took 14.6s
+type checking took 19.5s
+type checking took 14.5s
+type checking took 15s
+type checking took 26.1s
+type checking took 31.8s
+type checking took 18.8s
+type checking took 2.71s
+type checking took 2.97s
+type checking took 3.88s
+type checking took 15.3s
+type checking took 11.4s
+type checking took 11.1s
+type checking took 24.4s
+type checking took 28.4s
+type checking took 44.1s
+type checking took 39.4s
+type checking took 5s
+type checking took 2.77s
+type checking took 4.04s
+type checking took 21s
+type checking took 20.1s
+type checking took 18.7s
+type checking took 31s
+type checking took 18.7s
+type checking took 22s
+type checking took 23.3s
+type checking took 1.9s
+type checking took 1.03s
+type checking took 1.89s
+type checking took 18.7s
+type checking took 19.5s
+type checking took 25.9s
+type checking took 30.7s
+type checking took 25.8s
+type checking took 25.3s
+type checking took 20.5s
+type checking took 1.94s
+type checking took 1.58s
+type checking took 3.19s
+type checking took 20.9s
+type checking took 15.5s
+type checking took 15.3s
+type checking took 23.6s
+type checking took 34.7s
+type checking took 40.5s
+type checking took 20.5s
+type checking took 1.8s
+type checking took 1.68s
+type checking took 5.71s
+instantiate metavars took 164ms
+type checking took 315ms

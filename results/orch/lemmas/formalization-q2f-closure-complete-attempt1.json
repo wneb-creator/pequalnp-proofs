@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-closure-complete-attempt1.lean",
+  "source_sha256": "7f460d1ceaf355d11d8f1f9705c728d237475d4e77a20e55926db63804e5d167",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:18:07.815600+00:00",
+  "scope": "Cached complete closure/shape/optimized-parent check; sole error was raw-code3 definitional unfolding in choose_family. All other declarations elaborated, but no complete build claimed."
+}

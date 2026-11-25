@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-closure-standalone.lean",
+  "source_sha256": "964fee9e1ac0ee8d4c186fffdbce1b36f750b26f7b9414605fcf16b785808f38",
+  "started_utc": "2026-11-25T13:23:58.849664+00:00",
+  "finished_utc": "2026-11-25T13:26:13.985391+00:00",
+  "exit_code": 1,
+  "scope": "Defs-only standalone complete code/Finset closure foundations and parent/family classification. Full15000case family certificate and actual circuit transfer remain separate."
+}

@@ -1,0 +1,59 @@
+{
+  "status": "PASS: independent mathematical/source and finite-table review; cached compilation confirmed",
+  "utc": "2026-11-25T13:21:02.162008+00:00",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-parents-fast-tail.lean",
+      "sha256": "eb3d303e41bc3d4fedf53c58c571d5daac22665fb80a711dfbe4786b27850c6b",
+      "lines": 120
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-family-tail.lean",
+      "sha256": "be1704bd772ff56b517f361d48faffb838e0ccb6acb1401d31ca08be187b3ef9",
+      "lines": 49
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+      "sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+      "lines": 367
+    }
+  ],
+  "receipt": "formalization-q2f-closure-cache-build.json",
+  "receipt_exit": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "parent_classes": [
+    {
+      "triple": 11,
+      "contained_pairs": 3,
+      "containing_fours": 4,
+      "unordered_five_pairs": 3,
+      "total": 10
+    },
+    {
+      "triple": 69,
+      "contained_pairs": 3,
+      "containing_fours": 4,
+      "unordered_five_pairs": 3,
+      "total": 10
+    },
+    {
+      "triple": 49,
+      "contained_pairs": 3,
+      "containing_fours": 4,
+      "unordered_five_pairs": 3,
+      "total": 10
+    }
+  ],
+  "five_codes": 21,
+  "strict_supersets_of_98": 15,
+  "checks": [
+    "All actual parent-code vectors exactly match independent set enumeration:3 pairs,4 supersets,3 unordered five-set intersections per required triple.",
+    "Optimized Boolean subset/intersection/cardinality premises lift through the checked decode identities in the correct directions.",
+    "q2f_Parent retains all three alternatives and no actual-circuit premise is weakened. Five-set orientation swaps both Q hypotheses correctly.",
+    "choose-family takes arbitrary Q, three occurring triples and their parent hypotheses, plus an occurring strict superset of98; it returns occurrence and required pair-size conditions for all ten raw family entries.",
+    "All ten Finset membership branches are accounted for; the explicit raw3 change before rewrite only exposes the super-code definition.",
+    "Both exact reviewed tails occur in the exit0 cached composition."
+  ],
+  "qualification": "This is cached compilation through PNPQ2FHelpers, not a standalone permitted-import proof. The full15000 finite certificate and actual circuit transfer remain separate; no full q2 exclusion is asserted."
+}

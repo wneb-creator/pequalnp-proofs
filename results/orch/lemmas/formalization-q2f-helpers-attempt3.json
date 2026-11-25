@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-helpers-attempt3.lean",
+  "source_sha256": "b63485fb9bf90ce9d6e2da657bb27ac5190742d64f543faba7b8203def123ab5",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:15:38.075622+00:00",
+  "scope": "Failed bounded cached diagnostic check: left-associated Bool destructuring and generic assumption search timeout in generator projection. Explicit projections replace search; full diagnostics preserved."
+}

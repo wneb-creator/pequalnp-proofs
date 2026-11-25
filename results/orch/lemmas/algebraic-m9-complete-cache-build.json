@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/algebraic-m9-complete-cache.lean",
+  "sha256": "cec1857bbbd61f497c78181a3378b01c007f6f4c06118beddaf4f2241585df33",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T13:22:46.390336+00:00",
+  "scope": "Unconditional ordinary impossibility for exact mixed p9 I0125+11 and any TWO missing cap neighborhoods; one-missing case remains open. Cached imports PNPNineFree and PNPMixed9Finite; separate standalone queued.",
+  "olean_sha256": "d585428adf49696c39564ee8aaf7a98c4aa0181628b811947086d5ac88b62fb8"
+}

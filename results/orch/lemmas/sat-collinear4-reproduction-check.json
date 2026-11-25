@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "utc": "2026-11-25T13:34:30.061924+00:00",
+  "verifier": "status-collinear4-review.py",
+  "scope": "Fresh-directory independent exact encoder/control/splice audit; no solver launched.",
+  "stdout": "sat-collinear4-reproduction-check.stdout",
+  "stderr": "sat-collinear4-reproduction-check.stderr"
+}

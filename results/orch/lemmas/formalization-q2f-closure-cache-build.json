@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-closure-cache.lean",
+  "source_sha256": "b62cb04bd4e4ec748d78fe5a61b5f001f810d4ea68453c4d0e3acdb836127071",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T13:19:03.956533+00:00",
+  "scope": "Cached complete generator-to-union/intersection closure, Finset closure, certificate-to-shape implication and exact parent/occurring-family classification. Finite family certificate and actual circuit transfer remain explicit/separate."
+}

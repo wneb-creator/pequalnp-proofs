@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-helpers-attempt2.lean",
+  "source_sha256": "fab7adeecc9cdd2a79bce213e34317cf920a88efd5e4f99d2b1dcc24897ad9e5",
+  "exit_code": 143,
+  "finished_utc": "2026-11-25T13:13:25.497304+00:00",
+  "scope": "Interrupted cached development check after root identified invalid Bool rewrite-lemma .mp/.mpr projections. No success claim; complete source and logs retained."
+}

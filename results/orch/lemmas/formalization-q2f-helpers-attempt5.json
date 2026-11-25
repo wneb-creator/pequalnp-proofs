@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/formalization-q2f-helpers-attempt5.lean",
+  "source_sha256": "ac8c27bf3be63f1cc78adac1f0d78f914db3a94277f1e3c207771b34a805913c",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:16:54.445391+00:00",
+  "scope": "Diagnostic check of residual grow consequence; source/logs retained. Explicit Fin-case index normalization needed."
+}

@@ -1,0 +1,55 @@
+{
+  "scope": "Checked28-gate emergency delivery control and emitter; no27-gate witness",
+  "files": [
+    {
+      "path": "results/orch/lemmas/constructive-witness-control.lean",
+      "sha256": "54d4de87792994e1b757c54dd521746690ef87cd5447aa69c2b8b30136ded31f",
+      "bytes": 17021
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control.delivery.json",
+      "sha256": "b1523cffd09e5fc5384d44c3abbb4ee8be20aa70b7377eadfca1b292eb5f1853",
+      "bytes": 3858
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.json",
+      "sha256": "199190e45b28c272934e7b1c7f32ca57fddc62931192ff9e2cf049b9c1c6a5e9",
+      "bytes": 560
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-control-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-delivery.py",
+      "sha256": "f6c7583347bf6fedc2cadbde5c9cd00312975cde0ca7c3ed1be38b90c39c0683",
+      "bytes": 9056
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-prefix.txt",
+      "sha256": "9c9f942118318eeadd102d8dca458a9cff955af5b6890581157ef250382b7d7a",
+      "bytes": 11899
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-statement.txt",
+      "sha256": "946228bccd22fc545145b539b88eaed82998ed5d5a7285e77fb8b30e324d475e",
+      "bytes": 1756
+    },
+    {
+      "path": "results/orch/lemmas/formalization-witness-delivery-review.json",
+      "sha256": "2936cc664eff136b11b93f13c80049c0c62b0b6eb3fa0151bd1c75f1950680c2",
+      "bytes": 3138
+    },
+    {
+      "path": "results/orch/lemmas/constructive-witness-delivery.md",
+      "sha256": "6fcc5ff4c48432c7c5cbc71f7df10c0739c6f917acacbbb41953af806f344b3a",
+      "bytes": 1654
+    }
+  ]
+}

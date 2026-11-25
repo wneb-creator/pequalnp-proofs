@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "source": "results/orch/lemmas/structural-empty-operand-small.lean",
+  "sha256": "7d0dd5bc4c2f604fd06fa6cb7c038f743d5a1fcdc1300eb95032e7d77917727e",
+  "tail_sha256": "68b60083868f86b6a03f6cb3e924046092a064b058dc741cda964f8200c22b72",
+  "reviewed_utc": "2026-11-25T13:31:52.735179+00:00",
+  "receipt": "structural-empty-operand-small-build.json",
+  "exit_code": 0,
+  "scope": "Under strict-live Fano correctness, W\u22642, empty gate-output support and empty opposite-operand support, the remaining operand support has at most two labels. No minimality or quietness conclusion.",
+  "checks": [
+    "Two carried labels with a common neighbor have different other exits by support antichain.",
+    "The common neighbor has precisely the opposite of those exits as its two slots.",
+    "Alternate neighbors of the two labels are on one bipartition side and nonadjacent; cover-free separation contradicts the exhausted common-neighbor slots.",
+    "Two distinct labels on the same Fano side always have a common neighbor, so side parity is injective on the operand support. Its cardinality is at most two.",
+    "Post-review source repairs only reflect Adj into the finite Boolean adjacency before kernel decisions."
+  ]
+}

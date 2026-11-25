@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2f-actual-attempt3.lean",
+  "source_sha256": "7340eb340678ee08bebdc6f0c23dd6075f772f6da6d434a9466a53ce0d48425c",
+  "exit_code": 1,
+  "finished_utc": "2026-11-25T13:23:23.799210+00:00",
+  "scope": "Cached actual-family check: only two definitional-alias rewrite failures, now fixed explicitly; full diagnostics preserved."
+}

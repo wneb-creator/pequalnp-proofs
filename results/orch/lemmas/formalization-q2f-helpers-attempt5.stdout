@@ -1,0 +1,24 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:15:44: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:15:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:179:8: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:180:8: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FHelpers.lean:181:8: error: `simp` made no progress
+case inr.inr.«0»
+s : Fin 15
+a b c : Fin 10
+h : q2f_generators s a b c = true
+m : Fin 128
+allowed : q2f_allowed s a b c m = true
+member : q2f_mem s a b c m = true
+i : Fin 10
+hi : m = q2f_raw s a b c i
+g2 : (!q2f_grow s a b c (q2f_known s a b c 2) m) = true
+g1 : (!q2f_grow s a b c (q2f_known s a b c 1) m) = true
+left✝ : (!q2f_seed s a b c m) = true
+g0 : (!q2f_grow s a b c (q2f_known s a b c 0) m) = true
+grow : q2f_grow s a b c (q2f_known s a b c ((fun i => i) ⟨0, ⋯⟩)) m = true
+⊢ q2f_closed s a b c m = true

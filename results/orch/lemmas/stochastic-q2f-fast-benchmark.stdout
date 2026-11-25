@@ -1,0 +1,392 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:18:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:20:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 2.36s
+simp took 396ms
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:101:60: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_small, q2f_small, q2f_fast_card_correct]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:105:42: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_allowed, q2f_allowed, q2f_fast_size_eq, q2f_fast_small_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:105:64: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_allowed, q2f_allowed, q2f_fast_card_correct, q2f_fast_small_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:109:40: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_closed, q2f_closed, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:109:62: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_closed, q2f_closed, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:109:97: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_closed, q2f_closed, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:113:58: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_seed, q2f_seed, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:113:93: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_seed, q2f_seed, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:113:113: warning: This simp argument is unused:
+  q2f_fast_closed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_seed, q2f_seed, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:117:36: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_grow, q2f_grow, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:117:58: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_grow, q2f_grow, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:117:93: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_grow, q2f_grow, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:117:113: warning: This simp argument is unused:
+  q2f_fast_closed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_grow, q2f_grow, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_seed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:117:132: warning: This simp argument is unused:
+  q2f_fast_seed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_grow, q2f_grow, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:121:36: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_node, q2f_node, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:121:58: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_node, q2f_node, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:121:75: warning: This simp argument is unused:
+  q2f_fast_small_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_node, q2f_node, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:121:93: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_node, q2f_node, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:36: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:58: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:75: warning: This simp argument is unused:
+  q2f_fast_small_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:132: warning: This simp argument is unused:
+  q2f_fast_seed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_grow_eq, q2f_fast_node_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:149: warning: This simp argument is unused:
+  q2f_fast_grow_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_node_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:125:166: warning: This simp argument is unused:
+  q2f_fast_node_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_pair, q2f_pair, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:48: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:70: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:87: warning: This simp argument is unused:
+  q2f_fast_small_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:105: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:125: warning: This simp argument is unused:
+  q2f_fast_closed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:144: warning: This simp argument is unused:
+  q2f_fast_seed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:129:161: warning: This simp argument is unused:
+  q2f_fast_grow_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_generators, q2f_generators, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:60: warning: This simp argument is unused:
+  q2f_fast_size_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:77: warning: This simp argument is unused:
+  q2f_fast_small_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:95: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:115: warning: This simp argument is unused:
+  q2f_fast_closed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:134: warning: This simp argument is unused:
+  q2f_fast_seed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:151: warning: This simp argument is unused:
+  q2f_fast_grow_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_node_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:168: warning: This simp argument is unused:
+  q2f_fast_node_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:185: warning: This simp argument is unused:
+  q2f_fast_pair_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq,
+    q2f_fast_generators_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:133:202: warning: This simp argument is unused:
+  q2f_fast_generators_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_shape, q2f_shape, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:50: warning: This simp argument is unused:
+  q2f_fast_card_correct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_size_eq, q2f_fast_small_eq, q2f_fast_allowed_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq,
+    q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:89: warning: This simp argument is unused:
+  q2f_fast_small_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq, q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:107: warning: This simp argument is unused:
+  q2f_fast_allowed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq, q2f_fast_generators_eq,
+    q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:146: warning: This simp argument is unused:
+  q2f_fast_seed_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_grow_eq, q2f_fast_node_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq, q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:163: warning: This simp argument is unused:
+  q2f_fast_grow_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_node_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq, q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:180: warning: This simp argument is unused:
+  q2f_fast_node_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_pair_eq,
+    q2f_fast_generators_eq, q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-q2f-fast-benchmark.lean:137:197: warning: This simp argument is unused:
+  q2f_fast_pair_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2f_fast_certificate, q2f_certificate, q2f_fast_card_correct, q2f_fast_size_eq, q2f_fast_small_eq,
+    q2f_fast_allowed_eq, q2f_fast_closed_eq, q2f_fast_seed_eq, q2f_fast_grow_eq, q2f_fast_node_eq,
+    q2f_fast_generators_eq, q2f_fast_shape_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 3.32s

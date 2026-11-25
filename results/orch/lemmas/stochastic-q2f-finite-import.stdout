@@ -1,0 +1,2 @@
+PEqualNP.Outside.L_meta_6659_aux.q2f_certificate_all (s : Fin 15) (a b c : Fin 10) :
+  PEqualNP.Outside.L_meta_6659_aux.q2f_certificate s a b c = true
