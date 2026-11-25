@@ -1,0 +1,10 @@
+Independent manual review by prior_gap_check
+Verdict: PASS for partial-result checkpoint; no new compiler launch during the serialized build window.
+FreshBridgeFactors.lean: 212 lines; SHA256 a7ae738a3d804ce7cf000c61f1eb542bffba5404dbf865bf06e2897d9da4a950.
+Author reports successful compilation; full author check log is empty.
+
+Branch explicitly assumes its bridge endpoints p,q belong to U and to the opposite operands, p-q is an edge, every left operand vertex is adjacent to q, every right operand vertex to p, the entire ternary product is globally graph-sound, its pair-input behavior equals the stated two literal-star terms, and that pair behavior has no common center. These are substantial premises, not conclusions established for arbitrary circuit gates in this file.
+
+Given these premises, noCenter plus pairProfile supplies nontrivial left/right witnesses. Triple soundness on {x,l,r}, with no four-cycle ruling out l-r, forces x-l or x-r. Triangle and square exclusion then isolate all extra U vertices from p,q. The induced-edge lemma correctly concludes any further U edge is either the same bridge or disjoint. Split bridge follows by excluding both endpoints attaching to the same witness (triangle). The second bridge makes each extra left/right witness unique by four-cycle exclusion, yielding exactly two vertices in each operand. All endpoint-distinctness conditions needed in these arguments are retained or derived from the disjoint bridge conclusion.
+
+The file does not derive the Branch premises from arbitrary least circuits, and does not claim the full L-meta-1031 theorem. No sorry, new axiom, native_decide, forbidden namespace marker, strings, directives, attributes, options, or native evaluator occurs. Imports are only Mathlib and PEqualNP.Defs.

@@ -1,0 +1,12 @@
+Independent source/delta review by prior_gap_check
+Verdict: PASS for partial-result checkpoint; no independent compiler launched during the serialized build window.
+FirstLiteral.lean: 1780 lines, 84158 bytes; SHA256 baabb22bdd889c4bcfb6074e16a2ff91f270b34b7aa89664bbd3d286f176c209.
+Author final build and source-plus-axiom audit both exited 0. I independently read the main axiom outputs: selected_all_owns_iff and first_star_literal_minimum each depend on exactly propext, Classical.choice, Quot.sound. Full author outputs are preserved in results/orch/first-literal-check.log and first-literal-axioms.log.
+
+The first 1513 lines were verified identical to the independently reviewed FirstAndBridge source after namespace renaming. The appended OR-prefix lemmas establish literalwise disjunction on singleton/pair inputs by a length-preserving fold induction. The center-dominates-operand lemma uses a nonempty accepted graph edge and singleton exclusion to place its common center in at least one operand's OR support.
+
+The replacement first AND takes that literal center and the opposite original operand. Its signal is pointwise below the original signal and agrees on every graph-edge pair. Monotonicity of the suffix and the graph function's edge minterms therefore preserve complete-input output semantics via the already reviewed narrow_on_pivotal theorem. New gate references remain backward, its size is unchanged, and public IsMinimalMonoCircuit transfers from the old minimum.
+
+The all-ownership transport is stronger than a mere preservation claim for the selected gate and is valid: there are no prior AND gates; any path beginning at an AND begins at or after the replacement position, so it cannot use a changed incoming edge of that position. All strict-AND dependency paths relevant to ownership are unchanged. Full wire values on each graph-edge pair agree because the selected gate's pair values agree. Thus every gate has exactly the same raw ownership on graph edges.
+
+Explicit hypotheses remain global leastness, ReadsBack, an all-OR prefix, a selected binary AND, correct graph function, degree at least two at every vertex, nonempty selected ownership, and a selected ownership star. The result does not establish existence of such a first star, nor semantic soundness of the new AND on nongraph inputs. No sorry, new axioms, native_decide, forbidden namespace marker, strings, command directives, attributes, options, or bv_decide occurs; imports only Mathlib and PEqualNP.Defs.

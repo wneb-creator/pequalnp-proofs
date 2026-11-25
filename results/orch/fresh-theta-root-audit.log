@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_1031.FreshTheta.relocation_size' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshTheta.relocation_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshTheta.relocation_legal' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.FreshTheta.new_full_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshTheta.left_port_all_edges' depends on axioms: [propext]
