@@ -1,0 +1,11 @@
+2026-11-25T16:57:25.320908+00:00 PETERSEN 20 AO gates, freeNOTx0 andbothconstants patterns 38 mode canonical
+RESULT sat seconds 0.067
+VERIFIED_FULL_TRUTH_TABLE {"inputs": 11, "free_unary": "not_x0", "gates": [["or", 1, 5], ["or", 2, 4], ["or", 2, 5], ["or", 2, 6], ["or", 4, 6], ["or", 4, 11], ["or", 5, 6], ["or", 8, 12], ["or", 9, 13], ["and", 0, 16], ["and", 1, 14], ["or", 20, 21], ["and", 3, 18], ["or", 22, 23], ["and", 7, 19], ["or", 24, 25], ["and", 8, 17], ["or", 26, 27], ["and", 9, 15], ["or", 28, 29]], "output": 30, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [7, 9], [9, 6], [6, 8], [8, 5]]}
+(:max-memory          17.40
+ :memory              17.30
+ :num-allocs          55751
+ :rlimit-count        14634
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 80
+ :solve-eqs-steps     80
+ :time                0.07)

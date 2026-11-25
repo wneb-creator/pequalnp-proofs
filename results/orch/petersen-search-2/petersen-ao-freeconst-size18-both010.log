@@ -1,0 +1,32 @@
+2026-11-25T16:57:12.279118+00:00 PETERSEN 18 AO gates, freeNOTx0 andbothconstants patterns 38 mode both010
+RESULT unknown seconds 300.035
+REASON timeout
+(:added-eqs           93004206
+ :binary-propagations 120357662
+ :bv-bit2core         98814390
+ :bv-diseqs           3876
+ :bv-dynamic-diseqs   10618972
+ :bv-dynamic-eqs      13502
+ :bv->core-eq         3520388
+ :conflicts           677294
+ :decisions           4409386
+ :del-clause          35987222
+ :max-memory          46.11
+ :memory              21.56
+ :minimized-lits      7054198
+ :mk-bool-var         16251808
+ :mk-clause           36161820
+ :mk-clause-binary    30644
+ :num-allocs          76485790923.00
+ :num-checks          2
+ :pb-conflicts        352
+ :pb-predicates       498
+ :pb-propagations     307772
+ :pb-resolves         348
+ :propagations        389852794
+ :restarts            1394
+ :rlimit-count        437220686
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 18
+ :solve-eqs-steps     3799
+ :time                300.03)

@@ -1,0 +1,54 @@
+{
+  "petersen-ao-freeconst-size18-both010.smt2": {
+    "bytes": 79228,
+    "sha256": "0434419950209a5b315a7481a94f0fbf450ad80d99862ea8d0beb6ea53f99a83"
+  },
+  "petersen-ao-freeconst-size20-canonical.smt2": {
+    "bytes": 66789,
+    "sha256": "ca58f1a62bf91b0f8a90496f84e76ba3c030ee9ea4f037e08a7f6313ca1a15b8"
+  },
+  "petersen-both010-not1-negfirst-size18.smt2": {
+    "bytes": 5033362,
+    "sha256": "06b3edcf339848b49416d772dc6ee87ae37cc5e1378f42af017bfd4a8726d00b"
+  },
+  "petersen-both010-not1-rawfirst-size18.smt2": {
+    "bytes": 5033632,
+    "sha256": "52878f62c1e01301bdedc646fb80d5a6aefb093794d49f08c8646d9f7a993935"
+  },
+  "petersen-enc2-108-not1.cnf": {
+    "bytes": 7853721,
+    "sha256": "48d10b0202bd5da1b1d36b993442a8f397ab99725fcf6d46c7afc6f3808d9fd3"
+  },
+  "petersen-enc2-108-not2.cnf": {
+    "bytes": 7869089,
+    "sha256": "44e0f017f535acd086c58a92a7637904dfeeb9aff47922da0da73261fdb95e61"
+  },
+  "petersen-enc2-108.cnf": {
+    "bytes": 7851409,
+    "sha256": "99eb8280d8b3bcf866034ab8b047fc770f13c2572ac1947d3ee1e15cc43df1d9"
+  },
+  "petersen-enc2-control20-fixed.cnf": {
+    "bytes": 10017285,
+    "sha256": "d87d64baa9df2cbc0394c18d03a605ac0d599b9aeb05256456694bf90c774f49"
+  },
+  "petersen-only10-twoand-not1-size18.smt2": {
+    "bytes": 5077910,
+    "sha256": "d6c1261d1d25cc9b77a6c71333702143061d9cbd410b680896586b7d94838009"
+  },
+  "petersen-semantic-control20.cnf": {
+    "bytes": 11843826,
+    "sha256": "e671c79186535cc11db6f2f47281c2d980b152af3899b9f9288dd02aba2d4398"
+  },
+  "pv-size16-exactnot0-control.smt2": {
+    "bytes": 2798121,
+    "sha256": "2a88b76b7cb7cd5b261e32b7598f396d6c3dbcb4acd89d1486264fa560437067"
+  },
+  "pv-size16-exactnot1-general.smt2": {
+    "bytes": 2798260,
+    "sha256": "da0645aaa7ff76702468ed46cb85b369222b9dae4f44842f8149c32201a0f58d"
+  },
+  "pv-size18-exactnot1-control.smt2": {
+    "bytes": 3343258,
+    "sha256": "9db3ce6af706d49e85235f312134b373b7ef6429739d4f40bce63dfa5e8bc87e"
+  }
+}

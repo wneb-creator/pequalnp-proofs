@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-11-25T16:54:40.582120+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "600",
+    "--lrat=true",
+    "--binary=false",
+    "/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108.cnf",
+    "/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108-cadical.lrat"
+  ],
+  "returncode": -15,
+  "seconds": 77.217,
+  "termination_reason": "proof_size_cap",
+  "status": [],
+  "proof_bytes": 157761536,
+  "cnf_sha256": "99eb8280d8b3bcf866034ab8b047fc770f13c2572ac1947d3ee1e15cc43df1d9",
+  "proof_sha256": "7fc0f0865d61bb0260730807f6dbef3dfa9ec539be575665f8d88036a221d517",
+  "finished_utc": "2026-11-25T16:55:57.799285+00:00",
+  "archived_proof": "petersen-enc2-108-cadical.lrat.gz",
+  "metadata_note": "Start/finish labels corrected from the complete monitor log; original log is unchanged."
+}

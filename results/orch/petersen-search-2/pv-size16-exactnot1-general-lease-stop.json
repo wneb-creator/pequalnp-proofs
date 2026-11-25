@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T17:09:56.599718+00:00",
+  "reason": "root instructed stop after desk410 invalidated lease",
+  "status": "UNKNOWN_INTERRUPTED",
+  "process_ids": [
+    33659
+  ],
+  "command": "python3 /tmp/oec/pequalnp-pilot-152/gap-1884/pv-one-not-cegis.py 16 600000 1 general",
+  "exec_exit_code": 143,
+  "exec_stderr": "Terminated\n"
+}

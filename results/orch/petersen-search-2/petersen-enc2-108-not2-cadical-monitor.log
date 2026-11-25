@@ -1,0 +1,2 @@
+2026-11-25T17:05:50.979590+00:00 START seconds 600 proofcap_bytes 157286400
+{"started_utc": "2026-11-25T17:05:50.979568+00:00", "finished_utc": "2026-11-25T17:09:57.604258+00:00", "command": ["/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical", "-t", "600", "/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108-not2.cnf"], "returncode": -15, "seconds": 246.625, "termination_reason": null, "status": [], "proof_bytes": 0, "cnf_sha256": "44e0f017f535acd086c58a92a7637904dfeeb9aff47922da0da73261fdb95e61"}

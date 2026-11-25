@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T17:09:56.630570+00:00",
+  "reason": "root instructed stop after desk410 invalidated lease",
+  "status": "UNKNOWN_INTERRUPTED",
+  "process_ids": [
+    34857
+  ],
+  "command": "/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical -t 600 /tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108-not1.cnf"
+}

@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-25T17:06:45.343416+00:00",
+  "finished_utc": "2026-11-25T17:09:56.722065+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "600",
+    "/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108-not1.cnf"
+  ],
+  "returncode": -15,
+  "seconds": 191.379,
+  "termination_reason": null,
+  "status": [],
+  "proof_bytes": 0,
+  "cnf_sha256": "48d10b0202bd5da1b1d36b993442a8f397ab99725fcf6d46c7afc6f3808d9fd3",
+  "external_stop": {
+    "utc": "2026-11-25T17:09:56.630570+00:00",
+    "reason": "root instructed stop after desk410 invalidated lease",
+    "status": "UNKNOWN_INTERRUPTED",
+    "process_ids": [
+      34857
+    ],
+    "command": "/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical -t 600 /tmp/oec/pequalnp-pilot-152/gap-1884/petersen-enc2-108-not1.cnf"
+  }
+}

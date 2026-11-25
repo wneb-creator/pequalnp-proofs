@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T17:09:56.640321+00:00",
+  "reason": "root instructed stop after desk410 invalidated lease",
+  "status": "already_finished_or_not_running",
+  "process_ids": [],
+  "command": "/tmp/oec/pequalnp-pilot-152/toolchain/lean-4.36.0-linux/bin/cadical -t 20 --no-witness /tmp/oec/pequalnp-pilot-152/gap-1884/petersen-semantic-control20.cnf"
+}

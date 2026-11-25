@@ -476,3 +476,64 @@ x-envoy-upstream-service-time: 135
  "next_beat_s": 300
 }
 
+
+2026-11-25T17:11:16.474456+00:00 recovery next another hard same gap
+{
+ "gap": {
+  "id": "L-meta-3754",
+  "title": "Least lift-fixed circuits are clean: in a least lift-fixed fan-in-two AND/OR circuit for a 4-cycle-free bipartite edge function, every AND gate is below F",
+  "statement": "∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit) (s : Fin n → Bool),\n  (∀ u v : Fin n, G.Adj u v → s u ≠ s v) → PEqualNP.TopForm.NoFourCycle G → PEqualNP.TopForm.IsLeastAO G C →\n  PEqualNP.Core.IsLiftFixedPoint G C →\n  ∀ k < C.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt C k).op = PEqualNP.CircuitLowerBounds.GateOp.and →\n    PEqualNP.TopForm.BelowF G C k",
+  "file": "lean/PEqualNP/Outside/L_meta_3754.lean",
+  "module": "PEqualNP.Outside.L_meta_3754",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "the one-line form of the plane question: with a checked normal form it gives edges plus cover minus one",
+  "context": "SKETCH: No proof is in hand, and with a checked normal form for least circuits this statement gives the full size bound on graphs with no 4-cycle, so none is expected to be short. Known on paper: one AND that is not below F can be removed at no larger size; every least circuit of the small bipartite classes on file is clean (by script). On graphs WITH a 4-cycle two explicit 9-gate lift-fixed circuits have such an AND; that they are least is computed only. Open case: two such ANDs whose cones share a gate other tops read. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 96,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "No proof is in hand, and with a checked normal form for least circuits this statement gives the full size bound on graphs with no 4-cycle, so none is expected to be short. Known on paper: one AND that is not below F can be removed at no larger size; every least circuit of the small bipartite classes on file is clean (by script). On graphs WITH a 4-cycle two explicit 9-gate lift-fixed circuits have such an AND; that they are least is computed only. Open case: two such ANDs whose cones share a gate other tops read. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "de5bc7ed-2bf7-473d-accd-592151afc8ee",
+  "expires_at": "2026-11-25T17:31:14.768Z",
+  "renew": "POST /desk/beat?lease=de5bc7ed-2bf7-473d-accd-592151afc8ee",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de5bc7ed-2bf7-473d-accd-592151afc8ee&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 203,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:11:14.768Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}
+
+2026-11-25T17:12:06.218060+00:00
+BEAT L-meta-3754
+{
+ "lease": {
+  "id": "de5bc7ed-2bf7-473d-accd-592151afc8ee",
+  "expires_at": "2026-11-25T17:32:05.661Z",
+  "renew": "POST /desk/beat?lease=de5bc7ed-2bf7-473d-accd-592151afc8ee",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de5bc7ed-2bf7-473d-accd-592151afc8ee&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 203,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:11:14.768Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
