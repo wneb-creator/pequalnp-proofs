@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/SumAndCountTransport2056.lean"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-25T19:06:40.984309+00:00",
+  "finished_utc": "2026-11-25T19:07:06.385039+00:00",
+  "elapsed_seconds": 25.400745177998033,
+  "exit_code": 0,
+  "source_sha256": "1e758fc340b3fab5b2f63fcc818649affb24913b1a7bffb1de244402613dc194",
+  "source_lines": 178,
+  "scope": "Conditional sum-incidence AND-count transport, not unconditional63-gate target proof."
+}
