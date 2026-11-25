@@ -13,3 +13,5 @@
 - 2026-11-25 05:40:47 UTC: full28-chunk kernel replay stopped at roughly14GBRSS; switching to stronger pruning and smaller computations under6.5GB checker allowance.
 - 2026-11-25T05:43:43.835959+00:00: generic bounded-memory search assembly lemmas Lean-checked.
 - 2026-11-25T05:44:21.439557+00:00: bounded kernel leaf and generic child assembly compiled, independently reviewed, checkpointed.
+- 2026-11-25T05:46:27.234514+00:00: split-DAG complete statement integrated for first named-file full build.
+- 2026-11-25T05:47:58.160579+00:00: generic closed-state certificate soundness compiled and independently reviewed; checkpointed while namedDAGbuild continues.

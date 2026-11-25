@@ -79,3 +79,19 @@ Reviewed Enumerative.lean (522 lines) and all28 chunk assembly in EnumerativeFul
 
 - ChunkAssembly.lean (566lines; SHA2567f869b981a4234d91b1325cf8ab6ed83c873853c057dd63f3b4b441b0db98d81) starts with byte-identical reviewed generic prefix after Mathlib removal. New childChoices lists exactly the four dispatch alternatives, with matching separation guards and extra-budget decrements; children includes every unordered pair and both ops. optimized_step_eq is exact equality retaining the terminal-goal branch. optimized_of_children requires terminal-goal false and all immediate children false, so no case is omitted.
 - Compiled exit0 reported by builder, empty complete logs. Guard only refuses intentionally absent final qualified theorem. Independent verdict: READY FOR PARTIAL CHECKPOINT PUSH; no full target claim.
+
+- 2026-11-25T05:44:28.639106+00:00 Enumerative raw28chunk run stopped at15.7GB RSS. Selective-import single1030-callchunk passed under4096MiB in7.43s kernel. Adaptive1350-node proof DAG generated (282264bytes) using119 shared128-bit traces; testing worst982-call leaf and one-step assembly before full build.
+
+- 2026-11-25T05:45:39.212933+00:00 Adaptive DAG tests passed under4096MiB: worst982-call leaf kernel3.99s;49-proof internalassembly kernel12.2s. FullEnumerativeDAG.lean immutable candidate282264bytes, SHA256 9610e6362fe20d06a0c4cb26eb57bd5a2461bd5f93bf2305fc37cbd54f6857e4. Root will integrate and run named lakebuild directly; no duplicate standalonefullrun.
+
+## 2026-11-25 05:46:23 UTC — status_review DAG candidate audit
+
+- EnumerativeDAG.lean immutable SHA2569610e6362fe20d06a0c4cb26eb57bd5a2461bd5f93bf2305fc37cbd54f6857e4 (7713lines282264bytes). Generic prefix exactly matches reviewed ChunkAssembly. All119 trace constants fit128bits. State/proof IDs each cover0through1349 exactly, final state is the exact8input list with optimized9 2.
+- Independent Python audit recomputed all1311leaf searches as false, all39internal child lists exactly (including order/duplicates), and all1428internal references. Every referenced proof is earlier and has matching decremented gate bound and extra budget. Root covers every search child; no assumptions or omitted cases. Audit completed0.99s,32457memoized search states.
+- Format guard finds only absent final qualified theorem. Verdict: READY FOR NAMED FILE INTEGRATION AND BUILD with reviewed upperBound and exact target conjunction. No full compile/checker acceptance yet; root must run both before final push.
+
+## 2026-11-25 05:47:35 UTC — status_review final integration and generic memo audit
+
+- Named full candidate SHA256c47d7e7ccb6f5373653f1b4633a1a179ad7b253448a2eb609c00a51177f780bd is exactly reviewedUpper plus reviewedDAG plus final theorem whose statement is byte-identical to assigned gap.statement. Final proof conjoins reviewed upperBound and Enum.lower. Independent format guard PASSED. Full named build/checker still pending.
+- EnumMemo.lean SHA2569576924293e3439e90ec98024abd71635b2c1837b99b758ab52591284394d7cf has exact reviewed generic prefix, then a sound finite-table certificate: treeMem_sound requires only successful membership, no unjustified search-tree ordering; sorted preserves finset and Nodup; certificate_sound inducts on strictly decreasing natural gate count, preventing circular lookup. All successor alternatives follow dispatch_complete and gate-budget arithmetic uses live_card. Only conditional certificate soundness, no full target proof yet. Compile logs empty, builder reports exit0. Guard only expected absent final theorem. READY FOR PARTIAL CHECKPOINT PUSH.
+- Latest structured gh pr list search6349 (allstates,limit1000) returned0rows, complete under limit, no stderr.
