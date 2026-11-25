@@ -1,0 +1,10 @@
+Source: results/orch2582/lemmas/MatchingBypassCertificate.lean
+Command: lake env lean ../results/orch2582/lemmas/MatchingBypassCertificate.lean
+Started: approximately 2026-11-25 18:50:30 UTC
+Observed running: 2026-11-25 18:51:50 UTC
+Observed finished: by 2026-11-25 18:52:37 UTC
+Exit status: UNKNOWN; session identifier was lost during context compaction and processes were already reaped.
+stdout: empty
+stderr: empty
+Do not treat empty logs as a successful build. Root plans final named lake build as definitive verification.
+The earlier MatchingLocalObstruction.lean passed with exit 0.

@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-25T18:52:55.676998+00:00",
+  "finished_utc": "2026-11-25T18:54:28.016123+00:00",
+  "exit_code": 0,
+  "seconds": 92.33918351200009,
+  "command": "lake build PEqualNP.Outside.L_meta_2582",
+  "lines": 3128,
+  "main_theorem_present": false
+}

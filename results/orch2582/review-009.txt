@@ -1,0 +1,75 @@
+Independent mathematical handoff and matching-delta review
+2026-11-25, status-review agent
+
+MATHEMATICAL_HANDOFF.md: 86 lines, 5350 bytes, SHA256
+c031fad98e755fd4ac0f3d193c45e66a54fd161c30086cedae22a02c141ed76c.
+The document clearly identifies partial results and the absent full theorem.
+Its threshold, clean-AND, joint READ2, explicit rewrite, and finite-obstruction
+claims match the reviewed source. In particular it retains the extra size
+threshold and all-AND-clean assumptions and does not infer either for an
+arbitrary supplied circuit.
+
+The existing L_meta_4543 final theorem does give a no-larger least AO2
+TopForm circuit for a nonempty graph edge function, minimizing Ustar
+cardinality among least TopForm circuits. L_meta_2393's reader_or and
+reader_unique helpers control readers of below-output gates under their
+explicit least-circuit/output-validity premises. Thus the handoff's
+distinction between known extraction and the still-missing dirty-block
+cost argument is supported by repository source.
+
+MatchingLocalObstruction.lean: 69 lines, 2825 bytes, SHA256
+e3f5ae039ba9dc013cd3af9512ce52760443d08d58362fee2f22a886864ec9ed.
+Its reported successful compilation logs are empty. Ordinary decide proves
+the exact matching function, non-read2 prime pair, distinct wire functions,
+every operand bypass changing the output, and the smaller five-gate read1
+equivalent. It cannot establish minimality or a projective-plane result.
+
+MatchingAllBypasses.lean: 79 lines, 3248 bytes, SHA256
+929d76c68568444c80ff5be9d264cc1236f35c048601319513dcec22c96416c1.
+The sole delta inserts matchingEarlierBypass and one decide theorem before
+the namespace end. The replacement is an AND gate with duplicated earlier
+wire b, preserving that wire's value and the original index layout. The
+bound b.val < 6+k.val covers exactly all 285 gate/earlier-wire choices.
+The conclusion supplies a distinguishing input for every such choice.
+This is the intended strengthened local obstruction, not global minimality.
+Its Lean build was still pending when this review was written: source and
+numeric evidence alone are not recorded as a successful Lean check.
+
+Both Lean files have one Defs import and the same permitted MatchingLocal
+namespace. Options are only declaration-scoped maxRecDepth and maxHeartbeats;
+there are no unsupported attributes/instances, forbidden proof tokens,
+_root_ text, or strings. Neither sources nor handoff match credential
+patterns. Base and stronger variant are alternatives with duplicate names;
+only one should be integrated into the named file.
+
+Root reports the previous 3019-line named integration build passed,
+satisfying review-007's condition for its recorded hash.
+
+Verdict: handoff and checked base approved for archival. Stronger matching
+variant is approved conditionally on its successful Lean compilation.
+No Git writes, builds, or unchanged tests were run by this reviewer.
+
+Follow-up checkpoint: revised 90-line handoff, SHA256
+757b37f8b68a5acf4d41cc93432307e3a103b1a6489ebc4c654ceb524708cb77.
+The unformalized Fano embedding is correctly labeled. Its three chosen
+lines are genuine XOR-zero Fano triples and induce exactly the specified
+three-edge matching on the three chosen points. Adding the other eighteen
+edge monomials requires eighteen ANDs and eighteen output-combining ORs,
+giving 55 gates. Restriction to the six core inputs preserves the matching
+bad-pair and core-bypass witnesses. The smaller 27-gate canonical Fano
+circuit prevents a minimum-size inference. These are source/mathematical
+checks, not a new Lean theorem or full-gap counterexample.
+
+read2-matching-topform.json, SHA256
+d0896355f9ef5edc091935766e914819866a4ea0812fae8b30b998fa697be04d,
+was independently checked by finite Boolean evaluation on all 64 inputs.
+Each of its seven entries is correct: the first six AND gates have the
+stated witnesses below which the final function is false, and only the
+output AND gate is below the function. Its Python-only status is accurate.
+Neither revised artifact matches credential patterns.
+
+Compilation status update: the raw MatchingAllBypasses existential
+decide proof exited 137/Killed and is NOT checked. An explicit-witness
+fallback is being compiled under a different filename. The handoff's
+pending-variant sentence should identify this distinction before final
+delivery. The raw variant's conditional approval above was not satisfied.

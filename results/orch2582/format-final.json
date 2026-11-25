@@ -1,0 +1,19 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_2582.lean",
+  "sha256": "bd79426fc17718b4685f243e8d213141ffd4caa303efc40d178229d401fe5afa",
+  "lines": 3128,
+  "checks": {
+    "_root_": true,
+    "\"": true,
+    "sorry": true,
+    "native_decide": true,
+    "no_forbidden_commands": true,
+    "attributes_allowed": true,
+    "options_allowed": true,
+    "only_top_defs_import": true,
+    "file_regular_nonexecutable": true,
+    "size_under_512KiB": true
+  },
+  "required_theorem_present": false,
+  "submission_status": "PARTIAL_ONLY; required theorem absent"
+}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T18:54:49.631558+00:00",
+  "exit_code": 3,
+  "verdict": "FAULT",
+  "reason": "prebuilt umbrella Mathlib cache missing",
+  "scope": "final3128-line partial; required theorem absent independently of checker fault",
+  "cleanup": "skipped; before3128lines, after3128lines"
+}

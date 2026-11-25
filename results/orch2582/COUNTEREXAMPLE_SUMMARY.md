@@ -21,6 +21,6 @@ These are external solver results, not Lean-certified optimality results. Times 
 
 The structural agent supplied a nineteen-gate circuit for the three-edge matching: four shared two-variable ORs, eight prime CNF clauses, and seven ANDs. Numerical checks establish its exact function on all 64 inputs, failure of READ-2 on each edge, all 25 wire functions distinct, and a changed output for all 285 replacements of one gate by any earlier wire. A direct five-gate READ-1 realization exists, so this is not a global minimum.
 
-`lemmas/MatchingCNFValidation.py` reproduces these numerical checks and their explicit witnesses. The structural agent is separately formalizing the construction; this paragraph makes no Lean-check claim for that pending file.
+`lemmas/MatchingCNFValidation.py` reproduces these numerical checks and their explicit witnesses. `MatchingBypassCertificate.lean` formalizes the construction and all 285 earlier-wire bypass witnesses. Its inclusion in the final named file passed `lake build` at 18:54:28 UTC; the axiom audit uses only the three permitted axioms. The raw existential variant exited 137, while the standalone explicit-certificate exit status was lost; neither is used as evidence for the successful final build.
 
 All searches have finished. Complete output files are archived with byte counts and SHA256 hashes in `read2-log-manifest.json`.

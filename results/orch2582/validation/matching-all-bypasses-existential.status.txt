@@ -1,0 +1,8 @@
+Source: results/orch2582/lemmas/MatchingAllBypasses.lean
+Command: lake env lean ../results/orch2582/lemmas/MatchingAllBypasses.lean
+Started: 2026-11-25 18:45:18 UTC
+Exit status: 137
+stdout: empty
+stderr: Killed
+Cause: unconfirmed; no Lean diagnostic reported.
+The earlier MatchingLocalObstruction.lean passed with exit 0.

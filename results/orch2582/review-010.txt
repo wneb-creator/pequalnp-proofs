@@ -1,0 +1,36 @@
+Independent explicit matching-bypass certificate review
+2026-11-25, status-review agent
+
+MatchingBypassCertificate.lean: 110 lines, 5427 bytes, SHA256
+1ee7537a6c3f4002e4534f68fdb572879d957ecac41d518d5b2391ffffc4679a.
+It preserves the entire checked MatchingLocalObstruction body and inserts
+only the explicit witness table, earlier-wire replacement definition,
+input decoding, certificate theorem, and existential corollary before the
+namespace end.
+
+The 19-by-25 Lean mask table equals matching-bypass-witnesses.json exactly.
+All 285 entries satisfying b < 6+k equal the previously archived numeric
+witnesses in read2-matching-cnf-complete.stdout.log. The remaining 190
+entries are zero padding outside the theorem's hypothesis. Every active
+mask is a six-bit input. matchingEarlierWitness decodes its bits in the
+same input order via Nat.testBit. The finite certificate asserts unequal
+outputs on this particular witness; the final theorem supplies that
+witness directly. It covers precisely every gate-to-earlier-wire bypass,
+without an expensive additional existential search during decide.
+
+The circuit replacement AND(b,b) preserves b's Boolean value and original
+wire numbering. The theorem remains a local obstruction: the checked
+five-gate read1 equivalent proves that this nineteen-gate circuit is not
+a size minimizer. It is a matching, not a projective-plane counterexample.
+
+Static checks: single Defs import, permitted MatchingLocal namespace,
+declaration-scoped allowed maxRecDepth/maxHeartbeats options, ordinary
+decide, no unsupported attributes/instances, forbidden proof tokens,
+_root_ text, strings, or credential-pattern matches. Only this strongest
+variant should be integrated; its base and failed raw variant duplicate
+the same declarations.
+
+Verdict: approved for archival conditionally on successful compilation.
+Compilation was pending at review time. The earlier raw existential
+MatchingAllBypasses build exited 137/Killed; no success is inferred from
+that attempt. No Git writes or unchanged tests were run.

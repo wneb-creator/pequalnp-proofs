@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_2582_aux.canonical_plane_read_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582_aux.ReadMono.isReadK_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582_aux.clean_read_two_normalize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582_aux.plane_read_two_if_large' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582_aux.plane_clean_read_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582.Rewrite.erase_equivalent_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582.Rewrite.hoist_clean_or_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2582.MatchingLocal.matchingCNF_not_read2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2582.MatchingLocal.matchingCNF_earlier_witness' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2582.MatchingLocal.matchingCNF_no_earlier_bypass' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2582.MatchingLocal.matchingCNF_smaller_read1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

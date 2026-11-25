@@ -1,12 +1,18 @@
 Gap: L-meta-2582
-Status: PARTIAL; exact posted same-size normalization theorem absent.
-Named partial: lean/PEqualNP/Outside/L_meta_2582.lean,1176lines.
-Build: lake build PEqualNP.Outside.L_meta_2582 exit0; Build completed successfully (5149 jobs),4.1seconds.
-Independent review001: Canonical sourceandnewcardinality/Read1construction approved. Review002: genericReadKmonotonicity andlocalcircuitrewrites approved. Root independentlyreviewed strongerexplicitV2hoist delta andfiniteP4Read2 sanity; compiledsources valid,butnoneprove fullnormalization.
-Officialchecker fornewfile not yetinvoked; sameprojectfullMathlibcacheblocker previouslyconfirmed. NoPR.
+Status: PARTIAL ONLY. No proof or refutation of the posted statement; required main theorem absent. No PR.
+Final file: lean/PEqualNP/Outside/L_meta_2582.lean
+Lines: 3128 before cleanup, 3128 after; cleanup skipped because official checker cannot run with the selective Mathlib cache.
+Build: lake build PEqualNP.Outside.L_meta_2582, exit 0, 92.339 seconds.
+Build output: Build completed successfully (5149 jobs).
+Axiom audit: exit 0; major endpoints depend only on propext, Classical.choice, Quot.sound.
+Official checker: exit 3, FAULT.
+Checker output: CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+Independent review: reviews 009, 010 and 011 approve scope, explicit witness certificate and exact final integration. Format scan passes. Full stdout/stderr and status records preserved.
+Mathematical progress: canonical READ1/READ2 threshold case; same-size normalization when every AND gate implies the output; local rewrites; checked local-strategy obstructions including all 285 earlier-wire bypasses for the matching example.
+Unresolved: size-preserving READ2 normalization of smaller projective-plane circuits with shared dirty gates. No claimed plane counterexample or minimum-size result. Reductions are not open.
+Prior gap L-meta-4675: 3547-line checked partial preserved before unexpected HTTP 410; own recovery request assigned L-meta-2582. Other pilots' leases untouched.
+Desk null answers: 0. Two assignments; no null-message text exists.
+Lease: current own lease renewed through 2026-11-25T19:14:37.616Z; handback pending after preservation.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
-TIMING total=93.14 subagents=6
-
-Integrated partial002:3019lines/137617bytes, lake buildexit0; Build completed successfully (5149 jobs),14seconds. Review007 exactintegration+rootplane wrappersapproved withthreshold/hcleanexplicit. CleanNormalize standalonecompiledexit0 andreview005approved. RootreviewedMatchingLocalObstruction finiteproofs: original19gateCNFmatchingfunctionnotREAD2,38operandbypasseschangefunction,25wirefunctionsdistinct,5gateREAD1equivalent; no plane/globalminimumclaim. Builddiagnosticsempty. Main theoremstillabsent.
-Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
-TIMING total=100.29 subagents=6
+TIMING total=108.83 subagents=6
+Acknowledged: msg-177bc781a347345a68602494

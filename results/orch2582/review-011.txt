@@ -1,0 +1,35 @@
+Independent final integration review
+2026-11-25, status-review agent
+
+lean/PEqualNP/Outside/L_meta_2582.lean:
+3128 lines, 143023 bytes, SHA256
+bd79426fc17718b4685f243e8d213141ffd4caa303efc40d178229d401fe5afa.
+These measurements exactly match integration-002.json. Its nine source
+hashes and nine normalized-body hashes were independently verified; each
+body occurs once in the named file.
+
+The first 3019 lines are byte-identical to the reviewed, successfully
+built integration-001 artifact with SHA256
+d661504592f2887fa311570b870f52251a004e7fa67c267928e4417c0cbd250f.
+The only addition is one separating newline and the import-stripped,
+previously reviewed MatchingBypassCertificate body. Its checked base and
+failed raw existential alternatives were not separately integrated.
+
+Static checks: 233 unique declarations; balanced named namespaces;
+all declarations in allowed L_meta_2582 or L_meta_2582_aux subnamespaces;
+one top PEqualNP.Defs import. All options are allowed declaration-scoped
+limits. No attributes, global instances, forbidden proof constructs,
+_root_ text, strings, duplicate declarations, or credential patterns found.
+The required theorem PEqualNP.Outside.L_meta_2582 is absent. This remains
+a partial archive containing conditional results and finite local
+obstructions, with no full proof/refutation and no proof PR approval.
+
+Compilation provenance is explicit: the raw matching existential attempt
+exited 137/Killed; the standalone explicit-certificate session's exit was
+unknown despite empty logs. Neither is treated as successful. The final
+named-file build was running when this review was written; its explicit
+exit/status and complete build-final logs are the definitive pending check.
+
+Verdict: approved for truthful partial archival, conditional on successful
+final named-file compilation for this exact hash. No Git writes, builds,
+or unchanged tests were performed by this reviewer.

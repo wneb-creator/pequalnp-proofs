@@ -1,0 +1,13 @@
+{
+  "not_below_F_witnesses": {
+    "12": 1,
+    "13": 1,
+    "14": 1,
+    "15": 3,
+    "16": 3,
+    "17": 7,
+    "18": null
+  },
+  "only_clean_AND_is_output": true,
+  "status": "finite Python validation, not a new Lean theorem"
+}
