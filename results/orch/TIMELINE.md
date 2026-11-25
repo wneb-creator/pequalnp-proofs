@@ -14,3 +14,4 @@
 - 2026-11-25T19:39:35.667175+00:00: actual unrestricted lower bound13 and monotone upper bound14 kernel checked and independently reviewed. Replan: stop general exploratory SAT; prioritize advanced first-gate certificate and exact NOT-count preservation to make final proof fit checker runtime.
 - 2026-11-25T19:49:26.957428+00:00: advanced engine, tight NOT invariant,184 restriction certificates and exact conditional final step checked/reviewed; checkpointing.
 - 2026-11-25T19:55:35.574985+00:00: advanced bound13 and first three catalogue cases checked and reviewed; complete native catalogue found, kernel verification ongoing.
+- 2026-11-25T20:04:32.817239+00:00: complete staticcandidate reviewed; mostnumericcases checked; individualcaseOOM requires smaller hash partitions; archival checkpoint.

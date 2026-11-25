@@ -1,0 +1,271 @@
+{
+  "cases": [
+    {
+      "gate": [
+        false,
+        0,
+        2
+      ],
+      "successful_owned_ms": 335,
+      "omitted_failed_owned_ms": 428,
+      "final_case_ms": 11547,
+      "total_certificate_ms": 11882
+    },
+    {
+      "gate": [
+        false,
+        0,
+        5
+      ],
+      "successful_owned_ms": 102,
+      "omitted_failed_owned_ms": 1,
+      "final_case_ms": 2329,
+      "total_certificate_ms": 2431
+    },
+    {
+      "gate": [
+        false,
+        0,
+        6
+      ],
+      "successful_owned_ms": 359,
+      "omitted_failed_owned_ms": 63,
+      "final_case_ms": 4526,
+      "total_certificate_ms": 4885
+    },
+    {
+      "gate": [
+        true,
+        1,
+        2
+      ],
+      "successful_owned_ms": 79,
+      "omitted_failed_owned_ms": 549,
+      "final_case_ms": 6715,
+      "total_certificate_ms": 6794
+    },
+    {
+      "gate": [
+        false,
+        1,
+        4
+      ],
+      "successful_owned_ms": 183,
+      "omitted_failed_owned_ms": 476,
+      "final_case_ms": 9469,
+      "total_certificate_ms": 9652
+    },
+    {
+      "gate": [
+        false,
+        0,
+        1
+      ],
+      "successful_owned_ms": 52,
+      "omitted_failed_owned_ms": 0,
+      "final_case_ms": 1277,
+      "total_certificate_ms": 1329
+    },
+    {
+      "gate": [
+        false,
+        0,
+        3
+      ],
+      "successful_owned_ms": 47,
+      "omitted_failed_owned_ms": 0,
+      "final_case_ms": 1181,
+      "total_certificate_ms": 1228
+    },
+    {
+      "gate": [
+        false,
+        1,
+        2
+      ],
+      "successful_owned_ms": 77,
+      "omitted_failed_owned_ms": 0,
+      "final_case_ms": 1067,
+      "total_certificate_ms": 1144
+    },
+    {
+      "gate": [
+        false,
+        1,
+        6
+      ],
+      "successful_owned_ms": 62,
+      "omitted_failed_owned_ms": 0,
+      "final_case_ms": 1602,
+      "total_certificate_ms": 1664
+    },
+    {
+      "gate": [
+        false,
+        2,
+        3
+      ],
+      "successful_owned_ms": 58,
+      "omitted_failed_owned_ms": 0,
+      "final_case_ms": 1592,
+      "total_certificate_ms": 1650
+    },
+    {
+      "gate": [
+        false,
+        0,
+        4
+      ],
+      "successful_owned_ms": 206,
+      "omitted_failed_owned_ms": 55,
+      "final_case_ms": 3829,
+      "total_certificate_ms": 4035
+    },
+    {
+      "gate": [
+        false,
+        1,
+        3
+      ],
+      "successful_owned_ms": 337,
+      "omitted_failed_owned_ms": 195,
+      "final_case_ms": 12503,
+      "total_certificate_ms": 12840
+    },
+    {
+      "gate": [
+        false,
+        2,
+        6
+      ],
+      "successful_owned_ms": 324,
+      "omitted_failed_owned_ms": 406,
+      "final_case_ms": 9539,
+      "total_certificate_ms": 9863
+    },
+    {
+      "gate": [
+        true,
+        0,
+        1
+      ],
+      "successful_owned_ms": 110,
+      "omitted_failed_owned_ms": 1791,
+      "final_case_ms": 16483,
+      "total_certificate_ms": 16593
+    },
+    {
+      "gate": [
+        true,
+        0,
+        3
+      ],
+      "successful_owned_ms": 38,
+      "omitted_failed_owned_ms": 904,
+      "final_case_ms": 11252,
+      "total_certificate_ms": 11290
+    },
+    {
+      "gate": [
+        true,
+        1,
+        6
+      ],
+      "successful_owned_ms": 36,
+      "omitted_failed_owned_ms": 2069,
+      "final_case_ms": 12121,
+      "total_certificate_ms": 12157
+    },
+    {
+      "gate": [
+        true,
+        2,
+        3
+      ],
+      "successful_owned_ms": 102,
+      "omitted_failed_owned_ms": 32,
+      "final_case_ms": 2117,
+      "total_certificate_ms": 2219
+    },
+    {
+      "gate": [
+        true,
+        0,
+        2
+      ],
+      "successful_owned_ms": 29,
+      "omitted_failed_owned_ms": 1069,
+      "final_case_ms": 10065,
+      "total_certificate_ms": 10094
+    },
+    {
+      "gate": [
+        true,
+        0,
+        4
+      ],
+      "successful_owned_ms": 124,
+      "omitted_failed_owned_ms": 325,
+      "final_case_ms": 2504,
+      "total_certificate_ms": 2628
+    },
+    {
+      "gate": [
+        true,
+        0,
+        5
+      ],
+      "successful_owned_ms": 224,
+      "omitted_failed_owned_ms": 463,
+      "final_case_ms": 4670,
+      "total_certificate_ms": 4894
+    },
+    {
+      "gate": [
+        true,
+        0,
+        6
+      ],
+      "successful_owned_ms": 129,
+      "omitted_failed_owned_ms": 908,
+      "final_case_ms": 3504,
+      "total_certificate_ms": 3633
+    },
+    {
+      "gate": [
+        true,
+        1,
+        3
+      ],
+      "successful_owned_ms": 160,
+      "omitted_failed_owned_ms": 47,
+      "final_case_ms": 860,
+      "total_certificate_ms": 1020
+    },
+    {
+      "gate": [
+        true,
+        1,
+        4
+      ],
+      "successful_owned_ms": 79,
+      "omitted_failed_owned_ms": 4,
+      "final_case_ms": 820,
+      "total_certificate_ms": 899
+    },
+    {
+      "gate": [
+        true,
+        2,
+        6
+      ],
+      "successful_owned_ms": 235,
+      "omitted_failed_owned_ms": 200,
+      "final_case_ms": 1236,
+      "total_certificate_ms": 1471
+    }
+  ],
+  "sum_certificate_ms": 136295,
+  "sum_failed_owned_ms": 9985,
+  "root_ms": 4639
+}

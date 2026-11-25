@@ -34,3 +34,7 @@ TIMING total=31.0 subagents=9
 Sixth checkpoint: advanced bound13, owned-bound verifier, three first-gate cases and single-NOT root adapter compiled exit0 and independently reviewed. Full numerical catalogue still being kernel-checked.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
 TIMING total=37.2 subagents=9
+
+Seventh checkpoint: final root, symmetry, catalogue helpers and21 further modules reviewed and reported compiled exit0. Static full candidate passes guard/exactstatement/catalogue review, but NOT YET COMPILED. Heavy case8 failed twice exit137; numerical hash-partition refinements in progress to reduce kernel memory.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
+TIMING total=46.1 subagents=9

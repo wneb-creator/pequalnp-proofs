@@ -1,0 +1,239 @@
+{
+  "utc": "2026-11-25T19:56:38.314506+00:00",
+  "verdict": "PASS: static catalogue and mask audit; final numeric truth still requires Lean kernel verification",
+  "representatives": 24,
+  "gate_types": 42,
+  "raw_bounds": 184,
+  "root_native_seconds": 4.707289608999872,
+  "checks": [
+    {
+      "gate": [
+        false,
+        0,
+        2
+      ],
+      "owned_count": 30,
+      "known_after": 2
+    },
+    {
+      "gate": [
+        false,
+        0,
+        5
+      ],
+      "owned_count": 63,
+      "known_after": 3
+    },
+    {
+      "gate": [
+        false,
+        0,
+        6
+      ],
+      "owned_count": 46,
+      "known_after": 5
+    },
+    {
+      "gate": [
+        true,
+        1,
+        2
+      ],
+      "owned_count": 41,
+      "known_after": 7
+    },
+    {
+      "gate": [
+        false,
+        1,
+        4
+      ],
+      "owned_count": 43,
+      "known_after": 8
+    },
+    {
+      "gate": [
+        false,
+        0,
+        1
+      ],
+      "owned_count": 62,
+      "known_after": 10
+    },
+    {
+      "gate": [
+        false,
+        0,
+        3
+      ],
+      "owned_count": 63,
+      "known_after": 12
+    },
+    {
+      "gate": [
+        false,
+        1,
+        2
+      ],
+      "owned_count": 60,
+      "known_after": 14
+    },
+    {
+      "gate": [
+        false,
+        1,
+        6
+      ],
+      "owned_count": 62,
+      "known_after": 16
+    },
+    {
+      "gate": [
+        false,
+        2,
+        3
+      ],
+      "owned_count": 61,
+      "known_after": 17
+    },
+    {
+      "gate": [
+        false,
+        0,
+        4
+      ],
+      "owned_count": 45,
+      "known_after": 19
+    },
+    {
+      "gate": [
+        false,
+        1,
+        3
+      ],
+      "owned_count": 32,
+      "known_after": 21
+    },
+    {
+      "gate": [
+        false,
+        2,
+        6
+      ],
+      "owned_count": 45,
+      "known_after": 23
+    },
+    {
+      "gate": [
+        true,
+        0,
+        1
+      ],
+      "owned_count": 29,
+      "known_after": 25
+    },
+    {
+      "gate": [
+        true,
+        0,
+        3
+      ],
+      "owned_count": 29,
+      "known_after": 27
+    },
+    {
+      "gate": [
+        true,
+        1,
+        6
+      ],
+      "owned_count": 27,
+      "known_after": 29
+    },
+    {
+      "gate": [
+        true,
+        2,
+        3
+      ],
+      "owned_count": 44,
+      "known_after": 30
+    },
+    {
+      "gate": [
+        true,
+        0,
+        2
+      ],
+      "owned_count": 21,
+      "known_after": 32
+    },
+    {
+      "gate": [
+        true,
+        0,
+        4
+      ],
+      "owned_count": 39,
+      "known_after": 34
+    },
+    {
+      "gate": [
+        true,
+        0,
+        5
+      ],
+      "owned_count": 49,
+      "known_after": 35
+    },
+    {
+      "gate": [
+        true,
+        0,
+        6
+      ],
+      "owned_count": 30,
+      "known_after": 37
+    },
+    {
+      "gate": [
+        true,
+        1,
+        3
+      ],
+      "owned_count": 42,
+      "known_after": 39
+    },
+    {
+      "gate": [
+        true,
+        1,
+        4
+      ],
+      "owned_count": 58,
+      "known_after": 40
+    },
+    {
+      "gate": [
+        true,
+        2,
+        6
+      ],
+      "owned_count": 44,
+      "known_after": 42
+    }
+  ],
+  "sha256": {
+    "advanced-own02-certificate.json": "2da0650bee9f6bd011bf9e4cf5231ebcbc2eb804cf2b5039e961f4d69a8d6b9f",
+    "advanced-catalog-results.json": "778555f10948dc36593f90c197a9b788a10f229a49852b99511442ac91400aea",
+    "advanced-symcatalog-results.json": "7d64710848c1509ec135ca43a320a324aeb014d1c98ee95bc1bd8e497617c566",
+    "advanced-symcatalog-final.json": "e6dc3f49c5a0640a216117cded7a011d961754ba757c1f09fd9540fb01cf1746",
+    "advanced-final-root42.json": "7f5bfed906484ab7bb029d10e41d6b8e75dbd6b4fed1f0dca63663dbdd97630d",
+    "advanced-automorphism.json": "ba69b686a48b53455e45bb821aa3d07bc5058a6c47ee3bc584a7b17feaf4c2be",
+    "AdvancedBenchFB.lean": "3deb612399f9f115f94c15e1f65d37f4b5de26475f98db97604c1191e23a31cc",
+    "NativeFirstEngine.lean": "2c06d12097f12a8872717541713ae4825bc2929badd15de62669002eef03e040",
+    "advanced_catalog.py": "185dd098f02ec78ae443e6f622d248f97baeafea8ae16b5ccf09979fef1e1570",
+    "advanced_symcatalog.py": "1d976edd4533d303c9dcbc6524d97eb275a6e9d5fd6aa21a8923d997867b3f2b",
+    "advanced_final_root.py": "8e2fea660b2f59ad43e55333d8ebed4c1ed0604f4552075dbe4b5fa6c3567f79"
+  }
+}
