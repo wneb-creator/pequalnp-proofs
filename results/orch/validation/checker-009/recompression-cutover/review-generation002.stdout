@@ -1,1 +1,0 @@
-{"baseline_rows": 4378, "frames": 28998, "independent_decoder": "zstd CLI; all frames consumed exactly", "raw_bytes": 687141800, "raw_metadata": "identical", "shared_lock": "same inode", "source_packs": "unchanged", "staging_report_sha256": "4b14e602b65f46f24a43d711d43cf506c65bb8f47b7e41851cf23052498fcfc8", "status": "PASS"}

@@ -1,8 +1,0 @@
-{
-  "state_dir": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001",
-  "toolchain_root": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux",
-  "excluded_manifest": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-003-pending.json",
-  "excluded_manifest_sha256": "eee2300fdc2e7602e54fea3a17f3e7f5b98adb70dd5d5b7c868bbc7c0f464c2f",
-  "base_journal": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/transaction.json",
-  "phase_lock": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/phase.lock"
-}
