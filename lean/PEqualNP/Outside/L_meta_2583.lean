@@ -3605,3 +3605,296 @@ lemma dirty_wmax_neighbors_need_junk_prefix
   exact Finset.mem_filter.mp hv
 
 end PEqualNP.Outside.L_meta_2583.WmaxJunk
+
+namespace PEqualNP.Outside.L_meta_2583.SharedSupport
+
+lemma support_family_bound_anchor {α : Type} [DecidableEq α]
+    (n m : ℕ) (s : ℕ → Finset α) (a : ℕ → Finset ℕ) (cost : ℕ → ℕ)
+    (hinput : ∀ i < n, (s i).card ≤ 1)
+    (hback : ∀ k < m, a k ⊆ Finset.range (n + k))
+    (hcost : ∀ k < m, (a k).card ≤ cost k + 1)
+    (hcover : ∀ k < m, s (n + k) ⊆ (a k).biUnion s) (x : α) :
+    ∀ t : Finset ℕ, t ⊆ Finset.range (n + m) →
+      (t.biUnion s).card ≤ (Finset.range m).sum cost +
+        (t.filter (fun i => x ∉ s i)).card + 1 := by
+  induction m with
+  | zero =>
+    intro t ht
+    have hinput' : ∀ i ∈ t, (s i).card ≤ 1 := by
+      intro i hi
+      exact hinput i (by have := ht hi; simpa using this)
+    have hsub : t.biUnion s ⊆ insert x ((t.filter (fun i => x ∉ s i)).biUnion s) := by
+      intro y hy
+      obtain ⟨i, hit, hyi⟩ := Finset.mem_biUnion.mp hy
+      by_cases hyx : y = x
+      · exact Finset.mem_insert.mpr (Or.inl hyx)
+      · apply Finset.mem_insert.mpr
+        right
+        refine Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨hit, ?_⟩, hyi⟩
+        intro hxi
+        exact hyx (Finset.card_le_one.mp (hinput' i hit) y hyi x hxi)
+    have h1 := Finset.card_biUnion_le (s := t.filter (fun i => x ∉ s i)) (t := s)
+    have h2 : ∑ i ∈ t.filter (fun i => x ∉ s i), (s i).card ≤
+        (t.filter (fun i => x ∉ s i)).card := by
+      calc
+        _ ≤ ∑ i ∈ t.filter (fun i => x ∉ s i), 1 :=
+          Finset.sum_le_sum fun i hi => hinput' i (Finset.mem_filter.mp hi).1
+        _ = _ := by simp
+    have h3 := Finset.card_insert_le x ((t.filter (fun i => x ∉ s i)).biUnion s)
+    have h4 := Finset.card_le_card hsub
+    simpa using (show (t.biUnion s).card ≤ (t.filter (fun i => x ∉ s i)).card + 1 by omega)
+  | succ m ih =>
+    intro t ht
+    have hb : ∀ k < m, a k ⊆ Finset.range (n + k) := fun k hk => hback k (by omega)
+    have hc : ∀ k < m, (a k).card ≤ cost k + 1 := fun k hk => hcost k (by omega)
+    have hv : ∀ k < m, s (n + k) ⊆ (a k).biUnion s := fun k hk => hcover k (by omega)
+    by_cases hm : n + m ∈ t
+    · let u := t.erase (n + m) ∪ a m
+      have hu : u ⊆ Finset.range (n + m) := by
+        intro i hi
+        rcases Finset.mem_union.mp hi with hi | hi
+        · obtain ⟨hne, hit⟩ := Finset.mem_erase.mp hi
+          have hi' := Finset.mem_range.mp (ht hit)
+          exact Finset.mem_range.mpr (by omega)
+        · exact hback m (by omega) hi
+      have hsub : t.biUnion s ⊆ u.biUnion s := by
+        intro y hy
+        obtain ⟨i, hit, hyi⟩ := Finset.mem_biUnion.mp hy
+        by_cases him : i = n + m
+        · subst i
+          obtain ⟨j, hja, hyj⟩ := Finset.mem_biUnion.mp (hcover m (by omega) hyi)
+          exact Finset.mem_biUnion.mpr ⟨j, Finset.mem_union_right _ hja, hyj⟩
+        · exact Finset.mem_biUnion.mpr ⟨i,
+            Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨him, hit⟩), hyi⟩
+      have huc : (u.filter (fun i => x ∉ s i)).card ≤
+          (t.filter (fun i => x ∉ s i)).card + cost m := by
+        have heq : u.filter (fun i => x ∉ s i) =
+            (t.filter (fun i => x ∉ s i)).erase (n + m) ∪
+              (a m).filter (fun i => x ∉ s i) := by
+          ext i
+          simp only [u, Finset.mem_filter, Finset.mem_union, Finset.mem_erase]
+          tauto
+        rw [heq]
+        have h1 := Finset.card_union_le
+          ((t.filter (fun i => x ∉ s i)).erase (n + m)) ((a m).filter (fun i => x ∉ s i))
+        have h3 := hcost m (by omega)
+        by_cases hxm : x ∈ s (n + m)
+        · obtain ⟨j, hja, hxj⟩ := Finset.mem_biUnion.mp (hcover m (by omega) hxm)
+          have hjsub : (a m).filter (fun i => x ∉ s i) ⊆ (a m).erase j := by
+            intro i hi
+            obtain ⟨hia, hxi⟩ := Finset.mem_filter.mp hi
+            refine Finset.mem_erase.mpr ⟨?_, hia⟩
+            intro heq
+            exact hxi (heq.symm ▸ hxj)
+          have h2 := Finset.card_erase_add_one hja
+          have h4 := Finset.card_le_card hjsub
+          have h5 := Finset.card_le_card (Finset.erase_subset (n + m)
+            (t.filter (fun i => x ∉ s i)))
+          omega
+        · have hmem : n + m ∈ t.filter (fun i => x ∉ s i) := Finset.mem_filter.mpr ⟨hm, hxm⟩
+          have h2 := Finset.card_erase_add_one hmem
+          have h4 := Finset.card_filter_le (a m) (fun i => x ∉ s i)
+          omega
+      have hbound := ih hb hc hv u hu
+      have hsmall := Finset.card_le_card hsub
+      rw [Finset.sum_range_succ]
+      change (t.biUnion s).card ≤ (Finset.range m).sum cost + cost m +
+        (t.filter (fun i => x ∉ s i)).card + 1
+      omega
+    · have ht' : t ⊆ Finset.range (n + m) := by
+        intro i hi
+        have hi' := Finset.mem_range.mp (ht hi)
+        have hne : i ≠ n + m := by intro h; subst i; exact hm hi
+        exact Finset.mem_range.mpr (by omega)
+      have hbound := ih hb hc hv t ht'
+      rw [Finset.sum_range_succ]
+      change (t.biUnion s).card ≤ (Finset.range m).sum cost + cost m +
+        (t.filter (fun i => x ∉ s i)).card + 1
+      omega
+
+
+
+lemma support_family_bound_anchor_closed {α : Type} [DecidableEq α]
+    (n m : ℕ) (s : ℕ → Finset α) (a : ℕ → Finset ℕ) (cost : ℕ → ℕ)
+    (hinput : ∀ i < n, (s i).card ≤ 1)
+    (hback : ∀ k < m, a k ⊆ Finset.range (n + k))
+    (hcost : ∀ k < m, (a k).card ≤ cost k + 1)
+    (hcover : ∀ k < m, s (n + k) ⊆ (a k).biUnion s)
+    (R : Finset ℕ)
+    (hR : ∀ k ∈ R, k < m → ∀ j ∈ a k, j < n ∨ j - n ∈ R)
+    (W : Finset ℕ) (hW : W ⊆ Finset.range (n + m))
+    (hWR : ∀ w ∈ W, w < n ∨ w - n ∈ R)
+    (x : α) (hshare : ∀ w ∈ W, x ∈ s w) :
+    (W.biUnion s).card ≤ ((Finset.range m).filter (fun k => k ∈ R)).sum cost + 1 := by
+  let ss : ℕ → Finset α := fun v => if v < n ∨ v - n ∈ R then s v else ∅
+  let aa : ℕ → Finset ℕ := fun k => if k ∈ R then a k else ∅
+  let cc : ℕ → ℕ := fun k => if k ∈ R then cost k else 0
+  have hi : ∀ i < n, (ss i).card ≤ 1 := by
+    intro i hi
+    simpa only [ss, ite_eq_left (Or.inl hi)] using hinput i hi
+  have hb : ∀ k < m, aa k ⊆ Finset.range (n + k) := by
+    intro k hk
+    by_cases hkR : k ∈ R
+    · simpa only [aa, ite_eq_left hkR] using hback k hk
+    · simp [aa, hkR]
+  have hc : ∀ k < m, (aa k).card ≤ cc k + 1 := by
+    intro k hk
+    by_cases hkR : k ∈ R
+    · simpa only [aa, cc, ite_eq_left hkR] using hcost k hk
+    · simp [aa, cc, hkR]
+  have hv : ∀ k < m, ss (n + k) ⊆ (aa k).biUnion ss := by
+    intro k hk y hy
+    by_cases hkR : k ∈ R
+    · have hs : ss (n + k) = s (n + k) := by simp [ss, hkR]
+      obtain ⟨j, hj, hyj⟩ := Finset.mem_biUnion.mp (hcover k hk (hs ▸ hy))
+      have hsj : ss j = s j := by simp only [ss, ite_eq_left (hR k hkR hk j hj)]
+      exact Finset.mem_biUnion.mpr ⟨j, by simpa [aa, hkR] using hj, hsj.symm ▸ hyj⟩
+    · simp [ss, hkR] at hy
+  have heq : W.biUnion ss = W.biUnion s := by
+    apply Finset.biUnion_congr rfl
+    intro w hw
+    exact ite_eq_left (hWR w hw)
+  have hzero : W.filter (fun w => x ∉ ss w) = ∅ := by
+    apply Finset.filter_eq_empty_iff.mpr
+    intro w hw hnot
+    apply hnot
+    simpa only [ss, ite_eq_left (hWR w hw)] using hshare w hw
+  have hbound := support_family_bound_anchor n m ss aa cc hi hb hc hv x W hW
+  have hsum : (Finset.range m).sum cc =
+      ((Finset.range m).filter (fun k => k ∈ R)).sum cost := by
+    simp only [cc, Finset.sum_filter]
+  simpa only [heq, hzero, Finset.card_empty, Nat.add_zero, hsum] using hbound
+
+
+open PEqualNP.Outside.L_meta_2583.Minterm
+
+lemma pickedSupport_family_anchor_prefix (n m : ℕ) (a b : ℕ → ℕ) (both left : ℕ → Bool)
+    (ha : ∀ k < m, a k < n + k) (hb : ∀ k < m, b k < n + k)
+    (r : ℕ) (hr : r ≤ m) (W : Finset ℕ) (hW : ∀ w ∈ W, w < n + r)
+    (x : Fin n) (hshare : ∀ w ∈ W, x ∈ pickedSupport n m a b both left ha hb w) :
+    (W.biUnion (pickedSupport n m a b both left ha hb)).card ≤
+      ((Finset.range r).filter fun k => both k = true).card + 1 := by
+  let s := pickedSupport n m a b both left ha hb
+  let parents : ℕ → Finset ℕ := fun k =>
+    if both k then {a k, b k} else if left k then {a k} else {b k}
+  let cost : ℕ → ℕ := fun k => if both k then 1 else 0
+  have hinput : ∀ i < n, (s i).card ≤ 1 := by
+    intro i hi
+    simp [s, pickedSupport_input n m a b both left ha hb i hi]
+  have hp : ∀ k < r, parents k ⊆ Finset.range (n + k) := by
+    intro k hk i hi
+    simp only [parents] at hi
+    split_ifs at hi with h1 h2
+    · simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+      rcases hi with rfl | rfl
+      · exact Finset.mem_range.mpr (ha k (lt_of_lt_of_le hk hr))
+      · exact Finset.mem_range.mpr (hb k (lt_of_lt_of_le hk hr))
+    · rw [Finset.mem_singleton] at hi
+      subst i
+      exact Finset.mem_range.mpr (ha k (lt_of_lt_of_le hk hr))
+    · rw [Finset.mem_singleton] at hi
+      subst i
+      exact Finset.mem_range.mpr (hb k (lt_of_lt_of_le hk hr))
+  have hc : ∀ k < r, (parents k).card ≤ cost k + 1 := by
+    intro k _
+    simp only [parents, cost]
+    split_ifs <;> first | exact Finset.card_le_two | simp
+  have hv : ∀ k < r, s (n + k) ⊆ (parents k).biUnion s := by
+    intro k hk
+    dsimp only [s, parents]
+    rw [pickedSupport_gate n m a b both left ha hb k (lt_of_lt_of_le hk hr)]
+    split_ifs <;> simp
+  have hmain := support_family_bound_anchor n r s parents cost hinput hp hc hv x W
+    (fun w hw => Finset.mem_range.mpr (hW w hw))
+  have hsum : (Finset.range r).sum cost =
+      ((Finset.range r).filter fun k => both k = true).card := by
+    simp only [cost, Finset.sum_boole]
+    rfl
+  have hzero : W.filter (fun i => x ∉ s i) = ∅ := by
+    apply Finset.filter_eq_empty_iff.mpr
+    intro i hi
+    exact not_not.mpr (hshare i hi)
+  simpa [hsum, hzero, s] using hmain
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+lemma dirty_shared_roots_small_support_prefix (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (S : Finset (Fin n))
+    (hS : graphFun G ∅ (setInput S) = false)
+    (r : ℕ) (hr : r ≤ C.gates.length) (W : Finset ℕ)
+    (hvalid : ∀ w ∈ W, w < n + r)
+    (htrue : ∀ w ∈ W, wv n C (setInput S) w = true)
+    (x : Fin n) (hshare : ∀ w ∈ W, x ∈ circuitSupport n C hAO (setInput S) w) :
+    ∃ T : Finset (Fin n), T ⊆ S ∧
+      (∀ w ∈ W, wv n C (setInput T) w = true) ∧
+      T.card ≤ (junk G C ∩ Finset.range r).card + 1 := by
+  classical
+  let T := W.biUnion (circuitSupport n C hAO (setInput S))
+  have hsub : T ⊆ S := by
+    intro i hi
+    obtain ⟨w, hw, hiw⟩ := Finset.mem_biUnion.mp hi
+    exact (support_sound n C hAO S w (htrue w hw)).1 hiw
+  refine ⟨T, hsub, ?_, ?_⟩
+  · intro w hw
+    have hs := support_sound n C hAO S w (htrue w hw)
+    exact wv_mono n C hAO.1 hAO.2.1
+      (setInput (circuitSupport n C hAO (setInput S) w)) (setInput T)
+      (fun i hi => by
+        simp only [setInput, decide_eq_true_eq] at hi ⊢
+        exact Finset.mem_biUnion.mpr ⟨w, hw, hi⟩) w hs.2
+  · have hbound := pickedSupport_family_anchor_prefix n C.gates.length
+      (fun k => opnd C k 0) (fun k => opnd C k 1) (pickedBoth n C (setInput S))
+      (fun k => wv n C (setInput S) (opnd C k 0))
+      (fun k hk => opnd_back n C hAO k hk 0)
+      (fun k hk => opnd_back n C hAO k hk 1) r hr W hvalid x hshare
+    change T.card ≤ _ at hbound
+    refine hbound.trans (Nat.add_le_add_right (Finset.card_le_card ?_) 1)
+    intro k hk
+    obtain ⟨hkr, hboth⟩ := Finset.mem_filter.mp hk
+    apply Finset.mem_inter.mpr
+    refine ⟨true_ands_subset_junk n C G (setInput S) hS ?_, hkr⟩
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr
+      (lt_of_lt_of_le (Finset.mem_range.mp hkr) hr), hboth⟩
+
+open PEqualNP.Outside.L_meta_2583.MultiOrMask PEqualNP.Outside.L_meta_2583.PlaneSingleUse
+
+lemma point_or_shared_siblings_need_junk
+    (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hC : IsAO2 (N + N) C)
+    (hfun : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧
+        z (Fin.natAdd N l) = true))
+    (G : SimpleGraph (Fin (N + N))) [DecidableRel G.Adj]
+    (hgraph : ∀ z, circuitFun (N + N) C z = graphFun G ∅ z)
+    (p : Fin N) (W : Finset ℕ)
+    (hread : ∀ j < C.gates.length, p.val ∈ (gateAt C j).inputs →
+      ∃ w ∈ W, w ≠ p.val ∧ (gateAt C j).op = GateOp.or ∧
+        ((gateAt C j).inputs = [p.val, w] ∨ (gateAt C j).inputs = [w, p.val]))
+    (hdegree : (Finset.univ.filter (fun l => I p l)).card = q + 1)
+    (hunique : ∀ a b : Fin N, a ≠ b → ∃! l : Fin N, I a l ∧ I b l)
+    (S : Finset (Fin (N + N))) (hS : circuitFun (N + N) C (setInput S) = false)
+    (hw : ∀ w ∈ W, wv (N + N) C (setInput S) w = true)
+    (r : ℕ) (hr : r ≤ C.gates.length) (hvalid : ∀ w ∈ W, w < N + N + r)
+    (x : Fin (N + N))
+    (hshare : ∀ w ∈ W, x ∈ circuitSupport (N + N) C hC (setInput S) w) :
+    q ≤ (junk G C ∩ Finset.range r).card := by
+  have hSG : graphFun G ∅ (setInput S) = false := (hgraph _).symm.trans hS
+  obtain ⟨T, hTS, hTw, hcard⟩ :=
+    dirty_shared_roots_small_support_prefix (N + N) C hC G S hSG r hr W hvalid hw x hshare
+  have hT : circuitFun (N + N) C (setInput T) = false := by
+    cases ht : circuitFun (N + N) C (setInput T) with
+    | false => rfl
+    | true =>
+      have hs : circuitFun (N + N) C (setInput S) = true :=
+        wv_mono (N + N) C hC.1 hC.2.1 (setInput T) (setInput S)
+          (fun i hi => decide_eq_true (hTS (of_decide_eq_true hi))) C.output ht
+      simp [hS] at hs
+  have hcount := point_or_siblings_count_general q N I C hC hfun p W hread
+    hdegree hunique (setInput T) hT hTw
+  have hle := hcount.trans ((point_support_card_le T).trans hcard)
+  omega
+
+
+end PEqualNP.Outside.L_meta_2583.SharedSupport
