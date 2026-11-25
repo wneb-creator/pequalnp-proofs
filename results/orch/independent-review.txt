@@ -1,5 +1,0 @@
-PASS: all1523 actual source states exactly match independent guarded10k profile.
-PASS: all55 split childlists exactly match independent Boolean expansion, including order and budgets.
-PASS: all1523 nodes reachable from exact8input root,1468 finite-search leaves,159validW aliases.
-PASS: initialcuts permits exactly the full8input list.
-SHA256 546fe00661dc854d0103bb673e4fcdd52768b22c10aca2e0d1b35db6b1d6f181
