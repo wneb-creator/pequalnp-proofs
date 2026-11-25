@@ -1,0 +1,57 @@
+[
+  {
+    "source": "lean/PEqualNP/Outside/L_meta_7493.lean",
+    "sha256": "b329b17b680ffa2f67c89212761554f195158b36708f9d75ccd084343059740e",
+    "bytes": 209706
+  },
+  {
+    "source": "results/orch/lemmas/Restriction.lean",
+    "sha256": "6981b6dd252ad9205568e4972ff934dff07f68cd84b75e48da53c8d12ef81110",
+    "bytes": 30306
+  },
+  {
+    "source": "results/orch/lemmas/PairCode.lean",
+    "sha256": "bc78ab13849d05f740c9344b565aaf81e8887cdd865b35aa8a10fea72eced879",
+    "bytes": 4381
+  },
+  {
+    "source": "results/orch/lemmas/FirstMerge.lean",
+    "sha256": "ffc120cc86a34a55220c0241c80dd82e81e5d30e57d986d2b6a9fe5a9842641a",
+    "bytes": 5288
+  },
+  {
+    "source": "results/orch/lemmas/CutCost.lean",
+    "sha256": "931ecbcf068e32c93f3d51792a1d15020d4b6288cc3fe000c59f0f6cc5be7fee",
+    "bytes": 2123
+  },
+  {
+    "source": "results/orch/lemmas/FirstOrigin.lean",
+    "sha256": "10d89fdd4433540caca0bf453c58f052175f01825b07c3a7a862c769153583b6",
+    "bytes": 4276
+  },
+  {
+    "source": "results/orch/lemmas/Compression.lean",
+    "sha256": "e386c1ab2147e1aec34cf900203d10b3bde93372e82281d4337ca0d36c989430",
+    "bytes": 4597
+  },
+  {
+    "source": "results/orch/lemmas/FirstBinary.lean",
+    "sha256": "c82f55a1884b7e60f1696f1fa9b099c1a051460abef1c78f23fae9e6332c745c",
+    "bytes": 12706
+  },
+  {
+    "source": "results/orch/lemmas/CutFloor.lean",
+    "sha256": "6a902407e343859218894b19a83888a3f6b8cefa1a35e506106c75cd956ec683",
+    "bytes": 3146
+  },
+  {
+    "source": "results/orch/lemmas/BinarySixteen.lean",
+    "sha256": "8141db5513c98759c15b8024fc017280d00dedd6ef83a2484a5cce03e6e97312",
+    "bytes": 2647
+  },
+  {
+    "source": "results/orch/lemmas/SixteenCorollaries.lean",
+    "sha256": "347427a8b18e9d4e4fdd84610f5cdccfe59b59694d6c565e93e23e7f147a12f0",
+    "bytes": 1888
+  }
+]

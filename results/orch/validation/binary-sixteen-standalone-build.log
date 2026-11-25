@@ -1,0 +1,57 @@
+../results/orch/lemmas/BinarySixteenStandalone.lean:4695:17: warning: This simp argument is unused:
+  hop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hins, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:4695:22: warning: This simp argument is unused:
+  hins
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hop, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:4687:14: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5111:69: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cutCost, cutCharge, notFlag, reads, Bool.false_eq_true, ↓reduceIte] at cost
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5127:10: warning: This simp argument is unused:
+  List.getD_eq_default
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.length_ofFn, Nat.le_of_not_gt before]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5188:38: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5674:13: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at high
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5675:12: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at low
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/BinarySixteenStandalone.lean:5726:39: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2592_aux.BinarySixteen.binary_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2592_aux.BinarySixteen.binary_floor (C : PEqualNP.CircuitLowerBounds.Circuit)
+  (fan : PEqualNP.MetaComplexity.FanInTwo C)
+  (correct : ∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2592_aux.Restriction.petersen x) :
+  16 ≤ PEqualNP.Outside.L_meta_7493.CircuitProof.nonNotCount C.gates

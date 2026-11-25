@@ -23,3 +23,7 @@ FirstBinary.lean: Lean compile exit 0; independently reviewed by root; 269 lines
 SingleUse.lean: Lean compile exit 0; independently reviewed by root; 73 lines; sha256 a060f4f05a4ba2225bcfc4ee8987f18efb81f47b3e63d539ba9412eeb3911e30.
 CutFloor has only FanInTwo and correct Petersen computation as assumptions; arbitrary vertex restriction is transferred to checked L_meta_7493. Extended FirstBinary supplies the least-circuit first binary gate interface. Target remains unproved.
 BinarySixteen.lean: complete partial theorem (FanInTwo + exact Petersen computation implies at least16 non-NOT gates), Lean compile exit0; two unnecessarySimpa warnings only. Root independently reviewed full61-line assembly and its previously reviewed dependencies. sha256 8141db5513c98759c15b8024fc017280d00dedd6ef83a2484a5cce03e6e97312. This is stronger than the existing15binary floor but is not the posted L-meta-2592 theorem.
+Standalone partial: 5781 lines before cleanup; 280866 bytes; SHA256 81d440f47787851ebc9beade91df8244f6f9bae051acbabf444c5dd78920137d. Inliner and complete source mapping independently reviewed by root; source guard and named lake build passed.
+Official local checker ACCEPTED the explicit >=16 binary-gate PARTIAL statement: standard axioms only, kernel re-checked2734constants. The posted L-meta-2592 statement remains unproved. SixteenCorollaries additionally proves at most3NOTs if size<=19.
+Sub-agents: 7 total, including counterexample/two_vertex_catalog added for read-only supporting-bound lookup.
+TIMING total=36 subagents=7

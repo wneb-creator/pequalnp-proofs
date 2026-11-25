@@ -1,0 +1,19 @@
+Independent source review: PASS. BinarySixteen proves a binary-count lower bound under exact Petersen correctness; SixteenCorollaries combines the count partition with that bound.
+BinarySixteen.lean sha256 8141db5513c98759c15b8024fc017280d00dedd6ef83a2484a5cce03e6e97312
+SixteenCorollaries.lean sha256 347427a8b18e9d4e4fdd84610f5cdccfe59b59694d6c565e93e23e7f147a12f0
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.BinarySixteen.binary_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SixteenCorollaries.size_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SixteenCorollaries.not_count_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SixteenCorollaries.four_nots_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0
+All four theorem axiom checks passed. This proves partial binary≥16/four-NOT exclusion, not the complete desk statement.
