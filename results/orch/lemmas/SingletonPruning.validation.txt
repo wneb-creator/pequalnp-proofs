@@ -1,0 +1,63 @@
+Lean compilation: PASS (exit 0)
+Source SHA256: 5134ac3aec7511dc428dba208d92701cbaca84a30320fffcce6076b2c4633cf5
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean
+This is a checked helper, not a proof of L-meta-650. The posted bound remains 63.
+
+Complete stdout and stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:122:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:146:69: warning: This simp argument is unused:
+  List.getElem?_take
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_append, hjm, (by omega : j < C.gates.length)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:153:69: warning: This simp argument is unused:
+  List.getElem?_take
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_append, hjm, List.getElem?_drop, h1,
+    (by omega : j + 1 < C.gates.length), (by omega : min m C.gates.length = m)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:252:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:262:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:269:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:269:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:275:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:275:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:283:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:365:24: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+Independent review: root inspected the proof and statement; PASS for partial preservation. No proof of the posted size63 statement is claimed.
+Sub-agents: 5 (circuit search, structural analysis, Lean baseline, SAT resynthesis, proof/checker review)
+TIMING total=18.6 subagents=5
