@@ -10,4 +10,14 @@ No full-target checker run or proof PR. Conditional component is not a submitted
 Cleanup not attempted; lines before/after unchanged636 and678.
 
 Sub-agents:6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain research, star construction)
-TIMING total=53.96 subagents=6
+TIMING total=57.03 subagents=6
+
+PlaneGeometry.lean:155lines; point regularity, edge count, Hall condition, C4 exclusion, and cover lower bound. Lean exit0; stdout/stderr empty. Independent audit PASS.
+SHA256 ba2df371d6d92b69d37c3fc019e7e594b424e19c33cd6d3d5111397ef85d10b0.
+StarLower.lean:2151lines; exact READ1 lower bound N*(q+2)<=C.size+1. Lean exit0; stdout inherited warnings, stderr empty. Independent audit PASS. Superseded by plain combined file for final formatting.
+SHA256 5ed5c107872b871fa9ed544cdc73c7ce7a7b6e07a3e0a19b866a4ebbbe02b24c.
+StarEquivalencePlain.lean:2853lines/137968bytes; no-larger READ1 replacement iff N*(q+2)<=C.size+1 under the posted plane hypotheses. Lean exit0; stdout inherited warnings, stderr empty. Independent audit PASS. Plain namespace format fixed without changing helper theorem names or bodies.
+SHA256 2f43a4b3c1f8491a3c3eae664087a8e67ff83819eb1c04d74d5c80155e1c777f.
+SemanticTripleBlock.lean:75lines; finite two-rectangle core has a star cover within the three-factor leaf budget. This is a set-theoretic subcase, not arbitrary circuit normalization. Lean exit0; stdout/stderr empty. Independent audit PASS.
+SHA256 2c5218282ca1b11e5c9cd65d1c344ead9ac7ff5662b2cfec60bdcccc93d440e8.
+The exact posted full theorem remains unproved. No full-target checker or PR yet.
