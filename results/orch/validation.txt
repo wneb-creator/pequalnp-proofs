@@ -48,3 +48,5 @@ PlaneOrBound.lean: lake env lean passed, exit0;801 lines. Any legal13-input AND/
 ProductiveBound.lean: lake env lean passed, exit0;276lines, nine deprecated if_pos warnings. Varying-cofactor weighted productive-OR count, not distinct physical gate count. Independently reviewed.
 Reductions.lean: lake env lean passed, exit0; explicit2537-clause CNF UNSAT via1274RUP steps and decide +kernel. Axiom audit: propext, Classical.choice, Quot.sound only. Circuit-to-CNF bridge unproved; this is not the posted statement. Independently reviewed as research artifact, not Outside PR format.
 Double-star audit: complete computational nine-gate UNSAT coverage;37solver runs and10gate SAT control archived with hashes. No kernel bridge or global lower bound claimed. Independently reviewed.
+
+CofactorProductive.lean: lake env lean passed, exit0;819lines, three unnecessarySimpa and eleven deprecation warnings. Applies directly to posted26-input incidence semantics and proves39weighted(point,productive-OR) charges. Distinct physical gates are not counted; fullgap remains unresolved. Independent review PASS, SHA256b5eb4a789db0dacac3dd42f59610d4efbd236936ab4f7275a1f089a7f51b6f8a.
