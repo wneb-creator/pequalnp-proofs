@@ -1,0 +1,79 @@
+--- width278
++++ cachednode
+@@ -3191,10 +3191,51 @@
+       simp [contextWire,List.getD_eq_getElem?_getD,h2]
+   rwa [eq] at all
+ 
+-def contextOf (g : Forest) (k i : Nat) : NodeContext :=
++noncomputable def forceVec {n : Nat} {β : Type} (a : BitVec n) (f : BitVec n → β) : β :=
++  force a.toNat fun z => f (BitVec.ofNat n z)
++
++theorem forceVec_eq {n : Nat} {β : Type} (a : BitVec n) (f : BitVec n → β) :
++    forceVec a f = f a := by
++  simp [forceVec,force_eq]
++
++noncomputable def forceDecor {β : Type} (d : Decor) (f : Decor → β) : β :=
++  forceVec d.1 fun a => forceVec d.2.1 fun p => forceVec d.2.2 fun q => f (a,p,q)
++
++theorem forceDecor_eq {β : Type} (d : Decor) (f : Decor → β) : forceDecor d f = f d := by
++  simp only [forceDecor,forceVec_eq]
++
++noncomputable def decodeBankCached : Nat → Nat → List Decor → List Decor
++  | 0,_,ws => ws
++  | n+1,bits,ws =>
++      let a := ws.getD (bits &&& 15) defaultDecor
++      let b := ws.getD ((bits >>> 4) &&& 15) defaultDecor
++      forceDecor (dbin ((bits >>> 8) &&& 3) a b) fun z =>
++        decodeBankCached n (bits >>> 10) (ws++[z])
++
++theorem decodeBankCached_eq (n bits : Nat) (ws : List Decor) :
++    decodeBankCached n bits ws = decodeBank n bits ws := by
++  induction n generalizing bits ws with
++  | zero => rfl
++  | succ n ih =>
++      simp only [decodeBankCached,forceDecor_eq,ih,decodeBank]
++
++noncomputable def readNodeCached (g : Forest) (k i : Nat) : Nat × List Decor × List Decor :=
++  let raw := wiresOf g
++  let (_,depth,_,_,_,_,_,data) := g.levels k
++  let len := 10*storedDepth g depth
++  let width := len+raw.length+depth
++  force (packedAt data (i*width) width) fun recp =>
++  force (recp &&& ((1 <<< len)-1)) fun ops =>
++  let bank := decodeBankCached depth ops raw
++  (ops,bank,selectLive (recp >>> len) bank)
++
++theorem readNodeCached_eq (g : Forest) (k i : Nat) : readNodeCached g k i = readNode g k i := by
++  simp only [readNodeCached,force_eq,decodeBankCached_eq,readNode]
++
++noncomputable def contextOf (g : Forest) (k i : Nat) : NodeContext :=
+   let raw := wiresOf g
+   let (num,depth,cw,iw,pw,offw,lw,data) := g.levels k
+-  let (ops,bank,ws) := readNode g k i
++  let (ops,bank,ws) := readNodeCached g k i
+   let start := num*(10*storedDepth g depth+raw.length+depth)
+   let pos := start+num*offw+packedAt data (start+i*offw) offw
+   let nr := packedAt data pos 5
+@@ -3234,7 +3275,9 @@
+   decide ws.Nodup && !(ws.contains T)
+ theorem from_context (g : Forest) (k i : Nat) :
+     nodeVerified g k i = (prelim (targetOf g) (contextOf g k i) &&
+-      (if k=0 then true else testAll (contextOf g k i) (contextOf g k i).2.2.1)) := rfl
++      (if k=0 then true else testAll (contextOf g k i) (contextOf g k i).2.2.1)) := by
++  simp only [contextOf,readNodeCached_eq]
++  rfl
+ 
+ theorem makeBlock {g k start n} (h : ∀ (i : Nat), start ≤ i → i < start + n → nodeVerified g k i = true) :
+     block g k start n=true := by
+@@ -3244,9 +3287,9 @@
+     simp only [block,Bool.and_eq_true]
+     exact ⟨h _ (by omega) (by omega),ih (fun i le lt => h i le (by omega))⟩
+ 
+-def contexts (g : Forest) (k start n : Nat) :=
++noncomputable def contexts (g : Forest) (k start n : Nat) :=
+   ((List.range n).map (start+·)).map (contextOf g k)
+-def header (g : Forest) (k start n ar : Nat) :=
++noncomputable def header (g : Forest) (k start n ar : Nat) :=
+   (contexts g k start n).all (fun c => c.2.1==ar && prelim (targetOf g) c)
+ noncomputable def rowCut (g : Forest) (k start n ar lo len : Nat) :=
+   let xs := contexts g k start n

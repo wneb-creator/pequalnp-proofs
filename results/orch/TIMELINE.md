@@ -68,3 +68,5 @@
 - 2026-11-25T04:57:50.205596+00:00: Width278 generic verifier compiled and independent exact-transform/sample audit passed; full numerical replay pending.
 
 - 2026-11-25T05:01:09.432476+00:00: Matched monotone16 tests passed; width278 saves about8.2% user CPU including fixed setup. Upstream status refresh confirms gap still open and peer full candidates only have timeout verdicts.
+
+- 2026-11-25T05:07:57.936885+00:00: Combined width278/root96/cofactor64 replay started after independent schedule reviews. Cached-node experiment is sound but excluded for slower performance. Successful numerical probes prepared for preservation.

@@ -1,0 +1,181 @@
+{
+  "reviewed_at": "2026-11-25T05:07:31.890488+00:00",
+  "verdict": "PASS for partial preservation",
+  "components": [
+    {
+      "file": "RuntimeWidth278Split96Benchmark",
+      "bytes": 163237,
+      "sha256": "726da2427b50840e73dab5c3fb03707e573205c5daa1b7d3b01102295d1adad9",
+      "exit_code": 0,
+      "log_errors": 0,
+      "actual_plain_guard": "PASS",
+      "wall_seconds": 34.81380060899937
+    },
+    {
+      "file": "RuntimeWidth278Merged96Benchmark",
+      "bytes": 162965,
+      "sha256": "c2f4bbf3a99f4ae0918b642e90bf9929df57d4a2979d9e0ed9bb563a92bac52a",
+      "exit_code": 0,
+      "log_errors": 0,
+      "actual_plain_guard": "PASS",
+      "wall_seconds": 27.83976132799944
+    },
+    {
+      "file": "RuntimeCofactorOriginalBenchmark",
+      "bytes": 36389,
+      "sha256": "37d067818229d7e105ca35f7dd3159aabc425212230ff433870e7854934e69ba",
+      "exit_code": 0,
+      "log_errors": 0,
+      "actual_plain_guard": "PASS",
+      "wall_seconds": 21.231847168000968
+    },
+    {
+      "file": "RuntimeCofactorGroups64Benchmark",
+      "bytes": 36372,
+      "sha256": "c9c399f5e544a8d3a2b91bb42b08318516e15c89e21c9eab71481a63bccbbbd7",
+      "exit_code": 0,
+      "log_errors": 0,
+      "actual_plain_guard": "PASS",
+      "wall_seconds": 17.093105478001235
+    }
+  ],
+  "rootM": {
+    "level": 11,
+    "states": "186..281 inclusive",
+    "count": 96,
+    "arity": 11,
+    "checked_state_operand_pairs": 5280,
+    "header_included": false
+  },
+  "g383": {
+    "level": 9,
+    "states": "3..118 inclusive",
+    "count": 116,
+    "arity": 9,
+    "checked_state_operand_pairs": 4176,
+    "header_included": true,
+    "original_leaf_ranges": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        16,
+        5
+      ],
+      [
+        21,
+        4
+      ],
+      [
+        25,
+        5
+      ],
+      [
+        30,
+        4
+      ],
+      [
+        34,
+        5
+      ],
+      [
+        39,
+        4
+      ],
+      [
+        43,
+        5
+      ],
+      [
+        48,
+        4
+      ],
+      [
+        52,
+        5
+      ],
+      [
+        57,
+        4
+      ],
+      [
+        61,
+        5
+      ],
+      [
+        66,
+        4
+      ],
+      [
+        70,
+        5
+      ],
+      [
+        75,
+        4
+      ],
+      [
+        79,
+        5
+      ],
+      [
+        84,
+        4
+      ],
+      [
+        88,
+        5
+      ],
+      [
+        93,
+        4
+      ],
+      [
+        97,
+        5
+      ],
+      [
+        102,
+        4
+      ],
+      [
+        106,
+        5
+      ],
+      [
+        111,
+        4
+      ],
+      [
+        115,
+        4
+      ]
+    ],
+    "grouped_leaf_ranges": [
+      [
+        3,
+        64
+      ],
+      [
+        67,
+        52
+      ]
+    ]
+  },
+  "candidate": "/tmp/oec/pequalnp-pilot-61/PR12184_Width278ForceBatch.lean",
+  "candidate_sha256": "c0d3faac68bbbda5a51a6c588b23c24019d117cc44f88dc11981f8e263019016",
+  "copied_declarations_exact_modulo_whitespace": {
+    "rootM_benchmarks": 174,
+    "g383_benchmarks": 183
+  },
+  "paired_preludes_byte_identical": true
+}

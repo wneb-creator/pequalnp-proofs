@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-25T05:04:13.454793+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-61/PR12184_Width278CachedNode.lean",
+  "sha256": "c5bafeff6a83ba58f85a415ffc7d90581230c19caea25bd3a16605e2e3e60663",
+  "bytes": 519412,
+  "byte_delta": 1850,
+  "certificate_suffix_identical": true,
+  "hex_sequence_identical": true,
+  "final_theorem_identical": true,
+  "semantic_review": "PASS: forceVec and forceDecor reconstruct identical values via proved force_eq; decodeBankCached inductively matches decodeBank; readNodeCached matches original reader; contextOf substitutes only that proved equality, and from_context rewrites it. No semantic assumptions or new axioms introduced.",
+  "remaining": "numerical benchmark and full source replay"
+}

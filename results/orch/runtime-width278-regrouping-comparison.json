@@ -1,0 +1,54 @@
+{
+  "group": "rootM11-start186-count96-ar11",
+  "width": 278,
+  "runs": [
+    {
+      "variant": "Split96",
+      "group": "rootM11-start186-count96-ar11",
+      "width": 278,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:00:10.208097+00:00",
+      "wallSeconds": 34.81380060899937,
+      "userSeconds": 30.62036,
+      "systemSeconds": 3.913991,
+      "maxRssKiB": 3495924,
+      "exitCode": 0,
+      "sourceSha256": "726da2427b50840e73dab5c3fb03707e573205c5daa1b7d3b01102295d1adad9",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-width278-split96-benchmark.log",
+      "profileKernelSeconds": [
+        2.69,
+        3.59,
+        4.14,
+        4.83,
+        3.78,
+        4.46
+      ],
+      "profileKernelTotalSeconds": 23.49
+    },
+    {
+      "variant": "Merged96",
+      "group": "rootM11-start186-count96-ar11",
+      "width": 278,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:00:45.022984+00:00",
+      "wallSeconds": 27.83976132799944,
+      "userSeconds": 25.536784,
+      "systemSeconds": 2.194626,
+      "maxRssKiB": 5360568,
+      "exitCode": 0,
+      "sourceSha256": "c2f4bbf3a99f4ae0918b642e90bf9929df57d4a2979d9e0ed9bb563a92bac52a",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-width278-merged96-benchmark.log",
+      "profileKernelSeconds": [
+        21.1
+      ],
+      "profileKernelTotalSeconds": 21.1
+    }
+  ],
+  "kernelReductionPercent": 10.174542358450388,
+  "userCpuReductionPercent": 16.601947201143297,
+  "memoryCaution": "Merged96 peak RSS increases from about3.5GB to5.36GB; whole-file replay still required."
+}
