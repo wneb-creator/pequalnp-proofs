@@ -1,0 +1,8 @@
+PairDirtyNecessary.lean
+Lean exit code: 0
+Lean stdout and stderr: empty
+Dependency: PEqualNP.Outside.L_meta_2656, existing repository source; scratch copy omits only broad Mathlib import and compiles with Defs.
+Dependency build exit code: 0; stdout and stderr empty.
+Research-only result; additional outside import is not allowed in final L650 file.
+Theorem: every correct monotone circuit of size at most63 has an AND gate true on an independent input containing at most two true variables.
+No output-validity or backward-reference assumption is required.

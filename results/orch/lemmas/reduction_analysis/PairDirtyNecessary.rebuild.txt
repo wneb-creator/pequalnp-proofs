@@ -1,0 +1,27 @@
+Rebuilding the research partial PairDirtyNecessary
+
+The dependency is already present on this branch at
+lean/PEqualNP/Outside/L_meta_2656.lean. No newer upstream checkout is needed.
+Original dependency SHA256: d33266887f750fb15eeb3730e2f9d0847b214cb550d45538e511f303c96cd0d0
+Scratch dependency SHA256: 4d99b75289fb424e548e59d7efae5235cd1190a019279fad8c1e8c0c6b187141
+The scratch copy removes exactly the leading `import Mathlib` line. All proof
+text and declarations are identical. It builds using the remaining Defs import.
+This is a research dependency, forbidden in the final L650 submission.
+
+The original build was performed from /workspace/pequalnp-proofs/lean with:
+
+ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH="/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH" lake env lean -j1 -M3072 --root=/tmp/oec/pequalnp-pilot-57/research -o /tmp/oec/pequalnp-pilot-57/research/PEqualNP/Outside/L_meta_2656.olean /tmp/oec/pequalnp-pilot-57/research/PEqualNP/Outside/L_meta_2656.lean
+
+Lean resolves the first matching PEqualNP package root as a whole. Therefore the
+isolated research/PEqualNP directory also contains symlinks to every available
+entry of lean/.lake/build/lib/lean/PEqualNP except Outside, which contains the
+scratch L2656 source and object. This leaves all original project files untouched.
+
+The final adapter command was:
+
+ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH="/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH" lake env bash -c 'LEAN_PATH="/tmp/oec/pequalnp-pilot-57/research:${LEAN_PATH}" exec lean -j1 -M6144 ../results/orch/lemmas/reduction_analysis/PairDirtyNecessary.lean'
+
+Both completed with exit0 and empty stdout/stderr. Complete logs are preserved
+as PairDirtyNecessary.dependency.log and PairDirtyNecessary.build.log. The adapter
+uses finite kernel-checked graph facts and ordinary proofs. No local checker
+acceptance is claimed: this is a necessary condition, not the posted existential.
