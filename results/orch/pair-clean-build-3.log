@@ -1,0 +1,7 @@
+../results/orch/lemmas/pair_clean.lean:997:56: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_insert, Finset.mem_singleton, sub_eq_iff_eq_add, add_comm, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

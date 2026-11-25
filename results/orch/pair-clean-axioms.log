@@ -1,0 +1,10 @@
+/tmp/oec/pequalnp-pilot-65/toolchain/pair-clean-axioms.lean:997:56: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_insert, Finset.mem_singleton, sub_eq_iff_eq_add, add_comm, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pair_clean_no_double' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
