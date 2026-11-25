@@ -1,0 +1,9 @@
+PASS all33 final-manifest hashes and sizes; 576652 bytes
+PASS baseline stopped by SIGINT and reports UNKNOWN; no SAT/UNSAT result
+NOTE prefix inspection is a format sample only; unfinished LRAT file was not opened
+PASS static code model constraints:12 slots/20 memberships/8 pairs, but12 false-positive pairs; not a circuit
+PASS skeleton6-control :1024 rows, saved SAT model satisfies 11346 clauses, naive binary cost20, not19
+PASS skeleton6-control-disjoint :1024 rows, saved SAT model satisfies 11406 clauses, naive binary cost20, not19
+PASS read2 negative control fixes the same3-read star; forced triple (11, 32, 107) contradicts an explicit at-most2 clause
+NOTE this negative control does not prove absence of other6-AND read2 skeletons
+ALL FINAL ARCHIVE CONTROLS PASSED; no solver or unfinished proof was run

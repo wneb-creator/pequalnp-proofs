@@ -1,0 +1,84 @@
+{
+  "gates": [
+    [
+      [
+        4
+      ],
+      [
+        0,
+        9
+      ]
+    ],
+    [
+      [
+        1
+      ],
+      [
+        0,
+        2,
+        6
+      ]
+    ],
+    [
+      [
+        7
+      ],
+      [
+        2,
+        9
+      ]
+    ],
+    [
+      [
+        6
+      ],
+      [
+        8,
+        9
+      ]
+    ],
+    [
+      [
+        5
+      ],
+      [
+        0,
+        7,
+        8
+      ]
+    ],
+    [
+      [
+        3
+      ],
+      [
+        2,
+        4,
+        8
+      ]
+    ]
+  ],
+  "output": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "raw_reads": [
+    3,
+    1,
+    3,
+    1,
+    2,
+    1,
+    2,
+    2,
+    3,
+    3
+  ],
+  "bad": [],
+  "naive_binary_gate_cost": 20,
+  "note": "Free OR-skeleton model; not a19-gate witness unless an explicit binary implementation is verified."
+}

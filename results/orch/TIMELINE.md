@@ -37,3 +37,5 @@
 2026-11-25T15:16:37.804786+00:00 — Current L-meta-2590 normalized replay named file built and independently reviewed; checked20gatecontrol and exactCNF match preserved.20minute proof-producing search active; independent structuralPetersen adaptation also active.
 
 2026-11-25T15:25:50.262582+00:00 — Third410 confirmed15:22:26 before advertised15:34:37; all2590 research/searches stopped. Six checked structural modules independently reviewed and preserved, including complete conditional six-case normalization. No case contradiction/full theorem.
+
+2026-11-25 15:29 UTC: final2590 replay file builds; official checker REJECTED (no-theorem), expected for conditional partial. Independent final33-file stopped-search archive review PASS. No full theorem, refutation, or new research after withdrawal.

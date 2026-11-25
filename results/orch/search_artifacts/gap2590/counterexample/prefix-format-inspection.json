@@ -1,0 +1,6 @@
+{
+  "events": 10000,
+  "additions": 7397,
+  "negative_hint_records": 0,
+  "note": "Inspection of an initial byte snapshot only; not a validity check or completed certificate."
+}

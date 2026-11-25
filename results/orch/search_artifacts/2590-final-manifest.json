@@ -1,0 +1,171 @@
+{
+  "frozen_utc": "2026-11-25T15:22:47.877599+00:00",
+  "notes": "Exact enc2 baseline stopped with SIGINT/exit130 after parent third410. No SAT/UNSAT verdict. Abstract code model is not a circuit counterexample. FreeOR controls passed but no free7\u201310 probes were launched. Large LRAT prefix remains separately on disk, no certificate claim.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-enc2.stdout",
+      "size": 33752,
+      "sha256": "1800b27032333a95efa77a500fe2a4e459d178c861afb7f60510ff8b1b0b62fe"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-enc2.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/prefix-format-inspection.json",
+      "size": 178,
+      "sha256": "18d73aa6783f2a7794db8588d0410937b6f123790af0c80c69e306131d1fbe2f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_model.py",
+      "size": 1625,
+      "sha256": "857857c85353126f255f8812491109dd7d962f84411a8261e8567367a037550b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_model.json",
+      "size": 1592,
+      "sha256": "12d59df025e491bdb15a2f4f42025454a71f5d954386bfec26773e72cc161e5c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_model.stdout",
+      "size": 185,
+      "sha256": "6a6a1c62fc7ad54d47444b2254e4297c83b1ed5ca021c3bcb4940fdc6593f943"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_model.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_cycles.py",
+      "size": 1441,
+      "sha256": "22e0d01623d88d91a4d9e19d71791d7a7acb1e217d9b49211e268e58d5e37211"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_cycles.json",
+      "size": 16474,
+      "sha256": "63d04b09d9db82be8d49bb79b506dd175115cdeffcb7af6a6c71579492ac3e6d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_cycles.stdout",
+      "size": 87,
+      "sha256": "7bc8052a9683d9776438557797be4fd49155804f617e4a1673e8c72b924ff9be"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/code_cycles.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/and_skeleton.py",
+      "size": 4186,
+      "sha256": "a0a3e54cf53c510e8cc9e0608ba9a32763da1a2b358a4c4db6a3bac9f4badfe1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.json",
+      "size": 575,
+      "sha256": "728d3ae78bb22273fe17139654c83a55373f151afda5ea2c0665b16c335bcadb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.cnf",
+      "size": 178697,
+      "sha256": "ea995fd958f8cf061d1d4b9865d9aa645c96c8a08cc6c76987d6398b28dffb78"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.meta.json",
+      "size": 2526,
+      "sha256": "5daec23fa32a4e43f6e0b8b44c756132d9020022cb23115d51429fa9614b2c9a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.log",
+      "size": 102,
+      "sha256": "98bfdb3ca488c00f40af4d4f105fba6f600a2d8df0f652321c348d6f5fd15e25"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.stdout",
+      "size": 13529,
+      "sha256": "7146033663631d2dcb84e4d270e6df87fde5e17a3022c1c9aa2c3ff12c80d9d2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.cnf",
+      "size": 179321,
+      "sha256": "c98a3b738292627a3d6230ccfbd1f2cc78b95f7b7ce6a25edda9a4203ab32a71"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.meta.json",
+      "size": 2526,
+      "sha256": "efc1a856d2a9a70a389556e5019646769996910aaf69189fb4b66422f09cd271"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.log",
+      "size": 102,
+      "sha256": "6a98ba2eb01fab8e81347a094273d8e454f4cc7a68da7b6f0c751e6db4a57662"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.stdout",
+      "size": 13574,
+      "sha256": "f09a51954eb5dbd14984878d5ad9c7199794f9a52bd44c5c99f353e76f20ae7c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative.cnf",
+      "size": 118380,
+      "sha256": "5e9f16782763257180da822e13fc6d21ec12b08a94347f41cdbb35a00e1da7f3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative.meta.json",
+      "size": 2525,
+      "sha256": "bc5683dbc7238f65211d9caac45fc10732a3d6f9918f35e5eb55ba8a4b6d68ff"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative.log",
+      "size": 26,
+      "sha256": "60a020d33ef01ffedcc1a83236d201ddc592b546d6cccce329e49c190bb1118f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative.stdout",
+      "size": 3603,
+      "sha256": "2747759588c38cc0c4165fc5f6acb6c672e2fd163cc2f6cc3ebc988148f03c64"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-read2-negative-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control.circuit.json",
+      "size": 823,
+      "sha256": "88b5beae447af5addc671d6e5ced7906b0dd6e793d8ac3bacc2dda957a47254b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/skeleton6-control-disjoint.circuit.json",
+      "size": 823,
+      "sha256": "88b5beae447af5addc671d6e5ced7906b0dd6e793d8ac3bacc2dda957a47254b"
+    }
+  ]
+}
