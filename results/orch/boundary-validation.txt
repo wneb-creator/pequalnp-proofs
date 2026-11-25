@@ -1,0 +1,14 @@
+L-meta-1031: partial helper only; not a proof or refutation of the posted statement.
+
+File: results/orch/lemmas/boundary_certificate.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/boundary_certificate.lean
+Toolchain: Lean 4.36.0
+Exit code: 0
+Complete stdout: empty
+Complete stderr: empty
+Checker: not run; this helper is not the posted theorem.
+Independent static review: checker_review agent; mathematical certificate argument and plain-file scan passed.
+
+Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
+TIMING total=8.59 subagents=6
+Timestamp: 2026-11-25T01:12:27.563410+00:00
