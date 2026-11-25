@@ -1,0 +1,10 @@
+{"target_cost": 68, "node": 93, "seconds": 0.0007564600018667988}
+{"target_cost": 66, "node": 165, "seconds": 0.001454723002098035}
+{"target_cost": 64, "node": 467, "seconds": 0.006163419999211328}
+{"pool_nodes": 865, "functions": 854, "files": 77, "skipped": 0, "best_target": 64}
+{"round": 1, "pool_nodes": 919, "pairs": 364231, "target": 64, "seconds": 0.23807470600149827}
+{"round": 2, "pool_nodes": 969, "pairs": 728462, "target": 64, "seconds": 0.4870222780009499}
+{"round": 3, "pool_nodes": 969, "pairs": 1092693, "target": 64, "seconds": 0.7358757170004537}
+{"seconds": 0.7360953780007549, "pairs": 1092693, "rounds": 3, "size": 64, "errors": 0, "first_gate": [1, 0, 1]}
+{"best_genuine_final_AND": 79, "first_gate": [1, 0, 1]}
+{"scope": "Bounded two-new-OR/final-AND heuristic; no minimum-size claim.", "new_OR_functions": 124, "pair_tests": 7626, "limited": false, "smallest_recombination_size": 66, "seconds": 0.09165579699765658, "found": false}

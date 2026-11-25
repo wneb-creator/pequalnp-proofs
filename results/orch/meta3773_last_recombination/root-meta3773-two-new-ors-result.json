@@ -1,0 +1,9 @@
+{
+  "scope": "Bounded two-new-OR/final-AND heuristic; no minimum-size claim.",
+  "new_OR_functions": 124,
+  "pair_tests": 7626,
+  "limited": false,
+  "smallest_recombination_size": 66,
+  "seconds": 0.09165579699765658,
+  "found": false
+}

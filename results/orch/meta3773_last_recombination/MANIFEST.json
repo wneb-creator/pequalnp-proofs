@@ -1,0 +1,35 @@
+{
+  "scope": "Last subsecond heuristic extends the reviewed77seed pool with two newly formed ORs followed byAND.124 retained new full-positive OR functions,7626 pairs, bestnew combination66; no63witness or lowerbound. All exact seed snapshots are already in meta3773_pool_v3.",
+  "files": [
+    {
+      "path": "results/orch/meta3773_last_recombination/root_meta3773_semantic_pool_v4.py",
+      "sha256": "7dce31439ad1cede85c62e991ec5ce969e12c57e991f891b7f11af4757f59642",
+      "bytes": 7279
+    },
+    {
+      "path": "results/orch/meta3773_last_recombination/root-meta3773-pool-v4-input-files.txt",
+      "sha256": "858abc9887baf633babc3e2bd391c85b5a4303b9e3638697315e45d881f9b92a",
+      "bytes": 5191
+    },
+    {
+      "path": "results/orch/meta3773_last_recombination/root-meta3773-pool-v4-result.json",
+      "sha256": "d561c557e44a02bb88c5a75dcb8a55278819d08212ebf689c466426c00b315f5",
+      "bytes": 22993
+    },
+    {
+      "path": "results/orch/meta3773_last_recombination/root-meta3773-pool-v4-and-control.json",
+      "sha256": "407f05da6daa324191ba45a8d7f320f5a06c44e1290a0236d3fc6f3e3b416e92",
+      "bytes": 3466
+    },
+    {
+      "path": "results/orch/meta3773_last_recombination/root-meta3773-pool-v4-run.log",
+      "sha256": "c4d224d7c0762a3612a5e3e4889f4175b87e79f1f0ecd3a13e2f83cbcc6cd4e5",
+      "bytes": 957
+    },
+    {
+      "path": "results/orch/meta3773_last_recombination/root-meta3773-two-new-ors-result.json",
+      "sha256": "74db10576da284c22fa44fe4912072efa2d37380e93977847630500e113ec85a",
+      "bytes": 238
+    }
+  ]
+}

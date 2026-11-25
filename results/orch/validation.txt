@@ -361,3 +361,7 @@ TIMING total=347.6 subagents=7
 2026-11-25T14:34:41.200726+00:00 Final pre-release preservation after all production searches ended. Every included scientific packet independently reviewed: dense/matched sixpoint diagnostics, pair factoring, final CGP, final/late SAT, partial five-helper enumeration and77seed semantic pool. No63witness or globalrefutation found. Complete64gcontrols and generic verifier/generator already kernelchecked and pushed; target lakebuild/localchecker/cleanup notrun because target remains unresolved. Final handoff records642→789 performance-control lines, no proofPR,10initialnulls and7distinctagents. Own L-meta-3773 lease is still active at this pre-release snapshot; no other lease will be released.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=359.0 subagents=7
+
+2026-11-25T14:38:06.014257+00:00 Preserved geometry_route-reviewed final subsecond symbolic recombination. Exact77 previously pinned inputs,124 retained newORfunctions and7626 pair combinations, smallest constructed two-new-OR/final-AND circuit66, no63candidate. Allsix source/input/result/log artifacts and manifest hashes verified; no optimality/global lowerbound claim. All production is now stopped and the own-lease release will follow.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=362.4 subagents=7
