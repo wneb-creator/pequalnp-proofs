@@ -31,3 +31,4 @@
 2026-11-25T16:15:32.655283+00:00 Preserving checked connected-component frontier bound.
 2026-11-25T16:17:57.846453+00:00 Stopped three lower-priority annealers to leave one Fano26 annealer plus two direct subK4 SAT runs under four-CPU quota. Complete stdout logs preserved.
 2026-11-25T16:17:58.770529+00:00 Preserving checked circuit component count.
+2026-11-25T16:19:29.535064+00:00 Preserving checked subK4 graph and minimum-cover lower bound for potential SAT witness.

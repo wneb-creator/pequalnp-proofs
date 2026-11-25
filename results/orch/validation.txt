@@ -58,3 +58,6 @@ ComponentGraph.lean (232 lines): Lean exit0, complete stdout/stderr empty; indep
 
 Eighth partial checkpoint:
 CircuitComponents.lean: Lean exit0, complete stdout/stderr empty; independent source review PASS by status_review. count_or_components restricts carrier to S and gives S.card <= owned OR count + support-family connected components. Uncovered S vertices remain isolated and are counted; using the actual support union removes that slack.
+
+Ninth partial checkpoint:
+MatchingCover.lean (63 lines): Lean exit0, complete stdout/stderr empty; independent source review PASS by cofactor_route. Proves a generic matching cover bound, and for the exact subK4 SAT graph proves C4-freeness, 12 edges, and every vertex cover has at least4 vertices. No satisfying14-gate circuit has been found.
