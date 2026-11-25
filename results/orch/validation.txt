@@ -40,3 +40,5 @@ This is branch-only preservation, not a proof PR. Research files must be absent 
 
 Star-line components: named-file lake build exit0,602lines. Full stdout/stderr in starline-build.stdout/.stderr. Main posted theorem still absent; no checker verdict claimed.
 Independent status_review audit PASS: frozen176-line component matches integration exactly; algebra, nonzero hypotheses, and plain-file format checked. Reviewed target SHA256 ca7abaed3338ff24cc18ade48bacba5ae81f7b1976205cd4686dc5551e1206b5.
+
+Generic star-direction obstruction: named-file lake build exit0,799lines. Independent status_review audit PASS: exact202-line component inclusion, cone rank bound, kernel inclusion, rank-nullity, all nonzero hypotheses and plain-file rules. Reviewed SHA256 da9e98ec88f0099ba04977be67b44955e2e3921c2a19ee591b2b3496523b3695. Full target remains unresolved; no checker verdict.

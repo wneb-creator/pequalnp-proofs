@@ -19,3 +19,7 @@
 2026-11-25 10:32 UTC: Research snapshot preserved locally for independent review. Exact finite-field censuses remain evidence only. Rank-one diagonal two-flat emptiness abandoned after explicit complex families. Full chart014 rational search timed out without verdict; next route is invariant certificate search.
 
 2026-11-25 10:40 UTC: Combined602-line partial file passed lake build. New checked star-direction linear constraints, quadratic normal form, coordinate kernel, and constant-lower-block obstruction. Full target unresolved; independent review pending.
+
+2026-11-25T10:43:38.918680+00:00 construct_search: full genericstarline exclusion compiledexit0, emptydiagnostics; independentstatus_review sourcePASS.
+
+2026-11-25 10:45 UTC:799-line named partial file built successfully and independent review passed. New theorem bounds finrank by2 for spaces containing a generic hollow star direction; does not settle arbitrary3-flats. D6 invariant certificate search returned an independently verified modular dual witness, no bounded-degree certificate.
