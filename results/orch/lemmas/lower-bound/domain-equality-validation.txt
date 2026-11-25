@@ -1,0 +1,31 @@
+command: lean -j1 --profile DomainEquality.lean
+exit: 0
+stdout:
+elaboration took 310ms
+type checking took 1.75s
+
+stderr:
+import took 3.89s
+cumulative profiling times:
+	attribute application 0.668ms
+	blocked (unaccounted) 2.31s
+	compilation (IR) 6.1ms
+	compilation (LCNF base) 76.3ms
+	compilation (LCNF impure) 25.9ms
+	compilation (LCNF mono) 44.3ms
+	congr simp thm 0.0959ms
+	elaboration 464ms
+	fix level params 0.565ms
+	import 3.89s
+	initialization 77.6ms
+	instantiate metavars 1.16ms
+	interpretation 8.2ms
+	let-to-have transformation 3.29ms
+	linting 36.2ms
+	parsing 17.3ms
+	process pre-definitions 23.9ms
+	share common exprs 2.99ms
+	simp 5.88ms
+	tactic execution 6.25ms
+	type checking 1.76s
+	typeclass inference 171ms

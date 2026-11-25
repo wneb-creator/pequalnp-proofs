@@ -41,3 +41,6 @@ Root located exact prior PR#16243 with14-gate witness and signed-binary lower13,
 
 ## replacement_proof — 2026-11-25T19:40:08.784536+00:00
 Initial scan1185 one-NOT proofs found no isomorphic target; exact-edge scan no checked file. Existing L_meta_10770 technique counts binary gates with free negations then pays one for any NOT. SAT→Lean tools in notes/data/lrat-link: gennot.py, genmono.py, genrow.py. Inlining Checker+LinkN+LinkN2+Shannon costs114KB but custom Trie/model structures need manual review or replacement; BinaryTree (Option Nat) is drop-in for Trie. Official CaDiCaL building in scratch. Primary route now profiling existing same-gap PR#16243 (twice timeout): frozen lower-bound/Pruned.lean494450bytes. Root initial cache/build pending; replacement owns --profile baseline, lower_bound owns explicit table/pool optimization.
+
+## circuit_search SAT result — 2026-11-25T19:49:19.517582+00:00
+CaDiCaL monotone13 on boundary21 rows,38,304clauses hit its180s wall limit with exit0/no SAT-or-UNSAT verdict.2,075,720conflicts;34.36MB resident. No13-gate witness. Full logs saved in results/orch/lemmas/search/. Exploratory route finished; root prior-PR certificate route remains primary.
