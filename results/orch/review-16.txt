@@ -1,0 +1,26 @@
+Independent review: PASS for two additional frozen nested-case partials.
+The full target theorem remains absent.
+
+restriction_nested_shared.lean: 2177 lines, 98963 bytes.
+SHA256 8f137d55f57e5c12779ddb9bbc80dd0234e877bbd1bd215b63c310d1d7c7a127
+Exact reviewed nested_centers prefix modulo namespace, and both copied gate
+deletion helpers match restriction_essential_cross exactly. Read two new
+lemmas: a noninput physical wire with nonempty pure-OR support contained in
+the two-center set cannot have singleton support in a least circuit, since
+it would duplicate an input. Thus it computes the OR of both centers, which
+supplies the explicit earlier wire needed by the checked nested clean rewrite.
+All support, availability, disjoint-flag and no-one-junk assumptions remain.
+
+restriction_nested_singleton.lean: 2025 lines.
+SHA256 69ad20fefa7244f711090c7cdaef38ecee9919552dfca849c68d514668f851d5
+Exact reviewed nested_flag prefix modulo namespace. Read the new singleton
+filter case: if the filter input were a cleaner of the earlier junk, the
+later gate would be clean, contradicting its junk witness. Otherwise it is
+distinct from both centers; choose the one-side filter orientation using
+membership in Q and disjointness of P,Q, then apply the checked exclusion.
+The conclusion retains leastness, TopForm, C4 freedom, exact ordered two junk,
+the disjoint pure-flag semantics and the no-one-junk premise.
+
+Both frozen files compiled successfully; full logs contain warnings only,
+no errors, and empty stderr. Forbidden-syntax scans pass. No full target
+claim and no desk or git mutations by reviewer.

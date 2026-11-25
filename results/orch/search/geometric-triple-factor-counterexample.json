@@ -1,0 +1,109 @@
+{
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "g_arms": [
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "h_arms": [
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "g_wmax": [
+    1,
+    5
+  ],
+  "h_wmax": [
+    0,
+    4
+  ],
+  "joint_clean": true,
+  "g_accepted": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "h_accepted": [
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "shared": [
+    [
+      2,
+      3
+    ]
+  ],
+  "mutual_residual": [
+    [
+      2,
+      3
+    ]
+  ],
+  "g_singleton_overlap": true,
+  "g_internal_cleaners": [
+    1
+  ],
+  "left_triple_negative_witness": 5,
+  "right_triple_negative_witness": 9
+}

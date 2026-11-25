@@ -1,0 +1,48 @@
+Final research-document and search-evidence review: PASS for preservation.
+No full target proof, refutation, or checker acceptance is claimed.
+
+INVENTORY_FRONTIER.md
+SHA256 c7ec478f318178e241671b46af3ffb7e292058c630b41d767901f3db4979c9fa
+Checked cost interfaces match the reviewed lemmas and preserve their actual
+all-Ustar cover and path hypotheses. The unresolved root-selection, global
+accounting, overlap and nested cases are explicitly identified. Requested
+corrections were applied: the P4 circuit is proved nonleast, while P5 is only
+product geometry with no leastness claim; theta's fourth broad-union matching
+edge is h-only and unguarded, so it does not refute actual-Ustar coverage.
+
+NOTES.md and TIMELINE.md deltas reviewed. New frozen nested-case summaries,
+explicit assumptions, actual remaining frontier and finite-search limitations
+are accurate. Their chronological review-pending entries do not claim final
+acceptance. No credential-shaped or private-key data found in these documents.
+
+restriction_nested_geometry.py
+SHA256 f994fc01968fec50915f9decd0fdb3df1bb15c1a97824ce227a57829736291a7
+restriction_nested_flag_geometry.py
+SHA256 937e45110981a1f8a29ca3353ab24bc709133265bca312f6a738e733f8d52861
+Read both programs and complete output. Independently recomputed their saved
+witnesses over all Boolean inputs: dirty g/h, exact cleaners, new cleaner and
+accepted-edge families with no single center all match. These are finite
+strategy obstructions only; neither program asserts a least circuit or a
+counterexample to the posted theorem. Both stderr files are empty.
+
+Final geometric oracle delta independently reviewed by proof_inventory: PASS.
+geometric_guarded_matching_oracle.py
+SHA256 703877877a26153e36f614cd15cf5bc38c1531fb199cedcc2a27136a7a73c223
+geometric_union_cover_oracle.py
+SHA256 236871dbbb1994e645249c9b8a0310d96543d840480b24032e10b45885d81f5f
+geometric_ustar_cover_oracle.py
+SHA256 0e7eee3618a3f621bb4050b3f55cc75dcb7fe91a1fcf3d34570d86ea30744afb
+All source scripts, JSON shapes/counts, complete logs and scope descriptions
+were read. The reviewer independently re-evaluated all 32 P5 and 256 theta
+truth rows, confirming Joint, exact cleaner sets and matching data. Broad
+accepted union is correctly distinguished from guarded-or-common admissible
+edges. The completed 384 C8 and 3648 theta eligible-pair scans are finite
+evidence only. COUNTEREXAMPLE_SCOPE explicitly avoids target-refutation and
+leastness claims. Logs have empty stderr. Interrupted normalized searches
+remain marked interrupted, with no solver conclusion.
+
+Final checker output read in full: stdout empty; stderr reports only
+CHECKER FAULT: the prebuilt Mathlib cache is missing.
+This is not acceptance and does not establish the absent full target theorem.
+
+No desk or git mutations by reviewer.

@@ -51,3 +51,5 @@
 - 2026-11-25T20:01:20.881850+00:00: lease renewed; expires 2026-11-25T20:21:20.170Z.
 - 2026-11-25T20:06:21.190520+00:00: lease renewed; expires 2026-11-25T20:26:20.544Z.
 - 2026-11-25T20:11:21.811796+00:00: lease renewed; expires 2026-11-25T20:31:20.601Z.
+
+2026-11-25T20:13:46.278617+00:00 restriction: completed and froze nested strategy family; stronger clean rewrite and concrete flag singleton/shared-support cases compile, independent review pending for newest wrappers; full target absent.

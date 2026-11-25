@@ -1,0 +1,14 @@
+{
+  "C8": {
+    "counterexample": null,
+    "eligible_joint_residual_pairs": 384,
+    "dirty_products": 25347,
+    "elapsed_seconds": 0.687859058380127
+  },
+  "theta333": {
+    "counterexample": null,
+    "eligible_joint_residual_pairs": 3648,
+    "dirty_products": 25347,
+    "elapsed_seconds": 0.507631778717041
+  }
+}
