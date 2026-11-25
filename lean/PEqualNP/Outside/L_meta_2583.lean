@@ -3480,3 +3480,128 @@ lemma exists_least_topform_shadow_normal (n : ℕ) (C : Circuit) (hAO : IsAO2 n 
   omega
 
 end PEqualNP.Outside.L_meta_2583.TopFormBridge
+
+namespace PEqualNP.Outside.L_meta_2583.WmaxJunk
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_2583.SingleUse
+
+lemma graph_true_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) : graphFun G ∅ x = true ↔
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true := by simp [graphFun]
+
+lemma false_support_safe_neighbor_count
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (h4 : NoFourCycle G) (C : Circuit) (hAO : IsAO2 n C) (g : ℕ)
+    (W : Finset (Fin n))
+    (hsafe : ∀ v ∈ W, ∀ x, gateVal n C g x = true → x v = true → graphFun G ∅ x = true)
+    (p : Fin n) (hp : p ∈ W) (X : Finset (Fin n))
+    (hX : ∀ v ∈ X, v ∈ W ∧ G.Adj p v)
+    (T : Finset (Fin n)) (hT : graphFun G ∅ (setInput T) = false)
+    (hgate : gateVal n C g (setInput T) = true) : X.card + 1 ≤ T.card := by
+  classical
+  have hind : ∀ a ∈ T, ∀ b ∈ T, ¬G.Adj a b := by
+    intro a ha b hb hab
+    have ht : graphFun G ∅ (setInput T) = true := by
+      rw [graph_true_iff]
+      exact ⟨a, b, hab, decide_eq_true ha, decide_eq_true hb⟩
+    simp [hT] at ht
+  have hpT : p ∉ T := by
+    intro hpT
+    have ht := hsafe p hp (setInput T) hgate (decide_eq_true hpT)
+    simp [hT] at ht
+  have hcover : ∀ v ∈ W, ∃ t ∈ T, G.Adj v t := by
+    intro v hv
+    have hmono : ∀ i, setInput T i = true → setInput (insert v T) i = true := by
+      intro i hi
+      exact decide_eq_true (Finset.mem_insert_of_mem (of_decide_eq_true hi))
+    have hg : gateVal n C g (setInput (insert v T)) = true :=
+      wv_mono n C hAO.1 hAO.2.1 (setInput T) (setInput (insert v T)) hmono (n + g) hgate
+    have ht := hsafe v hv (setInput (insert v T)) hg (by simp [setInput])
+    rw [graph_true_iff] at ht
+    obtain ⟨a, b, hab, ha, hb⟩ := ht
+    have ha' : a ∈ insert v T := of_decide_eq_true ha
+    have hb' : b ∈ insert v T := of_decide_eq_true hb
+    rcases Finset.mem_insert.mp ha' with rfl | haT
+    · rcases Finset.mem_insert.mp hb' with rfl | hbT
+      · exact False.elim (G.irrefl hab)
+      · exact ⟨b, hbT, hab⟩
+    · rcases Finset.mem_insert.mp hb' with rfl | hbT
+      · exact ⟨a, haT, hab.symm⟩
+      · exact False.elim (hind a haT b hbT hab)
+  obtain ⟨t₀, ht₀, hpt₀⟩ := hcover p hp
+  have hchoose : ∀ v ∈ X, ∃ t ∈ T, G.Adj v t := fun v hv => hcover v (hX v hv).1
+  let f : Fin n → Fin n := fun v => if hv : v ∈ X then (hchoose v hv).choose else p
+  have hf : ∀ v ∈ X, f v ∈ T ∧ G.Adj v (f v) := by
+    intro v hv
+    simpa only [f, dite_eq_left hv] using (hchoose v hv).choose_spec
+  have hbound : X.card ≤ (T.erase t₀).card := by
+    apply Finset.card_le_card_of_injOn f
+    · intro v hv
+      refine Finset.mem_erase.mpr ⟨?_, (hf v hv).1⟩
+      intro heq
+      have h₁ := hbip p v (hX v hv).2
+      have h₂ := hbip v t₀ (heq ▸ (hf v hv).2)
+      have h₃ := hbip p t₀ hpt₀
+      cases hc₁ : color p <;> cases hc₂ : color v <;> cases hc₃ : color t₀ <;>
+        simp_all
+    · intro v hv u hu heq
+      have hpf : p ≠ f v := by
+        intro h
+        exact hpT (h ▸ (hf v hv).1)
+      apply Finset.card_le_one.mp (h4 p (f v) hpf)
+      · exact Finset.mem_filter.mpr ⟨Finset.mem_univ v, (hX v hv).2, (hf v hv).2.symm⟩
+      · exact Finset.mem_filter.mpr ⟨Finset.mem_univ u, (hX u hu).2,
+          by rw [heq]; exact (hf u hu).2.symm⟩
+  have herase : (T.erase t₀).card + 1 = T.card := Finset.card_erase_add_one ht₀
+  omega
+
+lemma dirty_safe_neighbors_need_junk_prefix
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (h4 : NoFourCycle G) (C : Circuit) (hAO : IsAO2 n C) (g : ℕ)
+    (hdirty : IsDirty n G C g)
+    (W : Finset (Fin n))
+    (hsafe : ∀ v ∈ W, ∀ x, gateVal n C g x = true → x v = true → graphFun G ∅ x = true)
+    (p : Fin n) (hp : p ∈ W) (X : Finset (Fin n))
+    (hX : ∀ v ∈ X, v ∈ W ∧ G.Adj p v) :
+    X.card ≤ (junk G C ∩ Finset.range (g + 1)).card := by
+  classical
+  obtain ⟨hg, x, hgx, hx⟩ := hdirty
+  let S : Finset (Fin n) := Finset.univ.filter (fun i => x i = true)
+  have hSx : setInput S = x := by
+    funext i
+    cases hi : x i <;> simp [setInput, S, hi]
+  have hS : graphFun G ∅ (setInput S) = false := by rw [hSx]; exact hx
+  have hSg : wv n C (setInput S) (n + g) = true := by rw [hSx]; exact hgx
+  obtain ⟨T, hTS, hTg, hcard⟩ :=
+    MintermCircuit.dirty_wire_small_support_prefix n C hAO G S hS (n + g) hSg
+      (g + 1) (by omega) (by omega)
+  have hT : graphFun G ∅ (setInput T) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    rw [graph_true_iff] at ht
+    obtain ⟨a, b, hab, ha, hb⟩ := ht
+    have hs : graphFun G ∅ (setInput S) = true := by
+      rw [graph_true_iff]
+      exact ⟨a, b, hab, decide_eq_true (hTS (of_decide_eq_true ha)),
+        decide_eq_true (hTS (of_decide_eq_true hb))⟩
+    simp [hS] at hs
+  have hcount := false_support_safe_neighbor_count n G color hbip h4 C hAO g W hsafe
+    p hp X hX T hT hTg
+  omega
+
+lemma dirty_wmax_neighbors_need_junk_prefix
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (h4 : NoFourCycle G) (C : Circuit) (hAO : IsAO2 n C) (g : ℕ)
+    (hdirty : IsDirty n G C g) (p : Fin n) (hp : p ∈ wmax G C g) :
+    ((wmax G C g).filter (G.Adj p)).card ≤ (junk G C ∩ Finset.range (g + 1)).card := by
+  apply dirty_safe_neighbors_need_junk_prefix n G color hbip h4 C hAO g hdirty
+    (wmax G C g) (fun v hv => (Finset.mem_filter.mp hv).2) p hp
+  intro v hv
+  exact Finset.mem_filter.mp hv
+
+end PEqualNP.Outside.L_meta_2583.WmaxJunk
