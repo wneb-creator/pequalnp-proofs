@@ -1,0 +1,162 @@
+unlabeled 1 1
+unlabeled 2 2
+unlabeled 3 4
+unlabeled 4 11
+unlabeled 5 34
+unlabeled 6 156
+cover histogram {0: 1, 1: 9, 2: 61, 3: 80, 4: 5, 5: 0, 6: 0}
+0 {"graph": 32529, "edges": [[0, 1], [0, 5], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 4, "cover": [17, 257, 15360, 23040], "status": 20, "witness": null, "seconds": 0.192}
+1 {"graph": 16017, "edges": [[0, 1], [0, 5], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 4, "cover": [17, 129, 3584, 12800], "status": 20, "witness": null, "seconds": 0.2}
+2 {"graph": 30481, "edges": [[0, 1], [0, 5], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 4, "cover": [17, 257, 12800, 21504], "status": 20, "witness": null, "seconds": 0.132}
+3 {"graph": 22289, "edges": [[0, 1], [0, 5], [1, 5], [2, 3], [2, 4], [3, 4], [4, 5]], "biclique_cover": 4, "cover": [17, 257, 1536, 21504], "status": 20, "witness": null, "seconds": 0.14}
+4 {"graph": 5905, "edges": [[0, 1], [0, 5], [1, 5], [2, 3], [2, 4], [3, 4]], "biclique_cover": 4, "cover": [17, 257, 1536, 4608], "status": 20, "witness": null, "seconds": 0.133}
+5 {"graph": 32767, "edges": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [510, 15462, 23221], "status": 20, "witness": null, "seconds": 0.007}
+6 {"graph": 32766, "edges": [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [510, 15462, 23210], "status": 20, "witness": null, "seconds": 0.006}
+7 {"graph": 32764, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [480, 15768, 23380], "status": 20, "witness": null, "seconds": 0.005}
+8 {"graph": 32700, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3612, 13216, 21640], "status": 20, "witness": null, "seconds": 0.006}
+9 {"graph": 32760, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [480, 15768, 23200], "status": 20, "witness": null, "seconds": 0.006}
+10 {"graph": 16376, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [480, 3616, 15768], "status": 20, "witness": null, "seconds": 0.004}
+11 {"graph": 31676, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [28, 12696, 23200], "status": 20, "witness": null, "seconds": 0.004}
+12 {"graph": 32188, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [28, 15768, 17696], "status": 20, "witness": null, "seconds": 0.005}
+13 {"graph": 32632, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3616, 15384, 21856], "status": 20, "witness": null, "seconds": 0.005}
+14 {"graph": 32752, "edges": [[0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [4032, 13216, 26896], "status": 20, "witness": null, "seconds": 0.005}
+15 {"graph": 15804, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [28, 416, 15768], "status": 20, "witness": null, "seconds": 0.004}
+16 {"graph": 23484, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [28, 408, 23200], "status": 20, "witness": null, "seconds": 0.005}
+17 {"graph": 27580, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [28, 8992, 18592], "status": 20, "witness": null, "seconds": 0.005}
+18 {"graph": 30584, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12312, 12864, 21856], "status": 20, "witness": null, "seconds": 0.005}
+19 {"graph": 30674, "edges": [[0, 2], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [448, 12672, 26130], "status": 20, "witness": null, "seconds": 0.005}
+20 {"graph": 32180, "edges": [[0, 3], [0, 5], [1, 2], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [416, 15744, 20500], "status": 20, "witness": null, "seconds": 0.005}
+21 {"graph": 32376, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [15384, 15456, 23040], "status": 20, "witness": null, "seconds": 0.004}
+22 {"graph": 32496, "edges": [[0, 5], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [15456, 23200, 26640], "status": 20, "witness": null, "seconds": 0.004}
+23 {"graph": 32720, "edges": [[0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [4032, 12864, 26896], "status": 20, "witness": null, "seconds": 0.004}
+24 {"graph": 32736, "edges": [[1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [480, 15456, 23200], "status": 20, "witness": null, "seconds": 0.005}
+25 {"graph": 7100, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [28, 2320, 4768], "status": 20, "witness": null, "seconds": 0.004}
+26 {"graph": 15796, "edges": [[0, 3], [0, 5], [1, 2], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [20, 416, 15744], "status": 20, "witness": null, "seconds": 0.005}
+27 {"graph": 24528, "edges": [[0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [4032, 18704, 21632], "status": 20, "witness": null, "seconds": 0.004}
+28 {"graph": 27564, "edges": [[0, 3], [0, 4], [1, 2], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [416, 2592, 24588], "status": 20, "witness": null, "seconds": 0.005}
+29 {"graph": 28504, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [2880, 3096, 26112], "status": 20, "witness": null, "seconds": 0.005}
+30 {"graph": 30552, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12312, 20800, 26112], "status": 20, "witness": null, "seconds": 0.004}
+31 {"graph": 31864, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [15384, 15456, 21512], "status": 20, "witness": null, "seconds": 0.004}
+32 {"graph": 31924, "edges": [[0, 3], [0, 5], [1, 2], [1, 4], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [15360, 18592, 20500], "status": 20, "witness": null, "seconds": 0.004}
+33 {"graph": 32164, "edges": [[0, 3], [1, 2], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12292, 15744, 17696], "status": 20, "witness": null, "seconds": 0.004}
+34 {"graph": 32401, "edges": [[0, 1], [0, 5], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3584, 12800, 16529], "status": 20, "witness": null, "seconds": 0.005}
+35 {"graph": 32464, "edges": [[0, 5], [1, 3], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12864, 21632, 26640], "status": 20, "witness": null, "seconds": 0.004}
+36 {"graph": 32656, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3584, 15744, 26896], "status": 20, "witness": null, "seconds": 0.004}
+37 {"graph": 8024, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [2320, 2880, 5128], "status": 20, "witness": null, "seconds": 0.004}
+38 {"graph": 8144, "edges": [[0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [2320, 4032, 4672], "status": 20, "witness": null, "seconds": 0.003}
+39 {"graph": 15540, "edges": [[0, 3], [0, 5], [1, 2], [1, 4], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [20, 160, 15360], "status": 20, "witness": null, "seconds": 0.005}
+40 {"graph": 16272, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [3584, 10512, 15744], "status": 20, "witness": null, "seconds": 0.003}
+41 {"graph": 26456, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [24, 320, 26112], "status": 20, "witness": null, "seconds": 0.004}
+42 {"graph": 27544, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [408, 2560, 26896], "status": 20, "witness": null, "seconds": 0.005}
+43 {"graph": 28488, "edges": [[0, 4], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [2880, 8768, 17416], "status": 20, "witness": null, "seconds": 0.006}
+44 {"graph": 29496, "edges": [[0, 4], [0, 5], [1, 2], [1, 5], [2, 3], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [8992, 12312, 20488], "status": 20, "witness": null, "seconds": 0.005}
+45 {"graph": 30608, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12672, 24848, 26112], "status": 20, "witness": null, "seconds": 0.004}
+46 {"graph": 31632, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12672, 12800, 26896], "status": 20, "witness": null, "seconds": 0.004}
+47 {"graph": 32132, "edges": [[0, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12292, 15744, 21632], "status": 20, "witness": null, "seconds": 0.004}
+48 {"graph": 32400, "edges": [[0, 5], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3584, 21632, 26640], "status": 20, "witness": null, "seconds": 0.003}
+49 {"graph": 32513, "edges": [[0, 1], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [257, 15360, 23040], "status": 20, "witness": null, "seconds": 0.004}
+50 {"graph": 32528, "edges": [[0, 5], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3584, 12800, 26896], "status": 20, "witness": null, "seconds": 0.003}
+51 {"graph": 7064, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [408, 2320, 4608], "status": 20, "witness": null, "seconds": 0.004}
+52 {"graph": 11160, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5]], "biclique_cover": 3, "cover": [408, 2560, 8704], "status": 20, "witness": null, "seconds": 0.004}
+53 {"graph": 14224, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [1536, 5248, 8464], "status": 20, "witness": null, "seconds": 0.004}
+54 {"graph": 16016, "edges": [[0, 5], [1, 4], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 3, "cover": [3584, 5248, 10256], "status": 20, "witness": null, "seconds": 0.005}
+55 {"graph": 18264, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [4, 5]], "biclique_cover": 3, "cover": [576, 16656, 17416], "status": 20, "witness": null, "seconds": 0.004}
+56 {"graph": 23440, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [384, 18704, 23040], "status": 20, "witness": null, "seconds": 0.004}
+57 {"graph": 27528, "edges": [[0, 4], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [2560, 16520, 26880], "status": 20, "witness": null, "seconds": 0.004}
+58 {"graph": 27536, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [384, 2560, 26896], "status": 20, "witness": null, "seconds": 0.003}
+59 {"graph": 28036, "edges": [[0, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3456, 8196, 17536], "status": 20, "witness": null, "seconds": 0.005}
+60 {"graph": 29570, "edges": [[0, 2], [1, 4], [1, 5], [2, 3], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [514, 12672, 20608], "status": 20, "witness": null, "seconds": 0.004}
+61 {"graph": 30480, "edges": [[0, 5], [1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12800, 21504, 24848], "status": 20, "witness": null, "seconds": 0.004}
+62 {"graph": 31376, "edges": [[0, 5], [1, 4], [2, 3], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12800, 20608, 26640], "status": 20, "witness": null, "seconds": 0.005}
+63 {"graph": 32257, "edges": [[0, 1], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [1, 15360, 23040], "status": 20, "witness": null, "seconds": 0.005}
+64 {"graph": 32512, "edges": [[1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [3584, 12800, 26880], "status": 20, "witness": null, "seconds": 0.004}
+65 {"graph": 1880, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4]], "biclique_cover": 3, "cover": [24, 320, 1536], "status": 20, "witness": null, "seconds": 0.005}
+66 {"graph": 7056, "edges": [[0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [384, 2320, 4608], "status": 20, "witness": null, "seconds": 0.004}
+67 {"graph": 11144, "edges": [[0, 4], [1, 4], [1, 5], [2, 3], [2, 5], [3, 5]], "biclique_cover": 3, "cover": [136, 2560, 10496], "status": 20, "witness": null, "seconds": 0.004}
+68 {"graph": 22288, "edges": [[0, 5], [1, 5], [2, 3], [2, 4], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [1536, 4608, 16656], "status": 20, "witness": null, "seconds": 0.004}
+69 {"graph": 23184, "edges": [[0, 5], [1, 4], [2, 3], [2, 5], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [18448, 20608, 23040], "status": 20, "witness": null, "seconds": 0.003}
+70 {"graph": 23632, "edges": [[0, 5], [1, 3], [2, 4], [2, 5], [3, 4], [4, 5]], "biclique_cover": 3, "cover": [3072, 4160, 18448], "status": 20, "witness": null, "seconds": 0.004}
+71 {"graph": 27280, "edges": [[0, 5], [1, 4], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [2560, 16512, 26640], "status": 20, "witness": null, "seconds": 0.004}
+72 {"graph": 27520, "edges": [[1, 4], [1, 5], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [384, 2560, 26880], "status": 20, "witness": null, "seconds": 0.004}
+73 {"graph": 29328, "edges": [[0, 5], [1, 4], [2, 3], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12800, 20608, 24592], "status": 20, "witness": null, "seconds": 0.004}
+74 {"graph": 30464, "edges": [[1, 5], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [12800, 21504, 24832], "status": 20, "witness": null, "seconds": 0.003}
+75 {"graph": 31745, "edges": [[0, 1], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [1, 15360, 21504], "status": 20, "witness": null, "seconds": 0.004}
+76 {"graph": 5904, "edges": [[0, 5], [1, 5], [2, 3], [2, 4], [3, 4]], "biclique_cover": 3, "cover": [272, 1536, 4608], "status": 20, "witness": null, "seconds": 0.004}
+77 {"graph": 6800, "edges": [[0, 5], [1, 4], [2, 3], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [2064, 2560, 4224], "status": 20, "witness": null, "seconds": 0.004}
+78 {"graph": 7040, "edges": [[1, 4], [1, 5], [2, 3], [2, 5], [3, 4]], "biclique_cover": 3, "cover": [384, 2304, 4608], "status": 20, "witness": null, "seconds": 0.005}
+79 {"graph": 25232, "edges": [[0, 5], [1, 4], [2, 3], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [8704, 16512, 24592], "status": 20, "witness": null, "seconds": 0.004}
+80 {"graph": 27264, "edges": [[1, 4], [2, 3], [2, 5], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [2560, 8704, 16512], "status": 20, "witness": null, "seconds": 0.004}
+81 {"graph": 28720, "edges": [[0, 5], [1, 2], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [32, 12288, 24592], "status": 20, "witness": null, "seconds": 0.005}
+82 {"graph": 17040, "edges": [[0, 5], [1, 4], [2, 3], [4, 5]], "biclique_cover": 3, "cover": [512, 16400, 16512], "status": 20, "witness": null, "seconds": 0.003}
+83 {"graph": 28704, "edges": [[1, 2], [3, 4], [3, 5], [4, 5]], "biclique_cover": 3, "cover": [32, 12288, 20480], "status": 20, "witness": null, "seconds": 0.004}
+84 {"graph": 656, "edges": [[0, 5], [1, 4], [2, 3]], "biclique_cover": 3, "cover": [16, 128, 512], "status": 20, "witness": null, "seconds": 0.004}
+85 {"graph": 32254, "edges": [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15768, 21878], "status": 20, "witness": null, "seconds": 0.003}
+86 {"graph": 15870, "edges": [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [510, 15462], "status": 20, "witness": null, "seconds": 0.003}
+87 {"graph": 28668, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [4060, 26400], "status": 20, "witness": null, "seconds": 0.003}
+88 {"graph": 32732, "edges": [[0, 3], [0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15768, 23380], "status": 20, "witness": null, "seconds": 0.003}
+89 {"graph": 16316, "edges": [[0, 3], [0, 4], [0, 5], [1, 2], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [3612, 13216], "status": 20, "witness": null, "seconds": 0.003}
+90 {"graph": 28636, "edges": [[0, 3], [0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [4060, 26316], "status": 20, "witness": null, "seconds": 0.002}
+91 {"graph": 32377, "edges": [[0, 1], [0, 4], [0, 5], [1, 2], [1, 3], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15481, 23040], "status": 20, "witness": null, "seconds": 0.003}
+92 {"graph": 32728, "edges": [[0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15768, 23360], "status": 20, "witness": null, "seconds": 0.003}
+93 {"graph": 16344, "edges": [[0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [4032, 15768], "status": 20, "witness": null, "seconds": 0.003}
+94 {"graph": 20444, "edges": [[0, 3], [0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [4, 5]], "biclique_cover": 2, "cover": [4060, 17544], "status": 20, "witness": null, "seconds": 0.003}
+95 {"graph": 28632, "edges": [[0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [3480, 26304], "status": 20, "witness": null, "seconds": 0.003}
+96 {"graph": 32600, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15384, 23360], "status": 20, "witness": null, "seconds": 0.003}
+97 {"graph": 32664, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15768, 23040], "status": 20, "witness": null, "seconds": 0.002}
+98 {"graph": 12248, "edges": [[0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5]], "biclique_cover": 2, "cover": [3480, 8768], "status": 20, "witness": null, "seconds": 0.002}
+99 {"graph": 16280, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [3584, 15768], "status": 20, "witness": null, "seconds": 0.002}
+100 {"graph": 24408, "edges": [[0, 4], [0, 5], [1, 3], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [3096, 23360], "status": 20, "witness": null, "seconds": 0.002}
+101 {"graph": 28624, "edges": [[0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [4032, 26896], "status": 20, "witness": null, "seconds": 0.003}
+102 {"graph": 31640, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12696, 23040], "status": 20, "witness": null, "seconds": 0.002}
+103 {"graph": 32152, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15768, 21640], "status": 20, "witness": null, "seconds": 0.002}
+104 {"graph": 32704, "edges": [[1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15744, 23360], "status": 20, "witness": null, "seconds": 0.002}
+105 {"graph": 15256, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [2560, 12696], "status": 20, "witness": null, "seconds": 0.003}
+106 {"graph": 15480, "edges": [[0, 4], [0, 5], [1, 2], [1, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [15384, 15456], "status": 20, "witness": null, "seconds": 0.002}
+107 {"graph": 23448, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [408, 23040], "status": 20, "witness": null, "seconds": 0.003}
+108 {"graph": 28368, "edges": [[0, 5], [1, 3], [1, 4], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [26304, 26640], "status": 20, "witness": null, "seconds": 0.003}
+109 {"graph": 28608, "edges": [[1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [4032, 26304], "status": 20, "witness": null, "seconds": 0.003}
+110 {"graph": 32144, "edges": [[0, 5], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15744, 26896], "status": 20, "witness": null, "seconds": 0.003}
+111 {"graph": 32640, "edges": [[1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15744, 23040], "status": 20, "witness": null, "seconds": 0.002}
+112 {"graph": 15748, "edges": [[0, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [12292, 15744], "status": 20, "witness": null, "seconds": 0.002}
+113 {"graph": 15760, "edges": [[0, 5], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [10512, 15744], "status": 20, "witness": null, "seconds": 0.002}
+114 {"graph": 16256, "edges": [[1, 4], [1, 5], [2, 3], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [3584, 15744], "status": 20, "witness": null, "seconds": 0.002}
+115 {"graph": 21812, "edges": [[0, 3], [0, 5], [1, 2], [1, 5], [2, 4], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [17696, 20500], "status": 20, "witness": null, "seconds": 0.003}
+116 {"graph": 29360, "edges": [[0, 5], [1, 2], [1, 4], [2, 3], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [4768, 24592], "status": 20, "witness": null, "seconds": 0.003}
+117 {"graph": 31616, "edges": [[1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12672, 23040], "status": 20, "witness": null, "seconds": 0.002}
+118 {"graph": 31888, "edges": [[0, 5], [1, 4], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [21632, 26640], "status": 20, "witness": null, "seconds": 0.003}
+119 {"graph": 32016, "edges": [[0, 5], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15360, 26896], "status": 20, "witness": null, "seconds": 0.003}
+120 {"graph": 32128, "edges": [[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15744, 21632], "status": 20, "witness": null, "seconds": 0.003}
+121 {"graph": 11652, "edges": [[0, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 5]], "biclique_cover": 2, "cover": [3456, 8196], "status": 20, "witness": null, "seconds": 0.004}
+122 {"graph": 15504, "edges": [[0, 5], [1, 4], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [5248, 10256], "status": 20, "witness": null, "seconds": 0.003}
+123 {"graph": 15632, "edges": [[0, 5], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [10512, 15360], "status": 20, "witness": null, "seconds": 0.003}
+124 {"graph": 23424, "edges": [[1, 4], [1, 5], [2, 3], [2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [384, 23040], "status": 20, "witness": null, "seconds": 0.003}
+125 {"graph": 29968, "edges": [[0, 5], [1, 5], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [21504, 24848], "status": 20, "witness": null, "seconds": 0.003}
+126 {"graph": 30992, "edges": [[0, 5], [1, 5], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12288, 26896], "status": 20, "witness": null, "seconds": 0.003}
+127 {"graph": 32000, "edges": [[1, 5], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15360, 26880], "status": 20, "witness": null, "seconds": 0.004}
+128 {"graph": 32256, "edges": [[2, 3], [2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15360, 23040], "status": 20, "witness": null, "seconds": 0.003}
+129 {"graph": 13584, "edges": [[0, 5], [1, 5], [2, 4], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [5120, 8464], "status": 20, "witness": null, "seconds": 0.003}
+130 {"graph": 15361, "edges": [[0, 1], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [1, 15360], "status": 20, "witness": null, "seconds": 0.003}
+131 {"graph": 15616, "edges": [[1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [10496, 15360], "status": 20, "witness": null, "seconds": 0.003}
+132 {"graph": 21776, "edges": [[0, 5], [1, 5], [2, 4], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [16656, 21504], "status": 20, "witness": null, "seconds": 0.003}
+133 {"graph": 22800, "edges": [[0, 5], [1, 5], [2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [18704, 20480], "status": 20, "witness": null, "seconds": 0.003}
+134 {"graph": 29952, "edges": [[1, 5], [2, 4], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [21504, 24832], "status": 20, "witness": null, "seconds": 0.003}
+135 {"graph": 30976, "edges": [[1, 5], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12288, 26880], "status": 20, "witness": null, "seconds": 0.002}
+136 {"graph": 31744, "edges": [[2, 4], [2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [15360, 21504], "status": 20, "witness": null, "seconds": 0.003}
+137 {"graph": 5392, "edges": [[0, 5], [1, 5], [2, 4], [3, 4]], "biclique_cover": 2, "cover": [272, 5120], "status": 20, "witness": null, "seconds": 0.003}
+138 {"graph": 6416, "edges": [[0, 5], [1, 5], [2, 5], [3, 4]], "biclique_cover": 2, "cover": [2320, 4096], "status": 20, "witness": null, "seconds": 0.003}
+139 {"graph": 13568, "edges": [[1, 5], [2, 4], [3, 4], [3, 5]], "biclique_cover": 2, "cover": [5120, 8448], "status": 20, "witness": null, "seconds": 0.003}
+140 {"graph": 22784, "edges": [[1, 5], [2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [18688, 20480], "status": 20, "witness": null, "seconds": 0.002}
+141 {"graph": 30720, "edges": [[2, 5], [3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12288, 26624], "status": 20, "witness": null, "seconds": 0.003}
+142 {"graph": 6400, "edges": [[1, 5], [2, 5], [3, 4]], "biclique_cover": 2, "cover": [2304, 4096], "status": 20, "witness": null, "seconds": 0.002}
+143 {"graph": 22528, "edges": [[2, 5], [3, 4], [4, 5]], "biclique_cover": 2, "cover": [18432, 20480], "status": 20, "witness": null, "seconds": 0.003}
+144 {"graph": 28672, "edges": [[3, 4], [3, 5], [4, 5]], "biclique_cover": 2, "cover": [12288, 20480], "status": 20, "witness": null, "seconds": 0.002}
+145 {"graph": 6144, "edges": [[2, 5], [3, 4]], "biclique_cover": 2, "cover": [2048, 4096], "status": 20, "witness": null, "seconds": 0.003}
+146 {"graph": 4060, "edges": [[0, 3], [0, 4], [0, 5], [1, 3], [1, 4], [1, 5], [2, 3], [2, 4], [2, 5]], "biclique_cover": 1, "cover": [4060], "status": 20, "witness": null, "seconds": 0.002}
+147 {"graph": 15768, "edges": [[0, 4], [0, 5], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 1, "cover": [15768], "status": 20, "witness": null, "seconds": 0.002}
+148 {"graph": 15744, "edges": [[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 1, "cover": [15744], "status": 20, "witness": null, "seconds": 0.002}
+149 {"graph": 26896, "edges": [[0, 5], [1, 5], [2, 5], [3, 5], [4, 5]], "biclique_cover": 1, "cover": [26896], "status": 20, "witness": null, "seconds": 0.002}
+150 {"graph": 15360, "edges": [[2, 4], [2, 5], [3, 4], [3, 5]], "biclique_cover": 1, "cover": [15360], "status": 20, "witness": null, "seconds": 0.002}
+151 {"graph": 26880, "edges": [[1, 5], [2, 5], [3, 5], [4, 5]], "biclique_cover": 1, "cover": [26880], "status": 20, "witness": null, "seconds": 0.002}
+152 {"graph": 26624, "edges": [[2, 5], [3, 5], [4, 5]], "biclique_cover": 1, "cover": [26624], "status": 20, "witness": null, "seconds": 0.003}
+153 {"graph": 24576, "edges": [[3, 5], [4, 5]], "biclique_cover": 1, "cover": [24576], "status": 20, "witness": null, "seconds": 0.002}
+154 {"graph": 16384, "edges": [[4, 5]], "biclique_cover": 1, "cover": [16384], "status": 20, "witness": null, "seconds": 0.002}

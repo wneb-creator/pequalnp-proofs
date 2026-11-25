@@ -1,0 +1,22 @@
+L-meta-949 preservation checkpoint
+UTC: 2026-11-25T10:30:23.211909+00:00
+Branch: pnp/pilot-82
+Upstream base: c0a34c73ef07261f3c8da26a58c04e9b12fea458
+
+Lean result: results/orch/lemmas/lean_existing_cut_counterexample.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/lean_existing_cut_counterexample.lean
+Toolchain: leanprover/lean4:v4.36.0
+Exit code: 0
+Complete stdout/stderr: empty (copied as lean-existing-cut.log).
+This proves the negation of the existing R_meta_949_1 hLower premise.
+It does NOT prove the negation of L-meta-949.
+Local exact-statement checker for L-meta-949: not run; no full proof or refutation exists yet.
+
+Independent review: review_rules found no blocker for this preservation push.
+Computational result: two independent exhaustive algorithms find no six-vertex witness.
+All 156 graph isomorphism classes cover all 32768 labeled graphs; positive controls pass.
+The seven-vertex files contain a found witness, not a complete seven-vertex census.
+These computations are not Lean kernel certificates.
+
+Sub-agents: 5 (independent reviewer, finite SAT search, structural proof route, Lean partial proof, independent semantic enumeration)
+TIMING total=12.6 subagents=5

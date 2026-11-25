@@ -1,0 +1,25 @@
+unlabeled 1 1
+unlabeled 1 1
+unlabeled 2 2
+AGREE 2 1 0 brute False SAT status 20
+unlabeled 1 1
+unlabeled 2 2
+unlabeled 3 4
+AGREE 3 4 0 brute False SAT status 20
+AGREE 3 6 0 brute False SAT status 20
+AGREE 3 7 1 brute False SAT status 20
+unlabeled 1 1
+unlabeled 2 2
+unlabeled 3 4
+unlabeled 4 11
+AGREE 4 12 1 brute False SAT status 20
+AGREE 4 30 0 brute False SAT status 20
+AGREE 4 32 0 brute False SAT status 20
+AGREE 4 44 1 brute False SAT status 20
+AGREE 4 48 0 brute False SAT status 20
+AGREE 4 52 0 brute False SAT status 20
+AGREE 4 56 1 brute False SAT status 20
+AGREE 4 60 1 brute False SAT status 20
+AGREE 4 62 1 brute False SAT status 20
+AGREE 4 63 1 brute False SAT status 20
+ALL TINY EXHAUSTIVE CONTROLS PASSED

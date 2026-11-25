@@ -1,0 +1,10 @@
+unlabeled 1 1
+unlabeled 2 2
+unlabeled 3 4
+unlabeled 4 11
+unlabeled 5 34
+unlabeled 6 156
+unlabeled 7 1044
+cover histogram {0: 1, 1: 12, 2: 159, 3: 650, 4: 221, 5: 1, 6: 0, 7: 0}
+0 {"graph": 450097, "edges": [[0, 1], [0, 5], [0, 6], [1, 5], [1, 6], [2, 3], [2, 4], [2, 6], [3, 4], [3, 6], [4, 5]], "biclique_cover": 5, "cover": [49, 1537, 22528, 148512, 299008], "status": 10, "witness": {"sides": [[[0, 1], [5, 6]], [[1, 6], [0, 5]], [[2, 3], [4, 6, 7, 8]], [[3, 4, 9], [2, 8, 9]]], "outputs": [0, 2, 3]}, "seconds": 0.258}
+WITNESS FOUND
