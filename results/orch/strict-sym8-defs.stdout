@@ -1,0 +1,70 @@
+type checking took 2.64s
+type checking took 162ms
+type checking took 1.98s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:21:0: warning: Definition `split_sym8_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 8.17s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:24:0: warning: Definition `split_sym8_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 6.3s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:27:0: warning: Definition `split_sym8_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.96s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:30:0: warning: Definition `split_sym8_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 8.05s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:33:0: warning: Definition `split_sym8_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 6.08s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:36:0: warning: Definition `split_sym8_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.69s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:39:0: warning: Definition `split_sym8_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 5.59s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:42:0: warning: Definition `split_sym8_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 9.44s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:45:0: warning: Definition `split_sym8_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.91s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:48:0: warning: Definition `split_sym8_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 7.22s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:51:0: warning: Definition `split_sym8_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 8.55s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:54:0: warning: Definition `split_sym8_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 6.11s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:57:0: warning: Definition `split_sym8_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.24s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:60:0: warning: Definition `split_sym8_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 7.19s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:63:0: warning: Definition `split_sym8_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.35s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:66:0: warning: Definition `split_sym8_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.37s
+/tmp/oec/pequalnp-pilot-182/StrictSym8Defs.lean:69:0: warning: Definition `split_sym8_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`

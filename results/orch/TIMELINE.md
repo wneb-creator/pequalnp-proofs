@@ -17,3 +17,5 @@
 - 2026-11-25T20:04:32.817239+00:00: complete staticcandidate reviewed; mostnumericcases checked; individualcaseOOM requires smaller hash partitions; archival checkpoint.
 - 2026-11-25T20:06:26.763634+00:00: generic complete-hash-cover adapter checked and independently reviewed; smaller numerical partitions now being checked.
 - 2026-11-25T20:15:44.756644+00:00: refined problematic case checked; peakmemory diagnosis continues; checkpointing valid proof and metrics.
+- 2026-11-25T20:20:36.985475+00:00: resource replan: all17 individual checks below4.29GiB, wholemodule6.68GiB; test Prop-valued definitions to avoid cross-declaration retention. Numerical search complete; no further graph search needed. Genuine pinned Mathlib umbrella recovered for checker.
+- 2026-11-25T20:24:33.778638+00:00: declaration-form fix checked under3threads at4529844KiB; exact17 lemma-to-def keyword changes independently reviewed; scaling to complete candidate.
