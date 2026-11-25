@@ -5,3 +5,6 @@ Local checker: not run; no complete target theorem or UNSAT certificate.
 Independent review: PASS for partial checkpoint; exact source SHA256 279dc52f703612030973e13312c1cebddb0a6452b4987b681c46fa61940cc541.
 Sub-agents: 6 (checker review, structural proof, counterexample search, finite certificates, setup/gate elimination, negation theory)
 TIMING total=10 subagents=6
+
+Negation.lean and GateElimination.lean: lake env lean exit0, empty stdout/stderr; independent research-checkpoint review PASS.
+TIMING total=11 subagents=6
