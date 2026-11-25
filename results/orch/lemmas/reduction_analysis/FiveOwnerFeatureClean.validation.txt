@@ -1,0 +1,8 @@
+UTC 2026-11-25T07:06:45.845453+00:00
+SHA256 ef8250f1ffefe13522f39d11111fa9685edfce291b6e8d66f4ef922621cc6413
+Lean build exit0 at4GB; full stdout/stderr retained, inherited conversion warnings only.
+Standalone Defs-only, frozen FiveOwnerOrdinaryClean and AndCountOrSubstitution bodies unchanged except one repeated import removal.
+New andcount_feature_clean and ordinary_feature_clean prove: for any finite family of pureOR supports on the16raw vertices, an AndCount or ordinaryMonotone2 circuit with≤5ANDs computing the five-owner graph correctly on encoded rawinputs has everyAND false on each encoded independent rawinput. Featurearity/supports arbitrary, so this includes the36 ORfeatures andrawcoordinates of thejoint52model. Correctness is required only on correlated encoded rawinputs; no correctness on arbitrary independent featureassignments.
+Ordinary proof converts toAndCount, substitutes ORsupports, uses30negativefamily toforceexactcount5, then retains everyoriginalANDwire through thetightconversion. Constants/unary/defaultwirecases covered.
+No jointpaid23/fullassembly gatecount theorem, fullL650 proof/refutation, or PRchecker acceptance claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean

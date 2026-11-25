@@ -1,0 +1,5 @@
+UTC 2026-11-25T07:05:36.609862+00:00
+SHA256 aa21d821e0640d98e6646bb5e9e31f9e3ccfb2f8d92a127b416b5e21508a88b5
+Lean build exit0 at3GB; complete stdout/stderr empty.
+Standalone Defs-only generic AndCount OR-support substitution. Each encoded input is an arbitrary finite OR of raw inputs, possibly empty or overlapping. Replacing left/right/output variable sets by their support unions preserves size, WellFormed, every gate at every fuel, and output exactly on encoded raw inputs. Gate references and order are unchanged. No graph, gate-cost, or fullL650 theorem claimed by this component.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M3072 ../results/orch/lemmas/reduction_analysis/AndCountOrSubstitution.lean

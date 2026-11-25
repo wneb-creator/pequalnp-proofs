@@ -1,0 +1,79 @@
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1518:12: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1525:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, fv] at ea eb ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1537:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ea, eb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1572:56: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1571:43: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1691:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1702:98: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andStep, hfa, hfb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1698:37: warning: Unused tactic linter: `skip` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1708:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1708:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1708:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1708:34: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [List.append_nil]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1712:98: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andStep, hfa, hfb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerFeatureClean.lean:1708:66: warning: Unused tactic linter: `skip` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
