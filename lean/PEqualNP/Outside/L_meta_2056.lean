@@ -114,4 +114,39 @@ lemma rectangle_cover_cost (m : ℕ) (s t : Fin m → Finset (Fin 13))
   · exact hm
   · omega
 
+lemma private_neighbor (a : Fin 13) (s : Finset (Fin 13))
+    (ha : a ∉ s) (hs : s.card ≤ 3) :
+    ∃ l : Fin 13, incident a l ∧ ∀ p ∈ s, ¬ incident p l := by
+  classical
+  by_contra hn
+  have covered : ∀ l ∈ neighbors a, ∃ p ∈ s, incident p l := by
+    intro l hl
+    by_contra hp
+    apply hn
+    exact ⟨l, (Finset.mem_filter.mp hl).2, fun p hps hpl => hp ⟨p, hps, hpl⟩⟩
+  have hsub : neighbors a ⊆ s.biUnion (fun p => neighbors a ∩ neighbors p) := by
+    intro l hl
+    obtain ⟨p, hp, hpl⟩ := covered l hl
+    exact Finset.mem_biUnion.mpr ⟨p, hp,
+      Finset.mem_inter.mpr ⟨hl, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpl⟩⟩⟩
+  have small : ∀ p ∈ s, (neighbors a ∩ neighbors p).card ≤ 1 := by
+    intro p hp
+    apply Finset.card_le_one.mpr
+    intro c hc d hd
+    have hac := (Finset.mem_filter.mp (Finset.mem_inter.mp hc).1).2
+    have hpc := (Finset.mem_filter.mp (Finset.mem_inter.mp hc).2).2
+    have had := (Finset.mem_filter.mp (Finset.mem_inter.mp hd).1).2
+    have hpd := (Finset.mem_filter.mp (Finset.mem_inter.mp hd).2).2
+    by_contra hcd
+    have hap : a ≠ p := fun he => ha (he ▸ hp)
+    exact no_rectangle a p c d hap hcd hac had hpc hpd
+  have hfour : 4 ≤ s.card := by
+    calc
+      4 = (neighbors a).card := (neighbors_card a).symm
+      _ ≤ (s.biUnion (fun p => neighbors a ∩ neighbors p)).card := Finset.card_le_card hsub
+      _ ≤ ∑ p ∈ s, (neighbors a ∩ neighbors p).card := Finset.card_biUnion_le
+      _ ≤ ∑ _p ∈ s, 1 := Finset.sum_le_sum small
+      _ = s.card := by simp
+  omega
+
 end PEqualNP.Outside.L_meta_2056_aux
