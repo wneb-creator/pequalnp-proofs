@@ -1,0 +1,10 @@
+L-meta-2583 research status; no final theorem or submission checker acceptance yet.
+
+Pinned Lean v4.36.0; full prebuilt Mathlib cache; PEqualNP.Defs build PASS.
+Geometry.lean: root build PASS; independent build and standard-axiom audit PASS.
+Equivalence.lean: root build PASS; independent exact-statement and axiom audit PASS.
+Fetched h1 canonical, h3 product decomposition, h6 P4 obstruction: independent builds PASS.
+Plain-file guard refuses partial bundles because the final posted theorem is absent; expected and not a submission.
+
+Sub-agents: 9 external bus helpers; 1 local toolchain and proof-support agent.
+TIMING total=17 subagents=10
