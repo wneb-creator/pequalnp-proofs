@@ -4034,4 +4034,1112 @@ lemma exists_admissible_normal_edge_active {p l : ℕ} (E : Finset (Fin p × Fin
 
 end H5Normalize
 
+namespace H5Essential
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
+open H5Pruning H5Bridge H5Compile H5CompileReach H5LiftGlue H5AndTotal H5Stars H5Normalize
+
+lemma graph_eq_of_positive_and_le (n : ℕ) (E : Finset (Fin n × Fin n))
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f)
+    (hle : ∀ x, f x ≤ H5Pruning.graphFun E x)
+    (hpos : ∀ e ∈ E, f (pairInput e.1 e.2) = true) :
+    ∀ x, f x = H5Pruning.graphFun E x := by
+  intro x
+  cases hx : H5Pruning.graphFun E x with
+  | false =>
+      have h := hle x
+      rw [hx] at h
+      exact le_antisymm h (by cases f x <;> decide)
+  | true =>
+      obtain ⟨e, he, ha, hb⟩ := (of_decide_eq_true hx : ∃ e ∈ E, x e.1 = true ∧ x e.2 = true)
+      have h := hf (pairInput_le e.1 e.2 x ha hb)
+      exact Bool.le_iff_imp.mp h (hpos e he)
+
+lemma changed_output_gate_true (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (x : Fin n → Bool) (hout : wireFn n C C.output x = true)
+    (hzero : wireFn n (zeroed C j) C.output x = false) : wireFn n C (n+j) x = true := by
+  cases hg : wireFn n C (n+j) x with
+  | true => rfl
+  | false =>
+      have h := congrArg (fun w : List Bool => w.getD C.output false)
+        (zeroed_eq_of_wire_false n C j hj x hg)
+      change wireFn n (zeroed C j) C.output x = wireFn n C C.output x at h
+      rw [hzero, hout] at h
+      cases h
+
+lemma zero_singleton_gate_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D : Circuit, admissible p l E D → C.size ≤ D.size)
+    (j : ℕ) (hj : j < C.gates.length)
+    (hsingle : ∀ u : Fin (p+l), wireFn (p+l) C (p+l+j) (singletonInput u) = false) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) (zeroed C j) C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  classical
+  by_contra hbad
+  have hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    intro x
+    rw [graphFun_bipartite]
+    exact hC.2.1 x
+  have hpos : ∀ a b, (a,b) ∈ E →
+      wireFn (p+l) (zeroed C j) C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+    intro a b hab
+    cases hz : wireFn (p+l) (zeroed C j) C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) with
+    | true => rfl
+    | false =>
+        have hout : wireFn (p+l) C C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+          rw [hspec, graphFun_bipartite]
+          apply decide_eq_true
+          exact ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+        have hgate := changed_output_gate_true (p+l) C j hj _ hout hz
+        exact (hbad ⟨a,b,hab,hgate,hz⟩).elim
+  have hfun0 : ∀ x, wireFn (p+l) (zeroed C j) C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    apply graph_eq_of_positive_and_le (p+l) (bipartiteEdges E)
+      (wireFn (p+l) (zeroed C j) C.output) (zeroed_wire_mono (p+l) C hC.1 j C.output)
+    · intro x
+      rw [← hspec x]
+      exact zeroed_wire_le (p+l) C hC.1 j hj C.output x
+    · intro e he
+      obtain ⟨ab, hab, rfl⟩ := Finset.mem_image.mp he
+      exact hpos ab.1 ab.2 hab
+  let C0 := zeroed C j
+  let D := compiledCircuit (p+l) C0
+  have hallowed : ∀ g ∈ C0.gates, allowed g := zeroed_allowed (p+l) C hC.1 j
+  have hAO : IsAO2 (p+l) D := compiledCircuit_good (p+l) C0 hallowed
+  have hfun : ∀ x, wireFn (p+l) D D.output x = wireFn (p+l) C C.output x := by
+    intro x
+    rw [show D = compiledCircuit (p+l) C0 from rfl, compiledCircuit_value (p+l) C0 hallowed]
+    exact (hfun0 x).trans (hspec x).symm
+  have hT0 : tCount (p+l) C0 (fun i => decide (p ≤ i)) = 0 :=
+    zeroed_tCount (p+l) C j hj hC.1.2.1 _ hC.2.2.1
+  have hTD : tCount (p+l) D (fun i => decide (p ≤ i)) = 0 :=
+    compiled_tCount_zero (p+l) C0 D _ hallowed
+      (zeroed_readsBack (p+l) C j hj hC.1.2.1) hT0 rfl
+  have hstars : KeepsStars (p+l) C D := by
+    intro Q w hQ hstar
+    have hz : ∀ x, wireFn (p+l) C0 w x = starFun Q x :=
+      zeroed_star_preserved_of_singletons (p+l) Q C hC.1 j hj (fun u _ => hsingle u) w hstar
+    obtain ⟨k,hk,hop,hval⟩ := compiled_star (p+l) C0 D hallowed rfl hAO Q hQ w hz
+    exact ⟨p+l+k,hval⟩
+  have hD : admissible p l E D := admissible_of_keeps E C D hC hAO hfun hTD hstars
+  have hsize : D.size < C.size :=
+    lt_of_le_of_lt (compiledCircuit_size (p+l) C0) (zeroed_binaryCount_lt C j hj)
+  have hle := hmin D hD
+  omega
+
+lemma safe_gate_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D : Circuit, admissible p l E D → C.size ≤ D.size)
+    (j : ℕ) (hj : j < C.gates.length)
+    (hBelow : ∀ x, wireFn (p+l) C (p+l+j) x = true →
+      H5Pruning.graphFun (bipartiteEdges E) x = true) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) (zeroed C j) C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  apply zero_singleton_gate_essential E C hC hmin j hj
+  exact wire_false_singletons_of_below (p+l) C (H5Pruning.graphFun (bipartiteEdges E))
+    (bipartite_false_singletons E) (p+l+j) hBelow
+
+lemma exists_admissible_normal_edge_active_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (hE : E.Nonempty) (C : Circuit) (hC : admissible p l E C) :
+    ∃ D : Circuit, admissible p l E D ∧ D.size ≤ C.size ∧
+      (∀ D', admissible p l E D' → D.size ≤ D'.size) ∧
+      H5Normalize.normal (p+l) (H5Pruning.graphFun (bipartiteEdges E)) D ∧
+      (∀ j < D.gates.length, ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+        wireFn (p+l) D (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true) ∧
+      ∀ j < D.gates.length,
+        (∀ u : Fin (p+l), wireFn (p+l) D (p+l+j) (singletonInput u) = false) →
+        ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+          wireFn (p+l) D (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+          wireFn (p+l) (zeroed D j) D.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  obtain ⟨D,hD,hsize,hmin,hnormal,hactive⟩ := exists_admissible_normal_edge_active E hE C hC
+  refine ⟨D,hD,hsize,hmin,hnormal,hactive,?_⟩
+  intro j hj hsingle
+  exact zero_singleton_gate_essential E D hD hmin j hj hsingle
+
+end H5Essential
+
+-- P6 served-circuit minimum and an impure optimal control.
+-- The lower bound uses AO2, exact computation, and semantic served-star witnesses;
+-- it does not require T = 0. The eight-gate control also has T = 0 and every gate
+-- is edge-active. It has an impure top-AND operand and minimizes both size and
+-- AND count. It does NOT satisfy TopForm: its safe AND at index 3 is below the
+-- AND at index 5. Thus this control makes no claim against a TopForm normalizer.
+
+namespace H5Rectangles
+
+def Rectangle {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (T : Finset (α × β)) : Prop :=
+  ∃ A : Finset α, ∃ B : Finset β, T = A ×ˢ B
+
+lemma rectangle_inter {α β : Type*} [DecidableEq α] [DecidableEq β]
+    {S T : Finset (α × β)} (hS : Rectangle S) (hT : Rectangle T) :
+    Rectangle (S ∩ T) := by
+  obtain ⟨A, B, rfl⟩ := hS
+  obtain ⟨C, D, rfl⟩ := hT
+  refine ⟨A ∩ C, B ∩ D, ?_⟩
+  ext ⟨a, b⟩
+  simp only [Finset.mem_inter, Finset.mem_product]
+  tauto
+
+lemma rectangle_empty {α β : Type*} [DecidableEq α] [DecidableEq β] :
+    Rectangle (∅ : Finset (α × β)) :=
+  ⟨∅, ∅, by simp⟩
+
+lemma rectangle_univ {α β : Type*} [Fintype α] [Fintype β]
+    [DecidableEq α] [DecidableEq β] : Rectangle (Finset.univ : Finset (α × β)) := by
+  refine ⟨Finset.univ, Finset.univ, ?_⟩
+  ext ⟨a, b⟩
+  simp
+
+lemma rectangles_before_exception {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (N k : ℕ) (S : ℕ → Finset (α × β))
+    (hstep : ∀ i < N, Rectangle (S i) ∨
+      (∃ a b, a < i ∧ b < i ∧ S i = S a ∩ S b) ∨
+      (i = k ∧ ∃ a b, a < i ∧ b < i ∧ S i = S a ∪ S b)) :
+    ∀ i < N, i < k → Rectangle (S i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi hik
+    rcases hstep i hi with hR | hI | ⟨rfl, hU⟩
+    · exact hR
+    · obtain ⟨a, b, ha, hb, heq⟩ := hI
+      rw [heq]
+      exact rectangle_inter (ih a ha (by omega) (by omega))
+        (ih b hb (by omega) (by omega))
+    · omega
+
+lemma single_exception_factor {α β : Type*} [Fintype α] [Fintype β]
+    [DecidableEq α] [DecidableEq β] (N k : ℕ) (S : ℕ → Finset (α × β))
+    (hstep : ∀ i < N, Rectangle (S i) ∨
+      (∃ a b, a < i ∧ b < i ∧ S i = S a ∩ S b) ∨
+      (i = k ∧ ∃ a b, a < i ∧ b < i ∧ S i = S a ∪ S b)) :
+    ∀ i < N, ∃ R : Finset (α × β), Rectangle R ∧
+      (S i = R ∨ S i = S k ∩ R) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi
+    rcases hstep i hi with hR | hI | ⟨rfl, hU⟩
+    · exact ⟨S i, hR, Or.inl rfl⟩
+    · obtain ⟨a, b, ha, hb, hI⟩ := hI
+      obtain ⟨A, hA, hAS⟩ := ih a ha (by omega)
+      obtain ⟨B, hB, hBS⟩ := ih b hb (by omega)
+      refine ⟨A ∩ B, rectangle_inter hA hB, ?_⟩
+      rcases hAS with hAS | hAS <;> rcases hBS with hBS | hBS
+      · left
+        rw [hI, hAS, hBS]
+      · right
+        rw [hI, hAS, hBS]
+        ext x
+        simp only [Finset.mem_inter]
+        tauto
+      · right
+        rw [hI, hAS, hBS]
+        ext x
+        simp only [Finset.mem_inter]
+        tauto
+      · right
+        rw [hI, hAS, hBS]
+        ext x
+        simp only [Finset.mem_inter]
+        tauto
+    · exact ⟨Finset.univ, rectangle_univ, Or.inr (by simp)⟩
+
+lemma one_exception_two_rectangles {α β : Type*} [Fintype α] [Fintype β]
+    [DecidableEq α] [DecidableEq β] (N k : ℕ) (S : ℕ → Finset (α × β))
+    (hstep : ∀ i < N, Rectangle (S i) ∨
+      (∃ a b, a < i ∧ b < i ∧ S i = S a ∩ S b) ∨
+      (i = k ∧ ∃ a b, a < i ∧ b < i ∧ S i = S a ∪ S b)) :
+    ∀ i < N, ∃ A B : Finset (α × β), Rectangle A ∧ Rectangle B ∧ S i = A ∪ B := by
+  intro i hi
+  by_cases hk : k < N
+  · have hK : ∃ A B : Finset (α × β), Rectangle A ∧ Rectangle B ∧ S k = A ∪ B := by
+      rcases hstep k hk with hR | hI | ⟨hkk, hU⟩
+      · exact ⟨S k, ∅, hR, rectangle_empty, by simp⟩
+      · obtain ⟨a, b, ha, hb, heq⟩ := hI
+        have hR : Rectangle (S k) := by
+          rw [heq]
+          exact rectangle_inter
+            (rectangles_before_exception N k S hstep a (by omega) ha)
+            (rectangles_before_exception N k S hstep b (by omega) hb)
+        exact ⟨S k, ∅, hR, rectangle_empty, by simp⟩
+      · obtain ⟨a, b, ha, hb, heq⟩ := hU
+        exact ⟨S a, S b,
+          rectangles_before_exception N k S hstep a (by omega) ha,
+          rectangles_before_exception N k S hstep b (by omega) hb, heq⟩
+    obtain ⟨A, B, hA, hB, hK⟩ := hK
+    obtain ⟨R, hR, heq | heq⟩ := single_exception_factor N k S hstep i hi
+    · exact ⟨R, ∅, hR, rectangle_empty, by simpa using heq⟩
+    · refine ⟨A ∩ R, B ∩ R, rectangle_inter hA hR, rectangle_inter hB hR, ?_⟩
+      rw [heq, hK]
+      ext x
+      simp only [Finset.mem_inter, Finset.mem_union]
+      tauto
+  · have hR := rectangles_before_exception N k S hstep i hi (by omega)
+    exact ⟨S i, ∅, hR, rectangle_empty, by simp⟩
+
+def pathEdges : Finset (Fin 3 × Fin 3) := {(0, 0), (1, 0), (1, 1), (2, 1), (2, 2)}
+
+lemma path_not_two_rectangles : ¬ ∃ (A B C D : Finset (Fin 3)),
+    pathEdges = (A ×ˢ B) ∪ (C ×ˢ D) := by
+  decide +kernel
+
+lemma path_not_two_rectangles' : ¬ ∃ A B : Finset (Fin 3 × Fin 3),
+    Rectangle A ∧ Rectangle B ∧ pathEdges = A ∪ B := by
+  rintro ⟨A, B, ⟨P, Q, rfl⟩, ⟨R, T, rfl⟩, h⟩
+  exact path_not_two_rectangles ⟨P, Q, R, T, h⟩
+
+end H5Rectangles
+
+namespace H5Rectangles
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_4970_aux.H5Pruning
+
+def pair (a b : Fin 3) : Fin 6 → Bool :=
+  fun i => decide (i = Fin.castAdd 3 a ∨ i = Fin.natAdd 3 b)
+
+def table (C : Circuit) (w : ℕ) : Finset (Fin 3 × Fin 3) :=
+  Finset.univ.filter fun ab => wireFn 6 C w (pair ab.1 ab.2) = true
+
+lemma pair_left (a b u : Fin 3) : pair a b (Fin.castAdd 3 u) = decide (u = a) := by
+  fin_cases a <;> fin_cases b <;> fin_cases u <;> decide +kernel
+
+lemma pair_right (a b u : Fin 3) : pair a b (Fin.natAdd 3 u) = decide (u = b) := by
+  fin_cases a <;> fin_cases b <;> fin_cases u <;> decide +kernel
+
+lemma pair_addNat (a b u : Fin 3) : pair a b (u.addNat 3) = decide (u = b) := by
+  fin_cases a <;> fin_cases b <;> fin_cases u <;> decide +kernel
+
+lemma input_rectangle (C : Circuit) (i : ℕ) (hi : i < 6) : Rectangle (table C i) := by
+  have heq : table C i = Finset.univ.filter
+      (fun ab : Fin 3 × Fin 3 => pair ab.1 ab.2 ⟨i, hi⟩ = true) := by
+    ext ab
+    simp [table, wireFn_input 6 C i hi]
+  rw [heq]
+  have hbase : ∀ u : Fin 6, Rectangle
+      (Finset.univ.filter (fun ab : Fin 3 × Fin 3 => pair ab.1 ab.2 u = true)) := by
+    unfold Rectangle
+    decide +kernel
+  exact hbase ⟨i, hi⟩
+
+lemma left_pure_rectangle (C : Circuit) (j : ℕ) (P : Finset (Fin 3))
+    (h : ∀ x : Fin 6 → Bool, wireFn 6 C (6 + j) x =
+      decide (∃ a ∈ P, x (Fin.castAdd 3 a) = true)) : Rectangle (table C (6 + j)) := by
+  refine ⟨P, Finset.univ, ?_⟩
+  ext ⟨a, b⟩
+  simp [table, h, pair_left]
+
+lemma right_pure_rectangle (C : Circuit) (j : ℕ) (Q : Finset (Fin 3))
+    (h : ∀ x : Fin 6 → Bool, wireFn 6 C (6 + j) x =
+      decide (∃ b ∈ Q, x (Fin.natAdd 3 b) = true)) : Rectangle (table C (6 + j)) := by
+  refine ⟨Finset.univ, Q, ?_⟩
+  ext ⟨a, b⟩
+  simp [table, h, pair_addNat]
+
+lemma table_binary (C : Circuit) (hC : IsAO2 6 C) (j : ℕ) (hj : j < C.gates.length) :
+    ∃ a b, a < 6 + j ∧ b < 6 + j ∧
+      (((gateAt C j).op = GateOp.and ∧ table C (6 + j) = table C a ∩ table C b) ∨
+      ((gateAt C j).op = GateOp.or ∧ table C (6 + j) = table C a ∪ table C b)) := by
+  obtain ⟨a, b, ha, hb, hab, hop, he⟩ := binary_gate 6 C hC j hj
+  refine ⟨a, b, ha, hb, ?_⟩
+  rcases hop with hop | hop
+  · left
+    refine ⟨hop, ?_⟩
+    ext ⟨u, v⟩
+    simp [table, he, hop, GateOp.eval]
+  · right
+    refine ⟨hop, ?_⟩
+    ext ⟨u, v⟩
+    simp [table, he, hop, GateOp.eval]
+
+lemma circuit_one_exception (C : Circuit) (hC : IsAO2 6 C) (k : ℕ)
+    (hOR : ∀ j < C.gates.length, (gateAt C j).op = GateOp.or →
+      j ≠ k → Rectangle (table C (6 + j))) :
+    ∀ w < 6 + C.gates.length, ∃ A B : Finset (Fin 3 × Fin 3),
+      Rectangle A ∧ Rectangle B ∧ table C w = A ∪ B := by
+  apply one_exception_two_rectangles (6 + C.gates.length) (6 + k) (table C)
+  intro w hw
+  by_cases hin : w < 6
+  · exact Or.inl (input_rectangle C w hin)
+  · let j := w - 6
+    have hwj : w = 6 + j := by dsimp [j]; omega
+    have hj : j < C.gates.length := by omega
+    obtain ⟨a, b, ha, hb, hA | hO⟩ := table_binary C hC j hj
+    · right
+      left
+      exact ⟨a, b, by omega, by omega, by simpa [hwj] using hA.2⟩
+    · by_cases hjk : j = k
+      · right
+        right
+        exact ⟨by omega, a, b, by omega, by omega, by simpa [hwj] using hO.2⟩
+      · left
+        simpa [hwj] using hOR j hj hO.1 hjk
+
+def computesPath (C : Circuit) : Prop :=
+  ∀ x : Fin 6 → Bool, circuitFun 6 C x =
+    decide (∃ (a : Fin 3) (b : Fin 3), (a, b) ∈ pathEdges ∧
+      x (Fin.castAdd 3 a) = true ∧ x (Fin.natAdd 3 b) = true)
+
+lemma path_output_valid (C : Circuit) (hF : computesPath C) :
+    C.output < 6 + C.gates.length := by
+  by_contra h
+  have hz := wireFn_ge 6 C C.output (by omega) (pair 0 0)
+  have hf := hF (pair 0 0)
+  change wireFn 6 C C.output (pair 0 0) = _ at hf
+  rw [hz] at hf
+  have ht : decide (∃ (a : Fin 3) (b : Fin 3), (a, b) ∈ pathEdges ∧
+      pair 0 0 (Fin.castAdd 3 a) = true ∧ pair 0 0 (Fin.natAdd 3 b) = true) = true := by
+    decide +kernel
+  rw [ht] at hf
+  contradiction
+
+lemma path_output_table (C : Circuit) (hF : computesPath C) : table C C.output = pathEdges := by
+  ext ⟨a, b⟩
+  have h : wireFn 6 C C.output (pair a b) =
+    decide (∃ (u : Fin 3) (v : Fin 3), (u, v) ∈ pathEdges ∧
+      pair a b (Fin.castAdd 3 u) = true ∧ pair a b (Fin.natAdd 3 v) = true) := hF _
+  simp [table, h, pair_left, pair_addNat]
+
+noncomputable def orGates (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j => (gateAt C j).op = GateOp.or
+
+lemma orGates_mem (C : Circuit) (j : ℕ) :
+    j ∈ orGates C ↔ j < C.gates.length ∧ (gateAt C j).op = GateOp.or := by
+  classical
+  simp [orGates]
+
+lemma path_three_rectangular_ors (C : Circuit) (hC : IsAO2 6 C) (hF : computesPath C)
+    (W : Finset ℕ) (hW : W ⊆ orGates C) (hcard : W.card = 3)
+    (hrect : ∀ j ∈ W, Rectangle (table C (6 + j))) : 5 ≤ (orGates C).card := by
+  classical
+  by_contra hlt
+  let R := orGates C \ W
+  have hR : R.card ≤ 1 := by
+    dsimp [R]
+    rw [Finset.card_sdiff_of_subset hW, hcard]
+    omega
+  obtain ⟨k, hk⟩ : ∃ k : ℕ, ∀ j ∈ R, j = k := by
+    by_cases hempty : R = ∅
+    · exact ⟨0, by simp [hempty]⟩
+    · obtain ⟨k, hk⟩ := Finset.nonempty_iff_ne_empty.mpr hempty
+      refine ⟨k, ?_⟩
+      intro j hj
+      exact Finset.card_le_one.mp hR j hj k hk
+  have hOR : ∀ j < C.gates.length, (gateAt C j).op = GateOp.or →
+      j ≠ k → Rectangle (table C (6 + j)) := by
+    intro j hj hop hne
+    have hm : j ∈ orGates C := (orGates_mem C j).mpr ⟨hj, hop⟩
+    by_cases hw : j ∈ W
+    · exact hrect j hw
+    · exact False.elim (hne (hk j (Finset.mem_sdiff.mpr ⟨hm, hw⟩)))
+  obtain ⟨A, B, hA, hB, heq⟩ := circuit_one_exception C hC k hOR C.output (path_output_valid C hF)
+  rw [path_output_table C hF] at heq
+  exact path_not_two_rectangles' ⟨A, B, hA, hB, heq⟩
+
+def servedPath (C : Circuit) : Prop :=
+  ∀ (a b : Fin 3), (a, b) ∈ pathEdges →
+    (∃ (j : ℕ) (Q : Finset (Fin 3)), j < C.gates.length ∧
+      (gateAt C j).op = GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧
+      (∀ b' ∈ Q, (a, b') ∈ pathEdges) ∧ ∀ x : Fin 6 → Bool,
+        wireFn 6 C (6 + j) x = decide (∃ b' ∈ Q, x (Fin.natAdd 3 b') = true)) ∨
+    (∃ (j : ℕ) (P : Finset (Fin 3)), j < C.gates.length ∧
+      (gateAt C j).op = GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧
+      (∀ a' ∈ P, (a', b) ∈ pathEdges) ∧ ∀ x : Fin 6 → Bool,
+        wireFn 6 C (6 + j) x = decide (∃ a' ∈ P, x (Fin.castAdd 3 a') = true))
+
+lemma no_left_zero : ∀ Q : Finset (Fin 3), 2 ≤ Q.card →
+    (∀ b ∈ Q, ((0 : Fin 3), b) ∈ pathEdges) → False := by
+  decide +kernel
+
+lemma no_right_two : ∀ P : Finset (Fin 3), 2 ≤ P.card →
+    (∀ a ∈ P, (a, (2 : Fin 3)) ∈ pathEdges) → False := by
+  decide +kernel
+
+lemma left_one : ∀ Q : Finset (Fin 3), 2 ≤ Q.card →
+    (∀ b ∈ Q, ((1 : Fin 3), b) ∈ pathEdges) → Q = {0, 1} := by
+  decide +kernel
+
+lemma left_two : ∀ Q : Finset (Fin 3), 2 ≤ Q.card →
+    (∀ b ∈ Q, ((2 : Fin 3), b) ∈ pathEdges) → Q = {1, 2} := by
+  decide +kernel
+
+lemma right_zero : ∀ P : Finset (Fin 3), 2 ≤ P.card →
+    (∀ a ∈ P, (a, (0 : Fin 3)) ∈ pathEdges) → P = {0, 1} := by
+  decide +kernel
+
+lemma right_one : ∀ P : Finset (Fin 3), 2 ≤ P.card →
+    (∀ a ∈ P, (a, (1 : Fin 3)) ∈ pathEdges) → P = {1, 2} := by
+  decide +kernel
+
+def unit (i : Fin 6) : Fin 6 → Bool := fun k => decide (k = i)
+
+lemma first_witness (C : Circuit) (hs : servedPath C) :
+    ∃ j ∈ orGates C, Rectangle (table C (6 + j)) ∧
+      wireFn 6 C (6 + j) (unit 0) = true ∧ wireFn 6 C (6 + j) (unit 5) = false := by
+  rcases hs 0 0 (by decide +kernel) with ⟨j, Q, hj, hop, hQ, hb, hsub, hval⟩ |
+    ⟨j, P, hj, hop, hP, ha, hsub, hval⟩
+  · exact False.elim (no_left_zero Q hQ hsub)
+  · have hP := right_zero P hP hsub
+    subst P
+    refine ⟨j, (orGates_mem C j).mpr ⟨hj, hop⟩, left_pure_rectangle C j {0, 1} hval, ?_, ?_⟩
+    · rw [hval]
+      decide +kernel
+    · rw [hval]
+      decide +kernel
+
+lemma last_witness (C : Circuit) (hs : servedPath C) :
+    ∃ j ∈ orGates C, Rectangle (table C (6 + j)) ∧
+      wireFn 6 C (6 + j) (unit 0) = false ∧ wireFn 6 C (6 + j) (unit 5) = true := by
+  rcases hs 2 2 (by decide +kernel) with ⟨j, Q, hj, hop, hQ, hb, hsub, hval⟩ |
+    ⟨j, P, hj, hop, hP, ha, hsub, hval⟩
+  · have hQ := left_two Q hQ hsub
+    subst Q
+    refine ⟨j, (orGates_mem C j).mpr ⟨hj, hop⟩, right_pure_rectangle C j {1, 2} hval, ?_, ?_⟩
+    · rw [hval]
+      decide +kernel
+    · rw [hval]
+      decide +kernel
+  · exact False.elim (no_right_two P hP hsub)
+
+lemma middle_witness (C : Circuit) (hs : servedPath C) :
+    ∃ j ∈ orGates C, Rectangle (table C (6 + j)) ∧
+      wireFn 6 C (6 + j) (unit 0) = false ∧ wireFn 6 C (6 + j) (unit 5) = false := by
+  rcases hs 1 1 (by decide +kernel) with ⟨j, Q, hj, hop, hQ, hb, hsub, hval⟩ |
+    ⟨j, P, hj, hop, hP, ha, hsub, hval⟩
+  · have hQ := left_one Q hQ hsub
+    subst Q
+    refine ⟨j, (orGates_mem C j).mpr ⟨hj, hop⟩, right_pure_rectangle C j {0, 1} hval, ?_, ?_⟩
+    · rw [hval]
+      decide +kernel
+    · rw [hval]
+      decide +kernel
+  · have hP := right_one P hP hsub
+    subst P
+    refine ⟨j, (orGates_mem C j).mpr ⟨hj, hop⟩, left_pure_rectangle C j {1, 2} hval, ?_, ?_⟩
+    · rw [hval]
+      decide +kernel
+    · rw [hval]
+      decide +kernel
+
+lemma path_or_count (C : Circuit) (hC : IsAO2 6 C) (hF : computesPath C)
+    (hs : servedPath C) : 5 ≤ (orGates C).card := by
+  classical
+  obtain ⟨i, hi, hRi, hi0, hi5⟩ := first_witness C hs
+  obtain ⟨j, hj, hRj, hj0, hj5⟩ := last_witness C hs
+  obtain ⟨k, hk, hRk, hk0, hk5⟩ := middle_witness C hs
+  have hij : i ≠ j := by
+    intro h
+    subst j
+    rw [hi0] at hj0
+    contradiction
+  have hik : i ≠ k := by
+    intro h
+    subst k
+    rw [hi0] at hk0
+    contradiction
+  have hjk : j ≠ k := by
+    intro h
+    subst k
+    rw [hj5] at hk5
+    contradiction
+  apply path_three_rectangular_ors C hC hF {i, j, k}
+  · intro w hw
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hw
+    rcases hw with rfl | rfl | rfl
+    · exact hi
+    · exact hj
+    · exact hk
+  · simp [hij, hik, hjk]
+  · intro w hw
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hw
+    rcases hw with rfl | rfl | rfl
+    · exact hRi
+    · exact hRj
+    · exact hRk
+
+end H5Rectangles
+
+namespace H5AndCount
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  H5Pruning
+
+def andGates (C : Circuit) : Finset (Fin C.gates.length) := by
+  letI : DecidableEq GateOp := gateOpDecEq
+  exact Finset.univ.filter fun j => (gateAt C j.val).op = GateOp.and
+
+lemma mem_andGates (C : Circuit) (j : Fin C.gates.length) :
+    j ∈ andGates C ↔ (gateAt C j.val).op = GateOp.and := by
+  simp [andGates]
+
+def andNatGates (C : Circuit) : Finset ℕ := by
+  letI : DecidableEq GateOp := gateOpDecEq
+  exact (Finset.range C.gates.length).filter fun j => (gateAt C j).op = GateOp.and
+
+lemma mem_andNatGates (C : Circuit) (j : ℕ) :
+    j ∈ andNatGates C ↔ j < C.gates.length ∧ (gateAt C j).op = GateOp.and := by
+  simp [andNatGates]
+
+lemma andGates_image_val (C : Circuit) :
+    (andGates C).image (fun j => j.val) = andNatGates C := by
+  ext j
+  constructor
+  · intro h
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp h
+    exact (mem_andNatGates C i.val).mpr ⟨i.isLt, (mem_andGates C i).mp hi⟩
+  · intro h
+    obtain ⟨hj, hop⟩ := (mem_andNatGates C j).mp h
+    exact Finset.mem_image.mpr ⟨⟨j, hj⟩, (mem_andGates C ⟨j, hj⟩).mpr hop, rfl⟩
+
+lemma andGates_card_nat (C : Circuit) : (andGates C).card = (andNatGates C).card := by
+  rw [← andGates_image_val]
+  exact (Finset.card_image_of_injective (andGates C) Fin.val_injective).symm
+
+def signature (n : ℕ) (C : Circuit) (x : Fin n → Bool) : ↥(andGates C) → Bool :=
+  fun j => wireFn n C (opnd C j.val.val 0) x
+
+lemma same_signature_join_false (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x y : Fin n → Bool) (hs : signature n C x = signature n C y) :
+    ∀ w, wireFn n C w x = false → wireFn n C w y = false →
+      wireFn n C w (fun i => x i || y i) = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hx hy
+    by_cases hinput : w < n
+    · rw [wireFn_input n C w hinput] at hx hy ⊢
+      simp [hx, hy]
+    by_cases hvalid : w < n + C.gates.length
+    · let j := w - n
+      have hj : j < C.gates.length := by dsimp [j]; omega
+      have hjw : n + j = w := by dsimp [j]; omega
+      obtain ⟨a, b, ha, hb, hab, hop, he⟩ := binary_gate n C hC j hj
+      have ha' : a < w := by omega
+      have hb' : b < w := by omega
+      rcases hop with hop | hop
+      · have hmem : (⟨j, hj⟩ : Fin C.gates.length) ∈ andGates C :=
+          (mem_andGates C ⟨j, hj⟩).mpr hop
+        have hs' := congrFun hs ⟨⟨j, hj⟩, hmem⟩
+        change wireFn n C (opnd C j 0) x = wireFn n C (opnd C j 0) y at hs'
+        have hopnd : opnd C j 0 = a := by simp [opnd, hab]
+        rw [hopnd] at hs'
+        have hx' : (wireFn n C a x && wireFn n C b x) = false := by
+          have h := he x
+          rw [hjw, hx, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hy' : (wireFn n C a y && wireFn n C b y) = false := by
+          have h := he y
+          rw [hjw, hy, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hout := he (fun i => x i || y i)
+        rw [hjw, hop] at hout
+        cases hax : wireFn n C a x with
+        | false =>
+          have hay : wireFn n C a y = false := hs'.symm.trans hax
+          have haz := ih a ha' hax hay
+          simpa [GateOp.eval, haz] using hout
+        | true =>
+          have hay : wireFn n C a y = true := hs'.symm.trans hax
+          have hbx : wireFn n C b x = false := by simpa [hax] using hx'
+          have hby : wireFn n C b y = false := by simpa [hay] using hy'
+          have hbz := ih b hb' hbx hby
+          simpa [GateOp.eval, hbz] using hout
+      · have hx' : wireFn n C a x = false ∧ wireFn n C b x = false := by
+          have h := he x
+          rw [hjw, hx, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hy' : wireFn n C a y = false ∧ wireFn n C b y = false := by
+          have h := he y
+          rw [hjw, hy, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have haz := ih a ha' hx'.1 hy'.1
+        have hbz := ih b hb' hx'.2 hy'.2
+        have hout := he (fun i => x i || y i)
+        rw [hjw, hop] at hout
+        simpa [GateOp.eval, haz, hbz] using hout
+    · exact wireFn_ge n C w (by omega) _
+
+lemma false_family_and_bound (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true) :
+    m ≤ 2 ^ (andGates C).card := by
+  classical
+  have hinj : Function.Injective (fun i => signature n C (inputs i)) := by
+    intro i j hs
+    by_contra hij
+    have hz := same_signature_join_false n C hC (inputs i) (inputs j) hs
+      C.output (hfalse i) (hfalse j)
+    have ht := hjoin i j hij
+    simp [hz] at ht
+  have hc := Fintype.card_le_of_injective (fun i => signature n C (inputs i)) hinj
+  simpa using hc
+
+def pathFun (x : Fin 6 → Bool) : Bool :=
+  (x 0 && x 3) || (x 1 && x 3) || (x 1 && x 4) || (x 2 && x 4) || (x 2 && x 5)
+
+def negativeInput (i : Fin 5) (v : Fin 6) : Bool :=
+  (([7, 12, 35, 49, 56] : List ℕ).getD i.val 0).testBit v.val
+
+lemma negative_false : ∀ i : Fin 5, pathFun (negativeInput i) = false := by
+  decide +kernel
+
+lemma negative_join_true : ∀ i j : Fin 5, i ≠ j →
+    pathFun (fun k => negativeInput i k || negativeInput j k) = true := by
+  decide +kernel
+
+lemma path_and_count (C : Circuit) (hC : IsAO2 6 C)
+    (hF : ∀ x : Fin 6 → Bool, PEqualNP.MetaComplexity.circuitFun 6 C x = pathFun x) :
+    3 ≤ (andGates C).card := by
+  have hwire : ∀ x : Fin 6 → Bool, wireFn 6 C C.output x = pathFun x := hF
+  have hb := false_family_and_bound 6 5 C hC negativeInput
+    (fun i => by rw [hwire]; exact negative_false i)
+    (fun i j hij => by rw [hwire]; exact negative_join_true i j hij)
+  by_contra hn
+  have hle : (andGates C).card ≤ 2 := by omega
+  interval_cases hq : (andGates C).card <;> norm_num [hq] at hb
+
+lemma path_and_count_nat (C : Circuit) (hC : IsAO2 6 C)
+    (hF : ∀ x : Fin 6 → Bool, PEqualNP.MetaComplexity.circuitFun 6 C x = pathFun x) :
+    3 ≤ (andNatGates C).card := by
+  rw [← andGates_card_nat]
+  exact path_and_count C hC hF
+
+end H5AndCount
+
+namespace H5Rectangles
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_4970_aux.H5Pruning
+  PEqualNP.Outside.L_meta_4970_aux.H5AndCount
+
+lemma gate_count_partition (C : Circuit) (hC : IsAO2 6 C) :
+    (andNatGates C).card + (orGates C).card = C.gates.length := by
+  classical
+  have hd : Disjoint (andNatGates C) (orGates C) := by
+    apply Finset.disjoint_left.mpr
+    intro j hj hk
+    have ha := (mem_andNatGates C j).mp hj
+    have ho := (orGates_mem C j).mp hk
+    rw [ha.2] at ho
+    cases ho.2
+  have hu : andNatGates C ∪ orGates C = Finset.range C.gates.length := by
+    ext j
+    simp only [Finset.mem_union, mem_andNatGates, orGates_mem, Finset.mem_range]
+    constructor
+    · rintro (h | h) <;> exact h.1
+    · intro hj
+      obtain ⟨a, b, ha, hb, hab, hop, he⟩ :=
+        PEqualNP.Outside.L_meta_4970_aux.H5Pruning.binary_gate 6 C hC j hj
+      rcases hop with ha | ho
+      · exact Or.inl ⟨hj, ha⟩
+      · exact Or.inr ⟨hj, ho⟩
+  rw [← Finset.card_union_of_disjoint hd, hu, Finset.card_range]
+
+lemma path_computes_explicit (C : Circuit) (hF : computesPath C) :
+    ∀ x : Fin 6 → Bool, circuitFun 6 C x = pathFun x := by
+  have h : ∀ x : Fin 6 → Bool,
+      decide (∃ (a b : Fin 3), (a, b) ∈ pathEdges ∧
+        x (Fin.castAdd 3 a) = true ∧ x (Fin.natAdd 3 b) = true) = pathFun x := by
+    decide +kernel
+  intro x
+  exact (hF x).trans (h x)
+
+lemma path_size_lower (C : Circuit) (hC : IsAO2 6 C)
+    (hF : computesPath C) (hs : servedPath C) : 8 ≤ C.size := by
+  have ha := path_and_count_nat C hC (path_computes_explicit C hF)
+  have ho := path_or_count C hC hF hs
+  have hc := gate_count_partition C hC
+  change 8 ≤ C.gates.length
+  omega
+
+end H5Rectangles
+
+namespace H5DirtyControl
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def edges : Finset (Fin 3 × Fin 3) := {(0, 0), (1, 0), (1, 1), (2, 1), (2, 2)}
+
+def circuit : Circuit :=
+  ⟨[⟨.or, [0, 1]⟩, ⟨.and, [3, 6]⟩, ⟨.or, [1, 2]⟩, ⟨.and, [2, 5]⟩,
+    ⟨.or, [4, 9]⟩, ⟨.and, [8, 10]⟩, ⟨.or, [7, 11]⟩, ⟨.or, [4, 5]⟩], 12⟩
+
+lemma no_four : ∀ (a a' : Fin 3) (b b' : Fin 3), a ≠ a' → b ≠ b' →
+    ¬ ((a, b) ∈ edges ∧ (a, b') ∈ edges ∧ (a', b) ∈ edges ∧ (a', b') ∈ edges) := by
+  decide +kernel
+
+lemma ao2 : PEqualNP.TopForm.IsAO2 6 circuit := by
+  decide +kernel
+
+lemma computes : ∀ x : Fin 6 → Bool, circuitFun 6 circuit x =
+    decide (∃ (a : Fin 3) (b : Fin 3), (a, b) ∈ edges ∧
+      x (Fin.castAdd 3 a) = true ∧ x (Fin.natAdd 3 b) = true) := by
+  decide +kernel
+
+lemma no_mixed_or : PEqualNP.TwoColour.tCount 6 circuit (fun i => decide (3 ≤ i)) = 0 := by
+  decide +kernel
+
+lemma pure_zero : ∀ x : Fin 6 → Bool,
+    (circuit.wires (List.ofFn x)).getD 6 false =
+      decide (∃ a ∈ ({0, 1} : Finset (Fin 3)), x (Fin.castAdd 3 a) = true) := by
+  decide +kernel
+
+lemma pure_two : ∀ x : Fin 6 → Bool,
+    (circuit.wires (List.ofFn x)).getD 8 false =
+      decide (∃ a ∈ ({1, 2} : Finset (Fin 3)), x (Fin.castAdd 3 a) = true) := by
+  decide +kernel
+
+lemma pure_seven : ∀ x : Fin 6 → Bool,
+    (circuit.wires (List.ofFn x)).getD 13 false =
+      decide (∃ b ∈ ({1, 2} : Finset (Fin 3)), x (Fin.natAdd 3 b) = true) := by
+  decide +kernel
+
+lemma served : ∀ (a : Fin 3) (b : Fin 3), (a, b) ∈ edges →
+    (∃ (j : ℕ) (Q : Finset (Fin 3)), j < circuit.gates.length ∧
+      (NestedCover.gateAt circuit j).op = GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧
+      (∀ b' ∈ Q, (a, b') ∈ edges) ∧ ∀ x : Fin 6 → Bool,
+        (circuit.wires (List.ofFn x)).getD (6 + j) false =
+          decide (∃ b' ∈ Q, x (Fin.natAdd 3 b') = true)) ∨
+    (∃ (j : ℕ) (P : Finset (Fin 3)), j < circuit.gates.length ∧
+      (NestedCover.gateAt circuit j).op = GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧
+      (∀ a' ∈ P, (a', b) ∈ edges) ∧ ∀ x : Fin 6 → Bool,
+        (circuit.wires (List.ofFn x)).getD (6 + j) false =
+          decide (∃ a' ∈ P, x (Fin.castAdd 3 a') = true)) := by
+  intro a b hab
+  fin_cases a <;> fin_cases b
+  · right
+    exact ⟨0, {0, 1}, by decide +kernel, rfl, by decide +kernel,
+      by decide +kernel, by decide +kernel, pure_zero⟩
+  · simp [edges] at hab
+  · simp [edges] at hab
+  · right
+    exact ⟨0, {0, 1}, by decide +kernel, rfl, by decide +kernel,
+      by decide +kernel, by decide +kernel, pure_zero⟩
+  · right
+    exact ⟨2, {1, 2}, by decide +kernel, rfl, by decide +kernel,
+      by decide +kernel, by decide +kernel, pure_two⟩
+  · simp [edges] at hab
+  · simp [edges] at hab
+  · right
+    exact ⟨2, {1, 2}, by decide +kernel, rfl, by decide +kernel,
+      by decide +kernel, by decide +kernel, pure_two⟩
+  · left
+    exact ⟨7, {1, 2}, by decide +kernel, rfl, by decide +kernel,
+      by decide +kernel, by decide +kernel, pure_seven⟩
+
+lemma wire_ten_singletons : ∀ i : Fin 6,
+    (circuit.wires (List.ofFn (fun k : Fin 6 => decide (k = i)))).getD 10 false =
+      decide (i = 4) := by
+  decide +kernel
+
+lemma wire_ten_not_pure : ¬ ∃ Q : Finset (Fin 6), ∀ x : Fin 6 → Bool,
+    (circuit.wires (List.ofFn x)).getD 10 false =
+      decide (∃ i ∈ Q, x i = true) := by
+  rintro ⟨Q, hQ⟩
+  have hsub : ∀ i ∈ Q, i = (4 : Fin 6) := by
+    intro i hi
+    have h := hQ (fun k => decide (k = i))
+    rw [wire_ten_singletons] at h
+    have : decide (i = (4 : Fin 6)) = true := by
+      rw [h]
+      exact decide_eq_true ⟨i, hi, by simp⟩
+    exact of_decide_eq_true this
+  let x : Fin 6 → Bool := fun i => decide (i = 2 ∨ i = 5)
+  have hx : (circuit.wires (List.ofFn x)).getD 10 false = true := by
+    decide +kernel
+  have hz : decide (∃ i ∈ Q, x i = true) = false := by
+    apply decide_eq_false
+    rintro ⟨i, hi, hxi⟩
+    have := hsub i hi
+    subst i
+    simp [x] at hxi
+  have h := hQ x
+  rw [hx, hz] at h
+  contradiction
+
+lemma dirty_top : 5 < circuit.gates.length ∧
+    (NestedCover.gateAt circuit 5).op = GateOp.and ∧
+    PEqualNP.TopForm.opnd circuit 5 1 = 10 ∧
+    PEqualNP.CleanedNonEdge.OrReaches 6 circuit circuit.output 5 := by
+  exact ⟨by decide +kernel, rfl, rfl, by decide +kernel⟩
+
+lemma edge_active : ∀ j : Fin circuit.gates.length,
+    ∃ (a : Fin 3) (b : Fin 3), (a, b) ∈ edges ∧
+      (circuit.wires (List.ofFn (fun i : Fin 6 =>
+        decide (i = Fin.castAdd 3 a ∨ i = Fin.natAdd 3 b)))).getD (6 + j.val) false = true := by
+  decide +kernel
+
+lemma size_eight : circuit.size = 8 := rfl
+
+end H5DirtyControl
+
+namespace H5Rectangles
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_4970_aux.H5AndCount
+
+lemma dirty_computes_path : computesPath H5DirtyControl.circuit := H5DirtyControl.computes
+
+lemma dirty_served_path : servedPath H5DirtyControl.circuit := H5DirtyControl.served
+
+lemma dirty_minimum_size : ∀ C : Circuit, IsAO2 6 C → computesPath C →
+    servedPath C → H5DirtyControl.circuit.size ≤ C.size := by
+  intro C hC hF hs
+  rw [H5DirtyControl.size_eight]
+  exact path_size_lower C hC hF hs
+
+lemma dirty_and_count : (andNatGates H5DirtyControl.circuit).card = 3 := by
+  decide +kernel
+
+lemma dirty_minimum_and : ∀ C : Circuit, IsAO2 6 C → computesPath C →
+    (andNatGates H5DirtyControl.circuit).card ≤ (andNatGates C).card := by
+  intro C hC hF
+  rw [dirty_and_count]
+  exact path_and_count_nat C hC (path_computes_explicit C hF)
+
+end H5Rectangles
+
+namespace H5ChargeCounter
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+
+def edges : Finset (Fin 3 × Fin 5) := {(0,0),(0,1),(0,2),(0,3),(1,3),(1,4)}
+
+def circuit : Circuit :=
+  ⟨[⟨.or,[2,1]⟩,⟨.and,[6,8]⟩,⟨.or,[3,9]⟩,⟨.or,[4,10]⟩,⟨.or,[5,11]⟩,
+    ⟨.or,[6,12]⟩,⟨.or,[6,7]⟩,⟨.and,[0,13]⟩,⟨.and,[1,14]⟩,⟨.or,[15,16]⟩],17⟩
+
+def edgeFun (x : Fin 8 → Bool) : Bool :=
+  decide (∃ (a : Fin 3) (b : Fin 5), (a,b) ∈ edges ∧
+    x (Fin.castAdd 5 a) = true ∧ x (Fin.natAdd 3 b) = true)
+
+def value (j : ℕ) (x : Fin 8 → Bool) : Bool :=
+  (circuit.wires (List.ofFn x)).getD (8+j) false
+
+def star (Q : Finset (Fin 8)) (x : Fin 8 → Bool) : Bool :=
+  decide (∃ a ∈ Q, x a = true)
+
+def single (a : Fin 8) : Fin 8 → Bool := fun b => decide (b = a)
+
+def singletonSupport (j : ℕ) : Finset (Fin 8) :=
+  Finset.univ.filter fun a => value j (single a) = true
+
+def pureCheck (j : ℕ) : Bool :=
+  decide (∀ x : Fin 8 → Bool, value j x = star (singletonSupport j) x)
+
+def belowCheck (j : ℕ) : Bool :=
+  decide (∀ x : Fin 8 → Bool, value j x = true → edgeFun x = true)
+
+def isOr (op : GateOp) : Bool :=
+  match op with
+  | .or => true
+  | _ => false
+
+def isAnd (op : GateOp) : Bool :=
+  match op with
+  | .and => true
+  | _ => false
+
+def charged : Finset (Fin 10) :=
+  Finset.univ.filter fun j => isOr (gateAt circuit j.val).op && (pureCheck j.val || belowCheck j.val)
+
+lemma no_four : ∀ (a a' : Fin 3) (b b' : Fin 5), a ≠ a' → b ≠ b' →
+    ¬ ((a,b) ∈ edges ∧ (a,b') ∈ edges ∧ (a',b) ∈ edges ∧ (a',b') ∈ edges) := by
+  decide +kernel
+
+lemma ao2 : PEqualNP.TopForm.IsAO2 8 circuit := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma computes : ∀ x : Fin 8 → Bool, circuitFun 8 circuit x = edgeFun x := by
+  decide +kernel
+
+lemma no_mixed_or : PEqualNP.TwoColour.tCount 8 circuit (fun i => decide (3 ≤ i)) = 0 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma pure_r : ∀ x : Fin 8 → Bool, value 0 x =
+    decide (∃ a ∈ ({1,2} : Finset (Fin 3)), x (Fin.castAdd 5 a) = true) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma pure_Q : ∀ x : Fin 8 → Bool, value 5 x =
+    decide (∃ b ∈ ({0,1,2,3} : Finset (Fin 5)), x (Fin.natAdd 3 b) = true) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma pure_R : ∀ x : Fin 8 → Bool, value 6 x =
+    decide (∃ b ∈ ({3,4} : Finset (Fin 5)), x (Fin.natAdd 3 b) = true) := by
+  decide +kernel
+
+lemma served : ∀ (a : Fin 3) (b : Fin 5), (a,b) ∈ edges →
+    (∃ (j : ℕ) (Q : Finset (Fin 5)), j < circuit.gates.length ∧
+      (gateAt circuit j).op = .or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧
+      (∀ b' ∈ Q, (a,b') ∈ edges) ∧ ∀ x : Fin 8 → Bool,
+        value j x = decide (∃ b' ∈ Q, x (Fin.natAdd 3 b') = true)) ∨
+    (∃ (j : ℕ) (P : Finset (Fin 3)), j < circuit.gates.length ∧
+      (gateAt circuit j).op = .or ∧ 2 ≤ P.card ∧ a ∈ P ∧
+      (∀ a' ∈ P, (a',b) ∈ edges) ∧ ∀ x : Fin 8 → Bool,
+        value j x = decide (∃ a' ∈ P, x (Fin.castAdd 5 a') = true)) := by
+  intro a b hab
+  have hcases : (a = 0 ∧ b ∈ ({0,1,2,3} : Finset (Fin 5))) ∨
+      (a = 1 ∧ b ∈ ({3,4} : Finset (Fin 5))) := by
+    fin_cases a <;> fin_cases b <;> simp_all [edges]
+  rcases hcases with ⟨rfl,hb⟩ | ⟨rfl,hb⟩
+  · left
+    exact ⟨5,{0,1,2,3},by decide +kernel,rfl,by decide +kernel,hb,
+      by decide +kernel,pure_Q⟩
+  · left
+    exact ⟨6,{3,4},by decide +kernel,rfl,by decide +kernel,hb,
+      by decide +kernel,pure_R⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma edge_active : ∀ j : Fin circuit.gates.length,
+    ∃ (a : Fin 3) (b : Fin 5), (a,b) ∈ edges ∧
+      value j.val (fun i => decide (i = Fin.castAdd 5 a ∨ i = Fin.natAdd 3 b)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma checks : ∀ j : Fin 10,
+    (pureCheck j.val = true ↔ j = 0 ∨ j = 5 ∨ j = 6) ∧
+    (belowCheck j.val = true ↔ j = 7 ∨ j = 8 ∨ j = 9) := by
+  decide +kernel
+
+lemma pureCheck_iff (j : ℕ) : pureCheck j = true ↔
+    ∃ Q : Finset (Fin 8), ∀ x : Fin 8 → Bool, value j x = star Q x := by
+  rw [pureCheck, decide_eq_true_eq]
+  constructor
+  · intro h
+    exact ⟨singletonSupport j,h⟩
+  · rintro ⟨Q,hQ⟩
+    have he : singletonSupport j = Q := by
+      ext a
+      simp only [singletonSupport, Finset.mem_filter, Finset.mem_univ, true_and]
+      rw [hQ]
+      simp [star,single]
+    rw [he]
+    exact hQ
+
+lemma normal_form : ∀ i < circuit.gates.length, ∀ j < circuit.gates.length,
+    (gateAt circuit i).op = .and →
+    (∀ x : Fin 8 → Bool, value i x = true → edgeFun x = true) →
+    (gateAt circuit j).op = .and → ¬ PEqualNP.EdgeOwnership.InCone 8 circuit i j := by
+  have hc : ∀ i j : Fin 10, isAnd (gateAt circuit i.val).op = true →
+      (i = 7 ∨ i = 8 ∨ i = 9) → isAnd (gateAt circuit j.val).op = true →
+      ¬ PEqualNP.EdgeOwnership.InCone 8 circuit i.val j.val := by
+    decide +kernel
+  intro i hi j hj hiAnd hBelow hjAnd
+  have hi' : i < 10 := hi
+  have hj' : j < 10 := hj
+  have hcheck : belowCheck i = true := decide_eq_true hBelow
+  exact hc ⟨i,hi'⟩ ⟨j,hj'⟩ (by rw [hiAnd]; rfl)
+    ((checks ⟨i,hi'⟩).2.mp hcheck) (by rw [hjAnd]; rfl)
+
+lemma charged_eq : charged = {0,5,6,9} := by
+  ext j
+  simp only [charged,Finset.mem_filter,Finset.mem_univ,true_and,Bool.and_eq_true,Bool.or_eq_true]
+  rw [(checks j).1, (checks j).2]
+  fin_cases j <;> decide +kernel
+
+lemma charged_card : charged.card = 4 := by
+  rw [charged_eq]
+  decide +kernel
+
+lemma charge_bound_fails : charged.card + 1 < edges.card := by
+  rw [charged_card]
+  decide +kernel
+
+lemma size_ten : circuit.size = 10 := rfl
+
+def pureLeft (j : ℕ) : Prop := ∃ Q : Finset (Fin 3), 2 ≤ Q.card ∧
+  ∀ x : Fin 8 → Bool, value j x = decide (∃ a ∈ Q, x (Fin.castAdd 5 a) = true)
+
+def pureRight (j : ℕ) : Prop := ∃ Q : Finset (Fin 5), 2 ≤ Q.card ∧
+  ∀ x : Fin 8 → Bool, value j x = decide (∃ b ∈ Q, x (Fin.natAdd 3 b) = true)
+
+lemma pure_palette_iff (j : Fin 10) : pureLeft j.val ∨ pureRight j.val ↔ pureCheck j.val = true := by
+  constructor
+  · intro h
+    apply (pureCheck_iff j.val).mpr
+    rcases h with ⟨Q,hcard,hQ⟩ | ⟨Q,hcard,hQ⟩
+    · refine ⟨Q.image (Fin.castAdd 5), ?_⟩
+      intro x
+      rw [hQ x]
+      apply Bool.eq_iff_iff.mpr
+      simp [star]
+    · refine ⟨Q.image (Fin.natAdd 3), ?_⟩
+      intro x
+      rw [hQ x]
+      apply Bool.eq_iff_iff.mpr
+      simp [star]
+  · intro h
+    rcases (checks j).1.mp h with rfl | rfl | rfl
+    · exact Or.inl ⟨{1,2},by decide +kernel,pure_r⟩
+    · exact Or.inr ⟨{0,1,2,3},by decide +kernel,pure_Q⟩
+    · exact Or.inr ⟨{3,4},by decide +kernel,pure_R⟩
+
+noncomputable def paletteCharged : Finset (Fin 10) := by
+  classical
+  exact Finset.univ.filter fun j => (gateAt circuit j.val).op = .or ∧
+    ((pureLeft j.val ∨ pureRight j.val) ∨
+      ∀ x : Fin 8 → Bool, value j.val x = true → edgeFun x = true)
+
+lemma isOr_true_iff (op : GateOp) : isOr op = true ↔ op = .or := by
+  cases op <;> simp [isOr]
+
+lemma paletteCharged_eq : paletteCharged = charged := by
+  ext j
+  simp only [paletteCharged,charged,Finset.mem_filter,Finset.mem_univ,true_and,
+    Bool.and_eq_true,Bool.or_eq_true,isOr_true_iff]
+  rw [pure_palette_iff j, belowCheck, decide_eq_true_eq]
+
+lemma exact_palette_charge_fails : paletteCharged.card = 4 ∧ paletteCharged.card + 1 < edges.card := by
+  rw [paletteCharged_eq]
+  exact ⟨charged_card,charge_bound_fails⟩
+
+def incidence (u v : Fin 8) : Prop :=
+  ∃ (a : Fin 3) (b : Fin 5), (a,b) ∈ edges ∧ u = Fin.castAdd 5 a ∧ v = Fin.natAdd 3 b
+
+def graph : SimpleGraph (Fin 8) := SimpleGraph.fromRel incidence
+
+abbrev graphDec : DecidableRel graph.Adj := by
+  intro u v
+  change Decidable (u ≠ v ∧ (incidence u v ∨ incidence v u))
+  unfold incidence
+  infer_instance
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma graph_computes : ∀ x : Fin 8 → Bool,
+    @graphFun 8 graph graphDec ∅ x = edgeFun x := by
+  decide +kernel
+
+lemma graph_no_four : @PEqualNP.TopForm.NoFourCycle 8 graph graphDec := by
+  decide +kernel
+
+lemma top_form : @PEqualNP.TopForm.TopForm 8 graph graphDec circuit := by
+  intro i hi j hj hiAnd hBelow hjAnd
+  apply normal_form i hi j hj hiAnd _ hjAnd
+  intro x hx
+  have h := hBelow x hx
+  rw [graph_computes x] at h
+  exact h
+
+end H5ChargeCounter
+
 end PEqualNP.Outside.L_meta_4970_aux
