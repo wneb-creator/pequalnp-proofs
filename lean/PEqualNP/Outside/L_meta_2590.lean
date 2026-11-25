@@ -3534,4 +3534,569 @@ lemma noncenter_selected_card_le_three {n : ℕ} {D : Dag}
 
 end ProjectedSupportCount
 
+
+
+namespace CenterSingletonStability
+
+open C6.DagTools
+
+lemma wire_stable {n : Nat} {D : Dag} (hD : Strict n D)
+    (I : Finset (Fin n)) (z v : Fin n) (hz : z ∉ I) (hv : v ∉ I)
+    (hcut : ∀ j, j < D.length → tag D j = true → z ∉ supp n D (n + j) →
+      (z ∈ supp n D (opA D j) ∨ z ∈ supp n D (opB D j)) →
+      supp n D (opA D j) ⊆ I ∨ supp n D (opB D j) ⊆ I) :
+    ∀ w, w < n + D.length → z ∉ supp n D w →
+      val D (sem_ins z (single v)) w = val D (single v) w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw hzw
+    by_cases hin : w < n
+    · have hne : (⟨w, hin⟩ : Fin n) ≠ z := by
+        intro he
+        apply hzw
+        rw [show supp n D w = {⟨w, hin⟩} from supp_input D ⟨w, hin⟩]
+        exact Finset.mem_singleton.mpr he.symm
+      rw [val_input D _ w hin, val_input D _ w hin]
+      exact (sem_ins_agree z (single v) ⟨w, hin⟩ hne).symm
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < D.length := by omega
+      obtain ⟨ha, hb, _⟩ := hD j hj
+      have hcontrol (u : Nat) (hu : u < n + j) (hs : supp n D u ⊆ I) :
+          val D (sem_ins z (single v)) u = false ∧ val D (single v) u = false := by
+        have hzu : z ∉ supp n D u := fun h => hz (hs h)
+        have hfalse : val D (single v) u = false := by
+          apply Bool.eq_false_of_not_eq_true
+          intro ht
+          exact hv (hs (mem_supp.mpr ht))
+        exact ⟨(ih u hu (by omega) hzu).trans hfalse, hfalse⟩
+      cases ht : tag D j
+      · rw [sem_supp_or hD hj ht, Finset.mem_union, not_or] at hzw
+        rw [val_gate hD _ j hj, val_gate hD _ j hj, ht, gop_false,
+          ih _ ha (by omega) hzw.1, ih _ hb (by omega) hzw.2]
+        rfl
+      · by_cases hparent : z ∈ supp n D (opA D j) ∨ z ∈ supp n D (opB D j)
+        · rcases hcut j hj ht hzw hparent with hA | hB
+          · obtain ⟨hnew, hold⟩ := hcontrol _ ha hA
+            rw [val_gate hD _ j hj, val_gate hD _ j hj, ht, gop_true, hnew, hold]
+            simp [gop]
+          · obtain ⟨hnew, hold⟩ := hcontrol _ hb hB
+            rw [val_gate hD _ j hj, val_gate hD _ j hj, ht, gop_true, hnew, hold]
+            simp [gop]
+        · have hA : z ∉ supp n D (opA D j) := fun h => hparent (Or.inl h)
+          have hB : z ∉ supp n D (opB D j) := fun h => hparent (Or.inr h)
+          rw [val_gate hD _ j hj, val_gate hD _ j hj, ht, gop_true,
+            ih _ ha (by omega) hA, ih _ hb (by omega) hB]
+          rfl
+
+lemma wire_insert_formula {n : Nat} {D : Dag} (hD : Strict n D)
+    (I : Finset (Fin n)) (z v : Fin n) (hz : z ∉ I) (hv : v ∉ I)
+    (hcut : ∀ j, j < D.length → tag D j = true → z ∉ supp n D (n + j) →
+      (z ∈ supp n D (opA D j) ∨ z ∈ supp n D (opB D j)) →
+      supp n D (opA D j) ⊆ I ∨ supp n D (opB D j) ⊆ I)
+    (w : Nat) (hw : w < n + D.length) :
+    val D (sem_ins z (single v)) w = (val D (single z) w || val D (single v) w) := by
+  by_cases hzw : z ∈ supp n D w
+  · have hnew : val D (sem_ins z (single v)) w = true :=
+      sem_val_of_supp hD hzw (sem_ins_self z (single v))
+    have hold : val D (single z) w = true := mem_supp.mp hzw
+    rw [hnew, hold, Bool.true_or]
+  · have hold : val D (single z) w = false :=
+      Bool.eq_false_of_not_eq_true (fun h => hzw (mem_supp.mpr h))
+    rw [wire_stable hD I z v hz hv hcut w hw hzw, hold, Bool.false_or]
+
+end CenterSingletonStability
+
+
+namespace C6.DagTools
+
+def sem_ind {n : ℕ} (A : Finset (Fin n)) : Fin n → Bool := fun i => decide (i ∈ A)
+
+variable {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+
+lemma sem_ind_no_edge {A : Finset (Fin n)} (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) :
+    ¬ sem_Edge G (sem_ind A) := by
+  rintro ⟨a, c, hac, ha, hc⟩
+  simp only [sem_ind, decide_eq_true_eq] at ha hc
+  exact hA a ha c hc hac
+
+lemma sem_exposure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) (x : Fin n)
+    (hnb : ∃ a ∈ A, G x a) :
+    ∃ j s, j < D.length ∧ tag D j = true ∧ x ∈ supp n D (src D (j, s)) ∧
+      x ∉ supp n D (n + j) ∧ Disjoint (supp n D (src D (j, s))) A := by
+  by_contra hcon
+  have hmask : ∀ j s, j < D.length → tag D j = true → x ∈ supp n D (src D (j, s)) →
+      x ∉ supp n D (n + j) → val D (sem_ind A) (src D (j, s)) = true ∧
+        val D (sem_ins x (sem_ind A)) (src D (j, s)) = true := by
+    intro j s hj ht h1 h2
+    have hnd : ¬ Disjoint (supp n D (src D (j, s))) A :=
+      fun hd => hcon ⟨j, s, hj, ht, h1, h2, hd⟩
+    rw [Finset.not_disjoint_iff] at hnd
+    obtain ⟨a, ha1, ha2⟩ := hnd
+    exact ⟨sem_val_of_supp hS ha1 (by simp [sem_ind, ha2]),
+      sem_val_of_supp hS ha1 (by simp [sem_ins, sem_ind, ha2])⟩
+  have key : ∀ w, x ∉ supp n D w → val D (sem_ind A) w = val D (sem_ins x (sem_ind A)) w := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | _ w ih =>
+      intro hw
+      by_cases hn : w < n
+      · rw [val_input D _ w hn, val_input D _ w hn]
+        have hs : supp n D w = {⟨w, hn⟩} := supp_input D ⟨w, hn⟩
+        rw [hs, Finset.mem_singleton] at hw
+        exact sem_ins_agree x _ _ (fun hc => hw hc.symm)
+      · by_cases hlt : w < n + D.length
+        · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+          have hj : j < D.length := by omega
+          obtain ⟨ha, hb, -⟩ := hS j hj
+          rw [val_gate hS _ j hj, val_gate hS _ j hj]
+          cases ht : tag D j
+          · rw [sem_supp_or hS hj ht, Finset.mem_union, not_or] at hw
+            rw [ih _ ha hw.1, ih _ hb hw.2]
+          · have hw2 := hw
+            rw [sem_supp_and hS hj ht, Finset.mem_inter, not_and] at hw2
+            by_cases hxa : x ∈ supp n D (opA D j)
+            · have h1 := hmask j false hj ht (by rw [sb_src_false]; exact hxa) hw
+              rw [sb_src_false] at h1
+              rw [ih _ hb (hw2 hxa), h1.1, h1.2]
+            · by_cases hxb : x ∈ supp n D (opB D j)
+              · have h1 := hmask j true hj ht (by rw [sb_src_true]; exact hxb) hw
+                rw [sb_src_true] at h1
+                rw [ih _ ha hxa, h1.1, h1.2]
+              · rw [ih _ ha hxa, ih _ hb hxb]
+        · rw [val_ge D _ w (by omega), val_ge D _ w (by omega)]
+  have hout := key (outW n D) (by rw [sem_supp_out hG hC]; exact Finset.notMem_empty x)
+  obtain ⟨a, ha, hxa⟩ := hnb
+  have h2 : sem_Edge G (sem_ins x (sem_ind A)) :=
+    ⟨x, a, hxa, sem_ins_self x _, by simp [sem_ins, sem_ind, ha]⟩
+  have h3 := (hC _).mpr h2
+  rw [← hout] at h3
+  exact sem_ind_no_edge hA ((hC _).mp h3)
+
+end C6.DagTools
+
+namespace N0Exposure
+
+open C6.DagTools
+
+def Adj (u v : Fin 10) : Prop :=
+  (u.val, v.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)] ∨
+  (v.val, u.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
+
+def centers : Finset (Fin 10) := {1,4,5}
+def center (i : Fin 3) : Fin 10 := ![1,4,5] i
+def nb (i : Fin 3) : Finset (Fin 10) := ![{0,2,6},{0,3,9},{0,7,8}] i
+def expose (i : Fin 3) (c : Fin 10) : Finset (Fin 10) :=
+  if c ∈ ({2,8,9} : Finset (Fin 10)) then ![{1,8,9},{4,2,8},{5,2,9}] i
+  else ![{1,3,7},{4,6,7},{5,3,6}] i
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+set_option synthInstance.maxSize 8192 in
+lemma graph_ok : sem_Gr Adj := by unfold sem_Gr Adj; decide +kernel
+
+lemma zero_in_nb : ∀ i, (0 : Fin 10) ∈ nb i := by decide +kernel
+lemma center_neighbor : ∀ i, Adj 0 (center i) := by unfold Adj center; decide +kernel
+lemma zero_not_center : (0 : Fin 10) ∉ centers := by decide +kernel
+lemma center_mem : ∀ i, center i ∈ centers := by decide +kernel
+lemma center_injective : Function.Injective center := by
+  unfold Function.Injective center
+  decide +kernel
+lemma neighbors_exact : ∀ i v, Adj (center i) v ↔ v ∈ nb i := by
+  unfold Adj center nb
+  decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+lemma exposure_geometry : ∀ (i : Fin 3) (c : Fin 10), c ∉ centers → c ∉ nb i →
+    (∀ a ∈ expose i c, ∀ b ∈ expose i c, ¬ Adj a b) ∧
+    center i ∈ expose i c ∧ c ∈ expose i c ∧
+    ∀ j, j ≠ i → (nb j ∩ expose i c).Nonempty := by
+  unfold centers nb center expose Adj
+  decide +kernel
+
+lemma three_exit_sources_exact {D : Dag} (hD : Strict 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D)
+    (e : Fin 3 → Nat × Bool) (hinj : Function.Injective e)
+    (he : ∀ i, e i ∈ sem_W 10 D 0)
+    (hnb : ∀ i, nb i ⊆ supp 10 D (src D (e i)))
+    (hW : (sem_W 10 D 0).card ≤ 3) :
+    ∀ i, supp 10 D (src D (e i)) = nb i := by
+  classical
+  have hcover : ∀ f ∈ sem_W 10 D 0, ∃ i, e i = f := by
+    have hsub : Finset.univ.image e ⊆ sem_W 10 D 0 := by
+      intro f hf
+      obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hf
+      exact he i
+    have hcard : (Finset.univ.image e).card = 3 := by
+      rw [Finset.card_image_of_injective _ hinj]
+      simp
+    have heq := Finset.eq_of_subset_of_card_le hsub (by omega)
+    intro f hf
+    rw [← heq] at hf
+    obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hf
+    exact ⟨i, hi⟩
+  intro i
+  apply Finset.Subset.antisymm ?_ (hnb i)
+  intro c hcsrc
+  by_contra hnot
+  have hcI : c ∉ centers := by
+    intro hcI
+    have hs := sem_inelig_pure graph_ok hD hc (hI hcI) hcsrc
+    have hz := hnb i (zero_in_nb i)
+    rw [hs, Finset.mem_singleton] at hz
+    exact zero_not_center (hz.symm ▸ hcI)
+  obtain ⟨hind, hcenter, hce, hothers⟩ := exposure_geometry i c hcI hnot
+  obtain ⟨j, side, hj, _, hzero, hout, hdis⟩ :=
+    sem_exposure graph_ok hD hc (expose i c) hind 0
+      ⟨center i, hcenter, center_neighbor i⟩
+  have hf : (j, side) ∈ sem_W 10 D 0 := sem_mem_W.mpr ⟨hj, hzero, hout⟩
+  obtain ⟨k, hk⟩ := hcover (j, side) hf
+  have hmeet : ∃ v ∈ supp 10 D (src D (e k)), v ∈ expose i c := by
+    by_cases hki : k = i
+    · subst k
+      exact ⟨c, hcsrc, hce⟩
+    · obtain ⟨v, hv⟩ := hothers k hki
+      obtain ⟨hvn, hva⟩ := Finset.mem_inter.mp hv
+      exact ⟨v, hnb k hvn, hva⟩
+  obtain ⟨v, hvs, hva⟩ := hmeet
+  rw [hk] at hvs
+  exact Finset.disjoint_left.mp hdis hvs hva
+
+lemma first_stars_exact {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) (hW : (sem_W 10 D 0).card ≤ 3) :
+    ∃ a : Fin 3 → Nat × Bool, ∀ i,
+      (a i).1 < D.length ∧ tag D (a i).1 = true ∧
+      supp 10 D (src D (a i)) = {center i} ∧
+      supp 10 D (10 + (a i).1) = ∅ ∧
+      supp 10 D (src D (sem_bar (a i))) = nb i ∧
+      exitArcs 10 D (carrierT 10 D {center i}) = {a i} ∧
+      merges 10 D (carrierT 10 D {center i}) = ∅ := by
+  classical
+  have hex := fun i : Fin 3 => sem_inelig_consumer graph_ok hD hc (hI (center_mem i))
+  choose a hj ht hs ho hn hx hm using hex
+  let e : Fin 3 → Nat × Bool := fun i => sem_bar (a i)
+  have hinj : Function.Injective e := by
+    intro i j heq
+    have ha : a i = a j := by
+      have hb := congrArg sem_bar heq
+      simpa only [e, sem_bar_bar] using hb
+    apply center_injective
+    have hsij : ({center i} : Finset (Fin 10)) = {center j} := by
+      rw [← hs i, ← hs j, ha]
+    exact Finset.singleton_inj.mp hsij
+  have he : ∀ i, e i ∈ sem_W 10 D 0 := by
+    intro i
+    apply sem_mem_W.mpr
+    refine ⟨hj i, ?_, ?_⟩
+    · exact hn i 0 ((neighbors_exact i 0).mpr (zero_in_nb i))
+    · change (0 : Fin 10) ∉ supp 10 D (10 + (a i).1)
+      rw [ho i]
+      exact Finset.notMem_empty _
+  have hnb : ∀ i, nb i ⊆ supp 10 D (src D (e i)) := by
+    intro i v hv
+    exact hn i v ((neighbors_exact i v).mpr hv)
+  have heq := three_exit_sources_exact hD.1 hc hI e hinj he hnb hW
+  refine ⟨a, ?_⟩
+  intro i
+  exact ⟨hj i, ht i, hs i, ho i, heq i, hx i, hm i⟩
+
+lemma center_cut_support {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) (hW : (sem_W 10 D 0).card ≤ 3) :
+    ∀ j, j < D.length → tag D j = true → (0 : Fin 10) ∉ supp 10 D (10 + j) →
+      ((0 : Fin 10) ∈ supp 10 D (opA D j) ∨ (0 : Fin 10) ∈ supp 10 D (opB D j)) →
+      supp 10 D (opA D j) ⊆ centers ∨ supp 10 D (opB D j) ⊆ centers := by
+  classical
+  obtain ⟨a, ha⟩ := first_stars_exact hD hc hI hW
+  let e : Fin 3 → Nat × Bool := fun i => sem_bar (a i)
+  have hinj : Function.Injective e := by
+    intro i k heq
+    have hab : a i = a k := by
+      have hb := congrArg sem_bar heq
+      simpa only [e, sem_bar_bar] using hb
+    apply center_injective
+    have hs : ({center i} : Finset (Fin 10)) = {center k} := by
+      rw [← (ha i).2.2.1, ← (ha k).2.2.1, hab]
+    exact Finset.singleton_inj.mp hs
+  have he : ∀ i, e i ∈ sem_W 10 D 0 := by
+    intro i
+    apply sem_mem_W.mpr
+    refine ⟨(ha i).1, ?_, ?_⟩
+    · change (0 : Fin 10) ∈ supp 10 D (src D (sem_bar (a i)))
+      rw [(ha i).2.2.2.2.1]
+      exact zero_in_nb i
+    · change (0 : Fin 10) ∉ supp 10 D (10 + (a i).1)
+      rw [(ha i).2.2.2.1]
+      exact Finset.notMem_empty _
+  have hsub : Finset.univ.image e ⊆ sem_W 10 D 0 := by
+    intro f hf
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hf
+    exact he i
+  have hcard : (Finset.univ.image e).card = 3 := by
+    rw [Finset.card_image_of_injective _ hinj]
+    simp
+  have heq := Finset.eq_of_subset_of_card_le hsub (by omega)
+  have hcut (f : Nat × Bool) (hf : f ∈ sem_W 10 D 0) :
+      supp 10 D (src D (sem_bar f)) ⊆ centers := by
+    rw [← heq] at hf
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hf
+    simp only [e, sem_bar_bar]
+    rw [(ha i).2.2.1]
+    exact Finset.singleton_subset_iff.mpr (center_mem i)
+  intro j hj ht hz hparents
+  rcases hparents with hA | hB
+  · have hf : (j, false) ∈ sem_W 10 D 0 :=
+      sem_mem_W.mpr ⟨hj, by simpa [src] using hA, hz⟩
+    exact Or.inr (by simpa [sem_bar, src] using hcut (j, false) hf)
+  · have hf : (j, true) ∈ sem_W 10 D 0 :=
+      sem_mem_W.mpr ⟨hj, by simpa [src] using hB, hz⟩
+    exact Or.inl (by simpa [sem_bar, src] using hcut (j, true) hf)
+
+lemma center_singleton_formula {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) (hW : (sem_W 10 D 0).card ≤ 3)
+    (v : Fin 10) (hv : v ∉ centers) (w : Nat) (hw : w < 10 + D.length) :
+    val D (sem_ins 0 (single v)) w =
+      (val D (single (0 : Fin 10)) w || val D (single v) w) :=
+  CenterSingletonStability.wire_insert_formula hD.1 centers 0 v zero_not_center hv
+    (center_cut_support hD hc hI hW) w hw
+
+end N0Exposure
+
+namespace N0SixMarks
+open C6.DagTools N0Exposure ProjectedSupportCount
+
+def ground : Finset (Fin 10) := Finset.univ \ centers
+
+lemma nb_geometry : (∀ i, 3 ≤ (nb i).card) ∧
+    (∀ i j, i ≠ j → nb i ∩ nb j ⊆ {(0 : Fin 10)}) ∧
+    ∀ i, nb i ∩ ground = nb i := by
+  unfold nb ground centers
+  decide +kernel
+
+lemma nontrivial_support_disjoint {D : Dag} (hD : Strict 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) {w : Nat} (hcard : 2 ≤ (supp 10 D w).card) :
+    Disjoint (supp 10 D w) centers := by
+  apply Finset.disjoint_left.mpr
+  intro v hv hvc
+  have hs := sem_inelig_pure graph_ok hD hc (hI hvc) hv
+  rw [hs, Finset.card_singleton] at hcard
+  omega
+
+lemma nontrivial_support_projection {D : Dag} (hD : Strict 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) {w : Nat} (hcard : 2 ≤ (supp 10 D w).card) :
+    supp 10 D w ∩ ground = supp 10 D w := by
+  apply Finset.inter_eq_left.mpr
+  intro v hv
+  exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, fun h =>
+    Finset.disjoint_left.mp (nontrivial_support_disjoint hD hc hI hcard) hv h⟩
+
+lemma six_first_exact_marks {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D) (hW : (sem_W 10 D 0).card ≤ 3) :
+    ∃ M : Finset Nat, M.card = 6 ∧
+      Set.InjOn (fun j => supp 10 D (10 + j)) M ∧
+      ∀ j ∈ M, j < D.length ∧ 2 ≤ (supp 10 D (10 + j)).card ∧
+        Disjoint (supp 10 D (10 + j)) centers ∧
+        ((0 : Fin 10) ∈ supp 10 D (10 + j) ∨
+          ∃ i : Fin 3, supp 10 D (10 + j) = nb i \ {0}) ∧
+        (∀ w, w < 10 + j → supp 10 D w ≠ supp 10 D (10 + j)) := by
+  obtain ⟨a, ha⟩ := first_stars_exact hD hc hI hW
+  have hocc : ∀ i, ∃ w, supp 10 D w ∩ ground = nb i := by
+    intro i
+    refine ⟨src D (sem_bar (a i)), ?_⟩
+    rw [(ha i).2.2.2.2.1]
+    exact nb_geometry.2.2 i
+  obtain ⟨M, hM, hinj, hspec⟩ := six_first_projected_gates hD.1 ground 0 nb
+    zero_in_nb nb_geometry.1 nb_geometry.2.1 hocc
+  refine ⟨M, hM, ?_, ?_⟩
+  · intro j hj k hk he
+    apply hinj hj hk
+    exact congrArg (fun S : Finset (Fin 10) => S ∩ ground) he
+  · intro j hj
+    obtain ⟨hjD, hcM, _, hfirst⟩ := hspec j hj
+    have hcproj := counted_card_ge_two (0 : Fin 10) nb nb_geometry.1 hcM
+    have hcard : 2 ≤ (supp 10 D (10 + j)).card :=
+      hcproj.trans (Finset.card_le_card Finset.inter_subset_left)
+    have heq := nontrivial_support_projection hD.1 hc hI hcard
+    have hcount : (0 : Fin 10) ∈ supp 10 D (10 + j) ∨
+        ∃ i : Fin 3, supp 10 D (10 + j) = nb i \ {0} := by
+      rw [heq] at hcM
+      rcases hcM with ⟨hz, _⟩ | hi
+      · exact Or.inl hz
+      · exact Or.inr hi
+    refine ⟨hjD, hcard, nontrivial_support_disjoint hD.1 hc hI hcard, hcount, ?_⟩
+    intro w hw he
+    apply hfirst w hw
+    exact congrArg (fun S : Finset (Fin 10) => S ∩ ground) he
+
+end N0SixMarks
+
+namespace N0PrivateExitBarrier
+
+open C6.DagTools N0Exposure
+
+def cycle : Finset (Fin 10) := {2,3,6,7,8,9}
+
+lemma cycle_nonzero : ∀ v ∈ cycle, v ≠ (0 : Fin 10) := by decide +kernel
+lemma cycle_not_center : ∀ v ∈ cycle, v ∉ centers := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option synthInstance.maxSize 8192 in
+set_option maxHeartbeats 1000000 in
+lemma cycle_two_neighbors : ∀ v ∈ cycle, ∃ a ∈ cycle, ∃ b ∈ cycle,
+    a ≠ b ∧ Adj v a ∧ Adj v b := by
+  unfold cycle Adj
+  decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option synthInstance.maxSize 8192 in
+set_option maxHeartbeats 1000000 in
+lemma cycle_not_dominated : ∀ x ∈ cycle, ∃ v ∈ cycle, v ≠ x ∧ ¬ Adj v x := by
+  unfold cycle Adj
+  decide +kernel
+
+lemma no_merge_other {D : Dag}
+    (hNoMerge0 : ∀ j, j < D.length → tag D j = true →
+      ¬ ((0 : Fin 10) ∈ supp 10 D (opA D j) ∧ 0 ∈ supp 10 D (opB D j)))
+    {j : Nat} (hj : j < D.length) (ht : tag D j = true) (s : Bool)
+    (hz : (0 : Fin 10) ∈ supp 10 D (src D (j,s))) :
+    (0 : Fin 10) ∉ supp 10 D (src D (j,!s)) := by
+  intro ho
+  apply hNoMerge0 j hj ht
+  cases s
+  · exact ⟨by simpa [src] using hz, by simpa [src] using ho⟩
+  · exact ⟨by simpa [src] using ho, by simpa [src] using hz⟩
+
+lemma private_cycle_cover {D : Dag} (hD : Strict 10 D) (hc : sem_Comp 10 Adj D)
+    (hNoMerge0 : ∀ j, j < D.length → tag D j = true →
+      ¬ ((0 : Fin 10) ∈ supp 10 D (opA D j) ∧ 0 ∈ supp 10 D (opB D j)))
+    (hprivate : ∀ x ∈ cycle, ∃ p : Nat × Bool, ∀ e ∈ sem_W 10 D x,
+      (0 : Fin 10) ∉ supp 10 D (src D e) →
+      e = p ∧ supp 10 D (src D e) = {x}) :
+    ∀ v ∈ cycle, ∃ f ∈ sem_W 10 D 0, ∃ x ∈ cycle,
+      supp 10 D (src D (sem_bar f)) = {x} ∧ (v = x ∨ Adj v x) := by
+  intro v hv
+  obtain ⟨a, ha, b, hb, hab, hva, hvb⟩ := cycle_two_neighbors v hv
+  obtain ⟨j, hj, ht, _, hvout, haout, s, hvs, _, has, _⟩ :=
+    sem_joint_meeting graph_ok hD hc hva
+  obtain ⟨k, hk, hkt, _, hvoutk, hbout, t, hvst, _, hbst, _⟩ :=
+    sem_joint_meeting graph_ok hD hc hvb
+  have hve : (j,s) ∈ sem_W 10 D v := sem_mem_W.mpr ⟨hj,hvs,hvout⟩
+  have hae : (j,!s) ∈ sem_W 10 D a := sem_mem_W.mpr ⟨hj,has,haout⟩
+  have hvek : (k,t) ∈ sem_W 10 D v := sem_mem_W.mpr ⟨hk,hvst,hvoutk⟩
+  have hbe : (k,!t) ∈ sem_W 10 D b := sem_mem_W.mpr ⟨hk,hbst,hbout⟩
+  obtain ⟨pa, hpa⟩ := hprivate a ha
+  obtain ⟨pb, hpb⟩ := hprivate b hb
+  by_cases hz : (0 : Fin 10) ∈ supp 10 D (src D (j,s))
+  · have hno := no_merge_other hNoMerge0 hj ht s hz
+    have hs := (hpa (j,!s) hae hno).2
+    have ho : (0 : Fin 10) ∉ supp 10 D (10+j) :=
+      fun h => hno (sem_supp_and_sub hD hj ht (!s) h)
+    exact ⟨(j,s), sem_mem_W.mpr ⟨hj,hz,ho⟩, a, ha, hs, Or.inr hva⟩
+  by_cases hzk : (0 : Fin 10) ∈ supp 10 D (src D (k,t))
+  · have hno := no_merge_other hNoMerge0 hk hkt t hzk
+    have hs := (hpb (k,!t) hbe hno).2
+    have ho : (0 : Fin 10) ∉ supp 10 D (10+k) :=
+      fun h => hno (sem_supp_and_sub hD hk hkt (!t) h)
+    exact ⟨(k,t), sem_mem_W.mpr ⟨hk,hzk,ho⟩, b, hb, hs, Or.inr hvb⟩
+  obtain ⟨pv, hpv⟩ := hprivate v hv
+  have hjs := hpv (j,s) hve hz
+  have hkt' := hpv (k,t) hvek hzk
+  have he : (j,s) = (k,t) := hjs.1.trans hkt'.1.symm
+  have hbjs : b ∈ supp 10 D (src D (j,!s)) := by
+    have hbar := congrArg sem_bar he
+    change (j,!s) = (k,!t) at hbar
+    rw [hbar]
+    exact hbst
+  have hzo : (0 : Fin 10) ∈ supp 10 D (src D (j,!s)) := by
+    by_contra hn
+    have hs := (hpa (j,!s) hae hn).2
+    rw [hs, Finset.mem_singleton] at hbjs
+    exact hab hbjs.symm
+  have ho : (0 : Fin 10) ∉ supp 10 D (10+j) :=
+    fun h => hz (sem_supp_and_sub hD hj ht s h)
+  refine ⟨(j,!s), sem_mem_W.mpr ⟨hj,hzo,ho⟩, v,hv, ?_, Or.inl rfl⟩
+  simpa only [sem_bar, Bool.not_not] using hjs.2
+
+lemma private_exit_barrier {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D 0).card ≤ 4)
+    (hNoMerge0 : ∀ j, j < D.length → tag D j = true →
+      ¬ ((0 : Fin 10) ∈ supp 10 D (opA D j) ∧ 0 ∈ supp 10 D (opB D j)))
+    (hprivate : ∀ x ∈ cycle, ∃ p : Nat × Bool, ∀ e ∈ sem_W 10 D x,
+      (0 : Fin 10) ∉ supp 10 D (src D e) →
+      e = p ∧ supp 10 D (src D e) = {x}) : False := by
+  classical
+  have hex := fun i : Fin 3 => sem_inelig_consumer graph_ok hD hc (hI (center_mem i))
+  choose a hj ht hs ho hn hx hm using hex
+  let e : Fin 3 → Nat × Bool := fun i => sem_bar (a i)
+  have hinj : Function.Injective e := by
+    intro i k he
+    have ha : a i = a k := by
+      have hb := congrArg sem_bar he
+      simpa only [e, sem_bar_bar] using hb
+    apply center_injective
+    have hsik : ({center i} : Finset (Fin 10)) = {center k} := by
+      rw [←hs i, ←hs k, ha]
+    exact Finset.singleton_inj.mp hsik
+  have heW : ∀ i, e i ∈ sem_W 10 D 0 := by
+    intro i
+    apply sem_mem_W.mpr
+    refine ⟨hj i, ?_, ?_⟩
+    · exact hn i 0 ((neighbors_exact i 0).mpr (zero_in_nb i))
+    · change (0 : Fin 10) ∉ supp 10 D (10+(a i).1)
+      rw [ho i]
+      exact Finset.notMem_empty _
+  let B : Finset (Nat × Bool) := Finset.univ.image e
+  have hBsub : B ⊆ sem_W 10 D 0 := by
+    intro f hf
+    obtain ⟨i,_,rfl⟩ := Finset.mem_image.mp hf
+    exact heW i
+  have hBcard : B.card = 3 := by
+    rw [Finset.card_image_of_injective _ hinj]
+    simp
+  have hdiff : ((sem_W 10 D 0) \ B).card ≤ 1 := by
+    have hsum := Finset.card_sdiff_add_card_eq_card hBsub
+    omega
+  obtain ⟨f0,hf0⟩ := Finset.card_le_one_iff_subset_singleton.mp hdiff
+  have hcover : ∀ v ∈ cycle, ∃ x ∈ cycle,
+      supp 10 D (src D (sem_bar f0)) = {x} ∧ (v=x ∨ Adj v x) := by
+    intro v hv
+    obtain ⟨f,hf,x,hx,hsx,hvx⟩ := private_cycle_cover hD.1 hc hNoMerge0 hprivate v hv
+    have hfB : f ∉ B := by
+      intro hfB
+      obtain ⟨i,_,hi⟩ := Finset.mem_image.mp hfB
+      have hse : supp 10 D (src D (sem_bar (e i))) = {center i} := by
+        simpa only [e, sem_bar_bar] using hs i
+      rw [hi,hsx] at hse
+      have hxi : x = center i := Finset.singleton_inj.mp hse
+      exact cycle_not_center x hx (hxi.symm ▸ center_mem i)
+    have hff : f=f0 := Finset.mem_singleton.mp (hf0 (Finset.mem_sdiff.mpr ⟨hf,hfB⟩))
+    exact ⟨x,hx,by simpa only [hff] using hsx,hvx⟩
+  obtain ⟨x,hx,hsx,_⟩ := hcover 2 (by decide +kernel)
+  obtain ⟨v,hv,hvx,hvn⟩ := cycle_not_dominated x hx
+  obtain ⟨y,_,hsy,hvy⟩ := hcover v hv
+  have hxy : x=y := Finset.singleton_inj.mp (hsx.symm.trans hsy)
+  rw [←hxy] at hvy
+  exact hvy.elim hvx hvn
+
+lemma private_exit_barrier_of_exits {D : Dag} (hD : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hI : centers ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D 0).card ≤ 4)
+    (hNoMerge0 : ∀ j, j < D.length → tag D j = true →
+      ¬ ((0 : Fin 10) ∈ supp 10 D (opA D j) ∧ 0 ∈ supp 10 D (opB D j)))
+    (hprivate : ∀ x ∈ cycle, ∃ p ∈ sem_W 10 D x,
+      supp 10 D (src D p) = {x} ∧ ∀ e ∈ sem_W 10 D x,
+      (0 : Fin 10) ∉ supp 10 D (src D e) → e = p) : False := by
+  apply private_exit_barrier hD hc hI hW hNoMerge0
+  intro x hx
+  obtain ⟨p,_,hps,hp⟩ := hprivate x hx
+  refine ⟨p,fun e he hz => ?_⟩
+  have hep := hp e he hz
+  exact ⟨hep,by simpa only [hep] using hps⟩
+
+end N0PrivateExitBarrier
+
 end PEqualNP.Outside.L_meta_2590_aux
