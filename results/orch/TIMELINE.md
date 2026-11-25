@@ -9,3 +9,4 @@
 - 2026-11-25T06:11:39.231813+00:00: singleton-incidence partial build passed and independent review passed.
 - 2026-11-25T06:17:27.180990+00:00: integrated 856-line partial build passed and independent review passed.
 - 2026-11-25T06:28:02.900322+00:00: strict shared-cone leaf count compiled and independently reviewed; preserved separately from target.
+- 2026-11-25T06:32:02.592961+00:00: star-forest special case compiled with empty output and independently reviewed.

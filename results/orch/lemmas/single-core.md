@@ -27,3 +27,10 @@
 - New argument: when adding a cone that shares an old gate, the first entry into the old cone union names an old gate wire in a new operand slot. Every fresh non-output gate also consumes a slot, leaving at most one new input per new gate. A cone sharing no old gate uses the previously checked strict single-core leaf bound from its repeated-read witness.
 - Kernel validation: lake env lean exited 0, stdout/stderr empty. Source saved with validation record for immediate preservation.
 - This still does not imply |D| + tau(D) <= |U| + mc for general D; graph-edge density beyond vertex count remains the obstacle. It does settle the circuit side for star forests.
+
+## Checked star-forest case
+
+- `star_forest_card_bound` proves |D|+|S|<=|vertices(D)| when every edge joins a center in S to a noncenter, each noncenter belongs to at most one edge, and every center is used. These are an explicit star-forest certificate.
+- `core_cover_star_forest` proves the full posted conclusion under that graph structure for D, with arbitrary shared cones and many edges per core.
+- Uses the strict shared endpoint bound; no bipartite/C4free/fixedpoint/exact-output assumptions beyond AO2 are needed for this special case.
+- Clean combined StrictStar.lean compiled with exit0 and empty stdout/stderr.

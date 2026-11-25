@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/StrictStar.lean
+exit code: 0
+stdout: empty
+stderr: empty
+Proves L-meta-2962 only under star-forest structure of accepted core edges.
