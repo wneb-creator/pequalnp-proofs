@@ -1,0 +1,14 @@
+[
+  {
+    "source": "c4-case2-endpoints/C4Case2Endpoints.lean",
+    "sha256": "719ac5d4b27dd5162d3b30db96f8bdf0dabce727f7be25b41bf36ebcb6126d74",
+    "lines": 30,
+    "review": "Source read in full; conditional scalar hypotheses and conclusions retained; standard tactics only; no full-gap theorem."
+  },
+  {
+    "source": "triangle-axis-lean/ThreeByThreeAxisCertificate.lean",
+    "sha256": "f453366b19430a626696520b30cdcbefbd2131b6aa4cc32606fa2c7beeb89a22",
+    "lines": 22,
+    "review": "Source read in full; conditional scalar hypotheses and conclusions retained; standard tactics only; no full-gap theorem."
+  }
+]

@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_gct_231.trace.case2_endpoint_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_endpoint_sixteen_thirds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

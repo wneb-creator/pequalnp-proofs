@@ -1,0 +1,4 @@
+/tmp/oec/pequalnp-pilot-75/gct231/triangle-axis-lean/ThreeByThreeAxisCertificate.lean:1:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic

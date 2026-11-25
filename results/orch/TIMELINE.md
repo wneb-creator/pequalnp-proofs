@@ -57,3 +57,5 @@ No complete proof or accepted submission yet.
 2026-11-25T11:11:45.479992+00:00 — All31 coefficient interface compiled, independently reviewed, and pushed at f40c484d593d17503c3649720eaf2f4ef3a7d664. C4 modular unit remains only finite-field evidence; two bounded exact rational certificate runs active. Replan recorded. No proof accepted.
 
 2026-11-25T11:35:50.798426+00:00 — Replan: named1528-line partial passes build07/audit07; checker07no-theorem. Full factor matching and common-isotropic-plane criterion checked and pushed. First C4 scalar contradiction checked/pushed; second reviewed and awaiting archive. Fullstar grouped search active with bounded partial checkpoints. Desk heartbeat shortened to4minutes after five-minute request. No proof accepted.
+
+- 2026-11-25 12:03 UTC: checkpoint43 pushed7015b5d4d7a4073be61c32d59257eeacf2af4831. Exact C4 cases2/3 resultant classifications reported, audit pending. Replanned final hour around exact certificates, combined partial integration, and durable reviewed artifacts. Main theorem unresolved.

@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231_aux.TriangleAxis.reduced_system_inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

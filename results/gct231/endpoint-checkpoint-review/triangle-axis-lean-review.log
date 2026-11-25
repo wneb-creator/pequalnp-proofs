@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:05:13.704986+00:00
+Exact15-file coverage/all hashes/text-only; bytes including manifest 13937
+Original source byte equality, exact one-command axiom driver, four explicit hypotheses, and diagnostic alias-only delta: PASS
+Final empty-log build exit0 and separate standard-three-only axiom audit agree with preserved monitor metadata: PASS
+Scope: checked contradiction for the four displayed polynomial equations only; source-to-chart coverage and the main gap remain separate. No compile rerun.
+Finish UTC 2026-11-25T12:05:13.706463+00:00
+PASS
