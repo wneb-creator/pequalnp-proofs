@@ -33,3 +33,17 @@ canonical_prefix correctly combines global witness-score minimality with the sup
 Both files use only the allowed PEqualNP.Defs import, ordinary definitions/lemmas and allowed helper namespaces. Scope declarations and matching ends stand at column0. No _root_, string literals, attributes, options, sorry, new axioms, native_decide, bv_decide or unsafe tactics found. No project type/instance introduced.
 
 For integration into the one assigned file: retain only its initial imports; copy helper bodies with their own fully named namespace blocks before the final fully qualified theorem. Standalone helper-only files are preservation artifacts, not admissible final proof submissions because they lack the assigned theorem.
+
+## Update: complete PrefixNormalize transport review
+
+Reviewed the272-line PrefixNormalize.lean and its normalize-check.log. PASS for immediate checked-partial preservation. Root reports exit0; log contains only deprecation, linter and profiling messages, with no proof errors.
+
+The new prefixIndex extends sigma to Fin15 by fixing14, and its injectivity follows from the existing wire-map injection. Its value lemma proves equality with the exact prefixRename used by the posted statement, including the Fin.ofNat boundary case.
+
+transport_prefix takes the original witness and maps the first pair by sigma, the second pair by prefixIndex, then sorts each pair with min/max. Strict inequalities follow from original distinctness and injectivity. AND/OR commutativity justifies both sorts without changing values or operation tags.
+
+The permutation direction and suffix bookkeeping are correct: u is op1 evaluated at x(sigma a),x(sigma b), hence exactly the original first gate evaluated on x composed with sigma. Rename.initial with the common suffix[u] gives the second-gate input correspondence. Rename.eval is then applied with the common two-element suffix[u,second]. The original witness at x composed with sigma followed by the given function-automorphism equality yields F x. No inverse permutation is missing.
+
+The result preserves the24-gate residual budget and Monotone2. score_sorted together with prefixIndex_val yields precisely the rank of the permuted original pair, including the fixed prefix wire14. This discharges the previously abstract transport hypothesis; only existence of an uncanonicalized prefixWitness remains needed for the global canonical result.
+
+All helper declarations remain in allowed module namespaces, imports only at the top, matching ends at column0, and no forbidden text/tactic/option was found. Preserve as partial work until the actual existential circuit witness is supplied.

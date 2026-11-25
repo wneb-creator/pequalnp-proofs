@@ -175,4 +175,147 @@ lemma monotone {n : ℕ} (f : Fin n → Fin n) {C : Circuit} (h : Monotone2 C) :
 
 end Rename
 
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def prefixScore (a b c d : ℕ) : ℕ :=
+  (15 * min a b + max a b) * 225 + (15 * min c d + max c d)
+
+def prefixRename (σ : Equiv.Perm (Fin 14)) (i : Fin 15) : ℕ :=
+  if i.val < 14 then (σ (Fin.ofNat 14 i.val)).val else 14
+
+def prefixWitness (F : (Fin 14 → Bool) → Bool)
+    (a b : Fin 14) (c d : Fin 15) (op₁ op₂ : GateOp) (D : Circuit) : Prop :=
+  a < b ∧ c < d ∧
+  (op₁ = GateOp.and ∨ op₁ = GateOp.or) ∧
+  (op₂ = GateOp.and ∨ op₂ = GateOp.or) ∧
+  Monotone2 D ∧ D.size ≤ 24 ∧
+  ∀ x : Fin 14 → Bool,
+    let w := List.ofFn x ++ [op₁.eval [x a, x b]]
+    D.eval (w ++ [op₂.eval [w.getD c.val false, w.getD d.val false]]) = F x
+
+lemma minimum_prefix (F : (Fin 14 → Bool) → Bool)
+    (h : ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D) :
+    ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D ∧
+      ∀ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' →
+        prefixScore a.val b.val c.val d.val ≤ prefixScore a'.val b'.val c'.val d'.val := by
+  classical
+  let P : ℕ → Prop := fun n =>
+    ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D ∧
+      prefixScore a.val b.val c.val d.val = n
+  have hex : ∃ n, P n := by
+    obtain ⟨a, b, c, d, op₁, op₂, D, hD⟩ := h
+    exact ⟨_, a, b, c, d, op₁, op₂, D, hD, rfl⟩
+  obtain ⟨a, b, c, d, op₁, op₂, D, hD, hs⟩ := Nat.find_spec hex
+  refine ⟨a, b, c, d, op₁, op₂, D, hD, ?_⟩
+  intro a' b' c' d' op₁' op₂' D' hD'
+  rw [hs]
+  exact Nat.find_min' hex ⟨a', b', c', d', op₁', op₂', D', hD', rfl⟩
+
+lemma canonical_prefix (F : (Fin 14 → Bool) → Bool)
+    (h : ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D)
+    (transport : ∀ a b c d op₁ op₂ D,
+      prefixWitness F a b c d op₁ op₂ D →
+      ∀ σ : Equiv.Perm (Fin 14), (∀ x, F (x ∘ σ) = F x) →
+        ∃ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' ∧
+          prefixScore a'.val b'.val c'.val d'.val =
+            prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d)) :
+    ∃ a b c d op₁ op₂ D,
+      a < b ∧ c < d ∧
+      (op₁ = GateOp.and ∨ op₁ = GateOp.or) ∧
+      (op₂ = GateOp.and ∨ op₂ = GateOp.or) ∧
+      (∀ σ : Equiv.Perm (Fin 14), (∀ x, F (x ∘ σ) = F x) →
+        prefixScore a.val b.val c.val d.val ≤
+          prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d)) ∧
+      Monotone2 D ∧ D.size ≤ 24 ∧
+      ∀ x : Fin 14 → Bool,
+        let w := List.ofFn x ++ [op₁.eval [x a, x b]]
+        D.eval (w ++ [op₂.eval [w.getD c.val false, w.getD d.val false]]) = F x := by
+  obtain ⟨a, b, c, d, op₁, op₂, D, hD, hmin⟩ := minimum_prefix F h
+  obtain ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ := hD
+  refine ⟨a, b, c, d, op₁, op₂, D, hab, hcd, ho₁, ho₂, ?_, hm, hs, he⟩
+  intro σ hσ
+  obtain ⟨a', b', c', d', op₁', op₂', D', hD', hs'⟩ :=
+    transport a b c d op₁ op₂ D ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ σ hσ
+  rw [← hs']
+  exact hmin a' b' c' d' op₁' op₂' D' hD'
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def prefixIndex (σ : Equiv.Perm (Fin 14)) (i : Fin 15) : Fin 15 :=
+  ⟨Rename.wire σ i.val, Rename.wire_lt σ i.val (by decide) i.isLt⟩
+
+lemma prefixIndex_injective (σ : Equiv.Perm (Fin 14)) :
+    Function.Injective (prefixIndex σ) := by
+  intro i j h
+  apply Fin.ext
+  exact Rename.wire_injective σ σ.injective (congrArg Fin.val h)
+
+lemma prefixIndex_val (σ : Equiv.Perm (Fin 14)) (i : Fin 15) :
+    (prefixIndex σ i).val = prefixRename σ i := by
+  unfold prefixIndex prefixRename Rename.wire
+  by_cases h : i.val < 14
+  · simp only [dif_pos h, if_pos h]
+    congr 1
+    apply Fin.ext
+    simp [Fin.ofNat, Nat.mod_eq_of_lt h]
+  · have hi : i.val = 14 := by omega
+    simp [h, hi]
+
+lemma op_comm (op : GateOp) (h : op = GateOp.and ∨ op = GateOp.or) (a b : Bool) :
+    op.eval [a, b] = op.eval [b, a] := by
+  rcases h with rfl | rfl <;> simp [GateOp.eval, Bool.and_comm, Bool.or_comm]
+
+lemma op_min_max {n : ℕ} (op : GateOp) (h : op = GateOp.and ∨ op = GateOp.or)
+    (x : Fin n → Bool) (a b : Fin n) :
+    op.eval [x (min a b), x (max a b)] = op.eval [x a, x b] := by
+  by_cases hab : a ≤ b
+  · simp [min_eq_left hab, max_eq_right hab]
+  · simp only [min_eq_right (le_of_not_ge hab), max_eq_left (le_of_not_ge hab)]
+    exact op_comm op h _ _
+
+lemma score_sorted (a b : Fin 14) (c d : Fin 15) :
+    prefixScore (min a b).val (max a b).val (min c d).val (max c d).val =
+      prefixScore a.val b.val c.val d.val := by
+  simp [prefixScore, Fin.val_min, Fin.val_max]
+
+lemma transport_prefix (F : (Fin 14 → Bool) → Bool)
+    (a b : Fin 14) (c d : Fin 15) (op₁ op₂ : GateOp) (D : Circuit)
+    (hD : prefixWitness F a b c d op₁ op₂ D)
+    (σ : Equiv.Perm (Fin 14)) (hσ : ∀ x, F (x ∘ σ) = F x) :
+    ∃ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' ∧
+      prefixScore a'.val b'.val c'.val d'.val =
+        prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d) := by
+  obtain ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ := hD
+  let ca := σ a
+  let cb := σ b
+  let cc := prefixIndex σ c
+  let cd := prefixIndex σ d
+  have hab' : ca ≠ cb := fun h => ne_of_lt hab (σ.injective h)
+  have hcd' : cc ≠ cd := fun h => ne_of_lt hcd (prefixIndex_injective σ h)
+  refine ⟨min ca cb, max ca cb, min cc cd, max cc cd, op₁, op₂, Rename.circuit σ D, ?_, ?_⟩
+  · refine ⟨min_lt_max.mpr hab', min_lt_max.mpr hcd', ho₁, ho₂,
+      Rename.monotone σ hm, ?_, ?_⟩
+    · simpa only [Rename.size] using hs
+    · intro x
+      simp only [op_min_max op₁ ho₁]
+      let u := op₁.eval [x ca, x cb]
+      let w := List.ofFn x ++ [u]
+      let v := List.ofFn (x ∘ σ) ++ [u]
+      have hget (i : Fin 15) : w.getD (prefixIndex σ i).val false = v.getD i.val false :=
+        Rename.initial σ x [u] i.val
+      have hsecond : op₂.eval [w.getD (min cc cd).val false, w.getD (max cc cd).val false] =
+          op₂.eval [v.getD c.val false, v.getD d.val false] := by
+        rw [op_min_max op₂ ho₂ (fun i : Fin 15 => w.getD i.val false)]
+        rw [hget c, hget d]
+      change (Rename.circuit σ D).eval
+        (w ++ [op₂.eval [w.getD (min cc cd).val false, w.getD (max cc cd).val false]]) = F x
+      rw [hsecond]
+      have hEval := Rename.eval σ D x [u, op₂.eval [v.getD c.val false, v.getD d.val false]]
+      have hOriginal := he (x ∘ σ)
+      change D.eval (v ++ [op₂.eval [v.getD c.val false, v.getD d.val false]]) = F (x ∘ σ) at hOriginal
+      simpa only [w, v, List.append_assoc, List.cons_append, List.nil_append] using
+        hEval.trans (hOriginal.trans (hσ x))
+  · rw [score_sorted]
+    simp only [cc, cd, ca, cb, prefixIndex_val]
+
 end PEqualNP.Outside.L_meta_2732_aux
