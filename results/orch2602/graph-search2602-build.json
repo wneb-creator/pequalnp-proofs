@@ -1,0 +1,16 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch2602/lemmas/GraphSearch.lean",
+  "sha256": "5808475ff06af99593356cf4e9abc685c39d0e9ba554964c04e35b5cb2593938",
+  "bytes": 2419,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "/workspace/pequalnp-proofs/results/orch2602/lemmas/GraphSearch.lean"
+  ],
+  "seconds": 7.831,
+  "exit_code": 1,
+  "peak_rss_kib": 3112472,
+  "log": "/tmp/oec/pequalnp-pilot-61/graph-search2602-build.log"
+}

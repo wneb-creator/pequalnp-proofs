@@ -1,0 +1,3 @@
+lean/PEqualNP/Outside/R_meta_4478_271.lean
+lean/PEqualNP/Outside/L_meta_2227.lean
+lean/PEqualNP/Outside/R_meta_1479_312.lean

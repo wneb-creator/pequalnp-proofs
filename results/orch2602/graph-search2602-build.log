@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch2602/lemmas/GraphSearch.lean:42:38: error: Application type mismatch: The argument
+  eq
+has type
+  Fin.castAdd 13 p = Fin.castAdd 13 q
+but is expected to have type
+  p = q
+in the application
+  congrArg Fin.val eq

@@ -1,0 +1,172 @@
+[
+  [
+    "lean/PEqualNP/Outside/L_meta_5158.lean",
+    66020,
+    [
+      [
+        62760,
+        "theorem PEqualNP.Outside.L_meta_5158 : have x1 : Finset (Fin (13 : \u2115)) \u2192 List Bool := fun (x1 : Finset (Fin (13 : \u2115))) => (List.ofFn fun (x2 : Fin (13 : \u2115)) => Decidable.decide (x2"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_1751.lean",
+    88860,
+    [
+      [
+        86531,
+        "theorem PEqualNP.Outside.L_meta_1751 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : PEqualNP.Circu"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_4101.lean",
+    83942,
+    [
+      [
+        80528,
+        "theorem PEqualNP.Outside.L_meta_4101 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   have x2 : \u2115 \u2192 PEqualNP.CircuitLowerBounds.Gate := PEqualNP.MetaComplexity.NestedCover.gateAt "
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_1961.lean",
+    495968,
+    [
+      [
+        492133,
+        "theorem PEqualNP.Outside.L_meta_1961 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : PEqualNP.Circu"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2098.lean",
+    185958,
+    [
+      [
+        183872,
+        "theorem PEqualNP.Outside.L_meta_2098 : \u00ac (\u2203 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 \u2227     PEqualNP.MetaComplexity.NestedCover.ReadsBack ("
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2613.lean",
+    136688,
+    [
+      [
+        134569,
+        "theorem PEqualNP.Outside.L_meta_2613 :\n    \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.size \u2264 (64 : \u2115) \u2192     PEqualNP.TopForm.IsAO2 (26 : \u2115) x1 \u2192       (\u2200 (x4 : \u2115) (x5 : PEq"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_1959.lean",
+    18655,
+    [
+      [
+        16521,
+        "theorem PEqualNP.Outside.L_meta_1959 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : PEqualNP.Circu"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2069.lean",
+    45872,
+    [
+      [
+        39967,
+        "theorem PEqualNP.Outside.L_meta_2069 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : PEqualNP.Circu"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2059.lean",
+    66228,
+    [
+      [
+        64833,
+        "theorem PEqualNP.Outside.L_meta_2059 : have x1 : Fin (13 : \u2115) \u2192 Bool := fun (x1 : Fin (13 : \u2115)) => Decidable.decide (x1 = (0 : Fin (13 : \u2115)) \u2228 x1 = (1 : Fin (13 : \u2115)) \u2228 x1 = (3 : F"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_3777.lean",
+    21140,
+    [
+      [
+        18224,
+        "theorem PEqualNP.Outside.L_meta_3777 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : Bool \u2192 List Bo"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2143.lean",
+    219632,
+    [
+      [
+        218351,
+        "theorem PEqualNP.Outside.L_meta_2143 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; \u00ac\u2203 (x2 : PEqualNP.Circui"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2615.lean",
+    114888,
+    [
+      [
+        112538,
+        "theorem PEqualNP.Outside.L_meta_2615 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.size \u2264 (64 : \u2115) \u2192     PEqualNP.TopForm.IsAO2 (26 : \u2115) x1 \u2192       (\u2200 (x4 : \u2115) (x5 : PEqualN"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_4803.lean",
+    40997,
+    [
+      [
+        40200,
+        "theorem PEqualNP.Outside.L_meta_4803 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.TopForm.IsAO2 (26 : \u2115) x1 \u2192 (\u2200 (x3 : Fin (26 : \u2115) \u2192 Bool), x1.eval (List.ofFn x3) = Bo"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_3799.lean",
+    21324,
+    [
+      [
+        217,
+        "theorem PEqualNP.Outside.L_meta_3799 : \n    have diff : Finset (Fin 13) := {0, 1, 3, 9}\n    have correct : Circuit \u2192 Prop := fun C =>\n      (\u2200 p l : Fin 13, p - l \u2208 diff \u2192\n        "
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_1500.lean",
+    199240,
+    [
+      [
+        198298,
+        "theorem PEqualNP.Outside.L_meta_1500 : \u00ac (\u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 63 \u2227 PEqualNP.CircuitLowerBounds.HasLineDegree 2"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_2145.lean",
+    233476,
+    [
+      [
+        232210,
+        "theorem PEqualNP.Outside.L_meta_2145 : have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; \u00ac\u2203 (x2 : PEqualNP.Circui"
+      ]
+    ]
+  ],
+  [
+    "lean/PEqualNP/Outside/L_meta_4103.lean",
+    138001,
+    [
+      [
+        134794,
+        "theorem PEqualNP.Outside.L_meta_4103 :\n    \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   have x2 : \u2115 \u2192 PEqualNP.CircuitLowerBounds.Gate := PEqualNP.MetaComplexity.NestedCover.gat"
+      ]
+    ]
+  ]
+]
