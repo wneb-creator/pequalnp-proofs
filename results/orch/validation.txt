@@ -1,9 +1,9 @@
 Gap: L-meta-2732
-Status: checked partial helper only; assigned theorem is not yet proved.
+Status: checked partial helpers only; assigned theorem is not yet proved.
 File: lean/PEqualNP/Outside/L_meta_2732.lean
-Build: lake build PEqualNP.Outside.L_meta_2732, exit 0, 192 jobs.
-Independent review: sat_review passed mathematical and format review.
-Checker: not run for this partial; the assigned theorem is absent.
-Line count: 59. Cleanup: not applicable to this partial.
+Build: lake build PEqualNP.Outside.L_meta_2732, exit0,5149jobs.
+Independent review: sat_review passed filtering lemma; repo_review passed input renaming.
+Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing. Exit3.
+Line count: 178. Cleanup: not applicable to partial.
 Sub-agents: repo_review; circuit_search; lower_bound; formalization; formalization/rename_wires; constructive; sat_review
-TIMING total=17.5 subagents=7
+TIMING total=20.3 subagents=7
