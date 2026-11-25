@@ -1,0 +1,22 @@
+lemma initial_retained {k : ℕ} {U : Finset Sig} {a b : Sig} {d : ℕ}
+    (hd : allowed true d) (ha : a ∈ initial) (hb : b ∈ initial) (hab : a ≠ b)
+    (raw : ∀ c ∈ U, c ∈ initial)
+    (tail : Live true target k (insert (bin d a b) U)) : a ∈ U ∧ b ∈ U := by
+  classical
+  have retain (a b : Sig) (d : ℕ) (ha : a ∈ initial) (hb : b ∈ initial)
+      (hab : a ≠ b) (hd : allowed true d)
+      (tail : Live true target k (insert (bin d a b) U)) : a ∈ U := by
+    by_contra absent
+    obtain ⟨r, s, different, sameGate, sameOthers⟩ := firstCollision a b d ha hb hab hd
+    obtain ⟨c, hc, separates⟩ := live_row_difference tail different
+    rcases Finset.mem_insert.mp hc with rfl | hc
+    · exact separates sameGate
+    · apply separates
+      apply sameOthers c (raw c hc)
+      intro equal
+      exact absent (equal ▸ hc)
+  refine ⟨retain a b d ha hb hab hd tail, ?_⟩
+  apply retain b a (flipOp d) hb ha (Ne.symm hab) (flip_flip hd).1
+  rw [← bin_flip hd a b]
+  exact tail
+

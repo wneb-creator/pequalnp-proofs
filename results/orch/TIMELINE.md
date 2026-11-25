@@ -9,3 +9,4 @@
 2026-11-25T14:10:05.884725+00:00 CompleteCNF,OneNotCross,Partial16 independentlyreviewed and compiled; preservingexactsource andfulllogs incheckpoint.
 2026-11-25T14:13:52.343627+00:00 PetersenCNF exact-statement conditional wrapper compiled and reviewed; local checker on503line partial returned REJECTED(no-theorem), as expected.
 2026-11-25T14:16:15.651457+00:00 RetainedInput andFirstCollision compiled and independentlyreviewed; preservepartial17/18bound components.
+2026-11-25T14:20:50.159569+00:00 InitialRetained andPetersenReplay compiled and independentlyreviewed; preservingexactsource/fullcompilelogs.

@@ -17,3 +17,6 @@ TIMING total=27 subagents=6
 
 RetainedInput andFirstCollision eachcompiled exit0 with emptylogs; independentreview passed including360finitecollisioncases. Full17/18bound assembly pending.
 TIMING total=30 subagents=6
+
+InitialRetained andPetersenReplay eachcompiled exit0; independentreview passed. Replay derivesexactpostedstatement from checkW=true, stillunproved. Bothfirstgateinputsretained nowproved;17boundpending.
+TIMING total=34 subagents=6
