@@ -75,3 +75,22 @@ Initial fully inlined helper aggregate was 3,737,833 bytes. Namespace transforma
 2026-11-25T03:11:40.811155+00:00 status_review combined assembly verified:
 - Replaced separate NOT0/NOT4/allAND packages with combined C4338 (both NOT suffixes) and C2444 (six AND first gates). NOT pureinput restriction follows from Normalize.priority; no extra assumption needed.
 - Revised conditional assembly harness compiled exit0 with empty diagnostics. Immutable snapshot: results/orch/lemmas/AssemblyConditional.lean; complete log: results/orch/assembly-conditional-build.log. Exact final footer: results/orch/lemmas/AssemblyFooter.txt. This remains conditional until the inlined case package compilation succeeds.
+
+### 2026-11-25T03:12:54.972345+00:00 Compression probe checked
+
+Baseline common verifier plus g15 certificate compiled in55.22s, peak RSS4519676KB. Replacing stored rule-pair lists by all columns × paid masks compiled in59.16s, peak RSS4523084KB. Both used Lean -j1, no new axioms or unproved assumptions. Complete logs are scratch compression-baseline.log and compression-allrules.log. Larger-case performance remains unverified.
+
+## Certificate data compression 2026-11-25T03:14:35.323930+00:00
+- Global generic compression is insufficient: selected AND/NOT/OR set uniquehex699415chars; rawbinary348400B, LZMA285792B (571584hexchars before machinery). Need semantic reconstruction/pruning.
+- L4338 combined NOT proof has only35471hexchars despite513334B source; much source is reusable machinery, so prefer over separately inlined1665/1666 if statements fit.
+- Parser /tmp/oec/pequalnp-pilot-61/packing_parser.py safely parses generated index-if trees and Packing headers, yielding exact stored-node prefix. JSON diagnostics packing-analysis.json and rule-dedup-analysis.json. Rulelist dictionaries save little; block16 offset scheme saves60745hexchars across6mainfiles.
+- Major parentopcode compression: nearly every depth-d stored bank extends a depth-(d-1) bank at levelk+1. Store parent index and final10-bit op instead of10*d bits. Generator parent_prefix_analysis.py produces per-level compressed JSON and verifies every reconstructed opcode against original. Files L_meta_5120,4336,1674,1676,1677,1678 save88862hexchars total, before83tinyexception rows. Reconstruction depth≤8.
+- Sorted unique(node,auto) pairs extracted from hashslots can replace full perfecthash tables via binarysearch of computed keySet(linkedSet). Saves~64500hexchars over5ORfiles, plusANDhash savings; runtime increaseslogarithmically. Sorting allnodes×autos instead is larger and should be avoided.
+- Parent structural agent validated all-columns×paidmask rule regeneration on g15 (baseline55.22s vs59.16s). This removes rulepayload and offsets. Heavy depth3–5 blocks still need benchmarking; most fullgraphnodes have16–32paidmask choices and100+columns.
+
+## Parent/rule codec 2026-11-25T03:19:52.828527+00:00
+- Completed scratch encoder encode_parent_rules.py with agreed9field Packing layout (count,depth,columnWidth,parentWidth,indexWidth,offsetWidth,exceptionCount,exceptionPacked,data). Parent sentinel equals parentCount; newrulelist precedes all inherited ancestor rules. Extra valid rules retained, no deletionmask.
+- Every original bank opcode and livebitset roundtrips in Python. Every original rule is included in reconstructed new+ancestor list, with no duplicatepairs. Missingprefix exception rows83total. Perlevel identical newrulelists sharepayload offsets.
+- Actualhexbytes original→encoded: L5120 115872→72108; L4336 62600→44818; L1674 106528→68718; L1676 91027→58809; L1677 68558→46142; L1678 43094→26904. Outputs /tmp/oec/pequalnp-pilot-61/L_meta_<id>-parent-rules.json. About170KBsource savings including exceptions, before blockedoffsets.
+- Cumulativeparent rulelists average~18.5candidates/node, max73, vsoriginal~3.4; significantly belowallcolumns×paidmasks. Column-only paidmaskenumeration averages~37candidates/node.
+- Canonicalpaidmask trial L5120: greedyall exactlymatches10140/16090 storedrules; recursive-live cone10590/16090. Includingzero covers13867/16090(86.2%), leaving2223exceptions. Not yet compelling versuslosslessparent/rule codec. paidmask_analysis.py and JSONretain details.

@@ -46,4 +46,35 @@ lemma checkLevels_sound {α : Type} (holds : Nat → Nat → Nat → Prop)
   rw [← eq]
   exact checkChunks_sound (holds k) (check k) (empty k) (merge k) (sound k) (chunks k) 0 pass
 
+def proofChunks {α : Type} (check : Nat → Nat → α → Prop) (start : Nat) :
+    List (Nat × α) → Prop
+  | [] => True
+  | (n, w) :: rest => check start n w ∧ proofChunks check (start + n) rest
+
+lemma proofChunks_sound {α : Type} (holds : Nat → Nat → Prop)
+    (check : Nat → Nat → α → Prop)
+    (empty : ∀ start, holds start 0)
+    (merge : ∀ start a b, holds start a → holds (start + a) b → holds start (a + b))
+    (sound : ∀ start n w, check start n w → holds start n)
+    (chunks : List (Nat × α)) (start : Nat)
+    (h : proofChunks check start chunks) : holds start (chunkSize chunks) := by
+  induction chunks generalizing start with
+  | nil => exact empty start
+  | cons chunk rest ih =>
+    rcases chunk with ⟨n, w⟩
+    exact merge start n (chunkSize rest) (sound start n w h.1) (ih (start + n) h.2)
+
+lemma proofLevels_sound {α : Type} (holds : Nat → Nat → Nat → Prop)
+    (size : Nat → Nat) (check : Nat → Nat → Nat → α → Prop)
+    (empty : ∀ k start, holds k start 0)
+    (merge : ∀ k start a b, holds k start a → holds k (start + a) b → holds k start (a + b))
+    (sound : ∀ k start n w, check k start n w → holds k start n)
+    (chunks : Nat → List (Nat × α)) (top : Nat)
+    (h : ∀ k ≤ top, chunkSize (chunks k) = size k ∧ proofChunks (check k) 0 (chunks k)) :
+    ∀ k ≤ top, holds k 0 (size k) := by
+  intro k hk
+  obtain ⟨eq, pass⟩ := h k hk
+  rw [← eq]
+  exact proofChunks_sound (holds k) (check k) (empty k) (merge k) (sound k) (chunks k) 0 pass
+
 end PEqualNP.Outside.L_meta_670.FiniteChunk

@@ -12,3 +12,6 @@
 2026-11-25T03:09:39.724166+00:00 Raw aggregate build interrupted on root instruction (exit130), no success claim. Peak sampled RSS~8.2GB. Switching to smaller combinedcase sources and singlethread checks.
 - 2026-11-25T03:11:40.590470+00:00: finite-verification generic chunk/table soundness helper Lean-checked; root notified for early push.
 - 2026-11-25T03:12:39.990185+00:00: root independently reviewed compiled generic chunk lemma, explicit conditional assembly, baseline certificate, and all-rules certificate variant; preserving artifacts.
+
+2026-11-25T03:15:26.284307+00:00 Combinedraw all-Mathlib check interruptedexit130 at2min/RSS8.3GB, noerrors, farfromdone. Narrow Normalize+Seed probe then passedexit0 with emptydiagnostics; restarting fullraw with9specificMathlibmodules+Defs and-j1. Previous rootcontainment and wrong-workdir preflights exited1 before proofchecking; all logs preserved.
+- 2026-11-25T03:20:16.705376+00:00: first strategy review: all case mathematics identified; counterexample search stopped; focus on shared state interfaces, batched proof checks, and parent-based certificate data. Independent review passed FiniteBatchProbe.
