@@ -1,0 +1,651 @@
+{
+  "status": "UNCOMPILED candidate; independently audit and replay before claiming proof",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/Compact12203FlatOriginalNames.lean",
+  "source_sha256": "9cb7708908b59feedbdfabe22663b6ecd9cd4483608cf1ba5a64b987df2527a9",
+  "source_bytes": 548472,
+  "attributed_original_bytes": 523721,
+  "growth_bytes": 24751,
+  "changed_packing_records": 24,
+  "changed_declarations": [
+    "g191d8",
+    "g191l8",
+    "g383d10",
+    "g383d9",
+    "g383l10",
+    "g383l9",
+    "moD10",
+    "moD11",
+    "moD12",
+    "moD13",
+    "moD14",
+    "moD15",
+    "moD9",
+    "moLevels",
+    "sgD10",
+    "sgD11",
+    "sgD12",
+    "sgD13",
+    "sgD14",
+    "sgD8",
+    "sgD9",
+    "sgLevels",
+    "x191d7",
+    "x191d8",
+    "x191d9",
+    "x191l7",
+    "x191l8",
+    "x191l9",
+    "x255d9",
+    "x255l9",
+    "x383d10",
+    "x383d11",
+    "x383d9",
+    "x383l10",
+    "x383l11",
+    "x383l9"
+  ],
+  "all_other_declarations_byte_identical": true,
+  "all_theorems_byte_identical": true,
+  "changes": [
+    {
+      "data_name": "g191d8",
+      "tuple_owner": "g191l8",
+      "old_fields": [
+        113,
+        2,
+        5,
+        589836,
+        68,
+        12,
+        1057
+      ],
+      "new_fields": [
+        113,
+        2,
+        5,
+        0,
+        0,
+        12,
+        0
+      ],
+      "data_decl_growth_bytes": 558,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "27071dbaa276fab5c813660e7b5c2f63a15e76c29a7a7e8efa3ef62fb6ddb959"
+    },
+    {
+      "data_name": "g383d10",
+      "tuple_owner": "g383l10",
+      "old_fields": [
+        47,
+        2,
+        6,
+        524294,
+        51,
+        11,
+        1060
+      ],
+      "new_fields": [
+        47,
+        2,
+        6,
+        0,
+        0,
+        12,
+        0
+      ],
+      "data_decl_growth_bytes": 481,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "ea9c462baec1151c5218d2db2bc0ffaa38bc948e4d2abf8e728b142784900a3a"
+    },
+    {
+      "data_name": "g383d9",
+      "tuple_owner": "g383l9",
+      "old_fields": [
+        136,
+        3,
+        6,
+        1638440,
+        86,
+        12,
+        1083
+      ],
+      "new_fields": [
+        136,
+        3,
+        6,
+        0,
+        0,
+        13,
+        0
+      ],
+      "data_decl_growth_bytes": 814,
+      "tuple_growth_bytes": -10,
+      "decoded_sha256": "21211d5965bfbbb4872b933ea38e797b6b478999ff793f351883c97bcb693f54"
+    },
+    {
+      "data_name": "x191d9",
+      "tuple_owner": "x191l9",
+      "old_fields": [
+        122,
+        2,
+        7,
+        720906,
+        68,
+        13,
+        1115
+      ],
+      "new_fields": [
+        122,
+        2,
+        7,
+        0,
+        0,
+        13,
+        0
+      ],
+      "data_decl_growth_bytes": 1012,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "9602303f23f0fd8d865d08cbec8d24b94010abc2b8402336e6235db6b7ea9d89"
+    },
+    {
+      "data_name": "x191d8",
+      "tuple_owner": "x191l8",
+      "old_fields": [
+        387,
+        3,
+        7,
+        2359386,
+        103,
+        13,
+        1105
+      ],
+      "new_fields": [
+        387,
+        3,
+        7,
+        0,
+        0,
+        14,
+        0
+      ],
+      "data_decl_growth_bytes": 2347,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "69cb922a11789fa4fd066ba3bd4d903de65d4cebe8fb6107af088158d219b4b0"
+    },
+    {
+      "data_name": "x191d7",
+      "tuple_owner": "x191l7",
+      "old_fields": [
+        137,
+        4,
+        7,
+        3801188,
+        103,
+        11,
+        1064
+      ],
+      "new_fields": [
+        137,
+        4,
+        7,
+        0,
+        0,
+        12,
+        0
+      ],
+      "data_decl_growth_bytes": 176,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "b0e63f4356b963a5f82a1982cfc1d3a149d4e205cd0555c5f8767aee113ad682"
+    },
+    {
+      "data_name": "x255d9",
+      "tuple_owner": "x255l9",
+      "old_fields": [
+        36,
+        3,
+        6,
+        524295,
+        51,
+        10,
+        1055
+      ],
+      "new_fields": [
+        36,
+        3,
+        6,
+        0,
+        0,
+        11,
+        0
+      ],
+      "data_decl_growth_bytes": 329,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "9bc81798178caf5c8bb8ddc02f982d103732ae361dda775c8e8c19b3873a0c5e"
+    },
+    {
+      "data_name": "x383d11",
+      "tuple_owner": "x383l11",
+      "old_fields": [
+        48,
+        2,
+        8,
+        655366,
+        67,
+        12,
+        1166
+      ],
+      "new_fields": [
+        48,
+        2,
+        8,
+        0,
+        0,
+        13,
+        0
+      ],
+      "data_decl_growth_bytes": 400,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "74839a10048bdf11338e65f351b36ebf6a1604950c93367a08ea2567953c58a1"
+    },
+    {
+      "data_name": "x383d10",
+      "tuple_owner": "x383l10",
+      "old_fields": [
+        259,
+        3,
+        8,
+        2490403,
+        102,
+        14,
+        1251
+      ],
+      "new_fields": [
+        259,
+        3,
+        8,
+        0,
+        0,
+        15,
+        0
+      ],
+      "data_decl_growth_bytes": 2481,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "dd0f491eca88a373086c6cd252f7c9a85cf301675665bf67edfd6f6403f65252"
+    },
+    {
+      "data_name": "x383d9",
+      "tuple_owner": "x383l9",
+      "old_fields": [
+        203,
+        4,
+        8,
+        5505121,
+        119,
+        12,
+        1118
+      ],
+      "new_fields": [
+        203,
+        4,
+        8,
+        0,
+        0,
+        13,
+        0
+      ],
+      "data_decl_growth_bytes": 1145,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "61fd2a6e4e76d290bf7ba337f1b26bc3e1acfb9af699b8dfedb641ec48ba84cc"
+    },
+    {
+      "data_name": "moD9",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        7,
+        6,
+        9,
+        393221,
+        51,
+        6,
+        4096
+      ],
+      "new_fields": [
+        7,
+        6,
+        9,
+        0,
+        0,
+        5,
+        0
+      ],
+      "data_decl_growth_bytes": 16,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "74eb0869a4a8f0899418e101d2e103c015193b110badd58bb802ae00d7e18203"
+    },
+    {
+      "data_name": "moD10",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        182,
+        5,
+        9,
+        5963854,
+        119,
+        11,
+        4144
+      ],
+      "new_fields": [
+        182,
+        5,
+        9,
+        0,
+        0,
+        11,
+        0
+      ],
+      "data_decl_growth_bytes": 607,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "0f9eba3c2e7469db191be0a2568d75ec827a8face4a39f4e4b67cabcb00f8ffc"
+    },
+    {
+      "data_name": "moD11",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        820,
+        4,
+        9,
+        5898424,
+        120,
+        14,
+        4465
+      ],
+      "new_fields": [
+        820,
+        4,
+        9,
+        0,
+        0,
+        15,
+        0
+      ],
+      "data_decl_growth_bytes": 4215,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "2bd8f00b086c45a5c9f586ba45e5cef5c59e648718c679dedf853c20f695b62f"
+    },
+    {
+      "data_name": "moD12",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        386,
+        3,
+        9,
+        1769521,
+        86,
+        15,
+        4664
+      ],
+      "new_fields": [
+        386,
+        3,
+        9,
+        0,
+        0,
+        16,
+        0
+      ],
+      "data_decl_growth_bytes": 3590,
+      "tuple_growth_bytes": -10,
+      "decoded_sha256": "cc0c80c377a5ae55a380e19b88b508e8c014496c1eb399537756db8a2878d453"
+    },
+    {
+      "data_name": "moD13",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        66,
+        2,
+        9,
+        655368,
+        67,
+        13,
+        4360
+      ],
+      "new_fields": [
+        66,
+        2,
+        9,
+        0,
+        0,
+        14,
+        0
+      ],
+      "data_decl_growth_bytes": 728,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "c4c6e56c1db92b94d5ea5435ed9c93c22b6d367eb9aa3fb8198cfaf76bd073f6"
+    },
+    {
+      "data_name": "moD14",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        9,
+        1,
+        9,
+        65537,
+        0,
+        9,
+        4180
+      ],
+      "new_fields": [
+        9,
+        1,
+        9,
+        0,
+        0,
+        11,
+        0
+      ],
+      "data_decl_growth_bytes": 4,
+      "tuple_growth_bytes": -6,
+      "decoded_sha256": "5f1436f83089625a8a1298499ab9f4cb48159b29e4ca7c2389f0fff4de18d59d"
+    },
+    {
+      "data_name": "moD15",
+      "tuple_owner": "moLevels",
+      "old_fields": [
+        1,
+        0,
+        9,
+        65537,
+        0,
+        0,
+        4099
+      ],
+      "new_fields": [
+        1,
+        0,
+        9,
+        0,
+        0,
+        0,
+        0
+      ],
+      "data_decl_growth_bytes": -2,
+      "tuple_growth_bytes": -7,
+      "decoded_sha256": "645449adaa7f19ff8663b310d28d70f85357116b533cdc34a85409121ea41a1e"
+    },
+    {
+      "data_name": "sgD8",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        6,
+        6,
+        7,
+        327686,
+        51,
+        6,
+        4097
+      ],
+      "new_fields": [
+        6,
+        6,
+        7,
+        0,
+        0,
+        6,
+        0
+      ],
+      "data_decl_growth_bytes": -6,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "19acd57cea979ac1dc56763a2b754f877000f30e7fd649b2743ee695e441ae43"
+    },
+    {
+      "data_name": "sgD9",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        69,
+        5,
+        7,
+        2818098,
+        102,
+        10,
+        4151
+      ],
+      "new_fields": [
+        69,
+        5,
+        7,
+        0,
+        0,
+        11,
+        0
+      ],
+      "data_decl_growth_bytes": 4,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "e046b0dda3842eb05026ec12a496e728720df9a08acac28f071dc9c3beec8fea"
+    },
+    {
+      "data_name": "sgD10",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        373,
+        4,
+        7,
+        4849791,
+        119,
+        14,
+        4299
+      ],
+      "new_fields": [
+        373,
+        4,
+        7,
+        0,
+        0,
+        15,
+        0
+      ],
+      "data_decl_growth_bytes": 3128,
+      "tuple_growth_bytes": -11,
+      "decoded_sha256": "7235fabc407949846e192a706a84b40966f3d023a23d875572ff7904c733dd95"
+    },
+    {
+      "data_name": "sgD11",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        216,
+        3,
+        7,
+        1769495,
+        85,
+        14,
+        4244
+      ],
+      "new_fields": [
+        216,
+        3,
+        7,
+        0,
+        0,
+        15,
+        0
+      ],
+      "data_decl_growth_bytes": 2518,
+      "tuple_growth_bytes": -10,
+      "decoded_sha256": "785fd97beee83420bb232284b6a617bbaa0a895e17c8cd66caf3c0a69a7e7452"
+    },
+    {
+      "data_name": "sgD12",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        30,
+        2,
+        7,
+        327683,
+        50,
+        11,
+        4144
+      ],
+      "new_fields": [
+        30,
+        2,
+        7,
+        0,
+        0,
+        12,
+        0
+      ],
+      "data_decl_growth_bytes": 388,
+      "tuple_growth_bytes": -9,
+      "decoded_sha256": "a82ecc64e03831893045ca95a96f410b26a474cd90daade8f502a304ebdcc17c"
+    },
+    {
+      "data_name": "sgD13",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        3,
+        1,
+        7,
+        65537,
+        0,
+        6,
+        4109
+      ],
+      "new_fields": [
+        3,
+        1,
+        7,
+        0,
+        0,
+        8,
+        0
+      ],
+      "data_decl_growth_bytes": 16,
+      "tuple_growth_bytes": -7,
+      "decoded_sha256": "5a2dd11186efba131a7b445f5927c14084c6e87170ec22a48825023c104be928"
+    },
+    {
+      "data_name": "sgD14",
+      "tuple_owner": "sgLevels",
+      "old_fields": [
+        1,
+        0,
+        7,
+        65537,
+        0,
+        0,
+        4105
+      ],
+      "new_fields": [
+        1,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0
+      ],
+      "data_decl_growth_bytes": -3,
+      "tuple_growth_bytes": -7,
+      "decoded_sha256": "ef35245c72e9f029908bad4ce05b658ae26bf2971d525b704e0cefa12e0a1562"
+    }
+  ]
+}
