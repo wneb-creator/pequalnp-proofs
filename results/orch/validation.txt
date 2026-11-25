@@ -187,3 +187,23 @@ TIMING total=170 subagents=10
 Raw solver logs retain their original trailing whitespace; the staged
 source diff has no whitespace findings. Full diff-check output retained
 in scratch checkpoint15-diff-check.stdout/stderr.
+
+Checkpoint 16: named partial rebuilt successfully after conservative
+environment cleanup (5149 jobs). Its7090lines and SHA256
+01825179e85adb345b8c0a239845547a995c463e6a09d54ce935a209f6ab74ad
+are unchanged. The source guard reports the expected missing final theorem;
+there is no full proof, refutation, or acceptance. No proof cleanup pass was
+run, because the official checker has not passed. Line count7090before and
+after this preservation stage; this is not a proof-simplification claim.
+All environment cleanup commands, exact hashes and complete dependency-check
+output are retained in environment/. Recovered storage did not restore the
+missing full-checker cache. Earlier official checker faults remain the latest
+actual checker runs; no newer verdict is claimed.
+Reviewed complete affine/subset/canonical-root SAT runs and actual positive
+controls are preserved. Unresolved solver queries are not UNSAT proofs.
+Reviewed carrier-tail and restricted rectangle-cut arguments remain paper
+mathematics. None establishes the unrestricted posted statement.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math, gate_charge, restriction_charge,
+boolean_identity, quadratic_structure.
+TIMING total=200 subagents=11

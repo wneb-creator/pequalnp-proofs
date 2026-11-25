@@ -1,0 +1,16 @@
+{
+  "target": "k7o3 full33 extending to full63",
+  "queries": 21,
+  "statuses": {
+    "0": 21,
+    "10": 0,
+    "20": 0
+  },
+  "seconds": 600.6155550799995,
+  "seed": 76,
+  "positive": 28,
+  "maximal_negative": 89,
+  "singletons": 19,
+  "forced_nonread1_edge": null,
+  "scope": "exact33 with leastness restrictions; no exhaustive lower-bound claim"
+}

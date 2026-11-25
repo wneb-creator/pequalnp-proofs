@@ -1,0 +1,24 @@
+{
+  "cap": 23,
+  "minimum_surplus": 17,
+  "eligible_pairs": 8876,
+  "present_status_pairs": 4009631,
+  "eligibility_orbits": 102,
+  "eligibility_cover_count": 8876,
+  "example_eligibility": [
+    {
+      "ineligible_points": [
+        0,
+        1,
+        2
+      ],
+      "ineligible_lines": [
+        1,
+        2
+      ],
+      "orbit": 12,
+      "minimum_surplus": 17,
+      "valid_status_pairs": 32
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "target": "AG(2,3) module43 extending to full63",
+  "queries": 21,
+  "statuses": {
+    "0": 21,
+    "10": 0,
+    "20": 0
+  },
+  "seconds": 600.7396762850003,
+  "seed": 76,
+  "initial_positive": 36,
+  "initial_negative": 197,
+  "singletons": 21,
+  "all_boundary_rows": true,
+  "forced_nonread1_edge": [
+    0,
+    12
+  ],
+  "scope": "exact43 gates with existing leastness restrictions; no UNSAT/theorem claim"
+}

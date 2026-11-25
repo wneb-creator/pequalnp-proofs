@@ -1,0 +1,2 @@
+{"query": 0, "status": 10, "seconds": 0.5667561649988784, "log_span": [0, 20180], "variables": 18796, "clauses": 792396, "seed_details": {"pivot": 9, "hidden_edge": [0, 12], "center_order": [5, 4, 0, 2, 1, 6, 3], "removed": [], "sides": {}}, "positive": 28, "maximal_negative": 89, "singletons": 19, "target_gates": 35, "full_boundary_errors": 0}
+SUBSET POSITIVE CONTROL PASSED

@@ -1,0 +1,17 @@
+{
+  "target": "k7o3 root6/dirty22 exact33",
+  "queries": 21,
+  "statuses": {
+    "0": 21,
+    "10": 0,
+    "20": 0
+  },
+  "seconds": 600.426001120999,
+  "seed": 76,
+  "positive": 28,
+  "maximal_negative": 89,
+  "singletons": 19,
+  "require_dirty_and": true,
+  "distinct_operands": true,
+  "scope": "restricted exact33 root6 class; no exhaustive lower-bound claim"
+}

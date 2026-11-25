@@ -1,0 +1,170 @@
+{
+  "started": "2026-11-25T10:59:36.735040+00:00",
+  "initial_disk_free": 350367744,
+  "operations": [
+    {
+      "action": "compress_verified_remove_cache",
+      "original": {
+        "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/bin/cache",
+        "bytes": 124968488,
+        "allocated": 124968960,
+        "sha256": "253379b9758269d38f80239d274ef0fc6d0595944e0fabae5a1741999c5e5758",
+        "mode": 448
+      },
+      "archive": "/tmp/oec/pequalnp-pilot-76/cache-executable.zst",
+      "archive_bytes": 31232529,
+      "archive_sha256": "016087d5989aff7f5e82ae9e1a06cd5d48475b40b0dd1e09d84287105c02bfac",
+      "commands": [
+        [
+          "zstd",
+          "-T1",
+          "-3",
+          "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/bin/cache",
+          "-o",
+          "/tmp/oec/pequalnp-pilot-76/cache-executable.zst"
+        ],
+        [
+          "zstd",
+          "-dc",
+          "/tmp/oec/pequalnp-pilot-76/cache-executable.zst"
+        ]
+      ],
+      "roundtrip_verified": true,
+      "disk_free": 444092416
+    },
+    {
+      "action": "compress_verified_remove_toolchain_sources",
+      "original": "/tmp/oec/pequalnp-pilot-76/toolchain/src",
+      "original_allocated": 35803136,
+      "members": 2594,
+      "archive": "/tmp/oec/pequalnp-pilot-76/toolchain-sources.tar.zst",
+      "archive_bytes": 6275090,
+      "archive_sha256": "e2bf69e620c9bc36391c4c06399bf5fed4a2b976ea51d8d6f2f811cab4effe15",
+      "commands": [
+        [
+          "tar",
+          "-C",
+          "/tmp/oec/pequalnp-pilot-76/toolchain",
+          "-cf",
+          "-",
+          "src"
+        ],
+        [
+          "zstd",
+          "-T1",
+          "-3",
+          "-o",
+          "/tmp/oec/pequalnp-pilot-76/toolchain-sources.tar.zst"
+        ],
+        [
+          "zstd",
+          "-dc",
+          "/tmp/oec/pequalnp-pilot-76/toolchain-sources.tar.zst"
+        ]
+      ],
+      "roundtrip_verified": true,
+      "disk_free": 474472448
+    },
+    {
+      "action": "remove_failed_fuse_tree",
+      "path": "/tmp/oec/pequalnp-pilot-76/fuse-2.9.9",
+      "allocated": 13447168,
+      "source_recovery": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/fuse-2.9.9.tar.gz",
+          "bytes": 1813177,
+          "sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/squashfuse-0.6.5.tar.gz",
+          "bytes": 442615,
+          "sha256": "9ec44b8ee6309e09bdcdeba422edc745e876db16136acacb74ecc7e7131e5763"
+        }
+      ],
+      "retained_logs": [
+        "fuse-download.log",
+        "fuse-configure.log",
+        "fuse-build.log",
+        "fuse-install.log",
+        "squashfuse-download.log",
+        "squashfuse-configure.log",
+        "squashfuse-build.log",
+        "squashfuse-configure-proper.log",
+        "squashfuse-build-proper.log",
+        "toolchain-static-mount.log"
+      ],
+      "disk_free": 487976960
+    },
+    {
+      "action": "remove_failed_fuse_tree",
+      "path": "/tmp/oec/pequalnp-pilot-76/fuse-install",
+      "allocated": 1835008,
+      "source_recovery": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/fuse-2.9.9.tar.gz",
+          "bytes": 1813177,
+          "sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/squashfuse-0.6.5.tar.gz",
+          "bytes": 442615,
+          "sha256": "9ec44b8ee6309e09bdcdeba422edc745e876db16136acacb74ecc7e7131e5763"
+        }
+      ],
+      "retained_logs": [
+        "fuse-download.log",
+        "fuse-configure.log",
+        "fuse-build.log",
+        "fuse-install.log",
+        "squashfuse-download.log",
+        "squashfuse-configure.log",
+        "squashfuse-build.log",
+        "squashfuse-configure-proper.log",
+        "squashfuse-build-proper.log",
+        "toolchain-static-mount.log"
+      ],
+      "disk_free": 489848832
+    },
+    {
+      "action": "remove_failed_fuse_tree",
+      "path": "/tmp/oec/pequalnp-pilot-76/squashfuse-0.6.5",
+      "allocated": 7233536,
+      "source_recovery": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/fuse-2.9.9.tar.gz",
+          "bytes": 1813177,
+          "sha256": "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-76/squashfuse-0.6.5.tar.gz",
+          "bytes": 442615,
+          "sha256": "9ec44b8ee6309e09bdcdeba422edc745e876db16136acacb74ecc7e7131e5763"
+        }
+      ],
+      "retained_logs": [
+        "fuse-download.log",
+        "fuse-configure.log",
+        "fuse-build.log",
+        "fuse-install.log",
+        "squashfuse-download.log",
+        "squashfuse-configure.log",
+        "squashfuse-build.log",
+        "squashfuse-configure-proper.log",
+        "squashfuse-build-proper.log",
+        "toolchain-static-mount.log"
+      ],
+      "disk_free": 497102848
+    }
+  ],
+  "finished": "2026-11-25T10:59:40.139370+00:00",
+  "final_disk_free": 497098752,
+  "validation": {
+    "command": ". /tmp/oec/pequalnp-pilot-76/lean-env.sh && lake build --no-build checklemma +PEqualNP.Defs +PEqualNP.Outside.L_meta_2583",
+    "workdir": "/workspace/pequalnp-proofs/lean",
+    "exit_code": 0,
+    "result": "All targets up-to-date (5153 jobs).",
+    "full_log": "/tmp/oec/pequalnp-pilot-76/conservative-cleanup-no-build.log",
+    "checked_at": "2026-11-25T11:00:17.593491+00:00"
+  },
+  "disk_free_after_validation": 496979968
+}

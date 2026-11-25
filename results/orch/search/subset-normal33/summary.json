@@ -1,0 +1,17 @@
+{
+  "target": "k7o3 normal33 extending to full63",
+  "queries": 21,
+  "statuses": {
+    "0": 21,
+    "10": 0,
+    "20": 0
+  },
+  "seconds": 600.3235501610015,
+  "seed": 76,
+  "positive": 28,
+  "maximal_negative": 89,
+  "singletons": 19,
+  "strong_normality": true,
+  "rhs_ordered": true,
+  "scope": "exact33 normal class with leastness restrictions; no exhaustive lower-bound claim"
+}
