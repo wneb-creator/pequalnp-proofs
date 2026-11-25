@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_9502.P9Cuts.cuts_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.P9Cuts.goal_differs' depends on axioms: [propext, Quot.sound]
