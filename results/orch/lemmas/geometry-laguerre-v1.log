@@ -1,0 +1,121 @@
+import took 1.22s
+simp took 115ms
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:88:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:88:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:97:57: error: unsolved goals
+case «0».«1»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 0 1 = 0
+
+case «0».«2»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 0 2 = 0
+
+case «0».«3»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 0 3 = 0
+
+case «1».«0»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 1 0 = 0
+
+case «2».«0»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 2 0 = 0
+
+case «3».«0»
+M : Matrix (Fin 4) (Fin 4) ℂ
+η : ℂ
+hr : ∀ (i : Fin 3), M 0 i.succ = 0
+hc : ∀ (i : Fin 3), M i.succ 0 = 0
+hp : ∀ (z : ℂ), (Matrix.of fun u v => M u v + z).permanent = 24 * (η + z) ^ 4
+⊢ M 3 0 = 0
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:54: warning: This simp argument is unused:
+  hr 0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 1, hr 2, hc 0, hc 1, hc 2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:59: warning: This simp argument is unused:
+  hr 1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 0, hr 2, hc 0, hc 1, hc 2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:64: warning: This simp argument is unused:
+  hr 2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 0, hr 1, hc 0, hc 1, hc 2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:69: warning: This simp argument is unused:
+  hc 0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 0, hr 1, hr 2, hc 1, hc 2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:74: warning: This simp argument is unused:
+  hc 1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 0, hr 1, hr 2, hc 0, hc 2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:99:79: warning: This simp argument is unused:
+  hc 2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [blockMatrix, hr 0, hr 1, hr 2, hc 0, hc 1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 0.0976ms
+	congr simp thm 2.88ms
+	declTypeLinter 3.68ms
+	elaboration 129ms
+	fix level params 3.91ms
+	import 1.22s
+	initialization 55ms
+	instantiate metavars 3.46ms
+	interpretation 338ms
+	let-to-have transformation 0.315ms
+	linting 32.7ms
+	module linting 0.0294ms
+	norm_num 7.68ms
+	parsing 6.49ms
+	process pre-definitions 34.8ms
+	ring 192ms
+	share common exprs 60.4ms
+	simp 421ms
+	tactic execution 47ms
+	tacticAnalysis 2.28ms
+	type checking 120ms
+	typeclass inference 298ms

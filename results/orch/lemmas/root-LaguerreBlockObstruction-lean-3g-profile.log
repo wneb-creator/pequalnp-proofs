@@ -1,0 +1,31 @@
+import took 1.31s
+simp took 124ms
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:88:21: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean:88:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+cumulative profiling times:
+	attribute application 0.0955ms
+	congr simp thm 2.49ms
+	declTypeLinter 3.99ms
+	elaboration 124ms
+	fix level params 3.33ms
+	import 1.31s
+	initialization 51.3ms
+	instantiate metavars 11.7ms
+	interpretation 345ms
+	let-to-have transformation 0.305ms
+	linting 37.3ms
+	module linting 0.123ms
+	norm_num 7.44ms
+	parsing 6.63ms
+	process pre-definitions 31.9ms
+	ring 165ms
+	share common exprs 58.7ms
+	simp 381ms
+	tactic execution 44.9ms
+	tacticAnalysis 2.93ms
+	type checking 134ms
+	typeclass inference 299ms

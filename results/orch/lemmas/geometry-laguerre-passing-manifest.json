@@ -1,0 +1,35 @@
+{
+  "scope": "Checked universal quartic for an actual matrix with one zero off-diagonal row and column, assuming per(M+zJ)=24(eta+z)^4. No full-gap claim.",
+  "files": [
+    {
+      "file": "LaguerreBlockObstruction.lean",
+      "bytes": 4850,
+      "sha256": "8b3ca7ef1e47df1d1542a56ce707de1261bfc87d7e2c43304f69c1f7e8e40086"
+    },
+    {
+      "file": "root-LaguerreBlockObstruction-lean-3g-profile.log",
+      "bytes": 981,
+      "sha256": "fe87c7b377e8be7f50e9ce990058a51cbeab29db6cea6af9bbcabf7a11593192"
+    },
+    {
+      "file": "root-LaguerreBlockObstruction-lean-3g-profile-status.json",
+      "bytes": 517,
+      "sha256": "5352e80335f1ce2bd9cd31c442db14f11271803e22d8febbcc6d9d1e144999cf"
+    },
+    {
+      "file": "geometry-laguerre-block-generate.py",
+      "bytes": 3855,
+      "sha256": "868f413a3eefeb0c3bbbd33491395af05aa180fa99963116454b469257676eaf"
+    },
+    {
+      "file": "geometry-laguerre-v1.log",
+      "bytes": 4201,
+      "sha256": "31849d746b6d93af0320d6d9f3323cb49ad7e2ebab7de5383378d6823d86b3e7"
+    },
+    {
+      "file": "geometry-laguerre-v1-status.json",
+      "bytes": 516,
+      "sha256": "18cc1ba16194a16ad2df0243bb47f5d0319098f625db9f59cd2643a5c865b6f9"
+    }
+  ]
+}

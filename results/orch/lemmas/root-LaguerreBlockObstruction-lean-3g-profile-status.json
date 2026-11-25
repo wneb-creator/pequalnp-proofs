@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/LaguerreBlockObstruction.lean",
+  "sha256": "8b3ca7ef1e47df1d1542a56ce707de1261bfc87d7e2c43304f69c1f7e8e40086",
+  "source_sha256_after": "8b3ca7ef1e47df1d1542a56ce707de1261bfc87d7e2c43304f69c1f7e8e40086",
+  "started_utc": "2026-11-25T12:51:41.625785+00:00",
+  "finished_utc": "2026-11-25T12:51:44.845156+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2331160576,
+  "seconds": 3.2193937499996537,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}
