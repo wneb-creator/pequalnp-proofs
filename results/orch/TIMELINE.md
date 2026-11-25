@@ -47,3 +47,5 @@
 2026-11-25T15:46:54.216097+00:00 — First4970 namedSupportBudget buildpassed; SemanticSupport separatelycompiled; both independentlyreviewed andpreserved forimmediatepush.
 
 2026-11-25T15:56:30.860088+00:00 — 1099linecombined4970checkpointbuildpasses, independentlyreviewed; genericmergeconnectivity/rankandstarbasecasespreserved. Fullcountstillopen; shielding+deadwitnessreductionshowsscopebroaderthansketch.
+
+2026-11-25T16:07:16.962959+00:00 — Exactpostedwitnesshalf-edgeORboundcompiled standaloneandnamed(909lines), independentreviewPASS. Conditionalstrengthtransfercompiledstandalone(1873lines), explicitlyassumesPosted. Bothpreserved.

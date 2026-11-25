@@ -1,0 +1,2 @@
+REFUSED: line 1: import Shield is not allowed (only Mathlib and the modules the gap lists)
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_4970 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_4970` ... `end PEqualNP.Outside.L_meta_4970`; only the imports and the theorem stay outside
