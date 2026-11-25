@@ -393,6 +393,51 @@ lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec wid
       (fun eq => (present ⟨g, member, eq⟩).elim)), arity⟩
 
 
+lemma signedRootsTransport {width n : Nat} {g : BitVec width}
+    (nonzero : g ≠ 0) (nonones : g ≠ ~~~0)
+    {s t : Finset (BitVec width)}
+    (represented : ∀ x ∈ s, holds t x)
+    (run : build basicOps g n s) :
+    ∃ g', (g' = g ∨ g' = ~~~g) ∧ build basicOps g' n t := by
+  induction n generalizing s t with
+  | zero =>
+    have hg : holds t g := represented g run
+    rcases hg with hzero | hones | ⟨a, ha, h | h⟩
+    · exact False.elim (nonzero hzero)
+    · exact False.elim (nonones hones)
+    · exact ⟨a, .inl h.symm, ha⟩
+    · exact ⟨a, .inr (by rw [h, BitVec.not_not]), ha⟩
+  | succ n ih =>
+    rcases run with skip | ⟨a, ha, b, hb, hab, z, hz, tail⟩
+    · obtain ⟨g', he, hg'⟩ := ih represented skip
+      exact ⟨g', he, Or.inl hg'⟩
+    · have za : holds t a := represented a ha
+      have zb : holds t b := represented b hb
+      have reach : reachable t z := by
+        simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+          List.not_mem_nil, or_false] at hz
+        rcases hz with rfl | rfl | rfl | rfl
+        · exact and_reach za zb
+        · exact or_reach za zb
+        · exact and_reach za (holds_not zb)
+        · exact and_reach zb (holds_not za)
+      rcases reach with old | ⟨a', ha', b', hb', ne, w, hw, added⟩
+      · have rep : ∀ x ∈ insert z s, holds t x := by
+          intro x hx
+          rcases Finset.mem_insert.mp hx with rfl | hx
+          · exact old
+          · exact represented x hx
+        obtain ⟨g', he, hg'⟩ := ih rep tail
+        exact ⟨g', he, Or.inl hg'⟩
+      · have rep : ∀ x ∈ insert z s, holds (insert w t) x := by
+          intro x hx
+          rcases Finset.mem_insert.mp hx with rfl | hx
+          · exact added
+          · exact holds_insert (represented x hx)
+        obtain ⟨g', he, hg'⟩ := ih rep tail
+        exact ⟨g', he, Or.inr ⟨a', ha', b', hb', ne, w, hw, hg'⟩⟩
+
+
 namespace SearchKernel
 
 open PEqualNP.Outside.L_meta_10760
