@@ -9,8 +9,10 @@ Independent review: helper mathematics and forbidden-form audit passed; last-NOT
 SAT positive control: checked20gate L_meta_587 witness accepted on all1024 rows. Search UNSAT would not yet be a Lean proof.
 
 Sub-agents: 5 (rules and independent review, lower bounds, counterexample search, library search, formal symmetry/invariants)
-TIMING total=19.5 subagents=5
+TIMING total=27.4 subagents=5
 
 Second checkpoint: input-renaming helpers and run-agreement helper compile. Input-renaming source independently reviewed; combined193line named partial lake build passed.
 
 Third checkpoint: finite graph symmetry certificate compiled and independently reviewed. OR retention/projection helpers compiled and independently reviewed. Conditional first-OR17binary theorem compiled with the known nine-input floor as an explicit hypothesis; not an unconditional new floor yet.
+
+Fourth checkpoint: canonical first-gate cases and genuine first-AND18/first-OR17 components compile. These OR/AND research modules currently use existing Outside.L_meta_6581 and require dependency inlining before a PR. Full L-meta-2592 remains unproved.

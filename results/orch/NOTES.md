@@ -47,3 +47,24 @@ Formal invariant result: Rename.lean compiled with exit 0 and empty log; indepen
 
 2026-11-25T14:29:45.685134+00:00
 Automorphisms.lean compiled with exit0, empty log; independent final audit PASS (SHA256 412af479a2ae6a0f98cbfd8c0067db026dfc2bd9af92ec4ce75ae28aadf95cab). All100 ordered-pair maps are bijections preserving100 adjacency pairs. Exact Boolean graph target bridge proved. Pair/vertex transitivity now Lean-checked; final combined canonical-first-gate statements are compiling. Ten p_i maps with p_i(i)=0 exported to formal-invariants/vertex-auts.json for lower_bound cofactor embeddings.
+
+Search resource adjustment: container quota is4CPUs, so extra stochastic processes and the4-worker ABC build were stopped, preserving full logs and best candidates. At most2SAT plus1stochastic process remain. The unweighted12-error approximation had2cancelling NOTs and is not evidence of a negation advantage; the next stochastic variant excludes doubleNOT, constantNOT and copy-gate patterns. A local SAT repair implementation is ready, allowing≤3gate-description changes around a candidate and checking all1024rows. No exact witness.
+
+2026-11-25T14:35:48.780558+00:00 orchestrator replan: target unconditional17 non-NOT gates as next substantive component. First-AND/signed-AND constant projection aims18binary; first-OR aims17binary. A generic duplicate charge is false and was abandoned. Exact19gate SAT and local repair remain counterexample routes. Hardware4CPU/16GiB; serialize heavy Lean certificates. Upstream refresh showed102 changed Outside files and no newer direct17binary theorem.
+
+2026-11-25T14:38:04.651817+00:00
+Canonical.lean final narrowed-import build PASSED, exit0 and empty log; 334 lines, object file generated. Proves size/fanin/NOT-preserving canonicalization of a first binary raw-input pair to adjacent(0,1)/nonadjacent(0,2), and first raw-input NOT to input0. This is conditional on the stated first-gate shape, not a proof that all minimal circuits have such a first gate. Next helper DropCopy deletes unary/repeated-input first AND/OR gates, preserving NOT and saving one gate; drafted and undergoing a light structural proof check.
+
+## Library route: checked first-gate components
+
+FirstOr.lean, FirstAnd.lean, and FirstStep.lean now all compile against the actual checked L_meta_6581 olean (logs under /tmp/oec/pequalnp-pilot-113/library-route). First OR on pin0 and any other raw pin forces at least17 non-NOT gates; first AND or signed AND forces18. FirstStep extracts an arbitrary distinct raw pair and signed operation from any nontrivial normalized Live proof. GlobalData and GlobalWitness are being checked by lower_bound; GlobalOr, GlobalAnd, GlobalCount drafts combine these into unconditional17 non-NOT and exclusion of three or more NOT gates in size19. The full requested one-NOT/two-NOT cases remain open.
+
+Do not claim an extra charge for duplicate projected wires: that suggested invariant was rejected by a concrete majority-of-three counterexample. Valid charges count projected constant wires only.
+
+2026-11-25T14:39:24.099867+00:00
+## New checked first-AND partial
+
+- FirstAnd.lean now compiles against genuine L_meta_6581. For a live signed-circuit derivation whose first binary operation is AND(pin0,pinj) or AND(pin0,NOT pinj), with j nonzero and all other live wires raw inputs, the derivation needs at least18 binary operations. This is a conditional frontier statement, not the full posted gap.
+- Explicit two-row witnesses force pin0 to remain live after the operation. Restricting pin0=0 makes both that retained input and the computed AND constant. The checked nine-input lower bound15 plus two constant charges gives tail17 and total18. Independent mathematical/format audit passed.
+- Generic OR gives total17. Draft GlobalData maps each vertex-deleted cofactor to the checked nine-input graph; GlobalWitness forces retention for all270 ordered raw-pair/operator cases. Their finite checks are serialized to fit memory.
+- Avoid decidable `forall a in initial` over1024-bit words: it can select full BitVec enumeration. Use initial.all explicitly.
