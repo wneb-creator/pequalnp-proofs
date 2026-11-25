@@ -21,4 +21,10 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 21:13:36 UTC: Root merged h1 cover/cut lemmas, h5 minimum-circuit transfer, and independent cut semantics; lake build passed. No target theorem yet.
 - 2026-11-25 21:13:36 UTC: Desk gap guard refused reduction mode because reductions are not open for L-meta-3566.
 
-TIMING total=12.3 subagents=10
+- 2026-11-25 21:21:12 UTC: Existing desk lease renewed.
+- 2026-11-25 21:21 UTC: First full-route re-plan posted; no accepted full proof or refutation yet.
+- 2026-11-25 21:22 UTC: Merged false restriction, reachable pruning, and exact lower-bound equivalence; named-file build passed. No final target theorem.
+- 2026-11-25 21:24:08 UTC: Independent reviewer passed the restriction/pruning glue, including natural-subtraction and output-bound checks (bus 1981).
+- 2026-11-25 21:25 UTC: Partial checkpoint prepared for push after independent source and axiom reviews.
+
+TIMING total=24.2 subagents=10

@@ -1,10 +1,14 @@
 L-meta-3566: partial research support only; no final theorem.
-Sub-agents: 9 external bus helpers; 1 local toolchain and operation-count agent.
-TIMING total=12.3 subagents=10
+Sub-agents: 9 external bus helpers; 1 local toolchain and synthesis agent.
+TIMING total=24.2 subagents=10
 Pinned Lean 4.36.0 restored; lake exe cache get passed.
 PEqualNP.Defs built without Mathlib source compilation.
-Merged partial support: lake build PEqualNP.Outside.L_meta_3566 passed.
-Independent review: h1 494e8744 and h5 4337dce2 reviewed and rebuilt by helper-9; root reviewed both sources.
+Merged support: lake build PEqualNP.Outside.L_meta_3566 passed (5149 jobs).
+Added: exact false-input restriction, reachable pruning, lower-bound equivalence/refutation wrapper, and restriction/pruning glue.
+Independent review: helper-9 rebuilt/reviewed h1 72bb6eba, h4 f806b86f, h3 256d406e, h5 4337dce2, root cut semantics and FoldPrune glue. Main lemma axioms standard only.
+Root reviewed integration and the substantive converse/forward/refutation arguments.
+Red-team checks: no sorry, axioms, native_decide, unsafe/execution commands, strings, root namespace or forbidden imports; conditional hypotheses are explicit.
+Research status: substantive degree-plus-bonus saving inequality remains open. No below-bound circuit found. Solver UNKNOWN results are not lower bounds.
 Reduction gate: REFUSED because desk row lacks reductions: true.
-Final theorem checker: not yet eligible; target theorem absent.
+Final theorem checker: not eligible; target theorem absent. No full proof/refutation claim.
 No PR created; no lease release; no FINAL posted.
