@@ -1098,11 +1098,12 @@ lemma value_and_up {n : ℕ} {C : Circuit} (x : Fin n → Bool)
 open PEqualNP.TopForm PEqualNP.CleanedNonEdge
 
 set_option maxHeartbeats 2000000 in
-lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma topform_one_active_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C : Circuit) (model : IsAO2 n C) (top : PEqualNP.TopForm.TopForm G C)
-    (small : (junk G C).card ≤ 1)
     (spec : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = graphFun G ∅ x)
     (p q : Fin n) (edge : G.Adj p q) (dl dp : ℕ → Bool)
+    (small : ((junk G C).filter fun h =>
+      val C (List.ofFn (pairInput p q)) (n+h) = true).card ≤ 1)
     (hl : TraceCondition C q (val C (List.ofFn (pairInput p p))) dl)
     (hp : TraceCondition C p (val C (List.ofFn (pairInput q q))) dp) :
     dl C.output = true ∨ dp C.output = true := by
@@ -1132,7 +1133,11 @@ lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
     trace_or_up two hp r (by rw [hp.1 p]; simp)
   have qdiff (w : ℕ) (r : Relation.ReflTransGen (OrStep n C) w q.val) : dl w = true :=
     trace_or_up two hl r (by rw [hl.1 q]; simp)
-  have uniq : ∀ i ∈ junk G C, ∀ j ∈ junk G C, i = j := Finset.card_le_one.mp small
+  have uniq : ∀ i ∈ junk G C, val C (List.ofFn (pairInput p q)) (n+i) = true →
+      ∀ j ∈ junk G C, val C (List.ofFn (pairInput p q)) (n+j) = true → i = j := by
+    intro i hi vi j hj vj
+    exact Finset.card_le_one.mp small i (Finset.mem_filter.mpr ⟨hi,vi⟩)
+      j (Finset.mem_filter.mpr ⟨hj,vj⟩)
   have dirty_of (j : ℕ) (hj : j < C.gates.length) (jo : (gateAt C j).op = .and)
       (w : ℕ) (hm : w ∈ (gateAt C j).inputs) (hw : w < n+j)
       (h : ℕ) (hh : h < C.gates.length) (hnot : (gateAt C h).op ≠ .or)
@@ -1152,13 +1157,14 @@ lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
       exact no ⟨x,hx,Bool.eq_false_iff.mpr hf⟩
     exact ⟨Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hh,dirt⟩,ho,nc⟩
   have no_ands_below (h : ℕ) (hh : h < C.gates.length) (ho : (gateAt C h).op = .and)
-      (hjunk : h ∈ junk G C) (w : ℕ) (hm : w ∈ (gateAt C h).inputs)
+      (hjunk : h ∈ junk G C) (vh : val C (List.ofFn (pairInput p q)) (n+h) = true)
+      (w : ℕ) (hm : w ∈ (gateAt C h).inputs)
       (hw : w < n+h) (vw : val C (List.ofFn (pairInput p q)) w = true) :
       ∃ t : Fin n, (t = p ∨ t = q) ∧ Relation.ReflTransGen (OrStep n C) w t.val := by
-    rcases operand_trace (C := C) p q w vw with hit | ⟨k,hk,kn,rk,_⟩
+    rcases operand_trace (C := C) p q w vw with hit | ⟨k,hk,kn,rk,vk⟩
     · exact hit
     · obtain ⟨kj,_,_⟩ := dirty_of h hh ho w hm hw k hk kn rk
-      have eq := uniq k kj h hjunk
+      have eq := uniq k kj vk h hjunk vh
       subst k
       have le := orStep_le rk
       omega
@@ -1184,8 +1190,8 @@ lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
     have cm : c ∈ (gateAt C h).inputs := by simp [bc]
     have vb := (val_and (n := n) (by simp) hh ho).mp vh b bm
     have vc := (val_and (n := n) (by simp) hh ho).mp vh c cm
-    obtain ⟨r,hr,rb⟩ := no_ands_below h hh ho hjunk b bm vb.1 vb.2
-    obtain ⟨s,hs,rc⟩ := no_ands_below h hh ho hjunk c cm vc.1 vc.2
+    obtain ⟨r,hr,rb⟩ := no_ands_below h hh ho hjunk vh b bm vb.1 vb.2
+    obtain ⟨s,hs,rc⟩ := no_ands_below h hh ho hjunk vh c cm vc.1 vc.2
     have swap : (gateAt C a).inputs = [z,w] ∨ (gateAt C a).inputs = [w,z] := wz.symm
     rcases hr with rfl | rfl <;> rcases hs with rfl | rfl <;> rcases ht with rfl | rfl
     · exact (badP (value_and_up _ ha ao wz hw hz
@@ -1218,7 +1224,7 @@ lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
     rcases operand_trace (C := C) p q v vval.2 with ⟨s,hs,rs⟩ | ⟨k,hk,kn,rk,vk⟩
     · exact finish (chain u v h (Or.inl uv) uval.1 vval.1 hh ho hj rh vh s hs rs)
     · obtain ⟨kj,_,_⟩ := dirty_of a ha ao v vm vval.1 k hk kn rk
-      have eq := uniq k kj h hj
+      have eq := uniq k kj vk h hj vh
       subst k
       exfalso
       apply hnotbelow
@@ -1227,6 +1233,170 @@ lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
       exact value_and_up x ha ao (Or.inl uv) uval.1 vval.1
         (orStep_up (n := n) (by simp) rh hx) (orStep_up (n := n) (by simp) rk hx)
 
+
+lemma topform_one_junk_trace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (model : IsAO2 n C) (top : PEqualNP.TopForm.TopForm G C)
+    (small : (junk G C).card ≤ 1)
+    (spec : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = graphFun G ∅ x)
+    (p q : Fin n) (edge : G.Adj p q) (dl dp : ℕ → Bool)
+    (hl : TraceCondition C q (val C (List.ofFn (pairInput p p))) dl)
+    (hp : TraceCondition C p (val C (List.ofFn (pairInput q q))) dp) :
+    dl C.output = true ∨ dp C.output = true := by
+  apply topform_one_active_junk_trace G C model top spec p q edge dl dp _ hl hp
+  exact le_trans (Finset.card_filter_le _ _) small
+
 end OneJunk
+
+lemma rectangle_meet_full_point {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) (X₁ X₂ : Finset α) (Y₁ Y₂ : Finset β)
+    (clean : ∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X₁, f x = true) → (∃ y ∈ Y₁, g y = true) →
+      (∃ x ∈ X₂, f x = true) → (∃ y ∈ Y₂, g y = true) →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true)
+    (p : α) (hp₁ : p ∈ X₁) (hp₂ : p ∈ X₂) :
+    (∀ y ∈ Y₁, R p y) ∨ (∀ y ∈ Y₂, R p y) := by
+  classical
+  by_cases h₁ : ∀ y ∈ Y₁, R p y
+  · exact Or.inl h₁
+  right
+  by_contra h₂
+  push_neg at h₁ h₂
+  obtain ⟨l,hl,hnl⟩ := h₁
+  obtain ⟨m,hm,hnm⟩ := h₂
+  obtain ⟨x,y,hxy,hx,hy⟩ := clean (fun x => decide (x = p))
+    (fun y => decide (y = l ∨ y = m)) ⟨p,hp₁,by simp⟩ ⟨l,hl,by simp⟩
+    ⟨p,hp₂,by simp⟩ ⟨m,hm,by simp⟩
+  simp only [decide_eq_true_eq] at hx hy
+  subst x
+  rcases hy with rfl | rfl
+  · exact hnl hxy
+  · exact hnm hxy
+
+lemma rectangle_meet_full_line {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) (X₁ X₂ : Finset α) (Y₁ Y₂ : Finset β)
+    (clean : ∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X₁, f x = true) → (∃ y ∈ Y₁, g y = true) →
+      (∃ x ∈ X₂, f x = true) → (∃ y ∈ Y₂, g y = true) →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true)
+    (l : β) (hl₁ : l ∈ Y₁) (hl₂ : l ∈ Y₂) :
+    (∀ x ∈ X₁, R x l) ∨ (∀ x ∈ X₂, R x l) := by
+  apply rectangle_meet_full_point (fun y x => R x y) Y₁ Y₂ X₁ X₂ _ l hl₁ hl₂
+  intro g f hy₁ hx₁ hy₂ hx₂
+  obtain ⟨x,y,hxy,hx,hy⟩ := clean f g hx₁ hy₁ hx₂ hy₂
+  exact ⟨y,x,hxy,hy,hx⟩
+
+lemma rectangle_meet_global_centers {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) [DecidableRel R]
+    (noRect : ∀ p q l m, p ≠ q → l ≠ m → R p l → R p m → R q l → ¬ R q m)
+    (X₁ X₂ : Finset α) (Y₁ Y₂ : Finset β)
+    (hx₁ : 2 ≤ X₁.card) (hx₂ : 2 ≤ X₂.card)
+    (hy₁ : 2 ≤ Y₁.card) (hy₂ : 2 ≤ Y₂.card)
+    (clean : ∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X₁, f x = true) → (∃ y ∈ Y₁, g y = true) →
+      (∃ x ∈ X₂, f x = true) → (∃ y ∈ Y₂, g y = true) →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true) :
+    let P := X₁.filter (fun p => ∀ l ∈ Y₁, R p l) ∪
+      X₂.filter (fun p => ∀ l ∈ Y₂, R p l)
+    let L := Y₁.filter (fun l => ∀ p ∈ X₁, R p l) ∪
+      Y₂.filter (fun l => ∀ p ∈ X₂, R p l)
+    P.card ≤ 2 ∧ L.card ≤ 2 ∧
+      X₁ ∩ X₂ ⊆ P ∧ Y₁ ∩ Y₂ ⊆ L := by
+  dsimp only
+  refine ⟨?_,?_,?_,?_⟩
+  · have h := Finset.card_union_le
+      (X₁.filter (fun p => ∀ l ∈ Y₁, R p l))
+      (X₂.filter (fun p => ∀ l ∈ Y₂, R p l))
+    have h₁ := rectangle_full_points_card R noRect X₁ Y₁ hy₁
+    have h₂ := rectangle_full_points_card R noRect X₂ Y₂ hy₂
+    omega
+  · have h := Finset.card_union_le
+      (Y₁.filter (fun l => ∀ p ∈ X₁, R p l))
+      (Y₂.filter (fun l => ∀ p ∈ X₂, R p l))
+    have h₁ := rectangle_full_lines_card R noRect X₁ Y₁ hx₁
+    have h₂ := rectangle_full_lines_card R noRect X₂ Y₂ hx₂
+    omega
+  · intro p hp
+    obtain ⟨hp₁,hp₂⟩ := Finset.mem_inter.mp hp
+    rcases rectangle_meet_full_point R X₁ X₂ Y₁ Y₂ clean p hp₁ hp₂ with h | h
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr ⟨hp₁,h⟩))
+    · exact Finset.mem_union.mpr (Or.inr (Finset.mem_filter.mpr ⟨hp₂,h⟩))
+  · intro l hl
+    obtain ⟨hl₁,hl₂⟩ := Finset.mem_inter.mp hl
+    rcases rectangle_meet_full_line R X₁ X₂ Y₁ Y₂ clean l hl₁ hl₂ with h | h
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr ⟨hl₁,h⟩))
+    · exact Finset.mem_union.mpr (Or.inr (Finset.mem_filter.mpr ⟨hl₂,h⟩))
+
+
+namespace RectangleCNF
+
+def edge (E : Fin 512) (p q : Fin 3) : Prop := E.val.testBit (3*p.val+q.val) = true
+
+def diagonal (E : Fin 512) : Prop := ∀ i : Fin 3, edge E i i
+
+def noFour (E : Fin 512) : Prop :=
+  ∀ p q l m : Fin 3, p ≠ q → l ≠ m → ¬ (edge E p l ∧ edge E p m ∧ edge E q l ∧ edge E q m)
+
+def independent (E : Fin 512) (S : Fin 64) : Prop :=
+  ∀ p q : Fin 3, edge E p q → ¬ (S.val.testBit p.val = true ∧ S.val.testBit (3+q.val) = true)
+
+def conflict (S T : Fin 64) : Prop :=
+  ∃ i : Fin 3, (S.val.testBit i.val || T.val.testBit i.val) = true ∧
+    (S.val.testBit (3+i.val) || T.val.testBit (3+i.val)) = true
+
+def cert (E : Fin 512) : Fin 5 → Fin 64 :=
+  if E.val &&& 279 = E.val then ![1,14,28,42,56] else
+  if E.val &&& 309 = E.val then ![3,10,17,28,56] else
+  if E.val &&& 313 = E.val then ![2,21,28,49,56] else
+  if E.val &&& 345 = E.val then ![6,20,34,49,56] else
+  if E.val &&& 371 = E.val then ![7,10,20,33,56] else
+  if E.val &&& 403 = E.val then ![5,12,33,42,56] else
+  if E.val &&& 413 = E.val then ![7,12,17,34,56] else
+  ![4,35,42,49,56]
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 100000 in
+lemma cert_correct : ∀ E : Fin 512, diagonal E → noFour E →
+    (∀ i : Fin 5, independent E (cert E i)) ∧
+      (∀ i j : Fin 5, i ≠ j → conflict (cert E i) (cert E j)) := by
+  unfold diagonal noFour independent conflict edge
+  decide
+
+
+def accepts (A : Finset (Fin 6)) (S : Fin 64) : Prop :=
+  ∃ v ∈ A, S.val.testBit v.val = true
+
+lemma no_four_clauses (E : Fin 512) (hd : diagonal E) (h4 : noFour E)
+    (A : Fin 4 → Finset (Fin 6))
+    (hits : ∀ c : Fin 4, ∀ i : Fin 3,
+      Fin.castAdd 3 i ∈ A c ∨ Fin.natAdd 3 i ∈ A c)
+    (clean : ∀ S : Fin 64, (∀ c : Fin 4, accepts (A c) S) →
+      ∃ p q : Fin 3, edge E p q ∧ S.val.testBit p.val = true ∧
+        S.val.testBit (3+q.val) = true) : False := by
+  classical
+  obtain ⟨ind,conf⟩ := cert_correct E hd h4
+  have miss : ∀ i : Fin 5, ∃ c : Fin 4, ¬ accepts (A c) (cert E i) := by
+    intro i
+    by_contra h
+    push Not at h
+    obtain ⟨p,q,hpq,hp,hq⟩ := clean (cert E i) h
+    exact ind i p q hpq ⟨hp,hq⟩
+  choose f hf using miss
+  have inj : Function.Injective f := by
+    intro i j heq
+    by_contra hne
+    obtain ⟨k,hp,hq⟩ := conf i j hne
+    simp only [Bool.or_eq_true] at hp hq
+    rcases hits (f i) k with h | h
+    · rcases hp with hbit | hbit
+      · exact hf i ⟨Fin.castAdd 3 k,h,hbit⟩
+      · exact hf j ⟨Fin.castAdd 3 k,heq ▸ h,hbit⟩
+    · rcases hq with hbit | hbit
+      · exact hf i ⟨Fin.natAdd 3 k,h,hbit⟩
+      · exact hf j ⟨Fin.natAdd 3 k,heq ▸ h,hbit⟩
+  have card := Fintype.card_le_of_injective f inj
+  simp only [Fintype.card_fin] at card
+  omega
+
+end RectangleCNF
 
 end PEqualNP.Outside.L_meta_2602_aux

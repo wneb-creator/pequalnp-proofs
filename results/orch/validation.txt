@@ -62,3 +62,6 @@ The full posted statement remains unproved.
 
 Combined active-junk proof (607 lines), rectangle four-clause certificate (73 lines), and finite witnesses compiled or independently validated. Review PASS; keyword-only helper declaration change recompiled. Preserved as partial components.
 Finite 65-gate plane and 12-gate tree witnesses verified by exact symbolic monomials and traces. Neither refutes the posted 64-gate bound. SAT UNKNOWN and heuristic no-hit results remain inconclusive.
+
+Integrated canonical partial: 1402 lines; lake build exit 0, 29.38 seconds, peak 4165416 KiB. Independent merge review PASS. Includes active-junk, rectangle intersection and four-clause finite certificate. Main theorem absent.
+General graph lift of four-clause certificate: 146 lines; standalone Lean exit 0, empty output; independent review PASS.
