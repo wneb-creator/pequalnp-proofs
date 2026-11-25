@@ -1,0 +1,66 @@
+import took 1.37s
+type checking took 227ms
+type checking took 243ms
+type checking took 246ms
+type checking took 277ms
+type checking took 287ms
+type checking took 364ms
+type checking took 256ms
+type checking took 259ms
+type checking took 291ms
+type checking took 273ms
+type checking took 263ms
+type checking took 264ms
+type checking took 316ms
+type checking took 273ms
+type checking took 316ms
+type checking took 335ms
+type checking took 296ms
+type checking took 301ms
+type checking took 272ms
+type checking took 266ms
+type checking took 298ms
+type checking took 292ms
+type checking took 267ms
+type checking took 292ms
+type checking took 301ms
+type checking took 291ms
+type checking took 310ms
+type checking took 324ms
+type checking took 158ms
+cumulative profiling times:
+	.olean serialization 19.1ms
+	attribute application 1.13ms
+	blocked (unaccounted) 146s
+	compilation (IR) 0.943ms
+	compilation (LCNF base) 13.8ms
+	compilation (LCNF impure) 6.14ms
+	compilation (LCNF mono) 8.75ms
+	congr simp thm 1.29ms
+	declTypeLinter 18ms
+	dsimp 0.977ms
+	elaboration 193ms
+	fix level params 1.35ms
+	import 1.37s
+	initialization 34.7ms
+	instantiate metavars 0.998ms
+	interpretation 292ms
+	let-to-have transformation 1.27ms
+	linting 57.7ms
+	module linting 0.0684ms
+	parsing 18.9ms
+	process pre-definitions 18.2ms
+	share common exprs 3.6ms
+	simp 25.3ms
+	tactic execution 268ms
+	tacticAnalysis 9.21ms
+	type checking 8.38s
+	typeclass inference 133ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 11.517232131000128
+USER_SECONDS 10.131202
+SYS_SECONDS 1.6694390000000001
+PEAK_RSS_KIB 3076904
+PEAK_CGROUP_BYTES 4587479040

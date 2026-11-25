@@ -1,0 +1,39 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS for partial artifact preservation",
+  "scope": "Actual48-OR circuit correct on all inputs of support cardinality at most2, explicitly accepting admissible generic negative {0,1,5}; NOT L-meta-1896 refutation. All five extension-shadow modules compiled; generic extension theorem and fixed98-wire table obstruction remain conditional as documented.",
+  "checks": [
+    "Exact changed proof steps reviewed against frozen original; statement and certificate data unchanged",
+    "Seed byte-identical to previously independently replayed source",
+    "All folder manifest hashes and sizes verified",
+    "Complete logs record EXIT 0 and RESOURCE_STOPPED False",
+    "No forbidden proof escapes, string literals, _root_, or unsupported options found"
+  ],
+  "files": [
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalSeed48.lean",
+      "sha256": "fa11a779b65ec3a09e80e577f4f48c9751749d716a3bce49d3910b8d409062c3",
+      "bytes": 4121
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalSeed48.log",
+      "sha256": "1affab91552444b9e5aa021a23918b40e0004e2efcadf70f475d51b53e80a4cf",
+      "bytes": 789
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalShadowControl.lean",
+      "sha256": "e819d9e7bd3488ea4b731b3eac42a4cc294cab2492f6921c8c375d673c33a663",
+      "bytes": 25114
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalShadowControl.log",
+      "sha256": "5e8728fe5c1544011cd3937c009b27c07dc9740b91f72319f8581fe3f30a84a2",
+      "bytes": 1599
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/manifest.json",
+      "sha256": "93c487e8b5138965e3ab16c77df570634a8a481b46d6e47973cf87f1e44c9d26",
+      "bytes": 1812
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "status": "All five modules checked, each full log records EXIT 0",
+  "scope": "Conditional canonical extension bound over fixed98-wire tables; and actual48-OR shadow circuit correct on all\u22642inputs but accepting one admissible genericnegative. Not a refutation of L-meta-1896.",
+  "original_source_package_unchanged": true,
+  "files": {
+    "CanonicalExtensionCover.lean": {
+      "sha256": "eb618705044b72327db562f385589cde5ffe362304d56ced37eafc7f2ecee1ef",
+      "bytes": 5967
+    },
+    "CanonicalExtensionCover.log": {
+      "sha256": "92b8cde1e2e022a357f3cc44d1b2a28e4ad9b7311c736df4211a04f1ad57550b",
+      "bytes": 826
+    },
+    "MarginalCoverFinite.lean": {
+      "sha256": "bdeb3d0cc2af3b6d0a3eb40bd545eaaf10acb2364efca6957ad19b1a4c25df7b",
+      "bytes": 6565
+    },
+    "MarginalCoverFinite.log": {
+      "sha256": "b28351c511e71e95008ee60a21c60eca794c36671f34f3b078e89a64ec0ca062",
+      "bytes": 982
+    },
+    "MarginalExtensionObstruction.lean": {
+      "sha256": "07237b08b6e37c0b6fccc665ac70411fb74e74c1d2ab751b2eabfbd07090e4cb",
+      "bytes": 920
+    },
+    "MarginalExtensionObstruction.log": {
+      "sha256": "8439efeb16059f5baff7b11dacf05871b40ba8b2329ecd940d30d7ccaeba55b6",
+      "bytes": 672
+    },
+    "MarginalSeed48.lean": {
+      "sha256": "fa11a779b65ec3a09e80e577f4f48c9751749d716a3bce49d3910b8d409062c3",
+      "bytes": 4121
+    },
+    "MarginalSeed48.log": {
+      "sha256": "1affab91552444b9e5aa021a23918b40e0004e2efcadf70f475d51b53e80a4cf",
+      "bytes": 789
+    },
+    "MarginalShadowControl.lean": {
+      "sha256": "e819d9e7bd3488ea4b731b3eac42a4cc294cab2492f6921c8c375d673c33a663",
+      "bytes": 25114
+    },
+    "MarginalShadowControl.log": {
+      "sha256": "5e8728fe5c1544011cd3937c009b27c07dc9740b91f72319f8581fe3f30a84a2",
+      "bytes": 1599
+    }
+  }
+}
