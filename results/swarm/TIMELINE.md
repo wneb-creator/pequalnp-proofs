@@ -30,3 +30,9 @@ First helper check-ins (bus timestamps; substantive findings are tracked separat
 - 2026-11-25T21:43:14.234644+00:00: pnp-swarm-2583-9 online.
 
 - 2026-11-25T21:53:49.246902+00:00: Canonical helper h1 and residual product decomposition h3 independently rebuilt successfully. h6 obstruction independently rebuilt. Root assembled normalization_iff_sharp_bound (exact posted statement iff unrestricted N*(q+2)-1 lower bound); independent text audit, Lean rebuild, and standard-axiom check passed. Equivalence is not a proof of either side.
+
+- 2026-11-25T22:02:08Z: Root independently rebuilt existing L_meta_7995 and audited ao27: unrestricted Fano lower bound 27, standard three axioms. Verified dot/cyclic relabeling on all 49 incidences; redirected q=2 counterexample searches to q=3.
+- 2026-11-25T22:05:20Z: Order-3 five-line core SAT search continues for 23 gates versus canonical 24. Canonical model verified on all 65,536 inputs; extension to full order-3 canonical 64 verified on 756 boundary inputs. No smaller candidate.
+- 2026-11-25T22:08:32Z: Helper updates: h4 single-use masking, h5 pure-CNF cost, h6 mixed partial covers, and h9 low-penalty residual lemma independently rebuilt by root. These remain conditional partial results.
+- 2026-11-25T22:13:21Z: Q3Geometry finite geometry checks and DirtyContext residual-rectangle lemmas built. Root reviewed DirtyContext independently. Context lemmas explicitly assume semantic cofactor conditions and do not establish a gate bound. Root retracted a paper inference from singleton-line contexts to all critical edge pairs, since downstream context may reread the point.
+- 2026-11-25T22:13:21Z: Bus writes intermittently unreachable; failed scope-correction message preserved with stable retry ID. Reads and local checks remain available.
