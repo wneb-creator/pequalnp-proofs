@@ -25,3 +25,10 @@ Exactly three null assignment responses preceded assignment of L-meta-2962. Thei
 Active lease identifiers are intentionally omitted from this public research artifact.
 L-meta-2962 assigned 2026-11-25 06:06:37 UTC; renewals continue every ten minutes, plus manual renewals before long phases.
 Public row checked again at 07:00 UTC: posted, zero open PRs, no reductions flag.
+
+Final update 2026-11-25 08:05:27 UTC: only the parent-held L-meta-2962 lease was released after the final evidence push. The desk returned exactly:
+{
+  "released": "L-meta-2962",
+  "reason": "other"
+}
+No other pilot lease was touched. Total null assignment replies remain three.

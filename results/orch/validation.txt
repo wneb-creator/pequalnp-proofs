@@ -13,7 +13,7 @@ Exact-function heuristic: 900-second target phase and 300-second subgraph phase 
 Reduction: ineligible because the authoritative gap row has no reductions flag (last checked 07:58 UTC).
 L-meta-1035 was not open. L-meta-2602 drafts remain UNVERIFIED; its first renewal returned HTTP 410 despite advertised expiry.
 Three null assignment replies preceded L-meta-2962; exact public desk outcomes are in desk-history.txt.
-Lease: L-meta-2962 still held pending final preservation push and release with reason=other.
+Lease: own L-meta-2962 lease released successfully at 08:05:27 UTC with reason=other; own renewal timer stopped. No other pilot lease was touched.
 Branch: pnp/pilot-71; all pushes only to fork origin.
 Sub-agents: status_review, structural_proof, counterexample, lemma_search, single_core, combinatorial_bound
-TIMING total=134.7 subagents=6
+TIMING total=136.6 subagents=6

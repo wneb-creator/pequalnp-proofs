@@ -29,3 +29,5 @@
 - 2026-11-25T08:00Z: First 900-second exact-function heuristic phase is complete without a candidate. The final 300-second subgraph variant is active; no further phases planned absent a verified witness.
 
 - 2026-11-25T08:03:59.625137+00:00: Final 300-second subgraph heuristic completed without a candidate. All search strategies stopped; no full proof or refutation, and no accepted result. Preparing final preservation and own-lease release.
+
+- 2026-11-25T08:05:27Z: Final research evidence was pushed at a88090ef88511e4210aa60072a9016989899f946. Stopped only the parent renewal timer, then released only L-meta-2962; desk returned {released: L-meta-2962, reason: other}. No proof PR or accepted result.

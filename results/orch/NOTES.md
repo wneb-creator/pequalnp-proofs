@@ -21,4 +21,4 @@ See REPORT.md for the current synthesis. Checked wrapper components have been pu
 
 ## Final research status 2026-11-25T08:03:59.625137+00:00
 
-All searches have stopped without a full proof or refutation. The checked partials and complete evidence are preserved; REPORT.md and validation.txt distinguish compilation from checker rejection. No reduction is eligible. Only the parent-held L-meta-2962 lease will be released after the final preservation push.
+All searches have stopped without a full proof or refutation. The checked partials and complete evidence are preserved; REPORT.md and validation.txt distinguish compilation from checker rejection. No reduction is eligible. The parent-held L-meta-2962 lease was released successfully at 08:05:27 UTC after the final preservation push, with reason=other. No other pilot lease was touched.

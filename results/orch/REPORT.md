@@ -30,6 +30,6 @@ Complete available stdout/stderr, source, parameters, and per-run status records
 
 L-meta-1035 was already not open when checked. Initial L-meta-2602 work stopped after the first renewal returned HTTP 410, despite the advertised expiry; no other pilot lease was released. The [full diagnostic response](desk-2602-renewal-error.txt) is preserved. Three null replies then preceded assignment of L-meta-2962 at 06:06:37 UTC; [desk history](desk-history.txt) preserves their exact messages. Active lease identifiers are not published.
 
-Every independently reviewed compiled component was committed and pushed to the fork branch. All pushes are research preservation, not accepted proofs. The checkpoint lease status and elapsed time are recorded in [validation](validation.txt) and [timeline](TIMELINE.md).
+Every independently reviewed compiled component was committed and pushed to the fork branch. All pushes are research preservation, not accepted proofs. Only the parent-held L-meta-2962 lease was released successfully at 08:05:27 UTC with reason `other`; the renewal timer was stopped. The [desk response](lease-release.json), final lease status and elapsed time are recorded in [validation](validation.txt) and [timeline](TIMELINE.md).
 
 Sub-agents: status_review, structural_proof, counterexample, lemma_search, single_core, combinatorial_bound.
