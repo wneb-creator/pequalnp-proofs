@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T17:05:00.335433+00:00",
+  "verdict": "PASS; no rebuild",
+  "source_sha256": {
+    "DirectFilterStructure": "87167501ccac988e2e0c3e3ea14471c36467f24f3cee9b0c41dc723a301f8107",
+    "NoPositiveRailCore": "c765ba6de87ed00e4178ec96157166a8b240871962cd5a7db47f759ec5dcf3e2"
+  },
+  "no_positive_core_body": "Exact full namespace copied from reviewed NoPositiveRail"
+}

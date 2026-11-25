@@ -1,0 +1,13 @@
+UTC: 2026-11-25T17:04:34.319336+00:00
+
+Independent semantic review: PASS for TwoFiltersRailCount.impossible and its two compatibility slices. The main source126lines/6052bytes has SHA2564b23663d80f3d7236b38c71ba5575f6b7d142f222c7dbf5a8a985cbcf2d195b7. Exact auxiliary hashes are recorded in two-filters-rail-count-independent.json. The main original stdout/stderr are empty; author reports check/export exit0. No new build was run.
+
+TwoRailReadersCore differs from the independently reviewed TwoRailReaders source only by changing its SoleReaderFree import to SoleReaderFreeCore. Every byte of the body is unchanged. NotRailOperandCore contains exactly the four final reviewed operand-positive/negative and exclusion lemmas from NotRailOperand, with compatible imports. The proof terms and hypotheses match byte for byte.
+
+The main theorem retains the explicit single-NOT/two-sole-filter topology, two distinct vertices from1,4,5, canonical AND operand order, no uses of those raw vertices elsewhere or in the NOT operands/output, NOT arity at most1, full valid-dual-rail Petersen computation and total size at most18. Its new premises require both raw rails0 and10 to occur somewhere in the full circuit. It no longer assumes a numerical base-reader lower bound.
+
+The first sole filter supplies the actual DirectFilter factorization, including the intervening second filter in the suffix. Distinctness and q>=11 establish that this other filter does not read the first selected raw variable. Since the NOT list has at most one operand, any membership of0 or10 makes that the operand head. The reviewed rail-operand exclusions then prove that the NOT itself reads neither rail.
+
+All full-circuit gates satisfy FanInTwo, and the distinguished NOT satisfies the trimmed arity. TwoRailReaders.at_least_two applies using the explicit both-use hypotheses and actual correctness. Both displayed filters read only a nonzero primary index below10 and the internal NOT index q>=11, so neither is counted as a rail reader. Removing those three uncounted list positions leaves exactly the required at-least-two count in pre/before/between/after. The reviewed all-neighbor-pairs canonical-order exclusion then closes the branch. Reader occurrences are counted per gate; no repeated-input overcount or invalid-reference assumption is introduced.
+
+No forbidden text, strings, attributes, options, admitted proofs, new axioms or native decision procedure occur. Imports remain local dependencies; single-file permitted-import integration is still needed. This proves an explicit structural case, not the full posted1884 theorem, and does not establish the two raw-use premises itself.

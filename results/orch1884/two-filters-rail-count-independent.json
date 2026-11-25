@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T17:04:34.319336+00:00",
+  "verdict": "PASS independent review; no rebuild",
+  "source_sha256": {
+    "TwoFiltersRailCount": "4b23663d80f3d7236b38c71ba5575f6b7d142f222c7dbf5a8a985cbcf2d195b7",
+    "TwoRailReadersCore": "6b9b8759cb312c1954230b09a7299f3f9969cf32c772e8227ed58f3bdd2a416b",
+    "NotRailOperandCore": "410dac880c317b2d0d493b15e6af41d0bec1dc7c3a58cd58fa5469857a6982e4"
+  },
+  "two_rail_core_difference": "SoleReaderFree import changed to SoleReaderFreeCore only",
+  "not_rail_core_body": "Exact final four lemmas copied from reviewed NotRailOperand",
+  "main_empty_logs": [
+    "/tmp/oec/pequalnp-pilot-103/1884-two-filter-rails-first.stdout",
+    "/tmp/oec/pequalnp-pilot-103/1884-two-filter-rails-first.stderr"
+  ]
+}

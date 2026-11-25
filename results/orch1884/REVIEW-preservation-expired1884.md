@@ -1,0 +1,7 @@
+UTC: 2026-11-25T17:06:44.720703+00:00
+
+Independent preservation review: PASS, with explicit proof-status limitations. This is a stop-and-preserve audit after confirmed lease loss, not new mathematical work. All authors reported frozen sources/diagnostics and no active jobs. The root lease-response folder, all uncommitted1884 text files, complete remaining diagnostic streams and new search archives are included.
+
+The newly added Lean sources were checked for prohibited proof markers, root text, string literals, attributes and option syntax. Stable sources with completed semantic reviews retain their exact recorded hashes. TwoFilterRailUsage and TwoFilterOutsideNeighbors are author-checked but independently unreviewed; the final status explicitly labels this. No new compiler run or final posted-goal verification is claimed. All selected files are regular text, JSON records parse, and credential-pattern/binary checks found no issues. The two frozen search manifests were independently verified against253 exact file hashes.
+
+The final manifest records every payload hash, the per-source review status, excluded generated artifacts and exact staging paths. Raw compiler warnings and failed-run diagnostics are preserved verbatim, even where their whitespace differs from authored-source conventions. The manifest/stage list do not self-hash. No public PR or complete1884 proof is certified by this audit.

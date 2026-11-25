@@ -1,0 +1,58 @@
+../results/orch1884/lemmas/SoleReaderFactor.lean:18:34: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c - d ≥ 1
+where
+ c := ↑t
+ d := ↑w.length
+../results/orch1884/lemmas/SoleReaderFactor.lean:64:2: error: Type mismatch: After simplification, term
+  hf
+ has type
+  @Eq Bool
+    ((List.foldl step
+          (List.foldl step w pre ++ [g.op.eval (List.map (fun i => (List.foldl step w pre).getD i false) g.inputs)])
+          post).getD
+      out false)
+    ((List.foldl step
+          (List.foldl step z pre ++ [g.op.eval (List.map (fun i => (List.foldl step z pre).getD i false) g.inputs)])
+          post).getD
+      out false)
+but is expected to have type
+  @Eq Bool
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) w pre ++
+            [g.op.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) w pre).getD
+                      i false)
+                  g.inputs)])
+          post).getD
+      out false)
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) z pre ++
+            [g.op.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) z pre).getD
+                      i false)
+                  g.inputs)])
+          post).getD
+      out false)
+../results/orch1884/lemmas/SoleReaderFactor.lean:95:44: error: `simp` made no progress
+../results/orch1884/lemmas/SoleReaderFactor.lean:95:2: error: Type mismatch: After simplification, term
+  same
+ has type
+  (x t || (run pre (List.ofFn x))[a]?.getD false) = (y t || (run pre (List.ofFn y))[a]?.getD false)
+but is expected to have type
+  ((run pre (List.ofFn x))[↑t]?.getD false || (run pre (List.ofFn x))[a]?.getD false) =
+    ((run pre (List.ofFn y))[↑t]?.getD false || (run pre (List.ofFn y))[a]?.getD false)
+../results/orch1884/lemmas/SoleReaderFactor.lean:106:44: error: `simp` made no progress
+../results/orch1884/lemmas/SoleReaderFactor.lean:106:2: error: Type mismatch: After simplification, term
+  same
+ has type
+  (x t && (run pre (List.ofFn x))[a]?.getD false) = (y t && (run pre (List.ofFn y))[a]?.getD false)
+but is expected to have type
+  ((run pre (List.ofFn x))[↑t]?.getD false && (run pre (List.ofFn x))[a]?.getD false) =
+    ((run pre (List.ofFn y))[↑t]?.getD false && (run pre (List.ofFn y))[a]?.getD false)

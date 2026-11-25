@@ -1,0 +1,83 @@
+../results/orch1884/lemmas/TwoRailReaders.lean:37:12: error(lean.unknownIdentifier): Unknown constant `List.length_eq_zero.mp`
+../results/orch1884/lemmas/TwoRailReaders.lean:38:6: error: No goals to be solved
+../results/orch1884/lemmas/TwoRailReaders.lean:41:29: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_cons] at h0 h10
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/TwoRailReaders.lean:53:2: error: unsolved goals
+case pos.inl.inl
+g : Gate
+legal : g.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ g.inputs.length ≤ 2
+trim : g.op = GateOp.not → g.inputs.length ≤ 1
+coupled : 0 ∈ g.inputs ↔ 10 ∈ g.inputs
+w z : List Bool
+h : agree w z
+hw : w.getD 10 false = !w.getD 0 false
+hz : z.getD 10 false = !z.getD 0 false
+h0 : 0 ∈ g.inputs
+h10 : 10 ∈ g.inputs
+hop : g.op = GateOp.and
+hins : g.inputs = [0, 10]
+⊢ (w[0]?.getD false && w[10]?.getD false) = (z[0]?.getD false && z[10]?.getD false)
+
+case pos.inl.inr
+g : Gate
+legal : g.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ g.inputs.length ≤ 2
+trim : g.op = GateOp.not → g.inputs.length ≤ 1
+coupled : 0 ∈ g.inputs ↔ 10 ∈ g.inputs
+w z : List Bool
+h : agree w z
+hw : w.getD 10 false = !w.getD 0 false
+hz : z.getD 10 false = !z.getD 0 false
+h0 : 0 ∈ g.inputs
+h10 : 10 ∈ g.inputs
+hop : g.op = GateOp.and
+hins : g.inputs = [10, 0]
+⊢ (w[10]?.getD false && w[0]?.getD false) = (z[10]?.getD false && z[0]?.getD false)
+
+case pos.inr.inl
+g : Gate
+legal : g.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ g.inputs.length ≤ 2
+trim : g.op = GateOp.not → g.inputs.length ≤ 1
+coupled : 0 ∈ g.inputs ↔ 10 ∈ g.inputs
+w z : List Bool
+h : agree w z
+hw : w.getD 10 false = !w.getD 0 false
+hz : z.getD 10 false = !z.getD 0 false
+h0 : 0 ∈ g.inputs
+h10 : 10 ∈ g.inputs
+hop : g.op = GateOp.or
+hins : g.inputs = [0, 10]
+⊢ (w[0]?.getD false || w[10]?.getD false) = (z[0]?.getD false || z[10]?.getD false)
+
+case pos.inr.inr
+g : Gate
+legal : g.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ g.inputs.length ≤ 2
+trim : g.op = GateOp.not → g.inputs.length ≤ 1
+coupled : 0 ∈ g.inputs ↔ 10 ∈ g.inputs
+w z : List Bool
+h : agree w z
+hw : w.getD 10 false = !w.getD 0 false
+hz : z.getD 10 false = !z.getD 0 false
+h0 : 0 ∈ g.inputs
+h10 : 10 ∈ g.inputs
+hop : g.op = GateOp.or
+hins : g.inputs = [10, 0]
+⊢ (w[10]?.getD false || w[0]?.getD false) = (z[10]?.getD false || z[0]?.getD false)
+../results/orch1884/lemmas/TwoRailReaders.lean:63:33: warning: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hop, hins, GateOp.eval, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/TwoRailReaders.lean:63:36: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hop, hins, GateOp.eval, hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

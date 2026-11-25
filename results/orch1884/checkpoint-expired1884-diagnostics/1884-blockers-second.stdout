@@ -1,0 +1,12 @@
+../results/orch1884/lemmas/ThreeBlockers.lean:101:13: error: Type mismatch: After simplification, term
+  weak_strong (w.getD i 0) (hi i)
+ has type
+  strong (w[i]?.getD 0#4) = true
+but is expected to have type
+  strong (w[i]?.getD 0#4 &&& 15#4) = true
+../results/orch1884/lemmas/ThreeBlockers.lean:104:15: error: Type mismatch: After simplification, term
+  weak_and_strong (w.getD i 0) (w.getD j 0) (hi i) (hi j)
+ has type
+  strong (w[i]?.getD 0#4 &&& w[j]?.getD 0#4) = true
+but is expected to have type
+  strong (w[i]?.getD 0#4 &&& (w[j]?.getD 0#4 &&& 15#4)) = true

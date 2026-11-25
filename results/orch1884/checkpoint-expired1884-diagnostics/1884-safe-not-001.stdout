@@ -1,0 +1,33 @@
+../results/orch1884/lemmas/SafeNotReplacement.lean:72:87: error: unsolved goals
+pre post : List Gate
+ins : List ℕ
+out : ℕ
+input : List Bool
+allowed : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or
+safe :
+  (List.map (fun i => (run pre input).getD i false) ins).headD false = true →
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval input = true
+op : GateOp
+is : List ℕ
+⊢ (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) input pre ++
+            [op.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) input
+                          pre).getD
+                      i false)
+                  is)])
+          post).getD
+      out false =
+    (List.foldl step
+          (List.foldl step input pre ++ [op.eval (List.map (fun i => (List.foldl step input pre).getD i false) is)])
+          post).getD
+      out false
+../results/orch1884/lemmas/SafeNotReplacement.lean:73:85: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons, run]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

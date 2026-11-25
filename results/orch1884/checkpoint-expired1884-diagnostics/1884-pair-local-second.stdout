@@ -1,0 +1,24 @@
+../results/orch1884/lemmas/PairLocalization.lean:106:2: error: failed to synthesize
+  Decidable
+    (∀ (v : Fin 10),
+      v ≠ 0 →
+        ∀ (w u : Fin 10),
+          w ≠ u →
+            w ≠ v →
+              u ≠ v →
+                target (pair w u) = false →
+                  (v = 1 ∧ (w = 3 ∧ u = 9 ∨ w = 9 ∧ u = 3 ∨ w = 7 ∧ u = 8 ∨ w = 8 ∧ u = 7) ∨
+                      v = 4 ∧ (w = 2 ∧ u = 6 ∨ w = 6 ∧ u = 2 ∨ w = 7 ∧ u = 8 ∨ w = 8 ∧ u = 7) ∨
+                        v = 5 ∧ (w = 2 ∧ u = 6 ∨ w = 6 ∧ u = 2 ∨ w = 3 ∧ u = 9 ∨ w = 9 ∧ u = 3)) ∨
+                    ∃ z, z ≠ 0 ∧ z ≠ v ∧ target (triple w u z) = false ∧ target (quad v w u z) = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch1884/lemmas/PairLocalization.lean:111:2: error: failed to synthesize
+  Decidable
+    (∀ (v w u : Fin 10),
+      v = 1 ∧ (w = 3 ∧ u = 9 ∨ w = 9 ∧ u = 3 ∨ w = 7 ∧ u = 8 ∨ w = 8 ∧ u = 7) ∨
+          v = 4 ∧ (w = 2 ∧ u = 6 ∨ w = 6 ∧ u = 2 ∨ w = 7 ∧ u = 8 ∨ w = 8 ∧ u = 7) ∨
+            v = 5 ∧ (w = 2 ∧ u = 6 ∨ w = 6 ∧ u = 2 ∨ w = 3 ∧ u = 9 ∨ w = 9 ∧ u = 3) →
+        target (triple w u 0) = false ∧ target (quad v w u 0) = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

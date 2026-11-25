@@ -1,0 +1,8 @@
+../results/orch1884/lemmas/ZeroNot.lean:11:31: error: Application type mismatch: The argument
+  zero
+has type
+  NotBracket.notCount C = 0
+but is expected to have type
+  (List.filter (fun g => decide (g.op = GateOp.not)) C.gates).length = 0
+in the application
+  List.length_eq_zero_iff.mp zero

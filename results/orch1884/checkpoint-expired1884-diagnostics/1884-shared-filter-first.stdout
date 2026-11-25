@@ -1,0 +1,90 @@
+../results/orch1884/lemmas/SharedFilter.lean:21:2: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+../results/orch1884/lemmas/SharedFilter.lean:27:2: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch1884/lemmas/SharedFilter.lean:102:46: error: unsolved goals
+v w : Fin 10
+hv0 : v ≠ 0
+hw0 : w ≠ 0
+hvw : v ≠ w
+H : (Fin 10 → Bool) → Bool
+hm : fiberMono H
+hiv : independent v H
+hiw : independent w H
+hfv : factor v H
+hfw : factor w H
+S : Finset (Fin 10)
+hs : target (point S) = false
+hh : H (point S) = true
+T : Finset (Fin 10)
+hst : S ⊆ T
+hzero : point T 0 = point S 0
+ht : target (point T) = false
+hmax : ∀ (v : Fin 10), v ≠ 0 → v ∉ T → target (point (insert v T)) = true
+hH : H (point T) = true
+hv : v ∈ T
+hw : w ∈ T
+U : Finset (Fin 10) := (T.erase v).erase w
+hHu : H (point U) = true
+hsub : U ⊆ T
+hneg : target (point U) = false
+hcard : #U ≤ 2
+hz : #U = 0
+he : U = ∅
+⊢ point ∅ = fun x => false
+../results/orch1884/lemmas/SharedFilter.lean:108:26: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton a : Fin 10 → Bool
+  
+  {a} : ?m.252
+../results/orch1884/lemmas/SharedFilter.lean:108:71: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.266 → ?m.267
+../results/orch1884/lemmas/SharedFilter.lean:108:41: error: unsolved goals
+v w : Fin 10
+hv0 : v ≠ 0
+hw0 : w ≠ 0
+hvw : v ≠ w
+H : (Fin 10 → Bool) → Bool
+hm : fiberMono H
+hiv : independent v H
+hiw : independent w H
+hfv : factor v H
+hfw : factor w H
+S : Finset (Fin 10)
+hs : target (point S) = false
+hh : H (point S) = true
+T : Finset (Fin 10)
+hst : S ⊆ T
+hzero : point T 0 = point S 0
+ht : target (point T) = false
+hmax : ∀ (v : Fin 10), v ≠ 0 → v ∉ T → target (point (insert v T)) = true
+hH : H (point T) = true
+hv : v ∈ T
+hw : w ∈ T
+U : Finset (Fin 10) := (T.erase v).erase w
+hHu : H (point U) = true
+hsub : U ⊆ T
+hneg : target (point U) = false
+hcard : #U ≤ 2
+hn0 : #U ≠ 0
+ho : #U = 1
+a : Fin 10
+ha : U = {a}
+i : Fin 10
+⊢ decide (i = a) = sorry () i
+../results/orch1884/lemmas/SharedFilter.lean:102:59: warning: This simp argument is unused:
+  point
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

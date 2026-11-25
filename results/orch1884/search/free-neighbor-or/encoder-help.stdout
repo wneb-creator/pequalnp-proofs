@@ -1,0 +1,24 @@
+usage: free_or_cnf.py [-h] --free FREE --gates GATES [--seconds SECONDS] --tag
+                      TAG [--pin PIN] [--prepare-only] [--require-helper]
+                      [--productive] [--primary-minimal] [--fresh]
+                      [--seed SEED] [--sat-preset] [--outdir OUTDIR]
+                      [--scratch SCRATCH]
+
+Exact Petersen vertex-deletion monotone synthesis with one free neighbor OR.
+
+options:
+  -h, --help         show this help message and exit
+  --free FREE        Comma-separated natural9 coordinates, e.g. 0,3 or 0,3,4
+  --gates GATES
+  --seconds SECONDS
+  --tag TAG
+  --pin PIN
+  --prepare-only
+  --require-helper
+  --productive
+  --primary-minimal
+  --fresh
+  --seed SEED
+  --sat-preset
+  --outdir OUTDIR
+  --scratch SCRATCH

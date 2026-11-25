@@ -1,0 +1,26 @@
+../results/orch1884/lemmas/OneGateAfterNot.lean:10:35: error: unsolved goals
+case true
+α : Type
+inst✝¹ : PartialOrder α
+inst✝ : OrderTop α
+h a : α → Bool
+mono : Monotone h
+x : α
+top : a ⊤ = true
+ht : h ⊤ = false
+le : true ≤ false
+hx : h x = true
+⊢ False
+../results/orch1884/lemmas/OneGateAfterNot.lean:21:34: error: unsolved goals
+case false
+α : Type
+inst✝¹ : PartialOrder α
+inst✝ : OrderBot α
+h a : α → Bool
+mono : Monotone h
+x : α
+bot : a ⊥ = false
+ht : h ⊥ = true
+le : true ≤ false
+hx : h x = false
+⊢ False

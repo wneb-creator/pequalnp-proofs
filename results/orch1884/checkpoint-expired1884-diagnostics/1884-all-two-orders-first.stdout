@@ -1,0 +1,17 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:14:2: error: unsolved goals
+case inr
+v q : ℕ
+xs : List Bool
+⊢ xs ++ [true && xs.getD v false && xs.getD q false] = xs ++ [xs.getD v false && (true && xs.getD q false)]
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:15:20: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SoleReader.step, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil, id,
+    Bool.and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:42:21: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:44:16: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:44:42: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:45:9: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined

@@ -1,0 +1,24 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFilters.lean:38:4: error: Type mismatch: After simplification, term
+  ha
+ has type
+  ↑(π v) ∉ List.map (rename π) g'.inputs
+but is expected to have type
+  1 ∉ List.map (rename π) g'.inputs
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFilters.lean:43:4: error: Type mismatch: After simplification, term
+  ha
+ has type
+  ↑(π w) ∉ List.map (rename π) g'.inputs
+but is expected to have type
+  5 ∉ List.map (rename π) g'.inputs
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFilters.lean:46:4: error: Type mismatch: After simplification, term
+  ha
+ has type
+  ↑(π v) ∉ List.map (rename π) ins
+but is expected to have type
+  1 ∉ List.map (rename π) ins
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFilters.lean:49:4: error: Type mismatch: After simplification, term
+  ha
+ has type
+  ↑(π w) ∉ List.map (rename π) ins
+but is expected to have type
+  5 ∉ List.map (rename π) ins

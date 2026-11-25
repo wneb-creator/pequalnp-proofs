@@ -1,0 +1,2533 @@
+{
+  "utc": "2026-11-25T17:06:44.720703+00:00",
+  "verdict": "PASS preservation-only afterHTTP410; exactposted1884 goal unproved",
+  "entries": [
+    {
+      "path": "results/orch1884/NOTES.md",
+      "bytes": 18288,
+      "sha256": "490b9ce79926e6bc7759033977c53ef7e09c9ba0b3c15527f8c170b073878d05"
+    },
+    {
+      "path": "results/orch1884/TIMELINE.md",
+      "bytes": 6810,
+      "sha256": "795f6e830c09bedb9eaed224312c58293fcad4c1f13eece9e595f718eb2f4733"
+    },
+    {
+      "path": "results/orch1884/FINAL_STATUS_1884_410.md",
+      "bytes": 3076,
+      "sha256": "3b6f46a56d581e285164ac0fd694427b827da4b9c1a481a9f2c88c22421380ee"
+    },
+    {
+      "path": "results/orch1884/FREE-OR-FLOOR-LOOKUP.md",
+      "bytes": 2879,
+      "sha256": "06aaeea945359cf5c2d86910564567f88cb2edb31d90242e69eed6d0841d0511"
+    },
+    {
+      "path": "results/orch1884/FRESH_PROOF_PAUSE_170443.md",
+      "bytes": 2466,
+      "sha256": "d686ac4865007d09a521a2862067a339bb20afc64f6c98ca2258d4bca5c7045b"
+    },
+    {
+      "path": "results/orch1884/REVIEW-direct-filter-structure.md",
+      "bytes": 1423,
+      "sha256": "3ea6195aa5ca9593affd76d301f9b94fdb077b945a405d7e784b68f0774375e3"
+    },
+    {
+      "path": "results/orch1884/REVIEW-no-positive-rail.md",
+      "bytes": 3372,
+      "sha256": "da12a1586289559b0848f43e35d46a283b5c674b2ed02a23d675b2ba7715173c"
+    },
+    {
+      "path": "results/orch1884/REVIEW-preservation-expired1884.md",
+      "bytes": 1415,
+      "sha256": "76c0e4bcc618f47a4cfb4250134ef60a14a60d38be2a777997bcc5aebfbb3aa3"
+    },
+    {
+      "path": "results/orch1884/REVIEW-two-filters-rail-count.md",
+      "bytes": 2670,
+      "sha256": "728845ba8e5781b9f2f0b19a9fc09e98e01c27aeddc38b52b3fdb6a0f7bc7d7c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stdout",
+      "bytes": 121,
+      "sha256": "1d6d84ec818edc8e96f524f5ee6beffc76279f50a69302561cc2ff68b4fa1446"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stdout",
+      "bytes": 996,
+      "sha256": "b441154a5841ad267be0d487bf677ea1efdd4999323f30b2fabacdf1a67a94b9"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stdout",
+      "bytes": 1342,
+      "sha256": "8a482cfa052891251fb5fa5fb154ecd0a63339d3b445d812017aa6adf065b4ca"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stdout",
+      "bytes": 410,
+      "sha256": "d3976c6668b4672f5b7ac717b618625a598fad8cb05b6b888935d7f54193531d"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-audit-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stdout",
+      "bytes": 1156,
+      "sha256": "c28b51f7be926d77719a5348bf5097a8aea4d212873ec0810e2f439245abe09f"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stdout",
+      "bytes": 566,
+      "sha256": "ae693682071312d6ee467ccbc5922cc5c00b2c45c19d7a17d93d71dd3aa72de9"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stdout",
+      "bytes": 2094,
+      "sha256": "a6f6cb11a95ea6aadb364dd63c650996329da62e00ac8329cbee4a60aca25d0e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-clean-def-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stdout",
+      "bytes": 914,
+      "sha256": "40a76d8bce4a0f1ca6f7195a9e7674c20de162b297fc2d6ec1b024678eca5c5e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stdout",
+      "bytes": 266,
+      "sha256": "eaf016efa3f37797130481d56cfba7a95fb33a8f1ee03dd483b10ed48ac4bb9e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stdout",
+      "bytes": 230,
+      "sha256": "47795d2b8c95b31f00e1c97c474eaceb3be507a820abc700339cd9a3ad05c5dd"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stdout",
+      "bytes": 892,
+      "sha256": "6e0da50696061420a80cae89a41ec1d648007e50d720b41dfab7f77a20c31999"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stdout",
+      "bytes": 829,
+      "sha256": "ae8ce6a763c4821bb6dfe63bd5280c22ac07f233ad0116832432225a7b2473f3"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stdout",
+      "bytes": 2413,
+      "sha256": "c4bb87b8c357e3a6c1d2e46720a9bfcecf0f857b5412618f70f9be009456bdeb"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stdout",
+      "bytes": 198,
+      "sha256": "a803e8985ef2f0d212a0edfe0db7ed2f2f23c6202ab1fb12370e788c99e1388a"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stdout",
+      "bytes": 588,
+      "sha256": "594667f79c9bd92296cd69d2949f6ab4063c2e86c5fcf8590d079c65c15b15a6"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stdout",
+      "bytes": 624,
+      "sha256": "886c1823a3aa3a276c967fcbb20afd2cdf6694ae825010b5f29d9e499c8cde25"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stdout",
+      "bytes": 3182,
+      "sha256": "d4b9fa09581c8358c79f0aa20f79c18a30c20296498747e04f5fbb50c9418a3e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stdout",
+      "bytes": 3036,
+      "sha256": "d1be4041f30a73dbf3c6615cb0c435cf38d7582311f6c1c57db280429480d128"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stdout",
+      "bytes": 2143,
+      "sha256": "c2e99f2aa5d298389595de7512467ca7a939cf07d4aa9f5098c951b88d415de0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stdout",
+      "bytes": 5056,
+      "sha256": "9963713e844eb42e744b2d8299c30397749394af6cf919f4eb4375f9fffe0047"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stdout",
+      "bytes": 4311,
+      "sha256": "0ba26abfc0587d4587be564fa25d3bd9327f022f12833a3d70d1a79683ad019b"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stdout",
+      "bytes": 2143,
+      "sha256": "c2e99f2aa5d298389595de7512467ca7a939cf07d4aa9f5098c951b88d415de0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-floor-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stdout",
+      "bytes": 280,
+      "sha256": "2f48e3d79efa5a2c3677f31612833980ec47982da9debe99760b6d0f5261beb8"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-exact-history.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-free-or-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stdout",
+      "bytes": 61893,
+      "sha256": "9629c803ab591574a99e1fd426d9bd49584624b8cd1dca0d13915525bcd8ea30"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stdout",
+      "bytes": 846,
+      "sha256": "2f64ff3872b7cef977491e5972185a65af579da7d716cf7898d6bb12ae6f0ac0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stdout",
+      "bytes": 212,
+      "sha256": "35bd2b0e03ff99fdb33907b8db35588de07e68119436c3c5bf5d9a65ac2b36a8"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stdout",
+      "bytes": 3264,
+      "sha256": "7dac91d8f0ef5b32cbb09f98dd5d0f6006b1e4d8fb06f14de184b6cb05e73f44"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stdout",
+      "bytes": 898,
+      "sha256": "09dacb29ae85d27dbf1317d823c1192558d8b17b8367f24a9948be9aa00c649e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stdout",
+      "bytes": 59903,
+      "sha256": "fa68862328f000c9b0bf632db7e7dc6b92b247517fcda6dc60f0647111096772"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-exact-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stdout",
+      "bytes": 61863,
+      "sha256": "8f3fe17f792d0e3503432651c07f08c15941bf2a7c222b291f4f8faa97a19306"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stdout",
+      "bytes": 66275,
+      "sha256": "9ef7691c25be36003e0e7645143db39530177fdce2ae3d8d6589cd6a7ece88c3"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-head.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-meta.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stdout",
+      "bytes": 55549,
+      "sha256": "0df6b57a924818d53f23a6b0d06e1d2b7d3e9ab5d43fda17e8c055d016fcaea1"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stdout",
+      "bytes": 3582,
+      "sha256": "7c72280aae6541f63555745a22e7df66872621189f92e81c0e7196bc2f861a2a"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stderr",
+      "bytes": 157,
+      "sha256": "0e77bd4ac80a5336461ec96c403cf55df3dded0dc03df6d0fc72b8f71f1f8ae0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stderr",
+      "bytes": 99,
+      "sha256": "c0c18365d858d671e9a06bfdc487ac6f81198c9b7bf09eb3c2a8701c64e4cced"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-small-floor-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stdout",
+      "bytes": 15657,
+      "sha256": "76fbc78627336f28c8a74672c86024c401b6b7e284b128d88a69602dd5b5e2ec"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stdout",
+      "bytes": 7704,
+      "sha256": "11ba02c6be7f47722051e51d129349bd71843959f5255b957206436ab3ae62bf"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stdout",
+      "bytes": 3000,
+      "sha256": "e91be24be2dba4a7eb0dcb8a3c8215cdc8b8c4e679b954ffce7d2e74ab51e13b"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stdout",
+      "bytes": 59922,
+      "sha256": "86a5cabab4cb3620dce2dacc54a3136c96783711a3ec4e252b05795d237038ca"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stdout",
+      "bytes": 11972,
+      "sha256": "b5a0b871b03317967c549c036b4de3be6b213bf9a87a91b54df377f19f68e370"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stdout",
+      "bytes": 3000,
+      "sha256": "98d3e397981e88c5a2761a78d6ec28460dfc0d6f06b61b9d316385cbf2bbb743"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stdout",
+      "bytes": 550,
+      "sha256": "4aa5c50652228e326ecc80ccc2b7c49c6daf09c1d4dd9339fbb816ffb8fb0035"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-open-pr-pages.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-name-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-shape-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stdout",
+      "bytes": 837,
+      "sha256": "ce39bfe02a451275ea4b39b338b4cb923342296d64aa730947cb95771a557572"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stdout",
+      "bytes": 1453,
+      "sha256": "4d6e347541ecbeddfe42def5918912b5e4542905de7ca49f11f0f5c0286029c1"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stdout",
+      "bytes": 57894,
+      "sha256": "048a2d401db16cae3da2bfb18818ddf85b301340f62a2d44844e47179c01d63c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-final-status.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-next-status.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stdout",
+      "bytes": 328,
+      "sha256": "b3ae3e49b35f71d9fc04bc7a86a041137ce549b7aec8173c7fbd040f23588639"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stdout",
+      "bytes": 187,
+      "sha256": "ad8abd7b1fafa73d2f3e6abcc178e2f6a19f68ad61eedea1dcc77ecc18f2a00d"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stdout",
+      "bytes": 83,
+      "sha256": "2e48fd91806d0891ce0e110af5ac938942727c968b92918619dac592116db1cf"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stdout",
+      "bytes": 344,
+      "sha256": "50b47900d7736c044c4568c7628f488182cc5e97d55d2ca686780cef15e348fe"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stdout",
+      "bytes": 32768,
+      "sha256": "977f8ca532cde58f7d18edcb5c1f9808896b144e11344c52c4c3d701f8ae8501"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-readsback-helper-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stdout",
+      "bytes": 1800,
+      "sha256": "e9dd82041cd0c649979f44b58e096396e1d292110b64e6458ac1c8cf2851bd81"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stdout",
+      "bytes": 63,
+      "sha256": "fb3e61e011cbaa2015db2cc8bdb69f284ede1e03c53ab369e90e4b790ee57b96"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stdout",
+      "bytes": 115,
+      "sha256": "c2af819ea5b387811ead1e784b944d8f12fb758bf4b2351d16e811b154c30235"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stdout",
+      "bytes": 572,
+      "sha256": "1efd2258c14e28eb3e546ef33f4b58157880a5cfd41c44420d413dc10df4f61c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stdout",
+      "bytes": 248,
+      "sha256": "a9a7a0db3ae5a0653c918ab395c0d81bfa88670b4fe3286830f5a393fdfb76a2"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stdout",
+      "bytes": 407,
+      "sha256": "c92db9aefe47fe31a146d67518d53dce302ef39eb39f97e1e177da80de0a877a"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stdout",
+      "bytes": 1440,
+      "sha256": "7309097dbb7d4d65c30a632182640c79c8575ac2230e7d93667960229c879957"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stdout",
+      "bytes": 273989,
+      "sha256": "8fa9c2aeaf6b35fb6f9a1affaf56ac2ab663bd143816629c54bd4063a04d3647"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stdout",
+      "bytes": 2698,
+      "sha256": "9b99f0108316ebe7430eb8419ed6aaf50481208fbcf4b91f82e0b765ea1a4c66"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stdout",
+      "bytes": 2770,
+      "sha256": "ef65e38b936db2da5a84f28a57baf6580f22edb83301956e9443ffadf649840e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stdout",
+      "bytes": 2282,
+      "sha256": "9b1b443154c03ca264d476ab094113615b07ee52b675571256529eec27744b6b"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stdout",
+      "bytes": 2426,
+      "sha256": "7c932caf5082d4abe698d33ae1ed12cd9849ba5217ab5e71ac07c391e05001db"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stdout",
+      "bytes": 2445,
+      "sha256": "8e62b66c57bb7fc8eede6480f6a84cfbb442cce4728bdc00c413abe0d1c3a3d7"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stdout",
+      "bytes": 2270,
+      "sha256": "50c9804a2af677683d391f7fcfe79c82ae17273d19b10f4e22fa2a2707e35bf7"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-helper-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stdout",
+      "bytes": 1026,
+      "sha256": "31c81e2eda0d0fb08c75a10e4f4f8de22caf784bf5fc9d8786137f97e53047e2"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stdout",
+      "bytes": 246,
+      "sha256": "eb6491d324832408ca65063f538b9d41808490a67c263bc887ed0cf00c7db1b8"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stdout",
+      "bytes": 6135,
+      "sha256": "5e75a79d3f17f6289c75f84a66dc4c6e8b6ef686aa7fccad7fbf3412612c6ab0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stdout",
+      "bytes": 3052,
+      "sha256": "13f9bc8b9432fe369b2f9db7335bfabc37c0cf82bd2dcf01f86554ad2c28ffef"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stdout",
+      "bytes": 285,
+      "sha256": "2d885d24d5e658cf935868b769074c6f25d9d88752f5789c96f5323ce74621ec"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stdout",
+      "bytes": 313,
+      "sha256": "ca9e12c3a7b183ccd50422f6efabd90970872c2208edd474d3c2fc3d71d7dc55"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stdout",
+      "bytes": 4831,
+      "sha256": "bc87e04d0901ece6d5e0ff222337c59aef95579fb12d347bb5e2d57202dc7aab"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stdout",
+      "bytes": 3610,
+      "sha256": "d26f90454d4015a386d60482a8f1a2d082e2b98d4c05793266a6550ffa1af560"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stdout",
+      "bytes": 6322,
+      "sha256": "284e5122777b6c7d78fded8214cf49b04cde4bfeb9312753cb1cf43bafc7593a"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stdout",
+      "bytes": 4445,
+      "sha256": "b9f2115a4bb17f897115edaeef9dd93f7b44d4b8abefbaf72e7155ae57817b71"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stdout",
+      "bytes": 3818,
+      "sha256": "18fbc3dc1f354f8ef4a0d39de93239cb38168364bcd1ac8d9843c4fdc8498b23"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stdout",
+      "bytes": 495,
+      "sha256": "8eb4ddad25cacdf36120891563e66ef6ba52b0eac290fd2f579fe1b22e5c6a71"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stdout",
+      "bytes": 1074,
+      "sha256": "af394dbd9e0b23f3740aa82a4fb1c2d832247e1010ac6681b226a1ffccbba1f8"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stdout",
+      "bytes": 1073,
+      "sha256": "c842234dcaf6beb3c86c809cb287a58145966d6f5520bf550df005136650e2de"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stdout",
+      "bytes": 293,
+      "sha256": "44e0a717388d3bc5eefa5430c8b0295d4ced25241283751e0a75bfc20e934a5c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stdout",
+      "bytes": 805,
+      "sha256": "4977e26851f49244fe18b48b0ca4743b5518c1cdcc8dae403084563b3d3e8b42"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/MANIFEST.json",
+      "bytes": 81426,
+      "sha256": "e51b60657326c3e2341c6d2ae93471a686072938e12771e9922159666b01e505"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/direct-filter-structure-independent.json",
+      "bytes": 384,
+      "sha256": "220e1c2b1bc5cf68a7d8d688d59f7bbc62d9c598792f62a9e0d6d46fe2ef4a77"
+    },
+    {
+      "path": "results/orch1884/free-or-correct-orbit-statements.json",
+      "bytes": 459145,
+      "sha256": "590ab53f1553c0b3dca2b57584da9fdd8d8864d200ec4f0a4db86cb58ffda1f1"
+    },
+    {
+      "path": "results/orch1884/free-or-floor-lookup-candidates.json",
+      "bytes": 14117,
+      "sha256": "3dac64c40d2d3c35ebdb2d7311c379e93b94d195fa3c9896384bb03458ed81d4"
+    },
+    {
+      "path": "results/orch1884/free-or-neighbor-pair-statements.json",
+      "bytes": 48074,
+      "sha256": "01a6d4d453c4b0b412a04dc0de71f0435b9c933626fc3b6a5d46eb1ec2687812"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/STATUS.md",
+      "bytes": 759,
+      "sha256": "42c277a0e729096f11842b8d4b67bd54a0d7934d2e77447d44d8df1dd4742b6b"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-manual-018.full.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-manual-018.full.txt",
+      "bytes": 782,
+      "sha256": "7c0cf15b728c200472e38983c1f2f48a15f904d31b31c8b46433fce6408cd3b8"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-manual-018.json",
+      "bytes": 86,
+      "sha256": "97f85ec6b780a9bd0afc580e62035c532bcb369f640609e8f11be91e8e8abc74"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-manual-018.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-timer-018.json",
+      "bytes": 694,
+      "sha256": "ccd5f4a6ddad7987efaae4cbfd5c67c966a2cdef7c8bb4381e5a2b8d74104bb1"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/beat-1884-timer-018.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lease-ended-1704/heartbeat1884-state.json",
+      "bytes": 227,
+      "sha256": "b80ffa54f23230d19fc467ef1a41206e37f5c30c4fff58067b0314ce305780a0"
+    },
+    {
+      "path": "results/orch1884/lemmas/DirectFilterStructure-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/DirectFilterStructure-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/DirectFilterStructure.lean",
+      "bytes": 1459,
+      "sha256": "87167501ccac988e2e0c3e3ea14471c36467f24f3cee9b0c41dc723a301f8107"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRail.lean",
+      "bytes": 28508,
+      "sha256": "a4f64b76d8ec77a494152d3495d9b364ecf9fe3d281bb36e8cd352d2af74f805"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRailCore-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRailCore-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRailCore.lean",
+      "bytes": 4880,
+      "sha256": "c765ba6de87ed00e4178ec96157166a8b240871962cd5a7db47f759ec5dcf3e2"
+    },
+    {
+      "path": "results/orch1884/lemmas/NotRailOperandCore.lean",
+      "bytes": 1868,
+      "sha256": "410dac880c317b2d0d493b15e6af41d0bec1dc7c3a58cd58fa5469857a6982e4"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterOutsideNeighbors-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterOutsideNeighbors-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterOutsideNeighbors.lean",
+      "bytes": 1515,
+      "sha256": "def007e250c782c90e03daa836590e19070c4ccd4b72aea25ac27a72dbdcffc5"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterRailUsage-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterRailUsage-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterRailUsage.lean",
+      "bytes": 1836,
+      "sha256": "d7fd13ad9d92c73a246a8bffdafc6696e90d1a2b0df975c397a9a1803f136e0d"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFiltersRailCount.lean",
+      "bytes": 6052,
+      "sha256": "4b23663d80f3d7236b38c71ba5575f6b7d142f222c7dbf5a8a985cbcf2d195b7"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoRailReadersCore.lean",
+      "bytes": 8285,
+      "sha256": "6b9b8759cb312c1954230b09a7299f3f9969cf32c772e8227ed58f3bdd2a416b"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-outside-neighbors.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-outside-neighbors.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-rail-usage.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-rail-usage.stdout",
+      "bytes": 774,
+      "sha256": "1f66a85652a87ffabab0b7fa8e4dec0f34574df637fb8a13d551754e37f64e43"
+    },
+    {
+      "path": "results/orch1884/lower_bound.md",
+      "bytes": 6949,
+      "sha256": "3ec79a8a49a6c49a8096b5cb64f495bf9949e8a72e1d2c2837acdae9de072016"
+    },
+    {
+      "path": "results/orch1884/one_not_strategy.md",
+      "bytes": 23846,
+      "sha256": "79244f8da0a20b7090dc9ec89220083edd62e0cb168a30e2b8019d696d88dafe"
+    },
+    {
+      "path": "results/orch1884/search-stoch/FREEZE-1705-manifest.json",
+      "bytes": 40635,
+      "sha256": "404553bb3f5a91ea80438fb35ff752ae8ce6325568a3bb8414569659c135fa06"
+    },
+    {
+      "path": "results/orch1884/search-stoch/FREEZE-1705.json",
+      "bytes": 430,
+      "sha256": "fc25ae325e5c2b8bd46e17cfdc56fac807bdcbc6eab04a7f19a97c440e215041"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-best.json",
+      "bytes": 916,
+      "sha256": "77b9d814d5839aaff27ea77ddd2fd5c625b2ff332f97c6d5be07933276b7e6e2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.json",
+      "bytes": 850,
+      "sha256": "8bab2988f73c2b42251f0398afd8b46c5918fe20908f703c320cfd2f13a51006"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stdout",
+      "bytes": 239,
+      "sha256": "be6957348f9f63bc718614f99bce5458f65291cf9a6f3eea051b0190ee9bbd82"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic.stdout",
+      "bytes": 471,
+      "sha256": "3c1b478ca1d6cd49e364d8a31580e4f5a5b30ced72e9f583edc4ba7730b4fae7"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-selftest.stdout",
+      "bytes": 67,
+      "sha256": "7e8ec30d7aced01ca0a4a3a67ab51104aefdc2fe4e9754b738af37ffa554fb72"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-best.json",
+      "bytes": 1467,
+      "sha256": "10daf162268acd7cb044d0daa254465cef885921c1f2b7e63684fffefef7a4e6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-best.json",
+      "bytes": 1467,
+      "sha256": "10daf162268acd7cb044d0daa254465cef885921c1f2b7e63684fffefef7a4e6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.json",
+      "bytes": 14527,
+      "sha256": "ca3c3a6fd15f9c8fd319c0b983f366fa3bad20c2340d01feeb0743bb802c6db4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.stdout",
+      "bytes": 6941,
+      "sha256": "6258602f3d361827dfce182b031c83bd729eb1a007cd9fd9fbb83a80ab3147af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659.stdout",
+      "bytes": 2407,
+      "sha256": "97263f80b576ea18fe360240535f6dedb9642e4c5cde3134927163dca6b24a35"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.json",
+      "bytes": 14527,
+      "sha256": "ca3c3a6fd15f9c8fd319c0b983f366fa3bad20c2340d01feeb0743bb802c6db4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.stdout",
+      "bytes": 6941,
+      "sha256": "6258602f3d361827dfce182b031c83bd729eb1a007cd9fd9fbb83a80ab3147af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical.stdout",
+      "bytes": 2428,
+      "sha256": "c5b15687fa2db504f006071c1808ee0cdb288d962daec7fde42fdb517c076fab"
+    },
+    {
+      "path": "results/orch1884/search-stoch/current-status.json",
+      "bytes": 1095,
+      "sha256": "8ef21b38b5b6d84e3ddd8fce7057fe88d38a3b39d58c62e4240f0fe18efc07a0"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cofactor_or3.cpp",
+      "bytes": 6269,
+      "sha256": "ba0fbc94f9d93d601cd7f07ae1e5789a63b0a4c757a085e2f56ed81e7a8fdf8e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-best.json",
+      "bytes": 1185,
+      "sha256": "983684ff24a14efb99cd20bddd6c07d9778903c5babfeb5de2375130a920b5f9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-best.json",
+      "bytes": 1294,
+      "sha256": "4022895acf53ee6145226746e72aee84a57db4c6c457227c501194b7d4d560af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.json",
+      "bytes": 1383,
+      "sha256": "c1086172cfc2725728cbc99ac535e1963568e7c17887e751d5db4502e218b8e9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stdout",
+      "bytes": 245,
+      "sha256": "540994cb302f809641853ac5ee982fcaa3b85cdd47fe63d83340c9eaaeccb075"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic.stdout",
+      "bytes": 577,
+      "sha256": "38a021ed96b29d86b64fe711d8a1072cc9caaccd4af90863f3202bccb8236c76"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-progress-1659.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-progress-1659.stdout",
+      "bytes": 2337,
+      "sha256": "79e219e503ae34c0c30e7de6c2cd489385f69da198197dfc59c93735b8e03364"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-semantic-progress.json",
+      "bytes": 125,
+      "sha256": "e88bdec45c4ca559b9d0548bd414b3820525b66ffbe5397ec14d192f2b33b5ef"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.json",
+      "bytes": 6770,
+      "sha256": "e6000041f4834359d3d13117b20bb6a88fda91c3c9e75243fa7933505044f919"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.stdout",
+      "bytes": 1067,
+      "sha256": "be45b0f42f942b80bbf36ffba3360fb3c55acd04ca26e59bbe90c8eac1b04e6e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active.stdout",
+      "bytes": 2376,
+      "sha256": "58c64a8387893ff1879c7affd6f96b6dbe63b7ee9a447bfc9b70eac12f678f4c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-best.json",
+      "bytes": 1185,
+      "sha256": "625d55257af71fc50ade7817055efd32f645dec4ff1bfc61321d053b0d96e561"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.json",
+      "bytes": 4567,
+      "sha256": "8780c79b646a7b9fae74bd23fbaa4214ca7538d0dec3bf377af9c90dc9b6f458"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.stdout",
+      "bytes": 653,
+      "sha256": "030c28f85bd175606f990125621f27116a8fd427000fe1675060a0e8b84ed1de"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17.stdout",
+      "bytes": 1474,
+      "sha256": "792810685bd06cfcb2e425a2e81472e6caa04051f1620cb2a3eb0cc1664cd26e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/validate_cofactor_or3.py",
+      "bytes": 3579,
+      "sha256": "42ad2e004f6d97f05c52a94018c5a2a5d8172d6c2c665aee9f30df9287627c4e"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/MANIFEST.json",
+      "bytes": 6444,
+      "sha256": "9e9a481bdff6ff2f69193c2adfa5655f5c11dbabf60e9d1f2421029df56978d3"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/README.md",
+      "bytes": 3638,
+      "sha256": "e025289db39441dd94ea903cc31b129f2fcf5439b16ad305afc054785eebe715"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/STATUS.json",
+      "bytes": 827,
+      "sha256": "36d8a5788fccee3f22c8cd6db260c7c1c738884b3c4579d89008493ff38337d3"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/baseline16-with-free-source.json",
+      "bytes": 482,
+      "sha256": "dea243ed68c8effcdf8ba4f051ac7bcc306da1795f4f211e7d8cc7c3f054e7e5"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-result.json",
+      "bytes": 2298,
+      "sha256": "c9d21545a285cd578014e9c5958a5616881399c1e4efedfba3c37c0fa32259ed"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-wrapper.stdout",
+      "bytes": 2936,
+      "sha256": "98f8e11d62f6903a409ed7ebb5c153de4cde0fc32cf9502fba9ef3c2c299408a"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid.stdout",
+      "bytes": 2798,
+      "sha256": "a76b9b36cfb68f11bb5d1ddc3e5b0a4158996c3771b0d475cb8f3eb9e678cfa9"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-result.json",
+      "bytes": 5246,
+      "sha256": "bc22a90da64fd9602285de36b5c4264743e7ef846ba4969d529526cf01d1e5cb"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-witness.json",
+      "bytes": 5193,
+      "sha256": "3c4daa5683bbf38613471ceac1b30d90f90b33ab1f2fdeb7bd136cedad8be3ed"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-wrapper.stdout",
+      "bytes": 6338,
+      "sha256": "9cc5c35491a12ba6e0bddafd8916e9ab7f3e0362cfb941bb9fd13d96555f82e4"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid.stdout",
+      "bytes": 28474,
+      "sha256": "c5955790f5102114aa57f801344663dca127d4d30ae3dbad52fefe5510fb9ea0"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-result.json",
+      "bytes": 2315,
+      "sha256": "2f916ba15105941f90f8e1c63fa1b993adab8086b95a706be79f64c3e3e780ad"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-wrapper.stdout",
+      "bytes": 2952,
+      "sha256": "7ec4938f0a907f6122760e54f152ff7ce95724b98cae92e2102499b62cf19886"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid.stdout",
+      "bytes": 2802,
+      "sha256": "c4ebe0753e7dcfef0552a14a2eda756f2da8c6a2f919de158f0b1e875fdc7e9b"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-result.json",
+      "bytes": 5264,
+      "sha256": "32322d150b233eb06489ffac2e07fc32cfca4ae101ececcc63ef3273c4c1674f"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-witness.json",
+      "bytes": 5211,
+      "sha256": "f23f6a0fe3c6b302b92086586aa3e7248fc15b54e8d2f7e5a1a75bad6c55964f"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-wrapper.stdout",
+      "bytes": 6365,
+      "sha256": "1ab8ff1b951abe7766c7717f0a1f931ff1f8e7fcceb74fd55e8ed92f0c4ffdb1"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid.stdout",
+      "bytes": 28478,
+      "sha256": "73f12acb22a06862e1216fab01ab63934307ddd6d79c94db2ab8e283534b0e61"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/encoder-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/encoder-help.stdout",
+      "bytes": 757,
+      "sha256": "5b61d58a585ccb8aa44958fa35715b5f62ddd26acddef57a487dc167f91fd99c"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/fixture-validation.json",
+      "bytes": 11589,
+      "sha256": "0da167b8d4df1e35fa46a26b5c7c6952bc7ba50d2c3fb2f6eb5fdf24b45f0136"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/free_or_cnf.py",
+      "bytes": 10935,
+      "sha256": "354916cc61d97e4cf75d74a502e1f90718bd5d84681f15a76681260abaef7e9b"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/preparation-validation.json",
+      "bytes": 649,
+      "sha256": "f01b548010406ad62b5d1511656acd715b7cb2048d3d524ec0e009b28e7350f5"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-pair15-result.json",
+      "bytes": 2075,
+      "sha256": "a6e3bbe1fc94e6f77cc864820ede64cf09e4526dd5fcd4ecf0e3a95c16ade7ad"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-pair15-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-pair15-wrapper.stdout",
+      "bytes": 2669,
+      "sha256": "83daa9524c5415fa8f13ef6e113816d20c137ab48252a9588a71adafc5bf10da"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-triple14-result.json",
+      "bytes": 2090,
+      "sha256": "b405f234d66c9b6f2079060b556a7494320e5426b309c1b459b6a6af673f890d"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-triple14-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/prepared-triple14-wrapper.stdout",
+      "bytes": 2683,
+      "sha256": "b8a16f05777ea055899ce3e5266f99ab617f441c971f2a3a7ee095126dd687e2"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/solver-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/solver-help.stdout",
+      "bytes": 14905,
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "path": "results/orch1884/search/free-neighbor-or/wrong-baseline16.json",
+      "bytes": 482,
+      "sha256": "c125a774e4a8de1dcb874bc191f3b522bf21a6725bf4fc8345d89a6eb7aaa545"
+    },
+    {
+      "path": "results/orch1884/two-filters-rail-count-independent.json",
+      "bytes": 752,
+      "sha256": "eaf0dbe87e0dc01ba104dab6b24d4744c5118c1860882cae126a586e15047f25"
+    },
+    {
+      "path": "results/orch1884/zero-not-investigation.md",
+      "bytes": 4403,
+      "sha256": "5c32a6a8ffd0736f580e030ff64b38497e483bc942658735ee9155c123c00774"
+    }
+  ],
+  "stage_paths": [
+    "results/orch1884/FINAL_STATUS_1884_410.md",
+    "results/orch1884/FREE-OR-FLOOR-LOOKUP.md",
+    "results/orch1884/FRESH_PROOF_PAUSE_170443.md",
+    "results/orch1884/NOTES.md",
+    "results/orch1884/PRESERVATION-MANIFEST-expired1884.json",
+    "results/orch1884/PRESERVATION-STAGE-expired1884.txt",
+    "results/orch1884/REVIEW-direct-filter-structure.md",
+    "results/orch1884/REVIEW-no-positive-rail.md",
+    "results/orch1884/REVIEW-preservation-expired1884.md",
+    "results/orch1884/REVIEW-two-filters-rail-count.md",
+    "results/orch1884/TIMELINE.md",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-audit-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-clean-def-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-floor-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-exact-history.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-free-or-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-exact-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-head.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-map.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-meta.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-search.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-small-floor-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-open-pr-pages.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-name-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-shape-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-final-status.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-next-status.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-readsback-helper-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-helper-files.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/MANIFEST.json",
+    "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stdout",
+    "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stderr",
+    "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stdout",
+    "results/orch1884/direct-filter-structure-independent.json",
+    "results/orch1884/free-or-correct-orbit-statements.json",
+    "results/orch1884/free-or-floor-lookup-candidates.json",
+    "results/orch1884/free-or-neighbor-pair-statements.json",
+    "results/orch1884/lease-ended-1704/STATUS.md",
+    "results/orch1884/lease-ended-1704/beat-1884-manual-018.full.stderr",
+    "results/orch1884/lease-ended-1704/beat-1884-manual-018.full.txt",
+    "results/orch1884/lease-ended-1704/beat-1884-manual-018.json",
+    "results/orch1884/lease-ended-1704/beat-1884-manual-018.stderr",
+    "results/orch1884/lease-ended-1704/beat-1884-timer-018.json",
+    "results/orch1884/lease-ended-1704/beat-1884-timer-018.stderr",
+    "results/orch1884/lease-ended-1704/heartbeat1884-state.json",
+    "results/orch1884/lemmas/DirectFilterStructure-checked.stderr",
+    "results/orch1884/lemmas/DirectFilterStructure-checked.stdout",
+    "results/orch1884/lemmas/DirectFilterStructure.lean",
+    "results/orch1884/lemmas/NoPositiveRail.lean",
+    "results/orch1884/lemmas/NoPositiveRailCore-checked.stderr",
+    "results/orch1884/lemmas/NoPositiveRailCore-checked.stdout",
+    "results/orch1884/lemmas/NoPositiveRailCore.lean",
+    "results/orch1884/lemmas/NotRailOperandCore.lean",
+    "results/orch1884/lemmas/TwoFilterOutsideNeighbors-checked.stderr",
+    "results/orch1884/lemmas/TwoFilterOutsideNeighbors-checked.stdout",
+    "results/orch1884/lemmas/TwoFilterOutsideNeighbors.lean",
+    "results/orch1884/lemmas/TwoFilterRailUsage-checked.stderr",
+    "results/orch1884/lemmas/TwoFilterRailUsage-checked.stdout",
+    "results/orch1884/lemmas/TwoFilterRailUsage.lean",
+    "results/orch1884/lemmas/TwoFiltersRailCount.lean",
+    "results/orch1884/lemmas/TwoRailReadersCore.lean",
+    "results/orch1884/lemmas/two-filter-outside-neighbors.stderr",
+    "results/orch1884/lemmas/two-filter-outside-neighbors.stdout",
+    "results/orch1884/lemmas/two-filter-rail-usage.stderr",
+    "results/orch1884/lemmas/two-filter-rail-usage.stdout",
+    "results/orch1884/lower_bound.md",
+    "results/orch1884/one_not_strategy.md",
+    "results/orch1884/search-stoch/FREEZE-1705-manifest.json",
+    "results/orch1884/search-stoch/FREEZE-1705.json",
+    "results/orch1884/search-stoch/cofactor-or3-compile.stderr",
+    "results/orch1884/search-stoch/cofactor-or3-compile.stdout",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic-best.json",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.json",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stderr",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stdout",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic.stderr",
+    "results/orch1884/search-stoch/cofactor-or3-diagnostic.stdout",
+    "results/orch1884/search-stoch/cofactor-or3-selftest.stderr",
+    "results/orch1884/search-stoch/cofactor-or3-selftest.stdout",
+    "results/orch1884/search-stoch/critical-best.json",
+    "results/orch1884/search-stoch/critical-progress-1659-best.json",
+    "results/orch1884/search-stoch/critical-progress-1659-validation.json",
+    "results/orch1884/search-stoch/critical-progress-1659-validation.stderr",
+    "results/orch1884/search-stoch/critical-progress-1659-validation.stdout",
+    "results/orch1884/search-stoch/critical-progress-1659.stderr",
+    "results/orch1884/search-stoch/critical-progress-1659.stdout",
+    "results/orch1884/search-stoch/critical-validation.json",
+    "results/orch1884/search-stoch/critical-validation.stderr",
+    "results/orch1884/search-stoch/critical-validation.stdout",
+    "results/orch1884/search-stoch/critical.stderr",
+    "results/orch1884/search-stoch/critical.stdout",
+    "results/orch1884/search-stoch/current-status.json",
+    "results/orch1884/search-stoch/search_cofactor_or3.cpp",
+    "results/orch1884/search-stoch/signed17-active-best.json",
+    "results/orch1884/search-stoch/signed17-active-diagnostic-best.json",
+    "results/orch1884/search-stoch/signed17-active-diagnostic-validation.json",
+    "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stderr",
+    "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stdout",
+    "results/orch1884/search-stoch/signed17-active-diagnostic.stderr",
+    "results/orch1884/search-stoch/signed17-active-diagnostic.stdout",
+    "results/orch1884/search-stoch/signed17-active-progress-1659.stderr",
+    "results/orch1884/search-stoch/signed17-active-progress-1659.stdout",
+    "results/orch1884/search-stoch/signed17-active-semantic-progress.json",
+    "results/orch1884/search-stoch/signed17-active-validation.json",
+    "results/orch1884/search-stoch/signed17-active-validation.stderr",
+    "results/orch1884/search-stoch/signed17-active-validation.stdout",
+    "results/orch1884/search-stoch/signed17-active.stderr",
+    "results/orch1884/search-stoch/signed17-active.stdout",
+    "results/orch1884/search-stoch/signed17-best.json",
+    "results/orch1884/search-stoch/signed17-validation.json",
+    "results/orch1884/search-stoch/signed17-validation.stderr",
+    "results/orch1884/search-stoch/signed17-validation.stdout",
+    "results/orch1884/search-stoch/signed17.stderr",
+    "results/orch1884/search-stoch/signed17.stdout",
+    "results/orch1884/search-stoch/validate_cofactor_or3.py",
+    "results/orch1884/search/free-neighbor-or/MANIFEST.json",
+    "results/orch1884/search/free-neighbor-or/README.md",
+    "results/orch1884/search/free-neighbor-or/STATUS.json",
+    "results/orch1884/search/free-neighbor-or/baseline16-with-free-source.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-result.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-invalid.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-result.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-witness.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-pair-valid.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-result.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-invalid.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-result.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-witness.json",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid.stderr",
+    "results/orch1884/search/free-neighbor-or/diagnostic-triple-valid.stdout",
+    "results/orch1884/search/free-neighbor-or/encoder-help.stderr",
+    "results/orch1884/search/free-neighbor-or/encoder-help.stdout",
+    "results/orch1884/search/free-neighbor-or/fixture-validation.json",
+    "results/orch1884/search/free-neighbor-or/free_or_cnf.py",
+    "results/orch1884/search/free-neighbor-or/preparation-validation.json",
+    "results/orch1884/search/free-neighbor-or/prepared-pair15-result.json",
+    "results/orch1884/search/free-neighbor-or/prepared-pair15-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/prepared-pair15-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/prepared-triple14-result.json",
+    "results/orch1884/search/free-neighbor-or/prepared-triple14-wrapper.stderr",
+    "results/orch1884/search/free-neighbor-or/prepared-triple14-wrapper.stdout",
+    "results/orch1884/search/free-neighbor-or/solver-help.stderr",
+    "results/orch1884/search/free-neighbor-or/solver-help.stdout",
+    "results/orch1884/search/free-neighbor-or/wrong-baseline16.json",
+    "results/orch1884/two-filters-rail-count-independent.json",
+    "results/orch1884/zero-not-investigation.md"
+  ],
+  "excluded": [
+    {
+      "path": "results/orch1884/search-stoch/__pycache__/polarity_realizer_independent.cpython-312.pyc",
+      "reason": "generated binary artifact"
+    }
+  ],
+  "new_lean_source_status": [
+    {
+      "path": "results/orch1884/lemmas/DirectFilterStructure.lean",
+      "status": "author-checked; independent semantic review PASS"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRail.lean",
+      "status": "author-checked; independent semantic review PASS"
+    },
+    {
+      "path": "results/orch1884/lemmas/NoPositiveRailCore.lean",
+      "status": "author-checked; independent semantic review PASS"
+    },
+    {
+      "path": "results/orch1884/lemmas/NotRailOperandCore.lean",
+      "status": "author-checked; independent semantic review PASS"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterOutsideNeighbors.lean",
+      "status": "author-checked exact hash; independent review interrupted/pending; research component only"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterRailUsage.lean",
+      "status": "author-checked exact hash; independent review interrupted/pending; research component only"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFiltersRailCount.lean",
+      "status": "author-checked; independent semantic review PASS"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoRailReadersCore.lean",
+      "status": "author-checked; independent semantic review PASS"
+    }
+  ],
+  "frozen_search_hashes_verified": 253,
+  "json_files_parsed": 39,
+  "credential_or_integrity_findings": [],
+  "source_format_findings": [],
+  "self_hash_exception": "manifest andstage-list cannot self-hash; allotherpayloadhashed"
+}

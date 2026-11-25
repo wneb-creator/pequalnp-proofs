@@ -1,0 +1,15 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:23:8: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 3 were provided
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:20:54: warning: This simp argument is unused:
+  List.any_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_ofFn, hkg, hop, GateOp.eval, List.mem_map] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:21:4: warning: This simp argument is unused:
+  List.mem_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_ofFn, hkg, hop, GateOp.eval, List.any_eq_true] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

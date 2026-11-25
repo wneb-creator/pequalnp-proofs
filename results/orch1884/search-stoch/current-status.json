@@ -1,0 +1,41 @@
+{
+  "gap": "L-meta-1884",
+  "updated_utc": "2026-11-25T17:05:17.737207+00:00",
+  "last_root_renewal_report": "2026-11-25T16:52:48Z",
+  "last_reported_expiry": "2026-11-25T17:12:48.155Z",
+  "exact_counterexample_found": false,
+  "active_jobs": [],
+  "reader_cap": 2,
+  "mandatory_endpoints_for_future_runs": [
+    0,
+    1,
+    1022,
+    1023
+  ],
+  "completed_major_iterations": {
+    "fullcube": 20448000,
+    "ordinary38": 172186000,
+    "syntactic_active": 13884000,
+    "meaningful_free_input": 59499000,
+    "old_late_cegis": 30575000,
+    "early_cegis": 75608000,
+    "strong_late_cegis": 81777000,
+    "signed17": 244488000,
+    "critical_pattern": 64059000
+  },
+  "prepared_cofactor_or3": {
+    "source": "search_cofactor_or3.cpp",
+    "paid_gates": 14,
+    "free_or": [
+      0,
+      3,
+      4
+    ],
+    "rows": 512,
+    "diagnostic_updates": 335000,
+    "diagnostic_passed": true,
+    "waiting": "not started beyond5sec diagnostic; lease expired"
+  },
+  "status": "FROZEN after root confirmed HTTP410 at17:04:43",
+  "signed_active_final": "done 25638000 best 29 min_paid_not 100"
+}

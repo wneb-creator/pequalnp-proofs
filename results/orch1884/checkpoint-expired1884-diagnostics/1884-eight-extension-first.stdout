@@ -1,0 +1,103 @@
+../results/orch1884/lemmas/EightExtension.lean:56:2: error: unsolved goals
+case pos
+y : Fin 9 → Bool
+i : ℕ
+hi : i < 8
+⊢ [y 0, y 1, y 2, y 3, y 4, y 5, y 6, y 7, y 8][↑(pins ⟨i, ⋯⟩)] =
+    [y (pins 0), y (pins 1), y (pins 2), y (pins 3), y (pins 4), y (pins 5), y (pins 6), y (pins 7)][i]
+../results/orch1884/lemmas/EightExtension.lean:71:48: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  g = { op := GateOp.or, inputs := [wire C.output, 9 + C.size + 2] } ∨ g ∈ []
+
+case inr.inr.inr.inr
+C : Circuit
+legal : FanInTwo C
+g : Gate
+h✝ : g = { op := GateOp.or, inputs := [wire C.output, 9 + C.size + 2] } ∨ g ∈ []
+⊢ g.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ g.inputs.length ≤ 2
+../results/orch1884/lemmas/EightExtension.lean:70:65: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [grow, List.mem_append, List.mem_map, List.mem_cons] at hg
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:79:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:80:10: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:87:65: error: unsolved goals
+w : List Bool
+o : ℕ
+hw : 9 ≤ w.length
+ho : o < w.length
+h0 : ∀ (k : ℕ), 0 < w.length + k
+h1 : ∀ (k : ℕ), 1 < w.length + k
+h2 : ∀ (k : ℕ), 2 < w.length + k
+h6 : ∀ (k : ℕ), 6 < w.length + k
+hout : ∀ (k : ℕ), o < w.length + k
+⊢ GateOp.or.eval [w[o], GateOp.and.eval [w[1], GateOp.or.eval [GateOp.or.eval [w[0], w[6]], w[2]]]] = w[o] ∨
+    w[1] = true ∧ ((w[0] = true ∨ w[6] = true) ∨ w[2] = true)
+../results/orch1884/lemmas/EightExtension.lean:93:29: warning: This simp argument is unused:
+  eO2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, eA2, read_append, h0, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:34: warning: This simp argument is unused:
+  eA2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, eO2, read_append, h0, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:39: warning: This simp argument is unused:
+  read_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, eO2, eA2, h0, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:52: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, eO2, eA2, read_append, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:64: warning: This simp argument is unused:
+  h6
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, eO2, eA2, read_append, h0, h1, h2, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:127:2: error: 'change' tactic failed, pattern
+  (List.foldl ws w
+          [{ op := GateOp.or, inputs := [0, 6] }, { op := GateOp.or, inputs := [9 + C.size, 2] },
+            { op := GateOp.and, inputs := [1, 9 + C.size + 1] },
+            { op := GateOp.or, inputs := [wire C.output, 9 + C.size + 2] }]).getD
+      (9 + C.size + 3) false =
+    ?m.170
+is not definitionally equal to target
+  (grow C).eval (List.ofFn y) = GeneralReaderCertificate.edge y

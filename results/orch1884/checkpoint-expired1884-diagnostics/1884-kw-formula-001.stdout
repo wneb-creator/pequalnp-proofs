@@ -1,0 +1,10 @@
+../results/orch1884/lemmas/KWFormula.lean:39:21: error(lean.invalidField): Invalid field `all`: The environment does not contain `Finset.all`, so it is not possible to project the field `all` from an expression
+  (inc v).powerset
+of type `Finset (Finset (Fin 15))`
+../results/orch1884/lemmas/KWFormula.lean:44:28: error(lean.unknownIdentifier): Unknown constant `Finset.all_eq_true.mp`
+../results/orch1884/lemmas/KWFormula.lean:101:20: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+../results/orch1884/lemmas/KWFormula.lean:104:20: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+../results/orch1884/lemmas/KWFormula.lean:109:8: error: 'change' tactic failed, pattern
+  (a.eval (neg j) && decide (b.eval (neg j) = false)) = true
+is not definitionally equal to target
+  (a.and b).eval (neg j) = false

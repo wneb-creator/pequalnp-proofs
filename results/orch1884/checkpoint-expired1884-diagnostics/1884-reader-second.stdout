@@ -1,0 +1,13 @@
+../results/orch1884/lemmas/ReaderBound.lean:178:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ -15
+  b - c + d ≤ 0
+  a ≥ 16
+where
+ a := ↑r.2.length
+ b := ↑(countP r0 C.gates)
+ c := ↑C.gates.length
+ d := ↑(foldl cs (e0, []) C.gates).2.length

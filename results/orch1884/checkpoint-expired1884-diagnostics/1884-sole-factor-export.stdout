@@ -1,0 +1,48 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:98:4: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:98:19: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:98:48: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.or_false, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:112:55: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:112:70: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/SoleReaderFactor.lean:113:33: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,156 @@
+../results/orch1884/lemmas/TwoRailReaders.lean:18:32: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ c ≤ 9
+where
+ c := ↑w.length
+../results/orch1884/lemmas/TwoRailReaders.lean:36:12: error(lean.unknownIdentifier): Unknown constant `List.length_eq_zero.mp`
+../results/orch1884/lemmas/TwoRailReaders.lean:37:6: error: No goals to be solved
+../results/orch1884/lemmas/TwoRailReaders.lean:35:2: error: unsolved goals
+case cons.cons.inl.inl
+a b : ℕ
+h0 : 0 = a
+h10 : 10 = a
+⊢ b = a
+
+case cons.cons.inr.inr
+a b : ℕ
+h0 : 0 = b
+h10 : 10 = b
+⊢ a = b
+../results/orch1884/lemmas/TwoRailReaders.lean:40:29: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_cons] at h0 h10
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/TwoRailReaders.lean:43:44: error: typeclass instance problem is stuck
+  Insert GateOp ?m.58
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `Insert` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+../results/orch1884/lemmas/TwoRailReaders.lean:72:29: error: typeclass instance problem is stuck
+  Insert GateOp (?m.28 g)
+
+Note: Lean will not try to resolve this typeclass instance problem because the second type argument to `Insert` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Invalid simp theorem: Expected a proposition, but found
+  Fin 10 → Fin 10 → Bool
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.222 → ?m.223
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.226 → ?m.227
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.230 → ?m.231
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.234 → ?m.235
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.238 → ?m.239
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.242 → ?m.243
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.246 → ?m.247
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.250 → ?m.251
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.254 → ?m.255
+../results/orch1884/lemmas/TwoRailReaders.lean:112:40: error: Ambiguous term
+  singleton
+Possible interpretations:
+  SoleOrPartner.singleton : Fin 10 → Fin 10 → Bool
+  
+  Singleton.singleton : ?m.258 → ?m.259
+../results/orch1884/lemmas/TwoRailReaders.lean:112:2: error: unsolved goals
+case pos.«1»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 1 = true
+
+case pos.«2»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 2 = false
+
+case pos.«3»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 3 = false
+
+case pos.«4»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 4 = false
+
+case pos.«5»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 5 = false
+
+case pos.«6»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 6 = false
+
+case pos.«7»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 7 = false
+
+case pos.«8»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 8 = false
+
+case pos.«9»
+i : ℕ
+⊢ SoleOrPartner.singleton 1 9 = false
+../results/orch1884/lemmas/TwoRailReaders.lean:120:34: error: Application type mismatch: The argument
+  seed_agree
+has type
+  agree (seed (SoleOrPartner.singleton 1)) (seed (pair 0 1))
+but is expected to have type
+  SoleReader.agree ?m.34 ?m.35 ?m.36
+in the application
+  run_agree C.gates ?m.35 ?m.36 seed_agree
+../results/orch1884/lemmas/TwoRailReaders.lean:120:49: error: Expected type must not contain metavariables
+  ∀ g ∈ C.gates, ?m.34 ∉ g.inputs
+../results/orch1884/lemmas/TwoRailReaders.lean:119:70: error: unsolved goals
+C : Circuit
+legal : FanInTwo C
+trim : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1
+correct : ∀ (x : Fin 10 → Bool), C.eval (seed x) = target x
+coupled : ∀ g ∈ C.gates, 0 ∈ g.inputs ↔ 10 ∈ g.inputs
+⊢ False
+../results/orch1884/lemmas/TwoRailReaders.lean:128:36: error: unsolved goals
+g : Gate
+⊢ (∃ x ∈ g.inputs, x = 0 ∨ x = 10) ↔ 0 ∈ g.inputs ∨ 10 ∈ g.inputs

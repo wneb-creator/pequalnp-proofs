@@ -1,0 +1,43 @@
+../results/orch1884/lemmas/EightExtension.lean:79:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:80:10: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:42: warning: This simp argument is unused:
+  read_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, h0, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:55: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, read_append, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:67: warning: This simp argument is unused:
+  h6
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, read_append, h0, h1, h2, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,1075 @@
+{
+  "frozen_at": "2026-11-25T17:05:17.737207+00:00",
+  "files": [
+    {
+      "path": "results/orch1884/search-stoch/FREEZE-1705.json",
+      "bytes": 430,
+      "sha256": "fc25ae325e5c2b8bd46e17cfdc56fac807bdcbc6eab04a7f19a97c440e215041"
+    },
+    {
+      "path": "results/orch1884/search-stoch/active-best.json",
+      "bytes": 1131,
+      "sha256": "1ee017dce4e3be1d575fa9700cc150e7a8e7a462712d5b3de14e04f3aa75b6d5"
+    },
+    {
+      "path": "results/orch1884/search-stoch/active-validation.json",
+      "bytes": 232,
+      "sha256": "9164ff8f07fac3583663730bd790cfb9dd2fbeaa9f5113c098722e7f734f886e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/active.stdout",
+      "bytes": 398,
+      "sha256": "63560930e14ebfc21121ff190a7419f5c1a3b764d8da94853c92a6136469c6ce"
+    },
+    {
+      "path": "results/orch1884/search-stoch/audit-status.json",
+      "bytes": 487,
+      "sha256": "06257374255efede4291efc7c3d2925f7e5ca2df8cc038d32e2109ab5eb12f35"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early-best.json",
+      "bytes": 1608,
+      "sha256": "1f322d5b4344f3e04ce4e1da79f1e49046e23f145d60ecfe980270ca80526e4e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early-samples-snapshot.json",
+      "bytes": 507,
+      "sha256": "cc02893853236ce8588b39fd4ffd8575d7fdd4e6a75989bfa096d6779a8185fa"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early-validation.json",
+      "bytes": 164209,
+      "sha256": "020e756e5945d0e4185a3478a665b08226c5aa8bfb5a4cc41833277d3c9e0ca4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early-validation.stdout",
+      "bytes": 76673,
+      "sha256": "aafdcc8ab1713bf9c323c918b5365b215a476bc0392bf6c5fef128556132175a"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-early.stdout",
+      "bytes": 11319,
+      "sha256": "bb7606d0efba01bd96b6975a18f0315c59116801d35a76b54b90d05da5bd928e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-final-samples.json",
+      "bytes": 656,
+      "sha256": "1bf23076aa2e30d3b13c351af913ae9ce94bb70ba904a5cbe658376b2cedb2ea"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch-best.json",
+      "bytes": 1548,
+      "sha256": "ab084715e20f3c02167c07fc596486546912d94e552011a28079cd0e62d3cb2e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch-validation.json",
+      "bytes": 63084,
+      "sha256": "0cd93ef34b01de67079dc46911f69f0cb15fb47d4160102b0fccff07cb432530"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch-validation.stdout",
+      "bytes": 29338,
+      "sha256": "bc50c2eea52440210cba7aa45c01b2cafef50fc2c35d27cd718e168a0c1ef1ab"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-pre-switch.stdout",
+      "bytes": 5867,
+      "sha256": "27b7f1cfd9d8fef07b4a2513d9f19a46dd8d175a14761f422b96a55e1e7601cc"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late-samples-snapshot.json",
+      "bytes": 656,
+      "sha256": "1bf23076aa2e30d3b13c351af913ae9ce94bb70ba904a5cbe658376b2cedb2ea"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-late.stdout",
+      "bytes": 5888,
+      "sha256": "02397161d598a2fcdd6e7e97651ef43fd8d695d9a9b9b536ad0f9a5107d9d30b"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-selftest.stdout",
+      "bytes": 781,
+      "sha256": "abacc835629ef6c5bad2f16fbd02d1fe63c315a186493edff65362f29f01e244"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-best.json",
+      "bytes": 1326,
+      "sha256": "81daa80c47c5bafe71205c1d497116c8c67b2e0ef4cbf1f32a83d1dac1660217"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-live-best.json",
+      "bytes": 1895,
+      "sha256": "9bdb2cf92a6625e0a2281ac9045a348ed440afd6775bb67019dd2599706220e9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-live-validation.json",
+      "bytes": 7216,
+      "sha256": "315610da97e3a81d29105cc12c937f5c68c7603d2e3c015ec92ebecd1485b5b4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-live-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-live-validation.stdout",
+      "bytes": 3446,
+      "sha256": "52ac0afb4a4f53193da6a64d7e4b958e6239e4f3d7f86460479b10bab749d0ce"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-validation.json",
+      "bytes": 7729,
+      "sha256": "e75e638f25e00767e0701731fc5d2ac3161bc13365f6f023776314f6a64c46a6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late-validation.stdout",
+      "bytes": 3725,
+      "sha256": "b96e5c5fe7f1f72bcd446729e2d86bb693f54091108cff31e03e7d377efb5706"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis-strong-late.stdout",
+      "bytes": 1681,
+      "sha256": "7963765c6e2975327da3f9037a44106b2ce794c2707f6f1c0f283db0ef63ea11"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cegis_selftest.cpp",
+      "bytes": 6122,
+      "sha256": "050b48444ef947d167656cef1ee576602b85b58a50b9a7e329e810622bc6b9d0"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-best.json",
+      "bytes": 916,
+      "sha256": "77b9d814d5839aaff27ea77ddd2fd5c625b2ff332f97c6d5be07933276b7e6e2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.json",
+      "bytes": 850,
+      "sha256": "8bab2988f73c2b42251f0398afd8b46c5918fe20908f703c320cfd2f13a51006"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic-validation.stdout",
+      "bytes": 239,
+      "sha256": "be6957348f9f63bc718614f99bce5458f65291cf9a6f3eea051b0190ee9bbd82"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-diagnostic.stdout",
+      "bytes": 471,
+      "sha256": "3c1b478ca1d6cd49e364d8a31580e4f5a5b30ced72e9f583edc4ba7730b4fae7"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/cofactor-or3-selftest.stdout",
+      "bytes": 67,
+      "sha256": "7e8ec30d7aced01ca0a4a3a67ab51104aefdc2fe4e9754b738af37ffa554fb72"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-active.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-composite.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-composite.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-critical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-critical.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-next.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-next.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-paid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-paid.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis-selftest.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-cegis.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-phase-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-phase-driver.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-semantic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-semantic.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-signed17-active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-signed17-active.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-signed17.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile-signed17.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile38.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/compile38.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-best.json",
+      "bytes": 1467,
+      "sha256": "10daf162268acd7cb044d0daa254465cef885921c1f2b7e63684fffefef7a4e6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-diagnostic.json",
+      "bytes": 341,
+      "sha256": "8905e71eb83ed3b1d2163c6ae1b41a802e16fb5121ae257d916c1675a8a7ebc5"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-best.json",
+      "bytes": 1467,
+      "sha256": "10daf162268acd7cb044d0daa254465cef885921c1f2b7e63684fffefef7a4e6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.json",
+      "bytes": 14527,
+      "sha256": "ca3c3a6fd15f9c8fd319c0b983f366fa3bad20c2340d01feeb0743bb802c6db4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659-validation.stdout",
+      "bytes": 6941,
+      "sha256": "6258602f3d361827dfce182b031c83bd729eb1a007cd9fd9fbb83a80ab3147af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-progress-1659.stdout",
+      "bytes": 2407,
+      "sha256": "97263f80b576ea18fe360240535f6dedb9642e4c5cde3134927163dca6b24a35"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke-best.json",
+      "bytes": 1592,
+      "sha256": "5eb003a50fb51dd135ebc75e5c3fdf4cd4ac773ac379d8a30b7366bd5412e6fe"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke-validation.json",
+      "bytes": 53121,
+      "sha256": "25df2b90824ee968087e5cb9edc25b19be63d4bb70fbe2cadf6489e55e3a36a4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke-validation.stdout",
+      "bytes": 24631,
+      "sha256": "9583958a923b39c146ecd846a9cdea6627ef30cf905eb938f1e2809896a6236e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-smoke.stdout",
+      "bytes": 3589,
+      "sha256": "a06216b1b717307ae3ac84949e956d0bf152fef44c6cbea96c1879a4426dbe91"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.json",
+      "bytes": 14527,
+      "sha256": "ca3c3a6fd15f9c8fd319c0b983f366fa3bad20c2340d01feeb0743bb802c6db4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical-validation.stdout",
+      "bytes": 6941,
+      "sha256": "6258602f3d361827dfce182b031c83bd729eb1a007cd9fd9fbb83a80ab3147af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/critical.stdout",
+      "bytes": 2428,
+      "sha256": "c5b15687fa2db504f006071c1808ee0cdb288d962daec7fde42fdb517c076fab"
+    },
+    {
+      "path": "results/orch1884/search-stoch/current-status.json",
+      "bytes": 1095,
+      "sha256": "8ef21b38b5b6d84e3ddd8fce7057fe88d38a3b39d58c62e4240f0fe18efc07a0"
+    },
+    {
+      "path": "results/orch1884/search-stoch/extrema-validation.json",
+      "bytes": 94,
+      "sha256": "ec9a0de7f3d4dd8cb5d29ca43df26338ef20fe6ef337346c9095a03f2b7a7863"
+    },
+    {
+      "path": "results/orch1884/search-stoch/near18.json",
+      "bytes": 973,
+      "sha256": "922a3edffb7b64d2a4aa976e7b4c88c679d4bb5e49c0d4fd93d8630a0d3b9790"
+    },
+    {
+      "path": "results/orch1884/search-stoch/partition-diagnostic.json",
+      "bytes": 435,
+      "sha256": "94b183feee07cd362003b86576498337bb064231ff48a8639f5849be2604852f"
+    },
+    {
+      "path": "results/orch1884/search-stoch/phase-crosscheck.json",
+      "bytes": 14167,
+      "sha256": "9ca5044a00b656a51e8ed630b03d195128c55ad5a8de22cbb3967c315be6b888"
+    },
+    {
+      "path": "results/orch1884/search-stoch/phase-crosscheck.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/phase-crosscheck.stdout",
+      "bytes": 93,
+      "sha256": "570635223a3ca808027c5d61ef992498aaac950810f969574ccbc6311dbb680f"
+    },
+    {
+      "path": "results/orch1884/search-stoch/phase_crosscheck.py",
+      "bytes": 2548,
+      "sha256": "fa323e99ae69ad80cdbdbd5b70e202837e5b130223712ed6f62644d63c53477c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/phase_driver.cpp",
+      "bytes": 376,
+      "sha256": "af76013225a55ae0931baca1d41711b5f14b818915a642ae472d2c9f79d257c2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/polarity_realizer_independent.py",
+      "bytes": 5542,
+      "sha256": "bb4114b8976b4d4a250a371b3204955ab71ebbae60adede7b71339fa645d4dbe"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run-best.json",
+      "bytes": 1047,
+      "sha256": "cf3a6932085fce557e27bdf90ce921d41ee52660a564d567bf78ebd362a13f45"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run-validation.json",
+      "bytes": 352,
+      "sha256": "8ce3f26bca69b34c5b7d3a210f2a33702b06cdd3e64a69ef3df732c159b7f292"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run.stdout",
+      "bytes": 595,
+      "sha256": "47d10f251cb6c63ba9144e95df10f338a95e8cc858a40006ffc38d857a28f9e2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run38-best.json",
+      "bytes": 1101,
+      "sha256": "c41832abdf6e9f94a197b372a21debf38f64f251423d3a83a6dc4901af931000"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run38-validation.json",
+      "bytes": 228,
+      "sha256": "f25544116ce9449612f31f4f5ab466f9e2180828b23aec3c029192c8702c902c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run38.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/run38.stdout",
+      "bytes": 393,
+      "sha256": "2e90aba49a2179793302cfd04c1115673cb1781bc6ef3a9f1f41e41e846e379c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search.cpp",
+      "bytes": 5425,
+      "sha256": "e1ab231915b3e10046e2a989ed5017d22d80452454008557ab85162cdf15c47d"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search38.cpp",
+      "bytes": 6819,
+      "sha256": "964e92e5b9cf9786754b912d03d944348b1edbf1c485be45edeea992320666a6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search38_active.cpp",
+      "bytes": 7170,
+      "sha256": "af868f03f88ec06f8189fd3c4403d77d4a914f7e29de780025f71d2749e168b2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search38_semantic.cpp",
+      "bytes": 7355,
+      "sha256": "70bf7c5fbb09708fc4dbd431f0dcf59f52dc96b2134aaf9dc4a853faa9699b82"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cegis.cpp",
+      "bytes": 6990,
+      "sha256": "705810170c16d56adae146f525556c9082d342d227d77d6526390f03fddca880"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cegis_composite.cpp",
+      "bytes": 9523,
+      "sha256": "f41d291e82807aa3d5334005fcf28970d6fa0330a34de64cfa842ee7a2321a06"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cegis_composite_initial38.cpp",
+      "bytes": 9509,
+      "sha256": "4388553654ccd731ca40d4324026434f175deac5c0d0f7868bb500ead0e1a230"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cegis_critical.cpp",
+      "bytes": 10582,
+      "sha256": "30326e630266feff285248c16d939ac28bd988780434d795c790486e6b3f82a0"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cegis_paid.cpp",
+      "bytes": 8201,
+      "sha256": "9f5b8c0399a34ee17c90eae9b1a111dfae864aa9e6d52fe7e8fb82b06954a348"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_cofactor_or3.cpp",
+      "bytes": 6269,
+      "sha256": "ba0fbc94f9d93d601cd7f07ae1e5789a63b0a4c757a085e2f56ed81e7a8fdf8e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_signed17.cpp",
+      "bytes": 9742,
+      "sha256": "f7af4e13ffeb1c5354ca38205554673bb013b72698372af6811120b3dd721d6f"
+    },
+    {
+      "path": "results/orch1884/search-stoch/search_signed17_active.cpp",
+      "bytes": 10263,
+      "sha256": "42e0dc2d87644da235b955bfc0bd30c3e013e1404d75495a93f535758e3c6887"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-audit-snapshot.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-audit-snapshot.stdout",
+      "bytes": 185,
+      "sha256": "6a5ea2214186f8e5f8340715482d049387b92113d16cf8a8c9955d847547bf5b"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-best.json",
+      "bytes": 1134,
+      "sha256": "d16eba878b33adb89461a5b97421d8fabe3104d2fb657f27b5b92673eced3807"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-validation.json",
+      "bytes": 115,
+      "sha256": "da2ac3618472b547661564a0149be23813e97300a4e9512c839350076f7dd898"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic-validation.stdout",
+      "bytes": 87,
+      "sha256": "b3bae6bea57f1ae1f6026d37aa6cdd04e685aee359b42149f08cb26fe9be3042"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/semantic.stdout",
+      "bytes": 207,
+      "sha256": "839dea350399c3ce04e7f85fa72430e7be9ee32ea212c33e5203079ff6a301fd"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-best.json",
+      "bytes": 1185,
+      "sha256": "983684ff24a14efb99cd20bddd6c07d9778903c5babfeb5de2375130a920b5f9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-best.json",
+      "bytes": 1294,
+      "sha256": "4022895acf53ee6145226746e72aee84a57db4c6c457227c501194b7d4d560af"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.json",
+      "bytes": 1383,
+      "sha256": "c1086172cfc2725728cbc99ac535e1963568e7c17887e751d5db4502e218b8e9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic-validation.stdout",
+      "bytes": 245,
+      "sha256": "540994cb302f809641853ac5ee982fcaa3b85cdd47fe63d83340c9eaaeccb075"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-diagnostic.stdout",
+      "bytes": 577,
+      "sha256": "38a021ed96b29d86b64fe711d8a1072cc9caaccd4af90863f3202bccb8236c76"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-progress-1659.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-progress-1659.stdout",
+      "bytes": 2337,
+      "sha256": "79e219e503ae34c0c30e7de6c2cd489385f69da198197dfc59c93735b8e03364"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-semantic-progress.json",
+      "bytes": 125,
+      "sha256": "e88bdec45c4ca559b9d0548bd414b3820525b66ffbe5397ec14d192f2b33b5ef"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.json",
+      "bytes": 6770,
+      "sha256": "e6000041f4834359d3d13117b20bb6a88fda91c3c9e75243fa7933505044f919"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active-validation.stdout",
+      "bytes": 1067,
+      "sha256": "be45b0f42f942b80bbf36ffba3360fb3c55acd04ca26e59bbe90c8eac1b04e6e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-active.stdout",
+      "bytes": 2376,
+      "sha256": "58c64a8387893ff1879c7affd6f96b6dbe63b7ee9a447bfc9b70eac12f678f4c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-best.json",
+      "bytes": 1185,
+      "sha256": "625d55257af71fc50ade7817055efd32f645dec4ff1bfc61321d053b0d96e561"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-best.json",
+      "bytes": 1185,
+      "sha256": "625d55257af71fc50ade7817055efd32f645dec4ff1bfc61321d053b0d96e561"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-phase.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-phase.stdout",
+      "bytes": 54,
+      "sha256": "7b52a6c7dab4996e5af41942ed72c8abdc4bbf9f426f829bbf8731bfca10d6a5"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-validation.json",
+      "bytes": 4567,
+      "sha256": "8780c79b646a7b9fae74bd23fbaa4214ca7538d0dec3bf377af9c90dc9b6f458"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-live-validation.stdout",
+      "bytes": 653,
+      "sha256": "030c28f85bd175606f990125621f27116a8fd427000fe1675060a0e8b84ed1de"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-selftest.stdout",
+      "bytes": 88,
+      "sha256": "b5bb1eea013f3e9e363e50de6ad8a56b896c9fc9250e6e2fb67199b630e49f91"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke-best.json",
+      "bytes": 1241,
+      "sha256": "115aff6e258170240cccca4612683471176081c002b62a1bd4bdd7b63540d98c"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke-validation.json",
+      "bytes": 1891,
+      "sha256": "db73d196acba389d725d0a9a07eb481f119dd02dd3743a0843b8a91e1516d6a8"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke-validation.stdout",
+      "bytes": 318,
+      "sha256": "9faa65791505cfdb468cdcedea3be238cadcf62ebdc5d3879c95512b013521a2"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-smoke.stdout",
+      "bytes": 746,
+      "sha256": "05a09b43773b1571b992bc5295262fe926e3a83abe43f6be7eabf8d6a02b0999"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.json",
+      "bytes": 4567,
+      "sha256": "8780c79b646a7b9fae74bd23fbaa4214ca7538d0dec3bf377af9c90dc9b6f458"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17-validation.stdout",
+      "bytes": 653,
+      "sha256": "030c28f85bd175606f990125621f27116a8fd427000fe1675060a0e8b84ed1de"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/signed17.stdout",
+      "bytes": 1474,
+      "sha256": "792810685bd06cfcb2e425a2e81472e6caa04051f1620cb2a3eb0cc1664cd26e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-active-best.json",
+      "bytes": 1140,
+      "sha256": "2d372587d5daaf5ac2e427d0766afa2857b235a3b49af2b8766870dac48d5ceb"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-active-validation.json",
+      "bytes": 232,
+      "sha256": "712e0f18bb9e728fe56c908e9f77d5edc4d48d59af348583a6d30033a1cfd34d"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-active.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-active.stdout",
+      "bytes": 396,
+      "sha256": "f70b2f59a1588c5564de8b013ccc2f07d40c00309bcb632c24d1ac7f2a2c766d"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early-best.json",
+      "bytes": 2154,
+      "sha256": "97830ba845ab171d76953cd6d011c11b4074e05b0774d81c57b48e0d6b7a670e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early-validation.json",
+      "bytes": 21580,
+      "sha256": "4b86b6d3b7bb14ceae57fae2492fe95d11dc558041a30989547c26aa362e56e9"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early-validation.stdout",
+      "bytes": 10460,
+      "sha256": "23cde2ed8a9d27ebb4fdf8784ca20c19ec332fb524efda00fbfb1e7196972a03"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-early.stdout",
+      "bytes": 4046,
+      "sha256": "5cc02cb6b20433bf497e00eafc0f0a9730af2f4d5ade4b9f027b88bd9f6e756e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late-best.json",
+      "bytes": 2263,
+      "sha256": "65222fecfe17ef9c1908bbfad9eb7f09acef867a12f72e91f46ba48c98b8b5bd"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late-validation.json",
+      "bytes": 48380,
+      "sha256": "a292fd88def6c5ee44d8ad5b4bb94ae51c41d5aea64a220a94db92c9059bab71"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late-validation.stdout",
+      "bytes": 22638,
+      "sha256": "b5a41c18cc5fb6deaaf8e9df7e9ccca5464a3952ea7e733bb5bebe7577013b52"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-capped-late.stdout",
+      "bytes": 4617,
+      "sha256": "d3de6a91f7875db990b4cead647b2bcc1ba180319f9abbfc9dfee37556311fe5"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early-best.json",
+      "bytes": 1880,
+      "sha256": "f0e574cf684a1b76a22892643b00644fd7024a160f89b959060883f765f37701"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early-validation.json",
+      "bytes": 49992,
+      "sha256": "1834a7b8ef47d2f2bb62a3f127a7f53d7b8a20e1b3da818a5bdf4641f733f80f"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early-validation.stdout",
+      "bytes": 23332,
+      "sha256": "143defc7aefe50c2e52f2b8b72ee022f38b292bd6dd15c13e46cf8bccda7746e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-early.stdout",
+      "bytes": 4996,
+      "sha256": "d98cd06c7cd05affe8f5c4a36604d26051fd3484a82f5c5e65a6cb316c147eba"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late-best.json",
+      "bytes": 1832,
+      "sha256": "c24bd8b40b281e17bef03a4afc849ce9e34ee30be4bfcdd902a1b768c7edb9a6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late-validation.json",
+      "bytes": 53555,
+      "sha256": "8b91ae155bba7b74d5564623a1f83f67ff6b2b8cd41fd5b79f45da4d0d39909f"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late-validation.stdout",
+      "bytes": 25197,
+      "sha256": "5f59bb24ab6ec488b4c894f8001dabc977b76fee8c650600c3d0c71c7507af53"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-composite-late.stdout",
+      "bytes": 5338,
+      "sha256": "65365bd27821b0105f3708f7412aceb8998e8853b45315d0b6e07917f2cb4fee"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-semantic-best.json",
+      "bytes": 1103,
+      "sha256": "59f85c0caa35a708733fb404f66d88252937f86bbe413458fe68c8528ead2ce4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-semantic-validation.json",
+      "bytes": 230,
+      "sha256": "22c7c2e025dede62f404014768c427227e5be6c4d5d4c7e688b8d903197866dc"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-semantic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-semantic.stdout",
+      "bytes": 392,
+      "sha256": "1cd517f66c3a982bb12a9c4668503137543de8484fe0df4d9549ee107594de1a"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late-best.json",
+      "bytes": 1942,
+      "sha256": "bb89814edcb62c30d0a9c58644cce9269a4185bb05a30596084e8f7e5f461ed5"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late-validation.json",
+      "bytes": 17864,
+      "sha256": "63f04f743be278cd6ca5103ddc782ba2ba863b15d4619320284219465839b010"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late-validation.stdout",
+      "bytes": 8346,
+      "sha256": "b79d7debb2691b3e4d2599a486e2364a0df6044ac76a63e7e297ce7c46bb8cd6"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-strong-late.stdout",
+      "bytes": 1863,
+      "sha256": "1e97818b0430d3a7b4cec471fa4a99c1da12eebe577ace0cadeb1835b9f47d26"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke-validation.json",
+      "bytes": 100,
+      "sha256": "5cae17d4a54a799b01b247b936c06bb2267da79a6a311f87ccbc36df77f128a3"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke.stdout",
+      "bytes": 206,
+      "sha256": "b7bc8abe6f05fba8760362318648c5e4e97328282b22fde846598012e5598ec4"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke38-best.json",
+      "bytes": 1132,
+      "sha256": "3e927b44650a69f194fea853b70e305705afa467b24e4f2ff27e8ae6c9244784"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke38-validation.json",
+      "bytes": 228,
+      "sha256": "54aa275835edb91065dc7f5e2310113c7c4a8af1bda221b3b9fe582054743082"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke38.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/search-stoch/smoke38.stdout",
+      "bytes": 391,
+      "sha256": "2dbfce699e5105d681ba89e041d70c45acb608c5b555375fd87775d83cca228d"
+    },
+    {
+      "path": "results/orch1884/search-stoch/strong-sample-basis.json",
+      "bytes": 924,
+      "sha256": "2d958f5ac2d469495f507d14144f5253fa6ccf986962becda50c287d9b43f715"
+    },
+    {
+      "path": "results/orch1884/search-stoch/validate.py",
+      "bytes": 1950,
+      "sha256": "f34a984ddcee06b52f91697cff0215324bc22d4cf6e8a87d6b834c8a03d60529"
+    },
+    {
+      "path": "results/orch1884/search-stoch/validate_cegis.py",
+      "bytes": 2537,
+      "sha256": "9fbee8f9c750b8b43acd89ceb488f1bc0cc5e424dcb7ff0402b852f25596e1bc"
+    },
+    {
+      "path": "results/orch1884/search-stoch/validate_cofactor_or3.py",
+      "bytes": 3579,
+      "sha256": "42ad2e004f6d97f05c52a94018c5a2a5d8172d6c2c665aee9f30df9287627c4e"
+    },
+    {
+      "path": "results/orch1884/search-stoch/validate_signed17.py",
+      "bytes": 2943,
+      "sha256": "366b05431ae77a9b993ec7d063dfd0c85ac7b20bcb2e8d617ecb29638f854a6b"
+    }
+  ]
+}

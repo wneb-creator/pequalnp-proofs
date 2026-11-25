@@ -1,0 +1,4 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOr.lean:66:2: error: 'change' tactic failed, pattern
+  decide (t = t) = true
+is not definitionally equal to target
+  decide True = true

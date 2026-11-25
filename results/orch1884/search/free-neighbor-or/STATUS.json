@@ -1,0 +1,30 @@
+{
+  "time_utc": "2026-11-25T17:05:30.870526+00:00",
+  "gap": "L-meta-1884",
+  "stop_reason": "Root reported HTTP410 at17:04:43 UTC. No target solver had been launched.",
+  "active_owned_solver_processes": [],
+  "targets": [
+    {
+      "name": "prepared-pair15",
+      "free_or": [
+        0,
+        3
+      ],
+      "paid_gates": 15,
+      "status": "PREPARED_NOT_RUN",
+      "ordinary_petersen_lift_size_if_sat": 19
+    },
+    {
+      "name": "prepared-triple14",
+      "free_or": [
+        0,
+        3,
+        4
+      ],
+      "paid_gates": 14,
+      "status": "PREPARED_NOT_RUN",
+      "ordinary_petersen_lift_size_if_sat": 18
+    }
+  ],
+  "completed_diagnostics": "Both pinned16-gate fixtures SAT; both wrong fixtures UNSAT; cofactor512 and lifted1024 rows checked. These are validation cases, not target witnesses."
+}

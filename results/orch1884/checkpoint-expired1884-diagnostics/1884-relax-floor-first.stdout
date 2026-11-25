@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/RelaxationFloor.lean:59:23: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/workspace/pequalnp-proofs/results/orch1884/lemmas/RelaxationFloor.lean:60:24: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

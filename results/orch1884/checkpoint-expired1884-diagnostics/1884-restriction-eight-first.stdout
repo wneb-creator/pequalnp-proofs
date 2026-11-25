@@ -1,0 +1,9 @@
+../results/orch1884/lemmas/RestrictionEight.lean:82:28: error: Application type mismatch: The argument
+  hsize
+has type
+  (elim 8 D.gates (inputMap, [])).2.length + List.countP (reads deleted) D.gates ≤
+    (inputMap, []).2.length + D.gates.length
+but is expected to have type
+  { gates := result.2, output := j }.size + List.countP (reads deleted) D.gates ≤ D.size
+in the application
+  And.intro hsize

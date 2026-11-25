@@ -1,0 +1,53 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOr.lean:20:27: error: unexpected identifier; expected ')', ',' or ':'
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOr.lean:19:37: error: unsolved goals
+n : ℕ
+D : Circuit
+pre post : List Gate
+g : Gate
+hd : D.gates = pre ++ g :: post
+a : ℕ
+ha : a < n + pre.length
+x : Fin n → Bool
+hl : (List.foldl Lift.step (List.ofFn x) pre).length = n + pre.length
+⊢ a < (List.foldl Lift.step (List.ofFn x) pre).length + 1
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOr.lean:15:94: error: unsolved goals
+n : ℕ
+D : Circuit
+pre post : List Gate
+g : Gate
+hd : D.gates = pre ++ g :: post
+a : ℕ
+ha : a < n + pre.length
+x : Fin n → Bool
+hl : (List.foldl Lift.step (List.ofFn x) pre).length = n + pre.length
+⊢ (Lift.step (List.foldl Lift.step (List.ofFn x) pre) g).getD a false = (SoleReader.run pre (List.ofFn x)).getD a false
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOr.lean:38:76: error: unsolved goals
+D : Circuit
+pre post : List Gate
+t : Fin 9
+a : ℕ
+T : Finset ℕ
+ht : t = 2 ∨ t = 8
+hd : D.gates = pre ++ { op := GateOp.or, inputs := [↑t, a] } :: post
+hat : a ≠ ↑t
+hpre : ∀ g ∈ pre, ↑t ∉ g.inputs
+hpost : ∀ g ∈ post, ↑t ∉ g.inputs
+hout : D.output ≠ ↑t
+hM : Monotone2 D
+hR : ReadsBack 9 D
+hmin : ∀ (E : Circuit), Monotone2 E → circuitFun 9 E = circuitFun 9 D → D.size ≤ E.size
+hA : PA D T
+hB : PB 9 D T
+hC : PC 9 D T
+hcofactor : ∀ (x : Fin 9 → Bool), x t = false → circuitFun 9 D x = StrongRelaxOrSafety.target x
+hpositive : ∀ (x : Fin 9 → Bool), StrongRelaxOrSafety.target x = true → circuitFun 9 D x = true
+hexceptional : circuitFun 9 D StrongRelaxOrSafety.exceptional = true
+hsingle : (circuitFun 9 D fun i => decide (i = t)) = false
+hg : D.gates[pre.length]? = some { op := GateOp.or, inputs := [↑t, a] }
+ha : a < 9 + pre.length
+hpfx : ∀ (x : Fin 9 → Bool), (D.wires (List.ofFn x)).getD a false = (SoleReader.run pre (List.ofFn x)).getD a false
+hDeq : D = { gates := pre ++ { op := GateOp.or, inputs := [↑t, a] } :: post, output := D.output }
+hsafe : ∀ (x : Fin 9 → Bool), (D.wires (List.ofFn x)).getD a false = true → StrongRelaxOrSafety.target x = true
+⊢ [decide (0 = t), decide (1 = t), decide (2 = t), decide (3 = t), decide (4 = t), decide (5 = t), decide (6 = t),
+        decide (7 = t), decide (8 = t)][↑t] =
+    true

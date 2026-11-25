@@ -1,0 +1,36 @@
+[
+  {
+    "tag": "diagnostic-pair-valid",
+    "wrapper_exit": 0,
+    "status": "SAT"
+  },
+  {
+    "tag": "diagnostic-pair-invalid",
+    "wrapper_exit": 0,
+    "status": "UNSAT"
+  },
+  {
+    "tag": "diagnostic-triple-valid",
+    "wrapper_exit": 0,
+    "status": "SAT"
+  },
+  {
+    "tag": "diagnostic-triple-invalid",
+    "wrapper_exit": 0,
+    "status": "UNSAT"
+  },
+  {
+    "tag": "prepared-pair15",
+    "wrapper_exit": 0,
+    "status": "PREPARED_NOT_RUN",
+    "variables": 4125,
+    "clauses": 36588
+  },
+  {
+    "tag": "prepared-triple14",
+    "wrapper_exit": 0,
+    "status": "PREPARED_NOT_RUN",
+    "variables": 3668,
+    "clauses": 32408
+  }
+]

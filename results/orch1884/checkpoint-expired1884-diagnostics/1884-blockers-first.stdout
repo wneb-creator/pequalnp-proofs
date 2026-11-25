@@ -1,0 +1,29 @@
+../results/orch1884/lemmas/ThreeBlockers.lean:96:11: error: Tactic `rfl` failed: The left-hand side
+  strong (evalGate w { op := GateOp.and, inputs := [] })
+is not definitionally equal to the right-hand side
+  true
+
+case nil
+w : List Sig
+h : ∀ a ∈ w, weak a = true
+hi : ∀ (i : ℕ), weak (w.getD i 0) = true
+hlen : [].length ≤ 2
+⊢ strong (evalGate w { op := GateOp.and, inputs := [] }) = true
+../results/orch1884/lemmas/ThreeBlockers.lean:99:13: error: Type mismatch: After simplification, term
+  weak_strong (w.getD i 0) (hi i)
+ has type
+  strong (w[i]?.getD 0#4) = true
+but is expected to have type
+  strong (w[i]?.getD 0#4 &&& 15#4) = true
+../results/orch1884/lemmas/ThreeBlockers.lean:102:15: error: Type mismatch: After simplification, term
+  weak_and_strong (w.getD i 0) (w.getD j 0) (hi i) (hi j)
+ has type
+  strong (w[i]?.getD 0#4 &&& w[j]?.getD 0#4) = true
+but is expected to have type
+  strong (w[i]?.getD 0#4 &&& (w[j]?.getD 0#4 &&& 15#4)) = true
+../results/orch1884/lemmas/ThreeBlockers.lean:132:38: error: Type mismatch
+  List.countP_eq_zero.mp hc0 g' hg'
+has type
+  ¬isAnd g' = true
+but is expected to have type
+  isAnd g' = false

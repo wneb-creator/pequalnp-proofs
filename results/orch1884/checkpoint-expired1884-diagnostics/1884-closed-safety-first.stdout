@@ -1,0 +1,9 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSafety.lean:48:4: error: No goals to be solved
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSafety.lean:59:66: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSafety.lean:61:64: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

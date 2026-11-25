@@ -1,0 +1,164 @@
+../results/orch1884/lemmas/NoPositiveRail.lean:98:4: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:98:19: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:98:48: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.or_false, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:112:55: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:112:70: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:113:33: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:315:16: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NoPositiveRail.lean:359:4: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+../results/orch1884/lemmas/NoPositiveRail.lean:363:14: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch1884/lemmas/NoPositiveRail.lean:588:96: error: unsolved goals
+case inl
+pre post : List Gate
+ins : List ℕ
+out : ℕ
+hp : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or
+hs : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or
+ap : ∀ g ∈ pre, 0 ∉ g.inputs
+as : ∀ g ∈ post, 0 ∉ g.inputs
+correct :
+  ∀ (x : Fin 10 → Bool),
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed x) = target x
+hm :
+  ∀ (x y : Fin 10 → Bool),
+    x 0 = y 0 → (∀ (i : Fin 10), x i = true → y i = true) → operand pre ins x = true → operand pre ins y = true
+hzero : operand pre ins (SoleOrPartner.singleton 0) = false
+independent : ∀ (x y : Fin 10 → Bool), (∀ (i : Fin 10), i ≠ 1 → x i = y i) → operand pre ins x = operand pre ins y
+factor :
+  ∀ (x y : Fin 10 → Bool),
+    (∀ (i : Fin 10), i ≠ 1 → x i = y i) → (x 1 || operand pre ins x) = (y 1 || operand pre ins y) → target x = target y
+hv0 : 1 ≠ 0
+hsingle : operand pre ins (SoleOrPartner.singleton 1) = false
+hpair : operand pre ins (pair 0 1) = false
+hlo :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval (seed (pair 0 1)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed (pair 0 1))
+hhi :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 1)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 1))
+hmono : true ≤ false
+⊢ False
+
+case inr.inl
+pre post : List Gate
+ins : List ℕ
+out : ℕ
+hp : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or
+hs : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or
+ap : ∀ g ∈ pre, 0 ∉ g.inputs
+as : ∀ g ∈ post, 0 ∉ g.inputs
+correct :
+  ∀ (x : Fin 10 → Bool),
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed x) = target x
+hm :
+  ∀ (x y : Fin 10 → Bool),
+    x 0 = y 0 → (∀ (i : Fin 10), x i = true → y i = true) → operand pre ins x = true → operand pre ins y = true
+hzero : operand pre ins (SoleOrPartner.singleton 0) = false
+independent : ∀ (x y : Fin 10 → Bool), (∀ (i : Fin 10), i ≠ 4 → x i = y i) → operand pre ins x = operand pre ins y
+factor :
+  ∀ (x y : Fin 10 → Bool),
+    (∀ (i : Fin 10), i ≠ 4 → x i = y i) → (x 4 || operand pre ins x) = (y 4 || operand pre ins y) → target x = target y
+hv0 : 4 ≠ 0
+hsingle : operand pre ins (SoleOrPartner.singleton 4) = false
+hpair : operand pre ins (pair 0 4) = false
+hlo :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval (seed (pair 0 4)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed (pair 0 4))
+hhi :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 4)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 4))
+hmono : true ≤ false
+⊢ False
+
+case inr.inr
+pre post : List Gate
+ins : List ℕ
+out : ℕ
+hp : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or
+hs : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or
+ap : ∀ g ∈ pre, 0 ∉ g.inputs
+as : ∀ g ∈ post, 0 ∉ g.inputs
+correct :
+  ∀ (x : Fin 10 → Bool),
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed x) = target x
+hm :
+  ∀ (x y : Fin 10 → Bool),
+    x 0 = y 0 → (∀ (i : Fin 10), x i = true → y i = true) → operand pre ins x = true → operand pre ins y = true
+hzero : operand pre ins (SoleOrPartner.singleton 0) = false
+independent : ∀ (x y : Fin 10 → Bool), (∀ (i : Fin 10), i ≠ 5 → x i = y i) → operand pre ins x = operand pre ins y
+factor :
+  ∀ (x y : Fin 10 → Bool),
+    (∀ (i : Fin 10), i ≠ 5 → x i = y i) → (x 5 || operand pre ins x) = (y 5 || operand pre ins y) → target x = target y
+hv0 : 5 ≠ 0
+hsingle : operand pre ins (SoleOrPartner.singleton 5) = false
+hpair : operand pre ins (pair 0 5) = false
+hlo :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval (seed (pair 0 5)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval (seed (pair 0 5))
+hhi :
+  { gates := pre ++ { op := GateOp.and, inputs := [] } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 5)) =
+    { gates := pre ++ { op := GateOp.not, inputs := ins } :: post, output := out }.eval
+      (seed (SoleOrPartner.singleton 5))
+hmono : true ≤ false
+⊢ False

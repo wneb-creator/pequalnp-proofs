@@ -1,0 +1,26 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:23:23: error: unsolved goals
+n : ℕ
+D : Circuit
+hR : ReadsBack n D
+k : ℕ
+g : Gate
+hg : D.gates[k]? = some g
+hop : g.op = GateOp.or
+i : ℕ
+hi : i ∈ g.inputs
+x : Fin n → Bool
+hv : (D.wires (List.ofFn x)).getD i false = true
+hk : k < D.gates.length
+hkg : D.gates[k] = g
+hir : i < n + k
+he :
+  (D.wires (List.ofFn x)).getD (n + k) false =
+    (List.map (fun i => LowMergeProof.rd D (List.ofFn x) (n + k) i) g.inputs).any id
+⊢ (D.wires (List.ofFn x))[i]?.getD false = true
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:23:55: warning: This simp argument is unused:
+  hv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [LowMergeProof.rd, hir]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

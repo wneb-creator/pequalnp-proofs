@@ -1,0 +1,5 @@
+../results/orch1884/lemmas/RailComparison.lean:42:47: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ a ≤ 9
+where
+ a := ↑w.length

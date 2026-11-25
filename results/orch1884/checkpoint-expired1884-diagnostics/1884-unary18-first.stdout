@@ -1,0 +1,131 @@
+../results/orch1884/lemmas/Unary18Conditional.lean:116:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:116:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:116:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:117:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:118:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:118:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:118:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:118:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:405:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch1884/lemmas/Unary18Conditional.lean:435:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:752:58: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch1884/lemmas/Unary18Conditional.lean:803:22: warning: This simp argument is unused:
+  List.map_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [unaryInitial, Function.comp_def, assign, unary_bits]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/Unary18Conditional.lean:851:2: error: `simp` made no progress
+../results/orch1884/lemmas/Unary18Conditional.lean:943:36: error: unsolved goals
+nineMonoFloor : Lower false inputs graph 16
+k : ℕ
+S : Finset Extended.Sig
+run : Extended.Live false Extended.target k S
+raw : ∀ a ∈ S, a ∈ Extended.initial ∨ a = Extended.neg (pin 0)
+hneg : Extended.neg (pin 0) ∈ S
+hpos : pin 0 ∈ S
+q : Extended.Sig := Extended.neg (pin 0)
+hneq : q ≠ pin 0
+front : List Extended.Sig := pin 0 :: q :: ((S.erase (pin 0)).erase q).toList
+nd : front.Nodup
+eqS : front.toFinset = S
+hrun : Run false (Extended.observe Extended.target) k (List.map Extended.observe front)
+same : restrictRows (embedV 0) (Extended.observe Extended.target) = observe graph
+projq : projectV 0 q = one
+hb : Extended.neg (pin 0) ∈ front
+hm : Extended.observe (Extended.neg (pin 0)) ∈ List.map Extended.observe front
+ha :
+  restrictRows (embedV 0) (Extended.observe (Extended.neg (pin 0))) ∈
+    List.map (restrictRows (embedV 0)) (List.map Extended.observe front)
+r : Row
+⊢ (13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512)[↑r] =
+    true
+../results/orch1884/lemmas/Unary18Conditional.lean:951:19: error: unsolved goals
+nineMonoFloor : Lower false inputs graph 16
+k : ℕ
+S : Finset Extended.Sig
+run : Extended.Live false Extended.target k S
+raw : ∀ a ∈ S, a ∈ Extended.initial ∨ a = Extended.neg (pin 0)
+hneg : Extended.neg (pin 0) ∈ S
+hpos : pin 0 ∈ S
+q : Extended.Sig := Extended.neg (pin 0)
+hneq : q ≠ pin 0
+front : List Extended.Sig := pin 0 :: q :: ((S.erase (pin 0)).erase q).toList
+nd : front.Nodup
+eqS : front.toFinset = S
+hrun : Run false (Extended.observe Extended.target) k (List.map Extended.observe front)
+same : restrictRows (embedV 0) (Extended.observe Extended.target) = observe graph
+projq : projectV 0 q = one
+roots : supply false (List.map observe inputs) (List.map (restrictRows (embedV 0)) (List.map Extended.observe front))
+lower : 16 + mass (List.map (restrictRows (embedV 0)) (List.map Extended.observe front)) ≤ 0 + k
+cpin : Constant (restrictRows (embedV 0) (Extended.observe (pin 0)))
+r : Row
+⊢ (13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512)[↑r] =
+    true

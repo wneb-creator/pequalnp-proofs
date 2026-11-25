@@ -1,0 +1,7 @@
+../results/orch1884/lemmas/InputEssentiality.lean:34:10: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pair, singleton, hn i]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,2 @@
+/tmp/oec/pequalnp-pilot-103/1884-private-check.lean:2:7: error(lean.unknownIdentifier): Unknown identifier `PEqualNP.Outside.L_meta_2592.Binary17.Extended.extract`
+/tmp/oec/pequalnp-pilot-103/1884-private-check.lean:3:7: error(lean.unknownIdentifier): Unknown identifier `PEqualNP.Outside.L_meta_2592.Binary17.Extended.get_rep`

@@ -1,0 +1,7 @@
+../results/orch1884/lemmas/TwoRailReaders.lean:41:29: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_cons] at h0 h10
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

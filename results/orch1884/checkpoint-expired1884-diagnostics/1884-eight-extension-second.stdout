@@ -1,0 +1,88 @@
+../results/orch1884/lemmas/EightExtension.lean:79:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:81:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch1884/lemmas/EightExtension.lean:80:10: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:87:65: error: unsolved goals
+w : List Bool
+o : ℕ
+hw : 9 ≤ w.length
+ho : o < w.length
+h0 : ∀ (k : ℕ), 0 < w.length + k
+h1 : ∀ (k : ℕ), 1 < w.length + k
+h2 : ∀ (k : ℕ), 2 < w.length + k
+h6 : ∀ (k : ℕ), 6 < w.length + k
+hout : ∀ (k : ℕ), o < w.length + k
+⊢ (w[1] = false ∨ (w[0] = false ∧ w[6] = false) ∧ w[2] = false ∨ w[o] = true) ∨
+    w[1] = true ∧ ((w[0] = true ∨ w[6] = true) ∨ w[2] = true)
+../results/orch1884/lemmas/EightExtension.lean:93:42: warning: This simp argument is unused:
+  read_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, h0, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:55: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, read_append, h1, h2, h6, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:93:67: warning: This simp argument is unused:
+  h6
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ws, GateOp.eval, read_append, h0, h1, h2, hout, show 0 < w.length by omega,
+    show 1 < w.length by omega, show 2 < w.length by omega, show 6 < w.length by omega, ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/EightExtension.lean:130:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  decide
+      ((List.foldl ws w
+              [{ op := GateOp.or, inputs := [0, 6] }, { op := GateOp.or, inputs := [w.length, 2] },
+                { op := GateOp.and, inputs := [1, w.length + 1] },
+                { op := GateOp.or, inputs := [wire C.output, w.length + 2] }]).getD
+          (w.length + 3) false =
+        w.getD (wire C.output) false) ||
+    w.getD 1 false && (w.getD 0 false || w.getD 6 false || w.getD 2 false)
+in the target expression
+  (List.foldl ws w
+          [{ op := GateOp.or, inputs := [0, 6] }, { op := GateOp.or, inputs := [w.length, 2] },
+            { op := GateOp.and, inputs := [1, w.length + 1] },
+            { op := GateOp.or, inputs := [wire C.output, w.length + 2] }]).getD
+      (w.length + 3) false =
+    GeneralReaderCertificate.edge y
+
+C : Circuit
+correct : ∀ (x : Fin 8 → Bool), C.eval (List.ofFn x) = eight x
+y : Fin 9 → Bool
+w : List Bool := List.foldl ws (List.ofFn y) (List.map remap C.gates)
+len : w.length = 9 + C.size
+old :
+  (List.foldl ws (List.ofFn y) (List.map remap C.gates)).getD (wire C.output) false =
+    (List.foldl ws (List.ofFn (y ∘ pins)) C.gates).getD C.output false
+oldEq : w.getD (wire C.output) false = eight (y ∘ pins)
+hv : wire C.output < w.length
+⊢ (List.foldl ws w
+          [{ op := GateOp.or, inputs := [0, 6] }, { op := GateOp.or, inputs := [w.length, 2] },
+            { op := GateOp.and, inputs := [1, w.length + 1] },
+            { op := GateOp.or, inputs := [wire C.output, w.length + 2] }]).getD
+      (w.length + 3) false =
+    GeneralReaderCertificate.edge y

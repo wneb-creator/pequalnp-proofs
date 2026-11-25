@@ -1,0 +1,1680 @@
+{
+  "utc": "2026-11-25T17:05:52.473915+00:00",
+  "scope": "Complete remaining root-level1884 compiler/dependency diagnostics and core export streams discovered before expiration preservation; includes failures, interrupted checks and success. No claim all streams are successful.",
+  "files": [
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-concrete-reader-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stdout",
+      "bytes": 3610,
+      "sha256": "d26f90454d4015a386d60482a8f1a2d082e2b98d4c05793266a6550ffa1af560",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary17-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stderr",
+      "bytes": 99,
+      "sha256": "c0c18365d858d671e9a06bfdc487ac6f81198c9b7bf09eb3c2a8701c64e4cced",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-name-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-or-name-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stdout",
+      "bytes": 121,
+      "sha256": "1d6d84ec818edc8e96f524f5ee6beffc76279f50a69302561cc2ff68b4fa1446",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-axioms.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stdout",
+      "bytes": 2270,
+      "sha256": "50c9804a2af677683d391f7fcfe79c82ae17273d19b10f4e22fa2a2707e35bf7",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-free-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-core.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stdout",
+      "bytes": 407,
+      "sha256": "c92db9aefe47fe31a146d67518d53dce302ef39eb39f97e1e177da80de0a877a",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-restriction-eight-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-tip.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-upstream-refresh.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-safety-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-directional-format.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-comparison-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-trim-not-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-gate-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-fourth.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-facts-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-head.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-matching-head.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stdout",
+      "bytes": 2282,
+      "sha256": "9b1b443154c03ca264d476ab094113615b07ee52b675571256529eec27744b6b",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/DirectFilterStructure-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-trim-not-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-formula-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-sym-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stdout",
+      "bytes": 495,
+      "sha256": "8eb4ddad25cacdf36120891563e66ef6ba52b0eac290fd2f579fe1b22e5c6a71",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unique-reader-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-clean-def-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-clean-def-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-formula-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stdout",
+      "bytes": 1156,
+      "sha256": "c28b51f7be926d77719a5348bf5097a8aea4d212873ec0810e2f439245abe09f",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-new-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-guard-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-002.stdout",
+      "bytes": 7704,
+      "sha256": "11ba02c6be7f47722051e51d129349bd71843959f5255b957206436ab3ae62bf",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stdout",
+      "bytes": 1440,
+      "sha256": "7309097dbb7d4d65c30a632182640c79c8575ac2230e7d93667960229c879957",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-not-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stdout",
+      "bytes": 2143,
+      "sha256": "c2e99f2aa5d298389595de7512467ca7a939cf07d4aa9f5098c951b88d415de0",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-001.stdout",
+      "bytes": 1026,
+      "sha256": "31c81e2eda0d0fb08c75a10e4f4f8de22caf784bf5fc9d8786137f97e53047e2",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-trim-not-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-axioms.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-target-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-shape-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-or-shape-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-lift-dependencies.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-essentiality-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-safety-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-open-pr-pages.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-open-pr-pages.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stdout",
+      "bytes": 1342,
+      "sha256": "8a482cfa052891251fb5fa5fb154ecd0a63339d3b445d812017aa6adf065b4ca",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-orders-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-upstream-fetch.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stdout",
+      "bytes": 59922,
+      "sha256": "86a5cabab4cb3620dce2dacc54a3136c96783711a3ec4e252b05795d237038ca",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-normal-lift-dependencies.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-target.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-private-check.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-fourth.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stdout",
+      "bytes": 293,
+      "sha256": "44e0a717388d3bc5eefa5430c8b0295d4ced25241283751e0a75bfc20e934a5c",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-facts-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-facts-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stdout",
+      "bytes": 55549,
+      "sha256": "0df6b57a924818d53f23a6b0d06e1d2b7d3e9ab5d43fda17e8c055d016fcaea1",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-mono-base-retry.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-tip.stdout",
+      "bytes": 63,
+      "sha256": "fb3e61e011cbaa2015db2cc8bdb69f284ede1e03c53ab369e90e4b790ee57b96",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-tip.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stdout",
+      "bytes": 829,
+      "sha256": "ae8ce6a763c4821bb6dfe63bd5280c22ac07f233ad0116832432225a7b2473f3",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-restriction-eight-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-semantics-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-003.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-guard-001.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-guard-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-target.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-target.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-raise-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stdout",
+      "bytes": 4445,
+      "sha256": "b9f2115a4bb17f897115edaeef9dd93f7b44d4b8abefbaf72e7155ae57817b71",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-export.stdout",
+      "bytes": 2426,
+      "sha256": "7c932caf5082d4abe698d33ae1ed12cd9849ba5217ab5e71ac07c391e05001db",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stdout",
+      "bytes": 4311,
+      "sha256": "0ba26abfc0587d4587be564fa25d3bd9327f022f12833a3d70d1a79683ad019b",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stdout",
+      "bytes": 248,
+      "sha256": "a9a7a0db3ae5a0653c918ab395c0d81bfa88670b4fe3286830f5a393fdfb76a2",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-semantics-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-first.stdout",
+      "bytes": 2413,
+      "sha256": "c4bb87b8c357e3a6c1d2e46720a9bfcecf0f857b5412618f70f9be009456bdeb",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stdout",
+      "bytes": 344,
+      "sha256": "50b47900d7736c044c4568c7628f488182cc5e97d55d2ca686780cef15e348fe",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stdout",
+      "bytes": 285,
+      "sha256": "2d885d24d5e658cf935868b769074c6f25d9d88752f5789c96f5323ce74621ec",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-small.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-one-gate-after-not-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-concrete-reader-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/SoleReaderFreeCore-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-matching-map.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-normal-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-concrete-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-partial-build-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-reader-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stdout",
+      "bytes": 566,
+      "sha256": "ae693682071312d6ee467ccbc5922cc5c00b2c45c19d7a17d93d71dd3aa72de9",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stdout",
+      "bytes": 3052,
+      "sha256": "13f9bc8b9432fe369b2f9db7335bfabc37c0cf82bd2dcf01f86554ad2c28ffef",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-first.stdout",
+      "bytes": 5056,
+      "sha256": "9963713e844eb42e744b2d8299c30397749394af6cf919f4eb4375f9fffe0047",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stdout",
+      "bytes": 61893,
+      "sha256": "9629c803ab591574a99e1fd426d9bd49584624b8cd1dca0d13915525bcd8ea30",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-reader-standalone-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-normal-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-normal-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-exact-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-liftfix-exact-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-meta.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-matching-meta.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-scoped.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-restriction-eight-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-target-history.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stdout",
+      "bytes": 6322,
+      "sha256": "284e5122777b6c7d78fded8214cf49b04cde4bfeb9312753cb1cf43bafc7593a",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-concrete-reader-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-seven-initial-report.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-refresh.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-upstream-refresh.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-first.stdout",
+      "bytes": 246,
+      "sha256": "eb6491d324832408ca65063f538b9d41808490a67c263bc887ed0cf00c7db1b8",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-sym-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-free-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-001.stdout",
+      "bytes": 11972,
+      "sha256": "b5a0b871b03317967c549c036b4de3be6b213bf9a87a91b54df377f19f68e370",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stdout",
+      "bytes": 2698,
+      "sha256": "9b99f0108316ebe7430eb8419ed6aaf50481208fbcf4b91f82e0b765ea1a4c66",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterStructure-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/DirectFilterStructure-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-first.stdout",
+      "bytes": 550,
+      "sha256": "4aa5c50652228e326ecc80ccc2b7c49c6daf09c1d4dd9339fbb816ffb8fb0035",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-one-gate-after-not-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unique-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unique-reader-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-theta-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-fourth.stdout",
+      "bytes": 230,
+      "sha256": "47795d2b8c95b31f00e1c97c474eaceb3be507a820abc700339cd9a3ad05c5dd",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-fourth.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-new-files.stdout",
+      "bytes": 1800,
+      "sha256": "e9dd82041cd0c649979f44b58e096396e1d292110b64e6458ac1c8cf2851bd81",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-new-files.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-seven-initial-report.stdout",
+      "bytes": 273989,
+      "sha256": "8fa9c2aeaf6b35fb6f9a1affaf56ac2ab663bd143816629c54bd4063a04d3647",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-seven-initial-report.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-filter-safety-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-raise-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-raise-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stdout",
+      "bytes": 1453,
+      "sha256": "4d6e347541ecbeddfe42def5918912b5e4542905de7ca49f11f0f5c0286029c1",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary17-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-exact-history.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-exact-history.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-formula-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stdout",
+      "bytes": 410,
+      "sha256": "d3976c6668b4672f5b7ac717b618625a598fad8cb05b6b888935d7f54193531d",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-orders-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-directional-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-export2.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-filter-safety-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-filter-safety-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/SoleReaderFreeCore-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/SoleReaderFreeCore-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stdout",
+      "bytes": 61863,
+      "sha256": "8f3fe17f792d0e3503432651c07f08c15941bf2a7c222b291f4f8faa97a19306",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-live-size-dependencies.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-first.stdout",
+      "bytes": 3264,
+      "sha256": "7dac91d8f0ef5b32cbb09f98dd5d0f6006b1e4d8fb06f14de184b6cb05e73f44",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-gate-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-third.stdout",
+      "bytes": 2143,
+      "sha256": "c2e99f2aa5d298389595de7512467ca7a939cf07d4aa9f5098c951b88d415de0",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stdout",
+      "bytes": 837,
+      "sha256": "ce39bfe02a451275ea4b39b338b4cb923342296d64aa730947cb95771a557572",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-audit-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-audit-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-one-gate-after-not-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-final-status.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-preservation-final-status.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-small.stdout",
+      "bytes": 212,
+      "sha256": "35bd2b0e03ff99fdb33907b8db35588de07e68119436c3c5bf5d9a65ac2b36a8",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-small.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-general-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-fourth.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-format.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-directional-format.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-small-floor-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-small-floor-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-concrete-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-concrete-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-semantics-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-gate-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-first.stdout",
+      "bytes": 6135,
+      "sha256": "5e75a79d3f17f6289c75f84a66dc4c6e8b6ef686aa7fccad7fbf3412612c6ab0",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rails-core.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-least-gate-second.stdout",
+      "bytes": 898,
+      "sha256": "09dacb29ae85d27dbf1317d823c1192558d8b17b8367f24a9948be9aa00c649e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-least-gate-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stdout",
+      "bytes": 3582,
+      "sha256": "7c72280aae6541f63555745a22e7df66872621189f92e81c0e7196bc2f861a2a",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-mono-extension-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-not-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-second.stdout",
+      "bytes": 198,
+      "sha256": "a803e8985ef2f0d212a0edfe0db7ed2f2f23c6202ab1fb12370e788c99e1388a",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-first.stdout",
+      "bytes": 266,
+      "sha256": "eaf016efa3f37797130481d56cfba7a95fb33a8f1ee03dd483b10ed48ac4bb9e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-or-safety-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-direct-filter-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stdout",
+      "bytes": 805,
+      "sha256": "4977e26851f49244fe18b48b0ca4743b5518c1cdcc8dae403084563b3d3e8b42",
+      "source": "/tmp/oec/pequalnp-pilot-103/DirectFilterCore-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-directional-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-directional-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-rails-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stdout",
+      "bytes": 32768,
+      "sha256": "977f8ca532cde58f7d18edcb5c1f9808896b144e11344c52c4c3d701f8ae8501",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-standalone-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stdout",
+      "bytes": 3818,
+      "sha256": "18fbc3dc1f354f8ef4a0d39de93239cb38168364bcd1ac8d9843c4fdc8498b23",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-first.stdout",
+      "bytes": 4831,
+      "sha256": "bc87e04d0901ece6d5e0ff222337c59aef95579fb12d347bb5e2d57202dc7aab",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary17-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-sym-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-concrete-reader-first.stdout",
+      "bytes": 624,
+      "sha256": "886c1823a3aa3a276c967fcbb20afd2cdf6694ae825010b5f29d9e499c8cde25",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-concrete-reader-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stdout",
+      "bytes": 3182,
+      "sha256": "d4b9fa09581c8358c79f0aa20f79c18a30c20296498747e04f5fbb50c9418a3e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-direct-filter-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-general-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-third.stdout",
+      "bytes": 2094,
+      "sha256": "a6f6cb11a95ea6aadb364dd63c650996329da62e00ac8329cbee4a60aca25d0e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-first.stdout",
+      "bytes": 588,
+      "sha256": "594667f79c9bd92296cd69d2949f6ab4063c2e86c5fcf8590d079c65c15b15a6",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-safety-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-partial-build-001.stdout",
+      "bytes": 57894,
+      "sha256": "048a2d401db16cae3da2bfb18818ddf85b301340f62a2d44844e47179c01d63c",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-partial-build-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-kw-formula-001.stdout",
+      "bytes": 846,
+      "sha256": "2f64ff3872b7cef977491e5972185a65af579da7d716cf7898d6bb12ae6f0ac0",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-kw-formula-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/DirectFilterCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/DirectFilterCore-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stdout",
+      "bytes": 2445,
+      "sha256": "8e62b66c57bb7fc8eede6480f6a84cfbb442cce4728bdc00c413abe0d1c3a3d7",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-free-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-first.stdout",
+      "bytes": 1074,
+      "sha256": "af394dbd9e0b23f3740aa82a4fb1c2d832247e1010ac6681b226a1ffccbba1f8",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-001.stdout",
+      "bytes": 15657,
+      "sha256": "76fbc78627336f28c8a74672c86024c401b6b7e284b128d88a69602dd5b5e2ec",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-restriction-eight-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-restriction-eight-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-002.stdout",
+      "bytes": 3036,
+      "sha256": "d1be4041f30a73dbf3c6615cb0c435cf38d7582311f6c1c57db280429480d128",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-direct-filter-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-helper-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-helper-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-standalone-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-reader-standalone-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-upstream-fetch.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-upstream-fetch.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-sym-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-sym-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-scoped.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-scoped.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-first.stdout",
+      "bytes": 996,
+      "sha256": "b441154a5841ad267be0d487bf677ea1efdd4999323f30b2fabacdf1a67a94b9",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-history.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-target-history.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-floor-bridge.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-general-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-fourth.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-second.stdout",
+      "bytes": 892,
+      "sha256": "6e0da50696061420a80cae89a41ec1d648007e50d720b41dfab7f77a20c31999",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/NoPositiveRailCore-export.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary17-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary17-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-relax-third.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-relax-third.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-filter-rails-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-filter-rails-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-liftfix-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-liftfix-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-refresh-target-files.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-refresh-target-files.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-lift-dependencies.stdout",
+      "bytes": 59903,
+      "sha256": "fa68862328f000c9b0bf632db7e7dc6b92b247517fcda6dc60f0647111096772",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-lift-dependencies.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-floor-bridge.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-floor-bridge.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-no-positive-003.stdout",
+      "bytes": 3000,
+      "sha256": "e91be24be2dba4a7eb0dcb8a3c8215cdc8b8c4e679b954ffce7d2e74ab51e13b",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-no-positive-003.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-or-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export.stderr",
+      "bytes": 157,
+      "sha256": "0e77bd4ac80a5336461ec96c403cf55df3dded0dc03df6d0fc72b8f71f1f8ae0",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stdout",
+      "bytes": 115,
+      "sha256": "c2af819ea5b387811ead1e784b944d8f12fb758bf4b2351d16e811b154c30235",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-axioms.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-orders-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-001.stdout",
+      "bytes": 2770,
+      "sha256": "ef65e38b936db2da5a84f28a57baf6580f22edb83301956e9443ffadf649840e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stdout",
+      "bytes": 66275,
+      "sha256": "9ef7691c25be36003e0e7645143db39530177fdce2ae3d8d6589cd6a7ece88c3",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-loc-clean-dependencies.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-safety-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-safety-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-shared-filter-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-shared-filter-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-preservation-next-status.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-preservation-next-status.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-normal-lift-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-normal-lift-dependencies.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-matching-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-matching-search.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-not-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-factor-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rail-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rail-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/NoPositiveRailCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/NoPositiveRailCore-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-comparison-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-live-size-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-live-size-dependencies.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-base-retry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-mono-base-retry.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-zero-not-second.stdout",
+      "bytes": 1073,
+      "sha256": "c842234dcaf6beb3c86c809cb287a58145966d6f5520bf550df005136650e2de",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-zero-not-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-blockers-fourth.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-blockers-fourth.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-floor-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-floor-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-core.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-core.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-first.stdout",
+      "bytes": 572,
+      "sha256": "1efd2258c14e28eb3e546ef33f4b58157880a5cfd41c44420d413dc10df4f61c",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-loc-clean-dependencies.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-loc-clean-dependencies.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-extension-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-extension-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-comparison-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-one-gate-after-not-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-one-gate-after-not-second.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-floor-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-axioms.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-unary18-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-unary18-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-private-check.stdout",
+      "bytes": 328,
+      "sha256": "b3ae3e49b35f71d9fc04bc7a86a041137ce549b7aec8173c7fbd040f23588639",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-private-check.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-eight-theta-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-eight-theta-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-two-rails-core.stdout",
+      "bytes": 313,
+      "sha256": "ca9e12c3a7b183ccd50422f6efabd90970872c2208edd474d3c2fc3d71d7dc55",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-two-rails-core.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-rail-comparison-001.stdout",
+      "bytes": 187,
+      "sha256": "ad8abd7b1fafa73d2f3e6abcc178e2f6a19f68ad61eedea1dcc77ecc18f2a00d",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-rail-comparison-001.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-readsback-helper-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-readsback-helper-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-soleor-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-soleor-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-soleor-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stdout",
+      "bytes": 914,
+      "sha256": "40a76d8bce4a0f1ca6f7195a9e7674c20de162b297fc2d6ec1b024678eca5c5e",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-general-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-general-reader-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-general-reader-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-essentiality-first.stdout",
+      "bytes": 280,
+      "sha256": "2f48e3d79efa5a2c3677f31612833980ec47982da9debe99760b6d0f5261beb8",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-essentiality-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-free-or-files.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-free-or-files.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-first.stdout",
+      "bytes": 83,
+      "sha256": "2e48fd91806d0891ce0e110af5ac938942727c968b92918619dac592116db1cf",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-first.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-pair-local-third.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-pair-local-third.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-or-safety-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-or-safety-export.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-closed-general-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-closed-general-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-mono-extension-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-mono-extension-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-trim-not-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-trim-not-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-direct-filter-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-direct-filter-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-reader-standalone-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-reader-standalone-first.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-safe-not-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-safe-not-002.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-not-rail-002.stdout",
+      "bytes": 3000,
+      "sha256": "98d3e397981e88c5a2761a78d6ec28460dfc0d6f06b61b9d316385cbf2bbb743",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-not-rail-002.stdout"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-sole-free-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-sole-free-001.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-all-two-orders-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-all-two-orders-second.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-nine-circuit-export2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-nine-circuit-export2.stderr"
+    },
+    {
+      "path": "results/orch1884/checkpoint-expired1884-diagnostics/1884-relax-semantics-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-103/1884-relax-semantics-second.stderr"
+    }
+  ]
+}

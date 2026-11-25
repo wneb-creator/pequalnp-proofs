@@ -1,0 +1,14 @@
+../results/orch1884/lemmas/TrimNot.lean:63:6: error: Type mismatch: After simplification, term
+  congrArg (fun n => if decide (g.op = GateOp.not) = true then n + 1 else n) ih
+ has type
+  (if decide (g.op = GateOp.not) = true then
+      (List.filter (fun g => decide (g.op = GateOp.not)) (List.map gate gs)).length + 1
+    else (List.filter (fun g => decide (g.op = GateOp.not)) (List.map gate gs)).length) =
+    if decide (g.op = GateOp.not) = true then (List.filter (fun g => decide (g.op = GateOp.not)) gs).length + 1
+    else (List.filter (fun g => decide (g.op = GateOp.not)) gs).length
+but is expected to have type
+  (if decide ((gate g).op = GateOp.not) = true then
+        gate g :: List.filter (fun g => decide (g.op = GateOp.not)) (List.map gate gs)
+      else List.filter (fun g => decide (g.op = GateOp.not)) (List.map gate gs)).length =
+    (if decide (g.op = GateOp.not) = true then g :: List.filter (fun g => decide (g.op = GateOp.not)) gs
+      else List.filter (fun g => decide (g.op = GateOp.not)) gs).length

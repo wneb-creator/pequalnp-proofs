@@ -1,0 +1,25 @@
+../results/orch1884/lemmas/ZeroNot.lean:9:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (?m.8 = GateOp.not)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+../results/orch1884/lemmas/ZeroNot.lean:18:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (?m.74 = GateOp.not)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+../results/orch1884/lemmas/ZeroNot.lean:19:31: error: unsolved goals
+C : Circuit
+legal : FanInTwo C
+zero : NotBracket.notCount C = 0
+empty : List.filter (fun g => sorry) C.gates = []
+g : Gate
+hg : g ∈ C.gates
+hl : g.inputs.length ≤ 2
+hn : g.op = GateOp.not
+⊢ sorry () = true
+../results/orch1884/lemmas/ZeroNot.lean:19:40: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,49 @@
+../results/orch1884/lemmas/ThreeBlockers.lean:223:72: error: unsolved goals
+C : Circuit
+w : List Sig
+hg : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2
+hw : ∀ a ∈ w, weak a = true
+h0 : C.eval (List.map (bit 0) w) = true
+h1 : C.eval (List.map (bit 1) w) = false
+h2 : C.eval (List.map (bit 2) w) = false
+h3 : C.eval (List.map (bit 3) w) = false
+hsmall : ¬2 ≤ List.countP isAnd C.gates
+hc : List.countP isAnd C.gates ≤ 1
+hop : ∀ g ∈ C.gates, g.op = GateOp.and ∨ g.op = GateOp.or
+hr0 : bit 0 ((execute C.gates w).getD C.output 0) = true
+hr1 : bit 1 ((execute C.gates w).getD C.output 0) = false
+hr2 : bit 2 ((execute C.gates w).getD C.output 0) = false
+hr3 : bit 3 ((execute C.gates w).getD C.output 0) = false
+hstrong :
+  ((bit 0 ((execute C.gates w)[C.output]?.getD 0#4) = false ∨ bit 1 ((execute C.gates w)[C.output]?.getD 0#4) = true) ∨
+      bit 2 ((execute C.gates w)[C.output]?.getD 0#4) = true) ∨
+    bit 3 ((execute C.gates w)[C.output]?.getD 0#4) = true
+⊢ False
+../results/orch1884/lemmas/ThreeBlockers.lean:245:8: warning: This simp argument is unused:
+  hr0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr1, hr2, hr3] at hstrong
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/ThreeBlockers.lean:245:13: warning: This simp argument is unused:
+  hr1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr0, hr2, hr3] at hstrong
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/ThreeBlockers.lean:245:18: warning: This simp argument is unused:
+  hr2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr0, hr1, hr3] at hstrong
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/ThreeBlockers.lean:245:23: warning: This simp argument is unused:
+  hr3
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr0, hr1, hr2] at hstrong
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

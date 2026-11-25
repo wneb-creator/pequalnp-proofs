@@ -1,0 +1,15 @@
+UTC: 2026-11-25T17:06:44.720703+00:00
+
+The L-meta-1884 lease returned confirmed HTTP410 at17:04:43 UTC, after a successful17:01:54 renewal reported expiry17:21:54.435. Root preserved the full error response and headers under lease-ended-1704. All proof/search activity stopped; no active owned jobs remain according to each agent. This checkpoint performs preservation only.
+
+There is no complete proof or counterexample for the posted L-meta-1884 statement. The named single-file partial remains the previously checked395-line InputEssentiality/KWFormula/PairLocalization assembly. No final posted-theorem checker or PR is claimed.
+
+Completed checked components include the actual25-row monotone auxiliary lower bound14; canonical and all-six-neighbor-pair/both-operand-order two-filter exclusions with explicit topology and base-reader conditions; actual safe-operand and prefix-avoids-negative-input exclusions; the raw rail-reader lower bound; and the new TwoFiltersRailCount wrapper that derives its numerical count from explicit use of both rails. NoPositiveRail and the compatibility adapters were independently reviewed. Every structural theorem retains its displayed assumptions; none supplies the missing universal extraction of two sole filters from arbitrary original candidates.
+
+Two newest wrappers, TwoFilterRailUsage and TwoFilterOutsideNeighbors, have author-reported successful check/export with exact-hash empty diagnostics, but their independent reviews were interrupted by lease loss. They are preserved as checked research components awaiting independent review, not certified final proofs. DirectFilterStructure and NoPositiveRailCore were independently reviewed. The final composition joining the new rail-usage and rail-count wrappers was only planned and no file was created.
+
+Search outcomes remain negative or inconclusive. No exact circuit witness was found. The final stopped stochastic searches have complete logs and validation records in search-stoch. The new free-neighbor-OR target searches are PREPARED_NOT_RUN; only pinned validation fixtures ran. Their known20-gate lifts validate encoders and are not counterexamples. Earlier solver UNKNOWN results and restricted repair UNSAT censuses retain their documented limited scopes.
+
+The checkpoint-expired1884-diagnostics directory preserves279 complete remaining root-level compiler/dependency streams, including successful, failed and interrupted checks. Their presence does not imply all runs passed. Existing per-source validation/review records identify successful exact hashes. Generated oleans, Python bytecode and executable binaries are excluded; no code or diagnostics are replaced by head/tail excerpts.
+
+The frozen stage list includes all uncommitted1884 text artifacts at audit time, including mutable notes after the authors stopped, all complete newly archived search output, prepared code and the full lease response. Exact hashes and exclusions are recorded in PRESERVATION-MANIFEST-expired1884.json. No further1884 proof development is authorized while its lease is expired.
