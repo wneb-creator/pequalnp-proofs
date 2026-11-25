@@ -6,3 +6,6 @@
 2026-11-25T02:20:34.044925+00:00 reduction_analysis geometry certificate compiled.
 2026-11-25T02:21:18.571398+00:00 Geometry partial compiled and reviewed; renewed expiry02:40:46.394Z.
 2026-11-25T02:24:14.234775+00:00 Shifted-gate semantics partial compiled and independently reviewed.
+2026-11-25T02:24:46.013470+00:00 Renewed lease; expiry 2026-11-25T02:44:46.357Z.
+2026-11-25T02:24:56.673118+00:00 reduction_analysis fulltwo-gateattachmentlemma compiled.
+2026-11-25T02:25:39.950242+00:00 Complete R650_517 attachment child compiled and independently reviewed.
