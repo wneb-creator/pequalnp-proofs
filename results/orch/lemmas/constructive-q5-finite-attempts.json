@@ -1,0 +1,9 @@
+{
+  "attempt0": "Setup error: initial Python writer used a relative results path while cwd was lean; no source written. Lean then reported missing input. Scratch logs preserved.",
+  "attempt1": "Stopped with SIGTERM after replacing a new Decidable instance with an abbrev; source format correction, no Lean mathematical error observed. Scratch logs preserved.",
+  "attempt2": "Stopped with SIGTERM at roughly12GB RSS during monolithic kernel finite decision. Complete empty stdout/stderr preserved in results.",
+  "attempt3": "Stopped with SIGTERM when root requested separate declarations rather than case splits within one declaration; about3.4GB RSS, no Lean mathematical error observed. Complete logs preserved.",
+  "attempt4": "Lean package-root error when emitting an olean from a scratch source; fixed using documented -R option. Complete stderr preserved.",
+  "current": "Stopped with SIGTERM, exit143, after the equivalent compact certificate completed with explicitexit0. No Lean mathematical diagnostic in original worker. Complete stdout/stderr remain constructive-q5-finite-build.stdout/.stderr. Replaced by formalization-compact-q5-complete.lean SHA2870a26ce6e8684f4199e3c7fe178e8500b9f29312b8bda3f094b66c71aaa833.",
+  "stopped_utc": "2026-11-25T12:02:43.460498+00:00"
+}

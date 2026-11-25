@@ -38,3 +38,6 @@
 2026-11-25T11:45:13.733203+00:00 — Short trace-preserving integration compiled standalone and reviewed. Re-plan: finish p9 finite certificate, test the p10 two-unit obstruction, continue p14 structural/SAT routes. Preserve completed high-search logs and independently verified K4 controls.
 
 2026-11-25T11:56:17.197695+00:00: Checkpoint prepared for independently reviewed finite p10 obstruction, cached circuit transfer, compact q5 core, and cofactor multi-unit slack. No full target result.
+
+2026-11-25T12:02:05Z: Compact q5 certificate completed exit0; complete p9 circuit theorem still awaiting standalone build.
+2026-11-25T11:58:10Z: Targeted p14 SAT timed out UNKNOWN; worker handed to p9 proof build.

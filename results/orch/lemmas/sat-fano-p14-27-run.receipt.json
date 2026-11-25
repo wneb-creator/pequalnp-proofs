@@ -1,0 +1,26 @@
+{
+  "tag": "sat-fano-p14-27-run",
+  "started_utc": "2026-11-25T11:38:08.985210+00:00",
+  "completed_utc": "2026-11-25T11:58:10.770079+00:00",
+  "wrapper_exit": 0,
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-81/sat-fano-p14.py",
+    "--points",
+    "0,1,2,3,4,5,6",
+    "--size",
+    "27",
+    "--limit",
+    "1200",
+    "--no-double",
+    "--ordered",
+    "--op-order",
+    "--edge-support",
+    "--boundary-essential",
+    "--false-or-count",
+    "--p14-equality",
+    "--tag",
+    "sat-fano-p14-27-run"
+  ],
+  "source_sha256": "4eb804feeec01da565c01fed54bb1cbf1076aed86a5bd618d9ae2c36cf155e0f"
+}

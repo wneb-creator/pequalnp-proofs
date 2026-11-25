@@ -1,0 +1,17 @@
+results/orch/lemmas/stochastic-high-residual-enum.cpp: In function ‘int main(int, char**)’:
+results/orch/lemmas/stochastic-high-residual-enum.cpp:18:44: error: no matching function for call to ‘min(uint64_t&, long long unsigned int)’
+   18 |  const std::uint64_t limit=argc==4?std::min(total,std::stoull(argv[3])):total;
+      |                                    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/14/array:43,
+                 from results/orch/lemmas/stochastic-high-residual-enum.cpp:1:
+/usr/include/c++/14/bits/stl_algobase.h:233:5: note: candidate: ‘template<class _Tp> constexpr const _Tp& std::min(const _Tp&, const _Tp&)’
+  233 |     min(const _Tp& __a, const _Tp& __b)
+      |     ^~~
+/usr/include/c++/14/bits/stl_algobase.h:233:5: note:   template argument deduction/substitution failed:
+results/orch/lemmas/stochastic-high-residual-enum.cpp:18:44: note:   deduced conflicting types for parameter ‘const _Tp’ (‘long unsigned int’ and ‘long long unsigned int’)
+   18 |  const std::uint64_t limit=argc==4?std::min(total,std::stoull(argv[3])):total;
+      |                                    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_algobase.h:281:5: note: candidate: ‘template<class _Tp, class _Compare> constexpr const _Tp& std::min(const _Tp&, const _Tp&, _Compare)’
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+/usr/include/c++/14/bits/stl_algobase.h:281:5: note:   candidate expects 3 arguments, 2 provided

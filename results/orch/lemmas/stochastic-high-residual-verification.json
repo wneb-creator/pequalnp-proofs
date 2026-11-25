@@ -1,0 +1,26 @@
+{
+  "scope": "Independent set-based verification of abstract residual states, closure, budgets and every permissible X subset. Prospective +9 cofactor wrapper remains separate and these are not circuits.",
+  "results": [
+    {
+      "file": "stochastic-p13-residual-one.json",
+      "sha256": "84b421f4846f0badd3206c92105e363a0f6138c4b52c63f1cc0deb6dbd5278d2",
+      "verified_examples": 20,
+      "all_X_subsets_checked": 531,
+      "complete_enumeration": true
+    },
+    {
+      "file": "stochastic-p12-same-residual-two.json",
+      "sha256": "0a992cdcbff6fc318ed5f5072579af5705ce96d77474c7d6cef5f73a217e88ea",
+      "verified_examples": 20,
+      "all_X_subsets_checked": 740,
+      "complete_enumeration": false
+    },
+    {
+      "file": "stochastic-p12-mixed-residual-two.json",
+      "sha256": "a948b96557a6c8b970ecb6706326f54caddc4416a49a0f49be86a9fb10d8b754",
+      "verified_examples": 20,
+      "all_X_subsets_checked": 613,
+      "complete_enumeration": false
+    }
+  ]
+}

@@ -78,3 +78,5 @@ The exact posted-to-canonical bridge now has a successful standalone build and i
 - Continue preserving every compiled reviewed component. No proof PR until the exact target or its negated twin passes the full checker.
 
 2026-11-25T11:56:17.197695+00:00: Preserving completed p10 finite obstruction and cached circuit transfer separately, compact q5 core, and multi-unit cofactor slack. Full p9 and strengthened K4 standalone builds are pending; main target remains absent.
+
+2026-11-25T12:03:14.846860+00:00: Full compact q5 certificate passed; original slow job stopped with exit143 after valid alternative completed. P9 standalone composition and p10 standalone bound are running. P14 targeted SAT ended UNKNOWN; structural and smaller semantic models continue.

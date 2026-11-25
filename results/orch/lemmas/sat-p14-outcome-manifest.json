@@ -1,0 +1,46 @@
+{
+  "status": "UNKNOWN",
+  "scope": "Ordinary 27-gate Fano p14 feasibility with reviewed equality/minimality cuts; not a quiet-witness query. Time limit yields no SAT/UNSAT conclusion.",
+  "started_utc": "2026-11-25T11:38:08.985210+00:00",
+  "completed_utc": "2026-11-25T11:58:10.770079+00:00",
+  "solver_seconds": 1200.043,
+  "solver_exit": 0,
+  "wrapper_exit": 0,
+  "source_sha256": "4eb804feeec01da565c01fed54bb1cbf1076aed86a5bd618d9ae2c36cf155e0f",
+  "variables": 23951,
+  "clauses": 281466,
+  "no_witness_written": true,
+  "static_manifest": "results/orch/lemmas/sat-p14-preservation-manifest.json",
+  "static_manifest_sha256": "488ea32735ea9cc2be62fbbc900375e1f808980541ef512b5d192f08d65b98e5",
+  "active_cnf_and_metadata_match_archived_target": true,
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-p14-27-run.stdout.gz",
+      "bytes": 12326,
+      "sha256": "d7d4dff162d4c5c10593f4127045ec37acbb3774ebaa1039492dce3a43a53b8b",
+      "restore_as": "sat-fano-p14-27-run.stdout",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-p14-27-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "restore_as": "sat-fano-p14-27-run.stderr",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-p14-27-run.runlog.gz",
+      "bytes": 145,
+      "sha256": "3fc055d6720a31bdb8d659f0e1ec8963e523c8955dc2b05b2936d01e8afe69d9",
+      "restore_as": "sat-fano-p14-27-run.runlog",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-p14-27-run.receipt.json",
+      "bytes": 613,
+      "sha256": "1aa7e0fbbc1b6a5c2bd66f766521785d653d96c80d0d9fce255ec85770470f1c",
+      "restore_as": "sat-fano-p14-27-run.receipt.json",
+      "gzip": false
+    }
+  ]
+}

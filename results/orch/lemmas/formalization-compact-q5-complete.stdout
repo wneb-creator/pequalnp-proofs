@@ -1,0 +1,28 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.lean:159:24: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q5_compact, h1, h3, Bool.and_true, Bool.and_eq_true, decide_eq_true_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.lean:159:27: warning: This simp argument is unused:
+  h1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q5_compact, h0, h3, Bool.and_true, Bool.and_eq_true, decide_eq_true_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.lean:159:30: warning: This simp argument is unused:
+  h3
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q5_compact, h0, h1, Bool.and_true, Bool.and_eq_true, decide_eq_true_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.lean:159:33: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q5_compact, h0, h1, h3, Bool.and_eq_true, decide_eq_true_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

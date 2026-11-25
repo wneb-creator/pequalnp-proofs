@@ -1,0 +1,107 @@
+{
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-build.json",
+      "bytes": 542,
+      "sha256": "864ae8bd1a049e23b92d75a9be1654c8bbd2078c2538089aebdb68c18246574b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-enum-compile-typefix.stderr",
+      "bytes": 1551,
+      "sha256": "77f2ba500f06a79a5274258322f45afb6ffe4c65e203b2e88104af5dc921e4d5"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-enum-compile-typefix.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-enum-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-enum-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-enum.cpp",
+      "bytes": 3437,
+      "sha256": "d23f96948cd10626dd34218c92448c1311af1d243f99ecfce05f8aa87bd6aae2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-scope.md",
+      "bytes": 2523,
+      "sha256": "638c749a37ec7a5ca6f0d89af418483c135f71530c9b8261e501cacef149b6e2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-verification.json",
+      "bytes": 986,
+      "sha256": "f0ae05fcf97a49264d978792c6bc8440bce9209050e68e68583ff16ea51a7273"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-verification.stdout",
+      "bytes": 641,
+      "sha256": "ddd40279afdc10283672d8de0d6ac3c698c9ab068d39f7f6bfc1b6a210dfb6f9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-high-residual-verify.py",
+      "bytes": 2587,
+      "sha256": "d0a51ba0a73d7ec903fd927469b0cb3f8ab105870e7f350cce40fd293b1305df"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-mixed-residual-two.json",
+      "bytes": 2817,
+      "sha256": "a948b96557a6c8b970ecb6706326f54caddc4416a49a0f49be86a9fb10d8b754"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-mixed-residual-two.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-mixed-residual-two.stdout",
+      "bytes": 59,
+      "sha256": "9fa879dd214e966962a7e8fffe81cc4e64fa088d475e4ab1b28878783757d375"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-same-residual-two.json",
+      "bytes": 2851,
+      "sha256": "0a992cdcbff6fc318ed5f5072579af5705ce96d77474c7d6cef5f73a217e88ea"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-same-residual-two.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p12-same-residual-two.stdout",
+      "bytes": 59,
+      "sha256": "abd2e2d9b796a8de40be60acca4d31e5e77d46a7cd18f71ac7f5f96bdf60e593"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p13-residual-one.json",
+      "bytes": 2722,
+      "sha256": "84b421f4846f0badd3206c92105e363a0f6138c4b52c63f1cc0deb6dbd5278d2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p13-residual-one.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p13-residual-one.stdout",
+      "bytes": 57,
+      "sha256": "7c9f57778ecadf6552d0567660006000023b84a18a570b43786362ae12cdcd84"
+    }
+  ],
+  "file_count": 20,
+  "bytes": 20832,
+  "scope": "Abstract residual-state experiments; p13 exhaustive, bothp12 bounded65536prefix; prospectivecofactorcut notclaimedLeancompiled."
+}

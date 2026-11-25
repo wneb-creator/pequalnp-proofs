@@ -1,0 +1,30 @@
+{
+  "reviewer": "constructive_search",
+  "verdict": "PASS source/math with matching complete permitted-import exit0",
+  "source": "results/orch/lemmas/formalization-compact-q5-complete.lean",
+  "sha256": "2870a26ce6e8684f4199e3c7fe178e8500b9f29312b8bda3f094b66c71aaa833",
+  "checks": [
+    "Reviewed162-line compact core copied exactly.",
+    "All128 fixed-(a,b) theorem endpoints mechanically compared against the intended two Boolean certificates.",
+    "64-case assemblies use the corresponding indexed lemmas; pair disjunction yields e7 or false compact predicate.",
+    "Six-entry mapping and q5_constraints\u2192compact implication yield the original finite certificate APIs.",
+    "Arbitrary-r wrappers copied exactly from reviewed original API."
+  ],
+  "scope": "Unconditional finite support certificate. Full p9 circuit theorem additionally uses reviewed coordinate/transfer/shape/cofactor composition.",
+  "build_receipt": "results/orch/lemmas/formalization-compact-q5-complete-build.json",
+  "build": {
+    "source": "results/orch/lemmas/formalization-compact-q5-complete.lean",
+    "sha256": "2870a26ce6e8684f4199e3c7fe178e8500b9f29312b8bda3f094b66c71aaa833",
+    "lines": 991,
+    "bytes": 38019,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:02:05.926476+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "compiled_identical_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.lean",
+    "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ5Compact.olean",
+    "olean_sha256": "3890013d7b852aa10f57ea3fd571d3e9ce2ee746b386f34fdee0610c9afdc2dd",
+    "scope": "Full q5 singleton impossibility and pair-forces-full-mask certificates, including exact arbitrary-Finset API. All enumeration checked by kernel; no added hypotheses."
+  }
+}

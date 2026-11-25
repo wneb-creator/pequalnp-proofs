@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "source": "results/orch/lemmas/stochastic-high-residual-enum.cpp",
+  "sha256": "d23f96948cd10626dd34218c92448c1311af1d243f99ecfce05f8aa87bd6aae2",
+  "verified_source": "results/orch/lemmas/stochastic-high-residual-verify.py",
+  "verified_source_sha256": "d0a51ba0a73d7ec903fd927469b0cb3f8ab105870e7f350cce40fd293b1305df",
+  "scope": "Abstract residual-state experiments; p13 exhaustive, bothp12 bounded65536prefix; prospectivecofactorcut notclaimedLeancompiled.",
+  "completed_utc": "2026-11-25T12:01:28.095816+00:00"
+}

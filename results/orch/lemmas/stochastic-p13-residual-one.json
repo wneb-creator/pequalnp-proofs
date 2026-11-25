@@ -1,0 +1,29 @@
+{
+  "ineligible": [0],
+  "full_state_count": 8192,
+  "units": 1,
+  "seconds": 0.0634885,
+  "counts_enumerated_nonempty_budget_oldcut_newcut": [8192, 8191, 8191, 2079, 1200],
+  "first_survivors": [
+    {"r": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 11, "max_new_score": 12},
+    {"r": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 11, "max_new_score": 12},
+    {"r": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 11, "max_new_score": 12},
+    {"r": [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 11, "max_new_score": 12},
+    {"r": [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 12, "max_new_score": 13},
+    {"r": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11},
+    {"r": [0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 11, "max_new_score": 12},
+    {"r": [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "assigned_bitmasks": [1408], "max_old_score": 10, "max_new_score": 11}
+  ]
+}

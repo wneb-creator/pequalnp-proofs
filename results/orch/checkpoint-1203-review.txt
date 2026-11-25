@@ -1,0 +1,15 @@
+PASS — independent preservation checkpoint audit.
+
+Reviewed checkpoint-1203-files.json SHA256 f76359d76547b86c5fa799416b570282d69b7078df35ef3004c40963b20d437d, exactly50files and163501bytes. Every current file matches the recorded size and SHA256. Both nested SAT/high-residual manifests also match their archived files. This audit covered metadata and composition; the q5 proof source already has two independent mathematical reviews.
+
+Compact q5: the recorded exit0 receipt matches the frozen991-line38019-byte Defs-only source and its byte-identical compiled cache copy. The emitted olean hash matches. Both independent reviews bind that same source and successful receipt. Complete diagnostics contain only four unused-simp warnings and no errors. The original slow Finset worker is accurately marked interrupted/exit143, not successful; its complete long-run stdout/stderr and earlier archived attempts remain available. Initial setup attempts0/1 are explicitly identified as scratch-only records, rather than claimed as archived proof successes.
+
+SAT: the final p14 result is accurately UNKNOWN at its1200-second limit, not SAT, UNSAT or a witness. All three compressed logs decompress exactly to the complete scratch originals. The archived runlog reports UNKNOWN/exit0/1200.043seconds, agreeing with the outcome metadata. Solver exit0 is not misrepresented as satisfiability.
+
+Residual experiments: source and verifier hashes match the receipts. P13 is explicitly exhaustive8192states; each p12 run is explicitly a65536-state prefix of16777216, not an exhaustive census. The counts agree across JSON, stdout and scope notes. The prospective stronger cofactor score is clearly separated from compiled Lean theorems. Saved abstract survivors are not presented as circuit witnesses or impossibility certificates.
+
+The newest NOTES/TIMELINE/validation entries accurately separate the completed finite certificate from the still-building p9/p10 circuit consequences and the unproved full target. Historical progress entries remain historical. Measurement lines are present in validation.txt.
+
+All included Lean fragments pass the requested textual format scan: no forbidden root-qualified substring, string literals, sorry, native_decide, bv_decide, new axioms or unsafe declarations; no disallowed attributes/options were found. A secret-pattern scan of every text file and decompressed archive found no credential values. No credentials were read or emitted. No source files were edited during this audit.
+
+Reviewed UTC: 2026-11-25T12:04:40.478389+00:00
