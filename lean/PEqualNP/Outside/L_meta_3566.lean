@@ -6282,3 +6282,241 @@ lemma erase_alias_family_with_mono_mass (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
   omega
 
 end PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+namespace PEqualNP.Outside.L_meta_3566.AndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open LeafStep.Pruning
+
+def rotate (n : ℕ) (C : Circuit) (q k U V R : ℕ) : Circuit :=
+  SharedRewrite.replace (SharedRewrite.replace C q ⟨GateOp.and, [U, R]⟩)
+    k ⟨GateOp.and, [n + q, V]⟩
+
+lemma rotate_correct (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (q k U V R : ℕ) (hqk : q < k) (hk : k < C.size)
+    (hU : U < n + q) (hV : V < n + q) (hR : R < n + q)
+    (hQ : ∀ x, gateVal n C q x = (wireVal n C U x && wireVal n C V x))
+    (hK : ∀ x, gateVal n C k x = (gateVal n C q x && wireVal n C R x))
+    (hPrivate : ∀ j < C.size, j ≠ k → n + q ∉ (gateAt C j).inputs)
+    (hOutput : C.output ≠ n + q) :
+    IsAO2 n (rotate n C q k U V R) ∧ (rotate n C q k U V R).size = C.size ∧
+      circuitFun n (rotate n C q k U V R) = circuitFun n C ∧
+      (∀ x, gateVal n (rotate n C q k U V R) q x = (wireVal n C U x && wireVal n C R x)) ∧
+      ∀ j < C.size, j ≠ q → ∀ x,
+        gateVal n (rotate n C q k U V R) j x = gateVal n C j x := by
+  have hq : q < C.size := by omega
+  let C1 := SharedRewrite.replace C q ⟨GateOp.and, [U, R]⟩
+  let D := rotate n C q k U V R
+  have hSize1 : C1.size = C.size := SharedRewrite.replace_size C q _
+  have hSize : D.size = C.size := by simp [D, rotate, SharedRewrite.replace_size]
+  have hAO1 : IsAO2 n C1 := SharedRewrite.replace_ao C hC q hq _ (Or.inl rfl) rfl (by
+    intro w hw
+    simp at hw
+    rcases hw with rfl | rfl <;> assumption)
+  have hAO : IsAO2 n D := SharedRewrite.replace_ao C1 hAO1 k (by change k < C1.size; rw [hSize1]; exact hk)
+    _ (Or.inl rfl) rfl (by
+      intro w hw
+      simp at hw
+      rcases hw with rfl | rfl <;> omega)
+  have hGate (j : ℕ) : gateAt D j =
+      if k = j then ⟨GateOp.and, [n + q, V]⟩ else
+      if q = j then ⟨GateOp.and, [U, R]⟩ else gateAt C j := by
+    change gateAt (SharedRewrite.replace C1 k ⟨GateOp.and, [n + q, V]⟩) j = _
+    rw [SharedRewrite.replace_gateAt C1 k _ (by change k < C1.size; rw [hSize1]; exact hk) j]
+    dsimp only [C1]
+    rw [SharedRewrite.replace_gateAt C q _ hq j]
+  have hValues (x : Fin n → Bool) : ∀ j, j < C.size →
+      gateVal n D j x = if j = q then (wireVal n C U x && wireVal n C R x)
+        else gateVal n C j x := by
+    intro j
+    induction j using Nat.strong_induction_on with
+    | ind j ih =>
+      intro hj
+      have hPre (w : ℕ) (hw : w < n + j) : wireVal n D w x =
+          if w = n + q then (wireVal n C U x && wireVal n C R x) else wireVal n C w x := by
+        by_cases hInput : w < n
+        · rw [wireVal_lt D w hInput x, wireVal_lt C w hInput x]
+          simp [show w ≠ n + q by omega]
+        · have heq : n + (w - n) = w := by omega
+          have hidx : w - n < j := by omega
+          rw [← heq]
+          change gateVal n D (w - n) x =
+            if n + (w - n) = n + q then _ else gateVal n C (w - n) x
+          simpa using ih (w - n) hidx (by omega)
+      by_cases hjq : j = q
+      · subst j
+        rw [ite_eq_left rfl]
+        have hg : gateAt D q = ⟨GateOp.and, [U, R]⟩ := by
+          rw [hGate]
+          simp [show k ≠ q by omega]
+        have he := gate_eq D hAO q (by change q < D.size; rw [hSize]; exact hq) x
+        simp only [opnd, hg, isA, opv] at he
+        change gateVal n D q x = (wireVal n D U x && wireVal n D R x) at he
+        rw [hPre U hU, hPre R hR] at he
+        simpa [show U ≠ n + q by omega, show R ≠ n + q by omega] using he
+      · rw [ite_eq_right hjq]
+        by_cases hjk : j = k
+        · subst j
+          have hg : gateAt D k = ⟨GateOp.and, [n + q, V]⟩ := by simp [hGate]
+          have he := gate_eq D hAO k (by change k < D.size; rw [hSize]; exact hk) x
+          simp only [opnd, hg, isA, opv] at he
+          change gateVal n D k x = (wireVal n D (n + q) x && wireVal n D V x) at he
+          rw [hPre (n + q) (by omega), hPre V (by omega)] at he
+          simp only [ite_true, show V ≠ n + q by omega, ite_false] at he
+          rw [he, hK x, hQ x]
+          simp [Bool.and_assoc, Bool.and_comm, Bool.and_left_comm]
+        · have hg : gateAt D j = gateAt C j := by simp [hGate, Ne.symm hjk, Ne.symm hjq]
+          have hPort (b : Fin 2) : wireVal n D (opnd C j b) x = wireVal n C (opnd C j b) x := by
+            have hmem := PrivateCone.port_mem n C hC j hj b
+            have hb := hC.2.1 j hj _ hmem
+            have hne : opnd C j b ≠ n + q := by
+              intro heq
+              exact hPrivate j hj hjk (heq ▸ hmem)
+            simpa only [hne, ite_false] using hPre (opnd C j b) hb
+          have he := gate_eq D hAO j (by change j < D.size; rw [hSize]; exact hj) x
+          simp only [opnd, hg] at he
+          change gateVal n D j x = opv (isA (gateAt C j).op)
+            (wireVal n D (opnd C j 0) x) (wireVal n D (opnd C j 1) x) at he
+          rw [hPort 0, hPort 1] at he
+          exact he.trans (gate_eq C hC j hj x).symm
+  refine ⟨hAO, hSize, ?_, ?_, ?_⟩
+  · funext x
+    change wireVal n D C.output x = wireVal n C C.output x
+    by_cases hoInput : C.output < n
+    · rw [wireVal_lt D C.output hoInput x, wireVal_lt C C.output hoInput x]
+    · by_cases hoBound : C.output < n + C.size
+      · have heq : n + (C.output - n) = C.output := by omega
+        rw [← heq]
+        change gateVal n D (C.output - n) x = gateVal n C (C.output - n) x
+        simpa [show C.output - n ≠ q by omega] using hValues x (C.output - n) (by omega)
+      · have hZero (E : Circuit) (hE : E.size = C.size) : wireVal n E C.output x = false := by
+          apply SharedRewrite.getD_ge_length
+          have hl := SharedRewrite.foldl_stepWire_length E.gates (List.ofFn x)
+          change (E.gates.foldl SharedRewrite.stepWire (List.ofFn x)).length ≤ C.output
+          rw [hl]
+          simp only [List.length_ofFn]
+          change n + E.size ≤ C.output
+          omega
+        rw [hZero D hSize, hZero C rfl]
+  · intro x
+    simpa using hValues x q hq
+  · intro j hj hjq x
+    simpa [hjq] using hValues x j hj
+
+lemma clean_triple_pair (a0 b0 r0 a1 b1 r1 : Bool)
+    (h0 : (a0 && b0 && r0) = false) (h1 : (a1 && b1 && r1) = false)
+    (hq : (a0 && b0) = true ∨ (a1 && b1) = true) :
+    ((a0 && r0) = false ∧ (a1 && r1) = false) ∨
+      ((b0 && r0) = false ∧ (b1 && r1) = false) := by
+  cases a0 <;> cases b0 <;> cases r0 <;> cases a1 <;> cases b1 <;> cases r1 <;> simp_all
+
+end PEqualNP.Outside.L_meta_3566.AndReassociate
+
+namespace PEqualNP.Outside.L_meta_3566.AndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma mass_lt_of_single_gate_drop (n : ℕ) (color : Fin n → Bool) (C D : Circuit)
+    (q : ℕ) (hq : q < C.size) (hSize : D.size = C.size)
+    (hEq : ∀ j < C.size, j ≠ q → ∀ x, gateVal n D j x = gateVal n C j x)
+    (hZero : ∀ b : Bool, gateVal n D q (MonoNormalize.input color b) = false)
+    (hOn : ∃ b : Bool, gateVal n C q (MonoNormalize.input color b) = true) :
+    MonoNormalize.mass color D < MonoNormalize.mass color C := by
+  have hForward : ∀ j < D.gates.length, id j < C.gates.length := by
+    intro j hj
+    change j < C.size
+    change j < D.size at hj
+    omega
+  have hInj : Set.InjOn id (Finset.range D.gates.length : Set ℕ) :=
+    fun a _ b _ h => h
+  have hVal (b : Bool) : ∀ j < D.gates.length,
+      gateVal n D j (MonoNormalize.input color b) = true →
+        gateVal n C (id j) (MonoNormalize.input color b) = true := by
+    intro j hj hTrue
+    by_cases hjq : j = q
+    · subst j
+      rw [hZero b] at hTrue
+      exact False.elim (Bool.false_ne_true hTrue)
+    · have hjC : j < C.size := hForward j hj
+      rw [hEq j hjC hjq] at hTrue
+      exact hTrue
+  have hCount (b : Bool) := WireProfile.wire_count_le C D id hForward hInj
+    (MonoNormalize.input color b) (hVal b)
+  obtain ⟨b, hb⟩ := hOn
+  have hStrict := WireProfile.wire_count_lt C D id hForward hInj
+    (MonoNormalize.input color b) (hVal b) ⟨q, hq, hb, by
+      intro j hj hjq
+      change j = q at hjq
+      subst j
+      exact hZero b⟩
+  have hFalse := hCount false
+  have hTrue := hCount true
+  unfold MonoNormalize.mass
+  cases b <;> omega
+
+lemma private_product_mono_zero {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (q k A B R : ℕ) (hqk : q < k) (hk : k < C.size)
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (hQ : ∀ x, gateVal n C q x = (wireVal n C A x && wireVal n C B x))
+    (hK : ∀ x, gateVal n C k x = (gateVal n C q x && wireVal n C R x))
+    (hPrivate : ∀ j < C.size, j ≠ k → n + q ∉ (gateAt C j).inputs)
+    (hOutput : C.output ≠ n + q) (hClean : BelowF G C k) :
+    ∀ b : Bool, gateVal n C q (MonoNormalize.input color b) = false := by
+  intro b
+  apply Bool.eq_false_iff.mpr
+  intro hOn
+  have hq : q < C.size := by omega
+  have hKZero (c : Bool) : gateVal n C k (MonoNormalize.input color c) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro hkOn
+    have hF := hClean (MonoNormalize.input color c) hkOn
+    rw [MonoNormalize.input_false G color hBip c] at hF
+    exact Bool.false_ne_true hF
+  have hTriple (c : Bool) :
+      (wireVal n C A (MonoNormalize.input color c) && wireVal n C B (MonoNormalize.input color c) &&
+        wireVal n C R (MonoNormalize.input color c)) = false := by
+    have hz := hKZero c
+    rw [hK, hQ] at hz
+    simpa [Bool.and_assoc] using hz
+  have hOldPair :
+      (wireVal n C A (MonoNormalize.input color false) && wireVal n C B (MonoNormalize.input color false)) = true ∨
+      (wireVal n C A (MonoNormalize.input color true) && wireVal n C B (MonoNormalize.input color true)) = true := by
+    rw [hQ] at hOn
+    cases b
+    · exact Or.inl hOn
+    · exact Or.inr hOn
+  have hPair := clean_triple_pair
+    (wireVal n C A (MonoNormalize.input color false)) (wireVal n C B (MonoNormalize.input color false))
+    (wireVal n C R (MonoNormalize.input color false)) (wireVal n C A (MonoNormalize.input color true))
+    (wireVal n C B (MonoNormalize.input color true)) (wireVal n C R (MonoNormalize.input color true))
+    (hTriple false) (hTriple true) hOldPair
+  have hNoRotation (U V : ℕ) (hU : U < n + q) (hV : V < n + q)
+      (hQ' : ∀ x, gateVal n C q x = (wireVal n C U x && wireVal n C V x))
+      (hZero : ∀ c : Bool,
+        (wireVal n C U (MonoNormalize.input color c) && wireVal n C R (MonoNormalize.input color c)) = false) :
+      False := by
+    obtain ⟨hD, hSize, hFun, hNewQ, hEq⟩ :=
+      rotate_correct n C hC.1.1 q k U V R hqk hk hU hV hR hQ' hK hPrivate hOutput
+    have hLeast : IsLeastAO G (rotate n C q k U V R) :=
+      ⟨hD, hFun.trans hC.1.2.1, fun E hE hEFun => hSize.trans_le (hC.1.2.2 E hE hEFun)⟩
+    have hStrict := mass_lt_of_single_gate_drop n color C (rotate n C q k U V R) q hq hSize hEq
+      (fun c => (hNewQ _).trans (hZero c)) ⟨b, hOn⟩
+    have hMin := hC.2.1 _ hLeast
+    omega
+  rcases hPair with hAR | hBR
+  · apply hNoRotation A B hA hB hQ
+    intro c
+    cases c
+    · exact hAR.1
+    · exact hAR.2
+  · apply hNoRotation B A hB hA (fun x => (hQ x).trans (Bool.and_comm _ _))
+    intro c
+    cases c
+    · exact hBR.1
+    · exact hBR.2
+
+end PEqualNP.Outside.L_meta_3566.AndReassociate
