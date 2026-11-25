@@ -1352,4 +1352,440 @@ lemma packing_and_circuit_star_budget {n m : ℕ} (G : SimpleGraph (Fin n))
 
 end AndClauses
 
+
+
+namespace HelperSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+variable {n : ℕ}
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+/-- The support of a gate: the union of the supports of the wires it reads. -/
+def gateSupp (L : List (Finset (Fin n))) (g : Gate) : Finset (Fin n) :=
+  (g.inputs.map fun a => L.getD a ∅).foldr (· ∪ ·) ∅
+
+lemma mem_foldr_union (l : List ℕ) (F : ℕ → Finset (Fin n)) (i : Fin n) :
+    i ∈ (l.map F).foldr (· ∪ ·) ∅ ↔ ∃ a ∈ l, i ∈ F a := by
+  induction l with
+  | nil => simp
+  | cons b l ih => simp [ih]
+
+lemma mem_gateSupp (L : List (Finset (Fin n))) (g : Gate) (i : Fin n) :
+    i ∈ gateSupp L g ↔ ∃ a ∈ g.inputs, i ∈ L.getD a ∅ :=
+  mem_foldr_union _ _ _
+
+/-- The supports of all wires, starting from the supports `L` of the wires present. -/
+def suppsFrom (gs : List Gate) (L : List (Finset (Fin n))) : List (Finset (Fin n)) :=
+  gs.foldl (fun L g => L ++ [gateSupp L g]) L
+
+/-- The supports of the input wires: input `i` has support `{i}`. -/
+def inputSupps (n : ℕ) : List (Finset (Fin n)) := List.ofFn fun i : Fin n => {i}
+
+/-- Wire lists `w`, `w'` (for the inputs `x`, `y`) agree on every wire whose support `x` and
+  `y` agree on. -/
+def Agree (x y : Fin n → Bool) (L : List (Finset (Fin n))) (w w' : List Bool) : Prop :=
+  L.length = w.length ∧ w.length = w'.length ∧
+    ∀ j : ℕ, (∀ i ∈ L.getD j ∅, x i = y i) → w.getD j false = w'.getD j false
+
+lemma agree_wiresFrom (x y : Fin n → Bool) (gs : List Gate) :
+    ∀ (L : List (Finset (Fin n))) (w w' : List Bool), Agree x y L w w' →
+      Agree x y (suppsFrom gs L) (wiresFrom gs w) (wiresFrom gs w') := by
+  induction gs with
+  | nil => intro L w w' h; exact h
+  | cons g gs ih =>
+    intro L w w' h
+    obtain ⟨h1, h2, h3⟩ := h
+    apply ih (L ++ [gateSupp L g])
+      (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (w' ++ [g.op.eval (g.inputs.map fun i => w'.getD i false)])
+    refine ⟨by simp [h1], by simp [h2], ?_⟩
+    intro j hj
+    by_cases hjl : j = L.length
+    · subst hjl
+      rw [getD_snoc_eq] at hj
+      rw [h1, getD_snoc_eq, h2, getD_snoc_eq]
+      congr 1
+      apply List.map_congr_left
+      intro a ha
+      exact h3 a (fun i hi => hj i ((mem_gateSupp L g i).2 ⟨a, ha, hi⟩))
+    · rw [getD_snoc_ne _ _ _ _ hjl] at hj
+      rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ (by omega)]
+      exact h3 j hj
+
+lemma agree_inputs (x y : Fin n → Bool) :
+    Agree x y (inputSupps n) (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp [inputSupps], by simp, ?_⟩
+  intro j hj
+  by_cases hjn : j < n
+  · have hx : x ⟨j, hjn⟩ = y ⟨j, hjn⟩ := hj _ (by simp [inputSupps, hjn])
+    simp [hjn, hx]
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by simp; omega)]
+
+/-- Any set `W` of wires has a joint support of size at most `t + |W|`. -/
+def Cnt (t : ℕ) (L : List (Finset (Fin n))) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion fun j => L.getD j ∅).card ≤ t + W.card
+
+lemma cnt_inputs : Cnt 0 (inputSupps n) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hjn : j < n
+  · simp [inputSupps, hjn]
+  · rw [List.getD_eq_default _ _ (by simp [inputSupps]; omega)]; simp
+
+lemma cnt_step (t : ℕ) (L : List (Finset (Fin n))) (g : Gate) (hg : g.inputs.length ≤ 2)
+    (h : Cnt t L) : Cnt (t + 1) (L ++ [gateSupp L g]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        ⊆ ((W.erase L.length ∪ g.inputs.toFinset).biUnion fun j => L.getD j ∅) := by
+      intro i hi
+      rw [Finset.mem_biUnion] at hi ⊢
+      obtain ⟨j, hjW, hij⟩ := hi
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hij
+        obtain ⟨a, ha, hia⟩ := (mem_gateSupp L g i).1 hij
+        exact ⟨a, Finset.mem_union_right _ (List.mem_toFinset.2 ha), hia⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+        exact ⟨j, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨hjl, hjW⟩), hij⟩
+    have hc1 : (W.erase L.length ∪ g.inputs.toFinset).card ≤ (W.card - 1) + 2 := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left (le_trans (List.toFinset_card_le _) hg) _
+    have hWpos : 1 ≤ W.card := Finset.card_pos.2 ⟨_, hW⟩
+    have := h (W.erase L.length ∪ g.inputs.toFinset)
+    have := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        = (W.biUnion fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    have := h W
+    omega
+
+lemma cnt_suppsFrom (gs : List Gate) : ∀ (t : ℕ) (L : List (Finset (Fin n))),
+    (∀ g ∈ gs, g.inputs.length ≤ 2) → Cnt t L → Cnt (t + gs.length) (suppsFrom gs L) := by
+  induction gs with
+  | nil => intro t L _ h; exact h
+  | cons g gs ih =>
+    intro t L hok h
+    have := ih (t + 1) (L ++ [gateSupp L g]) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+      (cnt_step t L g (hok g List.mem_cons_self) h)
+    rw [List.length_cons, show t + (gs.length + 1) = t + 1 + gs.length by omega]
+    exact this
+
+
+def SeenInputs (L : List (Finset (Fin n))) (gs : List Gate) : Prop :=
+  ∀ w : ℕ, ∀ i : Fin n, i ∈ L.getD w ∅ →
+    w = i.val ∨ ∃ g ∈ gs, i.val ∈ g.inputs
+
+lemma seen_inputs : SeenInputs (inputSupps n) [] := by
+  intro w i hi
+  by_cases hw : w < n
+  · have hiw : i = ⟨w,hw⟩ := by simpa [inputSupps,hw] using hi
+    exact Or.inl (congrArg Fin.val hiw).symm
+  · simp [inputSupps,hw] at hi
+
+lemma seen_step (L : List (Finset (Fin n))) (gs : List Gate) (g : Gate)
+    (hseen : SeenInputs L gs) : SeenInputs (L ++ [gateSupp L g]) (gs ++ [g]) := by
+  intro w i hi
+  by_cases hw : w = L.length
+  · subst w
+    rw [getD_snoc_eq] at hi
+    obtain ⟨a,ha,hia⟩ := (mem_gateSupp L g i).mp hi
+    rcases hseen a i hia with heq | ⟨q,hq,hinput⟩
+    · right
+      exact ⟨g,by simp,heq ▸ ha⟩
+    · exact Or.inr ⟨q,List.mem_append_left _ hq,hinput⟩
+  · rw [getD_snoc_ne _ _ _ _ hw] at hi
+    rcases hseen w i hi with heq | ⟨q,hq,hinput⟩
+    · exact Or.inl heq
+    · exact Or.inr ⟨q,List.mem_append_left _ hq,hinput⟩
+
+lemma seen_suppsFrom (gs : List Gate) :
+    ∀ (L : List (Finset (Fin n))) (pre : List Gate), SeenInputs L pre →
+      SeenInputs (suppsFrom gs L) (pre ++ gs) := by
+  induction gs with
+  | nil => intro L pre h; simpa [suppsFrom] using h
+  | cons g gs ih =>
+    intro L pre h
+    have hnext := ih (L ++ [gateSupp L g]) (pre ++ [g]) (seen_step L pre g h)
+    simpa [suppsFrom,List.foldl_cons,List.append_assoc] using hnext
+
+lemma output_support (m : ℕ) (C : Circuit)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      (∀ x y : Fin m → Bool, (∀ i ∈ R, x i = y i) →
+        C.eval (List.ofFn x) = C.eval (List.ofFn y)) ∧
+      ∀ i ∈ R, C.output = i.val ∨ ∃ g ∈ C.gates, i.val ∈ g.inputs := by
+  let R := (suppsFrom C.gates (inputSupps m)).getD C.output ∅
+  refine ⟨R,?_,?_,?_⟩
+  · have bound := cnt_suppsFrom C.gates 0 (inputSupps m) hfan cnt_inputs {C.output}
+    simpa only [Finset.singleton_biUnion,Finset.card_singleton,zero_add,Circuit.size] using bound
+  · intro x y hxy
+    exact (agree_wiresFrom x y C.gates _ _ _ (agree_inputs x y)).2.2 C.output hxy
+  · intro i hi
+    have hseen := seen_suppsFrom C.gates (inputSupps m) [] seen_inputs
+    exact hseen C.output i hi
+
+end HelperSupport
+
+namespace HelperSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma output_support_mono (m : ℕ) (C : Circuit) (hC : Monotone2 C) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      ∀ x y : Fin m → Bool, (∀ i ∈ R, x i = true → y i = true) →
+        C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  classical
+  obtain ⟨R,hcard,hagree,_⟩ := output_support m C (fun g hg => (hC g hg).2)
+  refine ⟨R,hcard,?_⟩
+  intro x y hxy hx
+  let z : Fin m → Bool := fun i => if i ∈ R then y i else x i
+  have hxz : ∀ i, x i = true → z i = true := by
+    intro i hi
+    by_cases hiR : i ∈ R
+    · simpa [z,hiR] using hxy i hiR hi
+    · simpa [z,hiR] using hi
+  have hz : C.eval (List.ofFn z) = true := wires_mono hC hxz C.output hx
+  have heq : C.eval (List.ofFn z) = C.eval (List.ofFn y) :=
+    hagree z y (fun i hi => by simp [z,hi])
+  exact heq ▸ hz
+
+lemma output_support_separates (m : ℕ) (C : Circuit) (hC : Monotone2 C) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      ∀ x y : Fin m → Bool, C.eval (List.ofFn x) = true →
+        C.eval (List.ofFn y) = false → ∃ i ∈ R, x i = true ∧ y i = false := by
+  classical
+  obtain ⟨R,hcard,hmono⟩ := output_support_mono m C hC
+  refine ⟨R,hcard,?_⟩
+  intro x y hx hy
+  by_contra h
+  have hxy : ∀ i ∈ R, x i = true → y i = true := by
+    intro i hi hxi
+    cases hyi : y i
+    · exact False.elim (h ⟨i,hi,hxi,hyi⟩)
+    · rfl
+  have := hmono x y hxy hx
+  rw [hy] at this
+  contradiction
+
+end HelperSupport
+
+namespace MatchingCapacity
+
+variable {I : Type*} [DecidableEq I]
+
+def source (S : Finset (I × Bool)) (x : I × Bool → Bool) : Bool :=
+  decide (∃ p ∈ S, x p = true)
+
+def edgeInput (i : I) : I × Bool → Bool :=
+  fun p => decide (p.1 = i)
+
+def transversalInput (a : I → Bool) : I × Bool → Bool :=
+  fun p => decide (p.2 = a p.1)
+
+def rows (S : Finset (I × Bool)) : Finset I := S.image Prod.fst
+
+lemma source_edge_true (S : Finset (I × Bool)) (i : I) :
+    source S (edgeInput i) = true ↔ i ∈ rows S := by
+  simp [source, edgeInput, rows, Finset.mem_image]
+
+variable [Fintype I]
+
+def avoiding (S : Finset (I × Bool)) : Finset (I → Bool) :=
+  Finset.univ.filter (fun a => ∀ p ∈ S, p.2 ≠ a p.1)
+
+def separations (S : Finset (I × Bool)) : Finset (I × (I → Bool)) :=
+  Finset.univ.filter (fun p =>
+    source S (edgeInput p.1) = true ∧ source S (transversalInput p.2) = false)
+
+lemma source_transversal_false (S : Finset (I × Bool)) (a : I → Bool) :
+    source S (transversalInput a) = false ↔ a ∈ avoiding S := by
+  constructor
+  · intro hf
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_univ _, ?_⟩
+    intro p hp heq
+    have ht : source S (transversalInput a) = true := by
+      simp only [source, decide_eq_true_iff]
+      exact ⟨p, hp, by simp [transversalInput, heq]⟩
+    simp [hf] at ht
+  · intro ha
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    have hex : ∃ p ∈ S, transversalInput a p = true := of_decide_eq_true ht
+    obtain ⟨p, hp, ht⟩ := hex
+    exact (Finset.mem_filter.mp ha).2 p hp (by simpa [transversalInput] using ht)
+
+lemma separations_eq_product (S : Finset (I × Bool)) :
+    separations S = rows S ×ˢ avoiding S := by
+  ext p
+  simp only [separations, Finset.mem_filter, Finset.mem_univ, true_and,
+    Finset.mem_product]
+  exact and_congr (source_edge_true S p.1) (source_transversal_false S p.2)
+
+lemma avoiding_card_le (S : Finset (I × Bool)) :
+    (avoiding S).card ≤ 2 ^ (Finset.univ \ rows S).card := by
+  classical
+  let U : Finset I := Finset.univ \ rows S
+  let f : ↥(avoiding S) → (↥U → Bool) := fun a i => a.val i.val
+  have hf : Function.Injective f := by
+    intro a b hab
+    apply Subtype.ext
+    funext i
+    by_cases hi : i ∈ rows S
+    · obtain ⟨p, hp, hpi⟩ := Finset.mem_image.mp hi
+      have ha : p.2 ≠ a.val i := by
+        simpa only [hpi] using (Finset.mem_filter.mp a.property).2 p hp
+      have hb : p.2 ≠ b.val i := by
+        simpa only [hpi] using (Finset.mem_filter.mp b.property).2 p hp
+      cases hpa : p.2 <;> cases hai : a.val i <;> cases hbi : b.val i <;> simp_all
+    · have hiU : i ∈ U := by simp [U, hi]
+      exact congrFun hab ⟨i, hiU⟩
+  have hcard := Fintype.card_le_of_injective f hf
+  change (avoiding S).card ≤ 2 ^ U.card
+  simpa only [Fintype.card_coe, Fintype.card_fun, Fintype.card_bool] using hcard
+
+lemma twice_separations_card_le (S : Finset (I × Bool)) :
+    2 * (separations S).card ≤ 2 ^ Fintype.card I := by
+  classical
+  let r := (rows S).card
+  let u := (Finset.univ \ rows S).card
+  have hsum : r + u = Fintype.card I := by
+    have h := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ (rows S))
+    simpa [r, u, Nat.add_comm] using h
+  have hneg : (avoiding S).card ≤ 2 ^ u := avoiding_card_le S
+  rw [separations_eq_product, Finset.card_product]
+  change 2 * (r * (avoiding S).card) ≤ _
+  calc
+    2 * (r * (avoiding S).card) = (2 * r) * (avoiding S).card := by ac_rfl
+    _ ≤ (2 * r) * 2 ^ u := Nat.mul_le_mul_left _ hneg
+    _ ≤ 2 ^ r * 2 ^ u := Nat.mul_le_mul_right _ (Nat.mul_le_pow (by decide : 2 ≠ 1) r)
+    _ = 2 ^ (r + u) := (Nat.pow_add 2 r u).symm
+    _ = 2 ^ Fintype.card I := by rw [hsum]
+
+end MatchingCapacity
+
+namespace SeparationCounting
+
+lemma separation_union_bound {P N M : Type*} [Fintype P] [Fintype N]
+    (R : Finset M) (Sep : M → Finset (P × N)) (B : ℕ)
+    (covered : ∀ p : P × N, ∃ i ∈ R, p ∈ Sep i)
+    (capacity : ∀ i ∈ R, 2 * (Sep i).card ≤ B) :
+    2 * (Fintype.card P * Fintype.card N) ≤ R.card * B := by
+  classical
+  have cover : (Finset.univ : Finset (P × N)) ⊆ R.biUnion Sep := by
+    intro p _
+    obtain ⟨i,hi,hp⟩ := covered p
+    exact Finset.mem_biUnion.mpr ⟨i,hi,hp⟩
+  have count : Fintype.card P * Fintype.card N ≤ ∑ i ∈ R, (Sep i).card := by
+    have bound := (Finset.card_le_card cover).trans (Finset.card_biUnion_le)
+    simpa only [Finset.card_univ,Fintype.card_prod] using bound
+  calc
+    2 * (Fintype.card P * Fintype.card N) ≤ 2 * (∑ i ∈ R, (Sep i).card) :=
+      Nat.mul_le_mul_left 2 count
+    _ = ∑ i ∈ R, 2 * (Sep i).card := Finset.mul_sum ..
+    _ ≤ ∑ _i ∈ R, B := Finset.sum_le_sum capacity
+    _ = R.card * B := by simp
+
+lemma separation_card_bound {P N M : Type*} [Fintype P] [Fintype N]
+    (R : Finset M) (Sep : M → Finset (P × N))
+    (covered : ∀ p : P × N, ∃ i ∈ R, p ∈ Sep i)
+    (capacity : ∀ i ∈ R, 2 * (Sep i).card ≤ Fintype.card N)
+    (nonempty : 0 < Fintype.card N) :
+    2 * Fintype.card P ≤ R.card := by
+  have bound := separation_union_bound R Sep (Fintype.card N) covered capacity
+  have product : (2 * Fintype.card P) * Fintype.card N ≤ R.card * Fintype.card N := by
+    simpa only [Nat.mul_assoc] using bound
+  exact Nat.le_of_mul_le_mul_right product nonempty
+
+end SeparationCounting
+
+namespace MatchingLower
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {I : Type*} [Fintype I] [DecidableEq I] {m : ℕ}
+
+def input (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (x : I × Bool → Bool) (r : Fin m) : Bool :=
+  decide (r ∈ K) || MatchingCapacity.source (S r) x
+
+def target (x : I × Bool → Bool) : Bool :=
+  decide (∃ i, x (i,false) = true ∧ x (i,true) = true)
+
+lemma target_edge (i : I) : target (MatchingCapacity.edgeInput i) = true := by
+  apply decide_eq_true
+  exact ⟨i,by simp [MatchingCapacity.edgeInput],by simp [MatchingCapacity.edgeInput]⟩
+
+omit [DecidableEq I] in
+lemma target_transversal (a : I → Bool) :
+    target (MatchingCapacity.transversalInput a) = false := by
+  simp [target,MatchingCapacity.transversalInput]
+
+lemma input_separation (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (r : Fin m) (i : I) (a : I → Bool)
+    (hp : input S K (MatchingCapacity.edgeInput i) r = true)
+    (hn : input S K (MatchingCapacity.transversalInput a) r = false) :
+    r ∉ K ∧ (i,a) ∈ MatchingCapacity.separations (S r) := by
+  have hK : r ∉ K := by
+    intro hr
+    simp [input,hr] at hn
+  refine ⟨hK,?_⟩
+  simp only [input,hK,decide_false,Bool.false_or] at hp hn
+  exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,hp,hn⟩
+
+lemma separation_cover (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (C : Circuit) (hC : Monotone2 C)
+    (correct : ∀ x : I × Bool → Bool, C.eval (List.ofFn (input S K x)) = target x) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      ∀ p : I × (I → Bool), ∃ r ∈ R,
+        p ∈ (if r ∈ K then ∅ else MatchingCapacity.separations (S r)) := by
+  classical
+  obtain ⟨R,hcard,hsep⟩ := HelperSupport.output_support_separates m C hC
+  refine ⟨R,hcard,?_⟩
+  intro p
+  obtain ⟨r,hr,hp,hn⟩ := hsep (input S K (MatchingCapacity.edgeInput p.1))
+    (input S K (MatchingCapacity.transversalInput p.2))
+    (by rw [correct,target_edge]) (by rw [correct,target_transversal])
+  obtain ⟨hK,hmem⟩ := input_separation S K r p.1 p.2 hp hn
+  exact ⟨r,hr,by simpa [hK] using hmem⟩
+
+/-- Free OR clauses and free constants cannot lower the paid binary monotone gate
+  count below the usual bound for a matching. -/
+lemma paid_gate_lower_bound (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (C : Circuit) (hC : Monotone2 C)
+    (correct : ∀ x : I × Bool → Bool, C.eval (List.ofFn (input S K x)) = target x) :
+    2 * Fintype.card I ≤ C.size + 1 := by
+  classical
+  obtain ⟨R,hcard,hcover⟩ := separation_cover S K C hC correct
+  apply le_trans (SeparationCounting.separation_card_bound R
+    (fun r => if r ∈ K then ∅ else MatchingCapacity.separations (S r)) hcover ?_ ?_) hcard
+  · intro r _
+    by_cases hr : r ∈ K
+    · simp [hr]
+    · simpa [hr,Fintype.card_fun] using MatchingCapacity.twice_separations_card_le (S r)
+  · simp
+
+end MatchingLower
+
 end PEqualNP.Outside.L_meta_1904_aux
