@@ -143,3 +143,13 @@ Read-only public snapshot https://data.pequalnp.com/data/desk/gaps.json, updated
 ## submission_rules IncidenceStructural pre-push review
 
 PASS for archival checked partial. SHA256 8673204201208fda2f1c2c1717a34ec360562911d76ef417da6f0b641c001c08, 92 lines. Agent reports Lean exit0 and saved logs are empty. point_degree partitions all points except p into q-sized disjoint sets on lines through p, deriving degree q+1 from N=q^2+q+1. pencil_cover_card is a valid union-cardinality argument: each point other than p meets at most one line of the pencil. independent_pencil_replacement uses independence of X,Y to force every newly accepted incidence to involve the newly added line, then invokes that bound. The p-not-in-X hypothesis is necessary and explicit. No full circuit-normalization or cost claim is made. No forbidden tokens, new axioms, or namespace issues found.
+
+## L-meta-2583 certified synthesis pruning (library_route)
+
+`results/orch/lemmas/IncidencePruning.lean` (321 lines) is Lean-checked, namespace `PEqualNP.Outside.L_meta_2583_aux.Pruning`. It copies L-meta-8385 wire evaluation and gate deletion infrastructure. `DeterminesOn n S f` says agreement on S by any AO2 circuit determines full output f. Assuming C is least among AO2 circuits for its output, `no_earlier_signature` excludes any gate signature matching an earlier wire on S; `operand_separators` gives witnesses on S with operand values (true,false) and (false,true). These justify finite complete-row pruning without assuming read1 normalization. Restriction agent is formalizing incidence critical-row completeness.
+
+Build exit 0; logs `/tmp/oec/pequalnp-pilot-131/incidence-pruning-2.stdout` and `.stderr`. SHA256 `d1e0d8fb385472aa7d1114afc8125dc720e4c5a928876ddf0e8bff2cf0426933`. The only warning is deprecated push_neg. No forbidden token matches. Submitted to independent reviewer.
+
+Minimality caveat for synthesis: constraints apply to globally least circuits; near-seed searches freezing most gates may not contain a normalized candidate after bypass. Therefore they are sound for exhaustive search over the least size, but a local search returning UNSAT under these constraints is not a global lower bound.
+
+Dirty gate counterexamples: merged L-meta-4849 has 8 inputs, 8 edges, 11 gates and dirty AND in a minimal monotone circuit, but graph contains a 5-cycle and is not bipartite. Merged L-meta-3679 refutes AND-antichain normalization in a 39-vertex bipartite graph, but graph has 4-cycles. Neither refutes bipartite+C4-free cleanup specifically.
