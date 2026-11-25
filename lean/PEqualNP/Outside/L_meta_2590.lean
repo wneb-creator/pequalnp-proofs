@@ -1594,3 +1594,1072 @@ lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
         exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
 end PEqualNP.Outside.L_meta_2590.IndexSchedule
+
+namespace PEqualNP.Outside.L_meta_2590.SevenRows.Adapter
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def opt (f : BitVec 7) (u : Bool) : BitVec 7 := if u then f else 0
+
+def span1 (f w : BitVec 7) : Prop := ∃ a ∈ base, ∃ u, w = side a f u
+
+def span2 (f g w : BitVec 7) : Prop :=
+  ∃ a ∈ base, ∃ u v, w = (a ||| opt f u) ||| opt g v
+
+def Second (f g : BitVec 7) : Prop :=
+  ∃ a ∈ base, ∃ b ∈ base, ∃ u v, g = side a f u &&& side b f v
+
+def Phase : ℕ → List (BitVec 7) → Prop
+  | 0, ws => ∀ w ∈ ws, w ∈ base
+  | 1, ws => ∃ f ∈ first, ∀ w ∈ ws, span1 f w
+  | 2, ws => ∃ f ∈ first, ∃ g, Second f g ∧ ∀ w ∈ ws, span2 f g w
+  | _ + 3, _ => False
+
+lemma or0 (a : BitVec 7) : a ||| (0 : BitVec 7) = a := BitVec.or_zero
+lemma zeroOr (a : BitVec 7) : (0 : BitVec 7) ||| a = a := BitVec.zero_or
+lemma zero_bit (i : ℕ) (hi : i < 7) : (0 : BitVec 7)[i] = false := BitVec.getElem_zero hi
+
+lemma and127 (a : BitVec 7) : a &&& (127 : BitVec 7) = a := by
+  change a &&& BitVec.allOnes 7 = a
+  exact BitVec.and_allOnes
+
+lemma opt_or (f : BitVec 7) (u v : Bool) : opt f u ||| opt f v = opt f (u || v) := by
+  cases u <;> cases v <;> simp [opt]
+
+lemma span1_or {f a b : BitVec 7} (ha : span1 f a) (hb : span1 f b) :
+    span1 f (a ||| b) := by
+  obtain ⟨a, ha, u, rfl⟩ := ha
+  obtain ⟨b, hb, v, rfl⟩ := hb
+  refine ⟨a ||| b, base_or ha hb, u || v, ?_⟩
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  cases u <;> cases v <;>
+    simp only [side, Bool.false_eq_true, ↓reduceIte, Bool.or_false, Bool.or_true, BitVec.getElem_or] <;>
+    cases a[i] <;> cases b[i] <;> cases f[i] <;> rfl
+
+lemma span2_or {f g a b : BitVec 7} (ha : span2 f g a) (hb : span2 f g b) :
+    span2 f g (a ||| b) := by
+  obtain ⟨a, ha, u, v, rfl⟩ := ha
+  obtain ⟨b, hb, p, q, rfl⟩ := hb
+  refine ⟨a ||| b, base_or ha hb, u || p, v || q, ?_⟩
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  cases u <;> cases v <;> cases p <;> cases q <;>
+    simp only [opt, Bool.false_eq_true, ↓reduceIte, Bool.or_false, Bool.or_true, BitVec.getElem_or, zero_bit] <;>
+    cases a[i] <;> cases b[i] <;> cases f[i] <;> cases g[i] <;> rfl
+
+lemma base_span1 (f : BitVec 7) {w : BitVec 7} (hw : w ∈ base) : span1 f w :=
+  ⟨w, hw, false, rfl⟩
+
+lemma first_span1 (f : BitVec 7) : span1 f f := by
+  exact ⟨0, zero_mem_base, true, (zeroOr f).symm⟩
+
+lemma span1_span2 (g : BitVec 7) {f w : BitVec 7} (hw : span1 f w) : span2 f g w := by
+  obtain ⟨a, ha, u, rfl⟩ := hw
+  refine ⟨a, ha, u, false, ?_⟩
+  cases u <;> simp [side, opt]
+
+lemma second_span2 (f g : BitVec 7) : span2 f g g := by
+  exact ⟨0, zero_mem_base, false, true, by simp [opt]⟩
+
+lemma phase_or {k : ℕ} {ws : List (BitVec 7)} (hp : Phase k ws)
+    {a b : BitVec 7} (ha : a ∈ ws) (hb : b ∈ ws) : Phase k (ws ++ [a ||| b]) := by
+  cases k with
+  | zero =>
+    intro w hw
+    rcases List.mem_append.mp hw with hw | hw
+    · exact hp w hw
+    · obtain rfl := List.mem_singleton.mp hw
+      exact base_or (hp a ha) (hp b hb)
+  | succ k => cases k with
+    | zero =>
+      obtain ⟨f, hf, hw⟩ := hp
+      refine ⟨f, hf, ?_⟩
+      intro w hm
+      rcases List.mem_append.mp hm with hm | hm
+      · exact hw w hm
+      · obtain rfl := List.mem_singleton.mp hm
+        exact span1_or (hw a ha) (hw b hb)
+    | succ k => cases k with
+      | zero =>
+        obtain ⟨f, hf, g, hg, hw⟩ := hp
+        refine ⟨f, hf, g, hg, ?_⟩
+        intro w hm
+        rcases List.mem_append.mp hm with hm | hm
+        · exact hw w hm
+        · obtain rfl := List.mem_singleton.mp hm
+          exact span2_or (hw a ha) (hw b hb)
+      | succ k => exact hp.elim
+
+lemma phase_and {k : ℕ} {ws : List (BitVec 7)} (hp : Phase k ws) (hk : k < 2)
+    {a b : BitVec 7} (ha : a ∈ ws) (hb : b ∈ ws) : Phase (k + 1) (ws ++ [a &&& b]) := by
+  cases k with
+  | zero =>
+    refine ⟨a &&& b, pair_mem (hp a ha) (hp b hb), ?_⟩
+    intro w hw
+    rcases List.mem_append.mp hw with hw | hw
+    · exact base_span1 _ (hp w hw)
+    · obtain rfl := List.mem_singleton.mp hw
+      exact first_span1 _
+  | succ k =>
+    have hk0 : k = 0 := by omega
+    subst k
+    obtain ⟨f, hf, hw⟩ := hp
+    refine ⟨f, hf, a &&& b, ?_, ?_⟩
+    · obtain ⟨a', ha', u, haeq⟩ := hw a ha
+      obtain ⟨b', hb', v, hbeq⟩ := hw b hb
+      exact ⟨a', ha', b', hb', u, v, by rw [haeq, hbeq]⟩
+    · intro w hm
+      rcases List.mem_append.mp hm with hm | hm
+      · exact span1_span2 _ (hw w hm)
+      · obtain rfl := List.mem_singleton.mp hm
+        exact second_span2 _ _
+
+def maskGate (ws : List (BitVec 7)) (g : Gate) : BitVec 7 :=
+  match g.op with
+  | .and => (g.inputs.map fun i => ws.getD i 0).foldr (· &&& ·) 127
+  | .or => (g.inputs.map fun i => ws.getD i 0).foldr (· ||| ·) 0
+  | _ => 0
+
+def maskWires (gs : List Gate) (ws : List (BitVec 7)) : List (BitVec 7) :=
+  gs.foldl (fun w g => w ++ [maskGate w g]) ws
+
+def andFlag (g : Gate) : ℕ := match g.op with | .and => 1 | _ => 0
+
+def andCount (gs : List Gate) : ℕ := (gs.map andFlag).sum
+
+lemma mask_getD_mem (ws : List (BitVec 7)) (i : ℕ) : ws.getD i 0 ∈ 0 :: 127 :: ws := by
+  by_cases h : i < ws.length
+  · rw [List.getD_eq_getElem _ _ h]
+    exact List.mem_cons_of_mem _ (List.mem_cons_of_mem _ (List.getElem_mem h))
+  · rw [List.getD_eq_default _ _ (by omega)]
+    simp
+
+lemma and_pair (ws : List (BitVec 7)) (ins : List ℕ) (hlen : ins.length ≤ 2) :
+    ∃ a ∈ 0 :: 127 :: ws, ∃ b ∈ 0 :: 127 :: ws,
+      (ins.map fun i => ws.getD i 0).foldr (· &&& ·) 127 = a &&& b := by
+  cases ins with
+  | nil => exact ⟨127, by simp, 127, by simp, rfl⟩
+  | cons i ins => cases ins with
+    | nil => exact ⟨_, mask_getD_mem ws i, 127, by simp, rfl⟩
+    | cons j ins =>
+      have he : ins = [] := by apply List.length_eq_zero_iff.mp; simp only [List.length_cons] at hlen; omega
+      subst ins
+      exact ⟨_, mask_getD_mem ws i, _, mask_getD_mem ws j, by simp only [List.map_cons, List.map_nil, List.foldr_cons, List.foldr_nil, and127]⟩
+
+lemma or_pair (ws : List (BitVec 7)) (ins : List ℕ) (hlen : ins.length ≤ 2) :
+    ∃ a ∈ 0 :: 127 :: ws, ∃ b ∈ 0 :: 127 :: ws,
+      (ins.map fun i => ws.getD i 0).foldr (· ||| ·) 0 = a ||| b := by
+  cases ins with
+  | nil => exact ⟨0, by simp, 0, by simp, rfl⟩
+  | cons i ins => cases ins with
+    | nil => exact ⟨_, mask_getD_mem ws i, 0, by simp, rfl⟩
+    | cons j ins =>
+      have he : ins = [] := by apply List.length_eq_zero_iff.mp; simp only [List.length_cons] at hlen; omega
+      subst ins
+      exact ⟨_, mask_getD_mem ws i, _, mask_getD_mem ws j, by simp only [List.map_cons, List.map_nil, List.foldr_cons, List.foldr_nil, or0]⟩
+
+lemma phase_gate {k : ℕ} {ws : List (BitVec 7)} {g : Gate}
+    (hp : Phase k (0 :: 127 :: ws))
+    (hg : g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (hk : k + andFlag g ≤ 2) :
+    Phase (k + andFlag g) (0 :: 127 :: (ws ++ [maskGate ws g])) := by
+  obtain ⟨hop, hlen⟩ := hg
+  change g.op = .and ∨ g.op = .or at hop
+  rcases hop with hop | hop
+  · obtain ⟨a, ha, b, hb, he⟩ := and_pair ws g.inputs hlen
+    have hflag : andFlag g = 1 := by simp [andFlag, hop]
+    rw [hflag]
+    have hkl : k < 2 := by omega
+    simpa only [List.cons_append, maskGate, hop, he] using phase_and hp hkl ha hb
+  · obtain ⟨a, ha, b, hb, he⟩ := or_pair ws g.inputs hlen
+    have hflag : andFlag g = 0 := by simp [andFlag, hop]
+    rw [hflag, Nat.add_zero]
+    simpa only [List.cons_append, maskGate, hop, he] using phase_or hp ha hb
+
+lemma maskWires_phase (gs : List Gate)
+    (hgs : ∀ g ∈ gs, g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (k : ℕ) (ws : List (BitVec 7)) (hp : Phase k (0 :: 127 :: ws))
+    (hk : k + andCount gs ≤ 2) :
+    Phase (k + andCount gs) (0 :: 127 :: maskWires gs ws) := by
+  induction gs generalizing k ws with
+  | nil => simpa [maskWires, andCount] using hp
+  | cons g gs ih =>
+    have hc : andCount (g :: gs) = andFlag g + andCount gs := by simp [andCount]
+    have hb : k + andFlag g ≤ 2 := by omega
+    have hs := phase_gate hp (hgs g List.mem_cons_self) hb
+    have ht : k + andFlag g + andCount gs ≤ 2 := by omega
+    have h := ih (fun a ha => hgs a (List.mem_cons_of_mem g ha))
+      (k + andFlag g) (ws ++ [maskGate ws g]) hs ht
+    simpa only [hc, Nat.add_assoc, maskWires, List.foldl_cons] using h
+
+
+lemma base_ne_seven {w : BitVec 7} (hw : w ∈ base) : w ≠ 7 := by
+  intro he
+  have hz := base_clean_zero hw (by rw [he]; decide)
+  exact (by decide : (0 : BitVec 7) ≠ 7) (hz.symm.trans he)
+
+lemma span1_ne_seven {f w : BitVec 7} (hf : f ∈ first) (hw : span1 f w) : w ≠ 7 := by
+  obtain ⟨a, ha, u, rfl⟩ := hw
+  cases u with
+  | false => exact base_ne_seven ha
+  | true =>
+    apply union_ne_seven ?_ (first_clean_small hf)
+    intro hc
+    rw [base_clean_zero ha hc]
+    decide
+
+lemma span2_ne_seven {f g w : BitVec 7} (hf : f ∈ first) (hg : Second f g)
+    (hw : span2 f g w) : w ≠ 7 := by
+  obtain ⟨a, ha, b, hb, u, v, rfl⟩ := hg
+  obtain ⟨c, hc, p, q, rfl⟩ := hw
+  have h := no_output_two_ands hf ha hb hc u v p q
+  cases p <;> cases q <;> simpa [opt, or0, zeroOr, BitVec.or_assoc] using h
+
+lemma phase_ne_seven {k : ℕ} {ws : List (BitVec 7)} (hp : Phase k ws)
+    {w : BitVec 7} (hw : w ∈ ws) : w ≠ 7 := by
+  cases k with
+  | zero => exact base_ne_seven (hp w hw)
+  | succ k => cases k with
+    | zero =>
+      obtain ⟨f, hf, hs⟩ := hp
+      exact span1_ne_seven hf (hs w hw)
+    | succ k => cases k with
+      | zero =>
+        obtain ⟨f, hf, g, hg, hs⟩ := hp
+        exact span2_ne_seven hf hg (hs w hw)
+      | succ k => exact hp.elim
+
+def circuitMask (C : Circuit) (xs : List (BitVec 7)) : BitVec 7 :=
+  (maskWires C.gates xs).getD C.output 0
+
+lemma circuit_mask_ne_seven (C : Circuit) (hC : Monotone2 C) (xs : List (BitVec 7))
+    (hxs : ∀ x ∈ xs, x ∈ base) (hcount : andCount C.gates ≤ 2) : circuitMask C xs ≠ 7 := by
+  have hp : Phase 0 (0 :: 127 :: xs) := by
+    intro w hw
+    rcases List.mem_cons.mp hw with rfl | hw
+    · exact zero_mem_base
+    rcases List.mem_cons.mp hw with rfl | hw
+    · decide
+    · exact hxs w hw
+  have h := maskWires_phase C.gates hC 0 xs hp (by simpa using hcount)
+  exact phase_ne_seven h (mask_getD_mem _ _)
+
+def row (r : Fin 7) (w : BitVec 7) : Bool := w[r.val]
+
+lemma row_zero (r : Fin 7) : row r 0 = false := zero_bit r.val r.isLt
+
+lemma row127 (r : Fin 7) : row r 127 = true := by
+  change (BitVec.allOnes 7)[r.val] = true
+  exact BitVec.getElem_allOnes _ _
+
+lemma row_and (r : Fin 7) (a b : BitVec 7) : row r (a &&& b) = (row r a && row r b) :=
+  BitVec.getElem_and r.isLt
+
+lemma row_or (r : Fin 7) (a b : BitVec 7) : row r (a ||| b) = (row r a || row r b) :=
+  BitVec.getElem_or r.isLt
+
+lemma row_getD (r : Fin 7) (ws : List (BitVec 7)) (i : ℕ) :
+    row r (ws.getD i 0) = (ws.map (row r)).getD i false := by
+  have h := List.getD_map ws 0 (row r) (n := i)
+  rw [row_zero] at h
+  exact h.symm
+
+lemma fold_and_row (r : Fin 7) (ws : List (BitVec 7)) :
+    row r (ws.foldr (· &&& ·) 127) = (ws.map (row r)).all id := by
+  induction ws with
+  | nil => exact row127 r
+  | cons w ws ih =>
+    simp only [List.foldr_cons, row_and, List.map_cons, List.all_cons, id_eq]
+    rw [ih]
+
+lemma fold_or_row (r : Fin 7) (ws : List (BitVec 7)) :
+    row r (ws.foldr (· ||| ·) 0) = (ws.map (row r)).any id := by
+  induction ws with
+  | nil => exact row_zero r
+  | cons w ws ih =>
+    simp only [List.foldr_cons, row_or, List.map_cons, List.any_cons, id_eq]
+    rw [ih]
+
+lemma maskGate_row (r : Fin 7) (ws : List (BitVec 7)) (g : Gate)
+    (hop : g.op = .and ∨ g.op = .or) :
+    row r (maskGate ws g) =
+      g.op.eval (g.inputs.map fun i => (ws.map (row r)).getD i false) := by
+  rcases hop with hop | hop
+  · simp only [maskGate, hop, fold_and_row, GateOp.eval, List.map_map]
+    congr 1
+    apply List.map_congr_left
+    intro i _
+    exact row_getD r ws i
+  · simp only [maskGate, hop, fold_or_row, GateOp.eval, List.map_map]
+    congr 1
+    apply List.map_congr_left
+    intro i _
+    exact row_getD r ws i
+
+lemma maskWires_rows (r : Fin 7) (gs : List Gate)
+    (hgs : ∀ g ∈ gs, g.op = .and ∨ g.op = .or) (xs : List (BitVec 7)) :
+    (maskWires gs xs).map (row r) =
+      gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (xs.map (row r)) := by
+  induction gs generalizing xs with
+  | nil => rfl
+  | cons g gs ih =>
+    change (maskWires gs (xs ++ [maskGate xs g])).map (row r) =
+      gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+        ((xs.map (row r)) ++ [g.op.eval (g.inputs.map fun i => (xs.map (row r)).getD i false)])
+    rw [ih (fun a ha => hgs a (List.mem_cons_of_mem g ha))]
+    simp only [List.map_append, List.map_singleton, maskGate_row r xs g (hgs g List.mem_cons_self)]
+
+lemma circuit_mask_rows (C : Circuit) (hC : Monotone2 C) (xs : List (BitVec 7)) (r : Fin 7) :
+    C.eval (xs.map (row r)) = row r (circuitMask C xs) := by
+  have hg : ∀ g ∈ C.gates, g.op = .and ∨ g.op = .or := fun g hg => (hC g hg).1
+  change (C.gates.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    (xs.map (row r))).getD C.output false = row r ((maskWires C.gates xs).getD C.output 0)
+  rw [← maskWires_rows r C.gates hg xs]
+  exact (row_getD r _ _).symm
+
+lemma circuit_no_two_ands (C : Circuit) (hC : Monotone2 C) (xs : List (BitVec 7))
+    (hxs : ∀ x ∈ xs, x ∈ base) (hcount : andCount C.gates ≤ 2) :
+    ¬ ∀ r : Fin 7, C.eval (xs.map (row r)) = row r 7 := by
+  intro he
+  apply circuit_mask_ne_seven C hC xs hxs hcount
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  have hr := (circuit_mask_rows C hC xs ⟨i, hi⟩).symm.trans (he ⟨i, hi⟩)
+  exact hr
+
+lemma circuit_requires_three_ands (C : Circuit) (hC : Monotone2 C) (xs : List (BitVec 7))
+    (hxs : ∀ x ∈ xs, x ∈ base)
+    (hcomp : ∀ r : Fin 7, C.eval (xs.map (row r)) = row r 7) :
+    3 ≤ andCount C.gates := by
+  by_contra h
+  have hle : andCount C.gates ≤ 2 := by omega
+  exact circuit_no_two_ands C hC xs hxs hle hcomp
+
+end PEqualNP.Outside.L_meta_2590.SevenRows.Adapter
+
+namespace PEqualNP.Outside.L_meta_2590.FiveGroup.CausalBarrier
+
+abbrev Wire := Finset (Fin 10) × Bool
+
+def Safe (T : Finset (Fin 10)) (w : Wire) : Prop :=
+  w.2 = true → (w.1 ∩ T).Nonempty
+
+def Join (a b : Wire) : Wire := (a.1 ∪ b.1, a.2 || b.2)
+
+def Meet (a b : Wire) : Wire := (a.1 ∩ b.1, a.2 && b.2)
+
+def Separates (T A B : Finset (Fin 10)) : Prop :=
+  ¬ ((A ∩ T).Nonempty ∧ (B ∩ T).Nonempty)
+
+lemma safe_join {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) : Safe T (Join a b) := by
+  intro h
+  change a.2 || b.2 = true at h
+  rcases Bool.or_eq_true_iff.mp h with h | h
+  · rcases ha h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inl (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+  · rcases hb h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inr (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+
+lemma safe_meet {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) (hs : Separates T a.1 b.1) :
+    Safe T (Meet a b) := by
+  intro h
+  change a.2 && b.2 = true at h
+  rcases Bool.and_eq_true_iff.mp h with ⟨ha', hb'⟩
+  exact False.elim (hs ⟨ha ha', hb hb'⟩)
+
+def Step (T : Finset (Fin 10)) (pool : List Wire) (w : Wire) : Prop :=
+  ∃ a ∈ pool, ∃ b ∈ pool,
+    w = Join a b ∨ (Separates T a.1 b.1 ∧ w = Meet a b)
+
+def Trace (T : Finset (Fin 10)) (pool : List Wire) : List Wire → Prop
+  | [] => True
+  | w :: ws => Step T pool w ∧ Trace T (w :: pool) ws
+
+lemma safe_step {T : Finset (Fin 10)} {pool : List Wire} {w : Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Step T pool w) : Safe T w := by
+  rcases h with ⟨a, ha, b, hb, h | ⟨hs, h⟩⟩
+  · subst w
+    exact safe_join (hp a ha) (hp b hb)
+  · subst w
+    exact safe_meet (hp a ha) (hp b hb) hs
+
+lemma safe_trace {T : Finset (Fin 10)} {pool ws : List Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Trace T pool ws) :
+    ∀ w ∈ ws, Safe T w := by
+  induction ws generalizing pool with
+  | nil => simp
+  | cons a ws ih =>
+      obtain ⟨hs, ht⟩ := h
+      have ha := safe_step hp hs
+      have hp' : ∀ b ∈ a :: pool, Safe T b := by
+        intro b hb
+        rcases List.mem_cons.mp hb with rfl | hb
+        · exact ha
+        · exact hp b hb
+      intro w hw
+      rcases List.mem_cons.mp hw with rfl | hw
+      · exact ha
+      · exact ih hp' ht w hw
+
+lemma safe_zero_false {T : Finset (Fin 10)} {w : Wire}
+    (h : Safe T w) (hz : w.1 = ∅) : w.2 = false := by
+  cases hv : w.2
+  · rfl
+  · have hn := h hv
+    simp [hz] at hn
+
+def OtherSides : List (Finset (Fin 10) × Finset (Fin 10)) :=
+  [({0}, {1, 4, 5}), ({1}, {2, 6}), ({4}, {3, 9}), ({5}, {7, 8}), (∅, ∅)]
+
+def DirtyEdges : List (Finset (Fin 10)) :=
+  [{2, 3}, {3, 8}, {6, 8}, {6, 9}, {2, 7}, {7, 9}]
+
+def UniversalEdge (v : Fin 10) : Finset (Fin 10) :=
+  match v.val with
+  | 0 => {2, 3}
+  | 1 => {3, 8}
+  | 2 => {2, 3}
+  | 3 => {2, 3}
+  | 4 => {6, 8}
+  | 5 => {6, 9}
+  | 6 => {6, 8}
+  | 7 => {2, 7}
+  | 8 => {3, 8}
+  | _ => {6, 9}
+
+def UniversalBarrier (v : Fin 10) : Finset (Fin 10) := insert v (UniversalEdge v)
+
+lemma universal_edge_valid : ∀ v : Fin 10, UniversalEdge v ∈ DirtyEdges := by decide
+
+lemma all_vertices_separation :
+    ∀ (v : Fin 10), ∀ AB ∈ OtherSides,
+      Separates (UniversalBarrier v) AB.1 AB.2 ∧
+      Separates (UniversalBarrier v) AB.2 AB.1 := by
+  intro v
+  simp [OtherSides, Separates]
+  revert v
+  decide
+
+end PEqualNP.Outside.L_meta_2590.FiveGroup.CausalBarrier
+
+namespace PEqualNP.Outside.L_meta_2590.FiveGroup.ResourceExclusion
+
+open CausalBarrier
+
+abbrev Resource := Finset (Fin 10) × (Finset (Fin 10) → Bool)
+
+def CrossPairs : List (Finset (Fin 10)) :=
+  [{2, 3}, {3, 8}, {3, 9}, {2, 6}, {6, 8}, {6, 9}, {2, 7}, {7, 8}, {7, 9}]
+
+def RSafe (E T : Finset (Fin 10)) (w : Resource) : Prop :=
+  w.2 E = true → (w.1 ∩ T).Nonempty
+
+def Ordinary (w : Resource) : Prop := ∀ E ∈ CrossPairs, RSafe E E w
+
+def AllOrdinary (p : Multiset Resource) : Prop := ∀ w ∈ p, Ordinary w
+
+def RJoin (a b : Resource) : Resource :=
+  (a.1 ∪ b.1, fun E => a.2 E || b.2 E)
+
+def RMeet (a b : Resource) : Resource :=
+  (a.1 ∩ b.1, fun E => a.2 E && b.2 E)
+
+def AllowedSides (a b : Resource) : Prop :=
+  (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides
+
+def Keep (w : Resource) : Multiset Resource :=
+  if w.1 = ∅ then 0 else {w}
+
+def Next (a b c : Resource) (rest : Multiset Resource) : Multiset Resource :=
+  c ::ₘ (Keep a + Keep b + rest)
+
+def ResourceStep (p q : Multiset Resource) : Prop :=
+  (∃ a b c rest, p = a ::ₘ b ::ₘ rest ∧ q = Next a b c rest ∧
+    (c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b))) ∨
+  (∃ w rest, w.1 ≠ ∅ ∧ p = w ::ₘ rest ∧ q = w ::ₘ w ::ₘ rest) ∨
+  (∃ w rest, p = w ::ₘ rest ∧ q = rest)
+
+def Blocked (p : Multiset Resource) : Prop :=
+  ∃ E ∈ DirtyEdges, ∃ T : Finset (Fin 10),
+    (∀ AB ∈ OtherSides, Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1) ∧
+    ∀ w ∈ p, RSafe E T w
+
+def Exceptional (p : Multiset Resource) : Prop :=
+  ∃ d rest, p = d ::ₘ rest ∧ d.1 = ∅ ∧
+    (∀ E ∈ CrossPairs, d.2 E = true) ∧ AllOrdinary rest
+
+def Invariant (p : Multiset Resource) : Prop := Blocked p ∨ Exceptional p
+
+def Target (w : Resource) : Prop :=
+  w.1 = ∅ ∧ (∀ E ∈ DirtyEdges, w.2 E = true) ∧ w.2 {3, 9} = false
+
+lemma rsafe_join {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) : RSafe E T (RJoin a b) := by
+  exact safe_join (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb
+
+lemma rsafe_meet {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hs : Separates T a.1 b.1) :
+    RSafe E T (RMeet a b) := by
+  exact safe_meet (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb hs
+
+lemma rsafe_zero_false {E T : Finset (Fin 10)} {w : Resource}
+    (h : RSafe E T w) (hz : w.1 = ∅) : w.2 E = false :=
+  safe_zero_false (w := (w.1, w.2 E)) h hz
+
+lemma cross_separation :
+    ∀ E ∈ CrossPairs, ∀ AB ∈ OtherSides,
+      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
+  simp [CrossPairs, OtherSides, Separates]
+
+lemma dirty_mem_cross : ∀ E ∈ DirtyEdges, E ∈ CrossPairs := by
+  simp [DirtyEdges, CrossPairs]
+
+lemma ordinary_join {a b : Resource} (ha : Ordinary a) (hb : Ordinary b) :
+    Ordinary (RJoin a b) := by
+  intro E hE
+  exact rsafe_join (ha E hE) (hb E hE)
+
+lemma ordinary_meet {a b : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hs : AllowedSides a b) : Ordinary (RMeet a b) := by
+  intro E hE
+  apply rsafe_meet (ha E hE) (hb E hE)
+  rcases hs with hs | hs
+  · exact (cross_separation E hE _ hs).1
+  · exact (cross_separation E hE _ hs).2
+
+lemma keep_mem {a w : Resource} (h : w ∈ Keep a) : w = a := by
+  classical
+  by_cases hz : a.1 = ∅
+  · simp [Keep, hz] at h
+  · simpa [Keep, hz] using h
+
+lemma allOrdinary_next {a b c : Resource} {rest : Multiset Resource}
+    (ha : Ordinary a) (hb : Ordinary b) (hc : Ordinary c) (hr : AllOrdinary rest) :
+    AllOrdinary (Next a b c rest) := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma allOrdinary_blocked {p : Multiset Resource} (hp : AllOrdinary p) : Blocked p := by
+  refine ⟨{2, 3}, by simp [DirtyEdges], {2, 3}, ?_, ?_⟩
+  · exact cross_separation _ (by simp [CrossPairs])
+  · intro w hw
+    exact hp w hw _ (by simp [CrossPairs])
+
+lemma blocked_no_target {p : Multiset Resource} (hp : Blocked p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨E, hE, T, _, hs⟩ := hp
+  rintro ⟨hz, ht, _⟩
+  have hf := rsafe_zero_false (hs w hw) hz
+  rw [ht E hE] at hf
+  contradiction
+
+lemma exceptional_no_target {p : Multiset Resource} (hp : Exceptional p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨d, rest, rfl, hd, hdt, hr⟩ := hp
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · rintro ⟨_, _, hf⟩
+    have ht := hdt {3, 9} (by simp [CrossPairs])
+    rw [hf] at ht
+    contradiction
+  · exact blocked_no_target (allOrdinary_blocked hr) hw
+
+lemma invariant_no_target {p : Multiset Resource} (hp : Invariant p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  rcases hp with hp | hp
+  · exact blocked_no_target hp hw
+  · exact exceptional_no_target hp hw
+
+
+lemma all_safe_next {E T : Finset (Fin 10)} {a b c : Resource}
+    {rest : Multiset Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hc : RSafe E T c)
+    (hr : ∀ w ∈ rest, RSafe E T w) :
+    ∀ w ∈ Next a b c rest, RSafe E T w := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma blocked_step {p q : Multiset Resource} (hp : Blocked p)
+    (hstep : ResourceStep p q) : Blocked q := by
+  obtain ⟨E, hE, T, hT, hs⟩ := hp
+  refine ⟨E, hE, T, hT, ?_⟩
+  rcases hstep with ⟨a, b, c, rest, rfl, rfl, hc⟩ | ⟨w, rest, _, rfl, rfl⟩ | ⟨w, rest, rfl, rfl⟩
+  · have ha := hs a (by simp)
+    have hb := hs b (by simp)
+    have hr : ∀ w ∈ rest, RSafe E T w := fun w hw => hs w (by simp [hw])
+    apply all_safe_next ha hb ?_ hr
+    rcases hc with rfl | ⟨hside, rfl⟩
+    · exact rsafe_join ha hb
+    · apply rsafe_meet ha hb
+      rcases hside with hside | hside
+      · exact (hT _ hside).1
+      · exact (hT _ hside).2
+  · intro a ha
+    simp only [Multiset.mem_cons, or_self_left] at ha
+    exact hs a (Multiset.mem_cons.mpr ha)
+  · intro a ha
+    exact hs a (by simp [ha])
+
+lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
+    (hc : c.1.Nonempty) (hr : AllOrdinary rest) : Blocked (c ::ₘ rest) := by
+  obtain ⟨v, hv⟩ := hc
+  refine ⟨UniversalEdge v, universal_edge_valid v, UniversalBarrier v,
+    all_vertices_separation v, ?_⟩
+  intro w hw
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · intro _
+    exact ⟨v, Finset.mem_inter.mpr ⟨hv, Finset.mem_insert_self _ _⟩⟩
+  · intro ht
+    obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
+    obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
+    exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
+
+lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
+  intro a ha
+  exact (keep_mem ha) ▸ h
+
+lemma allOrdinary_add {p q : Multiset Resource}
+    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
+  intro w hw
+  rcases Multiset.mem_add.mp hw with hw | hw
+  · exact hp w hw
+  · exact hq w hw
+
+lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
+    (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
+  intro a ha
+  rcases Multiset.mem_cons.mp ha with rfl | ha
+  · exact hw
+  · exact hp a ha
+
+lemma zero_side_of_allowed {a b : Resource} (ha : a.1 = ∅) (hs : AllowedSides a b) :
+    b.1 = ∅ := by
+  have hzero : ∀ AB ∈ OtherSides,
+      (AB.1 = ∅ → AB.2 = ∅) ∧ (AB.2 = ∅ → AB.1 = ∅) := by
+    simp [OtherSides]
+  rcases hs with hs | hs
+  · exact (hzero _ hs).1 ha
+  · exact (hzero _ hs).2 ha
+
+lemma exceptional_left_step {d b c : Resource} {rest : Multiset Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (hb : Ordinary b) (hr : AllOrdinary rest)
+    (hc : c = RJoin d b ∨ (AllowedSides d b ∧ c = RMeet d b)) :
+    Invariant (Next d b c rest) := by
+  classical
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · by_cases hbs : b.1 = ∅
+    · right
+      refine ⟨RJoin d b, rest, ?_, ?_, ?_, hr⟩
+      · simp [Next, Keep, hd, hbs]
+      · simp [RJoin, hd, hbs]
+      · intro E hE
+        simp [RJoin, hdt E hE]
+    · left
+      have hbp : (RJoin d b).1.Nonempty := by
+        simpa [RJoin, hd] using Finset.nonempty_iff_ne_empty.mpr hbs
+      have hpool : AllOrdinary (Keep d + Keep b + rest) := by
+        simpa [Keep, hd, hbs] using allOrdinary_cons hb hr
+      exact ordinary_carrier_blocked hbp hpool
+  · left
+    have hbs := zero_side_of_allowed hd hs
+    have hc : Ordinary (RMeet d b) := by
+      intro E hE ht
+      have hbf := rsafe_zero_false (hb E hE) hbs
+      simp [RMeet, hbf] at ht
+    apply allOrdinary_blocked
+    simpa [Next, Keep, hd, hbs] using allOrdinary_cons hc hr
+
+
+lemma next_swap (a b c : Resource) (rest : Multiset Resource) :
+    Next a b c rest = Next b a c rest := by
+  simp only [Next, add_comm (Keep a) (Keep b)]
+
+lemma rjoin_swap (a b : Resource) : RJoin a b = RJoin b a := by
+  apply Prod.ext
+  · exact Finset.union_comm _ _
+  · funext E
+    exact Bool.or_comm _ _
+
+lemma rmeet_swap (a b : Resource) : RMeet a b = RMeet b a := by
+  apply Prod.ext
+  · exact Finset.inter_comm _ _
+  · funext E
+    exact Bool.and_comm _ _
+
+lemma ordinary_result {a b c : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hc : c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b)) : Ordinary c := by
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · exact ordinary_join ha hb
+  · exact ordinary_meet ha hb hs
+
+lemma exceptional_step {p q : Multiset Resource} (hp : Exceptional p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  classical
+  obtain ⟨d, r0, hpd, hd, hdt, hr0⟩ := hp
+  rcases hstep with ⟨a, b, c, rest, hpab, rfl, hc⟩ |
+    ⟨w, rest, hws, hpw, rfl⟩ | ⟨w, rest, hpw, hqr⟩
+  · have heq : d ::ₘ r0 = a ::ₘ b ::ₘ rest := hpd.symm.trans hpab
+    by_cases had : a = d
+    · subst a
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact exceptional_left_step hd hdt (hr0 b (by simp))
+        (fun w hw => hr0 w (by simp [hw])) hc
+    · by_cases hbd : b = d
+      · subst b
+        rw [Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        rw [next_swap]
+        apply exceptional_left_step hd hdt (hr0 a (by simp))
+          (fun w hw => hr0 w (by simp [hw]))
+        rcases hc with hc | ⟨hs, hc⟩
+        · left
+          exact hc.trans (rjoin_swap _ _)
+        · right
+          exact ⟨Or.symm hs, hc.trans (rmeet_swap _ _)⟩
+      · have hdm : d ∈ a ::ₘ b ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+        have hdr : d ∈ rest := by
+          simpa [Ne.symm had, Ne.symm hbd] using hdm
+        obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+        rw [Multiset.cons_swap b d, Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        have ha : Ordinary a := hr0 a (by simp)
+        have hb : Ordinary b := hr0 b (by simp)
+        have hr : AllOrdinary r := fun w hw => hr0 w (by simp [hw])
+        right
+        refine ⟨d, Next a b c r, ?_, hd, hdt,
+          allOrdinary_next ha hb (ordinary_result ha hb hc) hr⟩
+        simp only [Next, Multiset.add_cons]
+        exact Multiset.cons_swap _ _ _
+  · have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    have hdw : d ≠ w := by
+      intro h
+      subst w
+      exact hws hd
+    have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+    have hdr : d ∈ rest := by simpa [hdw] using hdm
+    obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+    rw [Multiset.cons_swap w d] at heq
+    have hrEq := (Multiset.cons_inj_right d).mp heq
+    rw [hrEq] at hr0
+    right
+    refine ⟨d, w ::ₘ w ::ₘ r, ?_, hd, hdt, ?_⟩
+    · rw [Multiset.cons_swap w d, Multiset.cons_swap w d]
+    · exact allOrdinary_cons (hr0 w (by simp)) hr0
+  · rw [hqr]
+    have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    by_cases hdw : d = w
+    · subst w
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inl (allOrdinary_blocked hr0)
+    · have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+      have hdr : d ∈ rest := by simpa [hdw] using hdm
+      obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+      rw [Multiset.cons_swap w d] at heq
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inr ⟨d, r, rfl, hd, hdt, fun a ha => hr0 a (by simp [ha])⟩
+
+lemma invariant_step {p q : Multiset Resource} (hp : Invariant p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  rcases hp with hp | hp
+  · exact Or.inl (blocked_step hp hstep)
+  · exact exceptional_step hp hstep
+
+def ResourceTrace (p : Multiset Resource) : List (Multiset Resource) → Prop
+  | [] => True
+  | q :: qs => ResourceStep p q ∧ ResourceTrace q qs
+
+lemma invariant_trace {p : Multiset Resource} {qs : List (Multiset Resource)}
+    (hp : Invariant p) (ht : ResourceTrace p qs) : ∀ q ∈ qs, Invariant q := by
+  induction qs generalizing p with
+  | nil => simp
+  | cons q qs ih =>
+      obtain ⟨hs, ht⟩ := ht
+      have hq := invariant_step hp hs
+      intro r hr
+      rcases List.mem_cons.mp hr with rfl | hr
+      · exact hq
+      · exact ih hq ht r hr
+
+lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
+    {qs : List (Multiset Resource)} {q : Multiset Resource} {out : Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (ho : AllOrdinary ordinary) (ht : ResourceTrace (d ::ₘ ordinary) qs)
+    (hq : q ∈ qs) (hout : out ∈ q) : ¬ Target out := by
+  have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
+  exact invariant_no_target (invariant_trace hi ht q hq) hout
+
+end PEqualNP.Outside.L_meta_2590.FiveGroup.ResourceExclusion
+
+namespace PEqualNP.Outside.L_meta_2590.FiveGroup.IndexSchedule
+
+open ResourceExclusion
+
+def Pool (W : ℕ → Resource) (ids : Finset ℕ) : Multiset Resource := ids.val.map W
+
+def DropZero (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  if (W i).1 = ∅ then ids.erase i else ids
+
+def NextIds (W : ℕ → Resource) (a b out : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  insert out (DropZero W b (DropZero W a ids))
+
+def Available (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) : ℕ → Finset ℕ
+  | 0 => Finset.range start
+  | t + 1 => NextIds W (A (start + t)) (B (start + t)) (start + t)
+      (Available W start A B t)
+
+lemma drop_subset (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) :
+    DropZero W i ids ⊆ ids := by
+  unfold DropZero
+  split
+  · exact Finset.erase_subset _ _
+  · exact Finset.Subset.refl _
+
+lemma mem_drop {W : ℕ → Resource} {i x : ℕ} {ids : Finset ℕ}
+    (hx : x ∈ ids) (hkeep : (W x).1 ≠ ∅ ∨ x ≠ i) : x ∈ DropZero W i ids := by
+  unfold DropZero
+  split_ifs with hi
+  · apply Finset.mem_erase.mpr
+    refine ⟨?_, hx⟩
+    rcases hkeep with hkeep | hkeep
+    · intro hxi
+      subst x
+      exact hkeep hi
+    · exact hkeep
+  · exact hx
+
+lemma available_bounded (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x ∈ Available W start A B t, x < start + t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hx
+      rcases Finset.mem_insert.mp hx with rfl | hx
+      · omega
+      · have hx' := drop_subset W _ _ (drop_subset W _ _ hx)
+        have hb := ih x hx'
+        omega
+
+lemma available_complete (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x, x < start + t →
+      ((W x).1 ≠ ∅ ∨ ∀ j < t, A (start + j) ≠ x ∧ B (start + j) ≠ x) →
+      x ∈ Available W start A B t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hbound hunused
+      by_cases hlast : x = start + t
+      · subst x
+        exact Finset.mem_insert_self _ _
+      · have hold : x < start + t := by omega
+        have hprev : (W x).1 ≠ ∅ ∨ ∀ j < t,
+            A (start + j) ≠ x ∧ B (start + j) ≠ x := by
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (fun j hj => hu j (by omega))
+        have hmem := ih x hold hprev
+        apply Finset.mem_insert_of_mem
+        apply mem_drop
+        · apply mem_drop hmem
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).1)
+        · rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).2)
+
+def Reads (A B : ℕ → ℕ) (i x : ℕ) : Prop := A i = x ∨ B i = x
+
+def LinearUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ x, (W x).1 = ∅ →
+    Reads A B (start + i) x → Reads A B (start + j) x → i = j
+
+lemma source_available {W : ℕ → Resource} {start n t x : ℕ} {A B : ℕ → ℕ}
+    (hlin : LinearUpTo W start A B n) (ht : t < n)
+    (hx : x < start + t) (hr : Reads A B (start + t) x) :
+    x ∈ Available W start A B t := by
+  apply available_complete W start A B t x hx
+  by_cases hp : (W x).1 = ∅
+  · right
+    intro j hj
+    constructor
+    · intro hja
+      have heq := hlin t ht j (by omega) x hp hr (Or.inl hja)
+      omega
+    · intro hjb
+      have heq := hlin t ht j (by omega) x hp hr (Or.inr hjb)
+      omega
+  · exact Or.inl hp
+
+lemma pool_insert {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∉ ids) :
+    Pool W (insert i ids) = W i ::ₘ Pool W ids := by
+  simp only [Pool, Finset.insert_val_of_notMem hi, Multiset.map_cons]
+
+lemma pool_erase_decomp {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    Pool W ids = W i ::ₘ Pool W (ids.erase i) := by
+  calc
+    Pool W ids = Pool W (insert i (ids.erase i)) := by rw [Finset.insert_erase hi]
+    _ = W i ::ₘ Pool W (ids.erase i) := pool_insert (Finset.notMem_erase _ _)
+
+lemma pool_two_decomp {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W ids = W a ::ₘ W b ::ₘ Pool W ((ids.erase a).erase b) := by
+  rw [pool_erase_decomp ha]
+  rw [pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)]
+
+lemma pool_drop_two {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W (DropZero W b (DropZero W a ids)) =
+      Keep (W a) + Keep (W b) + Pool W ((ids.erase a).erase b) := by
+  classical
+  by_cases hza : (W a).1 = ∅ <;> by_cases hzb : (W b).1 = ∅
+  · simp [DropZero, Keep, hza, hzb]
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, zero_add]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, add_zero]
+    rw [Finset.erase_right_comm]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨hab, ha⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_false]
+    simpa using pool_two_decomp ha hb hab
+
+lemma index_resource_step {W : ℕ → Resource} {ids : Finset ℕ} {a b out : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) (hout : out ∉ ids)
+    (hg : W out = RJoin (W a) (W b) ∨
+      (AllowedSides (W a) (W b) ∧ W out = RMeet (W a) (W b))) :
+    ResourceStep (Pool W ids) (Pool W (NextIds W a b out ids)) := by
+  left
+  refine ⟨W a, W b, W out, Pool W ((ids.erase a).erase b),
+    pool_two_decomp ha hb hab, ?_, hg⟩
+  have hfresh : out ∉ DropZero W b (DropZero W a ids) := by
+    intro h
+    exact hout (drop_subset W _ _ (drop_subset W _ _ h))
+  rw [NextIds, pool_insert hfresh, pool_drop_two ha hb hab]
+  rfl
+
+
+def ValidUpTo (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
+    A (start + t) ≠ B (start + t)
+
+def CanonicalUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n,
+    W (start + t) = RJoin (W (A (start + t))) (W (B (start + t))) ∨
+    (AllowedSides (W (A (start + t))) (W (B (start + t))) ∧
+      W (start + t) = RMeet (W (A (start + t))) (W (B (start + t))))
+
+lemma available_step {W : ℕ → Resource} {start n t : ℕ} {A B : ℕ → ℕ}
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) (ht : t < n) :
+    ResourceStep (Pool W (Available W start A B t))
+      (Pool W (Available W start A B (t + 1))) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have haa := source_available hl ht ha (Or.inl rfl)
+  have hba := source_available hl ht hb (Or.inr rfl)
+  apply index_resource_step haa hba hab ?_ (hc t ht)
+  intro h
+  have := available_bounded W start A B t _ h
+  omega
+
+lemma program_invariant {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t ≤ n, Invariant (Pool W (Available W start A B t)) := by
+  intro t
+  induction t with
+  | zero => intro _; exact hp
+  | succ t ih =>
+      intro ht
+      exact invariant_step (ih (by omega)) (available_step hv hl hc (by omega))
+
+lemma pool_mem {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    W i ∈ Pool W ids := by
+  exact Multiset.mem_map.mpr ⟨i, hi, rfl⟩
+
+lemma canonical_program_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) := by
+  intro t ht
+  have hinv := program_invariant hp hv hl hc (t + 1) (by omega)
+  apply invariant_no_target hinv
+  apply pool_mem
+  exact Finset.mem_insert_self _ _
+
+lemma initial_exceptional {W : ℕ → Resource} {start d : ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i)) :
+    Invariant (Pool W (Finset.range start)) := by
+  right
+  refine ⟨W d, Pool W ((Finset.range start).erase d),
+    pool_erase_decomp (Finset.mem_range.mpr hd), hz, ht, ?_⟩
+  intro w hw
+  obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hw
+  have hi' : i ∈ (Finset.range start).erase d := hi
+  obtain ⟨hid, hir⟩ := Finset.mem_erase.mp hi'
+  exact ho i (Finset.mem_range.mp hir) hid
+
+lemma seeded_program_exclusion {W : ℕ → Resource} {start n d : ℕ} {A B : ℕ → ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) :=
+  canonical_program_exclusion (initial_exceptional hd hz ht ho) hv hl hc
+
+
+lemma program_any_wire_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, ¬ Target (W i) := by
+  intro i hi
+  by_cases hold : i < start
+  · exact invariant_no_target hp (pool_mem (Finset.mem_range.mpr hold))
+  · have ht : i - start < n := by omega
+    have heq : start + (i - start) = i := by omega
+    simpa only [heq] using canonical_program_exclusion hp hv hl hc (i - start) ht
+
+lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : ∀ i < start, Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, Ordinary (W i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+      intro hi
+      by_cases hold : i < start
+      · exact hp i hold
+      · have ht : i - start < n := by omega
+        have heq : start + (i - start) = i := by omega
+        obtain ⟨ha, hb, _⟩ := hv (i - start) ht
+        rw [heq] at ha hb
+        have hca := hc (i - start) ht
+        rw [heq] at hca
+        exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
+
+end PEqualNP.Outside.L_meta_2590.FiveGroup.IndexSchedule
