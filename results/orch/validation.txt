@@ -7,3 +7,9 @@ Independent pre-push audit: status_review PASS for partial witness; all 128 assi
 Cleanup: not applicable yet; witness partial 37 lines.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=8.2 subagents=6
+
+Checked engine checkpoint: results/orch/lemmas/Computational.lean, 3744 lines, Lean exit 0 at 2026-11-25T19:19:21Z.
+It proves generic search soundness and the exact target bridge, not the target lower bound.
+Independent checkpoint review: toolchain GO; two unnamed sections require names before a final PR; custom data types may defer automatic merge.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=12.5 subagents=6
