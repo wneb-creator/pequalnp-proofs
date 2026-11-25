@@ -1983,3 +1983,350 @@ lemma subcubic_lower_or_single_reader (G : SimpleGraph (Fin n)) [DecidableRel G.
     exact Or.inl ⟨T, hT, by omega⟩
 
 end PEqualNP.Outside.L_meta_3566.Subcubic
+
+namespace PEqualNP.Outside.L_meta_3566.GateSavings
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.EdgeOwnership PEqualNP.Outside.L_meta_3566.Pruning
+
+variable {n : ℕ}
+
+def cutInput (z : Fin n) (x : Fin n → Bool) : Fin n → Bool :=
+  fun i => if i = z then false else x i
+
+def cutSrc (z : Fin n) (w : ℕ) : Src n ℕ := if w = z.val then none else srcOf n w
+
+lemma cutSrc_inr (z : Fin n) (w j : ℕ) (h : cutSrc z w = some (Sum.inr j)) : w = n + j := by
+  by_cases hz : w = z.val
+  · simp [cutSrc, hz] at h
+  · exact srcOf_inr w j (by simpa [cutSrc, hz] using h)
+
+lemma cutSrc_value (C : Circuit) (z : Fin n) (w : ℕ) (x : Fin n → Bool) :
+    srcAt x (fun k => gateVal n C k (cutInput z x)) (cutSrc z w) =
+      wireVal n C w (cutInput z x) := by
+  by_cases hz : w = z.val
+  · subst w
+    rw [wireVal_lt C z.val z.isLt]
+    simp [cutSrc, srcAt, cutInput]
+  · have heq : srcAt x (fun k => gateVal n C k (cutInput z x)) (cutSrc z w) =
+        srcAt (cutInput z x) (fun k => gateVal n C k (cutInput z x)) (srcOf n w) := by
+      simp only [cutSrc, hz, ite_false]
+      unfold srcOf
+      split_ifs with hw
+      · have hne : (⟨w, hw⟩ : Fin n) ≠ z := by intro he; exact hz (congrArg Fin.val he)
+        simp [srcAt, cutInput, hne]
+      · rfl
+    rw [heq, srcAt_srcOf]
+
+lemma opnd_mem (C : Circuit) (hC : IsAO2 n C) (k : ℕ) (hk : k < C.size) (b : Fin 2) :
+    opnd C k b ∈ (gateAt C k).inputs := by
+  have hkg : k < C.gates.length := hk
+  have hm : gateAt C k ∈ C.gates := by
+    exact List.mem_of_getElem? (show C.gates[k]? = some (gateAt C k) by
+      simp [gateAt, List.getD_eq_getElem?_getD, hkg])
+  have hlen := hC.2.2 _ hm
+  have hb : b.val < (gateAt C k).inputs.length := by rw [hlen]; exact b.isLt
+  exact List.mem_of_getElem? (show (gateAt C k).inputs[b.val]? = some (opnd C k b) by
+    simp [opnd, List.getD_eq_getElem?_getD, hb])
+
+lemma restrict_false_saves (C : Circuit) (hC : IsAO2 n C) (ho : C.output < n + C.size)
+    (z : Fin n) (E : Finset ℕ) (hE : E ⊆ Finset.range C.size)
+    (hzero : ∀ k ∈ E, ∃ b : Fin 2,
+      wireVal n C (opnd C k b) (cutInput z (fun _ => true)) = false) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size + E.card ≤ C.size ∧
+      circuitFun n D = fun x => circuitFun n C (cutInput z x) := by
+  classical
+  let K := Finset.range C.size
+  let P : Prog n ℕ := progOf C fun k b => cutSrc z (opnd C k b)
+  let v : ℕ → (Fin n → Bool) → Bool := fun k x => gateVal n C k (cutInput z x)
+  let o : Src n ℕ := cutSrc z C.output
+  have hclosed : Closed P id K := by
+    intro k hk b j hj
+    have he := cutSrc_inr z (opnd C k b) j hj
+    have hkl : k < C.size := Finset.mem_range.mp hk
+    have hb := hC.2.1 k hkl _ (opnd_mem C hC k hkl b)
+    exact ⟨Finset.mem_range.mpr (by omega), by simpa using (show j < k by omega)⟩
+  have hsol : Sol P K v := by
+    intro x k hk
+    change gateVal n C k (cutInput z x) = opv (isA (gateAt C k).op)
+      (srcAt x (fun j => gateVal n C j (cutInput z x)) (cutSrc z (opnd C k 0)))
+      (srcAt x (fun j => gateVal n C j (cutInput z x)) (cutSrc z (opnd C k 1)))
+    rw [cutSrc_value, cutSrc_value]
+    exact gate_eq C hC k (Finset.mem_range.mp hk) (cutInput z x)
+  have hout : ∀ j, o = some (Sum.inr j) → j ∈ K := by
+    intro j hj
+    have he := cutSrc_inr z C.output j hj
+    exact Finset.mem_range.mpr (by omega)
+  obtain ⟨D, hD, hs, hf⟩ := fold_total P id v K hclosed hsol o hout
+  have hsub : kept P v K ⊆ K \ E := by
+    intro k hk
+    obtain ⟨hkK, ha, hb⟩ := Finset.mem_filter.mp hk
+    refine Finset.mem_sdiff.mpr ⟨hkK, ?_⟩
+    intro hkE
+    obtain ⟨b, hz⟩ := hzero k hkE
+    have hboth : ∀ c : Fin 2, srcAt (fun _ => true) (fun j => v j (fun _ => true)) (P.src k c) = true := by
+      intro c
+      fin_cases c
+      · exact ha
+      · exact hb
+    have hc := hboth b
+    change srcAt (fun _ => true) (fun j => gateVal n C j (cutInput z (fun _ => true)))
+      (cutSrc z (opnd C k b)) = true at hc
+    rw [cutSrc_value, hz] at hc
+    cases hc
+  have hcount := Finset.card_le_card hsub
+  have hcard : (K \ E).card + E.card = C.size := by
+    simpa [K] using Finset.card_sdiff_add_card_eq_card hE
+  refine ⟨D, hD, by omega, ?_⟩
+  funext x
+  rw [hf x]
+  exact cutSrc_value C z C.output x
+
+lemma exists_opnd_of_mem (C : Circuit) (hC : IsAO2 n C) (k : ℕ) (hk : k < C.size)
+    (w : ℕ) (hw : w ∈ (gateAt C k).inputs) : ∃ b : Fin 2, opnd C k b = w := by
+  have hkg : k < C.gates.length := hk
+  have hm : gateAt C k ∈ C.gates := by
+    exact List.mem_of_getElem? (show C.gates[k]? = some (gateAt C k) by
+      simp [gateAt, List.getD_eq_getElem?_getD, hkg])
+  have hlen := hC.2.2 _ hm
+  obtain ⟨i, hi, he⟩ := List.mem_iff_getElem.mp hw
+  let b : Fin 2 := ⟨i, by omega⟩
+  refine ⟨b, ?_⟩
+  simp [opnd, b, List.getD_eq_getElem?_getD, hi, he]
+
+lemma input_zero (C : Circuit) (z : Fin n) :
+    wireVal n C z.val (cutInput z (fun _ => true)) = false := by
+  rw [wireVal_lt C z.val z.isLt]
+  simp [cutInput]
+
+lemma and_reader_zero (C : Circuit) (hC : IsAO2 n C) (z : Fin n) (j : ℕ)
+    (hj : j < C.size) (hand : (gateAt C j).op = GateOp.and)
+    (hread : z.val ∈ (gateAt C j).inputs) :
+    gateVal n C j (cutInput z (fun _ => true)) = false := by
+  obtain ⟨b, hb⟩ := exists_opnd_of_mem C hC j hj z.val hread
+  rw [gate_eq C hC j hj, hand]
+  change (wireVal n C (opnd C j 0) (cutInput z (fun _ => true)) &&
+    wireVal n C (opnd C j 1) (cutInput z (fun _ => true))) = false
+  have hb01 : b = 0 ∨ b = 1 := by omega
+  rcases hb01 with hb0 | hb1
+  · rw [hb0] at hb
+    rw [hb, input_zero]
+    rfl
+  · rw [hb1] at hb
+    rw [hb, input_zero]
+    exact Bool.and_false _
+
+lemma restrict_and_reader_saves (C : Circuit) (hC : IsAO2 n C)
+    (ho : C.output < n + C.size) (z : Fin n) (j : ℕ)
+    (hj : j < C.size) (hand : (gateAt C j).op = GateOp.and)
+    (hread : z.val ∈ (gateAt C j).inputs) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size + 1 + (readers n C j).card ≤ C.size ∧
+      circuitFun n D = fun x => circuitFun n C (cutInput z x) := by
+  classical
+  have hjnot : j ∉ readers n C j := by
+    intro h
+    have hr := (Finset.mem_filter.mp h).2
+    have hb := hC.2.1 j hj (n + j) hr
+    omega
+  have hsubset : insert j (readers n C j) ⊆ Finset.range C.size := by
+    intro k hk
+    rcases Finset.mem_insert.mp hk with rfl | hk
+    · exact Finset.mem_range.mpr hj
+    · exact (Finset.mem_filter.mp hk).1
+  have hz : gateVal n C j (cutInput z (fun _ => true)) = false :=
+    and_reader_zero C hC z j hj hand hread
+  have hzero : ∀ k ∈ insert j (readers n C j), ∃ b : Fin 2,
+      wireVal n C (opnd C k b) (cutInput z (fun _ => true)) = false := by
+    intro k hk
+    rcases Finset.mem_insert.mp hk with he | hk
+    · subst k
+      obtain ⟨b, hb⟩ := exists_opnd_of_mem C hC j hj z.val hread
+      exact ⟨b, by rw [hb]; exact input_zero C z⟩
+    · obtain ⟨hklen, hkr⟩ := Finset.mem_filter.mp hk
+      obtain ⟨b, hb⟩ := exists_opnd_of_mem C hC k (Finset.mem_range.mp hklen) (n + j) hkr
+      refine ⟨b, ?_⟩
+      rw [hb]
+      exact hz
+  obtain ⟨D, hD, hs, hf⟩ := restrict_false_saves C hC ho z _ hsubset hzero
+  rw [Finset.card_insert_of_notMem hjnot] at hs
+  exact ⟨D, hD, by omega, hf⟩
+
+lemma restrict_and_reader_two (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (ho : C.output < n + C.size)
+    (z : Fin n) (j : ℕ) (hj : j < C.size) (hjo : C.output ≠ n + j)
+    (hand : (gateAt C j).op = GateOp.and) (hread : z.val ∈ (gateAt C j).inputs) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size + 2 ≤ C.size ∧
+      circuitFun n D = fun x => circuitFun n C (cutInput z x) := by
+  obtain ⟨k, hk, _, hkr⟩ := least_has_reader G C hC ho j hj hjo
+  have hmem : k ∈ readers n C j := Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hkr⟩
+  have hpos : 0 < (readers n C j).card := Finset.card_pos.mpr ⟨k, hmem⟩
+  obtain ⟨D, hD, hs, hf⟩ := restrict_and_reader_saves C hC.1 ho z j hj hand hread
+  exact ⟨D, hD, by omega, hf⟩
+
+lemma cut_adj (G : SimpleGraph (Fin n)) (z a b : Fin n) :
+    (G.deleteEdges (G.incidenceSet z)).Adj a b ↔ G.Adj a b ∧ a ≠ z ∧ b ≠ z := by
+  rw [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+  constructor
+  · rintro ⟨hab, hn⟩
+    exact ⟨hab, fun h => hn ⟨hab, Or.inl h.symm⟩, fun h => hn ⟨hab, Or.inr h.symm⟩⟩
+  · rintro ⟨hab, haz, hbz⟩
+    exact ⟨hab, fun h => h.2.elim (fun hza => haz hza.symm) (fun hzb => hbz hzb.symm)⟩
+
+lemma graph_cutInput (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (z : Fin n) :
+    (fun x => graphFun G ∅ (cutInput z x)) =
+      (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+        (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+        (Classical.propDecidable _)) := by
+  classical
+  funext x
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false, Bool.false_or]
+  congr 1
+  apply propext
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    have haz : a ≠ z := by intro h; subst a; simp [cutInput] at ha
+    have hbz : b ≠ z := by intro h; subst b; simp [cutInput] at hb
+    refine ⟨a, b, (cut_adj G z a b).2 ⟨hab, haz, hbz⟩, ?_, ?_⟩
+    · simpa [cutInput, haz] using ha
+    · simpa [cutInput, hbz] using hb
+  · rintro ⟨a, b, hab, ha, hb⟩
+    obtain ⟨hab, haz, hbz⟩ := (cut_adj G z a b).1 hab
+    exact ⟨a, b, hab, by simpa [cutInput, haz] using ha, by simpa [cutInput, hbz] using hb⟩
+
+lemma reader_bound_peel (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.size) (z : Fin n) (j : ℕ)
+    (hj : j < C.size) (hand : (gateAt C j).op = GateOp.and)
+    (hread : z.val ∈ (gateAt C j).inputs)
+    (hbase : G.degree z ≤ 1 + (readers n C j).card)
+    (hbonus : (∃ S : Finset (Fin n), CoverPromise.IsVertexCover
+        (G.deleteEdges (G.incidenceSet z)) S ∧
+        ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+      G.degree z ≤ (readers n C j).card) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D =
+      (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+        (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+        (Classical.propDecidable _)) ∧ D.size + G.degree z ≤ C.size ∧
+      ((∃ S : Finset (Fin n), CoverPromise.IsVertexCover
+        (G.deleteEdges (G.incidenceSet z)) S ∧
+        ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+        D.size + G.degree z + 1 ≤ C.size) := by
+  obtain ⟨D, hD, hs, hf⟩ := restrict_and_reader_saves C hC ho z j hj hand hread
+  refine ⟨D, hD, ?_, by omega, ?_⟩
+  · rw [hf, hfun]
+    exact graph_cutInput G z
+  · intro hd
+    have hb := hbonus hd
+    omega
+
+lemma least_reader_peel (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C0 : Circuit) (hC0 : IsLeastAO G C0) (ho : C0.output < n + C0.size)
+    (z : Fin n) (hpos : 0 < G.degree z) (j : ℕ)
+    (hj : j < C0.size) (hand : (gateAt C0 j).op = GateOp.and)
+    (hread : z.val ∈ (gateAt C0 j).inputs)
+    (hbase : G.degree z ≤ 1 + (readers n C0 j).card)
+    (hbonus : (∃ S : Finset (Fin n), CoverPromise.IsVertexCover
+        (G.deleteEdges (G.incidenceSet z)) S ∧
+        ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+      G.degree z ≤ (readers n C0 j).card) :
+    ∃ z : Fin n, 0 < G.degree z ∧ ∀ C : Circuit, IsAO2 n C →
+      circuitFun n C = graphFun G ∅ → ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D =
+      (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+        (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+        (Classical.propDecidable _)) ∧ D.size + G.degree z ≤ C.size ∧
+      ((∃ S : Finset (Fin n), CoverPromise.IsVertexCover
+        (G.deleteEdges (G.incidenceSet z)) S ∧
+        ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+        D.size + G.degree z + 1 ≤ C.size) := by
+  obtain ⟨D, hD, hf, hs, hb⟩ := reader_bound_peel G C0 hC0.1 hC0.2.1 ho z j hj hand hread hbase hbonus
+  refine ⟨z, hpos, fun C hC hF => ?_⟩
+  have hmin := hC0.2.2 C hC hF
+  exact ⟨D, hD, hf, hs.trans hmin, fun h => (hb h).trans hmin⟩
+
+end PEqualNP.Outside.L_meta_3566.GateSavings
+
+namespace PEqualNP.Outside.L_meta_3566.WeightedReads
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open Pruning InputReads
+open scoped BigOperators
+variable {n : ℕ}
+
+lemma weighted_degree_sum (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (r : Fin n → ℕ) (S : Finset (Fin n))
+    (hlocal : ∀ v, G.degree v + (if v ∈ S then 1 else 0) ≤ 2 * r v) :
+    2 * G.edgeFinset.card + S.card ≤ 2 * ∑ v : Fin n, r v := by
+  classical
+  have hsum : (∑ v : Fin n, (G.degree v + (if v ∈ S then 1 else 0))) ≤
+      ∑ v : Fin n, 2 * r v := Finset.sum_le_sum (fun v _ => hlocal v)
+  have hleft : (∑ v : Fin n, (G.degree v + (if v ∈ S then 1 else 0))) =
+      2 * G.edgeFinset.card + S.card := by
+    rw [Finset.sum_add_distrib, G.sum_degrees_eq_twice_card_edges]
+    simp
+  have hright : (∑ v : Fin n, 2 * r v) = 2 * ∑ v : Fin n, r v := by
+    rw [Finset.mul_sum]
+  rwa [hleft, hright] at hsum
+
+lemma weighted_budget (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (r : Fin n → ℕ) (S T : Finset (Fin n)) (B : ℕ)
+    (hcard : 2 * T.card ≤ S.card)
+    (hlocal : ∀ v, G.degree v + (if v ∈ S then 1 else 0) ≤ 2 * r v)
+    (hsum : (∑ v : Fin n, r v) ≤ B) :
+    G.edgeFinset.card + T.card ≤ B := by
+  have h := weighted_degree_sum G r S hlocal
+  omega
+
+lemma weighted_read_bound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ u v, G.Adj u v)
+    (S T : Finset (Fin n)) (hcard : 2 * T.card ≤ S.card)
+    (hlocal : ∀ v, G.degree v + (if v ∈ S then 1 else 0) ≤
+      2 * (readList C).count v.val) :
+    G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  apply weighted_budget G (fun v => (readList C).count v.val) S T (C.size + 1) hcard hlocal
+  have hsum := read_sum_bound G C hC (output_lower G C hC.2.1)
+    (output_upper G C hC.2.1 hne)
+  have heq := Fin.sum_univ_eq_sum_range (fun w => (readList C).count w) n
+  change (∑ v : Fin n, (readList C).count v.val) = _ at heq
+  rwa [heq]
+
+lemma weighted_cover_budget (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ u v, G.Adj u v)
+    (S T : Finset (Fin n)) (hT : CoverPromise.IsVertexCover G T)
+    (hcard : 2 * T.card ≤ S.card)
+    (hlocal : ∀ v, G.degree v + (if v ∈ S then 1 else 0) ≤
+      2 * (readList C).count v.val) :
+    CoverPromise.IsVertexCover G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 :=
+  ⟨hT, weighted_read_bound G C hC hne S T hcard hlocal⟩
+
+lemma low_read_endpoint (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ u v, G.Adj u v)
+    (S T : Finset (Fin n)) (hT : CoverPromise.IsVertexCover G T)
+    (hcard : 2 * T.card ≤ S.card)
+    (hsmall : C.size + 1 < G.edgeFinset.card + T.card) :
+    ∃ v : Fin n, 2 * (readList C).count v.val <
+      G.degree v + (if v ∈ S then 1 else 0) := by
+  classical
+  by_contra hn
+  have hlocal : ∀ v, G.degree v + (if v ∈ S then 1 else 0) ≤
+      2 * (readList C).count v.val := by
+    intro v
+    exact Nat.le_of_not_gt (fun h => hn ⟨v, h⟩)
+  have h := (weighted_cover_budget G C hC hne S T hT hcard hlocal).2
+  omega
+
+lemma low_read_active_vertex (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ u v, G.Adj u v)
+    (S T : Finset (Fin n)) (hT : CoverPromise.IsVertexCover G T)
+    (hcard : 2 * T.card ≤ S.card) (hS : ∀ v ∈ S, 0 < G.degree v)
+    (hsmall : C.size + 1 < G.edgeFinset.card + T.card) :
+    ∃ v : Fin n, 0 < G.degree v ∧ 2 * (readList C).count v.val <
+      G.degree v + (if v ∈ S then 1 else 0) := by
+  obtain ⟨v, hv⟩ := low_read_endpoint G C hC hne S T hT hcard hsmall
+  refine ⟨v, ?_, hv⟩
+  by_cases hmem : v ∈ S
+  · exact hS v hmem
+  · simp only [ite_eq_right hmem, Nat.add_zero] at hv
+    omega
+
+end PEqualNP.Outside.L_meta_3566.WeightedReads
