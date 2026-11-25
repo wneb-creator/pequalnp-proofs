@@ -56,3 +56,32 @@
 2026-11-25T03:37:46.420605+00:00 manual renewal before narrowed-import verifier calibration; expires_at=2026-11-25T03:57:46.205Z
 
 - 2026-11-25T03:37:56.279584+00:00: reduction_analysis completed checked43-gate nine-row to63-gate full-target bridge.
+
+- 2026-11-25T03:39:43.163122+00:00: algebra_strategy delivered leaf-free9row264-test case and43gate lifted approximation; circuit_searchbeganbudgeted9rowlane, six-rowlane retired.
+
+- 2026-11-25T03:43:44.949478+00:00: reduction_analysis compiled30gatecore+conditionaltripletap to63gate full completion.
+2026-11-25T03:44:49.925183+00:00 Renewed lease; expiry 2026-11-25T04:04:50.156Z.
+
+- 2026-11-25T03:49:27.819628+00:00: reduction_analysis completed semantic DNF circuitcertificate checker and automatic monotonicity theorem; core independentlyapproved.
+
+2026-11-25T03:49:37.856850+00:00 renewal before concrete DNF certificate check; expires_at=2026-11-25T04:09:37.630Z
+2026-11-25T03:54:50.331285+00:00 Renewed lease; expiry 2026-11-25T04:14:50.584Z.
+2026-11-25T04:04:50.780796+00:00 Renewed lease; expiry 2026-11-25T04:24:51.004Z.
+
+- 2026-11-25T04:06:37.064203+00:00: reduction_analysis compiled17gate2starcore+9crossORtaps to63gatefullcompletion.
+
+- 2026-11-25T04:08:39.614798+00:00: FullPairAugment60gate/58edge partialcompiled; frozen androotnotified.468 optimizedpairmerge seeds delivered.
+2026-11-25T04:14:51.137157+00:00 Renewed lease; expiry 2026-11-25T04:34:51.365Z.
+
+2026-11-25T04:18:27.647995+00:00 fourth research checkpoint frozen. Full-plane pair-merge and nine-row stochastic phases ended without a witness; active work uses shared-prefix/free-feature gadgets and full residual cost reduction.
+2026-11-25T04:24:51.588897+00:00 Renewed lease; expiry 2026-11-25T04:44:51.871Z.
+
+- 2026-11-25T04:28:43.792012+00:00 lean_baseline: allpair600s search UNKNOWN; exact two-extra61jointseed verified; incremental one-counterexample repair running.
+
+- 2026-11-25T04:31:08.857862+00:00: reduction_analysis compiled13gate standalone repair-guard lower bound and generated equivalent early-feature ordering for best63gate candidate.
+2026-11-25T04:34:52.063902+00:00 Renewed lease; expiry 2026-11-25T04:54:52.332Z.
+
+2026-11-25T04:41:14.314879+00:00 Root manual renewal before long proof/search runs; expiry 2026-11-25T05:01:13.833Z.
+2026-11-25T04:44:52.521150+00:00 Renewed lease; expiry 2026-11-25T05:04:52.888Z.
+
+- 2026-11-25T04:45:12.749532+00:00 lean_baseline: priorCegisUNKNOWN;58seed/nonstar/min12 profileactive; assembleddepth andrawabsorption guards prepared.

@@ -1,0 +1,11 @@
+# A sufficient four-gate restoration criterion
+
+For an exact 14-gate four-owner kernel circuit, choose four distinct internal or available input wires `w_i`, one per point variable `p_i`. For every subset S of the four owners, evaluate the same circuit while forcing every selected `w_i` to true as that wire is produced. Require the output to be exactly `F_kernel OR (OR of p_i for i in S)` on every one of the 1024 raw assignments.
+
+If all 16 override modes pass, insert one OR gate `w_i OR private_i` at each selected wire, redirecting its later uses. On any assignment of the four private variables, this is precisely the corresponding simultaneous override mode, so the resulting circuit computes `F_kernel OR OR_i(p_i AND private_i)` with exactly four additional gates. Thus a 14-gate witness satisfying this sufficient criterion restores an 18-gate four-owner gadget. Single-override checks alone are insufficient because multiple overrides can create additional terms through AND gates.
+
+The criterion is sufficient only; a kernel may admit other four-gate restorations. All four exposed point-ANDs with OR-only output paths give easy tap locations, but insisting on that form may exclude useful nested constructions. The simultaneous semantic condition admits arbitrary downstream contexts.
+
+`check_kernel_restoration.py` first checks that its kernel is exact, filters candidate taps by all single overrides, then checks every joint subset on all raw assignments. It emits an explicit restored gadget with input order raw10, free opposite-pair features3, private variables in owner order4. Every emitted gadget is independently checked on all 16384 assignments. The exact 15-gate star baseline passes and restores a 19-gate four-owner gadget, providing a calibration, not a 63-gate result.
+
+Lower_bound independently implemented the same condition in `lower_bound/sat/kernel_restoration.py`, including composition into the actual full-plane outside circuit. Its 15-gate calibration produced the expected full64 baseline and passed the complete 756 boundary-test basis. Both implementations are ready to cross-check an exact14 witness. No such witness was available when these notes were written.

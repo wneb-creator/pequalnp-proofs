@@ -1,0 +1,29 @@
+{
+  "gates": 28,
+  "boundary_errors": [
+    0,
+    20
+  ],
+  "raw_false_positives": 280,
+  "extra_prime_degrees": {
+    "2": 4
+  },
+  "extra_primes": [
+    [
+      5,
+      6
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      5,
+      15
+    ]
+  ]
+}

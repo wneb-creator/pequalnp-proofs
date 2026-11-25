@@ -1,0 +1,105 @@
+
+namespace PEqualNP.Outside.L_meta_650_aux.PlaneAndThirteen
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.Helpers.PermInputs
+
+def edges : List (ℕ × ℕ) :=
+[(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)]
+
+def sumInc (p l : Fin 13) : Prop := p + l = 0 ∨ p + l = 1 ∨ p + l = 3 ∨ p + l = 9
+
+def diffInc (p l : Fin 13) : Prop := p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9
+
+def flip : Fin 26 → Fin 26 :=
+  ![0,1,2,3,4,5,6,7,8,9,10,11,12,13,25,24,23,22,21,20,19,18,17,16,15,14]
+
+theorem flip_point : ∀ p : Fin 13, flip (Fin.castAdd 13 p) = Fin.castAdd 13 p := by
+  decide +kernel
+
+theorem flip_line : ∀ l : Fin 13, flip (Fin.natAdd 13 l) = Fin.natAdd 13 (-l) := by
+  decide +kernel
+
+theorem neg_neg_line : ∀ l : Fin 13, -(-l) = l := by decide +kernel
+
+theorem incidence_negation : ∀ p l : Fin 13, sumInc p (-l) ↔ diffInc p l := by
+  decide +kernel
+
+theorem edge_coordinates : ∀ u v : Fin 26,
+    (u.val, v.val) ∈ edges ↔ ∃ p l : Fin 13,
+      u = Fin.castAdd 13 p ∧ v = Fin.natAdd 13 l ∧ sumInc p l := by
+  decide +kernel
+
+theorem point_inj (p q : Fin 13) : Fin.castAdd 13 p = Fin.castAdd 13 q ↔ p = q := by
+  constructor
+  · intro h; exact Fin.ext (congrArg (fun z : Fin 26 => z.val) h)
+  · exact congrArg (Fin.castAdd 13)
+
+theorem line_inj (p q : Fin 13) : Fin.natAdd 13 p = Fin.natAdd 13 q ↔ p = q := by
+  constructor
+  · intro h
+    apply Fin.ext
+    have hv := congrArg (fun z : Fin 26 => z.val) h
+    simp only [Fin.val_natAdd] at hv
+    omega
+  · exact congrArg (Fin.natAdd 13)
+
+theorem point_ne_line (p q : Fin 13) : Fin.castAdd 13 p ≠ Fin.natAdd 13 q := by
+  intro h
+  have hv := congrArg (fun z : Fin 26 => z.val) h
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hv
+  omega
+
+theorem line_ne_point (p q : Fin 13) : Fin.natAdd 13 p ≠ Fin.castAdd 13 q :=
+  (point_ne_line q p).symm
+
+theorem relabeled_eval (C : Circuit) (x : Fin 26 → Bool) :
+    (relabel 26 26 flip C).eval (List.ofFn x) = C.eval (List.ofFn (x ∘ flip)) :=
+  (rel_fold 26 26 flip C.gates _ _ (rel_init 26 26 flip x)).2.2 C.output
+
+theorem thirteen_ands (C : Circuit) (hm : Monotone2 C)
+    (hcorrect : ∀ x : Fin 26 → Bool, C.eval (List.ofFn x) = true ↔
+      ∃ u v : Fin 26, (u.val, v.val) ∈ edges ∧ x u = true ∧ x v = true) :
+    13 ≤ {j : Fin C.gates.length | (C.gates.get j).op = GateOp.and}.ncard := by
+  let D := relabel 26 26 flip C
+  have hdmono : Monotone2 D := by
+    intro g hg
+    obtain ⟨g0, hg0, rfl⟩ := List.mem_map.mp hg
+    exact ⟨(hm g0 hg0).1, by simpa [relGate] using (hm g0 hg0).2⟩
+  have hdcorrect : ∀ x : Fin 26 → Bool, D.eval (List.ofFn x) = true ↔
+      ∃ p l : Fin 13, diffInc p l ∧ x (Fin.castAdd 13 p) = true ∧
+        x (Fin.natAdd 13 l) = true := by
+    intro x
+    change (relabel 26 26 flip C).eval (List.ofFn x) = true ↔ _
+    rw [relabeled_eval, hcorrect]
+    constructor
+    · rintro ⟨u, v, he, hu, hv⟩
+      obtain ⟨p, l, rfl, rfl, hinc⟩ := (edge_coordinates u v).mp he
+      refine ⟨p, -l, (incidence_negation p (-l)).mp ?_, ?_, ?_⟩
+      · simpa only [neg_neg_line] using hinc
+      · simpa only [Function.comp_apply, flip_point] using hu
+      · simpa only [Function.comp_apply, flip_line] using hv
+    · rintro ⟨p, l, hinc, hp, hl⟩
+      refine ⟨Fin.castAdd 13 p, Fin.natAdd 13 (-l),
+        (edge_coordinates _ _).mpr ⟨p, -l, rfl, rfl, (incidence_negation p l).mpr hinc⟩,
+        ?_, ?_⟩
+      · simpa only [Function.comp_apply, flip_point] using hp
+      · simpa only [Function.comp_apply, flip_line, neg_neg_line] using hl
+  have h13 := PEqualNP.Outside.L_meta_1898 D hdmono
+    (by
+      intro p l hinc
+      apply (hdcorrect _).mpr
+      refine ⟨p, l, hinc, ?_, ?_⟩ <;> simp)
+    (by
+      intro P _ _
+      apply Bool.eq_false_iff.mpr
+      intro ht
+      obtain ⟨p, l, hinc, hp, hl⟩ := (hdcorrect _).mp ht
+      have hpP : p ∈ P := by
+        simpa [point_inj, point_ne_line] using hp
+      have hlP : ∀ q ∈ P, ¬ diffInc q l := by
+        simpa [line_inj, line_ne_point, diffInc] using hl
+      exact hlP p hpP hinc)
+  simpa [D, relabel, relGate, List.get_eq_getElem] using h13
+
+end PEqualNP.Outside.L_meta_650_aux.PlaneAndThirteen

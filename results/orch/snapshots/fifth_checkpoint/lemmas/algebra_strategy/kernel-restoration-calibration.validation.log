@@ -1,0 +1,28 @@
+{
+  "kernel_gates": 15,
+  "kernel_output": 27,
+  "kernel_exact": true,
+  "raw_assignments_per_override": 1024,
+  "condition": "all16 joint override masks, output=F OR selected point inputs",
+  "sufficiency_only": true,
+  "single_override_candidates_by_owner": [
+    [
+      13,
+      14
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      19,
+      20
+    ],
+    [
+      22,
+      23
+    ]
+  ],
+  "tap_tuples_tested": 1
+}
+Joint restoration witnesses: 1

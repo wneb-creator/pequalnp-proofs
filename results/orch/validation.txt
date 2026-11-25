@@ -61,3 +61,7 @@ TIMING total=64.3 subagents=6
 2026-11-25T03:38:45.832384+00:00 AugmentedCandidate17.lean compiled, Defs-only; independently checked all131072 inputs. It proves a28gate circuit for24desired+4extra edges, not the gap. Third checkpoint preserves164 changed artifacts with original/stored hashes; RESULTS.md indexes checked components and limits. Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review. TIMING total=98 subagents=6 (checkpoint; work continues).
 
 2026-11-25T03:39:17.828770+00:00 NineRowCompletion.lean compiled and independently reviewed: a monotone exact nine-row circuit with at most 43 gates extends by four stars to the exact posted circuit with at most 63 gates. The core witness is still missing.
+
+2026-11-25T04:45:04.119902+00:00 Fifth research checkpoint: exact target still unproved and unrefuted. Compiled, independently reviewed additions include CertifiedFullTwoExtra, SubmissionCalibration64, FreeFeatureElimination, FourOwnerFreeRestriction, RepairGuardLower, GlobalOrCharge, OrEncodedAndBound, SixCoreOrEncodedAndBound and AffineNineRowCompletion. Their precise conditional or overbudget scopes are recorded in RESULTS.md; none is a target proof.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=163.9 subagents=6

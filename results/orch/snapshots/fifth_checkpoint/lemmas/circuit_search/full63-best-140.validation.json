@@ -1,0 +1,21 @@
+{
+  "gates": 63,
+  "active_gates": 63,
+  "errors": [
+    0,
+    140
+  ],
+  "extra_prime_degrees": {
+    "2": 2
+  },
+  "extra_primes": [
+    [
+      2,
+      15
+    ],
+    [
+      1,
+      20
+    ]
+  ]
+}

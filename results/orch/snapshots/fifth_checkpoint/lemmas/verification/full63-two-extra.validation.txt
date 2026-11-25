@@ -1,0 +1,9 @@
+Research result only; L-meta-650 remains unproved.
+CertifiedFullTwoExtra.lean: lake env lean exited 0.
+Lean proves size 63, Monotone2 and all-input semantics for the explicit output DNF.
+The output is the 52 posted edges plus (1,20) and (2,15); it is not a target witness.
+All 52 positive tests pass; 140 of 704 maximal-negative tests fail.
+Complete stdout/stderr: full63-two-extra.validation.log.
+Repository checker has not accepted the target.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=150.0 subagents=6 (approximate checkpoint; work continues).
