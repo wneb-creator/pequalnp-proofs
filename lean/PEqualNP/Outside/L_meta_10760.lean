@@ -103,6 +103,79 @@ def ops (x y : BitVec width) : List (BitVec width) :=
 
 abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
 
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
+
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
+
+
+lemma ops_equal_bits {width : Nat} {a b z : BitVec width} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (ha : a[p.val] = a[q.val])
+    (hb : b[p.val] = b[q.val]) : z[p.val] = z[q.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+    List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [ha, hb]
+
+lemma live_target_separates {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) {p q : Fin width}
+    (different : target[p.val] ≠ target[q.val]) :
+    ∃ w ∈ S, w[p.val] ≠ w[q.val] := by
+  apply live_separates (fun w : BitVec width => w[p.val] ≠ w[q.val]) ?_ ?_ run
+  · rcases hg with rfl | rfl
+    · exact different
+    · simpa using different
+  · intro a b z hz hd
+    by_cases ha : a[p.val] = a[q.val]
+    · right
+      intro hb
+      exact hd (ops_equal_bits hz ha hb)
+    · exact Or.inl ha
+
+lemma uniqueSep_step {width k : Nat} {target g a b z c : BitVec width}
+    {U : Finset (BitVec width)} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (run : live basicOps g k (insert z U))
+    (hg : g = target ∨ g = ~~~target)
+    (different : target[p.val] ≠ target[q.val])
+    (ha : c = a → a ∉ U) (hb : c = b → b ∉ U)
+    (hs : uniqueSep (insert a (insert b U)) c p q) :
+    uniqueSep (insert z U) (if c = a ∨ c = b then z else c) p q := by
+  by_cases hc : c = a ∨ c = b
+  · rw [ite_eq_left hc]
+    have hcU : c ∉ U := by
+      rcases hc with rfl | rfl
+      · exact ha rfl
+      · exact hb rfl
+    have hU : ∀ w ∈ U, w[p.val] = w[q.val] := by
+      intro w hw
+      apply hs.2 w (by simp [hw])
+      intro eq
+      exact hcU (eq ▸ hw)
+    constructor
+    · obtain ⟨w, hw, hd⟩ := live_target_separates run hg different
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · exact hd
+      · exact False.elim (hd (hU w hw))
+    · intro w hw hne
+      exact hU w ((Finset.mem_insert.mp hw).resolve_left hne)
+  · rw [ite_eq_right hc]
+    refine ⟨hs.1, ?_⟩
+    intro w hw hne
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · apply ops_equal_bits hz
+      · exact hs.2 a (by simp) (fun eq => hc (.inl eq.symm))
+      · exact hs.2 b (by simp) (fun eq => hc (.inr eq.symm))
+    · exact hs.2 w (by simp [hw]) hne
+
 def canonical (w : BitVec width) : BitVec width :=
   if w.toNat ≤ (~~~w).toNat then w else ~~~w
 
