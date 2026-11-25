@@ -147,3 +147,19 @@ Exact Python checks passed for all 256 inputs, C4-freeness, syntactic two-colour
 ### Unique-edge dirty normalization and search restriction (lemma_search)
 
 `UniqueRepair.lean` compiles, exit 0. `Normalize.erase_unique_edge_dirty` strengthens the inactive-dirty result: if each dirty AND accepts at most one distinct undirected target edge, choose that edge (or any fixed target edge if none) and replace the gate by its endpoint conjunction. All replacements together preserve size and exact graph function, make every AND clean, and preserve tCount. `Normalize.unique_dirty_graph_bound` composes with the clean graph budget for any nonempty C4-free graph. Consequently a Fano circuit below 27 gates must contain a dirty AND accepting at least two distinct target edges. This is a proof-backed search restriction, not a full lower bound. Successful logs unique-repair-build-001.stdout/.stderr; suffix UniqueRepairWrappers.txt (150 lines); checked 2026-11-25T17:47:27.719278+00:00.
+
+### Reachable actual-slot certificates (structural agent, 2026-11-25 17:52 UTC)
+
+ActualSlot.lean, ActualSlotReachable.lean, and strongest ActualSlotGraph.lean all compiled with Defs-only import. Final Graph stdout contains only an unnecessary-simpa warning; stderr is empty. Graph wrappers extracted to ActualSlotGraphWrappers.txt for integration after existing Reuse namespace. Frozen originals retained.
+
+New generic theorem: if monotone reads-back C is true on x and false on y, and its output has empty singleton support, an output-reachable actual AND operand w has singleton support hitting x and wholly disjoint from y. Proof descends directly from output, so there is no irrelevant global-first-gate issue. No one-hot or tCount hypothesis is needed for the raw separator.
+
+Graph specialization: given a bipartite graph G computed exactly by C and explicit semantic monochrome singleton supports, every edge (a,b) has an output-reachable AND operand w with a in support(w) and support(w) contained in N(b). Use independent input {b} union {opposite-colour non-neighbours of b}. C4-free is not needed for this certificate; it makes the centre unique when the support has at least two vertices. The semantic-monochrome premise still needs derivation from tCount=0 plus one-hot-false ANDs. Global assignment/counting remains open: masked Fano shows unchanged whole-slot selection cannot itself close the goal.
+
+### Counterexample search update (2026-11-25 17:54 UTC)
+
+Neutral CGP completed1800.000s,44,290,630mutations, best27livegates, no26gatewitness. Fullstdout/stderr retained as fano-cgp-164.stdout/.stderr; stderr empty. Boundedannealing and the originalFano26SMT continue. NewMultiDirtySMT variant independently checks a dirtyAND accepting≥2targetedges, now backed by checkedUniqueRepair. Added two10input concrete candidates: fano55 andtheta10, each12edges, minimumvertexcover5, targetlowerbound16;15gateswouldrefute. ExhaustivePython sample counts26 and29 respectively.
+
+### Semantic-colour bridge with explicit unit-false AND restriction (lemma_search)
+
+`SemanticColour.lean` compiles, exit 0. `Reuse.unit_support_subset_orIn` uses true-OR descent to prove semantic singleton support lies in syntactic OR-only reach when every actual AND output has empty singleton support. `Reuse.unitfalse_semantic_monochrome` combines this with tCount=0 to derive monochromatic singleton support on every wire. This discharges Structural’s separate semantic-monochrome assumption in the restricted unit-false model; it does not eliminate the original task’s masking-AND obstruction. Suffix `SemanticColourWrappers.txt` (196 lines), logs semantic-colour-build-001.stdout/.stderr, checked 2026-11-25T17:55:03.331257+00:00.

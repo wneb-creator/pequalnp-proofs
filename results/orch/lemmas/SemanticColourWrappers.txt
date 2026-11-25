@@ -1,0 +1,196 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.TwoColour
+
+lemma unit_split_gates (gs : List Gate) (j : ℕ) (hj : j < gs.length) :
+    ∃ (pre post : List Gate) (gj : Gate),
+      gs = pre ++ gj :: post ∧ pre.length = j ∧ gs[j]'hj = gj := by
+  refine ⟨gs.take j, gs.drop (j + 1), gs[j]'hj, ?_, by simp; omega, rfl⟩
+  rw [List.cons_getElem_drop_succ, List.take_append_drop]
+
+lemma unit_gateAt_eq (C : Circuit) (k : ℕ) (hk : k < C.gates.length) : gateAt C k = C.gates[k] := by
+  simp [gateAt, List.getD_eq_getElem?_getD, hk]
+
+open PEqualNP.CleanedNonEdge in
+lemma unit_orFold_length (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) :
+    (gs.foldl (orStep n) cs).length = cs.length + gs.length := by
+  induction gs generalizing cs with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [orStep]
+    omega
+
+open PEqualNP.CleanedNonEdge in
+lemma unit_orStep_mem_last (n : ℕ) (cs : List (List ℕ)) (g : Gate) (x : ℕ) :
+    x ∈ (orStep n cs g).getD cs.length [] ↔ x = cs.length ∨ (g.op = GateOp.or ∧
+      ∃ w ∈ g.inputs, n ≤ w ∧ w < n + cs.length ∧ x ∈ cs.getD (w - n) []) := by
+  by_cases h : g.op = GateOp.or
+  · simp only [orStep, List.getD_eq_getElem?_getD, List.getElem?_append_right le_rfl, h,
+      ↓reduceIte, true_and, Nat.sub_self, List.getElem?_cons_zero, Option.getD_some,
+      List.mem_cons, List.mem_flatMap, List.mem_filter, decide_eq_true_eq]
+    constructor
+    · rintro (h1 | ⟨w, ⟨hw, hn, hlt⟩, hx⟩)
+      · exact Or.inl h1
+      · exact Or.inr ⟨w, hw, hn, hlt, hx⟩
+    · rintro (h1 | ⟨w, hw, hn, hlt, hx⟩)
+      · exact Or.inl h1
+      · exact Or.inr ⟨w, ⟨hw, hn, hlt⟩, hx⟩
+  · simp [orStep, List.getD_eq_getElem?_getD, h]
+
+open PEqualNP.CleanedNonEdge in
+lemma unit_orStep_getD_lt (n : ℕ) (cs : List (List ℕ)) (g : Gate) (m : ℕ) (hm : m < cs.length) :
+    (orStep n cs g).getD m [] = cs.getD m [] := by
+  simp [orStep, List.getD_eq_getElem?_getD, List.getElem?_append_left hm]
+
+open PEqualNP.CleanedNonEdge in
+lemma unit_orFold_getD_lt (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) (k : ℕ)
+    (hk : k < cs.length) :
+    (gs.foldl (orStep n) cs).getD k [] = cs.getD k [] := by
+  induction gs generalizing cs with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    rw [ih (orStep n cs g) (by simp [orStep]; omega)]
+    exact unit_orStep_getD_lt n cs g k hk
+
+open PEqualNP.CleanedNonEdge in
+lemma unit_orSets_mem_iff (n : ℕ) (C : Circuit) (k x : ℕ) (hk : k < C.gates.length) :
+    x ∈ (orSets n C).getD k [] ↔ x = k ∨ ((gateAt C k).op = GateOp.or ∧
+      ∃ w ∈ (gateAt C k).inputs, n ≤ w ∧ w < n + k ∧ x ∈ (orSets n C).getD (w - n) []) := by
+  obtain ⟨pre, post, gk, hgs, hpre_len, hgk⟩ := unit_split_gates C.gates k hk
+  have hga : gateAt C k = gk := by rw [unit_gateAt_eq C k hk]; exact hgk
+  rw [hga]
+  have hc : orSets n C = post.foldl (orStep n) (orStep n (pre.foldl (orStep n) []) gk) := by
+    simp only [orSets]
+    rw [hgs, List.foldl_append, List.foldl_cons]
+  have hl0 : (pre.foldl (orStep n) []).length = k := by
+    rw [unit_orFold_length]; simp [hpre_len]
+  have hl1 : (orStep n (pre.foldl (orStep n) []) gk).length = k + 1 := by
+    simp [orStep, hl0]
+  have h1 : (orSets n C).getD k [] = (orStep n (pre.foldl (orStep n) []) gk).getD k [] := by
+    rw [hc, unit_orFold_getD_lt n post _ k (by omega)]
+  have h2 : ∀ m, m < k → (orSets n C).getD m [] = (pre.foldl (orStep n) []).getD m [] := by
+    intro m hm
+    rw [hc, unit_orFold_getD_lt n post _ m (by omega)]
+    exact unit_orStep_getD_lt n _ gk m (by omega)
+  have h3 := unit_orStep_mem_last n (pre.foldl (orStep n) []) gk x
+  rw [hl0] at h3
+  rw [h1, h3]
+  constructor
+  · rintro (h | ⟨hop, w, hw, hn, hlt, hx⟩)
+    · exact Or.inl h
+    · exact Or.inr ⟨hop, w, hw, hn, hlt, by rw [h2 (w - n) (by omega)]; exact hx⟩
+  · rintro (h | ⟨hop, w, hw, hn, hlt, hx⟩)
+    · exact Or.inl h
+    · exact Or.inr ⟨hop, w, hw, hn, hlt, by rw [← h2 (w - n) (by omega)]; exact hx⟩
+
+open PEqualNP.CleanedNonEdge PEqualNP.ReadK PEqualNP.TopForm
+
+lemma unit_orReaches_self (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length) :
+    OrReaches n C (n + j) j := by
+  unfold OrReaches
+  refine ⟨Nat.le_add_right n j, ?_⟩
+  rw [Nat.add_sub_cancel_left, unit_orSets_mem_iff n C j j hj]
+  exact Or.inl rfl
+
+lemma unit_orReaches_step (n : ℕ) (C : Circuit) (j i g : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or) (hi : i ∈ (gateAt C j).inputs) (hlt : i < n + j)
+    (h : OrReaches n C i g) : OrReaches n C (n + j) g := by
+  unfold OrReaches at h ⊢
+  refine ⟨Nat.le_add_right n j, ?_⟩
+  rw [Nat.add_sub_cancel_left, unit_orSets_mem_iff n C j g hj]
+  exact Or.inr ⟨hop, i, hi, h.1, hlt, h.2⟩
+
+lemma unit_mem_filter_iff_gen {α : Type} (p : α → Prop) (d : DecidablePred p) (s : Finset α) (a : α) :
+    a ∈ @Finset.filter α p d s ↔ a ∈ s ∧ p a :=
+  @Finset.mem_filter α p d s a
+
+lemma unit_mem_orIn (n : ℕ) (C : Circuit) (w : ℕ) (i : Fin n) :
+    i ∈ orIn n C w ↔ ((i : ℕ) = w ∨ ∃ k < C.gates.length,
+      OrReaches n C w k ∧ (gateAt C k).op = GateOp.or ∧ (i : ℕ) ∈ (gateAt C k).inputs) := by
+  unfold orIn
+  exact ⟨fun h => ((unit_mem_filter_iff_gen _ _ _ _).1 h).2,
+    fun h => (unit_mem_filter_iff_gen _ _ _ _).2 ⟨Finset.mem_univ _, h⟩⟩
+
+lemma unit_orIn_up (n : ℕ) (C : Circuit) (j i : ℕ) (a : Fin n) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or) (hi : i ∈ (gateAt C j).inputs) (hlt : i < n + j)
+    (h : a ∈ orIn n C i) : a ∈ orIn n C (n + j) := by
+  rw [unit_mem_orIn] at h ⊢
+  right
+  rcases h with h | ⟨k, hk, hr, hopk, hin⟩
+  · exact ⟨j, hj, unit_orReaches_self n C j hj, hop, by rw [h]; exact hi⟩
+  · exact ⟨k, hk, unit_orReaches_step n C j i k hj hop hi hlt hr, hopk, hin⟩
+
+lemma unit_support_subset_orIn {n : ℕ} {C : Circuit} (hC : IsAO2 n C)
+    (hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      singletonSupport n C (n + j) = ∅) :
+    ∀ w, singletonSupport n C w ⊆ orIn n C w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro u hu
+    have hv := mem_support.1 hu
+    by_cases hinput : w < n
+    · have hu' : u = (⟨w, hinput⟩ : Fin n) := by
+        have hh := support_input (C := C) (⟨w, hinput⟩ : Fin n)
+        change singletonSupport n C w = _ at hh
+        rw [hh] at hu
+        exact Finset.mem_singleton.1 hu
+      rw [unit_mem_orIn]
+      exact Or.inl (by rw [hu'])
+    by_cases hgate : w < n + C.gates.length
+    · obtain ⟨j, rfl⟩ := Nat.exists_eq_add_of_le (Nat.le_of_not_gt hinput)
+      have hj : j < C.gates.length := by omega
+      rcases hC.1 _ (gateAt_mem hj) with hop | hop
+      · rw [hclean j hj hop] at hu
+        simp at hu
+      · obtain ⟨v, hvin, hvlt, hv⟩ := (val_or (by simp) hj hop).1 hv
+        exact unit_orIn_up n C j v u hj hop hvin hvlt (ih v hvlt (mem_support.2 hv))
+    · rw [val_ge (n := n) (by simp) (by omega)] at hv
+      cases hv
+
+lemma zero_tCount_or_mono {n : ℕ} {C : Circuit} (colour : ℕ → Bool)
+    (hzero : tCount n C colour = 0) {j : ℕ} (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or) {u v : Fin n}
+    (hu : u ∈ orIn n C (n + j)) (hv : v ∈ orIn n C (n + j)) :
+    colour u.val = colour v.val := by
+  have hempty : twoColour n C colour = ∅ := Finset.card_eq_zero.1 hzero
+  have hnot : ¬ IsTwoColour n C colour j := by
+    intro h
+    have hj' : j ∈ twoColour n C colour :=
+      Finset.mem_filter.2 ⟨Finset.mem_range.2 hj, h⟩
+    rw [hempty] at hj'
+    simp at hj'
+  cases hcu : colour u.val <;> cases hcv : colour v.val
+  · rfl
+  · exact (hnot ⟨hj, hop, ⟨u, hu, hcu⟩, ⟨v, hv, hcv⟩⟩).elim
+  · exact (hnot ⟨hj, hop, ⟨v, hv, hcv⟩, ⟨u, hu, hcu⟩⟩).elim
+  · rfl
+
+lemma unitfalse_semantic_monochrome {n : ℕ} {C : Circuit} (hC : IsAO2 n C)
+    (hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      singletonSupport n C (n + j) = ∅)
+    (colour : ℕ → Bool) (hzero : tCount n C colour = 0) :
+    ∀ w u v, u ∈ singletonSupport n C w → v ∈ singletonSupport n C w →
+      colour u.val = colour v.val := by
+  intro w u v hu hv
+  by_cases hinput : w < n
+  · have hh := support_input (C := C) (⟨w, hinput⟩ : Fin n)
+    change singletonSupport n C w = _ at hh
+    rw [hh, Finset.mem_singleton] at hu hv
+    rw [hu, hv]
+  by_cases hgate : w < n + C.gates.length
+  · obtain ⟨j, rfl⟩ := Nat.exists_eq_add_of_le (Nat.le_of_not_gt hinput)
+    have hj : j < C.gates.length := by omega
+    rcases hC.1 _ (gateAt_mem hj) with hop | hop
+    · rw [hclean j hj hop] at hu
+      simp at hu
+    · exact zero_tCount_or_mono colour hzero hj hop
+        (unit_support_subset_orIn hC hclean _ hu) (unit_support_subset_orIn hC hclean _ hv)
+  · have hh := mem_support.1 hu
+    rw [val_ge (n := n) (by simp) (by omega)] at hh
+    cases hh
+
+end PEqualNP.Outside.L_meta_4675.Reuse

@@ -35,3 +35,7 @@ FanoCleanLower proves any AO2 Fano circuit of at most26gates has a dirtyAND; it 
 
 UniqueRepair and ActualSlot/ActualSlotReachable compiled exit0 and passed independent archival review. UniqueRepair preserves size, function and tCount under the explicit at-most-one-edge dirty-gate condition; reachable separator is semantic, without a global gate-cover budget.
 BirthAllocationObstruction is exhaustive Python validation of a failed unchanged-birth strategy, not a Lean proof or refutation of the gap. StrongZ3 remains a restricted search; only returned witnesses receive full original-condition validation.
+
+Integrated partial-003: 2943 lines, 136098 bytes; lake build PEqualNP.Outside.L_meta_4675 exit 0. Build completed successfully (5149 jobs). Independent integration-002 review approved exact component assembly; review-009 additionally approves SemanticColour and new search scripts. SemanticColour compiled separately, not yet included in named file. Main theorem remains absent.
+Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
+TIMING total=50.61 subagents=6

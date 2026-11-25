@@ -1,0 +1,152 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.ReadK
+
+lemma support_false_under {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    (x : Fin n → Bool) (w : ℕ) (hw : val C (List.ofFn x) w = false) :
+    ∀ u ∈ singletonSupport n C w, x u = false := by
+  intro u hu
+  cases hxu : x u
+  · rfl
+  · have hxy : ∀ v, pairInput u u v = true → x v = true := by
+      intro v hv
+      have hvu : v = u := by simpa [pairInput] using hv
+      simpa only [hvu] using hxu
+    have hh := pair_mono hm hxy w (mem_support.1 hu)
+    rw [hw] at hh
+    cases hh
+
+lemma reachable_difference_or_slot {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) (x y : Fin n → Bool) :
+    ∀ w, w < n + C.gates.length → (n ≤ w → reachable n C (w - n)) →
+      val C (List.ofFn x) w = true → val C (List.ofFn y) w = false →
+      (∃ u ∈ singletonSupport n C w, x u = true) ∨
+      ∃ k, reachable n C k ∧ (gateAt C k).op = GateOp.and ∧
+        ∃ v ∈ (gateAt C k).inputs,
+          (∃ u ∈ singletonSupport n C v, x u = true) ∧
+          ∀ u ∈ singletonSupport n C v, y u = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hwb hreach hx hy
+    by_cases hin : w < n
+    · left
+      let u : Fin n := ⟨w, hin⟩
+      refine ⟨u, ?_, ?_⟩
+      · change u ∈ singletonSupport n C u.val
+        rw [support_input]
+        simp
+      · change val C (List.ofFn x) u.val = true at hx
+        simpa only [val_ofFn] using hx
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hk : k < C.gates.length := by omega
+      have hr : reachable n C k := by simpa using hreach (by omega)
+      have hchild : ∀ v ∈ (gateAt C k).inputs, n ≤ v → reachable n C (v - n) := by
+        intro v hv hvn
+        apply reachable_child rb hr
+        simpa only [Nat.add_sub_of_le hvn] using hv
+      rcases gate_op hm hk with hop | hop
+      · have hoperand : ∃ v ∈ (gateAt C k).inputs, val C (List.ofFn y) v = false := by
+          by_contra hn
+          have hh := (val_and (by simp : (List.ofFn y).length = n) hk hop).2 (by
+            intro v hv
+            refine ⟨((val_and (by simp) hk hop).1 hx v hv).1, ?_⟩
+            cases hyv : val C (List.ofFn y) v
+            · exact (hn ⟨v, hv, hyv⟩).elim
+            · rfl)
+          rw [hy] at hh
+          cases hh
+        obtain ⟨v, hv, hvy⟩ := hoperand
+        have hvx := (val_and (by simp) hk hop).1 hx v hv
+        rcases ih v hvx.1 (by omega) (hchild v hv) hvx.2 hvy with hu | hs
+        · exact Or.inr ⟨k, hr, hop, v, hv, hu, support_false_under hm y v hvy⟩
+        · exact Or.inr hs
+      · obtain ⟨v, hv, hvlt, hvx⟩ := (val_or (by simp) hk hop).1 hx
+        have hvy : val C (List.ofFn y) v = false := by
+          cases hyv : val C (List.ofFn y) v
+          · rfl
+          · have hh := (val_or (by simp) hk hop).2 ⟨v, hv, hvlt, hyv⟩
+            rw [hy] at hh
+            cases hh
+        rcases ih v hvlt (by omega) (hchild v hv) hvx hvy with ⟨u, hu, hux⟩ | hs
+        · exact Or.inl ⟨u, (support_or rb hk hop u).2 ⟨v, hv, hu⟩, hux⟩
+        · exact Or.inr hs
+
+lemma reachable_distinguishing_and_operand {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) (x y : Fin n → Bool)
+    (hout : singletonSupport n C C.output = ∅)
+    (hx : C.eval (List.ofFn x) = true) (hy : C.eval (List.ofFn y) = false) :
+    ∃ k, reachable n C k ∧ (gateAt C k).op = GateOp.and ∧
+      ∃ w ∈ (gateAt C k).inputs,
+        (∃ u ∈ singletonSupport n C w, x u = true) ∧
+        ∀ u ∈ singletonSupport n C w, y u = false := by
+  have hwlt : C.output < n + C.gates.length := by
+    by_contra! hh
+    rw [eval_eq_val, val_ge (by simp : (List.ofFn x).length = n) hh] at hx
+    cases hx
+  have hreach : n ≤ C.output → reachable n C (C.output - n) := by
+    intro hn
+    exact ⟨by omega, Or.inl (by omega)⟩
+  rcases reachable_difference_or_slot hm rb x y C.output hwlt hreach hx hy with hu | hs
+  · simpa [hout] using hu
+  · exact hs
+
+lemma graph_actual_slot {n : ℕ} {C : Circuit} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (colour : Fin n → Bool) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hcross : ∀ u v, G.Adj u v → colour u ≠ colour v)
+    (hcorrect : ∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (hmono : ∀ w u v, u ∈ singletonSupport n C w → v ∈ singletonSupport n C w →
+      colour u = colour v)
+    (a b : Fin n) (hab : G.Adj a b) :
+    ∃ k, reachable n C k ∧ (gateAt C k).op = GateOp.and ∧
+      ∃ w ∈ (gateAt C k).inputs, a ∈ singletonSupport n C w ∧
+        ∀ u ∈ singletonSupport n C w, G.Adj u b := by
+  classical
+  let y : Fin n → Bool := fun u => decide (u = b ∨ colour u = colour a ∧ ¬ G.Adj u b)
+  have hyb : y b = true := by simp [y]
+  have hneg : C.eval (List.ofFn y) = false := by
+    rw [hcorrect, decide_eq_false_iff_not]
+    rintro ⟨u, v, huv, hu, hv⟩
+    simp only [y, decide_eq_true_eq] at hu hv
+    rcases hu with rfl | ⟨hu, hub⟩ <;> rcases hv with rfl | ⟨hv, hvb⟩
+    · exact G.irrefl huv
+    · exact hvb huv.symm
+    · exact hub huv
+    · exact hcross u v huv (hu.trans hv.symm)
+  have hpos : C.eval (List.ofFn (pairInput a b)) = true := by
+    rw [hcorrect, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simp [pairInput], by simp [pairInput]⟩
+  have hout : singletonSupport n C C.output = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.2
+    intro u hu
+    have hv : C.eval (List.ofFn (pairInput u u)) = true := mem_support.1 hu
+    rw [hcorrect, decide_eq_true_eq] at hv
+    obtain ⟨v, w, hvw, hv, hw⟩ := hv
+    have hvu : v = u := by simpa [pairInput] using hv
+    have hwu : w = u := by simpa [pairInput] using hw
+    subst v
+    subst w
+    exact G.irrefl hvw
+  obtain ⟨k, hk, hop, w, hw, ⟨u, hu, hux⟩, hy⟩ :=
+    reachable_distinguishing_and_operand hm rb (pairInput a b) y hout hpos hneg
+  have hua : u = a := by
+    have huab : u = a ∨ u = b := by simpa [pairInput] using hux
+    rcases huab with he | he
+    · exact he
+    · subst u
+      have hh := hy b hu
+      rw [hyb] at hh
+      cases hh
+  subst u
+  refine ⟨k, hk, hop, w, hw, hu, ?_⟩
+  intro u hu'
+  by_contra hnu
+  have hyu : y u = true := by
+    simp only [y, decide_eq_true_eq]
+    exact Or.inr ⟨hmono w u a hu' hu, hnu⟩
+  rw [hy u hu'] at hyu
+  cases hyu
+
+end PEqualNP.Outside.L_meta_4675.Reuse

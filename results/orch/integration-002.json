@@ -1,0 +1,74 @@
+{
+  "base_commit": "6c840b1976c589e81a8a45d98262bf20118b1376",
+  "base_source_sha256": "e31de26595c79d5c24528d9d933c4a96c8b2489e2fbbcb46a605244ad2c6b5b4",
+  "components": [
+    {
+      "file": "results/orch/lemmas/OrInvariant.lean",
+      "source_sha256": "dda6783ba96993ef3e9841543d721e90eb38ffc0e135ff531ce3b47ef23f7bf7",
+      "integrated_body_sha256": "a80d917672078ce23354d12c1b57808b8ec54c9202758e997b222f02ab01a903"
+    },
+    {
+      "file": "results/orch/lemmas/CombinedWrappers.txt",
+      "source_sha256": "da0728de7a2a9fbb8b166a34b8bd715ca6ca6ca9053571a082f8c1830219dc91",
+      "integrated_body_sha256": "3bd34b499b57fcb6faf32700dc3d5f132cbb81d5f6d6e18813c318f9b9653df0"
+    },
+    {
+      "file": "results/orch/lemmas/ReaderSemantics.lean",
+      "source_sha256": "a8f77be4a88fd1517d39bfabcab67e70551c82e71b0fd6c49845d0ec960dfd91",
+      "integrated_body_sha256": "e2d9ac018190f58c8a83881bba062c795195dc896ee15e147f12f6b4a0cc967b"
+    },
+    {
+      "file": "results/orch/lemmas/DirtyProduct.lean",
+      "source_sha256": "2a74d5ef1b1ccd230c9a4b81d09040837bb504f9c5bd05b892b999c597bd1ed7",
+      "integrated_body_sha256": "f7011ec7ea8af3b5add6c9a0e12be1057958148ca5f790830dd648b9840a4b1e"
+    },
+    {
+      "file": "results/orch/lemmas/FlagCoverExtended.lean",
+      "source_sha256": "ce980ac842976c73f197083aff0a33745f833f4289d502e4079c55276b34c1f8",
+      "integrated_body_sha256": "0efc658318bd8d4b4f71540538e407e0af5487ea27218845aada994536c38848"
+    },
+    {
+      "file": "results/orch/lemmas/FlagCentres.lean",
+      "source_sha256": "ddd8bdc3eabcb37d9e98db3d7357e52408c4211331593f3bceba1c738dec96f7",
+      "integrated_body_sha256": "eb01129a74b6b079ebad7ff0a5a78830e201bb8e0a657ba4d8d3ec43cd286cb4"
+    },
+    {
+      "file": "results/orch/lemmas/CertificateWrappers.txt",
+      "source_sha256": "4210caa55f09442230119d2be8d3d9f17512e856d32709f89e49e49c82ad7006",
+      "integrated_body_sha256": "b6b98626dc5b3d4c77be346fd56da0986f72832961141df851c8e07b60c45b01"
+    },
+    {
+      "file": "results/orch/lemmas/SlotBudgetWrappers.txt",
+      "source_sha256": "0be291c73c5271c2412889d261815b50749e85ad38bfa19281c034881cc441e9",
+      "integrated_body_sha256": "0da95981a25de75c72630f662e2d112282d2b02291dff232e53452fab8c113bb"
+    },
+    {
+      "file": "results/orch/lemmas/UniqueRepairWrappers.txt",
+      "source_sha256": "24368aba044cf925f5d42c81ce36241c743c2a1f64751c3dd5475e2e6384f256",
+      "integrated_body_sha256": "fd8f3c9b7402334e0a74c79d6d9b488727329d78244a37028e7c2c0d9096c1ff"
+    },
+    {
+      "file": "results/orch/lemmas/ActualSlotGraphWrappers.txt",
+      "source_sha256": "a3f5a6aab8fd1fe5ca2d0aee3a784373ecaa6fff03251a9ad9363060116dc99e",
+      "integrated_body_sha256": "af7cc99d7f95226a86b5c34e6a2f2f33acc6cfb720a25aa711121c8ed38f2677"
+    },
+    {
+      "file": "results/orch/lemmas/FanoSanity.lean",
+      "source_sha256": "8d01707bebb972b2bac99dc991f2d7dd82eb8baf0732f326d82054d5e19db013",
+      "integrated_body_sha256": "a32436d3734a63faee771113a9a016b7504d78a322494f1f40a6da0e60457827"
+    },
+    {
+      "file": "results/orch/lemmas/MatchingCover.lean",
+      "source_sha256": "bffe73b980359885d5b60cc5433bd0af04aaaf34f1c616d8db6a643f3ca900cd",
+      "integrated_body_sha256": "3faf36ddbcbcc67b45af1f8d6c109da241e275ac2a021a752647d739e647293f"
+    },
+    {
+      "file": "results/orch/lemmas/FanoCleanLowerWrappers.txt",
+      "source_sha256": "73c11a9e7837cb5b046d4d5570e59eb28dc7019de4bfd10361f83a86bd4d7023",
+      "integrated_body_sha256": "1f0ccf1b9b878a23d4d8af99be20dad2f64ea8a10e8d088618574998e115e742"
+    }
+  ],
+  "lines": 2943,
+  "bytes": 136098,
+  "main_theorem_present": false
+}

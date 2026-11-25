@@ -4,6 +4,8 @@ p=int(sys.argv[1]);l=int(sys.argv[2]);k=int(sys.argv[3]);graph=sys.argv[4];timeo
 if graph=='cycle6': E={(0,3),(0,4),(1,4),(1,5),(2,5),(2,3)}
 elif graph=='cycle8': E={(i,4+i) for i in range(4)}|{(i,4+(i+1)%4) for i in range(4)}
 elif graph=='fano': E={(a,7+b) for a in range(7) for b in range(7) if (a-b)%7 in (0,1,3)}
+elif graph=='fano55': E={(a,5+b) for a,b in ((0,0),(0,4),(1,0),(1,1),(2,1),(2,2),(3,0),(3,2),(3,3),(4,1),(4,3),(4,4))}
+elif graph=='theta10': E={(0,5+b) for b in range(1,5)}|{(a,5+b) for a in range(1,5) for b in (0,a)}
 elif graph=='theta8': E={(0,4),(0,5),(0,6),(1,4),(1,7),(2,5),(2,7),(3,6),(3,7)}
 else:E={tuple(map(int,e.split(','))) for e in graph.split(';')}
 assert p >= 0 and l >= 0 and k > 0
@@ -56,6 +58,9 @@ if graph in ('cycle6','fano'):
  lines.append(f'(assert (= a0 {bv(0,w)}))')
  andopts=' '.join(f'(= b0 {bv(b,w)})' for b in (0,1,edge,nonedge))
  lines.append(f'(assert (ite o0 (or {andopts}) (= b0 {bv(1,w)})))')
+for v in sorted({v for edge in E for v in edge}):
+ terms=[f'(= {side}{g} {bv(v,w)})' for g in range(k) for side in 'ab']
+ lines.append('(assert (or '+' '.join(terms)+'))')
 for g in range(k-1):
  terms=[f'(= {side}{h} {bv(n+g,w)})' for h in range(g+1,k) for side in 'ab']
  lines.append('(assert (or '+' '.join(terms)+'))')

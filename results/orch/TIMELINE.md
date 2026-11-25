@@ -33,3 +33,7 @@
 - 2026-11-25T17:46:43.536677+00:00: second strategy review. Conditional certificate/slot budgets checked; unchanged birth allocation blocked by exhaustive theta8 example. Concentrate on unique-edge dirty normalization for certified SMT pruning and reachable actual-operand semantics; no full cost-preserving rewrite established.
 - 2026-11-25T17:47:27.719278+00:00: unique-edge dirty normalization and C4-free graph bound compiled, exit 0; counterexample search agent notified.
 - 2026-11-25T17:49:27.295311+00:00: archived checked unique-edge dirty repair and reachable separating-operand partials after independent review.
+- 2026-11-25T17:54:34.936348+00:00: neutralFanoCGP completed1800s/44,290,630mutations withbest27 andno counterexample; freedCPU reservedforconsolidatedLeanbuild.
+- 2026-11-25T17:55:03.331257+00:00: unit-false singleton-support/orIn and semantic-colour bridge compiled, exit 0.
+
+- 2026-11-25T17:57:00.306558+00:00: Consolidated 2943-line named partial builds successfully; preparing checkpoint9. No full theorem.

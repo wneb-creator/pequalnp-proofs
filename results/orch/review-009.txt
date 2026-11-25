@@ -1,0 +1,32 @@
+Independent archival review by status_review, 2026-11-25T17:56:23Z.
+
+APPROVED FOR PARTIAL ARCHIVE; no completed gap theorem or PR approval.
+
+SemanticColour.lean exactly contains the previously reviewed Reuse body and
+SemanticColourWrappers.txt. The new implication assumes IsAO2, zero tCount,
+and empty singleton support at every AND gate; it derives monochromatic
+singleton supports. It does not derive the empty-support assumption.
+Wrapper SHA256: 31b85863c29a7b9d2b0a634ab40216849ea16d245cb017b0d2fced63c179ed90.
+
+ActualSlotGraph wrapper declarations exactly match their compiled context.
+The graph certificate additionally assumes a bipartite colouring, exact
+computation, and monochromatic singleton supports. It selects a reachable
+AND operand for each edge; it does not select one global star per gate or
+prove a total circuit budget.
+Wrapper SHA256: a3f5a6aab8fd1fe5ca2d0aee3a784373ecaa6fff03251a9ad9363060116dc99e.
+
+Both source bundles use permitted imports and helper namespaces. No forbidden
+proof constructs or credential-like content found. Corresponding diagnostics
+contain no errors or credentials; compilation exit zero was reported by authors.
+
+Reviewed current Strong and MultiDirty search scripts, including fano55 and
+theta10 presets. They remain local-only and contain no credential access.
+Returned circuits are checked over every input assignment, for backward
+wiring and colour reach. MultiDirty independently recounts accepted edges
+and verifies an actually dirty AND accepting at least two distinct edges.
+Run without Python optimization, since validators use assertions. UNSAT is
+restricted-search evidence because symmetry/normalization restrictions remain.
+Strong SHA256: b27f4b6feab36ead1cda0cac192f091b6e8e1ce9ea6878db25fafe767cef3365.
+MultiDirty SHA256: e6ce70b00300a4499d25bd6753df8accaa0b3477d707a37605c96c76278a2620.
+
+Only this review artifact was written. MaskedTheta was not reviewed.
