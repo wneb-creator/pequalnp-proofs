@@ -15,3 +15,5 @@ Fixed-depth partial: 766 lines, frozen SHA256 159910fbcdb675b0c9504ed8504d5ca7e5
 Integrated canonical file: 3217 lines,150651bytes,SHA256 c4727b0197e1cec0f82aa36b9643e3cd225333f070889fa540af0fadc09b2328. lake build PEqualNP.Outside.L_meta_1735 exit0,16.60s,peak3787372KiB. Independent namespace/body/static review PASS. Final posted main theorem absent. Cleanup pass not applicable until exact checker accepts; no cleanup change.
 
 Finite archive: 35 files,155930bytes; independent verification PASS. Computational UNSAT results are not Lean certificates. All positive examples are explicitly nonleast. Semantic route note is an unformalized construction sketch, not a refutation.
+
+Actual local checker: exit1 after77.435648s,peak13725160KiB. Verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1735 (one lemma, one file: the theorem carries the module's name). The partial build is successful; the requested statement remains unproved. Full checker stdout/stderr and resource metrics are preserved. No PR opened.

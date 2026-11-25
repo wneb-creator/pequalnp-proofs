@@ -1,0 +1,6 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+checker stage: building the file and the definitions root t=4s
+checker stage: verifier reading the built file t=10s
+REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1735 (one lemma, one file: the theorem carries the module's name)

@@ -1,0 +1,9 @@
+{
+  "full_rows_checked": 256,
+  "girth": 5,
+  "minimum_vertex_cover": 4,
+  "explicit_gate_count": 15,
+  "standard_star_upper": 13,
+  "full_semantics": true,
+  "nonleast": true
+}
