@@ -143,3 +143,8 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 
 2026-11-25T14:13:13Z Completed15prefix18monotonegatecensus:15UNSAT,0unknown,0witness; restrictedcomputedresult.
 2026-11-25T14:15:59.153297+00:00 preserving reviewed17integration and three checked components; full named rebuild running.
+2026-11-25T14:18:12.441165+00:00 renewed; expiry 2026-11-25T14:38:12.202Z
+
+- 2026-11-25T14:18:22.463815+00:00 reduction_design: integrated17 source review PASS; second-gate exploration stopped short of residual certificate.
+2026-11-25T14:19:35.933229+00:00 local_projection.lean compiled and independently reviewed: nonedge alias x0=not x2 has15 total gates,14 binary,1 NOT; proposed projection bound false.
+2026-11-25T14:19:53.487345+00:00 checked nonedge-projection witness preserved; projection lower-bound route dropped.

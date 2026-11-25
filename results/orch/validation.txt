@@ -37,3 +37,5 @@ first_extractor_checked.lean, transport_used.lean, bank_all_pins.lean also compi
 Named source now5246lines312347bytes; full rebuild running.
 Sub-agents:6
 TIMING total=33 subagents=6
+
+Independent review by structural_bound PASS, also independently evaluated by petersen_search on all512 inputs. Exactly15 gates including1NOT compute the Petersen function after identifying x0=NOT x2. This refutes only the proposed stronger projection bound, NOT L-meta-2592. Post-review cleanup removed2unused simp arguments; final compilation exit0 with empty diagnostics.

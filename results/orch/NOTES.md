@@ -104,3 +104,16 @@ Exhausted every one-gate deletion/rewire of the explicit20gate witness (390 seed
 2026-11-25T14:14:32.366869+00:00 audit: Cached 17-binary floor and >=3-NOT exclusion compiled; strict raw-pins realization and floor axioms exactly propext, Classical.choice, Quot.sound. Independent reduction_design review PASS. Plain fragments integrated into named source; awaiting full build.
 
 2026-11-25T14:15:46.461236+00:00 [petersen_search completed templatecensus] All15OR-pairingorbits UNSAT for11fixedprefixgates +<=7additionalANDORgates (18total). ComputedZ3only, notLeanchecked andnotageneral lowerbound. Completecode,data,stdout/stderrlogs archived results/orch/lemmas/search_archive/. AIGcofactorencoderpreparedandvalidated20gatefixedcircuit onall512rows; next targetsx0=notx1andx0=notx2with<=15signedbinarygates.
+
+### 2026-11-25T14:16:03.934649+00:00 — structural agent: next conjunction bound and dead projection route
+Drafted `conjunction_tail_lower` and `first_binary_or_eighteen` in `results/orch/lemmas/conjunction_bound.lean`: every first signed-AND direction has residual binary cost≥17, including d3 by swapping inputs to d2. Compilation awaits completion of named17 rebuild, which removed prior named .olean. This draft is UNCHECKED.
+The proposed nonedge-OR projection x0=¬x2 does not yield a16 signed-binary floor: local_optimize found and exhaustively verified a14-binary+1NOT realization. Do not pursue that lower-bound claim.
+
+## 2026-11-25T14:18:22.463815+00:00 — reduction_design second-gate exploration
+- Python-only exploration (not Lean certified), complete script/log `/tmp/oec/pequalnp-pilot-92/second-gate-classify.py` and `.txt`: for either canonical first OR there are 852 fresh/proper second-gate plus operand-retirement candidates. Row collisions eliminate 591 adjacent-pair / 587 nonadjacent-pair cases. The existing single-coordinate cofactor lower bound leaves 180 / 182 candidates at total binary budget17.
+- Remaining raw-input non-OR second gates are disjoint from the first OR and preserve both operands, suggesting a commutation argument; hard cases consume the first OR output or add another OR. This is not a full residual proof.
+- `first_or.fragment.lean` is an UNCOMPILED optional draft of non-OR residual17 and first-OR classification, stopped to avoid duplication with structural agent. Its only attempted test failed because named olean was intentionally absent during rebuild, not because proof terms were checked.
+- Independently reviewed integrated17 source: five inserted bodies match compiled components; no forbidden syntax or scratch elaborators; exact full target theorem remains absent. Review PASS as partial checkpoint.
+
+2026-11-25T14:19:35.933229+00:00 [nonedge projection route refuted]
+Analytical identity after x0=not x2: target = x1 OR mux(x2,x3 OR x7,x4 OR x5) OR x8*(x3 OR x5 OR x6) OR x9*(x4 OR x7 OR x6). The mux absorbs original edges34 and57; edges01+12 become x1. This gives14 binary gates plus1 NOT (15 total), disproving the proposed nonedge projected15gate exclusion. Exact512row verification and independent reviews passed. Formal helper local_projection.lean proves size15,notCount1,FanInTwo,and exact projected semantics; pinned Lean passes with no diagnostics after cleanup. This does not refute the original held gap.

@@ -1,0 +1,1 @@
+Independent review by structural_bound PASS, also independently evaluated by petersen_search on all512 inputs. Exactly15 gates including1NOT compute the Petersen function after identifying x0=NOT x2. This refutes only the proposed stronger projection bound, NOT L-meta-2592. Post-review cleanup removed2unused simp arguments; final compilation exit0 with empty diagnostics.
