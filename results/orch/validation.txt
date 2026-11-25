@@ -70,3 +70,7 @@ Full HTTP410 diagnostic headers/body preserved in lease-timer-error.txt.
 L-meta-1886 named partial integrated:6436lines,363579bytes. Independent review PASS: all15 source splices/hashes match, plain-file scan passes. Full named build running; exact posted theorem absent. InputRelabel and arbitrary-map suppliedAND/consumedNOT component compiled exit0 and independently reviewed PASS.
 Sub-agents:6
 TIMING total=63 subagents=6
+
+SeedNotOperands compiled exit0 and independently reviewed PASS: explicit consumed NOT of suppliedAND may have ignored additional operands, preserving the checked restricted>=19 bound. Partial only.
+Sub-agents:6
+TIMING total=66 subagents=6
