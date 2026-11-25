@@ -1,0 +1,11 @@
+Independent immutable review: PASS
+Reviewer: counterexample
+Source: results/orch/lemmas/PrunedRawCongruence.lean
+SHA256: 8fb5de5fbec57ceae93ddc65db30239c14750eab37a2b28f2f7351c9ec5294f7
+Size: 4880 bytes. Complete compiler log is empty; author reports EXIT0. No new compiler run performed.
+
+Read all seven declarations. BudgetRunCut transport rewrites exactly the active-root list without dropping duplicate values. Original raw agreement on roots implies agreement on every surviving old label and explicit new copy in compressed and duplicate bases. Column admissibility transport uses only active roots and reverses equality correctly when converting the new premise to the old one. Gate closure and bridge transport preserve certificates and pass raw equality into their exact compressed-basis cut alternatives.
+
+The PrunedNode induction is polymorphic over label type, root basis and raw functions. Base and successor cases preserve initial certificates, closure and target absence; successor cut/recursive-node alternatives use duplicate-basis agreement and the induction hypothesis at depth minus one. No equality outside the active basis is needed. No assumption that Cert supports lie inside roots is used or required, because all affected raw queries are explicitly restricted to active bases.
+
+This is semantic transport infrastructure for actual copied-child class regrouping, not a claim of a completed search or of the posted gap. No proof bypasses, custom types/instances, forbidden options/attributes or strings occur. Research imports remain to be inlined in a final single-file submission.

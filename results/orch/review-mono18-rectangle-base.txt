@@ -1,0 +1,13 @@
+Independent immutable source and mathematical review: PASS
+Reviewer: counterexample
+Source: results/orch/lemmas/Mono18RectangleBase.lean
+SHA256: 55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca
+Size: 8461 bytes. Complete compile log empty; author reports EXIT0. No Lean rerun performed.
+
+Read every declaration and the imported RectanglePackedCheck.bounds_of_check signature/proof. Matrix decoding extracts each row-major fixed-width field and subtracts its signed offset. The independent packed-profile audit already compared all 19 literal specs and 4407 decoded coefficients to the frozen original matrices, with exact totals.
+
+mask enumerates distinct indices by filtering List.range. bounds_of_code passes those nodup lists and explicit support-containment hypotheses into the checked generic rectangle bound; it does not silently assume sample dimensions or assignment coverage. In particular, arbitrary extra/high code bits are ignored by the bounded index masks, and every actual positive/negative support bit must still be justified by the caller. The certificate and block wrappers reflect List.all membership; they do not elevate unchecked integers into theorems.
+
+recordCap reads the upper bits above both masks, and recordCode keeps exactly their lower bits. checkRecord and bounds_of_record use the same decoded code/cap, so there is no disagreement between the computational predicate and semantic bound. The default absent matrix spec yields empty dimensions and no unsound default theorem; support hypotheses would still be required. Sigma/subtype aliases use existing types, and all proofs are ordinary checked terms.
+
+No new axioms, bypasses, custom types or instances, strings, attributes or options occur. This is a generic packed finite-bound interface; it does not assert that all generated profile chunks compiled, that trace assignments match masks, or that a whole circuit/search case is excluded. These remain separate consumers. Research imports require inlining in the final one-file submission.

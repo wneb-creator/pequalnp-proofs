@@ -1,0 +1,13 @@
+PASS — independent source/data review of Weak80905Data
+
+Fixture SHA256: cd78afb3b4d251bc38cda91fe58cd85422fba06066f7ea061c834a9873d6913d
+Lean source SHA256: 23b0adf4251be25c2d79128d9fc4c02a6cef8b2f4fcccec851804ae1654121fe
+Generator SHA256: ed6bfec2a7c4d0d6578201a0725d702432874fd51deb6f2eac870643bd944211
+
+The generator performs only local finite data processing. An isolated copy changed only its fixed output directory; regeneration was byte-identical for both the Lean source and JSON report. Independently checked the two complete basis/count vectors, all eleven singleton entries and all emitted truth signatures against the immutable transitive fixture.
+
+Independent ordered-pair enumeration reproduced 204 row-rejected /4 cut cases for node76616 and208 row-rejected /0 cut cases for node80905. Every selected pair has a Petersen-positive row and a negative row; the proposed gate and every available outside basis class fail its oriented separation. Counts preserve repeated root occurrences. The two cut values equal the exact AND/OR of their source entries.
+
+This validates the finite tables, source mapping and blocking rows. Downstream cofactor BudgetRunCut proofs, child provenance transport and completion-order assembly are separate obligations. The author reports EXIT0 for this finite-table module. Complete independent audit and isolated regeneration outputs are in scratch library_route/weak80905-review; audit script is library_route/audit_weak80905_data.py.
+
+Additional Weak80905Supports review PASS. Source SHA256 fd12ef9585634a034e262e2ebd2c5dfe97d15cdc2b26643209b56f463c233993. Isolated regeneration is byte-identical. Independently verified all22 single-occurrence supports and copied child value multisets, labels remain distinct even for repeated values, budgets stay exact, and both compressed gates use support classes7and10 with the stated outputs. The kernel-checked count/basis/Nodup/value/cardinality lemmas agree with the fixture.

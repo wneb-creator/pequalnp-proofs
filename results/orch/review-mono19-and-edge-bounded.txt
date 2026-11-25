@@ -1,0 +1,10 @@
+PASS — independent archive integrity and status review
+
+Archive: results/orch/search/mono19-and-edge-bounded
+Manifest SHA256: 465f134818c42c6f8c37253b9c2caf3090540ae9603615e8136be59d648fd88f
+
+All11manifest entries and three complete gzip streams match compressed/decompressed sizes and hashes; no unmanifested files. Source/matrix identities match the command and supervisor status. The command has neither --mono-nine15 nor --memo-in. The memo header is strong mono19 andedge, all22,770 states are distinct and well-formed, and the initial11-root/budget18 bank is absent. The full log ends with ordinary limit reached, exit0; no completed root is claimed.
+
+Parsed277,459rectangle records and20,013signal footer records; all referenced signals exist, every bank is tight and duplicate-aware root costs sum strictly below its matrix total. All26loaded extra matrix IDs match the fixedV3 range. Parsed all187bank diagnostics. This checks integrity and arithmetic, not the already reviewed exact rectangle maxima or C++ source semantics again.
+
+The600-second run remains incomplete. No circuit, global exclusion or Lean certificate is established by this archive. Audit source/full output are preserved under scratch library_route/audit_mono19_andedge_archive.py and audit-mono19-andedge-archive.{json,log}.

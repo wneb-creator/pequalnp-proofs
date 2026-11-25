@@ -1,0 +1,8 @@
+PASS — independent source review of full fresh mono19 archive auditor
+
+Auditor SHA256: 4d3fd81454e2069b59ab57f3ba50ab13df6ca9db94971a092d6e48d48a3eadf4
+Archive manifest SHA256: 5fa082f87c631af36b8183bfb53693cba37db425e7954e24cc687de58f03e72e
+
+The script performs local streaming reads and writes one requested report. No external service, solver, credential or unrelated repository is accessed. Resource limits/CPU affinity affect only its own audit process. It reads every gzip stream to its end and verifies both compressed and decompressed hashes/lengths. Its node stack enforces exact DFS parenthood, every retained-entry child and earlier completed same-budget canonical memo dependencies. Count/provenance shapes, projected-cut inequality arithmetic, fixed matrix payloads, duplicate-root rectangle sums and complete signal-reference coverage are checked. The archive filenames also exactly match its manifest-resolved names plus manifest.json.
+
+The limits in its final scope statement are accurate: it does not recompute every truth-table operation/canonical action, projected pool supply, weighted rectangle maximum or exhaustive finite closure. The complete structural census is not a Lean proof of the case or gap. The fixed snapshot has only the expected completed terminal kinds. Future general use could add an explicit allowed-kind whitelist, but this does not invalidate the frozen source/data review.

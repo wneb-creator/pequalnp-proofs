@@ -1,0 +1,9 @@
+PASS: independent immutable review of Node1098CutBudgets.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+SHA256 09e8c7383884193ecfe1c4828418eebe1801cdb872975f10b416f64e8a8c741e;4341 bytes,61 lines. Entire source, complete compiler log, canonical support definitions and budgetRunCut_of_list read. Compiler EXIT0; one unused binder warning, no errors. No additional compile launched.
+
+The thirteen explicit Sum(Fin16)Bool label lists retain every original occurrence outside the canonical support and append exactly one new false-copy label. Kernel checks prove no repeated labels, exact equality with compressRoots, and exact raw-signature list equality with the already checked cutWs0..12. Root signatures may repeat; they remain separate labels. The card+1<=cap+1 checks establish precisely the depth1 BudgetRunCut budget, so no gate is lost in transfer from each bounded Run exclusion.
+
+cutRun dispatches all thirteen finite indices to their matching checked Run theorem and cap. cutBudget applies the independently reviewed budgetRunCut_of_list permutation lemma with the same canonical basis, inserted cutValue, graph, positive mode and depth1. This yields the intended concrete canonical BudgetRunCuts. Arbitrary supports with the same class counts are handled by the separate CountVectorCutTransport theorem, not assumed here. The source does not claim complete node/whole-case/post-gap exclusion.
+
+Only existing library types and permitted local recursion/heartbeat limits are used; no sorry/axioms/native_decide/bv_decide/forbidden root text/strings/new datatype or instance/attributes. This is a checked modular partial; final single-file assembly requirements remain separate.

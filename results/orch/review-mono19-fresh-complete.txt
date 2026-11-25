@@ -1,0 +1,18 @@
+Independent archive integrity/completeness review: PASS
+Reviewer: lean_setup
+Archive: results/orch/search/mono19-or-edge-fresh-proof
+Manifest SHA256: 5fa082f87c631af36b8183bfb53693cba37db425e7954e24cc687de58f03e72e
+Auditor SHA256: 4d3fd81454e2069b59ab57f3ba50ab13df6ca9db94971a092d6e48d48a3eadf4
+Corrected full audit exited0 in142.453 seconds; peak197092KiB RSS, CPU2, hard1GB address-space limit.
+
+All28 manifest stored-file sizes/SHA256 hashes match. All19 proof gzip chunks and both complete gzip streams pass full decompression/CRC and raw size/SHA256 checks. Concatenation preserves line fragments across chunk boundaries. The full2462656845-byte proof SHA256 is fe938d8e720a09ba60a0582a1106bdc60e2eb14ef5f306f3c066c4af1594ef2a. Source equals the independently reviewed exporter b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021; command has no imported memo, uses fixedV3 and strong-mode single-zero priors. Status exit0 and finished found=0 agree with the complete log.
+
+Every one of2065513 sequential nodes has exactly one closed status, with no open/found/dangling child records. Status census: cofactor290127, prefix_formula6137, rectangle1508123, expand82612, memo170029, tight_closure8485. Each of170029 memo references points to an earlier completed expansion/tight closure at the identical budget and exact canonical signal-ID multiset. All2065512 child transitions preserve exact residual multiplicities, copied signal, gate budget and recorded formula history. Every expanded node has closure_complete and one completed child per retained entry. The root closes all11 entries/children.
+
+All2344018 entries and6911122 omitted candidates have valid bounded count/provenance shapes and codes; every recorded cofactor inequality and selected-history index range was checked against the unchanged1145-profile table. All1031050 proof signal dictionary records are well formed and resolve every referenced signal; the ten input signatures and exact Petersen target were reconstructed independently. Every advertised automorphism is a permutation preserving the15-edge graph.
+
+All1508123 rectangle records link to the same actual node state/budget and strict cost margin; all26 loaded matrix payloads exactly match the frozenV3 input. Its84085 signal records resolve every rectangle reference. The completed memo has91097 unique records and contains one initialORedge root-orbit state. All270 diagnostic bank histories were independently replayed with1024-bit Boolean operations and checked to supply their actual bank.
+
+Scope limits: this verifies archive integrity, structural completion, exact dependencies/count bookkeeping, and recorded arithmetic. It does NOT recompute all proof-event Boolean operations, truth-level canonical actions, all cofactor supply semantics, rectangle maxima, or exhaustive closure coverage. Those mathematical/kernel replay tasks remain separate. This is a complete computational search archive, not a complete Lean certificate or proof of the posted gap.
+
+The initial audit passed the entire proof stream before an auditor-only matrix-header spelling assumption stopped its later stage. Both complete initial diagnostics and the successful corrected replay are preserved under verification/audit-mono19-fresh-*. The correction also fixed diagnostic bank history schema handling; archive/source data were never changed.

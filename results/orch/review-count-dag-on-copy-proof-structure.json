@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "sources": [
+    {
+      "module": "CountDagReplayOn",
+      "sha256": "1fda433ce58082a2a28bb7ab7c1f19960ab8c2a0c72dc52493da3b5af3b05c3c",
+      "bytes": 4463,
+      "log_bytes": 0,
+      "compiler_exit": 0,
+      "exit_evidence": "Producer tool session confirmed; archived log empty."
+    },
+    {
+      "module": "CountDagCopyBridge",
+      "sha256": "0de538d1e5095052634429027c6a8b8ced8f3e0b9abf9f1832316194fc146c17",
+      "bytes": 2569,
+      "log_bytes": 0,
+      "compiler_exit": 0,
+      "exit_evidence": "Producer tool session confirmed; archived log empty."
+    }
+  ]
+}

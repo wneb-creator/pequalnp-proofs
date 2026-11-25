@@ -1,0 +1,11 @@
+Independent immutable assembly review: PASS
+Reviewer: counterexample
+Source: results/orch/lemmas/Weak80905Complete.lean
+SHA256: 3d9aa10d9737ac6d21eface93ee35be05a04a12f9c6a5228000462e143c47129
+Size: 4772 bytes; complete log empty, author-reported EXIT0. No compiler rerun.
+
+Read every declaration, the imported budget theorem interfaces and the exact total/entry/source definitions. Node76616 has13 indexed occurrences and depth2; its two omitted gates share the explicit two-label support and receive the corresponding compressed cuts at cap13. All11 singleton entry copies receive their exact labelled whole-bank cuts at child depth1/cap14. Count and value equality directions in all transport calls are correct.
+
+Node80905 has12 indexed occurrences and depth3. Its finite closure needs no omitted-gate cuts. Ten singleton copies use the checked terminal cuts at depth2/cap14. The remaining entry is exactly class7. Copying it changes that class count from1 to2, matching total76616 while preserving every other class and all raw values. The finite regroup equality is kernel-checked, the class map is identity, and copied_count_node_bridge supplies both the already-proved node76616 and the actual parent provenance bridge. The dependency is strictly on the earlier theorem; no recursive assumed node or unproved automorphism premise appears.
+
+Both final statements are closed universal CountNodes, not standalone global circuit lower bounds. Their finite source tables, projected cofactor priors and individual cut proofs have separate reviews; this review covers their exact assembly into a two-nonterminal transitive certificate. It does not assert completion of the whole OR-edge search or the posted gap. No new axioms, custom types/instances, forbidden options/attributes/strings or proof bypasses occur. Research imports must be inlined for a final one-file submission.

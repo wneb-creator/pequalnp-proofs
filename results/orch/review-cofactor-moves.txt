@@ -1,0 +1,11 @@
+Independent review: PASS
+Reviewer: lean_setup
+Source: results/orch/lemmas/CofactorMoves.lean
+SHA256: bc21fcfb21c0abdbef0d81e87940b2b949baa79df8036a4d500a858f7f22f900
+Compiler: EXIT0 recorded in the complete archived log; no diagnostic output. No new build.
+
+Read the entire 4503-byte module. Mechanically compared the Move-through-slice_correct block to the immutable NineSignedPruned source: exactly width512→1024, omission of the unused lower_map theorem, and whitespace changes. The two private bit-constant lemmas are direct existing identities. Row shifts wrap modulo1024 with proven bounds; rotation/bit identities prove the word-level check performs exactly the stated row map. Domain, root availability, target equality and lower bound are all explicit in slice_correct.
+
+The new lower_lift restricts a 1024-row Reach along sliceNineSection, uses the established retract identity to recover each original 512-row root and target, transports Available with the same restriction, and invokes the explicit prior through the checked Nine/Ten Reach bridge. It does not assume arbitrary row-map surjectivity or drop constants/complement cases. No additional lower bound is asserted without its premise.
+
+Only existing type abbreviations, standard definitions and kernel proofs; no new axioms, datatypes, instances, forbidden tactics/strings/attributes.

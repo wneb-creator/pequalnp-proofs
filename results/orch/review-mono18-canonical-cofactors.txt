@@ -1,0 +1,9 @@
+Independent review: PASS
+Reviewer: lean_setup
+Source: results/orch/lemmas/Mono18CanonicalCofactors.lean
+SHA256: a423e7a3830bfd6a5052a7d26c101183b1eb9ca49c9a4c682d24d80409ec6bb0
+Compiler: EXIT0 recorded in the complete archived log; only a build-queue status line precedes the exit footer, with no diagnostic output. No new build.
+
+Read all 17 lower-bound constructions and finite dispatch. Prior0 is the existing signed nine-input lower15, not monotone16. Direct proper-subgraph priors use the checked valid383/255/191/127/251/63/189/111 tables with explicitly kernel-checked table membership and varsX range simplification. The forced-literal cases use lift_ok with explicit zeroing moves, distinct essential-input witnesses, and kernel-checked cardinality; their bounds equal prior plus the number of supplied independent literals. Target8 additionally deletes the isolated variable through lower_map with every required target/root/properness check present. Target signatures are named independently and no desired conclusion is assumed.
+
+The aggregate lower theorem dispatches every Fin17 value and weakens signed lower bounds to either mode through the existing lower_mode_of_signed. zeroMask/oneMask/freeMask are data: this module alone does not prove arbitrary 10-row cofactor transport or the full DAG. That linkage remains in forthcoming checked Slice constructors. All decisions use ordinary decide or decide+kernel; only maxRecDepth/maxHeartbeats limits are set. No new axioms, datatypes, instances, forbidden tactics, strings or attributes.

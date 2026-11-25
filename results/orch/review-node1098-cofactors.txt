@@ -1,0 +1,11 @@
+PASS: independent immutable Lean/data review of Node1098Cofactors.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+SHA256 877525c67ba1257a59124c465d57e83a5b65d398d6615a2eadd3b7c1ff6b52b7;6774 bytes,139 lines. Entire source, RunCofactorCheck soundness interface, profile-domain mapping, full compiler log and exact fixture data read. Compiler EXIT0, empty diagnostics; no new compile launched.
+
+All13 bounded Run exclusions use the actual existing graph and positive operation mode. Independently reconstructed each compressed root list from the exported node1098 base multiplicities minus its cut-support counts, followed by exactly one output wire. Every Lean sN reference and list order agrees with that reconstruction and the original1024-bit signal values. All caps equal17 minus support mass:15 for the nine two-occurrence supports and14 for the four three-occurrence supports. No repeated input occurrence is discarded.
+
+Independently reconstructed each selected gate sequence from the exact original history plus retained-entry provenance. Replayed every selected gate on the full1024-bit signatures, then checked projected operand availability, final coverage, constant multiplicity and strict lower+mass>cap+paid arithmetic. The13 Lean choices/profile indices/lower bounds/caps match the reviewed weak witness list exactly. Every lower bound is from the signed/weak table; the original mono16 witnesses were replaced where necessary. No mono16 lower is invoked by these declarations.
+
+Each cutCheck is a finite decide +kernel proof. runCofactorCheck_sound, with the matching checked Node1098Profiles.slice, yields the stated bounded Run exclusion. The separate full profile-transport review is assigned to counterexample; this review checked their domain/index correspondence and use, not a second complete derivation of every profile lower bound. These13 Run exclusions alone do not discharge arbitrary count-label support transport or the parent recurrence; those are separate helpers/assembly.
+
+Only local permitted recursion/heartbeat limits occur; no forbidden axioms/sorry/native_decide/bv_decide/root text/strings/custom datatypes/instances/attributes. Full independent replay code/results/stdout are preserved under verification/audit-node1098-cofactors.*. Cached imports belong to modular archived work, not the final single-file import surface.

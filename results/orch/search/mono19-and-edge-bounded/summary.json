@@ -1,0 +1,9 @@
+{
+  "scope": "incomplete computational benchmark",
+  "nodes": 403427,
+  "completed_states": 22770,
+  "root_present": false,
+  "memo_header": "PNP_COPY_MEMO_V1 0 19 andedge 0",
+  "exit_code": 0,
+  "ordinary_limit": true
+}

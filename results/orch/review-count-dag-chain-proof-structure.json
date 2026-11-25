@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS",
+  "sources": [
+    {
+      "module": "CountDagReplay",
+      "bytes": 2788,
+      "lines": 51,
+      "sha256": "fab764dd92e9899d800bb2cb63b4514328cc14aadccf6a8f7104a33bc773bff2",
+      "compiler_exit": 0,
+      "log_bytes": 22
+    },
+    {
+      "module": "CountDagCheck",
+      "bytes": 3784,
+      "lines": 70,
+      "sha256": "b8b75fe02be2575b294b210888579aa0e83f9a93a1f1d2f993f38f290030602c",
+      "compiler_exit": 0,
+      "log_bytes": 22
+    },
+    {
+      "module": "CountFixture1098Dag",
+      "bytes": 1382,
+      "lines": 28,
+      "sha256": "f1813f5de383a7dbf5c1484efd659ba84524d2d168f8d737bab4e311ad6cec45",
+      "compiler_exit": 0,
+      "log_bytes": 22
+    }
+  ],
+  "actual_fixture_entries_checked": 13,
+  "binary_provenance": [
+    0,
+    3,
+    1
+  ]
+}

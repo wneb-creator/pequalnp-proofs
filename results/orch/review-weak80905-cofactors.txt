@@ -1,0 +1,11 @@
+Independent review: PASS
+Reviewer: lean_setup
+Weak80905Profiles.lean SHA256: 5bb5489fdfd849ed8b5db1578e95bbb1b3085003c08857f3dbc1428fc4991361 (7047 bytes)
+Weak80905Cofactors.lean SHA256: 693e98bbf8a6c636293a38cb4149827631bf53bbb6a52dded838de4117f64997 (13104 bytes)
+Compiler: author reports EXIT0; archived logs inspected and contain no errors. No new build.
+
+Read both complete Lean sources. The ten Slice constructors call the reviewed row-move checker and lifted signed canonical priors with explicit target, domain, properness and root-availability checks. An independent Python replay evaluated every move on all1024 rows, checked the declared domain, matched the transformed Petersen target to the corresponding canonical graph/literal target, and verified every transformed input is one of the declared free roots or constants. All declared domain masks, bounds and moves match the frozen profile data. No monotone16 prior is used.
+
+The 23 Run exclusions consist of21 terminal banks and2 omitted-gate banks. Exact ordered source lists, repeated wires, profiles, caps, and selected history choices were matched to the archived complete-fixture-80905.json and cut data. Every chosen projected operand is available, every final projected wire is supplied, and the constant multiplicity plus lower bound strictly exceeds cap plus paid gates. The exported history-to-choice and literal signal linkage were independently checked. Full audit code/output: verification/audit-weak80905-cofactors.py/.json.
+
+All conclusions remain bounded Run exclusions with explicit cap premises. The parent/child DAG recurrence and table coverage are separate consumers; this review does not claim the full root or posted gap. Only maxRecDepth/maxHeartbeats limits and decide+kernel finite checks occur. No new axioms, datatypes, instances, forbidden tactics, strings or attributes were found.

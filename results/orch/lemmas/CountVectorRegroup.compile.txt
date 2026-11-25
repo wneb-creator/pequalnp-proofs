@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-87/status_review/CountVectorRegroup.lean:32:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2373.CountVector.duplicateRaw_regroup`:
+  [DecidableEq γ]
+  [Fintype β]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq γ] [Fintype β] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

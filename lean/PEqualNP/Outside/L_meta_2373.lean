@@ -7672,3 +7672,508 @@ lemma missed_or_few_nots (g : Gate) (C : Circuit) (u v : Nat)
   omega
 
 end PEqualNP.Outside.L_meta_2373
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.FreeBank
+
+lemma gate_rep_free (w free : List Sig) (g : Gate)
+    (legal : g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (mono : isNot g = false) :
+    represented (w ++ free) (gv w g) ∨ (1 = 1 ∧ witness false (w ++ free) (gv w g)) := by
+  have rep := gate_rep false w g legal (fun _ => mono)
+  have identity : nrm false = id := by funext a; rfl
+  simp only [identity, List.map_id] at rep
+  change represented w (gv w g) ∨ (isNot g = false ∧ witness false w (gv w g)) at rep
+  rcases rep with h | ⟨_, d, a, b, hd, ha, hb, pa, pb, ne, eq⟩
+  · left
+    exact h.imp (List.mem_append_left free) id
+  · right
+    exact ⟨rfl, d, a, b, hd, List.mem_append_left free ha,
+      List.mem_append_left free hb, pa, pb, ne, eq⟩
+
+lemma pull_positive_chunk (gs : List Gate) (w free : List Sig) {target : Sig} {k : Nat}
+    {S : Finset Sig}
+    (legal : ∀ g ∈ gs, g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (mono : ∀ g ∈ gs, isNot g = false)
+    (run : Live false target k S) (sub : ∀ a ∈ S, a ∈ execute gs w ++ free) :
+    ∃ k' S', k' ≤ k + gs.length ∧ Live false target k' S' ∧ ∀ a ∈ S', a ∈ w ++ free := by
+  induction gs generalizing w with
+  | nil => exact ⟨k, S, by simp, run, sub⟩
+  | cons g gs ih =>
+    obtain ⟨l, U, bound, trace, subset⟩ := ih (w ++ [gv w g])
+      (fun q hq => legal q (by simp [hq])) (fun q hq => mono q (by simp [hq])) sub
+    have sub' : ∀ a ∈ U, a ∈ (w ++ free) ++ [gv w g] := by
+      intro a ha
+      have h := subset a ha
+      simpa only [List.mem_append, List.mem_singleton, or_assoc, or_left_comm, or_comm] using h
+    obtain ⟨l', U', hb, hr, hs⟩ := pull_gate trace
+      (gate_rep_free w free g (legal g (by simp)) (mono g (by simp))) sub'
+    exact ⟨l', U', by simp only [List.length_cons]; omega, hr, hs⟩
+
+lemma skip_free_gate (w free : List Sig) (g : Gate) {S : Finset Sig}
+    (known : gv w g ∈ free) (sub : ∀ a ∈ S, a ∈ (w ++ [gv w g]) ++ free) :
+    ∀ a ∈ S, a ∈ w ++ free := by
+  intro a ha
+  have h := sub a ha
+  simp only [List.mem_append, List.mem_singleton] at h ⊢
+  rcases h with (old | rfl) | fixed
+  · exact Or.inl old
+  · exact Or.inr known
+  · exact Or.inr fixed
+
+end PEqualNP.Outside.L_meta_2373.Live1024.FreeBank
+
+
+namespace PEqualNP.Outside.L_meta_2373
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma two_zero_separator : ∀ a b c : Fin 10, ∃ d : Fin 10,
+    d ≠ a ∧ d ≠ b ∧ d ≠ c ∧ edge (pairInput a d) = true := by
+  decide +kernel
+
+namespace Live1024
+
+lemma two_zero_influence_rows (a b c : Fin 10) (hab : a ≠ b) (hac : a ≠ c) :
+    ∃ r s : Row,
+      (∀ i : Fin 10, i ≠ a →
+        bit r (inputs.getD i.val zero) = bit s (inputs.getD i.val zero)) ∧
+      bit r (inputs.getD b.val zero) = false ∧
+      bit s (inputs.getD b.val zero) = false ∧
+      bit r (inputs.getD c.val zero) = false ∧
+      bit s (inputs.getD c.val zero) = false ∧
+      bit r graph ≠ bit s graph := by
+  obtain ⟨d, hda, hdb, hdc, he⟩ := two_zero_separator a b c
+  refine ⟨singleRow d, pairRow a d, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro i hia
+    rw [singleRow_input, pairRow_input]
+    simp [singleInput, pairInput, hia]
+  · rw [singleRow_input]
+    simp [singleInput, Ne.symm hdb]
+  · rw [pairRow_input]
+    simp [pairInput, Ne.symm hab, Ne.symm hdb]
+  · rw [singleRow_input]
+    simp [singleInput, Ne.symm hdc]
+  · rw [pairRow_input]
+    simp [pairInput, Ne.symm hac, Ne.symm hdc]
+  · rw [singleRow_graph, pairRow_graph, singleton_no_edge, he]
+    decide
+
+end Live1024
+end PEqualNP.Outside.L_meta_2373
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank
+open LiftSeventeen
+
+def andCol (a b : Fin 10) : Sig := bin 0 (input a) (input b)
+def bank (a b c d : Fin 10) : Finset Sig :=
+  insert (andCol a b) (insert (neg (andCol a b))
+    (insert (andCol c d) (insert (neg (andCol c d)) inputs.toFinset)))
+
+lemma neg_bit (r : Row) (v : Sig) : bit r (neg v) = !(bit r v) := by
+  simp [bit, neg, r.isLt]
+
+lemma projected_neg (rows : NineSigned.Row → Row) (v : Sig) :
+    projected rows (neg v) = inv (projected rows v) := by
+  funext r
+  exact neg_bit (rows r) v
+
+lemma and_zero (a b : Fin 10) : projected (rowMap a) (andCol a b) = (fun _ => false) := by
+  rw [andCol, projected_bin]
+  have fixed : projected (rowMap a) (input a) = (fun _ => false) := funext (rowMap_missing a)
+  rw [fixed]
+  rfl
+
+lemma neg_and_one (a b : Fin 10) :
+    projected (rowMap a) (neg (andCol a b)) = (fun _ => true) := by
+  rw [projected_neg, and_zero]
+  rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma input_distinct : ∀ a b : Fin 10, a ≠ b →
+    input a ≠ andCol a b ∧ input a ≠ neg (andCol a b) := by
+  decide +kernel
+
+lemma live_up {target : Sig} {k : Nat} {S : Finset Sig} (run : Live false target k S) :
+    Live true target k S := by
+  induction run using Live.ind with
+  | stop hp => exact Live.stop hp
+  | @binary k U a b d hd ha hb hab hf trace ih =>
+    have hu : allowed true d := by
+      rcases hd with h | ⟨bad, _⟩
+      · exact Or.inl h
+      · cases bad
+    exact Live.binary hu ha hb hab hf ih
+
+def paidBank (a c d : Fin 10) : List (Wire NineSigned.Row) :=
+  combine false (projected (rowMap a) (input c)) (projected (rowMap a) (input d)) ::
+    NineSigned.inputs.map NineSigned.observe
+
+lemma paid_reach (a c d : Fin 10) :
+    Reach true (NineSigned.inputs.map NineSigned.observe) 1 (paidBank a c d) :=
+  Reach.two false Reach.start
+    (rowMap_available_of rowMap_missing rowMap_input a c)
+    (rowMap_available_of rowMap_missing rowMap_input a d)
+
+lemma bank_covered (a b c d : Fin 10) (w : Sig) (mem : w ∈ bank a b c d) :
+    Available true (paidBank a c d) (projected (rowMap a) w) := by
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · rw [and_zero]
+    exact Or.inr (Or.inl ⟨false, rfl⟩)
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · rw [neg_and_one]
+    exact Or.inr (Or.inl ⟨true, rfl⟩)
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · rw [andCol, projected_bin]
+    exact Or.inl List.mem_cons_self
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · rw [projected_neg, andCol, projected_bin]
+    exact avail_inv rfl (Or.inl List.mem_cons_self)
+  · obtain ⟨i, rfl⟩ := input_index w (List.mem_toFinset.mp mem)
+    exact available_cons _ (rowMap_available_of rowMap_missing rowMap_input a i)
+
+lemma paid_tail_lower (a b c d : Fin 10) {S : Finset Sig} {k : Nat}
+    (sub : S ⊆ bank a b c d) (run : Live false graph k S)
+    (constants : ∃ v ∈ S, ∃ w ∈ S, v ≠ w ∧
+      Constant (projected (rowMap a) v) ∧ Constant (projected (rowMap a) w)) : 16 ≤ k := by
+  have trace := list_run (live_up run) S.toList (Finset.nodup_toList S) (by simp)
+  have nc : ¬Constant (restrictRows (rowMap a) (observe graph)) := by
+    change ¬Constant (projected (rowMap a) graph)
+    rw [show projected (rowMap a) graph = NineSigned.observe NineSigned.graph from funext (rowMap_graph a)]
+    exact NineSigned.observe_proper NineSigned.graph_proper
+  have supply : Live1024.supply true (paidBank a c d)
+      ((S.toList.map observe).map (restrictRows (rowMap a))) := by
+    intro v hv
+    obtain ⟨_, hm, rfl⟩ := List.mem_map.mp hv
+    obtain ⟨w, hw, rfl⟩ := List.mem_map.mp hm
+    exact bank_covered a b c d w (sub (Finset.mem_toList.mp hw))
+  have prior (q : Nat) (bs : List (Wire NineSigned.Row))
+      (hr : Reach true (NineSigned.inputs.map NineSigned.observe) q bs)
+      (hv : Available true bs (restrictRows (rowMap a) (observe graph))) : 15 ≤ q := by
+    change Available true bs (projected (rowMap a) graph) at hv
+    rw [show projected (rowMap a) graph = NineSigned.observe NineSigned.graph from funext (rowMap_graph a)] at hv
+    exact NineSigned.nine_reach_lower q bs (reach_bridge hr) hv
+  have bound := projected_bound (rowMap a) trace nc (paid_reach a c d) supply prior
+  obtain ⟨v, hv, w, hw, ne, cv, cw⟩ := constants
+  have mass := mass_two (projected (rowMap a)) (Finset.mem_toList.mpr hv)
+    (Finset.mem_toList.mpr hw) ne cv cw
+  have eq : ((S.toList.map observe).map (restrictRows (rowMap a))) =
+      S.toList.map (projected (rowMap a)) := by simp [List.map_map, projected, Function.comp_def]
+  rw [eq] at bound
+  omega
+
+end PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank
+open LiftSeventeen
+
+lemma and_bit (a b : Fin 10) (r : Row) :
+    bit r (andCol a b) = (bit r (input a) && bit r (input b)) := by
+  rw [andCol, bit_bin_eq_boolBin]
+  rfl
+
+lemma retained_left (a b c d : Fin 10) (ab : a ≠ b) (cd : c ≠ d)
+    {S : Finset Sig} {k : Nat} (sub : S ⊆ bank a b c d) (run : Live false graph k S) :
+    input a ∈ S := by
+  obtain ⟨e, ae, ec⟩ : ∃ e : Fin 10, a ≠ e ∧ (e = c ∨ e = d) := by
+    by_cases ac : a = c
+    · subst a
+      exact ⟨d, cd, Or.inr rfl⟩
+    · exact ⟨c, ac, Or.inl rfl⟩
+  obtain ⟨r, s, same, rb, sb, re, se, different⟩ := two_zero_influence_rows a b e ab ae
+  have h1r : bit r (andCol a b) = false := by rw [and_bit, rb]; simp
+  have h1s : bit s (andCol a b) = false := by rw [and_bit, sb]; simp
+  have other (t : Row) (off : bit t (input e) = false) : bit t (andCol c d) = false := by
+    rw [and_bit]
+    rcases ec with rfl | rfl <;> rw [off] <;> simp only [Bool.false_and, Bool.and_false]
+  have h2r := other r re
+  have h2s := other s se
+  by_contra missing
+  obtain ⟨w, hw, diff⟩ := live_row_difference run different
+  have mem := sub hw
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · exact diff (h1r.trans h1s.symm)
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · apply diff
+    rw [neg_bit, neg_bit, h1r, h1s]
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · exact diff (h2r.trans h2s.symm)
+  rcases Finset.mem_insert.mp mem with rfl | mem
+  · apply diff
+    rw [neg_bit, neg_bit, h2r, h2s]
+  · obtain ⟨i, rfl⟩ := input_index w (List.mem_toFinset.mp mem)
+    exact diff (same i (by rintro rfl; exact missing hw))
+
+lemma used_left_lower (a b c d : Fin 10) (ab : a ≠ b) (cd : c ≠ d)
+    {S : Finset Sig} {k : Nat} (sub : S ⊆ bank a b c d) (run : Live false graph k S)
+    (used : andCol a b ∈ S ∨ neg (andCol a b) ∈ S) : 16 ≤ k := by
+  have ha := retained_left a b c d ab cd sub run
+  have ca : Constant (projected (rowMap a) (input a)) := ⟨false, funext (rowMap_missing a)⟩
+  apply paid_tail_lower a b c d sub run
+  rcases used with h | h
+  · exact ⟨input a, ha, andCol a b, h, (input_distinct a b ab).1, ca, ⟨false, and_zero a b⟩⟩
+  · exact ⟨input a, ha, neg (andCol a b), h, (input_distinct a b ab).2, ca, ⟨true, neg_and_one a b⟩⟩
+
+lemma bank_swap (a b c d : Fin 10) : bank a b c d = bank c d a b := by
+  ext w
+  simp [bank, or_assoc, or_left_comm, or_comm]
+
+lemma positive_tail_lower (a b c d : Fin 10) (ab : a ≠ b) (cd : c ≠ d)
+    {S : Finset Sig} {k : Nat} (sub : S ⊆ bank a b c d) (run : Live false graph k S) : 16 ≤ k := by
+  by_cases leftUsed : andCol a b ∈ S ∨ neg (andCol a b) ∈ S
+  · exact used_left_lower a b c d ab cd sub run leftUsed
+  by_cases rightUsed : andCol c d ∈ S ∨ neg (andCol c d) ∈ S
+  · exact used_left_lower c d a b cd ab (bank_swap a b c d ▸ sub) run rightUsed
+  have subset : ∀ w ∈ S, w ∈ inputs := by
+    intro w hw
+    have mem := sub hw
+    rcases Finset.mem_insert.mp mem with eq | mem
+    · exact False.elim (leftUsed (Or.inl (eq ▸ hw)))
+    rcases Finset.mem_insert.mp mem with eq | mem
+    · exact False.elim (leftUsed (Or.inr (eq ▸ hw)))
+    rcases Finset.mem_insert.mp mem with eq | mem
+    · exact False.elim (rightUsed (Or.inl (eq ▸ hw)))
+    rcases Finset.mem_insert.mp mem with eq | mem
+    · exact False.elim (rightUsed (Or.inr (eq ▸ hw)))
+    · exact List.mem_toFinset.mp mem
+  have eq : S = inputs.toFinset := by
+    ext w
+    constructor
+    · exact fun hw => List.mem_toFinset.mpr (subset w hw)
+    · intro hw
+      obtain ⟨i, rfl⟩ := input_index w (List.mem_toFinset.mp hw)
+      apply raw_required run inputs (input i) subset (absentRow i) (presentRow i) (requiredInputs.1 i)
+      intro v hv hn
+      obtain ⟨j, rfl⟩ := input_index v hv
+      apply requiredInputs.2 i j
+      rintro rfl
+      exact hn rfl
+  have bound := live_lower_seventeen (live_up (eq ▸ run))
+  omega
+
+end PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.FreeSegments
+open PEqualNP.CircuitLowerBounds
+
+def weave : List (List Gate × Gate) → List Gate
+  | [] => []
+  | (gs, g) :: rest => gs ++ g :: weave rest
+
+def charge : List (List Gate × Gate) → Nat
+  | [] => 0
+  | (gs, _) :: rest => gs.length + charge rest
+
+def freeTrace (free : List Sig) : List (List Gate × Gate) → List Sig → Prop
+  | [], _ => True
+  | (gs, g) :: rest, w =>
+      gv (execute gs w) g ∈ free ∧ freeTrace free rest (execute gs w ++ [gv (execute gs w) g])
+
+lemma weave_length (segments : List (List Gate × Gate)) :
+    (weave segments).length = charge segments + segments.length := by
+  induction segments with
+  | nil => rfl
+  | cons seg rest ih =>
+    rcases seg with ⟨gs, g⟩
+    simp only [weave, charge, List.length_append, List.length_cons, ih]
+    omega
+
+lemma weave_execute (gs : List Gate) (g : Gate) (rest : List (List Gate × Gate)) (w : List Sig) :
+    execute (weave ((gs, g) :: rest)) w =
+      execute (weave rest) (execute gs w ++ [gv (execute gs w) g]) := by
+  simp only [weave, execute, List.foldl_append, List.foldl_cons]
+
+lemma pull_segments (segments : List (List Gate × Gate)) (w free : List Sig)
+    {target : Sig} {k : Nat} {S : Finset Sig}
+    (legal : ∀ seg ∈ segments, ∀ g ∈ seg.1,
+      g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (mono : ∀ seg ∈ segments, ∀ g ∈ seg.1, isNot g = false)
+    (known : freeTrace free segments w)
+    (run : Live false target k S) (sub : ∀ a ∈ S, a ∈ execute (weave segments) w ++ free) :
+    ∃ k' S', k' ≤ k + charge segments ∧ Live false target k' S' ∧ ∀ a ∈ S', a ∈ w ++ free := by
+  induction segments generalizing w with
+  | nil => exact ⟨k, S, by simp [charge], run, sub⟩
+  | cons seg rest ih =>
+    rcases seg with ⟨gs, g⟩
+    rw [weave_execute] at sub
+    obtain ⟨l, U, bound, trace, subset⟩ := ih _
+      (fun q hq => legal q (List.mem_cons_of_mem _ hq))
+      (fun q hq => mono q (List.mem_cons_of_mem _ hq)) known.2 sub
+    have before := FreeBank.skip_free_gate (execute gs w) free g known.1 subset
+    obtain ⟨m, V, count, tail, mem⟩ := FreeBank.pull_positive_chunk gs w free
+      (legal (gs, g) List.mem_cons_self) (mono (gs, g) List.mem_cons_self) trace before
+    exact ⟨m, V, by simp only [charge]; omega, tail, mem⟩
+
+lemma member_weave {segments : List (List Gate × Gate)} {seg : List Gate × Gate}
+    (mem : seg ∈ segments) {g : Gate} (hg : g ∈ seg.1) : g ∈ weave segments := by
+  induction segments with
+  | nil => simp at mem
+  | cons top rest ih =>
+    rcases List.mem_cons.mp mem with rfl | hm
+    · exact List.mem_append_left _ hg
+    · exact List.mem_append_right _ (List.mem_cons_of_mem _ (ih hm))
+
+end PEqualNP.Outside.L_meta_2373.Live1024.FreeSegments
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank
+open PEqualNP.CircuitLowerBounds
+open FreeSegments
+
+lemma execute_prefix (gs : List Gate) (w : List Sig) : ∃ extra, execute gs w = w ++ extra := by
+  induction gs generalizing w with
+  | nil => exact ⟨[], by simp [execute]⟩
+  | cons g gs ih =>
+    obtain ⟨extra, he⟩ := ih (w ++ [gv w g])
+    exact ⟨gv w g :: extra, by simpa [execute, List.append_assoc] using he⟩
+
+lemma execute_length (gs : List Gate) (w : List Sig) :
+    (execute gs w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp [execute]
+  | cons g gs ih =>
+    change (execute gs (w ++ [gv w g])).length = _
+    rw [ih]
+    simp [Nat.add_assoc, Nat.add_comm]
+
+lemma getD_append_left (w v : List Sig) (i : Nat) (hi : i < w.length) :
+    (w ++ v).getD i zero = w.getD i zero := by
+  simp only [List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma getD_append_slot (w v : List Sig) (a : Sig) :
+    ((w ++ [a]) ++ v).getD w.length zero = a := by
+  induction w with
+  | nil => simp
+  | cons b w ih => simpa only [List.cons_append, List.length_cons, List.getD_cons_succ] using ih
+
+lemma execute_input (gs : List Gate) (i : Fin 10) :
+    (execute gs inputs).getD i.val zero = LiftSeventeen.input i := by
+  obtain ⟨extra, he⟩ := execute_prefix gs inputs
+  rw [he]
+  exact getD_append_left inputs extra i.val i.isLt
+
+lemma arbitrary_and_value (pre : List Gate) (a b : Fin 10) :
+    gv (execute pre inputs) {op := .and, inputs := [a.val, b.val]} = andCol a b := by
+  simp only [gv, List.map_cons, List.map_nil, List.foldr_cons, List.foldr_nil,
+    execute_input, prime, Bool.false_eq_true, ite_false]
+  have unit (v : Sig) : v &&& one = v := by
+    apply BitVec.eq_of_getLsbD_eq
+    intro i hi
+    rw [BitVec.getLsbD_and]
+    change (v.getLsbD i && (BitVec.allOnes 1024).getLsbD i) = v.getLsbD i
+    rw [BitVec.getLsbD_allOnes]
+    simp [hi]
+  change LiftSeventeen.input a &&& (LiftSeventeen.input b &&& one) =
+    LiftSeventeen.input a &&& LiftSeventeen.input b
+  rw [unit]
+
+lemma arbitrary_not_value (pre mid : List Gate) (a b : Fin 10) :
+    gv (execute mid (execute pre inputs ++ [andCol a b]))
+      {op := .not, inputs := [10 + pre.length]} = neg (andCol a b) := by
+  obtain ⟨extra, he⟩ := execute_prefix mid (execute pre inputs ++ [andCol a b])
+  have len : (execute pre inputs).length = 10 + pre.length := execute_length pre inputs
+  simp only [gv, List.map_cons, List.map_nil, List.headD_cons]
+  rw [he, ← len, getD_append_slot]
+
+lemma output_member (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : PEqualNP.MetaComplexity.circuitFun 10 C = edge) :
+    graph ∈ execute C.gates inputs := by
+  have goalEq : (execute C.gates inputs).getD C.output zero = graph := by
+    apply BitVec.eq_of_getLsbD_eq
+    intro j hj
+    let r : Row := ⟨j, hj⟩
+    exact (table_eval C legal C.output r).trans
+      ((congrFun computes (sample r)).trans (edge_table r).symm)
+  simp only [List.getD_eq_getElem?_getD] at goalEq
+  cases h : (execute C.gates inputs)[C.output]? with
+  | none =>
+    rw [h] at goalEq
+    exact False.elim (graph_proper.1 goalEq.symm)
+  | some z =>
+    rw [h] at goalEq
+    exact goalEq ▸ List.mem_of_getElem? h
+
+lemma four_free_outputs_lower (a b c d : Fin 10) (ab : a ≠ b) (cd : c ≠ d)
+    (C : Circuit) (segments : List (List Gate × Gate)) (tail : List Gate)
+    (four : segments.length = 4) (gatesEq : C.gates = weave segments ++ tail)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (mono : ∀ seg ∈ segments, ∀ g ∈ seg.1, isNot g = false)
+    (monoTail : ∀ g ∈ tail, isNot g = false)
+    (known : freeTrace [andCol a b, neg (andCol a b), andCol c d, neg (andCol c d)] segments inputs)
+    (computes : PEqualNP.MetaComplexity.circuitFun 10 C = edge) : 20 ≤ C.size := by
+  let free := [andCol a b, neg (andCol a b), andCol c d, neg (andCol c d)]
+  have output := output_member C legal computes
+  rw [gatesEq] at output
+  have table : execute (weave segments ++ tail) inputs = execute tail (execute (weave segments) inputs) := by
+    simp only [execute, List.foldl_append]
+  rw [table] at output
+  obtain ⟨l, U, bound, run, sub⟩ := FreeBank.pull_positive_chunk tail (execute (weave segments) inputs) free
+    (fun g hg => legal g (by rw [gatesEq]; exact List.mem_append_right _ hg)) monoTail (Live.stop graph_proper)
+    (by intro w hw; have he : w = graph := Finset.mem_singleton.mp hw
+        subst w; exact List.mem_append_left free output)
+  obtain ⟨k, S, count, trace, subset⟩ := pull_segments segments inputs free
+    (fun seg hs g hg => legal g (by rw [gatesEq]; exact List.mem_append_left _ (member_weave hs hg)))
+    mono known run sub
+  have covered : S ⊆ bank a b c d := by
+    intro w hw
+    have mem := subset w hw
+    simpa [free, bank, List.mem_append, List.mem_cons, List.mem_singleton,
+      or_assoc, or_left_comm, or_comm] using mem
+  have lower := positive_tail_lower a b c d ab cd covered trace
+  have size : C.size = charge segments + tail.length + 4 := by
+    simp only [Circuit.size, gatesEq, List.length_append, weave_length, four]
+    omega
+  omega
+
+def andGate (a b : Fin 10) : Gate := {op := .and, inputs := [a.val, b.val]}
+def notGate (i : Nat) : Gate := {op := .not, inputs := [i]}
+def beforeSecond (a b : Fin 10) (p0 p1 p2 : List Gate) : List Gate :=
+  p0 ++ [andGate a b] ++ p1 ++ [notGate (10 + p0.length)] ++ p2
+
+def separatedSegments (a b c d : Fin 10) (p0 p1 p2 p3 : List Gate) : List (List Gate × Gate) :=
+  [(p0, andGate a b), (p1, notGate (10 + p0.length)), (p2, andGate c d),
+    (p3, notGate (10 + (beforeSecond a b p0 p1 p2).length))]
+
+lemma execute_append (xs ys : List Gate) (w : List Sig) :
+    execute (xs ++ ys) w = execute ys (execute xs w) := by
+  simp only [execute, List.foldl_append]
+
+lemma execute_singleton (g : Gate) (w : List Sig) : execute [g] w = w ++ [gv w g] := rfl
+
+lemma separated_free (a b c d : Fin 10) (p0 p1 p2 p3 : List Gate) :
+    freeTrace [andCol a b, neg (andCol a b), andCol c d, neg (andCol c d)]
+      (separatedSegments a b c d p0 p1 p2 p3) inputs := by
+  have av1 : gv (execute p0 inputs) (andGate a b) = andCol a b := arbitrary_and_value p0 a b
+  have nv1 : gv (execute p1 (execute p0 inputs ++ [andCol a b])) (notGate (10 + p0.length)) =
+      neg (andCol a b) := arbitrary_not_value p0 p1 a b
+  have beforeEq : execute (beforeSecond a b p0 p1 p2) inputs =
+      execute p2 (execute p1 (execute p0 inputs ++ [andCol a b]) ++ [neg (andCol a b)]) := by
+    simp only [beforeSecond, execute_append, execute_singleton]
+    rw [av1, nv1]
+  have av2 : gv (execute (beforeSecond a b p0 p1 p2) inputs) (andGate c d) = andCol c d :=
+    arbitrary_and_value _ c d
+  have nv2 : gv (execute p3 (execute (beforeSecond a b p0 p1 p2) inputs ++ [andCol c d]))
+      (notGate (10 + (beforeSecond a b p0 p1 p2).length)) = neg (andCol c d) :=
+    arbitrary_not_value _ p3 c d
+  simp only [separatedSegments, freeTrace]
+  rw [av1, nv1, ← beforeEq, av2, nv2]
+  simp
+
+lemma separated_two_not_lower (a b c d : Fin 10) (ab : a ≠ b) (cd : c ≠ d)
+    (C : Circuit) (p0 p1 p2 p3 p4 : List Gate)
+    (gatesEq : C.gates = beforeSecond a b p0 p1 p2 ++ [andGate c d] ++ p3 ++
+      [notGate (10 + (beforeSecond a b p0 p1 p2).length)] ++ p4)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (mono : ∀ g ∈ p0 ++ p1 ++ p2 ++ p3 ++ p4, isNot g = false)
+    (computes : PEqualNP.MetaComplexity.circuitFun 10 C = edge) : 20 ≤ C.size := by
+  apply four_free_outputs_lower a b c d ab cd C (separatedSegments a b c d p0 p1 p2 p3) p4 rfl
+  · simpa [separatedSegments, weave, beforeSecond, List.append_assoc] using gatesEq
+  · exact legal
+  · intro seg hs g hg
+    simp only [separatedSegments, List.mem_cons, List.mem_nil_iff, or_false] at hs
+    rcases hs with rfl | rfl | rfl | rfl <;> apply mono g <;> simp [hg]
+  · intro g hg
+    exact mono g (by simp [hg])
+  · exact separated_free a b c d p0 p1 p2 p3
+  · exact computes
+
+end PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank

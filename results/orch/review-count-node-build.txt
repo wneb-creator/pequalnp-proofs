@@ -1,0 +1,7 @@
+Independent immutable review: PASS
+Reviewer: counterexample
+Source: results/orch/lemmas/CountNodeBuild.lean
+SHA256: 00c4b46796b84a7349093ead66410caee7dc95ea386f0e115ad6fe5d6b455069
+Size: 2089 bytes; complete log empty, author-reported EXIT0. No compiler rerun.
+
+Read the entire countNode_succ theorem. This is the previously reviewed concrete1098 four-clause assembly generalized to successor depth and universal actual label realizations. Actual raw leaves have positive class counts; finite count closure is instantiated using exact total equality and an explicit universal compressed-cut soundness premise; target absence only strips the countCert subset guard; every copied entry is delegated to the explicit actual-basis child premise. Compressed cuts use parent depth+1 and copied branches use child depth, exactly matching PrunedNode. No child theorem, cut or global exclusion is silently assumed. Ordinary proof terms only, with no trust/format issue. Final single-file submission must inline research imports.

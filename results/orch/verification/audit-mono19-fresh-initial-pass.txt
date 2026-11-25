@@ -1,0 +1,26 @@
+All manifest file hashes and sizes match.
+{"part": "proof.part000.jsonl.gz", "nodes": 112140, "events": 991264, "seconds": 8.02, "rss_kib": 55460}
+{"part": "proof.part001.jsonl.gz", "nodes": 197646, "events": 1923199, "seconds": 15.31, "rss_kib": 62352}
+{"part": "proof.part002.jsonl.gz", "nodes": 318000, "events": 2904909, "seconds": 24.01, "rss_kib": 70928}
+{"part": "proof.part003.jsonl.gz", "nodes": 460983, "events": 3918498, "seconds": 32.45, "rss_kib": 79508}
+{"part": "proof.part004.jsonl.gz", "nodes": 611571, "events": 4949850, "seconds": 40.71, "rss_kib": 90264}
+{"part": "proof.part005.jsonl.gz", "nodes": 726467, "events": 5930510, "seconds": 48.31, "rss_kib": 98108}
+{"part": "proof.part006.jsonl.gz", "nodes": 851412, "events": 6926723, "seconds": 57.17, "rss_kib": 106812}
+{"part": "proof.part007.jsonl.gz", "nodes": 962360, "events": 7899499, "seconds": 65.25, "rss_kib": 120636}
+{"part": "proof.part008.jsonl.gz", "nodes": 1043273, "events": 8814935, "seconds": 73.75, "rss_kib": 124224}
+{"part": "proof.part009.jsonl.gz", "nodes": 1144250, "events": 9750012, "seconds": 80.94, "rss_kib": 130456}
+{"part": "proof.part010.jsonl.gz", "nodes": 1307981, "events": 10775479, "seconds": 88.55, "rss_kib": 139988}
+{"part": "proof.part011.jsonl.gz", "nodes": 1425002, "events": 11735639, "seconds": 95.5, "rss_kib": 147284}
+{"part": "proof.part012.jsonl.gz", "nodes": 1583292, "events": 12760485, "seconds": 102.7, "rss_kib": 158164}
+{"part": "proof.part013.jsonl.gz", "nodes": 1712356, "events": 13742976, "seconds": 109.87, "rss_kib": 166996}
+{"part": "proof.part014.jsonl.gz", "nodes": 1857389, "events": 14748744, "seconds": 117.01, "rss_kib": 176852}
+{"part": "proof.part015.jsonl.gz", "nodes": 2051431, "events": 15826967, "seconds": 124.76, "rss_kib": 189748}
+{"part": "proof.part016.jsonl.gz", "nodes": 2065513, "events": 16319227, "seconds": 127.3, "rss_kib": 190900}
+{"part": "proof.part017.jsonl.gz", "nodes": 2065513, "events": 16769622, "seconds": 129.53, "rss_kib": 190900}
+{"part": "proof.part018.jsonl.gz", "nodes": 2065513, "events": 16926049, "seconds": 130.3, "rss_kib": 190900}
+Complete proof stream structural census passed.
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-87/fresh-mono19-audit/audit.py", line 200, in <module>
+    tokens=iter((base/'rectangles-v3.txt').read_text().split()); assert next(tokens)=='PNP_RECT_V1'
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

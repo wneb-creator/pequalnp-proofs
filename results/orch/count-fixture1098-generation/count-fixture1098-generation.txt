@@ -1,0 +1,83 @@
+{
+  "source_sha256": "d953ea70477ec530fea50a2e96b6280bcb4d841b3a98257688250132d446a91d",
+  "lean_sha256": "cc018281d898af864d7b5f81137ca299dac39f2375d1506e55f160f9fc3c1091",
+  "classes": 12,
+  "root_occurrences": 16,
+  "remaining": 16,
+  "entries": 13,
+  "cuts": 13,
+  "ordered_kept_gates": 2,
+  "ordered_cut_gates": 26,
+  "row_rejected_gates": 256,
+  "rows": [
+    [
+      528,
+      554
+    ],
+    [
+      640,
+      201
+    ],
+    [
+      160,
+      201
+    ],
+    [
+      640,
+      773
+    ],
+    [
+      288,
+      554
+    ],
+    [
+      132,
+      201
+    ],
+    [
+      320,
+      402
+    ],
+    [
+      6,
+      773
+    ],
+    [
+      17,
+      385
+    ],
+    [
+      528,
+      116
+    ],
+    [
+      3,
+      201
+    ],
+    [
+      6,
+      50
+    ],
+    [
+      66,
+      138
+    ],
+    [
+      320,
+      69
+    ],
+    [
+      160,
+      104
+    ],
+    [
+      160,
+      138
+    ],
+    [
+      576,
+      773
+    ]
+  ],
+  "scope": "Exact finite count-table leaf/closure/missing obligations; cofactor cutSound and depth1 child recurrence remain external."
+}

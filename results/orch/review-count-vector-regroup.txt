@@ -1,0 +1,9 @@
+Independent review: PASS
+Reviewer: lean_setup
+Frozen source: results/orch/lemmas/CountVectorRegroup.lean
+SHA256: 3c8aa9cf2c06a6835ef16fbe8d0a785c14e1427aac46adce3789778227e61ae3
+Compiler: author reports EXIT0; complete archived log inspected, one unused-section-variable diagnostic and no errors. No new build.
+
+Read the full source and underlying count/count_sum/outside_iff definitions. count_regroup partitions the filtered label set by old classes, without injectivity of the class map. count_duplicate_regroup applies the existing exact difference-plus-two formula after regrouping both counts; the subset premise prevents truncation errors. duplicateRaw_regroup asks for signal agreement only where an actual residual old label exists, derives strict residual count from outside_iff, and handles both inserted labels by the explicit inserted equality. No assertion about absent old classes is needed.
+
+No new axioms, datatypes, instances, forbidden tactics, strings or attributes. This is a generic transport helper with explicit hypotheses, not a complete DAG or posted theorem.

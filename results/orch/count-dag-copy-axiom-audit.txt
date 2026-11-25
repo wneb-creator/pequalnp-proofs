@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2373.CountVector.dagCheck_copy_bridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,118 @@
+{
+  "copy_search_first_prooftrace.cpp": {
+    "bytes": 91153,
+    "sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+  },
+  "mono19-oredge-fresh-proof.log": {
+    "bytes": 33713,
+    "sha256": "ce6ea061d032dd800239e8cac7abd51e300de1bad1e46490321166963b7230a6"
+  },
+  "mono19-oredge-fresh-proof.status.json": {
+    "bytes": 701,
+    "sha256": "a46dc7a498a99c0ee15cf3f465d489e968593654f823d45e9061a244ea71603f"
+  },
+  "mono19-oredge-fresh-proof-banks.jsonl": {
+    "bytes": 1637007,
+    "sha256": "a1663ad9b8eb4e1e96b7f2c6dfabfecdb60a68b354208c4e8c8562500c91d8c9"
+  },
+  "mono19-oredge-fresh-proof-rectangles.jsonl": {
+    "original_bytes": 312578281,
+    "original_sha256": "22c94e08df5584ac2dc1ee4fcd5e89dca6c7f2f735f45eff600c983fc9140972",
+    "gzip_bytes": 22593809,
+    "gzip_sha256": "d7d088aae555f1ab01433e7281b11dff86db5bd625b9abbf200529a4762eb977"
+  },
+  "mono19-oredge-fresh-proof-completed.memo": {
+    "original_bytes": 350059460,
+    "original_sha256": "c05bb8044580fc9b8aa380a2d8e5a52d43f6c4a7879ef0b66137826485e4bde6",
+    "gzip_bytes": 5065076,
+    "gzip_sha256": "e426768e928b6d31421c61f7a2cc7808f443abcf11acd249d287567302ebd115"
+  },
+  "rectangles-v3.txt": {
+    "bytes": 15842,
+    "sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5"
+  },
+  "proof-chunks.json": {
+    "bytes": 5983,
+    "sha256": "0491293bd7a003f60d26e218a19b5831849ff9478121c838639fc5b29369b5af"
+  },
+  "proof.part000.jsonl.gz": {
+    "bytes": 10561051,
+    "sha256": "f1f5576384033767d770ede6902ace07b2acd73037fa300a789d25099054846f"
+  },
+  "proof.part001.jsonl.gz": {
+    "bytes": 10266254,
+    "sha256": "5c506be4deee858480b46fdd1a353a74ddea944a812f2d58632f4b8d3776dccd"
+  },
+  "proof.part002.jsonl.gz": {
+    "bytes": 10580595,
+    "sha256": "bbbd6c172db6db2ea688794106c675108bcf6c524ce7377141007bceb9785413"
+  },
+  "proof.part003.jsonl.gz": {
+    "bytes": 10717048,
+    "sha256": "79b1fd410a80fd1a6d1026591009a0cf7c36c80af508d84b303723e606b783f2"
+  },
+  "proof.part004.jsonl.gz": {
+    "bytes": 10694396,
+    "sha256": "b549df8070623a70f7d3550423aad8577c7c63f217490b7b35a442d83996461f"
+  },
+  "proof.part005.jsonl.gz": {
+    "bytes": 10852672,
+    "sha256": "87f9c8a28dce9570e5c057c20f3450f0a5090e9f5a90ff8a1937579e444d0667"
+  },
+  "proof.part006.jsonl.gz": {
+    "bytes": 10795295,
+    "sha256": "56eae83781da2ce94c1d17c18f191f3d6b01d2c1602568dc067cccc118de987f"
+  },
+  "proof.part007.jsonl.gz": {
+    "bytes": 10625967,
+    "sha256": "262cfdb02618d66623a39c22e5fbff48e3dbce75a24da3652dcd4f8078860afd"
+  },
+  "proof.part008.jsonl.gz": {
+    "bytes": 10393501,
+    "sha256": "8aaec55914fd79e71eac77e0d8a88a94479fbfd9850646f5c4052271ee41db86"
+  },
+  "proof.part009.jsonl.gz": {
+    "bytes": 10716528,
+    "sha256": "3ac3c07fade7f7aa1bfd2ec63ad63e537a3b1290f84bcd1bccf2888b35444ba5"
+  },
+  "proof.part010.jsonl.gz": {
+    "bytes": 10964382,
+    "sha256": "1ae57fc32f7128a3f12bde67d705a33d5a8717b719614edc2918210b1e315965"
+  },
+  "proof.part011.jsonl.gz": {
+    "bytes": 10814030,
+    "sha256": "42e97218138e4de1317b9e2f4daae2bfe1203f14e2ef9f70fcc3d70a8f593e57"
+  },
+  "proof.part012.jsonl.gz": {
+    "bytes": 10725905,
+    "sha256": "89c23394ab02a232738a6c9a02a018758a2f1a46a9593c71d96cee1cee3e34d4"
+  },
+  "proof.part013.jsonl.gz": {
+    "bytes": 10580504,
+    "sha256": "87ada574c23e3ad8e5bfb2d55f8498cc270297a7c8a7cbee311711eb856be8ea"
+  },
+  "proof.part014.jsonl.gz": {
+    "bytes": 10887087,
+    "sha256": "a1f4f701f9d82f8b7e5cac4e6f8c25bf5ff78e1ddb5db8b172e136843a587401"
+  },
+  "proof.part015.jsonl.gz": {
+    "bytes": 10548637,
+    "sha256": "85a0ddde7b6a4851f78e5f5ffc470c29bdf95c22df095f53c10dd51007816974"
+  },
+  "proof.part016.jsonl.gz": {
+    "bytes": 6634986,
+    "sha256": "efca4ed54c9bd26083df9d3fd5dcb9242e8ae5da9f0b358bb69bd556a23ac1c4"
+  },
+  "proof.part017.jsonl.gz": {
+    "bytes": 6861520,
+    "sha256": "1a7a556d04e94a4008861ebfb8ef5db73367742b450c29c717f3886bb1c735ef"
+  },
+  "proof.part018.jsonl.gz": {
+    "bytes": 2306001,
+    "sha256": "b93960496e332ec3bc4768252699b41ff75db9d3414b17fa1d34f1c2019d5215"
+  },
+  "README.md": {
+    "bytes": 2141,
+    "sha256": "d681ea0ac841b1d9e468254df1b9644e43a5784ec02f6ba44a0a3beef0a1bfe0"
+  }
+}

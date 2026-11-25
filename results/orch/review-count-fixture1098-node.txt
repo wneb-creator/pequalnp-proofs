@@ -1,0 +1,12 @@
+Independent immutable-source review: PASS
+Reviewer: counterexample
+Artifact: results/orch/lemmas/CountFixture1098Node.lean
+SHA256: fb9b5ecba0e13af1d673dc8f2f4de68f741d50d0bfaf15f8ec831bc32e7f5e35
+Size: 2898 bytes; 60 lines.
+Compiler: author-reported EXIT0; complete archived compile output is empty, SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. No compiler rerun performed.
+
+Read all four declarations and the imported count cut transport interface. cutSound and copiesSound recover exact count/value pairs from the finite list and transport canonical compressed/duplicated bank exclusions to arbitrary actual labels. Equalities use canonical basis counts = total = actual basis counts and canonical support counts = listed support counts = actual support counts, in the correct directions. Subset premises justify multiset subtraction. Duplicate signal values remain distinct indexed occurrences; no raw-value injectivity is assumed.
+
+completedNode supplies every raw singleton through the checked leaf table and positive actual class count; closes actual gates through the count checker and transported compressed cuts; excludes the target at the full basis via exact total counts; and discharges every retained entry's copy child with its checked whole-bank rectangle cut. canonicalNode specializes the universal construction to the 16 occurrence labels. The depth is exactly one, with copied children at depth zero.
+
+Scope: this is a PrunedNode certificate over an indexed basis. It does not by itself claim a Live exclusion from sixteen distinct wire signatures, nor the posted gap theorem. Concrete finite cofactor/rectangle validity is delegated to the imported checked artifacts and their separate independent reviews. The new source contains no forbidden proof bypass, new type/instance, global option, string literal, or attribute. Its research imports must be inlined/replaced in any eventual single-file submission.

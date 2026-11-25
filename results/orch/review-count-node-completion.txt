@@ -1,0 +1,11 @@
+Independent immutable source and mathematics review: PASS
+Reviewer: counterexample
+Artifact: results/orch/lemmas/CountNodeCompletion.lean
+SHA256: c0aa372c7a0600ed576915664f69ec1edcae71b3f81d60165c03d862cc20ceb6
+Size: 3955 bytes. Complete compile log is empty; author reports EXIT0. No compile rerun.
+
+Read the CountNode definition and both completion helpers, plus the imported regroup/count_duplicate_regroup/duplicateRaw_regroup implementations. CountNode is explicitly universal over every actual label realization of its count vector. copied_count_node computes exact copied-basis counts by regrouping the original total and consumed counts, then adding two at the copied signal's class. The subset premise justifies subtraction; class maps may merge values and need not be injective. Signal compatibility is required only for classes with residual occurrences, so completely consumed classes need no dictionary entry. Both new occurrence labels have the explicitly checked copied signal value.
+
+The child universal theorem is instantiated on the actual duplicateRoots, then restricted raw congruence identifies its values with the actual duplicateRaw. The certificate predicate keeps the exact child class tag and basis guard. copied_count_node_bridge combines that actual child node's leaf and gate closure with the independently reviewed parent count DAG replay, producing the exact PrunedBridge and recursive child pair. No direct parent-entry presence in the child table is assumed; propagated subformula cuts cover omitted entries. Depth and target/mode are unchanged throughout this child construction, with decrements left to the caller's parent rule.
+
+No trust or format problem found. This is completion infrastructure; a finite caller still owes all exact total/signals/copy equalities and a proved child CountNode. It does not assert a complete global search or the posted gap. Research imports must be inlined for a final one-file submission.

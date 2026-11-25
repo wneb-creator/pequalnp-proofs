@@ -1,0 +1,14 @@
+Independent immutable mathematical and finite-data review: PASS
+Reviewer: counterexample
+Artifacts and SHA256:
+Mono18RectangleSamples.lean 4795340ca02ba193fc5c17f2296407f9110da9de2daf00f0ecd1d3311c9acc7f
+Mono18RectangleLabels.lean 3f3d7c646824931c1ca110657966c85a275f9b2683a10acac832cb6843a0902b
+Mono18RectangleBank.lean 8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8
+
+All three complete compile logs are empty; author reports EXIT0. No Lean rerun performed. Read all generic declarations and finite label proof. Independently parsed all 39 actual Lean sample triples, compared every ordered list and weight index to the frozen matrix census, checked their dimensions against the packed weight arrays, and evaluated all 1178 sample assignments against the exact fifteen Petersen edges. Every positive/negative label agrees.
+
+bounds_of_support reflects the bounded conjunction at every actual Fin row/column; positive and negative Boolean branches yield precisely the support-containment hypotheses of bounds_of_record. Default list access does not grant any unproved coverage. sampleLabels_valid is limited to Fin39; its projection lemmas preserve that guard.
+
+run_exclusion_of_records preserves the full labels list, including duplicate signal values and distinct records. The Run length lower bound together with the explicit cap proves tightness before tight_run_indexed is applied. Each occurrence contributes its own checked support bound and record cap. The final full positive-by-negative rectangle gives targetCost <= the occurrence-counted sum, contradicting the explicit strict gap. No semantic row premise or cost credit is dropped.
+
+Scope: generic rectangle terminal infrastructure and its actual sample constants. Concrete labels still need checked records/support and a strict cost gap; complete recursive search/circuit exclusion is not asserted. No forbidden types/instances/options/strings/trust mechanisms found. Research imports require inlining in a final one-file submission.

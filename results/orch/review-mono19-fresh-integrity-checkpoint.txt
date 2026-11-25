@@ -1,0 +1,10 @@
+Independent frozen checkpoint review: PASS FOR STORED-FILE INTEGRITY ONLY
+Reviewer: lean_setup
+Archive: results/orch/search/mono19-or-edge-fresh-proof
+Manifest SHA256: 5fa082f87c631af36b8183bfb53693cba37db425e7954e24cc687de58f03e72e
+
+All 28 manifest entries have been fully read and their stored-file byte sizes and SHA256 hashes independently verified, including all 19 gzip proof chunks and both whole-stream gzip artifacts. The source hash equals the previously independently reviewed proof-trace exporter b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021. The immutable V3 matrix input is bound by the manifest. The supervisor command has no imported memo and no weak15 switch; its exit code is zero. The full preserved log contains finished found=0, 2065513 visits and 91097 completed memo states. These are reported computational outcomes, not Lean proof claims.
+
+The full decompressed-stream hashes/CRC and proof-reference census are still running as of this checkpoint. The first fifteen proof chunks (about14.7million events/1.86million nodes) have already passed streaming structural checks, but this review deliberately makes no claim that the entire decompressed stream or dependency graph has yet passed. The auditor is limited to CPU2 and 1GB address space and preserves complete stdout/stderr under /tmp/oec/pequalnp-pilot-87/fresh-mono19-audit/. Final diagnostics and a separate complete report will be archived after the run.
+
+This is sufficient to preserve the exact frozen research archive safely. It is not acceptance of the original posted theorem, not a whole-case Lean certificate, and not an independent mathematical replay of every cofactor or rectangle cut.

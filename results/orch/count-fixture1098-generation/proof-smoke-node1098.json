@@ -1,0 +1,2016 @@
+{
+  "node": {
+    "event": "node",
+    "id": 1098,
+    "parent": 779,
+    "remaining": 16,
+    "state": [
+      1,
+      1,
+      2,
+      3,
+      4,
+      4,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      1514,
+      1514
+    ],
+    "history": [
+      [
+        1,
+        1,
+        2,
+        12
+      ],
+      [
+        1,
+        2,
+        3,
+        15
+      ],
+      [
+        1,
+        7,
+        15,
+        1514
+      ]
+    ]
+  },
+  "basis": {
+    "event": "basis",
+    "node": 1098,
+    "roots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12,
+      1514
+    ],
+    "total": [
+      2,
+      1,
+      1,
+      3,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ]
+  },
+  "entries": [
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 0,
+      "code": 1,
+      "mass": 1,
+      "signal": 1,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 1,
+      "code": 3,
+      "mass": 1,
+      "signal": 2,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 2,
+      "code": 6,
+      "mass": 1,
+      "signal": 3,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 3,
+      "code": 12,
+      "mass": 1,
+      "signal": 4,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 4,
+      "code": 48,
+      "mass": 1,
+      "signal": 5,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 5,
+      "code": 96,
+      "mass": 1,
+      "signal": 6,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 6,
+      "code": 192,
+      "mass": 1,
+      "signal": 7,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 7,
+      "code": 384,
+      "mass": 1,
+      "signal": 8,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 8,
+      "code": 768,
+      "mass": 1,
+      "signal": 9,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 9,
+      "code": 1536,
+      "mass": 1,
+      "signal": 10,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 10,
+      "code": 3072,
+      "mass": 1,
+      "signal": 12,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 11,
+      "code": 6144,
+      "mass": 1,
+      "signal": 1514,
+      "left": -1,
+      "right": -1,
+      "op": 0,
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "event": "entry",
+      "node": 1098,
+      "index": 12,
+      "code": 13,
+      "mass": 2,
+      "signal": 39,
+      "left": 0,
+      "right": 3,
+      "op": 1,
+      "counts": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "subtree_cuts": [
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 0,
+      "right": 3,
+      "op": 0,
+      "signal": 38,
+      "code": 13,
+      "remaining": 15,
+      "profile": 0,
+      "lower": 16,
+      "mass": 2,
+      "selected_history": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 3,
+      "right": 10,
+      "op": 0,
+      "signal": 43,
+      "code": 3084,
+      "remaining": 15,
+      "profile": 3,
+      "lower": 16,
+      "mass": 3,
+      "selected_history": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 3,
+      "right": 10,
+      "op": 1,
+      "signal": 44,
+      "code": 3084,
+      "remaining": 15,
+      "profile": 65,
+      "lower": 10,
+      "mass": 6,
+      "selected_history": []
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 0,
+      "right": 11,
+      "op": 0,
+      "signal": 1672,
+      "code": 6145,
+      "remaining": 15,
+      "profile": 0,
+      "lower": 16,
+      "mass": 2,
+      "selected_history": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 0,
+      "right": 11,
+      "op": 1,
+      "signal": 1536,
+      "code": 6145,
+      "remaining": 15,
+      "profile": 495,
+      "lower": 9,
+      "mass": 7,
+      "selected_history": []
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 3,
+      "right": 11,
+      "op": 0,
+      "signal": 1673,
+      "code": 6156,
+      "remaining": 15,
+      "profile": 3,
+      "lower": 16,
+      "mass": 3,
+      "selected_history": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 3,
+      "right": 11,
+      "op": 1,
+      "signal": 1557,
+      "code": 6156,
+      "remaining": 15,
+      "profile": 65,
+      "lower": 10,
+      "mass": 6,
+      "selected_history": []
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 10,
+      "right": 11,
+      "op": 0,
+      "signal": 1675,
+      "code": 9216,
+      "remaining": 15,
+      "profile": 0,
+      "lower": 16,
+      "mass": 2,
+      "selected_history": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 10,
+      "right": 11,
+      "op": 1,
+      "signal": 1536,
+      "code": 9216,
+      "remaining": 15,
+      "profile": 0,
+      "lower": 16,
+      "mass": 2,
+      "selected_history": [
+        1,
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 10,
+      "right": 12,
+      "op": 0,
+      "signal": 51,
+      "code": 3085,
+      "remaining": 14,
+      "profile": 1,
+      "lower": 16,
+      "mass": 1,
+      "selected_history": [
+        2
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 10,
+      "right": 12,
+      "op": 1,
+      "signal": 44,
+      "code": 3085,
+      "remaining": 14,
+      "profile": 1,
+      "lower": 16,
+      "mass": 1,
+      "selected_history": [
+        2,
+        3
+      ]
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 11,
+      "right": 12,
+      "op": 0,
+      "signal": 1676,
+      "code": 6157,
+      "remaining": 14,
+      "profile": 224,
+      "lower": 11,
+      "mass": 5,
+      "selected_history": []
+    },
+    {
+      "event": "subtree_cut",
+      "node": 1098,
+      "left": 11,
+      "right": 12,
+      "op": 1,
+      "signal": 1609,
+      "code": 6157,
+      "remaining": 14,
+      "profile": 11,
+      "lower": 11,
+      "mass": 4,
+      "selected_history": []
+    }
+  ],
+  "done": {
+    "event": "done",
+    "id": 1098,
+    "kind": "expand",
+    "ref": -1
+  },
+  "children": [
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 0,
+        "child": 1099
+      },
+      "node": {
+        "event": "node",
+        "id": 1099,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1099,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1099,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 1,
+        "child": 1100
+      },
+      "node": {
+        "event": "node",
+        "id": 1100,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1100,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1100,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 2,
+        "child": 1101
+      },
+      "node": {
+        "event": "node",
+        "id": 1101,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1101,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1101,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 3,
+        "child": 1102
+      },
+      "node": {
+        "event": "node",
+        "id": 1102,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1102,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1102,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 4,
+        "child": 1103
+      },
+      "node": {
+        "event": "node",
+        "id": 1103,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1103,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1103,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 5,
+        "child": 1104
+      },
+      "node": {
+        "event": "node",
+        "id": 1104,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1104,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1104,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 6,
+        "child": 1105
+      },
+      "node": {
+        "event": "node",
+        "id": 1105,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1105,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1105,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 7,
+        "child": 1106
+      },
+      "node": {
+        "event": "node",
+        "id": 1106,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1106,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1106,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 8,
+        "child": 1107
+      },
+      "node": {
+        "event": "node",
+        "id": 1107,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1107,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1107,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          9,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 9,
+        "child": 1108
+      },
+      "node": {
+        "event": "node",
+        "id": 1108,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1108,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1108,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          10,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 10,
+        "child": 1109
+      },
+      "node": {
+        "event": "node",
+        "id": 1109,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          12,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1109,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1109,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          12,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 11,
+        "child": 1110
+      },
+      "node": {
+        "event": "node",
+        "id": 1110,
+        "parent": 1098,
+        "remaining": 16,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1110,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1110,
+        "remaining": 16,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 68,
+        "state": [
+          1,
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          1514,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "edge": {
+        "event": "copy_child",
+        "node": 1098,
+        "entry": 12,
+        "child": 1111
+      },
+      "node": {
+        "event": "node",
+        "id": 1111,
+        "parent": 1098,
+        "remaining": 15,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          39,
+          39,
+          1514,
+          1514
+        ],
+        "history": [
+          [
+            1,
+            1,
+            2,
+            12
+          ],
+          [
+            1,
+            2,
+            3,
+            15
+          ],
+          [
+            1,
+            7,
+            15,
+            1514
+          ],
+          [
+            1,
+            1,
+            4,
+            39
+          ]
+        ]
+      },
+      "done": {
+        "event": "done",
+        "id": 1111,
+        "kind": "rectangle",
+        "ref": -1
+      },
+      "rectangle": {
+        "event": "rectangle",
+        "node": 1111,
+        "remaining": 15,
+        "matrix": 0,
+        "total": 79,
+        "cost_sum": 72,
+        "state": [
+          1,
+          2,
+          3,
+          4,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          39,
+          39,
+          1514,
+          1514
+        ],
+        "root_costs": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          4,
+          4
+        ]
+      }
+    }
+  ],
+  "signals": {
+    "1": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "2": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "3": "0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0",
+    "4": "0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00",
+    "5": "0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000",
+    "6": "0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000",
+    "7": "0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000",
+    "8": "0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000",
+    "9": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000",
+    "10": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "12": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "15": "0xfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfc",
+    "38": "0xaa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00",
+    "39": "0xffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaa",
+    "43": "0xee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00ee00",
+    "44": "0xffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffeeffee",
+    "51": "0xeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaaeeaa",
+    "1514": "0xfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfcfffffffffffffffffcfcfcfcfcfcfcfc",
+    "1536": "0xfffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefefffffffffffffffffefefefefefefefe",
+    "1557": "0xfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffcfffffffffffffffffffcfffcfffcfffc",
+    "1609": "0xfffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffefffffffffffffffffffefffefffefffe",
+    "1672": "0xaaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8aaaaaaaaaaaaaaaaa8a8a8a8a8a8a8a8",
+    "1673": "0xff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00ff00ff00ff00ff00fc00fc00fc00fc00",
+    "1675": "0xeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeececececececececeeeeeeeeeeeeeeeeecececececececec",
+    "1676": "0xffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8ffaaffaaffaaffaafca8fca8fca8fca8"
+  }
+}

@@ -2,7 +2,7 @@ L-meta-2373 PARTIAL CHECKPOINT — TARGET UNPROVED
 
 The required top-level theorem remains absent. This agent has opened no proof PR and claims no ACCEPTED verdict; another process opened the stale partial PR documented below.
 
-Current named target:7674 lines, SHA2568c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f. Its lake build exited0 (5149 jobs); full output: build-restrictions.txt.
+Current named target:8179 lines/376638bytes, SHA256c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec. These exact bytes compiled as TwoAndCombined and passed independent assembly review. Its named lake build exited0: Build completed successfully (5149 jobs). Full output: build-twoand.txt. Previous7674-line target SHA8c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f built successfully (5149jobs), full output build-restrictions.txt.
 Latest checker run was on the earlier7156-line target, SHA25667329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
 Lake build exited0: Build completed successfully (5149 jobs). Full output: build-seventeen.txt.
 The repository checker completed its trustLevel0 import without a fault, then exited1:
@@ -19,7 +19,7 @@ The final post-acceptance cleanup pass has not been reached. Earlier partial tri
 Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=213.5 subagents=6
+TIMING total=233.6 subagents=6
 
 A real ten-wire subtree is now fully kernel-checked: all1440 ordered branches are excluded, giving signed Lower13 for that frontier. Its exact symbolic-word compression reduces the append-only proof package104656→59138bytes, with both versions and full logs preserved. The adjacent-OR positive-formula lower bound20 leaves is independently checked; it does not cover arbitrary circuit sharing. Indexed/intermediate/compressed-wire cofactor bridges and the positive-width generic foundation are also checked partials.
 
@@ -50,3 +50,5 @@ Further checked partials: restrictedtwoNOTordinary20gate lower bound for separat
 Replay progress: checked count-vector transport, closure and support splitting; generic count table reflection; exact provenance-cut propagation and ranked replay; real17-root rectangle child1099 (68<79). Node1098 finite table checks also compile, but its cut and child obligations are not silently assumed discharged. Ten additional modules passed independent reviews. A separate integer implementation checked all62349 cost profiles and30974 dominance representatives from the completed computational case; this is computational audit evidence, not Lean completion. The new weak15 V3 continuation remains incomplete at61991 saved states after876417 additional visits. Full archives/reviews are preserved.
 
 Compiled standalone candidate: TwoAndCombined.lean376638bytes/8179lines, SHA c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec, soleDefs import, EXIT0 with140 nonblocking warnings. It adds the restricted signed15-only two-NOT family to the unchanged353344byte base. Independent exact assembly/plain-file review and replay PASS; the exact gap theorem remains absent. Named-target replacement/build will follow separately. Expanded localSAT archive:20trials,1localUNSAT,19UNKNOWN,0candidates; no global or Lean-certified exclusion.
+
+Current named target lake build PASS:8179lines,376638bytes, SHA c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec; full output build-twoand.txt. The most recent full checker is still the older explicitly identified no-theorem run, not acceptance of this file. Exact theorem remains absent. Additional checked/reviewed components include the complete two-node Weak80905 PrunedNode subtree, canonical weak cofactor slices/cuts and actual indexed child transport. No root Live exclusion is inferred without its forest context. Full fresh mono19 archive now passed independent structural/integrity audit of all2065513nodes,170029memo links,2065512child transitions and complete dictionaries. This is computational evidence; semantic kernel replay and allotherfirst-gate/NOT cases remain open.

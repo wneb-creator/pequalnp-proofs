@@ -1,0 +1,290 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+loaded extra rectangle index=13 id=1001
+loaded extra rectangle index=14 id=1002
+loaded extra rectangle index=15 id=1003
+loaded extra rectangle index=16 id=1004
+loaded extra rectangle index=17 id=1005
+loaded extra rectangle index=18 id=1006
+loaded extra rectangle index=19 id=1007
+loaded extra rectangle index=20 id=1008
+loaded extra rectangle index=21 id=1009
+loaded extra rectangle index=22 id=1010
+loaded extra rectangle index=23 id=1011
+loaded extra rectangle index=24 id=1012
+loaded extra rectangle index=25 id=1013
+loaded extra rectangle index=26 id=1014
+loaded extra rectangle index=27 id=1015
+loaded extra rectangle index=28 id=1016
+loaded extra rectangle index=29 id=1017
+loaded extra rectangle index=30 id=1018
+loaded extra rectangle index=31 id=1019
+loaded extra rectangle index=32 id=1020
+loaded extra rectangle index=33 id=1021
+loaded extra rectangle index=34 id=1022
+loaded extra rectangle index=35 id=1023
+loaded extra rectangle index=36 id=1024
+loaded extra rectangle index=37 id=1025
+loaded extra rectangle index=38 id=1026
+copy start deficit=8 entry=0 of=11 remaining=18 roots=12 visits=1
+copy start deficit=7 entry=0 of=11 remaining=18 roots=13 visits=2
+copy excluded deficit=7 entry=0 visits=3
+copy start deficit=7 entry=1 of=11 remaining=18 roots=13 visits=3
+copy excluded deficit=7 entry=1 visits=34726
+copy start deficit=7 entry=2 of=11 remaining=18 roots=13 visits=34726
+nodes=66629 steps=0 card=0 cover=0 cof=8355 formula=46 share1=0 fullcover=0 clips=500907 signals=58077 seconds=10.1595 levels=0:52822,1:11272,2:2217,3:261,4:37,5:15,6:3,7:1,8:1,
+copyclosures=2454 entries=68197 subchecks=359730 subcuts=320584
+nodes=117836 steps=0 card=0 cover=0 cof=13115 formula=81 share1=0 fullcover=0 clips=925488 signals=102965 seconds=20.5911 levels=0:95571,1:18633,2:3217,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=4199 entries=121908 subchecks=677088 subcuts=604736
+nodes=142407 steps=0 card=0 cover=0 cof=14096 formula=91 share1=0 fullcover=0 clips=1381563 signals=150161 seconds=30.5945 levels=0:118721,1:20051,2:3220,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=4580 entries=145780 subchecks=881671 subcuts=789909
+nodes=164582 steps=0 card=0 cover=0 cof=16205 formula=120 share1=0 fullcover=0 clips=576236 signals=187085 seconds=40.7713 levels=0:137688,1:23063,2:3415,3:345,4:50,5:16,6:3,7:1,8:1,
+copyclosures=5212 entries=169370 subchecks=1031811 subcuts=923942
+nodes=197887 steps=0 card=0 cover=0 cof=18760 formula=146 share1=0 fullcover=0 clips=1033109 signals=223230 seconds=50.7721 levels=0:166985,1:26874,2:3611,3:346,4:50,5:16,6:3,7:1,8:1,
+copyclosures=6073 entries=203499 subchecks=1239368 subcuts=1107577
+memo checkpoint states=8217 seconds=0.162418
+nodes=257047 steps=0 card=0 cover=0 cof=26662 formula=175 share1=0 fullcover=0 clips=1311054 signals=246462 seconds=60.8261 levels=0:213232,1:38102,2:5222,3:419,4:51,5:16,6:3,7:1,8:1,
+copyclosures=8232 entries=263615 subchecks=1486463 subcuts=1320136
+nodes=286449 steps=0 card=0 cover=0 cof=29254 formula=292 share1=0 fullcover=0 clips=311985 signals=268031 seconds=70.8271 levels=0:238464,1:42066,2:5426,3:421,4:51,5:16,6:3,7:1,8:1,
+copyclosures=9228 entries=297069 subchecks=1641759 subcuts=1453924
+nodes=317929 steps=0 card=0 cover=0 cof=34945 formula=347 share1=0 fullcover=0 clips=724557 signals=291469 seconds=81.8444 levels=0:260475,1:50059,2:6833,3:489,4:52,5:16,6:3,7:1,8:1,
+copyclosures=10732 entries=333259 subchecks=1767464 subcuts=1561448
+nodes=364289 steps=0 card=0 cover=0 cof=41078 formula=563 share1=0 fullcover=0 clips=1058847 signals=315509 seconds=91.884 levels=0:296697,1:58548,2:8414,3:556,4:53,5:16,6:3,7:1,8:1,
+copyclosures=12688 entries=385301 subchecks=1966465 subcuts=1731857
+nodes=443336 steps=0 card=0 cover=0 cof=54421 formula=730 share1=0 fullcover=0 clips=1222809 signals=329321 seconds=101.965 levels=0:352576,1:76788,2:12830,3:1038,4:82,5:17,6:3,7:1,8:1,
+copyclosures=16451 entries=467981 subchecks=2189509 subcuts=1917255
+copy excluded deficit=7 entry=2 visits=484984
+copy start deficit=7 entry=3 of=11 remaining=18 roots=13 visits=484984
+nodes=508394 steps=0 card=0 cover=0 cof=67365 formula=853 share1=0 fullcover=0 clips=236948 signals=339402 seconds=111.98 levels=0:395352,1:92900,2:18028,3:1870,4:208,5:30,6:4,7:1,8:1,
+copyclosures=19379 entries=535874 subchecks=2404652 subcuts=2099532
+memo checkpoint states=20571 seconds=0.565029
+nodes=545382 steps=0 card=0 cover=0 cof=73941 formula=877 share1=0 fullcover=0 clips=526065 signals=353961 seconds=121.996 levels=0:421020,1:101865,2:20176,3:2063,4:221,5:31,6:4,7:1,8:1,
+copyclosures=20904 entries=573966 subchecks=2549754 subcuts=2224673
+copy excluded deficit=7 entry=3 visits=610120
+copy start deficit=7 entry=4 of=11 remaining=18 roots=13 visits=610120
+copy excluded deficit=7 entry=4 visits=610620
+copy start deficit=7 entry=5 of=11 remaining=18 roots=13 visits=610620
+copy excluded deficit=7 entry=5 visits=610621
+copy start deficit=7 entry=6 of=11 remaining=18 roots=13 visits=610621
+copy excluded deficit=7 entry=6 visits=610622
+copy start deficit=7 entry=7 of=11 remaining=18 roots=13 visits=610622
+copy excluded deficit=7 entry=7 visits=610623
+copy start deficit=7 entry=8 of=11 remaining=18 roots=13 visits=610623
+copy excluded deficit=7 entry=8 visits=610624
+copy start deficit=7 entry=9 of=11 remaining=18 roots=13 visits=610624
+copy excluded deficit=7 entry=9 visits=610625
+copy start deficit=7 entry=10 of=11 remaining=18 roots=13 visits=610625
+copy excluded deficit=7 entry=10 visits=610637
+copy excluded deficit=8 entry=0 visits=610637
+copy start deficit=8 entry=1 of=11 remaining=18 roots=12 visits=610637
+copy excluded deficit=8 entry=1 visits=610638
+copy start deficit=8 entry=2 of=11 remaining=18 roots=12 visits=610638
+copy start deficit=7 entry=0 of=13 remaining=18 roots=13 visits=610639
+copy excluded deficit=7 entry=0 visits=610640
+copy start deficit=7 entry=1 of=13 remaining=18 roots=13 visits=610640
+copy excluded deficit=7 entry=1 visits=610641
+copy start deficit=7 entry=2 of=13 remaining=18 roots=13 visits=610641
+nodes=620599 steps=0 card=0 cover=0 cof=89061 formula=1025 share1=0 fullcover=0 clips=795489 signals=364870 seconds=131.996 levels=0:468788,1:120554,2:27147,3:3523,4:499,5:70,6:14,7:3,8:1,
+copyclosures=24568 entries=652433 subchecks=2753431 subcuts=2393645
+nodes=645977 steps=0 card=0 cover=0 cof=90464 formula=1058 share1=0 fullcover=0 clips=6477 signals=379420 seconds=142.129 levels=0:491702,1:122883,2:27280,3:3525,4:499,5:70,6:14,7:3,8:1,
+copyclosures=25201 entries=679708 subchecks=2921254 subcuts=2541565
+nodes=685988 steps=0 card=0 cover=0 cof=94099 formula=1095 share1=0 fullcover=0 clips=482007 signals=387886 seconds=152.136 levels=0:524882,1:128893,2:28061,3:3564,4:500,5:70,6:14,7:3,8:1,
+copyclosures=26601 entries=720411 subchecks=3088292 subcuts=2684182
+nodes=707225 steps=0 card=0 cover=0 cof=95537 formula=1229 share1=0 fullcover=0 clips=758266 signals=398159 seconds=162.143 levels=0:543555,1:131320,2:28195,3:3567,4:500,5:70,6:14,7:3,8:1,
+copyclosures=27350 entries=746619 subchecks=3210124 subcuts=2788662
+nodes=749765 steps=0 card=0 cover=0 cof=101511 formula=1319 share1=0 fullcover=0 clips=902885 signals=401673 seconds=172.143 levels=0:574708,1:140687,2:30067,3:3711,4:504,5:70,6:14,7:3,8:1,
+copyclosures=29243 entries=790972 subchecks=3344773 subcuts=2901226
+memo checkpoint states=29522 seconds=1.60804
+nodes=757772 steps=0 card=0 cover=0 cof=102320 formula=1382 share1=0 fullcover=0 clips=1195361 signals=415455 seconds=182.144 levels=0:581000,1:141824,2:30523,3:3819,4:517,5:71,6:14,7:3,8:1,
+copyclosures=29546 entries=803270 subchecks=3417624 subcuts=2965353
+nodes=782015 steps=0 card=0 cover=0 cof=104700 formula=1573 share1=0 fullcover=0 clips=1336690 signals=423118 seconds=192.149 levels=0:600914,1:145597,2:31037,3:3860,4:518,5:71,6:14,7:3,8:1,
+copyclosures=30615 entries=833177 subchecks=3522864 subcuts=3053345
+copy excluded deficit=7 entry=2 visits=820659
+copy start deficit=7 entry=3 of=13 remaining=18 roots=13 visits=820659
+nodes=820690 steps=0 card=0 cover=0 cof=111578 formula=1815 share1=0 fullcover=0 clips=298389 signals=427384 seconds=202.765 levels=0:626332,1:155465,2:33872,3:4321,4:598,5:83,6:15,7:3,8:1,
+copyclosures=32833 entries=878068 subchecks=3622206 subcuts=3134006
+nodes=842537 steps=0 card=0 cover=0 cof=112778 formula=1835 share1=0 fullcover=0 clips=800517 signals=441414 seconds=212.774 levels=0:646068,1:157465,2:33981,3:4323,4:598,5:83,6:15,7:3,8:1,
+copyclosures=33334 entries=900022 subchecks=3760488 subcuts=3256139
+nodes=863688 steps=0 card=0 cover=0 cof=114376 formula=1925 share1=0 fullcover=0 clips=1278326 signals=462957 seconds=222.792 levels=0:664388,1:159895,2:34348,3:4356,4:599,5:83,6:15,7:3,8:1,
+copyclosures=33949 entries=926095 subchecks=3911606 subcuts=3388342
+nodes=886059 steps=0 card=0 cover=0 cof=115740 formula=1998 share1=0 fullcover=0 clips=360892 signals=472743 seconds=232.805 levels=0:684161,1:162364,2:34476,3:4357,4:599,5:83,6:15,7:3,8:1,
+copyclosures=34754 entries=950537 subchecks=4012332 subcuts=3474041
+memo checkpoint states=35698 seconds=2.41402
+nodes=910425 steps=0 card=0 cover=0 cof=118334 formula=2056 share1=0 fullcover=0 clips=567944 signals=476821 seconds=242.898 levels=0:703456,1:166769,2:35102,3:4396,4:600,5:83,6:15,7:3,8:1,
+copyclosures=35742 entries=976656 subchecks=4108747 subcuts=3555961
+nodes=955976 steps=0 card=0 cover=0 cof=123187 formula=2157 share1=0 fullcover=0 clips=734083 signals=484180 seconds=252.901 levels=0:739443,1:174988,2:36366,3:4475,4:602,5:83,6:15,7:3,8:1,
+copyclosures=37646 entries=1024121 subchecks=4264649 subcuts=3686643
+nodes=962325 steps=0 card=0 cover=0 cof=124510 formula=2160 share1=0 fullcover=0 clips=964614 signals=530892 seconds=285.095 levels=0:743010,1:176829,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=37983 entries=1037811 subchecks=4375337 subcuts=3787661
+nodes=962370 steps=0 card=0 cover=0 cof=124510 formula=2162 share1=0 fullcover=0 clips=699829 signals=555084 seconds=295.291 levels=0:743055,1:176829,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=37985 entries=1040370 subchecks=4425196 subcuts=3834985
+memo checkpoint states=37984 seconds=3.24865
+nodes=962725 steps=0 card=0 cover=0 cof=124511 formula=2176 share1=0 fullcover=0 clips=485858 signals=577751 seconds=305.743 levels=0:743410,1:176829,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=37999 entries=1045322 subchecks=4472516 subcuts=3877518
+nodes=971098 steps=0 card=0 cover=0 cof=124554 formula=2231 share1=0 fullcover=0 clips=153951 signals=596411 seconds=315.807 levels=0:751768,1:176844,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=38061 entries=1053149 subchecks=4537658 subcuts=3935570
+nodes=974976 steps=0 card=0 cover=0 cof=124607 formula=2299 share1=0 fullcover=0 clips=677291 signals=611703 seconds=326.337 levels=0:755624,1:176866,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=38136 entries=1063468 subchecks=4607594 subcuts=3996113
+nodes=988324 steps=0 card=0 cover=0 cof=124909 formula=2395 share1=0 fullcover=0 clips=347561 signals=627442 seconds=336.338 levels=0:768443,1:177395,2:37161,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=38415 entries=1080123 subchecks=4687068 subcuts=4062223
+nodes=996197 steps=0 card=0 cover=0 cof=126058 formula=2426 share1=0 fullcover=0 clips=12676 signals=645172 seconds=346.389 levels=0:774908,1:178802,2:37162,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=38595 entries=1090541 subchecks=4769364 subcuts=4136216
+nodes=1016730 steps=0 card=0 cover=0 cof=127899 formula=2564 share1=0 fullcover=0 clips=604908 signals=658595 seconds=356.395 levels=0:792731,1:181501,2:37173,3:4606,4:616,5:84,6:15,7:3,8:1,
+copyclosures=39205 entries=1113788 subchecks=4858980 subcuts=4209874
+memo checkpoint states=40492 seconds=4.07622
+nodes=1042983 steps=0 card=0 cover=0 cof=131282 formula=2691 share1=0 fullcover=0 clips=580509 signals=716546 seconds=393.918 levels=0:813252,1:186568,2:37837,3:4607,4:616,5:84,6:15,7:3,8:1,
+copyclosures=40500 entries=1149531 subchecks=5015600 subcuts=4346279
+nodes=1049197 steps=0 card=0 cover=0 cof=131313 formula=2710 share1=0 fullcover=0 clips=423418 signals=737507 seconds=404.101 levels=0:819464,1:186570,2:37837,3:4607,4:616,5:84,6:15,7:3,8:1,
+copyclosures=40521 entries=1154021 subchecks=5070539 subcuts=4396972
+nodes=1058296 steps=0 card=0 cover=0 cof=131347 formula=2720 share1=0 fullcover=0 clips=207537 signals=758945 seconds=415.508 levels=0:828528,1:186605,2:37837,3:4607,4:616,5:84,6:15,7:3,8:1,
+copyclosures=40551 entries=1163424 subchecks=5153520 subcuts=4470908
+memo checkpoint states=40776 seconds=4.52885
+nodes=1074481 steps=0 card=0 cover=0 cof=131458 formula=2769 share1=0 fullcover=0 clips=147400 signals=773596 seconds=425.806 levels=0:844400,1:186918,2:37837,3:4607,4:616,5:84,6:15,7:3,8:1,
+copyclosures=40830 entries=1180473 subchecks=5239323 subcuts=4542928
+nodes=1118130 steps=0 card=0 cover=0 cof=136466 formula=2934 share1=0 fullcover=0 clips=729759 signals=796529 seconds=435.924 levels=0:879895,1:194435,2:38473,3:4608,4:616,5:84,6:15,7:3,8:1,
+copyclosures=42665 entries=1227276 subchecks=5362030 subcuts=4640542
+nodes=1122455 steps=0 card=0 cover=0 cof=136480 formula=2952 share1=0 fullcover=0 clips=568960 signals=813254 seconds=446.305 levels=0:884190,1:194455,2:38483,3:4608,4:616,5:84,6:15,7:3,8:1,
+copyclosures=42691 entries=1235170 subchecks=5433196 subcuts=4704123
+nodes=1129311 steps=0 card=0 cover=0 cof=136544 formula=3033 share1=0 fullcover=0 clips=587615 signals=832403 seconds=456.328 levels=0:891020,1:194481,2:38483,3:4608,4:616,5:84,6:15,7:3,8:1,
+copyclosures=42786 entries=1246835 subchecks=5522786 subcuts=4783231
+nodes=1145116 steps=0 card=0 cover=0 cof=136694 formula=3114 share1=0 fullcover=0 clips=627430 signals=847778 seconds=466.332 levels=0:906573,1:194733,2:38483,3:4608,4:616,5:84,6:15,7:3,8:1,
+copyclosures=43055 entries=1264553 subchecks=5611835 subcuts=4857725
+nodes=1181685 steps=0 card=0 cover=0 cof=139110 formula=3199 share1=0 fullcover=0 clips=393371 signals=862199 seconds=476.359 levels=0:939481,1:198376,2:38501,3:4608,4:616,5:84,6:15,7:3,8:1,
+copyclosures=44280 entries=1301943 subchecks=5730085 subcuts=4953164
+memo checkpoint states=45828 seconds=5.38318
+nodes=1222452 steps=0 card=0 cover=0 cof=144270 formula=3326 share1=0 fullcover=0 clips=127000 signals=877123 seconds=486.36 levels=0:971638,1:206370,2:39116,3:4609,4:616,5:84,6:15,7:3,8:1,
+copyclosures=46036 entries=1345888 subchecks=5847705 subcuts=5047595
+nodes=1257246 steps=0 card=0 cover=0 cof=146254 formula=3561 share1=0 fullcover=0 clips=500377 signals=892046 seconds=496.362 levels=0:1002996,1:209773,2:39149,3:4609,4:616,5:84,6:15,7:3,8:1,
+copyclosures=47555 entries=1387805 subchecks=5951606 subcuts=5127954
+nodes=1315594 steps=0 card=0 cover=0 cof=158721 formula=3739 share1=0 fullcover=0 clips=223664 signals=908762 seconds=506.362 levels=0:1039453,1:227715,2:42924,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=50765 entries=1450052 subchecks=6061997 subcuts=5214158
+nodes=1317312 steps=0 card=0 cover=0 cof=158843 formula=3743 share1=0 fullcover=0 clips=534866 signals=919416 seconds=518.227 levels=0:1040946,1:227939,2:42925,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=50839 entries=1455514 subchecks=6114540 subcuts=5262092
+nodes=1322915 steps=0 card=0 cover=0 cof=158884 formula=3789 share1=0 fullcover=0 clips=219498 signals=944249 seconds=531.674 levels=0:1046527,1:227961,2:42925,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=50894 entries=1463648 subchecks=6193304 subcuts=5333400
+nodes=1331804 steps=0 card=0 cover=0 cof=158953 formula=3856 share1=0 fullcover=0 clips=349775 signals=959011 seconds=541.889 levels=0:1055282,1:228095,2:42925,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=51040 entries=1475219 subchecks=6262010 subcuts=5392268
+memo checkpoint states=51294 seconds=6.48864
+nodes=1361192 steps=0 card=0 cover=0 cof=160951 formula=3951 share1=0 fullcover=0 clips=336618 signals=972633 seconds=551.891 levels=0:1081495,1:231257,2:42938,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=51968 entries=1506539 subchecks=6373295 subcuts=5483329
+nodes=1396672 steps=0 card=0 cover=0 cof=164448 formula=4118 share1=0 fullcover=0 clips=226362 signals=984894 seconds=561.893 levels=0:1110606,1:237461,2:43103,3:4781,4:618,5:84,6:15,7:3,8:1,
+copyclosures=53610 entries=1547181 subchecks=6470637 subcuts=5559602
+nodes=1432384 steps=0 card=0 cover=0 cof=169338 formula=4245 share1=0 fullcover=0 clips=151896 signals=996829 seconds=571.893 levels=0:1137951,1:244804,2:44125,3:4783,4:618,5:84,6:15,7:3,8:1,
+copyclosures=55068 entries=1586321 subchecks=6581111 subcuts=5648183
+nodes=1500744 steps=0 card=0 cover=0 cof=184919 formula=4493 share1=0 fullcover=0 clips=580339 signals=1006676 seconds=581.966 levels=0:1177870,1:265483,2:51006,3:5603,4:678,5:85,6:15,7:3,8:1,
+copyclosures=58974 entries=1662324 subchecks=6711421 subcuts=5748729
+nodes=1525928 steps=0 card=0 cover=0 cof=186621 formula=4924 share1=0 fullcover=0 clips=552117 signals=1023899 seconds=591.966 levels=0:1200307,1:268194,2:51042,3:5603,4:678,5:85,6:15,7:3,8:1,
+copyclosures=60371 entries=1701842 subchecks=6814319 subcuts=5829041
+nodes=1575839 steps=0 card=0 cover=0 cof=196647 formula=5305 share1=0 fullcover=0 clips=366647 signals=1039946 seconds=601.995 levels=0:1231860,1:282859,2:54565,3:5771,4:680,5:85,6:15,7:3,8:1,
+copyclosures=63398 entries=1762034 subchecks=6927946 subcuts=5918817
+memo checkpoint states=64025 seconds=7.75061
+nodes=1607428 steps=0 card=0 cover=0 cof=198890 formula=5595 share1=0 fullcover=0 clips=158146 signals=1053344 seconds=612.002 levels=0:1259546,1:286703,2:54624,3:5771,4:680,5:85,6:15,7:3,8:1,
+copyclosures=64774 entries=1801807 subchecks=7041382 subcuts=6009118
+nodes=1691679 steps=0 card=0 cover=0 cof=217674 formula=6004 share1=0 fullcover=0 clips=580134 signals=1066641 seconds=624.33 levels=0:1308868,1:312087,2:63130,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=69908 entries=1897194 subchecks=7183601 subcuts=6117399
+nodes=1694995 steps=0 card=0 cover=0 cof=217696 formula=6036 share1=0 fullcover=0 clips=577457 signals=1081961 seconds=634.372 levels=0:1312167,1:312104,2:63130,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=69944 entries=1903384 subchecks=7242004 subcuts=6170041
+nodes=1696584 steps=0 card=0 cover=0 cof=217744 formula=6085 share1=0 fullcover=0 clips=423519 signals=1107950 seconds=647.16 levels=0:1313740,1:312120,2:63130,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=69997 entries=1910450 subchecks=7318508 subcuts=6240140
+nodes=1706186 steps=0 card=0 cover=0 cof=218969 formula=6230 share1=0 fullcover=0 clips=588728 signals=1123110 seconds=657.16 levels=0:1321722,1:313740,2:63130,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=70315 entries=1926188 subchecks=7398983 subcuts=6308629
+nodes=1724135 steps=0 card=0 cover=0 cof=219955 formula=6447 share1=0 fullcover=0 clips=528075 signals=1132469 seconds=667.196 levels=0:1338129,1:315273,2:63139,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=71043 entries=1952524 subchecks=7496732 subcuts=6388733
+memo checkpoint states=71078 seconds=9.17096
+nodes=1734114 steps=0 card=0 cover=0 cof=220619 formula=6669 share1=0 fullcover=0 clips=521680 signals=1140644 seconds=677.317 levels=0:1347139,1:316230,2:63151,3:6755,4:734,5:86,6:15,7:3,8:1,
+copyclosures=71585 entries=1971567 subchecks=7569305 subcuts=6448961
+nodes=1778753 steps=0 card=0 cover=0 cof=228330 formula=7047 share1=0 fullcover=0 clips=459279 signals=1155049 seconds=687.317 levels=0:1378672,1:327980,2:64488,3:6774,4:734,5:86,6:15,7:3,8:1,
+copyclosures=74133 entries=2025204 subchecks=7671328 subcuts=6527669
+nodes=1841926 steps=0 card=0 cover=0 cof=242910 formula=7445 share1=0 fullcover=0 clips=230057 signals=1160366 seconds=697.452 levels=0:1415110,1:345742,2:72242,3:7935,4:791,5:87,6:15,7:3,8:1,
+copyclosures=77913 entries=2097854 subchecks=7806500 subcuts=6634748
+nodes=1881466 steps=0 card=0 cover=0 cof=246965 formula=7798 share1=0 fullcover=0 clips=139690 signals=1175598 seconds=707.452 levels=0:1447677,1:352071,2:72885,3:7936,4:791,5:87,6:15,7:3,8:1,
+copyclosures=79752 entries=2146536 subchecks=7931022 subcuts=6732599
+nodes=1964530 steps=0 card=0 cover=0 cof=261839 formula=8139 share1=0 fullcover=0 clips=363687 signals=1180084 seconds=717.452 levels=0:1502376,1:373900,2:78718,3:8581,4:848,5:88,6:15,7:3,8:1,
+copyclosures=84586 entries=2235766 subchecks=8058647 subcuts=6828710
+copy excluded deficit=7 entry=3 visits=2002634
+copy start deficit=7 entry=4 of=13 remaining=18 roots=13 visits=2002634
+copy excluded deficit=7 entry=4 visits=2017909
+copy start deficit=7 entry=5 of=13 remaining=18 roots=13 visits=2017909
+copy excluded deficit=7 entry=5 visits=2017910
+copy start deficit=7 entry=6 of=13 remaining=18 roots=13 visits=2017910
+copy excluded deficit=7 entry=6 visits=2018712
+copy start deficit=7 entry=7 of=13 remaining=18 roots=13 visits=2018712
+copy excluded deficit=7 entry=7 visits=2018713
+copy start deficit=7 entry=8 of=13 remaining=18 roots=13 visits=2018713
+copy excluded deficit=7 entry=8 visits=2028803
+copy start deficit=7 entry=9 of=13 remaining=18 roots=13 visits=2028803
+copy excluded deficit=7 entry=9 visits=2028804
+copy start deficit=7 entry=10 of=13 remaining=18 roots=13 visits=2028804
+copy excluded deficit=7 entry=10 visits=2028857
+copy start deficit=7 entry=11 of=13 remaining=17 roots=12 visits=2028857
+copy excluded deficit=7 entry=11 visits=2028880
+copy start deficit=7 entry=12 of=13 remaining=17 roots=12 visits=2028880
+copy excluded deficit=7 entry=12 visits=2028903
+copy excluded deficit=8 entry=2 visits=2028903
+copy start deficit=8 entry=3 of=11 remaining=18 roots=12 visits=2028903
+copy start deficit=7 entry=0 of=12 remaining=18 roots=13 visits=2028904
+copy excluded deficit=7 entry=0 visits=2028905
+copy start deficit=7 entry=1 of=12 remaining=18 roots=13 visits=2028905
+copy excluded deficit=7 entry=1 visits=2028906
+copy start deficit=7 entry=2 of=12 remaining=18 roots=13 visits=2028906
+copy excluded deficit=7 entry=2 visits=2028907
+copy start deficit=7 entry=3 of=12 remaining=18 roots=13 visits=2028907
+copy excluded deficit=7 entry=3 visits=2044043
+copy start deficit=7 entry=4 of=12 remaining=18 roots=13 visits=2044043
+copy excluded deficit=7 entry=4 visits=2044044
+copy start deficit=7 entry=5 of=12 remaining=18 roots=13 visits=2044044
+copy excluded deficit=7 entry=5 visits=2044045
+copy start deficit=7 entry=6 of=12 remaining=18 roots=13 visits=2044045
+copy excluded deficit=7 entry=6 visits=2044046
+copy start deficit=7 entry=7 of=12 remaining=18 roots=13 visits=2044046
+copy excluded deficit=7 entry=7 visits=2064315
+copy start deficit=7 entry=8 of=12 remaining=18 roots=13 visits=2064315
+copy excluded deficit=7 entry=8 visits=2065352
+copy start deficit=7 entry=9 of=12 remaining=18 roots=13 visits=2065352
+copy excluded deficit=7 entry=9 visits=2065353
+copy start deficit=7 entry=10 of=12 remaining=18 roots=13 visits=2065353
+copy excluded deficit=7 entry=10 visits=2065439
+copy start deficit=7 entry=11 of=12 remaining=17 roots=12 visits=2065439
+copy excluded deficit=7 entry=11 visits=2065484
+copy excluded deficit=8 entry=3 visits=2065484
+copy start deficit=8 entry=4 of=11 remaining=18 roots=12 visits=2065484
+copy excluded deficit=8 entry=4 visits=2065485
+copy start deficit=8 entry=5 of=11 remaining=18 roots=12 visits=2065485
+copy excluded deficit=8 entry=5 visits=2065486
+copy start deficit=8 entry=6 of=11 remaining=18 roots=12 visits=2065486
+copy excluded deficit=8 entry=6 visits=2065487
+copy start deficit=8 entry=7 of=11 remaining=18 roots=12 visits=2065487
+copy excluded deficit=8 entry=7 visits=2065488
+copy start deficit=8 entry=8 of=11 remaining=18 roots=12 visits=2065488
+copy excluded deficit=8 entry=8 visits=2065489
+copy start deficit=8 entry=9 of=11 remaining=18 roots=12 visits=2065489
+copy excluded deficit=8 entry=9 visits=2065490
+copy start deficit=8 entry=10 of=11 remaining=18 roots=12 visits=2065490
+copy start deficit=7 entry=0 of=11 remaining=18 roots=13 visits=2065491
+copy excluded deficit=7 entry=0 visits=2065492
+copy start deficit=7 entry=1 of=11 remaining=18 roots=13 visits=2065492
+copy excluded deficit=7 entry=1 visits=2065493
+copy start deficit=7 entry=2 of=11 remaining=18 roots=13 visits=2065493
+copy excluded deficit=7 entry=2 visits=2065494
+copy start deficit=7 entry=3 of=11 remaining=18 roots=13 visits=2065494
+copy excluded deficit=7 entry=3 visits=2065495
+copy start deficit=7 entry=4 of=11 remaining=18 roots=13 visits=2065495
+copy excluded deficit=7 entry=4 visits=2065496
+copy start deficit=7 entry=5 of=11 remaining=18 roots=13 visits=2065496
+copy excluded deficit=7 entry=5 visits=2065497
+copy start deficit=7 entry=6 of=11 remaining=18 roots=13 visits=2065497
+copy excluded deficit=7 entry=6 visits=2065498
+copy start deficit=7 entry=7 of=11 remaining=18 roots=13 visits=2065498
+copy excluded deficit=7 entry=7 visits=2065499
+copy start deficit=7 entry=8 of=11 remaining=18 roots=13 visits=2065499
+copy excluded deficit=7 entry=8 visits=2065500
+copy start deficit=7 entry=9 of=11 remaining=18 roots=13 visits=2065500
+copy excluded deficit=7 entry=9 visits=2065501
+copy start deficit=7 entry=10 of=11 remaining=18 roots=13 visits=2065501
+copy excluded deficit=7 entry=10 visits=2065513
+copy excluded deficit=8 entry=10 visits=2065513
+finished found=0
+memo checkpoint states=91097 seconds=11.479
+nodes=2065513 steps=0 card=0 cover=0 cof=290127 formula=8485 share1=0 fullcover=0 clips=485793 signals=1184319 seconds=727.391 levels=0:1545970,1:404585,2:98880,3:13707,4:2015,5:297,6:47,7:11,8:1,
+copyclosures=91097 entries=2344018 subchecks=8171885 subcuts=6911122 memory_estimate=847828060 lazy_clip_tables=20775 projected_cache=211294 move_cache=773021 constant_profiles=20775 memo_states=91097 prefix_formula_cuts=6137 projection_resets=41 projection_reset_seconds=15.8767 memo_save_seconds=11.479 rectangle_signals=84516 rectangle_hits=895875,24144,4074,11230,507,137319,148242,43840,17390,10002,2820,22169,15828,
+cofactor_profile_hits kind=0 0:5953 1:829 2:12784 3:12921 4:4222 5:3163 6:2479 7:3462 8:5063 9:3027 10:24634 11:3129 12:3922 13:3101 14:961 15:1067 16:874 17:953 18:1600 19:1643 20:7049 22:598 23:592 24:385 26:202 27:357 28:237 29:122 30:115 33:15 34:19 35:42 36:29 37:3758 38:887 39:978 40:356 41:1187 42:1143 43:1125 44:1087 45:802 46:587 47:762 48:1715 49:732 50:213 51:129 52:271 53:197 54:223 55:168 56:111 57:252 58:234 59:115 60:200 61:251 62:341 63:268 64:300 65:1236 66:1219 73:4737 74:8732 75:4270 76:6802 84:2 89:5577 90:9666 92:1 100:2174 101:2131 111:1990 112:2542 122:661 123:827 125:1 130:687 131:642 139:4 141:1254 142:1377 158:416 159:307 163:228 164:243 165:378 166:354 173:419 174:288 175:395 176:264 180:420 181:371 185:13334 186:1614 187:4258 188:3145 189:2075 190:304 191:703 192:405 196:7 198:1 199:4 200:2513 201:99 202:1 203:6 204:165 205:10 206:1322 208:29 209:45 210:754 212:181 213:535 214:13 218:4 219:10 221:1897 224:1943 225:551 226:11 227:6 230:2 232:6 234:1 244:133 245:46 249:3528 250:259 251:232 252:3545 253:4008 254:193 255:247 256:82 257:79 258:24 259:53 260:110 261:702 262:46 263:25 264:69 265:42 266:48 267:79 268:980 269:209 270:101 271:53 272:59 273:1058 274:1109 275:5 276:19 277:1228 278:52 279:47 280:886 281:30 282:93 283:37 284:91 285:6 286:26 287:27 288:24 290:8 291:41 292:14 293:311 294:15 295:16 296:58 297:7 298:364 299:56 300:17 301:23 302:86 303:228 304:23 306:3164 310:1 311:44 314:645 318:576 319:1 323:746 328:47 333:92 338:115 341:25 346:13 351:19 363:53 382:4 385:3010 386:18 405:32 417:3111 421:1 426:5 437:1153 440:7 445:2 446:994 449:3 450:1392 453:2 454:5 465:15 470:22 482:22 495:5092 498:3 508:4477 513:1304 516:20 518:1 521:15 523:2 526:2 550:4 569:4 588:7 598:4 603:1 620:2 621:941 625:619 635:1 648:1167 652:2 661:968 662:1 666:1401 671:4 703:2 715:245 744:1 749:338 769:2 774:271 779:247 780:1 790:1 792:2 797:449 815:310 819:6 821:7 824:14 827:2 829:1 831:1 833:5 873:97 884:119 898:62 904:45 909:59 920:4 925:103 926:72 930:6 935:3229 936:1540 937:1063 938:598 939:343 940:904 941:487 942:564 943:476 944:323 946:2 948:138 949:80 950:79 951:121 952:73 953:104 954:26 955:193 956:61 957:20 958:224 959:101 963:152 965:1 969:14 973:10 975:38 976:14 984:256 985:2 986:19 987:189 988:238 990:1 991:150 994:1 1000:63 1001:40 1002:26 1005:2 1007:28 1008:1 1012:63 1013:3 1019:73 1020:5 1021:411 1022:15 1023:10 1024:3 1026:1 1027:2 1030:7 1031:15 1034:145 1035:123 1036:199 1037:1 1038:1 1050:1 1073:6 1075:223 1076:36 1077:53 1078:133 1079:43 1080:1 1081:47 1082:61 1083:5 1084:168 1085:77 1086:1 1087:72 1088:53 1089:183 1091:40 1092:1 1093:3 1096:11 1098:18 1100:11 1101:6 1102:2 1103:4 1104:88 1107:23 1108:41 1109:39 1112:20 1113:25 1115:2 1116:10 1117:21 1118:13 1119:16 1121:46 1123:14 1124:2 1125:22 1126:15 1127:4 1128:34 1133:2 1134:2 1137:4 1139:3 1140:2 1143:3 1144:26
+cofactor_profile_hits kind=1 0:275335 1:227584 2:831859 3:691483 4:382082 5:322384 6:237581 7:261404 8:292052 9:238810 10:297384 11:25494 12:86009 13:76201 14:24973 15:24559 16:21319 17:24699 18:26392 19:27592 20:377967 21:25553 22:20479 23:15625 24:10957 25:8098 26:8121 27:9961 28:7661 29:12288 30:9122 31:8230 32:6771 33:3962 34:3308 35:3712 36:3057 37:100705 38:54397 39:48076 40:33770 41:44727 42:46639 43:39875 44:50449 45:38344 46:30542 47:36764 48:50028 49:31697 50:17271 51:12128 52:15668 53:17880 54:16715 55:14555 56:14567 57:19664 58:12682 59:14016 60:13835 61:14264 62:19860 63:14015 64:14581 65:3126 66:1471 68:81 71:296 73:18192 74:40706 75:18205 76:26981 78:5 81:119 84:181 87:4 89:20105 90:46098 91:1 92:16 95:18 98:1 100:9635 101:7200 103:9 106:6 109:3 111:14701 112:20023 113:2 114:2 116:1 119:3 120:12 122:6924 123:4721 124:9 125:30 127:2 128:6 130:6282 131:3661 132:26 133:2 135:18 136:7 138:5 139:53 141:8901 142:6469 143:20 144:6 146:1 153:26 155:2 156:4 158:2553 159:2089 163:1509 164:1921 165:1935 166:2448 170:1 171:18 173:1562 174:2610 175:1977 176:1719 177:9 178:21 180:2171 181:1763 182:3 183:2 185:113960 186:24011 187:53643 188:42803 189:30032 190:9879 191:13103 192:9014 193:1263 194:894 195:615 196:392 197:446 198:84 199:72 200:10406 201:837 202:91 203:124 204:875 205:200 206:8600 207:309 208:466 209:464 210:3803 211:211 212:1215 213:2684 214:230 215:80 216:209 217:155 218:188 219:171 220:122 221:5097 222:419 223:322 224:8168 225:1872 226:239 227:113 228:329 229:35 230:112 231:20 232:107 233:9 234:104 235:29 236:3 237:8 238:37 239:54 240:42 241:163 242:13 243:26 244:551 245:368 246:14 247:11 248:7 249:25005 250:7248 251:5167 252:21884 253:22779 254:6051 255:2224 256:953 257:3336 258:3532 259:2816 260:1496 261:7314 262:3274 263:3395 264:2710 265:2075 266:2323 267:4105 268:7130 269:2162 270:3560 271:2459 272:2881 273:10826 274:8549 275:2027 276:1871 277:9266 278:1350 279:1812 280:6299 281:2177 282:3964 283:1776 284:2633 285:700 286:1017 287:1291 288:978 289:553 290:641 291:1430 292:695 293:2918 294:809 295:1105 296:2091 297:1139 298:3082 299:1292 300:928 301:1976 302:1703 303:2366 304:1460 305:2 306:8655 307:42 309:3 310:6 311:267 314:1407 315:3 316:50 318:1202 320:47 323:1748 324:46 326:4 327:2 328:248 331:3 332:3 333:266 336:2 337:5 338:349 341:182 346:90 347:2 349:5 351:93 352:3 354:11 363:273 382:113 385:13440 386:157 389:5 405:222 417:16354 418:1 419:4 421:26 422:2 423:1 426:41 427:2 428:2 431:84 433:2 437:3996 440:69 441:2 445:41 446:4056 449:59 450:5198 453:46 454:1 455:5 465:47 470:265 482:146 494:7 495:18078 498:29 499:1 503:16 504:5 505:19 508:17069 509:2 510:4 512:2 513:4387 516:163 517:3 518:9 521:135 522:1 523:18 526:17 538:86 539:3 541:3 550:16 553:1 569:19 588:31 593:5 594:3 596:5 598:21 603:20 615:68 620:4 621:4518 624:2 625:2159 635:13 638:1 647:4 648:6299 649:1 651:31 652:38 653:93 656:33 657:20 658:47 661:7089 662:2 666:6729 667:2 669:39 670:44 671:40 688:16 689:7 691:13 700:16 701:12 703:29 712:11 713:19 715:2059 716:24 717:39 719:6 728:35 729:35 731:15 733:36 734:44 736:3 738:71 739:38 741:21 743:42 744:34 745:7 748:2 749:2205 750:4 759:6 760:3 761:35 764:9 765:7 766:39 769:16 770:23 771:6 774:1796 779:2101 780:15 789:28 790:12 792:9 794:1 795:12 797:2819 812:12 813:5 815:2168 816:34 817:14 819:22 821:42 822:17 824:49 826:18 827:10 829:16 831:36 832:8 833:39 843:2 844:10 846:3 848:7 849:8 851:4 853:18 854:10 856:1 865:5 866:2 868:8 870:1 873:495 884:704 885:17 886:12 888:11 890:16 891:8 893:16 895:8 896:7 898:725 899:10 900:18 902:24 904:848 906:5 909:435 910:8 912:6 913:14 914:21 917:15 918:9 920:33 923:4 925:665 926:903 928:3 930:26 931:9 933:11 935:16693 936:9013 937:7498 938:5838 939:5311 940:3999 941:2579 942:6182 943:2774 944:2188 945:4 946:33 948:2895 949:1541 950:1135 951:1271 952:2021 953:1833 954:965 955:2405 956:648 957:657 958:1623 959:1088 961:1 962:3 963:405 965:3 966:11 967:14 969:211 973:45 975:53 976:60 982:22 984:1712 985:46 986:127 987:371 988:733 990:22 991:236 994:15 999:80 1000:403 1001:531 1002:319 1005:17 1007:97 1008:13 1009:4 1010:8 1012:325 1013:6 1014:12 1016:5 1017:4 1019:219 1020:31 1021:1632 1022:136 1023:97 1026:47 1027:3 1030:191 1031:62 1034:761 1035:526 1036:738 1037:18 1038:14 1040:1 1043:1 1044:3 1047:8 1050:15 1051:3 1060:5 1063:3 1066:11 1067:3 1068:5 1071:10 1072:4 1073:62 1075:2244 1076:1016 1077:2492 1078:3721 1079:1434 1080:13 1081:1128 1082:2088 1083:30 1084:1775 1085:1696 1086:207 1087:2953 1088:1186 1089:1868 1091:751 1092:6 1093:18 1095:3 1096:305 1097:5 1098:541 1099:2 1100:648 1101:421 1102:12 1103:510 1104:1928 1105:11 1106:227 1107:641 1108:644 1109:835 1110:4 1111:47 1112:1041 1113:557 1115:424 1116:305 1117:668 1118:302 1119:503 1120:4 1121:1274 1122:2 1123:305 1124:194 1125:455 1126:828 1127:298 1128:418 1129:94 1131:169 1132:95 1133:160 1134:118 1137:349 1138:52 1139:123 1140:292 1141:88 1142:111 1143:97 1144:377

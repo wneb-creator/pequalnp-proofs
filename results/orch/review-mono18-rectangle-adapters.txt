@@ -1,0 +1,15 @@
+Independent review: PASS
+Reviewer: lean_setup
+Frozen sources and SHA256:
+Mono18RectangleBase.lean 55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca (8461 bytes)
+Mono18RectangleSamples.lean 4795340ca02ba193fc5c17f2296407f9110da9de2daf00f0ecd1d3311c9acc7f (6873 bytes)
+Mono18RectangleBank.lean 8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8 (1709 bytes)
+Compiler: author reports EXIT0 for all three; their complete archived logs are empty. No new build.
+
+Read all mathematical declarations plus the previously checked RectanglePackedCheck bridge. Packed signed weights subtract their explicit offset after field extraction. Record code/cap decoding has no implicit claim that arbitrary codes cover a signal: bounds_of_record retains both explicit support premises. Finite masks are Nodup by filtering range; their checked subrectangle upper bounds transfer through the two explicit support inclusions. Sigma/subtype abbreviations use existing types, and validity lemmas merely project the stored Boolean proof.
+
+The 39 sample triples were independently parsed from Lean and matched exactly, in order, to finite_invariants/mono18-oredge-weak-census/matrices.json (SHA256 9fe2cfa3cbebedac88d88f112879b9adde544bdf2389f98dc442359f1618f129). supportCheck has the correct orientations: true at a positive sample and false at a negative sample imply mask membership. Both bounded loops cover every Fin index. Defaults and Fin.ofNat do not create an unproved target classification; run_exclusion_of_records still requires explicit positive/negative target hypotheses.
+
+The bank lemma uses exact ordered (signal,record) labels, preserving duplicates. run_length_le and the supplied cap force equality labels.length=k+1; the indexed rectangle bound sums the exact record caps, and target classification supplies the full rectangle. The strict sum gap then contradicts that bound. Arbitrary signed weights and duplicate raw signals are permitted.
+
+All 19 weight literals and 6159 cost records have a separate exact data audit by counterexample; this review does not replace that audit or claim the records have all been instantiated in a complete DAG. No new axioms, datatypes, instances, forbidden tactics, strings or attributes were found. These are generic finite-checker adapters, not the completed posted gap.

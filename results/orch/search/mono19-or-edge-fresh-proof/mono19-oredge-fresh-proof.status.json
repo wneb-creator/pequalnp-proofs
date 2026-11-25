@@ -1,0 +1,27 @@
+{
+  "command": [
+    "./copy_search_first_prooftrace",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "900",
+    "--nodes",
+    "5000000",
+    "--extra-rectangles",
+    "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-loader/rectangles-v3.txt",
+    "--memo-out",
+    "mono19-oredge-fresh-proof-completed.memo",
+    "--rect-trace",
+    "mono19-oredge-fresh-proof-rectangles.jsonl",
+    "--proof-trace",
+    "mono19-oredge-fresh-proof.jsonl",
+    "--bank-trace",
+    "mono19-oredge-fresh-proof-banks.jsonl"
+  ],
+  "started_utc": "2026-11-25T16:06:18.439005+00:00",
+  "ended_utc": "2026-11-25T16:18:29.313456+00:00",
+  "wall_seconds": 730.8744650110002,
+  "exit_code": 0
+}

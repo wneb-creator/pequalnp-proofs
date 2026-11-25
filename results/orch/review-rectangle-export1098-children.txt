@@ -1,0 +1,9 @@
+Independent immutable source/data review: PASS
+UTC: 2026-11-25T16:25:03.194699+00:00
+Reviewer: /root/counterexample
+Source SHA256:42a7aaca758987f8cec810276aa8d2eadfe38468c616e6f72dcf86baea5b3189
+Size4143bytes83lines; frozen compiler log has no diagnostics, producer reports EXIT0. No Lean rerun.
+
+Parsed all13 actual Lean label lists and compared them occurrence-for-occurrence to frozen exported children1099–1111 of parent1098. Reconstructed all13 signal truth tables, including source39=OR(x0,x3), on1024rows. Independently recomputed signed rectangle maxima for every class using the actual225 oldmatrix weights; first12 maxima4, extra39 maximum8. The new support lists are exact and all64 small-side subsets are exhausted. Root multiplicities and exported remaining budgets match every child: first12cost sums68, finalsum72, each strictly less than targetweight79. All original child root_costs agree.
+
+The Lean consumer forces tightness from Run length plus cap, applies indexed rectangle bounds once per occurrence, and passes the actual list to its wrapper without deduplication. Parent closure, cofactor cut validity and full-case exhaustion remain separate. This is a real13-child leaf family, with no unsupported extension to the parent. Full independent audit source/results/output are preserved under rectangle-export1098-children/independent-audit/.

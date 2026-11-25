@@ -1,0 +1,60 @@
+{
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1058,
+      "sha256": "761a7ec1e1c8e5b6af3c0e3d2abea581b2c22f6fba67f352cf70f1ad436a1afa"
+    },
+    {
+      "file": "complete-fixture-80905.json",
+      "bytes": 25081,
+      "sha256": "cd78afb3b4d251bc38cda91fe58cd85422fba06066f7ea061c834a9873d6913d"
+    },
+    {
+      "file": "generate_weak80905.py",
+      "bytes": 4696,
+      "sha256": "ed6bfec2a7c4d0d6578201a0725d702432874fd51deb6f2eac870643bd944211"
+    },
+    {
+      "file": "generate_weak80905_supports.py",
+      "bytes": 3234,
+      "sha256": "2ca10cf8d4af3219ab3faa792ab05b2d60d24e4dcf24d69f0342bd4baf41bce2"
+    },
+    {
+      "file": "replay_data.py",
+      "bytes": 4678,
+      "sha256": "fd323b278998e331c6a12813aaf806c6d0e465e3719110ac1b4e84655098321b"
+    },
+    {
+      "file": "replay_supports.py",
+      "bytes": 3216,
+      "sha256": "3d5c11182feaaa902e4cdc5dcd7cff3ed770ced932dee7e431e5012f10197a47"
+    },
+    {
+      "file": "weak80905-generation.json",
+      "bytes": 2403,
+      "sha256": "c6a5248d73e0ee1740342ab6cc1531c5ebadd2e8aff6c4026c7a8ba1f2c124b4"
+    },
+    {
+      "file": "weak80905-generation.txt",
+      "bytes": 2403,
+      "sha256": "c6a5248d73e0ee1740342ab6cc1531c5ebadd2e8aff6c4026c7a8ba1f2c124b4"
+    },
+    {
+      "file": "weak80905-replay-data.txt",
+      "bytes": 2403,
+      "sha256": "c6a5248d73e0ee1740342ab6cc1531c5ebadd2e8aff6c4026c7a8ba1f2c124b4"
+    },
+    {
+      "file": "weak80905-replay-supports.txt",
+      "bytes": 5,
+      "sha256": "20d1e06c050fba752176dcde39b82270ec6685b9bd07b5dd1378ab183e2b7da5"
+    },
+    {
+      "file": "weak80905-supports-generation.txt",
+      "bytes": 5,
+      "sha256": "20d1e06c050fba752176dcde39b82270ec6685b9bd07b5dd1378ab183e2b7da5"
+    }
+  ],
+  "scope": "Generator/input reproducibility; exact finite data and support checks only."
+}

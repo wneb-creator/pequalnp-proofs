@@ -1,0 +1,12 @@
+Independent immutable source/mathematical/data review: PASS
+UTC: 2026-11-25T16:24:12.113720+00:00
+Reviewer: /root/counterexample
+Source: results/orch/lemmas/Node1098Profiles.lean
+SHA256:3662648190730755504fe7f20c3b1fcb281b1f2082e0992ecb9923ef7ad553bd
+Size6778bytes130lines; archived log records EXIT0 with no diagnostics. No Lean rerun.
+
+Parsed actual Lean permutations/inverses/masks/positive flags/bounds and allnine domain expressions, comparing them exactly to the profile JSON. Independently verified allnine permutations are Petersen automorphisms, every9×512 row maps into its declared domain and exact target, and all9×10×512 original-input table equalities. All available inputs lie in the declared canonical mask or are constants.
+
+Mathematical lower-bound review: zeroTwo13 and zeroThree11 are direct instances of existing checked Known certificates at masks495 and431. positiveDoubleZero=graphGoal431 OR x7 restricts atx7=0 to the existing C6graphGoal303 lower8 and has one essential literalx7 (witness0/128), giving9 through the checked lift_ok rule. Other priors are the existing signed15,positive11 andpositive-adjacent-zero10. Lower_mode_of_signed and Slice_from_nine are applied with correct raw bases and exact target transports. There is no new monotone16 premise.
+
+Scope is these nine Slice priors only. It does not certify the actual parent table’s cofactor cut choices, paid history or constant mass; those must be replayed separately against these possibly weaker bounds. No trust/format exceptions found. Complete independent finite audit source/results/output are preserved at node1098-profile-audit/.

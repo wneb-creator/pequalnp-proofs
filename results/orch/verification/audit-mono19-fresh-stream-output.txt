@@ -1,0 +1,81 @@
+All manifest file hashes and sizes match.
+{"part": "proof.part000.jsonl.gz", "nodes": 112140, "events": 991264, "seconds": 7.69, "rss_kib": 55328}
+{"part": "proof.part001.jsonl.gz", "nodes": 197646, "events": 1923199, "seconds": 15.34, "rss_kib": 62236}
+{"part": "proof.part002.jsonl.gz", "nodes": 318000, "events": 2904909, "seconds": 23.07, "rss_kib": 71196}
+{"part": "proof.part003.jsonl.gz", "nodes": 460983, "events": 3918498, "seconds": 30.91, "rss_kib": 80884}
+{"part": "proof.part004.jsonl.gz", "nodes": 611571, "events": 4949850, "seconds": 38.69, "rss_kib": 92148}
+{"part": "proof.part005.jsonl.gz", "nodes": 726467, "events": 5930510, "seconds": 46.18, "rss_kib": 98892}
+{"part": "proof.part006.jsonl.gz", "nodes": 851412, "events": 6926723, "seconds": 53.6, "rss_kib": 107724}
+{"part": "proof.part007.jsonl.gz", "nodes": 962360, "events": 7899499, "seconds": 61.49, "rss_kib": 120652}
+{"part": "proof.part008.jsonl.gz", "nodes": 1043273, "events": 8814935, "seconds": 68.71, "rss_kib": 124436}
+{"part": "proof.part009.jsonl.gz", "nodes": 1144250, "events": 9750012, "seconds": 75.75, "rss_kib": 129812}
+{"part": "proof.part010.jsonl.gz", "nodes": 1307981, "events": 10775479, "seconds": 83.2, "rss_kib": 139932}
+{"part": "proof.part011.jsonl.gz", "nodes": 1425002, "events": 11735639, "seconds": 90.28, "rss_kib": 147356}
+{"part": "proof.part012.jsonl.gz", "nodes": 1583292, "events": 12760485, "seconds": 98.31, "rss_kib": 158108}
+{"part": "proof.part013.jsonl.gz", "nodes": 1712356, "events": 13742976, "seconds": 105.97, "rss_kib": 165988}
+{"part": "proof.part014.jsonl.gz", "nodes": 1857389, "events": 14748744, "seconds": 113.5, "rss_kib": 175844}
+{"part": "proof.part015.jsonl.gz", "nodes": 2051431, "events": 15826967, "seconds": 121.74, "rss_kib": 189796}
+{"part": "proof.part016.jsonl.gz", "nodes": 2065513, "events": 16319227, "seconds": 124.51, "rss_kib": 190948}
+{"part": "proof.part017.jsonl.gz", "nodes": 2065513, "events": 16769622, "seconds": 126.9, "rss_kib": 190948}
+{"part": "proof.part018.jsonl.gz", "nodes": 2065513, "events": 16926049, "seconds": 127.85, "rss_kib": 190948}
+Complete proof stream structural census passed.
+Rectangle stream hashes, node links, margins and V3 payload passed.
+{
+  "verdict": "PASS",
+  "manifest_sha256": "5fa082f87c631af36b8183bfb53693cba37db425e7954e24cc687de58f03e72e",
+  "manifest_entries": 28,
+  "proof_bytes": 2462656845,
+  "proof_sha256": "fe938d8e720a09ba60a0582a1106bdc60e2eb14ef5f306f3c066c4af1594ef2a",
+  "proof_events": {
+    "header": 1,
+    "node": 2065513,
+    "canonical": 261126,
+    "basis": 91097,
+    "entry": 2344018,
+    "closure_complete": 91097,
+    "copy_child": 2065512,
+    "done": 2065513,
+    "subtree_cut": 6911122,
+    "signal": 1031050
+  },
+  "node_status": {
+    "cofactor": 290127,
+    "prefix_formula": 6137,
+    "rectangle": 1508123,
+    "expand": 82612,
+    "memo": 170029,
+    "tight_closure": 8485
+  },
+  "root": {
+    "kind": "expand",
+    "children": 11,
+    "entries": 11,
+    "remaining": 18,
+    "state": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12
+    ]
+  },
+  "memo_dependencies": 170029,
+  "memo_records": 91097,
+  "root_orbit_memo_records": 1,
+  "rectangle_events": {
+    "header": 1,
+    "matrix_loaded": 26,
+    "rectangle": 1508123,
+    "signal": 84085
+  },
+  "bank_histories_replayed": 270,
+  "seconds": 142.45305246299904,
+  "max_rss_kib": 197092,
+  "scope": "Full archival hashes/CRC and structural completion audit. Every memo reference targets an earlier completed same-budget canonical state; every expanded node closes every retained-entry child. Histories/count/provenance shapes and strict cofactor inequalities checked. This does not recompute all 1024-row operations, canonical truth actions, cofactor supplies, weighted rectangle maxima, or exhaustive closure coverage, and is not a Lean proof of the complete case or posted gap."
+}

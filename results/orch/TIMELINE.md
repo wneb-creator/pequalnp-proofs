@@ -155,3 +155,9 @@
 - 2026-11-25T16:18:33.309355+00:00: reviewed count/provenance adapters, actual leaf1099 and conditional finite parent table preserved; V3 weak continuation and exporter smoke archived; exact independent profile audit passed.
 
 - 2026-11-25T16:25:23.499172+00:00: sole-Defs TwoAndCombined candidate compiled EXIT0,376638bytes/8179lines; exact assembly independently reviewed and replayed. Archival push precedes named-target replacement/build. Fresh mono18 OR-edge computational case also completed in2.79seconds with29449visits; its full prooftrace is24.55MB and remains to be audited/converted.
+
+- 2026-11-25T16:25:42+00:00 status_review: actual count-vector node1098 compiled (depth1,13 cofactor omissions,13 rectangle children); final peer review requested.
+
+- 2026-11-25T16:42:34+00:00 status_review: weak18 search subtree80905 fully compiled via prior completednode76616 and explicit identitymemo80913;21terminal+2omitted-gate cofactor cuts discharged.
+
+- 2026-11-25T16:45:28.843255+00:00: named8179-line partial lake build passed5149jobs, noerrors. Actual two-node weak80905 subtree compiled and reviewed; full fresh mono19 structural audit passed all2065513closednodes. Preserving those results and full216MB archival data.

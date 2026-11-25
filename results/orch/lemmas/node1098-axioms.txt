@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2373.Live1024.Node1098Profiles.slice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373.CountFixture1098.cutBudget' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Compiler exit code: 0

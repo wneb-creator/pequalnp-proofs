@@ -1,0 +1,51 @@
+import CountVectorSplit
+import ProvenanceReplay
+
+namespace PEqualNP.Outside.L_meta_2373.CountVector
+open Live1024
+
+theorem dag_replay {α β Ω : Type} [DecidableEq α] [DecidableEq β] [Fintype β]
+    (roots : Finset α) (tag : α → β) (signal : β → Sig)
+    (col : Sig → Set Ω) (need : Set Ω) (Cert : Finset α → Sig → Prop)
+    (u : Bool) (T : Sig) (depth : Nat)
+    (initial : ∀ r ∈ roots, Cert {r} (signal (tag r)))
+    (closed : PrunedGateClosed roots (fun r => signal (tag r)) col need Cert u T depth)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (valid : Nat → Prop) (counts : Nat → β → Nat) (values : Nat → Sig)
+    (steps : ∀ i, valid i →
+      (∃ c, counts i = (fun j => if c = j then 1 else 0) ∧ values i = signal c) ∨
+      ∃ l r d, l < i ∧ r < i ∧ valid l ∧ valid r ∧
+        counts i = (fun j => counts l j + counts r j) ∧
+        values i = bin d (values l) (values r) ∧ allowed u d ∧
+        values l ≠ values r ∧ bin d (values l) (values r) ≠ values l ∧
+        bin d (values l) (values r) ≠ values r ∧ proper (bin d (values l) (values r)))
+    (i : Nat) (A : Finset α) (vi : valid i) (same : count tag A = counts i) (sub : A ⊆ roots) :
+    ReadOnce (fun r => signal (tag r)) u A (values i) ∧
+      ColumnSupport (fun r => signal (tag r)) col A (values i) ∧
+      ProvenanceBridge roots (fun r => signal (tag r)) col need Cert u T depth A (values i) := by
+  let P : Nat → Finset α → Sig → Prop :=
+    fun n B v => valid n ∧ count tag B = counts n ∧ v = values n
+  apply provenance_replay roots (fun r => signal (tag r)) col need Cert u T depth
+    initial closed gateCol P ?_ i A (values i) ⟨vi, same, rfl⟩ sub
+  intro n B v entry
+  obtain ⟨vn, sameB, valueB⟩ := entry
+  rcases steps n vn with leaf | binary
+  · obtain ⟨c, unit, value⟩ := leaf
+    have units : ∀ j, count tag B j = if c = j then 1 else 0 :=
+      fun j => congrFun (sameB.trans unit) j
+    obtain ⟨r, support, tagged⟩ := unit_support tag B c units
+    left
+    refine ⟨r, support, ?_⟩
+    rw [valueB, value, tagged]
+  · obtain ⟨l, r, d, llt, rlt, vl, vr, sum, value, legal,
+      distinct, freshLeft, freshRight, properOut⟩ := binary
+    have sums : ∀ j, count tag B j = counts l j + counts r j :=
+      fun j => congrFun (sameB.trans sum) j
+    obtain ⟨L, R, disjoint, union, leftCounts, rightCounts⟩ :=
+      count_split tag B (counts l) (counts r) sums
+    right
+    refine ⟨l, r, L, R, values l, values r, d, llt, rlt,
+      ⟨vl, funext leftCounts, rfl⟩, ⟨vr, funext rightCounts, rfl⟩,
+      union.symm, valueB.trans value, disjoint, legal, distinct, freshLeft, freshRight, properOut⟩
+
+end PEqualNP.Outside.L_meta_2373.CountVector
