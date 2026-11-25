@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/TopAllZeroMatrixBridgeComplete.lean",
+  "sha256": "1a2e543788aac25e2bb96c996c2da600f0a91107bef1cd79e0250155895020f1",
+  "source_sha256_after": "1a2e543788aac25e2bb96c996c2da600f0a91107bef1cd79e0250155895020f1",
+  "started_utc": "2026-11-25T12:35:34.616901+00:00",
+  "finished_utc": "2026-11-25T12:36:01.935008+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 3382841344,
+  "seconds": 27.3181322240016,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 180
+}
