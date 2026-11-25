@@ -1,0 +1,1 @@
+imports allowed: Mathlib.Tactic.FinCases Mathlib.Tactic.IntervalCases Mathlib.Tactic.Push Mathlib.Tactic.SplitIfs Mathlib.Tactic.Tauto PEqualNP.Defs

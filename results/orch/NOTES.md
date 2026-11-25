@@ -57,3 +57,23 @@ Inspected all three Python research scripts, finite result shapes, and search lo
 ## Prior checked theorem located 2026-11-25T10:32:29.882737+00:00
 
 Root found `lean/PEqualNP/Outside/L_meta_950.lean`, whose final theorem is exactly the universal negation of L-meta-949. Independent public-feed check confirms L-meta-950 is already CHECKED, credited to sanchan. The local file SHA256 matches the public checked record exactly: 0b7e2f524d8cf838ed8e00ccb86224d0fa9ba587dfb9e5f750c1325d73a4cc3a. Upstream commit fcb70f4f1f62682f6d680290de26bfa5a1fc2f7b, PR1995. All new searches stopped. Root will reproduce a selfcontained refutation for preservation; no positive reduction with plausible hypotheses exists.
+
+## Structural partial and stale-target review (2026-11-25 10:32:32 UTC)
+
+Independent review passed for structural_three_mis.lean, SHA256 40ce9b1f13ebd3d732cff91083ec5e84967cd0f87b3dfd2acdffd0271904022a. It proves a graph whose independent sets are covered by three independent sets has a two-biclique cover, by showing one pair-membership class must be absent. No forbidden source markers. Reported exit-0 compilation log has only a push_neg deprecation warning. Safe to preserve; do not stage generated __pycache__.
+
+CRITICAL: upstream L_meta_950 main theorem universally supplies exactly the cover forbidden by the posted L-meta-949 statement, under exactly its WellFormed and partial-function conditions. Thus L_meta_950 mathematically refutes L-meta-949. The expected contradiction is obtain G,C,hw,hp,hn from the existential target, then apply hn to L_meta_950 G C (hw,hp). Because the desk permits only PEqualNP.Defs, importing L_meta_950 would violate its import list; the self-contained copied proof route must still compile and satisfy source/checker rules before a final result claim.
+
+## Existing opposite theorem audited (2026-11-25T10:32:33.224669+00:00)
+
+`lean/PEqualNP/Outside/L_meta_950.lean` already states the exact universal opposite of L-meta-949: every well-formed six-vertex partial-function AND-count circuit admits a biclique cover of size at most its AND count. A mechanical string comparison confirmed that both the partial-function clause and the biclique-cover clause are byte-for-byte equal to the corresponding clauses in the desk assignment, with the same Fin 6 domains. Only logical quantifier/implication packaging differs. Source size: 193409 bytes, 3465 lines. Its argument is structural (circuit sizes 0, 1, 2, 3, and universal cover bound 4), not a SAT certificate. Root is compiling the self-contained refutation. New certificate work stopped.
+
+## Full refutation provenance 2026-11-25T10:33:08.126172+00:00
+
+`lemmas/lean_full_refutation.lean` is adapted from upstream `lean/PEqualNP/Outside/L_meta_950.lean`, commit `fcb70f4f1f62682f6d680290de26bfa5a1fc2f7b`, PR #1995, author sanchan (2026-11-24). The 3465-line upstream proof is NOT new work by this pilot. Changes: minimal tactic imports instead of all Mathlib; helper namespace renamed; prior universal theorem made helper lemma coverBound; final theorem negates the EXACT L-meta-949 desk statement. This directly documents that the desk assigned a stale false positive target. Local compilation in progress.
+
+2026-11-25T10:33:45.564879+00:00 lean_reduction: FULL EXACT REFUTATION COMPILED. `lemmas/lean_full_refutation.lean` (3472lines) passed `lake env lean`, exit0. Compiler output is 7173bytes of upstream deprecation warnings only, retained in `/tmp/oec/pequalnp-pilot-82/lean-full-refutation.log`. Final theorem `PEqualNP.Outside.L_meta_949` proves `¬ (` plus the exact assignment statement plus `)`. Root notified immediately for review, checker, and preservation push.
+
+## Full-refutation independent review (2026-11-25 10:34:26 UTC)
+
+PASSED preservation review for lean_full_refutation.lean, SHA256 c42c21625e76882b761201bbeaf188ae145111c385c21cb4ae2518537b302335, 3472 lines, 194242 bytes. Diff against upstream L_meta_950 contains only narrower Mathlib imports, helper namespace rename, conversion of its main theorem to coverBound inside the helper namespace, and the final contradiction theorem. Automated byte-string comparison confirms its theorem states exactly the negation of assignment.gap.statement. The compile log contains deprecation warnings only. Independently ran current outside-guard checkProofFile against the assignment import list and PEqualNP.Outside.L_meta_949: all text, import, and namespace checks passed. The official local checker verdict is still a separate required result.

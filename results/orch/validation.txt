@@ -25,3 +25,12 @@ Second checkpoint 2026-11-25T10:32:31.529397+00:00
 structural_three_mis.lean: lake env lean exit 0; complete output in structural-three-mis.log.
 Independent review: passed; SHA256 40ce9b1f13ebd3d732cff91083ec5e84967cd0f87b3dfd2acdffd0271904022a.
 Upstream L_meta_950 already proves the exact universal opposite of L-meta-949; public feed marks it checked. Source commit fcb70f4f1f62682f6d680290de26bfa5a1fc2f7b, PR #1995.
+
+Full refutation checkpoint 2026-11-25T10:34:38.511874+00:00
+Named file: lean/PEqualNP/Outside/L_meta_949.lean
+3472 lines, 194242 bytes; exact negation of the posted statement.
+Source adapted from sanchan upstream L_meta_950, PR #1995; this pilot does not claim that original proof.
+lake env lean: exit 0; complete output in lean-full-refutation.log.
+outside-guard: passed; complete output in refutation-guard.log.
+Independent review passed: c42c21625e76882b761201bbeaf188ae145111c385c21cb4ae2518537b302335.
+Named lake build and local checker refute are in progress; this is a preservation push.
