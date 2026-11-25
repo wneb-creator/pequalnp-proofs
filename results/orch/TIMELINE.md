@@ -12,3 +12,4 @@
 - 2026-11-25T14:32:48.787323+00:00: archived checked BranchLocal and maximal-independent extension helpers; reduced CPU contention.
 - 2026-11-25T14:38:05.991868+00:00: second integrated named file build passed; cofactor identities archived.
 - 2026-11-25T14:38:23.416278+00:00: five-orbit finite certificate compiled and archived.
+- 2026-11-25T14:41:07.980876+00:00: essential-five-case bridge and Petersen cofactor certificates checked and archived.
