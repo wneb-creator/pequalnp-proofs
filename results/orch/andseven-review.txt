@@ -1,0 +1,25 @@
+Independent review by status_review, 2026-11-25
+
+Reviewed results/orch/lemmas/AndSeven.lean, SHA256 a377842fec3706f207278884c683c8e20b8b8db186b733aa936464aa7dd8299a, 28379 bytes.
+
+Scope: for an existing PEqualNP.AndCount.AndCountCircuit 14 that rejects each listed maximal independent set, accepts every one-vertex extension, and accepts the edge {1,7}, at least seven AND gates are needed. No assertion about NOT gates, total size 25, or the posted statement is made.
+
+Independent finite verification:
+- Edge list exactly equals the desk target's 19 edges.
+- Exhaustive enumeration of all 16384 vertex subsets finds exactly 39 maximal independent sets, precisely the 39 listed rows.
+- Exactly 17 maximal independent sets contain vertex 1, and exactly 17 contain vertex 7.
+- Row 27 is {0,3,5,6,13}, excluding both 1 and 7.
+
+Argument review:
+- Singleton stripping propagates singleton-true contributions into bare-variable sets and removes them from the corresponding AND. The proved two-way evaluation preservation and singleton-false invariant justify the disjoint bare-variable sides.
+- For 17 maximal independent sets through a vertex, their left-side truth patterns on ANDs not directly reading that vertex are distinct. Equality of patterns would allow their union to remain rejecting, contradicting acceptance of an inserted vertex from the other set. Hence at least five such free ANDs exist.
+- Under six total ANDs, disjoint bare-variable sides leave each of vertices 1 and 7 at most one bare occurrence.
+- The first AND true on {1,7} has no earlier true AND input. Each side therefore directly reads one of these vertices; disjointness forces opposite sides.
+- A rejecting row admits one selected false side per relevant AND. For every excluded vertex, some selected false side directly reads it, by considering the first gate changing from false to true when that vertex is inserted.
+- Row 27 excludes both vertices, forcing the unique opposite occurrences of 1 and 7 to equal the same selected side. The resulting Bool contradiction establishes seven ANDs.
+
+No axioms, sorry, native_decide, unsafe forms, suspicious primitive name shadowing, or forbidden attributes/options found. The official outside-guard detects only the intentionally absent final theorem. Imports and helper namespace satisfy the proof-file rules. No new data type is declared.
+
+Verdict: static and mathematical review passed as a restricted-model partial, conditional on final successful Lean compilation. Not a checker verdict for the posted gap.
+
+Final compilation confirmation: author reports exit 0 and empty results/orch/andseven-build.log, with the source hash unchanged from the independently reviewed snapshot. Pre-push review complete for this partial.

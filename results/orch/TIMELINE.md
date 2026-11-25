@@ -12,3 +12,4 @@
 2026-11-25T12:02:08.892702+00:00 linear_network local SAT repair strategy finished without a counterexample; small neighborhoods UNSAT, larger neighborhoods UNKNOWN.
 2026-11-25T12:06:22.374438+00:00 preserved checked generic support helpers and completed independent SAT audit/local-search output; lower20 resource-limit repair pending.
 2026-11-25T12:07:53.712313+00:00 AND-count foundation compiled cleanly; parent independently reviewed source/graph/format and preserving exact bytes before finalAND7argument.
+2026-11-25T12:10:26.447416+00:00 full AND7 component compiled and independently audited; DNF helpers compiled/parent-reviewed. Posted unrestrictedtotal25claim still open.
