@@ -58,3 +58,9 @@
 - 2026-11-25T16:35:55.525203+00:00: recovery04 assigned L-meta-1884, own lease de68ce60-fb13-4311-8e7e-e64ffc779aa1, initial expiry16:54:52.074Z. Replanned six routes; previous gap artifacts pushed8bcbba67.
 
 - 2026-11-25T16:39:05.594492+00:00: first1884 InputSupport checkpoint compiled, named lake build passed5149jobs, independently reviewed.81lines, no final theorem. Preparing immediate fork preservation.
+
+- 2026-11-25T17:04:08.405616+00:00: replan written before root learned of the17:03:59 STOP: actual17+NOT transfer portable; named5084 build started17:01. Four ordinary-monotone ineligible orbits excluded including analyticI4; I1 andmaximalI3 remain. ZeroNOT SAT+LRAT running16:56:29–17:11:29; broad1NOT probeUNKNOWN; heuristicfinishedwithoutCE. Newonehot1NOT encoding assignedtosat_encoding.
+
+- 2026-11-25T17:03:59Z: fifth premature410, L-meta-1884, before17:21:29.436Z advertised expiry. Automatic curl-si confirmation preserved. Allagents halted; zeroNOT solvercancelled withoutverdict.
+- 2026-11-25T17:05:05Z: root stopped pending named5084 build(SIGTERM,exit1). Exact standalone5084 source had already compiled and been pushed.
+- 2026-11-25T17:06:44.187345+00:00: final1884 preservation inprogress; allcheckedcaseproofs and lastcomponents frozen. No full theorem/refutation; recovery05 waits for finalpush.

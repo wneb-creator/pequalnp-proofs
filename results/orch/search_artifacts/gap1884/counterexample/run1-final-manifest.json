@@ -1,0 +1,169 @@
+{
+  "frozen_utc": "2026-11-25T16:55:58.644941+00:00",
+  "record": {
+    "started_utc": "2026-11-25T16:40:49.688295+00:00",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/search",
+      "900",
+      "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1",
+      "1884"
+    ],
+    "seconds": 900,
+    "pid": 39357,
+    "exit_code": 0,
+    "finished_utc": "2026-11-25T16:55:49.719259+00:00"
+  },
+  "scope": "Heuristic results; independently replayed every improvement on all1024 inputs. No lower-bound conclusion.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/freeze_heuristic.py",
+      "size": 2513,
+      "sha256": "56c477d304cda96db107a575b224d04778c5ef49b100e3e327923a446a584208"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-record.json",
+      "size": 330,
+      "sha256": "f10ddb04c479f823da568cbdedad11e20a6673df6cb927259aaf57c3e3fbab45"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.stdout",
+      "size": 8993,
+      "sha256": "e7e1dd2048994f6fe28bb074d81770d6362c737d3c6f7700251c5221c7cf4143"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-driver.stdout",
+      "size": 296,
+      "sha256": "4f2a77e63082b22c2034c9b6a6b9712d596c96b0405c0ab33d8552d0f192b888"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-checks.json",
+      "size": 15188,
+      "sha256": "f48073f026a2a4ea3afb96da9e79b54894e3c32365788dad790446211502137a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-00.json",
+      "size": 892,
+      "sha256": "c43871a7192fd3a748e09962e1c9e49b42572d5a347c3d0b9bbf503d00d435d3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-01.json",
+      "size": 893,
+      "sha256": "c0d9988edff471b57622761849a828e738f76da78d2e92e5358682050b50e572"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-02.json",
+      "size": 894,
+      "sha256": "15763e899c835f66b75c58650336f8adbd67f12b1b3eaf67631e8b0f72b53494"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-03.json",
+      "size": 900,
+      "sha256": "40371ad097fc302fc88a2a2f63c024b7e3378219447dab46693fcffa9630d48d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-04.json",
+      "size": 893,
+      "sha256": "a0c06b71e32842138c0060f904fe2ca77e56a21c40306cc338c6fa14a9026789"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-05.json",
+      "size": 894,
+      "sha256": "49cdc5a44cf6a2c06dadd74f30c289547887d4c748b9da930136b0259faa4aff"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-06.json",
+      "size": 894,
+      "sha256": "f44267bc1f303d08edadea31132f6a3666fa072c08e29d09b342c8e7c131b8c0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-07.json",
+      "size": 894,
+      "sha256": "6e45a0b476f01155feb9f56a933921c8eebf36469b1b05ef9d4007910b5d3026"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-08.json",
+      "size": 896,
+      "sha256": "09ff5d9bfe184c88cca3912ab76043e4bdace848c96c77e11eea14f7a7f3e56e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-09.json",
+      "size": 895,
+      "sha256": "88253bc099a6eb102da2ecb3fa5e4f29f0a23bf02a64709fd69c8f6f0c9b5c2e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-10.json",
+      "size": 894,
+      "sha256": "c02fa1ceeeb19d85e29bb4c6fe2818ceac4b116d102fd443d5df2e960f781c96"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-11.json",
+      "size": 894,
+      "sha256": "161452d66fc25da05ff7a80baf66e288497c77684b7fc62bb259e5f6cd6dd7b1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-12.json",
+      "size": 895,
+      "sha256": "a82ba36e03bf5f96b073d36b4d2cec4add62406785bbc6e45108dff445e25409"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-13.json",
+      "size": 897,
+      "sha256": "49d2472b8d1200d99a87717de7783d1ccc971268a74820c74005c75cbf7c4130"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-14.json",
+      "size": 897,
+      "sha256": "d49713674bb10a953052f81702b237d52155f55574c28b6009bd10f902e82059"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-15.json",
+      "size": 897,
+      "sha256": "66e18be7ca9b9b212d66823d170c9efd4fc5b78d161b02bc9283b242da5b4418"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-improvement-16.json",
+      "size": 897,
+      "sha256": "3d746403b8793a038231fc1801c2baeda7043015ddf634a5c66e17b22dd51630"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.best.json",
+      "size": 262,
+      "sha256": "8ef4260b0d934d6b4244ae7d528d7619856eeafbb8f35130b1b89d0e7078b031"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.final.json",
+      "size": 262,
+      "sha256": "8ef4260b0d934d6b4244ae7d528d7619856eeafbb8f35130b1b89d0e7078b031"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.control0.json",
+      "size": 277,
+      "sha256": "c33034e7890f2e8dcdd21d196a3a28e8c364df6cabc08bde5c1767e79be78fed"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.control1.json",
+      "size": 287,
+      "sha256": "30f718e619272c0593d4a2061339e0ad10b0d28d2b2c8519336d86873f969668"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.control2.json",
+      "size": 297,
+      "sha256": "c3070922cd3e331b3855cbc6731ddfec61135c0fd14217b5d51ebc4b0353be06"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1.control3.json",
+      "size": 294,
+      "sha256": "8d9574be2eca546903d2df5777c543a079dbcdf58d64bff5a9a20e3215486711"
+    }
+  ]
+}

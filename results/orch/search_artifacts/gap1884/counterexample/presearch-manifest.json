@@ -1,0 +1,106 @@
+{
+  "frozen_utc": "2026-11-25T16:39:42.214162+00:00",
+  "scope": "Exploratory18-gate search with raw10+freeNOTx0. Every mutation evaluates1024 truth rows. BinaryAND/OR, unaryNOT, nullaryAND/OR and invalidfalse reads are represented exactly. Search favors atmostone chargedNOT as a heuristic, without a completeness claim. Four full-truth positive controls checked independently in Python. No counterexample.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.control1.json",
+      "size": 287,
+      "sha256": "30f718e619272c0593d4a2061339e0ad10b0d28d2b2c8519336d86873f969668"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.control2.json",
+      "size": 297,
+      "sha256": "c3070922cd3e331b3855cbc6731ddfec61135c0fd14217b5d51ebc4b0353be06"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-validation.stdout",
+      "size": 440,
+      "sha256": "236d66ba2da0392ada0ca121ca4478f6c93a4cc8d5ede6186f59b1379e432e81"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-validation.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.stdout",
+      "size": 240,
+      "sha256": "bbd4165bb959df7ddd99ba0e4907674d537643a52a02b0f2c07c67547874af3e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/search.cpp",
+      "size": 8835,
+      "sha256": "8a738ed9ea97d19643231dbaec5b777e8cfe037bb4df8cf31026fce4c98bd62d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/validate.py",
+      "size": 1852,
+      "sha256": "6a000be1983be479c65c12d7f8fd6d7562510ee417a3a981f2af285441bcd5d9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-initial-failed.stderr",
+      "size": 103,
+      "sha256": "2650643f68aa662a35a70e25c8f73525d80391310e33ab66a03f7479c6c342d9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-initial-failed.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/build.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.control0.json",
+      "size": 277,
+      "sha256": "c33034e7890f2e8dcdd21d196a3a28e8c364df6cabc08bde5c1767e79be78fed"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-validation-initial-failed.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/build.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-validation.json",
+      "size": 1851,
+      "sha256": "087680bff5dd819516c251eff0f2cb6cd81cfb585e78e4dc5e4a74044b220b7f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control-validation-initial-failed.stderr",
+      "size": 1022,
+      "sha256": "0f2925993122ee415d54423bd5db55d5d9ac27fa5c0e2a99741111a233bbcc84"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/build-initial-failed.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run_search.py",
+      "size": 915,
+      "sha256": "08a95a69ae1f3b51b20f77509bda72781545f69fc30449d15c941cb840d12257"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/control.control3.json",
+      "size": 294,
+      "sha256": "8d9574be2eca546903d2df5777c543a079dbcdf58d64bff5a9a20e3215486711"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/build-initial-failed.stderr",
+      "size": 1868,
+      "sha256": "ee7ad937f490a9c3127a8ec5214f51e01b298561223a6a8ee62f912fc6d77b66"
+    }
+  ]
+}

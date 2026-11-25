@@ -1,0 +1,7 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono18-solve1.lrat",
+  "bytes": 1082200064,
+  "sha256": "eef4141c15b3ad2d6058fd94bb69a5e43ca0b17b590a28eb6ad5418fb780c01d",
+  "status": "INCOMPLETE_PREFIX_NO_UNSAT_CERTIFICATE",
+  "reason": "Root STOP cancelled solver with SIGINT. No SAT/UNSAT verdict; record-boundary completeness not verified. Large raw trace retained in scratch and described here separately from archive file list."
+}

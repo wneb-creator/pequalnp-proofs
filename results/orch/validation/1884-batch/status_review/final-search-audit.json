@@ -1,0 +1,16 @@
+{
+  "status": "PASS frozen archive hashes and recorded cancellation; no new search or large-proof scan",
+  "manifest_sha256": "6a8959b5e5182ea90b9022b5f7b38b395307c17661f87017e5aaffa2da5bce6b",
+  "files": 92,
+  "bytes": 13861128,
+  "solver_exit_code": -2,
+  "cancellation_reason": "STOP",
+  "cancellation_utc": "2026-11-25T17:03:59.463926+00:00",
+  "finished_utc": "2026-11-25T17:04:00.470729+00:00",
+  "proof_prefix_bytes": 1082200064,
+  "proof_prefix_sha256_from_metadata": "eef4141c15b3ad2d6058fd94bb69a5e43ca0b17b590a28eb6ad5418fb780c01d",
+  "proof_prefix_hash_recomputed_by_reviewer": false,
+  "proof_status": "INCOMPLETE_PREFIX_NO_UNSAT_CERTIFICATE",
+  "checked_proof_file_present_in_manifest": false,
+  "scope": "Heuristic result already independently checked: 4 errors and no counterexample. Normalized solver interrupted by STOP; incomplete prefix supplies no UNSAT verdict."
+}

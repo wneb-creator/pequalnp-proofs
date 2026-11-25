@@ -1,0 +1,20 @@
+{
+  "frozen_utc": "2026-11-25T16:47:54.221716+00:00",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run_mono_solver.py",
+      "size": 3808,
+      "sha256": "79f9bee7c294ca520863dc16b2cede6d88a04d56ed467621a17c4ed19b4ce117"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/cadical-help.stdout",
+      "size": 14905,
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/cadical-help.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

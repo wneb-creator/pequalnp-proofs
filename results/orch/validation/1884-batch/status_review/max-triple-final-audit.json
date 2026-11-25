@@ -1,0 +1,19 @@
+{
+  "status": "PASS preservation-only",
+  "MaxTriple": {
+    "sha256": "746735fa89c9094d8280a7c5f05592a772ad4635119d804e7f57bde657312f5b",
+    "bytes": 14944,
+    "lines": 335,
+    "compiled_status": "Author-reported exit 0; successful logs empty; prefix exactly reviewed MaxTriplePrelude",
+    "scope": "Classifies nonsimple profiles and proves conditional pivot-code/no-merge structure, not orbit closure"
+  },
+  "MaxTripleFinish": {
+    "sha256": "4815457a988ebb8ac2c2a70f183f2136076bd5eae0da062e53f9c4ebdc948626",
+    "status": "UNCOMPILED draft; preserve as .lean.txt only, no checked result or closure claim",
+    "forbidden_source_text": false
+  },
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: line 1: import I4Bridge is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: line 2: import PairOrbit is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+  "guard_stderr": "",
+  "auxiliary_C6": "All64 truth rows, singleton supports, strict/live references, fanouts and fixed-x0=false contaminating wire independently verified; auxiliary purity obstruction only, not a Petersen refutation."
+}

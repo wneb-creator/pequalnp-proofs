@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/ProfileThree.lean:49:2: error: Type mismatch: After simplification, term
+  LE.le.trans hsize hle
+ has type
+  3 ≤ R.card
+but is expected to have type
+  False

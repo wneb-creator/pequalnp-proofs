@@ -1,0 +1,158 @@
+{
+  "utc": "2026-11-25T17:05:11.542303+00:00",
+  "stop_observed": true,
+  "active_processes": 0,
+  "source_status": "All Lean sources listed successfully compiled/exported. First profile-three.stdout has an earlier corrected proof error; successful logs are profile-three-02.stdout/stderr. TripleMeeting export had completed before interrupt. No pivot-exit-alternative implementation was written.",
+  "files": [
+    {
+      "file": "EligibleEdgeSlots.lean",
+      "bytes": 1835,
+      "sha256": "44ee58ab28733b4c5ee20882d77314bc7f02dcf48900b3bebf2a0205db14141a"
+    },
+    {
+      "file": "FreeNotFloor.lean",
+      "bytes": 1455,
+      "sha256": "3650c2260d896f3d800b54d5ede94e07bc1915341e5d69e603aa2b1762894de6"
+    },
+    {
+      "file": "FreeNotFloorStandalone.lean",
+      "bytes": 306232,
+      "sha256": "a69289d6278473b4ea5b3d5bccf7fe69306cbed4ca8c95bd8bed4bf98185e31d"
+    },
+    {
+      "file": "InputSupport.lean",
+      "bytes": 2924,
+      "sha256": "6ff188d17207bf4a2d440c25b0f352ee61a3ed53ff036df4ac03d7a4b1ddc552"
+    },
+    {
+      "file": "MatchingPrivate.lean",
+      "bytes": 1368,
+      "sha256": "11a90d4a584cca338d0c2666e8513136505e997249c9145b93f49988bb75c71b"
+    },
+    {
+      "file": "ProfileThree.lean",
+      "bytes": 2121,
+      "sha256": "ee4fbc43685bd083c0cbaddf51094fa1c4a7b3afc3cd9a2b9852e1c85e3dffcf"
+    },
+    {
+      "file": "SimpleAdjacency.lean",
+      "bytes": 3496,
+      "sha256": "14b6280d870408c3e4154284cabf4c3c1e56ad24b31b67efb10946a7bed0cf19"
+    },
+    {
+      "file": "SimplePrivate.lean",
+      "bytes": 1366,
+      "sha256": "e254a1035286c49e89128d0fdf127ddab868375423bd31c69d5d6e108f3fadad"
+    },
+    {
+      "file": "TripleMeeting.lean",
+      "bytes": 2433,
+      "sha256": "5976a887f114f0a819c16bb8dbd56c15e4ac1d841f674f12df7b0b080a19df11"
+    },
+    {
+      "file": "eligible-edge-slots.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "eligible-edge-slots.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "free-not-floor-standalone.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "free-not-floor-standalone.stdout",
+      "bytes": 40327,
+      "sha256": "95666bc9905cbbbfd2c7ae385e0a26bee731d4aad4a33473a20fffc03b4a14b2"
+    },
+    {
+      "file": "free-not-floor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "free-not-floor.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "ineligible-contamination-c6.json",
+      "bytes": 1515,
+      "sha256": "1acdf43a6e4daeb49912b627871112642475334cc510858ebf1200d82e741eba"
+    },
+    {
+      "file": "input-support.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "input-support.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matching-private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "matching-private.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "profile-three-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "profile-three-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "profile-three.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "profile-three.stdout",
+      "bytes": 206,
+      "sha256": "bbac1b915688c979f274d76f066614eb786d74e2304d851c177a52184b5965c1"
+    },
+    {
+      "file": "simple-adjacency.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "simple-adjacency.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "simple-private.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "simple-private.stdout",
+      "bytes": 372,
+      "sha256": "74643264371f01c3b4f4627cebdc6f3c1fab5e8c07d360d2050851b89b899471"
+    },
+    {
+      "file": "triple-meeting.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "triple-meeting.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

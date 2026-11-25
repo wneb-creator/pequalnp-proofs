@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-11-25T17:07:02.037573+00:00",
+  "status": "PASS one compiled partial and one explicitly UNCOMPILED archive-only draft",
+  "file_count": 8,
+  "total_bytes": 22294,
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/library_route/MaxTriple.lean",
+      "relative_path": "library_route/MaxTriple.lean",
+      "bytes": 14944,
+      "sha256": "746735fa89c9094d8280a7c5f05592a772ad4635119d804e7f57bde657312f5b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/library_route/max-triple-5.stdout",
+      "relative_path": "library_route/max-triple-5.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/library_route/max-triple-5.stderr",
+      "relative_path": "library_route/max-triple-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/library_route/MaxTripleFinish.lean",
+      "relative_path": "library_route/MaxTripleFinish.lean.txt",
+      "bytes": 3793,
+      "sha256": "4815457a988ebb8ac2c2a70f183f2136076bd5eae0da062e53f9c4ebdc948626"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MaxTriple.guard.stdout",
+      "relative_path": "status_review/MaxTriple.guard.stdout",
+      "bytes": 501,
+      "sha256": "cdbb5218656621a2d9b6ae83ae496ef5ab4d9fc97ade4b2facf6fe7fa38e4fd6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MaxTriple.guard.stderr",
+      "relative_path": "status_review/MaxTriple.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/max-triple-final-audit.json",
+      "relative_path": "status_review/max-triple-final-audit.json",
+      "bytes": 1440,
+      "sha256": "7ec151ec1978c618ea317cd07fb43884819a2d2c9dd6354d89cff78068df4a52"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/max-triple-final-review.md",
+      "relative_path": "status_review/max-triple-final-review.md",
+      "bytes": 1616,
+      "sha256": "04f09a41db947279890375c650bc267ed66a19bdade8d4c096750193d1e90a2f"
+    }
+  ]
+}

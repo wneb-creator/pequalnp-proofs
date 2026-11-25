@@ -1,0 +1,153 @@
+{
+  "n": 6,
+  "gates": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      6
+    ],
+    [
+      1,
+      1,
+      5
+    ],
+    [
+      0,
+      7,
+      8
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      0,
+      4,
+      5
+    ],
+    [
+      1,
+      9,
+      10
+    ],
+    [
+      1,
+      13,
+      11
+    ],
+    [
+      1,
+      14,
+      12
+    ]
+  ],
+  "output": 15,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      0,
+      5
+    ]
+  ],
+  "all_64_truth_rows_match": true,
+  "strict_live": true,
+  "supports": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [],
+    [
+      0
+    ],
+    [
+      1,
+      5
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fanout": [
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0
+  ],
+  "branching_wires": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Bzero": 0,
+  "residual_units_after_reserving_each_branch": 0,
+  "consumer_gate": 3,
+  "consumer_input_wire": 7,
+  "consumer_input_singleton_support": [
+    0
+  ],
+  "nonzero_after_fixing_x0_false_mask": 6,
+  "warning": "This refutes source purity from singleton support and zero residual budget, not the three-gate restriction saving or the Petersen statement."
+}

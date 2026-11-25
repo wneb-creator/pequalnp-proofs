@@ -1,0 +1,76 @@
+import MaxTriple
+import SimpleAdjacency
+
+namespace PEqualNP.Outside.L_meta_1884.MaxTriple
+
+open PEqualNP.Outside.L_meta_2590_aux.Surplus
+open PEqualNP.Outside.L_meta_1884_aux.I4Bridge
+
+lemma all_simple {D : Dag} (h : StrictLive 10 D) (hD : Correct D)
+    (hsize : D.length ≤ 18) (hI : ineligSet 10 D = I) :
+    ∀ c ∈ O, Simple D c := by
+  classical
+  intro c hc
+  by_contra hcn
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch sem_petersen_gr h.1 hD
+  obtain ⟨hr, hn⟩ := profile_budget h hD hsize hI b hb
+  obtain ⟨pos, hp⟩ := k4_assigned sem_petersen_gr h hD
+  obtain ⟨hW, hm⟩ := nonsimple_pivot_slots h hD hI b hb hr hn hp hc hcn
+  obtain ⟨i, hi, hs⟩ := simple_off_one_center h hD hI b hb hr hn hc hcn
+  have hgeo : ∀ i ∈ I, ∃ x ∈ O, ∃ y ∈ O, ∃ z ∈ O,
+      ¬ Adj i x ∧ ¬ Adj i y ∧ Adj x y ∧ Adj x z ∧ z ≠ y := by decide +kernel
+  obtain ⟨x, hx, y, hy, z, hz, hnix, hniy, hxy, hxz, hzy⟩ := hgeo i hi
+  have hv : ∀ t : Fin 10, Adj 0 t → t ∈ ineligSet 10 D := by
+    intro t ht
+    rw [hI]
+    have hh : ∀ t : Fin 10, Adj 0 t → t ∈ I := by decide +kernel
+    exact hh t ht
+  have hne : ∀ x ∈ O, x ≠ (0 : Fin 10) := by decide
+  exact PEqualNP.Outside.L_meta_1884_aux.SimpleAdjacency.simple_adjacent_impossible
+    h hD 0 hv hp (by rw [hW, hI]) hm
+    (outside_eligible hI hx) (outside_eligible hI hy) (outside_eligible hI hz)
+    (hne x hx) (hne y hy) hxy hxz hzy (hs x hx hnix) (hs y hy hniy)
+
+lemma cycle_no_single_exception {D : Dag}
+    (Z : Fin 10 → Nat × Bool) (X : Finset (Nat × Bool))
+    (hX : X.card ≤ 1) (hZ : ∀ c ∈ O, supp 10 D (src D (Z c)) = {c})
+    (hedge : ∀ c ∈ O, ∀ d ∈ O, Adj c d →
+      sem_bar (Z c) = Z d ∨ ∃ p ∈ X,
+        supp 10 D (src D (sem_bar p)) = {c} ∨
+        supp 10 D (src D (sem_bar p)) = {d}) : False := by
+  classical
+  have path_contra {x y z : Fin 10} (hy : y ∈ O) (hz : z ∈ O) (hyz : y ≠ z)
+      (hxy : sem_bar (Z x) = Z y) (hxz : sem_bar (Z x) = Z z) : False := by
+    have hzz : Z y = Z z := hxy.symm.trans hxz
+    have heq : ({y} : Finset (Fin 10)) = {z} := by rw [← hZ y hy, hzz, hZ z hz]
+    exact hyz (Finset.singleton_injective heq)
+  have hex : ∃ p ∈ X, ∃ a ∈ O, supp 10 D (src D (sem_bar p)) = {a} := by
+    rcases hedge 2 (by decide) 3 (by decide) (by decide) with h23 | ⟨p, hp, he⟩
+    · rcases hedge 2 (by decide) 7 (by decide) (by decide) with h27 | ⟨p, hp, he⟩
+      · exact (path_contra (by decide : (3 : Fin 10) ∈ O)
+          (by decide : (7 : Fin 10) ∈ O) (by decide) h23 h27).elim
+      · rcases he with he | he
+        · exact ⟨p, hp, 2, by decide, he⟩
+        · exact ⟨p, hp, 7, by decide, he⟩
+    · rcases he with he | he
+      · exact ⟨p, hp, 2, by decide, he⟩
+      · exact ⟨p, hp, 3, by decide, he⟩
+  obtain ⟨p, hp, a, ha, hpa⟩ := hex
+  have hXs : X = {p} := (Finset.eq_of_subset_of_card_le
+    (Finset.singleton_subset_iff.mpr hp) (by simpa using hX)).symm
+  have hgeo : ∀ a ∈ O, ∃ x ∈ O, ∃ y ∈ O, ∃ z ∈ O,
+      x ≠ a ∧ y ≠ a ∧ z ≠ a ∧ y ≠ z ∧ Adj x y ∧ Adj x z := by decide +kernel
+  obtain ⟨x, hx, y, hy, z, hz, hxa, hya, hza, hyz, hxy, hxz⟩ := hgeo a ha
+  have pair {c d : Fin 10} (hc : c ∈ O) (hd : d ∈ O)
+      (hca : c ≠ a) (hda : d ≠ a) (hcd : Adj c d) : sem_bar (Z c) = Z d := by
+    rcases hedge c hc d hd hcd with hh | ⟨q, hq, heq⟩
+    · exact hh
+    · rw [hXs, Finset.mem_singleton] at hq
+      subst q
+      rw [hpa] at heq
+      rcases heq with heq | heq
+      · exact (hca (Finset.singleton_injective heq).symm).elim
+      · exact (hda (Finset.singleton_injective heq).symm).elim
+  exact path_contra hy hz hyz (pair hx hy hxa hya hxy) (pair hx hz hxa hza hxz)
+
+end PEqualNP.Outside.L_meta_1884.MaxTriple

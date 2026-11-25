@@ -1,0 +1,11 @@
+{
+  "name": "TripleMeeting",
+  "sha256": "5976a887f114f0a819c16bb8dbd56c15e4ac1d841f674f12df7b0b080a19df11",
+  "bytes": 2433,
+  "lines": 60,
+  "status": "PASS compiled partial preservation; author confirms compilation/export completed before STOP",
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: line 1: import PetersenGeometry is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+  "guard_stderr": "",
+  "forbidden": []
+}

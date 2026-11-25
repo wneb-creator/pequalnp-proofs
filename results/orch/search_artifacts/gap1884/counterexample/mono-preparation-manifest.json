@@ -1,0 +1,91 @@
+{
+  "frozen_utc": "2026-11-25T16:46:47.023498+00:00",
+  "scope": "Prepared only; no SAT solver launched. Generic normalized enc2 n11/s18/38cofactorrows and20gate full-clause/full1024 positivecontrol. Completeness bridge owned by sat_encoding.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono-preparation-files.txt",
+      "size": 1257,
+      "sha256": "91beb0e297aa35a9e467411d13da91b25a26b375d13965bddba27d54ed515a17"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/cofactor-boundary11.json",
+      "size": 209,
+      "sha256": "bfd6ce46be16957ffdc30b85d356c7a14f2afd8c7fb9f9b94847c81b20b5ddc9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/cofactor-boundary10.json",
+      "size": 179,
+      "sha256": "1468da4add2346ed18c3ab24b1fa8168123a3f22b7956fea769a7b00747ea630"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/prepare-mono.stdout",
+      "size": 270,
+      "sha256": "54d334bc7195d93514a3c2fb36b8240e614d121c633bc4aebc11b2fa14bf133c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control-fullcheck.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control-clause-check.json",
+      "size": 96,
+      "sha256": "6004e47d7c61fb125e37219c3bef011e33674e5cd656fbfd837a1e0b3deefa7f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-enc2.meta.json",
+      "size": 1300,
+      "sha256": "8774c2742253ac9ea0484b04bbd2ef4c29293ebabda833ca296a2085f156a35e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control-fullcheck.json",
+      "size": 471,
+      "sha256": "eb47f30cfdbda3c30b32b42e62749e3ae16a388ca40ec9893a369545b856029d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-enc2.cnf",
+      "size": 7749828,
+      "sha256": "21d79d06df1f0ee8f480604c5618e8bd9574ce32078e0e10b75798109f2f7ac4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control.model.json",
+      "size": 6666,
+      "sha256": "64b939f76a10a676c6b6ed241c2fa9c4263678d515cffabbfe125e080054ad3c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control.circuit.json",
+      "size": 974,
+      "sha256": "cf03434092b61faeef0b5c9dae627eee9834903ceb3085ca6eb16d0163e916ad"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/prepare-mono.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/enc2_base.py",
+      "size": 6164,
+      "sha256": "6c96af4eb803b7d58646eb55e4987b3f2f177a4da556e535dd02979fa89e7369"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control-fullcheck.stdout",
+      "size": 116,
+      "sha256": "3e48f5edc94766e689ec588c6ba9598a77b8f0776f32098e26efe0458782ce75"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono18-enc2.meta.json",
+      "size": 1300,
+      "sha256": "f76e9e7fb29d0c2fb9d4918a572b8590d5ecb1afa4870f36a8473503eaaa24e4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono18-enc2.cnf",
+      "size": 5952884,
+      "sha256": "d70821d2b6c43b4a84fdda720013a11515d1d187ef8b89c97e61ba0d9eee49c4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/prepare_mono_cnf.py",
+      "size": 2981,
+      "sha256": "eb2ef0097e395537eca18a4ab15090a35cd8acb2d1d8d1a834b835a57f951207"
+    }
+  ]
+}

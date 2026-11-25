@@ -1,0 +1,28 @@
+[
+  {
+    "name": "SimplePrivate",
+    "log": "simple-private",
+    "sha256": "e254a1035286c49e89128d0fdf127ddab868375423bd31c69d5d6e108f3fadad",
+    "bytes": 1366,
+    "lines": 35,
+    "stdout": "/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/SimplePrivate.lean:9:18: warning: Variable name `hc` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hc\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "stderr": "",
+    "guard_exit": 1,
+    "guard_stdout": "REFUSED: line 1: import PetersenGeometry is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+    "guard_stderr": "",
+    "forbidden": []
+  },
+  {
+    "name": "SimpleAdjacency",
+    "log": "simple-adjacency",
+    "sha256": "14b6280d870408c3e4154284cabf4c3c1e56ad24b31b67efb10946a7bed0cf19",
+    "bytes": 3496,
+    "lines": 70,
+    "stdout": "",
+    "stderr": "",
+    "guard_exit": 1,
+    "guard_stdout": "REFUSED: line 1: import SimplePrivate is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the file holds no theorem\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+    "guard_stderr": "",
+    "forbidden": []
+  }
+]
