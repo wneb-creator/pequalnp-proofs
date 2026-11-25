@@ -264,6 +264,206 @@ lemma postedTests_exact (C : Circuit) : postedTests C ↔
     let x2 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x2 x3 : Fin (13 : ℕ)) => (↑x2 + ↑x3) % (13 : ℕ) ∈ [(0 : ℕ), (1 : ℕ), (3 : ℕ), (9 : ℕ)];       have x3 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) → Fin (26 : ℕ) → Bool := fun (x3 x4 : Finset (Fin (13 : ℕ))) (x5 : Fin (26 : ℕ)) => if ↑x5 < (13 : ℕ) then Decidable.decide (Fin.ofNat (13 : ℕ) ↑x5 ∈ x3) else Decidable.decide (Fin.ofNat (13 : ℕ) ↑x5 ∈ x4);       have x4 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) := fun (x4 : Finset (Fin (13 : ℕ))) => {x5 : Fin (13 : ℕ) | ∀ x6 ∈ x4, ¬x2 x6 x5};       have x5 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) → Bool := fun (x5 x6 : Finset (Fin (13 : ℕ))) => C.eval (List.ofFn (x3 x5 x6));       (∀ (x6 x7 : Fin (13 : ℕ)), x2 x6 x7 → x5 {x6} {x7} = Bool.true) ∧ ∀ (x6 : Finset (Fin (13 : ℕ))), x6.card ≤ (3 : ℕ) → x5 x6 (x4 x6) = Bool.false ∧ x5 (x4 x6) x6 = Bool.false := Iff.rfl
 
 
+def neighbors (p : Fin 13) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => incidence p l
+
+lemma degree_four : ∀ p : Fin 13, (neighbors p).card = 4 := by
+  unfold neighbors incidence
+  decide +kernel
+
+lemma pair_inter_small : ∀ p q : Fin 13, p ≠ q →
+    (neighbors p ∩ neighbors q).card ≤ 1 := by
+  unfold neighbors incidence
+  decide +kernel
+
+lemma four_off_small (S : Finset (Fin 13)) (hS : S.card = 4) :
+    (nonneighbors S).card ≤ 3 := by
+  obtain ⟨p, q, r, s, hpq, hpr, hps, hqr, hqs, hrs, rfl⟩ :=
+    Finset.card_eq_four.mp hS
+  have h1 := Finset.card_union_add_card_inter (neighbors p) (neighbors q)
+  have h2 := Finset.card_union_add_card_inter (neighbors p ∪ neighbors q) (neighbors r)
+  have h3 := Finset.card_union_add_card_inter
+    (neighbors p ∪ neighbors q ∪ neighbors r) (neighbors s)
+  have hi2 : ((neighbors p ∪ neighbors q) ∩ neighbors r).card ≤ 2 := by
+    rw [Finset.union_inter_distrib_right]
+    have := Finset.card_union_le (neighbors p ∩ neighbors r) (neighbors q ∩ neighbors r)
+    have := pair_inter_small p r hpr
+    have := pair_inter_small q r hqr
+    omega
+  have hi3 : ((neighbors p ∪ neighbors q ∪ neighbors r) ∩ neighbors s).card ≤ 3 := by
+    rw [Finset.union_inter_distrib_right, Finset.union_inter_distrib_right]
+    have := Finset.card_union_le
+      (neighbors p ∩ neighbors s ∪ neighbors q ∩ neighbors s) (neighbors r ∩ neighbors s)
+    have := Finset.card_union_le (neighbors p ∩ neighbors s) (neighbors q ∩ neighbors s)
+    have := pair_inter_small p s hps
+    have := pair_inter_small q s hqs
+    have := pair_inter_small r s hrs
+    omega
+  have hunion : 10 ≤ (neighbors p ∪ neighbors q ∪ neighbors r ∪ neighbors s).card := by
+    have := degree_four p
+    have := degree_four q
+    have := degree_four r
+    have := degree_four s
+    have := pair_inter_small p q hpq
+    omega
+  have hoff : nonneighbors {p, q, r, s} = Finset.univ \
+      (neighbors p ∪ neighbors q ∪ neighbors r ∪ neighbors s) := by
+    ext l
+    simp [nonneighbors, neighbors, not_or, and_assoc]
+  rw [hoff, Finset.card_sdiff]
+  simp only [Finset.inter_univ, Finset.card_univ, Fintype.card_fin]
+  omega
+
+
+lemma nonneighbors_antitone {S T : Finset (Fin 13)} (h : S ⊆ T) :
+    nonneighbors T ⊆ nonneighbors S := by
+  intro l hl
+  simp only [nonneighbors, Finset.mem_filter, Finset.mem_univ, true_and] at hl ⊢
+  exact fun p hp => hl p (h hp)
+
+lemma small_or_small_off
+    (h4 : ∀ S : Finset (Fin 13), S.card = 4 → (nonneighbors S).card ≤ 3)
+    (S : Finset (Fin 13)) : S.card ≤ 3 ∨ (nonneighbors S).card ≤ 3 := by
+  by_cases hS : S.card ≤ 3
+  · exact Or.inl hS
+  · right
+    obtain ⟨T, hT, hTc⟩ := Finset.exists_subset_card_eq (show 4 ≤ S.card by omega)
+    exact (Finset.card_le_card (nonneighbors_antitone hT)).trans (h4 T hTc)
+
+lemma subset_double_nonneighbors (S : Finset (Fin 13)) :
+    S ⊆ nonneighbors (nonneighbors S) := by
+  intro p hp
+  simp only [nonneighbors, Finset.mem_filter, Finset.mem_univ, true_and]
+  intro l hl
+  have h := hl p hp
+  simpa only [incidence, Nat.add_comm] using h
+
+lemma eval_mono_of_pointwise (C : Circuit) (hC : Monotone2 C)
+    (x y : Fin 26 → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  unfold Circuit.eval Circuit.wires
+  apply prefix_fold_mono C.gates (fun g hg => (hC g hg).1) _ _ _ (by simp)
+  intro i hi
+  by_cases hi' : i < 26
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, hi', dite_true,
+      Option.getD_some] at hi ⊢
+    exact hxy ⟨i, hi'⟩ hi
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, hi', dite_false,
+      Option.getD_none] at hi
+    contradiction
+
+lemma testInput_mono {S T S' T' : Finset (Fin 13)}
+    (hS : S ⊆ S') (hT : T ⊆ T') (i : Fin 26) :
+    testInput S T i = true → testInput S' T' i = true := by
+  unfold testInput
+  split <;> simp only [decide_eq_true_eq]
+  · exact fun h => hS h
+  · exact fun h => hT h
+
+lemma independent_false
+    (h4 : ∀ S : Finset (Fin 13), S.card = 4 → (nonneighbors S).card ≤ 3)
+    (C : Circuit) (hC : Monotone2 C) (hTests : postedTests C)
+    (S T : Finset (Fin 13)) (hInd : ∀ p ∈ S, ∀ l ∈ T, ¬ incidence p l) :
+    C.eval (List.ofFn (testInput S T)) = false := by
+  have hT : T ⊆ nonneighbors S := by
+    intro l hl
+    simp only [nonneighbors, Finset.mem_filter, Finset.mem_univ, true_and]
+    exact fun p hp => hInd p hp l hl
+  cases he : C.eval (List.ofFn (testInput S T))
+  · rfl
+  · rcases small_or_small_off h4 S with hS | hS
+    · have hh : C.eval (List.ofFn (testInput S (nonneighbors S))) = true :=
+        eval_mono_of_pointwise C hC (testInput S T)
+          (testInput S (nonneighbors S))
+          (testInput_mono (Finset.Subset.refl S) hT) he
+      have hf : C.eval (List.ofFn (testInput S (nonneighbors S))) = false :=
+        (hTests.2 S hS).1
+      exact Bool.noConfusion (hh.symm.trans hf)
+    · have hh : C.eval
+          (List.ofFn (testInput (nonneighbors (nonneighbors S)) (nonneighbors S))) = true :=
+        eval_mono_of_pointwise C hC (testInput S T)
+          (testInput (nonneighbors (nonneighbors S)) (nonneighbors S))
+          (testInput_mono (subset_double_nonneighbors S) hT) he
+      have hf : C.eval
+          (List.ofFn (testInput (nonneighbors (nonneighbors S)) (nonneighbors S))) = false :=
+        (hTests.2 (nonneighbors S) hS).2
+      exact Bool.noConfusion (hh.symm.trans hf)
+
+lemma edge_true (C : Circuit) (hC : Monotone2 C) (hTests : postedTests C)
+    (S T : Finset (Fin 13)) (hEdge : ∃ p ∈ S, ∃ l ∈ T, incidence p l) :
+    C.eval (List.ofFn (testInput S T)) = true := by
+  obtain ⟨p, hp, l, hl, hpl⟩ := hEdge
+  exact eval_mono_of_pointwise C hC _ _
+    (testInput_mono (Finset.singleton_subset_iff.mpr hp)
+      (Finset.singleton_subset_iff.mpr hl)) (hTests.1 p l hpl)
+
+lemma postedTests_complete
+    (h4 : ∀ S : Finset (Fin 13), S.card = 4 → (nonneighbors S).card ≤ 3)
+    (C : Circuit) (hC : Monotone2 C) (hTests : postedTests C)
+    (S T : Finset (Fin 13)) :
+    C.eval (List.ofFn (testInput S T)) =
+      decide (∃ p ∈ S, ∃ l ∈ T, incidence p l) := by
+  by_cases hEdge : ∃ p ∈ S, ∃ l ∈ T, incidence p l
+  · have hd : decide (∃ p ∈ S, ∃ l ∈ T, incidence p l) = true := by
+      simpa only [decide_eq_true_eq] using hEdge
+    exact (edge_true C hC hTests S T hEdge).trans hd.symm
+  · have hInd : ∀ p ∈ S, ∀ l ∈ T, ¬ incidence p l := by
+      intro p hp l hl hpl
+      exact hEdge ⟨p, hp, l, hl, hpl⟩
+    have hd : decide (∃ p ∈ S, ∃ l ∈ T, incidence p l) = false := by
+      simpa only [decide_eq_false_iff_not] using hEdge
+    exact (independent_false h4 C hC hTests S T hInd).trans hd.symm
+
+def pointSet (x : Fin 26 → Bool) : Finset (Fin 13) :=
+  {p | x (Fin.castAdd 13 p) = true}
+
+def lineSet (x : Fin 26 → Bool) : Finset (Fin 13) :=
+  {l | x (Fin.natAdd 13 l) = true}
+
+lemma testInput_decompose (x : Fin 26 → Bool) :
+    testInput (pointSet x) (lineSet x) = x := by
+  funext i
+  have hi26 : i.val < 26 := i.isLt
+  by_cases hi : i.val < 13
+  · have he : Fin.castAdd 13 (Fin.ofNat 13 i.val) = i := by
+      apply Fin.ext
+      simp only [Fin.val_castAdd, Fin.val_ofNat]
+      exact Nat.mod_eq_of_lt hi
+    simp only [testInput, ite_eq_left hi, pointSet, Finset.mem_filter,
+      Finset.mem_univ, true_and, he, Bool.decide_eq_true]
+  · have he : Fin.natAdd 13 (Fin.ofNat 13 i.val) = i := by
+      apply Fin.ext
+      simp only [Fin.val_natAdd, Fin.val_ofNat]
+      omega
+    simp only [testInput, ite_eq_right hi, lineSet, Finset.mem_filter,
+      Finset.mem_univ, true_and, he, Bool.decide_eq_true]
+
+lemma postedTests_complete_input
+    (h4 : ∀ S : Finset (Fin 13), S.card = 4 → (nonneighbors S).card ≤ 3)
+    (C : Circuit) (hC : Monotone2 C) (hTests : postedTests C)
+    (x : Fin 26 → Bool) :
+    C.eval (List.ofFn x) = decide (∃ p l : Fin 13,
+      incidence p l ∧ x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) := by
+  have h := postedTests_complete h4 C hC hTests (pointSet x) (lineSet x)
+  rw [testInput_decompose] at h
+  have he : (∃ p ∈ pointSet x, ∃ l ∈ lineSet x, incidence p l) ↔
+      (∃ p l : Fin 13, incidence p l ∧ x (Fin.castAdd 13 p) = true ∧
+        x (Fin.natAdd 13 l) = true) := by
+    constructor
+    · rintro ⟨p, hp, l, hl, hpl⟩
+      exact ⟨p, l, hpl, (Finset.mem_filter.mp hp).2, (Finset.mem_filter.mp hl).2⟩
+    · rintro ⟨p, l, hpl, hp, hl⟩
+      exact ⟨p, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hp⟩,
+        l, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hl⟩, hpl⟩
+  simpa only [he] using h
+
+lemma postedTests_compute_incidence
+    (C : Circuit) (hC : Monotone2 C) (hTests : postedTests C)
+    (x : Fin 26 → Bool) :
+    C.eval (List.ofFn x) = decide (∃ p l : Fin 13,
+      incidence p l ∧ x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) :=
+  postedTests_complete_input four_off_small C hC hTests x
+
 end PrefixPrune
 
 end PEqualNP.Outside.L_meta_2056
