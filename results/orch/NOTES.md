@@ -1,0 +1,13 @@
+Pilot 158, L-meta-4970
+
+Shared notes. Append findings with strategy and UTC time. Scratch Lean attempts in results/orch/lemmas. Parent integrates only named final file.
+
+Counting strategy: semantic pure-OR witnesses need not be pure syntactic OR cones (AND absorption/intersection can intervene), so the sketch needs normalization or a potential argument. Wrote uncompiled elementary unique-star-centre/leaf helpers to results/orch/lemmas/Counting.lean pending toolchain.
+
+2026-11-25T15:49:16.103458+00:00 Counterexample strategy: exact circuit enumeration (binary AO, backward reads, tCount=0, all prior wires allowed as output, including repeated/useless gates) found no counterexample for p=2,l=3 up to 4 gates: 2,614,162 circuit prefixes, 35 no-C4 graphs with every edge incident to a degree>=2 vertex. These cover every nontrivial possible star-served graph for that split; their target lower bound is at most 5. No target truth table appeared below its bound, even before enforcing star witnesses. Program in job scratch counterexample-small.cpp. Running p=2,l=4 up to5 gates.
+
+2026-11-25T15:50:20.401357+00:00 Lemma strategy: no ready-made tCount lower bound found. Only Outside L_meta_4791 mentions TwoColour.tCount; it is a factor-six transformation to tCount=0. Existing L_meta_4897 gives desired bipartite bound under IsReadK1; L_meta_8933 gives general graph bound if no dirty AND accepts two hard edges. L_meta_2237.s2234 (line 1551) is reusable OR forest ledger, s2233 (978) counts ANDs in output OR cone. Semantic star witnesses do not directly expose syntactic orIn sets: identity AND gates can hide them. Wrote center uniqueness and star-intersection cardinality lemmas in results/orch/lemmas/Lemmas.lean; awaiting toolchain for validation.
+
+2026-11-25T15:51:18.950509+00:00 Counting: Counting.lean compiled successfully (75 lines, five lemmas: unique star centre/leaf, pure OR semantic support uniqueness, complement-input characterization of being below pure OR, semantic AND pruning). Empty diagnostics at /tmp/oec/pequalnp-pilot-158/counting-build.log. Frozen snapshot for parent push.
+
+2026-11-25T15:52:21.618027+00:00 Semantics.lean compiled successfully under Lean4.36; 242 lines copied and narrowed from checked L_meta_4791. Provides arbitrary-wire monotonicity, fold prefix and length, gate recursion with/without ReadsBack, binary AO2 AND/OR equations. Full log in /tmp/oec/pequalnp-pilot-158/semantics-build.log. Semantic star pruning: choose false-on-complement child of AND, keep both OR children. Any singleton support of chosen node is contained in Q by monotonicity; shared support>=2 implies same center.
