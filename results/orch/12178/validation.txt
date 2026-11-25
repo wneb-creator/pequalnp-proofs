@@ -1,0 +1,5 @@
+Sub-agents: status_review, counting_proof, counterexample, semantic_bound, toolchain, cofactor_route
+TIMING total=62 subagents=6
+Cleanup:3235 to3205 lines.
+Independent review and plain-file/import guard:PASS.
+Build and exact positive checker pending.
