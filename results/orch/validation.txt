@@ -17,3 +17,6 @@ TIMING total=16 subagents=6
 
 Geometry.lean: lake env lean exit0; independent research review PASS.
 TIMING total=17 subagents=6
+
+CombinatorialCore.lean: lake env lean exit0; independent research review PASS.
+TIMING total=20 subagents=6

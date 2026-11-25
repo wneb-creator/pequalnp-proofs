@@ -53,3 +53,25 @@ The initial 165-file Petersen inventory omitted some useful sources. Additional 
 - `L_meta_1755` is a checked concrete twenty-gate monotone Petersen witness.
 
 No complete proof of L-meta-2592 can presently be assembled from the inspected solved statements alone. The strongest direct progress is the sixteen-binary-gate floor, reducing the unresolved search to one, two, or three NOTs. All inspected external proof arguments must be copied and renamed under L_meta_2592's own namespace, because the lease permits no outside imports.
+
+## Independent research checkpoint reviews
+
+These approvals concern preservation of compiled research components on the pilot branch. They do not approve a proof PR or claim the posted theorem. Owners reported successful Lean exits, and the complete successful logs were checked for errors. Each source was frozen for review; hashes identify the approved bytes. Forbidden-marker scans found no sorry, admit, new axiom, native_decide, forbidden root qualifier, string literal, or non-simp attribute.
+
+| Component | Lines | SHA256 | Exact scope |
+| --- | ---: | --- | --- |
+| Certificate.lean | 2235 | `279dc52f703612030973e13312c1cebddb0a6452b4987b681c46fa61940cc541` | Kernel LRAT soundness and circuit-to-normal-CNF model; no UNSAT certificate. |
+| Negation.lean | 113 | `7f29f84a58d321a86f16702a66ec649a145c94a298d534333d17e7123524875e` | Semantic constant substitution and Petersen boundary masks; no circuit-size preservation claim. |
+| GateElimination.lean | 32 | `c7d612ecf0b76944d2afa21d61183691ba336254ca15b5bcb927902907c186c9` | Every variable remains essential after fixing a distinct variable; no gate deletion theorem. |
+| RetentionWitness.lean | 44 | `6aef0366f0f350b87e5549e3cf1688ffddafb01ad8eec4790479f9e812ec8464` | Finite row witnesses force retention of either first-gate input; no binary-count conclusion alone. |
+| CertificateCount.lean | 2283 | `6d9bdceb862b89c287139b358c45aceda0ae252b6c3c44493b47048b893d0ae7` | Exact NOT count after bypass/delete normalization and operand swap. |
+| CertificateBound.lean | 2474 | `adc27bcc172c4ded1b90154e442678d21ba54d0eba6f4db83947cb161f8e254f` | Adjacent independent-gate exchange preserves NOT count; normal-form existence retains a NOT-count upper bound. |
+| Geometry.lean | 47 | `ca1c66e341e8400f4ffaa3a75e23e979c699d9bcf5590eb55a4c222813cc0bd9` | Ten finite projections give the nine-vertex target, supply its inputs, and kill the selected vertex. |
+
+The Certificate extensions contain their previously reviewed versions as exact prefixes. Certificate's custom inductive/structure declarations remain a final-PR fast-path/manual-review caveat. Geometry's four concrete inputs/graph/pins/target definitions exactly match CombinatorialStrong.
+
+## Seventeen-gate argument audit
+
+The proposed Seventeen argument is semantically sound at the reviewed draft level. `Live` permits retaining either operand in its `U` set. The finite row witness forces the selected raw input to remain there. `list_run` preserves this fact through explicit retention flags and uses a list with distinct original signals. After fixing that input false, `projected_bound` charges its constant occurrence in the projected list, giving fifteen plus one at most the remaining binary gates, hence seventeen in total.
+
+The proposed eighteen-gate refinement for a first AND or signed difference may charge both the retained input and the fresh first-gate output after fixing an annihilating input false. They are distinct before projection and both constant afterward. This uses the proved constant mass invariant. It does not assume a generic charge for duplicate nonconstant projected signals; that stronger invariant is unsound for signed selectors. The first-OR case obtains only the single constant charge by this argument. Compilation and final-byte review of the completed lower-bound file remain separate requirements.

@@ -11,3 +11,5 @@
 2026-11-25T14:16:49.977382+00:00 CertificateBound normalization with NOT-count bound compiled and independently reviewed.
 
 2026-11-25T14:17:59.113323+00:00 Geometry slice component compiled and independently reviewed.
+
+2026-11-25T14:21:06.286250+00:00 Generic Live/Run contraction core compiled and independently reviewed.
