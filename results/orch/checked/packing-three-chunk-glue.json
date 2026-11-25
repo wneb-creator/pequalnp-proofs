@@ -1,0 +1,7 @@
+{
+  "sha256": "e8df87ea5a025e9c59698cb81966e2d2d5639a2816dde85f0a19959894c00127",
+  "lines": 143,
+  "exit_code": 0,
+  "claim": "Correct composition of interval-certified branch checks with full later-suffix semantics.",
+  "independent_review": "Reviewed by a separate agent; exact hashes and scope recorded in orchestration notes/messages."
+}

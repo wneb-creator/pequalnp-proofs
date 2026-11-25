@@ -40,3 +40,15 @@ The named file currently contains helper proofs only; the posted 51-OR theorem r
 - Dead general approaches remain dead: uniform per-row merge bounds and unrestricted quadratic-shadow C4-free bounds.
 - repo_audit independently approved the named 20-OR partial and is reviewing newer snapshots. algebraic_witness is reviewing the SAT encoding.
 - Cumulative sub-agents: 7, including proof_routes/quadratic_shadow. Only the parent renews, pushes, submits and releases.
+
+## Replan 2026-11-25T04:27:19.898147+00:00
+- Posted51 target remains open. The named file still contains the checked20 bound. The combined exact-premise21 proof reached only a default heartbeat limit in its final wrapper; a declaration-local limit increase is rebuilding, with no finite certificate failures.
+- AllRows is fully checked:468 distinct admissible rows,7 true/19 false coordinates each, singleton count126, pair-union count at least204. Its immutable source and complete log have been pushed.
+- The checker startup cache issue is repaired with the genuine official Mathlib root cache artifact and standard cache unpack. No checker source changed. A fresh checker run remains pending.
+- Capacity3 computation: maximum removed flags minus block count is28. Exhaustive search visited56,424,915 families. Four explicit symmetries reduce a proof of the weaker bound29 to31 roots totaling78,682 states. All of this is computational evidence, not yet a full Lean theorem.
+- One capacity3 root is kernel checked (root21,811 search states). Generic pruned DFS soundness and concrete mask/prune semantics also compile.
+- Next proof ownership: lean_setup has literal data, finite action/orbit certificates, and31 root computations; proof_routes has concrete trace/mask semantics and fresh-block normalization; existing child quadratic_shadow has generic DFS/row-mask invariants; or_lower_bound has permutation/word transport and final22 assembly after21 is preserved.
+- Counterexample route: both3-output models are UNSAT at8 ORs; a4-cap-output11-OR query is running. A direct full38-OR encoding now fits memory (about2.06M clauses), with validated39-OR control; full search is queued. A restricted pure-union38 model is also prepared. No counterexample exists in the checked artifacts.
+- Dead shortcuts remain dead: unrestricted quadratic-shadow bounds, uniform cross-row merge charge, and a uniform54-per-gate pure-union deficit charge (an explicit join improves that deficit by60). Amortized variants remain unproved.
+- All published computational archives are labelled accordingly and independently reviewed. No PR has been opened; three reduction slots were already occupied.
+- Cumulative sub-agents remain7; reactivated existing child, no new team member. Parent alone manages lease, branch, checker and submission.

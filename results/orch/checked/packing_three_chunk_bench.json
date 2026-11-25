@@ -1,0 +1,7 @@
+{
+  "sha256": "07fc523ab557a50b06bacf60b5808e0e3c3e058efa6dbcf7c1481bfdf04f5f6a",
+  "lines": 502,
+  "exit_code": 0,
+  "claim": "Numeric chunk coverage, root identifiers/good initial states, and chunk0 only. Independent replay counts252 states; prior582 label was incorrect and refers to a different, untested chunk.",
+  "independent_review": "Reviewed by a separate agent; exact hashes and scope recorded in orchestration notes/messages."
+}

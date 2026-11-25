@@ -1,0 +1,7 @@
+{
+  "sha256": "03cbead3abd94b5135b90e6aecae964430cb4975a1d06db8a5582592aef20095",
+  "lines": 191,
+  "exit_code": 0,
+  "claim": "Generic row-threshold and valid-trace invariants; no concrete packing bound.",
+  "independent_review": "Reviewed by a separate agent; exact hashes and scope recorded in orchestration notes/messages."
+}

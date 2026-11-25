@@ -1,0 +1,2 @@
+{"points": [0, 1, 2], "inputs": 9, "negative_rows": 15, "or_count": 8, "variables": 6275, "clauses": 23464, "encoding_seconds": 0.22221386500041262, "max_rss_KiB": 11520}
+result unsat solver_exit 20 elapsed 40.81511353299993

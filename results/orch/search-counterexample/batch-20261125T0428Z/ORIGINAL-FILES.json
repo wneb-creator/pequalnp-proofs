@@ -1,0 +1,94 @@
+{
+  "direct-cover-full-38-900.cnf": {
+    "sha256": "ce60ad6f3c238b7f86b22d64a83a72f7445a521c872979015e80dec7ddb0c363",
+    "bytes": 54800022
+  },
+  "direct-cover-full-38-900.encode.log": {
+    "sha256": "cfdeda326f45f33a2abdb262a678e27727c42492f73c1ed611a7c3e68ffff56a",
+    "bytes": 210
+  },
+  "direct-cover-full-38-900.mapping.json": {
+    "sha256": "f6cecfc44f8fd3d8afbce0548ca46b93ab91d916752cc430e2a4d62510982db5",
+    "bytes": 18756
+  },
+  "direct-cover-full-control39.cnf": {
+    "sha256": "82909f900db78d3999ba3cccfd5237bec9e399ff8cbf71bdc4357035c4e769e6",
+    "bytes": 57113492
+  },
+  "direct-cover-full-control39.command.json": {
+    "sha256": "243b22eec434b6af102e89f0683164614ed00be94e29fdc86097da4f7b1796d4",
+    "bytes": 243
+  },
+  "direct-cover-full-control39.log": {
+    "sha256": "27a08443ba7e05401ff3ea33686251e2f10dd3fe75547ab44516154f3ac060f0",
+    "bytes": 312
+  },
+  "direct-cover-full-control39.mapping.json": {
+    "sha256": "aad338a92f3adf3d64bac52abb837b6eb3394b52b32208a53dba625358d64748",
+    "bytes": 19143
+  },
+  "direct-cover-full-control39.sol": {
+    "sha256": "5231f7795d5f3e90e863afbf02d4937981a0e7d719e6281d4367dd66070ba0f8",
+    "bytes": 6138232
+  },
+  "direct-cover-full-control39.solver.log": {
+    "sha256": "178a69c2025f62a7329c462ba907c0758507340ae3b38c4d5e0c55dacad30923",
+    "bytes": 45601
+  },
+  "direct-cover-full-control39.witness.json": {
+    "sha256": "fb382705abc5bace92ce0f9d3f464f2ec98c6b3c9d35ef169a0588c6d1115148",
+    "bytes": 6430
+  },
+  "direct-cover-pair-5-control.cnf": {
+    "sha256": "f25c4ca2c32a0c7f32afd4753c1a2dc459281b99733332a6f812e22ad818b08f",
+    "bytes": 89235
+  },
+  "direct-cover-pair-5-control.command.json": {
+    "sha256": "a319a866dedbe6b56e07b1721e8e51af87844c272808bae36c943a2f048a4685",
+    "bytes": 243
+  },
+  "direct-cover-pair-5-control.log": {
+    "sha256": "e5b44f7402106c986731e4aba59a0de0e7c09652c2a3c5dfee619cfcd16d46d0",
+    "bytes": 222
+  },
+  "direct-cover-pair-5-control.mapping.json": {
+    "sha256": "e289a5616602a450c0b89d664bb1045b315765ca45adb50467f72310fd7bcfd2",
+    "bytes": 2029
+  },
+  "direct-cover-pair-5-control.sol": {
+    "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "bytes": 16
+  },
+  "direct-cover-pair-5-control.solver.log": {
+    "sha256": "930a4127e8a0219d145bfd73b76397b048bbdaa73c5fc0ed207c83146b529724",
+    "bytes": 4609
+  },
+  "direct-cover-triangle-8-control.cnf": {
+    "sha256": "9c76a41b514ac65ef510f1be006bfe4e915dc6ed12c16e2731321505855511f3",
+    "bytes": 354659
+  },
+  "direct-cover-triangle-8-control.command.json": {
+    "sha256": "d99604fda026faf908ce004dd65f3c11c6e252dff63cc563192e0335662ab6e2",
+    "bytes": 251
+  },
+  "direct-cover-triangle-8-control.log": {
+    "sha256": "e98e386ad6030b9fbf731e9337b7b1d5694125f5b8dae8a935379856de53c6b6",
+    "bytes": 225
+  },
+  "direct-cover-triangle-8-control.mapping.json": {
+    "sha256": "21e40ff1eb47d406d22db0c3739ba7bfb552ced0fcc4348d427141099f7f24b2",
+    "bytes": 3628
+  },
+  "direct-cover-triangle-8-control.sol": {
+    "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "bytes": 16
+  },
+  "direct-cover-triangle-8-control.solver.log": {
+    "sha256": "866e251ef5317cff582c9a80f91fe04bc9dff3094fc9282426e5ba0409adfd4b",
+    "bytes": 14157
+  },
+  "multi_output_direct_cover_cnf.py": {
+    "sha256": "24ee7c106a59eb0849106489a31736cd2ad6d177c91362934f63f1fdc7ef1d4f",
+    "bytes": 12642
+  }
+}

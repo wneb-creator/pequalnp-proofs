@@ -1,0 +1,7 @@
+{
+  "sha256": "8139a210524d93f234c24e95b069d039bdcde395fa17f376333a35b5425098db",
+  "lines": 83,
+  "exit_code": 0,
+  "claim": "Abstract singleton/pair block encoding preserves union, cardinality, disjointness and row capacity.",
+  "independent_review": "Reviewed by a separate agent; exact hashes and scope recorded in orchestration notes/messages."
+}

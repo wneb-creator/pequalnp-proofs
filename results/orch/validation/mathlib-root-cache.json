@@ -1,0 +1,9 @@
+{
+  "reason": "The local checker requires the official Mathlib root module to exist even though the proof imports only PEqualNP.Defs.",
+  "cache_key": "79da901f0eeeaa4a",
+  "source": "https://cache.mathlib.org/mathlib4-master/f/79da901f0eeeaa4a.ltar",
+  "archive_sha256": "53d6a1a346c579dc85f781f73285934e8fdeef39c3909b0e41378449798638a5",
+  "olean_sha256": "363d54c52d97d4862ef130b874519053f6f5da4095f1b825bf6d9cd8063ebee5",
+  "method": "Official cache lookup computed the key; downloaded the unchanged prebuilt archive and ran lake exe cache unpack. No checker or dependency source was changed.",
+  "result": "One module decompressed successfully. The checker has not yet been rerun."
+}

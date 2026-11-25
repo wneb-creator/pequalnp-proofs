@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/checked/packing-three-trace-invariants.lean",
+  "sha256": "03cbead3abd94b5135b90e6aecae964430cb4975a1d06db8a5582592aef20095",
+  "frozen_definitions_present": true,
+  "forbidden": [],
+  "verdict": "passed independent semantic/source review",
+  "scope": "State mask/count invariants and validTrace from pairwise disjointness and Nat-bit quota<=3; no concrete packing bound claimed."
+}
