@@ -7,3 +7,8 @@
 2026-11-25T02:26:53.650371+00:00 — ownership_exchange identified exact remaining pair-sound normalization and supplied path-filter sanity example.
 2026-11-25T02:27:56.087103+00:00 — Counterexample strategy: exhaustive n=4 minimum witnesses all satisfy ownership; n=5 through four gates also all pass. C5 MILP search started.
 2026-11-25T02:29:08.033360+00:00 — named baseline build PASS; committing recovered checked helpers immediately.
+2026-11-25T02:29:45.214305+00:00 — minimal_existence: new maximal-AND soundness strengthening compiled, exit 0; root notified for checkpoint.
+2026-11-25T02:30:24.851437+00:00 — Counterexample strategy completed all n≤5 computational checks; C5 minimum7 confirmed by BFS and independent MILP.
+2026-11-25T02:31:00.747575+00:00 — ownership_exchange checked positive-formula compiler and incident-vertex optimality criterion.
+2026-11-25T02:31:22.292043+00:00 — constructive matching component compiled; cleanup from 685 to 514 lines also compiled.
+2026-11-25T02:31:37.775331+00:00 — combined matching/maximal partial build PASS; independent review complete.

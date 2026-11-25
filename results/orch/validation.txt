@@ -7,3 +7,10 @@ Independent review: REVIEW.md.
 Sub-agents: 6 (checker/setup/review, constructive matching, counterexample search, ownership exchange, minimal-cone soundness, pair normalization)
 TIMING total=6.5 subagents=6
 Cleanup: not started; baseline 3027 lines.
+
+2026-11-25 02:31 UTC checkpoint: combined target 3740 lines, named build PASS.
+New matching_optimal: exact optimum and ownership for disjoint-edge graphs.
+New minimum_top_gate_sound: soundness of gates with only OR descendants.
+Both independently reviewed in REVIEW.md. Full posted theorem still unproved.
+Matching standalone cleanup: 685 -> 514 lines, both compile; extension unchanged.
+TIMING total=9.1 subagents=6

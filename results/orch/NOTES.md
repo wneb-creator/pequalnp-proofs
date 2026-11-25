@@ -29,3 +29,22 @@ No defect found for n=0 or edgeless graphs: the empty gate list with output n co
 Exhaustive semantic-set BFS on four inputs: 9,406 states through four gates, all 37 nonempty labelled triangle/C4-free graph edge functions found with minimum witnesses. Every chosen minimum witness satisfies nonempty star ownership. Five-input BFS through four gates: 67,336 states, 170 of 302 nonempty labelled eligible graphs found, every witness has nonempty star ownership. Remaining 132 need more gates. These are computational checks, not Lean certificates; omitted constants/unary/duplicate operations are redundant in a minimum circuit for a nonconstant function.
 
 Scripts: results/orch/lemmas/counterexample_small.py and counterexample_milp.py. Complete logs in /tmp/oec/pequalnp-pilot-59/counterexample-*.stdout and .stderr. A 300-second HiGHS search for a six-gate five-cycle circuit is running after root renewal.
+
+## minimal_existence — 2026-11-25T02:29:45.214305+00:00
+
+NEW CHECKED COMPONENT: results/orch/lemmas/minimal_cone.lean (510 lines) compiled with lake env lean, exit 0. Complete output: /tmp/oec/pequalnp-pilot-59/minimal-cone.stdout and .stderr. Namespace PEqualNP.Outside.L_meta_1031_aux.Maximal. New wireStep/downstream_difference/minimum_top_gate_sound strengthen pilot56 last-AND soundness to every gate having only OR gates strictly downstream in its dependency graph; unrelated later ANDs are allowed. The proof traces an essential edge lost by deleting the source gate and records a dependency path at each changed wire. Any changed downstream AND contradicts the hypothesis, and an OR path propagates source truth on every input. Uses no girth hypothesis. Every-edge ownership is separately already proved in L_meta_1599 for arbitrary AND/OR circuits computing a graph edge function (no fan-in or minimality hypotheses).
+
+### Counterexample update 2026-11-25T02:30:24.851437+00:00
+
+Exhaustive five-input BFS through five gates reached 963,440 semantic states and minimum witnesses for all 290 nonempty eligible forests; all chosen witnesses have nonempty star ownership. The only remaining 12 labelled eligible graphs are C5. A final scan of every possible sixth gate over all 896,104 depth-five states found no C5 realization. A direct seven-gate C5 witness was independently reevaluated on all 32 inputs and has the posted nonempty star property: [('or', 1, 4), ('and', 0, 5), ('or', 1, 3), ('and', 2, 7), ('and', 3, 4), ('or', 6, 8), ('or', 9, 10)]. Thus no counterexample exists through five vertices under the standard redundant-gate elimination argument; this evidence is not yet formalized in Lean.
+
+The separate HiGHS circuit encoding also reports six-gate C5 infeasible (87.5196 seconds, status 2), agreeing with BFS. Complete diagnostics remain in scratch. A fixed bad-prefix seven-gate search tests the stronger all-minimum-circuits variant.
+
+## ownership_exchange — 2026-11-25T02:31:00.747575+00:00
+
+CHECKED: `results/orch/lemmas/exchange_readonce.lean` passed Lean (exit 0). New extension starts after pilot56 base at line3029: positive De Morgan formula compilation into exactly leaves−1 gates; arbitrary graph incident-vertex lower bound; `compact_formula_minimum` proves any positive graph formula using no more leaves than incident vertices produces a least monotone circuit. This includes the optimality argument for star forests represented by read-once formulas. It does not yet assert star ownership. Full logs: `/tmp/oec/pequalnp-pilot-59/exchange-readonce.stdout` and `.stderr`.
+
+## Constructive strategy 2026-11-25T02:31:22.292043+00:00
+Matching exact optimum compiled (original 685 lines; first cleanup 514 lines). Full logs: /tmp/oec/pequalnp-pilot-59/constructive_matching_compact.stdout and .stderr. Now extending from explicit edge list to intrinsic max-degree-at-most-one hypothesis, via oriented edge enumeration and endpoint-disjointness.
+
+Research read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf. It proves large general gaps between single-level and unrestricted quadratic monotone circuits, using saturated graph constructions; these have triangles and do not directly settle the leased triangle/C4-free problem. Exact single-level normalization must not be assumed merely because the target function is quadratic.
