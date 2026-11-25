@@ -1,0 +1,9 @@
+{
+  "source_sha256": "49650b937b4316d51317cb8181087b0ff74cf6210477090096f61273899c433f",
+  "lines": 364,
+  "build_exit": 0,
+  "stdout_bytes": 780,
+  "stderr_bytes": 105,
+  "review": "PASS: exact reviewed component bodies plus geometry_search/rowzero/incident-rank-two-independent-review.json",
+  "scope": "Checked contradiction for a valid three-flat with diagonal image rank2, conditional only on the explicit proposition NormalizedIncidentOppositeEdge. That proposition is not proved in this file. No full posted theorem or reduction submission."
+}

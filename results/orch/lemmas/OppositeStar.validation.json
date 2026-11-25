@@ -1,0 +1,9 @@
+{
+  "source_sha256": "91ba6b3fb028e68aeac093855467c19a5ac733978639baa34e4b959cc53595f4",
+  "lines": 115,
+  "build_exit": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 105,
+  "review": "PASS: geometry_search/rowzero/opposite-star-independent-review.json",
+  "scope": "Every nonzero valid hollow direction whose three opposite-edge products vanish is a permuted nonzero star. Includes isolated-vertex directions; no claim that all valid directions have vanishing products."
+}

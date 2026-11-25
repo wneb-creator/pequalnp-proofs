@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "build_exit_code": 0,
+  "sha256": "69a839b1c4d75962406b2e4b5a50e1cdafaa98e5e926d24fbdd550c95ff67495",
+  "line_count": 99,
+  "independent_review": "PASS by status_review at exact compiled source",
+  "scope": "Conditional on explicit NormalizedIncidentOppositeEdge property; no proof of that property is claimed. Gives all three opposite-edge products zero from V00 nonzero.",
+  "stdout_bytes": 0,
+  "stderr_bytes": 105
+}

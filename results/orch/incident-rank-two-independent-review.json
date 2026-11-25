@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sha256": "b2e0399447019e6e28aeac661ad87344592259fa5668b56436558b30c9e86bb9",
+  "line_count": 56,
+  "nonzero_diagonal_moved_to_vertex_zero": true,
+  "symmetry_hollowness_trace_and_pair_level_preserved": true,
+  "single_direction_level_from_pair": true,
+  "permutation_composition_order_sigma_times_tau": true,
+  "conditional_rank_two_contradiction_matches_prior_api": true,
+  "scope": "Independent source/math/format review. NormalizedIncidentOppositeEdge remains an explicit unproved premise; no posted-gap conclusion claimed. No build by reviewer."
+}

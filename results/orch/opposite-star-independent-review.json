@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "sha256": "91ba6b3fb028e68aeac093855467c19a5ac733978639baa34e4b959cc53595f4",
+  "line_count": 115,
+  "all_support_cases_include_isolated_vertex": true,
+  "four_permutation_identifications_symbolically_checked": true,
+  "cubic_triangle_identity_checked_against_main_definition": true,
+  "nonzero_matrix_preserved_by_injective_permutation": true,
+  "scope": "Independent source/math/format review; compiler transparency fixes may change source hash. No build by reviewer."
+}
