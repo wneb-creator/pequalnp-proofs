@@ -1,0 +1,10 @@
+PARTIAL CHECKPOINT — L-meta-1896
+UTC: 2026-11-25T03:15:25.746580+00:00
+The posted51-OR theorem is not proved and this checkpoint is not a proof PR.
+Four component files individually compiled with Lean4.36.0; complete logs are in validation/.
+The assembled named-file lake build PASSED: Build completed successfully (5149 jobs).
+Format guard: refused because the final top-level theorem is intentionally absent.
+The local statement checker has not been run on this incomplete file.
+Independent review: repo_audit found no semantic/format blockers for a PARTIAL checkpoint.
+Sub-agents: repo_audit, lean_setup (geometry), or_lower_bound, counterexample, proof_routes, algebraic_witness
+TIMING total=32.0 subagents=6

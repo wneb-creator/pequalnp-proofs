@@ -1,0 +1,7 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/Normalize.lean:27:13: warning: This simp argument is unused:
+  List.getD_eq_default w false (Nat.le_of_not_gt h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
