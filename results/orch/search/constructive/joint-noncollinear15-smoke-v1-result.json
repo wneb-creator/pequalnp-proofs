@@ -1,0 +1,262 @@
+{
+  "encoding": {
+    "file": "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-base.cnf",
+    "gates": 15,
+    "variants": 7,
+    "rows": 27,
+    "variables": 2680,
+    "clauses": 56180,
+    "varying_cells": 29,
+    "conditional_clauses": 203
+  },
+  "baseline": "/tmp/oec/pequalnp-pilot-70/constructive/noncollinear-cut-cone-baseline15.json",
+  "results": [
+    {
+      "name": "free-selector",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.047552,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-free-selector.cnf"
+      ],
+      "selected_branch": 6,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-0",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.009917,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-0.cnf"
+      ],
+      "selected_branch": 0,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-0-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.043973,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-0-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-1",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.010774,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-1.cnf"
+      ],
+      "selected_branch": 1,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-1-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.010334,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-1-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-2",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.008239,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-2.cnf"
+      ],
+      "selected_branch": 2,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-2-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.009981,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-2-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-3",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.007629,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-3.cnf"
+      ],
+      "selected_branch": 3,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-3-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.008613,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-3-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-4",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.011439,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-4.cnf"
+      ],
+      "selected_branch": 4,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-4-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.008358,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-4-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-5",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.011528,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-5.cnf"
+      ],
+      "selected_branch": 5,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-5-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.039561,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-5-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "branch-6",
+      "expected": "SAT",
+      "exit_code": 10,
+      "wall_seconds": 0.008271,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-6.cnf"
+      ],
+      "selected_branch": 6,
+      "full_gate_count": 27,
+      "checked_full_assignments": 16384
+    },
+    {
+      "name": "branch-6-wrong-cut",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.009941,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-branch-6-wrong-cut.cnf"
+      ]
+    },
+    {
+      "name": "no-selector",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.041446,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-no-selector.cnf"
+      ]
+    },
+    {
+      "name": "two-selectors",
+      "expected": "UNSAT",
+      "exit_code": 20,
+      "wall_seconds": 0.010906,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=2",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-two-selectors.cnf"
+      ]
+    }
+  ],
+  "all_passed": true,
+  "scope": "Fixed known baseline and selector/cut consistency smokes only; no target-budget search."
+}

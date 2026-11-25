@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "family": "ten",
+  "production_variables": 1423,
+  "production_clauses": 24789,
+  "branches": 6,
+  "varying_cells": 14,
+  "conditional_clauses": 84,
+  "selector_clauses": 14,
+  "base_gate_clauses_preserved": 24690,
+  "smokes": [
+    {
+      "name": "free-selector",
+      "status": "SAT",
+      "branch": 5,
+      "full_gates": 27,
+      "clauses": 28123,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-0",
+      "status": "SAT",
+      "branch": 0,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-0-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "branch-1",
+      "status": "SAT",
+      "branch": 1,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-1-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "branch-2",
+      "status": "SAT",
+      "branch": 2,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-2-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "branch-3",
+      "status": "SAT",
+      "branch": 3,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-3-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "branch-4",
+      "status": "SAT",
+      "branch": 4,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-4-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "branch-5",
+      "status": "SAT",
+      "branch": 5,
+      "full_gates": 27,
+      "clauses": 28124,
+      "underlying_inputs": 1024
+    },
+    {
+      "name": "branch-5-wrong-cut",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "no-selector",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    },
+    {
+      "name": "two-selectors",
+      "status": "UNSAT",
+      "reason": "Explicit selector or cut contradiction"
+    }
+  ],
+  "cnf_sha256": "80fcc7fd598276ab66375282674e77f777dfc623e388f2d36ff5e48aa3cacb4d",
+  "source_sha256": {
+    "joint_correlated.py": "98d3ec9c9b9bc620419d8e20fd9eb49041ec4a1e46816c677dd57716d3f8fdb1",
+    "joint_decode.py": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+    "joint_run.py": "90710efbcf80a9fc7f3d42ffc24cb299810729f7425b347987e4c8bf1c4559ef",
+    "joint_smoke.py": "f6777c9120ec0afcb1e69964b2537b33e3a2755c89ad2c7383eedcfb07200d97"
+  }
+}

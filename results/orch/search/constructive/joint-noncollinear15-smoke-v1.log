@@ -1,0 +1,1 @@
+{"all_passed": true, "smokes": 17, "variants": 7, "baseline_gates": 15, "encoding": {"file": "/tmp/oec/pequalnp-pilot-70/constructive/joint-noncollinear15-smoke-v1-base.cnf", "gates": 15, "variants": 7, "rows": 27, "variables": 2680, "clauses": 56180, "varying_cells": 29, "conditional_clauses": 203}}

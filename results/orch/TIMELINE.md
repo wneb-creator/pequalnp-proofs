@@ -31,4 +31,8 @@
 - 2026-11-25T07:51:40.365771+00:00: live-localized RootCover (514lines) compiled and independently reviewed; preserving conditional root-pair coverage, without any claimed circuit-size conclusion.
 - 2026-11-25T07:54:59.232127+00:00: SelectedLabels recursion (76lines) compiled and independently reviewed; explicit label assumptions for the conditional cover bridge are discharged.
 - 2026-11-25T07:57:16.729442+00:00: coherent ForkCover endpoint (797lines) compiled and independently reviewed. Conditional coverage and cover cardinality are proved; exceptional-edge budget and multiple-dirty cases are unresolved. One-dirty development stopped ahead of08:05cap.
+- 2026-11-25T08:09:42.318564+00:00: search result five-star-cut6: UNSAT, wall1.292s/CPU0.864s. Scope is the named restricted search; no unrestricted result.
 - 2026-11-25T08:12:21.234533+00:00: complete inline witness-generator smoke (541lines,27gates/tail25 only) passed Lean and independent review. Strict exact-statement26-gate mode, full truth validation, normalization and relaxed-to-main guard independently passed. Assigned module remains unchanged.
+- 2026-11-25T08:13:49.119517+00:00: search result four-star-cut10-v0: UNKNOWN, wall120.048s/CPU73.561s. Scope is the named restricted search; no unrestricted result.
+- 2026-11-25T08:16:41.869187+00:00: search result four-star-cut10-v3: UNKNOWN, wall120.019s/CPU80.862s. Scope is the named restricted search; no unrestricted result.
+- 2026-11-25T08:23:57.271652+00:00: search result f0-available-a24: UNKNOWN, wall2700.037s/CPU2523.786s. Scope is the named restricted search; no unrestricted result.

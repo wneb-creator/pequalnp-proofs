@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-11-25T08:23:47.353451+00:00",
+  "wall_limit_seconds": 2,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=2",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten11-smoke-v1-branch-0.cnf"
+  ],
+  "cnf_sha256": "8e7b9d3d72da536634ac20fcb8983d6449bdf5c711e6231061534ee485903725",
+  "map_sha256": "7fab8163925af4b731b131736b56fa1256b53e6e86aeb7622b02f330f82c4c02",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1,
+  "finished_at": "2026-11-25T08:23:47.369697+00:00",
+  "wall_seconds": 0.012204161999761709,
+  "cpu_seconds": 0.00996,
+  "max_rss_kib": 11796,
+  "exit_code": 10,
+  "status": "SAT",
+  "full_truth_table_verified": true,
+  "witness_file": "/tmp/oec/pequalnp-pilot-70/constructive/joint-runner-smoke-v1-witness.json",
+  "selected_branch": 0,
+  "selected_variant": 0,
+  "full_gate_count": 27
+}

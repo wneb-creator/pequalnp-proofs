@@ -1,4 +1,5 @@
 Gap: L-meta-2732
+Validation snapshot UTC: 2026-11-25T08:32:36.518092+00:00
 Status: partial checked lemmas and27-gate baseline; assigned26-gate theorem remains unresolved.
 File: lean/PEqualNP/Outside/L_meta_2732.lean
 Build: lake build PEqualNP.Outside.L_meta_2732 passed, exit0,5149jobs before restart.
@@ -7,7 +8,10 @@ Checker: CHECKER FAULT: the verifier ended without a verdict (exit137). Complete
 Line count before cleanup:518. After:518. Cleanup skipped because full proof and checker acceptance are absent.
 Independent reviews: helper proofs and search encodings reviewed by separate agents; individual notes retained.
 Sub-agents: repo_review; circuit_search; lower_bound; formalization; formalization/rename_wires; constructive; sat_review
-TIMING total=132.1 subagents=7
+TIMING total=194.4 subagents=7
 Desk null count:2
 Exact message both times: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
 This checkpoint includes standalone research components. It is not a one-file proof PR and must not be submitted as one.
+Latest checkpoint: strict witness generator independently reviewed; relaxed27/tail25 inline smoke compiled, not a proof of the posted26-gate theorem.
+Focused cache recovered after restart: all19053 required paths regular, zero missing; Defs no-build check passed. Full-checker rerun deferred until an exact proof exists.
+Search results: six-gate fixed-star cone UNSAT; four local k2/k3 neighborhoods UNSAT; both short ten-gate probes UNKNOWN. None decides the unrestricted statement.
