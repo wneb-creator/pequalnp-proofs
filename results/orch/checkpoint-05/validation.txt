@@ -1,0 +1,11 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap:L-meta-2592
+Named module lake build:PASS (245lines)
+Main file merges20-gate witness,18-gate near-witness with exact four-error formula, graph facts and restricted NOT lemmas.
+Additional checked finite helper-pair case preserved in results/orch/lemmas/union_prune_pair_kernel.lean.
+Local checker:CHECKER FAULT: the verifier ended without a verdict (exit137). This was run on checkpoint03 against the exact posted statement; no acceptance/rejection verdict.
+Intake guard: missing posted theorem, expected for incomplete file. No proof PR.
+Independent main review:PASS for partial preservation, partial-review-05.md. Independent pair review:PASS, union-prune-pair-review.md.
+Lines before/after cleanup:245/245; cleanup not run because target incomplete and checker did not pass.
+Sub-agents:6
+TIMING total=37.4 subagents=6

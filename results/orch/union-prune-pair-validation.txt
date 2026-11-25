@@ -1,0 +1,35 @@
+Checked 2026-11-25T14:21:37.764454+00:00
+Source: results/orch/lemmas/union_prune_pair_kernel.lean
+SHA256: feb602546e27c99fc56ce96d7e860ccefae7bc8fc896569728f98702b6e1407a
+Exit: 0
+Kernel-only finite helper pair (3,5), 51 possible third helpers. This is a partial finite table, not the full obstruction or posted theorem.
+
+STDOUT
+type checking took 570ms
+
+STDERR
+import took 721ms
+cumulative profiling times:
+	attribute application 0.101ms
+	blocked (unaccounted) 17.3ms
+	compilation (IR) 1ms
+	compilation (LCNF base) 15.2ms
+	compilation (LCNF impure) 3.91ms
+	compilation (LCNF mono) 6.97ms
+	declTypeLinter 4.58ms
+	elaboration 53.7ms
+	fix level params 0.0977ms
+	import 721ms
+	initialization 27.8ms
+	instantiate metavars 0.102ms
+	interpretation 95.9ms
+	let-to-have transformation 0.701ms
+	linting 5.61ms
+	module linting 0.0672ms
+	parsing 1.81ms
+	process pre-definitions 5.72ms
+	share common exprs 0.329ms
+	tactic execution 1.34ms
+	tacticAnalysis 1.95ms
+	type checking 605ms
+	typeclass inference 15.1ms

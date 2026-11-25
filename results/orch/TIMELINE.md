@@ -6,3 +6,4 @@
 2026-11-25T14:04:56.890254+00:00 First20-minute replan; long SAT route continues, finite obstruction/near-witness formalization prioritized; heartbeat timer active.
 2026-11-25T14:07:56.503535+00:00 Third named partial build passed; merged20-gate witness and restricted input-NOT obstruction.
 2026-11-25T14:15:10.103323+00:0018-gate approximation and exact four-error characterization passed Lean and independent exhaustive review.
+2026-11-25T14:22:58.739396+00:00 Fifth named partial build passed; checker returnedFAULT137; first finite helper-pair chunk passed kernel check and independent51-case replay.
