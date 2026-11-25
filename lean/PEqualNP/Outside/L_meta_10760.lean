@@ -1667,4 +1667,71 @@ lemma not_fin_coloring_of_symFast {graph : List ℕ} {colors : ℕ}
     (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
   not_graphColorable_of_symFast h (graphColorable_of_fin f hproper)
 
+
+def graphTriangleCheck (graph : List ℕ) : Bool :=
+  (List.range graph.length).all fun i =>
+    (List.range graph.length).all fun j =>
+      !((graph.getD i 0).testBit j) ||
+        decide ((BitVec.ofNat graph.length (graph.getD i 0) &&&
+          BitVec.ofNat graph.length (graph.getD j 0)) = 0)
+
+lemma graphTriangleCheck_complete {graph : List ℕ} (h : graphColorable graph 2) :
+    graphTriangleCheck graph = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  apply List.all_eq_true.mpr
+  intro i hi
+  have hin := List.mem_range.mp hi
+  apply List.all_eq_true.mpr
+  intro j hj
+  have hjn := List.mem_range.mp hj
+  cases he : (graph.getD i 0).testBit j with
+  | false => simp
+  | true =>
+    have hne := hproper i hin j hjn he
+    have hzero : (BitVec.ofNat graph.length (graph.getD i 0) &&&
+        BitVec.ofNat graph.length (graph.getD j 0)) = 0 := by
+      apply BitVec.eq_of_getLsbD_eq_iff.mpr
+      intro k hk
+      have hand : ((graph.getD i 0).testBit k && (graph.getD j 0).testBit k) = false := by
+        cases hi : (graph.getD i 0).testBit k with
+        | false => simp
+        | true =>
+          cases hj : (graph.getD j 0).testBit k with
+          | false => simp
+          | true =>
+            have hni := hproper i hin k hk hi
+            have hnj := hproper j hjn k hk hj
+            have bi := hbound i hin
+            have bj := hbound j hjn
+            have bk := hbound k hk
+            omega
+      change (BitVec.ofNat graph.length (graph.getD i 0) &&&
+        BitVec.ofNat graph.length (graph.getD j 0)).getLsbD k =
+          (BitVec.ofNat graph.length 0).getLsbD k
+      simp only [BitVec.getLsbD_and, BitVec.getLsbD_ofNat, hk, decide_true,
+        Bool.true_and, hand]
+      simp
+    simp only [Bool.not_true, Bool.false_or, decide_eq_true_eq]
+    exact hzero
+
+def graphColorTriangleFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 2 then graphTriangleCheck graph && graphColorSymFast graph colors
+  else graphColorSymFast graph colors
+
+lemma graphColorTriangleFast_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorTriangleFast graph colors = true := by
+  unfold graphColorTriangleFast
+  split
+  next hc =>
+    subst colors
+    simp only [graphTriangleCheck_complete h, graphColorSymFast_complete h, Bool.and_self]
+  next hc => exact graphColorSymFast_complete h
+
+lemma not_graphColorable_of_triangleFast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorTriangleFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorTriangleFast_complete hc
+  rw [h] at hh
+  cases hh
+
 end PEqualNP.Outside.L_meta_10760
