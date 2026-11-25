@@ -158,3 +158,29 @@ The named file contains only helper declarations. It does not declare the posted
 Full-gap checker: NOT RUN; no acceptance claimed.
 Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
 TIMING total=24.2 subagents=5
+
+Checkpoint 5: 2026-11-25T14:13:16.925488+00:00
+Artifact: results/orch/lemmas/EraseFreeFalse.lean
+SHA256: 1037d3e782d97a2aed53845c7b2e653020b41301992fa683c9477f1938255b4c
+Lines: 121
+Build: lake env lean ../results/orch/lemmas/EraseFreeFalse.lean (workdir lean/), exit 0. Complete stdout/stderr: empty (erase-false-build-2.log).
+Independent review: few_not mathematical/plain-file PASS; 6804 deterministic finite sanity checks passed.
+Scope: semantic inverse transformation preserving exact NOT count; not the Petersen lower bound.
+
+Local checker diagnostic on named partial and original posted statement:
+node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_2592.lean /tmp/oec/pequalnp-pilot-96/statement.txt check
+Exit status: 3. No verdict.
+Complete checker stdout: results/orch/logs/checker-partial-001.stdout
+Complete checker stderr: results/orch/logs/checker-partial-001.stderr
+CHECKER FAULT: the verifier ended without a verdict (exit 3). Missing object: Batteries.olean. Independently, the named partial lacks the final posted theorem and is not a proof submission. No checker acceptance is claimed.
+Sub-agents: 6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=28.3 subagents=6
+
+Checkpoint 5 additional artifact: results/orch/lemmas/PetersenWitness.lean
+SHA256: c786fb6006b719019a97256409d2c21ef8666ad27858c20290f1e2f300963a44
+Lines: 60
+Build: lake env lean ../results/orch/lemmas/PetersenWitness.lean (workdir lean/), exit 0.
+Independent review: few_not checked all1024 truth assignments and the final symbolic proof; PASS.
+Scope: known20gate monotone upper bound and explicit six-vertex cover. No lower bound or new result claimed.
+Complete compiler stdout: results/orch/logs/witness-build-4.stdout
+Complete compiler stderr: results/orch/logs/witness-build-4.stderr

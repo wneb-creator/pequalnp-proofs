@@ -1,0 +1,8 @@
+../results/orch/lemmas/PetersenWitness.lean:44:46: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [witness, petersen, Circuit.eval, Circuit.wires, GateOp.eval, List.ofFn_succ, Bool.and_or_distrib_left,
+    Bool.or_assoc, Bool.or_left_comm, Bool.or_comm, Bool.and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
