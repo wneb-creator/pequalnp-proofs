@@ -1,0 +1,13 @@
+Remaining-case conceptual findings (not Lean-checked unless explicitly stated)
+
+1. If a <=19gate Petersen circuit has exactly2NOTs, the new17binary floor forces exactly17nonNOT gates and size19. The checked two-drop residual must have exactly15nonNOT gates. A thirdnonNOT deletion contradicts the checked9input15floor. If bothNOTs disappear, the residual would be monotone with15gates, excluded by checkedL8035.
+2. For1NOT and18nonNOT gates, threebinary deletions suffice only when theNOT also disappears: this yields a15gate monotone9input residual. Otherwise fourbinary deletions would contradict the9input15floor. No general extra-deletion lemma was proved.
+3. Endpoint/ReaderBridge controls two deletions but does not automatically count dead upstream gates. In the checked20gate star circuit, setting a star-center input0 removes itsAND and downstreamOR; pruning the now-unused two-gate neighbor-OR cone gives two further deletions. Sharing that neighbor-OR cone is the obstruction to generalizing this argument.
+4. Independently reviewed reduction_strategy/CompareNot.lean: PASS. Its hypotheses exactly express sourcefunction h<=F or F<=h and justify constant replacement using a monotone suffix. This does not justify replacing an arbitraryNOT by a constant.
+5. For a monotone sourceh, F<=h is equivalent to h beingtrue on all15edge assignments. h<=F is equivalent to h beingfalse on all15maximal independent assignments. The latter follows because every independent assignment extends to a maximal independent one. These characterizations are mathematically justified but not yet formalized in Lean here.
+6. Python checked that Petersen has76independent assignments and15maximal independent sets:10triples and5quadruples. Under all120automorphisms from sat_strategy, the225pairs(edge,maximalindependentset) split into5orbits. All canonicaledges are{0,1}; independentsets andorbitsizes are{1,4,5}:30,{3,5,6}:60,{2,4,5,6}:15,{1,3,7}:60,{0,3,6,7}:60. Exactdata in incomparable-orbits.json. This supplies five witness configurations for incomparable monotoneNOT sources; it is not a lower-bound proof.
+7. No merged L_meta_2590.lean file was found locally; do not silently assume the full20gate monotonePetersen lower bound is available.
+
+Paused by root after own-lease HTTP410. No active processes, no desk calls.
+
+Saved 2026-11-25T14:48:10.205732+00:00

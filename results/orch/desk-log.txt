@@ -1,0 +1,300 @@
+2026-11-25T14:00:58.833Z Assigned L-meta-2592; reconstructed structured fields from initial curl output.
+{"gap": {"id": "L-meta-2592", "file": "lean/PEqualNP/Outside/L_meta_2592.lean", "module": "PEqualNP.Outside.L_meta_2592", "statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → x1.size ≤ (19 : ℕ) → (∃ x4 ∈ x1.gates, x4.op = PEqualNP.CircuitLowerBounds.GateOp.not) → ¬∀ (x5 : Fin (10 : ℕ) → Bool), x1.eval (List.ofFn x5) = (fun (x6 : Fin (10 : ℕ) → Bool) => x6 (0 : Fin (10 : ℕ)) && x6 (1 : Fin (10 : ℕ)) || x6 (1 : Fin (10 : ℕ)) && x6 (2 : Fin (10 : ℕ)) || x6 (2 : Fin (10 : ℕ)) && x6 (3 : Fin (10 : ℕ)) || x6 (3 : Fin (10 : ℕ)) && x6 (4 : Fin (10 : ℕ)) || x6 (4 : Fin (10 : ℕ)) && x6 (0 : Fin (10 : ℕ)) || x6 (0 : Fin (10 : ℕ)) && x6 (5 : Fin (10 : ℕ)) || x6 (1 : Fin (10 : ℕ)) && x6 (6 : Fin (10 : ℕ)) || x6 (2 : Fin (10 : ℕ)) && x6 (7 : Fin (10 : ℕ)) || x6 (3 : Fin (10 : ℕ)) && x6 (8 : Fin (10 : ℕ)) || x6 (4 : Fin (10 : ℕ)) && x6 (9 : Fin (10 : ℕ)) || x6 (5 : Fin (10 : ℕ)) && x6 (7 : Fin (10 : ℕ)) || x6 (7 : Fin (10 : ℕ)) && x6 (9 : Fin (10 : ℕ)) || x6 (9 : Fin (10 : ℕ)) && x6 (6 : Fin (10 : ℕ)) || x6 (6 : Fin (10 : ℕ)) && x6 (8 : Fin (10 : ℕ)) || x6 (8 : Fin (10 : ℕ)) && x6 (5 : Fin (10 : ℕ))) x5", "imports": ["PEqualNP.Defs"], "reductions": true, "reductions_live": 3, "pr_open": 0, "sketch": "Step 2 of 2 of a checked cut of L-meta-651. Its sibling steps: L-meta-2590. No proof expected: propose a reduction. Known: circuit with 20 gates exists; a circuit with 19 gates refutes the conjecture."}, "lease": {"id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac", "expires_at": "2026-11-25T14:20:58.833Z", "terms": {"reductions_open": true, "points": 250, "issued_at": "2026-11-25T13:44:05.796Z"}}, "holding": 5, "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"}
+2026-11-25T14:04:13.078133+00:00 beat
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:24:12.305Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:00:58.833Z Complete initial assignment, reconstructed from original curl output:
+{
+  "gap": {
+    "id": "L-meta-2592",
+    "file": "lean/PEqualNP/Outside/L_meta_2592.lean",
+    "module": "PEqualNP.Outside.L_meta_2592",
+    "statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → x1.size ≤ (19 : ℕ) → (∃ x4 ∈ x1.gates, x4.op = PEqualNP.CircuitLowerBounds.GateOp.not) → ¬∀ (x5 : Fin (10 : ℕ) → Bool), x1.eval (List.ofFn x5) = (fun (x6 : Fin (10 : ℕ) → Bool) => x6 (0 : Fin (10 : ℕ)) && x6 (1 : Fin (10 : ℕ)) || x6 (1 : Fin (10 : ℕ)) && x6 (2 : Fin (10 : ℕ)) || x6 (2 : Fin (10 : ℕ)) && x6 (3 : Fin (10 : ℕ)) || x6 (3 : Fin (10 : ℕ)) && x6 (4 : Fin (10 : ℕ)) || x6 (4 : Fin (10 : ℕ)) && x6 (0 : Fin (10 : ℕ)) || x6 (0 : Fin (10 : ℕ)) && x6 (5 : Fin (10 : ℕ)) || x6 (1 : Fin (10 : ℕ)) && x6 (6 : Fin (10 : ℕ)) || x6 (2 : Fin (10 : ℕ)) && x6 (7 : Fin (10 : ℕ)) || x6 (3 : Fin (10 : ℕ)) && x6 (8 : Fin (10 : ℕ)) || x6 (4 : Fin (10 : ℕ)) && x6 (9 : Fin (10 : ℕ)) || x6 (5 : Fin (10 : ℕ)) && x6 (7 : Fin (10 : ℕ)) || x6 (7 : Fin (10 : ℕ)) && x6 (9 : Fin (10 : ℕ)) || x6 (9 : Fin (10 : ℕ)) && x6 (6 : Fin (10 : ℕ)) || x6 (6 : Fin (10 : ℕ)) && x6 (8 : Fin (10 : ℕ)) || x6 (8 : Fin (10 : ℕ)) && x6 (5 : Fin (10 : ℕ))) x5",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "reductions": true,
+    "reductions_live": 3,
+    "pr_open": 0,
+    "sketch": "Step 2 of 2 of a checked cut of L-meta-651. Its sibling steps: L-meta-2590. Together they give the parent; the parent's own sketch: no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). Hard and open; a conjecture, it may be false. A circuit with 19 gates refutes it and is as welcome as a proof. Known: a circuit with 20 gates exists. In-house reach (computed, not checked): split by the first gate up to the automorphisms of the graph into five cases; each case was run for ten minutes and none was decided; no circuit with 19 gates was found. ",
+    "title": "A step toward: Petersen graph: no circuit of AND, OR (fan-in two) and NOT gates with at most 19 gates computes its edge function (step 2 of 2)",
+    "unlocks": "With its 1 sibling(s) it proves a posted step.",
+    "context": "A hypothesis of a checked reduction, as Lean printed it.",
+    "dead": [],
+    "weight": 50,
+    "parallel": 10,
+    "lane": "main",
+    "depth": 1,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-651"
+    ],
+    "level": "hard"
+  },
+  "lease": {
+    "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+    "expires_at": "2026-11-25T14:20:58.833Z",
+    "terms": {
+      "reductions_open": true,
+      "points": 250,
+      "issued_at": "2026-11-25T13:44:05.796Z",
+      "kind": "prove",
+      "level": "hard"
+    },
+    "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+    "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+    "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+  },
+  "holding": 5,
+  "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}
+2026-11-25T14:05:57.807607+00:00 beat before Defs build
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:25:57.133Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:08:38.576189+00:00 beat before named partial build
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:28:37.597Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:11:34.599421+00:00 beat before extended SAT search
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:31:33.994Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:13:20.303851+00:00 beat during extended build/checker setup
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:33:19.862Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:14:35.600319+00:00 beat before full-table SAT search
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:34:34.851Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:17:05.796565+00:00 beat before restored-cache named build
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:37:05.056Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:22:12.891575+00:00 scheduled beat during SAT searches
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:42:12.418Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:24:11.586766+00:00 beat before integrated lower-bound partial build
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:44:10.713Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:26:29.996544+00:00 beat before local checker
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:46:29.611Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:29:02.673522+00:00 beat before next bounded SAT run
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:49:02.218Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:33:00.704583+00:00 beat before fourth preservation push
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:53:00.180Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:37:09.503999+00:00 beat before stronger full-table SAT run
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:57:08.313Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:46:51.918032+00:00 beat before fifth push and focused construction search
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+

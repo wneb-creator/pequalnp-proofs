@@ -1,0 +1,18 @@
+{
+  "SatCofactor.lean": {
+    "sha256": "b6a98a9dd5a1483a64966d8a05d524c548469e9188a53acf835033789413daba",
+    "exit_code": 0,
+    "lines": 145,
+    "compiler_log": "cofactor-lean.log",
+    "checked_by": "pinned Lean4.36.0 via lake env lean",
+    "recorded_at": "2026-11-25T14:37:57.305031+00:00"
+  },
+  "SatSymmetry.lean": {
+    "sha256": "39f73ee4e0d8e87fb9a95fc3d52543f826667a0a806e8343991d5437787301f3",
+    "exit_code": 0,
+    "lines": 147,
+    "compiler_log": "symmetry-lean.log",
+    "checked_by": "pinned Lean4.36.0 via lake env lean",
+    "recorded_at": "2026-11-25T14:37:57.305205+00:00"
+  }
+}

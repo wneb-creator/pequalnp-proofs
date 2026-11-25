@@ -69,6 +69,27 @@ lemma sat_edge_avoids :
       satEdgeFunction (fun j => decide (j = u ∨ j = v)) = true := by
   decide
 
+lemma sat_nonconstant :
+    ∃ x y : Fin 10 → Bool, satEdgeFunction x ≠ satEdgeFunction y := by
+  refine ⟨(fun _ => false), (fun j => decide (j = 0 ∨ j = 1)), ?_⟩
+  decide
+
+lemma sat_not_signed_input (u : Fin 10) (b : Bool) :
+    ¬ (∀ x : Fin 10 → Bool, satEdgeFunction x = if b then !(x u) else x u) := by
+  intro computes
+  cases b with
+  | false =>
+    obtain ⟨a, c, zero, one⟩ := sat_edge_avoids u
+    have value := computes (fun j => decide (j = a ∨ j = c))
+    change satEdgeFunction (fun j => decide (j = a ∨ j = c)) =
+      (fun j : Fin 10 => decide (j = a ∨ j = c)) u at value
+    rw [one, zero] at value
+    cases value
+  | true =>
+    have value := computes (fun _ => false)
+    change false = true at value
+    cases value
+
 lemma sat_output_bounds (C : Circuit)
     (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = satEdgeFunction x) :
     10 ≤ C.output ∧ C.output < 10 + C.size := by
@@ -92,5 +113,33 @@ lemma sat_output_bounds (C : Circuit)
       omega
     have bad : false = true := value.symm.trans ((computes x).trans target)
     cases bad
+
+lemma sat_gate_count_partition (C : Circuit) (fan : PEqualNP.MetaComplexity.FanInTwo C) :
+    C.size = C.gates.countP (fun g => !g.op.eval [false]) + PEqualNP.NotBracket.notCount C := by
+  let _ : DecidableEq GateOp := lineDegreeGateOpDecEq
+  let isNot : Gate → Bool := fun g => decide (g.op = GateOp.not)
+  have negSame : (fun g : Gate => decide (¬ isNot g = true)) = (fun g => !isNot g) := by
+    funext g
+    cases isNot g <;> rfl
+  have eqCount : C.gates.countP (fun g => !isNot g) =
+      C.gates.countP (fun g => !g.op.eval [false]) := by
+    apply List.countP_congr
+    intro g hg
+    obtain ⟨op, ins⟩ := g
+    have hop := (fan _ hg).1
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+    rcases hop with (h | h | h) <;> change op = _ at h <;> subst op <;> rfl
+  have eqNot : C.gates.countP isNot = PEqualNP.NotBracket.notCount C := by
+    rw [List.countP_eq_length_filter]
+    rfl
+  have count := List.length_eq_countP_add_countP isNot (l := C.gates)
+  rw [negSame, eqCount, eqNot] at count
+  simpa only [Circuit.size, Nat.add_comm] using count
+
+lemma sat_not_bound (C : Circuit) (fan : PEqualNP.MetaComplexity.FanInTwo C)
+    (k : ℕ) (floor : k ≤ C.gates.countP (fun g => !g.op.eval [false])) :
+    k + PEqualNP.NotBracket.notCount C ≤ C.size := by
+  rw [sat_gate_count_partition C fan]
+  omega
 
 end PEqualNP.Outside.L_meta_2592_aux

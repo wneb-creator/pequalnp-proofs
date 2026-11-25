@@ -1,0 +1,58 @@
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:122:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:122:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:128:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:128:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:238:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:240:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:242:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:238:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:240:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:242:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:261:10: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [opCount_cons, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:261:13: warning: This simp argument is unused:
+  opCount_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:552:43: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [nonNotCount, List.countP_append, hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/counterexample/ResidualRenaming.lean:856:37: warning: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroStats, hi, Stat.val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

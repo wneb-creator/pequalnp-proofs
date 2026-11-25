@@ -1,0 +1,47 @@
+
+namespace PEqualNP.Outside.Pilot110Residual
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.Pilot110TwoDrop.CircuitProof
+open PEqualNP.Outside.Pilot110TwoDrop.Restrict
+open PEqualNP.Outside.Pilot110SymmetryDeletion
+
+lemma residual_rename (D : Circuit) (hfan : FanInTwo D) (u : Fin 10)
+    (hcompute : ∀ x : Fin 10 → Bool,
+      D.eval (List.ofFn x) = petersenFunction (Function.update x u false)) :
+    ∃ E : Circuit, FanInTwo E ∧ nonNotCount E.gates ≤ nonNotCount D.gates ∧
+      ∀ y : Fin 9 → Bool, E.eval (List.ofFn y) = petersenFunction (Fin.lastCases false y) := by
+  obtain ⟨e, helast, hinv⟩ := exists_last_equiv u
+  let s0 : Fin 10 → Stat := fun i =>
+    Fin.lastCases (Sum.inl false) (fun j : Fin 9 => Sum.inr j.val) (e.symm i)
+  have valid : ∀ i, Stat.Valid 9 (s0 i) := by
+    intro i
+    change Stat.Valid 9
+      (Fin.lastCases (Sum.inl false) (fun j : Fin 9 => Sum.inr j.val) (e.symm i))
+    refine Fin.lastCases ?_ (fun j => ?_) (e.symm i)
+    · simp only [Fin.lastCases_last, Stat.Valid]
+    · simpa only [Fin.lastCases_castSucc, Stat.Valid] using j.isLt
+  have values (y : Fin 9 → Bool) :
+      (fun i => Stat.val (List.ofFn y) (s0 i)) =
+      (fun i => Fin.lastCases false y (e.symm i)) := by
+    funext i
+    change Stat.val (List.ofFn y)
+      (Fin.lastCases (Sum.inl false) (fun j : Fin 9 => Sum.inr j.val) (e.symm i)) =
+        Fin.lastCases false y (e.symm i)
+    refine Fin.lastCases ?_ (fun j => ?_) (e.symm i)
+    · simp only [Fin.lastCases_last, Stat.val]
+    · simpa only [Fin.lastCases_castSucc, Stat.val] using getD_ofFn 9 y false j
+  have computes : ∀ y : Fin 9 → Bool,
+      D.eval (List.ofFn fun i => Stat.val (List.ofFn y) (s0 i)) =
+        petersenFunction (Fin.lastCases false y) := by
+    intro y
+    rw [values y, hcompute]
+    exact (rename_last_update petersenFunction u e helast hinv y).2
+  have nonconstant : ∃ y y' : Fin 9 → Bool,
+      petersenFunction (Fin.lastCases false y) ≠
+        petersenFunction (Fin.lastCases false y') := by
+    exact ⟨fun _ => false, fun _ => true, by decide⟩
+  exact restrict_core D hfan s0 valid
+    (fun y => petersenFunction (Fin.lastCases false y)) computes nonconstant
+
+end PEqualNP.Outside.Pilot110Residual

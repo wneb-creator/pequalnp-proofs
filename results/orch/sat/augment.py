@@ -9,6 +9,7 @@ p.add_argument('output')
 p.add_argument('--n', type=int, default=10)
 p.add_argument('--s', type=int, default=19)
 p.add_argument('--max-not', type=int, default=4)
+p.add_argument('--binary-floor', type=int, default=15)
 p.add_argument('--not-or-pad', action='store_true')
 p.add_argument('--exact-not', type=int)
 p.add_argument('--first-not', action='store_true')
@@ -50,10 +51,12 @@ if args.petersen_first:
         cs.append(escape+[ix(2,j,k) for k in (0,1,2)])
 if args.petersen_read_bounds:
     assert n == 10 and s == 19
-    for pad_count in range(1,5):
-        for comb in itertools.combinations(range(s), 5-pad_count):
+    budget = s - args.binary_floor
+    assert 0 <= budget < s
+    for pad_count in range(1,budget+1):
+        for comb in itertools.combinations(range(s), budget+1-pad_count):
             cs.append([-ix(7,pad_count-1,0)]+[-ix(0,j,3) for j in comb])
-    cs.append([-ix(7,4,0)])
+    cs.append([-ix(7,budget,0)])
     for j in range(s):
         first_escape = [ix(7,j,0)] + ([-ix(7,j-1,0)] if j else [])
         for b in (1,2):

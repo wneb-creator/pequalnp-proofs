@@ -1,7 +1,7 @@
 {
   "augment.py": {
-    "sha256": "05e9dadc6cc0b63a385339431392bb8f4a76362fd464c2bc3e85ff60020099af",
-    "bytes": 4102,
+    "sha256": "376593444f6f7a77b2039ddf2915e1a0bfb53bf9681b87eac8c1d726e835e3d2",
+    "bytes": 4238,
     "stored": "augment.py"
   },
   "decode.py": {
@@ -93,5 +93,63 @@
     "sha256": "5bc6b267c3d937134b59b525bc6c753e2ee4509693a52d2abc917133757cc263",
     "bytes": 7957163,
     "stored": "petersen19-82rows-not4-pad-sym-read.cnf.gz"
+  },
+  "solve-full-not4-pad-inc-sym-1200.log": {
+    "sha256": "97676f438e503f74d2413db8a05e5832d2938c415a6af4d59033829c9d95156a",
+    "bytes": 41884,
+    "stored": "solve-full-not4-pad-inc-sym-1200.log"
+  },
+  "petersen19-full-not3-pad-inc-sym-read.cnf": {
+    "sha256": "d89bfff0d7ee6bb7c59833c3301d917cff0563fb7cd5298a1bd4b0724be23c32",
+    "bytes": 34361346,
+    "stored": "petersen19-full-not3-pad-inc-sym-read.cnf.gz"
+  },
+  "solve-82-not4-pad-sym-read-600.log": {
+    "sha256": "a86d07df5d5316e5d4efab97a233126e5ccfc273f19b7373f9214fa42be36768",
+    "bytes": 80138,
+    "stored": "solve-82-not4-pad-sym-read-600.log",
+    "snapshot": "complete"
+  },
+  "solve-full-not3-pad-inc-sym-read-1200.log": {
+    "sha256": "d517e63390b48e2d94351a340612d3208667935e7a8067c54f203b32645be106",
+    "bytes": 29550,
+    "stored": "solve-full-not3-pad-inc-sym-read-paused.log",
+    "snapshot": "paused after lease HTTP410"
+  },
+  "paused-pids.json": {
+    "sha256": "0826029b36fdcbed4d8aa3223f9df6c35ba276b0feb40630cad42118ef14449b",
+    "bytes": 8,
+    "stored": "paused-pids.json",
+    "snapshot": "complete"
+  },
+  "deletion9-dependent-rows.json": {
+    "sha256": "cfdc4a7ee608fdff1993031c97f2559ef3ec568899f38ca11e52ebe068e18fde",
+    "bytes": 2543,
+    "stored": "deletion9-dependent-rows.json",
+    "snapshot": "complete"
+  },
+  "deletion9-free-or15.cnf": {
+    "sha256": "2096d36e83c87b5fd8f75700bf31afd3c9510dd4e937775c45e347bd1b3a3f6e",
+    "bytes": 11688326,
+    "stored": "deletion9-free-or15.cnf.gz",
+    "snapshot": "complete"
+  },
+  "deletion9-free-or15-one-not-inc.cnf": {
+    "sha256": "34b0669183d4eebafb72ec815c11b2638b399c7181bdbc519c4ea3808b80dbc0",
+    "bytes": 12491363,
+    "stored": "deletion9-free-or15-one-not-inc.cnf.gz",
+    "snapshot": "complete"
+  },
+  "encode-deletion9.log": {
+    "sha256": "1a0b774d8c0dd825dda6f0a9e9305cfb01e40ec6fdc777d0373985f2047ceb1f",
+    "bytes": 2575,
+    "stored": "encode-deletion9.log",
+    "snapshot": "complete"
+  },
+  "augment-deletion9.log": {
+    "sha256": "f677e75d21275fc25191551c8e4ae955afbad87a6fb9970b2f23046470487fc2",
+    "bytes": 39,
+    "stored": "augment-deletion9.log",
+    "snapshot": "complete"
   }
 }

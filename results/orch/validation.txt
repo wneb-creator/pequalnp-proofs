@@ -29,3 +29,12 @@ TwoDropChecked source SHA256:55348d2b8934430897f2c6542b4d4f4c04693aea5172e30030f
 The two-drop lemma saves at least two non-NOT gates under explicit hypotheses; signed-prefix lemmas supply part of those hypotheses. Full Petersen floor16 and the posted target remain unproved.
 Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
 TIMING total=33 subagents=6
+
+Emergency preservation after HTTP410 at14:46:51UTC, before previously advertised14:57:08 expiry. Proof/SAT work is paused.
+Named590-line partial remains the last successful lake build; exact target theorem absent.
+New reviewed checked snapshots: PetersenTwoDropChecked, FirstBinary, ResidualRenaming, PetersenSymmetryDeletion.
+InputNotReaders and CompareNot compiled; CompareNot independently reviewed by counterexample agent.
+Floor17.lean is PENDING full kernel compilation; do not claim its17-floor theorem checked. Its new glue compiled separately and full source was independently reviewed, but active compiler PID41803 is suspended.
+Other working Lean files under results/orch are preserved as drafts unless their specific successful log/status says otherwise.
+Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
+TIMING total=48 subagents=6

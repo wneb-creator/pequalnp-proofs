@@ -1,0 +1,6 @@
+Floor17 full Lean check is incomplete. Compiler suspended by root instruction after lease renewal HTTP410.
+PID: 41803
+Exec session: 14302
+Source SHA256: 6ee36ba9225cd8cd533ebc13eaa88b4898fc4a155da248dd417a41fe6e0abfbe
+All new composition glue compiled separately in Floor17Glue.lean (exit0); full copied certificate kernel check was still running.
+Do not describe Floor17 as fully compiled until resumed process exits0.

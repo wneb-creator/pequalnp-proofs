@@ -18,3 +18,8 @@
 - 2026-11-25T14:28:53.260258+00:00: SAT strategy has checked finite cofactor/output bounds and pair-orbit symmetry; 82-row strengthened heuristic ended UNKNOWN at600s, full1024-row run continues.
 - 2026-11-25T14:32:49.051151+00:00: checked signed NOT-prefix and minimal first-binary classification; passed components to proof_strategy for two-drop composition.
 - 2026-11-25T14:33:15.557734+00:00: Preserving reviewed two-drop and signed-first-gate normalization components; assembling the proposed floor16 remains ongoing.
+- 2026-11-25T14:39:04.860566+00:00: symmetry and residual-renumbering bridge checked,32.548s,3,285,840KiBpeak; delivered to proof_strategy for17floor assembly.
+- 2026-11-25T14:39:09.200570+00:00: Pivoted from already-known16 floor to17 using independently audited deletion15 bound; arbitrary-vertex residual renaming now checked.
+- 2026-11-25T14:48:10.205732+00:00: counterexample agent stopped proof work on rootHTTP410 notice; preserved finalfinite orbit data and conceptual notes.
+- 2026-11-25T14:48:52.660458+00:00: SAT PID41316 paused after root reported lease HTTP410; no new search started. Current logs and focused construction encodings preserved.
+- 2026-11-25T14:49:11.182883+00:00: Desk returnedHTTP410; diagnostic repeated once withcurl-si. All active proof/SAT work paused, preparing preservation before same-gap re-request per user instruction.

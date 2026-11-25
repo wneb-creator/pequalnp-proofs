@@ -1,0 +1,9 @@
+Checked source: ResidualRenaming.lean
+Includes unchanged TwoDropChecked infrastructure, exact PetersenSymmetryDeletion.lean, and exact ResidualBridgeFragment.txt.
+Command: lake env lean ../results/orch/lemmas/counterexample/ResidualRenaming.lean
+exit=0
+elapsed_seconds=32.548
+max_rss_kib=3285840
+Diagnostics: existing infrastructure linter warnings only; no errors.
+No arbitrary Boolean-function enumeration used in new symmetry or residual proofs.
+Checked at 2026-11-25T14:39:04.860566+00:00
