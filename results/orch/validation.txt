@@ -31,3 +31,6 @@ IncidencePruning.lean: Lean exit0; independent review passed. Alias exclusion an
 
 IncidenceCriticalRows.lean: Lean exit0; independent review passed; positive pairs and negative completions suffice for monotone function equality.
 IncidenceOrSplice.lean: Lean exit0; independent review passed; single-use OR input semantic transfer. Neither proves full2583.
+
+IncidenceClosedRows, IncidenceMaximalRows, IncidenceSoleOr, IncidenceDirtyFilters, IncidenceAndEquality, IncidenceAndLedger: all compiled with exit0 and passed independent source review. Each is a standalone checked partial; overlapping helper snapshots must not be combined verbatim.
+The AND-count ledger still needs the individual-gate-value-preserving AO2 compression bridge for direct circuit application. Full2583 remains unproved; reduction submission disabled by desk.

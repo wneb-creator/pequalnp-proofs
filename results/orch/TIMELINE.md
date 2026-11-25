@@ -21,3 +21,9 @@
 2026-11-25T14:52:09.633727+00:00 critical-row completeness compiled; closed-pointset extension in separate scratch file.
 
 2026-11-25T14:52:55.966602+00:00 Critical-row completeness and OR input transfer compiled and independently reviewed.
+
+- 2026-11-25 14:55:04 UTC: restriction route completed closed-point-set critical-row completeness; Lean exit 0. Frozen standalone snapshot `IncidenceClosedRows.lean` prepared for independent review.
+
+- 2026-11-25 14:57:58 UTC: restriction route checked maximal-negative-input characterization and exact generator condition in Lean.
+
+2026-11-25T15:00:35.572730+00:00 Replanned after about20minutes on2583: stopped impossibleFano26search and bareAND-count equality route; focused exactSAT on5/6-lineblocks, checked weightedfalse-row ledger, and plane-specific OR/dirty-filter structure. Sixmorecomponents compiled/reviewed.
