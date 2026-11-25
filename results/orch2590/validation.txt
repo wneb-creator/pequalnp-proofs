@@ -1,0 +1,5 @@
+PARTIAL ONLY. No proof/refutation of L-meta-2590.
+MonoDropChecked.lean1178lines compiledexit0clean, SHA324ea8f31b4430f9b924ed1f80f2ef2246effde23fae2d9db6a7abb601e9a74d. Independentreview APPROVED. Preservesmonotonicitythroughconditionalgateelimination; noPetersenlowerboundyet.
+Full localchecker knownunavailable: fullMathlibdoesnotfit; prioractualrunexit3Batteries.oleanmissing.
+Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
+TIMING total=74 subagents=6
