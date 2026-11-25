@@ -127,3 +127,34 @@ Compiler stderr (complete):
 Scope: normalization and identity-padding only. The absence of a normalized19gate Petersen circuit is still unproved. Full-gap checker NOT RUN.
 Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
 TIMING total=21.7 subagents=5
+
+Checkpoint 4: 2026-11-25T14:09:10.030984+00:00
+
+Artifact: lean/PEqualNP/Outside/L_meta_2592.lean
+SHA256: 55685412d8a4d5cc74821ef681eabff8db42c8605ecc2e73595be78fe419a22c
+Lines: 651
+Build: lake build PEqualNP.Outside.L_meta_2592 (workdir lean/), exit 0.
+Independent review: status_1035 mathematical/plain-file review; root source/scope inspection.
+Complete compiler stdout: results/orch/logs/named-partial-build-001.stdout
+Complete compiler stderr: results/orch/logs/named-partial-build-001.stderr
+
+Artifact: results/orch/lemmas/OperandSort.lean
+SHA256: 9eb7c84342fdc83bc16058eeb891930a51d29da194c269eb2eb6b8d439f4f97e
+Lines: 148
+Build: lake env lean ../results/orch/lemmas/OperandSort.lean (workdir lean/), exit 0.
+Independent review: status_1035 mathematical/plain-file review; root source/scope inspection.
+Complete compiler stdout: results/orch/logs/operand-sort-002.stdout
+Complete compiler stderr: results/orch/logs/operand-sort-002.stderr
+
+Artifact: results/orch/lemmas/SatNormalizeExact.lean
+SHA256: 33e220e394c22bd8370f7c02789435be722e8c2ef39c6f45ef2585690e290a09
+Lines: 621
+Build: lake env lean ../results/orch/lemmas/SatNormalizeExact.lean (workdir lean/), exit 0.
+Independent review: status_1035 mathematical/plain-file review; root source/scope inspection.
+Complete compiler stdout: results/orch/logs/sat-normal-exact-002.stdout
+Complete compiler stderr: results/orch/logs/sat-normal-exact-002.stderr
+
+The named file contains only helper declarations. It does not declare the posted theorem PEqualNP.Outside.L_meta_2592, and is not eligible for a proof PR. petersenCanonical19 proves semantic normalization, not the final lower bound.
+Full-gap checker: NOT RUN; no acceptance claimed.
+Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
+TIMING total=24.2 subagents=5

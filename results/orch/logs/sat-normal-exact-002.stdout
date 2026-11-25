@@ -1,0 +1,30 @@
+../results/orch/lemmas/SatNormalizeExact.lean:96:203: warning: This simp argument is unused:
+  Bool.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.or_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/SatNormalizeExact.lean:96:218: warning: This simp argument is unused:
+  Bool.or_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/SatNormalizeExact.lean:197:10: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/SatNormalizeExact.lean:474:24: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Circuit.size, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
