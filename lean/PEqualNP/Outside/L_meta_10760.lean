@@ -6542,4 +6542,263 @@ lemma graph_colorable_of_live {goal g : BitVec width} {k : Nat}
 
 end PNGraphBridge
 
+
+namespace PNMemo
+
+abbrev State := Nat × Nat × Nat
+abbrev Key := Nat × State
+def keyCompare : Key → Key → Ordering :=
+  compareLex (compareOn (fun s => s.1))
+    (compareLex (compareOn (fun s => s.2.1))
+      (compareLex (compareOn (fun s => s.2.2.1)) (compareOn (fun s => s.2.2.2))))
+
+lemma keyCompare_trans : Std.TransCmp keyCompare := by
+  unfold keyCompare
+  infer_instance
+
+lemma keyCompare_eq {a b : Key} (h : keyCompare a b = .eq) : a = b := by
+  simp only [keyCompare, compareLex_eq_eq, compareOn] at h
+  exact Prod.ext (Std.LawfulEqCmp.eq_of_compare h.1)
+    (Prod.ext (Std.LawfulEqCmp.eq_of_compare h.2.1)
+      (Prod.ext (Std.LawfulEqCmp.eq_of_compare h.2.2.1)
+        (Std.LawfulEqCmp.eq_of_compare h.2.2.2)))
+
+abbrev TreeCache := Std.TreeSet.Raw Key keyCompare
+
+def key (k : Nat) (s : State) : Key := (k, s)
+
+lemma key_inj {k j : Nat} {s t : State} (h : key k s = key j t) : k = j ∧ s = t :=
+  Prod.mk.inj h
+
+lemma empty_wf : (∅ : TreeCache).WF :=
+  ⟨⟨⟨(∅ : Std.TreeSet Key keyCompare).inner.inner.wf⟩⟩⟩
+
+lemma insert_wf {t : TreeCache} (h : t.WF) (a : Key) : (t.insert a).WF :=
+  ⟨⟨⟨@Std.DTreeMap.Internal.Impl.WF.insertIfNew! Key (fun _ => Unit)
+    ⟨keyCompare⟩ keyCompare_trans a () t.inner.inner.inner h.out.out.out⟩⟩⟩
+
+lemma contains_insert {t : TreeCache} (h : t.WF) (a b : Key) :
+    (t.insert a).contains b = (keyCompare a b == .eq || t.contains b) := by
+  exact @Std.DTreeMap.Internal.Impl.contains_insertIfNew! Key (fun _ => Unit)
+    ⟨keyCompare⟩ t.inner.inner.inner keyCompare_trans h.out.out.out a b ()
+
+def treeHit (k : Nat) (s : State) (cache : TreeCache) : Bool := cache.contains (key k s)
+def treePut (k : Nat) (s : State) (cache : TreeCache) : TreeCache := cache.insert (key k s)
+
+def TreeGood (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (cache : TreeCache) : Prop :=
+  cache.WF ∧ ∀ k s, treeHit k s cache = true → MemoPruned.plain admissible done children k s = false
+
+lemma tree_good_empty (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) : TreeGood admissible done children ∅ := by
+  refine ⟨empty_wf, ?_⟩
+  intro k s h
+  change false = true at h
+  contradiction
+
+lemma tree_put_good {admissible : Nat → State → Bool} {done : State → Bool}
+    {children : Nat → State → List State} (k : Nat) (s : State) (cache : TreeCache)
+    (hc : TreeGood admissible done children cache)
+    (h : MemoPruned.plain admissible done children k s = false) :
+    TreeGood admissible done children (treePut k s cache) := by
+  refine ⟨insert_wf hc.1 _, ?_⟩
+  intro j t hh
+  simp only [treeHit, treePut, contains_insert hc.1, Bool.or_eq_true] at hh
+  rcases hh with he | hold
+  · have heq : key k s = key j t := keyCompare_eq (beq_iff_eq.mp he)
+    obtain ⟨rfl,rfl⟩ := key_inj heq
+    exact h
+  · exact hc.2 j t hold
+
+def treeHitFrom (threshold k : Nat) (s : State) (cache : TreeCache) : Bool :=
+  decide (threshold ≤ k) && treeHit k s cache
+
+def treePutFrom (threshold k : Nat) (s : State) (cache : TreeCache) : TreeCache :=
+  if threshold ≤ k then treePut k s cache else cache
+
+lemma tree_hitFrom_sound {admissible : Nat → State → Bool} {done : State → Bool}
+    {children : Nat → State → List State} (threshold k : Nat) (s : State) (cache : TreeCache)
+    (hc : TreeGood admissible done children cache) (h : treeHitFrom threshold k s cache = true) :
+    MemoPruned.plain admissible done children k s = false := by
+  simp only [treeHitFrom, Bool.and_eq_true] at h
+  exact hc.2 k s h.2
+
+lemma tree_putFrom_good {admissible : Nat → State → Bool} {done : State → Bool}
+    {children : Nat → State → List State} (threshold k : Nat) (s : State) (cache : TreeCache)
+    (hc : TreeGood admissible done children cache)
+    (h : MemoPruned.plain admissible done children k s = false) :
+    TreeGood admissible done children (treePutFrom threshold k s cache) := by
+  unfold treePutFrom
+  split_ifs
+  · exact tree_put_good k s cache hc h
+  · exact hc
+
+def runFrom (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (s : State) : Bool :=
+  (MemoPruned.search (treeHitFrom threshold) (treePutFrom threshold)
+    admissible done children k s ∅).1
+
+lemma runFrom_correct (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (s : State) :
+    runFrom threshold admissible done children k s = MemoPruned.plain admissible done children k s := by
+  exact MemoPruned.search_run (treeHitFrom threshold) (treePutFrom threshold)
+    admissible done children (TreeGood admissible done children)
+    (fun j t cache hc hh => tree_hitFrom_sound threshold j t cache hc hh)
+    (fun j t cache hc hh => tree_putFrom_good threshold j t cache hc hh)
+    k s ∅ (tree_good_empty admissible done children)
+
+lemma runFrom_reject (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (admissible_complete : ∀ k s, Sol k s → admissible k s = true)
+    (base : ∀ s, Sol 0 s → done s = true)
+    (step : ∀ k s, Sol (k+1) s → done s = true ∨ ∃ t ∈ children k s, Sol k t)
+    (k : Nat) (s : State) (h : runFrom threshold admissible done children k s = false) :
+    ¬Sol k s := by
+  intro hs
+  have ht := MemoPruned.plain_complete admissible done children Sol admissible_complete base step k s hs
+  rw [← runFrom_correct threshold, h] at ht
+  contradiction
+
+def runBatchFrom (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (starts : List State) : Bool :=
+  (MemoPruned.scan (MemoPruned.search (treeHitFrom threshold) (treePutFrom threshold)
+    admissible done children k) starts ∅).1
+
+lemma runBatchFrom_correct (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (starts : List State) :
+    runBatchFrom threshold admissible done children k starts =
+      starts.any (MemoPruned.plain admissible done children k) := by
+  exact (MemoPruned.scan_correct (TreeGood admissible done children)
+    (MemoPruned.plain admissible done children k)
+    (MemoPruned.search (treeHitFrom threshold) (treePutFrom threshold) admissible done children k)
+    (fun s cache hc => MemoPruned.search_correct (treeHitFrom threshold) (treePutFrom threshold)
+      admissible done children (TreeGood admissible done children)
+      (fun j t c hgood hhit => tree_hitFrom_sound threshold j t c hgood hhit)
+      (fun j t c hgood hfalse => tree_putFrom_good threshold j t c hgood hfalse)
+      k s cache hc)
+    starts ∅ (tree_good_empty admissible done children)).1
+
+lemma runBatchFrom_reject (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (admissible_complete : ∀ k s, Sol k s → admissible k s = true)
+    (base : ∀ s, Sol 0 s → done s = true)
+    (step : ∀ k s, Sol (k+1) s → done s = true ∨ ∃ t ∈ children k s, Sol k t)
+    (k : Nat) (starts : List State)
+    (h : runBatchFrom threshold admissible done children k starts = false)
+    {s : State} (hs : s ∈ starts) : ¬Sol k s := by
+  intro hr
+  have hp := MemoPruned.plain_complete admissible done children Sol admissible_complete base step k s hr
+  have ha : starts.any (MemoPruned.plain admissible done children k) = true :=
+    List.any_eq_true.mpr ⟨s,hs,hp⟩
+  rw [← runBatchFrom_correct threshold, h] at ha
+  contradiction
+
+end PNMemo
+
+namespace MemoPruned
+
+variable {α κ : Type}
+
+def searchGuardFirst (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) :
+    Nat → α → κ → Bool × κ
+  | 0, x, cache =>
+    if !admissible 0 x then (false, cache)
+    else if hit 0 x cache then (false, cache)
+    else if done x then (true, cache)
+    else (false, put 0 x cache)
+  | k+1, x, cache =>
+    if !admissible (k+1) x then (false, cache)
+    else if hit (k+1) x cache then (false, cache)
+    else if done x then (true, cache)
+    else match scan (searchGuardFirst hit put admissible done children k) (children k x) cache with
+    | (true, cache') => (true, cache')
+    | (false, cache') => (false, put (k+1) x cache')
+
+lemma searchGuardFirst_eq_search (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α)
+    (k : Nat) (x : α) (cache : κ) :
+    searchGuardFirst hit put admissible done children k x cache =
+      search hit put admissible done children k x cache := by
+  induction k generalizing x cache with
+  | zero =>
+    cases ha : admissible 0 x <;> cases hh : hit 0 x cache <;>
+      simp [searchGuardFirst, search, ha, hh]
+  | succ k ih =>
+    have hnext : searchGuardFirst hit put admissible done children k =
+        search hit put admissible done children k := by
+      funext y c
+      exact ih y c
+    cases ha : admissible (k+1) x <;> cases hh : hit (k+1) x cache <;>
+      simp only [searchGuardFirst, search, hnext, ha, hh, Bool.not_false, Bool.not_true,
+        Bool.false_eq_true, ite_true, ite_false] <;> rfl
+
+variable {width : Nat}
+
+def runFromGuardFirst (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (ws : States width) : Bool :=
+  (searchGuardFirst (treeHitFrom threshold) (treePutFrom threshold)
+    admissible done children k ws ∅).1
+
+lemma runFromGuardFirst_eq (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (ws : States width) :
+    runFromGuardFirst threshold admissible done children k ws =
+      runFrom threshold admissible done children k ws := by
+  simp only [runFromGuardFirst, runFrom, searchGuardFirst_eq_search]
+
+lemma runFromGuardFirst_correct (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (ws : States width) :
+    runFromGuardFirst threshold admissible done children k ws =
+      plain admissible done children k ws := by
+  rw [runFromGuardFirst_eq, runFrom_correct]
+
+lemma runFromGuardFirst_reject (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (Sol : Nat → States width → Prop)
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (ws : States width)
+    (rejected : runFromGuardFirst threshold admissible done children k ws = false) :
+    ¬ Sol k ws := by
+  intro hs
+  have found := plain_complete admissible done children Sol admissible_complete base step k ws hs
+  rw [← runFromGuardFirst_correct threshold, rejected] at found
+  contradiction
+
+end MemoPruned
+
+namespace PNMemo
+
+def runFromGuardFirst (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (s : State) : Bool :=
+  (MemoPruned.searchGuardFirst (treeHitFrom threshold) (treePutFrom threshold)
+    admissible done children k s ∅).1
+
+lemma runFromGuardFirst_eq (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (s : State) :
+    runFromGuardFirst threshold admissible done children k s =
+      runFrom threshold admissible done children k s := by
+  simp only [runFromGuardFirst, runFrom, MemoPruned.searchGuardFirst_eq_search]
+
+lemma runFromGuardFirst_correct (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (k : Nat) (s : State) :
+    runFromGuardFirst threshold admissible done children k s = MemoPruned.plain admissible done children k s := by
+  rw [runFromGuardFirst_eq, runFrom_correct]
+
+lemma runFromGuardFirst_reject (threshold : Nat) (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (admissible_complete : ∀ k s, Sol k s → admissible k s = true)
+    (base : ∀ s, Sol 0 s → done s = true)
+    (step : ∀ k s, Sol (k+1) s → done s = true ∨ ∃ t ∈ children k s, Sol k t)
+    (k : Nat) (s : State) (h : runFromGuardFirst threshold admissible done children k s = false) :
+    ¬Sol k s :=
+  runFrom_reject threshold admissible done children Sol admissible_complete base step k s
+    (by simpa only [runFromGuardFirst_eq] using h)
+
+end PNMemo
+
 end PEqualNP.Outside.L_meta_10760
