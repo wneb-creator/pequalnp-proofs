@@ -1,0 +1,9 @@
+UNVALIDATED FULL PROOF CANDIDATE
+
+Four custom structures replaced by standard Subtype/Sigma/product representations with field/constructor helpers. Fourteen replacement blocks recorded in exactly reversible manifest. Final theorem/imports unchanged. Original secondary candidate remains untouched.
+
+Source/import/namespace/plain guards PASS. Candidate520939bytes,3349bytes headroom. No structure/inductive/class/instance declarations remain.
+
+Small core analogue of the type/projection interface PASS (0.324s). It substitutes Nat/List for BitVec/Finset and validates dependent tuple layout, helper constructor signatures, and field notation only. It is not a validation of the actual full proof.
+
+An exact Mathlib fragment attempt hit its1.5GB memory cap while importing; no full candidate build/checker has been run. No heavy builds running for this candidate.
