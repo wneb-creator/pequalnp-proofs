@@ -33,3 +33,6 @@
 
 - 2026-11-25T12:32:14.551438+00:00 lower_bound: DirtyTopEntry kernel check passed; one-extra-OR/zero-centreless critical case has a unique dirty AND entry into all clean tops. Full arbitrary-NOT lower25 remains open.
 2026-11-25T12:34:55.841922+00:00 preserving reviewedGraphProfile1112lines, MaskBridge, andDirtyTopEntry481lines; allcompiled. Fullgapstillunproved. ABCconstructivesearchlive.
+
+- 2026-11-25T12:42:38.374876+00:00: linear_network completed seven ABC synthesis batches (8631 valid outputs), no <=24 result; preserved reviewable source/log/best-circuit artifacts.
+2026-11-25T12:42:43.279482+00:00 two-dirty-gate chain and sole-reader bridge compiled and independently reviewed; preserving conditional monotone result.

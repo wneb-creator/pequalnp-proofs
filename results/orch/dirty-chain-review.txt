@@ -1,0 +1,4 @@
+Independent review: DirtyChain.lean
+SHA256 936e7b309df6a4c1146f4709d591b2528df836882a49d9513893ae5bd7e4c542;819lines34638bytes.
+Exact delta from reviewed DirtySoleReader is30 appendedlines for two_dirty_chain. Correct computation excludes earlier dirtyg being output. Its output-cone membership therefore gives a genuine downstream reader; the reviewed sole-reader theorem identifies that reader withT. Exacttwoinputs yields Fin2 operand e with opnd C T e=n+g. Same explicit assumptions: IsAO2, exactgraphFun, allgates outputcone, junk={g,T},g<T,centreless empty,extraORcount<=1. No new structural assumptions or full-gap claim.
+Officialguard rejects only absent final theorem as expected for preservedpartial. Buildlog has noerror markers and copieddeprecationwarnings only; authorreports exit0. Independent semantic/format review passed.
