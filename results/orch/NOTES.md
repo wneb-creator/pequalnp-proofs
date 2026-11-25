@@ -21,3 +21,7 @@ The new17binary argument and first-AND/difference18binary argument now compile, 
 ## Checked progress
 
 Seventeen.lean now proves the unconditional17+notCount lower bound using the checked nineFloor certificate. Both compilation and independent review passed. This eliminates every size19 Petersen candidate with at least3NOTs. One and two NOT gates remain unresolved. A selfcontained combined copy PetersenPartial.lean is compiling next, with only the allowed Defs import.
+
+## Correction from fresh source audit
+
+P9 monotone16 IS checked in L_meta_9781 and L_meta_7567. Previous notes stating only an upper bound were based on incomplete search. These also give a Petersen monotone18 floor. A genuinely used sole NOT that can be replaced by a constant loses that NOT and at least one binary reader, potentially contradicting the monotone18 floor for a size19 candidate; dead NOTs still require a separate monotone18 exclusion. The transport of this argument is not yet checked in our file. A dedicated monotone18 SAT diagnostic is running.

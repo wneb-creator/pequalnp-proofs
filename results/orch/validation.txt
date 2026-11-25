@@ -32,3 +32,7 @@ TIMING total=26 subagents=6
 
 Seventeen.lean: lake env lean exit0; independent review PASS. Unconditional17+notCount≤size; excludes≥3NOT atsize≤19. Local research import depends on checked CombinatorialStrong. Full posted gap remains unproved (one/twoNOT cases open).
 TIMING total=27 subagents=6
+
+SignedGate.lean: lake env lean exit0; independent review PASS; local Boolean identities only, not full signed-DAG transport.
+Sub-agents: 7 (six initial workers plus fresh strategy)
+TIMING total=33 subagents=7
