@@ -176,6 +176,379 @@ lemma uniqueSep_step {width k : Nat} {target g a b z c : BitVec width}
       · exact hs.2 b (by simp) (fun eq => hc (.inr eq.symm))
     · exact hs.2 w (by simp [hw]) hne
 
+namespace ChromGate
+
+def eval (d : Fin 4) (a b : Bool) : Bool :=
+  match d.val with
+  | 0 => a && b
+  | 1 => a || b
+  | 2 => a && !b
+  | _ => b && !a
+
+lemma left_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    b₀ = b₁ → b₂ = b₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    a₀ = a₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
+  decide
+
+lemma right_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    a₀ = a₁ → a₂ = a₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    b₀ = b₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
+  decide
+
+lemma rectangle_false : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d c b →
+    eval d a b ≠ eval d a e →
+    eval d c e ≠ eval d a e →
+    eval d c e ≠ eval d c b → False := by
+  decide
+
+lemma sensitive_corner_unique : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d c e ≠ eval d (!c) e →
+    eval d c e ≠ eval d c (!e) → a = c ∧ b = e := by
+  decide
+
+lemma opposite_corners_false : ∀ (d : Fin 4) (a b : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d (!a) b → False := by
+  decide
+
+def word {width : Nat} (d : Fin 4) (a b : BitVec width) : BitVec width :=
+  match d.val with
+  | 0 => a &&& b
+  | 1 => a ||| b
+  | 2 => a &&& ~~~b
+  | _ => b &&& ~~~a
+
+lemma word_get {width : Nat} (d : Fin 4) (a b : BitVec width) (p : Fin width) :
+    (word d a b)[p.val] = eval d a[p.val] b[p.val] := by
+  fin_cases d <;> simp [word, eval]
+
+lemma of_basicOps {width : Nat} {a b z : BitVec width}
+    (hz : z ∈ basicOps a b) : ∃ d : Fin 4, z = word d a b := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
+
+end ChromGate
+
+namespace ChromGeneric
+
+variable {α : Type} [DecidableEq α]
+
+lemma retained_card {a b z : α} {rest : Finset α}
+    (hab : a ≠ b) (hz : z ∉ insert a (insert b rest)) :
+    (insert a (insert b rest)).card +
+        ((if a ∈ rest then 1 else 0) + (if b ∈ rest then 1 else 0)) =
+      (insert z rest).card + 1 := by
+  have hzr : z ∉ rest := fun h => hz (by simp [h])
+  rw [Finset.card_insert_of_notMem hzr]
+  by_cases ha : a ∈ rest <;> by_cases hb : b ∈ rest
+  · simp [ha, hb]
+  · have ha' : a ∈ insert b rest := by simp [ha]
+    simp [Finset.insert_eq_of_mem ha', Finset.card_insert_of_notMem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.insert_eq_of_mem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.card_insert_of_notMem hb, ha, hb]
+
+def collapse (a b z c : α) : α := if c = a ∨ c = b then z else c
+
+lemma collapse_mem {a b z c : α} {rest : Finset α}
+    (hc : c ∈ insert a (insert b rest)) :
+    collapse a b z c ∈ insert z rest := by
+  unfold collapse
+  split_ifs with h
+  · simp
+  · simp only [Finset.mem_insert] at hc ⊢
+    exact Or.inr ((hc.resolve_left (fun hca => h (Or.inl hca))).resolve_left
+      (fun hcb => h (Or.inr hcb)))
+
+
+lemma extend_coloring {edge : Finset α → α → α → Prop}
+    (irrefl : ∀ S c, ¬ edge S c c)
+    {a b z : α} {U : Finset α} (hab : a ≠ b)
+    (hnew : z ∉ insert a (insert b U))
+    (transport : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {x : Nat} {f : α → Nat}
+    (fbound : ∀ c ∈ insert z U, f c ≤ x)
+    (fproper : ∀ c ∈ insert z U, ∀ d ∈ insert z U,
+      edge (insert z U) c d → f c ≠ f d) :
+    ∃ g : α → Nat,
+      (∀ c ∈ insert a (insert b U),
+        g c ≤ x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0))) ∧
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+        edge (insert a (insert b U)) c d → g c ≠ g d := by
+  let base : α → Nat := fun c => f (collapse a b z c)
+  have hbase : ∀ c ∈ insert a (insert b U), base c ≤ x := by
+    intro c hc
+    exact fbound _ (collapse_mem hc)
+  have hproper : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      ¬ (c = a ∧ a ∈ U) → ¬ (c = b ∧ b ∈ U) →
+      ¬ (d = a ∧ a ∈ U) → ¬ (d = b ∧ b ∈ U) → base c ≠ base d := by
+    intro c hc d hd he hca hcb hda hdb
+    apply fproper _ (collapse_mem hc) _ (collapse_mem hd)
+    apply transport c hc d hd he
+    · intro h hmem; exact hca ⟨h, hmem⟩
+    · intro h hmem; exact hcb ⟨h, hmem⟩
+    · intro h hmem; exact hda ⟨h, hmem⟩
+    · intro h hmem; exact hdb ⟨h, hmem⟩
+  let g : α → Nat := fun c =>
+    if c = a ∧ a ∈ U then x + 1
+    else if c = b ∧ b ∈ U then x + 1 + (if a ∈ U then 1 else 0)
+    else base c
+  refine ⟨g, ?_, ?_⟩
+  · intro c hc
+    have hh := hbase c hc
+    dsimp only [g]
+    by_cases ha : a ∈ U <;> by_cases hb : b ∈ U
+    all_goals simp only [ha, hb, and_true, and_false, ite_true, ite_false]
+    all_goals first | omega | (split_ifs <;> omega)
+  · intro c hc d hd he heq
+    have hcBound := hbase c hc
+    have hdBound := hbase d hd
+    have hcd : c ≠ d := by
+      intro h
+      subst d
+      exact irrefl _ _ he
+    by_cases hca : c = a ∧ a ∈ U
+    · by_cases hda : d = a ∧ a ∈ U
+      · exact hcd (hca.1.trans hda.1.symm)
+      · by_cases hdb : d = b ∧ b ∈ U
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_left hdb, ite_eq_left hca.2] at heq
+          omega
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_right hdb] at heq
+          omega
+    · by_cases hcb : c = b ∧ b ∈ U
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_left hda, ite_eq_left hda.2] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · exact hcd (hcb.1.trans hdb.1.symm)
+          · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_right hda, ite_eq_right hdb] at heq
+            split_ifs at heq <;> omega
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_left hda] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_left hdb] at heq
+            split_ifs at heq <;> omega
+          · exact hproper c hc d hd he hca hcb hda hdb
+              (by simpa only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_right hdb] using heq)
+
+lemma live_coloring {ops : α → α → Finset α} {goal : α}
+    (edge : Finset α → α → α → Prop)
+    (irrefl : ∀ S c, ¬ edge S c c)
+    (transport : ∀ (k : Nat) (a b z : α) (U : Finset α),
+      a ≠ b → z ∉ insert a (insert b U) → z ∈ ops a b →
+      live ops goal k (insert z U) →
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {k : Nat} {S : Finset α} (hlive : live ops goal k S) :
+    ∃ x : Nat, ∃ f : α → Nat, S.card + x ≤ k + 1 ∧
+      (∀ c ∈ S, f c ≤ x) ∧
+      ∀ c ∈ S, ∀ d ∈ S, edge S c d → f c ≠ f d := by
+  induction k generalizing S with
+  | zero =>
+    change S = {goal} at hlive
+    subst S
+    refine ⟨0, fun _ => 0, by simp, by simp, ?_⟩
+    intro c hc d hd he
+    simp only [Finset.mem_singleton] at hc hd
+    subst c
+    subst d
+    exact False.elim (irrefl _ _ he)
+  | succ k ih =>
+    rcases hlive with hskip | ⟨a, ha, b, hb, hab, z, hz, hnew, U, rfl, htail⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih hskip
+      exact ⟨x, f, by omega, hbound, hproper⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih htail
+      obtain ⟨g, gbound, gproper⟩ := extend_coloring irrefl hab hnew
+        (transport k a b z U hab hnew hz htail) hbound hproper
+      refine ⟨x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0)),
+        g, ?_, gbound, gproper⟩
+      have hcount := retained_card hab hnew
+      omega
+
+end ChromGeneric
+
+namespace ChromRelation
+
+variable {width : Nat}
+
+def moved (a b z c : BitVec width) : BitVec width :=
+  if c = a ∨ c = b then z else c
+
+lemma moved_mem {a b z c : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) : moved a b z c ∈ insert z U := by
+  unfold moved
+  split_ifs with h
+  · exact Finset.mem_insert_self ..
+  · rcases Finset.mem_insert.mp hc with rfl | hc
+    · exact False.elim (h (.inl rfl))
+    · rcases Finset.mem_insert.mp hc with rfl | hc
+      · exact False.elim (h (.inr rfl))
+      · exact Finset.mem_insert_of_mem hc
+
+lemma moved_ne {a b z c d : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) (hd : d ∈ insert a (insert b U))
+    (hz : z ∉ insert a (insert b U)) (hne : c ≠ d)
+    (notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b))) :
+    moved a b z c ≠ moved a b z d := by
+  unfold moved
+  split_ifs with h₁ h₂ h₂
+  · exact False.elim (notboth ⟨h₁, h₂⟩)
+  · intro eq
+    exact hz (eq ▸ hd)
+  · intro eq
+    exact hz (eq ▸ hc)
+  · exact hne
+
+lemma criticalPair_symm {target : BitVec width} {S : Finset (BitVec width)}
+    {a b : BitVec width} (h : criticalPair target S a b) : criticalPair target S b a := by
+  obtain ⟨ha, hb, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  exact ⟨hb, ha, hab.symm, p, q, rb, ra, sb, sa, hp, hq, hrb, hra, hsb, hsa,
+    u₂, u₁, u₄, u₃, phase₂, phase₁⟩
+
+lemma bool_other_eq {x y z : Bool} (hy : x ≠ y) (hz : x ≠ z) : y = z := by
+  cases x <;> cases y <;> cases z <;> simp_all
+
+lemma moved_phase {a b z c : BitVec width} {U : Finset (BitVec width)}
+    {p r s q : Fin width} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (u₁ : uniqueSep (insert a (insert b U)) c p r)
+    (u₂ : uniqueSep (insert a (insert b U)) c s q)
+    (v₁ : uniqueSep (insert z U) (moved a b z c) p r)
+    (v₂ : uniqueSep (insert z U) (moved a b z c) s q)
+    (phase : c[p.val] = c[s.val]) :
+    (moved a b z c)[p.val] = (moved a b z c)[s.val] := by
+  by_cases hc : c = a ∨ c = b
+  · simp only [moved, ite_eq_left hc] at v₁ v₂ ⊢
+    obtain ⟨d, rfl⟩ := ChromGate.of_basicOps hz
+    rcases hc with rfl | rfl
+    · have e₁ := u₁.2 b (by simp) hab.symm
+      have e₂ := u₂.2 b (by simp) hab.symm
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.left_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+    · have e₁ := u₁.2 a (by simp) hab
+      have e₂ := u₂.2 a (by simp) hab
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.right_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+  · simpa only [moved, ite_eq_right hc] using phase
+
+lemma criticalPair_noCollapse {k : Nat} {target g a b z : BitVec width}
+    {U : Finset (BitVec width)} (hz : z ∈ basicOps a b)
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (ha : a ∉ U) (hb : b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) a b) : False := by
+  obtain ⟨_, _, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ : z[p.val] ≠ z[ra.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hra])
+      (fun _ => ha) (fun _ => hb) u₁).1
+  have v₂ : z[p.val] ≠ z[rb.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hrb])
+      (fun _ => ha) (fun _ => hb) u₂).1
+  have v₃ : z[sa.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsa, hq])
+      (fun _ => ha) (fun _ => hb) u₃).1
+  have v₄ : z[sb.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsb, hq])
+      (fun _ => ha) (fun _ => hb) u₄).1
+  have ara : a[ra.val] = a[q.val] := bool_other_eq u₁.1 (phase₁ ▸ u₃.1)
+  have brb : b[rb.val] = b[q.val] := bool_other_eq u₂.1 (phase₂ ▸ u₄.1)
+  have bra := u₁.2 b (by simp) hab.symm
+  have arb := u₂.2 a (by simp) hab
+  have bsa := u₃.2 b (by simp) hab.symm
+  have asb := u₄.2 a (by simp) hab
+  obtain ⟨d, hzword⟩ := ChromGate.of_basicOps hz
+  have d₁ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ara, ← bra] using v₁
+  have d₂ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, brb, ← arb] using v₂
+  have d₃ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₁, bsa] using v₃.symm
+  have d₄ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₂, asb] using v₄.symm
+  exact ChromGate.rectangle_false d _ _ _ _ d₁ d₂ d₃ d₄
+
+lemma criticalPair_step {k : Nat} {target g a b z c d : BitVec width}
+    {U : Finset (BitVec width)} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (fresh : z ∉ insert a (insert b U))
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (hca : c = a → a ∉ U) (hcb : c = b → b ∉ U)
+    (hda : d = a → a ∉ U) (hdb : d = b → b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) c d) :
+    criticalPair target (insert z U)
+      (if c = a ∨ c = b then z else c) (if d = a ∨ d = b then z else d) := by
+  have notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b)) := by
+    rintro ⟨hc, hd⟩
+    rcases hc with rfl | rfl <;> rcases hd with rfl | rfl
+    · exact h.2.2.1 rfl
+    · exact criticalPair_noCollapse hz run hg (hca rfl) (hdb rfl) h
+    · exact criticalPair_noCollapse hz run hg (hda rfl) (hcb rfl) (criticalPair_symm h)
+    · exact h.2.2.1 rfl
+  obtain ⟨hc, hd, hcd, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ := uniqueSep_step hz run hg (by simp [hp, hra]) hca hcb u₁
+  have v₂ := uniqueSep_step hz run hg (by simp [hp, hrb]) hda hdb u₂
+  have v₃ := uniqueSep_step hz run hg (by simp [hsa, hq]) hca hcb u₃
+  have v₄ := uniqueSep_step hz run hg (by simp [hsb, hq]) hda hdb u₄
+  change criticalPair target (insert z U) (moved a b z c) (moved a b z d)
+  exact ⟨moved_mem hc, moved_mem hd, moved_ne hc hd fresh hcd notboth,
+    p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb, v₁, v₂, v₃, v₄,
+    moved_phase hab hz u₁ u₃ v₁ v₃ phase₁,
+    moved_phase hab hz u₂ u₄ v₂ v₄ phase₂⟩
+
+end ChromRelation
+
+lemma live_criticalPair_coloring {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) :
+    ∃ color : BitVec width → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b := by
+  have irrefl : ∀ U c, ¬ criticalPair target U c c := by
+    intro U c h
+    exact h.2.2.1 rfl
+  obtain ⟨x, color, hcard, hbound, hproper⟩ :=
+    ChromGeneric.live_coloring (criticalPair target) irrefl
+      (by
+        intro n a b z U hab fresh hz tail c hc d hd edge hca hcb hda hdb
+        exact ChromRelation.criticalPair_step hab hz fresh tail hg
+          hca hcb hda hdb edge) run
+  refine ⟨color, ?_, ?_⟩
+  · intro a ha
+    have := hbound a ha
+    omega
+  · intro a b edge
+    exact hproper a edge.1 b edge.2.1 edge
+
 def canonical (w : BitVec width) : BitVec width :=
   if w.toNat ≤ (~~~w).toNat then w else ~~~w
 
