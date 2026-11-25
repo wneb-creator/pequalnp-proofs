@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-11-25T08:50:18.958419+00:00",
+  "verdict": "PASS",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/formalization/raw-occurrence/RawOccurrence.lean",
+      "destination": "results/orch/lemmas/RawOccurrence.lean",
+      "bytes": 3339,
+      "sha256": "4bd8cf3baa635ec75176034a0c0c48359762aacc2821a7a2dbceea50940ae4c3"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/formalization/raw-occurrence/raw-occurrence-check-2.log",
+      "destination": "results/orch/lemmas/raw-occurrence-check-2.log",
+      "bytes": 321,
+      "sha256": "a95f6250c6ba67fbce5eb38febfa90a015c8d4c1c9d152d51b8fd0045a243707"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/raw-occurrence-review.md",
+      "destination": "results/orch/lemmas/raw-occurrence-review.md",
+      "bytes": 1601,
+      "sha256": "092b99bdb98d69908732b1ac04bd97e56e09f7438ad36b1b29f2cef423c28f66"
+    }
+  ],
+  "reported_lean_exit": 0,
+  "log_warning_count": 1,
+  "reviewers": [
+    "lower_bound",
+    "repo_review"
+  ],
+  "scope": [
+    "Pure reference-occurrence counting for Circuit with at-most-two fanins.",
+    "Every computed index except the last must occur somewhere among gate inputs; this is an explicit counting premise, not a proved semantic liveness normalization.",
+    "The unique-raw-input result additionally assumes each raw input occurs and size+1<2*n. The n14,size<=26 specialization follows.",
+    "Padding lemma is a list-count identity and explicitly assumes output>=n; it does not assert semantic padding correctness or derive the premise.",
+    "No arbitrary-circuit27gate bound, exact26witness, or posted-gap theorem is claimed."
+  ],
+  "format": "Only Defs import; exact auxiliary namespace; lemma declarations only; no forbidden source forms detected."
+}

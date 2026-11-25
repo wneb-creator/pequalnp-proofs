@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-70/formalization/raw-occurrence/RawOccurrence.lean:78:53: warning: This simp argument is unused:
+  Ne.symm hne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.flatMap_append, List.count_append, hne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
