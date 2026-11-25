@@ -1,5 +1,5 @@
 {
-  "classification": "Construction-algebra diagnostics for L-meta-3773; no63-gate witness and no Lean refutation. C6 SAT results are unformalized. All exported correct patches exceed target; near-budget patch explicitly fails733physical inputs. Conditional patch cost/data independently reviewed. Current guided run not included until it finishes.",
+  "classification": "Construction-algebra diagnostics for L-meta-3773; no63-gate witness and no Lean refutation. All SAT results are unformalized. All exported correct patches exceed target. Near-budget and near-guided patches explicitly fail physical truth tables. Conditional patch cost/data and guided repair were independently reviewed. The essential-nine-gate C6 SAT delta is not independently reviewed yet and its UNSAT result is diagnostic only. Current overapproximation worker is not included until its first run finishes.",
   "artifacts": [
     {
       "file": "meta3773_motif_sat.py",
@@ -335,6 +335,71 @@
       "file": "meta3773-five-patch-cgp-budget-build.log",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
+    },
+    {
+      "file": "meta3773_guided_fragment.cpp",
+      "sha256": "69f4dc68169c8c3725458854be7f0b1466a0c794df64a6e69c9d8519b9b1401e",
+      "bytes": 2229
+    },
+    {
+      "file": "meta3773_five_patch_cgp_guided.cpp",
+      "sha256": "c9c5f1c9df255925ddaef47cbd5eeed19fb45aaba14c4b2672795775335da880",
+      "bytes": 10350
+    },
+    {
+      "file": "meta3773_five_patch_cgp_guided_run.py",
+      "sha256": "ab4a8ff056dbaca231374b5b52e43f4778358c1663f88c0be6eab05fd63d820d",
+      "bytes": 1407
+    },
+    {
+      "file": "meta3773-five-patch-cgp-guided-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "meta3773-five-patch-cgp-guided-3773797.log",
+      "sha256": "de531e4cf633b91ba28a2b388258c02e581ec222cda9152d1515b89c21fa8c9e",
+      "bytes": 8475
+    },
+    {
+      "file": "meta3773-five-patch-cgp-guided-3773797-status.json",
+      "sha256": "2319031bc6237d41a330189df362fe6dcc4c88caf6c48335dd2099d97c278ca1",
+      "bytes": 503
+    },
+    {
+      "file": "meta3773-five-patch-cgp-guided-3773797-run.log",
+      "sha256": "3a608e68a74e8514709e1d623bf3641100cd2c8c1a561e04594e24fa91f74642",
+      "bytes": 475
+    },
+    {
+      "file": "meta3773-five-patch-near-guided.json",
+      "sha256": "1301a03003eea832ec933af0d6c42e9e8a34f1fe2f659dc2932f3a3004ef6370",
+      "bytes": 2043
+    },
+    {
+      "file": "meta3773-motif-c6-9-lex-first-bad-distinct-essential-input.json",
+      "sha256": "a14ea33ed3f4b66e501f941887453401fb845c81edc81f919769cc916da039ef",
+      "bytes": 1554
+    },
+    {
+      "file": "meta3773-motif-c6-9-lex-first-bad-distinct-essential-result.json",
+      "sha256": "62a922d0c392d22d5e4d0391e3cd810dce77a13ee4366203bc00683195ccb08e",
+      "bytes": 138
+    },
+    {
+      "file": "meta3773-motif-c6-9-lex-first-bad-distinct-essential-solver.log",
+      "sha256": "5a625d8a847ece1d053191d7c1ea20247ab033e18c75166351d092dbe46b0fe9",
+      "bytes": 23576
+    },
+    {
+      "file": "meta3773-motif-c6-9-lex-first-bad-distinct-essential-run.log",
+      "sha256": "c5b85b01d7472b1bc1332493d041baadabd8c1c57ed627d8128ba7ee095c5253",
+      "bytes": 867
+    },
+    {
+      "file": "meta3773_motif_sat_essential.py",
+      "sha256": "acf1dce3004a66b45d91d11eb11bc19b44941e929266d98350e8f84153483995",
+      "bytes": 10136
     }
   ]
 }

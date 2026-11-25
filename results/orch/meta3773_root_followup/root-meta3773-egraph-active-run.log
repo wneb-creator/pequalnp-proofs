@@ -1,0 +1,29 @@
+{"functions": 739, "alternatives": 52987, "variables": 54465, "constraints": 213374, "control": {"size": 64, "max_rank": 11, "all_constraints_pass": true}}
+/tmp/oec/pequalnp-pilot-79/root_meta3773_egraph_active_milp.py:80: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  res=milp(cvec,integrality=integral,bounds=Bounds(lower,upper),constraints=LinearConstraint(matrix,np.array(lo),np.array(hi)),options={'time_limit':120,'disp':True,'mip_rel_gap':0,'threads':1})
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 6e+01]
+  Cost   [1e+00, 1e+00]
+  Bound  [1e+00, 6e+01]
+  RHS    [6e+01, 6e+01]
+Presolving model
+210364 rows, 54294 cols, 678499 nonzeros  0s
+208545 rows, 53845 cols, 673463 nonzeros  1s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   208545 rows
+   53845 cols (53133 binary, 0 integer, 0 implied int., 712 continuous)
+   673463 nonzeros
+MIP-Timing:         2.3 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   1               inf                  inf        0      0      0         0     2.3s
+         0       0         0   0.00%   1.065098161     inf                  inf        0      0      9      8744    12.2s

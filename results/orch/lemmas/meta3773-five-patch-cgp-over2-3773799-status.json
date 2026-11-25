@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "seconds": 60.05951662900043,
+  "bound_hashes": {
+    "meta3773_five_patch_cgp_over2.cpp": "6897d7a3a5270efef76a15503fa58593873351a896f29e4317c15523069deb1e",
+    "meta3773_five_patch_cgp_over2": "2abc89f579bafe9e0bae05e8b85df874e7b6b5167b5a9c4d7e04a8bd461e612e",
+    "meta3773-five-patch-data.json": "a27ca9c766c1f79f1709e5a86f2360cdc7f3951592cbee1cd54366d6fd8f2e41",
+    "meta3773_five_patch_over_data.hpp": "3cff7374491c4731390598d54b9247614e7786d6925bba3bc03066719e640d63"
+  }
+}

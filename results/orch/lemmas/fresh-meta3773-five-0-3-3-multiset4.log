@@ -1,0 +1,28 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 67 of 92 result False branch-eligible True states 1221 seconds 2.549
+case 68 of 92 result False branch-eligible True states 1728 seconds 3.624
+case 69 of 92 result False branch-eligible True states 2924 seconds 6.006
+case 70 of 92 result False branch-eligible True states 3680 seconds 7.488
+case 71 of 92 result False branch-eligible False states 3680 seconds 7.488
+case 72 of 92 result False branch-eligible True states 3681 seconds 7.505
+case 73 of 92 result False branch-eligible True states 3682 seconds 7.521
+case 74 of 92 result False branch-eligible True states 3683 seconds 7.551
+case 75 of 92 result False branch-eligible True states 3684 seconds 7.575
+case 76 of 92 result False branch-eligible True states 3685 seconds 7.599
+case 77 of 92 result False branch-eligible True states 3686 seconds 7.62
+case 78 of 92 result False branch-eligible True states 3687 seconds 7.648
+case 79 of 92 result False branch-eligible True states 3692 seconds 7.749
+case 80 of 92 result False branch-eligible True states 3708 seconds 7.794
+case 81 of 92 result False branch-eligible True states 3709 seconds 7.849
+case 82 of 92 result False branch-eligible True states 3713 seconds 7.889
+case 83 of 92 result False branch-eligible False states 3713 seconds 7.889
+case 84 of 92 result False branch-eligible False states 3713 seconds 7.89
+case 85 of 92 result False branch-eligible True states 3723 seconds 7.941
+case 86 of 92 result False branch-eligible True states 3739 seconds 7.977
+case 87 of 92 result False branch-eligible True states 3740 seconds 8.003
+case 88 of 92 result False branch-eligible True states 3783 seconds 8.104
+case 89 of 92 result False branch-eligible True states 3798 seconds 8.183
+case 90 of 92 result False branch-eligible True states 4281 seconds 9.57
+case 91 of 92 result False branch-eligible False states 4281 seconds 9.57
+case 92 of 92 result False branch-eligible False states 4281 seconds 9.57
+{'cases': 92, 'tested': 92, 'solutions': [], 'seconds': 9.570443142998556}

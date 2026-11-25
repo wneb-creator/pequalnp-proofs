@@ -1,0 +1,2 @@
+{"clauses": 153980, "flipped_variables": 2221, "known_control_every_clause_verified": false}
+{"returncode": 0, "seconds": 110.01692062800066, "outer_timeout": false, "source_sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b", "original_cnf_sha256": "9b768b3da7762a1d226e023cfb4e08aecd169cc39db3c17f7896d90570e6108a", "transformed_cnf_sha256": "72e0574ce4ec2ffebc0336a8cdff4de04fa92613a99dc4e59a8f488b8c9b6466"}

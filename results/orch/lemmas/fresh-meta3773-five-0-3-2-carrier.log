@@ -1,0 +1,13 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 2 of 24 result False branch-eligible True states 1210 seconds 2.791
+case 3 of 24 result False branch-eligible True states 1257 seconds 2.905
+case 4 of 24 result False branch-eligible True states 1303 seconds 3.012
+case 5 of 24 result False branch-eligible True states 1326 seconds 3.106
+case 6 of 24 result False branch-eligible True states 1356 seconds 3.167
+case 7 of 24 result False branch-eligible True states 1490 seconds 3.717
+case 8 of 24 result False branch-eligible True states 1824 seconds 4.533
+case 9 of 24 result False branch-eligible True states 1924 seconds 4.875
+case 10 of 24 result False branch-eligible True states 2076 seconds 5.396
+case 11 of 24 result False branch-eligible True states 2665 seconds 6.257
+case 12 of 24 result False branch-eligible True states 8801 seconds 11.466
+case 13 of 24 result False branch-eligible True states 10527 seconds 15.105

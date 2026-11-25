@@ -1,0 +1,10 @@
+{
+  "configuration": 0,
+  "used": 3,
+  "extra_primitive_occurrences": 3,
+  "remaining_internal_excess": 2,
+  "total": 92,
+  "tested": 92,
+  "hits": [],
+  "seconds_this_chunk": 9.57030357199983
+}

@@ -1,0 +1,251 @@
+{
+  "classification": "incomplete local circuit repair diagnostics; no new proof",
+  "files": [
+    {
+      "path": "results/orch/meta3773_sat_repair/README.md",
+      "sha256": "a6b2ca36007043c9cc6ad8b261d798e17c400f235701a82df099ded81191886c",
+      "bytes": 2458
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-known24.json",
+      "sha256": "f8d8f67d0bd425177a6bde4f6afc72b9620ebac64f2032d457a2abd57d0e0676",
+      "bytes": 299
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-patch-data.json",
+      "sha256": "a27ca9c766c1f79f1709e5a86f2360cdc7f3951592cbee1cd54366d6fd8f2e41",
+      "bytes": 10438
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-patch-over-frozen21.json",
+      "sha256": "437cd46c36a60ac69eec742b9b04a6dce665ababd95453ca8a6197a1d87de5ae",
+      "bytes": 1610
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0-metadata.json",
+      "sha256": "78a80f32b768adc856a98a4c20cdf6294ac38230adbf27f0d36e0a2639c2de84",
+      "bytes": 13756
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0-run.log",
+      "sha256": "67e6be737a75726075e79c9d2dfc1475a7b79f4bbefd349a065ab422018c65c0",
+      "bytes": 436
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0-solver.log",
+      "sha256": "1bfa3ccc719a10ed6f1ad4caf1449b6d68a55842d2789df41cd8290993978847",
+      "bytes": 18711
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0-source.py",
+      "sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b",
+      "bytes": 10808
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0-status.json",
+      "sha256": "4c5c9f473bfca24c50f33c3e09f8eecb9884f5c6dc8356b37d90876a29e59682",
+      "bytes": 357
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r0.cnf.gz",
+      "sha256": "639430f336aed777168993de965b166e8eaa9f4f51c0a9c89bde0c70b3d5187c",
+      "bytes": 562192,
+      "uncompressed_sha256": "72e0574ce4ec2ffebc0336a8cdff4de04fa92613a99dc4e59a8f488b8c9b6466",
+      "uncompressed_bytes": 2446590
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-candidate.json",
+      "sha256": "e18a02fc6c18be3d6d6372decde04178024ace23eca0ccb9d4e979906e3b8ab9",
+      "bytes": 781
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-metadata.json",
+      "sha256": "5d1a06e217a6608315948a2ee99756815d7fb3233884415347148197a8dd01e9",
+      "bytes": 12633
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-run.log",
+      "sha256": "d2f5c1f39c8774cce47b8f09aae9da3f62abacca0c8f88b5e58a94e30d98884d",
+      "bytes": 500
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-solver.log",
+      "sha256": "5a7662349909e55efa2e10f8536cb37ce41bbd747410314e4a3b80b4b485e436",
+      "bytes": 52179
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-source.py",
+      "sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b",
+      "bytes": 10808
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990-status.json",
+      "sha256": "f477342c86e99c3e08d125938e3c44196f34b0b6b3df489cd79db443f1eac669",
+      "bytes": 426
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r990.cnf.gz",
+      "sha256": "abb78489d024f99c8a6cabb85c38db1180422400387e6f1c8ca133f55179b140",
+      "bytes": 593663,
+      "uncompressed_sha256": "3eab257c3966ec6d1ff25d3d2ccc827c41ad2fb2aaa7b3687d64c54750f4ca47",
+      "uncompressed_bytes": 2591088
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r991-metadata.json",
+      "sha256": "78a80f32b768adc856a98a4c20cdf6294ac38230adbf27f0d36e0a2639c2de84",
+      "bytes": 13756
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r991-run.log",
+      "sha256": "ca8b197fc333ea103b0eb2580592bfc2bf5398b2d0841df133789a79b7e9cfab",
+      "bytes": 93
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-phase-r991-source.py",
+      "sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b",
+      "bytes": 10808
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-known24-verification.log",
+      "sha256": "a7a4698d7b8895f2f74edb4e2400c0b67e696bfe645f46dfad2a772572992544",
+      "bytes": 106
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-padding-production-verification.log",
+      "sha256": "999d65fc3a68f3b73b88cb2cc0c2f2875dcec3157691624fc8ee9e3ed4c8ee58",
+      "bytes": 159
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-padding-verification.log",
+      "sha256": "999d65fc3a68f3b73b88cb2cc0c2f2875dcec3157691624fc8ee9e3ed4c8ee58",
+      "bytes": 159
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0-metadata.json",
+      "sha256": "66352f4611531e12ff9aed0e3dea508fbf09503f5f6ad1f849e3db9b4327e8c4",
+      "bytes": 56106
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0-run.log",
+      "sha256": "d6fe1572afac86ab18acbcebb59ff802cda7baa3d1695226ed1bc66ff2b0842e",
+      "bytes": 363
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0-solver.log",
+      "sha256": "b4f8e71d828d373dc771b03aa42d4fe6a4f0d8d922f4960d1f31a3c057404c74",
+      "bytes": 12257
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0-source.py",
+      "sha256": "ddb7fca00aa38a2b537128f2ff1776d8e45fa9929d341b18bfc00bd60f08d2d7",
+      "bytes": 15486
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0-status.json",
+      "sha256": "ea7a19f4661c1e1397ebee0061928ca103f82b7d5f4a80c428a1558ef76c582c",
+      "bytes": 253
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r0.cnf.gz",
+      "sha256": "577554563a308a9c8a9f13a6eba54b581a831d6440731b92db93a5de186a8af5",
+      "bytes": 558743,
+      "uncompressed_sha256": "1004289919a81d2a31e80e2aac5dc56df6135e98e656471cd5bb272796b38366",
+      "uncompressed_bytes": 2449001
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1-metadata.json",
+      "sha256": "f4fb89006cd7331243e9ba7c3a91b92d400f0a391b930be52dc918793401b4e1",
+      "bytes": 56106
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1-run.log",
+      "sha256": "13c24c9a8fdd6c0cfb2d46fce13c35b0f0dde9beb2942813d6d9caa937d27310",
+      "bytes": 361
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1-solver.log",
+      "sha256": "05ece1152762ec791e9d7355648aacaa6272a424850d0f832f611708e9afceac",
+      "bytes": 17472
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1-source.py",
+      "sha256": "ddb7fca00aa38a2b537128f2ff1776d8e45fa9929d341b18bfc00bd60f08d2d7",
+      "bytes": 15486
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1-status.json",
+      "sha256": "696c18a765ccd9bedf291ebdd646c72e674335b5f0676e42d56110b99d5e3b48",
+      "bytes": 251
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r1.cnf.gz",
+      "sha256": "9a21f4635c3393abb693bd41391d1d58478e00e88a97bfbe71104392598b2f53",
+      "bytes": 559247,
+      "uncompressed_sha256": "9b768b3da7762a1d226e023cfb4e08aecd169cc39db3c17f7896d90570e6108a",
+      "uncompressed_bytes": 2451113
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r990-metadata.json",
+      "sha256": "383491d0a0026adcb41b4acb471ea6f01608f63373c1a6464a22aabfd06354fa",
+      "bytes": 57939
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r990-run.log",
+      "sha256": "92d75bb94aab2306a0c9eb61554cb78b8b739c28a9c640f6f218df796dfb0fe1",
+      "bytes": 122
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r990-source.py",
+      "sha256": "692674aa8a4099e85bb0bbda10c4202d9eae9d493835e2bc0c46c98d44a5b377",
+      "bytes": 15231
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r990.cnf.gz",
+      "sha256": "3481e01fb944ba54c8a4521c0b48f5afb1689f23d2293a0dc514bf4ac7b29251",
+      "bytes": 591232,
+      "uncompressed_sha256": "73a2575f90756b023aa026ce8730f53aa4c41ea0eeba720bdd10221f56f7cd6f",
+      "uncompressed_bytes": 2594930
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r991-metadata.json",
+      "sha256": "e1e0b73dbd395832dd5124dc1f39079dc48718537390bc65ac6f124d8b425823",
+      "bytes": 56106
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r991-run.log",
+      "sha256": "fbbdf137a8bb270069b2bb8e237af0de9e5ce64dae5d310b4a687ba1f04d5caa",
+      "bytes": 122
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773-five-repair-r991-source.py",
+      "sha256": "692674aa8a4099e85bb0bbda10c4202d9eae9d493835e2bc0c46c98d44a5b377",
+      "bytes": 15231
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773_five_repair_sat.py",
+      "sha256": "ddb7fca00aa38a2b537128f2ff1776d8e45fa9929d341b18bfc00bd60f08d2d7",
+      "bytes": 15486
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773_five_repair_verify_encoding.py",
+      "sha256": "00a1c669092427de2ca606ec4c717223ca72ba3124eeb11df7191e5a5299a007",
+      "bytes": 3965
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773_five_repair_verify_padding.py",
+      "sha256": "22fb831809add59594ef0f4ed2db20f4da650caa6a47000dcc60691b8774bafd",
+      "bytes": 1544
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/meta3773_phase_run.py",
+      "sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b",
+      "bytes": 10808
+    },
+    {
+      "path": "results/orch/meta3773_sat_repair/three_plane_meta3773_repair_archive.py",
+      "sha256": "a877f4f677137d422a6b3a7ff3873c9e90c06a0e4586998ca0a7d781fda09a54",
+      "bytes": 5962
+    }
+  ],
+  "total_bytes": 3383015
+}

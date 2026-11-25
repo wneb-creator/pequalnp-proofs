@@ -1,0 +1,2 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 1 of 92 result False branch-eligible True states 275 seconds 1.324

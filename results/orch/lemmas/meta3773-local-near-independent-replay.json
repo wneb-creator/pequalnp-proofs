@@ -1,0 +1,21 @@
+{
+  "scope": "Independent full65536-input replay of explicitly invalid near candidates; no witness",
+  "reports": [
+    {
+      "file": "meta3773-five-patch-near-guided.json",
+      "sha256": "1301a03003eea832ec933af0d6c42e9e8a34f1fe2f659dc2932f3a3004ef6370",
+      "size": 23,
+      "false_negatives": 1293,
+      "false_positives": 0,
+      "model_sha256": "a27ca9c766c1f79f1709e5a86f2360cdc7f3951592cbee1cd54366d6fd8f2e41"
+    },
+    {
+      "file": "meta3773-five-patch-over-frozen21.json",
+      "sha256": "437cd46c36a60ac69eec742b9b04a6dce665ababd95453ca8a6197a1d87de5ae",
+      "size": 21,
+      "false_negatives": 0,
+      "false_positives": 309,
+      "model_sha256": "a27ca9c766c1f79f1709e5a86f2360cdc7f3951592cbee1cd54366d6fd8f2e41"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 150 of 175 result False branch-eligible True states 940 seconds 2.503
+case 151 of 175 result False branch-eligible True states 1207 seconds 3.449
+case 152 of 175 result False branch-eligible False states 1207 seconds 3.449
+case 153 of 175 result False branch-eligible False states 1207 seconds 3.45
+case 154 of 175 result False branch-eligible True states 1225 seconds 3.533
+case 155 of 175 result False branch-eligible True states 1259 seconds 3.633
+case 156 of 175 result False branch-eligible False states 1259 seconds 3.633
+case 157 of 175 result False branch-eligible True states 1670 seconds 4.863
+case 158 of 175 result False branch-eligible False states 1670 seconds 4.863
+case 159 of 175 result False branch-eligible False states 1670 seconds 4.863
+case 160 of 175 result False branch-eligible False states 1670 seconds 4.863
+case 161 of 175 result False branch-eligible False states 1670 seconds 4.863
+case 162 of 175 result False branch-eligible False states 1670 seconds 4.864
+case 163 of 175 result False branch-eligible True states 1674 seconds 4.883
+case 164 of 175 result False branch-eligible True states 1851 seconds 5.438
+case 165 of 175 result False branch-eligible True states 1911 seconds 5.692
+case 166 of 175 result False branch-eligible True states 1999 seconds 5.95
+case 167 of 175 result False branch-eligible True states 2000 seconds 5.961
+case 168 of 175 result False branch-eligible True states 2076 seconds 6.133
+case 169 of 175 result False branch-eligible False states 2076 seconds 6.134
+case 170 of 175 result False branch-eligible True states 3851 seconds 10.311
+case 171 of 175 result False branch-eligible True states 5037 seconds 12.06
+case 172 of 175 result False branch-eligible False states 5037 seconds 12.061
+case 173 of 175 result False branch-eligible False states 5037 seconds 12.061
+case 174 of 175 result False branch-eligible False states 5037 seconds 12.061
+case 175 of 175 result False branch-eligible False states 5037 seconds 12.061
+{'cases': 175, 'tested': 175, 'solutions': [], 'seconds': 12.061338322000665}

@@ -1,0 +1,10 @@
+{
+  "returncode": 10,
+  "seconds": 0.0659558580009616,
+  "outer_timeout": false,
+  "source_sha256": "91609336c522195c8ebd5af63ac38c7734b6151d877abfa73a5c15fc9f1fef3b",
+  "original_cnf_sha256": "73a2575f90756b023aa026ce8730f53aa4c41ea0eeba720bdd10221f56f7cd6f",
+  "transformed_cnf_sha256": "3eab257c3966ec6d1ff25d3d2ccc827c41ad2fb2aaa7b3687d64c54750f4ca47",
+  "failed_physical_inputs": 0,
+  "all_65536_inputs_verified": true
+}

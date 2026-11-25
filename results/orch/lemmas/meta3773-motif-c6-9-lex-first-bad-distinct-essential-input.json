@@ -1,0 +1,153 @@
+{
+  "requires_bad_and": true,
+  "distinct_wire_signatures": true,
+  "essential_against_both_fanins": true,
+  "first_pair_orbits": true,
+  "automorphisms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      0,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5,
+      0
+    ],
+    [
+      1,
+      0,
+      5,
+      4,
+      3,
+      2
+    ],
+    [
+      2,
+      3,
+      4,
+      5,
+      0,
+      1
+    ],
+    [
+      2,
+      1,
+      0,
+      5,
+      4,
+      3
+    ],
+    [
+      3,
+      4,
+      5,
+      0,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      1,
+      0,
+      5,
+      4
+    ],
+    [
+      4,
+      5,
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      3,
+      2,
+      1,
+      0,
+      5
+    ],
+    [
+      5,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "require_and_ancestor": false,
+  "canonical_adjacent_independent_gates": true,
+  "label": "c6",
+  "inputs": 6,
+  "budget": 9,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "positive_samples": [
+    3,
+    6,
+    12,
+    24,
+    33,
+    48
+  ],
+  "maximal_negative_samples": [
+    9,
+    18,
+    21,
+    36,
+    42
+  ],
+  "variables": 3405,
+  "clauses": 329550,
+  "cnf_sha256": "1910462445083f622276dab66fe9339699e384e92024db3deaaf0b6ddb5b9288"
+}

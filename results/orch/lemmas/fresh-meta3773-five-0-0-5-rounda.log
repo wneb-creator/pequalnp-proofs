@@ -1,0 +1,27 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 412 of 476 result False branch-eligible True states 45 seconds 0.234
+case 413 of 476 result False branch-eligible True states 76 seconds 0.506
+case 414 of 476 result False branch-eligible False states 76 seconds 0.506
+case 415 of 476 result False branch-eligible True states 1894 seconds 6.537
+case 416 of 476 result False branch-eligible True states 1998 seconds 6.978
+case 417 of 476 result False branch-eligible True states 2067 seconds 7.246
+case 418 of 476 result False branch-eligible False states 2067 seconds 7.246
+case 419 of 476 result False branch-eligible False states 2067 seconds 7.247
+case 420 of 476 result False branch-eligible False states 2067 seconds 7.248
+case 421 of 476 result False branch-eligible False states 2067 seconds 7.248
+case 422 of 476 result False branch-eligible False states 2067 seconds 7.248
+case 423 of 476 result False branch-eligible False states 2067 seconds 7.248
+case 424 of 476 result False branch-eligible False states 2067 seconds 7.249
+case 425 of 476 result False branch-eligible True states 2118 seconds 7.458
+case 426 of 476 result False branch-eligible True states 2157 seconds 7.644
+case 427 of 476 result False branch-eligible True states 2223 seconds 7.842
+case 428 of 476 result False branch-eligible False states 2223 seconds 7.843
+case 429 of 476 result False branch-eligible True states 2238 seconds 7.936
+case 430 of 476 result False branch-eligible False states 2238 seconds 7.936
+case 431 of 476 result False branch-eligible False states 2238 seconds 7.936
+case 432 of 476 result False branch-eligible True states 2281 seconds 8.187
+case 433 of 476 result False branch-eligible True states 2311 seconds 8.384
+case 434 of 476 result False branch-eligible True states 2370 seconds 8.81
+case 435 of 476 result False branch-eligible True states 3700 seconds 14.035
+case 436 of 476 result False branch-eligible True states 5199 seconds 17.371
+case 437 of 476 result False branch-eligible False states 5199 seconds 17.371

@@ -1,0 +1,123 @@
+{
+  "utc": "2026-11-25T14:12:28.488274+00:00",
+  "classification": "Additional L-meta-3773 heuristic diagnostics. No63gate witness or refutation. Two positive-preserving five-point runs kept localcost<=23 but failed to compute the function: frozen21 has309falsepositives and frozen20 has221falsepositives. C8essential-bad12 query timedout90seconds. Workers and model independently reviewed; every reported correct circuit is fully replayed. Six-point work excluded until its first run finishes.",
+  "base_manifest": "meta3773-construction-algebra-diagnostic-manifest.json",
+  "base_manifest_sha256": "a038ec969cd50d00e69dca086a7c3958a8e3dcc37c8157f8e0eaf91fe83308c9",
+  "artifacts": [
+    {
+      "file": "meta3773_five_patch_cgp_over.cpp",
+      "sha256": "118c13e002e3a766004ba98642db86f0cd7722f9b1dd47f8fd929543a04dd10f",
+      "bytes": 11021
+    },
+    {
+      "file": "meta3773_five_patch_cgp_over_run.py",
+      "sha256": "7c6f646087b62a48a762880c7add1f5cfab764a35b12fd36ebeb583e2b84a39b",
+      "bytes": 1406
+    },
+    {
+      "file": "meta3773_five_patch_over_data.hpp",
+      "sha256": "3cff7374491c4731390598d54b9247614e7786d6925bba3bc03066719e640d63",
+      "bytes": 905
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "meta3773_five_patch_cgp_over2.cpp",
+      "sha256": "6897d7a3a5270efef76a15503fa58593873351a896f29e4317c15523069deb1e",
+      "bytes": 11134
+    },
+    {
+      "file": "meta3773_five_patch_cgp_over2_run.py",
+      "sha256": "aebd0f475aeef395311455b01600b8da015adadcef5b621df621bd21f80a247e",
+      "bytes": 1409
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over2-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "meta3773-five-patch-over-frozen21.json",
+      "sha256": "437cd46c36a60ac69eec742b9b04a6dce665ababd95453ca8a6197a1d87de5ae",
+      "bytes": 1610
+    },
+    {
+      "file": "meta3773-five-patch-over2-frozen20.json",
+      "sha256": "e2cf178d2e576c68f311cd6a02460da7f04bca1d559ae84d76229bc32ee384c0",
+      "bytes": 1568
+    },
+    {
+      "file": "meta3773_patch_over_output_repair.py",
+      "sha256": "33ea77f5d560f1c7e2c5da20dff422554fa639304f2f46b97c94e5e7a9bf452f",
+      "bytes": 2933
+    },
+    {
+      "file": "meta3773-five-patch-over-output-repair.log",
+      "sha256": "a6cf1e4deb37777da667b944a66d350d90467f67edee2b7a4f4db1f7bb0e8178",
+      "bytes": 405
+    },
+    {
+      "file": "meta3773-five-patch-over-output-repair.json",
+      "sha256": "de7256e897a3d04ce7dc4390778a365432d5bb49a9d79a29be658f786c11de73",
+      "bytes": 427
+    },
+    {
+      "file": "meta3773-local-near-independent-replay.json",
+      "sha256": "35c9236e88086179674fef982adb69cf04e46fe5185c9ceda9b9ec1de4c478e1",
+      "bytes": 756
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over-3773798.log",
+      "sha256": "8736c690c09686544fde13c494ead09dc24a3a6c4b8f1587012eab0c6413f012",
+      "bytes": 3921
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over-3773798-status.json",
+      "sha256": "e014732f8527c5b606700bbcfb506da0ce46955194fe6ff14fce6676a6a9dc79",
+      "bytes": 503
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over-3773798-run.log",
+      "sha256": "f83ea5e56fb85433d54ee36f4b2d81344227ebc12a4f24b9c1b3bee22cf74439",
+      "bytes": 475
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over2-3773799.log",
+      "sha256": "ebe115767dde3eff71511d99228c99ad9f0e3c78b9f2123fdc4a017ea1fe8558",
+      "bytes": 1252
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over2-3773799-status.json",
+      "sha256": "387ad7e36dcd54d926aec1b2d03ec09ad23ddf5edde23b63085b1c51462ac5d5",
+      "bytes": 505
+    },
+    {
+      "file": "meta3773-five-patch-cgp-over2-3773799-run.log",
+      "sha256": "64151fc8a7729e831154968dd4fa69384f24b804c5044aed3c4e0fd6781669f2",
+      "bytes": 477
+    },
+    {
+      "file": "meta3773-motif-c8-12-lex-first-bad-distinct-essential-input.json",
+      "sha256": "25999624b18cd2fd78b4403677438cb1843e887cb4e8f624454c39902e41429e",
+      "bytes": 2231
+    },
+    {
+      "file": "meta3773-motif-c8-12-lex-first-bad-distinct-essential-result.json",
+      "sha256": "65306b8e12513312dcf0e7f6ba840e7b04f9a6636b0d0f799ec4f04df0d23527",
+      "bytes": 136
+    },
+    {
+      "file": "meta3773-motif-c8-12-lex-first-bad-distinct-essential-solver.log",
+      "sha256": "40b3a0ef2d8d509b901d82701f74fda1d8f4614bff8ab756dc4838ea8b31d01c",
+      "bytes": 20899
+    },
+    {
+      "file": "meta3773-motif-c8-12-lex-first-bad-distinct-essential-run.log",
+      "sha256": "5025d5bdc95a4e2ae2e520c1a98565d41cf60a2ea9fd800e4a83167e7189a8fd",
+      "bytes": 1060
+    }
+  ]
+}

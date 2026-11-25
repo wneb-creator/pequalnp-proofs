@@ -1,0 +1,9 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 399 of 405 result False branch-eligible True states 1205 seconds 7.4
+case 400 of 405 result False branch-eligible True states 1990 seconds 10.59
+case 401 of 405 result False branch-eligible False states 1990 seconds 10.59
+case 402 of 405 result False branch-eligible False states 1990 seconds 10.591
+case 403 of 405 result False branch-eligible False states 1990 seconds 10.591
+case 404 of 405 result False branch-eligible False states 1990 seconds 10.592
+case 405 of 405 result False branch-eligible False states 1990 seconds 10.592
+{'cases': 405, 'tested': 405, 'solutions': [], 'seconds': 10.592001008997613}

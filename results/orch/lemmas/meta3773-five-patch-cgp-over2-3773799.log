@@ -1,0 +1,6 @@
+{"stage":"start","seed":3773799,"samples":50,"genotype_gates":112,"raw_inputs":16,"free_or_count":16,"outside_points_in_order":[4,5,7,8,9,10,11,12]}
+{"stage":"near_over_patch","sample_errors":22,"size":16}
+{"stage":"diagnostic_patch","free_ors":[[13,15],[16,12],[11,14],[18,12],[9,12],[20,10],[21,7],[6,11],[23,9],[5,10],[8,15],[26,9],[8,14],[28,7],[6,13],[30,7]],"gates":[[1,5,15],[1,32,11],[1,33,7],[0,1,34],[1,6,15],[1,36,10],[1,37,14],[0,2,38],[1,35,39],[1,40,3],[1,6,8],[1,42,12],[1,43,5],[0,0,44],[1,41,45],[1,46,4]],"output":47,"size":16,"assembled_global_size":56,"physical_truth_table_verified":false,"physical_errors":411}
+{"stage":"near_over_patch","sample_errors":14,"size":20}
+{"stage":"diagnostic_patch","free_ors":[[13,15],[16,12],[11,14],[18,12],[9,12],[20,10],[21,7],[6,11],[23,9],[5,10],[8,15],[26,9],[8,14],[28,7],[6,13],[30,7]],"gates":[[1,5,15],[1,32,11],[1,33,7],[0,1,34],[1,6,15],[1,36,10],[1,37,14],[0,2,38],[1,35,39],[1,40,3],[1,6,8],[1,42,12],[1,43,5],[0,0,44],[1,41,45],[1,8,11],[1,47,10],[1,48,13],[0,4,49],[1,46,50]],"output":51,"size":20,"assembled_global_size":60,"physical_truth_table_verified":false,"physical_errors":221}
+{"stage":"finished","iterations":58143744,"restarts":73,"best_valid_size":24,"seconds":60.0011}

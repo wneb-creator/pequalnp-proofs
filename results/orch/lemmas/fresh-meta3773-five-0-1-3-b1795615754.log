@@ -1,0 +1,30 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 91 of 118 result False branch-eligible True states 264 seconds 1.486
+case 92 of 118 result False branch-eligible True states 282 seconds 1.564
+case 93 of 118 result False branch-eligible True states 338 seconds 1.845
+case 94 of 118 result False branch-eligible True states 414 seconds 2.155
+case 95 of 118 result False branch-eligible True states 444 seconds 2.336
+case 96 of 118 result False branch-eligible True states 523 seconds 2.752
+case 97 of 118 result False branch-eligible True states 578 seconds 2.969
+case 98 of 118 result False branch-eligible False states 578 seconds 2.969
+case 99 of 118 result False branch-eligible False states 578 seconds 2.969
+case 100 of 118 result False branch-eligible False states 578 seconds 2.97
+case 101 of 118 result False branch-eligible False states 578 seconds 2.97
+case 102 of 118 result False branch-eligible False states 578 seconds 2.97
+case 103 of 118 result False branch-eligible True states 588 seconds 3.016
+case 104 of 118 result False branch-eligible True states 593 seconds 3.05
+case 105 of 118 result False branch-eligible True states 594 seconds 3.093
+case 106 of 118 result False branch-eligible True states 600 seconds 3.135
+case 107 of 118 result False branch-eligible False states 600 seconds 3.135
+case 108 of 118 result False branch-eligible False states 600 seconds 3.136
+case 109 of 118 result False branch-eligible True states 615 seconds 3.192
+case 110 of 118 result False branch-eligible True states 622 seconds 3.239
+case 111 of 118 result False branch-eligible True states 623 seconds 3.277
+case 112 of 118 result False branch-eligible True states 632 seconds 3.341
+case 113 of 118 result False branch-eligible True states 1250 seconds 5.591
+case 114 of 118 result False branch-eligible True states 1398 seconds 6.301
+case 115 of 118 result False branch-eligible True states 1576 seconds 7.02
+case 116 of 118 result False branch-eligible False states 1576 seconds 7.02
+case 117 of 118 result False branch-eligible True states 1722 seconds 7.734
+case 118 of 118 result False branch-eligible False states 1722 seconds 7.735
+{'cases': 118, 'tested': 118, 'solutions': [], 'seconds': 7.734812605001935}

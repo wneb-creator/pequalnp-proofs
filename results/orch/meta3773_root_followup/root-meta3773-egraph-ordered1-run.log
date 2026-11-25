@@ -1,0 +1,53 @@
+{"functions": 739, "alternatives": 11246, "variables": 12724, "constraints": 46410, "control": {"size": 64, "max_rank": 10, "all_constraints_pass": true}}
+/tmp/oec/pequalnp-pilot-79/root_meta3773_egraph_ordered_milp.py:82: RuntimeWarning: Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim.
+  res=milp(cvec,integrality=integral,bounds=Bounds(lower,upper),constraints=LinearConstraint(matrix,np.array(lo),np.array(hi)),options={'time_limit':60,'disp':True,'mip_rel_gap':0,'threads':1})
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 6e+01]
+  Cost   [1e+00, 1e+00]
+  Bound  [1e+00, 6e+01]
+  RHS    [6e+01, 6e+01]
+Presolving model
+45500 rows, 12304 cols, 137089 nonzeros  0s
+38414 rows, 10499 cols, 116901 nonzeros  15s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   38414 rows
+   10499 cols (9847 binary, 0 integer, 0 implied int., 652 continuous)
+   116901 nonzeros
+MIP-Timing:          16 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   15              inf                  inf        0      0      0         0    15.8s
+         0       0         0   0.00%   32.12438625     inf                  inf        0      0     10      2503    17.0s
+         0       0         0   0.00%   32.3854178      inf                  inf      166     12     52      3971    22.2s
+         0       0         0   0.00%   32.38657178     inf                  inf      408     17    110      4012    27.6s
+         0       0         0   0.00%   32.43043216     inf                  inf      787     24    198      4742    32.8s
+         0       0         0   0.00%   32.43043216     inf                  inf      850     24    232     22002    60.0s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        33
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            60.03 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 5
+  Nodes             0
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     22002 (total)
+                    0 (strong br.)
+                    2252 (separation)
+                    17247 (heuristics)
+{"scope": "Fixed-seed-order acyclic semantic egraph heuristic, with target last; all gates positive on an edge. Infeasibility applies only to this finite ordered pool over seed808-bit intermediate functions; infeasibility is only within this finite pool, not a global lower bound.", "priority_seed": "meta3773-cgp-79024-100-best.json", "functions": 739, "alternatives": 11246, "variables": 12724, "constraints": 46410, "control": {"size": 64, "max_rank": 10, "all_constraints_pass": true}, "source_sha256": "9f05adc53939af0e73570edee0421e69b4240dfdcafe861da92c59eb7e4d21fa", "status": 1, "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 61.03679018100229, "mip_gap": null}

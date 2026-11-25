@@ -1,0 +1,9 @@
+{
+  "classification": "Exact exhaustive search for one/two new output gates over the saved prefix; no general circuit exclusion",
+  "found": false,
+  "seconds": 0.05021854299775441,
+  "source_hashes": {
+    "meta3773-five-patch-over-frozen21.json": "437cd46c36a60ac69eec742b9b04a6dce665ababd95453ca8a6197a1d87de5ae",
+    "meta3773-five-patch-data.json": "a27ca9c766c1f79f1709e5a86f2360cdc7f3951592cbee1cd54366d6fd8f2e41"
+  }
+}

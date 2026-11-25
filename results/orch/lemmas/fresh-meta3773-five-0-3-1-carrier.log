@@ -1,0 +1,6 @@
+model [0, 1, 2, 3, 4] rows 14 17 group 8
+case 2 of 5 result False branch-eligible True states 1024 seconds 1.032
+case 3 of 5 result False branch-eligible True states 1119 seconds 1.112
+case 4 of 5 result False branch-eligible True states 1487 seconds 1.698
+case 5 of 5 result False branch-eligible True states 1628 seconds 1.899
+{'cases': 5, 'tested': 5, 'solutions': [], 'seconds': 1.8995046810014173}
