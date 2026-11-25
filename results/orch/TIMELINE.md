@@ -20,3 +20,5 @@
 - 2026-11-25T17:38:06.911600+00:00: one-dirty graph/semantic lemmas and two-deletion pruning compiler compiled and independently reviewed.
 - 2026-11-25T17:42:48.027572+00:00: consolidated2579-line partial compiled and independently reviewed; no final theorem.
 - 2026-11-25T17:52:04.236657+00:00: zero-count pruning trace, prefix preservation, and optional-output star restoration compiled and independently reviewed.
+- 2026-11-25T17:56:25.929991+00:00: reviewed conditional prune-and-restore circuit construction compiled and checkpointed.
+- 2026-11-25T17:56:25.929991+00:00: second replan: pursue first-dirty nonstar restoration and productive-gate lifting; preserve general multiple-dirty bottleneck explicitly; launch symmetry-reduced theta/Fano SAT searches.

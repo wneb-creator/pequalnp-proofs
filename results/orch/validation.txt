@@ -55,3 +55,8 @@ Pruning preserves tCount=0 and all wires before the selected gate; restoring a f
 Independent review: combinatorial agent audited trace; toolchain audited prefix and optional-output restoration. Full compiler logs are archived.
 The posted theorem remains unproved; these are reusable checked components.
 TIMING total=46.9 subagents=7
+
+Checkpoint10: ReaderPartition, PruneRestore, and PruneRestoreSingle compile and pass independent toolchain review.
+The integrated conditional transformation restores full semantics with AO2, zero count, and no size increase. Singleton rejection discharges the empty-output-reach condition.
+The full restoration identity is an explicit premise; no full target proof is claimed.
+TIMING total=51.2 subagents=7
