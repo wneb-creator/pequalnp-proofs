@@ -1,0 +1,7 @@
+Checked 2026-11-25T14:24:43.086065+00:00
+Source: results/orch/lemmas/direct.lean
+SHA256: 04d0f6d7c51b1117091f93fb8ea9e82e9559d626d7f0510e9df16ce3cdcf5d4f
+Exit: 0
+STDOUT: empty
+STDERR: empty
+One-NOT join obligation for monotone F and G, given explicit formula F=B∨(A∧¬G). No gate-count lower bound claimed.

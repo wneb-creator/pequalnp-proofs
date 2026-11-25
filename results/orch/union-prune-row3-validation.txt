@@ -1,0 +1,8 @@
+Checked 2026-11-25T14:23:20.432752+00:00
+Source: results/orch/lemmas/union_prune_row3_chunks.lean
+SHA256: c3ff8c78d031e0f0c852b97572f67fadca4abaf93f38a05a600095f66e309aa2
+Exit: 0
+Lean flags: -j 1 -M 2048
+52 pair chunks, all1326 unordered helper pairs above first helper3. This is one row of the finite table, not the full obstruction or posted theorem.
+STDOUT: empty
+STDERR: empty

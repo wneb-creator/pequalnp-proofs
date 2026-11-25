@@ -1,0 +1,8 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap:L-meta-2592
+New checked sources:union_prune_row3_chunks.lean (all1326 cases with first helper3), direct.lean (one-NOT join obligation under explicit formula).
+Both Lean runs exited0 with empty stdout/stderr.
+Independent reviews:PASS, union-prune-row3-review.md and direct-semantic-review.md.
+Main named file unchanged,245lines; target theorem remains absent. Checker remainsFAULT137 from checkpoint05; no PR.
+Sub-agents:6
+TIMING total=41.1 subagents=6
