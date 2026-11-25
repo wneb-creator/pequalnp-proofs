@@ -5,7 +5,10 @@ Restriction.lean: lake env lean exit 0; retained constant input charges one gate
 Local full-gap checker: not run; partial file does not claim the posted theorem.
 Lean 4.36.0; official Mathlib cache get exit 0; PEqualNP.Defs build exit 0.
 Sub-agents: status/review/setup; proof route; NOT cases; reductions; counterexample; SAT/CEGIS child
-TIMING total=17 subagents=6
+TIMING total=22 subagents=6
 Restriction updated: kept_projection_charge compiled; independent semantic review PASS.
 TwinBoth.lean: lake env lean exit 0; both first binary-gate operands must remain live. Independent review PASS; all 360 row collisions separately verified.
 L_meta_2592.lean partial: Sixteen source compiled via lake env lean, exit 0; stderr empty. It proves 16 + NOT count <= size and excludes >=4 NOT gates. Final posted theorem is still absent. Independent review PASS.
+Named lake build PEqualNP.Outside.L_meta_2592: exit 0, 5149 jobs; full logs preserved.
+Projection, Overlap, NonOr partials: Lean exit 0 and independent review PASS; complete logs in lemmas/.
+Search sources/candidates preserved for reproduction; no counterexample found. exact20 validated on 1024 rows; approximate candidates fail4 or8 rows.

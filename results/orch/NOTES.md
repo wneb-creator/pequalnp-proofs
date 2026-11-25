@@ -16,3 +16,25 @@ Existing reductions occupy all three slots.
 - 2026-11-25T13:52:01.949944+00:00 reductions: proposed stronger partial Sixteen.lean gives 16+NOTcount<=size by running L5236 signed certificate on the original ten pins; root Defs build pending. If compiled, this excludes all >=4 NOT circuits, leaving 1..3. Exact normalization component is already L7389.
 
 2026-11-25T13:54:02.851971+00:00 proof_route: Restriction.lean compiled successfully (Defs only). kept_projection_bound converts a retained input made constant after the first binary gate into an extra gate lower bound. Generic lower L on a cofactor yields L+1≤tail gates, hence≥17 when L=15. Arbitrary-vertex projections and twin obstruction will combine.
+
+- 2026-11-25T13:55:37.908728+00:00 reductions: Normalization.lean compiled successfully (exit0; only deprecation/unused-simp warnings) and independent status_review passed. Sixteen.lean certificate compile progressing without errors; reviewer verified source derivation and all1024 target assignments. Stronger realizeOrdinaryPins variant in scratch preserves raw pins for proof_route seventeen-binary-gate strategy.
+
+2026-11-25T13:56:06.363586+00:00 proof_route: strengthened generic lemma to kept_projection_charge, compiled exit0. Bound now L+1+cost(projected first gate)≤tail gates; if firstgate becomes constant, gain two charges and binary≥18. Updated Restriction.lean and logs.
+2026-11-25T13:57:11.741079+00:00 not_cases: BOTH first binary inputs must survive into tail; TwinBothLight Lean exit0. Fragment ready, proof_route integrating binary>=17. First non-OR might yield>=18.
+
+2026-11-25T13:58:33.277410+00:00 proof_route: Projection.lean compiled exit0, no warnings. Kernel checked ten vertex automorphisms and all 512-bit cofactor tables. pin_projection maps any chosen Petersen inputfalse to the existing9-input certificate and supplies allotherpins freely. Assembly of≥17 underway.
+
+2026-11-25T13:59:01.383991+00:00 Counterexample: fixed8gate fourORbase +3gates structured route exhausted (17,860,500 checks), no witness. Freer6input vector SAT ongoing.
+
+- 2026-11-25T13:59:53.440308+00:00 reductions: Sixteen.lean COMPILED exit0. Proven sixteen_binary:16+NOTcount<=size for ordinary Petersen; four_not_impossible excludes>=4NOT at19. Source285KB independently audited PASS. Root notified for immediatepush. Strongpins variant prepared for next17-bound strategy.
+
+2026-11-25T14:02:01.249139+00:00 SAT: conditional6input5output11gate vector (A,B,C,D,N), D∧N=M, exactlyoneNOT, firstOR(a,b) UNSAT in60s; unrestrictedfirstgate nowrunning. No witness.
+
+2026-11-25T14:02:10.569366+00:00 Root: rejected generic duplicate-wire charging. Signed multiplexer with duplicate raw input uses 3 gates without a saving; monotone majority with roots [a,b,b,c] uses 4 gates, matching its optimum. Only constant-wire charge is sound without graph-specific hypotheses.
+
+2026-11-25T14:02:10.569366+00:00 Root read https://pequalnp.com/papers/note-1 (dated 2026-11-24). Its general edge-function lower bound requires separated hubs/long cycles, so does not cover Petersen. No new full-bound result obtained from paper.
+2026-11-25T14:05:12.950787+00:00 not_cases: OverlapLight Lean exit0. TwoORs(a∨b),(a∨c) require raw a ifb,c nonadjacent; adjacentcase masksunderedge bc and cannotbeexcludedbyretention.
+
+2026-11-25T14:06:09.578275+00:00 20-minute replan: retain signed lower-bound assembly (17 binary globally,18 for non-OR firstgate); target OR-first structural pruning with actualNOT-count tracking via L7227/L6060. Continue six-input multi-output counterexample search to budget; then test signed18 with freeNOTs to find ceiling of genericbinary approach. Drop genericduplicate-charge and naiveper-gate-star normalization, both have counterexamples. Fullposted theorem still unproved; allcompiledcomponents arebeing preserved on pilot95.
+
+2026-11-25T14:06:12.370156+00:00 status_review: naive monotone star-normalization route blocked. Checked L_meta_4849 has a minimum 11-gate circuit for an 8-vertex triangle/C4-free graph, with an AND producing nonedge {2,7} that later gates filter out. Independently verified all 256 assignments, tau=4, m+tau-1=11. Thus the desired bound is not refuted, but every-AND-biclique-inside-G is false even for minimum circuits. R_meta_5375_41 isolates a genuine missing repair hypothesis. Exhaustive monotone circuit enumeration through 4 gates found no violation for all 53 nonempty C4-free labeled graphs on 4 vertices; computational evidence only.

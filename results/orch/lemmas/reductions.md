@@ -17,3 +17,5 @@ These checked results support a real partial proof (large NOT counts / selected 
 `/tmp/oec/pequalnp-pilot-95/reductions/Sixteen.lean` reuses the signed certificate from L_meta_5236. Its new `Extended.realizeOrdinary` executes the original circuit on the ten input pins, instead of the eleven-wire bank containing a supplied OR. All extracted live roots remain a subset of the larger bank, so the original `atLeastSixteen` lemma applies. The resulting bound is `16 + notCount C ≤ C.size`, excluding four or more NOT gates at budget nineteen. This strengthens the earlier fifteen-binary-gate bound. Compilation is pending the root Defs build.
 
 Exact normalization bridge R_meta_2592_408.normalize already appears as checked L_meta_7389 (305 lines). Repackaged helper-only scratch file is Normalization.lean.
+
+Compilation completed 2026-11-25T13:59:53.440308+00:00: `Sixteen.lean` exit0, noerrors, stderr empty; stdout contains ordinary linter warnings. Independent status_review audit passed. Root handles preservation/push and target-module build.

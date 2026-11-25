@@ -1,0 +1,5 @@
+seed=951 sec=0.00041175 trials=0 errors=18 fp=18 fn=0
+seed=951 sec=0.0928704 trials=380702 errors=15 fp=0 fn=15
+seed=951 sec=0.195758 trials=800000 errors=9 fp=0 fn=9
+seed=951 sec=48.7152 trials=176787710 errors=7 fp=1 fn=6
+seed=951 sec=81.7254 trials=276382875 errors=4 fp=4 fn=0

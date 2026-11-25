@@ -1,0 +1,15 @@
+seed=952 sec=0.000140653 trials=0 errors=78 fp=0 fn=78
+seed=952 sec=0.000263318 trials=7 errors=72 fp=0 fn=72
+seed=952 sec=0.000835914 trials=850 errors=69 fp=0 fn=69
+seed=952 sec=0.0215758 trials=85487 errors=58 fp=0 fn=58
+seed=952 sec=0.0219134 trials=85801 errors=52 fp=0 fn=52
+seed=952 sec=0.0324888 trials=123706 errors=36 fp=0 fn=36
+seed=952 sec=0.0337914 trials=128676 errors=27 fp=0 fn=27
+seed=952 sec=0.0514626 trials=198865 errors=22 fp=0 fn=22
+seed=952 sec=0.058176 trials=224752 errors=20 fp=5 fn=15
+seed=952 sec=0.0585291 trials=224840 errors=19 fp=5 fn=14
+seed=952 sec=0.102194 trials=400000 errors=9 fp=0 fn=9
+seed=952 sec=34.2758 trials=123989576 errors=8 fp=2 fn=6
+seed=952 sec=34.403 trials=124446185 errors=7 fp=1 fn=6
+seed=952 sec=45.0594 trials=163598425 errors=6 fp=0 fn=6
+seed=952 sec=48.2708 trials=176780306 errors=4 fp=4 fn=0

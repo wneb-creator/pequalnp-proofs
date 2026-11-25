@@ -10,3 +10,10 @@
 
 2026-11-25T13:59:01.383991+00:00 Counterexample fixedORbase route exhausted; unrestricted shared-vector synthesis continues.
 2026-11-25T14:00:23.628421+00:00 Sixteen partial compiled exit 0; installed named file for preservation.
+
+2026-11-25T14:01:57.495991+00:00 Counterexample search sources/logs snapshotted underresults/orch/search/counterexample forpushpreservation. No witness.
+2026-11-25T14:02:10.569366+00:00 Generic duplicate-charge strategy rejected by explicit small counterexamples; retain constant-charge route.
+2026-11-25T14:03:04.224944+00:00 Lease renewed; expires 2026-11-25T14:23:03.708Z.
+2026-11-25T14:05:12.950787+00:00 not_cases completed kernel-checked overlapping-OR retention classification (480witnesses).
+2026-11-25T14:06:09.578275+00:00 First orchestration replan: narrow to OR-first +1/2NOT frontier; retain independent SAT and stochastic searches.
+2026-11-25T14:07:13.704984+00:00 Named Sixteen build passed; Projection/Overlap/NonOr reviewed; preservation batch ready.
