@@ -2031,7 +2031,7 @@ def poolRun : List Nat → List (Nat × Nat × Nat) → List Nat
 
 def available (d : Nat) (pool : List Nat) (raw : Nat) : Bool :=
   let w := raw &&& d
-  w == 0 || w == d || pool.any (fun a => w == (a &&& d) || w == (a &&& d ^^^ d))
+  w == 0 || w == d || pool.any (fun a => w == a || w == (a ^^^ d))
 
 def truth (anchor : Nat) (support : List Nat) (w : Nat) : Nat :=
   (List.range 8).foldl (fun bits r =>
@@ -2378,6 +2378,320 @@ lemma checkedOutputSumCostEval_sound {R T s k} (hs : SliceN R T s) (ws : List Na
   intro f roots dom hp v hv
   exact PerWire.checkedOutput_from_roots dom hp (program v) (output v)
     (checks v hv)
+
+end RestrictionSixProof
+
+namespace AutoPool
+def forceNat {α : Sort u} (n : Nat) (f : Nat → α) : α :=
+  match n with
+  | 0 => f 0
+  | k+1 => f (k+1)
+
+lemma forceNat_eq {α : Sort u} (n : Nat) (f : Nat → α) : forceNat n f = f n := by
+  cases n <;> rfl
+
+end AutoPool
+
+namespace RestrictionSixProof
+
+lemma autoPool_var_eq_xN {v : Nat} (hv : v < 7) : AutoPool.var v = xN v := by
+  interval_cases v <;> rfl
+
+lemma autoPool_var_eq_zero {v : Nat} (hv : 7 ≤ v) : AutoPool.var v = 0 := by
+  apply List.getD_eq_default
+  simpa only [AutoPool.inputs, List.length_cons, List.length_nil] using hv
+
+lemma autoPool_available_eq_av (d : Nat) (pool : List Nat) :
+    AutoPool.available d pool = av d pool := by
+  funext raw
+  have hx (a w : Nat) : w = a ^^^ d ↔ a = d ^^^ w := by
+    constructor
+    · intro h
+      rw [h, Nat.xor_comm a d, ← Nat.xor_assoc, Nat.xor_self, Nat.zero_xor]
+    · intro h
+      rw [h, Nat.xor_comm (d ^^^ w) d, ← Nat.xor_assoc, Nat.xor_self, Nat.zero_xor]
+  have hp : (fun a => (raw &&& d == a || raw &&& d == (a ^^^ d))) =
+      (fun a => (a == raw &&& d || a == (d ^^^ (raw &&& d)))) := by
+    funext a
+    apply Bool.eq_iff_iff.mpr
+    simp only [Bool.or_eq_true, beq_iff_eq]
+    exact or_congr eq_comm (hx a (raw &&& d))
+  simp only [AutoPool.available, av, hp]
+  rfl
+
+lemma autoPool_countConstants_eq_sumc (d : Nat) (ws : List Nat) :
+    ws.countP (fun w => w &&& d == 0 || w &&& d == d) = sumc d ws := by
+  induction ws with
+  | nil => rfl
+  | cons w ws ih =>
+    cases h : (w &&& d == 0 || w &&& d == d) <;>
+      simp_all [sumc, cn, Nat.add_comm]
+
+end RestrictionSixProof
+
+namespace CostLUT
+
+def natOp (o a b : Nat) : Nat :=
+  if o == 0 then a &&& b else if o == 1 then a ||| b
+  else if o == 2 then a ^^^ (a &&& b) else b ^^^ (a &&& b)
+
+def natInput (a b c i : Nat) : Nat := [a,b,c].getD i 0
+
+def evalCodeNat (code a b c : Nat) : Nat :=
+  let first := (code &&& 255)-1
+  let v := natOp (first % 4) (natInput a b c ((first/4)%4)) (natInput a b c (first/16))
+  if code < 256 then v else
+    let second := code/256-1
+    natOp (second % 4) v (natInput a b c (second/4))
+
+end CostLUT
+
+namespace RestrictionSixProof
+namespace PerWire
+
+lemma natOp_eq_nb (o a b : Nat) : CostLUT.natOp o a b = nb o a b := by
+  simp only [CostLUT.natOp, nb, Bool.cond_eq_ite, beq_iff_eq, Nat.beq_eq, Nat.land_eq, Nat.lor_eq, Nat.xor_eq]
+
+lemma inputTriple_ps {f : Row → Row} {bank a b c}
+    (ha : Available true bank (RF f a)) (hb : Available true bank (RF f b))
+    (hc : Available true bank (RF f c)) : PS f bank [a,b,c] := by
+  intro v hv
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hv
+  rcases hv with rfl | rfl | rfl
+  · exact ha
+  · exact hb
+  · exact hc
+
+lemma evalCodeNat_reach {f : Row → Row} {roots bank p a b c}
+    (hr : Reach true roots p bank) (hP : PS f bank [a,b,c]) (code : Nat) :
+    ∃ next, Reach true roots (p + if code < 256 then 1 else 2) next ∧
+      Available true next (RF f (CostLUT.evalCodeNat code a b c)) ∧
+      ∀ v, Available true bank v → Available true next v := by
+  let first := (code &&& 255)-1
+  let firstA := [a,b,c].getD ((first / 4) % 4) 0
+  let firstB := [a,b,c].getD (first / 16) 0
+  obtain ⟨next, hr', hP', hv, hkeep⟩ :=
+    pay_nb (first % 4) firstA firstB hr hP (getD_ps hP _) (getD_ps hP _)
+  by_cases hcode : code < 256
+  · refine ⟨next, ?_, ?_, hkeep⟩
+    · simpa only [ite_eq_left hcode] using hr'
+    · simpa only [CostLUT.evalCodeNat, ite_eq_left hcode, natOp_eq_nb,
+        CostLUT.natInput] using hv
+  · let second := code / 256 - 1
+    obtain ⟨out, hr'', _, hv', hkeep'⟩ :=
+      pay_nb (second % 4) (nb (first % 4) firstA firstB)
+        ([a,b,c].getD (second / 4) 0) hr' hP' hv (getD_ps hP' _)
+    refine ⟨out, ?_, ?_, fun v hv => hkeep' v (hkeep v hv)⟩
+    · simpa only [ite_eq_right hcode, Nat.add_assoc] using hr''
+    · simpa only [CostLUT.evalCodeNat, ite_eq_right hcode, natOp_eq_nb,
+        CostLUT.natInput] using hv'
+
+lemma evalCodeNat_from_roots {f : Row → Row} {roots a b c}
+    (hP : PS f roots [a,b,c]) (code : Nat) :
+    ∃ bank, Reach true roots (if code < 256 then 1 else 2) bank ∧
+      Available true bank (RF f (CostLUT.evalCodeNat code a b c)) := by
+  obtain ⟨bank, hr, ht, _⟩ := evalCodeNat_reach Reach.start hP code
+  exact ⟨bank, by simpa only [Nat.zero_add] using hr, ht⟩
+
+lemma evalCodeNat_from_pool {f : Row → Row} {roots P}
+    (hP : PS f roots P) (code : Nat) :
+    ∃ bank, Reach true roots (if code < 256 then 1 else 2) bank ∧
+      Available true bank (RF f (CostLUT.evalCodeNat code
+        (P.getD 0 0) (P.getD 1 0) (P.getD 2 0))) :=
+  evalCodeNat_from_roots (inputTriple_ps (getD_ps hP 0) (getD_ps hP 1) (getD_ps hP 2)) code
+
+end PerWire
+end RestrictionSixProof
+
+namespace AutoPool.IndependentCost
+
+open PEqualNP.Outside.L_meta_10760
+
+def wireCost (d anchor : Nat) (vs basePool : List Nat) (raw : Nat) : Option Nat :=
+  if AutoPool.available d basePool raw then some 0 else
+    AutoPool.forceNat (raw &&& d) fun masked =>
+      AutoPool.forceNat (if masked.testBit anchor then masked ^^^ d else masked) fun w =>
+        let support := vs.filter (fun v => (w ^^^ AutoPool.flip w v) &&& d != 0)
+        if support.length < 2 || 3 < support.length then none else
+          AutoPool.forceNat ((AutoPool.table >>> (12 * (AutoPool.truth anchor support w / 2))) &&& 4095) fun code =>
+            if code == 0 then none else
+              let packed := support.map (fun v => AutoPool.var v &&& d)
+              AutoPool.forceNat (CostLUT.evalCodeNat code (packed.getD 0 0) (packed.getD 1 0) (packed.getD 2 0)) fun output =>
+                if output == w then some (if code < 256 then 1 else 2) else none
+
+def costs (d anchor : Nat) (vs basePool : List Nat) : List Nat → Option Nat
+  | [] => some 0
+  | w :: ws => match wireCost d anchor vs basePool w with
+    | none => none
+    | some c => (costs d anchor vs basePool ws).map (fun cs => c + cs)
+
+def fastCut (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  if L+constants <= k then false else
+    let anchor := Nat.log2 (d ^^^ (d-1))
+    let pool := vs.map (fun v => AutoPool.var v &&& d)
+    match costs d anchor vs pool ws with
+    | none => false
+    | some cost => k+cost < L+constants
+
+end AutoPool.IndependentCost
+
+namespace AutoPool.IndependentCost
+
+open RestrictionSixProof
+
+lemma wireCost_sound {f : Row → Row} {d anchor vs raw c} {roots : List (Wire Row)}
+    (dom : ∀ r, bit (f r) (W d) = true)
+    (hp : PS f roots (vs.map (fun v => AutoPool.var v &&& d)))
+    (h : wireCost d anchor vs (vs.map (fun v => AutoPool.var v &&& d)) raw = some c) :
+    ∃ bank, Reach true roots c bank ∧ Available true bank (RF f raw) := by
+  let pool := vs.map (fun v => AutoPool.var v &&& d)
+  let w := if (raw &&& d).testBit anchor then (raw &&& d) ^^^ d else raw &&& d
+  let support := vs.filter (fun v => (w ^^^ AutoPool.flip w v) &&& d != 0)
+  let code := (AutoPool.table >>> (12 * (AutoPool.truth anchor support w / 2))) &&& 4095
+  let packed := support.map (fun v => AutoPool.var v &&& d)
+  let output := CostLUT.evalCodeNat code (packed.getD 0 0) (packed.getD 1 0) (packed.getD 2 0)
+  simp only [wireCost,AutoPool.forceNat_eq] at h
+  change (if AutoPool.available d pool raw then some 0 else
+    if support.length < 2 || 3 < support.length then none else
+    if code == 0 then none else
+    if output == w then some (if code < 256 then 1 else 2) else none) = some c at h
+  split at h
+  · have hc : c = 0 := by simpa only [Option.some.injEq] using h.symm
+    subst c
+    refine ⟨roots,Reach.start,?_⟩
+    apply av_ok dom hp
+    rwa [←autoPool_available_eq_av]
+  · split at h
+    · contradiction
+    · split at h
+      · contradiction
+      · split at h
+        · rename_i hout
+          have hc : c = (if code < 256 then 1 else 2) :=
+            Option.some.inj h.symm
+          have heq : output = w := by simpa only [beq_iff_eq] using hout
+          have hpacked : PS f roots packed := by
+            intro v hv
+            obtain ⟨j,hj,rfl⟩ := List.mem_map.mp hv
+            exact hp _ (List.mem_map_of_mem (List.mem_filter.mp hj).1)
+          obtain ⟨bank,hr,hav⟩ := PerWire.evalCodeNat_from_pool hpacked code
+          refine ⟨bank,hc.symm ▸ hr,?_⟩
+          change Available true bank (RF f output) at hav
+          rw [heq] at hav
+          by_cases phase : (raw &&& d).testBit anchor = true
+          · have hw : RF f w = inv (RF f raw) := by
+              dsimp only [w]
+              rw [if_pos phase,Nat.xor_comm]
+              change RF f (Nat.xor d (Nat.land raw d)) = inv (RF f raw)
+              rw [rf_xor dom,rf_land dom]
+            rw [hw] at hav
+            simpa only [inv_inv'] using avail_inv rfl hav
+          · have hw : RF f w = RF f raw := by
+              dsimp only [w]
+              rw [if_neg phase]
+              exact rf_land dom raw
+            rwa [hw] at hav
+        · contradiction
+
+lemma costs_sound {f : Row → Row} {d anchor vs} {roots : List (Wire Row)}
+    (dom : ∀ r, bit (f r) (W d) = true)
+    (hp : PS f roots (vs.map (fun v => AutoPool.var v &&& d))) (ws : List Nat)
+    {paid : Nat} (h : costs d anchor vs (vs.map (fun v => AutoPool.var v &&& d)) ws = some paid) :
+    ∃ bank, Reach true roots paid bank ∧ PS f bank ws ∧
+      ∀ v, Available true roots v → Available true bank v := by
+  induction ws generalizing paid with
+  | nil =>
+    have he : paid = 0 := by simpa only [costs,Option.some.injEq] using h.symm
+    subst paid
+    exact ⟨roots,Reach.start,by simp [PS],fun _ hv => hv⟩
+  | cons w ws ih =>
+    cases hw : wireCost d anchor vs (vs.map (fun v => AutoPool.var v &&& d)) w with
+    | none => simp only [costs,hw] at h; contradiction
+    | some c =>
+      cases ht : costs d anchor vs (vs.map (fun v => AutoPool.var v &&& d)) ws with
+      | none => simp only [costs,hw,ht,Option.map_none] at h; contradiction
+      | some tailCost =>
+        have he : paid = c + tailCost := by
+          simpa only [costs,hw,ht,Option.map_some,Option.some.injEq] using h.symm
+        obtain ⟨tail,hr,hs,keep⟩ := ih ht
+        obtain ⟨single,hc,hav⟩ := wireCost_sound dom hp hw
+        have supplyRoots : supply true tail roots := fun v hv => keep v (Or.inl hv)
+        obtain ⟨next,hn,hns,keep'⟩ := hc.replay hr supplyRoots
+        refine ⟨next,?_,?_,fun v hv => keep' v (keep v hv)⟩
+        · simpa only [he,Nat.add_comm] using hn
+        · intro v hv
+          rcases List.mem_cons.mp hv with rfl | hv
+          · exact available_of_supply hns hav
+          · exact keep' _ (hs v hv)
+
+lemma fastCut_sound {R T s k} (hs : SliceN R T s) (ws : List Nat)
+    (nd : (ws.map W).Nodup) (h : fastCut k ws s = true) :
+    Impossible true (W T) k (ws.map W).toFinset := by
+  rcases s with ⟨d,L,vs⟩
+  obtain ⟨⟨f,roots,dom,base,nc,lo⟩,hv⟩ := hs
+  have hp : PS f (roots.map observe) (vs.map (fun v => AutoPool.var v &&& d)) := by
+    intro w hw
+    obtain ⟨v,hvs,rfl⟩ := List.mem_map.mp hw
+    change Available true (roots.map observe) (RF f (Nat.land (AutoPool.var v) d))
+    rw [rf_land dom]
+    by_cases h7 : v < 7
+    · rw [autoPool_var_eq_xN h7]
+      exact base _ (List.mem_map_of_mem (hv v hvs))
+    · rw [autoPool_var_eq_zero (by omega)]
+      exact Or.inr (Or.inl ⟨false,rf_zero⟩)
+  simp only [fastCut] at h
+  split at h
+  · contradiction
+  · split at h
+    · contradiction
+    · rename_i paid hpaid
+      obtain ⟨bank,hr,hps,_⟩ := costs_sound dom hp ws hpaid
+      have supplyWords : supply true bank (((ws.map W).map observe).map (restrictRows f)) := by
+        simp only [List.map_map,Function.comp_def]
+        intro v hv'
+        obtain ⟨w,hw,rfl⟩ := List.mem_map.mp hv'
+        exact hps w hw
+      intro k' hk run
+      have bound := projected_bound f (list_run run _ nd rfl) nc hr supplyWords lo
+      have count := sumc_ok dom ws
+      have mapped : (((ws.map W).map observe).map (restrictRows f)) = ws.map (RF f) := by
+        simp only [List.map_map,Function.comp_def]
+      rw [mapped] at bound
+      change L + mass (ws.map (RF f)) ≤ paid + k' at bound
+      change sumc d ws ≤ mass (ws.map (RF f)) at count
+      simp only [decide_eq_true_eq,autoPool_countConstants_eq_sumc] at h
+      omega
+
+end AutoPool.IndependentCost
+
+namespace RestrictionSixProof
+
+lemma sumCostCandidates_sound {R T s k} (hs : SliceN R T s)
+    (cs ws : List Nat) (budget : Nat → Nat)
+    (each : ∀ (f : Row → Row) (roots : List (Wire Row)),
+      (∀ r, bit (f r) (W s.1) = true) → PS f roots (initPool s.1 s.2.2) →
+      ∀ v ∈ cs, ∃ bank, Reach true roots (budget v) bank ∧ Available true bank (RF f v))
+    (covered : ws.all (av s.1 cs) = true)
+    (nd : (ws.map W).Nodup)
+    (cut : k + (cs.map budget).sum < s.2.1 + sumc s.1 ws) :
+    Impossible true (W T) k (ws.map W).toFinset := by
+  obtain ⟨f,roots,bank,dom,nc,hreach,hps,lo⟩ := sumCostCut_sound hs cs budget each
+  have supplyWords : supply true bank (((ws.map W).map observe).map (restrictRows f)) := by
+    simp only [List.map_map,Function.comp_def]
+    intro v hv
+    obtain ⟨w,hw,rfl⟩ := List.mem_map.mp hv
+    exact av_ok dom hps (List.all_eq_true.mp covered w hw)
+  intro k' hk run
+  have bound := projected_bound f (list_run run _ nd rfl) nc hreach supplyWords lo
+  have count := sumc_ok dom ws
+  change sumc s.1 ws ≤ mass (ws.map (RF f)) at count
+  have mapped : (((ws.map W).map observe).map (restrictRows f)) = ws.map (RF f) := by
+    simp only [List.map_map,Function.comp_def]
+  rw [mapped] at bound
+  change s.2.1 + mass (ws.map (RF f)) ≤ (cs.map budget).sum + k' at bound
+  omega
 
 end RestrictionSixProof
 
