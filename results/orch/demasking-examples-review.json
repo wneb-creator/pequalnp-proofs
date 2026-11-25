@@ -1,0 +1,9 @@
+{
+  "time": "2026-11-25T04:27:54.623831+00:00",
+  "checks": {
+    "four_gate_demasking_identity": true,
+    "five_gate_bipartite_identity": true,
+    "four_gate_double_trace": true,
+    "five_gate_double_trace": true
+  }
+}

@@ -48,7 +48,7 @@
 
 2026-11-25T03:46:44.814238+00:00 Checked resource fix and whole-circuit TopForm partial preserved before integration.
 
-2026-11-25T03:53:23.735693+00:00 finite_search: local SAT phase found no64 witness; theta OR-only augmentation ruled out for675 cores by source-cover bound8. Constructed and independently verified alternative plane65 with14AND/51OR. Extracted bipartite tree equality-case double-read counterexample.
+2026-11-25T03:53:23.735693+00:00 finite_search: local SAT phase found no64 witness; theta OR-only augmentation ruled out for675 cores by source-cover bound at least8 (558 at8,117 without a source-mask cover). Constructed and independently verified alternative plane65 with14AND/51OR. Extracted bipartite tree equality-case double-read counterexample.
 
 - 2026-11-25 03:56 UTC: structure_proof completes stronger active-pair dirty-count trace theorem and shared-rectangle center certificate; both Lean-checked. Pair-only dirty-count strategy rejected by counterexamples.
 
@@ -63,3 +63,5 @@
 - 2026-11-25 04:16 UTC: structure_proof completes and independently reviews four-center cover for all shared clean literal filters and the clean product of two arbitrary rectangles; identifies improper use of mixed-cover>=16 and blocks unsupported AND>=14 claim.
 
 2026-11-25T04:27:11.102115+00:00 Combined 3006-line checked partial and final four-clause interface passed build and independent review; exact gap remains unproved.
+
+2026-11-25T04:32:08.103708+00:00 Lease renewal returned410; root paused new work, preserving all reviewed artifacts before the instructed reacquisition request.

@@ -1,0 +1,8 @@
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:44:15.042Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}

@@ -284,3 +284,108 @@ UTC 2026-11-25T04:08:12.690406+00:00
 - Added Boolean clause proofs and full wiring identity: Plane65-bool.lean compiled exit0 (Plane65-bool-2.log),2548lines104KB, identical allowed axiom footprint. The theorem assumes the168 gate equations (65 original+103 DNF) and concludes original output wire90 equals DNF output193.
 - Turnkey generator: lrat-kernel/generate_identity.py WITNESS_JSON OUTPUT_DIR --solver PATH_TO_CADICAL, with export_rup.py and bool-clause-lemmas.lean.inc alongside it. Result Identity.lean is plain Lean; remove final #print axioms before repository checker. No strings/custom meta/new axioms in proof.
 - Direct Circuit.wires specialization via168 rfl goals is being tested; if expensive, use generic one-step prefix recurrence instead. The SAT certificate itself is already fully checked.
+
+UTC 2026-11-25T04:13:03.704721+00:00
+### Kernel SAT verification archival checkpoint
+- Completed reusable combined generator end to end on65candidate: output GeneratedIdentity.lean compiled exit0 with only propext, Classical.choice, Quot.sound.
+- Stable supporting archive results/orch/lrat/ contains exact generator inputs, sources, CNF/LRAT, compiled proof sources, fullsuccessfullogs, README limitations, hashes. Independent reviewer checked exact encoding and all206RUP steps to emptyclause712 and passed the initialarchive.
+- Added a further compiled Circuit.wires integration: Plane65-recurrence.lean SHA256 f946a407acb352a4a40692c1665096a5e2a2ad353566cee2618dedfea14a8036; full log Plane65-recurrence-3.log; Leanexit0, onlythe3allowedaxioms. Uses copied acceptedL2067 genericrecurrence, supplies168gateequations, proves actualwire90=wire193 for every26inputassignment.
+- This remains a65-gate supporting certificate, not the64-gate gap result. Finalwitness integration still needs originalcircuitprefix equality and finalDNF identification. README explicitly describes finalformat conversions: scopeoptions, auxiliarynamespaceblock, remove#print. Reviewer ischecking latestrecurrence delta.
+
+## 2026-11-25T04:14:47.929418+00:00 Independent review: graph lift, source archives, and filter center theorem
+
+PASS for the general rectangle-CNF lift, 146 lines, SHA256 f076c3083f1246f135bbc04b2fb96e824baff38bec2dfe70ab56fd8d5dd0219f. BitVec indexing, clause restriction and zero-extension witnesses correctly transfer the finite obstruction to arbitrary bipartite relations with no rectangle. Earlier finite core is unchanged.
+
+PASS for canonical 1402-line merge, SHA256 0ac6526b2d1bb4284886ac325ad6c402b68126552dc604e8f34ed8b639d60ffe. Combined OneJunk, rectangle-meet and finite-CNF bodies match reviewed sources; namespace nesting and plain-file checks pass.
+
+PASS for the original 19-entry LRAT archive: every manifest hash checked, all 506 CNF clauses independently regenerated, all 168 gate equations matched, and all 206 RUP additions independently validated through empty clause 712. README now lists all final-format conversions and correctly labels the result a supporting 65-gate identity. The subsequent recurrence extension is being independently reviewed by root.
+
+PASS for search/status-review archive after correcting its cover-bound description: 172 text artifacts, 2324918 bytes, all hashes checked; 14 witness circuits independently validated by symbolic antichains. Portable verifier passed complete small truth tables and traces, plus 704 maximal independent sets for the plane. Cover data has 558 cases with bound 8 and 117 uncovered cases encoded by sentinel 99. No arbitrary-circuit lower bound or ordinary-tree minimality is claimed.
+
+PASS for rectangle_filter_matching.lean, 210 lines, SHA256 a37066f9f1f3dc146ed97daa3bfc4aee1498aa2014c3f8a01ab3d0cccc2f8fad, and rectangle_filter_star.lean, 302 lines, SHA256 80eb01bb817f2bd60dcf865e801ec1cee72ffd39ab2adf9f7947949a87bcb6b1. The four-clause construction excludes two residual disjoint edges accepted through clean literal filters; a relation without a matching of size two is empty or a star, yielding one common extra center. Bodies of all earlier reviewed lemmas are unchanged. These are rectangle/filter results, not arbitrary-circuit normalization. Both full build logs are empty and reported successful; static format checks pass.
+
+## 2026-11-25T04:16:06.849565+00:00 Independent review: pair-clean subcase and 1631-line merge
+
+PASS for pair_clean.lean, 1021 lines, SHA256 f11dae4c6cbb9015b5955502f927b886e671cede4fc310d911d0d9d6c3707ea3. All copied helpers match L_meta_2069 after helper theorem-to-lemma renaming. The changed proof only uses cleanliness on pair inputs; singleton uses are covered by diagonal pairs, which pairClean explicitly includes. The removed positive andPairs premise was unused. A normalized statement comparison confirms the final helper is exactly the posted negated existential with only pairClean x1 inserted as an additional condition. This is a checked subcase, not the unrestricted gap. Imports, auxiliary namespace, scoped options and forbidden-pattern checks pass. Build3 has one warning and no errors; axiom audit was pending during this review.
+
+PASS for canonical 1631-line merge, SHA256 fbcfe9ceae2e0a7bc8754186da6f44ba5fd7f51a18178bf78ca3e4cef4eb6eb7. Nested RectangleCNF body is verbatim the previously approved full star extension, and namespace wrappers are correct. Main gap theorem remains absent.
+
+2026-11-25T04:16:32.113455+00:00 PairClean review follow-up: exact approved candidate axiom audit completed with only propext, Classical.choice and Quot.sound; complete log read by reviewer.
+
+## 2026-11-25T04:16:45.624679+00:00 pair-clean strengthening CHECKED
+
+results/orch/lemmas/pair_clean.lean adapts accepted L_meta_2069 helpers under aux.PairClean. The original proof uses full AND cleanliness only on singleton/pair assignments, so the new premise only requires every AND to reject nonedge pairs (including diagonal pairs). The unused positive-andPairs hypothesis is removed. Final pair_clean_no_double mechanically reproduces the exact posted existential negation with only pairClean x1 added; an exact text comparison passed. Compile exit0,30.6s,peak4,436,904KiB; axiom check exactly propext,Classical.choice,Quot.sound. Full validation copied to results/orch/pair-clean-validation.txt. Independent review requested. This still does not prove the unrestricted gap: a possible witness must contain an AND true on a nonedge pair.
+
+Logical bridge limits: L3760 requires ordinary least size and its normalization preserves semantics/size/junk count, not marked traces. L4767 separately assumes each dirty AND accepts at most one graph-edge pair. The four source theorems do not supply either missing premise for an arbitrary63/64-gate double witness.
+
+## 2026-11-25T04:17:25.409814+00:00 Independent review: two-rectangle four-center cover
+
+PASS: two_rectangles_cover.lean, 526 lines, SHA256 f7afda77ad549d2f4c19b1810c244bc1ec7d1e2c6623a0e34d5ffe41ac81c5ae. Augmented clauses encode D1 AND (D2 OR the selected literal filters); their cleanliness follows from the product and individual filter premises. Empty or singleton selected filters let the three-matching obstruction cover product and filter footprints together. The final union has the two marked endpoints and one extra center per family, hence at most four centers. The product is absorbed into the first family rather than counted separately. Earlier changes only replace automated injectivity checks with nine explicit finite cases. Defs-only import, namespace and forbidden-pattern scans pass; complete build log is empty with reported exit0. This does not supply a decomposition of an arbitrary circuit into those pieces.
+
+## 2026-11-25T04:19:00.076963+00:00 Independent review: 2874-line canonical checkpoint
+
+PASS for canonical SHA256 c4a039ce1649f88a3d20d8ca118a52754702a72a209b9eb9c3539bd3f213c2cb, 2874 lines, 137614 bytes. The complete approved two_rectangles_cover and pair_clean bodies are preserved verbatim under equivalent relative namespaces. Namespace closure, imports and forbidden-pattern scans pass. No main theorem is present; the earlier checker rejection for no theorem accurately describes the partial status. Build009 was pending at review.
+
+### 2026-11-25T04:21:50.685252+00:00 finite-search: unconditional OR-bound diagnostic
+
+Enumerated all 65,536 labeled 4×4 bipartite graphs. Exactly 18,521 are C4-free. Of these, exactly 96 are not pseudoforests; every such graph has nine edges and degree sequence (3,3,2,2,2,2,2,2), hence is a labeling of theta3 (three length-three paths). Thus theta3 is the first 4×4 target beyond the existing pseudoforest OR lower bound. Its graph function has nine minimal positive edge pairs and nine maximal independent negative sets, giving an exact 18-row monotone truth specification. Two bounded SAT diagnostics are running: seven OR/eight AND gates for the exact graph function, and the weaker singleton/nonedge-pair shadow specification. The latter allows higher minterms and cannot refute the posted graph statement. No result yet.
+
+Original finite-search scripts and complete selected logs are now archived under results/orch/search/finite-search/ with a hash/size manifest. All 675 direct-rewiring logs are losslessly stored in one JSONL. No generated CNFs or binaries are archived; profiles and original scripts recreate the tests. Independent archive review requested from status_review.
+
+## 2026-11-25T04:22:14.960749+00:00 Independent review: matching-to-cover bound
+
+PASS: matching_cover_two.lean, 105 lines, SHA256 56ccfa31a3690f8465df2c20676d5be6efb43847d11f690403bf2c73dc319504. A relation without a three-edge matching admits a left/right finite vertex cover with total size at most two. The constructive case split from a two-edge matching correctly handles third-row and third-column edges using distinctness and an augmenting-edge contradiction; the reversed orientation is correct. Empty and one-matching cases are covered. No finiteness or DecidableRel premise is used beyond the stated DecidableEq assumptions and classical proof reasoning. Allowed imports, helper namespace and forbidden-pattern checks pass; full build2 log empty with reported exit0.
+
+## 2026-11-25T04:22:25.091737+00:00 size-two matching-cover theorem CHECKED and reviewed
+
+results/orch/lemmas/matching_cover_two.lean (105lines) proves a generic relation with no injective Fin3 matching has a finite left/right vertex cover with totalcard≤2. Only DecidableEq on the two types is assumed; types may be infinite. The elementary proof starts from two disjoint edges and uses unmatched-left/unmatched-right augmenting paths to force a mixed two-vertex cover. Build exit0, no warnings,peak3.39GiB. Axioms only propext,Classical.choice,Quot.sound. Independent review PASS by independent_review at SHA256 56ccfa31a3690f8465df2c20676d5be6efb43847d11f690403bf2c73dc319504. Full evidence in results/orch/matching-cover-validation.txt. Structure agent received exact interface to combine with clean4CNF no_matching_three.
+
+## 2026-11-25 04:16 UTC — structure_proof completes shared two-rectangle cover
+
+Reviewed and Lean-checked `results/orch/lemmas/two_rectangles_cover.lean` (526 lines, SHA256 f7afda77ad549d2f4c19b1810c244bc1ec7d1e2c6623a0e34d5ffe41ac81c5ae; empty log `structure/two-rectangles-cover-build-1.log`). The full chain is: a clean conjunction of four OR clauses in a bipartite noK22 graph cannot accept three matching edges; any one rectangle active at pq has all clean literal-filter shadows outside pq in one star; adjoining a clean product D1D2 to D1 filters still leaves one residual star, using D1 AND (D2 OR W), which is four clauses. Therefore D1 filters, D2 filters and D1D2 shadow admit one global vertex cover K of cardinal <=4 containing both marked endpoints p,q. Arbitrary mixed-color supports and unlimited sharing are allowed.
+
+CRITICAL LIMITATIONS: This only covers nonstar pair terms; it does not automatically cover direct literal-by-literal stars inside clean roots using the dirty gates. It assumes both dirty ANDs are products of OR-input sets, so nested dirty gates are outside it. The incidence mixed-cover bound >=16 requires neither side of the cover to be full. Merely containing marked p and q is insufficient: all13points plusone line is a14-vertex cover. No AND>=14 or fullsize>=65 conclusion is currently proved. Remaining full-gap bridges are trace-preserving normalization/strict savings, control of dirty gate count/depth, and a combined gate-cost bound (OR>=51 is not known generically from available helpers).
+
+2026-11-25T04:23:33.545388+00:00 finite-search theta3 OR diagnostic finished: full graph and relaxed pair shadow both timed out at 180 real seconds, exit 0. No counterexample or UNSAT conclusion. Pinned 4-AND/8-OR theta3 positive control SAT in 0.01 seconds; full 256-row truth independently verified. All diagnostics/scripts archived and manifest refreshed. No finite-search process active.
+
+## 2026-11-25T04:23:42.522561+00:00 status_review: archive and structural boundary
+
+The status-review search archive is at results/orch/search/status-review/: 172 original text artifacts, 2,324,918 bytes, source hashes, a status README, and an independent portable witness verifier. independent_review checked all hashes and 14 witness semantics. Corrected the theta source-cover summary: 558 cores have bound 8; 117 have no source-mask covering combination (sentinel 99); all 675 have lower bound at least 8 in that restricted model. This is not an arbitrary-circuit lower bound.
+
+Independent review of finite-search archive snapshot 2026-11-25T04:20:32.394538+00:00 passed: 101 files, 980,236 bytes, exact manifest/file census, text-only content with no credential-pattern artifacts, all 675 JSONL mutation logs byte-equivalent to their original complete logs. Both plane65 witnesses were independently checked on regenerated 704 maximal independent negatives, 52 positive edge rows, and the two directional traces; the tree witness was checked on all 2048 inputs. Pending theta3 logs were not part of that snapshot.
+
+Mathematical boundary: plane minimum covers being the two whole sides is insufficient by itself; a circuit-to-cover assignment for dirty gates is still needed. A tempting stronger clean-filter claim fails with overlapping rectangle clauses: D=(p OR a) AND (q OR a OR c)=a OR pq OR pc, on the bipartite tree with edges pq,pc,ac,ab. The clean literal filters Db,Dc avoid p,q but their pair shadows union is {ab,ac,pc}, a P4, not one star. Removing p,q leaves a star, as structure_proof proved. If the two clause sets are disjoint, the stronger one-star argument works by forbidding filter vertices on both sides via a C4; this is a local conditional observation, not a complete circuit reduction.
+
+Unconditional OR>=E-1 is equivalently an AND lower bound E-1 for the dual monotone 2-CNF over graph edges. I have no proof or counterexample. lemma_route identified the useful strengthened induction invariant: a clean output below the graph function, possibly with higher minterms, should require OR>=accepted-pair-edge-count-1. Pre-first-OR monomials false on every accepted pair can be zero-pruned; deleting an actual-edge operand of the first OR loses at most one accepted pair, so that induction case works. The unresolved case is a first OR of two singleton variables. Contracting those vertices may create a C4 from a six-cycle, so a graph-preserving elimination lemma is needed.
+
+## 2026-11-25T04:24:15.262570+00:00 Independent review: four-clause shadow cover interface
+
+PASS: four_clause_cover.lean, 279 lines, SHA256 33ef795cbcf59d307fddb30d62506bc67654cee518c1d376916aff9eeda6f96d. Both finite-CNF graph-lift and matching-cover foundations match previously reviewed bodies exactly. The new lemma defines the accepted pair relation, proves its pairs are target edges by singleton assignments, rules out a three-edge matching using the four-clause obstruction, and obtains a left/right cover of total size at most two. All implications and quantifiers align. Defs-only imports and forbidden-pattern scan pass; complete build log empty with reported exit0. Canonical integration needs only the new final lemma and MatchingCover body, avoiding duplicate finite foundations.
+
+2026-11-25T04:24:29.257497+00:00 status_review archive delta: independently reviewed finite-search manifest 04:23:33 (111 files, 1,048,866 bytes). Both theta3 seven-OR/eight-AND logs are UNKNOWN after 180 seconds; the pinned twelve-gate control is SAT, and its 4-AND/8-OR circuit independently passes all 256 rows. No OR lower-bound result follows from the two timeouts.
+
+UTC 2026-11-25T04:24:46.847529+00:00
+### Dirty-AND OR-count route: exact remaining obstacle
+- L599's graph induction pays each vertex deletion by its degree. Its sparse/pseudoforest assumption forces every leafless core to be2regular. Internal no-module argument uses only minimum degree>=2, hence likely generalizes a two-OR-release vertex lemma to arbitrary C4free cores, but does not provide the degree4 payment needed for PG(2,3).
+- No stronger OR budget appeared in targeted EdgeFn helper inspection. Allowed-domain GitHub searches returned no usable primary result.
+- Proposed UNPROVED stronger invariant: if a monotone circuit output is pointwise below graphFun(G), and H consists of the graph edges accepted on pair inputs, then |H|<=ORcount+1 for C4free bipartiteG. Higherdegree accepted minterms are allowed. This permits induction after pruning, without pretending residual output remains quadratic.
+- FirstOR operands are AND-only monomials. A nonedge or>=3-variable monomial accepts no positiveedgepair; zero propagation can remove it while preserving H and outputcleanliness. If an operand is an actualedgee, deleting thatoperand and bypassingtheOR losesatmostedgee andoneOR, compatible withtheproposedinduction. Constants must be propagated away with no newORs.
+- Hard case: firstOR combines two inputvariables x,y. Their neighborhoods haveatmostonecommonneighbor. A quadratic proof-tree use without additionalrawx/rawy can serveonlythatcommonneighbor; otherindividualproof-tree uses admit absorption. No proof currently lifts this absorption across sharedDAGs without copying OR gates.
+- Cautionexample: xa OR yb OR ((x OR y) AND a AND b) computes the C4free graph xa OR yb; globally setting x OR y totrue creates thefalsepositive ab. Whole-term pruning fixes this example, but illustrates why pair-shadow or global-bypass arguments alone are invalid.
+- Identifying x,y removesfirstOR and collapsesatmostoneedge, but can introduceC4s fromoriginal6cycles, invalidating naivegraphquotientinduction.
+- Targeted singleton rejection search found no generic leastC4free ANDunitInputfalse lemma. L3700 explicitly assumesthatcondition. L3710 onlybypasses anAND g=a AND b when b accepts singletonv and every singletonneighbor ofv; it doesnotproveglobal singleton rejection.
+- finite_search was asked to falsifythe strongerclean-output invariant aswellastheoriginal fullgraphORbound.
+
+## 2026-11-25T04:24:47.700775+00:00 Independent review: 3006-line canonical checkpoint
+
+PASS for canonical SHA256 1f1353a3829291c42039a095fd6bbc1c93379689b0dc59a3d07a16992df6e14d, 3006 lines, 143328 bytes. MatchingCover and the new four-clause interface are verbatim reviewed bodies. Reopened RectangleCNF stays inside the single outer auxiliary namespace; all closing names are correct. Allowed imports appear only at the top, and banned-pattern scans are clean. No main target theorem is present. Build010 was pending at inspection.
+
+## 2026-11-25 — structure_proof final reusable four-clause interface
+
+`results/orch/lemmas/four_clause_cover.lean` is checked and independently reviewed (279 lines; SHA256 33ef795cbcf59d307fddb30d62506bc67654cee518c1d376916aff9eeda6f96d; empty log `structure/four-clause-cover-build-1.log`). Final lemma `RectangleCNF.four_clause_shadow_cover_two` says: for arbitrary types alpha,beta and a noK22 relation R, any conjunction of four finite OR clauses over alpha+beta that implies an R-edge has its accepted pair shadow covered by point/line sets of total cardinal at most2. It combines the finite six-vertex certificate and general graph lift with toolchain agent's reviewed `MatchingCover.cover_two_of_no_matching_three`. The four-clause cover is a complete reusable result; it does not bound a full arbitrary circuit.
+
+Root and finite_search are testing the unresolved two-clean-root / two-parallel-dirty-gate case on eight inputs with an unknown C4-free bipartite graph and a fixed matching4. Any witness would refute a proposed AND-surplus claim, not the original total-gate statement, because OR gates are unbounded in this experiment.
+
+## 2026-11-25T04:28:04.579877+00:00 Independent review: curated status and speculative strategy
+
+STATUS.md accurately states that the exact gap remains unproved and unrefuted, the checker rejects the absent main theorem, and the checked 65-gate witness is outside the posted range. Its caveats about TopForm, nested dirty gates, mixed-cover premises and the missing global OR bound are correct. The demasking note is an explicitly unproved clean-circuit strategy; both displayed small-circuit identities and their double-zero traces were independently exhaustively checked. Requested presentation fixes: qualify bowtie optimum as solver-supported rather than Lean-certified, preserve the four-input enumeration source/log beyond /tmp, mark the initial checker-not-run line as historical, and use at-least-eight wording for the 675 restricted cores. No new full-gap conclusion follows.
