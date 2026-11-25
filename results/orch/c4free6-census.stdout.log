@@ -1,0 +1,15 @@
+{
+  "n": 6,
+  "edges": 16,
+  "fixed_diagonal": true,
+  "complete": true,
+  "recursion_nodes": 6912,
+  "labelled_graphs": 720,
+  "known_fano66_column_orbit_size": 90,
+  "all_found_isomorphic_to_fano66": true,
+  "outside_examples": [],
+  "row_degree_patterns": {
+    "(2, 2, 3, 3, 3, 3)": 720
+  },
+  "elapsed_seconds": 0.2703404980002233
+}

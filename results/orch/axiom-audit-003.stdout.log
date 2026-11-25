@@ -1,0 +1,11 @@
+'PEqualNP.Outside.L_meta_4675.Reuse.graph_projected_actual_slot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Reuse.linear_family_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Reuse.seven_triple_linear_outputs_need_fourteen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675_aux.maskedTheta_computes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675_aux.theta_eight_stars_insufficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,21 @@
+{
+  "file": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_4675.lean",
+  "lines": 3547,
+  "checks": {
+    "no_root_token": true,
+    "no_double_quotes": true,
+    "no_sorry": true,
+    "no_native_decide": true,
+    "no_axiom_declarations": true,
+    "attributes_only_simp": true,
+    "options_scoped_allowed": true,
+    "exact_main_theorem_present": false
+  },
+  "scope": "Text checks only; not official checker. Main theorem intentionally absent in this partial archive.",
+  "permitted_options": [
+    "maxRecDepth",
+    "maxHeartbeats",
+    "synthInstance.maxSize",
+    "synthInstance.maxHeartbeats"
+  ]
+}

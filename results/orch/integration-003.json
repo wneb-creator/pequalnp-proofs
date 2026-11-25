@@ -1,0 +1,25 @@
+{
+  "base_commit": "cffdbed489b44a6a9ebb3466c4bd46c225c0deef",
+  "base_sha256": "a8a15177dd5d735cdd88655304c3325ac11f41a7a550f2216e8e7ab8d5193d0e",
+  "components": [
+    {
+      "source": "results/orch/lemmas/LinearBudgetWrappers.txt",
+      "source_sha256": "f444ce39d899a7a52ba515913b1ce63deec1d15afc7143c71d4ac3004007a24b",
+      "body_sha256": "2d61c1de83728be9021368ed57752ec099b5d3d8925fb067b81c5db24e35ba58"
+    },
+    {
+      "source": "results/orch/lemmas/ProjectedSlotWrappers.txt",
+      "source_sha256": "6660d866f4331f991651ef521d05f53977021d7f0118b3a3bc7f055e90eafc5b",
+      "body_sha256": "6660d866f4331f991651ef521d05f53977021d7f0118b3a3bc7f055e90eafc5b"
+    },
+    {
+      "source": "results/orch/lemmas/MaskedThetaFormatted.lean",
+      "source_sha256": "8f341c905324ec49f778cc7cfb2c5edf1dbd56de796604ca8d9c712a10e67e49",
+      "body_sha256": "0aafd38787ff683a04cb8267721eff320d2ac0da922e0d6c422d18e9c3914250"
+    }
+  ],
+  "integrated_sha256": "a854c0f07afbe2a665b2eaa3dd9d149f7622e231f757e1840f3e2ac093f1723f",
+  "lines": 3547,
+  "bytes": 163649,
+  "status": "partial; exact main theorem absent"
+}

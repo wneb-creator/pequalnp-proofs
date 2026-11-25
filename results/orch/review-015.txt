@@ -1,0 +1,27 @@
+Independent integration review by status_review, 2026-11-25T18:11:25Z.
+
+APPROVED FOR PARTIAL ARCHIVE IF INTEGRATED BUILD 005 PASSES.
+No main theorem is present; this is not a full-gap result or PR approval.
+
+All integration-003 manifest hashes verified: base cffdbed4, all three
+source hashes, normalized body hashes, and final integrated source hash.
+The named file is exactly that base followed by LinearBudgetWrappers,
+ProjectedSlotWrappers, and MaskedThetaFormatted with its import removed.
+Each body occurs once. There are 3,547 lines, 163,649 bytes, and 212 unique
+declarations. Final SHA256:
+a854c0f07afbe2a665b2eaa3dd9d149f7622e231f757e1840f3e2ac093f1723f.
+
+No duplicate declarations, unclosed/disallowed namespaces, exported instances,
+unscoped or unapproved options, forbidden tokens, credentials, or import
+violations found. The official guard reports only the expected missing
+theorem and missing final fully qualified theorem failures.
+
+ProjectedSlot removes the semantic-monochrome hypothesis by restricting its
+neighbourhood conclusion to the same-colour projection of the chosen operand's
+singleton support. The negative assignment and separator argument preserve
+the exact-computation and bipartite-colouring hypotheses. It is a per-edge
+certificate, not a simultaneous allocation or a circuit-size bound.
+
+LinearBudget and MaskedTheta retain their previously reviewed restricted
+claims. Integrated compilation was still running when this review was made.
+Only this review artifact was written.
