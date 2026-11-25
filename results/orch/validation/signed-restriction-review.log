@@ -1,0 +1,16 @@
+Independent source review: PASS.
+Source SHA256: ab3c44192324940fa5171cd906c312dc61dc818d07ec701c835b5df6f887a8ec
+signed_origin_status uses preserved known-origin constancy plus semantic compiler invariants to identify the status as the literal sign when its primary variable is fixed false. marked_of_signed_operand applies this to an annihilating AND/OR operand, with explicit length and validity hypotheses. No unproved assumptions hidden; no forbidden proof constructs. Development import StrictRestriction must be inlined for a standalone submission.
+
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.SignedRestriction.signed_origin_status' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SignedRestriction.marked_of_signed_operand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0
+Only standard allowed axioms. This is a partial helper result, not a target-proof acceptance.

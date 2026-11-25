@@ -266,4 +266,65 @@ lemma least_first_binary {n : ℕ} {f : (Fin n → Bool) → Bool} {gs : List Ga
     simp only [inputs, List.map_cons, List.map_nil]
     rw [valueA x, valueB x]
 
+lemma least_first_binary_signed {n : ℕ} {f : (Fin n → Bool) → Bool} {gs : List Gate} {o : ℕ}
+    (L : Least n f gs o) (hnc : ∃ x y, f x ≠ f y)
+    (noUnary : ∀ v : Fin n, ∀ sign : Bool,
+      ¬ ∀ x : Fin n → Bool, f x = if sign then !(x v) else x v) :
+    ∃ (pre : List Gate) (g : Gate) (post : List Gate) (a b : ℕ)
+      (u v : Fin n) (sa sb : Bool),
+      gs = pre ++ g :: post ∧ (∀ h ∈ pre, h.op = .not) ∧
+      (g.op = .and ∨ g.op = .or) ∧ g.inputs = [a, b] ∧
+      a < n + pre.length ∧ b < n + pre.length ∧ u ≠ v ∧
+      (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))).getD a none = some u.val ∧
+      (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))).getD b none = some v.val ∧
+      (∀ x : Fin n → Bool, (pre.foldl gateStep (List.ofFn x)).getD a false =
+        if sa then !(x u) else x u) ∧
+      (∀ x : Fin n → Bool, (pre.foldl gateStep (List.ofFn x)).getD b false =
+        if sb then !(x v) else x v) := by
+  obtain ⟨pre, g, post, split, onlyNot, notOp⟩ := first_nonNot_split gs (least_has_nonNot L hnc noUnary)
+  have atGate : gs[pre.length]? = some g := by simp [split]
+  have gateClean := L.hcl pre.length g atGate
+  have cleanPre : CleanL n pre := by
+    intro p a ha
+    have before : p < pre.length := (List.getElem?_eq_some_iff.mp ha).1
+    apply L.hcl p a
+    rw [split, List.getElem?_append_left before]
+    exact ha
+  rcases gateClean with ⟨op, _⟩ | ⟨op, a, b, ha, hb, inputs⟩
+  · exact (notOp op).elim
+  have state := not_prefix_literals n pre (clean_not_shape cleanPre onlyNot)
+  have length : (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))).length = n + pre.length := by
+    have h := state.1 (fun _ => false)
+    change (wiresFrom pre (List.ofFn (fun _ : Fin n => false))).length = _ at h
+    simpa only [length_wiresFrom, List.length_ofFn] using h.symm
+  have gateValue (x : Fin n → Bool) : vl gs x (n + pre.length) =
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) := by
+    rw [vl_gate gs L.hcl x pre.length g atGate]
+    congr 1
+    apply List.map_congr_left
+    intro j hj
+    have before : j < n + pre.length := (L.hcl pre.length g atGate).lt j hj
+    rw [split]
+    exact prefix_value pre (g :: post) x j before
+  have atGateLt : pre.length < gs.length := (List.getElem?_eq_some_iff.mp atGate).1
+  have noAlias : ¬ ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) =
+        (pre.foldl gateStep (List.ofFn x)).getD a false := by
+    intro aliases
+    apply L.no_alias hnc pre.length atGateLt a ha
+    intro x
+    have old : vl gs x a = (pre.foldl gateStep (List.ofFn x)).getD a false := by
+      rw [split]
+      exact prefix_value pre (g :: post) x a ha
+    exact (gateValue x).trans ((aliases x).trans old.symm)
+  have noConstant : ∀ c : Bool, ¬ ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) = c := by
+    intro c constant
+    exact least_no_constant L hnc pre.length atGateLt c (fun x => (gateValue x).trans (constant x))
+  obtain ⟨u, v, different, originU, originV, sa, sb, valueA, valueB⟩ :=
+    binary_distinct_origins _ _ state g a b (by rw [length]; exact ha)
+      (by rw [length]; exact hb) op inputs noAlias noConstant
+  exact ⟨pre, g, post, a, b, u, v, sa, sb, split, onlyNot, op, inputs,
+    ha, hb, different, originU, originV, valueA, valueB⟩
+
 end PEqualNP.Outside.L_meta_2592_aux.FirstBinary

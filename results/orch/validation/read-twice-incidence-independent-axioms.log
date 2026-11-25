@@ -1,0 +1,26 @@
+/tmp/oec/pequalnp-pilot-101/AuditReadTwiceIncidence.lean:13:51: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.filter_cons, h, decide_true, reduceIte, Nat.not_le_of_lt h, decide_false, Bool.false_eq_true,
+    List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-101/AuditReadTwiceIncidence.lean:17:41: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.filter_cons, h, decide_false, Bool.false_eq_true, reduceIte, Nat.le_of_not_gt h, decide_true,
+    List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceIncidence.slot_partition' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceIncidence.primary_slot_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceIncidence.singleton_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.ReadTwiceIncidence.three_singletons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

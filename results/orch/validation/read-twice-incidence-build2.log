@@ -1,0 +1,16 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/ReadTwiceIncidence.lean:13:51: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.filter_cons, h, decide_true, reduceIte, Nat.not_le_of_lt h, decide_false, Bool.false_eq_true,
+    List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/ReadTwiceIncidence.lean:17:41: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.filter_cons, h, decide_false, Bool.false_eq_true, reduceIte, Nat.le_of_not_gt h, decide_true,
+    List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

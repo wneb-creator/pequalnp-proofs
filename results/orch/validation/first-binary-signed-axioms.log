@@ -1,0 +1,11 @@
+Source: FirstBinary.lean
+Source SHA256: a7494d97a2ef6a676e0ac87f3c0065d27caa9f9593ee8aeb09fc9a4fc35aba8e
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.least_first_binary_signed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0
+Only standard allowed axioms. Partial helper result, not a complete desk proof.

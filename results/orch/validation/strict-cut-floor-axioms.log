@@ -1,0 +1,14 @@
+Source: StrictCutFloor.lean
+Source SHA256: 0836fb4f148852b810d954ef5ce06fee95983a4d8493330f2b1667080d9564b2
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.StrictCutFloor.strict_cut_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictCutFloor.least_strict_cut_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0
+Only standard allowed axioms. Partial helper result, not a complete desk proof.
