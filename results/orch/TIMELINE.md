@@ -18,3 +18,8 @@
 2026-11-25T14:08:01.301682+00:00 Counterexample broadsearch stopped; nofullwitness. Specializedfixed-prefixhexagonUNSAT only; maincasesUNKNOWN.
 2026-11-25T14:08:15.859071+00:00 Lease renewed; expires 2026-11-25T14:28:15.231Z
 2026-11-25T14:09:38.580159+00:00 FirstBinary, FirstOrigin, Compression, CutCost, OrCompanion and NoConstant compiled and independently reviewed; preparing backup.
+2026-11-25T14:10:15.744620+00:0017-binary strategy: signed first-gate annihilator/fusion route reduced mathematically to positive-OR-first exception; no full proof.
+2026-11-25T14:10:31.425395+00:00 Few-negations strategy paused after checked38-row SAT bridge and OR-companion constraint; no complete elimination/cost argument. Independent FirstMerge review PASS.
+
+2026-11-25T14:12:10.011062+00:00 CutFloor compiledandstandardaxiomsauditpassed; arbitraryvertexrestrictioncost nowchecked.
+2026-11-25T14:13:00.839846+00:00 Re-plan: broad stochastic counterexample search stopped without witness; restricted hexagon route computationally UNSAT, broad SAT cases UNKNOWN. Focused one-NOT SAT continues. CutFloor and FirstBinary complete; BinarySixteen assembly underway.

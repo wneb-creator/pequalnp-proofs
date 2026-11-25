@@ -18,3 +18,7 @@ Compression.lean: Lean compile exit 0; root independently reviewed every proof, 
 OrCompanion.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 63 lines; sha256 68048c4c06347d184b8180d33ebe677a880083e0fea7e7e94efec9e15d637140.
 NoConstant.lean: Lean compile exit 0; root independently reviewed every proof, explicit hypotheses, and forbidden constructs; 25 lines; sha256 2f5de2ce08b0ded8975a20afc1cba6f9e4f9ea0eddd56d4de4b0e399f4d23abf.
 Development modules importing other helper files or L_meta_7493 must be inlined into the permitted namespace and allowed imports for any final single-file submission. No full target acceptance is claimed.
+CutFloor.lean: Lean compile exit 0; independently reviewed by few_negations; 80 lines; sha256 6a902407e343859218894b19a83888a3f6b8cefa1a35e506106c75cd956ec683.
+FirstBinary.lean: Lean compile exit 0; independently reviewed by root; 269 lines; sha256 c82f55a1884b7e60f1696f1fa9b099c1a051460abef1c78f23fae9e6332c745c.
+SingleUse.lean: Lean compile exit 0; independently reviewed by root; 73 lines; sha256 a060f4f05a4ba2225bcfc4ee8987f18efb81f47b3e63d539ba9412eeb3911e30.
+CutFloor has only FanInTwo and correct Petersen computation as assumptions; arbitrary vertex restriction is transferred to checked L_meta_7493. Extended FirstBinary supplies the least-circuit first binary gate interface. Target remains unproved.

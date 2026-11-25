@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_2592_aux.CutFloor.restrictionSeed_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.CutFloor.restrictionSeed_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.CutFloor.restrictionSeed_fixed' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.CutFloor.cut_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.CutFloor.cut_at_most_one' depends on axioms: [propext, Classical.choice, Quot.sound]

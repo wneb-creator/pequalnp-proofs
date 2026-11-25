@@ -1,5 +1,6 @@
 import Mathlib.Tactic
 import PEqualNP.Defs
+import PEqualNP.Outside.L_meta_7493
 
 namespace PEqualNP.Outside.L_meta_2592_aux.FirstBinary
 
@@ -117,5 +118,152 @@ lemma binary_distinct_origins {n : ℕ} (origins : List (Option ℕ))
     simp only [inputs, List.map_cons, List.map_nil]
     rw [va x, vb x]
     exact constant (x u)
+
+open PEqualNP.Outside.L_meta_7493
+open CircuitProof CircuitProof.Readers
+
+lemma least_no_constant {n : ℕ} {f : (Fin n → Bool) → Bool} {gs : List Gate} {o : ℕ}
+    (L : Least n f gs o) (hnc : ∃ x y, f x ≠ f y)
+    (p : ℕ) (hp : p < gs.length) (c : Bool) :
+    ¬ ∀ x : Fin n → Bool, vl gs x (n + p) = c := by
+  intro constant
+  obtain ⟨g, hg⟩ : ∃ g, gs[p]? = some g := ⟨gs[p], by simp [hp]⟩
+  obtain ⟨pre, post, rfl, rfl⟩ := split_at gs p g hg
+  obtain ⟨gs', o', hcl, shorter, cost, evaluates⟩ :=
+    drop_core n pre g post L.hcl o (Sum.inl c)
+      (fun x => ⟨trivial, (constant x).symm⟩) (L.ncv hnc)
+  have budget : nonNotCount gs' ≤ nonNotCount (pre ++ g :: post) := by
+    simp only [nonNotCount, List.countP_append, List.countP_cons] at cost ⊢
+    omega
+  have minimal := L.hmin gs' o' hcl (fun x => (evaluates x).trans (L.hev x)) budget
+  omega
+
+
+lemma clean_not_shape {n : ℕ} {gs : List Gate} (clean : CleanL n gs)
+    (onlyNot : ∀ g ∈ gs, g.op = .not) :
+    ∀ p g, gs[p]? = some g → g.op = .not ∧ ∃ j, j < n + p ∧ g.inputs = [j] := by
+  intro p g hp
+  rcases clean p g hp with shape | ⟨op, shape⟩
+  · exact shape
+  · have hn := onlyNot g (List.mem_iff_getElem?.mpr ⟨p, hp⟩)
+    rcases op with op | op <;> rw [hn] at op <;> cases op
+
+lemma least_has_nonNot {n : ℕ} {f : (Fin n → Bool) → Bool} {gs : List Gate} {o : ℕ}
+    (L : Least n f gs o) (hnc : ∃ x y, f x ≠ f y)
+    (noUnary : ∀ v : Fin n, ∀ sign : Bool,
+      ¬ ∀ x : Fin n → Bool, f x = if sign then !(x v) else x v) :
+    ∃ g ∈ gs, g.op ≠ .not := by
+  by_contra! onlyNot
+  have state := not_prefix_literals n gs (clean_not_shape L.hcl onlyNot)
+  have length : (gs.foldl originStep (List.ofFn (fun i : Fin n => some i.val))).length = n + gs.length := by
+    have h := state.1 (fun _ => false)
+    change (wiresFrom gs (List.ofFn (fun _ : Fin n => false))).length = _ at h
+    simpa only [length_wiresFrom, List.length_ofFn] using h.symm
+  have valid : o < n + gs.length := by
+    by_contra outside
+    have zero (x : Fin n → Bool) : vl gs x o = false := vl_beyond gs x o (by omega)
+    obtain ⟨x, y, different⟩ := hnc
+    apply different
+    rw [← L.hev x, ← L.hev y, zero x, zero y]
+  obtain ⟨v, sign, _, evaluates⟩ := state.2 o (by rw [length]; exact valid)
+  apply noUnary v sign
+  intro x
+  have h := evaluates x
+  change vl gs x o = _ at h
+  exact (L.hev x).symm.trans h
+
+lemma first_nonNot_split (gs : List Gate) (has : ∃ g ∈ gs, g.op ≠ .not) :
+    ∃ pre g post, gs = pre ++ g :: post ∧ (∀ a ∈ pre, a.op = .not) ∧ g.op ≠ .not := by
+  induction gs with
+  | nil => simp at has
+  | cons g gs ih =>
+    by_cases op : g.op = .not
+    · have tail : ∃ a ∈ gs, a.op ≠ .not := by
+        obtain ⟨a, ha, notOp⟩ := has
+        rcases List.mem_cons.mp ha with rfl | ha
+        · exact (notOp op).elim
+        · exact ⟨a, ha, notOp⟩
+      obtain ⟨pre, a, post, split, onlyNot, notOp⟩ := ih tail
+      refine ⟨g :: pre, a, post, by rw [split]; rfl, ?_, notOp⟩
+      intro b hb
+      rcases List.mem_cons.mp hb with rfl | hb
+      · exact op
+      · exact onlyNot b hb
+    · exact ⟨[], g, gs, rfl, by simp, op⟩
+
+lemma prefix_value {n : ℕ} (pre post : List Gate) (x : Fin n → Bool)
+    (j : ℕ) (before : j < n + pre.length) :
+    vl (pre ++ post) x j = (pre.foldl gateStep (List.ofFn x)).getD j false := by
+  unfold vl
+  rw [wiresFrom_append, getD_wiresFrom _ _ j (by simpa only [length_wiresFrom, List.length_ofFn] using before)]
+  rfl
+
+def readsOrigin (origins : List (Option ℕ)) (v : ℕ) (g : Gate) : Bool :=
+  g.inputs.any (fun i => decide (origins.getD i none = some v))
+
+lemma least_first_binary {n : ℕ} {f : (Fin n → Bool) → Bool} {gs : List Gate} {o : ℕ}
+    (L : Least n f gs o) (hnc : ∃ x y, f x ≠ f y)
+    (noUnary : ∀ v : Fin n, ∀ sign : Bool,
+      ¬ ∀ x : Fin n → Bool, f x = if sign then !(x v) else x v) :
+    ∃ (pre : List Gate) (g : Gate) (post : List Gate) (u v : Fin n)
+      (code : Bool → Bool → Bool),
+      gs = pre ++ g :: post ∧ (∀ a ∈ pre, a.op = .not) ∧
+      (g.op = .and ∨ g.op = .or) ∧ u ≠ v ∧
+      readsOrigin (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))) u.val g = true ∧
+      readsOrigin (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))) v.val g = true ∧
+      ∀ x : Fin n → Bool,
+        g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) =
+          code (x u) (x v) := by
+  obtain ⟨pre, g, post, split, onlyNot, notOp⟩ := first_nonNot_split gs (least_has_nonNot L hnc noUnary)
+  have atGate : gs[pre.length]? = some g := by simp [split]
+  have gateClean := L.hcl pre.length g atGate
+  have cleanPre : CleanL n pre := by
+    intro p a ha
+    have before : p < pre.length := (List.getElem?_eq_some_iff.mp ha).1
+    apply L.hcl p a
+    rw [split, List.getElem?_append_left before]
+    exact ha
+  rcases gateClean with ⟨op, _⟩ | ⟨op, a, b, ha, hb, inputs⟩
+  · exact (notOp op).elim
+  have state := not_prefix_literals n pre (clean_not_shape cleanPre onlyNot)
+  have length : (pre.foldl originStep (List.ofFn (fun i : Fin n => some i.val))).length = n + pre.length := by
+    have h := state.1 (fun _ => false)
+    change (wiresFrom pre (List.ofFn (fun _ : Fin n => false))).length = _ at h
+    simpa only [length_wiresFrom, List.length_ofFn] using h.symm
+  have gateValue (x : Fin n → Bool) : vl gs x (n + pre.length) =
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) := by
+    rw [vl_gate gs L.hcl x pre.length g atGate]
+    congr 1
+    apply List.map_congr_left
+    intro j hj
+    have before : j < n + pre.length := (L.hcl pre.length g atGate).lt j hj
+    rw [split]
+    exact prefix_value pre (g :: post) x j before
+  have atGateLt : pre.length < gs.length := (List.getElem?_eq_some_iff.mp atGate).1
+  have noAlias : ¬ ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) =
+        (pre.foldl gateStep (List.ofFn x)).getD a false := by
+    intro aliases
+    apply L.no_alias hnc pre.length atGateLt a ha
+    intro x
+    have old : vl gs x a = (pre.foldl gateStep (List.ofFn x)).getD a false := by
+      rw [split]
+      exact prefix_value pre (g :: post) x a ha
+    exact (gateValue x).trans ((aliases x).trans old.symm)
+  have noConstant : ∀ c : Bool, ¬ ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (pre.foldl gateStep (List.ofFn x)).getD i false) = c := by
+    intro c constant
+    exact least_no_constant L hnc pre.length atGateLt c (fun x => (gateValue x).trans (constant x))
+  obtain ⟨u, v, different, originU, originV, sa, sb, valueA, valueB⟩ :=
+    binary_distinct_origins _ _ state g a b (by rw [length]; exact ha)
+      (by rw [length]; exact hb) op inputs noAlias noConstant
+  refine ⟨pre, g, post, u, v,
+    (fun x y => g.op.eval [if sa then !x else x, if sb then !y else y]),
+    split, onlyNot, op, different, ?_, ?_, ?_⟩
+  · exact List.any_eq_true.mpr ⟨a, by simp [inputs], decide_eq_true originU⟩
+  · exact List.any_eq_true.mpr ⟨b, by simp [inputs], decide_eq_true originV⟩
+  · intro x
+    simp only [inputs, List.map_cons, List.map_nil]
+    rw [valueA x, valueB x]
 
 end PEqualNP.Outside.L_meta_2592_aux.FirstBinary

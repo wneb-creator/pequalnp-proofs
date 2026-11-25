@@ -1,0 +1,20 @@
+Source sha256: c82f55a1884b7e60f1696f1fa9b099c1a051460abef1c78f23fae9e6332c745c
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.not_prefix_literals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.binary_distinct_origins' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.least_no_constant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.least_has_nonNot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.FirstBinary.least_first_binary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0
+Five key lemma axiom checks passed; only standard allowed axioms. Partial helper result, no target checker acceptance claimed.
