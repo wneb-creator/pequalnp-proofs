@@ -101,4 +101,67 @@ lemma strict_has_single_reader (C : Circuit)
     · omega
   exact has_single_reader C.gates arity unary budget inputs live
 
+open scoped Classical
+
+lemma slots_plus_nots (gs : List Gate)
+    (arity : ∀ g ∈ gs, g.inputs.length + (if g.op = GateOp.not then 1 else 0) ≤ 2) :
+    (slots gs).length + (gs.filter fun g => decide (g.op = GateOp.not)).length ≤
+      2 * gs.length := by
+  induction gs with
+  | nil => simp [slots]
+  | cons g gs ih =>
+    have hg := arity g (by simp)
+    have ht := ih (fun h hh => arity h (by simp [hh]))
+    by_cases hn : g.op = GateOp.not
+    · simp only [hn, if_true] at hg
+      simp only [slots, List.flatMap_cons, List.length_append, List.filter_cons,
+        hn, decide_true, Bool.true_eq, if_true, List.length_cons] at ht ⊢
+      omega
+    · simp only [hn, if_false, Nat.add_zero] at hg
+      simp only [slots, List.flatMap_cons, List.length_append, List.filter_cons,
+        hn, decide_false, Bool.false_eq_true, if_false, List.length_cons] at ht ⊢
+      omega
+
+lemma strict_leaf_count (C : Circuit)
+    (strict : PEqualNP.MinimumComplex.Strict 10 C)
+    (budget : C.size ≤ 19)
+    (inputs : ∀ i < 10, 1 ≤ (slots C.gates).count i)
+    (live : ∀ j < C.size - 1, 1 ≤ (slots C.gates).count (10 + j)) :
+    PEqualNP.NotBracket.notCount C ≤
+      ((Finset.range 10).filter fun i => (slots C.gates).count i = 1).card := by
+  have arity : ∀ g ∈ C.gates,
+      g.inputs.length + (if g.op = GateOp.not then 1 else 0) ≤ 2 := by
+    intro g hg
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hg
+    rcases strict i hi with ⟨ho, hl, _, _⟩ | ⟨ho, hl, _⟩
+    · rcases ho with ho | ho <;> simp [ho, hl]
+    · simp [ho, hl]
+  have capacity := slots_plus_nots C.gates arity
+  have count_eq : (C.gates.filter fun g => decide (g.op = GateOp.not)).length =
+      PEqualNP.NotBracket.notCount C := by
+    unfold PEqualNP.NotBracket.notCount
+    apply congrArg List.length
+    apply List.filter_congr
+    intro g hg
+    apply Bool.eq_iff_iff.mpr
+    simp
+  rw [count_eq] at capacity
+  change (slots C.gates).length + PEqualNP.NotBracket.notCount C ≤ 2 * C.size at capacity
+  have primary := Finset.sum_le_sum (s := Finset.range 10)
+    (f := fun _ => (2 : ℕ))
+    (g := fun i => (slots C.gates).count i + if (slots C.gates).count i = 1 then 1 else 0)
+    (by
+      intro i hi
+      have positive := inputs i (Finset.mem_range.mp hi)
+      split_ifs <;> omega)
+  simp only [Finset.sum_const, Finset.card_range, smul_eq_mul,
+    Finset.sum_add_distrib, Finset.sum_boole, Nat.cast_id] at primary
+  have internal := Finset.sum_le_sum (s := Finset.range (C.size - 1))
+    (f := fun _ => (1 : ℕ)) (g := fun j => (slots C.gates).count (10 + j))
+    (fun j hj => live j (Finset.mem_range.mp hj))
+  simp only [Finset.sum_const, Finset.card_range, smul_eq_mul] at internal
+  have total := sum_counts_le (Finset.range (10 + (C.size - 1))) (slots C.gates)
+  rw [Finset.sum_range_add] at total
+  omega
+
 end PEqualNP.Outside.L_meta_2592.ReadCount

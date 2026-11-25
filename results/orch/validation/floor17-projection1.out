@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-100/restriction-build/Floor17Projection.lean:77:43: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h, comb, combine, inv, ite_true, Bool.false_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

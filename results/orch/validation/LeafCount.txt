@@ -1,0 +1,6 @@
+File: results/orch/lemmas/LeafCount.lean
+Command from lean/: /tmp/oec/pequalnp-pilot-100/lean-env.sh lake env lean ../results/orch/lemmas/LeafCount.lean
+Exit: 0
+stdout: empty
+stderr: empty
+Scope: generic bound on summed wire occurrence counts; not a proof of L-meta-2592.
