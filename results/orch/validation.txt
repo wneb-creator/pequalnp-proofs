@@ -1,6 +1,7 @@
 Partial checkpoint only: L-meta-3451 is NOT proved.
-Named lake build: PASS (geometry and monotonicity helpers, 212 lines).
-Full checker: not yet run; full Mathlib cache missing due disk capacity.
-Independent review: status_review passed mathematical and plain-file review of merged file.
+Named lake build: PASS (352 lines; geometry, monotonicity, empty/single-edge base cases).
+Official checker exit 3: CHECKER FAULT, missing prebuilt full Mathlib cache.
+Independent review: status_review passed merged proof and finite-witness checks.
+Finite search: all 334 C4-free 3x3 incidence graphs validated computationally; not Lean proofs.
 Sub-agents: 6 (status_review, toolchain, normalization, counterexample, reduction, global_strategy)
-TIMING total=11 subagents=6
+TIMING total=12 subagents=6

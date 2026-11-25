@@ -8,3 +8,5 @@
 2026-11-25T00:39:20.870549+00:00 normalization_false_inputs.lean compiled with lake env lean (exit 0).
 2026-11-25T00:39:37.538478+00:00 renewed; expiry 2026-11-25T00:59:37.393Z
 2026-11-25T00:40:40.041199+00:00 named-file build passed: geometry and monotonicity helpers
+2026-11-25T00:41:26.411385+00:00 renewed; expiry 2026-11-25T01:01:26.175Z
+2026-11-25T00:42:20.248523+00:00 named-file build passed: base cases included, 352 lines
