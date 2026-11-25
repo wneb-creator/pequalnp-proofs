@@ -1,8 +1,13 @@
-L-meta-1896 preliminary research checkpoint only.
-No Lean proof file compiled; local checker not run.
-No PR is ready.
-Issued lease expiry: 2026-11-25T07:10:48.063Z. First renewal at 06:54:49 UTC returned no such live lease. Repeated with curl -si at 06:55:12 UTC: HTTP 410.
-Exact error: no such live lease: it expired or was released. Ask /desk/next again.
-Desk null responses: 0.
+L-meta-2448 partial Lean checkpoint; posted theorem remains unproved.
+File: lean/PEqualNP/Outside/L_meta_2448.lean
+Lines: 1044. Cleanup pass not applicable: full theorem/checker not complete.
+Build: lake build PEqualNP.Outside.L_meta_2448, exit 0; Build completed successfully (5149 jobs).
+Warnings only: unused binder, unused simp arguments, deprecated if_pos. Full stdout/stderr are partial-2448-build.stdout/stderr.
+Checker: not run against incomplete theorem; full Mathlib cache preparation ongoing.
+Independent review: PASS for partial fork checkpoint; real format guard reports expected missing final theorem only. No proof PR ready.
+Checked components: least monotone circuit existence; common-center and star-profile conditions; disjoint ownership false positive; safe AND bypass; copy deletion and minimal-circuit operand property.
+Earlier L-meta-1896 lease failed with HTTP 410 before proof work; full diagnostic preserved in DESK_DIAGNOSTIC.txt.
+Desk null responses: 2.
+Exact null message: no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes
 Sub-agents: 6 (preflight review, Lean setup, OR-gate bound, counterexample search, library route, geometry route)
-TIMING total=5 subagents=6
+TIMING total=24.2 subagents=6

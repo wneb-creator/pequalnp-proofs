@@ -1,0 +1,7 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/StarGeometry.lean:21:29: warning: This simp argument is unused:
+  Classical.not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
