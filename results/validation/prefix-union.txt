@@ -7,3 +7,8 @@ Stdout: empty
 Stderr: empty
 Independent source review: APPROVED by checker_review.
 This proves conditional union preservation for AND/OR prefixes and a Boolean singleton-orientation fact. It does not prove the posted normalization statement.
+
+Updated 2026-11-25T01:33:25.456490+00:00
+Source SHA256 5d0488f276860ee88e04f753bc8a2a1e8a9894b0cda2c4b9aa54dafbcfde9549; lines 342
+Central lake env lean PrefixUnionV4.lean: exit 0. Full stdout/stderr in prefix-v4.stdout and prefix-v4.stderr. Warnings only: unused simp arguments.
+Corrected ambiguous Boolean-AND equality parentheses in crossed_singletons and first_dirty_operands. The earlier crossed_singletons statement was vacuous; fold_union was unaffected. Added actual-circuit prefix and first-dirty-AND lemmas. This is a partial, not a proof of the posted L-meta-3457 statement.
