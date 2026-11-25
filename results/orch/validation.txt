@@ -58,3 +58,11 @@ StarWire.lean: lake env lean ../results/orch/lemmas/StarWire.lean; exit 0, full 
 CaptureBridge.lean: lake env lean ../results/orch/lemmas/CaptureBridge.lean; exit 0, full output capture-bridge-build.log.
 StressSymmetry.lean: lake env lean ../results/orch/lemmas/StressSymmetry.lean; exit 0, full output stress-symmetry-lean.log.
 Independent source review: rules_review PASS for all six; reviewed source hashes matched before staging. These are partial repairs and finite symmetry checks; the exact posted target is still unproved.
+
+2026-11-25T04:11:23.576739+00:00 global partial proof batch
+MinimalBadNormalForm.lean: lake env lean ../results/orch/lemmas/MinimalBadNormalForm.lean; exit 0, full output minimal-bad-normal-form-build.log.
+ReplacementLocality.lean: lake env lean ../results/orch/lemmas/ReplacementLocality.lean; exit 0, full output replacement-locality-build.log.
+DownwardOwnership.lean: lake env lean ../results/orch/lemmas/DownwardOwnership.lean; exit 0, full output downward-ownership-build.log.
+CaptureRewrite.lean: lake env lean ../results/orch/lemmas/CaptureRewrite.lean; exit 0, full output capture-rewrite-build.log.
+ClassSplice.lean: lake env lean ../results/orch/lemmas/ClassSplice.lean; exit 0, full output class-splice-build-001.log.
+Independent source review: rules_review PASS; all five reviewed hashes verified before staging. MinimalBadNormalForm eliminates singleton-edge bad gates, but does not eliminate every unowned AND. ClassSplice currently proves an earlier-wire deletion criterion, not an arbitrary class construction.
