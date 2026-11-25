@@ -1,0 +1,11 @@
+Independent semantic review: PASS.
+
+ForcedTrueCompile.lean: 87 lines, 3562 bytes, SHA256 6d62a8aec84d4a91c4c000284b1dc671851424a52e81196376f62d4f73f73282. Source hash matches the requested version. The author reports successful check/export; both archived compiler streams are empty. No new build or source edit was performed.
+
+The theorem is correctly parameterized by an arbitrary assignment domain alpha and any input family of fixed length n. Its only semantic premise is nonconstancy of the displayed AND/OR circuit containing the distinguished empty AND gate (constant true) on that input family. This avoids imposing independence of all n input positions, so the theorem applies to valid dual-rail inputs directly.
+
+identityMap maps every original input index to the same new input wire, while out-of-range indices retain the circuit semantics' default false value through the invariant. All surrounding gates are monotone with fan-in at most two; the distinguished empty AND is also legal under that definition. These hypotheses yield NOk without a hidden assumption on NOT arity, because there are no NOT gates in the compiled list.
+
+forced_true_count with the empty initial constant set guarantees that removing the distinguished constant-producing gate saves at least one gate. Any subsequent reader simplifications give additional nonnegative savings; they are not needed for the stated bound. inv_elim preserves evaluation for each input in the given family. If the compiled output status were constant, it would contradict the explicit nonconstancy premise. The wire branch therefore constructs an actual circuit, with AND/OR operations and fan-in bounds supplied separately by elim_monotone and elim_ok. It computes the same function on the entire given input family and satisfies D.size+1 <= original list length.
+
+This helper does not assert a size reduction for a circuit whose output is constant on the input family, and it does not replace a NOT by true on its own. Those semantic justifications belong to the caller. The local Forced13Compile import requires dependency inlining for the final permitted-import submission. No forbidden root text, strings, attributes, sorry, axioms, native_decide, or option changes occur in this source.

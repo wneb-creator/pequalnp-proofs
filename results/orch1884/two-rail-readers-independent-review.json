@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T17:01:44.367648+00:00",
+  "source": "results/orch1884/lemmas/TwoRailReaders.lean",
+  "sha256": "ca8d293669aa925c7789d40980cc7e78359159f460a56ac84899de800b3322fe",
+  "verdict": "PASS independent semantic review; no rebuild",
+  "logs": [
+    {
+      "path": "results/orch1884/two-rail-readers-checked.stdout",
+      "bytes": 285,
+      "sha256": "2d885d24d5e658cf935868b769074c6f25d9d88752f5789c96f5323ce74621ec"
+    },
+    {
+      "path": "results/orch1884/two-rail-readers-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

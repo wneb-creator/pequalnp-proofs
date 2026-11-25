@@ -1,0 +1,13 @@
+{
+  "status": "PASS static only; no large rebuild repeated",
+  "base_modules": 20,
+  "extra_modules": 11,
+  "total_modules": 31,
+  "target": "AllTwoFiltersOrders",
+  "checks": [
+    "bash -n",
+    "exact extra-source hashes",
+    "all imports resolved after base rebuild",
+    "topological extra export order"
+  ]
+}

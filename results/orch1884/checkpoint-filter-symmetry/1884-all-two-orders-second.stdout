@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/AllTwoFiltersOrders.lean:15:20: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [SoleReader.step, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    Bool.true_and, id, Bool.and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

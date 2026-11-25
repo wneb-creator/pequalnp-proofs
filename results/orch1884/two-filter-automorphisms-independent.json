@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS",
+  "checks": [
+    {
+      "first": 1,
+      "second": 4,
+      "full_assignments_checked": 1024
+    },
+    {
+      "first": 1,
+      "second": 5,
+      "full_assignments_checked": 1024
+    },
+    {
+      "first": 4,
+      "second": 1,
+      "full_assignments_checked": 1024
+    },
+    {
+      "first": 4,
+      "second": 5,
+      "full_assignments_checked": 1024
+    },
+    {
+      "first": 5,
+      "second": 1,
+      "full_assignments_checked": 1024
+    },
+    {
+      "first": 5,
+      "second": 4,
+      "full_assignments_checked": 1024
+    }
+  ],
+  "total_assignments": 6144
+}

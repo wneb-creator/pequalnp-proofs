@@ -1,0 +1,13 @@
+Independent semantic review: PASS for the safe-operand one-NOT exclusion.
+
+SafeOperandImpossible.lean: 36 lines, 1703 bytes, SHA256 14b242d66705f8ef233760ba3b414bbc3e1efd001bb91e47506862f642b2bae2. Source hash matches the requested version. The author reports successful check/export; both archived compiler streams are empty. No new build or source edit was performed.
+
+The statement covers an explicitly displayed single NOT, with all prefix and suffix gates AND/OR of fan-in at most two, size at most18, and full Petersen computation on identity primary inputs plus free not(x0). Its safety assumption says the selected NOT operand being true implies the target is true, on every valid ten-variable input assignment. It does not assume safety on all independent eleven-input assignments.
+
+SafeNot.replace_safe_not_function has exactly this arbitrary-input-family scope. Where the operand is false, the old NOT was already true. Where it is true, the original output equals the target true; raising the selected gate to true cannot decrease the monotone suffix output. Therefore replacing the NOT by an empty AND preserves the target on the valid input family. Prefix monotonicity is not needed for this replacement itself, but is correctly required for the later monotone compilation.
+
+The all-false and all-true assignments give different Petersen outputs, supplying the compiler's nonconstant-family premise. ForcedTrueCompile is applied with n=11 and the actual dual-rail input family, saving at least one gate while preserving that family's evaluations. The result is Monotone2, so the checked Unary18.unary_mono_size_eighteen theorem applies with mapper id and unary function Bool.not. Its exact target agrees definitionally with SoleOrPartner.target. It gives18 <= D.size, while the one-gate saving and original size<=18 give D.size<=17, a contradiction.
+
+There is no full-independent-domain lifting error here: both semantic replacement and compilation are explicitly parameterized by the actual input family, and the final unary lower bound is stated for exactly that family. No sole-reader, neighbor-pair, or canonical-filter extraction is assumed. The only remaining structural premise specific to this exclusion is the globally safe operand condition; unsafe operands are outside its scope.
+
+The four imports are local proof dependencies that require allowed-import assembly for submission. The source remains in the L_meta_1884 namespace and contains no forbidden root text, strings, attributes, sorry, axioms, native_decide, or option changes. This is a case exclusion, not the entire posted theorem.

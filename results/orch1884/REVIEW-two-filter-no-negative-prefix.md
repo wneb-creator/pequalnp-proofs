@@ -1,0 +1,11 @@
+UTC: 2026-11-25T17:02:53.563910+00:00
+
+Independent semantic review: PASS. Exact source65lines/3416bytes, SHA25689ceb34e045817fc00885416c46782a304d4cf6e95ae38e3a793c1292be3169c. All four original check/export streams are empty; successful exit codes are author-reported. No rebuild was performed.
+
+The theorem excludes an actual displayed single-NOT circuit of size at most18 when two distinct nonzero raw variables occur only in their displayed suffix AND filters with the NOT output, the surrounding gates are monotone fan-in two, the NOT has at most one operand, the prefix avoids the free negative input10, and the full circuit computes Petersen on the valid dual-rail input family. Each sole-filter split is an explicit premise. No neighbor-pair classification, semantic H hypothesis or two-base-rail-reader premise is assumed. The filters have the stated canonical operand order.
+
+The two DirectFilter.factor applications use each supplied suffix decomposition separately, with the complete prefix/operand/middle/tail omissions and output exclusions required for independence and sole-reader factorization. Equality rewrites preserve actual gate order and wire indices. The monotone prefix establishes fiber monotonicity; these factors then forbid H being true at the all-false row. If a trimmed NOT operand contains10, it must be exactly[10], whose value is true on that row because raw inputs persist through prefix evaluation. This contradiction proves that the operand list also avoids10.
+
+Prefix and operand avoidance of10 let GlobalMonoFilterSafe.operand_mono fix the extra wire and obtain global monotonicity of H, including changes of x0. The independently reviewed global safety theorem combines this with both factorization/independence hypotheses to prove H implies the target. SafeOperandImpossible then replaces the NOT bytrue, removes at least one constant gate, and applies the actual free-unary monotone18 lower bound. Every premise of that final helper is explicitly supplied. No conclusion is drawn for a prefix that uses input10.
+
+No prohibited root text, string literals, attributes, options, admitted proofs, new axioms or native decision procedure occurs. Local dependency imports still require allowed-import single-file integration and checking. This is a structural case exclusion, not the complete posted1884 theorem.

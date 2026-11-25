@@ -1,0 +1,218 @@
+{
+  "target": "AllTwoFiltersOrders",
+  "theorem": "PEqualNP.Outside.L_meta_1884.AllTwoFiltersOrders.impossible",
+  "base_rebuild": "rebuild-auxiliary14.sh",
+  "extra_order": [
+    "SoleReaderFreeCore",
+    "SafeNotRaise",
+    "DirectFilterCore",
+    "PairLocalization",
+    "SharedFilter",
+    "DirectFilterRows",
+    "TwoFilterAuxBridge",
+    "CanonicalTwoFilter",
+    "TwoFilterSymmetry",
+    "AllTwoFilters",
+    "AllTwoFiltersOrders"
+  ],
+  "all_order": [
+    "SoleReaderFactor",
+    "SoleReaderFreeCore",
+    "SafeNotRaise",
+    "DirectFilterCore",
+    "ElimManyCount",
+    "Forced13Compile",
+    "PairReaderCharge",
+    "PairLocalization",
+    "SharedFilter",
+    "StrongRelaxRows",
+    "DirectFilterRows",
+    "TwoFilterAuxBridge",
+    "LeastLiftNormalization",
+    "ClosedOrSet",
+    "ClosedOrSafety",
+    "LeastGateFacts",
+    "GeneralReaderStandalone",
+    "RelaxedFacts",
+    "StrongRelaxOrSafety",
+    "RelaxationSemantics",
+    "ClosedRelaxOr",
+    "ClosedRelaxOrGeneral",
+    "EightExtension",
+    "RestrictionEight",
+    "UniqueReader",
+    "SoleAndRestriction",
+    "RelaxationFloor",
+    "CanonicalTwoFilter",
+    "TwoFilterSymmetry",
+    "AllTwoFilters",
+    "AllTwoFiltersOrders"
+  ],
+  "project_targets": [
+    "PEqualNP.Defs",
+    "PEqualNP.MetaComplexity.Helpers.Elim",
+    "PEqualNP.MetaComplexity.Helpers.LiftFixMain",
+    "PEqualNP.MetaComplexity.Helpers.LiveSize",
+    "PEqualNP.MetaComplexity.Helpers.LocClean",
+    "PEqualNP.MetaComplexity.Helpers.LowMergeWires",
+    "PEqualNP.MetaComplexity.Helpers.NormalFormLift",
+    "PEqualNP.MetaComplexity.Helpers.PermInputs"
+  ],
+  "dependencies": {
+    "AllTwoFiltersOrders": [
+      "AllTwoFilters"
+    ],
+    "AllTwoFilters": [
+      "TwoFilterSymmetry"
+    ],
+    "TwoFilterSymmetry": [
+      "CanonicalTwoFilter",
+      "PEqualNP.MetaComplexity.Helpers.PermInputs"
+    ],
+    "CanonicalTwoFilter": [
+      "DirectFilterCore",
+      "TwoFilterAuxBridge",
+      "RelaxationFloor"
+    ],
+    "DirectFilterCore": [
+      "SoleReaderFreeCore",
+      "SafeNotRaise"
+    ],
+    "SoleReaderFreeCore": [
+      "SoleReaderFactor"
+    ],
+    "SoleReaderFactor": [
+      "PEqualNP.Defs"
+    ],
+    "SafeNotRaise": [
+      "PEqualNP.Defs"
+    ],
+    "TwoFilterAuxBridge": [
+      "Forced13Compile",
+      "PairReaderCharge",
+      "DirectFilterRows",
+      "SafeNotRaise"
+    ],
+    "Forced13Compile": [
+      "ElimManyCount"
+    ],
+    "ElimManyCount": [
+      "PEqualNP.MetaComplexity.Helpers.Elim"
+    ],
+    "PairReaderCharge": [
+      "ElimManyCount"
+    ],
+    "DirectFilterRows": [
+      "SharedFilter",
+      "StrongRelaxRows"
+    ],
+    "SharedFilter": [
+      "PairLocalization"
+    ],
+    "PairLocalization": [
+      "PEqualNP.Defs"
+    ],
+    "StrongRelaxRows": [
+      "PEqualNP.Defs"
+    ],
+    "RelaxationFloor": [
+      "LeastLiftNormalization",
+      "LeastGateFacts",
+      "RelaxationSemantics",
+      "ClosedRelaxOrGeneral",
+      "UniqueReader",
+      "SoleAndRestriction"
+    ],
+    "LeastLiftNormalization": [
+      "PEqualNP.MetaComplexity.Helpers.LocClean",
+      "PEqualNP.MetaComplexity.Helpers.NormalFormLift"
+    ],
+    "LeastGateFacts": [
+      "ClosedOrSafety",
+      "StrongRelaxRows",
+      "PEqualNP.MetaComplexity.Helpers.LiveSize",
+      "PEqualNP.MetaComplexity.Helpers.NormalFormLift"
+    ],
+    "ClosedOrSafety": [
+      "ClosedOrSet"
+    ],
+    "ClosedOrSet": [
+      "PEqualNP.MetaComplexity.Helpers.LiftFixMain",
+      "PEqualNP.MetaComplexity.Helpers.LowMergeWires"
+    ],
+    "RelaxationSemantics": [
+      "GeneralReaderStandalone",
+      "RelaxedFacts",
+      "StrongRelaxOrSafety",
+      "PEqualNP.MetaComplexity.Helpers.PermInputs"
+    ],
+    "GeneralReaderStandalone": [
+      "PEqualNP.Defs"
+    ],
+    "RelaxedFacts": [
+      "ClosedOrSafety",
+      "SoleReaderFactor",
+      "StrongRelaxRows"
+    ],
+    "StrongRelaxOrSafety": [
+      "PEqualNP.Defs"
+    ],
+    "ClosedRelaxOrGeneral": [
+      "ClosedRelaxOr"
+    ],
+    "ClosedRelaxOr": [
+      "ClosedOrSafety",
+      "SoleReaderFactor",
+      "StrongRelaxOrSafety"
+    ],
+    "UniqueReader": [
+      "RestrictionEight"
+    ],
+    "RestrictionEight": [
+      "EightExtension",
+      "Forced13Compile",
+      "StrongRelaxRows"
+    ],
+    "EightExtension": [
+      "GeneralReaderStandalone"
+    ],
+    "SoleAndRestriction": [
+      "ElimManyCount",
+      "PairReaderCharge",
+      "RestrictionEight"
+    ]
+  },
+  "source_sha256": {
+    "SoleReaderFactor": "ba81489ac7f10173082d77106c728eaf0e1d9964249de13067e48c6e75a03357",
+    "SoleReaderFreeCore": "f998ffe6d2a4144650ade4a7deb1cd4810b52c9d31bf395dc0910973c0831727",
+    "SafeNotRaise": "a85d2afe327c0048969aa42d6f14e73272b87aed04b31bf1eda10ea5ed2a1d58",
+    "DirectFilterCore": "b56d9b5a9fbf23b5683e2085545b51d63e912a225ab23c99263e87ca8e50c4bc",
+    "ElimManyCount": "eaea5c3166a5df7fd60a41d2d3dd2d4b5b471e76eae4996e51febd39716925e6",
+    "Forced13Compile": "4fd60a4daa1d764e013c0c3efd713202f33366a7fb4906ddc3923f276412015f",
+    "PairReaderCharge": "ac073a9d55a7a8b490092fe6746e397ca22c35b78d1672418590c9251fcbc943",
+    "PairLocalization": "7c2b16f0f72f9a6aff93389bf20c612631c0967290cc5ba6c597637620310280",
+    "SharedFilter": "2e94b22073e83a4fe1c53e579c136452b1b3a582b0a6b3d1e1c9a945128ff927",
+    "StrongRelaxRows": "3bda1221519d8d56b87e7b49203522274a04eaf113cb9b2d31906b9c2d07e314",
+    "DirectFilterRows": "549ffa38c3e0dc9d2571917ad6dbcc0fa33c901ba85b79d9340242f8d752479a",
+    "TwoFilterAuxBridge": "d8c78af9d397b3e9ab4618f9b046a841320790832bc196881a5e51f5ce5e1257",
+    "LeastLiftNormalization": "fff5cf7346e22d550247c94e025a1a49fac487129f4cf663de81f75e260192f8",
+    "ClosedOrSet": "1f45e4239020b1583991a5ed484ea56be723359d71000f8905e8c3df21825ace",
+    "ClosedOrSafety": "09ddf5d680bc8160ab2853ffd3d78cb419b5c947349dc4bfb986aba2757f84f5",
+    "LeastGateFacts": "7e648c34b04364a693513f7bc3a6ced2f05d1a3ea8b0f3dbb23d4482f863ddd3",
+    "GeneralReaderStandalone": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e",
+    "RelaxedFacts": "fac8538dbbba8f689529985fc57f812ca11c4580103a936e994ea8b820269c74",
+    "StrongRelaxOrSafety": "85e67209ca40652a99c1cb14c4d4cfd9c4677954969ba7f2ddd08c6ed067df46",
+    "RelaxationSemantics": "d5b6b6803ca548fe09855ef6d2c034de6c8db2b600f1a6b5668d4b20dc2afd6c",
+    "ClosedRelaxOr": "feba4203e7cca2b0460f374403fe8cdc8413174043edacbc72ae4ac1737b7c99",
+    "ClosedRelaxOrGeneral": "2ceea11c3fe4341e37b17c882f379e76752c94fdd2741c5801287b3824dc4c7c",
+    "EightExtension": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2",
+    "RestrictionEight": "fc349a6226f76fc768893622c3e1e93dd19d6cbfe3bd7089adccddb7573c0690",
+    "UniqueReader": "a43f943861d9971e1c06f2ed36dc1d84243f0299478f8263e18772fd82c5f030",
+    "SoleAndRestriction": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33",
+    "RelaxationFloor": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c",
+    "CanonicalTwoFilter": "4c68849e8a015de9b46491d38ee02dedb66a692868e89cb7b480731485abe12b",
+    "TwoFilterSymmetry": "cc0dd981903a8dac90ba906a781c0f79e8984b1295c5361cc97c40fcb589dd5e",
+    "AllTwoFilters": "f0d0220f99cd6c631dc14f74b18940fe2ba1b9d2f894aa213520643d69e55fe8",
+    "AllTwoFiltersOrders": "bc945f14e6edb873f6c9680ffa2dea398a4409f6e43ea49726865970188bbe30"
+  }
+}

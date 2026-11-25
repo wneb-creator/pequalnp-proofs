@@ -1,0 +1,368 @@
+{
+  "utc": "2026-11-25T17:02:31.003165+00:00",
+  "verdict": "PASS independent preservation review; no exact posted goal claim",
+  "entries": [
+    {
+      "path": "results/orch1884/lemmas/TwoFilterSymmetry.lean",
+      "bytes": 5645,
+      "sha256": "cc0dd981903a8dac90ba906a781c0f79e8984b1295c5361cc97c40fcb589dd5e"
+    },
+    {
+      "path": "results/orch1884/lemmas/AllTwoFilters.lean",
+      "bytes": 4215,
+      "sha256": "f0d0220f99cd6c631dc14f74b18940fe2ba1b9d2f894aa213520643d69e55fe8"
+    },
+    {
+      "path": "results/orch1884/lemmas/AllTwoFiltersOrders.lean",
+      "bytes": 2891,
+      "sha256": "bc945f14e6edb873f6c9680ffa2dea398a4409f6e43ea49726865970188bbe30"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoRailReaders.lean",
+      "bytes": 8281,
+      "sha256": "ca8d293669aa925c7789d40980cc7e78359159f460a56ac84899de800b3322fe"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-first.stdout",
+      "bytes": 246,
+      "sha256": "eb6491d324832408ca65063f538b9d41808490a67c263bc887ed0cf00c7db1b8"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-first.stdout",
+      "bytes": 996,
+      "sha256": "b441154a5841ad267be0d487bf677ea1efdd4999323f30b2fabacdf1a67a94b9"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-first.stdout",
+      "bytes": 1342,
+      "sha256": "8a482cfa052891251fb5fa5fb154ecd0a63339d3b445d812017aa6adf065b4ca"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-second.stdout",
+      "bytes": 410,
+      "sha256": "d3976c6668b4672f5b7ac717b618625a598fad8cb05b6b888935d7f54193531d"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-axioms.stdout",
+      "bytes": 121,
+      "sha256": "1d6d84ec818edc8e96f524f5ee6beffc76279f50a69302561cc2ff68b4fa1446"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/1884-all-two-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/REVIEW-two-filter-symmetry.md",
+      "bytes": 3290,
+      "sha256": "9a472a5b248764c6b615c541932c3e0b4ed2f27dcdd84e43220ca1ae126acce9"
+    },
+    {
+      "path": "results/orch1884/REVIEW-all-two-filters.md",
+      "bytes": 3000,
+      "sha256": "6cc41ad94c37fd1eaa9fbc60853572485280181fca1c2b7178c58de1309eaa83"
+    },
+    {
+      "path": "results/orch1884/REVIEW-all-two-filters-orders.md",
+      "bytes": 2557,
+      "sha256": "9d10fc1308f3f2b9c5624f25e41ed31a5026891787c0c2fe129ca55157527f54"
+    },
+    {
+      "path": "results/orch1884/REVIEW-two-rail-readers.md",
+      "bytes": 2323,
+      "sha256": "3c020796cfb19fc986026d7b7fa9418561f7405272ae8dd6dd17d48947cbbe6c"
+    },
+    {
+      "path": "results/orch1884/REVIEW-rebuild-two-filters.md",
+      "bytes": 1337,
+      "sha256": "7e06d91f68dfeaf6933ecb96e0cd512198914160e75df9ea759ad9aadda0a7d1"
+    },
+    {
+      "path": "results/orch1884/two-filter-automorphisms.json",
+      "bytes": 1510,
+      "sha256": "a552f667e7839ba5b5f289d06216b85765fdc765080568c61abf75834993a83a"
+    },
+    {
+      "path": "results/orch1884/two-filter-automorphisms-independent.json",
+      "bytes": 605,
+      "sha256": "5be0f194fc7401361d6e021448de8256d5cb6be1f53bc518d9325085eaa64595"
+    },
+    {
+      "path": "results/orch1884/two-filter-symmetry-proof.md",
+      "bytes": 3630,
+      "sha256": "53e36868144cbc09f618b3cdc2c916fda148331c246b3f6c18e82e89e2f5e81b"
+    },
+    {
+      "path": "results/orch1884/rebuild-two-filters.sh",
+      "bytes": 879,
+      "sha256": "0539e1b8b1c80ba0f11ec2495c40b156cb53e730fcee77744349279a4cf6ab9c"
+    },
+    {
+      "path": "results/orch1884/two-filter-dependencies.json",
+      "bytes": 7249,
+      "sha256": "705a415842e393d7761f710c661428a428af8632095eaa8ac2e9d988d297d0d4"
+    },
+    {
+      "path": "results/orch1884/two-filter-rebuild-static.json",
+      "bytes": 316,
+      "sha256": "e329d67fa5998ba6780d8f928524bce5eb25864162e48e80a7fea586442ba9b2"
+    },
+    {
+      "path": "results/orch1884/two-filter-independent-static.json",
+      "bytes": 7140,
+      "sha256": "175210d71312efc134aa142760650012c45940dffca4435a6a7548fa0d0a8e7f"
+    },
+    {
+      "path": "results/orch1884/two-rail-readers-validation.json",
+      "bytes": 467,
+      "sha256": "1dac56d8b84c35cd98eb0476daa0dba364c98185372aed78c7525ed029e43232"
+    },
+    {
+      "path": "results/orch1884/two-rail-readers-independent-review.json",
+      "bytes": 626,
+      "sha256": "807335a47210bb924c35c3b4fe37d6d016652b5f9ea5eccf4df641a74a17a8a8"
+    },
+    {
+      "path": "results/orch1884/two-rail-readers-checked.stdout",
+      "bytes": 285,
+      "sha256": "2d885d24d5e658cf935868b769074c6f25d9d88752f5789c96f5323ce74621ec"
+    },
+    {
+      "path": "results/orch1884/two-rail-readers-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/REVIEW-preservation-filter-symmetry.md",
+      "bytes": 1518,
+      "sha256": "a86f947846ce9dd03041e3b26a31e4127b460d3cfad3b14811fffbaeeed7bbb5"
+    },
+    {
+      "path": "results/orch1884/lemmas/ForcedTrueCompile.lean",
+      "bytes": 3562,
+      "sha256": "6d62a8aec84d4a91c4c000284b1dc671851424a52e81196376f62d4f73f73282"
+    },
+    {
+      "path": "results/orch1884/lemmas/GlobalMonoFilterSafe.lean",
+      "bytes": 3327,
+      "sha256": "4a501985eb55dedf508a4c6ee4415dff05bff32cd103435255deb834a44ec803"
+    },
+    {
+      "path": "results/orch1884/lemmas/SafeOperandImpossible.lean",
+      "bytes": 1703,
+      "sha256": "14b242d66705f8ef233760ba3b414bbc3e1efd001bb91e47506862f642b2bae2"
+    },
+    {
+      "path": "results/orch1884/lemmas/TwoFilterNoNegativePrefix.lean",
+      "bytes": 3416,
+      "sha256": "89ceb34e045817fc00885416c46782a304d4cf6e95ae38e3a793c1292be3169c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/ForcedTrueCompile-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/ForcedTrueCompile-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/GlobalMonoFilterSafe-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/GlobalMonoFilterSafe-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/SafeOperandImpossible-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-filter-symmetry/SafeOperandImpossible-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/forced-true-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/forced-true-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/global-mono-filter-safe.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/global-mono-filter-safe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/safe-operand-impossible.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/safe-operand-impossible.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-no-negative-prefix.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-no-negative-prefix.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-no-negative-prefix-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/two-filter-no-negative-prefix-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/REVIEW-forced-true-compile.md",
+      "bytes": 2258,
+      "sha256": "69686d844476466d563ce3bfb69da1ac92fe2dd34cf79f00824ee503124f1752"
+    },
+    {
+      "path": "results/orch1884/REVIEW-global-mono-filter-safe.md",
+      "bytes": 2557,
+      "sha256": "274560a74ddd801b588a07989ad0692c54b1058106a494c356048dd7622f102e"
+    },
+    {
+      "path": "results/orch1884/REVIEW-safe-operand-impossible.md",
+      "bytes": 2617,
+      "sha256": "c1da79d02ad93cfd61e5bfb3d9f46875374522dcb683281cad2b2886339d3a3a"
+    },
+    {
+      "path": "results/orch1884/REVIEW-two-filter-no-negative-prefix.md",
+      "bytes": 2349,
+      "sha256": "2f06e25e0234820bfb6687ec5fdf91c79b27d9044dbdb326ccee66f7f9548ceb"
+    }
+  ],
+  "credential_or_integrity_findings": [],
+  "source_format_findings": [],
+  "stage_paths": [
+    "results/orch1884/PRESERVATION-MANIFEST-filter-symmetry.json",
+    "results/orch1884/PRESERVATION-STAGE-filter-symmetry.txt",
+    "results/orch1884/REVIEW-all-two-filters-orders.md",
+    "results/orch1884/REVIEW-all-two-filters.md",
+    "results/orch1884/REVIEW-forced-true-compile.md",
+    "results/orch1884/REVIEW-global-mono-filter-safe.md",
+    "results/orch1884/REVIEW-preservation-filter-symmetry.md",
+    "results/orch1884/REVIEW-rebuild-two-filters.md",
+    "results/orch1884/REVIEW-safe-operand-impossible.md",
+    "results/orch1884/REVIEW-two-filter-no-negative-prefix.md",
+    "results/orch1884/REVIEW-two-filter-symmetry.md",
+    "results/orch1884/REVIEW-two-rail-readers.md",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-axioms.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-axioms.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-first.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-first.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-first.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-first.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-second.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-orders-second.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-second.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-all-two-second.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-first.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-first.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-second.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/1884-two-filter-sym-second.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/ForcedTrueCompile-export.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/ForcedTrueCompile-export.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/GlobalMonoFilterSafe-export.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/GlobalMonoFilterSafe-export.stdout",
+    "results/orch1884/checkpoint-filter-symmetry/SafeOperandImpossible-export.stderr",
+    "results/orch1884/checkpoint-filter-symmetry/SafeOperandImpossible-export.stdout",
+    "results/orch1884/lemmas/AllTwoFilters.lean",
+    "results/orch1884/lemmas/AllTwoFiltersOrders.lean",
+    "results/orch1884/lemmas/ForcedTrueCompile.lean",
+    "results/orch1884/lemmas/GlobalMonoFilterSafe.lean",
+    "results/orch1884/lemmas/SafeOperandImpossible.lean",
+    "results/orch1884/lemmas/TwoFilterNoNegativePrefix.lean",
+    "results/orch1884/lemmas/TwoFilterSymmetry.lean",
+    "results/orch1884/lemmas/TwoRailReaders.lean",
+    "results/orch1884/lemmas/forced-true-compile.stderr",
+    "results/orch1884/lemmas/forced-true-compile.stdout",
+    "results/orch1884/lemmas/global-mono-filter-safe.stderr",
+    "results/orch1884/lemmas/global-mono-filter-safe.stdout",
+    "results/orch1884/lemmas/safe-operand-impossible.stderr",
+    "results/orch1884/lemmas/safe-operand-impossible.stdout",
+    "results/orch1884/lemmas/two-filter-no-negative-prefix-export.stderr",
+    "results/orch1884/lemmas/two-filter-no-negative-prefix-export.stdout",
+    "results/orch1884/lemmas/two-filter-no-negative-prefix.stderr",
+    "results/orch1884/lemmas/two-filter-no-negative-prefix.stdout",
+    "results/orch1884/rebuild-two-filters.sh",
+    "results/orch1884/two-filter-automorphisms-independent.json",
+    "results/orch1884/two-filter-automorphisms.json",
+    "results/orch1884/two-filter-dependencies.json",
+    "results/orch1884/two-filter-independent-static.json",
+    "results/orch1884/two-filter-rebuild-static.json",
+    "results/orch1884/two-filter-symmetry-proof.md",
+    "results/orch1884/two-rail-readers-checked.stderr",
+    "results/orch1884/two-rail-readers-checked.stdout",
+    "results/orch1884/two-rail-readers-independent-review.json",
+    "results/orch1884/two-rail-readers-validation.json"
+  ],
+  "finalized_utc": "2026-11-25T17:03:17.938583+00:00",
+  "scope": "All ordered neighbor-filter pairs/both operand orders; two-rail reader floor; safe-operand and prefix-avoids-negative-input exclusions. Structural partials only."
+}
