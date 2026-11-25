@@ -10327,4 +10327,202 @@ lemma h3_r1_reduction_three {D : Dag} (h : StrictLive 10 D)
 
 end DagTools
 
+
+namespace DagTools
+open R1FlexibleResource.CausalBarrier R1FlexibleResource.ResourceExclusion
+  R1FlexibleResource.DAGBridge
+
+lemma h3_fullA_trivial_side_table : ∀ b : Bool, ∀ i : Fin 6,
+    i ≠ (if b then 4 else 5) →
+    (h3_fullA_side b b b (i,false), h3_fullA_side b b b (i,true)) ∈ OtherSides ∨
+    (h3_fullA_side b b b (i,false) = DirtyA ∧ h3_fullA_side b b b (i,true) = ∅) := by
+  decide +kernel
+
+lemma h3_fullA_trivial_exclusion {D : Dag} (hS : Strict 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hB0 : Bzero 10 D = 0)
+    (b : Bool) (c : Fin 6 → Nat × Bool)
+    (hc : Function.Injective (fun i => (c i).1))
+    (hv : ∀ i, (c i).1 < D.length ∧ tag D (c i).1 = true)
+    (hs : ∀ i : Fin 6 × Bool,
+      supp 10 D (src D (h3_pairedArcs c i)) = h3_fullA_side b b b i)
+    (ho : ∀ j, j < D.length → tag D j = true → (∀ i, (c i).1 ≠ j) →
+      supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) : False := by
+  let d : Fin 6 := if b then 4 else 5
+  have hsd : supp 10 D (src D (c d)) = DirtyA := by
+    have hh := hs (d,false)
+    cases b <;> simpa [h3_pairedArcs,d,h3_fullA_side,DirtyA] using hh
+  have htd : supp 10 D (src D (h3_opp (c d))) = DirtyB := by
+    have hh := hs (d,true)
+    cases b <;> simpa [h3_pairedArcs,d,h3_fullA_side,h3_fullA_part,DirtyB] using hh
+  have hd : DirtySides D (c d).1 := by
+    cases hb : (c d).2
+    · exact Or.inl ⟨by simpa [src,hb] using hsd,by simpa [src,h3_opp,hb] using htd⟩
+    · exact Or.inr ⟨by simpa [src,h3_opp,hb] using htd,by simpa [src,hb] using hsd⟩
+  have hother : OtherAndSides D (c d).1 := by
+    intro j hj hjd ht
+    by_cases hex : ∃ i, (c i).1 = j
+    · obtain ⟨i,hi⟩ := hex
+      have hid : i ≠ d := by intro hh; subst i; exact hjd hi.symm
+      have ha : supp 10 D (src D (c i)) = h3_fullA_side b b b (i,false) := by
+        simpa [h3_pairedArcs] using hs (i,false)
+      have hb : supp 10 D (src D (h3_opp (c i))) = h3_fullA_side b b b (i,true) := by
+        simpa [h3_pairedArcs] using hs (i,true)
+      have hh : AllowedSides (DagResource D (src D (c i)))
+          (DagResource D (src D (h3_opp (c i)))) := by
+        rcases h3_fullA_trivial_side_table b i hid with hmem | ⟨hA,hz⟩
+        · apply Or.inl; apply Or.inl; apply Or.inr; apply Or.inl
+          change (supp 10 D (src D (c i)),supp 10 D (src D (h3_opp (c i)))) ∈ OtherSides
+          rwa [ha,hb]
+        · apply h3_full_side_allowed_right hS (hb.trans hz)
+          exact Or.inl (by rw [ha,hA])
+      cases hside : (c i).2
+      · simpa [src,h3_opp,hi,hside] using hh
+      · have hswap := allowed_sides_swap hh
+        simpa [src,h3_opp,hi,hside] using hswap
+    · obtain ⟨ha,hb⟩ := ho j hj ht (fun i hi => hex ⟨i,hi⟩)
+      exact Or.inl (Or.inl (Or.inl (ha.trans hb.symm)))
+  exact h3_r1_flexible_allowed_sides_exclusion hS hC hB0 (hv d).1 (hv d).2 hd hother
+
+end DagTools
+
+namespace DagTools
+
+def h3_fullA_code (β2 β8 β9 : Bool) : Nat :=
+  (if β2 then 1 else 0) + (if β8 then 2 else 0) + (if β9 then 4 else 0)
+
+def h3_fullA_normalizerIndex (β2 β8 β9 : Bool) : Fin 12 :=
+  ([0,0,4,2,2,4,0,0] : List (Fin 12)).getD (h3_fullA_code β2 β8 β9) 0
+
+def h3_fullA_gateMap (β2 β8 β9 : Bool) (i : Fin 6) : Fin 6 :=
+  ([0,1,2,3,4,5, 0,1,2,3,4,5, 0,3,1,2,4,5, 0,2,3,1,5,4,
+    0,2,3,1,4,5, 0,3,1,2,5,4, 0,1,2,3,5,4, 0,1,2,3,4,5] : List (Fin 6)).getD
+      (6*h3_fullA_code β2 β8 β9+i.val) 0
+
+def h3_fullA_gateInverse (β2 β8 β9 : Bool) (i : Fin 6) : Fin 6 :=
+  ([0,1,2,3,4,5, 0,1,2,3,4,5, 0,2,3,1,4,5, 0,3,1,2,5,4,
+    0,3,1,2,4,5, 0,2,3,1,5,4, 0,1,2,3,5,4, 0,1,2,3,4,5] : List (Fin 6)).getD
+      (6*h3_fullA_code β2 β8 β9+i.val) 0
+
+set_option maxRecDepth 100000 in
+lemma h3_fullA_gate_inverse : ∀ β2 β8 β9 : Bool, ∀ i : Fin 6,
+    h3_fullA_gateInverse β2 β8 β9 (h3_fullA_gateMap β2 β8 β9 i) = i ∧
+    h3_fullA_gateMap β2 β8 β9 (h3_fullA_gateInverse β2 β8 β9 i) = i := by
+  decide +kernel
+
+def h3_fullA_gatePerm (β2 β8 β9 : Bool) : Equiv.Perm (Fin 6) :=
+  { toFun := h3_fullA_gateMap β2 β8 β9
+    invFun := h3_fullA_gateInverse β2 β8 β9
+    left_inv := fun i => (h3_fullA_gate_inverse β2 β8 β9 i).1
+    right_inv := fun i => (h3_fullA_gate_inverse β2 β8 β9 i).2 }
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h3_fullA_normalization_table : ∀ β2 β8 β9 : Bool, (β2 ≠ β8 ∨ β2 ≠ β9) →
+    (({3,6,7} : Finset (Fin 10)).image (h3_stabilizerMap (h3_fullA_normalizerIndex β2 β8 β9)) = {3,6,7}) ∧
+    ∀ i : Fin 6 × Bool,
+      (h3_fullA_side β2 β8 β9 (h3_fullA_gateMap β2 β8 β9 i.1,i.2)).image
+        (h3_stabilizerMap (h3_fullA_normalizerIndex β2 β8 β9)) = h3_fullA_side true false false i := by
+  decide +kernel
+
+lemma h3_relabel_arc_supp {n : Nat} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (e : Nat × Bool) (he : e.1 < D.length) :
+    supp n (relabel σ D) (src (relabel σ D) e) = (supp n D (src D e)).image σ := by
+  rw [h3_relabel_src σ D e he,relabel_supp σ hS]
+
+lemma h3_fullA_nontrivial_normalization {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0) (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {3,6,7})
+    (β2 β8 β9 : Bool) (hneq : β2 ≠ β8 ∨ β2 ≠ β9) (c : Fin 6 → Nat × Bool)
+    (hinj : Function.Injective (fun i => (c i).1))
+    (hvalid : ∀ i, (c i).1 < D.length ∧ tag D (c i).1 = true)
+    (hsources : ∀ i : Fin 6 × Bool,
+      supp 10 D (src D (h3_pairedArcs c i)) = h3_fullA_side β2 β8 β9 i)
+    (hother : ∀ j, j < D.length → tag D j = true → (∀ i, (c i).1 ≠ j) →
+      supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) :
+    ∃ E : Dag, ∃ d : Fin 6 → Nat × Bool,
+      E.length = D.length ∧ StrictLive 10 E ∧ sem_Comp 10 petersenAdj E ∧
+      (0 : Fin 10) ∈ ineligSet 10 E ∧ Bzero 10 E = 0 ∧
+      Bplus 10 E = (eligSet 10 E).card + 1 ∧ h3_saturatedSet 10 E = {3,6,7} ∧
+      Function.Injective (fun i => (d i).1) ∧
+      (∀ i, (d i).1 < E.length ∧ tag E (d i).1 = true) ∧
+      (∀ i : Fin 6 × Bool, supp 10 E (src E (h3_pairedArcs d i)) = h3_fullA_side true false false i) ∧
+      (∀ j, j < E.length → tag E j = true → (∀ i, (d i).1 ≠ j) →
+        supp 10 E (opA E j) = ∅ ∧ supp 10 E (opB E j) = ∅) := by
+  let σ := h3_stabilizer (h3_fullA_normalizerIndex β2 β8 β9)
+  let κ := h3_fullA_gatePerm β2 β8 β9
+  let E := relabel σ D
+  let d : Fin 6 → Nat × Bool := fun i => c (κ i)
+  have hσ0 : σ 0 = 0 := (h3_stabilizerMap_graph _).1
+  have hσG : ∀ x y : Fin 10, petersenAdj (σ x) (σ y) ↔ petersenAdj x y :=
+    (h3_stabilizerMap_graph _).2
+  have htable := h3_fullA_normalization_table β2 β8 β9 hneq
+  have hE : StrictLive 10 E := relabel_strictLive σ h
+  have hEC : sem_Comp 10 petersenAdj E := h3_relabel_comp σ h hC hσG
+  have hEz : (0 : Fin 10) ∈ ineligSet 10 E := by
+    rw [show E = relabel σ D from rfl,relabel_ineligSet σ h.1]
+    exact Finset.mem_image.mpr ⟨0,hz,hσ0⟩
+  have hEB0 : Bzero 10 E = 0 := h3_relabel_zero σ h.1 hB0
+  have hEone : Bplus 10 E = (eligSet 10 E).card + 1 := h3_relabel_one σ h hB0 hone
+  have hESat : h3_saturatedSet 10 E = {3,6,7} := by
+    rw [show E = relabel σ D from rfl,h3_relabel_saturated σ h.1,hSat]
+    exact htable.1
+  have hdinj : Function.Injective (fun i => (d i).1) :=
+    fun i j he => κ.injective (hinj he)
+  have hdvalid : ∀ i, (d i).1 < E.length ∧ tag E (d i).1 = true := by
+    intro i
+    change (c (κ i)).1 < (relabel σ D).length ∧ tag (relabel σ D) (c (κ i)).1 = true
+    rw [relabel_length,tr_tag σ D _ (hvalid (κ i)).1]
+    exact hvalid (κ i)
+  have hdsources : ∀ i : Fin 6 × Bool,
+      supp 10 E (src E (h3_pairedArcs d i)) = h3_fullA_side true false false i := by
+    rintro ⟨i,s⟩
+    change supp 10 (relabel σ D) (src (relabel σ D) (h3_pairedArcs c (κ i,s))) = _
+    rw [h3_relabel_arc_supp σ h.1 _ (by rw [h3_pairedArcs_fst]; exact (hvalid (κ i)).1),hsources]
+    exact htable.2 (i,s)
+  refine ⟨E,d,relabel_length σ D,hE,hEC,hEz,hEB0,hEone,hESat,hdinj,hdvalid,hdsources,?_⟩
+  intro j hj ht hn
+  have hjD : j < D.length := by simpa only [E,relabel_length] using hj
+  have htD : tag D j = true := by simpa only [E,tr_tag σ D j hjD] using ht
+  have hnD : ∀ i, (c i).1 ≠ j := by
+    intro i
+    have hh := hn (κ.symm i)
+    simpa only [d,κ.apply_symm_apply] using hh
+  obtain ⟨ha,hb⟩ := hother j hjD htD hnD
+  constructor
+  · change supp 10 (relabel σ D) (opA (relabel σ D) j) = ∅
+    rw [tr_opA σ D j hjD,relabel_supp σ h.1,ha,Finset.image_empty]
+  · change supp 10 (relabel σ D) (opB (relabel σ D) j) = ∅
+    rw [tr_opB σ D j hjD,relabel_supp σ h.1,hb,Finset.image_empty]
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_fullA_reduction_representative {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0) (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {3,6,7}) :
+    ∃ E : Dag, ∃ d : Fin 6 → Nat × Bool,
+      E.length = D.length ∧ StrictLive 10 E ∧ sem_Comp 10 petersenAdj E ∧
+      (0 : Fin 10) ∈ ineligSet 10 E ∧ Bzero 10 E = 0 ∧
+      Bplus 10 E = (eligSet 10 E).card + 1 ∧ h3_saturatedSet 10 E = {3,6,7} ∧
+      Function.Injective (fun i => (d i).1) ∧
+      (∀ i, (d i).1 < E.length ∧ tag E (d i).1 = true) ∧
+      (∀ i : Fin 6 × Bool, supp 10 E (src E (h3_pairedArcs d i)) = h3_fullA_side true false false i) ∧
+      (∀ j, j < E.length → tag E j = true → (∀ i, (d i).1 ≠ j) →
+        supp 10 E (opA E j) = ∅ ∧ supp 10 E (opB E j) = ∅) := by
+  obtain ⟨β2,β8,β9,c,hinj,hvalid,hsources,hother⟩ :=
+    h3_saturated_fullA_sources_exist h hC hz hB0 hone hSat
+  by_cases hn : β2 ≠ β8 ∨ β2 ≠ β9
+  · exact h3_fullA_nontrivial_normalization h hC hz hB0 hone hSat
+      β2 β8 β9 hn c hinj hvalid hsources hother
+  · have h28 : β2 = β8 := by tauto
+    have h29 : β2 = β9 := by tauto
+    subst β8
+    subst β9
+    exact False.elim (h3_fullA_trivial_exclusion h.1 hC hB0 β2 c hinj hvalid hsources hother)
+
+end DagTools
+
 end PEqualNP.Outside.L_meta_2590_aux
