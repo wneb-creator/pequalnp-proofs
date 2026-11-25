@@ -1,0 +1,15 @@
+cost 1 new 33
+cost 2 new 125
+cost 3 new 332
+cost 4 new 677
+cost 5 new 1165
+cost 6 new 1493
+cost 7 new 1509
+cost 8 new 1511
+cost 9 new 1063
+cost 10 new 499
+cost 11 new 269
+cost 12 new 71
+cost 13 new 15
+cost 14 new 1
+TARGET 14 ((x0 AND x2) OR ((x1 AND x4) OR ((x5 AND (x0 OR x3)) OR (((x0 OR x2) AND (x4 OR x6)) OR ((x3 OR x5) AND (x1 OR x6))))))

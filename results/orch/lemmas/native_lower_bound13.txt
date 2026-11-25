@@ -1,0 +1,17 @@
+Native exploratory result only; final Lean kernel check pending.
+root13 0 true ms=13813
+root13 1 true ms=4811
+root13 2 true ms=975
+root13 3 true ms=105
+root13 4 true ms=97
+root13 5 true ms=2
+root13 6 true ms=0
+root13 7 true ms=2
+root13 8 true ms=2
+root13 9 true ms=1
+root13 10 true ms=0
+root13 11 true ms=1
+root13 12 true ms=0
+
+NativeEngine.lean sha256: 67dee4366cf539b5b3f4e407320a370bf18f8c73601411f01192102f300a6f3a
+Runner NativeBoundRun.lean sha256: 05bcd640fccd85c20ad20105ea769028fcca34e5f54136092af8dc8bc9c1daa6

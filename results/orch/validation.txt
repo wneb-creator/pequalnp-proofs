@@ -10,3 +10,10 @@ Independent partial review: repo_review passed; exact source SHA256 fddf0763607e
 Desk null answers: 0
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain
 TIMING total=8.9 subagents=5
+
+Second checkpoint: target search-engine soundness helpers compiled, exit 0. No complete posted theorem yet.
+Engine: results/orch/lemmas/KernelEngine.lean (3569 lines, 212543 bytes).
+Independent engine diff review: passed; original generic proofs unchanged except namespace/section names.
+Checker executable: lake build checklemma passed, exit 0. Official theorem checker still not run.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
+TIMING total=12.7 subagents=6

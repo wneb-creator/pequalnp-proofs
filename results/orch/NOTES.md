@@ -50,3 +50,21 @@ Independent shared-AND search completed all 12 target-edge seed gates. Treating 
 - Extracted88 pure computation definitions to Std-only NativeEngine, replacing recursors with match wrappers and Bool.rec with lazy bif; search tool compiles. Original kernel definitions remain authoritative in final proof.
 - Native okE checks established all110 candidate proper induced-subgraph bounds in about2seconds. Full root14 search running by NOT count; t0 on proof_template, t1+ on lower_bound.
 - Named final partial file has14-gate circuit correctness/equivalence/monotone/length helpers (36lines); root compiling and checkpointing it.
+
+Independent mixed-restriction validation: all 49 OneRestrictionCandidates entries checked over all128 assignments. Residual function exactly OR(singleton neighbors) plus disjoint residual edge/triangle. Candidate numeric bounds equal explicit monotone formula upper bounds: one1at0/5/6 ->5, one1at1/2/3/4 ->7; mixedneighbor0 reducesone; mixednonneighbor0 yields3 or4. Lower-bound truth still requires certificate engine; no overlarge candidate against these constructions. Full data scratch review-mixed-restrictions.json.
+
+- 2026-11-25T19:28:09.246279+00:00: graph_search: bundled CaDiCaL located. Three bounded300s13gate SAT searches active: custom all128rows oneNOT, custom canonical-topology variant, official LinkN2 arbitraryNOT boundary-row encoding with textual LRAT output. Forced known14gate witness validates custom encoding (SAT). The official route has generator notes/data/lrat-link/genrow.py --not, potentially useful if UNSAT.
+
+- 2026-11-25T19:28:49.028928+00:00: root prioritizes successful native lower-bound route. Stopped stochastic13gate and both custom SAT jobs; best stochastic circuit had1error, no exact counterexample. Official LinkN2 SAT/LRAT job remains bounded300s, niceness19. All codes/fulllogs retained in scratch.
+
+## Checker environment 2026-11-25T19:29:11.929098+00:00
+
+`tools/check-lean.mjs` uses the repo queue shim, which selects `PEQUALNP_REAL_LAKE` or an elan proxy rather than PATH. Set `PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-182/lean-4.36.0-linux/bin/lake` and `PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-182/pnp-home`; include toolchain bin on PATH. The checker strips inherited LEAN_/LAKE_ options but keeps PEQUALNP_* configuration. Each stage timeout is 30 minutes with 64MiB captured output. `.lake/check.lock` serializes checker runs. Prebuilding `checklemma` at nice priority 10.
+
+Verifier prebuild completed successfully at 2026-11-25 19:29:52 UTC. Complete logs: scratch `checklemma-build.stdout` and `.stderr`; five build jobs, CheckLemma 10s, native object 8s, executable 15s. Disk free approximately 498MB. No full checker invocation yet.
+
+## Independent compiled-engine checkpoint review (repo_review)
+
+KernelEngine SHA256 8893ec316db35760aff6cab0b50a420ee649e6cb0c396374e80863788ebf7923; 3569 lines / 212543 bytes. Compared complete declarations against L_meta_10762: no added declaration names; generic lemma/theorem proof changes only namespace10762->10760 and names on section closures. Modified definitions are graph constants/masks and section boundaries; removed declarations are old graph certificates, bridge, circuit witness and final theorem. No new axiom/sorry/native/unsafe/opaque/compile-time construct; only allowed PEqualNP.Defs import. Guard reports exactly missing full-name final theorem, as expected. APPROVED for partial artifact preservation push after reported successful compile; not approved as complete proof or accepted checker result. Full diff saved in scratch review-engine-full.diff.
+
+- 2026-11-25T19:30:40.824366+00:00: graph_search: stopped officialSAT to conserve disk for main Lean route; no SAT/UNSAT verdict. Complete unfinished LRAT stream losslessly gzip-compressed after SHA256 roundtrip verification, original188305408bytes, compressed54071135bytes. Fullstdout/stderr retained.

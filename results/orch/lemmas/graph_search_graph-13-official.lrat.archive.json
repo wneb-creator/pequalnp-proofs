@@ -1,0 +1,6 @@
+{
+  "original_bytes": 188305408,
+  "compressed_bytes": 54071135,
+  "sha256": "ac3d6a8e30f1ef6503bb1cda8380be88a05a391c0e54b6a9f3cd211586137d4a",
+  "status": "Stopped without SAT or UNSAT conclusion to conserve disk for Lean proof"
+}

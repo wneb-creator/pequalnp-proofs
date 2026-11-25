@@ -1,0 +1,114 @@
+{
+  "1": {
+    "gates": 10,
+    "formula": "((x1 AND x4) OR ((x3 AND x5) OR ((x2 AND (x4 OR x6)) OR ((x3 OR x5) AND (x1 OR x6)))))"
+  },
+  "2": {
+    "gates": 10,
+    "formula": "((x3 AND (x5 OR x6)) OR (((x0 OR x2) AND (x4 OR x6)) OR ((x2 OR x5) AND (x0 OR x6))))"
+  },
+  "3": {
+    "gates": 7,
+    "formula": "((x2 AND x4) OR ((x3 AND x5) OR (x6 AND (x2 OR (x3 OR x5)))))"
+  },
+  "4": {
+    "gates": 10,
+    "formula": "((x3 AND (x1 OR x5)) OR (((x0 OR x1) AND (x4 OR x5)) OR (x6 AND (x0 OR (x3 OR x5)))))"
+  },
+  "5": {
+    "gates": 7,
+    "formula": "((x1 AND x4) OR ((x3 AND x5) OR ((x3 OR x5) AND (x1 OR x6))))"
+  },
+  "6": {
+    "gates": 7,
+    "formula": "((x0 AND x4) OR ((x5 AND x6) OR ((x0 OR x3) AND (x5 OR x6))))"
+  },
+  "8": {
+    "gates": 10,
+    "formula": "((x1 AND (x4 OR x5)) OR (((x0 OR x2) AND (x4 OR x6)) OR ((x2 OR x5) AND (x0 OR x6))))"
+  },
+  "9": {
+    "gates": 7,
+    "formula": "((x1 AND x4) OR ((x2 AND (x4 OR x6)) OR (x5 AND (x1 OR x6))))"
+  },
+  "10": {
+    "gates": 7,
+    "formula": "(((x0 OR x2) AND (x4 OR x6)) OR ((x2 OR x5) AND (x0 OR x6)))"
+  },
+  "12": {
+    "gates": 6,
+    "formula": "((x6 AND (x0 OR x5)) OR ((x0 OR x1) AND (x4 OR x5)))"
+  },
+  "16": {
+    "gates": 10,
+    "formula": "((x1 AND (x3 OR x5)) OR (((x0 OR x3) AND (x5 OR x6)) OR ((x2 OR x5) AND (x0 OR x6))))"
+  },
+  "17": {
+    "gates": 7,
+    "formula": "((x2 AND x6) OR ((x3 AND x5) OR ((x3 OR x5) AND (x1 OR x6))))"
+  },
+  "18": {
+    "gates": 7,
+    "formula": "(((x0 OR x3) AND (x5 OR x6)) OR ((x2 OR x5) AND (x0 OR x6)))"
+  },
+  "20": {
+    "gates": 7,
+    "formula": "(((x0 OR x3) AND (x5 OR x6)) OR ((x3 OR x5) AND (x1 OR x6)))"
+  },
+  "24": {
+    "gates": 7,
+    "formula": "((x0 AND x6) OR ((x1 AND x5) OR ((x2 OR x5) AND (x0 OR x6))))"
+  },
+  "32": {
+    "gates": 10,
+    "formula": "((x0 AND x2) OR ((x1 AND x4) OR ((x3 AND (x1 OR x6)) OR ((x0 OR x2) AND (x4 OR x6)))))"
+  },
+  "33": {
+    "gates": 7,
+    "formula": "((x1 AND x3) OR ((x4 AND (x1 OR x2)) OR (x6 AND (x2 OR x3))))"
+  },
+  "34": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x3 AND x6) OR ((x0 OR x2) AND (x4 OR x6))))"
+  },
+  "36": {
+    "gates": 7,
+    "formula": "((x0 AND x4) OR ((x1 AND (x3 OR x4)) OR (x6 AND (x0 OR x3))))"
+  },
+  "40": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x1 AND x4) OR ((x0 OR x2) AND (x4 OR x6))))"
+  },
+  "48": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x1 AND x3) OR (x6 AND (x0 OR (x2 OR x3)))))"
+  },
+  "64": {
+    "gates": 9,
+    "formula": "((x2 AND (x0 OR x4)) OR ((x3 AND (x1 OR x5)) OR ((x0 OR x1) AND (x4 OR x5))))"
+  },
+  "65": {
+    "gates": 7,
+    "formula": "((x1 AND x3) OR ((x4 AND (x1 OR x2)) OR (x5 AND (x1 OR x3))))"
+  },
+  "66": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x4 AND (x0 OR x2)) OR (x5 AND (x0 OR x3))))"
+  },
+  "68": {
+    "gates": 6,
+    "formula": "((x3 AND (x1 OR x5)) OR ((x0 OR x1) AND (x4 OR x5)))"
+  },
+  "72": {
+    "gates": 6,
+    "formula": "((x2 AND (x0 OR x4)) OR ((x0 OR x1) AND (x4 OR x5)))"
+  },
+  "80": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x1 AND x3) OR (x5 AND (x0 OR (x1 OR x3)))))"
+  },
+  "96": {
+    "gates": 7,
+    "formula": "((x0 AND x2) OR ((x1 AND x3) OR (x4 AND (x0 OR (x1 OR x2)))))"
+  }
+}
