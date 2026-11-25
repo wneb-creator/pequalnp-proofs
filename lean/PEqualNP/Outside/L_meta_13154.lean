@@ -1,6 +1,7 @@
 import Mathlib
 import PEqualNP.Defs
 
+-- Adapted from MiguelTorresPerez, positive twin proof PR 17278.
 namespace PEqualNP.Outside.L_meta_13154
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
@@ -1304,6 +1305,4 @@ theorem positive : ∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x 
 
 end PEqualNP.Outside.L_meta_13154
 
-theorem PEqualNP.Outside.L_meta_13154 : ¬ (¬ (∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (4277075690 * 2 ^ 32 + 4277062856) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (4277075690 * 2 ^ 32 + 4277062856) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0))) := by
-  intro h
-  exact h PEqualNP.Outside.L_meta_13154.positive
+theorem PEqualNP.Outside.L_meta_13154 : ¬ (¬ (∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (4277075690 * 2 ^ 32 + 4277062856) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (4277075690 * 2 ^ 32 + 4277062856) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0))) := fun h => h PEqualNP.Outside.L_meta_13154.positive

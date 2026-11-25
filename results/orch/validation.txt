@@ -5,10 +5,11 @@ File: lean/PEqualNP/Outside/L_meta_13154.lean
 Lean: 4.36.0
 Build: PASS; Build completed successfully (18423 jobs).
 Format/import/namespace guard: PASS.
-Local checker: pending.
+Local checker before cleanup: ACCEPTED (refute); axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1913 constants.
+Local checker after cleanup: pending.
 Desk-kind guard: REFUSED: the run's kind is refute, and the desk posts gap L-meta-13154 as kind check
 Lines before cleanup: 1309
-Lines after cleanup: pending
+Lines after cleanup: 1308
 Independent review: status_review and lower_bound; finite checks: circuit_search and lower_bound.
 Null desk answers: 0
 Sub-agents: 3 (status_review, circuit_search, lower_bound)
