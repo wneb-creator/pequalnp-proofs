@@ -1714,4 +1714,325 @@ lemma center_unique {α : Type*} [DecidableEq α]
 
 end Cofactor
 
+
+open Classical
+
+lemma leaf_count_incomparable {α : Type*} [DecidableEq α]
+    (cls branch : ℕ → Prop)
+    (T : ℕ → Finset α) (left right : ℕ → ℕ)
+    (h : ∀ w, cls w →
+      (T w).card ≤ 1 ∨
+      (branch w ∧ left w < w ∧ right w < w ∧ cls (left w) ∧ cls (right w) ∧
+        T w = T (left w) ∪ T (right w)) ∨
+      ∃ a, a < w ∧ cls a ∧ T w ⊆ T a) :
+    ∀ (M : ℕ) (W : Finset ℕ), (∀ w ∈ W, w < M ∧ cls w) →
+      (W.biUnion T).card ≤ W.card +
+        ((Finset.range M).filter (fun k => cls k ∧ branch k ∧
+          ¬ T (left k) ⊆ T (right k) ∧ ¬ T (right k) ⊆ T (left k))).card := by
+  classical
+  let strict (k : ℕ) : Prop := branch k ∧
+    ¬ T (left k) ⊆ T (right k) ∧ ¬ T (right k) ⊆ T (left k)
+  have hs : ∀ w, cls w →
+      (T w).card ≤ 1 ∨
+      (strict w ∧ ∃ a b, a < w ∧ b < w ∧ cls a ∧ cls b ∧ T w = T a ∪ T b) ∨
+      ∃ a, a < w ∧ cls a ∧ T w ⊆ T a := by
+    intro w hw
+    rcases h w hw with hsmall | ⟨hbranch, ha, hb, hca, hcb, he⟩ | hbypass
+    · exact Or.inl hsmall
+    · by_cases hab : T (left w) ⊆ T (right w)
+      · exact Or.inr (Or.inr ⟨right w, hb, hcb, by simp [he, Finset.union_eq_right.mpr hab]⟩)
+      · by_cases hba : T (right w) ⊆ T (left w)
+        · exact Or.inr (Or.inr ⟨left w, ha, hca, by simp [he, Finset.union_eq_left.mpr hba]⟩)
+        · exact Or.inr (Or.inl ⟨⟨hbranch, hab, hba⟩,
+            left w, right w, ha, hb, hca, hcb, he⟩)
+    · exact Or.inr (Or.inr hbypass)
+  intro M W hW
+  apply (leaf_count_bypass cls strict T hs M W hW).trans
+  apply Nat.add_le_add_left
+  apply Finset.card_le_card
+  intro k hk
+  simp only [Finset.mem_filter] at hk ⊢
+  exact ⟨hk.1, hk.2.1, hk.2.2.1⟩
+
+
+namespace SafeBranchExample
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open SemanticNormal
+
+def circuit : Circuit :=
+  { gates := [
+      ⟨.and, [1, 5]⟩, ⟨.and, [2, 6]⟩, ⟨.and, [3, 7]⟩,
+      ⟨.or, [6, 7]⟩, ⟨.or, [11, 8]⟩,
+      ⟨.or, [2, 3]⟩, ⟨.or, [13, 8]⟩,
+      ⟨.or, [5, 7]⟩, ⟨.or, [15, 9]⟩,
+      ⟨.or, [1, 3]⟩, ⟨.or, [17, 9]⟩,
+      ⟨.or, [5, 6]⟩, ⟨.or, [19, 10]⟩,
+      ⟨.or, [1, 2]⟩, ⟨.or, [21, 10]⟩,
+      ⟨.and, [12, 16]⟩, ⟨.and, [23, 20]⟩,
+      ⟨.and, [24, 14]⟩, ⟨.and, [25, 18]⟩, ⟨.and, [26, 22]⟩,
+      ⟨.or, [4, 5]⟩, ⟨.or, [4, 6]⟩, ⟨.or, [0, 3]⟩ ],
+    output := 27 }
+
+def edges : Finset (Fin 8 × Fin 8) :=
+  {(0, 5), (0, 6), (0, 7), (1, 4), (1, 5), (2, 4), (2, 6), (3, 4), (3, 7)}
+
+def adjacent (a b : Fin 8) : Bool := decide ((a, b) ∈ edges ∨ (b, a) ∈ edges)
+
+def matching (x : Fin 8 → Bool) : Bool :=
+  (x 1 && x 5) || (x 2 && x 6) || (x 3 && x 7)
+
+def classCentre (i : Fin 5) : Fin 8 :=
+  match i.val with
+  | 0 => 0
+  | 1 => 4
+  | 2 => 1
+  | 3 => 2
+  | _ => 7
+
+def classLeaves (i : Fin 5) : Finset (Fin 8) :=
+  match i.val with
+  | 0 => {5, 6, 7}
+  | 1 => {1, 2, 3}
+  | 2 => {4, 5}
+  | 3 => {4, 6}
+  | _ => {0, 3}
+
+def isOr (j : Fin 23) : Bool :=
+  match (gateAt circuit j.val).op with
+  | .or => true
+  | _ => false
+
+def hasStarWitness (c q : Fin 8) : Prop :=
+  ∃ j : Fin 23, ∃ Q : Finset (Fin 8), isOr j = true ∧
+    2 ≤ Q.card ∧ q ∈ Q ∧ (∀ v ∈ Q, adjacent c v = true) ∧
+    ∀ x : Fin 8 → Bool,
+      val circuit.gates x (8 + j.val) = decide (∃ v ∈ Q, x v = true)
+
+def linked (i j : Fin 5) : Bool :=
+  decide (classCentre i ∈ classLeaves j ∧ classCentre j ∈ classLeaves i)
+
+def component (i : Fin 5) : Bool := decide (i = 0 ∨ i = 4)
+
+def serves (i : Fin 5) (a b : Fin 8) : Bool :=
+  decide ((classCentre i = a ∧ b ∈ classLeaves i) ∨
+    (classCentre i = b ∧ a ∈ classLeaves i))
+
+def witnessGate (i : Fin 5) (q : Fin 8) : Fin 23 :=
+  match i.val with
+  | 0 => if q = 5 then 7 else 3
+  | 1 => if q = 1 then 9 else 5
+  | 2 => 20
+  | 3 => 21
+  | _ => 22
+
+def witnessSupport (i : Fin 5) (q : Fin 8) : Finset (Fin 8) :=
+  S 8 circuit (8 + (witnessGate i q).val)
+
+def witnessA (i : Fin 5) (q : Fin 8) : Fin 8 :=
+  match i.val with
+  | 0 => if q = 5 then 5 else 6
+  | 1 => if q = 1 then 1 else 2
+  | 2 => 4
+  | 3 => 4
+  | _ => 0
+
+def witnessB (i : Fin 5) : Fin 8 :=
+  match i.val with
+  | 0 => 7
+  | 1 => 3
+  | 2 => 5
+  | 3 => 6
+  | _ => 3
+
+lemma size_eq : circuit.size = 23 := by decide
+
+lemma ao2 : PEqualNP.TopForm.IsAO2 8 circuit := by decide +kernel
+
+lemma no_four_cycle : ∀ a b q r : Fin 8, a ≠ b → q ≠ r →
+    ¬ (adjacent a q = true ∧ adjacent a r = true ∧
+      adjacent b q = true ∧ adjacent b r = true) := by decide +kernel
+
+lemma output_exact : ∀ x : Fin 8 → Bool,
+    val circuit.gates x circuit.output = matching x := by decide +kernel
+
+lemma output_safe : ∀ x : Fin 8 → Bool,
+    val circuit.gates x circuit.output = true →
+      ∃ e ∈ edges, x e.1 = true ∧ x e.2 = true := by
+  intro x hx
+  rw [output_exact] at hx
+  simp only [matching, Bool.or_eq_true, Bool.and_eq_true] at hx
+  rcases hx with (⟨ha, hb⟩ | ⟨ha, hb⟩) | ⟨ha, hb⟩
+  · exact ⟨(1, 5), by decide, ha, hb⟩
+  · exact ⟨(2, 6), by decide, ha, hb⟩
+  · exact ⟨(3, 7), by decide, ha, hb⟩
+
+lemma all_or_charge_data : ∀ j : Fin 23, isOr j = true →
+    2 ≤ (S 8 circuit (8 + j.val)).card ∧
+    ∃ i : Fin 5, val circuit.gates (outsideInput (classLeaves i)) (8 + j.val) = false := by
+  decide +kernel
+
+lemma all_or_charged : ∀ j : Fin 23, isOr j = true →
+    2 ≤ (S 8 circuit (8 + j.val)).card ∧
+    ∃ i : Fin 5, BelowOr (classLeaves i)
+      (fun x : Fin 8 → Bool => val circuit.gates x (8 + j.val)) := by
+  intro j hj
+  obtain ⟨hs, i, hi⟩ := all_or_charge_data j hj
+  refine ⟨hs, i, ?_⟩
+  apply (belowOr_iff_outside_false _ _ (val_monotone 8 circuit ao2 _ ?_)).mpr hi
+  change 8 + j.val < 8 + 23
+  omega
+
+lemma or_count : (Finset.univ.filter (fun j : Fin 23 => isOr j = true)).card = 15 := by
+  decide +kernel
+
+lemma no_mixed_or : PEqualNP.TwoColour.tCount 8 circuit (fun i => decide (4 ≤ i)) = 0 := by
+  decide +kernel
+
+lemma class_valid : ∀ i : Fin 5, 2 ≤ (classLeaves i).card ∧
+    ∀ q ∈ classLeaves i, adjacent (classCentre i) q = true := by decide +kernel
+
+lemma isOr_op (j : Fin 23) (h : isOr j = true) :
+    (gateAt circuit j.val).op = GateOp.or := by
+  unfold isOr at h
+  cases he : (gateAt circuit j.val).op <;> simp_all
+
+lemma input_or_value (j : Fin 23) (a b : Fin 8)
+    (hop : (gateAt circuit j.val).op = GateOp.or)
+    (hg : (gateAt circuit j.val).inputs = [a.val, b.val]) (x : Fin 8 → Bool) :
+    val circuit.gates x (8 + j.val) = (x a || x b) := by
+  have hj : j.val < circuit.gates.length := j.isLt
+  rw [val_gate circuit.gates x j.val hj, ← gateAt_eq circuit j.val hj, hg, hop]
+  have ha : a.val < 8 + j.val := by omega
+  have hb : b.val < 8 + j.val := by omega
+  simp only [List.map_cons, List.map_nil, ite_eq_left ha, ite_eq_left hb]
+  rw [val_lt circuit.gates x a.val a.isLt, val_lt circuit.gates x b.val b.isLt]
+  exact ev_or _ _
+
+lemma class_witness_local_data : ∀ (i : Fin 5) (q : Fin 8), q ∈ classLeaves i →
+    isOr (witnessGate i q) = true ∧
+    2 ≤ (witnessSupport i q).card ∧ q ∈ witnessSupport i q ∧
+    (∀ v ∈ witnessSupport i q, adjacent (classCentre i) v = true) ∧
+    (gateAt circuit (witnessGate i q).val).inputs = [(witnessA i q).val, (witnessB i).val] ∧
+    witnessSupport i q = {witnessA i q, witnessB i} := by
+  decide +kernel
+
+lemma class_witness_data : ∀ (i : Fin 5) (q : Fin 8), q ∈ classLeaves i →
+    isOr (witnessGate i q) = true ∧
+    2 ≤ (witnessSupport i q).card ∧ q ∈ witnessSupport i q ∧
+    (∀ v ∈ witnessSupport i q, adjacent (classCentre i) v = true) ∧
+    ∀ x : Fin 8 → Bool, val circuit.gates x (8 + (witnessGate i q).val) =
+      decide (∃ v ∈ witnessSupport i q, x v = true) := by
+  intro i q hq
+  obtain ⟨h1, h2, h3, h4, hg, hQ⟩ := class_witness_local_data i q hq
+  refine ⟨h1, h2, h3, h4, fun x => ?_⟩
+  rw [input_or_value _ _ _ (isOr_op _ h1) hg x, hQ]
+  simp
+
+lemma class_actual_witnesses (i : Fin 5) (q : Fin 8) (hq : q ∈ classLeaves i) :
+    hasStarWitness (classCentre i) q := by
+  exact ⟨witnessGate i q, witnessSupport i q, class_witness_data i q hq⟩
+
+lemma class_witness_overlap (i : Fin 5) (q r : Fin 8)
+    (hq : q ∈ classLeaves i) (hr : r ∈ classLeaves i) :
+    (witnessSupport i q ∩ witnessSupport i r).Nonempty := by
+  have hQ := (class_witness_local_data i q hq).2.2.2.2.2
+  have hR := (class_witness_local_data i r hr).2.2.2.2.2
+  refine ⟨witnessB i, ?_⟩
+  simp [hQ, hR]
+
+lemma class_serving : ∀ a b : Fin 8, (a, b) ∈ edges →
+    ∃ i : Fin 5, serves i a b = true := by decide +kernel
+
+lemma all_edges_have_star_witnesses (a b : Fin 8) (hab : (a, b) ∈ edges) :
+    hasStarWitness a b ∨ hasStarWitness b a := by
+  obtain ⟨i, hi⟩ := class_serving a b hab
+  have hi' := of_decide_eq_true hi
+  rcases hi' with ⟨h, hq⟩ | ⟨h, hq⟩
+  · left
+    rw [← h]
+    exact class_actual_witnesses i b hq
+  · right
+    rw [← h]
+    exact class_actual_witnesses i a hq
+
+lemma all_supported_centres_listed : ∀ (j : Fin 23) (c : Fin 8),
+    isOr j = true → 2 ≤ (S 8 circuit (8 + j.val)).card →
+    (∀ q ∈ S 8 circuit (8 + j.val), adjacent c q = true) →
+    ∃ i : Fin 5, classCentre i = c ∧ S 8 circuit (8 + j.val) ⊆ classLeaves i := by
+  decide +kernel
+
+lemma all_star_witnesses_listed (j : Fin 23) (c : Fin 8) (Q : Finset (Fin 8))
+    (hj : isOr j = true) (hQ : 2 ≤ Q.card)
+    (hadj : ∀ q ∈ Q, adjacent c q = true)
+    (hv : ∀ x : Fin 8 → Bool,
+      val circuit.gates x (8 + j.val) = decide (∃ q ∈ Q, x q = true)) :
+    ∃ i : Fin 5, classCentre i = c ∧ Q ⊆ classLeaves i := by
+  have hs : S 8 circuit (8 + j.val) = Q := by
+    ext q
+    rw [mem_S, hv]
+    simp [eof]
+  have h := all_supported_centres_listed j c hj
+  rw [hs] at h
+  exact h hQ hadj
+
+lemma centres_injective : Function.Injective classCentre := by decide +kernel
+
+lemma class_exact (i : Fin 5) (q : Fin 8) :
+    q ∈ classLeaves i ↔ hasStarWitness (classCentre i) q := by
+  constructor
+  · exact class_actual_witnesses i q
+  · rintro ⟨j, Q, hj, hQ, hq, hadj, hv⟩
+    obtain ⟨k, hk, hs⟩ := all_star_witnesses_listed j (classCentre i) Q hj hQ hadj hv
+    have hki : k = i := centres_injective hk
+    subst k
+    exact hs hq
+
+lemma linked_exact : ∀ i j : Fin 5, linked i j = true ↔
+    (i = 0 ∧ j = 4) ∨ (i = 4 ∧ j = 0) ∨
+    (i = 1 ∧ j = 2) ∨ (i = 2 ∧ j = 1) ∨
+    (i = 1 ∧ j = 3) ∨ (i = 3 ∧ j = 1) := by decide +kernel
+
+lemma component_invariant : ∀ i j : Fin 5, linked i j = true →
+    component i = component j := by decide +kernel
+
+lemma path_component_invariant (i j : Fin 5)
+    (h : Relation.ReflTransGen (fun a b => linked a b = true) i j) :
+    component i = component j := by
+  induction h with
+  | refl => rfl
+  | tail h hs ih => exact ih.trans (component_invariant _ _ hs)
+
+lemma components_exact (i j : Fin 5) :
+    Relation.ReflTransGen (fun a b => linked a b = true) i j ↔
+      component i = component j := by
+  constructor
+  · exact path_component_invariant i j
+  · intro h
+    have paths : ∀ a b : Fin 5, component a = component b →
+        a = b ∨ linked a b = true ∨
+          ∃ c : Fin 5, linked a c = true ∧ linked c b = true := by decide +kernel
+    rcases paths i j h with rfl | hij | ⟨c, hic, hcj⟩
+    · exact Relation.ReflTransGen.refl
+    · exact Relation.ReflTransGen.single hij
+    · have h1 : Relation.ReflTransGen (fun a b => linked a b = true) i c :=
+        Relation.ReflTransGen.single hic
+      have h2 : Relation.ReflTransGen (fun a b => linked a b = true) c j :=
+        Relation.ReflTransGen.single hcj
+      exact h1.trans h2
+
+lemma matching_owners : ∀ i : Fin 5,
+    (serves i 1 5 = true ↔ i = 2) ∧
+    (serves i 2 6 = true ↔ i = 3) ∧
+    (serves i 3 7 = true ↔ i = 4) := by decide +kernel
+
+lemma matching_spans_components : component (2 : Fin 5) ≠ component (4 : Fin 5) := by decide
+
+lemma matching_owners_not_connected :
+    ¬ Relation.ReflTransGen (fun a b => linked a b = true) (2 : Fin 5) (4 : Fin 5) := by
+  intro h
+  exact matching_spans_components (path_component_invariant 2 4 h)
+
+end SafeBranchExample
+
 end PEqualNP.Outside.L_meta_4970_aux
