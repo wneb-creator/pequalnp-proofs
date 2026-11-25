@@ -1,0 +1,10 @@
+L-meta-2583 partial validation
+2026-11-25T14:50:10.802801+00:00
+Named lake build PEqualNP.Outside.L_meta_2583: PASS, exit0,5149 jobs; new proof compiled in3.5s. Full output saved in build-first.stdout and build-first.stderr.
+The checked partial proves the dual unique-intersection axiom from positive equal row/column degrees and unique point joins. It does not prove the posted circuit-normalization statement. The exact target theorem is absent.
+Local checker: not run for this partial; no accepted verdict claimed.
+Cleanup: not started; proof incomplete.
+Lines before/after cleanup: 71/71
+SHA256 30f2a2699d54838ed7e8b31fa7f192decbaff6edd240ac3a335a900fcb5b920a
+Sub-agents: status_check, counterexample, circuit_search, lower_bound, partial_lean, lean_setup
+TIMING total=52 subagents=6
