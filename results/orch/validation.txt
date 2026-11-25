@@ -8,3 +8,5 @@ The local statement checker has not been run on this incomplete file.
 Independent review: repo_audit found no semantic/format blockers for a PARTIAL checkpoint.
 Sub-agents: repo_audit, lean_setup (geometry), or_lower_bound, counterexample, proof_routes, algebraic_witness
 TIMING total=32.0 subagents=6
+
+Second checkpoint: immutable component sources and matching full compilation logs are under checked/. Each compiled successfully; independent repo_audit review found no blockers. They are partials, not a proof of51.
