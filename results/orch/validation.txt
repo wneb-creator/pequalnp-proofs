@@ -1,0 +1,9 @@
+Gap: L-meta-2448
+Status: PARTIAL ONLY; posted theorem is not yet proved.
+File: lean/PEqualNP/Outside/L_meta_2448.lean
+Build: lake build PEqualNP.Outside.L_meta_2448, exit 0
+Local checker: pending; partial lacks the required main theorem.
+Independent red-team review: PASS for partial checkpoint, not PR-ready.
+Line count: 142; cleanup not started.
+Sub-agents: 6 (status review, structural proof, library route, finite cases, Lean setup, global normal form)
+TIMING total=8 subagents=6
