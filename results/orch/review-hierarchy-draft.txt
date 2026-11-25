@@ -1,0 +1,12 @@
+Independent source and mathematical review: PASS for SharingState.txt and TowerDefinition.txt.
+Reviewer: finite_invariants, 2026-11-25 UTC.
+Source: /tmp/oec/pequalnp-pilot-87/counterexample/hierarchy/Live1024HierarchyDraft.lean
+Full source SHA256: bff332a4ffe4c0d095aaf6cd26e5226ab54c7e512f4accc415225e2f1682057b
+
+Both reviewed fragments occur verbatim in the compiled draft. The author reports exit0; attempt-01.txt has no errors. No new build was run for this review.
+
+sharing_cert_state is the checked sharing_cert2 state construction with its tight-tail final call removed. Its old-wire bridge admissibility comes from the pre-step Live cover, and its new gate admissibility comes from the actual tail cover. The retained operand receives one duplicate leaf; the consumed operand is imported through the disjoint bridge; the other duplicate and that operand generate the fresh gate. The result preserves partition, certificates and column support, without requiring a tight budget or a scheduling transformation.
+
+CertificateTower recursively quantifies a certificate for duplicating each proper certified subformula. Every level requires fresh-gate closure and excludes the target at the whole basis. Its three projection lemmas only expose fields; they do not claim hierarchy soundness or any concrete Petersen exhaustion. The hypotheses are strong but explicit and are suitable for a later induction.
+
+No new axioms, sorry, native_decide, string literals, forbidden namespace text, or attributes occur in the two fragments. Their declarations are internal helpers; eventual proof-file formatting remains the root agent responsibility.

@@ -47,3 +47,5 @@
 - 2026-11-25T14:00:29.038396+00:00: proof_structure:17KiB eighteen-binary first-AND-type extension compiled exit0 against checked standalone17 cache; exact two-NOT reduction to first-OR roots preserved.
 
 - 2026-11-25T14:00:49.605388+00:00: Standalone 17-binary lower bound and general first-retention theorem compiled and independently reviewed. Exact 17-binary source installed in named target; lake build started.
+
+- 2026-11-25T14:05:10.120663+00:00: Checked and reviewed first-non-OR 18-binary restriction, certificate-hierarchy interface, and double-sharing state construction preserved.

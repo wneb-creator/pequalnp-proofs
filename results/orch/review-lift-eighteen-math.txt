@@ -1,0 +1,12 @@
+Independent mathematical and source review: PASS for the conditional 18-binary extension.
+Reviewer: finite_invariants, 2026-11-25 UTC.
+Reviewed source: /tmp/oec/pequalnp-pilot-87/proof_structure/LiftEighteenSuffix.txt
+SHA256: 484921f14fe19e9c8361b073ca6730a1216ca81ab589fe7a84bf5ef502839bef
+
+The mass_two induction counts distinct original list entries a and b. Their projected functions may coincide; no injectivity after restriction is assumed or needed. The tail cases preserve both memberships and the inequality, and the head cases add exactly the constant cost one.
+
+projected_tail_lower_two applies the existing row-restricted Run bound with the checked nine-variable signed lower bound 15. The finite frontier list is nodup before projection, while its mapped list retains multiplicity. Two distinct frontier entries with constant projections therefore supply mass at least two, implying tail binary budget at least 17.
+
+first_non_or_lower uses the zero-cofactor of a positive literal: left input for AND/ANDNOT, right input for NOTAND. Both that retained input and the fresh first output project to false. Freshness proves they are distinct before projection. Every other frontier entry is an original input and is covered by the nine-variable basis. Thus the first binary plus the tail costs at least 18.
+
+This is a conditional partial: it depends on the stated row identities, availability, both-retained assumption, and signed nine-variable theorem. It does not establish the posted 20-total-gate statement or the first-OR case. No unsupported duplicate nonconstant-wire charge is used. The v3 log contains no errors; the author reports exit 0. This review did not rerun Lean.

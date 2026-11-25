@@ -1,0 +1,6 @@
+Independent double-sharing helpers review
+Reviewer: /root/counterexample
+Full source SHA256: 666aaf62af086de249bffb3c855e0932846c62ac20066868d9b5e78563d730b2
+Verdict: PASS.
+
+Exact full module is unchanged checked Live1024FirstRetention base plus DoubleSharingSuffix.txt, whitespace, and restored namespace end. The nested basis removes original A, then lifted B, and retains both copies of each shared operand. Labels give retained a and b their false copies, fresh z both true copies, and untouched wires twice-lifted original labels. Partition subset/disjointness/coverage use only original partition, both retention memberships, and gate freshness. Support is transported through the duplicated raw map; fresh z uses gateCol, retained operands their matching raw copies, and unchanged wires original support. No unproved run reordering or exact-cost assumption is introduced. Complete archived compiler output has0errors; author reported exit0. No forbidden trust/format construct appears in the new fragment.

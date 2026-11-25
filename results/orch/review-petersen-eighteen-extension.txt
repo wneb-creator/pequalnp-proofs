@@ -1,0 +1,16 @@
+Independent final18-extension review by lean_setup, 2026-11-25 UTC
+
+Tested source: results/orch/lemmas/PetersenEighteenExtension.lean
+SHA256: d9ec9bfa4d4fd27f1d6f24bbc58d815b1dae4c3d39926d106709af3a3ba68d08
+Size: 17676bytes,399lines. Append-only fragment SHA256: d4496aba641d8ac47dd6aefc5b20d5711dbba86e8a1c7fa14e65ce55e1643100.
+Verdict: PASS for this checked extension against the already checked17module. Final merged self-contained source still requires its build.
+
+Read the complete399-line extension. The test file imports only the cached PetersenSeventeenFull module, while the append-only fragment has no import and is otherwise identical ignoring blank lines. Root must append it to the reviewed self-contained17file so final source imports only PEqualNP.Defs. The author reports EXIT0; complete log inspected with2linterwarnings and no errors/sorry warnings.
+
+The mathematical18 argument correctly charges two distinct original frontier entries that both become constant under restriction. It does not charge duplicate nonconstant functions. The checked nine-input15bound and projected_bound give a17-gate tail; the first non-OR binary gate adds one. Both operands of every first binary operation are proved retained using conditional influence witnesses, so this hypothesis is discharged in first_non_or_lower_eighteen.
+
+Independently brute-force checked all90ordered distinct-input pairs for both fixed values of the other input, and all360operation/pair saturated-gate witness obligations. AND,OR,ANDNOT,NOTAND use the correct fixed second-operand values. The row encodings match singleton/pair/triple assignments. Retention of the right operand follows the already proved operation flip.
+
+The final consequences are scoped correctly: any signed Live computation of at most17binary gates must start with OR and retain both inputs. A size≤19circuit with at least2NOTs and the target function yields exactly17signed binary gates, so after that first OR there is a16-gate signed Live run on all original inputs plus the OR. These are necessary-condition reductions; the source does not claim a universal18binary lower bound or exclude the remaining OR case. Pool equality is derived using actual memberships via Finset.insert_eq_of_mem, without dropping a frontier member.
+
+Trust/format: no sorry, axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom datatype/instance, _root_, strings, or attributes. Limits are permitted and declaration-local. Helper names are target-prefixed. No red-team blocker found for append-and-build integration.

@@ -1,0 +1,146 @@
+
+def doubleSharingLabels {α : Type} [DecidableEq α] (label : Sig → Finset α)
+    (a b z v : Sig) : Finset (Sum (Sum α Bool) Bool) :=
+  if v = z then {Sum.inl (Sum.inr true), Sum.inr true}
+  else if v = a then {Sum.inl (Sum.inr false)}
+  else if v = b then {Sum.inr false}
+  else liftLabels (liftLabels (label v))
+
+lemma double_sharing_partition {α : Type} [DecidableEq α]
+    (roots : Finset α) (U : Finset Sig) (a b z : Sig) (label : Sig → Finset α)
+    (hab : a ≠ b) (fresh : z ∉ insert a (insert b U)) (ha : a ∈ U) (hb : b ∈ U)
+    (part : LabelPartition roots (insert a (insert b U)) label) :
+    LabelPartition (duplicateRoots (duplicateRoots roots (label a)) (liftLabels (label b)))
+      (insert z U) (doubleSharingLabels label a b z) := by
+  classical
+  let next := doubleSharingLabels label a b z
+  have memA : a ∈ insert a (insert b U) := by simp
+  have memB : b ∈ insert a (insert b U) := by simp
+  have memU (v : Sig) (hv : v ∈ U) : v ∈ insert a (insert b U) := by simp [hv]
+  have notU : z ∉ U := fun hz => fresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hz))
+  have anz : a ≠ z := by intro h; exact fresh (h ▸ memA)
+  have bnz : b ≠ z := by intro h; exact fresh (h ▸ memB)
+  have nextZ : next z = {Sum.inl (Sum.inr true), Sum.inr true} := by
+    simp [next, doubleSharingLabels]
+  have nextA : next a = {Sum.inl (Sum.inr false)} := by
+    simp [next, doubleSharingLabels, anz]
+  have nextB : next b = {Sum.inr false} := by
+    simp [next, doubleSharingLabels, bnz, hab.symm]
+  have nextU (v : Sig) (hv : v ∈ U) (hna : v ≠ a) (hnb : v ≠ b) :
+      next v = liftLabels (liftLabels (label v)) := by
+    have hnz : v ≠ z := by rintro rfl; exact notU hv
+    simp [next, doubleSharingLabels, hnz, hna, hnb]
+  have disjointZ (v : Sig) (hv : v ∈ U) : Disjoint (next z) (next v) := by
+    by_cases hna : v = a
+    · subst v; rw [nextZ, nextA]; simp
+    by_cases hnb : v = b
+    · subst v; rw [nextZ, nextB]; simp
+    rw [nextZ, nextU v hv hna hnb]
+    simp [liftLabels, Finset.disjoint_left]
+  have disjointA (v : Sig) (hv : v ∈ U) (hna : v ≠ a) : Disjoint (next a) (next v) := by
+    by_cases hnb : v = b
+    · subst v; rw [nextA, nextB]; simp
+    rw [nextA, nextU v hv hna hnb]
+    simp [liftLabels, Finset.disjoint_left]
+  have disjointB (v : Sig) (hv : v ∈ U) (hna : v ≠ a) (hnb : v ≠ b) :
+      Disjoint (next b) (next v) := by
+    rw [nextB, nextU v hv hna hnb]
+    simp [liftLabels, Finset.disjoint_left]
+  change LabelPartition _ (insert z U) next
+  refine ⟨?_, ?_, ?_⟩
+  · intro v hv
+    rcases Finset.mem_insert.mp hv with rfl | hv
+    · rw [nextZ]
+      intro q hq
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hq
+      rcases hq with rfl | rfl <;> simp [duplicateRoots, liftLabels]
+    by_cases hna : v = a
+    · subst v; rw [nextA]; simp [duplicateRoots, liftLabels]
+    by_cases hnb : v = b
+    · subst v; rw [nextB]; simp [duplicateRoots]
+    rw [nextU v hv hna hnb]
+    exact liftLabels_subset_duplicate
+      (liftLabels_subset_duplicate (part.1 v (memU v hv))
+        (part.2.1 a memA v (memU v hv) (Ne.symm hna)))
+      (liftLabels_disjoint (part.2.1 b memB v (memU v hv) (Ne.symm hnb)))
+  · intro v hv w hw hne
+    by_cases hvz : v = z
+    · subst v
+      exact disjointZ w ((Finset.mem_insert.mp hw).resolve_left hne.symm)
+    have hvU : v ∈ U := (Finset.mem_insert.mp hv).resolve_left hvz
+    by_cases hwz : w = z
+    · subst w; exact (disjointZ v hvU).symm
+    have hwU : w ∈ U := (Finset.mem_insert.mp hw).resolve_left hwz
+    by_cases hva : v = a
+    · subst v; exact disjointA w hwU hne.symm
+    by_cases hwa : w = a
+    · subst w; exact (disjointA v hvU hva).symm
+    by_cases hvb : v = b
+    · subst v; exact disjointB w hwU hwa hne.symm
+    by_cases hwb : w = b
+    · subst w; exact (disjointB v hvU hva hvb).symm
+    rw [nextU v hvU hva hvb, nextU w hwU hwa hwb]
+    exact liftLabels_disjoint (liftLabels_disjoint
+      (part.2.1 v (memU v hvU) w (memU w hwU) hne))
+  · intro q hq
+    rcases Finset.mem_union.mp hq with hq | hq
+    · obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp hq
+      have pRoot := (Finset.mem_sdiff.mp hp).1
+      have notB := (Finset.mem_sdiff.mp hp).2
+      rcases Finset.mem_union.mp pRoot with pRoot | pRoot
+      · obtain ⟨r, hr, rfl⟩ := Finset.mem_image.mp pRoot
+        have rRoot := (Finset.mem_sdiff.mp hr).1
+        have notA := (Finset.mem_sdiff.mp hr).2
+        have rnotB : r ∉ label b := by simpa [liftLabels] using notB
+        obtain ⟨v, hv, hrv⟩ := part.2.2 r rRoot
+        have hna : v ≠ a := by rintro rfl; exact notA hrv
+        have hnb : v ≠ b := by rintro rfl; exact rnotB hrv
+        have hvU : v ∈ U := by simpa [hna, hnb] using hv
+        refine ⟨v, Finset.mem_insert_of_mem hvU, ?_⟩
+        rw [nextU v hvU hna hnb]
+        exact Finset.mem_image_of_mem Sum.inl (Finset.mem_image_of_mem Sum.inl hrv)
+      · simp only [Finset.mem_insert, Finset.mem_singleton] at pRoot
+        rcases pRoot with rfl | rfl
+        · exact ⟨a, Finset.mem_insert_of_mem ha, nextA.symm ▸ (by simp)⟩
+        · exact ⟨z, by simp, nextZ.symm ▸ (by simp)⟩
+    · simp only [Finset.mem_insert, Finset.mem_singleton] at hq
+      rcases hq with rfl | rfl
+      · exact ⟨b, Finset.mem_insert_of_mem hb, nextB.symm ▸ (by simp)⟩
+      · exact ⟨z, by simp, nextZ.symm ▸ (by simp)⟩
+
+lemma double_sharing_support {α Ω : Type} [DecidableEq α]
+    (raw : α → Sig) (col : Sig → Set Ω) (u : Bool)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (U : Finset Sig) (a b : Sig) (d : Nat) (hd : allowed u d)
+    (fresh : bin d a b ∉ insert a (insert b U))
+    (label : Sig → Finset α)
+    (supports : ∀ v ∈ insert a (insert b U), ColumnSupport raw col (label v) v) :
+    ∀ v ∈ insert (bin d a b) U,
+      ColumnSupport (duplicateRaw (duplicateRaw raw a) b) col
+        (doubleSharingLabels label a b (bin d a b) v) v := by
+  classical
+  intro v hv
+  rcases Finset.mem_insert.mp hv with rfl | hv
+  · simp only [doubleSharingLabels, if_pos rfl]
+    intro o ho
+    rcases gateCol d a b hd ho with ho | ho
+    · exact ⟨Sum.inl (Sum.inr true), by simp, ho⟩
+    · exact ⟨Sum.inr true, by simp, ho⟩
+  have hnz : v ≠ bin d a b := by
+    rintro rfl
+    exact fresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hv))
+  by_cases hva : v = a
+  · subst v
+    simp only [doubleSharingLabels, if_neg hnz, if_pos rfl]
+    intro o ho
+    exact ⟨Sum.inl (Sum.inr false), by simp, ho⟩
+  by_cases hvb : v = b
+  · subst v
+    simp only [doubleSharingLabels, if_neg hnz, if_neg hva, if_pos rfl]
+    intro o ho
+    exact ⟨Sum.inr false, by simp, ho⟩
+  simp only [doubleSharingLabels, if_neg hnz, if_neg hva, if_neg hvb]
+  intro o ho
+  obtain ⟨r, hr, hor⟩ := supports v (by simp [hv]) o ho
+  exact ⟨Sum.inl (Sum.inl r),
+    Finset.mem_image_of_mem Sum.inl (Finset.mem_image_of_mem Sum.inl hr), hor⟩

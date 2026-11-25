@@ -17,3 +17,5 @@ Desk null replies: 0. One lease held, L-meta-2373; renewed every 5 minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
 TIMING total=70 subagents=6
+
+Further checked partials: the extension proves that a first non-OR normalized binary gate requires at least 18 binary gates; it still leaves the first-OR case open. The generic certificate hierarchy interface and double-sharing partition/support construction compiled and passed independent review. Their archives include full logs.

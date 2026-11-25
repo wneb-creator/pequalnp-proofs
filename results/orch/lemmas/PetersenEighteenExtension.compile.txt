@@ -1,0 +1,11 @@
+/tmp/oec/pequalnp-pilot-87/proof_structure/PetersenEighteenExtension.lean:17:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-87/proof_structure/PetersenEighteenExtension.lean:22:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+
+Compiler exit code: 0
+Dependency: cached PetersenSeventeenFull.olean from the checked standalone source.
