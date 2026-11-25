@@ -5977,3 +5977,308 @@ lemma of_competitor_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     exact hWire.trans (hC.2 E hE (hEMass.trans hm) (hEJunk.trans hj))
 
 end PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateCone
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma input_card_le_gates_of_extra_read (n : ℕ) (K : Finset ℕ) (r : ℕ) (hr : r ∈ K)
+    (port : ℕ → Fin 2 → ℕ) (S : Finset (Fin n))
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, port g b = v.val)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, port h b = n + g)
+    (w : ℕ) (hW : ∃ g ∈ K, ∃ b : Fin 2, port g b = w)
+    (hWInput : ∀ v ∈ S, w ≠ v.val)
+    (hWGate : ∀ g ∈ K.erase r, w ≠ n + g) : S.card ≤ K.card := by
+  classical
+  let slots := K ×ˢ (Finset.univ : Finset (Fin 2))
+  let I := slots.image (fun p => port p.1 p.2)
+  let A := S.image (fun v : Fin n => v.val)
+  let B := (K.erase r).image (fun g : ℕ => n + g)
+  have hA : A ⊆ I := by
+    intro v hv
+    obtain ⟨u, hu, rfl⟩ := Finset.mem_image.mp hv
+    obtain ⟨g, hg, b, hb⟩ := hInputs u hu
+    exact Finset.mem_image.mpr ⟨(g, b), Finset.mem_product.mpr ⟨hg, Finset.mem_univ _⟩, hb⟩
+  have hB : B ⊆ I := by
+    intro v hv
+    obtain ⟨g, hg, rfl⟩ := Finset.mem_image.mp hv
+    obtain ⟨h, hh, b, hb⟩ := hRead g hg
+    exact Finset.mem_image.mpr ⟨(h, b), Finset.mem_product.mpr ⟨hh, Finset.mem_univ _⟩, hb⟩
+  have hwI : w ∈ I := by
+    obtain ⟨g, hg, b, hb⟩ := hW
+    exact Finset.mem_image.mpr ⟨(g, b), Finset.mem_product.mpr ⟨hg, Finset.mem_univ _⟩, hb⟩
+  have hAB : Disjoint A B := by
+    apply Finset.disjoint_left.mpr
+    intro w hwA hwB
+    obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hwA
+    obtain ⟨g, _, hg⟩ := Finset.mem_image.mp hwB
+    have := v.isLt
+    omega
+  have hwNot : w ∉ A ∪ B := by
+    intro hw
+    rcases Finset.mem_union.mp hw with hw | hw
+    · obtain ⟨v, hv, heq⟩ := Finset.mem_image.mp hw
+      exact hWInput v hv heq.symm
+    · obtain ⟨g, hg, heq⟩ := Finset.mem_image.mp hw
+      exact hWGate g hg heq.symm
+  have hCount := Finset.card_le_card (Finset.insert_subset hwI (Finset.union_subset hA hB))
+  rw [Finset.card_insert_of_notMem hwNot, Finset.card_union_of_disjoint hAB] at hCount
+  have hAc : A.card = S.card := Finset.card_image_of_injective _ Fin.val_injective
+  have hBc : B.card = (K.erase r).card :=
+    Finset.card_image_of_injective _ (fun a b h => Nat.add_left_cancel h)
+  have hPorts : slots.card = K.card * 2 := by simp [slots]
+  have hImage : I.card ≤ slots.card := Finset.card_image_le
+  have hErase := Finset.card_erase_of_mem hr
+  have hPos := Finset.card_pos.mpr ⟨r, hr⟩
+  omega
+
+lemma or_gate_true_of_port (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.size) (hOp : (gateAt C j).op = GateOp.or)
+    (x : Fin n → Bool) (b : Fin 2) (hOn : wireVal n C (opnd C j b) x = true) :
+    gateVal n C j x = true := by
+  rw [LeafStep.Pruning.gate_eq C hC j hj x, hOp]
+  fin_cases b
+  · have h : wireVal n C (opnd C j 0) x = true := hOn
+    simp [LeafStep.Pruning.isA, LeafStep.Pruning.opv, h]
+  · have h : wireVal n C (opnd C j 1) x = true := hOn
+    simp [LeafStep.Pruning.isA, LeafStep.Pruning.opv, h]
+
+lemma exists_active_false_port (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hK : ∀ j ∈ K, j < C.size)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (x : Fin n → Bool) (hrOn : gateVal n C r x = true)
+    (hOff : ∃ g ∈ K, ∃ b : Fin 2, wireVal n C (opnd C g b) x = false) :
+    ∃ g ∈ K, gateVal n C g x = true ∧
+      ∃ b : Fin 2, wireVal n C (opnd C g b) x = false := by
+  classical
+  obtain ⟨g, hg, b, hb⟩ := hOff
+  by_cases hgOn : gateVal n C g x = true
+  · exact ⟨g, hg, hgOn, b, hb⟩
+  · let F := K.filter fun j => gateVal n C j x = false
+    have hF : F.Nonempty := ⟨g, Finset.mem_filter.mpr ⟨hg, Bool.eq_false_iff.mpr hgOn⟩⟩
+    let j := F.max' hF
+    have hjF : j ∈ F := Finset.max'_mem F hF
+    obtain ⟨hjK, hjOff⟩ := Finset.mem_filter.mp hjF
+    have hjr : j ≠ r := by
+      intro h
+      rw [h, hrOn] at hjOff
+      exact Bool.noConfusion hjOff
+    obtain ⟨k, hk, c, hc⟩ := hRead j (Finset.mem_erase.mpr ⟨hjr, hjK⟩)
+    have hback := hC.2.1 k (hK k hk) (opnd C k c) (port_mem n C hC k (hK k hk) c)
+    have hjk : j < k := by rw [hc] at hback; omega
+    have hkOn : gateVal n C k x = true := by
+      apply Bool.eq_true_of_not_eq_false
+      intro hkOff
+      have hkF : k ∈ F := Finset.mem_filter.mpr ⟨hk, hkOff⟩
+      have hle : k ≤ j := Finset.le_max' F k hkF
+      omega
+    refine ⟨k, hk, hkOn, c, ?_⟩
+    rw [hc]
+    exact hjOff
+
+lemma input_card_le_active_or_gates (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hr : r ∈ K) (hK : ∀ j ∈ K, j < C.size)
+    (hOr : ∀ j ∈ K, (gateAt C j).op = GateOp.or)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (x : Fin n → Bool) (hrOn : gateVal n C r x = true)
+    (S : Finset (Fin n)) (hSOn : ∀ v ∈ S, x v = true)
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, opnd C g b = v.val)
+    (hOff : ∃ g ∈ K, ∃ b : Fin 2, wireVal n C (opnd C g b) x = false) :
+    S.card ≤ (K.filter fun j => gateVal n C j x = true).card := by
+  classical
+  let A := K.filter fun j => gateVal n C j x = true
+  have hrA : r ∈ A := Finset.mem_filter.mpr ⟨hr, hrOn⟩
+  have hInputsA : ∀ v ∈ S, ∃ g ∈ A, ∃ b : Fin 2, opnd C g b = v.val := by
+    intro v hv
+    obtain ⟨g, hg, b, hb⟩ := hInputs v hv
+    have hOn : wireVal n C (opnd C g b) x = true := by
+      rw [hb, LeafStep.Pruning.wireVal_lt C v.val v.isLt x]
+      exact hSOn v hv
+    exact ⟨g, Finset.mem_filter.mpr ⟨hg, or_gate_true_of_port n C hC g (hK g hg) (hOr g hg) x b hOn⟩,
+      b, hb⟩
+  have hReadA : ∀ g ∈ A.erase r, ∃ h ∈ A, ∃ b : Fin 2, opnd C h b = n + g := by
+    intro g hg
+    obtain ⟨hgr, hgA⟩ := Finset.mem_erase.mp hg
+    obtain ⟨hgK, hgOn⟩ := Finset.mem_filter.mp hgA
+    obtain ⟨k, hk, b, hb⟩ := hRead g (Finset.mem_erase.mpr ⟨hgr, hgK⟩)
+    have hOn : wireVal n C (opnd C k b) x = true := by rw [hb]; exact hgOn
+    exact ⟨k, Finset.mem_filter.mpr ⟨hk, or_gate_true_of_port n C hC k (hK k hk) (hOr k hk) x b hOn⟩,
+      b, hb⟩
+  obtain ⟨g, hg, hgOn, b, hbOff⟩ := exists_active_false_port n C hC K r hK hRead x hrOn hOff
+  apply input_card_le_gates_of_extra_read n A r hrA (opnd C) S hInputsA hReadA (opnd C g b)
+    ⟨g, Finset.mem_filter.mpr ⟨hg, hgOn⟩, b, rfl⟩
+  · intro v hv heq
+    have hTrue : wireVal n C (opnd C g b) x = true := by
+      rw [heq, LeafStep.Pruning.wireVal_lt C v.val v.isLt x]
+      exact hSOn v hv
+    rw [hbOff] at hTrue
+    exact Bool.false_ne_true hTrue
+  · intro k hk heq
+    have hkOn := (Finset.mem_filter.mp (Finset.mem_erase.mp hk).2).2
+    have hTrue : wireVal n C (opnd C g b) x = true := by rw [heq]; exact hkOn
+    rw [hbOff] at hTrue
+    exact Bool.false_ne_true hTrue
+
+end PEqualNP.Outside.L_meta_3566.PrivateCone
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateCone
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma root_true_of_gate_true (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hK : ∀ j ∈ K, j < C.size)
+    (hOr : ∀ j ∈ K, (gateAt C j).op = GateOp.or)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (x : Fin n → Bool) (g : ℕ) (hg : g ∈ K) (hgOn : gateVal n C g x = true) :
+    gateVal n C r x = true := by
+  classical
+  by_contra hrOff
+  let A := K.filter fun j => gateVal n C j x = true
+  have hA : A.Nonempty := ⟨g, Finset.mem_filter.mpr ⟨hg, hgOn⟩⟩
+  let j := A.max' hA
+  have hjA : j ∈ A := Finset.max'_mem A hA
+  obtain ⟨hjK, hjOn⟩ := Finset.mem_filter.mp hjA
+  have hjr : j ≠ r := by
+    intro h
+    exact hrOff (h ▸ hjOn)
+  obtain ⟨k, hk, b, hb⟩ := hRead j (Finset.mem_erase.mpr ⟨hjr, hjK⟩)
+  have hback := hC.2.1 k (hK k hk) (opnd C k b) (port_mem n C hC k (hK k hk) b)
+  have hjk : j < k := by rw [hb] at hback; omega
+  have hkOn : gateVal n C k x = true :=
+    or_gate_true_of_port n C hC k (hK k hk) (hOr k hk) x b (by rw [hb]; exact hjOn)
+  have hkA : k ∈ A := Finset.mem_filter.mpr ⟨hk, hkOn⟩
+  have hle : k ≤ j := Finset.le_max' A k hkA
+  omega
+
+lemma monochrome_support_card_le_active_gates (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hr : r ∈ K) (hK : ∀ j ∈ K, j < C.size)
+    (hOr : ∀ j ∈ K, (gateAt C j).op = GateOp.or)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (S : Finset (Fin n))
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, opnd C g b = v.val)
+    (color : Fin n → Bool) (hBoth : ∀ b : Bool, ∃ v ∈ S, color v = b) (b : Bool) :
+    (S.filter fun v => color v = b).card ≤
+      (K.filter fun j => gateVal n C j (MonoNormalize.input color b) = true).card := by
+  classical
+  obtain ⟨v, hvS, hvColor⟩ := hBoth b
+  obtain ⟨g, hg, c, hc⟩ := hInputs v hvS
+  have hOn : wireVal n C (opnd C g c) (MonoNormalize.input color b) = true := by
+    rw [hc, LeafStep.Pruning.wireVal_lt C v.val v.isLt]
+    simp [MonoNormalize.input, hvColor]
+  have hgOn := or_gate_true_of_port n C hC g (hK g hg) (hOr g hg) _ c hOn
+  have hrOn := root_true_of_gate_true n C hC K r hK hOr hRead _ g hg hgOn
+  apply input_card_le_active_or_gates n C hC K r hr hK hOr hRead
+    (MonoNormalize.input color b) hrOn (S.filter fun v => color v = b)
+  · intro u hu
+    exact decide_eq_true (Finset.mem_filter.mp hu).2
+  · intro u hu
+    exact hInputs u (Finset.mem_filter.mp hu).1
+  · obtain ⟨u, huS, huColor⟩ := hBoth (!b)
+    obtain ⟨k, hk, d, hd⟩ := hInputs u huS
+    refine ⟨k, hk, d, ?_⟩
+    rw [hd, LeafStep.Pruning.wireVal_lt C u.val u.isLt]
+    have hne : color u ≠ b := by rw [huColor]; cases b <;> decide
+    simp [MonoNormalize.input, hne]
+
+end PEqualNP.Outside.L_meta_3566.PrivateCone
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateCone
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma closed_or_cone_value (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hr : r ∈ K) (hK : ∀ j ∈ K, j < C.size)
+    (hOr : ∀ j ∈ K, (gateAt C j).op = GateOp.or)
+    (hClosed : ∀ j ∈ K, ∀ b : Fin 2, n ≤ opnd C j b → opnd C j b - n ∈ K)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (S : Finset (Fin n))
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, opnd C g b = v.val)
+    (hAllInputs : ∀ j ∈ K, ∀ b : Fin 2, ∀ hw : opnd C j b < n,
+      (⟨opnd C j b, hw⟩ : Fin n) ∈ S)
+    (x : Fin n → Bool) : gateVal n C r x = OnePureFrontier.orSet S x := by
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hRoot
+    by_contra hNo
+    have hZero : ∀ v ∈ S, x v = false := by
+      intro v hv
+      apply Bool.eq_false_iff.mpr
+      intro hvOn
+      exact hNo (decide_eq_true (show ∃ u ∈ S, x u = true from ⟨v, hv, hvOn⟩))
+    have heq := cone_agree n C hC K hK hClosed S hAllInputs x (fun _ => false) hZero r hr
+    rw [heq, gate_zero n C hC r (hK r hr)] at hRoot
+    exact Bool.false_ne_true hRoot
+  · intro hSet
+    obtain ⟨v, hv, hvOn⟩ : ∃ v ∈ S, x v = true := of_decide_eq_true hSet
+    obtain ⟨g, hg, b, hb⟩ := hInputs v hv
+    have hPort : wireVal n C (opnd C g b) x = true := by
+      rw [hb, LeafStep.Pruning.wireVal_lt C v.val v.isLt x]
+      exact hvOn
+    have hgOn := or_gate_true_of_port n C hC g (hK g hg) (hOr g hg) x b hPort
+    exact root_true_of_gate_true n C hC K r hK hOr hRead x g hg hgOn
+
+end PEqualNP.Outside.L_meta_3566.PrivateCone
+
+namespace PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open scoped BigOperators
+
+def gateWeight {n : ℕ} (color : Fin n → Bool) (_op : GateOp)
+    (f : (Fin n → Bool) → Bool) : ℕ :=
+  (if f (input color false) then 1 else 0) + (if f (input color true) then 1 else 0)
+
+lemma trueGates_card_eq_sum {n : ℕ} (C : Circuit) (x : Fin n → Bool) :
+    (WireProfile.trueGates C x).card =
+      ∑ j : Fin C.size, if gateVal n C j.val x then 1 else 0 := by
+  classical
+  have h := Fin.sum_univ_eq_sum_range
+    (fun j : ℕ => if gateVal n C j x then (1 : ℕ) else 0) C.size
+  rw [h]
+  simp [WireProfile.trueGates, Circuit.size]
+
+lemma mono_input_count {n : ℕ} (color : Fin n → Bool) :
+    (List.ofFn (input color false)).count true +
+      (List.ofFn (input color true)).count true = n := by
+  rw [WireProfile.list_count_true, WireProfile.list_count_true]
+  simp only [List.length_ofFn]
+  rw [← Finset.sum_add_distrib]
+  have hterm (j : ℕ) (hj : j ∈ Finset.range n) :
+      (if (List.ofFn (input color false)).getD j false then 1 else 0) +
+        (if (List.ofFn (input color true)).getD j false then 1 else 0) = 1 := by
+    have hlt : j < n := Finset.mem_range.mp hj
+    simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, hlt, ↓reduceDIte,
+      Option.getD_some, input]
+    cases color ⟨j, hlt⟩ <;> decide
+  simp_rw [Finset.sum_congr rfl hterm]
+  simp
+
+lemma mass_eq_input_add_gateWeight {n : ℕ} (color : Fin n → Bool) (C : Circuit) :
+    mass color C = n + ∑ j : Fin C.size,
+      gateWeight color (gateAt C j.val).op (gateVal n C j.val) := by
+  rw [mass, WireProfile.wire_count, WireProfile.wire_count,
+    trueGates_card_eq_sum, trueGates_card_eq_sum]
+  simp only [gateWeight, Finset.sum_add_distrib]
+  have h := mono_input_count color
+  omega
+
+lemma erase_alias_family_with_mono_mass (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (J : Finset ℕ) (hJ : J ⊆ Finset.range C.size) (s : ℕ)
+    (hs : ∀ j ∈ J, s < n + j)
+    (heq : ∀ j ∈ J, ∀ x : Fin n → Bool,
+      wireVal n C (n + j) x = wireVal n C s x)
+    (color : Fin n → Bool) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = circuitFun n C ∧
+      D.size + J.card ≤ C.size ∧ mass color D ≤ mass color C := by
+  obtain ⟨D, hD, hFun, hSize, hWeight⟩ :=
+    Absorption.erase_alias_family_with_weights n C hC J hJ s hs heq
+  refine ⟨D, hD, hFun, hSize, ?_⟩
+  have h := hWeight (gateWeight color)
+  rw [mass_eq_input_add_gateWeight, mass_eq_input_add_gateWeight]
+  omega
+
+end PEqualNP.Outside.L_meta_3566.MonoNormalize
