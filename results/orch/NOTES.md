@@ -5,3 +5,5 @@ Assigned negation of monotone replacement bound for six-input table 4277075690 *
 Strategies: circuit search; lower-bound methods; positive-statement investigation. Store strategy notes separately and send findings to root.
 
 Independent evidence now supports falsity of assigned negation. MiguelTorresPerez PR #17278 supplies positive twin proof; adapted refutation has passed independent source/format review, pending Lean. The assigned desk kind requires check, so a refute result cannot be submitted as an exact-statement PR for this lease.
+
+Final result: locally checked refutation. User explicitly authorizes refutation delivery, so submit one transparent draft PR with the known desk-kind acceptance block. Preserve logs in this archival commit and remove results files from the final PR diff.
