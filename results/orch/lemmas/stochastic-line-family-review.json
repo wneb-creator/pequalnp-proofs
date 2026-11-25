@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS independent mathematical/source and finite geometry review, now bound to cached and standalone exit-0 receipts",
+  "sources": [
+    {
+      "source": "results/orch/lemmas/algebraic-line-geometry-tail.lean",
+      "sha256": "9358d819274d5168f033c3b62f2159c69cf87e3e8e0f2da263d8baa5cb2c7729",
+      "lines": 22
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-line-family-tail.lean",
+      "sha256": "6085ebf4bbbadfc0b400558c611028869c2b4ce099ca82f7c8b7dac1ffa3e32b",
+      "lines": 85
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-line-close-tail.lean",
+      "sha256": "1029688ba8c83d82d6fa7483bc6729e9e38af359052d115e4593f291dd4f2621",
+      "lines": 85
+    }
+  ],
+  "reviewed_utc": "2026-11-25T12:28:11.330679+00:00",
+  "checks": [
+    "Allthreeembeddingrows exactly match independent exhaustive finitegeometry; each is a permutation ofallsevenlines and mapscanonicalmissing49 toq0/1/3, withrequiredtriples mappedtotheotherthreeineligiblepoints.",
+    "The occurring-family proof is textually identical tothechecked cap-family proof underonlyintendedgeometry/case renames; it usescheckedline7 finitebridge andretainsoccurrence/cardinality/paircontainment hypotheses.",
+    "Oc andCt are disjoint, allsevenlines areeligible, andCt neighborhoodscoverallsevenlines in each q0/1/3case. Thefamilybound givesatleast28 ontheleft againstatmost27.",
+    "The publicwrapper derivesBzero\u22651 fromacceptedhw_lost appliedtothesingle missingineligibleq, and henceBplus\u226413 fromtotalSurplus\u226414. It doesnot assumeBplus13 separately.",
+    "The conclusion is explicitly limitedtoI={0,1,2,3}, missingpoints={4,5,6}union{q}, q\u2208{0,1,3}. It doesnot exclude theq2pattern orentireone-sidedlinecase."
+  ],
+  "scope": "Three canonical p10line missing-mask patterns only; buildbinding andfullgap remainseparate.",
+  "build_binding": {
+    "cached_receipt": "algebraic-line-complete-cache-build.json",
+    "standalone_receipt": "algebraic-p10-line-three-build.json",
+    "standalone_sha256": "acf0ea76708a533ae4a5722d9844c7a84668e1b8c51363f1d1858daeda3cda13",
+    "complete_logs_empty": true
+  }
+}

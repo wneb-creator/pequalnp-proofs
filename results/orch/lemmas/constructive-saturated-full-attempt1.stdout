@@ -1,0 +1,37 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveSaturatedFull.lean:216:19: error: unsolved goals
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+b : Fin 14 → ℕ
+hb : PureBranch 14 D b
+pos : Fin 14 → ℕ × Bool
+hpos : k4_Pos 14 HG D pos
+J : Finset (Fin 14)
+x i z : Fin 14
+hJ : ∀ j ∈ J, j ∈ ineligSet 14 D ∧ x ∈ supp 14 D (src D (pos j))
+hiJ : i ∈ J
+hix : Adj i x
+hz : z ∈ eligSet 14 D
+hxz : Adj x z
+saturated : 2 + (ru D b x).card ≤ J.card + 1
+hprotected : ∀ (w : ℕ), Relation.ReflTransGen (sem_step 14 D) (↑i) w → fanout D w ≤ 1
+hi : i ∈ ineligSet 14 D
+H : ℕ × Bool
+hHx : H ∈ sem_W 14 D x
+hHz : sem_bar H ∈ sem_W 14 D z
+left✝¹ : z ∉ supp 14 D (src D H)
+left✝ : x ∉ supp 14 D (src D (sem_bar H))
+right✝ : val D (sem_two x z) (14 + H.1) = true
+injective : Set.InjOn pos ↑J
+fresh : H ∉ Finset.image pos J
+subset : insert H (Finset.image pos J) ⊆ sem_W 14 D x
+code : sem_W 14 D x = insert H (Finset.image pos J)
+j : Fin 14
+hj : j ∈ J
+hp✝ : pos j ∈ insert H (Finset.image pos J)
+hne : (pos j).1 ≠ (sem_bar (pos i)).1
+hsub : supp 14 D (src D (sem_bar (pos j))) ⊆ {i}
+hp : pos j ∈ Finset.image pos J
+member : j ∈ supp 14 D (src D (sem_bar (pos j)))
+same : j = i
+⊢ (pos i).1 = (sem_bar (pos i)).1

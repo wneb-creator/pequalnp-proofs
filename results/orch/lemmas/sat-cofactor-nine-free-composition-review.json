@@ -1,0 +1,130 @@
+{
+  "verdict": "PASS (independent composition/math review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T12:36:32.685731+00:00",
+  "source": "results/orch/lemmas/structural-cofactor-nine-free-standalone.lean",
+  "sha256": "ee4e35f40a96e21de5bfc084f34c7655c4f6d2aa279bc6af951de75abb483c6f",
+  "lines": 8418,
+  "accepted_prefix_lines": 7507,
+  "accepted_prefix_exact_after_namespace_rename": true,
+  "components": [
+    {
+      "source": "results/orch/lemmas/structural-k4-residual-one-tail.lean",
+      "sha256": "6fe6faed2d52279522a1e08b500538d427464a19634d28a55bbca49625f40b2b",
+      "normalization": "namespace only",
+      "label": "structural-k4-residual-one-tail.lean"
+    },
+    {
+      "source": "results/orch/lemmas/sat-k4-mask-certificates.lean",
+      "sha256": "ad1ac56c302cb981d69947f7efc19981ff306e5ddd1f86497c167eaa0f4b894a",
+      "normalization": "namespace only",
+      "label": "sat-k4-mask-certificates.lean"
+    },
+    {
+      "source": "results/orch/lemmas/structural-k4-low-elig-tail.lean",
+      "sha256": "16bb4e8051b6091052e26e20daea5702601daf4bc295803f06c1b3a885b851be",
+      "normalization": "namespace only",
+      "label": "structural-k4-low-elig-tail.lean"
+    },
+    {
+      "source": "results/orch/lemmas/structural-k4-close-tail.lean",
+      "sha256": "e392a961923b97f487486ce23df3f590fc34daf60e02169e7adb12f292dfc405",
+      "normalization": "namespace only",
+      "label": "structural-k4-close-tail.lean"
+    },
+    {
+      "source": "results/orch/lemmas/structural-cofactor-multi-tail.lean",
+      "sha256": "a717eaef4c6e281d743c7efdee75372335071cabb5675934e6f321b0e1a093dd",
+      "normalization": "namespace only",
+      "label": "structural-cofactor-multi-tail.lean"
+    },
+    {
+      "source": "results/orch/lemmas/structural-cofactor-multi-restrict-tail.lean",
+      "sha256": "b8cc4d22cc68bb43c35b571be74d47ad3cd32c39bacd9ee11ae90d2a16073bc3",
+      "normalization": "namespace only",
+      "label": "structural-cofactor-multi-restrict-tail.lean"
+    },
+    {
+      "source": "results/orch/lemmas/structural-cofactor-main-many-tail.lean",
+      "sha256": "b2e1858e576ed9305c83c025310077072470b6bef93ee414fcf9be697253e0d4",
+      "normalization": "namespace only",
+      "label": "structural-cofactor-main-many-tail.lean"
+    },
+    {
+      "source": "PNPHighCofactor.lean:297-349",
+      "sha256": "13654eed6be91b81140e72136d2d7e2ab022d10d8f86b52b5f89d551662dffa9",
+      "normalization": "namespace only",
+      "label": "previously reviewed K4 equality certificate and theorem"
+    },
+    {
+      "source": "results/orch/lemmas/structural-cofactor-nine-free-tail.lean",
+      "sha256": "4d635d5fb119824f9792c2665aa359949407635c7cb50d2c490b8dee200d644d",
+      "normalization": "namespace only",
+      "label": "structural-cofactor-nine-free-tail.lean"
+    }
+  ],
+  "finite_k4_equality_cover_masks": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      0,
+      2,
+      3,
+      4,
+      7,
+      8
+    ],
+    [
+      0,
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    [
+      0,
+      1,
+      2,
+      6,
+      8,
+      9
+    ],
+    [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  ],
+  "checks": [
+    "All appended components match their reviewed sources exactly after namespace-only changes; intervening text consists only of namespace delimiters and permitted resource-limit options.",
+    "The multi-unit main theorem partitions distinct reserved units into kept and lost portions; injectivity is proved on original wires, with disjointness from the previously charged units. No image-injectivity assumption is silently added.",
+    "For cofactor surplus at most6, the equality classification makes every one of the three free original vertices ineligible; all are charged. At surplus7, the at-most-two theorem forces at least one extra charge. At surplus at least8, the original cofactor bound already supplies the claimed nine-unit bound.",
+    "All hypotheses remain explicit: StrictLive14, exact graph correctness, chosen pure branches, good K4 cofactor, eligible center, charged X satisfying residual-inclusion/shared-support conditions, and at least3 distinct free K4 originals originally eligible outside center/X.",
+    "No totalSurplus14 bound, Bzero0 premise, minimality premise, quiet trace conclusion or full posted-gap conclusion is asserted."
+  ],
+  "scope": "ru(center).card + X.card +9 <= original totalSurplus under the explicit three-free-original hypotheses.",
+  "cached_build": {
+    "source": "results/orch/lemmas/structural-cofactor-nine-free.lean",
+    "sha256": "27b6b8772f82dff09fa8adf40a750f0ae9e6028a9a29ef698d44680165343658",
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:29:06.554178+00:00",
+    "scope": "Three originally eligible free K4-original vertices imply ru(center)+card(X)+9 <= totalSurplus. No global total bound or Bzero assumption."
+  },
+  "issues": [],
+  "standalone_build": {
+    "source": "results/orch/lemmas/structural-cofactor-nine-free-standalone.lean",
+    "sha256": "ee4e35f40a96e21de5bfc084f34c7655c4f6d2aa279bc6af951de75abb483c6f",
+    "exit_code": 0,
+    "started_utc": "2026-11-25T12:30:58.276701+00:00",
+    "completed_utc": "2026-11-25T12:38:27.983225+00:00"
+  }
+}

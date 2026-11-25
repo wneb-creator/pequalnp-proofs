@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-nine-free.lean",
+  "sha256": "27b6b8772f82dff09fa8adf40a750f0ae9e6028a9a29ef698d44680165343658",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:29:06.554178+00:00",
+  "scope": "Three originally eligible free K4-original vertices imply ru(center)+card(X)+9 <= totalSurplus. No global total bound or Bzero assumption."
+}

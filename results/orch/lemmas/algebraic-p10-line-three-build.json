@@ -1,0 +1,12 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p10-line-three.lean",
+  "sha256": "acf0ea76708a533ae4a5722d9844c7a84668e1b8c51363f1d1858daeda3cda13",
+  "lines": 7522,
+  "bytes": 368621,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:37:09.457660+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "command": "Pinned Lean4.36.0, lake env lean -j1 -M10000 standalone source",
+  "scope": "Ordinary impossibility of strict-live correct Heawood circuits at surplus\u226414 with ineligible set{0,1,2,3} and missing neighborhoods{4,5,6} plus one q\u2208{0,1,3}. Does not exclude q2 or all line cases."
+}

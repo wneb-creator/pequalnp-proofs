@@ -1,0 +1,378 @@
+{
+  "scope": "Frozen completed computational q2 research, exact finite domain/context data, full compiler/search logs, independent set-based verification, line-three standalone review, and mixed9 predicate audit. No new Lean theorem or full-gap claim. Active root q2 certificate and forthcoming family-shape Lean source excluded.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2-canonical.json",
+      "bytes": 10898,
+      "sha256": "669c943fd75721b2de01bcde65af76821a9e147ea8356bdeb7eb0cfd42c415e7"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-canonical.py",
+      "bytes": 4093,
+      "sha256": "91664b444f93c5d8e4a3ed4b9d6e4b56b997a0f62afcef1d4fd7a8a17ff93400"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-canonical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-canonical.stdout",
+      "bytes": 2995,
+      "sha256": "f5f39dca862980327a3a1cd36b1d5c6340b105559edfab3944eb0c7751b93fe7"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-families.txt",
+      "bytes": 136565,
+      "sha256": "db7338b35d73836aa951d3fcd58a15dedc5850c47d534a0c0e709955ea7a4445"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-prep.json",
+      "bytes": 4243348,
+      "sha256": "60592a78eabd83f047a386a4267aaa20d28ecb334be36200827ab4dbe4ab6140"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-prep.py",
+      "bytes": 3937,
+      "sha256": "b01b790dfe66ce6da3ea0fa05536716a0191d3d4e388941be3b25c64badcf580"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-prep.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-prep.stdout",
+      "bytes": 267,
+      "sha256": "59f705202f8526d412e145bf40034b56a4172c2201423916e40b59d02bbde6c0"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined-vectors.txt",
+      "bytes": 38813,
+      "sha256": "7078ac5015f9ede1434bd9d3f2d3717a377085e7f53a4e95ad5c25d522f1fb1c"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined.cpp",
+      "bytes": 3309,
+      "sha256": "94351984b8e1061752efd322a058a2866a0d5b45f843a7c2b363a5f2f17e6cb8"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined.json",
+      "bytes": 54757,
+      "sha256": "cda8350c07d306fba9117d4b40e5776574bd3ccd6177734595037efcff3f35d5"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-combined.stdout",
+      "bytes": 81,
+      "sha256": "4ec51469c9f71e81a64ce384fe71e1ac4a44e19b37ffc7917d21888d1bc3b91a"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-constructible-families.txt",
+      "bytes": 4491,
+      "sha256": "82c46cb9c05617b256f201a519aa16a486eb534d1934774fc1ea369d643e45cc"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-contexts.json",
+      "bytes": 3838,
+      "sha256": "42e26779a03c8726e4920e8e798edef36698bf3169e6b0f5393585357a4d5040"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-finite-domain.json",
+      "bytes": 157730,
+      "sha256": "0b3d56eaaaa9e59a0a25af4da99fd91ed570365cda5184b34c9ec879da562037"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel.cpp",
+      "bytes": 3782,
+      "sha256": "9b35b88f26aadc10cf4b80322b6d151853e8b3685ae27a3ce0cee1ebdb644b01"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel.json",
+      "bytes": 3627,
+      "sha256": "ea3584a114b5fa4b54ab17b5aa5161031bbf88a1571ef0a4b5bc09f07cf63110"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-fixed-colabel.stdout",
+      "bytes": 110,
+      "sha256": "d0c3e29518ae51f42be8f9377e3976aa8c95e8e06d13e2dcdf6209408289ea8e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-mask-closure.json",
+      "bytes": 33775,
+      "sha256": "ebdb85a9375af2013f4d450bfdbff7eb07ebafa6ece35f5ec46021480bd7973e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-mask-closure.py",
+      "bytes": 1876,
+      "sha256": "ac9b352cd8ad45852a317c564aacbcea7a4947d3ca42426e05fb506e23a736cc"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-mask-closure.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-mask-closure.stdout",
+      "bytes": 370,
+      "sha256": "7ed6d5ea5e03907012bfab1052f5a0c398e9bd0c411f9a8c5f77ca6e5f10a55d"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-prefilter.json",
+      "bytes": 682,
+      "sha256": "03ae082d6e59ae0b6f214011b6f08ad37e58b3d3485207ff119bc6e34fb7d0d3"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-prefilter.py",
+      "bytes": 2257,
+      "sha256": "7ca2de357a7f4250d9660d4fdd7ae3e367791296fc3bb4bbbcf7c818e3bc673c"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-prefilter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-prefilter.stdout",
+      "bytes": 616,
+      "sha256": "21800f641f33c2937a29f5ffbe5a3ee834d3fa9cc8285c71d5146f7bc3a7d466"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-proof-status.md",
+      "bytes": 5569,
+      "sha256": "3e15d7b255c1ff3f117af49983461394814db9e3640065fe0339c9764d97fcc4"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains.cpp",
+      "bytes": 4397,
+      "sha256": "513b6199571322cf582c3e8c1e5169504d1f443c9d6a9da4d9043eec493b753a"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains.json",
+      "bytes": 3592,
+      "sha256": "b3f13f67b536d1319cab0c01d21dbb5ad3166e11557e505d997151326dc4c42f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced-domains.stdout",
+      "bytes": 101,
+      "sha256": "7214383e64aea6b337a59c0ee0ff7cfc182892d4670cfe94776c9ffb1594905f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced.cpp",
+      "bytes": 3722,
+      "sha256": "b1d3671a3274ad64791aec1168259d907b1d1908ce0229d5b5cfd7b291b51f6f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced.json",
+      "bytes": 3338,
+      "sha256": "d915fe38e1a28f03f572284ec59002641fef4fc3d5e0b2dba613c304b076d2ba"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-reduced.stdout",
+      "bytes": 100,
+      "sha256": "a36b86ac57e9fc5e449785568b98b8d909ab4a2442d214d398541f17e9a46515"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-independent.json",
+      "bytes": 460,
+      "sha256": "8aff88fe64ebba56b9b97ffda097fb54216612a912785a9686985eaf76fcd74d"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-independent.py",
+      "bytes": 2010,
+      "sha256": "d8fef68a5bc15d2d42fde5aad35d49ae08c81ff76161cb5212a73cc48a5140d0"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-independent.stdout",
+      "bytes": 414,
+      "sha256": "14119cc06dd2caa48015c7ffbaf1c43d8f33c5232fc3e802502b9a60e95db25b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs.cpp",
+      "bytes": 3798,
+      "sha256": "c0a34f50c3117e38534ffa3bb00c7b1b3b49ad00f2cb3cd4fd357557bd51c32d"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs.json",
+      "bytes": 3691,
+      "sha256": "d51f147ef45df35393dab629a6d815f00e7ff18a21f08dd25786fe2e07b0dd31"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs.stdout",
+      "bytes": 97,
+      "sha256": "5f23b4dd3764b2a26f57abae1490a4be094626cbd5d786b49a46e4d42188580f"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-relaxed-pairs.txt",
+      "bytes": 391,
+      "sha256": "4f1bc1034ffe0c1170d2db0187697f903e7eaaeeee8c39c3247bb25d164c2925"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel.cpp",
+      "bytes": 3793,
+      "sha256": "e6625cd974c96ebc56ac71df7ab8df5a12c08658dfde4d6152bf561d2000401e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel.json",
+      "bytes": 3692,
+      "sha256": "bd5c9c24fc148231061e79d48433057dfe260eb3fcee419e11fe77a3d288dbc2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-colabel.stdout",
+      "bytes": 98,
+      "sha256": "c41870f6de9f5d71fd68412b8c3e23a7dceecdab1b714b2a628aec65051dce6b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-independent.json",
+      "bytes": 518,
+      "sha256": "8e467e61f9a54e98673ba4e0710562509e8855762046364dcc7d8f3967650769"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-independent.py",
+      "bytes": 2053,
+      "sha256": "534b827fe8f824498644bfa86334fd3dfb81d6af3f906d72d67239f23a929eb9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-simple-independent.stdout",
+      "bytes": 472,
+      "sha256": "2d189670d401875d00e8c90339b84133cec52dc0af15f6540328c188eee16514"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-line-standalone-composition-review.json",
+      "bytes": 5203,
+      "sha256": "ddebcb9e86d8f11b053c5eb650554038007e2e3addddabfe3b86ff75dcaf0bc2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-line-family-review.json",
+      "bytes": 2136,
+      "sha256": "bf923a64f21bccd36583fb4c2c4c86eb092817e78d95e8493498e827e8692ba3"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-mixed9-predicate-review.json",
+      "bytes": 1234,
+      "sha256": "aeb8edb4b7be6e5c5392103c8e53ba0f9d8b069d25bcfcf1d928ba63580e66ce"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-mixed9-predicate-review.py",
+      "bytes": 3282,
+      "sha256": "3f7d992bf0c6feb0f1c8800396343a9ef8682e9802662fba9f1b77dcc02c328e"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-mixed9-predicate-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-mixed9-predicate-review.stdout",
+      "bytes": 1188,
+      "sha256": "ef2681249dff9e1e3a6b1476271ee7e96b2c858be9b4a06faa25c96bc321327f"
+    }
+  ],
+  "file_count": 73,
+  "total_bytes": 4767566,
+  "claims": [
+    "All q2 enumeration runs bounded and complete where marked; relaxed residual obstruction independently confirmed, with no actual-circuit or Lean-certificate claim.",
+    "Pure fixed-sharing diagnostic has2,658 survivors; final fixed-sharing-plus-nonempty-source predicate has0 and retains empty residual supports.",
+    "Line-three review binds existing acf0ea76 standalone exit0 and scope q0/q1/q3 only.",
+    "Mixed9 predicate audit starts from all6^6 residual vectors and independently reproduces120models/30patterns; circuit premise transfer separate."
+  ]
+}

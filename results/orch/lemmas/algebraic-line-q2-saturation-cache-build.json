@@ -1,0 +1,11 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-line-q2-saturation-tail.lean",
+  "sha256": "b00324540caa47dab09acb4e454fce350c00f1e657428a07f428385bb5166df4",
+  "cached_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/AlgebraicLineQ2Saturation.lean",
+  "cached_source_sha256": "36f79571f40c3186aa90a3db3ec5a207dbb852361e13bb4f5fd8c042993cf4e6",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:40:46.902584+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "For I0123 and missing masks2456 at Bplus\u226413, every valid occurring-mask family has cardinality\u22647. A family with\u22657 members contains every occurring mask except empty/singletons and pairs outside all required triples."
+}

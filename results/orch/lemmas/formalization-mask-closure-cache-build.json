@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "tail_source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-mask-closure-tail.lean",
+  "tail_sha256": "cb1093eec7764dbff76361dba37368baa984c31a99cc61dccc550299483bbac6",
+  "cached_source_sha256": "12add56939c2dca5f15058a5840f708b3c8d619486374446189e529a0236eb1d",
+  "completed_utc": "2026-11-25T12:40:52.561962+00:00",
+  "scope": "Cached generic support-mask closure induction; standalone pending.",
+  "prior_attempt": "Exit1: explicit n parameter needed for supp_ge in invalid-wire branch; corrected. Full diagnostics retained."
+}

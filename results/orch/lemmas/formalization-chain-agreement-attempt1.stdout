@@ -1,0 +1,57 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-chain-agreement.lean:100:33: error: unsolved goals
+case false
+n : ℕ
+D : Dag
+hS : Strict n D
+i c : Fin n
+hi : i ∈ ineligSet n D
+e : ℕ × Bool
+he : e ∈ sem_W n D i
+absent : c ∉ supp n D (src D (sem_bar e))
+w : ℕ
+bound : n + e.1 ≤ w
+absentW : c ∉ supp n D w
+hj : e.1 < List.length D
+carrier : i ∈ supp n D (src D e)
+right✝ : i ∉ supp n D (n + e.1)
+chain : sem_Chain n D (↑i) (src D e)
+step : sem_step n D (src D e) (n + e.1)
+one : fanout D (src D e) = 1
+otherSame : val D (single c) (src D (sem_bar e)) = val D (sem_ins i (single c)) (src D (sem_bar e))
+otherFalse : val D (single c) (src D (sem_bar e)) = false
+z : Fin n → Bool
+hs : e.2 = false
+hz : val D z (if (!false) = true then opB D e.1 else opA D e.1) = false
+⊢ val D z (opA D e.1) = true → val D z (opB D e.1) = false
+
+case true
+n : ℕ
+D : Dag
+hS : Strict n D
+i c : Fin n
+hi : i ∈ ineligSet n D
+e : ℕ × Bool
+he : e ∈ sem_W n D i
+absent : c ∉ supp n D (src D (sem_bar e))
+w : ℕ
+bound : n + e.1 ≤ w
+absentW : c ∉ supp n D w
+hj : e.1 < List.length D
+carrier : i ∈ supp n D (src D e)
+right✝ : i ∉ supp n D (n + e.1)
+chain : sem_Chain n D (↑i) (src D e)
+step : sem_step n D (src D e) (n + e.1)
+one : fanout D (src D e) = 1
+otherSame : val D (single c) (src D (sem_bar e)) = val D (sem_ins i (single c)) (src D (sem_bar e))
+otherFalse : val D (single c) (src D (sem_bar e)) = false
+z : Fin n → Bool
+hs : e.2 = true
+hz : val D z (if (!true) = true then opB D e.1 else opA D e.1) = false
+⊢ val D z (opA D e.1) = true → val D z (opB D e.1) = false
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-chain-agreement.lean:102:70: warning: This simp argument is unused:
+  hz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gop]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

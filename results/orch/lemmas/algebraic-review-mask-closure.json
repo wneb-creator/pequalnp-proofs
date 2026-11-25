@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-mask-closure-tail.lean",
+  "sha256": "cb1093eec7764dbff76361dba37368baa984c31a99cc61dccc550299483bbac6",
+  "review_utc": "2026-11-25T12:41:28.056431+00:00",
+  "scope": "Generic singleton-support mask induction for strict AND/OR DAGs in a restricted union/intersection-closed predicate family.",
+  "review": "Input masks are empty or singleton inP; gate masks use the exact AND intersection / OR union recurrences and strict earlier-wire indices; invalid wires are empty. No graph correctness assumptions or semantic weakening.",
+  "receipt": "formalization-mask-closure-cache-build.json",
+  "build_exit_code": 0,
+  "standalone_source": "formalization-mask-closure-standalone.lean",
+  "standalone_sha256": "acb3ab00bcf6e6aaaef5ddc1e25f38d442b59aba80d90906aba46f7a1dce837e",
+  "standalone_receipt": "formalization-mask-closure-standalone-build.json",
+  "standalone_exit_code": 0,
+  "composition": "Exact accepted first848 lines, required section/namespace closures, exact reviewed generic tail. No unexplained content."
+}

@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-11-25T12:33:33.337463+00:00",
+  "scope": "Independent cap18 justification supplement for the compact p14 models; no SAT result.",
+  "requires": "results/orch/lemmas/sat-p14-quiet-preservation-manifest.json",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-p14-and-cap-review.json",
+      "bytes": 1020,
+      "sha256": "940590a2debea74fac672b14a92fd29033c97814d63f026fb06955c1a04322ab",
+      "restore_as": "stochastic-p14-and-cap-review.json",
+      "gzip": false
+    }
+  ]
+}

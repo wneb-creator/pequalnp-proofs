@@ -1,0 +1,20 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-mask-closure.lean:43:36: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 0
+  a - b - c ≥ 0
+  a - c - d ≤ -1
+where
+ a := ↑w
+ b := ↑n
+ c := ↑(List.length D)
+ d := ↑?m.444
+/workspace/pequalnp-proofs/results/orch/lemmas/formalization-mask-closure.lean:43:8: error: Type mismatch: After simplification, term
+  empty
+ has type
+  Closed ∅
+but is expected to have type
+  Closed (supp n D w ∩ P)

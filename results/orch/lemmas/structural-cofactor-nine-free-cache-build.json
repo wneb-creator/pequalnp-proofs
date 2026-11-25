@@ -1,0 +1,8 @@
+{
+  "module": "PNPNineFree",
+  "source_sha256": "27b6b8772f82dff09fa8adf40a750f0ae9e6028a9a29ef698d44680165343658",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:43:09.573167+00:00",
+  "olean_sha256": "2b2f9da05c41e98a26c0de798f5d1853e0c0afd569375a510a76cc71dca1a166",
+  "note": "Local convenience cache only; complete Defs-only standalone separately checked."
+}

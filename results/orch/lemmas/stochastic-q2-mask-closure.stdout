@@ -1,0 +1,1 @@
+{"scope": "Closure includes union AND intersection and ALL12 outside-triple pairs; saturated-count actual-circuit induction is separate from this finite computation.", "outside_pairs": [6, 12, 18, 20, 24, 34, 36, 40, 66, 72, 80, 96], "combined_family_count": 28, "combined_constructible_count": 0, "all_parent_family_count": 5307, "all_parent_constructible_count": 181}

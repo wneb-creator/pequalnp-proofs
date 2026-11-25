@@ -1,0 +1,158 @@
+{
+  "created_utc": "2026-11-25T12:32:30.659936+00:00",
+  "scope": "Independently reviewed quiet compact p14 extension and complete positive controls. No solver result.",
+  "source_sha256": "b9ccb4c19d914d5c664266cc426272305eb23de679aa3a81920a38278691a441",
+  "requires": "results/orch/lemmas/sat-p14-compact-preservation-manifest.json",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-quiet.py",
+      "bytes": 4110,
+      "sha256": "b9ccb4c19d914d5c664266cc426272305eb23de679aa3a81920a38278691a441",
+      "restore_as": "sat-p14-compact-quiet.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-quiet-controls.py",
+      "bytes": 3146,
+      "sha256": "c56852359763f5aaf26b0914178554efe383156acb563ead69e2bfcad2414328",
+      "restore_as": "sat-p14-compact-quiet-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-quiet-controls.json",
+      "bytes": 707,
+      "sha256": "f08bebf82619a1ab6e3d2f0670cb7daa4a26b69a040c0a2a37d8f3c29c499d33",
+      "restore_as": "sat-p14-compact-quiet-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-quiet-controls.stdout",
+      "bytes": 531,
+      "sha256": "07772ec29dbe880717673c0ba1524cb9b36953a3ce434df3e9a3ef513aa7077b",
+      "restore_as": "sat-p14-compact-quiet-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-quiet-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-quiet-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-quiet-audit.py",
+      "bytes": 4137,
+      "sha256": "706d826134338deeaecc5f4c25a4d0538428ef603179eb872df2d55dac2b8c2f",
+      "restore_as": "constructive-quiet-audit.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-quiet-audit.stdout",
+      "bytes": 504,
+      "sha256": "f044a7a5aca868f85edf9f1dd7ecfe6b3a9c09e14045e3b9b3f676ff4b25cfec",
+      "restore_as": "constructive-quiet-audit.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-quiet-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-quiet-audit.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-quiet-encoder-review.json",
+      "bytes": 2180,
+      "sha256": "df212cf02b2364cdd9a0c48716fb6b66919609fa907568e7e9ca0650fcb19a80",
+      "restore_as": "constructive-quiet-encoder-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18.cnf.gz",
+      "bytes": 440245,
+      "sha256": "58d64b2570a9642fa647a9549ec50ad63c23f10e50b901521520d49a66b0d8bf",
+      "restore_as": "sat-p14-compact-quiet18.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "cee6eba00f81772231e3e9b84acbdcaa6117a226a0c6a81ac587b56389d46542"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18.metadata.json.gz",
+      "bytes": 89377,
+      "sha256": "8cd581eb9d2c749bd778d74596649c1c82b4584f7e0495b315e7294280e4a196",
+      "restore_as": "sat-p14-compact-quiet18.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "81dcfdf52962dd28585c2df3e352af83d189fbedad2d60570f033e32d3692b6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet35-control.cnf.gz",
+      "bytes": 372543,
+      "sha256": "99e28080ee7588acb374d6c6bed77350c9274d022b3a6d3fb5196fd804420216",
+      "restore_as": "sat-p14-compact-quiet35-control.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "513a3369519e4d864012693f1bacced222fa9694c8049d58e00adee9c92a3c2f"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet35-control.metadata.json.gz",
+      "bytes": 74269,
+      "sha256": "704c72e03839fc1158eac744b11d0baccb81b3a11e54fb2005d02977215257d2",
+      "restore_as": "sat-p14-compact-quiet35-control.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "9dfe281542a2a530512c1d31b202ebad2d73e9c247b25579863ff7f15dd3abe2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet35-control.compact-control.json.gz",
+      "bytes": 306,
+      "sha256": "3ff2fd49cde730532e0fe0f82aa6e2de6401e1bed6e34aeec8e871351ee58130",
+      "restore_as": "sat-p14-compact-quiet35-control.compact-control.json",
+      "gzip": true,
+      "uncompressed_sha256": "f2bac72da458de22270c9076ed46aed969ab5d482bd38a89978ba8cc720f50d2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet35-control.complete-assignment.json.gz",
+      "bytes": 59801,
+      "sha256": "5aaed8a665881d5985f6cb4a3ca0ea03093c90feebfc6b440d5500974ca1e224",
+      "restore_as": "sat-p14-compact-quiet35-control.complete-assignment.json",
+      "gzip": true,
+      "uncompressed_sha256": "441811f8abe82ff32c424dbf22409008bcf0e2841142299407c1bb9225ca1d37"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet-host-control.cnf.gz",
+      "bytes": 1184937,
+      "sha256": "74212ed76ac0eba41c91c5c7d398b02689de6cbe73b2b8cd163a5d27c901aa00",
+      "restore_as": "sat-p14-compact-quiet-host-control.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "d157ef7572ecdacd9f2e8b63c353bfbb40a3b59810340da591f7b82254a6c58e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet-host-control.metadata.json.gz",
+      "bytes": 230508,
+      "sha256": "bdf41004028d9208f668ffa5a94f92f21b3c10191d595594aa2e26c548745791",
+      "restore_as": "sat-p14-compact-quiet-host-control.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "c8a77371fcd4d7a6a36977719099c5b68fb2b9ceae5c5f8fe611adfba86cfcb7"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet-host-control.compact-control.json.gz",
+      "bytes": 333,
+      "sha256": "3b70957356da9df994b90c8aae17e5f7715242ec4964b47dbef9c4e2293ff5b9",
+      "restore_as": "sat-p14-compact-quiet-host-control.compact-control.json",
+      "gzip": true,
+      "uncompressed_sha256": "31c6e43622d81616000f58a4a9e7bc55632d9815a8b664801d3579878c399b15"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet-host-control.complete-assignment.json.gz",
+      "bytes": 178530,
+      "sha256": "d9384268b63298cf3fe2185d413af67de512d379deb0e7ea8c9dd297510f9d59",
+      "restore_as": "sat-p14-compact-quiet-host-control.complete-assignment.json",
+      "gzip": true,
+      "uncompressed_sha256": "165ad1dfc45b7d3c398e94bc2ad4b253a05cfb89c2bd41f334b4a98cc5c7517e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-quiet-model.md",
+      "bytes": 2443,
+      "sha256": "99702340eec0ead693dc6b49093b59cd04a2e9c153f7e626b0e4a6e1fc062b60",
+      "restore_as": "sat-p14-quiet-model.md",
+      "gzip": false
+    }
+  ]
+}

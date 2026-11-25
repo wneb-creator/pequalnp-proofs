@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-11-25T12:45:49.130513+00:00",
+  "status": "Cached check exit0; full standalone still pending",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-tail.lean",
+      "bytes": 13370,
+      "sha256": "c79b9df64fbcfe28309c43d7d6a62046d5c0f74914c058a6e2f99baec6948f23"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported.lean",
+      "bytes": 22856,
+      "sha256": "2e19be8fd536f0e9ad5016969d6932779dbab0d849d45525f3590396c18a7538"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-build.json",
+      "bytes": 283,
+      "sha256": "d3661142f4a444f76ecc8995d7062f50ca7afaead7272ab69b0cfb17dfb3ad43"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-geometry.json",
+      "bytes": 2073,
+      "sha256": "83eca2810e64e5b161a605a7bc8697c8e8928bb6411c59d01f8dc9a3a4e6c9ad"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-k4-protected-supported.json",
+      "bytes": 1209,
+      "sha256": "171038bcf77f5e775a6effe7873ee9cfef987ba0d5245dba15a25eec9e5dfc54"
+    }
+  ]
+}

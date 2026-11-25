@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T12:31:40.250701+00:00",
+  "extension_sha256": "b9ccb4c19d914d5c664266cc426272305eb23de679aa3a81920a38278691a441",
+  "core_sha256": "fe2e8f6c4c9f9c259c91bbb0c5ebdeff0b17c7de8d925347b589f2ca75772cd1",
+  "controls": [
+    {
+      "tag": "sat-p14-compact-quiet35-control",
+      "clauses_checked": 95317,
+      "variables_checked": 24414,
+      "truth_rows_checked": 16384,
+      "direct_raw_derivatives": [
+        false,
+        false
+      ],
+      "active_atoms": 15
+    },
+    {
+      "tag": "sat-p14-compact-quiet-host-control",
+      "clauses_checked": 334943,
+      "variables_checked": 73510,
+      "truth_rows_checked": 16384,
+      "direct_raw_derivatives": [
+        false,
+        false
+      ],
+      "active_atoms": 20
+    }
+  ],
+  "mathematical_audit": [
+    "Operand orientation is valid because the frozen core makes the two entire flattened operand sets disjoint: common primary labels are forbidden, and a common prior atom would require a host primary in both operands. Swapping operands therefore achieves a strict least-argument order.",
+    "Positive-edge activity follows from ordinary size27 minimality: a gate false on all positive minimal rows can be replaced by false and removed, contradicting the compiled27 lower bound. This cut depends on that minimality argument.",
+    "Explicit edge coverage is redundant with exact positive-pair semantics and empty singleton support: the earliest true AND on an edge pair has its endpoints in opposing primary sets.",
+    "Each singleton value of an AND atom is false by induction from disjoint primary supports. Consequently the raw derivative recurrence correctly uses only primary base membership for operand values, while derivative terms include selected earlier atoms. Flattening OR regions preserves Boolean raw derivatives.",
+    "All extension clauses were read independently; complete positive controls satisfy every clause and independently compute the full target truth table and both quiet derivatives."
+  ],
+  "scope": "Encoding and positive-control review only; no SAT result or Lean certificate claimed."
+}

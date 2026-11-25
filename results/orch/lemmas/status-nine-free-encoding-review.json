@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS independent nine-free geometry and clause review",
+  "source_sha256": "8fa003dd5c3828cf5e633aa095172f5c9dff5fb8c6dd1e8e5bf95338b2809eb5",
+  "geometry_centers_checked": 14,
+  "controls": [
+    {
+      "tag": "sat-p14-compact-nine35-control",
+      "variables": 24567,
+      "all_clauses_checked": 96048,
+      "nine_free_enabled": false
+    },
+    {
+      "tag": "sat-p14-compact-nine-host-control",
+      "variables": 78613,
+      "all_clauses_checked": 354916,
+      "nine_free_enabled": true
+    }
+  ],
+  "cardinality_rows_checked": 8192,
+  "cardinality_rows_rejected": 1154,
+  "scope": "Nine-free cooccurrence/cardinality cut only. Max-prior ordering is independently reviewed elsewhere. The enabled-cut control is matching, not Fano; no satisfiability result is claimed."
+}

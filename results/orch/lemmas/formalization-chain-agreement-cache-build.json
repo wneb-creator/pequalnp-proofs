@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "tail_source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-chain-agreement-tail.lean",
+  "tail_sha256": "a49f696d04ef1515bb1796589dc20c5670cebb25a26851e0a53ca8c0a429d3cb",
+  "cached_source_sha256": "f61501b034518e1ae0c66b9f9827b16cfbb01ef4c1a8bc32aa0275ca8d204852",
+  "completed_utc": "2026-11-25T12:39:39.573398+00:00",
+  "scope": "Cached check of generic chain-agreement and ineligible-consumption insertion blocker; standalone pending.",
+  "prior_attempt": "Exit1: needed Bool negation/ite simplification at opposite operand; corrected by ordinary simp. Full logs retained."
+}

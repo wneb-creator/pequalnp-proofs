@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-11-25T12:45:49.132272+00:00",
+  "status": "Cached check exit0; full standalone still pending",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-tail.lean",
+      "bytes": 4118,
+      "sha256": "1882bb573710c069a46970ca6894bfb33ec32b32fc79cbb9722cef031450884c"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected.lean",
+      "bytes": 4198,
+      "sha256": "29815afd27dcfb8bedbd90984c72021c64e2c66ba904906beb6e176a8fc6e087"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-build.json",
+      "bytes": 474,
+      "sha256": "aebfafd09462e978b9b0212a5348acc177573f9385bd86db1bd305bfc54506fb"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-cofactor-protected.json",
+      "bytes": 2218,
+      "sha256": "e0f3e4b5dd652f2bbbab8a65cbd5ffb4577ae1768a8352ba118c791967f7511f"
+    }
+  ],
+  "frozen_utc": "2026-11-25T12:46:11.081092+00:00"
+}

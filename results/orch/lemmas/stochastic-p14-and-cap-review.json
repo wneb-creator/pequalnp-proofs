@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS cap18 completeness addendum",
+  "reviewed_utc": "2026-11-25T12:16:16.134156+00:00",
+  "dependency": {
+    "exit_code": 0,
+    "source_sha256": "6f052a59d08b08b4e961dce2f1490c3d4503c4f6a960f5efe6c3a3a942f60e90",
+    "source": "results/orch/lemmas/formalization-or-count.lean",
+    "lines": 438,
+    "warnings": "Only unused simp arguments and unnecessary simpa suggestions."
+  },
+  "maximal_negative_row": 480,
+  "true_inputs": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "critical_absent_inputs": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "reason": "Compiled false_or_count implies10\u2264falseORcount+1, so at least9 OR gates. A27-gate binary AND/OR Fano circuit therefore has at most18 AND gates; compact flattening preserves AND gates exactly.",
+  "scope": "This validates cap18 for Fano circuits using the independent OR-count theorem, not from the flattening cost identity alone. Generic/matching structural controls need not satisfythis Fano-specific bound."
+}

@@ -1,0 +1,29 @@
+{
+  "examples": [
+    {"unit_masks": [3, 33, 68], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [3, 68, 33], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 3, 68], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 68, 3], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [68, 3, 33], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [68, 33, 3], "strict_mask": 103, "family": [3, 11, 33, 49, 68, 69, 103], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 33, 65], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 65, 33], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 10, 65], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 65, 10], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 10, 33], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 33, 10], "strict_mask": 107, "family": [10, 11, 33, 49, 65, 69, 107], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [3, 48, 65], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [3, 65, 48], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [48, 3, 65], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [48, 65, 3], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 3, 48], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 48, 3], "strict_mask": 115, "family": [3, 11, 48, 49, 65, 69, 115], "assigned": [11, 69, 115, 49], "center_cost": 6, "passes_new_cut": false}
+  ],
+  "families_processed": 181,
+  "families_total": 181,
+  "complete": true,
+  "seconds": 1.01436,
+  "direct_center_survivors_before_protection": 0,
+  "direct_center_survivors_after_protection": 0,
+  "counts_all_budget_colabel_protected_oldcofactor_newcofactor": [5156946, 239770, 1320, 456, 18, 0]
+}

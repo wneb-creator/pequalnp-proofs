@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-25T12:34:23.700262+00:00",
+  "verdict": "UNKNOWN",
+  "scope": "Broad full27-gate Fano double-quiet model with reviewed ordinary-minimality and false-OR cardinality cuts; fixed12:34UTC cutoff. No SAT witness, no UNSAT proof, no Lean result.",
+  "variables": 18073,
+  "clauses": 236262,
+  "solver_exit": 0,
+  "wrapper_exit": 0,
+  "elapsed_seconds": 5526.129,
+  "source_sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3",
+  "static_artifact_manifest": "results/orch/lemmas/sat-orcount-preservation-manifest.json",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.stdout.gz",
+      "bytes": 20637,
+      "sha256": "c73dd3b1d95011d2d4867d2469d97f5573f31c1e253e476934a80f5cc03b4821",
+      "restore_as": "sat-fano-orcount27-broad.stdout",
+      "gzip": true,
+      "uncompressed_bytes": 77142,
+      "uncompressed_sha256": "af44e96cebdb9c2174005f886253bcc87e84e7165967715a343e65c303bcb20c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-fano-orcount27-broad.stderr",
+      "gzip": true,
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.runlog.gz",
+      "bytes": 214,
+      "sha256": "000a76193b05fbd8f833d8793f9466335a94a3a7cfc1cbc2d508a547a13ef7be",
+      "restore_as": "sat-fano-orcount27-broad.runlog",
+      "gzip": true,
+      "uncompressed_bytes": 309,
+      "uncompressed_sha256": "e4683f9ab6203494b467d4b540db650b621ade72f25af4175c246474638272ef"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.receipt.json.gz",
+      "bytes": 342,
+      "sha256": "1d279fe057bc07ff64f5c331a9cdc2cca6b8ef6ce1a9a4ffeb14239e186183b6",
+      "restore_as": "sat-fano-orcount27-broad.receipt.json",
+      "gzip": true,
+      "uncompressed_bytes": 654,
+      "uncompressed_sha256": "7c645969d6956f3fff1b0431ff78c2c55e72ce2c22200225ae164b11c7368271"
+    }
+  ]
+}

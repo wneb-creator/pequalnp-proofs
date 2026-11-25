@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS independent mathematical/source review and cached exit0 build",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-cofactor-protected-tail.lean",
+  "sha256": "1882bb573710c069a46970ca6894bfb33ec32b32fc79cbb9722cef031450884c",
+  "reviewed_utc": "2026-11-25T12:45:47.351809+00:00",
+  "scope": "cof_Inv transport of all-reachable-wire fanout<=1 from an original free input to its cofactor input; no extra free-live hypothesis required.",
+  "checks": [
+    "Representative sends cofactor inputs to free original inputs and emitted gates to their actual original gates.",
+    "Strong induction on live original wires proves representative(t(w)) reaches w. Input case uses nonconstancy/free-input identification; retained and collapsed cases use exact cof_Inv projections.",
+    "Every cofactor edge lifts to an original path via its live operand representative and emitted original gate. Concatenation lifts all cofactor paths.",
+    "Each fiber wire lies downstream of the protected original input. Original fanout<=1 bounds its live-reader degree, so the fiber inequality forces cofactor fanout<=1.",
+    "No semantic-dependence assumption is substituted for syntactic reachability, and no normalized gate deletion or aliasing assumption is hidden.",
+    "No forbidden trust or format markers appear."
+  ],
+  "build_status": "Cached check exit0, exact source/tail hashes and empty complete diagnostics verified. Permitted-import standalone remains separate.",
+  "build_receipt": {
+    "source": "results/orch/lemmas/structural-cofactor-protected.lean",
+    "sha256": "29815afd27dcfb8bedbd90984c72021c64e2c66ba904906beb6e176a8fc6e087",
+    "tail_sha256": "1882bb573710c069a46970ca6894bfb33ec32b32fc79cbb9722cef031450884c",
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:44:37.901925+00:00",
+    "scope": "Generic cofactor protection transport through cof_Inv: all reachable fanouts stay at most1. No graph/correctness/free-input-essentiality hypothesis."
+  },
+  "changes_since_initial_review": "Correct induction-constructor name; explicit classical decidability for fiber filter; removed two redundant reflexivity steps closed by rw. No statement or argument changes."
+}

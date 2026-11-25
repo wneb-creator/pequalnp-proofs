@@ -1,0 +1,783 @@
+{
+  "scope": "Independent verification and symmetry classification of342 abstract q2 residual/family survivors. Not circuits or a proof of feasibility. New count-saturation consequences and the combined finite-to-circuit transfer are not yet Lean packaged.",
+  "input_sha256": "cda8350c07d306fba9117d4b40e5776574bd3ccd6177734595037efcff3f35d5",
+  "states_verified": 342,
+  "line_automorphisms": [
+    {
+      "line_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "point_permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "line_positions": [
+        0,
+        1,
+        4,
+        3,
+        2,
+        6,
+        5
+      ],
+      "point_permutation": [
+        0,
+        3,
+        2,
+        1,
+        5,
+        4,
+        6
+      ]
+    },
+    {
+      "line_positions": [
+        0,
+        5,
+        2,
+        4,
+        3,
+        1,
+        6
+      ],
+      "point_permutation": [
+        3,
+        1,
+        2,
+        0,
+        4,
+        6,
+        5
+      ]
+    },
+    {
+      "line_positions": [
+        0,
+        5,
+        3,
+        4,
+        2,
+        6,
+        1
+      ],
+      "point_permutation": [
+        3,
+        0,
+        2,
+        1,
+        6,
+        4,
+        5
+      ]
+    },
+    {
+      "line_positions": [
+        0,
+        6,
+        3,
+        2,
+        4,
+        5,
+        1
+      ],
+      "point_permutation": [
+        1,
+        0,
+        2,
+        3,
+        6,
+        5,
+        4
+      ]
+    },
+    {
+      "line_positions": [
+        0,
+        6,
+        4,
+        2,
+        3,
+        1,
+        5
+      ],
+      "point_permutation": [
+        1,
+        3,
+        2,
+        0,
+        5,
+        6,
+        4
+      ]
+    }
+  ],
+  "unit_permutation_count": 6,
+  "group_size": 36,
+  "orbit_count": 11,
+  "orbit_size_histogram": {
+    "36": 8,
+    "18": 3
+  },
+  "canonical": [
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          17,
+          49,
+          69,
+          71,
+          75,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          33,
+          49,
+          69,
+          71,
+          75,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          48,
+          49,
+          69,
+          71,
+          75,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          49,
+          51,
+          69,
+          71,
+          75,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          49,
+          57,
+          69,
+          71,
+          75,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          0,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          49,
+          69,
+          71,
+          75,
+          113,
+          114
+        ],
+        "assigned": [
+          75,
+          71,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          0,
+          1,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 18,
+      "representative": {
+        "r": [
+          3,
+          5,
+          1,
+          1,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 114,
+        "family": [
+          11,
+          49,
+          59,
+          69,
+          79,
+          114,
+          117
+        ],
+        "assigned": [
+          79,
+          79,
+          114,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          2,
+          2,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          1,
+          5,
+          2,
+          6,
+          5
+        ],
+        "strict_mask": 106,
+        "family": [
+          11,
+          49,
+          59,
+          69,
+          79,
+          106,
+          117
+        ],
+        "assigned": [
+          75,
+          79,
+          106,
+          49
+        ],
+        "costs": [
+          4,
+          5,
+          1,
+          5,
+          1,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 36,
+      "representative": {
+        "r": [
+          3,
+          5,
+          1,
+          5,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 122,
+        "family": [
+          11,
+          49,
+          59,
+          69,
+          79,
+          117,
+          122
+        ],
+        "assigned": [
+          75,
+          79,
+          122,
+          49
+        ],
+        "costs": [
+          3,
+          5,
+          1,
+          5,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 18,
+      "representative": {
+        "r": [
+          3,
+          5,
+          2,
+          5,
+          5,
+          5,
+          6
+        ],
+        "strict_mask": 122,
+        "family": [
+          11,
+          49,
+          59,
+          69,
+          79,
+          117,
+          122
+        ],
+        "assigned": [
+          59,
+          69,
+          122,
+          59
+        ],
+        "costs": [
+          3,
+          5,
+          1,
+          5,
+          5,
+          5,
+          3
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          6
+        ],
+        [
+          1,
+          3,
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "orbit_size": 18,
+      "representative": {
+        "r": [
+          3,
+          5,
+          5,
+          5,
+          6,
+          6,
+          5
+        ],
+        "strict_mask": 126,
+        "family": [
+          11,
+          49,
+          59,
+          69,
+          79,
+          117,
+          126
+        ],
+        "assigned": [
+          79,
+          79,
+          126,
+          49
+        ],
+        "costs": [
+          2,
+          5,
+          5,
+          5,
+          3,
+          3,
+          5
+        ]
+      },
+      "unit_supports_local_lines": [
+        [
+          0,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ]
+    }
+  ]
+}

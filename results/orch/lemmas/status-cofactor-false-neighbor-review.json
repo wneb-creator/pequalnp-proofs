@@ -1,0 +1,15 @@
+{
+  "status": "PASS independent mathematics/source review; cached Lean exit0, standalone pending",
+  "reviewed_utc": "2026-11-25T12:31:37.868839+00:00",
+  "source": "results/orch/lemmas/constructive-cofactor-false-neighbor-tail.lean",
+  "sha256": "3d1899dd7ab493df2ec0aad01bb97313b9ba726845ae4faf3061de650305acd7",
+  "scope": "Any single-reader chain from a fixed-false neighbor reaches a wire with empty cofactor singleton support. No eligibility hypothesis.",
+  "checks": [
+    "cf_good provides a distinct nonneighbor free input for every cofactor singleton.",
+    "cof_ext_single has support exactly center plus that free input, hence graph output false.",
+    "Inserting the neighbor makes output true; the explicit chain provides domination and forces branch false.",
+    "Membership in cof_supp is contradicted pointwise; no unsupported global branch-equals-input claim."
+  ],
+  "cached_receipt": "results/orch/lemmas/constructive-cofactor-false-neighbor-cache-build.json",
+  "standalone_status": "pending"
+}

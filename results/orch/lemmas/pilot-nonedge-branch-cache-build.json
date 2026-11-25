@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/pilot-nonedge-branch-tail.lean",
+  "sha256": "b5e3ee559aac36e8f5d2dd891b0e4218b4dd1a807c05ccbaa0a1f4359a5580b8",
+  "cached_exit_code": 0,
+  "completed_utc": "2026-11-25T12:30:20.514273+00:00",
+  "scope": "Any chain from input i has value false on a nonedge pair omitting i; no purity/eligibility assumption."
+}

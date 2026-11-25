@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-protected.lean",
+  "sha256": "29815afd27dcfb8bedbd90984c72021c64e2c66ba904906beb6e176a8fc6e087",
+  "tail_sha256": "1882bb573710c069a46970ca6894bfb33ec32b32fc79cbb9722cef031450884c",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:44:37.901925+00:00",
+  "scope": "Generic cofactor protection transport through cof_Inv: all reachable fanouts stay at most1. No graph/correctness/free-input-essentiality hypothesis."
+}

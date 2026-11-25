@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-11-25T12:30:55.628252+00:00",
+  "verdict": "UNKNOWN",
+  "scope": "Ordinary Fano p14 compact model with at most18 AND atoms; 1200-second timeout. No SAT witness, no UNSAT proof, no Lean result.",
+  "variables": 25197,
+  "clauses": 110093,
+  "solver_exit": 0,
+  "wrapper_exit": 0,
+  "elapsed_seconds": 1200.044639825821,
+  "source_sha256": "fe2e8f6c4c9f9c259c91bbb0c5ebdeff0b17c7de8d925347b589f2ca75772cd1",
+  "static_artifact_manifest": "results/orch/lemmas/sat-p14-compact-preservation-manifest.json",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18-run.stdout.gz",
+      "bytes": 10814,
+      "sha256": "2c5bcaeb5a3a154f02610c67500bcddbbccfd405dc0b6f489e3184a60d1f91c0",
+      "restore_as": "sat-p14-compact18-run.stdout",
+      "gzip": true,
+      "uncompressed_bytes": 40015,
+      "uncompressed_sha256": "01cdc79b8fa9af6fe134561fdd2722ce979f21a074398e100d8833d14df65a9d"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact18-run.stderr",
+      "gzip": true,
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18-run.runlog.gz",
+      "bytes": 158,
+      "sha256": "fbc6928506ca7a11247229df847f05b754a1f8ed4d0a8bd4073e87e53298eaeb",
+      "restore_as": "sat-p14-compact18-run.runlog",
+      "gzip": true,
+      "uncompressed_bytes": 175,
+      "uncompressed_sha256": "250fe815bc4d5cdd5933baebe70e520f89044ce813a02db6cadcf57a4a774f86"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18-run.receipt.json.gz",
+      "bytes": 283,
+      "sha256": "c74b38e6ebc8d6b278a656221337f8edd046b1b0bdfef88d140cf0c1b7df7296",
+      "restore_as": "sat-p14-compact18-run.receipt.json",
+      "gzip": true,
+      "uncompressed_bytes": 456,
+      "uncompressed_sha256": "7a10eece820dcf73ef3a54b0986eadaec00e4f41d1e81ea76ce985060ba0f882"
+    }
+  ]
+}

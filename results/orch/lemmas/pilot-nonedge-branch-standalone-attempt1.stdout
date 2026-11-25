@@ -1,0 +1,4 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-nonedge-branch-standalone.lean:3288:0: error: Invalid name after `end`: Expected `Outside.L_meta_6659_aux.SemPaths`, but found `PEqualNP.Outside.L_meta_6659_aux`
+
+Hint: If you meant to end the outer scope(s) `PEqualNP.Outside.L_meta_6659_aux`, you must end all the intervening scopes `PEqualNP.Outside.L_meta_6659_aux.SemPaths`:
+  end PEqualNP.Outside.L_meta_6659_aux.̲S̲e̲m̲P̲a̲t̲h̲s̲

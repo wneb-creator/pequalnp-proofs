@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-chain-agreement-standalone.lean",
+  "source_sha256": "47c5191b3f41cf091d3e233243eab90b18e95172d59a053844cc3e35cd050374",
+  "tail_sha256": "a49f696d04ef1515bb1796589dc20c5670cebb25a26851e0a53ca8c0a429d3cb",
+  "lines": 2648,
+  "bytes": 122194,
+  "completed_utc": "2026-11-25T12:42:28.828597+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "Permitted-import standalone generic chain agreement and ineligible-consumption insertion blocker. Accepted first2534lines plus section/namespace closure and frozen tail."
+}

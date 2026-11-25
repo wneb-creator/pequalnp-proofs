@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T12:42:12.371457+00:00",
+  "source": "results/orch/lemmas/algebraic-line-q2-saturation-tail.lean",
+  "sha256": "b00324540caa47dab09acb4e454fce350c00f1e657428a07f428385bb5166df4",
+  "lines": 85,
+  "build": {
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-line-q2-saturation-tail.lean",
+    "sha256": "b00324540caa47dab09acb4e454fce350c00f1e657428a07f428385bb5166df4",
+    "cached_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/AlgebraicLineQ2Saturation.lean",
+    "cached_source_sha256": "36f79571f40c3186aa90a3db3ec5a207dbb852361e13bb4f5fd8c042993cf4e6",
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:40:46.902584+00:00",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "scope": "For I0123 and missing masks2456 at Bplus\u226413, every valid occurring-mask family has cardinality\u22647. A family with\u22657 members contains every occurring mask except empty/singletons and pairs outside all required triples."
+  },
+  "finite_geometry": {
+    "accepted_point_incidence": "(point+line_index)%7 in {0,1,3}",
+    "P": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "occurring_centers": [
+      0,
+      1,
+      3
+    ],
+    "missing_centers": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "missing_neighbor_union": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  "checks": [
+    "All seven opposite-side labels are eligible from the exact ineligible set. The missing-point definition partitions the seven point-neighborhood masks into the three occurring centers and four explicitly absent centers.",
+    "The generic mask-family inequality specializes to |Y|+4+6+10 <= 14+Bplus; Bplus<=13 therefore gives |Y|<=7. Independently checked the six-element missing-neighbor union in accepted labels.",
+    "For an occurring mask outside Y of size at least2, failure of the exceptional-pair conclusion makes it satisfy the same pair-containment condition as Y. Adjoining it increases cardinality beyond7, contradicting the first theorem.",
+    "The seven-member family remains an explicit hypothesis; the theorem does not assert closure, existence of that family, or exclusion of the full q2 case. No total-surplus or Bzero assumption is hidden.",
+    "Exact tail appears in the cached wrapper whose hash matches the successful receipt; no ambient variable declarations add unstated hypotheses."
+  ],
+  "scope": "At most seven valid occurring masks; a family of at least seven contains all occurring masks except size<=1 masks and pairs contained in none of the three required triples.",
+  "issues": []
+}

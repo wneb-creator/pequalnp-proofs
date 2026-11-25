@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-mask-closure-standalone.lean",
+  "source_sha256": "acb3ab00bcf6e6aaaef5ddc1e25f38d442b59aba80d90906aba46f7a1dce837e",
+  "tail_sha256": "cb1093eec7764dbff76361dba37368baa984c31a99cc61dccc550299483bbac6",
+  "lines": 894,
+  "bytes": 39653,
+  "completed_utc": "2026-11-25T12:42:52.804766+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "Permitted-import standalone support-mask closure induction. Accepted first848lines plus section/namespace closure and frozen tail; all allowed/closed-family hypotheses explicit."
+}

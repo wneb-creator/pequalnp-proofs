@@ -1,0 +1,212 @@
+{
+  "created_utc": "2026-11-25T12:46:10.688935+00:00",
+  "scope": "Independently reviewed topological-order and nine-free cofactor additions to the quiet compact model. No solver result.",
+  "source_sha256": "8fa003dd5c3828cf5e633aa095172f5c9dff5fb8c6dd1e8e5bf95338b2809eb5",
+  "requires": [
+    "results/orch/lemmas/sat-p14-quiet-preservation-manifest.json",
+    "results/orch/lemmas/sat-p14-compact-preservation-manifest.json"
+  ],
+  "proof_source": "results/orch/lemmas/structural-cofactor-nine-free-standalone.lean",
+  "proof_source_sha256": "ee4e35f40a96e21de5bfc084f34c7655c4f6d2aa279bc6af951de75abb483c6f",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine.py",
+      "bytes": 4375,
+      "sha256": "8fa003dd5c3828cf5e633aa095172f5c9dff5fb8c6dd1e8e5bf95338b2809eb5",
+      "restore_as": "sat-p14-compact-nine.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine-controls.py",
+      "bytes": 4850,
+      "sha256": "488f57a827cda44091fdb230a2322d01091716ea215053dbd07ddcc55c8b0946",
+      "restore_as": "sat-p14-compact-nine-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine-controls.json",
+      "bytes": 1457,
+      "sha256": "e5c05abd0cf862147183f4affb30c5ca64f0c92804b0f54b0e476318cda9221e",
+      "restore_as": "sat-p14-compact-nine-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine-controls.stdout",
+      "bytes": 953,
+      "sha256": "0f3c2b8d2557af3495bcd3df026cb8f1fab8e41d21ad915a088dd4ca0206eb57",
+      "restore_as": "sat-p14-compact-nine-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-nine-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-nine-order-audit.py",
+      "bytes": 4113,
+      "sha256": "1f3d5195ddfc8f64127cdf3efc84f827a0a5704b4e97b2871f0402679da79dde",
+      "restore_as": "constructive-nine-order-audit.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-nine-order-review.json",
+      "bytes": 1809,
+      "sha256": "0e53e692bbda33af0c9503366c1dda3cd409b7f05fd3fb0e445d314940ac31ae",
+      "restore_as": "constructive-nine-order-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-nine-order-audit.stdout",
+      "bytes": 502,
+      "sha256": "f8ead5e80ed27de14c3f45e3ac248de8cb3270bc1cc897a3abcfe22a4c9601b5",
+      "restore_as": "constructive-nine-order-audit.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-nine-order-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-nine-order-audit.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-nine-free-encoding-review.py",
+      "bytes": 4296,
+      "sha256": "2a3ad03f0ae7948f860a9cb2767caf1e853a42e100230247117169200eb96ff1",
+      "restore_as": "status-nine-free-encoding-review.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-nine-free-encoding-review-portable.py",
+      "bytes": 4773,
+      "sha256": "cea26854e06a3fb1aaea8813b00134a1f79f1822ccd5305fa9713ae2beb42bc6",
+      "restore_as": "status-nine-free-encoding-review-portable.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-nine-free-encoding-review.json",
+      "bytes": 799,
+      "sha256": "97538b479cbc22cede68ba2f1ebc2eed3a0a35e9e9e832e8d163a4983ba52f07",
+      "restore_as": "status-nine-free-encoding-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-nine-free-encoding-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "status-nine-free-encoding-review.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-cofactor-tables.py",
+      "bytes": 2150,
+      "sha256": "38d997850257c4c75eb6bebed6bfe063a31d0673b8d7936f63bb4b0d64ae5f67",
+      "restore_as": "status-cofactor-tables.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-cofactor-tables.json",
+      "bytes": 6486,
+      "sha256": "21b5d51bde5e3ba9c6a27ddd76d7a9ac503b1e4c321ca0bcd13f5fb53bd93869",
+      "restore_as": "status-cofactor-tables.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/status-cofactor-tables.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "status-cofactor-tables.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-nine-model.md",
+      "bytes": 2551,
+      "sha256": "f29fb58de14f5712c31abeedf9da452c1ac53fd27b6a32e8c345816b9e8762e9",
+      "restore_as": "sat-p14-nine-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine18.cnf.gz",
+      "bytes": 508869,
+      "sha256": "25ab16ad8c1b2fa75a8ce2aa49ae747dfcda29cf1f9117b4d4244fea39660eb9",
+      "restore_as": "sat-p14-compact-nine18.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "639d238daeb7ff3bda925eaf50eda20693b0ebca0932e3f9366c62dbc5068759"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine18.metadata.json.gz",
+      "bytes": 104999,
+      "sha256": "44c6f4fa0d92c6557e91838393a4af31120bbec84fb2994bbe60fc2ed7e15342",
+      "restore_as": "sat-p14-compact-nine18.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "0fad6886fc9caf023f50c6e13c6943a4a603d16fe29b650f99e2da5bb89ce183"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine35-control.cnf.gz",
+      "bytes": 375904,
+      "sha256": "98f6f0895b1e75b57c6a8d2590c809eb385009ceac875163d01c50b78c89416f",
+      "restore_as": "sat-p14-compact-nine35-control.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "7d9e27bdc576f32d4fd387a86b75fbc75db0b1c1bc7b27c007b5f8524501df9f"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine35-control.metadata.json.gz",
+      "bytes": 74877,
+      "sha256": "8a86f93cdb63029a10d37459503421ec73e0adbb4a9e2690c1c1b6ba37018ee8",
+      "restore_as": "sat-p14-compact-nine35-control.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "445d15928a825240a32c0311ccb4c02f035b119e34e17f2ecf93874a612f7b82"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine35-control.compact-control.json.gz",
+      "bytes": 306,
+      "sha256": "3ff2fd49cde730532e0fe0f82aa6e2de6401e1bed6e34aeec8e871351ee58130",
+      "restore_as": "sat-p14-compact-nine35-control.compact-control.json",
+      "gzip": true,
+      "uncompressed_sha256": "f2bac72da458de22270c9076ed46aed969ab5d482bd38a89978ba8cc720f50d2"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine35-control.complete-assignment.json.gz",
+      "bytes": 60211,
+      "sha256": "1f95c52ffa92903496499a0f415c941828b3d885a3728b70d6aea7d9b82d5517",
+      "restore_as": "sat-p14-compact-nine35-control.complete-assignment.json",
+      "gzip": true,
+      "uncompressed_sha256": "6359f3ed0efd108d992794b17862747320047cc54a8acdc3d4494eec55d01884"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine-host-control.cnf.gz",
+      "bytes": 1264106,
+      "sha256": "c787103241ab9172c0ae89e372a1a30b1290bf93886f8aa971e0ec6b4e929955",
+      "restore_as": "sat-p14-compact-nine-host-control.cnf",
+      "gzip": true,
+      "uncompressed_sha256": "0f61a59dac71a65ea0e84ab857e0bb227cb4bb1a9c8409daba90ecaa4e9144c3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine-host-control.metadata.json.gz",
+      "bytes": 248072,
+      "sha256": "012a9833f1331a649879530bced32dc642ffa67875da039310707c7e4e068602",
+      "restore_as": "sat-p14-compact-nine-host-control.metadata.json",
+      "gzip": true,
+      "uncompressed_sha256": "ade612e26f8217e8600cc3392237adb1a19f8a5771cf5b5fdd4326a4a318ccb5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine-host-control.compact-control.json.gz",
+      "bytes": 321,
+      "sha256": "7634e93bb539f3fd48479dd8fe9ba3e06ff1b75cd2d5d716212b72001213d9e3",
+      "restore_as": "sat-p14-compact-nine-host-control.compact-control.json",
+      "gzip": true,
+      "uncompressed_sha256": "5f14f7b5f4aa483a0a11f07fdc2ef3b73a0ad810f434b4316510d1ab24dfeb6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine-host-control.complete-assignment.json.gz",
+      "bytes": 190394,
+      "sha256": "7b2047fcf1c2c6b5c3d2e0ef50f361aa87967d5010bb23e0d5ec9619461fc18a",
+      "restore_as": "sat-p14-compact-nine-host-control.complete-assignment.json",
+      "gzip": true,
+      "uncompressed_sha256": "bd0f208def5ef4ae35ac2857aec66e8597fcc333e6e727444d20cc19f49a85ad"
+    }
+  ]
+}

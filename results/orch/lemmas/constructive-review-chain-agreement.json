@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "source_sha256": "a49f696d04ef1515bb1796589dc20c5670cebb25a26851e0a53ca8c0a429d3cb",
+  "reviewed_utc": "2026-11-25T12:40:01.329027+00:00",
+  "build_status": "Full permitted-import standalone passed exit0, empty stdout/stderr.",
+  "mathematical_review": "Chain_hits follows unique first readers and strict index increase. Chain_agreement converts a changed later wire to a changed-path crossing the unchanged chain endpoint. Ineligible-consumption blocking obtains a unique-reader carrier chain, proves the sibling cannot depend on the inserted input, uses the absent singleton label to make both AND outputs false, and propagates equality to every later wire. All needed index and absence premises are explicit.",
+  "scope": "Generic graph-independent agreement and insertion-blocking lemmas, not a Fano case closure.",
+  "format": "No forbidden markers, admissions, new axioms, strings, or unsupported options/attributes in the new tail.",
+  "standalone_source_sha256": "47c5191b3f41cf091d3e233243eab90b18e95172d59a053844cc3e35cd050374",
+  "standalone_receipt": "formalization-chain-agreement-standalone-build.json",
+  "composition": "Exact accepted first2534lines, section/namespace closure, and unchanged frozen tail."
+}

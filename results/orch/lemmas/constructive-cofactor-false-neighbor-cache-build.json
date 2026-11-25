@@ -1,0 +1,15 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-cofactor-false-neighbor-tail.lean",
+  "source_sha256": "3d1899dd7ab493df2ec0aad01bb97313b9ba726845ae4faf3061de650305acd7",
+  "wrapper": "/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveCofactorFalseNeighbor.lean",
+  "wrapper_sha256": "dd9682944133d49858519d78c29cf0f9c7643b7373dda27aa4dfa8189c37ad80",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:30:57.933484+00:00",
+  "warnings": "Three unnecessary-simpa/deprecated-if warnings; no errors.",
+  "scope": "Cached import check only; permitted-import standalone remains pending. Any single-reader branch of a fixed-false neighbor has empty cofactor singleton support.",
+  "dependencies": [
+    "PNPAccepted6659",
+    "equality_critical_branch_false"
+  ],
+  "prior_attempt": "Finset theorem name camel-case correction; complete failed stdout/stderr retained."
+}

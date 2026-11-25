@@ -55,3 +55,13 @@
 2026-11-25T12:25:12Z: Mixed p10 I01211 surplus bound completed standalone exit0.
 2026-11-25T12:25:43Z: Canonical p10 cap ordinary exclusion completed standalone exit0.
 2026-11-25T12:26:52Z: Missing49 finite/Finset sibling completed standalone exit0.
+
+2026-11-25T12:34Z: Broad full27 double-quiet SAT run ended UNKNOWN at its assigned cutoff; complete diagnostics retained.
+2026-11-25T12:36:32Z: Nonedge-pair branch lemma completed standalone exit0.
+2026-11-25T12:37:09Z: Line p10 missing q0/q1/q3 subcases completed standalone ordinary exclusions; q2 remains open.
+2026-11-25T12:38:27Z: Nine-free cofactor cost bound completed standalone exit0.
+2026-11-25T12:42:28Z: Single-reader chain agreement and consumption blocker completed standalone exit0.
+2026-11-25T12:42:52Z: Generic support-mask closure completed standalone exit0.
+2026-11-25T12:44:37Z: Generic cofactor protection transport completed cached compilation; standalone remains separate.
+
+2026-11-25T12:47:51.801477+00:00: Checkpoint1245 freeze prepared; full target remains unresolved.

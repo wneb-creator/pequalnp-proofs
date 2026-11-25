@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-cofactor-nine-free-tail.lean",
+  "sha256": "4e4a68d13619893e2c88dfa9ea5a1e91dd6e1a063bec79244aeb45d6b688e7f8",
+  "scope": "At least three originally eligible free original K4 labels outside prior charges strengthen the cofactor loss bound to ru(center)+card(X)+9\u2264original totalSurplus.",
+  "review": "For cofactor surplus\u22646 the equality theorem makes every such original vertex ineligible and charges all J; at surplus7 the at-most-two classification forces one extra ineligible vertex; at surplus\u22658 the original charge alone suffices. No total14 or Bzero premise is assumed.",
+  "cached_source_sha256": "27b6b8772f82dff09fa8adf40a750f0ae9e6028a9a29ef698d44680165343658",
+  "receipt": "structural-cofactor-nine-free-build.json",
+  "build_exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

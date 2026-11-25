@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "b9ccb4c19d914d5c664266cc426272305eb23de679aa3a81920a38278691a441",
+  "controls": [
+    {
+      "tag": "sat-p14-compact-quiet35-control",
+      "active_atoms": 15,
+      "variables": 24414,
+      "clauses": 95317,
+      "truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ],
+      "equality": false,
+      "negative_proxy": false
+    },
+    {
+      "tag": "sat-p14-compact-quiet-host-control",
+      "active_atoms": 20,
+      "variables": 73510,
+      "clauses": 334943,
+      "truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ],
+      "equality": true,
+      "negative_proxy": true
+    }
+  ]
+}

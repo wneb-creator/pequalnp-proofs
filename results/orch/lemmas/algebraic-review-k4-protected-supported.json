@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-k4-protected-supported-tail.lean",
+  "sha256": "c79b9df64fbcfe28309c43d7d6a62046d5c0f74914c058a6e2f99baec6948f23",
+  "review_utc": "2026-11-25T12:33:11.434765+00:00",
+  "scope": "K4 strict-live/correct circuit with ineligible opposite subdivided vertices5,8 and a protected forward cone from5 has Bplus\u22658. No Bzero assumption.",
+  "review": [
+    "Protected full-support proof correctly replaces Bzero0 by explicit unique-reader reachability.",
+    "Three-slot exhaustion and residual-one co-label contradiction preserve all nonneighbor and distinct-slot premises.",
+    "Low eligible-card cases use only Bplus via residual counts, not total or Bzero.",
+    "Independent enumeration checked every independent four-set containing5,8 and every vertex cover omitting5,8."
+  ],
+  "independent_four_sets_checked": 6,
+  "receipt": "structural-k4-protected-supported-build.json",
+  "build_exit_code": 0,
+  "post_review_changes": "The finite independent-four-set geometry was decomposed into the same six explicitly enumerated sets, with concrete witness pairs. All six sets/witnesses were independently rechecked."
+}

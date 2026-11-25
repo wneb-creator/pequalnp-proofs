@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/pilot-nonedge-branch-standalone.lean",
+  "sha256": "22c8080c1289acb814e5759eb08379e0859ad7de047eefa6bb6ef2661bd5c0cf",
+  "exit_code": 1,
+  "started_utc": "2026-11-25T12:30:20.667401+00:00",
+  "completed_utc": "2026-11-25T12:31:33.544316+00:00",
+  "scope": "Single-reader chain value on nonedge pair omitting its starting label; no full no-quiet conclusion."
+}

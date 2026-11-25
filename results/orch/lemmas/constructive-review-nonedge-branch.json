@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T12:28:53.583374+00:00",
+  "source_sha256": "b5e3ee559aac36e8f5d2dd891b0e4218b4dd1a807c05ccbaa0a1f4359a5580b8",
+  "build_status": "Full permitted-import standalone passed exit0; complete logs empty.",
+  "reason": "The finite extension supplies a neighbor of i nonadjacent to both pair vertices. The three-element support is independent, while insertion of i creates an edge. A dominating chain endpoint must therefore be false on that extended negative assignment; monotonicity forces false on the original pair. Diagonal pair cases and possible repeated z are handled by finite-set membership and irreflexivity. No purity, eligibility, or base-size assumption is silently used.",
+  "format": "New tail contains no forbidden marker, admission, new axiom, string literal, or unsupported attribute.",
+  "cache_receipt": "pilot-nonedge-branch-cache-build.json",
+  "standalone_source_sha256": "d9ccde3ded81fb7c15e340b77e1a6d3a3c0b2f86b1395f48eea8df42def5202d",
+  "standalone_receipt": "pilot-nonedge-branch-standalone-build.json",
+  "composition": "Exact accepted first3239lines, closing SemPaths, unchanged reviewed tail, final namespace close."
+}

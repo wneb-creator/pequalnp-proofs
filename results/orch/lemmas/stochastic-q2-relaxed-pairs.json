@@ -1,0 +1,31 @@
+{
+  "examples": [
+    {"unit_masks": [3, 33, 68], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [3, 68, 33], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 3, 68], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 68, 3], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [68, 3, 33], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [68, 33, 3], "strict_mask": 103, "family": [11, 69, 49, 103, 11, 69, 49], "assigned": [11, 69, 103, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 33, 65], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 65, 33], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 10, 65], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 65, 10], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 10, 33], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [65, 33, 10], "strict_mask": 107, "family": [11, 69, 49, 107, 11, 69, 49], "assigned": [11, 69, 107, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 33, 69], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [10, 69, 33], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [11, 33, 68], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [11, 68, 33], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 10, 69], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 11, 68], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 68, 11], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false},
+    {"unit_masks": [33, 69, 10], "strict_mask": 111, "family": [11, 69, 49, 111, 11, 69, 49], "assigned": [11, 69, 111, 49], "center_cost": 6, "passes_new_cut": false}
+  ],
+  "families_processed": 15,
+  "families_total": 15,
+  "complete": true,
+  "seconds": 0.225842,
+  "direct_center_survivors_before_protection": 0,
+  "direct_center_survivors_after_protection": 0,
+  "counts_all_budget_colabel_protected_oldcofactor_newcofactor": [1221858, 34140, 382, 220, 72, 0]
+}

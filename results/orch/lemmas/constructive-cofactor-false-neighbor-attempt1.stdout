@@ -1,0 +1,2 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveCofactorFalseNeighbor.lean:31:8: error(lean.unknownIdentifier): Unknown constant `Finset.eq_empty_iff_forall_not_mem`
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveCofactorFalseNeighbor.lean:32:8: error: No goals to be solved
