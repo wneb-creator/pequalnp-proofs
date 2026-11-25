@@ -11,7 +11,7 @@ open PEqualNP.MetaComplexity
 def H2.petersenEdges : List (Fin 10 × Fin 10) :=
   [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 5), (1, 6), (2, 7), (3, 8), (4, 9), (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)]
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -2243,7 +2243,7 @@ lemma H2.n0ResidualPairs_embed (p : Fin 3) (r : Fin 6) (hr : r ∈ n0ResidualPai
   revert hr
   fin_cases p <;> fin_cases r <;> decide +kernel
 
-lemma H2.n0_retained_annotations {D : Dag} (hS : Strict 10 D) (q : ℕ)
+lemma H2.n0_retained_marks {D : Dag} (hS : Strict 10 D) (q : ℕ)
     (hq : q ≤ (stage 6 n0Refs D D.length).2.length) (M : Finset ℕ)
     (hgood : ∀ j ∈ M, (0 : Fin 10) ∈ supp 10 D (10 + j) ∨
       ∃ p : Fin 3, supp 10 D (10 + j) = n0OriginalPairs p)
@@ -2317,7 +2317,7 @@ def C6.DagTools.gop : Bool → Bool → Bool → Bool
   | true, a, b => a && b
   | false, a, b => a || b
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 @[local simp] lemma C6.DagTools.gop_true (a b : Bool) : gop true a b = (a && b) := rfl
 
@@ -3509,7 +3509,7 @@ lemma C6.DagTools.sem_code_count (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_
 end SemArms
 end packScope4
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 abbrev C6.V := Fin 6
 
@@ -3571,9 +3571,9 @@ lemma C6.consumers_injective {D : Dag} {v w : V} {e f : ℕ × Bool}
 end packScope3
 
 section packScope5
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6
+open PEqualNP.Outside.L_meta_2590_aux.C6
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def C6.oppositePair (v w : V) : Prop :=
   (v.val, w.val) ∈ [(0,5),(1,4),(2,3)] ∨ (w.val, v.val) ∈ [(0,5),(1,4),(2,3)]
@@ -3596,9 +3596,9 @@ def C6.fourEndpoints : Finset V := {0, 1, 4, 5}
 end packScope5
 
 section packScope6
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6
+open PEqualNP.Outside.L_meta_2590_aux.C6
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def C6.swapPairs : Equiv.Perm V where
   toFun := ![0, 2, 1, 4, 3, 5]
@@ -3639,9 +3639,9 @@ lemma C6.c6_relabel_computes (σ : Equiv.Perm V)
 end packScope6
 
 section packScope7
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6
+open PEqualNP.Outside.L_meta_2590_aux.C6
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def C6.edgeBool (x : V → Bool) : Bool :=
   (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 3) ||
@@ -3662,7 +3662,7 @@ section packScope8
 def C6.ThreeBirth.factors (t : Fin 3) (x : V → Bool) : Bool × Bool :=
   ![(x 2, x 4 || x 5), (x 3, x 0 || x 1), (x 0 || x 5, x 1 || x 4)] t
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth
+open PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth
 
 def C6.ThreeBirth.order (o : Fin 6) : Fin 3 → Fin 3 :=
   ![![0, 1, 2], ![0, 2, 1], ![1, 0, 2], ![1, 2, 0], ![2, 0, 1], ![2, 1, 0]] o
@@ -3783,12 +3783,12 @@ end packScope8
 
 
 section packScope9
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def LinearNoise.linear {n : Nat} (S : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
   decide (∃ v ∈ S, x v = true)
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.LinearNoise
+open PEqualNP.Outside.L_meta_2590_aux.LinearNoise
 
 lemma LinearNoise.linear_empty {n : Nat} (x : Fin n → Bool) : linear ∅ x = false := by
   simp [linear]
@@ -3900,8 +3900,8 @@ end packScope9
 
 section packScope10
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.LinearNoise
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth
+open PEqualNP.Outside.L_meta_2590_aux.LinearNoise
+open PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth
 
 lemma BirthNoiseProjection.uses_before {n w : Nat} {birth : Fin 3 → Nat}
     {f : (Fin 3 → Bool) → Bool} (hb : StrictMono birth)
@@ -3914,7 +3914,7 @@ lemma BirthNoiseProjection.uses_before {n w : Nat} {birth : Fin 3 → Nat}
   have hbirth := hb.monotone (le_of_not_gt hji)
   omega
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.BirthNoiseProjection
+open PEqualNP.Outside.L_meta_2590_aux.BirthNoiseProjection
 
 lemma BirthNoiseProjection.uses_before_zero {n w : Nat} {birth : Fin 3 → Nat}
     {f : (Fin 3 → Bool) → Bool} (hb : StrictMono birth)
@@ -3988,7 +3988,7 @@ lemma BirthOrder.strictMono_three (f : Fin 3 → Nat) (h01 : f 0 < f 1) (h12 : f
   intro i j hij
   fin_cases i <;> fin_cases j <;> simp_all
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.BirthOrder
+open PEqualNP.Outside.L_meta_2590_aux.BirthOrder
 
 lemma BirthOrder.sort_three (G : Fin 3 → Nat) (hG : Function.Injective G) :
     ∃ σ : Fin 3 → Fin 3, Function.Bijective σ ∧ StrictMono (G ∘ σ) := by
@@ -4043,7 +4043,7 @@ end packScope11
 
 section packScope12
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6 _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools _root_.PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth _root_.PEqualNP.Outside.L_meta_2590_aux.LinearNoise _root_.PEqualNP.Outside.L_meta_2590_aux.BirthNoiseProjection
+open PEqualNP.Outside.L_meta_2590_aux.C6 PEqualNP.Outside.L_meta_2590_aux.C6.DagTools PEqualNP.Outside.L_meta_2590_aux.C6.ThreeBirth PEqualNP.Outside.L_meta_2590_aux.LinearNoise PEqualNP.Outside.L_meta_2590_aux.BirthNoiseProjection
 
 lemma BirthNoiseAdapter.no_sorted_three_births {D : Dag} (hD : Strict 6 D)
     (birth L R : Fin 3 → Nat) (hb : StrictMono birth)
@@ -4116,7 +4116,7 @@ lemma BirthNoiseAdapter.no_sorted_three_births {D : Dag} (hD : Strict 6 D)
   rw [hsout, linear_empty, Bool.false_or] at he
   exact he.symm.trans (hcorrect x)
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.BirthNoiseAdapter
+open PEqualNP.Outside.L_meta_2590_aux.BirthNoiseAdapter
 
 lemma BirthNoiseAdapter.no_three_births {D : Dag} (hD : Strict 6 D)
     (G L R : Fin 3 → Nat) (hG : Function.Injective G)
@@ -4151,9 +4151,9 @@ end packScope12
 
 
 section packScope13
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6
+open PEqualNP.Outside.L_meta_2590_aux.C6
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools _root_.PEqualNP.Outside.L_meta_2590_aux.LinearNoise
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools PEqualNP.Outside.L_meta_2590_aux.LinearNoise
 
 lemma C6.linear_pair (a b : V) (x : V → Bool) : linear {a, b} x = (x a || x b) := by
   have hs : ({a, b} : Finset V) = {a} ∪ {b} := by ext v; simp
@@ -4171,9 +4171,9 @@ end packScope13
 
 
 section packScope14
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6
+open PEqualNP.Outside.L_meta_2590_aux.C6
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.c6_Bplus_ge_three {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D) :
     3 ≤ Bplus 6 D := by
@@ -4194,7 +4194,7 @@ end packScope14
 
 
 section packScope15
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.bf_budget {D : Dag} (h : StrictLive 6 D)
     (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4) :
@@ -4212,7 +4212,7 @@ lemma C6.GenericPair.bf_budget {D : Dag} (h : StrictLive 6 D)
   rw [heq, hfour, hb4] at hr
   exact ⟨b, hb, heq, Finset.card_eq_zero.mp (by omega)⟩
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
 lemma C6.GenericPair.bf_inelig {D : Dag} (h : StrictLive 6 D)
     (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4) :
@@ -4457,9 +4457,9 @@ end packScope15
 
 
 section packScope16
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.common_exit_of_joint_support {D : Dag} (h : StrictLive 6 D)
     (hc : sem_Comp 6 adj D)
@@ -4763,9 +4763,9 @@ end packScope16
 
 
 section packScope17
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools _root_.PEqualNP.Outside.L_meta_2590_aux.LinearNoise
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools PEqualNP.Outside.L_meta_2590_aux.LinearNoise
 
 lemma C6.GenericPair.bf_birth_data {D : Dag} (h : StrictLive 6 D)
     (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
@@ -4838,9 +4838,9 @@ end packScope17
 
 
 section packScope18
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.no_Bplus_four {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
     (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
@@ -4902,9 +4902,9 @@ end packScope18
 
 
 section packScope19
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.opposite_joint_Bplus_ge_four {D : Dag} (h : StrictLive 6 D)
     (hc : sem_Comp 6 adj D) {u v : V} (hop : oppositePair u v)
@@ -4974,9 +4974,9 @@ end packScope19
 
 
 section packScope20
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.joint_relabel {D : Dag} (σ : Equiv.Perm V) (hS : Strict 6 D) {u v : V}
     (hJ : ∃ w, u ∈ supp 6 D w ∧ v ∈ supp 6 D w) :
@@ -5043,9 +5043,9 @@ end packScope20
 
 
 section packScope21
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
+open PEqualNP.Outside.L_meta_2590_aux.C6.GenericPair
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.GenericPair.one_pair_occurs_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
     (p : Fin 3) (hp : PairOccurs D p) : 9 ≤ D.length := by
@@ -5106,7 +5106,7 @@ end packScope2
 
 section packScope22
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma C6.DagTools.na_no_reader {D : Dag} {w : ℕ} (h : fanout D w = 0) (j : ℕ) (hj : j < D.length) :
     opA D j ≠ w ∧ opB D j ≠ w := by
@@ -5181,18 +5181,18 @@ lemma C6.DagTools.na_del_val {n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ) (hj
 end packScope22
 
 section packScope23
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 end packScope23
 
 section packScope24
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def PairPruning.c6Target (x : Fin 6 → Bool) : Bool :=
   (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 3) ||
     (x 1 && x 5) || (x 2 && x 4) || (x 2 && x 5)
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.PairPruning
+open PEqualNP.Outside.L_meta_2590_aux.PairPruning
 
 lemma PairPruning.c6_essential : ∀ i : Fin 6, ∃ x y : Fin 6 → Bool,
     (∀ k, k ≠ i → x k = y k) ∧ c6Target x ≠ c6Target y := by
@@ -5215,16 +5215,16 @@ lemma PairPruning.c6_nonempty {D : Dag}
 end packScope24
 
 section packScope25
-open _root_.PEqualNP.Outside.L_meta_2590_aux.PairPruning
+open PEqualNP.Outside.L_meta_2590_aux.PairPruning
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 end packScope25
 
 section packScope26
-open _root_.PEqualNP.Outside.L_meta_2590_aux.PairPruning
+open PEqualNP.Outside.L_meta_2590_aux.PairPruning
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 set_option synthInstance.maxSize 4096 in
 lemma PairPruning.c6Target_iff_adj (x : Fin 6 → Bool) :
@@ -5236,12 +5236,12 @@ lemma PairPruning.c6Target_iff_adj (x : Fin 6 → Bool) :
 end packScope26
 
 section packScope27
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 def AnnotatedPruning.keep {m : ℕ} (S : Finset (Fin m)) (g : Fin m → ℕ) (q : ℕ) : Finset (Fin m) :=
   S.filter (fun i => g i ≠ q)
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
+open PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
 
 def AnnotatedPruning.shift {m : ℕ} (g : Fin m → ℕ) (q : ℕ) (i : Fin m) : ℕ := na_sh q (g i)
 
@@ -5275,7 +5275,7 @@ lemma AnnotatedPruning.delete_support {n : ℕ} {D : Dag} (hS : Strict n D) (j :
   simp only [mem_supp]
   rw [na_del_val hS j hj hf (single v) w hw]
 
-lemma AnnotatedPruning.delete_annotations {m n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ)
+lemma AnnotatedPruning.delete_marks {m n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ)
     (hj : j < D.length) (hf : fanout D (n + j) = 0)
     (S : Finset (Fin m)) (g : Fin m → ℕ) (P : Fin m → Finset (Fin n))
     (hinj : Set.InjOn g S)
@@ -5309,9 +5309,9 @@ lemma AnnotatedPruning.delete_annotations {m n : ℕ} {D : Dag} (hS : Strict n D
 end packScope27
 
 section packScope28
-open _root_.PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
+open PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools
 
 lemma AnnotatedPruning.prune_aux {m n : ℕ} (F : (Fin n → Bool) → Bool)
     (hess : ∀ i : Fin n, ∃ x y : Fin n → Bool,
@@ -5382,7 +5382,7 @@ lemma AnnotatedPruning.prune_aux {m n : ℕ} (F : (Fin n → Bool) → Bool)
           rw [ho, na_del_val hS j hj hf0 x _ (by omega), hu]
           exact hD x
         obtain ⟨hkeep,hdrop,hginj,hgb,hgj⟩ :=
-          delete_annotations hS j hj hf0 S g P hinj hbounds hjoint
+          delete_marks hS j hj hf0 S g P hinj hbounds hjoint
         obtain ⟨D',S',g',h1,hsub,hginj',hgb',hgj',h2,h3,h4⟩ :=
           ih (D.length - 1) (by omega) (na_del n j D) hl
             (na_del_strict hS j hj hf0) hne' hD'
@@ -5390,7 +5390,7 @@ lemma AnnotatedPruning.prune_aux {m n : ℕ} (F : (Fin n → Bool) → Bool)
         exact ⟨D',S',g',h1,Finset.Subset.trans hsub hkeep,hginj',hgb',hgj',
           by omega,by omega,h4⟩
 
-lemma AnnotatedPruning.exists_live_preserving_annotations {m n : ℕ} (F : (Fin n → Bool) → Bool)
+lemma AnnotatedPruning.exists_live_preserving_marks {m n : ℕ} (F : (Fin n → Bool) → Bool)
     (hess : ∀ i : Fin n, ∃ x y : Fin n → Bool,
       (∀ k, k ≠ i → x k = y k) ∧ F x ≠ F y)
     (P : Fin m → Finset (Fin n)) (D : Dag) (hS : Strict n D) (hne : D ≠ [])
@@ -5420,16 +5420,16 @@ lemma AnnotatedPruning.lift_live_bound {m n : ℕ} (F : (Fin n → Bool) → Boo
     (hbounds : ∀ i ∈ S, n ≤ g i ∧ g i < n + D.length)
     (hjoint : ∀ i ∈ S, P i ⊆ supp n D (g i)) : b + S.card ≤ D.length := by
   obtain ⟨D',S',g',h1,_,h2,h3,h4,_,h5,h6⟩ :=
-    exists_live_preserving_annotations F hess P D hS hne hD S g hinj hbounds hjoint
+    exists_live_preserving_marks F hess P D hS hne hD S g hinj hbounds hjoint
   have h7 := hlive D' S' g' h1 h6 h2 h3 h4
   omega
 
 end packScope28
 
 section packScope29
-open _root_.PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
+open PEqualNP.Outside.L_meta_2590_aux.AnnotatedPruning
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.C6.DagTools _root_.PEqualNP.Outside.L_meta_2590_aux.PairPruning
+open PEqualNP.Outside.L_meta_2590_aux.C6.DagTools PEqualNP.Outside.L_meta_2590_aux.PairPruning
 
 lemma AnnotatedPruning.c6_strict_designated_bound
     (D : Dag) (hS : Strict 6 D)
@@ -5457,7 +5457,7 @@ lemma AnnotatedPruning.c6_strict_designated_bound
 end packScope29
 section packScope30
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 lemma H2.c6_actual_annotated_bound (D : Dag) (hS : Strict 6 D)
     (hD : ∀ x : Fin 6 → Bool, val D x (outW 6 D) = residualC6 x)
@@ -5474,7 +5474,7 @@ lemma H2.c6_actual_annotated_bound (D : Dag) (hS : Strict 6 D)
     fin_cases p <;> simp [n0ResidualPairs]
   exact ⟨hjoint p hp hleft, hjoint p hp hright⟩
 
-lemma H2.n0_retained_annotations_actual_bound {D : Dag} (hS : Strict 10 D) (q : ℕ)
+lemma H2.n0_retained_marks_actual_bound {D : Dag} (hS : Strict 10 D) (q : ℕ)
     (hq : q ≤ (stage 6 n0Refs D D.length).2.length)
     (hF : ∀ x : Fin 6 → Bool,
       val ((stage 6 n0Refs D D.length).2.take q) x
@@ -5486,7 +5486,7 @@ lemma H2.n0_retained_annotations_actual_bound {D : Dag} (hS : Strict 10 D) (q : 
       supp 10 D (10 + i) = n0OriginalPairs p →
       supp 10 D (10 + j) = n0OriginalPairs p → i = j) :
     8 + (keptEmitted 6 n0Refs D D.length q ∩ M).card ≤ q := by
-  obtain ⟨S, g, hcard, hinj, hgp⟩ := n0_retained_annotations hS q hq M hgood hunique
+  obtain ⟨S, g, hcard, hinj, hgp⟩ := n0_retained_marks hS q hq M hgood hunique
   have hlen : ((stage 6 n0Refs D D.length).2.take q).length = q := by
     rw [List.length_take, Nat.min_eq_left hq]
   have hstrict : Strict 6 ((stage 6 n0Refs D D.length).2.take q) :=
@@ -5514,13 +5514,13 @@ lemma H2.n0_first_six_marks_actual_impossible {D : Dag} (h : StrictLive 10 D)
     rcases lt_or_gt_of_ne hne with hij | hji
     · exact hfirst j hj i hij (hip.trans hjp.symm)
     · exact hfirst i hi j hji (hjp.trans hip.symm)
-  have hlower := n0_retained_annotations_actual_bound h.1 q hq hF M hgood hunique
+  have hlower := n0_retained_marks_actual_bound h.1 q hq hF M hgood hunique
   exact n0_first_six_marks_prefix_impossible h hc hi M hM hsix hcard hfirst q hq hlen hlower
 
 end packScope30
 section packScope31
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 abbrev H2.N0BirthVertex := Fin 10
 def H2.n0BirthPair (i : Fin 3) : Finset N0BirthVertex := ![{2, 6}, {3, 9}, {7, 8}] i
@@ -5814,7 +5814,7 @@ lemma H2.n0_six_first_marks_of_triple_supports {D : Dag} (hS : Strict 10 D)
 end packScope31
 section packScope32
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 def H2.neighborhoodExtraHitSet (i c : Fin 10) : Finset (Fin 10) :=
   if i = 1 then
@@ -5847,7 +5847,7 @@ lemma H2.neighborhood_extra_independent_hitting_set (i c : Fin 10)
 end packScope32
 section packScope33
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 lemma H2.n0_assigned_exits_exhaust {D : Dag} (hI : neighborhoodI ⊆ ineligSet 10 D)
     (pos : Fin 10 → ℕ × Bool) (hp : k4_Pos 10 adj D pos)
@@ -5926,7 +5926,7 @@ lemma H2.n0_exact_star_triples {D : Dag} (h : StrictLive 10 D)
 end packScope33
 section packScope34
 
-open _root_.PEqualNP.Outside.L_meta_2590_aux.H2
+open PEqualNP.Outside.L_meta_2590_aux.H2
 
 lemma H2.n0_triple_supports_impossible {D : Dag} (h : StrictLive 10 D)
     (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
