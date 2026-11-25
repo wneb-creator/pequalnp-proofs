@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "sha256": "e251db21a98f37c225b595aa9368663344fcfaa27ce48769e21d385898483cd7",
+  "line_count": 173,
+  "review_scope": "four additions from line105; unchanged cover prefix verified",
+  "minor_independence_argument": true,
+  "submodule_normalization_identity": true,
+  "even_chart_signs_and_form": true,
+  "format": true,
+  "compile": "not run by reviewer",
+  "normalization_update": "Commuted determinant nonzero hypothesis is algebraically identical; reviewed second compilation source."
+}
