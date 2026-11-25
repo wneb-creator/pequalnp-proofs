@@ -1,0 +1,9 @@
+L-meta-2602 partial progress; not a completed proof and not ready for a proof PR.
+Named file: lean/PEqualNP/Outside/L_meta_2602.lean
+SHA256: 082c3786f1d1aeb4c4b5c98648d1065ff912d9863ad8512b57ed2b6452d4181d
+Lines: 201. Cleanup: not yet applicable to a full proof.
+Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
+Checker: not run on this partial artifact; the posted target theorem is not yet declared.
+Independent red-team review: structural_proof PASS for the exact partial snapshot, with its incomplete status explicit.
+Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
+TIMING total=17.0 subagents=6
