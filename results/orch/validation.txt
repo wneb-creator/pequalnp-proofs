@@ -30,3 +30,7 @@ TIMING total=21.2 subagents=6
 Fifth checkpoint: six advanced proof components compiled exit0 and independently reviewed. Exact posted conclusion proved conditionally on two numerical certificates. Full theorem and official checker remain pending.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
 TIMING total=31.0 subagents=9
+
+Sixth checkpoint: advanced bound13, owned-bound verifier, three first-gate cases and single-NOT root adapter compiled exit0 and independently reviewed. Full numerical catalogue still being kernel-checked.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
+TIMING total=37.2 subagents=9
