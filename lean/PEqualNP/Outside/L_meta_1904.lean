@@ -1195,4 +1195,108 @@ lemma sparse_girth (H : SimpleGraph (Fin n)) (A : Fin k → Finset (Fin n))
 
 end Gadget
 
+namespace ClauseSlots
+
+def pairInput {n : ℕ} (u v : Fin n) : Fin n → Bool :=
+  fun w => decide (w = u ∨ w = v)
+
+def values {n : ℕ} {ι : Type*} (A : ι → Finset (Fin n))
+    (x : Fin n → Bool) : ι → Bool :=
+  fun i => decide (∃ v ∈ A i, x v = true)
+
+lemma incidence_domination_pair {n : ℕ} {ι : Type*}
+    (A : ι → Finset (Fin n)) (v u w : Fin n)
+    (hdom : ∀ i, v ∈ A i → u ∈ A i) :
+    ∀ i, values A (pairInput v w) i = true → values A (pairInput u w) i = true := by
+  intro i hi
+  obtain ⟨a, ha, hxa⟩ := of_decide_eq_true hi
+  have he : a = v ∨ a = w := by simpa [pairInput] using hxa
+  apply decide_eq_true
+  rcases he with he | he
+  · subst a
+    exact ⟨u, hdom i ha, by simp [pairInput]⟩
+  · subst a
+    exact ⟨w, ha, by simp [pairInput]⟩
+
+lemma edge_pair {n : ℕ} (G : SimpleGraph (Fin n)) (a b : Fin n)
+    (h : ∃ u v, G.Adj u v ∧ pairInput a b u = true ∧ pairInput a b v = true) :
+    G.Adj a b := by
+  obtain ⟨u, v, huv, hu, hv⟩ := h
+  simp only [pairInput, decide_eq_true_eq] at hu hv
+  rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+  · exact (G.irrefl huv).elim
+  · exact huv
+  · exact huv.symm
+  · exact (G.irrefl huv).elim
+
+lemma incidence_domination_neighbors {n : ℕ} {ι : Type*}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (A : ι → Finset (Fin n)) (F : (ι → Bool) → Bool)
+    (hF : ∀ x y, (∀ i, x i = true → y i = true) → F x = true → F y = true)
+    (hcorrect : ∀ x, F (values A x) =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    (v u : Fin n) (hdom : ∀ i, v ∈ A i → u ∈ A i) :
+    ∀ w, G.Adj v w → G.Adj u w := by
+  intro w hvw
+  have hpos : F (values A (pairInput v w)) = true := by
+    rw [hcorrect]
+    exact decide_eq_true ⟨v, w, hvw, by simp [pairInput], by simp [pairInput]⟩
+  have hnew := hF _ _ (incidence_domination_pair A v u w hdom) hpos
+  rw [hcorrect] at hnew
+  exact edge_pair G u w (of_decide_eq_true hnew)
+
+end ClauseSlots
+
+namespace InductionAlias
+
+open PEqualNP.CircuitLowerBounds
+
+lemma forced_true_gate_alias (g : Gate) (t : ℕ)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hlen : g.inputs.length ≤ 2) (ht : t ∈ g.inputs) :
+    ∃ r : ℕ, (r = t ∨ r ∈ g.inputs) ∧
+      ∀ v : ℕ → Bool, v t = true → g.op.eval (g.inputs.map v) = v r := by
+  rcases hop with hop | hop
+  · cases hg : g.inputs with
+    | nil => simp [hg] at ht
+    | cons a l =>
+      cases l with
+      | nil =>
+        have hat : t = a := by simpa [hg] using ht
+        refine ⟨t, Or.inl rfl, ?_⟩
+        intro v hv
+        simp [hop, GateOp.eval, ← hat]
+      | cons b l =>
+        cases l with
+        | nil =>
+          have ht' : t = a ∨ t = b := by simpa [hg] using ht
+          rcases ht' with rfl | rfl
+          · refine ⟨b, Or.inr (by simp), ?_⟩
+            intro v hv
+            simp [hop, GateOp.eval, hv]
+          · refine ⟨a, Or.inr (by simp), ?_⟩
+            intro v hv
+            simp [hop, GateOp.eval, hv]
+        | cons c l => simp [hg] at hlen
+  · refine ⟨t, Or.inl rfl, ?_⟩
+    intro v hv
+    rw [hop, GateOp.eval, hv]
+    apply List.any_eq_true.mpr
+    exact ⟨true, List.mem_map.mpr ⟨t, ht, hv⟩, rfl⟩
+
+lemma forced_true_gate_default (g : Gate) (t r n : ℕ)
+    (halias : ∀ v : ℕ → Bool, v t = true → g.op.eval (g.inputs.map v) = v r)
+    (hr : n ≤ r) (w : List Bool) (hlen : w.length = n)
+    (ht : w.getD t false = true) :
+    g.op.eval (g.inputs.map fun i => w.getD i false) = false := by
+  rw [halias _ ht]
+  exact List.getD_eq_default _ _ (by omega)
+
+lemma forced_primary_survives (g : Gate) (ρ : ℕ → ℕ) (t : ℕ)
+    (ht : t ∈ g.inputs) (hρ : ρ t = t) :
+    t ∈ (g.inputs.map ρ) := by
+  exact List.mem_map.mpr ⟨t, ht, hρ⟩
+
+end InductionAlias
+
 end PEqualNP.Outside.L_meta_1904_aux
