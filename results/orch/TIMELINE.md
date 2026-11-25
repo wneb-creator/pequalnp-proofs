@@ -56,3 +56,7 @@
 - 2026-11-25T15:30:51.004638+00:00 structure: semantic star-centre uniqueness and finite witness-cover cardinal bound compiled; frozen for review. Full joint gate ledger remains unresolved.
 
 2026-11-25T15:32:37.330068+00:00: named484-line L-meta-4970 partial builds; independent component review passed. Preparing checkpoint, full ledger unresolved.
+
+- 2026-11-25T15:33:55.995126+00:00 structure: derived unformalized reduction from L4970 to unrestricted regular C4-free lower bound E/2-1 using N masking ANDs and E/2 unused pair-star ORs; no full ledger or refutation.
+
+2026-11-25T15:34:18.052168+00:00: named797-line partial builds with independently reviewed OR-only partition invariant; immediate preservation checkpoint.
