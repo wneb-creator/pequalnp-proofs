@@ -8294,4 +8294,338 @@ lemma residual_pencil_bad_mixing_penalty
 end FirstMixing
 
 
+
+
+namespace MissingCentreMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover CircuitLedger CircuitLedger.Budget
+
+lemma missing_centre_not_in_top_side
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (p : Fin n)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    {a : ℕ} (ha : a ∈ tops G C \ centreless G C) (b : Fin 2) :
+    p ∉ side (n := n) C a b := by
+  classical
+  let aa : {a // a ∈ tops G C \ centreless G C} := ⟨a,ha⟩
+  have get (d : Fin 2) (hs : side (n := n) C a d = {c aa}) :
+      p ∉ side (n := n) C a b := by
+    intro hp
+    rcases opposite d b with he | he
+    · rw [he,hs] at hp
+      exact hcne aa (Finset.mem_singleton.mp hp).symm
+    · rw [he] at hp
+      have hadj := (SimpleGraph.deleteEdges_adj.mp
+        (cleanAdj hAO (Finset.mem_sdiff.mp ha).1 d
+          (show c aa ∈ side (n := n) C a d by rw [hs]; simp) hp)).1
+      exact hbip _ _ hadj (hccol aa)
+  rcases hc aa with hs | hs
+  · exact get 0 hs
+  · exact get 1 hs
+
+lemma missing_centre_not_in_lambda
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (p : Fin n)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p) :
+    ∀ k ∈ lam G C, p ∉ orIn n C (n+k) := by
+  classical
+  intro k hk hp
+  obtain ⟨_,_,_,a,ha,b,hcard,hr⟩ := Finset.mem_filter.mp hk
+  have hpraw : p ∈ side (n := n) C a b :=
+    reach_mem_orIn p ((orReaches_reach k _ hr).1.trans (mem_orIn_reach p hp))
+  have hnb : side (n := n) C a b ≠ ∅ := Finset.nonempty_iff_ne_empty.mp ⟨p,hpraw⟩
+  have hnopp : side (n := n) C a (1-b) ≠ ∅ := by
+    apply Finset.nonempty_iff_ne_empty.mp
+    exact Finset.card_pos.mp (by omega)
+  have hat : a ∈ tops G C \ centreless G C := by
+    refine Finset.mem_sdiff.mpr ⟨ha,?_⟩
+    intro hz
+    have hz' := (Finset.mem_filter.mp hz).2
+    fin_cases b <;> simp_all
+  exact missing_centre_not_in_top_side G C hAO p color hbip c hc hccol hcne hat b hpraw
+
+lemma strong_missing_centre_penalty_of_centres
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 2 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p) :
+    X.card + 2 ≤ 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card :=
+  strong_missing_centre_penalty G C hL hT hfour p X hXcard hX hres color hbip c hc hccol hcne
+    (missing_centre_not_in_lambda G C hL.1 p color hbip c hc hccol hcne)
+
+end MissingCentreMixing
+
+
+namespace ActualTopCentres
+
+open PEqualNP.TopForm
+
+lemma encoded_incidence_properties
+    {n N : ℕ} (I : Fin N → Fin N → Prop)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pi li : Fin N → Fin n) (hpi : Function.Injective pi) (hli : Function.Injective li)
+    (hdis : ∀ p l, pi p ≠ li l)
+    (hgraph : ∀ a b, G.Adj a b ↔ ∃ p l, I p l ∧
+      ((a = pi p ∧ b = li l) ∨ (a = li l ∧ b = pi p))) :
+    (∀ p l, I p l → G.Adj (pi p) (li l)) ∧ NoFourCycle G ∧
+      ∃ color : Fin n → Bool, ∀ a b, G.Adj a b → color a ≠ color b := by
+  classical
+  have hpAdj (p : Fin N) (w : Fin n) :
+      G.Adj (pi p) w ↔ ∃ l, I p l ∧ w = li l := by
+    constructor
+    · intro h
+      obtain ⟨r,l,hr,he | he⟩ := (hgraph _ _).mp h
+      · have hp := hpi he.1
+        subst r
+        exact ⟨l,hr,he.2⟩
+      · exact (hdis p l he.1).elim
+    · rintro ⟨l,hl,rfl⟩
+      exact (hgraph _ _).mpr ⟨p,l,hl,Or.inl ⟨rfl,rfl⟩⟩
+  have hlAdj (l : Fin N) (w : Fin n) :
+      G.Adj (li l) w ↔ ∃ p, I p l ∧ w = pi p := by
+    constructor
+    · intro h
+      obtain ⟨p,k,hp,he | he⟩ := (hgraph _ _).mp h
+      · exact (hdis p l he.1.symm).elim
+      · have hl := hli he.1
+        subst k
+        exact ⟨p,hp,he.2⟩
+    · rintro ⟨p,hp,rfl⟩
+      exact (hgraph _ _).mpr ⟨p,l,hp,Or.inr ⟨rfl,rfl⟩⟩
+  refine ⟨fun p l h => (hpAdj p (li l)).mpr ⟨l,h,rfl⟩,?_,?_⟩
+  · intro a b hab
+    apply Finset.card_le_one.mpr
+    intro u hu v hv
+    obtain ⟨hau,hbu⟩ := (Finset.mem_filter.mp hu).2
+    obtain ⟨hav,hbv⟩ := (Finset.mem_filter.mp hv).2
+    obtain ⟨p,l,hpl,he | he⟩ := (hgraph a u).mp hau
+    · obtain ⟨rfl,rfl⟩ := he
+      obtain ⟨r,hrl,rfl⟩ := (hlAdj l b).mp hbu.symm
+      obtain ⟨k,hpk,rfl⟩ := (hpAdj p v).mp hav
+      obtain ⟨k',hrk,hekk⟩ := (hpAdj r (li k)).mp hbv
+      have hkk := hli hekk
+      subst k'
+      have hpr : p ≠ r := fun he => hab (congrArg pi he)
+      obtain ⟨t,_,ht⟩ := hunique p r hpr
+      exact congrArg li ((ht l ⟨hpl,hrl⟩).trans (ht k ⟨hpk,hrk⟩).symm)
+    · obtain ⟨rfl,rfl⟩ := he
+      obtain ⟨k,hpk,rfl⟩ := (hpAdj p b).mp hbu.symm
+      obtain ⟨r,hrl,rfl⟩ := (hlAdj l v).mp hav
+      obtain ⟨r',hrk,herr⟩ := (hlAdj k (pi r)).mp hbv
+      have hrr := hpi herr
+      subst r'
+      by_cases hpr : p = r
+      · exact congrArg pi hpr
+      · obtain ⟨t,_,ht⟩ := hunique p r hpr
+        exact (hab (congrArg li ((ht l ⟨hpl,hrl⟩).trans (ht k ⟨hpk,hrk⟩).symm))).elim
+  · let color : Fin n → Bool := fun v => decide (∃ p, pi p = v)
+    have hcpi (p : Fin N) : color (pi p) = true := by
+      simp only [color, decide_eq_true_eq]
+      exact ⟨p,rfl⟩
+    have hcli (l : Fin N) : color (li l) = false := by
+      simp only [color, decide_eq_false_iff_not]
+      rintro ⟨p,hp⟩
+      exact hdis p l hp
+    refine ⟨color,?_⟩
+    intro a b hab
+    obtain ⟨p,l,_,he | he⟩ := (hgraph a b).mp hab
+    · obtain ⟨rfl,rfl⟩ := he
+      rw [hcpi,hcli]
+      decide
+    · obtain ⟨rfl,rfl⟩ := he
+      rw [hcli,hcpi]
+      decide
+
+end ActualTopCentres
+
+
+
+namespace ActualTopCentres
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open CircuitLedger CircuitLedger.Budget
+
+lemma low_residual_plane_penalty
+    {n : ℕ} (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (pi li : Fin N → Fin n) (hpi : Function.Injective pi) (hli : Function.Injective li)
+    (hdis : ∀ p l, pi p ≠ li l)
+    (hI : ∀ p l, I p l → G.Adj (pi p) (li l))
+    (color : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (hcounter : (tops G C \ centreless G C).card +
+      (2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card) + 1 ≤
+        N + (Ustar G C).card)
+    (hpaid : (Ustar G C).card ≤
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card)
+    (hsmall : (Ustar G C).card < 2 * q) : q + 3 ≤ (Ustar G C).card := by
+  classical
+  let P := 2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card
+  obtain ⟨c,hc,_,hcover⟩ := exists_selected_centres G C hL.1 hfour
+  have hr := low_residual_selected_centres_rigid q N P I hq hN hcol hunique
+    G C pi li hpi hli hdis hI c hc hcounter hpaid hsmall
+  have hPu : P = (Ustar G C).card := hr.2.2.2.1
+  have hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1) := by
+    intro a ha
+    obtain ⟨x,hx⟩ := Finset.card_eq_one.mp ha.1
+    obtain ⟨y,hy⟩ := Finset.card_eq_one.mp ha.2
+    exact low_residual_no_double_singleton q N P I hq hN hcol hunique
+      G C hL.1 hfour pi li hpi hli hdis hI color hbip hcounter hpaid hsmall a.property hx hy
+  have hmiss {v w : Fin n} (hvw : G.Adj v w)
+      (hv : v ∉ (tops G C \ centreless G C).attach.image c)
+      (hw : w ∉ (tops G C \ centreless G C).attach.image c) :
+      s(v,w) ∈ Ustar G C := by
+    by_contra hn
+    have ha : (G.deleteEdges (Ustar G C : Set (Sym2 (Fin n)))).Adj v w := by
+      rw [SimpleGraph.deleteEdges_adj]
+      exact ⟨hvw,hn⟩
+    exact (hcover ha).elim hv hw
+  have hfinish (p : Fin n) (X : Finset (Fin n)) (hXcard : X.card = q + 1)
+      (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+      (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p) :
+      q + 3 ≤ (Ustar G C).card := by
+    have hfree : ∀ k ∈ lam G C, p ∉ orIn n C (n+k) := by
+      intro k hk hp
+      exact lambda_raw_colour G C hL.1 color hbip c hc hno (color p) hccol
+        k hk p hp rfl
+    have hh := MissingCentreMixing.strong_missing_centre_penalty G C hL hT hfour
+      p X (by omega) hX hres color hbip c hc hccol hcne hfree
+    change X.card + 2 ≤ P at hh
+    omega
+  obtain ⟨hpc,hlc⟩ := plane_embeddings_monochromatic q N I hcol hunique G pi li hI color hbip
+  rcases hr.2.2.2.2 with ⟨p,hshape⟩ | ⟨l,hshape⟩
+  · have hpnot : pi p ∉ (tops G C \ centreless G C).attach.image c := by
+      rw [hshape]
+      intro hp
+      obtain ⟨r,hr,heq⟩ := Finset.mem_image.mp hp
+      exact (Finset.mem_erase.mp hr).1 (hpi heq)
+    have hlinot (l : Fin N) : li l ∉ (tops G C \ centreless G C).attach.image c := by
+      rw [hshape]
+      intro hl
+      obtain ⟨r,_,heq⟩ := Finset.mem_image.mp hl
+      exact hdis r l heq
+    let X := (Finset.univ.filter (I p)).image li
+    have hXcard : X.card = q + 1 := by
+      rw [Finset.card_image_of_injective _ hli]
+      exact plane_point_degree q N I (by omega) hN hcol hunique p
+    apply hfinish (pi p) X hXcard
+    · intro v hv
+      obtain ⟨l,hl,rfl⟩ := Finset.mem_image.mp hv
+      exact hI p l (Finset.mem_filter.mp hl).2
+    · intro v hv
+      obtain ⟨l,hl,rfl⟩ := Finset.mem_image.mp hv
+      exact hmiss (hI p l (Finset.mem_filter.mp hl).2) hpnot (hlinot l)
+    · intro a
+      have ha : c a ∈ (Finset.univ.erase p).image pi := by
+        rw [← hshape]
+        exact Finset.mem_image.mpr ⟨a,Finset.mem_attach _ _,rfl⟩
+      obtain ⟨r,_,hr⟩ := Finset.mem_image.mp ha
+      rw [← hr]
+      exact hpc r p
+    · intro a heq
+      exact hpnot (heq ▸ Finset.mem_image.mpr ⟨a,Finset.mem_attach _ _,rfl⟩)
+  · have hlnot : li l ∉ (tops G C \ centreless G C).attach.image c := by
+      rw [hshape]
+      intro hl
+      obtain ⟨k,hk,heq⟩ := Finset.mem_image.mp hl
+      exact (Finset.mem_erase.mp hk).1 (hli heq)
+    have hpinot (p : Fin N) : pi p ∉ (tops G C \ centreless G C).attach.image c := by
+      rw [hshape]
+      intro hp
+      obtain ⟨k,_,heq⟩ := Finset.mem_image.mp hp
+      exact hdis p k heq.symm
+    let X := (Finset.univ.filter (fun p => I p l)).image pi
+    have hXcard : X.card = q + 1 := by
+      rw [Finset.card_image_of_injective _ hpi]
+      exact hcol l
+    apply hfinish (li l) X hXcard
+    · intro v hv
+      obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp hv
+      exact (hI p l (Finset.mem_filter.mp hp).2).symm
+    · intro v hv
+      obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp hv
+      exact hmiss (hI p l (Finset.mem_filter.mp hp).2).symm hlnot (hpinot p)
+    · intro a
+      have ha : c a ∈ (Finset.univ.erase l).image li := by
+        rw [← hshape]
+        exact Finset.mem_image.mpr ⟨a,Finset.mem_attach _ _,rfl⟩
+      obtain ⟨k,_,hk⟩ := Finset.mem_image.mp ha
+      rw [← hk]
+      exact hlc k l
+    · intro a heq
+      exact hlnot (heq ▸ Finset.mem_image.mpr ⟨a,Finset.mem_attach _ _,rfl⟩)
+
+end ActualTopCentres
+
+
+
+namespace ActualTopCentres
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+
+lemma low_residual_encoded_plane_penalty
+    {n : ℕ} (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (pi li : Fin N → Fin n) (hpi : Function.Injective pi) (hli : Function.Injective li)
+    (hdis : ∀ p l, pi p ≠ li l)
+    (hgraph : ∀ a b, G.Adj a b ↔ ∃ p l, I p l ∧
+      ((a = pi p ∧ b = li l) ∨ (a = li l ∧ b = pi p)))
+    (hcounter : (tops G C \ centreless G C).card +
+      (2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card) + 1 ≤
+        N + (Ustar G C).card)
+    (hpaid : (Ustar G C).card ≤
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card)
+    (hsmall : (Ustar G C).card < 2 * q) : q + 3 ≤ (Ustar G C).card := by
+  obtain ⟨hI,hfour,color,hbip⟩ := encoded_incidence_properties I hunique
+    G pi li hpi hli hdis hgraph
+  exact low_residual_plane_penalty q N I hq hN hcol hunique G C hL hT hfour
+    pi li hpi hli hdis hI color hbip hcounter hpaid hsmall
+
+lemma encoded_plane_residual_at_least
+    {n : ℕ} (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (pi li : Fin N → Fin n) (hpi : Function.Injective pi) (hli : Function.Injective li)
+    (hdis : ∀ p l, pi p ≠ li l)
+    (hgraph : ∀ a b, G.Adj a b ↔ ∃ p l, I p l ∧
+      ((a = pi p ∧ b = li l) ∨ (a = li l ∧ b = pi p)))
+    (hcounter : (tops G C \ centreless G C).card +
+      (2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card) + 1 ≤
+        N + (Ustar G C).card)
+    (hpaid : (Ustar G C).card ≤
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card) :
+    min (q + 3) (2 * q) ≤ (Ustar G C).card := by
+  by_cases hsmall : (Ustar G C).card < 2 * q
+  · exact (min_le_left _ _).trans (low_residual_encoded_plane_penalty q N I hq hN hcol
+      hunique G C hL hT pi li hpi hli hdis hgraph hcounter hpaid hsmall)
+  · exact (min_le_right _ _).trans (by omega)
+
+end ActualTopCentres
+
+
+
 end PEqualNP.Outside.L_meta_2583
