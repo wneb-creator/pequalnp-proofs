@@ -1,0 +1,75 @@
+Independent red-team review by /root/toolchain
+Verdict: PASS for both stated helper extensions; no full-gap claim.
+
+UncoveredTrace.lean
+SHA256 aadeb503473d243cd2d7701e4a4ef239c4b3b124c2f2631454f9577141c7ea47
+1459 lines, 65239 bytes.
+
+UncoveredSignal.lean
+SHA256 9251cb3059a37c99c51f612b1a666f1eea2de3e722efb2ec708df16c43c5405e
+1528 lines, 69066 bytes.
+
+Prefix verification:
+- TopSide.lean is the already reviewed SHA256
+  6d0464cf536a675bea44e1e25f6814be524a23250300d117dec975dcd1c63cf7.
+  UncoveredTrace preserves it and adds the reviewed CommonEntry lemma plus
+  the three new semantic tracing lemmas.
+- common_entry_primary is copied byte for byte from the reviewed
+  CommonEntry.lean SHA256
+  872d6d07b14dffd6791ec7edc8589b22e49a0cc85393492d798f2ae52564761c.
+- Removing UncoveredSignal's new 69-line block reconstructs UncoveredTrace
+  exactly, including the namespace terminator.
+
+Trace delta:
+wire_true_frontier uses strong induction on the wire index. An active input
+provides an active primary support member; an AND wire is the desired
+frontier; a true OR descends to a true earlier input and extends the OR path.
+All index bounds required by the induction are explicit.
+
+edge_top_trace obtains a true output on an actual graph edge. Its output
+index is valid because an out-of-range read is false. A primary variable
+reaching the output through ORs would make a singleton input accepted,
+contradicting graph irreflexivity. The remaining active AND frontier is a
+clean top: truth of that AND propagates to the output, which computes the
+graph function on every assignment. This does not assume that every AND
+ancestor is clean.
+
+primary_pair_star takes active primary support witnesses on both sides.
+Both witnesses lie among the two input vertices. Clean cross-adjacency rules
+out equal witnesses, so their unordered pair is precisely the input pair.
+The finite-product image in starEdges then contains that pair. No ordered
+pair identification or unproved injectivity is used.
+
+Signal delta:
+The two oriented wrappers correctly distinguish the two values of Fin 2;
+the reversed cross-adjacency case uses graph symmetry.
+
+uncovered_top_signal applies the reviewed side decomposition. Two active
+primary witnesses contradict uncoveredness through primary_pair_star.
+Two T-reaching sides contradict the reviewed exclusion of a dirty T below
+both sides of a clean top. Either mixed case supplies a true T on one side
+and an active primary witness on the opposite side.
+
+uncovered_edge_witness applies the true-top trace, then that mixed case.
+The explicit common-z hypothesis places z in the T-reaching side support.
+If z were either endpoint, both primary sides would be active, contradicting
+uncoveredness. Every opposite-support variable is adjacent to z by clean
+cross-adjacency, and its active witness is one of the original edge endpoints.
+
+Scope:
+The applicable lemmas retain IsAO2, TopForm, exact junk set {g,T}, empty
+centreless set, sole-reader condition for g, equality to the target graph
+function, and the common-z support hypothesis where needed. They do not
+prove existence of z by themselves, normalize arbitrary NOT circuits, or
+prove a circuit replacement preserves all graph edges. No least-size premise
+was silently introduced.
+
+Format and evidence:
+Both exact files have imports only at the top and the intended helper
+namespace. A full-source scan found no forbidden root-namespace text,
+double quotes, prohibited commands, hash commands, attributes, or options.
+These remain partial helper artifacts without the final posted theorem.
+The complete supplied build logs were inspected and contain only warnings;
+the author reports exit 0. Per review request, no build was rerun and no
+source file was edited. This record reports semantic/source review, not a
+fresh execution of the repository checker.

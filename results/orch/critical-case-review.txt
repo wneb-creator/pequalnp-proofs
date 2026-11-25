@@ -1,0 +1,13 @@
+Independent review: PASS as a checked conditional research lemma, not a solution of L-meta-9811.
+Source: results/orch/lemmas/CriticalCase.lean
+SHA256: eaaec7da3f761ed733cfbb31a01cd9b2b071806fa6d63e7f027e3aa0cc871f00
+
+Assembly: PartnerData is an exact prefix. ChainRectangle from the MonochromeRectangle namespace and RectangularTop from its namespace are exact embedded copies. Their semantic reviews therefore apply without translation. The independent toolchain reviewer also approved the UncoveredTrace and UncoveredSignal prefix at their frozen hashes.
+
+Final argument: orient each graph edge from false to true in a bipartition, flipping the entire coloring if necessary so the common primary z is false. The actual dirty gate T has the already-proved rectangular pair-input semantics I x J. Its partner set B is contained in N(z). T-true pairs meeting B are graph edges, giving the entire I x (J intersect B) rectangle. Each uncovered edge avoids z, is T-true, and meets B. Its false-colored endpoint cannot belong to B, so it lies in the image of (I erase z) x (J intersect B). The reviewed C4-free degree-at-most-three rectangle lemma bounds that image by two. The Sym2 image argument only needs card_image_le and does not incorrectly assume ordered pairs inject into unordered edges.
+
+Scope: all hypotheses are explicit: AO2, TopForm, exact correct graph output, every gate in the output cone, exactly two dirty gates g<T, no centreless tops, at most one extra OR, bipartition, NoFourCycle and maximum degree three. This proves Ustar.card <= 2 under those hypotheses. It does not normalize arbitrary circuits, allow arbitrary NOT gates, prove the posted 25-gate lower bound, or discharge the hypotheses from a hypothetical 24-gate circuit.
+
+Format: no _root_, string literals, sorry, new axiom, native_decide, attributes, set_option declarations, or helper theorem declarations. Helper namespaces match the gap. outside-guard rejects only the intentionally absent final posted theorem. Thus this is a research snapshot, not a PR-ready proof file.
+
+Validation: author reports Lean exit 0. Complete saved critical-case-build.log inspected: 18 inherited warnings, zero errors. No rebuild or separate axiom probe was run for this read-only review. Source declarations introduce no new axioms; the current review does not replace the repository checker on a future final theorem.

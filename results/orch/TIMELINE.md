@@ -59,3 +59,4 @@
 
 2026-11-25T13:09:21+00:00 lower_bound: PartnerData.lean kernel compilation exit 0; semantic uncovered-edge bridge complete, independent review requested.
 2026-11-25T13:14:11.675803+00:00 archived earlier compiled snapshots and independently reviewed research metadata; format limitations explicitly documented.
+2026-11-25T13:15:00.993573+00:00 two-dirty/zero-centreless/one-extra-OR case closed: Ustar.card≤2 for subcubic bipartite C4-free graphs. Full assembly kernel-checked and independently reviewed; full24gateclaim remains open.
