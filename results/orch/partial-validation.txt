@@ -5,3 +5,5 @@ Independent review: status_review PASS for preserving partial, not a completed g
 Full gap checker: not yet run.
 Sub-agents: status_review, structural_proof, counterexample, reduction_design, lemma_search, alternative_route
 TIMING total=9.2 subagents=6
+
+Update: LemmaSearch.lean 90 lines, adds bound_of_core. Independent compile exit0, empty output; review PASS.

@@ -4,3 +4,5 @@
 - 2026-11-25T02:55:40Z: first desk request returned null.
 - 2026-11-25T02:59:42.485Z: acquired L-meta-1770.
 - 2026-11-25T03:03:40Z: generic 3-core peeling lemma compiled; independent structural review passed.
+- 2026-11-25T03:04:24.867905+00:00: lemma_search compiled general 3-core peeling and target-subset bound; handed proofs to reduction_design.
+- 2026-11-25T03:05:05.476062+00:00: generic bound_of_core compiled and independently reviewed; preparing partial push.

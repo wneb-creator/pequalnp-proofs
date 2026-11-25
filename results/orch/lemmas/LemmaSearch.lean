@@ -49,4 +49,42 @@ lemma peel_graph_core (n : ℕ) (F : SimpleGraph (Fin n)) :
         omega
   exact peel F.support.ncard F rfl
 
+lemma bound_of_core (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (T : Finset (Sym2 (Fin n))) (hT : T ⊆ G.edgeFinset) (B K : ℕ)
+    (hSupport : G.support.ncard ≤ B)
+    (hCore : ∀ H : SimpleGraph (Fin n), H ≤ G → H.edgeSet ⊆ (T : Set _) →
+      (∀ v : Fin n, (H.neighborSet v).ncard = 0 ∨ 3 ≤ (H.neighborSet v).ncard) →
+      H.edgeSet.ncard ≤ K * B) :
+    T.card ≤ (K + 2) * B := by
+  classical
+  let D := G.deleteEdges ((G.edgeFinset \ T : Finset (Sym2 (Fin n))) : Set _)
+  have hDG : D ≤ G := G.deleteEdges_le _
+  have hDE : D.edgeFinset = T := by
+    dsimp [D]
+    rw [SimpleGraph.edgeFinset_deleteEdges]
+    ext e
+    simp only [Finset.mem_sdiff]
+    constructor
+    · intro h
+      by_contra hn
+      exact h.2 ⟨h.1, hn⟩
+    · intro h
+      exact ⟨hT h, fun h' => h'.2 h⟩
+  obtain ⟨H, hHD, hMin, hPeel⟩ := peel_graph_core n D
+  have hDSupport : D.support ⊆ G.support := by
+    intro v hv
+    obtain ⟨w, hw⟩ := hv
+    exact ⟨w, hDG hw⟩
+  have hBound := hCore H (hHD.trans hDG) (by
+    rw [← hDE, SimpleGraph.coe_edgeFinset]
+    exact SimpleGraph.edgeSet_mono hHD) hMin
+  have hSupportD := (Set.ncard_le_ncard hDSupport).trans hSupport
+  have hCount : D.edgeSet.ncard = T.card := by
+    rw [← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset, hDE]
+  rw [hCount] at hPeel
+  calc
+    T.card ≤ H.edgeSet.ncard + 2 * D.support.ncard := hPeel
+    _ ≤ K * B + 2 * B := Nat.add_le_add hBound (Nat.mul_le_mul_left 2 hSupportD)
+    _ = (K + 2) * B := by ring
+
 end PEqualNP.Outside.L_meta_1770
