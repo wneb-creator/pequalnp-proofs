@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T12:10:14.406159+00:00",
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_gct_231.lean",
+      "sha256": "25c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367",
+      "bytes": 111207,
+      "mtime_ns": 1795607779943453647,
+      "lines": 2629
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/L_gct_231.olean",
+      "sha256": "63d6045245ea7260f19565539baf0e71acf4753f24d7c24192f6e19c23f9c580",
+      "bytes": 90566120,
+      "mtime_ns": 1795607890965240131,
+      "lines": null
+    }
+  ]
+}

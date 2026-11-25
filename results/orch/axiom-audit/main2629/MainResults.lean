@@ -1,0 +1,7 @@
+import PEqualNP.Outside.L_gct_231
+
+#print axioms PEqualNP.Outside.L_gct_231.star_two_dimensional
+#print axioms PEqualNP.Outside.L_gct_231.hollow_flat_finrank_le_two
+#print axioms PEqualNP.Outside.L_gct_231.valid_flat_containing_hollow_two_plane
+#print axioms PEqualNP.Outside.L_gct_231.valid_flat_diagonal_rank_le_one
+#print axioms PEqualNP.Outside.L_gct_231.containing_nonzero_starMatrix_finrank_le_two

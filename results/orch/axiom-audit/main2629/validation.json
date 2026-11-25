@@ -1,0 +1,93 @@
+{
+  "utc": "2026-11-25T12:10:45.063512+00:00",
+  "reviewer": "status_review",
+  "axiom_audit": "PASS",
+  "lean_exit": 0,
+  "scope": "Selective axiom audit of five compiled partial helper results only. Not tools/check-lean.mjs, not an audit of the missing posted theorem, and not an authoritative checker verdict.",
+  "checker_verdict": null,
+  "source_and_olean": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_gct_231.lean",
+      "sha256": "25c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367",
+      "bytes": 111207,
+      "unchanged_during_audit": true
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/L_gct_231.olean",
+      "sha256": "63d6045245ea7260f19565539baf0e71acf4753f24d7c24192f6e19c23f9c580",
+      "bytes": 90566120,
+      "unchanged_during_audit": true
+    }
+  ],
+  "declarations": [
+    {
+      "declaration": "PEqualNP.Outside.L_gct_231.star_two_dimensional",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "allowed_only": true
+    },
+    {
+      "declaration": "PEqualNP.Outside.L_gct_231.hollow_flat_finrank_le_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "allowed_only": true
+    },
+    {
+      "declaration": "PEqualNP.Outside.L_gct_231.valid_flat_containing_hollow_two_plane",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "allowed_only": true
+    },
+    {
+      "declaration": "PEqualNP.Outside.L_gct_231.valid_flat_diagonal_rank_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "allowed_only": true
+    },
+    {
+      "declaration": "PEqualNP.Outside.L_gct_231.containing_nonzero_starMatrix_finrank_le_two",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "allowed_only": true
+    }
+  ],
+  "files": [
+    {
+      "path": "MainResults.lean",
+      "bytes": 404,
+      "sha256": "f66cdfb9e1086503be542041d7a63a915fc43be2bc11bef6a540c5333459ce71"
+    },
+    {
+      "path": "main-results.stdout",
+      "bytes": 608,
+      "sha256": "6c6e619af5b37bf617b7cb88a08544b403f6344cc6235f2b03d630b402d1a7f3"
+    },
+    {
+      "path": "main-results.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "source-before.json",
+      "bytes": 609,
+      "sha256": "ff54fe1c4732b6323f5215dc93c08a0afd4369bba51d7a98822a89f513edcb95"
+    }
+  ],
+  "stderr": "Existing Mathlib local-changes warning only.",
+  "pr_source_modified": false
+}

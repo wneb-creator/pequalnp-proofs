@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_gct_231.star_two_dimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.hollow_flat_finrank_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.valid_flat_containing_hollow_two_plane' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231.valid_flat_diagonal_rank_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.containing_nonzero_starMatrix_finrank_le_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
