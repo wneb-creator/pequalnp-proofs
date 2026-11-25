@@ -12,3 +12,17 @@ Local tools/check-lean.mjs: not run; this is a helper file, not the submitted ga
 Independent review: valid helper lemmas; no posted-statement proof claimed.
 Sub-agents: six (rules/status review; Lean setup/dimension; algebra construction; computational construction; geometry; three-plane search).
 TIMING total=45.8 subagents=6
+
+Additional checked partial: two-dimensional symmetric permanent-level space.
+UTC: 2026-11-25T09:26:30.633258+00:00
+File: results/orch/lemmas/StarPlane.lean
+Lines: 71
+SHA256: 055ea800ce9a5a3ebf75da2f64b3c6c23a00d4afd1a564a9abb4ff4c1d82bb0c
+Command (cwd lean/): lake env lean ../results/orch/lemmas/StarPlane.lean
+Build exit status: 0
+Complete build stdout and stderr follows:
+
+Independent review: passed; statement has dimension 2, while target requires 3.
+Local checker for target: not run; target remains unproved.
+Sub-agents: six.
+TIMING total=50.8 subagents=6
