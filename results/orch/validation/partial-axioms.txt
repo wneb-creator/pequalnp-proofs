@@ -1,0 +1,9 @@
+Partial Lean axiom validation
+2026-11-25T13:57:01.013908+00:00
+
+Validated exact scratch copies using lake env lean with one #print axioms command per lemma. Both runs exited 0. All reported axioms are within propext, Classical.choice, Quot.sound. Complete stdout and stderr are preserved in the sibling logs. Diagnostic commands were appended only in scratch, not in the source files.
+
+FewNegations.lean: PASS; 4 lemmas; axioms: propext; sha256: 683a85cc54d36a0d154a44f56a453944c0b4b3edd6985b0328556b52237ebcc0
+LowerBound.lean: PASS; 8 lemmas; axioms: propext, Classical.choice, Quot.sound; sha256: 2b8a48de3c6bcedb0250916a94ecb51634484175e668b50cec7b3b0b97abb315
+
+Scope: these files contain partial helper lemmas. They do not prove L-meta-2592. The target statement checker is not applicable until a complete target theorem exists; no ACCEPTED target-checker verdict is claimed.

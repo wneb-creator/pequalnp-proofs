@@ -1,0 +1,13 @@
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.effectiveInputs_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.effectiveRead_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.negCharge_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.all_inputs_branch_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.and_input_witness' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.or_input_witness' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.single_use_and_input_impossible' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.single_use_or_input_impossible' depends on axioms: [propext, Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0

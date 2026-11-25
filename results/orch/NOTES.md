@@ -40,3 +40,15 @@ Reviewer reminder: the posted statement assumes at least one NOT anywhere in the
 ## Few-negations strategy 2026-11-25T13:53:46.412270+00:00
 
 Checked partial `lemmas/FewNegations.lean`: both constant-replacement criteria compile. If the two replacements Q(x,false) and Q(x,true) are monotone in x, Q is monotone in its final bit, and Q(x,!H(x))=F(x), then (a) if every true x has a smaller true certificate y with H(y)=true, replacement false computes F; (b) if every false x has a larger false certificate y with H(y)=false, replacement true computes F. Applied to graph functions, H true on every edge input suffices for (a), H false on every maximal independent-set input suffices for (b). An essential NOT must violate both conditions. A single final AND after nonconstant monotone H fails at all-true; single final OR fails at all-false. Need further gate accounting to reach 20; no full proof yet.
+
+## Counterexample search SAT audit
+The 30-row necessary constraints (15edges+15maximal independent sets) are too weak with NOT: first-NOT SAT model has6NOT and682 wrong rows of1024; first-AND-edge and first-OR-nonedge also SAT but fail full truth-table validation. These are not counterexamples. Strengthened187-row CEGAR with1–4NOT underway in coordination with semantic_audit. Stochastic full truth-table search best current19gate approximation has9 errors and0NOT, hence also no counterexample.
+
+## Focused hexagon construction ruled out computationally
+Deleting vertex0 and neighbors1,4,5 leaves C6 on order[2,3,8,6,9,7]. Let H be its edge function and U=x2∨x6, V=x3∨x9, W=x7∨x8. Petersen f = H∨x1(U∨x0)∨x4(V∨x0)∨x5(W∨x0). Thus a10gate circuit exposing H,U,V,W would yield19 gates overall. SAT with U,V,W fixed as first3OR gates and H last, all64rows, nonconstant positive source wires, all remaining gates live: UNSAT with exactly1NOT (6.52s), and UNSAT with1–7NOT (10.67s). This is a restricted computational exclusion, not a Lean-checked lower bound or full-gap proof. Script search_hexagon.py; full artifacts scratch/counterexample/hexagon10*.
+
+## SAT audit and CEGAR 2026-11-25T13:59:37.628224+00:00
+- Minimal 30-row NOT-first SAT model is not a counterexample: independent decoder agrees on all 30 encoded rows but fails 682 of 1024 full truth assignments.
+- Added unique structural selectors and at most 4 NOTs from checked binary floor. Batch NOT-first 187-row run returned UNKNOWN after 240 seconds; OR-nonedge 192-row and AND-edge 192-row runs ongoing. These constrain a full 19-gate nonpadding normal form, so no lower-bound completeness claim.
+- Incremental native driver links bundled libcadical.a and libc++ archives through verified C API, freezes selectors, validates all 1024 rows, adds 16 bad rows per SAT candidate, and retains learned clauses. General first-NOT and specialized exactly-1-NOT variants running; latter includes 38 cofactor boundary rows from few_negations.
+- Files: sat_validate.py, sat_cegar.py, sat_incremental.cpp under results/orch/lemmas. Full logs/models/CNFs in /tmp/oec/pequalnp-pilot-101/sat-*.

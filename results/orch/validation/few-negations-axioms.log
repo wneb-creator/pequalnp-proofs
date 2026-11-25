@@ -1,0 +1,9 @@
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.remove_not_from_true_certificates' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.remove_not_from_false_certificates' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.final_and_after_not_fails' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.final_or_after_not_fails' depends on axioms: [propext]
+
+Complete Lean stderr:
+
+Exit status: 0
