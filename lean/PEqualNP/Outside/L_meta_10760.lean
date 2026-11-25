@@ -1104,4 +1104,118 @@ lemma live_iff_transformedPatternKeys {k m n budget : ℕ}
   · simpa only [positivePatterns_transform] using positive
   · simpa only [negativePatterns_transform] using negative
 
+def canonical64 (w : BitVec 64) : BitVec 64 :=
+  if w.toNat ≤ (~~~w).toNat then w else ~~~w
+
+def sampleInputs64 : List (BitVec 64) := [0x844a844a8952aaa, 0x1089308931264ccc, 0x2111c111c23870f0, 0x421e021e03c07f00, 0x83e003e003ff8000, 0xfc0003fffc000000, 0xfffffc0000000000]
+
+def sampleGoal64 : BitVec 64 := 0xffdfebdfbbbf6ca0
+
+def signedRoots64 : Finset (BitVec 64) := (sampleInputs64.map canonical64).toFinset
+
+namespace S64
+
+def firstRoot (i : Fin 7) : BitVec 64 :=
+  min (sampleInputs64.getD i.val 0) (~~~(sampleInputs64.getD i.val 0))
+
+def firstOp (i j : Fin 7) (o : Fin 4) : BitVec 64 :=
+  (ops (firstRoot i) (firstRoot j)).getD o.val 0
+
+def symRowData : List Nat := [0, 26, 15, 37, 8, 33, 22, 41, 4, 30, 19, 40, 12, 36, 25, 2, 28, 17, 39, 10, 35, 24, 6, 32, 21, 14, 1, 27, 16, 38, 9, 34, 23, 5, 31, 20, 13, 3, 29, 18, 11, 7, 42, 58, 53, 63, 49, 62, 57, 46, 61, 56, 52, 44, 60, 55, 51, 48, 43, 59, 54, 50, 47, 45]
+
+def symRow (i : Fin 64) : Fin 64 :=
+  ⟨symRowData.getD i.val 0 % 64, Nat.mod_lt _ (by decide)⟩
+
+lemma symRow_involutive : Function.Involutive symRow := by
+  change ∀ i : Fin 64, symRow (symRow i) = i
+  decide +kernel
+
+def symEquiv : Equiv.Perm (Fin 64) :=
+  ⟨symRow, symRow, symRow_involutive, symRow_involutive⟩
+
+abbrev symWord (w : BitVec 64) : BitVec 64 :=
+  canonicalTransport symEquiv ⟨63, by decide⟩ w
+
+def caseData : List (Fin 7 × Fin 7 × Fin 4) := [(1, 0, 0), (1, 0, 1), (1, 0, 2), (1, 0, 3), (2, 0, 0), (2, 0, 1), (2, 0, 2), (2, 0, 3), (2, 1, 0), (2, 1, 1), (2, 1, 2), (2, 1, 3), (3, 0, 0), (3, 0, 1), (3, 0, 2), (3, 0, 3), (3, 1, 0), (3, 1, 1), (3, 1, 2), (3, 1, 3), (3, 2, 0), (3, 2, 1), (3, 2, 2), (3, 2, 3), (4, 0, 0), (4, 0, 1), (4, 0, 2), (4, 0, 3), (4, 1, 0), (4, 1, 1), (4, 1, 2), (4, 1, 3), (4, 2, 0), (4, 2, 1), (4, 2, 2), (4, 2, 3), (4, 3, 0), (4, 3, 1), (4, 3, 2), (4, 3, 3), (5, 0, 0), (5, 0, 1), (5, 0, 2), (5, 0, 3), (5, 1, 0), (5, 1, 1), (5, 1, 2), (5, 1, 3), (5, 2, 0), (5, 2, 1), (5, 2, 2), (5, 2, 3), (5, 3, 0), (5, 3, 1), (5, 3, 2), (5, 3, 3), (5, 4, 0), (5, 4, 1), (5, 4, 2), (5, 4, 3), (6, 0, 0), (6, 0, 1), (6, 0, 2), (6, 0, 3), (6, 1, 0), (6, 1, 1), (6, 1, 2), (6, 1, 3), (6, 2, 0), (6, 2, 1), (6, 2, 2), (6, 2, 3), (6, 3, 0), (6, 3, 1), (6, 3, 2), (6, 3, 3), (6, 4, 0), (6, 4, 1), (6, 4, 2), (6, 4, 3), (6, 5, 0), (6, 5, 1), (6, 5, 2), (6, 5, 3)]
+
+def caseWord (c : Fin 84) : BitVec 64 :=
+  let t := caseData.getD c.val (0, 0, 0)
+  firstOp t.1 t.2.1 t.2.2
+
+def symCaseData : List Nat := [57, 56, 58, 59, 55, 54, 52, 53, 39, 38, 36, 37, 51, 50, 48, 49, 35, 34, 32, 33, 20, 21, 23, 22, 45, 44, 46, 47, 29, 28, 30, 31, 18, 19, 17, 16, 10, 11, 9, 8, 41, 40, 42, 43, 25, 24, 26, 27, 14, 15, 13, 12, 6, 7, 5, 4, 1, 0, 2, 3, 82, 83, 80, 81, 78, 79, 76, 77, 72, 73, 74, 75, 68, 69, 70, 71, 66, 67, 64, 65, 62, 63, 60, 61]
+
+def symCase (c : Fin 84) : Fin 84 :=
+  ⟨symCaseData.getD c.val 0 % 84, Nat.mod_lt _ (by decide)⟩
+
+def representativeData : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 30, 31, 40, 42, 43, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+
+def representative (r : Fin 45) : Fin 84 :=
+  ⟨representativeData.getD r.val 0 % 84, Nat.mod_lt _ (by decide)⟩
+
+def caseIndex (i j : Fin 7) (o : Fin 4) : Fin 84 :=
+  ⟨(2 * i.val * (i.val - 1) + 4 * j.val + o.val) % 84, Nat.mod_lt _ (by decide)⟩
+
+set_option maxHeartbeats 8000000 in
+lemma caseIndex_correct : ∀ i j : Fin 7, ∀ o : Fin 4, j < i →
+    caseWord (caseIndex i j o) = firstOp i j o := by decide +kernel
+
+lemma symGoal_fixed : symWord (~~~sampleGoal64) = ~~~sampleGoal64 := by decide +kernel
+
+lemma symRoots_fixed : signedRoots64.image symWord = signedRoots64 := by decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma symCases_correct : ∀ c : Fin 84, symWord (caseWord c) = caseWord (symCase c) := by
+  decide +kernel
+
+lemma symCase_involutive : Function.Involutive symCase := by
+  change ∀ c : Fin 84, symCase (symCase c) = c
+  decide +kernel
+
+lemma representatives_cover : ∀ c : Fin 84, ∃ r : Fin 45,
+    c = representative r ∨ symCase c = representative r := by decide +kernel
+
+lemma symRoots_zero : ∀ w ∈ signedRoots64, w[63] = false := by
+  intro w hw
+  obtain ⟨u, hu, rfl⟩ := List.mem_map.mp (List.mem_toFinset.mp hw)
+  simp only [sampleInputs64, List.mem_cons, List.not_mem_nil, or_false] at hu
+  rcases hu with rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> decide +kernel
+
+lemma caseWords_zero : ∀ c : Fin 84, (caseWord c)[63] = false := by decide +kernel
+
+lemma live_case_symmetry (c : Fin 84) (budget : ℕ) :
+    live basicOps (~~~sampleGoal64) budget (insert (caseWord c) signedRoots64) ↔
+      live basicOps (~~~sampleGoal64) budget (insert (caseWord (symCase c)) signedRoots64) := by
+  have initial : ∀ w ∈ insert (caseWord c) signedRoots64, w[63] = false := by
+    intro w hw
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · exact caseWords_zero c
+    · exact symRoots_zero w hw
+  have h := live_iff_canonicalAutomorphism (budget := budget) (insert (caseWord c) signedRoots64)
+    (~~~sampleGoal64) symEquiv ⟨63, by decide⟩ initial (by decide +kernel) symGoal_fixed
+  change live basicOps (~~~sampleGoal64) budget (insert (caseWord c) signedRoots64) ↔
+    live basicOps (~~~sampleGoal64) budget
+      ((insert (caseWord c) signedRoots64).image symWord) at h
+  simpa only [Finset.image_insert, symCases_correct, symRoots_fixed] using h
+
+lemma reject84_of_reject45 (budget : ℕ)
+    (reject : ∀ r : Fin 45, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord (representative r)) signedRoots64)) :
+    ∀ c : Fin 84, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord c) signedRoots64) := by
+  intro c run
+  obtain ⟨r, same | mapped⟩ := representatives_cover c
+  · exact reject r (same ▸ run)
+  · exact reject r (mapped ▸ (live_case_symmetry c budget).mp run)
+
+lemma rejection_from_45_64 (budget : ℕ)
+    (reject : ∀ r : Fin 45, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord (representative r)) signedRoots64)) :
+    ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps (~~~sampleGoal64) budget (insert (firstOp i j o) signedRoots64) := by
+  intro i j hji o
+  have h := reject84_of_reject45 budget reject (caseIndex i j o)
+  rwa [caseIndex_correct i j o hji] at h
+
+end S64
+
 end PEqualNP.Outside.L_meta_10760
