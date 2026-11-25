@@ -28,3 +28,6 @@ Sixth checkpoint: six new modules compiled exit 0. CircuitLiveBridge reviewed by
 The unconditional residual floor16 is proved; full gap is not yet proved.
 Sub-agents: status_audit, structural_proof, counterexample_search, library_route, toolchain, one_not_route
 TIMING total=28 subagents=6
+
+Seventh checkpoint: unconditional 17 + NOT-count <= circuit size for the exact Petersen target compiled with exit 0. Independent toolchain-agent review and axiom inspection PASS; only standard three axioms. Consequently a size19 target circuit has at most2NOTs.
+Development source imports cached modules and has global limit settings; named-file assembly will inline dependencies and scope/remove options before submission. This remains a partial result, not the exact L-meta-2592 theorem.

@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_2592.FewNot.Extended.binary_seventeen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592.FewNot.Extended.seventeen_plus_not' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592.FewNot.Extended.at_most_two_nots' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

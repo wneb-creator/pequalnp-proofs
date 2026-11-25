@@ -16,3 +16,4 @@
 2026-11-25T14:04:13.517097+00:00: first-binary bridge, symmetry, free-OR floor and strict OR-suffix reduction compiled and reviewed.
 2026-11-25T14:04:38.931360+00:00: root re-plan: concentrate on global17binary route and signed1/2NOT search; drop4NOT synthesis and generic lemma expansion.
 2026-11-25T14:13:09.352629+00:00: residual pair floor16 and all integration bridges compiled and independently reviewed.
+2026-11-25T14:15:59.476296+00:00: unconditional seventeen-plus-NOT bound compiled and independently checked; remaining cases exactly one or two NOTs.
