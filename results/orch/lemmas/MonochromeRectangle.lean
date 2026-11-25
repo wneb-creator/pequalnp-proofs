@@ -58,4 +58,20 @@ lemma clauses_pair_rectangle {α : Type} [Fintype α] [DecidableEq α]
     · exact ⟨a, haS, Or.inl rfl⟩
     · exact ⟨b, hbS, Or.inr rfl⟩
 
+lemma clauses_colored_rectangle {α : Type} [Fintype α] [DecidableEq α]
+    (color : α → Bool) (clauses : List (Finset α))
+    (hmono : ∀ S ∈ clauses,
+      (∀ v ∈ S, color v = false) ∨ (∀ v ∈ S, color v = true)) :
+    ∃ I J : Finset α,
+      (∀ a ∈ I, color a = false) ∧ (∀ b ∈ J, color b = true) ∧
+      ∀ a b : α, color a = false → color b = true →
+        ((∀ S ∈ clauses, ∃ v ∈ S, v = a ∨ v = b) ↔ a ∈ I ∧ b ∈ J) := by
+  classical
+  obtain ⟨I, J, h⟩ := clauses_pair_rectangle color clauses hmono
+  refine ⟨I.filter (fun a => color a = false), J.filter (fun b => color b = true),
+    (fun a ha => (Finset.mem_filter.mp ha).2),
+    (fun b hb => (Finset.mem_filter.mp hb).2), ?_⟩
+  intro a b ha hb
+  simpa only [Finset.mem_filter, ha, hb, and_true] using h a b ha hb
+
 end PEqualNP.Outside.L_meta_9811.MonochromeRectangle

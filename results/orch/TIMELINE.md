@@ -43,3 +43,4 @@
 2026-11-25T12:51:25.986377+00:00 compact SAT archive independently audited, including27-gate one-NOT dual-helper control; no24-gate witness. Stronger571-sample screens running.
 2026-11-25T12:52:15.450360+00:00 dirty-chain operands proved pure OR under explicit TopForm hypotheses; abstract subcubic rectangle off-center bound≤2 compiled and independently reviewed.
 2026-11-25T12:54:48.449538+00:00 checked and independently reviewed: λ-support monochromaticity; monochromatic-clause rectangle representation; arbitrary-NOT sole-reader obstruction for target.
+2026-11-25T12:57:39.718741+00:00 preserved reviewed before-T support colors, colored rectangle wrapper, and deeper arbitrary-NOT blocking constraints.

@@ -1,0 +1,5 @@
+Independent review: BlockingDeeper.lean
+SHA2567337542c9cc8592b655acc3f0e713dd9428537d6f0e9f38fe9c0febd8c3b2ccb;332lines15159bytes.
+ReviewedBlocking prefix unchanged except namespaceandblanklines. semantic_agreement generalizes evaluatorinduction: everydirectreader ofchangedprimaryp issemanticallyequal, allotherwires exceptp thereforeequal. sole_reader_contradiction applies this toone reader andthetarget robustwitness.
+ANDreadingANDblockedbyq=false isblockedatboth levels; no child-before-parent assumption isrequiredhere because anillegal forwardANDinput isalreadyfalse. ORreadingORblockedbyq=true needsthechild earlier, and htr:t<r isexplicit. Othergates mayinclude arbitraryNOT. Correctfunction,output!=p,distinctprimaryq,andsole-reader premises remainexplicit. No fullsizeboundclaim.
+Officialguard onlyexpectedmissingfinaltheorem; declaration-scoped maxHeartbeats0 inheritedallowed. Savedlog16warnings/noerrors; authorreportscompileexit0. Reviewpassed.

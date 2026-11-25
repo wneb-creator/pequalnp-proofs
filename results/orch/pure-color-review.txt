@@ -1,0 +1,5 @@
+Independent review: PureColor.lean
+SHA2563bd285806de549c6da32c68647714df06066476f1bbcd56c3c1b37b41d472a74;1131lines48518bytes.
+Exact59-line extension of LambdaColor. Nonempty pureOR isnotBelowF because a singletonprimary assignment activates it while a simplegraph hasno selfloop. Any such validOR otherthanthe uniqueextraOR must belongtoLambda. For a purewirebeforeT, primarycase issingletonsupport; gatecase cannotbeAND because thenitwouldbe junk, henceg orT, both excluded bywire!=n+g andwire<n+T. It isthereforeOR and differsfromextraORp>T, henceLambda andmonochromatic by priorlemma.
+All assumptions explicit: AO2,bipartition,twojunkset,identifiedextraORafterT,extraORcard<=1,nonempty puresemantics,wirebeforeTandnotg. Doesnot derive theseconditionsor a fullcircuitlowerbound. No g<T assumption isneededfor thisparticularlemma.
+Officialguard onlyexpectedabsentfinaltheorem; noformatviolations,namespaceescapes,newaxioms. Savedlogwarningsonly; authorreportscompileexit0. Reviewpassed.
