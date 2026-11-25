@@ -1,0 +1,9 @@
+The seven neighborhood OR outputs on seven inputs cannot be compressed to eleven gates by this completed exhaustive search over at most four auxiliary functions. This is computational evidence, not a Lean theorem.
+
+The search enumerates 128-bit truth tables for AND/OR/NOT and explicit constants, includes all target-output gates as soon as they are one-gate computable, and enumerates up to four other gate values. Every eleven-gate network has seven distinct target values and at most four others after eliminating duplicate gate values. Because target supports are pairwise incomparable, an AND, OR or NOT gate computing one target cannot directly consume another target, so target closure needs no iterative pass.
+
+Completed with no witness, no timeout. State counts by auxiliary depth0..4: 1,73,6298,633364,73391389.
+
+The transposed neighborhood family is isomorphic under variable map [1,5,0,6,4,2,3], so the same negative result covers both star directions. It does not rule out an arbitrary twenty-four-gate circuit for the whole edge function.
+
+Enumerator SHA256: 71b36caf0e0555b8eefe599008fac88a704895a7a39cbaea71ef0fc1e40b129e

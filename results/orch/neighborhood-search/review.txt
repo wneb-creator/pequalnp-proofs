@@ -1,0 +1,21 @@
+Independent review by status_review, 2026-11-25
+
+Reviewed enumerate.cpp SHA256 71b36caf0e0555b8eefe599008fac88a704895a7a39cbaea71ef0fc1e40b129e and validation.txt.
+
+Scope: seven prescribed neighborhood disjunctions on seven inputs, circuits of at most eleven AND/OR/NOT gates with fan-in at most two. This is a restricted multi-output synthesis problem, not the whole fourteen-input edge-function lower bound.
+
+Coverage argument checked:
+- Seven target truth tables are distinct and none is an input or constant. Remove duplicate gate values without increasing the gate count. Eleven gates therefore leave at most four distinct non-target values.
+- A target may feed an auxiliary gate; those choices are included because target closure precedes each auxiliary enumeration.
+- The seven OR supports are pairwise incomparable. If AND(U,V)=T for target functions U,T, then T implies U; if OR(U,V)=T, then U implies T. Both contradict incomparability. NOT(U)=T is impossible because every target is false at the all-zero input. Thus one target cannot directly enable another target, and a single closure pass suffices.
+- Eagerly computing all currently available targets preserves feasibility: these target gates are eventually required anyway, their count is fixed at seven, and early availability can only add choices.
+- Every possible NOT, AND, or OR of available values is enumerated. Repeated AND/OR arguments only reproduce an available value, so distinct-argument pairs suffice. Unary AND/OR gates are aliases and need not be kept.
+- Node-local deduplication by full 128-bit truth table is sound: every alternative producing the same new value has the same one-gate cost and the same future semantic choices.
+- Explicit false and true constants are included. Free out-of-range false inputs in the project model do not invalidate the claim: constant-valued wires can be propagated, and a gate with a constant argument either yields a constant or an alias, except a NOT of a nonconstant input, which is already included. Hence constants may be eliminated from a minimum network for these nonconstant outputs.
+- Unsigned 128-bit tables contain all 128 assignments; shifts range from zero through 127 and complement affects exactly those bits.
+
+Transpose verified independently: variable map [1,5,0,6,4,2,3] is bijective and maps the target family to the transposed family, with output permutation [2,0,5,6,4,1,3].
+
+No correctness flaw found in the enumerator. This remains computational evidence, not a Lean certificate.
+
+Independent validation rerun: rebuilt source using g++ -O3 -std=c++17, then ran with a 180-second limit. Exit status 0. Completed in 119 seconds under parallel load, found=0, timed=0, node counts [1,73,6298,633364,73391389], exactly matching the original completed run. Full stdout/stderr retained in review-compile.log and review-run.log.
