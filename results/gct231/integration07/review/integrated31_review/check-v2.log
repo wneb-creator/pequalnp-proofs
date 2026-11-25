@@ -1,0 +1,17 @@
+PASS entire old namespace body byte-preserved as candidate prefix
+PASS appended helper body exact after deleting only2identical definitions, apart from one blank separator line
+PASS all declarations accounted for,31certEq helpers, no fabricated posted main
+PASS imports first; scoped auxiliary namespace; no forbidden text/commands
+OPTIONS Counter({('maxHeartbeats', '4000000'): 34, ('maxHeartbeats', '1000000'): 31, ('maxRecDepth', '100000'): 2})
+{
+  "source_hashes": {
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_gct_231.lean": "ad7a60b2d369921dde6ee77592c01d528e6e22dbcc22fc9b063d37fa6dc03572",
+    "/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31Individual.lean": "d7bf606daad095450d7e07956c199a4c53a96aab17ad1d3f93196c405f3fe351",
+    "/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean": "3989f440a6778c2203de025027bf6dd77af6d91a10b1183e32274db49d7fa3b9"
+  },
+  "removed_identical_definition_hashes": {
+    "starAffine": "2e8623cd2121b2fa63f81660e3a04296c7f879dacc6e7bce0315e6d682826538",
+    "fullStarMatrix": "6e33a38e268c7fc9a506f19df6ccb5b3bb51611973630ecc65bec93665f00e74"
+  },
+  "declaration_count": 200
+}

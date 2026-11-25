@@ -1,0 +1,28 @@
+import took 1.54s
+/tmp/oec/pequalnp-pilot-75/gct231/library/PolynomialSquareBridge.lean:4:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+cumulative profiling times:
+	attribute application 0.0321ms
+	congr simp thm 1.64ms
+	declTypeLinter 3.37ms
+	elaboration 23.4ms
+	fix level params 0.488ms
+	import 1.54s
+	initialization 37.7ms
+	instantiate metavars 0.488ms
+	interpretation 222ms
+	let-to-have transformation 0.269ms
+	linting 6.14ms
+	module linting 0.0307ms
+	norm_num 0.515ms
+	parsing 3.92ms
+	process pre-definitions 2.73ms
+	ring 7.79ms
+	share common exprs 2.02ms
+	simp 78.2ms
+	tactic execution 63.9ms
+	tacticAnalysis 1.3ms
+	type checking 21.1ms
+	typeclass inference 95.5ms

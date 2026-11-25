@@ -1,0 +1,408 @@
+import took 1.71s
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:5:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+simp took 115ms
+simp took 216ms
+ring took 102ms
+ring took 118ms
+ring took 106ms
+ring took 114ms
+ring took 115ms
+tactic execution of Lean.Parser.Tactic.exact took 715ms
+share common exprs took 156ms
+type checking took 121ms
+linting took 148ms
+ring took 687ms
+share common exprs took 256ms
+elaboration took 130ms
+type checking took 400ms
+linting took 387ms
+elaboration took 127ms
+tactic execution of Lean.Parser.Tactic.decide took 784ms
+type checking took 428ms
+simp took 214ms
+typeclass inference of AddHomClass took 135ms
+simp took 304ms
+simp took 240ms
+simp took 247ms
+simp took 245ms
+simp took 259ms
+simp took 285ms
+simp took 334ms
+simp took 287ms
+simp took 244ms
+simp took 293ms
+simp took 279ms
+simp took 293ms
+simp took 315ms
+simp took 311ms
+simp took 295ms
+simp took 495ms
+type checking took 102ms
+simp took 182ms
+simp took 223ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:673:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:673:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 441ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:689:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:689:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 529ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:705:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:705:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 263ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:721:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:721:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 380ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:737:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:737:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 540ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:753:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:753:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 393ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:769:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:769:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 419ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:785:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:785:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 398ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:801:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:801:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 260ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:817:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:817:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 349ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:833:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:833:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+typeclass inference of AddHomClass took 107ms
+simp took 536ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:849:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:849:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 399ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:865:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:865:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 589ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:881:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:881:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 544ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:897:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:897:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 367ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:913:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:913:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 361ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:929:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:929:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 416ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:945:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:945:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 395ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:961:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:961:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 221ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:977:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:977:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 394ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:993:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:993:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 268ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1009:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1009:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 398ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1025:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1025:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 480ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1041:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1041:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 251ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1057:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1057:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 483ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1073:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1073:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 610ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1089:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1089:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 495ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1105:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1105:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 229ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1121:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1121:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 283ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1137:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1137:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+typeclass inference of AddHomClass took 146ms
+simp took 262ms
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1153:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean:1153:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 199ms
+simp took 290ms
+ring took 150ms
+type checking took 166ms
+simp took 269ms
+ring took 134ms
+type checking took 151ms
+simp took 263ms
+ring took 103ms
+type checking took 104ms
+elaboration took 148ms
+simp took 304ms
+ring took 220ms
+type checking took 222ms
+linting took 110ms
+elaboration took 193ms
+simp took 469ms
+ring took 504ms
+share common exprs took 170ms
+type checking took 431ms
+linting took 237ms
+elaboration took 135ms
+simp took 424ms
+ring took 331ms
+share common exprs took 120ms
+type checking took 263ms
+linting took 158ms
+elaboration took 148ms
+simp took 330ms
+ring took 214ms
+type checking took 184ms
+elaboration took 157ms
+simp took 389ms
+ring took 272ms
+share common exprs took 103ms
+type checking took 226ms
+linting took 127ms
+simp took 248ms
+elaboration took 119ms
+simp took 278ms
+ring took 154ms
+type checking took 154ms
+elaboration took 269ms
+simp took 464ms
+ring took 432ms
+share common exprs took 177ms
+type checking took 444ms
+linting took 227ms
+elaboration took 174ms
+simp took 395ms
+ring took 349ms
+share common exprs took 113ms
+type checking took 288ms
+linting took 162ms
+elaboration took 239ms
+simp took 460ms
+ring took 452ms
+share common exprs took 154ms
+type checking took 414ms
+linting took 215ms
+elaboration took 100ms
+simp took 588ms
+ring took 552ms
+share common exprs took 224ms
+process pre-definitions took 107ms
+elaboration took 116ms
+type checking took 509ms
+linting took 296ms
+simp took 343ms
+ring took 200ms
+type checking took 117ms
+simp took 278ms
+ring took 146ms
+type checking took 124ms
+elaboration took 120ms
+simp took 380ms
+ring took 335ms
+share common exprs took 102ms
+type checking took 228ms
+linting took 118ms
+simp took 322ms
+ring took 143ms
+type checking took 107ms
+simp took 186ms
+elaboration took 113ms
+simp took 263ms
+ring took 139ms
+type checking took 143ms
+simp took 343ms
+ring took 123ms
+type checking took 103ms
+elaboration took 168ms
+simp took 314ms
+ring took 182ms
+type checking took 183ms
+elaboration took 157ms
+simp took 383ms
+ring took 293ms
+share common exprs took 104ms
+type checking took 256ms
+linting took 126ms
+simp took 231ms
+elaboration took 111ms
+simp took 258ms
+ring took 121ms
+type checking took 132ms
+elaboration took 145ms
+simp took 380ms
+ring took 261ms
+share common exprs took 115ms
+type checking took 231ms
+linting took 115ms
+simp took 329ms
+ring took 158ms
+type checking took 111ms
+simp took 184ms
+simp took 244ms
+simp took 228ms
+cumulative profiling times:
+	attribute application 2.56ms
+	compilation (IR) 1.71ms
+	compilation (LCNF base) 21.6ms
+	compilation (LCNF impure) 8.67ms
+	compilation (LCNF mono) 27.6ms
+	congr simp thm 130ms
+	declTypeLinter 72.1ms
+	elaboration 5.91s
+	fix level params 159ms
+	import 1.71s
+	initialization 43.3ms
+	instantiate metavars 626ms
+	interpretation 3.43s
+	let-to-have transformation 14.8ms
+	linting 3.71s
+	module linting 0.175ms
+	norm_num 373ms
+	parsing 144ms
+	process pre-definitions 1.32s
+	ring 8.48s
+	share common exprs 3.24s
+	simp 29.7s
+	tactic execution 3.01s
+	tacticAnalysis 51.8ms
+	type checking 8.69s
+	typeclass inference 33.5s

@@ -1,0 +1,10 @@
+--- expected
++++ actual
+@@ -21,6 +21,7 @@
+   ring
+ 
+ 
++
+ noncomputable def certD400 (p : MvPolynomial (Fin 3) ℂ) : ℂ :=
+   MvPolynomial.constantCoeff (MvPolynomial.pderiv 0 (MvPolynomial.pderiv 0 (MvPolynomial.pderiv 0 (MvPolynomial.pderiv 0 p))))
+ 

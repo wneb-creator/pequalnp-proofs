@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/integrated31_review/check.py", line 29, in <module>
+    assert newinner[len(oldinner):].strip()==helperinner.strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

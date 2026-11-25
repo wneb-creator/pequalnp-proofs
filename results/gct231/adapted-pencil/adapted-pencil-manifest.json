@@ -1,0 +1,21 @@
+{
+  "source": "AdaptedPencilSquare.lean",
+  "sha256": "c77f742ab8c2fb96fb499f1445831d51662a55a06f95bcf17ffed47081704d78",
+  "status": "PASS",
+  "build_log": "adapted-pencil-build04.log",
+  "build_status": "adapted-pencil-build04.run.json",
+  "axiom_log": "adapted-pencil-audit01.log",
+  "axioms": {
+    "PEqualNP.Outside.L_gct_231_aux.polynomial_det_square_of_constant_congruence": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_adapted": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Explicit adapted invertible P with zero upper-left blocks for both symmetric forms; existence of P from a subspace is not yet established."
+}

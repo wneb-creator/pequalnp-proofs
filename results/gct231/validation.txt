@@ -1,8 +1,8 @@
 Gap: L-gct-231
 Status: PARTIAL ONLY; no proof/refutation and no PR.
 Named file: lean/PEqualNP/Outside/L_gct_231.lean
-Source: 624 lines, 28689 bytes, SHA256 ad7a60b2d369921dde6ee77592c01d528e6e22dbcc22fc9b063d37fa6dc03572
-Named lake build06: exit0, module24s; complete build-partial-06.log preserved.
+Source:1528lines101116bytes,SHA25642c23a475a0793c31278bd6324609ad96d59e78b571e2152b346d3a0a79e656c
+Named lake build07:exit0,module53s; complete build-partial-07.log preserved underintegration07.
 Independent source, integration and component recompilation reviews: PASS.
 Axiom audit: all audited lemmas use only propext, Classical.choice, Quot.sound.
 Checked scope: permanent expansion; diagonal rigidity; six-coordinate injectivity; total-entry sum zero and symmetric diagonal elimination; explicit finite star/triangle/path orbit witnesses; normalization of every hypothetical3D solution to one of those canonical charts; formal polynomial identity for a linear family. No candidate existence or nonexistence is proved.
@@ -13,7 +13,7 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=247.8 subagents=8
+TIMING total=262.6 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
 CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.
@@ -31,3 +31,6 @@ Latest reviewed diagnostics: full-star native batch32 UNKNOWN_TIME_LIMIT at600.0
 FullStar31Individual.lean:916lines73248bytes,SHA256d7bf606daad095450d7e07956c199a4c53a96aab17ad1d3f93196c405f3fe351. BuildPASS exit0 in84.875s,peak4051760KiB. Independent coefficient-mapping/source/prefix reviewPASS; all31 primitive-scaled necessary equations proved. No chart contradiction or main theorem. Complete frozen archive underfull-star31.
 
 All31 coefficient lemmas independently audited: onlypropext,Classical.choice,Quot.sound; full audit exit0 in91.473s. BlockDeterminant.lean:29lines1260bytes,SHA256e34270ccb9d6610c59a3737b6b906eaf35ea80a6fecd6fe13ef8d3478b9b317f; buildexit0 in3.05s and axiom auditexit0 in2.54s. Generic zero-block determinant-square and congruence form only, no isotropic-basis construction or full gap proof. Independent structural and root source/math/format reviewsPASS.
+
+Named integration07:1528lines, old624-line body preserved plus all31 coefficient helpers, with explicit Mathlib imports. Scratch build02PASS106.62s; named lake build07PASS53s; independent integration/import reviewsPASS. Named audit07 confirms35 selected lemmas use only standard axioms. Checker07exit1 REJECTED(no-theorem); the posted theorem remains absent. Cleanup not reached; partial source progression283→506→624→1528.
+PolynomialSquareBridge53lines and AdaptedPencilSquare95lines compile with explicit adapted-P hypotheses; adapted-pencil axiom audit and independent structural reviewsPASS. These do not yet construct a basis from an isotropic subspace or settle the gap.

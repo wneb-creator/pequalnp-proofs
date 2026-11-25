@@ -1,0 +1,28 @@
+import took 1.36s
+/tmp/oec/pequalnp-pilot-75/gct231/library/AdaptedPencilSquare.lean:4:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+cumulative profiling times:
+	attribute application 0.0551ms
+	congr simp thm 2.36ms
+	declTypeLinter 4.83ms
+	elaboration 38.9ms
+	fix level params 0.547ms
+	import 1.36s
+	initialization 52.5ms
+	instantiate metavars 0.797ms
+	interpretation 184ms
+	let-to-have transformation 0.167ms
+	linting 10.9ms
+	module linting 0.0318ms
+	norm_num 0.389ms
+	parsing 5.08ms
+	process pre-definitions 4.13ms
+	ring 6.51ms
+	share common exprs 3.06ms
+	simp 84.5ms
+	tactic execution 107ms
+	tacticAnalysis 2.07ms
+	type checking 28ms
+	typeclass inference 149ms

@@ -1,0 +1,35 @@
+import took 2.18s
+/tmp/oec/pequalnp-pilot-75/gct231/library/AdaptedPencilSquareAudit.lean:4:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+'PEqualNP.Outside.L_gct_231_aux.polynomial_det_square_of_constant_congruence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_adapted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.143ms
+	blocked (unaccounted) 768ms
+	congr simp thm 2.9ms
+	declTypeLinter 26.6ms
+	elaboration 64.5ms
+	fix level params 0.668ms
+	import 2.18s
+	initialization 38ms
+	instantiate metavars 1.18ms
+	interpretation 294ms
+	let-to-have transformation 0.467ms
+	linting 36.9ms
+	module linting 0.303ms
+	norm_num 0.384ms
+	parsing 8.48ms
+	process pre-definitions 12.5ms
+	ring 6.63ms
+	share common exprs 4.94ms
+	simp 97.5ms
+	tactic execution 232ms
+	tacticAnalysis 4.62ms
+	type checking 72.7ms
+	typeclass inference 211ms

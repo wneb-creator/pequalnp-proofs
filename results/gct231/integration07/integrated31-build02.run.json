@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "wall_seconds": 106.6225411710002,
+  "seconds_limit": 300,
+  "resident_memory_mib_limit": 7168,
+  "peak_group_rss_kib": 4854772,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/Integrated31.lean"
+}

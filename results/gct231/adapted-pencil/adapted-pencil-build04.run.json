@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "wall_seconds": 4.095890914999472,
+  "seconds_limit": 60,
+  "resident_memory_mib_limit": 3584,
+  "peak_group_rss_kib": 3123568,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/library/AdaptedPencilSquare.lean"
+}
