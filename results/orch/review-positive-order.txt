@@ -1,0 +1,10 @@
+PASS — PositiveOrder.lean independent review
+
+Source SHA256: e573191200dbdf710ebea5bf2edd74295d0125026254a61382903b681ea9ff2f
+Source: 4612 bytes,112 lines. Complete compile log reports EXIT0 and one unused-simp warning; no errors.
+
+Read the full source and the exact gate_rep_free/forcesInput interfaces. bankOrder is pointwise preservation of true values on every listed wire, so duplicate occurrences are harmless. Positive binary order independently checked in all18 ordered Boolean input cases. gate_rep_free correctly reduces legal non-NOT gates to an existing wire, a constant, or AND/OR; nullary/degenerate gates are therefore covered. Positive execution extends the same order through every appended gate without a fresh-wire assumption.
+
+input_zero makes the original input bank ordered from row0 to any row. For a proper signal h forcing input a, h is false at row0 and nonzero somewhere, so neg h is true at row0 and false at that witness. The prefix-safe theorem uses the preserved bank order to rule out producing any signal with such a true-to-false drop. Its hypotheses explicitly retain legality, no-NOT status, input-bank order and both witness values; no monotone normalization of arbitrary circuits is assumed.
+
+No new axioms, sorry, native_decide, forbidden root text, string literals or attributes. The only option is the allowed local maxHeartbeats limit above input_zero. This is an auxiliary semantic lemma, not the full gap conclusion.

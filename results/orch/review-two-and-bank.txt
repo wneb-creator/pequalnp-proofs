@@ -1,0 +1,12 @@
+PASS — TwoAndBank and TwoAndBankLower independent review
+
+TwoAndBank: SHA25607f1bfd45bf8d1e1cb1b0d0270113dabbdca500ce65d0b3dfcc6faba2274bca8, 4745 bytes, 105 lines, EXIT0.
+TwoAndBankLower: SHA256a7bd3098b69a17e454200d26abdcd923da95f4d76d235b58ea3b82c011001a20, 4081 bytes, 91 lines, EXIT0.
+
+Read both complete sources and checked their use of signed15, row projection, the reviewed two-zero witness and mass_two. paidBank charges one signed binary operation for the second AND after deleting input a. All four supplied AND/complement signals become either a constant, that paid result, or its free signed complement; ordinary inputs remain available. The projected bound therefore gives15+mass≤1+k. Two distinct source entries projecting to constants contribute mass≥2 even when their projected values coincide, yielding k≥16.
+
+retained_left is valid for overlapping or repeated AND pairs: a≠b and c≠d suffice to choose an endpoint e of the second AND distinct from a. The witness fixes b=e=0, so both AND signals and their complements agree while graph differs; if input a were absent every available signal would agree, contradicting live_row_difference. No disjointness or different-AND-output assumption is hidden. Independently checked all90 input-versus-AND/complement distinction cases.
+
+If either AND/complement is actually present, input a plus that source give the required two distinct constants. If all four extras are absent, essential inputs force the whole original input set, and the checked signed17 lower bound applies. Mode weakening false→true only expands the allowed operations. The result is a positive-tail lower bound from this particular free bank; it does not claim arbitrary two-NOT circuits normalize to that bank.
+
+Only existing imports and permitted local limit options are used. No sorry, new axioms, native_decide, forbidden root text, strings or attributes. Both complete compiler logs report EXIT0 with no warnings/errors.

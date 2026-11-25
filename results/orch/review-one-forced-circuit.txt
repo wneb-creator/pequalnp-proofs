@@ -1,0 +1,11 @@
+PASS — OneForcedCircuit.lean independent review
+
+SHA2569319a4411d0427fa821aa272807eaf2bf64ade14c820ac37c3b6ba0455b945d8;5911 bytes,120 lines. Complete compiler log reports EXIT0 without warnings/errors. Read the full source and checked pull_positive_chunk_keep and positive_tail_lower_used interfaces.
+
+The circuit hypothesis explicitly locates a positive producer g, its stored output h, a single later NOT reading wire10+pre.length, and positive pre/mid/post chunks. The required forcesInput h a hypothesis remains explicit; the proof does not infer it for all positive producers. stored_gate_value handles the interleaved mid chunk, and output_member supplies the actual graph signal after the post chunk.
+
+When neg h occurs in the extracted post frontier, its properness provides the strict row0-to-witness drop proved in PositiveOrder. Positive execution cannot regenerate that signal in pre or mid, which discharges the exact safety premise needed to preserve it during both backward extraction steps. The producer g is skipped only because its exact output is explicitly free. The retained-negated-source bank bound gives18 paid tail gates; adding producer and NOT gives20 total gates.
+
+When neg h is absent from the post frontier, removing its appended wire leaves the frontier in the positive prefix bank. Ordinary positive extraction charges g and every prefix/mid gate, while the NOT contributes the additional one in k+1≤size. Essential-input witnesses force the extracted root set to equal inputs.toFinset.
+
+The final small-size corollary is correctly a reduction to exact monotone Live18, using the existing monotone lower18; it is not itself an exclusion of that residual case. Both cases preserve cost inequalities and neither assumes the positive source is proper unless its negation is actually used. No new axioms, sorry, native_decide, forbidden root text, strings, attributes or options occur.

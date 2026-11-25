@@ -1,0 +1,7 @@
+PASS: independent immutable review of FreeSegments.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+SHA256 7943a4d09c6fb2dbfe356c93eb4a1e88e2750ae672ca21405953e9806c9c94d2; 2861 bytes. Entire source and full compiler log read; EXIT0, no warnings/errors. No additional compile.
+
+weave records a positive chunk followed by one separately supplied gate per segment; charge counts only the chunk lengths. weave_length correctly accounts for one separator per segment and weave_execute preserves the exact execution order. freeTrace explicitly requires each separator's actual value to belong to the supplied free bank, in the current execution state. pull_segments works backward through the suffix, removes that known free value with skip_free_gate, and pulls the positive chunk with pull_positive_chunk. The resulting Live trace costs at most k+charge, and every root is in initial w or free. The empty case and member_weave bookkeeping are sound. The separators are deliberately not asserted positive: their freely supplied output condition is explicit and sufficient. This helper alone claims no circuit lower bound.
+
+No new axioms, sorry, native_decide, bv_decide, forbidden _root_ text, string literals, custom datatypes/instances, attributes, or options. Cached import FreeBankExtraction is for this archived helper; a final PR needs an allowed single-file assembly. PASS applies to this frozen helper and recorded successful build.

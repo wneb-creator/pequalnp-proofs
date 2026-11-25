@@ -1,0 +1,8 @@
+Compiler exit code: 0
+/tmp/oec/pequalnp-pilot-87/counterexample/one-forced/PositiveOrder.lean:17:57: warning: This simp argument is unused:
+  BitVec.getLsbD_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, ↓reduceIte, bit, BitVec.getLsbD_and] at *
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,2 @@
+import TwoAndOrdinary
+#print axioms PEqualNP.Outside.L_meta_2373.Live1024.TwoAndBank.separated_two_not_lower

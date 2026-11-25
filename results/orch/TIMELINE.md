@@ -139,3 +139,9 @@
 - 2026-11-25T16:01:30.447136+00:00: full mono19 first-OR-edge computational lineage independently reviewed; allfive traces and final113408state cache preserved. ExactLean theorem remains absent.
 
 - 2026-11-25T16:05:01.392998+00:00: four additional compiled/reviewed smallcomponents preserved; weak15initial300second archive reviewed. Rootstarted freshstrongmono19ANDedge600second experiment after lease renewal.
+
+- 2026-11-25T16:07:12.318080+00:00: proof_structure checked signed15-only separated2NOT/ANDsource ordinarysize20 lower and compact conditionalPmono20→nineMono16 bridge; full logs/axiom audits preserved.
+
+- 2026-11-25T16:08:31.493944+00:00 counterexample: OneForcedCircuit compiled/reviewed PASS andstandardaxiomaudit complete; movingtoactualprovenancebridge.
+
+- 2026-11-25T16:08:52.441619+00:00: independentreviews passedforrestrictedtwoNOTordinarychain, oneforcedordinarydichotomy andcountcore/adapters; compiledartifactscheckpointed. Freshwholecaseexportcontinues.

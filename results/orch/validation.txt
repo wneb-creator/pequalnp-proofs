@@ -19,7 +19,7 @@ The final post-acceptance cleanup pass has not been reached. Earlier partial tri
 Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=193.1 subagents=6
+TIMING total=197.0 subagents=6
 
 A real ten-wire subtree is now fully kernel-checked: all1440 ordered branches are excluded, giving signed Lower13 for that frontier. Its exact symbolic-word compression reduces the append-only proof package104656→59138bytes, with both versions and full logs preserved. The adjacent-OR positive-formula lower bound20 leaves is independently checked; it does not cover arbitrary circuit sharing. Indexed/intermediate/compressed-wire cofactor bridges and the positive-width generic foundation are also checked partials.
 
@@ -44,3 +44,5 @@ Latest checked additions: OneNotForcedPair.circuit_lower generalizes the arbitra
 Completed computational case preservation: allfive linked strong-mode traces, exact immutable input snapshots, final113408-state memo including the initial bank, matrix versionsV1–V3, source and full output/status records passed independent integrity/context review. All11 root branches closed; no whole Lean DAG is claimed. Exact matrix audit and complete-trace profile census are separate supporting evidence. The signed18-ANDedge300second run remains incomplete. All research archives and independent reviews are committed; their files are for this work branch and cannot be included in a one-file proof PR.
 
 New reviewed compiled partials: OneForcedBank positive-bank lower18 when a used complement negates a value forcing one input; PullPositiveKeep retains a protected root under its explicit safety premise; TwoZeroInfluence proves essential-input witnesses with two other coordinates fixedzero; PlainBlockPrototype verifies onefive-node certificate row. None proves the fullgap. Freshweak15 search archive is incomplete after300seconds/734033nodes, root absent from26439completedmemo states; exacthash/integrity and preservedaudit rerun PASS.
+
+Further checked partials: restrictedtwoNOTordinary20gate lower bound for separated AND1,NOT1,AND2,NOT2 order, with arbitrarypositivechunks and originalinputpairs. It uses signed15only; bothpairs mayoverlap/repeat buteachpairmustbedistinct. Genericfourfreevalueconsumer needs its explicitfreeTrace. OneForcedCircuit gives20gates or a smallerpositiveLive computation; withsize≤19 the residual branch isexactmonoLive18. CountVectorCore/Adapters certifyduplicate-preservingclass arithmetic for exporter reconstruction. All eightnewmodulescompileandpassindependentreviews; fullaxiomauditsforordinarytwoNOTandconditionalninebridgeuseonlystandardaxioms. Exactgapstillabsent.

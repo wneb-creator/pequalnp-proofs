@@ -1,0 +1,2 @@
+import MonotoneNineFromPetersen
+#print axioms PEqualNP.Outside.L_meta_2373.MonotoneNineFromPetersen.nine_monotone16_of_petersen20

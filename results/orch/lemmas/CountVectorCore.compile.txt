@@ -1,0 +1,24 @@
+/tmp/oec/pequalnp-pilot-87/status_review/CountVectorCore.lean:29:29: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at hx
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-87/status_review/CountVectorCore.lean:10:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2373.CountVector.count_singleton`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-87/status_review/CountVectorCore.lean:32:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2373.CountVector.count_mono`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-87/status_review/CountVectorCore.lean:101:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2373.CountVector.count_image`:
+  [DecidableEq α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
