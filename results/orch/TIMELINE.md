@@ -15,3 +15,7 @@ No complete proof or accepted submission yet.
 - 2026-11-25T07:19:50.514552+00:00: Integrated 64-line bipartite-ownership proof; named file builds with 639 lines. Independent review passed.
 
 - 2026-11-25T07:23:12.010373+00:00: Arbitrary-context unshared-diamond repair compiled and independently reviewed; integrated named file builds (841 lines).
+
+- 2026-11-25T07:24:41.264064+00:00: First strategy review: dropped direct reuse of general lower bounds/one-junk induction; concentrated on component extraction, guard classification, contextual repairs, and synthesis.
+
+- 2026-11-25T07:29:41.065612+00:00: Matching repair, local odd-walk obstruction, and double-star guard lemmas integrated; 1166-line file builds. Finite artifacts independently reviewed and preserved.

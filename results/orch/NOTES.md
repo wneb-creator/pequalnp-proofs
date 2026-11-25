@@ -24,3 +24,9 @@ For a graph without triangles or four-cycles, prove that a minimum monotone circ
 - lean_setup: install the missing pinned toolchain and fetch the pinned Mathlib cache.
 
 Strategy-specific notes go in separate Markdown files in this directory to avoid concurrent edits. Candidate Lean fragments go in the scratch strategy directories or the lemmas directory. Only root integrates the final named Lean file after coordinating ownership.
+
+## First strategy review
+
+Existing lower bounds and the one-junk proof do not close the target: they rely on a global assignment of residual edges and, in one critical case, on exclusion of a five-cycle. Earliest/latest bad-gate choices do not supply those hypotheses.
+
+Continue four routes: whole common-singleton component extraction; graph-only guard classification with a separate small pentagon case; explicit context-preserving circuit repairs; exact and heuristic circuit synthesis on interacting-cycle graphs. The theorem remains unproved.

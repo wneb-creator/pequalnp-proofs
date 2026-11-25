@@ -1,0 +1,19 @@
+N 6 M 6 ALPHA 3 ROWS 11 GATES 8
+BEST 0 TIME 0.000118675 ITER 0 RESTART 1 FP 0 FN 0
+0 or 2 0
+1 and 1 6
+2 or 0 4
+3 and 5 8
+4 or 4 2
+5 and 3 10
+6 or 9 7
+7 or 11 12
+DONE BEST 0 ITER 877400000 RESTARTS 4387 TIME 120.013
+0 or 2 0
+1 and 1 6
+2 or 0 4
+3 and 5 8
+4 or 4 2
+5 and 3 10
+6 or 9 7
+7 or 11 12
