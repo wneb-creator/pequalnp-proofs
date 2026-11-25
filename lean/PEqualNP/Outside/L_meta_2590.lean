@@ -316,4 +316,328 @@ lemma raw_edge_replacement_improves_impurity {n : ℕ} (u v : Fin n)
     rw [← hslot x, suffixContext_override]
     exact hpure x hx
 
+open PEqualNP.MetaComplexity
+
+def splice (pre : List Gate) (g : Gate) (post : List Gate) (out : ℕ) : Circuit :=
+  { gates := pre ++ g :: post, output := out }
+
+def prefixValues (n : ℕ) (pre : List Gate) (x : Fin n → Bool) : List Bool :=
+  pre.foldl step (List.ofFn x)
+
+def selectedValue (n : ℕ) (pre : List Gate) (g : Gate) (x : Fin n → Bool) : Bool :=
+  g.op.eval (g.inputs.map fun i => (prefixValues n pre x).getD i false)
+
+def wireValues (n : ℕ) (C : Circuit) (wire : ℕ) (x : Fin n → Bool) : Bool :=
+  (C.wires (List.ofFn x)).getD wire false
+
+noncomputable def circuitImpurity {n : ℕ} (N : (Fin n → Bool) → Prop)
+    (C : Circuit) : ℕ :=
+  (impureGateSet N (Finset.Ico n (n + C.size)) (wireValues n C)).card
+
+lemma splice_size (pre : List Gate) (oldGate newGate : Gate)
+    (post : List Gate) (out : ℕ) :
+    (splice pre newGate post out).size = (splice pre oldGate post out).size := by
+  simp [splice, Circuit.size]
+
+lemma fold_length (gs : List Gate) (w : List Bool) :
+    (gs.foldl step w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+      rw [List.foldl_cons, ih]
+      simp [step, Nat.add_comm, Nat.add_left_comm]
+
+lemma prefixValues_length {n : ℕ} (pre : List Gate) (x : Fin n → Bool) :
+    (prefixValues n pre x).length = n + pre.length := by
+  simp [prefixValues, fold_length]
+
+lemma prefixValues_input {n : ℕ} (pre : List Gate) (x : Fin n → Bool) (u : Fin n) :
+    (prefixValues n pre x).getD u.val false = x u := by
+  unfold prefixValues
+  rw [fold_getD_lt pre _ _ (by simp)]
+  rw [List.getD_eq_getElem _ _ (by simp), List.getElem_ofFn]
+
+lemma ofFn_wireLE {n : ℕ} {x y : Fin n → Bool} (hxy : x ≤ y) :
+    WireLE (List.ofFn x) (List.ofFn y) := by
+  intro i hi
+  by_cases hil : i < n
+  · rw [List.getD_eq_getElem _ _ (by simpa using hil), List.getElem_ofFn] at hi ⊢
+    exact hxy ⟨i, hil⟩ hi
+  · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_lt hil)] at hi
+    cases hi
+
+lemma selectedValue_mono {n : ℕ} (pre : List Gate) (g : Gate)
+    (hpre : ∀ h ∈ pre, h.op = GateOp.and ∨ h.op = GateOp.or)
+    (hg : g.op = GateOp.and ∨ g.op = GateOp.or) :
+    Monotone (selectedValue n pre g) := by
+  intro x y hxy
+  exact gate_eval_mono g.op hg _ _ _
+    (fold_mono pre hpre (List.ofFn x) (List.ofFn y) (by simp) (ofFn_wireLE hxy))
+
+lemma mono_gate_op {C : Circuit} (hC : Monotone2 C) (g : Gate) (hg : g ∈ C.gates) :
+    g.op = GateOp.and ∨ g.op = GateOp.or := by
+  simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using (hC g hg).1
+
+lemma selectedValue_mono_of_splice {n : ℕ} (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre g post out)) :
+    Monotone (selectedValue n pre g) := by
+  apply selectedValue_mono
+  · intro h hh
+    exact mono_gate_op hC h (List.mem_append_left _ hh)
+  · exact mono_gate_op hC g (List.mem_append_right _ List.mem_cons_self)
+
+lemma splice_monotone2 (pre : List Gate) (oldGate newGate : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre oldGate post out))
+    (hnew : newGate.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧
+      newGate.inputs.length ≤ 2) : Monotone2 (splice pre newGate post out) := by
+  intro g hg
+  change g ∈ pre ++ newGate :: post at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hC g (List.mem_append_left _ hg)
+  · rcases List.mem_cons.mp hg with rfl | hg
+    · exact hnew
+    · exact hC g (List.mem_append_right _ (List.mem_cons_of_mem _ hg))
+
+lemma splice_wireValues (n : ℕ) (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) :
+    wireValues n (splice pre g post out) =
+      fun i x => suffixContext post (prefixValues n pre) x (selectedValue n pre g x) i := by
+  funext i x
+  change ((pre ++ g :: post).foldl step (List.ofFn x)).getD i false =
+    (post.foldl step (prefixValues n pre x ++ [selectedValue n pre g x])).getD i false
+  rw [List.foldl_append, List.foldl_cons]
+  rfl
+
+lemma splice_circuitFun (n : ℕ) (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) :
+    circuitFun n (splice pre g post out) =
+      fun x => suffixContext post (prefixValues n pre) x (selectedValue n pre g x) out := by
+  exact congrFun (splice_wireValues n pre g post out) out
+
+lemma splice_selected_wire (n : ℕ) (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) :
+    wireValues n (splice pre g post out) (n + pre.length) = selectedValue n pre g := by
+  rw [splice_wireValues]
+  funext x
+  rw [← prefixValues_length pre x]
+  exact suffixContext_override post (prefixValues n pre) x (selectedValue n pre g x)
+
+def rawEdgeGate {n : ℕ} (u v : Fin n) : Gate :=
+  { op := GateOp.and, inputs := [u.val, v.val] }
+
+lemma rawEdgeGate_value {n : ℕ} (pre : List Gate) (u v : Fin n) :
+    selectedValue n pre (rawEdgeGate u v) = edgeTerm u v := by
+  funext x
+  change ((prefixValues n pre x).getD u.val false &&
+    ((prefixValues n pre x).getD v.val false && true)) = edgeTerm u v x
+  rw [prefixValues_input, prefixValues_input]
+  simp [edgeTerm]
+
+def falseGate (wire : ℕ) : Gate :=
+  { op := GateOp.and, inputs := [wire, wire] }
+
+lemma falseGate_value {n : ℕ} (pre : List Gate) :
+    selectedValue n pre (falseGate (n + pre.length)) = fun _ => false := by
+  funext x
+  have hz : (prefixValues n pre x).getD (n + pre.length) false = false :=
+    List.getD_eq_default _ _ (by rw [prefixValues_length])
+  change ((prefixValues n pre x).getD (n + pre.length) false &&
+    ((prefixValues n pre x).getD (n + pre.length) false && true)) = false
+  rw [hz]
+  rfl
+
+lemma selected_slot_mem (n : ℕ) (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) :
+    n + pre.length ∈ Finset.Ico n (n + (splice pre g post out).size) := by
+  simp only [Finset.mem_Ico, splice, Circuit.size, List.length_append, List.length_cons]
+  omega
+
+def CircuitImprovement {n : ℕ} (P N : (Fin n → Bool) → Prop)
+    (old new : Circuit) : Prop :=
+  new.size = old.size ∧ Monotone2 new ∧ Correct P N (circuitFun n new) ∧
+    (∀ i, wireValues n new i ≤ wireValues n old i) ∧
+    circuitImpurity N new < circuitImpurity N old
+
+lemma circuit_replacement_improves_impurity {n : ℕ}
+    (P N : (Fin n → Bool) → Prop) (pre : List Gate) (oldGate newGate : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre oldGate post out))
+    (hnew : newGate.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧
+      newGate.inputs.length ≤ 2)
+    (hshrink : selectedValue n pre newGate ≤ selectedValue n pre oldGate)
+    (hold : Correct P N (circuitFun n (splice pre oldGate post out)))
+    (hessential : ∀ x, P x → suffixContext post (prefixValues n pre) x false out = false →
+      selectedValue n pre newGate x = true)
+    (hpure : ∀ x, N x → selectedValue n pre newGate x = false)
+    (himpure : Impure N (selectedValue n pre oldGate)) :
+    CircuitImprovement P N (splice pre oldGate post out) (splice pre newGate post out) := by
+  have hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or := by
+    intro g hg
+    exact mono_gate_op hC g (List.mem_append_right _ (List.mem_cons_of_mem _ hg))
+  have hold' : Correct P N (fun x => suffixContext post (prefixValues n pre) x
+      (selectedValue n pre oldGate x) out) := by
+    simpa only [splice_circuitFun] using hold
+  have hr := context_replacement P N (suffixContext post (prefixValues n pre)) out
+    (suffixContext_mono post (prefixValues n pre) hpost)
+    (selectedValue n pre oldGate) (selectedValue n pre newGate) hshrink hold' hessential
+  have hs : ∀ i, wireValues n (splice pre newGate post out) i ≤
+      wireValues n (splice pre oldGate post out) i := by
+    intro i x hx
+    rw [splice_wireValues] at hx ⊢
+    exact hr.2 x i hx
+  refine ⟨splice_size pre oldGate newGate post out,
+    splice_monotone2 pre oldGate newGate post out hC hnew, ?_, hs, ?_⟩
+  · simpa only [splice_circuitFun] using hr.1
+  · unfold circuitImpurity
+    rw [splice_size pre oldGate newGate post out]
+    apply impure_count_strictly_decreases N _ _ _ hs (n + pre.length)
+      (selected_slot_mem n pre oldGate post out)
+    · rw [splice_selected_wire]
+      exact himpure
+    · rw [splice_selected_wire]
+      exact not_impure_of_false_negatives hpure
+
+lemma circuit_raw_edge_replacement {n : ℕ} (u v : Fin n)
+    (P N : (Fin n → Bool) → Prop) (pre : List Gate) (oldGate : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre oldGate post out))
+    (hpair : selectedValue n pre oldGate (PEqualNP.EdgeOwnership.pairInput u v) = true)
+    (hold : Correct P N (circuitFun n (splice pre oldGate post out)))
+    (hessential : ∀ x, P x → suffixContext post (prefixValues n pre) x false out = false →
+      edgeTerm u v x = true)
+    (hpure : ∀ x, N x → edgeTerm u v x = false)
+    (himpure : Impure N (selectedValue n pre oldGate)) :
+    CircuitImprovement P N (splice pre oldGate post out)
+      (splice pre (rawEdgeGate u v) post out) := by
+  apply circuit_replacement_improves_impurity P N pre oldGate (rawEdgeGate u v) post out hC
+  · simp [rawEdgeGate]
+  · rw [rawEdgeGate_value]
+    exact edgeTerm_le_gate u v (selectedValue n pre oldGate)
+      (selectedValue_mono_of_splice pre oldGate post out hC) hpair
+  · exact hold
+  · simpa only [rawEdgeGate_value] using hessential
+  · simpa only [rawEdgeGate_value] using hpure
+  · exact himpure
+
+lemma circuit_false_replacement {n : ℕ}
+    (P N : (Fin n → Bool) → Prop) (pre : List Gate) (oldGate : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre oldGate post out))
+    (hold : Correct P N (circuitFun n (splice pre oldGate post out)))
+    (hzero : ∀ x, P x → suffixContext post (prefixValues n pre) x false out = true)
+    (himpure : Impure N (selectedValue n pre oldGate)) :
+    CircuitImprovement P N (splice pre oldGate post out)
+      (splice pre (falseGate (n + pre.length)) post out) := by
+  apply circuit_replacement_improves_impurity P N pre oldGate
+    (falseGate (n + pre.length)) post out hC
+  · simp [falseGate]
+  · rw [falseGate_value]
+    exact fun x => Bool.false_le _
+  · exact hold
+  · intro x hx hz
+    rw [hzero x hx] at hz
+    cases hz
+  · intro x hx
+    rw [falseGate_value]
+  · exact himpure
+
+lemma circuit_split (C : Circuit) (j : Fin C.gates.length) :
+    C = splice (C.gates.take j.val) (C.gates.get j)
+      (C.gates.drop (j.val + 1)) C.output := by
+  have hs : C.gates = C.gates.take j.val ++ C.gates.get j :: C.gates.drop (j.val + 1) := by
+    conv_lhs => rw [← List.take_append_drop j.val C.gates]
+    congr 1
+    exact List.drop_eq_getElem_cons j.isLt
+  cases C with
+  | mk gates out => exact congrArg (fun gs => Circuit.mk gs out) hs
+
+lemma exists_minimum_nat_measure {α : Type} (S : α → Prop) (measure : α → ℕ)
+    (hex : ∃ a, S a) : ∃ a, S a ∧ ∀ b, S b → measure a ≤ measure b := by
+  classical
+  let Attained : ℕ → Prop := fun n => ∃ a, S a ∧ measure a = n
+  have hnat : ∃ n, Attained n := by
+    obtain ⟨a, ha⟩ := hex
+    exact ⟨measure a, a, ha, rfl⟩
+  obtain ⟨a, ha, hmeasure⟩ := Nat.find_spec hnat
+  refine ⟨a, ha, ?_⟩
+  intro b hb
+  rw [hmeasure]
+  exact Nat.find_min' hnat ⟨b, hb, rfl⟩
+
+def BoundarySolution {n : ℕ} (P N : (Fin n → Bool) → Prop) (k : ℕ)
+    (C : Circuit) : Prop := Monotone2 C ∧ C.size ≤ k ∧ Correct P N (circuitFun n C)
+
+lemma exists_bounded_minimum_impurity {n : ℕ} (P N : (Fin n → Bool) → Prop)
+    (k : ℕ) (hex : ∃ C, BoundarySolution P N k C) :
+    ∃ C, BoundarySolution P N k C ∧
+      ∀ D, BoundarySolution P N k D → circuitImpurity N C ≤ circuitImpurity N D :=
+  exists_minimum_nat_measure (BoundarySolution P N k) (circuitImpurity N) hex
+
+lemma minimal_impurity_two_essential {n : ℕ} (P N : (Fin n → Bool) → Prop)
+    (hpositive : ∀ x, P x → ∃ u v : Fin n,
+      x = PEqualNP.EdgeOwnership.pairInput u v ∧ ∀ y, N y → edgeTerm u v y = false)
+    (pre : List Gate) (g : Gate) (post : List Gate) (out : ℕ)
+    (hC : Monotone2 (splice pre g post out))
+    (hcorrect : Correct P N (circuitFun n (splice pre g post out)))
+    (hminimal : ∀ D, Monotone2 D → D.size = (splice pre g post out).size →
+      Correct P N (circuitFun n D) →
+        circuitImpurity N (splice pre g post out) ≤ circuitImpurity N D)
+    (himpure : Impure N (selectedValue n pre g)) :
+    ∃ x y, P x ∧ P y ∧ x ≠ y ∧
+      suffixContext post (prefixValues n pre) x false out = false ∧
+      suffixContext post (prefixValues n pre) y false out = false := by
+  classical
+  by_contra htwo
+  by_cases hex : ∃ x, P x ∧ suffixContext post (prefixValues n pre) x false out = false
+  · obtain ⟨x, hx, hzero⟩ := hex
+    obtain ⟨u, v, hxeq, hpure⟩ := hpositive x hx
+    have hgateX : selectedValue n pre g x = true := by
+      cases hv : selectedValue n pre g x with
+      | false =>
+          have ho : suffixContext post (prefixValues n pre) x
+              (selectedValue n pre g x) out = true := by
+            simpa only [splice_circuitFun] using hcorrect.1 x hx
+          rw [hv, hzero] at ho
+          cases ho
+      | true => rfl
+    have hpair : selectedValue n pre g (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+      simpa only [hxeq] using hgateX
+    have hcover : ∀ y, P y → suffixContext post (prefixValues n pre) y false out = false →
+        edgeTerm u v y = true := by
+      intro y hy hyzero
+      have hyx : y = x := by
+        by_contra hne
+        exact htwo ⟨x, y, hx, hy, Ne.symm hne, hzero, hyzero⟩
+      rw [hyx, hxeq]
+      simp [edgeTerm, PEqualNP.EdgeOwnership.pairInput]
+    have hi := circuit_raw_edge_replacement u v P N pre g post out
+      hC hpair hcorrect hcover hpure himpure
+    have hle := hminimal _ hi.2.1 hi.1 hi.2.2.1
+    exact Nat.not_lt_of_ge hle hi.2.2.2.2
+  · have hzero : ∀ x, P x → suffixContext post (prefixValues n pre) x false out = true := by
+      intro x hx
+      cases hv : suffixContext post (prefixValues n pre) x false out with
+      | false => exact False.elim (hex ⟨x, hx, hv⟩)
+      | true => rfl
+    have hi := circuit_false_replacement P N pre g post out hC hcorrect hzero himpure
+    have hle := hminimal _ hi.2.1 hi.1 hi.2.2.1
+    exact Nat.not_lt_of_ge hle hi.2.2.2.2
+
+lemma exists_bounded_essential_impurity {n : ℕ} (P N : (Fin n → Bool) → Prop)
+    (hpositive : ∀ x, P x → ∃ u v : Fin n,
+      x = PEqualNP.EdgeOwnership.pairInput u v ∧ ∀ y, N y → edgeTerm u v y = false)
+    (k : ℕ) (hex : ∃ C, BoundarySolution P N k C) :
+    ∃ C, BoundarySolution P N k C ∧
+      ∀ pre g post out, C = splice pre g post out → Impure N (selectedValue n pre g) →
+        ∃ x y, P x ∧ P y ∧ x ≠ y ∧
+          suffixContext post (prefixValues n pre) x false out = false ∧
+          suffixContext post (prefixValues n pre) y false out = false := by
+  obtain ⟨C, hC, hminimal⟩ := exists_bounded_minimum_impurity P N k hex
+  refine ⟨C, hC, ?_⟩
+  intro pre g post out heq himpure
+  apply minimal_impurity_two_essential P N hpositive pre g post out
+  · simpa only [← heq] using hC.1
+  · simpa only [← heq] using hC.2.2
+  · intro D hD hsize hcorrect
+    rw [← heq] at hsize ⊢
+    exact hminimal D ⟨hD, hsize.trans_le hC.2.1, hcorrect⟩
+  · exact himpure
+
 end PEqualNP.Outside.L_meta_2590.EssentialPruning
