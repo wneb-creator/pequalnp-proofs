@@ -2,6 +2,11 @@
   "scope": "Finished research only; excludes Lean drafts and mutable notes",
   "files": [
     {
+      "path": "results/orch/and-count-sat-review.txt",
+      "bytes": 1391,
+      "sha256": "30bd1b64eceec7bdeef783fd1cb5edba600b338c1a57313206365591bd38bc2d"
+    },
+    {
       "path": "results/orch/and-count-sat/README.md",
       "bytes": 1105,
       "sha256": "7fe22eef933e41f584635c9ef545e4e627c82f735a879105d8b4be3b6c03690d"
@@ -252,11 +257,6 @@
       "sha256": "508dd5a04e4c260b0757c1c84f304f767198adedc15ed99a00b08dfd13c14612"
     },
     {
-      "path": "results/orch/and-count-sat-review.txt",
-      "bytes": 1391,
-      "sha256": "30bd1b64eceec7bdeef783fd1cb5edba600b338c1a57313206365591bd38bc2d"
-    },
-    {
       "path": "results/orch/and_count_sat.py",
       "bytes": 5603,
       "sha256": "3275d38f0139ecdbf236e2b6754663db1678924361bb00a837158bc5399ba469"
@@ -280,6 +280,11 @@
       "path": "results/orch/counterexample.md",
       "bytes": 7524,
       "sha256": "96b04458b469942f6efa2f23927c09a9bddef150d8d0e2d6b313fe3511575936"
+    },
+    {
+      "path": "results/orch/full-mathlib-closure-review.json",
+      "bytes": 250,
+      "sha256": "c54cc739939c28595bb3dbd22e16e311e75e3aafb54bfee6867d803b741f777d"
     },
     {
       "path": "results/orch/no-private-point-proof.md",
@@ -318,8 +323,8 @@
     },
     {
       "path": "results/orch/research-preservation-review.txt",
-      "bytes": 5428,
-      "sha256": "95ed7f71dc8f6fb195974c5cc7b112f9498a7f5bb0e5c4a45d9c618e2395c64f"
+      "bytes": 6740,
+      "sha256": "f7435974836111456d44faa60b53c0f48c52ee8f2bf0946577f88888fec5b5bb"
     },
     {
       "path": "results/orch/research-sat-witness-verification.json",
@@ -412,6 +417,21 @@
       "sha256": "d61e43baefca6169b2bbbd4426e7afb9a15ae9c9242fb7cafc4507b2506ce26c"
     },
     {
+      "path": "results/orch/research-support/tau-drop-counterexample.py",
+      "bytes": 2457,
+      "sha256": "be9c1cd817243dc73f0db81c91207bac164fc5e55d3e5b1d58e9a7c77ab2f8d9"
+    },
+    {
+      "path": "results/orch/research-support/tau-drop-counterexample.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research-support/tau-drop-counterexample.stdout",
+      "bytes": 1815,
+      "sha256": "b3ab9276d3a30652c480bc9be1a52b0383cc265cf3e4d9546569d792c00d2e29"
+    },
+    {
       "path": "results/orch/research-support/tight-circuit.json",
       "bytes": 3289,
       "sha256": "e6709553b9fbd912939bdc0f126a4bbdd00489e481398dd75ebc53bef72e4e4d"
@@ -490,6 +510,21 @@
       "path": "results/orch/structural.md",
       "bytes": 9421,
       "sha256": "d93b40fa1384c1eae3e5acf922ef499378feb72f605a7aa9a65d4c293f82d532"
+    },
+    {
+      "path": "results/orch/tau-drop-counterexample-review.json",
+      "bytes": 1041,
+      "sha256": "a1949909720dab1a796791bdc891e77a3936db26559ec8e9bbefb0b6a2667c1e"
+    },
+    {
+      "path": "results/orch/tau-drop-counterexample.json",
+      "bytes": 1815,
+      "sha256": "b3ab9276d3a30652c480bc9be1a52b0383cc265cf3e4d9546569d792c00d2e29"
+    },
+    {
+      "path": "results/orch/tau-drop-counterexample.md",
+      "bytes": 1583,
+      "sha256": "895a4128967f0fac4ae5872eb33cd6f8f2213d22a779df2a087bedb1389eba66"
     },
     {
       "path": "results/orch/third-reduction.md",

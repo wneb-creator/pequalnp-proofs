@@ -1,0 +1,67 @@
+{
+  "verdict": "PASS: computational counterexample to local clean-cover potential, not to target gap",
+  "all_1024_scalar_rows_checked": true,
+  "proper_binary_gates": 16,
+  "and_gates": 6,
+  "or_gates": 10,
+  "before": {
+    "closure_size": 12112,
+    "clean_edge_profiles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8,
+      9,
+      16,
+      17
+    ],
+    "tau": 4
+  },
+  "after_one_OR": {
+    "closure_size": 12922,
+    "clean_edge_profiles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      16,
+      17,
+      25
+    ],
+    "tau": 2
+  },
+  "all_gates_active_and_clamp_essential_on_minimal_edges": true,
+  "marked_derivative_pairs": [
+    [
+      true,
+      true
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ]
+  ],
+  "record_sha256": "b3ab9276d3a30652c480bc9be1a52b0383cc265cf3e4d9546569d792c00d2e29",
+  "full_stdout_matches_json": true,
+  "stderr_empty": true
+}

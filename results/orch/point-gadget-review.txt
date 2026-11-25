@@ -1,0 +1,8 @@
+Independent reviewer: derivative_lemmas
+Verdict: PASS for checked partial preservation, limited to this fixed codeword template.
+SHA256: e4fc5436aee524461172d7ed94c05e3d026a2b442cbec9c0be2f78c47fca336d
+Lines: 125
+Read entire file. The fixed word map has a five-point cyclic signed-literal pattern on coordinates0..3, plus singleton positive coordinates4..11. cycle_pos correctly propagates any initial positive literal through the four implication pairs; pos_except and all_pos then determine all assigned positive coordinates, respecting the distinguished point11/coordinate10. selected_gadget_negative uses avoidance of the four negative gadget literals plus positive hits of the outside singleton words to rule out every negative coordinate except10.
+In no_extension, hA forces every coordinate positive and therefore every proposed line codeword to have no positive literal. hB forces coordinate10 negative to hit line11 and then excludes its negative literal from line0. hC can hit line0 only at that same negative literal, giving contradiction. Option-valued assignments may be None; the proof never assumes all coordinates assigned without deriving it.
+The theorem excludes only line-codeword extensions satisfying the three explicit separation conditions for this exact fixed point word map. It does not derive those separation conditions from arbitrary circuits or prove a global13-AND lower bound.
+Only existing Fin/Product/Bool/Option/Finset types are used, with an abbrev for Lit. Allowed import/helper namespace; no forbidden text, string literals, new axioms, native_decide, or non-simp attributes. Parent reports standalone Lean compilation passed; no duplicate Lean process launched.

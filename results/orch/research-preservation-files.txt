@@ -1,3 +1,4 @@
+results/orch/and-count-sat-review.txt
 results/orch/and-count-sat/README.md
 results/orch/and-count-sat/and-fooling-search-best.json
 results/orch/and-count-sat/and-fooling-small.json
@@ -48,12 +49,12 @@ results/orch/and-count-sat/signed-new-gadget-wide-solve-resources.json
 results/orch/and-count-sat/signed-new-gadget-wide-solve.log
 results/orch/and-count-sat/signed-new-gadget-wide.cnf.gz
 results/orch/and-count-sat/signed-new-gadget.cnf.gz
-results/orch/and-count-sat-review.txt
 results/orch/and_count_sat.py
 results/orch/and_count_small.py
 results/orch/and_fooling_search.py
 results/orch/and_fooling_small.py
 results/orch/counterexample.md
+results/orch/full-mathlib-closure-review.json
 results/orch/no-private-point-proof.md
 results/orch/plane_automorphisms.py
 results/orch/plane_signed_code.py
@@ -80,6 +81,9 @@ results/orch/research-support/signed6-5-witness.json
 results/orch/research-support/small-double-extra.log
 results/orch/research-support/small-double-search.log
 results/orch/research-support/structural-max-independent.json
+results/orch/research-support/tau-drop-counterexample.py
+results/orch/research-support/tau-drop-counterexample.stderr
+results/orch/research-support/tau-drop-counterexample.stdout
 results/orch/research-support/tight-circuit.json
 results/orch/research-support/verify-research-data.py
 results/orch/search64-anneal.log
@@ -96,6 +100,9 @@ results/orch/signed-code-analysis.md
 results/orch/signed_code_sat.py
 results/orch/small_double_search.py
 results/orch/structural.md
+results/orch/tau-drop-counterexample-review.json
+results/orch/tau-drop-counterexample.json
+results/orch/tau-drop-counterexample.md
 results/orch/third-reduction.md
 results/orch/transform-search.md
 results/orch/research-preservation-manifest.json

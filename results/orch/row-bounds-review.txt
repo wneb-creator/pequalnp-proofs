@@ -1,0 +1,20 @@
+Independent RowBounds review
+Verdict: PASS as a compiled partial theorem bundle, not a proof or refutation of L-meta-2602.
+
+Frozen source
+RowBounds.lean: 1016 lines; SHA256 f9c6c57f91a80176ae80d04ec6fb85cf3a59da502ded7d28b406c66576e5b7f3.
+RowBoundsFragment.lean: 205 lines; SHA256 aa51899db9d99b63b03643b63ae493b8581f26fe7494415fceadca2be08702b1.
+Assembly check found the complete FalseRows, FreeRows, and RowBoundsFragment bodies each verbatim exactly once. After removing those bodies, only the consolidated import PEqualNP.Defs remains. The prior FalseRows and FreeRows snapshots retain their reviewed hashes a87be81f8c1cc595e1ea8016bd0cb672c3c1709a8e44b82235e4f08636552346 and 6fc36382a13dc36048f35dd80c908a966367205918e5efc9a0e770cf7bce9449.
+
+Exact statements and mathematical verification
+Correct C is equality of the circuit's full evaluator with the plane edge function on every Finset (Fin 26). It uses exactly the posted incidence p=l or l+1 or l+3 or l+9 in Fin 13, with point variables Fin.castAdd 13 and line variables Fin.natAdd 13. row_facts decodes the already checked 26-bit maximal false rows. separates proves full false evaluation and true evaluation after insertion of every omitted variable using the exact incidence-correctness bridge, including both point and line cases. The 26-bit bound makes rowSet injective; list nodup identifies selected list length with the finite row index type's cardinality.
+
+The information theorem applies FreeRows.row_bound with every premise discharged: injectivity, containment of the selected variable set, and maximal-false separation. Occ is the complement of gates having none of those variables in either bare side. Therefore Occ counts unsigned bare-variable occurrences per gate, not only one side and not transitive support. occ_balance accounts for all C.size gates; occ_pair identifies a two-variable occurrence set with the union of singleton occurrence sets.
+
+For S empty, 704 <= 2^C.size implies C.size >= 10. For C.size <= 12, a claimed occurrence count above b forces at most 11-b free gates. The exact selected-row counts 197, 52, and 70 exceed 2^7, 2^5, and 2^6 respectively, giving singleton width <=4, distinct same-side union <=6, and cross nonincident union <=5. These are precisely the advertised bounds. No theorem claims a 13-AND lower bound.
+
+No hidden normalization or clean-gate assumption
+Theorems require only C : AndCountCircuit 26, full Correct C, and explicitly stated size/distinctness/nonincidence bounds where applicable. No normalization, clean intermediate gate, disjoint side, private coordinate, no-fanout, output restriction, or hidden geometric premise is assumed. WellFormed is not needed because the library evaluator itself ignores non-earlier gate references; the proof holds for arbitrary circuit data satisfying Correct and hence also every well-formed circuit. AndCountCircuit.size counts AND gates with free OR, not the total binary gate size in the posted target.
+
+Validation and limits
+The reported Lean process exited 0; the preserved complete row-bounds-lean-2.log contains exactly four harmless tactic-style warnings at lines 932 and 942, with no proof error. The reviewer inspected the entire new 205-line bridge and checked exact component assembly. No new full checker attempt was run: prior full-checker attempts ended in resource FAULT, and this helper bundle has no posted target theorem. Source scanning found no forbidden root spelling, string literal, sorry, axiom, native_decide, bv_decide, unsafe or implementation escape, and no attributes. All declarations are in the allowed auxiliary namespace; the only import is the posted PEqualNP.Defs. This review is source and integration validation of a compiled partial, not checker acceptance of the gap.

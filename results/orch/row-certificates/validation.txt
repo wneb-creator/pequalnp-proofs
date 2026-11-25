@@ -16,3 +16,6 @@ FlagAutomorphisms.lean
 lines=367
 sha256=008bde32803b4466707d03a3e33d8cb48e6bec248e51c114e0c148cbd8f198a4
 complete_output=flag-automorphisms-local-lean.log (empty; exit0)
+
+RowBounds.lean: exit0; source SHA256 f9c6c57f91a80176ae80d04ec6fb85cf3a59da502ded7d28b406c66576e5b7f3;1016lines. Four tactic-style warnings at two semicolon-sequencing lines. Complete output row-bounds-lean-2.log.
+PointGadget.lean: exit0; source SHA256 e4fc5436aee524461172d7ed94c05e3d026a2b442cbec9c0be2f78c47fca336d;125lines. No warnings/errors. Complete output point-gadget-lean.log (empty).
