@@ -1,0 +1,7 @@
+UTC: 2026-11-25T14:54:44.964542+00:00
+Command (workdir lean/): lake env lean ../results/orch/lemmas/counterexample_2583_pg3.lean
+Exit: 0
+Complete stdout and stderr: counterexample_2583_pg3_lean.log (empty)
+Source SHA256: 3ab57a44e93d7e4a3673242644093aeec25b81a4881ae6a5f4f45a2c030845fd
+Independent source review: checker_audit PASS for all four finite claims and forbidden-text scan.
+Repository gap checker: not run; this file proves prerequisites, not the posted statement.

@@ -32,3 +32,10 @@ Result: plane incidence has exact read1 lower bound N(q+2)-1; unrestricted lower
 Independent red-team review by reductions: PASS, sourceSHA25612a1cddfe28baaeabfbc501af5f9774894866c3995d601df2e28349f30a7222a.
 Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
 TIMING total=27 subagents=6
+
+Named partial integrated:3390lines,165269bytes. lake build PEqualNP.Outside.L_meta_2583 PASSED exit0 (6657jobs), stderr empty.
+Proves exact replacement-existence iff size-budget for a fixed plane; does NOT prove arbitrary computing circuits meet that budget.
+Additional compiled independent-reviewed helpers: PG(2,3) finiteaxioms; monotone boundarycertificate; closed-boundary refinement.
+Cleanup not started: fullposted theorem absent and localchecker FAULT. Linecount3390before/after no-cleanup.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=32 subagents=6

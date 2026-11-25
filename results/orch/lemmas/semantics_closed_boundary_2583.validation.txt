@@ -1,0 +1,13 @@
+Artifact: semantics_closed_boundary_2583.lean
+Status: checked partial helper; not a proof or refutation of posted L-meta-2583.
+Command workdir: /workspace/pequalnp-proofs/lean
+Command: lake env lean ../results/orch/lemmas/semantics_closed_boundary_2583.lean
+Lean toolchain: lean-4.36.0-linux
+Exit code: 0
+Complete stdout: empty
+Complete stderr: empty
+Source lines: 211
+Independent review: theory agent PASS; the earlier 150-line base is unchanged apart from namespace naming.
+Mathematical result: the incidence boundary certificate needs negative checks only on point sets fixed by the incidence-complement closure.
+The source proves extensivity, preservation of avoiding lines, idempotence, and domination of each negative boundary by its closed boundary.
+Repository checker: not run; artifact contains auxiliary lemmas, not the posted theorem.

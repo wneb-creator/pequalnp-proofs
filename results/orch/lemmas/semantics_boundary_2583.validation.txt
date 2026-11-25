@@ -1,0 +1,12 @@
+Artifact: semantics_boundary_2583.lean
+Status: checked partial helper; not a proof or refutation of posted L-meta-2583.
+Command workdir: /workspace/pequalnp-proofs/lean
+Command: lake env lean ../results/orch/lemmas/semantics_boundary_2583.lean
+Lean toolchain: lean-4.36.0-linux
+Exit code: 0
+Complete stdout: empty
+Complete stderr: empty
+Independent review: theory agent PASS.
+Mathematical result: an AND/OR incidence circuit is determined by its values on incident pairs and the negative closures indexed by point subsets.
+Application to an order-3 plane (N=13): 52 positive samples and 8192 negative samples suffice, instead of all 67108864 assignments.
+Repository checker: not run; artifact contains auxiliary lemmas, not the posted theorem.

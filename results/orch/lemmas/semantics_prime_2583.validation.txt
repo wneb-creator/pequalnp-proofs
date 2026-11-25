@@ -1,0 +1,11 @@
+Artifact: semantics_prime_2583.lean
+Status: checked partial helper; not a proof of posted L-meta-2583.
+Command workdir: /workspace/pequalnp-proofs/lean
+Command: lake env lean ../results/orch/lemmas/semantics_prime_2583.lean
+Lean toolchain: lean-4.36.0-linux
+Exit code: 0
+Complete stdout: empty
+Complete stderr: empty
+Source lines: 88
+Independent review: theory agent PASS (logical statement, allowed imports, forbidden constructs).
+Repository checker: not run; artifact contains auxiliary lemmas, not the posted theorem.
