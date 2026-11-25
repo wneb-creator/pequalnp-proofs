@@ -269,3 +269,7 @@ TIMING total=260.5 subagents=7
 2026-11-25T13:01:53.844251+00:00 AllZeroGeneralObstruction.lean is Lean checked and independently reviewed: exit 0, 301.07 seconds, 11,029,078,016-byte peak RSS, exact unchanged source SHA 46bbf66a2c41cd5d368d32d670ee4fa768382ad543f6de1b7efded4dcb578dad. This composes the actual matrix normalization, sign gluing, skew reconstruction, permanent coefficient bridge and scalar certificate to close the complete local all-zero chart. Source, complete profile output, status and scoped review preserved. Full target L-gct-231 remains unresolved; no target checker verdict.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=266.2 subagents=7
+
+2026-11-25T13:03:51.798830+00:00 FrameGramFactor.lean passed pinned Lean unchanged from independent review: exit0/4.5266s/2,765,914,112-byte peak RSS, source SHA17397e4122277a8b95313458ef1582aeca327ffaeeaecd07dbffe29ee439299c. Six exact symmetric Gram factor identities; assumptions and nonzero cross-product sum remain explicit. This is a partial structural lemma, not the full frame norm implication or target. Full log/status/runner/source preserved and independently checked.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=268.1 subagents=7
