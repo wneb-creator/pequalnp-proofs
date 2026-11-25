@@ -1359,4 +1359,489 @@ theorem embedding_exists {m n : ℕ} (σ : Fin m → Fin n) (C : Circuit)
 
 end InputEmbedding
 
+namespace CircuitOr
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.InputEmbedding
+
+noncomputable def opCount (C : Circuit) (op : GateOp) : ℕ := by
+  classical
+  exact C.gates.countP (fun g => decide (g.op = op))
+
+lemma opCount_eq_ncard (C : Circuit) (op : GateOp) :
+    opCount C op = Set.ncard {j : Fin C.gates.length | (C.gates.get j).op = op} := by
+  classical
+  have h := (List.nodup_finRange C.gates.length).card_eq_countP
+    (P := fun j : Fin C.gates.length => (C.gates.get j).op = op)
+  have hr : (List.finRange C.gates.length).toFinset = Finset.univ := by
+    ext j
+    simp
+  rw [hr] at h
+  have hm : (List.finRange C.gates.length).map C.gates.get = C.gates := by
+    rw [← List.ofFn_eq_map, List.ofFn_get]
+  have hc : opCount C op =
+      (List.finRange C.gates.length).countP (fun j => decide ((C.gates.get j).op = op)) := by
+    unfold opCount
+    conv_lhs => rw [← hm]
+    simp only [List.countP_map, Function.comp_def]
+  rw [hc, ← h]
+  have hs : {j : Fin C.gates.length | (C.gates.get j).op = op} =
+      (↑(Finset.univ.filter (fun j : Fin C.gates.length => (C.gates.get j).op = op)) :
+        Set (Fin C.gates.length)) := by
+    ext j
+    simp
+  rw [hs]
+  exact (Set.ncard_coe_finset _).symm
+
+lemma fold_len (gs : List Gate) (w : List Bool) :
+    (gs.foldl step w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih => simp [List.foldl_cons, ih, step]; omega
+
+lemma fold_stab (gs : List Gate) (w : List Bool) (i : ℕ) (h : i < w.length) :
+    (gs.foldl step w).getD i false = w.getD i false := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih _ (by simp [step]; omega)]
+    simp only [step, List.getD_eq_getElem?_getD]
+    rw [List.getElem?_append_left h]
+
+def value (n : ℕ) (C : Circuit) (x : Fin n → Bool) (i : ℕ) : Bool :=
+  (C.wires (List.ofFn x)).getD i false
+
+lemma value_input (n : ℕ) (C : Circuit) (x : Fin n → Bool) (i : Fin n) :
+    value n C x i.val = x i := by
+  change (C.gates.foldl step (List.ofFn x)).getD i.val false = _
+  rw [fold_stab _ _ _ (by simpa using i.isLt)]
+  simp [List.getD_eq_getElem?_getD]
+
+lemma wireMap_bound {m n : ℕ} (σ : Fin m → Fin n) (i k : ℕ) (h : i < m + k) :
+    wireMap σ i < n + k := by
+  by_cases hi : i < m
+  · have := wireMap_lt σ hi
+    omega
+  · rw [wireMap_ge σ (by omega)]
+    omega
+
+def append (n : ℕ) (C D : Circuit) : Circuit :=
+  let σ : Fin n → Fin (n + C.size) := Fin.castAdd C.size
+  ⟨C.gates ++ (embed σ D).gates, (embed σ D).output⟩
+
+lemma append_size (n : ℕ) (C D : Circuit) :
+    (append n C D).size = C.size + D.size := by
+  simp [append, embed, Circuit.size]
+
+lemma append_opCount (n : ℕ) (C D : Circuit) (op : GateOp) :
+    opCount (append n C D) op = opCount C op + opCount D op := by
+  classical
+  simp [opCount, append, embed, gateMap, List.countP_append, List.countP_map, Function.comp_def]
+  rfl
+
+lemma append_fun (n : ℕ) (C D : Circuit) (x : Fin n → Bool) :
+    circuitFun n (append n C D) x = circuitFun n D x := by
+  let σ : Fin n → Fin (n + C.size) := Fin.castAdd C.size
+  change ((C.gates ++ D.gates.map (gateMap σ)).foldl step (List.ofFn x)).getD
+    (wireMap σ D.output) false = (D.gates.foldl step (List.ofFn x)).getD D.output false
+  rw [List.foldl_append]
+  apply fold_map σ D.gates 0 (List.ofFn x) _ (by simp)
+  · simp [fold_len, Circuit.size]
+  · intro i
+    by_cases hi : i < n
+    · have he : wireMap σ i = i := by simp [wireMap, hi, σ]
+      rw [he, fold_stab _ _ _ (by simpa using hi)]
+    · rw [wireMap_ge σ (by omega)]
+      rw [List.getD_eq_default _ _ (by simp [fold_len, Circuit.size]),
+        List.getD_eq_default _ _ (by simpa using hi)]
+
+lemma append_old_value (n : ℕ) (C D : Circuit) (x : Fin n → Bool)
+    (i : ℕ) (hi : i < n + C.size) :
+    value n (append n C D) x i = value n C x i := by
+  change ((C.gates ++ (embed (Fin.castAdd C.size : Fin n → Fin (n + C.size)) D).gates).foldl
+    step (List.ofFn x)).getD i false = (C.gates.foldl step (List.ofFn x)).getD i false
+  rw [List.foldl_append, fold_stab]
+  simpa [fold_len, Circuit.size] using hi
+
+lemma append_output_valid (n : ℕ) (C D : Circuit) (hD : D.output < n + D.size) :
+    (append n C D).output < n + (append n C D).size := by
+  have h := wireMap_bound (Fin.castAdd C.size : Fin n → Fin (n + C.size)) D.output D.size hD
+  change wireMap _ D.output < _
+  rw [append_size]
+  omega
+
+lemma append_ao (n : ℕ) (C D : Circuit) (hC : IsAO2 n C) (hD : IsAO2 n D) :
+    IsAO2 n (append n C D) := by
+  let D' := embed (Fin.castAdd C.size : Fin n → Fin (n + C.size)) D
+  have hD' : IsAO2 (n + C.size) D' := isAO2 _ hD
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    change g ∈ C.gates ++ D'.gates at hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.1 g hg
+    · exact hD'.1 g hg
+  · intro j hj i hi
+    change j < (C.gates ++ D'.gates).length at hj
+    change i ∈ ((C.gates ++ D'.gates).getD j ⟨GateOp.or, []⟩).inputs at hi
+    by_cases h : j < C.gates.length
+    · rw [List.getD_eq_getElem?_getD, List.getElem?_append_left h] at hi
+      apply hC.2.1 j h i
+      simpa only [gateAt, List.getD_eq_getElem?_getD] using hi
+    · rw [List.getD_eq_getElem?_getD, List.getElem?_append_right (by omega)] at hi
+      have hk : j - C.gates.length < D'.gates.length := by
+        rw [List.length_append] at hj
+        omega
+      have hh := hD'.2.1 (j - C.gates.length) hk i (by
+        simpa only [gateAt, List.getD_eq_getElem?_getD] using hi)
+      change i < n + j
+      change i < n + C.gates.length + (j - C.gates.length) at hh
+      omega
+  · intro g hg
+    change g ∈ C.gates ++ D'.gates at hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.2.2 g hg
+    · exact hD'.2.2 g hg
+
+def finishOr (n : ℕ) (C : Circuit) (a b : ℕ) : Circuit :=
+  ⟨C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)], n + C.size⟩
+
+lemma finishOr_size (n : ℕ) (C : Circuit) (a b : ℕ) :
+    (finishOr n C a b).size = C.size + 1 := by
+  simp [finishOr, Circuit.size]
+
+lemma finishOr_count (n : ℕ) (C : Circuit) (a b : ℕ) :
+    opCount (finishOr n C a b) GateOp.and = opCount C GateOp.and := by
+  classical
+  simp [opCount, finishOr, List.countP_append]
+
+lemma finishOr_fun (n : ℕ) (C : Circuit) (a b : ℕ) (x : Fin n → Bool) :
+    circuitFun n (finishOr n C a b) x = (value n C x a || value n C x b) := by
+  let w := C.gates.foldl step (List.ofFn x)
+  have hl : w.length = n + C.size := by simp [w, fold_len, Circuit.size]
+  change ((C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)]).foldl step (List.ofFn x)).getD
+    (n + C.size) false = (w.getD a false || w.getD b false)
+  rw [List.foldl_append]
+  change (w ++ [GateOp.or.eval [w.getD a false, w.getD b false]]).getD
+    (n + C.size) false = _
+  rw [← hl, List.getD_eq_getElem?_getD, List.getElem?_append_right le_rfl]
+  simp [GateOp.eval]
+
+lemma finishOr_ao (n : ℕ) (C : Circuit) (a b : ℕ) (hC : IsAO2 n C)
+    (ha : a < n + C.size) (hb : b < n + C.size) :
+    IsAO2 n (finishOr n C a b) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    change g ∈ C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)] at hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.1 g hg
+    · have he : g = ⟨GateOp.or, [a, b]⟩ := by simpa using hg
+      subst g
+      exact Or.inr rfl
+  · intro j hj i hi
+    change j < (C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)]).length at hj
+    change i ∈ ((C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)]).getD j ⟨GateOp.or, []⟩).inputs at hi
+    by_cases h : j < C.gates.length
+    · rw [List.getD_eq_getElem?_getD, List.getElem?_append_left h] at hi
+      apply hC.2.1 j h i
+      simpa only [gateAt, List.getD_eq_getElem?_getD] using hi
+    · have he : j = C.gates.length := by
+        simp only [List.length_append, List.length_singleton] at hj
+        omega
+      subst j
+      simp only [List.getD_eq_getElem?_getD, List.getElem?_append_right le_rfl,
+        Nat.sub_self, List.getElem?_cons_zero, Option.getD_some,
+        List.mem_cons, List.not_mem_nil, or_false] at hi
+      rcases hi with rfl | rfl
+      · exact ha
+      · exact hb
+  · intro g hg
+    change g ∈ C.gates ++ [(⟨GateOp.or, [a, b]⟩ : Gate)] at hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.2.2 g hg
+    · have he : g = ⟨GateOp.or, [a, b]⟩ := by simpa using hg
+      subst g
+      rfl
+
+def disjoin (n : ℕ) (C D : Circuit) : Circuit :=
+  finishOr n (append n C D) C.output (append n C D).output
+
+lemma disjoin_size (n : ℕ) (C D : Circuit) :
+    (disjoin n C D).size = C.size + D.size + 1 := by
+  rw [disjoin, finishOr_size, append_size]
+
+lemma disjoin_count (n : ℕ) (C D : Circuit) :
+    opCount (disjoin n C D) GateOp.and = opCount C GateOp.and + opCount D GateOp.and := by
+  rw [disjoin, finishOr_count, append_opCount]
+
+lemma disjoin_fun (n : ℕ) (C D : Circuit) (hC : C.output < n + C.size) (x : Fin n → Bool) :
+    circuitFun n (disjoin n C D) x = (circuitFun n C x || circuitFun n D x) := by
+  rw [disjoin, finishOr_fun, append_old_value n C D x C.output hC]
+  change (circuitFun n C x || circuitFun n (append n C D) x) = _
+  rw [append_fun]
+
+lemma disjoin_ao (n : ℕ) (C D : Circuit) (hC : IsAO2 n C) (hD : IsAO2 n D)
+    (hoC : C.output < n + C.size) (hoD : D.output < n + D.size) :
+    IsAO2 n (disjoin n C D) := by
+  apply finishOr_ao _ _ _ _ (append_ao n C D hC hD)
+  · rw [append_size]
+    omega
+  · exact append_output_valid n C D hoD
+
+lemma disjoin_output_valid (n : ℕ) (C D : Circuit) :
+    (disjoin n C D).output < n + (disjoin n C D).size := by
+  change n + (append n C D).size < n + (disjoin n C D).size
+  rw [disjoin, finishOr_size]
+  omega
+
+lemma output_valid_of_true (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hx : circuitFun n C x = true) : C.output < n + C.size := by
+  by_contra h
+  have hn : (C.gates.foldl step (List.ofFn x)).length ≤ C.output := by
+    simp only [fold_len, List.length_ofFn]
+    change ¬ C.output < n + C.gates.length at h
+    omega
+  change (C.gates.foldl step (List.ofFn x)).getD C.output false = true at hx
+  rw [List.getD_eq_default _ _ hn] at hx
+  cases hx
+
+end CircuitOr
+
+namespace AffineExtension
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.InputEmbedding PEqualNP.Outside.L_meta_2583.CircuitOr
+
+def coreEdges : Finset (Fin 12 × Fin 9) :=
+  {(0, 0), (0, 3), (0, 4), (1, 2), (1, 6), (1, 7), (2, 1), (2, 5), (2, 8), (3, 0), (3, 1), (3, 2), (4, 4), (4, 6), (4, 8), (5, 3), (5, 5), (5, 7), (6, 0), (6, 7), (6, 8), (7, 2), (7, 4), (7, 5), (8, 1), (8, 3), (8, 6), (9, 0), (9, 5), (9, 6), (10, 1), (10, 4), (10, 7), (11, 2), (11, 3), (11, 8)}
+
+def lineMap : Fin 9 → Fin 13 := ![0, 2, 3, 5, 6, 8, 9, 11, 12]
+
+def inputMap : Fin 21 → Fin 26 :=
+  fun i => Fin.addCases (m := 12) (n := 9)
+    (fun p : Fin 12 => Fin.castAdd 13 p.succ)
+    (fun l : Fin 9 => Fin.natAdd 13 (lineMap l)) i
+
+def coreFun (x : Fin 21 → Bool) : Bool :=
+  decide (∃ p : Fin 12, ∃ l : Fin 9, (p, l) ∈ coreEdges ∧
+    x (Fin.castAdd 9 p) = true ∧ x (Fin.natAdd 12 l) = true)
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 4000000 in
+lemma incidence_partition : ∀ p l : Fin 13, pg3SatIncidence p l ↔
+    (∃ a : Fin 12, ∃ b : Fin 9, p = a.succ ∧ l = lineMap b ∧ (a, b) ∈ coreEdges) ∨
+    (l = 1 ∧ p ∈ ({0, 4, 5, 6} : Finset (Fin 13))) ∨
+    (l = 4 ∧ p ∈ ({0, 1, 2, 3} : Finset (Fin 13))) ∨
+    (l = 7 ∧ p ∈ ({0, 10, 11, 12} : Finset (Fin 13))) ∨
+    (l = 10 ∧ p ∈ ({0, 7, 8, 9} : Finset (Fin 13))) := by
+  letI := pg3SatDecidable
+  decide
+
+def star (a b c l : Fin 26) : Circuit :=
+  ⟨[⟨GateOp.or, [0, a.val]⟩, ⟨GateOp.or, [26, b.val]⟩,
+    ⟨GateOp.or, [27, c.val]⟩, ⟨GateOp.and, [28, l.val]⟩], 29⟩
+
+lemma star_size (a b c l : Fin 26) : (star a b c l).size = 4 := rfl
+
+lemma star_count (a b c l : Fin 26) : opCount (star a b c l) GateOp.and = 1 := by
+  classical
+  simp [star, opCount]
+
+lemma star_output_valid (a b c l : Fin 26) :
+    (star a b c l).output < 26 + (star a b c l).size := by
+  change 29 < 30
+  decide
+
+lemma star_ao (a b c l : Fin 26) : IsAO2 26 (star a b c l) := by
+  have ha := a.isLt
+  have hb := b.isLt
+  have hc := c.isLt
+  have hl := l.isLt
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [star, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with rfl | rfl | rfl | rfl
+    all_goals first | exact Or.inl rfl | exact Or.inr rfl
+  · intro j hj i hi
+    have hj4 : j < 4 := by simpa [star] using hj
+    interval_cases j <;> simp [PEqualNP.MetaComplexity.NestedCover.gateAt, star] at hi <;> omega
+  · intro g hg
+    simp only [star, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with rfl | rfl | rfl | rfl <;> rfl
+
+set_option maxRecDepth 8192 in
+lemma star_fun (a b c l : Fin 26) (x : Fin 26 → Bool) :
+    circuitFun 26 (star a b c l) x = ((x 0 || x a || x b || x c) && x l) := by
+  simp only [star, circuitFun, Circuit.eval, Circuit.wires, List.foldl_cons,
+    List.foldl_nil, List.map_cons, List.map_nil, GateOp.eval, List.any_cons,
+    List.any_nil, List.all_cons, List.all_nil, Bool.and_true, Bool.or_false]
+  simp only [List.getD_eq_getElem?_getD, List.getElem?_append, List.length_ofFn,
+    List.getElem?_ofFn, a.isLt, b.isLt, c.isLt, l.isLt]
+  have hc27 : c.val < 27 := by omega
+  have hl27 : l.val < 27 := by omega
+  have hl28 : l.val < 28 := by omega
+  simp [hc27, hl27, hl28]
+
+lemma semantic_partition (x : Fin 26 → Bool) :
+    (∃ p l : Fin 13, pg3SatIncidence p l ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) ↔
+    (∃ a : Fin 12, ∃ b : Fin 9, (a, b) ∈ coreEdges ∧
+      x (Fin.castAdd 13 a.succ) = true ∧ x (Fin.natAdd 13 (lineMap b)) = true) ∨
+    ((x 0 = true ∨ x 4 = true ∨ x 5 = true ∨ x 6 = true) ∧ x 14 = true) ∨
+    ((x 0 = true ∨ x 1 = true ∨ x 2 = true ∨ x 3 = true) ∧ x 17 = true) ∨
+    ((x 0 = true ∨ x 10 = true ∨ x 11 = true ∨ x 12 = true) ∧ x 20 = true) ∨
+    ((x 0 = true ∨ x 7 = true ∨ x 8 = true ∨ x 9 = true) ∧ x 23 = true) := by
+  letI := pg3SatDecidable
+  constructor
+  · rintro ⟨p, l, hpl, hp, hl⟩
+    rcases (incidence_partition p l).mp hpl with h | h | h | h | h
+    · obtain ⟨a, b, rfl, rfl, he⟩ := h
+      exact Or.inl ⟨a, b, he, hp, hl⟩
+    · obtain ⟨rfl, hpidx⟩ := h
+      refine Or.inr (Or.inl ⟨?_, hl⟩)
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hpidx
+      rcases hpidx with rfl | rfl | rfl | rfl <;> aesop
+    · obtain ⟨rfl, hpidx⟩ := h
+      refine Or.inr (Or.inr (Or.inl ⟨?_, hl⟩))
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hpidx
+      rcases hpidx with rfl | rfl | rfl | rfl <;> aesop
+    · obtain ⟨rfl, hpidx⟩ := h
+      refine Or.inr (Or.inr (Or.inr (Or.inl ⟨?_, hl⟩)))
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hpidx
+      rcases hpidx with rfl | rfl | rfl | rfl <;> aesop
+    · obtain ⟨rfl, hpidx⟩ := h
+      refine Or.inr (Or.inr (Or.inr (Or.inr (⟨?_, hl⟩))))
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hpidx
+      rcases hpidx with rfl | rfl | rfl | rfl <;> aesop
+  · intro h
+    rcases h with h | h | h | h | h
+    · obtain ⟨a, b, he, hp, hl⟩ := h
+      exact ⟨a.succ, lineMap b, (incidence_partition _ _).mpr
+        (Or.inl ⟨a, b, rfl, rfl, he⟩), hp, hl⟩
+    · obtain ⟨hp, hl⟩ := h
+      rcases hp with hp | hp | hp | hp
+      · exact ⟨0, 1, by decide, hp, hl⟩
+      · exact ⟨4, 1, by decide, hp, hl⟩
+      · exact ⟨5, 1, by decide, hp, hl⟩
+      · exact ⟨6, 1, by decide, hp, hl⟩
+    · obtain ⟨hp, hl⟩ := h
+      rcases hp with hp | hp | hp | hp
+      · exact ⟨0, 4, by decide, hp, hl⟩
+      · exact ⟨1, 4, by decide, hp, hl⟩
+      · exact ⟨2, 4, by decide, hp, hl⟩
+      · exact ⟨3, 4, by decide, hp, hl⟩
+    · obtain ⟨hp, hl⟩ := h
+      rcases hp with hp | hp | hp | hp
+      · exact ⟨0, 7, by decide, hp, hl⟩
+      · exact ⟨10, 7, by decide, hp, hl⟩
+      · exact ⟨11, 7, by decide, hp, hl⟩
+      · exact ⟨12, 7, by decide, hp, hl⟩
+    · obtain ⟨hp, hl⟩ := h
+      rcases hp with hp | hp | hp | hp
+      · exact ⟨0, 10, by decide, hp, hl⟩
+      · exact ⟨7, 10, by decide, hp, hl⟩
+      · exact ⟨8, 10, by decide, hp, hl⟩
+      · exact ⟨9, 10, by decide, hp, hl⟩
+
+lemma core_plus_stars (x : Fin 26 → Bool) :
+    letI := pg3SatDecidable
+    ((((coreFun (fun i => x (inputMap i)) ||
+       ((x 0 || x 4 || x 5 || x 6) && x 14)) ||
+       ((x 0 || x 1 || x 2 || x 3) && x 17)) ||
+       ((x 0 || x 10 || x 11 || x 12) && x 20)) ||
+       ((x 0 || x 7 || x 8 || x 9) && x 23)) =
+    decide (∃ p l : Fin 13, pg3SatIncidence p l ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) := by
+  letI := pg3SatDecidable
+  apply Bool.eq_iff_iff.mpr
+  simp only [coreFun, Bool.or_eq_true, Bool.and_eq_true, decide_eq_true_eq,
+    inputMap, Fin.addCases_left, Fin.addCases_right]
+  simpa only [or_assoc] using (semantic_partition x).symm
+
+def addStars (D : Circuit) : Circuit :=
+  disjoin 26 (disjoin 26 (disjoin 26 (disjoin 26 D (star 4 5 6 14))
+    (star 1 2 3 17)) (star 10 11 12 20)) (star 7 8 9 23)
+
+lemma addStars_size (D : Circuit) : (addStars D).size = D.size + 20 := by
+  simp only [addStars, disjoin_size, star_size]
+
+lemma addStars_count (D : Circuit) :
+    opCount (addStars D) GateOp.and = opCount D GateOp.and + 4 := by
+  simp only [addStars, disjoin_count, star_count]
+
+lemma addStars_ao (D : Circuit) (hD : IsAO2 26 D) (hv : D.output < 26 + D.size) :
+    IsAO2 26 (addStars D) := by
+  have h1 := disjoin_ao 26 D (star 4 5 6 14) hD (star_ao ..) hv (star_output_valid ..)
+  have h2 := disjoin_ao 26 _ (star 1 2 3 17) h1 (star_ao ..)
+    (disjoin_output_valid ..) (star_output_valid ..)
+  have h3 := disjoin_ao 26 _ (star 10 11 12 20) h2 (star_ao ..)
+    (disjoin_output_valid ..) (star_output_valid ..)
+  exact disjoin_ao 26 _ (star 7 8 9 23) h3 (star_ao ..)
+    (disjoin_output_valid ..) (star_output_valid ..)
+
+lemma addStars_fun (D : Circuit) (hv : D.output < 26 + D.size) (x : Fin 26 → Bool) :
+    circuitFun 26 (addStars D) x =
+      ((((circuitFun 26 D x || ((x 0 || x 4 || x 5 || x 6) && x 14)) ||
+       ((x 0 || x 1 || x 2 || x 3) && x 17)) ||
+       ((x 0 || x 10 || x 11 || x 12) && x 20)) ||
+       ((x 0 || x 7 || x 8 || x 9) && x 23)) := by
+  unfold addStars
+  rw [disjoin_fun _ _ _ (disjoin_output_valid ..),
+    disjoin_fun _ _ _ (disjoin_output_valid ..),
+    disjoin_fun _ _ _ (disjoin_output_valid ..), disjoin_fun _ _ _ hv]
+  simp only [star_fun]
+
+def extension (C : Circuit) : Circuit := addStars (embed inputMap C)
+
+lemma extension_size (C : Circuit) : (extension C).size = C.size + 20 := by
+  rw [extension, addStars_size, size_eq]
+
+lemma embedding_count (C : Circuit) (op : GateOp) :
+    opCount (embed inputMap C) op = opCount C op := by
+  classical
+  simp only [opCount, embed, List.countP_map, gateMap]
+  rfl
+
+lemma extension_count (C : Circuit) :
+    opCount (extension C) GateOp.and = opCount C GateOp.and + 4 := by
+  rw [extension, addStars_count, embedding_count]
+
+lemma core_output_valid (C : Circuit)
+    (hF : ∀ x, circuitFun 21 C x = coreFun x) : C.output < 21 + C.size := by
+  apply output_valid_of_true 21 C (fun _ => true)
+  rw [hF]
+  decide
+
+lemma extension_ao (C : Circuit) (hAO : IsAO2 21 C)
+    (hF : ∀ x, circuitFun 21 C x = coreFun x) : IsAO2 26 (extension C) := by
+  apply addStars_ao _ (InputEmbedding.isAO2 inputMap hAO)
+  have h := wireMap_bound inputMap C.output C.size (core_output_valid C hF)
+  simpa only [embed, Circuit.size, List.length_map] using h
+
+lemma extension_fun (C : Circuit) (hF : ∀ x, circuitFun 21 C x = coreFun x) :
+    letI := pg3SatDecidable
+    ∀ x : Fin 26 → Bool, circuitFun 26 (extension C) x = decide
+      (∃ p l : Fin 13, pg3SatIncidence p l ∧ x (Fin.castAdd 13 p) = true ∧
+        x (Fin.natAdd 13 l) = true) := by
+  letI := pg3SatDecidable
+  intro x
+  have hv : (embed inputMap C).output < 26 + (embed inputMap C).size := by
+    have h := wireMap_bound inputMap C.output C.size (core_output_valid C hF)
+    simpa only [embed, Circuit.size, List.length_map] using h
+  rw [extension, addStars_fun _ hv, circuitFun_eq, hF]
+  exact core_plus_stars x
+
+lemma extension_exists (C : Circuit) (hAO : IsAO2 21 C)
+    (hF : ∀ x, circuitFun 21 C x = coreFun x) :
+    letI := pg3SatDecidable
+    ∃ D : Circuit, IsAO2 26 D ∧ D.size = C.size + 20 ∧
+      opCount D GateOp.and = opCount C GateOp.and + 4 ∧
+      ∀ x : Fin 26 → Bool, circuitFun 26 D x = decide
+        (∃ p l : Fin 13, pg3SatIncidence p l ∧ x (Fin.castAdd 13 p) = true ∧
+          x (Fin.natAdd 13 l) = true) := by
+  exact ⟨extension C, extension_ao C hAO hF, extension_size C,
+    extension_count C, extension_fun C hF⟩
+
+end AffineExtension
+
 end PEqualNP.Outside.L_meta_2583
