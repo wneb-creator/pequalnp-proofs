@@ -1342,3 +1342,255 @@ lemma no_output_two_ands {f a b c : BitVec 7}
 end SevenRows
 
 end PEqualNP.Outside.L_meta_2590
+
+namespace PEqualNP.Outside.L_meta_2590.IndexSchedule
+
+open ResourceExclusion
+
+def Pool (W : ℕ → Resource) (ids : Finset ℕ) : Multiset Resource := ids.val.map W
+
+def DropZero (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  if (W i).1 = ∅ then ids.erase i else ids
+
+def NextIds (W : ℕ → Resource) (a b out : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  insert out (DropZero W b (DropZero W a ids))
+
+def Available (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) : ℕ → Finset ℕ
+  | 0 => Finset.range start
+  | t + 1 => NextIds W (A (start + t)) (B (start + t)) (start + t)
+      (Available W start A B t)
+
+lemma drop_subset (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) :
+    DropZero W i ids ⊆ ids := by
+  unfold DropZero
+  split
+  · exact Finset.erase_subset _ _
+  · exact Finset.Subset.refl _
+
+lemma mem_drop {W : ℕ → Resource} {i x : ℕ} {ids : Finset ℕ}
+    (hx : x ∈ ids) (hkeep : (W x).1 ≠ ∅ ∨ x ≠ i) : x ∈ DropZero W i ids := by
+  unfold DropZero
+  split_ifs with hi
+  · apply Finset.mem_erase.mpr
+    refine ⟨?_, hx⟩
+    rcases hkeep with hkeep | hkeep
+    · intro hxi
+      subst x
+      exact hkeep hi
+    · exact hkeep
+  · exact hx
+
+lemma available_bounded (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x ∈ Available W start A B t, x < start + t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hx
+      rcases Finset.mem_insert.mp hx with rfl | hx
+      · omega
+      · have hx' := drop_subset W _ _ (drop_subset W _ _ hx)
+        have hb := ih x hx'
+        omega
+
+lemma available_complete (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x, x < start + t →
+      ((W x).1 ≠ ∅ ∨ ∀ j < t, A (start + j) ≠ x ∧ B (start + j) ≠ x) →
+      x ∈ Available W start A B t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hbound hunused
+      by_cases hlast : x = start + t
+      · subst x
+        exact Finset.mem_insert_self _ _
+      · have hold : x < start + t := by omega
+        have hprev : (W x).1 ≠ ∅ ∨ ∀ j < t,
+            A (start + j) ≠ x ∧ B (start + j) ≠ x := by
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (fun j hj => hu j (by omega))
+        have hmem := ih x hold hprev
+        apply Finset.mem_insert_of_mem
+        apply mem_drop
+        · apply mem_drop hmem
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).1)
+        · rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).2)
+
+def Reads (A B : ℕ → ℕ) (i x : ℕ) : Prop := A i = x ∨ B i = x
+
+def LinearUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ x, (W x).1 = ∅ →
+    Reads A B (start + i) x → Reads A B (start + j) x → i = j
+
+lemma source_available {W : ℕ → Resource} {start n t x : ℕ} {A B : ℕ → ℕ}
+    (hlin : LinearUpTo W start A B n) (ht : t < n)
+    (hx : x < start + t) (hr : Reads A B (start + t) x) :
+    x ∈ Available W start A B t := by
+  apply available_complete W start A B t x hx
+  by_cases hp : (W x).1 = ∅
+  · right
+    intro j hj
+    constructor
+    · intro hja
+      have heq := hlin t ht j (by omega) x hp hr (Or.inl hja)
+      omega
+    · intro hjb
+      have heq := hlin t ht j (by omega) x hp hr (Or.inr hjb)
+      omega
+  · exact Or.inl hp
+
+lemma pool_insert {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∉ ids) :
+    Pool W (insert i ids) = W i ::ₘ Pool W ids := by
+  simp only [Pool, Finset.insert_val_of_notMem hi, Multiset.map_cons]
+
+lemma pool_erase_decomp {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    Pool W ids = W i ::ₘ Pool W (ids.erase i) := by
+  calc
+    Pool W ids = Pool W (insert i (ids.erase i)) := by rw [Finset.insert_erase hi]
+    _ = W i ::ₘ Pool W (ids.erase i) := pool_insert (Finset.notMem_erase _ _)
+
+lemma pool_two_decomp {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W ids = W a ::ₘ W b ::ₘ Pool W ((ids.erase a).erase b) := by
+  rw [pool_erase_decomp ha]
+  rw [pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)]
+
+lemma pool_drop_two {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W (DropZero W b (DropZero W a ids)) =
+      Keep (W a) + Keep (W b) + Pool W ((ids.erase a).erase b) := by
+  classical
+  by_cases hza : (W a).1 = ∅ <;> by_cases hzb : (W b).1 = ∅
+  · simp [DropZero, Keep, hza, hzb]
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, zero_add]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, add_zero]
+    rw [Finset.erase_right_comm]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨hab, ha⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_false]
+    simpa using pool_two_decomp ha hb hab
+
+lemma index_resource_step {W : ℕ → Resource} {ids : Finset ℕ} {a b out : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) (hout : out ∉ ids)
+    (hg : W out = RJoin (W a) (W b) ∨
+      (AllowedSides (W a) (W b) ∧ W out = RMeet (W a) (W b))) :
+    ResourceStep (Pool W ids) (Pool W (NextIds W a b out ids)) := by
+  left
+  refine ⟨W a, W b, W out, Pool W ((ids.erase a).erase b),
+    pool_two_decomp ha hb hab, ?_, hg⟩
+  have hfresh : out ∉ DropZero W b (DropZero W a ids) := by
+    intro h
+    exact hout (drop_subset W _ _ (drop_subset W _ _ h))
+  rw [NextIds, pool_insert hfresh, pool_drop_two ha hb hab]
+  rfl
+
+
+def ValidUpTo (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
+    A (start + t) ≠ B (start + t)
+
+def CanonicalUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n,
+    W (start + t) = RJoin (W (A (start + t))) (W (B (start + t))) ∨
+    (AllowedSides (W (A (start + t))) (W (B (start + t))) ∧
+      W (start + t) = RMeet (W (A (start + t))) (W (B (start + t))))
+
+lemma available_step {W : ℕ → Resource} {start n t : ℕ} {A B : ℕ → ℕ}
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) (ht : t < n) :
+    ResourceStep (Pool W (Available W start A B t))
+      (Pool W (Available W start A B (t + 1))) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have haa := source_available hl ht ha (Or.inl rfl)
+  have hba := source_available hl ht hb (Or.inr rfl)
+  apply index_resource_step haa hba hab ?_ (hc t ht)
+  intro h
+  have := available_bounded W start A B t _ h
+  omega
+
+lemma program_invariant {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t ≤ n, Invariant (Pool W (Available W start A B t)) := by
+  intro t
+  induction t with
+  | zero => intro _; exact hp
+  | succ t ih =>
+      intro ht
+      exact invariant_step (ih (by omega)) (available_step hv hl hc (by omega))
+
+lemma pool_mem {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    W i ∈ Pool W ids := by
+  exact Multiset.mem_map.mpr ⟨i, hi, rfl⟩
+
+lemma canonical_program_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) := by
+  intro t ht
+  have hinv := program_invariant hp hv hl hc (t + 1) (by omega)
+  apply invariant_no_target hinv
+  apply pool_mem
+  exact Finset.mem_insert_self _ _
+
+lemma initial_exceptional {W : ℕ → Resource} {start d : ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i)) :
+    Invariant (Pool W (Finset.range start)) := by
+  right
+  refine ⟨W d, Pool W ((Finset.range start).erase d),
+    pool_erase_decomp (Finset.mem_range.mpr hd), hz, ht, ?_⟩
+  intro w hw
+  obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hw
+  have hi' : i ∈ (Finset.range start).erase d := hi
+  obtain ⟨hid, hir⟩ := Finset.mem_erase.mp hi'
+  exact ho i (Finset.mem_range.mp hir) hid
+
+lemma seeded_program_exclusion {W : ℕ → Resource} {start n d : ℕ} {A B : ℕ → ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) :=
+  canonical_program_exclusion (initial_exceptional hd hz ht ho) hv hl hc
+
+
+lemma program_any_wire_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, ¬ Target (W i) := by
+  intro i hi
+  by_cases hold : i < start
+  · exact invariant_no_target hp (pool_mem (Finset.mem_range.mpr hold))
+  · have ht : i - start < n := by omega
+    have heq : start + (i - start) = i := by omega
+    simpa only [heq] using canonical_program_exclusion hp hv hl hc (i - start) ht
+
+lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : ∀ i < start, Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, Ordinary (W i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+      intro hi
+      by_cases hold : i < start
+      · exact hp i hold
+      · have ht : i - start < n := by omega
+        have heq : start + (i - start) = i := by omega
+        obtain ⟨ha, hb, _⟩ := hv (i - start) ht
+        rw [heq] at ha hb
+        have hca := hc (i - start) ht
+        rw [heq] at hca
+        exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
+
+end PEqualNP.Outside.L_meta_2590.IndexSchedule
