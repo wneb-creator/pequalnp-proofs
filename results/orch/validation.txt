@@ -2,10 +2,12 @@ L-meta-2592 preservation checkpoint
 
 PARTIAL ONLY: the exact posted theorem is not proved; no proof PR is open.
 
+Additional checked extension: a normalizedbinarycomputation whosefirstoperation isANDoroneofsignedANDvariants requiresatleast18binarygates. OR isexcludedfromthisclaim. Binary18testimportedthecheckedBinary17olean; exit0,one deprecationwarning. Completeoutput:binary18-build.stdout/binary18-build.stderr. Namedfileinlinesbothsourcesandhasnopartialmoduleimports; fullinlinedLakebuildpending.
+
 New checked result: every fan-in-two circuit computing the postedPetersenfunction satisfies17 + notCount C ≤ C.size. Hence a size≤19 counterexample containingNOT has1or2NOT gates.
 Command: lake env lean -R ../results/orch/lemmas -o ../results/orch/lemmas/Binary17.olean ../results/orch/lemmas/Binary17.lean
 Exit:0. Complete output: binary17-build.stdout and binary17-build.stderr.
-Namedfile is byte-identical to this checked source; namedfileLakebuild is pending afterreplacement. Previous smaller namedpartial passedLakebuild; itscompleteoutput remainsbuild.stdout/build.stderr.
+Namedfile contains thischeckedsource plusBinary18 extension; inlinednamedfileLakebuild ispending. Previous smaller namedpartial passedLakebuild; itscompleteoutput remainsbuild.stdout/build.stderr.
 
 Checker attempted onpreviouspartial: CHECKER FAULT: the verifier ended without a verdict (exit137). Cgroupmemory.events confirmedoneOOMkill. Completecheckeroutput: checker.stdout/checker.stderr. RetryplannedwithheavyparallelLeanpaused.
 
@@ -13,4 +15,4 @@ Earlier checked components remain inresults/orch/lemmas andcommit history: Peter
 Independentreview: REVIEW-binary17.md; exactsourceSHA256824549cea61a489c8821209214cf8d631ef13ac9741611f3c21caf9135c72bcd.
 
 Sub-agents: status_check, counterexample, lower_bound, lean_setup, partial_lean, circuit_search
-TIMING total=28 subagents=6
+TIMING total=32 subagents=6

@@ -13,3 +13,4 @@ UTC timeline
 2026-11-25T14:17:45.277288+00:00 Namedfilewith20gateconstruction buildpassed; preservingcheckpoint.
 2026-11-25T14:22:07.009352+00:00 GeometryCheck and NotElimination compiled and independentlyreviewed; preserving.
 2026-11-25T14:25:55.414635+00:00 Binary17 fullLeanexportpassed; independentreviewpassed; preserving17+NOT bound.
+2026-11-25T14:29:50.218416+00:00 Binary18snippetcompiledagainstcheckedBinary17; reviewpassed; inliningandpreserving.
