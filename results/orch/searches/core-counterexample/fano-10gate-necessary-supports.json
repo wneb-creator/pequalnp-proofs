@@ -1,0 +1,314 @@
+[
+  {
+    "support": 959,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9
+    ],
+    "q": 9,
+    "tau_residual": 4,
+    "gain": 12,
+    "D": 38617,
+    "size": 9,
+    "orbit_size": 56
+  },
+  {
+    "support": 1023,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "q": 9,
+    "tau_residual": 4,
+    "gain": 12,
+    "D": 38617,
+    "size": 10,
+    "orbit_size": 56
+  },
+  {
+    "support": 1791,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "q": 9,
+    "tau_residual": 4,
+    "gain": 12,
+    "D": 306825,
+    "size": 10,
+    "orbit_size": 14
+  },
+  {
+    "support": 1951,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      10
+    ],
+    "q": 10,
+    "tau_residual": 5,
+    "gain": 12,
+    "D": 16089,
+    "size": 9,
+    "orbit_size": 168
+  },
+  {
+    "support": 1983,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "q": 11,
+    "tau_residual": 4,
+    "gain": 14,
+    "D": 48857,
+    "size": 10,
+    "orbit_size": 168
+  },
+  {
+    "support": 2031,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "q": 10,
+    "tau_residual": 4,
+    "gain": 13,
+    "D": 298713,
+    "size": 10,
+    "orbit_size": 168
+  },
+  {
+    "support": 2039,
+    "vertices": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "q": 9,
+    "tau_residual": 4,
+    "gain": 12,
+    "D": 307417,
+    "size": 10,
+    "orbit_size": 56
+  },
+  {
+    "support": 2975,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11
+    ],
+    "q": 10,
+    "tau_residual": 4,
+    "gain": 13,
+    "D": 22235,
+    "size": 9,
+    "orbit_size": 84
+  },
+  {
+    "support": 3007,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11
+    ],
+    "q": 12,
+    "tau_residual": 3,
+    "gain": 16,
+    "D": 120539,
+    "size": 10,
+    "orbit_size": 14
+  },
+  {
+    "support": 3039,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11
+    ],
+    "q": 10,
+    "tau_residual": 4,
+    "gain": 13,
+    "D": 22235,
+    "size": 10,
+    "orbit_size": 84
+  },
+  {
+    "support": 3999,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "q": 12,
+    "tau_residual": 4,
+    "gain": 15,
+    "D": 32475,
+    "size": 10,
+    "orbit_size": 84
+  },
+  {
+    "support": 4015,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "q": 11,
+    "tau_residual": 4,
+    "gain": 14,
+    "D": 102107,
+    "size": 10,
+    "orbit_size": 84
+  },
+  {
+    "support": 4047,
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "q": 10,
+    "tau_residual": 4,
+    "gain": 13,
+    "D": 265947,
+    "size": 10,
+    "orbit_size": 168
+  },
+  {
+    "support": 4059,
+    "vertices": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "q": 11,
+    "tau_residual": 4,
+    "gain": 14,
+    "D": 294427,
+    "size": 10,
+    "orbit_size": 84
+  },
+  {
+    "support": 4071,
+    "vertices": [
+      0,
+      1,
+      2,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "q": 9,
+    "tau_residual": 4,
+    "gain": 12,
+    "D": 360667,
+    "size": 10,
+    "orbit_size": 21
+  }
+]

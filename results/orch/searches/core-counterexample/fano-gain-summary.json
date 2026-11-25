@@ -1,0 +1,2619 @@
+{
+  "0": {
+    "max_gain": 0,
+    "count": 1,
+    "examples": [
+      {
+        "support": 0,
+        "vertices": [],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      }
+    ]
+  },
+  "1": {
+    "max_gain": 0,
+    "count": 14,
+    "examples": [
+      {
+        "support": 1,
+        "vertices": [
+          0
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 2,
+        "vertices": [
+          1
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 4,
+        "vertices": [
+          2
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 8,
+        "vertices": [
+          3
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 16,
+        "vertices": [
+          4
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 32,
+        "vertices": [
+          5
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 64,
+        "vertices": [
+          6
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 128,
+        "vertices": [
+          7
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 256,
+        "vertices": [
+          8
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 512,
+        "vertices": [
+          9
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 1024,
+        "vertices": [
+          10
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      },
+      {
+        "support": 2048,
+        "vertices": [
+          11
+        ],
+        "q": 0,
+        "tau_residual": 7,
+        "gain": 0,
+        "D": 0
+      }
+    ]
+  },
+  "2": {
+    "max_gain": 1,
+    "count": 21,
+    "examples": [
+      {
+        "support": 129,
+        "vertices": [
+          0,
+          7
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 1
+      },
+      {
+        "support": 130,
+        "vertices": [
+          1,
+          7
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 8
+      },
+      {
+        "support": 136,
+        "vertices": [
+          3,
+          7
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 512
+      },
+      {
+        "support": 258,
+        "vertices": [
+          1,
+          8
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 16
+      },
+      {
+        "support": 260,
+        "vertices": [
+          2,
+          8
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 64
+      },
+      {
+        "support": 272,
+        "vertices": [
+          4,
+          8
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 4096
+      },
+      {
+        "support": 516,
+        "vertices": [
+          2,
+          9
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 128
+      },
+      {
+        "support": 520,
+        "vertices": [
+          3,
+          9
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 1024
+      },
+      {
+        "support": 544,
+        "vertices": [
+          5,
+          9
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 32768
+      },
+      {
+        "support": 1032,
+        "vertices": [
+          3,
+          10
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 2048
+      },
+      {
+        "support": 1040,
+        "vertices": [
+          4,
+          10
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 8192
+      },
+      {
+        "support": 1088,
+        "vertices": [
+          6,
+          10
+        ],
+        "q": 1,
+        "tau_residual": 7,
+        "gain": 1,
+        "D": 262144
+      }
+    ]
+  },
+  "3": {
+    "max_gain": 2,
+    "count": 42,
+    "examples": [
+      {
+        "support": 131,
+        "vertices": [
+          0,
+          1,
+          7
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 9
+      },
+      {
+        "support": 137,
+        "vertices": [
+          0,
+          3,
+          7
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 513
+      },
+      {
+        "support": 138,
+        "vertices": [
+          1,
+          3,
+          7
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 520
+      },
+      {
+        "support": 262,
+        "vertices": [
+          1,
+          2,
+          8
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 80
+      },
+      {
+        "support": 274,
+        "vertices": [
+          1,
+          4,
+          8
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 4112
+      },
+      {
+        "support": 276,
+        "vertices": [
+          2,
+          4,
+          8
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 4160
+      },
+      {
+        "support": 386,
+        "vertices": [
+          1,
+          7,
+          8
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 24
+      },
+      {
+        "support": 524,
+        "vertices": [
+          2,
+          3,
+          9
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 1152
+      },
+      {
+        "support": 548,
+        "vertices": [
+          2,
+          5,
+          9
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 32896
+      },
+      {
+        "support": 552,
+        "vertices": [
+          3,
+          5,
+          9
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 33792
+      },
+      {
+        "support": 648,
+        "vertices": [
+          3,
+          7,
+          9
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 1536
+      },
+      {
+        "support": 772,
+        "vertices": [
+          2,
+          8,
+          9
+        ],
+        "q": 2,
+        "tau_residual": 7,
+        "gain": 2,
+        "D": 192
+      }
+    ]
+  },
+  "4": {
+    "max_gain": 4,
+    "count": 14,
+    "examples": [
+      {
+        "support": 139,
+        "vertices": [
+          0,
+          1,
+          3,
+          7
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 521
+      },
+      {
+        "support": 278,
+        "vertices": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 4176
+      },
+      {
+        "support": 556,
+        "vertices": [
+          2,
+          3,
+          5,
+          9
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 33920
+      },
+      {
+        "support": 1112,
+        "vertices": [
+          3,
+          4,
+          6,
+          10
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 272384
+      },
+      {
+        "support": 1672,
+        "vertices": [
+          3,
+          7,
+          9,
+          10
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 3584
+      },
+      {
+        "support": 2097,
+        "vertices": [
+          0,
+          4,
+          5,
+          11
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 81922
+      },
+      {
+        "support": 3344,
+        "vertices": [
+          4,
+          8,
+          10,
+          11
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 28672
+      },
+      {
+        "support": 4194,
+        "vertices": [
+          1,
+          5,
+          6,
+          12
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 655392
+      },
+      {
+        "support": 4482,
+        "vertices": [
+          1,
+          7,
+          8,
+          12
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 56
+      },
+      {
+        "support": 6688,
+        "vertices": [
+          5,
+          9,
+          11,
+          12
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 229376
+      },
+      {
+        "support": 8261,
+        "vertices": [
+          0,
+          2,
+          6,
+          13
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 1048836
+      },
+      {
+        "support": 8964,
+        "vertices": [
+          2,
+          8,
+          9,
+          13
+        ],
+        "q": 3,
+        "tau_residual": 6,
+        "gain": 4,
+        "D": 448
+      }
+    ]
+  },
+  "5": {
+    "max_gain": 5,
+    "count": 84,
+    "examples": [
+      {
+        "support": 395,
+        "vertices": [
+          0,
+          1,
+          3,
+          7,
+          8
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 537
+      },
+      {
+        "support": 406,
+        "vertices": [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 4184
+      },
+      {
+        "support": 651,
+        "vertices": [
+          0,
+          1,
+          3,
+          7,
+          9
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 1545
+      },
+      {
+        "support": 684,
+        "vertices": [
+          2,
+          3,
+          5,
+          7,
+          9
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 34432
+      },
+      {
+        "support": 790,
+        "vertices": [
+          1,
+          2,
+          4,
+          8,
+          9
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 4304
+      },
+      {
+        "support": 812,
+        "vertices": [
+          2,
+          3,
+          5,
+          8,
+          9
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 33984
+      },
+      {
+        "support": 1163,
+        "vertices": [
+          0,
+          1,
+          3,
+          7,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 2569
+      },
+      {
+        "support": 1240,
+        "vertices": [
+          3,
+          4,
+          6,
+          7,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 272896
+      },
+      {
+        "support": 1302,
+        "vertices": [
+          1,
+          2,
+          4,
+          8,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 12368
+      },
+      {
+        "support": 1368,
+        "vertices": [
+          3,
+          4,
+          6,
+          8,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 276480
+      },
+      {
+        "support": 1580,
+        "vertices": [
+          2,
+          3,
+          5,
+          9,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 35968
+      },
+      {
+        "support": 1624,
+        "vertices": [
+          3,
+          4,
+          6,
+          9,
+          10
+        ],
+        "q": 4,
+        "tau_residual": 6,
+        "gain": 5,
+        "D": 273408
+      }
+    ]
+  },
+  "6": {
+    "max_gain": 7,
+    "count": 28,
+    "examples": [
+      {
+        "support": 910,
+        "vertices": [
+          1,
+          2,
+          3,
+          7,
+          8,
+          9
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 1752
+      },
+      {
+        "support": 1434,
+        "vertices": [
+          1,
+          3,
+          4,
+          7,
+          8,
+          10
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 14872
+      },
+      {
+        "support": 1820,
+        "vertices": [
+          2,
+          3,
+          4,
+          8,
+          9,
+          10
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 15552
+      },
+      {
+        "support": 2451,
+        "vertices": [
+          0,
+          1,
+          4,
+          7,
+          8,
+          11
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 20507
+      },
+      {
+        "support": 2729,
+        "vertices": [
+          0,
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 99843
+      },
+      {
+        "support": 2868,
+        "vertices": [
+          2,
+          4,
+          5,
+          8,
+          9,
+          11
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 118976
+      },
+      {
+        "support": 3225,
+        "vertices": [
+          0,
+          3,
+          4,
+          7,
+          10,
+          11
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 27139
+      },
+      {
+        "support": 3640,
+        "vertices": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 125952
+      },
+      {
+        "support": 4778,
+        "vertices": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          12
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 165416
+      },
+      {
+        "support": 4902,
+        "vertices": [
+          1,
+          2,
+          5,
+          8,
+          9,
+          12
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 164080
+      },
+      {
+        "support": 5322,
+        "vertices": [
+          1,
+          3,
+          6,
+          7,
+          10,
+          12
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 789032
+      },
+      {
+        "support": 5458,
+        "vertices": [
+          1,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "q": 6,
+        "tau_residual": 6,
+        "gain": 7,
+        "D": 798768
+      }
+    ]
+  },
+  "7": {
+    "max_gain": 8,
+    "count": 210,
+    "examples": [
+      {
+        "support": 415,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 4697
+      },
+      {
+        "support": 687,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          7,
+          9
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 34441
+      },
+      {
+        "support": 830,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 38096
+      },
+      {
+        "support": 911,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          8,
+          9
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 1753
+      },
+      {
+        "support": 926,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 5848
+      },
+      {
+        "support": 942,
+        "vertices": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8,
+          9
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 34520
+      },
+      {
+        "support": 1243,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7,
+          10
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 272905
+      },
+      {
+        "support": 1374,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 276560
+      },
+      {
+        "support": 1435,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          7,
+          8,
+          10
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 14873
+      },
+      {
+        "support": 1438,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          10
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 14936
+      },
+      {
+        "support": 1498,
+        "vertices": [
+          1,
+          3,
+          4,
+          6,
+          7,
+          8,
+          10
+        ],
+        "q": 7,
+        "tau_residual": 6,
+        "gain": 8,
+        "D": 277016
+      },
+      {
+        "support": 1660,
+        "vertices": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10
+        ],
+        "q": 6,
+        "tau_residual": 5,
+        "gain": 8,
+        "D": 306304
+      }
+    ]
+  },
+  "8": {
+    "max_gain": 10,
+    "count": 385,
+    "examples": [
+      {
+        "support": 927,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 5849
+      },
+      {
+        "support": 943,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          7,
+          8,
+          9
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 34521
+      },
+      {
+        "support": 958,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 38616
+      },
+      {
+        "support": 1439,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 14937
+      },
+      {
+        "support": 1499,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7,
+          8,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 277017
+      },
+      {
+        "support": 1502,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 277080
+      },
+      {
+        "support": 1854,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 48336
+      },
+      {
+        "support": 1886,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 277712
+      },
+      {
+        "support": 1916,
+        "vertices": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 310464
+      },
+      {
+        "support": 1949,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 16065
+      },
+      {
+        "support": 1950,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10
+        ],
+        "q": 9,
+        "tau_residual": 6,
+        "gain": 10,
+        "D": 16088
+      },
+      {
+        "support": 1978,
+        "vertices": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10
+        ],
+        "q": 8,
+        "tau_residual": 5,
+        "gain": 10,
+        "D": 48664
+      }
+    ]
+  },
+  "9": {
+    "max_gain": 13,
+    "count": 84,
+    "examples": [
+      {
+        "support": 2975,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 22235
+      },
+      {
+        "support": 2991,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 100059
+      },
+      {
+        "support": 2999,
+        "vertices": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 119003
+      },
+      {
+        "support": 3003,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 120347
+      },
+      {
+        "support": 3005,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 120515
+      },
+      {
+        "support": 3006,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 120536
+      },
+      {
+        "support": 3997,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 32451
+      },
+      {
+        "support": 4026,
+        "vertices": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 130584
+      },
+      {
+        "support": 5950,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 179440
+      },
+      {
+        "support": 5982,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 802032
+      },
+      {
+        "support": 5998,
+        "vertices": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 953584
+      },
+      {
+        "support": 6006,
+        "vertices": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 10,
+        "tau_residual": 4,
+        "gain": 13,
+        "D": 962800
+      }
+    ]
+  },
+  "10": {
+    "max_gain": 16,
+    "count": 14,
+    "examples": [
+      {
+        "support": 3007,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 120539
+      },
+      {
+        "support": 6014,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 965872
+      },
+      {
+        "support": 7419,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1010219
+      },
+      {
+        "support": 8122,
+        "vertices": [
+          1,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 261688
+      },
+      {
+        "support": 9695,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          10,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1325917
+      },
+      {
+        "support": 11901,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1437062
+      },
+      {
+        "support": 12189,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 32711
+      },
+      {
+        "support": 13039,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          12,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1738669
+      },
+      {
+        "support": 14286,
+        "vertices": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1839096
+      },
+      {
+        "support": 14711,
+        "vertices": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          8,
+          11,
+          12,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1790326
+      },
+      {
+        "support": 15271,
+        "vertices": [
+          0,
+          1,
+          2,
+          5,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 229887
+      },
+      {
+        "support": 15827,
+        "vertices": [
+          0,
+          1,
+          4,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 12,
+        "tau_residual": 3,
+        "gain": 16,
+        "D": 1863743
+      }
+    ]
+  },
+  "11": {
+    "max_gain": 18,
+    "count": 42,
+    "examples": [
+      {
+        "support": 4031,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 130779
+      },
+      {
+        "support": 6142,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 966392
+      },
+      {
+        "support": 7103,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 251643
+      },
+      {
+        "support": 7675,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1014331
+      },
+      {
+        "support": 7931,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1044011
+      },
+      {
+        "support": 8062,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1047792
+      },
+      {
+        "support": 8123,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 261691
+      },
+      {
+        "support": 8126,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 261880
+      },
+      {
+        "support": 8186,
+        "vertices": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1048120
+      },
+      {
+        "support": 10207,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1327069
+      },
+      {
+        "support": 11199,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          13
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 120799
+      },
+      {
+        "support": 11743,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          10,
+          11,
+          13
+        ],
+        "q": 14,
+        "tau_residual": 3,
+        "gain": 18,
+        "D": 1342303
+      }
+    ]
+  },
+  "12": {
+    "max_gain": 21,
+    "count": 21,
+    "examples": [
+      {
+        "support": 8127,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 261883
+      },
+      {
+        "support": 8187,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1048123
+      },
+      {
+        "support": 8190,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1048312
+      },
+      {
+        "support": 12223,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 131039
+      },
+      {
+        "support": 12255,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1343455
+      },
+      {
+        "support": 12285,
+        "vertices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1441735
+      },
+      {
+        "support": 14303,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1851389
+      },
+      {
+        "support": 14319,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 2002941
+      },
+      {
+        "support": 14334,
+        "vertices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 2015224
+      },
+      {
+        "support": 15295,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 251903
+      },
+      {
+        "support": 15343,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1804287
+      },
+      {
+        "support": 15351,
+        "vertices": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "q": 16,
+        "tau_residual": 2,
+        "gain": 21,
+        "D": 1823231
+      }
+    ]
+  },
+  "13": {
+    "max_gain": 24,
+    "count": 14,
+    "examples": [
+      {
+        "support": 8191,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 1048315
+      },
+      {
+        "support": 12287,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 1441759
+      },
+      {
+        "support": 14335,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2015229
+      },
+      {
+        "support": 15359,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 1824767
+      },
+      {
+        "support": 15871,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2063231
+      },
+      {
+        "support": 16127,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2092975
+      },
+      {
+        "support": 16255,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2096630
+      },
+      {
+        "support": 16319,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 262143
+      },
+      {
+        "support": 16351,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 1867775
+      },
+      {
+        "support": 16367,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2068479
+      },
+      {
+        "support": 16375,
+        "vertices": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2093567
+      },
+      {
+        "support": 16379,
+        "vertices": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 18,
+        "tau_residual": 1,
+        "gain": 24,
+        "D": 2096703
+      }
+    ]
+  },
+  "14": {
+    "max_gain": 28,
+    "count": 1,
+    "examples": [
+      {
+        "support": 16383,
+        "vertices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "q": 21,
+        "tau_residual": 0,
+        "gain": 28,
+        "D": 2097151
+      }
+    ]
+  }
+}

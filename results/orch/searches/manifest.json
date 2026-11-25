@@ -1,0 +1,442 @@
+[
+  {
+    "path": "core-counterexample/fano-gain-summary.json",
+    "bytes": 40288,
+    "sha256": "ad7c3ca6ab0464cb02c2d4a97bdbd0a66375e5250db0f0c9231d50b592aa8dce"
+  },
+  {
+    "path": "core-counterexample/branched-best-branch12.json",
+    "bytes": 1088,
+    "sha256": "7bb0861ec9e63884d79247d18520fde3b9bf871e9feed3ad58d82401895a2b25"
+  },
+  {
+    "path": "core-counterexample/dense.py",
+    "bytes": 7252,
+    "sha256": "e5e8b52d221b04ff90b582b552aa936f2c5d264b14b03cc8a01af34c782c6f7d"
+  },
+  {
+    "path": "core-counterexample/guided-best-heawood.json",
+    "bytes": 1040,
+    "sha256": "7c9ea382d15ddec16b516705f1957979455580bf407710d94e8aecf6ba64ce3f"
+  },
+  {
+    "path": "core-counterexample/guided-best-tree14.json",
+    "bytes": 911,
+    "sha256": "42d157ee68026ce7cc0653db5db859905167846a368998cba670e6aca2a399f1"
+  },
+  {
+    "path": "core-counterexample/fano-necessary-support-edge-orbits.json",
+    "bytes": 4050,
+    "sha256": "2873891455f7c2ccb4b33240f1ac26d5f040a1071f6a9d0e7bc003ce73cfbbd3"
+  },
+  {
+    "path": "core-counterexample/branched-best-branch-heawood.json",
+    "bytes": 1044,
+    "sha256": "7f3e182720484b940f597b6fdc28461d798c78d08e79f5842d36e1ad94be9188"
+  },
+  {
+    "path": "core-counterexample/dense-best-dense-heawood.json",
+    "bytes": 1674,
+    "sha256": "3f8f5470c3252da2a4da08364359cbb1b9cb4bc6a76195ecb3316355e3ae8e80"
+  },
+  {
+    "path": "core-counterexample/search.log",
+    "bytes": 1552,
+    "sha256": "b675b1507a8bb3c8ca0e66beaf4bd35bb178fc87366f0d7144d725b4a7041dbd"
+  },
+  {
+    "path": "core-counterexample/guided.py",
+    "bytes": 5947,
+    "sha256": "14c73f06c329c4ed0b1fae97cbca3ee9ae084ff03ff5c627febcfe0e5132bc05"
+  },
+  {
+    "path": "core-counterexample/fano-data.json",
+    "bytes": 1382,
+    "sha256": "1d1ef0a662bdfd40010b472648146f7d89e951950ddabda42c973c7fb1f62dbd"
+  },
+  {
+    "path": "core-counterexample/guided.log",
+    "bytes": 17396,
+    "sha256": "38e2967efdef508bb62b1ec8bccefea497848c46db14d19ea95532ad517e6dc8"
+  },
+  {
+    "path": "core-counterexample/dense-best-dense-induced12.json",
+    "bytes": 1351,
+    "sha256": "a25a25f6d9009cbd2d26446cc2b305f435e105e02ab5029aab614fabd7592bb3"
+  },
+  {
+    "path": "core-counterexample/dense-best-dense-induced10.json",
+    "bytes": 1058,
+    "sha256": "2253af77dba6819e95278e9fc2c15a81bf2eaa16b9fc5fbed09c81aa2779726f"
+  },
+  {
+    "path": "core-counterexample/branched.py",
+    "bytes": 6351,
+    "sha256": "acdb9cc9ade83edd22f732acafa471c24c27694a4604473ece8d0664302fbc69"
+  },
+  {
+    "path": "core-counterexample/search.py",
+    "bytes": 2849,
+    "sha256": "89aa139d57641ec749277003b67ce11c7b4b1a8cba9ac4b3f2ffabe20e0b6f90"
+  },
+  {
+    "path": "core-counterexample/guided-best-tree12.json",
+    "bytes": 767,
+    "sha256": "20a532e2c9b923ae1f235e00b4796d2da1eb6f1c4cc46428c118172fb3da3306"
+  },
+  {
+    "path": "core-counterexample/guided-best-tree10.json",
+    "bytes": 620,
+    "sha256": "0e26aecbb3f389f0353b51cf2fa009008b83f53eab8f0a085c24ae6f07d9ad0e"
+  },
+  {
+    "path": "core-counterexample/evaluator.py",
+    "bytes": 3983,
+    "sha256": "3cac92a842bdc9c1f4ef92f590ddb97a9679aa6fffb97cae663abbb8833e26ba"
+  },
+  {
+    "path": "core-counterexample/branched-best-branch14.json",
+    "bytes": 753,
+    "sha256": "4b0b1dd5d9d9174624c3f876c3732244be04210a18a620efb8d8f48a164ed324"
+  },
+  {
+    "path": "core-counterexample/dense.log",
+    "bytes": 10404,
+    "sha256": "e69ea367c117b2120885e923e78f1bbf8832bed9dc8d2f3de308abbe5fb74aab"
+  },
+  {
+    "path": "core-counterexample/branched.log",
+    "bytes": 10352,
+    "sha256": "9b552ced3e98e41ab8d944fd9c690d3467f53197b39b84c8a3e029bb55c8a717"
+  },
+  {
+    "path": "core-counterexample/fano-10gate-necessary-supports.json",
+    "bytes": 3731,
+    "sha256": "3b27cc5c923965b66e712edea350bad6510e68fcaf0ba520a9ca74ee529645dc"
+  },
+  {
+    "path": "core-counterexample/branched-best-branch10.json",
+    "bytes": 622,
+    "sha256": "983f19e2cd69567276e705b1723192197c6580d4423573e5b5a236091a6ba0e8"
+  },
+  {
+    "path": "core-counterexample/leafcheck.py",
+    "bytes": 4660,
+    "sha256": "5991a5dc376c3aeffa2f0f23e42a996e2e4dde3022b265af2ec599ff720e54c2"
+  },
+  {
+    "path": "core-counterexample/leafcheck.log",
+    "bytes": 78,
+    "sha256": "e50e39681e2aadef324bb4feb3c96959cb1bf7f5fdce055e1cd7012b037e380f"
+  },
+  {
+    "path": "core-counterexample/fano-support-orbits.json",
+    "bytes": 8714,
+    "sha256": "d0eeb02db692309d081d480a38010652166178a3483ef2f71a2e9481983b896d"
+  },
+  {
+    "path": "core-counterexample/guided-best-cycle10.json",
+    "bytes": 650,
+    "sha256": "b23003ec2c7bcb16a62144ecd8e67761887d5059e59201eaf683cc321597692e"
+  },
+  {
+    "path": "core-counterexample/guided-best-cycle12.json",
+    "bytes": 719,
+    "sha256": "32bfd72498f7d00916d9b88eb09434772f412af7dd56249c58f974fd0d54b46b"
+  },
+  {
+    "path": "structural/fano-g10-s3007-encode.log",
+    "bytes": 119,
+    "sha256": "e1b29e51b19fe39a770029197391b5c5fa75910707f74199afce935622eccc7d"
+  },
+  {
+    "path": "structural/fano-g9-s1979-encode.log",
+    "bytes": 115,
+    "sha256": "fdaeec782c9df4165a343284ab90fab4a17eff14b24111f698e486d8860381e3"
+  },
+  {
+    "path": "structural/fano-g9-omit-outer-encode.log",
+    "bytes": 115,
+    "sha256": "110e3a14648a047be39d1d92ca32fe0d0ce3e5ec21b2755fd291b8bb751b06ff"
+  },
+  {
+    "path": "structural/evolve-core.log",
+    "bytes": 960,
+    "sha256": "1196e4dea48729aac85f922d5a521583d373432d5b856654d770895d417bd1f1"
+  },
+  {
+    "path": "structural/fano-g9-s9-all10.json",
+    "bytes": 12166,
+    "sha256": "86fd560a907ac68005050aab25919811e6dcfcea48a508dc03b593f199c63f3e"
+  },
+  {
+    "path": "structural/fano-g9-omit-inner-encode.log",
+    "bytes": 115,
+    "sha256": "110e3a14648a047be39d1d92ca32fe0d0ce3e5ec21b2755fd291b8bb751b06ff"
+  },
+  {
+    "path": "structural/fano-g9-omit-inner.json",
+    "bytes": 12204,
+    "sha256": "805a78ab1f038be854f07e0712e7b58bf6a7664c8a0bb96eeb3d4410465babaa"
+  },
+  {
+    "path": "structural/decode_sat.py",
+    "bytes": 1957,
+    "sha256": "3e5fe26c0d50c1a603dc5448d7bda6b9e694fd39263dd882ddab8c88d55f0ee3"
+  },
+  {
+    "path": "structural/fano-g9-s1979.json",
+    "bytes": 12184,
+    "sha256": "018ec40ef7d849a85e01de90b5aa18819c5e7f6d21b45a0851ba6cce847fbddb"
+  },
+  {
+    "path": "structural/glue-p4.log",
+    "bytes": 198,
+    "sha256": "94ef33201b0f43affe9ca8a4c41c3967c14c29989ea1cb359e26c26eba454581"
+  },
+  {
+    "path": "structural/fano-g9-s2975.json",
+    "bytes": 12184,
+    "sha256": "ac37fe41c99dc2b7615de37918d1195ec6365937e05a0d751b6ab39172794542"
+  },
+  {
+    "path": "structural/fano-g9-s2975-solve.log",
+    "bytes": 35568,
+    "sha256": "f57ecfb85698bd970ea8bf7a0925261c9cbbdaac444953332718988f7e9dce89"
+  },
+  {
+    "path": "structural/fano-g10-s959-solve.log",
+    "bytes": 7767,
+    "sha256": "d71ae667770dcf447a85f508ef0ba39411475a91678d430469af21dba888cb47"
+  },
+  {
+    "path": "structural/fano-g10-s1951.json",
+    "bytes": 13035,
+    "sha256": "309b804633ce4382d67e9c23c1edce8cdcd0b56fb59ca053c3b105bfe939cdbf"
+  },
+  {
+    "path": "structural/fano-g4-calibration-decoded.json",
+    "bytes": 710,
+    "sha256": "28a0426a07fc7a6c788920fae8bb353dc2fe4a2c8a4f7dc942949fc7b2476fa7"
+  },
+  {
+    "path": "structural/fano-g9-s2975-encode.log",
+    "bytes": 115,
+    "sha256": "c3fa21d6df1bf6df4adf37dcd0fe3620c0acb9243159eb840827e71fd599ef6e"
+  },
+  {
+    "path": "structural/fano-g9-s9-encode.log",
+    "bytes": 115,
+    "sha256": "0d62063a4b5df77f5d8848f6360f0af0cbd1e4e46751b04de22ef460899334e8"
+  },
+  {
+    "path": "structural/fano-g10-s1951-solve.log",
+    "bytes": 9007,
+    "sha256": "910e33bea13ebc356a3cc259814735ec56a580e514c3f6be5dffb3fc1ad2b553"
+  },
+  {
+    "path": "structural/fano-g9-s9-all10-encode.log",
+    "bytes": 116,
+    "sha256": "1376f037a085c9ed402117cac42e291fd14f6efd28e9738e8b51ba650af69167"
+  },
+  {
+    "path": "structural/fano-g9-omit-outer.json",
+    "bytes": 12203,
+    "sha256": "81c71218a9535a9206c3e9e2fe1c56cd751bc0965c3f4f51c80be79d87cc8e11"
+  },
+  {
+    "path": "structural/glue_p4.py",
+    "bytes": 1974,
+    "sha256": "6a8b6892374f5e9f5c16cf05a6c3896b313062b8f601b00e27c8a482e30b58a5"
+  },
+  {
+    "path": "structural/fano-g10-s2975.json",
+    "bytes": 13035,
+    "sha256": "754b207da348cb2d141998435ea4b78c2615f622966e8b4dea6bd2adc97c3bea"
+  },
+  {
+    "path": "structural/fano-g9-s1967.json",
+    "bytes": 12184,
+    "sha256": "322d4da504918b06368f36cec137159f7f2a6a0cee3ed1d5ce2641e6381dc13b"
+  },
+  {
+    "path": "structural/fano-g4-calibration-solve.log",
+    "bytes": 3738,
+    "sha256": "72caff14c4998b17288c7915cf3a63d11dd5575715db99e7e700eef5c558738b"
+  },
+  {
+    "path": "structural/fano-g9-s1951-solve.log",
+    "bytes": 37315,
+    "sha256": "62bbb39f557bd8f983ac46f900f9b39407df74221a0ee407ae6fc8f949a385f0"
+  },
+  {
+    "path": "structural/fano-g4-calibration.json",
+    "bytes": 8581,
+    "sha256": "44aeecc8245bb4bc8490b9aeaeaf9ec80787062eebd786b016b023b59044529a"
+  },
+  {
+    "path": "structural/fano-g10-s2975-encode.log",
+    "bytes": 116,
+    "sha256": "1e51f81c9084534fad3ecad5e8bbe9070200df7232ce7e5ad1e04085cf4ced2c"
+  },
+  {
+    "path": "structural/glue_trees.py",
+    "bytes": 2449,
+    "sha256": "101ccd3300ad586270d41973bd629108151811e17c52b6b08b3aeeb477de751e"
+  },
+  {
+    "path": "structural/fano-g9-omit-short-encode.log",
+    "bytes": 115,
+    "sha256": "110e3a14648a047be39d1d92ca32fe0d0ce3e5ec21b2755fd291b8bb751b06ff"
+  },
+  {
+    "path": "structural/fano-g9-s9-solve.log",
+    "bytes": 41037,
+    "sha256": "6571144d018f4e96f09151073da37b3ed1c89c1a55fa4ae61bf4b702d48e19ea"
+  },
+  {
+    "path": "structural/fano-g9-omit-short-solve.log",
+    "bytes": 20276,
+    "sha256": "d0becc797eb47a4a2a687624ca20dee894244361cac572af77efb345cec30fa6"
+  },
+  {
+    "path": "structural/fano-g10-s3007.json",
+    "bytes": 13038,
+    "sha256": "1216c1e2b48f5547f77cbc28ed8e98e0bb705cd15dc6fc930db7df358642f5b2"
+  },
+  {
+    "path": "structural/fano-g10-s2975-solve.log",
+    "bytes": 8162,
+    "sha256": "bd175da95cd0c9f15e1a33eec6fd8d2efda056a672346472a85212d83913d698"
+  },
+  {
+    "path": "structural/fano-g9-s9.json",
+    "bytes": 12165,
+    "sha256": "d3a9142f965bb24380d451d08b2bcaf8f8d7244ed60e48b03fd1ea1216d572e5"
+  },
+  {
+    "path": "structural/fano-g9-s959-solve.log",
+    "bytes": 21842,
+    "sha256": "ac3449b9c66211806c691414b4219e0a3fa577dbff0e5c1988b292dccdef32ae"
+  },
+  {
+    "path": "structural/evolve_core.py",
+    "bytes": 3184,
+    "sha256": "0421d27d607bf7eeed3d7d8bf365c7a2539d9a6088837d507d1bbca3a4d87387"
+  },
+  {
+    "path": "structural/glue-trees.log",
+    "bytes": 204,
+    "sha256": "6fb99b23e98fb161c734b6b82d082afae5dbf6bd17438867a6a09d925b3f42f1"
+  },
+  {
+    "path": "structural/fano-g9-s1951-encode.log",
+    "bytes": 115,
+    "sha256": "0165bbbe9d97fd01498b1446051377c639fede898a26cc6c42f63aa87fd67214"
+  },
+  {
+    "path": "structural/fano-g9-s1951.json",
+    "bytes": 12184,
+    "sha256": "a949ad8c7d3605fe8835810f404987c362a79661bf7d50ce901159833d1a2d22"
+  },
+  {
+    "path": "structural/fano-g9-s1967-encode.log",
+    "bytes": 115,
+    "sha256": "f07413d4e2f3de9d9ffc4f73dce15575379ad3902e16b8f83c0ed3f3756dfc46"
+  },
+  {
+    "path": "structural/fano-g9-s9-all10-solve.log",
+    "bytes": 29249,
+    "sha256": "f98825940ddde938fcf5f8a0ae2ea507bf74f6cbb012591691a57dfa9582e822"
+  },
+  {
+    "path": "structural/fano-g10-s1951-encode.log",
+    "bytes": 116,
+    "sha256": "1703bd97e7b22086a733383caae010836f85771ccf1d9bd960600aa977e249aa"
+  },
+  {
+    "path": "structural/fano-g4-calibration-encode.log",
+    "bytes": 100,
+    "sha256": "0eb25376a111ddd0059d22914dcbc34dd3d7bd8dce9d8c81b24799e4ecfeb731"
+  },
+  {
+    "path": "structural/glue-planes.log",
+    "bytes": 204,
+    "sha256": "a3ca94a67e28d7b4521bdab344c956c5f43a49c536656c9d63d4efe96bf41b48"
+  },
+  {
+    "path": "structural/fano-g9-omit-outer-solve.log",
+    "bytes": 24929,
+    "sha256": "a281818c7ab37c89ad46c2e5125d538c65e897174f204f9f6b47698628af0dc7"
+  },
+  {
+    "path": "core-counterexample/branched-best-branch16.json",
+    "bytes": 816,
+    "sha256": "e9430a646bff88a759da76a588a5af4f4c086f682fa24881f6e4c479efe9a535"
+  },
+  {
+    "path": "core-counterexample/fano-automorphisms.json",
+    "bytes": 16128,
+    "sha256": "4e5b0091ca41dafc2c1e21698b68161a4fd5d49f028c19e6d8c2cb5a9fd35489"
+  },
+  {
+    "path": "core-counterexample/guided-best-cycle14.json",
+    "bytes": 782,
+    "sha256": "2647a2ac2a6df0c967587a6b96e8dacbef0fb3cb40a06eec256ac88730403b69"
+  },
+  {
+    "path": "structural/fano-g10-s959.json",
+    "bytes": 13034,
+    "sha256": "f5cdf3a8c9a209f25e12facf2fca7e198fb52c8b99d5eaed19cbe6fe493a8f6d"
+  },
+  {
+    "path": "structural/fano-g9-s1979-solve.log",
+    "bytes": 24988,
+    "sha256": "d10dc0382ea4561ac121214b0e8150c4e9f218e70840ef18dfec30382888dd47"
+  },
+  {
+    "path": "structural/glue_planes.py",
+    "bytes": 2524,
+    "sha256": "d5093964f3ba00fe58f6e2f8a35bec9e7d5ca3fcf1a908aeab03f89e418b0715"
+  },
+  {
+    "path": "structural/fano-g9-s959-encode.log",
+    "bytes": 114,
+    "sha256": "f43b88f72332c5982dc7c3dcb1d89dfa299cb28a5d81a943b6726ee7f64c422f"
+  },
+  {
+    "path": "structural/fano-g9-s1967-solve.log",
+    "bytes": 23639,
+    "sha256": "7140652c85b3714f18abe89cd3cdc5eaa8a06e96d7e6006b036b164ed1f3d236"
+  },
+  {
+    "path": "structural/fano_sat.py",
+    "bytes": 7396,
+    "sha256": "66156ea3ab7b07cd4ffc01ccb2cf03cba764635474eeb17d9afd08e554b11384"
+  },
+  {
+    "path": "structural/fano-g9-s959.json",
+    "bytes": 12183,
+    "sha256": "6a2b9d4a3243e0468e1fcc6cf8f816f89052cf3cab921a9e3dd4fa36cc4d7702"
+  },
+  {
+    "path": "structural/fano-g10-s959-encode.log",
+    "bytes": 115,
+    "sha256": "2846aea74fb03625e62bc095de1a8766d8dee773550d059842622df6d02fdae1"
+  },
+  {
+    "path": "structural/fano-g9-omit-inner-solve.log",
+    "bytes": 22378,
+    "sha256": "932f240294dc803709054016a7909f3bfd773a1acd5a1c5a1242c8baf33e8c60"
+  },
+  {
+    "path": "structural/fano-g4-calibration-decode.log",
+    "bytes": 711,
+    "sha256": "74a348f13f2c3dd8fa8b05b74ef091d682dffff11fc9c3ec5fa32b31ae4da6a2"
+  },
+  {
+    "path": "structural/fano-g9-omit-short.json",
+    "bytes": 12203,
+    "sha256": "16e6d909d1c404c2f888ae21e3031b9d54d6e99119a9107e51ca9bc6883268ef"
+  }
+]
