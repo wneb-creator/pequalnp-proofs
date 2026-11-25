@@ -1,0 +1,21 @@
+{
+  "review": "PASS source-only optional nonstar-prefix constraint",
+  "sources": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v10.py",
+      "sha256": "82d95a14bb3dd3d4e4b39560829461e0167099fe37c9a8bb1f773c56fe2de1d3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-62/meta2448/guard_synthesis_v11.py",
+      "sha256": "e160e08d348083f904dbd613ed451209834863af7499eea1b1afaaf1e7f60b6b"
+    }
+  ],
+  "findings": [
+    "The flag requires at-most mode and profile=nonstar, so ownership variables are constructed.",
+    "Each candidate bad owned-edge pair is guarded by the negation of the target flag captured before that gate; this admits gates up to and including the first exact output and excludes later gates.",
+    "On a triangle-free graph, existence of two disjoint owned edges is equivalent to failure of star profile. Earlier gates/cones/ownership are unchanged when taking the prefix.",
+    "The decoder separately confirms the earliest exact prefix on every assignment and requires its profile to be nonstar.",
+    "With the option disabled, all model constraints are unchanged. The guardian delta only extends the encoder allowlist."
+  ],
+  "scope": "Source audit only, no solver result. A nonstar exact prefix is not a minimum-circuit witness and does not refute existence of an equally small star-profile circuit. Signed-domination normalization remains only a necessary condition for global minima, not a complete enumeration of all nonminimum nonstar circuits."
+}

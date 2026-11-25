@@ -1,0 +1,53 @@
+{
+  "graph": "path4",
+  "gates": [
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "and",
+      4,
+      5
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "and",
+      6,
+      7
+    ]
+  ],
+  "owned_edges": [
+    [],
+    [],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [],
+    []
+  ],
+  "first_exact_gate": 4,
+  "checked_assignments": 16,
+  "scope": "Known nonminimum nonstar positive control; star4 exists."
+}

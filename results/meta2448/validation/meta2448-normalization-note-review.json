@@ -1,0 +1,15 @@
+{
+  "review": "PASS research-only normalization note",
+  "files": [
+    {
+      "path": "results/meta2448/normalization-notes.md",
+      "sha256": "74a1034d326f180ba60640939a1952ae44042a15891d87d294b832dba0e577f9",
+      "bytes": 5020
+    },
+    {
+      "path": "results/meta2448/normalization-notes-independent-review.json",
+      "sha256": "b59a0c3320a1bb0bfe6dabb19ec6dfda9f9778e73afbc5cdcd508f857b047ebf",
+      "bytes": 967
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "pid": 41689,
+  "process_start_ticks": 1866644,
+  "source_sha256": "78fa87d55df3b71eed25a2849cec4b7961205cc06cf00d965a638193d5f4a308",
+  "log": "reattach-v2-0755.log",
+  "old_owned_monitor_pid": 41297,
+  "old_start_ticks": 1854069,
+  "handoff": "replacement running before SIGTERM to old monitor only; no model/solver signaled"
+}

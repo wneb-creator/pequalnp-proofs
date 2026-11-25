@@ -1,0 +1,7 @@
+# Completed strengthened searches and exact-prefix control
+
+Petersen at-most19 returned normal UNKNOWN/exit0 after900.053seconds (149324KiB peak child); the eight-vertex adjacent-deletion core at-most12 returned normal UNKNOWN/exit0 after300.026seconds (69512KiB). These are normalized finite-model searches, not lower bounds. Neither found a witness.
+
+An environment restart killed the outer guardians but left both model/solver groups running with their1GiB address-space caps. Group IDs and leader start ticks were checked. A detached monitor restored the6.5GiB shared-memory policy, then a separately reviewed v2 fixed an exit/read race. The replacement was confirmed running before terminating only the old monitor. Separate recovery records show both queries reached their ordinary wall limits with no stop signals and no live group members. Original guardian-final-status absence is not represented as an interruption verdict. Complete original solver/model logs, monitor logs, source versions and handoff metadata are preserved. The launch-plan file is a historical prelaunch recipe; actual commands/start/results are authoritative.
+
+The optional v10 nonstar-prefix condition requires an owned disjoint-edge pair at or before the earliest exact target gate. Its P4 five-gate positive control passed all16inputs and independent ownership/prefix replay. P4 has a four-gate star circuit, so this deliberately nonminimum control is not a counterexample. No full proof or refutation of L-meta-2448 is claimed.

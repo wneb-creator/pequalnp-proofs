@@ -1,0 +1,13 @@
+{
+  "status": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 300.02608087299814,
+    "peak_child_KiB": 69512
+  },
+  "solver_final_lines": [
+    "c exit 0"
+  ],
+  "log_sha256": "2fc031add3a60835aa10e6defee5b9c70fe958836f76e4f0841dd6da4a311e78",
+  "recovery_note": "Original outer guardian terminated in environment restart; model and solver survived to ordinary wall-limit completion. Separate detached recovery monitor recorded no stop signals and an empty live group."
+}

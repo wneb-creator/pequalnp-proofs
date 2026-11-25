@@ -1,0 +1,2 @@
+{"graph": "petersen-minus-adjacent", "input_count": 8, "gate_count": 12, "profile": "any", "variables": 3519, "clauses": 21782}
+{"result": "unknown", "solver_exit": 0, "elapsed": 300.02608087299814, "peak_child_KiB": 69512}

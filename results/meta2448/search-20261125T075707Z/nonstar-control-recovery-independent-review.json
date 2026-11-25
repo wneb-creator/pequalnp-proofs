@@ -1,0 +1,24 @@
+{
+  "review": "PASS actual nonstar-prefix control and recovery-monitor source fix",
+  "control": {
+    "witness_sha256": "c0234c2420596a7b1e6f3d3d5ab0b1b32c901c7cfee4ce227b057306a632670c",
+    "assignments": 16,
+    "earliest_exact_prefix_gates": 5,
+    "nonstar_gate_index": 2,
+    "owned_edge_indices": [
+      0,
+      1,
+      2
+    ],
+    "signed_domination_replayed": true,
+    "solver_exit": 10,
+    "elapsed_seconds": 0.007952048999868566,
+    "scope": "Known five-gate nonminimum control; a four-gate star circuit exists. No minimum-circuit or held-gap refutation claim."
+  },
+  "watchdog": {
+    "source_sha256": "78fa87d55df3b71eed25a2849cec4b7961205cc06cf00d965a638193d5f4a308",
+    "delta": "Catch FileNotFoundError/ProcessLookupError around direct leader stat read; distinct recovery2 status path. All group-identity/starttick checks, memory threshold, escalation and solver-status separation unchanged.",
+    "handoff": "Saved launch metadata records replacement running before terminating only old owned monitor; no model/solver signal.",
+    "scope": "Recovery evidence only, never a solver verdict."
+  }
+}

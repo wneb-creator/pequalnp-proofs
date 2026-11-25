@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "guard_synthesis_v9.py",
+    "--tag",
+    "petersen-atmost19-v8-run900",
+    "--encoder",
+    "synthesize_v8.py",
+    "--",
+    "--graph",
+    "petersen",
+    "--gates",
+    "19",
+    "--profile",
+    "any",
+    "--symmetry-first",
+    "--essential-gates",
+    "--ordered-independent",
+    "--undominated-signatures",
+    "--at-most",
+    "--seconds",
+    "900"
+  ],
+  "state": "prepared; awaiting parent fresh lease signal",
+  "scope": "normalized at-most model; not a Lean minimum proof"
+}

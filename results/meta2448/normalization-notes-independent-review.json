@@ -1,0 +1,13 @@
+{
+  "review": "PASS research-only normalization note",
+  "source": "results/meta2448/normalization-notes.md",
+  "sha256": "74a1034d326f180ba60640939a1952ae44042a15891d87d294b832dba0e577f9",
+  "lines": 97,
+  "findings": [
+    "Final-OR factoring has the stated local Boolean identity and one-gate saving when final-region rebuilding is available; it is explicitly unformalized and does not cover different paths or general sharing.",
+    "Cofactor pooling records the r-minus-one new OR cost rather than assuming it is paid by deleting the dirty gate.",
+    "The private zero-singleton cleanup argument correctly uses a true AND in the cleanup cone to prevent new ownership, while retaining privacy/topological conditions and unformalized status.",
+    "The outside singleton example is compatible with triangle/C4 freeness and does not establish a repair cost."
+  ],
+  "scope": "No Lean result or full normalization, minimum-star theorem or refutation is claimed."
+}

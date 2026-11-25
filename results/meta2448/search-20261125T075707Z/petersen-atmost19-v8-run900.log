@@ -1,0 +1,2 @@
+{"graph": "petersen", "input_count": 10, "gate_count": 19, "profile": "any", "variables": 10800, "clauses": 73409}
+{"result": "unknown", "solver_exit": 0, "elapsed": 900.0530487220021, "peak_child_KiB": 149324}
