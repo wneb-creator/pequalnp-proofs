@@ -19,3 +19,4 @@
 - 2026-11-25T12:48:24.279881+00:00: higher-degree dirty-wire obstruction and computational search archive preserved.
 - 2026-11-25T12:48:56.425146+00:00: construction strategy completed checked general star-cover-to-read1 bridge.
 - 2026-11-25T12:51:04.525464+00:00: general star-cover construction and clean-normal-form read1 endpoints compiled and reviewed; focus returns to cost argument.
+- 2026-11-25T12:58:51.679717+00:00: consolidated 3212-line partial built and independently reviewed.

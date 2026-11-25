@@ -1,26 +1,57 @@
 [
   {
     "file": "results/orch/lemmas/SinglePoint.lean",
-    "sha256": "e7e5e7a1e47347bfa68eb6de35188df22505886183afd03fc0e358aa113ecc30"
+    "sha256": "e7e5e7a1e47347bfa68eb6de35188df22505886183afd03fc0e358aa113ecc30",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/FamilyCombined.lean",
+    "sha256": "bdf9e2904a2634f69cf23680c023a01b31a4aba5b6903526879727220799f07b",
+    "remove_identical_star_body": true
   },
   {
     "file": "results/orch/lemmas/StarBlock.lean",
-    "sha256": "884b5010b8b2556f0bcd2e6f74aa7fef210447ecebf9bdadc13f96f11db9709b"
+    "sha256": "884b5010b8b2556f0bcd2e6f74aa7fef210447ecebf9bdadc13f96f11db9709b",
+    "remove_identical_star_body": false
   },
   {
     "file": "results/orch/lemmas/Prime.lean",
-    "sha256": "b45f90b9b0cf3708aad980afbbaea98f319f5efa77aa845e775a1cab4da01083"
+    "sha256": "b45f90b9b0cf3708aad980afbbaea98f319f5efa77aa845e775a1cab4da01083",
+    "remove_identical_star_body": false
   },
   {
     "file": "results/orch/lemmas/Normalization.lean",
-    "sha256": "7a3aefa03887152b8ac808a508f8a5fcbb2327a36bcb41eef02787616953b87c"
+    "sha256": "7a3aefa03887152b8ac808a508f8a5fcbb2327a36bcb41eef02787616953b87c",
+    "remove_identical_star_body": false
   },
   {
-    "file": "results/orch/lemmas/Multilinear.lean",
-    "sha256": "9a79dbabb36dc621b360cd14536e264c4d75b2fd6436fc33dd1dd5edfc09167f"
+    "file": "results/orch/lemmas/CleanReadOne.lean",
+    "sha256": "3fe01e8f253ad27690d59d754d6d69ed7c514088970e3cf13a8ac76cd8845407",
+    "remove_identical_star_body": false
   },
   {
     "file": "results/orch/lemmas/OrBound.lean",
-    "sha256": "135dda028d175dabecee8b872a811b925279dc5b67bad0b18751f490abcad045"
+    "sha256": "135dda028d175dabecee8b872a811b925279dc5b67bad0b18751f490abcad045",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/CircuitMonotone.lean",
+    "sha256": "0e7ea608a2cda1ef727eaa3587198eaef3070ba4d99fdd3dc9e5ad9379f34155",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/GraphTests.lean",
+    "sha256": "80bf06df4fa5ff0594e7ebfc96779448e22eac7975e8f6f41a7e52856526eda3",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/IncidenceTests.lean",
+    "sha256": "bee1feb109290ee9919d3bb2261d1216891dc1689584eb94a622e799bb4e795f",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/ClosedIncidenceTests.lean",
+    "sha256": "5ab12db77015093f5394dea08b362e17f2b2ba34bbbde190875bc611d0accfb1",
+    "remove_identical_star_body": false
   }
 ]

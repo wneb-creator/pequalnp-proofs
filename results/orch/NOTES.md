@@ -179,3 +179,31 @@ CleanReadOne.lean compiled with exit0 and empty logs. It proves IsAO2 plus TopFo
 ## 2026-11-25T12:49:30.046903+00:00 integration and verification review
 
 Independent normalization-agent review passed GraphTests, IncidenceTests, ClosedIncidenceTests and MergeValid. For the 2251-line integration snapshot SHA256 98f250475f8a715ceb61a784c0de5f912d648b19b061e7477cd1ad4c98b02121, all six manifest source hashes and exact body concatenation matched; no forbidden features and no final target theorem were present. Later integrations need their own snapshot review.
+
+## 2026-11-25T12:51:11.113048+00:00 — least dirty-block cost investigation
+
+The checked endpoints isolate the missing implication precisely: from a least normalized AO2 circuit for C4-free incidence, construct a star family whose degree sum plus number of stars minus one is at most circuit size. Pure OR subcircuits admit an injective charge of each nonminimum row element to a merge; dirty AND gates defeat this because they can filter broad shared OR supports. Pair-input semantics alone is insufficient: HigherDirty proves an interior gate can agree with the target on every pair yet accept an independent triple.
+
+A potential graph-induction route would remove a vertex v while deleting at least degree(v)+1 gates when cover number drops by one. Direct star circuits have exactly this budget, but for general circuits no such local deletion argument has been established: singleton support and raw input-reader counts do not control the shared dirty filters. Treat this as an unresolved lemma, not a justified reduction.
+
+Counterexample coordination confirms current searches avoid already checked Fano27 and K4-subdivision15 cases; active candidates are K5-subdivision23vs24, cyclic8x8 incidence30vs31, and order3Singerplane63vs64. No counterexample to the posted universal statement has been obtained.
+
+## 2026-11-25T12:52:26.616795+00:00 integration-002 independent review
+
+Reviewed named file SHA256 9b1d57b57cc02f0dbf799d7db08d378c2ee2d8385800590814df55ff186b177a, 3212 lines, 143385 bytes. All eleven source hashes match assembly-002.json. Exactly one byte-identical Star body was removed from FamilyCombined; one remains inside SinglePoint. Remaining target body exactly matches ordered component concatenation. Allowed imports only at top, own permitted namespaces, no forbidden tokens/attributes/options, no final theorem claiming the gap. Review PASS for partial preservation once aggregate build passes.
+
+## Counterexample search checkpoint, 2026-11-25T12:52:45.874623+00:00
+
+MK8_3 exactSAT30gate search launched12:47:57UTC after root renewal12:47:34. A31gate right-side star circuit, canonically reordered, passes SAT positive control and was independently evaluated on all65536 inputs. The first control used an uncanonicalized left-side star circuit and was correctly rejected by first-gate automorphism symmetry; both logs are retained. This was a control-witness normalization issue, not a solver success or lower-bound result.
+
+Added a dynamic-target search, evolve_graph.cpp: mutate31gate AO circuits on8+8 inputs, infer the graph from accepted cross-pairs, reject C4 or pure-side acceptance, and test all maximal independent assignments. For valid graph functions, prune unused gates and compare size against |E|+maximum matching-1. A positive saving would be a counterexample; any hit is additionally checked on all65536 assignments before output. This explores varying graph targets rather than only the fixed families. Budget30min from12:52UTC.
+
+2026-11-25T12:55:51.029128+00:00 [counterexample] Resource adjustment: only3 CPUs available. Interrupted redundant K5 strict SLS, MK strict SLS, and K5 annealing SLS (all exit130, best error1, no witness); complete logs archived. These are UNKNOWN heuristic outcomes, never proofs. Remaining workers K5 exactSAT, MK exactSAT, PGq3 strictSLS, dynamic8x8 search each reniced to10 to prioritize Lean builds.
+
+2026-11-25T12:56:59.020534+00:00 [counterexample] Prepared separate synthesis_semantic.py with optional minimum-circuit source-incomparability witnesses on complete edge/max-independent test basis. Soundness: comparable input signatures let a gate be replaced by one input without changing any final test, and monotonicity then preserves the exact target. Known K5 subdivision24gate star circuit remains SAT under sym+orbit+semantic constraints (Cadical exit10); full control logs archived. No additional long worker started; original two SAT jobs unchanged. As usual, a negative fixed-gate-count search alone does not exclude strictly smaller circuits unless those counts are separately covered.
+
+2026-11-25T12:57:38.120877+00:00 [counterexample research] Primary source opened/read2026-11-25: Stasys Jukna, Lower Bounds for Tropical Circuits and Dynamic Programs, https://arxiv.org/pdf/1406.3065, Remark10 page19 (PDF index18). For (k,k)-free Boolean matrices it distinguishes a multioutput linear-function lower bound from the single-output bilinear graph function, stating: “no such bound is known so far in the boolean semiring.” It then gives the restricted tropical/multilinear bound. Thus the earlier source attribution is now directly verified, not merely the project note's report. This historical statement does not prove present-day impossibility or falsity of L2585.
+
+## 2026-11-25T12:58:42.714916+00:00 edge-invisible semantics checked
+
+EdgeInvisible.lean final snapshot compiled successfully. Replacing one gate by an empty OR lowers the output, and preserves it whenever that gate was false. If that gate is false on every incident pair, the whole incidence function is preserved by monotonicity. This claims same size and AndOrOnly, not IsAO2 or fewer gates. Independent review by read1_construction passed.
