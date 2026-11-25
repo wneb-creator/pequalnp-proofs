@@ -26,3 +26,6 @@ All timestamps UTC.
 - 2026-11-25T21:38:17+00:00: Root five-case independent-set orbit normalization and conditional DagTools carrier obstruction compiled; independent review and axiom audits passed (propext, Classical.choice, Quot.sound only). Full gap remains open.
 
 Sub-agents: nine external helper jobs (helper-1 through helper-9), plus one local setup and review agent. Directly coordinated count: 10.
+
+- 2026-11-25T21:45:38+00:00: Third partial push confirmed at e1cee1b1f; independent review and kernel checks passed for orbit and carrier helpers.
+- 2026-11-25T21:45:38+00:00: Exact semantic trace compression independently reviewed and compiled; it preserves outputs and proves an exact deletion-count identity. Still no full gap proof.
