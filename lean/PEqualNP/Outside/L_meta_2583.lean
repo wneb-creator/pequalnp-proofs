@@ -1,3 +1,4 @@
+import Mathlib.Combinatorics.Hall.Basic
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_2583
@@ -4464,4 +4465,1327 @@ lemma posted_incidence_or_budget {q N : ℕ} (I : Fin N → Fin N → Prop) [Dec
 
 end LinearIncidenceBudget
 
+
+
+namespace LinearAnd
+
+section SourceLinearTranspose
+
+namespace PlaneArcTranspose
+
+inductive LinearOp where
+  | add (u v : ℕ)
+  | scale (u scalar : ℕ)
+  | copy (u : ℕ)
+  | zero
+
+def LinearOp.edge (op : LinearOp) (scalar : ℕ → Prop) (src : ℕ) : Prop :=
+  match op with
+  | .add u v => src = u ∨ src = v
+  | .scale u s => src = u ∧ scalar s
+  | .copy u => src = u
+  | .zero => False
+
+def LinearOp.eval (op : LinearOp) (scalar state : ℕ → Prop) : Prop :=
+  match op with
+  | .add u v => state u ∨ state v
+  | .scale u s => state u ∧ scalar s
+  | .copy u => state u
+  | .zero => False
+
+lemma eval_iff_edge (op : LinearOp) (scalar state : ℕ → Prop) :
+    op.eval scalar state ↔ ∃ src, op.edge scalar src ∧ state src := by
+  cases op with
+  | add u v =>
+    simp only [LinearOp.eval, LinearOp.edge]
+    constructor
+    · rintro (h | h)
+      · exact ⟨u, Or.inl rfl, h⟩
+      · exact ⟨v, Or.inr rfl, h⟩
+    · rintro ⟨j, (rfl | rfl), hj⟩
+      · exact Or.inl hj
+      · exact Or.inr hj
+  | scale u s => simp [LinearOp.eval, LinearOp.edge, and_assoc, and_comm]
+  | copy u => simp [LinearOp.eval, LinearOp.edge]
+  | zero => simp [LinearOp.eval, LinearOp.edge]
+
+structure Assignment where
+  dst : ℕ
+  op : LinearOp
+
+def Assignment.push (a : Assignment) (scalar state : ℕ → Prop) (w : ℕ) : Prop :=
+  if w = a.dst then a.op.eval scalar state else state w
+
+def Assignment.pull (a : Assignment) (scalar demand : ℕ → Prop) (w : ℕ) : Prop :=
+  (w ≠ a.dst ∧ demand w) ∨ (demand a.dst ∧ a.op.edge scalar w)
+
+def forward (scalar : ℕ → Prop) (ops : List Assignment) (state : ℕ → Prop) : ℕ → Prop :=
+  ops.foldl (fun st a => a.push scalar st) state
+
+def reverse (scalar : ℕ → Prop) (ops : List Assignment) (demand : ℕ → Prop) : ℕ → Prop :=
+  ops.foldr (fun a st => a.pull scalar st) demand
+
+lemma transpose_step (a : Assignment) (scalar state demand : ℕ → Prop) :
+    (∃ w, demand w ∧ a.push scalar state w) ↔ (∃ w, a.pull scalar demand w ∧ state w) := by
+  constructor
+  · rintro ⟨w, hd, hv⟩
+    by_cases h : w = a.dst
+    · subst w
+      obtain ⟨src, he, hs⟩ := (eval_iff_edge _ _ _).mp
+        (show a.op.eval scalar state from by simpa [Assignment.push] using hv)
+      exact ⟨src, Or.inr ⟨hd, he⟩, hs⟩
+    · exact ⟨w, Or.inl ⟨h, hd⟩, by simpa [Assignment.push, h] using hv⟩
+  · rintro ⟨w, (⟨hne, hd⟩ | ⟨hd, he⟩), hs⟩
+    · exact ⟨w, hd, by simpa [Assignment.push, hne] using hs⟩
+    · exact ⟨a.dst, hd, by simpa [Assignment.push] using
+        (eval_iff_edge a.op scalar state).mpr ⟨w, he, hs⟩⟩
+
+lemma transpose (ops : List Assignment) (scalar state demand : ℕ → Prop) :
+    (∃ w, demand w ∧ forward scalar ops state w) ↔
+      (∃ w, reverse scalar ops demand w ∧ state w) := by
+  induction ops generalizing state with
+  | nil => rfl
+  | cons a ops ih =>
+    change (∃ w, demand w ∧ forward scalar ops (a.push scalar state) w) ↔
+        ∃ w, a.pull scalar (reverse scalar ops demand) w ∧ state w
+    exact (ih _).trans (transpose_step a _ _ _)
+
+lemma transpose_coefficient (ops : List Assignment) (scalar : ℕ → Prop) (src dst : ℕ) :
+    forward scalar ops (fun w => w = src) dst ↔ reverse scalar ops (fun w => w = dst) src := by
+  simpa using transpose ops scalar (fun w => w = src) (fun w => w = dst)
+
+lemma reverse_adds {ι : Type*} (V : Finset ι) (uses : ι → ℕ)
+    (inputs adds scales aliases : ℕ)
+    (live : ∀ v ∈ V, 1 ≤ uses v)
+    (vertices : V.card = inputs + adds + scales + aliases)
+    (edges : ∑ v ∈ V, uses v = 2 * adds + scales + aliases + 1) :
+    (∑ v ∈ V, (uses v - 1)) + inputs = adds + 1 := by
+  have h : ∑ v ∈ V, ((uses v - 1) + 1) = ∑ v ∈ V, uses v :=
+    Finset.sum_congr rfl (fun v hv => Nat.sub_add_cancel (live v hv))
+  rw [Finset.sum_add_distrib] at h
+  simp only [Finset.sum_const, smul_eq_mul, mul_one] at h
+  omega
+
+end PlaneArcTranspose
+
+end SourceLinearTranspose
+
+
+namespace CircuitNormalization
+
+namespace Deg2
+
+open PEqualNP.CircuitLowerBounds
+
+inductive G where
+  | and (a b : ℕ)
+  | or (a b : ℕ)
+  | cst (v : Bool)
+  deriving DecidableEq, Repr
+
+def G.kids : G → List ℕ
+  | .and a b => [a, b]
+  | .or a b => [a, b]
+  | .cst _ => []
+
+structure Dag (N : ℕ) where
+
+  gates : List G
+
+  out : ℕ
+
+namespace Dag
+
+variable {N : ℕ}
+
+def size (D : Dag N) : ℕ := D.gates.length
+
+def gateAt (D : Dag N) (i : ℕ) : Option G :=
+  if N + N ≤ i then D.gates[i - (N + N)]? else none
+
+def val (D : Dag N) (x : Fin (N + N) → Bool) (i : ℕ) : Bool :=
+  if h : i < N + N then x ⟨i, h⟩ else
+  match D.gates[i - (N + N)]? with
+  | some (.and a b) =>
+      (if _ : a < i then D.val x a else false) && (if _ : b < i then D.val x b else false)
+  | some (.or a b) =>
+      (if _ : a < i then D.val x a else false) || (if _ : b < i then D.val x b else false)
+  | some (.cst v) => v
+  | none => false
+termination_by i
+
+def deg (D : Dag N) (i : ℕ) : ℕ :=
+  if i < N + N then (if N ≤ i then 1 else 0) else
+  match D.gates[i - (N + N)]? with
+  | some (.and a b) =>
+      (if _ : a < i then D.deg a else 0) + (if _ : b < i then D.deg b else 0)
+  | some (.or a b) =>
+      max (if _ : a < i then D.deg a else 0) (if _ : b < i then D.deg b else 0)
+  | some (.cst _) => 0
+  | none => 0
+termination_by i
+
+def WF (D : Dag N) : Prop := ∀ i g, D.gateAt i = some g → ∀ c ∈ g.kids, c < i
+
+end Dag
+
+def trGate (i : ℕ) (g : Gate) : G :=
+  match g.op, g.inputs with
+  | .and, [] => .cst true
+  | .or, [] => .cst false
+  | .and, [a] => if a < i then .or a a else .cst false
+  | .or, [a] => if a < i then .or a a else .cst false
+  | .and, [a, b] => if a < i ∧ b < i then .and a b else .cst false
+  | .or, [a, b] =>
+      if a < i ∧ b < i then .or a b else if a < i then .or a a
+      else if b < i then .or b b else .cst false
+  | _, _ => .cst false
+
+def ofCircuit (N : ℕ) (C : Circuit) : Dag N :=
+  { gates := C.gates.mapIdx (fun j g => trGate (N + N + j) g), out := C.output }
+
+def lineMarks (N : ℕ) : Finset ℕ := Finset.Ico N (N + N)
+
+end Deg2
+
+namespace Deg2.Api
+
+open PEqualNP.CircuitLowerBounds
+
+variable {N : ℕ}
+
+lemma gateAt_some {D : Dag N} {i : ℕ} {g : G} (h : D.gateAt i = some g) :
+    N + N ≤ i ∧ D.gates[i - (N + N)]? = some g := by
+  unfold Dag.gateAt at h
+  split_ifs at h with hi
+  exact ⟨hi, h⟩
+
+lemma card03a_size (C : Circuit) : (ofCircuit N C).size = C.size := by
+  simp [Dag.size, ofCircuit, Circuit.size]
+
+lemma trGate_kids (i : ℕ) (g : Gate) : ∀ c ∈ (trGate i g).kids, c < i := by
+  intro c hc
+  unfold trGate at hc
+  split at hc <;> (try split_ifs at hc) <;> simp_all [G.kids] <;> omega
+
+lemma card03b_wf (C : Circuit) : (ofCircuit N C).WF := by
+  intro i g hg c hc
+  obtain ⟨hi, hg⟩ := gateAt_some hg
+  simp only [ofCircuit, List.getElem?_mapIdx] at hg
+  cases h : C.gates[i - (N + N)]? with
+  | none => rw [h] at hg; cases hg
+  | some g0 =>
+    rw [h] at hg
+    simp only [Option.map_some, Option.some.injEq] at hg
+    subst hg
+    have := trGate_kids _ g0 c hc
+    omega
+
+end Deg2.Api
+
+namespace LineDegTest
+
+open PEqualNP.CircuitLowerBounds
+
+def W (gs : List Gate) (x : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x
+
+def Dg (gs : List Gate) (n : ℕ) (marked : Finset ℕ) : List ℕ :=
+  gs.foldl (fun d g => d ++ [g.lineDegree d])
+    ((List.range n).map fun i => if i ∈ marked then 1 else 0)
+
+lemma W_snoc (gs : List Gate) (g : Gate) (x : List Bool) :
+    W (gs ++ [g]) x = W gs x ++ [g.op.eval (g.inputs.map fun i => (W gs x).getD i false)] := by
+  simp [W, List.foldl_append]
+
+lemma Dg_snoc (gs : List Gate) (g : Gate) (n : ℕ) (marked : Finset ℕ) :
+    Dg (gs ++ [g]) n marked = Dg gs n marked ++ [g.lineDegree (Dg gs n marked)] := by
+  simp [Dg, List.foldl_append]
+
+lemma W_length (gs : List Gate) (x : List Bool) : (W gs x).length = x.length + gs.length := by
+  induction gs using List.reverseRecOn with
+  | nil => simp [W]
+  | append_singleton gs g ih => rw [W_snoc]; simp [ih]; omega
+
+lemma Dg_length (gs : List Gate) (n : ℕ) (marked : Finset ℕ) :
+    (Dg gs n marked).length = n + gs.length := by
+  induction gs using List.reverseRecOn with
+  | nil => simp [Dg]
+  | append_singleton gs g ih => rw [Dg_snoc]; simp [ih]; omega
+
+lemma getD_snoc {α : Type} (l : List α) (a d : α) (t : ℕ) :
+    (l ++ [a]).getD t d =
+      if t < l.length then l.getD t d else if t = l.length then a else d := by
+  simp only [List.getD_eq_getElem?_getD]
+  by_cases h1 : t < l.length
+  · rw [ite_eq_left h1, List.getElem?_append_left h1]
+  · rw [ite_eq_right h1, List.getElem?_append_right (by omega)]
+    by_cases h2 : t = l.length
+    · subst h2; simp
+    · rw [ite_eq_right h2]
+      have : t - l.length ≠ 0 := by omega
+      simp [List.getElem?_cons, this]
+
+lemma ofFn_getD {n : ℕ} (f : Fin n → Bool) (k : ℕ) :
+    (List.ofFn f).getD k false = if h : k < n then f ⟨k, h⟩ else false := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_ofFn]
+  by_cases h : k < n <;> simp [h]
+
+end LineDegTest
+
+namespace Deg2.Bridge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {N : ℕ}
+
+lemma api_prefix (D D' : Dag N) (h : D.gates <+: D'.gates) (i : ℕ) (hi : i < N + N + D.size)
+    (x : Fin (N + N) → Bool) : D'.val x i = D.val x i ∧ D'.deg i = D.deg i := by
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    have hv : ∀ a, (if _ : a < i then D'.val x a else false) =
+        (if _ : a < i then D.val x a else false) := by
+      intro a
+      split_ifs with ha
+      · exact (ih a ha (by omega)).1
+      · rfl
+    have hd : ∀ a, (if _ : a < i then D'.deg a else 0) = (if _ : a < i then D.deg a else 0) := by
+      intro a
+      split_ifs with ha
+      · exact (ih a ha (by omega)).2
+      · rfl
+    have hg : ¬ i < N + N → D'.gates[i - (N + N)]? = D.gates[i - (N + N)]? := by
+      intro h0
+      obtain ⟨t, ht⟩ := h
+      rw [← ht, List.getElem?_append_left (by unfold Dag.size at hi; omega)]
+    constructor
+    · conv_lhs => rw [Dag.val]
+      conv_rhs => rw [Dag.val]
+      split_ifs with h0
+      · rfl
+      · rw [hg h0]
+        cases D.gates[i - (N + N)]? with
+        | none => rfl
+        | some g =>
+          cases g with
+          | and a b => dsimp only; rw [hv a, hv b]
+          | or a b => dsimp only; rw [hv a, hv b]
+          | cst v => rfl
+    · conv_lhs => rw [Dag.deg]
+      conv_rhs => rw [Dag.deg]
+      by_cases h0 : i < N + N
+      · rw [ite_eq_left h0, ite_eq_left h0]
+      · rw [ite_eq_right h0, ite_eq_right h0, hg h0]
+        cases D.gates[i - (N + N)]? with
+        | none => rfl
+        | some g =>
+          cases g with
+          | and a b => dsimp only; rw [hd a, hd b]
+          | or a b => dsimp only; rw [hd a, hd b]
+          | cst v => rfl
+
+def gval (r : ℕ → Bool) : G → Bool
+  | .and a b => r a && r b
+  | .or a b => r a || r b
+  | .cst v => v
+
+def gdeg (r : ℕ → ℕ) : G → ℕ
+  | .and a b => r a + r b
+  | .or a b => max (r a) (r b)
+  | .cst _ => 0
+
+lemma val_deg_ge (D : Dag N) {i : ℕ} (hi : N + N + D.size ≤ i) (x : Fin (N + N) → Bool) :
+    D.val x i = false ∧ D.deg i = 0 := by
+  have hn : D.gates[i - (N + N)]? = none := by
+    rw [List.getElem?_eq_none]; unfold Dag.size at hi; omega
+  constructor
+  · rw [Dag.val, dif_neg (by omega), hn]
+  · rw [Dag.deg, ite_eq_right (by omega), hn]
+
+lemma top_snoc (D D' : Dag N) (g : G) (h : D'.gates = D.gates ++ [g]) (x : Fin (N + N) → Bool) :
+    D'.val x (N + N + D.size) =
+        gval (fun a => if _ : a < N + N + D.size then D.val x a else false) g ∧
+      D'.deg (N + N + D.size) = gdeg (fun a => if _ : a < N + N + D.size then D.deg a else 0) g := by
+  have hp : D.gates <+: D'.gates := h ▸ List.prefix_append _ _
+  have hv : ∀ a, (if _ : a < N + N + D.size then D'.val x a else false) =
+      (if _ : a < N + N + D.size then D.val x a else false) := by
+    intro a
+    split_ifs with ha
+    · exact (api_prefix D D' hp a ha x).1
+    · rfl
+  have hd : ∀ a, (if _ : a < N + N + D.size then D'.deg a else 0) =
+      (if _ : a < N + N + D.size then D.deg a else 0) := by
+    intro a
+    split_ifs with ha
+    · exact (api_prefix D D' hp a ha x).2
+    · rfl
+  have hg : D'.gates[N + N + D.size - (N + N)]? = some g := by
+    rw [h, Nat.add_sub_cancel_left, List.getElem?_append_right (by unfold Dag.size; omega)]
+    simp [Dag.size]
+  constructor
+  · rw [Dag.val, dif_neg (by omega), hg]
+    cases g with
+    | and a b => dsimp only; rw [hv a, hv b]; rfl
+    | or a b => dsimp only; rw [hv a, hv b]; rfl
+    | cst v => rfl
+  · rw [Dag.deg, ite_eq_right (by omega), hg]
+    cases g with
+    | and a b => dsimp only; rw [hd a, hd b]; rfl
+    | or a b => dsimp only; rw [hd a, hd b]; rfl
+    | cst v => rfl
+
+lemma getD_ge_false {l : List Bool} {k : ℕ} (h : l.length ≤ k) : l.getD k false = false := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none h]; rfl
+
+lemma getD_ge_zero {l : List ℕ} {k : ℕ} (h : l.length ≤ k) : l.getD k 0 = 0 := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none h]; rfl
+
+lemma trGate_val (i : ℕ) (g : Gate)
+    (hg : g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (r : ℕ → Bool) (hr : ∀ k, i ≤ k → r k = false) :
+    gval r (trGate i g) = g.op.eval (g.inputs.map r) := by
+  obtain ⟨op, ins⟩ := g
+  obtain ⟨hop, hl⟩ := hg
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+  rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩
+  · rcases hop with rfl | rfl <;> simp [trGate, gval, GateOp.eval]
+  · rcases hop with rfl | rfl <;> simp only [trGate] <;>
+      (split_ifs with ha
+       · simp [gval, GateOp.eval]
+       · simp [gval, GateOp.eval, hr a (by omega)])
+  · rcases hop with rfl | rfl <;> simp only [trGate] <;> split_ifs with h1 h2 h3 <;>
+      simp only [gval, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.any_cons,
+        List.all_nil, List.any_nil, id, Bool.and_true, Bool.or_false]
+    · by_cases ha : a < i
+      · rw [hr b (by omega), Bool.and_false]
+      · rw [hr a (by omega), Bool.false_and]
+    · rw [hr b (by omega), Bool.or_false, Bool.or_self]
+    · rw [hr a (by omega), Bool.false_or, Bool.or_self]
+    · rw [hr a (by omega), hr b (by omega), Bool.or_false]
+  · simp at hl
+
+lemma gdeg_mono {r r' : ℕ → ℕ} (h : ∀ k, r k ≤ r' k) (g : G) : gdeg r g ≤ gdeg r' g := by
+  cases g with
+  | and a b => exact Nat.add_le_add (h a) (h b)
+  | or a b => exact max_le_max (h a) (h b)
+  | cst v => exact le_rfl
+
+lemma trGate_deg (i : ℕ) (g : Gate)
+    (hg : g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (d : List ℕ) : gdeg (fun k => d.getD k 0) (trGate i g) ≤ g.lineDegree d := by
+  obtain ⟨op, ins⟩ := g
+  obtain ⟨hop, hl⟩ := hg
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+  rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩
+  · rcases hop with rfl | rfl <;> simp [trGate, gdeg]
+  · rcases hop with rfl | rfl <;> simp only [trGate] <;> split_ifs with ha <;>
+      simp [gdeg, Gate.lineDegree]
+  · rcases hop with rfl | rfl <;> simp only [trGate] <;> split_ifs with h1 h2 h3 <;>
+      simp [gdeg, Gate.lineDegree]
+  · simp at hl
+
+open LineDegTest in
+
+lemma card03c_val (C : Circuit) (hC : Monotone2 C) (x : Fin (N + N) → Bool) (i : ℕ) :
+    (ofCircuit N C).val x i = (C.wires (List.ofFn x)).getD i false := by
+  obtain ⟨gs, o⟩ := C
+  induction gs using List.reverseRecOn generalizing i with
+  | nil =>
+    change _ = (List.ofFn x).getD i false
+    rw [ofFn_getD, Dag.val]
+    split_ifs with h
+    · rfl
+    · simp [ofCircuit]
+  | append_singleton gs g ih =>
+    have ih := fun k => ih k (fun g' hg' => hC g' (List.mem_append_left _ hg'))
+    have hgC := hC g (List.mem_append_right _ (List.mem_singleton_self g))
+    have hsz : (ofCircuit N ⟨gs, o⟩).size = gs.length := by simp [ofCircuit, Dag.size]
+    have hgates : (ofCircuit N ⟨gs ++ [g], o⟩).gates =
+        (ofCircuit N ⟨gs, o⟩).gates ++ [trGate (N + N + (ofCircuit N ⟨gs, o⟩).size) g] := by
+      rw [hsz]; simp [ofCircuit, List.mapIdx_concat]
+    have hlen : (W gs (List.ofFn x)).length = N + N + (ofCircuit N ⟨gs, o⟩).size := by
+      rw [W_length, hsz]; simp
+    change _ = (W (gs ++ [g]) (List.ofFn x)).getD i false
+    rw [W_snoc, getD_snoc, hlen]
+    rcases lt_trichotomy i (N + N + (ofCircuit N ⟨gs, o⟩).size) with h | rfl | h
+    · rw [ite_eq_left h, (api_prefix _ _ (hgates ▸ List.prefix_append _ _) i h x).1]
+      exact ih i
+    · rw [ite_eq_right (lt_irrefl _), ite_eq_left rfl, (top_snoc _ _ _ hgates x).1]
+      have hr : (fun a => if _ : a < N + N + (ofCircuit N ⟨gs, o⟩).size then
+          (ofCircuit N ⟨gs, o⟩).val x a else false) = fun a => (W gs (List.ofFn x)).getD a false := by
+        funext a
+        split_ifs with ha
+        · exact ih a
+        · exact (getD_ge_false (by omega)).symm
+      rw [hr]
+      exact trGate_val _ g hgC _ (fun k hk => getD_ge_false (by omega))
+    · rw [ite_eq_right (by omega), ite_eq_right (by omega)]
+      refine (val_deg_ge _ ?_ x).1
+      unfold Dag.size; rw [hgates]; simp only [List.length_append, List.length_singleton]
+      unfold Dag.size at h; omega
+
+open LineDegTest in
+
+lemma card03d_deg (C : Circuit) (hC : Monotone2 C) (i : ℕ) :
+    (ofCircuit N C).deg i ≤ (C.lineDegrees (N + N) (lineMarks N)).getD i 0 := by
+  obtain ⟨gs, o⟩ := C
+  induction gs using List.reverseRecOn generalizing i with
+  | nil =>
+    change _ ≤ (Dg [] (N + N) (lineMarks N)).getD i 0
+    rw [Dag.deg]
+    by_cases h : i < N + N
+    · rw [ite_eq_left h]
+      simp [Dg, List.getD_eq_getElem?_getD, List.getElem?_map, List.getElem?_range, h, lineMarks]
+    · rw [ite_eq_right h]
+      simp [ofCircuit]
+  | append_singleton gs g ih =>
+    have ih := fun k => ih k (fun g' hg' => hC g' (List.mem_append_left _ hg'))
+    have hgC := hC g (List.mem_append_right _ (List.mem_singleton_self g))
+    have hsz : (ofCircuit N ⟨gs, o⟩).size = gs.length := by simp [ofCircuit, Dag.size]
+    have hgates : (ofCircuit N ⟨gs ++ [g], o⟩).gates =
+        (ofCircuit N ⟨gs, o⟩).gates ++ [trGate (N + N + (ofCircuit N ⟨gs, o⟩).size) g] := by
+      rw [hsz]; simp [ofCircuit, List.mapIdx_concat]
+    have hlen : (Dg gs (N + N) (lineMarks N)).length = N + N + (ofCircuit N ⟨gs, o⟩).size := by
+      rw [Dg_length, hsz]
+    change _ ≤ (Dg (gs ++ [g]) (N + N) (lineMarks N)).getD i 0
+    rw [Dg_snoc, getD_snoc, hlen]
+    rcases lt_trichotomy i (N + N + (ofCircuit N ⟨gs, o⟩).size) with h | rfl | h
+    · rw [ite_eq_left h, (api_prefix _ _ (hgates ▸ List.prefix_append _ _) i h (fun _ => false)).2]
+      exact ih i
+    · rw [ite_eq_right (lt_irrefl _), ite_eq_left rfl, (top_snoc _ _ _ hgates (fun _ => false)).2]
+      refine le_trans (gdeg_mono (r' := fun k => (Dg gs (N + N) (lineMarks N)).getD k 0) ?_ _)
+        (trGate_deg _ g hgC _)
+      intro a
+      split_ifs with ha
+      · exact ih a
+      · exact Nat.zero_le _
+    · rw [(val_deg_ge _ ?_ (fun _ => false)).2]
+      · exact Nat.zero_le _
+      unfold Dag.size; rw [hgates]; simp only [List.length_append, List.length_singleton]
+      unfold Dag.size at h; omega
+
+end Deg2.Bridge
+
+namespace Deg2
+
+variable {N : ℕ}
+
+lemma circ_val_input (D : Dag N) (x : Fin (N + N) → Bool) {i : ℕ} (hi : i < N + N) :
+    D.val x i = x ⟨i, hi⟩ := by
+  rw [Dag.val, dif_pos hi]
+
+lemma circ_deg_input (D : Dag N) {i : ℕ} (hi : i < N + N) :
+    D.deg i = if N ≤ i then 1 else 0 := by
+  rw [Dag.deg, ite_eq_left hi]
+
+end Deg2
+
+namespace Deg2.Forms
+
+variable {N : ℕ}
+
+lemma val_and {D : Dag N} {i a b : ℕ} (hg : D.gateAt i = some (.and a b)) (ha : a < i)
+    (hb : b < i) (x : Fin (N + N) → Bool) : D.val x i = (D.val x a && D.val x b) := by
+  obtain ⟨hi, hg⟩ := Api.gateAt_some hg
+  rw [Dag.val, dif_neg (by omega), hg]
+  simp only [dif_pos ha, dif_pos hb]
+
+lemma val_or {D : Dag N} {i a b : ℕ} (hg : D.gateAt i = some (.or a b)) (ha : a < i)
+    (hb : b < i) (x : Fin (N + N) → Bool) : D.val x i = (D.val x a || D.val x b) := by
+  obtain ⟨hi, hg⟩ := Api.gateAt_some hg
+  rw [Dag.val, dif_neg (by omega), hg]
+  simp only [dif_pos ha, dif_pos hb]
+
+lemma deg_and {D : Dag N} {i a b : ℕ} (hg : D.gateAt i = some (.and a b)) (ha : a < i)
+    (hb : b < i) : D.deg i = D.deg a + D.deg b := by
+  obtain ⟨hi, hg⟩ := Api.gateAt_some hg
+  rw [Dag.deg, ite_eq_right (by omega), hg]
+  simp only [dif_pos ha, dif_pos hb]
+
+lemma deg_or {D : Dag N} {i a b : ℕ} (hg : D.gateAt i = some (.or a b)) (ha : a < i)
+    (hb : b < i) : D.deg i = max (D.deg a) (D.deg b) := by
+  obtain ⟨hi, hg⟩ := Api.gateAt_some hg
+  rw [Dag.deg, ite_eq_right (by omega), hg]
+  simp only [dif_pos ha, dif_pos hb]
+
+end Deg2.Forms
+
+end CircuitNormalization
+
+section SourceNormalizedCompile
+
+namespace PlaneArcTranspose
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_2583.LinearAnd.CircuitNormalization.Deg2
+
+def codeGate (degree : ℕ → ℕ) : G → LinearOp
+  | .cst _ => .zero
+  | .and a b =>
+    if degree a = 0 then
+      if degree b = 0 then .zero else .scale b a
+    else if degree b = 0 then .scale a b else .zero
+  | .or a b =>
+    if degree a = 0 then
+      if degree b = 0 then .zero else .copy b
+    else if degree b = 0 then .copy a else .add a b
+
+def codeAt {N : ℕ} (D : Dag N) (w : ℕ) : LinearOp :=
+  match D.gateAt w with
+  | some gate => codeGate D.deg gate
+  | none => .zero
+
+def compilePrefix {N : ℕ} (D : Dag N) : ℕ → List Assignment
+  | 0 => []
+  | t+1 => compilePrefix D t ++ [⟨N+N+t, codeAt D (N+N+t)⟩]
+
+def compile {N : ℕ} (D : Dag N) := compilePrefix D D.size
+
+def zeroLines {N : ℕ} (x : Fin (N+N) → Bool) (p : Fin (N+N)) : Bool :=
+  if p.val < N then x p else false
+
+def activeLines {N : ℕ} (x : Fin (N+N) → Bool) (w : ℕ) : Prop :=
+  ∃ h : w < N+N, N ≤ w ∧ x ⟨w,h⟩ = true
+
+def scalarVal {N : ℕ} (D : Dag N) (x : Fin (N+N) → Bool) (w : ℕ) : Prop :=
+  D.val (zeroLines x) w = true
+
+private def Invariant (d : ℕ) (v z f : Prop) : Prop :=
+  (d = 0 → (v ↔ z) ∧ ¬ f) ∧ (d ≤ 1 → (v ↔ z ∨ f))
+
+private lemma join_and {a b : ℕ} (d : ℕ → ℕ) (v z f : ℕ → Prop)
+    (ha : Invariant (d a) (v a) (z a) (f a))
+    (hb : Invariant (d b) (v b) (z b) (f b)) :
+    Invariant (d a+d b) (v a ∧ v b) (z a ∧ z b) ((codeGate d (.and a b)).eval z f) := by
+  unfold Invariant at *
+  by_cases h₁ : d a = 0 <;> by_cases h₂ : d b = 0 <;>
+    simp [codeGate, h₁, h₂, LinearOp.eval] <;> grind
+
+private lemma join_or {a b : ℕ} (d : ℕ → ℕ) (v z f : ℕ → Prop)
+    (ha : Invariant (d a) (v a) (z a) (f a))
+    (hb : Invariant (d b) (v b) (z b) (f b)) :
+    Invariant (max (d a) (d b)) (v a ∨ v b) (z a ∨ z b) ((codeGate d (.or a b)).eval z f) := by
+  unfold Invariant at *
+  by_cases h₁ : d a = 0 <;> by_cases h₂ : d b = 0 <;>
+    simp [codeGate, h₁, h₂, LinearOp.eval, max_le_iff] <;> grind
+
+private lemma prefix_correct {N : ℕ} (D : Dag N) (wf : D.WF) (x : Fin (N+N) → Bool)
+    (t w : ℕ) (hw : w < N+N+t) :
+    Invariant (D.deg w) (D.val x w = true) (scalarVal D x w)
+      (forward (scalarVal D x) (compilePrefix D t) (activeLines x) w) := by
+  induction t generalizing w with
+  | zero =>
+    have hinput : w < N+N := by omega
+    by_cases hp : w < N <;>
+      simp [compilePrefix, forward, scalarVal, circ_val_input D _ hinput,
+        circ_deg_input D hinput, zeroLines, activeLines, Invariant, hp,
+        show (N ≤ w) = (¬ w < N) from propext (by omega), hinput]
+  | succ t ih =>
+    let u := N+N+t
+    let st := forward (scalarVal D x) (compilePrefix D t) (activeLines x)
+    have hstep (r) : forward (scalarVal D x) (compilePrefix D (t+1)) (activeLines x) r =
+        (if r = u then (codeAt D u).eval (scalarVal D x) st else st r) := by
+      simp [compilePrefix, forward, List.foldl_append, Assignment.push, st, u]
+    rw [hstep]
+    by_cases h : w = u
+    · subst w
+      rw [ite_eq_left rfl]
+      cases hg : D.gateAt u with
+      | none =>
+        have hn : N+N ≤ u := by dsimp [u]; omega
+        have hl : D.gates[u-(N+N)]? = none := by simpa [Dag.gateAt, hn] using hg
+        simp [codeAt, hg, LinearOp.eval, Invariant, Dag.deg, Dag.val, scalarVal, hn.not_gt, hl]
+      | some g =>
+        cases g with
+        | cst b =>
+          obtain ⟨hn, hl⟩ := Api.gateAt_some hg
+          simp [codeAt, hg, codeGate, LinearOp.eval, Invariant, Dag.deg, Dag.val, scalarVal,
+            hn.not_gt, hl]
+        | and a b =>
+          have ha := wf u _ hg a (by simp [G.kids])
+          have hb := wf u _ hg b (by simp [G.kids])
+          have he := @join_and a b D.deg (fun r => D.val x r = true) (scalarVal D x) st
+            (ih a ha) (ih b hb)
+          simpa only [codeAt, hg, Forms.deg_and hg ha hb, Forms.val_and hg ha hb,
+            scalarVal, Bool.and_eq_true_iff] using he
+        | or a b =>
+          have ha := wf u _ hg a (by simp [G.kids])
+          have hb := wf u _ hg b (by simp [G.kids])
+          have he := @join_or a b D.deg (fun r => D.val x r = true) (scalarVal D x) st
+            (ih a ha) (ih b hb)
+          simpa only [codeAt, hg, Forms.deg_or hg ha hb, Forms.val_or hg ha hb,
+            scalarVal, Bool.or_eq_true] using he
+    · rw [ite_eq_right h]
+      exact ih w (by dsimp [u] at h; omega)
+
+lemma compiled_value {N : ℕ} (D : Dag N) (wf : D.WF) (x : Fin (N+N) → Bool)
+    (w : ℕ) (hw : w < N+N+D.size) (hdeg : D.deg w ≤ 1) :
+    D.val x w = true ↔ scalarVal D x w ∨ forward (scalarVal D x) (compile D) (activeLines x) w :=
+  (prefix_correct D wf x D.size w hw).2 hdeg
+
+def pointOnly {N : ℕ} (x : Fin N → Bool) : Fin (N+N) → Bool := Fin.addCases x (fun _ => false)
+
+def oneLine {N : ℕ} (x : Fin N → Bool) (i : Fin N) : Fin (N+N) → Bool :=
+  Fin.addCases x (fun j => decide (j = i))
+
+lemma zero_oneLine {N : ℕ} (x : Fin N → Bool) (i : Fin N) :
+    zeroLines (oneLine x i) = pointOnly x := by
+  funext k
+  refine Fin.addCases (fun p => ?_) (fun w => ?_) k
+  · simp [zeroLines, oneLine, pointOnly]
+  · simp only [zeroLines, pointOnly, Fin.val_natAdd, Fin.addCases_right]
+    rw [ite_eq_right (by omega)]
+
+lemma active_oneLine {N : ℕ} (x : Fin N → Bool) (i : Fin N) :
+    activeLines (oneLine x i) = (fun w => w = N+i.val) := by
+  funext w; apply propext; constructor
+  · rintro ⟨hw, hn, hv⟩
+    let j : Fin N := ⟨w-N,by omega⟩
+    have eq : (⟨w,hw⟩ : Fin (N+N)) = Fin.natAdd N j := Fin.ext (by dsimp [j]; omega)
+    rw [eq] at hv
+    have he : j = i := by simpa only [oneLine, Fin.addCases_right, decide_eq_true_eq] using hv
+    have hi := congrArg Fin.val he
+    dsimp [j] at hi
+    omega
+  · rintro rfl
+    refine ⟨by omega,by omega,?_⟩
+    change oneLine x i (Fin.natAdd N i) = true
+    simp only [oneLine, Fin.addCases_right, decide_eq_true_eq]
+
+def pointScalar {N : ℕ} (D : Dag N) (x : Fin N → Bool) (w : ℕ) : Prop :=
+  D.val (pointOnly x) w = true
+
+lemma circuit_coefficient {N : ℕ} (C : Circuit) (x : Fin N → Bool) (i : Fin N)
+    (mono : PEqualNP.MetaComplexity.Monotone2 C)
+    (hdeg : HasLineDegree (N+N) (Finset.Ico N (N+N)) C 1)
+    (hw : C.output < N+N+C.size) (hoff : C.eval (List.ofFn (pointOnly x)) = false) :
+    let D := ofCircuit N C
+    C.eval (List.ofFn (oneLine x i)) = true ↔
+      forward (pointScalar D x) (compile D) (fun w => w = N+i.val) C.output := by
+  let D := ofCircuit N C
+  have hd : D.deg C.output ≤ 1 := (Bridge.card03d_deg C mono C.output).trans hdeg
+  have hv := compiled_value D (Api.card03b_wf C) (oneLine x i) C.output
+    (by simpa [D, Api.card03a_size] using hw) hd
+  have hz : scalarVal D (oneLine x i) = pointScalar D x := by
+    funext w; simp only [scalarVal, pointScalar, zero_oneLine]
+  rw [hz, active_oneLine] at hv
+  have hdead : ¬ pointScalar D x C.output := by
+    change ¬ (ofCircuit N C).val (pointOnly x) C.output = true
+    rw [Bridge.card03c_val C mono]
+    change ¬ C.eval (List.ofFn (pointOnly x)) = true
+    simp [hoff]
+  rw [or_iff_right hdead] at hv
+  have hactual := Bridge.card03c_val C mono (oneLine x i) C.output
+  change D.val (oneLine x i) C.output = C.eval (List.ofFn (oneLine x i)) at hactual
+  rw [hactual] at hv
+  exact hv
+
+end PlaneArcTranspose
+
+end SourceNormalizedCompile
+
+section SourceFirstMultiplier
+
+namespace PlaneArcFirst
+
+open PlaneArcTranspose
+
+def disabled : ℕ → Prop := fun _ => False
+
+lemma eval_mono (op : LinearOp) {f g a b : ℕ → Prop}
+    (hf : ∀ i, f i → g i) (ha : ∀ i, a i → b i) :
+    op.eval f a → op.eval g b := by
+  cases op with
+  | add u v => exact Or.imp (ha u) (ha v)
+  | scale u s => exact And.imp (ha u) (hf s)
+  | copy u => exact ha u
+  | zero => exact id
+
+lemma push_mono (a : Assignment) {f g x y : ℕ → Prop}
+    (hf : ∀ i, f i → g i) (hx : ∀ i, x i → y i) :
+    ∀ w, a.push f x w → a.push g y w := by
+  intro w
+  by_cases eq : w = a.dst
+  · simpa [Assignment.push, eq] using (eval_mono a.op hf hx)
+  · simpa [Assignment.push, eq] using hx w
+
+lemma forward_mono (ops : List Assignment) {f g x y : ℕ → Prop}
+    (hf : ∀ i, f i → g i) (hx : ∀ i, x i → y i) :
+    ∀ w, forward f ops x w → forward g ops y w := by
+  induction ops generalizing x y with
+  | nil => exact hx
+  | cons a l ih => exact ih (push_mono a hf hx)
+
+structure Cut (ops : List Assignment) where
+  pre : List Assignment
+  a : Assignment
+  post : List Assignment
+  ordered : ops = pre ++ a :: post
+
+def Cut.idx {ops} (k : Cut ops) : Fin ops.length :=
+  ⟨k.pre.length, lt_of_lt_of_eq (b := (k.pre ++ k.a :: k.post).length)
+    (by simp) (congrArg List.length k.ordered.symm)⟩
+
+lemma Cut.idx_injective (ops) : Function.Injective (Cut.idx (ops := ops)) := by
+  rintro ⟨p,a,q,h⟩ ⟨p',a',q',h'⟩ he
+  have hl : p.length = p'.length := congrArg Fin.val he
+  have eq : p ++ a :: q = p' ++ a' :: q' := h.symm.trans h'
+  have hp := congrArg (List.take p.length) eq
+  have lhs : (p ++ a :: q).take p.length = p := by simp
+  have rhs : (p' ++ a' :: q').take p.length = p' := by rw [hl]; simp
+  rw [lhs,rhs] at hp
+  subst p'
+  have rest := List.append_cancel_left eq
+  obtain ⟨rfl,rfl⟩ := List.cons.inj rest
+  rfl
+
+def Cut.raw {ops} (k : Cut ops) (src : ℕ) : Prop :=
+  ∃ u s, k.a.op = .scale u s ∧ forward disabled k.pre (fun w => w = src) u
+
+def Cut.active {ops} (k : Cut ops) (scalar : ℕ → Prop) (out : ℕ) : Prop :=
+  ∃ u s, k.a.op = .scale u s ∧ scalar s ∧
+    reverse scalar k.post (fun w => w = out) k.a.dst
+
+lemma trace_first (ops : List Assignment) (scalar state demand : ℕ → Prop)
+    (yes : ∃ w, demand w ∧ forward scalar ops state w)
+    (no : ¬ ∃ w, demand w ∧ forward disabled ops state w) :
+    ∃ (k : Cut ops) (u s : ℕ), k.a.op = .scale u s ∧ forward disabled k.pre state u ∧
+      scalar s ∧ reverse scalar k.post demand k.a.dst := by
+  classical
+  induction ops generalizing state with
+  | nil => exact False.elim (no yes)
+  | cons a rest ih =>
+    by_cases mixed : ∃ w, demand w ∧ forward scalar rest (a.push disabled state) w
+    · obtain ⟨k,u,s,ho,hpre,hscalar,hsuf⟩ := ih _ mixed no
+      exact ⟨⟨a :: k.pre,k.a,k.post,by simpa using congrArg (List.cons a) k.ordered⟩,
+        u,s,ho,hpre,hscalar,hsuf⟩
+    · have y := (transpose rest scalar (a.push scalar state) demand).mp yes
+      have n : ¬ ∃ w, reverse scalar rest demand w ∧ a.push disabled state w :=
+        fun h => mixed ((transpose rest scalar (a.push disabled state) demand).mpr h)
+      obtain ⟨w, hsuf, hval⟩ := y
+      have eq : w = a.dst := by
+        by_contra ne
+        exact n ⟨w, hsuf, by simpa [Assignment.push, ne] using hval⟩
+      subst w
+      have eg : a.op.eval scalar state := by simpa [Assignment.push] using hval
+      have en : ¬ a.op.eval disabled state := fun h =>
+        n ⟨a.dst, hsuf, by simpa [Assignment.push] using h⟩
+      cases ho : a.op with
+      | add u v => exact False.elim (en (by simpa [ho,LinearOp.eval] using eg))
+      | copy u => exact False.elim (en (by simpa [ho,LinearOp.eval] using eg))
+      | zero => exact False.elim (by simpa [ho,LinearOp.eval] using eg)
+      | scale u s =>
+        obtain ⟨hv,hscalar⟩ : state u ∧ scalar s := by simpa [ho,LinearOp.eval] using eg
+        exact ⟨⟨[],a,rest,rfl⟩,u,s,ho,hv,hscalar,hsuf⟩
+
+lemma combine {ops} (k : Cut ops) (src out : ℕ) (scalar : ℕ → Prop)
+    (hr : k.raw src) (hp : k.active scalar out) :
+    forward scalar ops (fun i => i = src) out := by
+  obtain ⟨u,s,ho,hraw⟩ := hr
+  obtain ⟨u',s',ho',hs,hpath⟩ := hp
+  obtain ⟨rfl,rfl⟩ := LinearOp.scale.inj (ho.symm.trans ho')
+  have pref : forward scalar k.pre (fun i => i = src) u :=
+    forward_mono k.pre (fun _ h => False.elim h) (fun _ h => h) u hraw
+  let st := forward scalar k.pre (fun i => i = src)
+  have pushed : k.a.push scalar st k.a.dst :=
+    by simpa [Assignment.push,ho,LinearOp.eval,st] using And.intro pref hs
+  have tail := (transpose k.post scalar (k.a.push scalar st) (fun w => w = out)).mpr
+    ⟨k.a.dst,hpath,pushed⟩
+  obtain ⟨_,rfl,good⟩ := tail
+  rw [k.ordered]
+  simpa [forward, List.foldl_append, st] using good
+
+lemma scale_cover {ι : Type*} (ops : List Assignment) (src : ι → ℕ) (out : ℕ)
+    (scalar : ι → ℕ → Prop) (M : ι → ι → Prop)
+    (sound : ∀ i p, forward (scalar p) ops (fun w => w = src i) out → M i p)
+    (diag : ∀ i, forward (scalar i) ops (fun w => w = src i) out)
+    (missing : ∀ i, ∃ p, ¬ M i p) :
+    (∀ (k : Cut ops) i p, k.raw (src i) → k.active (scalar p) out → M i p) ∧
+    (∀ i, ∃ k : Cut ops, k.raw (src i) ∧ k.active (scalar i) out) := by
+  constructor
+  · intro k i p hr ha
+    exact sound i p (combine k _ _ _ hr ha)
+  · intro i
+    obtain ⟨p,neg⟩ := missing i
+    have no : ¬ forward disabled ops (fun w => w = src i) out :=
+      fun y => neg (sound i p (forward_mono ops (fun _ h => False.elim h) (fun _ h => h) out y))
+    have ey : ∃ w, (w = out) ∧ forward (scalar i) ops (fun w => w = src i) w :=
+      ⟨out, rfl, diag i⟩
+    have en : ¬ ∃ w, (w = out) ∧ forward disabled ops (fun w => w = src i) w := by
+      rintro ⟨_,rfl,h⟩
+      exact no h
+    obtain ⟨k,u,s,ho,hw,hp,hr⟩ := trace_first ops (scalar i) _ _ ey en
+    exact ⟨k,⟨u,s,ho,hw⟩,⟨u,s,ho,hp,hr⟩⟩
+
+def isScale (a : Assignment) : Bool :=
+  match a.op with
+  | .scale _ _ => true
+  | _ => false
+
+lemma Cut.get_idx {ops} (k : Cut ops) : ops[k.idx] = k.a := by
+  obtain ⟨pre,a,post,rfl⟩ := k
+  simp [Cut.idx]
+
+lemma count_scales {ι : Type*} [Fintype ι] (ops : List Assignment)
+    (src : ι → ℕ) (out : ℕ) (scalar : ι → ℕ → Prop) (M : ι → ι → Prop)
+    (sound : ∀ i p, forward (scalar p) ops (fun w => w = src i) out → M i p)
+    (diag : ∀ i, forward (scalar i) ops (fun w => w = src i) out)
+    (missing : ∀ i, ∃ p, ¬ M i p) (cross : ∀ i j, M i j → M j i → i = j) :
+    Fintype.card ι ≤ (Finset.univ.filter (fun j : Fin ops.length => isScale ops[j])).card := by
+  classical
+  obtain ⟨hr,hd⟩ := scale_cover ops src out scalar M sound diag missing
+  choose pick hraw hact using hd
+  let B := Finset.univ.filter (fun j : Fin ops.length => isScale ops[j])
+  have mem (i : ι) : (pick i).idx ∈ B := by
+    obtain ⟨u,s,ho,_⟩ := hraw i
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_univ _,?_⟩
+    change isScale ops[(pick i).idx] = true
+    rw [Cut.get_idx]
+    simp [isScale,ho]
+  let f : ι → B := fun i => ⟨(pick i).idx,mem i⟩
+  have hinj : Function.Injective f := by
+    intro i j hij
+    have eq := Cut.idx_injective ops (show (pick i).idx = (pick j).idx from
+      congrArg Subtype.val hij)
+    exact cross i j (hr (pick i) _ _ (hraw i) (eq ▸ hact j))
+      (hr (pick j) j i (hraw j) (by rw [←eq]; exact hact i))
+  calc
+    Fintype.card ι ≤ Fintype.card B := Fintype.card_le_of_injective f hinj
+    _ = B.card := Fintype.card_coe B
+
+end PlaneArcFirst
+
+end SourceFirstMultiplier
+
+section OriginalAndBudget
+
+open PEqualNP.CircuitLowerBounds
+open PlaneArcTranspose PlaneArcFirst CircuitNormalization.Deg2
+
+def andCount (gs : List Gate) : ℕ :=
+  gs.countP fun g => match g.op with
+    | GateOp.and => true
+    | _ => false
+
+lemma countP_eq_sum_get {α : Type*} (p : α → Bool) (xs : List α) :
+    xs.countP p = ∑ i : Fin xs.length, if p xs[i] = true then 1 else 0 := by
+  induction xs with
+  | nil => simp
+  | cons a xs ih =>
+    rw [List.countP_cons]
+    simp only [List.length_cons, Fin.sum_univ_succ]
+    change xs.countP p + (if p a = true then 1 else 0) =
+      (if p a = true then 1 else 0) + ∑ i : Fin xs.length, if p xs[i] = true then 1 else 0
+    rw [← ih]
+    by_cases hp : p a = true <;> simp [hp, Nat.add_comm]
+
+lemma scales_eq_countP (ops : List Assignment) :
+    (Finset.univ.filter (fun j : Fin ops.length => isScale ops[j])).card = ops.countP isScale := by
+  classical
+  rw [countP_eq_sum_get, Finset.card_eq_sum_ones, Finset.sum_filter]
+
+lemma codeGate_scale_and (d : ℕ → ℕ) (g : G) (dst : ℕ)
+    (h : isScale ⟨dst, codeGate d g⟩ = true) : ∃ a b, g = .and a b := by
+  cases g with
+  | and a b => exact ⟨a, b, rfl⟩
+  | or a b =>
+    by_cases ha : d a = 0 <;> by_cases hb : d b = 0 <;> simp [codeGate, isScale, ha, hb] at h
+  | cst v => simp [codeGate, isScale] at h
+
+lemma trGate_and_op (i : ℕ) (g : Gate) (a b : ℕ) (h : trGate i g = .and a b) :
+    g.op = GateOp.and := by
+  unfold trGate at h
+  split at h <;> (try split_ifs at h) <;> cases h <;> assumption
+
+lemma codeAt_ofCircuit (N : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length) :
+    codeAt (ofCircuit N C) (N + N + j) =
+      codeGate (ofCircuit N C).deg (trGate (N + N + j) C.gates[j]) := by
+  simp [codeAt, Dag.gateAt, ofCircuit, List.getElem?_mapIdx, hj]
+
+lemma compilePrefix_scales_le (N : ℕ) (C : Circuit) (k : ℕ) (hk : k ≤ C.gates.length) :
+    (compilePrefix (ofCircuit N C) k).countP isScale ≤ andCount (C.gates.take k) := by
+  induction k with
+  | zero => simp [compilePrefix, andCount]
+  | succ k ih =>
+    have ih' := ih (by omega)
+    rw [compilePrefix, List.countP_append, List.take_succ_eq_append_getElem (by omega)]
+    have ha : andCount (C.gates.take k ++ [C.gates[k]]) =
+        andCount (C.gates.take k) + andCount [C.gates[k]] := by
+      unfold andCount
+      rw [List.countP_append]
+    rw [ha]
+    by_cases hs : isScale ⟨N + N + k, codeAt (ofCircuit N C) (N + N + k)⟩ = true
+    · have hc := hs
+      rw [codeAt_ofCircuit N C k (by omega)] at hc
+      obtain ⟨a, b, hg⟩ := codeGate_scale_and _ _ _ hc
+      have hop := trGate_and_op _ _ a b hg
+      have hc₁ : ([⟨N + N + k, codeAt (ofCircuit N C) (N + N + k)⟩] : List Assignment).countP isScale = 1 := by simp [hs]
+      have hc₂ : andCount [C.gates[k]] = 1 := by simp [andCount, hop]
+      rw [hc₁, hc₂]
+      omega
+    · have hc₁ : ([⟨N + N + k, codeAt (ofCircuit N C) (N + N + k)⟩] : List Assignment).countP isScale = 0 := by simp [hs]
+      rw [hc₁]
+      omega
+
+lemma compiled_scales_le_andCount (N : ℕ) (C : Circuit) :
+    (Finset.univ.filter (fun j : Fin (compile (ofCircuit N C)).length =>
+      isScale (compile (ofCircuit N C))[j])).card ≤ andCount C.gates := by
+  rw [scales_eq_countP]
+  simpa [compile, Api.card03a_size, Circuit.size] using
+    compilePrefix_scales_le N C C.gates.length le_rfl
+
+end OriginalAndBudget
+
+end LinearAnd
+
+
+namespace PlaneMatching
+
+lemma deg_le (q N : ℕ) (S : Fin N → Finset (Fin N)) (hq : 0 < q) (hN : N = q ^ 2 + q + 1)
+    (hS : ∀ l, (S l).card = q + 1)
+    (hU : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, p ∈ S l ∧ p' ∈ S l) (p : Fin N) :
+    (Finset.univ.filter (fun l : Fin N => p ∈ S l)).card ≤ q + 1 := by
+  classical
+  set L := Finset.univ.filter (fun l : Fin N => p ∈ S l) with hL
+  have hsub : L.biUnion (fun l => (S l).erase p) ⊆ Finset.univ.erase p := by
+    intro x hx
+    simp only [Finset.mem_biUnion, Finset.mem_erase] at hx
+    obtain ⟨_, _, hx, _⟩ := hx
+    exact Finset.mem_erase.mpr ⟨hx, Finset.mem_univ _⟩
+  have hdisj : (L : Set (Fin N)).PairwiseDisjoint (fun l => (S l).erase p) := by
+    intro i hi j hj hij
+    simp only [Finset.coe_filter, Finset.mem_univ, true_and, Set.mem_ofPred_eq, hL] at hi hj
+    rw [Function.onFun, Finset.disjoint_left]
+    intro x hxi hxj
+    rw [Finset.mem_erase] at hxi hxj
+    obtain ⟨l, _, hl⟩ := hU p x (Ne.symm hxi.1)
+    exact hij ((hl i ⟨hi, hxi.2⟩).trans (hl j ⟨hj, hxj.2⟩).symm)
+  have hcard := Finset.card_le_card hsub
+  rw [Finset.card_biUnion hdisj] at hcard
+  have hterm : ∀ l ∈ L, ((S l).erase p).card = q := by
+    intro l hl
+    simp only [hL, Finset.mem_filter, Finset.mem_univ, true_and] at hl
+    rw [Finset.card_erase_of_mem hl, hS l]
+    simp
+  rw [Finset.sum_congr rfl hterm, Finset.sum_const, smul_eq_mul, Finset.card_erase_of_mem
+    (Finset.mem_univ p), Finset.card_univ, Fintype.card_fin] at hcard
+  have h1 : N - 1 = (q + 1) * q := by
+    rw [hN, Nat.add_sub_cancel]; ring
+  rw [h1] at hcard
+  exact Nat.le_of_mul_le_mul_right hcard hq
+
+lemma hall_lines (q N : ℕ) (S : Fin N → Finset (Fin N)) (hq : 0 < q) (hN : N = q ^ 2 + q + 1)
+    (hS : ∀ l, (S l).card = q + 1)
+    (hU : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, p ∈ S l ∧ p' ∈ S l) :
+    ∃ σ : Fin N → Fin N, Function.Injective σ ∧ ∀ l, σ l ∈ S l := by
+  classical
+  apply (Finset.all_card_le_biUnion_card_iff_exists_injective S).mp
+  intro B
+  set U := B.biUnion S with hUdef
+  have h1 : ∑ l ∈ B, (U ∩ S l).card = B.card * (q + 1) := by
+    rw [Finset.sum_congr rfl (fun l hl => by
+      rw [Finset.inter_eq_right.mpr (Finset.subset_biUnion_of_mem S hl), hS]),
+      Finset.sum_const, smul_eq_mul]
+  have h2 : ∑ l ∈ B, (U ∩ S l).card = ∑ p ∈ U, (B.filter (fun l => p ∈ S l)).card := by
+    simp_rw [← Finset.filter_mem_eq_inter, Finset.card_eq_sum_ones, Finset.sum_filter]
+    exact Finset.sum_comm
+  have h3 : ∑ p ∈ U, (B.filter (fun l => p ∈ S l)).card ≤ U.card * (q + 1) := by
+    have := Finset.sum_le_card_nsmul U (fun p => (B.filter (fun l => p ∈ S l)).card) (q + 1)
+      (fun p _ => le_trans (Finset.card_le_card
+        (Finset.filter_subset_filter _ (Finset.subset_univ B))) (deg_le q N S hq hN hS hU p))
+    simpa [smul_eq_mul] using this
+  have h4 : B.card * (q + 1) ≤ U.card * (q + 1) := by omega
+  exact Nat.le_of_mul_le_mul_right h4 (Nat.succ_pos q)
+
+lemma lines_card (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (hq : 2 ≤ q)
+    (hN : N = q ^ 2 + q + 1)
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hu : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) (c : Fin N) :
+    (Finset.univ.filter (fun l => I c l)).card = q + 1 := by
+  have e : (Finset.univ.filter (fun l => I c l)).biUnion
+      (fun l => (Finset.univ.filter (fun p => I p l)).erase c) = Finset.univ.erase c := by
+    ext p
+    simp only [Finset.mem_biUnion, Finset.mem_filter, Finset.mem_univ, true_and,
+      Finset.mem_erase, and_true]
+    constructor
+    · rintro ⟨l, _, hp, _⟩
+      exact hp
+    · intro hp
+      obtain ⟨l, ⟨h1, h2⟩, _⟩ := hu p c hp
+      exact ⟨l, h2, hp, h1⟩
+  have hd : ∀ l ∈ Finset.univ.filter (fun l => I c l), ∀ l' ∈ Finset.univ.filter (fun l => I c l),
+      l ≠ l' → Disjoint ((Finset.univ.filter (fun p => I p l)).erase c)
+        ((Finset.univ.filter (fun p => I p l')).erase c) := by
+    intro l hl1 l' hl1' hne
+    rw [Finset.disjoint_left]
+    intro p hp hp'
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_erase] at hl1 hl1' hp hp'
+    obtain ⟨l0, _, hun⟩ := hu p c hp.1
+    exact hne ((hun l ⟨hp.2, hl1⟩).trans (hun l' ⟨hp'.2, hl1'⟩).symm)
+  have hc := Finset.card_biUnion hd
+  rw [e] at hc
+  have hs : ∀ l ∈ Finset.univ.filter (fun l => I c l),
+      ((Finset.univ.filter (fun p => I p l)).erase c).card = q := by
+    intro l hl1
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hl1
+    rw [Finset.card_erase_of_mem (by simp [hl1]), hl l]
+    rfl
+  rw [Finset.sum_congr rfl hs, Finset.sum_const, smul_eq_mul, Finset.card_erase_of_mem (Finset.mem_univ c),
+    Finset.card_univ, Fintype.card_fin] at hc
+  have h3 : (Finset.univ.filter (fun l => I c l)).card * q = (q + 1) * q := by
+    rw [← hc, hN]
+    have : q ^ 2 + q + 1 - 1 = (q + 1) * q := by
+      rw [Nat.add_sub_cancel]
+      ring
+    exact this
+  exact Nat.eq_of_mul_eq_mul_right (by omega) h3
+
+lemma exists_incidence_equiv (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, Fintype.card {p : Fin N // I p l} = q + 1)
+    (hjoin : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) :
+    ∃ f : Fin N ≃ Fin N, ∀ l, I (f l) l := by
+  classical
+  let S : Fin N → Finset (Fin N) := fun l => Finset.univ.filter (fun p => I p l)
+  have hS : ∀ l, (S l).card = q + 1 := by
+    intro l
+    simpa [S, Fintype.card_subtype] using hcol l
+  have hU : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, p ∈ S l ∧ p' ∈ S l := by
+    simpa [S] using hjoin
+  obtain ⟨σ, hσ, hmem⟩ := hall_lines q N S (by omega) hN hS hU
+  let f : Fin N ≃ Fin N := Equiv.ofBijective σ (Finite.injective_iff_bijective.mp hσ)
+  refine ⟨f, fun l => ?_⟩
+  simpa [f, S] using hmem l
+
+end PlaneMatching
+
+
+namespace LinearAndIncidence
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2583.LinearAnd.PlaneArcTranspose
+open PEqualNP.Outside.L_meta_2583.LinearAnd.PlaneArcFirst
+open PEqualNP.Outside.L_meta_2583.LinearAnd.CircuitNormalization.Deg2
+
+lemma pointOnly_false {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (x : Fin N → Bool) : C.eval (List.ofFn (pointOnly x)) = false := by
+  have he := hc (pointOnly x)
+  simp only [circuitFun, pointOnly, Fin.addCases_left, Fin.addCases_right] at he
+  simpa using he
+
+lemma oneLine_incidence {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (p l : Fin N) :
+    C.eval (List.ofFn (oneLine (fun v => decide (v = p)) l)) = decide (I p l) := by
+  have he := hc (oneLine (fun v => decide (v = p)) l)
+  simp only [circuitFun, oneLine, Fin.addCases_left, Fin.addCases_right] at he
+  simpa using he
+
+lemma forward_incidence {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hm : Monotone2 C)
+    (hl : HasLineDegree (N + N) (Finset.Ico N (N + N)) C 1)
+    (hw : C.output < N + N + C.size)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (p l : Fin N) :
+    forward (pointScalar (ofCircuit N C) (fun v => decide (v = p)))
+      (compile (ofCircuit N C)) (fun w => w = N + l.val) C.output ↔ I p l := by
+  have hco := circuit_coefficient C (fun v => decide (v = p)) l hm hl hw
+    (pointOnly_false I C hc _)
+  have he := oneLine_incidence I C hc p l
+  simpa only [he, decide_eq_true_eq] using hco.symm
+
+lemma valid_output {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hne : ∃ p l, I p l)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)) :
+    C.output < N + N + C.size := by
+  obtain ⟨p, l, hp⟩ := hne
+  have ht := oneLine_incidence I C hc p l
+  rw [decide_eq_true hp] at ht
+  by_contra hn
+  have hf := Repair.val_ge (n := N + N) (C := C)
+    (x := List.ofFn (oneLine (fun v => decide (v = p)) l)) (by simp)
+    (u := C.output) (by simpa [Circuit.size] using Nat.le_of_not_gt hn)
+  change C.eval _ = false at hf
+  rw [ht] at hf
+  contradiction
+
+lemma scales_of_matching {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hm : Monotone2 C)
+    (hl : HasLineDegree (N + N) (Finset.Ico N (N + N)) C 1)
+    (hw : C.output < N + N + C.size)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (f : Fin N ≃ Fin N) (hf : ∀ l, I (f l) l)
+    (hmissing : ∀ l, ∃ p, ¬ I p l)
+    (hunique : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) :
+    N ≤ (Finset.univ.filter (fun j : Fin (compile (ofCircuit N C)).length =>
+      isScale (compile (ofCircuit N C))[j])).card := by
+  classical
+  have hs := count_scales (compile (ofCircuit N C)) (fun l : Fin N => N + l.val) C.output
+    (fun k : Fin N => pointScalar (ofCircuit N C) (fun p => decide (p = f k)))
+    (fun l k => I (f k) l)
+    (by intro l k h; exact (forward_incidence I C hm hl hw hc (f k) l).mp h)
+    (by intro l; exact (forward_incidence I C hm hl hw hc (f l) l).mpr (hf l))
+    (by
+      intro l
+      obtain ⟨p, hp⟩ := hmissing l
+      exact ⟨f.symm p, by simpa using hp⟩)
+    (by
+      intro i j hij hji
+      by_contra hne
+      have hpne : f i ≠ f j := fun h => hne (f.injective h)
+      obtain ⟨l, _, huniq⟩ := hunique (f i) (f j) hpne
+      exact hne ((huniq i ⟨hf i, hij⟩).trans (huniq j ⟨hji, hf j⟩).symm))
+  simpa using hs
+
+lemma missing_of_plane {q N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hsize : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1) :
+    ∀ l, ∃ p, ¬ I p l := by
+  classical
+  intro l
+  by_contra hn
+  have hall : ∀ p, I p l := by simpa using hn
+  have hs := hsize l
+  simp [hall] at hs
+  nlinarith
+
+lemma and_budget_of_matching {N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 (N + N) C)
+    (hl : HasLineDegree (N + N) (Finset.Ico N (N + N)) C 1)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (f : Fin N ≃ Fin N) (hf : ∀ l, I (f l) l)
+    (hmissing : ∀ l, ∃ p, ¬ I p l)
+    (hunique : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) :
+    N ≤ LinearAnd.andCount C.gates := by
+  by_cases hz : N = 0
+  · subst N; exact Nat.zero_le _
+  have hm : Monotone2 C := by
+    intro g hg
+    exact ⟨by simpa using hC.1 g hg, Nat.le_of_eq (hC.2.2 g hg)⟩
+  let i : Fin N := ⟨0, by omega⟩
+  have hw := valid_output I C ⟨f i, i, hf i⟩ hc
+  have hs := scales_of_matching I C hm hl hw hc f hf hmissing hunique
+  exact hs.trans (LinearAnd.compiled_scales_le_andCount N C)
+
+lemma count_partition (gs : List Gate)
+    (hm : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    LinearAnd.andCount gs + LinearExtraction.orCount gs = gs.length := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    have hi := ih (by intro g hg; exact hm g (List.mem_cons_of_mem _ hg))
+    rcases hm g (List.mem_cons_self) with ha | ho
+    · simp [LinearAnd.andCount, LinearExtraction.orCount, ha] at hi ⊢ <;> omega
+    · simp [LinearAnd.andCount, LinearExtraction.orCount, ho] at hi ⊢ <;> omega
+
+lemma size_budget_of_matching {q N : ℕ} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit)
+    (hsize : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1)
+    (hunique : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (hC : PEqualNP.TopForm.IsAO2 (N + N) C)
+    (hl : HasLineDegree (N + N) (Finset.Ico N (N + N)) C 1)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true))
+    (f : Fin N ≃ Fin N) (hf : ∀ l, I (f l) l)
+    (hmissing : ∀ l, ∃ p, ¬ I p l) :
+    N * (q + 2) ≤ C.size + 1 := by
+  have ha := and_budget_of_matching I C hC hl hc f hf hmissing hunique
+  have ho := LinearIncidenceBudget.posted_incidence_or_budget I C hsize hunique hC hl hc
+  rw [← LinearIncidenceBudget.orCount_eq_orGates] at ho
+  have hp := count_partition C.gates hC.1
+  change N * (q + 2) ≤ C.gates.length + 1
+  simp only [Nat.mul_add, Nat.mul_one] at ho ⊢
+  omega
+
+lemma posted_plane_size_bound (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hsize : ∀ l : Fin N, (Finset.univ.filter fun p => I p l).card = q + 1)
+    (hunique : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (hC : PEqualNP.TopForm.IsAO2 (N + N) C)
+    (hl : HasLineDegree (N + N) (Finset.Ico N (N + N)) C 1)
+    (hc : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z =
+      decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)) :
+    N * (q + 2) ≤ C.size + 1 := by
+  classical
+  obtain ⟨f, hf⟩ := PlaneMatching.exists_incidence_equiv q N I hq hN
+    (by intro l; simpa [Fintype.card_subtype] using hsize l) hunique
+  exact size_budget_of_matching I C hsize hunique hC hl hc f hf
+    (missing_of_plane I hq hN hsize)
+
+end LinearAndIncidence
+
+
+namespace PathDegreeObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+abbrev pathGraph : SimpleGraph (Fin 4) := edgeGraph 4 [(0, 2), (1, 2), (1, 3)]
+
+def repeatedLineCircuit : Circuit :=
+  ⟨[⟨GateOp.or, [2, 3]⟩, ⟨GateOp.and, [0, 2]⟩,
+    ⟨GateOp.or, [1, 5]⟩, ⟨GateOp.and, [4, 6]⟩], 7⟩
+
+def linearCircuit : Circuit :=
+  ⟨[⟨GateOp.or, [2, 3]⟩, ⟨GateOp.and, [1, 4]⟩,
+    ⟨GateOp.and, [0, 2]⟩, ⟨GateOp.or, [5, 6]⟩], 7⟩
+
+lemma path_no_four_cycle : NoFourCycle pathGraph := by decide +kernel
+
+lemma repeated_ao2 : IsAO2 4 repeatedLineCircuit := by decide +kernel
+
+lemma repeated_size : repeatedLineCircuit.size = 4 := by decide +kernel
+
+lemma repeated_correct : ∀ z : Fin 4 → Bool,
+    circuitFun 4 repeatedLineCircuit z = graphFun pathGraph ∅ z := by decide +kernel
+
+lemma repeated_incidence : ∀ z : Fin (2 + 2) → Bool,
+    circuitFun 4 repeatedLineCircuit z = decide (∃ p l : Fin 2,
+      (p = 1 ∨ l = 0) ∧ z (Fin.castAdd 2 p) = true ∧ z (Fin.natAdd 2 l) = true) := by
+  decide +kernel
+
+lemma repeated_line_degree :
+    (repeatedLineCircuit.lineDegrees 4 (Finset.Ico 2 4)).getD repeatedLineCircuit.output 0 = 2 := by
+  decide +kernel
+
+lemma repeated_not_linear : ¬ HasLineDegree 4 (Finset.Ico 2 4) repeatedLineCircuit 1 := by
+  decide +kernel
+
+lemma inner_and_below : BelowF pathGraph repeatedLineCircuit 1 := by decide +kernel
+
+lemma inner_and_in_cone : InCone 4 repeatedLineCircuit 1 3 := by decide +kernel
+
+lemma repeated_not_top_form : ¬ TopForm pathGraph repeatedLineCircuit := by decide +kernel
+
+lemma linear_normalization : IsAO2 4 linearCircuit ∧ linearCircuit.size = 4 ∧
+    HasLineDegree 4 (Finset.Ico 2 4) linearCircuit 1 ∧
+    ∀ z : Fin 4 → Bool, circuitFun 4 linearCircuit z = circuitFun 4 repeatedLineCircuit z := by
+  decide +kernel
+
+def topFormCircuit : Circuit :=
+  ⟨[⟨GateOp.or, [2, 1]⟩, ⟨GateOp.or, [0, 1]⟩,
+    ⟨GateOp.and, [4, 5]⟩, ⟨GateOp.or, [2, 3]⟩,
+    ⟨GateOp.and, [6, 7]⟩], 8⟩
+
+lemma top_form_counterexample : IsAO2 4 topFormCircuit ∧ topFormCircuit.size = 5 ∧
+    TopForm pathGraph topFormCircuit ∧ ¬ HasLineDegree 4 (Finset.Ico 2 4) topFormCircuit 1 ∧
+    ∀ z : Fin 4 → Bool, circuitFun 4 topFormCircuit z = graphFun pathGraph ∅ z := by
+  decide +kernel
+
+lemma top_form_line_degree :
+    (topFormCircuit.lineDegrees 4 (Finset.Ico 2 4)).getD topFormCircuit.output 0 = 2 := by
+  decide +kernel
+
+lemma top_form_inner_and_dirty : ¬ BelowF pathGraph topFormCircuit 2 := by decide +kernel
+
+end PathDegreeObstruction
 end PEqualNP.Outside.L_meta_2583
