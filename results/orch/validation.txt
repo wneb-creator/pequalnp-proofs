@@ -1,0 +1,16 @@
+L-meta-2592 PARTIAL CHECKPOINT
+The exact posted theorem is not yet proved. No proof PR is ready.
+
+Compiled helper: finite normalization preserves fan-in, size, NOT occurrence, and evaluation.
+lake env lean results/orch/lemmas/semantics_normalize.lean: exit 0; stdout/stderr empty.
+Full-gap checker: not run; the posted theorem is absent.
+Independent semantic/format review: status_1035 agent passed the helper, checkpoint diff review PASSED.
+Lean 4.36.0 installed; pinned Mathlib cache get passed (9117 files); PEqualNP.Defs build passed.
+Desk null responses: 0.
+Sub-agents: 5 (status/checker review, semantics, counterexample search, lower bound, existing results)
+TIMING total=8.6 subagents=5
+
+lake build PEqualNP.Outside.L_meta_2592: exit 0.
+Build completed successfully (6655 jobs).
+Warnings: existing module-system advisory warnings only; no errors.
+Independent staged six-file checkpoint review: PASS (status_1035 agent).
