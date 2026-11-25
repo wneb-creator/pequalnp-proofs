@@ -1,18 +1,13 @@
-# L-meta-2592 orchestration
+# Orchestration status
 
-Lease held only by root. Other agents must not contact desk.
-Statement and allowed imports: /tmp/oec/pequalnp-pilot-99/desk-first.json
-Exact statement: /tmp/oec/pequalnp-pilot-99/statement.txt
-Only allowed project import: PEqualNP.Defs.
-Target: no fan-in-two circuit of at most 19 gates containing a NOT computes Petersen edge function. reductions=true, reductions_live=3.
-Use scratch under /tmp/oec/pequalnp-pilot-99; put strategy reports in results/orch/lemmas/<strategy>.md. Root consolidates NOTES. Do not edit target Lean file unless assigned.
+No live lease as of 2026-11-25 15:29 UTC. Recovery03 returned gap=null because of the checker backlog. Root alone polls the desk. No agent may resume withdrawn proof work without a fresh assignment.
 
-13:50 UTC findings: existing three reductions fill cap; full proof must tackle 1–4 NOTs after existing >=15 non-NOT certificate. Library agent adapting certificate; reduction agent has 91-line candidate general last-NOT factorization. Root installing official Lean 4.36.0 because no prepared lake or cache exists in supplied environment.
+All three assignments remain unproved. Their checked partials, full build/checker logs, independent reviews and search evidence are preserved on pnp/pilot-99. The latest named file is L_meta_2590.lean and its checker verdict is REJECTED (no-theorem).
 
-13:54 UTC: stronger existing L_meta_6581 gives >=16 non-NOT gates. Partial16 adaptation excludes >=4 NOTs, remaining1–3. Reviewer independently approved both partials conditional on build; neither contains final posted theorem. Counterexample search includes stochastic full1024 truth-table checking and exact SAT1NOT19 (connected normalized search only, not exhaustive original model proof).
+- L-meta-2592: >=17 non-NOT gates; remaining one/two NOT cases unresolved. Generic circuit/CNF and conditional LRAT bridges checked.
+- L-meta-2583: requested read-one replacement characterized by the exact missing cost inequality; canonical construction and restricted gate/rectangle replacements checked. General shared-circuit cost remains unresolved.
+- L-meta-2590: exact normalized CNF bridge and conditional LRAT replay checked; structural normalization to six independent-set cases checked. No case contradiction or completed certificate.
 
-14:06 UTC: target503lines compiles CutLast, monotone endpoint lemmas, unused-gate erasure, connected representative, and essential-NOT boundary witnesses. None closes1–3NOT cases. New sat_encoding agent has compiled direct bounded four-op circuit model and is connecting NOT preservation and CNF.
+Read validation.txt for current evidence and limitations, TIMELINE.md for UTC events, and lemmas/<strategy>[_2583|_2590].md for detailed strategy notes. Do not treat incomplete solver traces or abstract code models as results. The FourOrbitLowSharing draft is explicitly uncompiled.
 
-14:09 UTC replan: broad NOT-removal/graphcount strategy has not closed remaining cases. Preserve structural/witness partials (pushed). Primary route now unrestricted finiteCNF encoding with formal completeness; canonical19 solver running25min. Secondary route essentialsingleNOT witness five automorphismorbits and majority restriction. Large inherited>=16 bound stillcompiling; usefulfallback, unnecessary in eventual SAT proof. Reductions remainfilled, no fourthreduction.
-
-14:30 UTC replan: retain two primary routes. The unrestricted SAT/CNF bridge, NOT-count bound, and kernel LRAT replay are checked; actual UNSAT data is still absent. Baseline solver is near its25-minute limit, with a binary-LRAT <=3-NOT run continuing. Structural progress has checked first-gate retention and all vertex projections; >=17 assembly is pending cached-base integration after a namespace-wrapper error was fixed. AND first-gate >=18 is conditional assembly in progress. Generic duplicate-root charging and simple depth3 projection pruning did not close the problem; do not treat them as proved. Focus further work on actual NOT cost, restrictions that kill the sole NOT, and <=2/<=1 solver encodings. Avoid optional heavy validation runs while core compilation is active.
+The historical orchestration notes are preserved in earlier branch commits. No PR has been opened. Independent preservation/reproducibility audits continue while waiting for a live assignment.

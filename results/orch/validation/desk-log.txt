@@ -575,3 +575,31 @@
  "error": "no such live lease: it expired or was released. Ask /desk/next again."
 }
 
+
+2026-11-25T15:28:52.337187+00:00 RECOVERY03
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 528,
+  "queue_minutes": 59
+ },
+ "retry_after_s": 600
+}
+
+
+2026-11-25T15:32:52.000898+00:00 POLL001
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 516,
+  "queue_minutes": 61
+ },
+ "retry_after_s": 600
+}
+

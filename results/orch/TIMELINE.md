@@ -39,3 +39,5 @@
 2026-11-25T15:25:50.262582+00:00 — Third410 confirmed15:22:26 before advertised15:34:37; all2590 research/searches stopped. Six checked structural modules independently reviewed and preserved, including complete conditional six-case normalization. No case contradiction/full theorem.
 
 2026-11-25 15:29 UTC: final2590 replay file builds; official checker REJECTED (no-theorem), expected for conditional partial. Independent final33-file stopped-search archive review PASS. No full theorem, refutation, or new research after withdrawal.
+
+2026-11-25T15:28:52Z — Recovery03 returned gap=null due to checker backlog (521 queued, about59 minutes). Null count1. No live lease; root starts requested four-minute polling. All proof work remains stopped.

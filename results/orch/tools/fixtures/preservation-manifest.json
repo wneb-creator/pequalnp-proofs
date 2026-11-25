@@ -1,0 +1,90 @@
+{
+  "created_utc": "2026-11-25T15:32:52Z",
+  "purpose": "Exact copies of previously reviewed small reproduction fixtures and Lean DIMACS diagnostic; no new proof or solver run. Pigeonhole transport fixture is completed, but not claimed kernel-replayed. Large incomplete Petersen traces excluded.",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/chain.cnf",
+      "archive": "results/orch/tools/chain.cnf",
+      "bytes": 33,
+      "sha256": "ef0b4e148274e02a07ad9e6ed2a5625bdc5006d2fd59a6719004a9d1f3d03a30"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/chain.lrat",
+      "archive": "results/orch/tools/chain.lrat",
+      "bytes": 33,
+      "sha256": "52070586d0af685b670e50b03654f6794ea6273b197fb2ef2c196dcc93590d83"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/toy.cnf",
+      "archive": "results/orch/tools/fixtures/toy.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/toy.lrat",
+      "archive": "results/orch/tools/fixtures/toy.lrat",
+      "bytes": 10,
+      "sha256": "2e9bf73f333fd3624376d1eb676ce8d6240ba39924936c22bc1a522bfb01b8cc"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/toy-binary.lrat",
+      "archive": "results/orch/tools/fixtures/toy-binary.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/toy-bad.lrat",
+      "archive": "results/orch/tools/fixtures/toy-bad.lrat",
+      "bytes": 10,
+      "sha256": "033a17bfc3e5f3bf8f4710911472b3d686fad11ff53b840a78c9395e1ac7efaf"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/chain-binary.lrat",
+      "archive": "results/orch/tools/fixtures/chain-binary.lrat",
+      "bytes": 19,
+      "sha256": "2b6ad04f4d4db0ab9bfba526fbdea397e9d16b7f0cfe78ab4b56128e92d59ef4"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/counterexample/restart-fixture/php8-7.cnf",
+      "archive": "results/orch/tools/fixtures/restart/php8-7.cnf",
+      "bytes": 2085,
+      "sha256": "9a6a266cba1d6f2d442a1920ef29ba4e9e1476732f0772f00e4ebd68f38d1a85"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/counterexample/restart-fixture/prefix.lrat",
+      "archive": "results/orch/tools/fixtures/restart/prefix.lrat",
+      "bytes": 10453,
+      "sha256": "3330514a9b80742a6f2e47ff9a38fa69e6d0047f33edf79d78c4bd45bf5a86a4"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/counterexample/restart-fixture/resumed.blrat",
+      "archive": "results/orch/tools/fixtures/restart/resumed.blrat",
+      "bytes": 304488,
+      "sha256": "87b7b9c6b6f62dc1fec1af7d33b8f8a82d95ee8c75d7dd649003d5a8401836d2"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/restart-fixture.cnf",
+      "archive": "results/orch/tools/fixtures/restart/checkpoint.cnf",
+      "bytes": 2753,
+      "sha256": "076e9a6fa6eec38dd3041b5456fc133964827153aa3c97425ac1ba0e0af142c5"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/sat_encoding/restart-fixture.json",
+      "archive": "results/orch/tools/fixtures/restart/checkpoint.json",
+      "bytes": 531,
+      "sha256": "a127a3197167bdb852e1bf4d3fd141776fb969cd46fb4a7c04cd84dac3f0ec03"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/DumpEncoding.lean",
+      "archive": "results/orch/search_artifacts/gap2590/sat_encoding/DumpEncoding.lean",
+      "bytes": 1154,
+      "sha256": "0ac79bdb547ce6a46ac8058954a9b9c4133b2d6b35984cb1f40370346d8cd18e"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/lean-enc2.stderr",
+      "archive": "results/orch/search_artifacts/gap2590/sat_encoding/lean-enc2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

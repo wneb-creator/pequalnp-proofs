@@ -1,32 +1,45 @@
-Partial research checkpoints; no proof PR opened.
-Updated 2026-11-25T14:57:24.349702+00:00
+Partial research archive; no completed proof, refutation, reduction submission, or PR.
+Updated 2026-11-25T15:30:04.584604+00:00
+Job: pequalnp-pilot-99; KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
+Branch: pnp/pilot-99, pushed only to origin (wneb-creator/pequalnp-proofs).
 
-Previous gap: L-meta-2583.
-Named file: lean/PEqualNP/Outside/L_meta_2583.lean (7379 lines, 352301 bytes).
-SHA256: 01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65.
-Named lake build passed. Full stdout/stderr: validation/2583-build-final-combined.*.
-Independent review verified the exact nine-component composition and all mathematical premises. The plain-file guard reports only the missing final theorem.
-Local checker on the earlier 6743-line combined file: REJECTED (no-theorem). Final 7379-line file likewise has no posted theorem; its actual plain-file guard flags only missing theorem. Final local checker rerun also returned REJECTED (no-theorem), archived in validation/2583-checker-final-combined.*.
+Desk status: no live lease. Three assigned leases ended with HTTP 410 before their advertised expiry. Research stopped each time and checked components were pushed before requesting recovery. No lease release call was made. Recovery03 returned gap=null; the checker backlog temporarily prevents new assignments. Polling continues. Exact responses and UTC timestamps are in validation/desk-log.txt.
+Null responses so far: 2.
+First exact null message: The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
 
-Checked components: size-preserving lift/block decomposition; exact equivalence of a read-one replacement with the cost bound N*(q+2) <= C.size+1; canonical read-one construction; plane regularity and cover counting; removal of gates false on every edge; earlier-wire replacement preserving all edge inputs; and the N+q bound for proper mixed vertex covers. The unrestricted circuit lower bound remains unproved. Conditional cost-debt assumptions remain explicit.
+Last assignment L-meta-2590 (monotone Petersen lower bound):
+- Current named file lean/PEqualNP/Outside/L_meta_2590.lean: 1967 lines, 91645 bytes; SHA256 d6c8de40fecb32c7e0cf0ed197c04b38c6932ee2c13bbf385eeb88383d262b06.
+- Named lake build passed 18423 jobs. Full output: validation/2590-build-replay.stdout and .stderr.
+- Official local checker: REJECTED (no-theorem). Full output: validation/2590-checker-replay.stdout and .stderr.
+- The file proves normalization, CNF completeness, and conditional LRAT replay. It supplies no UNSAT certificate and no final theorem.
+- Six separately compiled structural modules in lemmas/checked2590 reduce the problem to six actual DAG cases and establish conditional counting bounds. The final contradictions remain unproved. The modular chain was not combined into a standalone named file.
+- FourOrbitLowSharing in drafts2590 is UNCOMPILED. Optional FourOrbitCodes olean export failed because its scratch path was outside the project root; the ordinary Lean check passed. Both logs are retained.
+- Actual Lean CNF and Python CNF matched byte-for-byte. The 20-gate positive control passed all 1024 inputs. The 19-gate solver was stopped at lease withdrawal with SIGINT/UNKNOWN. No SAT/UNSAT verdict or completed certificate.
+- The 1,689,837,568-byte unfinished LRAT prefix remains scratch-only, is unverified, and is not a result. Encoders, exact CNF, complete solver logs and independently audited controls are durable.
+- Third HTTP 410 confirmed 15:22:26 UTC, before advertised 15:34:37.944. Full headers/body: validation/2590-beat-03-response.txt.
 
-Prior gap: L-meta-2592. The desk returned HTTP 410 at 14:40:48 despite its previous expiry of 14:53:45.327. Complete headers/body are in validation/desk-410-response.txt. The recovery request assigned L-meta-2583, and all old work stopped. Old 503-line named file is preserved byte-for-byte as lemmas/checked/StructuralWitness.lean; its named build passed and checker rejected no-theorem. Additional modularly checked old components prove >=17 non-NOT gates, thus at most two NOT gates in size <=19. Full17.lean is the reviewed inline snapshot, not separately built. All sources, logs, CNF completeness, and LRAT tooling remain on this branch.
+Earlier assignment L-meta-2583 (projective-plane read-one normalization):
+- Final named partial is archived byte-for-byte as lemmas/checked2583/FinalPartial.lean: 7379 lines, 352301 bytes; SHA256 01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65.
+- Named lake build passed 18423 jobs. Official checker REJECTED (no-theorem). Full final outputs: validation/2583-build-final-combined.* and validation/2583-checker-final-combined.*.
+- Reviewed exact nine-component composition: normalization/block decomposition, canonical read-one construction, equivalence with the needed cost inequality, plane geometry, gate replacement, and restricted rectangle lemmas. The unrestricted circuit cost inequality remains unproved; conditional premises are explicit.
+- Second HTTP 410 confirmed 15:06:29 UTC, before advertised 15:24:20.551. Full headers/body: validation/2583-beat-11-response.txt.
 
-Solver searches have found no counterexample or completed UNSAT certificate. Partial traces/timeouts are not proofs. Fano positive controls succeeded; active search outputs will be archived when finished.
+First assignment L-meta-2592 (Petersen lower bound with NOT):
+- The 503-line named partial built and is archived byte-for-byte as lemmas/checked/StructuralWitness.lean. Official checker REJECTED (no-theorem); validation/checker-partial.*.
+- Separately checked components prove at least 17 non-NOT gates, hence at most two NOT gates at total size 19. They do not exclude those remaining cases. Full17.lean is a reviewed inline snapshot, NOT separately built; its components were compiled modularly.
+- Checked conditional circuit/CNF and LRAT components are preserved in lemmas/checked. No completed UNSAT certificate or counterexample was found.
+- First HTTP 410 at 14:40:48 UTC, before advertised 14:53:45.327. Full headers/body: validation/desk-410-response.txt.
 
-Cleanup: not started because the posted theorem has not passed the checker. Integration changed the current named file from 1749 to 7379 lines; this was not a cleanup pass.
-Desk null responses: 0. Own old lease ended with 410; own new lease is being renewed. No other pilot lease has been released.
+Validation limits and archival review:
+- All pushed checked Lean components received independent review. Standalone compilation, modular compilation, draft status, and conditional premises are distinguished above and in per-strategy notes.
+- The three named partials pass their reported builds but fail the official checker because they omit the final posted theorem. No checker acceptance is claimed.
+- Search timeouts, incomplete candidates, abstract code models, and restricted controls are not proofs or refutations. Their full logs and reviewed manifests are under search_artifacts/.
+- Scratch imports and diagnostic programs are archival aids, not proposed proof-PR contents. This research branch has many results files and is not a compliant single-file proof PR.
+- No cleanup pass began because no posted theorem passed the checker. Last named-file line count is 1967; before/after cleanup is not applicable.
+- Never ran lake update or built Mathlib from source. Used the official Lean 4.36.0 release and Mathlib cache.
+
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=90.2 subagents=6
+TIMING total=103.6 subagents=6
 
-92 frozen search/control files and three hash manifests were independently reviewed and archived under search_artifacts/. Fano27 controls pass all16384 truth rows and joint read-one checks; the incomplete26 candidate fails47 rows. No completed UNSAT certificate or counterexample is claimed. RectangleLayer compiled and passed independent review as semantic identities only, with no shared-DAG gate-cost claim.
-
-Additional reviewed checked semantic components: TwoRectangles, RectangleCenters, RectangleWitness, RectangleWitnessInputFixed. The two-rectangle lemma preserves accepted edges by an existing star side; the witness lemma constructs a single negative Boolean input satisfying any at-most-q ideal full-neighborhood rectangles. No unrestricted shared-circuit gate bound is claimed.
-
-2026-11-25T15:06:29Z: L-meta-2583 renewal also returned HTTP410, despite its previously reported15:24:20.551 expiry. Complete headers/body: validation/2583-beat-11-response.txt. All searches stopped. Final7379-line named build passed18423jobs; independent review approved exact nine-source composition and clean diff. GatePatch and RectangleFamilies close the restricted AND-only replacement interface, but arbitrary OR mixtures remain unproved. Preserving before mandatory desk recovery.
-
-Current gap L-meta-2590, assigned by recovery at15:07:28. Current named target lean/PEqualNP/Outside/L_meta_2590.lean is the1967-line normalized-CNF/LRAT bridge, SHA256d6c8de40fecb32c7e0cf0ed197c04b38c6932ee2c13bbf385eeb88383d262b06. Namedlakebuild passed18423jobs (27s). Allsourceproofs andexactnormalizer/LRATprovenance independently reviewed; guardonlymissingmaintheorem. No UNSATcertificate or full theorem yet. ActualLeanenc2DIMACS equalsPythonCNF byte-for-byte,138019clauses.20gatepositivecontrol satisfies155636clauses andall1024inputs. Prior7379line2583file preservedbyte-for-byte as lemmas/checked2583/FinalPartial.lean. Own2590lease renewed successfully; no oldlease releasewascalled.
-
-L-meta-2590 lease returned410 at15:21:53, confirmed15:22:26, before advertised15:34:37.944. Fullheaders/body: validation/2590-beat-03-response.txt. Proof-producing solver stoppedafterabout10minutes withUNKNOWN/SIGINT, no completedcertificate. Checked modular structural chain PetersenSurplus→PetersenGeometry→PetersenOrbits→PetersenReduction yields six actual DAG cases but no contradiction. AllEligible andFourOrbitCodes are checked conditional counts. Allsixsourcehashes andempty ordinarycompilelogs were independently reviewed. OptionalFourOrbitCodes olean-export failed only because scratchsource wasoutsideprojectroot; fullfailedexportlogs preserved, ordinaryLeancheckpassed. SeparateFourOrbitLowSharing is explicitly UNCOMPILED andnotcountedasaresult.
-
-2026-11-25 15:29 UTC: final2590 named build passed18423 jobs; official checker REJECTED (no-theorem). Final33-file search archive independently approved and preserved; solver UNKNOWN, controls not refutations.
+Second null response at 15:32:52 UTC: The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+Restored14 small reproduction inputs; independent hash check and restart controls passed. Complete logs: validation/reproduction-restart-tests.*.
