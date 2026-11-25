@@ -66,4 +66,58 @@ lemma positive_closure {ι α β : Type*} (P : ι → Set α) (N : ι → Set β
     intro i hi
     exact hx i (hJK hi)
 
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+
+abbrev subdivisionK4 : SimpleGraph (Fin 10) :=
+  SimpleGraph.fromRel fun a b => (a.val, b.val) ∈ ([(0, 8), (0, 9), (1, 7), (1, 9), (2, 7), (2, 8), (3, 6), (3, 9), (4, 6), (4, 8), (5, 6), (5, 7)] : List (ℕ × ℕ))
+
+def subdivisionK4Circuit : Circuit :=
+  ⟨[⟨.or, [3, 4]⟩,
+    ⟨.or, [5, 10]⟩,
+    ⟨.and, [6, 11]⟩,
+    ⟨.or, [1, 2]⟩,
+    ⟨.or, [5, 13]⟩,
+    ⟨.and, [7, 14]⟩,
+    ⟨.or, [0, 2]⟩,
+    ⟨.or, [4, 16]⟩,
+    ⟨.and, [8, 17]⟩,
+    ⟨.or, [0, 1]⟩,
+    ⟨.or, [3, 19]⟩,
+    ⟨.and, [9, 20]⟩,
+    ⟨.or, [12, 15]⟩,
+    ⟨.or, [18, 22]⟩,
+    ⟨.or, [21, 23]⟩], 24⟩
+
+lemma subdivisionK4_ao2 : IsAO2 10 subdivisionK4Circuit := by decide
+
+lemma subdivisionK4_size : subdivisionK4Circuit.size = 15 := by decide
+
+lemma subdivisionK4_bipartite :
+    ∀ a b : Fin 10, subdivisionK4.Adj a b → decide (a.val < 6) ≠ decide (b.val < 6) := by decide
+
+lemma subdivisionK4_noFourCycle : NoFourCycle subdivisionK4 := by decide
+
+lemma subdivisionK4_card : subdivisionK4.edgeFinset.card = 12 := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma subdivisionK4_circuit : circuitFun 10 subdivisionK4Circuit = NestedCover.graphFun subdivisionK4 ∅ := by
+  funext x
+  revert x
+  decide
+
+lemma subdivisionK4_cover :
+    PEqualNP.MetaComplexity.CoverPromise.IsVertexCover subdivisionK4
+      ({6, 7, 8, 9} : Finset (Fin 10)) := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma subdivisionK4_cover_minimum :
+    ∀ S : Finset (Fin 10),
+      PEqualNP.MetaComplexity.CoverPromise.IsVertexCover subdivisionK4 S → 4 ≤ S.card := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  decide
+
 end PEqualNP.Outside.L_meta_3566
