@@ -1,0 +1,16 @@
+L-meta-2592 PARTIAL ONLY; no full proof or refutation claimed.
+
+Artifact: results/orch/lemmas/CutLast.lean
+Scope: generic last-NOT decomposition, exact size accounting, monotone suffix, evaluation equality.
+Command: PATH=/tmp/oec/pequalnp-pilot-104/toolchain/lean-4.36.0-linux/bin:$PATH lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/CutLast.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit status: 0
+stdout: empty
+stderr: empty
+Checker: not run on the full posted statement; target theorem is not yet proved.
+Independent source review: PASS (status_review agent); exact final delta review PASS, SHA256 bc9fc6ca6a0cbf394a18eac12cc4a0eee5d65370660dfbfeb030a3dab5d9c161.
+SHA256: bc9fc6ca6a0cbf394a18eac12cc4a0eee5d65370660dfbfeb030a3dab5d9c161
+Line count: 86
+
+Sub-agents: 6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain setup, few-NOT cases)
+TIMING total=9.90 subagents=6
