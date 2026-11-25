@@ -20,3 +20,8 @@ TIMING total=78.8 subagents=6
 R_meta_2585_46 source056667dc93e7ada5f7c31a34f55d2b2c085284a48bbf5e99fd4cf4c8825bf146: named lake buildPASS3.0s, localcheckerACCEPTED(reduce),1648constants, standardaxioms only; importguardPASS. PUBLICATION ELIGIBILITY REFUSED: current gap row has no reductions:true. FullL2585theorem not proved.
 NormalizeLeast/SharedOrBudget/NormalFormWitness standalonepartials compileexit0; independent source/logreviewPASS.
 Synthesize2585: closed read1 star-cover construction (third reduction child), standalone Leanexit0, producerlogempty; independent source review in progress at this copy.
+
+Current R46: SHA256 ea94d10a40c78564ac2154f6c5894a3c0a660476cc8789bc4296a1f51fef2070; 3435 bytes, 43 lines. Build PASS (2.4s); checker ACCEPTED (reduce), 1648 constants, standard axioms only; import/format guard PASS. Cleanup: 48 to 43 lines, 3616 to 3435 bytes. Publication still blocked: latest public gap row omits reductions:true.
+CleanNF2585: standalone Lean exit0 with empty log; proves the clean-AND case only. Full L2585 statement remains unproved.
+Sub-agents: 6 (definition audit, source review, synthesis, normalization, circuit counting, counterexample search)
+TIMING total=96.0 subagents=6
