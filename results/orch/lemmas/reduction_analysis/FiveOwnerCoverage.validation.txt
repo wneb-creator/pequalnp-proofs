@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:25:00.435331+00:00
+Lean build exit0, complete log empty.
+Defs-only generic finite covering lemma:20 objects covered by5 sets of cardinality at most4 implies every one has cardinality4. No circuit/geometry assumptions hidden.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerCoverage.lean
+SHA256 959e03e6872ea500da6c7c70fd2c0828ad2dd54cc4f73d9973ed9d4ae3ea6c6d
