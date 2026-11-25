@@ -22,3 +22,6 @@
 2026-11-25T03:25:45.918628+00:00 structural v2 (rectangle-cover lower bound and rigidity) compiled; full-circuit gate elimination remains unresolved.
 
 2026-11-25T03:26:54.300573+00:00 Re-plan: generic normalization and unconditional gate-count shortcuts unsupported; AND-count12 SAT timed out. Prioritize exact local repair, explicit65-gate boundary certificate, and semantic gate-deletion/OR-family arguments. All checked partials preserved.
+2026-11-25T03:29:09.911797+00:00 Distributed linear/topology extensions and PureClause/ClausePrune semantics compiled; root notified for early pushes.
+
+2026-11-25T03:29:40.786675+00:00 Witness65 symbolic circuit and ClausePrune semantic lemmas compiled and independently reviewed.

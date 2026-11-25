@@ -1,0 +1,6 @@
+../results/orch/lemmas/ClausePrune.lean:40:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [z] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

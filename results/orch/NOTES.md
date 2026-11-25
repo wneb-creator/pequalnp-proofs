@@ -94,3 +94,15 @@ Gate-elimination caveat: counting duplicate wire functions on a face is insuffic
 Read2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, says: “We therefore need entirely new lower bound arguments for monotone circuits computing quadratic functions.” Generic single-level normalization is false; no source checked establishes the specific order3 bound. An arbitrary-circuit ORcount51 or ANDcount13 claim remains UNVERIFIED because no proof or complete finite certificate has been found.
 
 Root conjectural elimination route for the13 pure-OR outputs only: eliminate the latest AND; if it feeds one output, choose a child below that output clause; if multiple outputs, pairwise intersection≤1 allows preserving singleton values with at most one input wire. This is not yet a formal circuit transformation and does not settle the single-output incidence gap.
+
+## Boundary certificates and research audit 2026-11-25T03:27:42.837804+00:00
+
+- `Boundary.lean` (77 lines) and `BipartiteBoundary.lean` (37 lines) compile with empty logs. The first proves maximal-independent-set sufficiency for graph-function semantics; the second uses all point assignments with saturated nonneighbor line assignments. The latter has 8192 assignments for 13 point inputs, avoiding enumeration of all 26 inputs. Both were independently reviewed by counterexample agent.
+- Primary source read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://epubs.siam.org/doi/abs/10.1137/S0097539705447001?journalCode=smjcat . Its abstract establishes that generic quadratic-function single-level normalization fails. This does not settle the bipartite C4-free case here. A quantitative normalization using the actual incidence structure is still needed; no exact bound for this plane was verified from a public paper.
+
+## Pure-OR family normal form progress
+
+- PureClause.lean checked: if monotone f AND g equals OR(A), one child already equals OR(A).
+- ClausePrune.lean checked: if (f AND g) OR r equals OR(A), one child can replace the AND. If f OR r equals OR(A) and r is monotone, replacing f by its singleton linear part preserves the output. If f feeds two target clauses whose sets meet in at most one variable, that linear part is constantfalse or oneinput.
+- Proposed circuit normalform: remove the latest AND. Its downstream outputs have OR-only contexts. If one output is affected, bypass a child; if two or more are affected in a linear family, replace by its at-most-singleton support. Constantfalse means prune that OR branch rather than introducing a gate. Repeating should yield an OR-only circuit without more gates; the 13 degree4 neighborhood outputs then need39 OR gates. Circuit-level rewiring and counting are still unproved.
+- Distributed.lean checked extension: linearParts appending, zero linear outputs of the distributed wrapper, and valid distinct-earlier-input topology.
