@@ -70,3 +70,5 @@
 - 2026-11-25T05:01:09.432476+00:00: Matched monotone16 tests passed; width278 saves about8.2% user CPU including fixed setup. Upstream status refresh confirms gap still open and peer full candidates only have timeout verdicts.
 
 - 2026-11-25T05:07:57.936885+00:00: Combined width278/root96/cofactor64 replay started after independent schedule reviews. Cached-node experiment is sound but excluded for slower performance. Successful numerical probes prepared for preservation.
+
+- 2026-11-25T05:16:05Z: Complete attributed public PR12184 baseline CompactProfileBaseline.lean passed Lean4.36 kernel compilation, exit0;1361.131s wall,1292.938s user,93.131s system,5,232,736KiB maxRSS, -j3 on CPUs0–1. This is a full mathematical baseline, not a local checker verdict or a runtime-compliant delivery. Full diagnostics preserved in results/orch/compact-baseline-profile-restart1.log/json.

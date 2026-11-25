@@ -305,3 +305,21 @@ Read-only comparison of PR12184 and PR12203 found different root certificates an
 2026-11-25T05:06:59.895119+00:00 normalization: CachedNode numerical comparison passed but was slower: matched group16 kernel2.69s versus base2.58s, unchanged~3.34GB RSS. Recommendation: exclude cache patch; preserve checked proof as a measured rejected optimization. Eager forcing likely evaluates fields avoided by existing lazy semantics. Successful width/grouping routes remain primary.
 
 2026-11-25T05:07:36.181971+00:00 Structural: frozen combined CompactOptimizedCandidate.lean is 516,345 bytes, SHA256 0ac02f72772d326dec5c9d361b14f57d3571f8937fdcb14830f7c00213c05faf. It includes forceBatch, width278, root96 and cofactor64, plus full source credit; cached-node excluded after negative benchmark. All independent transformation audits and static guards pass. Stopped only validated owned PID47493; its complete run ended exit130 after230.627s,user244.353s,maxRSS3,882,788KiB,no reported errors. New combined replay starts on CPUs2–3 with explicit olean, log compact-optimized-profile.log and metadata JSON. Baseline PID43871 untouched.
+
+2026-11-25T05:10Z finite_verification: getPairsCached group16 passed but kernel3.12s vsfreshwidth2783.07s, no measured gain; exclude fromcurrentcandidate. Totaluser differenceconfounded byimport3.39vs1.58. Sources/logs/reports preservedresults/orch. Copied both portable regrouping transformers and full coverage manifests intoresults/orch forbranchpreservation. No activeleafbuild.
+
+2026-11-25T05:10:17.076715+00:00 normalization: CachedPairsIntegrationPrefix passed, independent source audit passed, matched numeric benchmark passed but showed no benefit (kernel3.12s cached vs3.07s fresh width278 reference; unchanged~3.345GB RSS). Exclude both cache prototypes from finalcandidate. Retain checked identities/results as rejected performance experiments; width reduction and regrouping remain successful routes.
+
+### 2026-11-25T05:12:07.842708+00:00 — toolchain PR12203 batching compatibility
+
+PR12203 batching compatibility (static inspection only)
+Source: public PR12203, head 0d2bbcdeb511ffff33552e155db3526648d8575b (0xshuzo).
+The source has no spansBlock or rootGroupsBlock calls. Its existing cellsBlock theorem permits arbitrary node-split depth d while retaining the same block conclusion. rows=0 in all52 concrete applications, so no arity-axis split changes are needed.
+Using cap64 for ordinary cofactor blocks and cap96 for sg/mo wholegraph blocks changes38 depth numerals and reduces leaf count292 to56 across1624 explicitly covered nodes. Four signed chunks (counts128,111,128,123) remain depth1; changed smaller chunks use depth0. The wrapper checkedRow remains intact on13 CutRow applications. MixedCut/KW declarations, their hexadecimal data, all theorem statements, all forest definitions and Bits152 must remain unchanged.
+Potential matched tests: sg383_9_3 (g383,k9,start3,n36,arity9,d3→0) or hb11_7 (mo,k11,start7,n96,arity10,d4→0). These are compatibility recommendations, not a checked transformed source.
+Machine manifest: /tmp/oec/pequalnp-pilot-61/pr12203-cells-manifest.json
+
+
+2026-11-25T05:13:23.868586+00:00 normalization: Prepared attributed PR12203 fallback Compact12203GroupedCandidate.lean,523730B/SHA7531712202695debe22388f805bd5c6edfc9a28efb95825aa730035763cbea96. Original0xshuzo head0d2bbcdeb511ffff33552e155db3526648d8575b; Bits152 unchanged. Exactly38 ordinary cellsBlock depth changes reduce292 leaves to56, preserve1624 expanded state/arity occurrences, allhex data, mixedCut proofs and finaltheorem. Cofactor cap64/rootcap96. No fullreplay yet; independentaudit and shortbenchmarks delegated.
+
+2026-11-25T05:14:04.262790+00:00 Compact benchmark lane: PR12203 grouped fallback static audit PASS on SHA256 7531712202695debe22388f805bd5c6edfc9a28efb95825aa730035763cbea96 (523,730 bytes). Exact inverse restores38 cellsBlock depth numerals and removes248 attribution bytes. All52 calls retain forest/level/start/count/arity and1,624 exact state/arity pairs;292 original recursive leaves become56. Sample width remains152. All computational declaration bodies, numerical certificate data, and complete final theorem are unchanged. Report and diff saved in results/orch; no build from this lane.

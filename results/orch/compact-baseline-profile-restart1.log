@@ -1,0 +1,2190 @@
+import took 1.46s
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:124:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:124:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:124:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:125:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:126:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:126:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:126:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:126:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:464:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:464:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:465:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:465:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:638:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:668:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 279ms
+type checking took 192ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:928:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+simp took 1.32s
+simp took 995ms
+simp took 657ms
+simp took 645ms
+simp took 638ms
+simp took 639ms
+simp took 623ms
+simp took 633ms
+simp took 625ms
+simp took 621ms
+simp took 608ms
+simp took 609ms
+simp took 669ms
+simp took 646ms
+simp took 729ms
+simp took 659ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1075:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1476:27: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1478:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1476:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1478:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1510:26: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1664:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 206ms
+type checking took 177ms
+type checking took 174ms
+type checking took 175ms
+type checking took 174ms
+type checking took 231ms
+type checking took 172ms
+type checking took 173ms
+type checking took 178ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:1912:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+simp took 117ms
+simp took 123ms
+simp took 125ms
+simp took 121ms
+simp took 172ms
+simp took 122ms
+simp took 127ms
+simp took 132ms
+simp took 141ms
+simp took 127ms
+simp took 128ms
+simp took 133ms
+simp took 123ms
+simp took 129ms
+simp took 124ms
+simp took 124ms
+simp took 127ms
+simp took 128ms
+simp took 131ms
+simp took 167ms
+simp took 128ms
+simp took 122ms
+simp took 127ms
+simp took 136ms
+simp took 125ms
+simp took 128ms
+simp took 120ms
+simp took 120ms
+simp took 126ms
+simp took 129ms
+simp took 128ms
+simp took 127ms
+simp took 128ms
+simp took 132ms
+simp took 133ms
+simp took 132ms
+simp took 121ms
+simp took 144ms
+simp took 142ms
+simp took 171ms
+simp took 124ms
+simp took 143ms
+simp took 150ms
+simp took 124ms
+simp took 134ms
+simp took 124ms
+simp took 128ms
+simp took 141ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 611ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2148:71: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart_bit, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2159:12: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2228:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2228:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2234:6: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2258:77: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+simp took 152ms
+simp took 163ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2289:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2381:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2387:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2393:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2439:6: warning: exponent 768 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+tactic execution of Lean.Parser.Tactic.apply took 771ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2461:17: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2461:20: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2461:30: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2557:54: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2557:72: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 239ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2614:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2753:30: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2789:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2789:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2795:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2789:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2789:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2795:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2792:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2797:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2830:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:2879:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+simp took 100ms
+type checking took 273ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3062:4: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3116:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3127:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3127:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3106:65: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3106:65: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3179:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3179:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3184:6: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3210:24: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3425:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3441:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+tactic execution of Lean.Parser.Tactic.simp took 124ms
+elaboration took 101ms
+type checking took 448ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3475:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3477:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3478:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3480:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3481:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 189ms
+type checking took 268ms
+type checking took 155ms
+type checking took 156ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3543:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3545:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3546:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3564:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 424ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3585:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3587:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3588:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3590:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3591:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 209ms
+type checking took 193ms
+type checking took 163ms
+type checking took 201ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3640:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3642:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3643:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3645:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3648:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3649:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3651:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3652:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 170ms
+type checking took 117ms
+type checking took 128ms
+type checking took 142ms
+type checking took 118ms
+type checking took 156ms
+type checking took 242ms
+type checking took 160ms
+type checking took 196ms
+type checking took 179ms
+type checking took 174ms
+type checking took 156ms
+type checking took 169ms
+type checking took 159ms
+type checking took 177ms
+type checking took 167ms
+type checking took 214ms
+type checking took 160ms
+type checking took 261ms
+type checking took 168ms
+type checking took 202ms
+type checking took 134ms
+type checking took 175ms
+type checking took 165ms
+type checking took 159ms
+type checking took 167ms
+type checking took 196ms
+type checking took 169ms
+type checking took 171ms
+type checking took 678ms
+type checking took 543ms
+type checking took 477ms
+type checking took 448ms
+type checking took 432ms
+type checking took 445ms
+type checking took 465ms
+type checking took 465ms
+type checking took 449ms
+type checking took 281ms
+type checking took 429ms
+type checking took 433ms
+type checking took 663ms
+type checking took 387ms
+type checking took 390ms
+type checking took 587ms
+type checking took 663ms
+type checking took 282ms
+type checking took 480ms
+type checking took 298ms
+type checking took 432ms
+type checking took 300ms
+type checking took 468ms
+type checking took 300ms
+type checking took 520ms
+type checking took 300ms
+type checking took 352ms
+type checking took 892ms
+type checking took 991ms
+type checking took 1.01s
+type checking took 1.34s
+type checking took 293ms
+type checking took 180ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3715:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3717:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3718:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3720:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3721:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3723:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3726:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3727:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3729:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3730:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 127ms
+type checking took 148ms
+type checking took 138ms
+type checking took 111ms
+type checking took 276ms
+type checking took 128ms
+type checking took 143ms
+type checking took 158ms
+type checking took 304ms
+type checking took 108ms
+type checking took 183ms
+type checking took 201ms
+type checking took 192ms
+type checking took 319ms
+type checking took 165ms
+type checking took 180ms
+type checking took 160ms
+type checking took 200ms
+type checking took 175ms
+type checking took 200ms
+type checking took 254ms
+type checking took 244ms
+type checking took 530ms
+type checking took 436ms
+type checking took 460ms
+type checking took 440ms
+type checking took 599ms
+type checking took 407ms
+type checking took 451ms
+type checking took 398ms
+type checking took 669ms
+type checking took 494ms
+type checking took 798ms
+type checking took 477ms
+type checking took 908ms
+type checking took 549ms
+type checking took 589ms
+type checking took 685ms
+type checking took 712ms
+type checking took 710ms
+type checking took 417ms
+type checking took 410ms
+type checking took 759ms
+type checking took 472ms
+type checking took 549ms
+type checking took 412ms
+type checking took 537ms
+type checking took 353ms
+type checking took 535ms
+type checking took 299ms
+type checking took 343ms
+type checking took 464ms
+type checking took 625ms
+type checking took 765ms
+type checking took 123ms
+type checking took 822ms
+type checking took 1.25s
+type checking took 1.08s
+type checking took 834ms
+type checking took 1.74s
+type checking took 989ms
+type checking took 889ms
+type checking took 863ms
+type checking took 961ms
+type checking took 677ms
+type checking took 1.31s
+type checking took 1.33s
+type checking took 2.06s
+type checking took 1.29s
+type checking took 1.56s
+type checking took 473ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3784:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3786:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3787:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 181ms
+type checking took 303ms
+type checking took 152ms
+type checking took 221ms
+type checking took 387ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3840:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3842:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3843:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3861:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 245ms
+type checking took 150ms
+type checking took 505ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3896:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3898:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3899:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3901:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3902:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3904:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3905:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:3927:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 121ms
+type checking took 222ms
+type checking took 156ms
+type checking took 237ms
+type checking took 202ms
+type checking took 395ms
+type checking took 123ms
+type checking took 194ms
+type checking took 348ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4008:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4010:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4011:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4013:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4014:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 122ms
+type checking took 127ms
+type checking took 183ms
+type checking took 183ms
+type checking took 174ms
+type checking took 124ms
+type checking took 459ms
+type checking took 110ms
+type checking took 151ms
+type checking took 235ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4097:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 154ms
+type checking took 148ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4140:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4142:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4143:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 101ms
+type checking took 133ms
+type checking took 109ms
+type checking took 131ms
+type checking took 148ms
+type checking took 233ms
+type checking took 117ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4234:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4236:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4242:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4245:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4246:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4248:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4249:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 194ms
+type checking took 198ms
+type checking took 150ms
+type checking took 149ms
+type checking took 210ms
+type checking took 135ms
+type checking took 148ms
+type checking took 169ms
+type checking took 157ms
+type checking took 180ms
+type checking took 202ms
+type checking took 160ms
+type checking took 178ms
+type checking took 181ms
+type checking took 172ms
+type checking took 156ms
+type checking took 164ms
+type checking took 128ms
+type checking took 122ms
+type checking took 109ms
+type checking took 117ms
+type checking took 153ms
+type checking took 348ms
+type checking took 239ms
+type checking took 171ms
+type checking took 291ms
+type checking took 187ms
+type checking took 173ms
+type checking took 173ms
+type checking took 176ms
+type checking took 266ms
+type checking took 220ms
+type checking took 147ms
+type checking took 176ms
+type checking took 165ms
+type checking took 180ms
+type checking took 194ms
+type checking took 186ms
+type checking took 118ms
+type checking took 196ms
+type checking took 229ms
+type checking took 152ms
+type checking took 222ms
+type checking took 195ms
+type checking took 173ms
+type checking took 165ms
+type checking took 167ms
+type checking took 125ms
+type checking took 269ms
+type checking took 248ms
+type checking took 303ms
+type checking took 172ms
+type checking took 128ms
+type checking took 120ms
+type checking took 120ms
+type checking took 934ms
+type checking took 239ms
+type checking took 429ms
+type checking took 378ms
+type checking took 318ms
+type checking took 409ms
+type checking took 353ms
+type checking took 396ms
+type checking took 413ms
+type checking took 382ms
+type checking took 402ms
+type checking took 349ms
+type checking took 549ms
+type checking took 286ms
+type checking took 493ms
+type checking took 327ms
+type checking took 389ms
+type checking took 321ms
+type checking took 448ms
+type checking took 310ms
+type checking took 356ms
+type checking took 256ms
+type checking took 386ms
+type checking took 232ms
+type checking took 277ms
+type checking took 362ms
+type checking took 305ms
+type checking took 248ms
+type checking took 270ms
+type checking took 455ms
+type checking took 271ms
+type checking took 251ms
+type checking took 310ms
+type checking took 275ms
+type checking took 227ms
+type checking took 210ms
+type checking took 261ms
+type checking took 198ms
+type checking took 253ms
+type checking took 185ms
+type checking took 278ms
+type checking took 233ms
+type checking took 262ms
+type checking took 197ms
+type checking took 252ms
+type checking took 192ms
+type checking took 272ms
+type checking took 221ms
+type checking took 362ms
+type checking took 287ms
+type checking took 297ms
+type checking took 262ms
+type checking took 265ms
+type checking took 246ms
+type checking took 322ms
+type checking took 231ms
+type checking took 319ms
+type checking took 234ms
+type checking took 355ms
+type checking took 257ms
+type checking took 322ms
+type checking took 226ms
+type checking took 281ms
+type checking took 271ms
+type checking took 244ms
+type checking took 194ms
+type checking took 292ms
+type checking took 265ms
+type checking took 244ms
+type checking took 243ms
+type checking took 416ms
+type checking took 270ms
+type checking took 358ms
+type checking took 201ms
+type checking took 270ms
+type checking took 213ms
+type checking took 401ms
+type checking took 198ms
+type checking took 298ms
+type checking took 266ms
+type checking took 245ms
+type checking took 211ms
+type checking took 149ms
+type checking took 312ms
+type checking took 235ms
+type checking took 154ms
+type checking took 235ms
+type checking took 166ms
+type checking took 221ms
+type checking took 509ms
+type checking took 546ms
+type checking took 695ms
+type checking took 1.34s
+type checking took 940ms
+type checking took 964ms
+type checking took 858ms
+type checking took 849ms
+type checking took 980ms
+type checking took 1.13s
+type checking took 1.96s
+type checking took 1.5s
+type checking took 1.45s
+type checking took 1.07s
+type checking took 1.35s
+type checking took 1s
+type checking took 1.5s
+type checking took 1.61s
+type checking took 1.78s
+type checking took 993ms
+type checking took 1.12s
+type checking took 745ms
+type checking took 939ms
+type checking took 918ms
+type checking took 1.8s
+type checking took 971ms
+type checking took 1.25s
+type checking took 502ms
+type checking took 1.14s
+type checking took 2.07s
+type checking took 180ms
+type checking took 306ms
+type checking took 417ms
+type checking took 151ms
+type checking took 318ms
+type checking took 281ms
+type checking took 286ms
+type checking took 696ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4386:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4388:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4389:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4391:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4392:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4394:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4395:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 229ms
+type checking took 187ms
+type checking took 235ms
+type checking took 430ms
+type checking took 206ms
+type checking took 185ms
+type checking took 191ms
+type checking took 331ms
+type checking took 127ms
+type checking took 119ms
+type checking took 155ms
+type checking took 170ms
+type checking took 573ms
+type checking took 392ms
+type checking took 391ms
+type checking took 650ms
+type checking took 528ms
+type checking took 397ms
+type checking took 322ms
+type checking took 449ms
+type checking took 304ms
+type checking took 107ms
+type checking took 425ms
+type checking took 2.1s
+type checking took 1.27s
+type checking took 1.03s
+type checking took 414ms
+type checking took 243ms
+type checking took 107ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4529:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4531:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4532:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4540:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4541:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4543:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4544:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4546:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4547:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4549:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4550:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 655ms
+type checking took 388ms
+type checking took 372ms
+type checking took 306ms
+type checking took 322ms
+type checking took 389ms
+type checking took 377ms
+type checking took 358ms
+type checking took 421ms
+type checking took 353ms
+type checking took 422ms
+type checking took 519ms
+type checking took 449ms
+type checking took 452ms
+type checking took 495ms
+type checking took 440ms
+type checking took 521ms
+type checking took 164ms
+type checking took 284ms
+type checking took 136ms
+type checking took 113ms
+type checking took 107ms
+type checking took 195ms
+type checking took 122ms
+type checking took 217ms
+type checking took 249ms
+type checking took 171ms
+type checking took 215ms
+type checking took 235ms
+type checking took 193ms
+type checking took 277ms
+type checking took 465ms
+type checking took 389ms
+type checking took 536ms
+type checking took 584ms
+type checking took 290ms
+type checking took 415ms
+type checking took 274ms
+type checking took 317ms
+type checking took 416ms
+type checking took 427ms
+type checking took 531ms
+type checking took 380ms
+type checking took 701ms
+type checking took 394ms
+type checking took 431ms
+type checking took 463ms
+type checking took 411ms
+type checking took 433ms
+type checking took 342ms
+type checking took 401ms
+type checking took 197ms
+type checking took 378ms
+type checking took 293ms
+type checking took 248ms
+type checking took 329ms
+type checking took 273ms
+type checking took 325ms
+type checking took 290ms
+type checking took 343ms
+type checking took 326ms
+type checking took 362ms
+type checking took 295ms
+type checking took 316ms
+type checking took 275ms
+type checking took 334ms
+type checking took 379ms
+type checking took 409ms
+type checking took 268ms
+type checking took 408ms
+type checking took 290ms
+type checking took 444ms
+type checking took 260ms
+type checking took 350ms
+type checking took 298ms
+type checking took 421ms
+type checking took 367ms
+type checking took 255ms
+type checking took 302ms
+type checking took 426ms
+type checking took 355ms
+type checking took 1.01s
+type checking took 1.22s
+type checking took 1.08s
+type checking took 1.12s
+type checking took 879ms
+type checking took 1.02s
+type checking took 1.13s
+type checking took 886ms
+type checking took 498ms
+type checking took 568ms
+type checking took 705ms
+type checking took 736ms
+type checking took 780ms
+type checking took 800ms
+type checking took 551ms
+type checking took 858ms
+type checking took 681ms
+type checking took 912ms
+type checking took 553ms
+type checking took 989ms
+type checking took 800ms
+type checking took 1.24s
+type checking took 676ms
+type checking took 923ms
+type checking took 693ms
+type checking took 649ms
+type checking took 618ms
+type checking took 888ms
+type checking took 568ms
+type checking took 739ms
+type checking took 888ms
+type checking took 113ms
+type checking took 1.07s
+type checking took 831ms
+type checking took 1.35s
+type checking took 588ms
+type checking took 974ms
+type checking took 673ms
+type checking took 1.18s
+type checking took 625ms
+type checking took 1.16s
+type checking took 442ms
+type checking took 699ms
+type checking took 804ms
+type checking took 981ms
+type checking took 752ms
+type checking took 715ms
+type checking took 786ms
+type checking took 581ms
+type checking took 503ms
+type checking took 535ms
+type checking took 422ms
+type checking took 608ms
+type checking took 679ms
+type checking took 580ms
+type checking took 641ms
+type checking took 619ms
+type checking took 394ms
+type checking took 617ms
+type checking took 477ms
+type checking took 555ms
+type checking took 652ms
+type checking took 1.15s
+type checking took 1.52s
+type checking took 1.52s
+type checking took 1.14s
+type checking took 1.12s
+type checking took 2.58s
+type checking took 1.74s
+type checking took 2.02s
+type checking took 1.39s
+type checking took 1.57s
+type checking took 1.11s
+type checking took 2.57s
+type checking took 1.11s
+type checking took 984ms
+type checking took 393ms
+type checking took 310ms
+type checking took 105ms
+elaboration took 1.19s
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4671:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4672:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4673:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4674:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4675:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4676:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4680:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4681:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4682:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4683:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 118ms
+type checking took 290ms
+type checking took 234ms
+type checking took 1.17s
+type checking took 231ms
+type checking took 261ms
+type checking took 960ms
+type checking took 271ms
+type checking took 856ms
+type checking took 307ms
+type checking took 938ms
+type checking took 172ms
+type checking took 629ms
+type checking took 1.45s
+type checking took 239ms
+type checking took 2.11s
+type checking took 227ms
+type checking took 2.17s
+type checking took 235ms
+type checking took 2.39s
+type checking took 226ms
+type checking took 1.43s
+type checking took 254ms
+type checking took 2.08s
+type checking took 233ms
+type checking took 2.35s
+type checking took 222ms
+type checking took 1.76s
+type checking took 268ms
+type checking took 2.03s
+type checking took 253ms
+type checking took 1.85s
+type checking took 240ms
+type checking took 1.35s
+type checking took 243ms
+type checking took 1.99s
+type checking took 238ms
+type checking took 2.43s
+type checking took 290ms
+type checking took 1.83s
+type checking took 227ms
+type checking took 1.49s
+type checking took 204ms
+type checking took 1.99s
+type checking took 260ms
+type checking took 1.5s
+type checking took 245ms
+type checking took 1.09s
+type checking took 296ms
+type checking took 1.55s
+type checking took 252ms
+type checking took 2.06s
+type checking took 294ms
+type checking took 1.76s
+type checking took 246ms
+type checking took 1.22s
+type checking took 247ms
+type checking took 1.2s
+type checking took 270ms
+type checking took 1.25s
+type checking took 255ms
+type checking took 1.42s
+type checking took 254ms
+type checking took 1.5s
+type checking took 251ms
+type checking took 1.47s
+type checking took 164ms
+type checking took 633ms
+type checking took 825ms
+type checking took 199ms
+type checking took 8.78s
+type checking took 237ms
+type checking took 6.62s
+type checking took 205ms
+type checking took 7.6s
+type checking took 179ms
+type checking took 7.6s
+type checking took 232ms
+type checking took 5.7s
+interpretation of _private.Mathlib.Tactic.Linter.Lint.0.Mathlib.Linter.DupNamespaceLinter.dupNamespace._lam_1._boxed took 107ms
+type checking took 322ms
+type checking took 6.1s
+type checking took 222ms
+type checking took 6.19s
+type checking took 220ms
+type checking took 4.86s
+type checking took 244ms
+type checking took 4.97s
+type checking took 289ms
+type checking took 5.57s
+type checking took 224ms
+type checking took 7.67s
+type checking took 183ms
+type checking took 4.4s
+type checking took 247ms
+type checking took 3.6s
+type checking took 250ms
+type checking took 4.22s
+type checking took 443ms
+type checking took 617ms
+type checking took 129ms
+type checking took 8.75s
+type checking took 300ms
+type checking took 16.8s
+type checking took 1.39s
+type checking took 3.66s
+type checking took 586ms
+type checking took 1.04s
+type checking took 186ms
+type checking took 156ms
+type checking took 251ms
+type checking took 241ms
+type checking took 190ms
+type checking took 265ms
+type checking took 289ms
+type checking took 317ms
+type checking took 259ms
+type checking took 132ms
+type checking took 139ms
+type checking took 156ms
+type checking took 134ms
+type checking took 143ms
+type checking took 141ms
+type checking took 162ms
+type checking took 132ms
+type checking took 151ms
+type checking took 134ms
+type checking took 188ms
+type checking took 230ms
+type checking took 433ms
+type checking took 128ms
+type checking took 253ms
+type checking took 151ms
+type checking took 129ms
+type checking took 128ms
+type checking took 173ms
+type checking took 149ms
+type checking took 162ms
+type checking took 172ms
+type checking took 267ms
+type checking took 276ms
+type checking took 242ms
+type checking took 203ms
+type checking took 234ms
+type checking took 224ms
+type checking took 271ms
+type checking took 228ms
+type checking took 283ms
+type checking took 211ms
+type checking took 138ms
+type checking took 271ms
+type checking took 160ms
+type checking took 119ms
+type checking took 156ms
+type checking took 141ms
+type checking took 135ms
+type checking took 134ms
+type checking took 109ms
+type checking took 135ms
+type checking took 146ms
+type checking took 119ms
+type checking took 158ms
+type checking took 107ms
+type checking took 163ms
+type checking took 119ms
+type checking took 271ms
+type checking took 124ms
+type checking took 152ms
+type checking took 104ms
+type checking took 135ms
+type checking took 120ms
+type checking took 152ms
+elaboration took 2.94s
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4854:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4855:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4856:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4857:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 160ms
+elaboration took 316ms
+elaboration took 104ms
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4865:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4866:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4867:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4868:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4869:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/CompactProfileBaseline.lean:4870:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 114ms
+type checking took 353ms
+type checking took 109ms
+type checking took 235ms
+type checking took 213ms
+type checking took 1.03s
+type checking took 284ms
+type checking took 1.38s
+type checking took 273ms
+type checking took 899ms
+type checking took 306ms
+type checking took 826ms
+type checking took 107ms
+type checking took 1.63s
+type checking took 264ms
+type checking took 2.93s
+type checking took 263ms
+type checking took 2.36s
+type checking took 254ms
+type checking took 2.14s
+type checking took 301ms
+type checking took 1.69s
+type checking took 267ms
+type checking took 1.7s
+type checking took 296ms
+type checking took 1.97s
+type checking took 257ms
+type checking took 2.11s
+type checking took 341ms
+type checking took 1.57s
+type checking took 289ms
+type checking took 1.9s
+type checking took 256ms
+type checking took 1.92s
+type checking took 285ms
+type checking took 1.67s
+type checking took 281ms
+type checking took 1.85s
+type checking took 257ms
+type checking took 1.79s
+type checking took 249ms
+type checking took 3.13s
+type checking took 246ms
+type checking took 2.71s
+type checking took 251ms
+type checking took 2.59s
+type checking took 360ms
+type checking took 318ms
+type checking took 1.31s
+type checking took 286ms
+type checking took 1.53s
+type checking took 304ms
+type checking took 1.42s
+type checking took 294ms
+type checking took 1.45s
+type checking took 303ms
+type checking took 1.17s
+type checking took 386ms
+type checking took 1.3s
+type checking took 312ms
+type checking took 2.02s
+type checking took 604ms
+type checking took 1.39s
+type checking took 282ms
+type checking took 1.87s
+type checking took 294ms
+type checking took 1.29s
+type checking took 290ms
+type checking took 1.45s
+type checking took 491ms
+type checking took 2.03s
+type checking took 326ms
+type checking took 1.31s
+type checking took 323ms
+type checking took 2.04s
+type checking took 329ms
+type checking took 1.7s
+type checking took 276ms
+type checking took 1.52s
+type checking took 366ms
+type checking took 1.48s
+type checking took 299ms
+type checking took 1.47s
+type checking took 609ms
+type checking took 1.5s
+type checking took 614ms
+type checking took 1.47s
+type checking took 200ms
+type checking took 4.82s
+type checking took 234ms
+type checking took 3.45s
+type checking took 388ms
+type checking took 5.27s
+type checking took 301ms
+type checking took 5.49s
+type checking took 226ms
+type checking took 3.6s
+type checking took 270ms
+type checking took 4.78s
+type checking took 288ms
+type checking took 3.45s
+type checking took 239ms
+type checking took 3.66s
+type checking took 259ms
+type checking took 6.05s
+type checking took 226ms
+type checking took 6.12s
+type checking took 171ms
+type checking took 4.64s
+type checking took 396ms
+type checking took 4.35s
+type checking took 266ms
+type checking took 3.16s
+type checking took 251ms
+type checking took 3.89s
+type checking took 248ms
+type checking took 4.75s
+type checking took 244ms
+type checking took 5.69s
+type checking took 261ms
+type checking took 4.13s
+type checking took 256ms
+type checking took 4.85s
+type checking took 270ms
+type checking took 3.49s
+type checking took 278ms
+type checking took 4.03s
+type checking took 297ms
+type checking took 3.56s
+type checking took 273ms
+type checking took 3.15s
+type checking took 251ms
+type checking took 3.77s
+type checking took 248ms
+type checking took 4.35s
+type checking took 257ms
+type checking took 3.35s
+type checking took 404ms
+type checking took 3s
+type checking took 250ms
+type checking took 3.82s
+type checking took 253ms
+type checking took 2.81s
+type checking took 253ms
+type checking took 4.75s
+type checking took 325ms
+type checking took 4.43s
+type checking took 286ms
+type checking took 3.72s
+type checking took 251ms
+type checking took 3.51s
+type checking took 397ms
+type checking took 3.73s
+type checking took 277ms
+type checking took 3.93s
+type checking took 241ms
+type checking took 3.19s
+type checking took 248ms
+type checking took 2.92s
+type checking took 287ms
+type checking took 2.47s
+type checking took 270ms
+type checking took 2.88s
+type checking took 304ms
+type checking took 5.8s
+type checking took 302ms
+type checking took 3.26s
+type checking took 253ms
+type checking took 3.02s
+type checking took 272ms
+type checking took 2.91s
+type checking took 269ms
+type checking took 2.79s
+type checking took 257ms
+type checking took 2.84s
+type checking took 267ms
+type checking took 4.86s
+type checking took 419ms
+type checking took 5.03s
+type checking took 364ms
+type checking took 3.04s
+type checking took 254ms
+type checking took 4.36s
+type checking took 645ms
+type checking took 3.6s
+type checking took 308ms
+type checking took 3.13s
+type checking took 255ms
+type checking took 4.54s
+type checking took 274ms
+type checking took 4.19s
+type checking took 256ms
+type checking took 3.18s
+type checking took 252ms
+type checking took 4.56s
+type checking took 455ms
+type checking took 6.34s
+type checking took 386ms
+type checking took 4.68s
+type checking took 264ms
+type checking took 4.38s
+type checking took 451ms
+type checking took 5.47s
+type checking took 497ms
+type checking took 7.49s
+type checking took 215ms
+type checking took 3.55s
+type checking took 1.02s
+type checking took 2.25s
+type checking took 338ms
+type checking took 2.26s
+type checking took 477ms
+type checking took 3.67s
+type checking took 485ms
+type checking took 2.26s
+type checking took 287ms
+type checking took 2.99s
+type checking took 362ms
+type checking took 1.98s
+type checking took 294ms
+type checking took 2.76s
+type checking took 376ms
+type checking took 2.44s
+type checking took 350ms
+type checking took 2.02s
+type checking took 283ms
+type checking took 2.08s
+type checking took 274ms
+type checking took 1.65s
+type checking took 357ms
+type checking took 2.58s
+type checking took 409ms
+type checking took 3.2s
+type checking took 281ms
+type checking took 2.03s
+type checking took 286ms
+type checking took 2.6s
+type checking took 312ms
+type checking took 2.12s
+type checking took 278ms
+type checking took 2.52s
+type checking took 313ms
+type checking took 2.23s
+type checking took 292ms
+type checking took 2s
+type checking took 282ms
+type checking took 2.17s
+type checking took 353ms
+type checking took 2.16s
+type checking took 349ms
+type checking took 3.43s
+type checking took 302ms
+type checking took 2.44s
+type checking took 368ms
+type checking took 2.46s
+type checking took 292ms
+type checking took 1.85s
+type checking took 285ms
+type checking took 2.14s
+type checking took 484ms
+type checking took 1.9s
+type checking took 726ms
+type checking took 227ms
+type checking took 5.72s
+type checking took 201ms
+type checking took 6.46s
+type checking took 209ms
+type checking took 5.18s
+type checking took 214ms
+type checking took 4.9s
+type checking took 198ms
+type checking took 4.97s
+type checking took 205ms
+type checking took 6.71s
+type checking took 160ms
+type checking took 6.26s
+type checking took 272ms
+type checking took 6.15s
+type checking took 228ms
+type checking took 6.83s
+type checking took 221ms
+type checking took 7.36s
+type checking took 229ms
+type checking took 6.48s
+type checking took 235ms
+type checking took 8.59s
+type checking took 358ms
+type checking took 8.42s
+type checking took 219ms
+type checking took 6.71s
+type checking took 223ms
+type checking took 6.36s
+type checking took 220ms
+type checking took 9.78s
+type checking took 228ms
+type checking took 8.69s
+type checking took 246ms
+type checking took 9.66s
+type checking took 265ms
+type checking took 9.85s
+type checking took 324ms
+type checking took 10.6s
+type checking took 233ms
+type checking took 10.1s
+type checking took 267ms
+type checking took 9.33s
+type checking took 227ms
+type checking took 8.5s
+type checking took 223ms
+type checking took 8s
+type checking took 251ms
+type checking took 12.1s
+type checking took 293ms
+type checking took 6.44s
+type checking took 249ms
+type checking took 5.89s
+type checking took 252ms
+type checking took 5.52s
+type checking took 249ms
+type checking took 8.47s
+type checking took 241.olean serialization took 2.17s
+ms
+type checking took 6.49s
+type checking took 271ms
+type checking took 7.23s
+type checking took 269ms
+type checking took 7.99s
+type checking took 254ms
+type checking took 9.13s
+type checking took 250ms
+type checking took 9.42s
+type checking took 259ms
+type checking took 6.96s
+type checking took 245ms
+type checking took 7.14s
+type checking took 273ms
+type checking took 8.17s
+type checking took 1.75s
+type checking took 196ms
+type checking took 8.69s
+type checking took 5.85s
+type checking took 349ms
+type checking took 12s
+type checking took 262ms
+type checking took 9.53s
+type checking took 195ms
+type checking took 14s
+type checking took 304ms
+type checking took 12.9s
+type checking took 5.8s
+type checking took 102ms
+type checking took 6.99s
+type checking took 676ms
+type checking took 978ms
+type checking took 657ms
+type checking took 844ms
+type checking took 564ms
+type checking took 595ms
+type checking took 792ms
+type checking took 880ms
+type checking took 507ms
+type checking took 1.33s
+type checking took 907ms
+type checking took 1.45s
+type checking took 829ms
+type checking took 996ms
+type checking took 599ms
+type checking took 560ms
+type checking took 802ms
+type checking took 552ms
+type checking took 461ms
+type checking took 553ms
+type checking took 669ms
+type checking took 1.12s
+type checking took 957ms
+type checking took 694ms
+type checking took 601ms
+type checking took 511ms
+type checking took 609ms
+type checking took 559ms
+type checking took 524ms
+type checking took 624ms
+type checking took 512ms
+type checking took 567ms
+type checking took 499ms
+type checking took 450ms
+type checking took 613ms
+type checking took 544ms
+type checking took 440ms
+type checking took 493ms
+type checking took 468ms
+type checking took 489ms
+type checking took 561ms
+type checking took 1.46s
+type checking took 569ms
+type checking took 469ms
+type checking took 375ms
+type checking took 647ms
+type checking took 396ms
+type checking took 508ms
+type checking took 363ms
+type checking took 344ms
+type checking took 463ms
+type checking took 357ms
+type checking took 360ms
+type checking took 335ms
+type checking took 315ms
+type checking took 381ms
+type checking took 667ms
+type checking took 313ms
+type checking took 274ms
+type checking took 353ms
+type checking took 329ms
+type checking took 455ms
+type checking took 515ms
+type checking took 288ms
+type checking took 316ms
+type checking took 237ms
+cumulative profiling times:
+	.olean serialization 2.17s
+	attribute application 54.8ms
+	blocked (unaccounted) 5.91e+04s
+	compilation (IR) 99ms
+	compilation (LCNF base) 1.06s
+	compilation (LCNF impure) 365ms
+	compilation (LCNF mono) 861ms
+	congr simp thm 400ms
+	declTypeLinter 535ms
+	dsimp 6.14ms
+	elaboration 13.4s
+	fix level params 49.6ms
+	import 1.46s
+	initialization 38ms
+	instantiate metavars 237ms
+	interpretation 10.8s
+	let-to-have transformation 86.6ms
+	linting 4.79s
+	module linting 1.13ms
+	norm_num 1.59ms
+	parsing 740ms
+	process pre-definitions 1.71s
+	share common exprs 331ms
+	simp 32.3s
+	tactic execution 17s
+	tacticAnalysis 535ms
+	type checking 1.32e+03s
+	typeclass inference 6.45s
