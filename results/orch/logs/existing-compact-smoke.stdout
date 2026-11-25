@@ -1,0 +1,25 @@
+../results/orch/lemmas/existing_compact_smoke.lean:11:31: error: unexpected token '('; expected ':=', 'where' or '|'
+../results/orch/lemmas/existing_compact_smoke.lean:11:22: error: type expected, got
+  (projected : Extended.Sig → Sig)
+../results/orch/lemmas/existing_compact_smoke.lean:21:35: error: unexpected token '('; expected ')', ',' or ':'
+../results/orch/lemmas/existing_compact_smoke.lean:21:4: error: Application type mismatch: The argument
+  (S.erase Extended.first).erase
+has type
+  Extended.Sig → Finset Extended.Sig
+but is expected to have type
+  List Extended.Sig
+in the application
+  canonicalExtra j d :: (S.erase Extended.first).erase
+../results/orch/lemmas/existing_compact_smoke.lean:16:40: error: unsolved goals
+j : Fin 2
+d : Fin 4
+hd : ↑d = 0 ∨ ↑d = 2
+k : ℕ
+S : Finset Extended.Sig
+run : Extended.Live true Extended.target k S
+raw : ∀ a ∈ S, a ∈ Extended.pins ++ [canonicalExtra j d]
+hextra : canonicalExtra j d ∈ S
+hfirst : Extended.first ∈ S
+hne : canonicalExtra j d ≠ Extended.first
+front : List Extended.Sig := Extended.first :: canonicalExtra j d :: sorry
+⊢ 17 ≤ k

@@ -1,0 +1,33 @@
+{
+  "warning": "All negative search results are bounded heuristic failures or restricted SMT outcomes; no global lower-bound certificate.",
+  "cgp_runs": [
+    {
+      "version": 1,
+      "seed": 107,
+      "seconds": 600,
+      "evaluations": 2862067242,
+      "best_errors": 10,
+      "not_measure": "syntactic, may be unused"
+    },
+    {
+      "version": 2,
+      "seed": 1035,
+      "seconds": 600,
+      "evaluations": 2565493310,
+      "best_errors": 4,
+      "not_measure": "syntactic, may be unused"
+    },
+    {
+      "version": 3,
+      "seed": 2592,
+      "seconds": 600,
+      "status": "running",
+      "not_measure": "active in output cone"
+    }
+  ],
+  "source_sha256": {
+    "search_cgp_v1.cpp": "c136a15e58b63d650d1eeb9c5a638185bf8ae150d090b01c697f06830d0a7a47",
+    "search_cgp_v2.cpp": "b0efb0200d1cb4f748f8d92991709e4c1e8b2651a9afed7fcd4d6d2e97f244f5",
+    "search_cgp_v3.cpp": "7c1816cbaed2d54cf98ec8b475e83e8f12a0181e491e0d2878f70e82d2c18def"
+  }
+}

@@ -1,0 +1,6 @@
+results/orch/lemmas/search_residual_signed15.cpp: In function ‘Score eval(const Circ&)’:
+results/orch/lemmas/search_residual_signed15.cpp:29:32: warning: iteration 14 invokes undefined behavior [-Waggressive-loop-optimizations]
+   29 |   for(int k=0;k<8;k++)w[9+i][k]=g.op==0?w[g.a][k]&w[g.b][k]:g.op==1?w[g.a][k]|w[g.b][k]:g.op==2?(w[g.a][k]&~w[g.b][k]):(~w[g.a][k]&w[g.b][k]);
+results/orch/lemmas/search_residual_signed15.cpp:27:15: note: within this loop
+   27 |  for(int i=0;i<N;i++){
+      |              ~^~

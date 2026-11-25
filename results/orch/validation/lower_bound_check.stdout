@@ -1,0 +1,10 @@
+Fintype.bijective_iff_injective_and_card.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β] (f : α → β) :
+  Function.Bijective f ↔ Function.Injective f ∧ Fintype.card α = Fintype.card β
+/tmp/oec/pequalnp-pilot-107/lower_bound_check.lean:3:7: error(lean.unknownIdentifier): Unknown constant `Fintype.bijective_iff_injective_and_card_eq`
+Function.LeftInverse.injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} {g : β → α} {f : α → β} :
+  Function.LeftInverse g f → Function.Injective f
+BitVec.toFin {w : ℕ} (self : BitVec w) : Fin (2 ^ w)
+BitVec.getLsbD_ofBoolListLE {bs : List Bool} {i : ℕ} : (BitVec.ofBoolListLE bs).getLsbD i = bs.getD i false
+BitVec.getLsbD_cast {w v i : ℕ} (h : w = v) (x : BitVec w) : (BitVec.cast h x).getLsbD i = x.getLsbD i
+BitVec.ofFin_toFin {w : ℕ} (x : BitVec w) : { toFin := x.toFin } = x
+/tmp/oec/pequalnp-pilot-107/lower_bound_check.lean:9:7: error(lean.unknownIdentifier): Unknown constant `Finite.surjective_iff_injective`

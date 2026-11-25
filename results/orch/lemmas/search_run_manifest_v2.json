@@ -1,0 +1,53 @@
+{
+  "warning": "All negative search results are bounded heuristic failures or restricted SMT outcomes; no global lower-bound certificate.",
+  "provenance_notice": "Versions1 and2 are reconstructions prepared after their runs, not byte-exact original source snapshots. Their source hashes identify the reconstructions only. Historical run counts come from saved stdout. Re-running any version for reproducibility was not checked.",
+  "supersedes_manifest": "search_run_manifest_v1.json",
+  "cgp_runs": [
+    {
+      "version": 1,
+      "seed": 107,
+      "seconds": 600,
+      "evaluations": 2862067242,
+      "best_errors": 10,
+      "count_provenance": "historical run stdout",
+      "historical_stdout": "search_logs/counterexample-search.stdout",
+      "source_file": "search_cgp_v1.cpp",
+      "rerun_reproducibility_checked": false,
+      "not_measure": "syntactic, may be unused",
+      "source_provenance": "reconstructed later from v3; not a byte-exact original source snapshot",
+      "reconstructed_source_sha256": "c136a15e58b63d650d1eeb9c5a638185bf8ae150d090b01c697f06830d0a7a47",
+      "original_source_sha256": null,
+      "original_source_sha256_status": "unavailable; original source digest was not recorded before that historical run"
+    },
+    {
+      "version": 2,
+      "seed": 1035,
+      "seconds": 600,
+      "evaluations": 2565493310,
+      "best_errors": 4,
+      "count_provenance": "historical run stdout",
+      "historical_stdout": "search_logs/counterexample-search2.stdout",
+      "source_file": "search_cgp_v2.cpp",
+      "rerun_reproducibility_checked": false,
+      "not_measure": "syntactic, may be unused",
+      "source_provenance": "reconstructed later from v3; not a byte-exact original source snapshot",
+      "reconstructed_source_sha256": "b0efb0200d1cb4f748f8d92991709e4c1e8b2651a9afed7fcd4d6d2e97f244f5",
+      "original_source_sha256": null,
+      "original_source_sha256_status": "unavailable; original source digest was not recorded before that historical run"
+    },
+    {
+      "version": 3,
+      "seed": 2592,
+      "seconds": 600,
+      "evaluations": 2495930919,
+      "best_errors": 10,
+      "count_provenance": "historical run stdout",
+      "historical_stdout": "search_logs/counterexample-search3.stdout",
+      "source_file": "search_cgp_v3.cpp",
+      "rerun_reproducibility_checked": false,
+      "not_measure": "active in output cone",
+      "source_provenance": "copy of run3 source; source was unchanged between compile and snapshot",
+      "source_snapshot_sha256": "7c1816cbaed2d54cf98ec8b475e83e8f12a0181e491e0d2878f70e82d2c18def"
+    }
+  ]
+}

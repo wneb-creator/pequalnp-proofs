@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-107/leanmods/DoubleZero.lean:26:29: error(lean.unknownIdentifier): Unknown identifier `Extended.bit_bin`
+/tmp/oec/pequalnp-pilot-107/leanmods/DoubleZero.lean:26:46: error(lean.unknownIdentifier): Unknown identifier `bit_bin`
+/tmp/oec/pequalnp-pilot-107/leanmods/DoubleZero.lean:23:86: error: unsolved goals
+j : Fin 2
+d : ℕ
+a b : Extended.Sig
+r : Fin 512
+⊢ Extended.bit (pairRows j r) (Extended.bin d a b) = bit r (bin d (pairProject j a) (pairProject j b))
+/tmp/oec/pequalnp-pilot-107/leanmods/DoubleZero.lean:75:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  Lower true (vars 479) (graphGoal 479) 12
+but is expected to have type
+  Lower true (vars (pairMask ⟨1, ⋯⟩)) (graphGoal (pairMask ⟨1, ⋯⟩)) (pairFloor ⟨1, ⋯⟩)

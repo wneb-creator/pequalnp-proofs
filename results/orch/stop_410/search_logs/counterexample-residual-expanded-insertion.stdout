@@ -1,0 +1,5 @@
+best 17 replacement [0, 0, 0, 0] source 0 redirects [(0, 0)]
+best 9 replacement [0, 0, 0, 1] source 1 redirects [(0, 1)]
+best 8 replacement [7, 0, 0, 12] source 0 redirects [(7, 0)]
+best 6 replacement [7, 0, 2, 12] source 2 redirects [(7, 0)]
+DONE circuits 4360 trials 177660 best_errors 6 seconds 1.4658662629999526
