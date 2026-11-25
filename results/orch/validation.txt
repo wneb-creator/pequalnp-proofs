@@ -106,3 +106,5 @@ Scope: per(J+z·diag(u))=24 for all complexz impliesu=0. Partial only; target un
 Command: lake env lean --threads=1 --memory=3000 ../results/orch/lemmas/IsotropicThree.lean (pinned Lean4.36.0, documented task environment).
 SHA256 af72b8a295175899bb7103dfaa717dbcf131a96cd7b1fa786b184d50e04268d2;14lines. Independent exact-source review: construction_search approved.
 Scope: two orthogonal isotropic triples have vanishing first2×2minor. Auxiliary partial only, target unresolved.
+
+2026-11-25T10:41:19.592047+00:00 Centered-chart archive:71frozen artifacts plusstatusdocs, independently checked by rules_review; algorithms separately checked by three_plane_search. FrozenCRTstates62/54primes are consistent resumable candidates, not exact orLean certificates. Manifest hashes and review report preserved. Target remains unresolved.

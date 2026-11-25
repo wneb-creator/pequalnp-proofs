@@ -1,0 +1,2 @@
+CAS model only; not Lean checked.
+All centered symmetric4x4 perturbations are H diag(0,B) H/4. B=[[a,d,e],[d,b,f],[e,f,c]]. Required invariants trace(B²),permanent(B),permanent(T) vanish on a plane. Each chart fixes two independent coordinate rows to x,y and parametrizes four remaining rows by eight variables. The 15 coordinate charts have four S3-orbits: two diagonal, two offdiagonal, diagonal+complementary offdiagonal, diagonal+other offdiagonal. Representatives (a,b),(f,e),(a,f),(a,e).

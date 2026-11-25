@@ -1,0 +1,80 @@
+[
+  {
+    "source": "macaulay_witness.cpp",
+    "archive": "results/orch/lemmas/construction_search_macaulay_witness.cpp",
+    "bytes": 2768,
+    "sha256": "65064dba1dc79c6492afafe6889d09a4ff355510dcb760ea06604e6ceabe53e5"
+  },
+  {
+    "source": "centered_two_macaulay_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_macaulay_gen.py",
+    "bytes": 1666,
+    "sha256": "b13e2a39bbb63714f7f6b7516615f6549a2bd200ca184b764f1d6ffade052e02"
+  },
+  {
+    "source": "centered_two_macaulay_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_macaulay_run.py",
+    "bytes": 1073,
+    "sha256": "5e76253b5f3bd93a5ba20cc9bf82b67f05bc8f53624d89792ca27bfeb8a2ede6"
+  },
+  {
+    "source": "centered_two_verify_modular.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_verify_modular.py",
+    "bytes": 830,
+    "sha256": "446226090b74100a48e891b28e7e9f3ccfee5b9ec9907916b8f8f2f78bc3f03b"
+  },
+  {
+    "source": "centered_two_crt.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_crt.py",
+    "bytes": 4146,
+    "sha256": "c12387d6284c291926a47a76b30c5c6d347ba56dbd96d0ad7fb9b710c8f8d2dc"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-metadata.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-metadata.json",
+    "bytes": 1270863,
+    "sha256": "fbbf44eb58b7060fd467e91d95161f6fe3c4cdcde70efd27880839fd787564d7"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-p1000000007-witness.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-p1000000007-witness.json",
+    "bytes": 106024,
+    "sha256": "6d89b562e6d79af9e7ad15c7a14e9edc69bcc665ee24ef721b15bd442d67d2b4"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-p1000000007.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-p1000000007.log",
+    "bytes": 3664,
+    "sha256": "2719d28a07115c00ae8a46cf350c8d15ffd9efae0d3be7f16db74cde898e6d3a"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-crt-state.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-checkpoint1.json",
+    "bytes": 2223147,
+    "sha256": "e32df1eb5bf66c4efd771ba0377ba4f3e768fc49570a23891fd7b4b81bd2f7cc"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-metadata.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-metadata.json",
+    "bytes": 1270863,
+    "sha256": "54fdc2d0f2126d44e544adee97eca9bc7730efd3dfc1bc8a38c87e076ecd39cc"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-p1000000007-witness.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-p1000000007-witness.json",
+    "bytes": 103839,
+    "sha256": "11bf30fa81f2b390b390296b3f8fbc51679df43fb349ba110bd8d716d83743ef"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-p1000000007.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-p1000000007.log",
+    "bytes": 3664,
+    "sha256": "8505134ac1181a044a0238d0f59922c716bcdbbc9055569360c0933dfd2b0d25"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-crt-state.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-checkpoint1.json",
+    "bytes": 1811622,
+    "sha256": "1732e732822faf558f057bede855f23b1f3ef8aaee6b691b1ecbc1d82aec66a7"
+  }
+]

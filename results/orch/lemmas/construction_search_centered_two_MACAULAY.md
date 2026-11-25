@@ -1,0 +1,11 @@
+# Resumable centered-two-plane certificate search
+
+No characteristic-zero certificate has yet been reconstructed in this checkpoint, and no Lean obstruction was proved.
+
+For each of the two mixed physical-coordinate charts, degree-nine polynomial multiples form a37752-row,24310-column Macaulay matrix. A sparse modular row-reduction solver stores pivot provenance and recovers a coefficient vector witnessing that1 lies in the row span modulo1000000007. The chart2 witness has3854nonzero entries; chart3 has3578. Python independently checked every output column of each modular identity. The generator, C++ provenance solver, modular verifier, and CRT arithmetic were independently reviewed by the three_plane_search agent.
+
+The CRT code persists the modulus, residues, completed primes, ordered pivot-origin/leading-column fingerprint, and next prime after each prime. Checkpoint1 copies are immutable snapshots; later progress lives in scratch until the next preservation copy. Restore these files to the original scratch filenames ending `-crt-state.json` to resume. One process must write each chart's state. The code enforces a1GiB address-space and120-second cap for each modular subprocess. It creates no network requests and reads no credentials.
+
+To regenerate the matrices, restore the archived source/input filenames without the `construction_search_` prefix, compile `macaulay_witness.cpp` using g++, and run `centered_two_macaulay_gen.py 2 9` or `3 9`. The exact original mixed-chart .msolve inputs are in the preceding centered-two archive. The metadata records the column monomials and original-equation/monomial pair corresponding to every row. Continue CRT with `centered_two_crt.py 2 COUNT` or `3 COUNT`.
+
+Reconstructed fractions are only candidates until their denominators are cleared and the full integer polynomial identity is verified. The script performs this check before writing an exact-certificate artifact. A second verifier should then check directly against the original equations and row-origin metadata, independently of the generated matrix. Even a verified integer certificate must still be translated to Lean; the global centered-two-plane claim additionally needs the mixed-coordinate chart coverage argument formalized.

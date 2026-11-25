@@ -1,0 +1,8 @@
+{
+  "mode": "rational",
+  "exit": -9,
+  "timeout": true,
+  "seconds": 120.06815360499968,
+  "memory_limit_bytes": 1073741824,
+  "classification": "CAS computation; not Lean checked"
+}

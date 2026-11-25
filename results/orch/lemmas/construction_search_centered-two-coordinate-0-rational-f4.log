@@ -1,0 +1,43 @@
+{"stage": "parsed", "variables": 8, "generators": 12, "terms": 184, "prime": 0}
+
+--------------- INPUT DATA ---------------
+#variables                       8
+#equations                      12
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             256
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  3       2      10       4 x 16         28.12%      2 new       0 zero         0.00 | 0.00         
+  4      13      17      66 x 173         4.13%     10 new       3 zero         0.00 | 0.00         
+  5      26      52     215 x 582         1.37%     22 new       4 zero         0.00 | 0.00         
+  6     128     151    1157 x 1929        0.59%     79 new      49 zero         0.01 | 0.01         
+  6      78     464    1158 x 1917        1.09%     78 new       0 zero         0.02 | 0.02         
+  6     244     642    1535 x 2036        1.86%    242 new       3 zero         1.08 | 1.07         
+  6     256    1429    1275 x 1455        3.51%    256 new       4 zero        34.81 | 34.74        
+  5     256    1636     735 x 663         5.92%

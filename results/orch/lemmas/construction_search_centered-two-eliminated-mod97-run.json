@@ -1,0 +1,8 @@
+{
+  "mode": "mod97",
+  "exit": 0,
+  "timeout": false,
+  "seconds": 0.5013905870000599,
+  "memory_limit_bytes": 1073741824,
+  "classification": "CAS computation; not Lean checked"
+}

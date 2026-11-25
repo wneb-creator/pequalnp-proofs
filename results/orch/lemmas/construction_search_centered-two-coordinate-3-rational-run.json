@@ -1,0 +1,8 @@
+{
+  "chart": 3,
+  "exit": -9,
+  "timeout": true,
+  "seconds": 120.10150034799972,
+  "memory_limit_bytes": 1073741824,
+  "classification": "CAS computation; not Lean checked"
+}

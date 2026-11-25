@@ -1,0 +1,4 @@
+{"name": "centered-two-coordinate-0-rational", "pivots": ["a", "b"], "terms": 184, "seconds": 0.4519019010003831}
+{"name": "centered-two-coordinate-1-rational", "pivots": ["f", "e"], "terms": 167, "seconds": 0.5877407090001725}
+{"name": "centered-two-coordinate-2-rational", "pivots": ["a", "f"], "terms": 172, "seconds": 0.7291179240000929}
+{"name": "centered-two-coordinate-3-rational", "pivots": ["a", "e"], "terms": 174, "seconds": 0.8621848040002078}

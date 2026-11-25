@@ -1,0 +1,891 @@
+[
+  {
+    "manifest": "centered-two-archive-manifest.json",
+    "files": [
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_natural_gen.py",
+        "source": "centered_two_natural_gen.py",
+        "bytes": 1854,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "sympy",
+          "itertools",
+          "json",
+          "resource",
+          "signal",
+          "time",
+          "pathlib"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_eliminated_gen.py",
+        "source": "centered_two_eliminated_gen.py",
+        "bytes": 2043,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "sympy",
+          "itertools",
+          "json",
+          "resource",
+          "signal",
+          "time",
+          "pathlib"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_run.py",
+        "source": "centered_two_run.py",
+        "bytes": 1303,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "subprocess",
+          "resource",
+          "time",
+          "sys",
+          "json"
+        ],
+        "calls_review": [
+          [
+            16,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_coordinate_gen.py",
+        "source": "centered_two_coordinate_gen.py",
+        "bytes": 2006,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "sympy",
+          "itertools",
+          "time",
+          "resource",
+          "signal",
+          "json",
+          "pathlib"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_coordinate_run.py",
+        "source": "centered_two_coordinate_run.py",
+        "bytes": 1054,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "subprocess",
+          "resource",
+          "time",
+          "sys",
+          "json"
+        ],
+        "calls_review": [
+          [
+            10,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_algebraic_run.py",
+        "source": "centered_two_algebraic_run.py",
+        "bytes": 1675,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "sympy",
+          "resource",
+          "signal",
+          "time",
+          "json",
+          "importlib.util"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_direct_run.py",
+        "source": "centered_two_direct_run.py",
+        "bytes": 2341,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "subprocess",
+          "resource",
+          "time",
+          "json",
+          "os",
+          "signal",
+          "sys"
+        ],
+        "calls_review": [
+          [
+            31,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_typed_lean_gen.py",
+        "source": "centered_two_typed_lean_gen.py",
+        "bytes": 1677,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "importlib.util",
+          "sympy",
+          "pathlib"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_eliminated_lean_gen.py",
+        "source": "centered_two_eliminated_lean_gen.py",
+        "bytes": 1704,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "importlib.util"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_mixed_lean_gen.py",
+        "source": "centered_two_mixed_lean_gen.py",
+        "bytes": 1553,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "importlib.util",
+          "sys"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-model.txt",
+        "source": "centered-two-natural-model.txt",
+        "bytes": 374,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-model.txt",
+        "source": "centered-two-eliminated-model.txt",
+        "bytes": 374,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-model.txt",
+        "source": "centered-two-coordinate-model.txt",
+        "bytes": 495,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-generation.log",
+        "source": "centered-two-coordinate-generation.log",
+        "bytes": 456,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-algebraic.log",
+        "source": "centered-two-algebraic.log",
+        "bytes": 240,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-algebraic-run.json",
+        "source": "centered-two-algebraic-run.json",
+        "bytes": 173,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "classification",
+          "memory_limit_bytes",
+          "outcome",
+          "seconds"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97.msolve",
+        "source": "centered-two-natural-mod97.msolve",
+        "bytes": 6848,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-f4.log",
+        "source": "centered-two-natural-mod97-f4.log",
+        "bytes": 4724,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-run.json",
+        "source": "centered-two-natural-mod97-run.json",
+        "bytes": 181,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "mode",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-basis.json",
+        "source": "centered-two-natural-mod97-basis.json",
+        "bytes": 192,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "variables",
+          "prime",
+          "basis",
+          "terms",
+          "seconds"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational.msolve",
+        "source": "centered-two-natural-rational.msolve",
+        "bytes": 9117,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-f4.log",
+        "source": "centered-two-natural-rational-f4.log",
+        "bytes": 2624,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-run.json",
+        "source": "centered-two-natural-rational-run.json",
+        "bytes": 183,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "mode",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97.msolve",
+        "source": "centered-two-eliminated-mod97.msolve",
+        "bytes": 10738,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-f4.log",
+        "source": "centered-two-eliminated-mod97-f4.log",
+        "bytes": 5033,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-run.json",
+        "source": "centered-two-eliminated-mod97-run.json",
+        "bytes": 181,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "mode",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-basis.json",
+        "source": "centered-two-eliminated-mod97-basis.json",
+        "bytes": 165,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "variables",
+          "prime",
+          "basis",
+          "terms",
+          "seconds"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational.msolve",
+        "source": "centered-two-eliminated-rational.msolve",
+        "bytes": 15129,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational-f4.log",
+        "source": "centered-two-eliminated-rational-f4.log",
+        "bytes": 2826,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational-run.json",
+        "source": "centered-two-eliminated-rational-run.json",
+        "bytes": 184,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "mode",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-la1-f4.log",
+        "source": "centered-two-natural-rational-la1-f4.log",
+        "bytes": 3028,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-la1-run.json",
+        "source": "centered-two-natural-rational-la1-run.json",
+        "bytes": 185,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "mode",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational.msolve",
+        "source": "centered-two-coordinate-0-rational.msolve",
+        "bytes": 2259,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-1-rational.msolve",
+        "source": "centered-two-coordinate-1-rational.msolve",
+        "bytes": 1914,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational.msolve",
+        "source": "centered-two-coordinate-2-rational.msolve",
+        "bytes": 2012,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational.msolve",
+        "source": "centered-two-coordinate-3-rational.msolve",
+        "bytes": 2061,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational-f4.log",
+        "source": "centered-two-coordinate-0-rational-f4.log",
+        "bytes": 2220,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational-run.json",
+        "source": "centered-two-coordinate-0-rational-run.json",
+        "bytes": 176,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "chart",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-elab.log",
+        "source": "centered-two-direct-elab.log",
+        "bytes": 4608,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-elab-run.json",
+        "source": "centered-two-direct-elab-run.json",
+        "bytes": 194,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-1000000steps.log",
+        "source": "centered-two-direct-complex-1000000steps.log",
+        "bytes": 279028,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-1000000steps-run.json",
+        "source": "centered-two-direct-complex-1000000steps-run.json",
+        "bytes": 195,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-100000000steps.log",
+        "source": "centered-two-direct-complex-100000000steps.log",
+        "bytes": 0,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-100000000steps-run.json",
+        "source": "centered-two-direct-complex-100000000steps-run.json",
+        "bytes": 197,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-eliminated-5000000steps.log",
+        "source": "centered-two-direct-eliminated-5000000steps.log",
+        "bytes": 196,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct-eliminated-5000000steps-run.json",
+        "source": "centered-two-direct-eliminated-5000000steps-run.json",
+        "bytes": 197,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_CenteredTwoChartNatural.lean.txt",
+        "source": "CenteredTwoChartNatural.lean",
+        "bytes": 34867,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_CenteredTwoChartEliminated.lean.txt",
+        "source": "CenteredTwoChartEliminated.lean",
+        "bytes": 54942,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_CenteredTwoElabTyped.lean.txt",
+        "source": "CenteredTwoElabTyped.lean",
+        "bytes": 34784,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_CenteredTwoMixed2.lean.txt",
+        "source": "CenteredTwoMixed2.lean",
+        "bytes": 7914,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-f4.log",
+        "source": "centered-two-coordinate-2-rational-f4.log",
+        "bytes": 4394,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-run.json",
+        "source": "centered-two-coordinate-2-rational-run.json",
+        "bytes": 176,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "chart",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational-f4.log",
+        "source": "centered-two-coordinate-3-rational-f4.log",
+        "bytes": 2321,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational-run.json",
+        "source": "centered-two-coordinate-3-rational-run.json",
+        "bytes": 176,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "chart",
+          "exit",
+          "timeout",
+          "seconds",
+          "memory_limit_bytes",
+          "classification"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-basis.json",
+        "source": "centered-two-coordinate-2-rational-basis.json",
+        "bytes": 189,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "variables",
+          "prime",
+          "basis",
+          "terms",
+          "seconds"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_direct4_run.py",
+        "source": "centered_two_direct4_run.py",
+        "bytes": 2342,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "subprocess",
+          "resource",
+          "time",
+          "json",
+          "os",
+          "signal",
+          "sys"
+        ],
+        "calls_review": [
+          [
+            31,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct4-complex.log",
+        "source": "centered-two-direct4-complex.log",
+        "bytes": 0,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-direct4-complex-run.json",
+        "source": "centered-two-direct4-complex-run.json",
+        "bytes": 196,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      }
+    ],
+    "issues": []
+  },
+  {
+    "manifest": "centered-two-macaulay-archive-manifest.json",
+    "files": [
+      {
+        "archive": "results/orch/lemmas/construction_search_macaulay_witness.cpp",
+        "source": "macaulay_witness.cpp",
+        "bytes": 2768,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_macaulay_gen.py",
+        "source": "centered_two_macaulay_gen.py",
+        "bytes": 1666,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "importlib.util",
+          "itertools",
+          "json",
+          "sys"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_macaulay_run.py",
+        "source": "centered_two_macaulay_run.py",
+        "bytes": 1073,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "resource",
+          "subprocess",
+          "time",
+          "json",
+          "sys"
+        ],
+        "calls_review": [
+          [
+            8,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_verify_modular.py",
+        "source": "centered_two_verify_modular.py",
+        "bytes": 830,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "json",
+          "sys"
+        ],
+        "calls_review": []
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered_two_crt.py",
+        "source": "centered_two_crt.py",
+        "bytes": 4146,
+        "same_as_source": true,
+        "hash_matches": true,
+        "imports": [
+          "pathlib",
+          "json",
+          "sys",
+          "subprocess",
+          "resource",
+          "time",
+          "math",
+          "sympy"
+        ],
+        "calls_review": [
+          [
+            33,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-metadata.json",
+        "source": "centered-two-macaulay-2-d9-metadata.json",
+        "bytes": 1270863,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "classification",
+          "variables",
+          "columns",
+          "row_origins",
+          "chart",
+          "degree"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-p1000000007-witness.json",
+        "source": "centered-two-macaulay-2-d9-p1000000007-witness.json",
+        "bytes": 106024,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "fingerprint",
+          "prime",
+          "rank",
+          "unit",
+          "seconds",
+          "witness"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-p1000000007.log",
+        "source": "centered-two-macaulay-2-d9-p1000000007.log",
+        "bytes": 3664,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-checkpoint1.json",
+        "source": "centered-two-macaulay-2-d9-crt-state.json",
+        "bytes": 2223147,
+        "same_as_source": false,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "modulus",
+          "residues",
+          "primes",
+          "fingerprint",
+          "next_prime"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-metadata.json",
+        "source": "centered-two-macaulay-3-d9-metadata.json",
+        "bytes": 1270863,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "classification",
+          "variables",
+          "columns",
+          "row_origins",
+          "chart",
+          "degree"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-p1000000007-witness.json",
+        "source": "centered-two-macaulay-3-d9-p1000000007-witness.json",
+        "bytes": 103839,
+        "same_as_source": true,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "fingerprint",
+          "prime",
+          "rank",
+          "unit",
+          "seconds",
+          "witness"
+        ]
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-p1000000007.log",
+        "source": "centered-two-macaulay-3-d9-p1000000007.log",
+        "bytes": 3664,
+        "same_as_source": true,
+        "hash_matches": true
+      },
+      {
+        "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-checkpoint1.json",
+        "source": "centered-two-macaulay-3-d9-crt-state.json",
+        "bytes": 1811622,
+        "same_as_source": false,
+        "hash_matches": true,
+        "json_type": "dict",
+        "keys": [
+          "modulus",
+          "residues",
+          "primes",
+          "fingerprint",
+          "next_prime"
+        ]
+      }
+    ],
+    "issues": [
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-checkpoint1.json",
+        "kind": "copy_mismatch"
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-checkpoint1.json",
+        "kind": "copy_mismatch"
+      }
+    ]
+  }
+]

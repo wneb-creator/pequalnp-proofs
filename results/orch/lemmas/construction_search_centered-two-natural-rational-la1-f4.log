@@ -1,0 +1,51 @@
+{"stage": "parsed", "variables": 9, "generators": 13, "terms": 727, "prime": 0}
+
+--------------- INPUT DATA ---------------
+#variables                       9
+#equations                      13
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            1
+initial hash table size     131072 (2^17)
+max pair selection             128
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  3       2      19       4 x 10         30.00%      2 new       0 zero         0.00 | 0.00         
+  4       5      28      18 x 30          9.63%      2 new       3 zero         0.00 | 0.00         
+  4       4      28      24 x 35          8.57%      0 new       4 zero         0.00 | 0.00         
+  5      18      24     270 x 792         1.09%     18 new       0 zero         0.00 | 0.00         
+  5      16      93     617 x 1549        0.90%     12 new       4 zero         0.01 | 0.01         
+  6     115     152    2510 x 4116        0.50%     79 new      36 zero         0.10 | 0.10         
+  6      34     611    2069 x 3521        1.02%     13 new      21 zero         0.07 | 0.07         
+  7     128     677    2867 x 4364        1.27%     40 new      88 zero         0.24 | 0.24         
+  7     128     846    3412 x 4925        1.43%     72 new      56 zero         0.56 | 0.56         
+  7     128    1236    3725 x 5274        1.89%     67 new      61 zero         0.88 | 0.87         
+  6      18    1569    2286 x 3699        2.63%     16 new       2 zero         0.19 | 0.19         
+  7     128    1678    3968 x 5425        2.31%     54 new      74 zero         3.03 | 3.03         
+  7     128    1931    4008 x 5409        2.72%     57 new      71 zero         3.44 | 3.44         
+  7     130    2216    4391 x 5790        2.67%      6 new     124 zero         3.50 | 3.50         
+  7     128    2130    5020 x 6548        2.24%     75 new      53 zero        59.37 | 59.27        
+  7     128    2479    4240 x 5623        3.31%

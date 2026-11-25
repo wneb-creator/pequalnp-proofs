@@ -1,0 +1,6 @@
+{
+  "classification": "Exact symbolic CAS exploration; not Lean checked",
+  "memory_limit_bytes": 1073741824,
+  "outcome": "TimeoutError",
+  "seconds": 120.03724138100006
+}

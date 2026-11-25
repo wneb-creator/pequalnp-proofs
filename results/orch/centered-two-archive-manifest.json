@@ -1,0 +1,350 @@
+[
+  {
+    "source": "centered_two_natural_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_natural_gen.py",
+    "bytes": 1854,
+    "sha256": "c353aa18129c67be67229b2d012114589431ddd0ab50c32262e398c1993bb99f"
+  },
+  {
+    "source": "centered_two_eliminated_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_eliminated_gen.py",
+    "bytes": 2043,
+    "sha256": "358943a823a082b3fbdbf4683f8f566de5e509c87d7274d5b1452f8fd1206db7"
+  },
+  {
+    "source": "centered_two_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_run.py",
+    "bytes": 1303,
+    "sha256": "f8198bc149272109cd4d14942eedd5e02e240104ed03411f8d1a7fc68a8e3b91"
+  },
+  {
+    "source": "centered_two_coordinate_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_coordinate_gen.py",
+    "bytes": 2006,
+    "sha256": "d01f5c18900b79746c6da4d929d84461dd6de465e4a87dd110ae69996a29aef0"
+  },
+  {
+    "source": "centered_two_coordinate_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_coordinate_run.py",
+    "bytes": 1054,
+    "sha256": "1c171a3288be73e1ade4c272f75e1f4c2ec6f91093964c63d5d08cc9f5116fa3"
+  },
+  {
+    "source": "centered_two_algebraic_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_algebraic_run.py",
+    "bytes": 1675,
+    "sha256": "3c2c37c0c182ed3c60e8e62f93dbbea9cd6953d73ba523b232763b0211315d27"
+  },
+  {
+    "source": "centered_two_direct_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_direct_run.py",
+    "bytes": 2341,
+    "sha256": "583da8a5b6e6a25bdf9ee91c9e25b00519b73c318000c4c15faeb006e8d42238"
+  },
+  {
+    "source": "centered_two_typed_lean_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_typed_lean_gen.py",
+    "bytes": 1677,
+    "sha256": "ee185c76e8cfc1bebc74cb6171cb5a52018fe40ce19d29a77b905dad963e6dae"
+  },
+  {
+    "source": "centered_two_eliminated_lean_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_eliminated_lean_gen.py",
+    "bytes": 1704,
+    "sha256": "8f749502564b1bc10703df76b588ba029338e8f47d69ce4fa4f4f1c468a2f4f9"
+  },
+  {
+    "source": "centered_two_mixed_lean_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_mixed_lean_gen.py",
+    "bytes": 1553,
+    "sha256": "64255ba64bbaf343d73564fb0084f428ec89a6ef71ebdccf6df382a231065534"
+  },
+  {
+    "source": "centered-two-natural-model.txt",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-model.txt",
+    "bytes": 374,
+    "sha256": "c61ec55b6c01a295299362d930e2d1a8dfd6d42323e12447a6b8f74e228e0bfe"
+  },
+  {
+    "source": "centered-two-eliminated-model.txt",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-model.txt",
+    "bytes": 374,
+    "sha256": "c61ec55b6c01a295299362d930e2d1a8dfd6d42323e12447a6b8f74e228e0bfe"
+  },
+  {
+    "source": "centered-two-coordinate-model.txt",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-model.txt",
+    "bytes": 495,
+    "sha256": "b83d9f1282a467924e0c6536824da0158586be81b3c9c4e0b867cf9c2647e372"
+  },
+  {
+    "source": "centered-two-coordinate-generation.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-generation.log",
+    "bytes": 456,
+    "sha256": "cd170a99c3e9332d33475fde57f46a287d9d0b2119b5da4205f20981e8cffefb"
+  },
+  {
+    "source": "centered-two-algebraic.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-algebraic.log",
+    "bytes": 240,
+    "sha256": "914cb99ce469218f5ba0b9c2458305893ac84fb01e8b1872562ac91362bcaae8"
+  },
+  {
+    "source": "centered-two-algebraic-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-algebraic-run.json",
+    "bytes": 173,
+    "sha256": "46b4df618ce7281bc62b93243c34f67116ba565ff4f058cb9248ad1871014eb5"
+  },
+  {
+    "source": "centered-two-natural-mod97.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97.msolve",
+    "bytes": 6848,
+    "sha256": "04f6cf26da05bd8cefbe4723fb874bf292793781b13744c240c43919f2bd3d35"
+  },
+  {
+    "source": "centered-two-natural-mod97-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-f4.log",
+    "bytes": 4724,
+    "sha256": "167175e4471c9fcf222a0ef75069cf9a0a424243aaf1e5aff06309e1fe0685fd"
+  },
+  {
+    "source": "centered-two-natural-mod97-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-run.json",
+    "bytes": 181,
+    "sha256": "d2f07611db43fb7145a5f5d0373558db7f4686298d8b420f5511ac2cec10e43a"
+  },
+  {
+    "source": "centered-two-natural-mod97-basis.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-mod97-basis.json",
+    "bytes": 192,
+    "sha256": "5ebe3aabcac86dbc8e3585d03b7c24a791712f8800342c552a9f7b2632b81c44"
+  },
+  {
+    "source": "centered-two-natural-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational.msolve",
+    "bytes": 9117,
+    "sha256": "c9678dacce6adfcd786c8b4d39669d221d787f60c1b7a3a518ab1edcbc40d5cd"
+  },
+  {
+    "source": "centered-two-natural-rational-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-f4.log",
+    "bytes": 2624,
+    "sha256": "7c11a62dbf078e293d161021c37f244c148a6a34a4bc933cd2de3de94783cfac"
+  },
+  {
+    "source": "centered-two-natural-rational-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-run.json",
+    "bytes": 183,
+    "sha256": "9d0a847c53470082b091874cfe9a6eee4741c476b06a2347d6b0f2b3bbb4b678"
+  },
+  {
+    "source": "centered-two-eliminated-mod97.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97.msolve",
+    "bytes": 10738,
+    "sha256": "2801ac83ab0e25fec78d80f1661a132ee8102046b5d66795877d7fff24dc97aa"
+  },
+  {
+    "source": "centered-two-eliminated-mod97-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-f4.log",
+    "bytes": 5033,
+    "sha256": "df076234b838887b8f7c083e0b3f4642dd89ec928d2fcb308b368d00f872b839"
+  },
+  {
+    "source": "centered-two-eliminated-mod97-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-run.json",
+    "bytes": 181,
+    "sha256": "f4e0dc41e3e501b73280eb7a806babc3f6afb9b8c8336f2029b6c57a6004116b"
+  },
+  {
+    "source": "centered-two-eliminated-mod97-basis.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-mod97-basis.json",
+    "bytes": 165,
+    "sha256": "697cd6c881543cd9ee5fd07f18ae796c9310ff6fdfcbab30677204105b6d819f"
+  },
+  {
+    "source": "centered-two-eliminated-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational.msolve",
+    "bytes": 15129,
+    "sha256": "08c953a513aa01fea6c1e2784cfd915f42f1ca0c6fff8ecd8cbce7708b9cbc88"
+  },
+  {
+    "source": "centered-two-eliminated-rational-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational-f4.log",
+    "bytes": 2826,
+    "sha256": "3c3ea6e2e6654a34b14b376455247e4c65bc14805a3787fb4fbe20eceefbcdbe"
+  },
+  {
+    "source": "centered-two-eliminated-rational-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-eliminated-rational-run.json",
+    "bytes": 184,
+    "sha256": "c10749f4b44b4f439df258f7c0ae0f50041e75b2bdc05928471b9e2e66d17c01"
+  },
+  {
+    "source": "centered-two-natural-rational-la1-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-la1-f4.log",
+    "bytes": 3028,
+    "sha256": "825e8c63a264b138762410d4b39216889892ff0bd469c3fe56a981ab70e3021c"
+  },
+  {
+    "source": "centered-two-natural-rational-la1-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-natural-rational-la1-run.json",
+    "bytes": 185,
+    "sha256": "0173a95a0713179c227ba8b1795c7b3d13c90717b984c361d6a1aeb12f5dd792"
+  },
+  {
+    "source": "centered-two-coordinate-0-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational.msolve",
+    "bytes": 2259,
+    "sha256": "e201d6b6bdadb7084a93dd9e5847e79000e0cb3008e99ccc143dab3093838941"
+  },
+  {
+    "source": "centered-two-coordinate-1-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-1-rational.msolve",
+    "bytes": 1914,
+    "sha256": "82933d2b646a9a59f4e0a86c042ff3597349e20596d6f5ff6e9ff888a783cb0f"
+  },
+  {
+    "source": "centered-two-coordinate-2-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational.msolve",
+    "bytes": 2012,
+    "sha256": "d2437a373c460b211f5e2839cc4d9e65fcd3990bd7d771eb08c699ef0e4b8f68"
+  },
+  {
+    "source": "centered-two-coordinate-3-rational.msolve",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational.msolve",
+    "bytes": 2061,
+    "sha256": "c113091b91ce5885d0214a250285785e5ca27321649069e634552b65798f784f"
+  },
+  {
+    "source": "centered-two-coordinate-0-rational-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational-f4.log",
+    "bytes": 2220,
+    "sha256": "a710f58bc43a05447b568de35ad6e277e53170c3e04773f3315537d4cabd20c4"
+  },
+  {
+    "source": "centered-two-coordinate-0-rational-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-0-rational-run.json",
+    "bytes": 176,
+    "sha256": "b9afeb04976414771c143222684a2f5efa7643c1036b56c7fff0f6965a3d241f"
+  },
+  {
+    "source": "centered-two-direct-elab.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-elab.log",
+    "bytes": 4608,
+    "sha256": "fc5f02959ffe38c4a27d7ac4b32efede5427ef99dd00a371ee0b5e159df46ad1"
+  },
+  {
+    "source": "centered-two-direct-elab-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-elab-run.json",
+    "bytes": 194,
+    "sha256": "5d0345c0e5200ec4b282d3797a124c8581ca56278f66f4a839a536987363aa69"
+  },
+  {
+    "source": "centered-two-direct-complex-1000000steps.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-1000000steps.log",
+    "bytes": 279028,
+    "sha256": "71f8e153a90b0727c18c4d354226d3c0c2f2b4fd1ef623dc05191d9a27c15242"
+  },
+  {
+    "source": "centered-two-direct-complex-1000000steps-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-1000000steps-run.json",
+    "bytes": 195,
+    "sha256": "9cf90d3aa47ac4bca1dbc70cc02b1d59adf09bdbc79e62468bdcb3d2de6d5f0d"
+  },
+  {
+    "source": "centered-two-direct-complex-100000000steps.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-100000000steps.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "centered-two-direct-complex-100000000steps-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-complex-100000000steps-run.json",
+    "bytes": 197,
+    "sha256": "c3e75e608d0d5fb79b7f2fcb0ef700972621ea40aa8a060dcf857bf08fa719c7"
+  },
+  {
+    "source": "centered-two-direct-eliminated-5000000steps.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-eliminated-5000000steps.log",
+    "bytes": 196,
+    "sha256": "48bc2200174632932b9ea98fd0a0c30e6dc353ce535531045f1c7efc7b79940a"
+  },
+  {
+    "source": "centered-two-direct-eliminated-5000000steps-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct-eliminated-5000000steps-run.json",
+    "bytes": 197,
+    "sha256": "035f29e87225a0bde9edafafed0209e2f34287832df3bd01a7bfb741c192dec7"
+  },
+  {
+    "source": "CenteredTwoChartNatural.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoChartNatural.lean.txt",
+    "bytes": 34867,
+    "sha256": "76bc6ca5189ef872b55d99e7eb9e8b5030f9595697d53fc14f33efb99bf1d67e"
+  },
+  {
+    "source": "CenteredTwoChartEliminated.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoChartEliminated.lean.txt",
+    "bytes": 54942,
+    "sha256": "19cc50cef4fe15e05ce331ff5d5b1d66fc3e0d15ba05678fcbe9d7be89a78b91"
+  },
+  {
+    "source": "CenteredTwoElabTyped.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoElabTyped.lean.txt",
+    "bytes": 34784,
+    "sha256": "98e06c17bb8cecaa5c4bfe1955e206ee8267f4805e7578f6a22631a592f6e2e1"
+  },
+  {
+    "source": "CenteredTwoMixed2.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoMixed2.lean.txt",
+    "bytes": 7914,
+    "sha256": "5197f83901808574ea9888beeff6b9143268a8989128d20db70727d14075078b"
+  },
+  {
+    "source": "centered-two-coordinate-2-rational-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-f4.log",
+    "bytes": 4394,
+    "sha256": "05d88e8ead74971089390cde8c773021b35d9acbd4cc5440bb62f86104e456aa"
+  },
+  {
+    "source": "centered-two-coordinate-2-rational-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-run.json",
+    "bytes": 176,
+    "sha256": "f0a3218015234cf9a044bbe454de4515d6f5dde7334323c2fe702eda01747a77"
+  },
+  {
+    "source": "centered-two-coordinate-3-rational-f4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational-f4.log",
+    "bytes": 2321,
+    "sha256": "a34f056379b6d9c79957d09196652c0543d721f52ed499afb55ee9a76faf31c8"
+  },
+  {
+    "source": "centered-two-coordinate-3-rational-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-3-rational-run.json",
+    "bytes": 176,
+    "sha256": "a4c3c28a12309a58e2e698ffb741ba7ad1dfda6471783aaa6a4567482ca17927"
+  },
+  {
+    "source": "centered-two-coordinate-2-rational-basis.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-coordinate-2-rational-basis.json",
+    "bytes": 189,
+    "sha256": "ed91a4b7720c5b905549d76c4ca6db25c3249a69cee94c4f45e9745eea99279a"
+  },
+  {
+    "source": "centered_two_direct4_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_direct4_run.py",
+    "bytes": 2342,
+    "sha256": "bbf6adea0c88ffe9c2048c121501f446a45d9b42cdc545a286bdbad86eaad393"
+  },
+  {
+    "source": "centered-two-direct4-complex.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct4-complex.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "centered-two-direct4-complex-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct4-complex-run.json",
+    "bytes": 196,
+    "sha256": "f5501016a33be67b111fd9f78d94e1b5f1f1190c66e5ca4b1d27e33173a857fe"
+  }
+]
