@@ -1,0 +1,161 @@
+[
+  {
+    "mask": 0,
+    "kept": [],
+    "nonempty": false,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 1,
+    "kept": [
+      "p"
+    ],
+    "nonempty": false,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 2,
+    "kept": [
+      "r"
+    ],
+    "nonempty": false,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 3,
+    "kept": [
+      "p",
+      "r"
+    ],
+    "nonempty": false,
+    "junk_count": 1,
+    "exact": true
+  },
+  {
+    "mask": 4,
+    "kept": [
+      "q"
+    ],
+    "nonempty": false,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 5,
+    "kept": [
+      "p",
+      "q"
+    ],
+    "nonempty": true,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 6,
+    "kept": [
+      "r",
+      "q"
+    ],
+    "nonempty": false,
+    "junk_count": 1,
+    "exact": true
+  },
+  {
+    "mask": 7,
+    "kept": [
+      "p",
+      "r",
+      "q"
+    ],
+    "nonempty": true,
+    "junk_count": 2,
+    "exact": true
+  },
+  {
+    "mask": 8,
+    "kept": [
+      "s"
+    ],
+    "nonempty": false,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 9,
+    "kept": [
+      "p",
+      "s"
+    ],
+    "nonempty": false,
+    "junk_count": 1,
+    "exact": true
+  },
+  {
+    "mask": 10,
+    "kept": [
+      "r",
+      "s"
+    ],
+    "nonempty": true,
+    "junk_count": 0,
+    "exact": true
+  },
+  {
+    "mask": 11,
+    "kept": [
+      "p",
+      "r",
+      "s"
+    ],
+    "nonempty": true,
+    "junk_count": 2,
+    "exact": true
+  },
+  {
+    "mask": 12,
+    "kept": [
+      "q",
+      "s"
+    ],
+    "nonempty": false,
+    "junk_count": 1,
+    "exact": true
+  },
+  {
+    "mask": 13,
+    "kept": [
+      "p",
+      "q",
+      "s"
+    ],
+    "nonempty": true,
+    "junk_count": 2,
+    "exact": true
+  },
+  {
+    "mask": 14,
+    "kept": [
+      "r",
+      "q",
+      "s"
+    ],
+    "nonempty": true,
+    "junk_count": 2,
+    "exact": true
+  },
+  {
+    "mask": 15,
+    "kept": [
+      "p",
+      "r",
+      "q",
+      "s"
+    ],
+    "nonempty": true,
+    "junk_count": 2,
+    "exact": true
+  }
+]
