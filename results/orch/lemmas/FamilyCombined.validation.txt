@@ -1,0 +1,39 @@
+FamilyCombined.lean compilation
+UTC: 2026-11-25T12:48:56.425146+00:00
+Exit code: 0
+Lines: 771
+SHA256: bdf9e2904a2634f69cf23680c023a01b31a4aba5b6903526879727220799f07b
+Command: tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean
+Result: checked star-cover-to-read1 replacement bridge; not a proof of the full posted statement.
+
+Complete stdout:
+/workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean:226:46: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean:236:10: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean:341:17: warning: This simp argument is unused:
+  hjb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hjp, hpb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean:468:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FamilyCombined.lean:471:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+
+Complete stderr:

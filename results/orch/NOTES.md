@@ -171,3 +171,11 @@ Third search family: cyclic8×8 incidence offsets0,1,3 (Möbius–Kantor8_3),24e
 ## 2026-11-25T12:48:20.362852+00:00 clean-case read1 checked
 
 CleanReadOne.lean compiled with exit0 and empty logs. It proves IsAO2 plus TopForm plus empty junk implies ReadK1, then chooses the same circuit for the incidence replacement conclusion. Empty junk is a sufficient hypothesis, not shown equivalent to the original task or necessary for read1. Full general dirty-AND case remains open here.
+
+## Construction route — 2026-11-25T12:48:56.425146+00:00
+
+`results/orch/lemmas/FamilyCombined.lean` PASSED Lean compilation, exit 0. `PEqualNP.Outside.L_meta_2585.Merge.replacement_of_star_cover` consumes exactly the valid star-list, coverage, and cost hypotheses produced by L_meta_7649 and proves the full desired replacement conclusion. The proof copies each star circuit with shifted internal wires, ORs their outputs, proves read-vector preservation and READ-1 preservation under OR, and obtains exact cost sum(degrees)+number(stars)-1. This construction needs no C4 condition. Remaining full-goal obstacle: extract a sufficiently cheap star cover from an arbitrary mixed AO2 circuit with dirty AND gates. Complete compiler logs saved in `FamilyCombined.validation.txt`.
+
+## 2026-11-25T12:49:30.046903+00:00 integration and verification review
+
+Independent normalization-agent review passed GraphTests, IncidenceTests, ClosedIncidenceTests and MergeValid. For the 2251-line integration snapshot SHA256 98f250475f8a715ceb61a784c0de5f912d648b19b061e7477cd1ad4c98b02121, all six manifest source hashes and exact body concatenation matched; no forbidden features and no final target theorem were present. Later integrations need their own snapshot review.

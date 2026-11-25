@@ -6,7 +6,7 @@ Independent red-team review: status_review passed semantics and format.
 The full posted statement has not been proved. No proof PR is ready.
 Local checker not yet applicable: final theorem absent.
 Sub-agents: six (toolchain/review, direct proof, independent bound, counterexample search, construction, normalization)
-TIMING total=25 subagents=6
+TIMING total=30 subagents=6
 
 RelCount.lean: lake env lean exit 0; empty complete logs saved. Independent review passed.
 
@@ -30,3 +30,6 @@ Checker did not judge the full statement. Cleanup pass skipped because checker c
 Additional checked and independently reviewed artifacts: extended Multilinear, MergeValid, CleanTopForm, CircuitMonotone, ClosedIncidenceTests. CycleSix is a kernel-decided known upper-bound example; root inspected its exact explicit circuit and source format. Full statement remains unproved.
 
 HigherDirty.lean: lake env lean exit 0, empty complete logs; independent root source review passed. Computational search programs and completed logs preserved with snapshot hashes; no target counterexample.
+
+FamilyCombined.lean: lake env lean exit 0; independent exact-source review passed. General star-cover replacement requires explicit shape, coverage, and cost hypotheses.
+CleanReadOne.lean: lake env lean exit 0; independent exact-source review passed. TopForm plus no dirty AND gates suffices for read-1 and conditional replacement. Neither result establishes those hypotheses for every posted input circuit. Full logs retained in each validation artifact.

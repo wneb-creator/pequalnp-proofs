@@ -1,0 +1,13 @@
+Partial validation
+UTC: 2026-11-25T12:48:20.362852+00:00
+Source: results/orch/lemmas/CleanReadOne.lean
+SHA256: 3fe01e8f253ad27690d59d754d6d69ed7c514088970e3cf13a8ac76cd8845407
+Lines: 629
+Command: lake env lean ../results/orch/lemmas/CleanReadOne.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent reviewer: proof_route pending
+Full gap theorem: not proved; conditional on TopForm and empty junk.
+Assembly note: includes Multilinear, CleanTopForm, CleanJunk and CleanReadOneBody.

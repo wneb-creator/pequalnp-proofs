@@ -1,0 +1,12 @@
+Partial validation
+UTC: 2026-11-25T12:46:22.946288+00:00
+Source: results/orch/lemmas/CleanJunk.lean
+SHA256: 4b7c78a64dae81e58321e06b7b949cdb52e79d7c4d361d0d49dc4d18b63d89cc
+Lines: 21
+Command: lake env lean ../results/orch/lemmas/CleanJunk.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent reviewer: proof_route pending
+Full gap theorem: not proved by this partial.
