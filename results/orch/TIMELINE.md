@@ -22,3 +22,9 @@
 - 2026-11-25T10:20:40.672566+00:00 geometry_route: launched improved row-sum graph F4 (18 variables, 31 equations, mod 97), LA44, batch 2048, two threads, 6 GiB address limit, 3600 s CPU/wall caps; safe round-boundary checkpoints every 300 s and save-stop margin 300 s. Checkpoints are partial ideal generators, never a GB verdict.
 
 - 2026-11-25T10:24:16.585922+00:00: RankOne.lean compiled, independently approved; preserving checked partial. Target unresolved.
+
+- 2026-11-25T10:26:02.442145+00:00 geometry_route: improved row-sum F4 stopped PARTIAL after321.7s at its first checkpoint; checkpoint_write_failed=true, no snapshot produced. Full diagnostics preserved. Failure cause under investigation, likely512MiB uncompressed checkpoint cap; no mathematical verdict.
+
+- 2026-11-25T10:29:46.832935+00:00 geometry_route: launched improved rowgraph F4 with bounded subset checkpoints. LA44/t2/batch2048,6GiB address limit,3600s CPU/wall,120s checkpoint interval,512MiB conservative whole-polynomial subset budget; root lease renewed10:29:34,expires10:49:34.619.
+
+- 2026-11-25T10:30:50.809249+00:00: Diagonal.lean compiled and independently reviewed; preserving partial for the boundary argument.

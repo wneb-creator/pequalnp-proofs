@@ -94,3 +94,8 @@ Sub-agents: construction_algebra, construction_search, geometry_route, three_pla
 TIMING total=108.6 subagents=7
 
 2026-11-25T10:25:12.084438+00:00 Independent CAS archive review: rules_review approved210 files (174 algebra,36 three_plane),1664896bytes; hashes in new-cas-archive-review.json. These are explicitly supplementary computational diagnostics, not target Lean proofs.
+
+2026-11-25T10:30:50.809249+00:00 Diagonal.lean: compilation exit0 in4.53s; complete stdout/stderr is empty in lemmas/diagonal-build.log.
+Command: lake env lean --threads=1 --memory=3000 ../results/orch/lemmas/Diagonal.lean (pinned Lean4.36.0, documented task environment).
+SHA256 5ade3e3d5394381f0ec2842cbabad4b8cab0d3190e895bcef478a5af0559e0ab;70lines. Independent exact-source review: rules_review approved.
+Scope: per(J+z·diag(u))=24 for all complexz impliesu=0. Partial only; target unresolved, no target checker verdict.
