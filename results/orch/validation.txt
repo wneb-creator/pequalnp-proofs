@@ -26,3 +26,5 @@ Boundary.lean: lake env lean passed, exit0;77 lines. Maximal-independent-set bou
 BipartiteBoundary.lean: lake env lean passed, exit0;37 lines. Saturated point-subset boundary completeness.
 Distributed.lean v3: lake env lean passed, exit0;223 lines. Added legal topology and vanishing linear output; independent review passed.
 Computational65-gate witness and64-gate near-miss independently verified on all52 positive edges and8192 canonical negative inputs. Neither settles the posted64-gate gap.
+
+PureClause.lean: lake env lean passed, exit0;45 lines, no output. Pure disjunctions are meet-irreducible among monotone functions; independent review passed.

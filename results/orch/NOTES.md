@@ -82,3 +82,15 @@ Searches active: three64-gate fullplane variants (seeds64,65,66), plus independe
 - Official Lean4.36.0 installed under job scratch. Targeted authentic Mathlib cache downloaded successfully; full PEqualNP.Defs and checklemma executable builds passed. No Mathlib source build performed.
 - Full checker runtime imports all Mathlib, whose complete artifact closure exceeded the7.9GB filesystem. Targeted cache supports direct Lean checks only. A compressed FUSE storage test was refused by the OS (Operation not permitted); stopped with no mount and no memory-backed storage changes. Exact setup logs and limitations are in scratch toolchain-validation.txt.
 - A second independent scalar circuit evaluator tested all52positive edges and all8192 negative assignments maximal for a fixed point subset. The65-gate artifact is exact with13AND+52OR; the64-gate artifact has13AND+51OR and misses only edge(8,8). Both have distinct earlier operands and both directional derivatives false. No false-positive negative rows were found. SHA256 and full results are in scratch independent-circuit-review.json. This is computational validation, not a Lean proof of the target.
+
+### Checked structural v2 at 2026-11-25T03:25:45.918628+00:00
+
+`Structural.lean` now additionally proves every complete-rectangle cover needs at least 13 blocks. If 13 blocks are indexed so block i contains the diagonal incidence (i,i), all blocks are exactly the full point stars, or all are exactly the full line stars. Direct Lean exit 0, log `structural-build-v2.log`; 255 lines.
+
+Gate-elimination caveat: counting duplicate wire functions on a face is insufficient for the desired nine-gate reduction. Ordinary 64-gate star circuits lose six distinct wire functions on an incident-endpoint face; two more fresh OR helper gates become unused. Garbage collection / semantic rewriting must be included in the reduction.
+
+## Root research and re-plan
+
+Read2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, says: “We therefore need entirely new lower bound arguments for monotone circuits computing quadratic functions.” Generic single-level normalization is false; no source checked establishes the specific order3 bound. An arbitrary-circuit ORcount51 or ANDcount13 claim remains UNVERIFIED because no proof or complete finite certificate has been found.
+
+Root conjectural elimination route for the13 pure-OR outputs only: eliminate the latest AND; if it feeds one output, choose a child below that output clause; if multiple outputs, pairwise intersection≤1 allows preserving singleton values with at most one input wire. This is not yet a formal circuit transformation and does not settle the single-output incidence gap.

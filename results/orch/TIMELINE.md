@@ -19,3 +19,6 @@
 2026-11-25T03:21:31.121085+00:00 Structural.lean v2 compiled; independent review passed.
 
 2026-11-25T03:24:42.182631+00:00 Boundary certificates and strengthened distributed wrapper compiled and independently reviewed; computational artifacts archived.
+2026-11-25T03:25:45.918628+00:00 structural v2 (rectangle-cover lower bound and rigidity) compiled; full-circuit gate elimination remains unresolved.
+
+2026-11-25T03:26:54.300573+00:00 Re-plan: generic normalization and unconditional gate-count shortcuts unsupported; AND-count12 SAT timed out. Prioritize exact local repair, explicit65-gate boundary certificate, and semantic gate-deletion/OR-family arguments. All checked partials preserved.
