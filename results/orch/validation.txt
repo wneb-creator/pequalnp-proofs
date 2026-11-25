@@ -12,3 +12,6 @@ TIMING total=14.1 subagents=5
 
 Additional auxiliary lemma: BenchWords.lean. Independent raw Lean4.36 compilation exit0; stdout/stderr empty.
 SHA256: e37b8799a6f11e4a5a9975d79b85ca8ede8057bf32e506fa06c4c0fd1f207bbf
+
+Packed-panel application identity also independently reviewed and compiled with exit0; stdout/stderr empty.
+Updated BenchWords SHA256: c712b1090b7f08201a9635cabd9244acf085b3f86ff840b6ce38e671f3ec64ab

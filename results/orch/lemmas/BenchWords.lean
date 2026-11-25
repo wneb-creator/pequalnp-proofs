@@ -20,3 +20,14 @@ noncomputable def forced {β : Type} (ws : List Sig) (f : List Sig → β) :=
   forceMap BitVec.toNat ws fun ns => f (ns.map (BitVec.ofNat 512))
 theorem forced_eq {β : Type} (ws : List Sig) (f : List Sig → β) : forced ws f = f ws := by
   rw [forced,forceMap_eq,sigs]
+
+noncomputable def panelShape (ws : List Sig) (f : List Sig → Bool) :=
+  forceMap BitVec.toNat ws fun ns =>
+  let ws := ns.map (BitVec.ofNat 512)
+  f ws
+theorem panelShape_sound {ws f} (ok : panelShape ws f=true) : f ws=true := by
+  have e : (ws.map BitVec.toNat).map (BitVec.ofNat 512)=ws := by
+    simp only [List.map_map,Function.comp_def,BitVec.ofNat_toNat,BitVec.setWidth_eq,List.map_id']
+  unfold panelShape at ok
+  rw [forceMap_eq,e] at ok
+  exact ok
