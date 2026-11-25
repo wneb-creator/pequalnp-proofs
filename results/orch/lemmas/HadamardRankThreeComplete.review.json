@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "file": "/tmp/oec/pequalnp-pilot-78/hadamard_bridge/HadamardRankBody.lean",
+      "sha256": "ae3c7849fb39d19c66839aa2a3a3d6880e32c6ec88a2f17e538b634da1c0815a",
+      "lines": 56
+    },
+    {
+      "file": "/tmp/oec/pequalnp-pilot-78/hadamard_bridge/HadamardBasisBody.lean",
+      "sha256": "eb9b69382db28cd52f42ef64697742065926f911a3e2c0a7140caf278ab7bf90",
+      "lines": 120
+    },
+    {
+      "file": "/tmp/oec/pequalnp-pilot-78/hadamard_bridge/HadamardFamilyBody.lean",
+      "sha256": "998f5df241560e6da9fd46ee42215be09c3c05263a908316be91a8d8403e9514",
+      "lines": 39
+    }
+  ],
+  "independent_coordinate_swap_checks": 20,
+  "scope": "Independent source, mathematical, convention and format review only; no rebuild. No CAS feasibility premise or final posted theorem added.",
+  "findings": [
+    "Full diagonal-image rank implies diagonal restriction injective by rank-nullity. D=0 gives constant diagonal, the checked equal-diagonal lemma gives zero diagonal, hence D restriction injective.",
+    "For dimension three, the injective D map to C^3 is surjective. Preimages of the three standard coordinate vectors are available.",
+    "If the third trace is zero, a leaf swap moves any nonzero first or second trace to the third while restoring the D-standard basis order. If every trace is zero, no division is performed.",
+    "Subtracting trace multiples of the third basis vector makes the first two vectors trace zero, with D images (1,0,k),(0,1,l),(0,0,1).",
+    "Linear reconstruction gives the exact valid family D=(s,t,k*s+l*t+u); trace(B_A)=trace(B_B)=0 follows from tangent-sum zero and trace preservation."
+  ]
+}

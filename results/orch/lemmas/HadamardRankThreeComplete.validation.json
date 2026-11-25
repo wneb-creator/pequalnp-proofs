@@ -1,0 +1,9 @@
+{
+  "source_sha256": "61dcf9391cf85a98b130ac5ac5155fff2526e1635c2abdaa40fa9dd5259feb84",
+  "lines": 366,
+  "build_exit": 0,
+  "stdout_bytes": 457,
+  "stderr_bytes": 105,
+  "review": "PASS: exact reviewed HadamardCoordinates prefix plus geometry_search/rowzero/hadamard-rank-family-independent-review.json",
+  "scope": "Unconditional necessary incidence-family parameterization of every valid symmetric3D flat with diagonal-image rank3. The trace-zero pair has D=(s,t,ks+lt), third direction D=(0,0,1), and B-coordinate sums for the pair are zero. No CAS infeasibility assumption and no global proof/refutation."
+}
