@@ -1,0 +1,6 @@
+L-meta-3457 partial: every remaining dirty AND serves two edges
+2026-11-25T01:50:50.939465+00:00
+SHA256 7dcb7d2c1fd67a19bddaede5210f8480caf0c8a9f515b5b420a38ce405fbb81e
+Lines 943
+Central lake env lean JointNormalizationV3.lean: exit 0, warnings only; full stdout/stderr preserved. Independent source review approved this exact hash.
+Combines zero-edge deletion and one-edge repair by induction on dirty AND positions. Preserves exact gate count, function, ReadsBack, Monotone2, singleton-cleanliness, and all original false wire values. Every resulting AND is clean on all nonincident cross pairs OR serves at least two distinct incident pairs. The latter alternative is still unresolved, so this is not the full posted statement.
