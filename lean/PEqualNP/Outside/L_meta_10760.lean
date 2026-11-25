@@ -5702,3 +5702,24 @@ lemma low47 : LowN roots target47 6 :=
 end SmallMissingFive
 
 end PEqualNP.Outside.L_meta_10760
+
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+lemma live_to_basic {u target k S} (h : Live u target k S) :
+    live basicOps target k S := by
+  induction h using Live.ind with
+  | stop hp => rfl
+  | @binary k U a b d hd ha hb hab hf tail ih =>
+    refine Or.inr ⟨a, by simp, b, by simp, hab, bin d a b, ?_, hf, U, rfl, ih⟩
+    rcases allowed_four hd with rfl | rfl | ⟨_,rfl⟩ | ⟨_,rfl⟩ <;>
+      simp [basicOps, ops, bin, BitVec.and_comm]
+
+lemma live_critical_coloring {u : Bool} {k : Nat} {target g : Sig} {S : Finset Sig}
+    (run : Live u g k S) (hg : g = target ∨ g = ~~~target) :
+    ∃ color : Sig → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b :=
+  live_criticalPair_coloring (live_to_basic run) hg
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
