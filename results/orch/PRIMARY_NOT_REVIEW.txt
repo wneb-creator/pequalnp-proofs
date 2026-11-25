@@ -1,0 +1,5 @@
+Independent root review: PASS for semantic supporting partial.
+SHA256: c6665a3ff0f42e1d7fc79b0552c40ed49521801a295f0264ee781bd7043be4c0
+For x_i=false the stated identity is G(x,true)=G(x,false) OR G(x,true), by monotonicity in the last argument. For x_i=true, monotonicity of f bounds G(x with i=false,true) by G(x,false), yielding equality. This uses exactly the stated assumptions and makes no gate-cost claim.
+Checked the constant-replacement example on all Boolean inputs; replacing byfalse fails atx=false,y=true, replacing bytrue fails atx=true,y=false.
+Lean exit0; complete empty logs retained. Plain tokens/imports/namespaces pass.

@@ -19,3 +19,6 @@ TIMING total=14.70 subagents=7
 
 read_once.lean: compile exit0; conditional slot-count lemma reviewed; full logs retained.
 TIMING total=16.53 subagents=7
+
+PrimaryNot.lean: compile exit0; semantic identity only, no cost bound.
+TIMING total=19.22 subagents=7

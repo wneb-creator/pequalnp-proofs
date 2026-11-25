@@ -7,3 +7,4 @@
 - 2026-11-25T14:11:53.929953+00:00: first partial pushed as 6ef052d00df3a446a4cefae475fb8217d4ffdd96; BinaryFloor.lean also compiled and independently reviewed.
 - 2026-11-25T14:14:51.744962+00:00: checked transitivity, pair-cofactor distinctions, NoFunnel, and independent4-set; independent review passed.
 - 2026-11-25T14:16:42.005897+00:00: read-once counting partial compiled and independently reviewed.
+- 2026-11-25T14:19:23.314643+00:00: primary-NOT semantic identity compiled and independently reviewed; no size-preserving elimination established.
