@@ -1,0 +1,5 @@
+Generic exact-one-NOT refinement CountedFirst.lean compiled: exit0,4.4516s,peak2828220KiB. This imports the previously checked original proof solely for existing helpers; integrated candidate still pending.
+All24 native first-gate certificates with t=[1] returned true; native checks are measurements, not substitute Lean proofs.
+Named final proof unchanged; official checker status remains FAULT/OOM without acceptance.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
+TIMING total=162 subagents=9
