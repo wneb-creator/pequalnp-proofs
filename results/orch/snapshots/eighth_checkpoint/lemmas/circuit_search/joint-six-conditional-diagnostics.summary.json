@@ -1,0 +1,19 @@
+{
+  "total": 289,
+  "applicable": 145,
+  "outside_scope": 144,
+  "forced_active_passing": 145,
+  "singletons_passing": 145,
+  "all_negative_kraft_passing": 73,
+  "current": {
+    "name": "current_best",
+    "ands": 6,
+    "false_boundary": 8,
+    "forced_active_failures": 0,
+    "forbidden_singleton_failures": 0,
+    "exceptional_singleton_conflict": false,
+    "all_negative_kraft_sum": 60,
+    "correct_negative_kraft_sum": 44,
+    "capacity": 64
+  }
+}

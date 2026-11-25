@@ -1,0 +1,7 @@
+# AND-skeleton OR assembly
+
+`assemble_and_skeleton.py` accepts the documented `inputs`, `and_gates[{left,right}]`, and `output` schema. Raw atoms are0..n-1 and prior-AND atoms n..n+k-1. Empty OR sets mean false and propagate symbolically; they never introduce an illegal constant gate. False final output is reported as unassembled.
+
+The tool computes bounded exact DNF functions for every original AND and OR cone. An OR child may be removed only when exact implication is proved by its prime terms. Greedy common-pair factoring creates shared union expressions over raw/prior-AND atoms; lazy emission asserts all atoms are available before use. Exact idempotence, duplicate/copy removal, optional DNF gate folding, and dead-cone cleanup preserve semantics. Every original cone and AND function is compared with its emitted function, and the final circuit is recomputed after cleanup. DNF computations exceeding the cap become unknown, with those semantic optimizations skipped and incomplete validation reported explicitly.
+
+The canonical13-AND plane skeleton calibrates to64 gates:13 AND and51 OR, with exactly52 desired minimal terms. Size≤63 and exact target DNF are separate report fields; no skeleton is presumed to satisfy the OR budget. In addition to hand fixtures,300 random bounded skeletons and every AND-prefix output were checked against independent exhaustive Boolean evaluation, including empty/dead/copy cases. Complete outputs are preserved in the adjacent validation logs.

@@ -1,0 +1,531 @@
+R_meta_1342_642.lean bytes 4911 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_1342_642
+R_meta_1342_701.lean bytes 3461 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.EdgeOwnership.edgeGraph PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_1342_701 PEqualNP.TopForm.junk
+R_meta_1774_583.lean bytes 4089 IMPORTS import PEqualNP.Defs
+COMMENT Select the first AND gate owning two disjoint edges. Its nonedge witness cannot propagate to the output through OR gates alone.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.Owns PEqualNP.MetaComplexity PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_1774_583 PEqualNP.TopForm PEqualNP.TopForm.NoFourCycle
+R_meta_1780_78.lean bytes 7096 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.GenericRejection PEqualNP.GenericRejection.incidenceFun PEqualNP.GenericRejection.incidenceInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_1780_78 PEqualNP.TopForm PEqualNP.TopForm.opnd
+R_meta_1782_1.lean bytes 4905 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT The step's bound Nq/100 factored through the cross-AND profile of the circuit: the accepted oversized input with every line sensitive forces Nq/200 cross AND gates, and each cross AND gate costs one gate beyond itself, so size is at least Nq/100. (plan reference: price a cross AND gate locally.)
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CrossAnd.crossCount PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_1782_1
+R_meta_1782_4.lean bytes 6359 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_1782_4
+R_meta_1969_41.lean bytes 5059 IMPORTS import PEqualNP.Defs
+COMMENT Normalize the first raw pair using incident-flag stabilizers of the Fano plane.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_1969_41 PEqualNP.TopForm PEqualNP.TopForm.opnd
+R_meta_1999_352.lean bytes 3997 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_1999_352
+R_meta_2076_317.lean bytes 3799 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.Outside.R_meta_2076_317 PEqualNP.TopForm
+R_meta_2215_37.lean bytes 12833 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_2215_37
+R_meta_2280_3.lean bytes 3926 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.or.eval PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_2280_3
+R_meta_2346_2.lean bytes 77899 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Eliminate non-edge first AND gates (shrinking size to at most 26, or at most 24 on AND collapse) and reduce edge first AND gates to four flag-stabilizer orbit representatives. Basic foldl helpers for Circuit.wires and linearParts Monotonicity of any IsAO2 14 circuit Equivalence between linearParts / lineSingle and the witness recurrence for IsAO2 14 circuits Output of C is in bounds and C has at least one gate Inspect operands of gate 0 Apply one of 13 automorphisms/correlations fixing {0, 7} to map {a0, b0} into the 4 orbit reps. Wire values of D match C under permutation fL Transfer the double re-read witness to D Substitute wire 14 := fals
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_2346_2 PEqualNP.ReadK PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_2346_217.lean bytes 25112 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_2346_217 PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_2379_694.lean bytes 32732 IMPORTS import PEqualNP.Defs
+COMMENT The raw-product sound case is proved inside this theorem. The residual case must have a gate whose two primary-variable sides contain a non-edge pair. Step 1: Collapse Monotone2 circuit C into a well-formed AndCountCircuit D0 of size equal to the AND-gate count of C. Step 2: Strip singleton-true gates from D0 to obtain D.
+REFS PEqualNP.AndCount.AndCountCircuit PEqualNP.AndCount.AndCountCircuit.sideTrue PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.and.eval PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CircuitLowerBounds.GateOp.or.eval PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_2379_694
+R_meta_2382_2.lean bytes 5842 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.edgeGraph PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.Outside.R_meta_2382_2 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN
+R_meta_2401_347.lean bytes 6465 IMPORTS import PEqualNP.Defs
+COMMENT The first seven lines carry the synthesis problem. Each of the six remaining lines can be appended as four incident point inputs joined by three OR gates, one AND with its line input and one OR with the preceding output.
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2401_347
+R_meta_2446_618.lean bytes 17710 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Refines the suffix reduction in PR 5377 by requiring effective reads of all ten suffix inputs. Out-of-range or ignored operands do not count.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2446_618
+R_meta_2446_682.lean bytes 7794 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Four OR cases share one premise. The OR of vertices zero and three is treated by the vertex-four restriction from R_meta_1675_403.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.Outside.R_meta_2446_682
+R_meta_2450_3.lean bytes 7073 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitMoves PEqualNP.CircuitMoves.eraseGate PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.HasStarProfile PEqualNP.EdgeOwnership.Owns PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2450_3
+R_meta_2590_491.lean bytes 5860 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_2590_491 PEqualNP.TopForm
+R_meta_2592_318.lean bytes 2093 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_2592_318
+R_meta_2600_17.lean bytes 3802 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.EdgeOwnership.EveryEdgeOwned PEqualNP.EdgeOwnership.HasStarProfile PEqualNP.EdgeOwnership.edgeGraph PEqualNP.Outside.R_meta_2600_17
+R_meta_2608_1.lean bytes 3174 IMPORTS import PEqualNP.Defs
+COMMENT A maximal negative is determined by its point bits, so the circuit search only needs the incidence pairs and the closed rows on thirteen point bits.
+REFS PEqualNP.BlindGate PEqualNP.BlindGate.wireValue PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.Outside.R_meta_2608_1 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_2619_84.lean bytes 4260 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Synthesize the two final AND operands on the edge and closed false rows. The other steps assemble the gate and extend the tests by monotonicity.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.Outside.R_meta_2619_84 PEqualNP.TopForm
+R_meta_2625_50.lean bytes 4150 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2625_50
+R_meta_2638_2.lean bytes 54914 IMPORTS import Mathlib.Combinatorics.SimpleGraph.DegreeSum; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_2638_2
+R_meta_2640_801.lean bytes 4693 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitMoves PEqualNP.CircuitMoves.eraseGate PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.IsMinimalCircuit PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2640_801
+R_meta_2658_412.lean bytes 6091 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT An AND gate is needed on a pair when forcing its wire low loses that edge. Repair the gates needed on at most one pair first. The other hypothesis concerns circuits in which every unsound AND gate is needed on two distinct pairs.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.NotPremium PEqualNP.Outside.R_meta_2658_412 PEqualNP.TopForm
+R_meta_2664_317.lean bytes 9183 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT The compiler gets one product slot per gate, with a second orientation and 94 extra side-OR gates per syntactic cross AND. Guard reuse is priced below. A monotone circuit correct on the incidence pairs and all independent sets computes incidence.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CrossAnd.crossCount PEqualNP.Defs PEqualNP.GenericRejection PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_2664_317 PEqualNP.SharedBlockCost
+R_meta_2708_701.lean bytes 7240 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_2708_701
+R_meta_3014_2.lean bytes 3795 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.Outside.R_meta_3014_2 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_3503_62.lean bytes 4944 IMPORTS import PEqualNP.Defs
+COMMENT Minimize size first, then the number of nested pairs of AND gates. In the typing obligation only the two monochromatic test inputs are needed.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.Outside.R_meta_3503_62 PEqualNP.TopForm
+R_meta_3527_615.lean bytes 45016 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Acyclic; import PEqualNP.Defs
+COMMENT The circuit pinning argument is adapted from TelkwevrIridium's Apache-2.0 proof R_meta_2872_312. A cycle keeps at least one edge after the pin, even when the pinned edge is a bridge. Erase gates one at a time on the zero restriction. Any false output of a removed gate can be redirected to the pinned input during this process.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_3527_615 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_3598_418.lean bytes 4232 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_3598_418
+R_meta_3698_1.lean bytes 7892 IMPORTS import Mathlib.Data.Set.Prod; import Mathlib.Data.Fintype.Card; import PEqualNP.Defs
+COMMENT Third cut of L-meta-3698 (at most three reductions per step): split the argument into a rectangular normal form for AO2 circuits (compile) and a counting lemma that derives the 24 * size bound from that normal form together with the plane axioms, the double re-read conditions and the heavy-wire property (count). The two earlier reductions (R_meta_3698_720, R_meta_3698_731) use different decompositions of the same argument.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_3698_1 PEqualNP.ReadK.lineSingle PEqualNP.TopForm.IsAO2
+R_meta_3773_791.lean bytes 8341 IMPORTS import Mathlib.Data.Nat.BinaryRec; import Mathlib.Data.List.Sublists; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.EdgeOwnership.pairInput PEqualNP.GenericRejection PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_3773_791
+R_meta_3775_733.lean bytes 4284 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Split the junk edges by a witness with at most four leaves. Each operand of a top takes the pair through an input, or through the two sides of one junk gate, or (when the other operand holds the input a) through a junk gate k with a or b on one side that reaches, on its other side, a junk gate h with the pair in its two sides. The first part holds in every least top-form circuit; the second part is the open case: the junk edges whose every witness has five or more leaves.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.Outside.R_meta_3775_733 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.junk
+R_meta_3783_487.lean bytes 7848 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_3783_487
+R_meta_3817_2.lean bytes 4555 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_3817_2
+R_meta_4011_812.lean bytes 3288 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.IsMinimalCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4011_812
+R_meta_4021_47.lean bytes 7099 IMPORTS import PEqualNP.Defs
+COMMENT If adding one input makes a wire true, either it reaches that wire through enabled gates or it reaches both operands of a conjunction in a true cone.
+REFS PEqualNP.BlindGate PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CircuitMoves.WireBelowOutput PEqualNP.Defs PEqualNP.HeptadCover PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4021_47 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.andPairs
+R_meta_4035_534.lean bytes 6469 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4035_534
+R_meta_4041_2.lean bytes 7386 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4041_2 PEqualNP.TopForm.IsAO2
+R_meta_4055_837.lean bytes 13119 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4055_837
+R_meta_4065_24.lean bytes 12383 IMPORTS import PEqualNP.Defs
+COMMENT Two distinct maximal negative inputs have different AND-operand signatures since their union contains an edge. The 24 signatures rule out four or fewer ANDs. The first search budget allows arbitrarily many ORs. The second has at most 14.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.gateOpDecEq PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4065_24 PEqualNP.ReadTwo.nAnd PEqualNP.ReadTwo.nOr PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4065_271.lean bytes 24794 IMPORTS import Mathlib.Data.List.Basic; import Mathlib.Tactic.Push; import PEqualNP.Defs
+COMMENT Two incomparable dirty ANDs below a clean AND have restricted behaviour on negative inputs. If they both fire on the same negative row, one pin of the clean gate is false. That pin contains neither dirty gate. It is a nonempty disjunction of inputs, so some input vertex forces it high. The other pin contains both dirty gates. On every negative row containing that vertex, both dirty gates must be false. Standalone proof of child one. Copy the declarations below into a fresh file with the same dependencies, inside a namespace of your choice. The wire and cone lemmas come from L_meta_1490 and L_meta_3756 through public upstream commits by willak
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4065_271 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4071_184.lean bytes 9038 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT The output wire is a gate: an input wire is false at the pair of point 0 and line 0 or at the pair of point 1 and line 1, and a wire past the last gate is false everywhere. A gate is an AND or an OR, so two cases remain, by the operation of the output gate.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4071_184
+R_meta_4079_731.lean bytes 4569 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Two junk gates: either the charge p = 2 Z + R is at least two, or the junk gates are nested in the normal form of the first statement (no centreless top, g read by h alone, h read by one gate m, and m the only OR gate outside Lambda that is not below F; every edge of U* makes g and h true). The first statement holds for every graph and is proved. In the normal form B = 3, so the second statement asks for at most three edges in U*. With p at least two, B is at least four and the third statement is the step for at least five edges in U*.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.edgeGraph PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.Outside.R_meta_4079_731 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN
+R_meta_4085_102.lean bytes 6244 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_4085_102
+R_meta_4117_1.lean bytes 16897 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Girth; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.IsMinimalCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4117_1
+R_meta_4117_17.lean bytes 4526 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Girth; import PEqualNP.Defs
+COMMENT Pinning an input turns each wire into a column of the restricted truth table. Constant columns propagate through later gates and repeated columns can reuse an earlier wire.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.LowMerge.wireVal PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.IsMinimalCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4117_17
+R_meta_4123_1.lean bytes 10573 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Paths; import Mathlib.Combinatorics.SimpleGraph.DeleteEdges; import Mathlib.Data.Fintype.EquivFin; import PEqualNP.Defs
+COMMENT two ends of a bad label pair would close a short cycle owner and other end of each edge
+REFS PEqualNP.CircuitLowerBounds.Circuit.eval PEqualNP.CircuitLowerBounds.Circuit.wires PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_4123_1
+R_meta_4123_718.lean bytes 11146 IMPORTS import PEqualNP.Defs
+COMMENT Positive leaves are evaluated as their input, independently of the unused literal sign. A cover fitting the budget gives a direct rectangle construction. The sparse negative inputs are the open neighborhoods of the singleton or edge columns with the column endpoints removed. They are independent by the two short-cycle exclusions.
+REFS PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4123_718
+R_meta_4123_835.lean bytes 3674 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_4123_835
+R_meta_4133_751.lean bytes 10643 IMPORTS import PEqualNP.Defs
+COMMENT For every exceptional partition the two edge sets require eight vertices when covered separately. The two budget inequalities would provide seven. The first premise is the checked gate count and cover bound of L-meta-1491. The second concerns the triangle on 5, 8, 9 and the edges 4-8 and 4-10.
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.edgeGraph PEqualNP.MetaComplexity.NestedCover.IsMinCover PEqualNP.MetaComplexity.tableIndex PEqualNP.Outside.R_meta_4133_751 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.NoFourCycle PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN PEqualNP.TopForm.tops
+R_meta_4143_1.lean bytes 5373 IMPORTS import PEqualNP.Defs
+COMMENT The completion child is proved locally by adapting Petr Smid's L_meta_4141, commit e2f8aa83db3f533e4788850587a657354b0039ee. It adds the three deleted point stars and restores their twelve incidences.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4143_1
+R_meta_4147_234.lean bytes 16256 IMPORTS import PEqualNP.Defs
+COMMENT The two involutions below act together on points and lines. Eighteen representatives suffice up to translation. Each step translates a previously reached representative, applies the involution, and translates back into the list. Translate one point to zero and order the other three by increasing value. The table indexes these triples in colexicographic order. An entry below 234 is thirteen times the representative index plus its translation. An entry at least 234 gives, after subtracting 234, a line containing three points. Relabeling each lost incident pair injects it into the loss set of the new circuit.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.GenericRejection PEqualNP.GenericRejection.RightOnIncidentPairs PEqualNP.GenericRejection.incidenceInput PEqualNP.HeptadCover PEqualNP.HeptadCover.IsQuadrangle PEqualNP.HeptadCover.incidences PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4147_234
+R_meta_4185_1.lean bytes 31280 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Cone characterization (for TopForm) Split on whether Ustar is nonempty
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.CoverPromise.IsVertexCover PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4185_1 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.NoFourCycle PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN PEqualNP.TopForm.tops
+R_meta_4191_640.lean bytes 14467 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT The wire-update lemma in the proof follows the checked L_meta_2804. The dense-case bound may use any fixed cutoff d >= 63. Peel vertices of degree at most d, then restore each removed edge with a binary AND and an OR.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4191_640 PEqualNP.ReadK PEqualNP.ReadK.IsReadK
+R_meta_4197_267.lean bytes 4127 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT A rectangle covers pairs of a positive incidence test and a rejected maximal independent input. Reusing an earlier rectangle shares the corresponding wire.
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4197_267
+R_meta_4201_1.lean bytes 29078 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.casesOn PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4201_1 PEqualNP.ReadK PEqualNP.TopForm
+R_meta_4201_731.lean bytes 2401 IMPORTS import Mathlib.Algebra.BigOperators.Group.Finset.Basic; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.casesOn PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4201_731
+R_meta_4201_777.lean bytes 2310 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.casesOn PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4201_777
+R_meta_4217_1.lean bytes 4435 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.fanoLines PEqualNP.CircuitMoves.eraseGate PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4217_1 PEqualNP.ReadTwo.fpl PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_4227_2.lean bytes 755 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.Outside.R_meta_4227_2
+R_meta_4237_41.lean bytes 3166 IMPORTS import PEqualNP.Defs
+COMMENT A maximum cut of the selected edges keeps at least half the edges incident to every vertex. The remaining circuit bound is needed only for bipartite sets of unowned edges.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.Owns PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4237_41
+R_meta_4289_350.lean bytes 20250 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT A gate-by-gate simulation lets the checked bounds L_meta_2862 and L_meta_5351, with normalization L_meta_4342, cover every order below 350. For the remaining orders the first exceptional gate is a strict intersection with at least three points. Every wire accepting two point singletons is false on at most one maximal single-line negative input. The first k gates implement exactly the first m+k set-valued wires. Positivity on flags and monotonicity transfer the promise to ordinary circuit inputs. A wire which accepts two point singletons can be false on at most one maximal single-line negative, since two distinct points determine a line. Choos
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.GenericRejection PEqualNP.GenericRejection.IsFalseInput PEqualNP.GenericRejection.RightOnIncidentPairs PEqualNP.GenericRejection.incidenceInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4289_350 PEqualNP.TopForm.IsAO2
+R_meta_4297_271.lean bytes 4268 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CircuitMoves.WireBelowOutput PEqualNP.Defs PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4297_271 PEqualNP.TopForm.IsAO2
+R_meta_4305_1.lean bytes 16628 IMPORTS import PEqualNP.Defs
+COMMENT Decompose non-rectangle AND gates below the output by whether each operand is point-only, line-only, or mixed; same-side ANDs are eliminated via monotonicity and soundness on 0 and 1 lines.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4305_1
+R_meta_4305_514.lean bytes 6211 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Peel the incidences that no rectangle gate inside the output explains: if the circuit were small, a nonempty core remains in which every point and every line keeps more than 12q/25 such incidences. The first statement is the peeling count, the second bounds the circuit by its dense core, now with only union and intersection gates, none of them empty.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4305_514
+R_meta_4316_817.lean bytes 4194 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4316_817
+R_meta_4328_874.lean bytes 6355 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4328_874
+R_meta_4330_17.lean bytes 8844 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4330_17
+R_meta_4332_214.lean bytes 3198 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4332_214
+R_meta_4340_1.lean bytes 4040 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4340_1
+R_meta_4340_2.lean bytes 48990 IMPORTS import PEqualNP.Defs
+COMMENT Helper 1: remove gate at index `idx` (whose value depends only on inputs 0..8) and place its value at wire 9! Step 1: simulate `pre`! At the boundary after pre + g0: Step 2: simulate `post`! Helper 2: Relabel inputs 0..8 by any automorphism σ of P9! Explicit Aut(P9) permutations (all 12 elements, as Fin 9 -> Fin 9) Main proof of L-meta-4340 from hNot, hFour, hOrb02, hOrb06! Prepend gate g_first = OR(x1.1, x1.2) to form 15-gate circuit C' on 9 inputs! Step 1: Eliminate ALL gates with g.op = .not and g.inputs.headD 9 < 9 via hNot (= L-meta-4338)! Step 2: Eliminate ALL input-OR gates in orbits (0,4), (4,6), (0,1), (0,3) via hFour! Step 3: Elimin
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4340_2
+R_meta_4346_619.lean bytes 6854 IMPORTS import PEqualNP.Defs
+COMMENT Choose a least circuit on the sparse inputs. Redundant gates can change proof-tree counts without changing any answer, so use the short-proof bound again after minimizing.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4346_619 PEqualNP.ReadK PEqualNP.ReadK.readVectors PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4387_238.lean bytes 16632 IMPORTS import Mathlib.Data.Fintype.Fin; import Mathlib.Tactic.FinCases
+COMMENT The two premises start after a representative first AND or OR gate. Each key pairs two columns in the original 17-entry bank, using base 17. Relabel the 58 test rows by Heawood graph symmetries fixing the extra input. Corresponding action on the input columns, including both constants. For each ordered pair the entry is 512 times a symmetry index plus a key. Transport the remainder of the computation through the chosen symmetry.
+REFS PEqualNP.Outside.R_meta_4387_238
+R_meta_4480_17.lean bytes 8850 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Pin every input outside the surviving edges low and test the largest remaining input. A gate reading a false wire there has a fixed operand throughout that restriction. The cover construction also suffices whenever the original circuit costs at least as much. The remaining least circuits beat every cover and expose few gates.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4480_17 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4480_51.lean bytes 5663 IMPORTS import PEqualNP.Defs
+COMMENT Deleting a pendant edge and its neighbour saves two gates, or three when that neighbour has another incident edge. This handles degrees one and two completely. The residual cost question only involves non-star graphs in which every leaf is attached to a hub.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4480_51 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4532_638.lean bytes 2800 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4532_638
+R_meta_4578_1.lean bytes 3389 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.GenericRejection PEqualNP.HeptadCover PEqualNP.MetaComplexity PEqualNP.Outside.R_meta_4578_1
+R_meta_4582_791.lean bytes 4939 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4582_791
+R_meta_4598_517.lean bytes 4379 IMPORTS import PEqualNP.Defs
+COMMENT A proper subset of the lines through a point has at most q lines. Outside the centre, every point reads the complement of one pencil line. These tests include the maximal negative input for each single line.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4598_517 PEqualNP.ReadK PEqualNP.ReadK.lineSingle PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4604_1.lean bytes 27634 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.HeptadCover PEqualNP.HeptadCover.incidences PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4604_1 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4614_1.lean bytes 6611 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Twelve edges at points 2, 4, 5 and 6 are the mask 2093504. The other nine edges are 3647. An 11-gate star circuit builds 3647. A 14-gate circuit for 2093504 finishes the witness.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4614_1
+R_meta_4649_517.lean bytes 8342 IMPORTS import PEqualNP.Defs
+COMMENT Only the first sixty columns require ordinary gate evaluation. The remaining two marks follow paths from input seven or input zero. At an AND gate the opposite operand must be on in the corresponding singleton column.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4649_517
+R_meta_4653_37.lean bytes 4173 IMPORTS import PEqualNP.Defs
+COMMENT On a vertex cover, start with the stars of its vertices and their subsets. One instruction joins two available edge sets and makes all subsets of their union available. Use the same list of instructions for every cover.
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4653_37
+R_meta_4661_517.lean bytes 7311 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Split on the average evidence per evidence point and evidence line together. support: every evidence point and every evidence line is read directly by an active gate, at distinct (gate, port) slots, so points plus lines are at most twice the active gates. It extends the checked line-side bound L-meta-3684 to both sides at once, and it is proved: a first differing gate between the pair input and the input with one side removed. dense: the remaining case, where the evidence is more than 22 times the number of evidence points plus evidence lines; the two 1894 bounds are kept only as their consequence 44 at most q (1894 points need q^2+q+1 at lea
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4661_517
+R_meta_4673_691.lean bytes 6662 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4673_691 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4684_830.lean bytes 6954 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.AndCount.AndCountCircuit PEqualNP.Defs PEqualNP.Outside.R_meta_4684_830
+R_meta_4691_9.lean bytes 45162 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4691_9 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_4693_2.lean bytes 39396 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Duality puts the singleton-true reread on the line side. Along its route to the output, an AND first blocks that singleton. Its other operand separates the cases.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4693_2 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_4693_3.lean bytes 3723 IMPORTS import PEqualNP.Defs
+COMMENT Rotate the point and line coordinates together in the two seven-bit blocks. The three positive representatives generate all incident pairs. The seven negative representatives generate all maximal inputs with no incidence.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4693_3 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_4727_1.lean bytes 3624 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.NotBracket.notCount PEqualNP.Outside.R_meta_4727_1
+R_meta_4785_642.lean bytes 10600 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or.eval PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4785_642
+R_meta_4789_521.lean bytes 4783 IMPORTS import PEqualNP.Defs
+COMMENT Select at least one rejecting pair for each of the collinear-triple rows. The first child shows these rows and the positive tests require twenty ORs.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4789_521
+R_meta_4811_638.lean bytes 5503 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.GenericRejection.incidenceInput PEqualNP.GenericRejection.zeroSet PEqualNP.HeptadCover.missLines PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.Outside.R_meta_4811_638
+R_meta_4813_1.lean bytes 7070 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.and.eval PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4813_1
+R_meta_4817_1.lean bytes 5185 IMPORTS import PEqualNP.Defs
+COMMENT The full Petersen lower bound at 19 gates rules out a 17-gate circuit together with one complemented extended input: add the AND and NOT input gates in front, producing a 19-gate circuit over the original ten inputs.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_4817_1
+R_meta_4825_1.lean bytes 3593 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.Gate.inputs PEqualNP.Defs PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4825_1 PEqualNP.ReadK.IsReadK PEqualNP.TopForm.IsAO2
+R_meta_4829_697.lean bytes 4343 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4829_697
+R_meta_4835_391.lean bytes 3368 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.edgeGraph PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4835_391 PEqualNP.ReadTwo PEqualNP.ReadTwo.wval PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN
+R_meta_4835_41.lean bytes 3756 IMPORTS import PEqualNP.Defs
+COMMENT The first junk AND sees only raw inputs through its two OR cones. The second may also see the first as an operand through one or both OR cones. Each number in the edge list encodes an edge as eleven times its first endpoint plus its second.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.edgeGraph PEqualNP.Outside.R_meta_4835_41 PEqualNP.ReadTwo PEqualNP.ReadTwo.wval PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN
+R_meta_4859_1.lean bytes 4579 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Girth; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitMoves PEqualNP.CircuitMoves.eraseGate PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.IsMinimalCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4859_1
+R_meta_4865_665.lean bytes 49308 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Charge the NOT rows and the third reads to the independent-set deficit, using cubic parity. Tabulate the actual wires. Each direct reader becomes a trivial or repeated row on its input's zero slice. Keep a row only when it adds a new function. The same sweep works after coordinate restriction. An unordered family is generable exactly when every proper subset admits a legal new row. The graph function and its zero slices reject the zero assignment, so constant true need not be stored. Charge each surviving slice function to its first occurrence; none can be charged to a direct reader. Only NOT outputs need be supplied as seeds to generate the 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4865_665
+R_meta_4869_1.lean bytes 4404 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Circuits already of size at least 64 are done. The remaining case is split on whether there are exactly two nested AND pairs, or at least three.
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.quadrangles PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_4869_1 PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.andPairs
+R_meta_4873_137.lean bytes 4985 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.BlindGate PEqualNP.BlindGate.wireValue PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.Outside.R_meta_4873_137 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4885_431.lean bytes 5968 IMPORTS import Mathlib.Tactic.Tauto; import PEqualNP.Defs
+COMMENT The four lines through point zero form the pencil. Removing them leaves nine lines and twelve points, the dual affine plane of order three. The shared input is the first gate, the disjunction of points zero and one.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_4885_431
+R_meta_4893_629.lean bytes 14054 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Seven point stars cover the union of two lines through the origin. The remaining six points sit on two rails of three. The other nine lines form a three by three grid. The boundary calculation supplies thirteen intermediate ORs at no extra cost. The general sorted-wire encoding hypothesis is shared with R_meta_4893_34.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_4893_629 PEqualNP.TopForm
+R_meta_4893_74.lean bytes 3826 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.GenericRejection.IsFalseInput PEqualNP.HeptadCover.singerLines3 PEqualNP.Outside.R_meta_4893_74
+R_meta_4895_1.lean bytes 2609 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4895_1 PEqualNP.ReadK.IsReadK PEqualNP.TopForm.IsAO2
+R_meta_4919_41.lean bytes 4626 IMPORTS import Mathlib.Order.Preorder.Finite; import PEqualNP.Defs
+COMMENT Seven selected points leave at most five lines disjoint from them. A candidate for the cached circuit is tested on the 105 flags and on maximal negative rows. The small side bound limits enumeration of those rows.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4919_41
+R_meta_4928_17.lean bytes 8485 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.Gate.inputs PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.SingleLevel.andDepths PEqualNP.Outside.R_meta_4928_17
+R_meta_4930_719.lean bytes 6237 IMPORTS import Mathlib.Data.List.GetD
+COMMENT 
+REFS PEqualNP.Outside.R_meta_4930_719
+R_meta_4936_731.lean bytes 10360 IMPORTS import PEqualNP.Defs
+COMMENT Forward-read simplification and its wire-table simulation follow R_meta_1673_1.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_4936_731
+R_meta_4949_1.lean bytes 5916 IMPORTS import Mathlib.Data.Set.Card; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.AndCount.AndCountCircuit PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.GenericRejection.IsGeneric PEqualNP.GenericRejection.IsMaximalFalse PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4949_1
+R_meta_4955_655.lean bytes 15687 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.HeptadCover.incidences PEqualNP.HeptadCover.quadrangles PEqualNP.HeptadCover.singerLines3 PEqualNP.HeptadCover.supp PEqualNP.Outside.R_meta_4955_655
+R_meta_4960_1.lean bytes 19728 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Assemble the zero-junk side of the coarse bound from a TopForm normal form, the 1491 charge, and emptiness of leftover edges when there is no junk AND. The remaining hypothesis is the same bound for already-normalized circuits that still have a junk gate.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4960_1 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4960_52.lean bytes 4151 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_4960_52 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_4966_319.lean bytes 17953 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_4966_319
+R_meta_5018_37.lean bytes 13938 IMPORTS import PEqualNP.Defs
+COMMENT Holding a second input fixed leaves a sensitive edge at v in the truth table. A masked sole reader preserves agreement at every wire other than v.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5018_37
+R_meta_5018_75.lean bytes 3523 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5018_75
+R_meta_5020_2.lean bytes 6264 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5020_2
+R_meta_5040_417.lean bytes 17772 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Circuit.eval PEqualNP.CircuitLowerBounds.Circuit.wires PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.and.eval PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CircuitLowerBounds.GateOp.or.eval PEqualNP.CircuitLowerBounds.HasLineDegree PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5040_417
+R_meta_5052_251.lean bytes 6518 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.Defs.LratEncoding PEqualNP.Defs.LratEncoding.FormulaSat PEqualNP.Defs.LratEncoding.enc2 PEqualNP.Defs.LratEncoding.enc2Cube PEqualNP.Defs.LratEncoding.enc2CubeCount PEqualNP.Outside.R_meta_5052_251
+R_meta_5060_52.lean bytes 10670 IMPORTS import PEqualNP.Defs
+COMMENT On a rejected input, either operand may be selected at an AND whose operands agree. Distinct independent inputs whose union contains an edge require disjoint sets of selections. The ten-vertex family forces at least 430 inputs on which fifteen gates have unequal operands.
+REFS PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit PEqualNP.Defs PEqualNP.Outside.R_meta_5060_52
+R_meta_5062_742.lean bytes 2786 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.AndCount.AndCountCircuit PEqualNP.Defs PEqualNP.Outside.R_meta_5062_742
+R_meta_5064_317.lean bytes 4212 IMPORTS import PEqualNP.Defs
+COMMENT Take three disjoint copies. At each matched edge incident to a leaf, choose one leaf endpoint, choosing the row when both are leaves. Feed its input in copy i from the OR of that input in copies i and i+1 modulo three. This adds one edge per added OR and raises every leaf degree. Each doubled matching edge lifts to a six-cycle. A rectangle projecting to two base edges would need both doubled edges to share a vertex, impossible for a matching. The graph child records this construction as a Boolean substitution identity. The circuit child implements the substitutions and joins the three outputs.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5064_317 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_5066_2.lean bytes 10216 IMPORTS import PEqualNP.Defs
+COMMENT The missing structural input is a charge from star edges and the matching to the other gates.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5066_2 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_5070_1.lean bytes 15264 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Monotonicity of the chosen history lets us compare any input with the designated negative row.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_5070_1
+R_meta_5114_1.lean bytes 2216 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Split the lower bound into the usual cover form of the charging lemma and the graph fact that, in this cubic bipartite setting, every vertex cover is at least half the vertices that are not isolated OR-inputs.
+REFS PEqualNP.Defs PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_5114_1
+R_meta_5114_642.lean bytes 6148 IMPORTS import Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.Defs PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_5114_642
+R_meta_5124_791.lean bytes 3368 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.Outside.R_meta_5124_791 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.orIn
+R_meta_5150_1.lean bytes 11969 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Reduction of L-meta-5150 to the Petersen graph with vertex 9 removed (on 9 inputs). h1: no circuit of at most 14 gates for it (the statement of L-meta-2012). h2: no circuit of exactly 15 gates for it. The proof: an automorphism of the Petersen graph sends the fixed vertex v to 9; renaming the inputs of a circuit along it (input v to a wire that reads false) gives a circuit on 9 inputs of the same size; a negated output costs one NOT gate. the edge function on 9 inputs, as in h1 and h2 automorphisms: row v sends v to 9 the step function of `Circuit.wires` the renaming of wires: input `w < 10` to `sg v w` (input `v` to `B`, which reads false), 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.HasCircuitSize PEqualNP.Outside.R_meta_5150_1
+R_meta_5150_379.lean bytes 11037 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.NotBracket.notCount PEqualNP.Outside.R_meta_5150_379
+R_meta_5152_801.lean bytes 4891 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.not PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.Outside.R_meta_5152_801
+R_meta_5182_1.lean bytes 6026 IMPORTS import PEqualNP.Defs
+COMMENT Match each outside vertex to a specific incident edge crossing X. The edge inside X is different from every matched edge.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.edgeGraph PEqualNP.Outside.R_meta_5182_1 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.junk PEqualNP.TopForm.lam PEqualNP.TopForm.orN
+R_meta_5198_651.lean bytes 8591 IMPORTS import Mathlib.Data.List.OfFn; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.HeptadCover PEqualNP.HeptadCover.IsQuadrangle PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5198_651
+R_meta_5200_791.lean bytes 10257 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.HeptadCover.IsQuadrangle PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5200_791
+R_meta_5202_73.lean bytes 6007 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.GenericRejection PEqualNP.HeptadCover PEqualNP.HeptadCover.IsQuadrangle PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5202_73
+R_meta_5208_1.lean bytes 34460 IMPORTS import PEqualNP.Defs
+COMMENT Cut L-meta-5208 into three sharper structural cases by extracting forced 3-AND and 4-AND chains: (1) k1 fires on singleton p13, forcing a cleaner AND gate k3 strictly between k1 and k2; (2) k1 is false on p13 and k2 fires on singleton p0, forcing a pair-born AND gate k0 below k1 and a cleaner AND gate k4 above k2 (a 4-AND chain k0 < k1 < k2 < k4); (3) both k1 and k2 are false on p0 and p13, forcing a pair-born AND gate k0 below k1 (a 3-AND chain k0 < k1 < k2 of strictly pair-active AND gates on p013). Wire evaluation helpers Cone evaluation helpers (zero simp on coneStep/cones/InCone!) Key Lemma 1 (Cleaner extraction): if InCone i m, gv i x =
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.coneStep PEqualNP.EdgeOwnership.cones PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5208_1 PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_5208_628.lean bytes 23291 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Remove the output gate. Redundant pins and unused suffixes give the smaller circuit. At a proper OR each pin has a private edge. At a proper AND each pin has a private maximal negative. Dirtiness also has a maximal negative witness. The four cyclic differences are exactly the roots of t^4 = t modulo thirteen. Wire monotonicity follows the gate induction in LowMergeWires. The cone recurrence follows the parent reduction R_meta_2071_319. It places the inner marked gate strictly before the outer one, so deleting the last gate preserves it.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5208_628 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_5210_1.lean bytes 8189 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5210_1 PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.opnd
+R_meta_5210_2.lean bytes 8186 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge.IsDirtyAnd PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5210_2 PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.junk PEqualNP.TopForm.opnd
+R_meta_5234_1.lean bytes 57229 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.IsMonotoneCircuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MinimumComplex PEqualNP.MinimumComplex.Strict PEqualNP.NotBracket PEqualNP.NotBracket.notCount PEqualNP.Outside.R_meta_5234_1
+R_meta_5236_593.lean bytes 3519 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.NotBracket PEqualNP.NotBracket.notCount PEqualNP.Outside.R_meta_5236_593
+R_meta_5236_71.lean bytes 15603 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.NotBracket PEqualNP.NotBracket.notCount PEqualNP.Outside.R_meta_5236_71
+R_meta_5244_137.lean bytes 2409 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.Outside.R_meta_5244_137 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.junk
+R_meta_5244_2.lean bytes 30958 IMPORTS import PEqualNP.Defs
+COMMENT OR closure helpers Every edge in Ustar fires at least one junk AND gate! Prove ∃ j ∈ junk G C, e ∈ gammaE G C j
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.and.eval PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CircuitLowerBounds.GateOp.or.eval PEqualNP.CleanedNonEdge.OrReaches PEqualNP.CleanedNonEdge.wireVal PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.MetaComplexity.NestedCover.gateOpDecEq PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.Outside.R_meta_5244_2 PEqualNP.TopForm.BelowF PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.gammaE PEqualNP.TopForm.gatesWhere PEqualNP.TopForm.junk PEqualNP.TopForm.opnd PEqualNP.TopForm.orIn PEqualNP.TopForm.starEdges PEqualNP.TopForm.tops
+R_meta_5256_617.lean bytes 5837 IMPORTS import Mathlib.Data.List.GetD; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5256_617
+R_meta_5256_64.lean bytes 5057 IMPORTS import PEqualNP.Defs
+COMMENT Separate removing false positives at AND gates, extending the quadrangle tests, and counting the gates of a circuit that is clean on all independent inputs.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5256_64 PEqualNP.TopForm
+R_meta_5258_706.lean bytes 13791 IMPORTS import PEqualNP.Defs
+COMMENT A pair of outputs is valid when its accepted quadrangles are nonempty and disjoint. Lowering a wire preserves disjointness. Bypassing an AND preserves all positive tests and keeps at least one accepted quadrangle at each output.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitMoves PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.GenericRejection PEqualNP.HeptadCover PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5258_706
+R_meta_5260_17.lean bytes 5310 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5260_17
+R_meta_5260_3.lean bytes 7999 IMPORTS import PEqualNP.Defs
+COMMENT Without nested AND gates, every accepting wire has a witness on at most two inputs. Two such witnesses conflict precisely when their union extends to a quadrangle support.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.InCone PEqualNP.GenericRejection PEqualNP.HeptadCover PEqualNP.HeptadCover.IsQuadrangle PEqualNP.HeptadCover.missLines PEqualNP.HeptadCover.singerLines3 PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_5260_3
+R_meta_5264_317.lean bytes 18845 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_5264_317 PEqualNP.TopForm PEqualNP.TopForm.IsAO2 PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.centreless PEqualNP.TopForm.gammaE PEqualNP.TopForm.opnd PEqualNP.TopForm.orIn PEqualNP.TopForm.side PEqualNP.TopForm.tops
+R_meta_5270_17.lean bytes 10277 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.Gate.inputs PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.Outside.R_meta_5270_17
+R_meta_5282_1.lean bytes 4210 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.Outside.R_meta_5282_1
+R_meta_5284_263.lean bytes 21164 IMPORTS import PEqualNP.Defs
+COMMENT The cover estimate and construction are the statements of L_meta_4767 and L_meta_4320. The remaining exchange only concerns a circuit with both obstructions. The wire evaluation and OR argument follow R_meta_1904_493.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Circuit.eval PEqualNP.CircuitLowerBounds.Circuit.wires PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.CleanedNonEdge PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_5284_263 PEqualNP.PairShadow PEqualNP.TopForm PEqualNP.TopForm.NoFourCycle PEqualNP.TopForm.gammaE PEqualNP.TopForm.junk
+R_meta_5306_114.lean bytes 2939 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.HasLineDegree PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5306_114
+R_meta_5306_17.lean bytes 7087 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.HasLineDegree PEqualNP.Defs PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5306_17
+R_meta_5330_917.lean bytes 5452 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.OrReaches PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.Outside.R_meta_5330_917 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.junk PEqualNP.TopForm.opnd PEqualNP.TopForm.tops
+R_meta_5339_319.lean bytes 23953 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT Expand the dense C4-free core, normalize the circuit trace to nonempty binary gates, prove the dependency frontier to restrict to q >= 200 and 2N <= s + 1, and extract a minimal sound mixed-AND gate witness for every core edge. Step 1: Dependency frontier gives m <= s + 1 and eliminates q < 200. Step 2: Normalize W to U with all wires nonempty and only binary union/inter gates. Step 3: Monotonicity of U and soundness of U o on singletons and axes. Step 4: Expand the C4-free core (A, B, E) using coreExpansion. Step 5: Extract a minimal sound mixed-AND gate witness for every core edge.
+REFS PEqualNP.Defs PEqualNP.Outside.R_meta_5339_319
+R_meta_5349_48.lean bytes 8616 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CleanedNonEdge PEqualNP.CleanedNonEdge.OrReaches PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.Outside.R_meta_5349_48 PEqualNP.TopForm PEqualNP.TopForm.IsLeastAO PEqualNP.TopForm.TopForm PEqualNP.TopForm.Ustar PEqualNP.TopForm.junk PEqualNP.TopForm.opnd PEqualNP.TopForm.side PEqualNP.TopForm.tops
+R_meta_5361_1.lean bytes 9242 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.Outside.R_meta_5361_1
+R_meta_5361_317.lean bytes 3638 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.Outside.R_meta_5361_317
+R_meta_5365_917.lean bytes 10959 IMPORTS import Mathlib.Combinatorics.Pigeonhole; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.Owns PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5365_917
+R_meta_5369_669.lean bytes 10918 IMPORTS import PEqualNP.Defs
+COMMENT Cofactor redundancy budget. After any vertex is set to zero, each gate that becomes constant or agrees with an earlier wire can be omitted, all at once. The restricted graph is Petersen minus one vertex. Its surviving distinguished literal is represented by a first NOT in one of two orbits. The two corresponding first-gate bounds are L-meta-1665 and L-meta-1666.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.rec PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.FanInTwo PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5369_669
+R_meta_5373_951.lean bytes 3989 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5373_951 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_5375_52.lean bytes 19588 IMPORTS import PEqualNP.Defs
+COMMENT Identify nonisolated vertices with the same open neighborhood. One new OR gate splits a representative back into two inputs, preserving ownership on pairs. Fixing an essential input to zero gives the reverse inequality on circuit sizes.
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.Owns PEqualNP.Library.Peel.delVerts PEqualNP.MetaComplexity PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5375_52 PEqualNP.TopForm PEqualNP.TopForm.NoFourCycle
+R_meta_5377_471.lean bytes 10903 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership PEqualNP.EdgeOwnership.Owns PEqualNP.EdgeOwnership.gateVal PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity PEqualNP.MetaComplexity.IsMinimalMonoCircuit PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.graphFun PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5377_471 PEqualNP.TopForm.NoFourCycle
+R_meta_5759_617.lean bytes 3427 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.pairInput PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5759_617 PEqualNP.TopForm.IsAO2
+R_meta_5759_742.lean bytes 1806 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.MetaComplexity PEqualNP.MetaComplexity.circuitFun PEqualNP.Outside.R_meta_5759_742 PEqualNP.TopForm PEqualNP.TopForm.IsAO2
+R_meta_6140_102.lean bytes 4787 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.MetaComplexity PEqualNP.MetaComplexity.Monotone2 PEqualNP.MetaComplexity.NestedCover PEqualNP.MetaComplexity.NestedCover.ReadsBack PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_6140_102
+R_meta_6658_426.lean bytes 8181 IMPORTS import Mathlib; import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.BlindGate PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.MetaComplexity.NestedCover.gateAt PEqualNP.Outside.R_meta_6658_426 PEqualNP.TopForm
+R_meta_6658_731.lean bytes 2597 IMPORTS import PEqualNP.Defs
+COMMENT 
+REFS PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.CircuitLowerBounds.Gate PEqualNP.CircuitLowerBounds.GateOp.and PEqualNP.CircuitLowerBounds.GateOp.or PEqualNP.Defs PEqualNP.Outside.R_meta_6658_731
+R_meta_6796_519.lean bytes 5567 IMPORTS import PEqualNP.Defs
+COMMENT A pair of raw input wires can accept one missing edge at cost two. The search can therefore keep only pairs that use a computed wire and pay for the edges still missing. The added pairs preserve every AND gate witness.
+REFS PEqualNP.BlindGate.wireValue PEqualNP.CircuitLowerBounds PEqualNP.CircuitLowerBounds.Circuit PEqualNP.Defs PEqualNP.EdgeOwnership.InCone PEqualNP.Outside.R_meta_6796_519 PEqualNP.ReadTwo.isAnd PEqualNP.ReadTwo.nAnd PEqualNP.TopForm PEqualNP.TopForm.IsAO2

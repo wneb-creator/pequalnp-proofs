@@ -1,0 +1,23 @@
+[
+  {
+    "name": "shared pair",
+    "optimized": 6,
+    "naive": 7,
+    "factors": 1,
+    "dominance": 0
+  },
+  {
+    "name": "absorbed prior gate",
+    "optimized": 1,
+    "naive": 3,
+    "factors": 0,
+    "dominance": 1
+  },
+  {
+    "name": "prior AND availability",
+    "optimized": 7,
+    "naive": 7,
+    "factors": 2,
+    "dominance": 0
+  }
+]

@@ -1,0 +1,1 @@
+Read-only upstream refresh at2239e82d294e0253da98cc18db45925e77796b01. Sources stayed in scratch; project files were not merged. The scan report distinguishes locally proved tools from open reduction hypotheses. No full L-meta-650 proof, OR51 bound, or AND13 equality classification was found. These are research records, not target checker acceptance.

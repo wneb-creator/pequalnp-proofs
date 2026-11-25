@@ -1,0 +1,122 @@
+[
+  {
+    "file": "five_owner_filtered23_seed.json",
+    "size": 23,
+    "and_count": 5,
+    "and_depth": 2,
+    "extras": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ]
+  },
+  {
+    "file": "five_owner_algebraic5extra22_seed.json",
+    "size": 22,
+    "and_count": 5,
+    "and_depth": 1,
+    "extras": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ]
+  },
+  {
+    "file": "five_owner_algebraic4extra23_seed.json",
+    "size": 23,
+    "and_count": 6,
+    "and_depth": 1,
+    "extras": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ]
+  },
+  {
+    "file": "five_owner_shared4extra22_seed.json",
+    "size": 22,
+    "and_count": 5,
+    "and_depth": 1,
+    "extras": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ]
+  },
+  {
+    "file": "five_owner_shared2extra23_seed.json",
+    "size": 23,
+    "and_count": 5,
+    "and_depth": 1,
+    "extras": [
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        21
+      ]
+    ]
+  }
+]

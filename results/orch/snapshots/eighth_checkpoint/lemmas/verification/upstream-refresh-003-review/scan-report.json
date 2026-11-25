@@ -1,0 +1,27 @@
+{
+  "upstream_head": "2239e82d294e0253da98cc18db45925e77796b01",
+  "previous_head": "843a642a31792e02a52a7ef173b91d1a424f54b0",
+  "fetch_status": 0,
+  "new_outside_files": 188,
+  "new_proofs": 11,
+  "new_reductions": 177,
+  "direct_L650_proof_or_refutation_found": false,
+  "unconditional_OR51_or_global_noC4_bound_found": false,
+  "new_established_local_tools": {
+    "L_meta_6037": "OR erasure toward an operand preserves monotonicity and decreases function.",
+    "L_meta_6456": "A short AND true on two disjoint raw assignments has internal-wire operands.",
+    "R_meta_5060_52": "Generic weighted rejected-family packing is actually proved locally in body lines32\u2013149; geometry/final contradiction remain hypotheses.",
+    "R_meta_5208_1": "Actual gate/cone cleaner-extraction lemmas; chain exclusion still assumed."
+  },
+  "not_usable_as_established": "R_meta_4065_271 standalone separator code is commented out.",
+  "AND13_equality_assessment": "L1898 eliminates sizes11/12, including cap3-to2 argument at12. At13 only cap4 and cofactor inequalities follow directly; no pair-clean classification or saturation proof was found.",
+  "project_source_changes": false,
+  "logs": [
+    "fetch.log",
+    "changed-outside.txt",
+    "commits.txt",
+    "manifest.json",
+    "proof-statements.json",
+    "reviewer-reductions-summary.txt"
+  ]
+}

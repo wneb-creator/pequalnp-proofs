@@ -1,0 +1,86 @@
+[
+  {
+    "gate": 7,
+    "extra_pairs": [
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "negative_extensions": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "gate": 10,
+    "extra_pairs": [
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        12
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "negative_extensions": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  {
+    "gate": 13,
+    "extra_pairs": [],
+    "negative_extensions": []
+  },
+  {
+    "gate": 16,
+    "extra_pairs": [],
+    "negative_extensions": []
+  },
+  {
+    "gate": 19,
+    "extra_pairs": [],
+    "negative_extensions": []
+  }
+]

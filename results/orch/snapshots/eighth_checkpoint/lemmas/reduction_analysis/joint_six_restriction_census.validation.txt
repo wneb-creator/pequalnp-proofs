@@ -1,0 +1,8 @@
+UTC 2026-11-25T05:46:23.566590+00:00
+Independent status_review APPROVED dataset and mathematical constraints.
+All2048 restricted negative-family counts,120 minimal masks,52 maxima,42-bit feature encodings,112 independent-pair counts and17 singleton counts independently regenerated.
+Minimal forced-active masks:84 with7 retainedlines,36 with8.
+No independent pair exceeds the exact6AND Kraft slack12; counts1 through10.
+All singleton inputs except local6/full13 andlocal11/full20 exceed12 extensions and force everyAND false. Each exception has8 extensions and their families intersect in one maximum. Consequently the total activation events across allANDs and these two singleton inputs is at most1. The sameAND activating both costs15 distinct wildcard incidences; distinctAND activations cost at least16; either exceeds slack12.
+These concrete counts and consequences are computationally/mathematically audited, not separately Lean-instantiated. Generic ForcedActiveAnd and AndCount-model weighted packing are separately checked.
+SHA256 095b184b02852f876ea13d33d7831833002836ec3528452bc6c38d6edc90a846

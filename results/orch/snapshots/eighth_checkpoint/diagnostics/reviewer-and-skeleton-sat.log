@@ -1,0 +1,7 @@
+Fixed one-AND exhaustive128 encodings PASS; side_order False
+Fixed one-AND exhaustive128 encodings PASS; side_order True
+Dirty fixture clean PASS result 20
+Dirty fixture unused-dirty PASS result 10
+HASH 6681edb4db00f63a5bbc871fcbe7f41549f64b3574e2dc9ce9459b9cb868d6c6
+Independently regenerated all52 edges/704 maximal negatives PASS
+Data SHA256 78af130a2959ebddb60b9bcadcbac9c1344ca32fd17d477b2ca661cba83356a9

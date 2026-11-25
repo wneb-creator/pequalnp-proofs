@@ -1,0 +1,4 @@
+PASS 74280 signed representative-clause truth assignments; all273 maps revalidated; full756 intermediate-AND/output equivariance; filtered phase remains dirty/outputfalse on representative [0, 15]
+Driver checked: same approved base CNF plus only representative clauses; same Solver across UNKNOWN attempts; decoded dirtymask representative and full truth verification before exact skeleton publication; no total gate bound.
+and_skeleton_symmetry.py 6dfb8dd12e805cb916dd433491bc861ec4fa91eaf990aafe245e5504bf29894a
+and_skeleton_orbit_run.py c299b3eaed17293779ab5bcf684927526e395e99e5f9d955861abbcea64ac112

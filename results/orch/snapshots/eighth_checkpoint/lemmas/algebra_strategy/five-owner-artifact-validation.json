@@ -1,0 +1,191 @@
+{
+  "verdict": "PASS",
+  "raw_assignments": 65536,
+  "essential_raw_witnesses": [
+    {
+      "raw_input": 0,
+      "false_mask": 32,
+      "true_mask": 33
+    },
+    {
+      "raw_input": 1,
+      "false_mask": 4096,
+      "true_mask": 4098
+    },
+    {
+      "raw_input": 2,
+      "false_mask": 2048,
+      "true_mask": 2052
+    },
+    {
+      "raw_input": 3,
+      "false_mask": 8192,
+      "true_mask": 8200
+    },
+    {
+      "raw_input": 4,
+      "false_mask": 2048,
+      "true_mask": 2064
+    },
+    {
+      "raw_input": 5,
+      "false_mask": 56961,
+      "true_mask": 56993
+    },
+    {
+      "raw_input": 6,
+      "false_mask": 56961,
+      "true_mask": 57025
+    },
+    {
+      "raw_input": 7,
+      "false_mask": 54128,
+      "true_mask": 54256
+    },
+    {
+      "raw_input": 8,
+      "false_mask": 56961,
+      "true_mask": 57217
+    },
+    {
+      "raw_input": 9,
+      "false_mask": 36328,
+      "true_mask": 36840
+    },
+    {
+      "raw_input": 10,
+      "false_mask": 54128,
+      "true_mask": 55152
+    },
+    {
+      "raw_input": 11,
+      "false_mask": 14244,
+      "true_mask": 16292
+    },
+    {
+      "raw_input": 12,
+      "false_mask": 28482,
+      "true_mask": 32578
+    },
+    {
+      "raw_input": 13,
+      "false_mask": 36328,
+      "true_mask": 44520
+    },
+    {
+      "raw_input": 14,
+      "false_mask": 14244,
+      "true_mask": 30628
+    },
+    {
+      "raw_input": 15,
+      "false_mask": 28482,
+      "true_mask": 61250
+    }
+  ],
+  "single_feature_assembly_fixtures": 36,
+  "all_features_extra_cost": 20,
+  "seed_summaries": [
+    {
+      "output": 74,
+      "inputs": 52,
+      "raw_inputs": 16,
+      "source": "five_owner_filtered23_seed.json",
+      "and_count": 5,
+      "gate_count": 23,
+      "false_negatives": 0,
+      "false_positives": 282,
+      "assembly": {
+        "core_gates": 23,
+        "outside_gates": 39,
+        "prefix_extra_cost": 0,
+        "gates": 63,
+        "within_budget": true,
+        "used_features": []
+      },
+      "target_met": false,
+      "boundary_error_count": 13
+    },
+    {
+      "output": 73,
+      "inputs": 52,
+      "raw_inputs": 16,
+      "source": "five_owner_algebraic5extra22_seed.json",
+      "and_count": 5,
+      "gate_count": 22,
+      "false_negatives": 0,
+      "false_positives": 282,
+      "assembly": {
+        "core_gates": 22,
+        "outside_gates": 39,
+        "prefix_extra_cost": 0,
+        "gates": 62,
+        "within_budget": true,
+        "used_features": []
+      },
+      "target_met": false,
+      "boundary_error_count": 13
+    },
+    {
+      "output": 74,
+      "inputs": 52,
+      "raw_inputs": 16,
+      "source": "five_owner_algebraic4extra23_seed.json",
+      "and_count": 6,
+      "gate_count": 23,
+      "false_negatives": 0,
+      "false_positives": 256,
+      "assembly": {
+        "core_gates": 23,
+        "outside_gates": 39,
+        "prefix_extra_cost": 0,
+        "gates": 63,
+        "within_budget": true,
+        "used_features": []
+      },
+      "target_met": false,
+      "boundary_error_count": 12
+    },
+    {
+      "output": 73,
+      "inputs": 52,
+      "raw_inputs": 16,
+      "source": "five_owner_shared4extra22_seed.json",
+      "and_count": 5,
+      "gate_count": 22,
+      "false_negatives": 0,
+      "false_positives": 256,
+      "assembly": {
+        "core_gates": 22,
+        "outside_gates": 39,
+        "prefix_extra_cost": 0,
+        "gates": 62,
+        "within_budget": true,
+        "used_features": []
+      },
+      "target_met": false,
+      "boundary_error_count": 12
+    },
+    {
+      "output": 74,
+      "inputs": 52,
+      "raw_inputs": 16,
+      "source": "five_owner_shared2extra23_seed.json",
+      "and_count": 5,
+      "gate_count": 23,
+      "false_negatives": 0,
+      "false_positives": 164,
+      "assembly": {
+        "core_gates": 23,
+        "outside_gates": 39,
+        "prefix_extra_cost": 0,
+        "gates": 63,
+        "within_budget": true,
+        "used_features": []
+      },
+      "target_met": false,
+      "boundary_error_count": 8
+    }
+  ],
+  "scope": "All seeds remain incorrect approximations. Exact core23 with zero prefix overhead would suffice."
+}

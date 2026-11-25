@@ -1,0 +1,6 @@
+PASS full65536 truth;16 essential raw inputs;36 feature fixtures;all-feature overhead20
+five_owner_filtered23_seed.json 23 5 282 13
+five_owner_algebraic5extra22_seed.json 22 5 282 13
+five_owner_algebraic4extra23_seed.json 23 6 256 12
+five_owner_shared4extra22_seed.json 22 5 256 12
+five_owner_shared2extra23_seed.json 23 5 164 8

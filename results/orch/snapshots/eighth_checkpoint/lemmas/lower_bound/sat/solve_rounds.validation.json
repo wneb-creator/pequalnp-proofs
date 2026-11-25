@@ -1,0 +1,6 @@
+{
+  "first_zero_budget_result": 0,
+  "resumed_same_solver_result": 20,
+  "known_pigeonhole_unsat": true,
+  "status": "PASS"
+}

@@ -1,0 +1,3 @@
+PASS: accepted helper prefix unchanged through and_up; safe namespace/Defs-only/format; full log has exactly2 unused-simp warnings and no errors
+Theorem reviewed: actual ordinary-Circuit evaluation traces, all binary ANDs including copy/dead/invalid-reference cases; constants and unary gates allowed by Monotone2. Unary choices preserve entire traces on each filtered family, equal-child inputs counted twice, pairwise positive joins retained by and_up. Therefore exact exponential weighted bound; no normalization/statistics adapter assumption.
+SHA256 c3f66496f836c6b5928c6259059e2b991b3e7687d944d000da1ea8949320f03b LINES 383

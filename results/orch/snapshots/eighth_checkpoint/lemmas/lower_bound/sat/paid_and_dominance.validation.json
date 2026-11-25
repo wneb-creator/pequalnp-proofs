@@ -1,0 +1,4 @@
+{
+  "signed_circuit_assignments": 256,
+  "status": "PASS: guarded paid-earlier basis dominance encoding."
+}

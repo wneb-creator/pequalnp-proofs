@@ -73,3 +73,7 @@ TIMING total=189.5 subagents=6
 2026-11-25T05:35:23.761499+00:00 Seventh research checkpoint: 216 changed or newly preserved artifacts, 926013 bytes. FilteredPairIdentity, SaturatedNegativeFamily and FourOwnerSaturation compiled with empty logs and passed independent review before pushes. The latter is a concrete semantic soundness result at four ANDs, not an assembled lower-bound theorem. Exact target remains unproved/unrefuted.
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
 TIMING total=214.3 subagents=6
+
+2026-11-25T05:58:05.771648+00:00 Eighth research checkpoint: 182 artifacts, 2077740 original bytes/1598969 stored. ForcedActiveAnd, WeightedRejectedPacking, DirectWeightedPacking and DirectWeightedSlackTwo compiled and independently passed review before preservation pushes. The direct results apply to ordinary Circuit/Monotone2 with actual gate values. Five-owner assembly, phase extraction, two-pair symmetry and unrestricted-OR AND synthesis retain their documented scopes. No target proof/refutation or exact-target checker acceptance.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=237.0 subagents=6

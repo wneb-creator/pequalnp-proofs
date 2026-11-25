@@ -1,0 +1,5 @@
+All12 permutations: bijections, graph/features/tree templates, group closure and188 first-pair orbits PASS
+Guard and selector-mux truth tables PASS; existing actual-solver768-case calibration preserved
+joint_five_owner_symmetry.json e04bf9206d3d56cdeafc3454aaee1d9144d6d6ae5b1cc6b0ffd760d97e4564b4
+generate_owner_symmetry.py bfa31644c64d26c3cb7923bfc71c1dae0cf6919e9ff482825b5ba78f21f9ea67
+and_sample_constraints.py 20a11b3062b46ef32aa3596bab53dc8f788bfeffc70340467cf1164ae7a1ac78

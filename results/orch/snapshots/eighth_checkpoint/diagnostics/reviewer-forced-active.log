@@ -1,0 +1,3 @@
+PASS: accepted counting prefix byte-identical, safe namespace/format/imports, empty successful log
+Theorem: at most r+1 binary ANDs, a false family cardinality>2^r with all distinct joins true and each input bounded by upper, forces the selected binary AND true at upper. Replacement by empty OR is equal on the downset, including each join, and removes one realAnd. No concrete209 enumeration/full target claim.
+SHA256 def6a4332fbd73d98293a12dcd55f789f0aefbef4f76b4e3e58eee624e06f895 LINES 408

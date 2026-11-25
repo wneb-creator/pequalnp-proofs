@@ -1,0 +1,7 @@
+{
+  "retained_line_sets": 2048,
+  "owner_subsets_per_set": 32,
+  "minimal_forced_active_sets": 209,
+  "pair_counts_checked": 100,
+  "status": "PASS computational census; mathematical AND implications reviewed separately."
+}

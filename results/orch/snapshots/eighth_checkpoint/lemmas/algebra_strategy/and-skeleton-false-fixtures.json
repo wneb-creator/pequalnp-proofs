@@ -1,0 +1,25 @@
+[
+  {
+    "fixture": 0,
+    "assembled": true,
+    "gate_count": 1,
+    "output_minimal_terms": [
+      [
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "fixture": 1,
+    "assembled": false,
+    "gate_count": 0,
+    "output_minimal_terms": []
+  },
+  {
+    "fixture": 2,
+    "assembled": false,
+    "gate_count": 0,
+    "output_minimal_terms": []
+  }
+]

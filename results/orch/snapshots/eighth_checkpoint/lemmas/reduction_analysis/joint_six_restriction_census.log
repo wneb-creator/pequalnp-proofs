@@ -1,0 +1,20 @@
+{
+  "rows": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    7
+  ],
+  "maximal_negative_count": 52,
+  "forced_active_minimal_count": 120,
+  "retained_line_count_histogram": {
+    "7": 84,
+    "8": 36
+  },
+  "forbidden_dirty_pair_count": 0,
+  "possible_dirty_pair_count": 112
+}
+singleton extension range 8 23
+pair extension range 1 10

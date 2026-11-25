@@ -1,0 +1,8 @@
+PASS445 generators/inverses; all273 maps and forward/inverse words;156/117 disjoint orbit partition; all300 independent≤2 supports extended/mapped correctly
+WLOG requires exact posted graph semantics: output remains false on independent extensions and is invariant under graph automorphism. Dirty gate truth preserved by monotonicity; raw-reference relabel preserves gate counts and chronological dependencies.
+Traceback (most recent call last):
+  File "<stdin>", line 28, in <module>
+AttributeError: 'list' object has no attribute 'read_bytes'
+The preceding exception was reviewer variable shadowing in the final hash print, after all data checks passed.
+full-plane-dirty-pair-symmetry.json f2522d58f59cd007c8acda6963fcec49f0a979ab4890b791352b42af050aec3d
+generate_dirty_pair_symmetry.py 9150f4f58d3f3c2a166639f928bde505e7c746a544d7b02dea74c77dd82b758b

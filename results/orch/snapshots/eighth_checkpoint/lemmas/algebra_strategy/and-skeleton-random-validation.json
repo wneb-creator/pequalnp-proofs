@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "random_seed": 65013,
+  "skeletons": 300,
+  "outputs_including_every_AND_prefix": 1180,
+  "complete_truth_assignments_checked": 53152,
+  "scope": "Independent Boolean evaluation of original and assembled circuits, including empty/dead/duplicate cases."
+}

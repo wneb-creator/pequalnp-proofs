@@ -1,0 +1,14 @@
+Exact event equivalence event iff AND and outputtrue: all8 assignments PASS
+All15 dirty exceptions independently reconstructed PASS
+    (args.output / 'direct-essential-witnesses.json').write_text(json.dumps(witnesses))
+    samples = five_owner_and_samples.prepare(case, phase, args.and_false_samples,
+                                             args.and_true_samples, args.and_true_census)
+    (args.output / 'internal-and-samples.json').write_text(json.dumps(samples))
+    dirty = five_owner_and_samples.dirty_pairs(case) if args.require_dirty_pair else []
+    (args.output / 'required-dirty-pairs.json').write_text(json.dumps(dirty))
+    baseline = star_seed(case)
+    baseline_truth = packed_verification(case, baseline)
+Target-specific constraints include dirty disjunction;64-gate calibration uses ordinary samples only. Guard ANDcount>=6 releases positive dirty cut above5. Every target assembly has≤23 core, exact39 outside and finalOR1.
+and_sample_constraints.py 0d1d83e3ff2e916f572afd688cc71818f50501311c66e3fbaa9d457087d80ddd
+five_owner_and_samples.py 50ba53abc151db4daf6f2adbc8ffb77538d137438f7b884087c72a90d6c2d766
+joint_five_owner_sat.py 486824beee09834d8c86f6c028b7992c30f05c7a340d5b1acd637fd8f96167b9

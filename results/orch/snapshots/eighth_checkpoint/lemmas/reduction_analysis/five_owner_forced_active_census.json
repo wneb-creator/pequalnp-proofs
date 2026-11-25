@@ -1,0 +1,2470 @@
+{
+  "rows": [
+    0,
+    1,
+    2,
+    5,
+    7
+  ],
+  "input_original": [
+    0,
+    1,
+    2,
+    5,
+    7,
+    13,
+    14,
+    15,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    24,
+    25
+  ],
+  "scope": "For an exact core with at most5 binary ANDs, every AND is true on every listed assignment. All point inputs are true. With only listed lines true, the induced graph has >16 maximal negatives and hence requires5 ANDs. An AND false at that assignment is identically false on its downset and can be replaced by a constant-false OR, contradicting the family bound. Pure-OR features preserve this argument. This is computational data and a mathematical argument, not a Lean theorem.",
+  "minimal_assignment_count": 209,
+  "assignments": [
+    {
+      "raw_mask": 1791,
+      "line_original": [
+        13,
+        14,
+        15,
+        17,
+        19
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 1919,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        19
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 2015,
+      "line_original": [
+        14,
+        15,
+        16,
+        17,
+        19
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 2815,
+      "line_original": [
+        13,
+        14,
+        15,
+        17,
+        20
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 3007,
+      "line_original": [
+        13,
+        15,
+        16,
+        17,
+        20
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 3039,
+      "line_original": [
+        14,
+        15,
+        16,
+        17,
+        20
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 3711,
+      "line_original": [
+        13,
+        14,
+        17,
+        19,
+        20
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 3903,
+      "line_original": [
+        13,
+        16,
+        17,
+        19,
+        20
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 3999,
+      "line_original": [
+        15,
+        16,
+        17,
+        19,
+        20
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 5119,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        21
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 5631,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        19,
+        21
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 5759,
+      "line_original": [
+        13,
+        14,
+        17,
+        19,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 5983,
+      "line_original": [
+        14,
+        16,
+        17,
+        19,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 6399,
+      "line_original": [
+        13,
+        14,
+        15,
+        20,
+        21
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 7039,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 7071,
+      "line_original": [
+        15,
+        16,
+        17,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 7551,
+      "line_original": [
+        13,
+        14,
+        16,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 7615,
+      "line_original": [
+        13,
+        15,
+        16,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 7647,
+      "line_original": [
+        14,
+        15,
+        16,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 7871,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 7903,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 7967,
+      "line_original": [
+        16,
+        17,
+        19,
+        20,
+        21
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 9215,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 9855,
+      "line_original": [
+        13,
+        14,
+        17,
+        19,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 11135,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        20,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 11167,
+      "line_original": [
+        15,
+        16,
+        17,
+        20,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 11775,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 11967,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        20,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 11999,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        20,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 13055,
+      "line_original": [
+        13,
+        14,
+        15,
+        17,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 13279,
+      "line_original": [
+        14,
+        15,
+        16,
+        17,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 13567,
+      "line_original": [
+        13,
+        14,
+        15,
+        19,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 13695,
+      "line_original": [
+        13,
+        14,
+        16,
+        19,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 13791,
+      "line_original": [
+        14,
+        15,
+        16,
+        19,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 14783,
+      "line_original": [
+        13,
+        15,
+        16,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 14815,
+      "line_original": [
+        14,
+        15,
+        16,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 14975,
+      "line_original": [
+        13,
+        14,
+        17,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 15039,
+      "line_original": [
+        13,
+        15,
+        17,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 15071,
+      "line_original": [
+        14,
+        15,
+        17,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 15199,
+      "line_original": [
+        14,
+        16,
+        17,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 15487,
+      "line_original": [
+        13,
+        14,
+        19,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 15679,
+      "line_original": [
+        13,
+        16,
+        19,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 15775,
+      "line_original": [
+        15,
+        16,
+        19,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 15935,
+      "line_original": [
+        13,
+        17,
+        19,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 15967,
+      "line_original": [
+        14,
+        17,
+        19,
+        20,
+        21,
+        22
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 17407,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 17919,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        19,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 18047,
+      "line_original": [
+        13,
+        14,
+        17,
+        19,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 18239,
+      "line_original": [
+        13,
+        16,
+        17,
+        19,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 18335,
+      "line_original": [
+        15,
+        16,
+        17,
+        19,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 18687,
+      "line_original": [
+        13,
+        14,
+        15,
+        20,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 19327,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        20,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 19359,
+      "line_original": [
+        15,
+        16,
+        17,
+        20,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 19839,
+      "line_original": [
+        13,
+        14,
+        16,
+        19,
+        20,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 19903,
+      "line_original": [
+        13,
+        15,
+        16,
+        19,
+        20,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 19935,
+      "line_original": [
+        14,
+        15,
+        16,
+        19,
+        20,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 20159,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        20,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 20191,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        20,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 20735,
+      "line_original": [
+        13,
+        14,
+        15,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 21439,
+      "line_original": [
+        13,
+        15,
+        16,
+        17,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 21471,
+      "line_original": [
+        14,
+        15,
+        16,
+        17,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 21631,
+      "line_original": [
+        13,
+        14,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 21823,
+      "line_original": [
+        13,
+        16,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 21855,
+      "line_original": [
+        14,
+        16,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 21919,
+      "line_original": [
+        15,
+        16,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 22207,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 22239,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 22303,
+      "line_original": [
+        16,
+        17,
+        19,
+        21,
+        24
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 22655,
+      "line_original": [
+        13,
+        14,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 22719,
+      "line_original": [
+        13,
+        15,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 22751,
+      "line_original": [
+        14,
+        15,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 22943,
+      "line_original": [
+        15,
+        16,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 23359,
+      "line_original": [
+        13,
+        16,
+        17,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 23391,
+      "line_original": [
+        14,
+        16,
+        17,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 23839,
+      "line_original": [
+        16,
+        19,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 24127,
+      "line_original": [
+        13,
+        17,
+        19,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 24159,
+      "line_original": [
+        14,
+        17,
+        19,
+        20,
+        21,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 25343,
+      "line_original": [
+        13,
+        14,
+        15,
+        17,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 25535,
+      "line_original": [
+        13,
+        15,
+        16,
+        17,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 25855,
+      "line_original": [
+        13,
+        14,
+        15,
+        19,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 25983,
+      "line_original": [
+        13,
+        14,
+        16,
+        19,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 26079,
+      "line_original": [
+        14,
+        15,
+        16,
+        19,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 26303,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 26335,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27071,
+      "line_original": [
+        13,
+        15,
+        16,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 27103,
+      "line_original": [
+        14,
+        15,
+        16,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27263,
+      "line_original": [
+        13,
+        14,
+        17,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27327,
+      "line_original": [
+        13,
+        15,
+        17,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 27359,
+      "line_original": [
+        14,
+        15,
+        17,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27455,
+      "line_original": [
+        13,
+        16,
+        17,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27775,
+      "line_original": [
+        13,
+        14,
+        19,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 27967,
+      "line_original": [
+        13,
+        16,
+        19,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 28063,
+      "line_original": [
+        15,
+        16,
+        19,
+        20,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 29119,
+      "line_original": [
+        13,
+        15,
+        16,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 29151,
+      "line_original": [
+        14,
+        15,
+        16,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 29567,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 29599,
+      "line_original": [
+        15,
+        16,
+        17,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 29887,
+      "line_original": [
+        13,
+        15,
+        19,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 29919,
+      "line_original": [
+        14,
+        15,
+        19,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 29983,
+      "line_original": [
+        16,
+        19,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 30271,
+      "line_original": [
+        13,
+        17,
+        19,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 30303,
+      "line_original": [
+        14,
+        17,
+        19,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 31039,
+      "line_original": [
+        13,
+        16,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 31071,
+      "line_original": [
+        14,
+        16,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 31519,
+      "line_original": [
+        16,
+        17,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 31807,
+      "line_original": [
+        13,
+        19,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 31839,
+      "line_original": [
+        14,
+        19,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 32415,
+      "line_original": [
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        24
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 33535,
+      "line_original": [
+        13,
+        14,
+        15,
+        17,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 33727,
+      "line_original": [
+        13,
+        15,
+        16,
+        17,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 33759,
+      "line_original": [
+        14,
+        15,
+        16,
+        17,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 34431,
+      "line_original": [
+        13,
+        14,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 34495,
+      "line_original": [
+        13,
+        15,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 34527,
+      "line_original": [
+        14,
+        15,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 34623,
+      "line_original": [
+        13,
+        16,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 34655,
+      "line_original": [
+        14,
+        16,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 34719,
+      "line_original": [
+        15,
+        16,
+        17,
+        19,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 35455,
+      "line_original": [
+        13,
+        14,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 35519,
+      "line_original": [
+        13,
+        15,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 35551,
+      "line_original": [
+        14,
+        15,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 35647,
+      "line_original": [
+        13,
+        16,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 35679,
+      "line_original": [
+        14,
+        16,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 35743,
+      "line_original": [
+        15,
+        16,
+        17,
+        20,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 36415,
+      "line_original": [
+        13,
+        17,
+        19,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 36447,
+      "line_original": [
+        14,
+        17,
+        19,
+        20,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 36639,
+      "line_original": [
+        16,
+        17,
+        19,
+        20,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 37119,
+      "line_original": [
+        13,
+        14,
+        15,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 37311,
+      "line_original": [
+        13,
+        15,
+        16,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 37343,
+      "line_original": [
+        14,
+        15,
+        16,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 37567,
+      "line_original": [
+        13,
+        15,
+        17,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 37791,
+      "line_original": [
+        15,
+        16,
+        17,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38015,
+      "line_original": [
+        13,
+        14,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38079,
+      "line_original": [
+        13,
+        15,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 38207,
+      "line_original": [
+        13,
+        16,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38239,
+      "line_original": [
+        14,
+        16,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38303,
+      "line_original": [
+        15,
+        16,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38463,
+      "line_original": [
+        13,
+        17,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38495,
+      "line_original": [
+        14,
+        17,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 38687,
+      "line_original": [
+        16,
+        17,
+        19,
+        21,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 39103,
+      "line_original": [
+        13,
+        15,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 39327,
+      "line_original": [
+        15,
+        16,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 39519,
+      "line_original": [
+        14,
+        17,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 39711,
+      "line_original": [
+        16,
+        17,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 39999,
+      "line_original": [
+        13,
+        19,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 40223,
+      "line_original": [
+        16,
+        19,
+        20,
+        21,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 41663,
+      "line_original": [
+        13,
+        15,
+        17,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 41695,
+      "line_original": [
+        14,
+        15,
+        17,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 41887,
+      "line_original": [
+        15,
+        16,
+        17,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 42495,
+      "line_original": [
+        13,
+        14,
+        15,
+        16,
+        19,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 42559,
+      "line_original": [
+        13,
+        17,
+        19,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 42591,
+      "line_original": [
+        14,
+        17,
+        19,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 43583,
+      "line_original": [
+        13,
+        17,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 43615,
+      "line_original": [
+        14,
+        17,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 43807,
+      "line_original": [
+        16,
+        17,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 44415,
+      "line_original": [
+        13,
+        14,
+        16,
+        19,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 44479,
+      "line_original": [
+        13,
+        15,
+        16,
+        19,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 44511,
+      "line_original": [
+        14,
+        15,
+        16,
+        19,
+        20,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 45247,
+      "line_original": [
+        13,
+        15,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 45471,
+      "line_original": [
+        15,
+        16,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 45951,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 46143,
+      "line_original": [
+        13,
+        19,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 46175,
+      "line_original": [
+        14,
+        19,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 46367,
+      "line_original": [
+        16,
+        19,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 47231,
+      "line_original": [
+        13,
+        14,
+        20,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 47327,
+      "line_original": [
+        14,
+        15,
+        20,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 47391,
+      "line_original": [
+        16,
+        20,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 48799,
+      "line_original": [
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 49855,
+      "line_original": [
+        13,
+        15,
+        17,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 50079,
+      "line_original": [
+        15,
+        16,
+        17,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50303,
+      "line_original": [
+        13,
+        14,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50399,
+      "line_original": [
+        14,
+        15,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 50495,
+      "line_original": [
+        13,
+        16,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50527,
+      "line_original": [
+        14,
+        16,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50591,
+      "line_original": [
+        15,
+        16,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50751,
+      "line_original": [
+        13,
+        17,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50783,
+      "line_original": [
+        14,
+        17,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 50975,
+      "line_original": [
+        16,
+        17,
+        19,
+        24,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 51327,
+      "line_original": [
+        13,
+        14,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 51423,
+      "line_original": [
+        14,
+        15,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 51519,
+      "line_original": [
+        13,
+        16,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 51551,
+      "line_original": [
+        14,
+        16,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 51615,
+      "line_original": [
+        15,
+        16,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 51807,
+      "line_original": [
+        14,
+        17,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 51999,
+      "line_original": [
+        16,
+        17,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 52319,
+      "line_original": [
+        14,
+        19,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 52511,
+      "line_original": [
+        16,
+        19,
+        20,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 53439,
+      "line_original": [
+        13,
+        15,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 53663,
+      "line_original": [
+        15,
+        16,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 54335,
+      "line_original": [
+        13,
+        19,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 54367,
+      "line_original": [
+        14,
+        19,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 54559,
+      "line_original": [
+        16,
+        19,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 20
+    },
+    {
+      "raw_mask": 55391,
+      "line_original": [
+        14,
+        20,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 55583,
+      "line_original": [
+        16,
+        20,
+        21,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 57599,
+      "line_original": [
+        13,
+        14,
+        15,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 57759,
+      "line_original": [
+        15,
+        16,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 58239,
+      "line_original": [
+        13,
+        14,
+        16,
+        17,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 58431,
+      "line_original": [
+        13,
+        19,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 58463,
+      "line_original": [
+        14,
+        19,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 58655,
+      "line_original": [
+        16,
+        19,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 59487,
+      "line_original": [
+        14,
+        20,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 59583,
+      "line_original": [
+        13,
+        15,
+        20,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 59679,
+      "line_original": [
+        16,
+        20,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 61087,
+      "line_original": [
+        15,
+        17,
+        19,
+        20,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 61663,
+      "line_original": [
+        14,
+        15,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 62271,
+      "line_original": [
+        13,
+        16,
+        17,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 62303,
+      "line_original": [
+        14,
+        16,
+        17,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 63135,
+      "line_original": [
+        15,
+        17,
+        19,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    },
+    {
+      "raw_mask": 63551,
+      "line_original": [
+        13,
+        20,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 18
+    },
+    {
+      "raw_mask": 65055,
+      "line_original": [
+        17,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25
+      ],
+      "negative_count": 17
+    }
+  ],
+  "count_histogram": {
+    "1": 1,
+    "2": 11,
+    "3": 9,
+    "4": 46,
+    "5": 33,
+    "6": 48,
+    "7": 42,
+    "8": 94,
+    "9": 86,
+    "10": 87,
+    "11": 105,
+    "12": 90,
+    "13": 99,
+    "14": 96,
+    "15": 91,
+    "16": 103,
+    "17": 98,
+    "18": 141,
+    "19": 108,
+    "20": 132,
+    "21": 90,
+    "22": 118,
+    "23": 90,
+    "24": 67,
+    "25": 42,
+    "26": 60,
+    "27": 27,
+    "28": 18,
+    "29": 14,
+    "30": 2
+  }
+}

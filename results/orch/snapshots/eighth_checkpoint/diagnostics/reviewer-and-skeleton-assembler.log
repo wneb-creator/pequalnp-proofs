@@ -1,0 +1,3 @@
+Randomized independent truth check PASS 2000 assembler configurations including empty ORs, false output, semantic sharing and capped-DNF unknown
+Baseline independently reconstructed exactly64=13AND+51OR,52 prime terms PASS
+HASH 0a7fd467a73e70b83e84c4c2af0c157641d3dc7c3e2680c94feb6c2eaee5a7bf

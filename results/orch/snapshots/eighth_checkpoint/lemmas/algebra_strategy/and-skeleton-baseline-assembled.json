@@ -1,0 +1,756 @@
+{
+  "inputs": 26,
+  "gates": [
+    [
+      1,
+      13,
+      14
+    ],
+    [
+      1,
+      16,
+      26
+    ],
+    [
+      1,
+      22,
+      27
+    ],
+    [
+      0,
+      0,
+      28
+    ],
+    [
+      1,
+      13,
+      15
+    ],
+    [
+      1,
+      21,
+      30
+    ],
+    [
+      1,
+      25,
+      31
+    ],
+    [
+      0,
+      1,
+      32
+    ],
+    [
+      1,
+      14,
+      20
+    ],
+    [
+      1,
+      24,
+      34
+    ],
+    [
+      1,
+      25,
+      35
+    ],
+    [
+      0,
+      2,
+      36
+    ],
+    [
+      1,
+      13,
+      19
+    ],
+    [
+      1,
+      23,
+      38
+    ],
+    [
+      1,
+      24,
+      39
+    ],
+    [
+      0,
+      3,
+      40
+    ],
+    [
+      1,
+      18,
+      22
+    ],
+    [
+      1,
+      23,
+      42
+    ],
+    [
+      1,
+      25,
+      43
+    ],
+    [
+      0,
+      4,
+      44
+    ],
+    [
+      1,
+      17,
+      21
+    ],
+    [
+      1,
+      22,
+      46
+    ],
+    [
+      1,
+      24,
+      47
+    ],
+    [
+      0,
+      5,
+      48
+    ],
+    [
+      1,
+      16,
+      20
+    ],
+    [
+      1,
+      21,
+      50
+    ],
+    [
+      1,
+      23,
+      51
+    ],
+    [
+      0,
+      6,
+      52
+    ],
+    [
+      1,
+      15,
+      19
+    ],
+    [
+      1,
+      20,
+      54
+    ],
+    [
+      1,
+      22,
+      55
+    ],
+    [
+      0,
+      7,
+      56
+    ],
+    [
+      1,
+      14,
+      18
+    ],
+    [
+      1,
+      19,
+      58
+    ],
+    [
+      1,
+      21,
+      59
+    ],
+    [
+      0,
+      8,
+      60
+    ],
+    [
+      1,
+      13,
+      17
+    ],
+    [
+      1,
+      18,
+      62
+    ],
+    [
+      1,
+      20,
+      63
+    ],
+    [
+      0,
+      9,
+      64
+    ],
+    [
+      1,
+      16,
+      17
+    ],
+    [
+      1,
+      19,
+      66
+    ],
+    [
+      1,
+      25,
+      67
+    ],
+    [
+      0,
+      10,
+      68
+    ],
+    [
+      1,
+      15,
+      16
+    ],
+    [
+      1,
+      18,
+      70
+    ],
+    [
+      1,
+      24,
+      71
+    ],
+    [
+      0,
+      11,
+      72
+    ],
+    [
+      1,
+      14,
+      15
+    ],
+    [
+      1,
+      17,
+      74
+    ],
+    [
+      1,
+      23,
+      75
+    ],
+    [
+      0,
+      12,
+      76
+    ],
+    [
+      1,
+      29,
+      33
+    ],
+    [
+      1,
+      37,
+      78
+    ],
+    [
+      1,
+      41,
+      79
+    ],
+    [
+      1,
+      45,
+      80
+    ],
+    [
+      1,
+      49,
+      81
+    ],
+    [
+      1,
+      53,
+      82
+    ],
+    [
+      1,
+      57,
+      83
+    ],
+    [
+      1,
+      61,
+      84
+    ],
+    [
+      1,
+      65,
+      85
+    ],
+    [
+      1,
+      69,
+      86
+    ],
+    [
+      1,
+      73,
+      87
+    ],
+    [
+      1,
+      77,
+      88
+    ]
+  ],
+  "output": 89,
+  "gate_count": 64,
+  "assembled": true,
+  "and_count": 13,
+  "or_count": 51,
+  "skeleton_and_count": 13,
+  "naive_or_count": 51,
+  "naive_total": 64,
+  "semantic_optimization": true,
+  "greedy_sharing": true,
+  "shared_factors": [],
+  "dominance_rewrites": [],
+  "semantic_gate_folds": [],
+  "all_gate_functions_dnf_verified": true,
+  "gate_function_checks": [
+    {
+      "kind": "OR cone",
+      "index": 0,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 1,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 0,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 2,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 3,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 1,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 4,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 5,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 2,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 6,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 7,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 3,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 8,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 9,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 4,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 10,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 11,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 5,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 12,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 13,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 6,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 14,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 15,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 7,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 16,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 17,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 8,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 18,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 19,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 9,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 20,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 21,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 10,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 22,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 23,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 11,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 24,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 25,
+      "verified": true
+    },
+    {
+      "kind": "AND gate",
+      "index": 12,
+      "verified": true
+    },
+    {
+      "kind": "OR cone",
+      "index": 26,
+      "verified": true
+    }
+  ],
+  "dnf_skipped_computations": 0,
+  "output_minimal_terms": [
+    [
+      0,
+      13
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      2,
+      14
+    ],
+    [
+      8,
+      14
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      1,
+      15
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      11,
+      15
+    ],
+    [
+      12,
+      15
+    ],
+    [
+      0,
+      16
+    ],
+    [
+      6,
+      16
+    ],
+    [
+      10,
+      16
+    ],
+    [
+      11,
+      16
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      10,
+      17
+    ],
+    [
+      12,
+      17
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      11,
+      18
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      7,
+      19
+    ],
+    [
+      8,
+      19
+    ],
+    [
+      10,
+      19
+    ],
+    [
+      2,
+      20
+    ],
+    [
+      6,
+      20
+    ],
+    [
+      7,
+      20
+    ],
+    [
+      9,
+      20
+    ],
+    [
+      1,
+      21
+    ],
+    [
+      5,
+      21
+    ],
+    [
+      6,
+      21
+    ],
+    [
+      8,
+      21
+    ],
+    [
+      0,
+      22
+    ],
+    [
+      4,
+      22
+    ],
+    [
+      5,
+      22
+    ],
+    [
+      7,
+      22
+    ],
+    [
+      3,
+      23
+    ],
+    [
+      4,
+      23
+    ],
+    [
+      6,
+      23
+    ],
+    [
+      12,
+      23
+    ],
+    [
+      2,
+      24
+    ],
+    [
+      3,
+      24
+    ],
+    [
+      5,
+      24
+    ],
+    [
+      11,
+      24
+    ],
+    [
+      1,
+      25
+    ],
+    [
+      2,
+      25
+    ],
+    [
+      4,
+      25
+    ],
+    [
+      10,
+      25
+    ]
+  ],
+  "exact_target_dnf": true,
+  "within63": false,
+  "status": "Assembled skeleton; gate bound and exact target are separate reported checks.",
+  "source": "results/orch/lemmas/lean_baseline/sat/and_skeleton_baseline13.json"
+}

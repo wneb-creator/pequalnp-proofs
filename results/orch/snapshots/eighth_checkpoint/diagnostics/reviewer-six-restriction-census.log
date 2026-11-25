@@ -1,0 +1,3 @@
+PASS:2048 restricted graphs,120 minimal forced-active masks(84 size7/36 size8), exact52 full negatives, all42-input encodings,112 pair and17 singleton extension counts
+Scope applies≤6AND; counts are finite computational evidence, generic monotonic-downset rule is Lean checked. Pair slack12 yields no excluded pair.
+JSON HASH 095b184b02852f876ea13d33d7831833002836ec3528452bc6c38d6edc90a846

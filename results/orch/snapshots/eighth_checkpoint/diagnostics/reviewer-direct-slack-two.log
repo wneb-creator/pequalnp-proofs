@@ -1,0 +1,3 @@
+PASS approved prefix byte-identical; safeformat/Defs-only; complete successful log only2 inherited warnings
+Generic iff sum2^w<=card+2 exactly iff allw<=1 and sumw<=2 is correct; corollary assumes30 family members and≤5 binaryAND, deriving RHS32. No concrete family enumeration/target result claimed.
+SHA256 26aa4f5a551b487369fe63f9522fe43e13439e505d5cbe040a38d7f9020ba1f5 LINES 444

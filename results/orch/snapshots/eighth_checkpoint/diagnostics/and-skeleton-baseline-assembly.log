@@ -1,0 +1,1 @@
+{"gate_count": 64, "and_count": 13, "or_count": 51, "naive_total": 64, "all_gate_functions_dnf_verified": true, "exact_target_dnf": true, "within63": false, "dnf_skipped_computations": 0}

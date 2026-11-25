@@ -1,0 +1,5 @@
+Upstream source SHA256 125d1a0627b76d92d34ab879847d7ce4012ff7ad31b1ea0e8997e2746751327a
+Original first/last source lines '  have sideEq {n k} (U B : Finset (Fin n)) (F : Finset (Fin k)) (i : Fin k) (v : Fin k → Bool) :' '      _ = _ := by simp'
+PASS: helper/proof bodies exactly match source lines32-149 modulo declared extraction transformations; format and empty log pass
+Theorem is AndCountCircuit-only. It bounds sum2^(equal-wing count) for a rejected family with accepted distinct unions, by constructing disjoint selector-code cubes. No ordinary-Circuit translation or operand-statistic preservation is asserted.
+Artifact SHA256 bc11d02ed6b7b6d3b5ec10b4a4f00995074476215b46e82e65bd5243c8792a78 lines 130

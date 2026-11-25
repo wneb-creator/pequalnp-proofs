@@ -1,0 +1,34 @@
+{
+  "case": "six_owner_joint_prefixes",
+  "raw_assignments": 131072,
+  "gates": 28,
+  "active_gates": 28,
+  "active_ands": 6,
+  "omitted_raw_inputs": [],
+  "false_positives": 314,
+  "false_negatives": 0,
+  "boundary_false": 23,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      1,
+      15
+    ]
+  ]
+}

@@ -105,3 +105,9 @@
 2026-11-25T05:33:46.540546+00:00 Root renewal before weighted joint18 SAT; expires 2026-11-25T05:53:46.338Z.
 
 2026-11-25T05:35:23.761499+00:00 Seventh checkpoint frozen. Joint-prefix and bounded-edit search improvements reviewed; exact target still open. Saturation partials pushed. Third upstream scan found no missing global bound.
+2026-11-25T05:38:52.820806+00:00 Renewed lease; expiry 2026-11-25T05:58:53.079Z.
+2026-11-25T05:48:53.201107+00:00 Renewed lease; expiry 2026-11-25T06:08:53.423Z.
+
+- 2026-11-25T05:52:48.271503+00:00: lean_baseline launched reviewed13AND dirtyskeleton SAT; residualadaptive16 completed localUNKNOWN05:50:53.
+
+2026-11-25T05:58:05.771648+00:00 Eighth checkpoint frozen. New direct weighted-circuit proofs are preserved. Five-owner exact synthesis retains learning across intervals; original and normalized thirteen-AND routes have calibrated, separately reviewed models. Target remains open.

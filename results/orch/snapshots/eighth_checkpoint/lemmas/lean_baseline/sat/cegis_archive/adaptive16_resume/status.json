@@ -1,0 +1,10 @@
+{
+  "status": "local-neighborhood UNKNOWN at radius16; no global conclusion",
+  "completed": "2026-11-25T05:50:53+00:00",
+  "models": 1,
+  "last_joint_size": 61,
+  "last_H_size": 58,
+  "last_H_boundary_errors": 485,
+  "last_tap_errors": 0,
+  "hard_samples": 88
+}

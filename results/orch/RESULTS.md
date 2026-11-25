@@ -15,6 +15,10 @@ The posted claim is not proved or refuted. No proof PR has been opened, and the 
 | reduction_analysis/FilteredPairIdentity.lean | Four checked Boolean identities supporting the filtered-pair seed rewrites. |
 | reduction_analysis/SaturatedNegativeFamily.lean | At the negative-family counting limit, each binary AND has unequal children on every member. |
 | reduction_analysis/FourOwnerSaturation.lean | Every paid binary AND in an exact four-owner core with at most four binary ANDs is graph-sound, even with arbitrary pure-OR features. The assembled size contradiction is separate. |
+| reduction_analysis/ForcedActiveAnd.lean | A generic negative-family bound forces every binary AND active on a dominating input. Concrete restriction masks are separately audited data. |
+| reduction_analysis/WeightedRejectedPacking.lean | The accepted weighted selector bound, extracted for the AndCountCircuit model without a Circuit conversion claim. |
+| reduction_analysis/DirectWeightedPacking.lean | The weighted bound directly for ordinary Monotone2 circuits and their actual sequential AND operand values; constants and unary gates are supported. |
+| reduction_analysis/DirectWeightedSlackTwo.lean | For 30 rejected inputs whose distinct joins are accepted, and at most five binary ANDs, every equal-child count is at most one and their sum is at most two. |
 | reduction_analysis/DNFVerifierMono.lean | A sound gate-by-gate DNF certificate checker, including every wire, false-default references and Monotone2. |
 | verification/FiniteVerification.lean | A candidate passing the stated finite boundary checks suffices for the exact posted target. No candidate is supplied. |
 | reduction_analysis/SpecializedLiftFast.lean | Smaller-core completion routes, including a circuit with at most 28 gates for the six-row core. |
@@ -62,6 +66,12 @@ The residual SAT lane now supports bounded gate edits and counterexample-preserv
 
 The third upstream refresh (2239e82d294e0253da98cc18db45925e77796b01) added 11 proofs and 177 reductions. Independent scans found reusable local packing and circuit-cleaning proofs, but no general OR51 bound, full L650 result, or equality theorem upgrading the checked 13-AND bound to pair-clean structure. Reduction hypotheses remain unproved unless separately established.
 
+The eighth checkpoint adds the sufficient five-owner core with 16 raw inputs and 36 optional pure-OR features. Its exact outside OR-network cost tables, all 20 positive/30 maximal-negative tests, 16 essentiality witnesses, exact64 calibration and approximate seed restoration passed independent review. A compatible core with at most23 gates would complete the target with40 additional gates. The first exact-five-AND run timed out after300 seconds; the follow-up retains one solver across six300-second intervals. The short one-owner-only phase search also timed out without a new seed.
+
+The unrestricted-OR thirteen-AND abstraction is a separate route. Its clean full-plane calibration computes the exact52-edge function on all2^26 assignments and assembles to64 gates. A known dirty two-AND P4 calibration passed. The full dirty search is active; any skeleton still needs actual OR-cost optimization and exact full-circuit validation. The OR assembler was independently checked on2000 small configurations. Verified full-plane automorphisms reduce dirty independent pairs to two representatives, with exact-target scope stated explicitly. This reduction says nothing about the total gate count by itself.
+
+The six-owner joint search reached eight boundary failures, but its assembled full circuit is the familiar two-extra-edge approximation. The four-owner run reached six failures; a later weighted objective is labeled separately from the ordinary error count. New five-owner stochastic data and cost accounting are reviewed. No reported metric constitutes an exact target witness.
+
 ## Administration
 
 Special check L-meta-1035 returned not_open; the response did not say whether it was checked or stood down. Three initial hard-desk requests returned null with this exact note:
@@ -72,6 +82,6 @@ L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease is 
 
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review (6 distinct agents).
 
-TIMING total=214.3 subagents=6 (checkpoint at 2026-11-25T05:35:23.761499+00:00; work continues).
+TIMING total=237.0 subagents=6 (checkpoint at 2026-11-25T05:58:05.771648+00:00; work continues).
 
 Job ID: msg-e98796d0d0ad050188abca1f.

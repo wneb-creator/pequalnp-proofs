@@ -1,0 +1,6 @@
+{
+  "signed_selector_assignments": 400,
+  "variables": 59,
+  "clauses": 125,
+  "status": "PASS: compatible-template existence and used-feature cardinality."
+}

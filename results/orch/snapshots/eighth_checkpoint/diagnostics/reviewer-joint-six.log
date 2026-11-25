@@ -1,0 +1,7 @@
+All 729 compatible prefix choices: exact outside graph, 34 gate cost, feature semantics PASS
+All 288 seed assemblies: valid references, exact budget PASS
+Fixture shape list 1000
+PACKET SHA256 6336ab490b4571f28375a166486612a02c73cc45018c31e2b3f489c6b21886f9
+ASSEMBLER SHA256 b76bd5d92e1ce8d50934aaadb529551ea1a481f2e00fed2875787badede8ad50
+All 1000 independent budget replays PASS; rejected/accepted [343, 657]
+All 72 seed symmetries preserve graph, features and prefix groups

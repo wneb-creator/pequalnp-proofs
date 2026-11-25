@@ -1,0 +1,2 @@
+PASS exact7 costtables/66 tests;1000 fixtures(657 accepted343 rejected);72 seeds on all65536 assignments;5000-rewrite fixture fulltruth equality
+SHA256 60e4629318a09ee2bd973b29b1345655c51d555d18561ff743fcd262d019bc87

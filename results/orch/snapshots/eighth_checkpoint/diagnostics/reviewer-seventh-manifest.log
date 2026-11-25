@@ -1,0 +1,4 @@
+SOURCE CAPABILITY lemmas/lower_bound/sat/global_synthesis.py ['import subprocess', "            run = subprocess.run([CADICAL, '-t', str(args.seconds), '--seed=' + str(args.seed),", '                                 stdout=log, stderr=subprocess.STDOUT)']
+PASS 216 entries 926013 original bytes 926013 stored bytes; hashes, gzip, paths, inventory, credential patterns
+MANIFEST.json a11565fbd83a16d77329e368e942f035b5e4ec26ce5d998044aebea46e3b4ba5
+STATUS.md 2991a1ae97dd8d8febad685966b0e4c62af65783c176fc45f9e782cd79608079

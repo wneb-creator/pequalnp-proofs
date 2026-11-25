@@ -1,0 +1,4 @@
+PASS22 test basis forces exact truth on 5126 one-owner or≤2-bit assignments by monotonic extension
+All6 selected negatives pairwise-positive union PASS
+SHA256 db453ed6e9c76466135cc3e8042f9dbc48b54fc45dbb932de59be0555d72d068
+Full decoded truth and all756 assembled tests checked; exact filename only when complete raw false-positive count zero and full graph has no errors. Other outputs explicitly approximate.≥5AND is a phase search restriction, not an unrestricted lower-bound claim.

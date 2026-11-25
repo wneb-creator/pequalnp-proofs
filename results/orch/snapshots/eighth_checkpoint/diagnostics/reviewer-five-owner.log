@@ -1,0 +1,60 @@
+Owner 3 arity 3 templates 3 all cost requests 8 PASS
+Owner 4 arity 2 templates 1 all cost requests 1 PASS
+Owner 6 arity 3 templates 3 all cost requests 8 PASS
+Owner 8 arity 3 templates 3 all cost requests 8 PASS
+Owner 9 arity 3 templates 3 all cost requests 8 PASS
+Owner 10 arity 4 templates 15 all cost requests 1024 PASS
+Owner 11 arity 3 templates 3 all cost requests 8 PASS
+Owner 12 arity 3 templates 3 all cost requests 8 PASS
+Feature 0 single wire extra cost 0
+Feature 1 single wire extra cost 0
+Feature 2 single wire extra cost 0
+Feature 3 single wire extra cost 0
+Feature 4 single wire extra cost 0
+Feature 5 single wire extra cost 0
+Feature 6 single wire extra cost 0
+Feature 7 single wire extra cost 0
+Feature 8 single wire extra cost 0
+Feature 9 single wire extra cost 0
+Feature 10 single wire extra cost 0
+Feature 11 single wire extra cost 0
+Feature 12 single wire extra cost 0
+Feature 13 single wire extra cost 0
+Feature 14 single wire extra cost 0
+Feature 15 single wire extra cost 0
+Feature 16 single wire extra cost 0
+Feature 17 single wire extra cost 0
+Feature 18 single wire extra cost 0
+Feature 19 single wire extra cost 0
+Feature 20 single wire extra cost 0
+Feature 21 single wire extra cost 0
+Feature 22 single wire extra cost 0
+Feature 23 single wire extra cost 0
+Feature 24 single wire extra cost 0
+Feature 25 single wire extra cost 0
+Feature 26 single wire extra cost 0
+Feature 27 single wire extra cost 0
+Feature 28 single wire extra cost 0
+Feature 29 single wire extra cost 0
+Feature 30 single wire extra cost 0
+Feature 31 single wire extra cost 0
+Feature 32 single wire extra cost 0
+Feature 33 single wire extra cost 0
+Feature 34 single wire extra cost 0
+Feature 35 single wire extra cost 0
+Canonical24+39+1 calibration: exact52 DNF terms PASS
+five-owner-joint-packet.json 6466ac0d04b420710dfaa8af7bf7650dce4ae0d6192b69a220f36b44c44f7463
+five-owner-raw-packet.json 4074ed5982d59094df6ff684c135f6a29359e8e7327df39b1524aa3a319487b9
+assemble_five_owner.py 0611392f7bacc2f26d54d234dcce03160e4b27f75581e30f69ae2576bfabc686
+All packet/basis/mapping/cost/template checks PASS
+All16 mandatory raw-input witnesses preserve every free feature PASS
+Pair-extension census PASS:15 possible dirty pairs; singleton minimum 4
+All2048 restricted maximal-negative counts and209 minimal forced-active masks independently regenerated PASS
+five_owner_filtered23_seed.json exact core/full DNF and+40 extension PASS
+five_owner_algebraic5extra22_seed.json exact core/full DNF and+40 extension PASS
+five_owner_algebraic4extra23_seed.json exact core/full DNF and+40 extension PASS
+five_owner_shared4extra22_seed.json exact core/full DNF and+40 extension PASS
+five_owner_shared2extra23_seed.json exact core/full DNF and+40 extension PASS
+Template helper equivalences reviewed: used iff selector occurrence; exactly one tree/owner; used implies tree exposure; feature bound G-R+1. Driver retains full raw/fullgraph checks and zero-extra assembly assertion.
+template_feature_compatibility.py eaafcac2c4055f6abd993437639175921515a2d95216cd79a3d433d40ebc45dd
+joint_five_owner_sat.py af1f55d461d5735195ee9c7d5378b00040eaf7d25d47c25ddf333eb864e8a6c8
