@@ -16,3 +16,7 @@
 - 2026-11-25T08:53:03.123045+00:00: batch4 pushed 12d696ada764c63b76fd10566a0a0b80629ceee6; finite search independently reproduced and stronger exchange certificates reviewed.
 
 - 2026-11-25T08:55:46.984022+00:00: batch5 pushed 24d4022685801b43368cac83563ac649677f6e5a; canonical witness and singleton refinements reviewed.
+
+- 2026-11-25T08:57:44.337706+00:00: first major replanning. Minimum existence, erasure, cleaning, cone ownership, TopForm, and canonical junk-minimum routes completed as partials. Full safe-AND normalization deferred: stronger than the ownership goal and potentially tied to open lower bounds. Main live routes: shared dirty-rectangle exchange; singleton-support restrictions; SAT search of larger girth-valid graphs.
+
+- 2026-11-25T08:58:27.838891+00:00: batch6 pushed 5eea8e3b16af7e1d88f9e572d35af1c7bbaa977c; absorption and singleton pivotal lemmas reviewed.

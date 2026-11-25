@@ -118,3 +118,24 @@ Independent canonical assembly review PASS: canonical_route.lean 2110 lines SHA2
 ## 2026-11-25T08:54:50.431019+00:00 minimal-route local AND absorption (frozen)
 
 and_absorption_route.lean compiles exit 0; log /tmp/oec/pequalnp-pilot-77/and-absorption-route-build-1.log. Contains clean_route prefix plus 2 new lemmas: minimal_and_no_below_output and minimal_graph_and_operand_not_below. If an AND input lies below output, deleting that AND and redirecting its readers to the safe input preserves output (true inputs by monotonicity, false inputs by equality). Minimality forbids this. The graph wrapper discharges the common Core-style assumption that no AND operand is below graphFun. Extract final 2 lemmas when combining with topform_route.
+
+2026-11-25T08:56:15.762752+00:00 repair_exchange update
+
+repair_route.lean is compiled and frozen. Besides the path exchange, it proves the filtered circuit is not minimal, its final AND is pivotal on every graph edge, and both direct operand bypasses fail. Full latest log: /tmp/oec/pequalnp-pilot-77/repair-route-build.log (empty, exit 0).
+Global-sharing obstruction refined: OR(a,c) in the path example cannot feed a safe star at a second center e without a 4-cycle a-d-c-e-a; OR(a,d) cannot feed any safe star at a distinct center without a triangle because ad is already an edge. Thus reuse that blocks the local exchange must go through dirty/nonlinear readers. TopForm ensures safe AND readers have no later AND descendants. A charging argument for dirty reuse is not proved.
+TopForm plus an unowned pair-true AND yields a strict dirty owning ancestor (ownership agent has now proved this in singleton_route.lean). The earliest dirty gate in a cone has no AND ancestors under TopForm, hence pure OR sides under clean exact fan-in-two semantics. However it need not be true on the originally chosen pivotal edge; first-bad ownership only supplies some edge it owns. This edge-alignment gap must not be skipped.
+
+- 2026-11-25T08:56:23.551699+00:00 counterexample: finite semantic BFS supports all 38 girth>=5 graphs on n=4, all 291 forests on n=5; five-cycle requires at least 7 gates computationally (958669 five-gate states, no possible sixth gate). Explicit 7-gate C5 function and ownership now Lean-checked in counterexample_route.lean (not its minimum). Reproducible programs/logs in finite/. General all64 n=4 graph BFS also found only ownership-good minimum witnesses (not exhaustive all structural minima).
+- 2026-11-25T08:56:23.551716+00:00 counterexample: Z3 5.3.3 downloaded from public GitHub release to scratch; solver matches BFS for P4 min4 and C5 min7. C5=7 with a non-owning AND is UNSAT (15.4s); C6<=7 UNSAT (7.6s); C6=8 non-owning AND query timed out90s. Larger theta/Petersen/Fano queries underway; no Lean certification of SAT/UNSAT claims.
+
+## 2026-11-25T08:56:48.523607+00:00 ownership_route singleton pivotal phase (frozen)
+
+singleton_pivotal_route.lean compiles, 770 lines; full log singleton-pivotal-build-2.log, exit 0, clean-prefix deprecation warnings only. Contains unchanged clean_route prefix plus new namespace ...aux.singletonPivotal; in assembly reuse existing clean/topform prefix and append only singletonPivotal suffix. General underapprox_lost_edge shows every valid pointwise-weaker replacement wire loses an edge in a minimum graph circuit. singleton_true_has_disjoint_pivotal then proves any gate true on singleton z is pivotal under redirect-to-z for some graph edge uv with both endpoints different from z. This gives a checked necessary hybrid-support condition, not a singleton-false normal form. Root notified for review/push.
+
+## 2026-11-25T08:57:44.337706+00:00 root replanning
+
+Infrastructure is complete and compiled; avoid new generic lemmas without direct use in ownership repair. Preserve exact existential target: bad optimal circuits would not alone refute existence of a good optimum. Three live reductions already fill this step's reduction cap. Main combinatorial bottleneck is arbitrary fan-out among dirty OR-rectangles and later filters. No proof/refutation or full checker verdict yet.
+
+## 2026-11-25T08:58:08.556108+00:00 minimal-route singleton filtering (frozen)
+
+singleton_filter_route.lean compiles exit 0; log /tmp/oec/pequalnp-pilot-77/singleton-filter-route-build-2.log. Clean prefix plus 4 lemmas: graph_pair_true_iff; belowF_and_singletons_adj (true singletons across safe AND operands give an edge); triangle_filter_no_two_singletons (opposite operand cannot contain both endpoints of an edge if one operand contains a fixed singleton); noFour_safe_and_singleton_star (one operand singleton-support is subsingleton). These are local graph constraints. Missing: expose a safe downstream filter through dirty intermediate ANDs, then use ownership agent singleton-disjoint-pivot witness for a cost-preserving repair.
