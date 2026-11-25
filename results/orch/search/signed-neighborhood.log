@@ -1,0 +1,5 @@
+best=14 drop=0 replacement=0 marked=0 evals=1
+best=13 drop=0 replacement=2 marked=0 evals=153
+best=11 drop=12 replacement=8 marked=0 evals=16228
+best=10 drop=12 replacement=20 marked=0 evals=17156
+COMPLETED no witness; best=10 evals=30035

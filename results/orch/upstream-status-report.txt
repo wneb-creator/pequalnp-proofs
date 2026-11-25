@@ -1,0 +1,127 @@
+Upstream status audit, 2026-11-25 UTC
+
+Fetched main to FETCH_HEAD only: f97515c277215dd18e0ae005218770d6be86124e
+Latest commit time: 2026-11-25T14:32:50Z.
+Working branch/proof files were not merged or changed.
+Compared with d3bbd182: 257 changed Outside paths, including 176 L/R declarations.
+
+Public head generated_at: 2026-11-25T14:31:57.269Z
+Public meta map: https://data.pequalnp.com/data/map/program/meta_complexity.8a7f703ec765.json
+Relevant rows (j=conjecture,c=checked):
+[
+  [
+    651,
+    "j",
+    [],
+    "7745f79d6eb9",
+    1795440562,
+    0,
+    -1
+  ],
+  [
+    2159,
+    "j",
+    [],
+    "4dab55afc6d3",
+    1795505854,
+    0,
+    -1
+  ],
+  [
+    2590,
+    "j",
+    [],
+    "e52ef820c846",
+    1795510890,
+    0,
+    -1
+  ],
+  [
+    2592,
+    "j",
+    [],
+    "bb62b8ddb8cf",
+    1795510890,
+    0,
+    -1
+  ],
+  [
+    4033,
+    "c",
+    [],
+    "123434278697",
+    1795608688,
+    0,
+    5,
+    "ParasKoundal"
+  ],
+  [
+    8133,
+    "j",
+    [],
+    "a2f39905abe8",
+    1795582907,
+    0,
+    -1
+  ],
+  [
+    10742,
+    "c",
+    [],
+    "f04131cf092e",
+    1795616659,
+    0,
+    5,
+    "MedicV2"
+  ]
+]
+
+L-meta-2592: still conjecture, no final L_meta_2592.lean on fetched upstream.
+No open PR matching target; 15 complete search results including false numeric/title matches.
+Three previously accepted reductions remain:
+- R_meta_2592_271: https://github.com/open-goat/pequalnp-proofs/pull/7606
+- R_meta_2592_408: https://github.com/open-goat/pequalnp-proofs/pull/9069
+- R_meta_2592_318: https://github.com/open-goat/pequalnp-proofs/pull/11694
+No new reduction since our initial checkout. Latest related attempt #15013 closed
+without merge at13:35:46Z; #12799 and#12707 also closed without merge.
+
+L-meta-2590 and L-meta-651: likewise still conjectures and no final named files.
+Merged PRs titled L-meta-2590/L-meta-651 actually added reduction files:
+- 2590: #4786,#7763,#8191 -> R_meta_2590_1,_932,_491.
+- 651: #3915,#4035,#4041 -> R_meta_651_1,_2,_7.
+Targeted complete searches: 2590=12 results;651=7 results; neither has an open match.
+
+Fresh relevant theorem review:
+- No new nine-input statement involving GateOp.not among176 new L/R theorem tails.
+-136 new seven-input NOT statements, many graph-specific elimination results.
+- Example L_meta_10742, accepted14:24:08Z, PR#15213:
+  https://github.com/open-goat/pequalnp-proofs/pull/15213
+  Seven-input11-edge graph; any circuit with at most one NOT can be replaced by
+  a monotone circuit without increasing size. Source515760bytes. It proves a
+  graph-specific lower bound then supplies a fixed12gate monotone witness;
+  this is not a generic NOT-elimination transformation and does not directly
+  discharge our nine-/ten-input cases.
+- New R_meta_8133_11 is only a reduction: its first premise is exactly the
+  nine-input Petersen-minus-vertex lower bound already available as L4033;
+  its other premise is a relabeling/normalization bridge. It adds no new bound.
+- New L_meta_6098 excludes an OR decomposition having an input/invalid operand
+  by singleton witnesses. This does not handle our first positive-OR residual.
+- L_meta_11042 gives16gates for a different nine-input12-edge graph; its degree
+  sequence2,2,2,2,2,2,2,4,6 differs from Petersen-minus-vertex, so it is not
+  a relabeling of our restriction target.
+
+Open Petersen keyword search:14 complete results, none for2592/2590/651.
+Potentially relevant existing #7433 (L2159 NOT-free size15 split) remains open;
+public L2159 remains conjecture. Other open items are normalization/reduction
+steps, not a newly accepted NOT-elimination result.
+
+Evidence files under this scratch directory:
+status-head.json,status-overview-data.json,status-meta-map.json
+status-pr-2592.json,status-pr-2590.json,status-pr-651.json,status-pr-2159.json
+status-pr-open-petersen.json
+upstream-status-new-commits.txt,upstream-status-changed-files.txt
+upstream-status-new-theorems.json,upstream-status-candidates.txt
+upstream-status-reduction-history.txt,upstream-L_meta_10742.lean
+Each GH search was --paginate; JSON object/items shape and total_count were
+checked; all incomplete_results fields false and returned counts complete.
+No desk calls, commits, pushes, branch merges, or proof-file edits.

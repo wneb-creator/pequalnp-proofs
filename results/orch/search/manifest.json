@@ -1,0 +1,362 @@
+[
+  {
+    "name": "search.cpp",
+    "bytes": 3421,
+    "sha256": "a4098cd7595eb7303b97a21957403569856adcb72f73b956f395b1794e120024",
+    "preserved": true
+  },
+  {
+    "name": "search-active-not.cpp",
+    "bytes": 3618,
+    "sha256": "16032b6bf4f35cd321728d4b9aa87feb011d1f2a53b80f060437c3b63b99cdfc",
+    "preserved": true
+  },
+  {
+    "name": "local_repair.cpp",
+    "bytes": 1587,
+    "sha256": "d1eb5f575ae6d97052e5bfad4bc78227f4786a8790155850f95255812fe9f47c",
+    "preserved": true
+  },
+  {
+    "name": "cegis.py",
+    "bytes": 3172,
+    "sha256": "ff5e672391bab63427027e4e18d3c0157e47229824f66b32946081c3c9a15bd2",
+    "preserved": true
+  },
+  {
+    "name": "cnflib.py",
+    "bytes": 1821,
+    "sha256": "4aab59ab3b9d72c55e95157da922a10709f642165668d05cc621b3b368f92707",
+    "preserved": true
+  },
+  {
+    "name": "orbit_driver.py",
+    "bytes": 789,
+    "sha256": "2d21eac33da4e50a114aedea80318569344964f06ccebc8ca2800dd3494884a6",
+    "preserved": true
+  },
+  {
+    "name": "seeds.txt",
+    "bytes": 5563,
+    "sha256": "5e0e0f05051c589efefb505106a53977793cf274bafb32d5d7487f8ad1fccf8d",
+    "preserved": true
+  },
+  {
+    "name": "search-97.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "search-97.stderr",
+    "bytes": 9859,
+    "sha256": "6953005609f8986d7bb3f7ab46646f63bbaec3b7749e5ccfae8a87c8c9f0c0f3",
+    "preserved": true
+  },
+  {
+    "name": "search-active-197.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "search-active-197.stderr",
+    "bytes": 3814,
+    "sha256": "31158a48e1424f8f311ccfbc90a6f886b45c6f53ed328aafb9b9e62881e21fa5",
+    "preserved": true
+  },
+  {
+    "name": "local-repair-4.log",
+    "bytes": 59,
+    "sha256": "7292c1ec505797e050f483379064d4de5cc6f5f773fe40e7ba6aa61224463016",
+    "preserved": true
+  },
+  {
+    "name": "compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "compile-active.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "local-repair-compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "cegis-driver.log",
+    "bytes": 60,
+    "sha256": "31ab576e359f4e7cec947cf4c8418b480a75cc8f0eebd4887ede7fb2901c5fde",
+    "preserved": true
+  },
+  {
+    "name": "cegis-0.log",
+    "bytes": 20855,
+    "sha256": "7a90ec3fdf37b0f9845ee293c776f214b0d2c5f5bd9aa301bbe56905b57a0d32",
+    "preserved": true
+  },
+  {
+    "name": "sat-not1.log",
+    "bytes": 1639468,
+    "sha256": "86d12370a522820da5a93db3b70bef83247e4cb6808141f7c06c18595db75d6e",
+    "preserved": true
+  },
+  {
+    "name": "sat-not4.log",
+    "bytes": 1625006,
+    "sha256": "71a68fcffda6efabcbfb02faa4e96cdd317986559a88d5458150eb3c18a71f0f",
+    "preserved": true
+  },
+  {
+    "name": "essential-not1-69.log",
+    "bytes": 28102,
+    "sha256": "bbd56b01375f3ffe8482206b51979dbc6bdb1e7333d42a8119b97f88401c5d9a",
+    "preserved": true
+  },
+  {
+    "name": "essential-not1-521.log",
+    "bytes": 27779,
+    "sha256": "c9b2f97d81edbb172799e2fadb1af70f7c818f0aa3cef58a782ddd736b33ae15",
+    "preserved": true
+  },
+  {
+    "name": "full-exact-not4.log",
+    "bytes": 11228,
+    "sha256": "35c7fd13cb7efda881643c4d7376bbe548d52e5680c68609e09b8d93832f20b0",
+    "preserved": true
+  },
+  {
+    "name": "gen-rows.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "gen-rows.stderr",
+    "bytes": 172,
+    "sha256": "f38dc14b997a1c64ad45fa95e12361187b02393503e1e8860f21ade59cf39bd9",
+    "preserved": true
+  },
+  {
+    "name": "not1-model-0.json",
+    "bytes": 8612,
+    "sha256": "aa7cace101f238728cdc9d0a04eb56e84c0c2c3acfb9099af44a1bd0734f3aae",
+    "preserved": true
+  },
+  {
+    "name": "not4-model-0.json",
+    "bytes": 4470,
+    "sha256": "187edb88b2aab9f2efd890bb1f78db641cc071e1b937129363448bd09744e2d7",
+    "preserved": true
+  },
+  {
+    "name": "signed-seed20-report.json",
+    "bytes": 4272,
+    "sha256": "77c2a0a991772b712520502ca88567d01669f23196c5b2bab60aa3c8354067af",
+    "preserved": true
+  },
+  {
+    "name": "signed-seed20-fixed.log",
+    "bytes": 674144,
+    "sha256": "4fc561705003801744a3a96d55dd00c6c9500b6b90eca56dc2b05e9acb44e6d3",
+    "preserved": true
+  },
+  {
+    "name": "signed_neighborhood.cpp",
+    "bytes": 2348,
+    "sha256": "744bb21866480aaf5ec3dcbb22a2abc52e7115765bdfe953adb74d67faafa9a3",
+    "preserved": true
+  },
+  {
+    "name": "signed-neighborhood.log",
+    "bytes": 239,
+    "sha256": "12a3ac82cf5b3032fea1b83d6a155b83c6b36ba191857cd30870fff1ee290d67",
+    "preserved": true
+  },
+  {
+    "name": "signed-neighborhood-compile-fixed.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "delete_two.cpp",
+    "bytes": 3854,
+    "sha256": "5dc4b90b2ba370ffed2609d6872307996a64b94863d1e019928cea6131c209de",
+    "preserved": true
+  },
+  {
+    "name": "delete-two.log",
+    "bytes": 2946,
+    "sha256": "10e05f47028b58401eda7e6b65fffedb8939efaa45ca9d5a4bfe849b86217d20",
+    "preserved": true
+  },
+  {
+    "name": "delete-two-compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "preserved": true
+  },
+  {
+    "name": "near-seed.txt",
+    "bytes": 134,
+    "sha256": "c6b1839fef72515ac0103ffa5e863bd2fccae06dafb720a53ad7f18ec2797c6c",
+    "preserved": true
+  },
+  {
+    "name": "full-exact-not2.log",
+    "bytes": 13178,
+    "sha256": "482f61e33a215c0e816e6131862816983ab9d3ef28686d71980c0d802efbc925",
+    "preserved": true
+  },
+  {
+    "name": "orbit-driver.log",
+    "bytes": 420,
+    "sha256": "09af45a1b7d44bb85f531f72ac6619f3236f782986a73d6b44de092d6cbc3545",
+    "preserved": true
+  },
+  {
+    "name": "essential-not1-276.log",
+    "bytes": 27869,
+    "sha256": "7f2ec7eacf944cc5f6ef491e20f0c80127de3e69f2c9ea48f9c685a52af5d837",
+    "preserved": true
+  },
+  {
+    "name": "essential-not1-773.log",
+    "bytes": 30253,
+    "sha256": "f4ed4b1383af3564b28989c46f662dc145d5d66786f5e5f82895991596d7ed4d",
+    "preserved": true
+  },
+  {
+    "name": "essential-not1-116.log",
+    "bytes": 30385,
+    "sha256": "01b44250a9ecbd92fd042fe9342deab96192d4094d48924a088c7136d279ec38",
+    "preserved": true
+  },
+  {
+    "name": "signed1-orbit69.log",
+    "bytes": 23870,
+    "sha256": "846c115133a96464e719e7601498da1af9ac101897ea6375607ad1ff502480ab",
+    "preserved": true
+  },
+  {
+    "name": "signed1-generate.log",
+    "bytes": 199,
+    "sha256": "b44d2a9e4a5c20735163df400c7afd6b019362515a29cbac00104118e92a541f",
+    "preserved": true
+  },
+  {
+    "name": "signed-negative-seed-report.json",
+    "bytes": 4542,
+    "sha256": "79468e2844f264d228ea49c560ccd40fafc067896d4b56db70b7ecd90d3f9ffc",
+    "preserved": true
+  },
+  {
+    "name": "signed-negative-seed-fixed.log",
+    "bytes": 712798,
+    "sha256": "c64f2201f29c9f7c6f65dfe039d7ec7982d87a4ee5b4907fd5e450ac35a5cbf1",
+    "preserved": true
+  },
+  {
+    "name": "signed-negative-generate.log",
+    "bytes": 212,
+    "sha256": "590787a914bffb4f978ae53a89945aa25f1c65e50ab740622397020fa9210f22",
+    "preserved": true
+  },
+  {
+    "name": "signed17-free-or01.log",
+    "bytes": 8587,
+    "sha256": "1bae74df559d934fc828723086fd7cd6ba04d5afb4deac0fb6a26f3a726ced82",
+    "preserved": true
+  },
+  {
+    "name": "signed_source.py",
+    "bytes": 11114,
+    "sha256": "d2b97cd9e88d9139f10ed770cde5cb77efbb3085828f420adadade18d7c64793",
+    "preserved": true
+  },
+  {
+    "name": "signed_source-before-lex.py",
+    "bytes": 10471,
+    "sha256": "1fa28870679aef287f37d3c3c814fd595cd07ee1d75880c8718682b1d8be20fc",
+    "preserved": true
+  },
+  {
+    "name": "signed2-full.log",
+    "bytes": 12917,
+    "sha256": "25ef7f4048cb45adde9648336afb9796129dc43e78f5dbe7ae6d5c1e76576593",
+    "preserved": true
+  },
+  {
+    "name": "signed2-generate.log",
+    "bytes": 195,
+    "sha256": "7f7136d4849a82afffa1472846898bf3905e98d2685b034009c710dc13dbcf32",
+    "preserved": true
+  },
+  {
+    "name": "signed2-lex-nor01.log",
+    "bytes": 10968,
+    "sha256": "5face68fc45e12fe69012d630df44bf7d967934b42d9e08edf2a869facba2d0e",
+    "preserved": true
+  },
+  {
+    "name": "signed2-lex-generate.log",
+    "bytes": 203,
+    "sha256": "a6372a936d4852abe13fc813e54556e4428c69c55641cc2f057284b4789fba4a",
+    "preserved": true
+  },
+  {
+    "name": "signed17-aig-nor01.log",
+    "bytes": 7773,
+    "sha256": "7512f38ec4dd9e88fbc07a2db866d53c8502f88a7f52bb7db144694efb243774",
+    "preserved": true
+  },
+  {
+    "name": "signed17-aig-lex-nor02.log",
+    "bytes": 10608,
+    "sha256": "abbb506bc1a523646375561ea02effd8c0f50ca4c9da54428f9787c8e7e4bb44",
+    "preserved": true
+  },
+  {
+    "name": "signed17-free-lex-generate.log",
+    "bytes": 205,
+    "sha256": "27fca10ef13629e8d3230021ec45e0676009de8db3901aa77b5ff209dec7d12c",
+    "preserved": true
+  },
+  {
+    "name": "run_long.py",
+    "bytes": 813,
+    "sha256": "a0054bec926a2f646f95671a7f61e87f77781f28e573b136dedada4e2a2a7dab",
+    "preserved": true
+  },
+  {
+    "name": "phase_optimizer.py",
+    "bytes": 4405,
+    "sha256": "42196d997fe8849600fd54b4c142f4aa138d69e5588871ee137b6baf5d49a14b",
+    "preserved": true
+  },
+  {
+    "name": "build_signed_cases.py",
+    "bytes": 3660,
+    "sha256": "39e0ea5bb9e4974811d79de87e6c8008d227bd1273b6c2942b35897703d4ef00",
+    "preserved": true
+  },
+  {
+    "name": "README.md",
+    "bytes": 2081,
+    "sha256": "4217c2d1ce9727cf65ad6b1f4f2cbd777ffed4370b164a4ffbb850889d32fabd",
+    "preserved": true
+  },
+  {
+    "name": "near-candidate-19.json",
+    "bytes": 1395,
+    "sha256": "b468c4dd8065b6b74760111f83dbc8cdebbb7c1af58dbee456c6b9b891dad3bf",
+    "preserved": true
+  }
+]

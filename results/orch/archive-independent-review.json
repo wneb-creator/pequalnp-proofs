@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS for archival partial-branch checkpoint only",
+  "manifest_sha256": "fded0a0cbc3eb6f81913854c28c991056e89680b7c537fec03119646cd807dc4",
+  "listed_files": 60,
+  "total_listed_bytes": 5016513,
+  "all_hashes_and_sizes_match": true,
+  "unlisted_files_except_manifest": [],
+  "source_scope": "13 Python/C++ sources use local data and argument-specified local solver subprocesses only; no credential access or network calls found.",
+  "near_candidate": {
+    "candidate_sha256": "b468c4dd8065b6b74760111f83dbc8cdebbb7c1af58dbee456c6b9b891dad3bf",
+    "independent_rows": 1024,
+    "wrong_rows": [
+      520,
+      521,
+      522,
+      552,
+      554
+    ],
+    "extra_edge_equivalence": true,
+    "monotone": true,
+    "gate_count": 19,
+    "not_count": 0,
+    "truth_table_sha256": "b2a89d243993b02d3a12fe5b8090baeca8c5dfbb35b646424062ced22a6067dd",
+    "seed_agrees": true,
+    "is_counterexample": false
+  },
+  "boundary_models_independent_mismatches": {
+    "not1-model-0.json": 870,
+    "not4-model-0.json": 410
+  },
+  "claims": "README and candidate explicitly say this is not a counterexample or proof; UNKNOWN is not UNSAT; extra search restrictions are not asserted exhaustive.",
+  "statistics_verified": [
+    "FINISHED runs=14678 best=5 evals=1467814678",
+    "DONE no witness evaluations=183416922 criticalpasses=0"
+  ],
+  "limits": "No solver was rerun and no encoding-completeness theorem is claimed; large CNFs are intentionally regenerated from included scripts. Active run remains scratch."
+}

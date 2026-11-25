@@ -47,3 +47,5 @@ Twelfth checkpoint: NorCompression, CleanReader, and TwoNotSwap compiled exit0 a
 Thirteenth checkpoint: NorReaders, NegOrReassociate, and TwoStepSeed compile exit0 and pass independent reviews. The conditional NOR-prefix compression is assembled; two additional signed-Live subclasses have residual binary lower16. These results do not settle the exact posted theorem.
 
 Fourteenth checkpoint: TwoOrSeed and CubeCircuit compiled exit0, root independent source review PASS. The former excludes intersecting OR seeds with independent nonshared endpoints; the latter provides an ordinary-circuit16-nonNOT lower bound with a free negative-OR cube. Exact main theorem remains absent.
+
+Fifteenth checkpoint: completed search sources, full diagnostics, and explicitly rejected candidates preserved. Independent status_audit review PASS for all60 manifest entries,5016513bytes. Near-candidate independently has exactly5/1024 mismatches; boundary-only models have410/870 mismatches. No full search UNSAT proof or valid counterexample is claimed. Broad one-NOT and narrower two-NOT hour-long searches continue separately.
