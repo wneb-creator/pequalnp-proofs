@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_1031.FreshTriple.nonstar_triple_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshTriple.extra_vertex_choice' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.FreshTriple.extra_vertex_nonadjacent' depends on axioms: [propext]

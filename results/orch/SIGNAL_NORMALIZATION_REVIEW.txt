@@ -1,0 +1,16 @@
+Independent root review of signal normalization and absorber constraints
+Verdict: PASS for the stated partial lemmas; no full L-meta-1031 proof.
+
+FirstAndProfile: read all248 lines. Its165-line SingletonProfile prefix exactly matches the separately saved source. Singleton repair assumes a monotone context, exact computation, star acceptance on graph edges, and two distinct neighbors of the singleton vertex. Those hypotheses force the owner center and permit literal substitution. The later normalization requires singleton-clean pure OR sides, a nonempty accepted graph edge, and the explicit graph-edge star property. It narrows one side to the center literal, preserves all graph-edge values and any given exact monotone context. It does not prove soundness on nongraph inputs, raw ownership preservation, circuit deletion, or minimum-size normalization. Such concrete bridges remain separate. The copied prefix means these are self-contained alternatives, not modules to import together unchanged.
+
+AbsorberLeaves: read all75 lines. Full-input soundness on the test set{b,d,z}, together with the explicit poison nonedge and neighbor hypotheses, forces z adjacent to b or d. No-four-cycle then forces z=a or z=c. The Boolean wrapper correctly converts arbitrary sets through characteristic functions; the final triangle lemma establishes the poison nonedge from a common neighbor. No absent adjacency or disjointness assumption is silently inferred.
+
+Only allowed imports, ordinary tactics, and local namespaces are present; no unsafe reflection, new axioms, sorry, strings, forbidden root spelling, attributes or option changes. Author compilation succeeded; FirstAndProfile main axiom audit is standard3 only. Logs are preserved alongside the source.
+FirstAndProfile.lean SHA256 21bc2070ab1bcbd530671b2a9cce438232fafc409cc12e641fb7774d49751367
+SingletonProfile.lean SHA256 b1a00bbabd5463ca0a899ea115dd9baf42a4b78bf3e2db6246c774ff8903e6e2
+AbsorberLeaves.lean SHA256 d5708e6370ec83ae848cb916255670a9365b2f72d833cfbd539f9fd6c66700c5
+UTC 2026-11-25T02:17:48.698266+00:00
+
+FirstAndProfile.lean trailing-blank-line-only cleanup: 21bc2070ab1bcbd530671b2a9cce438232fafc409cc12e641fb7774d49751367 -> af58a9278ac342721d6234303a67b221a9253dc0683fefa29c9e402005631eb6, 247 lines.
+SingletonProfile.lean trailing-blank-line-only cleanup: b1a00bbabd5463ca0a899ea115dd9baf42a4b78bf3e2db6246c774ff8903e6e2 -> 67c1a5fa14a4fa640776f0462512517913b7549659090a1a3a0af035c352d85d, 164 lines.
+No retained source text changed; previous successful elaboration and axiom review remain applicable.

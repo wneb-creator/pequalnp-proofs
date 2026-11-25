@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_1031.FirstAndProfile.first_star_literal_normal_form' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FirstAndProfile.literal_guard_normalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SingletonProfile.min_degree_two_singleton_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

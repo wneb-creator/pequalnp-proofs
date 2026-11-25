@@ -1,0 +1,8 @@
+FreshTriple independent review: PASS
+Reviewed SHA256: f80a02a91064069ac3ab2c783faa584ebba3195777ffb3bfb8caa654e0dd9293
+Reviewer: ownership_lemma
+Lean4.36 independent recompile: exit0
+Axioms: main classification uses only propext, Classical.choice, Quot.sound; extra_vertex_choice and extra_vertex_nonadjacent use only propext.
+Scope: nonstar_triple_classification assumes full-input soundness of the triple conjunction. Its replacement is proved sound on every input, with equivalence stated only on pair inputs. No full-function equivalence is claimed. The later extra-vertex lemmas invoke the full-input hypothesis on three-vertex sets. Graph restrictions and nonemptiness/nonstar assumptions are explicit. No disallowed imports, attributes, options, string literals, axioms, or native tactics found.
+Application limitation: the theorem does not apply to an unsound triple core such as the Petersen witness core accepting nonedge34.
+Reviewed UTC: 2026-11-25T02:13:13.041408+00:00

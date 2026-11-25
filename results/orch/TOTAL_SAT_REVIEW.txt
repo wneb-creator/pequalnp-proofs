@@ -1,0 +1,11 @@
+Independent root review of the native exact-total encoder
+Verdict: PASS as a computational search model, not a Lean proof.
+Reviewed the complete source. One-hot predecessor selectors range over input wires, earlier gates, and a free false wire. Conditional clauses implement the selected input and AND/OR outputs exactly; commutativity ordering does not remove essential circuits. Every nonfinal gate must be read by a later gate, which implies output reachability. The final wire is constrained true on every edge input and false on every maximal independent set; monotonicity then ensures exact graph-function evaluation.
+For a nonconstant graph function with an edge, any smaller public circuit can first be normalized by eliminating true constants, unary and dead gates and forward-reference false inputs; the output can be last. Repeated-input operations are permitted. Padding by OR(output,false) represents every smaller circuit within the exact positive k budget while retaining the used-gate condition. The CLI currently assumes k>0; all authorized runs use positive k.
+The SAT decoder validates every CNF clause and separately evaluates every Boolean assignment. Python assertions must remain enabled. UNSAT statuses remain computational evidence unless a separate certificate is checked; none is a Lean lower bound. No network, credential access, subprocess, or git mutation occurs in the encoder.
+Reviewed source SHA256 5eae4cb5ed4a79e0a2107ed9e20c5ace40baf4fbe7a3434767e3249ea0bbc6af
+UTC 2026-11-25T02:09:28.021282+00:00
+
+Graph-choice extension independently inspected: only Kneser-graph vertex deletion choices and n=len(keep) changed; core clauses/decoder unchanged. New SHA256 5eae4cb5ed4a79e0a2107ed9e20c5ace40baf4fbe7a3434767e3249ea0bbc6af.
+
+First-pair symmetry extension reviewed PASS. Enumerated S5-induced permutations stabilize removed vertices, are checked as graph automorphisms, and cover all unordered input pairs by canonical representatives. Only first constants and equal inputs are additionally excluded, valid for a normalized minimum circuit for these nonconstant graph functions; padding can occur at the output. Source SHA256 ff3abbc30c820c717002043640c2f845382a986e0b3e7510ec915ed86dd4ded6.
