@@ -1,0 +1,29 @@
+{
+  "seconds": 0.0018446609992679441,
+  "exact_networks": 3,
+  "best_size": 65,
+  "hit": false,
+  "results": [
+    {
+      "source_record": 0,
+      "original": 65,
+      "size": 65,
+      "output": 90,
+      "steps": 0
+    },
+    {
+      "source_record": 1,
+      "original": 65,
+      "size": 65,
+      "output": 90,
+      "steps": 0
+    },
+    {
+      "source_record": 2,
+      "original": 67,
+      "size": 67,
+      "output": 92,
+      "steps": 0
+    }
+  ]
+}

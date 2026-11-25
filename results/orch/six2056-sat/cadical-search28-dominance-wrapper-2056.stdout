@@ -1,0 +1,2 @@
+{"utc": "2026-11-25T16:17:05.993943+00:00", "variables": 112405, "clauses": 1380332, "conversion_seconds": 56.24662804603577, "size": 28, "seconds_limit": 1200}
+{"utc": "2026-11-25T16:17:05.993943+00:00", "variables": 112405, "clauses": 1380332, "conversion_seconds": 56.24662804603577, "size": 28, "seconds_limit": 1200, "exit_code": 0, "status": "unknown; time or resource limit"}

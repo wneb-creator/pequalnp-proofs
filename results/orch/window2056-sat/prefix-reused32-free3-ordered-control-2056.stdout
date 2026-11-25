@@ -1,0 +1,135 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 60 seconds real time (due to '-t 60')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/window2056-sat/prefix-reused32-free3-ordered-control-2056.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/window2056-sat/prefix-reused32-free3-ordered-control-2056.cnf'
+c found 'p cnf 1332 30870' header
+c parsed 30870 clauses in 0.03 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c *  0.03  6  0 0   0    0    0  0% 0 30787 1249 94%
+c {  0.03  6  0 0   0    0    0  0% 0 30787 1249 94%
+c i  0.04  6 45 0  16  186  119 57% 7 30787 1248 94%
+c i  0.04  6 42 0  22  221  150 56% 8 30787 1247 94%
+c i  0.04  6 42 0  23  226  153 55% 8 30787 1246 94%
+c i  0.04  6 41 0  24  227  153 55% 8 30787 1245 93%
+c i  0.04  6 41 0  24  228  153 55% 8 30787 1244 93%
+c i  0.04  6 41 0  24  229  153 55% 8 30787 1243 93%
+c i  0.04  6 41 0  25  230  153 54% 8 30787 1242 93%
+c i  0.04  6 40 0  25  231  153 54% 8 30787 1241 93%
+c i  0.04  6 40 0  25  232  153 54% 8 30787 1240 93%
+c i  0.04  6 40 0  26  233  153 54% 8 30787 1239 93%
+c i  0.04  6 40 0  26  234  153 54% 8 30787 1238 93%
+c i  0.04  6 40 0  26  235  153 54% 8 30787 1237 93%
+c i  0.04  6 39 0  27  236  153 54% 8 30787 1236 93%
+c i  0.04  6 39 0  27  237  153 53% 8 30787 1235 93%
+c i  0.04  6 39 0  27  238  153 53% 8 30787 1234 93%
+c i  0.04  6 39 0  27  239  153 53% 7 30787 1233 93%
+c i  0.04  6 39 0  27  240  153 53% 7 30787 1232 92%
+c i  0.04  6 38 0  27  241  153 53% 7 30787 1231 92%
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c i  0.04  6 38 0  27  242  153 53% 7 30787 1230 92%
+c i  0.04  6 38 0  27  243  153 53% 7 30787 1229 92%
+c i  0.04  6 38 0  27  244  153 52% 7 30787 1228 92%
+c i  0.04  6 38 0  27  245  153 52% 7 30787 1227 92%
+c i  0.04  6 37 0  27  246  153 52% 7 30787 1226 92%
+c i  0.04  6 37 0  27  247  153 52% 7 30787 1225 92%
+c i  0.04  6 37 0  27  248  153 52% 7 30787 1224 92%
+c i  0.04  6 37 0  27  249  153 52% 7 30787 1223 92%
+c i  0.04  6 37 0  27  250  153 52% 7 30787 1222 92%
+c i  0.04  6 36 0  27  251  153 51% 7 30787 1221 92%
+c i  0.04  6 36 0  27  252  153 51% 7 30787 1220 92%
+c i  0.04  6 36 0  27  253  153 51% 7 30787 1219 92%
+c i  0.04  6 36 0  27  254  153 51% 7 30787 1218 91%
+c i  0.04  6 36 0  27  255  153 51% 7 30787 1217 91%
+c i  0.04  6 36 0  27  256  153 51% 7 30787 1216 91%
+c i  0.04  6 35 0  27  257  153 51% 7 30787 1215 91%
+c i  0.04  6 35 0  27  258  153 50% 7 30787 1214 91%
+c i  0.04  6 35 0  27  259  153 50% 7 30787 1213 91%
+c i  0.04  6 35 0  27  261  153 50% 7 30787 1150 86%
+c -  0.04  6 32 1  27  301  155 52% 6 25016 1150 86%
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c }  0.04  6 30 1  27  327  166 53% 6 25016 1150 86%
+c 1  0.04  6 30 1  27  327  166 53% 6 25016 1150 86%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/window2056-sat/prefix-reused32-free3-ordered-control-2056.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.03  180.50% parse
+c         0.01   98.41% search
+c         0.01   86.93% unstable
+c         0.00   11.16% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.02   34.78% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               146        44.65 %  of conflicts
+c conflicts:                   327     21612.69    per second
+c decisions:                  2020    133509.58    per second
+c fixed:                       182        13.66 %  of all variables
+c learned:                     254        77.68 %  per conflict
+c learned_lits:               7609       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   2576        33.85 %  learned literals
+c minishrunken:                197         2.59 %  learned literals
+c otfs:                          4         1.22 %  of conflict
+c propagations:              56215         3.72 M  per second
+c restarts:                     27        12.11    interval
+c subsumed:                     31         0.10 %  of all clauses
+c strengthened:                  4         0.01 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.04    seconds
+c total real time since initialization:            0.04    seconds
+c maximum resident set size of process:           15.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

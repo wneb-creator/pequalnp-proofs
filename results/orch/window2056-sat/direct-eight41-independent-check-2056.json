@@ -1,0 +1,8 @@
+{
+  "gates": 41,
+  "fixed_prefix": 38,
+  "exhaustive_assignments": 1048576,
+  "exhaustive_mismatches": 0,
+  "suffix_differs_from_seed": true,
+  "method": "separate bit-parallel truth-table evaluator"
+}

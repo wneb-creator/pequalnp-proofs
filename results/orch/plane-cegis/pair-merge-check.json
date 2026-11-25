@@ -1,0 +1,8 @@
+{
+  "sampled_rows": 70,
+  "point_pair_merge_candidates": [],
+  "tested_pairs": 78,
+  "scope": "63-gate overapproximations formed by merging two point-star rectangles",
+  "line_pair_merge_candidates": [],
+  "tested_pairs_both_sides": 156
+}

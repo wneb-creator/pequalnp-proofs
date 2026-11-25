@@ -1,0 +1,11 @@
+{
+  "gates": 65,
+  "AND": 14,
+  "OR": 51,
+  "accepted_without_read1": 0,
+  "clean_AND_violations": [],
+  "mixed_OR_violations": [],
+  "clean_fanout_violations": [],
+  "dominated_gates": [],
+  "exact_rows": 756
+}

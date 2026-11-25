@@ -1,0 +1,5 @@
+{"utc": "2026-11-25T16:47:50.553485+00:00", "variables": 5781, "clauses": 103549, "conversion_seconds": 3.9429686069488525, "size": 31, "seconds_limit": 30}
+stage: reconstruct original model
+stage: verify original assertions
+stage: extract gate values
+{"utc": "2026-11-25T16:47:50.553485+00:00", "variables": 5781, "clauses": 103549, "conversion_seconds": 3.9429686069488525, "size": 31, "seconds_limit": 30, "exit_code": 10, "status": "sat query; full boundary validated", "gates": [[1, 8, 14], [1, 18, 19], [0, 1, 20], [1, 7, 13], [1, 17, 22], [1, 18, 23], [0, 2, 24], [1, 21, 25], [1, 12, 16], [1, 17, 27], [0, 3, 28], [1, 26, 29], [1, 11, 15], [1, 16, 31], [1, 18, 32], [0, 4, 33], [1, 30, 34], [1, 10, 11], [1, 13, 36], [0, 5, 37], [1, 35, 38], [1, 7, 9], [1, 15, 40], [1, 6, 41], [1, 1, 3], [1, 5, 43], [1, 0, 44], [0, 42, 45], [1, 0, 6], [0, 46, 47], [1, 39, 48]], "full_boundary_mismatches": [], "original_smt_assertions_verified": 108, "exhaustive_mismatches": 0, "exhaustive_assignments": 524288}

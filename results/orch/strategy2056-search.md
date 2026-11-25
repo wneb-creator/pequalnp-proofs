@@ -154,3 +154,43 @@ nets among60,000 randomized trials; the full-plane adaptation checked9,836
 among10,000. Invalid forward-reference mutations were skipped. Repeating
 the deterministic tests with explicit counters passed with no discrepancy.
 The frozen search sources and their approved hashes did not change.
+
+
+The eight-point phase completed its original wall-clock budget at16:39:07UTC.
+Its final v2 run exited0 after991 seconds and 548551246 proposals.
+No witness appeared; the plain candidate still misses one edge and the
+nonlinear candidate misses three. Both have38 live distinct gates; the
+nonlinear candidate has9 AND gates and29 OR gates. All complete logs and
+normalized circuit analyses are archived; no eight-point worker remains.
+
+
+## Full-plane dominance phase
+
+After the parent's16:38:49UTC renewal, the independently reviewed63-gate
+full-plane engine started with seed205613, one CPU and a1200-second cap.
+It uses12 words per wire for all52 positive and704 negative boundary rows.
+The52 exact66-gate double-star controls supply the nonlinear seeds. The
+separate inverse-hoist65-gate family intentionally breaks this engine's
+normalization heuristic and remains in the exact-state portfolio.
+The frozen engine hash is
+9e1f96cc68f1786ea1880ec77baf78893ff53dcf2585e903b79ea2d6b100f672.
+All source, exact data and validation logs are in
+results/orch/search2056/full-dominance/; no exact candidate is yet claimed.
+
+
+The optional theta-core lifting helper is preserved in search2056/theta-lift/.
+It requires, for each of the four arm points b_i, an explicit b_i AND R gate
+with an OR-only path to output. Under this checked structural condition,
+inserting its two private line inputs into R costs exactly two OR gates per
+point. Arbitrary theta circuits do not automatically have this property.
+The existing16-gate control passes all1024 core assignments and becomes a
+24-gate patch passing all262144 assignments, then a64-gate full control
+passing all67108864 assignments. A qualifying15-gate candidate would lift
+to23 and63 gates, but no such candidate has been found.
+
+
+The full-plane66-seed phase completed its1200-second cap and exited0.
+It tried 295050948 proposals without an exact witness; best actual
+errors remained one and three missed edges, with no false positives.
+The complete source, logs, data and actual-network analyses are frozen in
+search2056/full-dominance/. No worker from this phase remains.

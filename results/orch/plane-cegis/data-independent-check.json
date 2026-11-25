@@ -1,0 +1,7 @@
+{
+  "verified_incidence_convention": "(p+l)%13 in {0,1,3,9}",
+  "positive_rows": 52,
+  "maximal_false_rows": 704,
+  "enumerated_point_subsets": 8192,
+  "data_exact": true
+}

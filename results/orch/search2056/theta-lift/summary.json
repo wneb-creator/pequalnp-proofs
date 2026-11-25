@@ -1,0 +1,13 @@
+{
+  "status": "conditional lifting pipeline verified; no15gate witness",
+  "core_control_gates": 16,
+  "patch_control_gates": 24,
+  "full_control_gates": 64,
+  "core_assignments_verified": 1024,
+  "patch_assignments_verified": 262144,
+  "full_assignments_verified": 67108864,
+  "requires": "Each arm point is an explicit operand of an AND gate with an OR-only path to output",
+  "source_sha256": "b9c9c941749c3c97bc0296dab9cfb1ad5b29c395bc0dc679ee79866d75a1b0a9",
+  "extension_sha256": "04d4e86e86b8d916534d01b99c85477ff5998633030f9fd500ced9f9735c722a",
+  "review_status": "independently approved"
+}

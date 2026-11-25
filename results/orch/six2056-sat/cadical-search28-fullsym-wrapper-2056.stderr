@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-121/six2056-sat/cadical2056.py", line 78, in <module>
+    proc.wait()
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-121/six2056-sat/cadical2056.py", line 75, in terminate
+    proc.wait(timeout=5)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical', '-t', '1200', '-w', '/tmp/oec/pequalnp-pilot-121/six2056-sat/cadical-search28-fullsym-2056.sol', '/tmp/oec/pequalnp-pilot-121/six2056-sat/cadical-search28-fullsym-2056.cnf']' timed out after 5 seconds

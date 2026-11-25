@@ -1,0 +1,10 @@
+{
+  "n": 20,
+  "assignments": 1048576,
+  "gates": 41,
+  "mismatches": 0,
+  "marked_bad_edge": [
+    4,
+    8
+  ]
+}

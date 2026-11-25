@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T17:00:24.338005+00:00",
+  "n": 19,
+  "size": 28,
+  "sampled_rows": 83,
+  "variables": 6432,
+  "clauses": 133827,
+  "conversion_seconds": 0.584101656000712,
+  "seconds_limit": 1200,
+  "fixed_prefix": 12,
+  "encoder": "direct one-hot binary AND/OR with constant-folded fixed prefix",
+  "status": "CNF emitted; solver not run"
+}

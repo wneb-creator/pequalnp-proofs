@@ -1,0 +1,1 @@
+PASS theta all1024 inputs; patch all262144 inputs; sizes16 -> 24 -> 64

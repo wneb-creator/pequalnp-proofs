@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T16:26:12.867838+00:00",
+  "status": "terminated obsolete initial query during SMT-to-CNF conversion",
+  "exit_code": 143,
+  "reason": "explicit25active+38padding seed passed initial54rows and alloriginalSMTassertions, enabling sound CEGIS refinement",
+  "native_solver_started": false
+}

@@ -1,0 +1,93 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/window2056-sat/cadical-control31-free3-2056.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/window2056-sat/cadical-control31-free3-2056.cnf'
+c found 'p cnf 5781 103549' header
+c parsed 103549 clauses in 0.06 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail      variables
+c          level   conflicts       glue        remaining
+c 
+c *  0.06 14  0 0   0    0    0  0% 0 103464 5715 99%
+c {  0.08 16  0 0   0    0    0  0% 0 103464 5715 99%
+c i  0.09 17 18 0   2   83   53 47% 4 103464 5714 99%
+c i  0.09 17 18 0   2   91   58 46% 4 103464 5713 99%
+c i  0.09 17 18 0   2   95   61 45% 4 103464 5712 99%
+c i  0.10 17 18 0   2  118   73 40% 4 103464 5658 98%
+c i  0.11 17 13 0   2  220  136 34% 4 103464 5575 96%
+c -  0.13 17 14 1  12  302  186 37% 4 85071 5575 96%
+c }  0.16 17 12 1  13  497  339 47% 4 85071 5575 96%
+c 1  0.16 17 12 1  13  497  339 47% 4 85071 5575 96%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/window2056-sat/cadical-control31-free3-2056.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.10   99.84% search
+c         0.08   82.41% unstable
+c         0.06   62.84% parse
+c         0.02   17.31% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.10   60.69% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               150        30.18 %  of conflicts
+c conflicts:                   497      5026.29    per second
+c decisions:                   912      9223.30    per second
+c fixed:                       206         3.56 %  of all variables
+c learned:                     434        87.32 %  per conflict
+c learned_lits:               8245       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   3485        42.27 %  learned literals
+c minishrunken:               1133        13.74 %  learned literals
+c otfs:                          9         1.81 %  of conflict
+c propagations:             304363         3.08 M  per second
+c restarts:                     13        38.23    interval
+c subsumed:                     67         0.06 %  of all clauses
+c strengthened:                  8         0.01 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.16    seconds
+c total real time since initialization:            0.16    seconds
+c maximum resident set size of process:          101.94    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

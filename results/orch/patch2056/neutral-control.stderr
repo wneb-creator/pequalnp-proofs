@@ -1,0 +1,3 @@
+PASS105 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS10500 all-row neutral replacements and1000 scalar differential controls; calls=11500 options=0 moves=0

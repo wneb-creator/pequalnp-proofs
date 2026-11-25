@@ -69,13 +69,15 @@ exe='/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical'
 with base.with_suffix('.stdout').open('w')as out,base.with_suffix('.stderr').open('w')as err:
  proc=subprocess.Popen([exe,'-t',str(args.seconds),'-w',str(base.with_suffix('.sol')),str(cnf)],stdout=out,stderr=err,start_new_session=True)
  base.with_suffix('.process.json').write_text(json.dumps({'wrapper_pid':os.getpid(),'solver_pid':proc.pid,'prefix':str(base)}))
+ termination_signal=[None]
  def terminate(sig,frame):
-  if proc.poll()is None:
-   os.killpg(proc.pid,sig)
-   proc.wait(timeout=5)
-  raise SystemExit(128+sig)
+  termination_signal[0]=sig
+  if proc.returncode is not None:raise SystemExit(128+sig)
+  try:os.killpg(proc.pid,sig)
+  except ProcessLookupError:pass
  signal.signal(signal.SIGTERM,terminate)
  proc.wait()
+ if termination_signal[0]is not None:raise SystemExit(128+termination_signal[0])
 metadata['exit_code']=proc.returncode
 if proc.returncode==10:
  text=base.with_suffix('.sol').read_text();assignment={}

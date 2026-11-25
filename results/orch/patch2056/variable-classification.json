@@ -1,0 +1,664 @@
+{
+  "unique_exact_networks": 65,
+  "sizes": [
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "nonread1_networks": 14,
+  "networks_with_shared_dirty_AND": 0,
+  "results": [
+    {
+      "record": 0,
+      "gates": 29,
+      "AND": 6,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 1,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 2,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 3,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 4,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 5,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 6,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 7,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 8,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 9,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 10,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 11,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 12,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 13,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 14,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 15,
+      "gates": 31,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 1,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 16,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 17,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 18,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 19,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 20,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 21,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 22,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 23,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 24,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 25,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 26,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 27,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 28,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 29,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 30,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 31,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 32,
+      "gates": 32,
+      "AND": 8,
+      "accepted_without_read1": 1,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 2,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 33,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 34,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 35,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 36,
+      "gates": 31,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 1,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 37,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 38,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 39,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 40,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 41,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 42,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 43,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 44,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 45,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 46,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 47,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 48,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 49,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 50,
+      "gates": 33,
+      "AND": 7,
+      "accepted_without_read1": 8,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 51,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 52,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 53,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 54,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 55,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 56,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 57,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 58,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 59,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 60,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 61,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 62,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 63,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    },
+    {
+      "record": 64,
+      "gates": 30,
+      "AND": 7,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": []
+    }
+  ]
+}

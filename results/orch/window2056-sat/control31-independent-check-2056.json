@@ -1,0 +1,11 @@
+{
+  "gates": 31,
+  "fixed_prefix": 28,
+  "exhaustive_assignments": 524288,
+  "exhaustive_mismatches": 0,
+  "marked_bad_edge": [
+    0,
+    6
+  ],
+  "marked_read1_exists": false
+}

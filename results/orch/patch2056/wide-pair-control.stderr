@@ -1,0 +1,6 @@
+PASS651 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS explicit OR reassociation and forced two-gate resynthesis positive controls
+PASS full baseline64-to-68 CNF and64-to-65/66 distributive expansions
+PASS65100 spare-slot rebuilds preserve the compact DAG exactly
+PASS3255 all-row pair replacements and100 scalar differential controls; calls=3356 options=2271 moves=947 opchanging_options=161

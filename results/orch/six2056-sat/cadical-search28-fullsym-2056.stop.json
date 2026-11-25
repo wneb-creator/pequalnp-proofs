@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T16:14:14.077014+00:00",
+  "reason": "At five-minute checkpoint, superseded by independently reviewed full-boundary dominance encoding",
+  "verdict": "interrupted; no SAT or UNSAT verdict",
+  "wrapper_pid": 21231,
+  "solver_pid": 21304
+}

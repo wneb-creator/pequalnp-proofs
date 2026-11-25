@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-25T16:49:58.549178+00:00",
+  "encoder": "OR support basis with overlapping strict-submask unions",
+  "scope": "sample-valid point-star circuits with shared line-only OR gates",
+  "budget": 38,
+  "seconds_limit": 10,
+  "fixed_baseline": true,
+  "sample_rows": 70,
+  "allowed_extra_pairs": [
+    [
+      0,
+      12
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      8,
+      3
+    ]
+  ],
+  "output_families": 32,
+  "candidate_supports": 198,
+  "variables": 9567,
+  "clauses": 20555,
+  "conversion_seconds": 0.10379384800035041,
+  "exit_code": 20,
+  "status": "UNSAT; external solver only, restricted OR-basis class",
+  "elapsed_seconds": 0.16970095800024865
+}

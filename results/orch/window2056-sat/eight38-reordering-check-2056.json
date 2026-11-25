@@ -1,0 +1,11 @@
+{
+  "assignments": 1048576,
+  "reordering_mismatches": 0,
+  "full_target_mismatches": 2002,
+  "false_positives": 0,
+  "gate_count": 38,
+  "marked_bad_edge": [
+    3,
+    9
+  ]
+}

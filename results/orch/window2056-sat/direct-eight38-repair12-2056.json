@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T16:39:37.492150+00:00",
+  "n": 20,
+  "size": 38,
+  "sampled_rows": 168,
+  "variables": 24966,
+  "clauses": 774876,
+  "conversion_seconds": 3.7352146260000154,
+  "seconds_limit": 300,
+  "fixed_prefix": 26,
+  "encoder": "direct one-hot binary AND/OR semantics only",
+  "exit_code": 0,
+  "status": "UNKNOWN; time or resource limit",
+  "elapsed_seconds": 303.77085074500064,
+  "max_rss_kb": 136832
+}
