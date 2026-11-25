@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/FiniteVerification.lean:96:38: error: Application type mismatch: The argument
+  s
+has type
+  Fin 13 → Fin 13 → Prop
+but is expected to have type
+  Finset (Fin 13)
+in the application
+  independent_rectangle_small s

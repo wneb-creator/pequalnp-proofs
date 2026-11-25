@@ -9,3 +9,6 @@
 2026-11-25T02:24:46.013470+00:00 Renewed lease; expiry 2026-11-25T02:44:46.357Z.
 2026-11-25T02:24:56.673118+00:00 reduction_analysis fulltwo-gateattachmentlemma compiled.
 2026-11-25T02:25:39.950242+00:00 Complete R650_517 attachment child compiled and independently reviewed.
+2026-11-25T02:28:25.876796+00:00 reduction_analysis genericinputrenamecompiled.
+2026-11-25T02:30:11.576927+00:00 reduction_analysis fivegatestarattachmentcompiled.
+2026-11-25T02:31:09.475322+00:00 Finite verification and full subset-lifting infrastructure compiled and independently reviewed.

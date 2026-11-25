@@ -18,3 +18,9 @@ Geometry.lean: Lean exit0, complete stdout/stderr empty. Proves incidence-free r
 Attach.lean: Lean exit0; generic shifted-gate run semantics and runlength. Independent review passed; partial only.
 
 AttachFull.lean: Lean exit0, empty full log; proves the complete two-gate attachment child of R_meta_650_517. Independent review passed. The remaining61-gate two-output witness is not proved.
+
+2026-11-25T02:31:09.475322+00:00 Formal preparation complete:
+FiniteVerification.lean: first attempt failed on a let binder; corrected attempt002 exits0 with empty output. Conditional finite-tests-to-exact-target proof, not a candidate.
+SubgraphLift.lean: exit0, empty output; generic input map preserves circuit size, monotonicity and evaluation.
+StarLift.lean and RowLift.lean: exit0, only unused-argument warnings; generic append costs5 per remaining row and preserves semantics.
+All four independently reviewed before push. No63-gate witness or exact-target checker acceptance.
