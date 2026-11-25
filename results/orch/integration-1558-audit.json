@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "lines": 1558,
+  "target_sha256": "a8a592d176413ced1bf1483eefd0cf40d4a6f0acbd0d67504d7f541ee6871e0d",
+  "component_sha256": "3537d1849e0c833eb3a3716dd6ad8cb84f8bf6347458a105ec22c6c0edddfaac",
+  "increment": "exact114-linePermutationInvariancebodyonce; previous1449SHArestored",
+  "plain_file": "PASS",
+  "build": "rootcurrentlyrunning; noindependentrebuild"
+}

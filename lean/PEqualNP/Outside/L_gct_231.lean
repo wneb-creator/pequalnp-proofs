@@ -1094,4 +1094,465 @@ lemma hollow_even_chart_classification (A B K : ℂ)
       (by simpa using h1) (by simpa using hg0)
     simpa using ogr_even_roots_swap B A (-K) hr
 
+set_option maxHeartbeats 4000000 in
+lemma permanent_shifted_hollow_scaled {R : Type*} [CommRing R]
+    (r a b c d e f z : R) :
+    Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1 + z * (r + hollowMatrix a b c d e f i j)) =
+    24 + (96*r+12*(a+b+c+d+e+f))*z +
+      (144*r^2+36*r*(a+b+c+d+e+f)+2*(a+b+c+d+e+f)^2+
+        4*(a*f+b*e+c*d))*z^2 +
+      (96*r^3+36*r^2*(a+b+c+d+e+f)+4*r*(a+b+c+d+e+f)^2+
+        8*r*(a*f+b*e+c*d)+hollowCubic a b c d e f)*z^3 +
+      (24*r^4+12*r^3*(a+b+c+d+e+f)+2*r^2*(a+b+c+d+e+f)^2+
+        4*r^2*(a*f+b*e+c*d)+r*hollowCubic a b c d e f+
+        (a*f+b*e+c*d)^2)*z^4 := by
+  rw [permanent_four]
+  simp [hollowMatrix,hollowCubic]
+  ring
+
+lemma shifted_hollow_scalar_zero (r a b c d e f : ℂ)
+    (hp : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1 + z * (r + hollowMatrix a b c d e f i j)) = 24) : r = 0 := by
+  let s := a+b+c+d+e+f
+  let q := a*f+b*e+c*d
+  let h := hollowCubic a b c d e f
+  let aa := 96*r+12*s
+  let bb := 144*r^2+36*r*s+2*s^2+4*q
+  let cc := 96*r^3+36*r^2*s+4*r*s^2+8*r*q+h
+  let dd := 24*r^4+12*r^3*s+2*r^2*s^2+4*r^2*q+r*h+q^2
+  have hpoly : ∀ z : ℂ, aa*z+bb*z^2+cc*z^3+dd*z^4=0 := by
+    intro z
+    have hz := hp z
+    rw [permanent_shifted_hollow_scaled] at hz
+    dsimp [aa,bb,cc,dd,s,q,h]
+    linear_combination hz
+  obtain ⟨haa,hbb⟩ := quartic_first_coefficients aa bb cc dd hpoly
+  have hcc : cc = 0 := by
+    have h₁ := hpoly 1
+    have h₂ := hpoly (-1)
+    linear_combination h₁/2-h₂/2-haa
+  have hdd : dd = 0 := by
+    have h₁ := hpoly 1
+    linear_combination h₁-haa-hbb-hcc
+  have hs : s = -8*r := by
+    dsimp [aa] at haa
+    linear_combination haa/12
+  have hq : q = 4*r^2 := by
+    dsimp [bb] at hbb
+    rw [hs] at hbb
+    linear_combination hbb/4
+  have hr : r^4 = 0 := by
+    dsimp [cc,dd] at hcc hdd
+    rw [hs,hq] at hcc hdd
+    linear_combination (r*hcc-hdd)/8
+  exact eq_zero_of_pow_eq_zero hr
+
+lemma constant_diagonal_zero (V : Fin 4 × Fin 4 → ℂ) (r : ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j) = V (j,i))
+    (hd : ∀ i : Fin 4, V (i,i) = r)
+    (hp : ∀ z : ℂ, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1 + z * V (i,j)) = 24) : r = 0 := by
+  let a := V (0,1)-r
+  let b := V (0,2)-r
+  let c := V (0,3)-r
+  let d := V (1,2)-r
+  let e := V (1,3)-r
+  let f := V (2,3)-r
+  have hs10 := hs 1 0
+  have hs20 := hs 2 0
+  have hs30 := hs 3 0
+  have hs21 := hs 2 1
+  have hs31 := hs 3 1
+  have hs32 := hs 3 2
+  have heq : V = fun p => r+hollowMatrix a b c d e f p.1 p.2 := by
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [hollowMatrix,a,b,c,d,e,f,hd,hs10,hs20,hs30,hs21,hs31,hs32] <;> ring
+  apply shifted_hollow_scalar_zero r a b c d e f
+  intro z
+  simpa only [heq] using hp z
+
+lemma level_flat_constant_diagonal_zero
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j) = V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j)) = 24)
+    (V : Fin 4 × Fin 4 → ℂ) (hV : V ∈ L) (r : ℂ)
+    (hd : ∀ i : Fin 4, V (i,i) = r) : r = 0 := by
+  apply constant_diagonal_zero V r (hs V hV) hd
+  intro z
+  simpa only [Pi.smul_apply,smul_eq_mul] using hp (z • V) (L.smul_mem z hV)
+
+def wittQ (u : Fin 5 → ℂ) : ℂ := u 0*u 2+u 1*u 3-3*(u 4)^2
+
+def wittPolar (u v : Fin 5 → ℂ) : ℂ :=
+  u 0*v 2+u 2*v 0+u 1*v 3+u 3*v 1-6*u 4*v 4
+
+def wittMinor (u v : Fin 5 → ℂ) (i j : Fin 5) : ℂ := u i*v j-u j*v i
+
+def wittTriangleMinor (u v : Fin 5 → ℂ) : Fin 4 → ℂ :=
+  ![wittMinor u v 0 1,
+    (u 0-u 3)*(-v 0-v 1-v 2-2*v 3-6*v 4)-
+      (v 0-v 3)*(-u 0-u 1-u 2-2*u 3-6*u 4),
+    (u 1-u 2)*(-v 0-v 1-2*v 2-v 3-6*v 4)-
+      (v 1-v 2)*(-u 0-u 1-2*u 2-u 3-6*u 4),
+    -wittMinor u v 2 3]
+
+set_option maxHeartbeats 4000000 in
+lemma hollow_triangle_minors_zero (u v : Fin 5 → ℂ)
+    (hqu : wittQ u = 0) (hqv : wittQ v = 0) (hb : wittPolar u v = 0)
+    (ht : ∀ k : Fin 4, wittTriangleMinor u v k = 0) :
+    ∀ i j : Fin 5, wittMinor u v i j = 0 := by
+  have h01 : wittMinor u v 0 1 = 0 := by simpa [wittTriangleMinor] using ht 0
+  have h23 : wittMinor u v 2 3 = 0 := by simpa [wittTriangleMinor] using ht 3
+  have h04s : (wittMinor u v 0 4)^2 = 0 := by
+    dsimp [wittQ,wittPolar,wittMinor] at hqu hqv hb h01 ⊢
+    linear_combination -(v 0)^2/3*hqu-(u 0)^2/3*hqv+u 0*v 0/3*hb+
+      (u 0*v 3-u 3*v 0)/3*h01
+  have h14s : (wittMinor u v 1 4)^2 = 0 := by
+    dsimp [wittQ,wittPolar,wittMinor] at hqu hqv hb h01 ⊢
+    linear_combination -(v 1)^2/3*hqu-(u 1)^2/3*hqv+u 1*v 1/3*hb-
+      (u 1*v 2-u 2*v 1)/3*h01
+  have h24s : (wittMinor u v 2 4)^2 = 0 := by
+    dsimp [wittQ,wittPolar,wittMinor] at hqu hqv hb h23 ⊢
+    linear_combination -(v 2)^2/3*hqu-(u 2)^2/3*hqv+u 2*v 2/3*hb-
+      (u 1*v 2-u 2*v 1)/3*h23
+  have h34s : (wittMinor u v 3 4)^2 = 0 := by
+    dsimp [wittQ,wittPolar,wittMinor] at hqu hqv hb h23 ⊢
+    linear_combination -(v 3)^2/3*hqu-(u 3)^2/3*hqv+u 3*v 3/3*hb+
+      (u 0*v 3-u 3*v 0)/3*h23
+  have h04 : wittMinor u v 0 4 = 0 := eq_zero_of_pow_eq_zero h04s
+  have h14 : wittMinor u v 1 4 = 0 := eq_zero_of_pow_eq_zero h14s
+  have h24 : wittMinor u v 2 4 = 0 := eq_zero_of_pow_eq_zero h24s
+  have h34 : wittMinor u v 3 4 = 0 := eq_zero_of_pow_eq_zero h34s
+  have hsum2 : (wittMinor u v 0 2+wittMinor u v 1 3)^2 = 0 := by
+    dsimp [wittQ,wittPolar,wittMinor] at hqu hqv hb h01 ⊢
+    linear_combination -4*(v 0*v 2+v 1*v 3)*hqu-12*(u 4)^2*hqv+
+      (u 0*v 2+u 2*v 0+u 1*v 3+u 3*v 1+6*u 4*v 4)*hb+
+      4*(u 2*v 3-u 3*v 2)*h01
+  have hsum : wittMinor u v 0 2+wittMinor u v 1 3 = 0 :=
+    eq_zero_of_pow_eq_zero hsum2
+  have h03 : wittMinor u v 0 3 = 0 := by
+    have hh := ht 1
+    simp [wittTriangleMinor] at hh
+    dsimp [wittMinor] at h01 hsum h04 h23 h34 ⊢
+    linear_combination -hh/3-h01/3-hsum/3-2*h04-h23/3+2*h34
+  have h12 : wittMinor u v 1 2 = 0 := by
+    have hh := ht 2
+    simp [wittTriangleMinor] at hh
+    dsimp [wittMinor] at h01 hsum h14 h23 h24 ⊢
+    linear_combination -hh/3+h01/3-hsum/3-2*h14+h23/3+2*h24
+  have h02s : (wittMinor u v 0 2)^2 = 0 := by
+    dsimp [wittMinor] at hsum h01 h03 ⊢
+    linear_combination (u 0*v 2-u 2*v 0)*hsum-
+      (u 2*v 3-u 3*v 2)*h01-(u 1*v 2-u 2*v 1)*h03
+  have h02 : wittMinor u v 0 2 = 0 := eq_zero_of_pow_eq_zero h02s
+  have h13 : wittMinor u v 1 3 = 0 := by linear_combination hsum-h02
+  intro i j
+  fin_cases i <;> fin_cases j <;>
+    dsimp [wittMinor] at h01 h02 h03 h04 h12 h13 h14 h23 h24 h34 ⊢ <;>
+    solve
+    | ring
+    | linear_combination h01
+    | linear_combination -h01
+    | linear_combination h02
+    | linear_combination -h02
+    | linear_combination h03
+    | linear_combination -h03
+    | linear_combination h04
+    | linear_combination -h04
+    | linear_combination h12
+    | linear_combination -h12
+    | linear_combination h13
+    | linear_combination -h13
+    | linear_combination h14
+    | linear_combination -h14
+    | linear_combination h23
+    | linear_combination -h23
+    | linear_combination h24
+    | linear_combination -h24
+    | linear_combination h34
+    | linear_combination -h34
+
+lemma hollow_triangle_covers_nonzero_minor (u v : Fin 5 → ℂ)
+    (hqu : wittQ u = 0) (hqv : wittQ v = 0) (hb : wittPolar u v = 0)
+    (hi : ∃ i j : Fin 5, wittMinor u v i j ≠ 0) :
+    ∃ k : Fin 4, wittTriangleMinor u v k ≠ 0 := by
+  by_contra hh
+  push Not at hh
+  obtain ⟨i,j,hij⟩ := hi
+  exact hij (hollow_triangle_minors_zero u v hqu hqv hb hh i j)
+
+lemma witt_pair_independent_has_minor (u v : Fin 5 → ℂ)
+    (hi : LinearIndependent ℂ ![u,v]) : ∃ i j : Fin 5, wittMinor u v i j ≠ 0 := by
+  by_contra hh
+  push Not at hh
+  have hlin := linearIndependent_fin2.mp hi
+  change v ≠ 0 ∧ ∀ a : ℂ, a • v ≠ u at hlin
+  obtain ⟨i,hvi⟩ : ∃ i : Fin 5, v i ≠ 0 := by
+    by_contra hv
+    push Not at hv
+    apply hlin.1
+    funext i
+    exact hv i
+  apply hlin.2 (u i / v i)
+  funext j
+  change u i / v i * v j = u j
+  have h := hh i j
+  dsimp [wittMinor] at h
+  field_simp [hvi]
+  linear_combination h
+
+lemma hollow_triangle_covers_independent_pair (u v : Fin 5 → ℂ)
+    (hqu : wittQ u = 0) (hqv : wittQ v = 0) (hb : wittPolar u v = 0)
+    (hi : LinearIndependent ℂ ![u,v]) :
+    ∃ k : Fin 4, wittTriangleMinor u v k ≠ 0 := by
+  exact hollow_triangle_covers_nonzero_minor u v hqu hqv hb
+    (witt_pair_independent_has_minor u v hi)
+
+lemma normalize_two_linear_coordinates
+    (W : Submodule ℂ (Fin 5 → ℂ))
+    (F G : (Fin 5 → ℂ) →ₗ[ℂ] ℂ)
+    (u v : Fin 5 → ℂ) (hu : u ∈ W) (hv : v ∈ W)
+    (hd : F u*G v-F v*G u ≠ 0) :
+    ∃ a ∈ W, ∃ b ∈ W, F a=1 ∧ G a=0 ∧ F b=0 ∧ G b=1 := by
+  have hd' : G v*F u-F v*G u ≠ 0 := by simpa [mul_comm] using hd
+  let d := F u*G v-F v*G u
+  let a := (G v/d) • u-(G u/d) • v
+  let b := (F u/d) • v-(F v/d) • u
+  refine ⟨a,W.sub_mem (W.smul_mem _ hu) (W.smul_mem _ hv),
+    b,W.sub_mem (W.smul_mem _ hv) (W.smul_mem _ hu),?_,?_,?_,?_⟩
+  all_goals
+    dsimp [a,b,d]
+    simp only [map_sub,map_smul,smul_eq_mul]
+    field_simp [hd,hd'] <;> ring
+
+lemma isotropic_even_chart_normal_form (u v : Fin 5 → ℂ)
+    (hu0 : u 0=1) (hu1 : u 1=0) (hv0 : v 0=0) (hv1 : v 1=1)
+    (hqu : wittQ u=0) (hqv : wittQ v=0) (hb : wittPolar u v=0) :
+    ∃ A B K : ℂ,
+      u = ![1,0,3*A^2,3*A*B-K,A] ∧
+      v = ![0,1,3*A*B+K,3*B^2,B] := by
+  have hu2 : u 2=3*(u 4)^2 := by
+    dsimp [wittQ] at hqu
+    rw [hu0,hu1] at hqu
+    linear_combination hqu
+  have hv3 : v 3=3*(v 4)^2 := by
+    dsimp [wittQ] at hqv
+    rw [hv0,hv1] at hqv
+    linear_combination hqv
+  have hu3 : u 3=6*u 4*v 4-v 2 := by
+    dsimp [wittPolar] at hb
+    rw [hu0,hu1,hv0,hv1] at hb
+    linear_combination hb
+  refine ⟨u 4,v 4,v 2-3*u 4*v 4,?_,?_⟩
+  · funext i
+    fin_cases i <;> simp [hu0,hu1,hu2,hu3] <;> ring
+  · funext i
+    fin_cases i <;> simp [hv0,hv1,hv3]
+
+lemma finrank_le_two_of_zero_coordinate_kernel
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) (p q : Fin 4 × Fin 4)
+    (hk : ∀ V ∈ L, V p=0 → V q=0 → V=0) : Module.finrank ℂ L ≤ 2 := by
+  let F : L →ₗ[ℂ] (Fin 2 → ℂ) :=
+    { toFun := fun V => ![V.val p,V.val q]
+      map_add' := by intros; ext i; fin_cases i <;> simp
+      map_smul' := by intros; ext i; fin_cases i <;> simp }
+  have hker : ∀ V : L, F V=0 → V=0 := by
+    intro V hV
+    apply Subtype.ext
+    have hp : V.val p=0 := by simpa [F] using congrFun hV 0
+    have hq : V.val q=0 := by simpa [F] using congrFun hV 1
+    exact hk V.val V.property hp hq
+  have hF : Function.Injective F := by
+    intro V W h
+    apply sub_eq_zero.mp
+    apply hker (V-W)
+    rw [map_sub,h,sub_self]
+  have hd := Submodule.finrank_le (LinearMap.range F)
+  rw [LinearMap.finrank_range_of_inj hF] at hd
+  simpa using hd
+
+lemma containing_nonstar1_plane_finrank_le_two
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hc : ∀ a b : ℂ, nonstarPlane1 a b ∈ L)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) : Module.finrank ℂ L ≤ 2 := by
+  apply finrank_le_two_of_zero_coordinate_kernel L (0,1) (1,3)
+  intro V hV h01 h13
+  apply nonstar1_normalized_zero V (hs V hV) h01 h13
+  intro a b z
+  have h := hp _ (L.add_mem (hc a b) (L.smul_mem z hV))
+  simpa only [Pi.add_apply,Pi.smul_apply,smul_eq_mul,add_assoc] using h
+
+lemma containing_nonstar2_plane_finrank_le_two
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hc : ∀ a b : ℂ, nonstarPlane2 a b ∈ L)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) : Module.finrank ℂ L ≤ 2 := by
+  apply finrank_le_two_of_zero_coordinate_kernel L (0,1) (0,2)
+  intro V hV h01 h02
+  apply nonstar2_normalized_zero V (hs V hV) h01 h02
+  intro a b z
+  have h := hp _ (L.add_mem (hc a b) (L.smul_mem z hV))
+  simpa only [Pi.add_apply,Pi.smul_apply,smul_eq_mul,add_assoc] using h
+
+def canonicalHollowPlane (k : Fin 3) (a b : ℂ) : Fin 4 × Fin 4 → ℂ :=
+  ![starMatrix a b,nonstarPlane1 a b,nonstarPlane2 a b] k
+
+lemma containing_canonical_hollow_plane_finrank_le_two
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) (k : Fin 3)
+    (hc : ∀ a b : ℂ, canonicalHollowPlane k a b ∈ L)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) : Module.finrank ℂ L ≤ 2 := by
+  fin_cases k
+  · apply containing_star_plane_finrank_le_two L ?_ hs hp
+    rintro V ⟨v,rfl⟩
+    simpa [canonicalHollowPlane,starMap] using hc (v 0) (v 1)
+  · apply containing_nonstar1_plane_finrank_le_two L ?_ hs hp
+    intro a b
+    simpa [canonicalHollowPlane] using hc a b
+  · apply containing_nonstar2_plane_finrank_le_two L ?_ hs hp
+    intro a b
+    simpa [canonicalHollowPlane] using hc a b
+
+lemma hollow_coefficient_cubic_zero (a b c d e f : ℂ)
+    (hp : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+z*hollowMatrix a b c d e f i j)=24) : hollowCubic a b c d e f=0 := by
+  obtain ⟨hs,_⟩ := hollow_coefficient_constraints a b c d e f hp
+  have h₁ := hp 1
+  have h₂ := hp (-1)
+  rw [permanent_hollow_scaled] at h₁ h₂
+  linear_combination h₁/2-h₂/2-12*hs
+
+lemma hollow_member_cubic_zero (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hz : ∀ V ∈ L, ∀ i : Fin 4, V (i,i)=0)
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24)
+    (V : Fin 4 × Fin 4 → ℂ) (hV : V ∈ L) :
+    hollowCubic (V (0,1)) (V (0,2)) (V (0,3)) (V (1,2)) (V (1,3)) (V (2,3))=0 := by
+  apply hollow_coefficient_cubic_zero
+  intro z
+  have h := hp (z • V) (L.smul_mem z hV)
+  convert h using 1
+  congr 1
+  funext i j
+  change 1+z*hollowMatrix _ _ _ _ _ _ i j=1+z*V (i,j)
+  rw [hollow_reconstruction V (hs V hV) (hz V hV) i j]
+
+def entryPermute (σ : Equiv.Perm (Fin 4)) :
+    (Fin 4 × Fin 4 → ℂ) ≃ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) where
+  toFun V p := V (σ p.1,σ p.2)
+  invFun V p := V (σ.symm p.1,σ.symm p.2)
+  left_inv V := by
+    funext p
+    simp
+  right_inv V := by
+    funext p
+    simp
+  map_add' V W := rfl
+  map_smul' c V := rfl
+
+lemma entryPermute_apply (σ : Equiv.Perm (Fin 4))
+    (V : Fin 4 × Fin 4 → ℂ) (i j : Fin 4) :
+    entryPermute σ V (i,j)=V (σ i,σ j) := rfl
+
+lemma entryPermute_symmetric (σ : Equiv.Perm (Fin 4))
+    (V : Fin 4 × Fin 4 → ℂ)
+    (h : ∀ i j : Fin 4, V (i,j)=V (j,i)) :
+    ∀ i j : Fin 4, entryPermute σ V (i,j)=entryPermute σ V (j,i) := by
+  intro i j
+  exact h (σ i) (σ j)
+
+lemma entryPermute_hollow (σ : Equiv.Perm (Fin 4))
+    (V : Fin 4 × Fin 4 → ℂ) (h : ∀ i : Fin 4, V (i,i)=0) :
+    ∀ i : Fin 4, entryPermute σ V (i,i)=0 := by
+  intro i
+  exact h (σ i)
+
+lemma entryPermute_permanent (σ : Equiv.Perm (Fin 4))
+    (V : Fin 4 × Fin 4 → ℂ) :
+    Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+entryPermute σ V (i,j)) =
+      Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j)) := by
+  change Matrix.permanent
+    (((Matrix.of fun (i j : Fin 4) => 1+V (i,j)).submatrix σ id).submatrix id σ) = _
+  rw [Matrix.permanent_permute_rows,Matrix.permanent_permute_cols]
+
+def entryPermuteSubmodule (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) : Submodule ℂ (Fin 4 × Fin 4 → ℂ) :=
+  L.map (entryPermute σ).toLinearMap
+
+lemma entryPermuteSubmodule_finrank (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) :
+    Module.finrank ℂ (entryPermuteSubmodule σ L)=Module.finrank ℂ L := by
+  exact LinearEquiv.finrank_map_eq (entryPermute σ) L
+
+lemma entryPermute_mem_iff (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) (V : Fin 4 × Fin 4 → ℂ) :
+    entryPermute σ V ∈ entryPermuteSubmodule σ L ↔ V ∈ L := by
+  constructor
+  · rintro ⟨W,hW,he⟩
+    have hWV : W=V := (entryPermute σ).injective he
+    simpa [hWV] using hW
+  · intro hV
+    exact ⟨V,hV,rfl⟩
+
+lemma entryPermuteSubmodule_symmetric (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (h : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i)) :
+    ∀ V ∈ entryPermuteSubmodule σ L, ∀ i j : Fin 4, V (i,j)=V (j,i) := by
+  rintro V ⟨W,hW,rfl⟩ i j
+  exact h W hW (σ i) (σ j)
+
+lemma entryPermuteSubmodule_hollow (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (h : ∀ V ∈ L, ∀ i : Fin 4, V (i,i)=0) :
+    ∀ V ∈ entryPermuteSubmodule σ L, ∀ i : Fin 4, V (i,i)=0 := by
+  rintro V ⟨W,hW,rfl⟩ i
+  exact h W hW (σ i)
+
+lemma entryPermuteSubmodule_permanent (σ : Equiv.Perm (Fin 4))
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (h : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    ∀ V ∈ entryPermuteSubmodule σ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24 := by
+  rintro V ⟨W,hW,rfl⟩
+  change Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+    1+entryPermute σ W (i,j))=24
+  exact (entryPermute_permanent σ W).trans (h W hW)
+
+def hollowWittMatrix (u : Fin 5 → ℂ) : Fin 4 × Fin 4 → ℂ :=
+  fun p => hollowMatrix (u 0+u 4) (u 1+u 4)
+    (-u 0-u 1-u 2-u 3-5*u 4) (u 4) (u 3+u 4) (u 2+u 4) p.1 p.2
+
+def triangleCoordinatePerm (k : Fin 4) : Equiv.Perm (Fin 4) :=
+  ![1,Equiv.swap 2 3,
+    Equiv.swap 1 2 * Equiv.swap 2 3,
+    Equiv.swap 0 1 * Equiv.swap 1 2 * Equiv.swap 2 3] k
+
+def leadingTriangleMinor (U V : Fin 4 × Fin 4 → ℂ) : ℂ :=
+  (U (0,1)-U (1,2))*(V (0,2)-V (1,2))-
+    (V (0,1)-V (1,2))*(U (0,2)-U (1,2))
+
+lemma leadingTriangleMinor_permute_witt (u v : Fin 5 → ℂ) (k : Fin 4) :
+    leadingTriangleMinor (entryPermute (triangleCoordinatePerm k) (hollowWittMatrix u))
+      (entryPermute (triangleCoordinatePerm k) (hollowWittMatrix v)) =
+      ![u 0*v 1-u 1*v 0,
+        (u 0-u 3)*(-v 0-v 1-v 2-2*v 3-6*v 4)-
+          (v 0-v 3)*(-u 0-u 1-u 2-2*u 3-6*u 4),
+        (u 1-u 2)*(-v 0-v 1-2*v 2-v 3-6*v 4)-
+          (v 1-v 2)*(-u 0-u 1-2*u 2-u 3-6*u 4),
+        -(u 2*v 3-u 3*v 2)] k := by
+  fin_cases k <;>
+    simp [leadingTriangleMinor,entryPermute,triangleCoordinatePerm,hollowWittMatrix,
+      hollowMatrix,Equiv.Perm.mul_apply,Equiv.swap_apply_def] <;>
+    ring
+
 end PEqualNP.Outside.L_gct_231

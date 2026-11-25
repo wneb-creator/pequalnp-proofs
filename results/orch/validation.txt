@@ -56,3 +56,5 @@ Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artif
 TIMING total=189.9 subagents=7
 
 CanonicalMaximal.lean98-line component compiled exit0; rowzero independent review PASS for SHA256c2d9b421bd9c9b4a8b630729a5c2529e93bc362bcdb161df6ef895bddd4a1dca. Both normalized nonstar obstructions now imply dimension≤2 for any valid ambient submodule containing those canonical planes. Unified canonical-plane interface and hollow cubic extraction included. Full posted theorem still unresolved. Complete build diagnostics preserved.
+
+2026-11-25T11:32:42.710105+00:00: Combined1558-line named partial file passed lake build PEqualNP.Outside.L_gct_231, exit0. Independent geometry integration/format review PASS, SHA256a8a592d176413ced1bf1483eefd0cf40d4a6f0acbd0d67504d7f541ee6871e0d. Added checked constant-diagonal exclusion, triangle-chart normalization, canonical-plane dimension bounds, cubic extraction and coordinate-permutation invariance. Complete stdout/stderr preserved. No main posted theorem and no full checker verdict; all mathematical scope limits still apply.
