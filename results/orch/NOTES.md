@@ -71,3 +71,11 @@ Extra-module and shared-library trace joins remain pending review; no new artifa
 
 ## 00:34 UTC resource strategy
 At 00:34 UTC, the full trace/header review supported a reversible exclusion of 583 modules, and root approved preparation. Setup is preparing a sealed backup of about 119 MB using unchanged phase code; the projected net memory saving is about 278 MB. Later execution paths were not all observed in the killed diagnostic run. Original checker007 is next after independent storage review. The alternate scratch whitelist/cache-compaction approach remains inactive.
+
+
+## Checker007 preservation (2026-11-25 00:49 UTC)
+Original checker007 returned exit 3 with the exact result `CHECKER FAULT: the verifier ended without a verdict (exit null).` The cgroup oom_kill counter rose from 8 to 9. Both storage phases were restored by the final resource observation at 00:48:04 UTC. Independent exact restoration audits now pass for 102,019 base files/2,302,175,326 logical bytes and 2,322 core files/514,785,392 bytes, totaling 104,341 files/2,816,960,718 logical bytes. No acceptance verdict was produced.
+
+Complete stdout, stderr, exit status, five-second resource observations, monitor streams and review outputs are preserved in `validation/checker-007/`. Compact sealed-pack readiness/integrity metadata records the 119,486,056-byte backup and its hash; the backup itself and runtime manifests are not copied. The proof remains 97 lines, SHA256 `191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983`. The next resource candidates are exact evacuation of shared libraries and retained core artifacts, plus compaction of unrelated build backups; all remain inactive pending independent review.
+
+Diagnostic precision: the earlier traced run used `results/orch/statement.txt`, while the original Node checker uses a private temporary statement copy. Statement bytes, module and kind matched; the literal statement pathname and complete argv differed. The diagnostic remains evidence about imports and storage, not original-checker acceptance.

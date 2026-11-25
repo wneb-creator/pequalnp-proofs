@@ -1,0 +1,10 @@
+{
+  "disk_free": 153477120,
+  "retained_core_allocated_bytes": 1635741696,
+  "compressed_pack_allocated_bytes": 119488512,
+  "verify_backing_allocated_bytes": 1755230208,
+  "holders_rss": {
+    "42728": "31824 kB",
+    "51759": "8796 kB"
+  }
+}
