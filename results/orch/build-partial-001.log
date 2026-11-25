@@ -1,0 +1,5 @@
+⚠ [191/192] Built PEqualNP.Outside.L_meta_2732 (5.8s)
+warning: PEqualNP/Outside/L_meta_2732.lean: imports `Mathlib.Init` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [192/192] Ran PEqualNP.Outside.L_meta_2732:irArts
+warning: PEqualNP/Outside/L_meta_2732.lean: imports `Mathlib.Init` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (192 jobs).
