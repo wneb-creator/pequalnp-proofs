@@ -1,0 +1,7 @@
+{
+  "sha256": "8c34db3ff26b33f41c7ce54d210505a8adb29d93dec8fdc8512a9084d7591b97",
+  "lines": 1931,
+  "exit_code": 0,
+  "independent_review": "or_lower_bound reviewed the complete107-line addition and its point/line embeddings and witness construction.",
+  "claim": "Maximal false rows give18 false OR gates and the corresponding fresh-block capacity bound."
+}
