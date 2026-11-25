@@ -1,0 +1,33 @@
+FIRST_PAIR_AUTOMORPHISM_REPRESENTATIVES 2 [(0, 0), (0, 1), (0, 2), (0, 3), (1, 1), (1, 2)]
+2026-11-25T17:34:22.910622+00:00 path 4 edges 3 tau 2 gates 5 patterns 6 mode dirty liftfixed True
+RESULT sat seconds 0.082
+VERIFIED_FULL_TRUTH_TABLE {"n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "bipartition": [0, 1, 0, 1], "gates": [["or", 0, 2], ["or", 1, 2], ["or", 1, 3], ["and", 5, 6], ["and", 4, 7]], "output": 8, "dirty_and_indices": [3], "below_gate": [false, false, false, false, true], "cover": [0, 2], "standard_bound": 4}
+(:added-eqs           117698
+ :binary-propagations 80004
+ :bv-bit2core         37012
+ :bv-diseqs           372
+ :bv-dynamic-diseqs   5972
+ :bv->core-eq         18984
+ :conflicts           1172
+ :decisions           4684
+ :del-clause          12494
+ :final-checks        2
+ :max-memory          19.09
+ :memory              17.31
+ :minimized-lits      1760
+ :mk-bool-var         19054
+ :mk-clause           15162
+ :mk-clause-binary    4062
+ :num-allocs          981157
+ :num-checks          2
+ :pb-conflicts        2
+ :pb-predicates       22
+ :pb-propagations     304
+ :pb-resolves         2
+ :propagations        105270
+ :restarts            10
+ :rlimit-count        239086
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 6
+ :solve-eqs-steps     248
+ :time                0.08)

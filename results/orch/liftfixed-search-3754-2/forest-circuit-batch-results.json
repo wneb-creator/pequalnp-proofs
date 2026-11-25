@@ -1,0 +1,496 @@
+[
+  {
+    "case": 1,
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "gates": 1,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.034"
+    ],
+    "seconds": 0.2600623540001834
+  },
+  {
+    "case": 2,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "gates": 2,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.01"
+    ],
+    "seconds": 0.1844739429998299
+  },
+  {
+    "case": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "gates": 3,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.007"
+    ],
+    "seconds": 0.1215134140002192
+  },
+  {
+    "case": 4,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "gates": 3,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.007"
+    ],
+    "seconds": 0.12026136599979509
+  },
+  {
+    "case": 5,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "gates": 4,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.01"
+    ],
+    "seconds": 0.1526562629996988
+  },
+  {
+    "case": 6,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "gates": 4,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.043"
+    ],
+    "seconds": 0.12014980000003561
+  },
+  {
+    "case": 7,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.03"
+    ],
+    "seconds": 0.17932889299936505
+  },
+  {
+    "case": 8,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "gates": 4,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.052"
+    ],
+    "seconds": 0.13722260700069455
+  },
+  {
+    "case": 9,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.067"
+    ],
+    "seconds": 0.19348771100067097
+  },
+  {
+    "case": 10,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.035"
+    ],
+    "seconds": 0.2725221850005255
+  },
+  {
+    "case": 11,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.076"
+    ],
+    "seconds": 0.22734579499956453
+  },
+  {
+    "case": 12,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "gates": 6,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.275"
+    ],
+    "seconds": 0.41233523600021726
+  },
+  {
+    "case": 13,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.087"
+    ],
+    "seconds": 0.2080891049999991
+  },
+  {
+    "case": 14,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "gates": 5,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.075"
+    ],
+    "seconds": 0.1975379770001382
+  },
+  {
+    "case": 15,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "gates": 6,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.322"
+    ],
+    "seconds": 0.4864255550000962
+  },
+  {
+    "case": 16,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "gates": 6,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.329"
+    ],
+    "seconds": 0.4720703439998033
+  },
+  {
+    "case": 17,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "gates": 7,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 4.125"
+    ],
+    "seconds": 4.244898283000111
+  },
+  {
+    "case": 18,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "gates": 6,
+    "returncode": 0,
+    "result": [
+      "RESULT unsat seconds 0.293"
+    ],
+    "seconds": 0.40326249499958067
+  },
+  {
+    "case": 19,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ]
+    ],
+    "gates": 7,
+    "returncode": 0,
+    "result": [
+      "RESULT unknown seconds 5.043",
+      "REASON timeout"
+    ],
+    "seconds": 5.1643526120005845
+  }
+]

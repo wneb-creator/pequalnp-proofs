@@ -1,0 +1,2 @@
+2026-11-25T17:31:29.380195+00:00 P4 all4-gate AO circuits with every OR lift-fixed
+{"states_by_depth": [1, 20, 588, 23870, 1279708], "target_all_used": 6, "dirty_target_all_used": 0, "seconds": 1.606670099999974}

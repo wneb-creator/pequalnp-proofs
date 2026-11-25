@@ -1,0 +1,92 @@
+[
+  {
+    "file": "ledger-alias-agreement-checked.lean",
+    "sha256": "8e8c44ec5b30cf61567bc17c960ec54f2fb5ba0cd468d305e2268a8be88ea449",
+    "lines": 1053
+  },
+  {
+    "file": "ledger-build16.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "ledger-build16.stdout",
+    "sha256": "1ad3845b371256e3ff9b8a6e0cb322c916b73cba8d5062ae63db79cedcda45d8",
+    "lines": 7
+  },
+  {
+    "file": "ledger-build17.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "ledger-build17.stdout",
+    "sha256": "00036459b0acb59cff5c4da7889c4a0c39f05f19fd7e8f68a6b7515828444dcc",
+    "lines": 15
+  },
+  {
+    "file": "ledger-opposite-guard-checked.lean",
+    "sha256": "4919a1f04ad1bfeda471a8e8492fe56cf029f737408e527364b7b9ec8992b9f3",
+    "lines": 984
+  },
+  {
+    "file": "liftfixed-strict3653-build3.log",
+    "sha256": "5a554c6192a54855fafae9920200edb358ca5befa58c684899ea582165c28002",
+    "lines": 129
+  },
+  {
+    "file": "liftfixed-strict3653-reach-checked.lean",
+    "sha256": "e1cc991a2ba64073e972e4ee934e9503c0cecbe02b394dcd1ae5dbc57e483759",
+    "lines": 2505
+  },
+  {
+    "file": "named-clauses-build.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "named-clauses-build.stdout",
+    "sha256": "02ac2bea356e0820d1eefa5e9bf9ac27be9ae8a61dbf92c558c6b1b13531c7c0",
+    "lines": 520
+  },
+  {
+    "file": "root-review-search2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "root-review-search2.stdout",
+    "sha256": "590a787a4f3a2f536f3915a980e1e59675692bd15a94eda4aee75fd7c21c32a0",
+    "lines": 3
+  },
+  {
+    "file": "semantic-restore-checked.lean",
+    "sha256": "e5b6982cb0b950affd09d485e22ea2e167e89d6541d70e9ceb9573ab10b7eefa",
+    "lines": 924
+  },
+  {
+    "file": "semantic-restore2.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "semantic-restore2.stdout",
+    "sha256": "a43219af5602a4c6f0d134b81b79c2297cb73be0004d77bd404c1ada864c7ca5",
+    "lines": 86
+  },
+  {
+    "file": "three-clause-exclusion-checked.lean",
+    "sha256": "8ec5b050a8af8bfaba127878ddc0a75520dcd31c5220c4d5d637cdec50c39f4d",
+    "lines": 877
+  },
+  {
+    "file": "three-clause-exclusion.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  },
+  {
+    "file": "three-clause-exclusion.stdout",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0
+  }
+]

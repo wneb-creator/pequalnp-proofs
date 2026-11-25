@@ -1,0 +1,31 @@
+2026-11-25T17:32:49.532190+00:00 forest6case14 6 edges 5 tau 1 gates 5 patterns 7 mode dirty liftfixed True
+RESULT unsat seconds 0.075
+(:max-memory              25.61
+ :memory                  17.15
+ :num-allocs              547177
+ :rlimit-count            277912
+ :sat-backjumps           2236
+ :sat-conflicts           2237
+ :sat-decisions           3600
+ :sat-del-clause          3183
+ :sat-elim-bool-vars-res  370
+ :sat-elim-clauses        1070
+ :sat-elim-literals       1404
+ :sat-minimized-lits      11370
+ :sat-mk-clause-2ary      1886
+ :sat-mk-clause-3ary      927
+ :sat-mk-clause-nary      4441
+ :sat-mk-var              780
+ :sat-probing-assigned    19
+ :sat-propagations-2ary   109749
+ :sat-propagations-nary   138772
+ :sat-restarts            69
+ :sat-scc-elim-binary     11
+ :sat-scc-elim-vars       41
+ :sat-subs-resolution     77
+ :sat-subs-resolution-dyn 247
+ :sat-subsumed            385
+ :sat-units               191
+ :solve-eqs-elim-vars     12
+ :solve-eqs-steps         350
+ :time                    0.07)

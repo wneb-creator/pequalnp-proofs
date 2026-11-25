@@ -1,0 +1,30 @@
+2026-11-25T17:36:17.799047+00:00 path 4 size 5 prefixORs 3 cleanANDs 1 samples 6 maxfalse 3 autos 2
+RESULT sat seconds 0.12
+VERIFIED_FULL_TRUTH_TABLE {"n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "bipartition": [0, 1, 0, 1], "gates": [["or", 1, 2], ["or", 1, 3], ["and", 0, 4], ["or", 2, 6], ["and", 5, 7]], "output": 8, "dirty_and_indices": [2], "below_gate": [false, false, false, false, true], "cover": [0, 2], "standard_bound": 4, "clean_ands": 1}
+(:added-eqs           125734
+ :binary-propagations 90556
+ :bv-bit2core         70976
+ :bv-diseqs           480
+ :bv-dynamic-diseqs   9704
+ :bv->core-eq         20524
+ :conflicts           1526
+ :decisions           3984
+ :del-clause          35542
+ :final-checks        2
+ :max-memory          18.82
+ :memory              17.28
+ :minimized-lits      4034
+ :mk-bool-var         32386
+ :mk-clause           38480
+ :mk-clause-binary    3344
+ :num-allocs          1045598
+ :num-checks          2
+ :pb-predicates       6
+ :pb-propagations     666
+ :propagations        130794
+ :restarts            14
+ :rlimit-count        283862
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 5
+ :solve-eqs-steps     247
+ :time                0.12)

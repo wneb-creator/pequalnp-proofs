@@ -1,0 +1,172 @@
+[
+  {
+    "query": "cycle8-size11-dirty-critical-auto-one",
+    "result": "unknown",
+    "seconds": 180.023
+  },
+  {
+    "query": "cycle8-size11-dirty-critical-auto",
+    "result": "unknown",
+    "seconds": 300.05
+  },
+  {
+    "query": "cycle8-size11-one-normal-q4",
+    "result": "unsat",
+    "seconds": 6.79
+  },
+  {
+    "query": "cycle8-size11-one-normal-q5",
+    "result": "unsat",
+    "seconds": 0.486
+  },
+  {
+    "query": "cycleleaf7-size9-dirty-critical-auto",
+    "result": "unknown",
+    "seconds": 180.173
+  },
+  {
+    "query": "cycletwoleaf8-size11-dirty-critical-auto",
+    "result": "unknown",
+    "seconds": 180.018
+  },
+  {
+    "query": "forest6case016-size1-dirty",
+    "result": "unsat",
+    "seconds": 0.034
+  },
+  {
+    "query": "forest6case026-size2-dirty",
+    "result": "unsat",
+    "seconds": 0.01
+  },
+  {
+    "query": "forest6case036-size3-dirty",
+    "result": "unsat",
+    "seconds": 0.007
+  },
+  {
+    "query": "forest6case046-size3-dirty",
+    "result": "unsat",
+    "seconds": 0.007
+  },
+  {
+    "query": "forest6case056-size4-dirty",
+    "result": "unsat",
+    "seconds": 0.01
+  },
+  {
+    "query": "forest6case066-size4-dirty",
+    "result": "unsat",
+    "seconds": 0.043
+  },
+  {
+    "query": "forest6case076-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.03
+  },
+  {
+    "query": "forest6case086-size4-dirty",
+    "result": "unsat",
+    "seconds": 0.052
+  },
+  {
+    "query": "forest6case096-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.067
+  },
+  {
+    "query": "forest6case106-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.035
+  },
+  {
+    "query": "forest6case116-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.076
+  },
+  {
+    "query": "forest6case126-size6-dirty",
+    "result": "unsat",
+    "seconds": 0.275
+  },
+  {
+    "query": "forest6case136-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.087
+  },
+  {
+    "query": "forest6case146-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.075
+  },
+  {
+    "query": "forest6case156-size6-dirty",
+    "result": "unsat",
+    "seconds": 0.322
+  },
+  {
+    "query": "forest6case166-size6-dirty",
+    "result": "unsat",
+    "seconds": 0.329
+  },
+  {
+    "query": "forest6case176-size7-dirty",
+    "result": "unsat",
+    "seconds": 4.125
+  },
+  {
+    "query": "forest6case186-size6-dirty",
+    "result": "unsat",
+    "seconds": 0.293
+  },
+  {
+    "query": "forest6case196-size7-dirty",
+    "result": "unknown",
+    "seconds": 5.043
+  },
+  {
+    "query": "path4-size5-dirty-critical-auto-one",
+    "result": "sat",
+    "seconds": 0.082
+  },
+  {
+    "query": "path4-size5-one-normal-q1",
+    "result": "sat",
+    "seconds": 0.12
+  },
+  {
+    "query": "path6-size7-dirty",
+    "result": "unsat",
+    "seconds": 2.667
+  },
+  {
+    "query": "theta15510-size15-dirty-critical-auto-one",
+    "result": "unknown",
+    "seconds": 180.051
+  },
+  {
+    "query": "theta2449-size13-dirty-critical-auto",
+    "result": "unknown",
+    "seconds": 180.028
+  },
+  {
+    "query": "theta2449-size13-one-normal-q5",
+    "result": "unsat",
+    "seconds": 34.591
+  },
+  {
+    "query": "theta3338-size12-dirty-critical-auto-one",
+    "result": "unknown",
+    "seconds": 180.025
+  },
+  {
+    "query": "theta3338-size12-dirty-critical-auto",
+    "result": "unknown",
+    "seconds": 300.024
+  },
+  {
+    "query": "theta3338-size12-one-normal-q4",
+    "result": "unknown",
+    "seconds": 60.009
+  }
+]

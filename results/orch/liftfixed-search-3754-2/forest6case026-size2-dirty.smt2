@@ -1,0 +1,91 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun a0 () (_ BitVec 4))
+(declare-fun b0 () (_ BitVec 4))
+(declare-fun or0 () Bool)
+(declare-fun g0 () (_ BitVec 4))
+(declare-fun below0 () Bool)
+(declare-fun a1 () (_ BitVec 4))
+(declare-fun b1 () (_ BitVec 4))
+(declare-fun or1 () Bool)
+(declare-fun g1 () (_ BitVec 4))
+(declare-fun below1 () Bool)
+(assert
+ (bvult a0 (_ bv6 4)))
+(assert
+ (bvult b0 (_ bv6 4)))
+(assert
+ (bvule a0 b0))
+(assert
+ (let (($x39 (= b0 (_ bv2 4))))
+ (let ((?x40 (ite $x39 (_ bv10 4) (ite (= b0 (_ bv3 4)) (_ bv12 4) (ite (= b0 (_ bv4 4)) (_ bv12 4) (_ bv12 4))))))
+ (let (($x41 (= b0 (_ bv1 4))))
+ (let (($x43 (= b0 (_ bv0 4))))
+ (let ((?x44 (ite $x43 (_ bv7 4) (ite $x41 (_ bv9 4) ?x40))))
+ (let (($x27 (= a0 (_ bv2 4))))
+ (let ((?x28 (ite $x27 (_ bv10 4) (ite (= a0 (_ bv3 4)) (_ bv12 4) (ite (= a0 (_ bv4 4)) (_ bv12 4) (_ bv12 4))))))
+ (let (($x30 (= a0 (_ bv1 4))))
+ (let (($x33 (= a0 (_ bv0 4))))
+ (let ((?x34 (ite $x33 (_ bv7 4) (ite $x30 (_ bv9 4) ?x28))))
+ (= g0 (ite or0 (bvor ?x34 ?x44) (bvand ?x34 ?x44))))))))))))))
+(assert
+ (= below0 (= (bvand g0 (_ bv12 4)) (_ bv0 4))))
+(assert
+ (let (($x39 (= b0 (_ bv2 4))))
+ (let (($x59 (ite $x39 false (ite (= b0 (_ bv3 4)) false (ite (= b0 (_ bv4 4)) false false)))))
+ (let (($x41 (= b0 (_ bv1 4))))
+ (let (($x43 (= b0 (_ bv0 4))))
+ (let (($x27 (= a0 (_ bv2 4))))
+ (let (($x54 (ite $x27 false (ite (= a0 (_ bv3 4)) false (ite (= a0 (_ bv4 4)) false false)))))
+ (let (($x30 (= a0 (_ bv1 4))))
+ (let (($x33 (= a0 (_ bv0 4))))
+ (let (($x62 (= (ite $x33 false (ite $x30 false $x54)) (ite $x43 false (ite $x41 false $x59)))))
+ (=> or0 $x62)))))))))))
+(assert
+ (bvult a1 (_ bv7 4)))
+(assert
+ (bvult b1 (_ bv7 4)))
+(assert
+ (bvule a1 b1))
+(assert
+ (let (($x89 (= b1 (_ bv3 4))))
+ (let ((?x90 (ite $x89 (_ bv12 4) (ite (= b1 (_ bv4 4)) (_ bv12 4) (ite (= b1 (_ bv5 4)) (_ bv12 4) g0)))))
+ (let (($x91 (= b1 (_ bv2 4))))
+ (let (($x93 (= b1 (_ bv1 4))))
+ (let (($x95 (= b1 (_ bv0 4))))
+ (let ((?x96 (ite $x95 (_ bv7 4) (ite $x93 (_ bv9 4) (ite $x91 (_ bv10 4) ?x90)))))
+ (let (($x77 (= a1 (_ bv3 4))))
+ (let ((?x78 (ite $x77 (_ bv12 4) (ite (= a1 (_ bv4 4)) (_ bv12 4) (ite (= a1 (_ bv5 4)) (_ bv12 4) g0)))))
+ (let (($x79 (= a1 (_ bv2 4))))
+ (let (($x81 (= a1 (_ bv1 4))))
+ (let (($x83 (= a1 (_ bv0 4))))
+ (let ((?x84 (ite $x83 (_ bv7 4) (ite $x81 (_ bv9 4) (ite $x79 (_ bv10 4) ?x78)))))
+ (= g1 (ite or1 (bvor ?x84 ?x96) (bvand ?x84 ?x96))))))))))))))))
+(assert
+ (= below1 (= (bvand g1 (_ bv12 4)) (_ bv0 4))))
+(assert
+ (let (($x89 (= b1 (_ bv3 4))))
+ (let (($x112 (ite $x89 false (ite (= b1 (_ bv4 4)) false (ite (= b1 (_ bv5 4)) false below0)))))
+ (let (($x91 (= b1 (_ bv2 4))))
+ (let (($x93 (= b1 (_ bv1 4))))
+ (let (($x95 (= b1 (_ bv0 4))))
+ (let (($x77 (= a1 (_ bv3 4))))
+ (let (($x106 (ite $x77 false (ite (= a1 (_ bv4 4)) false (ite (= a1 (_ bv5 4)) false below0)))))
+ (let (($x79 (= a1 (_ bv2 4))))
+ (let (($x81 (= a1 (_ bv1 4))))
+ (let (($x83 (= a1 (_ bv0 4))))
+ (let (($x116 (= (ite $x83 false (ite $x81 false (ite $x79 false $x106))) (ite $x95 false (ite $x93 false (ite $x91 false $x112))))))
+ (=> or1 $x116)))))))))))))
+(assert
+ (= (_ bv3 4) g1))
+(assert
+ (or (and (not or0) (not below0)) (and (not or1) (not below1))))
+(assert
+ (or (or (= a1 (_ bv6 4)) (= b1 (_ bv6 4)))))
+(assert
+ (let ((?x132 (concat (concat (ite or1 (_ bv0 1) (_ bv1 1)) a1) b1)))
+(let ((?x135 (concat (concat (ite or0 (_ bv0 1) (_ bv1 1)) a0) b0)))
+(let (($x127 (= b1 (_ bv6 4))))
+(let (($x126 (= a1 (_ bv6 4))))
+(or $x126 $x127 (bvule ?x135 ?x132)))))))
+(check-sat)

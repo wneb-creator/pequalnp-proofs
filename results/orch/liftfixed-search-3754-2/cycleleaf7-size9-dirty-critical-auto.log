@@ -1,0 +1,37 @@
+FIRST_PAIR_AUTOMORPHISM_REPRESENTATIVES 2 [(0, 0), (0, 1), (0, 2), (0, 3), (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 3), (2, 4), (2, 6), (3, 3), (3, 6), (6, 6)]
+2026-11-25T17:25:08.110578+00:00 cycleleaf 7 edges 7 tau 3 gates 9 patterns 13 mode dirty liftfixed True
+RESULT unknown seconds 180.173
+REASON timeout
+(:max-memory              61.34
+ :memory                  31.17
+ :num-allocs              1792001142
+ :rlimit-count            312369941
+ :sat-ate                 2246
+ :sat-backjumps           741889
+ :sat-bce                 213
+ :sat-conflicts           741889
+ :sat-decisions           1194422
+ :sat-del-clause          722349
+ :sat-elim-bool-vars-res  5014
+ :sat-elim-clauses        10374
+ :sat-elim-literals       146059
+ :sat-gc-clause           649568
+ :sat-minimized-lits      14164098
+ :sat-mk-clause-2ary      17671
+ :sat-mk-clause-3ary      11214
+ :sat-mk-clause-nary      784114
+ :sat-mk-var              8512
+ :sat-probing-assigned    11
+ :sat-propagations-2ary   71459303
+ :sat-propagations-nary   285260160
+ :sat-restarts            45866
+ :sat-scc-elim-binary     97
+ :sat-scc-elim-vars       617
+ :sat-subs-resolution     50549
+ :sat-subs-resolution-dyn 396806
+ :sat-subsumed            20102
+ :sat-tr                  124
+ :sat-units               86
+ :solve-eqs-elim-vars     32
+ :solve-eqs-steps         942
+ :time                    180.17)

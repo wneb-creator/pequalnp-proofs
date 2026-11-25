@@ -1,0 +1,32 @@
+2026-11-25T17:37:28.723774+00:00 theta333 8 size 12 prefixORs 4 cleanANDs 4 samples 18 maxfalse 9 autos 12
+RESULT unknown seconds 60.009
+REASON timeout
+(:added-eqs           59173758
+ :binary-propagations 58209404
+ :bv-bit2core         60657048
+ :bv-diseqs           4452
+ :bv-dynamic-diseqs   2310060
+ :bv-dynamic-eqs      25010
+ :bv->core-eq         6469986
+ :conflicts           167622
+ :decisions           312758
+ :del-clause          16152858
+ :max-memory          29.78
+ :memory              19.96
+ :minimized-lits      3226978
+ :mk-bool-var         11460044
+ :mk-clause           16199284
+ :mk-clause-binary    17654
+ :num-allocs          2885349687
+ :num-checks          2
+ :pb-conflicts        50
+ :pb-predicates       6
+ :pb-propagations     14652
+ :pb-resolves         50
+ :propagations        112439708
+ :restarts            662
+ :rlimit-count        165368517
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 9
+ :solve-eqs-steps     986
+ :time                60.01)

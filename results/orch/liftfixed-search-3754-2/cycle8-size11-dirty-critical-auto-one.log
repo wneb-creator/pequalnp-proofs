@@ -1,0 +1,33 @@
+FIRST_PAIR_AUTOMORPHISM_REPRESENTATIVES 16 [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)]
+2026-11-25T17:30:38.307528+00:00 cycle 8 edges 8 tau 4 gates 11 patterns 18 mode dirty liftfixed True
+RESULT unknown seconds 180.023
+REASON timeout
+(:added-eqs           192018262
+ :binary-propagations 124489426
+ :bv-bit2core         82190786
+ :bv-diseqs           4592
+ :bv-dynamic-diseqs   8080032
+ :bv-dynamic-eqs      94010
+ :bv->core-eq         24132168
+ :conflicts           258534
+ :decisions           765942
+ :del-clause          67516804
+ :max-memory          43.68
+ :memory              21.49
+ :minimized-lits      3282650
+ :mk-bool-var         38833428
+ :mk-clause           67634242
+ :mk-clause-binary    35244
+ :num-allocs          14451606376.00
+ :num-checks          2
+ :pb-conflicts        198
+ :pb-predicates       46
+ :pb-propagations     80384
+ :pb-resolves         198
+ :propagations        259410370
+ :restarts            854
+ :rlimit-count        352246798
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 12
+ :solve-eqs-steps     1352
+ :time                180.02)

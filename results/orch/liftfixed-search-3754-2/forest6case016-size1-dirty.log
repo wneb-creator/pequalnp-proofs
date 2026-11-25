@@ -1,0 +1,7 @@
+2026-11-25T17:32:47.042995+00:00 forest6case01 6 edges 1 tau 1 gates 1 patterns 3 mode dirty liftfixed True
+RESULT unsat seconds 0.034
+(:max-memory   16.95
+ :memory       16.84
+ :num-allocs   10100
+ :rlimit-count 180
+ :sat-mk-var   1)

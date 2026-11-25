@@ -1,0 +1,29 @@
+2026-11-25T17:37:28.710959+00:00 cycle 8 size 11 prefixORs 1 cleanANDs 5 samples 18 maxfalse 10 autos 16
+RESULT unsat seconds 0.486
+(:added-eqs           843832
+ :binary-propagations 845794
+ :bv-bit2core         507156
+ :bv-diseqs           1620
+ :bv-dynamic-diseqs   21048
+ :bv-dynamic-eqs      90
+ :bv->core-eq         72750
+ :conflicts           4720
+ :decisions           15410
+ :del-clause          141032
+ :max-memory          20.31
+ :memory              17.49
+ :minimized-lits      22376
+ :mk-bool-var         101386
+ :mk-clause           146606
+ :mk-clause-binary    9310
+ :num-allocs          8335863
+ :num-checks          2
+ :pb-predicates       6
+ :pb-propagations     860
+ :propagations        1105488
+ :restarts            40
+ :rlimit-count        1794851
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 7
+ :solve-eqs-steps     598
+ :time                0.48)

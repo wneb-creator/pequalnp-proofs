@@ -1,0 +1,22 @@
+2026-11-25T17:32:47.382668+00:00 forest6case03 6 edges 2 tau 2 gates 3 patterns 6 mode dirty liftfixed True
+RESULT unsat seconds 0.007
+(:max-memory            25.31
+ :memory                17.03
+ :num-allocs            51996
+ :rlimit-count          14488
+ :sat-backjumps         28
+ :sat-conflicts         29
+ :sat-decisions         51
+ :sat-del-clause        25
+ :sat-elim-clauses      6
+ :sat-elim-literals     67
+ :sat-minimized-lits    21
+ :sat-mk-clause-2ary    571
+ :sat-mk-clause-nary    450
+ :sat-mk-var            291
+ :sat-propagations-2ary 1186
+ :sat-propagations-nary 683
+ :sat-units             7
+ :solve-eqs-elim-vars   12
+ :solve-eqs-steps       150
+ :time                  0.01)

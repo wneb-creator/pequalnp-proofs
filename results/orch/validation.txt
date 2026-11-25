@@ -98,3 +98,7 @@ TIMING total=136 subagents=6
 2026-11-25T17:38:46.027906+00:00 L3754 partial preservation: independently approved Ledger955, semantic middle825 and exchange135, selection standalone1184, and arbitrary-sharing double-star OR-cost631. Full successful compiler logs and source hashes retained in checkpoint-24. These components retain explicit structural premises; no full posted theorem or target checker acceptance.
 Sub-agents: six, reused across proof, search and independent review tasks.
 TIMING total=136.2 subagents=6
+
+2026-11-25T17:43:11.087152+00:00 L3754 partial preservation: named3275 passes lake build and exact concatenation independently reviewed. Strict3653 reach2505 independently reviewed by toolchain_setup/status_review, semantic restoration924 by status_review, alias agreement1053 by root/toolchain_setup, and double-star exclusion877 by root/status_review. Full compiler streams/hash manifest in checkpoint-25. Second search bundle102 hashes and two models rechecked by root; all claims are computational subcases only. The full posted theorem is absent; target checker not passed.
+Sub-agents: six, reused across proof, search and independent review tasks.
+TIMING total=140.6 subagents=6

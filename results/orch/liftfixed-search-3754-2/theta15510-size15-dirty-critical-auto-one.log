@@ -1,0 +1,33 @@
+FIRST_PAIR_AUTOMORPHISM_REPRESENTATIVES 4 [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (2, 9), (3, 3), (3, 4), (3, 7), (3, 8)]
+2026-11-25T17:28:44.697094+00:00 theta155 10 edges 11 tau 5 gates 15 patterns 26 mode dirty liftfixed True
+RESULT unknown seconds 180.051
+REASON timeout
+(:added-eqs           140958862
+ :binary-propagations 85483084
+ :bv-bit2core         68148518
+ :bv-diseqs           11036
+ :bv-dynamic-diseqs   4507130
+ :bv-dynamic-eqs      71638
+ :bv->core-eq         18406946
+ :conflicts           192926
+ :decisions           1270408
+ :del-clause          50996240
+ :max-memory          70.98
+ :memory              25.02
+ :minimized-lits      1647652
+ :mk-bool-var         27553100
+ :mk-clause           51167848
+ :mk-clause-binary    75712
+ :num-allocs          16906794229.00
+ :num-checks          2
+ :pb-conflicts        66
+ :pb-predicates       62
+ :pb-propagations     115130
+ :pb-resolves         66
+ :propagations        162807166
+ :restarts            714
+ :rlimit-count        251968606
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 16
+ :solve-eqs-steps     2456
+ :time                180.05)
