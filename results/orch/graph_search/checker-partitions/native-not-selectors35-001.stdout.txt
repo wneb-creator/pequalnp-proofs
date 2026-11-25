@@ -1,0 +1,9 @@
+START selectors=0:8 projections=35
+SELECTOR_RESULT 0 true elapsed_ms=88
+SELECTOR_RESULT 1 true elapsed_ms=101
+SELECTOR_RESULT 2 true elapsed_ms=91
+SELECTOR_RESULT 3 true elapsed_ms=93
+SELECTOR_RESULT 4 true elapsed_ms=101
+SELECTOR_RESULT 5 true elapsed_ms=89
+SELECTOR_RESULT 6 true elapsed_ms=199
+SELECTOR_RESULT 7 true elapsed_ms=1

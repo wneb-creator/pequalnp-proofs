@@ -1,0 +1,18 @@
+UNCHECKED continuation plan
+
+The complete assembled candidate is UncheckedFinalSync35.lean. It has exact posted statement and checked semantic bridges, but its unsplit one-NOT numerical checks exceeded memory; it is not a checked final proof.
+
+Next assembly was planned, not completed:
+- Preserve global MM214 and all original root13 masks/certificates.
+- Inline checked ContinuationSplit, NodeContinuationSplit, MvContinuationSplit, DeepContinuationSplit, StateMaskCover after existing engine/bounds.
+- Keep Q35 = grpSix ++ tg0 ++ grp5 and its existing soundness proof.
+- Replace first phase equation by eight synchronous chkSel(notPick i) checks and chk_of_notPicks. Selector0 passed kernel.
+- Keep inactive first-pair mask equation; replace each of16active binary buckets by grouped mod127deepMaskPick checks. deep127-mm214-mask-groups.json key150 contains361groups,50heavy singletons,57272estimatedms total (actual data authoritative).
+- Use exactly3outer asynchronous chunk lemmas; everycase inside calls decide +kernel serially. Put everyheavy singleton in onechunk, addlightcases tobalance cost, split remaininglightcases intoother2chunks.
+- Use StateMaskCover.chkDeepSel_false_of_masks to recombine eachbucket, then original one13_all and close_from_split.
+- Masks above64bits must be encoded in<=16hex-digit chunks, e.g low + 2^64 * high.
+- Need fresh full named-module build, local checker, independent review before claiming a final checked proof.
+
+Calibration: Q35selector0kernelpassed6.59s/3.34GiB; sampled0.498s-native deepleaf passed10.7skernel/4.25GiB. Q7=grpSix fullnativechecktrue69.4s, but uncheckedkerneloverall. New48support-onlybounds checked; nativeprofilefoundzeroguardhits, so omitfromoptimization.
+
+Late graph_search finding: one huge literal containing all361 arithmetic mask entries is slow to elaborate (default heartbeat exhaustion, unlimited run stopped after about90s). Split mask data into16per-bucket definitions or individual typed Nat constants; refer to those from the outer table. This is an elaboration issue, not a coverage failure.

@@ -1,0 +1,15 @@
+{
+  "job": "pequalnp-pilot-180",
+  "message_id": "msg-fb0ada4d5dd6275484fd3c11",
+  "gap": "L-meta-10760",
+  "result": "partial checked lemmas; complete proof not validated",
+  "checker": "NOT RUN; complete named build did not pass",
+  "desk_nulls": 0,
+  "lease_end": "HTTP410 before returned expiry",
+  "replacement_gap": "L-meta-650",
+  "replacement_released": true,
+  "pr": null,
+  "subagents": 6,
+  "timing_minutes": 96.1,
+  "recorded_utc": "2026-11-25T20:43:18.827255+00:00"
+}

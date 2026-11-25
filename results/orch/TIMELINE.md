@@ -32,3 +32,5 @@ Pilot pequalnp-pilot-180
 - 2026-11-25 20:33:49 UTC: status_review completed kernel compilation of NodeContinuationSplit.lean, exit 0, then handed compile slot to proof_routes. Independent checkpoint audit requested.
 
 - 2026-11-25 20:39 UTC: Beat022 unexpectedly returned no-live-lease despite prior expiry20:54. Preserving StateMaskCover and calibrated numerical certificates before required desk diagnostic. No complete proof verdict yet.
+
+- 2026-11-25T20:43:18.827255+00:00: Final preservation after HTTP410. Replacement L-meta-650 lease released; no PR or final checker verdict.

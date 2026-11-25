@@ -1,0 +1,23 @@
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:292:639: error: (deterministic) timeout at `«synthesize pending MVars»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:311:15: error(lean.unknownIdentifier): Unknown identifier `deepMasks214_150`
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:312:24: error: Invalid projection: Type of
+  entry
+is not known; cannot resolve projection `2`
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:313:18: error: Invalid projection: Type of
+  entry
+is not known; cannot resolve projection `2`
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:315:48: error(lean.invalidField): Invalid field notation: Type of
+  mask
+is not known; cannot resolve field `testBit`
+
+Hint: Consider replacing the field projection `.testBit` with a call to the function `Nat.testBit`.
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:315:105: error: Invalid projection: Type of
+  entry
+is not known; cannot resolve projection `1`
+/tmp/oec/pequalnp-pilot-180/graph_search/NativeDeepGrouped150.lean:317:39: error: Invalid projection: Type of
+  entry
+is not known; cannot resolve projection `1`

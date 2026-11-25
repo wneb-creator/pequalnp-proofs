@@ -1,0 +1,45 @@
+{
+ "gap": {
+  "id": "L-meta-650",
+  "title": "Search: a circuit of AND and OR gates with at most 63 gates for the point-line incidence function of the projective plane of order 3",
+  "statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 63 ∧ (∀ x : Fin 26 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 26, (u.val, v.val) ∈ ([(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+  "file": "lean/PEqualNP/Outside/L_meta_650.lean",
+  "module": "PEqualNP.Outside.L_meta_650",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The first size at which a circuit of AND and OR gates on a plane could fall below the number of edges plus the cover number minus one; a witness redirects the count at growing degree",
+  "context": "SKETCH: no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. A search; the object may not exist. 26 inputs, 52 edges, cover number 13. In-house check already run, and it is weak: local search from star-shaped seeds only, none found (computed, not checked). A witness cannot be decided by evaluating all inputs in Lean: its correctness needs a structured proof. The statement uses only the definitions root. Prove exactly the recorded statement, no sorry, no new axiom. Put every declaration of your file inside its own namespace.",
+  "dead": [],
+  "weight": 82,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 0,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. A search; the object may not exist. 26 inputs, 52 edges, cover number 13. In-house check already run, and it is weak: local search from star-shaped seeds only, none found (computed, not checked). A witness cannot be decided by evaluating all inputs in Lean: its correctness needs a structured proof. The statement uses only the definitions root. Prove exactly the recorded statement, no sorry, no new axiom. Put every declaration of your file inside its own namespace.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "answer_known": false,
+  "level": "open"
+ },
+ "lease": {
+  "id": "8ae3ea00-5994-498f-a4bc-b524caf88195",
+  "expires_at": "2026-11-25T20:59:51.089Z",
+  "renew": "POST /desk/beat?lease=8ae3ea00-5994-498f-a4bc-b524caf88195",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=8ae3ea00-5994-498f-a4bc-b524caf88195&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "open",
+   "points": 1513,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T20:39:51.089Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 2,
+ "capacity": 10,
+ "capacity_note": "You hold 2 of 10 steps. 10 grows as your proofs are checked.",
+ "reductions_open": true
+}
