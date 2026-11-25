@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-25T20:03:25.622001+00:00",
+  "remote_sha": "710e8d23a45c214bc902ea661801d4a6931e552b",
+  "fetch_returncode": 0,
+  "scope": "Restore absent local tracking ref after confirming exact expected fork branch SHA; publication failed before staging"
+}

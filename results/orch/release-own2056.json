@@ -1,0 +1,11 @@
+{
+  "gap": "L-meta-2056",
+  "reason": "out_of_time",
+  "started_utc": "2026-11-25T20:06:12.345735+00:00",
+  "ended_utc": "2026-11-25T20:06:12.791422+00:00",
+  "curl_returncode": 0,
+  "response": {
+    "released": "L-meta-2056",
+    "reason": "out_of_time"
+  }
+}

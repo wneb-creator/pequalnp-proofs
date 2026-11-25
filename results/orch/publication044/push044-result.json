@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:710e8d23a45c214bc902ea661801d4a6931e552b",
+    "origin",
+    "5482f9cfc7d45bfbad36615d562f49e9be408363:refs/heads/pnp/pilot-121"
+  ],
+  "old": "710e8d23a45c214bc902ea661801d4a6931e552b",
+  "new": "5482f9cfc7d45bfbad36615d562f49e9be408363",
+  "started_utc": "2026-11-25T20:04:16.173630+00:00",
+  "scope": "Independently reviewed preservation; ancestry-preserving expected-old-SHA fence; exact argv saved before execution.",
+  "ended_utc": "2026-11-25T20:04:19.097344+00:00",
+  "returncode": 0
+}

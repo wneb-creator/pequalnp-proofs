@@ -1,0 +1,1353 @@
+{
+  "scope": "Final completed research preservation; no target proof, refutation, accepted checker or PR",
+  "created_utc": "2026-11-25T20:01:23.620305+00:00",
+  "base_sha": "710e8d23a45c214bc902ea661801d4a6931e552b",
+  "excluded": [],
+  "files": [
+    {
+      "path": "results/orch/FINAL-REPORT-2056.md",
+      "bytes": 4500,
+      "sha256": "e179a0f39f5825ddfc482f10bb9031061e8b08dd00be1805ba036e26005fbd07"
+    },
+    {
+      "path": "results/orch/STATE-2056-live.md",
+      "bytes": 361,
+      "sha256": "9f198950b3e9ccc08e3102ec63771673e44b1c2ba8f2fdbadafe0875d0818fbb"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 12020,
+      "sha256": "54acac2022f2cc15dfc882b3271ad202d6e791733fc55ddeeaaf732da19323ee"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/42873.proc-stat.txt",
+      "bytes": 176,
+      "sha256": "3e38b763ae797d0ae3b65f414909d359245787743e2a1e79636743395d8b786e"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/43170.proc-stat.txt",
+      "bytes": 171,
+      "sha256": "f2ad8116901386f6eac7c8fe188ec9a4f7e459aaf19121ee873e84fb12cffb09"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/CNF-REGENERATION.json",
+      "bytes": 754,
+      "sha256": "34f3488b74eefe6f7b8fc5ad4ce8284d9c90d47645847ddc02057ace7e6c5253"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/README.md",
+      "bytes": 1096,
+      "sha256": "8f64eeb51507c84f2b6aaa68d62a74ad77d41920d30341eb995e32f9edfe9e4a"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/SUMMARY.json",
+      "bytes": 1878,
+      "sha256": "9f7e6317dc50e5214ebfd889a63b553f313d3e648e5744f570d67fb24f01af86"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.launch.json",
+      "bytes": 1470,
+      "sha256": "63606ac9bc1ac200b09eb94515cc8a884a02b65c82b6f8b92b8fca525b393702"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.mapping.json",
+      "bytes": 1173065,
+      "sha256": "c71ad87759a8dff8146a5488b24993f3e39aad95ac1988dac49743a7f8977388"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.prepared.json",
+      "bytes": 915,
+      "sha256": "415f5e0ad96997800ad0049698fdcc90c2a7d16a93aca6fc73ed9347d9cc8e70"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.process.json",
+      "bytes": 132,
+      "sha256": "99a51cbb731f57a118f297a4b17d01372b694da55cad807fdc60ab4c64b43ea2"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.stdout",
+      "bytes": 18734,
+      "sha256": "1b51e6a9fe57ac56d06ad9230724eb4cc018e9ee851fa84bc596e6f957413a87"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.warm.json",
+      "bytes": 1897,
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/final-budget16-nested-run.wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-final/runtime/manifest.json",
+      "bytes": 2554,
+      "sha256": "bb8d51ee291ceb4f14fd78a2ff535e535f9ddf90130b0acd20826d81e7e09a60"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/ARCHIVE_METADATA.json",
+      "bytes": 6526,
+      "sha256": "26b90d35d2559fa6c58bc609350974f30ed7437330c8a237d941890101963795"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056-wrapper.stdout",
+      "bytes": 1234,
+      "sha256": "85d3bc4e78021bdedbdba11629e95658f1c63736ac6781f96ddfa303d3a0e0f0"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.cnf.gz",
+      "bytes": 4002917,
+      "sha256": "5769e5bfc733b845a4de9467b0d575c768326801401016b1a387cc1bde56a581"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.completion.json",
+      "bytes": 386,
+      "sha256": "06c6eb72182e6b1418d85161b13ab0ab8383882fb35abc1cab67049d2fab4059"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.json",
+      "bytes": 1298,
+      "sha256": "9716cec234a4bb70b956506620c9d8d9fea29df348fa2109cac5f2f17cf74af3"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.launch-intent.json",
+      "bytes": 1273,
+      "sha256": "6b4d21f7d0d3afaa882aee56995f7db235f5b146ce725f13749a24045a3666d4"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.launch.json",
+      "bytes": 1902,
+      "sha256": "a7be5f6faf4eb050f0cfc748aad2ebd876731bf904ba573d3c2fb87181d1ec40"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.mapping.json",
+      "bytes": 510123,
+      "sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.phase.json",
+      "bytes": 360744,
+      "sha256": "754c155df1113f766c4702621dd27f9c50a6440489fc0bfa3532394e9bc05d55"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.process.json",
+      "bytes": 130,
+      "sha256": "7c86107044deae073ab095fccdc7238d7cd29a72645c47d3c63942bc42a3d63b"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.progress.json",
+      "bytes": 132,
+      "sha256": "ac2a300c7853946b828da32c261aeb5932c42c132ef7c057300ee0fe27465c13"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.stdout",
+      "bytes": 23064,
+      "sha256": "fe30fb0ed5007a5ff7be26f72db8269d9bf6cdca1ec6995021a4de0305dec6ab"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-run/budget-floor13-run-2056.warm.json",
+      "bytes": 1682,
+      "sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/ARCHIVE_METADATA.json",
+      "bytes": 19144,
+      "sha256": "b8c3cb5b9d9426886407ea3731ba27c6d84540b7a95596b018f13b08f36ee328"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/README.md",
+      "bytes": 2313,
+      "sha256": "144fe3e8908ebdfeca95a89f3e6e31afbb62c7f2231bd8c7e7b063177870f856"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/analyze_local66.py",
+      "bytes": 2849,
+      "sha256": "9b6b1c81492913f9b0b88ced294e973be0522dd668c2d2142b80fc78687c4edf"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/build66-69.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/build66-69.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-dump-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-dump-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-dump.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-dump.stdout",
+      "bytes": 730,
+      "sha256": "d7b6aa2714653b601c00a513c35482fbd7a4235584b2227ebaf29e435d22b98a"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-structural-check.json",
+      "bytes": 487,
+      "sha256": "fe2c4e16f357f41628225c52aa5dc96eba280ec9505b171d36c03bb080453854"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control-structural-check.stdout",
+      "bytes": 133,
+      "sha256": "7e3735006772ef26da4a3fc2bf11fe6411b022a801f778b92d613e63d001a076"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control66-69.stderr",
+      "bytes": 181,
+      "sha256": "91924c59c2f808a650a4af329805ed5175f79ed3c0bfc860b2b4fa389357764b"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/control66-69.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66-single-record.jsonl",
+      "bytes": 1013,
+      "sha256": "b2636123b717c5f0a3ff03b1be2a803061e210f40a010d7d410690dc934899e6"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66-structural-check.json",
+      "bytes": 585,
+      "sha256": "d31482bac638d8f955e94d42ac349c8b693455e8ce374dd43fdd90bf6222ed24"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66-structural-check.stdout",
+      "bytes": 139,
+      "sha256": "81ac50b1ff9da075cd1993da3d0abe9c404720647d8190d282263ac3a7c41946"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_69_local",
+      "bytes": 85600,
+      "sha256": "2cf1d2c49c4e2ebee1a889633ed3ed41459d71744247df278896a8ccda87431a"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_69_local.cpp",
+      "bytes": 9201,
+      "sha256": "79f7abdd4d8171bc60e357f9176ebad697a19ff7493fa49ec075b4ea4b4c67a8"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_69_seeds.hpp",
+      "bytes": 3885,
+      "sha256": "18b99fe7a0ad0026dfd4016f2903ea4932b488088e13c7ca7eba7795e49d8d8b"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_control_dump",
+      "bytes": 85568,
+      "sha256": "c3537a4544dfff75f5ea5a33f340388e9d2a2c1e1f62bba64a0e217675f0d43d"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_control_dump.cpp",
+      "bytes": 9236,
+      "sha256": "ed935ccd3a5d0bafa2c6a7417cad36902374a495ab121799b22a8f80be210414"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_local",
+      "bytes": 85568,
+      "sha256": "ea2d686aae39bb28589a7b42402915d84d9539657f51adb9b7420e85d3c8805c"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_local.cpp",
+      "bytes": 9198,
+      "sha256": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/exact66_seeds.hpp",
+      "bytes": 3205,
+      "sha256": "cb63f59d266a32eb95bfb5f2cbcb13fe55e9a0d42988d489acd58c288b3dd653"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056-wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.analysis.json",
+      "bytes": 42962,
+      "sha256": "37186b37ea56a9226e282de8699bf9eec9d2b4c02aee8f0b5352ea16187f5be8"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.analysis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.analysis.stdout",
+      "bytes": 141,
+      "sha256": "b164ce9ffc60e7d0a499eba1290f146761ff4e987aecd10cde5a0e1ea8ef544e"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-nonread1.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-nonread1.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "dd929c8e576688a6059643d3c90777359497f54d56973a7954d464a52cb08c08"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-nonread1.json",
+      "bytes": 2791,
+      "sha256": "c7376855e79341d54df17d147c5d51bdcbe9736ac0a8dc7981ec98afa44e2f8c"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-nonread1.txt",
+      "bytes": 490,
+      "sha256": "12a7f761e68d842a53c88277a1f105c8269b3b1aa66dcf68f96bfc1098b86b2e"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-overall.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-overall.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "eacf34dcb7cfc163daf9338dfbb5ea0a69e42096b7371694093232fed32b38c7"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-overall.json",
+      "bytes": 2755,
+      "sha256": "d00def41a03b544fe10313a90a773e5da9cd8a9982d66b668a9e8aa28edb0778"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.best-overall.txt",
+      "bytes": 483,
+      "sha256": "c77bef1b850bc4a604240b2ba2b2414b09579f0ff0316652d8320d0d5fa302ee"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.completion-observation.json",
+      "bytes": 747,
+      "sha256": "e5f3792d64b6641cedb34c4f7395519a582aa3226bceda181338abb0e308aa29"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.launch.json",
+      "bytes": 1114,
+      "sha256": "98708f55e3a30e5c48a9772f59e26578195d29fb05ddb53ffe2874d2f1057142"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.proc-46416.stat",
+      "bytes": 173,
+      "sha256": "421991a5bcd603acbc4d56fcc60cfd918bab8d8d1cea0ea03196b2276ac2882d"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.proc-46424.stat",
+      "bytes": 177,
+      "sha256": "594ae743bf53066309b2f5f8ebf60ac7cb9e251aa7e28709cf5b1f7872ba405e"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.progress-analysis.json",
+      "bytes": 3211,
+      "sha256": "0840fcc5b6c23ba8fe8484f936d8bac8ed14cd4fbd20c02a8a098c40988a498c"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.progress-analysis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.progress-analysis.stdout",
+      "bytes": 140,
+      "sha256": "4e90e4c132d139f1b8b7ba787a8c4d152091053008fa1a20e4cdca9435e12fb6"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.stderr",
+      "bytes": 329,
+      "sha256": "5ac6e2233f1ff5c2f445a60d76e055ddb7db55a7b616b87acad64165776537c6"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/final-local66-69-2056.stdout",
+      "bytes": 57794,
+      "sha256": "f7e950c67b59a10fce45e28a77195be6da6a5021c848e2f820b5791c69b142ec"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/independent-audits/k13-completed-run-independent-review.json",
+      "bytes": 528,
+      "sha256": "1558467f9cc2219fd65970bb448d10540062d004dcaa294ddeacc4fac75553d9"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/independent-audits/k13-final-archive-independent-review.json",
+      "bytes": 496,
+      "sha256": "dc40e2f499553b74263a6a5131b1715db2a98d6ba9d2d09dd6b8c578d277b40b"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/independent-data-review.json",
+      "bytes": 798,
+      "sha256": "8efb5f640c3593a1dfc47212d98f2c37b11377d0be6932fadc2821c3756b813a"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/independent-six-seed-review.json",
+      "bytes": 1231,
+      "sha256": "a526453ecab4aa9505ee959c4a09d7f1701af4f9d20255fe6443a4571e5288f6"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/launch-ready66-69.json",
+      "bytes": 1221,
+      "sha256": "e13d20cad98af3505eefc59c93f983be5334234923d88b4c117eedb5fe7bd3b8"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/nested69-exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/nested69-exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "3033111408e6dbad14a45017f84cb928d9eb490911915bb6cc41cbaec579ef85"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/nested69-source-record.json",
+      "bytes": 3503,
+      "sha256": "0d00a9bae29bf66b2951947b5a9650f717ce460d5e33c2365b093b0a3dd4cb04"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/nested69.txt",
+      "bytes": 539,
+      "sha256": "60a5b51617430fea0046a11ee806b17e7729ecb7b5e86a4f4b541986737ebda4"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/neutral_pair_care_full.hpp",
+      "bytes": 2488,
+      "sha256": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/preparation.json",
+      "bytes": 1839,
+      "sha256": "7f8cb778140ebb3b7b5d9af52383d2b611a15017aa3f191bca3fe785fdc8ea2b"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/preparation66-69.json",
+      "bytes": 684,
+      "sha256": "9240bd65d03a25b8f68f2008b79c6b7bb3c8d08881d5bf92f07c70cef3358181"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/repair_shrink_full.hpp",
+      "bytes": 2913,
+      "sha256": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/rows.txt",
+      "bytes": 6314,
+      "sha256": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/run_final_local.py",
+      "bytes": 3236,
+      "sha256": "486e684c9c7ee31f18d1d03e6d8dff95fa0d293701be8e845fef7e5f39d8ec86"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/scatter_spares_full.hpp",
+      "bytes": 1035,
+      "sha256": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/seeds.json",
+      "bytes": 4135,
+      "sha256": "64d3683921ca7de857bb76992f8eb4319f2803bc9adc66bd5e364007ede676b0"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/seeds66-69.json",
+      "bytes": 5021,
+      "sha256": "a96cd18e1d4a18033a05c52e7409f4fa7a4e82b019d5a7a83311e9b04550ea54"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/startup-control65.json",
+      "bytes": 2777,
+      "sha256": "aa58cca7899c9aa8520d7a713b506fbc87ec02d8d0a3eb6b52417c3c9566da98"
+    },
+    {
+      "path": "results/orch/andcount2056-local-final/structural-scope.json",
+      "bytes": 1100,
+      "sha256": "2a1e4d9a81f90936105ef62b6df7ab351b891e7061f12630266b47bfbe0ce570"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-completion-independent-review.json",
+      "bytes": 966,
+      "sha256": "fde167cf73f6b3189d09e11e88dd056bb04a2d87af050afdbc24493406de7eb8"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-completion-recovered.json",
+      "bytes": 6419,
+      "sha256": "414d5022b6953d271ee9fe18519e4c77efd61c13904b0b3a5b3c79d31f1b7f14"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.metadata.json",
+      "bytes": 3056,
+      "sha256": "f9a35b8408b3c22f86044d9b6ac4a9bf6919273b9647bc4f743736f8878d69dd"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.recovery-process.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.recovery-process.stdout",
+      "bytes": 100,
+      "sha256": "5600749899df46fb85f34fa6715c7919bbf331697324e48fa7254ca2c7df5dd3"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.stdout",
+      "bytes": 13900,
+      "sha256": "3d71e8fd30e2fa1c00313015452ad46ae88d76ee52e6bd1f952ac82d1d9e09fa"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/final-local-independent-review.json",
+      "bytes": 781,
+      "sha256": "0f9e826e307d0f16792dddd43f0dd9664eaf87cc60618109b4d15f9d098faabd"
+    },
+    {
+      "path": "results/orch/final-preservation-checklist-2056.json",
+      "bytes": 4616,
+      "sha256": "af9aa9ea8192d4fb50f9cd05bbafc4d351aa586dba6eb93bb801e488722d2711"
+    },
+    {
+      "path": "results/orch/k13-completed-run-independent-review.json",
+      "bytes": 528,
+      "sha256": "1558467f9cc2219fd65970bb448d10540062d004dcaa294ddeacc4fac75553d9"
+    },
+    {
+      "path": "results/orch/lemmas/AllCleanBudget2056-scope.md",
+      "bytes": 512,
+      "sha256": "0d8a26eb669c0ed0d2b9ca9977df5594451ad4f2b13c8047895b8df0ae86e2ff"
+    },
+    {
+      "path": "results/orch/lemmas/AllCleanBudget2056.lean",
+      "bytes": 44666,
+      "sha256": "cb850505b881298fc7c21ee70ff553c442b0af3ae3bf8112e6aecf0869f8adac"
+    },
+    {
+      "path": "results/orch/named-final-format-scan-2056.json",
+      "bytes": 296,
+      "sha256": "afbcca321a714da4703c0d257501b0457ccb76c834c195b02a6e69f1adb6cb55"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/README.md",
+      "bytes": 868,
+      "sha256": "18d5fb02f63e42ebbb67e14d4d1bd823862fe2863c82e94133cf44227a3b2bbd"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/direct_cnf_warm_nonread_and13.py",
+      "bytes": 15768,
+      "sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/manifest.json",
+      "bytes": 2166,
+      "sha256": "ad06e052179c9a23f6d9104558ea7c255bede1df01d6e87c50a136e981708a4e"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run-wrapper.stdout",
+      "bytes": 1755,
+      "sha256": "5f143dc40ff3f46024b0770667962c9f85179933ca720d50734735b61b97af6b"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.cnf-identity.json",
+      "bytes": 837,
+      "sha256": "78bee530e7dedf2c8eaf23fefa18416d6bf34104bbb954e75503a34daf39e424"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.json",
+      "bytes": 1503,
+      "sha256": "68f3d6b07f3bb7ee56140c54ae86a91ecb9ad8fd96468a788b20eadd44955c6b"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.mapping.json",
+      "bytes": 700967,
+      "sha256": "57b66ad5448aed0d36d11f45af8b2caa80724f3a3abc2a690f4df2f36aa63965"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.process.json",
+      "bytes": 100,
+      "sha256": "772a78d409c961f55484b81f537765ca40bc72fa98a74650173ae5ea3da620e5"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.replacement-stop.json",
+      "bytes": 562,
+      "sha256": "dc3f3e5d47845f7786e26acf18b6c6b1bba462d871a10055e5a8324358530660"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-and13-replaced/warm-nonread-and13-near63-full-run.stdout",
+      "bytes": 18376,
+      "sha256": "bdf21d146bd8df28f8ef1c099ea8fe97ba3d9510adfac4150a158a4241613b78"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result-independent-review.json",
+      "bytes": 660,
+      "sha256": "ef26943465d20041789eaab28edcd3bd37fbca9cb94aff04d494f6dfe481d709"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/README.md",
+      "bytes": 1137,
+      "sha256": "73d750dcf4b69c8656aaaa61445c7f16976d78cbffb2e74797b09e6945702520"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/manifest.json",
+      "bytes": 3010,
+      "sha256": "7b70a73cda4234493d7c426732ac847ba01b42013767b550ece16ef7bfd3150c"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/recover_dirty2_result.py",
+      "bytes": 6757,
+      "sha256": "42a6ea7ff42a70bd81d0d30483e0fe6663b954558b7823ad405ca58d3be64447"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run-recovery.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run-recovery.stdout",
+      "bytes": 853,
+      "sha256": "e783d86e4dc7d178405acffcefdec59ddfc132525d5bd728ff28fa656b9f2545"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run-wrapper.stdout",
+      "bytes": 923,
+      "sha256": "e02cfb0395a072d2f21b3640d653dfbfebbfe8b64914f797571924a2d02fb33d"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.cnf-identity.json",
+      "bytes": 831,
+      "sha256": "cecc6f63cb57b026053f892d2a2ba0a7ba406e3dc1cd51be62a42c79eb4eabb8"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.launch-request.json",
+      "bytes": 527,
+      "sha256": "22610cdf5a576b16e195e1ada2931969ce5a8ab9872c33fc7d52aa34fe80bb2e"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.mapping.json",
+      "bytes": 702750,
+      "sha256": "04a1a7b00c20c2b4162024066b76bfa725c4c6e498b2b8a8cae8234248b53cd0"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.process.json",
+      "bytes": 94,
+      "sha256": "903cd4b94e0614d7bc968d7fac9890f73ea5b8b57c0a730e80b3ffdc02478066"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.recovered.json",
+      "bytes": 891,
+      "sha256": "58594a4ece08b1f5a514f9d6ca4c6d4766f4a1ee4e21374c1f048bd256bb32f4"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.stdout",
+      "bytes": 19094,
+      "sha256": "3c84bb3896067fc4b4fc4cd43cf20e2aba44b90f5c044d1b36460a1b8155305a"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-first-result/warm-dirty2-near63-final-run.wrapper-loss.json",
+      "bytes": 458,
+      "sha256": "7f915af96652dfa8cf13df3191784362ef5c07f11e6e80939aa2c8a922820a0f"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result-independent-review.json",
+      "bytes": 596,
+      "sha256": "13f05d720ad907cfc33240004e3868b2e40b4a3f03cf3aa0f95fa0b552bca58b"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/README.md",
+      "bytes": 1234,
+      "sha256": "38efe2addb9e2c3618b8be4dbc0b4d142c66ef52e3ac9e17011b3099722e0520"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/manifest.json",
+      "bytes": 2136,
+      "sha256": "e0d41c1e7b0da26ffe2887a4f27d7a9bf2a7bcccbf59d1a8a203b91cdf28c65e"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/nested-near63-gates.json",
+      "bytes": 807,
+      "sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run-wrapper.stdout",
+      "bytes": 1950,
+      "sha256": "b0dd94584bef7118168f4bcc64ff40ce244d8b12ecba0f78419bedb45ea4b7b9"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.cnf-identity.json",
+      "bytes": 983,
+      "sha256": "ebbbc0283e567d0ea780cce1ac93202fe586477985899f48ed8a79bd7421361f"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.json",
+      "bytes": 1576,
+      "sha256": "b37623ca79e331f1393765365e8d35afd20c5013820e80f33bba1d4f4460d0b3"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.mapping.json",
+      "bytes": 640847,
+      "sha256": "20d490d772c4f2ae864d3d952cd6c286c4f0b163c626ef74a704a76fe1877da3"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.process.json",
+      "bytes": 96,
+      "sha256": "5ce970b5aadbf0418e221cc9bf94b69a98a0840e7fb31c25f538d075668c46b2"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-dirty2-nested-result/warm-dirty2-nested63-final-run.stdout",
+      "bytes": 13654,
+      "sha256": "29d782d4a1baeb4bb5d2eca73eaa1ddfb6fc073dd577d0b5ae822c5a1a6e67b4"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/README.md",
+      "bytes": 923,
+      "sha256": "820d32fe513b206c81da5a39720bf5f0a9a0bc0cc24df4dd4313d2a384adc60e"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/andbudget-prefix-nested63-model.json",
+      "bytes": 1897,
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/audit_nested_literal63.py",
+      "bytes": 2637,
+      "sha256": "2d56fd2dd3f30a0b938b34908fd9dbc68b3349d1a7c42a5cf975d68f12b19f3c"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/final-budget-nested-dirty-classification.json",
+      "bytes": 537,
+      "sha256": "6eec63e56b12361c3a1974e144c78c4f16e06375dfe13dde23ac1d20468f6d55"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/final-budget-nested-literal63-independent-review.json",
+      "bytes": 690,
+      "sha256": "01366ee03e7f3a3516d8ebba22f0d0de68b2a0e251e0cd691f1ad19b2d9c38e9"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/final-budget-nested-literal63.json",
+      "bytes": 2648,
+      "sha256": "8b1ca2c5feede0bbacbf78bbf851e4aebdf04b7ed9f0b523476935a325230d71"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/manifest.json",
+      "bytes": 1755,
+      "sha256": "06b45e2b5f79789cd19c5a510b8a1b397ba3c7bc283f87a271ef342e383e791e"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/nested-literal63-audit.stderr",
+      "bytes": 976,
+      "sha256": "5f43dcdce9fbf083708938808cc72a89b4c6ce0e08adb8f6d242f31519be5996"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/nested-literal63-audit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/nested-literal63-audit2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/nested63-classification/nested-literal63-audit2.stdout",
+      "bytes": 622,
+      "sha256": "074d731583216b53c1fdff322b7ba1ecbbc307d83be581892d26acb3dc678871"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/README.md",
+      "bytes": 1649,
+      "sha256": "738179c513b5adcf4c4431a1499aa5e58aeb2980f4e4b39cbb17638984ac7dda"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/dirty2-recovery-independent-review.json",
+      "bytes": 665,
+      "sha256": "7064b9f2226920ce7908cff70e1e61aa0b9d12d2438b31f367111c62d79a5408"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/manifest.json",
+      "bytes": 2037,
+      "sha256": "1df09cbf42af9f893b83f79bed7d5406f5ba230fe5e383a9ebbdb1e8d32fee87"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recover_dirty2_result.py",
+      "bytes": 6757,
+      "sha256": "42a6ea7ff42a70bd81d0d30483e0fe6663b954558b7823ad405ca58d3be64447"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-2.stderr",
+      "bytes": 845,
+      "sha256": "9c09083991b293dff4f9664ce73f05b5e7a9af8003f0682d81d752315d65131c"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-3.stdout",
+      "bytes": 880,
+      "sha256": "6667de32a770150ad460b4bb445ee0dc49af87cbbe65527849717bce09bdc25c"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69-4.stdout",
+      "bytes": 1179,
+      "sha256": "f619d5127fcb3c93410ad02f132b6576038434314772c08bfd7f4ac7cf2f3bc6"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/recovery-control69.stdout",
+      "bytes": 502,
+      "sha256": "2ba3a564dca7b26927ed1c7a1aad88b481f42d225ab7b54011ae75d35217605b"
+    },
+    {
+      "path": "results/orch/plane-cegis/recovery/warm-dirty2-control69-free3.recovered.json",
+      "bytes": 4092,
+      "sha256": "52632bc6c4e726bed98a7c295ecec57ae546503741d79ca3454219c4898dd229"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/README.md",
+      "bytes": 1219,
+      "sha256": "2448b51461e461544def7f9db9bf96693222283cd8040a41b590958f510c8016"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/audit_dirty2_phase.py",
+      "bytes": 2856,
+      "sha256": "cfca3411ddc8d26e1afa48c6ba0dcf17fdeae73bb1cfd1c52287128080193294"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/audit_joint_profiles.py",
+      "bytes": 2348,
+      "sha256": "5b59f96d0c922d1533d8f34efde8957f3fa3868ab315cfc5ebfc512b5cf03390"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/audit_nested63_phase_equivalence.py",
+      "bytes": 2661,
+      "sha256": "6a2f382f9b6344700aef9ec273dcadddc967b5dcbb50252ae26efe77dd0e147b"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/audit_nested63_phase_semantics.py",
+      "bytes": 3238,
+      "sha256": "0de0092b9204942886c9f60c86a8c1f8404fa432ffdb691eb55e4365a7822dee"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/canonical_topology.py",
+      "bytes": 1465,
+      "sha256": "09dc9af287bd539de032dc44f344ae164cd07cc6627f909320fb92749c7e3605"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/manifest.json",
+      "bytes": 5776,
+      "sha256": "6f52157e36c36d41b01c11b3a0e198bb04b72bfd9f1182d8eac3da1cd3feb087"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/map_first_gate.py",
+      "bytes": 2377,
+      "sha256": "d9c1b99f6908eca08c2a380dde67bfbb966025ae5fd5f385a8ecab59e5657443"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-canonical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-canonical.stdout",
+      "bytes": 138,
+      "sha256": "8a4f10e58f8622b5c86edff33492d2e4fc48406fe43f44ff9d5a92ee1e31f969"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-gates-mapped.json",
+      "bytes": 807,
+      "sha256": "522420a94002fc9b8ba57eab4657e9fefa4fe601beacc5a7ab77cc2b9b0710e4"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-gates-raw.json",
+      "bytes": 1944,
+      "sha256": "a49588c59982ed550afe4414b3c6ca39ab79af60c04765c1b25fd3fb0ac5908e"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-gates.json",
+      "bytes": 807,
+      "sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-joint-audit.json",
+      "bytes": 1417,
+      "sha256": "2b9694f9c08fd14fb831454baf757363419a614816011b1775575d36cc1f71e5"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-joint-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-joint-audit.stdout",
+      "bytes": 637,
+      "sha256": "2cf1f2516675942e01b38ad1cf193b49f784e21438d0997ed9504b3c756a248b"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-map.json",
+      "bytes": 432,
+      "sha256": "ca906cf98e4096743bf5bd194d2d5f8ec5f2a48af968b355c57b357704450c24"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested-near63-map.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-equivalence-independent-review.json",
+      "bytes": 1334,
+      "sha256": "1d1c554e53514dd0dbd49040a1d6440442a21f50ddc71bed7a65a9edd3b0cfef"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-equivalence-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-equivalence-independent-review.stdout",
+      "bytes": 1334,
+      "sha256": "1d1c554e53514dd0dbd49040a1d6440442a21f50ddc71bed7a65a9edd3b0cfef"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-semantics-independent-review.json",
+      "bytes": 664,
+      "sha256": "ca5e518a07582ad38943c4597d1a43acc6010fdb3a37827c26faeeee0ffebd93"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-semantics-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/nested63-phase-semantics-independent-review.stdout",
+      "bytes": 664,
+      "sha256": "ca5e518a07582ad38943c4597d1a43acc6010fdb3a37827c26faeeee0ffebd93"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/plane2056-data.json",
+      "bytes": 34435,
+      "sha256": "4081d42537366e1e623bd478fef4a4ae9f8cb5de3e8bfc74cc64a4f488545a74"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/rows-all756.json",
+      "bytes": 7071,
+      "sha256": "ca7b6c7c697be2aaf13b24021b68dd265a66a3ab907f1010a4cf838e985e97b9"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query-phase-audit.stdout",
+      "bytes": 710,
+      "sha256": "44d04a6792f4beb434fe81cd0641debdc8a1d6a42e7ef918ac48e12909edb77f"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query-wrapper.stdout",
+      "bytes": 913,
+      "sha256": "168d33491ff2144756428c7d12a99bbc15275859faa075c9b2007abe5efc2b06"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query.json",
+      "bytes": 1488,
+      "sha256": "e319379ea73353f7ef311737ab9a1bd83ce90f3aad9d38759befb71d108273d6"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query.mapping.json",
+      "bytes": 640847,
+      "sha256": "20d490d772c4f2ae864d3d952cd6c286c4f0b163c626ef74a704a76fe1877da3"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2-nested/warm-dirty2-nested63-query.phase-check.json",
+      "bytes": 940,
+      "sha256": "984dab21f51bff6e50f1c2708760ad00fd8587f91474389b1c04fb4bac7094f6"
+    },
+    {
+      "path": "results/orch/publication043/README.md",
+      "bytes": 351,
+      "sha256": "4be539d66c0e27d5324de78d85a5343729288255449d237af880e19fd65cdcf1"
+    },
+    {
+      "path": "results/orch/publication043/archive2056-review-008-manifest.json",
+      "bytes": 81829,
+      "sha256": "5f1a5817848a56c547919c8d5bf536a9b00c5d05fcf48838500c4f6fdf08959b"
+    },
+    {
+      "path": "results/orch/publication043/archive2056-review-008-scan.json",
+      "bytes": 487,
+      "sha256": "f2fe43c36c42812e98f54d33641ceae3091c56e2cf39aaffeaf85f584f5208f6"
+    },
+    {
+      "path": "results/orch/publication043/commit043.json",
+      "bytes": 272,
+      "sha256": "ca2a0c698fe0252a9283c43b3dbe45e0ceed5bb74c04de25048cfe0ce8ab42e2"
+    },
+    {
+      "path": "results/orch/publication043/commit043.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publication043/commit043.stdout",
+      "bytes": 36870,
+      "sha256": "8a98ae12d9d047ae947454ef9bf867c8de4929f94f1077a64a10b99335850b07"
+    },
+    {
+      "path": "results/orch/publication043/push043-command.json",
+      "bytes": 528,
+      "sha256": "2d1ef456ef19a521fa991f431d33b4793c9b3acef744faf7a32a0d189a607129"
+    },
+    {
+      "path": "results/orch/publication043/push043-result.json",
+      "bytes": 598,
+      "sha256": "2a65baf3df9398fbc0f0cd72588ccb337e3f7fdc9dbd0f31d62a51e838673745"
+    },
+    {
+      "path": "results/orch/publication043/push043.stderr",
+      "bytes": 136,
+      "sha256": "f837933a68f077db473bed6e557017a60fb13181a98e970aed81d2b2abc6236c"
+    },
+    {
+      "path": "results/orch/publication043/push043.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publish-reviewed-independent-static-review.json",
+      "bytes": 1268,
+      "sha256": "9573f8ea0cb6990a7e0e34602e87360339663d5ee6be56cad6f6f3b655153298"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/README.md",
+      "bytes": 778,
+      "sha256": "6af9fce57f4c38bc7c3bfa2f268ef79cb30b8ae151b9b7ea758f7a485339b8fe"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/manifest.json",
+      "bytes": 4135,
+      "sha256": "fb8649c8c74744f22caa07b89f0b9c62fcd3e92ea85314df610239a817dcc191"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.attempt1.stdout",
+      "bytes": 79,
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.command.json",
+      "bytes": 392,
+      "sha256": "6ec504b821a54996d77c68acd24ca5974a49838207cb734901972752957290be"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.events",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs-compatible.stdout",
+      "bytes": 79,
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.attempt1.stderr",
+      "bytes": 1249,
+      "sha256": "8fbdf01d7bfc79357ac4103cac53e183b4d56414792487feadb6ab4e69c935ae"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.attempt1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.command.json",
+      "bytes": 410,
+      "sha256": "61ab194fc7121873c6d2aa6003575b9e3b87150113faac258485448bbe4179b3"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.events",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.stderr",
+      "bytes": 1249,
+      "sha256": "8fbdf01d7bfc79357ac4103cac53e183b4d56414792487feadb6ab4e69c935ae"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/open-prs.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/report.json",
+      "bytes": 855,
+      "sha256": "c44ee2cc78de7a90596febc401db8808091644241a045ca0f32539c81256689a"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.attempt1.stdout",
+      "bytes": 6655,
+      "sha256": "0aef6e40a6b6b5aecce55afff77cd955f68d6033cdc2caba4e23a504ef2d9dbc"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.command.json",
+      "bytes": 296,
+      "sha256": "a3e08d86a8001a5a980bb89dea3f18c390544a19ec36b26f7ed8d6d10861ceaa"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.events",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/repository.stdout",
+      "bytes": 6655,
+      "sha256": "0aef6e40a6b6b5aecce55afff77cd955f68d6033cdc2caba4e23a504ef2d9dbc"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.attempt1.stderr",
+      "bytes": 25,
+      "sha256": "d2c8985c89b29a842ac4946d13bdbc297709f44f20bb968faf9682664b211db6"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.attempt1.stdout",
+      "bytes": 127,
+      "sha256": "e45906ce02e79f16fb87a838d86bb4e497e37a9591f97608fa013bbcd8b9cbc2"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.command.json",
+      "bytes": 369,
+      "sha256": "d9d8b1a0535e82ccb11658159b3446942ee968fae58711e780a6b27837d4d20a"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.events",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.stderr",
+      "bytes": 25,
+      "sha256": "d2c8985c89b29a842ac4946d13bdbc297709f44f20bb968faf9682664b211db6"
+    },
+    {
+      "path": "results/orch/research/final-upstream2056/target-file.stdout",
+      "bytes": 127,
+      "sha256": "e45906ce02e79f16fb87a838d86bb4e497e37a9591f97608fa013bbcd8b9cbc2"
+    },
+    {
+      "path": "results/orch/review-final-k16-upstream.json",
+      "bytes": 795,
+      "sha256": "3a9239d075d1e7809626db545805ab23535562e557e4a3e0431d6bb792370c9b"
+    },
+    {
+      "path": "results/orch/strategy2056-search.md",
+      "bytes": 22702,
+      "sha256": "fd92291a4f135901c5e10638d8bc08d21738863f927aaa8fcf656316dfab69aa"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 23153,
+      "sha256": "de4fc8868e122ff87178f952622ea24d4510510067e1c3861c7941ce65c1ba59"
+    }
+  ]
+}

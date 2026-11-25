@@ -23,10 +23,12 @@ These outcomes are not nonexistence proofs. The earlier full AND13 query was int
 
 The final narrow upstream check at19:52:53UTC found no exact main L_meta_2056.lean and no open PR matching2056 in a completely paginated search. This is a timestamped narrow check, not a claim about all related work. Full API responses and repository identity are preserved in research/final-upstream2056.
 
-The job began2026-11-25T14:15:09UTC. Three earlier assignments returned HTTP410 before their advertised expiry times; the cause was not established, and this job did not release them. Complete required410 diagnostics are preserved. Before the current assignment there were three null desk answers; exact message text and UTC timestamps are in null-polls-2056.json. Only root controls the current L-meta-2056 lease. It will be released with reason out_of_time after this reviewed checkpoint is pushed; a separate release receipt will record the actual outcome.
+The job began2026-11-25T14:15:09UTC. Three earlier assignments returned HTTP410 before their advertised expiry times; the cause was not established, and this job did not release them. Complete required410 diagnostics are preserved. Before the current assignment there were three null desk answers; exact message text and UTC timestamps are in null-polls-2056.json. Only root controls the current L-meta-2056 lease. After the reviewed checkpoint5482f9cfc7d45bfbad36615d562f49e9be408363 was pushed, root stopped the renewal timer and released only this job’s L-meta-2056 lease. The desk confirmed release with reason out_of_time at20:06:12UTC. The sanitized response is preserved in release-own2056.json.
 
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
 Acknowledged: msg-61f9b55d28c5586ddb66ac34
 
-Report frozen at 2026-11-25T19:59:41.891270+00:00
+Research outcomes recorded at 2026-11-25T19:59:41.891270+00:00
 TIMING total=344.55 subagents=6
+
+Publication and confirmed release status added2026-11-25T20:06:33UTC.
