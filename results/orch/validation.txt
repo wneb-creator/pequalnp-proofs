@@ -5,4 +5,7 @@ Independent red-team review: PASS for partial checkpoint, pending full theorem.
 Full checker: not run; main theorem absent, full Mathlib cache absent.
 Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route
 SensitivityMask.lean: lake env lean exit 0, compiler output empty; independent semantic and format review PASS for partial checkpoint.
-TIMING total=14.34 subagents=5
+L_meta_2592.lean partial binaryFloor16: lake build PEqualNP.Outside.L_meta_2592 exit 0; Build completed successfully (5149 jobs).
+This proves 16 + notCount C <= C.size, not the full posted gap. File lines: 4589; no cleanup pass yet.
+Local checker exit 2: FAULT because full prebuilt Mathlib cache is missing; no acceptance claimed.
+TIMING total=15.65 subagents=5
