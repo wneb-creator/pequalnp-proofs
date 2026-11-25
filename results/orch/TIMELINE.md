@@ -39,3 +39,5 @@ No complete proof or accepted submission yet.
 
 - 08:31:23: Renewal returned no-such-live-lease; mandated curl-si retry returnedHTTP410. Root discovered it08:32:51; previous expiry had been08:43:23. All compiled artifacts were already pushed. No proof accepted.
 - 2026-11-25T08:34:15.666772+00:00: Ninety-minute minimum effort exceeded; all-neighborhood extraction independently ruled out by incidence-K5 example. Preserving lease error and final research before recovery.
+
+- 08:35:08: Recovery next request returnedgapnull: nofree/recenthandback4. Started four-minute poller, bounded by13:02:59UTC total-job deadline. No live lease held by this job.

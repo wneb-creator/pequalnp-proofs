@@ -11,9 +11,9 @@ Cleanup: not reached because the full posted theorem is absent; no accepted-proo
 Axiom audit: final conditional theorem uses only propext, Classical.choice, Quot.sound. All143 earlier integrated lemmas were audited too; full logs retained.
 Finite archive:137 independently reviewed artifacts. Solver evidence and UNKNOWN timeouts do not constitute a Lean proof.
 Free-OR archive:14 CNFs independently reconstructed; all5 SAT models fully checked;6 UNSAT/5 SAT/3 UNKNOWN.
-Desk next nulls:0. Only this job's lease renewed; sanitized desk-log.txt retained.
+Desk next nulls:2. Recovery polling remains active under user instructions; no live lease held by this job.
 Sub-agents: 7 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof)
-TIMING total=91.3 subagents=7
+TIMING total=99.0 subagents=7
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 Final red-team review: PASS FOR PARTIAL CHECKPOINT, not a proof PR. No full theorem/refutation found.
 EssentialP4.lean compiled; independent source and executable checks passed; no full-gap refutation claimed.
