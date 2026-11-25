@@ -903,4 +903,186 @@ lemma small_input_separating_support {n : ℕ} (C : Circuit) (hmono : Monotone2 
 
 end InputSupport
 
+namespace DNF
+
+open PEqualNP.CircuitLowerBounds
+
+abbrev Terms (n : ℕ) := Finset (Finset (Fin n))
+
+def eval {n : ℕ} (D : Terms n) (x : Fin n → Bool) : Bool :=
+  decide (∃ t ∈ D, ∀ i ∈ t, x i = true)
+
+def prod {n : ℕ} (A B : Terms n) : Terms n :=
+  A.biUnion fun s => B.image fun t => s ∪ t
+
+lemma eval_empty {n : ℕ} (x : Fin n → Bool) : eval ∅ x = false := by
+  simp [eval]
+
+lemma eval_one {n : ℕ} (x : Fin n → Bool) : eval {∅} x = true := by
+  simp [eval]
+
+lemma eval_var {n : ℕ} (i : Fin n) (x : Fin n → Bool) : eval {{i}} x = x i := by
+  cases h : x i <;> simp [eval, h]
+
+lemma eval_union {n : ℕ} (A B : Terms n) (x : Fin n → Bool) :
+    eval (A ∪ B) x = (eval A x || eval B x) := by
+  apply Bool.eq_iff_iff.mpr
+  simp [eval, Finset.mem_union, or_and_right, exists_or]
+
+lemma eval_prod {n : ℕ} (A B : Terms n) (x : Fin n → Bool) :
+    eval (prod A B) x = (eval A x && eval B x) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [eval, decide_eq_true_eq, Bool.and_eq_true, prod, Finset.mem_biUnion,
+    Finset.mem_image]
+  constructor
+  · rintro ⟨u, ⟨s, hs, t, ht, rfl⟩, hu⟩
+    exact ⟨⟨s, hs, fun i hi => hu i (Finset.mem_union_left _ hi)⟩,
+      ⟨t, ht, fun i hi => hu i (Finset.mem_union_right _ hi)⟩⟩
+  · rintro ⟨⟨s, hs, hxs⟩, ⟨t, ht, hxt⟩⟩
+    refine ⟨s ∪ t, ⟨s, hs, t, ht, rfl⟩, ?_⟩
+    intro i hi
+    rcases Finset.mem_union.mp hi with hi | hi
+    · exact hxs i hi
+    · exact hxt i hi
+
+def gate {n : ℕ} (op : GateOp) (ins : List (Terms n)) : Terms n :=
+  match op with
+  | GateOp.and => ins.foldr prod {∅}
+  | GateOp.or => ins.foldr (· ∪ ·) ∅
+  | _ => ∅
+
+lemma eval_and_list {n : ℕ} (ins : List (Terms n)) (x : Fin n → Bool) :
+    eval (ins.foldr prod {∅}) x = (ins.map fun D => eval D x).all id := by
+  induction ins with
+  | nil => simp [eval_one]
+  | cons D ins ih => simp [List.foldr_cons, eval_prod, ih]
+
+lemma eval_or_list {n : ℕ} (ins : List (Terms n)) (x : Fin n → Bool) :
+    eval (ins.foldr (· ∪ ·) ∅) x = (ins.map fun D => eval D x).any id := by
+  induction ins with
+  | nil => simp [eval_empty]
+  | cons D ins ih => simp [List.foldr_cons, eval_union, ih]
+
+lemma eval_gate {n : ℕ} (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (ins : List (Terms n)) (x : Fin n → Bool) :
+    eval (gate op ins) x = op.eval (ins.map fun D => eval D x) := by
+  rcases hop with rfl | rfl
+  · exact eval_and_list ins x
+  · exact eval_or_list ins x
+
+
+def step {n : ℕ} (w : List (Terms n)) (g : Gate) : List (Terms n) :=
+  w ++ [gate g.op (g.inputs.map fun i => w.getD i ∅)]
+
+def run {n : ℕ} (gs : List Gate) (w : List (Terms n)) : List (Terms n) :=
+  gs.foldl step w
+
+lemma eval_getD {n : ℕ} (w : List (Terms n)) (i : ℕ) (x : Fin n → Bool) :
+    eval (w.getD i ∅) x = (w.map fun D => eval D x).getD i false := by
+  induction w generalizing i with
+  | nil => simp [eval_empty]
+  | cons D w ih =>
+    cases i with
+    | zero => simp
+    | succ i => simpa using ih i
+
+lemma step_sound {n : ℕ} (w : List (Terms n)) (g : Gate)
+    (hg : g.op = GateOp.and ∨ g.op = GateOp.or) (x : Fin n → Bool) :
+    (step w g).map (fun D => eval D x) =
+      (w.map fun D => eval D x) ++
+        [g.op.eval (g.inputs.map fun i => (w.map fun D => eval D x).getD i false)] := by
+  simp only [step, List.map_append, List.map_cons, List.map_nil, eval_gate g.op hg,
+    List.map_map, Function.comp_def, eval_getD]
+
+lemma run_sound {n : ℕ} (gs : List Gate)
+    (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (w : List (Terms n)) (x : Fin n → Bool) :
+    (run gs w).map (fun D => eval D x) =
+      gs.foldl (fun v g => v ++ [g.op.eval (g.inputs.map fun i => v.getD i false)])
+        (w.map fun D => eval D x) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    change (run gs (step w g)).map (fun D => eval D x) = _
+    rw [ih (fun g' hg' => hgs g' (List.mem_cons_of_mem _ hg'))]
+    rw [step_sound w g (hgs g (List.mem_cons_self)) x]
+    rfl
+
+def wires (n : ℕ) (C : Circuit) : List (Terms n) :=
+  run C.gates (List.ofFn fun i : Fin n => ({{i}} : Terms n))
+
+def output (n : ℕ) (C : Circuit) : Terms n :=
+  (wires n C).getD C.output ∅
+
+lemma wires_sound (n : ℕ) (C : Circuit)
+    (hC : ∀ g ∈ C.gates, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (x : Fin n → Bool) :
+    (wires n C).map (fun D => eval D x) = C.wires (List.ofFn x) := by
+  rw [wires, run_sound C.gates hC]
+  simp only [List.map_ofFn, Function.comp_def, eval_var, Circuit.wires]
+
+lemma output_sound (n : ℕ) (C : Circuit)
+    (hC : ∀ g ∈ C.gates, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (x : Fin n → Bool) :
+    eval (output n C) x = C.eval (List.ofFn x) := by
+  rw [output, eval_getD, wires_sound n C hC x]
+  rfl
+
+lemma output_sound_monotone2 (n : ℕ) (C : Circuit)
+    (hC : PEqualNP.MetaComplexity.Monotone2 C) (x : Fin n → Bool) :
+    eval (output n C) x = C.eval (List.ofFn x) := by
+  apply output_sound
+  intro g hg
+  simpa using (hC g hg).1
+
+lemma eval_graph_of_certificate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Terms n)
+    (sound : ∀ t ∈ D, ∃ u ∈ t, ∃ v ∈ t, G.Adj u v)
+    (complete : ∀ u v, G.Adj u v → ∃ t ∈ D, t ⊆ {u, v})
+    (x : Fin n → Bool) :
+    eval D x = decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [eval, decide_eq_true_eq]
+  constructor
+  · rintro ⟨t, ht, hxt⟩
+    obtain ⟨u, hu, v, hv, huv⟩ := sound t ht
+    exact ⟨u, v, huv, hxt u hu, hxt v hv⟩
+  · rintro ⟨u, v, huv, hxu, hxv⟩
+    obtain ⟨t, ht, hsub⟩ := complete u v huv
+    refine ⟨t, ht, ?_⟩
+    intro i hi
+    have hmem := hsub hi
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hmem
+    rcases hmem with rfl | rfl
+    · exact hxu
+    · exact hxv
+
+lemma circuit_graph_of_certificate (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : PEqualNP.MetaComplexity.Monotone2 C)
+    (sound : ∀ t ∈ output n C, ∃ u ∈ t, ∃ v ∈ t, G.Adj u v)
+    (complete : ∀ u v, G.Adj u v → ∃ t ∈ output n C, t ⊆ {u, v}) :
+    ∀ x : Fin n → Bool,
+      C.eval (List.ofFn x) = decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) := by
+  intro x
+  rw [← output_sound_monotone2 n C hC x]
+  exact eval_graph_of_certificate G (output n C) sound complete x
+
+
+lemma eval_imp_of_subsumes {n : ℕ} (A B : Terms n)
+    (h : ∀ t ∈ A, ∃ s ∈ B, s ⊆ t) (x : Fin n → Bool) :
+    eval A x = true → eval B x = true := by
+  simp only [eval, decide_eq_true_eq]
+  rintro ⟨t, ht, hxt⟩
+  obtain ⟨s, hs, hst⟩ := h t ht
+  exact ⟨s, hs, fun i hi => hxt i (hst hi)⟩
+
+lemma eval_eq_of_subsumes {n : ℕ} (A B : Terms n)
+    (hAB : ∀ t ∈ A, ∃ s ∈ B, s ⊆ t)
+    (hBA : ∀ t ∈ B, ∃ s ∈ A, s ⊆ t) (x : Fin n → Bool) :
+    eval A x = eval B x := by
+  apply Bool.eq_iff_iff.mpr
+  exact ⟨eval_imp_of_subsumes A B hAB x, eval_imp_of_subsumes B A hBA x⟩
+
+end DNF
+
 end PEqualNP.Outside.L_meta_1904_aux
