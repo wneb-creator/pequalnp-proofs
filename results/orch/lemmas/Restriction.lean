@@ -244,7 +244,7 @@ lemma from_constant_comb {R u} (op) {a b : Wire R} {bank}
   · apply from_constant false _ (avail_inv hu ha) hb
     exact h.imp inv_constant id
 
-lemma kept_projection_bound {R S : Type} {u} (rows : S → R)
+lemma kept_projection_charge {R S : Type} {u} (rows : S → R)
     {goal : Wire R} {s op ka kb a b rest}
     (hd : allowed u op)
     (tail : Run u goal s (comb op a b :: kept ka a (kept kb b rest)))
@@ -255,7 +255,7 @@ lemma kept_projection_bound {R S : Type} {u} (rows : S → R)
       (kb = true ∧ Constant (restrictRows rows b)))
     (floor : ∀ q bs, Reach u roots q bs →
       Available u bs (restrictRows rows goal) → L ≤ q) :
-    L + 1 ≤ s := by
+    L + 1 + cost (restrictRows rows (comb op a b)) ≤ s := by
   classical
   have hconst : Constant (restrictRows rows a) ∨ Constant (restrictRows rows b) :=
     retained.elim (fun h => Or.inl h.2) (fun h => Or.inr h.2)
@@ -279,7 +279,7 @@ lemma kept_projection_bound {R S : Type} {u} (rows : S → R)
         · simp
         · simp [hw]
   have lower := projected_bound rows tail nc Reach.start after floor
-  have charge : 1 ≤ mass
+  have charge : cost (restrictRows rows (comb op a b)) + 1 ≤ mass
       ((comb op a b :: kept ka a (kept kb b rest)).map (restrictRows rows)) := by
     simp only [List.map_cons, restrict_kept, mass_cons]
     rcases retained with ⟨rfl, ca⟩ | ⟨rfl, cb⟩
