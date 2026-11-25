@@ -11,4 +11,6 @@ Local checker exit 3: FAULT because full prebuilt Mathlib cache is missing; no a
 BinaryFloor17Extension.lean: lake env lean exit 0; independent finite-witness and mathematical review PASS. Integrated named17 file build pending.
 binaryFloor16 axiom audit: only propext, Classical.choice, Quot.sound.
 Full checker infrastructure: compressed filesystem mount rejected with Operation not permitted; checker unchanged.
-TIMING total=21.25 subagents=6
+AntiDiagonal.lean: lake env lean exit 0; independent 512-case and format review PASS. This is a restricted-function witness, not a refutation of the main gap.
+Counterexample search archive: 119 files; SHA256 53a900bb64b907a82cfaf368c4ccd592a5e1949fd6a68d0ddba659f1bcd73973. Computational searches only, no full-gap witness found.
+TIMING total=22.75 subagents=6
