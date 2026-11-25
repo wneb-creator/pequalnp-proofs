@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-M6500",
+    "-j1",
+    "--profile",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/clean-and-proof/DiamondRank.lean"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 11.923042678999991,
+  "peak_child_rss_kib": 2905448,
+  "source_sha256": "407d9db07b41ab42fc5cfc4c76f691d740f6c058524596cf66b843da6fff76c1"
+}
