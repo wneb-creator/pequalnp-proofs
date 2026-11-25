@@ -835,4 +835,467 @@ lemma baseline_normal : BinaryAO 14 baseline := by
   apply binaryAO_of_check
   decide
 
+lemma substitution_wires_length {n : ℕ} (C : Circuit) (x : Fin n → Bool) :
+    (C.wires (List.ofFn x)).length = n+C.gates.length := by
+  obtain ⟨t,ht,hlen⟩ := support_run_extends C.gates (List.ofFn x)
+  change (C.gates.foldl supportWireStep (List.ofFn x)).length = _
+  rw [ht,List.length_append,List.length_ofFn,hlen]
+
+lemma single_gate_wires_mono {n : ℕ} {C D : Circuit} (normal : BinaryAO n C)
+    (j : ℕ) (same : ∀ k, k ≠ j → D.gates[k]? = C.gates[k]?)
+    (x : Fin n → Bool)
+    (changed : (C.wires (List.ofFn x)).getD (n+j) false = true →
+      (D.wires (List.ofFn x)).getD (n+j) false = true) :
+    ∀ w, (C.wires (List.ofFn x)).getD w false = true →
+      (D.wires (List.ofFn x)).getD w false = true := by
+  have bounded : ∀ w, w < n+C.gates.length →
+      (C.wires (List.ofFn x)).getD w false = true →
+        (D.wires (List.ofFn x)).getD w false = true := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | ind w ih =>
+      intro hw
+      by_cases hin : w<n
+      · rw [support_wire_input C x ⟨w,hin⟩,support_wire_input D x ⟨w,hin⟩]
+        exact id
+      · have hk : w-n<C.gates.length := by omega
+        have heq : n+(w-n)=w := by omega
+        by_cases hkj : w-n=j
+        · have eqw : w=n+j := by omega
+          simpa only [eqw] using changed
+        · let g : Gate := C.gates[w-n]
+          have hC : C.gates[w-n]? = some g :=
+            List.getElem?_eq_some_iff.mpr ⟨hk,rfl⟩
+          have hD : D.gates[w-n]? = some g := (same (w-n) hkj).trans hC
+          obtain ⟨hop,a,b,hab,_,ha,hb⟩ := normal (w-n) g hC
+          have ia := ih a (by omega) (by omega)
+          have ib := ih b (by omega) (by omega)
+          have cv := support_wire_gate C x (w-n) g a b hC hab ha hb
+          have dv := support_wire_gate D x (w-n) g a b hD hab ha hb
+          rcases hop with hop | hop
+          · have cv' : (C.wires (List.ofFn x)).getD w false =
+                ((C.wires (List.ofFn x)).getD a false &&
+                  (C.wires (List.ofFn x)).getD b false) := by
+              simpa [heq,hop,GateOp.eval] using cv
+            have dv' : (D.wires (List.ofFn x)).getD w false =
+                ((D.wires (List.ofFn x)).getD a false &&
+                  (D.wires (List.ofFn x)).getD b false) := by
+              simpa [heq,hop,GateOp.eval] using dv
+            rw [cv',dv']
+            simp only [Bool.and_eq_true_iff]
+            exact fun h => ⟨ia h.1,ib h.2⟩
+          · have cv' : (C.wires (List.ofFn x)).getD w false =
+                ((C.wires (List.ofFn x)).getD a false ||
+                  (C.wires (List.ofFn x)).getD b false) := by
+              simpa [heq,hop,GateOp.eval] using cv
+            have dv' : (D.wires (List.ofFn x)).getD w false =
+                ((D.wires (List.ofFn x)).getD a false ||
+                  (D.wires (List.ofFn x)).getD b false) := by
+              simpa [heq,hop,GateOp.eval] using dv
+            rw [cv',dv']
+            simp only [Bool.or_eq_true_iff]
+            exact Or.imp ia ib
+  intro w h
+  by_cases hw : w < n+C.gates.length
+  · exact bounded w hw h
+  · have hlen := substitution_wires_length C x
+    rw [List.getD_eq_default _ _ (by omega)] at h
+    contradiction
+
+lemma single_gate_wires_eq {n : ℕ} {C D : Circuit}
+    (normalC : BinaryAO n C) (normalD : BinaryAO n D)
+    (j : ℕ) (same : ∀ k, k ≠ j → D.gates[k]? = C.gates[k]?)
+    (x : Fin n → Bool)
+    (changed : (C.wires (List.ofFn x)).getD (n+j) false =
+      (D.wires (List.ofFn x)).getD (n+j) false) :
+    ∀ w, (C.wires (List.ofFn x)).getD w false =
+      (D.wires (List.ofFn x)).getD w false := by
+  have forward := single_gate_wires_mono normalC j same x (by rw [changed]; exact id)
+  have backward := single_gate_wires_mono normalD j (fun k hk => (same k hk).symm) x
+    (by rw [changed]; exact id)
+  intro w
+  rw [Bool.eq_iff_iff]
+  exact ⟨forward w,backward w⟩
+
+lemma single_gate_eval_mono {n : ℕ} {C D : Circuit} (normal : BinaryAO n C)
+    (j : ℕ) (same : ∀ k, k ≠ j → D.gates[k]? = C.gates[k]?)
+    (out : D.output = C.output) (x : Fin n → Bool)
+    (changed : (C.wires (List.ofFn x)).getD (n+j) false = true →
+      (D.wires (List.ofFn x)).getD (n+j) false = true) :
+    C.eval (List.ofFn x) = true → D.eval (List.ofFn x) = true := by
+  unfold Circuit.eval
+  rw [out]
+  exact single_gate_wires_mono normal j same x changed C.output
+
+lemma derivative_transport_one_change {n : ℕ} {C D : Circuit} (j : ℕ)
+    (normalD : BinaryAO n D) (hlen : D.gates.length=C.gates.length)
+    (same : ∀ k, k≠j → D.gates[k]?=C.gates[k]?)
+    (base seed : Fin n → Bool) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C base seed d)
+    (values : ∀ i, i<n+C.gates.length →
+      (C.wires (List.ofFn base)).getD i false = (D.wires (List.ofFn base)).getD i false)
+    (changed : ∀ (g : Gate) (a b : ℕ), D.gates[j]?=some g → g.inputs=[a,b] →
+      (g.op=.and → d (n+j) =
+        (((D.wires (List.ofFn base)).getD a false && d b) ||
+          (d a && (D.wires (List.ofFn base)).getD b false))) ∧
+      (g.op=.or → d (n+j)=(d a || d b))) :
+    DerivativeTrace n D base seed d := by
+  refine ⟨trace.1,?_⟩
+  intro k g a b hk hab
+  by_cases heq : k=j
+  · subst k
+    exact changed g a b hk hab
+  · have hold : C.gates[k]?=some g := (same k heq).symm.trans hk
+    have old := trace.2 k g a b hold hab
+    obtain ⟨_,u,v,huv,_,hu,hv⟩ := normalD k g hk
+    rw [hab] at huv
+    simp only [List.cons.injEq,and_true] at huv
+    obtain ⟨rfl,rfl⟩ := huv
+    have hlt := (List.getElem?_eq_some_iff.mp hk).1
+    have ha : a<n+C.gates.length := by omega
+    have hb : b<n+C.gates.length := by omega
+    constructor
+    · intro hop
+      rw [←values a ha,←values b hb]
+      exact old.1 hop
+    · exact old.2
+
+lemma derivative_transport_input_and {n : ℕ} {C D : Circuit} (j : ℕ)
+    (normalD : BinaryAO n D) (hlen : D.gates.length=C.gates.length)
+    (same : ∀ k, k≠j → D.gates[k]?=C.gates[k]?)
+    (base seed : Fin n → Bool) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C base seed d)
+    (values : ∀ i, i<n+C.gates.length →
+      (C.wires (List.ofFn base)).getD i false = (D.wires (List.ofFn base)).getD i false)
+    (u v : Fin n) (newGate : D.gates[j]?=some ⟨.and,[u.val,v.val]⟩)
+    (oldZero : d (n+j)=false)
+    (newZero : ((base u && seed v) || (seed u && base v))=false) :
+    DerivativeTrace n D base seed d := by
+  apply derivative_transport_one_change j normalD hlen same base seed d trace values
+  intro g a b hg hab
+  have hident : g=(⟨.and,[u.val,v.val]⟩ : Gate) := Option.some.inj (hg.symm.trans newGate)
+  subst g
+  simp only [List.cons.injEq,and_true] at hab
+  obtain ⟨rfl,rfl⟩ := hab
+  constructor
+  · intro _
+    rw [oldZero,support_wire_input D base u,support_wire_input D base v,
+      trace.1 u,trace.1 v]
+    exact newZero.symm
+  · intro h
+    cases h
+
+def replaceInputAnd {n : ℕ} (C : Circuit) (j : ℕ) (u v : Fin n) : Circuit :=
+  ⟨C.gates.set j ⟨.and,[u.val,v.val]⟩,C.output⟩
+
+lemma replaceInputAnd_length {n : ℕ} (C : Circuit) (j : ℕ) (u v : Fin n) :
+    (replaceInputAnd C j u v).gates.length=C.gates.length := by
+  simp [replaceInputAnd]
+
+lemma replaceInputAnd_other {n : ℕ} (C : Circuit) (j : ℕ) (u v : Fin n)
+    (k : ℕ) (hk : k≠j) : (replaceInputAnd C j u v).gates[k]?=C.gates[k]? := by
+  exact List.getElem?_set_ne hk.symm
+
+lemma replaceInputAnd_at {n : ℕ} (C : Circuit) (j : ℕ) (u v : Fin n)
+    (hj : j<C.gates.length) :
+    (replaceInputAnd C j u v).gates[j]?=some ⟨.and,[u.val,v.val]⟩ := by
+  exact List.getElem?_set_self hj
+
+lemma replaceInputAnd_normal {n : ℕ} {C : Circuit} (normal : BinaryAO n C)
+    (j : ℕ) (hj : j<C.gates.length) (u v : Fin n) (huv : u≠v) :
+    BinaryAO n (replaceInputAnd C j u v) := by
+  intro k g hk
+  by_cases heq : k=j
+  · subst k
+    have hident : g=(⟨.and,[u.val,v.val]⟩ : Gate) :=
+      Option.some.inj (hk.symm.trans (replaceInputAnd_at C j u v hj))
+    subst g
+    refine ⟨Or.inl rfl,u.val,v.val,rfl,?_,?_,?_⟩
+    · exact fun h => huv (Fin.ext h)
+    · have hu := u.isLt
+      omega
+    · have hv := v.isLt
+      omega
+  · apply normal k g
+    exact (replaceInputAnd_other C j u v k heq).symm.trans hk
+
+lemma replaceInputAnd_value {n : ℕ} (C : Circuit) (j : ℕ) (u v : Fin n)
+    (hj : j<C.gates.length) (x : Fin n → Bool) :
+    ((replaceInputAnd C j u v).wires (List.ofFn x)).getD (n+j) false = (x u && x v) := by
+  rw [support_wire_gate (replaceInputAnd C j u v) x j ⟨.and,[u.val,v.val]⟩
+    u.val v.val (replaceInputAnd_at C j u v hj) rfl
+    (by have h:=u.isLt; omega) (by have h:=v.isLt; omega)]
+  rw [support_wire_input (replaceInputAnd C j u v) x u,
+    support_wire_input (replaceInputAnd C j u v) x v]
+  simp [GateOp.eval]
+
+lemma repair_point_line_distinct (p l : Fin 7) : Fin.castAdd 7 p ≠ Fin.natAdd 7 l := by
+  intro h
+  have hval := congrArg Fin.val h
+  change p.val=7+l.val at hval
+  have hp := p.isLt
+  omega
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+lemma fano_replacement_singleton_dark (r p l : Fin 7) :
+    (decide (Fin.castAdd 7 r = Fin.castAdd 7 p) &&
+      decide (Fin.natAdd 7 r = Fin.castAdd 7 p)) = false ∧
+    (decide (Fin.castAdd 7 r = Fin.natAdd 7 l) &&
+      decide (Fin.natAdd 7 r = Fin.natAdd 7 l)) = false := by
+  decide +revert
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+lemma fano_replacement_trace_dark (p l : Fin 7) :
+    ∃ r : Fin 7,
+      ((decide (Fin.castAdd 7 r = Fin.castAdd 7 p) &&
+          decide (Fin.natAdd 7 r = Fin.natAdd 7 l)) ||
+        (decide (Fin.castAdd 7 r = Fin.natAdd 7 l) &&
+          decide (Fin.natAdd 7 r = Fin.castAdd 7 p))) = false ∧
+      ((decide (Fin.castAdd 7 r = Fin.natAdd 7 l) &&
+          decide (Fin.natAdd 7 r = Fin.castAdd 7 p)) ||
+        (decide (Fin.castAdd 7 r = Fin.castAdd 7 p) &&
+          decide (Fin.natAdd 7 r = Fin.natAdd 7 l))) = false := by
+  decide +revert
+
+def fanoCircuitCorrect (C : Circuit) : Prop :=
+  ∀ x : Fin 14 → Bool, C.eval (List.ofFn x)=true ↔ fanoHit x
+
+def fanoGateSupported (C : Circuit) (j : ℕ) : Prop :=
+  ∃ p l : Fin 7, fanoIncident p l ∧
+    (C.wires (List.ofFn (pairInputLocal (Fin.castAdd 7 p) (Fin.natAdd 7 l)))).getD
+      (14+j) false=true
+
+lemma base_false_of_pair_false {n : ℕ} {C : Circuit}
+    (normal : BinaryAO n C) (a b : Fin n) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C (singletonInput a) (singletonInput b) d)
+    (w : ℕ) (hw : w<n+C.gates.length)
+    (off : (C.wires (List.ofFn (pairInputLocal a b))).getD w false=false) :
+    (C.wires (List.ofFn (singletonInput a))).getD w false=false := by
+  have imp := (derivative_support_of_bounds normal (singletonInput a) (singletonInput b)
+    (pairInputLocal a b) d trace
+    (fun i hi => by
+      have h : i=a := of_decide_eq_true hi
+      simp [pairInputLocal,h])
+    (fun i hi => by
+      have h : i=b := of_decide_eq_true hi
+      simp [pairInputLocal,h]) w hw).1
+  cases h : (C.wires (List.ofFn (singletonInput a))).getD w false with
+  | false => rfl
+  | true =>
+    have ht := imp h
+    rw [off] at ht
+    contradiction
+
+lemma fano_repair_one_gate {C : Circuit} (normal : BinaryAO 14 C)
+    (correct : fanoCircuitCorrect C) (j : ℕ) (hj : j<C.gates.length)
+    (unsupported : ¬ fanoGateSupported C j) (p l : Fin 7) (incident : fanoIncident p l)
+    (d e : ℕ → Bool)
+    (td : DerivativeTrace 14 C (singletonInput (Fin.castAdd 7 p))
+      (singletonInput (Fin.natAdd 7 l)) d)
+    (te : DerivativeTrace 14 C (singletonInput (Fin.natAdd 7 l))
+      (singletonInput (Fin.castAdd 7 p)) e) :
+    ∃ D : Circuit, BinaryAO 14 D ∧ fanoCircuitCorrect D ∧
+      D.gates.length=C.gates.length ∧ D.output=C.output ∧
+      DerivativeTrace 14 D (singletonInput (Fin.castAdd 7 p))
+        (singletonInput (Fin.natAdd 7 l)) d ∧
+      DerivativeTrace 14 D (singletonInput (Fin.natAdd 7 l))
+        (singletonInput (Fin.castAdd 7 p)) e ∧
+      fanoGateSupported D j ∧ (∀ k, fanoGateSupported C k → fanoGateSupported D k) := by
+  obtain ⟨r,hrd,hre⟩ := fano_replacement_trace_dark p l
+  let D := replaceInputAnd C j (Fin.castAdd 7 r) (Fin.natAdd 7 r)
+  have normalD : BinaryAO 14 D := replaceInputAnd_normal normal j hj _ _
+    (repair_point_line_distinct r r)
+  have hlen : D.gates.length=C.gates.length := replaceInputAnd_length C j _ _
+  have same : ∀ k, k≠j → D.gates[k]?=C.gates[k]? := replaceInputAnd_other C j _ _
+  have atj : D.gates[j]?=some ⟨.and,[(Fin.castAdd 7 r).val,(Fin.natAdd 7 r).val]⟩ :=
+    replaceInputAnd_at C j _ _ hj
+  have off (u t : Fin 7) (hit : fanoIncident u t) :
+      (C.wires (List.ofFn (pairInputLocal (Fin.castAdd 7 u) (Fin.natAdd 7 t)))).getD
+        (14+j) false=false := by
+    cases h : (C.wires (List.ofFn (pairInputLocal (Fin.castAdd 7 u) (Fin.natAdd 7 t)))).getD
+        (14+j) false with
+    | false => rfl
+    | true => exact False.elim (unsupported ⟨u,t,hit,h⟩)
+  have grow (u t : Fin 7) (hit : fanoIncident u t) :
+      ∀ w, (C.wires (List.ofFn (pairInputLocal (Fin.castAdd 7 u) (Fin.natAdd 7 t)))).getD w false=true →
+        (D.wires (List.ofFn (pairInputLocal (Fin.castAdd 7 u) (Fin.natAdd 7 t)))).getD w false=true := by
+    apply single_gate_wires_mono normal j same
+    rw [off u t hit]
+    simp
+  have correctD : fanoCircuitCorrect D := by
+    intro x
+    constructor
+    · intro hx
+      by_contra nohit
+      have prod : (x (Fin.castAdd 7 r) && x (Fin.natAdd 7 r))=false := by
+        cases h : (x (Fin.castAdd 7 r) && x (Fin.natAdd 7 r)) with
+        | false => rfl
+        | true =>
+          have h' : x (Fin.castAdd 7 r)=true ∧ x (Fin.natAdd 7 r)=true := by simpa using h
+          exact False.elim (nohit ⟨r,r,Or.inl rfl,h'.1,h'.2⟩)
+      have newzero : (D.wires (List.ofFn x)).getD (14+j) false=false := by
+        rw [replaceInputAnd_value C j _ _ hj x]
+        exact prod
+      have oldtrue := single_gate_eval_mono normalD j (fun k hk => (same k hk).symm)
+        (by rfl) x (by rw [newzero]; simp) hx
+      exact nohit ((correct x).mp oldtrue)
+    · rintro ⟨u,t,hit,hp,hl⟩
+      let z := pairInputLocal (Fin.castAdd 7 u) (Fin.natAdd 7 t)
+      have oldtrue : C.eval (List.ofFn z)=true := (correct z).mpr
+        ⟨u,t,hit,by simp [z,pairInputLocal],by simp [z,pairInputLocal]⟩
+      have newtrue : D.eval (List.ofFn z)=true := grow u t hit C.output oldtrue
+      apply binaryAO_eval_mono normalD z x ?_ newtrue
+      intro i hi
+      have hor : i=Fin.castAdd 7 u ∨ i=Fin.natAdd 7 t := of_decide_eq_true hi
+      rcases hor with rfl | rfl
+      · exact hp
+      · exact hl
+  have bound : 14+j<14+C.gates.length := by omega
+  have offmarked := off p l incident
+  have offreverse :
+      (C.wires (List.ofFn (pairInputLocal (Fin.natAdd 7 l) (Fin.castAdd 7 p)))).getD
+        (14+j) false=false := by
+    have heq : pairInputLocal (Fin.natAdd 7 l) (Fin.castAdd 7 p) =
+        pairInputLocal (Fin.castAdd 7 p) (Fin.natAdd 7 l) := by
+      funext i
+      simp [pairInputLocal,or_comm]
+    rw [heq]
+    exact offmarked
+  have oldbasep := base_false_of_pair_false normal _ _ d td (14+j) bound offmarked
+  have oldbasel := base_false_of_pair_false normal _ _ e te (14+j) bound offreverse
+  have oldd := derivative_false_of_pair_false normal _ _ d td (14+j) bound offmarked
+  have olde := derivative_false_of_pair_false normal _ _ e te (14+j) bound offreverse
+  have newbasep : (D.wires (List.ofFn (singletonInput (Fin.castAdd 7 p)))).getD (14+j) false=false := by
+    rw [replaceInputAnd_value C j _ _ hj]
+    exact (fano_replacement_singleton_dark r p l).1
+  have newbasel : (D.wires (List.ofFn (singletonInput (Fin.natAdd 7 l)))).getD (14+j) false=false := by
+    rw [replaceInputAnd_value C j _ _ hj]
+    exact (fano_replacement_singleton_dark r p l).2
+  have valuesp := single_gate_wires_eq normal normalD j same
+    (singletonInput (Fin.castAdd 7 p)) (oldbasep.trans newbasep.symm)
+  have valuesl := single_gate_wires_eq normal normalD j same
+    (singletonInput (Fin.natAdd 7 l)) (oldbasel.trans newbasel.symm)
+  have tdD := derivative_transport_input_and j normalD hlen same _ _ d td
+    (fun i _ => valuesp i) (Fin.castAdd 7 r) (Fin.natAdd 7 r) atj oldd hrd
+  have teD := derivative_transport_input_and j normalD hlen same _ _ e te
+    (fun i _ => valuesl i) (Fin.castAdd 7 r) (Fin.natAdd 7 r) atj olde hre
+  refine ⟨D,normalD,correctD,hlen,rfl,tdD,teD,?_,?_⟩
+  · refine ⟨r,r,Or.inl rfl,?_⟩
+    rw [replaceInputAnd_value C j _ _ hj]
+    simp [pairInputLocal]
+  · rintro k ⟨u,t,hit,h⟩
+    exact ⟨u,t,hit,grow u t hit (14+k) h⟩
+
+lemma fano_supported_normal_form_of_repair (p l : Fin 7) (d e : ℕ → Bool)
+    (advance : ∀ A : Circuit, BinaryAO 14 A → fanoCircuitCorrect A →
+      DerivativeTrace 14 A (singletonInput (Fin.castAdd 7 p))
+        (singletonInput (Fin.natAdd 7 l)) d →
+      DerivativeTrace 14 A (singletonInput (Fin.natAdd 7 l))
+        (singletonInput (Fin.castAdd 7 p)) e →
+      ∀ j : ℕ, j < A.gates.length → ¬ fanoGateSupported A j →
+      ∃ B : Circuit, BinaryAO 14 B ∧ fanoCircuitCorrect B ∧
+        B.gates.length = A.gates.length ∧ B.output = A.output ∧
+        DerivativeTrace 14 B (singletonInput (Fin.castAdd 7 p))
+          (singletonInput (Fin.natAdd 7 l)) d ∧
+        DerivativeTrace 14 B (singletonInput (Fin.natAdd 7 l))
+          (singletonInput (Fin.castAdd 7 p)) e ∧
+        fanoGateSupported B j ∧
+        ∀ k : ℕ, fanoGateSupported A k → fanoGateSupported B k)
+    (C : Circuit) (normal : BinaryAO 14 C) (correct : fanoCircuitCorrect C)
+    (traceD : DerivativeTrace 14 C (singletonInput (Fin.castAdd 7 p))
+      (singletonInput (Fin.natAdd 7 l)) d)
+    (traceE : DerivativeTrace 14 C (singletonInput (Fin.natAdd 7 l))
+      (singletonInput (Fin.castAdd 7 p)) e) :
+    ∃ D : Circuit, BinaryAO 14 D ∧ fanoCircuitCorrect D ∧
+      D.gates.length = C.gates.length ∧ D.output = C.output ∧
+      DerivativeTrace 14 D (singletonInput (Fin.castAdd 7 p))
+        (singletonInput (Fin.natAdd 7 l)) d ∧
+      DerivativeTrace 14 D (singletonInput (Fin.natAdd 7 l))
+        (singletonInput (Fin.castAdd 7 p)) e ∧
+      ∀ j : ℕ, j < D.gates.length → fanoGateSupported D j := by
+  classical
+  let Valid (A : Circuit) : Prop := BinaryAO 14 A ∧ fanoCircuitCorrect A ∧
+    A.gates.length = C.gates.length ∧ A.output = C.output ∧
+    DerivativeTrace 14 A (singletonInput (Fin.castAdd 7 p))
+      (singletonInput (Fin.natAdd 7 l)) d ∧
+    DerivativeTrace 14 A (singletonInput (Fin.natAdd 7 l))
+      (singletonInput (Fin.castAdd 7 p)) e
+  have initial : Valid C := ⟨normal,correct,rfl,rfl,traceD,traceE⟩
+  have step (A : Circuit) (valid : Valid A) (j : Fin C.gates.length)
+      (absent : ¬ fanoGateSupported A j.val) :
+      ∃ B : Circuit, Valid B ∧ fanoGateSupported B j.val ∧
+        ∀ k : ℕ, fanoGateSupported A k → fanoGateSupported B k := by
+    obtain ⟨normalA,correctA,lengthA,outputA,traceDA,traceEA⟩ := valid
+    have bound : j.val < A.gates.length := by rw [lengthA]; exact j.isLt
+    obtain ⟨B,normalB,correctB,lengthB,outputB,traceDB,traceEB,supported,preserve⟩ :=
+      advance A normalA correctA traceDA traceEA j.val bound absent
+    exact ⟨B,⟨normalB,correctB,lengthB.trans lengthA,outputB.trans outputA,traceDB,traceEB⟩,
+      supported,preserve⟩
+  have collect (s : Finset (Fin C.gates.length)) :
+      ∃ D : Circuit, Valid D ∧ ∀ i ∈ s, fanoGateSupported D i.val := by
+    induction s using Finset.induction_on with
+    | empty => exact ⟨C,initial,by simp⟩
+    | @insert i s outside ih =>
+      obtain ⟨A,validA,supportedA⟩ := ih
+      obtain ⟨B,validB,supportedI,preserve⟩ :
+          ∃ B : Circuit, Valid B ∧ fanoGateSupported B i.val ∧
+            ∀ k : ℕ, fanoGateSupported A k → fanoGateSupported B k := by
+        by_cases already : fanoGateSupported A i.val
+        · exact ⟨A,validA,already,fun _ h => h⟩
+        · exact step A validA i already
+      refine ⟨B,validB,?_⟩
+      intro k hk
+      rcases Finset.mem_insert.mp hk with rfl | hk
+      · exact supportedI
+      · exact preserve k.val (supportedA k hk)
+  obtain ⟨D,validD,allD⟩ := collect Finset.univ
+  obtain ⟨normalD,correctD,lengthD,outputD,traceDD,traceED⟩ := validD
+  refine ⟨D,normalD,correctD,lengthD,outputD,traceDD,traceED,?_⟩
+  intro j hj
+  exact allD ⟨j,by omega⟩ (Finset.mem_univ _)
+
+lemma fano_supported_normal_form {C : Circuit} (normal : BinaryAO 14 C)
+    (correct : fanoCircuitCorrect C) (p l : Fin 7) (incident : fanoIncident p l)
+    (d e : ℕ → Bool)
+    (traceD : DerivativeTrace 14 C (singletonInput (Fin.castAdd 7 p))
+      (singletonInput (Fin.natAdd 7 l)) d)
+    (traceE : DerivativeTrace 14 C (singletonInput (Fin.natAdd 7 l))
+      (singletonInput (Fin.castAdd 7 p)) e) :
+    ∃ D : Circuit, BinaryAO 14 D ∧ fanoCircuitCorrect D ∧
+      D.gates.length = C.gates.length ∧ D.output = C.output ∧
+      DerivativeTrace 14 D (singletonInput (Fin.castAdd 7 p))
+        (singletonInput (Fin.natAdd 7 l)) d ∧
+      DerivativeTrace 14 D (singletonInput (Fin.natAdd 7 l))
+        (singletonInput (Fin.castAdd 7 p)) e ∧
+      ∀ j : ℕ, j < D.gates.length → fanoGateSupported D j := by
+  exact fano_supported_normal_form_of_repair p l d e
+    (fun A normalA correctA traceDA traceEA j hj absent =>
+      fano_repair_one_gate normalA correctA j hj absent p l incident d e traceDA traceEA)
+    C normal correct traceD traceE
+
+lemma fano_supported_gate_zero_and {C : Circuit} (normal : BinaryAO 14 C)
+    (a b : ℕ) (first : C.gates[0]?=some ⟨.and,[a,b]⟩)
+    (supported : fanoGateSupported C 0) :
+    ∃ p l : Fin 7, fanoIncident p l ∧
+      ((a=p.val ∧ b=7+l.val) ∨ (a=7+l.val ∧ b=p.val)) := by
+  obtain ⟨_,u,v,huv,hne,hu,hv⟩ := normal 0 ⟨.and,[a,b]⟩ first
+  simp only [List.cons.injEq,and_true] at huv
+  obtain ⟨rfl,rfl⟩ := huv
+  have ha : a<14 := by omega
+  have hb : b<14 := by omega
+  obtain ⟨p,l,hpl,hon⟩ := supported
+  rw [support_wire_gate C (pairInputLocal (Fin.castAdd 7 p) (Fin.natAdd 7 l))
+    0 ⟨.and,[a,b]⟩ a b first rfl (by omega) (by omega)] at hon
+  rw [support_wire_input C _ ⟨a,ha⟩,support_wire_input C _ ⟨b,hb⟩] at hon
+  have choices : (a=p.val ∨ a=7+l.val) ∧ (b=p.val ∨ b=7+l.val) := by
+    simpa [GateOp.eval,pairInputLocal,Fin.ext_iff,Nat.add_comm] using hon
+  refine ⟨p,l,hpl,?_⟩
+  rcases choices with ⟨hap|hal,hbp|hbl⟩
+  · exact False.elim (hne (hap.trans hbp.symm))
+  · exact Or.inl ⟨hap,hbl⟩
+  · exact Or.inr ⟨hal,hbp⟩
+  · exact False.elim (hne (hal.trans hbl.symm))
+
 end PEqualNP.Outside.L_meta_1479
