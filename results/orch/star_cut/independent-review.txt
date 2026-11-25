@@ -1,0 +1,6 @@
+search.py SHA256 b69c3cf8fcc5ad5e11cc0bb44089d20ed7c5c1979446ef64fce82235f6efcccd
+synthesize_reference.py SHA256 7f0fd04cefa8fda324aceb7b3a7369ea3c1d835bed58449791a828565fdff531
+All42 pair prefixes and25gate baselines independently checked; tail24 budget is5to7gates. 44 deterministic CNF assignments (2849620clauses) verified, including2 arbitrary tails with NOT/constants. Encoding fails precisely the final constrained truth unit for each actual target error; no semantic clause failures.
+Decoder matches normalized primitive circuit exactly, including base14+prefix_length and last-index false sentinel. Known baseline first case checked onall571 initial samples; remaining baselines on64samples plus complete bit-vector truth validation.
+Initial samples exactly552 target-negative assignments plus19 minimal positive edge pairs. CEGIS adds positive errors only, full16384 truth evaluation gates FOUND. Frozen prefix costs are included in the24 total; outputwire37 is correct for24gates.
+Scope: only this chosen frozen complementary-star prefix and arbitrary5to7gate tail. All primary inputs and every frozen intermediate are available. No UNSAT conclusion proves an unrestricted circuit lowerbound; TIME_BUDGET/UNKNOWN remain inconclusive. -1false sentinel must map toout-of-range Nat in Lean.

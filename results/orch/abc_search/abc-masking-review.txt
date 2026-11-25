@@ -1,0 +1,4 @@
+BEST.json: 25 gates; operation counts {1: 18, 0: 7}; all16384 inputs independently correct.
+BEST_NONMONOTONE.json: 27 gates; operation counts {1: 18, 0: 8, 2: 1}; all16384 inputs independently correct.
+All144 source seed JSON circuits independently evaluate exactly to target on all16384 assignments. Seed generation checks syntactic independence of maskG from replaced inputv and G=>F. IfG=false substitution leavesv unchanged; ifG=true it remains true under substitution, so F remains true for either v OR G or v AND NOTG. This proves the masking identity.
+Final73-file manifest hashes match, manifestSHA2562c16709f98f9dccdf90b7115bcd494d1ad3b2f977d012ff6f1db5f5282587144. Newbatch2000valid/errorfree; aggregate8batches10631valid. Best25overall; besttransformedNOT27, improving prior28 but not the target budget. Full search remains heuristic, with no unrestricted lowerbound/counterexample claim.

@@ -1,0 +1,1 @@
+["/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-rel-3.1.0/build/cadical", "--default", "-t", "29", "--phase-file", "/tmp/oec/pequalnp-pilot-85/linear_network/star-cut/valid25-control/round-00-phases.txt", "/tmp/oec/pequalnp-pilot-85/linear_network/star-cut/valid25-control/round-00.cnf"]

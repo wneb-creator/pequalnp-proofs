@@ -1,0 +1,18 @@
+{
+  "scope": {
+    "side": 0,
+    "chosen": [
+      0,
+      1,
+      2
+    ]
+  },
+  "gates": 25,
+  "round": 0,
+  "exit": 10,
+  "variables": 18195,
+  "clauses": 547942,
+  "status": "VALID25_CONTROL",
+  "elapsed": 1.2978188719998798,
+  "samples_final": 571
+}

@@ -1,0 +1,17 @@
+Independent review by /root/lemma_search, captured by /root/linear_network at 2026-11-25T13:13:52.263800+00:00. Reviewer performed read-only inspection, no solver runs or source edits.
+
+Exact frozen SHA256 hashes:
+blocking_cuts.py 57135aeab4eb843761aba5da331912a26ba07830608ed6a1c4a7b256b3f0d688
+blocked.py 8c306766d2a879789e15651f06fa4a9decfd54ea37b9363b58631a527d401897
+blocking_cuts_compact.py 779622487fd0e1885a66e8276bef7bd2eb831e644396e34ba4eff276761fb005
+blocked_compact.py e8fd4f509181b51c2097b5107328313b5271e41f0f0474c32d4163fa1c483712
+synthesize_reference.py 7f0fd04cefa8fda324aceb7b3a7369ea3c1d835bed58449791a828565fdff531
+
+Original verdict message:
+Original blocking encoder independently PASSED (blocking_cuts SHA57135aea..., blocked SHA8c306766...). All6 Lean forms, fixedprefix handling, duplicate-as-membership semantics, childordering, and NOT dummy-rhs suppression by search.make are sound.
+
+Compact verdict message:
+Compact compression independently PASSED at SHA779622487fd0e1885a66e8276bef7bd2eb831e644396e34ba4eff276761fb005; wrapper SHAe8fd4f509181b51c2097b5107328313b5271e41f0f0474c32d4163fa1c483712. Fresh z iff OR(P) is exact, negative antecedent handling and all boundary cases sound. No solver runs or file edits.
+
+Dependency follow-up:
+synthesize_reference.py SHA7f0fd04cefa8fda324aceb7b3a7369ea3c1d835bed58449791a828565fdff531 has exact N=14 and all19 target edges, CNF.var allocates fresh positive IDs, CNF.one is at-least-one plus pairwise at-most-one. All original and compact findings stand.

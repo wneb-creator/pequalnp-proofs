@@ -1,0 +1,3 @@
+Independent review by /root/linear_network at 2026-11-25T13:21:53.192795+00:00.
+
+PASS for synthesize_blocking.py SHA2569a53c7fd975e2a24fbc5cc010a1f1c72abc96ab9db53d657b343d7664c2e571b. Compared exact diff to previously approved0d9fde724032394d7be30d2acb1e097a83224efc2b50e26534bd1a3250cc5f93. Changes are limited to the optional capacity helper call/CLI flag, argument plumbing and helper source snapshot. The FULL schema is passed, s.make(cone=True) supplies readers for every primary/nonoutput gate, and NOT rhs is false. base_variables remains saved before both helper calls, so sample-value phase offsets stay correct and new auxiliaries receive no hints. Capacity stats appear in query metadata when enabled. No source changes or solver runs during this review.

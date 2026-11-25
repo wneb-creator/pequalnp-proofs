@@ -1,0 +1,9 @@
+Independent integration review by /root/linear_network, 2026-11-25T13:15:19.752572+00:00.
+
+PASS for /tmp/oec/pequalnp-pilot-85/counterexample/synthesize_blocking.py SHA256 0d9fde724032394d7be30d2acb1e097a83224efc2b50e26534bd1a3250cc5f93.
+
+The imported standard encoder is byte-identical to audited synthesize_reference.py SHA2567f0fd04cefa8fda324aceb7b3a7369ea3c1d835bed58449791a828565fdff531. Input count and target edges match the checked cut dependency. base_variables is saved before adding reader auxiliaries, and phase_hints uses it for the sample-value offset; no reader auxiliary receives a phase hint.
+
+The intended unrestricted run leaves not_count unset. Cone pruning, distinct binary fanins and constant simplification preserve smaller circuits, which can be padded to24 using OR(g,false): this remains allowed by no_constants and distinct. The previously reviewed rhs-order normalization remains in force. Optional exact NOT-count runs require separate care if cone pruning removes unused NOT gates; the unrestricted run has no such issue.
+
+Sample constraints, complete16384-assignment validation, counterexample updates, solver-status handling, output indexing and source/hash preservation are correct. Solver UNSAT remains external computational evidence, not a Lean certificate. No source edits or solver runs were performed during this integration review.

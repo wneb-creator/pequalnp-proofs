@@ -1,0 +1,758 @@
+[
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 11.625160659999892,
+    "samples_final": 571,
+    "case": 0,
+    "side": 1,
+    "chosen": [
+      7,
+      11
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 9.950440838000304,
+    "samples_final": 571,
+    "case": 1,
+    "side": 0,
+    "chosen": [
+      0,
+      5
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 9.576975854000011,
+    "samples_final": 571,
+    "case": 2,
+    "side": 0,
+    "chosen": [
+      1,
+      6
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.205272629999854,
+    "samples_final": 571,
+    "case": 3,
+    "side": 1,
+    "chosen": [
+      12,
+      13
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 12.380898342999899,
+    "samples_final": 571,
+    "case": 4,
+    "side": 1,
+    "chosen": [
+      9,
+      13
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.202935706000062,
+    "samples_final": 571,
+    "case": 5,
+    "side": 0,
+    "chosen": [
+      3,
+      6
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.224702051999884,
+    "samples_final": 571,
+    "case": 6,
+    "side": 1,
+    "chosen": [
+      11,
+      12
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 8.841289670000151,
+    "samples_final": 571,
+    "case": 7,
+    "side": 1,
+    "chosen": [
+      7,
+      10
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.215125653000086,
+    "samples_final": 571,
+    "case": 8,
+    "side": 1,
+    "chosen": [
+      8,
+      11
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 10.415218762000222,
+    "samples_final": 571,
+    "case": 9,
+    "side": 1,
+    "chosen": [
+      8,
+      9
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 10.656301570999858,
+    "samples_final": 571,
+    "case": 10,
+    "side": 0,
+    "chosen": [
+      1,
+      2
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 9.604990710000038,
+    "samples_final": 571,
+    "case": 11,
+    "side": 1,
+    "chosen": [
+      7,
+      12
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 10.61471310900015,
+    "samples_final": 571,
+    "case": 12,
+    "side": 0,
+    "chosen": [
+      1,
+      3
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.25212535899982,
+    "samples_final": 571,
+    "case": 13,
+    "side": 0,
+    "chosen": [
+      2,
+      4
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 9.211542465999628,
+    "samples_final": 571,
+    "case": 14,
+    "side": 0,
+    "chosen": [
+      1,
+      4
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.191254077999929,
+    "samples_final": 571,
+    "case": 15,
+    "side": 0,
+    "chosen": [
+      4,
+      6
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 9.504034947000036,
+    "samples_final": 571,
+    "case": 16,
+    "side": 0,
+    "chosen": [
+      0,
+      4
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 11.4091501110006,
+    "samples_final": 571,
+    "case": 17,
+    "side": 0,
+    "chosen": [
+      0,
+      3
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.291673199999423,
+    "samples_final": 571,
+    "case": 18,
+    "side": 1,
+    "chosen": [
+      8,
+      10
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.223866901999827,
+    "samples_final": 571,
+    "case": 19,
+    "side": 0,
+    "chosen": [
+      2,
+      5
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 11.390204598999844,
+    "samples_final": 571,
+    "case": 20,
+    "side": 1,
+    "chosen": [
+      7,
+      13
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.307035636999899,
+    "samples_final": 571,
+    "case": 21,
+    "side": 0,
+    "chosen": [
+      3,
+      4
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.179525047000425,
+    "samples_final": 571,
+    "case": 22,
+    "side": 1,
+    "chosen": [
+      9,
+      12
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.183057089000613,
+    "samples_final": 571,
+    "case": 23,
+    "side": 1,
+    "chosen": [
+      10,
+      13
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 10.324024440999892,
+    "samples_final": 571,
+    "case": 24,
+    "side": 0,
+    "chosen": [
+      0,
+      2
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.251213462000123,
+    "samples_final": 571,
+    "case": 25,
+    "side": 0,
+    "chosen": [
+      2,
+      3
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.242094070000348,
+    "samples_final": 571,
+    "case": 26,
+    "side": 1,
+    "chosen": [
+      11,
+      13
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.214773175000118,
+    "samples_final": 571,
+    "case": 27,
+    "side": 1,
+    "chosen": [
+      9,
+      11
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.184084568999424,
+    "samples_final": 571,
+    "case": 28,
+    "side": 0,
+    "chosen": [
+      4,
+      5
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.184172080999815,
+    "samples_final": 571,
+    "case": 29,
+    "side": 1,
+    "chosen": [
+      8,
+      13
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.187818964000144,
+    "samples_final": 571,
+    "case": 30,
+    "side": 1,
+    "chosen": [
+      8,
+      12
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.543961290999505,
+    "samples_final": 571,
+    "case": 31,
+    "side": 0,
+    "chosen": [
+      3,
+      5
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.191788192999411,
+    "samples_final": 571,
+    "case": 32,
+    "side": 1,
+    "chosen": [
+      10,
+      11
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.371770575000482,
+    "samples_final": 571,
+    "case": 33,
+    "side": 1,
+    "chosen": [
+      9,
+      10
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.309758714000054,
+    "samples_final": 571,
+    "case": 34,
+    "side": 0,
+    "chosen": [
+      2,
+      6
+    ]
+  },
+  {
+    "frozen": 19,
+    "variable": 5,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 8940,
+    "clauses": 253046,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 2.5613568400003714,
+    "samples_final": 571,
+    "case": 35,
+    "side": 1,
+    "chosen": [
+      7,
+      9
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.173812102999364,
+    "samples_final": 571,
+    "case": 36,
+    "side": 1,
+    "chosen": [
+      7,
+      8
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 11.717487625999638,
+    "samples_final": 571,
+    "case": 37,
+    "side": 0,
+    "chosen": [
+      0,
+      6
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.220403279999118,
+    "samples_final": 571,
+    "case": 38,
+    "side": 0,
+    "chosen": [
+      5,
+      6
+    ]
+  },
+  {
+    "frozen": 17,
+    "variable": 7,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 12502,
+    "clauses": 353084,
+    "solver_exit": 0,
+    "status": "UNKNOWN",
+    "elapsed": 14.282954311999674,
+    "samples_final": 571,
+    "case": 39,
+    "side": 1,
+    "chosen": [
+      10,
+      12
+    ]
+  },
+  {
+    "frozen": 18,
+    "variable": 6,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 10722,
+    "clauses": 303129,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 11.425779286999386,
+    "samples_final": 571,
+    "case": 40,
+    "side": 0,
+    "chosen": [
+      1,
+      5
+    ]
+  },
+  {
+    "frozen": 19,
+    "variable": 5,
+    "samples_initial": 571,
+    "round": 0,
+    "vars": 8940,
+    "clauses": 253046,
+    "solver_exit": 20,
+    "status": "UNSAT_LOCAL_MODEL",
+    "elapsed": 2.078536940000049,
+    "samples_final": 571,
+    "case": 41,
+    "side": 0,
+    "chosen": [
+      0,
+      1
+    ]
+  }
+]

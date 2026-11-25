@@ -1,0 +1,2 @@
+BLOCKING_CUTS {'added_clauses': 20308, 'frozen_readers': [0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 3, 2, 1]}
+{'scope': {'side': 0, 'chosen': [0, 1, 2]}, 'gates': 25, 'round': 0, 'exit': 10, 'variables': 18195, 'clauses': 547942, 'status': 'VALID25_CONTROL', 'elapsed': 1.2978188719998798, 'samples_final': 571}

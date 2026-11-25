@@ -1,0 +1,18 @@
+{
+  "frozen": 18,
+  "variable": 6,
+  "samples_initial": 571,
+  "round": 0,
+  "vars": 10722,
+  "clauses": 303129,
+  "solver_exit": 20,
+  "status": "UNSAT_LOCAL_MODEL",
+  "elapsed": 10.415218762000222,
+  "samples_final": 571,
+  "case": 9,
+  "side": 1,
+  "chosen": [
+    8,
+    9
+  ]
+}

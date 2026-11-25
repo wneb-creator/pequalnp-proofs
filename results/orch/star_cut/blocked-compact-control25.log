@@ -1,0 +1,2 @@
+BLOCKING_CUTS_COMPACT {'added_clauses': 20941, 'frozen_readers': [0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 3, 2, 1], 'reader_disjunction_flags': 33, 'pattern_clauses': 20308, 'original_positive_literal_occurrences': 365550}
+{'scope': {'side': 0, 'chosen': [0, 1, 2]}, 'gates': 25, 'round': 0, 'exit': 10, 'variables': 18228, 'clauses': 548575, 'status': 'VALID25_CONTROL', 'elapsed': 1.1873196870001266, 'samples_final': 571}

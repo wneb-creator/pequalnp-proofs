@@ -1,0 +1,18 @@
+{
+  "frozen": 17,
+  "variable": 7,
+  "samples_initial": 571,
+  "round": 0,
+  "vars": 12502,
+  "clauses": 353084,
+  "solver_exit": 0,
+  "status": "UNKNOWN",
+  "elapsed": 14.282954311999674,
+  "samples_final": 571,
+  "case": 39,
+  "side": 1,
+  "chosen": [
+    10,
+    12
+  ]
+}

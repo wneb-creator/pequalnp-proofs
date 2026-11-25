@@ -1,0 +1,1 @@
+["/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-rel-3.1.0/build/cadical", "--default", "-t", "25", "/tmp/oec/pequalnp-pilot-85/linear_network/small-one-not/runs/case-06/query.cnf"]

@@ -1,0 +1,12 @@
+{
+  "record": "Reconstructed from original recorded invocation",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-rel-3.1.0/build/cadical",
+    "--lrat",
+    "--no-binary",
+    "-t",
+    "240",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official24/official.cnf",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official24/screen.lrat"
+  ]
+}

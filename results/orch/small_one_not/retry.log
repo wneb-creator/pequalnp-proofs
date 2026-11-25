@@ -1,0 +1,2 @@
+{'not_count': 0, 'gate_budget': 7, 'exit': 20, 'elapsed': 2.7100222180006313, 'status': 'UNSAT_NORMALIZED_MODEL'}
+{'not_count': 1, 'gate_budget': 8, 'exit': 20, 'elapsed': 47.84616658699997, 'status': 'UNSAT_NORMALIZED_MODEL'}

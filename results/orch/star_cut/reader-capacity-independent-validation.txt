@@ -1,0 +1,3 @@
+threshold_assignments 896
+exhaustive_slot_models_with_all_primaries_and_nonoutput_gates_read 1025
+source_sha256 b006ecad77d92911a87b7130d79f69d145e1f17f484d7d1c70b9ecdbc3bf1f9d

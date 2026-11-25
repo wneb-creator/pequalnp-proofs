@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-rel-3.1.0/build/cadical",
+    "--unsat",
+    "-t",
+    "180",
+    "/tmp/oec/pequalnp-pilot-85/linear_network/star-cut/triple-012/round-00.cnf"
+  ],
+  "exit_code": 0,
+  "status": "UNKNOWN",
+  "log": "triple-unsat-profile.log"
+}

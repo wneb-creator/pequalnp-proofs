@@ -122,3 +122,53 @@ Restriction caveat: setting chosen star centers to0 need not kill a top, because
 
 ### 2026-11-25T12:42:38.374876+00:00 ABC search completion (linear_network)
 8631 mapped outputs across seven completed batches independently validate on all 16,384 assignments. Best remains 25, transformed one-NOT best 28; no counterexample. Corrected wide-3 completed 1,500/1,500 valid outputs, no errors. Sources, summaries, complete controller logs, best JSON/BLIF, independent macro audit and hashes preserved in results/orch/abc_search. This is finite heuristic evidence only, not a lower-bound proof. Thirty redundant 27-gate one-NOT absorption seeds were sent to counterexample for phase hints.
+
+## 2026-11-25T12:58:10.094174+00:00 lower_bound: checked dirty-chain and rectangle bridges
+
+DirtyChain.lean (SHA256936e7b309df6a4c1146f4709d591b2528df836882a49d9513893ae5bd7e4c542,819lines) proves the actual two-dirty chain: under IsAO2, correct graph output, all gates in output cone, junk={g,T}, g<T, centreless empty, and extraORcard≤1, T directly reads g and every reader of g is T. No least-size, lift fixed point, or graph-specific premise is used.
+
+DirtyReplace.lean (SHA2569461e6dcade0e090e15f4639a928027369b0f96ea109a816ff6cfb696bfdaf17,1236lines) strengthens L_meta_5391 by deleting its unused bipartite/C4 and pure-OR/disjoint/nonempty premises; unchanged proof body compiles. Used lift/no-BelowF-operand/literal-opposite-reader premises remain explicit, so it is not yet a full bound.
+
+ChainRectangle.lean (SHA2565dd2ff927abdfa529f20377b47367a70197074c96441ae805bddecf267118513,1348lines) is the preferred combined source for the later path. It includes checked ChainClauses and parent MonochromeRectangle. Assuming the concrete chain hypotheses plus TopForm and a bipartition, gateT is exactly a conjunction of at most3 nonempty monochromatic primary OR clauses, and its true bichromatic pairs form a rectangle I×J with I onfalse side andJ ontrue side. Copy case T=g is handled by2clauses; no distinct-input premise is needed. The pure-input/λ-color bridge is proved, not assumed. All successful logs are saved in results/orch/.
+
+Remaining criticalUstar3 bridge: top operands decompose as primary OR plus the common dirtyT signal; both sides cannot reachT. A unique extra OR has nonempty primary support Z contained in every T-reaching side. For an uncovered edge both endpoints avoid chosen centers, so only tops with their T-reaching side as singletoncenter Z={z} can contribute. Need derive those incidence/coverage facts and combine with parent RectangularTop degree3 bound. Directly replacing a nonliteral oppositeOR by one literal can lose clean-star edges z×B and is not justified without reconstruction; no such substitution has been claimed.
+
+### Arbitrary-NOT blocking constraints — 2026-11-25T12:58:40.728963+00:00
+
+Three standalone Lean files have compiled successfully and are frozen in results/orch/lemmas/: Blocking.lean, BlockingDeeper.lean, and BlockingDegreeThree.lean. Full logs and hashes are in lemma_search/blocking-validation.json. All allow arbitrary NOT gates elsewhere and even arbitrary unrelated gate operations; only the selected local gates are required to be AND/OR.
+
+- Blocking: the target remains dependent on each input p when any distinct q is fixed to either value (364 kernel-checked witness cases). Consequently a primary input with one reader cannot enter an AND/OR gate whose other fanin is a distinct primary.
+- BlockingDeeper: a sole-reader primary cannot enter AND with a partner AND gate that reads another primary, nor OR with a partner OR gate reading another primary. These follow from controlling-value propagation, not from monotonicity of the whole circuit.
+- BlockingDegreeThree: for p outside {0,1,7,9}, a sole-reader p cannot enter AND with a partner OR of two primaries. A third neighbor supplies a singleton witness annihilating both OR inputs.
+Blocking and BlockingDeeper have passed independent review; BlockingDegreeThree review requested. Parent and SAT agent notified to preserve and optionally use the constraints. These lemmas do not yet strengthen the global lower bound beyond20, and do not provide a bound on the number of NOT gates.
+
+Alternative invariant checks: maximal-independent-set sizes are {7:2,6:4,5:26,4:7}, giving C0=10,C1=2. The nonnegative adversary certificate barrier therefore limits its square to20 formula leaves. This barrier does not apply to negative-weight adversary, and formula bounds do not automatically bound circuits. Across the natural7+7 partition there are39 distinct neighborhood unions, giving communication rank38 for f and39 for its complement. Neither calculation supplies the needed circuit25 bound.
+
+### 2026-11-25T13:02:50.525556+00:00 Additional finite searches (linear_network)
+The complete original target pair-cut batch has18 restricted-model UNSAT and24 timeouts at15s. Each model freezes complementary stars and allows arbitrary AND/OR/NOT in a tail, using all14 inputs and every frozen intermediate, with total24 gates. Sound cone/maximum-actual-fanin ordering was independently audited; normalized retries are resolving additional cases (current aggregate in star_cut/aggregate.json). A three-star cut is also being tried. These are restricted finite families, not a lower-bound proof.
+
+The small one-NOT census is complete:26 connected bipartite C4-free graph types on2–7 vertices, no circuit with exactly1NOT below m+tau−1 under the SAT model.24 cases directly UNSAT, one has zero gate budget with one required NOT, and the remaining case is covered by normalized UNSAT queries for0NOT/7gates and reachable1NOT/8gates. Graph census, encoder and normalization independently audited. Evidence is SAT solver output, not Lean certification and not a general NOT-removal theorem. Preserved at results/orch/small_one_not.
+
+New constructive masks: for an input x and independent existing star output G implying F, replace all x reads by x OR G (26gates) or x AND NOT G (27gates,1NOT).144 seeds all validate on16384 inputs. These are exploration seeds, not improvements; counterexample agent received metadata. A further ABC batch is running.
+
+### Complete blocking package checked and reviewed — 2026-11-25T13:02:53.209044+00:00
+
+The combined BlockingAll.lean (487lines,23001bytes,SHA256 68527669db4674208e15e8768ae5abf788ff79cb35273142b3efdec9c6d3cc6a) contains all local arbitrary-NOT single-reader constraints. Lean exit0,16 inherited deprecation warnings; independent review PASS for every component. Additional final rules: a degree3 sole-reader OR paired with AND(a,b) requires {a,b} to be a genuine edge; a sole-reader AND/OR cannot be paired with NOT of a distinct primary. Exact synthesis-facing hypotheses are documented in lemma_search/BLOCKING-CUTS.md. Parent and SAT agent notified. The global lower bound is still20; no NOT-count bound follows.
+
+### 2026-11-25T13:06:59.749817+00:00 counterexample
+
+Counterexample search update:
+- Official certified encoding: 240-second default CaDiCaL run returned UNKNOWN; complete stdout/stderr and the 363,078,044-byte incomplete LRAT trace are retained in scratch sat-tool/official24. This trace is not a certificate. A 1200-second unsat-preset LRAT run on the unchanged exact CNF is active.
+- Independently audited the official generator and decoder against LinkN/LinkN2; all clause families, order, sparse IDs, rows, and full streamed hash match. Decoder safely checks sampled clauses then all 16,384 inputs.
+- Added compact full-variable phase preferences only (no assumptions or clauses). Independently reviewed. A known exact27-gate masked-input circuit with8 ANDs and one shared NOT after the first AND satisfied all324,335 clauses at budget36; the positive-control solver found SAT in1.25 seconds and exhaustive validation passed. At24-gate budget33 the same phases violate only the terminal size-bound clause. The hinted24 search is active.
+- The original masked27 and ABC-transformed27 seeds have all27 gates in the output cone, but fixing their NOT output to1 still computes the target. They are phase/topology seeds, not evidence of necessary negation or a smaller circuit.
+
+2026-11-25T13:09:21+00:00 lower_bound: UncoveredTrace, UncoveredSignal, PartnerData now compile with exit 0. PartnerData derives a common primary z and a partner union B from actual AO2+TopForm+output-cone+junk={g,T},g<T+centreless empty+extra OR count<=1. B lies in N(z); T-true pairs meeting B are graph edges; every Ustar pair is T-true, avoids z, and meets B. Together with ChainRectangle and root RectangularTop this should close the two-dirty structural case only; no unrestricted NOT lower bound claimed. Immutable PartnerData SHA 44TBD; exact hash sent in tool output and parent message.
+PartnerData exact SHA correction: 444cb2174e2f36ff932132b66c0130f5e9a94487860d82f4a7ec5cbff392d38b. Full successful log: results/orch/partner-data-build.log.
+
+2026-11-25T13:15:11+00:00 lower_bound: Generic extension now compiled, no exact-junk-count assumption: GeneralEntry gives B/z semantic package for any dirty T clean-top entry; GeneralPure proves non-AND inputs of ANDs before T are pure monochrome ORs; GeneralClauses uses strong induction to show all ANDs at/before T are conjunctions of such clauses; GeneralExistence obtains an entry from maximal junk/output cone and proves junk empty implies Ustar empty. Root can combine with rectangle counting to prove c=0, extraOR<=1 implies Ustar.card<=2 for bipartite C4-free max-degree3 graphs in AO2+TopForm+output-cone. Still no arbitrary-NOT bound or final gap proof.
+
+### 2026-11-25T13:23:45.220461+00:00 linear_network final bounded-search snapshot
+ABC:10,631 independently evaluated valid mappings, best25; transformed one-NOT best27. All144 masking seeds independently reviewed. Exact local target models:41/42 pair-cut families excluded by SAT UNSAT, one90s timeout remains; three-star model stays UNKNOWN after default/UNSAT-profile/blocked trials. No unrestricted lower-bound conclusion or counterexample. Small census: all26 connected bipartite C4-free graph types on2–7 vertices exclude an exactly-one-NOT improvement below their star upper bound under the audited SAT model.
+
+All six Lean-checked BlockingAll rules were encoded and independently audited; a compact definitional reader-disjunction encoding was supplied to counterexample for general24 search. A separate full-schema capacity cut D+F≤S+1−N was independently audited and integrated after positive controls; no fixed-prefix use. Final helper/source/log/scopes/manifests are frozen in results/orch/{abc_search,star_cut,small_one_not}. Parent continues global proof/search.

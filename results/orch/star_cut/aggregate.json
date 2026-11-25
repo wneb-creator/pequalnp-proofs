@@ -1,0 +1,19 @@
+{
+  "pair_cases": 42,
+  "excluded_pair_cases": 41,
+  "unresolved_pair_cases": 1,
+  "original_statuses": {
+    "UNSAT_LOCAL_MODEL": 18,
+    "UNKNOWN": 24
+  },
+  "normalized_retries_finished": 21,
+  "normalized_statuses": {
+    "UNSAT_NORMALIZED_LOCAL_MODEL": 17,
+    "UNKNOWN": 4
+  },
+  "blocked_retries_finished": 6,
+  "blocked_statuses": {
+    "UNSAT_NORMALIZED_LOCAL_MODEL": 5,
+    "UNKNOWN": 1
+  }
+}

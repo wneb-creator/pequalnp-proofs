@@ -64,3 +64,6 @@
 2026-11-25T13:15:11+00:00 lower_bound: GeneralExistence.lean compiled exit 0; arbitrary-junk generic clause and existence bridges complete, independent review requested.
 2026-11-25T13:19:10.605934+00:00 generic one-extra-OR case closed with no junk-count assumption: Ustar.card≤2. Independent assembly review and axiom probe passed; only propext/Classical.choice/Quot.sound. Full posted claim remains open.
 2026-11-25T13:20:34.356581+00:00 preserved reviewed phase-search checkpoints: all completed runs UNKNOWN; exact27-gate controls and126-error approximate24-gate seeds distinctly labeled.
+
+- 2026-11-25T13:23:45.220461+00:00: linear_network froze final bounded-search artifacts (10,631 ABC maps;41/42 local pair families excluded;26-graph single-NOT census complete) and supplied reviewed blocking/capacity helpers for parent global searches.
+2026-11-25T13:25:47.963520+00:00 complete frozen search archives independently audited: official240s/1200s UNKNOWN;41/42 frozen-prefix pair families excluded;26 small graph cases covered;10631 ABC mappings best25. Final targeted retries run separately.
