@@ -7,7 +7,7 @@ Three reductions were already live on assignment; no fourth reduction was submit
 Named-file lake build: not run; no file proving the posted theorem exists.
 Posted-statement local checker: not run for the same reason. The checker environment is functional.
 Partial proofs were compiled individually and axiom-audited; complete outputs and exact source hashes are in the validation files.
-The combined normalized-C5 optimum certificate is currently undergoing its final compilation; all102 individual finite cases already passed.
+The combined normalized-C5 optimum certificate PASSED:1816 lines, exit0,1013.736 seconds, all102 finite cases rechecked and eight transitive axiom audits standard-only. Complete output:cycle-optimum-validation.txt. No cleanup edit was made to that certificate;1816 lines before and after.
 Cleanup of a completed gap proof: not applicable; before/after line counts for a gap proof: not applicable.
 
 Desk null responses:0. No null-response message was received.

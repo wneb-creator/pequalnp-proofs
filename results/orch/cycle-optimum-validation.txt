@@ -1,0 +1,44 @@
+C5 normalized circuit certificate: PASS
+
+Source: results/orch/lemmas/cycle_optimum_certificate.lean
+SHA256: f5c88b40932e2a25433c4b5818f16307752199cd40f4413668d7e43c3dc2efad
+Lines: 1816
+Lean version: 4.36.0
+Compile command: lake env lean /tmp/oec/pequalnp-pilot-55/cycle_or_certificate.lean
+Working directory: /workspace/pequalnp-proofs/lean
+The archived source is byte-identical to the compiled source.
+Exit: 0
+Wall seconds: 1013.7360879749999
+Maximum RSS KB: 3368196
+Stderr: empty
+Eight transitive axiom audits: PASS, only propext/Classical.choice/Quot.sound
+
+The file proves at least4 OR gates, at least3 binary AND gates, and exact minimum7 among normalized five-input circuits computing the C5 edge function. It supplies a seven-gate witness whose AND gates are semantically sound. All102 finite cases are checked with decide +kernel in this combined pass. No finite-obstruction assumption remains in the certified conclusions.
+
+Scope: finite research component only. The general posted L-meta-1031 statement remains unproved; this is not a proof PR for that gap. No cleanup change was made during this run (1816 lines before and after).
+
+Complete stdout follows:
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.all_first_cases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.semantic_soundness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CompactOr.certified_finite_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CompactOr.certified_cycle_four_ors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.cycle_requires_three_binary_ands' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleOptimal.certified_cycle_size_ge_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleOptimal.certified_cycle_optimum_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.every_and_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
