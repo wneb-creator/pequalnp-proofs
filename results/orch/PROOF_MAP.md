@@ -4,7 +4,7 @@ The exact posted theorem is **not proved**. The branch is a preservation branch;
 
 ## Strongest integrated result
 
-`lean/PEqualNP/Outside/L_meta_5012.lean` has 6771 lines. `normalized_two_junk_with_guarded_residual` proves that a hypothetical least circuit with exactly two junk gates can be normalized, preserving size and junk count, to TopForm and a lift fixed point with a guarded residual edge. `combined-build-03.stdout` records a successful named target build. `axiom-audit-10.stdout` reports only propext, Classical.choice and Quot.sound.
+`lean/PEqualNP/Outside/L_meta_5012.lean` has 8633 lines. `normalized_two_junk_with_guarded_residual` proves that a hypothetical least circuit with exactly two junk gates can be normalized, preserving size and junk count, to TopForm and a lift fixed point with a guarded residual edge. `combined-build-04.stdout` records a successful named target build. `axiom-audit-15.stdout` reports only propext, Classical.choice and Quot.sound.
 
 ## Completed components
 
@@ -12,6 +12,7 @@ The exact posted theorem is **not proved**. The branch is a preservation branch;
 |---|---|---|
 | Actual pure-product operands and nesting | structural_residual_independent.lean; structural_operand_normal_form.lean | An unguarded residual edge forces independent junk gates and two pure products. |
 | First-rung surgery | restriction_star_edges.lean | An earlier-wire clean replacement that lowers the changed signal pointwise, preserves its Ustar values, and leaves the other junk outside its cone contradicts the no-one-junk premise. |
+| Stronger clean rewrite | restriction_clean_rewrite.lean | An available earlier-wire clean AND preserving true Ustar rows can replace the dirty gate; global pointwise lowering is unnecessary. The other junk must be outside the edited cone. |
 | Leastness witnesses | restriction_essential_cross.lean; restriction_ustar_hit.lean | Under leastness, TopForm and a nonempty graph, every junk hits Ustar; a singleton-active junk also hits Ustar away from that singleton. |
 | Geometric classification | pure_product_classification.lean | Pure product guarded edges have one-center, flag, or singleton-overlap alternatives. It does not supply actual circuit usage witnesses. |
 | Residual cover | inventory_residual_split.lean | Covers edges outside clean-top edges and outside all junk-guarded edges with two stars and a splitting-OR budget. |

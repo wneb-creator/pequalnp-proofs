@@ -1,9 +1,10 @@
 Gap: L-meta-5012
-Partial only: posted theorem absent.
-Named target6771 lines327022bytes: lake build PASSED (combined-build-03).
-Strongest corollary: any hypothetical least two-junk circuit normalizes with a guarded residual edge.
-Axiom audit: propext, Classical.choice, Quot.sound only.
+Partial only: posted theorem absent; no proof PR opened.
+Named target8633 lines410571bytes: lake build PASSED (combined-build-04).
+Output: Build completed successfully (5149 jobs).
+Integrated guarded-residual normalization and clean-rewrite first-rung criterion.
 Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing.
-Cleanup: not applicable to full proof yet; partial before/after integration6236/6771 lines.
+Cleanup: skipped because full checker unavailable and exact theorem unproved. Current cleanup counts8633/8633; last integration6771/8633.
 Sub-agents: 6 (status/reviewer, toolchain/matching/geometry, structural, finite search, restrictions, proof inventory)
-TIMING total=45.4 subagents=6
+TIMING total=76.9 subagents=6
+Desk nulls: 0; assigned L-meta-5012 on first request. Only own lease renewed.

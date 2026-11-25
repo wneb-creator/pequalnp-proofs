@@ -1,0 +1,74 @@
+Checkpoint 15 independent review: PASS for the frozen artifacts listed below.
+The exact posted theorem remains absent. This is partial-result preservation.
+
+Named target: lean/PEqualNP/Outside/L_meta_5012.lean
+8633 lines, 410571 bytes.
+SHA256 253bde6b2e77ec04d7a8db65fb79747bc78af0cf26705b2b3f7ee3eede7e2636
+The entire previous 6771-line body is unchanged. The appended module matches
+the independently reviewed restriction_clean_rewrite exactly, apart from
+shortening its namespace under the existing module namespace. Single Defs
+import; no prohibited commands, strings, attributes, options or anonymous
+section/end; no theorem command yet. File remains below 512 KiB.
+Build04 completed successfully (5149 jobs); no errors and empty stderr.
+Its stronger surgery retains actual earlier-wire availability, clean semantics,
+one-way Ustar acceptance preservation and independence of the other junk gate.
+
+restriction_nested_flag.lean: 1984 lines.
+SHA256 c4c0b8f0a50c3c90b85141c85b352b185ff00fa663311a5db7a8ae31a8f09b59
+restriction_nested_centers.lean: 2060 lines.
+SHA256 4555a9f365e6734e78f9a72e26130c66361339dddbebcf25b7df0136e681c8e9
+Independently reviewed by proof_inventory: PASS. Exact clean_rewrite prefix,
+all new flag/centers tails read. C4 freedom and two cleaners force the stated
+cross-edge forms; a filter avoiding one center gives the other-center cover.
+An explicitly available physical center-OR wire permits the clean rewrite.
+The pure-filter cleaner intersection lemma preserves its exact assumptions.
+Format passes; successful logs contain warnings only and empty stderr.
+
+inventory_residual_overlap.lean: 1855 lines.
+SHA256 beea6e5932e4a58b5dd63ee4192d3e796e999611d700cac46d557b59b8cdec57
+Independently reviewed by structural and antecedent_search: PASS. Exact
+residual_complete prefix; new overlap proofs retain all graph hypotheses and
+obtain necessary distinctness from exclusivity and freeOfWmax. Parity/C4
+contradiction is sound. Format passes; recheck warnings only, stderr empty.
+
+guarded_neighbor_anchor_budget.lean: 2607 lines.
+SHA256 4f32276174b29ba5f081ebeb7faf7e264e09dc71fac349921301e6d0f2c79f78
+Independently reviewed by proof_inventory: PASS. Exact separated-budget
+prefix; new neighbor anchor and strict forest/mixed budget retain the actual
+root assumptions. Format passes; inherited compile warning only.
+
+guarded_reuse_overlap_package.lean: 121 lines.
+SHA256 8f0810710fe0a0f5886429f06862d1747cb119c284f3ca231b7ee9b9590e915d
+Independently reviewed by toolchain: PASS. Overlapping t center merges leaf r
+into Y and counts Y only once. The S reuse properties and at-most-one-new-center
+bound are valid. Format and compilation checks pass.
+
+structural_canonical_support.lean: 688 lines.
+SHA256 f90b9f5fde56962bd129c94d2da464f4012220a1da86599042c647257d74e2b5
+structural_missing_side.lean: 724 lines.
+SHA256 e422c900ea23b448a07c26cf15782497edf978ca822b58b8fe0a1b2d1ebe95bb
+Independently reviewed by restriction: PASS. All new proofs read; 43 copied
+canonical declarations match reviewed sources, and the entire missing-side
+prefix is exact. The missing-side argument correctly uses the singleton
+joint implication at the repeated-vertex assignment to choose a missing raw
+side. Explicit hypotheses retained. Format clean; successful compile logs.
+
+structural_singleton_nonh_budget.lean: 3801 lines.
+SHA256 de1c52633c7cfca33494a95dd9b627d1340e0f51ad153f7351a4d5db24067088
+Final 19-line wrapper independently reviewed by restriction: PASS. The strict
+mixing hypotheses remain explicit; copied prefix was previously reviewed.
+Format clean; logs contain warnings only.
+
+structural_singleton_trace.lean: 755 lines.
+SHA256 961b5d65a199142e1333a1df48852c6692157150274c6d4ff9f3f0b373a62afe
+Previously independently reviewed by toolchain, as confirmed by structural.
+
+Audit15 verified: both the new no_nested_filter_with_clean_center and existing
+normalized_two_junk_with_guarded_residual use only propext, Classical.choice
+and Quot.sound; audit stderr is empty.
+Updated PROOF_MAP reviewed: PASS.
+SHA256 d46d14eff0e6f675b7a0d6fbe96cd15aa0905bd6c6e41ee9b147470324a1b4cc
+The 8633-line/build04 references and stronger rewrite summary are accurate;
+earlier-wire availability, Ustar preservation and independence remain explicit.
+
+No desk or git mutations by reviewer.

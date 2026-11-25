@@ -1,0 +1,6 @@
+../results/orch/lemmas/structural_singleton_trace.lean:753:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [hcent, Finset.notMem_empty] at hac
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
