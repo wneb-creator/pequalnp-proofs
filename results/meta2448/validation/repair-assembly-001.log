@@ -1,0 +1,68 @@
+import took 6.88s
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:29:60: error: No goals to be solved
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:30:60: error: No goals to be solved
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:22:47: error: unsolved goals
+w : List Bool
+a b c d out : ℕ
+ha : a < w.length
+hb : b < w.length
+hc : c < w.length
+hd : d < w.length
+u : Bool := w.getD c false && w.getD b false
+v : Bool := w.getD d false && w.getD a false
+w1 : List Bool := w ++ [u]
+w2 : List Bool := w1 ++ [v]
+w3 : List Bool := w2 ++ [u || v]
+hw1 : w1.length = w.length + 1
+hw2 : w2.length = w.length + 2
+hw3 : w3.length = w.length + 3
+wa : w1.getD a false = w.getD a false
+wd : w1.getD d false = w.getD d false
+wu : w2.getD w.length false = u
+wv : w2.getD (w.length + 1) false = v
+wh : w3.getD (w.length + 2) false = (u || v)
+wr : w3.getD (if out < w.length then out else w.length + 4) false = w.getD out false
+hwires : wiresFrom (fourGates w.length a b c d out) w = w3 ++ [w.getD out false || (u || v)]
+⊢ (decide ((w.getD out false || (u || v)) = w.getD out false) ||
+      (w.getD c false && w.getD b false || w.getD d false && w.getD a false)) =
+    true
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:91:2: error: 'change' tactic failed, pattern
+  (wiresFrom (D.gates ++ fourGates (n + D.size) a b c d D.output) (List.ofFn x)).getD (n + D.size + 3) false = ?m.77
+is not definitionally equal to target
+  (decide ((attach n D a b c d).eval (List.ofFn x) = D.eval (List.ofFn x)) ||
+      ((D.wires (List.ofFn x)).getD c false && (D.wires (List.ofFn x)).getD b false ||
+        (D.wires (List.ofFn x)).getD d false && (D.wires (List.ofFn x)).getD a false)) =
+    true
+cumulative profiling times:
+	attribute application 0.118ms
+	compilation (IR) 0.71ms
+	compilation (LCNF base) 7.08ms
+	compilation (LCNF impure) 2.4ms
+	compilation (LCNF mono) 3.29ms
+	congr simp thm 3.21ms
+	declTypeLinter 6.95ms
+	elaboration 51.5ms
+	fix level params 0.289ms
+	import 6.88s
+	initialization 37.6ms
+	instantiate metavars 0.735ms
+	interpretation 299ms
+	let-to-have transformation 0.105ms
+	linting 10.3ms
+	module linting 0.136ms
+	parsing 7.54ms
+	process pre-definitions 4.1ms
+	share common exprs 2.67ms
+	simp 107ms
+	tactic execution 170ms
+	tacticAnalysis 1.84ms
+	type checking 92.3ms
+	typeclass inference 28.4ms
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 12.013581817001977
+USER_SECONDS 5.927873
+SYS_SECONDS 3.077579
+PEAK_RSS_KIB 2895128
+PEAK_CGROUP_BYTES 4564791296

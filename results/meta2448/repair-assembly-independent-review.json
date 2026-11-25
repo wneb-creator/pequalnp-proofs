@@ -1,0 +1,15 @@
+{
+  "source": "results/meta2448/checked/repair-assembly.lean",
+  "sha256": "c99d2cb53449221180f6ec10cfab53cd3e8a4f15021d8db3db76026ad47f225e",
+  "reviewer": "/root/or_lower_bound",
+  "status": "Independent mathematical and source review PASS at exact compiled hash",
+  "scope": "Actual four-gate attachment to the compiled forced-false cofactor. The function-preservation conclusion explicitly assumes the pointwise cofactor-plus-two-term repair identity. No claim that every dirty gate satisfies that identity, and no ownership theorem.",
+  "findings": [
+    "The final OR redirects an invalid old output index to n+D.size+4, beyond every appended gate, so false outputs cannot accidentally read a new repair gate.",
+    "The prefix-retention theorem is included in the existential deletion result and transports all four operand wire values used by the repair.",
+    "All appended gates are fan-in-two AND/OR and all four operand indices are required to lie in the retained prefix.",
+    "The count E.size+readerCount<=C.size+3 exactly combines deletion of one gate and its readers with four appended gates. Four readers therefore imply strict decrease; three readers only give nonincrease.",
+    "Correctness is pointwise and explicitly consumes hrepair after prefix-value transport."
+  ],
+  "validation": "Author reports compiled EXIT0 in validation/repair-assembly-004.log, 3.51 seconds; source hash matches the reviewed immutable file."
+}

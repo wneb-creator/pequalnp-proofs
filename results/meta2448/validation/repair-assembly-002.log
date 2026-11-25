@@ -1,0 +1,47 @@
+import took 2.18s
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:18:25: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/meta2448/RepairAssembly.lean:19:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+cumulative profiling times:
+	.olean serialization 21.3ms
+	attribute application 0.0679ms
+	compilation (IR) 0.458ms
+	compilation (LCNF base) 3.32ms
+	compilation (LCNF impure) 1.23ms
+	compilation (LCNF mono) 2.17ms
+	congr simp thm 3.23ms
+	declTypeLinter 4.82ms
+	elaboration 43.4ms
+	fix level params 0.274ms
+	import 2.18s
+	initialization 37.8ms
+	instantiate metavars 0.77ms
+	interpretation 243ms
+	let-to-have transformation 0.0621ms
+	linting 21.6ms
+	module linting 0.0493ms
+	parsing 7.83ms
+	process pre-definitions 3.59ms
+	share common exprs 2.15ms
+	simp 97.8ms
+	tactic execution 132ms
+	tacticAnalysis 2.86ms
+	type checking 107ms
+	typeclass inference 25.5ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 4.508499812000082
+USER_SECONDS 2.247224
+SYS_SECONDS 1.5264259999999998
+PEAK_RSS_KIB 2910340
+PEAK_CGROUP_BYTES 4490489856

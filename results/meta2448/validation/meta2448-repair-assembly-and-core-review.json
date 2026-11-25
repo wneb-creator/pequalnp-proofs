@@ -1,0 +1,75 @@
+{
+  "review": "PASS repair construction preservation and accepted core lower-bound specialization review",
+  "files": [
+    {
+      "path": "results/meta2448/checked/repair-assembly.lean",
+      "sha256": "c99d2cb53449221180f6ec10cfab53cd3e8a4f15021d8db3db76026ad47f225e",
+      "bytes": 8826
+    },
+    {
+      "path": "results/meta2448/repair-assembly-independent-review.json",
+      "sha256": "ae35827f1fe9aa4cd2234f5cf5cc3208b2317a78b800433df6d4e398a1b746b2",
+      "bytes": 1445
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-result.json",
+      "sha256": "8f3b1e6b73dd9165490dd11610d6ce51c34410db7cfb34e8f83a52dac5abfb34",
+      "bytes": 492
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-001.log",
+      "sha256": "a6b9350e0f01b0bb7fd4d80ba341b3fb025d4cbd43e5ee3a4e35114a76d1adba",
+      "bytes": 2515
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-001.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-002.log",
+      "sha256": "fe877f83d1103cccd9838c3d06730c78f33249ebe6ce950164656185851c0299",
+      "bytes": 1579
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-002.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-003.log",
+      "sha256": "a87889bdde272e064f34bf4db293ac1fca0891c345ca4ae22160db2591a70396",
+      "bytes": 271
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-003.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-004.log",
+      "sha256": "ab2fef8b722912644bb2aabf2585defd8d3ace8f7bf35f6db7621542a4e76f0e",
+      "bytes": 1565
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-004.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/repair-assembly-preservation-independent-review.json",
+      "sha256": "82872f644a79dc2e10f110919e31c12ce739bdd336c4a60d066fe90ece18fb62",
+      "bytes": 1075
+    },
+    {
+      "path": "results/meta2448/petersen-minus-known-lower-bound.json",
+      "sha256": "bbacd6501885cda55844708c66eb864855272923dc9d58231f1b6a4dc018e6db",
+      "bytes": 1018
+    },
+    {
+      "path": "results/meta2448/petersen-minus-known-lower-bound-independent-review.json",
+      "sha256": "e5837478ce6f125336982d719d680b930509eac77a32bd2f37fa59a0bea42cad",
+      "bytes": 1051
+    }
+  ]
+}

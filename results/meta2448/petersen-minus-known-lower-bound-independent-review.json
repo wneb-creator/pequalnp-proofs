@@ -1,0 +1,19 @@
+{
+  "review": "PASS independent accepted-theorem graph isomorphism",
+  "source": "results/meta2448/petersen-minus-known-lower-bound.json",
+  "source_sha256": "bbacd6501885cda55844708c66eb864855272923dc9d58231f1b6a4dc018e6db",
+  "permutation": [
+    0,
+    1,
+    5,
+    6,
+    3,
+    4,
+    2,
+    7
+  ],
+  "verified": "Permutation is bijective; all ten edges exactly match the final L_meta_1007 statement; graph functions agree on all256 transported assignments. L_meta_2036 has the same statement.",
+  "definition": "Defs/MetaComplexity.lean37 defines HasCircuitSize as existence of FanInTwo AND/OR/NOT circuit with size<=s.",
+  "conclusion": "Accepted repository theorem already excludes size<=12 for this isomorphic eight-vertex core, even allowing NOT gates. The13-gate constructive star control therefore matches that known lower bound after input relabeling.",
+  "scope": "Isomorphism/statement specialization verified computationally and mathematically here, not a newly compiled Lean transport lemma; does not settle the general held gap."
+}

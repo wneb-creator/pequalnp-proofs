@@ -1,0 +1,17 @@
+{
+  "review": "PASS exact compiled RepairAssembly partial",
+  "source": "results/meta2448/checked/repair-assembly.lean",
+  "sha256": "c99d2cb53449221180f6ec10cfab53cd3e8a4f15021d8db3db76026ad47f225e",
+  "lines": 189,
+  "final_build_exit": 0,
+  "final_build_wall_seconds": 3.505216957997618,
+  "history": [
+    "001: Lean proof errors, exit1",
+    "002: prior assembly checked, exit0",
+    "003: toolchain configuration failure before Lean checking, exit1",
+    "004: final source checked, exit0"
+  ],
+  "scope": "Actual four-gate repair circuit using retained predecessor wires and explicit pointwise hrepair. New size plus direct-reader count is at most old size plus3. No proof that an arbitrary gate satisfies hrepair, no ownership normalization or full posted theorem.",
+  "sentinel_review": "Invalid old cofactor output is redirected beyond all four appended gates, avoiding accidental capture by a repair wire.",
+  "format": "No prohibited constructs; local ReaderDeletion/TwoCenterRepair imports are checked dependencies to flatten before a single-file submission."
+}

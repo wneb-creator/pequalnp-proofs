@@ -1,0 +1,9 @@
+error: no default toolchain configured. run `elan default stable` to install & configure the latest Lean 4 stable release.
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 0.5015605500011588
+USER_SECONDS 0.002969
+SYS_SECONDS 0.0
+PEAK_RSS_KIB 9472
+PEAK_CGROUP_BYTES 4110229504

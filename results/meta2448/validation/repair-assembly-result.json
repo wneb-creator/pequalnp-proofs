@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/RepairAssembly.lean",
+  "checked_source": "results/meta2448/checked/repair-assembly.lean",
+  "sha256": "c99d2cb53449221180f6ec10cfab53cd3e8a4f15021d8db3db76026ad47f225e",
+  "lines": 189,
+  "build_log": "results/meta2448/validation/repair-assembly-004.log",
+  "exit": 0,
+  "scope": "Actual Monotone2 circuit construction with retained prefix; under explicit repair identity, new size + immediate-reader count <= old size + 3. No ownership or full-gap claim."
+}
