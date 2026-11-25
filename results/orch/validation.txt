@@ -39,3 +39,7 @@ TIMING total=29.36 subagents=6
 Checked extended restrictions and NOT-aware bridge checkpoint: KernelExtended, ComputationalBounds, OneNotBridge, extended SingleUseFactors, and SingleUseNot all compiled exit0 and independently audited. Complete outputs preserved. Exploratory imports/sections in helper artifacts must be inlined before final PR. No full gap claim.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=47.29 subagents=6
+
+Checked actual circuit lower13, exact-NOT preservation at minimal size, fixed-NOT-count soundness and conditional full closing proof. All six sources compiled exit0 and independently audited. Full outputs preserved. The remaining finite checker equation is not yet kernel-checked; no full gap claim.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=51.34 subagents=6
