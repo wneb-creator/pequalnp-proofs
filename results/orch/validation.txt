@@ -11,3 +11,6 @@ TIMING total=11 subagents=6
 
 RetentionWitness.lean and CertificateCount.lean: lake env lean exit0; independent research review PASS.
 TIMING total=12 subagents=6
+
+CertificateBound.lean: lake env lean exit0; independent research review PASS.
+TIMING total=16 subagents=6

@@ -7,3 +7,5 @@
 2026-11-25T14:11:18.540675+00:00 Negation and GateElimination partials compiled exit0 and independently reviewed. Preserving checkpoint; full gap remains open.
 
 2026-11-25T14:12:52.086887+00:00 RetentionWitness and CertificateCount partials compiled and independently reviewed.
+
+2026-11-25T14:16:49.977382+00:00 CertificateBound normalization with NOT-count bound compiled and independently reviewed.
