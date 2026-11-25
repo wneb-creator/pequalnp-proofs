@@ -1,0 +1,153 @@
+{
+  "authorized_at": "2026-11-25T07:37:13.114201+00:00",
+  "scope": "Only listed obsolete/regenerable top-level CNFs; retain generators, maps, all logs, and models. Current24-gate F0 files and future repair files excluded.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow3-26.cnf",
+      "bytes": 5390816,
+      "sha256": "5ddcd67e23eeffa526c7369c0105468dcf8d10c6fee424640e6bf470adedd73f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/prefix-smoke-20.cnf",
+      "bytes": 7671919,
+      "sha256": "88f2a5ddf4fd878f8a426cd2cbd24d122ef666c07a7ac0f30b2b838194ccaa30"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-0.cnf",
+      "bytes": 202622,
+      "sha256": "cad74db7c9ab36d49efa9ba2940f804c2914a4fa694714dee8185107743c81f8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-0-baseline.cnf",
+      "bytes": 238295,
+      "sha256": "9ee7e6a2a88e8885e28601cfe36e73be803b338cefea45a51d2f35930cb5ec14"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a25-smoke.cnf",
+      "bytes": 2352637,
+      "sha256": "7449e3ab41d0dea50002c634dcb29f90cef2ac124cc2d8b0f3595974eadf5ca0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-and28.cnf",
+      "bytes": 6209666,
+      "sha256": "942d11ae76cbd111e78d42931a28aeac3aca20d62f4d0c521dff619c1abfbc8c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-28.cnf",
+      "bytes": 6209657,
+      "sha256": "842d5ce6d8a0188c6953c468a0ecf8d3541245ea956c4d092b1136f2352f3754"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood26.cnf",
+      "bytes": 3513208,
+      "sha256": "aea6b6c49eef86d3f33291c451834688d0afe697c24e2ff19832cf9fbc44875e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a23-base.cnf",
+      "bytes": 2065943,
+      "sha256": "395f8900a3e638cc6fb45cf0eea6e35011be3d8194bc5a3c3fe792f6c47bfb00"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a25-smoke-base.cnf",
+      "bytes": 2352125,
+      "sha256": "774db13c5a664dc146f0a49a5237f6a6d4d30a28aecf2e4e01c60ca26485025f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-1.cnf",
+      "bytes": 509617,
+      "sha256": "39f95c62fd4e2f4e99d2873ece8d6d838a45f24b4ef7329facee9f244c732a36"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a23.cnf",
+      "bytes": 2065975,
+      "sha256": "2ec06de3eebfa23cad51588db4fe2ef55575dbb0257e1f38c7eaf4d846eccfcd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-0.cnf",
+      "bytes": 597583,
+      "sha256": "9de7d8abc9418b6adc298cad5ef2b2609547856405584cc3e0ed2d2f6af26dc1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/minimal26.cnf",
+      "bytes": 5318977,
+      "sha256": "913f16a478a80fb0318639480868932c8bcdbc5f93f42526d1081531d651fedb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/live-dirty26.cnf",
+      "bytes": 3550396,
+      "sha256": "728efb1ff362ba4730bb18cec8855cd548cd11994399f459101afa9d75bd56fb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-or28.cnf",
+      "bytes": 6209665,
+      "sha256": "ebc30379b2b36ed80369b9d241e2435cb30378b6596784cfb6e01e94ae4c2c27"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow-smoke-27.cnf",
+      "bytes": 5723949,
+      "sha256": "7f9be0759b048e823487d253dd5dd69b3691bcab0c94120eb283517479761aa5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow-smoke-28.cnf",
+      "bytes": 6101922,
+      "sha256": "dd002f228ffb8b8521ce0d627fc94ac31d79ecc495fada162463b96ff8f1b43f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood27.cnf",
+      "bytes": 3734771,
+      "sha256": "40190033adadbe85789d2953110f6ae3fa66b7a63b43c48321b0b142e9acf674"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-and26.cnf",
+      "bytes": 7068244,
+      "sha256": "456955fe83e35005cbf7df95a9d63eb504b76be852d50808bbccbf7ae81168e8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/star27.cnf",
+      "bytes": 3735326,
+      "sha256": "6a234d356d26d2fb5d9c810b66f67c4b6f4ff7340036a6b156c185e042ec180f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood26-regenerated.cnf",
+      "bytes": 3513208,
+      "sha256": "aea6b6c49eef86d3f33291c451834688d0afe697c24e2ff19832cf9fbc44875e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-1-baseline.cnf",
+      "bytes": 257900,
+      "sha256": "444e1775727557683d7f3977471fad49993457bb3a9585ede489be71cb073402"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-0-baseline.cnf",
+      "bytes": 667950,
+      "sha256": "102ad0dbec9bbf4e2c85bbc769862fb2370dfe83861a5ac7c0d03890325830ad"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-1-baseline.cnf",
+      "bytes": 571222,
+      "sha256": "fdb43dd81499cbaf1fa6aa0566e7c8e4e7c89515b0cd108719d0b405c20bc88f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-26.cnf",
+      "bytes": 7068235,
+      "sha256": "514ba23ad26f7b64147fc94f53f98814666640fb2859d3e60db426f65378ffc3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow3-prefix20-26.cnf",
+      "bytes": 6945640,
+      "sha256": "f98d4f57ce501f8259e574396c3af9b44914bd6bf899e6797cb9a7325bd73071"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/prefix-smoke-28.cnf",
+      "bytes": 8286943,
+      "sha256": "17d4938ba012c694c89082f1493128a740f65a8d44c810548321ebeaa3a2965d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-1.cnf",
+      "bytes": 219981,
+      "sha256": "b2db083be2b270ad66c5bac5edc0b8907d47bf90020155213219ffc3c27e9993"
+    }
+  ],
+  "total_bytes": 108354392,
+  "inventoried_at": "2026-11-25T07:37:36.210534+00:00"
+}

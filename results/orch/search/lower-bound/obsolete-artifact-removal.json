@@ -1,0 +1,78 @@
+{
+  "at": "2026-11-25T07:37:04.925996+00:00",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/pairdirty1-first-26.drat.gz",
+      "bytes": 287541453,
+      "sha256": "234250de0de4af6b026746e59823ba7f3d37c7b27f8ddf3e6d63ee0ec887c187",
+      "reason": "Incomplete UNKNOWN proof trace, not a certificate"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26-complete.cnf",
+      "bytes": 3513293,
+      "sha256": "c190cd8a2c45e8f9f7fe54c1b84ef2b0eed6bd96bf979bc39cffcf39d249967c",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/biclique30-fixed.cnf",
+      "bytes": 3513517,
+      "sha256": "e0e74c42068278e9ccb261805f923fa54b90d95df5234f1e3cccd639dc53e161",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis27-fixed.cnf",
+      "bytes": 3734883,
+      "sha256": "0fb1c4767fe7682ae7a73f319a3c3477c697a6e1a0033c81bd5f2df281141e29",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis27.cnf",
+      "bytes": 3734328,
+      "sha256": "1e3b29be72771785dff1d99bc3bd205d779bc6858dd3d32920dcfc2808fb544e",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-0.cnf",
+      "bytes": 3513456,
+      "sha256": "6edce7e354b1b8241444101d71d3396147c6fb2e95225fe0799fb88a993f0b1e",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-1.cnf",
+      "bytes": 3513465,
+      "sha256": "fe344884973f30e71defbe37af720a7496690833461bfc0c3b12635e8e88673f",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-2.cnf",
+      "bytes": 3513474,
+      "sha256": "6097314539cb38bd3f1f53b00e4d2441e76b60dc83deffa58585ce5df54b61dd",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-3.cnf",
+      "bytes": 3513483,
+      "sha256": "2fcc2866d6a53565f9d08653959d9fd1256bb39231272c93d0afdcf142857315",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-4.cnf",
+      "bytes": 3513492,
+      "sha256": "06bcbc73e425b22f09f388d1943671941d023209cd75279328901a7f5402cb79",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-5.cnf",
+      "bytes": 3513501,
+      "sha256": "e13dc3f920709dba677931f24a200be85a3ef2f990fa14542312d24213669e9c",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/warm-fixed-6.cnf",
+      "bytes": 3513509,
+      "sha256": "5d481d6b43b7b58a69ec517a500c8ea59ff6ba714ffc49f31553c9ec6bad9783",
+      "reason": "Regenerable completed smoke/search CNF; sources and metadata retained"
+    }
+  ],
+  "status": "authorized, inventoried before unlink"
+}
