@@ -9567,3 +9567,364 @@ lemma all_dirty_pivotal {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   NormalizedMono.all_dirty_pivotal G color hBip hE C hC.1
 
 end PEqualNP.Outside.L_meta_3566.NormalizedUstar
+
+namespace PEqualNP.Outside.L_meta_3566.AndEquivalentReroute
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open Normalization.LiftFix
+
+lemma wire_value_eq {n : ℕ} (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (g : Gate) (hback : ∀ i ∈ g.inputs, i < n+j)
+    (heq : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = gateVal n C j x)
+    (w : ℕ) (x : Fin n → Bool) :
+    wireVal n (SharedRewrite.replace C j g) w x = wireVal n C w x := by
+  have h := SharedRewrite.replace_rel (R := Eq) (fun _ => rfl) n ⟨C.gates,w⟩ j hj g hback
+    (by
+      intro a ha f h hfh
+      have hh : f = h := funext hfh
+      rw [hh]) x (heq x).symm
+  exact h.symm
+
+lemma or_get_iff (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (i : ℕ) (q : Gate) (hq : q.op = GateOp.or) :
+    (SharedRewrite.replace C j g).gates[i]? = some q ↔ C.gates[i]? = some q := by
+  by_cases hji : j = i
+  · subst i
+    have hneq : g ≠ q := by
+      intro he
+      have hh := congrArg Gate.op he
+      rw [hg,hq] at hh
+      cases hh
+    have hold : C.gates[j]? ≠ some q := by
+      intro he
+      have hh : gateAt C j = q := by simp [gateAt,List.getD_eq_getElem?_getD,he]
+      rw [hh,hq] at hAnd
+      cases hAnd
+    have holdElem : C.gates[j] ≠ q := by
+      intro he
+      exact hold (by simp [hj,he])
+    simp [SharedRewrite.replace,hj,hneq,holdElem]
+  · simp [SharedRewrite.replace,hji]
+
+lemma pabc {n : ℕ} (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (hback : ∀ i ∈ g.inputs, i < n+j)
+    (heq : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = gateVal n C j x)
+    (T : Finset ℕ) (hA : PA C T) (hB : PB n C T) (hPC : PC n C T) :
+    PA (SharedRewrite.replace C j g) T ∧ PB n (SharedRewrite.replace C j g) T ∧
+      PC n (SharedRewrite.replace C j g) T := by
+  let D := SharedRewrite.replace C j g
+  have hget := or_get_iff C j hj hAnd g hg
+  have hw (x : Fin n → Bool) (w : ℕ) :
+      (D.wires (List.ofFn x)).getD w false = (C.wires (List.ofFn x)).getD w false :=
+    wire_value_eq C j hj g hback heq w x
+  have hf : circuitFun n D = circuitFun n C := funext (fun x => hw x C.output)
+  refine ⟨?_,?_,?_⟩
+  · intro i hi
+    obtain ⟨q,hq,hop⟩ := hA i hi
+    exact ⟨q,(hget i q hop).mpr hq,hop⟩
+  · intro i hi
+    rcases hB i hi with ho | ⟨k,hk,q,hq,hin⟩
+    · exact Or.inl ho
+    · obtain ⟨q',hq',hop⟩ := hA k hk
+      have hqq : q = q' := Option.some.inj (hq.symm.trans hq')
+      subst q'
+      exact Or.inr ⟨k,hk,q,(hget k q hop).mpr hq,hin⟩
+  · intro k q hq hop t ht hsat himp
+    apply hPC k q ((hget k q hop).mp hq) hop t ht
+    · obtain ⟨x,hx⟩ := hsat
+      exact ⟨x,(hw x t) ▸ hx⟩
+    · intro x hx
+      rw [← hf]
+      exact himp x ((hw x t).symm ▸ hx)
+
+lemma metrics_eq {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (g : Gate) (hg : g.op = (gateAt C j).op) (hback : ∀ i ∈ g.inputs, i < n+j)
+    (heq : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = gateVal n C j x) :
+    MonoNormalize.mass color (SharedRewrite.replace C j g) = MonoNormalize.mass color C ∧
+      junk G (SharedRewrite.replace C j g) = junk G C ∧
+      WireMass.mass G (SharedRewrite.replace C j g) = WireMass.mass G C := by
+  classical
+  let D := SharedRewrite.replace C j g
+  have hl : D.gates.length = C.gates.length := by simp [D,SharedRewrite.replace]
+  have hv (k : ℕ) (x : Fin n → Bool) : gateVal n D k x = gateVal n C k x :=
+    wire_value_eq C j hj g hback heq (n+k) x
+  have hop (k : ℕ) : (gateAt D k).op = (gateAt C k).op := by
+    rw [show gateAt D k = if j=k then g else gateAt C k from
+      SharedRewrite.replace_gateAt C j g hj k]
+    split_ifs with h
+    · subst k
+      exact hg
+    · rfl
+  have hc (x : Fin n → Bool) : (D.wires (List.ofFn x)).count true =
+      (C.wires (List.ofFn x)).count true := by
+    rw [WireProfile.wire_count,WireProfile.wire_count]
+    have hsets : WireProfile.trueGates D x = WireProfile.trueGates C x := by
+      ext k
+      rw [WireProfile.mem_trueGates,WireProfile.mem_trueGates,hl,hv]
+    rw [hsets]
+  refine ⟨?_,?_,?_⟩
+  · exact congrArg₂ (· + ·) (hc (MonoNormalize.input color false))
+      (hc (MonoNormalize.input color true))
+  · ext k
+    constructor
+    · intro hh
+      obtain ⟨hk,hkop,x,hx,hf⟩ := (JunkNormalize.mem_junk_iff G D k).mp hh
+      exact (JunkNormalize.mem_junk_iff G C k).mpr
+        ⟨by simpa only [hl] using hk,(hop k) ▸ hkop,x,(hv k x) ▸ hx,hf⟩
+    · intro hh
+      obtain ⟨hk,hkop,x,hx,hf⟩ := (JunkNormalize.mem_junk_iff G C k).mp hh
+      exact (JunkNormalize.mem_junk_iff G D k).mpr
+        ⟨by simpa only [hl] using hk,(hop k).symm ▸ hkop,x,(hv k x).symm ▸ hx,hf⟩
+  · unfold WireMass.mass
+    apply Finset.sum_congr rfl
+    intro x hx
+    exact hc x
+
+lemma normalized {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit)
+    (hC : NormalizedMono.IsNormalizedMonoLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (hAnd : (gateAt C j).op = GateOp.and)
+    (g : Gate) (hg : g.op = GateOp.and) (hlen : g.inputs.length = 2)
+    (hback : ∀ i ∈ g.inputs, i < n+j)
+    (heq : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = gateVal n C j x) :
+    NormalizedMono.IsNormalizedMonoLeastAO G color (SharedRewrite.replace C j g) ∧
+      (SharedRewrite.replace C j g).size = C.size ∧
+      circuitFun n (SharedRewrite.replace C j g) = circuitFun n C ∧
+      (∀ w x, wireVal n (SharedRewrite.replace C j g) w x = wireVal n C w x) ∧
+      MonoNormalize.mass color (SharedRewrite.replace C j g) = MonoNormalize.mass color C ∧
+      junk G (SharedRewrite.replace C j g) = junk G C ∧
+      WireMass.mass G (SharedRewrite.replace C j g) = WireMass.mass G C := by
+  let D := SharedRewrite.replace C j g
+  have hCL := hC.1.1.1
+  have hs := SharedRewrite.replace_size C j g
+  have hw := wire_value_eq C j hj g hback heq
+  have hf : circuitFun n D = circuitFun n C := funext (fun x => hw C.output x)
+  have hAO := SharedRewrite.replace_ao C hCL.1 j hj g (Or.inl hg) hlen hback
+  have hDL : IsLeastAO G D :=
+    ⟨hAO,hf.trans hCL.2.1,fun E hE hEF => hs.trans_le (hCL.2.2 E hE hEF)⟩
+  obtain ⟨hm,hjunc,hwire⟩ := metrics_eq G color C j hj g (hg.trans hAnd.symm) hback heq
+  have hSel : MonoNormalize.IsMonoJunkWireLeastAO G color D :=
+    MonoNormalize.of_competitor_le G color C hC.1 D hDL hm.le
+      (congrArg Finset.card hjunc).le hwire.le
+  obtain ⟨T,hA,hB,hPC,_⟩ := hC.2
+  obtain ⟨hA',hB',hPC'⟩ := pabc C j hj hAnd g hg hback heq T hA hB hPC
+  have hNorm : NormalizedMono.IsNormalizedMonoLeastAO G color D := by
+    exact ⟨hSel,T,hA',hB',hPC',NormalizerFixed.fixed_of_PABC G D T hAO hDL.2.1 hA' hB' hPC',
+      NormalizedTopForm.topForm_of_normalized_least G D T hDL hA' hB' hPC',
+      Normalization.noAndBelow_unconditional n G D hDL⟩
+  exact ⟨hNorm,hs,hf,hw,hm,hjunc,hwire⟩
+
+lemma raw_edge_normalized {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit)
+    (hC : NormalizedMono.IsNormalizedMonoLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (hAnd : (gateAt C j).op = GateOp.and)
+    (a v : Fin n) (heq : ∀ x : Fin n → Bool, gateVal n C j x = (x a && x v)) :
+    NormalizedMono.IsNormalizedMonoLeastAO G color
+      (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) ∧
+      (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩).size = C.size ∧
+      circuitFun n (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) = circuitFun n C ∧
+      (∀ w x, wireVal n (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) w x = wireVal n C w x) ∧
+      MonoNormalize.mass color (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) = MonoNormalize.mass color C ∧
+      junk G (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) = junk G C ∧
+      WireMass.mass G (SharedRewrite.replace C j ⟨GateOp.and,[a.val,v.val]⟩) = WireMass.mass G C := by
+  apply normalized G color C hC j hj hAnd ⟨GateOp.and,[a.val,v.val]⟩ rfl rfl
+  · intro i hi
+    simp only [List.mem_cons,List.not_mem_nil,or_false] at hi
+    rcases hi with rfl | rfl <;> omega
+  · intro x
+    rw [heq]
+    simp only [GateOp.eval,List.map_cons,List.map_nil,List.all_cons,List.all_nil,
+      id_eq,Bool.and_true]
+    rw [SharedRewrite.input_val,SharedRewrite.input_val]
+
+end PEqualNP.Outside.L_meta_3566.AndEquivalentReroute
+
+
+namespace PEqualNP.Outside.L_meta_3566.AndOrIn
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.CleanedNonEdge
+  PEqualNP.EdgeOwnership PEqualNP.MetaComplexity.NestedCover
+
+lemma orSets_and_replace (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and) :
+    orSets n (SharedRewrite.replace C j g) = orSets n C := by
+  let : DecidableEq GateOp := gateOpDecEq
+  obtain ⟨pre, post, old, hgs, hlen, htake, hdrop, helem⟩ := SharedRewrite.split_gates C.gates j hj
+  have hOld : old.op = GateOp.and := by
+    have he : gateAt C j = old := by
+      simp [gateAt, List.getD_eq_getElem?_getD, hj, helem]
+    simpa [he] using hAnd
+  unfold orSets SharedRewrite.replace
+  change (C.gates.set j g).foldl (orStep n) [] = C.gates.foldl (orStep n) []
+  rw [List.set_eq_take_cons_drop g hj, htake, hdrop, hgs,
+    List.foldl_append, List.foldl_append, List.foldl_cons, List.foldl_cons]
+  have hstep : orStep n (pre.foldl (orStep n) []) g =
+      orStep n (pre.foldl (orStep n) []) old := by simp [orStep, hg, hOld]
+  rw [hstep]
+
+lemma orIn_and_replace (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (w : ℕ) : orIn n (SharedRewrite.replace C j g) w = orIn n C w := by
+  let : DecidableEq GateOp := gateOpDecEq
+  have hsets := orSets_and_replace n C j hj hAnd g hg
+  have hlen : (SharedRewrite.replace C j g).gates.length = C.gates.length := by
+    simp [SharedRewrite.replace]
+  classical
+  unfold orIn
+  apply Finset.filter_congr
+  intro a _
+  simp only [OrReaches, hsets, hlen]
+  apply or_congr_right
+  constructor
+  · rintro ⟨k, hk, hreach, hop, hin⟩
+    by_cases he : j = k
+    · subst k
+      rw [SharedRewrite.replace_gateAt C j g hj j, ite_eq_left rfl, hg] at hop
+      cases hop
+    · rw [SharedRewrite.replace_gateAt C j g hj k, ite_eq_right he] at hop hin
+      exact ⟨k, hk, hreach, hop, hin⟩
+  · rintro ⟨k, hk, hreach, hop, hin⟩
+    have he : j ≠ k := by
+      intro he
+      subst k
+      rw [hAnd] at hop
+      cases hop
+    refine ⟨k, hk, hreach, ?_, ?_⟩
+    · simpa only [SharedRewrite.replace_gateAt C j g hj k, ite_eq_right he] using hop
+    · simpa only [SharedRewrite.replace_gateAt C j g hj k, ite_eq_right he] using hin
+
+lemma side_and_replace_of_ne {n : ℕ} (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (k : ℕ) (hne : j ≠ k) (b : Fin 2) :
+    side (n := n) (SharedRewrite.replace C j g) k b = side (n := n) C k b := by
+  let : DecidableEq GateOp := gateOpDecEq
+  unfold side opnd
+  rw [SharedRewrite.replace_gateAt C j g hj k, ite_eq_right hne]
+  exact orIn_and_replace n C j hj hAnd g hg _
+
+lemma tops_and_replace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (hval : ∀ k x, gateVal n (SharedRewrite.replace C j g) k x = gateVal n C k x) :
+    tops G (SharedRewrite.replace C j g) = tops G C := by
+  let : DecidableEq GateOp := gateOpDecEq
+  have hops (k : ℕ) : (gateAt (SharedRewrite.replace C j g) k).op = (gateAt C k).op := by
+    rw [SharedRewrite.replace_gateAt C j g hj k]
+    by_cases he : j = k
+    · subst k
+      simp [hg, hAnd]
+    · simp [he]
+  have hbelow (k : ℕ) : BelowF G (SharedRewrite.replace C j g) k ↔ BelowF G C k := by
+    unfold BelowF
+    simp only [hval]
+  unfold tops gatesWhere
+  have hlen : (SharedRewrite.replace C j g).gates.length = C.gates.length := by
+    simp [SharedRewrite.replace]
+  simp only [hlen]
+  apply Finset.filter_congr
+  intro k _
+  rw [hops, hbelow]
+
+lemma starEdges_and_replace_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (g : Gate) (hg : g.op = GateOp.and)
+    (hval : ∀ k x, gateVal n (SharedRewrite.replace C j g) k x = gateVal n C k x)
+    (hempty : side (n := n) C j 0 = ∅ ∨ side (n := n) C j 1 = ∅) :
+    starEdges G C ⊆ starEdges G (SharedRewrite.replace C j g) := by
+  let : DecidableEq GateOp := gateOpDecEq
+  classical
+  intro e he
+  obtain ⟨k, hk, he⟩ := Finset.mem_biUnion.mp he
+  have hne : j ≠ k := by
+    intro h
+    subst k
+    rcases hempty with h | h <;> simp [h] at he
+  apply Finset.mem_biUnion.mpr
+  refine ⟨k, ?_, ?_⟩
+  · rw [tops_and_replace G C j hj hAnd g hg hval]
+    exact hk
+  · simpa only [side_and_replace_of_ne C j hj hAnd g hg k hne] using he
+
+lemma orIn_input (n : ℕ) (C : Circuit) (a : Fin n) : orIn n C a.val = {a} := by
+  let : DecidableEq GateOp := gateOpDecEq
+  classical
+  have hn : ¬ n ≤ a.val := Nat.not_le_of_lt a.isLt
+  apply Finset.ext
+  intro b
+  change b ∈ Finset.univ.filter _ ↔ b ∈ ({a} : Finset (Fin n))
+  simp [Finset.mem_filter, OrReaches, hn, Fin.val_inj]
+
+lemma Ustar_raw_edge_strict {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hAnd : (gateAt C j).op = GateOp.and) (a b : Fin n)
+    (hval : ∀ k x, gateVal n (SharedRewrite.replace C j ⟨GateOp.and, [a.val,b.val]⟩) k x =
+      gateVal n C k x)
+    (htop : j ∈ tops G C)
+    (hempty : side (n := n) C j 0 = ∅ ∨ side (n := n) C j 1 = ∅)
+    (hunowned : s(a,b) ∈ Ustar G C) :
+    (Ustar G (SharedRewrite.replace C j ⟨GateOp.and, [a.val,b.val]⟩)).card < (Ustar G C).card := by
+  let : DecidableEq GateOp := gateOpDecEq
+  classical
+  let g : Gate := ⟨GateOp.and, [a.val,b.val]⟩
+  let D := SharedRewrite.replace C j g
+  have hstars : starEdges G C ⊆ starEdges G D :=
+    starEdges_and_replace_mono G C j hj hAnd g rfl hval hempty
+  have hsub : Ustar G D ⊆ Ustar G C := by
+    intro e he
+    obtain ⟨hG, hn⟩ := Finset.mem_sdiff.mp he
+    exact Finset.mem_sdiff.mpr ⟨hG, fun h => hn (hstars h)⟩
+  have hnewtop : j ∈ tops G D := by
+    rw [show tops G D = tops G C from tops_and_replace G C j hj hAnd g rfl hval]
+    exact htop
+  have hside0 : side (n := n) D j 0 = {a} := by
+    unfold side opnd D
+    rw [SharedRewrite.replace_gateAt C j g hj j, ite_eq_left rfl]
+    change orIn n D a.val = {a}
+    exact orIn_input n D a
+  have hside1 : side (n := n) D j 1 = {b} := by
+    unfold side opnd D
+    rw [SharedRewrite.replace_gateAt C j g hj j, ite_eq_left rfl]
+    change orIn n D b.val = {b}
+    exact orIn_input n D b
+  have hnew : s(a,b) ∈ starEdges G D := by
+    apply Finset.mem_biUnion.mpr
+    refine ⟨j, hnewtop, ?_⟩
+    rw [hside0, hside1]
+    simp
+  apply Finset.card_lt_card
+  apply Finset.ssubset_iff_subset_ne.mpr
+  refine ⟨hsub, ?_⟩
+  intro heq
+  have hmem : s(a,b) ∈ Ustar G D := by rw [heq]; exact hunowned
+  exact (Finset.mem_sdiff.mp hmem).2 hnew
+
+end PEqualNP.Outside.L_meta_3566.AndOrIn
+
+namespace PEqualNP.Outside.L_meta_3566.NormalizedUstar
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma raw_edge_not_unowned {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (hC : IsNormalizedMonoUstarLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (hAnd : (gateAt C j).op = GateOp.and)
+    (a b : Fin n) (heq : ∀ x : Fin n → Bool, gateVal n C j x = (x a && x b))
+    (htop : j ∈ tops G C)
+    (hempty : side (n := n) C j 0 = ∅ ∨ side (n := n) C j 1 = ∅) :
+    s(a,b) ∉ Ustar G C := by
+  intro hunowned
+  obtain ⟨hD, _, _, hw, _⟩ :=
+    AndEquivalentReroute.raw_edge_normalized G color C hC.1 j hj hAnd a b heq
+  have hlt := AndOrIn.Ustar_raw_edge_strict G C j hj hAnd a b
+    (fun k x => hw (n+k) x) htop hempty hunowned
+  exact (Nat.not_lt_of_ge (hC.2 _ hD)) hlt
+
+end PEqualNP.Outside.L_meta_3566.NormalizedUstar
