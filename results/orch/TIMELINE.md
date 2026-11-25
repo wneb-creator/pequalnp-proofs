@@ -17,3 +17,5 @@
 - 2026-11-25T07:13:13.638377+00:00: CoreAndCharge compiled and independent review passed; separate axiom audit of three new results lists only propext, Classical.choice, Quot.sound. Preserving immediately.
 
 - 2026-11-25T07:21:38.714308+00:00: CyclicCore positive example compiled with scoped finite limits; independent review and standard-axiom audit passed. Full target remains unproved.
+
+- 2026-11-25T07:37:58.791440+00:00: read-vector semantic support compiled and independently reviewed. Environment reconnect preserved files and running searches but reset tool session handles; saved logs remain authoritative for their documented scope.

@@ -1,0 +1,4 @@
+Command: lake env lean ../results/orch/lemmas/ReadVectorSupport.lean
+Exit status: 0
+Lean source lines: 764
+

@@ -1,0 +1,1 @@
+Lean compilation passed (exit 0), full stdout and stderr empty. Command: lake env lean /tmp/oec/pequalnp-pilot-71/single-core/WrapperVectors.lean, workdir lean. Imports: Mathlib and PEqualNP.Defs. This is generic append invariance and a pure count-vector Read1 obstruction for (F OR x) AND F; not the full L-meta-2962 statement.

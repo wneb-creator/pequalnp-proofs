@@ -14,3 +14,7 @@ Axiom audit: the named singleton/matching/core-AND components and strict-leaf/st
 CoreAndCharge.lean: 1017 lines, compiled with linter/deprecation warnings; no errors. Checked AND(U) >= mc+1 for nonempty maximal cores, plus two ANDs per core cone. Axiom audit of the three new core results passed; full output in axioms-core-and.txt. This remains a structural partial, not the posted target.
 
 CyclicCore.lean: 132 lines, compiled exit 0, all posted hypotheses verified for the C6 example, and target margin exactly 1. It is a positive example, not a refutation. Axiom audit lists only propext, Classical.choice, Quot.sound; full output in axioms-cyclic.txt.
+
+ReadVectorSupport.lean: 764 lines, original compilation exit 0. Generic pair-vector soundness and positive endpoint counts for graph-bounded wires. Independent review passed; audit output for pair_vec_sound and below_pair_vec_pos lists only the standard three axioms.
+
+WrapperVectors.lean: 680 lines, original compilation exit 0 with empty output; prefix invariance and repeated endpoint count for the absorption wrapper. Fresh post-reconnect axiom audit exited 0 and lists only the standard three axioms. This is wrapper machinery, not a full refutation.

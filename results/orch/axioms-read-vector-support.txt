@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2962_aux.ReadVectorSupport.pair_vec_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.ReadVectorSupport.below_pair_vec_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

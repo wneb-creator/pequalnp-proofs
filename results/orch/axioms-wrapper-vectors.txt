@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2962_aux.WrapperVectors.AV_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.WrapperVectors.or_and_vector_repeats' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
