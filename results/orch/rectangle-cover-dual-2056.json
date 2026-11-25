@@ -1,0 +1,27 @@
+{
+  "scope": "weighted rectangle-cover auxiliary model only; arbitrary OR sharing and multilevel circuits are not excluded",
+  "original_edges": 52,
+  "scaled_total_edge_weight": 260,
+  "required_total_rectangle_cost": 65,
+  "all_proper_rectangles": 22,
+  "saved_efficient_rectangles": 21,
+  "saved_catalog_subset": true,
+  "every_scaled_cost_bounds_edge_weight": true,
+  "all_profiles": [
+    {
+      "edges": 2,
+      "cost": 4,
+      "count": 1
+    },
+    {
+      "edges": 3,
+      "cost": 4,
+      "count": 20
+    },
+    {
+      "edges": 4,
+      "cost": 5,
+      "count": 1
+    }
+  ]
+}

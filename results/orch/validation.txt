@@ -177,3 +177,5 @@ TIMING total=130.91 subagents=6
 2026-11-25T16:35:11.733250+00:00 FullPlaneCover2056.lean: Lean exit0, independent final-byte review APPROVED, SHA256 1363bf8bd5ecc4593edf34daaf433f9d59033ebbff6da518562ec056a351d414,135lines. Nonempty nonincident sets total≤10/equality1+9 and proper mixed cover≥16; no unrestricted circuit conclusion.
 
 2026-11-25T16:49:08.714083+00:00 FullPlaneCover2056.lean extension: Lean exit0, independent final-byte review APPROVED, SHA256 36a295bcdc1049470b895bb62cf99b2089d8fccf42f75c2df91a4b3d8344c76e,349 lines. Adds small-side≤3 and exact posted tests imply full incidence-function equality for Monotone2 circuits. No63-gate existence conclusion.
+
+2026-11-25T16:50:36.153137+00:00 RectangleCover2056.lean: Lean exit0; final independent review APPROVED;35lines, SHA256 d583038d687907e440f6cb7b266fa703a1b92a5062929d1b6678f9f976a86b99. Generic5/4 dual-certificate theorem forces weighted-cover cost≥65. Independent enumeration confirms all22 allowed proper rectangles satisfy the hypothesis. Auxiliary rectangle-cover model only; no general circuit lower bound.
