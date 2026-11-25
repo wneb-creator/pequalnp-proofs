@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS (independent Python and symbolic-DNF audit; no Lean or solver)",
+  "inputs": {
+    "/tmp/oec/pequalnp-pilot-62/cap4-full-truth.json": "b737858e0c7758f13f7167b573e319c87167df33a11b3acff5172b732376b535",
+    "/tmp/oec/pequalnp-pilot-62/cap4-direct15-control.json": "7a66f81fadace2993f06076f113edbc4260fdb7a369eeb221f53bdf7c3541602",
+    "/tmp/oec/pequalnp-pilot-62/cap4-direct15-global51-control.json": "9ed66e2dc74416f4bec334f8e6566d80fb7cd864aca254a28258bb1bfb2d8adf",
+    "results/orch/marginal48-research/theta4-control-global51-masks.json": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44"
+  },
+  "vertices": [
+    0,
+    1,
+    2,
+    5,
+    13,
+    14,
+    15,
+    17,
+    18,
+    19,
+    22,
+    23,
+    24,
+    25
+  ],
+  "local_edges": 16,
+  "global_remaining_edges": 36,
+  "independently_enumerated_generic_rows": 468,
+  "distinct_projections": 222,
+  "maximal_projections": 83,
+  "local_full_assignment_checks": 16384,
+  "global_control_or_count": 51,
+  "global_boolean_sample_checks": 547,
+  "global_symbolic_minimal_terms_equal_exact52_incidence_edges": true,
+  "compiler_sample_order_and_all13520_input_bits_match_checked_data": true,
+  "conditional14OR_local_implies50OR_global": true,
+  "actual14OR_local_witness_exists": false
+}

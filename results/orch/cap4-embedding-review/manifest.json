@@ -1,0 +1,50 @@
+{
+  "Cap4GlobalControl.lean": {
+    "sha256": "fafe2961c00f16f125384a37b5469205fc19a123661da7209bf6ed75a9a83af3",
+    "bytes": 5200
+  },
+  "README.md": {
+    "sha256": "11159335e221380a04ab4ad2cddd3236eff6373beb1f65433233db6c980d10ed",
+    "bytes": 2827
+  },
+  "cap4-direct15-control.json": {
+    "sha256": "7a66f81fadace2993f06076f113edbc4260fdb7a369eeb221f53bdf7c3541602",
+    "bytes": 1315
+  },
+  "cap4-direct15-global51-control.json": {
+    "sha256": "9ed66e2dc74416f4bec334f8e6566d80fb7cd864aca254a28258bb1bfb2d8adf",
+    "bytes": 4720
+  },
+  "cap4-direct15-global51-masks.json": {
+    "sha256": "3119d16192ec50e70c5cf02963ae5218a7c8c2c93acf5ac45eeebc1976f2722b",
+    "bytes": 12314
+  },
+  "cap4-embedding-audit.py": {
+    "sha256": "70cecb80e61115dff72eef71384445a9add3b40f710b33ce45b75a2f90d915b7",
+    "bytes": 7019
+  },
+  "cap4-embedding-review.json": {
+    "sha256": "295f8320a90ec6a6f2ec5ab6900faf7c51752db902c668c8c83a8cce0fb48ce6",
+    "bytes": 1283
+  },
+  "cap4-embedding-review.log": {
+    "sha256": "295f8320a90ec6a6f2ec5ab6900faf7c51752db902c668c8c83a8cce0fb48ce6",
+    "bytes": 1283
+  },
+  "cap4-full-truth.json": {
+    "sha256": "b737858e0c7758f13f7167b573e319c87167df33a11b3acff5172b732376b535",
+    "bytes": 5816
+  },
+  "cap4_full_data.py": {
+    "sha256": "67b84b5754d824a843a4ba76236954782a6fb18e8fcf3da7f843f3af16eb5fa6",
+    "bytes": 4144
+  },
+  "embed_cap4_separator.py": {
+    "sha256": "2d1c15e4b78321e51f527544231260ed7c5463c1d6f1f765dcd27f66c7f085ed",
+    "bytes": 3071
+  },
+  "fixed-compiler-samples.json": {
+    "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+    "bytes": 12472
+  }
+}

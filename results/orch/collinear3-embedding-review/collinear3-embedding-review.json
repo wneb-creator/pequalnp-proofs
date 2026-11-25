@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS (independent Python and symbolic-DNF audit; no Lean or solver)",
+  "inputs": {
+    "/tmp/oec/pequalnp-pilot-62/collinear3-full-truth.json": "2e835c4b00037c897bca2f309b2d3852e820d5d454a730fac4a6c670742302ec",
+    "/tmp/oec/pequalnp-pilot-62/collinear3-direct11-control.json": "c29f01973c20f62b54560ae26f33a0a8dbcab9acacc460b28b36815c07a175f2",
+    "/tmp/oec/pequalnp-pilot-62/collinear3-direct11-global51-control.json": "1f02da8093ec0a77ce1e98fd2b835aece93667b2ff0bfbc9ddf62cc001fd756c",
+    "results/orch/marginal48-research/theta4-control-global51-masks.json": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44"
+  },
+  "vertices": [
+    0,
+    1,
+    3,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    23,
+    24,
+    25
+  ],
+  "local_edges": 12,
+  "global_remaining_edges": 40,
+  "independently_enumerated_generic_rows": 468,
+  "distinct_projections": 225,
+  "maximal_projections": 81,
+  "local_full_assignment_checks": 8192,
+  "global_control_or_count": 51,
+  "global_boolean_sample_checks": 547,
+  "global_symbolic_minimal_terms_equal_exact52_incidence_edges": true,
+  "compiler_sample_order_and_all13520_input_bits_match_checked_data": true,
+  "conditional10OR_local_implies50OR_global": true,
+  "actual10OR_local_witness_exists": false
+}

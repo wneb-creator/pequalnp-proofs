@@ -1,0 +1,9 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "--seed=0",
+  "-t",
+  "60",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/cap4-separator15-control-run.sol",
+  "/tmp/oec/pequalnp-pilot-62/cap4-separator15-control.cnf"
+]

@@ -1,0 +1,1 @@
+{"or_count": 51, "local_or_count": 15, "local_full_assignment_checks": 16384, "checked_positive_samples": 52, "checked_generic_negatives": 468, "checked_singleton_negatives": 26, "checked_empty_negative": true, "is_global_counterexample_candidate": false}

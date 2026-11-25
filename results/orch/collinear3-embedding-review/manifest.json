@@ -1,0 +1,42 @@
+{
+  "README.md": {
+    "sha256": "78f2e512a6ba9e29e926dba63794a2e9d39db44c3d6e9268d250eea2c46728cb",
+    "bytes": 1702
+  },
+  "collinear3-direct11-control.json": {
+    "sha256": "c29f01973c20f62b54560ae26f33a0a8dbcab9acacc460b28b36815c07a175f2",
+    "bytes": 1007
+  },
+  "collinear3-direct11-global51-control.json": {
+    "sha256": "1f02da8093ec0a77ce1e98fd2b835aece93667b2ff0bfbc9ddf62cc001fd756c",
+    "bytes": 4718
+  },
+  "collinear3-direct11-global51-masks.json": {
+    "sha256": "cff8dc74d0e3c2f15d45b66084804a794d242d7d8e30390c62b6e1702bfa0e4f",
+    "bytes": 12310
+  },
+  "collinear3-embedding-audit.py": {
+    "sha256": "41570ef8d7e0c4f37ff92fe8f11892b8134a78bd35683ae85f7903d279ef69a5",
+    "bytes": 7000
+  },
+  "collinear3-embedding-review.json": {
+    "sha256": "a3e32a5f17ed6667ee00ccd7a7cbfef00af817b0625fcf34163c98a10de69d00",
+    "bytes": 1293
+  },
+  "collinear3-embedding-review.log": {
+    "sha256": "a3e32a5f17ed6667ee00ccd7a7cbfef00af817b0625fcf34163c98a10de69d00",
+    "bytes": 1293
+  },
+  "collinear3-full-truth.json": {
+    "sha256": "2e835c4b00037c897bca2f309b2d3852e820d5d454a730fac4a6c670742302ec",
+    "bytes": 5606
+  },
+  "embed_local_separator.py": {
+    "sha256": "33dca4402a0bb6ae04027c6e25ea184d74594f61af9ddfd1c7b1e4f2b80aff95",
+    "bytes": 3211
+  },
+  "fixed-compiler-samples.json": {
+    "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+    "bytes": 12472
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS computational model and embedding audit; no solver or Lean run",
+  "scope": "Projected-row separator with16 forced incidence positives and83 maximal projections of all468 original negatives;22 cubic minterms allowed. A14-OR witness embeds with36 joins to a50-OR global candidate; any candidate still needs full independent replay and Lean checking.",
+  "checks": {
+    "global_rows_independently_regenerated": 468,
+    "distinct_local_projections": 222,
+    "negative_maxima": 83,
+    "all_vertex_actions": 24,
+    "incomparable_initial_pairs": 297,
+    "disjoint_complete_orbits": 22,
+    "local_control_assignments": 16384,
+    "global_control_samples": 547,
+    "adapter_exact_line_replacements": 4
+  },
+  "cnfs": [
+    {
+      "stem": "cap4-separator14",
+      "variables": 71825,
+      "clauses": 260419,
+      "sha256": "aa42bee42a80a2fbc4d3a6242bf9a8b9b5cb941f2d3d8e5bf444e3014b0d0f3f"
+    },
+    {
+      "stem": "cap4-separator15-control",
+      "variables": 78449,
+      "clauses": 285043,
+      "sha256": "c0c1bedc5783326e208ac97d2d199a9f017c9187212367ee2e615adfc2a886d3"
+    }
+  ],
+  "files": {
+    "cap4_full_data.py": "67b84b5754d824a843a4ba76236954782a6fb18e8fcf3da7f843f3af16eb5fa6",
+    "cap4-full-truth.json": "b737858e0c7758f13f7167b573e319c87167df33a11b3acff5172b732376b535",
+    "cap4-full-first-or-symmetry.json": "a9c415813b39f215eab747386a34f18d9b431b219dc611bca8352f2e99f92276",
+    "cap4-full-data-summary.json": "692112afc1e2cb5c6ce2b50e44d92bcdc1ff08f300d7d49eae32af215c03a823",
+    "cap4_separator_cnf.py": "3df4003e4d5a12da6fa1d172c543408d16bf629ea295daca7b398dfd9ad4c743",
+    "embed_cap4_separator.py": "2d1c15e4b78321e51f527544231260ed7c5463c1d6f1f765dcd27f66c7f085ed",
+    "cap4-direct15-control.json": "7a66f81fadace2993f06076f113edbc4260fdb7a369eeb221f53bdf7c3541602",
+    "cap4-direct15-global51-control.json": "9ed66e2dc74416f4bec334f8e6566d80fb7cd864aca254a28258bb1bfb2d8adf"
+  },
+  "embedding_argument": "Local output rejects every global row projection by monotonicity below83 maxima. Add each of36 missing global edge conjunctions by one OR. Each added term is false on every generic negative and accepts its missing positive; local16 positives are retained. Backward references and gate count k+36 are preserved."
+}

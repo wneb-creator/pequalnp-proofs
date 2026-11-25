@@ -1,0 +1,307 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS preservation of completed computational controls and source-only prepared certificate",
+  "scope": "Batch0644 has validated15-OR cap4 SAT control and prepared14-OR input, no live14-OR result. Both portable embedding packages independently verified, baseline51 only. Cap4GlobalControl.lean remains UNCOMPILED; no posted51 proof,50 witness, or official checker acceptance claimed.",
+  "checks": {
+    "batch_archived_hashes": 33,
+    "batch_original_hashes": 31,
+    "solver_control_local_assignments": 16384,
+    "solver_control_global_samples": 547,
+    "portable_packages": 2,
+    "all_portable_masks_and_symbolic52_edge_functions_independently_recomputed": true,
+    "prepared_lean_refs_and_mask_literals_match_control": true,
+    "no_live_solver_logs_included": true
+  },
+  "files": [
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/ORIGINAL-FILES.json",
+      "sha256": "645e57fdba81ba2bb0f2e795b97d8f883fb8b0395250cb7ae85af9ac2fd1e6d6",
+      "bytes": 7343
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/README.md",
+      "sha256": "4c21fdda85b32bcd133668564a7f9b5b7184577b564e9797aa01243e4bbd32b2",
+      "bytes": 1685
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/SHA256SUMS",
+      "sha256": "9ea53d578abe5248602dd38afd28822c2b233ce18ec2141ca239fc1dba33d8f2",
+      "bytes": 3188
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-direct15-control.json",
+      "sha256": "7a66f81fadace2993f06076f113edbc4260fdb7a369eeb221f53bdf7c3541602",
+      "bytes": 1315
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-direct15-global51-control.json",
+      "sha256": "9ed66e2dc74416f4bec334f8e6566d80fb7cd864aca254a28258bb1bfb2d8adf",
+      "bytes": 4720
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-direct15-global51-control.log",
+      "sha256": "22022a2ab57cd10a16ab6daee4403362fe80447a0b76e81177bce5548f5b8170",
+      "bytes": 256
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-full-data-summary.json",
+      "sha256": "692112afc1e2cb5c6ce2b50e44d92bcdc1ff08f300d7d49eae32af215c03a823",
+      "bytes": 635
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-full-data.log",
+      "sha256": "cc247e0c35d8f438059ccfec1b303010ed0a5e5f16b14c8e5ef1518f25fe15f0",
+      "bytes": 485
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-full-first-or-symmetry.json",
+      "sha256": "a9c415813b39f215eab747386a34f18d9b431b219dc611bca8352f2e99f92276",
+      "bytes": 7006
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-full-truth.json",
+      "sha256": "b737858e0c7758f13f7167b573e319c87167df33a11b3acff5172b732376b535",
+      "bytes": 5816
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-generation-commands.json",
+      "sha256": "5e12de1c8681738bb51162195f2f44802e1588f28ba9f3fddf54c766fbcb4e2d",
+      "bytes": 991
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-independent-audit.json",
+      "sha256": "240e70c1272c88b2c12bbb727e1a468cfe83dd3d165947ce27a06eaf0d361bf9",
+      "bytes": 2306
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-independent-audit.log",
+      "sha256": "240e70c1272c88b2c12bbb727e1a468cfe83dd3d165947ce27a06eaf0d361bf9",
+      "bytes": 2306
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator14.cnf.gz",
+      "sha256": "6305eb2e7033e98eb0ebce7ed274fc96ce35ea487cbe861e9d81c22d7c9e40de",
+      "bytes": 1086572
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator14.encode.log",
+      "sha256": "5d79cac93ea51f96e0e2fffd3ba798e48226cf74bb83905f0a15a5139d34e26c",
+      "bytes": 301
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator14.mapping.json",
+      "sha256": "e5dc3d52585dff699ef9dc813417f63e6e0e11a7f6357566700abc73c1a6077c",
+      "bytes": 9113
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.command.json",
+      "sha256": "9e49217a15835a60903acf7e43fb570561388b170349812ff7dc3f547d659afe",
+      "bytes": 255
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.embedding.log",
+      "sha256": "22022a2ab57cd10a16ab6daee4403362fe80447a0b76e81177bce5548f5b8170",
+      "bytes": 256
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.global51.json",
+      "sha256": "55779b133c050762c79f92ecdabdca67fcc7a76f4d69340da5e0e6b1caea6d61",
+      "bytes": 4768
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.log",
+      "sha256": "a14aad0379664a0fb5e8a3bc12c3ca018fed9a3e24596b4be51a7b4deab1db73",
+      "bytes": 530
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.process.json",
+      "sha256": "5952858e9ea6ef724f56e5149b71ef8ac022e55f4360d7804610c4d529342678",
+      "bytes": 744
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.sol.gz",
+      "sha256": "0bba9ce41128137b41f184adf2302b19924ca83f9aabb65365c41f7c38e77343",
+      "bytes": 193584
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.solver.log",
+      "sha256": "4b982f6da90e45a440288f5f6420d601566b0ff8cad556e9504af65481335fa9",
+      "bytes": 3026
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.status.json",
+      "sha256": "670fd6ef4ab0c2095e342a3d646f64023e2486d362db229836a8da6f75c04167",
+      "bytes": 414
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control-run.witness.json",
+      "sha256": "12e2f7b04d1cf471879d69466f6669e9b51b08f91ebc22ad679d9491baec14dd",
+      "bytes": 1954
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control.cnf.gz",
+      "sha256": "4ac347915a40c1aca8b3d3b24090e03ded3cc653791a1cb8207151c0ec83e9ed",
+      "bytes": 1193166
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control.encode.log",
+      "sha256": "91f357b51fa85ef155bbaa075e551cb181ed159351d20dc245c4e62a74a9599f",
+      "bytes": 300
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4-separator15-control.mapping.json",
+      "sha256": "c7654b1d844bdca490087eb1fadd3dc023660779c3249c5a60973d387e1ff3c8",
+      "bytes": 9552
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4_full_data.py",
+      "sha256": "67b84b5754d824a843a4ba76236954782a6fb18e8fcf3da7f843f3af16eb5fa6",
+      "bytes": 4144
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/cap4_separator_cnf.py",
+      "sha256": "3df4003e4d5a12da6fa1d172c543408d16bf629ea295daca7b398dfd9ad4c743",
+      "bytes": 11034
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/embed_cap4_separator.py",
+      "sha256": "2d1c15e4b78321e51f527544231260ed7c5463c1d6f1f765dcd27f66c7f085ed",
+      "bytes": 3071
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/ordering-swap-proof.md",
+      "sha256": "688de5fd008bb5426d162bc1d61620eec6570d550a152158537f78358397ec65",
+      "bytes": 2338
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0644Z/repo_audit_cap4.py",
+      "sha256": "afaf100e43b9ad26c5d9f331cbbbc4f6f8c3bff06ad64490268ebfbadb467954",
+      "bytes": 9142
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/Cap4GlobalControl.lean",
+      "sha256": "fafe2961c00f16f125384a37b5469205fc19a123661da7209bf6ed75a9a83af3",
+      "bytes": 5200
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/README.md",
+      "sha256": "11159335e221380a04ab4ad2cddd3236eff6373beb1f65433233db6c980d10ed",
+      "bytes": 2827
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-direct15-control.json",
+      "sha256": "7a66f81fadace2993f06076f113edbc4260fdb7a369eeb221f53bdf7c3541602",
+      "bytes": 1315
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-direct15-global51-control.json",
+      "sha256": "9ed66e2dc74416f4bec334f8e6566d80fb7cd864aca254a28258bb1bfb2d8adf",
+      "bytes": 4720
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-direct15-global51-masks.json",
+      "sha256": "3119d16192ec50e70c5cf02963ae5218a7c8c2c93acf5ac45eeebc1976f2722b",
+      "bytes": 12314
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-embedding-audit.py",
+      "sha256": "70cecb80e61115dff72eef71384445a9add3b40f710b33ce45b75a2f90d915b7",
+      "bytes": 7019
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-embedding-review.json",
+      "sha256": "295f8320a90ec6a6f2ec5ab6900faf7c51752db902c668c8c83a8cce0fb48ce6",
+      "bytes": 1283
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-embedding-review.log",
+      "sha256": "295f8320a90ec6a6f2ec5ab6900faf7c51752db902c668c8c83a8cce0fb48ce6",
+      "bytes": 1283
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4-full-truth.json",
+      "sha256": "b737858e0c7758f13f7167b573e319c87167df33a11b3acff5172b732376b535",
+      "bytes": 5816
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/cap4_full_data.py",
+      "sha256": "67b84b5754d824a843a4ba76236954782a6fb18e8fcf3da7f843f3af16eb5fa6",
+      "bytes": 4144
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/embed_cap4_separator.py",
+      "sha256": "2d1c15e4b78321e51f527544231260ed7c5463c1d6f1f765dcd27f66c7f085ed",
+      "bytes": 3071
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/fixed-compiler-samples.json",
+      "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+      "bytes": 12472
+    },
+    {
+      "path": "results/orch/cap4-embedding-review/manifest.json",
+      "sha256": "4a35fdfb5c034ad74e5eccadae0297edc9053111e9c495bbd2ea9992e895c97d",
+      "bytes": 1647
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/README.md",
+      "sha256": "78f2e512a6ba9e29e926dba63794a2e9d39db44c3d6e9268d250eea2c46728cb",
+      "bytes": 1702
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-direct11-control.json",
+      "sha256": "c29f01973c20f62b54560ae26f33a0a8dbcab9acacc460b28b36815c07a175f2",
+      "bytes": 1007
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-direct11-global51-control.json",
+      "sha256": "1f02da8093ec0a77ce1e98fd2b835aece93667b2ff0bfbc9ddf62cc001fd756c",
+      "bytes": 4718
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-direct11-global51-masks.json",
+      "sha256": "cff8dc74d0e3c2f15d45b66084804a794d242d7d8e30390c62b6e1702bfa0e4f",
+      "bytes": 12310
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-embedding-audit.py",
+      "sha256": "41570ef8d7e0c4f37ff92fe8f11892b8134a78bd35683ae85f7903d279ef69a5",
+      "bytes": 7000
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-embedding-review.json",
+      "sha256": "a3e32a5f17ed6667ee00ccd7a7cbfef00af817b0625fcf34163c98a10de69d00",
+      "bytes": 1293
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-embedding-review.log",
+      "sha256": "a3e32a5f17ed6667ee00ccd7a7cbfef00af817b0625fcf34163c98a10de69d00",
+      "bytes": 1293
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/collinear3-full-truth.json",
+      "sha256": "2e835c4b00037c897bca2f309b2d3852e820d5d454a730fac4a6c670742302ec",
+      "bytes": 5606
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/embed_local_separator.py",
+      "sha256": "33dca4402a0bb6ae04027c6e25ea184d74594f61af9ddfd1c7b1e4f2b80aff95",
+      "bytes": 3211
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/fixed-compiler-samples.json",
+      "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+      "bytes": 12472
+    },
+    {
+      "path": "results/orch/collinear3-embedding-review/manifest.json",
+      "sha256": "c9525d25031776209343061e511cab355a4dfb1c29ba77edd5952b4ede0c6cc1",
+      "bytes": 1425
+    }
+  ]
+}

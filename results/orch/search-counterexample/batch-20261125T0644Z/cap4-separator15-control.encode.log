@@ -1,0 +1,1 @@
+{"scenario": "cap4", "input_count": 14, "positive_count": 16, "negative_count": 83, "or_count": 15, "first_OR_orbits": 22, "false_OR_bounds": [3, 6, 8, 9], "cover_prefix": 12, "cover_row_count": 83, "variables": 78449, "clauses": 285043, "encoding_seconds": 0.5418059219991846, "max_rss_KiB": 13568}
