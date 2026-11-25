@@ -1,0 +1,3 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/ReadTwiceCollapse.lean:67:16: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

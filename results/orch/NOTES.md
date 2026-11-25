@@ -118,3 +118,21 @@ All 360 choices of three singleton vertices S and earliest v in S have an indepe
 Enumerated all 996 distinct Boolean functions obtainable with at most two binary gates from x0,...,x9,!x0 excluding the singleton v. For adjacent v=1, the only nonconstant AND-mate satisfying sensitivity is x0 OR x2 OR x6. The four OR-mates not globally below F are x3*x5*x9, x3*x9*!x0, x4*x7*x8, and x7*x8*!x0. For nonadjacent v=2, AND-mates are x1 OR x3 OR x7 and !x0 OR x3 OR x7; nonabsorbed OR-mates are x0*x8*x9 and x4*x5*x6. Full truth-table enumeration is Python-checked, not Lean-checked. Script: lemmas/semantic_two_gate.py.
 
 The 900-second pruned singleton-v2 exact-one-initial-NOT SAT run ended UNKNOWN. It never produced a candidate; all slices retained 50 rows and 189091 clauses. Final CNF remains in scratch for continuation. The companion-v1 search remains active until about 14:41 UTC.
+
+### Independent counterexample-search audit (2026-11-25 14:37:33 UTC)
+
+PASS for the stated experimental scope; all 43 near-candidates independently re-evaluated on all1024 inputs, all40 seeds checked, spurious SAT models confirmed, restricted search caveats checked. See SEARCH_AUDIT.md and logs/semantic-search-audit.log. No unrestricted UNSAT or counterexample claim.
+
+2026-11-25 14:36 UTC — existing_reductions: SharedSecondReader.lean (146 lines) compiles and is frozen, SHA256 7cb66f0f5909f4c671be16770b20edb2ef89d3ac43f3db405f1b137612712484. It proves the full shared-second-reader obstruction with arbitrary intervening gates: two binary gates each charged to both origins u/v, exhausting cost<=2 each, cannot compute Petersen when each output is a two-variable code and the first code has a three-point fiber. All signed AND/OR codes have such a fiber; second code may be arbitrary. Parent assigned independent review.
+
+2026-11-25 14:38 UTC — existing_reductions independently reviewed and rebuilt ReadTwiceIncidence.lean (55 lines, SHA256 440d6cfaf3a30582ce64ece9cb4d0bd5042c50036d204bfaafedbff309169794): PASS. Four declarations use standard axioms only. Complete log read-twice-incidence-independent-axioms.log. Its primary-slot and singleton conclusions retain explicit combinatorial hypotheses, with no unproved circuit specialization.
+
+Certificate search: present L5236/6581/8001/8959/7881/8037/7332/6330 all share signed root budget14, yielding Petersen-minus-vertex >=15 binary gates. L7306/L7794 are attribution-only references, absent from current Outside filenames. L6581 additionally establishes full Petersen>=16, not18. No available signed-root budget15+ or nineFloor16+ match was found.
+
+### 2026-11-25 14:43 UTC — lower_bound: stronger deletion certificate
+Root found L_meta_5236.nineFloor. Direct inspection confirms its `edge` at lines753–756 is exactly Petersen minus vertex9, using the same nine-input order as our restriction transfer. `raw_signed` + `orbitAllInputs` + `rootSImpossible` therefore proves every circuit for this deletion has at least15 non-NOT gates (NOT free). No Extended projection or bit permutation is needed. New owned files DeletionFifteen.lean, BinarySeventeen.lean, SeventeenCorollaries.lean are prepared pending root build ofL5236. StrictCutFloor.lean151lines has compiled and been preserved: any origin withcutCost≥2 plus an annihilated binary gate underfalse forces≥17 witholdfloor14. FirstSigns.lean adapts this to≥18 withnewfloor15; hypothetical17binary firstgate must be positiveOR or double-negativeAND.
+Timestamp correction: the preceding entry was written at14:39UTC, not14:43UTC.
+
+### Final semantic-audit search status (2026-11-25 14:41:24 UTC)
+
+Both 900-second pruned singleton cases completed UNKNOWN, no candidate. All owned solver processes have finished. Reproduction commands and scope are in SAT_SEARCH.md. Independently reviewed counterexample agent star-sums experiment, verified all40 seed classifications and both positive controls on all128 rows/all6 outputs/all52881 clauses: PASS for restricted family, not a Petersen proof. See supplemental SEARCH_AUDIT.md and logs/semantic-star-sums-audit.log.

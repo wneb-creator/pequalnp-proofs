@@ -1,0 +1,72 @@
+[
+  {
+    "source": "lean/PEqualNP/Outside/L_meta_7493.lean",
+    "sha256": "b329b17b680ffa2f67c89212761554f195158b36708f9d75ccd084343059740e",
+    "bytes": 209706
+  },
+  {
+    "source": "lean/PEqualNP/Outside/L_meta_5236.lean",
+    "sha256": "9239dd5520f83ee4efe631960a625e87c6a7db63f44574a8858b80131a381906",
+    "bytes": 285226
+  },
+  {
+    "source": "results/orch/lemmas/Restriction.lean",
+    "sha256": "6981b6dd252ad9205568e4972ff934dff07f68cd84b75e48da53c8d12ef81110",
+    "bytes": 30306
+  },
+  {
+    "source": "results/orch/lemmas/PairCode.lean",
+    "sha256": "bc78ab13849d05f740c9344b565aaf81e8887cdd865b35aa8a10fea72eced879",
+    "bytes": 4381
+  },
+  {
+    "source": "results/orch/lemmas/FirstMerge.lean",
+    "sha256": "ffc120cc86a34a55220c0241c80dd82e81e5d30e57d986d2b6a9fe5a9842641a",
+    "bytes": 5288
+  },
+  {
+    "source": "results/orch/lemmas/CutCost.lean",
+    "sha256": "931ecbcf068e32c93f3d51792a1d15020d4b6288cc3fe000c59f0f6cc5be7fee",
+    "bytes": 2123
+  },
+  {
+    "source": "results/orch/lemmas/FirstOrigin.lean",
+    "sha256": "10d89fdd4433540caca0bf453c58f052175f01825b07c3a7a862c769153583b6",
+    "bytes": 4276
+  },
+  {
+    "source": "results/orch/lemmas/Compression.lean",
+    "sha256": "e386c1ab2147e1aec34cf900203d10b3bde93372e82281d4337ca0d36c989430",
+    "bytes": 4597
+  },
+  {
+    "source": "results/orch/lemmas/FirstBinary.lean",
+    "sha256": "a7494d97a2ef6a676e0ac87f3c0065d27caa9f9593ee8aeb09fc9a4fc35aba8e",
+    "bytes": 16202
+  },
+  {
+    "source": "results/orch/lemmas/CutFloor.lean",
+    "sha256": "6a902407e343859218894b19a83888a3f6b8cefa1a35e506106c75cd956ec683",
+    "bytes": 3146
+  },
+  {
+    "source": "results/orch/lemmas/BinarySixteen.lean",
+    "sha256": "8141db5513c98759c15b8024fc017280d00dedd6ef83a2484a5cce03e6e97312",
+    "bytes": 2647
+  },
+  {
+    "source": "results/orch/lemmas/DeletionFifteen.lean",
+    "sha256": "e490e5b9a63122225299d301cfd84d648ffd7d870236745bb03d90928da18848",
+    "bytes": 2354
+  },
+  {
+    "source": "results/orch/lemmas/BinarySeventeen.lean",
+    "sha256": "c77093e886aaee3e6dcc88459b4ef32712997ebf1e5c6dfee2cb199942cfc102",
+    "bytes": 1596
+  },
+  {
+    "source": "results/orch/lemmas/SeventeenCorollaries.lean",
+    "sha256": "8ff8069f21d1ab1cfc6239530f7d8263645ae50de02ae6137b8e734fe543c2d2",
+    "bytes": 1893
+  }
+]

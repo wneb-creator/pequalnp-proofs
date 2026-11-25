@@ -22,3 +22,10 @@ command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SemanticFa
 
 SAT checkpoint 2026-11-25T14:24:54.299102+00:00
 187-row first-NOT batch: UNKNOWN after240seconds. Incremental first-NOT with<=4NOT: UNKNOWN after1200seconds. Incremental exactly1NOT first-input: UNKNOWN after1200seconds. Exactly1NOT plus neighbor single-use input: UNKNOWN after600seconds. No SAT model found in these runs. Fullstdout/stderr logs copied under results/orch/logs. All four cases impose exactly19 nonpadding normalized gates, and do not establish a lower bound. The OR-nonedge batch log was overwritten by a duplicate run; no verdict from that run is claimed.
+
+[2026-11-25 14:34:36 UTC] Pruned singleton nonneighbor exact-one-NOT search: UNKNOWN after 900 seconds. Full stdout/stderr: results/orch/logs/sat-incremental-single2-pruned.log. No mathematical conclusion from solver termination.
+Cheap projection and two-binary-mate enumeration completed with Python assertions. These computations are research evidence, not Lean-checked theorems. Full records: semantic-projection.json and semantic-two-gate.json.
+
+[2026-11-25 14:41:24 UTC] Pruned singleton neighbor exact-one-NOT search: UNKNOWN after 900 seconds. Complete stdout/stderr: results/orch/logs/sat-incremental-single1-pruned.log. No candidate produced; no mathematical conclusion from UNKNOWN. All semantic-audit solver processes finished.
+
+Preservation correction: the complete batch child-solver stdout/stderr is additionally copied to logs/sat-not-0.log, alongside its UNKNOWN status and summary. Earlier logs/sat-not-run.log contains the driver stream only.

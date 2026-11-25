@@ -1,0 +1,9 @@
+Semantic preservation review 2026-11-25 14:43:02 UTC
+Verdict: PASS for preservation as research observations and partial validation records.
+Independently recomputed all360 projection records from direct target truth tables.
+Independently enumerated all two-gate mate functions and checked every saved function count and exceptional truth table.
+All SAT runs are explicitly UNKNOWN; exact-size and NOT-preserving normalization limitations are stated.
+Complete batch child-solver diagnostics were added as sat-not-0.log, alongside status and summary. Native solver logs already contain complete quiet-driver output.
+No credential-shaped material found in these19 selected files; no credential store or environment inspected.
+The19 listed artifacts plus this review are frozen. Shared NOTES.md and TIMELINE.md are deliberately excluded because agents continue appending.
+The existing tracked SAT source drivers are unchanged and hashed in SEARCH_AUDIT.md.

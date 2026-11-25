@@ -34,3 +34,9 @@ Full audit stdout/stderr is preserved as `logs/semantic-search-audit.log`. This 
 - `76a9fb03bd9cd00deb4af5c070ac00945cc1e66d03c202e4ed7418858220d43f` `results/orch/lemmas/sat_cegar.py`
 - `0bb88df90a268637b3770a02135aa14c78fab5b4f2e04c097d68cfac9b4f2654` `results/orch/lemmas/sat_incremental.cpp`
 - `26fcc3fff9bab6324c429f026844fb44255791bf314052561b4236c01bbbcfda` `results/orch/lemmas/sat_validate.py`
+
+## Supplemental star-sums audit (2026-11-25 14:41:24 UTC)
+
+Reviewed frozen scratch source `counterexample/search_star_sums.py`, SHA256 `591a7f6e233b5dd36c26b0511f258132ad7e4bf45934eb66528208c5db6188c8`. Independently reconstructed all 40 seed cores: 20 triangle and 20 star families, each with 9 OR gates computing 6 distinct OR functions. Independently decoded both 9-gate positive controls and checked all 128 rows, all 6 outputs, and all 52,881 CNF clauses. Both controls contain no NOT. The two padded 8-gate status files report UNSAT; no Lean certificate was checked.
+
+Encoding review confirms ordinary AND/OR gates with distinct earlier sources, unary NOT, one-hot operation/source/output selectors, exact truth values on all128 inputs, and 1 through3 NOTs. Padded runs allow unused gates, so ordinary smaller circuits in this same class can be extended to8 gates without changing outputs or NOT count. Constants, malformed references, and a proof of complete normalization from the posted Circuit type are outside this experimental claim. Distinct output-wire selectors impose no semantic restriction because the six target functions differ. Verdict PASS for this restricted computational experiment. Complete independent audit output is `logs/semantic-star-sums-audit.log`.

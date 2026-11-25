@@ -1,0 +1,4 @@
+{"vertex": 1, "outer": "AND", "distinct_functions": 996, "passing": 2, "nonconstant": 1, "nonabsorbed_count": 1, "nonabsorbed_examples": ["((x0 OR x2) OR x6)"]}
+{"vertex": 1, "outer": "OR", "distinct_functions": 996, "passing": 111, "nonconstant": 110, "nonabsorbed_count": 4, "nonabsorbed_examples": ["((x3 AND x5) AND x9)", "((x3 AND x9) AND !x0)", "((x4 AND x7) AND x8)", "((x7 AND x8) AND !x0)"]}
+{"vertex": 2, "outer": "AND", "distinct_functions": 996, "passing": 3, "nonconstant": 2, "nonabsorbed_count": 2, "nonabsorbed_examples": ["((x1 OR x3) OR x7)", "((x3 OR x7) OR !x0)"]}
+{"vertex": 2, "outer": "OR", "distinct_functions": 996, "passing": 108, "nonconstant": 107, "nonabsorbed_count": 2, "nonabsorbed_examples": ["((x0 AND x8) AND x9)", "((x4 AND x5) AND x6)"]}

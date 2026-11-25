@@ -1,0 +1,3 @@
+cases 360 counts by induced degree {1: 180, 2: 30, 0: 150}
+No projected sensitivity region covers all independent outside assignments.
+Minimum missing independent witness size equals induced singleton degree (0,1,2) in every case.

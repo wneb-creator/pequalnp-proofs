@@ -1,0 +1,4 @@
+PASS: independently reconstructed all40 seed cores; exactly20 triangle and20 star families; every core has9 binary OR gates and6 distinct outputs.
+PASS: triangle positive9 model verified all128 rows, all6 outputs, all52881 clauses; padded8 solver status UNSAT confirmed.
+PASS: star positive9 model verified all128 rows, all6 outputs, all52881 clauses; padded8 solver status UNSAT confirmed.
+Encoding review: exactly one op and two valid earlier source selectors per gate; canonical binary ordering, unary NOT; exact all128-row outputs; unused gates allowed in padded8; distinct outputs redundant because target functions distinct; NOT count1..3. No unrestricted Petersen claim follows.
