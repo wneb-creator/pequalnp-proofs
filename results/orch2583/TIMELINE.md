@@ -7,3 +7,4 @@
 - 2026-11-25 14:45:57: lease renewed, expiry15:05:57.854Z.
 - 2026-11-25T14:46:56.924077+00:00: six parallel agents reassigned to new step.
 - 2026-11-25T14:50:10.803387+00:00: new named partial file built successfully; exact target still unproved.
+- 2026-11-25T14:53:58.467263+00:00: regular bipartite edge-deletion cover lower bound compiled in named file; independent review PASS.

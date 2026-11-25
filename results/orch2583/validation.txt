@@ -8,3 +8,6 @@ Lines before/after cleanup: 71/71
 SHA256 30f2a2699d54838ed7e8b31fa7f192decbaff6edd240ac3a335a900fcb5b920a
 Sub-agents: status_check, counterexample, circuit_search, lower_bound, partial_lean, lean_setup
 TIMING total=52 subagents=6
+
+2026-11-25T14:53:58.466954+00:00: named build including deletion bounds PASS(exit0). Full build-deletion.stdout/.stderr saved. Both new lemmas remain partial, exact target absent.
+Lines 175; SHA256 b4da287a7c6d6bc73b40c913bb4a77672caefb87e7647c9884b2597ec6fe2c00
