@@ -30,3 +30,4 @@
 - 2026-11-25T07:47:14.663247+00:00: final format-compliant accepting-path, selected dirty-path and first-mixed-growth lemmas passed Lean and independent review; preserving exact sources/logs. These are conditional structural results, not the posted bound.
 - 2026-11-25T07:51:40.365771+00:00: live-localized RootCover (514lines) compiled and independently reviewed; preserving conditional root-pair coverage, without any claimed circuit-size conclusion.
 - 2026-11-25T07:54:59.232127+00:00: SelectedLabels recursion (76lines) compiled and independently reviewed; explicit label assumptions for the conditional cover bridge are discharged.
+- 2026-11-25T07:57:16.729442+00:00: coherent ForkCover endpoint (797lines) compiled and independently reviewed. Conditional coverage and cover cardinality are proved; exceptional-edge budget and multiple-dirty cases are unresolved. One-dirty development stopped ahead of08:05cap.
