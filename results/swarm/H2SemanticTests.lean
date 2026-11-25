@@ -163,6 +163,46 @@ lemma graph_eq_of_sparse_tests {p l : ℕ} (E : Finset (Fin p × Fin l))
       rw [hpos a b hab] at hfx
       exact le_antisymm (by cases f x <;> decide) hfx
 
+def conjunctionFun {α : Type*} [DecidableEq α] (Q : Finset α) (x : α → Bool) : Bool :=
+  decide (∀ i ∈ Q, x i = true)
+
+lemma conjunction_eq_of_sparse_tests {α : Type*} [DecidableEq α]
+    (Q : Finset α) (f : (α → Bool) → Bool) (hf : Monotone f)
+    (hpos : f (fun i => decide (i ∈ Q)) = true)
+    (hneg : ∀ i ∈ Q, f (fun j => decide (j ≠ i)) = false) :
+    ∀ x, f x = conjunctionFun Q x := by
+  intro x
+  cases hx : conjunctionFun Q x with
+  | false =>
+      have hn : ¬ ∀ i ∈ Q, x i = true := by
+        simpa only [conjunctionFun, decide_eq_false_iff_not] using hx
+      push Not at hn
+      obtain ⟨i, hi, hxi⟩ := hn
+      have hfalse : x i = false := by
+        cases h : x i with
+        | false => rfl
+        | true => exact False.elim (hxi h)
+      have hle : x ≤ fun j => decide (j ≠ i) := by
+        intro j
+        by_cases hji : j = i
+        · subst j
+          simp [hfalse]
+        · simp [hji]
+      have hfx := hf hle
+      rw [hneg i hi] at hfx
+      exact le_antisymm hfx (by cases f x <;> decide)
+  | true =>
+      have hp : ∀ i ∈ Q, x i = true := by
+        simpa only [conjunctionFun, decide_eq_true_eq] using hx
+      have hle : (fun i => decide (i ∈ Q)) ≤ x := by
+        intro i
+        by_cases hi : i ∈ Q
+        · simp [hi, hp i hi]
+        · simp [hi]
+      have hfx := hf hle
+      rw [hpos] at hfx
+      exact le_antisymm (by cases f x <;> decide) hfx
+
 end PEqualNP.Outside.L_meta_4970.SparseTests
 
 
