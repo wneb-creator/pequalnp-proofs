@@ -1,0 +1,5 @@
+SAT propagation review: PASS
+Source SHA256: 5e75100b70944b91e3f58e357eb1c4ebb3c5a182b29eb88ac517f24479f54837
+Singleton tests are negative for loop-free edge functions. Squarefree proof states imply Boolean truth on the fixed pair; singleton states imply truth on their singleton assignments. Output singleton states are impossible under circuit correctness. These clauses are redundant within the existing exact binary AND/OR model.
+With --propagate: one-edge READ1 SAT; one-edge unread UNSAT; five-gate path4 unread SAT, with decoded witnesses exhaustively truth/read-state checked by the script.
+No Fano lower bound or full L-meta-2583 acceptance is established by these control runs.

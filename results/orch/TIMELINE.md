@@ -18,3 +18,5 @@
 2026-11-25T14:29Z: shared OR repair identity and independently replayed Fano archive preserved. Research delegated an independent C4-free theory check; cumulative subagents6.
 
 2026-11-25T14:28:40.455267+00:00 c4free_theory finished: exactP4counterexample to naivebypass/homogenization; noexistentialnormalizationcounterexample.
+
+2026-11-25T14:34Z: independently reviewed ReadLower bridge integrated; 3050-line named partial builds. Fixed-edge SAT timed out UNKNOWN after900s. Ordered propagation run started14:32 with1800s cap.

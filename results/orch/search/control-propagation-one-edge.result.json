@@ -1,0 +1,24 @@
+{
+  "graph": "cycle",
+  "n": 2,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "gates": 1,
+  "tests": 5,
+  "variables": 33,
+  "clauses": 104,
+  "seconds": 0.0031560790002913564,
+  "returncode": 20,
+  "status": "UNSAT",
+  "ordered": true,
+  "edge_stabilizer": false,
+  "propagate": true
+}

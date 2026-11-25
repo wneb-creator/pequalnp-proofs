@@ -66,7 +66,7 @@ def solve(args):
     def target(x): return any((x>>i)&(x>>j)&1 for i,j in edges)
     positives=sorted({(1<<i)|(1<<j) for i,j in edges})
     negatives=[x for x in range(1<<n) if not target(x) and all(target(x|(1<<i)) for i in range(n) if not(x>>i&1))]
-    tests=positives+negatives
+    tests=positives+negatives+([1 << i for i in range(n)] if args.propagate else [])
     cnf=CNF()
     ops=[cnf.var() for _ in range(k)]
     sels=[[[cnf.var() for i in range(n+g)] for b in range(2)] for g in range(k)]
@@ -146,12 +146,21 @@ def solve(args):
         cnf.clause(op, -joins[1], z)
         cnf.clause(op, joins[0], joins[1], -z)
     cnf.clause(read[-1][2] if args.require_read else -read[-1][2])
+    if args.propagate:
+        edge_test = tests.index((1 << ep) | (1 << el))
+        for g in range(k):
+            for bit in range(3):
+                cnf.clause(-read[g][bit], vals[g][edge_test])
+            cnf.clause(-read[g][0], vals[g][tests.index(1 << ep)])
+            cnf.clause(-read[g][1], vals[g][tests.index(1 << el)])
+        cnf.clause(-read[-1][0])
+        cnf.clause(-read[-1][1])
     base=Path(args.output)
     cnf.write(base.with_suffix('.cnf'))
     start=time.monotonic()
     with base.with_suffix('.solver.stdout').open('w') as out,base.with_suffix('.solver.stderr').open('w') as err:
         proc=subprocess.run([args.solver,'-t',str(args.seconds),str(base.with_suffix('.cnf'))],stdout=out,stderr=err)
-    result={'graph':args.graph,'n':n,'edges':edges,'gates':k,'tests':len(tests),'variables':cnf.n,'clauses':len(cnf.rows),'seconds':time.monotonic()-start,'returncode':proc.returncode}
+    result={'graph':args.graph,'n':n,'edges':edges,'gates':k,'tests':len(tests),'variables':cnf.n,'clauses':len(cnf.rows),'seconds':time.monotonic()-start,'returncode':proc.returncode,'status':{10:'SAT',20:'UNSAT',0:'UNKNOWN'}.get(proc.returncode,'ERROR'),'ordered':args.ordered,'edge_stabilizer':args.edge_stabilizer,'propagate':args.propagate}
     if proc.returncode==10:
         assignment=set()
         for line in base.with_suffix('.solver.stdout').read_text().splitlines():
@@ -198,6 +207,7 @@ if __name__=='__main__':
     p.add_argument('--unread-line',type=int,default=7)
     p.add_argument('--require-read',action='store_true')
     p.add_argument('--edge-stabilizer',action='store_true')
+    p.add_argument('--propagate',action='store_true')
     p.add_argument('--solver',default='/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/bin/cadical')
     p.add_argument('--output',required=True)
     solve(p.parse_args())

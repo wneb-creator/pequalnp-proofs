@@ -1,94 +1,94 @@
-⚠ [6417/6485] Replayed PEqualNP.Defs.Base
+⚠ [6417/6605] Replayed PEqualNP.Defs.Base
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6418/6485] Ran PEqualNP.Defs.Base:irArts
+⚠ [6418/6605] Ran PEqualNP.Defs.Base:irArts
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6421/6485] Replayed PEqualNP.Defs.CircuitLowerBounds
+⚠ [6421/6605] Replayed PEqualNP.Defs.CircuitLowerBounds
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6422/6485] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
+⚠ [6422/6605] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6423/6485] Replayed PEqualNP.Defs.MetaComplexity
+⚠ [6423/6605] Replayed PEqualNP.Defs.MetaComplexity
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6424/6485] Ran PEqualNP.Defs.MetaComplexity:irArts
+⚠ [6424/6605] Ran PEqualNP.Defs.MetaComplexity:irArts
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6425/6485] Replayed PEqualNP.Defs.MetaComplexityLocal
+⚠ [6425/6605] Replayed PEqualNP.Defs.MetaComplexityLocal
 warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6426/6485] Ran PEqualNP.Defs.MetaComplexityLocal:irArts
+⚠ [6426/6605] Ran PEqualNP.Defs.MetaComplexityLocal:irArts
 warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6427/6485] Replayed PEqualNP.Defs.MetaComplexitySparse
+⚠ [6427/6605] Replayed PEqualNP.Defs.MetaComplexitySparse
 warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6428/6485] Ran PEqualNP.Defs.MetaComplexitySparse:irArts
+⚠ [6428/6605] Ran PEqualNP.Defs.MetaComplexitySparse:irArts
 warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6439/6485] Replayed PEqualNP.Defs.ProofComplexity
+⚠ [6439/6605] Replayed PEqualNP.Defs.ProofComplexity
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6440/6485] Ran PEqualNP.Defs.ProofComplexity:irArts
+⚠ [6440/6605] Ran PEqualNP.Defs.ProofComplexity:irArts
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6441/6485] Replayed PEqualNP.Defs.ProofComplexityLin
+⚠ [6441/6605] Replayed PEqualNP.Defs.ProofComplexityLin
 warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6442/6485] Ran PEqualNP.Defs.ProofComplexityLin:irArts
+⚠ [6442/6605] Ran PEqualNP.Defs.ProofComplexityLin:irArts
 warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6445/6485] Replayed PEqualNP.Defs.ProofComplexityLift
+⚠ [6445/6605] Replayed PEqualNP.Defs.ProofComplexityLift
 warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6446/6485] Ran PEqualNP.Defs.ProofComplexityLift:irArts
+⚠ [6446/6605] Ran PEqualNP.Defs.ProofComplexityLift:irArts
 warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6451/6485] Replayed PEqualNP.Defs.ProofComplexityBit
+⚠ [6451/6605] Replayed PEqualNP.Defs.ProofComplexityBit
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6452/6485] Ran PEqualNP.Defs.ProofComplexityBit:irArts
+⚠ [6452/6605] Ran PEqualNP.Defs.ProofComplexityBit:irArts
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6453/6485] Replayed PEqualNP.Defs.ProofComplexityPC
+⚠ [6453/6605] Replayed PEqualNP.Defs.ProofComplexityPC
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6454/6485] Ran PEqualNP.Defs.ProofComplexityPC:irArts
+⚠ [6454/6605] Ran PEqualNP.Defs.ProofComplexityPC:irArts
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6455/6485] Replayed PEqualNP.Defs.ProofComplexityMoment
+⚠ [6455/6605] Replayed PEqualNP.Defs.ProofComplexityMoment
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6456/6485] Ran PEqualNP.Defs.ProofComplexityMoment:irArts
+⚠ [6456/6605] Ran PEqualNP.Defs.ProofComplexityMoment:irArts
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6457/6485] Replayed PEqualNP.Defs.ProofComplexityChain
+⚠ [6457/6605] Replayed PEqualNP.Defs.ProofComplexityChain
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6458/6485] Ran PEqualNP.Defs.ProofComplexityChain:irArts
+⚠ [6458/6605] Ran PEqualNP.Defs.ProofComplexityChain:irArts
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6461/6485] Replayed PEqualNP.Defs.Search
+⚠ [6461/6605] Replayed PEqualNP.Defs.Search
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6462/6485] Ran PEqualNP.Defs.Search:irArts
+⚠ [6462/6605] Ran PEqualNP.Defs.Search:irArts
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6463/6485] Replayed PEqualNP.Defs.SearchQ
+⚠ [6463/6605] Replayed PEqualNP.Defs.SearchQ
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6464/6485] Ran PEqualNP.Defs.SearchQ:irArts
+⚠ [6464/6605] Ran PEqualNP.Defs.SearchQ:irArts
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6477/6485] Replayed PEqualNP.Defs.SearchSoS
+⚠ [6477/6605] Replayed PEqualNP.Defs.SearchSoS
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -98,14 +98,14 @@ warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from pac
 warning: PEqualNP/Defs/SearchSoS.lean:4:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
 
 import Mathlib.Basic.Real.Basic
-⚠ [6478/6485] Ran PEqualNP.Defs.SearchSoS:irArts
+⚠ [6478/6605] Ran PEqualNP.Defs.SearchSoS:irArts
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Data.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6511/6663] Replayed PEqualNP.Defs.Gct
+⚠ [6511/6605] Replayed PEqualNP.Defs.Gct
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -115,7 +115,7 @@ warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homoge
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6512/6663] Ran PEqualNP.Defs.Gct:irArts
+⚠ [6512/6605] Ran PEqualNP.Defs.Gct:irArts
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -125,159 +125,159 @@ warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homoge
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6515/6663] Replayed PEqualNP.Defs.Algebraic
+⚠ [6515/6605] Replayed PEqualNP.Defs.Algebraic
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6516/6663] Ran PEqualNP.Defs.Algebraic:irArts
+⚠ [6516/6605] Ran PEqualNP.Defs.Algebraic:irArts
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6519/6663] Replayed PEqualNP.Defs.RiffleRank
+⚠ [6519/6605] Replayed PEqualNP.Defs.RiffleRank
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6520/6663] Ran PEqualNP.Defs.RiffleRank:irArts
+⚠ [6520/6605] Ran PEqualNP.Defs.RiffleRank:irArts
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6527/6663] Replayed PEqualNP.Defs.CoverPromise
+⚠ [6527/6605] Replayed PEqualNP.Defs.CoverPromise
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6528/6663] Ran PEqualNP.Defs.CoverPromise:irArts
+⚠ [6528/6605] Ran PEqualNP.Defs.CoverPromise:irArts
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6529/6663] Replayed PEqualNP.Defs.SingleLevel
+⚠ [6529/6605] Replayed PEqualNP.Defs.SingleLevel
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Sublists` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Dedup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6530/6663] Ran PEqualNP.Defs.SingleLevel:irArts
+⚠ [6530/6605] Ran PEqualNP.Defs.SingleLevel:irArts
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Sublists` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SingleLevel.lean: imports `Mathlib.Data.List.Dedup` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6531/6663] Replayed PEqualNP.Defs.DeMorganFormula
+⚠ [6531/6605] Replayed PEqualNP.Defs.DeMorganFormula
 warning: PEqualNP/Defs/DeMorganFormula.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6532/6663] Ran PEqualNP.Defs.DeMorganFormula:irArts
+⚠ [6532/6605] Ran PEqualNP.Defs.DeMorganFormula:irArts
 warning: PEqualNP/Defs/DeMorganFormula.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6533/6663] Replayed PEqualNP.Defs.MetaComplexityTypedRank
+⚠ [6533/6605] Replayed PEqualNP.Defs.MetaComplexityTypedRank
 warning: PEqualNP/Defs/MetaComplexityTypedRank.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6534/6663] Ran PEqualNP.Defs.MetaComplexityTypedRank:irArts
+⚠ [6534/6605] Ran PEqualNP.Defs.MetaComplexityTypedRank:irArts
 warning: PEqualNP/Defs/MetaComplexityTypedRank.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6535/6663] Replayed PEqualNP.Defs.Pebble
+⚠ [6535/6605] Replayed PEqualNP.Defs.Pebble
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Lattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Set.Function` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.List.Chain` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6536/6663] Ran PEqualNP.Defs.Pebble:irArts
+⚠ [6536/6605] Ran PEqualNP.Defs.Pebble:irArts
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Finset.Lattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.Set.Function` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Data.List.Chain` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Pebble.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6537/6663] Replayed PEqualNP.Defs.Subdivision
+⚠ [6537/6605] Replayed PEqualNP.Defs.Subdivision
 warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6538/6663] Ran PEqualNP.Defs.Subdivision:irArts
+⚠ [6538/6605] Ran PEqualNP.Defs.Subdivision:irArts
 warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Subdivision.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6539/6663] Replayed PEqualNP.Defs.AndCountCircuit
+⚠ [6539/6605] Replayed PEqualNP.Defs.AndCountCircuit
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6540/6663] Ran PEqualNP.Defs.AndCountCircuit:irArts
+⚠ [6540/6605] Ran PEqualNP.Defs.AndCountCircuit:irArts
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Finset.Sort` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AndCountCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6543/6663] Replayed PEqualNP.Defs.CoLevel
+⚠ [6543/6605] Replayed PEqualNP.Defs.CoLevel
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.MvPolynomial.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6544/6663] Ran PEqualNP.Defs.CoLevel:irArts
+⚠ [6544/6605] Ran PEqualNP.Defs.CoLevel:irArts
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.MvPolynomial.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoLevel.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6545/6663] Replayed PEqualNP.Defs.Peelable
+⚠ [6545/6605] Replayed PEqualNP.Defs.Peelable
 warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6546/6663] Ran PEqualNP.Defs.Peelable:irArts
+⚠ [6546/6605] Ran PEqualNP.Defs.Peelable:irArts
 warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Peelable.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6585/6663] Replayed PEqualNP.Defs.NestedCoverCircuit
+⚠ [6573/6605] Replayed PEqualNP.Defs.LiteralPartition
+warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6574/6605] Ran PEqualNP.Defs.LiteralPartition:irArts
+warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6575/6605] Replayed PEqualNP.Defs.MinimumComplex
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6576/6605] Ran PEqualNP.Defs.MinimumComplex:irArts
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6577/6605] Replayed PEqualNP.Defs.PendantBit
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6578/6605] Ran PEqualNP.Defs.PendantBit:irArts
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [6594/6669] Replayed PEqualNP.Defs.NestedCoverCircuit
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6586/6663] Ran PEqualNP.Defs.NestedCoverCircuit:irArts
+⚠ [6595/6669] Ran PEqualNP.Defs.NestedCoverCircuit:irArts
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NestedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6587/6663] Replayed PEqualNP.Defs.LiteralPartition
-warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6588/6663] Ran PEqualNP.Defs.LiteralPartition:irArts
-warning: PEqualNP/Defs/LiteralPartition.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6589/6663] Replayed PEqualNP.Defs.MinimumComplex
-warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6590/6663] Ran PEqualNP.Defs.MinimumComplex:irArts
-warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: PEqualNP/Defs/MinimumComplex.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6591/6663] Replayed PEqualNP.Defs.PendantBit
-warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6592/6663] Ran PEqualNP.Defs.PendantBit:irArts
-warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Order.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: PEqualNP/Defs/PendantBit.lean: imports `Mathlib.Data.Int.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6593/6663] Replayed PEqualNP.Defs.BorrowedCoverCircuit
+⚠ [6596/6669] Replayed PEqualNP.Defs.BorrowedCoverCircuit
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6594/6663] Ran PEqualNP.Defs.BorrowedCoverCircuit:irArts
+⚠ [6597/6669] Ran PEqualNP.Defs.BorrowedCoverCircuit:irArts
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BorrowedCoverCircuit.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6597/6663] Replayed PEqualNP.Defs.CircuitMoves
+⚠ [6598/6669] Replayed PEqualNP.Defs.CircuitMoves
 warning: PEqualNP/Defs/CircuitMoves.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6598/6663] Ran PEqualNP.Defs.CircuitMoves:irArts
+⚠ [6599/6669] Ran PEqualNP.Defs.CircuitMoves:irArts
 warning: PEqualNP/Defs/CircuitMoves.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6599/6663] Replayed PEqualNP.Defs.LowMerge
+⚠ [6600/6669] Replayed PEqualNP.Defs.LowMerge
 warning: PEqualNP/Defs/LowMerge.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6600/6663] Ran PEqualNP.Defs.LowMerge:irArts
+⚠ [6601/6669] Ran PEqualNP.Defs.LowMerge:irArts
 warning: PEqualNP/Defs/LowMerge.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6601/6663] Replayed PEqualNP.Defs.NewLowMerge
+⚠ [6602/6669] Replayed PEqualNP.Defs.NewLowMerge
 warning: PEqualNP/Defs/NewLowMerge.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6602/6663] Ran PEqualNP.Defs.NewLowMerge:irArts
+⚠ [6603/6669] Ran PEqualNP.Defs.NewLowMerge:irArts
 warning: PEqualNP/Defs/NewLowMerge.lean: imports `Mathlib.Logic.Relation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6603/6663] Replayed PEqualNP.Defs.AffinePlane
+⚠ [6604/6669] Replayed PEqualNP.Defs.AffinePlane
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Algebra.Field.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6604/6663] Ran PEqualNP.Defs.AffinePlane:irArts
+⚠ [6605/6669] Ran PEqualNP.Defs.AffinePlane:irArts
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Algebra.Field.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Data.Fintype.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/AffinePlane.lean: imports `Mathlib.Logic.Equiv.Fin.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6605/6663] Replayed PEqualNP.Defs.EdgeOwnership
+⚠ [6606/6669] Replayed PEqualNP.Defs.EdgeOwnership
 warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6606/6663] Ran PEqualNP.Defs.EdgeOwnership:irArts
+⚠ [6607/6669] Ran PEqualNP.Defs.EdgeOwnership:irArts
 warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/EdgeOwnership.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6607/6663] Replayed PEqualNP.Defs.PencilGate
+⚠ [6608/6669] Replayed PEqualNP.Defs.PencilGate
 warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6608/6663] Ran PEqualNP.Defs.PencilGate:irArts
+⚠ [6609/6669] Ran PEqualNP.Defs.PencilGate:irArts
 warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/PencilGate.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6609/6663] Replayed PEqualNP.Defs.BlindGate
+⚠ [6610/6669] Replayed PEqualNP.Defs.BlindGate
 warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6610/6663] Ran PEqualNP.Defs.BlindGate:irArts
+⚠ [6611/6669] Ran PEqualNP.Defs.BlindGate:irArts
 warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Pi` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BlindGate.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6611/6663] Replayed PEqualNP.Defs.BicliqueBlockCost
+⚠ [6612/6669] Replayed PEqualNP.Defs.BicliqueBlockCost
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -285,7 +285,7 @@ warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Algebra.BigOpera
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.ConditionallyCompleteLattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6612/6663] Ran PEqualNP.Defs.BicliqueBlockCost:irArts
+⚠ [6613/6669] Ran PEqualNP.Defs.BicliqueBlockCost:irArts
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -293,59 +293,59 @@ warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Algebra.BigOpera
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.ConditionallyCompleteLattice.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/BicliqueBlockCost.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6613/6663] Replayed PEqualNP.Defs.SharingOrder
+⚠ [6614/6669] Replayed PEqualNP.Defs.SharingOrder
 warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6614/6663] Ran PEqualNP.Defs.SharingOrder:irArts
+⚠ [6615/6669] Ran PEqualNP.Defs.SharingOrder:irArts
 warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SharingOrder.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6615/6663] Replayed PEqualNP.Defs.NotPremium
+⚠ [6616/6669] Replayed PEqualNP.Defs.NotPremium
 warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Order.WithBot` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6616/6663] Ran PEqualNP.Defs.NotPremium:irArts
+⚠ [6617/6669] Ran PEqualNP.Defs.NotPremium:irArts
 warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotPremium.lean: imports `Mathlib.Order.WithBot` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6617/6663] Replayed PEqualNP.Defs.NotBracket
+⚠ [6618/6669] Replayed PEqualNP.Defs.NotBracket
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Monotone.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Fin.Tuple.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6618/6663] Ran PEqualNP.Defs.NotBracket:irArts
+⚠ [6619/6669] Ran PEqualNP.Defs.NotBracket:irArts
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Monotone.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Fin.Tuple.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Data.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/NotBracket.lean: imports `Mathlib.Order.Lattice.Nat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6621/6663] Replayed PEqualNP.Defs.SplitCount
+⚠ [6622/6669] Replayed PEqualNP.Defs.SplitCount
 warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6622/6663] Ran PEqualNP.Defs.SplitCount:irArts
+⚠ [6623/6669] Ran PEqualNP.Defs.SplitCount:irArts
 warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SplitCount.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6633/6663] Replayed PEqualNP.Defs.TopForm
+⚠ [6634/6669] Replayed PEqualNP.Defs.TopForm
 warning: PEqualNP/Defs/TopForm.lean:99:4: The namespace `TopForm` is duplicated in the declaration `PEqualNP.TopForm.TopForm`.
 
 Note: This linter can be disabled with `set_option linter.dupNamespace false`
-⚠ [6635/6663] Replayed PEqualNP.Defs.SyntacticMultilinear
+⚠ [6636/6669] Replayed PEqualNP.Defs.SyntacticMultilinear
 warning: PEqualNP/Defs/SyntacticMultilinear.lean: imports `Mathlib.Data.Finset.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6636/6663] Ran PEqualNP.Defs.SyntacticMultilinear:irArts
+⚠ [6637/6669] Ran PEqualNP.Defs.SyntacticMultilinear:irArts
 warning: PEqualNP/Defs/SyntacticMultilinear.lean: imports `Mathlib.Data.Finset.Disjoint` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6639/6663] Replayed PEqualNP.Defs.HeptadCover
+⚠ [6640/6669] Replayed PEqualNP.Defs.HeptadCover
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6640/6663] Ran PEqualNP.Defs.HeptadCover:irArts
+⚠ [6641/6669] Ran PEqualNP.Defs.HeptadCover:irArts
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/HeptadCover.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6641/6663] Replayed PEqualNP.Defs.ReadK
+⚠ [6642/6669] Replayed PEqualNP.Defs.ReadK
 warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6642/6663] Ran PEqualNP.Defs.ReadK:irArts
+⚠ [6643/6669] Ran PEqualNP.Defs.ReadK:irArts
 warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.Finset.Powerset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ReadK.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6643/6663] Replayed PEqualNP.Defs.GenericRejection
+⚠ [6644/6669] Replayed PEqualNP.Defs.GenericRejection
 warning: PEqualNP/Defs/GenericRejection.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6644/6663] Ran PEqualNP.Defs.GenericRejection:irArts
+⚠ [6645/6669] Ran PEqualNP.Defs.GenericRejection:irArts
 warning: PEqualNP/Defs/GenericRejection.lean: imports `Mathlib.Data.Rat.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 ⚠ [6664/6669] Replayed PEqualNP.Defs.Represents
 warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -354,9 +354,170 @@ warning: PEqualNP/Defs/Represents.lean:56:4: The namespace `Represents` is dupli
 Note: This linter can be disabled with `set_option linter.dupNamespace false`
 ⚠ [6665/6669] Ran PEqualNP.Defs.Represents:irArts
 warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [6668/6669] Built PEqualNP.Outside.L_meta_2583 (12s)
+⚠ [6668/6669] Built PEqualNP.Outside.L_meta_2583 (27s)
 warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean:1222:6: Unused tactic linter: `(unfold readVectors; congr 1; funext R g; rcases g with ⟨op, ins⟩;
+  cases op <;> rfl)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1222:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1324:6: Unused tactic linter: `simp [capAdd]` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1324:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1331:6: Unused tactic linter: `(unfold leafVectors; simp)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1331:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1352:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1352:56: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1352:68: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1366:14: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1367:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1367:24: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1385:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1430:20: Unused tactic linter: `simp [side, opnd, hinp]` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1434:20: Unused tactic linter: `simp [side, opnd, hinp]` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1466:24: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1466:28: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1430:20: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1434:20: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1466:28: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1659:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1668:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1777:4: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+warning: PEqualNP/Outside/L_meta_2583.lean:1817:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1823:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1823:41: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2001:44: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2004:33: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2008:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2613:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2615:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2625:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2625:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2629:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2629:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2635:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2635:23: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2640:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2640:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2918:61: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:2918:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PEqualNP/Outside/L_meta_2583.lean:2943:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
 ⚠ [6669/6669] Ran PEqualNP.Outside.L_meta_2583:irArts
 warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file

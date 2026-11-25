@@ -1,0 +1,74 @@
+{
+  "graph": "path4",
+  "n": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "gates": 5,
+  "tests": 10,
+  "variables": 320,
+  "clauses": 1794,
+  "seconds": 0.008758824999858916,
+  "returncode": 10,
+  "status": "SAT",
+  "ordered": true,
+  "edge_stabilizer": false,
+  "propagate": true,
+  "circuit": [
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      0,
+      4,
+      5
+    ],
+    [
+      0,
+      6,
+      7
+    ]
+  ],
+  "dirty": [
+    {
+      "gate": 3,
+      "false_inputs": [
+        4,
+        5
+      ],
+      "essential_edges": [
+        3,
+        6,
+        12
+      ]
+    }
+  ],
+  "fixed_edge": [
+    0,
+    1
+  ],
+  "fixed_edge_read1": false
+}
