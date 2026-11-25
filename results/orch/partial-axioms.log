@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2732_aux.safeFilter_coverTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2732_aux.canonical_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2732_aux.transport_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2732_aux.Rename.eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2732_aux.star27_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

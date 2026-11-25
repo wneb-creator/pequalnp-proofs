@@ -33,3 +33,31 @@ Formal artifact /tmp/oec/pequalnp-pilot-70/sat-review/FirstDirty.lean compiled w
 A separate deterministic random check (seed2732) verified equality of the first globally dirty and first pair-dirty AND indices on10000 random26-gate monotone networks. This is supplemental evidence, not a substitute for the Lean proof.
 
 Generic induced-subgraph synthesis parameterization also passed review: all input counts, row offsets, and liveness bounds are dynamic; custom graphs require no-canon. All generated subgraph files have no isolated inputs. Minimality and dirty-AND options restrict completeness and must remain off when interpreting unrestricted at-most-bound UNSAT results.
+
+## Warm CEGIS review
+
+The final assumption-driven warm CEGIS implementation passed review. The local CaDiCaL API explicitly resets assumptions after every solve, including UNKNOWN. Warm SAT is accepted for decoding; warm UNSAT or UNKNOWN always triggers an unconstrained retry. Only that unconstrained result can produce the reported UNSAT subset outcome. Learned-state reuse is sound under the API, and selectors, operations, and row outputs are frozen before solving.
+
+Every decoded model is independently evaluated on all 58 rows and compared both with encoded row values and target labels. A full witness is saved only after all 16,384 assignments pass. Warm candidates are heuristics; their failures do not establish unsatisfiability. The selected negative-row distance metric only changes refinement order. Existing smoke logs cover a successful warm probe, failed warm assumptions followed by a fully checked SAT result, and refinement followed by genuine base-instance UNSAT. Any UNSAT result remains relative to the supplied base CNF and is not itself a Lean certificate.
+
+## Formal degree-two shadow review
+
+The optional shadow encoder passed review. Its meaning is formal unreduced polynomial support: OR behaves as support union and AND as ordinary monomial multiplication. Inputs have degree one and there are no constant terms. Consequently an AND gate has no linear monomials, and a squarefree degree-two monomial uv arises exactly from a linear u in one fanin and linear v in the other, in either order. This differs deliberately from Boolean idempotent reduction: an AND copy of a quadratic function has no formal quadratic monomials while computing the same Boolean function.
+
+The actual AST-generated recurrence and mux clauses passed 1,024 exhaustive assignments. The missing-edge cardinality family passed 754 assignments for dimensions up to seven and thresholds one through three. The fixed 27-gate star is UNSAT under at least three missing monomials, while its 28-gate AND-copy extension is SAT with all tracked quadratic monomials absent and all 16,384 Boolean inputs verified. The option defaults to off. A run with a positive missing bound covers a restricted class unless a separate theorem establishes completeness for the relevant size bound.
+
+Detailed property log: /tmp/oec/pequalnp-pilot-70/sat-review/shadow-property.log. Exact reviewed source hashes: /tmp/oec/pequalnp-pilot-70/sat-review/search-review-hashes.json.
+
+## Live hint extension review
+
+The separate cegis-hints.cpp/.hpp extension passed review. The hint reader requires exactly the configured number of binary AND/OR gates, sorted nonnegative predecessor indices, no trailing fields, and satisfaction of every active row. Assumptions are temporary under the previously reviewed solver API. Hint UNSAT and UNKNOWN always fall through to unconstrained solving; only SAT proceeds to the unchanged decoded-row consistency and full 16,384-input witness checks. Existing smoke logs cover accepted hint SAT, failed hint assumptions followed by a fully checked SAT fallback, and malformed-hint rejection. No long solver was launched during this review. Exact reviewed source hashes are in /tmp/oec/pequalnp-pilot-70/sat-review/hints-review-hashes.json.
+
+## Three-support crossing lemma review
+
+TripleFilterCross.lean passed independent mathematical and format review. Its six disjunctive hypotheses state that two designated pairs each hit all three supports. The conclusion is precisely that one of the four crossing pairs hits all three. The constructive case split has no distinctness or disjointness gap; repeated vertices and overlapping supports are allowed. An independent finite check passed all 4,096 support-membership assignments, including 729 satisfying the premises. The reported Lean compile log is empty. This is only a helper, with allowed Mathlib.Init and the assigned auxiliary namespace.
+
+The three-support scope is essential: for four supports, endpoint membership masks 3, 12, 5, and 10 give a counterexample. Each designated pair covers all four supports, but no crossing pair does. Review data: /tmp/oec/pequalnp-pilot-70/sat-review/triple-filter-cross-review.json.
+
+## Nonadjacent cover centers review
+
+DoubleStarCenters.lean passed mathematical and format review. For distinct nonadjacent cover centers p and q, neighbors of either center are noncenters, and the cover assumption forbids edges between such vertices. The cross-edge property therefore forces each pair of center-neighbors to supply a crossing edge to a center. If both centers had two neighbors, these implications force a forbidden rectangle. The proof handles all alternatives correctly and needs no triangle-free assumption. The statement remains a generic helper, not a circuit bound. The reported compile log is empty. Independent enumeration passed all 1,024 simple graphs on five vertices, including 360 eligible center instances; data is in /tmp/oec/pequalnp-pilot-70/sat-review/double-star-centers-review.json.
