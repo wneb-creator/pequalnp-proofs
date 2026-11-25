@@ -72,3 +72,8 @@ ForcedSemantics and ConeTrace independently compiled/reviewed: forcing false is 
 Reviewers: inventory for forced semantics; root and combinatorial for cone trace; toolchain for consolidated assembly. Full logs archived.
 Posted theorem still absent and unproved.
 TIMING total=55.8 subagents=7
+
+Checkpoint13: dirty-gate descent and productive-lift semantic identities compile.
+Root independently reviewed all164 new JunkDrop/JunkRestore lines; restored gates add no junk when the restored circuit computes the graph function, so pruning a dirty gate then restoring strictly decreases junk count. Toolchain independently built/reviewed ProductiveLift786lines.
+These do not show every dirty gate admits a semantic repair; the global gap remains.
+TIMING total=61.0 subagents=7

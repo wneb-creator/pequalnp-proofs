@@ -24,3 +24,4 @@
 - 2026-11-25T17:56:25.929991+00:00: second replan: pursue first-dirty nonstar restoration and productive-gate lifting; preserve general multiple-dirty bottleneck explicitly; launch symmetry-reduced theta/Fano SAT searches.
 - 2026-11-25T17:58:52.586518+00:00: one-junk semantics, nonstar restoration identity, and boundary-test completeness compiled and independently reviewed; actual gap checker rejects the current partial for missing the required theorem.
 - 2026-11-25T18:01:00.215794+00:00: consolidated4107linepartial, forced-evaluator semantics, and gate/cone embedding compiled and independently reviewed.
+- 2026-11-25T18:06:13.109205+00:00: strict dirty-gate descent for correct explicit restoration and productive-gate semantic identity compiled and independently reviewed.
