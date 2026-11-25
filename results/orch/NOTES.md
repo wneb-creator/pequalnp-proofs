@@ -10,3 +10,5 @@ All helpers in final file must be in PEqualNP.Outside.L_meta_1479 or its _aux na
 No agent besides root may call desk, commit, push, or open PRs.
 
 Current: baseline star circuit costs 27; finding a double re-read within that budget is the hard condition. Desk says reductions open but already 3 live reductions; inspect them to avoid duplication.
+
+2026-11-25T09:40Z: first named partial built and pushed as 851aefe8ca50f17a2a81da1ba78fc5bb06fd8fda (helpers only). All routes found 28-gate factorized baseline; one gate must be saved. Stochastic uses 21 positive plus 37 maximal-negative rows, singleton bases and derivative bits. Cadical is in Lean toolchain bin. SAT found two-star7-gate local double-re-read impossible (computational only). Structural top-AND supports disjoint and cross pairs incident; nonempty supports must be a1-by-k star, k1..3.
