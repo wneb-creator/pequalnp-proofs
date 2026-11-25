@@ -1,0 +1,8 @@
+L-meta-1031 PARTIAL
+Source: results/orch/lemmas/star_minimal.lean
+SHA256: 0d53f3f48e4e3269ef19c84c228cb5690d4bbba6015021b77fa04593adf548ce
+Lines: 447
+Validation: lake env lean compiled this source with exit 0. Complete compiler output preserved.
+Proves: The full minimality and nonempty-star ownership conclusion for graphs whose edges share a fixed vertex; also degree and essential-input lower bounds.
+Limitation: The common-center hypothesis is additional; the general posted graph theorem remains unproved.
+Checker: full posted statement not checked; not PR-ready.

@@ -1,0 +1,8 @@
+L-meta-1031 PARTIAL
+Source: results/orch/lemmas/relevance_edge_live.lean
+SHA256: 19a83ec264eb645abb1a5dc144c6f078396df15351f2ac0f411b5a425450b89a
+Lines: 327
+Validation: lake env lean compiled this source with exit 0. Complete compiler output preserved.
+Proves: Every gate of a minimum monotone binary circuit computing a graph edge function is true on some edge-pair input.
+Limitation: Edge activity does not establish ownership or star profile; the posted theorem remains unproved.
+Checker: full posted statement not checked; not PR-ready.
