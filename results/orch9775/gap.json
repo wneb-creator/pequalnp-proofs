@@ -1,0 +1,39 @@
+{
+  "gap": {
+    "id": "L-meta-9775",
+    "title": "An AND/OR circuit of fan-in at most two with at most 24 gates computes the edge function of the listed graph on 14 vertices with 19 edges",
+    "statement": "\u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 24 \u2227 (\u2200 x : Fin 14 \u2192 Bool, (C.eval (List.ofFn x) = true \u2194 \u2203 u v : Fin 14, (u.val, v.val) \u2208 ([(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] : List (\u2115 \u00d7 \u2115)) \u2227 x u = true \u2227 x v = true))",
+    "file": "lean/PEqualNP/Outside/L_meta_9775.lean",
+    "module": "PEqualNP.Outside.L_meta_9775",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "one search on a named graph: is there a circuit one gate smaller than the best we know for its edge function; a found circuit is a bound from above, a proof of none a bound from below",
+    "context": "SKETCH: truth not known to us; the opposite row is offered beside it. Proved by exhibiting ONE circuit with at most the stated number of gates of fan-in at most two that computes the edge function (true exactly when both ends of some edge are true) on every input; checked by evaluation. The best circuit known to us has one gate more (computed, not checked). Size: minutes if such a circuit exists. No sorry, no new axiom. Own namespace for every declaration.",
+    "dead": [],
+    "weight": 55,
+    "parallel": 3,
+    "lane": "main",
+    "depth": 0,
+    "sketch": "truth not known to us; the opposite row is offered beside it. Proved by exhibiting ONE circuit with at most the stated number of gates of fan-in at most two that computes the edge function (true exactly when both ends of some edge are true) on every input; checked by evaluation. The best circuit known to us has one gate more (computed, not checked). Size: minutes if such a circuit exists.",
+    "pr_open": 0,
+    "pr_numbers": [],
+    "answer_known": false,
+    "level": "open"
+  },
+  "lease": {
+    "id": "23810b26-936d-48f8-ba4f-d5776619af2a",
+    "expires_at": "2026-11-25T17:37:48.830Z",
+    "renew": "POST /desk/beat?lease=23810b26-936d-48f8-ba4f-d5776619af2a",
+    "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+    "release": "POST /desk/release?lease=23810b26-936d-48f8-ba4f-d5776619af2a&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+    "terms": {
+      "kind": "prove",
+      "level": "open",
+      "points": 793,
+      "reductions_open": false,
+      "issued_at": "2026-11-25T17:17:48.830Z"
+    }
+  },
+  "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}

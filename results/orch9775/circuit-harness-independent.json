@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T17:21:23.344697+00:00",
+  "source_sha256": "827127ba1e3e950bf311098263758a84877386066296204d6ccee0c29526e8a2",
+  "verdict": "PASS independent semantic/format review",
+  "posted_edges_exact": true,
+  "full_assignments_checked": 16384,
+  "gates": 25,
+  "and_gates": 7,
+  "or_gates": 18,
+  "all_references_strictly_earlier": true,
+  "output": 38,
+  "author_reported_check_exit": 0,
+  "no_new_Lean_build": true,
+  "complete_empty_logs": [
+    "results/orch9775/circuit-harness-checked.stdout",
+    "results/orch9775/circuit-harness-checked.stderr"
+  ],
+  "posted24goal_proved": false
+}

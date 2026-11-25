@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T17:23:56.244167+00:00",
+  "source": "lean/PEqualNP/Outside/L_meta_9775.lean",
+  "sha256": "5d634d6a9151ecb9f7786c8927c1629627e233e420909c416d9bc9f5086a4c1f",
+  "bytes": 11289,
+  "lines": 241,
+  "exact_reviewed_component_concatenation": true,
+  "only_import": "PEqualNP.Defs",
+  "format_review": "PASS",
+  "author_reported_lake_build_exit": 0,
+  "complete_posted_goal": false,
+  "passive_heartbeat": {
+    "status": "ok",
+    "utc": "2026-11-25T17:23:55.415063+00:00",
+    "expires_at": "2026-11-25T17:43:55.261Z",
+    "number": 2
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "lean/PEqualNP/Outside/L_meta_9775.lean": {
+    "bytes": 11289,
+    "sha256": "5d634d6a9151ecb9f7786c8927c1629627e233e420909c416d9bc9f5086a4c1f"
+  },
+  "results/orch9775/READ-ONE.md": {
+    "bytes": 2078,
+    "sha256": "69a585e0554ee78a35a366626e800522cc8c677d7ae77b6a76f68c029dbbcab6"
+  },
+  "results/orch9775/READ1-SOURCE-ROUTE.md": {
+    "bytes": 1512,
+    "sha256": "1487ec3aaf140075250713e7a8968f8dbbb31ada3e12b25f7fe870e62e22f5fe"
+  },
+  "results/orch9775/REVIEW-circuit-harness.md": {
+    "bytes": 1678,
+    "sha256": "9ed251c0196ebc58947fe8fd8e3dd784fc8b98144b51eec987cb8abf536f1049"
+  },
+  "results/orch9775/REVIEW-kw-formula.md": {
+    "bytes": 2949,
+    "sha256": "34ec112d9051c7853370ef33117f8941f76c0841899d0791d3d9826c96202bdb"
+  },
+  "results/orch9775/REVIEW-named-assembly.md": {
+    "bytes": 1411,
+    "sha256": "3757b0209c4b811a82c4599d479c13ffa2effa6ff858f4632f16b6bab7ee0e93"
+  },
+  "results/orch9775/REVIEW-read-one-floor.md": {
+    "bytes": 2358,
+    "sha256": "a6ba49447770930e9da5cc6eb6ebabcc9e0c5ccc9b75e7c08029a641d5eb0f1e"
+  },
+  "results/orch9775/checked14-source-census.json": {
+    "bytes": 251709,
+    "sha256": "d9fd5eb4085fa2c3f2146e753b77158f986c972b3dc020e2da785dbe07cadf7f"
+  },
+  "results/orch9775/circuit-harness-checked.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/circuit-harness-checked.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/circuit-harness-independent.json": {
+    "bytes": 605,
+    "sha256": "b902ca6954600a45b51e0d9a27745fea404efa4900428ed04f424c21176e1939"
+  },
+  "results/orch9775/exact14-size-statements.json": {
+    "bytes": 29595,
+    "sha256": "b950b770f6e939acc1e51ff8d52e3da0a5d828a682f49f236f1de5ff2463f40e"
+  },
+  "results/orch9775/gap.json": {
+    "bytes": 2904,
+    "sha256": "cddb4d3c3720030ea804a0e816d4f112c8fbf966ee1866998114c010c45d7456"
+  },
+  "results/orch9775/graph-facts-second.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/graph-facts-second.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/kw-formula-checked.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/kw-formula-checked.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/kw-formula-independent.json": {
+    "bytes": 2395,
+    "sha256": "231e5547bcacc76faedc402139db7caec5a3eaa5c1593e59b327a619e14db020"
+  },
+  "results/orch9775/kw-formula-lp.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/kw-formula-lp.stdout": {
+    "bytes": 422,
+    "sha256": "d9eb169a8aff1716f9dfef4a8105347de26967f2ea204e86de0352b34309f73e"
+  },
+  "results/orch9775/kw-formula-validation.json": {
+    "bytes": 452,
+    "sha256": "df12812a1b5a8548a460112d61d03abb72963f06887852bb38170f23ba43d284"
+  },
+  "results/orch9775/kw_formula_lp.json": {
+    "bytes": 9462,
+    "sha256": "fbeab3a2c6a9a22aa3f5fd3e28f6447e9415239b03576eb0f4024d2c3e5868eb"
+  },
+  "results/orch9775/kw_formula_lp.py": {
+    "bytes": 3456,
+    "sha256": "1e899b210a66332ae5c1c991de9b28bc0c37df2c32f47de88ae58c4bb8d686e2"
+  },
+  "results/orch9775/l2237-build.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/l2237-build.stdout": {
+    "bytes": 66153,
+    "sha256": "04eef45152bd875e3ecdb1b1a7631edd774fd5e0d176d79c67561461d031bdcd"
+  },
+  "results/orch9775/named-assembly-validation.json": {
+    "bytes": 559,
+    "sha256": "16b63d3d685ceea6488a64a14db52d47c45d2bc090bf677701c04ce7a12fcc4d"
+  },
+  "results/orch9775/named-partial-build.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/named-partial-build.stdout": {
+    "bytes": 57630,
+    "sha256": "8d80228663bd1acc4c6bd62111cb0b7e10e008102eee02dc2fc80d7a5dca522b"
+  },
+  "results/orch9775/read-one-axioms.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/read-one-axioms.stdout": {
+    "bytes": 342,
+    "sha256": "cc56ae932e9357d507806f591b18e7ddddd3a7cef98d472669c0d31017a98728"
+  },
+  "results/orch9775/read-one-first.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/read-one-first.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/read-one-independent.json": {
+    "bytes": 395,
+    "sha256": "d6132b84f92e838dd7adc94df36c16b3f4741aa9ffe061d70d5e5278f7d0d296"
+  },
+  "results/orch9775/read-one-validation.json": {
+    "bytes": 1748,
+    "sha256": "fe8c4107538faa864a866c18a409f0191412a368bba7306acbe14125b0db3018"
+  },
+  "results/orch9775/read1-specialization-data.json": {
+    "bytes": 1415,
+    "sha256": "47723860d4ad1bb669ce092e86fde94504dfcb797563357c1b172b412ebfba13"
+  },
+  "results/orch9775/statement.txt": {
+    "bytes": 417,
+    "sha256": "b752f10ee836e1e8aa6a1d7ede00c0521ec2a0219efb573e4a024c6bf44d2d95"
+  },
+  "results/orch9775/lemmas/CircuitHarness.lean": {
+    "bytes": 3018,
+    "sha256": "827127ba1e3e950bf311098263758a84877386066296204d6ccee0c29526e8a2"
+  },
+  "results/orch9775/lemmas/KWFormula.lean": {
+    "bytes": 8291,
+    "sha256": "4a367c8e74da00361e448a190f771d30ac0f4220ebe297bb64cb5339214bfefb"
+  },
+  "results/orch9775/lemmas/GraphFacts.lean": {
+    "bytes": 2212,
+    "sha256": "02d9ca880ef841a31486efe72f2c8c345ad26f9f3d2b0c0b3764f7b76143987b"
+  },
+  "results/orch9775/lemmas/ReadOneFloor.lean": {
+    "bytes": 1066,
+    "sha256": "a0faf197256013fc4f4fb49d3a2b3306d0110a12e6042a022ab875c07e4e8774"
+  }
+}

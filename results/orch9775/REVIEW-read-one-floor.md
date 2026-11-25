@@ -1,0 +1,11 @@
+UTC: 2026-11-25T17:25:50.154285+00:00
+
+Independent semantic/format review: PASS for GraphFacts and ReadOneFloor. Exact source hashes02d9ca880ef841a31486efe72f2c8c345ad26f9f3d2b0c0b3764f7b76143987b and a0faf197256013fc4f4fb49d3a2b3306d0110a12e6042a022ab875c07e4e8774 match the validation manifest. Both original export/check stream pairs are empty. The complete66153-byteL2237 buildstdout and empty stderr match their recorded hashes; successful exit statuses are author-reported. No new build ran.
+
+GraphFacts forms precisely the simple undirected graph of the posted19oriented bipartite edges. Reversing edge orientation does not change the Boolean edge function, and target_graph proves both directions explicitly. Its finite edgecard19 and no-four-cycle conditions match the independently checked input data. The matching is exactly the seven disjoint edges(0,8),(1,7),(2,13),(3,11),(4,10),(5,12),(6,9). For an arbitraryvertexcoverT, pick chooses the left endpoint ifpresent and otherwise the right; edgecoverage ensures membership and disjointness makespick injective. Hence7<=T.card without assuming Tlies ononebipartition.
+
+ReadOneFloor applies the exact previously checked L2237 cost theorem with all required conditions: NoFourCycle, actualIsAO2(14), fullcomputedfunction and semanticReadK.IsReadK14C1. It obtains a coverT with19+|T|<=size+1, combines7<=|T|, and derives25<=size. The≤24corollary therefore excludesReadK1. The joint proof-tree condition is essential: this says neither physicalfanout1 nor independent per-variable scalar minima. The formula26leaf result is not used as a substitute.
+
+The strictIsAO2 premise means exactlybinaryAND/OR gates with every operand earlier. GeneralMonotone2 allows empty/unary/invalidreads, so applying this branch to arbitrary postedcandidates requires a separate normalization argument. The theorem itself states the strictpremise openly and proves no unrestrictedlowerbound or≤24witness.
+
+No prohibited root text, string literals, attributes, options, admitted proofs, new axioms, native decision procedure or unsafe constructs occur. ReadOneFloor imports anotherOutsideproof for this dependency check; that import is not allowed in the finalsinglefile submission and must be inlined with its checked dependency beforefinalchecking. GraphFacts imports the localharness and likewise requiresassembly.

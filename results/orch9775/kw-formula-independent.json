@@ -1,0 +1,149 @@
+{
+  "checked_at": "2026-11-25T17:21:36.565365+00:00",
+  "source_sha256": "4a367c8e74da00361e448a190f771d30ac0f4220ebe297bb64cb5339214bfefb",
+  "source_bytes": 8291,
+  "source_lines": 161,
+  "total_weight": 104,
+  "leaf_capacity": 4,
+  "formula_leaf_lower_bound": 26,
+  "negative_entries": 31,
+  "caps": [
+    {
+      "vertex": 0,
+      "incident_rows": [
+        0,
+        1
+      ],
+      "subsets_checked": 4,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 1,
+      "incident_rows": [
+        2,
+        3,
+        4
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 2,
+      "incident_rows": [
+        5,
+        6
+      ],
+      "subsets_checked": 4,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 3,
+      "incident_rows": [
+        7,
+        8,
+        9
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 4,
+      "incident_rows": [
+        10,
+        11,
+        12
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 5,
+      "incident_rows": [
+        13,
+        14,
+        15
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 6,
+      "incident_rows": [
+        16,
+        17,
+        18
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 7,
+      "incident_rows": [
+        2,
+        7
+      ],
+      "subsets_checked": 4,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 8,
+      "incident_rows": [
+        0,
+        5,
+        16
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 9,
+      "incident_rows": [
+        3,
+        13,
+        17
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 10,
+      "incident_rows": [
+        1,
+        10,
+        14
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 11,
+      "incident_rows": [
+        8,
+        11,
+        18
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 12,
+      "incident_rows": [
+        9,
+        15
+      ],
+      "subsets_checked": 4,
+      "maximum_cap": 4
+    },
+    {
+      "vertex": 13,
+      "incident_rows": [
+        4,
+        6,
+        12
+      ],
+      "subsets_checked": 8,
+      "maximum_cap": 4
+    }
+  ],
+  "verdict": "PASS"
+}

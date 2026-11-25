@@ -1,0 +1,126 @@
+{
+  "utc": "2026-11-25T17:24:19.511807+00:00",
+  "edges": [
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      12
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      11
+    ]
+  ],
+  "edge_count": 19,
+  "matching_permutation": [
+    1,
+    0,
+    6,
+    4,
+    3,
+    5,
+    2
+  ],
+  "matching_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      12
+    ],
+    [
+      6,
+      9
+    ]
+  ],
+  "row_pair_common_neighbors_at_most_one": true,
+  "checked_generic_theorem": "PEqualNP.Outside.L_meta_7639",
+  "conditions": "IsAO2 14 C; exactedgefunction; ReadK.IsReadK14C1; no4cycle; matching",
+  "consequence": "19+7<=C.size+1, hence25<=C.size; requires actualspecialization proof forLeanclaim",
+  "caveat": "IsAO2 isexactlybinarystrictbackwardAND/OR, notgeneralMonotone2; scalarpervariable ReadKheuristicsareinsufficient"
+}

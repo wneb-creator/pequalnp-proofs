@@ -1,0 +1,11 @@
+{
+  "time_utc": "2026-11-25T17:20:34.734388+00:00",
+  "source": "results/orch9775/lemmas/KWFormula.lean",
+  "sha256": "4a367c8e74da00361e448a190f771d30ac0f4220ebe297bb64cb5339214bfefb",
+  "bytes": 8291,
+  "lines": 161,
+  "check_exit": 0,
+  "exported": true,
+  "imports": "PEqualNP.Defs only",
+  "statement": "Every positive DMFormula14 computing the exact19edge target has at least26 leaves. This is a formula bound, not an arbitrary circuit bound."
+}

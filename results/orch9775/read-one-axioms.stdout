@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_9775.ReadOneFloor.twenty_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9775.GraphFacts.no_four_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9775.GraphFacts.cover_size' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+L-meta-9775 partial checkpoint; not a completed posted proof.
+Named lake build PEqualNP.Outside.L_meta_9775: PASS, 5149 jobs.
+Contents: exact 25-gate witness and 26-leaf formula lower bound.
+Separate GraphFacts + ReadOneFloor dependency check: PASS.
+Independent reviews: PASS; each scope is stated in REVIEW files.
+Full posted-statement checker: not run; no 24-gate witness or general lower bound yet.
+Cleanup: not started; named file 241 lines before and after preservation.
+Sub-agents: circuit_search, counterexample, fresh_proof, lean_setup, lower_bound, status_check; partial_lean earlier in this job.
+TIMING total=208.5 subagents=7

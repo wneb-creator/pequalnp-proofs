@@ -1,0 +1,52 @@
+{
+  "sources_and_logs": [
+    {
+      "path": "results/orch9775/lemmas/GraphFacts.lean",
+      "sha256": "02d9ca880ef841a31486efe72f2c8c345ad26f9f3d2b0c0b3764f7b76143987b",
+      "bytes": 2212,
+      "lines": 65
+    },
+    {
+      "path": "results/orch9775/lemmas/ReadOneFloor.lean",
+      "sha256": "a0faf197256013fc4f4fb49d3a2b3306d0110a12e6042a022ab875c07e4e8774",
+      "bytes": 1066,
+      "lines": 28
+    },
+    {
+      "path": "results/orch9775/graph-facts-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/graph-facts-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/read-one-first.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/read-one-first.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/l2237-build.stdout",
+      "sha256": "04eef45152bd875e3ecdb1b1a7631edd774fd5e0d176d79c67561461d031bdcd",
+      "bytes": 66153
+    },
+    {
+      "path": "results/orch9775/l2237-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "checks": {
+    "GraphFacts": "Lean export exit0",
+    "ReadOneFloor": "Lean export exit0",
+    "L_meta_2237": "lake build exit0"
+  },
+  "scope": "Conditional floor25 for IsAO2 circuits satisfying semantic ReadK.IsReadK14C1. No unrestricted24-gate impossibility or solution of postedgap is claimed."
+}

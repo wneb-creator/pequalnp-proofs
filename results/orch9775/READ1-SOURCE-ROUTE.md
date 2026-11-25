@@ -1,0 +1,7 @@
+Read-only reuse route verified 2026-11-25T17:24:19.511807+00:00
+
+L_meta_7639 finaltheorem(line1964) gives E.card+n<=C.size+1 for a balanced n+n bipartite graph with no rectangle, a displayed perfectmatching, an actual IsAO2 circuit computing exactly its edge function, and ReadK.IsReadK(n+n)C1. For the posted19edgegraph take n=7 andmatchingpermutation [1,0,6,4,3,5,2]. Allsevenmatchingedges and pairwise common-neighbor bound were independently checked; exactdata are in read1-specialization-data.json. This yields25<=C.size once instantiated inLean.
+
+L_meta_2237.main_aux(line1790) is the underlying general no-four-cycle graph cost theorem, producing a vertexcoverT with edgecount+|T|<=size+1. S35_main_aux(line1760) works with the subset of edges on which readsAtMost returns true and only needs singleton/nonedge-pair rejection. L7639 packages bipartitecover andmatching arithmetic, so it is the shortest specialization route.
+
+The required ReadK1 is joint existence of one squarefree proof tree for eachprime implicant. It is not the weaker separatepervariable minima, nor physical inputfanout<=1. For an exactedgefunction, primeimplicants are exactlyedgepairs. IsAO2 additionally requires alloperandsstrictlyearlier and eachAND/OR gate exactlybinary. PublicMonotone2 permits constants/unary/invalidreads and needs a normalization argument beforeusingthisstrictmodel; preservationofReadK throughnormalization is unnecessary when one only uses the lowerbound toexclude everyread1 strictnormalizedcandidate.

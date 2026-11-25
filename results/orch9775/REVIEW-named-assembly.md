@@ -1,0 +1,7 @@
+UTC: 2026-11-25T17:23:56.244167+00:00
+
+Independent pre-push assembly review: PASS for the named partial L_meta_9775.lean. Exact SHA2565d634d6a9151ecb9f7786c8927c1629627e233e420909c416d9bc9f5086a4c1f,11289bytes/241lines. The file is byte-identical to independently reviewed CircuitHarness, one extra newline, and independently reviewed KWFormula with only its duplicatePEqualNP.Defs import removed. All theorem statements, proof terms, finite tables and namespace boundaries are unchanged. Root reports the namedlakebuild passed in7.6seconds; this review does not rerun it.
+
+The only import isPEqualNP.Defs. All options are permitted numeric declaration-scoped limits. No prohibited root marker, string literals, unpermitted attributes, admitted proofs, new axioms, native decision procedure or unsafe constructs occur. Both own namespaces remain separate, and the file is far below512KiB.
+
+The mathematical content is an exact25-gate targetbaseline plus a26positive-formula-leaf lower bound and conditional circuit-validation wrapper. The formula result does not imply a general-circuit25-gate lower bound; no≤24 witness and no full postedgoal theorem appears. This is an early preservation partial, not a completedproof PR. Previous independent reviews contain the complete16384assignmentbaseline validation and signedmatrix/rectangle checks. No credentials or unrelated changes were found in this assembly.

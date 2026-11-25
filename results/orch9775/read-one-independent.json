@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T17:25:50.154285+00:00",
+  "verdict": "PASS independent semantic/format review; no new build",
+  "source_hashes": {
+    "GraphFacts": "02d9ca880ef841a31486efe72f2c8c345ad26f9f3d2b0c0b3764f7b76143987b",
+    "ReadOneFloor": "a0faf197256013fc4f4fb49d3a2b3306d0110a12e6042a022ab875c07e4e8774"
+  },
+  "all_author_manifest_hashes_verified": true,
+  "full_target_proved": false
+}
