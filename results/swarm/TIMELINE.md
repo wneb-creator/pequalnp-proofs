@@ -45,4 +45,9 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:01 UTC: Third full-route re-plan posted (bus 3006), concentrating proof work on joint normalization and shared gates while full-function searches continue.
 - 2026-11-25 22:03:16 UTC: Hoist bridge independently source/axiom reviewed and exact append checked; merged named-file build passed. Cardinality/minimum-preservation composition remains separate work.
 
-TIMING total=62.0 subagents=10
+- 2026-11-25 22:04 UTC: Pushed reviewed hoist-wire checkpoint 1a72245f55e7f9f8a19e8cc882648ea31702558e; remote SHA verified; bus 3071 marked PARTIAL.
+- 2026-11-25 22:10 UTC: Root independently rebuilt helper-8 conditional full cover bound and checked standard axioms. Its minimum-circuit mixed-OR cleanliness hypothesis remains explicit and unproved.
+- 2026-11-25 22:13 UTC: Root composed helper-9 AND-index bijection/dirty-cardinality preservation with an operand-order-independent hoist bridge; scratch compilation passed.
+- 2026-11-25 22:15:43 UTC: Combined Order/Dirty append passed named-file build and independent source, exact-diff and seven-key axiom review. This preserves dirty count through a concrete hoist; it does not prove the final gap.
+
+TIMING total=74.4 subagents=10

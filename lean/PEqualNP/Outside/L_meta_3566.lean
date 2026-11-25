@@ -3144,3 +3144,487 @@ lemma clean_hoist_negative_gate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRe
   exact hoisted_negative_gate n D k u t j hR hkg hu ht ho hj hjk x htfalse (by rw [hfun, hx])
 
 end PEqualNP.Outside.L_meta_3566.HoistNegative
+
+namespace PEqualNP.Outside.L_meta_3566.HoistNegative
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_3566.HoistEval PEqualNP.Outside.L_meta_3566.HoistBase
+
+def ordered (D : Circuit) (k u t : ℕ) : Circuit :=
+  ⟨D.gates.set k ⟨GateOp.or,[u,t]⟩, D.output⟩
+
+lemma ordered_wires_eq (D : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : D.gates[k]? = some g)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false)) (x : List Bool) :
+    (ordered D k u t).wires x = D.wires x :=
+  foldl_set_equiv D.gates k g ⟨GateOp.or,[u,t]⟩ hkg hequ x
+
+lemma ordered_fun_eq (n : ℕ) (D : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : D.gates[k]? = some g)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false)) :
+    circuitFun n (ordered D k u t) = circuitFun n D := by
+  funext x
+  change ((ordered D k u t).wires (List.ofFn x)).getD D.output false = _
+  rw [ordered_wires_eq D k u t g hkg hequ]
+  rfl
+
+lemma hoisted_ordered_eq (n : ℕ) (D : Circuit) (k u t : ℕ) :
+    hoisted n (ordered D k u t) k u t = hoisted n D k u t := by
+  simp [hoisted, lifted, ordered, List.set_set]
+
+lemma ordered_readsBack (n : ℕ) (D : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n D) (hu : u < n+k) (ht : t < n+k) :
+    ReadsBack n (ordered D k u t) := by
+  apply readsBack_of_get
+  intro j g hg i hi
+  have hj : j < D.gates.length := by
+    have h := (List.getElem?_eq_some_iff.mp hg).1
+    simpa [ordered] using h
+  by_cases hjk : j = k
+  · subst j
+    have hget : (ordered D k u t).gates[k]? = some ⟨GateOp.or,[u,t]⟩ := by
+      simp [ordered, hj]
+    rw [hget] at hg
+    cases hg
+    simp at hi
+    omega
+  · have hget : (ordered D k u t).gates[j]? = D.gates[j]? := by
+      simp only [ordered, List.getElem?_set_ne (Ne.symm hjk)]
+    rw [hget] at hg
+    exact readsBack_get n D hR j g hg i hi
+
+lemma hoisted_negative_gate_equiv (n : ℕ) (D : Circuit) (k u t j : ℕ) (g : Gate)
+    (hR : ReadsBack n D) (hkg : D.gates[k]? = some g)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false))
+    (hu : u < n+k) (ht : t < n+k) (ho : D.output < n+D.gates.length)
+    (hj : j < D.gates.length) (hjk : j ≠ k)
+    (x : Fin n → Bool) (htfalse : (D.wires (List.ofFn x)).getD t false = false)
+    (hofalse : circuitFun n D x = false) :
+    ((hoisted n D k u t).wires (List.ofFn x)).getD (n+sg k j) false =
+      (D.wires (List.ofFn x)).getD (n+j) false := by
+  have hk : k < D.gates.length := (List.getElem?_eq_some_iff.mp hkg).1
+  have hkg' : (ordered D k u t).gates[k]? = some ⟨GateOp.or,[u,t]⟩ := by
+    simp [ordered, hk]
+  have ho' : (ordered D k u t).output < n+(ordered D k u t).gates.length := by
+    simpa [ordered] using ho
+  have hj' : j < (ordered D k u t).gates.length := by simpa [ordered] using hj
+  have htfalse' : ((ordered D k u t).wires (List.ofFn x)).getD t false = false := by
+    rw [ordered_wires_eq D k u t g hkg hequ]
+    exact htfalse
+  have hofalse' : circuitFun n (ordered D k u t) x = false := by
+    rw [ordered_fun_eq n D k u t g hkg hequ]
+    exact hofalse
+  have h := hoisted_negative_gate n (ordered D k u t) k u t j
+    (ordered_readsBack n D k u t hR hu ht) hkg' hu ht ho' hj' hjk x htfalse' hofalse'
+  rw [hoisted_ordered_eq, ordered_wires_eq D k u t g hkg hequ] at h
+  exact h
+
+end PEqualNP.Outside.L_meta_3566.HoistNegative
+
+namespace PEqualNP.Outside.L_meta_3566.AndIndexTransport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+noncomputable def andIndices (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j => (gateAt C j).op = .and
+
+noncomputable def badAnds {n : ℕ} (C : Circuit) (P : (Fin n → Bool) → Prop) : Finset ℕ := by
+  classical
+  exact (andIndices C).filter fun j => ∃ x, P x ∧ gateVal n C j x = true
+
+lemma mem_andIndices {C : Circuit} {j : ℕ} :
+    j ∈ andIndices C ↔ j < C.gates.length ∧ (gateAt C j).op = .and := by
+  classical
+  simp [andIndices]
+
+lemma mem_badAnds {n : ℕ} {C : Circuit} {P : (Fin n → Bool) → Prop} {j : ℕ} :
+    j ∈ badAnds C P ↔ j ∈ andIndices C ∧ ∃ x, P x ∧ gateVal n C j x = true := by
+  classical
+  simp [badAnds]
+
+lemma badAnds_image {n : ℕ} (C D : Circuit) (f : ℕ → ℕ)
+    (P : (Fin n → Bool) → Prop)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hval : ∀ j ∈ andIndices C, ∀ x, P x → gateVal n D (f j) x = gateVal n C j x) :
+    badAnds D P = (badAnds C P).image f := by
+  classical
+  ext k
+  constructor
+  · intro hk
+    obtain ⟨hkA, x, hx, hv⟩ := mem_badAnds.mp hk
+    obtain ⟨j, hj, rfl⟩ := hsurj k hkA
+    exact Finset.mem_image.mpr ⟨j, mem_badAnds.mpr ⟨hj, x, hx, (hval j hj x hx) ▸ hv⟩, rfl⟩
+  · intro hk
+    obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hk
+    obtain ⟨hjA, x, hx, hv⟩ := mem_badAnds.mp hj
+    exact mem_badAnds.mpr ⟨hforward j hjA, x, hx, (hval j hjA x hx).symm ▸ hv⟩
+
+lemma badAnds_card {n : ℕ} (C D : Circuit) (f : ℕ → ℕ)
+    (P : (Fin n → Bool) → Prop)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hinj : Set.InjOn f (andIndices C : Set ℕ))
+    (hval : ∀ j ∈ andIndices C, ∀ x, P x → gateVal n D (f j) x = gateVal n C j x) :
+    (badAnds D P).card = (badAnds C P).card := by
+  classical
+  rw [badAnds_image C D f P hforward hsurj hval]
+  apply Finset.card_image_of_injOn
+  intro i hi j hj hij
+  exact hinj (mem_badAnds.mp hi).1 (mem_badAnds.mp hj).1 hij
+
+lemma junk_eq_badAnds {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) :
+    junk G C = badAnds C (fun x => graphFun G ∅ x = false) := by
+  classical
+  ext j
+  have hjunk : j ∈ junk G C ↔ j < C.gates.length ∧ IsDirtyAnd n G C j := by
+    unfold PEqualNP.TopForm.junk PEqualNP.TopForm.gatesWhere
+    rw [Finset.mem_filter, Finset.mem_range]
+  rw [hjunk, mem_badAnds, mem_andIndices]
+  change (j < C.gates.length ∧ (gateAt C j).op = .and ∧ j < C.gates.length ∧
+    ∃ x, gateVal n C j x = true ∧ graphFun G ∅ x = false) ↔ _
+  constructor
+  · rintro ⟨hj, hop, _, x, hv, hx⟩
+    exact ⟨⟨hj, hop⟩, x, hx, hv⟩
+  · rintro ⟨⟨hj, hop⟩, x, hx, hv⟩
+    exact ⟨hj, hop, hj, x, hv, hx⟩
+
+lemma junk_image {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hval : ∀ j ∈ andIndices C, ∀ x, graphFun G ∅ x = false →
+      gateVal n D (f j) x = gateVal n C j x) :
+    junk G D = (junk G C).image f := by
+  rw [junk_eq_badAnds, junk_eq_badAnds]
+  exact badAnds_image C D f _ hforward hsurj hval
+
+lemma junk_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hinj : Set.InjOn f (andIndices C : Set ℕ))
+    (hval : ∀ j ∈ andIndices C, ∀ x, graphFun G ∅ x = false →
+      gateVal n D (f j) x = gateVal n C j x) :
+    (junk G D).card = (junk G C).card := by
+  rw [junk_eq_badAnds, junk_eq_badAnds]
+  exact badAnds_card C D f _ hforward hsurj hinj hval
+
+noncomputable def pairLeakyAnds {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit) : Finset ℕ := by
+  classical
+  exact (andIndices C).filter fun j =>
+    ∃ a b, ¬ G.Adj a b ∧ gateVal n C j (pairInput a b) = true
+
+lemma mem_pairLeakyAnds {n : ℕ} {G : SimpleGraph (Fin n)} {C : Circuit} {j : ℕ} :
+    j ∈ pairLeakyAnds G C ↔ j ∈ andIndices C ∧
+      ∃ a b, ¬ G.Adj a b ∧ gateVal n C j (pairInput a b) = true := by
+  classical
+  simp [pairLeakyAnds]
+
+lemma pairLeakyAnds_eq_badAnds {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit) :
+    pairLeakyAnds G C = badAnds C (fun x => ∃ a b, ¬ G.Adj a b ∧ x = pairInput a b) := by
+  classical
+  ext j
+  rw [mem_pairLeakyAnds, mem_badAnds]
+  constructor
+  · rintro ⟨hj, a, b, hab, hv⟩
+    exact ⟨hj, pairInput a b, ⟨a, b, hab, rfl⟩, hv⟩
+  · rintro ⟨hj, x, ⟨a, b, hab, rfl⟩, hv⟩
+    exact ⟨hj, a, b, hab, hv⟩
+
+lemma pairLeakyAnds_image {n : ℕ} (G : SimpleGraph (Fin n))
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hval : ∀ j ∈ andIndices C, ∀ a b, ¬ G.Adj a b →
+      gateVal n D (f j) (pairInput a b) = gateVal n C j (pairInput a b)) :
+    pairLeakyAnds G D = (pairLeakyAnds G C).image f := by
+  rw [pairLeakyAnds_eq_badAnds, pairLeakyAnds_eq_badAnds]
+  apply badAnds_image C D f _ hforward hsurj
+  rintro j hj x ⟨a, b, hab, rfl⟩
+  exact hval j hj a b hab
+
+lemma pairLeakyAnds_card {n : ℕ} (G : SimpleGraph (Fin n))
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j ∈ andIndices C, f j ∈ andIndices D)
+    (hsurj : ∀ k ∈ andIndices D, ∃ j ∈ andIndices C, f j = k)
+    (hinj : Set.InjOn f (andIndices C : Set ℕ))
+    (hval : ∀ j ∈ andIndices C, ∀ a b, ¬ G.Adj a b →
+      gateVal n D (f j) (pairInput a b) = gateVal n C j (pairInput a b)) :
+    (pairLeakyAnds G D).card = (pairLeakyAnds G C).card := by
+  rw [pairLeakyAnds_eq_badAnds, pairLeakyAnds_eq_badAnds]
+  apply badAnds_card C D f _ hforward hsurj hinj
+  rintro j hj x ⟨a, b, hab, rfl⟩
+  exact hval j hj a b hab
+
+end PEqualNP.Outside.L_meta_3566.AndIndexTransport
+
+namespace PEqualNP.Outside.L_meta_3566.HoistAndIndices
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_3566.HoistBase PEqualNP.Outside.L_meta_3566.HoistNegative
+open PEqualNP.Outside.L_meta_3566.AndIndexTransport (andIndices)
+
+lemma mem_andIndices (C : Circuit) (j : ℕ) :
+    j ∈ andIndices C ↔ ∃ g, C.gates[j]? = some g ∧ g.op = .and := by
+  classical
+  simp only [AndIndexTransport.andIndices, Finset.mem_filter, Finset.mem_range]
+  constructor
+  · rintro ⟨hj, hop⟩
+    refine ⟨gateAt C j, ?_, hop⟩
+    simp [gateAt, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hj]
+  · rintro ⟨g, hg, hop⟩
+    refine ⟨(List.getElem?_eq_some_iff.mp hg).1, ?_⟩
+    simpa [gateAt, List.getD_eq_getElem?_getD, hg] using hop
+
+lemma indexShift_injOn (k : ℕ) (S : Finset ℕ) (hS : k ∉ S) :
+    Set.InjOn (sg k) (S : Set ℕ) := by
+  intro a ha b hb hab
+  have ha' : a ≠ k := fun h => hS (h ▸ ha)
+  have hb' : b ≠ k := fun h => hS (h ▸ hb)
+  unfold sg at hab
+  split_ifs at hab <;> omega
+
+lemma changed_not_and (C : Circuit) (k : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or) : k ∉ andIndices C := by
+  intro hk
+  obtain ⟨g', hg', hand⟩ := (mem_andIndices C k).mp hk
+  rw [hkg] at hg'
+  cases hg'
+  rw [hor] at hand
+  cases hand
+
+lemma hoisted_and_injOn (C : Circuit) (k : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or) :
+    Set.InjOn (sg k) (andIndices C : Set ℕ) :=
+  indexShift_injOn k (andIndices C) (changed_not_and C k g hkg hor)
+
+lemma hoisted_and_forward (n : ℕ) (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or)
+    (j : ℕ) (hj : j ∈ andIndices C) : sg k j ∈ andIndices (hoisted n C k u t) := by
+  have hjk : j ≠ k := by
+    intro heq
+    exact changed_not_and C k g hkg hor (heq ▸ hj)
+  obtain ⟨g0, hg0, hand⟩ := (mem_andIndices C j).mp hj
+  apply (mem_andIndices _ _).mpr
+  exact ⟨rd (n + k) u g0, HoistNegative.hoisted_get n C k u t j g0 hjk hg0, hand⟩
+
+lemma hoisted_and_inverse (n : ℕ) (C : Circuit) (k u t j : ℕ)
+    (hj : j ∈ andIndices (hoisted n C k u t)) :
+    ∃ i ∈ andIndices C, sg k i = j := by
+  obtain ⟨g, hg, hand⟩ := (mem_andIndices _ j).mp hj
+  obtain ⟨g0, hg0, hrd⟩ := del_get_inv n k u (lifted n C k u t) j g hg
+  let i := if j < k then j else j + 1
+  have hik : i ≠ k := by dsimp [i]; split_ifs <;> omega
+  have hi : i < (lifted n C k u t).gates.length :=
+    (List.getElem?_eq_some_iff.mp hg0).1
+  have hlen : (lifted n C k u t).gates.length = C.gates.length + 1 := by
+    simp [lifted]
+  have hiold : i < C.gates.length := by
+    by_contra hn
+    have heq : i = C.gates.length := by omega
+    have hlast := lifted_get_last n C k u t
+    change (lifted n C k u t).gates[i]? = some g0 at hg0
+    rw [heq, hlast] at hg0
+    cases hg0
+    simp [hrd, rd] at hand
+  have hOld : C.gates[i]? = some g0 := by
+    rw [← lifted_get_ne n C k u t i hik hiold]
+    exact hg0
+  refine ⟨i, (mem_andIndices C i).mpr ⟨g0, hOld, ?_⟩, ?_⟩
+  · simpa [hrd, rd] using hand
+  · dsimp [i, sg]
+    split_ifs <;> omega
+
+lemma hoisted_and_image (n : ℕ) (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or) :
+    andIndices (hoisted n C k u t) = (andIndices C).image (sg k) := by
+  ext j
+  constructor
+  · intro hj
+    obtain ⟨i, hi, heq⟩ := hoisted_and_inverse n C k u t j hj
+    exact Finset.mem_image.mpr ⟨i, hi, heq⟩
+  · intro hj
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hj
+    exact hoisted_and_forward n C k u t g hkg hor i hi
+
+lemma hoisted_and_bijection (n : ℕ) (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or)
+    (j : ℕ) (hj : j ∈ andIndices (hoisted n C k u t)) :
+    ∃! i, i ∈ andIndices C ∧ sg k i = j := by
+  obtain ⟨i, hi, heq⟩ := hoisted_and_inverse n C k u t j hj
+  refine ⟨i, ⟨hi, heq⟩, ?_⟩
+  intro i' hi'
+  exact indexShift_injOn k (andIndices C) (changed_not_and C k g hkg hor)
+    hi'.1 hi (hi'.2.trans heq.symm)
+
+lemma hoisted_and_card (n : ℕ) (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hkg : C.gates[k]? = some g) (hor : g.op = .or) :
+    (andIndices (hoisted n C k u t)).card = (andIndices C).card := by
+  rw [hoisted_and_image n C k u t g hkg hor]
+  exact Finset.card_image_of_injOn
+    (indexShift_injOn k (andIndices C) (changed_not_and C k g hkg hor))
+
+end PEqualNP.Outside.L_meta_3566.HoistAndIndices
+
+namespace PEqualNP.Outside.L_meta_3566.HoistDirty
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.HoistBase (sg)
+open PEqualNP.Outside.L_meta_3566.HoistNegative (hoisted)
+open PEqualNP.Outside.L_meta_3566.AndIndexTransport (andIndices pairLeakyAnds)
+
+lemma negative_and_profile {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    ∀ j ∈ andIndices C, ∀ x, graphFun G ∅ x = false →
+      gateVal n (hoisted n C k u t) (sg k j) x = gateVal n C j x := by
+  have hreads := HoistBase.readsBack_get n C hR k ⟨GateOp.or, [u,t]⟩ hkg
+  have hu : u < n + k := hreads u (by simp)
+  have ht : t < n + k := hreads t (by simp)
+  intro j hj x hx
+  have hjlt := (AndIndexTransport.mem_andIndices.mp hj).1
+  have hjk : j ≠ k := by
+    intro h
+    exact HoistAndIndices.changed_not_and C k _ hkg rfl (h ▸ hj)
+  exact HoistNegative.clean_hoist_negative_gate G C k u t j hR hkg hu ht ho
+    hfun hclean hjlt hjk x hx
+
+lemma junk_image {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    junk G (hoisted n C k u t) = (junk G C).image (sg k) := by
+  exact AndIndexTransport.junk_image G C (hoisted n C k u t) (sg k)
+    (HoistAndIndices.hoisted_and_forward n C k u t _ hkg rfl)
+    (HoistAndIndices.hoisted_and_inverse n C k u t)
+    (negative_and_profile G C k u t hR hkg ho hfun hclean)
+
+lemma junk_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    (junk G (hoisted n C k u t)).card = (junk G C).card := by
+  exact AndIndexTransport.junk_card G C (hoisted n C k u t) (sg k)
+    (HoistAndIndices.hoisted_and_forward n C k u t _ hkg rfl)
+    (HoistAndIndices.hoisted_and_inverse n C k u t)
+    (HoistAndIndices.hoisted_and_injOn C k _ hkg rfl)
+    (negative_and_profile G C k u t hR hkg ho hfun hclean)
+
+lemma graphFun_pair_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b : Fin n) (hab : ¬ G.Adj a b) : graphFun G ∅ (pairInput a b) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro h
+  have hh : ∃ p q, G.Adj p q ∧ pairInput a b p = true ∧ pairInput a b q = true := by
+    simpa [graphFun] using h
+  obtain ⟨p, q, hpq, hp, hq⟩ := hh
+  have hp' : p = a ∨ p = b := by simpa [pairInput] using hp
+  have hq' : q = a ∨ q = b := by simpa [pairInput] using hq
+  rcases hp' with rfl | rfl <;> rcases hq' with rfl | rfl
+  · exact G.loopless.irrefl _ hpq
+  · exact hab hpq
+  · exact hab hpq.symm
+  · exact G.loopless.irrefl _ hpq
+
+lemma pair_negative_and_profile {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    ∀ j ∈ andIndices C, ∀ a b, ¬ G.Adj a b →
+      gateVal n (hoisted n C k u t) (sg k j) (pairInput a b) =
+        gateVal n C j (pairInput a b) := by
+  intro j hj a b hab
+  exact negative_and_profile G C k u t hR hkg ho hfun hclean j hj
+    (pairInput a b) (graphFun_pair_false G a b hab)
+
+lemma pairLeakyAnds_image {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    pairLeakyAnds G (hoisted n C k u t) = (pairLeakyAnds G C).image (sg k) := by
+  exact AndIndexTransport.pairLeakyAnds_image G C (hoisted n C k u t) (sg k)
+    (HoistAndIndices.hoisted_and_forward n C k u t _ hkg rfl)
+    (HoistAndIndices.hoisted_and_inverse n C k u t)
+    (pair_negative_and_profile G C k u t hR hkg ho hfun hclean)
+
+lemma pairLeakyAnds_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some ⟨GateOp.or, [u,t]⟩)
+    (ho : C.output < n + C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    (pairLeakyAnds G (hoisted n C k u t)).card = (pairLeakyAnds G C).card := by
+  exact AndIndexTransport.pairLeakyAnds_card G C (hoisted n C k u t) (sg k)
+    (HoistAndIndices.hoisted_and_forward n C k u t _ hkg rfl)
+    (HoistAndIndices.hoisted_and_inverse n C k u t)
+    (HoistAndIndices.hoisted_and_injOn C k _ hkg rfl)
+    (pair_negative_and_profile G C k u t hR hkg ho hfun hclean)
+
+end PEqualNP.Outside.L_meta_3566.HoistDirty
+
+namespace PEqualNP.Outside.L_meta_3566.HoistDirty
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.HoistBase (sg)
+open PEqualNP.Outside.L_meta_3566.HoistNegative (hoisted)
+open PEqualNP.Outside.L_meta_3566.AndIndexTransport (andIndices)
+
+lemma negative_and_profile_equiv {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some g) (hor : g.op = GateOp.or)
+    (hu : u ∈ g.inputs) (ht : t ∈ g.inputs)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false))
+    (ho : C.output < n+C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    ∀ j ∈ andIndices C, ∀ x, graphFun G ∅ x = false →
+      gateVal n (hoisted n C k u t) (sg k j) x = gateVal n C j x := by
+  have hreads := HoistBase.readsBack_get n C hR k g hkg
+  intro j hj x hx
+  have hjlt := (AndIndexTransport.mem_andIndices.mp hj).1
+  have hjk : j ≠ k := by
+    intro h
+    exact HoistAndIndices.changed_not_and C k g hkg hor (h ▸ hj)
+  have htfalse : (C.wires (List.ofFn x)).getD t false = false := by
+    cases h : (C.wires (List.ofFn x)).getD t false
+    · rfl
+    · have hc := hclean x h
+      rw [hx] at hc
+      cases hc
+  exact HoistNegative.hoisted_negative_gate_equiv n C k u t j g hR hkg hequ
+    (hreads u hu) (hreads t ht) ho hjlt hjk x htfalse (by rw [hfun,hx])
+
+lemma junk_card_equiv {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some g) (hor : g.op = GateOp.or)
+    (hu : u ∈ g.inputs) (ht : t ∈ g.inputs)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false))
+    (ho : C.output < n+C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    (junk G (hoisted n C k u t)).card = (junk G C).card := by
+  exact AndIndexTransport.junk_card G C (hoisted n C k u t) (sg k)
+    (HoistAndIndices.hoisted_and_forward n C k u t g hkg hor)
+    (HoistAndIndices.hoisted_and_inverse n C k u t)
+    (HoistAndIndices.hoisted_and_injOn C k g hkg hor)
+    (negative_and_profile_equiv G C k u t g hR hkg hor hu ht hequ ho hfun hclean)
+
+end PEqualNP.Outside.L_meta_3566.HoistDirty

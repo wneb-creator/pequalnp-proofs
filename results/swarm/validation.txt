@@ -1,6 +1,6 @@
 L-meta-3566: partial research support only; no final theorem.
 Sub-agents: 9 external bus helpers; 1 local toolchain and synthesis agent.
-TIMING total=62.0 subagents=10
+TIMING total=74.4 subagents=10
 Pinned Lean 4.36.0 restored; lake exe cache get passed.
 PEqualNP.Defs built without Mathlib source compilation.
 Merged support: lake build PEqualNP.Outside.L_meta_3566 passed (5149 jobs).
@@ -17,3 +17,5 @@ Root AliasRemoval scratch: compiled exit 0; exact gate partition into emitted, f
 Petersen fixed two-copy lifts: 0 of 1,048,576 full-boundary-valid variants; 30 positive edges plus all 187 maximal independent negatives; independent enumeration and scalar audit passed. Not a general circuit lower bound.
 Existing Heawood lower bound L_meta_7945 and H12 incident-deletion bound L_meta_9732 independently rebuilt by helpers; standard axioms only. Searches on those total-size targets retired.
 Root HoistNegative: copied Lift/LiftFix helper proofs into the allowed gap namespace; proved per-wire deletion correspondence and concrete clean-operand hoist equality on graph-negative assignments. Independent six-key axiom checks, source scope, exact integration diff and merged named build passed. No new AO2/function-preservation or dirty-cardinality theorem is claimed by this bridge alone.
+Root HoistOrder plus helper-9 transport: original gate operand order handled using exact pick_u equivalence; actual AND-index bijection preserves full global-junk and pair-leak counts. Root junk_card_equiv combines these without assuming the original input order. Named build, independent full source/axioms and exact484-line append review passed. No full normalization or final theorem claimed.
+Helper-8 conditional cover budget independently rebuilt from exact84a1eaa2 source; two endpoint axiom checks standard3. Mixed-OR cleanliness remains a substantive explicit hypothesis.
