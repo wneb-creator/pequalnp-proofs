@@ -153,3 +153,19 @@ Preserved a 57-gate prefix and resynthesized the remaining eight gates using sev
 CaDiCaL (bundled with the Lean toolchain) proved the basic one-star windows for selected lines 0, 2, and 12 UNSAT. Line12 took 1.68 seconds; HiGHS had timed out at 240 seconds on that same instance. An eight-gate positive control was SAT in 0.05 seconds; its decoded full 65-gate circuit was independently checked on all 756 semantic test rows and both traces, with no error. Encoder: finite-search/local_sat.py; decoder/full validator: finite-search/decode_local_sat.py. Full logs: local0-sat.log, local2-sat.log, local12-sat.log, local12-control-sat.log.
 
 Expanded predecessor sets and two/three-star windows are now running. These UNSAT results cover only the selected local windows, not arbitrary 64-gate circuits.
+
+## 2026-11-25T03:32:41.835830+00:00 Independent review: extended rectangle filters
+
+PASS: rectangle_filter_extended.lean,142 lines,SHA256 3ff3556daa2e53d556dbf9bd93adb4b2ebc74b6bc5269144cc5e37072568873f. Previous95-line core preserved verbatim. Three added lemmas correctly identify the pair-input footprint, force full rows/columns at centers that lie on both the filter and rectangle axes, and apply no-rectangle bounds to show at most one useful center per side. Outside-axis literals are allowed; results do not claim their disappearance on general inputs or arbitrary circuit normalization. Build1 log is empty with reported exit0; static format scan passes.
+
+## 2026-11-25T03:38:19.369937+00:00 demasking strategy
+
+Detailed nonformal strategy at results/orch/demasking_strategy.md. Clean g permits global F=g OR C[g:=0], with fanout(g)-1 gate savings; direct AND consumer of a clean wire can be bypassed. Universal +2 double penalty is false even for a bipartite path: g=xy, h=p OR g, a=h AND y, b=q OR a, out=h AND b computes xy OR py OR pq in5 gates (ordinary4), both marked-leaf traces false. Root bowtie optimum-double example has all ANDs clean, so bipartiteness/equality rigidity essential. Potential plane route: clean normalization to stars, size64 forces pure orientation via checked mixed-cover≥16, then first-collision tracking should preserve the point-direction trace. The notes list unresolved formal gaps and explicitly do not handle dirty ANDs. Duplicate four-input enumeration stopped after root noticed status_review already completed it.
+
+## 2026-11-25T03:39:33.362477+00:00 Independent review: 622-line merge and two-AND trace
+
+PASS: canonical622-line SHA256 582a330eecded7b2a20bc0b77a1f07f30efe26e915cec896cab477212b584be9. Diff147insertions/0deletions preserves prior content; approved extendedrectangle body and upper65 wrapper are unchanged. One auxnamespace and plainfile checks pass; build006 pending at review.
+
+PASS: trace_two_and.lean,21lines,SHA256 1737675734bd7e4685f24b0a8e9b719f0a914b13d61131d48f76b5760b3c2291. Eight-Boolean identity correctly models the single-use form(D∨A)∧B withD=U∧V andOR-linear U,V,A,B; independent enumeration checks256assignments,36withpremises true. Repeated-factor implication is elementary absorption. These are restricted structural facts, not arbitrary circuit lowerbounds. Reported build1exit0, emptylog confirmed; format clean.
+
+2026-11-25T03:40:46.465986+00:00 Refined clean strategy avoids full normalization: in a minimum all-clean-AND circuit, empty-singleton wires form a forest (one consumer, no AND consumer), forcing at least a-1 zero/mask ORs for a ANDs. Positive-support ORs of support≥2 belong to unique star centers by no-C4; union-network counts force at least |E|-a such ORs. Assigned stars cover E, so a≥τ and C≥|E|+τ−1. Equality64 gives13 distinct pure-orientation stars; first-collision trace rigidity still unproved. Full argument and remaining formal gaps recorded in demasking_strategy.md.

@@ -472,4 +472,151 @@ lemma upper65_trace13_output : upper65Trace13 upper65Circuit.output = false := r
 
 lemma upper65_trace0_output : upper65Trace0 upper65Circuit.output = false := rfl
 
+
+lemma rectangle_filter_point_iff {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) (X : Finset α) (Y : Finset β) (p : α) (hp : p ∈ X) :
+    (∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X, f x = true) → (∃ y ∈ Y, g y = true) → f p = true →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true) ↔ ∀ y ∈ Y, R p y := by
+  constructor
+  · intro clean y hy
+    obtain ⟨x, z, hR, hx, hz⟩ := clean (fun x => decide (x = p))
+      (fun z => decide (z = y)) ⟨p, hp, by simp⟩ ⟨y, hy, by simp⟩ (by simp)
+    simp only [decide_eq_true_eq] at hx hz
+    subst x z
+    exact hR
+  · intro full f g _ hy hp
+    obtain ⟨y, hy, hgy⟩ := hy
+    exact ⟨p, y, full y hy, hp, hgy⟩
+
+lemma rectangle_filter_line_iff {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) (X : Finset α) (Y : Finset β) (l : β) (hl : l ∈ Y) :
+    (∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X, f x = true) → (∃ y ∈ Y, g y = true) → g l = true →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true) ↔ ∀ x ∈ X, R x l := by
+  constructor
+  · intro clean x hx
+    obtain ⟨p, y, hR, hp, hy⟩ := clean (fun p => decide (p = x))
+      (fun y => decide (y = l)) ⟨x, hx, by simp⟩ ⟨l, hl, by simp⟩ (by simp)
+    simp only [decide_eq_true_eq] at hp hy
+    subst p y
+    exact hR
+  · intro full f g hx _ hl
+    obtain ⟨x, hx, hfx⟩ := hx
+    exact ⟨x, l, full x hx, hfx, hl⟩
+
+lemma rectangle_full_points_card {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) [DecidableRel R]
+    (noRect : ∀ p q l m, p ≠ q → l ≠ m → R p l → R p m → R q l → ¬ R q m)
+    (X : Finset α) (Y : Finset β) (hY : 2 ≤ Y.card) :
+    (X.filter (fun p => ∀ l ∈ Y, R p l)).card ≤ 1 := by
+  obtain ⟨l, hl, m, hm, hlm⟩ := Finset.one_lt_card.mp (by omega : 1 < Y.card)
+  apply Finset.card_le_one.mpr
+  intro p hp q hq
+  by_contra hpq
+  have hp' := (Finset.mem_filter.mp hp).2
+  have hq' := (Finset.mem_filter.mp hq).2
+  exact noRect p q l m hpq hlm (hp' l hl) (hp' m hm) (hq' l hl) (hq' m hm)
+
+lemma rectangle_full_lines_card {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) [DecidableRel R]
+    (noRect : ∀ p q l m, p ≠ q → l ≠ m → R p l → R p m → R q l → ¬ R q m)
+    (X : Finset α) (Y : Finset β) (hX : 2 ≤ X.card) :
+    (Y.filter (fun l => ∀ p ∈ X, R p l)).card ≤ 1 := by
+  obtain ⟨p, hp, q, hq, hpq⟩ := Finset.one_lt_card.mp (by omega : 1 < X.card)
+  apply Finset.card_le_one.mpr
+  intro l hl m hm
+  by_contra hlm
+  have hl' := (Finset.mem_filter.mp hl).2
+  have hm' := (Finset.mem_filter.mp hm).2
+  exact noRect p q l m hpq hlm (hl' p hp) (hm' p hp) (hl' q hq) (hm' q hq)
+
+lemma rectangle_point_filter_absorb {α β : Type*}
+    (X : Finset α) (Y : Finset β) (p : α) (hp : p ∈ X)
+    (f : α → Prop) (g : β → Prop) :
+    ((∃ x ∈ X, f x) ∧ (∃ y ∈ Y, g y)) ∧ f p ↔ f p ∧ ∃ y ∈ Y, g y := by
+  constructor
+  · exact fun h => ⟨h.2, h.1.2⟩
+  · exact fun h => ⟨⟨⟨p, hp, h.1⟩, h.2⟩, h.1⟩
+
+lemma rectangle_line_filter_absorb {α β : Type*}
+    (X : Finset α) (Y : Finset β) (l : β) (hl : l ∈ Y)
+    (f : α → Prop) (g : β → Prop) :
+    ((∃ x ∈ X, f x) ∧ (∃ y ∈ Y, g y)) ∧ g l ↔ (∃ x ∈ X, f x) ∧ g l := by
+  constructor
+  · exact fun h => ⟨h.1.1, h.2⟩
+  · exact fun h => ⟨⟨h.1, ⟨l, hl, h.2⟩⟩, h.2⟩
+
+lemma rectangle_filters_expand {α β : Type*}
+    (X A : Finset α) (Y B : Finset β) (hA : A ⊆ X) (hB : B ⊆ Y)
+    (f : α → Prop) (g : β → Prop) :
+    ((∃ x ∈ X, f x) ∧ (∃ y ∈ Y, g y)) ∧
+        ((∃ a ∈ A, f a) ∨ ∃ b ∈ B, g b) ↔
+      ((∃ a ∈ A, f a) ∧ ∃ y ∈ Y, g y) ∨
+        ((∃ x ∈ X, f x) ∧ ∃ b ∈ B, g b) := by
+  constructor
+  · rintro ⟨⟨hx, hy⟩, ha | hb⟩
+    · exact Or.inl ⟨ha, hy⟩
+    · exact Or.inr ⟨hx, hb⟩
+  · rintro (⟨⟨a, ha, hfa⟩, hy⟩ | ⟨hx, ⟨b, hb, hgb⟩⟩)
+    · exact ⟨⟨⟨a, hA ha, hfa⟩, hy⟩, Or.inl ⟨a, ha, hfa⟩⟩
+    · exact ⟨⟨hx, ⟨b, hB hb, hgb⟩⟩, Or.inr ⟨b, hb, hgb⟩⟩
+
+
+lemma rectangle_filter_pair_footprint {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (X A : Finset α) (Y B : Finset β) (p : α) (l : β) :
+    ((∃ x ∈ X, decide (x = p) = true) ∧ (∃ y ∈ Y, decide (y = l) = true)) ∧
+        ((∃ a ∈ A, decide (a = p) = true) ∨ ∃ b ∈ B, decide (b = l) = true) ↔
+      (p ∈ A ∩ X ∧ l ∈ Y) ∨ (p ∈ X ∧ l ∈ B ∩ Y) := by
+  simp only [decide_eq_true_eq, exists_eq_right, Finset.mem_inter]
+  tauto
+
+lemma rectangle_filter_clean_centers {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) (X A : Finset α) (Y B : Finset β)
+    (clean : ∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X, f x = true) → (∃ y ∈ Y, g y = true) →
+      ((∃ a ∈ A, f a = true) ∨ ∃ b ∈ B, g b = true) →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true) :
+    (∀ p ∈ A ∩ X, ∀ l ∈ Y, R p l) ∧
+      (∀ l ∈ B ∩ Y, ∀ p ∈ X, R p l) := by
+  constructor
+  · intro p hp
+    obtain ⟨ha, hx⟩ := Finset.mem_inter.mp hp
+    apply (rectangle_filter_point_iff R X Y p hx).mp
+    intro f g hf hg hfp
+    exact clean f g hf hg (Or.inl ⟨p, ha, hfp⟩)
+  · intro l hl
+    obtain ⟨hb, hy⟩ := Finset.mem_inter.mp hl
+    apply (rectangle_filter_line_iff R X Y l hy).mp
+    intro f g hf hg hgl
+    exact clean f g hf hg (Or.inr ⟨l, hb, hgl⟩)
+
+lemma rectangle_filter_two_stars {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (R : α → β → Prop) [DecidableRel R]
+    (noRect : ∀ p q l m, p ≠ q → l ≠ m → R p l → R p m → R q l → ¬ R q m)
+    (X A : Finset α) (Y B : Finset β) (hX : 2 ≤ X.card) (hY : 2 ≤ Y.card)
+    (clean : ∀ (f : α → Bool) (g : β → Bool),
+      (∃ x ∈ X, f x = true) → (∃ y ∈ Y, g y = true) →
+      ((∃ a ∈ A, f a = true) ∨ ∃ b ∈ B, g b = true) →
+      ∃ x y, R x y ∧ f x = true ∧ g y = true) :
+    (A ∩ X).card ≤ 1 ∧ (B ∩ Y).card ≤ 1 := by
+  obtain ⟨hp, hl⟩ := rectangle_filter_clean_centers R X A Y B clean
+  constructor
+  · apply le_trans (Finset.card_le_card ?_) (rectangle_full_points_card R noRect X Y hY)
+    intro p h
+    exact Finset.mem_filter.mpr ⟨(Finset.mem_inter.mp h).2, hp p h⟩
+  · apply le_trans (Finset.card_le_card ?_) (rectangle_full_lines_card R noRect X Y hX)
+    intro l h
+    exact Finset.mem_filter.mpr ⟨(Finset.mem_inter.mp h).2, hl l h⟩
+
+lemma upper65_witness :
+    ∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit), (63 : ℕ) ≤ x1.size ∧ x1.size ≤ (65 : ℕ) ∧ (∀ (x2 : ℕ) (x3 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[x2]? = Option.some x3 → (x3.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x3.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ (x5 : ℕ) (x6 : ℕ), x3.inputs = [x5, x6] ∧ x5 ≠ x6 ∧ x5 < (26 : ℕ) + x2 ∧ x6 < (26 : ℕ) + x2) ∧ (∀ (x2 : Fin (26 : ℕ) → Bool), x1.eval (List.ofFn x2) = Bool.true ↔ ∃ (x3 : Fin (13 : ℕ)) (x4 : Fin (13 : ℕ)), (x3 = x4 ∨ x3 = x4 + (1 : Fin (13 : ℕ)) ∨ x3 = x4 + (3 : Fin (13 : ℕ)) ∨ x3 = x4 + (9 : Fin (13 : ℕ))) ∧ x2 (Fin.castAdd (13 : ℕ) x3) = Bool.true ∧ x2 (Fin.natAdd (13 : ℕ) x4) = Bool.true) ∧ (∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (13 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false) ∧ ∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (0 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false := by
+  refine ⟨upper65Circuit, ?_, ?_, upper65_valid, upper65_semantics, ?_, ?_⟩
+  · decide
+  · decide
+  · exact ⟨upper65Trace13, upper65_trace13_init, upper65_trace13_rec,
+      upper65_trace13_output⟩
+  · exact ⟨upper65Trace0, upper65_trace0_init, upper65_trace0_rec,
+      upper65_trace0_output⟩
+
 end PEqualNP.Outside.L_meta_2602_aux

@@ -35,3 +35,7 @@
 2026-11-25T03:29:12.456482+00:00 structure_proof compiled rectangle-filter semantic/classification bridge; arbitrary shared-subnet cost charging remains open.
 
 2026-11-25T03:31:55.144574+00:00 Checked upper65 existential and cleanrectangle lemmas independentlyreviewed; checkpoint.
+
+2026-11-25T03:37:34.745073+00:00 finite_search: exact SAT ruled out basic one-star 8→7 windows at selected lines 0, 2, 12; expanded line12 predecessor window also UNSAT. Two-star lines0,5 10→9 window UNSAT in104.36s. Three-star lines0,5,11 12→11 timed out; raw-star and cross-pair-sharing windows continue.
+
+2026-11-25T03:43:51.464834+00:00 Combined622-line build and additional checked structural components preserved. Memory reduction now in progress.
