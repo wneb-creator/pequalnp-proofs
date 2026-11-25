@@ -7,3 +7,17 @@ No full target theorem or local checker verdict.
 Desk nulls0; prior2592lease410 archived. Old2592build/search processes terminated aftersource/logpreservation.
 Sub-agents: six (library,counterexample,lowerbound,toolchain,descendants,independentreview)
 TIMING total=35.3 subagents=6
+
+FINAL CHECKPOINT
+UTC: 2026-11-25T14:51:18.893455+00:00
+Stopped under existing-lease rule: fresh another=1 request returned same pre-existing lease and five-gap cap; no clearly fresh own lease.
+Exact desk message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Original2592renewal error: no such live lease: it expired or was released. Ask /desk/next again.
+No leases released. Desk null count:0. Full responses and timestamps preserved.
+Compiledpartialsources: RetentionStandalone205lines, RetentionFresh221lines, IncidencePlane59lines.
+Named2592file4578lines: compilation canceled afterlease loss; no completed build. Full2583theorem not written.
+Cleanup: not started; no full proof passed build+checker.
+Checker verdict: not run on full statement (unproved).
+No PR opened. All results archived on pnp/pilot-118.
+Sub-agents: six (library,counterexample,lowerbound,toolchain/stochastic,descendants,independent review)
+TIMING total=39.1 subagents=6

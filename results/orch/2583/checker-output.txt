@@ -1,0 +1,3 @@
+NOT RUN: no complete proof of L-meta-2583 or L-meta-2592.
+Compiled partial lemmas are documented separately; no ACCEPTED verdict is claimed.
+Checker executable and definitions build passed; their complete logs are archived.

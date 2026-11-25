@@ -9,3 +9,4 @@
 2026-11-25T14:40:35.358355+00:00: renewal returned HTTP410 despite previous14:54expiry; diagnostic curl-si confirmed no live lease. All workers paused. Archive checkpoint before same-gap re-request.
 2026-11-25T14:44:00.955152+00:00: newL-meta-2583leaseassigned andrenewed to15:02:44UTC. Original2592pausedbuildsandsearchesterminated afterarchivalpush.
 2026-11-25T14:48:33.373075+00:00:2583incidencegeometrypartialcompiled andindependentlyreviewed. ExistingL7997ao27 excludesFano26; computationalroute moves toq3,N13,63gates.
+2026-11-25T14:51:18.893455+00:00: freshanother=1hard=1requestreturned same2583leasea47a479a-5901-4ba8-83bc-535d02e450df, issued13:59before14:13jobstart, holding5cap. Stoppedunderexisting-lease rule; noleasewasreleased. Allworkersandrenewalstopped.
