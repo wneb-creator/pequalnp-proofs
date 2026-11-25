@@ -3492,4 +3492,98 @@ lemma least_operand_count_le_two (gs : List Gate) (out : Nat)
   have tight : branches.card + (operands gs).toFinset.card = (operands gs).length := by omega
   exact saturated_count_le_two (operands gs) branches twice tight
 
+open PEqualNP.Outside.L_meta_1884.BinaryBound.PetersenCutTrace
+open PEqualNP.Outside.L_meta_1884.BinaryBound.PetersenFirstGroup
+
+lemma clean_predecessors_nodup {n : Nat} {gs : List Gate} (clean : CleanL n gs)
+    (distinct : ∀ g ∈ gs, g.inputs.Nodup) (b : Fin (n + gs.length)) :
+    (predecessors clean b).Nodup := by
+  by_cases internal : n ≤ b.val
+  · apply List.Nodup.of_map Fin.val
+    rw [predecessors_values clean b internal]
+    exact distinct _ (List.getElem_mem (by have := b.isLt; omega))
+  · simp [predecessors, internal]
+
+lemma clean_six_branches (gs : List Gate) (out : Fin (10 + gs.length))
+    (clean : CleanL 10 gs) (distinct : ∀ g ∈ gs, g.inputs.Nodup)
+    (live : ∀ w : Fin (10 + gs.length), w ≠ out → ∃ v, readEdge gs w v)
+    (hev : ∀ x : Fin 10 → Bool, vl gs x out.val = petersenF x) :
+    6 ≤ (circuitBranchWires (n := 10) gs).card := by
+  classical
+  letI : DecidableRel petersenGraph.Adj := petersenAdjDecidable
+  let label : Fin 10 → Fin (10 + gs.length) := firstInputBoundary clean out live
+  let branches : Finset (Fin (10 + gs.length)) := circuitBranchWires gs
+  have computes (x : Fin 10 → Bool) : vl gs x out.val = PetersenScratch.edgeValue petersenGraph x := by
+    rw [hev, Bool.eq_iff_iff, petersenF_graph_edges]
+    simp only [PetersenScratch.edgeValue, decide_eq_true_eq]
+  have marked (S : Finset (Fin 10)) : vl gs (setInput S) out.val = true ↔
+      BranchGraph.containsEdge petersenGraph S := by
+    rw [hev]
+    exact petersen_graph_marked_edges S
+  have independent (r) : BranchGraph.Independent petersenGraph (BranchGroupsLean.bucket label r) :=
+    firstInputGroup_independent clean out live (clean_predecessors_nodup clean distinct)
+      petersenGraph computes petersen_graph_alternate_neighbors r
+  have labels (v : Fin 10) : label v = out ∨ label v ∈ branches := by
+    have stopped := FirstBranchRoute.first_stops (readEdge gs) out (read_order clean) live (inputWire gs v)
+    rcases stopped with outLabel | fork
+    · exact Or.inl outLabel
+    · exact Or.inr (in_circuit_branches.mpr fork)
+  have before (r) (member : r ∈ branches) : r < out := by
+    obtain ⟨a, _, path, _, _⟩ := in_circuit_branches.mp member
+    exact lt_of_lt_of_le (read_order clean path) (wire_le_output clean out live a)
+  have twins (r) (member : r ∈ branches) : BranchGraph.TwinGroup petersenGraph
+      (BranchGroupsLean.below label r) (BranchGroupsLean.bucket label r) :=
+    circuit_branch_class_twins clean out live petersenGraph marked r
+      (le_of_lt (before r member)) (Or.inr (in_circuit_branches.mp member)) (independent r)
+  exact BranchGroupsLean.roots_required petersenGraph label out branches 6 labels before twins
+    (independent out) (PetersenMaskBridge.petersen_ten_groups_need_six petersenGraph petersen_graph_matches_mask)
+
+lemma clean_fanout_two (gs : List Gate) (out : Fin (10 + gs.length))
+    (clean : CleanL 10 gs) (distinct : ∀ g ∈ gs, g.inputs.Nodup)
+    (live : ∀ w : Fin (10 + gs.length), w ≠ out → ∃ v, readEdge gs w v)
+    (hev : ∀ x : Fin 10 → Bool, vl gs x out.val = petersenF x)
+    (budget : nonNotCount gs ≤ 15) :
+    (circuitBranchWires (n := 10) gs).card = 6 ∧
+      nonNotCount gs = 15 ∧ ∀ w, (operands gs).count w ≤ 2 := by
+  classical
+  let branches := (circuitBranchWires (n := 10) gs).image Fin.val
+  have branchLower : 6 ≤ branches.card := by
+    rw [Finset.card_image_of_injective _ Fin.val_injective]
+    exact clean_six_branches gs out clean distinct live hev
+  have everyUsed : ∀ w < 10 + gs.length, w ≠ out.val → ∃ p, Reads gs p w := by
+    intro w hw hne
+    let wire : Fin (10 + gs.length) := ⟨w, hw⟩
+    obtain ⟨v, p, g, hg, _, hmem⟩ := live wire (fun h => hne (congrArg Fin.val h))
+    exact ⟨p, g, hg, hmem⟩
+  have twoReaders : ∀ w ∈ branches, ∃ p q, p ≠ q ∧ Reads gs p w ∧ Reads gs q w := by
+    intro w hw
+    obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hw
+    exact branch_slots_of_read_edges (in_circuit_branches.mp hv)
+  have branchBudget := branching_budget clean out.isLt everyUsed branches twoReaders
+  have countTotal := nonNotCount_add_notCount gs
+  change nonNotCount gs + notGateCount gs = gs.length at countTotal
+  have cardEq : branches.card = 6 := by omega
+  have binaryEq : nonNotCount gs = 15 := by omega
+  have twice : ∀ w ∈ branches, 2 ≤ (operands gs).count w := by
+    intro w hw
+    obtain ⟨p, q, hpq, hp, hq⟩ := twoReaders w hw
+    exact two_readers_operand_count hpq hp hq
+  have used : 10 + gs.length - 1 ≤ (operands gs).toFinset.card := by
+    let required := (Finset.range (10 + gs.length)).erase out.val
+    have subset : required ⊆ (operands gs).toFinset := by
+      intro w hw
+      obtain ⟨hne, hlt⟩ := Finset.mem_erase.mp hw
+      obtain ⟨p, hp⟩ := everyUsed w (Finset.mem_range.mp hlt) hne
+      exact List.mem_toFinset.mpr (operand_mem_of_read hp)
+    have bound := Finset.card_le_card subset
+    have hcard : required.card = 10 + gs.length - 1 := by
+      dsimp [required]
+      rw [Finset.card_erase_of_mem (Finset.mem_range.mpr out.isLt), Finset.card_range]
+    rwa [hcard] at bound
+  have budgetCount := branch_card_add_wire_card_le_operands gs branches twice
+  have arity := operands_count_length gs (clean_gate_arity clean)
+  have tight : branches.card + (operands gs).toFinset.card = (operands gs).length := by omega
+  refine ⟨?_, binaryEq, saturated_count_le_two (operands gs) branches twice tight⟩
+  simpa [branches, Finset.card_image_of_injective _ Fin.val_injective] using cardEq
+
 end PEqualNP.Outside.L_meta_1884.TightCase

@@ -73,3 +73,47 @@ Full library_route.lean compiled with Lean exit0. `UnaryBridge.at_least_four_not
 The600-second global search withatmost3NOT gates, adjacent independent-gate lex order, no deadgates, and Petersen automorphisms fixingvertex0 finished UNKNOWN on42rows (3060variables,145140clauses). This is not an UNSAT result. Source/outputnormalization is compiled and independently reviewed; a small kernel certificate for thefull search appears unlikely, so prioritize mathematical structure. A120-second phase-seeded run fromthe13-error18-gate approximation is the remaining short experiment.
 
 2026-11-25T17:01:33.659295+00:00 ROOT REPLAN: normalization/finite-source/pivotal stages checked;≥4internalNOT case checked. Deprioritize unrestricted SAT after120s/180s/600s UNKNOWN. Continue exact3NOT tight-incidence classification, zeroNOT minterm/first-gate simplification, generic certified gate movement, and ABC/local synthesis. Full theorem still absent.
+
+## 2026-11-25T17:02:13.481607+00:00 combinatorial component and review handoff
+
+Compiled component: combinatorial.lean, 87 lines, SHA256 083b2d96307441768df01e1432ff9750dc7b17818ca5fac89f4737731fa749e8. build-05.stdout and build-05.stderr are empty; Lean exit0. Besides Boolean context movement, edge_tests_complete proves agreement from all true edge tests for monotone G below the target; pinned_edge_tests_complete requires only monotonicity inside one fixed-coordinate slice, and agreement on every edge with that coordinate forced false/true. For Petersen with free complementx0 this gives30 rows,27 positive. Root independently reviewed and queued the source for push.
+
+Independent red-team reviews completed: normalization.lean (exact posted conclusion under explicit canonical lower-bound hypothesis), library_route.lean UnaryBridge/count inference, finite_certificate.lean cap29 preservation, structural_move.lean alias deletion, and structural_move_full.lean same-size certifying OR movement. Full movement SHA25679baa41391e4e762710c85ffb4e4c1f46ef4f363035380d687988c649ae78c82. No soundness issue found in reviewed source. library_route inherits three custom data declarations, which CONTRIBUTING says may require human review if eventually submitted as a full proof.
+
+Core remains unresolved: mixed edge/highdegree intermediate functions prevent a justified reduction of arbitrary monotone circuits to star-cover formulas. Counterexample agent ran4,438,367 mutations in60seconds for a relaxed monotone18gate target on all56weight≤2 rows; no witness, best2badrows. This is negative search evidence only.
+
+2026-11-25T17:02:49.864996+00:00 Generic move_certified compiled cleanly in structural_move_certified.lean SHA256 64ea6924cb12d6911042ba2d6b567217b781028f2b718a0366ab65927d1d9aa3. Any gate that equals earlier alias a when earlier witness b=false can be replaced by a and a final OR b, provided b=true certifies outputtrue. Same gate count and FanInTwo preserved. This extends OR(a,b) and supports AND(a,NOT b) after supplying the complementary-wire relation.
+
+2026-11-25T17:03:09.059689+00:00 Structural limitation: the checked certifying-gate moves are only local transformations. No terminating normalization or global Petersen gate-count argument has been proved. They do not yet resolve the 18-gate lower bound, and no monotone-conversion assumption is being made.
+
+## 2026-11-25T17:05:05.608952+00:00 existing_lemmas TIGHT CASE CHECKED
+New tight_case.lean passes Lean. Exact3 internal NOT gates force size18 and15 binary gates. A least normalized ordinary Petersen circuit with binary≤15 has exactly6 branch wires; every wire occurrence count is≤2. Complete logs in scratch tight_case/compile-001.stdout/.stderr. Source frozen for root preservation. Generalization removing Least is prepared; only clean gates, no repeated binary operands, liveness and computation are needed for the branch argument.
+
+Finite inspection of the six-step graph deletion certificate found864 winning class-deletion paths after fixing first vertex0 by symmetry, grouped into16 degree/class/isolate profiles. Every profile begins with a singleton class of residual degree3. Data/program are scratch tight_case/branch_sequences.py and profiles.txt. These profiles are exploratory, not yet a circuit obstruction.
+
+2026-11-25T17:05:08.905000+00:00 Dead-gate removal compiled: structural_dead.lean SHA256 40c56ee92ac1adc021b2991c7c5c81c2aae13fac21cb46816fef0d953cb522c0. With positive input arity, an internal gate whose wire is neither final output nor read by any later gate can be removed, saving exactly1 gate and preserving all fixed-arity evaluations and FanInTwo. Arbitrary gate operations/forward/default semantics retained.
+
+2026-11-25T17:05:44.545964+00:00 ABC synthesis: built current Berkeley ABC under scratch. All300 varied factoring/mapping cases were independently checked on all1024 inputs. Best normalized explicit AND/OR/NOT count20 (146 cases); no19/18-gate construction. Macro cells expanded explicitly, constants/duplicate literals normalized, one free unary input accounted for. Two bounded eSLIM runs on20-node baseline remain in progress.
+
+## 2026-11-25T17:08:20.072299+00:00 first-OR investigation paused at root lease410
+
+No source edits after root pause; combinatorial.lean remains the reviewed87-line compiled component. Finite safe-partner cube search is saved at scratch/combinatorial/safe_partner_cubes.txt (literal10 denotes NOT x0). For a uniquely used positive variablev other than0 entering OR(v,b), b must be independent ofv. The minimal noncertifying compatible monotone signed-input cubes have3 literals. At v1 they are {3,5,9}, {3,9,NOT0}, {4,7,8}, {7,8,NOT0}; at v2 they are {0,8,9}, {4,5,6}. Graph reasoning: on an independent assignment where b is true, every neighbour ofv that can be raised within the fixedx0 slice must already have a neighbour true; otherwise extending the independent assignment makesv pivotal while OR(v,b) remainsfixed. Petersen common-neighbour counts force those cubes.
+
+A mixed valid partner exists already with3 gates: for source0, b=x2 AND (x1 OR (x8 AND x9)); it has a certifying edge term x1x2 and noncertifying independent triple x2x8x9. Deleting all ofb or claiming b globallycertifiesF would be invalid. Stripping its triple happens to simplify it to oneAND, so this is not a counterexample to all possible normalization.
+
+Structural proposed a graphH of the two complementary5cycles, producing10 OR-pair outputs and using each original variable twice. This map DOES factor the Petersen function: H-distance2 pairs are Petersenedges. For every independent inputx, x_v is AND of the two incident OR outputs because its H-neighbours cannotboth be true. Any y sharing those outputs satisfies y≤x and is alsoindependent. Thus no false/true fiber collision can exclude this case. The remaining gate complexity of the quotient is the next substantive investigation, not yet performed when root paused.
+
+## 2026-11-25T17:08:33.532696+00:00 tight finite result and pause
+
+Compiled cleanly: results/orch/lemmas/tight_finite.lean proves Petersen ordered-pair orbits under automorphisms: equal, adjacent, and nonadjacent pairs map to (0,0), (0,1), and (0,2). This applies to ordinary10-input circuits, not to the free-complement model with0fixed. Kernel checks cover bijections, adjacency preservation, and the canonical pair images. The ordinary tight SAT encoder passed a positive control with15binary+4NOT gates and exactly6fan-outs of2. Both t0and t4 searches were interrupted after47s following the root's410 lease notice; no SAT/UNSAT conclusion. Full logs retained in scratch.
+
+2026-11-25T17:08:35.057690+00:00
+## Counterexample strategy paused after lease410
+
+No counterexample to L-meta-1884 was found. Completed full-table stochastic runs:48,984,677 +33,453,348 +26,350,882 mutations. Best18-gate approximation had13 false positives and no false negatives. Stochastic CEGAR completed28,959,450 mutations, found a spurious30-row witness, refined to38 rows, and ended with one sample error. These are heuristic searches, not lower-bound proofs.
+
+Local exact Z3 resynthesis tested500 random2–5 gate neighborhoods:384 UNSAT and116 timeout results; none SAT. Monotone56-row diagnostic search ran4,438,367 mutations and ended two rows short.
+
+Berkeley ABC was built from permitted GitHub under scratch. All300 mapping experiments were verified on1024 assignments; minimum explicit normalized AND/OR/NOT cost20, reached in146 cases. Both bounded eSLIM runs (subcircuit limits6 and10) finished with20 AIG nodes and20 mapped gates unchanged. Global-limit20 eSLIM was interrupted bySIGINT on root instruction after lease410; full logs remain saved. All counterexample search processes are stopped.
+
+Reproduction files are under /tmp/oec/pequalnp-pilot-159/counterexample/: search.py, search_weighted.py, search_anneal.py, search_cegis.py, local_smt.py, abc_explore.py, check_blif.py, macros.json, macros.genlib. Full outputs use matching .stdout/.stderr files. abc-explore-rechecked.json records all300 independently checked mappings. No Lean refutation or new compiled lemma was produced by this strategy.

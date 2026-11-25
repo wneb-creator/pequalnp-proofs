@@ -1,0 +1,13 @@
+L-meta-1884 checked partial
+UTC: 2026-11-25T17:09:42.577044+00:00
+Source SHA256: 40c56ee92ac1adc021b2991c7c5c81c2aae13fac21cb46816fef0d953cb522c0
+Lines: 391
+Command: lake env lean (exact source snapshot)
+Exit status: 0
+Complete stdout:
+
+Complete stderr:
+
+Independent review: root, status_review and/or combinatorial agent. Full posted theorem remains unproved.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=31.7 subagents=6

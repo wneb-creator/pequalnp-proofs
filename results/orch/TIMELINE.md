@@ -36,3 +36,15 @@
 2026-11-25T17:01:11.689522+00:00 finite certificate: long600s SAT run UNKNOWN; unrestricted certificate route deprioritized.
 
 2026-11-25T17:01:33.659295+00:00 Root first replan after checked partials; next review in20–30min.
+
+2026-11-25T17:01:57.370144+00:00 Lease renewed; expiry 2026-11-25T17:21:57.416Z.
+2026-11-25T17:02:13.481607+00:00 Completed edge-test component and independent source reviews; monotone core lower bound still unresolved.
+2026-11-25T17:02:49.864996+00:00 Generic certifying-gate move compiled.
+2026-11-25T17:05:05.608952+00:00 existing_lemmas: tight case branch/fanout equality checked, notified root for push.
+2026-11-25T17:05:08.905000+00:00 Exact one-gate dead-wire removal compiled.
+2026-11-25T17:08:08.233086+00:00 Root reported lease410; counterexample agent paused all new searches and sentSIGINT to remaining ABC eSLIM process, preserving full logs. No counterexample found.
+2026-11-25T17:08:20.072299+00:00 Combinatorial first-OR investigation paused on root lease410; preserved safe cube classification and two-cycle quotient factorability insight.
+
+2026-11-25T17:08:33.532696+00:00 tight finite: orbit lemma compiled; searches interrupted after lease410; all work paused.
+
+2026-11-25T17:09:42.577044+00:00 RenewalreturnedHTTP410despiteprevious17:21:57expiry. Newproofworkandsearchespaused; checkedpartialsbackedupbeforere-request.

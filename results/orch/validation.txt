@@ -1,0 +1,12 @@
+L-meta-1884 checkpoint after lease HTTP410
+Named file: lean/PEqualNP/Outside/L_meta_1884.lean
+Named file lines: 1003
+Named file lake build: PASS (build-002.stdout/.stderr complete)
+Exact posted theorem: UNPROVED; no final declaration.
+Local format guard: final theorem missing. tools/check-lean.mjs not run on incomplete theorem.
+Proof PR: none
+Null desk replies:0
+Desk error: no such live lease: it expired or was released. Ask /desk/next again.
+Complete HTTP response: desk-error-response.txt
+Sub-agents:6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=31.7 subagents=6
