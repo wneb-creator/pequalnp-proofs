@@ -1,0 +1,105 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 180 seconds real time (due to '-t 180')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-60/plane-signed-generic.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-60/plane-signed-generic.cnf'
+c found 'p cnf 367558 1195283' header
+c parsed 1195283 clauses in 1.13 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --compact=false                (different from default 'true')
+c   --decompose=false              (different from default 'true')
+c   --deduplicate=false            (different from default 'true')
+c   --elim=false                   (different from default 'true')
+c   --probe=false                  (different from default 'true')
+c   --subsume=false                (different from default 'true')
+c   --ternary=false                (different from default 'true')
+c   --transred=false               (different from default 'true')
+c   --vivify=false                 (different from default 'true')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds   reductions  redundant   irredundant
+c          MB    restarts       trail        variables
+c           level   conflicts       glue           remaining
+c 
+c *  1.14 178  0 0   0    0    0  0% 0 1194984 363931 99%
+c {  1.37 188  0 0   0    0    0  0% 0 1194984 363931 99%
+c -  2.69 194 83 1  40  300  283 68% 28 1186066 363931 99%
+c }  6.33 194 68 1 149 1002  939 60% 32 1186066 363931 99%
+c [  6.33 194  0 1 149 1002  939  0% 0 1186066 363931 99%
+c O  6.35 194 10 1 149 1003  940 21% 10 1186066 363931 99%
+c -  8.97 244 66 2 149 1546 1251 75% 39 1186066 363931 99%
+c ] 12.73 244 124 2 150 3003 2580 72% 69 1186066 363931 99%
+c { 12.73 244 68 2 150 3003 2580 60% 32 1186066 363931 99%
+c F 12.77 244 68 2 151 3004 2581 60% 32 1186066 363931 99%
+libc++abi: terminating due to uncaught exception of type std::bad_alloc: std::bad_alloc
+c 
+c caught signal 6 (SIGABRT)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c UNKNOWN
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c        13.56  100.00% search
+c         6.93   51.11% unstable
+c         6.40   47.20% stable
+c         1.14    8.37% parse
+c         0.23    1.69% lucky
+c         0.00    0.00% simplify
+c   =================================
+c        13.56   92.27% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              1068        31.30 %  of conflicts
+c conflicts:                  3412       251.64    per second
+c decisions:                 15419      1137.16    per second
+c fixed:                      3627         0.99 %  of all variables
+c learned:                    3318        97.25 %  per conflict
+c learned_lits:             811088       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                 314996        38.84 %  learned literals
+c minishrunken:              44552         5.49 %  learned literals
+c otfs:                          0         0.00 %  of conflict
+c propagations:           93412447         6.89 M  per second
+c reduced:                    1034        30.30 %  per conflict
+c rephased:                      2      1706.00    interval
+c restarts:                    151        22.60    interval
+c stabilizing:                   1        58.65 %  of conflicts
+c subsumed:                    155         0.01 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:        14.69    seconds
+c total real time since initialization:           14.98    seconds
+c maximum resident set size of process:          276.02    MB
+c 
+c raising signal 6 (SIGABRT)

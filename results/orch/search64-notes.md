@@ -15,3 +15,7 @@ The 900-second associative-rotation search completed 106 variants and 48,854,455
 ## Neutral CGP search
 
 `search64_cgp.py` inserts three unused gates before each seed gate, then performs neutral mutations while preserving all 52 positive edge tests, all 704 maximal-negative tests, both singleton values and both formal derivative zeros. It permits active circuit sizes up to 69 to allow neutral structural drift. Complete output is in `search64-cgp.log`. The 600-second run finished without a circuit below 65 gates: 12996427 proposals, 2882599 accepted neutral mutations, 599 active-size changes. This is a heuristic negative result only.
+
+## Completed remaining near-candidate repairs
+
+`search64_continue.py` regenerated the same308 near candidates, skipped the143 already completely checked, and finished all165 remaining full one-gate repair sweeps (indices143 through307). It completed in327.318seconds with38,047,362 evaluations and no64-gate witness. Full output is retained in `search64-continuation.log`; exact hashes and scope are in `search64-continuation-summary.json`. The original and continuation together exhaust this particular308-candidate neighborhood, not all64-gate circuits.

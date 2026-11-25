@@ -1,0 +1,365 @@
+{
+  "method": "greedy globally safe OR-slot copying of earlier child gates; original-input children skipped",
+  "source": "tau-drop-counterexample.json",
+  "marked_pair": [
+    2,
+    3
+  ],
+  "changes": [
+    {
+      "gate": 4,
+      "old": [
+        "or",
+        0,
+        10
+      ],
+      "retained_child": 10,
+      "new": [
+        "and",
+        2,
+        3
+      ]
+    },
+    {
+      "gate": 8,
+      "old": [
+        "or",
+        1,
+        10
+      ],
+      "retained_child": 10,
+      "new": [
+        "and",
+        2,
+        3
+      ]
+    }
+  ],
+  "gates": [
+    [
+      "and",
+      2,
+      3
+    ],
+    [
+      "and",
+      4,
+      5
+    ],
+    [
+      "and",
+      6,
+      7
+    ],
+    [
+      "and",
+      8,
+      9
+    ],
+    [
+      "and",
+      2,
+      3
+    ],
+    [
+      "or",
+      14,
+      12
+    ],
+    [
+      "or",
+      0,
+      11
+    ],
+    [
+      "or",
+      16,
+      13
+    ],
+    [
+      "and",
+      2,
+      3
+    ],
+    [
+      "or",
+      18,
+      11
+    ],
+    [
+      "or",
+      1,
+      12
+    ],
+    [
+      "or",
+      20,
+      13
+    ],
+    [
+      "or",
+      15,
+      17
+    ],
+    [
+      "and",
+      22,
+      19
+    ],
+    [
+      "and",
+      22,
+      21
+    ],
+    [
+      "or",
+      23,
+      24
+    ]
+  ],
+  "output": 25,
+  "or_before": 10,
+  "or_after": 8,
+  "tau_history": [
+    {
+      "prefix_gates": 0,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 1,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 2,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 3,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 4,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 5,
+      "tau": 5,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 6,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 7,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 8,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 9,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 10,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 11,
+      "tau": 4,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "prefix_gates": 12,
+      "tau": 3,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        16,
+        17
+      ]
+    },
+    {
+      "prefix_gates": 13,
+      "tau": 2,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17,
+        25
+      ]
+    },
+    {
+      "prefix_gates": 14,
+      "tau": 2,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17,
+        25
+      ]
+    },
+    {
+      "prefix_gates": 15,
+      "tau": 2,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17,
+        25
+      ]
+    },
+    {
+      "prefix_gates": 16,
+      "tau": 1,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17,
+        21,
+        25,
+        31
+      ]
+    }
+  ],
+  "all_rows_verified": true,
+  "both_derivatives_zero": true
+}

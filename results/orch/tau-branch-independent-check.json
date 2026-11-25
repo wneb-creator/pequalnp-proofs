@@ -1,0 +1,90 @@
+{
+  "full64_table": true,
+  "closure_measures_with_constants": [
+    {
+      "closure_size": 205,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "tau": 4
+    },
+    {
+      "closure_size": 286,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        12
+      ],
+      "tau": 2
+    }
+  ],
+  "closure_measures_without_constants": [
+    {
+      "closure_size": 203,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "tau": 4
+    },
+    {
+      "closure_size": 284,
+      "clean_profiles": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        12
+      ],
+      "tau": 2
+    }
+  ],
+  "clamping_edge_losses": [
+    1,
+    2,
+    3,
+    3,
+    3,
+    4,
+    8,
+    12,
+    12,
+    12,
+    15,
+    3,
+    12,
+    15
+  ],
+  "every_OR_branch_essential": true,
+  "derivatives": [
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ]
+  ]
+}

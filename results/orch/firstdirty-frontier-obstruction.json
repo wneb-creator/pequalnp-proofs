@@ -1,0 +1,65 @@
+{
+  "description": "C4-free matching has no dirty-AND factor elimination even with clean OR frontier. Not a counterexample to target size bound.",
+  "gates": [
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "and",
+      4,
+      5
+    ],
+    [
+      "or",
+      0,
+      3
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "and",
+      7,
+      8
+    ],
+    [
+      "and",
+      6,
+      9
+    ]
+  ],
+  "output": 10,
+  "factor_failures": [
+    {
+      "gate": 2,
+      "kept": 4,
+      "bad_input": 5
+    },
+    {
+      "gate": 2,
+      "kept": 5,
+      "bad_input": 10
+    },
+    {
+      "gate": 5,
+      "kept": 7,
+      "bad_input": 9
+    },
+    {
+      "gate": 5,
+      "kept": 8,
+      "bad_input": 6
+    }
+  ],
+  "exact_inputs_checked": 16,
+  "both_marked_derivatives_zero": true
+}

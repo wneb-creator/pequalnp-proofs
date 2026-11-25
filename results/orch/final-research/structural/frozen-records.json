@@ -1,0 +1,35 @@
+{
+  "status": "Frozen computational research; not a Lean proof or refutation of L-meta-2602",
+  "records": [
+    {
+      "path": "structural-counting.md",
+      "source": "results/orch/structural-counting.md",
+      "sha256": "6df09f358ff83be4e3efc5ba5433407dd86763c5a519c17824f6fe237125fdb7",
+      "bytes": 6558
+    },
+    {
+      "path": "tau-drop-counterexample.json",
+      "source": "results/orch/tau-drop-counterexample.json",
+      "sha256": "b3ab9276d3a30652c480bc9be1a52b0383cc265cf3e4d9546569d792c00d2e29",
+      "bytes": 1815
+    },
+    {
+      "path": "tau-copy-normalization.json",
+      "source": "results/orch/tau-copy-normalization.json",
+      "sha256": "0da88cb35848eff0ce735e5d206da541ff9dfb5ee5685d8bb5a2de15f1834018",
+      "bytes": 4438
+    },
+    {
+      "path": "tau-branch-irredundant-counterexample.json",
+      "source": "results/orch/tau-branch-irredundant-counterexample.json",
+      "sha256": "45e5dfa6cc9543afdc3e37b61694557d4cbb367d133cd8fa07f732926507e821",
+      "bytes": 2679
+    },
+    {
+      "path": "tau-branch-independent-check.json",
+      "source": "results/orch/tau-branch-independent-check.json",
+      "sha256": "64338c1b1d66573bad19c3e3712b6fa7a8bac47c67338108581ff03220d2e48e",
+      "bytes": 1085
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "branch_irredundant": {
+    "verdict": "PASS",
+    "truth_rows": 64,
+    "proper_gates": 14,
+    "with_constants": [
+      {
+        "closure_size": 205,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        "tau": 4
+      },
+      {
+        "closure_size": 286,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          12
+        ],
+        "tau": 2
+      }
+    ],
+    "without_constants": [
+      {
+        "closure_size": 203,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        "tau": 4
+      },
+      {
+        "closure_size": 284,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          12
+        ],
+        "tau": 2
+      }
+    ],
+    "clamping_edge_losses": [
+      1,
+      2,
+      3,
+      3,
+      3,
+      4,
+      8,
+      12,
+      12,
+      12,
+      15,
+      3,
+      12,
+      15
+    ],
+    "OR_branch_checks": [
+      {
+        "gate": 2,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 2,
+        "retain": 1,
+        "changes_function": true
+      },
+      {
+        "gate": 3,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 3,
+        "retain": 1,
+        "changes_function": true
+      },
+      {
+        "gate": 7,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 7,
+        "retain": 1,
+        "changes_function": true
+      },
+      {
+        "gate": 8,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 8,
+        "retain": 1,
+        "changes_function": true
+      },
+      {
+        "gate": 10,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 10,
+        "retain": 1,
+        "changes_function": true
+      },
+      {
+        "gate": 13,
+        "retain": 0,
+        "changes_function": true
+      },
+      {
+        "gate": 13,
+        "retain": 1,
+        "changes_function": true
+      }
+    ],
+    "derivatives": [
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ],
+      [
+        false,
+        false
+      ]
+    ]
+  },
+  "copy_normalization": {
+    "verdict": "PASS",
+    "truth_rows": 1024,
+    "changes": [
+      {
+        "gate": 4,
+        "old": [
+          "or",
+          0,
+          10
+        ],
+        "retained_child": 10,
+        "new": [
+          "and",
+          2,
+          3
+        ]
+      },
+      {
+        "gate": 8,
+        "old": [
+          "or",
+          1,
+          10
+        ],
+        "retained_child": 10,
+        "new": [
+          "and",
+          2,
+          3
+        ]
+      }
+    ],
+    "or_before": 10,
+    "or_after": 8,
+    "tau_history": [
+      {
+        "prefix_gates": 0,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 1,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 2,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 3,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 4,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 5,
+        "tau": 5,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 6,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 7,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 8,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 9,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 10,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 11,
+        "tau": 4,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          10,
+          16
+        ]
+      },
+      {
+        "prefix_gates": 12,
+        "tau": 3,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          10,
+          16,
+          17
+        ]
+      },
+      {
+        "prefix_gates": 13,
+        "tau": 2,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          9,
+          10,
+          16,
+          17,
+          25
+        ]
+      },
+      {
+        "prefix_gates": 14,
+        "tau": 2,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          9,
+          10,
+          16,
+          17,
+          25
+        ]
+      },
+      {
+        "prefix_gates": 15,
+        "tau": 2,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          9,
+          10,
+          16,
+          17,
+          25
+        ]
+      },
+      {
+        "prefix_gates": 16,
+        "tau": 1,
+        "clean_profiles": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          16,
+          17,
+          21,
+          25,
+          31
+        ]
+      }
+    ],
+    "both_marked_derivatives_zero": true
+  }
+}

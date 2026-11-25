@@ -1,0 +1,71 @@
+{
+  "dual_cnf_checks": [
+    {
+      "stem": "dual6-7-i0-and5",
+      "variables": 2754,
+      "clauses": 10203,
+      "raw_bytes": 137794,
+      "raw_sha256": "ea2854f52cca37433091b4ea84cd03576479f48d987f8abdc1538ee50aaa4bbb",
+      "gzip_bytes": 37544,
+      "gzip_sha256": "8b8b59de1fcbdcc072576b30c58194f2c2b5c5bf2070df1079a65a6b1dca03d9",
+      "status": "UNSATISFIABLE (solver only)"
+    },
+    {
+      "stem": "dual6-7-i1-and5",
+      "variables": 2754,
+      "clauses": 10203,
+      "raw_bytes": 137796,
+      "raw_sha256": "9f36a77104c3908b768918cae04f93647752c9b39e82792bb27fa62cdb629c3a",
+      "gzip_bytes": 37546,
+      "gzip_sha256": "f7c63cf4eb89451ed6c8b5cc1b5d7f14ef758f34d366fda76cdfb360b27195a0",
+      "status": "UNSATISFIABLE (solver only)"
+    },
+    {
+      "stem": "dual6-7-i2-and5",
+      "variables": 2754,
+      "clauses": 10203,
+      "raw_bytes": 137797,
+      "raw_sha256": "fd0c579b7279cc9f87e79f68acc9f0c5622b2a86b30808fd87a3d28e445e38be",
+      "gzip_bytes": 37545,
+      "gzip_sha256": "b7ca09fb262dc50048d3fd5bfbb2982c781ea05c5f6994ee708e418da227026f",
+      "status": "UNSATISFIABLE (solver only)"
+    },
+    {
+      "stem": "dual6-7-i3-and5",
+      "variables": 2754,
+      "clauses": 10203,
+      "raw_bytes": 137798,
+      "raw_sha256": "fff181502d36a964e082686a2a0e4c2203ecd31597779e9e16b63cbd4a7a81f2",
+      "gzip_bytes": 37545,
+      "gzip_sha256": "34c07368c3e6403a784c0142b32c9f0bd2f3aefd833d98b72e48e7e3f65135c6",
+      "status": "UNSATISFIABLE (solver only)"
+    },
+    {
+      "stem": "dual7-7-bip-and5",
+      "variables": 5393,
+      "clauses": 20911,
+      "raw_bytes": 288447,
+      "raw_sha256": "eca544368dabf28979b4ad3ea03684d97711e06ae0684355c8a6fc383aa7eaf1",
+      "gzip_bytes": 76225,
+      "gzip_sha256": "fa3b089c8e1f35e5cdf57b18a7fb02c98c0ec78d5005c665bbb8e6651c23f929",
+      "status": "UNSATISFIABLE (solver only)"
+    }
+  ],
+  "c4free_six_vertex_seven_edge_census": {
+    "labeled": 900,
+    "isomorphism_types": 4,
+    "orbit_sizes": [
+      90,
+      360,
+      360,
+      90
+    ]
+  },
+  "bipartite_three_by_four_seven_edge_census": {
+    "labeled": 72,
+    "side_preserving_types": 1
+  },
+  "small_marked_logs_match": true,
+  "all_five_upper_witnesses_scalar_checked": true,
+  "small_marked_lower_bounds": "Reported exhaustive program results, source reviewed; not Lean certificates; no exhaustive rerun in this audit"
+}

@@ -323,8 +323,8 @@
     },
     {
       "path": "results/orch/research-preservation-review.txt",
-      "bytes": 6740,
-      "sha256": "f7435974836111456d44faa60b53c0f48c52ee8f2bf0946577f88888fec5b5bb"
+      "bytes": 7591,
+      "sha256": "4f414ea766397767567440e8a1ed0c03691b841d2b46dce6c74ef8e403250fe5"
     },
     {
       "path": "results/orch/research-sat-witness-verification.json",
@@ -453,8 +453,8 @@
     },
     {
       "path": "results/orch/search64-notes.md",
-      "bytes": 2410,
-      "sha256": "1774d318c598aaaae0b6fdb0d3cb56eba7128866a7fc30df006d1b880d759e5d"
+      "bytes": 2967,
+      "sha256": "e22b392a9b3daa0721c5ce5fa7bb58533c63ab4b159ccd8c5d2ec740924fa3d7"
     },
     {
       "path": "results/orch/search64-repair.log",

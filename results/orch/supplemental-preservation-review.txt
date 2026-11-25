@@ -1,0 +1,18 @@
+Independent supplemental preservation review
+Verdict: PASS for partial-result preservation only; no completed proof/refutation or accepted checker verdict.
+
+HANDOFF.md reviewed at SHA256 80edb47a1fb093694d47ed0ff7e1ead53ea3fc7b5da9a9e359dc16daa738f02a. It accurately states the unresolved target, no proof PR, feasibility-only65-gate witness, checked structural partials, RowBounds10-AND/occurrence restrictions, fixed-template PointGadget scope, full-checker memory FAULTs, and skipped accepted-proof cleanup. The current named file has4982 lines at SHA25639f5496ce1d2459e5bde0f2b113f1f4fbf4192aa8222ac81b011e562f132a984. Complete build11 stdout ends with successful completion of5149 jobs; stderr is empty. The named file still has no final target theorem. Its detailed integration review is preserved separately.
+
+Public assignment data
+statement.txt SHA2562ed8eb66f1ddbab30408040859dc3ee5e58c223b33ac00da65191281c9bb6777 and imports.json are byte-identical to the original job copies. gap.json's statement/imports agree exactly and identify only L-meta-2602. Its keys contain no lease or token field, and its values are public mathematical/queue metadata. Credential-pattern scans found no presence in the public copies, handoff, axioms output, or supplemental proof/review artifacts; no secret values were emitted or retained.
+
+Axiom audit
+The complete partial-axioms.stdout contains exactly six reports: inactive_gate_smaller, minimum_all_active, residual_smaller, minimum_all_essential, minimum_obstruction, and tightness65. Each has exactly propext, Classical.choice, and Quot.sound; stderr is empty. This audit covers those six compiled partials, not a nonexistent target theorem.
+
+New standalone checked results
+RowBounds.lean and RowBoundsFragment.lean retain the exact hashes and mathematical scope in row-bounds-review.txt. The source is precisely the previously checked FalseRows + FreeRows + new RowBounds bridge. PointGadget.lean retains SHA256e4fc5436aee524461172d7ed94c05e3d026a2b442cbec9c0be2f78c47fca336d and125lines. Independent derivative_lemmas review covers its entire proof and correctly restricts no_extension to the explicit fixed signed-word template/three separation premises. Its complete Lean log is empty, reported exit0. No global13-AND claim is made.
+
+Additional HANDOFF research claim checked
+I independently reconstructed the two-star,14-gate counterexample underlying the stronger OR-branch obstruction. All64 full truth rows, proper gate inputs, both AND-closure sizes205/286, exact clean profiles and cover minima4/2 agree with the frozen JSON. Every gate loses a target edge when clamped, every one of the12 OR-branch replacements changes the output function, and all eight directional output derivatives vanish. This verifies only the stated local-potential obstruction, not the global circuit lower bound. The generalized k-star identity and clean-profile explanation support the note's unbounded local-drop claim; it remains mathematical research rather than a Lean certificate.
+
+No heavy checker retry, credential read, desk call, commit or push was performed in this review. The supplemental manifest pins the exact preserved bytes; the research-only109-path list remains separate and excludes all Lean files.

@@ -1,12 +1,25 @@
-L-meta-2602 partial progress; original target remains unproved. No proof PR opened.
+Job pequalnp-pilot-60; kit message msg-8ad4af7013ee9696f1eeb7f3 acknowledged.
+Gap: L-meta-2602. Status: UNPROVED; no refutation; no PR opened.
+Branch: pnp/pilot-60, origin fork wneb-creator/pequalnp-proofs only.
 Named file: lean/PEqualNP/Outside/L_meta_2602.lean
 SHA256: 39f5496ce1d2459e5bde0f2b113f1f4fbf4192aa8222ac81b011e562f132a984
-Lines: 4982. Cleanup: not yet applicable to a full proof.
-Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
-Partial results: Minimum marked-zero circuits can be made essential on minimal edges; unconditional residual gate removal with derivative domination; normalized dirty/nested-AND obstruction; checked 65-gate feasibility witness. Original 63-64 exclusion remains unproved.
-Checker: not run on this partial artifact; original target theorem is not declared.
-Independent review: PASS for this exact snapshot before pushing.
+Named file lines: 4982. Cleanup before/after: 4982/4982; cleanup skipped because the full target/checker never passed.
+Build: lake build PEqualNP.Outside.L_meta_2602 exited 0.
+Build output: Build completed successfully (5149 jobs).
+Complete latest build output: build-partial-11.stdout and build-partial-11.stderr.
+Full checker: attempted twice on earlier partial snapshots; CHECKER FAULT, checker exit 3, verifier exit 137 from confirmed cgroup OOM; no theorem verdict. Complete outputs and resource samples are preserved under partial4-checker* and partial6-checker*.
+Current source guard: rejects the absent final target theorem/full-name declaration. The file contains compiled helpers only and is not a proof submission.
+Independent source review: PASS for the exact named snapshot; see partial11-integration-review.txt. All additional checked partials and frozen research bundles have separate independent reviews and hashes.
+Axiom audit: six main partial theorems use exactly propext, Classical.choice, Quot.sound; see partial-axioms.stdout/.stderr.
+
+Checked results: a proper 65-gate feasibility witness satisfying both marked derivative zeros; actual size-minus-one residual/inactive gate compilers; minimum marked-zero realizations with all gates active and essential on minimal edges; normalized nested/dirty AND obstruction; 704 maximal-false-row certificates; plane AND-count information bounds (at least 10 ANDs, and conditional 4/6/5 occurrence bounds); fixed-template symbolic exclusion.
+No result establishes the missing 65-gate lower bound or a 64-gate counterexample. Global accounting for dirty intermediates remains unresolved. All three live reduction slots were occupied.
+Final continuation: the one-gate repair neighborhoods of all 165 remaining near candidates fully searched, 38,047,362 evaluations in 327.318 seconds, no 64-gate witness. Together with the earlier 143, all 308 candidates in this specific neighborhood were tested; this is not an exhaustive circuit search or a Lean lower bound.
+
+Desk null count: 2.
+Exact null message: no step is free that you have not already looked at and handed back in the last hour (5); new steps are posted through the day, ask again in a few minutes
+Sole lease acquired 2026-11-25T02:52:22Z, renewed every 10 minutes or sooner. Only this job's lease is authorized for release, with reason=other after final preservation push.
+
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=91.7 subagents=6
-Full original-statement checker was attempted twice on earlier snapshots: FAULT, verifier exit137 from cgroup OOM; no theorem verdict. Both full logs and resource records are preserved. Current outside source guard rejects only the absent final target theorem/full-name declaration.
-Cleanup line count: not applicable because the full proof/checker has not passed; current named partial4982lines.
+TIMING total=103.2 subagents=6
+Recorded UTC: 2026-11-25T04:26:04.213790+00:00

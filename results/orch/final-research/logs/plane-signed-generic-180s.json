@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-25T04:18:03.313558+00:00",
+  "seconds_limit": 180,
+  "address_space_limit_mib": 300,
+  "exit_code": -6,
+  "elapsed_seconds": 13.19591211199986,
+  "peak_child_rss_kib": 282804,
+  "cnf_path": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic.cnf",
+  "cnf_bytes": 22126888,
+  "cnf_sha256": "4d80ea4749240cc5e0f11af7666497aea32664a6b63633d1adc400952a831a85",
+  "stdout_stderr_log": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s.log"
+}

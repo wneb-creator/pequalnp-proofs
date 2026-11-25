@@ -1,0 +1,176 @@
+{
+  "n": 4,
+  "gates": [
+    [
+      "and",
+      0,
+      1
+    ],
+    [
+      "and",
+      0,
+      2
+    ],
+    [
+      "or",
+      4,
+      5
+    ],
+    [
+      "and",
+      4,
+      6
+    ],
+    [
+      "or",
+      7,
+      2
+    ],
+    [
+      "or",
+      7,
+      3
+    ],
+    [
+      "and",
+      8,
+      9
+    ]
+  ],
+  "output": 10,
+  "function": "(x0 AND x1) OR (x2 AND x3)",
+  "C4_free": true,
+  "both_derivatives_zero": true,
+  "first_dirty_and": 1,
+  "first_dirty_bad_pair": [
+    0,
+    2
+  ],
+  "combined_elimination_candidates": [
+    {
+      "gate": 0,
+      "readers": [
+        2,
+        3
+      ],
+      "every_factor_assignment_fails_hclean": [
+        {
+          "factors": [
+            0,
+            0
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 1
+          }
+        },
+        {
+          "factors": [
+            0,
+            1
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 1
+          }
+        },
+        {
+          "factors": [
+            1,
+            0
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 2
+          }
+        },
+        {
+          "factors": [
+            1,
+            1
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 2
+          }
+        }
+      ]
+    },
+    {
+      "gate": 1,
+      "readers": [
+        2
+      ],
+      "every_factor_assignment_fails_hclean": [
+        {
+          "factors": [
+            0
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 1
+          }
+        },
+        {
+          "factors": [
+            2
+          ],
+          "hclean_failure": {
+            "reader": 2,
+            "false_input": 4
+          }
+        }
+      ]
+    },
+    {
+      "gate": 3,
+      "readers": [
+        4,
+        5
+      ],
+      "every_factor_assignment_fails_hclean": [
+        {
+          "factors": [
+            4,
+            4
+          ],
+          "hclean_failure": {
+            "reader": 4,
+            "false_input": 4
+          }
+        },
+        {
+          "factors": [
+            4,
+            6
+          ],
+          "hclean_failure": {
+            "reader": 4,
+            "false_input": 4
+          }
+        },
+        {
+          "factors": [
+            6,
+            4
+          ],
+          "hclean_failure": {
+            "reader": 4,
+            "false_input": 4
+          }
+        },
+        {
+          "factors": [
+            6,
+            6
+          ],
+          "hclean_failure": {
+            "reader": 4,
+            "false_input": 4
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Counterexample to deriving the CombinedElimination eligibility guard from first-dirty and C4-free geometry alone; NOT a counterexample to L-meta-2602."
+}

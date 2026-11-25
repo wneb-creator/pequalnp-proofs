@@ -1,0 +1,12 @@
+'PEqualNP.Outside.L_meta_2602_aux.Clamp.inactive_gate_smaller' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.Clamp.minimum_all_active' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.Clamp.residual_smaller' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.Clamp.minimum_all_essential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.Normalized.minimum_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.tightness65' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,117 @@
+[
+  {
+    "path": "results/orch/derivative-final-assessment.md",
+    "sha256": "8f4bc117cce871c04710aef79d4b12438045dd35e8f4d776aab8ac04b8e340f1",
+    "bytes": 4870
+  },
+  {
+    "path": "results/orch/derivative.md",
+    "sha256": "3865e41b6696d2869196a3ba8067dbf65f8c4946b5d30b4b4e7705bcc086f78d",
+    "bytes": 6039
+  },
+  {
+    "path": "results/orch/search64.py",
+    "sha256": "9f674a1f1b45bdd8ad9c52df8ad824e142e17bc46161379d07d92021e08e04e7",
+    "bytes": 10682
+  },
+  {
+    "path": "results/orch/search64_rotations.py",
+    "sha256": "4b52aa999c0770a17656e504b0fb6f714e2f92a2248a18eeb157cc56e35a15c7",
+    "bytes": 3137
+  },
+  {
+    "path": "results/orch/search64_anneal.py",
+    "sha256": "5972ef9feb277de82d75cb4ca926d9b2fa827fae41c7bb485f7f29f646b7319c",
+    "bytes": 4654
+  },
+  {
+    "path": "results/orch/search64_cgp.py",
+    "sha256": "aaf05b7fbf67a3abca40fad7f951c85cceecc960dc6138faa0d96e6a2f2660cd",
+    "bytes": 3538
+  },
+  {
+    "path": "results/orch/search64_continue.py",
+    "sha256": "b33dc364629bea94268298d814b02f2da964cd99c7f97296387e0c3b92b1fba0",
+    "bytes": 1140
+  },
+  {
+    "path": "results/orch/search64-repair.log",
+    "sha256": "8dd46be438f9bac31a93ceb6340112d788c2757018b513d8c0e66afed7f177e6",
+    "bytes": 26409
+  },
+  {
+    "path": "results/orch/search64-rotations.log",
+    "sha256": "cfd4576aa40dc26cc778756e68daabfb9adb29962da1e0bcca76efa0fa65b6e0",
+    "bytes": 61035
+  },
+  {
+    "path": "results/orch/search64-anneal.log",
+    "sha256": "dd1132da3c08ed2d55371b58a6f6bfe5b0841f4155390f166650679d18d60330",
+    "bytes": 6059
+  },
+  {
+    "path": "results/orch/search64-cgp.log",
+    "sha256": "c190d8d1fbbf7ba8dba80be9195f8e05e19460ee64f30bd0233ff6306992f8de",
+    "bytes": 2574
+  },
+  {
+    "path": "results/orch/search64-continuation.log",
+    "sha256": "0fc003b8f7cb7457bfd8d88feaa37fc9f05c7ed50e375de3964f6f64b154a7b8",
+    "bytes": 32527
+  },
+  {
+    "path": "results/orch/search64-continuation-summary.json",
+    "sha256": "1955187729d3f5aaa20d0ff0d3edf266d975a1e1b101d41f954ad6fc3854dcc5",
+    "bytes": 824
+  },
+  {
+    "path": "results/orch/search64-results.json",
+    "sha256": "50a052fc107b10169715175628ca044e3d0ac06fa86fb5a536477531729d3889",
+    "bytes": 1710
+  },
+  {
+    "path": "results/orch/search64-notes.md",
+    "sha256": "e22b392a9b3daa0721c5ce5fa7bb58533c63ab4b159ccd8c5d2ec740924fa3d7",
+    "bytes": 2967
+  },
+  {
+    "path": "results/orch/small_marked_enum.py",
+    "sha256": "69ccb00012c66b1a1ce2781d58fbe24064d46050054a4dfce8b74c8460eaa84b",
+    "bytes": 2336
+  },
+  {
+    "path": "results/orch/small-marked-enum.log",
+    "sha256": "eba0f045ea2502d01e2031e8cc2a6de85ad15b4cace1e4fb69ad31b7eeefb262",
+    "bytes": 1975
+  },
+  {
+    "path": "results/orch/small-marked-results.json",
+    "sha256": "641f143e80aa34c7bc2835caa6257df73507c2797f9f5e3055e319391424e726",
+    "bytes": 3932
+  },
+  {
+    "path": "results/orch/small-marked-notes.md",
+    "sha256": "703e83c9c492cbc95f5124af250d1492c91981f7ce7b48ba004c27bea1cbd207",
+    "bytes": 1593
+  },
+  {
+    "path": "results/orch/firstdirty-obstruction.json",
+    "sha256": "842044fce59e1afdd03bb196b1d724c54840250ec1951533f428670eda8ed83a",
+    "bytes": 2899
+  },
+  {
+    "path": "results/orch/firstdirty-frontier-obstruction.json",
+    "sha256": "52ddb3b80056e3c7a37b1f960ab4ce76f235fe836a128b69905620582a5975a1",
+    "bytes": 848
+  },
+  {
+    "path": "results/orch/point-gadget-review.txt",
+    "sha256": "737556d125c29db658d7aca5662f3730c3ad74354b97e9b0dc39fcf3329e6a49",
+    "bytes": 1700
+  },
+  {
+    "path": "results/orch/partial11-integration-review.txt",
+    "sha256": "ae7173056ed7cb38693f4b503b768f4331236f7fc8bc60959de92dbd8c02b687",
+    "bytes": 2982
+  }
+]

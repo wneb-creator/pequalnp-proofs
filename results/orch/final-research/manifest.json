@@ -1,0 +1,288 @@
+{
+  "job": "pequalnp-pilot-60",
+  "gap": "L-meta-2602",
+  "packaged_utc": "2026-11-25T04:24:04.482766+00:00",
+  "solver_path": "/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/cadical",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "solver_rerun_during_packaging": false,
+  "payload_file_count": 42,
+  "payload_bytes": 6112375,
+  "files": [
+    {
+      "path": "OR-POTENTIAL-NOTES.md",
+      "source": "/workspace/pequalnp-proofs/results/orch/or-potential-followup.md",
+      "bytes": 5958,
+      "sha256": "39cc3c5df3beff7a2156e3e39dbad887d6436936d052547e606be34451b635d2"
+    },
+    {
+      "path": "SCOPE.md",
+      "source": "generated scope/outcome summary",
+      "bytes": 2481,
+      "sha256": "1b35fd31365b0345c4aefcd647a752a4b0cd20f2f72efc72a3da2800e9c30827"
+    },
+    {
+      "path": "inputs/c4free-6-7-reps.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/c4free-6-7-reps.json",
+      "bytes": 1326,
+      "sha256": "be9b1d9e9afa59190bbb0477eaf3e4b301c572ecd5d26a6c7877ab2e8342c0c7"
+    },
+    {
+      "path": "inputs/c4free-bip-7-7-reps.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/c4free-bip-7-7-reps.json",
+      "bytes": 315,
+      "sha256": "4265ef1d99db68b03c09d59f61d431bd9d64c71e04d3bee94c6b236967cfa8fe"
+    },
+    {
+      "path": "inputs/dual6-7-i0-and5.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i0-and5.cnf",
+      "bytes": 37544,
+      "sha256": "f700374844e0c98983fcc0cba4db38ca7ad05bb2e2b4676fe62902716a98465a",
+      "compression": "gzip",
+      "uncompressed_bytes": 137794,
+      "uncompressed_sha256": "ea2854f52cca37433091b4ea84cd03576479f48d987f8abdc1538ee50aaa4bbb",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/dual6-7-i0-and5.meta.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i0-and5.meta.json",
+      "bytes": 1552,
+      "sha256": "c8665e349db9de55c9fce9c4449fb9cf073a6ea3151f610437e00382f728ded4"
+    },
+    {
+      "path": "inputs/dual6-7-i1-and5.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i1-and5.cnf",
+      "bytes": 37546,
+      "sha256": "802131f86e192ef554c86aaebcef21a86140b1cf324d2a303a6caac3c6ca616c",
+      "compression": "gzip",
+      "uncompressed_bytes": 137796,
+      "uncompressed_sha256": "9f36a77104c3908b768918cae04f93647752c9b39e82792bb27fa62cdb629c3a",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/dual6-7-i1-and5.meta.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i1-and5.meta.json",
+      "bytes": 1552,
+      "sha256": "9adaffc0ebe61dacb68df1066fc48d2c11a0824c32de6773faa60b1910ac9216"
+    },
+    {
+      "path": "inputs/dual6-7-i2-and5.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i2-and5.cnf",
+      "bytes": 37545,
+      "sha256": "9d4379a63e6b94e8f695bcd1525b6cac418b428ceba3c9b957168c6c51ddcc7e",
+      "compression": "gzip",
+      "uncompressed_bytes": 137797,
+      "uncompressed_sha256": "fd0c579b7279cc9f87e79f68acc9f0c5622b2a86b30808fd87a3d28e445e38be",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/dual6-7-i2-and5.meta.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i2-and5.meta.json",
+      "bytes": 1552,
+      "sha256": "5c7a2564b9e17c6460d74e18a2e4757db9234341d86300a87900d44fa3c726a6"
+    },
+    {
+      "path": "inputs/dual6-7-i3-and5.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i3-and5.cnf",
+      "bytes": 37545,
+      "sha256": "cffb32a1764a257b414bfea6f23ecba69403ece7ddf6dbddd94272d904e8db3b",
+      "compression": "gzip",
+      "uncompressed_bytes": 137798,
+      "uncompressed_sha256": "fff181502d36a964e082686a2a0e4c2203ecd31597779e9e16b63cbd4a7a81f2",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/dual6-7-i3-and5.meta.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i3-and5.meta.json",
+      "bytes": 1552,
+      "sha256": "f8d5ccdd07f17d4d8987d12d838a45a41a41e792f97d57bd887cad6f42f33b99"
+    },
+    {
+      "path": "inputs/dual7-7-bip-and5.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual7-7-bip-and5.cnf",
+      "bytes": 76225,
+      "sha256": "15dbef2d758e431ede2da26129028470a7b17a24457c3f36c0179dfbde43810c",
+      "compression": "gzip",
+      "uncompressed_bytes": 288447,
+      "uncompressed_sha256": "eca544368dabf28979b4ad3ea03684d97711e06ae0684355c8a6fc383aa7eaf1",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/dual7-7-bip-and5.meta.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual7-7-bip-and5.meta.json",
+      "bytes": 1672,
+      "sha256": "a98ab936a0dc4555398989c732626bc98c285dc14ae9b3d3158a39a2f2410def"
+    },
+    {
+      "path": "inputs/plane-signed-generic.cnf.gz",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic.cnf",
+      "bytes": 5748621,
+      "sha256": "32b9c456ac18fb9577c644bfd8addf72d81178237720e9f58d44e58f1f5a2e2b",
+      "compression": "gzip",
+      "uncompressed_bytes": 22126888,
+      "uncompressed_sha256": "4d80ea4749240cc5e0f11af7666497aea32664a6b63633d1adc400952a831a85",
+      "decompressed_hash_verified": true
+    },
+    {
+      "path": "inputs/structural-max-independent.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/structural-max-independent.json",
+      "bytes": 24882,
+      "sha256": "d61e43baefca6169b2bbbd4426e7afb9a15ae9c9242fb7cafc4507b2506ce26c"
+    },
+    {
+      "path": "logs/clean-cover-potential-6.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/clean-cover-potential-6.log",
+      "bytes": 132,
+      "sha256": "c9745be74364daca9d2b1f096662f3b4a0cb412844714329a839d986fc3f2722"
+    },
+    {
+      "path": "logs/dual6-7-i0-and5-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i0-and5-encode.log",
+      "bytes": 64,
+      "sha256": "b618533f04fe6cdd5fb1f60e0a2a9ea42a9dcfa5c15ccab83909d8b71744dae6"
+    },
+    {
+      "path": "logs/dual6-7-i0-and5-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i0-and5-solve.log",
+      "bytes": 9135,
+      "sha256": "3527583d43d77fbf4ba3ffe5b9f29311cc6bd1952800ef0a592bcbe034b05eb9"
+    },
+    {
+      "path": "logs/dual6-7-i1-and5-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i1-and5-encode.log",
+      "bytes": 64,
+      "sha256": "b618533f04fe6cdd5fb1f60e0a2a9ea42a9dcfa5c15ccab83909d8b71744dae6"
+    },
+    {
+      "path": "logs/dual6-7-i1-and5-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i1-and5-solve.log",
+      "bytes": 11738,
+      "sha256": "27f402caaf0f9f0b2d45ba3686c343990a6c96b8fd403679192e82f188bcf435"
+    },
+    {
+      "path": "logs/dual6-7-i2-and5-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i2-and5-encode.log",
+      "bytes": 64,
+      "sha256": "b618533f04fe6cdd5fb1f60e0a2a9ea42a9dcfa5c15ccab83909d8b71744dae6"
+    },
+    {
+      "path": "logs/dual6-7-i2-and5-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i2-and5-solve.log",
+      "bytes": 10728,
+      "sha256": "dc2c91269b881168fb33e83f64ce24544a85b203ccfcf28d78dca15a8a4c756b"
+    },
+    {
+      "path": "logs/dual6-7-i3-and5-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i3-and5-encode.log",
+      "bytes": 64,
+      "sha256": "b618533f04fe6cdd5fb1f60e0a2a9ea42a9dcfa5c15ccab83909d8b71744dae6"
+    },
+    {
+      "path": "logs/dual6-7-i3-and5-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-i3-and5-solve.log",
+      "bytes": 11765,
+      "sha256": "971f3dd9536b95a92150ee8c70a57aa1599a100edbec19818ea224125a1b3f43"
+    },
+    {
+      "path": "logs/dual6-7-remaining-driver.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual6-7-remaining-driver.log",
+      "bytes": 15,
+      "sha256": "e13fea17dcb3fe3cfec8501dc195ddcb49d1bb559d5c4d2681ed393d95785bc1"
+    },
+    {
+      "path": "logs/dual7-7-bip-and5-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual7-7-bip-and5-encode.log",
+      "bytes": 64,
+      "sha256": "2b63e637bea5187334077ce6401799624e8cad558b86fc67e6501153e81a0393"
+    },
+    {
+      "path": "logs/dual7-7-bip-and5-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/dual7-7-bip-and5-solve.log",
+      "bytes": 9972,
+      "sha256": "73402b2528b9149862c67c88c31f757bbc48f561d26849b11bfe5d2ba35db420"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s-driver.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s-driver.log",
+      "bytes": 444,
+      "sha256": "6611b44204defaf709e2950696f8dda9436adb763a120d1508ccc1064e931def"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s-plain-driver.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s-plain-driver.log",
+      "bytes": 466,
+      "sha256": "30077dbdf3b14de0539cf33a2c35ab59e39b5941dafbbf2b8cd2cabc351a1173"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s-plain.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s-plain.json",
+      "bytes": 490,
+      "sha256": "fe3618ab636d1a3fa582b20f25f5f15237bb826708a042e8121f1a37307667cb"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s-plain.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s-plain.log",
+      "bytes": 4696,
+      "sha256": "26084814704b6dd42885cba6d482bb46e6c1ecb4cc0789843f1b93a50bd8fe24"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s.json",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s.json",
+      "bytes": 466,
+      "sha256": "9ec432bd11aad486fbf11a79d26bc9af68621afb8d745de156daded652e10d84"
+    },
+    {
+      "path": "logs/plane-signed-generic-180s.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-180s.log",
+      "bytes": 4138,
+      "sha256": "34406e679d0ae4af91ad1f49c1f9f1e8e3893eaa4fb052422a87c35e27f3dfcc"
+    },
+    {
+      "path": "logs/plane-signed-generic-encode.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-encode.log",
+      "bytes": 104,
+      "sha256": "60b9e7e3a7d105a15dc3f37451fc7d2c0ddf658f5c9c6f8badc1c13839b83490"
+    },
+    {
+      "path": "logs/plane-signed-generic-solve.log",
+      "source": "/tmp/oec/pequalnp-pilot-60/plane-signed-generic-solve.log",
+      "bytes": 5091,
+      "sha256": "85bead748aa17159ef378e2842c2a0daa0ddbeffcddaefb1efe9c93bb7bed87e"
+    },
+    {
+      "path": "sources/bounded_solver.py",
+      "source": "/workspace/pequalnp-proofs/results/orch/bounded_solver.py",
+      "bytes": 2094,
+      "sha256": "64193a7c17403cd1911d9e8e1b8e3edbb6c5f299a626787377e343fb8dbd580f"
+    },
+    {
+      "path": "sources/clean_cover_potential.py",
+      "source": "/workspace/pequalnp-proofs/results/orch/clean_cover_potential.py",
+      "bytes": 3683,
+      "sha256": "7bd38b191c2b1f44614bf9bf645db760ec8cbc459a214dcd91084f73c2fa0566"
+    },
+    {
+      "path": "sources/dual_cnf_sat.py",
+      "source": "/workspace/pequalnp-proofs/results/orch/dual_cnf_sat.py",
+      "bytes": 3789,
+      "sha256": "d006a85b501b9bb09960721bac379610ea8f93ee2007f2db11062650e6fcc4b0"
+    },
+    {
+      "path": "sources/package-final-research.py",
+      "source": "/tmp/oec/pequalnp-pilot-60/package-final-research.py",
+      "bytes": 7211,
+      "sha256": "93af70c59206c34965a20aa401a316a7407f5db015ebc852036486792ee2ef84"
+    },
+    {
+      "path": "sources/plane_signed_code.py",
+      "source": "/workspace/pequalnp-proofs/results/orch/plane_signed_code.py",
+      "bytes": 3488,
+      "sha256": "3caf413281510fd2a8b18ca8c7c67e0fa4286d35981939518c35aa5f64b1216c"
+    },
+    {
+      "path": "sources/signed_code_sat.py",
+      "source": "/workspace/pequalnp-proofs/results/orch/signed_code_sat.py",
+      "bytes": 4542,
+      "sha256": "6b095e52f7dc9881bb1eb42f372d496109de5b8926588398b8f64803ee90594d"
+    }
+  ]
+}

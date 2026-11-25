@@ -1,0 +1,105 @@
+{
+  "scope": "Reviewed compiled partials and exact public handoff evidence, not proof PR ready",
+  "files": [
+    {
+      "path": "results/orch/HANDOFF.md",
+      "bytes": 4522,
+      "sha256": "80edb47a1fb093694d47ed0ff7e1ead53ea3fc7b5da9a9e359dc16daa738f02a"
+    },
+    {
+      "path": "results/orch/statement.txt",
+      "bytes": 2105,
+      "sha256": "2ed8eb66f1ddbab30408040859dc3ee5e58c223b33ac00da65191281c9bb6777"
+    },
+    {
+      "path": "results/orch/imports.json",
+      "bytes": 17,
+      "sha256": "086c15d1b559b2a2d009b0769f0c99c6115b689366849c1f05591d4b44c7abc1"
+    },
+    {
+      "path": "results/orch/gap.json",
+      "bytes": 3387,
+      "sha256": "e173564676b586251f3ab9128b03b2520079c094be90a02e0d31d0ba41f8bce9"
+    },
+    {
+      "path": "results/orch/partial-axioms.stdout",
+      "bytes": 717,
+      "sha256": "84e80db357e97576da29105a6f7ed6333b9fca6da1037aa96284be54c53c8b70"
+    },
+    {
+      "path": "results/orch/partial-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/build-partial-11.stdout",
+      "bytes": 60098,
+      "sha256": "66ea18f67b97c8cf1af14347ea48d8f8fac1611f51cb7e767862d5203cc3fad9"
+    },
+    {
+      "path": "results/orch/build-partial-11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/partial11-integration-review.txt",
+      "bytes": 2982,
+      "sha256": "ae7173056ed7cb38693f4b503b768f4331236f7fc8bc60959de92dbd8c02b687"
+    },
+    {
+      "path": "results/orch/lemmas/RowBounds.lean",
+      "bytes": 41755,
+      "sha256": "f9c6c57f91a80176ae80d04ec6fb85cf3a59da502ded7d28b406c66576e5b7f3"
+    },
+    {
+      "path": "results/orch/lemmas/RowBoundsFragment.lean",
+      "bytes": 9099,
+      "sha256": "aa51899db9d99b63b03643b63ae493b8581f26fe7494415fceadca2be08702b1"
+    },
+    {
+      "path": "results/orch/row-certificates/row-bounds-lean-2.log",
+      "bytes": 866,
+      "sha256": "ba4b404d306cd84861fb0e592d3b58944f6bd28266c3eb44248e52efee57cd49"
+    },
+    {
+      "path": "results/orch/row-bounds-lean-2.log",
+      "bytes": 866,
+      "sha256": "ba4b404d306cd84861fb0e592d3b58944f6bd28266c3eb44248e52efee57cd49"
+    },
+    {
+      "path": "results/orch/row-bounds-review.txt",
+      "bytes": 3772,
+      "sha256": "8ef16edd803ad7f80f346d80d327a4dc5c6b9b44941d45e7caa79eeffb11c65e"
+    },
+    {
+      "path": "results/orch/lemmas/PointGadget.lean",
+      "bytes": 4115,
+      "sha256": "e4fc5436aee524461172d7ed94c05e3d026a2b442cbec9c0be2f78c47fca336d"
+    },
+    {
+      "path": "results/orch/row-certificates/point-gadget-lean.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/point-gadget-review.txt",
+      "bytes": 1700,
+      "sha256": "737556d125c29db658d7aca5662f3730c3ad74354b97e9b0dc39fcf3329e6a49"
+    },
+    {
+      "path": "results/orch/tau-branch-irredundant-counterexample.json",
+      "bytes": 2679,
+      "sha256": "45e5dfa6cc9543afdc3e37b61694557d4cbb367d133cd8fa07f732926507e821"
+    },
+    {
+      "path": "results/orch/tau-branch-independent-check.json",
+      "bytes": 1085,
+      "sha256": "64338c1b1d66573bad19c3e3712b6fa7a8bac47c67338108581ff03220d2e48e"
+    },
+    {
+      "path": "results/orch/supplemental-preservation-review.txt",
+      "bytes": 3255,
+      "sha256": "74401d4235434280648a9c1400746b321ea73271f7dbe5bbcbc1d1f8b1a5035c"
+    }
+  ]
+}

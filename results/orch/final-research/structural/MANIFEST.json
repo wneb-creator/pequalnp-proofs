@@ -1,0 +1,55 @@
+{
+  "validation_exit_code": 0,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "c1281c62b16f17326bbf96367af5a298e39c78b66d2b2149ea36bc01fea4fb42",
+      "bytes": 1467
+    },
+    {
+      "path": "structural-counting.md",
+      "sha256": "6df09f358ff83be4e3efc5ba5433407dd86763c5a519c17824f6fe237125fdb7",
+      "bytes": 6558
+    },
+    {
+      "path": "tau-drop-counterexample.json",
+      "sha256": "b3ab9276d3a30652c480bc9be1a52b0383cc265cf3e4d9546569d792c00d2e29",
+      "bytes": 1815
+    },
+    {
+      "path": "tau-copy-normalization.json",
+      "sha256": "0da88cb35848eff0ce735e5d206da541ff9dfb5ee5685d8bb5a2de15f1834018",
+      "bytes": 4438
+    },
+    {
+      "path": "tau-branch-irredundant-counterexample.json",
+      "sha256": "45e5dfa6cc9543afdc3e37b61694557d4cbb367d133cd8fa07f732926507e821",
+      "bytes": 2679
+    },
+    {
+      "path": "tau-branch-independent-check.json",
+      "sha256": "64338c1b1d66573bad19c3e3712b6fa7a8bac47c67338108581ff03220d2e48e",
+      "bytes": 1085
+    },
+    {
+      "path": "frozen-records.json",
+      "sha256": "645824e2d2c22cc437a049744303bf9a16ee5e43808879710636437720e4c471",
+      "bytes": 1258
+    },
+    {
+      "path": "verify_structural_records.py",
+      "sha256": "ef64903d8bcdf84fd208a7e0b553b3d44a79ca240c4c427db704cdf2fc800995",
+      "bytes": 6824
+    },
+    {
+      "path": "validation.stdout",
+      "sha256": "2b092767a8974e178229c039e89282da9f27f56aae18f73959b04bff012e61f6",
+      "bytes": 6494
+    },
+    {
+      "path": "validation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

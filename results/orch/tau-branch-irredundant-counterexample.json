@@ -1,0 +1,233 @@
+{
+  "target": "two disjoint two-edge stars, C4-free on6 inputs",
+  "edges": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "gates": [
+    [
+      "and",
+      0,
+      4
+    ],
+    [
+      "and",
+      1,
+      5
+    ],
+    [
+      "or",
+      6,
+      1
+    ],
+    [
+      "or",
+      7,
+      0
+    ],
+    [
+      "and",
+      8,
+      9
+    ],
+    [
+      "and",
+      2,
+      4
+    ],
+    [
+      "and",
+      3,
+      5
+    ],
+    [
+      "or",
+      11,
+      3
+    ],
+    [
+      "or",
+      12,
+      2
+    ],
+    [
+      "and",
+      13,
+      14
+    ],
+    [
+      "or",
+      4,
+      5
+    ],
+    [
+      "and",
+      10,
+      16
+    ],
+    [
+      "and",
+      15,
+      16
+    ],
+    [
+      "or",
+      17,
+      18
+    ]
+  ],
+  "output": 19,
+  "prefix_gate_count": 10,
+  "before": {
+    "closure_size": 205,
+    "clean_profiles": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "tau": 4
+  },
+  "after_one_OR": {
+    "closure_size": 286,
+    "clean_profiles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      12
+    ],
+    "tau": 2
+  },
+  "all64_rows_verified": true,
+  "gate_edge_profiles": [
+    1,
+    2,
+    3,
+    3,
+    3,
+    4,
+    8,
+    12,
+    12,
+    12,
+    15,
+    3,
+    12,
+    15
+  ],
+  "clamping_loses_edge_profiles": [
+    1,
+    2,
+    3,
+    3,
+    3,
+    4,
+    8,
+    12,
+    12,
+    12,
+    15,
+    3,
+    12,
+    15
+  ],
+  "every_OR_branch_is_globally_essential": [
+    {
+      "gate": 2,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 2,
+      "retain": 1,
+      "changes_function": true
+    },
+    {
+      "gate": 3,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 3,
+      "retain": 1,
+      "changes_function": true
+    },
+    {
+      "gate": 7,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 7,
+      "retain": 1,
+      "changes_function": true
+    },
+    {
+      "gate": 8,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 8,
+      "retain": 1,
+      "changes_function": true
+    },
+    {
+      "gate": 10,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 10,
+      "retain": 1,
+      "changes_function": true
+    },
+    {
+      "gate": 13,
+      "retain": 0,
+      "changes_function": true
+    },
+    {
+      "gate": 13,
+      "retain": 1,
+      "changes_function": true
+    }
+  ],
+  "marked_derivatives": [
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false
+    ]
+  ],
+  "or_count": 6
+}
