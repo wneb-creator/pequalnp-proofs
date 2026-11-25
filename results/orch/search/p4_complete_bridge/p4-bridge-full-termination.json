@@ -1,0 +1,6 @@
+{
+  "pid": 21073,
+  "time": "2026-11-25T04:31:57.600075+00:00",
+  "reason": "The completed chunked attempt exposed the same incorrect empty-list proof tail used by this monolithic draft. Stopping redundant compilation; fix and rerun chunked proof.",
+  "verdict": "TERMINATED, not a theorem result"
+}

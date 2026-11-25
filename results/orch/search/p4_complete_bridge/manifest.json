@@ -1,0 +1,172 @@
+{
+  "scope": "Kernel-checked impossibility for exact-five typed P4 circuits with distinct earlier operands and both central formal derivatives zero; no full-gap claim.",
+  "completed_utc": "2026-11-25T04:35:20.769685+00:00",
+  "builds": {
+    "corrected_chunked": {
+      "exit_code": 0,
+      "log_complete": true
+    },
+    "NoFive": {
+      "exit_code": 0,
+      "log_complete": true
+    },
+    "axiom_audit": {
+      "exit_code": 0,
+      "log_complete": true
+    },
+    "first_chunked": {
+      "exit_code": 1,
+      "log_complete": true
+    },
+    "monolithic": {
+      "exit_code": 143,
+      "status": "TERMINATED",
+      "log_complete": true
+    }
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "theorems": [
+    "PEqualNP.Outside.Pilot64Bridge.encodedImpossibleChunks",
+    "PEqualNP.Outside.Pilot64Bridge.noFiveOrdered",
+    "PEqualNP.Outside.Pilot64Bridge.noFiveDistinct"
+  ],
+  "files": [
+    {
+      "file": "P4NoFiveAxioms.lean",
+      "bytes": 212,
+      "sha256": "948e830ebc361ece803624182060c3a1fccb36df288002ec098f598f733773f2"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3105,
+      "sha256": "d04c8e16fa159eaa782556839423db1004c7df3c9ff55b8cc6d0675477f3ca4e"
+    },
+    {
+      "file": "p4-bridge-chunks-build-2.log.gz",
+      "bytes": 1372,
+      "sha256": "60984710d0f88273f2237b120f0fb523252c31c7e249c3fed72d8840534f6616",
+      "encoding": "gzip",
+      "original_bytes": 44365,
+      "original_sha256": "5187fcdc5d89b31af5910c92a5b8419775e3013e037b79a118eebffdf83e6923"
+    },
+    {
+      "file": "p4-bridge-chunks-build.log.gz",
+      "bytes": 1434,
+      "sha256": "08672ac972ef7b74e5c6155d9d71fbdb4fb6bb2f567b694b31cc182a29def58e",
+      "encoding": "gzip",
+      "original_bytes": 23855,
+      "original_sha256": "e368011c116be2d61ea44e355e25f3c855c62c3ab8d7655838a59374c39ac557"
+    },
+    {
+      "file": "p4-bridge-chunks-generation-3.log.gz",
+      "bytes": 61,
+      "sha256": "be34e0f9c68682b629480dbb387bd8ae52e86bde6b4a5d6fdbe581ae030931f1",
+      "encoding": "gzip",
+      "original_bytes": 49,
+      "original_sha256": "f7e75497a30ffb0ace996ff33bb3ed047bb2e5e02062b15810dfde8273ff448c"
+    },
+    {
+      "file": "p4-bridge-concurrency-status.log.gz",
+      "bytes": 121,
+      "sha256": "9ee981cc6bad3eb53dc04f224c7d65b0aa66320f908c703140f5fd92d62e6450",
+      "encoding": "gzip",
+      "original_bytes": 144,
+      "original_sha256": "ec704e5c6a2e02837a431f377a59a48995b8c1b1f334f758979c4971f8dbf416"
+    },
+    {
+      "file": "p4-bridge-full-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4-bridge-full-termination.json",
+      "bytes": 300,
+      "sha256": "e4aa3a71758fb31266e77b72330f1e0904fb189f25e4aa222f6a6c226c41ffaf"
+    },
+    {
+      "file": "p4-bridge-trace.json",
+      "bytes": 386734,
+      "sha256": "c4d3ef0dee85e29d88141bafe159caa18a5151285ee0aca0bc0021a29ca82c4d"
+    },
+    {
+      "file": "p4-no-five-axioms.log.gz",
+      "bytes": 151,
+      "sha256": "5e18a58b68c289ba0852a42c76d67a8dc8f0e592deea074bfd3f55afcd905861",
+      "encoding": "gzip",
+      "original_bytes": 329,
+      "original_sha256": "feefad7952db84d1f27a78a0a1585aa8abd04616b7178a861c24f8a175c87e6d"
+    },
+    {
+      "file": "p4-no-five-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4_bridge_chunks_generate.py",
+      "bytes": 2035,
+      "sha256": "75801f2a2a8fad046bc7c42c06ae57c36d5d4fd7177ac584de0baed3699968d8"
+    },
+    {
+      "file": "p4_bridge_generate.py",
+      "bytes": 3599,
+      "sha256": "c27d941c9855cf69fb9aa780b0ea66633a2d7b9b190280e9e69b8c20ab783832"
+    },
+    {
+      "file": "p4_bridge_lean.py",
+      "bytes": 5840,
+      "sha256": "6f2af64183dfe9ff8f4d8d7b41fde0577505555e0d9e1588780efb21f8393e2b"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/ReductionsBridgeChunks.lean",
+      "bytes": 673880,
+      "sha256": "8f26a21d1e12863d33159857ca8ab3354e23943d38385942ed5db26e0cf78ed0"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsNoFive.lean",
+      "bytes": 1138,
+      "sha256": "0177de4d4c21142f0c4d939c28ab190e7144acc8df24d0d827419e4bfd28c582"
+    },
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsIR.lean",
+      "bytes": 79691,
+      "sha256": "c6017c154255c2e20a078365e9e47ff6448457134eba1e4fd3ac48777798a152"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsSemantics.lean",
+      "bytes": 15161,
+      "sha256": "af76f3f045ce5c533bdfbb8b93dbb1d5c67ab800b8ca41843f6c686fb954433f"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsNormalizeFast.lean",
+      "bytes": 4462,
+      "sha256": "432a9b1ed8e0373334b7b265598a379e9e765c2cfb5f478f41db38e528175e7b"
+    },
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "results/orch/search/kernel_lrat_control/manifest.json",
+      "bytes": 3621,
+      "sha256": "e0980a9f69259df2c778b79eb9b0f169b548f9867e1a5aa992f5fa8ba479d155"
+    }
+  ]
+}
