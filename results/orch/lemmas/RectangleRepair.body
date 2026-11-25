@@ -1,0 +1,192 @@
+namespace PEqualNP.Outside.L_meta_2448_aux.RectangleRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.EdgeOwnership PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2448_aux.ExternalRepair
+open PEqualNP.Outside.L_meta_2448_aux.FourVertexGeometry
+
+def leftGate (n q : ℕ) (a b c d : Fin n) (k : Fin 5) : Gate :=
+  match k.val with
+  | 1 => ⟨.and, [a.val,n+q]⟩
+  | 2 => ⟨.and, [c.val,n+q]⟩
+  | 3 => ⟨.and, [c.val,d.val]⟩
+  | _ => ⟨.and, [a.val,b.val]⟩
+
+def rightGate (n s : ℕ) (a b c d : Fin n) (k : Fin 5) : Gate :=
+  match k.val with
+  | 2 => ⟨.and, [a.val,b.val]⟩
+  | 3 => ⟨.and, [a.val,n+s]⟩
+  | 4 => ⟨.and, [d.val,n+s]⟩
+  | _ => ⟨.and, [c.val,d.val]⟩
+
+def repairCircuit (n : ℕ) (C : Circuit) (g h t q s : ℕ)
+    (a b c d : Fin n) (k : Fin 5) : Circuit :=
+  ⟨((C.gates.set g (leftGate n q a b c d k)).set h (rightGate n s a b c d k)).set t
+    ⟨.or, [n+g,n+h]⟩, C.output⟩
+
+lemma set_model (n : ℕ) (C : Circuit) (j : ℕ) (r : Gate)
+    (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hrop : r.op = GateOp.and ∨ r.op = GateOp.or) (hrlen : r.inputs.length = 2)
+    (hrback : ∀ w ∈ r.inputs, w < n+j) :
+    PEqualNP.TopForm.IsAO2 n ⟨C.gates.set j r, C.output⟩ := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro z hz
+    rcases List.mem_or_eq_of_mem_set hz with hz | rfl
+    · exact hC.1 z hz
+    · exact hrop
+  · intro k hk w hw
+    have hkC : k < C.gates.length := by simpa using hk
+    have he : gateAt ⟨C.gates.set j r, C.output⟩ k =
+        if j = k then r else gateAt C k := by
+      unfold gateAt
+      rw [List.getD_eq_getElem _ _ hk, List.getElem_set,
+        List.getD_eq_getElem _ _ hkC]
+    rw [he] at hw
+    by_cases hjk : j = k
+    · subst j
+      exact hrback w (by simpa using hw)
+    · exact hC.2.1 k hkC w (by simpa [hjk] using hw)
+  · intro z hz
+    rcases List.mem_or_eq_of_mem_set hz with hz | rfl
+    · exact hC.2.2 z hz
+    · exact hrlen
+
+lemma repair_model (n : ℕ) (C : Circuit) (g h t q s : ℕ)
+    (a b c d : Fin n) (k : Fin 5) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hgt : g < t) (hht : h < t) (hqg : q < g) (hsh : s < h) :
+    PEqualNP.TopForm.IsAO2 n (repairCircuit n C g h t q s a b c d k) := by
+  have hL : (leftGate n q a b c d k).op = GateOp.and := by fin_cases k <;> rfl
+  have hR : (rightGate n s a b c d k).op = GateOp.and := by fin_cases k <;> rfl
+  have hl : (leftGate n q a b c d k).inputs.length = 2 := by fin_cases k <;> rfl
+  have hr : (rightGate n s a b c d k).inputs.length = 2 := by fin_cases k <;> rfl
+  have hlb : ∀ w ∈ (leftGate n q a b c d k).inputs, w < n+g := by
+    fin_cases k <;> simp only [leftGate, List.mem_cons, List.not_mem_nil, or_false] <;>
+      intro w hw <;> rcases hw with rfl | rfl
+    all_goals have := a.isLt; have := b.isLt; have := c.isLt; have := d.isLt; omega
+  have hrb : ∀ w ∈ (rightGate n s a b c d k).inputs, w < n+h := by
+    fin_cases k <;> simp only [rightGate, List.mem_cons, List.not_mem_nil, or_false] <;>
+      intro w hw <;> rcases hw with rfl | rfl
+    all_goals have := a.isLt; have := b.isLt; have := c.isLt; have := d.isLt; omega
+  have h1 := set_model n C g (leftGate n q a b c d k) hC (Or.inl hL) hl hlb
+  have h2 := set_model n ⟨C.gates.set g (leftGate n q a b c d k), C.output⟩ h
+    (rightGate n s a b c d k) h1 (Or.inl hR) hr hrb
+  apply set_model n _ t ⟨GateOp.or,[n+g,n+h]⟩ h2 (Or.inr rfl) rfl
+  intro w hw
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+  rcases hw with rfl | rfl <;> omega
+
+set_option maxHeartbeats 1600000 in
+lemma repair_values (n : ℕ) (C : Circuit) (g h t q s : ℕ)
+    (a b c d : Fin n) (k : Fin 5) (hgh : g < h) (hht : h < t)
+    (ht : t < C.gates.length) (hqg : q < g) (hsh : s < h) (hsg : s ≠ g)
+    (hQ : C.gates[q] = ⟨GateOp.or, [b.val,d.val]⟩)
+    (hS : C.gates[s] = ⟨GateOp.or, [b.val,c.val]⟩) :
+    let D := repairCircuit n C g h t q s a b c d k
+    (∀ x : Fin n → Bool, gateVal n D g x = repairLeft k (x a) (x b) (x c) (x d)) ∧
+    (∀ x : Fin n → Bool, gateVal n D h x = repairRight k (x a) (x b) (x c) (x d)) := by
+  let D := repairCircuit n C g h t q s a b c d k
+  have hlen : D.gates.length = C.gates.length := by simp [D, repairCircuit]
+  have hgD : g < D.gates.length := by omega
+  have hhD : h < D.gates.length := by omega
+  have hqD : q < D.gates.length := by omega
+  have hsD : s < D.gates.length := by omega
+  have hDg : D.gates[g] = leftGate n q a b c d k := by
+    simp [D, repairCircuit, show t ≠ g by omega, show h ≠ g by omega]
+  have hDh : D.gates[h] = rightGate n s a b c d k := by
+    simp [D, repairCircuit, show t ≠ h by omega]
+  have hDq : D.gates[q] = ⟨GateOp.or, [b.val,d.val]⟩ := by
+    simp [D, repairCircuit, show t ≠ q by omega, show h ≠ q by omega,
+      show g ≠ q by omega, hQ]
+  have hDs : D.gates[s] = ⟨GateOp.or, [b.val,c.val]⟩ := by
+    simp [D, repairCircuit, show t ≠ s by omega, show h ≠ s by omega,
+      Ne.symm hsg, hS]
+  have hinput : ∀ (x : Fin n → Bool) (gs : List Gate) (i : Fin n),
+      (wf gs (List.ofFn x)).getD i.val false = x i := by
+    intro x gs i
+    rw [wf_keep _ _ _ (by simp)]
+    simp [List.getD_eq_getElem?_getD, i.isLt]
+  have evalQ : ∀ x : Fin n → Bool, gateVal n D q x = (x b || x d) := by
+    intro x
+    rw [gate_val_eq n q D hqD, hDq]
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+      List.any_nil, id_eq, Bool.or_false, hinput]
+  have evalS : ∀ x : Fin n → Bool, gateVal n D s x = (x b || x c) := by
+    intro x
+    rw [gate_val_eq n s D hsD, hDs]
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+      List.any_nil, id_eq, Bool.or_false, hinput]
+  constructor
+  · intro x
+    have pq : (wf (D.gates.take g) (List.ofFn x)).getD (n+q) false = (x b || x d) := by
+      rw [← wire_take D.gates (List.ofFn x) g (n+q) (by simp; omega) hgD.le]
+      exact evalQ x
+    rw [gate_val_eq n g D hgD, hDg]
+    fin_cases k <;> simp only [leftGate, repairLeft, GateOp.eval, List.map_cons,
+      List.map_nil, List.all_cons, List.all_nil, id_eq, Bool.and_true, hinput, pq]
+  · intro x
+    have ps : (wf (D.gates.take h) (List.ofFn x)).getD (n+s) false = (x b || x c) := by
+      rw [← wire_take D.gates (List.ofFn x) h (n+s) (by simp; omega) hhD.le]
+      exact evalS x
+    rw [gate_val_eq n h D hhD, hDh]
+    fin_cases k <;> simp only [rightGate, repairRight, GateOp.eval, List.map_cons,
+      List.map_nil, List.all_cons, List.all_nil, id_eq, Bool.and_true, hinput, ps]
+
+set_option maxHeartbeats 1600000 in
+lemma two_rectangle_component (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (htriangle : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (C : Circuit) (hmC : Monotone2 C) (hC : circuitFun n C = graphFun G ∅)
+    (g h t q s : ℕ) (a b c d : Fin n)
+    (hgh : g < h) (hht : h < t) (ht : t < C.gates.length)
+    (hqg : q < g) (hsh : s < h) (hsg : s ≠ g)
+    (hQ : C.gates[q] = ⟨GateOp.or, [b.val,d.val]⟩)
+    (hS : C.gates[s] = ⟨GateOp.or, [b.val,c.val]⟩)
+    (hCt : C.gates[t] = ⟨GateOp.and, [n+g,n+h]⟩)
+    (hgfun : ∀ x : Fin n → Bool, gateVal n C g x = ((x a || x c) && (x b || x d)))
+    (hhfun : ∀ x : Fin n → Bool, gateVal n C h x = ((x a || x d) && (x b || x c)))
+    (hab : G.Adj a b) (hcd : G.Adj c d)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hreach : ∀ (k : Fin 5) (x : Fin n → Bool),
+      gateVal n (repairCircuit n C g h t q s a b c d k) t x = true →
+      circuitFun n (repairCircuit n C g h t q s a b c d k) x = true) :
+    ∃ D : Circuit, Monotone2 D ∧ circuitFun n D = graphFun G ∅ ∧ D.size = C.size ∧
+      (∀ x : Fin n → Bool, gateVal n D g x = true → graphFun G ∅ x = true) ∧
+      (∀ x : Fin n → Bool, gateVal n D h x = true → graphFun G ∅ x = true) := by
+  classical
+  obtain ⟨k, hcleanL, hcleanR, hcover⟩ := repair_choice n G htriangle hfour a b c d
+    hab hcd hac had hbc hbd
+  let D := repairCircuit n C g h t q s a b c d k
+  have hlen : D.gates.length = C.gates.length := by simp [D, repairCircuit]
+  have htD : t < D.gates.length := by omega
+  have hDm : Monotone2 D := by
+    intro z hz
+    rcases List.mem_or_eq_of_mem_set hz with hz | rfl
+    · rcases List.mem_or_eq_of_mem_set hz with hz | rfl
+      · rcases List.mem_or_eq_of_mem_set hz with hz | rfl
+        · exact hmC z hz
+        · fin_cases k <;> simp [leftGate]
+      · fin_cases k <;> simp [rightGate]
+    · simp
+  obtain ⟨evalg, evalh⟩ := repair_values n C g h t q s a b c d k hgh hht ht hqg hsh hsg hQ hS
+  have hcleang : ∀ x : Fin n → Bool, gateVal n D g x = true → graphFun G ∅ x = true := by
+    intro x hx
+    exact hcleanL x ((evalg x).symm.trans hx)
+  have hcleanh : ∀ x : Fin n → Bool, gateVal n D h x = true → graphFun G ∅ x = true := by
+    intro x hx
+    exact hcleanR x ((evalh x).symm.trans hx)
+  refine ⟨D, hDm, ?_, by simp [D, repairCircuit, Circuit.size], hcleang, hcleanh⟩
+  apply external_reader_repair n G C D hmC hDm hC hlen rfl g h t (by omega) hht ht hCt
+  · simp [D, repairCircuit]
+  · intro i hi hig hih hit
+    simp [D, repairCircuit, Ne.symm hig, Ne.symm hih, Ne.symm hit]
+  · exact hcleang
+  · exact hcleanh
+  · intro u v huv hvold
+    rw [evalg, evalh]
+    rw [hgfun, hhfun] at hvold
+    have hc := hcover u v huv (by simpa only [Bool.or_eq_true] using hvold)
+    simpa only [Bool.or_eq_true] using hc
+  · exact hreach k
+
+end PEqualNP.Outside.L_meta_2448_aux.RectangleRepair
