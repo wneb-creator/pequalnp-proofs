@@ -7,3 +7,5 @@
 2026-11-25T14:30:27.210092+00:00: named partial module build passed; preserving reviewed source and complete build output.
 2026-11-25T14:31:54.544927+00:00: ProfilePruning and EliminationBound compiled, independently reviewed, and checkpointed.
 2026-11-25T14:32:51.861236+00:00: concrete Petersen bracket witnesses compiled and independently reviewed.
+2026-11-25T14:37:06.583030+00:00: ProfileRange and OneNotCut compiled and independently reviewed.
+2026-11-25T14:37:06.583030+00:00: first strategy review: seven-row block-cover conjecture disproved by an eleven-budget auxiliary construction; strengthen sample rows. Direct profile eight-gate certificate remains useful but lacks full circuit ledger link. Monolithic kernel certificate exceeded memory; split into smaller checks. Focus solver on essential-one-NOT nine-input and auxiliary-family cases.

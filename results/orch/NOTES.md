@@ -7,3 +7,7 @@ Strategies: proof_route = existing bounds/decomposition; circuit_search = finite
 ## Verified current reduction status
 
 Public desk data saved /tmp/oec/pequalnp-pilot-121/gaps.json. All three easy reduction halves already checked: L-meta-4725 (15+NOT lower bound), L-meta-7389 (canonical normalization), L-meta-8295 (cut after last NOT). Remaining open child statements: L-meta-4727 (1..4 NOT), L-meta-7391 (canonical19), L-meta-8297 (last-NOT separator). Reproducing existing easy halves is useful infrastructure but not new proof progress. Aim for stronger gate deletion or explicit witness.
+
+## First strategy review
+
+The seven-row block-cover conjecture requiring ps.length+bs.length >=12 is false: a budget11 auxiliary construction exists. This is not a counterexample to L-meta-2592. Stronger samples are needed for the ledger route. The direct eight-profile lower bound is a different statement and cannot simply replace the ledger condition. A monolithic finite kernel check exceeded memory; smaller certificate chunks are being prepared. The one-NOT decomposition and Petersen generator lemmas are compiled and their actual-circuit link is in progress. Witness searches remain inconclusive.

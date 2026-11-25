@@ -40,3 +40,13 @@ Command (from lean/): lake env lean ../results/orch/lemmas/PetersenBracket.lean
 Exit status: 0. Complete logs: petersen-bracket-build.stdout and .stderr (empty).
 Independent review: status_review approved SHA256 07f1033a93fbfd50a46dd112dde79902d187de49493e2cc40a0d9334f7f6090d.
 Scope: exact Petersen true/false generators and critical one-NOT witnesses, not full gate lower bound.
+
+Compiled partial: results/orch/lemmas/ProfileRange.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/ProfileRange.lean
+Exit status: 0. Complete logs: profile-range-build.stdout and profile-range-build.stderr
+Independent review: status_review approved SHA256 328812614b990dba7122b3a20fdc6ac9c1c263964ce91e83d6f37f1f5a6103e9.
+
+Compiled partial: results/orch/lemmas/OneNotCut.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/OneNotCut.lean
+Exit status: 0. Complete logs: one-not-cut-build.stdout and one-not-cut-build.stderr
+Independent review: status_review approved SHA256 07a75abc4466419a502a7478c4c7865599c4ac0887ea90d2b1ce09675676bd36.
