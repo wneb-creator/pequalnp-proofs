@@ -1,0 +1,2 @@
+CHECKED beforefreeze: runningcompilerhadalreadycompleted; collectedexit0afterrootstopmessage. No furthercompileorproofworkrun.
+Includesread_all_of_edges andnineteen_has_unread_edge, retainingAO2+exactPetersen+size≤19 assumptions.

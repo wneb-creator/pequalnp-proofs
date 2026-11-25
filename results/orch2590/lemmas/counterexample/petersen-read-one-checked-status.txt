@@ -1,0 +1,2 @@
+CHECKED: lake env lean ../results/orch2590/lemmas/counterexample/PetersenReadOne.lean exited0. 2026-11-25T15:20:34.598499+00:00
+Theorem read_one_floor: IsAO2 10 C + computes exact Petersen function + IsReadK 10 C 1 implies20≤C.size. Additionalread1 hypothesis remains; this is not the posted gap.

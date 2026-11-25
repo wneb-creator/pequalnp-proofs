@@ -1,0 +1,1 @@
+{"cover_distributions_by_missing_edges": {"0": {"6": 1}, "1": {"6": 15}, "2": {"5": 45, "6": 60}, "3": {"5": 370, "6": 80, "4": 5}}, "five_vertex_induced_edge_counts": {"5": 12, "4": 120, "3": 60, "2": 60}, "scope": "Finite cover combinatorics only; no circuit lower bound without additional counting hypotheses."}

@@ -1,0 +1,13 @@
+{
+  "PetersenBoundary": {
+    "sha256": "8ca960bc9c2e3b2c59ffc6696d612d105e696354584498c086c706c1d05837c8",
+    "lines": 58,
+    "lean_exit": 0
+  },
+  "PetersenSymmetry": {
+    "sha256": "80d400b3e152353565937689fd5dbbadd47db41329663839a3a0905267d51cf3",
+    "lines": 147,
+    "lean_exit": 0
+  },
+  "checked_at": "2026-11-25T15:14:07.349618+00:00"
+}

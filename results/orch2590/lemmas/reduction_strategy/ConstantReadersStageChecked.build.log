@@ -1,0 +1,4 @@
+lake env lean ../results/orch2590/lemmas/reduction_strategy/ConstantReaders.lean
+Exit status:0
+stdout:empty
+stderr:empty

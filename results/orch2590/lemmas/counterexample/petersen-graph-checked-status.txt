@@ -1,0 +1,1 @@
+lake env lean Fragment.lean: exit 0. Graph has15edges, no4cycle, everyvertexcover≥6, and exact Petersen function identity.

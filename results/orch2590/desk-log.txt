@@ -599,3 +599,93 @@ x-envoy-upstream-service-time: 483
  "next_beat_s": 300
 }
 
+
+2026-11-25T15:16:28.253969+00:00 beat2590-2
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:36:28.311Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:18:11.694739+00:00 beat2590-build-002
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:38:11.460Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:20:28.759905+00:00 beat2590-3
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:40:28.984Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:23:45.132768+00:00 beat2590-search-002
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T15:24:24.464896+00:00 diagnostic2590-search-002
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 15:24:23 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 15:24:24 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=TJ19eSlLj5p2BZQuWpiNC28h2XUL0U2A%2Fi%2Bcuh71Zm2L%2FKH4XjM%2FcOESGAebP%2BoMIHyypbV4OkrUmzMC5Kw91frFV7mykTHvddqNxAguE448Z9wwpr6fy%2Bcnd4uXtFk%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a601a8fb8ec923c1-LAX
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 214
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+

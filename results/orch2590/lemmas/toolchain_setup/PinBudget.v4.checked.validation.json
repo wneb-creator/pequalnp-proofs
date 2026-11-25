@@ -1,0 +1,9 @@
+{
+  "source": "results/orch2590/lemmas/toolchain_setup/PinBudget.v4.checked.lean",
+  "sha256": "11795a6fc2d365e1b0979756284b49b5b5d699934e73ac68b65131d444e2677f",
+  "exit_code": 0,
+  "stdout_bytes": 398,
+  "stderr_bytes": 0,
+  "command": "lake -d lean env lean /workspace/pequalnp-proofs/results/orch2590/lemmas/toolchain_setup/PinBudget.v4.lean",
+  "note": "One inherited push_neg deprecation warning; no errors. Snapshot is immutable."
+}

@@ -1,0 +1,64 @@
+
+namespace PEqualNP.Outside.L_meta_2590_aux.ReadOne
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def edges : List (Fin 10 × Fin 10) :=
+  [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 5), (1, 6),
+   (2, 7), (3, 8), (4, 9), (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)]
+
+def graph : SimpleGraph (Fin 10) where
+  Adj a b := (a, b) ∈ edges ∨ (b, a) ∈ edges
+  symm := ⟨fun _ _ h => h.symm⟩
+  loopless := ⟨by decide⟩
+
+instance graphDecidable : DecidableRel graph.Adj := fun a b =>
+  inferInstanceAs (Decidable ((a, b) ∈ edges ∨ (b, a) ∈ edges))
+
+def petersenFunction (x : Fin 10 → Bool) : Bool :=
+  x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 ||
+  x 0 && x 5 || x 1 && x 6 || x 2 && x 7 || x 3 && x 8 || x 4 && x 9 ||
+  x 5 && x 7 || x 7 && x 9 || x 9 && x 6 || x 6 && x 8 || x 8 && x 5
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma graph_no_four : PEqualNP.TopForm.NoFourCycle graph := by decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma graph_edges : graph.edgeFinset.card = 15 := by decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+lemma covers_card : ∀ T : Finset (Fin 10),
+    (∀ e ∈ edges, e.1 ∈ T ∨ e.2 ∈ T) → 6 ≤ T.card := by decide +kernel
+
+lemma graph_cover (T : Finset (Fin 10))
+    (h : ∀ a b, graph.Adj a b → a ∈ T ∨ b ∈ T) : 6 ≤ T.card :=
+  covers_card T (fun e he => h e.1 e.2 (Or.inl he))
+
+lemma graph_function (x : Fin 10 → Bool) :
+    decide (∃ a b, graph.Adj a b ∧ x a = true ∧ x b = true) = petersenFunction x := by
+  have hi : (∃ a b, graph.Adj a b ∧ x a = true ∧ x b = true) ↔
+      ∃ e ∈ edges, x e.1 = true ∧ x e.2 = true := by
+    constructor
+    · rintro ⟨a, b, h, ha, hb⟩
+      rcases h with h | h
+      · exact ⟨(a, b), h, ha, hb⟩
+      · exact ⟨(b, a), h, hb, ha⟩
+    · rintro ⟨⟨a, b⟩, h, ha, hb⟩
+      exact ⟨a, b, Or.inl h, ha, hb⟩
+  simp only [hi]
+  simp [edges, petersenFunction, Bool.or_assoc]
+
+theorem read_one_floor (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 10 C)
+    (hfun : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersenFunction x)
+    (hread : PEqualNP.ReadK.IsReadK 10 C 1) : 20 ≤ C.size := by
+  obtain ⟨T, hT, hs⟩ := General.main_aux 10 graph C graph_no_four hC
+    (fun x => (hfun x).trans (graph_function x).symm) hread
+  have hc := graph_cover T hT
+  rw [graph_edges] at hs
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.ReadOne

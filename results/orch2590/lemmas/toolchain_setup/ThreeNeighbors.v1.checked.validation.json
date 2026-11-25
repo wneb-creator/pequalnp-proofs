@@ -1,0 +1,8 @@
+{
+  "source": "results/orch2590/lemmas/toolchain_setup/ThreeNeighbors.v1.checked.lean",
+  "sha256": "36abeb61a5938098c1256487573e3ef6efeabb51f5f8126be9877d254a99b573",
+  "exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "command": "lake -d lean env lean /workspace/pequalnp-proofs/results/orch2590/lemmas/toolchain_setup/ThreeNeighbors.lean"
+}

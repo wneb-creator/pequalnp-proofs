@@ -1,1 +1,2 @@
 {"positive_control": "star64 with prescribed valid selectors", "window": [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62], "returncode": 10, "vars": 35362, "clauses": 1901584}
+{"window": [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62], "vars": 33850, "clauses": 1893226, "generation_seconds": 4.3427591999998185, "total_seconds": 401.99935893400016, "returncode": -15, "status": "UNKNOWN"}

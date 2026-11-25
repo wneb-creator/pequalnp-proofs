@@ -10,3 +10,11 @@ PetersenCNF.lean152lines checkedclean: exact linearpositiveCNF needs≥15clauses
 UniqueReaderChecked.lean1113lines checkedclean andindependentlyAPPROVED.
 PetersenGraphChecked.lean55lines andPetersenReadOne.lean1939lines checkedandindependentlyAPPROVED; read_one_floor requiresread1 explicitly.
 PinBudget preservationcorrection: filechangedduringpriorstaging. ExactpushedSHA2df8a9802f5ea7d42eadf0f9bd294e2d7039bc07c0ceb030ada84862a426b4d9 compiledexit0withonepush_negdeprecationwarning; previouscommittedemptylogwasolderrevision. Reviewerhasnowauditedthisexactsource. PinBudget.v3.checked.lean andmatchingvalidation/logs correctassociation.
+Thirdprematurelease410: manualrenewal15:23:45 failed despite15:40:28advertisedexpiry; curl-si diagnostic15:24:24 confirmed. Timerterminatedbeforeanotherrequest. Allproof/searchstopped.
+NewcheckedfrozenandindependentlyAPPROVED: LeastLivenessChecked, ConstantReadersStageChecked, PinBudget.v4.checked, ThreeNeighbors.v1.checked, SmallCircuitStructureChecked, PetersenReadOneEdges. Complete matchinglogs/hashes accompanysources.
+Floor18Pending: NOTCHECKED, compilerPID52284 SIGSTOP, noerrorsyet; fullsource+log+hashpreserved.
+MonoAliases: unfinisheddraftwithfailedpropositionalgoals, completeoutputpreserved.
+Allthree19gateAOsearchesUNKNOWN600seconds each. Preparedunread1/formulavariantsNEVERLAUNCHED. NoSATcounterexample or full lowerbound.
+Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
+TIMING total=85.2 subagents=6
+Preservation whitespace check notes only one inherited trailing-space line2731 in both Floor18.lean and frozen Floor18Pending.lean. These unchecked pending snapshots remain byte-exact to compiler input/hash; no cleanup or mathematical edit after lease stop.

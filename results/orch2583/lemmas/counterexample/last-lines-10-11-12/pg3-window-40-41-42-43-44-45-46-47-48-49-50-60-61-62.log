@@ -235,3 +235,106 @@ c            level       rate          size/glue  tier1   irredundant
 c 
 c p 124.96 292 89 20 8819  8 256843 40434 3.4 40 12 2 3 31% 1786202 32896 97%
 c t 126.01 292 89 20 8819  8 256843 40434 3.4 40 12 2 3 31% 1786137 32896 97%
+c } 131.22 292 88 20 9802  8 269650 51251 3.3 40 12 1 2 31% 1786137 32896 97%
+c ? 131.22 292 88 20 9802  8 269650 51251 3.3 40 12 1 2 31% 1786137 32896 97%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c UNKNOWN
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     2.4e+09   89.89%  2.2e+07       111.10   84.98% search              
+c     2.3e+09   84.22%  2.2e+07       103.02   78.79% unstable            
+c     2.7e+08   10.11%  1.4e+07        19.64   15.02% simplify            
+c     1.5e+08    5.62%  1.9e+07         8.02    6.14% walk                
+c     4.3e+07    1.59%  1.7e+07         2.58    1.97% backbone            
+c     4.2e+03    0.00%  1.7e+03         2.40    1.84% congruence          
+c     6.5e+07    2.41%  2.9e+07         2.19    1.68% vivify              
+c     0.0e+00    0.00%  0.0e+00         1.80    1.38% subsume             
+c     7.3e+07    2.71%  4.3e+07         1.70    1.30% sweep               
+c     4.4e+07    1.66%  2.8e+07         1.62    1.24% elim                
+c     0.0e+00    0.00%  0.0e+00         0.47    0.36% parse               
+c     1.2e+07    0.43%  4.9e+07         0.24    0.18% ternary             
+c     3.5e+07    1.32%  1.7e+08         0.21    0.16% probe               
+c     1.4e+06    0.05%  2.2e+07         0.06    0.05% lucky               
+c   ====================================================================
+c     2.7e+09  100.00%  2.1e+07       130.75   99.64% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c backbone_phases:                    36     7490.28     interval             
+c backbone_units:                     63        1.75 per backbone_phases      
+c clauses:                       2142289
+c collections:                        21    12840.48     interval             
+c conflicts:                      269650     2062.37 per second               
+c congruence_rounds:                   5    53930.00     interval             
+c decisions:                     1591403    12171.58 per second               
+c decompositions:                     18    14980.56     interval             
+c deduplicated:                       23        0.11 %   subsumed             
+c deduplications:                     54     4993.52     interval             
+c eager_subsumed:                  17993       86.47 %   subsumed             
+c eliminated:                         76        0.22 %   vars                 
+c eliminations:                       11    24513.64     interval             
+c failed_literals:                    10        0.03 %   vars                 
+c hbrs:                             1585       88.06 per probed               
+c inprobingphases:                    18    14980.56     interval             
+c inprobingsuccess:                    5       27.78 %   inprobingphases      
+c otfs_strengthened:                3558        1.32 %   conflicts            
+c otfs_subsumed:                      27        0.01 %   conflicts            
+c probed:                             18        0.05 %   vars                 
+c propagations:                311419877        2.38 M   per second           
+c recomputed_tiers:                   19    14192.11     interval             
+c reduced:                        168231       69.34 %   learned_clauses      
+c reductions:                         20    13482.50     interval             
+c rephased:                           22    12256.82     interval             
+c restart:                          9802       27.51     interval             
+c reused:                           3464        0.35 per restart              
+c searches:                            1
+c shrunken:                      1672128        9.52 %   learned_literals     
+c shrunken_minimize:             3393995       19.33 %   learned_literals     
+c stable_phases_total:                 6    44941.67     interval             
+c strengthened:                   114281        5.33 %   clauses              
+c subsumed:                        20808        0.97 %   clauses              
+c sweepings:                           5    53930.00     interval             
+c ternary:                             1   269650.00     interval             
+c ternary_htrs:                      919        0.03 %   ternary_resolutions  
+c ticks:                      2684080030       20.53 M   per second           
+c transitive_clauses:               1383        6.65 %   subsumed             
+c transitive_rounds:                  24    11235.42     interval             
+c variables_original:              33850      100.00 %   vars                 
+c vars:                            33850
+c vivifications:                       2   134825.00     interval             
+c vivified:                         4707        0.22 %   clauses              
+c walk:                                6    44941.67     interval             
+c weakened:                          684        0.03 %   clauses              
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 1 used 502419 clauses 55.55% accumulated 55.55% tier1
+c focused glue 2 used 168455 clauses 18.62% accumulated 74.18% tier2
+c 
+c stable glue 1 used 625958 clauses 53.61% accumulated 53.61% tier1
+c stable glue 2 used 145670 clauses 12.47% accumulated 66.09% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:       131.22    seconds
+c total real time since initialization:          397.64    seconds
+c maximum resident set size of process:          384.55    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 0
+c raising signal 15 (SIGTERM)

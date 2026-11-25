@@ -1,0 +1,90 @@
+../results/orch2590/lemmas/reduction_strategy/MonoAliases.lean:1352:2: error: unsolved goals
+case inl.inr
+n : ℕ
+f : (Fin n → Bool) → Bool
+gs : List Gate
+o : ℕ
+L : LeastMono n f gs o
+hnc : ∃ x y, f x ≠ f y
+p : Fin n
+r : ℕ
+g : Gate
+atg : gs[r]? = some g
+andOp : g.op = GateOp.and
+b : ℕ
+inputs : g.inputs = [↑p, b]
+s : ℕ
+h : Gate
+ath : gs[s]? = some h
+read : n + r ∈ h.inputs
+readp : ↑p ∈ h.inputs
+hp : ↑p < n + s
+hr : n + r < n + s
+hs : s < gs.length
+a c : ℕ
+hin : h.inputs = [a, c]
+gv : ∀ (x : Fin n → Bool), vl gs x (n + r) = (vl gs x ↑p && vl gs x b)
+ha : h.op = GateOp.and
+x : Fin n → Bool
+e : h.inputs = [n + r, ↑p]
+⊢ vl gs x ↑p = true → vl gs x b = true → vl gs x ↑p = true
+../results/orch2590/lemmas/reduction_strategy/MonoAliases.lean:1356:2: error: unsolved goals
+case inr.inl
+n : ℕ
+f : (Fin n → Bool) → Bool
+gs : List Gate
+o : ℕ
+L : LeastMono n f gs o
+hnc : ∃ x y, f x ≠ f y
+p : Fin n
+r : ℕ
+g : Gate
+atg : gs[r]? = some g
+andOp : g.op = GateOp.and
+b : ℕ
+inputs : g.inputs = [↑p, b]
+s : ℕ
+h : Gate
+ath : gs[s]? = some h
+read : n + r ∈ h.inputs
+readp : ↑p ∈ h.inputs
+hp : ↑p < n + s
+hr : n + r < n + s
+hs : s < gs.length
+a c : ℕ
+hin : h.inputs = [a, c]
+gv : ∀ (x : Fin n → Bool), vl gs x (n + r) = (vl gs x ↑p && vl gs x b)
+ho : h.op = GateOp.or
+x : Fin n → Bool
+e : h.inputs = [↑p, n + r]
+⊢ vl gs x ↑p = true → vl gs x b = true → vl gs x ↑p = true
+
+case inr.inr
+n : ℕ
+f : (Fin n → Bool) → Bool
+gs : List Gate
+o : ℕ
+L : LeastMono n f gs o
+hnc : ∃ x y, f x ≠ f y
+p : Fin n
+r : ℕ
+g : Gate
+atg : gs[r]? = some g
+andOp : g.op = GateOp.and
+b : ℕ
+inputs : g.inputs = [↑p, b]
+s : ℕ
+h : Gate
+ath : gs[s]? = some h
+read : n + r ∈ h.inputs
+readp : ↑p ∈ h.inputs
+hp : ↑p < n + s
+hr : n + r < n + s
+hs : s < gs.length
+a c : ℕ
+hin : h.inputs = [a, c]
+gv : ∀ (x : Fin n → Bool), vl gs x (n + r) = (vl gs x ↑p && vl gs x b)
+ho : h.op = GateOp.or
+x : Fin n → Bool
+e : h.inputs = [n + r, ↑p]
+⊢ vl gs x ↑p = true → vl gs x b = true → vl gs x ↑p = true

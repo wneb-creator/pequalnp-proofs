@@ -5,12 +5,14 @@
     {
       "pid": 46671,
       "parent_pid": 46669,
-      "command": "/tmp/oec/pequalnp-pilot-110/sat_strategy/cadical/build/cadical -t 300 /tmp/oec/pequalnp-pilot-110/counterexample2583/last-lines-10-11-12/pg3-window-40-41-42-43-44-45-46-47-48-49-50-60-61-62.cnf"
+      "command": "/tmp/oec/pequalnp-pilot-110/sat_strategy/cadical/build/cadical -t 300 /tmp/oec/pequalnp-pilot-110/counterexample2583/last-lines-10-11-12/pg3-window-40-41-42-43-44-45-46-47-48-49-50-60-61-62.cnf",
+      "termination_requested": true
     },
     {
       "pid": 46762,
       "parent_pid": 46682,
-      "command": "/tmp/oec/pequalnp-pilot-110/sat_strategy/cadical/build/cadical -t 300 /tmp/oec/pequalnp-pilot-110/counterexample2583/last-lines-1-11-12/pg3-window-40-41-42-43-44-45-46-47-48-49-50-60-61-62.cnf"
+      "command": "/tmp/oec/pequalnp-pilot-110/sat_strategy/cadical/build/cadical -t 300 /tmp/oec/pequalnp-pilot-110/counterexample2583/last-lines-1-11-12/pg3-window-40-41-42-43-44-45-46-47-48-49-50-60-61-62.cnf",
+      "termination_requested": true
     }
   ]
 }

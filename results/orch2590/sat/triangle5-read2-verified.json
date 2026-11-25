@@ -1,0 +1,38 @@
+{
+  "gates": [
+    [
+      "and",
+      0,
+      1
+    ],
+    [
+      "and",
+      0,
+      2
+    ],
+    [
+      "and",
+      1,
+      2
+    ],
+    [
+      "or",
+      3,
+      5
+    ],
+    [
+      "or",
+      4,
+      6
+    ]
+  ],
+  "output": 7,
+  "padding": [],
+  "truth_table_wrong_count": 0,
+  "wrong_rows": [],
+  "boundary_wrong_count": 0,
+  "read1_edges": 3,
+  "read1_missing_edges": [],
+  "checked_cnf_clauses": 1401,
+  "violated_cnf_clauses": []
+}

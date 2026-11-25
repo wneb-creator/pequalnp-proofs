@@ -1,0 +1,55 @@
+
+namespace PEqualNP.Outside.L_meta_2590_aux.ReadOne
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.ReadK
+
+lemma read_all_of_edges (C : Circuit)
+    (hfun : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersenFunction x)
+    (hr : ∀ a b : Fin 10, a < b → graph.Adj a b →
+      readsAtMost C 10 [a.val, b.val] 1 = true) : IsReadK 10 C 1 := by
+  intro S hS
+  have hs := (hfun (setInput S)).symm.trans hS.1
+  rw [← graph_function] at hs
+  obtain ⟨a, b, hab, ha, hb⟩ := of_decide_eq_true hs
+  have haS : a ∈ S := of_decide_eq_true ha
+  have hbS : b ∈ S := of_decide_eq_true hb
+  have hsub : ({a, b} : Finset (Fin 10)) ⊆ S := by
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl <;> assumption
+  have hpair : S = {a, b} := by
+    by_contra hne
+    have hproper : ({a, b} : Finset (Fin 10)) ⊂ S :=
+      lt_of_le_of_ne hsub (Ne.symm hne)
+    have hf := hS.2 {a, b} (Finset.mem_ssubsets.mpr hproper)
+    have ht : circuitFun 10 C (setInput {a, b}) = true := by
+      rw [show circuitFun 10 C (setInput {a, b}) = petersenFunction (setInput {a, b})
+        from hfun _, ← graph_function, decide_eq_true_eq]
+      exact ⟨a, b, hab, by simp [setInput], by simp [setInput]⟩
+    rw [ht] at hf
+    cases hf
+  rw [hpair]
+  rcases lt_trichotomy a b with hlt | heq | hlt
+  · rw [General.cor_setList_pair a b hlt]
+    exact hr a b hlt hab
+  · exact (hab.ne heq).elim
+  · rw [Finset.pair_comm, General.cor_setList_pair b a hlt]
+    exact hr b a hlt hab.symm
+
+theorem nineteen_has_unread_edge (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 10 C)
+    (hfun : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersenFunction x)
+    (hsize : C.size ≤ 19) :
+    ∃ a b : Fin 10, a < b ∧ graph.Adj a b ∧
+      readsAtMost C 10 [a.val, b.val] 1 = false := by
+  by_contra hnone
+  have hr : ∀ a b : Fin 10, a < b → graph.Adj a b →
+      readsAtMost C 10 [a.val, b.val] 1 = true := by
+    intro a b hlt hab
+    cases heq : readsAtMost C 10 [a.val, b.val] 1
+    · exact (hnone ⟨a, b, hlt, hab, heq⟩).elim
+    · rfl
+  have hfloor := read_one_floor C hC hfun (read_all_of_edges C hfun hr)
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.ReadOne

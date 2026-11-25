@@ -1,0 +1,1 @@
+COMPLETE: compiler had already exited0 before suspension; see SmallCircuitStructureChecked.lean and matching buildlog. No resume needed.
