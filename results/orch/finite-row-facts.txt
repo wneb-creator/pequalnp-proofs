@@ -1,0 +1,4 @@
+Petersen finite rows (computed Python, not yet Lean checked)
+false assignments=76
+maximal false=[50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773]
+minimal true=[3, 6, 12, 17, 24, 33, 66, 132, 160, 264, 288, 320, 528, 576, 640]

@@ -1,0 +1,9 @@
+Partial checkpoint for L-meta-2592. The posted statement is not yet proved.
+
+Lean 4.36.0: lake env lean ../results/orch/lemmas/Finite.lean
+Exit status: 0. Complete stdout and stderr are empty and preserved in logs/.
+The file proves finite truth-table facts only. No proof PR is being opened.
+Repository checker: not run; no complete theorem for the posted statement exists.
+
+Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate
+TIMING total=8.2 subagents=5
