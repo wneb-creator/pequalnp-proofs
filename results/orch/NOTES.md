@@ -37,3 +37,20 @@ Compilation has not yet been independently observed; cache setup pending and no 
 
 ## 2026-11-25T14:21:37.080949+00:00 definitions_audit single-use consequence
 For every pair of distinct primaries v,w, Petersen does not factor through AND(v,w), or OR(v,w), plus the other nine primaries. Verified all 90 ordered pairs by direct Python truth evaluation. AND witness: choose neighbor u of v other than w, compare {u} and {u,v}; gate value stays false. OR witness: choose neighbor u of v nonadjacent to w and different from w, compare {u,w} and {u,w,v}; gate value stays true. Lean witnesses/funnel refutations appended in audit_last_not.lean, awaiting Defs build.
+
+## 2026-11-25T14:21:52.617608+00:00 lower_bound
+No direct NOT-specific four-gate deletion argument found. General NOT-free or monotone-optimality claims are unjustified: multioutput savings can in principle encode a degree-two graph function via selectors. Full-Petersen nonNOT floor16 leaves one to three NOT gates. Generic reader elimination only saves3 on false restriction, leaving the tight9vertex size16 case; pintrue has a cheap OR3 plusC6 residual. A pruned <=19 circuit containingNOT has <=18 binary gates and <=19 primary-input uses, so some of10 essential variables is read once; exploiting its computed/shared partner remains the obstacle.
+Suggested focused counterexample search: minimum vertex-cover implementation uses9 gates for six OR-neighborhood outputs,6 centerANDs and5 finalORs. Any eight-gate implementation of that OR family withNOT yields19 total. circuit_search verified five covers, each with three induced matching edges and eight orientations, and is testing all40 families. Also suggested testing9vertex size16 with exactlyoneNOT to assess the optimal-NOT-free equality route.
+
+## Circuit search 2026-11-25T14:22:24.266261+00:00
+
+- Read exact Circuit and FanInTwo semantics; no useful semantic loophole.
+- Known20-gate seed L_meta_1755 used; complete truth-table check passes. Python CNF encoding tested by fixed20-gate witness: CaDiCaL SAT.
+- Original19-gate oneNOT SAT, first OR(0,1), timed out180s; no conclusion.
+- C++ CGP19 search with NOT ongoing300s, best9 truth-table errors so far.
+- Signed18-gate (free negation) SAT and CGP underway, no witness yet.
+- Targeted 8-gate six-output OR-neighborhood families for minimum covers: first orientations0..4 UNSAT on112test assignments; 5..7 running. This is computational evidence for a restricted factorization route, not a proof of original gap.
+- Petersen minus vertex9,16gates and exactly1NOT: SAT search launched180s.
+- Search source: results/orch/lemmas/search_sat.py, search_star.py, search_cgp.cpp; all logs /tmp/oec/pequalnp-pilot-117/search/.
+
+- Star-family search complete: all8orientations UNSAT (CaDiCaL exit20). Exact backtracking found120 Petersen automorphisms, min-cover orbit size5 and the orientation0 family orbit size20. All8orientations were tested directly, so cover transitivity covers all40 formulations (there are at least2orientation orbits). This remains restricted computational evidence, not a Lean proof or proof of the gap.
