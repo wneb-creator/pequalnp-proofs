@@ -16,3 +16,9 @@ SECOND PARTIAL CHECKPOINT
 Named file: 159 lines. Added the symmetric two-dimensional star level-space and its explicit permanent formula. This still does not prove dimension three.
 Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5149 jobs).
 Complete logs: star-build.stdout and star-build.stderr. Independent review: PASS for the new helper proofs and integration plan.
+
+THIRD PARTIAL CHECKPOINT
+Named file: 322 lines. Added hollow_flat_finrank_le_two: every symmetric zero-diagonal permanent-level subspace has dimension at most two.
+Validation: lake env lean PEqualNP/Outside/L_gct_231.lean; exit 0; stdout and stderr empty.
+Independent review and independent rebuild: PASS (status_review). Complete direct Lean logs: hollow-lean.stdout and hollow-lean.stderr.
+Normal lake build awaits restoration of 22 optional prebuilt Mathlib artifacts; no Mathlib source compilation attempted. Still not a proof or refutation of the unrestricted dimension-three claim.

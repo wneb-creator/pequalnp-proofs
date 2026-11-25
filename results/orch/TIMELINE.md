@@ -9,3 +9,4 @@
 - 2026-11-25 09:37 UTC: parallel construction, geometry, dimension, permanent, and source-research strategies launched.
 - 2026-11-25T09:42:01.727509+00:00: combined named-file partial helpers compiled; independent review passed.
 - 2026-11-25T09:48:01.032854+00:00: two-dimensional star partial result integrated, built, and independently reviewed.
+- 2026-11-25T10:01:23.194170+00:00: full hollow dimension-at-most-two obstruction integrated, independently reviewed, and compiled.
