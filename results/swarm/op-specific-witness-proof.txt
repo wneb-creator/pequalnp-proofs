@@ -1,0 +1,17 @@
+Gate-specific boundary witnesses in a minimum exact monotone circuit
+
+Claim (mathematical argument, not yet a Lean theorem): let C be a globally minimum-size AO2 circuit computing a nonconstant monotone Boolean function F. For each gate g with input wires a,b:
+- if g is AND, some maximal false assignment has (a,b)=(1,0), and another has (a,b)=(0,1);
+- if g is OR, some minimal true assignment has (a,b)=(1,0), and another has (a,b)=(0,1).
+
+Proof for AND keeping a: replace g by a, redirect all later references, and remove g. The resulting Cprime has one fewer gate and computes a function >=F pointwise (all downstream operations are monotone). Minimum size prevents equality, so Cprime(x)=true and F(x)=false for some x. Extend x to a maximal false y. Then Cprime(y)=true by monotonicity and F(y)=false. At y all pre-gate values are unchanged. If original g(y)=a(y), induction over later gates would give Cprime(y)=C(y), contradiction. Thus a(y)=true and b(y)=false. Repeat keeping b.
+
+Proof for OR keeping a: the replacement computes Cprime<=F. Minimality gives F(x)=true and Cprime(x)=false. Shrink x to a minimal true y; then F(y)=true and Cprime(y)=false by monotonicity. Equality of the removed gate value with a(y) would force equality of complete outputs. Hence a(y)=false and b(y)=true. Repeat keeping b.
+
+Both proofs use exact size-decreasing AO2 rewiring, not a gate-local no-comparability assumption. Constants and dead gates pose no problem because the final output and reads are redirected; a minimum circuit cannot contain an irrelevant removable gate.
+
+Application: original core at-most23 search is complete under these cuts because if any <=23 circuit exists, choose a globally smallest one. Its minimal true rows are precisely graph edges and its maximal false rows are the graph maximal independent sets already encoded. The stripped20 core likewise has complete positive/negative boundary rows. This is stronger than requiring (1,0)/(0,1) somewhere among all boundary rows.
+
+Encoding plan: preserve existing witness variable definitions. For each active gate and orientation, require a disjunction of positive-row witnesses when OR, negative-row witnesses when AND. Existing per-row witnesses already imply selected-wire pattern (1,0) or (0,1). Inactive gates must remain exempt; exact-size padding may violate the constraint, so enable only at-most encoding. Canonical24 and stripped21 controls should pass; exhaustive small DAG controls can independently validate the claim.
+
+Scope warning: does NOT apply to every arbitrary exact circuit, only a chosen minimum circuit. Do not apply the cut to a fixed nonminimal candidate or claim an unconditional circuit theorem.

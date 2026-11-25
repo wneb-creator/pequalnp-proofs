@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "source_sha256": "85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b",
+  "metadata_sha256": "214b016e74fb187e5996c475fdf7bf53021b7512c017a1be41add2e6cebd5fc9",
+  "bridge_sha256": "0321cd3d5f5049052b0cb5e00b3f221fee2875f8daff06c8f6332feef192177c",
+  "full_plane_row_masks": [
+    1170,
+    113,
+    2584,
+    4372,
+    15,
+    4674,
+    2338,
+    7169,
+    1352,
+    1572,
+    897,
+    2244,
+    4264
+  ],
+  "core_point_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12
+  ],
+  "core_line_ids": [
+    0,
+    1,
+    4,
+    8,
+    12
+  ],
+  "core_edges_match_full_plane_restriction": true,
+  "target_labels_unchanged_after_symmetry": true,
+  "extension_added_gates": 40,
+  "maximum_extended_candidate_gates": 63
+}

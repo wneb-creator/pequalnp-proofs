@@ -66,3 +66,6 @@ First substantive helper results (distinct from setup check-ins):
 - 2026-11-25T23:20:00Z (approximately): Environment transition interrupted active SAT jobs and local proof agents. Files survived; interrupted runs are UNKNOWN, not UNSAT or completed timeouts.
 - 2026-11-25T23:28:00Z (approximately): Restarted strongest original-core23 searches with distinct complete logs and50-minute limits.
 - 2026-11-25T23:30:21.025006+00:00: Independent recovery audit passed reduction plain/import/exact-target/axiom checks. Conditional q3 refutation bridge compiled and axiom-audited; exhaustive packed geometry checks passed169positive rows and8192negative subsets. No candidate circuit has been found. Archived reduction and bridge as research on orchestrator branch; no final submission.
+
+- 2026-11-25T23:33:21.261216+00:00: Independently reviewed research checkpoint a40f75f9a pushed to fork orchestrator branch. No final branch push or FINAL.
+- 2026-11-25T23:50:06.824909+00:00: Final core23 search encoder frozen and archived. Root reviewed actual changes; independent canonical/full-clause/tiny-minimum audits passed. Five post-restart queries remain pending. Current helper1/3/4/9 snapshots independently rebuilt at exact recorded commits; arbitrary-circuit target remains open.

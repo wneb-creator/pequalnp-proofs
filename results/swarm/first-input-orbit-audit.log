@@ -1,0 +1,74 @@
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "case": "first-orbit-original25",
+      "selected_gates": 24,
+      "budget": 25,
+      "clauses_checked": 409883,
+      "assignments_exhaustively_checked": 65536,
+      "inactive_domain_exemption_checked": true,
+      "counterfactual_output_witnesses_checked": 48,
+      "input_automorphism_group_size": 12,
+      "first_pair": [
+        0,
+        1
+      ]
+    },
+    {
+      "case": "first-orbit-stripped22",
+      "selected_gates": 21,
+      "budget": 22,
+      "clauses_checked": 258211,
+      "assignments_exhaustively_checked": 8192,
+      "inactive_domain_exemption_checked": true,
+      "counterfactual_output_witnesses_checked": 42,
+      "input_automorphism_group_size": 12,
+      "first_pair": [
+        0,
+        1
+      ]
+    }
+  ],
+  "default_exact_and_existing_ordered_outputs_byte_identical": true,
+  "flag_alone_exact_mode_satisfiable_and_fulltruth_checked": true,
+  "line_count_over_six_rejected": true,
+  "tiny_soundness": [
+    {
+      "inputs": 2,
+      "circuits_enumerated": 1518,
+      "minimum_circuits_checked": 2,
+      "distinct_functions": 4
+    },
+    {
+      "inputs": 3,
+      "circuits_enumerated": 7452,
+      "minimum_circuits_checked": 18,
+      "distinct_functions": 17
+    },
+    {
+      "inputs": 4,
+      "circuits_enumerated": 25820,
+      "minimum_circuits_checked": 204,
+      "distinct_functions": 100
+    }
+  ],
+  "duplicate_and_unequal_neighborhood_controls": [
+    {
+      "inputs": 6,
+      "generated": 2,
+      "all_color_automorphisms": 8
+    },
+    {
+      "inputs": 5,
+      "generated": 1,
+      "all_color_automorphisms": 2
+    },
+    {
+      "inputs": 6,
+      "generated": 2,
+      "all_color_automorphisms": 4
+    }
+  ],
+  "source_sha256": "85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b"
+}

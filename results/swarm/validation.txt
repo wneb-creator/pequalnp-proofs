@@ -50,3 +50,11 @@ RefutationBridge.lean SHA0321cd3d5f5049052b0cb5e00b3f221fee2875f8daff06c8f6332fe
 Environment transition stopped pending SAT processes around23:20; preserved old full logs. Only earlier unrestricted core23 and stripped20 completed their time limits UNKNOWN. Restarted ordered-at-most and sat-mode active-used core23 searches, each3000seconds. No SAT or UNSAT claim.
 Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
 TIMING total=112.0 subagents=67
+
+2026-11-25T23:50:06.824909+00:00 progress update
+Latest independent root helper rebuilds PASS: h1 1df1cb9971865a23bb4a50f03122efeff979d5fb; h3 2f2dff8110269ecd4513b18623fb33cdc69022ae; h4 93cdca9d281942088ac4a176036fc8a60ab51df8; h9 7623d5aacb379bdd162122dc737beae2f72affcb. Helpers have subsequent checkpoints; these are the exact versions root rebuilt.
+Frozen core_sat.py SHA85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b. New minimum-circuit op-specific boundary domains, actual counterfactual output witnesses, and graph-automorphism first-pair symmetry independently audited; root actual-diff review PASS. Canonical24/21 controls exhaustive65536/8192truthchecks and409883/258211clauses PASS;90actualoutputwitnesses independentlysimulated. All224enumerated tinyminimumcircuits satisfycriticality;12inputautomorphisms independentlyderivedandchecked byroot. Frozen strongestcore23=12729vars356325clauses. No candidate/verdict yet; source/audits/reproduction notes archived.
+Final geometry/extension audit PASS: unchanged original core labels; canonical24 extends to64 and passes52positive/704maxfalse rows. Anyatmost23 originalcore extends toatmost63; stripped20alone doesnot. Full q3 refutation still requires concrete Lean candidate and exact refute checker.
+Live desk row updated23:36:24 continues lacking reductions:true, so accepted mathematical reduction remains submission-ineligible. No FINAL/PR/release.
+Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
+TIMING total=131.7 subagents=67

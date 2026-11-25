@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "controls": [
+    {
+      "case": "op-critical-original25",
+      "selected_gates": 24,
+      "budget": 25,
+      "clauses_checked": 158378,
+      "assignments_exhaustively_checked": 65536,
+      "inactive_domain_exemption_checked": true
+    },
+    {
+      "case": "op-critical-stripped22",
+      "selected_gates": 21,
+      "budget": 22,
+      "clauses_checked": 100886,
+      "assignments_exhaustively_checked": 8192,
+      "inactive_domain_exemption_checked": true
+    }
+  ],
+  "default_exact_and_existing_ordered_outputs_byte_identical": true,
+  "flag_without_incomparable_flag_satisfiable": true,
+  "exact_mode_rejected": true,
+  "tiny_soundness": [
+    {
+      "inputs": 2,
+      "circuits_enumerated": 1518,
+      "minimum_circuits_checked": 2,
+      "distinct_functions": 4
+    },
+    {
+      "inputs": 3,
+      "circuits_enumerated": 7452,
+      "minimum_circuits_checked": 18,
+      "distinct_functions": 17
+    },
+    {
+      "inputs": 4,
+      "circuits_enumerated": 25820,
+      "minimum_circuits_checked": 204,
+      "distinct_functions": 100
+    }
+  ],
+  "source_sha256": "0afc27eda084d5ea5b200c5568a1e2fa672ce20d42c1a2cc9a77990be895342c"
+}
