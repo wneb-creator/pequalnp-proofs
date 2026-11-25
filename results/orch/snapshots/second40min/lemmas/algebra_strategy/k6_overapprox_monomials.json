@@ -1,0 +1,188 @@
+[
+  {
+    "index": 0,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        1
+      ]
+    ]
+  },
+  {
+    "index": 1,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        9
+      ],
+      [
+        7
+      ],
+      [
+        13
+      ],
+      [
+        6
+      ]
+    ]
+  },
+  {
+    "index": 2,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        10
+      ],
+      [
+        15
+      ],
+      [
+        14
+      ],
+      [
+        6
+      ]
+    ]
+  },
+  {
+    "index": 3,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        8
+      ],
+      [
+        13
+      ],
+      [
+        10
+      ],
+      [
+        11
+      ]
+    ]
+  },
+  {
+    "index": 4,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        9
+      ],
+      [
+        12
+      ],
+      [
+        14
+      ],
+      [
+        11
+      ]
+    ]
+  },
+  {
+    "index": 5,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        7
+      ],
+      [
+        11
+      ],
+      [
+        15
+      ],
+      [
+        16
+      ]
+    ]
+  },
+  {
+    "index": 6,
+    "gatecount": 28,
+    "false": 29,
+    "minterms": 19,
+    "extra": [
+      [
+        12
+      ],
+      [
+        8
+      ],
+      [
+        16
+      ],
+      [
+        6
+      ]
+    ]
+  },
+  {
+    "index": 7,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        0
+      ]
+    ]
+  },
+  {
+    "index": 8,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        2
+      ]
+    ]
+  },
+  {
+    "index": 9,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        3
+      ]
+    ]
+  },
+  {
+    "index": 10,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        4
+      ]
+    ]
+  },
+  {
+    "index": 11,
+    "gatecount": 28,
+    "false": 23,
+    "minterms": 21,
+    "extra": [
+      [
+        5
+      ]
+    ]
+  }
+]

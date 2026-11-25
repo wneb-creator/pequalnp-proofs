@@ -1,0 +1,13 @@
+BEST false 23 after 9 candidates
+seeds 1 tried 1624 pool 12
+seeds 21 tried 34104 pool 12
+seeds 41 tried 66584 pool 12
+seeds 61 tried 99064 pool 12
+seeds 81 tried 131544 pool 12
+seeds 101 tried 164024 pool 12
+seeds 121 tried 196504 pool 12
+seeds 141 tried 228984 pool 12
+seeds 161 tried 261464 pool 12
+seeds 181 tried 292376 pool 12
+DONE tried 292376 best false 23 pool 12
+PRUNED BEST false 23 gates 26 index 0

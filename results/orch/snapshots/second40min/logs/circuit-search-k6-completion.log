@@ -1,0 +1,23 @@
+seconds 6e-08 iterations 0 restarts 0 best 1000000 current 29 cone 4 missing 20 cover_cache 13
+BEST 29 cone 4 missing 20 at 6e-08
+seconds 10 iterations 13906784 restarts 6 best 29 current 30 cone 1 missing 23 cover_cache 1611
+seconds 20 iterations 28182044 restarts 14 best 29 current 30 cone 1 missing 23 cover_cache 2073
+seconds 30.0003 iterations 41254796 restarts 20 best 29 current 30 cone 1 missing 23 cover_cache 2413
+seconds 40 iterations 54813208 restarts 27 best 29 current 30 cone 1 missing 23 cover_cache 2719
+seconds 50.0003 iterations 69061240 restarts 34 best 29 current 30 cone 1 missing 23 cover_cache 2895
+seconds 60 iterations 82829430 restarts 41 best 29 current 30 cone 1 missing 23 cover_cache 3071
+seconds 70.0003 iterations 97281537 restarts 48 best 29 current 30 cone 1 missing 23 cover_cache 3264
+seconds 80 iterations 111885648 restarts 55 best 29 current 30 cone 1 missing 23 cover_cache 3418
+seconds 90.0003 iterations 126138437 restarts 63 best 29 current 30 cone 1 missing 23 cover_cache 3573
+seconds 100 iterations 140662892 restarts 70 best 29 current 30 cone 1 missing 23 cover_cache 3723
+seconds 110 iterations 154692837 restarts 77 best 29 current 30 cone 1 missing 23 cover_cache 3849
+seconds 120 iterations 168961384 restarts 84 best 29 current 30 cone 1 missing 23 cover_cache 3965
+seconds 130 iterations 182661046 restarts 91 best 29 current 30 cone 1 missing 23 cover_cache 4081
+seconds 140.009 iterations 192368323 restarts 96 best 29 current 30 cone 1 missing 23 cover_cache 4155
+seconds 150 iterations 202486958 restarts 101 best 29 current 31 cone 2 missing 23 cover_cache 4223
+seconds 160 iterations 212358976 restarts 106 best 29 current 30 cone 1 missing 23 cover_cache 4309
+seconds 170 iterations 225753702 restarts 112 best 29 current 30 cone 1 missing 23 cover_cache 4409
+seconds 180 iterations 255061965 restarts 127 best 29 current 30 cone 1 missing 23 cover_cache 4596
+seconds 190 iterations 279178299 restarts 139 best 29 current 30 cone 1 missing 23 cover_cache 4726
+seconds 200 iterations 306319242 restarts 153 best 29 current 30 cone 1 missing 23 cover_cache 4884
+seconds 210 iterations 334463174 restarts 167 best 29 current 30 cone 1 missing 23 cover_cache 5054

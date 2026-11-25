@@ -1,0 +1,94 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:43:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:45:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:47:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:43:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:45:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:47:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:161:2: error: Tactic `rfl` failed: equality lhs
+  x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+      x ((((Fin.castPred 4 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+    (x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+        x ((((Fin.castPred 7 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+      (x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+          x ((((Fin.castPred 8 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+        (x 0 && x ((((Fin.castPred 4 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+          (x 0 && x ((((Fin.castPred 5 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+            (x 0 && x ((((Fin.castPred 6 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+              (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                  x ((((Fin.castPred 5 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                    x ((((Fin.castPred 7 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                  (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                      x ((((Fin.castPred 9 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                    (x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                        x ((((Fin.castPred 6 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                      (x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                          x ((((Fin.castPred 8 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                        x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                          x ((((Fin.castPred 9 ⋯).castLT ⋯).castLT ⋯).castLT ⋯)))))))))))
+is not definitionally equal to rhs
+  x 0 && x 4 ||
+    (x 0 && x 5 ||
+      (x 0 && x 6 ||
+        (x 1 && x 4 ||
+          (x 1 && x 7 ||
+            (x 1 && x 8 ||
+              (x 2 && x 5 || (x 2 && x 7 || (x 2 && x 9 || (x 3 && x 6 || (x 3 && x 8 || x 3 && x 9))))))))))
+
+x : Fin 10 → Bool
+⊢ (x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+        x ((((Fin.castPred 4 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+      (x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+          x ((((Fin.castPred 7 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+        (x ((((Fin.castPred 1 ⋯).castPred ⋯).castPred ⋯).castPred ⋯) &&
+            x ((((Fin.castPred 8 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+          (x 0 && x ((((Fin.castPred 4 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+            (x 0 && x ((((Fin.castPred 5 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+              (x 0 && x ((((Fin.castPred 6 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                    x ((((Fin.castPred 5 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                  (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                      x ((((Fin.castPred 7 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                    (x ((((Fin.castPred 2 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                        x ((((Fin.castPred 9 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                      (x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                          x ((((Fin.castPred 6 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                        (x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                            x ((((Fin.castPred 8 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) ||
+                          x ((((Fin.castPred 3 ⋯).castLT ⋯).castLT ⋯).castLT ⋯) &&
+                            x ((((Fin.castPred 9 ⋯).castLT ⋯).castLT ⋯).castLT ⋯)))))))))))) =
+    (x 0 && x 4 ||
+      (x 0 && x 5 ||
+        (x 0 && x 6 ||
+          (x 1 && x 4 ||
+            (x 1 && x 7 ||
+              (x 1 && x 8 ||
+                (x 2 && x 5 || (x 2 && x 7 || (x 2 && x 9 || (x 3 && x 6 || (x 3 && x 8 || x 3 && x 9)))))))))))
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:233:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f (x ∘ π)
+in the target expression
+  (Helpers.PermInputs.relabel n m π C).eval (List.ofFn x) = (fun x => f (x ∘ π)) x
+
+case refine_3
+n m : ℕ
+π : Fin n → Fin m
+f : (Fin n → Bool) → Bool
+s : ℕ
+C : Circuit
+hm : Monotone2 C
+hs : C.size ≤ s
+he : ∀ (x : Fin n → Bool), C.eval (List.ofFn x) = f x
+x : Fin m → Bool
+⊢ (Helpers.PermInputs.relabel n m π C).eval (List.ofFn x) = (fun x => f (x ∘ π)) x

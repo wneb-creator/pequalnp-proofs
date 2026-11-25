@@ -1,0 +1,3 @@
+2026-11-25T02:50:39.981270+00:00 triangle_private_core inputs 9 gates 11 samples 17 variables 3530 clauses 14235 generation_seconds 0.02
+2026-11-25T02:50:40.013344+00:00 RESULT 10 elapsed 0.06
+EXACT FUNCTION WITNESS 11 gates; EXCEEDS TARGET 10

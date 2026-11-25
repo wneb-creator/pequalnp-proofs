@@ -1,0 +1,9 @@
+Second strategy checkpoint: no full witness for L-meta-650 and no checker verdict for the original target.
+
+Compiled research proofs exclude the ten-gate target for the nine-input pendant-cycle problem and the eighteen-gate target for k4_p2. These proofs use project imports outside the final gap's allowed list. Neither refutes the full gap.
+
+Models named BASELINE-WITNESS are known eleven-gate calibration circuits, which exceed their ten-gate improvement target. SAT timeouts mean UNKNOWN. The initial sat57-run.log is invalid because of an old negative-mask parsing error; corrected logs are separate. Files named candidate or best may miss edges, accept false inputs, or exceed the gate budget.
+
+Symbolic analysis found that the old candidate pool consisted of partial star functions or functions accepting singleton inputs. Active work now uses merged-star overapproximations with extra quadratic terms, rejects singleton outputs, and applies signed-phase SAT and completion-cost search.
+
+Logs captured while processes were running contain complete output through the snapshot time.

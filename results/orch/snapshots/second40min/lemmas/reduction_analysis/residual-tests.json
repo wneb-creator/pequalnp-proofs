@@ -1,0 +1,4108 @@
+{
+  "inputs": 25,
+  "max_gates": 61,
+  "tap_input_indices": [
+    12,
+    13,
+    15,
+    21
+  ],
+  "constraints": [
+    {
+      "input": 4095,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4096,
+      "residual": false,
+      "tap": true
+    },
+    {
+      "input": 4097,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4100,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4352,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 7930,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8192,
+      "residual": false,
+      "tap": true
+    },
+    {
+      "input": 8194,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 8320,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 10109,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10240,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 13944,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16385,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 16448,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 17342,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17408,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 18432,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 21178,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25404,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 29240,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 32768,
+      "residual": false,
+      "tap": true
+    },
+    {
+      "input": 32800,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 33280,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 33792,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 35295,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 39130,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 41309,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 45144,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 49566,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 53402,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 57628,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 65552,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 65792,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 66048,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 66799,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 67584,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 70890,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 74861,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 78952,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 82094,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 86186,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 90156,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 98511,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 102602,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 106573,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 114830,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 118922,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 131080,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 131200,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 131328,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 132096,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 133751,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 137842,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 139893,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 143984,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 148022,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 152114,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 156212,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 160304,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 165975,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 170066,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 172117,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 180246,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 196711,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 200802,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 204901,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 213030,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 229447,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 237637,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 262148,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 262208,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 262272,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 262656,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 265531,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 269370,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 271673,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 275512,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 278842,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 282682,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 287032,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 290872,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 297243,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 301082,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 303385,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 311578,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 315418,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 319768,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 328747,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 332842,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 336937,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 341032,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 344106,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 348202,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 360459,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 395315,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 399410,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 401457,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 409650,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 413746,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 428051,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 432146,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 458787,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 475170,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 524290,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 524320,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 524352,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 524544,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 528029,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 532120,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 534045,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 538136,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 541340,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 545432,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 549404,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 553496,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 559261,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 563352,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 565277,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 573596,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 577688,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 581660,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 590989,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 595080,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 599053,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 606348,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 622733,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 630797,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 639116,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 657941,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 662032,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 664085,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 672276,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 680468,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 690197,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 696341,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 720901,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 789529,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 793624,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 795673,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 799768,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 802840,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 821273,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 825368,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 827417,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 847896,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 853001,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 861193,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 919569,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 952337,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1048577,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 1048592,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 1048608,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 1048704,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 1052494,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1056330,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1058636,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1062472,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1065742,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1069578,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1073932,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1083726,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1087562,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1089868,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1097998,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1106188,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1115214,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1119306,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1123404,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1127496,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1130510,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1146958,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1151050,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1155148,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1163278,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1182278,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1186370,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1188420,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1196550,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1214534,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1218626,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1245254,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1261574,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1278022,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1314058,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1317898,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1320200,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1327370,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1345802,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1349642,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1360138,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1377290,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1381386,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1392650,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1429514,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1443842,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1576460,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1580552,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1582604,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1586696,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1589772,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1597964,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1607692,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1639436,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1647628,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1654796,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1695756,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1706500,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1720836,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1838088,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1842184,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 1901576,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 1913864,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2097152,
+      "residual": false,
+      "tap": true
+    },
+    {
+      "input": 2097160,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 2097168,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 2097216,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 2101159,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2104994,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2107173,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2111008,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2114470,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2118306,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2122532,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2132359,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2136194,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2138373,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2146694,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2163879,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2167970,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2171941,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2179238,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2183330,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2195591,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2211974,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2230823,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2234914,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2236965,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2245158,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2249250,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2253348,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2263047,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2293799,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2301989,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2310182,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2326535,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2362659,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2366498,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2368801,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2375970,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2394371,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2425891,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2429986,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2434081,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2492451,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2496546,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2525187,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2555939,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2576418,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2625157,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2629248,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2631173,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2638468,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2656389,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2688133,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2696197,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2719877,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2755077,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2761221,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2787333,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2859013,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 2886657,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3149574,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3153410,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3155716,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3162886,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3171076,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3180806,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3195142,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3212294,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3279366,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3283458,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3293702,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3311622,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3391494,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3411202,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3415042,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3442946,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3577858,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3673604,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3677696,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3679748,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3803652,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 3826180,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4194308,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4194312,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4194336,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4196307,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4196352,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 4200146,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4204369,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4208208,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4211602,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4215442,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4219664,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4227539,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4231378,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4235601,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4243858,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4247698,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4261059,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4265154,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4269121,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4276354,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4292803,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4296898,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4325971,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4330066,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4334161,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4338256,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4342290,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4346386,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4358227,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4362322,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4366417,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4390979,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4423747,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4457747,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4461586,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4465937,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4473106,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4489491,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4497681,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4505874,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4523011,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4587539,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4603922,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4620307,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4640786,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4653059,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4720273,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4724368,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4728337,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4732432,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4735632,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4739728,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4751505,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4785281,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4850193,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4858385,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4866576,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4878864,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 4981777,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 4989969,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5047297,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5111825,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5152785,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5244738,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5248578,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5252928,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5256768,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5260034,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5275970,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5309506,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5313602,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5374530,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5378626,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5390850,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5439554,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5476418,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 5506306,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5521666,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5571586,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5718018,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 5768704,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 6293379,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6297218,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6301441,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6308738,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6312578,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6324611,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6340994,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6358147,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6362242,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6389891,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6410370,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6423043,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6554883,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6563073,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6586627,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6620163,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6782979,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6817409,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6821504,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6825473,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 6882433,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7152641,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7341826,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7345666,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7350016,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7357186,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7492098,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7603458,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7651586,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7672834,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7852034,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 7878144,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8388610,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 8388612,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 8388624,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 8389632,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 8391657,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8395496,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8397673,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8401512,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8405928,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8409768,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8413992,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8417832,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8423881,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8427720,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8429897,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8438152,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8454377,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8458472,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8462441,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8466536,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8470696,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8474792,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8487113,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8491208,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8495177,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8522337,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8526432,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8528481,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8532576,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8536608,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8554561,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8585313,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8593505,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8653097,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8656936,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8659241,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8667432,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8675624,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8685833,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8691977,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8716329,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8724521,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8732712,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8745000,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8783905,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8847393,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8915593,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8919688,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8921609,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8929928,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8934024,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8947849,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8951944,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 8978569,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 8994952,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9011337,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9031816,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9046529,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9177097,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9209865,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9240585,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9281545,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9308161,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9440072,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9443912,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9446216,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9450056,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9454344,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9462536,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9472328,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9476168,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9478472,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9502792,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9547848,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9570880,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9574976,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9701640,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9715976,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9734408,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9756936,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9964040,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9968136,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 9978376,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 9990664,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10095104,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 10225672,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 10262536,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10305544,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 10350600,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10488737,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10492576,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10494753,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10503072,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10506912,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10511136,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10520961,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10551457,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10619425,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10623520,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10625569,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10646048,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10750241,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10756385,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10782977,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10881057,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 10952737,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11012737,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11016832,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11044993,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11143681,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11438081,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 11537152,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12196352,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12583873,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 12587712,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12591937,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12600192,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 12616129,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12624193,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12648641,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 12681409,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12714561,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 12722753,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12779585,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 12820545,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 12845313,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13107841,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13124224,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13172865,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13238785,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13565953,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13632320,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13640512,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 13648640,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13763136,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 13775424,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 14303744,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 14680961,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 14689025,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 14697344,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 14713217,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 14983425,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15204993,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15225472,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15302785,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15344129,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15704065,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 15753984,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16413184,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16777217,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 16777218,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 16777224,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 16777728,
+      "residual": true,
+      "tap": null
+    },
+    {
+      "input": 16780788,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16784624,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16786804,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16790640,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16794036,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16797872,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16802100,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16812500,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16816336,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16818516,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16826772,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16834836,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16844004,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16848096,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16852068,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16856160,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16859300,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16875716,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16910452,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16914544,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16916596,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16920688,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16924724,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16932916,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16943188,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16947280,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16949332,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16973924,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 16982116,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 16990244,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17042736,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17046576,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17048880,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17052720,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17056048,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17064240,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17074448,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17105952,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17172528,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17176624,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17186864,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17199152,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17304724,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17308816,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17310740,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17318036,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17336468,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17340560,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17350804,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17368196,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17383556,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17434644,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17448980,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17467412,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17489940,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17566736,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17570832,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17696784,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17733648,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17829188,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17833024,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17835332,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17842436,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17860932,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17867076,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17892420,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17900612,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 17958980,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 17991748,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18022468,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18063428,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18091264,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18353156,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18416644,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18483204,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18563076,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18615296,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 18877860,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18881696,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18883876,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18891172,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18899236,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18909572,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18923908,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18941092,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18945184,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18949156,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 18956452,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19007524,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19095588,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19139872,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19143712,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19146016,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19215392,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19401860,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19405952,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19433604,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19465348,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19513476,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19926276,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19932420,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19958020,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 19980548,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20188416,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20450308,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20521988,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20613124,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20701188,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20716544,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20973008,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 20976848,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20981072,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20984912,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 20988304,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21004752,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21008592,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21012816,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21021072,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21038272,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21042368,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21102672,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21147728,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21234960,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21243152,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21250320,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21291280,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21496976,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21501072,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21512336,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21549200,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21562496,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21758992,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21771280,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 21905424,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 21950480,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 22021440,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 22029632,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 22086720,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 22099008,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 22283520,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 22873088,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 23070080,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 23663744,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 24388864,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 24982528,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25168352,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25172192,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25174368,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25182624,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25201088,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25204928,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25231584,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25235680,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25247904,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25299040,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25303136,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25362528,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25374816,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 25430304,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25444640,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25561120,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25640992,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 25692288,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 26216768,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 26249536,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 26347584,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 26384448,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 26478848,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 27133952,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 27265440,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27269280,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27279776,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27298176,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27349152,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27527456,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27549984,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27662368,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27750432,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 27826304,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 28608768,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 29267968,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 29360576,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 29376896,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 29393344,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 29425856,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 29462720,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 29966464,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 30409024,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 30449984,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 30605376,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 30650432,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 30687488,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 31408128,
+      "residual": false,
+      "tap": false
+    },
+    {
+      "input": 31506816,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 32100480,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 32825600,
+      "residual": false,
+      "tap": null
+    },
+    {
+      "input": 33550336,
+      "residual": false,
+      "tap": null
+    }
+  ],
+  "seed": {
+    "gates": [
+      [
+        "or",
+        12,
+        14
+      ],
+      [
+        "or",
+        25,
+        20
+      ],
+      [
+        "or",
+        26,
+        24
+      ],
+      [
+        "and",
+        0,
+        27
+      ],
+      [
+        "or",
+        13,
+        19
+      ],
+      [
+        "or",
+        29,
+        23
+      ],
+      [
+        "or",
+        30,
+        24
+      ],
+      [
+        "and",
+        1,
+        31
+      ],
+      [
+        "or",
+        12,
+        18
+      ],
+      [
+        "or",
+        33,
+        22
+      ],
+      [
+        "or",
+        34,
+        23
+      ],
+      [
+        "and",
+        2,
+        35
+      ],
+      [
+        "or",
+        17,
+        21
+      ],
+      [
+        "or",
+        37,
+        22
+      ],
+      [
+        "or",
+        38,
+        24
+      ],
+      [
+        "and",
+        3,
+        39
+      ],
+      [
+        "or",
+        16,
+        20
+      ],
+      [
+        "or",
+        41,
+        21
+      ],
+      [
+        "or",
+        42,
+        23
+      ],
+      [
+        "and",
+        4,
+        43
+      ],
+      [
+        "or",
+        15,
+        19
+      ],
+      [
+        "or",
+        45,
+        20
+      ],
+      [
+        "or",
+        46,
+        22
+      ],
+      [
+        "and",
+        5,
+        47
+      ],
+      [
+        "or",
+        14,
+        18
+      ],
+      [
+        "or",
+        49,
+        19
+      ],
+      [
+        "or",
+        50,
+        21
+      ],
+      [
+        "and",
+        6,
+        51
+      ],
+      [
+        "or",
+        13,
+        17
+      ],
+      [
+        "or",
+        53,
+        18
+      ],
+      [
+        "or",
+        54,
+        20
+      ],
+      [
+        "and",
+        7,
+        55
+      ],
+      [
+        "or",
+        12,
+        16
+      ],
+      [
+        "or",
+        57,
+        17
+      ],
+      [
+        "or",
+        58,
+        19
+      ],
+      [
+        "and",
+        8,
+        59
+      ],
+      [
+        "or",
+        15,
+        16
+      ],
+      [
+        "or",
+        61,
+        18
+      ],
+      [
+        "or",
+        62,
+        24
+      ],
+      [
+        "and",
+        9,
+        63
+      ],
+      [
+        "or",
+        14,
+        15
+      ],
+      [
+        "or",
+        65,
+        17
+      ],
+      [
+        "or",
+        66,
+        23
+      ],
+      [
+        "and",
+        10,
+        67
+      ],
+      [
+        "or",
+        13,
+        14
+      ],
+      [
+        "or",
+        69,
+        16
+      ],
+      [
+        "or",
+        70,
+        22
+      ],
+      [
+        "and",
+        11,
+        71
+      ],
+      [
+        "or",
+        28,
+        32
+      ],
+      [
+        "or",
+        73,
+        36
+      ],
+      [
+        "or",
+        74,
+        40
+      ],
+      [
+        "or",
+        75,
+        44
+      ],
+      [
+        "or",
+        76,
+        48
+      ],
+      [
+        "or",
+        77,
+        52
+      ],
+      [
+        "or",
+        78,
+        56
+      ],
+      [
+        "or",
+        79,
+        60
+      ],
+      [
+        "or",
+        80,
+        64
+      ],
+      [
+        "or",
+        81,
+        68
+      ],
+      [
+        "or",
+        82,
+        72
+      ],
+      [
+        "or",
+        12,
+        13
+      ],
+      [
+        "or",
+        84,
+        15
+      ],
+      [
+        "or",
+        85,
+        21
+      ]
+    ],
+    "residual_output": 83,
+    "tap_output": 86
+  }
+}

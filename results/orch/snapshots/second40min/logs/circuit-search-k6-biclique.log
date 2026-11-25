@@ -1,0 +1,10 @@
+seconds 1.3e-07 iterations 0 restarts 0 best 100000 current miss 0 false 28 pool 1
+BEST 31 miss 1 false 28 at 1.3e-07
+BEST 26 miss 4 false 14 at 0.00015571
+BEST 18 miss 6 false 0 at 0.000223861
+BEST 15 miss 5 false 0 at 0.00477446
+BEST 12 miss 4 false 0 at 0.742363
+BEST 9 miss 3 false 0 at 1.15803
+BEST 6 miss 2 false 0 at 1.16026
+seconds 10 iterations 66649143 restarts 2 best 6 current miss 23 false 4 pool 512
+seconds 20 iterations 132369837 restarts 4 best 6 current miss 0 false 50 pool 512

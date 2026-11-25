@@ -1,0 +1,6 @@
+2026-11-25T02:54:59.027682+00:00 ROUND 0 samples 81 vars 29735 clauses 974568 generation_seconds 3.37
+2026-11-25T02:55:00.108112+00:00 SOLVER 10 seconds 4.45
+VALIDATION_ERRORS 702
+2026-11-25T02:55:03.859177+00:00 ROUND 1 samples 85 vars 30491 clauses 1020436 generation_seconds 3.73
+2026-11-25T02:57:03.896777+00:00 SOLVER 0 seconds 123.77
+No candidate: solver limit or error; no lower bound established

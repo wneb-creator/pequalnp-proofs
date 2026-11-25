@@ -1,0 +1,3 @@
+2026-11-25T02:39:27.218818+00:00 triangle_private_core inputs 9 gates 11 samples 17 variables 3574 clauses 14384 generation_seconds 0.06
+2026-11-25T02:39:42.482092+00:00 RESULT 10 elapsed 15.32
+EXACT WITNESS FOR SUBPROBLEM

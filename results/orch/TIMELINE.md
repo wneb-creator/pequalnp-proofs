@@ -28,3 +28,6 @@
 - 2026-11-25T02:54:07.062634+00:00: algebra_strategy completed checked k4_p2 min19 restriction corollary FourRowLower; finite k4 search retired.
 2026-11-25T02:54:47.431909+00:00 Renewed lease; expiry 2026-11-25T03:14:47.805Z.
 2026-11-25T02:58:30.057584+00:00 Four-row lowerbound19 compiled, reviewed, axiom-audited; k4_p2 search retired.
+2026-11-25T03:01:04.153549+00:00 Secondstrategyreview; excluded smallcores and pivoted to genuine quadratic overapproximations plus signed-phase SAT.
+2026-11-25T03:01:59.254804+00:00 lean_baseline retiredsemantic-degeneratepoolsearch; launchedfullyphased merged-star fullbasisSAT.
+2026-11-25T03:04:47.986217+00:00 Renewed lease; expiry 2026-11-25T03:24:48.198Z.

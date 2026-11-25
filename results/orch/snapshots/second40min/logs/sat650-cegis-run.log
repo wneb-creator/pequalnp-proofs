@@ -1,0 +1,39 @@
+input errors [(8194, 1), (1048704, 1), (1049088, 1)]
+focus [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 18, 19, 20, 21, 43, 47, 48, 49, 55, 56, 57, 58, 59, 60, 61, 62]
+window-000-round-00 mutable [57, 58, 59, 60, 61, 62] vars 3841 clauses 111143
+window-000-round-00 exit 20 seconds 0.82
+window-001-round-00 mutable [53, 54, 55, 56, 57, 58, 59, 60, 61, 62] vars 6331 clauses 187051
+window-001-round-00 exit 0 seconds 20.01
+window-002-round-00 mutable [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62] vars 8737 clauses 258863
+window-002-round-00 exit 0 seconds 20.01
+window-003-round-00 mutable [0, 1, 2, 6, 10, 18, 19, 55, 57, 62] vars 6951 clauses 133232
+window-003-round-00 exit 0 seconds 20.08
+window-004-round-00 mutable [3, 4, 7, 8, 18, 21, 43, 47, 48, 49, 57, 59] vars 8381 clauses 183324
+window-004-round-00 exit 0 seconds 20.03
+window-005-round-00 mutable [3, 18, 19, 49] vars 3969 clauses 50452
+window-005-round-00 exit 20 seconds 0.03
+window-006-round-00 mutable [5, 7, 10, 47, 56, 60] vars 5153 clauses 89408
+window-006-round-00 exit 20 seconds 0.05
+window-007-round-00 mutable [1, 4, 11, 18, 48, 49, 59, 61] vars 6329 clauses 125891
+window-007-round-00 exit 0 seconds 20.04
+window-008-round-00 mutable [1, 2, 7, 21, 48, 56, 57, 59, 60, 61] vars 7009 clauses 162857
+window-008-round-00 exit 0 seconds 20.03
+window-009-round-00 mutable [1, 7, 10, 18, 19, 20, 47, 48, 55, 57, 59, 61] vars 8345 clauses 193518
+window-009-round-00 exit 0 seconds 20.02
+window-010-round-00 mutable [2, 18, 19, 61] vars 4009 clauses 53984
+window-010-round-00 exit 20 seconds 0.06
+window-011-round-00 mutable [5, 7, 10, 57, 58, 62] vars 4915 clauses 93005
+window-011-round-00 exit 20 seconds 9.6
+window-012-round-00 mutable [0, 11, 20, 21, 47, 49, 55, 62] vars 6277 clauses 124351
+window-012-round-00 exit 0 seconds 20.02
+window-013-round-00 mutable [0, 4, 7, 10, 11, 19, 20, 48, 55, 58] vars 7259 clauses 138003
+window-013-round-00 exit 0 seconds 20.02
+window-014-round-00 mutable [0, 1, 6, 9, 10, 11, 18, 57, 59, 60, 61, 62] vars 7841 clauses 177860
+window-014-round-00 exit 0 seconds 20.01
+window-015-round-00 mutable [2, 3, 47, 58] vars 3953 clauses 56771
+window-015-round-00 exit 20 seconds 0.04
+window-016-round-00 mutable [1, 18, 48, 55, 61, 62] vars 5193 clauses 104550
+window-016-round-00 exit 20 seconds 3.27
+window-017-round-00 mutable [1, 10, 19, 43, 47, 49, 58, 60] vars 6573 clauses 135012
+window-017-round-00 exit 20 seconds 1.28
+window-018-round-00 mutable [0, 8, 10, 11, 18, 20, 21, 55, 58, 59] vars 6961 clauses 138783

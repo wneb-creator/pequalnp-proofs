@@ -1,0 +1,66 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:24:28: error(lean.unknownIdentifier): Unknown constant `Bool.and_or`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:24:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:23:23: warning: This simp argument is unused:
+  Fin.lastCases
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.snoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:40:2: error: Tactic `rfl` failed: equality lhs
+  x 0 &&
+      (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 4) ||
+        (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 5) ||
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 6) ||
+            x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 10)))) ||
+    (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 1) &&
+        (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 4) ||
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 7) ||
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 8) ||
+              x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 11)))) ||
+      (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 2) &&
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 5) ||
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 7) ||
+              (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 9) ||
+                x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 12)))) ||
+        x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 3) &&
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 6) ||
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 8) ||
+              (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 9) ||
+                x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 13))))))
+is not definitionally equal to rhs
+  x 0 && (x 4 || (x 5 || (x 7 || x 11))) ||
+    (x 1 && (x 4 || (x 6 || (x 10 || x 13))) ||
+      (x 2 && (x 5 || (x 9 || (x 12 || x 13))) || x 3 && (x 8 || (x 10 || (x 11 || x 12)))))
+
+x : Fin 14 → Bool
+⊢ (x 0 &&
+        (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 4) ||
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 5) ||
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 6) ||
+              x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 10)))) ||
+      (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 1) &&
+          (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 4) ||
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 7) ||
+              (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 8) ||
+                x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 11)))) ||
+        (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 2) &&
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 5) ||
+              (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 7) ||
+                (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 9) ||
+                  x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 12)))) ||
+          x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 3) &&
+            (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 6) ||
+              (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 8) ||
+                (x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 9) ||
+                  x (![0, 1, 2, 3, 4, 5, 11, 13, 10, 12, 7, 6, 9, 8] 13))))))) =
+    (x 0 && (x 4 || (x 5 || (x 7 || x 11))) ||
+      (x 1 && (x 4 || (x 6 || (x 10 || x 13))) ||
+        (x 2 && (x 5 || (x 9 || (x 12 || x 13))) || x 3 && (x 8 || (x 10 || (x 11 || x 12))))))
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean:39:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f14, original14, Function.comp_apply, canonicalToOriginal, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

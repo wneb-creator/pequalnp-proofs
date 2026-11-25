@@ -1,0 +1,12 @@
+k4_p2 inputs 14 gates 18 tests 32
+k4_p2 mutable [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] vars 3331 clauses 50686
+k4_p2 exit 0 seconds 120.02
+k3_p1 inputs 12 gates 13 tests 20
+k3_p1 mutable [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] vars 1704 clauses 19529
+k3_p1 exit 0 seconds 120.02
+k5_p2 inputs 16 gates 23 tests 50
+k5_p2 mutable [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] vars 5912 clauses 115053
+k5_p2 exit 0 seconds 120.07
+k7_p3 inputs 19 gates 33 tests 117
+k7_p3 mutable [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32] vars 16171 clauses 466031
+k7_p3 exit 0 seconds 120.08
