@@ -5,3 +5,4 @@
 - 2026-11-25 06:36:00: Pinned toolchain/cache prepared; parallel strategies starting.
 - 2026-11-25T06:41:00.888825+00:00: First merged 144-line helper file built successfully; independent partial review passed.
 - 2026-11-25T06:44:33.669772+00:00: Merged 945-line certificate, exact-pair-shadow, and bad-pair component file built; independent review passed.
+- 2026-11-25T06:53:40.552925+00:00: Third merged1347-line partial built and independently reviewed; main gate-count obstruction remains.

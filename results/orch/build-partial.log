@@ -354,7 +354,7 @@ warning: PEqualNP/Defs/Represents.lean:56:4: The namespace `Represents` is dupli
 Note: This linter can be disabled with `set_option linter.dupNamespace false`
 ⚠ [18417/18423] Ran PEqualNP.Defs.Represents:irArts
 warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18422/18423] Built PEqualNP.Outside.L_meta_2089 (16s)
+⚠ [18422/18423] Built PEqualNP.Outside.L_meta_2089 (53s)
 warning: PEqualNP/Outside/L_meta_2089.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 ⚠ [18423/18423] Ran PEqualNP.Outside.L_meta_2089:irArts
 warning: PEqualNP/Outside/L_meta_2089.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file

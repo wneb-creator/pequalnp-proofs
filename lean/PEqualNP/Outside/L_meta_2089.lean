@@ -942,4 +942,406 @@ lemma few_bad (C : Circuit) (hC : Monotone2 C) (a b : ℕ)
     · exact (Finset.mem_filter.mp he).2.1
   · exact cross_bad C hC a b hNeg
 
+abbrev rel (p l : Fin 13) : Prop := ∃ d ∈ ({0,1,3,9} : Finset (Fin 13)), p = l + d
+
+lemma rel_iff : ∀ p l : Fin 13, p ∈ singerLines3 l ↔ rel p l := by
+  decide +kernel
+
+def postedRow (X : Finset (Fin 13)) (i : Fin (13+13)) : Bool :=
+  decide ((∃ p ∈ X, i = Fin.castAdd 13 p) ∨
+    ∃ l, i = Fin.natAdd 13 l ∧ ∀ p ∈ X, ¬rel p l)
+
+lemma miss_rel (X : Finset (Fin 13)) (l : Fin 13) :
+    l ∈ missLines singerLines3 X ↔ ∀ p ∈ X, ¬rel p l := by
+  simp only [missLines, Finset.mem_filter, Finset.mem_univ, true_and, Finset.disjoint_left]
+  constructor
+  · intro h p hp hi
+    exact h ((rel_iff p l).mpr hi) hp
+  · intro h p hi hp
+    exact h p hp ((rel_iff p l).mp hi)
+
+lemma postedRow_eq (X : Finset (Fin 13)) :
+    incidenceInput X (missLines singerLines3 X) = List.ofFn (postedRow X) := by
+  rw [List.ofFn_add]
+  unfold incidenceInput
+  congr 1
+  · apply congrArg List.ofFn
+    funext p
+    apply decide_eq_decide.mpr
+    change p ∈ X ↔ (∃ q ∈ X, Fin.castAdd 13 p = Fin.castAdd 13 q) ∨
+      ∃ l, Fin.castAdd 13 p = Fin.natAdd 13 l ∧ _
+    constructor
+    · exact fun hp => Or.inl ⟨p,hp,rfl⟩
+    · rintro (⟨q,hq,eq⟩ | ⟨l,eq,_⟩)
+      · have e := congrArg Fin.val eq
+        have pq : p = q := Fin.ext e
+        simpa [pq] using hq
+      · have e := congrArg Fin.val eq
+        change p.val = 13+l.val at e
+        omega
+  · apply congrArg List.ofFn
+    funext l
+    apply decide_eq_decide.mpr
+    change l ∈ missLines singerLines3 X ↔
+      (∃ q ∈ X, Fin.natAdd 13 l = Fin.castAdd 13 q) ∨
+      ∃ z, Fin.natAdd 13 l = Fin.natAdd 13 z ∧ ∀ p ∈ X, ¬rel p z
+    constructor
+    · exact fun h => Or.inr ⟨l,rfl,(miss_rel X l).mp h⟩
+    · rintro (⟨q,_,eq⟩ | ⟨z,eq,hz⟩)
+      · have e := congrArg Fin.val eq
+        change 13+l.val=q.val at e
+        omega
+      · have e := congrArg Fin.val eq
+        change 13+l.val=13+z.val at e
+        have e' : l=z := Fin.ext (by omega)
+        exact e' ▸ (miss_rel X z).mpr hz
+
+lemma few_bad_posted (C : Circuit) (hC : Monotone2 C) (a b : ℕ)
+    (hNeg : ∀ X : Finset (Fin 13),
+      (∀ p ∉ X, ∃ l, (∀ q ∈ X, ¬rel q l) ∧ rel p l) →
+      (∃ l, ∀ p ∈ X, rel p l) →
+      GateOp.and.eval [(C.wires (List.ofFn (postedRow X))).getD a false,
+        (C.wires (List.ofFn (postedRow X))).getD b false] = false) :
+    (acceptedBad C a).card ≤ 12 ∨ (acceptedBad C b).card ≤ 12 := by
+  apply few_bad C hC a b
+  intro p q
+  obtain ⟨hc,l,hl⟩ := pair_maximal p q
+  have hmax : ∀ r ∉ ({p,q} : Finset (Fin 13)),
+      ∃ m, (∀ s ∈ ({p,q} : Finset (Fin 13)), ¬rel s m) ∧ rel r m := by
+    intro r hr
+    have hout : r ∉ zeroSet singerLines3 (missLines singerLines3 {p,q}) := by
+      rwa [←hc]
+    simp only [zeroSet, Finset.mem_filter, Finset.mem_univ, true_and] at hout
+    push Not at hout
+    obtain ⟨m,hm,hrm⟩ := hout
+    exact ⟨m,(miss_rel {p,q} m).mp hm,(rel_iff r m).mp hrm⟩
+  have hh := hNeg {p,q} hmax ⟨l,fun r hr => (rel_iff r l).mp (hl hr)⟩
+  rw [postedRow_eq]
+  simpa only [wireVal,GateOp.eval,List.all_cons,List.all_nil,id_eq,Bool.and_true] using hh
+
 end PEqualNP.Outside.L_meta_2089.BadPairs
+
+namespace PEqualNP.Outside.L_meta_2089
+
+lemma cutInput_point (A : Finset (Fin 13)) (p : Fin 13) :
+    cutInput A (Fin.castAdd 13 p) = decide (p ∈ A) := by
+  unfold cutInput
+  apply decide_eq_decide.mpr
+  constructor
+  · rintro (⟨q, hq, heq⟩ | ⟨l, heq, _⟩)
+    · have he := congrArg (fun i : Fin 26 => i.val) heq
+      have hpq : p = q := Fin.ext he
+      simpa [hpq] using hq
+    · have he := congrArg Fin.val heq
+      change p.val = 13 + l.val at he
+      omega
+  · exact fun hp => Or.inl ⟨p, hp, rfl⟩
+
+lemma cutInput_line (A : Finset (Fin 13)) (l : Fin 13) :
+    cutInput A (Fin.natAdd 13 l) = decide (∀ p ∈ A, ¬∃ d ∈ delta, p = l + d) := by
+  unfold cutInput
+  apply decide_eq_decide.mpr
+  constructor
+  · rintro (⟨p, _, heq⟩ | ⟨k, heq, hk⟩)
+    · have he := congrArg Fin.val heq
+      change 13 + l.val = p.val at he
+      omega
+    · have he := congrArg Fin.val heq
+      change 13 + l.val = 13 + k.val at he
+      have hlk : l = k := Fin.ext (by omega)
+      simpa [hlk] using hk
+  · exact fun hl => Or.inr ⟨l, rfl, hl⟩
+
+lemma count_false_ofFn {n : ℕ} (x : Fin n → Bool) :
+    (List.ofFn x).count false = (Finset.univ.filter (fun i => x i = false)).card := by
+  classical
+  have h := List.Nodup.card_eq_countP (P := fun i => x i = false) (List.nodup_finRange n)
+  have hrange : (List.finRange n).toFinset = Finset.univ := by ext i; simp
+  rw [hrange] at h
+  rw [List.ofFn_eq_map, List.count_eq_countP, List.countP_map]
+  simpa [Function.comp_def] using h.symm
+
+lemma certificate_contains_zeros (A : Finset (Fin 13)) (hc : isClosed A)
+    (B : Finset (Fin 26)) (hB : ∀ i ∈ B, cutInput A i = false)
+    (hcover : ∀ p l, incidence p l → Fin.castAdd 13 p ∈ B ∨ Fin.natAdd 13 l ∈ B) :
+    ∀ i, cutInput A i = false → i ∈ B := by
+  classical
+  let Y : Finset (Fin 13) := Finset.univ.filter (fun l => ∀ p ∈ A, ¬incidence p l)
+  let U : Finset (Fin 13) := Finset.univ.filter (fun p => Fin.castAdd 13 p ∈ B)
+  let V : Finset (Fin 13) := Finset.univ.filter (fun l => Fin.natAdd 13 l ∈ B)
+  have maxA : ∀ p, p ∉ A → ∃ l ∈ Y, incidence p l := by
+    intro p hp
+    obtain ⟨l, hl, hpl⟩ := hc p hp
+    exact ⟨l, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hl⟩, hpl⟩
+  have maxY : ∀ l, l ∉ Y → ∃ p ∈ A, incidence p l := by
+    intro l hl
+    have h : ¬∀ p ∈ A, ¬incidence p l := by simpa [Y] using hl
+    push Not at h
+    exact h
+  have disjU : Disjoint U A := by
+    apply Finset.disjoint_left.mpr
+    intro p hp hA
+    have hb := hB (Fin.castAdd 13 p) (Finset.mem_filter.mp hp).2
+    rw [cutInput_point, decide_eq_true hA] at hb
+    exact Bool.noConfusion hb
+  have disjV : Disjoint V Y := by
+    apply Finset.disjoint_left.mpr
+    intro l hl hY
+    have hb := hB (Fin.natAdd 13 l) (Finset.mem_filter.mp hl).2
+    rw [cutInput_line] at hb
+    have hy : ∀ p ∈ A, ¬∃ d ∈ delta, p = l + d := (Finset.mem_filter.mp hY).2
+    rw [decide_eq_true hy] at hb
+    exact Bool.noConfusion hb
+  have cover : ∀ p l, incidence p l → p ∈ U ∨ l ∈ V := by
+    intro p l hpl
+    simpa [U, V] using hcover p l hpl
+  obtain ⟨hU, hV⟩ := maximal_pair_cover incidence A U Y V maxA maxY disjU disjV cover
+  intro i
+  refine Fin.addCases (m := 13) (n := 13)
+    (motive := fun i => cutInput A i = false → i ∈ B) ?_ ?_ i
+  · intro p hp
+    have hn : p ∉ A := by simpa only [cutInput_point, decide_eq_false_iff_not] using hp
+    have hu : p ∈ U := by rw [hU]; exact Finset.mem_compl.mpr hn
+    exact (Finset.mem_filter.mp hu).2
+  · intro l hl
+    have hn : l ∉ Y := by
+      intro hY
+      have ht : cutInput A (Fin.natAdd 13 l) = true := by
+        rw [cutInput_line]
+        exact decide_eq_true (Finset.mem_filter.mp hY).2
+      exact Bool.noConfusion (ht.symm.trans hl)
+    have hv : l ∈ V := by rw [hV]; exact Finset.mem_compl.mpr hn
+    exact (Finset.mem_filter.mp hv).2
+
+lemma or_quota (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C) (a : ℕ)
+    (hpos : ∀ p l, incidence p l → Structural.value C (pairInput p l) a = true)
+    (A : Finset (Fin 13)) (hc : isClosed A)
+    (hoff : Structural.value C (cutInput A) a = false) :
+    ∃ I : Finset ℕ, (List.ofFn (cutInput A)).count false ≤ I.card + 1 ∧
+      ∀ i ∈ I, 26 ≤ i ∧ i ≤ a ∧
+        (PEqualNP.MetaComplexity.NestedCover.gateAt C (i - 26)).op =
+          PEqualNP.CircuitLowerBounds.GateOp.or ∧ Structural.value C (cutInput A) i = false := by
+  classical
+  obtain ⟨I, B, hcard, hI, hB, hcert⟩ := Structural.false_certificate C hm (cutInput A) a hoff
+  have hcover : ∀ p l, incidence p l → Fin.castAdd 13 p ∈ B ∨ Fin.natAdd 13 l ∈ B := by
+    intro p l hpl
+    by_contra! hnone
+    have hzero : Structural.value C (pairInput p l) a = false := by
+      apply hcert
+      intro i hi
+      apply Bool.eq_false_iff.mpr
+      intro hv
+      simp only [pairInput, decide_eq_true_eq] at hv
+      rcases hv with rfl | rfl
+      · exact hnone.1 hi
+      · exact hnone.2 hi
+    exact Bool.noConfusion ((hpos p l hpl).symm.trans hzero)
+  have hsub : Finset.univ.filter (fun i => cutInput A i = false) ⊆ B := by
+    intro i hi
+    exact certificate_contains_zeros A hc B hB hcover i (Finset.mem_filter.mp hi).2
+  refine ⟨I, ?_, hI⟩
+  rw [count_false_ofFn]
+  exact (Finset.card_le_card hsub).trans hcard
+
+end PEqualNP.Outside.L_meta_2089
+
+namespace PEqualNP.Outside.L_meta_2089
+
+set_option synthInstance.maxSize 100000 in
+lemma two_points_closed_degenerate : ∀ p q : Fin 13,
+    isClosed {p, q} ∧ isDegenerate {p, q} := by
+  unfold isClosed isDegenerate incidence delta
+  decide
+
+lemma small_points_closed_degenerate (A : Finset (Fin 13)) (hA : A.card ≤ 2) :
+    isClosed A ∧ isDegenerate A := by
+  have hs : A.card = 0 ∨ A.card = 1 ∨ A.card = 2 := by omega
+  rcases hs with hs | hs | hs
+  · obtain rfl := Finset.card_eq_zero.mp hs
+    exact ⟨empty_closed, empty_degenerate⟩
+  · obtain ⟨p, rfl⟩ := Finset.card_eq_one.mp hs
+    exact ⟨singleton_maximal p, singleton_degenerate p⟩
+  · obtain ⟨p, q, hpq, rfl⟩ := Finset.card_eq_two.mp hs
+    exact two_points_closed_degenerate p q
+
+def activePoints (a : Fin 26 → Bool) : Finset (Fin 13) :=
+  Finset.univ.filter fun p => a (Fin.castAdd 13 p) = true
+
+def activeLines (a : Fin 26 → Bool) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => a (Fin.natAdd 13 l) = true
+
+def hasActiveEdge (a : Fin 26 → Bool) : Prop :=
+  ∃ p l, a (Fin.castAdd 13 p) = true ∧ a (Fin.natAdd 13 l) = true ∧ incidence p l
+
+lemma no_edge_le_active_cut (a : Fin 26 → Bool) (h : ¬hasActiveEdge a) :
+    ∀ i, a i = true → cutInput (activePoints a) i = true := by
+  intro i
+  refine Fin.addCases (m := 13) (n := 13)
+    (motive := fun j => a j = true → cutInput (activePoints a) j = true) ?_ ?_ i
+  · intro p hp
+    simp only [cutInput, decide_eq_true_eq]
+    left
+    exact ⟨p, by simpa [activePoints] using hp, rfl⟩
+  · intro l hl
+    simp only [cutInput, decide_eq_true_eq]
+    right
+    refine ⟨l, rfl, ?_⟩
+    intro p hp hpl
+    exact h ⟨p, l, by simpa [activePoints] using hp, hl, hpl⟩
+
+lemma active_edge_accepted (f : (Fin 26 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hpositive : ∀ p l, incidence p l → f (pairInput p l) = true)
+    (a : Fin 26 → Bool) (h : hasActiveEdge a) : f a = true := by
+  obtain ⟨p, l, hp, hl, hpl⟩ := h
+  apply hmono (pairInput p l) a _ (hpositive p l hpl)
+  intro i hi
+  simp only [pairInput, decide_eq_true_eq] at hi
+  rcases hi with rfl | rfl
+  · exact hp
+  · exact hl
+
+lemma exact_on_two_points (f : (Fin 26 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A → f (cutInput A) = false)
+    (hpositive : ∀ p l, incidence p l → f (pairInput p l) = true)
+    (a : Fin 26 → Bool) (ha : (activePoints a).card ≤ 2) :
+    f a = true ↔ hasActiveEdge a := by
+  constructor
+  · intro hfa
+    by_contra hn
+    have hm := hmono a _ (no_edge_le_active_cut a hn) hfa
+    obtain ⟨hc, hd⟩ := small_points_closed_degenerate (activePoints a) ha
+    exact Bool.noConfusion (hm.symm.trans (hnegative _ hc hd))
+  · exact active_edge_accepted f hmono hpositive a
+
+def avoidLines (B : Finset (Fin 13)) : Finset (Fin 13) :=
+  Finset.univ.filter fun p => ∀ l ∈ B, ¬∃ d ∈ delta, p = l + d
+
+set_option synthInstance.maxSize 100000 in
+lemma two_lines_closed_degenerate : ∀ l k : Fin 13,
+    isClosed (avoidLines {l, k}) ∧ isDegenerate (avoidLines {l, k}) := by
+  unfold isClosed isDegenerate avoidLines incidence delta
+  decide +kernel
+
+lemma small_lines_closed_degenerate (B : Finset (Fin 13)) (hB : B.card ≤ 2) :
+    isClosed (avoidLines B) ∧ isDegenerate (avoidLines B) := by
+  have hs : B.card = 0 ∨ B.card = 1 ∨ B.card = 2 := by omega
+  rcases hs with hs | hs | hs
+  · obtain rfl := Finset.card_eq_zero.mp hs
+    simpa [avoidLines] using And.intro univ_closed univ_degenerate
+  · obtain ⟨p, rfl⟩ := Finset.card_eq_one.mp hs
+    simpa using two_lines_closed_degenerate p p
+  · obtain ⟨p, q, hpq, rfl⟩ := Finset.card_eq_two.mp hs
+    exact two_lines_closed_degenerate p q
+
+lemma no_edge_le_avoiding_cut (a : Fin 26 → Bool) (h : ¬hasActiveEdge a) :
+    ∀ i, a i = true → cutInput (avoidLines (activeLines a)) i = true := by
+  intro i
+  refine Fin.addCases (m := 13) (n := 13)
+    (motive := fun j => a j = true → cutInput (avoidLines (activeLines a)) j = true) ?_ ?_ i
+  · intro p hp
+    simp only [cutInput, decide_eq_true_eq]
+    left
+    refine ⟨p, ?_, rfl⟩
+    simp only [avoidLines, Finset.mem_filter, Finset.mem_univ, true_and]
+    intro l hl hpl
+    exact h ⟨p, l, hp, by simpa [activeLines] using hl, hpl⟩
+  · intro l hl
+    simp only [cutInput, decide_eq_true_eq]
+    right
+    refine ⟨l, rfl, ?_⟩
+    intro p hp
+    simp only [avoidLines, Finset.mem_filter, Finset.mem_univ, true_and] at hp
+    exact hp l (by simpa [activeLines] using hl)
+
+lemma exact_on_two_lines (f : (Fin 26 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A → f (cutInput A) = false)
+    (hpositive : ∀ p l, incidence p l → f (pairInput p l) = true)
+    (a : Fin 26 → Bool) (ha : (activeLines a).card ≤ 2) :
+    f a = true ↔ hasActiveEdge a := by
+  constructor
+  · intro hfa
+    by_contra hn
+    have hm := hmono a _ (no_edge_le_avoiding_cut a hn) hfa
+    obtain ⟨hc, hd⟩ := small_lines_closed_degenerate (activeLines a) ha
+    exact Bool.noConfusion (hm.symm.trans (hnegative _ hc hd))
+  · exact active_edge_accepted f hmono hpositive a
+
+lemma spurious_input_large (f : (Fin 26 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A → f (cutInput A) = false)
+    (hpositive : ∀ p l, incidence p l → f (pairInput p l) = true)
+    (a : Fin 26 → Bool) (hfa : f a = true) (hne : ¬hasActiveEdge a) :
+    3 ≤ (activePoints a).card ∧ 3 ≤ (activeLines a).card := by
+  constructor
+  · by_contra h
+    exact hne ((exact_on_two_points f hmono hnegative hpositive a (by omega)).mp hfa)
+  · by_contra h
+    exact hne ((exact_on_two_lines f hmono hnegative hpositive a (by omega)).mp hfa)
+
+end PEqualNP.Outside.L_meta_2089
+
+namespace PEqualNP.Outside.L_meta_2089
+
+def singletonInput (i j : Fin 26) : Bool := decide (j = i)
+
+def forcedBad (i : Fin 26) : Finset (Fin 13 × Fin 13) := by
+  letI : DecidableRel incidence := fun p l => by unfold incidence; infer_instance
+  exact Finset.univ.filter fun e => ¬incidence e.1 e.2 ∧
+    (i = Fin.castAdd 13 e.1 ∨ i = Fin.natAdd 13 e.2)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma forced_bad_union_card : ∀ i j : Fin 26, i ≠ j →
+    17 ≤ (forcedBad i ∪ forcedBad j).card := by
+  unfold forcedBad incidence delta
+  decide +kernel
+
+lemma singleton_le_pair (i : Fin 26) (p l : Fin 13)
+    (hi : i = Fin.castAdd 13 p ∨ i = Fin.natAdd 13 l) :
+    singletonInput i ≤ pairInput p l := by
+  intro j
+  by_cases h : j = i
+  · subst j
+    rcases hi with rfl | rfl <;> simp [singletonInput, pairInput]
+  · simp [singletonInput, h]
+
+def badPairSet (f : (Fin 26 → Bool) → Bool) : Finset (Fin 13 × Fin 13) := by
+  letI : DecidableRel incidence := fun p l => by unfold incidence; infer_instance
+  exact Finset.univ.filter fun e => ¬incidence e.1 e.2 ∧ f (pairInput e.1 e.2) = true
+
+lemma small_bad_singleton_support (f : (Fin 26 → Bool) → Bool)
+    (mono : Monotone f)
+    (few : (badPairSet f).card ≤ 12) :
+    (Finset.univ.filter fun i : Fin 26 => f (singletonInput i) = true).card ≤ 1 := by
+  classical
+  apply Finset.card_le_one.mpr
+  intro i hi j hj
+  by_contra hij
+  have hcard := forced_bad_union_card i j hij
+  have sub : forcedBad i ∪ forcedBad j ⊆ badPairSet f := by
+    intro e he
+    have step : ∀ k : Fin 26, f (singletonInput k) = true → e ∈ forcedBad k →
+        ¬incidence e.1 e.2 ∧ f (pairInput e.1 e.2) = true := by
+      intro k hk he
+      have heq : ¬incidence e.1 e.2 ∧ (k = Fin.castAdd 13 e.1 ∨ k = Fin.natAdd 13 e.2) := by
+        simpa only [forcedBad, Finset.mem_filter, Finset.mem_univ, true_and] using he
+      obtain ⟨hn, hkpair⟩ := heq
+      refine ⟨hn, ?_⟩
+      have := mono (singleton_le_pair k e.1 e.2 hkpair)
+      cases hval : f (pairInput e.1 e.2) with
+      | false =>
+        have no : ¬((true : Bool) ≤ false) := by decide
+        exact False.elim (no (by simpa only [hk, hval] using this))
+      | true => rfl
+    simp only [badPairSet, Finset.mem_filter, Finset.mem_univ, true_and]
+    rcases Finset.mem_union.mp he with he | he
+    · exact step i (Finset.mem_filter.mp hi).2 he
+    · exact step j (Finset.mem_filter.mp hj).2 he
+  have := Finset.card_le_card sub
+  omega
+
+end PEqualNP.Outside.L_meta_2089
