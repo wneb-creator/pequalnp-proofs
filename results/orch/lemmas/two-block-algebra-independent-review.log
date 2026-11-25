@@ -1,0 +1,5 @@
+Independent exact polynomial verification of all nontrivial branch identities and both z=±y reductions PASSED
+Adapted q source factorizations: ['-36*(y - z)*(y + z)', '-4*(y + z)*(4*h*x + 2*t + 5*y + z)', '4*(y - z)*(4*h*x - 2*t - 5*y + z)', '4*(-3*t**2 - 12*t*y + 4*x**2 - 9*y**2 + 3*z**2)']
+Ordinary cubic hypothesis is exactly source ordinary cubic coefficient divided by−8
+Format PASS SHA256 d42722484638fa5f51c39c612ed0918108ccc0e975ba157915714f01852eda39
+Scope: four displayed quadratic equations and one cubic, with h²=2, force four parameters zero. No extraction from arbitrary matrices or full gap conclusion is asserted.
