@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1904.graph_hit_pair' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1904.singleton_pair_le' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1904.monotone_singleton_pair' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1904.singleton_overlap_orientation' depends on axioms: [propext, Classical.choice, Quot.sound]

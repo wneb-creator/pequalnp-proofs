@@ -182,4 +182,134 @@ lemma edgeless (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   · intro j g h
     simp at h
 
+def path4Adj (a b : Fin 4) : Prop := a.val + 1 = b.val ∨ b.val + 1 = a.val
+
+def path4Fun (x : Fin 4 → Bool) : Bool :=
+  (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3)
+
+def path4Block (op : Bool) (a b : Fin 6) : Circuit :=
+  ⟨[⟨.or, [0, 2]⟩, ⟨.or, [1, 3]⟩,
+    ⟨if op then .and else .or, [a.val, b.val]⟩,
+    ⟨.or, [1, 2]⟩, ⟨.and, [6, 7]⟩], 8⟩
+
+def path4Short : Circuit :=
+  ⟨[⟨.or, [0, 2]⟩, ⟨.and, [1, 4]⟩,
+    ⟨.and, [2, 3]⟩, ⟨.or, [5, 6]⟩], 7⟩
+
+lemma path4_exchange_identity : ∀ a b c d : Bool,
+    (((a || c) && (b || d)) && (b || c)) =
+      ((b && (a || c)) || (c && d)) := by
+  decide
+
+lemma path4_block_mono (op : Bool) (a b : Fin 6) :
+    PEqualNP.MetaComplexity.Monotone2 (path4Block op a b) := by
+  cases op <;> simp [PEqualNP.MetaComplexity.Monotone2, path4Block]
+
+lemma path4_short_mono : PEqualNP.MetaComplexity.Monotone2 path4Short := by
+  simp [PEqualNP.MetaComplexity.Monotone2, path4Short]
+
+lemma path4_no_triangle : ∀ a b c : Fin 4,
+    path4Adj a b → path4Adj b c → ¬ path4Adj c a := by
+  unfold path4Adj
+  decide
+
+lemma path4_no_four_cycle : ∀ a b c d : Fin 4,
+    path4Adj a b → path4Adj b c → path4Adj c d → path4Adj d a →
+      a = c ∨ b = d := by
+  unfold path4Adj
+  decide
+
+lemma path4_edge_function : ∀ x : Fin 4 → Bool,
+    path4Fun x = decide (∃ a b : Fin 4,
+      (a.val + 1 = b.val ∨ b.val + 1 = a.val) ∧ x a = true ∧ x b = true) := by
+  decide
+
+lemma path4_block_computes : ∀ x : Fin 4 → Bool,
+    (path4Block true 4 5).eval (List.ofFn x) = path4Fun x := by
+  decide
+
+lemma path4_block_dirty :
+    let x : Fin 4 → Bool := fun i => decide (i = 0 ∨ i = 3)
+    ((path4Block true 4 5).wires (List.ofFn x)).getD 6 false = true ∧
+      path4Fun x = false := by
+  decide
+
+set_option maxHeartbeats 2000000 in
+lemma path4_one_gate_obstruction : ∀ (op : Bool) (a b : Fin 6),
+    (∀ x : Fin 4 → Bool, (path4Block op a b).eval (List.ofFn x) = path4Fun x) →
+    ∃ x : Fin 4 → Bool,
+      ((path4Block op a b).wires (List.ofFn x)).getD 6 false = true ∧
+        path4Fun x = false := by
+  decide
+
+lemma path4_shorter_safe : path4Short.size < (path4Block true 4 5).size ∧
+    ∀ x : Fin 4 → Bool, path4Short.eval (List.ofFn x) = path4Fun x ∧
+      (((path4Short.wires (List.ofFn x)).getD 5 false = true → path4Fun x = true) ∧
+       ((path4Short.wires (List.ofFn x)).getD 6 false = true → path4Fun x = true)) := by
+  decide
+
+open PEqualNP.EdgeOwnership
+
+lemma graph_hit_pair {n : ℕ} (G : SimpleGraph (Fin n)) (u v : Fin n)
+    (h : ∃ a b : Fin n, G.Adj a b ∧
+      pairInput u v a = true ∧ pairInput u v b = true) : G.Adj u v := by
+  obtain ⟨a, b, hab, ha, hb⟩ := h
+  simp only [pairInput, decide_eq_true_eq] at ha hb
+  rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
+  · simp at hab
+  · exact hab
+  · exact hab.symm
+  · simp at hab
+
+lemma singleton_pair_le {n : ℕ} (u v w : Fin n) (hw : w = u ∨ w = v) :
+    pairInput w w ≤ pairInput u v := by
+  intro i
+  by_cases hi : i = w
+  · subst i
+    simp [pairInput, hw]
+  · simp [pairInput, hi]
+
+lemma monotone_singleton_pair {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (hF : Monotone F) (u v w : Fin n) (hw : w = u ∨ w = v)
+    (h : F (pairInput w w) = true) : F (pairInput u v) = true := by
+  have hle := hF (singleton_pair_le u v w hw)
+  by_contra hnot
+  have hfalse : F (pairInput u v) = false := by simpa using hnot
+  rw [h, hfalse] at hle
+  exact (show ¬ ((true : Bool) ≤ false) by decide) hle
+
+lemma singleton_overlap_orientation {n : ℕ} (G : SimpleGraph (Fin n))
+    (htri : ∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (A B T : (Fin n → Bool) → Bool)
+    (hA : Monotone A) (hB : Monotone B) (hT : Monotone T)
+    (hbelow : ∀ x : Fin n → Bool, A x = true → B x = true → T x = true →
+      ∃ a b : Fin n, G.Adj a b ∧ x a = true ∧ x b = true)
+    (a : Fin n) (haA : A (pairInput a a) = true)
+    (haB : B (pairInput a a) = true) :
+    (∀ b : Fin n, A (pairInput b b) = true → T (pairInput b b) = false) ∨
+      (∀ c : Fin n, B (pairInput c c) = true → T (pairInput c c) = false) := by
+  by_cases hleft : ∀ b : Fin n,
+      A (pairInput b b) = true → T (pairInput b b) = false
+  · exact Or.inl hleft
+  · push Not at hleft
+    obtain ⟨b, hbA, hbT⟩ := hleft
+    have hbT' : T (pairInput b b) = true := by simpa using hbT
+    refine Or.inr ?_
+    intro c hcB
+    by_contra hcT
+    have hcT' : T (pairInput c c) = true := by simpa using hcT
+    have hab : G.Adj a b := graph_hit_pair G a b (hbelow _
+      (monotone_singleton_pair A hA a b a (Or.inl rfl) haA)
+      (monotone_singleton_pair B hB a b a (Or.inl rfl) haB)
+      (monotone_singleton_pair T hT a b b (Or.inr rfl) hbT'))
+    have hac : G.Adj a c := graph_hit_pair G a c (hbelow _
+      (monotone_singleton_pair A hA a c a (Or.inl rfl) haA)
+      (monotone_singleton_pair B hB a c a (Or.inl rfl) haB)
+      (monotone_singleton_pair T hT a c c (Or.inr rfl) hcT'))
+    have hbc : G.Adj b c := graph_hit_pair G b c (hbelow _
+      (monotone_singleton_pair A hA b c b (Or.inl rfl) hbA)
+      (monotone_singleton_pair B hB b c c (Or.inr rfl) hcB)
+      (monotone_singleton_pair T hT b c b (Or.inl rfl) hbT'))
+    exact htri a b c hab hbc hac.symm
+
 end PEqualNP.Outside.L_meta_1904
