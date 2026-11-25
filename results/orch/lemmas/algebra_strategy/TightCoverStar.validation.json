@@ -1,0 +1,12 @@
+{
+  "status": "COMPILED and independently APPROVED",
+  "exit_code": 0,
+  "sha256": "9edcada690568843994b271a66c0841eacc759f37173b2c25c014a74b460793d",
+  "lines": 242,
+  "log": "TightCoverStar.build.log",
+  "scope": "Generic pure12-cover in13part after4edge deletion implies deletededges form one full4edge star. Explicit bipartition/degree premises; not a circuit exclusion.",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "review": "APPROVED by status_review"
+}
