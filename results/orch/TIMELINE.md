@@ -15,3 +15,4 @@
 - 2026-11-25T05:44:21.439557+00:00: bounded kernel leaf and generic child assembly compiled, independently reviewed, checkpointed.
 - 2026-11-25T05:46:27.234514+00:00: split-DAG complete statement integrated for first named-file full build.
 - 2026-11-25T05:47:58.160579+00:00: generic closed-state certificate soundness compiled and independently reviewed; checkpointed while namedDAGbuild continues.
+- 2026-11-25T05:51:51.794488+00:00: memo table with48kernelcheckednodes compiled and independently reviewed; checkpointed.

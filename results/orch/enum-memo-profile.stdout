@@ -1,0 +1,21 @@
+grind took 208ms
+simp took 154ms
+type checking took 278ms
+type checking took 106ms
+process pre-definitions took 161ms
+elaboration took 6.93s
+compilation (LCNF base) took 634ms
+compilation (LCNF mono) took 147ms
+compilation (LCNF mono) took 623ms
+compilation (LCNF impure) took 441ms
+compilation (IR) took 4.21s
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 145ms
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 192ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 199ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 381ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 566ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 333ms
+linting took 624ms
+type checking took 131ms
+type checking took 2.35s
+type checking took 4.12s
