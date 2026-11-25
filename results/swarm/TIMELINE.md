@@ -50,4 +50,9 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:13 UTC: Root composed helper-9 AND-index bijection/dirty-cardinality preservation with an operand-order-independent hoist bridge; scratch compilation passed.
 - 2026-11-25 22:15:43 UTC: Combined Order/Dirty append passed named-file build and independent source, exact-diff and seven-key axiom review. This preserves dirty count through a concrete hoist; it does not prove the final gap.
 
-TIMING total=74.4 subagents=10
+
+- 2026-11-25 22:16 UTC: Pushed reviewed operand-order/global-junk checkpoint 511ed34724281da96b6262d75eea75312cbb0493; remote SHA verified; bus 3390 marked PARTIAL.
+- 2026-11-25 22:22 UTC: Fourth full-route re-plan posted (bus 3485), focusing shared-product replacement, joint normalization, and exact full-function counterexample searches.
+- 2026-11-25 22:27:22 UTC: Negative AND/wire mass append passed named build and independent source/axiom reviews. Dirty clean-operand hoists strictly reduce total negative wire mass; rewrite admissibility remains explicit. No target theorem.
+
+TIMING total=86.1 subagents=10

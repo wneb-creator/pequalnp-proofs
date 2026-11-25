@@ -1,6 +1,6 @@
 L-meta-3566: partial research support only; no final theorem.
 Sub-agents: 9 external bus helpers; 1 local toolchain and synthesis agent.
-TIMING total=74.4 subagents=10
+TIMING total=86.1 subagents=10
 Pinned Lean 4.36.0 restored; lake exe cache get passed.
 PEqualNP.Defs built without Mathlib source compilation.
 Merged support: lake build PEqualNP.Outside.L_meta_3566 passed (5149 jobs).
@@ -19,3 +19,4 @@ Existing Heawood lower bound L_meta_7945 and H12 incident-deletion bound L_meta_
 Root HoistNegative: copied Lift/LiftFix helper proofs into the allowed gap namespace; proved per-wire deletion correspondence and concrete clean-operand hoist equality on graph-negative assignments. Independent six-key axiom checks, source scope, exact integration diff and merged named build passed. No new AO2/function-preservation or dirty-cardinality theorem is claimed by this bridge alone.
 Root HoistOrder plus helper-9 transport: original gate operand order handled using exact pick_u equivalence; actual AND-index bijection preserves full global-junk and pair-leak counts. Root junk_card_equiv combines these without assuming the original input order. Named build, independent full source/axioms and exact484-line append review passed. No full normalization or final theorem claimed.
 Helper-8 conditional cover budget independently rebuilt from exact84a1eaa2 source; two endpoint axiom checks standard3. Mixed-OR cleanliness remains a substantive explicit hypothesis.
+Root NegativeMass/HoistTrueCount/WireMass: exact erased-wire identity, AND-mass preservation, and all-wire negative mass decrease through the concrete hoist. Strict decrease requires a dirty removed OR; minimum-cleanliness result explicitly requires admissibility of the rewritten circuit. Root independently reviewed/rebuilt local-agent count proof; local agent independently reviewed/rebuilt root mass proofs and six endpoint axioms (standard3 only). Merged named-file build passed (5149 jobs), no new diagnostics.
