@@ -61,3 +61,21 @@ Reviewed Enumerative.lean (522 lines) and all28 chunk assembly in EnumerativeFul
 - Independently checked all256 initial input subsets: only all8 inputs separate every positive-negative pair. The proof uses cuts_full to justify this pruning. All28 unordered pairs are covered exactly once by chunk_0 through chunk_27.
 - Independent Python implementation of optimized9 2 returned false in1.82seconds (32,496 memoized states). This supports, but does not replace, the pending kernel computations. Constants, unary/repeated inputs, arbitrary reads and outputs are handled in gate_table/classify/compile.
 - No semantic or forbidden-format defect found. Current standalone helper file lacks final qualified target theorem, correctly refused by format guard for that sole reason. Ready for checkpoint if compile succeeds, then integration with reviewed upperBound and exact final conjunction.
+
+## Structural route paused (2026-11-25 05:38:56 UTC)
+
+- Parent reports a compact enumerative lower certificate, independently crosschecked, and compiling28kernel chunks. Paused analytic route.
+- Independent formula DP gives target5805 minimum11 formula gates (constants free), and induced C6 minimum8 formula gates. C6 has a7gate shared circuit. These are computational findings, not Lean-certified results. Full scripts/logs under scratch formula_min.* and formula_cycle.*.
+- Possible theoretical proof route would strengthen induced-subgraph elimination to charge3 for the2-edge pendant path; generic elimination charges2, insufficient. No extra source changes needed for this route.
+
+## 2026-11-25 05:43:28 UTC — status_review chunk0 checkpoint audit
+
+- EnumerativeChunk0.lean (528 lines; SHA2564d5de2f6d09579208fbbe986a95b91d624792710611e230c157a8c4a67f002f9) is a subset of previously reviewed EnumerativeFull, modulo removal of blanket Mathlib import. It contains the generic engine and conditional lower bound, pairOK and chunk_0 only. Full compile output records kernel check7.43s, no errors.
+- Format guard finds only intentionally absent qualified final theorem. Independent verdict: READY FOR PARTIAL CHECKPOINT PUSH. Remaining27chunks and full lower theorem are still pending; this is not final proof acceptance.
+
+- 2026-11-25T05:43:43.835959+00:00: upper_bound returned for kernel-memory work; ChunkAssembly.lean compiled (only Defs import). Adds exact cut-valid children list, optimized_step_eq equivalence, optimized_of_children closure. Passed exit0 empty logs. toolchain_setup/finite_search integrating bounded leaf chunks and DAG state references; no deep evaluation needed for internal nodes.
+
+## 2026-11-25 05:44:03 UTC — status_review child assembly audit
+
+- ChunkAssembly.lean (566lines; SHA2567f869b981a4234d91b1325cf8ab6ed83c873853c057dd63f3b4b441b0db98d81) starts with byte-identical reviewed generic prefix after Mathlib removal. New childChoices lists exactly the four dispatch alternatives, with matching separation guards and extra-budget decrements; children includes every unordered pair and both ops. optimized_step_eq is exact equality retaining the terminal-goal branch. optimized_of_children requires terminal-goal false and all immediate children false, so no case is omitted.
+- Compiled exit0 reported by builder, empty complete logs. Guard only refuses intentionally absent final qualified theorem. Independent verdict: READY FOR PARTIAL CHECKPOINT PUSH; no full target claim.

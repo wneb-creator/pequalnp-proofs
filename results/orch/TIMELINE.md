@@ -10,3 +10,6 @@
 - 2026-11-25 05:36:25 UTC: lower-engine strategy produced compiled generic LRAT/Promise component (2,278 lines,100,758 bytes); certificate search continues.
 - 2026-11-25T05:37:21.595930+00:00: named module upper-bound partial built; independent review passed; checkpoint preparing.
 - 2026-11-25T05:38:55.767279+00:00: generic live-compression lower-bound search compiled and independently reviewed; finite replay still running.
+- 2026-11-25 05:40:47 UTC: full28-chunk kernel replay stopped at roughly14GBRSS; switching to stronger pruning and smaller computations under6.5GB checker allowance.
+- 2026-11-25T05:43:43.835959+00:00: generic bounded-memory search assembly lemmas Lean-checked.
+- 2026-11-25T05:44:21.439557+00:00: bounded kernel leaf and generic child assembly compiled, independently reviewed, checkpointed.
