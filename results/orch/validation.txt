@@ -27,3 +27,9 @@ TIMING total=29 subagents=6
 Checkpoint 4: Strict-circuit single-reader corollary and sole NOT reader exclusion compiled with exit0. Independent reviews by reduction_strategy and lemma_routes passed. Hypotheses remain explicit; the complete gap is still unproved. Full checker remains a FAULT due unavailable full-Mathlib storage; see checker-limitations.md and full logs.
 Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
 TIMING total=35 subagents=6
+
+Checkpoint 5: DeletedSigned and FullExtension each compiled with exit0. The extension proves16 + notCount C <= C.size for Petersen and therefore at most3 NOTs at size19. Binary16 concatenates those exact components; the named5337-line file now contains them, with a full self-contained build still running. This is a checked composition, not yet a completed named-module rebuild, and it does not prove the posted19-gate exclusion. Independent review:status_review PASS; exact hashes verified. An existing upstream proof L_meta_6581 has the same16-gate lower bound.
+StructuralRaw, Partner, Split and Reader compiled with exit0 and were independently reviewed by lemma_routes. They keep strictness, usage, and semantic hypotheses explicit.
+Full checker remains a storage FAULT. No proof PR opened.
+Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
+TIMING total=43 subagents=6

@@ -1,0 +1,69 @@
+../results/orch/lemmas/StructuralReader.lean:41:10: warning: This simp argument is unused:
+  singleInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:42:10: warning: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [singleInput, pairInput, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:50:10: warning: This simp argument is unused:
+  pairInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:51:10: warning: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairInput, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:191:38: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/StructuralReader.lean:214:5: warning: Variable name `independent` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _independent
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/StructuralReader.lean:282:63: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/StructuralReader.lean:295:61: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/StructuralReader.lean:408:56: warning: This simp argument is unused:
+  Ne.symm ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha, hn, Ne.symm hn] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:408:68: warning: This simp argument is unused:
+  Ne.symm hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha, hn, Ne.symm ha] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralReader.lean:422:16: warning: This simp argument is unused:
+  Ne.symm hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
