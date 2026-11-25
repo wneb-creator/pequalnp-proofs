@@ -22,3 +22,5 @@
 - 2026-11-25T12:21:16.731991+00:00: Preserved compiled P25 embedding and14 disjointP4 packing (root review), P9 cut adapter (artifact_requirements review), and generic DAG checker soundness (lean_setup review). These are partial components; no new gate lower bound claimed.
 
 - 2026-11-25T12:26:04.598501+00:00: FreeMask, generic fresh OR/AND substitution, and generic OR-class closure compiled; circuit_search independently reviewed all three, PASS. Preserving these partial components immediately.
+
+- 2026-11-25T12:30:24.894916+00:00: Preserved compiled generic semantic compiler, gate-budget induction, OR-family closure/count, class-cardinality and packing bridges, zero-mask transitions, table soundness, and conditional P25 bridge. Independent reviewers: lean_setup/artifact_requirements/circuit_search/root as applicable. Main posted statement remains unresolved while assembling backward induction.

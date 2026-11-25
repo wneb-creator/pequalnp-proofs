@@ -12,4 +12,5 @@ Cleanup pass: not applicable to incomplete proof.
 Independent review: lean_setup, PASS for named partial; root, PASS for UniqueOr helper and singleton/pair corollaries.
 UniqueOr source (294lines, including neighborhood constraints) and compiled axiom audit pass; only standard three axioms. Source reviewed independently of author.
 Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
-TIMING total=87.3 subagents=7
+TIMING total=101.3 subagents=7
+Structural checkpoint: semantic compiler, exact live budget, OR-family updates, class-cardinality≤2, 14-path hitting bound and zero-mask substitutions compile. These are components; their assembly into the final theorem is still pending.
