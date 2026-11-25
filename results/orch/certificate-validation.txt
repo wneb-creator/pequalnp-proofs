@@ -7,3 +7,6 @@ Independent lean_setup review: PASS for accurately scoped partial components.
 Independent Python check: all 1089 cases of baseline76 match exact graph.
 No final theorem for the posted statement. No PR opened.
 Bridge67.lean: compiled restriction/sampling bridge only; no finite no<=10 proof and no 67-gate claim. Independent review PASS.
+P7Lower.lean: kernel-checked no circuit of <=7 gates for the 4-by-3 P7 matrix; exit 0, empty diagnostics.
+ElevenPaths.lean: checked eleven-P5 and P17 embeddings only; no P17 lower bound.
+Correction: merged L_meta_8299 source had authoritative FAULT timeouts, not ACCEPTED; it is not used as an established result.

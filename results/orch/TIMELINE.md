@@ -8,3 +8,4 @@
 - 2026-11-25T11:33:03.515574+00:00: named-file lower66 build passed and independent axiom audit passed; row evaluator and adjacency table also compile.
 - 2026-11-25T11:37:38.119323+00:00: upper76 certificate, trace soundness, and induced restriction transfer independently reviewed after successful Lean compilation.
 - 2026-11-25T11:41:12.427268+00:00: Bridge67 restriction/sampling component reviewed; preserves a reduction to an unresolved finite certificate, not a stronger bound.
+- 2026-11-25T11:55:55.911927+00:00: named lower67 built successfully; exact P7 exclusion replaces the resource-heavy unverified two-P5 certificate.
