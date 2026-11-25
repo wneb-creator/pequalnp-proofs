@@ -1,6 +1,19 @@
-Independent double-sharing helpers review
-Reviewer: /root/counterexample
-Full source SHA256: 666aaf62af086de249bffb3c855e0932846c62ac20066868d9b5e78563d730b2
-Verdict: PASS.
+Independent review by status_review, 2026-11-25.
 
-Exact full module is unchanged checked Live1024FirstRetention base plus DoubleSharingSuffix.txt, whitespace, and restored namespace end. The nested basis removes original A, then lifted B, and retains both copies of each shared operand. Labels give retained a and b their false copies, fresh z both true copies, and untouched wires twice-lifted original labels. Partition subset/disjointness/coverage use only original partition, both retention memberships, and gate freshness. Support is transported through the duplicated raw map; fresh z uses gateCol, retained operands their matching raw copies, and unchanged wires original support. No unproved run reordering or exact-cost assumption is introduced. Complete archived compiler output has0errors; author reported exit0. No forbidden trust/format construct appears in the new fragment.
+Artifact: results/orch/lemmas/DoubleSharing.lean
+SHA256: 666aaf62af086de249bffb3c855e0932846c62ac20066868d9b5e78563d730b2
+Reported compilation exited 0; preserved log has no errors.
+The full source preserves the Live1024FirstRetention base exactly and appends
+the separately preserved 147-line suffix. Source trust/format checks passed.
+
+The new labels correctly represent two successive duplications: retained a
+gets the first false copy, retained b the second false copy, and new gate z
+gets both true copies. Other labels lift twice. Distinct operands, output
+freshness, and the original partition ensure these branches do not collide.
+The partition proof covers subset, pairwise disjointness, and all new roots.
+The support proof uses only the explicit gate-column inclusion hypothesis;
+the new gate's columns come from its two copied operands, and old signals
+retain their original support under the two lifts.
+
+Verdict: PASS for partition/support helpers. This does not itself establish
+the complete higher-sharing hierarchy or the posted lower bound.

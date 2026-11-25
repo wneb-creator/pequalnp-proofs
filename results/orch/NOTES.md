@@ -235,3 +235,33 @@ Compiled `results/orch/lemmas/Live1024ReadOnce.lean`: 68633bytes/1400lines, SHA 
 ### Counterexample / general certificate hierarchy soundness (2026-11-25 14:07:26 UTC)
 
 `certificate_tower_exclusion_state` and raw-basis wrapper `certificate_tower_exclusion` now compile. A depth-d certificate tower excludes any actual Live run with k+1≤|S|+d under the label partition/certificate/support invariant. Zero deficit uses δ0 closure; positive deficit passes to the checked first-retention decomposition. One retained operand consumes one copied-basis successor; two retained operands consume two sequential successors. The double case uses fresh basis row cover to certify the consumed a-copy, avoiding any Run-reordering assumption. All transitions preserve the actual tail and its invariants. Final source `lemmas/Live1024CertificateTower.lean`, SHA256261401f9c324ac1991a2285df47063f2746cc18f5771f7012580712632098b66, 139048bytes; EXIT0 with full log archived. This is a conditional general certificate checker, not a complete certificate for the original gap. Arbitrary-depth cofactor terminal cuts still need a separate ReadOnce forest/Run composition bridge; depth0 closure leaves and existing δ1 finite tables are covered.
+
+### finite_invariants: positive Petersen cofactors, 2026-11-25
+
+Checked `PositiveCofactors.lean` against the cached `PetersenSeventeenFull` module (exit0; empty full log archived). `positiveNine` is nine-variable graph OR x4 OR x6 OR x7, exactly full Petersen with vertex9 fixed1; its signed binary lower bound is11. `positiveAdjacentZero` is graphGoal495 OR x6 OR x7 on vars495, additionally fixing vertex4=0; its lower bound is10. Both clear4,6,7 with explicit row moves and lift graphGoal303 C6 lower8 from `valid189`, adding three or two checked essential literals. Generic `lower_mode_of_signed` exposes monotone consequences. Reusable fragment `PositiveCofactorsSuffix.txt` must be included after NineSigned core in a standalone file; the small cache-import artifact itself is for research.
+
+## Root re-plan at approximately 80 minutes
+
+The concrete signed binary lower bound is 17, excluding size-19 circuits with at least three NOT gates. The checked extension excludes first non-OR gates at binary budget17 and reduces the two-NOT case to a first OR; the zero/one-NOT cases remain open. The current named-file lake build passed. No exact gap theorem has been supplied.
+
+The full Live search has completed useful subtrees but not either whole first-OR case. Continue the reproducible signed17 OR-edge case with hash-bound completed-state resumption. Do not extrapolate a runtime or claim the stronger signed20 lower bound.
+
+The arbitrary-depth certificate-tower theorem now supplies a sound sharing recurrence. Prioritize concrete certificates: close the exported successor node with existing cofactor lower bounds, and replace expensive copied-basis tables by checked ReadOnce/cofactor cuts. The forest-Run bridge is needed before treating the old cofactor-pruned copy search as certified. Each new abstract helper should serve one of these concrete obligations.
+
+The small-row SAT route returned UNKNOWN for both the known20 monotone control and the19-gate one-NOT search. Stop allocating more solver runs to that encoding. Preserve full logs and its limits. Every compiled, independently reviewed milestone is pushed promptly; no PR is opened for partial helpers.
+
+### finite_invariants: positive profile transport, 2026-11-25
+
+`PositiveProfiles.lean` compiled exit0 with all finite kernel checks. Its four cases represent profile IDs14,76,101,123. Each explicit Fin10 permutation maps canonical vertex9 to the positive vertex, and for the last three maps vertex4 to the zero vertex. `rows` embeds 512 canonical assignments into the correct1024-row cofactor. Domain membership, target equality, all ten input images, and available-root membership are verified; the target lower11/10 lemmas apply in either mode. This supplies all positive transports needed by the306-child fixture. A generic Slice bridge and thin constructors are being integrated separately.
+
+### Counterexample / checked ReadOnce forest bridge (2026-11-25 14:15:21 UTC)
+
+`readOnce_forest_run` now proves: actual Live target run of k gates from live set S, plus a root-label partition and ReadOnce derivation for every live wire, gives an actual Run from the full raw-root list with exactly k+|roots|−|S| gates. `readOnce_forest_exclusion_state` consumes any bounded-Run contradiction at depth d and rules out the actual live state whenever k+1≤|S|+d. The list substitution preserves duplicate raw signatures; partition labels remain distinct. This is the missing bridge for arbitrary-depth copied-root cofactor leaves. It does not itself construct the cofactor proof or validate closure-entry pruning, whose partial-substitution variant remains to be integrated. Source `lemmas/Live1024ReadOnceForest.lean`, SHA2564abb09b3d0ac362a96d2e325001e383b2c9c87e9bf4812c855134ad4d16c30a1; EXIT0, full log archived. status_review mathematically reviewed the substitution/forest fragments and is finalizing the immutable source audit.
+
+### 2026-11-25T14:18:30.685375+00:00 lean_setup
+Checked SliceFromNine (96 lines, 4173 bytes) transports arbitrary nine-variable Lower bounds to Live1024.Slice using a coarse/section retraction; no finite data or new assumptions. Source and full EXIT0 log archived in lemmas/. Independent reviews by finite_invariants and proof_structure. All 14 zero/positive cofactor profile transports are prepared by finite_invariants.
+Compact cofactor plan: poolCut_run_sound removes only the Live-to-Run conversion from existing poolCut_sound, retaining duplicate basis wires. Draft state4/candidate14 proves a cap11 Run exclusion from vertex8=0, lower15, one constant, and four paid gates. This is a positive-depth tower consumer; awaiting root checker resource window before builds.
+
+### finite_invariants: all fourteen concrete Slice profiles, 2026-11-25
+
+`SliceProfiles.lean` compiled successfully and generated its cache. The aggregate `PEqualNP.Outside.L_meta_2373.SliceProfiles.all_slices` supplies the profile ordering [0,1,2,3,4,5,6,7,8,9,14,76,101,123] in either signed or monotone mode. Its `domains` and `bounds` lists match every known cofactor child in fixture126663. Reusable constructors are in `SliceProfileConstructors.txt`; the small module also contains the previously checked generic Slice bridge and positive/zero transport suffixes. Cache path: `/tmp/oec/pequalnp-pilot-87/finite_invariants/SliceProfiles.olean`. This is concrete cofactor certification, not full Petersen search exhaustion.

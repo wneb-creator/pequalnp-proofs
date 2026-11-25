@@ -1,0 +1,24 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/Live1024ReadOnceForest.lean
+SHA256: 4abb09b3d0ac362a96d2e325001e383b2c9c87e9bf4812c855134ad4d16c30a1
+Reported compilation exited0; complete preserved log has warnings and no
+errors. The 2,961-line source preserves its checked CertificateTower prefix.
+The exact reviewed substitution/forest fragments and independently reviewed
+PartitionLists suffix are present. Trust/format checks passed with Defs only.
+
+Run.substitute_list replaces every occurrence in a root list using its supplied
+Run, explicitly moving each root to the head and restoring order by permutation.
+It preserves multiplicities and accounts for the sum of all component costs.
+
+readOnce_forest_run uses table_observe to recover each finite signature,
+substitutes all component traces, and applies the partition permutation to
+recover the original root list. Its cost is k + roots.card - S.card; nonempty
+ReadOnce labels and the partition-cost identity justify the Nat subtraction.
+No injectivity of raw functions or loss of duplicate list occurrences is used.
+The exclusion corollary correctly transfers the cardinality/depth inequality
+to that total Run cost before invoking the explicit blocked hypothesis.
+
+Verdict: PASS for the checked forest composition bridge and its corollary.
+The blocked Run lower bound remains an explicit hypothesis, so this artifact
+does not by itself establish the posted circuit bound.

@@ -1,0 +1,84 @@
+import PetersenSeventeenFull
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def successorOps (u : Bool) : List Nat := if u then [0, 1, 2, 3] else [0, 1]
+
+lemma successorOps_complete {u : Bool} {d : Nat} (h : allowed u d) :
+    d ∈ successorOps u := by
+  cases u <;> simp [successorOps, allowed] at * <;> omega
+
+def successorGuard (ws : List Sig) (cap : Nat) (a b : Sig) (d : Nat) (ka kb : Bool) : Bool :=
+  decide (a ≠ b) && decide (bin d a b ∉ ws) &&
+    decide (bin d a b ≠ zero) && decide (bin d a b ≠ one) &&
+    decide ((childTwo ws a b d ka kb).length ≤ cap)
+
+def successorLists (u : Bool) (ws : List Sig) (cap : Nat) : List (List Sig) :=
+  ws.flatMap fun a => ws.flatMap fun b => (successorOps u).flatMap fun d =>
+    [false, true].flatMap fun ka => [false, true].filterMap fun kb =>
+      if successorGuard ws cap a b d ka kb then some (childTwo ws a b d ka kb) else none
+
+lemma successorLists_complete {u ws cap a b d ka kb}
+    (ha : a ∈ ws) (hb : b ∈ ws) (hd : allowed u d) (hab : a ≠ b)
+    (fresh : bin d a b ∉ ws) (hp : proper (bin d a b))
+    (sz : (childTwo ws a b d ka kb).length ≤ cap) :
+    childTwo ws a b d ka kb ∈ successorLists u ws cap := by
+  have guard : successorGuard ws cap a b d ka kb = true := by
+    simp [successorGuard, hab, fresh, hp.1, hp.2, sz]
+  unfold successorLists
+  apply List.mem_flatMap.mpr
+  refine ⟨a, ha, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨b, hb, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨d, successorOps_complete hd, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨ka, by cases ka <;> simp, ?_⟩
+  apply List.mem_filterMap.mpr
+  exact ⟨kb, by cases kb <;> simp, by simp [guard]⟩
+
+def rowSeparates (u : Bool) (r s : Row) (w : Sig) : Bool :=
+  if u then bit r w != bit s w else bit r w && !(bit s w)
+
+lemma live_rowSeparates {u T k S r s} (h : Live u T k S)
+    (sep : rowSeparates u r s T = true) : ∃ w ∈ S, rowSeparates u r s w = true := by
+  cases u with
+  | true =>
+    have diff : bit r T ≠ bit s T := by simpa [rowSeparates] using sep
+    obtain ⟨w, hw, hd⟩ := live_row_difference h diff
+    exact ⟨w, hw, by simpa [rowSeparates] using hd⟩
+  | false =>
+    have bits : bit r T = true ∧ bit s T = false := by simpa [rowSeparates] using sep
+    obtain ⟨w, hw, yes, no⟩ := mono_row_difference h rfl bits.1 bits.2
+    exact ⟨w, hw, by simp [rowSeparates, yes, no]⟩
+
+def rowReject (u : Bool) (T : Sig) (ws : List Sig) (pair : Row × Row) : Bool :=
+  rowSeparates u pair.1 pair.2 T && ws.all (fun w => !(rowSeparates u pair.1 pair.2 w))
+
+lemma rowReject_sound {u T ws pair} (check : rowReject u T ws pair = true) :
+    ∀ k, ¬ Live u T k ws.toFinset := by
+  intro k run
+  have both := Bool.and_eq_true_iff.mp check
+  obtain ⟨w, hw, hsep⟩ := live_rowSeparates run both.1
+  have hn := List.all_eq_true.mp both.2 w (List.mem_toFinset.mp hw)
+  simp [hsep] at hn
+
+def successorCheck (u : Bool) (T : Sig) (ws : List Sig) (cap : Nat)
+    (known : List (Finset Sig)) (rows : List (Row × Row)) : Bool :=
+  (successorLists u ws cap).all fun child =>
+    decide (child.toFinset ∈ known) || rows.any (rowReject u T child)
+
+lemma successorCheck_sound {u T ws cap known rows} (nd : ws.Nodup) (out : T ∉ ws)
+    (knownSound : ∀ S ∈ known, Impossible u T (cap - 1) S)
+    (check : successorCheck u T ws cap known rows = true) :
+    Impossible u T cap ws.toFinset := by
+  apply enum_step nd out
+  intro a ha b hb d hd ka kb hab fresh hp sz
+  have mem := successorLists_complete ha hb hd hab fresh hp sz
+  have done := List.all_eq_true.mp check _ mem
+  rcases Bool.or_eq_true_iff.mp done with hit | cut
+  · exact knownSound _ (of_decide_eq_true hit)
+  · obtain ⟨pair, hpair, good⟩ := List.any_eq_true.mp cut
+    exact fun k _ => rowReject_sound good k
+
+end PEqualNP.Outside.L_meta_2373.Live1024

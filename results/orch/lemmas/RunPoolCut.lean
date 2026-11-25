@@ -1,0 +1,26 @@
+import PetersenSeventeenFull
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem poolCut_run_sound {u raw T d L} (slice : Slice u raw T d L)
+    (cs : List Choice) {pool ws cap}
+    (built : makePool u d raw cs = some pool)
+    (cut : poolCut u d L cap cs.length pool ws = true)
+    {k : Nat} (bound : k ≤ cap) : ¬ Run u (observe T) k (ws.map observe) := by
+  intro run
+  obtain ⟨f, roots, dom, base, nc, lo⟩ := slice
+  obtain ⟨bank, hr, hs⟩ :=
+    makePool_sound dom (Reach.start (roots := roots.map observe)) base cs built
+  simp only [poolCut, Bool.and_eq_true, decide_eq_true_eq] at cut
+  obtain ⟨ineq, all⟩ := cut
+  have coveredS : supply u bank ((ws.map observe).map (restrictRows f)) := by
+    intro v hv
+    obtain ⟨_, hm, rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hm
+    exact availableB_sound dom hs (List.all_eq_true.mp all a ha)
+  have b := projected_bound f run nc hr coveredS lo
+  have massLo := count_constants dom ws
+  simp only [Nat.zero_add] at b
+  omega
+
+end PEqualNP.Outside.L_meta_2373.Live1024

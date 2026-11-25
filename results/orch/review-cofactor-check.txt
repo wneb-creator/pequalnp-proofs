@@ -1,0 +1,15 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/CofactorCheck.lean
+SHA256: 5e273b84fc35d1453e5a9e469cf90e02ba178d094acea1a2882c600f4dc882bd
+Preserved compiler log reports exit0. The reusable suffix matches exactly;
+trust/format checks found no forbidden forms.
+
+The Boolean adapter explicitly checks ws.Nodup, requires successful makePool,
+and invokes poolCut with the actual choice-list length. Its soundness theorem
+extracts those exact facts and passes them to the existing poolCut_sound.
+A failed pool construction cannot yield a successful check. The Slice lower
+bound remains an explicit proof hypothesis; no numerical bound is assumed.
+
+Verdict: PASS for the checked adapter. Its SuccessorChecker import is a cached
+helper dependency, to be assembled with the checked base in a final file.

@@ -1,23 +1,21 @@
 L-meta-2373 PARTIAL CHECKPOINT — TARGET UNPROVED
 
-The required top-level theorem is absent. No proof PR has been opened and no ACCEPTED verdict is claimed.
+The required top-level theorem remains absent. No proof PR is open and no ACCEPTED verdict is claimed.
 
-Target: lean/PEqualNP/Outside/L_meta_2373.lean (7156 lines).
-Target SHA256: 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
-The earlier 98-line Defs-only target lake build exited 0: Build completed successfully (5149 jobs).
-Full output: build-trimmed.txt. The previous 135-line source and successful full build output are preserved as lemmas/TargetPartial135.lean and .compile.txt.
-The checker on that earlier partial completed against the ORIGINAL statement, exit 1:
+Latest completed named-target validation: 7156 lines, SHA25667329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
+Lake build exited0: Build completed successfully (5149 jobs). Full output: build-seventeen.txt.
+The repository checker completed its trustLevel0 import without a fault, then exited1:
 REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2373 (one lemma, one file: the theorem carries the module's name)
-Full output: check-trimmed.txt. Earlier checker attempts exhausted memory; their complete fault logs are preserved. Narrowing imports resolved that infrastructure problem.
-The target trim reduced 135 lines to 98, preserving graph facts and archiving the unused upper-bound construction. This was a partial-result resource improvement, not the final post-acceptance cleanup pass.
+Full output: check-seventeen.txt. Separate axiom audit of the two main partial bounds reports only propext, Classical.choice, Quot.sound; full output: seventeen-axioms.txt.
 
-Reviewed compiled components are archived under lemmas/, with complete logs and independent reviews. These include a signed nine-input lower bound, generic finite closure certificates, a conditional 17-binary-gate lift, and first-operand-retention lemmas. They do not prove the posted statement. The concrete twelve-wire/12-gate terminal-state exclusion has compiled and passed independent review; it supplies all thirteen copied-basis certificates. The self-contained concrete 17-binary-gate lower bound has compiled (exit 0, full log at lemmas/PetersenSeventeenFull.compile.txt) and passed independent review. It proves 17 plus the NOT-gate count is at most circuit size, hence excludes size-at-most-19 circuits with at least three NOT gates. The exact reviewed source is now installed in the named target; its lake build is running. The general positive-deficit first-retention decomposition also compiled and is preserved.
-All full-target searches remain incomplete or bounded, with no exact counterexample. Archive READMEs state their limits.
-Desk null replies: 0. One lease held, L-meta-2373; renewed every 5 minutes.
+This source proves that17 plus the NOT-gate count is at most Petersen circuit size, excluding size-at-most19 circuits with at least3NOT gates. The reviewed compiled18 extension proves a necessary first-OR condition at binary budget17. GapBridge proves that the posted soundness/size setup yields a missed positive input or at most2NOT gates in the glued circuit. These statements do not prove the original theorem. The combined7674-line named target is now building locally; that validation is pending.
+
+The archived certificate machinery includes exact Run composition, read-once forest composition, arbitrary-depth sharing-tower soundness, finite successor/cofactor checking, memo symmetry transport, and checked positive/zero cofactor profiles. Each frozen checked source has a full compiler log and an independent review. Some small extension modules import frozen scratch modules; their reviews identify the required checked prefixes. GapBridge was compiled against the7156-line named target preserved in this branch history and as PetersenSeventeenFull.lean.
+
+The signed17 first-OR-edge computational case is complete with no circuit found. Both linked traces passed independent semantic replay. This is not yet a Lean certificate:2831 formula leaves and the finite replay remain kernel obligations. The first-OR-nonedge search is ongoing. The original zero/one-NOT cases remain unresolved. Complete compressed traces, sources, manifests, and bounded SAT logs are preserved. Both new small-row SAT runs returned UNKNOWN, including the known20-gate control; no counterexample was found.
+
+The final post-acceptance cleanup pass has not been reached. Earlier partial trim:135 to98lines, with the old source and full successful log preserved. The later growth consists of checked lower-bound/certificate components, not a cleanup result.
+Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=70 subagents=6
-
-Further checked partials: the extension proves that a first non-OR normalized binary gate requires at least 18 binary gates; it still leaves the first-OR case open. The generic certificate hierarchy interface and double-sharing partition/support construction compiled and passed independent review. Their archives include full logs.
-
-General certificate-tower soundness is now checked for arbitrary depth, including both retention cases. Exact Run composition, read-once support and relabeling, and memo symmetry transport are checked. The concrete tower for the full target is still absent. Full compressed signed17 traces and bounded small-row SAT logs are archived; neither experiment completed a whole target case.
+TIMING total=89.9 subagents=6

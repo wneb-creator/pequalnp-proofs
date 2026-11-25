@@ -1,0 +1,8 @@
+Independent review by proof_structure.
+
+Verdict: PASS for checked generic Slice transport.
+Source SHA256: 2dcddf4c4ce871ec6b7a1bdea4645e9c6f3648b597befa7a4f40c7a849094871
+Source bytes: 4173
+Compiler result: exit0, complete log preserved beside source.
+
+The coarse map projects a1024-row index modulo512. Its section preserves the value of every512-row index, so coarse(section r)=r. Each lifted signal restricts along this section to the original9-variable signal. The Available transport preserves direct wires, constants and allowed complements; Reach transport preserves operation and gate count. Restricting the lifted target along the section recovers G9 exactly, so the supplied properness proves nonconstancy and the supplied Lower bound applies at the same gate count. Arbitrary rows need no additional surjectivity assumption: the stated domain, target equality, coverage and prior lower bound are all explicit. No new axioms, admitted proof, custom instance, forbidden token or extra semantic assumption was found.

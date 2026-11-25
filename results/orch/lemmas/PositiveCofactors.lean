@@ -1,0 +1,78 @@
+import PetersenSeventeenFull
+
+namespace PEqualNP.Outside.L_meta_2373.NineSigned
+
+def positiveNine : Sig :=
+  graph ||| inputs.getD 4 zero ||| inputs.getD 6 zero ||| inputs.getD 7 zero
+
+def positiveNineRaw : List Sig := inputs
+
+def positiveAdjacentZero : Sig :=
+  graphGoal 495 ||| inputs.getD 6 zero ||| inputs.getD 7 zero
+
+def positiveAdjacentZeroRaw : List Sig := vars 495
+
+def zeroPositiveMoves : List Move :=
+  [(inputs.getD 4 zero, zero, 496),
+   (inputs.getD 6 zero, zero, 448),
+   (inputs.getD 7 zero, zero, 384)]
+
+def positiveNineWitnesses : List (Sig × Row × Row) :=
+  [(inputs.getD 4 zero, 0, 16), (inputs.getD 6 zero, 0, 64),
+   (inputs.getD 7 zero, 0, 128)]
+
+def positiveAdjacentZeroWitnesses : List (Sig × Row × Row) :=
+  [(inputs.getD 6 zero, 0, 64), (inputs.getD 7 zero, 0, 128)]
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma cofactor_cycle_lower8 : Lower true (vars 303) (graphGoal 303) 8 := by
+  have h := valid189 (303, 8) (by decide +kernel)
+  simpa only [varsX, show (303 : Nat) < 512 from by decide, ite_true] using h
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma positiveNine_lower11 : Lower true positiveNineRaw positiveNine 11 := by
+  have h := lift_ok (u := true) (ms := zeroPositiveMoves)
+    (T := positiveNine) (raw := positiveNineRaw) (base := vars 303)
+    (G := graphGoal 303) (xs := positiveNineWitnesses) (L := 8)
+    (by decide +kernel) (by unfold proper; decide +kernel) (by unfold proper; decide +kernel) cofactor_cycle_lower8
+  have count : (positiveNineWitnesses.map Prod.fst).toFinset.card = 3 := by decide +kernel
+  simpa only [count] using h
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma positiveAdjacentZero_lower10 : Lower true positiveAdjacentZeroRaw positiveAdjacentZero 10 := by
+  have h := lift_ok (u := true) (ms := zeroPositiveMoves)
+    (T := positiveAdjacentZero) (raw := positiveAdjacentZeroRaw) (base := vars 303)
+    (G := graphGoal 303) (xs := positiveAdjacentZeroWitnesses) (L := 8)
+    (by decide +kernel) (by unfold proper; decide +kernel) (by unfold proper; decide +kernel) cofactor_cycle_lower8
+  have count : (positiveAdjacentZeroWitnesses.map Prod.fst).toFinset.card = 2 := by decide +kernel
+  simpa only [count] using h
+
+lemma available_signed_of_available {R : Type} {u : Bool} {bank : List (Wire R)}
+    {w : Wire R} (h : Available u bank w) : Available true bank w := by
+  rcases h with h | h | ⟨_, h⟩
+  · exact Or.inl h
+  · exact Or.inr (Or.inl h)
+  · exact Or.inr (Or.inr ⟨rfl, h⟩)
+
+lemma reach_signed_of_reach {R : Type} {u : Bool} {roots bank : List (Wire R)}
+    {p : Nat} (h : Reach u roots p bank) : Reach true roots p bank := by
+  induction h using Reach.ind with
+  | start => exact Reach.start
+  | two op _ ha hb ih =>
+    exact Reach.two op ih (available_signed_of_available ha) (available_signed_of_available hb)
+
+lemma lower_mode_of_signed {u : Bool} {roots : List Sig} {T : Sig} {L : Nat}
+    (h : Lower true roots T L) : Lower u roots T L := by
+  intro p bank run available
+  exact h p bank (reach_signed_of_reach run) (available_signed_of_available available)
+
+lemma positiveNine_mono_lower11 : Lower false positiveNineRaw positiveNine 11 :=
+  lower_mode_of_signed positiveNine_lower11
+
+lemma positiveAdjacentZero_mono_lower10 : Lower false positiveAdjacentZeroRaw positiveAdjacentZero 10 :=
+  lower_mode_of_signed positiveAdjacentZero_lower10
+
+end PEqualNP.Outside.L_meta_2373.NineSigned

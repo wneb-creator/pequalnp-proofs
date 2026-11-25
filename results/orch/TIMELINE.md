@@ -55,3 +55,15 @@
 - 2026-11-25 14:07:26 UTC — counterexample: full arbitrary-deficit single-copy certificate tower soundness compiled EXIT0; source/log archived for immediate independent review and push.
 
 - 2026-11-25T14:09:37.865947+00:00: Arbitrary-depth certificate-tower soundness and Run/ReadOnce/memo helpers compiled and reviewed; preserving full compressed search traces and both UNKNOWN SAT logs.
+
+- 2026-11-25T14:10:12+00:00 finite_invariants: positive-cofactor signed bounds11 and10 compiled via C6 lower8 plus essential literals; monotone consequences also checked.
+
+- 2026-11-25T14:11:20.728926+00:00: Root re-plan: named17 partial builds; focus on concrete successor and compact hierarchy certificates, retain reproducible signed17 continuation, stop unproductive small-row SAT encoding. Full target still unproved.
+
+- 2026-11-25T14:14:20+00:00 finite_invariants: four positive profile transports checked on all512 rows, with graph/domain/input identities and prior lower bounds.
+
+- 2026-11-25 14:15:21 UTC — counterexample: exact ReadOnce forest Run composition and bounded-Run state exclusion compiled EXIT0, source/log archived.
+
+- 2026-11-25T14:21:25+00:00 finite_invariants: all fourteen concrete cofactor Slice instances compiled; cached module handed to proof_structure for unconditional branch replay.
+
+- 2026-11-25T14:21:47.750868+00:00: Named17 build and trustLevel0 checker completed (no-theorem); direct gap disjunction, forest composition, positive/zero profiles, and complete linked OR-edge computation preserved. Combined restriction target build underway.

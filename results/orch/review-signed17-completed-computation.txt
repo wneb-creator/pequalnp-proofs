@@ -1,0 +1,34 @@
+Independent completed-computation review by status_review, 2026-11-25.
+
+Scope: the two linked signed17 first-OR-edge traces and updated compressed
+archive under results/orch/search/signed17-or-edge. All 13 manifest file entries
+and all three raw gzip sizes/SHA256 hashes were independently verified.
+The continuation uses the same signed mode, cap17, target, and first-OR-edge
+case. Its 3,265 resumed states match the audited completed source records.
+
+The full original trace passed independent semantic replay: 302,957 nodes,
+171,298 cofactor replay masks/inequalities, 124,038 row witnesses, 4,352 explicit
+memo isomorphisms, and 301,745 child cases across all 536 completed expansions.
+Its four open nodes were never imported as exclusions.
+
+The full continuation also passed independent semantic replay: 54,844 nodes,
+32,582 cofactor replay masks/inequalities, 21,299 row witnesses, all 748 memo
+isomorphisms, and 54,843 child cases across all 113 expanded nodes. Negative
+memo references were checked against exact resumed pools and budgets; positive
+references point to completed prior states. The root is expand, with all 401
+eligible immediate children present, and no open or found record occurs.
+
+These checks validate the recorded completed computational case, including
+its dependency linkage and exhaustive branch generation. They do not certify
+the 2,831 formula0/formula1 leaf occurrences across the two files or all
+profile lower-bound transports in the Lean kernel. The checked generic
+closure/successor/memo infrastructure still needs those concrete instances.
+No posted-gap proof or counterexample follows solely from this computation.
+
+Original trace SHA256:
+95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb
+Continuation trace SHA256:
+4118466ecb357314b760ea7b424053e7406917b07e327f620d3c8cb5126fa24a
+
+Verdict: PASS for the full linked computational-data audit and archive.
+Kernel certificate generation remains unfinished.

@@ -1,0 +1,2 @@
+First run: live_search_trace --signed --cap 17 --first oredge --seconds 300 --nodes 5000000 --trace signed17-oredge-trace.jsonl
+Continuation: live_search_resume --signed --cap 17 --first oredge --seconds 600 --nodes 5000000 --resume signed17-oredge-resume.txt --trace signed17-oredge-part2.jsonl

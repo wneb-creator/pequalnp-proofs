@@ -1,0 +1,6 @@
+Independent partition list/cardinality review
+Reviewer: /root/counterexample
+Full source SHA256: 0758f2c1d8eb9cbf965cb65455bba2b792dc9dae9b7735c1f0e222b7884a5da7
+Verdict: PASS.
+
+The standalone module uses the same Sig and LabelPartition definitions as checked Live1024CertificateTower. partition_flatMap_perm proves pairwise-disjoint leaf lists from the partition, obtains nodup flatMap, and proves exact root membership in both directions from partition subset/coverage. No raw-signature injectivity is assumed or needed: these lists contain distinct labels. partition_cost_sum obtains total label cardinality from permutation lengths, then subtracts exactly one for each nonempty live label using a list induction; the resulting cost identity includes every live wire. No new axiom, sorry, native_decide, unsafe/meta code, custom instance, option, or string is present. Full archived compile log is empty; status_review reported process exit0.

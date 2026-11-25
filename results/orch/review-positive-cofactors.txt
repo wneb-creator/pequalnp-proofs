@@ -1,0 +1,12 @@
+Independent positive-cofactor review by lean_setup, 2026-11-25 UTC
+
+Source: results/orch/lemmas/PositiveCofactors.lean
+SHA256:5ea7cbcf46b3a52c85755114a2502aeeb17e841473b406e8b35d3be2429641ed
+Size:3454bytes. Author compile EXIT0; complete log empty.
+Verdict: PASS checked extension against PetersenSeventeenFull; cached test import must be removed when inlining.
+
+The C6 lower8 comes from the already checked valid189 Known table at(303,8), with kernel-checked membership. positiveNine is exactly graph OR inputs4,6,7 over all nine roots. positiveAdjacentZero is graphGoal495 OR inputs6,7 over vars495, correctly excluding input4. The lift_ok checks verify the row moves, basis coverage and essential witnesses. Distinct essential literal witnesses are(0,16),(0,64),(0,128); the adjacent-zero version keeps the latter two. Thus the established C6 bound adds3or2respectively, giving signed11and10. Independently evaluated all512rows after clearing bits4,6,7: both target restrictions equal graphGoal303. The singleton witness rows produce the required linear influence.
+
+The generic weakening is correct: Available u implies Available true, and Reach u maps inductively to Reach true at the same binary count. A signed lower bound therefore implies both modes, yielding the stated monotone bounds without extra assumptions.
+
+No axioms, sorry, native_decide, bv_decide, custom datatype/instance, unsafe mechanism, strings, _root_ or attributes. All limits are declaration-local. Declarations are target-prefixed. This is a reusable lower-bound component, not the full gap theorem.

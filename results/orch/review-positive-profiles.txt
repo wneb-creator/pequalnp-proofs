@@ -1,0 +1,20 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/PositiveProfiles.lean
+SHA256: 9ec79cac7fc493916ac9e1d9bcec1a67ada6455bb1ade4cb7fbe5194e61b2763
+Reported compilation exited 0; preserved log has only deprecation warnings.
+The previously reviewed PositiveCofactors prefix is unchanged. The recorded
+suffix matches; trust/format checks found no forbidden forms.
+
+The four explicit permutations/inverses match profiles14,76,101,123. I checked
+all 2,048 row/domain/target instances and all 20,480 primary-input images
+independently. Canonical vertex9 is fixed true; in the last three cases
+canonical vertex4 is fixed false and its redundant row bit is ignored.
+The resulting target and free input pool are exactly the previously checked
+positiveNine or positiveAdjacentZero functions. The availability lemma uses
+the checked finite freeWord result, and the lower-bound dispatcher correctly
+selects 11 or10 for either signed or monotone mode.
+
+Verdict: PASS for these finite transport identities and lower-bound interfaces.
+This cached-import helper still requires assembly with its checked base for
+a standalone submission; it does not itself establish every Slice hypothesis.

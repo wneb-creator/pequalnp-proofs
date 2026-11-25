@@ -1,0 +1,12 @@
+Independent successor-checker review by lean_setup, 2026-11-25 UTC
+
+Source: results/orch/lemmas/SuccessorChecker.lean
+SHA256: 8dfa045440873ed1931c1672b8f712d4aacdebc834317502ffec2b292a210097
+Size:3818bytes. Full source read; complete compile log has zero errors/warnings; author EXIT0.
+Verdict: PASS as a checked extension against PetersenSeventeenFull. Its cached test import must be removed when inlining into a standalone Defs-only final source.
+
+The enumeration covers every ordered operand pair from ws, all allowed operations (2mono/4signed), and all4retention choices. Guard conditions exactly retain distinct operands, fresh proper output, and child-list length≤cap. That length bound is correct for a parent run of≤cap gates: its child has≤cap−1gates and hence at most cap live wires. successorLists_complete proves every enum_step-required child is present; no symmetry pruning or unproved omission is performed.
+
+For each enumerated child, successorCheck accepts only membership in an explicit known list or a verified row-separation rejection. knownSound explicitly supplies Impossible u T (cap−1) for every known state. Row rejection verifies that the actual target separates the chosen rows while every current wire fails to separate them; live_rowSeparates uses XOR in signed mode and oriented1/0separation in monotone mode. The row cut excludes all gate budgets. Finset membership makes list ordering irrelevant, consistent with Live semantics.
+
+The theorem also requires parent Nodup and target absence explicitly, as enum_step needs. Natural-number cap−1 does not create an off-by-one escape: the zero-gate case is handled by target absence, and every positive run proceeds to the child budget. No hidden assumption, axiom, sorry, native_decide/bv_decide, custom datatype/instance, unsafe mechanism, strings, _root_ or attributes were found.

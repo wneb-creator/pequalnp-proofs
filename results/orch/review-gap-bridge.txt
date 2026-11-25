@@ -1,0 +1,11 @@
+Independent posted-gap disjunction bridge review
+Reviewer: /root/counterexample
+Source: /tmp/oec/pequalnp-pilot-87/root_bridge/GapBridge.lean
+SHA256: aab159186ab5d8187b41a4ccbb4a9de394e800603d7445a1942d9f12add1e8ae
+Verdict: PASS (mathematics, exact-copy scope and format; root tracks compile result).
+
+The helpers from def glued through missed_of_no_circuit are byte-identical after whitespace trimming to the previously reviewed Bridge.lean helper block; only its redundant edge definition and broad imports are omitted. The single import is the checked named module containing petersen_not_budget_seventeen. That theorem states17 + notCount C ≤ C.size for legal circuits computing edge.
+
+The new missed_or_few_nots proof first separates the desired missed-input case. In its absence, soundness on edge-false inputs and the absence of a missed true input force exact two-output OR coverage, established by all Boolean cases. glued_fan and glued_eval then establish a legal edge-computing glued circuit, and glued_size plus C.size≤17 bounds its size by19. The checked17+NOT budget inequality therefore gives notCount(glued)≤2. The conclusion is accurately a disjunction and does not assert the full posted gap or eliminate zero/one/two-NOT circuits. No extra hypotheses, axioms, unsafe/native evaluation, sorry, forbidden root text, strings, attributes, or options are added.
+
+Final compile confirmation: root reported process EXIT0 for the exact reviewed GapBridge source; complete log at /tmp/oec/pequalnp-pilot-87/root_bridge/GapBridge.compile.txt is empty, independently read and confirmed. Final verdict PASS.

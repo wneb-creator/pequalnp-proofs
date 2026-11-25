@@ -1,0 +1,16 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/ZeroProfiles.lean
+SHA256: 15800acb689c783a25f23791ce7fc7a499a4febba98e5a122f6204b0777a4ddc
+Reported compilation exited0; preserved log is empty. Exact suffix and source
+trust checks passed. This is a cached PetersenSeventeenFull helper import.
+
+The domain assertion correctly negates the checked rowMap_missing identity
+at a valid bit-vector row. The availability proof follows the independently
+checked RowAvailability argument: the missing input is constant false; every
+other input is uniquely one of the nine retained primary functions under the
+bijective relabeling. Its generalization from signed mode to arbitrary u is
+sound because it uses only literal membership or a constant, never the
+complement-availability branch. No new finite table facts are assumed.
+
+Verdict: PASS for the domain and arbitrary-mode input availability helpers.

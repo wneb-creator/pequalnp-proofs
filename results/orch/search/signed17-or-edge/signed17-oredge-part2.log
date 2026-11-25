@@ -1,0 +1,5 @@
+mode=1 first=oredge group=120
+resumed completed states=3265 distinct=3265 source_sha256=95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb
+nodes=14336 steps=25298 card=0 cover=10962 cof=8262 formula=21 share1=34 fullcover=5637 lazyclips=955 clips=10644 signals=62474 seconds=12.5845 levels=1:1,2:217,3:533,4:3497,5:9299,6:789,
+finished found=0
+nodes=54844 steps=104344 card=0 cover=49501 cof=32582 formula=38 share1=64 fullcover=21299 lazyclips=2557 clips=20740 signals=74665 seconds=15.0149 levels=1:1,2:401,3:1511,4:11641,5:39648,6:1642,

@@ -1,0 +1,8 @@
+Independent Run-level pool-cut soundness review
+Reviewer: /root/counterexample
+Full source SHA256: a88a9dbdbbbe82751ddfacc39a701b3c325b1bf29cb78d717ffe78f819b322fd
+Verdict: PASS.
+
+The26-line module imports the previously checked SliceFromNine base and exposes the same pool-cut argument directly for an actual Run. The Slice supplies projected root correctness/nonconstancy and lower bound. makePool_sound supplies the paid reachability pool; each raw starting wire is covered using the checked Boolean availability condition. projected_bound applies to the supplied Run with no nodup assumption, and count_constants counts the full starting list, including duplicates. The cut inequality plus k≤cap yields contradiction by omega. This removes only the previous Live-to-Run conversion and does not weaken any cut-checking premise. No new axiom, sorry, native_decide, unsafe/meta operation, string, attribute, option, or instance appears. Complete archived compile output is empty; author reported exit0.
+
+Final import-only update: immutable full SHA256 fd5370aff12a84242060bb7ec15d8d6cfc74acff5766f768feaf625c4c4bf050,1073bytes. The ancestor import is now PetersenSeventeenFull, eliminating duplicate declarations when combined with SliceProfiles. The26-line mathematical theorem is unchanged; its full rebuild reported EXIT0 with an independently confirmed empty archived log. Verdict remains PASS.
