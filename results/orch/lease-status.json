@@ -3,7 +3,8 @@
   "gap": "L-meta-4970",
   "live_lease": true,
   "issued_at": "2026-11-25T15:22:04.914Z",
-  "latest_manual_expiry": "2026-11-25T15:50:26.003Z",
+  "latest_manual_expiry": "2026-11-25T16:38:52.756Z",
   "timer_interval_seconds": 300,
-  "null_desk_answers": 0
+  "null_desk_answers": 0,
+  "updated_at": "2026-11-25T16:20:12.796227+00:00"
 }

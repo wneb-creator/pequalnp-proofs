@@ -1,0 +1,20 @@
+{
+  "policy": "regenerable CNFs retained only in scratch",
+  "files": [
+    {
+      "name": "cycle6_or5_control.cnf",
+      "bytes": 48344,
+      "sha256": "cf6e139a69a4fff741b934300d26d97a05f9b99d2c8f2df268ef5a02f33de2bf"
+    },
+    {
+      "name": "cycle6_or4.cnf",
+      "bytes": 32981,
+      "sha256": "1cbd6f29181e8b9adf184a1bf69501e581d61022ddf47a0f3379a8086de226ed"
+    },
+    {
+      "name": "k4inc_or10.cnf",
+      "bytes": 470889,
+      "sha256": "600bfa6dbfa3861de898d350e1525be7db062d154e884c213c5ee1b6917ed34c"
+    }
+  ]
+}

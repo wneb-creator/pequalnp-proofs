@@ -15,3 +15,5 @@ Usage: `gap4970_cgp seconds seed capacity control-only`.
 Verification: `python3 verify_cgp.py output.stdout`.
 
 No long search was launched before independent source review and a fresh root lease renewal.
+
+The reviewed480-second run (seed497094,capacity28,256MiBvirtual cap) finished normally at2026-11-25 15:56:19UTC. It attempted872,429,200mutations across3,490restarts, accepting407,851,335mutations. Minimum remained15gates; no counterexample found. Every emitted circuit passed complete validation. This does not prove a lower bound. Complete logs and metadata are archived as `cgp-search480*`.

@@ -1,0 +1,10 @@
+{
+  "policy": "regenerable CNFs retained only in scratch",
+  "files": [
+    {
+      "name": "star15_control.cnf",
+      "bytes": 818192,
+      "sha256": "7f0670e4a5f1a093ed94113413a20bcbad6c23d27626383180f92a112c441530"
+    }
+  ]
+}

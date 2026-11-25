@@ -1,0 +1,456 @@
+{
+  "operation": "existing empty artifacts request sent to each worker; controller has no corresponding request protocol and was left unchanged",
+  "before": {
+    "51527": {
+      "rss_anon_kib": 29580,
+      "fds": 8998
+    },
+    "51528": {
+      "rss_anon_kib": 29728,
+      "fds": 8981
+    },
+    "51533": {
+      "rss_anon_kib": 31848,
+      "fds": 8991
+    },
+    "51538": {
+      "rss_anon_kib": 29900,
+      "fds": 8998
+    },
+    "51539": {
+      "rss_anon_kib": 31976,
+      "fds": 8990
+    },
+    "51540": {
+      "rss_anon_kib": 31424,
+      "fds": 8995
+    },
+    "51545": {
+      "rss_anon_kib": 29672,
+      "fds": 8994
+    },
+    "51552": {
+      "rss_anon_kib": 29680,
+      "fds": 8998
+    },
+    "51557": {
+      "rss_anon_kib": 29628,
+      "fds": 8979
+    },
+    "51564": {
+      "rss_anon_kib": 24988,
+      "fds": 7126
+    },
+    "51526": {
+      "rss_anon_kib": 108360,
+      "fds": 24
+    }
+  },
+  "after": {
+    "51527": {
+      "rss_anon_kib": 26280,
+      "fds": 8998
+    },
+    "51528": {
+      "rss_anon_kib": 26336,
+      "fds": 8981
+    },
+    "51533": {
+      "rss_anon_kib": 28488,
+      "fds": 8991
+    },
+    "51538": {
+      "rss_anon_kib": 26436,
+      "fds": 8998
+    },
+    "51539": {
+      "rss_anon_kib": 28560,
+      "fds": 8990
+    },
+    "51540": {
+      "rss_anon_kib": 28224,
+      "fds": 8995
+    },
+    "51545": {
+      "rss_anon_kib": 26288,
+      "fds": 8994
+    },
+    "51552": {
+      "rss_anon_kib": 26348,
+      "fds": 8998
+    },
+    "51557": {
+      "rss_anon_kib": 26292,
+      "fds": 8979
+    },
+    "51564": {
+      "rss_anon_kib": 22360,
+      "fds": 7126
+    },
+    "51526": {
+      "rss_anon_kib": 108360,
+      "fds": 24
+    }
+  },
+  "worker_anon_reclaimed_bytes": 33599488,
+  "retained_artifacts": 88125,
+  "all_artifact_sizes_preserved": true,
+  "hash_samples": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/ir/Batteries.c",
+      "sha256": "79b90a56c21f32d5ad22b159bec0cd1f75172529ed4c49b8247d4811461325d4"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Data/Random/MersenneTwister.ir.sig.hash",
+      "sha256": "2fc9663c47532c6a05d8f499839c0b669f8c4a809b91162b3c0bca81a71440d2"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Azumaya/Matrix.ir.sig",
+      "sha256": "ee536d3a3805d943686da4c6328de186a347d9fc075e2dd94bba83ec0c2601d4"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Category/ModuleCat/EnoughInjectives.olean.server.hash",
+      "sha256": "4ff75f4214b15b2a2b346d01d0e4dd49f0ab2d247a48a4da533cdfc2f92c41f0"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Category/MonCat/FilteredColimits.olean.hash",
+      "sha256": "cb1d571e4c98e7fb3b06d8fad1b40a2e52bf273c997e76ea4661713958a55f3b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/FreeMonoid/FreeSemigroup.trace",
+      "sha256": "f8d8141773314fd9891036009ec2bb5e12d2a2dbc0fe764f515681275f7a7299"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Homology/DerivedCategory/DerivabilityStructureInjectives.olean.server",
+      "sha256": "b200de344d6dc81c8074e649d997bfe246a5fc457bcdcb3936a2ba5e4a98cc17"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Homology/HomotopyCategory/DegreewiseSplit.olean.server.hash",
+      "sha256": "29efff8cf5e64d74ff948c7feda616a068493377e4e02128397b068499f980c4"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Homology/SpectralObject/Homology.olean.hash",
+      "sha256": "ad9c947d4c695af9a9f0303b2519f98e52681b3429a538fc7704f4c4863bce76"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Lie/Weights/Killing.ir.sig.hash",
+      "sha256": "4626bb3b0ec4f25ecb7ddb63fab0616d5be0c49e2454ba096fad9f7480481ff6"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/NonAssoc/PreLie/Basic.olean.private.hash",
+      "sha256": "502d5810a73c840361cfb267d60905c4fbef008624f236628ffad012c58a1503"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Ring/Units.olean.server",
+      "sha256": "4004f571b7725bebf7023dc072de61ffe398f97e6a9bab1be8f7daf842129418"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Semireal/Defs.olean.server.hash",
+      "sha256": "7df63425a850d5f574feac3fc31e9cb09653779b8198355749256fc50d469b50"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.c.hash",
+      "sha256": "c9b063eef039c5a4276f324def4f5627e6b68c1478bc9293a9e62735910fd5c8"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/Morphisms/WeaklyEtale.olean.private",
+      "sha256": "4db01984aec24c02af98cb153a5d00686ede088414e5c522a06f567ab84e0796"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/AlgebraicTopology/ExtraDegeneracy.c",
+      "sha256": "c8ec1d51bf2b2d9e53aaad9299f3190894919eaf80647fa9e6008e5e5e83c31f"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/AnodyneExtensions/Basic.olean",
+      "sha256": "35bc3bdeaba180af8341523ab083705ed8db0598796e37c14fe61ab4bf62da62"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicTopology/SimplicialSet/StrictSegal.olean.hash",
+      "sha256": "f1c1f9e377f1f16b1f219853ae64148ef2c8fd68b14ce63b8335742050d8c586"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Pi.ir",
+      "sha256": "4dd051822d9f9ddb7ad6e088a57733eca1f79cfadd1fd40d0fb2d29707445188"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/CompMul.olean",
+      "sha256": "8d697fec949c10a1e4114814ebbf0130357bae1c7f155c01ce6c4b7d3cba0395"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/LineDeriv/IntegrationByParts.ir.hash",
+      "sha256": "38f0d7296622673fed87a76c7749a96fea0b7b131f58d2d48efa695926939a45"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/RemovableSingularity.olean.server",
+      "sha256": "ecdd4480e269fdf975456df06ddc29df2e1acbbd3bd2d68ce2d757741ce2efe7"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/Radon.ilean",
+      "sha256": "44eb2af6a2bb4ca0ca06248b1918dbb90e13bf9843e752be2e4ff99600dd345f"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/LaxMilgram.ilean",
+      "sha256": "0368f729692c690e3753aeef0b462b2bef20a6fce485590c91fa0936a8c3f2c7"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Meromorphic/IsolatedZeros.olean",
+      "sha256": "cec354efb0204626e991e6088b2c35ecb6e27d52e7156e41882e03d855aea5a1"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Module/Alternating/Curry.ilean.hash",
+      "sha256": "6b15036872fa697ecc5c08828b2622bfc21259b5c9237e41d5928d77d32d2af4"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Unbundled/SpectralNorm.ilean.hash",
+      "sha256": "b17ec21c66468e921cbaaae39770d88be5d8e5289eb33f4ead2b8044fe878c9a"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/ExpDeriv.ilean.hash",
+      "sha256": "b930725ba61288c794a717d917c4717b34cb70a868b16de01603c17c53441255"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Analysis/SpecificLimits/Fibonacci.c.hash",
+      "sha256": "cf887a5dfaf122bae98404305ac5260b46aab3be33620c32f86b936a9bb509d6"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Abelian/SerreClass/Basic.trace",
+      "sha256": "2409dcd339ca4f4e5398f5702d3e9ddc00bef3ea2cd14c239e6fabb5c5e7e867"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Oplax.c.hash",
+      "sha256": "d665a40381900217818292c722daec20f16ddc927a3cd21f009c79cfd009f2b9"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Distributive/Cartesian.ir.sig",
+      "sha256": "5b1f3ddce05b3ef4eb83b9e44b7f703b8f94415b0aaa27f78fe181688c5cc6ef"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Functor/KanExtension/StrongGenerator.trace",
+      "sha256": "c5685822fd318770622ce979fed37ae6bb0b262f94d6100487c23671dc764d74"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Join/Final.ilean.hash",
+      "sha256": "d662ee7c55abffdcb80be8ec4ba337b57d2c3f5c710390562b6186df7f76d309"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Limits/Lattice.ir",
+      "sha256": "c98ef4baee878519244b2ebcc1ed7845879b66582b9c7e62723cd53f9094b563"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Limits/Shapes/Pullback/Equalizer.olean.server",
+      "sha256": "c742bbbb664ef565fc5495eb426fb660cf247f4c897871286836e4254c2c6016"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Localization/LocallySmall.olean.hash",
+      "sha256": "ea9a85777cb30272e39cf5d064930f599f535161182562562689556dfd3e0307"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Monoidal/Closed/Functor.olean.server",
+      "sha256": "1f97175f619f0d88ab74796103194218dea14a9e1d322ef2e41d11904709c1d7"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/MorphismProperty/Concrete.ir.sig",
+      "sha256": "a3625c80e27916919e450d7be2576ed1f613c3f8ede27d8d8637af568590c5a8"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Preadditive/Injective/Preserves.olean.server",
+      "sha256": "a876726b83cbe8c3a3ae25bfbccdee514d5176bed3650a1c24f7969d0138ed18"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Shift/Quotient.ilean",
+      "sha256": "61b0bcf9e8a28399350e6f95aa2bc6dcb2116cede8da1e7d99deca5d849de974"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Sites/Hypercover/ZeroFamily.olean.private.hash",
+      "sha256": "ba9eba7a3e81af89aad8853995e2252a0977aba50c623a50ad65d158562df219"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/SmallObject/Iteration/ExtendToSucc.ir",
+      "sha256": "211b7f41616b49f8fddb27dcec9aecf800e6a500651610d6af875e1084ca4da5"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/CategoryTheory/Types/Set.c.hash",
+      "sha256": "89fc5db4eb8383bbd920f9ba5f3ea37abba11d0de8ce4faa95f6f2d0d3798b9b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Combinatorics/Matroid/Minor/Order.ilean",
+      "sha256": "9fce280fe81cee940e8352f969e19cc8a14177ab977c87e66737e9c19759d25d"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Combinatorics/SimpleGraph/Partition.c",
+      "sha256": "c89320980f1b6576a7eb07af6ea0e70940b948934b7926888cac6c1588d8605a"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Condensed/Light/InternallyProjective.ilean.hash",
+      "sha256": "5b37221a6509f40d78be0badcf55ac810ecd2d927c10617ad0f35e702d5654d3"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fin/Init.olean",
+      "sha256": "42d44b1354da7e6fdf0f3310e9bbaab98ff0e667f9d12f2deba37657bfbfa512"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Fib/Basic.ilean.hash",
+      "sha256": "c677148c1e6c4c5437b5939682bf8989bf4c06b8bfca9b00f65368320067baba"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/EvenOddRec.trace",
+      "sha256": "27ae2d070a0a4086482123a31ffa70dd8c54a81f4261e03acde91926d9500deb"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Semiquot.ilean.hash",
+      "sha256": "85cd7dfe17c6b22f02a230411df98e4e9f324e679369d6ab88aaded4a89b870b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Dynamics/Ergodic/AddCircle.trace",
+      "sha256": "f1a8ac21e6343551ca0b65627e058d27d2f8064dd55f29de89e1239b97b2364c"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Geometry/Convex/AffineMap/Defs.olean.private",
+      "sha256": "f2d4c875acb81d998806a1925b48658bd0d5627739d649b3cd227e54e2b3cc86"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Geometry/Manifold/Algebra/LeftInvariantDerivation.olean.hash",
+      "sha256": "65a46661af498d1163dd289cb6addad4adeddeed4bdd860ff0edcb1ce7dfe757"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Geometry/Manifold/VectorBundle/CovariantDerivative/Torsion.olean.server.hash",
+      "sha256": "ac0e5b1c13c7e9a9ae07bb43a69798b9ebb86e817ab105353913a0b017665d1c"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/GroupAction/MultiplePrimitivity.trace",
+      "sha256": "ef0f0d3761e0018afe0456461ba9504f9c8ca5a0f5cc37567e4c8ff1fb5e15d8"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/InformationTheory/KullbackLeibler/ChainRule.olean.private.hash",
+      "sha256": "220eb0cdcbefeb105f2a58939d70b580c57bf74c95ebe5b92b8550833f4b0f5e"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Eigenspace/Basic.ilean",
+      "sha256": "c75182f954dd4fb48745135ce62188e0ad0c160afd2c67ced2367f743c27f004"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/LinearAlgebra/Matrix/Irreducible/Defs.c",
+      "sha256": "e768c3bde7e5093c32049db0e01664ab404e170e6c794e27b619780437f2dae2"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/RootSystem/Chain.olean.private.hash",
+      "sha256": "302046fa4306fce68a41265606480f74601de6e1e49d00282ee6e9d2e7d83597"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/MeasureTheory/Constructions/BorelSpace/ContinuousLinearMap.c",
+      "sha256": "88684d6967937e3c26a32dda7de83ecf298ba540ae7bd4e8aaebe942ca4b0dab"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Function/LpSeminorm/Basic.olean",
+      "sha256": "d803135d5368a8ad837f52c273d8738a21f89b33b39120802120938c9be5cb8d"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/CircleAverage.ir.sig.hash",
+      "sha256": "83be23056c9efa12958cc673e814c200f8e9bcaa2d3ccf419d632a46ed7898ea"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/MeasurableSpace/Prod.olean.hash",
+      "sha256": "86405cabc61486eb8e9b2170765c12b2749817affe760e1ec58dd6e3a0e26a8a"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/PreVariation.olean",
+      "sha256": "0227444daada64f68ab18ebf94ce9b878c829619ab37188535a26372348e926b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/VectorMeasure/Variation/Basic.olean.hash",
+      "sha256": "c7ab95a6e8ab514bbfa09faf1eca083668be8c2eee6e23634ca296af930731f9"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/DirichletCharacter/Basic.olean.server",
+      "sha256": "8e85906d13c3a5ddf4fea2af8df65de394177099653e3389b8444f92274af9c3"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/ModularForms/Basic.ir.hash",
+      "sha256": "2f612b9b6d8af2065de5f8758fefc646ffb38d97d2281d993a5f1aa80ba28316"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/NumberField/ExistsRamified.olean",
+      "sha256": "385455dc26baf84832d43dbe9d8139cb37bc967024055686570ed7164f87f0c8"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Wilson.olean.private.hash",
+      "sha256": "d3ac16fbd14c8d2ad4455d737e8feaa49a9b1b89eb939675eeaa29bdc7ce9ac9"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/PowersetCard.olean.private.hash",
+      "sha256": "fed436ab9e654349e0a8fcaf0945c1f50a5aed261c146beac5bd88a5e2f2bc2b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/WithBotTop.olean.server",
+      "sha256": "e7a1c23d5362b71d5a54a0b66b6ecb33d96aee6a079db5fb03beab4023b01ac0"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/Kernel/Composition/CompMap.ir",
+      "sha256": "d7036188fe726a611a76892bcd4df0082bf36275adb7eceeacd33664974231eb"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Probability/Process/Kolmogorov.c",
+      "sha256": "48f12c228ea5112cf88102a80b09e0dcce98154736ee62edb9f17cc6d454f66b"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Algebraic/Denominator.olean.server",
+      "sha256": "f5d29a8535a4622766879da569badc6ddd5b6c512e545ec37675d28333f7dbdd"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/RingTheory/Etale/Kaehler.c",
+      "sha256": "d9b979fe1724243f3b24294bf81d04c63bb8b0f04a84bd65f282ae42844046d1"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/HahnSeries/Summable.olean",
+      "sha256": "bb65b272d2efb2d9af0c37c8de6b1d99a8884bc41c9993ca3c460dcfb43a328a"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/LinearDisjoint.ir.hash",
+      "sha256": "936e58d69b008c246796b335ab65cc3150371359c2f1d42bac28279b046cc3e8"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Trunc.olean.server.hash",
+      "sha256": "c748bde0e166820f280eb6e10d7e92c21ad636db8d5796d43215b44469418577"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/QuasiFinite/Basic.ir.sig",
+      "sha256": "73630ca2ea291ec0cb255767d70e3acb3d34673f6e2395e7007dab5b1725043d"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Spectrum/Prime/ChevalleyComplexity.olean",
+      "sha256": "cde93286ae62fb3de6be60483e670858924d963810ebd2457fb2d591eab26d65"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/WittVector/MulP.olean.server",
+      "sha256": "e8d02bc8002727f356ea7c9adceb1aa4aa90ce7e9c237c0669c7012484579944"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/DiscreteConvolution.ir.sig.hash",
+      "sha256": "f0802dd992c33d743842942df904cb50e1679e0aa3578d412a5a3e1ea79d7edf"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/ProperAction/CompactlyGenerated.olean",
+      "sha256": "e0a9aa780f8ec2776107503b7c15850e665bcd713cf98bfbaa79c5eaba38d0f5"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Category/Profinite/Projective.olean.server",
+      "sha256": "141d8afd78fd52aa39f90c1b941cb34974cc4cfa2497054e42e11d2a8ef1de49"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Covering/Basic.olean.private.hash",
+      "sha256": "ac824b19f3a98d1d8a77c3a2e1c3e30c8fa2fea61907fd4cf413f52b69d33375"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/BundledFun.ilean.hash",
+      "sha256": "b989d9113abe0b89c3bc6ccc0e1bc3397a2db790f6e9820cb19a7b7f0055e8ac"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/SuccPred.ilean",
+      "sha256": "5c502b28367f0eefbb8764194c895ddf1f774923881162361a7710a360294460"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Topology/UniformSpace/Dini.c.hash",
+      "sha256": "5c425a22504d36c585eb52367cb74141db33c2eb43019a165a21f4ef4c83f251"
+    }
+  ]
+}

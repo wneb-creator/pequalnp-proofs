@@ -1,0 +1,46 @@
+[
+  {
+    "kind": "control_canonical",
+    "gates": 21,
+    "and_count": 6,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 16,
+    "unused_witnesses": [],
+    "cover_number": 6,
+    "counterexample": false
+  },
+  {
+    "kind": "control_postoutput_witnesses",
+    "gates": 41,
+    "and_count": 16,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 16,
+    "unused_witnesses": [
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "cover_number": 6,
+    "counterexample": false
+  },
+  {
+    "kind": "control_duplicate_and_shields",
+    "gates": 39,
+    "and_count": 13,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 16,
+    "unused_witnesses": [],
+    "cover_number": 6,
+    "counterexample": false
+  }
+]

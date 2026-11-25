@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "artifacts": 88125,
+  "disk_artifacts": 105,
+  "disk_bytes": 327634943,
+  "remaining_artifacts_sealed_same_inodes": 88020,
+  "disk_free_bytes": 120393728,
+  "old_holders_still_alive": true
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "control_canonical",
+    "gates": 17,
+    "and_count": 6,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 12,
+    "unused_witnesses": [],
+    "cover_number": 6,
+    "counterexample": false
+  },
+  {
+    "kind": "control_postoutput_witnesses",
+    "gates": 29,
+    "and_count": 12,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 12,
+    "unused_witnesses": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "cover_number": 6,
+    "counterexample": false
+  },
+  {
+    "kind": "control_duplicate_and_shields",
+    "gates": 35,
+    "and_count": 13,
+    "truth_rows": 4096,
+    "t_count": 0,
+    "served_edges": 12,
+    "unused_witnesses": [],
+    "cover_number": 6,
+    "counterexample": false
+  }
+]

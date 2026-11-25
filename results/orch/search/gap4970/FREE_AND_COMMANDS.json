@@ -1,0 +1,108 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "encoder_sha256": "dfd3f963443feb90ac7267b37d51194d6111f254b98cb721977cf31a1aaca599",
+  "review": "Independent researcher approved exact encoder and replayed all pinnedcontrol DIMACS clauses plus full64input circuits.",
+  "primitive_control": [
+    "python3",
+    "results/orch/search/gap4970/free_and_controls.py",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/direct-controls.json"
+  ],
+  "pinned_cycle6": [
+    "python3",
+    "results/orch/search/gap4970/free_and_or_sat.py",
+    "--graph",
+    "cycle6",
+    "--or-gates",
+    "5",
+    "--seconds",
+    "10",
+    "--pin-star-control",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control"
+  ],
+  "model": "Each OR operand and output are arbitrary nonempty conjunctions of inputs and earlier OR outputs. All actual OR nodes are retained. Target boundary and semantic servingstar constraints enforced.",
+  "T0": "All inputs masked by AND(x,x) after reconstruction; this adds p+l AND gates and zero OR gates. Raw model separately verified if T0 alreadyzero.",
+  "status": "All 42 four-by-four classes returned solver-UNSAT after the theta333 extension. K4 incidence OR10 remains UNKNOWN after120s; puncturedFano OR14 remains UNKNOWN after300s. No counterexample; no active solver from counterexample agent.",
+  "cycle6_or4": [
+    "python3",
+    "results/orch/search/gap4970/free_and_or_sat.py",
+    "--graph",
+    "cycle6",
+    "--or-gates",
+    "4",
+    "--seconds",
+    "30",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4"
+  ],
+  "cycle6_or4_result": {
+    "status": "UNSAT",
+    "seconds": 0.04826916899946809,
+    "claim": "Uncertified solver result for complete free-AND model with serving-stars; not a Lean proof."
+  },
+  "k4inc_or10": [
+    "python3",
+    "results/orch/search/gap4970/free_and_or_sat.py",
+    "--graph",
+    "k4inc",
+    "--or-gates",
+    "10",
+    "--seconds",
+    "120",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/k4inc_or10"
+  ],
+  "k4inc_or10_result": {
+    "status": "UNKNOWN",
+    "seconds": 120.00873556700026,
+    "started_utc": "2026-11-25T15:54:59.738469+00:00",
+    "variables": 7810,
+    "clauses": 32079
+  },
+  "theta333_or7_extension": {
+    "argv": [
+      "python3",
+      "results/orch/search/gap4970/free_and_or_sat.py",
+      "--graph",
+      "results/orch/search/gap4970/cases4/graph_13726.json",
+      "--or-gates",
+      "7",
+      "--seconds",
+      "120",
+      "--output",
+      "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120"
+    ],
+    "result": {
+      "status": "UNSAT",
+      "seconds": 52.49537872499968,
+      "started_utc": "2026-11-25T16:01:30.620854+00:00",
+      "variables": 3067,
+      "clauses": 12130
+    }
+  },
+  "fano_minor_or14": {
+    "argv": [
+      "python3",
+      "results/orch/search/gap4970/free_and_or_sat.py",
+      "--graph",
+      "results/orch/search/gap4970/fano_minus_incident_pair.json",
+      "--or-gates",
+      "14",
+      "--seconds",
+      "300",
+      "--memory-mib",
+      "512",
+      "--output",
+      "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300"
+    ],
+    "result": {
+      "status": "UNKNOWN",
+      "seconds": 300.0277503310008,
+      "started_utc": "2026-11-25T16:09:49.824096+00:00",
+      "variables": 21754,
+      "clauses": 91096,
+      "returncode": 0
+    }
+  }
+}

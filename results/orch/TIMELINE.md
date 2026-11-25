@@ -68,3 +68,29 @@
 2026-11-25T15:42:53.206616+00:00 — L-meta-4970: controlled3×3 and bounded4×4 search completed; no witness (4×4:28UNSAT,14UNKNOWN). Operator-count split checks underway; K4-incidence14 CNF prepared, waiting fresh lease before600-second solve.
 
 2026-11-25T15:44:53.841857+00:00 — K4-incidence14 SAT process verified running, started at15:43:02 UTC (ps and file timestamps),600-second cap and512MiB address-space cap. Earlier message giving15:45:44 was an inference error; completed driver timestamp/duration are authoritative.
+
+- 2026-11-25T15:47:01.332647+00:00 structure: CGP controls and2-second smoke passed; complete output archived; awaiting review and lease renewal before long run.
+
+- 2026-11-25T15:47:37.864652+00:00 structure: recorded theory-child corona-C6 obstruction to the local private-centre deletion induction; no full-statement refutation.
+
+- 2026-11-25T15:48:59.922526+00:00 structure: independently reviewed exact4970 K4-incidence CGP480s launched after root renewal15:48:12; seed497094,capacity28,256MiBcap; expected completion15:56:19.
+
+2026-11-25T15:53:25.238859+00:00: re-plan after first4970 phase: preserve1148-line checked partial, reject unsupported derivative and simple cofactor routes, continue exact-hypothesis K4 mutation search and reviewed free-AND OR-count synthesis. Full theorem remains unresolved; reductions are not open.
+
+2026-11-25T15:54:04.207764+00:00 — K4-incidence14 exact4970 SAT completed UNKNOWN, actualstart2026-11-25T15:43:02.115590+00:00,monotonic600.0305364459982seconds. Pinned15gate symmetry/count positivecontrol SAT and full1024input validated. Free-AND/limited-OR model developed; pinnedC6 OR5 positivecontrol SAT and full64input validated; independent review pending.
+
+- 2026-11-25T15:56:47.980062+00:00 structure: K4-incidence CGP480s completed normally;872,429,200mutations,3490restarts,best15,no14; allprintedcircuitsvalidated and complete logs archived.
+
+- 2026-11-25T15:58:13.740439+00:00 structure: separate coronaC6CGP controls and2-secondsmoke passed;1,629,024mutations,best17;4096-row verifier passed; source frozen awaiting review/renewal.
+
+- 2026-11-25T16:03:24.232611+00:00 structure: root-authorized coronaCGP stopped withSIGTERM/exit143 at16:02:50.835 after~124s because private-leaf AND elimination+L217+L599 rules out16 mathematically; all3emittedcontrolsvalidated, fullpartiallogs archived; no newLean17proofclaimed.
+
+2026-11-25T16:04:42.879706+00:00 — Theta333 free-AND OR7 search returned solver-UNSAT after 52.49537872499968 seconds, exact start 2026-11-25T16:01:30.620854+00:00. Combined with the unchanged short census, all 42 reviewed 4×4 classes now have uncertified UNSAT results at OR budget |E|−2. No counterexample.
+
+- 2026-11-25T16:06:26.480816+00:00 structure: puncturedFanoCGP4096-rowcontrols and2-secondsmoke passed;1,479,376mutations,best21; separate source/data/verifier frozen for independentreview.
+
+- 2026-11-25T16:07:46.506753+00:00 structure: approvedpuncturedFanoCGP480s launched afterrootrenewal16:06:37; seed497016694,capacity36,256MiB; expectedfinish16:15:20. Also corrected earlier message count to37FanoMIS+21positive=58boundarytests.
+
+- 2026-11-25T16:16:07.595461+00:00 structure: puncturedFanoCGP480s completed normally;336,751,024mutations,1348restarts,best21,no20; complete4096-row validation passed; archived along with candidateAND6 argument finite facts (notLean).
+
+2026-11-25T16:16:33.313452+00:00 — Punctured Fano free-AND OR14 run ended UNKNOWN, exact start 2026-11-25T16:09:49.824096+00:00, duration 300.0277503310008 seconds, return code0. All full outputs and source archived. Counterexample agent has no running solver and pauses further timed searches pending the independent AND5 census.

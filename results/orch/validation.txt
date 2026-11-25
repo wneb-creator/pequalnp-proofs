@@ -10,15 +10,17 @@ Named source SHA256: 276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db
 Checked components: semantic pure-star support costs, witness-centre uniqueness and finite cover selection, a direct READ1 obstruction, OR-only partition budgets, and exact selected-merge rank counts. The global remaining-gate inequality is unresolved. No final target theorem is declared.
 Source guard: REFUSED: the file holds no theorem. This is expected for the partial.
 Official tools/check-lean.mjs: CHECKER FAULT: the verifier ended without a verdict (exit null). Exit 3 after254.62s; our external memory guard stopped the run at7.25GiB non-reclaimable memory. No mathematical rejection or acceptance was reached.
-The unchanged native checker builds and complete Mathlib import passes. Genuine pinned cache artifacts are held in sealed memory files because disk was insufficient. No checker/configuration changes, fake artifacts or Mathlib source builds. Complete setup sources, manifests and all diagnostics are in checker-setup/. A reviewed migration plan is pending; no storage deletion yet.
+The unchanged native checker builds and complete Mathlib import passes. Genuine pinned cache artifacts are held in sealed memory files because disk was insufficient. No checker/configuration changes, fake artifacts or Mathlib source builds. Complete setup sources, manifests and all diagnostics are in checker-setup/. The reviewed migration preserved all88125 genuine artifacts, moving327634943 bytes to disk after removing four reproducible link-time archives. Cached native-checker build and source/binary hash checks passed. The retry also exited3 without a verdict after216.97s when the same external7.25GiB guard stopped it; no OOM occurred. Full diagnostics and limits are preserved, with no acceptance claim.
 
 No proof PR opened. Cleanup not triggered because the full theorem/checker did not pass. Line counts before/after cleanup:1148/1148.
 
 Finite search: all10 admissible3x3 classes solver-UNSAT below the bound;4x4 census28UNSAT/14UNKNOWN; K4-incidence14gates UNKNOWN after600.03s. K4 mutation search480s,872429200 mutations, best15gates; no counterexample. Free-AND C6 OR4 solver-UNSAT; K4 OR10 UNKNOWN after120s. Solver-UNSAT has no Lean certificate here, and heuristic non-discovery is not a lower bound. Full source, models, complete logs and independent reviews are preserved or being archived after each completed run.
 
-Current own lease: L-meta-4970, issued2026-11-25T15:22:04.914Z, renewed by root every5minutes. Last manual renewal expiry16:17:55.623Z. Earlier own1904/2583 leases returned410; work stopped and all results were pushed. A recovery reply returned another pilot's preexisting2590 lease; it was not worked, renewed or released. Desk null answers:0.
+Current own lease: L-meta-4970, issued2026-11-25T15:22:04.914Z, renewed by root every5minutes. Last manual renewal expiry16:38:52.756Z; the five-minute timer continues. Earlier own1904/2583 leases returned410; work stopped and all results were pushed. A recovery reply returned another pilot's preexisting2590 lease; it was not worked, renewed or released. Desk null answers:0.
 
 Provenance: StarLedger adapts checked L782 (k-sandhu, PR149; card_assigned fromL270); OrPartition adapts checked L529. New corollaries and other helpers were independently reviewed. Details in research/ and NOTES.md.
 
 Sub-agents: 7 (setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=134 subagents=7
+TIMING total=156 subagents=7
+
+Further completed searches: puncturedFano OR14 UNKNOWN300.03s; exact-hypothesis mutation search480s,336751024mutations,best21gates/no20. The reviewed free-OR/T0 AND5 model for that graph returnedsolver-UNSAT9.243s. Independent mathematical review also gives an informal AND≥6 argument, not Lean-certified here. All42 admissible4x4 classes now have solver-UNSAT free-AND OR-budgetE−2 outcomes. The6x6 minimumdegree2 census has25 independently reproduced classes,24 eligibleAND5 cases after a33-MIS exclusion; boundedbatch is currentlyrunning. These finite experiments do not prove the posted general statement.

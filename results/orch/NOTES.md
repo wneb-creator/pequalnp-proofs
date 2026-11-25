@@ -307,3 +307,106 @@ Thus L11159 alone cannot provide the positive derivative obligations needed for 
 ### Independent frozen search archive review
 
 Frozen archive review completed: all 42 census4 cases have complete result, solver stdout and solver stderr files; every summary status matches the result and raw logs. Reported totals are 28 UNSAT and 14 UNKNOWN, with no SAT. Operation-count wrapper sha256 bec5de97249b6e928b652da8daa6e2348aca8095aa9baee0d57dc7fdc31c429b reviewed: exact at-most subset encoding independently tested on8194 assignments across sizes0..8 and both signs. Both P4 operator positive controls independently replayed on all inputs, recomputing full function, syntactic T0 and exact star wires; AND=2, OR=3. Both C6 count experiments are UNKNOWN and establish no bound. Review approval covers this frozen archive as computational evidence only.
+
+2026-11-25T15:47:01.332647+00:00 structure: exact-hypothesis K4-incidence CGP source and verifier prepared under results/orch/search/gap4970. Full1024-row controls include necessary unused post-output witnesses and duplicate AND colour shields. Two-second smoke run made2,611,616 mutations, best15. Source frozen for independent review; no long phase yet.
+
+2026-11-25T15:47:37.864652+00:00
+
+### Private-centre cofactor limitation (theory child, mathematical argument)
+
+Take the corona of a six-cycle: cycle vertices v_i and private leaves w_i. The circuit OR_i [v_i AND (w_i OR v_(i+1))] has 17 gates, 12 edges, minimum cover six, tCount zero, and six marked star witnesses each with a private served leaf edge. Deleting any centre v_i removes three graph edges and decreases minimum cover by one. Four original gates can simplify away: its AND, its now-unused private star OR, the predecessor star OR which collapses to its leaf input, and one output-joining OR. However, the predecessor private leaf edge now has no marked size-two star witness. Restoring such a witness costs one OR, leaving only three net saved gates against the four needed by a direct tight induction. All centres behave symmetrically.
+
+This is a mathematically checked limitation of the particular marked-witness/cofactor induction, not a counterexample to L4970, not a claim that a more extensive reconstruction is impossible, and not Lean-certified here. The root and structure agent received the independent theory child's derivation.
+
+### Independent CGP source and controls review
+
+Independent CGP counterexample-search review: APPROVED for bounded exploratory runs.
+
+circuit_cgp.cpp sha256 208fde648b5730552d722a6daaf0ebc14e8be5b890fa3b95a1d6d5a1de49c93d
+verify_cgp.py sha256 bd774e5166b95ea4d32efa17e64dee143a4ca5d0282c710f92143d5a06b5074e
+
+Reviewed complete C++ and Python sources. The graph is the4-by-6 incidence graph of K4, with12 edges and minimum vertex cover4; the counterexample threshold is14 gates. All1024 input assignments are evaluated exactly. AND/OR gates have two earlier operands and duplicates are allowed. OR reach is the union at OR and empty at AND, matching tCount rather than semantic singleton support.
+
+Each semantic star witness must be an OR gate whose complete truth table equals OR of a neighbor subset of size at least2. Witnesses with a mixed-OR ancestor are excluded. Candidate keep sets include the full output cone and every selected witness cone, including unused and post-output witnesses. Mixed gates outside the keep set can be discarded safely. Compaction preserves ancestor closure and the output index, and emitted compact circuits are re-evaluated. Greedy witness cover is an upper bound on the size of a realizable retained circuit; it may miss better selections but cannot turn an invalid or oversized circuit into a false positive. Word widths/index bounds are safe for60 gates and10 inputs.
+
+The independent Python verifier checks every printed gate, full target truth table, all mixed OR gates, independently discovers semantic star witnesses, verifies claimed witness coverage and counts, and independently computes cover number. It does not trust the search pruning or witness list for existence.
+
+Independently replayed each emitted control and smoke record using a separate integer-bitset implementation and an explicit edge list, without invoking verify_cgp.py: canonical15-gate control;31-gate output-before-witness control with8 unused witness gates;31-gate duplicate-AND masking control with6 duplicate operands; final15-gate smoke result. All1024 rows, syntactic T0, semantic witness coverage, and reported AND counts passed. Compile/control/verifier stderr files were empty. Smoke diagnostics:2611616 mutations,1225948 accepted,11 restarts; best15. The internal negative controls correctly reject missing witnesses, wrong target, and genuinely mixed OR cones.
+
+No counterexample was found by these controls or the short smoke run. A long run with no improvement is heuristic negative evidence only, not a lower-bound proof. Any future candidate with at most14 retained gates must still pass the independent Python verifier and be formalized in Lean before claiming a refutation.
+
+### 2026-11-25 15:55 UTC — OR-only bound: sound restricted argument and missing step (lemmas)
+
+The standalone claim `ORcount >= |E| - 1` does not gain strength from tCount = 0. For any arbitrary monotone circuit, insert AND(x,x) masks for every original input and redirect every original use to its mask. This preserves functions, all original OR-gate serving witnesses, and the OR count, while making every OR reach contain no raw input. The extra cost is entirely in AND gates. This is an obstruction only to deriving the OR bound from tCount; it is not a counterexample to the total-gate target.
+
+A sound stronger-hypothesis case is available: suppose all serving stars have centres in the point part, and for each active point a there is one existing gate computing the OR of its entire neighborhood N(a). Apply SelectedMerges separately to the sets of line inputs N(a). No-C4 implies that two such sets intersect in at most one input, so the selected OR gate sets are disjoint. Each full-neighborhood output connects all its neighbors, giving at least deg(a)-1 assigned OR gates. Summing gives |E|-c OR gates, where c is the number of active points. Every assigned gate accepts a line singleton, hence is true on the baseline with all lines true and all points false. Restricting all line inputs to true makes the final circuit compute the OR of the c active point inputs. The ordinary singleton partition argument then requires c-1 OR gates false on that baseline. Those are disjoint from the assigned gates, so ORcount >= |E|-1. This argument does not need tCount = 0.
+
+The posted hypothesis is weaker: a centre can have several disconnected serving subsets, and chosen centres can lie on both parts. The selected-merge argument then reserves only |E|-r gates (up to edge-overlap corrections), where r is the number of serving support components. The baseline restriction proves only c-1 further OR gates, not the required r-1. No rigorous general component-joining inequality has been established. In particular, unsafe intermediate AND gates can filter multiple candidate stars, so an ordinary edge-union rank induction is unsound without an additional invariant.
+
+The counterexample agent has implemented exact free-AND OR-count synthesis, retaining all OR nodes as serving witnesses, and independently verifies the expanded Boolean circuit. C6 with five OR gates is a verified positive control. A four-OR C6 search is pending review/renewal. No counterexample to the posted theorem or the OR-count split has been found.
+
+### Independent free-AND encoding review
+
+Independent free-AND / limited-OR encoder review: APPROVED for the stated finite computational experiments.
+
+Source free_and_or_sat.py sha256 dfd3f963443feb90ac7267b37d51194d6111f254b98cb721977cf31a1aaca599.
+
+Completeness: retain every original OR gate in topological order. Each operand and the final output can be expanded through all AND ancestors until reaching an input or an earlier OR gate. The resulting conjunction is nonempty for valid AO2 circuits on a nonempty graph function, and repeated leaves can be removed by Boolean idempotence. Thus arbitrary amounts of AND sharing do not escape this model; every actual OR node remains available as a semantic service witness, even when unused or after the output. Smaller OR budgets can be padded by unused duplicate-input OR nodes.
+
+The conjunction CNF sets each auxiliary bad bit iff its source is selected and false, then sets the output iff no bad bit exists. Constant true/false source and target cases are handled correctly by literal simplification. Nonempty membership clauses are explicit. Each node is exactly the OR of two such conjunctions. Reused boundary and singleton/complement tests are complete by monotonicity, as in the independently reviewed base encoder.
+
+Reconstruction uses only two-input AND/OR gates with earlier reads. Sharing cached conjunctions is semantically valid. Every modeled OR node is emitted. Input masking prepends one AND(x,x) per raw input; this preserves every modeled Boolean function and OR count, and makes every reconstructed OR-only reach empty. Hence masked circuits satisfy syntactic T=0. Raw circuits are independently counted and only eligible for a total-bound counterexample when their T=0 and full serving checks also pass. An OR-count violation alone is correctly not called a refutation of4970.
+
+Independent pinned-control replay: C6 solver assignment satisfies all3905 DIMACS clauses over1041 variables. Separately evaluated the collapsed model and reconstructed raw8-gate/5-OR and masked14-gate/5-OR circuits on all64 assignments, rechecking target, T=0 and exact pure-star service. All passed. Also independently validated the optional K4 symmetry pinned control: all53378 clauses over3974 variables and all1024 truth rows,15 gates,11 ORs, exact service and T=0.
+
+Limit: source and positive-control approval does not certify an UNSAT solver result or prove a universal OR-count theorem. Any SAT circuit with sufficiently low TOTAL size still requires independent full verification and a Lean refutation before claiming the posted statement false.
+
+2026-11-25T15:59:54.921511+00:00 — Counterexample agent: the independently reviewed free-AND/limited-OR model completed all 42 classes in the 4×4 census at OR budget |E|−2 with 5-second caps: 41 solver-UNSAT (all pseudoforests), one UNKNOWN (theta333, mask13726), no SAT. Separately, C6 OR4 was UNSAT in 0.048 seconds; K4 incidence OR10 was UNKNOWN after 120 seconds. Every original OR node is retained as a potential serving witness. Reconstruction adds AND(x,x) input masks to establish T=0 without increasing OR count. These remain uncertified solver experiments. Sources and complete outputs: results/orch/search/gap4970/.
+
+### 2026-11-25T16:00:19.343860+00:00 Independent corona C6 CGP review
+Frozen source/verifier independently reviewed; all7 control/smoke records replayed on all4096 inputs, exact star service, syntactic T0 and cover6. PASS; threshold≤16 correctly tests total-size counterexamples. Greedy witness selection may miss improvements; absence of a candidate is not a proof. See research/4970-corona-cgp-independent-review.txt.
+
+2026-11-25T16:03:24.232611+00:00
+### Corona search stopped after recognizing existing-bound consequence
+
+The planned480-second corona run was intentionally stopped after approximately124seconds at2026-11-25 16:02:50.835UTC, with SIGTERM/exit143, on root instruction. It had emitted only the three valid controls and no smaller circuit. All emitted circuits were revalidated on4096inputs. Complete partial stdout/stderr are preserved; no final mutation count was emitted before termination.
+
+Reason: any essential private leaf reaches an AND through OR gates (otherwise the singleton leaf would make the output true). Set that leaf to1: its first AND receives a true operand and becomes a copy. Set its unique neighbour to0: the remaining graph is the five-core path with one private leaf at each core. Its cover number is five, so the checked general L217 bound requires five remaining ANDs, giving at least six originally. The checked L599 pseudoforest bound requires at least eleven ORs for the original twelve-edge corona. Together they give at least17gates. Root independently checked this mathematical assembly; it is not presented as a newly Lean-checked proof. No UNSAT claim is made from the interrupted search.
+
+### 2026-11-25T16:05:45.029068+00:00 Independent free-OR/limited-AND review
+Frozen encoder f8b7264c reviewed and approved. Exact flattening/T0 completeness checked; duplicate AND barriers retained; appended unused stars included in total cost. Three independent CNF and4096-row controls passed. Details research/4970-free-or-independent-review.txt. No timed search run by reviewer.
+
+### 2026-11-25 16:06 UTC — reviewed free-OR / limited-AND synthesis (lemmas)
+
+Added reusable exact model `results/orch/search/gap4970/free_or_and_sat.py` (296 lines, SHA256 f8b7264c258883137ed6a5e0eb488bf1a1e043c85e7270a6874adc7f29bb3b44). Each AND operand is a nonempty OR of primary inputs and earlier AND outputs; selected primary inputs must be monochromatic. This is the exact flattened form of syntactic tCount = 0. The final output is an OR of selected AND outputs, since the graph function rejects every singleton. Every original AND, including AND(x,x), is retained during binary expansion; only OR gates may be cached or idempotently simplified. Pure star OR witnesses may be appended after the output with zero extra AND cost. Full expansion is checked on all 4096 inputs, raw OR reach, and all serving witnesses by the independently written serve_sat.verify.
+
+Deterministic controls in `free_or_and_controls.py` pass pinned-CNF unit propagation and exhaustive semantic checking: corona C6 with six AND / seventeen total gates; a retained duplicate-input AND mask with seven AND / eighteen total gates; and the Fano plane minus one incident point-line pair with six AND / twenty-one total gates. All stdout/stderr is preserved under `/tmp/oec/pequalnp-pilot-94/plane-lemmas/free_or_and_controls.*`.
+
+Research independently approved the frozen encoder after checking source and completeness, every pinned CNF clause, all 4096 truth rows, canonical, unused post-output serving OR, and mixed-semantic masked-guard controls. The corona five-AND search is omitted because the private-leaf elimination argument already gives six AND gates. The intended test is the verified C4-free 6-by-6 Fano-minus-incident graph (16 edges, minimum degree 2, perfect matching and cover number 6), at AND budget 5, after root renews the lease. A five-AND model could refute the proposed AND-count split; its expanded total size must still be checked before claiming any refutation of the posted theorem.
+
+2026-11-25T16:07:46.506753+00:00 structure correction: an earlier agent message misstated58 as the Fano maximal-independent-set count. The correct counts are37maximal independent sets and21positive edge inputs, for58boundary tests in total. The logarithmic AND-count observation remainsceil(log2(37))=6, which does not exclude6AND gates. No owned notes containingtheincorrect58MISwordingwerefound.
+
+### 2026-11-25T16:07:51.696074+00:00 Punctured-Fano independent review and bound scan
+Punctured CGP/source/data and7 control/smoke circuits approved after complete4096-row replay; threshold20 checked. No existing unconditional AND>=6 cofactor theorem found in targeted final-statement census; see research/4970-punctured-bound-scan.txt. Counts clarified: fullFano37MIS+21edges=58boundary tests; punctured23MIS+16edges=39tests. Existing NOTES already used correct37MIS count. Corona stopped-run archive verified as intentionally interrupted, not UNSAT.
+
+### 2026-11-25 16:07:38 UTC — punctured-Fano AND-count test finished (lemmas)
+
+After root renewal at 16:06:37 and research clearance that no existing checked bound/cofactor already excludes five AND gates, the reviewed free-OR/T0 model searched Fano minus one incident point-line pair at AND budget five. Independent counts give 23 maximal independent sets, so the generic 2^5 orientation bound does not exclude this budget. The exact CNF has 1590 variables, 6157 clauses, and 39 boundary input tests. CaDiCaL returned UNSAT in 9.243178977 seconds under the approved 120-second / 512-MiB limits. Both stderr files are empty. This is solver evidence only, not a Lean proof or a refutation/proof of the posted theorem.
+
+Complete source, CNF, stdout, stderr, and JSON results are retained in `results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.*`. No candidate circuit was produced. The solver slot is free. Together with the canonical 21-gate / six-AND circuit, this suggests that any 20-gate counterexample on this graph would need at most fourteen OR gates; that deduction remains computational evidence until the AND bound is kernel-certified.
+
+### 2026-11-25T16:10:26.859968+00:00 Punctured-Fano occurrence restriction
+L910 generic mergeInput argument yields MIS(v)<=2^(ANDcount-rawOccurrenceGates(v)). Punctured counts [11,7,11,7,7,7,7,7,7,11,7,11] imply at AND5 raw vertex occurrences≤1 for0,2,9,11 and≤2 forothers. Duplicate operands count once per gate. No final lower-bound claim; see research/4970-punctured-occurrence-cut.txt.
+
+2026-11-25T16:16:07.595461+00:00
+### Punctured-Fano CGP outcome and candidate AND bound
+
+The exact-hypothesis CGP480-second run completed after336,751,024mutations and1,348restarts; minimum21gates, no≤20candidate. All4emittedcircuits passed full4096-row validation. Sources and complete logs are under results/orch/search/gap4970/punctured-cgp-*. No search-based lower-bound claim.
+
+Theory child proposed a candidate AND≥6 proof, not yet Lean formalized: each of the four degree-two vertices belongs to11maximal independent sets, forcing exactly one signed occurrence under a5AND assumption after singleton stripping. MIS separation then makes its bare slot private, and pairwise MIS exclusion makes the four gate IDs distinct. Setting those four inputs tozero leaves C8. Only the fifth gate can first fire, giving a rectangle G; the other four gates introduce at most four bare OR forms, so output is G AND h(z1,z2,z3,z4). A monotone four-variable h has at most6primeCNFclauses; G adds2, contradicting C8 requiring10clauses. Finite facts were checked in Python and saved in punctured-mis.json and punctured-low-facts.json; the symbolic argument is undergoing independent review. This would settle only this instance AND count, not the full L4970 statement or the remaining OR count.
+
+### 2026-11-25T16:16:44.060390+00:00 Punctured-Fano AND6 argument independently approved
+Structure child proposed private-slot restriction toC8. Independent reviewer checked all symbolic steps, singleton-strip source,44 separator facts,6 pair exclusions and10-versus8 CNF contradiction. This mathematically excludesAND5 even withoutT0. No new Lean theorem or total-size21 bound claimed. Full argument: research/4970-punctured-and6-math-review.txt.
+
+### 2026-11-25T16:18:13.436093+00:00 Independent6x6 census driver and completed puncturedCGP review
+Frozen boundedAND5 driver approved; complete independent9976family/25orbit census and allMIS/matching/cache checks passed. Punctured480s final21gate circuit matches previously independently4096-row-verified canonical control;336751024mutations/1348restarts, no improvement. Reports in research/4970-free-or-census6-independent-review.txt and4970-punctured-cgp-independent-review.txt.

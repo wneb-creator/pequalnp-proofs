@@ -1,0 +1,27 @@
+{
+  "status": "NO_COUNTEREXAMPLE_FOUND",
+  "duration_seconds": 480,
+  "seed": 497016694,
+  "capacity": 36,
+  "virtual_memory_cap_mib": 256,
+  "truth_rows_per_candidate": 4096,
+  "reviewer": "pilot94_research",
+  "sources": {
+    "results/orch/search/gap4970/punctured_fano_cgp.cpp": "f3134d1983c33dd8201e234429ed1a6cde821d7bdf6bccc9297f23004cc5941f",
+    "results/orch/search/gap4970/verify_punctured_fano_cgp.py": "b5408b18e1118ab8051f4c1f383e17c78c5cc51b05050ced5833a8f06821b1ff",
+    "results/orch/search/gap4970/punctured-fano.input": "5f3b07ff48801274db33377db736fb4526da07c6e1a2a4a2f07a990395e464b8",
+    "results/orch/search/gap4970/fano_minus_incident_pair.json": "1c21114dba2405bcbdb06a3b8136bc2dc317f5a2b69c51ded220d1b9af66473b"
+  },
+  "search_kind": "heuristic_exact_hypothesis_CGP",
+  "lower_bound_claim": false,
+  "finished_utc": "2026-11-25T16:15:19+00:00",
+  "observed_seconds": 480,
+  "exit_code": 0,
+  "minimum_gates": 21,
+  "iterations": 336751024,
+  "restarts": 1348,
+  "accepted_mutations": 140751528,
+  "verification": "PASS_ALL_EMITTED_CIRCUITS",
+  "formal_lower_bound": false,
+  "started_utc_approx": "2026-11-25T16:07:20+00:00"
+}

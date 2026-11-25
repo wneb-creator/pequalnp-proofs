@@ -1,0 +1,26 @@
+{
+  "removed": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/lib/lean/libInit.a",
+      "bytes": 26018412,
+      "sha256": "b7761753a83d9ca61975853815dd9331bdf83050c7d4eb8d4c1a049487ca0ed4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/lib/lean/libLake.a",
+      "bytes": 22688882,
+      "sha256": "064746f5d04af194707da916aadd5e890f96a4346d64bb714e707ca1463c02e6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/lib/lean/libLean.a",
+      "bytes": 323318154,
+      "sha256": "d9a3c092ea06d684037da40dfdc45893032818ad7c9cb48a50bff87388e8ba02"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/lib/lean/libStd.a",
+      "bytes": 29400554,
+      "sha256": "43c09fa0f1884aa0c79ddf80980055d46c9be34588067d3e63ca9f629ee1bb76"
+    }
+  ],
+  "removed_bytes": 401426002,
+  "other_static_archives_preserved": true
+}

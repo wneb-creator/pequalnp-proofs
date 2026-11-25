@@ -1,0 +1,87 @@
+Independent corona C6 CGP review 2026-11-25T16:00:19.343505+00:00
+corona_cgp.cpp sha256=0418c4949ee33319be5eb5b58394f881e632b97b3ab2ae4b56c1d7b4808aba96
+verify_corona_cgp.py sha256=b523d3cdf4e2922d1dee8dffaf94e6b6a3c37526345d28f335e147e4588f8580
+Complete sources reviewed. Diff from independently reviewed K4 encoder only changes graph/constants, sharp canonical/control sizes, and threshold. WORDS=64 covers all4096 rows; 60 gate ancestor bits fit uint64_t. All raw inputs split at6. Full exact semantic OR witnesses are retained even after output; compacted circuits retain ancestor cones for output and selected witnesses. Greedy joint witness cost is an upper bound and can miss improvements, never creates a false counterexample. Duplicate fanins allowed. All emitted gates satisfy syntactic zero mixed OR count.
+Independent replay uses explicit12-edge list, Python integer truth tables, all4096 inputs, exhaustive vertex-cover enumeration, and complete noC4 verification. All7 emitted control/smoke records passed, including6 unused post-output witnesses and6 duplicate input-AND shields. Sharp threshold is12+6-1=17; a target counterexample must have at most16 total gates. Smoke produced no such circuit; this is not a lower-bound proof.
+[
+  {
+    "source": "corona-controls.stdout",
+    "kind": "control_canonical",
+    "gates": 17,
+    "and_count": 6,
+    "unused_witnesses": [],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-controls.stdout",
+    "kind": "control_postoutput_witnesses",
+    "gates": 29,
+    "and_count": 12,
+    "unused_witnesses": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-controls.stdout",
+    "kind": "control_duplicate_and_shields",
+    "gates": 35,
+    "and_count": 13,
+    "unused_witnesses": [],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-smoke.stdout",
+    "kind": "control_canonical",
+    "gates": 17,
+    "and_count": 6,
+    "unused_witnesses": [],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-smoke.stdout",
+    "kind": "control_postoutput_witnesses",
+    "gates": 29,
+    "and_count": 12,
+    "unused_witnesses": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-smoke.stdout",
+    "kind": "control_duplicate_and_shields",
+    "gates": 35,
+    "and_count": 13,
+    "unused_witnesses": [],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  },
+  {
+    "source": "corona-smoke.stdout",
+    "kind": "final_no_counterexample",
+    "gates": 17,
+    "and_count": 6,
+    "unused_witnesses": [],
+    "verified_truth_rows": 4096,
+    "counterexample": false
+  }
+]
+APPROVED for bounded search and archive. Root retains authorization/lease control.
+
+2026-11-25T16:07:51.695542+00:00 Interrupted long-run archive verified: exactly3 records identical in circuit/model fields to independently replayed controls; no improvement/final search record. Metadata explicitly SIGTERM/exit143/~124sec and INTENTIONALLY_STOPPED_EXISTING_BOUND_ARGUMENT. No UNSAT or new Lean claim; sources unchanged.

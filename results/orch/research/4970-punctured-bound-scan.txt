@@ -1,0 +1,5 @@
+Targeted punctured-Fano checked-bound scan
+No unconditional AND>=6 theorem for the12-vertex6+6,16-edge punctured Fano graph found among cached full-circuit/final gate-count statements or592 freshly merged statements.
+Closest checked sources: L217 and L962 have general noC4 cover lower bound only t<=5 / t=5. L634 and L910 give full14-vertex FanoAND>=7; reinsertion of the deleted incident pair can cost2ANDs, so these imply only5. L908 givesAND>=6 for a9vertex nonbipartite graph; L635 for Petersen. Neither is an induced vertex-deletion cofactor of a bipartite graph. FreshL9734 concerns a different12vertex15edge graph and total size>=19, not the punctured graph nor an AND>=6 bound. No promise made that all possible graph reductions have been exhausted.
+Punctured graph23 maximal independent sets and16 minimal true edges, total39 boundary tests. FullFano37 maximal independent sets plus21 edges, total58 boundary tests. Genericceil(log2 MIS) bounds respectively5 and6; neither excludes the proposed puncturedAND5 test.
+The punctured source/data/verifier have separate independent review in4970-punctured-cgp-independent-review.txt.

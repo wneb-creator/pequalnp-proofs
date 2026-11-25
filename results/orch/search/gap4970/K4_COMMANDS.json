@@ -1,0 +1,30 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "original_argv": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "k4inc",
+    "--gates",
+    "14",
+    "--seconds",
+    "600",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14"
+  ],
+  "original_resource_limit": "resource.setrlimit(resource.RLIMIT_AS,(512*1024*1024,512*1024*1024)) before runpy of above script",
+  "status": "UNKNOWN after600.030536 seconds; no witness",
+  "star_control_argv": [
+    "python3",
+    "results/orch/search/gap4970/k4_symmetry_sat.py",
+    "--gates",
+    "15",
+    "--minimum-and",
+    "4",
+    "--seconds",
+    "10",
+    "--pin-star-control",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control"
+  ]
+}

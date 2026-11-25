@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "status": "UNKNOWN",
+  "started_utc": "2026-11-25T15:43:02.115590+00:00",
+  "monotonic_seconds": 600.0305364459982,
+  "returncode": 0,
+  "memory_limit_mib": 512,
+  "cnf_bytes": 711736,
+  "cnf_sha256": "b27e7e3a52cfc2035108e57e816d1796c8e034308c6c02e33989b9f0c0706971",
+  "solver": "CaDiCaL",
+  "result_archive": "results/orch/search/gap4970/k4-original/k4inc_14.result.json",
+  "timing_correction": "Earlier message inferred15:45:44 incorrectly; exact driver timestamp is recorded above."
+}

@@ -1,0 +1,28 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "argv": [
+    "python3",
+    "results/orch/search/gap4970/run_free_and_census.py",
+    "--output-dir",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4",
+    "--seconds",
+    "5"
+  ],
+  "encoder_sha256": "dfd3f963443feb90ac7267b37d51194d6111f254b98cb721977cf31a1aaca599",
+  "driver_sha256": "bf29004c4470b39716184ccc86d66c6ab112bd9626d008c0e143db082c4f9128",
+  "completed": true,
+  "status_counts": {
+    "SAT": 0,
+    "UNSAT": 41,
+    "UNKNOWN": 1,
+    "ERROR": 0
+  },
+  "total_solver_seconds": 15.180163011000332,
+  "sole_unknown": {
+    "mask": 13726,
+    "graph": "theta333",
+    "OR_budget": 7,
+    "cap_seconds": 5
+  },
+  "claim": "Uncertified solver evidence only; no new Lean proof."
+}

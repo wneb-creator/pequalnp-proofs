@@ -1,0 +1,117 @@
+{
+  "p": 6,
+  "l": 6,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "name": "fano_minus_incident_pair",
+  "construction": "Start with (a-b) mod7 in{0,1,3}; delete point0 and line0; reindex1..6 to0..5.",
+  "degrees": [
+    2,
+    3,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    2
+  ],
+  "cover_number": 6,
+  "perfect_matching": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "no_four_cycle_verified": true,
+  "canonical_total_gate_upper": 21,
+  "total_counterexample_gates": 20,
+  "AND_counterexample_budget": 5
+}

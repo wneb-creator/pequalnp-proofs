@@ -1,0 +1,23 @@
+{
+  "status": "INTENTIONALLY_STOPPED_EXISTING_BOUND_ARGUMENT",
+  "started_utc": "2026-11-25T16:00:47+00:00",
+  "stopped_utc": "2026-11-25T16:02:50.835611+00:00",
+  "planned_seconds": 480,
+  "elapsed_seconds_approx": 124,
+  "exit_code": 143,
+  "signal": "SIGTERM",
+  "seed": 497060694,
+  "capacity": 32,
+  "virtual_memory_cap_mib": 256,
+  "minimum_emitted_gates": 17,
+  "emitted_records": 3,
+  "final_iteration_count": null,
+  "all_emitted_records_validated": true,
+  "reviewer": "pilot94_research",
+  "formal_lower_bound_claim": false,
+  "reason": "Root confirmed private-leaf AND elimination followed by checked L217(t=5) gives AND>=6; checked L599 gives OR>=11. This mathematical assembly was not newly Lean formalized. Search stopped as redundant, not UNSAT.",
+  "sources": {
+    "results/orch/search/gap4970/corona_cgp.cpp": "0418c4949ee33319be5eb5b58394f881e632b97b3ab2ae4b56c1d7b4808aba96",
+    "results/orch/search/gap4970/verify_corona_cgp.py": "b523d3cdf4e2922d1dee8dffaf94e6b6a3c37526345d28f335e147e4588f8580"
+  }
+}

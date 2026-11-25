@@ -1,0 +1,50 @@
+{
+  "p": 4,
+  "l": 4,
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      1
+    ]
+  ],
+  "or_budget": 6,
+  "cover_number": 4,
+  "tests": 34,
+  "variables": 2024,
+  "clauses": 8071,
+  "started_utc": "2026-11-25T15:58:18.964152+00:00",
+  "memory_limit_mib": 512,
+  "pinned_star_control": false,
+  "base_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9",
+  "seconds": 2.28481752100015,
+  "returncode": 20,
+  "status": "UNSAT"
+}

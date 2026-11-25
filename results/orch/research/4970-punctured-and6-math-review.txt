@@ -1,0 +1,25 @@
+Reviewed 2026-11-25T16:16:44.060061+00:00
+Independent review: punctured-Fano requires at least six AND gates
+Mathematical argument reviewed, not newly Lean formalized.
+
+Graph: 6+6 bipartite inputs, the cyclic Fano relation (a-b) mod7 in{0,1,3} with point0 and line0 removed and survivors renumbered0..5. Raw edges are {(0,6),(0,10),(1,6),(1,7),(1,11),(2,7),(2,8),(3,6),(3,8),(3,9),(4,7),(4,9),(4,10),(5,8),(5,10),(5,11)}. Low vertices are0,2,9,11. The argument does not assume syntactic T0 or serving-star witnesses.
+
+1. Collapse all OR cones into the AndCountCircuit model. Assuming at most5 ANDs, append harmless unused gates if necessary to obtain exactly5. Apply singleton stripping from L_meta_910.lean lines150-323: it preserves every output value and gate count, makes each pair of bare operand sets disjoint, and removes all singleton behavior from AND outputs. The final raw output set is empty because the graph function rejects all singletons. This normalization need not preserve T0; the argument is deliberately unrestricted.
+
+2. The mergeInput/free_bound argument from L910 lines351-416 is generic. For any vertexv, distinct maximal independent sets containingv have distinct Boolean left-operand signatures on AND gates omittingv from both bare input sets. Otherwise acceptance on the union of two such sets transports to acceptance on one of them, a contradiction. Each low vertex belongs to11 maximal independent sets. Therefore at least4 of5 gates omit it. Essentiality gives exactlyone occurrence gate; disjoint bare operands give exactlyone signed occurrence slot.
+
+3. The generic mis_cover argument from L910 lines473-553 assigns, for each maximal independent setI, at mostone false operand side per gate. Every excluded vertex has a raw occurrence in a selected slot; every included vertex avoids all selected slots. Independently checked: for each lowv and eachw!=v, some MIS containsw and excludesv. Thus v's unique signed slot contains no other raw variable: its bare set is exactly{v}. Also for every pair of lowvertices someMIS excludes both. Their unique slots cannot share a gate: same-side sharing violates privacy, opposite-side sharing cannot both be selected. Hence four distinct gates have a singleton private bare operand.
+
+4. Set all four low inputs tofalse. Their four private operands become bare-empty. Before the remaining fifth gate, every AND output iszero by induction. The fifth gate therefore originates a functionG=(OR S)(OR T) of its remaining bare input sets; S andT are disjoint. Every later gate has a bare-empty operand, so its output is bounded above byG. The final output is bounded byG because it has no raw output variables.
+
+5. The residual graph on high vertices[1,3,4,5,6,7,8,10] is connectedC8 with edges {(1,6),(1,7),(3,6),(3,8),(4,7),(4,10),(5,8),(5,10)}. Every residual edge assignment must satisfyG. Since S,T are disjoint, every edge has one endpoint inS and one inT. Connectivity and absence of isolated vertices force S,T to equal the two bipartition classes, up to exchange. Thus G is the conjunction of the OR of all4 high points and the OR of all4 high lines.
+
+6. For each of the four private gates, letzi be the OR of the high variables in its other bare operand. Inductively every restricted AND output is G times a monotone Boolean function of z1..z4. Before the source its factor is0; at the source it is1. At a later private gate, the empty-side operand is G H(z) and the other operand is zi OR G K(z). Their conjunction is exactly G H(z)(zi OR K(z)), since G isBoolean. Hence the final function has form G h(z1..z4), with monotoneh. This identity does not assume zi are independent, nor remove prior AND dependencies.
+
+7. A monotone Boolean function of4 formal variables has at most binomial(4,2)=6 prime positive CNF clauses: their supports form an antichain. Substituting eachzi by a positive OR of high inputs turns each clause into one positive OR clause. Multiplication byG adds only2 clauses. Therefore the restricted output has a positive CNF with at most8 clauses.
+
+8. The C8 edge function has10 maximal false assignments, its maximal independent sets. Every such assignment forces a distinct clause in any positive CNF: a clause falsified on a maximal false set must be exactly the complement of that set, since adding any missing variable makes the function true. Consequently at least10 clauses are necessary, contradicting8.
+
+Independent finite checks: all23 punctured MIS enumerated; each low lies in11; all44 vertex-separator facts and all6 low-pair-exclusion facts verified; residual graph is connected2-regular on8 vertices and has10MIS. Exhaustively checked all168 monotone Boolean functions on4 variables; maximum prime-CNF clause count6, consistent with the analytic Sperner argument.
+
+Verdict: APPROVED as a mathematical exclusion of AND<=5. It does not prove the posted general gap4970, does not prove the punctured graph's total21-gate bound, and has no new Lean certification. A total<=20 counterexample could still have at least6ANDs and fewer ORs.

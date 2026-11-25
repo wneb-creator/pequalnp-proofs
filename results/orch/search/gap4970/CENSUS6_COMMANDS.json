@@ -1,0 +1,16 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "argv": [
+    "python3",
+    "results/orch/search/gap4970/make_cases_6x6.py"
+  ],
+  "source_sha256": "b3fa55fccf9595d16f8f05ed16964ec6d2006927c62f8c4a6915545e597e39fd",
+  "manifest": "case_manifest_6x6.json",
+  "scope": "All C4-free bipartite graphs on6+6 labeled vertices with every degree at least2, modulo independent side permutations and side swap.",
+  "classes": 25,
+  "row_families": 9976,
+  "labeled_graphs": 7182720,
+  "candidates_MIS_at_most32": 24,
+  "independent_review": "review-census6.result.json",
+  "timed_search_status": "No timed batch of these classes has been launched."
+}

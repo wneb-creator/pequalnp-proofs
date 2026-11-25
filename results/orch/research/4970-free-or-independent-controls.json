@@ -1,0 +1,52 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "f8b7264c258883137ed6a5e0eb488bf1a1e043c85e7270a6874adc7f29bb3b44",
+  "controls": [
+    {
+      "name": "canonical",
+      "cnf_variables": 1692,
+      "cnf_clauses": 7045,
+      "clauses_independently_verified": true,
+      "gate_count": 17,
+      "and_count": 6,
+      "full_truth_rows": 4096,
+      "unused_star_gate_indices": [],
+      "T0": true
+    },
+    {
+      "name": "unused_postoutput_stars",
+      "cnf_variables": 5616,
+      "cnf_clauses": 22789,
+      "clauses_independently_verified": true,
+      "gate_count": 35,
+      "and_count": 12,
+      "full_truth_rows": 4096,
+      "unused_star_gate_indices": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "T0": true
+    },
+    {
+      "name": "duplicate_AND_barriers",
+      "cnf_variables": 6487,
+      "cnf_clauses": 26260,
+      "clauses_independently_verified": true,
+      "gate_count": 35,
+      "and_count": 13,
+      "full_truth_rows": 4096,
+      "unused_star_gate_indices": [],
+      "T0": true
+    }
+  ]
+}

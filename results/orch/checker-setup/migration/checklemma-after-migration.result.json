@@ -1,0 +1,10 @@
+{
+  "command": [
+    "lake",
+    "build",
+    "checklemma"
+  ],
+  "exit": 0,
+  "seconds": 5.0397219250007765,
+  "checker_source_driver_binary_hashes_unchanged": true
+}

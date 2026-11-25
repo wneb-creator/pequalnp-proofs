@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-25T16:05:12.805711+00:00",
+  "source_sha256": "276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db0f17d",
+  "source_lines": 1148,
+  "statement_sha256": "cda346535d439c65051d0c87d0583eeb8a2844a5a27190911936a1cd883ae4a2",
+  "mode": "check",
+  "purpose": "retry after genuine cache migration and worker metadata cleanup",
+  "expected_completed_result": "missing final theorem rejection; partial does not prove target"
+}

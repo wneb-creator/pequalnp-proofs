@@ -1,0 +1,73 @@
+Independent punctured Fano CGP review 2026-11-25T16:06:31.054234+00:00
+punctured_fano_cgp.cpp sha256=f3134d1983c33dd8201e234429ed1a6cde821d7bdf6bccc9297f23004cc5941f
+verify_punctured_fano_cgp.py sha256=b5408b18e1118ab8051f4c1f383e17c78c5cc51b05050ced5833a8f06821b1ff
+punctured-fano.input sha256=5f3b07ff48801274db33377db736fb4526da07c6e1a2a4a2f07a990395e464b8
+fano_minus_incident_pair.json sha256=1c21114dba2405bcbdb06a3b8136bc2dc317f5a2b69c51ded220d1b9af66473b
+Complete source changes reviewed relative to frozen full-source-reviewed corona engine. Only graph loading/data, graph-specific controls, metadata and total-size threshold changed. Specific data independently reconstructed as cyclic Fano incidence minus incident point0/line0; noC4 and exhaustive cover6 verified. Ancestor-mask width and4096-row truth arrays remain safe. Greedy witness selection remains an upper bound and cannot create false positives.
+[
+  {
+    "file": "punctured-controls.stdout",
+    "kind": "control_canonical",
+    "total_gates": 21,
+    "AND": 6,
+    "unused_star_ORs": 0,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-controls.stdout",
+    "kind": "control_postoutput_witnesses",
+    "total_gates": 41,
+    "AND": 16,
+    "unused_star_ORs": 10,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-controls.stdout",
+    "kind": "control_duplicate_and_shields",
+    "total_gates": 39,
+    "AND": 13,
+    "unused_star_ORs": 0,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-smoke.stdout",
+    "kind": "control_canonical",
+    "total_gates": 21,
+    "AND": 6,
+    "unused_star_ORs": 0,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-smoke.stdout",
+    "kind": "control_postoutput_witnesses",
+    "total_gates": 41,
+    "AND": 16,
+    "unused_star_ORs": 10,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-smoke.stdout",
+    "kind": "control_duplicate_and_shields",
+    "total_gates": 39,
+    "AND": 13,
+    "unused_star_ORs": 0,
+    "rows": 4096,
+    "counterexample": false
+  },
+  {
+    "file": "punctured-smoke.stdout",
+    "kind": "final_no_counterexample",
+    "total_gates": 21,
+    "AND": 6,
+    "unused_star_ORs": 0,
+    "rows": 4096,
+    "counterexample": false
+  }
+]
+All emitted records independently verified on4096 inputs, exact semantic pure-star service, T0, count and actual unused witnesses. Threshold is16+6-1=21, so at most20total gates would refute target. No candidate observed in controls/smoke; not a proof. APPROVED for bounded search using these exact frozen input data.
+2026-11-25T16:18:13.436093+00:00 Long-run independent replay by exact circuit identity: all4 emitted records equal independently4096-row-replayed controls; final21gates,6ANDs after480seconds,336751024mutations,1348restarts. Complete runstderr: accepted_mutations=140751528 iterations=336751024 restarts=1348. Source unchanged. No20-gate candidate; not a lower-bound proof.

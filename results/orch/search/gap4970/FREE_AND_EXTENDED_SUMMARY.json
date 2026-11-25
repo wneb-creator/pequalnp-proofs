@@ -1,0 +1,302 @@
+{
+  "outcomes": [
+    {
+      "mask": 13726,
+      "OR_budget": 7,
+      "status": "UNSAT",
+      "seconds": 52.49537872499968,
+      "evidence": "free-and/theta333_or7_120.result.json"
+    },
+    {
+      "mask": 4958,
+      "OR_budget": 6,
+      "status": "UNSAT",
+      "seconds": 1.6468073960004403,
+      "evidence": "free-and-census4/case_4958.result.json"
+    },
+    {
+      "mask": 4973,
+      "OR_budget": 6,
+      "status": "UNSAT",
+      "seconds": 1.7184735399987403,
+      "evidence": "free-and-census4/case_4973.result.json"
+    },
+    {
+      "mask": 5805,
+      "OR_budget": 6,
+      "status": "UNSAT",
+      "seconds": 1.6633978669997305,
+      "evidence": "free-and-census4/case_5805.result.json"
+    },
+    {
+      "mask": 13740,
+      "OR_budget": 6,
+      "status": "UNSAT",
+      "seconds": 2.28481752100015,
+      "evidence": "free-and-census4/case_13740.result.json"
+    },
+    {
+      "mask": 862,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.33283978200051934,
+      "evidence": "free-and-census4/case_862.result.json"
+    },
+    {
+      "mask": 4383,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.6164469350005675,
+      "evidence": "free-and-census4/case_4383.result.json"
+    },
+    {
+      "mask": 4399,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.2037631319999491,
+      "evidence": "free-and-census4/case_4399.result.json"
+    },
+    {
+      "mask": 4414,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.3096891309996863,
+      "evidence": "free-and-census4/case_4414.result.json"
+    },
+    {
+      "mask": 4459,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.2167019070002425,
+      "evidence": "free-and-census4/case_4459.result.json"
+    },
+    {
+      "mask": 4687,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.14898422799888067,
+      "evidence": "free-and-census4/case_4687.result.json"
+    },
+    {
+      "mask": 4699,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.1467465909991006,
+      "evidence": "free-and-census4/case_4699.result.json"
+    },
+    {
+      "mask": 4702,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.1713109730008,
+      "evidence": "free-and-census4/case_4702.result.json"
+    },
+    {
+      "mask": 4732,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.1436538620000647,
+      "evidence": "free-and-census4/case_4732.result.json"
+    },
+    {
+      "mask": 4972,
+      "OR_budget": 5,
+      "status": "UNSAT",
+      "seconds": 0.15703612699871883,
+      "evidence": "free-and-census4/case_4972.result.json"
+    },
+    {
+      "mask": 287,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.08735889600029623,
+      "evidence": "free-and-census4/case_287.result.json"
+    },
+    {
+      "mask": 303,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.022425114000725443,
+      "evidence": "free-and-census4/case_303.result.json"
+    },
+    {
+      "mask": 317,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.0331395680004789,
+      "evidence": "free-and-census4/case_317.result.json"
+    },
+    {
+      "mask": 318,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.032520722999834106,
+      "evidence": "free-and-census4/case_318.result.json"
+    },
+    {
+      "mask": 363,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.024357043999771122,
+      "evidence": "free-and-census4/case_363.result.json"
+    },
+    {
+      "mask": 854,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.025115931000982528,
+      "evidence": "free-and-census4/case_854.result.json"
+    },
+    {
+      "mask": 857,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.01064516999940679,
+      "evidence": "free-and-census4/case_857.result.json"
+    },
+    {
+      "mask": 858,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.01874622899958922,
+      "evidence": "free-and-census4/case_858.result.json"
+    },
+    {
+      "mask": 4382,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.0335902740007441,
+      "evidence": "free-and-census4/case_4382.result.json"
+    },
+    {
+      "mask": 4398,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.019052686999202706,
+      "evidence": "free-and-census4/case_4398.result.json"
+    },
+    {
+      "mask": 4458,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.012812867000320693,
+      "evidence": "free-and-census4/case_4458.result.json"
+    },
+    {
+      "mask": 4698,
+      "OR_budget": 4,
+      "status": "UNSAT",
+      "seconds": 0.019445750000159023,
+      "evidence": "free-and-census4/case_4698.result.json"
+    },
+    {
+      "mask": 31,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.007675801000004867,
+      "evidence": "free-and-census4/case_31.result.json"
+    },
+    {
+      "mask": 61,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.007614407999426476,
+      "evidence": "free-and-census4/case_61.result.json"
+    },
+    {
+      "mask": 279,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.007383418998870184,
+      "evidence": "free-and-census4/case_279.result.json"
+    },
+    {
+      "mask": 286,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.00967775699973572,
+      "evidence": "free-and-census4/case_286.result.json"
+    },
+    {
+      "mask": 295,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.005039267000029213,
+      "evidence": "free-and-census4/case_295.result.json"
+    },
+    {
+      "mask": 310,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.00735010900098132,
+      "evidence": "free-and-census4/case_310.result.json"
+    },
+    {
+      "mask": 316,
+      "OR_budget": 3,
+      "status": "UNSAT",
+      "seconds": 0.00551444400116452,
+      "evidence": "free-and-census4/case_316.result.json"
+    },
+    {
+      "mask": 15,
+      "OR_budget": 2,
+      "status": "UNSAT",
+      "seconds": 0.0033420110012229998,
+      "evidence": "free-and-census4/case_15.result.json"
+    },
+    {
+      "mask": 23,
+      "OR_budget": 2,
+      "status": "UNSAT",
+      "seconds": 0.0025599689997761743,
+      "evidence": "free-and-census4/case_23.result.json"
+    },
+    {
+      "mask": 53,
+      "OR_budget": 2,
+      "status": "UNSAT",
+      "seconds": 0.0025020520006364677,
+      "evidence": "free-and-census4/case_53.result.json"
+    },
+    {
+      "mask": 60,
+      "OR_budget": 2,
+      "status": "UNSAT",
+      "seconds": 0.003271755000241683,
+      "evidence": "free-and-census4/case_60.result.json"
+    },
+    {
+      "mask": 278,
+      "OR_budget": 2,
+      "status": "UNSAT",
+      "seconds": 0.0024173239999072393,
+      "evidence": "free-and-census4/case_278.result.json"
+    },
+    {
+      "mask": 7,
+      "OR_budget": 1,
+      "status": "UNSAT",
+      "seconds": 0.002925382001194521,
+      "evidence": "free-and-census4/case_7.result.json"
+    },
+    {
+      "mask": 19,
+      "OR_budget": 1,
+      "status": "UNSAT",
+      "seconds": 0.0024150709996320074,
+      "evidence": "free-and-census4/case_19.result.json"
+    },
+    {
+      "mask": 3,
+      "OR_budget": 0,
+      "status": "UNSAT",
+      "seconds": 0.0021235089989204425,
+      "evidence": "free-and-census4/case_3.result.json"
+    }
+  ],
+  "classes": 42,
+  "labeled_graphs": 14088,
+  "status": "42 solver-UNSAT results after one extended run",
+  "claim": "Uncertified finite SAT evidence; no Lean proof or formally checked UNSAT certificate. Original bounded census outcomes are retained unchanged."
+}

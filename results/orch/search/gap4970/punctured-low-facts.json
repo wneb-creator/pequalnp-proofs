@@ -1,0 +1,29 @@
+{
+  "status": "EXHAUSTIVE_PYTHON_CHECK_NOT_LEAN",
+  "low_vertices": [
+    0,
+    2,
+    9,
+    11
+  ],
+  "MIS_containing": {
+    "0": 11,
+    "2": 11,
+    "9": 11,
+    "11": 11
+  },
+  "MIS_excluding_low_pair": {
+    "(0, 2)": 5,
+    "(0, 9)": 6,
+    "(0, 11)": 6,
+    "(2, 9)": 6,
+    "(2, 11)": 6,
+    "(9, 11)": 5
+  },
+  "global_private_test": {
+    "0": true,
+    "2": true,
+    "9": true,
+    "11": true
+  }
+}

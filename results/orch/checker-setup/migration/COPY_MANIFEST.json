@@ -1,0 +1,77 @@
+[
+  {
+    "file": "cache-holder-transfer.py",
+    "bytes": 6613,
+    "sha256": "138e4873ad36eb8718b2a0ed9276d2f5c886c0bb4f3b1890d2917c5f5e2b8515"
+  },
+  {
+    "file": "cache-holder-transfer.stdout",
+    "bytes": 794,
+    "sha256": "fd1149494b728b7593c87cb421dcafd7cbb1e9c19ce0eab5bc9777ed4de24a12"
+  },
+  {
+    "file": "cache-holder-transfer.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "static-archive-migration-inventory.json",
+    "bytes": 5645,
+    "sha256": "7638af447459c687d61f9084f93528e1902950f816f28c10d1a7fe63a522a562"
+  },
+  {
+    "file": "static-archive-removal.json",
+    "bytes": 1027,
+    "sha256": "80500ebb5811bddf28687a310ee09948916be09cf004c4a3ed1054f74b3d56f6"
+  },
+  {
+    "file": "checker-migration-baseline.json",
+    "bytes": 420,
+    "sha256": "988b6eb61a447dd41786eef24da627658b41022529c58d05ac0c41a50b9a7885"
+  },
+  {
+    "file": "checklemma-after-migration.stdout",
+    "bytes": 39,
+    "sha256": "b85945e1c1d9430164575c7d01e44a0c37beab1d169a9a9f2329d607d79eaab1"
+  },
+  {
+    "file": "checklemma-after-migration.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "checklemma-after-migration.result.json",
+    "bytes": 168,
+    "sha256": "72102dcca01f063c7c2017322082d76c88ad6ab8a74e1a41e9a59df39e5544fc"
+  },
+  {
+    "file": "transfer-plan.json",
+    "bytes": 100,
+    "sha256": "dfa0c8ab1c351c4678962f05e8f184aac355a59cf6973af1026b00f8c213c6ff"
+  },
+  {
+    "file": "transfer-verification-before-stop.json",
+    "bytes": 215,
+    "sha256": "1a9cf9a7005e139beefef27389325ff41067ba0effaf852c1475a53dcc84fba1"
+  },
+  {
+    "file": "transfer-status.json",
+    "bytes": 294,
+    "sha256": "5a3b01df751db6e6d2cfb47de60676c190f1fcf1fa5da9d6c3e88f3d978c1259"
+  },
+  {
+    "file": "transfer-artifacts.jsonl.gz",
+    "bytes": 5090606,
+    "sha256": "68b60b5fb1d4a1d185c0e9b800f726b718ef315a394ae5b3e6b360a9dcbb3680"
+  },
+  {
+    "file": "transfer-diagnostics.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "old-loader-final-status.json",
+    "bytes": 401,
+    "sha256": "602cc64fdba8299a76184590813eb5503b5ffd847fffc5cc60744851d2472eca"
+  }
+]

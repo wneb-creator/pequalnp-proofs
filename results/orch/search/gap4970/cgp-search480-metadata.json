@@ -1,5 +1,5 @@
 {
-  "status": "RUNNING",
+  "status": "NO_COUNTEREXAMPLE_FOUND",
   "started_utc": "2026-11-25T15:48:19+00:00",
   "duration_seconds": 480,
   "seed": 497094,
@@ -12,5 +12,13 @@
     "results/orch/search/gap4970/verify_cgp.py": "bd774e5166b95ea4d32efa17e64dee143a4ca5d0282c710f92143d5a06b5074e"
   },
   "search_kind": "heuristic_exact_hypothesis_CGP",
-  "lower_bound_claim": false
+  "lower_bound_claim": false,
+  "finished_utc": "2026-11-25T15:56:19+00:00",
+  "exit_code": 0,
+  "minimum_gates": 15,
+  "iterations": 872429200,
+  "restarts": 3490,
+  "accepted_mutations": 407851335,
+  "verification": "PASS_ALL_EMITTED_CIRCUITS",
+  "formal_lower_bound": false
 }

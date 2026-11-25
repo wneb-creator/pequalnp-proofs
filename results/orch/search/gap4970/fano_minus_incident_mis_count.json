@@ -1,0 +1,31 @@
+{
+  "inputs": 12,
+  "edge_count": 16,
+  "maximal_independent_set_count": 23,
+  "maximal_independent_sets": [
+    63,
+    116,
+    169,
+    275,
+    551,
+    612,
+    673,
+    736,
+    771,
+    1038,
+    1542,
+    1794,
+    2077,
+    2132,
+    2185,
+    2321,
+    2384,
+    2565,
+    2945,
+    3084,
+    3208,
+    3652,
+    4032
+  ],
+  "five_and_orientation_upper": 32
+}

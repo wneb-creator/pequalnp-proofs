@@ -1,0 +1,1 @@
+{"command": ["node", "tools/check-lean.mjs", "lean/PEqualNP/Outside/L_meta_4970.lean", "/tmp/oec/pequalnp-pilot-94/gap4970-statement.txt", "check"], "exit": 3, "seconds": 216.96545194600003, "peak_nonreclaimable_bytes": 7791775744, "stopped_by_guard": "non-reclaimable memory guard"}

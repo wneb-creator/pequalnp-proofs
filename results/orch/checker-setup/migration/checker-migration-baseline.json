@@ -1,0 +1,14 @@
+{
+  "lean/CheckLemma.lean": {
+    "bytes": 30349,
+    "sha256": "86997b026ef2b80d738df77f4c214166cf5b0b2ea8cc98d4bd3c8b5e420dbdd5"
+  },
+  "tools/check-lean.mjs": {
+    "bytes": 14865,
+    "sha256": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad"
+  },
+  "lean/.lake/build/bin/checklemma": {
+    "bytes": 238682528,
+    "sha256": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620"
+  }
+}

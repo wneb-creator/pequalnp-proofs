@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS for the stated minimum-degree-at-least-two 6x6 graph census and exact MIS filtering; no circuit theorem or solver result is claimed",
+  "generator_sha256": "b3fa55fccf9595d16f8f05ed16964ec6d2006927c62f8c4a6915545e597e39fd",
+  "manifest_sha256": "11fd09bc5a10c5c7cebd80484c3b3f34f72e3442d1739294b83871829221e8b2",
+  "independent_enumerator_nodes": 81862,
+  "row_families": 9976,
+  "isomorphism_classes": 25,
+  "labeled_graphs": 7182720,
+  "all_expanded_orbits_disjoint_and_exactly_cover_independent_enumeration": true,
+  "all_perfect_matching_certificates_verified": true,
+  "all_MIS_sets_verified_by_independent_64_point_subset_algorithm": true,
+  "AND5_candidates_after_MIS_filter": 24,
+  "limitation": "Graphs with a vertex of degree zero or one, other side sizes, and arbitrary posted-step instances are outside this finite census. Surviving MIS filtering does not establish a circuit exists.",
+  "seconds": 0.3379893159999483
+}
