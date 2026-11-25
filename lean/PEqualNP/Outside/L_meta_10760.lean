@@ -1585,3 +1585,1844 @@ lemma phaseMatrix_impossible_kidN {target k : Nat} {rest : List Nat} {a b : Nat}
   simpa only [collisionMasks_eq, Nat.land_eq] using overlap
 
 end PEqualNP.Outside.L_meta_10760.AutoPool
+
+namespace PEqualNP.Outside.L_meta_10760
+
+section Live
+
+variable {α : Type} [DecidableEq α]
+
+def build (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, available => goal ∈ available
+  | k + 1, available => build ops goal k available ∨
+    ∃ a ∈ available, ∃ b ∈ available, a ≠ b ∧
+      ∃ z ∈ ops a b, build ops goal k (insert z available)
+
+def live (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, s => s = {goal}
+  | k + 1, s => live ops goal k s ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest)
+
+lemma compress {ops : α → α → Finset α} {goal : α} {k : ℕ} {available : Finset α}
+    (h : build ops goal k available) : ∃ s ⊆ available, live ops goal k s := by
+  induction k generalizing available with
+  | zero =>
+    exact ⟨{goal}, Finset.singleton_subset_iff.mpr h, rfl⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, tail⟩
+    · obtain ⟨s, hs, hrun⟩ := ih skip
+      exact ⟨s, hs, Or.inl hrun⟩
+    · obtain ⟨t, ht, hrun⟩ := ih tail
+      by_cases sub : t ⊆ available
+      · exact ⟨t, sub, Or.inl hrun⟩
+      · have hzmem : z ∈ t := by
+          by_contra hn
+          apply sub
+          intro u hu
+          rcases Finset.mem_insert.mp (ht hu) with rfl | ok
+          · exact False.elim (hn hu)
+          · exact ok
+        have hzout : z ∉ available := by
+          intro hh
+          exact sub ((Finset.insert_eq_of_mem hh) ▸ ht)
+        let rest := t.erase z
+        have hrest : rest ⊆ available := by
+          intro u hu
+          have hu' := Finset.mem_erase.mp hu
+          exact (Finset.mem_insert.mp (ht hu'.2)).resolve_left hu'.1
+        let s := insert a (insert b rest)
+        have hs : s ⊆ available := Finset.insert_subset ha (Finset.insert_subset hb hrest)
+        refine ⟨s, hs, Or.inr ⟨a, by simp [s], b, by simp [s], hab, z, hz,
+          fun h => hzout (hs h), rest, rfl, ?_⟩⟩
+        simpa [rest, Finset.insert_erase hzmem] using hrun
+
+lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal k s) : s.card ≤ k + 1 := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; simp [h]
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact (ih skip).trans (by omega)
+    · have hzrest : z ∉ rest := fun hm => hout (by simp [hm])
+      have htail := ih tail
+      rw [Finset.card_insert_of_notMem hzrest] at htail
+      have h₁ := Finset.card_insert_le a (insert b rest)
+      have h₂ := Finset.card_insert_le b rest
+      omega
+
+lemma live_separates {ops : α → α → Finset α} {goal : α} (D : α → Prop)
+    (hd : D goal) (hops : ∀ a b, ∀ z ∈ ops a b, D z → D a ∨ D b)
+    {k : ℕ} {s : Finset α} (h : live ops goal k s) : ∃ w ∈ s, D w := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; exact ⟨goal, by simp [h], hd⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact ih skip
+    · obtain ⟨w, hw, hD⟩ := ih tail
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · rcases hops a b w hz hD with h | h
+        · exact ⟨a, ha, h⟩
+        · exact ⟨b, hb, h⟩
+      · exact ⟨w, by simp [hw], hD⟩
+
+lemma first_live {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal (k + 1) s) :
+    s = {goal} ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest) := by
+  induction k with
+  | zero => exact h
+  | succ k ih =>
+    rcases h with skip | step
+    · rcases ih skip with done | ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, tail⟩
+      · exact .inl done
+      · exact .inr ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, Or.inl tail⟩
+    · exact .inr step
+
+end Live
+
+variable {width : Nat}
+
+def ops (x y : BitVec width) : List (BitVec width) :=
+  [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
+
+abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
+
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
+
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
+
+
+lemma ops_equal_bits {width : Nat} {a b z : BitVec width} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (ha : a[p.val] = a[q.val])
+    (hb : b[p.val] = b[q.val]) : z[p.val] = z[q.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+    List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [ha, hb]
+
+lemma live_target_separates {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) {p q : Fin width}
+    (different : target[p.val] ≠ target[q.val]) :
+    ∃ w ∈ S, w[p.val] ≠ w[q.val] := by
+  apply live_separates (fun w : BitVec width => w[p.val] ≠ w[q.val]) ?_ ?_ run
+  · rcases hg with rfl | rfl
+    · exact different
+    · simpa using different
+  · intro a b z hz hd
+    by_cases ha : a[p.val] = a[q.val]
+    · right
+      intro hb
+      exact hd (ops_equal_bits hz ha hb)
+    · exact Or.inl ha
+
+lemma uniqueSep_step {width k : Nat} {target g a b z c : BitVec width}
+    {U : Finset (BitVec width)} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (run : live basicOps g k (insert z U))
+    (hg : g = target ∨ g = ~~~target)
+    (different : target[p.val] ≠ target[q.val])
+    (ha : c = a → a ∉ U) (hb : c = b → b ∉ U)
+    (hs : uniqueSep (insert a (insert b U)) c p q) :
+    uniqueSep (insert z U) (if c = a ∨ c = b then z else c) p q := by
+  by_cases hc : c = a ∨ c = b
+  · rw [ite_eq_left hc]
+    have hcU : c ∉ U := by
+      rcases hc with rfl | rfl
+      · exact ha rfl
+      · exact hb rfl
+    have hU : ∀ w ∈ U, w[p.val] = w[q.val] := by
+      intro w hw
+      apply hs.2 w (by simp [hw])
+      intro eq
+      exact hcU (eq ▸ hw)
+    constructor
+    · obtain ⟨w, hw, hd⟩ := live_target_separates run hg different
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · exact hd
+      · exact False.elim (hd (hU w hw))
+    · intro w hw hne
+      exact hU w ((Finset.mem_insert.mp hw).resolve_left hne)
+  · rw [ite_eq_right hc]
+    refine ⟨hs.1, ?_⟩
+    intro w hw hne
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · apply ops_equal_bits hz
+      · exact hs.2 a (by simp) (fun eq => hc (.inl eq.symm))
+      · exact hs.2 b (by simp) (fun eq => hc (.inr eq.symm))
+    · exact hs.2 w (by simp [hw]) hne
+
+namespace ChromGate
+
+def eval (d : Fin 4) (a b : Bool) : Bool :=
+  match d.val with
+  | 0 => a && b
+  | 1 => a || b
+  | 2 => a && !b
+  | _ => b && !a
+
+lemma left_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    b₀ = b₁ → b₂ = b₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    a₀ = a₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
+  decide
+
+lemma right_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    a₀ = a₁ → a₂ = a₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    b₀ = b₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
+  decide
+
+lemma rectangle_false : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d c b →
+    eval d a b ≠ eval d a e →
+    eval d c e ≠ eval d a e →
+    eval d c e ≠ eval d c b → False := by
+  decide
+
+lemma sensitive_corner_unique : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d c e ≠ eval d (!c) e →
+    eval d c e ≠ eval d c (!e) → a = c ∧ b = e := by
+  decide
+
+lemma opposite_corners_false : ∀ (d : Fin 4) (a b : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d (!a) b → False := by
+  decide
+
+def word {width : Nat} (d : Fin 4) (a b : BitVec width) : BitVec width :=
+  match d.val with
+  | 0 => a &&& b
+  | 1 => a ||| b
+  | 2 => a &&& ~~~b
+  | _ => b &&& ~~~a
+
+lemma word_get {width : Nat} (d : Fin 4) (a b : BitVec width) (p : Fin width) :
+    (word d a b)[p.val] = eval d a[p.val] b[p.val] := by
+  fin_cases d <;> simp [word, eval]
+
+lemma of_basicOps {width : Nat} {a b z : BitVec width}
+    (hz : z ∈ basicOps a b) : ∃ d : Fin 4, z = word d a b := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
+
+end ChromGate
+
+namespace ChromGeneric
+
+variable {α : Type} [DecidableEq α]
+
+lemma retained_card {a b z : α} {rest : Finset α}
+    (hab : a ≠ b) (hz : z ∉ insert a (insert b rest)) :
+    (insert a (insert b rest)).card +
+        ((if a ∈ rest then 1 else 0) + (if b ∈ rest then 1 else 0)) =
+      (insert z rest).card + 1 := by
+  have hzr : z ∉ rest := fun h => hz (by simp [h])
+  rw [Finset.card_insert_of_notMem hzr]
+  by_cases ha : a ∈ rest <;> by_cases hb : b ∈ rest
+  · simp [ha, hb]
+  · have ha' : a ∈ insert b rest := by simp [ha]
+    simp [Finset.insert_eq_of_mem ha', Finset.card_insert_of_notMem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.insert_eq_of_mem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.card_insert_of_notMem hb, ha, hb]
+
+def collapse (a b z c : α) : α := if c = a ∨ c = b then z else c
+
+lemma collapse_mem {a b z c : α} {rest : Finset α}
+    (hc : c ∈ insert a (insert b rest)) :
+    collapse a b z c ∈ insert z rest := by
+  unfold collapse
+  split_ifs with h
+  · simp
+  · simp only [Finset.mem_insert] at hc ⊢
+    exact Or.inr ((hc.resolve_left (fun hca => h (Or.inl hca))).resolve_left
+      (fun hcb => h (Or.inr hcb)))
+
+
+lemma extend_coloring {edge : Finset α → α → α → Prop}
+    (irrefl : ∀ S c, ¬ edge S c c)
+    {a b z : α} {U : Finset α} (hab : a ≠ b)
+    (hnew : z ∉ insert a (insert b U))
+    (transport : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {x : Nat} {f : α → Nat}
+    (fbound : ∀ c ∈ insert z U, f c ≤ x)
+    (fproper : ∀ c ∈ insert z U, ∀ d ∈ insert z U,
+      edge (insert z U) c d → f c ≠ f d) :
+    ∃ g : α → Nat,
+      (∀ c ∈ insert a (insert b U),
+        g c ≤ x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0))) ∧
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+        edge (insert a (insert b U)) c d → g c ≠ g d := by
+  let base : α → Nat := fun c => f (collapse a b z c)
+  have hbase : ∀ c ∈ insert a (insert b U), base c ≤ x := by
+    intro c hc
+    exact fbound _ (collapse_mem hc)
+  have hproper : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      ¬ (c = a ∧ a ∈ U) → ¬ (c = b ∧ b ∈ U) →
+      ¬ (d = a ∧ a ∈ U) → ¬ (d = b ∧ b ∈ U) → base c ≠ base d := by
+    intro c hc d hd he hca hcb hda hdb
+    apply fproper _ (collapse_mem hc) _ (collapse_mem hd)
+    apply transport c hc d hd he
+    · intro h hmem; exact hca ⟨h, hmem⟩
+    · intro h hmem; exact hcb ⟨h, hmem⟩
+    · intro h hmem; exact hda ⟨h, hmem⟩
+    · intro h hmem; exact hdb ⟨h, hmem⟩
+  let g : α → Nat := fun c =>
+    if c = a ∧ a ∈ U then x + 1
+    else if c = b ∧ b ∈ U then x + 1 + (if a ∈ U then 1 else 0)
+    else base c
+  refine ⟨g, ?_, ?_⟩
+  · intro c hc
+    have hh := hbase c hc
+    dsimp only [g]
+    by_cases ha : a ∈ U <;> by_cases hb : b ∈ U
+    all_goals simp only [ha, hb, and_true, and_false, ite_true, ite_false]
+    all_goals first | omega | (split_ifs <;> omega)
+  · intro c hc d hd he heq
+    have hcBound := hbase c hc
+    have hdBound := hbase d hd
+    have hcd : c ≠ d := by
+      intro h
+      subst d
+      exact irrefl _ _ he
+    by_cases hca : c = a ∧ a ∈ U
+    · by_cases hda : d = a ∧ a ∈ U
+      · exact hcd (hca.1.trans hda.1.symm)
+      · by_cases hdb : d = b ∧ b ∈ U
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_left hdb, ite_eq_left hca.2] at heq
+          omega
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_right hdb] at heq
+          omega
+    · by_cases hcb : c = b ∧ b ∈ U
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_left hda, ite_eq_left hda.2] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · exact hcd (hcb.1.trans hdb.1.symm)
+          · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_right hda, ite_eq_right hdb] at heq
+            split_ifs at heq <;> omega
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_left hda] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_left hdb] at heq
+            split_ifs at heq <;> omega
+          · exact hproper c hc d hd he hca hcb hda hdb
+              (by simpa only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_right hdb] using heq)
+
+lemma live_coloring {ops : α → α → Finset α} {goal : α}
+    (edge : Finset α → α → α → Prop)
+    (irrefl : ∀ S c, ¬ edge S c c)
+    (transport : ∀ (k : Nat) (a b z : α) (U : Finset α),
+      a ≠ b → z ∉ insert a (insert b U) → z ∈ ops a b →
+      live ops goal k (insert z U) →
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {k : Nat} {S : Finset α} (hlive : live ops goal k S) :
+    ∃ x : Nat, ∃ f : α → Nat, S.card + x ≤ k + 1 ∧
+      (∀ c ∈ S, f c ≤ x) ∧
+      ∀ c ∈ S, ∀ d ∈ S, edge S c d → f c ≠ f d := by
+  induction k generalizing S with
+  | zero =>
+    change S = {goal} at hlive
+    subst S
+    refine ⟨0, fun _ => 0, by simp, by simp, ?_⟩
+    intro c hc d hd he
+    simp only [Finset.mem_singleton] at hc hd
+    subst c
+    subst d
+    exact False.elim (irrefl _ _ he)
+  | succ k ih =>
+    rcases hlive with hskip | ⟨a, ha, b, hb, hab, z, hz, hnew, U, rfl, htail⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih hskip
+      exact ⟨x, f, by omega, hbound, hproper⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih htail
+      obtain ⟨g, gbound, gproper⟩ := extend_coloring irrefl hab hnew
+        (transport k a b z U hab hnew hz htail) hbound hproper
+      refine ⟨x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0)),
+        g, ?_, gbound, gproper⟩
+      have hcount := retained_card hab hnew
+      omega
+
+end ChromGeneric
+
+namespace ChromRelation
+
+variable {width : Nat}
+
+def moved (a b z c : BitVec width) : BitVec width :=
+  if c = a ∨ c = b then z else c
+
+lemma moved_mem {a b z c : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) : moved a b z c ∈ insert z U := by
+  unfold moved
+  split_ifs with h
+  · exact Finset.mem_insert_self ..
+  · rcases Finset.mem_insert.mp hc with rfl | hc
+    · exact False.elim (h (.inl rfl))
+    · rcases Finset.mem_insert.mp hc with rfl | hc
+      · exact False.elim (h (.inr rfl))
+      · exact Finset.mem_insert_of_mem hc
+
+lemma moved_ne {a b z c d : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) (hd : d ∈ insert a (insert b U))
+    (hz : z ∉ insert a (insert b U)) (hne : c ≠ d)
+    (notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b))) :
+    moved a b z c ≠ moved a b z d := by
+  unfold moved
+  split_ifs with h₁ h₂ h₂
+  · exact False.elim (notboth ⟨h₁, h₂⟩)
+  · intro eq
+    exact hz (eq ▸ hd)
+  · intro eq
+    exact hz (eq ▸ hc)
+  · exact hne
+
+lemma criticalPair_symm {target : BitVec width} {S : Finset (BitVec width)}
+    {a b : BitVec width} (h : criticalPair target S a b) : criticalPair target S b a := by
+  obtain ⟨ha, hb, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  exact ⟨hb, ha, hab.symm, p, q, rb, ra, sb, sa, hp, hq, hrb, hra, hsb, hsa,
+    u₂, u₁, u₄, u₃, phase₂, phase₁⟩
+
+lemma bool_other_eq {x y z : Bool} (hy : x ≠ y) (hz : x ≠ z) : y = z := by
+  cases x <;> cases y <;> cases z <;> simp_all
+
+lemma moved_phase {a b z c : BitVec width} {U : Finset (BitVec width)}
+    {p r s q : Fin width} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (u₁ : uniqueSep (insert a (insert b U)) c p r)
+    (u₂ : uniqueSep (insert a (insert b U)) c s q)
+    (v₁ : uniqueSep (insert z U) (moved a b z c) p r)
+    (v₂ : uniqueSep (insert z U) (moved a b z c) s q)
+    (phase : c[p.val] = c[s.val]) :
+    (moved a b z c)[p.val] = (moved a b z c)[s.val] := by
+  by_cases hc : c = a ∨ c = b
+  · simp only [moved, ite_eq_left hc] at v₁ v₂ ⊢
+    obtain ⟨d, rfl⟩ := ChromGate.of_basicOps hz
+    rcases hc with rfl | rfl
+    · have e₁ := u₁.2 b (by simp) hab.symm
+      have e₂ := u₂.2 b (by simp) hab.symm
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.left_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+    · have e₁ := u₁.2 a (by simp) hab
+      have e₂ := u₂.2 a (by simp) hab
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.right_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+  · simpa only [moved, ite_eq_right hc] using phase
+
+lemma criticalPair_noCollapse {k : Nat} {target g a b z : BitVec width}
+    {U : Finset (BitVec width)} (hz : z ∈ basicOps a b)
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (ha : a ∉ U) (hb : b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) a b) : False := by
+  obtain ⟨_, _, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ : z[p.val] ≠ z[ra.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hra])
+      (fun _ => ha) (fun _ => hb) u₁).1
+  have v₂ : z[p.val] ≠ z[rb.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hrb])
+      (fun _ => ha) (fun _ => hb) u₂).1
+  have v₃ : z[sa.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsa, hq])
+      (fun _ => ha) (fun _ => hb) u₃).1
+  have v₄ : z[sb.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsb, hq])
+      (fun _ => ha) (fun _ => hb) u₄).1
+  have ara : a[ra.val] = a[q.val] := bool_other_eq u₁.1 (phase₁ ▸ u₃.1)
+  have brb : b[rb.val] = b[q.val] := bool_other_eq u₂.1 (phase₂ ▸ u₄.1)
+  have bra := u₁.2 b (by simp) hab.symm
+  have arb := u₂.2 a (by simp) hab
+  have bsa := u₃.2 b (by simp) hab.symm
+  have asb := u₄.2 a (by simp) hab
+  obtain ⟨d, hzword⟩ := ChromGate.of_basicOps hz
+  have d₁ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ara, ← bra] using v₁
+  have d₂ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, brb, ← arb] using v₂
+  have d₃ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₁, bsa] using v₃.symm
+  have d₄ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₂, asb] using v₄.symm
+  exact ChromGate.rectangle_false d _ _ _ _ d₁ d₂ d₃ d₄
+
+lemma criticalPair_step {k : Nat} {target g a b z c d : BitVec width}
+    {U : Finset (BitVec width)} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (fresh : z ∉ insert a (insert b U))
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (hca : c = a → a ∉ U) (hcb : c = b → b ∉ U)
+    (hda : d = a → a ∉ U) (hdb : d = b → b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) c d) :
+    criticalPair target (insert z U)
+      (if c = a ∨ c = b then z else c) (if d = a ∨ d = b then z else d) := by
+  have notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b)) := by
+    rintro ⟨hc, hd⟩
+    rcases hc with rfl | rfl <;> rcases hd with rfl | rfl
+    · exact h.2.2.1 rfl
+    · exact criticalPair_noCollapse hz run hg (hca rfl) (hdb rfl) h
+    · exact criticalPair_noCollapse hz run hg (hda rfl) (hcb rfl) (criticalPair_symm h)
+    · exact h.2.2.1 rfl
+  obtain ⟨hc, hd, hcd, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ := uniqueSep_step hz run hg (by simp [hp, hra]) hca hcb u₁
+  have v₂ := uniqueSep_step hz run hg (by simp [hp, hrb]) hda hdb u₂
+  have v₃ := uniqueSep_step hz run hg (by simp [hsa, hq]) hca hcb u₃
+  have v₄ := uniqueSep_step hz run hg (by simp [hsb, hq]) hda hdb u₄
+  change criticalPair target (insert z U) (moved a b z c) (moved a b z d)
+  exact ⟨moved_mem hc, moved_mem hd, moved_ne hc hd fresh hcd notboth,
+    p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb, v₁, v₂, v₃, v₄,
+    moved_phase hab hz u₁ u₃ v₁ v₃ phase₁,
+    moved_phase hab hz u₂ u₄ v₂ v₄ phase₂⟩
+
+end ChromRelation
+
+lemma live_criticalPair_coloring {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) :
+    ∃ color : BitVec width → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b := by
+  have irrefl : ∀ U c, ¬ criticalPair target U c c := by
+    intro U c h
+    exact h.2.2.1 rfl
+  obtain ⟨x, color, hcard, hbound, hproper⟩ :=
+    ChromGeneric.live_coloring (criticalPair target) irrefl
+      (by
+        intro n a b z U hab fresh hz tail c hc d hd edge hca hcb hda hdb
+        exact ChromRelation.criticalPair_step hab hz fresh tail hg
+          hca hcb hda hdb edge) run
+  refine ⟨color, ?_, ?_⟩
+  · intro a ha
+    have := hbound a ha
+    omega
+  · intro a b edge
+    exact hproper a edge.1 b edge.2.1 edge
+
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+lemma bin_mem_basicOps (d : Nat) (a b : Sig) : bin d a b ∈ basicOps a b := by
+  unfold bin
+  split_ifs <;> simp [basicOps, ops, BitVec.and_comm]
+
+lemma Live.to_generic {u : Bool} {target : Sig} {k : Nat} {S : Finset Sig}
+    (run : Live u target k S) : live basicOps target k S := by
+  induction run using Live.ind with
+  | stop _ => rfl
+  | @binary k U a b d _ _ _ hab fresh _ ih =>
+      exact Or.inr ⟨a, by simp, b, by simp, hab, bin d a b,
+        bin_mem_basicOps d a b, fresh, U, rfl, ih⟩
+
+lemma Live_criticalPair_coloring {u : Bool} {k : Nat} {target g : Sig}
+    {S : Finset Sig} (run : Live u g k S)
+    (phase : g = target ∨ g = ~~~target) :
+    ∃ color : Sig → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b := by
+  exact live_criticalPair_coloring run.to_generic phase
+
+lemma Live_criticalPair_coloring_self {u : Bool} {k : Nat} {target : Sig}
+    {S : Finset Sig} (run : Live u target k S) :
+    ∃ color : Sig → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b := by
+  exact Live_criticalPair_coloring run (Or.inl rfl)
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def graphEdge (graph : List ℕ) (i j : ℕ) : Bool :=
+  (graph.getD i 0).testBit j || (graph.getD j 0).testBit i
+
+def colorPrefix (f : ℕ → ℕ) (n : ℕ) : List ℕ := (List.range n).map f
+
+lemma colorPrefix_length (f : ℕ → ℕ) (n : ℕ) : (colorPrefix f n).length = n := by
+  simp [colorPrefix]
+
+lemma colorPrefix_get (f : ℕ → ℕ) (n i : ℕ) (hi : i < n) :
+    (colorPrefix f n).getD i 0 = f i := by
+  simp [colorPrefix, List.getD_eq_getElem?_getD, hi]
+
+lemma colorPrefix_succ (f : ℕ → ℕ) (n : ℕ) :
+    colorPrefix f (n + 1) = colorPrefix f n ++ [f n] := by
+  simp [colorPrefix, List.range_succ]
+
+def fitsColor (graph assigned : List ℕ) (c : ℕ) : Bool :=
+  !(graphEdge graph assigned.length assigned.length) &&
+    (List.range assigned.length).all (fun i =>
+      !(graphEdge graph assigned.length i) || assigned.getD i 0 != c)
+
+def colorSearch (graph : List ℕ) (colors : ℕ) : ℕ → List ℕ → Bool
+  | 0, _ => true
+  | k + 1, assigned => (List.range colors).any (fun c =>
+      fitsColor graph assigned c && colorSearch graph colors k (assigned ++ [c]))
+
+def graphColorable (graph : List ℕ) (colors : ℕ) : Prop :=
+  ∃ f : ℕ → ℕ, (∀ i < graph.length, f i < colors) ∧
+    ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j
+
+def graphColorCheck (graph : List ℕ) (colors : ℕ) : Bool :=
+  colorSearch graph colors graph.length []
+
+lemma graphEdge_colors {graph : List ℕ} {f : ℕ → ℕ}
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    {i j : ℕ} (hi : i < graph.length) (hj : j < graph.length)
+    (h : graphEdge graph i j = true) : f i ≠ f j := by
+  simp only [graphEdge, Bool.or_eq_true] at h
+  rcases h with h | h
+  · exact hproper i hi j hj h
+  · exact Ne.symm (hproper j hj i hi h)
+
+lemma fitsColor_prefix {graph : List ℕ} {f : ℕ → ℕ}
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    {n : ℕ} (hn : n < graph.length) :
+    fitsColor graph (colorPrefix f n) (f n) = true := by
+  have hself : graphEdge graph n n = false := by
+    cases he : graphEdge graph n n with
+    | false => rfl
+    | true => exact False.elim ((graphEdge_colors hproper hn hn he) rfl)
+  simp only [fitsColor, colorPrefix_length, hself, Bool.not_false, Bool.true_and]
+  apply List.all_eq_true.mpr
+  intro i hi
+  have hin : i < n := List.mem_range.mp hi
+  rw [colorPrefix_get f n i hin]
+  cases he : graphEdge graph n i with
+  | false => simp
+  | true =>
+    have hh : f i ≠ f n := Ne.symm (graphEdge_colors hproper hn (by omega) he)
+    simp [hh]
+
+lemma colorSearch_complete {graph : List ℕ} {colors : ℕ} {f : ℕ → ℕ}
+    (hbound : ∀ i < graph.length, f i < colors)
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    (k n : ℕ) (hsize : n + k ≤ graph.length) :
+    colorSearch graph colors k (colorPrefix f n) = true := by
+  induction k generalizing n with
+  | zero => rfl
+  | succ k ih =>
+    have hn : n < graph.length := by omega
+    apply List.any_eq_true.mpr
+    refine ⟨f n, List.mem_range.mpr (hbound n hn), ?_⟩
+    simp only [Bool.and_eq_true]
+    constructor
+    · exact fitsColor_prefix hproper hn
+    · simpa only [colorPrefix_succ] using ih (n + 1) (by omega)
+
+lemma graphColorCheck_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorCheck graph colors = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  simpa [graphColorCheck, colorPrefix] using
+    colorSearch_complete hbound hproper graph.length 0 (by omega)
+
+lemma not_graphColorable_of_check {graph : List ℕ} {colors : ℕ}
+    (h : graphColorCheck graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorCheck_complete hc
+  rw [h] at hh
+  cases hh
+
+def graphEmptyCheck (graph : List ℕ) : Bool :=
+  graph.all (fun row => decide (BitVec.ofNat graph.length row = 0))
+
+lemma graphEmptyCheck_complete {graph : List ℕ} (h : graphColorable graph 1) :
+    graphEmptyCheck graph = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  apply List.all_eq_true.mpr
+  intro row hrow
+  obtain ⟨i, hin, hroweq⟩ := List.mem_iff_getElem.mp hrow
+  have hr : graph.getD i 0 = row := by
+    simp [List.getD_eq_getElem?_getD, hin, hroweq]
+  apply decide_eq_true
+  rw [← hr]
+  apply BitVec.eq_of_getLsbD_eq_iff.mpr
+  intro j hj
+  have hfalse : (graph.getD i 0).testBit j = false := by
+    cases he : (graph.getD i 0).testBit j with
+    | false => rfl
+    | true =>
+      have hh := hproper i hin j hj he
+      have hb1 := hbound i hin
+      have hb2 := hbound j hj
+      omega
+  simp only [BitVec.getLsbD_ofNat, hj, decide_true, Bool.true_and, hfalse]
+  change false = (BitVec.ofNat graph.length 0).getLsbD j
+  simp [BitVec.getLsbD_ofNat]
+
+def graphColorFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 1 then graphEmptyCheck graph else graphColorCheck graph colors
+
+lemma graphColorFast_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorFast graph colors = true := by
+  unfold graphColorFast
+  split
+  next hc => subst colors; exact graphEmptyCheck_complete h
+  next hc => exact graphColorCheck_complete h
+
+lemma not_graphColorable_of_fast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorFast_complete hc
+  rw [h] at hh
+  cases hh
+
+lemma graphColorable_of_fin {graph : List ℕ} {colors : ℕ}
+    (f : Fin graph.length → Fin colors)
+    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) :
+    graphColorable graph colors := by
+  let g : ℕ → ℕ := fun i => if hi : i < graph.length then (f ⟨i, hi⟩).val else 0
+  refine ⟨g, ?_, ?_⟩
+  · intro i hi
+    simp [g, hi]
+  · intro i hi j hj he
+    have hh := hproper ⟨i, hi⟩ ⟨j, hj⟩ he
+    simp only [g, hi, hj, dite_true]
+    intro eq
+    apply hh
+    exact Fin.ext eq
+
+lemma not_fin_coloring_of_fast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorFast graph colors = false)
+    (f : Fin graph.length → Fin colors)
+    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
+  not_graphColorable_of_fast h (graphColorable_of_fin f hproper)
+
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def inducedGraph (graph chosen : List ℕ) : List ℕ :=
+  chosen.map fun v => (BitVec.ofBoolListLE (chosen.map fun u => graphEdge graph v u)).toNat
+
+lemma inducedGraph_length (graph chosen : List ℕ) :
+    (inducedGraph graph chosen).length = chosen.length := by
+  simp only [inducedGraph, List.length_map]
+
+lemma inducedGraph_bit (graph chosen : List ℕ) (i j : ℕ)
+    (hi : i < chosen.length) (hj : j < chosen.length) :
+    ((inducedGraph graph chosen).getD i 0).testBit j =
+      graphEdge graph (chosen.getD i 0) (chosen.getD j 0) := by
+  rw [List.getD_eq_getElem _ _ (by simpa only [inducedGraph_length] using hi)]
+  simp only [inducedGraph, List.getElem_map, BitVec.testBit_toNat,
+    BitVec.getLsbD_ofBoolListLE]
+  rw [List.getD_eq_getElem _ _ (by simpa only [List.length_map] using hj),
+    List.getElem_map, List.getD_eq_getElem _ _ hi, List.getD_eq_getElem _ _ hj]
+
+lemma graphColorable_induced {graph chosen : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors)
+    (hchosen : ∀ v ∈ chosen, v < graph.length) :
+    graphColorable (inducedGraph graph chosen) colors := by
+  obtain ⟨f, hbound, hproper⟩ := hc
+  have hv (i : ℕ) (hi : i < chosen.length) : chosen.getD i 0 < graph.length := by
+    rw [List.getD_eq_getElem _ _ hi]
+    exact hchosen _ (List.getElem_mem hi)
+  refine ⟨fun i => f (chosen.getD i 0), ?_, ?_⟩
+  · intro i hi
+    rw [inducedGraph_length] at hi
+    exact hbound _ (hv i hi)
+  · intro i hi j hj he
+    rw [inducedGraph_length] at hi hj
+    rw [inducedGraph_bit graph chosen i j hi hj] at he
+    exact graphEdge_colors hproper (hv i hi) (hv j hj) he
+
+def graphDegree (graph : List ℕ) (v : ℕ) : ℕ :=
+  ((List.range graph.length).filter fun u => graphEdge graph v u).length
+
+def degreeInsert (a : ℕ × ℕ) : List (ℕ × ℕ) → List (ℕ × ℕ)
+  | [] => [a]
+  | b :: rest => if b.1 ≤ a.1 then a :: b :: rest else b :: degreeInsert a rest
+
+def degreeSort : List (ℕ × ℕ) → List (ℕ × ℕ)
+  | [] => []
+  | a :: rest => degreeInsert a (degreeSort rest)
+
+def graphOrder (graph : List ℕ) : List ℕ :=
+  (degreeSort (((List.range graph.length).map fun v => (graphDegree graph v, v)).filter
+    fun entry => 0 < entry.1)).map Prod.snd
+
+lemma mem_degreeInsert (a entry : ℕ × ℕ) (entries : List (ℕ × ℕ)) :
+    entry ∈ degreeInsert a entries ↔ entry = a ∨ entry ∈ entries := by
+  induction entries with
+  | nil => simp [degreeInsert]
+  | cons b rest ih =>
+    simp only [degreeInsert]
+    split
+    · simp only [List.mem_cons]
+    · simp only [List.mem_cons, ih]
+      tauto
+
+lemma mem_degreeSort (entry : ℕ × ℕ) (entries : List (ℕ × ℕ)) :
+    entry ∈ degreeSort entries ↔ entry ∈ entries := by
+  induction entries with
+  | nil => rfl
+  | cons a rest ih =>
+    simp only [degreeSort, mem_degreeInsert, ih, List.mem_cons]
+
+lemma graphOrder_valid (graph : List ℕ) :
+    ∀ v ∈ graphOrder graph, v < graph.length := by
+  intro v hv
+  simp only [graphOrder, List.mem_map] at hv
+  obtain ⟨entry, he, hvalue⟩ := hv
+  rw [mem_degreeSort] at he
+  have hentry := (List.mem_filter.mp he).1
+  obtain ⟨u, hu, hue⟩ := List.mem_map.mp hentry
+  have hlt : u < graph.length := List.mem_range.mp hu
+  subst entry
+  change u = v at hvalue
+  simpa only [hvalue] using hlt
+
+def graphOrderedCheck (graph : List ℕ) (colors : ℕ) : Bool :=
+  graphColorCheck (inducedGraph graph (graphOrder graph)) colors
+
+lemma graphOrderedCheck_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphOrderedCheck graph colors = true := by
+  exact graphColorCheck_complete (graphColorable_induced hc (graphOrder_valid graph))
+
+lemma not_graphColorable_of_ordered {graph : List ℕ} {colors : ℕ}
+    (h : graphOrderedCheck graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphOrderedCheck_complete hc
+  rw [h] at hh
+  cases hh
+
+def graphColorDegreeFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 1 then graphEmptyCheck graph
+  else if 1 < colors then graphOrderedCheck graph colors
+  else graphColorCheck graph colors
+
+lemma graphColorDegreeFast_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphColorDegreeFast graph colors = true := by
+  unfold graphColorDegreeFast
+  split
+  · next h => subst colors; exact graphEmptyCheck_complete hc
+  · split
+    · exact graphOrderedCheck_complete hc
+    · exact graphColorCheck_complete hc
+
+lemma not_graphColorable_of_degreeFast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorDegreeFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorDegreeFast_complete hc
+  rw [h] at hh
+  cases hh
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.KernelNat128
+
+def mask : Nat := 0xffffffffffffffffffffffffffffffff
+def goal : Nat := 0xfffffffffffefffafffeffeefefeeca0
+def rows : List Nat := [0, 1, 2, 3, 4, 6, 8, 9, 12, 16, 24, 32, 36, 48, 64, 66, 80]
+
+def singles {α : Type} : List α → List (α × List α)
+  | [] => []
+  | a :: rest => (a, rest) :: (singles rest).map (fun (b, bs) => (b, a :: bs))
+
+def pairs {α : Type} : List α → List (α × α × List α)
+  | [] => []
+  | a :: rest => (singles rest).map (fun (b, bs) => (a, b, bs)) ++
+      (pairs rest).map (fun (b, c, bs) => (b, c, a :: bs))
+
+def rowPattern (row : Nat) : List Nat → Nat
+  | [] => 0
+  | w :: ws => ((w >>> row) &&& 1) ||| (rowPattern row ws <<< 1)
+
+def labelledPatterns (ws : List Nat) : List (Nat × Bool) :=
+  (List.range 128).map fun row => (rowPattern row ws, (goal >>> row) &&& 1 == 1)
+
+def patternSets (ps : List (Nat × Bool)) : Nat × Nat :=
+  ps.foldl (fun (positive, negative) (p, label) =>
+    if label then (positive ||| (1 <<< p), negative)
+    else (positive, negative ||| (1 <<< p))) (0, 0)
+
+def bitTest (w j : Nat) : Bool := (w >>> j) &&& 1 == 1
+
+lemma adj_bitTest (w i : Nat) : bitTest w i = w.testBit i := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [bitTest, Nat.and_one_is_mod, Nat.shiftRight_eq_div_pow,
+    Nat.testBit_eq_decide_div_mod_eq, beq_iff_eq, decide_eq_true_eq]
+
+def adj_bitmapStep (acc : Nat × Nat) (item : Nat × Bool) : Nat × Nat :=
+  if item.2 then (acc.1 ||| (1 <<< item.1), acc.2)
+  else (acc.1, acc.2 ||| (1 <<< item.1))
+
+lemma adj_bitmap_step_pos (acc : Nat × Nat) (item : Nat × Bool) (t : Nat) :
+    (adj_bitmapStep acc item).1.testBit t =
+      (acc.1.testBit t || (item.2 && decide (item.1 = t))) := by
+  rcases acc with ⟨a,b⟩
+  rcases item with ⟨p,label⟩
+  cases label <;> simp [adj_bitmapStep, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_bitmap_step_neg (acc : Nat × Nat) (item : Nat × Bool) (t : Nat) :
+    (adj_bitmapStep acc item).2.testBit t =
+      (acc.2.testBit t || (!item.2 && decide (item.1 = t))) := by
+  rcases acc with ⟨a,b⟩
+  rcases item with ⟨p,label⟩
+  cases label <;> simp [adj_bitmapStep, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_bitmap_fold_pos (ps : List (Nat × Bool)) (acc : Nat × Nat) (t : Nat) :
+    (ps.foldl adj_bitmapStep acc).1.testBit t =
+      (acc.1.testBit t || ps.any (fun item => item.2 && decide (item.1 = t))) := by
+  induction ps generalizing acc with
+  | nil => simp
+  | cons a ps ih =>
+    rw [List.foldl_cons, ih, adj_bitmap_step_pos]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_bitmap_fold_neg (ps : List (Nat × Bool)) (acc : Nat × Nat) (t : Nat) :
+    (ps.foldl adj_bitmapStep acc).2.testBit t =
+      (acc.2.testBit t || ps.any (fun item => !item.2 && decide (item.1 = t))) := by
+  induction ps generalizing acc with
+  | nil => simp
+  | cons a ps ih =>
+    rw [List.foldl_cons, ih, adj_bitmap_step_neg]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_patternSets_eq (ps : List (Nat × Bool)) :
+    patternSets ps = ps.foldl adj_bitmapStep (0,0) := rfl
+
+lemma adj_patternSets_pos (ps : List (Nat × Bool)) (t : Nat) :
+    (patternSets ps).1.testBit t = true ↔ (t,true) ∈ ps := by
+  rw [adj_patternSets_eq, adj_bitmap_fold_pos]
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, Bool.and_eq_true, decide_eq_true_eq]
+  constructor
+  · rintro ⟨⟨p,label⟩, hm, hl, hp⟩
+    cases hl
+    cases hp
+    exact hm
+  · intro h
+    exact ⟨(t,true),h,rfl,rfl⟩
+
+lemma adj_patternSets_neg (ps : List (Nat × Bool)) (t : Nat) :
+    (patternSets ps).2.testBit t = true ↔ (t,false) ∈ ps := by
+  rw [adj_patternSets_eq, adj_bitmap_fold_neg]
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, Bool.and_eq_true,
+    decide_eq_true_eq]
+  constructor
+  · rintro ⟨⟨p,label⟩, hm, hl, hp⟩
+    cases label with
+    | false => cases hp; exact hm
+    | true => simp at hl
+  · intro h
+    exact ⟨(t,false),h,rfl,rfl⟩
+
+lemma singles_mem {a : Nat} {rest ws : List Nat}
+    (h : (a, rest) ∈ singles ws) : a ∈ ws ∧ ∀ x ∈ rest, x ∈ ws := by
+  induction ws generalizing rest with
+  | nil => simp [singles] at h
+  | cons b bs ih =>
+    simp only [singles, List.mem_cons, List.mem_map] at h
+    rcases h with h | ⟨⟨c, cs⟩, hc, he⟩
+    · cases h
+      exact ⟨by simp, fun x hx => by simp [hx]⟩
+    · cases he
+      obtain ⟨ha, hr⟩ := ih hc
+      refine ⟨by simp [ha], ?_⟩
+      intro x hx
+      simp only [List.mem_cons] at hx ⊢
+      exact hx.imp_right (hr x)
+
+lemma pairs_mem_bounds {a b : Nat} {rest ws : List Nat} (hw : ws.Nodup)
+    (h : (a, b, rest) ∈ pairs ws) : a ∈ ws ∧ b ∈ ws ∧ a ≠ b := by
+  induction ws generalizing a b rest with
+  | nil => simp [pairs] at h
+  | cons c cs ih =>
+    simp only [List.nodup_cons] at hw
+    simp only [pairs, List.mem_append, List.mem_map] at h
+    rcases h with ⟨⟨d, ds⟩, hd, he⟩ | ⟨⟨d, e, ds⟩, hd, he⟩
+    · cases he
+      obtain ⟨hdmem, _⟩ := singles_mem hd
+      refine ⟨by simp, by simp [hdmem], ?_⟩
+      intro he
+      exact hw.1 (he ▸ hdmem)
+    · cases he
+      obtain ⟨ha, hb, hab⟩ := ih hw.2 hd
+      exact ⟨by simp [ha], by simp [hb], hab⟩
+
+lemma pairs_range_bounds {n i j : Nat} {rest : List Nat}
+    (h : (i, j, rest) ∈ pairs (List.range n)) : i < n ∧ j < n ∧ i ≠ j := by
+  simpa using pairs_mem_bounds (List.nodup_range) h
+
+lemma rowPattern_bit (row i : Nat) (ws : List Nat) :
+    (rowPattern row ws).testBit i = (ws.getD i 0).testBit row := by
+  induction ws generalizing i with
+  | nil => simp [rowPattern]
+  | cons w ws ih =>
+    cases i with
+    | zero => simp [rowPattern]
+    | succ i =>
+      have h1 : (1 : Nat).testBit (i + 1) = false := by
+        rw [show (1 : Nat) = 2 ^ 0 by rfl, Nat.testBit_two_pow]
+        simp
+      rw [rowPattern, Nat.testBit_or, Nat.testBit_and, h1]
+      simpa using ih i
+
+lemma rowPattern_flip {p q i : Nat} {ws : List Nat}
+    (h : rowPattern q ws = rowPattern p ws ^^^ (1 <<< i)) (j : Nat) :
+    (ws.getD j 0).testBit q = xor ((ws.getD j 0).testBit p) (decide (i = j)) := by
+  have hb := congrArg (fun w : Nat => w.testBit j) h
+  rw [rowPattern_bit, Nat.testBit_xor, rowPattern_bit] at hb
+  simpa [Nat.shiftLeft_eq, Nat.testBit_two_pow] using hb
+
+
+lemma adj_labelled {ws : List Nat} {pattern : Nat} {label : Bool}
+    (hm : (pattern,label) ∈ labelledPatterns ws) :
+    ∃ r : Fin 128, rowPattern r.val ws = pattern ∧ goal.testBit r.val = label := by
+  obtain ⟨r,hr,he⟩ := List.mem_map.mp hm
+  have hr' : r < 128 := List.mem_range.mp hr
+  refine ⟨⟨r,hr'⟩,congrArg Prod.fst he,?_⟩
+  have hl := congrArg Prod.snd he
+  change bitTest goal r = label at hl
+  rwa [adj_bitTest] at hl
+
+lemma adj_ofNat_bit (w : Nat) (r : Fin 128) :
+    (BitVec.ofNat 128 w)[r.val] = w.testBit r.val := by
+  rw [← BitVec.getLsbD_eq_getElem, BitVec.getLsbD_ofNat]
+  simp only [r.isLt, decide_true, Bool.true_and]
+
+def adj_frontier (ws : List Nat) : Finset (BitVec 128) :=
+  (ws.map (BitVec.ofNat 128)).toFinset
+
+def adj_word (ws : List Nat) (i : Nat) : BitVec 128 :=
+  BitVec.ofNat 128 (ws.getD i 0)
+
+lemma adj_word_bit (ws : List Nat) (i : Nat) (r : Fin 128) :
+    (adj_word ws i)[r.val] = (ws.getD i 0).testBit r.val := adj_ofNat_bit _ _
+
+lemma adj_word_mem {ws : List Nat} {i : Nat} (hi : i < ws.length) :
+    adj_word ws i ∈ adj_frontier ws := by
+  simp only [adj_word, adj_frontier, List.mem_toFinset, List.mem_map]
+  exact ⟨ws.getD i 0, by rw [List.getD_eq_getElem ws 0 hi]; exact List.getElem_mem hi, rfl⟩
+
+lemma adj_mem_word {ws : List Nat} {w : BitVec 128} (hw : w ∈ adj_frontier ws) :
+    ∃ k, k < ws.length ∧ adj_word ws k = w := by
+  simp only [adj_frontier, List.mem_toFinset, List.mem_map] at hw
+  obtain ⟨v,hv,he⟩ := hw
+  obtain ⟨k,hk,hv⟩ := List.mem_iff_getElem.mp hv
+  exact ⟨k,hk,by rw [adj_word, List.getD_eq_getElem ws 0 hk, hv]; exact he⟩
+
+lemma adj_flip_unique {ws : List Nat} {i : Nat} {p q : Fin 128}
+    (hf : rowPattern q.val ws = rowPattern p.val ws ^^^ (1 <<< i)) :
+    uniqueSep (adj_frontier ws) (adj_word ws i) p q := by
+  constructor
+  · have hb := rowPattern_flip hf i
+    simp only [decide_true, Bool.xor_true] at hb
+    simp only [adj_word_bit]
+    rw [hb]
+    exact Bool.ne_not.mpr rfl
+  · intro w hw hne
+    obtain ⟨k,hk,rfl⟩ := adj_mem_word hw
+    have hki : i ≠ k := by
+      intro he
+      exact hne (congrArg (adj_word ws) he.symm)
+    have hb := rowPattern_flip hf k
+    simpa only [adj_word_bit, hki, decide_false, Bool.xor_false] using hb.symm
+
+lemma adj_unique_symm {S : Finset (BitVec 128)} {a : BitVec 128} {p q : Fin 128}
+    (h : uniqueSep S a p q) : uniqueSep S a q p := by
+  exact ⟨Ne.symm h.1,fun w hw hne => (h.2 w hw hne).symm⟩
+
+
+def adj_patternCorners (ps : List (Nat × Bool)) (i j : Nat) : Prop :=
+  ∃ p q, (p,true) ∈ ps ∧ (q,false) ∈ ps ∧
+    (p ^^^ (1 <<< i),false) ∈ ps ∧ (p ^^^ (1 <<< j),false) ∈ ps ∧
+    (q ^^^ (1 <<< i),true) ∈ ps ∧ (q ^^^ (1 <<< j),true) ∈ ps ∧
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j
+
+lemma adj_corner_rows {ws : List Nat} {i j : Nat}
+    (hi : i < ws.length) (hj : j < ws.length) (hij : i ≠ j)
+    (hc : adj_patternCorners (labelledPatterns ws) i j) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨x,y,hx,hy,hxi,hxj,hyi,hyj,hpi,hpj⟩ := hc
+  obtain ⟨p,hp,hpt⟩ := adj_labelled hx
+  obtain ⟨q,hq,hqt⟩ := adj_labelled hy
+  obtain ⟨ra,hra,hrat⟩ := adj_labelled hxi
+  obtain ⟨rb,hrb,hrbt⟩ := adj_labelled hxj
+  obtain ⟨sa,hsa,hsat⟩ := adj_labelled hyi
+  obtain ⟨sb,hsb,hsbt⟩ := adj_labelled hyj
+  have hfra : rowPattern ra.val ws = rowPattern p.val ws ^^^ (1 <<< i) := by rwa [hp]
+  have hfrb : rowPattern rb.val ws = rowPattern p.val ws ^^^ (1 <<< j) := by rwa [hp]
+  have hfsa : rowPattern sa.val ws = rowPattern q.val ws ^^^ (1 <<< i) := by rwa [hq]
+  have hfsb : rowPattern sb.val ws = rowPattern q.val ws ^^^ (1 <<< j) := by rwa [hq]
+  have ua := adj_flip_unique hfra
+  have ub := adj_flip_unique hfrb
+  have usa := adj_unique_symm (adj_flip_unique hfsa)
+  have usb := adj_unique_symm (adj_flip_unique hfsb)
+  have hne : adj_word ws i ≠ adj_word ws j := by
+    have hb := rowPattern_flip hfra j
+    simp only [hij, decide_false, Bool.xor_false] at hb
+    have hbe : (adj_word ws j)[p.val] = (adj_word ws j)[ra.val] := by
+      simpa only [adj_word_bit] using hb.symm
+    intro he
+    exact ua.1 (by rw [he]; exact hbe)
+  have hip : (adj_word ws i)[p.val] ≠ (adj_word ws i)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpi
+  have hjp : (adj_word ws j)[p.val] ≠ (adj_word ws j)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpj
+  have his : (adj_word ws i)[sa.val] = !(adj_word ws i)[q.val] := by
+    have hb := rowPattern_flip hfsa i
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hjs : (adj_word ws j)[sb.val] = !(adj_word ws j)[q.val] := by
+    have hb := rowPattern_flip hfsb j
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hipa : (adj_word ws i)[p.val] = (adj_word ws i)[sa.val] := by
+    rw [his]
+    exact Bool.eq_not.mpr hip
+  have hjpb : (adj_word ws j)[p.val] = (adj_word ws j)[sb.val] := by
+    rw [hjs]
+    exact Bool.eq_not.mpr hjp
+  refine ⟨adj_word_mem hi, adj_word_mem hj, hne, p,q,ra,rb,sa,sb,?_,?_,?_,?_,?_,?_,ua,ub,usa,usb,hipa,hjpb⟩
+  all_goals rwa [adj_ofNat_bit]
+
+def lowMasks : List Nat := [0x5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555, 0x3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333, 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f, 0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff, 0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff, 0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff, 0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff, 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff]
+
+def flipPatternBits (i x : Nat) : Nat :=
+  ((x &&& lowMasks[i]!) <<< (1 <<< i)) |||
+    ((x >>> (1 <<< i)) &&& lowMasks[i]!)
+
+def flipIndexLaw (i p : Nat) : Prop :=
+  let d := 1 <<< i
+  let mask := lowMasks[i]!
+  (mask.testBit p = true ∧
+    (decide (p ≥ d) && mask.testBit (p-d)) = false ∧
+    p+d = p ^^^ d) ∨
+  (mask.testBit p = false ∧
+    (decide (p ≥ d) && mask.testBit (p-d)) = true ∧
+    p-d = p ^^^ d)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma flipIndexLaw_checked (i : Fin 10) (p : Fin 1024) :
+    flipIndexLaw i p := by
+  unfold flipIndexLaw
+  decide +kernel +revert
+
+lemma flipPatternBits_bit {i p : Nat} (hi : i < 10) (hp : p < 1024) (x : Nat) :
+    (flipPatternBits i x).testBit p = x.testBit (p ^^^ (1 <<< i)) := by
+  obtain (⟨hm, hf, he⟩ | ⟨hm, hf, he⟩) :=
+    flipIndexLaw_checked ⟨i, hi⟩ ⟨p, hp⟩ <;>
+    change lowMasks[i]!.testBit p = _ at hm <;>
+    change (decide (p ≥ (1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i))) = _ at hf
+  all_goals
+    rw [flipPatternBits, Nat.testBit_or, Nat.testBit_shiftLeft,
+      Nat.testBit_and, Nat.testBit_and, Nat.testBit_shiftRight]
+    have regroup :
+        (decide (p ≥ (1 <<< i)) &&
+          (x.testBit (p-(1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i)))) =
+        ((decide (p ≥ (1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i))) &&
+          x.testBit (p-(1 <<< i))) := by
+      cases decide (p ≥ (1 <<< i)) <;>
+        cases x.testBit (p-(1 <<< i)) <;>
+        cases lowMasks[i]!.testBit (p-(1 <<< i)) <;> rfl
+    rw [regroup, hf, hm]
+    simp only [Bool.false_and, Bool.true_and, Bool.and_true,
+      Bool.and_false, Bool.false_or, Bool.or_false, Nat.add_comm (1 <<< i) p, he]
+
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem lowMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+    (lowMasks[i.val]!).testBit p.val = !(p.val.testBit i.val) := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem highMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+    ((lowMasks[i.val]!) <<< (1 <<< i.val)).testBit p.val = p.val.testBit i.val := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem lowMask_lt_checked : ∀ (i : Fin 10), lowMasks[i.val]! < 2 ^ 1024 := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem highMask_lt_checked : ∀ (i : Fin 10),
+    ((lowMasks[i.val]!) <<< (1 <<< i.val)) < 2 ^ 1024 := by decide +kernel
+
+lemma fastForkPhaseWitness {positive negative fi fj li lj i j : Nat} {a b : Bool}
+    (hfi : ∀ p < 1024, fi.testBit p = negative.testBit (p ^^^ (1 <<< i)))
+    (hfj : ∀ p < 1024, fj.testBit p = negative.testBit (p ^^^ (1 <<< j)))
+    (hli : ∀ p, li.testBit p = (decide (p < 1024) && (p.testBit i == a)))
+    (hlj : ∀ p, lj.testBit p = (decide (p < 1024) && (p.testBit j == b)))
+    (hn : (positive &&& fi) &&& (positive &&& fj) &&& li &&& lj ≠ 0) :
+    ∃ p < 1024, positive.testBit p = true ∧
+      negative.testBit (p ^^^ (1 <<< i)) = true ∧
+      negative.testBit (p ^^^ (1 <<< j)) = true ∧
+      p.testBit i = a ∧ p.testBit j = b := by
+  obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hn
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hp
+  obtain ⟨⟨⟨⟨hpos, hflipI⟩, ⟨_, hflipJ⟩⟩, hmaskI⟩, hmaskJ⟩ := hp
+  rw [hli] at hmaskI
+  rw [hlj] at hmaskJ
+  have hmaskI : p < 1024 ∧ p.testBit i = a := by simpa using hmaskI
+  have hmaskJ : p < 1024 ∧ p.testBit j = b := by simpa using hmaskJ
+  rw [hfi p hmaskI.1] at hflipI
+  rw [hfj p hmaskI.1] at hflipJ
+  exact ⟨p, hmaskI.1, hpos, hflipI, hflipJ, hmaskI.2, hmaskJ.2⟩
+
+lemma boundedMask_bits {mask dim : Nat}
+    (hlt : mask < 2 ^ dim) (bit : Nat → Bool)
+    (hbit : ∀ p < dim, mask.testBit p = bit p) (p : Nat) :
+    mask.testBit p = (decide (p < dim) && bit p) := by
+  by_cases hp : p < dim
+  · simp [hp, hbit p hp]
+  · have hpow : 2 ^ dim ≤ 2 ^ p := Nat.pow_le_pow_right (by decide) (by omega)
+    have hzero := Nat.testBit_lt_two_pow (hlt.trans_le hpow)
+    simp [hp, hzero]
+
+
+lemma fastOppositeCorners {positive negative fi fj gi gj li lj mi mj i j : Nat}
+    {a b : Bool}
+    (hfi : ∀ p < 1024, fi.testBit p = negative.testBit (p ^^^ (1 <<< i)))
+    (hfj : ∀ p < 1024, fj.testBit p = negative.testBit (p ^^^ (1 <<< j)))
+    (hgi : ∀ p < 1024, gi.testBit p = positive.testBit (p ^^^ (1 <<< i)))
+    (hgj : ∀ p < 1024, gj.testBit p = positive.testBit (p ^^^ (1 <<< j)))
+    (hli : ∀ p, li.testBit p = (decide (p < 1024) && (p.testBit i == a)))
+    (hlj : ∀ p, lj.testBit p = (decide (p < 1024) && (p.testBit j == b)))
+    (hmi : ∀ p, mi.testBit p = (decide (p < 1024) && (p.testBit i == !a)))
+    (hmj : ∀ p, mj.testBit p = (decide (p < 1024) && (p.testBit j == !b)))
+    (hpos : (positive &&& fi) &&& (positive &&& fj) &&& li &&& lj ≠ 0)
+    (hneg : (negative &&& gi) &&& (negative &&& gj) &&& mi &&& mj ≠ 0) :
+    ∃ p q, p < 1024 ∧ q < 1024 ∧
+      positive.testBit p = true ∧ negative.testBit q = true ∧
+      negative.testBit (p ^^^ (1 <<< i)) = true ∧
+      negative.testBit (p ^^^ (1 <<< j)) = true ∧
+      positive.testBit (q ^^^ (1 <<< i)) = true ∧
+      positive.testBit (q ^^^ (1 <<< j)) = true ∧
+      p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j := by
+  obtain ⟨p, hp, hP, hPi, hPj, hia, hjb⟩ :=
+    fastForkPhaseWitness hfi hfj hli hlj hpos
+  obtain ⟨q, hq, hQ, hQi, hQj, hni, hnj⟩ :=
+    fastForkPhaseWitness hgi hgj hmi hmj hneg
+  refine ⟨p, q, hp, hq, hP, hQ, hPi, hPj, hQi, hQj, ?_, ?_⟩
+  · rw [hia, hni]
+    cases a <;> decide
+  · rw [hjb, hnj]
+    cases b <;> decide
+
+lemma lowMask_bit {i : Nat} (hi : i < 10) (p : Nat) :
+    lowMasks[i]!.testBit p = (decide (p < 1024) && !(p.testBit i)) := by
+  apply boundedMask_bits (lowMask_lt_checked ⟨i, hi⟩)
+  intro q hq
+  exact lowMask_bit_checked ⟨i, hi⟩ ⟨q, hq⟩
+
+lemma highMask_bit {i : Nat} (hi : i < 10) (p : Nat) :
+    (lowMasks[i]! <<< (1 <<< i)).testBit p =
+      (decide (p < 1024) && p.testBit i) := by
+  apply boundedMask_bits (highMask_lt_checked ⟨i, hi⟩)
+  intro q hq
+  exact highMask_bit_checked ⟨i, hi⟩ ⟨q, hq⟩
+
+def inspectNat {α : Sort u} (n : Nat) (k : Nat → α) : α :=
+  match n with
+  | 0 => k 0
+  | p + 1 => k (p + 1)
+
+lemma inspectNat_eq {α : Sort u} (n : Nat) (k : Nat → α) : inspectNat n k = k n := by
+  cases n <;> rfl
+
+def fastVertices (n positive negative : Nat) : List (Nat × Nat × Nat × Nat × Nat) :=
+  (List.range n).map fun i =>
+    let low := lowMasks[i]!
+    let high := low <<< (1 <<< i)
+    let forkP := positive &&& flipPatternBits i negative
+    let forkN := negative &&& flipPatternBits i positive
+    inspectNat forkP fun forkP =>
+      inspectNat forkN fun forkN => (i,low,high,forkP,forkN)
+
+def edgeBoolFast (vi vj : Nat × Nat × Nat × Nat × Nat) : Bool :=
+  let (_,li,hi,pi,ni) := vi
+  let (_,lj,hj,pj,nj) := vj
+  let cp := pi &&& pj
+  let cn := ni &&& nj
+  (!(cp &&& li &&& lj == 0) && !(cn &&& hi &&& hj == 0)) ||
+  (!(cp &&& hi &&& lj == 0) && !(cn &&& li &&& hj == 0)) ||
+  (!(cp &&& li &&& hj == 0) && !(cn &&& hi &&& lj == 0)) ||
+  (!(cp &&& hi &&& hj == 0) && !(cn &&& li &&& lj == 0))
+
+def criticalEdgesFast (ws : List Nat) : List (Nat × Nat) :=
+  let (positive, negative) := patternSets (labelledPatterns ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).filterMap fun (vi,vj,_) =>
+        if edgeBoolFast vi vj then some (vi.1,vj.1) else none
+
+def hasCriticalEdgeFast (ws : List Nat) : Bool :=
+  let (positive, negative) := patternSets (labelledPatterns ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).any fun (vi,vj,_) =>
+        edgeBoolFast vi vj
+
+
+def adj_phaseMask (i : Nat) (a : Bool) : Nat :=
+  if a then lowMasks[i]! <<< (1 <<< i) else lowMasks[i]!
+
+lemma adj_phaseMask_bit {i : Nat} (hi : i < 10) (a : Bool) (p : Nat) :
+    (adj_phaseMask i a).testBit p = (decide (p < 1024) && (p.testBit i == a)) := by
+  cases a with
+  | false =>
+    change lowMasks[i]!.testBit p = _
+    rw [lowMask_bit hi]
+    cases p.testBit i <;> rfl
+  | true =>
+    change (lowMasks[i]! <<< (1 <<< i)).testBit p = _
+    rw [highMask_bit hi]
+    cases p.testBit i <;> rfl
+
+def adj_corner (positive negative i j : Nat) (a b : Bool) : Nat :=
+  (positive &&& flipPatternBits i negative) &&&
+    (positive &&& flipPatternBits j negative) &&& adj_phaseMask i a &&& adj_phaseMask j b
+
+lemma adj_fast_corner {ps : List (Nat × Bool)} {i j : Nat} (hi : i < 10) (hj : j < 10)
+    {a b : Bool}
+    (hp : adj_corner (patternSets ps).1 (patternSets ps).2 i j a b ≠ 0)
+    (hn : adj_corner (patternSets ps).2 (patternSets ps).1 i j (!a) (!b) ≠ 0) :
+    adj_patternCorners ps i j := by
+  obtain ⟨p,q,_,_,hP,hN,hPi,hPj,hNi,hNj,hij,hij'⟩ :=
+    fastOppositeCorners
+      (fun p hp => flipPatternBits_bit hi hp _)
+      (fun p hp => flipPatternBits_bit hj hp _)
+      (fun p hp => flipPatternBits_bit hi hp _)
+      (fun p hp => flipPatternBits_bit hj hp _)
+      (adj_phaseMask_bit hi a) (adj_phaseMask_bit hj b)
+      (adj_phaseMask_bit hi (!a)) (adj_phaseMask_bit hj (!b)) hp hn
+  exact ⟨p,q,(adj_patternSets_pos ps p).mp hP,(adj_patternSets_neg ps q).mp hN,
+    (adj_patternSets_neg ps _).mp hPi,(adj_patternSets_neg ps _).mp hPj,
+    (adj_patternSets_pos ps _).mp hNi,(adj_patternSets_pos ps _).mp hNj,hij,hij'⟩
+
+lemma adj_singles_map {α β : Type} (f : α → β) (ws : List α) :
+    singles (ws.map f) = (singles ws).map (fun (a,rest) => (f a,rest.map f)) := by
+  induction ws with
+  | nil => rfl
+  | cons a ws ih => simp [singles, ih, List.map_map, Function.comp_def]
+
+lemma adj_pairs_map {α β : Type} (f : α → β) (ws : List α) :
+    pairs (ws.map f) = (pairs ws).map (fun (a,b,rest) => (f a,f b,rest.map f)) := by
+  induction ws with
+  | nil => rfl
+  | cons a ws ih => simp [pairs, adj_singles_map, ih, List.map_map, Function.comp_def]
+
+def adj_vertex (positive negative i : Nat) : Nat × Nat × Nat × Nat × Nat :=
+  (i,lowMasks[i]!,lowMasks[i]! <<< (1 <<< i),
+    positive &&& flipPatternBits i negative,negative &&& flipPatternBits i positive)
+
+def adj_edge (positive negative i j : Nat) : Bool :=
+  (!(adj_corner positive negative i j false false == 0) &&
+     !(adj_corner negative positive i j true true == 0)) ||
+  (!(adj_corner positive negative i j true false == 0) &&
+     !(adj_corner negative positive i j false true == 0)) ||
+  (!(adj_corner positive negative i j false true == 0) &&
+     !(adj_corner negative positive i j true false == 0)) ||
+  (!(adj_corner positive negative i j true true == 0) &&
+     !(adj_corner negative positive i j false false == 0))
+
+lemma adj_edge_sound {ps : List (Nat × Bool)} {i j : Nat} (hi : i < 10) (hj : j < 10)
+    (he : adj_edge (patternSets ps).1 (patternSets ps).2 i j = true) :
+    adj_patternCorners ps i j := by
+  simp only [adj_edge, Bool.or_eq_true, Bool.and_eq_true] at he
+  rcases he with ((h | h) | h) | h
+  · exact adj_fast_corner hi hj (a := false) (b := false) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := true) (b := false) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := false) (b := true) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := true) (b := true) (by simpa using h.1) (by simpa using h.2)
+
+lemma adj_criticalEdgesFast_eq (ws : List Nat) :
+    criticalEdgesFast ws = (pairs (List.range ws.length)).filterMap (fun (i,j,_) =>
+      if adj_edge (patternSets (labelledPatterns ws)).1 (patternSets (labelledPatterns ws)).2 i j
+        then some (i,j) else none) := by
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq, fastVertices]
+  change (pairs ((List.range ws.length).map (adj_vertex _ _))).filterMap _ = _
+  rw [adj_pairs_map, List.filterMap_map]
+  rfl
+
+lemma criticalEdgesFast_sound {ws : List Nat} {i j : Nat} (hw : ws.length ≤ 10)
+    (he : (i,j) ∈ criticalEdgesFast ws) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  rw [adj_criticalEdgesFast_eq] at he
+  obtain ⟨⟨a,b,rest⟩,hab,he⟩ := List.mem_filterMap.mp he
+  change (if adj_edge (patternSets (labelledPatterns ws)).1
+    (patternSets (labelledPatterns ws)).2 a b then some (a,b) else none) = some (i,j) at he
+  split at he
+  · rename_i hc
+    have heq : (a,b) = (i,j) := Option.some.inj he
+    cases heq
+    obtain ⟨ha,hb,hne⟩ := pairs_range_bounds hab
+    exact adj_corner_rows ha hb hne (adj_edge_sound (ha.trans_le hw) (hb.trans_le hw) hc)
+  · simp at he
+
+
+
+
+def criticalGraphFast (ws : List Nat) : List (Nat × Nat) :=
+  let es := criticalEdgesFast ws
+  (List.range ws.length).map fun i =>
+    (i, es.foldl (fun mask (a,b) =>
+      if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask) 0)
+
+lemma criticalPair_symm {width : Nat} {target : BitVec width}
+    {S : Finset (BitVec width)} {a b : BitVec width}
+    (h : criticalPair target S a b) : criticalPair target S b a := by
+  obtain ⟨ha,hb,hne,p,q,ra,rb,sa,sb,hp,hq,hra,hrb,hsa,hsb,ua,ub,usa,usb,hpa,hpb⟩ := h
+  exact ⟨hb,ha,Ne.symm hne,p,q,rb,ra,sb,sa,hp,hq,hrb,hra,hsb,hsa,ub,ua,usb,usa,hpb,hpa⟩
+
+def adj_neighborStep (i acc : Nat) (e : Nat × Nat) : Nat :=
+  if e.1 == i then acc ||| (1 <<< e.2)
+  else if e.2 == i then acc ||| (1 <<< e.1) else acc
+
+lemma adj_neighbor_bit (i acc j : Nat) (e : Nat × Nat) :
+    (adj_neighborStep i acc e).testBit j =
+      (acc.testBit j || decide ((e.1 = i ∧ e.2 = j) ∨ (e.2 = i ∧ e.1 = j))) := by
+  obtain ⟨a,b⟩ := e
+  by_cases ha : a = i <;> by_cases hb : b = i <;>
+    simp [adj_neighborStep, ha, hb, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_neighbor_fold (es : List (Nat × Nat)) (i acc j : Nat) :
+    (es.foldl (adj_neighborStep i) acc).testBit j =
+      (acc.testBit j || es.any (fun (a,b) => decide ((a=i ∧ b=j) ∨ (b=i ∧ a=j)))) := by
+  induction es generalizing acc with
+  | nil => simp
+  | cons e es ih =>
+    rw [List.foldl_cons, ih, adj_neighbor_bit]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_neighbor_sound {es : List (Nat × Nat)} {i j : Nat}
+    (h : (es.foldl (adj_neighborStep i) 0).testBit j = true) :
+    (i,j) ∈ es ∨ (j,i) ∈ es := by
+  rw [adj_neighbor_fold] at h
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, decide_eq_true_eq] at h
+  obtain ⟨⟨a,b⟩,he,(⟨ha,hb⟩ | ⟨hb,ha⟩)⟩ := h
+  · dsimp at ha hb; subst a; subst b; exact Or.inl he
+  · dsimp at ha hb; subst a; subst b; exact Or.inr he
+
+lemma criticalGraphFast_sound {ws : List Nat} {i adj j : Nat} (hw : ws.length ≤ 10)
+    (hi : (i,adj) ∈ criticalGraphFast ws) (hb : adj.testBit j = true) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨k,_,he⟩ := List.mem_map.mp hi
+  have he1 : k = i := congrArg Prod.fst he
+  subst k
+  have he2 := congrArg Prod.snd he
+  change (criticalEdgesFast ws).foldl (adj_neighborStep i) 0 = adj at he2
+  rw [← he2] at hb
+  rcases adj_neighbor_sound hb with he | he
+  · exact criticalEdgesFast_sound hw he
+  · exact criticalPair_symm (criticalEdgesFast_sound hw he)
+
+lemma criticalEdgesFast_exists {ws : List Nat} (hw : ws.length ≤ 10)
+    (he : (criticalEdgesFast ws).isEmpty = false) :
+    ∃ i j, criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  have hn : criticalEdgesFast ws ≠ [] := by simpa using he
+  obtain ⟨⟨i,j⟩,hm⟩ := List.exists_mem_of_ne_nil _ hn
+  exact ⟨i,j,criticalEdgesFast_sound hw hm⟩
+
+
+lemma hasCriticalEdgeFast_edges {ws : List Nat} (h : hasCriticalEdgeFast ws = true) :
+    ∃ i j, (i,j) ∈ criticalEdgesFast ws := by
+  unfold hasCriticalEdgeFast at h
+  simp only [inspectNat_eq] at h
+  obtain ⟨⟨vi,vj,rest⟩,hm,he⟩ := List.any_eq_true.mp h
+  refine ⟨vi.1,vj.1,?_⟩
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq]
+  refine List.mem_filterMap.mpr ⟨(vi,vj,rest),hm,?_⟩
+  change (if edgeBoolFast vi vj then some (vi.1,vj.1) else none) = some (vi.1,vj.1)
+  rw [he]
+  rfl
+
+lemma hasCriticalEdgeFast_sound {ws : List Nat} (hw : ws.length ≤ 10)
+    (h : hasCriticalEdgeFast ws = true) :
+    ∃ i j, criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨i,j,he⟩ := hasCriticalEdgeFast_edges h
+  exact ⟨i,j,criticalEdgesFast_sound hw he⟩
+
+end PEqualNP.Outside.L_meta_10760.KernelNat128
+
+namespace PEqualNP.Outside.L_meta_10760.HT128
+
+open RestrictionSixProof KernelNat128
+
+def graph (ws : List Nat) : List Nat :=
+  (criticalGraphFast ws).map Prod.snd
+
+lemma graph_length (ws : List Nat) : (graph ws).length = ws.length := by
+  simp [graph, criticalGraphFast]
+
+lemma graph_row (ws : List Nat) (i : Nat) (hi : i < ws.length) :
+    (i, (graph ws).getD i 0) ∈ criticalGraphFast ws := by
+  unfold graph criticalGraphFast
+  simp only [List.map_map, Function.comp_def]
+  apply List.mem_map.mpr
+  refine ⟨i, List.mem_range.mpr hi, ?_⟩
+  simp [List.getD_eq_getElem?_getD, hi]
+
+lemma live_coloring_up {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup)
+    (run : Live true (W goal) n (ws.map W).toFinset) :
+    ∃ color : Sig → Nat,
+      (∀ a ∈ adj_frontier ws, color a < k + 2 - ws.length) ∧
+      ∀ a b, criticalPair (W goal) (adj_frontier ws) a b → color a ≠ color b := by
+  obtain ⟨color, bound, proper⟩ := Live_criticalPair_coloring_self run
+  have card : (ws.map W).toFinset.card = ws.length := by
+    simpa only [List.length_map] using List.toFinset_card_of_nodup hnd
+  refine ⟨color, ?_, proper⟩
+  intro a ha
+  have hb := bound a ha
+  rw [card] at hb
+  omega
+
+lemma graph_colorable_of_live {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup) (hw : ws.length ≤ 10)
+    (run : Live true (W goal) n (ws.map W).toFinset) :
+    graphColorable (graph ws) (k + 2 - ws.length) := by
+  obtain ⟨color, bound, proper⟩ := live_coloring_up hnk hnd run
+  refine ⟨fun i => color (adj_word ws i), ?_, ?_⟩
+  · intro i hi
+    rw [graph_length] at hi
+    exact bound _ (adj_word_mem hi)
+  · intro i hi j hj he
+    rw [graph_length] at hi hj
+    exact proper _ _ (criticalGraphFast_sound hw (graph_row ws i hi) he)
+
+def allowed (k : Nat) (ws : List Nat) : Bool :=
+  if ws.length ≤ 10 then
+    let colors := k + 2 - ws.length
+    if 4 ≤ colors then true
+    else if colors = 1 then !hasCriticalEdgeFast ws
+    else graphColorDegreeFast (graph ws) colors
+  else true
+
+lemma allowed_complete {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup)
+    (run : Live true (W goal) n (ws.map W).toFinset) : allowed k ws = true := by
+  unfold allowed
+  split
+  next hw =>
+    dsimp only
+    split
+    · rfl
+    · split
+      next hone =>
+        cases he : hasCriticalEdgeFast ws with
+        | false => rfl
+        | true =>
+          obtain ⟨i, j, edge⟩ := hasCriticalEdgeFast_sound hw he
+          obtain ⟨color, bound, proper⟩ := live_coloring_up hnk hnd run
+          have hi := bound _ edge.1
+          have hj := bound _ edge.2.1
+          have hne := proper _ _ edge
+          omega
+      next notone =>
+        exact graphColorDegreeFast_complete (graph_colorable_of_live hnk hnd hw run)
+  next outside => rfl
+
+lemma rejected_impossible {k : Nat} {ws : List Nat}
+    (hnd : (ws.map W).Nodup) (rejected : allowed k ws = false) :
+    Impossible true (W goal) k (ws.map W).toFinset := by
+  intro n hn run
+  have accepted := allowed_complete hn hnd run
+  rw [rejected] at accepted
+  cases accepted
+
+end PEqualNP.Outside.L_meta_10760.HT128
+
+namespace PEqualNP.Outside.L_meta_10760.KernelNat128Rows
+
+open KernelNat128
+
+variable {goal : Nat} {rows : List Nat}
+
+def labelledPatterns (goal : Nat) (rows : List Nat) (ws : List Nat) : List (Nat × Bool) :=
+  (rows.filter (fun r => decide (r < 128))).map fun row => (rowPattern row ws, (goal >>> row) &&& 1 == 1)
+
+lemma adj_labelled {ws : List Nat} {pattern : Nat} {label : Bool}
+    (hm : (pattern,label) ∈ labelledPatterns goal rows ws) :
+    ∃ r : Fin 128, rowPattern r.val ws = pattern ∧ goal.testBit r.val = label := by
+  obtain ⟨r,hr,he⟩ := List.mem_map.mp hm
+  have hr' : r < 128 := of_decide_eq_true (List.mem_filter.mp hr).2
+  refine ⟨⟨r,hr'⟩,congrArg Prod.fst he,?_⟩
+  have hl := congrArg Prod.snd he
+  change bitTest goal r = label at hl
+  rwa [adj_bitTest] at hl
+
+lemma adj_corner_rows {ws : List Nat} {i j : Nat}
+    (hi : i < ws.length) (hj : j < ws.length) (hij : i ≠ j)
+    (hc : adj_patternCorners (labelledPatterns goal rows ws) i j) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨x,y,hx,hy,hxi,hxj,hyi,hyj,hpi,hpj⟩ := hc
+  obtain ⟨p,hp,hpt⟩ := adj_labelled hx
+  obtain ⟨q,hq,hqt⟩ := adj_labelled hy
+  obtain ⟨ra,hra,hrat⟩ := adj_labelled hxi
+  obtain ⟨rb,hrb,hrbt⟩ := adj_labelled hxj
+  obtain ⟨sa,hsa,hsat⟩ := adj_labelled hyi
+  obtain ⟨sb,hsb,hsbt⟩ := adj_labelled hyj
+  have hfra : rowPattern ra.val ws = rowPattern p.val ws ^^^ (1 <<< i) := by rwa [hp]
+  have hfrb : rowPattern rb.val ws = rowPattern p.val ws ^^^ (1 <<< j) := by rwa [hp]
+  have hfsa : rowPattern sa.val ws = rowPattern q.val ws ^^^ (1 <<< i) := by rwa [hq]
+  have hfsb : rowPattern sb.val ws = rowPattern q.val ws ^^^ (1 <<< j) := by rwa [hq]
+  have ua := adj_flip_unique hfra
+  have ub := adj_flip_unique hfrb
+  have usa := adj_unique_symm (adj_flip_unique hfsa)
+  have usb := adj_unique_symm (adj_flip_unique hfsb)
+  have hne : adj_word ws i ≠ adj_word ws j := by
+    have hb := rowPattern_flip hfra j
+    simp only [hij, decide_false, Bool.xor_false] at hb
+    have hbe : (adj_word ws j)[p.val] = (adj_word ws j)[ra.val] := by
+      simpa only [adj_word_bit] using hb.symm
+    intro he
+    exact ua.1 (by rw [he]; exact hbe)
+  have hip : (adj_word ws i)[p.val] ≠ (adj_word ws i)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpi
+  have hjp : (adj_word ws j)[p.val] ≠ (adj_word ws j)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpj
+  have his : (adj_word ws i)[sa.val] = !(adj_word ws i)[q.val] := by
+    have hb := rowPattern_flip hfsa i
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hjs : (adj_word ws j)[sb.val] = !(adj_word ws j)[q.val] := by
+    have hb := rowPattern_flip hfsb j
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hipa : (adj_word ws i)[p.val] = (adj_word ws i)[sa.val] := by
+    rw [his]
+    exact Bool.eq_not.mpr hip
+  have hjpb : (adj_word ws j)[p.val] = (adj_word ws j)[sb.val] := by
+    rw [hjs]
+    exact Bool.eq_not.mpr hjp
+  refine ⟨adj_word_mem hi, adj_word_mem hj, hne, p,q,ra,rb,sa,sb,?_,?_,?_,?_,?_,?_,ua,ub,usa,usb,hipa,hjpb⟩
+  all_goals rwa [adj_ofNat_bit]
+
+def criticalEdgesFast (goal : Nat) (rows : List Nat) (ws : List Nat) : List (Nat × Nat) :=
+  let (positive, negative) := patternSets (labelledPatterns goal rows ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).filterMap fun (vi,vj,_) =>
+        if edgeBoolFast vi vj then some (vi.1,vj.1) else none
+
+def hasCriticalEdgeFast (goal : Nat) (rows : List Nat) (ws : List Nat) : Bool :=
+  let (positive, negative) := patternSets (labelledPatterns goal rows ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).any fun (vi,vj,_) =>
+        edgeBoolFast vi vj
+
+lemma adj_criticalEdgesFast_eq (ws : List Nat) :
+    criticalEdgesFast goal rows ws = (pairs (List.range ws.length)).filterMap (fun (i,j,_) =>
+      if adj_edge (patternSets (labelledPatterns goal rows ws)).1 (patternSets (labelledPatterns goal rows ws)).2 i j
+        then some (i,j) else none) := by
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq, fastVertices]
+  change (pairs ((List.range ws.length).map (adj_vertex _ _))).filterMap _ = _
+  rw [adj_pairs_map, List.filterMap_map]
+  rfl
+
+lemma criticalEdgesFast_sound {ws : List Nat} {i j : Nat} (hw : ws.length ≤ 10)
+    (he : (i,j) ∈ criticalEdgesFast goal rows ws) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  rw [adj_criticalEdgesFast_eq] at he
+  obtain ⟨⟨a,b,rest⟩,hab,he⟩ := List.mem_filterMap.mp he
+  change (if adj_edge (patternSets (labelledPatterns goal rows ws)).1
+    (patternSets (labelledPatterns goal rows ws)).2 a b then some (a,b) else none) = some (i,j) at he
+  split at he
+  · rename_i hc
+    have heq : (a,b) = (i,j) := Option.some.inj he
+    cases heq
+    obtain ⟨ha,hb,hne⟩ := pairs_range_bounds hab
+    exact adj_corner_rows ha hb hne (adj_edge_sound (ha.trans_le hw) (hb.trans_le hw) hc)
+  · simp at he
+
+def criticalGraphFast (goal : Nat) (rows : List Nat) (ws : List Nat) : List (Nat × Nat) :=
+  let es := criticalEdgesFast goal rows ws
+  (List.range ws.length).map fun i =>
+    (i, es.foldl (fun mask (a,b) =>
+      if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask) 0)
+
+lemma criticalGraphFast_sound {ws : List Nat} {i adj j : Nat} (hw : ws.length ≤ 10)
+    (hi : (i,adj) ∈ criticalGraphFast goal rows ws) (hb : adj.testBit j = true) :
+    criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨k,_,he⟩ := List.mem_map.mp hi
+  have he1 : k = i := congrArg Prod.fst he
+  subst k
+  have he2 := congrArg Prod.snd he
+  change (criticalEdgesFast goal rows ws).foldl (adj_neighborStep i) 0 = adj at he2
+  rw [← he2] at hb
+  rcases adj_neighbor_sound hb with he | he
+  · exact criticalEdgesFast_sound hw he
+  · exact criticalPair_symm (criticalEdgesFast_sound hw he)
+
+lemma criticalEdgesFast_exists {ws : List Nat} (hw : ws.length ≤ 10)
+    (he : (criticalEdgesFast goal rows ws).isEmpty = false) :
+    ∃ i j, criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  have hn : criticalEdgesFast goal rows ws ≠ [] := by simpa using he
+  obtain ⟨⟨i,j⟩,hm⟩ := List.exists_mem_of_ne_nil _ hn
+  exact ⟨i,j,criticalEdgesFast_sound hw hm⟩
+
+lemma hasCriticalEdgeFast_edges {ws : List Nat} (h : hasCriticalEdgeFast goal rows ws = true) :
+    ∃ i j, (i,j) ∈ criticalEdgesFast goal rows ws := by
+  unfold hasCriticalEdgeFast at h
+  simp only [inspectNat_eq] at h
+  obtain ⟨⟨vi,vj,rest⟩,hm,he⟩ := List.any_eq_true.mp h
+  refine ⟨vi.1,vj.1,?_⟩
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq]
+  refine List.mem_filterMap.mpr ⟨(vi,vj,rest),hm,?_⟩
+  change (if edgeBoolFast vi vj then some (vi.1,vj.1) else none) = some (vi.1,vj.1)
+  rw [he]
+  rfl
+
+lemma hasCriticalEdgeFast_sound {ws : List Nat} (hw : ws.length ≤ 10)
+    (h : hasCriticalEdgeFast goal rows ws = true) :
+    ∃ i j, criticalPair (BitVec.ofNat 128 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨i,j,he⟩ := hasCriticalEdgeFast_edges h
+  exact ⟨i,j,criticalEdgesFast_sound hw he⟩
+
+set_option maxRecDepth 10000 in
+lemma labelledPatterns_full (ws : List Nat) :
+    labelledPatterns KernelNat128.goal (List.range 128) ws =
+      KernelNat128.labelledPatterns ws := rfl
+
+set_option maxRecDepth 10000 in
+lemma criticalGraphFast_full (ws : List Nat) :
+    criticalGraphFast KernelNat128.goal (List.range 128) ws =
+      KernelNat128.criticalGraphFast ws := rfl
+
+set_option maxRecDepth 10000 in
+lemma hasCriticalEdgeFast_full (ws : List Nat) :
+    hasCriticalEdgeFast KernelNat128.goal (List.range 128) ws =
+      KernelNat128.hasCriticalEdgeFast ws := rfl
+
+end PEqualNP.Outside.L_meta_10760.KernelNat128Rows
+
+namespace PEqualNP.Outside.L_meta_10760.HT128Rows
+
+open RestrictionSixProof KernelNat128
+
+variable {target : Nat} {rows : List Nat}
+
+def graph (target : Nat) (rows : List Nat) (ws : List Nat) : List Nat :=
+  (KernelNat128Rows.criticalGraphFast target rows ws).map Prod.snd
+
+lemma graph_length (ws : List Nat) : (graph target rows ws).length = ws.length := by
+  simp [graph, KernelNat128Rows.criticalGraphFast]
+
+lemma graph_row (ws : List Nat) (i : Nat) (hi : i < ws.length) :
+    (i, (graph target rows ws).getD i 0) ∈ KernelNat128Rows.criticalGraphFast target rows ws := by
+  unfold graph KernelNat128Rows.criticalGraphFast
+  simp only [List.map_map, Function.comp_def]
+  apply List.mem_map.mpr
+  refine ⟨i, List.mem_range.mpr hi, ?_⟩
+  simp [List.getD_eq_getElem?_getD, hi]
+
+lemma live_coloring_up {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup)
+    (run : Live true (W target) n (ws.map W).toFinset) :
+    ∃ color : Sig → Nat,
+      (∀ a ∈ adj_frontier ws, color a < k + 2 - ws.length) ∧
+      ∀ a b, criticalPair (W target) (adj_frontier ws) a b → color a ≠ color b := by
+  obtain ⟨color, bound, proper⟩ := Live_criticalPair_coloring_self run
+  have card : (ws.map W).toFinset.card = ws.length := by
+    simpa only [List.length_map] using List.toFinset_card_of_nodup hnd
+  refine ⟨color, ?_, proper⟩
+  intro a ha
+  have hb := bound a ha
+  rw [card] at hb
+  omega
+
+lemma graph_colorable_of_live {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup) (hw : ws.length ≤ 10)
+    (run : Live true (W target) n (ws.map W).toFinset) :
+    graphColorable (graph target rows ws) (k + 2 - ws.length) := by
+  obtain ⟨color, bound, proper⟩ := live_coloring_up hnk hnd run
+  refine ⟨fun i => color (adj_word ws i), ?_, ?_⟩
+  · intro i hi
+    rw [graph_length] at hi
+    exact bound _ (adj_word_mem hi)
+  · intro i hi j hj he
+    rw [graph_length] at hi hj
+    exact proper _ _ (KernelNat128Rows.criticalGraphFast_sound hw (graph_row ws i hi) he)
+
+def allowed (target : Nat) (rows : List Nat) (k : Nat) (ws : List Nat) : Bool :=
+  if ws.length ≤ 10 then
+    let colors := k + 2 - ws.length
+    if 4 ≤ colors then true
+    else if colors = 1 then !KernelNat128Rows.hasCriticalEdgeFast target rows ws
+    else graphColorDegreeFast (graph target rows ws) colors
+  else true
+
+lemma allowed_complete {n k : Nat} {ws : List Nat}
+    (hnk : n ≤ k) (hnd : (ws.map W).Nodup)
+    (run : Live true (W target) n (ws.map W).toFinset) : allowed target rows k ws = true := by
+  unfold allowed
+  split
+  next hw =>
+    dsimp only
+    split
+    · rfl
+    · split
+      next hone =>
+        cases he : KernelNat128Rows.hasCriticalEdgeFast target rows ws with
+        | false => rfl
+        | true =>
+          obtain ⟨i, j, edge⟩ := KernelNat128Rows.hasCriticalEdgeFast_sound hw he
+          obtain ⟨color, bound, proper⟩ := live_coloring_up hnk hnd run
+          have hi := bound _ edge.1
+          have hj := bound _ edge.2.1
+          have hne := proper _ _ edge
+          omega
+      next notone =>
+        exact graphColorDegreeFast_complete (graph_colorable_of_live hnk hnd hw run)
+  next outside => rfl
+
+lemma rejected_impossible {k : Nat} {ws : List Nat}
+    (hnd : (ws.map W).Nodup) (rejected : allowed target rows k ws = false) :
+    Impossible true (W target) k (ws.map W).toFinset := by
+  intro n hn run
+  have accepted := allowed_complete (rows := rows) hn hnd run
+  rw [rejected] at accepted
+  cases accepted
+
+end PEqualNP.Outside.L_meta_10760.HT128Rows
