@@ -11,3 +11,4 @@
 2026-11-25T15:04:19.605976+00:00 FormulaLower, Counts, Upper20Symbolic and OneNot partials compiled and independently reviewed. Full gap remains open; exact searches continue.
 2026-11-25T15:07:34.879070+00:00 Seeded one-NOT specialization checked and independently reviewed.
 2026-11-25T15:10:12.607389+00:00 Restrict and OneNotChain compiled and independently reviewed. Exploratory search budget-dedup issue found and checkpoints discarded; no checked lemma depends on those runs.
+2026-11-25T15:14:06.667203+00:00 Conditional terminal-NOT case and seed-NOT suffix collision partials checked/reviewed.

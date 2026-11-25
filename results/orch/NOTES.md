@@ -134,3 +134,34 @@ One-NOT four-chain proof draft reuses checked remove_only_not: outputT atbottom 
 ## toolchain CHECKED 2026-11-25T15:09:16.921723+00:00
 
 `OneNotChain.lean` compiled exit0, complete empty output in `/tmp/oec/pequalnp-pilot-134/one-not-chain-004.log`. Structural agent independently reviewed PASS. Theorem `no_four_chain` rules out outputs true,false,true,false along four ordered equal-length Boolean input lists when FanInTwo holds and countP(op.eval[false])<=1. Generic search cut only, not full gap. Source frozen for root early push.
+
+## Finite search audit 2026-11-25T15:10:18.618822+00:00
+
+The first NOT-budget searches were non-exhaustive exploratory runs with a discovered sibling-deduplication defect: identical child wires reached with differing NOT costs were conflated. No Lean result depended on these runs. Their checkpoints are invalid and will not be resumed. The fix retains NOT cost in sibling keys and versions checkpoint metadata as budget-siblings-v2. Memo keys already retained remaining NOT allowance.
+
+The one-NOT chain cut returns four explicit rows. Python checks target labels T,F,T,F and every live-wire coordinate ordered along the rows. Its C detector agrees with independent dynamic programming on 210 random truth tables. Toolchain agent has compiled the corresponding Lean impossibility lemma.
+
+### Restriction and seeded-NOT independent review 2026-11-25T15:11:00+00:00
+- PASS as checked partial: Restrict.lean (555 lines,22293 bytes,SHA256 1f7af070b6b6c34d773d5d85d73f1f34c005dfbba1f8a99d6483f519f23446b6). Imports/namespace and all format scans clean.
+- PASS as checked partial: OneNotSeeded.lean (193 lines,8511 bytes,SHA256 544a7cf3eba40af0ded3c969ad5d9c71d323830870cdcccde2117a8d6bfcfb80). Imports/namespace and all format scans clean.
+- Restrict proof bodies match L9262 selected ranges exactly except whitespace and attribution comment. Its semantic invariant preserves out-of-range/future false reads; rewriting shifts generated addresses and supports noninjective raw maps. Saving one gate needs explicit essential last input and nonconstant restriction, no minimality. Full copy diff in scratch review-restrict-copy.diff.
+- OneNotSeeded adds only valid bottom/top bounds for seeded inputs and specializes reviewed one-NOT removal.
+- ClosedCase component namespaces exactly equal reviewed OneNotSeeded, SeedErase, Restrict. New delta mathematically valid conditional on pure-nine no-size15 bound, pending successful compilation. For final PR integration, combine helpers into one allowed outer namespace block.
+
+## Root strategy checkpoint 2026-11-25T15:11:33.498884+00:00
+Full L-meta-1890 remains unproved. Continue exact finite live-state search with audited NOT budgets, chain witnesses and constructive restriction banks; longer independent SAT search is active. Structural work now focuses on closing terminal-NOT cases using unconditional constant propagation and checked nine-vertex lower bounds. Simple one-NOT constant substitution is false in general; no global-minimality assumption may be inferred merely by prepending the free AND gate. All completed Lean partials are pushed; no PR until the exact statement and checker pass.
+
+2026-11-25T15:11:35.718726+00:00 structural: ClosedCase.lean compiled exit0 (closed-case-check-003.log; six inherited linter warnings). It combines verified OneNot+SeedErase+L9262 restriction compiler. Conditional only on checked pure9 no15, proves plain Petersen>=17, seeded monotone Petersen>=17, and no18suffix ending in a NOT with<=2 total NOT. No minimum-circuit assumption, no surjectivity needed. status_review asked to review frozen file. Readtwice is compacting pure9 engine to discharge exact remaining assumption. Further terminalNOT3 route: if one raw-false restriction kills any prefix NOT, the 17gate/2NOT complementprefix becomes <=16gate/1NOT, then OneNot collapse yields forbidden pure9<=15. Requires NOT-count tracking through compiler.
+
+## counterexample 2026-11-25T15:11:38.855052+00:00
+LEAN-COMPILED conditional circuit exclusion: SeedNotCircuit.lean passed exit0 (empty log seed-not-circuit-lean-2.txt). Its arbitrary suffix receives13wires: ten rawinputs, seed, NOT(seed), endpoint OP NOT(seed). If suffix gates/output avoid the firstthree possibly differing locations(endpoint,10,11), finite collisions force failure on Petersen. Includes generic wire-agreement induction. Full SAT bounded3 run uses1024rows/56106variables/1250791clauses, TRUE as emptyAND, and ≤3NOT. finite_certificate independently reviewed completeness. Prepared bounded3raw restart adds only checked RawRaw repeated-reader constraints; current run untouched.
+
+### Closed case and seed-NOT circuit review 2026-11-25T15:12:14+00:00
+- PASS as compiled partial: structural/ClosedCase.lean (985 lines,40898 bytes,SHA256 264e05c4a65dd7f25f0993f881a0fc9c1d91d3207e8e4153ace7b7c3688f925e). Imports and forbidden-token/regular-file/UTF8/whitespace checks clean.
+- PASS as compiled partial: counterexample/SeedNotCircuit.lean (103 lines,4569 bytes,SHA256 e92103908df3ac223493374bff4c515178358044854b363b03bee2a5737ad9ef). Imports and forbidden-token/regular-file/UTF8/whitespace checks clean.
+- ClosedCase proves plain Petersen and seeded monotone lower17, and excludes a terminal single-input NOT in suffix size18 with at most2 NOTs, conditional on exact pure9 no-size15 hypothesis. No minimality/surjectivity assumptions are hidden. Namespace blocks need consolidation before final PR, and pure9 proof must be inlined before treating the case as unconditional.
+- SeedNotCircuit lifts finite endpoint collisions through arbitrary suffix gates by agreement at every permitted wire. Forbidden indices are raw endpoint,10,11; fold wire12 agrees, future/defaultfalse reads agree. Both operand avoidance and output avoidance hypotheses are explicit and necessary for this partial.
+
+### Compact nine-bound source audit 2026-11-25T15:13:58+00:00
+- Bounds.lean initial source audit: inverse mapping1294 owned identifiers, namespace/final-theorem normalization, and stripping comments/whitespace gives exact L670 source equality (446582 normalized characters). Rename map injective, no old/new name collision, no mapped identifiers in imported qualified names found. Initial469507-byte file fits512KiB; format scans clean.
+- Compilation is still required: author found whitespace-token collisions (`:=~~~` and Unicode arrow adjacent to owns) and is restoring separators. The source audit does not certify lexical boundaries. Recheck final frozen source/hash after successful compile.

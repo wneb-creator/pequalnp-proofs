@@ -40,3 +40,5 @@ Upper20Symbolic is only a 20-gate sanity upper bound, not a counterexample to th
 Additional checked partial: OneNotSeeded.lean extends the unchanged checked OneNot proof with input-family bounds and seeded complement specialization. lake env lean exited 0 with empty output. Root independently reviewed the two added lemmas.
 
 Additional checked partials: Restrict.lean (generic constant propagation and one-gate restriction under explicit essentiality/nonconstant hypotheses; no global-minimality premise), and OneNotChain.lean (four ordered input rows with outputs T,F,T,F require more than one NOT). Both lake env lean runs exited 0. Independent status_review/structural_proof reviews passed. Complete logs preserved.
+
+Additional checked partials: ClosedCase.lean and SeedNotCircuit.lean; lake env lean exit 0, independent status_review approved both. ClosedCase remains conditional on the checked pure nine-vertex lower bound, which must be inlined; helper namespace blocks need consolidation on final integration. SeedNotCircuit requires suffix operands/output to avoid the explicit endpoint/seed/NOT wire addresses. Complete compiler logs preserved.
