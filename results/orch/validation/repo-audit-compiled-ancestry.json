@@ -1,0 +1,29 @@
+{
+  "scope": "Compiled generic backward pure-union ancestry only; no unrestricted51 claim; unchanged reviewed06:31 root correction included where hashes match",
+  "files": [
+    {
+      "path": "results/orch/checked/pure-union-ancestry.lean",
+      "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92"
+    },
+    {
+      "path": "results/orch/checked/pure-union-ancestry.log",
+      "sha256": "9c16a6e9d2e599a30a2aa5069f765f9919c092846226ed3a56f10db02a16be8f"
+    },
+    {
+      "path": "results/orch/checked/pure-union-ancestry.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/checked/pure-union-ancestry.json",
+      "sha256": "6bc30e8f50c4886eaf72fdc7bbc802c0da8d171ce8ec4fade2574787654f4f66"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "sha256": "78f90a9b65d948bc66cce6c27347b523ef9d9c860e0a0cf559d594570db7016c"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "sha256": "f69dad47afc3702151dcf2b60ea69e853fbabeea5a5bf49201b9e36ab1de339b"
+    }
+  ]
+}

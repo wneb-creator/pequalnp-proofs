@@ -1,0 +1,18 @@
+{
+  "source": "results/orch/lemmas/PureUnionAncestry.lean",
+  "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92",
+  "lines": 150,
+  "exit_code": 0,
+  "status": "checked generic ancestry lemma for explicit backward binary-union Scheme; no AND-filtering or global51 claim",
+  "finished_utc": "2026-11-25T06:32:38.624437+00:00",
+  "olean": "/tmp/oec/pequalnp-pilot-62/lean-modules/PureUnionAncestry.olean",
+  "olean_bytes": 333368,
+  "metrics": {
+    "WALL_SECONDS": "5.009405638000317",
+    "USER_SECONDS": "3.228925",
+    "SYS_SECONDS": "1.452218",
+    "PEAK_RSS_KIB": "2912964",
+    "PEAK_CGROUP_BYTES": "4649525248",
+    "RESOURCE_STOPPED": "False"
+  }
+}
