@@ -1,0 +1,11 @@
+CNF clauses independently satisfied: 33066
+All full truth assignments checked: 16384
+AND gates: 7 final OR outputs: [0, 1, 2, 3, 4, 5, 6]
+AND 0 [[10, 12, 13], [6]]
+AND 1 [[9, 11, 12], [5]]
+AND 2 [[8, 10, 11], [4]]
+AND 3 [[8, 9, 13], [2]]
+AND 4 [[7, 11, 13], [0]]
+AND 5 [[7, 9, 10], [3]]
+AND 6 [[7, 8, 12], [1]]
+{"and_count": 7, "edge_count": 21, "minimum_cover": 7, "n": 14, "or_count": 20, "output": 40, "size": 27, "source": "/tmp/oec/pequalnp-pilot-157/fano-7and-automorphism-positive-control.log", "star_covered": 21, "target_lower_bound": 27, "tcount": 0}

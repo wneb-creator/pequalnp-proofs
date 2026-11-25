@@ -36,3 +36,8 @@
 
 - 2026-11-25T16:20:42+00:00 cofactor_route: original Fano six-AND T0 search UNKNOWN at600s; ordered variant interrupted; launched sole auxiliary Fano search with first-gate automorphism canonicalization after root renewal. Independently source-reviewed MatchingCover.lean PASS.
 2026-11-25T16:21:32.865318+00:00 Preserving checked aggregate component count and concrete star separation.
+2026-11-25T16:24:01.786222+00:00 counting_proof: component bound, circuit instantiation, separation, witness families, and edge coverage checked.
+2026-11-25T16:25:05.251636+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:45:05.112Z
+
+- 2026-11-25T16:28:20+00:00 cofactor_route: Fano six-AND T0 CNF UNSAT with independent Std LRAT certificate verification; complete artifacts preserved in results/orch/fano-and6. No auxiliary solver remains running.
+2026-11-25T16:30:23.277144+00:00 Preserving full partial ledger, output separator/boundary and verified auxiliary CNF certificate.
