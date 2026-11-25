@@ -5723,3 +5723,52 @@ lemma live_critical_coloring {u : Bool} {k : Nat} {target g : Sig} {S : Finset S
   live_criticalPair_coloring (live_to_basic run) hg
 
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+lemma impossible_of_criticalEdge {u : Bool} {target a b : Sig} {cap : Nat}
+    {S : Finset Sig} (edge : criticalPair target S a b)
+    (bound : cap + 2 - S.card ≤ 1) : Impossible u target cap S := by
+  intro k hk run
+  obtain ⟨color, hc, he⟩ := live_critical_coloring run (Or.inl rfl)
+  have ha := hc a edge.1
+  have hb := hc b edge.2.1
+  have hab := he a b edge
+  omega
+
+lemma impossible_of_criticalTriangle {u : Bool} {target a b c : Sig} {cap : Nat}
+    {S : Finset Sig} (ab : criticalPair target S a b)
+    (ac : criticalPair target S a c) (bc : criticalPair target S b c)
+    (bound : cap + 2 - S.card ≤ 2) : Impossible u target cap S := by
+  intro k hk run
+  obtain ⟨color, hc, he⟩ := live_critical_coloring run (Or.inl rfl)
+  have ha := hc a ab.1
+  have hb := hc b ab.2.1
+  have hcc := hc c ac.2.1
+  have hab := he a b ab
+  have hac := he a c ac
+  have hbc := he b c bc
+  omega
+
+lemma impossible_of_criticalK4 {u : Bool} {target a b c d : Sig} {cap : Nat}
+    {S : Finset Sig} (ab : criticalPair target S a b)
+    (ac : criticalPair target S a c) (ad : criticalPair target S a d)
+    (bc : criticalPair target S b c) (bd : criticalPair target S b d)
+    (cd : criticalPair target S c d)
+    (bound : cap + 2 - S.card ≤ 3) : Impossible u target cap S := by
+  intro k hk run
+  obtain ⟨color, hc, he⟩ := live_critical_coloring run (Or.inl rfl)
+  have ha := hc a ab.1
+  have hb := hc b ab.2.1
+  have hcc := hc c ac.2.1
+  have hd := hc d ad.2.1
+  have hab := he a b ab
+  have hac := he a c ac
+  have had := he a d ad
+  have hbc := he b c bc
+  have hbd := he b d bd
+  have hcd := he c d cd
+  omega
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
