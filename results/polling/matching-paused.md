@@ -1,0 +1,3 @@
+# Partial read-only matching audit (paused)
+
+At15:33:48UTC public head snapshot, searched the public keyword index and fetched27 candidate records around Petersen17/18, plane duality, and first-nonbelow terminology. No exact posted statement already covered by our checked partials was identified before root obtained a freshL-meta-1884 lease and paused matching. This is not an exhaustive no-match claim. In particular L1009 only requires agreement on weight≤2 rows (our18floor assumes full correctness), and L1884/L2598 require free unary/negated input bounds stronger than Binary17. No have=proof claim was made. Public records and derivedcandidate sets are in `/tmp/oec/pequalnp-pilot-103/matching-*`. No lease requests were made by this agent.
