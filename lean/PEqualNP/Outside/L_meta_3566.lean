@@ -8629,3 +8629,228 @@ lemma full_formula_injective_matching_bound {α β : Type*} {m k : ℕ} (R : α 
   · exact full_formula_restrict R LA LB RA RB hfull l r
 
 end PEqualNP.Outside.L_meta_3566.FilteredShell
+
+namespace PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def input {n : ℕ} (color : Fin n → Bool) (b : Bool) : Fin n → Bool :=
+  fun v => decide (color v = b)
+
+def mass {n : ℕ} (color : Fin n → Bool) (C : Circuit) : ℕ :=
+  (C.wires (List.ofFn (input color false))).count true +
+    (C.wires (List.ofFn (input color true))).count true
+
+def IsMonoJunkLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) : Prop :=
+  IsLeastAO G C ∧ (∀ D : Circuit, IsLeastAO G D → mass color C ≤ mass color D) ∧
+    ∀ D : Circuit, IsLeastAO G D → mass color D = mass color C →
+      (junk G C).card ≤ (junk G D).card
+
+def IsMonoJunkWireLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) : Prop :=
+  IsMonoJunkLeastAO G color C ∧
+    ∀ D : Circuit, IsLeastAO G D → mass color D = mass color C →
+      (junk G D).card = (junk G C).card → WireMass.mass G C ≤ WireMass.mass G D
+
+lemma exists_mono_junk_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C0 : Circuit) (hC0 : IsLeastAO G C0) :
+    ∃ C : Circuit, IsMonoJunkLeastAO G color C := by
+  classical
+  have hm : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = k :=
+    ⟨mass color C0, C0, hC0, rfl⟩
+  obtain ⟨C1, hC1, hMass1⟩ := Nat.find_spec hm
+  have hMin1 : ∀ D : Circuit, IsLeastAO G D → mass color C1 ≤ mass color D := by
+    intro D hD
+    rw [hMass1]
+    exact Nat.find_min' hm ⟨D, hD, rfl⟩
+  have hj : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = mass color C1 ∧
+      (junk G C).card = k := ⟨(junk G C1).card, C1, hC1, rfl, rfl⟩
+  obtain ⟨C, hC, hMass, hJunk⟩ := Nat.find_spec hj
+  refine ⟨C, hC, ?_, ?_⟩
+  · intro D hD
+    rw [hMass]
+    exact hMin1 D hD
+  · intro D hD hDMass
+    rw [hJunk]
+    exact Nat.find_min' hj ⟨D, hD, hDMass.trans hMass, rfl⟩
+
+lemma exists_mono_junk_wire_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C0 : Circuit) (hC0 : IsLeastAO G C0) :
+    ∃ C : Circuit, IsMonoJunkWireLeastAO G color C := by
+  classical
+  obtain ⟨C1, hC1⟩ := exists_mono_junk_least G color C0 hC0
+  have hw : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = mass color C1 ∧
+      (junk G C).card = (junk G C1).card ∧ WireMass.mass G C = k :=
+    ⟨WireMass.mass G C1, C1, hC1.1, rfl, rfl, rfl⟩
+  obtain ⟨C, hC, hMass, hJunk, hWire⟩ := Nat.find_spec hw
+  refine ⟨C, ⟨hC, ?_, ?_⟩, ?_⟩
+  · intro D hD
+    rw [hMass]
+    exact hC1.2.1 D hD
+  · intro D hD hDMass
+    rw [hJunk]
+    exact hC1.2.2 D hD (hDMass.trans hMass)
+  · intro D hD hDMass hDJunk
+    rw [hWire]
+    exact Nat.find_min' hw ⟨D, hD, hDMass.trans hMass, hDJunk.trans hJunk, rfl⟩
+
+lemma input_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (b : Bool) : graphFun G ∅ (input color b) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro hF
+  have hEdge : ∃ u v : Fin n, G.Adj u v ∧ input color b u = true ∧
+      input color b v = true := by simpa [graphFun] using hF
+  obtain ⟨u, v, huv, hu, hv⟩ := hEdge
+  have huColor : color u = b := of_decide_eq_true hu
+  have hvColor : color v = b := of_decide_eq_true hv
+  exact hBip u v huv (huColor.trans hvColor.symm)
+
+end PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+namespace PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+
+lemma mass_eq_of_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (hC : IsMonoJunkLeastAO G color C)
+    (D : Circuit) (hD : IsLeastAO G D) (hMass : mass color D ≤ mass color C) :
+    mass color D = mass color C := Nat.le_antisymm hMass (hC.2.1 D hD)
+
+lemma junk_eq_of_earlier_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (hC : IsMonoJunkLeastAO G color C)
+    (D : Circuit) (hD : IsLeastAO G D) (hMass : mass color D ≤ mass color C)
+    (hJunk : (junk G D).card ≤ (junk G C).card) :
+    (junk G D).card = (junk G C).card := by
+  exact Nat.le_antisymm hJunk (hC.2.2 D hD (mass_eq_of_le G color C hC D hD hMass))
+
+lemma wire_mass_le_of_earlier_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (hC : IsMonoJunkWireLeastAO G color C)
+    (D : Circuit) (hD : IsLeastAO G D) (hMass : mass color D ≤ mass color C)
+    (hJunk : (junk G D).card ≤ (junk G C).card) :
+    WireMass.mass G C ≤ WireMass.mass G D :=
+  hC.2 D hD (mass_eq_of_le G color C hC.1 D hD hMass)
+    (junk_eq_of_earlier_le G color C hC.1 D hD hMass hJunk)
+
+lemma of_competitor_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) (hC : IsMonoJunkWireLeastAO G color C)
+    (D : Circuit) (hD : IsLeastAO G D) (hMass : mass color D ≤ mass color C)
+    (hJunk : (junk G D).card ≤ (junk G C).card)
+    (hWire : WireMass.mass G D ≤ WireMass.mass G C) :
+    IsMonoJunkWireLeastAO G color D := by
+  have hm := mass_eq_of_le G color C hC.1 D hD hMass
+  have hj := junk_eq_of_earlier_le G color C hC.1 D hD hMass hJunk
+  refine ⟨⟨hD, ?_, ?_⟩, ?_⟩
+  · intro E hE
+    rw [hm]
+    exact hC.1.2.1 E hE
+  · intro E hE hEMass
+    rw [hj]
+    exact hC.1.2.2 E hE (hEMass.trans hm)
+  · intro E hE hEMass hEJunk
+    exact hWire.trans (hC.2 E hE (hEMass.trans hm) (hEJunk.trans hj))
+
+end PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+namespace PEqualNP.Outside.L_meta_3566.MonoSelectorNormalization
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover Normalization.LiftFix
+
+lemma hoist_mono_mass_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (k u t : ℕ) (g : Gate)
+    (hR : ReadsBack n C) (hkg : C.gates[k]? = some g)
+    (hu : u ∈ g.inputs) (ht : t ∈ g.inputs)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false))
+    (ho : C.output < n+C.gates.length) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true) :
+    MonoNormalize.mass color (HoistNegative.hoisted n C k u t) ≤ MonoNormalize.mass color C := by
+  have hfalse := WireMass.hoist_count G C k u t g hR hkg hu ht hequ ho hfun hclean
+    (MonoNormalize.input color false) (MonoNormalize.input_false G color hBip false)
+  have htrue := WireMass.hoist_count G C k u t g hR hkg hu ht hequ ho hfun hclean
+    (MonoNormalize.input color true) (MonoNormalize.input_false G color hBip true)
+  unfold MonoNormalize.mass
+  omega
+
+lemma hoist_preserves_selector {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : MonoNormalize.IsMonoJunkWireLeastAO G color C)
+    (k u t : ℕ) (g : Gate) (hkg : C.gates[k]? = some g) (hor : g.op = GateOp.or)
+    (hu : u ∈ g.inputs) (ht : t ∈ g.inputs)
+    (hequ : ∀ w : List Bool, GateOp.or.eval ([u,t].map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false))
+    (hout : C.output < n+C.gates.length)
+    (hclean : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD t false = true →
+      graphFun G ∅ x = true)
+    (hAO : IsAO2 n (HoistNegative.hoisted n C k u t))
+    (hsize : (HoistNegative.hoisted n C k u t).size = C.size)
+    (hfun : circuitFun n (HoistNegative.hoisted n C k u t) = circuitFun n C) :
+    MonoNormalize.IsMonoJunkWireLeastAO G color (HoistNegative.hoisted n C k u t) := by
+  have hLeast := hC.1.1
+  have hD : IsLeastAO G (HoistNegative.hoisted n C k u t) := by
+    refine ⟨hAO, hfun.trans hLeast.2.1, ?_⟩
+    intro E hE hEF
+    exact hsize.trans_le (hLeast.2.2 E hE hEF)
+  apply MonoNormalize.of_competitor_le G color C hC _ hD
+  · exact hoist_mono_mass_le G color hBip C k u t g hLeast.1.2.1 hkg hu ht hequ
+      hout hLeast.2.1 hclean
+  · exact (HoistDirty.junk_card_equiv G C k u t g hLeast.1.2.1 hkg hor hu ht hequ
+      hout hLeast.2.1 hclean).le
+  · exact WireMass.hoist_mass_le G C k u t g hLeast.1.2.1 hkg hu ht hequ
+      hout hLeast.2.1 hclean
+
+lemma step_preserves {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b) :
+    NormalizerInvariant.StepPreserves n (MonoNormalize.IsMonoJunkWireLeastAO G color) := by
+  intro D T hAO hA hB hD hPC
+  unfold PC at hPC
+  push Not at hPC
+  obtain ⟨k, g, hkg, hor, t, ht, hsat, himp, hkT⟩ := hPC
+  obtain ⟨D1, T1, hM1, hR1, hL1, hlen, hfun, hA1, hB1, hcard, hP1⟩ :=
+    NormalizerJunk.lift_step_AO_preserving_admissible n D T
+      (MonoNormalize.IsMonoJunkWireLeastAO G color)
+      (mono_of_AO2 n D hAO) hAO.2.1 hAO.2.2 hA hB k g hkg hor t ht hsat himp hkT
+      (by
+        intro u hu hequ hout hAO' hsize' hfun'
+        apply hoist_preserves_selector G color hBip D hD k u t g hkg hor hu ht hequ hout
+          (fun x hx => ?_) hAO' hsize' hfun'
+        rw [← hD.1.1.2.1]
+        exact himp x hx)
+  exact ⟨D1, T1, AO2_of n D1 hM1 hR1 hL1, hlen, hfun, hA1, hB1, hcard, hP1⟩
+
+lemma selected_values_eq {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C D : Circuit)
+    (hC : MonoNormalize.IsMonoJunkWireLeastAO G color C)
+    (hD : MonoNormalize.IsMonoJunkWireLeastAO G color D) :
+    MonoNormalize.mass color D = MonoNormalize.mass color C ∧
+      (junk G D).card = (junk G C).card ∧ WireMass.mass G D = WireMass.mass G C := by
+  have hm : MonoNormalize.mass color D = MonoNormalize.mass color C :=
+    Nat.le_antisymm (hD.1.2.1 C hC.1.1) (hC.1.2.1 D hD.1.1)
+  have hj : (junk G D).card = (junk G C).card :=
+    Nat.le_antisymm (hD.1.2.2 C hC.1.1 hm.symm) (hC.1.2.2 D hD.1.1 hm)
+  exact ⟨hm, hj, Nat.le_antisymm (hD.2 C hC.1.1 hm.symm hj.symm)
+    (hC.2 D hD.1.1 hm hj)⟩
+
+lemma same_selector_normal_form {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : MonoNormalize.IsMonoJunkWireLeastAO G color C) :
+    ∃ (D : Circuit) (T : Finset ℕ), MonoNormalize.IsMonoJunkWireLeastAO G color D ∧
+      D.size = C.size ∧ circuitFun n D = circuitFun n C ∧ PA D T ∧ PB n D T ∧ PC n D T ∧
+      MonoNormalize.mass color D = MonoNormalize.mass color C ∧
+      (junk G D).card = (junk G C).card ∧ WireMass.mass G D = WireMass.mass G C ∧
+      PEqualNP.Core.IsLiftFixedPoint G D ∧ TopForm G D ∧
+      (∀ k < D.gates.length, (gateAt D k).op = GateOp.and → ∀ t ∈ (gateAt D k).inputs,
+        ¬ (∀ x : Fin n → Bool, Circuit.eval ⟨D.gates, t⟩ (List.ofFn x) = true →
+          graphFun G ∅ x = true)) := by
+  obtain ⟨D, T, hD, hsize, hfun, hA, hB, hPC, hPD, hfixed, htop, hbelow⟩ :=
+    NormalizerInvariant.normalize_least (MonoNormalize.IsMonoJunkWireLeastAO G color)
+      (step_preserves G color hBip) G C hC.1.1 hC
+  obtain ⟨hm, hj, hw⟩ := selected_values_eq G color C D hC hPD
+  exact ⟨D, T, hPD, hsize, hfun, hA, hB, hPC, hm, hj, hw, hfixed, htop, hbelow⟩
+
+end PEqualNP.Outside.L_meta_3566.MonoSelectorNormalization
