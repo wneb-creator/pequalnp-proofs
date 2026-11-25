@@ -20,3 +20,5 @@
 - 2026-11-25T12:18:44.808148+00:00: ClosedNoLive finite-table soundness helper compiled, independently reviewed by lean_setup and root. Preserved as partial research component.
 
 - 2026-11-25T12:21:16.731991+00:00: Preserved compiled P25 embedding and14 disjointP4 packing (root review), P9 cut adapter (artifact_requirements review), and generic DAG checker soundness (lean_setup review). These are partial components; no new gate lower bound claimed.
+
+- 2026-11-25T12:26:04.598501+00:00: FreeMask, generic fresh OR/AND substitution, and generic OR-class closure compiled; circuit_search independently reviewed all three, PASS. Preserving these partial components immediately.
