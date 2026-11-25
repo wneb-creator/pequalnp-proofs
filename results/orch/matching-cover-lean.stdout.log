@@ -1,0 +1,32 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingCover.lean:19:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲

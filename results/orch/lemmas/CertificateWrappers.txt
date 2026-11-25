@@ -1,0 +1,107 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma certificate_budget {n : ℕ} {C : Circuit} (G : SimpleGraph (Fin n))
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hclean : ∀ k, reachable n C k → (gateAt C k).op = GateOp.and →
+      singletonSupport n C (n + k) = ∅)
+    (hcommon : ∀ c d v w : Fin n, c ≠ d → v ≠ w →
+      G.Adj c v → G.Adj c w → G.Adj d v → G.Adj d w → False)
+    (B : Finset ℕ) (hB : B ⊆ births n C)
+    (c : ℕ → Fin n) (w : ℕ → ℕ)
+    (choose_spec : ∀ k ∈ B, w k ∈ (gateAt C k).inputs ∧
+      ∀ v ∈ singletonSupport n C (w k), G.Adj (c k) v)
+    (cover : ∀ u v, G.Adj u v → ∃ k ∈ B,
+      (u = c k ∧ v ∈ singletonSupport n C (w k)) ∨
+      (v = c k ∧ u ∈ singletonSupport n C (w k)))
+    (E : Finset (Fin n × Fin n))
+    (hE : ∀ p ∈ E, G.Adj p.1 p.2 ∧ p.1 ≤ p.2) :
+    ∃ T : Finset (Fin n), (∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T) ∧
+      T.card ≤ B.card ∧ E.card + B.card ≤ C.size + 1 := by
+  classical
+  let T := B.image c
+  let fiber (u : Fin n) := B.filter fun k => c k = u
+  let roots (u : Fin n) := (fiber u).image w
+  let leaves (u : Fin n) := (roots u).biUnion (singletonSupport n C)
+  have hcov : ∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T := by
+    intro u v huv
+    obtain ⟨k, hk, ⟨rfl, _⟩ | ⟨rfl, _⟩⟩ := cover u v huv
+    · exact Or.inl (Finset.mem_image_of_mem c hk)
+    · exact Or.inr (Finset.mem_image_of_mem c hk)
+  have hEsub : E ⊆ T.biUnion (fun t => (leaves t).image (edgeKey t)) := by
+    rintro ⟨u, v⟩ hp
+    obtain ⟨huv, huv'⟩ := hE _ hp
+    obtain ⟨k, hk, h⟩ := cover u v huv
+    have hroot : w k ∈ roots (c k) := Finset.mem_image_of_mem w (Finset.mem_filter.2 ⟨hk, rfl⟩)
+    refine Finset.mem_biUnion.2 ⟨c k, Finset.mem_image_of_mem c hk, ?_⟩
+    have hkey : edgeKey u v = (u, v) := by simp [edgeKey, min_eq_left huv', max_eq_right huv']
+    rcases h with ⟨he, h⟩ | ⟨he, h⟩
+    · exact Finset.mem_image.2 ⟨v, Finset.mem_biUnion.2 ⟨w k, hroot, h⟩, by rwa [← he]⟩
+    · exact Finset.mem_image.2 ⟨u, Finset.mem_biUnion.2 ⟨w k, hroot, h⟩, by rwa [← he, edgeKey_comm]⟩
+  have hleaf (t : Fin n) : (leaves t).card ≤ (fiber t).card +
+      (mergePool C G t C.gates.length).card := by
+    have hr (a) (ha : a ∈ roots t) : ∃ k ∈ B, c k = t ∧ w k = a := by
+      obtain ⟨k, hk, he⟩ := Finset.mem_image.1 ha
+      exact ⟨k, (Finset.mem_filter.1 hk).1, (Finset.mem_filter.1 hk).2, he⟩
+    have h := leaf_budget (G := G) (c := t) hm rb hclean C.gates.length (roots t) (by
+      intro a ha
+      obtain ⟨k, hk, _, rfl⟩ := hr a ha
+      by_cases hn : w k < n
+      · exact Or.inl hn
+      · apply Or.inr
+        exact reachable_child rb (mem_births.1 (hB hk)).1 (by
+          rw [show n + (w k - n) = w k by omega]
+          exact (choose_spec k hk).1)) (by
+      intro a ha v hv
+      obtain ⟨k, hk, rfl, rfl⟩ := hr a ha
+      exact (choose_spec k hk).2 v hv) (by
+      intro a ha _
+      obtain ⟨k, hk, _, rfl⟩ := hr a ha
+      have hk' := (mem_births.1 (hB hk)).1.1
+      have := rb k hk' (w k) (choose_spec k hk).1
+      omega)
+    exact h.trans (Nat.add_le_add_right Finset.card_image_le _)
+  have hdisjFib : (T : Set (Fin n)).PairwiseDisjoint fiber := by
+    intro a _ b _ hab
+    rw [Function.onFun, Finset.disjoint_left]
+    intro k hka hkb
+    exact hab ((Finset.mem_filter.1 hka).2.symm.trans (Finset.mem_filter.1 hkb).2)
+  have hsumB : (∑ t ∈ T, (fiber t).card) = B.card := by
+    rw [← Finset.card_biUnion hdisjFib]
+    congr 1
+    ext k
+    constructor
+    · intro hk
+      obtain ⟨_, _, hf⟩ := Finset.mem_biUnion.1 hk
+      exact (Finset.mem_filter.1 hf).1
+    · intro hk
+      exact Finset.mem_biUnion.2 ⟨c k, Finset.mem_image_of_mem c hk, Finset.mem_filter.2 ⟨hk, rfl⟩⟩
+  have hdisjPool : (T : Set (Fin n)).PairwiseDisjoint (fun t => mergePool C G t C.gates.length) := by
+    intro a _ b _ hab
+    rw [Function.onFun, Finset.disjoint_left]
+    intro k hka hkb
+    obtain ⟨_, hk, ha⟩ := mem_mergePool.1 hka
+    have hb := (mem_mergePool.1 hkb).2.2
+    obtain ⟨u, hu, v, hv, huv⟩ := Finset.one_lt_card.1 (mem_merges.1 hk).2.2.1
+    exact hcommon a b u v hab huv (ha u hu) (ha v hv) (hb u hu) (hb v hv)
+  have hsumL : (∑ t ∈ T, (mergePool C G t C.gates.length).card) ≤ (merges n C).card := by
+    rw [← Finset.card_biUnion hdisjPool]
+    apply Finset.card_le_card
+    intro k hk
+    obtain ⟨t, _, ht⟩ := Finset.mem_biUnion.1 hk
+    exact (mem_mergePool.1 ht).2.1
+  have hEL : E.card ≤ B.card + (merges n C).card := by
+    calc
+      _ ≤ (T.biUnion fun t => (leaves t).image (edgeKey t)).card := Finset.card_le_card hEsub
+      _ ≤ ∑ t ∈ T, ((leaves t).image (edgeKey t)).card := Finset.card_biUnion_le
+      _ ≤ ∑ t ∈ T, (leaves t).card := Finset.sum_le_sum fun _ _ => Finset.card_image_le
+      _ ≤ ∑ t ∈ T, ((fiber t).card + (mergePool C G t C.gates.length).card) :=
+        Finset.sum_le_sum fun t _ => hleaf t
+      _ ≤ _ := by rw [Finset.sum_add_distrib, hsumB]; exact Nat.add_le_add_left hsumL _
+  have hgate := gate_budget hm rb hclean
+  have hBcard : B.card ≤ (births n C).card := Finset.card_le_card hB
+  exact ⟨T, hcov, Finset.card_image_le, by change E.card + B.card ≤ C.size + 1; omega⟩
+
+end PEqualNP.Outside.L_meta_4675.Reuse

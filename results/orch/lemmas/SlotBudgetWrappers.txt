@@ -1,0 +1,98 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+noncomputable def reachableGates (n : ℕ) (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter (reachable n C)
+
+noncomputable def andInputCount (n : ℕ) (C : Circuit) (k : ℕ) : ℕ := by
+  classical
+  exact if (gateAt C k).op = GateOp.and then (positiveInputs n C k).card else 0
+
+lemma positive_gate_budget {n : ℕ} {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hclean : ∀ k, reachable n C k → (gateAt C k).op = GateOp.and →
+      singletonSupport n C (n + k) = ∅) :
+    (∑ k ∈ reachableGates n C, andInputCount n C k) +
+      (merges n C).card ≤ C.size + 1 := by
+  classical
+  let R := (Finset.range C.gates.length).filter (reachable n C)
+  let Z := R.filter fun k => singletonSupport n C (n + k) = ∅
+  let D := fun k => (gateAt C k).inputs.toFinset.filter fun w =>
+    n ≤ w ∧ singletonSupport n C w = ∅
+  let E := fun k => (D k).image fun w => w - n
+  have hR (k) : k ∈ R ↔ reachable n C k := by
+    simp only [R, Finset.mem_filter, Finset.mem_range]
+    exact ⟨And.right, fun h => ⟨h.1, h⟩⟩
+  have hZ (k) : k ∈ Z ↔ k ∈ R ∧ singletonSupport n C (n + k) = ∅ := Finset.mem_filter
+  have hread : Z.erase (C.output - n) ⊆ R.biUnion E := by
+    intro j hj
+    obtain ⟨hne, hz⟩ := Finset.mem_erase.1 hj
+    obtain ⟨k, hk, hin⟩ := reachable_reader ((hR j).1 ((hZ j).1 hz).1) hne
+    refine Finset.mem_biUnion.2 ⟨k, (hR k).2 hk, Finset.mem_image.2 ⟨n + j, ?_, by omega⟩⟩
+    exact Finset.mem_filter.2 ⟨List.mem_toFinset.2 hin, by omega, ((hZ j).1 hz).2⟩
+  have hsum : Z.card ≤ (∑ k ∈ R, (D k).card) + 1 := by
+    calc
+      Z.card ≤ (Z.erase (C.output - n)).card + 1 := by
+        by_cases h : C.output - n ∈ Z
+        · exact Nat.le_of_eq (Finset.card_erase_add_one h).symm
+        · rw [Finset.erase_eq_of_notMem h]; omega
+      _ ≤ (R.biUnion E).card + 1 := Nat.add_le_add_right (Finset.card_le_card hread) _
+      _ ≤ (∑ k ∈ R, (E k).card) + 1 := Nat.add_le_add_right Finset.card_biUnion_le _
+      _ ≤ _ := Nat.add_le_add_right (Finset.sum_le_sum fun _ _ => Finset.card_image_le) _
+  have hlocal : ∀ k ∈ R, (D k).card + andInputCount n C k +
+      (if k ∈ merges n C then 1 else 0) ≤ 1 + (if k ∈ Z then 1 else 0) := by
+    intro k hk
+    have hr := (hR k).1 hk
+    have hdp : Disjoint (D k) (positiveInputs n C k) := by
+      rw [Finset.disjoint_left]
+      intro w hd hp
+      have he := (Finset.mem_filter.1 hd).2.2
+      simpa [he] using (mem_positiveInputs.1 hp).2
+    have hcap : (D k).card + (positiveInputs n C k).card ≤ 2 := by
+      rw [← Finset.card_union_of_disjoint hdp]
+      exact (Finset.card_le_card (Finset.union_subset
+        (Finset.filter_subset _ _) (Finset.filter_subset _ _))).trans (input_card hm hr.1)
+    by_cases ha : (gateAt C k).op = GateOp.and
+    · have hz := (hZ k).2 ⟨hk, hclean k hr ha⟩
+      have hl : k ∉ merges n C := by
+        intro h
+        have hh := (mem_merges.1 h).2.1
+        rw [ha] at hh
+        cases hh
+      simpa [andInputCount, ha, hz, hl] using hcap
+    · by_cases hl : k ∈ merges n C
+      · have hpos := (mem_merges.1 hl).2.2.2
+        simp only [andInputCount, ha, hl, ite_false, ite_true, Nat.add_zero]
+        split_ifs <;> omega
+      · by_cases hz : k ∈ Z
+        · simp only [andInputCount, ha, hl, hz, ite_false, ite_true, Nat.add_zero]
+          omega
+        · have hs : (singletonSupport n C (n + k)).Nonempty :=
+            Finset.nonempty_iff_ne_empty.2 fun h => hz ((hZ k).2 ⟨hk, h⟩)
+          have hop : (gateAt C k).op = GateOp.or := (gate_op hm hr.1).resolve_left ha
+          obtain ⟨u, hu⟩ := hs
+          obtain ⟨w, hw, huw⟩ := (support_or rb hr.1 hop u).1 hu
+          have hpos := Finset.card_pos.2 ⟨w, mem_positiveInputs.2 ⟨hw, u, huw⟩⟩
+          simp only [andInputCount, ha, hl, hz, ite_false, Nat.add_zero]
+          omega
+  have count (T : Finset ℕ) (hT : T ⊆ R) :
+      (∑ k ∈ R, if k ∈ T then 1 else 0) = T.card := by
+    rw [← Finset.card_filter]
+    congr 1
+    ext k
+    simp only [Finset.mem_filter]
+    exact ⟨And.right, fun h => ⟨hT h, h⟩⟩
+  have hL : merges n C ⊆ R := fun _ h => (hR _).2 (mem_merges.1 h).1
+  have h := Finset.sum_le_sum hlocal
+  rw [Finset.sum_add_distrib, Finset.sum_add_distrib, count _ hL,
+    Finset.sum_add_distrib, count Z (Finset.filter_subset _ _)] at h
+  simp only [Finset.sum_const, smul_eq_mul, mul_one] at h
+  have hRc : R.card ≤ C.size := by
+    change R.card ≤ C.gates.length
+    exact (Finset.card_filter_le _ _).trans_eq (Finset.card_range _)
+  change (∑ k ∈ R, andInputCount n C k) + (merges n C).card ≤ C.size + 1
+  omega
+
+end PEqualNP.Outside.L_meta_4675.Reuse

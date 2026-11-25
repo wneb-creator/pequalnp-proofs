@@ -23,3 +23,10 @@
 - 2026-11-25T17:25:11.796322+00:00: checked and independently reviewed OR-invariant, conditional normalization composition, and shared-corner reader pricing; archival checkpoint.
 - 2026-11-25T17:26:13.347548+00:00: first strategy review: retain exact SMT and CGP refutation searches; concentrate proof work on shared-corner and multi-generator independent-set pricing. Read-once and semantic-colour shortcuts excluded by checked countermodels.
 - 2026-11-25T17:33:18.224095+00:00: preserving independently reviewed full-input reader constraints, dirty-product counting, monotone-flag cover, and Fano27 positive baseline.
+- 2026-11-25T17:33:26.323036+00:00: DirtyProduct and FlagCover semantic multi-generator certificates compiled; no actual circuit-cost bridge yet.
+- 2026-11-25T17:34:55.923540+00:00: recorded theta8 timeout; FanoSanity and MatchingCover compiled; launched bounded guided Fano26 annealing after rejecting unbounded drift strategy.
+- 2026-11-25T17:36:18.329706+00:00: dual flag certificate and singleton-mask residual dichotomy compiled.
+- 2026-11-25T17:40:36.138616+00:00: selected-star certificate cost bridge compiled, exit 0.
+- 2026-11-25T17:42:39.021801+00:00: refined positive-input-slot gate budget compiled, exit 0.
+- 2026-11-25T17:43:05.184381+00:00: exact Python theta8 witness refutes generic unchanged birth-slot allocation bridge.
+- 2026-11-25T17:46:13.923082+00:00: archival checkpoint of checked Fano dirty-gate necessity, selected-star and positive-slot budgets, dual flag certificates, and center adapter.

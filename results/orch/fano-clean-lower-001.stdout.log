@@ -1,0 +1,46 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:889:61: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:889:61: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:912:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:17: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/FanoCleanLower.lean:1073:34: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲

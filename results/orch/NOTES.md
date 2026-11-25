@@ -109,3 +109,37 @@ Both compile with pinned Lean, exit 0, empty stdout/stderr on 2026-11-25T17:18:3
 `ReaderPricing.lean` and `ReaderPricingExtended.lean` compile with Defs-only imports, exit0 and no diagnostics. For a pure dirty rectangle A(point)×B(line), a clean reader `(g OR P_lines) AND Q_points` has direct terms Q×P and possible new terms (A∩Q)×(B\P). Under |A|,|B|,|Q|≥2 and P nonempty, with explicit row/base adjacency and triple-cleanliness hypotheses, every new pair is both a complete row and complete column of A×B. C4-freeness makes that common corner unique. `readers_share_at_most_one_novel_edge` shows the UNION across any finite family of such readers still has cardinality at most1. This prices nonstar P4 readers relative to their direct terms, avoiding the false claim that the full reader edge set must be a star.
 
 The remaining region obstacle is nested dirty ANDs or clean readers whose both operands contain only dirty flags. Multiple pure dirty flags joined only by OR can each be priced independently by monotonicity (algebraic agent extending). No arbitrary-circuit extraction/counting theorem yet.
+
+### Multiple dirty generators: full independent-input certificates
+
+`DirtyProduct.lean` compiled successfully (exit 0, empty logs `dirty-product-003.stdout/.stderr`). For a clean conjunction of pure rectangle flags, each common line b has a generator point set A_i contained in N(b): test the independent input consisting of all points outside N(b) and the single line b. If each A_i has at least two points, C4-freeness makes that witnessing b unique globally for each generator, giving the common-line count at most the number of generators. The symmetric point-count lemma is also checked.
+
+`FlagCover.lean` (95 lines, frozen after successful compile; empty logs `flag-cover-001.stdout/.stderr`) strengthens this to an arbitrary monotone upper Boolean function F of pure rectangle flags. Every accepted pair (a,b) has an active generator i with a in A_i, b in B_i, and A_i contained in N(b). Consequently E is exactly covered by the clean rectangles A_i times the subset of B_i adjacent to every point of A_i. If every A_i has size at least two, each cleaned line side has size at most one, yielding a globally consistent clean-star cover.
+
+Circuit consequence on paper: when all upper inputs are pure rectangle-generator outputs and all point sides have size at least two, replace each generator by its globally selected clean star and every upper AND by OR; all accepted edge pairs survive and all new flags are below E. To apply this to an actual circuit without adding connections, restrict the generator family to the output cone first. Actual gate-list rewiring and the size count have not been formalized. Singleton-side generators and upper regions with raw input reads remain open.
+
+### Counterexample search/formal baseline update (2026-11-25 17:34 UTC)
+
+- Theta8 k11 SMT reached600.09s timeout and returnedUNKNOWN. No witness and no infeasibility conclusion.
+- `FanoSanity.lean` compiled exit0 with empty stdout/stderr:21-edge C4-free Fano incidence, AO2 circuit of27gates, tCount0, exact computation proved symbolically. No exhaustive Boolean case expansion.
+- `MatchingCover.lean` compiled exit0 (deprecation warnings only): a subset of Fin(p+p) meeting each diagonal point/line pair has cardinality at leastp, by injective endpoint choice. This supplies the matching lower bound needed to identify Fano cover number7.
+- Neutral CGP runs1800s seed164, initialized from the independently fully evaluated27gate Fano circuit. More than17million mutations by540s; best remains27.
+- Unbounded annealing was stopped after it drifted to19wrong weighted truth samples (best1). Originalprogram/logs retained. Replaced with `CircuitSearchAnnealBounded.py`, which stays within5weighted errors and directs mutations at live gates and wrong samples;1800s seed166 launched after lease renewal.
+
+### Flag-cover residual dichotomy
+
+`FlagCoverExtended.lean` compiled at 2026-11-25T17:36:18.329706+00:00 with exit 0 and empty logs `flag-cover-extended-004.stdout/.stderr`; frozen separately from the archived base. It adds the dual active-neighborhood certificate and `active_certificate_cases`: every accepted pair (a,b) has either an active large point-side generator contained in N(b), an active large line-side generator contained in N(a), or two active generators with A_i={a} and B_j={b}. The certificate and dichotomy need no C4 hypothesis; C4 converts the large-side cases into unique global star centers. The remaining task is pricing combinations of singleton masks in the upper circuit.
+
+### Selected-star certificate budget (lemma_search)
+
+`Certificate.lean` compiles with new `Reuse.certificate_budget`, a substantive weakening of the clean-circuit budget. It requires only that all reachable AND outputs have empty singletonSupport, a selected subset B of birth gates, and a chosen actual input wire plus adjacent centre for each selected birth whose stars cover G. No all-AND-below-F or pair safety assumptions remain. It yields a vertex cover T with T.card ≤ B.card and E.card+B.card ≤ C.size+1. Selecting B rather than all births permits dropping FlagCover generators with empty cleaned line sides. New suffix `CertificateWrappers.txt` (108 lines) is ready for integration. Successful logs certificate-build-001.stdout/.stderr; timestamp 2026-11-25T17:40:36.138616+00:00.
+
+### Sharper positive-input-slot budget (lemma_search)
+
+`SlotBudget.lean` compiles, exit 0. New `Reuse.positive_gate_budget` shows that the sum over reachable AND gates of the number of distinct input wires with nonempty singleton support, plus the number of OR merges, is at most C.size+1. Its hypothesis explicitly requires every reachable AND output to have empty singleton support. This retains the cost of one-positive-operand filter ANDs, which `2*births` discarded. A future star-cover proof can charge leaves at such filter operands and reserve separate center slots at births, but a disjoint assignment of those slots still needs proof. The AND-empty-singleton hypothesis is essential; repeated x AND x is outside the result. Integration suffix `SlotBudgetWrappers.txt`; logs slot-budget-build-002.stdout/.stderr; checked 2026-11-25T17:42:39.021801+00:00.
+
+### Obstruction to unchanged birth-slot allocation
+
+A generic certificate selecting one whole actual input-slot star per original birth is FALSE, even with tCount=0 and every AND false on singleton inputs. `BirthAllocationObstruction.py` checks a 26-gate circuit for theta8 (4+4 vertices, 9 edges). Each point is masked by AND with the OR of all line inputs, and each line by AND with the OR of all point inputs; a 12-gate star circuit then reads the 8 masks. The circuit has exactly 8 reachable births. Their input supports are singletons or all four vertices of one colour. Since maximum graph degree is 3, a whole-slot star contained in E must use a singleton support, so every eligible birth star covers at most one edge. Eight such stars cannot cover nine edges.
+
+Exact Python checks passed for all 256 inputs, C4-freeness, syntactic two-colour count, all-AND singleton support, reachability, births, and every candidate whole-slot star. This is NOT Lean checked and is NOT a counterexample to the posted statement: 26 gates exceed the required lower bound. Logs: `birth-allocation-obstruction.stdout/.stderr`. Conditional certificate-budget results remain sound; the missing bridge must allow rewiring, new support slots, or extra charges from upper gates.

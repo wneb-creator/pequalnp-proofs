@@ -29,3 +29,6 @@ No main theorem, proof PR, or accepted checker verdict exists.
 
 Further partials, direct Lean exit0, empty diagnostics: ReaderSemantics, DirtyProduct, FlagCover, FanoSanity. Independent status_review approved all for archival with explicit restrictions. FanoSanity namespace must be renamed before named-file integration; no minimality claim.
 Axiom audit of five main integrated partial lemmas passed; only propext, Classical.choice, Quot.sound. New partials are not covered by that first audit.
+
+Additional compiled and independently reviewed partials: FanoCleanLower, MatchingCover, FlagCoverExtended, Certificate, SlotBudget, FlagCentres. Sources retain explicit assumptions; no full statement theorem. Root independently checked SlotBudget local charging and FlagCentres finite choice; status_review checked remaining new components and bounded annealing validator.
+FanoCleanLower proves any AO2 Fano circuit of at most26gates has a dirtyAND; it does not rule those circuits out.

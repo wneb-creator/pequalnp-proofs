@@ -1,0 +1,46 @@
+namespace PEqualNP.Outside.L_meta_4675.FanoCleanLower
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+  PEqualNP.TopForm PEqualNP.Outside.L_meta_4675.FanoSanity
+
+lemma diagonal_edges : ∀ a : Fin 7, (a, a) ∈ fanoEdges := by decide
+
+lemma cover_lower (S : Finset (Fin 14))
+    (hc : ∀ a b : Fin 7, (a, b) ∈ fanoEdges →
+      Fin.castAdd 7 a ∈ S ∨ Fin.natAdd 7 b ∈ S) : 7 ≤ S.card := by
+  exact PEqualNP.Outside.L_meta_4675.MatchingSanity.matching_cover_lower 7 S
+    (fun a => hc a a (diagonal_edges a))
+
+lemma clean_lower_bound (C : Circuit) (hao : IsAO2 14 C)
+    (hcomp : ∀ x : Fin 14 → Bool, circuitFun 14 C x =
+      decide (∃ (a : Fin 7) (b : Fin 7), (a, b) ∈ fanoEdges ∧
+        x (Fin.castAdd 7 a) = true ∧ x (Fin.natAdd 7 b) = true))
+    (hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ∀ x : Fin 14 → Bool, gateVal 14 C j x = true → circuitFun 14 C x = true) :
+    27 ≤ C.size := by
+  obtain ⟨S, hcover, hbudget⟩ :=
+    PEqualNP.Outside.L_meta_4675.Reuse.clean_bound 7 7 fanoEdges C
+      fano_no_four_cycle hao hcomp hclean
+  have hS := cover_lower S hcover
+  rw [fano_edge_count] at hbudget
+  omega
+
+lemma small_has_dirty (C : Circuit) (hao : IsAO2 14 C)
+    (hcomp : ∀ x : Fin 14 → Bool, circuitFun 14 C x =
+      decide (∃ (a : Fin 7) (b : Fin 7), (a, b) ∈ fanoEdges ∧
+        x (Fin.castAdd 7 a) = true ∧ x (Fin.natAdd 7 b) = true))
+    (hsize : C.size ≤ 26) :
+    ∃ j < C.gates.length, (gateAt C j).op = GateOp.and ∧
+      ∃ x : Fin 14 → Bool, gateVal 14 C j x = true ∧ circuitFun 14 C x ≠ true := by
+  classical
+  by_contra h
+  have hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ∀ x : Fin 14 → Bool, gateVal 14 C j x = true → circuitFun 14 C x = true := by
+    intro j hj hop x hx
+    by_contra hout
+    exact h ⟨j, hj, hop, x, hx, hout⟩
+  have hb := clean_lower_bound C hao hcomp hclean
+  omega
+
+end PEqualNP.Outside.L_meta_4675.FanoCleanLower
