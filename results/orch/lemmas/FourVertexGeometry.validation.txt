@@ -1,0 +1,2 @@
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/FourVertexGeometry.lean
+Exit status:0, empty stdout/stderr; full files four-vertex-003.stdout/stderr.
