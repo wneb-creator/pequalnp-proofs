@@ -1,0 +1,1 @@
+Compiled partial lemmas for L-meta-3754, independently reviewed by status_review; selection225 previously independently reviewed by and_lower_bound and ledger_proof. Complete build logs are included. Selection1184 is a standalone Defs assembly. Other small extensions use the named module or their stated helper imports. The complete posted theorem is still absent.

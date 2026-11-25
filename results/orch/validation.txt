@@ -94,3 +94,7 @@ TIMING total=114.0 subagents=6
 2026-11-25T17:36:36.911332+00:00 L-meta-3754 PARTIAL: named file2398 lines, lake build passed; exact assembly independently approved by status_review. Frozen approved snapshots, full successful build streams and source hashes saved in gap-3754/checkpoint-23. Root double-star upper construction195 lines independently approved by toolchain_setup. Selection225 independently approved by and_lower_bound. Search bundles independently reviewed and hash-checked: formula-only forests and 17 circuit queries; no counterexample to the posted statement, no full proof or target checker acceptance.
 Sub-agents: six agents for semantic proofs, gate-count surgery, structural lemmas, finite searches, independent review, and toolchain support.
 TIMING total=136 subagents=6
+
+2026-11-25T17:38:46.027906+00:00 L3754 partial preservation: independently approved Ledger955, semantic middle825 and exchange135, selection standalone1184, and arbitrary-sharing double-star OR-cost631. Full successful compiler logs and source hashes retained in checkpoint-24. These components retain explicit structural premises; no full posted theorem or target checker acceptance.
+Sub-agents: six, reused across proof, search and independent review tasks.
+TIMING total=136.2 subagents=6
