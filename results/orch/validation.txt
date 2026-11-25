@@ -1,0 +1,9 @@
+L-meta-650 PARTIAL snapshot, not a proof of the posted size-63 statement.
+
+Baseline.lean: explicit 64-gate circuit, size = 64 and Monotone2 proved.
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/lean_baseline/Baseline.lean
+Lean elaboration: exit 0, stdout/stderr empty; complete output preserved in baseline-build.log.
+PEqualNP.Defs build: Build completed successfully (5147 jobs).
+Exact-statement checker: not run; full target not proved.
+Sub-agents: six (status_review, circuit_search, algebra_strategy, lean_baseline, reduction_analysis, lower_bound)
+TIMING total=16.5 subagents=6
