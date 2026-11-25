@@ -10,3 +10,5 @@
 2026-11-25T14:17:10.866662+00:00 — lower_bound_route17binary extension compiled exit0; root notified for integration/push.
 2026-11-25T14:19:08.917624+00:00 — BinaryFloor17 extension compiled, independent review passed; checkpoint push starting.
 2026-11-25T14:20:39.196030+00:00 — AntiDiagonal circuit compiled and independently reviewed; preserved restricted counterexample and computational search archive.
+2026-11-25T14:21:44.998713+00:00 — first orchestrator replan: concentrate on17/18 binary gates and compact signed SAT; retire disproved anti-diagonal and blocked FUSE routes.
+2026-11-25T14:25:56.022100+00:00 — EffectiveReads helper compiled and independently reviewed; latest lease expiry14:45:38.364UTC; checkpoint push starting.

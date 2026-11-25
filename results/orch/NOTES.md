@@ -32,3 +32,19 @@ Strategies: proof_route (structural lower bound), counterexample_route (semantic
 2026-11-25T14:18:57.999506+00:00 lower_bound_route: Verified stronger360 oneDrop collision witnesses (only droppedinput changes); protocol_review independently confirmed. This forcesbothfirstinputs retained. AND/ANDNOT firstgate then yields18binary via2constantmass. Fragment prepared for Lean after17maincompiled. OR leavesduplicate nonconstant; genericduplicatecharge is false (3gateMUX from[a,a,b,c]), so no claimforOR.
 
 2026-11-25T14:19:59.028848+00:00 [or_case_route] AntiDiagonal.lean compiled with lake env lean, exit0 and empty diagnostics. It records an explicit16-gate9-input circuit with1NOT, hence15binary gates, for Petersen restricted by x2=not x0. Independent reviewer exhaustively verified all512rows and legal reads. This blocks one proposed restricted lowerbound, not the posted gap. Parent notified for early push.
+
+2026-11-25T14:21:44.998713+00:00 [root replan ~25 minutes]
+- Main checked progress: generic last-NOT replacement; sensitivity mask classification; binaryFloor16; independently reviewed and compiled signed Floor17 extension. Named integrated17 build runs now.
+- Active proof route: AND/asymmetric-AND first gate may yield18 binary; OR case remains. No universal duplicate-wire charge (mux counterexample).
+- Active search: exact9-input signed15 gate query; then full17binary+2NOT and18binary+1NOT. Local small window resynthesis has no full witness.
+- Active lemma route: generalize effective-read compiler, with actual NOT-input exclusion still open. Two literal reads do not alone justify constant replacement (paw-graph obstruction).
+- Closed route: OR-nonedge anti-diagonal signed16 lower bound is false; explicit15binary+1NOT restriction circuit is checked and preserved.
+- Closed infrastructure route: actual FUSE mount refused with Operation not permitted; fullMathlib checker remains FAULT, no checker edits or fake cache.
+
+UTC 2026-11-25T14:22:32.296547+00:00
+### proof_route: effective-read compiler
+- Extracted the independent restriction compiler from `L_meta_5367.R` into `results/orch/lemmas/EffectiveReads.lean` (192 lines, 13089 bytes).
+- New generalized `lowerReadBound`: if the Petersen-minus-vertex graph has no circuit of size at most k, a circuit supplied x and an extra complement of input zero satisfies k+1+effectiveReads <= size. The count includes actual gate readers of either literal, using only the first operand of a NOT.
+- `reads_le_two` specializes to excluded Fin9 size15 and tail size<=18, conditional on that Fin9 bound. This is not a full NOT-input exclusion.
+- Compiled with Lean4.36.0, exit0, empty full log `/tmp/oec/pequalnp-pilot-102/effective-reads-check.log`. Independent review requested.
+- Exhaustively checked all16 rows of a caution example: d=ab OR e, p=v OR a, q=(NOT v) AND b, output=(p AND q) OR (d AND (p OR q)) equals monotone ab OR ae OR be OR ve, with each literal read once. Neither replacing NOT v by false nor by true preserves the output. Thus the residual two-reader argument needs a real circuit rewrite or stronger target structure.
