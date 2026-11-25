@@ -3592,4 +3592,694 @@ lemma monochromatic_function_decoder_cover {p l : ℕ} {I : Type*} [Fintype I]
 
 end H8Residual
 
+namespace H8Active
+
+def assignmentOf {α : Type*} [DecidableEq α] (S : Finset α) : α → Bool :=
+  fun a => decide (a ∈ S)
+
+def dnf {α : Type*} [DecidableEq α] (P : Finset (Finset α)) (x : α → Bool) : Bool :=
+  decide (∃ S ∈ P, ∀ a ∈ S, x a = true)
+
+def disjunction {α : Type*} [DecidableEq α] (Q : Finset α) (x : α → Bool) : Bool :=
+  decide (∃ a ∈ Q, x a = true)
+
+def conjunction {α ι : Type*} [DecidableEq ι] (P : Finset ι)
+    (f : ι → (α → Bool) → Bool) (x : α → Bool) : Bool :=
+  decide (∀ i ∈ P, f i x = true)
+
+lemma assignmentOf_le {α : Type*} [DecidableEq α] {S : Finset α} {x : α → Bool}
+    (hx : ∀ a ∈ S, x a = true) : assignmentOf S ≤ x := by
+  intro a
+  by_cases ha : a ∈ S
+  · simp [assignmentOf, ha, hx a ha]
+  · simp [assignmentOf, ha]
+
+lemma dnf_preserved {α : Type*} [DecidableEq α]
+    (P : Finset (Finset α)) (f g : (α → Bool) → Bool)
+    (hg : Monotone g) (hle : ∀ x, g x ≤ f x)
+    (hs : ∀ S ∈ P, g (assignmentOf S) = f (assignmentOf S))
+    (hf : ∀ x, f x = dnf P x) : ∀ x, g x = dnf P x := by
+  intro x
+  apply le_antisymm
+  · simpa only [hf x] using hle x
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    obtain ⟨S,hSP,hSx⟩ : ∃ S ∈ P, ∀ a ∈ S, x a = true := by
+      simpa only [dnf, decide_eq_true_eq] using hx
+    have ht : f (assignmentOf S) = true := by
+      rw [hf]
+      simp only [dnf, decide_eq_true_eq]
+      exact ⟨S,hSP,fun a ha => by simp [assignmentOf,ha]⟩
+    have ht' : g (assignmentOf S) = true := by rw [hs S hSP]; exact ht
+    exact Bool.le_iff_imp.mp (hg (assignmentOf_le hSx)) ht'
+
+lemma or_bypass_le {α : Type*} (H : α → Bool → Bool) (h k : α → Bool)
+    (hH : ∀ x, Monotone (H x)) : ∀ x, H x (k x) ≤ H x (h x || k x) := by
+  intro x
+  apply hH x
+  cases h x <;> cases k x <;> decide
+
+lemma or_bypass_sample {α : Type*} (H : α → Bool → Bool) (h k : α → Bool)
+    (x : α) (hx : h x = false) : H x (k x) = H x (h x || k x) := by
+  simp [hx]
+
+lemma or_bypass_preserves_dnf {α : Type*} [DecidableEq α]
+    (P : Finset (Finset α)) (H : (α → Bool) → Bool → Bool)
+    (h k : (α → Bool) → Bool)
+    (hH : ∀ x, Monotone (H x)) (hm : Monotone (fun x => H x (k x)))
+    (hz : ∀ S ∈ P, h (assignmentOf S) = false)
+    (hf : ∀ x, H x (h x || k x) = dnf P x) :
+    ∀ x, H x (k x) = dnf P x := by
+  apply dnf_preserved P (fun x => H x (h x || k x)) (fun x => H x (k x))
+    hm (or_bypass_le H h k hH)
+  · intro S hS
+    exact or_bypass_sample H h k (assignmentOf S) (hz S hS)
+  · exact hf
+
+lemma pure_disjunction_preserved {α : Type*} [DecidableEq α]
+    (Q : Finset α) (f g : (α → Bool) → Bool)
+    (hg : Monotone g) (hle : ∀ x, g x ≤ f x)
+    (hs : ∀ a ∈ Q, g (assignmentOf {a}) = f (assignmentOf {a}))
+    (hf : ∀ x, f x = disjunction Q x) : ∀ x, g x = disjunction Q x := by
+  intro x
+  apply le_antisymm
+  · simpa only [hf x] using hle x
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    obtain ⟨a,ha,hxa⟩ : ∃ a ∈ Q, x a = true := by
+      simpa only [disjunction,decide_eq_true_eq] using hx
+    have ht : f (assignmentOf {a}) = true := by
+      rw [hf]
+      simp only [disjunction,decide_eq_true_eq]
+      exact ⟨a,ha,by simp [assignmentOf]⟩
+    have ht' : g (assignmentOf {a}) = true := by rw [hs a ha]; exact ht
+    have hsub : assignmentOf {a} ≤ x := assignmentOf_le (by simpa using hxa)
+    exact Bool.le_iff_imp.mp (hg hsub) ht'
+
+lemma or_bypass_preserves_pure_disjunction {α : Type*} [DecidableEq α]
+    (Q : Finset α) (H : (α → Bool) → Bool → Bool)
+    (h k : (α → Bool) → Bool)
+    (hH : ∀ x, Monotone (H x)) (hm : Monotone (fun x => H x (k x)))
+    (hz : ∀ a ∈ Q, h (assignmentOf {a}) = false)
+    (hf : ∀ x, H x (h x || k x) = disjunction Q x) :
+    ∀ x, H x (k x) = disjunction Q x := by
+  apply pure_disjunction_preserved Q (fun x => H x (h x || k x))
+    (fun x => H x (k x)) hm (or_bypass_le H h k hH)
+  · intro a ha
+    exact or_bypass_sample H h k (assignmentOf {a}) (hz a ha)
+  · exact hf
+
+lemma bypassed_pure_root {α : Type*} [DecidableEq α]
+    (Q : Finset α) (h k : (α → Bool) → Bool)
+    (hk : Monotone k) (hz : ∀ a ∈ Q, h (assignmentOf {a}) = false)
+    (hp : ∀ x, (h x || k x) = disjunction Q x) :
+    ∀ x, k x = disjunction Q x := by
+  exact or_bypass_preserves_pure_disjunction Q (fun _ z => z) h k
+    (fun _ => monotone_id) hk hz hp
+
+lemma conjunction_eq_disjunction_factor {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (Q : Finset α) (P : Finset ι) (f : ι → (α → Bool) → Bool)
+    (hm : ∀ i ∈ P, Monotone (f i))
+    (he : ∀ x, conjunction P f x = disjunction Q x) :
+    ∃ i ∈ P, ∀ x, f i x = disjunction Q x := by
+  classical
+  let outside : α → Bool := fun a => decide (a ∉ Q)
+  have hz : conjunction P f outside = false := by
+    rw [he]
+    simp [disjunction,outside]
+  have hn : ¬ ∀ i ∈ P, f i outside = true := by
+    simpa only [conjunction,decide_eq_false_iff_not] using hz
+  push Not at hn
+  obtain ⟨i,hi,hfi⟩ := hn
+  refine ⟨i,hi,?_⟩
+  intro x
+  apply le_antisymm
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    by_contra hd
+    have hnone : ¬ ∃ a ∈ Q, x a = true := by
+      simpa only [disjunction,decide_eq_true_eq] using hd
+    have hxo : x ≤ outside := by
+      intro a
+      apply Bool.le_iff_imp.mpr
+      intro hxa
+      have ha : a ∉ Q := fun haq => hnone ⟨a,haq,hxa⟩
+      simp [outside,ha]
+    exact hfi (Bool.le_iff_imp.mp (hm i hi hxo) hx)
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    have hc : conjunction P f x = true := by rw [he]; exact hx
+    have hall : ∀ j ∈ P, f j x = true := by
+      simpa only [conjunction,decide_eq_true_eq] using hc
+    exact hall i hi
+
+lemma or_bypass_sample_of_le {α : Type*} (H : α → Bool → Bool) (h k : α → Bool)
+    (x : α) (hx : h x ≤ k x) : H x (k x) = H x (h x || k x) := by
+  have he : (h x || k x) = k x := by
+    cases hh : h x <;> cases hk : k x
+    · rfl
+    · rfl
+    · exact False.elim ((by decide : ¬ ((true : Bool) ≤ false)) (by simpa only [hh,hk] using hx))
+    · rfl
+  rw [he]
+
+lemma or_bypass_preserves_dnf_of_le {α : Type*} [DecidableEq α]
+    (P : Finset (Finset α)) (H : (α → Bool) → Bool → Bool)
+    (h k : (α → Bool) → Bool)
+    (hH : ∀ x, Monotone (H x)) (hm : Monotone (fun x => H x (k x)))
+    (hs : ∀ S ∈ P, h (assignmentOf S) ≤ k (assignmentOf S))
+    (hf : ∀ x, H x (h x || k x) = dnf P x) :
+    ∀ x, H x (k x) = dnf P x := by
+  apply dnf_preserved P (fun x => H x (h x || k x)) (fun x => H x (k x))
+    hm (or_bypass_le H h k hH)
+  · intro S hS
+    exact or_bypass_sample_of_le H h k (assignmentOf S) (hs S hS)
+  · exact hf
+
+lemma or_bypass_preserves_pure_disjunction_of_le {α : Type*} [DecidableEq α]
+    (Q : Finset α) (H : (α → Bool) → Bool → Bool)
+    (h k : (α → Bool) → Bool)
+    (hH : ∀ x, Monotone (H x)) (hm : Monotone (fun x => H x (k x)))
+    (hs : ∀ a ∈ Q, h (assignmentOf {a}) ≤ k (assignmentOf {a}))
+    (hf : ∀ x, H x (h x || k x) = disjunction Q x) :
+    ∀ x, H x (k x) = disjunction Q x := by
+  apply pure_disjunction_preserved Q (fun x => H x (h x || k x))
+    (fun x => H x (k x)) hm (or_bypass_le H h k hH)
+  · intro a ha
+    exact or_bypass_sample_of_le H h k (assignmentOf {a}) (hs a ha)
+  · exact hf
+
+lemma bypassed_pure_root_of_le {α : Type*} [DecidableEq α]
+    (Q : Finset α) (h k : (α → Bool) → Bool)
+    (hk : Monotone k) (hs : ∀ a ∈ Q, h (assignmentOf {a}) ≤ k (assignmentOf {a}))
+    (hp : ∀ x, (h x || k x) = disjunction Q x) :
+    ∀ x, k x = disjunction Q x := by
+  exact or_bypass_preserves_pure_disjunction_of_le Q (fun _ z => z) h k
+    (fun _ => monotone_id) hk hs hp
+
+end H8Active
+
+namespace H8AndFree
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+abbrev Node := Finset ℕ × Finset ℕ
+
+def conj (v : ℕ → Bool) (s : Finset ℕ) : Bool :=
+  decide (∀ i ∈ s, v i = true)
+
+def step (w : List Bool) (g : Node) : List Bool :=
+  w ++ [conj (fun i => w.getD i false) g.1 || conj (fun i => w.getD i false) g.2]
+
+def values (n : ℕ) (gs : List Node) (x : Fin n → Bool) : List Bool :=
+  gs.foldl step (List.ofFn x)
+
+def wire (n : ℕ) (gs : List Node) (i : ℕ) (x : Fin n → Bool) : Bool :=
+  (values n gs x).getD i false
+
+def term (n : ℕ) (gs : List Node) (s : Finset ℕ) (x : Fin n → Bool) : Bool :=
+  conj (fun i => wire n gs i x) s
+
+def Valid (n : ℕ) (gs : List Node) : Prop :=
+  ∀ j (hj : j < gs.length),
+    gs[j].1.Nonempty ∧ gs[j].2.Nonempty ∧
+    (∀ i ∈ gs[j].1, i < n+j) ∧ (∀ i ∈ gs[j].2, i < n+j)
+
+lemma conj_singleton (v : ℕ → Bool) (i : ℕ) : conj v {i} = v i := by
+  simp only [conj, Finset.mem_singleton, forall_eq]
+  cases v i <;> rfl
+
+lemma conj_union (v : ℕ → Bool) (a b : Finset ℕ) :
+    conj v (a ∪ b) = (conj v a && conj v b) := by
+  simp only [conj, Finset.mem_union, or_imp, forall_and]
+  by_cases ha : ∀ i ∈ a, v i = true <;> by_cases hb : ∀ i ∈ b, v i = true <;> simp [ha,hb]
+
+lemma conj_congr {v w : ℕ → Bool} {s : Finset ℕ}
+    (h : ∀ i ∈ s, v i = w i) : conj v s = conj w s := by
+  unfold conj
+  congr 1
+  apply propext
+  constructor <;> intro hv i hi
+  · rw [← h i hi]; exact hv i hi
+  · rw [h i hi]; exact hv i hi
+
+lemma length_fold (gs : List Node) (w : List Bool) :
+    (gs.foldl step w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih => simp [List.foldl, ih, step]; omega
+
+lemma values_length (n : ℕ) (gs : List Node) (x : Fin n → Bool) :
+    (values n gs x).length = n + gs.length := by
+  simp [values, length_fold]
+
+lemma old_wire {n : ℕ} {gs : List Node} {i : ℕ}
+    (hi : i < n + gs.length) (g : Node) (x : Fin n → Bool) :
+    wire n (gs ++ [g]) i x = wire n gs i x := by
+  have hl := length_fold gs (List.ofFn x)
+  simp only [List.length_ofFn] at hl
+  simp [wire, values, List.foldl_append, step, List.getD,
+    List.getElem?_append_left (hl ▸ hi : i < (gs.foldl step (List.ofFn x)).length)]
+
+lemma new_wire (n : ℕ) (gs : List Node) (g : Node) (x : Fin n → Bool) :
+    wire n (gs ++ [g]) (n + gs.length) x =
+      (term n gs g.1 x || term n gs g.2 x) := by
+  have hl := values_length n gs x
+  simp only [wire, values, List.foldl_append, List.foldl_cons, List.foldl_nil, step]
+  simp [← hl, List.getD, term, wire, values]
+
+lemma old_term {n : ℕ} {gs : List Node} {s : Finset ℕ}
+    (hs : ∀ i ∈ s, i < n + gs.length) (g : Node) (x : Fin n → Bool) :
+    term n (gs ++ [g]) s x = term n gs s x := by
+  apply conj_congr
+  intro i hi
+  exact old_wire (hs i hi) g x
+
+lemma valid_append {n : ℕ} {gs : List Node} (hg : Valid n gs)
+    (a b : Finset ℕ) (ha : a.Nonempty) (hb : b.Nonempty)
+    (hba : ∀ i ∈ a, i < n + gs.length) (hbb : ∀ i ∈ b, i < n + gs.length) :
+    Valid n (gs ++ [(a,b)]) := by
+  intro j hj
+  by_cases h : j < gs.length
+  · simpa [List.getElem_append_left h] using hg j h
+  · have he : j = gs.length := by simp at hj; omega
+    subst j
+    simpa using And.intro ha (And.intro hb (And.intro hba hbb))
+
+def binary (b : Bool) (u v : ℕ) : Gate :=
+  ⟨if b then .and else .or, [u,v]⟩
+
+def originalStep (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+def original (n : ℕ) (gs : List Gate) (i : ℕ) (x : Fin n → Bool) : Bool :=
+  (gs.foldl originalStep (List.ofFn x)).getD i false
+
+def Layout (n : ℕ) (gs : List Gate) : Prop :=
+  ∀ i (hi : i < gs.length), ∃ b u v, gs[i] = binary b u v ∧ u < n+i ∧ v < n+i
+
+lemma original_length (gs : List Gate) (w : List Bool) :
+    (gs.foldl originalStep w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih => simp [List.foldl, ih, originalStep]; omega
+
+lemma old_original {n : ℕ} {gs : List Gate} {i : ℕ}
+    (hi : i < n + gs.length) (g : Gate) (x : Fin n → Bool) :
+    original n (gs ++ [g]) i x = original n gs i x := by
+  have hl := original_length gs (List.ofFn x)
+  simp only [List.length_ofFn] at hl
+  simp [original, List.foldl_append, originalStep, List.getD,
+    List.getElem?_append_left (hl ▸ hi : i < (gs.foldl originalStep (List.ofFn x)).length)]
+
+lemma new_original (n : ℕ) (gs : List Gate) (b : Bool) (u v : ℕ) (x : Fin n → Bool) :
+    original n (gs ++ [binary b u v]) (n + gs.length) x =
+      if b then original n gs u x && original n gs v x
+      else original n gs u x || original n gs v x := by
+  have hl := original_length gs (List.ofFn x)
+  simp only [List.length_ofFn] at hl
+  cases b <;> simp [original, List.foldl_append, originalStep, binary, GateOp.eval,
+    ← hl, List.getD]
+
+def orCount (gs : List Gate) : ℕ := gs.countP fun g =>
+  match g.op with | .or => true | _ => false
+
+def Sim (n : ℕ) (gs : List Gate) (hs : List Node) (m : ℕ → Finset ℕ) : Prop :=
+  ∀ i < n + gs.length,
+    (m i).Nonempty ∧ (∀ j ∈ m i, j < n + hs.length) ∧
+    ∀ x : Fin n → Bool, term n hs (m i) x = original n gs i x
+
+lemma exists_normalform (n : ℕ) (gs : List Gate) (hl : Layout n gs) :
+    ∃ (hs : List Node) (m : ℕ → Finset ℕ),
+      Valid n hs ∧ hs.length = orCount gs ∧ Sim n gs hs m ∧
+      ∀ j (hj : j < gs.length), gs[j].op = .or →
+        ∃ k < hs.length, m (n+j) = {n+k} := by
+  induction gs using List.reverseRecOn with
+  | nil =>
+    refine ⟨[], fun i => {i}, ?_, rfl, ?_, ?_⟩
+    · intro j hj; simp at hj
+    · intro i hi
+      have hi' : i < n := by simpa using hi
+      refine ⟨Finset.singleton_nonempty _, ?_, ?_⟩
+      · intro j hj; simpa using Finset.mem_singleton.mp hj ▸ hi'
+      · intro x
+        simp [term,conj_singleton,wire,values,original]
+    · intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    have hp : Layout n gs := by
+      intro j hj
+      obtain ⟨b,u,v,he,hu,hv⟩ := hl j (by simp; omega)
+      exact ⟨b,u,v,(List.getElem_append_left hj).symm.trans he,hu,hv⟩
+    obtain ⟨hs,m,hvalid,hcount,hsim,hroots⟩ := ih hp
+    obtain ⟨b,u,v,he,hu,hv⟩ := hl gs.length (by simp)
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,
+      List.getElem_cons_zero] at he
+    subst g
+    obtain ⟨hune,hub,husim⟩ := hsim u hu
+    obtain ⟨hvne,hvb,hvsim⟩ := hsim v hv
+    cases b
+    · let mm : ℕ → Finset ℕ := fun i =>
+        if i = n + gs.length then {n + hs.length} else m i
+      refine ⟨hs ++ [(m u,m v)], mm, valid_append hvalid _ _ hune hvne hub hvb, ?_, ?_, ?_⟩
+      · simp [orCount,List.countP_append,binary] at hcount ⊢
+        omega
+      · intro i hi
+        by_cases hold : i < n + gs.length
+        · have hne : i ≠ n + gs.length := Nat.ne_of_lt hold
+          obtain ⟨hne',hb,heq⟩ := hsim i hold
+          simp only [mm,ite_eq_right hne]
+          refine ⟨hne', ?_, ?_⟩
+          · intro j hj; have hh := hb j hj; simp; omega
+          · intro x
+            rw [old_term hb,old_original hold]
+            exact heq x
+        · have hei : i = n + gs.length := by simp at hi; omega
+          subst i
+          simp only [mm,ite_eq_left rfl]
+          refine ⟨Finset.singleton_nonempty _, ?_, ?_⟩
+          · intro j hj
+            have heq := Finset.mem_singleton.mp hj
+            simp; omega
+          · intro x
+            simp only [term,conj_singleton]
+            rw [new_wire,new_original]
+            simp only [Bool.false_eq_true, ↓reduceIte]
+            rw [husim,hvsim]
+      · intro j hj hor
+        by_cases hold : j < gs.length
+        · have hop : gs[j].op = .or := by simpa [List.getElem_append_left hold] using hor
+          obtain ⟨k,hk,hm⟩ := hroots j hold hop
+          refine ⟨k, by simp; omega, ?_⟩
+          have hne : n+j ≠ n+gs.length := by omega
+          simpa only [mm,ite_eq_right hne] using hm
+        · have hei : j = gs.length := by simp at hj; omega
+          subst j
+          exact ⟨hs.length,by simp,by simp [mm]⟩
+    · let mm : ℕ → Finset ℕ := fun i =>
+        if i = n + gs.length then m u ∪ m v else m i
+      refine ⟨hs,mm,hvalid,?_,?_,?_⟩
+      · simpa [orCount,List.countP_append,binary] using hcount
+      · intro i hi
+        by_cases hold : i < n + gs.length
+        · have hne : i ≠ n + gs.length := Nat.ne_of_lt hold
+          obtain ⟨hne',hb,heq⟩ := hsim i hold
+          simp only [mm,ite_eq_right hne]
+          refine ⟨hne',hb,?_⟩
+          intro x
+          rw [old_original hold]
+          exact heq x
+        · have hei : i = n + gs.length := by simp at hi; omega
+          subst i
+          simp only [mm,ite_eq_left rfl]
+          refine ⟨hune.mono Finset.subset_union_left,?_,?_⟩
+          · intro j hj
+            rcases Finset.mem_union.mp hj with hj | hj
+            · exact hub j hj
+            · exact hvb j hj
+          · intro x
+            simp only [term,conj_union]
+            rw [new_original]
+            simp only [↓reduceIte]
+            exact congrArg₂ (fun a b : Bool => a && b) (husim x) (hvsim x)
+      · intro j hj hor
+        have hold : j < gs.length := by
+          by_contra hn
+          have hei : j = gs.length := by simp at hj; omega
+          subst j
+          simp [binary] at hor
+        have hop : gs[j].op = .or := by simpa [List.getElem_append_left hold] using hor
+        obtain ⟨k,hk,hm⟩ := hroots j hold hop
+        refine ⟨k,hk,?_⟩
+        have hne : n+j ≠ n+gs.length := by omega
+        simpa only [mm,ite_eq_right hne] using hm
+
+lemma layout_of {n : ℕ} {C : Circuit} (h : IsAO2 n C) : Layout n C.gates := by
+  intro i hi
+  have hm := List.getElem_mem (l := C.gates) hi
+  obtain ⟨u,v,huv⟩ := List.length_eq_two.mp (h.2.2 _ hm)
+  have hat : gateAt C i = C.gates[i] := by simp [gateAt,List.getD,hi]
+  have hr := h.2.1 i hi
+  rw [hat,huv] at hr
+  obtain ho | ho := h.1 _ hm
+  · exact ⟨true,u,v,by cases hg : C.gates[i] with | mk o l => simp_all [binary],
+      hr u (by simp),hr v (by simp)⟩
+  · exact ⟨false,u,v,by cases hg : C.gates[i] with | mk o l => simp_all [binary],
+      hr u (by simp),hr v (by simp)⟩
+
+lemma output_bound_of_true {n : ℕ} {C : Circuit}
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true) :
+    C.output < n + C.gates.length := by
+  by_contra! h
+  obtain ⟨x,hx⟩ := hpos
+  have hlen := original_length C.gates (List.ofFn x)
+  simp only [List.length_ofFn] at hlen
+  change original n C.gates C.output x = true at hx
+  simp [original,List.getD,List.getElem?_eq_none (hlen ▸ h :
+    (C.gates.foldl originalStep (List.ofFn x)).length ≤ C.output)] at hx
+
+lemma ao2_flatten {n : ℕ} (C : Circuit) (hC : IsAO2 n C) :
+    ∃ (hs : List Node) (m : ℕ → Finset ℕ),
+      Valid n hs ∧ hs.length = orCount C.gates ∧
+      (∀ i < n + C.gates.length,
+        (m i).Nonempty ∧ (∀ j ∈ m i, j < n + hs.length) ∧
+        ∀ x : Fin n → Bool,
+          term n hs (m i) x = (C.wires (List.ofFn x)).getD i false) ∧
+      ∀ j < C.gates.length, (gateAt C j).op = .or →
+        ∃ k < hs.length, ∀ x : Fin n → Bool,
+          wire n hs (n+k) x = (C.wires (List.ofFn x)).getD (n+j) false := by
+  obtain ⟨hs,m,hvalid,hcount,hsim,hroots⟩ := exists_normalform n C.gates (layout_of hC)
+  refine ⟨hs,m,hvalid,hcount,hsim,?_⟩
+  intro j hj hop
+  have hat : gateAt C j = C.gates[j] := by simp [gateAt,List.getD,hj]
+  rw [hat] at hop
+  obtain ⟨k,hk,hm⟩ := hroots j hj hop
+  refine ⟨k,hk,?_⟩
+  intro x
+  have he := (hsim (n+j) (by omega)).2.2 x
+  rw [hm] at he
+  calc
+    wire n hs (n+k) x = original n C.gates (n+j) x := by
+      simpa only [term,conj_singleton] using he
+    _ = (C.wires (List.ofFn x)).getD (n+j) false := rfl
+
+lemma ao2_flatten_output {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ hs.length = orCount C.gates ∧
+      s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = C.eval (List.ofFn x)) ∧
+      ∀ j < C.gates.length, (gateAt C j).op = .or →
+        ∃ k < hs.length, ∀ x : Fin n → Bool,
+          wire n hs (n+k) x = (C.wires (List.ofFn x)).getD (n+j) false := by
+  obtain ⟨hs,m,hvalid,hcount,hsim,hroots⟩ := ao2_flatten C hC
+  obtain ⟨hne,hb,he⟩ := hsim C.output (output_bound_of_true hpos)
+  exact ⟨hs,m C.output,hvalid,hcount,hne,hb,he,hroots⟩
+
+lemma original_append_old {n : ℕ} (gs tail : List Gate) (i : ℕ)
+    (hi : i < n + gs.length) (x : Fin n → Bool) :
+    original n (gs ++ tail) i x = original n gs i x := by
+  induction tail using List.reverseRecOn with
+  | nil => simp
+  | append_singleton tail g ih =>
+    rw [← List.append_assoc,old_original (by simp; omega),ih]
+
+lemma layout_append {n : ℕ} {gs : List Gate} (hl : Layout n gs)
+    (b : Bool) (u v : ℕ) (hu : u < n + gs.length) (hv : v < n + gs.length) :
+    Layout n (gs ++ [binary b u v]) := by
+  intro j hj
+  by_cases h : j < gs.length
+  · obtain ⟨b',u',v',he,hu',hv'⟩ := hl j h
+    exact ⟨b',u',v',by simpa [List.getElem_append_left h] using he,hu',hv'⟩
+  · have he : j = gs.length := by simp at hj; omega
+    subst j
+    exact ⟨b,u,v,by simp,hu,hv⟩
+
+lemma conj_insert (v : ℕ → Bool) (a : ℕ) (s : Finset ℕ) :
+    conj v (insert a s) = (v a && conj v s) := by
+  rw [← Finset.singleton_union,conj_union,conj_singleton]
+
+lemma compile_conjunction {n : ℕ} (gs : List Gate) (hl : Layout n gs)
+    (s : Finset ℕ) (hne : s.Nonempty) (hb : ∀ i ∈ s, i < n + gs.length) :
+    ∃ (tail : List Gate) (r : ℕ),
+      Layout n (gs ++ tail) ∧ orCount (gs ++ tail) = orCount gs ∧
+      r < n + (gs ++ tail).length ∧
+      ∀ x : Fin n → Bool, original n (gs ++ tail) r x =
+        conj (fun i => original n gs i x) s := by
+  induction s using Finset.induction_on with
+  | empty => simp at hne
+  | @insert a s ha ih =>
+    have hab : a < n + gs.length := hb a (by simp)
+    by_cases hs : s.Nonempty
+    · obtain ⟨tail,r,hlt,hct,hrt,het⟩ := ih hs (fun i hi => hb i (by simp [hi]))
+      refine ⟨tail ++ [binary true a r],n + (gs ++ tail).length,?_,?_,?_,?_⟩
+      · rw [← List.append_assoc]
+        exact layout_append hlt true a r (by simp; omega) hrt
+      · rw [← List.append_assoc]
+        simpa [orCount,List.countP_append,binary] using hct
+      · simp
+      · intro x
+        rw [← List.append_assoc,new_original]
+        simp only [↓reduceIte]
+        rw [original_append_old gs tail a hab,het,conj_insert]
+    · have he : s = ∅ := Finset.not_nonempty_iff_eq_empty.mp hs
+      subst s
+      refine ⟨[],a,by simpa using hl,by simp,by simpa using hab,?_⟩
+      intro x
+      simp [conj_singleton]
+
+lemma conj_image (v : ℕ → Bool) (m : ℕ → ℕ) (s : Finset ℕ) :
+    conj v (s.image m) = conj (fun i => v (m i)) s := by
+  unfold conj
+  congr 1
+  apply propext
+  constructor
+  · intro h i hi
+    exact h (m i) (Finset.mem_image_of_mem m hi)
+  · intro h j hj
+    obtain ⟨i,hi,rfl⟩ := Finset.mem_image.mp hj
+    exact h i hi
+
+def ReverseSim (n : ℕ) (hs : List Node) (gs : List Gate) (m : ℕ → ℕ) : Prop :=
+  ∀ i < n + hs.length, m i < n + gs.length ∧
+    ∀ x : Fin n → Bool, original n gs (m i) x = wire n hs i x
+
+lemma exists_realization (n : ℕ) (hs : List Node) (hv : Valid n hs) :
+    ∃ (gs : List Gate) (m : ℕ → ℕ),
+      Layout n gs ∧ orCount gs = hs.length ∧ ReverseSim n hs gs m ∧
+      ∀ j < hs.length, ∃ (k : ℕ) (hk : k < gs.length), m (n+j) = n+k ∧ gs[k].op = .or := by
+  induction hs using List.reverseRecOn with
+  | nil =>
+    refine ⟨[],id,?_,rfl,?_,?_⟩
+    · intro j hj; simp at hj
+    · intro i hi
+      refine ⟨hi,?_⟩
+      intro x
+      rfl
+    · intro j hj; simp at hj
+  | append_singleton hs node ih =>
+    have hp : Valid n hs := by
+      intro j hj
+      have hh := hv j (by simp; omega)
+      rw [List.getElem_append_left hj] at hh
+      exact hh
+    obtain ⟨gs,m,hgl,hgc,hgs,hgr⟩ := ih hp
+    obtain ⟨ha,hb,hba,hbb⟩ := hv hs.length (by simp)
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,
+      List.getElem_cons_zero] at ha hb hba hbb
+    have hma : ∀ i ∈ node.1.image m, i < n + gs.length := by
+      intro i hi
+      obtain ⟨j,hj,rfl⟩ := Finset.mem_image.mp hi
+      exact (hgs j (hba j hj)).1
+    obtain ⟨t1,r1,hl1,hc1,hr1,he1⟩ :=
+      compile_conjunction gs hgl (node.1.image m) (ha.image m) hma
+    have hmb : ∀ i ∈ node.2.image m, i < n + (gs ++ t1).length := by
+      intro i hi
+      obtain ⟨j,hj,rfl⟩ := Finset.mem_image.mp hi
+      have hh := (hgs j (hbb j hj)).1
+      simp; omega
+    obtain ⟨t2,r2,hl2,hc2,hr2,he2⟩ :=
+      compile_conjunction (gs ++ t1) hl1 (node.2.image m) (hb.image m) hmb
+    let mm : ℕ → ℕ := fun i =>
+      if i = n + hs.length then n + ((gs ++ t1) ++ t2).length else m i
+    refine ⟨((gs ++ t1) ++ t2) ++ [binary false r1 r2],mm,?_,?_,?_,?_⟩
+    · exact layout_append hl2 false r1 r2 (by simp at hr1 ⊢; omega) hr2
+    · have hh : orCount (((gs ++ t1) ++ t2) ++ [binary false r1 r2]) =
+          orCount ((gs ++ t1) ++ t2) + 1 := by simp [orCount,List.countP_append,binary,Nat.add_assoc]
+      rw [hh,hc2,hc1,hgc]
+      simp
+    · intro i hi
+      by_cases hold : i < n + hs.length
+      · obtain ⟨hbound,he⟩ := hgs i hold
+        have hne : i ≠ n + hs.length := Nat.ne_of_lt hold
+        simp only [mm,ite_eq_right hne]
+        refine ⟨by simp; omega,?_⟩
+        intro x
+        rw [old_original (by simp; omega),original_append_old (gs ++ t1) t2 (m i) (by simp; omega),
+          original_append_old gs t1 (m i) hbound,old_wire hold]
+        exact he x
+      · have hei : i = n + hs.length := by simp at hi; omega
+        subst i
+        simp only [mm,ite_eq_left rfl]
+        refine ⟨by simp,?_⟩
+        intro x
+        rw [new_original,new_wire]
+        simp only [Bool.false_eq_true,↓reduceIte]
+        rw [original_append_old (gs ++ t1) t2 r1 hr1,he1,he2]
+        apply congrArg₂ (fun a b : Bool => a || b)
+        · rw [conj_image]
+          apply conj_congr
+          intro j hj
+          exact (hgs j (hba j hj)).2 x
+        · rw [conj_image]
+          apply conj_congr
+          intro j hj
+          rw [original_append_old gs t1 (m j) (hgs j (hbb j hj)).1]
+          exact (hgs j (hbb j hj)).2 x
+    · intro j hj
+      by_cases hold : j < hs.length
+      · obtain ⟨k,hk,hm,hop⟩ := hgr j hold
+        refine ⟨k,by simp; omega,?_,?_⟩
+        · have hne : n+j ≠ n+hs.length := by omega
+          simpa only [mm,ite_eq_right hne] using hm
+        · rw [List.getElem_append_left (by simp; omega),
+            List.getElem_append_left (by simp; omega),List.getElem_append_left hk]
+          exact hop
+      · have hei : j = hs.length := by simp at hj; omega
+        subst j
+        refine ⟨((gs ++ t1) ++ t2).length,by simp,by simp [mm],?_⟩
+        simp [binary]
+
+lemma layout_isAO2 {n : ℕ} {gs : List Gate} (out : ℕ)
+    (h : Layout n gs) : IsAO2 n ⟨gs,out⟩ := by
+  refine ⟨?_,?_,?_⟩
+  · intro g hg
+    obtain ⟨i,hi,rfl⟩ := List.getElem_of_mem hg
+    obtain ⟨b,u,v,he,hu,hv⟩ := h i hi
+    rw [he]
+    cases b <;> simp [binary]
+  · intro i hi w hw
+    change i < gs.length at hi
+    obtain ⟨b,u,v,he,hu,hv⟩ := h i hi
+    simp [gateAt,List.getD,hi,he,binary] at hw
+    rcases hw with rfl | rfl <;> assumption
+  · intro g hg
+    obtain ⟨i,hi,rfl⟩ := List.getElem_of_mem hg
+    obtain ⟨b,u,v,he,hu,hv⟩ := h i hi
+    simp [he,binary]
+
+lemma realize_output {n : ℕ} (hs : List Node) (hv : Valid n hs)
+    (s : Finset ℕ) (hne : s.Nonempty) (hb : ∀ i ∈ s, i < n + hs.length) :
+    ∃ C : Circuit, IsAO2 n C ∧ orCount C.gates = hs.length ∧
+      (∀ x : Fin n → Bool, C.eval (List.ofFn x) = term n hs s x) ∧
+      ∀ j < hs.length, ∃ k < C.gates.length, (gateAt C k).op = .or ∧
+        ∀ x : Fin n → Bool,
+          (C.wires (List.ofFn x)).getD (n+k) false = wire n hs (n+j) x := by
+  obtain ⟨gs,m,hgl,hgc,hgs,hgr⟩ := exists_realization n hs hv
+  have hmb : ∀ i ∈ s.image m, i < n + gs.length := by
+    intro i hi
+    obtain ⟨j,hj,rfl⟩ := Finset.mem_image.mp hi
+    exact (hgs j (hb j hj)).1
+  obtain ⟨tail,r,hlt,hct,hrt,het⟩ := compile_conjunction gs hgl (s.image m) (hne.image m) hmb
+  refine ⟨⟨gs ++ tail,r⟩,layout_isAO2 r hlt,hct.trans hgc,?_,?_⟩
+  · intro x
+    change original n (gs ++ tail) r x = term n hs s x
+    rw [het,conj_image]
+    apply conj_congr
+    intro i hi
+    exact (hgs i (hb i hi)).2 x
+  · intro j hj
+    obtain ⟨k,hk,hm,hop⟩ := hgr j hj
+    refine ⟨k,by simp; omega,?_,?_⟩
+    · simp only [gateAt]
+      rw [List.getD_eq_getElem?_getD,List.getElem?_eq_getElem (by simp; omega)]
+      simpa [List.getElem_append_left hk] using hop
+    · intro x
+      change original n (gs ++ tail) (n+k) x = wire n hs (n+j) x
+      rw [original_append_old gs tail (n+k) (by omega)]
+      have he := (hgs (n+j) (by omega)).2 x
+      rw [hm] at he
+      exact he
+
+end H8AndFree
+
 end PEqualNP.Outside.L_meta_4970
