@@ -17,7 +17,7 @@ def evalCode (code : Nat) (a b c : Bool) : Bool :=
   let v := op (first % 4) (input a b c ((first/4)%4)) (input a b c (first/16))
   if code < 256 then v else
     let second := code/256-1
-    op (second%4) v (input a b c (second/4))
+    op (second % 4) v (input a b c (second/4))
 
 def bitIndex (a b c : Bool) : Nat := a.toNat + 2*b.toNat + 4*c.toNat
 
@@ -59,7 +59,7 @@ def evalCodeNat (code a b c : Nat) : Nat :=
   let v := natOp (first % 4) (natInput a b c ((first/4)%4)) (natInput a b c (first/16))
   if code < 256 then v else
     let second := code/256-1
-    natOp (second%4) v (natInput a b c (second/4))
+    natOp (second % 4) v (natInput a b c (second/4))
 
 theorem testBit_evalCodeNat (code a b c i : Nat) :
     (evalCodeNat code a b c).testBit i =
