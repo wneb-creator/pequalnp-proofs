@@ -3335,4 +3335,494 @@ lemma two_core_points_clause_surplus {P L r k : ℕ}
 
 end CoreClauses
 
+namespace LastAndFactor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover
+open ProductFactor
+
+def appendAnd (D : Circuit) (a b : ℕ) : Circuit :=
+  ⟨D.gates ++ [⟨GateOp.and, [a, b]⟩], D.output⟩
+
+lemma appendAnd_size (D : Circuit) (a b : ℕ) :
+    (appendAnd D a b).size = D.size + 1 := by
+  simp [appendAnd, Circuit.size]
+
+lemma old_wire_appendAnd (n : ℕ) (D : Circuit) (a b w : ℕ)
+    (hw : w < n + D.size) (x : Fin n → Bool) :
+    PEqualNP.BlindGate.wireValue (appendAnd D a b) n x w =
+      PEqualNP.BlindGate.wireValue D n x w := by
+  unfold PEqualNP.BlindGate.wireValue Circuit.wires appendAnd
+  simp only [List.foldl_append, List.foldl_cons, List.foldl_nil]
+  apply List.getD_append
+  change w < (D.gates.foldl SplitAux.wireStep (List.ofFn x)).length
+  rw [SplitAux.foldl_wireStep_length, List.length_ofFn]
+  exact hw
+
+lemma appendAnd_gate (D : Circuit) (a b : ℕ) :
+    gateAt (appendAnd D a b) D.gates.length = ⟨GateOp.and, [a, b]⟩ := by
+  simp [gateAt, appendAnd, List.getD_eq_getElem?_getD]
+
+lemma appendAnd_ao2 (n : ℕ) (D : Circuit) (a b : ℕ) (hD : IsAO2 n D)
+    (ha : a < n + D.size) (hb : b < n + D.size) : IsAO2 n (appendAnd D a b) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [appendAnd, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hD.1 g hg
+    · exact Or.inl rfl
+  · intro j hj w hw
+    have hlen : (appendAnd D a b).gates.length = D.gates.length + 1 := by
+      simp [appendAnd]
+    by_cases hjD : j < D.gates.length
+    · have heq : gateAt (appendAnd D a b) j = gateAt D j := by
+        simp only [gateAt, appendAnd]
+        exact List.getD_append _ _ _ _ hjD
+      rw [heq] at hw
+      exact hD.2.1 j hjD w hw
+    · have hjeq : j = D.gates.length := by omega
+      subst j
+      rw [appendAnd_gate] at hw
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl
+      · exact ha
+      · exact hb
+  · intro g hg
+    simp only [appendAnd, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hD.2.2 g hg
+    · rfl
+
+lemma new_wire_appendAnd (n : ℕ) (D : Circuit) (a b : ℕ) (hD : IsAO2 n D)
+    (ha : a < n + D.size) (hb : b < n + D.size) (x : Fin n → Bool) :
+    PEqualNP.BlindGate.wireValue (appendAnd D a b) n x (n + D.size) =
+      (PEqualNP.BlindGate.wireValue D n x a && PEqualNP.BlindGate.wireValue D n x b) := by
+  have hD' := appendAnd_ao2 n D a b hD ha hb
+  change PEqualNP.BlindGate.wireValue (appendAnd D a b) n x (n + D.gates.length) = _
+  rw [SplitAux.wireValue_gate n (appendAnd D a b) x D.gates.length (by simp [appendAnd]) hD'.2.1]
+  rw [appendAnd_gate]
+  simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil,
+    Bool.and_true, id_eq]
+  rw [old_wire_appendAnd n D a b a ha x, old_wire_appendAnd n D a b b hb x]
+
+
+
+def products (n : ℕ) (D : Circuit) (B : List (ℕ × ℕ)) (x : Fin n → Bool) : Prop :=
+  ∃ t ∈ B, PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+    PEqualNP.BlindGate.wireValue D n x t.2 = true
+
+lemma products_cons (n : ℕ) (D : Circuit) (t : ℕ × ℕ) (B : List (ℕ × ℕ))
+    (x : Fin n → Bool) : products n D (t :: B) x ↔
+    (PEqualNP.BlindGate.wireValue D n x t.1 = true ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = true) ∨ products n D B x := by
+  simp only [products, List.mem_cons, exists_eq_or_imp]
+
+lemma products_congr (n : ℕ) (D E : Circuit) (B : List (ℕ × ℕ)) (x : Fin n → Bool)
+    (h : ∀ t ∈ B,
+      PEqualNP.BlindGate.wireValue D n x t.1 = PEqualNP.BlindGate.wireValue E n x t.1 ∧
+      PEqualNP.BlindGate.wireValue D n x t.2 = PEqualNP.BlindGate.wireValue E n x t.2) :
+    products n D B x ↔ products n E B x := by
+  unfold products
+  apply exists_congr
+  intro t
+  apply and_congr_right
+  intro ht
+  rw [(h t ht).1, (h t ht).2]
+
+lemma products_appendAnd (n : ℕ) (E : Circuit) (u v : ℕ) (B : List (ℕ × ℕ))
+    (hbound : ∀ t ∈ B, t.1 < n + E.size ∧ t.2 < n + E.size) (x : Fin n → Bool) :
+    products n (appendAnd E u v) B x ↔ products n E B x := by
+  apply products_congr
+  intro t ht
+  exact ⟨old_wire_appendAnd n E u v t.1 (hbound t ht).1 x,
+    old_wire_appendAnd n E u v t.2 (hbound t ht).2 x⟩
+
+lemma appendAnd_all_nonbelow (n : ℕ) (E : Circuit) (u v : ℕ)
+    (F : (Fin n → Bool) → Bool) (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (hold : ∀ w < n + E.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x w = true ∧ F x = false)
+    (hnew : ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x u = true ∧
+      PEqualNP.BlindGate.wireValue E n x v = true ∧ F x = false) :
+    ∀ w < n + (appendAnd E u v).size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue (appendAnd E u v) n x w = true ∧ F x = false := by
+  intro w hw
+  rw [appendAnd_size] at hw
+  by_cases hwold : w < n + E.size
+  · obtain ⟨x, hx, hfalse⟩ := hold w hwold
+    exact ⟨x, by rwa [old_wire_appendAnd n E u v w hwold x], hfalse⟩
+  · have heq : w = n + E.size := by omega
+    subst w
+    obtain ⟨x, hx1, hx2, hfalse⟩ := hnew
+    refine ⟨x, ?_, hfalse⟩
+    rw [new_wire_appendAnd n E u v hE hu hv x, hx1, hx2]
+    rfl
+
+lemma appendOr_all_nonbelow (n : ℕ) (E : Circuit) (u v : ℕ)
+    (F : (Fin n → Bool) → Bool) (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (hold : ∀ w < n + E.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x w = true ∧ F x = false) :
+    ∀ w < n + (appendOr E u v).size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue (appendOr E u v) n x w = true ∧ F x = false := by
+  intro w hw
+  rw [appendOr_size] at hw
+  by_cases hwold : w < n + E.size
+  · obtain ⟨x, hx, hfalse⟩ := hold w hwold
+    exact ⟨x, by rwa [old_wire_appendOr n E u v w hwold x], hfalse⟩
+  · have heq : w = n + E.size := by omega
+    subst w
+    obtain ⟨x, hx, hfalse⟩ := hold u hu
+    refine ⟨x, ?_, hfalse⟩
+    rw [new_wire_appendOr n E u v hE hu hv x, hx]
+    rfl
+
+lemma last_and_shared_endpoint_reduction (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (E : Circuit) (u v a b : ℕ) (R : List (ℕ × ℕ))
+    (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (ha : a < n + E.size) (hb : b < n + E.size)
+    (hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size)
+    (hres : IsResidual n F (appendAnd E u v) ((n + E.size, a) :: (u, b) :: R)) :
+    ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n F D B ∧
+      D.size + 2 * B.length + 1 =
+        (appendAnd E u v).size + 2 * ((n + E.size, a) :: (u, b) :: R).length := by
+  classical
+  have hnotE : ∀ w < n + E.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x w = true ∧ F x = false := by
+    intro w hw
+    obtain ⟨x, hx, hfalse⟩ := hres.2.2.1 w (by rw [appendAnd_size]; omega)
+    exact ⟨x, by rwa [old_wire_appendAnd n E u v w hw x] at hx, hfalse⟩
+  have hfold (x : Fin n → Bool) : F x = true ↔
+      ((PEqualNP.BlindGate.wireValue E n x u = true ∧
+        PEqualNP.BlindGate.wireValue E n x v = true) ∧
+        PEqualNP.BlindGate.wireValue E n x a = true) ∨
+      (PEqualNP.BlindGate.wireValue E n x u = true ∧
+        PEqualNP.BlindGate.wireValue E n x b = true) ∨ products n E R x := by
+    rw [hres.2.2.2 x]
+    change products n (appendAnd E u v) ((n + E.size, a) :: (u, b) :: R) x ↔ _
+    rw [products_cons, products_cons]
+    rw [new_wire_appendAnd n E u v hE hu hv x,
+      old_wire_appendAnd n E u v a ha x, old_wire_appendAnd n E u v u hu x,
+      old_wire_appendAnd n E u v b hb x, products_appendAnd n E u v R hR x]
+    simp only [Bool.and_eq_true]
+  by_cases hbelow : ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x v = true →
+      PEqualNP.BlindGate.wireValue E n x a = true → F x = true
+  · refine ⟨E, (v, a) :: (u, b) :: R, ⟨hE, ?_, hnotE, ?_⟩, ?_⟩
+    · intro t ht
+      simp only [List.mem_cons] at ht
+      rcases ht with rfl | rfl | ht
+      · exact ⟨hv, ha⟩
+      · exact ⟨hu, hb⟩
+      · exact hR t ht
+    · intro x
+      change F x = true ↔ products n E ((v, a) :: (u, b) :: R) x
+      rw [products_cons, products_cons]
+      have hf := hfold x
+      have hsub := hbelow x
+      tauto
+    · rw [appendAnd_size]
+      simp only [List.length_cons]
+      omega
+  · have hnew : ∃ x : Fin n → Bool,
+        PEqualNP.BlindGate.wireValue E n x v = true ∧
+        PEqualNP.BlindGate.wireValue E n x a = true ∧ F x = false := by
+      push Not at hbelow
+      obtain ⟨x, hx1, hx2, hfalse⟩ := hbelow
+      exact ⟨x, hx1, hx2, by simpa only [Bool.not_eq_true] using hfalse⟩
+    let T : Circuit := appendAnd E v a
+    let t : ℕ := n + E.size
+    have hT : IsAO2 n T := appendAnd_ao2 n E v a hE hv ha
+    have hTsize : T.size = E.size + 1 := appendAnd_size E v a
+    have ht : t < n + T.size := by dsimp [t]; omega
+    have hbT : b < n + T.size := by omega
+    have hnotT : ∀ w < n + T.size, ∃ x : Fin n → Bool,
+        PEqualNP.BlindGate.wireValue T n x w = true ∧ F x = false :=
+      appendAnd_all_nonbelow n E v a F hE hv ha hnotE hnew
+    let D : Circuit := appendOr T t b
+    let h : ℕ := n + T.size
+    have hD : IsAO2 n D := appendOr_ao2 n T t b hT ht hbT
+    have hDsize : D.size = E.size + 2 := by
+      dsimp [D]
+      rw [appendOr_size, hTsize]
+    have hold (w : ℕ) (hw : w < n + E.size) (x : Fin n → Bool) :
+        PEqualNP.BlindGate.wireValue D n x w = PEqualNP.BlindGate.wireValue E n x w := by
+      dsimp [D]
+      rw [old_wire_appendOr n T t b w (by omega) x]
+      exact old_wire_appendAnd n E v a w hw x
+    have hh (x : Fin n → Bool) : PEqualNP.BlindGate.wireValue D n x h =
+        ((PEqualNP.BlindGate.wireValue E n x v &&
+          PEqualNP.BlindGate.wireValue E n x a) ||
+          PEqualNP.BlindGate.wireValue E n x b) := by
+      dsimp [D, h]
+      rw [new_wire_appendOr n T t b hT ht hbT x]
+      change (PEqualNP.BlindGate.wireValue (appendAnd E v a) n x (n + E.size) ||
+        PEqualNP.BlindGate.wireValue (appendAnd E v a) n x b) = _
+      rw [new_wire_appendAnd n E v a hE hv ha x, old_wire_appendAnd n E v a b hb x]
+    refine ⟨D, (u, h) :: R, ⟨hD, ?_, appendOr_all_nonbelow n T t b F hT ht hbT hnotT, ?_⟩, ?_⟩
+    · intro s hs
+      simp only [List.mem_cons] at hs
+      rcases hs with rfl | hs
+      · dsimp [h]
+        constructor <;> omega
+      · have := hR s hs
+        constructor <;> omega
+    · intro x
+      change F x = true ↔ products n D ((u, h) :: R) x
+      rw [products_cons]
+      rw [hold u hu x, hh x]
+      have hrest : products n D R x ↔ products n E R x := by
+        apply products_congr
+        intro s hs
+        exact ⟨hold s.1 (hR s hs).1 x, hold s.2 (hR s hs).2 x⟩
+      rw [hrest, Bool.or_eq_true, Bool.and_eq_true]
+      have hf := hfold x
+      tauto
+    · rw [hDsize, appendAnd_size]
+      simp only [List.length_cons]
+      omega
+
+
+lemma last_and_shared_endpoint_not_minimum (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (E : Circuit) (u v a b : ℕ) (R : List (ℕ × ℕ))
+    (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (ha : a < n + E.size) (hb : b < n + E.size)
+    (hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size)
+    (hres : IsResidual n F (appendAnd E u v) ((n + E.size, a) :: (u, b) :: R))
+    (hmin : ∀ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n F D B →
+      (appendAnd E u v).size + 2 * ((n + E.size, a) :: (u, b) :: R).length ≤
+        D.size + 2 * B.length) : False := by
+  obtain ⟨D, B, hDB, hcost⟩ :=
+    last_and_shared_endpoint_reduction n F E u v a b R hE hu hv ha hb hR hres
+  have := hmin D B hDB
+  omega
+
+
+lemma exists_minimum_residual_certified (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (hres : IsResidual n F D B) :
+    ∃ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n F E A ∧
+      E.size + 2 * A.length ≤ D.size + 2 * B.length ∧
+      (∀ (D' : Circuit) (B' : List (ℕ × ℕ)), IsResidual n F D' B' →
+        E.size + 2 * A.length ≤ D'.size + 2 * B'.length) ∧
+      (∀ t ∈ A, t.1 ≠ t.2) ∧
+      A.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  classical
+  let P : ℕ → Prop := fun k => ∃ (E : Circuit) (A : List (ℕ × ℕ)),
+    IsResidual n F E A ∧ E.size + 2 * A.length = k
+  have hex : ∃ k, P k := ⟨D.size + 2 * B.length, D, B, hres, rfl⟩
+  obtain ⟨E, A, hEA, hcost⟩ := Nat.find_spec hex
+  have hmin : ∀ (D' : Circuit) (B' : List (ℕ × ℕ)), IsResidual n F D' B' →
+      E.size + 2 * A.length ≤ D'.size + 2 * B'.length := by
+    intro D' B' h'
+    rw [hcost]
+    exact Nat.find_min' hex ⟨D', B', h', rfl⟩
+  exact ⟨E, A, hEA, hmin D B hres, hmin, minimum_residual_matching n F E A hEA hmin⟩
+
+lemma matching_product_decomposition_certified (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hout : C.output < n + C.size)
+    (hinputs : ∀ w < n, ¬ PEqualNP.CircuitMoves.WireBelowOutput n C w) :
+    ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n (circuitFun n C) D B ∧
+      D.size + 2 * B.length ≤ C.size + 1 ∧
+      (∀ (E : Circuit) (A : List (ℕ × ℕ)), IsResidual n (circuitFun n C) E A →
+        D.size + 2 * B.length ≤ E.size + 2 * A.length) ∧
+      (∀ t ∈ B, t.1 ≠ t.2) ∧
+      B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2) := by
+  obtain ⟨D, B, hres, hcost, _, _⟩ := matching_product_decomposition n C hAO hout hinputs
+  obtain ⟨E, A, hEA, hle, hmin, hloop, hpair⟩ :=
+    exists_minimum_residual_certified n (circuitFun n C) D B hres
+  exact ⟨E, A, hEA, hle.trans hcost, hmin, hloop, hpair⟩
+
+
+lemma appendAnd_prefix_ao2 (n : ℕ) (E : Circuit) (u v : ℕ)
+    (hD : IsAO2 n (appendAnd E u v)) : IsAO2 n E := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    exact hD.1 g (by simp [appendAnd, hg])
+  · intro j hj w hw
+    have heq : gateAt (appendAnd E u v) j = gateAt E j := by
+      simp only [gateAt, appendAnd]
+      exact List.getD_append _ _ _ _ hj
+    exact hD.2.1 j (by simp only [appendAnd, List.length_append, List.length_cons,
+      List.length_nil]; omega) w (by rwa [heq])
+  · intro g hg
+    exact hD.2.2 g (by simp [appendAnd, hg])
+
+lemma appendAnd_inputs_valid (n : ℕ) (E : Circuit) (u v : ℕ)
+    (hD : IsAO2 n (appendAnd E u v)) : u < n + E.size ∧ v < n + E.size := by
+  have hlen : E.gates.length < (appendAnd E u v).gates.length := by simp [appendAnd]
+  constructor
+  · exact hD.2.1 E.gates.length hlen u (by rw [appendAnd_gate]; simp)
+  · exact hD.2.1 E.gates.length hlen v (by rw [appendAnd_gate]; simp)
+
+lemma minimum_residual_no_last_and_operand_endpoint (n : ℕ)
+    (F : (Fin n → Bool) → Bool) (E : Circuit) (u v a b : ℕ) (R : List (ℕ × ℕ))
+    (hres : IsResidual n F (appendAnd E u v) ((n + E.size, a) :: (u, b) :: R))
+    (hmin : ∀ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n F D B →
+      (appendAnd E u v).size + 2 * ((n + E.size, a) :: (u, b) :: R).length ≤
+        D.size + 2 * B.length) : False := by
+  have hE := appendAnd_prefix_ao2 n E u v hres.1
+  obtain ⟨hu, hv⟩ := appendAnd_inputs_valid n E u v hres.1
+  obtain ⟨hloop, hmatch⟩ := minimum_residual_matching n F (appendAnd E u v)
+    ((n + E.size, a) :: (u, b) :: R) hres hmin
+  have hfirst := (List.pairwise_cons.mp hmatch).1
+  have ha : a < n + E.size := by
+    have hbd := (hres.2.1 (n + E.size, a) (by simp)).2
+    have hne := hloop (n + E.size, a) (by simp)
+    rw [appendAnd_size] at hbd
+    change n + E.size ≠ a at hne
+    omega
+  have hb : b < n + E.size := by
+    have hbd := (hres.2.1 (u, b) (by simp)).2
+    have hne := (hfirst (u, b) (by simp)).2.1
+    rw [appendAnd_size] at hbd
+    change n + E.size ≠ b at hne
+    omega
+  have hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size := by
+    intro t ht
+    have hbd := hres.2.1 t (by simp [ht])
+    have hneq := hfirst t (by simp [ht])
+    rw [appendAnd_size] at hbd
+    change n + E.size ≠ t.1 ∧ n + E.size ≠ t.2 ∧ _ at hneq
+    constructor <;> omega
+  exact last_and_shared_endpoint_not_minimum n F E u v a b R hE hu hv ha hb hR hres hmin
+
+
+lemma products_appendOr (n : ℕ) (E : Circuit) (u v : ℕ) (B : List (ℕ × ℕ))
+    (hbound : ∀ t ∈ B, t.1 < n + E.size ∧ t.2 < n + E.size) (x : Fin n → Bool) :
+    products n (appendOr E u v) B x ↔ products n E B x := by
+  apply products_congr
+  intro t ht
+  exact ⟨old_wire_appendOr n E u v t.1 (hbound t ht).1 x,
+    old_wire_appendOr n E u v t.2 (hbound t ht).2 x⟩
+
+lemma last_or_rotation (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (E : Circuit) (u v a b : ℕ) (R : List (ℕ × ℕ))
+    (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (ha : a < n + E.size) (hb : b < n + E.size)
+    (hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size)
+    (hres : IsResidual n F (appendOr E u v) ((n + E.size, a) :: (u, b) :: R)) :
+    IsResidual n F (appendOr E a b) ((n + E.size, u) :: (v, a) :: R) ∧
+      (appendOr E a b).size + 2 * ((n + E.size, u) :: (v, a) :: R).length =
+        (appendOr E u v).size + 2 * ((n + E.size, a) :: (u, b) :: R).length := by
+  have hnotE : ∀ w < n + E.size, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue E n x w = true ∧ F x = false := by
+    intro w hw
+    obtain ⟨x, hx, hfalse⟩ := hres.2.2.1 w (by rw [appendOr_size]; omega)
+    exact ⟨x, by rwa [old_wire_appendOr n E u v w hw x] at hx, hfalse⟩
+  refine ⟨⟨appendOr_ao2 n E a b hE ha hb, ?_,
+    appendOr_all_nonbelow n E a b F hE ha hb hnotE, ?_⟩, ?_⟩
+  · intro t ht
+    rw [appendOr_size]
+    simp only [List.mem_cons] at ht
+    rcases ht with rfl | rfl | ht
+    · constructor <;> omega
+    · constructor <;> omega
+    · have := hR t ht
+      constructor <;> omega
+  · intro x
+    rw [hres.2.2.2 x]
+    change products n (appendOr E u v) ((n + E.size, a) :: (u, b) :: R) x ↔
+      products n (appendOr E a b) ((n + E.size, u) :: (v, a) :: R) x
+    rw [products_cons, products_cons, products_cons, products_cons]
+    rw [new_wire_appendOr n E u v hE hu hv x,
+      old_wire_appendOr n E u v a ha x, old_wire_appendOr n E u v u hu x,
+      old_wire_appendOr n E u v b hb x, products_appendOr n E u v R hR x,
+      new_wire_appendOr n E a b hE ha hb x,
+      old_wire_appendOr n E a b u hu x, old_wire_appendOr n E a b v hv x,
+      old_wire_appendOr n E a b a ha x, products_appendOr n E a b R hR x]
+    simp only [Bool.or_eq_true]
+    tauto
+  · rw [appendOr_size, appendOr_size]
+    simp only [List.length_cons]
+
+lemma last_or_two_operand_endpoint_reduction (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (E : Circuit) (u v a b c : ℕ) (R : List (ℕ × ℕ))
+    (hE : IsAO2 n E)
+    (hu : u < n + E.size) (hv : v < n + E.size)
+    (ha : a < n + E.size) (hb : b < n + E.size) (hc : c < n + E.size)
+    (hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size)
+    (hres : IsResidual n F (appendOr E u v)
+      ((n + E.size, a) :: (u, b) :: (v, c) :: R)) :
+    ∃ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n F D B ∧
+      D.size + 2 * B.length + 1 =
+        (appendOr E u v).size + 2 * ((n + E.size, a) :: (u, b) :: (v, c) :: R).length := by
+  have htail : ∀ t ∈ (v, c) :: R, t.1 < n + E.size ∧ t.2 < n + E.size := by
+    intro t ht
+    simp only [List.mem_cons] at ht
+    rcases ht with rfl | ht
+    · exact ⟨hv, hc⟩
+    · exact hR t ht
+  obtain ⟨hrot, hcost⟩ := last_or_rotation n F E u v a b ((v, c) :: R)
+    hE hu hv ha hb htail hres
+  have hp : ((n + E.size, u) :: (v, a) :: (v, c) :: R).Perm
+      ((v, a) :: (v, c) :: (n + E.size, u) :: R) :=
+    (List.Perm.swap (v, a) (n + E.size, u) ((v, c) :: R)).trans
+      ((List.Perm.swap (v, c) (n + E.size, u) R).cons (v, a))
+  obtain ⟨D, B, hDB, hfac⟩ := factor_shared_pairs n F (appendOr E a b)
+    ((n + E.size, u) :: (v, a) :: (v, c) :: R) hrot (v, a) (v, c)
+    ((n + E.size, u) :: R) hp (Or.inl rfl)
+  exact ⟨D, B, hDB, hfac.trans hcost⟩
+
+lemma appendOr_prefix_ao2 (n : ℕ) (E : Circuit) (u v : ℕ)
+    (hD : IsAO2 n (appendOr E u v)) : IsAO2 n E := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    exact hD.1 g (by simp [appendOr, hg])
+  · intro j hj w hw
+    have heq : gateAt (appendOr E u v) j = gateAt E j := by
+      simp only [gateAt, appendOr]
+      exact List.getD_append _ _ _ _ hj
+    exact hD.2.1 j (by simp only [appendOr, List.length_append, List.length_cons,
+      List.length_nil]; omega) w (by rwa [heq])
+  · intro g hg
+    exact hD.2.2 g (by simp [appendOr, hg])
+
+lemma appendOr_inputs_valid (n : ℕ) (E : Circuit) (u v : ℕ)
+    (hD : IsAO2 n (appendOr E u v)) : u < n + E.size ∧ v < n + E.size := by
+  have hlen : E.gates.length < (appendOr E u v).gates.length := by simp [appendOr]
+  constructor
+  · exact hD.2.1 E.gates.length hlen u (by rw [appendOr_gate]; simp)
+  · exact hD.2.1 E.gates.length hlen v (by rw [appendOr_gate]; simp)
+
+lemma minimum_residual_no_last_or_two_operand_endpoints (n : ℕ)
+    (F : (Fin n → Bool) → Bool) (E : Circuit) (u v a b c : ℕ) (R : List (ℕ × ℕ))
+    (hres : IsResidual n F (appendOr E u v) ((n + E.size, a) :: (u, b) :: (v, c) :: R))
+    (hmin : ∀ (D : Circuit) (B : List (ℕ × ℕ)), IsResidual n F D B →
+      (appendOr E u v).size + 2 * ((n + E.size, a) :: (u, b) :: (v, c) :: R).length ≤
+        D.size + 2 * B.length) : False := by
+  have hE := appendOr_prefix_ao2 n E u v hres.1
+  obtain ⟨hu, hv⟩ := appendOr_inputs_valid n E u v hres.1
+  obtain ⟨hloop, hmatch⟩ := minimum_residual_matching n F (appendOr E u v)
+    ((n + E.size, a) :: (u, b) :: (v, c) :: R) hres hmin
+  have hfirst := (List.pairwise_cons.mp hmatch).1
+  have ha : a < n + E.size := by
+    have hbd := (hres.2.1 (n + E.size, a) (by simp)).2
+    have hne := hloop (n + E.size, a) (by simp)
+    rw [appendOr_size] at hbd
+    change n + E.size ≠ a at hne
+    omega
+  have htail : ∀ t ∈ (u, b) :: (v, c) :: R,
+      t.1 < n + E.size ∧ t.2 < n + E.size := by
+    intro t ht
+    have hbd := hres.2.1 t (by simp [ht])
+    have hneq := hfirst t ht
+    rw [appendOr_size] at hbd
+    change n + E.size ≠ t.1 ∧ n + E.size ≠ t.2 ∧ _ at hneq
+    constructor <;> omega
+  have hb := (htail (u, b) (by simp)).2
+  have hc := (htail (v, c) (by simp)).2
+  have hR : ∀ t ∈ R, t.1 < n + E.size ∧ t.2 < n + E.size := by
+    intro t ht
+    exact htail t (by simp [ht])
+  obtain ⟨D, B, hDB, hcost⟩ := last_or_two_operand_endpoint_reduction n F E u v a b c R
+    hE hu hv ha hb hc hR hres
+  have := hmin D B hDB
+  omega
+
+end LastAndFactor
+
 end PEqualNP.Outside.L_meta_2583
