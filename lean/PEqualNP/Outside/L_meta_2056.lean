@@ -1219,4 +1219,291 @@ theorem masked_eq (A : Finset (Fin 26)) :
 
 end MixedSixBoundary
 
+namespace FalseOrCut
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {m : ℕ}
+
+def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+def cost (w : List Bool) (g : Gate) : ℕ :=
+  match g.op with
+  | .or => if g.op.eval (g.inputs.map fun i => w.getD i false) = false then 1 else 0
+  | _ => 0
+
+def falseOrCount : List Gate → List Bool → ℕ
+  | [], _ => 0
+  | g :: gs, w => cost w g + falseOrCount gs (step w g)
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ)
+    (h : j ≠ L.length) : (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+def Cnt (t : ℕ) (L : List (Finset (Fin m))) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion fun j => L.getD j ∅).card ≤ t + W.card
+
+-- Weighted adaptation of the support-count argument in Helpers/Support.lean.
+lemma cnt_step (t k : ℕ) (L : List (Finset (Fin m))) (P : Finset ℕ)
+    (hp : P.card ≤ k + 1) (h : Cnt t L) :
+    Cnt (t + k) (L ++ [P.biUnion fun j => L.getD j ∅]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j =>
+          (L ++ [P.biUnion fun a => L.getD a ∅]).getD j ∅)
+        ⊆ ((W.erase L.length ∪ P).biUnion fun j => L.getD j ∅) := by
+      intro i hi
+      rw [Finset.mem_biUnion] at hi ⊢
+      obtain ⟨j, hjW, hij⟩ := hi
+      by_cases hjl : j = L.length
+      · subst hjl
+        have hij' : i ∈ P.biUnion (fun a => L.getD a ∅) := by simpa using hij
+        obtain ⟨a, ha, hia⟩ := Finset.mem_biUnion.mp hij'
+        exact ⟨a, Finset.mem_union_right _ ha, hia⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+        exact ⟨j, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨hjl, hjW⟩), hij⟩
+    have hc1 : (W.erase L.length ∪ P).card ≤ (W.card - 1) + (k + 1) := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left hp _
+    have hWpos : 1 ≤ W.card := Finset.card_pos.2 ⟨_, hW⟩
+    have := h (W.erase L.length ∪ P)
+    have := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j =>
+          (L ++ [P.biUnion fun a => L.getD a ∅]).getD j ∅)
+        = (W.biUnion fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    have := h W
+    omega
+
+lemma gate_parents (w : List Bool) (g : Gate)
+    (hop : g.op = .and ∨ g.op = .or) (hlen : g.inputs.length ≤ 2) :
+    ∃ P : Finset ℕ, P.card ≤ cost w g + 1 ∧
+      ∀ z : List Bool,
+        g.op.eval (g.inputs.map fun i => w.getD i false) = false →
+        g.op.eval (g.inputs.map fun i => z.getD i false) = true →
+        ∃ j ∈ P, w.getD j false = false ∧ z.getD j false = true := by
+  classical
+  by_cases hb : g.op.eval (g.inputs.map fun i => w.getD i false) = false
+  · rcases hop with hop | hop
+    · have hf : ∃ j ∈ g.inputs, w.getD j false = false := by
+        simpa [hop, GateOp.eval, List.all_eq_false] using hb
+      obtain ⟨j, hj, hwj⟩ := hf
+      refine ⟨{j}, by simp [cost, hop], ?_⟩
+      intro z _ hz
+      have hzj : z.getD j false = true := by
+        have hz' : ∀ a ∈ g.inputs, z.getD a false = true := by
+          simpa [hop, GateOp.eval] using hz
+        exact hz' j hj
+      exact ⟨j, by simp, hwj, hzj⟩
+    · refine ⟨g.inputs.toFinset, ?_, ?_⟩
+      · have hc : cost w g = 1 := by
+          unfold cost
+          rw [hop]
+          exact ite_eq_left (by simpa only [hop] using hb)
+        rw [hc]
+        exact le_trans (List.toFinset_card_le _) hlen
+      · intro z _ hz
+        have hf : ∃ j ∈ g.inputs, z.getD j false = true := by
+          simpa [hop, GateOp.eval] using hz
+        obtain ⟨j, hj, hzj⟩ := hf
+        have hwj : w.getD j false = false := by
+          have hw' : ∀ a ∈ g.inputs, w.getD a false = false := by
+            simpa [hop, GateOp.eval, List.any_eq_false] using hb
+          exact hw' j hj
+        exact ⟨j, List.mem_toFinset.mpr hj, hwj, hzj⟩
+  · refine ⟨∅, by simp, ?_⟩
+    intro z hz _
+    exact (hb hz).elim
+
+def Covers (L : List (Finset (Fin m))) (w : List Bool)
+    (X : Fin m → List Bool) : Prop :=
+  L.length = w.length ∧ (∀ i, (X i).length = w.length) ∧
+    ∀ j, w.getD j false = false → ∀ i, (X i).getD j false = true → i ∈ L.getD j ∅
+
+lemma covers_step (L : List (Finset (Fin m))) (w : List Bool)
+    (X : Fin m → List Bool) (g : Gate) (P : Finset ℕ)
+    (h : Covers L w X)
+    (hp : ∀ z : List Bool,
+        g.op.eval (g.inputs.map fun i => w.getD i false) = false →
+        g.op.eval (g.inputs.map fun i => z.getD i false) = true →
+        ∃ j ∈ P, w.getD j false = false ∧ z.getD j false = true) :
+    Covers (L ++ [P.biUnion fun j => L.getD j ∅]) (step w g)
+      (fun i => step (X i) g) := by
+  refine ⟨by simp [step, h.1], ?_, ?_⟩
+  · intro i; simp [step, h.2.1 i]
+  · intro j hj i hi
+    by_cases heq : j = L.length
+    · subst j
+      have hj' : g.op.eval (g.inputs.map fun a => w.getD a false) = false := by
+        simpa [step, h.1] using hj
+      have hi' : g.op.eval (g.inputs.map fun a => (X i).getD a false) = true := by
+        simpa [step, h.1, ← h.2.1 i] using hi
+      obtain ⟨a, ha, hwa, hxa⟩ := hp (X i) hj' hi'
+      simpa using Finset.mem_biUnion.mpr ⟨a, ha, h.2.2 a hwa i hxa⟩
+    · rw [getD_snoc_ne _ _ _ _ heq]
+      apply h.2.2 j
+      · have hL := h.1
+        change (w ++ [_]).getD j false = false at hj
+        rw [getD_snoc_ne w _ false j (by omega)] at hj
+        exact hj
+      · have hL := h.1
+        have hiL := h.2.1 i
+        change (X i ++ [_]).getD j false = true at hi
+        rw [getD_snoc_ne (X i) _ false j (by omega)] at hi
+        exact hi
+
+lemma count_fold (gs : List Gate)
+    (hm : ∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2)
+    (t : ℕ) (L : List (Finset (Fin m))) (w : List Bool)
+    (X : Fin m → List Bool) (hc : Cnt t L) (hv : Covers L w X) :
+    ∃ L', Cnt (t + falseOrCount gs w) L' ∧
+      Covers L' (gs.foldl step w) (fun i => gs.foldl step (X i)) := by
+  induction gs generalizing t L w X with
+  | nil => exact ⟨L, hc, hv⟩
+  | cons g gs ih =>
+    obtain ⟨hop, hlen⟩ := hm g (by simp)
+    obtain ⟨P, hpc, hp⟩ := gate_parents w g hop hlen
+    have htail : ∀ g' ∈ gs, (g'.op = .and ∨ g'.op = .or) ∧ g'.inputs.length ≤ 2 :=
+      fun g' hg' => hm g' (List.mem_cons_of_mem _ hg')
+    obtain ⟨L', hc', hv'⟩ := ih htail (t + cost w g)
+      (L ++ [P.biUnion fun j => L.getD j ∅]) (step w g) (fun i => step (X i) g)
+      (cnt_step t (cost w g) L P hpc hc) (covers_step L w X g P hv hp)
+    exact ⟨L', by simpa [falseOrCount, Nat.add_assoc] using hc', hv'⟩
+
+def inputSupports (w : List Bool) (X : Fin m → List Bool) : List (Finset (Fin m)) :=
+  List.ofFn fun j : Fin w.length =>
+    Finset.univ.filter fun i => w.getD j.val false = false ∧ (X i).getD j.val false = true
+
+lemma cnt_inputs (w : List Bool) (X : Fin m → List Bool)
+    (hsep : ∀ j, w.getD j false = false → ∀ i k,
+      (X i).getD j false = true → (X k).getD j false = true → i = k) :
+    Cnt 0 (inputSupports w X) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hj : j < w.length
+  · simp only [inputSupports, List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+      dite_eq_left hj, Option.getD_some]
+    apply Finset.card_le_one.mpr
+    intro i hi k hk
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hi hk
+    exact hsep j hi.1 i k hi.2 hk.2
+  · rw [List.getD_eq_default _ _ (by simp [inputSupports]; omega)]
+    simp
+
+lemma covers_inputs (w : List Bool) (X : Fin m → List Bool)
+    (hlen : ∀ i, (X i).length = w.length) : Covers (inputSupports w X) w X := by
+  refine ⟨by simp [inputSupports], hlen, ?_⟩
+  intro j hj i hi
+  have hjlt : j < w.length := by
+    by_contra h
+    have : (X i).getD j false = false := List.getD_eq_default _ _ (by rw [hlen i]; omega)
+    rw [this] at hi
+    contradiction
+  simp only [inputSupports, List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+    dite_eq_left hjlt, Option.getD_some, Finset.mem_filter, Finset.mem_univ, true_and]
+  exact ⟨hj, hi⟩
+
+/-- Disjoint singleton changes at false raw inputs require one fewer false OR gates. -/
+theorem finite_tests_false_or_bound (C : Circuit) (hm : Monotone2 C)
+    (w : List Bool) (X : Fin m → List Bool)
+    (hlen : ∀ i, (X i).length = w.length)
+    (hsep : ∀ j, w.getD j false = false → ∀ i k,
+      (X i).getD j false = true → (X k).getD j false = true → i = k)
+    (hneg : C.eval w = false) (hpos : ∀ i, C.eval (X i) = true) :
+    m ≤ falseOrCount C.gates w + 1 := by
+  obtain ⟨L, hc, hv⟩ := count_fold C.gates hm 0 (inputSupports w X) w X
+    (cnt_inputs w X hsep) (covers_inputs w X hlen)
+  have hall : ∀ i : Fin m, i ∈ L.getD C.output ∅ := by
+    intro i
+    exact hv.2.2 C.output hneg i (hpos i)
+  have heq : L.getD C.output ∅ = Finset.univ := Finset.eq_univ_of_forall hall
+  have hbound := hc {C.output}
+  simp only [Finset.singleton_biUnion, Finset.card_singleton, zero_add] at hbound
+  rw [heq] at hbound
+  simpa only [Finset.card_univ, Fintype.card_fin] using hbound
+
+def extension {n : ℕ} (M : Fin n → Bool) (outside : Fin m → Fin n)
+    (i : Fin m) (j : Fin n) : Bool :=
+  if j = outside i then true else M j
+
+lemma extension_true_unique {n : ℕ} (M : Fin n → Bool) (outside : Fin m → Fin n)
+    (hinj : Function.Injective outside) (j : Fin n) (hbase : M j = false)
+    (i k : Fin m) (hi : extension M outside i j = true)
+    (hk : extension M outside k j = true) : i = k := by
+  have hij : j = outside i := by
+    by_contra hne
+    simp [extension, hne, hbase] at hi
+  have hkj : j = outside k := by
+    by_contra hne
+    simp [extension, hne, hbase] at hk
+  exact hinj (hij.symm.trans hkj)
+
+/-- Only the base negative and the distinct singleton extensions are required. -/
+theorem singleton_extensions_false_or_bound {n : ℕ}
+    (C : Circuit) (hm : Monotone2 C) (M : Fin n → Bool)
+    (outside : Fin m → Fin n) (hinj : Function.Injective outside)
+    (hneg : C.eval (List.ofFn M) = false)
+    (hpos : ∀ i, C.eval (List.ofFn (extension M outside i)) = true) :
+    m ≤ falseOrCount C.gates (List.ofFn M) + 1 := by
+  apply finite_tests_false_or_bound C hm (List.ofFn M)
+    (fun i => List.ofFn (extension M outside i)) (by intro i; simp) _ hneg hpos
+  intro j hj i k hi hk
+  by_cases hjn : j < n
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+      dite_eq_left hjn, Option.getD_some] at hj hi hk
+    exact extension_true_unique M outside hinj ⟨j, hjn⟩ hj i k hi hk
+  · have hfalse : (List.ofFn (extension M outside i)).getD j false = false :=
+      List.getD_eq_default _ _ (by simp; omega)
+    rw [hfalse] at hi
+    contradiction
+
+def orCount : List Gate → ℕ
+  | [] => 0
+  | g :: gs => (match g.op with | .or => 1 | _ => 0) + orCount gs
+
+def trueCost (w : List Bool) (g : Gate) : ℕ :=
+  match g.op with
+  | .or => if g.op.eval (g.inputs.map fun i => w.getD i false) = true then 1 else 0
+  | _ => 0
+
+def trueOrCount : List Gate → List Bool → ℕ
+  | [], _ => 0
+  | g :: gs, w => trueCost w g + trueOrCount gs (step w g)
+
+lemma orCount_partition (gs : List Gate) (w : List Bool) :
+    falseOrCount gs w + trueOrCount gs w = orCount gs := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    have hpart := ih (step w g)
+    have hc : cost w g + trueCost w g = (match g.op with | .or => 1 | _ => 0) := by
+      cases hop : g.op <;> simp only [cost, trueCost, hop]
+      cases hv : GateOp.or.eval (g.inputs.map fun i => w.getD i false) <;> simp
+    simp only [falseOrCount, trueOrCount, orCount]
+    omega
+
+/-- Equivalent cut on the number of OR gates true at the base assignment. -/
+theorem singleton_extensions_true_or_cut {n : ℕ}
+    (C : Circuit) (hm : Monotone2 C) (M : Fin n → Bool)
+    (outside : Fin m → Fin n) (hinj : Function.Injective outside)
+    (hneg : C.eval (List.ofFn M) = false)
+    (hpos : ∀ i, C.eval (List.ofFn (extension M outside i)) = true) :
+    trueOrCount C.gates (List.ofFn M) + m ≤ orCount C.gates + 1 := by
+  have hbound := singleton_extensions_false_or_bound C hm M outside hinj hneg hpos
+  have hpart := orCount_partition C.gates (List.ofFn M)
+  omega
+
+end FalseOrCut
+
 end PEqualNP.Outside.L_meta_2056
