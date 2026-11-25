@@ -1,0 +1,5 @@
+Fano incidence axioms and all 37 maximal independent sets checked.
+27-gate circuit: all 16,384 truth assignments and all 21 joint read-1 pairs checked.
+29-gate circuit: all 16,384 truth assignments checked; fixed edge has no read-1 vector.
+26-gate candidate is not a counterexample: 23 prime supports, with false pairs {0,8}, {4,13}.
+Archive makes no full-target acceptance or circuit lower-bound claim.

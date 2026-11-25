@@ -12,3 +12,9 @@
 - 2026-11-25T14:18:01.895212+00:00: duality/hexagon partial independentlychecked and named894-line file builds; preserving SAT controls and actual full-Mathlib smoke-test failure.
 
 2026-11-25T14:25Z: named 989-line partial builds; independent ThreeLines source and axiom review passes. Full theorem remains open.
+
+2026-11-25T14:25:57.242180+00:00 pilot94_research spawned c4free_theory: independent pure mathematical normalization/counterexample argument; no tools or file writes. Job total subagents6.
+
+2026-11-25T14:29Z: shared OR repair identity and independently replayed Fano archive preserved. Research delegated an independent C4-free theory check; cumulative subagents6.
+
+2026-11-25T14:28:40.455267+00:00 c4free_theory finished: exactP4counterexample to naivebypass/homogenization; noexistentialnormalizationcounterexample.
