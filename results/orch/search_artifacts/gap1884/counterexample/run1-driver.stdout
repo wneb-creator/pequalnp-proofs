@@ -1,0 +1,1 @@
+{"started_utc": "2026-11-25T16:40:49.688295+00:00", "command": ["/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/search", "900", "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1", "1884"], "seconds": 900, "pid": 39357, "exit_code": 0, "finished_utc": "2026-11-25T16:55:49.719259+00:00"}

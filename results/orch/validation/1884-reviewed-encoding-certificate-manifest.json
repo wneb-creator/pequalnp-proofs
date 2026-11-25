@@ -1,0 +1,88 @@
+{
+  "created_utc": "2026-11-25T16:59:16.557440+00:00",
+  "gap": "L-meta-1884",
+  "reviewer": "status_review",
+  "status": "PASS compiled partials and heuristic audit only; no full proof/refutation",
+  "file_count": 13,
+  "total_bytes": 164332,
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/MonoEncoding.lean",
+      "relative_path": "sat_encoding/MonoEncoding.lean",
+      "bytes": 71089,
+      "sha256": "4e4333e237ab7f7ebaf5a858f2d9cb95ef15b8fef2b674c77489e9428f1cf1d9"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-encoding-02.stdout",
+      "relative_path": "sat_encoding/mono-encoding-02.stdout",
+      "bytes": 83164,
+      "sha256": "9a6e900e80ea5e48552326a97800ef769904016edc58bb5bb4bf9235d088dbd8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-encoding-02.stderr",
+      "relative_path": "sat_encoding/mono-encoding-02.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MonoEncoding.guard.stdout",
+      "relative_path": "status_review/MonoEncoding.guard.stdout",
+      "bytes": 279,
+      "sha256": "4ad7a7a70166b0577280ebb60a6ffd8ee669693bf30758d5347cc8fa2a22d7fd"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MonoEncoding.guard.stderr",
+      "relative_path": "status_review/MonoEncoding.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/reduction_strategy/ProfileCertificateAnalytic.lean",
+      "relative_path": "reduction_strategy/ProfileCertificateAnalytic.lean",
+      "bytes": 5444,
+      "sha256": "27372eb5a020bdc4c088b24599fda1ebc46221bb9e9b10e2d264f389d3c34a19"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/reduction_strategy/ProfileCertificateAnalytic.stdout",
+      "relative_path": "reduction_strategy/ProfileCertificateAnalytic.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/reduction_strategy/ProfileCertificateAnalytic.stderr",
+      "relative_path": "reduction_strategy/ProfileCertificateAnalytic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/ProfileCertificateAnalytic.guard.stdout",
+      "relative_path": "status_review/ProfileCertificateAnalytic.guard.stdout",
+      "bytes": 279,
+      "sha256": "4ad7a7a70166b0577280ebb60a6ffd8ee669693bf30758d5347cc8fa2a22d7fd"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/ProfileCertificateAnalytic.guard.stderr",
+      "relative_path": "status_review/ProfileCertificateAnalytic.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/encoding-certificate-audit.json",
+      "relative_path": "status_review/encoding-certificate-audit.json",
+      "bytes": 1439,
+      "sha256": "2db764a941790cac18650fc24e13eca4f6d3fa1d0f56a94a6bd5dbb1eb59ffef"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/encoding-certificate-review.md",
+      "relative_path": "status_review/encoding-certificate-review.md",
+      "bytes": 2018,
+      "sha256": "7248a8b924885036c08e62a4ef132d2b5dbea51794d077845ad386da138cd803"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/heuristic-final-audit.json",
+      "relative_path": "status_review/heuristic-final-audit.json",
+      "bytes": 620,
+      "sha256": "9663bc1f129f5b6b614cab7d7a7569e56ba00d6275b1cfae4fd8a51de15bfa8d"
+    }
+  ]
+}

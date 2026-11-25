@@ -1,0 +1,28 @@
+{
+  "run1-final-manifest.json": {
+    "sha256": "d916cfe3d9eb6c6e480fe69494687168b4e0638d7e14a76599d1d47165826150",
+    "files": 30,
+    "bytes": 44215
+  },
+  "intermediate-snapshots-manifest.json": {
+    "sha256": "1bba596f34e413a905fa3a5925c0733892072c2049eca10fd4ab47f44bb6354a",
+    "files": 8,
+    "bytes": 3087
+  },
+  "last_records": [
+    "28 1 16 27",
+    "DONE no_counterexample seconds=900.015 iterations=1252458496"
+  ],
+  "independent_final_truth": {
+    "rows": 1024,
+    "gates": 18,
+    "bad_rows": [
+      50,
+      104,
+      138,
+      208
+    ],
+    "wrong_rows": 4,
+    "counterexample": false
+  }
+}

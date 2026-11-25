@@ -1,0 +1,46 @@
+{
+  "frozen_utc": "2026-11-25T16:54:32.699954+00:00",
+  "scope": "Two immutable near-miss circuits. Neither computes target; first10 and second4 incorrectrows. Snapshot02 independently verified against all1024.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-snapshot-01.json",
+      "size": 895,
+      "sha256": "a82ba36e03bf5f96b073d36b4d2cec4add62406785bbc6e45108dff445e25409"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/run1-snapshot-02.json",
+      "size": 897,
+      "sha256": "3d746403b8793a038231fc1801c2baeda7043015ddf634a5c66e17b22dd51630"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/early-best-validation.json",
+      "size": 569,
+      "sha256": "79f739b096745f5e158241ae71d867e9d8c0619145e885689b551c3c78b58160"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/early-best-validation.stdout",
+      "size": 104,
+      "sha256": "61e5040da5615e6889c27697b6daad6298b4f1cbdef86270f2328695d24fc558"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/early-best-validation.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/snapshot02-validation.json",
+      "size": 512,
+      "sha256": "c1a886e37f9ddbb94b93e7fb6804cffd58935b3d0801944f874f50d14c18d1d7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/snapshot02-validation.stdout",
+      "size": 110,
+      "sha256": "199fb57173ad3cc5919250b2b1878a87491ac5807b37443cbe875f5d832d544f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/snapshot02-validation.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
