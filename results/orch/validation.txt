@@ -16,3 +16,4 @@ BranchBudget.lean: tight fanout budget gives exact read counts; compiled exit0, 
 NotComparableExtended.lean and GraphSeparator.lean: checked semantic refinements for an essential NOT operand; direct Lean exit0 with empty full logs. Neither proves the posted circuit-size bound.
 BranchCovered.lean: Lean exit0, establishes fresh first-input coverage for every branch in a Least Petersen circuit with at most15 binary gates. UnaryBranch.lean: Lean exit0, proves the generic unary-successor path obstruction. Full logs archived.
 Latest checkpoint measurement: TIMING total=21.27 subagents=6
+LeastBudget.lean: direct Lean exit0, empty complete log; normalization and Least selection preserve the original total gate bound, and a4NOT/19gate witness yields exactly15 binary gates. Scratch test imports the partial module; final integration must inline the body with no outside-module import.
