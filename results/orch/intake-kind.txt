@@ -1,0 +1,3 @@
+Public gap row has no kind, so intake defaults to check. Actual guard verdict:
+REFUSED: the run's kind is refute, and the desk posts gap L-meta-14985 as kind check
+The local checker accepted the exact negation in refute mode. This is not upstream acceptance.

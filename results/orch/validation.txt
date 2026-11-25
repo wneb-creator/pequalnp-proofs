@@ -1,6 +1,12 @@
-INCOMPLETE checkpoint: explicit 11-gate monotone witness, no final theorem yet.
-Build: lake build PEqualNP.Outside.L_meta_14985 passed.
-Checker: not applicable until final theorem exists.
-Independent review: witness, format and all 256 inputs passed.
-Sub-agents: status/toolchain, circuit search, lower-bound bridge, proof routes, certificate verification, red-team review
-TIMING total=6.06 subagents=6
+Gap: L-meta-14985
+Result: refutation of the exact posted statement.
+File: lean/PEqualNP/Outside/L_meta_14985.lean
+SHA256: bced9a33651d44e36b0db261c79d95238f212a96ec4a66ddd5f8a3b05e3afbbf
+Build: passed before and after cleanup.
+Checker: ACCEPTED (refute): PEqualNP.Outside.L_meta_14985; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 2427 constants of [PEqualNP.Defs.Base, PEqualNP.Defs.Classes, PEqualNP.Defs.CircuitLowerBounds, PEqualNP.Defs.MetaComplexity, PEqualNP.Defs.MetaComplexityLocal, PEqualNP.Defs.MetaComplexitySparse, PEqualNP.Defs.MetaComplexityMinimal, PEqualNP.Defs.MetaComplexityLgp, PEqualNP.Defs.MetaComplexityLgpMono, PEqualNP.Defs.BinaryCircuit, PEqualNP.Defs.MetaComplexityCoverCircuit, PEqualNP.Defs.ProofComplexity, PEqualNP.Defs.ProofComplexityLin, PEqualNP.Defs.ProofComplexityLinK, PEqualNP.Defs.ProofComplexityLift, PEqualNP.Defs.ProofComplexityResK, PEqualNP.Defs.ProofComplexityRestrict, PEqualNP.Defs.ProofComplexityBit, PEqualNP.Defs.ProofComplexityPC, PEqualNP.Defs.ProofComplexityMoment, PEqualNP.Defs.ProofComplexityChain, PEqualNP.Defs.ProofComplexityGeneral, PEqualNP.Defs.Search, PEqualNP.Defs.SearchQ, PEqualNP.Defs.SearchQTree, PEqualNP.Defs.SearchCP, PEqualNP.Defs.SearchRUP, PEqualNP.Defs.SearchQSyn, PEqualNP.Defs.SearchSoS, PEqualNP.Defs.Gct, PEqualNP.Defs.Oracle, PEqualNP.Defs.Algebraic, PEqualNP.Defs.Expanders, PEqualNP.Defs.RiffleRank, PEqualNP.Defs.TimeAlt, PEqualNP.Defs.CoverPromise, PEqualNP.Defs.SingleLevel, PEqualNP.Defs.DeMorganFormula, PEqualNP.Defs.MetaComplexityTypedRank, PEqualNP.Defs.Pebble, PEqualNP.Defs.Subdivision, PEqualNP.Defs.AndCountCircuit, PEqualNP.Defs.PebbleThreeWay, PEqualNP.Defs.CoLevel, PEqualNP.Defs.Peelable, PEqualNP.Defs.NestedCoverCircuit, PEqualNP.Defs.LiteralPartition, PEqualNP.Defs.MinimumComplex, PEqualNP.Defs.PendantBit, PEqualNP.Defs.BorrowedCoverCircuit, PEqualNP.Defs.LineDegree, PEqualNP.Defs.CircuitMoves, PEqualNP.Defs.LowMerge, PEqualNP.Defs.NewLowMerge, PEqualNP.Defs.AffinePlane, PEqualNP.Defs.EdgeOwnership, PEqualNP.Defs.PencilGate, PEqualNP.Defs.BlindGate, PEqualNP.Defs.BicliqueBlockCost, PEqualNP.Defs.SharingOrder, PEqualNP.Defs.NotPremium, PEqualNP.Defs.NotBracket, PEqualNP.Defs.PairShadow, PEqualNP.Defs.SplitCount, PEqualNP.Defs.InvisibleWire, PEqualNP.Defs.SharedOr, PEqualNP.Defs.CleanedNonEdge, PEqualNP.Defs.MergeCost, PEqualNP.Defs.CarriedProduct, PEqualNP.Defs.TopForm, PEqualNP.Defs.SyntacticMultilinear, PEqualNP.Defs.TopFormNames, PEqualNP.Defs.HeptadCover, PEqualNP.Defs.ReadK, PEqualNP.Defs.GenericRejection, PEqualNP.Defs.CrossAnd, PEqualNP.Defs.ReadKJoin, PEqualNP.Defs.SharedBlockCost, PEqualNP.Defs.ReadTwo, PEqualNP.Defs.LratEncoding, PEqualNP.Defs.Core, PEqualNP.Defs.PointTypes, PEqualNP.Defs.FactorSubst, PEqualNP.Defs.TwoColour, PEqualNP.Defs.Represents, PEqualNP.Defs, PEqualNP.Outside.L_meta_14985]
+Independent red-team review: PASS; repository format guards PASS.
+Cleanup lines before=3080 after=2967; duration=4.60 minutes.
+Desk null responses: 0; no null-message text.
+Public intake: expects check, refuses refute mode.
+Sub-agents: six — status/toolchain, circuit search, lower-bound bridge, proof routes, certificate verification, red-team review
+TIMING total=16.41 subagents=6

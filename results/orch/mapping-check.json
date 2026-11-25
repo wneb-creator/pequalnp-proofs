@@ -1,0 +1,26 @@
+{
+  "time": "2026-11-25T18:37:10.596495+00:00",
+  "rows_checked": 512,
+  "mapping": [
+    0,
+    2,
+    1,
+    null,
+    5,
+    6,
+    3,
+    4
+  ],
+  "target512": "0xfffffffffffffffafffffffffffefffafffffffefffffffaeeeeeeeeeeee0000fffffffffffffffafffffffffffefffafffffffefffffffaeeeeeeeeeeee0000",
+  "old512": "0xfffffffafffffefafffefffaeeeeee00fffffffafffffefafffefffaeeeeee00fffffffafffffefafffefffaeeeeee00fffffffafffffefafffefffaeeeeee00",
+  "essential_var": 3,
+  "essential_rows": [
+    64,
+    72
+  ],
+  "target_values": [
+    false,
+    true
+  ],
+  "lifted_input3_always_zero": true
+}
