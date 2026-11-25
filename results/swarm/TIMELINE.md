@@ -72,7 +72,7 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:47:18 UTC: Pushed reviewed mixed-shell/pruning checkpoint 6d810eb9eab001b710b58a352bf7d93ba5ca51a8; remote SHA verified; bus 3981 marked PARTIAL.
 - 2026-11-25 22:55:20 UTC: Arbitrary-position insert/prune projection, pure/singleton-clean wrapper and SIZE/WIRE/JUNK selector passed independent source/axiom reviews and combined named build. Existing four part wires and private OR outputs remain substantive hypotheses. No final theorem.
 
-TIMING total=158.3 subagents=10
+TIMING total=174.7 subagents=10
 
 - 2026-11-25 22:58:30 UTC: Published reviewed arbitrary-position projection checkpoint 9be14cc8047c933ef5b791137733a77b871f7760 to the authorized orchestrator branch; remote SHA verified; bus 4207 marked PARTIAL.
 - 2026-11-25 23:03:54 UTC: Sixth full-route re-plan posted (bus 4333), concentrating last-dirty privacy, two-monochrome normalization, raw-product availability and complete counterexample searches.
@@ -85,3 +85,8 @@ TIMING total=158.3 subagents=10
 - 2026-11-25 23:28 UTC: Independent helper audits retired the balanced point-rail reencoding family: each line plus all 56 nonneighbor points saturates every 32/64-point rail and remains a false positive. This refutes that encoding family only.
 - 2026-11-25 23:39:38 UTC: Generic OR-rail obstruction, exact neighborhood-union theorem and C4-free matching/interface bounds passed independent source/axiom reviews and combined named build. Arbitrary downstream logic is allowed for OR rails; general preprocessing requires explicit monotonicity. No total AO2 gate bound or final theorem.
 - 2026-11-25 23:40 UTC: Eighth/final-window re-plan posted (bus 4993); existing full searches continue to stated deadlines. Official checker rerun on the integrated rail/matching source again returned REJECTED (no-theorem), not a proof/refutation.
+- 2026-11-25 23:42 UTC: Pushed rail/interface checkpoint 5c8d8a8edc9ffaaea88f8dc0169153e29583fae9; remote SHA verified; bus 5040 marked PARTIAL.
+- 2026-11-25 23:43 UTC: Root independently rebuilt the full helper8 reader-degree source9503aa42 and seven endpoint axioms; only standard axioms. Raw-leaf hypothesis remained explicit.
+- 2026-11-25 23:50 UTC: Independently reconstructed and kernel-checked the actual helper4/helper8 conditional uniform-peeling composition, including the fixed vertex/competitor before the universal circuit quantifier.
+- 2026-11-25 23:54:49 UTC: Integrated the stronger semantic-singleton reader branch under ReaderPeelSupport. Exact append independently reviewed; named build passed5149jobs. File10786lines494026bytes. The existence of a qualifying circuit configuration remains unproved; no full target theorem.
+- 2026-11-25 23:55 UTC: Official checker completed on the semantic integration: durable exit1, REJECTED (no-theorem), after normal verifier/file/Defs builds. Independent review confirmed the precise conditional scope and record wording.
