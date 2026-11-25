@@ -53,3 +53,16 @@ Desk nullcount0. Publicfeed15:07:48UTC stilllistedboth2583and2592 asopen; loss r
 Unvalidated archival draft semantics_double_star_2583.lean failedcompilation; NOT a checkedresult. Compiledone-dirtysemantichelper isonlysupportclassification, notcostnormalization.
 Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
 TIMING total=43 subagents=6
+
+Final desk recovery: request at15:11:53UTC and permitted retry at15:12:45UTC both returned L-meta-2590 with the SAME lease, issued15:07:28UTC before either request, holding=5.
+Exact message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+STOPPED under the user's already-held-lease rule. No work, explicit renewal, or release was performed on L-meta-2590. No further desk requests will be made.
+The initial2592 and2583 desk responses also had earlier issued_at timestamps and the holding-limit note; they were interpreted as assignments at the time. Their ownership is not independently established. Both later returned410, and neither was released by this pilot.
+Desk null count: 0. All full desk responses and both410 diagnostics are archived.
+Final result: compiled PARTIAL ONLY for L-meta-2583; no full proof or refutation; no PR opened. L-meta-2592 partial remains uncompiled.
+Named2583 build: PASS exit0,6657jobs. Local checker: FAULT exit3, missing full prebuilt Mathlib cache; it did not judge the proof.
+Cleanup: not performed; final named2583 file3390lines before/after. Independent archive reviews do not certify the posted statement.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=47.9 subagents=6
+Timing measured at final archive snapshot 2026-11-25T15:14:53.438935+00:00.
+Kit acknowledgment: msg-a0b9e1f632c5efde1733e611.

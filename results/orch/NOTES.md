@@ -17,3 +17,7 @@ Strategies: root coordinates and validates; checker_audit checks intake; theory 
 ## Active step switched to L-meta-2583 at2026-11-25T14:43:06Z
 
 L-meta-2592 lease was lost and all work archived in610af6d. Only work on L-meta-2583 now. Exact statement /tmp/oec/pequalnp-pilot-128/statement-2583.txt, desk desk-after-410.json. New own lease expires15:03:06Z; root alone renews it. Reductions are CLOSED for this step.
+
+## Final stop
+
+The recovery request and single permitted retry returned the same pre-existing L-meta-2590 lease with holding=5. Exact desk message: you hold 5 gaps, the most one handle may hold at once; release one to get another. The user explicitly requires stopping in this case. No work, explicit renewal, or release was performed on that lease. The two earlier returned leases had also been issued before our requests, so their ownership was not independently established. All partial work and diagnostics are preserved; no complete theorem or refutation has been proved, and no PR was opened.

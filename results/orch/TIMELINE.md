@@ -11,3 +11,6 @@
 2026-11-25T14:59:07.917228+00:00 — integrated3390line partial builds; PG3 axioms and boundary helpers compile; independentreviewPASS; preserving.
 2026-11-25T15:05:34.998651+00:00 — conditional PG3refutationbridge compiles; noactualcounterexample. Replan: prioritize5–7pointcores overfullplaneSAT.
 2026-11-25T15:09:36.976589+00:00 — secondHTTP410; stopped2583 work, preservingallpartialresults andfailed-gadgetdraft beforedesk recovery.
+2026-11-25T15:11:53Z — recovery returned pre-existing L-meta-2590 lease and holding-limit note; did not work or renew it.
+2026-11-25T15:12:45Z — permitted retry returned the same lease and note; stopped under user already-held rule. No release issued.
+2026-11-25T15:14:53.438935+00:00 — final records archived; no complete proof, refutation, or PR.
