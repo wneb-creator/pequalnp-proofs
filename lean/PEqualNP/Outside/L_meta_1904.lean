@@ -645,4 +645,873 @@ lemma singleton_of_unique_used_clause {n : ℕ} {I : Type} [DecidableEq I]
 
 end UniqueClause
 
+
+namespace PairCounting
+
+/-- A cover by sets of size at most two has at least as many sets as vertices
+  when every uniquely covered vertex belongs to a singleton set. -/
+lemma card_le_card_of_unique_membership_singleton
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (V : Finset α) (U : Finset β) (B : β → Finset α)
+    (hsub : ∀ i ∈ U, B i ⊆ V)
+    (hcard : ∀ i ∈ U, (B i).card ≤ 2)
+    (hcover : ∀ v ∈ V, ∃ i ∈ U, v ∈ B i)
+    (hunique : ∀ v ∈ V, ∀ i ∈ U, v ∈ B i →
+      (∀ j ∈ U, v ∈ B j → j = i) → B i = {v}) :
+    V.card ≤ U.card := by
+  classical
+  let w : β → ℕ := fun i => if (B i).card = 1 then 2 else 1
+  let f : β → α → ℕ := fun i v => if v ∈ B i then w i else 0
+  have hw (i : β) : 1 ≤ w i := by
+    dsimp [w]
+    split_ifs <;> omega
+  have clause_bound (i : β) (hi : i ∈ U) : (∑ v ∈ V, f i v) ≤ 2 := by
+    have hfilter : V.filter (fun v => v ∈ B i) = B i := by
+      ext v
+      simp only [Finset.mem_filter]
+      exact ⟨And.right, fun hv => ⟨hsub i hi hv, hv⟩⟩
+    change (∑ v ∈ V, if v ∈ B i then w i else 0) ≤ 2
+    rw [← Finset.sum_filter, hfilter]
+    simp only [Finset.sum_const, Nat.nsmul_eq_mul]
+    dsimp [w]
+    split_ifs with h
+    · omega
+    · simpa using hcard i hi
+  have vertex_bound (v : α) (hv : v ∈ V) : 2 ≤ ∑ i ∈ U, f i v := by
+    obtain ⟨i, hi, hvi⟩ := hcover v hv
+    by_cases hall : ∀ j ∈ U, v ∈ B j → j = i
+    · have hBi : B i = {v} := hunique v hv i hi hvi hall
+      have hwi : w i = 2 := by simp [w, hBi]
+      have hs := Finset.single_le_sum (f := fun j => f j v)
+        (fun j hj => Nat.zero_le _) hi
+      simpa only [f, ite_eq_left hvi, hwi] using hs
+    · push Not at hall
+      obtain ⟨j, hj, hvj, hji⟩ := hall
+      have hpair : ({i, j} : Finset β) ⊆ U := by
+        intro k hk
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hk
+        rcases hk with rfl | rfl
+        · exact hi
+        · exact hj
+      have hs := Finset.sum_le_sum_of_subset_of_nonneg (f := fun k => f k v)
+        hpair (fun k hk hnot => Nat.zero_le _)
+      have hs' : w i + w j ≤ ∑ k ∈ U, f k v := by
+        simpa only [Finset.sum_pair hji.symm, f, ite_eq_left hvi, ite_eq_left hvj] using hs
+      have hiw := hw i
+      have hjw := hw j
+      omega
+  have hl : 2 * V.card ≤ ∑ v ∈ V, ∑ i ∈ U, f i v := by
+    calc
+      2 * V.card = ∑ v ∈ V, 2 := by simp [Nat.mul_comm]
+      _ ≤ ∑ v ∈ V, ∑ i ∈ U, f i v := Finset.sum_le_sum vertex_bound
+  have hu : (∑ i ∈ U, ∑ v ∈ V, f i v) ≤ 2 * U.card := by
+    calc
+      (∑ i ∈ U, ∑ v ∈ V, f i v) ≤ ∑ i ∈ U, 2 := Finset.sum_le_sum clause_bound
+      _ = 2 * U.card := by simp [Nat.mul_comm]
+  have hc : (∑ v ∈ V, ∑ i ∈ U, f i v) = ∑ i ∈ U, ∑ v ∈ V, f i v :=
+    Finset.sum_comm
+  omega
+
+end PairCounting
+
+namespace ReplacementSupport
+
+def hit {n : ℕ} (G : SimpleGraph (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true
+
+def clause {n : ℕ} (S : Finset (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ a ∈ S, x a = true
+
+lemma replacement_support_has_edge {n : ℕ} {I : Type}
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (v : Fin n) (R : Finset (Fin n))
+    (hne : ∃ w, G.Adj v w)
+    (hreplace : ∀ i ∈ U, v ∈ B i → ∃ a ∈ B i, a ∈ R)
+    (hremote : ∀ a ∈ R, ∀ w, ¬(G.Adj v w ∧ G.Adj a w))
+    (hmono : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, clause (B i) x → clause (B i) y) → hit G x → hit G y) :
+    ∃ a ∈ R, ∃ b ∈ R, G.Adj a b := by
+  classical
+  obtain ⟨w, hvw⟩ := hne
+  let x : Fin n → Bool := fun a => decide (a = v ∨ a = w)
+  let y : Fin n → Bool := fun a => decide (a ∈ R ∨ a = w)
+  have hxy : ∀ i ∈ U, clause (B i) x → clause (B i) y := by
+    intro i hi hiX
+    obtain ⟨a, ha, hax⟩ := hiX
+    have ea : a = v ∨ a = w := of_decide_eq_true hax
+    rcases ea with ea | ea
+    · obtain ⟨b, hb, hbR⟩ := hreplace i hi (ea ▸ ha)
+      exact ⟨b, hb, by simp [y, hbR]⟩
+    · exact ⟨w, ea ▸ ha, by simp [y]⟩
+  have good : hit G x := ⟨v, w, hvw, by simp [x], by simp [x]⟩
+  obtain ⟨a, b, hab, hay, hby⟩ := hmono x y hxy good
+  have ea : a ∈ R ∨ a = w := of_decide_eq_true hay
+  have eb : b ∈ R ∨ b = w := of_decide_eq_true hby
+  rcases ea with ha | ha <;> rcases eb with hb | hb
+  · exact ⟨a, ha, b, hb, hab⟩
+  · exact (hremote a ha w ⟨hvw, hb ▸ hab⟩).elim
+  · have hbw : G.Adj b w := by simpa only [ha] using hab.symm
+    exact (hremote b hb w ⟨hvw, hbw⟩).elim
+  · have hww : G.Adj w w := by simpa only [ha, hb] using hab
+    exact (G.irrefl hww).elim
+
+lemma pair_partners_adjacent {n : ℕ} {I : Type}
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (v a b : Fin n)
+    (hne : ∃ w, G.Adj v w)
+    (hreplace : ∀ i ∈ U, v ∈ B i → a ∈ B i ∨ b ∈ B i)
+    (ha : ∀ w, ¬(G.Adj v w ∧ G.Adj a w))
+    (hb : ∀ w, ¬(G.Adj v w ∧ G.Adj b w))
+    (hmono : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, clause (B i) x → clause (B i) y) → hit G x → hit G y) :
+    G.Adj a b := by
+  classical
+  obtain ⟨c, hc, d, hd, hcd⟩ := replacement_support_has_edge G B U v {a, b} hne
+    (by
+      intro i hi hv
+      rcases hreplace i hi hv with hai | hbi
+      · exact ⟨a, hai, by simp⟩
+      · exact ⟨b, hbi, by simp⟩)
+    (by
+      intro c hc w
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hc
+      rcases hc with rfl | rfl
+      · exact ha w
+      · exact hb w) hmono
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hc hd
+  rcases hc with rfl | rfl <;> rcases hd with rfl | rfl
+  · exact (G.irrefl hcd).elim
+  · exact hcd
+  · exact hcd.symm
+  · exact (G.irrefl hcd).elim
+
+end ReplacementSupport
+
+namespace PairSources
+
+lemma card_le_used_pair_sources {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (hcard : ∀ i ∈ U, (B i).card ≤ 2)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hmono : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, UniqueClause.clause (B i) x → UniqueClause.clause (B i) y) →
+      UniqueClause.hit G x → UniqueClause.hit G y) :
+    n ≤ U.card := by
+  classical
+  have hcover (v : Fin n) : ∃ i ∈ U, v ∈ B i := by
+    by_contra hv
+    have hreplace : ∀ i ∈ U, v ∈ B i → ∃ a ∈ B i, a ∈ (∅ : Finset (Fin n)) := by
+      intro i hi hvi
+      exact (hv ⟨i, hi, hvi⟩).elim
+    obtain ⟨a, ha, b, hb, hab⟩ := ReplacementSupport.replacement_support_has_edge
+      G B U v ∅ (hne v) hreplace (by simp) hmono
+    simpa using ha
+  have hc := PairCounting.card_le_card_of_unique_membership_singleton
+    (Finset.univ : Finset (Fin n)) U B
+    (by intros; exact Finset.subset_univ _) hcard
+    (by intro v hv; exact hcover v)
+    (by
+      intro v hv i hi hvi huniq
+      exact UniqueClause.singleton_of_unique_used_clause G B U i v hvi (hne v)
+        huniq (hpacking i hi) hmono)
+  simpa using hc
+
+end PairSources
+
+namespace SoleOrDominating
+
+lemma degree_le_card_of_dominating_neighbors
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (I : Finset V) (htI : t ∉ I)
+    (hdom : ∀ r : V, G.Adj t r → ∃ v ∈ I, G.Adj r v) :
+    G.degree t ≤ I.card := by
+  classical
+  let f : V → V := fun r =>
+    if h : G.Adj t r then (hdom r h).choose else t
+  have hf (r : V) (hr : G.Adj t r) : f r ∈ I ∧ G.Adj r (f r) := by
+    simpa [f, hr] using (hdom r hr).choose_spec
+  change (G.neighborFinset t).card ≤ I.card
+  apply Finset.card_le_card_of_injOn f
+  · intro r hr
+    exact (hf r ((G.mem_neighborFinset t r).mp hr)).1
+  · intro r hr s hs hsame
+    have htr : G.Adj t r := (G.mem_neighborFinset t r).mp hr
+    have hts : G.Adj t s := (G.mem_neighborFinset t s).mp hs
+    have hfrs : G.Adj (f r) s := by
+      rw [hsame]
+      exact (hf s hts).2.symm
+    rcases hfour t r (f r) s htr (hf r htr).2 hfrs hts.symm with h | h
+    · exact (htI (h.symm ▸ (hf r htr).1)).elim
+    · exact h
+
+lemma exists_neighbor_avoiding_of_card_lt_degree
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (I : Finset V) (htI : t ∉ I)
+    (hcard : I.card < G.degree t) :
+    ∃ r : V, G.Adj t r ∧ ∀ v ∈ I, ¬ G.Adj r v := by
+  classical
+  by_contra hnone
+  have hdom : ∀ r : V, G.Adj t r → ∃ v ∈ I, G.Adj r v := by
+    intro r hr
+    by_contra hmiss
+    apply hnone
+    refine ⟨r, hr, ?_⟩
+    intro v hv hrv
+    exact hmiss ⟨v, hv, hrv⟩
+  exact (Nat.not_le_of_lt hcard)
+    (degree_le_card_of_dominating_neighbors G hfour t I htI hdom)
+
+lemma exists_neighbor_avoiding_small_set
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (I : Finset V) (htI : t ∉ I)
+    (hdegree : 2 < G.degree t) (hcard : I.card ≤ 2) :
+    ∃ r : V, G.Adj t r ∧ ∀ v ∈ I, ¬ G.Adj r v := by
+  exact exists_neighbor_avoiding_of_card_lt_degree G hfour t I htI
+    (lt_of_le_of_lt hcard hdegree)
+
+end SoleOrDominating
+
+namespace SoleOrToggle
+
+def edgePresent {V : Type*} (G : SimpleGraph V) (S : Finset V) : Prop :=
+  ∃ u ∈ S, ∃ v ∈ S, G.Adj u v
+
+lemma independent_not_edgePresent {V : Type*} {G : SimpleGraph V} {S : Finset V}
+    (hS : G.IsIndepSet (S : Set V)) : ¬ edgePresent G S := by
+  rintro ⟨u, hu, v, hv, huv⟩
+  exact hS hu hv (G.ne_of_adj huv) huv
+
+lemma toggle_true_independent_avoids {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (t : V) (q : Finset V → Prop)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    {I : Finset V} (hI : G.IsIndepSet (I : Set V)) (hqI : q I) :
+    ∀ r, G.Adj t r → r ∉ I := by
+  intro r htr hr
+  apply independent_not_edgePresent hI
+  apply hstable I hqI
+  exact ⟨t, Finset.mem_insert_self _ _, r, Finset.mem_insert_of_mem hr, htr⟩
+
+lemma toggle_true_independent_dominates {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (t : V) (q : Finset V → Prop)
+    (hq : Monotone q)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    {I : Finset V} (hI : G.IsIndepSet (I : Set V)) (hqI : q I) :
+    ∀ r, G.Adj t r → ∃ v ∈ I, G.Adj r v := by
+  classical
+  intro r htr
+  by_contra hn
+  push Not at hn
+  have hinsert : G.IsIndepSet ((insert r I : Finset V) : Set V) := by
+    intro a ha b hb hab habAdj
+    rcases Finset.mem_insert.mp ha with har | haI
+    · subst a
+      rcases Finset.mem_insert.mp hb with hbr | hbI
+      · subst b
+        exact G.irrefl habAdj
+      · exact hn b hbI habAdj
+    · rcases Finset.mem_insert.mp hb with hbr | hbI
+      · subst b
+        exact hn a haI habAdj.symm
+      · exact hI haI hbI hab habAdj
+  apply independent_not_edgePresent hinsert
+  apply hstable (insert r I) (hq (Finset.subset_insert _ _) hqI)
+  exact ⟨t, Finset.mem_insert_self _ _, r,
+    Finset.mem_insert_of_mem (Finset.mem_insert_self _ _), htr⟩
+
+
+lemma degree_le_card_of_toggle_true_independent
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (q : Finset V → Prop) (hq : Monotone q)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    {I : Finset V} (htI : t ∉ I) (hI : G.IsIndepSet (I : Set V)) (hqI : q I) :
+    G.degree t ≤ I.card := by
+  exact PEqualNP.Outside.L_meta_1904_aux.SoleOrDominating.degree_le_card_of_dominating_neighbors G hfour t I htI
+    (toggle_true_independent_dominates G t q hq hstable hI hqI)
+
+lemma toggle_true_tfree_small_has_edge
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (q : Finset V → Prop) (hq : Monotone q)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    {I : Finset V} (htI : t ∉ I) (hcard : I.card < G.degree t) (hqI : q I) :
+    edgePresent G I := by
+  classical
+  by_contra hn
+  have hI : G.IsIndepSet (I : Set V) := by
+    intro u hu v hv _ huv
+    exact hn ⟨u, hu, v, hv, huv⟩
+  exact (Nat.not_le_of_lt hcard)
+    (degree_le_card_of_toggle_true_independent G hfour t q hq hstable htI hI hqI)
+
+lemma toggle_true_small_has_edge
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (q : Finset V → Prop) (hq : Monotone q)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    (herase : ∀ S, q S → q (S.erase t))
+    {I : Finset V} (hcard : I.card < G.degree t) (hqI : q I) :
+    edgePresent G I := by
+  have hsmall : (I.erase t).card < G.degree t :=
+    lt_of_le_of_lt (Finset.card_le_card (Finset.erase_subset _ _)) hcard
+  obtain ⟨u, hu, v, hv, huv⟩ := toggle_true_tfree_small_has_edge
+    G hfour t q hq hstable (Finset.notMem_erase _ _) hsmall (herase I hqI)
+  exact ⟨u, Finset.mem_of_mem_erase hu, v, Finset.mem_of_mem_erase hv, huv⟩
+
+lemma toggle_true_pair_has_edge
+    {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (t : V) (q : Finset V → Prop) (hq : Monotone q)
+    (hstable : ∀ S, q S → edgePresent G (insert t S) → edgePresent G S)
+    (herase : ∀ S, q S → q (S.erase t))
+    (hdegree : 2 < G.degree t)
+    {I : Finset V} (hcard : I.card ≤ 2) (hqI : q I) :
+    edgePresent G I := by
+  exact toggle_true_small_has_edge G hfour t q hq hstable herase
+    (lt_of_le_of_lt hcard hdegree) hqI
+
+end SoleOrToggle
+
+namespace SignalAgreement
+
+def hit {n : ℕ} (G : SimpleGraph (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true
+
+def clause {n : ℕ} (S : Finset (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ a ∈ S, x a = true
+
+lemma replacement_support_has_edge {n : ℕ} {I : Type}
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (v : Fin n) (R : Finset (Fin n))
+    (hne : ∃ w, G.Adj v w)
+    (hreplace : ∀ i ∈ U, v ∈ B i → ∃ a ∈ B i, a ∈ R)
+    (hremote : ∀ a ∈ R, ∀ w, ¬(G.Adj v w ∧ G.Adj a w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, clause (B i) x ↔ clause (B i) y) → hit G x → hit G y) :
+    ∃ a ∈ R, ∃ b ∈ R, G.Adj a b := by
+  classical
+  obtain ⟨w, hvw⟩ := hne
+  let x : Fin n → Bool := fun a => decide (a ∈ R ∨ a = w ∨ a = v)
+  let y : Fin n → Bool := fun a => decide (a ∈ R ∨ a = w)
+  have hxy : ∀ i ∈ U, clause (B i) x ↔ clause (B i) y := by
+    intro i hi
+    constructor
+    · rintro ⟨a, ha, hax⟩
+      have ea : a ∈ R ∨ a = w ∨ a = v := of_decide_eq_true hax
+      rcases ea with haR | haw | ea
+      · exact ⟨a,ha,by simp [y,haR]⟩
+      · exact ⟨a,ha,by simp [y,haw]⟩
+      · obtain ⟨b,hb,hbR⟩ := hreplace i hi (ea ▸ ha)
+        exact ⟨b,hb,by simp [y,hbR]⟩
+    · rintro ⟨a,ha,hay⟩
+      have ea : a ∈ R ∨ a = w := of_decide_eq_true hay
+      rcases ea with haR | haw
+      · exact ⟨a,ha,by simp [x,haR]⟩
+      · exact ⟨a,ha,by simp [x,haw]⟩
+  have good : hit G x := ⟨v,w,hvw,by simp [x],by simp [x]⟩
+  obtain ⟨a,b,hab,hay,hby⟩ := hagree x y hxy good
+  have ea : a ∈ R ∨ a = w := of_decide_eq_true hay
+  have eb : b ∈ R ∨ b = w := of_decide_eq_true hby
+  rcases ea with ha | ha <;> rcases eb with hb | hb
+  · exact ⟨a,ha,b,hb,hab⟩
+  · exact (hremote a ha w ⟨hvw,hb ▸ hab⟩).elim
+  · have hbw : G.Adj b w := by simpa only [ha] using hab.symm
+    exact (hremote b hb w ⟨hvw,hbw⟩).elim
+  · have hww : G.Adj w w := by simpa only [ha,hb] using hab
+    exact (G.irrefl hww).elim
+
+end SignalAgreement
+
+namespace PackingTransversal
+
+/-- A greedy independent transversal, allowing one vertex to hit several sets.
+  Each previously chosen vertex forbids at most one element of the next set. -/
+lemma independent_hitting_set
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) [DecidableRel G.Adj]
+    (U : Finset β) (A : β → Finset α)
+    (hlocal : ∀ i ∈ U, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1)
+    (hlarge : ∀ J ⊆ U, J.Nonempty → ∃ i ∈ J, J.card ≤ (A i).card) :
+    ∃ R : Finset α, R.card ≤ U.card ∧ R ⊆ U.biUnion A ∧
+      (∀ a ∈ R, ∀ b ∈ R, ¬ G.Adj a b) ∧
+      (∀ i ∈ U, ∃ a ∈ R, a ∈ A i) := by
+  classical
+  induction U using Finset.strongInductionOn with
+  | _ U ih =>
+    by_cases hU : U.Nonempty
+    · obtain ⟨i, hi, hsize⟩ := hlarge U Finset.Subset.rfl hU
+      have hproper : U.erase i ⊂ U := Finset.erase_ssubset hi
+      obtain ⟨R, hRcard, hRsub, hRind, hRhit⟩ := ih (U.erase i) hproper
+        (fun j hj w => hlocal j (Finset.mem_of_mem_erase hj) w)
+        (fun J hJ hne => hlarge J (hJ.trans (Finset.erase_subset i U)) hne)
+      let bad : Finset α := R.biUnion (fun r => (A i).filter (G.Adj r))
+      have hbad : bad.card ≤ R.card := by
+        calc
+          bad.card ≤ ∑ r ∈ R, ((A i).filter (G.Adj r)).card := Finset.card_biUnion_le
+          _ ≤ ∑ r ∈ R, 1 := Finset.sum_le_sum (fun r hr => hlocal i hi r)
+          _ = R.card := by simp
+      have herase : (U.erase i).card + 1 = U.card := Finset.card_erase_add_one hi
+      have hlt : bad.card < (A i).card := by omega
+      obtain ⟨a, ha, hnot⟩ := Finset.exists_mem_notMem_of_card_lt_card hlt
+      have hfree : ∀ r ∈ R, ¬ G.Adj r a := by
+        intro r hr hadj
+        exact hnot (Finset.mem_biUnion.mpr ⟨r, hr, Finset.mem_filter.mpr ⟨ha, hadj⟩⟩)
+      refine ⟨insert a R, ?_, ?_, ?_, ?_⟩
+      · have h := Finset.card_insert_le a R
+        omega
+      · intro r hr
+        rcases Finset.mem_insert.mp hr with rfl | hr
+        · exact Finset.mem_biUnion.mpr ⟨i, hi, ha⟩
+        · obtain ⟨j, hj, hrj⟩ := Finset.mem_biUnion.mp (hRsub hr)
+          exact Finset.mem_biUnion.mpr ⟨j, Finset.mem_of_mem_erase hj, hrj⟩
+      · intro r hr s hs hadj
+        rcases Finset.mem_insert.mp hr with hra | hrR
+        · subst r
+          rcases Finset.mem_insert.mp hs with hsa | hsR
+          · subst s
+            exact G.irrefl hadj
+          · exact hfree s hsR hadj.symm
+        · rcases Finset.mem_insert.mp hs with hsa | hsR
+          · subst s
+            exact hfree r hrR hadj
+          · exact hRind r hrR s hsR hadj
+      · intro j hj
+        by_cases hji : j = i
+        · subst j
+          exact ⟨a, Finset.mem_insert_self a R, ha⟩
+        · obtain ⟨r, hr, hrj⟩ := hRhit j (Finset.mem_erase.mpr ⟨hji, hj⟩)
+          exact ⟨r, Finset.mem_insert_of_mem hr, hrj⟩
+    · have hempty : U = ∅ := Finset.not_nonempty_iff_eq_empty.mp hU
+      subst U
+      exact ⟨∅, by simp⟩
+
+end PackingTransversal
+
+namespace WeightedSourceCount
+
+lemma card_le_of_small_incidence_blocks {α ι : Type} [DecidableEq α] [DecidableEq ι]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hsub : ∀ i ∈ U, B i ⊆ V)
+    (hblocks : ∀ v ∈ V, ∃ J : Finset ι, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card) :
+    V.card ≤ U.card := by
+  classical
+  let weight : α → ι → ℚ := fun v i => if v ∈ B i then 1 / (B i).card else 0
+  have nonneg (v : α) (i : ι) : 0 ≤ weight v i := by
+    dsimp only [weight]
+    split_ifs
+    · positivity
+    · exact le_rfl
+  have row (v : α) (hv : v ∈ V) : 1 ≤ ∑ i ∈ U, weight v i := by
+    obtain ⟨J, hJ, hJU, hJi⟩ := hblocks v hv
+    have hposJ : (0 : ℚ) < J.card := by exact_mod_cast hJ.card_pos
+    calc
+      (1 : ℚ) = ∑ i ∈ J, (1 : ℚ) / J.card := by
+        simp only [Finset.sum_const, nsmul_eq_mul]
+        field_simp
+      _ ≤ ∑ i ∈ J, weight v i := by
+        apply Finset.sum_le_sum
+        intro i hi
+        obtain ⟨hvi, hc⟩ := hJi i hi
+        have hpos : (0 : ℚ) < (B i).card := by
+          exact_mod_cast (Finset.card_pos.mpr ⟨v, hvi⟩)
+        dsimp only [weight]
+        rw [ite_eq_left hvi]
+        exact one_div_le_one_div_of_le hpos (by exact_mod_cast hc)
+      _ ≤ ∑ i ∈ U, weight v i :=
+        Finset.sum_le_sum_of_subset_of_nonneg hJU (fun i _ _ => nonneg v i)
+  have column (i : ι) (hi : i ∈ U) : (∑ v ∈ V, weight v i) ≤ 1 := by
+    have reduce : (∑ v ∈ V, weight v i) = ∑ v ∈ B i, weight v i := by
+      symm
+      apply Finset.sum_subset (hsub i hi)
+      intro v _ hv
+      simp [weight, hv]
+    rw [reduce]
+    simp only [weight, Finset.sum_ite_mem, Finset.inter_self, Finset.sum_const,
+      nsmul_eq_mul]
+    by_cases empty : (B i).card = 0
+    · simp [empty]
+    · have nz : ((B i).card : ℚ) ≠ 0 := by exact_mod_cast empty
+      field_simp
+      norm_num
+  have bound : (V.card : ℚ) ≤ U.card := by
+    calc
+      (V.card : ℚ) = ∑ v ∈ V, (1 : ℚ) := by simp
+      _ ≤ ∑ v ∈ V, ∑ i ∈ U, weight v i := Finset.sum_le_sum row
+      _ = ∑ i ∈ U, ∑ v ∈ V, weight v i := Finset.sum_comm
+      _ ≤ ∑ i ∈ U, (1 : ℚ) := Finset.sum_le_sum column
+      _ = U.card := by simp
+  exact_mod_cast bound
+
+end WeightedSourceCount
+
+namespace PackingSources
+
+lemma small_subfamily_of_essential_vertex {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (v : Fin n) (hne : ∃ w, G.Adj v w)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y) :
+    ∃ J : Finset I, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card := by
+  classical
+  let W : Finset I := U.filter (fun i => v ∈ B i)
+  let A : I → Finset (Fin n) := fun i => (B i).erase v
+  by_contra hnone
+  have hlocal : ∀ i ∈ W, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1 := by
+    intro i hi w
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    have hai := (Finset.mem_filter.mp ha).1
+    have hbi := (Finset.mem_filter.mp hb).1
+    by_contra hab
+    exact hpacking i (Finset.mem_filter.mp hi).1 a (Finset.mem_of_mem_erase hai)
+      b (Finset.mem_of_mem_erase hbi) hab w
+      ⟨(Finset.mem_filter.mp ha).2.symm, (Finset.mem_filter.mp hb).2.symm⟩
+  have hlarge : ∀ J ⊆ W, J.Nonempty → ∃ i ∈ J, J.card ≤ (A i).card := by
+    intro J hJW hJ
+    by_contra hsmall
+    push Not at hsmall
+    apply hnone
+    refine ⟨J, hJ, fun i hi => (Finset.mem_filter.mp (hJW hi)).1, ?_⟩
+    intro i hi
+    have hvi := (Finset.mem_filter.mp (hJW hi)).2
+    have hci := hsmall i hi
+    have he := Finset.card_erase_add_one hvi
+    change ((B i).erase v).card < J.card at hci
+    exact ⟨hvi, by omega⟩
+  obtain ⟨R, hRc, hRU, hRI, hhit⟩ :=
+    PackingTransversal.independent_hitting_set G W A hlocal hlarge
+  have hreplace : ∀ i ∈ U, v ∈ B i → ∃ a ∈ B i, a ∈ R := by
+    intro i hi hvi
+    obtain ⟨a, haR, haA⟩ := hhit i (Finset.mem_filter.mpr ⟨hi, hvi⟩)
+    exact ⟨a, Finset.mem_of_mem_erase haA, haR⟩
+  have hremote : ∀ a ∈ R, ∀ w, ¬ (G.Adj v w ∧ G.Adj a w) := by
+    intro a ha w
+    obtain ⟨i, hi, hai⟩ := Finset.mem_biUnion.mp (hRU ha)
+    have hiU := (Finset.mem_filter.mp hi).1
+    have hvi := (Finset.mem_filter.mp hi).2
+    have hai' := Finset.mem_erase.mp hai
+    exact hpacking i hiU v hvi a hai'.2 hai'.1.symm w
+  obtain ⟨a, ha, b, hb, hab⟩ :=
+    SignalAgreement.replacement_support_has_edge G B U v R hne hreplace hremote hagree
+  exact hRI a ha b hb hab
+
+lemma card_le_used_packing_sources {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y) :
+    n ≤ U.card := by
+  classical
+  have hc := WeightedSourceCount.card_le_of_small_incidence_blocks
+    (Finset.univ : Finset (Fin n)) U B
+    (by intros; exact Finset.subset_univ _)
+    (by
+      intro v hv
+      exact small_subfamily_of_essential_vertex G B U v (hne v) hpacking hagree)
+  simpa using hc
+
+end PackingSources
+
+namespace InputSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {n : ℕ}
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+def gateSupp (L : List (Finset (Fin n))) (g : Gate) : Finset (Fin n) :=
+  (g.inputs.map fun a => L.getD a ∅).foldr (· ∪ ·) ∅
+
+lemma mem_foldr_union (l : List ℕ) (F : ℕ → Finset (Fin n)) (i : Fin n) :
+    i ∈ (l.map F).foldr (· ∪ ·) ∅ ↔ ∃ a ∈ l, i ∈ F a := by
+  induction l with
+  | nil => simp
+  | cons b l ih => simp [ih]
+
+lemma mem_gateSupp (L : List (Finset (Fin n))) (g : Gate) (i : Fin n) :
+    i ∈ gateSupp L g ↔ ∃ a ∈ g.inputs, i ∈ L.getD a ∅ :=
+  mem_foldr_union _ _ _
+
+def suppsFrom (gs : List Gate) (L : List (Finset (Fin n))) : List (Finset (Fin n)) :=
+  gs.foldl (fun L g => L ++ [gateSupp L g]) L
+
+def inputSupps (n : ℕ) : List (Finset (Fin n)) := List.ofFn fun i : Fin n => {i}
+
+def SupportsImplication (x y : Fin n → Bool) (L : List (Finset (Fin n)))
+    (w w' : List Bool) : Prop :=
+  L.length = w.length ∧ w.length = w'.length ∧
+    ∀ j : ℕ, (∀ i ∈ L.getD j ∅, x i = true → y i = true) →
+      w.getD j false = true → w'.getD j false = true
+
+lemma gate_implication (g : Gate) (hg : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (w w' : List Bool)
+    (h : ∀ i ∈ g.inputs, w.getD i false = true → w'.getD i false = true) :
+    g.op.eval (g.inputs.map fun i => w.getD i false) = true →
+      g.op.eval (g.inputs.map fun i => w'.getD i false) = true := by
+  rcases hg with hg | hg
+  · simp only [hg, GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply, id_eq]
+    intro hall i hi
+    exact h i hi (hall i hi)
+  · simp only [hg, GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq]
+    rintro ⟨i, hi, hval⟩
+    exact ⟨i, hi, h i hi hval⟩
+
+lemma implication_wiresFrom (x y : Fin n → Bool) (gs : List Gate)
+    (hmono : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    ∀ (L : List (Finset (Fin n))) (w w' : List Bool), SupportsImplication x y L w w' →
+      SupportsImplication x y (suppsFrom gs L) (wiresFrom gs w) (wiresFrom gs w') := by
+  induction gs with
+  | nil => intro L w w' h; exact h
+  | cons g gs ih =>
+    intro L w w' h
+    obtain ⟨h1, h2, h3⟩ := h
+    apply ih (fun a ha => hmono a (List.mem_cons_of_mem _ ha)) (L ++ [gateSupp L g])
+      (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (w' ++ [g.op.eval (g.inputs.map fun i => w'.getD i false)])
+    refine ⟨by simp [h1], by simp [h2], ?_⟩
+    intro j hj
+    by_cases hjl : j = L.length
+    · subst hjl
+      rw [getD_snoc_eq] at hj
+      rw [h1, getD_snoc_eq, h2, getD_snoc_eq]
+      apply gate_implication g (hmono g List.mem_cons_self)
+      intro a ha hval
+      apply h3 a ?_ hval
+      intro i hi
+      exact hj i ((mem_gateSupp L g i).2 ⟨a, ha, hi⟩)
+    · rw [getD_snoc_ne _ _ _ _ hjl] at hj
+      rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ (by omega)]
+      exact h3 j hj
+
+lemma implication_inputs (x y : Fin n → Bool) :
+    SupportsImplication x y (inputSupps n) (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp [inputSupps], by simp, ?_⟩
+  intro j hj
+  by_cases hjn : j < n
+  · have hx : x ⟨j, hjn⟩ = true → y ⟨j, hjn⟩ = true := hj _ (by simp [inputSupps, hjn])
+    simpa [hjn] using hx
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by simp; omega)]
+    simp
+
+def Cnt (t : ℕ) (L : List (Finset (Fin n))) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion fun j => L.getD j ∅).card ≤ t + W.card
+
+lemma cnt_inputs : Cnt 0 (inputSupps n) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hjn : j < n
+  · simp [inputSupps, hjn]
+  · rw [List.getD_eq_default _ _ (by simp [inputSupps]; omega)]; simp
+
+lemma cnt_step (t : ℕ) (L : List (Finset (Fin n))) (g : Gate) (hg : g.inputs.length ≤ 2)
+    (h : Cnt t L) : Cnt (t + 1) (L ++ [gateSupp L g]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        ⊆ ((W.erase L.length ∪ g.inputs.toFinset).biUnion fun j => L.getD j ∅) := by
+      intro i hi
+      rw [Finset.mem_biUnion] at hi ⊢
+      obtain ⟨j, hjW, hij⟩ := hi
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hij
+        obtain ⟨a, ha, hia⟩ := (mem_gateSupp L g i).1 hij
+        exact ⟨a, Finset.mem_union_right _ (List.mem_toFinset.2 ha), hia⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+        exact ⟨j, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨hjl, hjW⟩), hij⟩
+    have hc1 : (W.erase L.length ∪ g.inputs.toFinset).card ≤ (W.card - 1) + 2 := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left (le_trans (List.toFinset_card_le _) hg) _
+    have hWpos : 1 ≤ W.card := Finset.card_pos.2 ⟨_, hW⟩
+    have := h (W.erase L.length ∪ g.inputs.toFinset)
+    have := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        = (W.biUnion fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    have := h W
+    omega
+
+lemma cnt_suppsFrom (gs : List Gate) : ∀ (t : ℕ) (L : List (Finset (Fin n))),
+    (∀ g ∈ gs, g.inputs.length ≤ 2) → Cnt t L → Cnt (t + gs.length) (suppsFrom gs L) := by
+  induction gs with
+  | nil => intro t L _ h; exact h
+  | cons g gs ih =>
+    intro t L hok h
+    have := ih (t + 1) (L ++ [gateSupp L g]) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+      (cnt_step t L g (hok g List.mem_cons_self) h)
+    rw [List.length_cons, show t + (gs.length + 1) = t + 1 + gs.length by omega]
+    exact this
+
+lemma small_input_support {n : ℕ} (C : Circuit) (hmono : Monotone2 C) :
+    ∃ S : Finset (Fin n), S.card ≤ C.size + 1 ∧
+      ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = true → y i = true) →
+        C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  let S := (suppsFrom C.gates (inputSupps n)).getD C.output ∅
+  refine ⟨S, ?_, ?_⟩
+  · have hc := cnt_suppsFrom C.gates 0 (inputSupps n)
+      (fun g hg => (hmono g hg).2) cnt_inputs {C.output}
+    simpa only [Finset.singleton_biUnion, Finset.card_singleton, zero_add, S, Circuit.size] using hc
+  · intro x y hS hx
+    have himp := implication_wiresFrom x y C.gates
+      (fun g hg => by simpa using (hmono g hg).1) _ _ _ (implication_inputs x y)
+    exact himp.2.2 C.output hS hx
+
+lemma separation_of_support {n : ℕ} (C : Circuit) (S : Finset (Fin n))
+    (hsupport : ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = true → y i = true) →
+      C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true)
+    (x y : Fin n → Bool) (hx : C.eval (List.ofFn x) = true)
+    (hy : C.eval (List.ofFn y) = false) :
+    ∃ i ∈ S, x i = true ∧ y i = false := by
+  classical
+  have hnot : ¬ ∀ i ∈ S, x i = true → y i = true := by
+    intro himp
+    have htrue := hsupport x y himp hx
+    rw [hy] at htrue
+    contradiction
+  push Not at hnot
+  obtain ⟨i, hi, hxi, hyi⟩ := hnot
+  exact ⟨i, hi, hxi, Bool.eq_false_iff.mpr hyi⟩
+
+lemma small_input_separating_support {n : ℕ} (C : Circuit) (hmono : Monotone2 C) :
+    ∃ S : Finset (Fin n), S.card ≤ C.size + 1 ∧
+      ∀ x y : Fin n → Bool, C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = false →
+        ∃ i ∈ S, x i = true ∧ y i = false := by
+  obtain ⟨S, hcard, hsupport⟩ := small_input_support C hmono
+  exact ⟨S, hcard, separation_of_support C S hsupport⟩
+
+
+end InputSupport
+
+namespace InputSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def clauseInput {n m : ℕ} (B : Fin m → Finset (Fin n)) (x : Fin n → Bool) :
+    Fin m → Bool :=
+  fun i => decide (∃ a ∈ B i, x a = true)
+
+lemma clauseInput_eq_true {n m : ℕ} (B : Fin m → Finset (Fin n))
+    (x : Fin n → Bool) (i : Fin m) :
+    clauseInput B x i = true ↔ UniqueClause.clause (B i) x := by
+  simp only [clauseInput, decide_eq_true_eq, UniqueClause.clause]
+
+lemma small_clause_support {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput B x)) = true ↔
+        UniqueClause.hit G x) :
+    ∃ U : Finset (Fin m), U.card ≤ C.size + 1 ∧
+      ∀ x y : Fin n → Bool,
+        (∀ i ∈ U, UniqueClause.clause (B i) x → UniqueClause.clause (B i) y) →
+        UniqueClause.hit G x → UniqueClause.hit G y := by
+  obtain ⟨U, hcard, hsupport⟩ := small_input_support (n := m) C hC
+  refine ⟨U, hcard, ?_⟩
+  intro x y hxy hx
+  apply (hcorrect y).mp
+  apply hsupport (clauseInput B x) (clauseInput B y)
+  · intro i hi hxi
+    exact (clauseInput_eq_true B y i).mpr
+      (hxy i hi ((clauseInput_eq_true B x i).mp hxi))
+  · exact (hcorrect x).mpr hx
+
+end InputSupport
+
+namespace PackingSources
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma packing_factorization_lower_bound {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (F : (Fin m → Bool) → Bool)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hcorrect : ∀ x : Fin n → Bool,
+      F (InputSupport.clauseInput B x) = true ↔ UniqueClause.hit G x) :
+    n ≤ m := by
+  classical
+  have hc := card_le_used_packing_sources G B Finset.univ hne
+    (fun i _ => hpacking i) (by
+      intro x y hxy hx
+      apply (hcorrect y).mp
+      have he : InputSupport.clauseInput B x = InputSupport.clauseInput B y := by
+        funext i
+        have hi : InputSupport.clauseInput B x i = true ↔
+            InputSupport.clauseInput B y i = true :=
+          (InputSupport.clauseInput_eq_true B x i).trans
+            ((hxy i (Finset.mem_univ i)).trans
+              (InputSupport.clauseInput_eq_true B y i).symm)
+        cases ha : InputSupport.clauseInput B x i <;>
+          cases hb : InputSupport.clauseInput B y i <;> simp_all
+      rw [← he]
+      exact (hcorrect x).mpr hx)
+  simpa using hc
+
+lemma packing_paid_gate_lower_bound {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (InputSupport.clauseInput B x)) = true ↔
+        UniqueClause.hit G x) :
+    n ≤ C.size + 1 := by
+  classical
+  obtain ⟨U, hU, hmono⟩ := InputSupport.small_clause_support G B C hC hcorrect
+  have hc := card_le_used_packing_sources G B U hne (fun i _ => hpacking i)
+    (fun x y hxy => hmono x y (fun i hi => (hxy i hi).mp))
+  exact hc.trans hU
+
+end PackingSources
+
 end PEqualNP.Outside.L_meta_1904_aux
