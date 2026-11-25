@@ -1668,3 +1668,249 @@ lemma direct_not_seed_saves_three_fanin (C : Circuit)
   simpa [E,Circuit.size] using hs
 
 end PEqualNP.Outside.L_meta_1890_aux.DirectSeedNot
+
+namespace PEqualNP.Outside.L_meta_1890_aux.DirectSeedNot
+
+open PEqualNP.CircuitLowerBounds
+open PEqualNP.Outside.L_meta_1890_aux.Propagation
+open PEqualNP.Outside.L_meta_1890_aux.EffectiveReaders
+
+lemma direct_not_seed_saves_three_ignored_tail (C : Circuit)
+    (hok : PEqualNP.MetaComplexity.FanInTwo C)
+    (hC : ∀ x, C.eval (seed x) = petersen x)
+    (pN pH : ℕ) (tail : List ℕ) (H : Gate)
+    (hN : C.gates[pN]? = some ⟨GateOp.not,10 :: tail⟩)
+    (hH : C.gates[pH]? = some H) (hNH : pN < pH)
+    (hread : 11+pN ∈ effectiveInputs H) :
+    ∃ i : Fin 10, (i=0 ∨ i=2) ∧ ∃ D : Circuit,
+      PEqualNP.MetaComplexity.FanInTwo D ∧ D.size+3 ≤ C.size ∧
+      ∀ x : Fin 9 → Bool,
+        D.eval (List.ofFn x) = petersen (Fin.insertNth i false x) := by
+  let E : Circuit := ⟨C.gates.map normGate,C.output⟩
+  have hE : ∀ g ∈ E.gates, NOk g := by
+    intro g hg
+    obtain ⟨g0,hg0,rfl⟩ := List.mem_map.mp hg
+    exact normGate_nok g0 (hok g0 hg0)
+  have ecorrect (x : Fin 10 → Bool) : E.eval (seed x) = petersen x := by
+    change (wiresFrom (C.gates.map normGate) (seed x)).getD C.output false = _
+    rw [wiresFrom_norm]
+    exact hC x
+  have hn : E.gates[pN]? = some ⟨GateOp.not,[10]⟩ := by
+    simp [E,List.getElem?_map,hN,normGate]
+  have hh : E.gates[pH]? = some (normGate H) := by
+    simp [E,List.getElem?_map,hH]
+  have heff : effectiveInputs (normGate H) = effectiveInputs H := by
+    cases hop : H.op <;> simp [effectiveInputs,normGate,hop,List.take_take]
+  obtain ⟨i,hi,D,hD,hs,hval⟩ := direct_not_seed_saves_three E hE ecorrect
+    pN pH (normGate H) hn hh hNH (by simpa only [heff] using hread)
+  refine ⟨i,hi,D,hD,?_,hval⟩
+  simpa [E,Circuit.size] using hs
+
+
+end PEqualNP.Outside.L_meta_1890_aux.DirectSeedNot
+
+namespace PEqualNP.Outside.L_meta_1890_aux.WeightedPropagation
+
+open PEqualNP.CircuitLowerBounds
+open PEqualNP.Outside.L_meta_1890_aux.Propagation
+
+def binaryWeight (g : Gate) : ℕ :=
+  match g.op with
+  | GateOp.not => 0
+  | _ => 1
+
+def binaryCount : List Gate → ℕ
+  | [] => 0
+  | g :: gs => binaryWeight g + binaryCount gs
+
+lemma binaryCount_append (gs hs : List Gate) :
+    binaryCount (gs ++ hs) = binaryCount gs + binaryCount hs := by
+  induction gs with
+  | nil => simp [binaryCount]
+  | cons g gs ih => simp [binaryCount,ih,Nat.add_assoc]
+
+lemma binaryWeight_one (g : Gate) (h : g.op ≠ GateOp.not) : binaryWeight g = 1 := by
+  cases hop : g.op <;> simp_all [binaryWeight]
+
+lemma simplify_same_op (op : GateOp) (m : ℕ) (ins : List Stat) :
+    ∀ g ∈ (simplify op m ins).1, g.op = op := by
+  intro g hg
+  cases op <;> simp only [simplify] at hg
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c,l⟩⟩⟩ <;>
+      (try cases a) <;> (try cases b) <;> simp [simpAnd] at hg <;> (subst hg; rfl)
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c,l⟩⟩⟩ <;>
+      (try cases a) <;> (try cases b) <;> simp [simpOr] at hg <;> (subst hg; rfl)
+  · rcases ins with _ | ⟨a,l⟩ <;> (try cases a) <;>
+      simp [simpNot] at hg <;> (subst hg; rfl)
+  · simp at hg
+  · simp at hg
+
+lemma simplify_binary_le (op : GateOp) (m : ℕ) (ins : List Stat) :
+    binaryCount (simplify op m ins).1.toList ≤ binaryWeight ⟨op,[]⟩ := by
+  cases hs : (simplify op m ins).1 with
+  | none => simp [binaryCount]
+  | some g =>
+    have hop := simplify_same_op op m ins g (by rw [hs]; simp)
+    simp only [Option.toList_some,binaryCount,Nat.add_zero]
+    simp [binaryWeight,hop]
+
+lemma elimStep_binary_le (n : ℕ) (acc : List Stat × List Gate) (g : Gate) :
+    binaryCount (elimStep n acc g).2 ≤ binaryCount acc.2 + binaryWeight g := by
+  change binaryCount (acc.2 ++ (simplify g.op (n+acc.2.length)
+    (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList) ≤ _
+  rw [binaryCount_append]
+  exact Nat.add_le_add_left (simplify_binary_le g.op _ _) _
+
+lemma elimStep_gates_eq_of_const (n : ℕ) (acc : List Stat × List Gate) (g : Gate)
+    (hg : NOk g) (k : ℕ) (hk : k ∈ g.inputs) (c : Bool)
+    (hc : acc.1.getD k (Sum.inl false) = Sum.inl c) :
+    (elimStep n acc g).2 = acc.2 := by
+  have hnone : (simplify g.op (n+acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1 = none := by
+    apply simplify_count
+    · exact hg.1.1
+    · simpa using hg.1.2
+    · intro h; simpa using hg.2 h
+    · exact ⟨c,List.mem_map.mpr ⟨k,hk,hc⟩⟩
+  change acc.2 ++ (simplify g.op (n+acc.2.length)
+    (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList = _
+  rw [hnone]
+  simp
+
+lemma elim_binary_count (n : ℕ) (acc : List Stat × List Gate) : ∀ gs : List Gate,
+    (∀ g ∈ gs, NOk g) → ∀ S : Finset ℕ,
+    (∀ p ∈ S, ∃ g, gs[p]? = some g ∧ g.op ≠ GateOp.not ∧
+      ∃ a ∈ g.inputs, a < acc.1.length+p ∧
+        ∃ c, (elim n gs acc).1.getD a (Sum.inl false) = Sum.inl c) →
+    binaryCount (elim n gs acc).2 + S.card ≤ binaryCount acc.2 + binaryCount gs := by
+  intro gs
+  induction gs using List.reverseRecOn with
+  | nil =>
+    intro _ S hS
+    have hE : S = ∅ := by
+      apply Finset.eq_empty_of_forall_notMem
+      intro p hp
+      obtain ⟨g,hg,_⟩ := hS p hp
+      simp at hg
+    subst hE
+    simp [elim,binaryCount]
+  | append_singleton gs g ih =>
+    intro hok S hS
+    have hstep : elim n (gs++[g]) acc = elimStep n (elim n gs acc) g := by
+      rw [elim_append]; rfl
+    have hpre : ∀ (a : ℕ) (d : Stat), a < acc.1.length+gs.length →
+        (elim n (gs++[g]) acc).1.getD a d = (elim n gs acc).1.getD a d :=
+      fun a d h => elim_split_getD_lt n gs g [] acc a d h
+    have hok' : ∀ g' ∈ gs, NOk g' := fun g' h => hok g' (List.mem_append_left _ h)
+    have ih' := ih hok' (S.erase gs.length) (by
+      intro p hp
+      obtain ⟨hne,hpS⟩ := Finset.mem_erase.mp hp
+      obtain ⟨g',hg',hn',a,ha,hlt,c,hc⟩ := hS p hpS
+      have hpl : p < gs.length := by
+        obtain ⟨h1,_⟩ := List.getElem?_eq_some_iff.mp hg'
+        rw [List.length_append,List.length_singleton] at h1
+        omega
+      rw [List.getElem?_append_left hpl] at hg'
+      rw [hpre a _ (by omega)] at hc
+      exact ⟨g',hg',hn',a,ha,hlt,c,hc⟩)
+    rw [hstep,binaryCount_append]
+    simp only [binaryCount,Nat.add_zero]
+    by_cases hin : gs.length ∈ S
+    · obtain ⟨g',hg',hn',a,ha,hlt,c,hc⟩ := hS _ hin
+      have hgg : g'=g := by
+        rw [List.getElem?_concat_length] at hg'
+        exact (Option.some.inj hg').symm
+      subst hgg
+      rw [hpre a _ hlt] at hc
+      rw [elimStep_gates_eq_of_const n (elim n gs acc) g' (hok g' (by simp)) a ha c hc,
+        binaryWeight_one g' hn']
+      have hcard := Finset.card_erase_of_mem hin
+      have hpos : 1 ≤ S.card := Finset.card_pos.mpr ⟨_,hin⟩
+      omega
+    · have h2 := elimStep_binary_le n (elim n gs acc) g
+      rw [Finset.erase_eq_of_notMem hin] at ih'
+      omega
+
+lemma compile_binary_of_inv {α : Type} (n : ℕ) (C : Circuit) (st : List Stat)
+    (old new : α → List Bool) (hnew : ∀ x, (new x).length = n)
+    (hok : ∀ g ∈ C.gates, NOk g)
+    (hi : ∀ x, Inv n (new x) (old x) (st,[]))
+    (hnc : ∃ x y, C.eval (old x) ≠ C.eval (old y)) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, ∃ g, C.gates[p]? = some g ∧ g.op ≠ GateOp.not ∧
+      ∃ a ∈ g.inputs, a < st.length+p ∧ ∃ c,
+        (elim n C.gates (st,[])).1.getD a (Sum.inl false) = Sum.inl c) :
+    ∃ D : Circuit, PEqualNP.MetaComplexity.FanInTwo D ∧ D.size ≤ C.size ∧
+      binaryCount D.gates + S.card ≤ binaryCount C.gates ∧
+      ∀ x, D.eval (new x) = C.eval (old x) := by
+  let acc := elim n C.gates (st,[])
+  have hval (x : α) :
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (new x)) =
+        C.eval (old x) := by
+    exact (inv_elim n (new x) (hnew x) C.gates (old x) (st,[])
+      (fun g hg => (hok g hg).1) (hi x)).2 C.output |>.2
+  cases hout : acc.1.getD C.output (Sum.inl false) with
+  | inl c =>
+    obtain ⟨x,y,hxy⟩ := hnc
+    exact False.elim (hxy (by rw [← hval x,← hval y,hout]; rfl))
+  | inr o =>
+    refine ⟨⟨acc.2,o⟩,elim_ok n C.gates (st,[]) (by simp),?_,?_,?_⟩
+    · simpa [acc,Circuit.size] using elim_len n C.gates (st,[])
+    · simpa [acc,binaryCount] using elim_binary_count n (st,[]) C.gates hok S hS
+    · intro x
+      have hx := hval x
+      rw [hout] at hx
+      exact hx
+
+
+def nonNotAt (gs : List Gate) (p : ℕ) : Bool :=
+  match gs[p]? with
+  | none => false
+  | some g => match g.op with
+    | GateOp.not => false
+    | _ => true
+
+lemma nonNotAt_of_eq (gs : List Gate) (p : ℕ) (g : Gate)
+    (h : gs[p]? = some g) : nonNotAt gs p = true ↔ g.op ≠ GateOp.not := by
+  simp only [nonNotAt,h]
+  cases hop : g.op <;> simp
+
+lemma elim_binary_count_selected (n : ℕ) (acc : List Stat × List Gate)
+    (gs : List Gate) (hok : ∀ g ∈ gs, NOk g) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, ∃ g, gs[p]? = some g ∧ ∃ a ∈ g.inputs,
+      a < acc.1.length+p ∧
+        ∃ c, (elim n gs acc).1.getD a (Sum.inl false) = Sum.inl c) :
+    binaryCount (elim n gs acc).2 + (S.filter fun p => nonNotAt gs p = true).card ≤
+      binaryCount acc.2 + binaryCount gs := by
+  apply elim_binary_count n acc gs hok
+  intro p hp
+  obtain ⟨hpS,hpN⟩ := Finset.mem_filter.mp hp
+  obtain ⟨g,hg,a,ha,hlt,c,hc⟩ := hS p hpS
+  exact ⟨g,hg,(nonNotAt_of_eq gs p g hg).mp hpN,a,ha,hlt,c,hc⟩
+
+lemma compile_binary_selected_of_inv {α : Type} (n : ℕ) (C : Circuit) (st : List Stat)
+    (old new : α → List Bool) (hnew : ∀ x, (new x).length = n)
+    (hok : ∀ g ∈ C.gates, NOk g)
+    (hi : ∀ x, Inv n (new x) (old x) (st,[]))
+    (hnc : ∃ x y, C.eval (old x) ≠ C.eval (old y)) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, ∃ g, C.gates[p]? = some g ∧ ∃ a ∈ g.inputs,
+      a < st.length+p ∧ ∃ c,
+        (elim n C.gates (st,[])).1.getD a (Sum.inl false) = Sum.inl c) :
+    ∃ D : Circuit, PEqualNP.MetaComplexity.FanInTwo D ∧ D.size ≤ C.size ∧
+      binaryCount D.gates + (S.filter fun p => nonNotAt C.gates p = true).card ≤
+        binaryCount C.gates ∧ ∀ x, D.eval (new x) = C.eval (old x) := by
+  apply compile_binary_of_inv n C st old new hnew hok hi hnc
+  intro p hp
+  obtain ⟨hpS,hpN⟩ := Finset.mem_filter.mp hp
+  obtain ⟨g,hg,a,ha,hlt,c,hc⟩ := hS p hpS
+  exact ⟨g,hg,(nonNotAt_of_eq C.gates p g hg).mp hpN,a,ha,hlt,c,hc⟩
+
+lemma binaryCount_add_notCount (gs : List Gate) :
+    binaryCount gs + (gs.filter fun g => match g.op with
+      | GateOp.not => true
+      | _ => false).length = gs.length := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    cases hop : g.op <;> simp [binaryCount,binaryWeight,hop] at * <;> omega
+
+end PEqualNP.Outside.L_meta_1890_aux.WeightedPropagation
