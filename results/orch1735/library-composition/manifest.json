@@ -1,0 +1,47 @@
+[
+  {
+    "path": "results/orch1735/lemmas/at_most_two.lean",
+    "bytes": 114783,
+    "sha256": "9a66367a8591f33c12fcb71919c67b61750d7cec7dd4a3032fc28894c8ab53bb"
+  },
+  {
+    "path": "results/orch1735/lemmas/nested_two.lean",
+    "bytes": 75898,
+    "sha256": "4f9d8a97a1ab824b7ebe3d526ae1cea106f7e753481360866444e6cf624de120"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-at-most-two-axioms.log",
+    "bytes": 1194,
+    "sha256": "cb1e0db8b494225d0401fa730090fccce3ced2aad1c29d519a341da80125a968"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-at-most-two-build1.log",
+    "bytes": 1061,
+    "sha256": "b47373e1f792a2822c0aca97fcba36a3b1c9c5c97c13bdce89921e3d48f12461"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-nested-two-axioms.log",
+    "bytes": 1190,
+    "sha256": "6613bd68565d2f09c0903a9c94b693c017c401b4a56fb29df4ffcfe01f3c610c"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-nested-two-build1.log",
+    "bytes": 1058,
+    "sha256": "d8ffbfaf13f8593b7ecbf0e1b943d8b006c92388406393eccf8983dfef4e5d2c"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-ustar-headers.json",
+    "bytes": 244847,
+    "sha256": "7c3b5efb75a8d4501cf1de5b3ddced88ea4bbaf4d059530e5bf5112ba4551744"
+  },
+  {
+    "path": "results/orch1735/library-composition/1735-ustar-paths.txt",
+    "bytes": 3287,
+    "sha256": "c748afc40018cfd8e3e67b08bf913517643cd1988f6403deda62255e714e46b3"
+  },
+  {
+    "path": "results/orch1735/library-composition/README.md",
+    "bytes": 1987,
+    "sha256": "6e1bc2530cc8a1eabdbe8e905918b22670050632fa94b4774925882e0c5a510c"
+  }
+]

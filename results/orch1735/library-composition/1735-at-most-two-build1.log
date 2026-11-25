@@ -1,0 +1,18 @@
+../results/orch1735/lemmas/at_most_two.lean:228:89: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch1735/lemmas/at_most_two.lean:801:61: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch1735/lemmas/at_most_two.lean:1163:30: warning: Variable name `cone` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cone
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,7 +1,11 @@
 KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
 Gap: L-meta-1735
 Sub-agents: 6 reused (library, structure, finite search, status, toolchain, independent review)
-TIMING total=96.74 subagents=6
+TIMING total=101.82 subagents=6
 No proof or checker verdict for this new gap yet.
 
 Nested-two partial (1635 lines,75898bytes) compiled with lake env lean; exit0,three harmless unused-binder warnings. Independent mathematical review PASS; final axiom audit only propext,Classical.choice,Quot.sound. Proves Ustar.card≤4*(size+1) under girth≥5,IsLeastAO,TopForm,junk.card=2,and nestedjunk. Full arbitrary-junk1735 theorem remains unproved.
+
+At-most-two partial:2454 lines, standalone Lean exit0, independent review PASS, final axiom audit only standard3axioms. It provides a uniform constant for all junk.card≤2; unrestricted1735 remains unproved.
+
+Canonical named file:2452 lines,114206bytes. lake build PEqualNP.Outside.L_meta_1735 exit0, 9.99s,peak3740536KiB. Independent namespace/format review PASS. Mainexacttheorem absent; no checker acceptance or PR claimed.
