@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/arminbiere/cadical",
+  "commit": "e4d9bd93af444c6575a908a24da2c4130cb2a1c7",
+  "version": "3.1.0",
+  "configure": "./configure",
+  "build": "make -j4",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "CXXFLAGS": "-Wall -Wextra -O3 -DNDEBUG",
+  "compile_include_flags": "-I../build -I../src",
+  "phased_driver_compile": "g++ -std=c++11 -O2 -I cadical/src phased.cpp cadical/build/libcadical.a -o phased"
+}

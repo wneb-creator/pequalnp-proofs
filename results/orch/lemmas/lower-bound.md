@@ -33,3 +33,11 @@ The 26-gate instance has 143 distinct rows, 14,063 variables and 451,723 clauses
 ## Research caveat
 
 Read 2026-11-25: Stasys Jukna, *Disproving the single level conjecture*, https://eccc.weizmann.ac.il/report/2005/021/ . It shows that assuming all quadratic functions have comparably small single-level circuits is invalid in general. No same-size normalization for the bipartite C4-free Heawood case was found. Such a normalization remains UNVERIFIED here. The ECCC PDF text extraction was corrupted; only the readable landing-page abstract and repository proofs support the statements above.
+
+## Incremental CEGIS route
+
+Root reassigned the search preparation around 05:47 UTC. The driver `lower-bound/cegis.cpp` links the existing CaDiCaL static library. Preparation script `prepare_cegis.py` asserts that the final 58 clauses are exactly the target output units and removes only these clauses. All gate-evaluation constraints on all 58 rows remain.
+
+The initial query constrains all 21 positive rows and the two bipartition negative rows (row indices 21 and 57, masks 127 and 16256). The same solver retains learned clauses between calls. After each model, the driver decodes the gate selectors and independently evaluates all 58 rows, checking agreement with the encoded output variables. It adds output units for all new violations. A full candidate is evaluated on every one of the 16,384 inputs before a witness file is written.
+
+Compilation passed. Two smoke tests passed: a fixed exact 27-gate circuit immediately yielded a fully verified witness; a fixed complete-bipartite 26-gate overapproximation satisfied the initial 23 rows, then produced 35 violations, and the same solver returned UNSAT after those units were added. Complete logs are `smoke27.log` and `smoke26complete.log`. The general base is `cegis26.cnf` with matching `cegis26.meta` (201,682 clauses, 7,381 variables). No general solver run had started when this entry was written; root controls the two available CPU slots and lease renewals.

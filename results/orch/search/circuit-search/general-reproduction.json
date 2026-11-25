@@ -1,0 +1,9 @@
+{
+  "exact_original_cnf_match": true,
+  "sha256": "aea6b6c49eef86d3f33291c451834688d0afe697c24e2ff19832cf9fbc44875e",
+  "reproduction_flags": [
+    "--gates",
+    "26",
+    "--no-liveness"
+  ]
+}

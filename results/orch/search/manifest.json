@@ -1,0 +1,201 @@
+{
+  "snapshot_utc": "2026-11-25T05:55:32.835429+00:00",
+  "files": [
+    {
+      "path": "circuit-search/subgraph_smoke.py",
+      "bytes": 2209,
+      "sha256": "41fde69d1d0354014a7af5eed645b23bee1f417270abf1a5c05d43e8bd12c927"
+    },
+    {
+      "path": "circuit-search/phased.cpp",
+      "bytes": 1207,
+      "sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51"
+    },
+    {
+      "path": "circuit-search/star_smoke.py",
+      "bytes": 1413,
+      "sha256": "acd15e62a6161c17e94664fd0796da9dd0c3f02980c43cf0b1d95ef5d76af8b3"
+    },
+    {
+      "path": "circuit-search/decode.py",
+      "bytes": 1070,
+      "sha256": "76359ac080495f46758e02de734a5454556efc00e658252d90490eb43a23f79f"
+    },
+    {
+      "path": "circuit-search/synthesize.py",
+      "bytes": 5143,
+      "sha256": "4c0e99971623c49dad77eb1c6a7bbce93df403969e62d59f4b7305f5d8a76b93"
+    },
+    {
+      "path": "circuit-search/phases.py",
+      "bytes": 1799,
+      "sha256": "a9f7140736c541891305e645ff10e860a3bee8634d9ad7cba5ee81810468758d"
+    },
+    {
+      "path": "circuit-search/subgraph_round.py",
+      "bytes": 2220,
+      "sha256": "2816057fcf101960bdaa604f4dee84231f0fe2f36770ef9086bdaada09feef0a"
+    },
+    {
+      "path": "lower-bound/prepare_cegis.py",
+      "bytes": 1588,
+      "sha256": "7d39c15c0532e84c852eefa6b875e925f2483161ee105a6b2c1a9fbeff78d2a1"
+    },
+    {
+      "path": "lower-bound/pairdirty_synthesize.py",
+      "bytes": 4998,
+      "sha256": "9c5c4a02d2839ae2cba716a8ab8eb3f63d50d3dda8a8c9e54222ae2ee8bba2cc"
+    },
+    {
+      "path": "lower-bound/pairdirty_first_synthesize.py",
+      "bytes": 5061,
+      "sha256": "268920f77fb4af7755b8e3e647e81d48757c9ab6777e69ced7c8b7a294c7536a"
+    },
+    {
+      "path": "lower-bound/cegis-all.cpp",
+      "bytes": 7093,
+      "sha256": "5439a30e2969e8252b508da0938aaf953e284a36e099403b63a6e992bd421339"
+    },
+    {
+      "path": "lower-bound/cegis.cpp",
+      "bytes": 7923,
+      "sha256": "f5c811d579e857c5104ff264963f3462749073ccad99e8d566107c18bb5ab8bb"
+    },
+    {
+      "path": "lower-bound/fix_cegis_smoke.py",
+      "bytes": 1731,
+      "sha256": "9af62e198dbf0aeedeb1e9844d8824f99bc32998b8c3a406c755c90a7878eda9"
+    },
+    {
+      "path": "lower-bound/make_pairdirty.py",
+      "bytes": 1079,
+      "sha256": "9aa8bc15708b3f0bb390a3eef51fedb710156f12beca74860d62b6b0352d5afd"
+    },
+    {
+      "path": "constructive/induced_subproblems.py",
+      "bytes": 2159,
+      "sha256": "8e191f3cfdff73103bbb0c0883c92656dd8979bbd637f7296faf2aea7c9c5b0d"
+    },
+    {
+      "path": "constructive/search.cpp",
+      "bytes": 5507,
+      "sha256": "b47e80e5bea90c4bcc74d11b3fe8db7a6299681ab65806c03e4d981a13e3e9d2"
+    },
+    {
+      "path": "constructive/neutral.cpp",
+      "bytes": 5943,
+      "sha256": "f284785115b01ffd7a639e8ea053b9bd46c4b8f5ce582f95051cffcad7b343d1"
+    },
+    {
+      "path": "circuit-search/solver-metadata.json",
+      "bytes": 444,
+      "sha256": "2d0f76af7ac2886bad49d4475fe07cd55d474b17378d9f34063a13a0d6da7709"
+    },
+    {
+      "path": "circuit-search/star27.json",
+      "bytes": 415,
+      "sha256": "7710c19212e6412b4d13cc4ef81d0bc5d1ad001dc4dbde43507bfb4ee78e12aa"
+    },
+    {
+      "path": "circuit-search/near26.json",
+      "bytes": 400,
+      "sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c"
+    },
+    {
+      "path": "circuit-search/subgraph-round.json",
+      "bytes": 1292,
+      "sha256": "c5c4070d6dcf0e4e2fa203c6c96e847f80737bcb4f20b37da2648edf963c1e84"
+    },
+    {
+      "path": "circuit-search/subgraph-round.log",
+      "bytes": 1108,
+      "sha256": "8d858d5e245f1fa81af8ecdee9673b15244df5dfca5450bfff86834aa73988fe"
+    },
+    {
+      "path": "constructive/run1.log",
+      "bytes": 1933,
+      "sha256": "38c2ea39148ee44993814d7a9a4128c621483199eef3121389cab9846c1b8dbc"
+    },
+    {
+      "path": "constructive/run1-best.json",
+      "bytes": 358,
+      "sha256": "c2182d5d97fca6c413666a5ce4ea5d4492b6617515be763cba06655553ff749d"
+    },
+    {
+      "path": "constructive/neutral-run1.log",
+      "bytes": 1892,
+      "sha256": "fd1e93e02b432ad68df846c3c0f7bcf4705f9148dd2b23e77ace3e674677ca78"
+    },
+    {
+      "path": "constructive/neutral-run1-best.json",
+      "bytes": 364,
+      "sha256": "d3d27ab256df8c859f3ca54c2f2b8356c543cdb4134c57ad84d3e578fffe12d3"
+    },
+    {
+      "path": "lower-bound/smoke27.log",
+      "bytes": 2770,
+      "sha256": "146f72c3c1c7f78d76da51dc83e4b733f7ea74c59a330aacc4849af4af11a5f7"
+    },
+    {
+      "path": "lower-bound/smoke26complete.log",
+      "bytes": 2811,
+      "sha256": "d0b6f7669092100455c82663ca7d6c3dd0cfbd5b90d5e5cd0fba053777381bdd"
+    },
+    {
+      "path": "circuit-search/general-reproduction.json",
+      "bytes": 194,
+      "sha256": "195289944572748a1fcde784ecd36408dad58727ad5fff99618a7070c4ae7a49"
+    },
+    {
+      "path": "circuit-search/subgraph-3-0.json",
+      "bytes": 273,
+      "sha256": "ba958bf3b325b932836f41093006254f62bd83736922b882467c2edbe870baab"
+    },
+    {
+      "path": "circuit-search/subgraph-3-0-solve.log",
+      "bytes": 47130,
+      "sha256": "64c236b7af94b04fe97434b5799f3ab8456b059b2e2d37c92ebc14252c538a21"
+    },
+    {
+      "path": "circuit-search/subgraph-3-1.json",
+      "bytes": 278,
+      "sha256": "a1cd0c0be975a66f3b41b29337634de33d2c65ea8782113413fa527eca78d7fe"
+    },
+    {
+      "path": "circuit-search/subgraph-3-1-solve.log",
+      "bytes": 51813,
+      "sha256": "d87ebefdb852cd2e865dcd62dbaae609846d8f0fc93fcd9f0e0aec4f65018355"
+    },
+    {
+      "path": "circuit-search/subgraph-4-0.json",
+      "bytes": 336,
+      "sha256": "6fb67ff3715de53bc28fdf64b5f79e752834b15cdf85890179a1b5ee20760782"
+    },
+    {
+      "path": "circuit-search/subgraph-4-0-solve.log",
+      "bytes": 42643,
+      "sha256": "2500eb54eedfd6ca41ba09bc006e8345e8303c664ac8c314e7fdce4be82efa7b"
+    },
+    {
+      "path": "circuit-search/subgraph-4-1.json",
+      "bytes": 330,
+      "sha256": "1a6b1d1becc71417fec90ba5ed1915d641eb0e0f56816b22e5137c8a6b3ccc10"
+    },
+    {
+      "path": "circuit-search/subgraph-4-1-solve.log",
+      "bytes": 57240,
+      "sha256": "605e518e386931fe708ad6dd2e8d59c10e5b7c32dc443c811b05a16000acbb3b"
+    },
+    {
+      "path": "circuit-search/heawood26-solve.log",
+      "bytes": 112322,
+      "sha256": "75e5a4a570be512136eb8fa56edbfcc15bed46ea4bfafe1e2fd75123da261f03"
+    },
+    {
+      "path": "circuit-search/general26-result.json",
+      "bytes": 786,
+      "sha256": "bdde15a42ad213bd13fcfdad79012288d2123478b9740ffba42103a6601d79fa"
+    }
+  ],
+  "updated_utc": "2026-11-25T06:04:52.123267+00:00"
+}

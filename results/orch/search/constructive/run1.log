@@ -1,0 +1,36 @@
+rows=58 budget_seconds=600
+best=29 iterations=0 bad=71987500169576480
+progress seconds=0.000247249 iterations=0 restarts=0 best=29
+best=28 iterations=1 bad=198088289735938048
+best=26 iterations=2 bad=17944304641118208
+best=22 iterations=19 bad=14011931637581952
+best=12 iterations=20 bad=1453771
+best=10 iterations=1178 bad=397003
+best=9 iterations=2715 bad=1450187
+best=8 iterations=198279 bad=133065
+best=7 iterations=199867 bad=1772
+best=6 iterations=201431 bad=1876
+best=4 iterations=250002 bad=131079
+best=3 iterations=250011 bad=143360
+best=2 iterations=250017 bad=135168
+best=1 iterations=250029 bad=131072
+progress seconds=30.0014 iterations=30122880 restarts=120 best=1
+progress seconds=60.0018 iterations=123241664 restarts=492 best=1
+progress seconds=90.002 iterations=258778672 restarts=1035 best=1
+progress seconds=120.007 iterations=341438416 restarts=1365 best=1
+progress seconds=150.007 iterations=414901552 restarts=1659 best=1
+progress seconds=180.01 iterations=479307344 restarts=1917 best=1
+progress seconds=210.021 iterations=541983472 restarts=2167 best=1
+progress seconds=240.023 iterations=585917936 restarts=2343 best=1
+progress seconds=270.024 iterations=620696608 restarts=2482 best=1
+progress seconds=300.025 iterations=657618784 restarts=2630 best=1
+progress seconds=330.026 iterations=768954800 restarts=3075 best=1
+progress seconds=360.027 iterations=823860592 restarts=3295 best=1
+progress seconds=390.029 iterations=875987568 restarts=3503 best=1
+progress seconds=420.031 iterations=927922032 restarts=3711 best=1
+progress seconds=450.089 iterations=1009856496 restarts=4039 best=1
+progress seconds=480.089 iterations=1113368784 restarts=4453 best=1
+progress seconds=510.089 iterations=1198266384 restarts=4793 best=1
+progress seconds=540.09 iterations=1355659744 restarts=5422 best=1
+progress seconds=570.09 iterations=1488122880 restarts=5952 best=1
+DONE iterations=1573204800 restarts=6292 best=1

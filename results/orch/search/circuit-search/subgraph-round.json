@@ -1,0 +1,49 @@
+[
+  {
+    "event": "pause_general",
+    "at": "2026-11-25T05:43:44.666148+00:00",
+    "pid": 3779
+  },
+  {
+    "event": "subgraph_result",
+    "name": "subgraph-3-0",
+    "started_at": "2026-11-25T05:43:45.069868+00:00",
+    "finished_at": "2026-11-25T05:44:45.123947+00:00",
+    "wall_seconds": 60.0541250705719,
+    "exit_code": 0,
+    "status": "UNKNOWN"
+  },
+  {
+    "event": "subgraph_result",
+    "name": "subgraph-3-1",
+    "started_at": "2026-11-25T05:44:45.369275+00:00",
+    "finished_at": "2026-11-25T05:45:45.428970+00:00",
+    "wall_seconds": 60.059765338897705,
+    "exit_code": 0,
+    "status": "UNKNOWN"
+  },
+  {
+    "event": "subgraph_result",
+    "name": "subgraph-4-0",
+    "started_at": "2026-11-25T05:45:46.130526+00:00",
+    "finished_at": "2026-11-25T05:47:46.176587+00:00",
+    "wall_seconds": 120.04627966880798,
+    "exit_code": 0,
+    "status": "UNKNOWN"
+  },
+  {
+    "event": "subgraph_result",
+    "name": "subgraph-4-1",
+    "started_at": "2026-11-25T05:47:47.157171+00:00",
+    "finished_at": "2026-11-25T05:49:47.229652+00:00",
+    "wall_seconds": 120.07285714149475,
+    "exit_code": 0,
+    "status": "UNKNOWN"
+  },
+  {
+    "event": "resume_general",
+    "at": "2026-11-25T05:49:47.231531+00:00",
+    "pid": 3779,
+    "pause_seconds": 362.56540751457214
+  }
+]

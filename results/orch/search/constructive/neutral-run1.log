@@ -1,0 +1,23 @@
+rows=58 budget_seconds=600
+progress seconds=4.4621e-05 iterations=0 restarts=0 best=100 active_changes=0
+best=27 iterations=4
+progress seconds=30.0013 iterations=35253952 restarts=7 best=27 active_changes=17576
+progress seconds=60.0034 iterations=68567616 restarts=13 best=27 active_changes=41217
+progress seconds=90.0039 iterations=157760704 restarts=31 best=27 active_changes=109813
+progress seconds=120.004 iterations=231323008 restarts=46 best=27 active_changes=159052
+progress seconds=150.005 iterations=306310720 restarts=61 best=27 active_changes=208924
+progress seconds=180.009 iterations=361339392 restarts=72 best=27 active_changes=247333
+progress seconds=210.012 iterations=390028672 restarts=78 best=27 active_changes=263105
+progress seconds=240.012 iterations=420765952 restarts=84 best=27 active_changes=288472
+progress seconds=270.014 iterations=453502080 restarts=90 best=27 active_changes=306143
+progress seconds=300.015 iterations=503555328 restarts=100 best=27 active_changes=346300
+progress seconds=330.02 iterations=534980736 restarts=106 best=27 active_changes=363311
+progress seconds=360.024 iterations=569702208 restarts=113 best=27 active_changes=383862
+progress seconds=390.025 iterations=598432448 restarts=119 best=27 active_changes=405634
+progress seconds=420.025 iterations=650593920 restarts=130 best=27 active_changes=438050
+progress seconds=450.027 iterations=716167360 restarts=143 best=27 active_changes=486901
+progress seconds=480.028 iterations=810163840 restarts=162 best=27 active_changes=547983
+progress seconds=510.028 iterations=902056192 restarts=180 best=27 active_changes=610277
+progress seconds=540.029 iterations=972789376 restarts=194 best=27 active_changes=654626
+progress seconds=570.029 iterations=1035983040 restarts=207 best=27 active_changes=693244
+DONE iterations=1110749568 restarts=222 best=27 accepted=513339670 active_changes=741217

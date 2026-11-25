@@ -1,0 +1,20 @@
+{
+  "status": "UNKNOWN",
+  "exit_code": 0,
+  "wall_limit_seconds": 1800,
+  "recorded_pause_seconds": 362.56540751457214,
+  "active_wall_budget_upper_bound_seconds": 1437.4345924854279,
+  "selected_statistics": [
+    "c setting time limit to 1800 seconds real time (due to '-t 1800')",
+    "c (percentage relative to total process time)",
+    "c conflicts:                     6214151     5628.06 per second               ",
+    "c total process time since initialization:      1104.63    seconds",
+    "c total real time since initialization:         1800.00    seconds",
+    "c maximum resident set size of process:          100.54    MB"
+  ],
+  "complete_log": "heawood26-solve.log",
+  "conflicts": 6214151,
+  "cpu_seconds": 1104.63,
+  "real_seconds": 1800.0,
+  "max_rss_mb": 100.54
+}
