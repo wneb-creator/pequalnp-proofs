@@ -1066,4 +1066,88 @@ lemma suffix_short_replace_any_output {n : ℕ} (pre suffix : List Gate) (inputs
       subst o
       exact suffix_short_replace_last pre suffix inputs hp hs hl hf0 hf1
 
+def sampleCutCover {α : Type*} [Preorder α] (f h : α → Bool) (rows : List α) : Prop :=
+  (∀ x, f x = true → ∃ y ∈ rows, y ≤ x ∧ (!h y) ≤ (!h x) ∧ f y = true) ∧
+  (∀ x, f x = false → ∃ y ∈ rows, x ≤ y ∧ (!h x) ≤ (!h y) ∧ f y = false)
+
+lemma sample_cut_lift {α : Type*} [Preorder α]
+    (f h : α → Bool) (rows : List α) (F : α → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x))
+    (hcover : sampleCutCover f h rows)
+    (hrows : ∀ x ∈ rows, F x (!h x) = f x) :
+    ∀ x, F x (!h x) = f x := by
+  intro x
+  cases hx : f x with
+  | false =>
+    obtain ⟨y, hy, hxy, hn, hf⟩ := hcover.2 x hx
+    have hle := le_trans (hFx (!h x) hxy) (hFz y hn)
+    exact eq_false_of_le_false (by simpa only [hrows y hy, hf] using hle)
+  | true =>
+    obtain ⟨y, hy, hyx, hn, hf⟩ := hcover.1 x hx
+    have hle := le_trans (hFx (!h y) hyx) (hFz x hn)
+    exact eq_true_of_true_le (by simpa only [hrows y hy, hf] using hle)
+
+lemma sample_cut_correct_iff {α : Type*} [Preorder α]
+    (f h : α → Bool) (rows : List α) (F : α → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x))
+    (hcover : sampleCutCover f h rows) :
+    (∀ x, F x (!h x) = f x) ↔ (∀ x ∈ rows, F x (!h x) = f x) := by
+  constructor
+  · exact fun hh x _ => hh x
+  · exact sample_cut_lift f h rows F hFx hFz hcover
+
+def pairAndInput (p : Fin 7 × Fin 7) (x : Fin 7 → Bool) : Bool :=
+  x p.1 && x p.2
+
+def triplePoint (p : Fin 7 × Fin 7) (k : Fin 7) : Fin 7 → Bool :=
+  fun i => pairPoint p i || decide (i = k)
+
+def pairAndSamples (p : Fin 7 × Fin 7) : List (Fin 7 → Bool) :=
+  ((edgePairs ++ nonedgePairs).map pairPoint) ++
+    ((List.finRange 7).filter (fun k => decide (k ≠ p.1 ∧ k ≠ p.2))).map (triplePoint p)
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 32000000 in
+lemma pairAndSamples_cover : ∀ p ∈ nonedgePairs,
+    sampleCutCover edgeFun (pairAndInput p) (pairAndSamples p) := by
+  unfold sampleCutCover
+  decide
+
+lemma pairAndSamples_length : ∀ p ∈ nonedgePairs, (pairAndSamples p).length = 26 := by
+  decide
+
+lemma pairAndSamples_correct_iff (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x)) :
+    (∀ x, F x (!(x p.1 && x p.2)) = edgeFun x) ↔
+      (∀ x ∈ pairAndSamples p, F x (!(x p.1 && x p.2)) = edgeFun x) :=
+  sample_cut_correct_iff edgeFun (pairAndInput p) (pairAndSamples p) F hFx hFz
+    (pairAndSamples_cover p hp)
+
+def or14Input (x : Fin 7 → Bool) : Bool := x 1 || x 4
+
+def or14Samples : List (Fin 7 → Bool) :=
+  ((edgePairs ++ nonedgePairs).map pairPoint) ++
+    [(fun i => decide (i = 6)), triplePoint (0, 1) 2, triplePoint (0, 1) 6,
+      triplePoint (1, 2) 6, triplePoint (3, 4) 5, triplePoint (3, 4) 6, triplePoint (4, 5) 6]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+lemma or14Samples_cover : sampleCutCover edgeFun or14Input or14Samples := by
+  unfold sampleCutCover
+  decide
+
+lemma or14Samples_length : or14Samples.length = 28 := by
+  decide
+
+lemma or14Samples_correct_iff (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x)) :
+    (∀ x, F x (!(x 1 || x 4)) = edgeFun x) ↔
+      (∀ x ∈ or14Samples, F x (!(x 1 || x 4)) = edgeFun x) :=
+  sample_cut_correct_iff edgeFun or14Input or14Samples F hFx hFz or14Samples_cover
+
 end PEqualNP.Outside.L_meta_10760
