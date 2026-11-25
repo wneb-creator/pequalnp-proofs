@@ -1,0 +1,26 @@
+{
+  "mode": "build",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_670.lean",
+  "sha256": "e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22",
+  "bytes": 516783,
+  "lines": 5226,
+  "cpus": [
+    2,
+    3
+  ],
+  "command": [
+    "lake",
+    "build",
+    "+PEqualNP.Outside.L_meta_670",
+    "+PEqualNP.Defs"
+  ],
+  "started": "2026-11-25T05:35:43.105746+00:00",
+  "exitCode": 0,
+  "wallSeconds": 1483.2472717090004,
+  "userSeconds": 1406.522338,
+  "systemSeconds": 105.651994,
+  "maxRssKiB": 5173408,
+  "sourceUnchanged": true,
+  "log": "/tmp/oec/pequalnp-pilot-61/named-baseline-build1.log",
+  "finished": "2026-11-25T06:00:26.355712+00:00"
+}

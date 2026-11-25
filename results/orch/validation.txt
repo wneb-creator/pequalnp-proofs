@@ -80,3 +80,5 @@ FULL12203 ORIGINAL-DEPTH COMPILED: exit0 at05:36:41,1042.562s wall,1000.980s use
 Actual named baseline build launched05:35:43, source unchanged e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22, CPUs2-3, cachefalse, exact+module+Defs targets. Scratch runner run_final_validation.py; log named-baseline-build1.log/json.
 
 2026-11-25 05:51 UTC: desk renewalHTTP410 despite previous06:01expiry. New work paused, heartbeat stopped. PlainRecords12203Prefix passed60.296s (SHA703bbe152853d4496e15861348db10699521f101e7fa37e2a89589e722bfcdca); exact minified prefix passed69.192s (SHA9efdec78d1e1c931a56eeab954b5a867fd8a930f955bef412ad914b53bf02cdf). Complete logs retained; inverse record auditPASS. Full flat/plain numerical replay remains unrun.
+
+NAMED MODULE LAKE BUILD PASSED at2026-11-25T06:00:26Z. Exact command lake build +PEqualNP.Outside.L_meta_670 +PEqualNP.Defs, exit0,1483.247s wall,1406.522s user,105.652s system. Source unchanged SHAe7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22,516783bytes,5226lines. Complete log/metadata named-baseline-build1.log/json. Local repository checker next.
