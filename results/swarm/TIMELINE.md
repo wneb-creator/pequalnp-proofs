@@ -20,3 +20,7 @@
 - 2026-11-25 23:24:25: Existing lease renewed; full Mathlib and checker remain ready.
 - 2026-11-25 23:30:04: First scheduled replanning: full proof/refutation priority retained, solver diversification and gate-count/union encodings prioritized. No full result yet.
 - 2026-11-25 23:30:04: Local helper compiled an internal proof of the graph AND-count lower bound; exact-statement bridge remains in progress.
+- 2026-11-25 23:50:52: Lean-checked exact-statement AND>=5 bridge checkpointed in the target module. This is a partial helper module; the posted theorem is not yet proved. Root independently reviewed the conversion, allowed imports, namespace, and forbidden-token scan.
+- 2026-11-25 23:50:52: Second replanning: independent OR>=9 audits leave exact five-AND/nine-OR case. Direct OR>=10 certificate extension and equality-case restrictions underway.
+- 2026-11-25 23:53:08: Partial helper module lake build passed; independent partial-diff review PASS from local OR-bound reviewer. No posted-theorem claim or PR yet.
+- 2026-11-25 23:53:08: Unrestricted OR>=10 route rejected by independently replayed nine-OR/seven-AND circuit; searches remain focused on exact five-AND/nine-OR.
