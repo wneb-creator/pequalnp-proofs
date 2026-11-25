@@ -1,0 +1,85 @@
+{
+  "source_sha256": "e242bec65efc2904847980e5aa0315e743d79f27b824a80b529125a1aa631dd5",
+  "matrices": 62,
+  "banks": 4360,
+  "signals": 1275,
+  "seconds": 1.3912453270004335,
+  "unique_profiles": 159706,
+  "actual_unique_profiles": 157852,
+  "selftest": "1860 independent exact small-subset comparisons PASS",
+  "summary": {
+    "edge_formula0": {
+      "banks": 1340,
+      "positive_only_margins": 1340,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.5714285714285714,
+        "part1",
+        174138,
+        44,
+        -11
+      ]
+    },
+    "edge_formula1": {
+      "banks": 1491,
+      "positive_only_margins": 1490,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.5357142857142858,
+        "part1",
+        174171,
+        46,
+        -43
+      ]
+    },
+    "nonedge_formula0": {
+      "banks": 1926,
+      "positive_only_margins": 1922,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.5714285714285714,
+        "part1",
+        174138,
+        44,
+        -11
+      ]
+    },
+    "nonedge_formula1": {
+      "banks": 2330,
+      "positive_only_margins": 2326,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.407803650094399,
+        "nonedge",
+        126819,
+        16,
+        -2237
+      ]
+    },
+    "union_formula0": {
+      "banks": 1966,
+      "positive_only_margins": 1962,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.5714285714285714,
+        "part1",
+        174138,
+        44,
+        -11
+      ]
+    },
+    "union_formula1": {
+      "banks": 2394,
+      "positive_only_margins": 2389,
+      "both_polarity_margins": 0,
+      "best_normalized_margin": [
+        -1.407803650094399,
+        "nonedge",
+        126819,
+        16,
+        -2237
+      ]
+    }
+  },
+  "scope": "Exact integer research measurement, no new Lean or signed rectangle theorem. Formula1 parent diagnostic does not discharge sharing children."
+}

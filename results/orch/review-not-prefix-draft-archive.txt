@@ -1,0 +1,5 @@
+Independent preservation review: PASS — unlaunched draft only.
+
+Bound to manifest SHA256 bf772b5b1dda817b2084295a60244c9f99de61c5796f7809a2b8f65862d526f7. All30 archived files match their complete byte counts and hashes, with no unlisted file except the manifest. The source is exactly the independently reviewed7ac07f4b8dd8d888b3352119feb30a71d02d4b74f84fe9f93980624f8137ba12 revision. Both physical control hashes and all eight prefix fixture hashes match the earlier complete1024-row replay and bank-census audit. Build/control stdout and stderr are preserved.
+
+README and status explicitly report search_runs=0, no launched search, and withdrawal of the desk lease. The prepared two-worker supervisor is source only; its presence is not evidence of an executed search. The23-gate controls are above the19-gate goal. This preserves an audited candidate-emission/parser setup and eight selected starts, with no proof, bounded witness, family exclusion or UNSAT claim. No builds or searches were run during this final integrity review.

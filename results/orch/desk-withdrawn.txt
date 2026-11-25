@@ -1,0 +1,30 @@
+2026-11-25T17:13:34Z original renewal response body (curl -s -X POST):
+{
+ "error": "this step was withdrawn: it is proved already or the fleet no longer needs it. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+ "withdrawn": true
+}
+
+Required same-call diagnostic retry (curl -si -X POST):
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 17:13:34 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 17:13:35 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: [public opaque reporting endpoint redacted]
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a60248e93f870cbd-DFW
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 214
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+The desk withdrew this step and then reported no live lease. All searches and builds were stopped; no further desk request or release was sent. Heartbeat stop flag was set before its next scheduled renewal. Desk null replies:0.

@@ -1,0 +1,7 @@
+PASS: independent review by library_route of the mono18 archival auditor adaptation.
+Source: verification/audit-mono18-root-stream.py
+SHA256: 30a50cd601378962c50eb0dfe0f88a9b2664990aa7817102d92f9ecebb070662
+
+Compared the complete source delta against the previously reviewed mono19 streaming auditor. The adaptation binds exactly the two frozen mono18 manifests, validates cap 18 and the explicit weak-mode flag, selects the corresponding profile column, reads the actual signal/node/memo counts, handles the single compressed proof stream without changing record semantics, and checks exact archive-file census. Unknown completion kinds are now rejected. Root budget, history length, rectangle cap and completed-cache header all consistently use cap 18. The complete stdout/stderr and command metadata remain bound to the manifest. No external/network operations or credential reads were introduced.
+
+The reported limitation is accurate: this is an archive integrity and structural completion audit. It does not certify all truth-table operations, automorphism actions, cofactor supplies, rectangle maxima, exhaustive closure tables or the final Lean theorem. I did not rerun the entire already-completed stream audit. No blocking findings.

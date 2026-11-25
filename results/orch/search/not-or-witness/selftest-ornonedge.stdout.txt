@@ -1,0 +1,4 @@
+HEURISTIC NOT_OR witness search first=ornonedge keep_or=1 total_cap=19 remaining=17 root_count=12 negative_seed=13 prefix_shortcut=disabled
+CANDIDATE gates=21 output=30 exact1024=1 bounded=1 final_or=1 sound_operands=1 incomparable=1
+CANDIDATE gates=21 output=30 exact1024=1 bounded=0 final_or=1 sound_operands=1 incomparable=1
+CANDIDATE SELFTEST PASS positive22cap and negative19cap controls

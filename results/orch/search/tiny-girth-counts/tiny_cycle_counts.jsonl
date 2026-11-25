@@ -1,0 +1,4 @@
+{"n":4,"graph":"K22","and_cap":2,"first_functions":71,"second_pairs":55,"found":true,"witness":[0,61166,65520]}
+{"n":5,"graph":"cycle","and_cap":2,"first_functions":317,"second_pairs":250806,"found":false,"witness":[0,0,0]}
+{"n":6,"graph":"cycle","and_cap":2,"first_functions":1415,"second_pairs":4465825,"found":false,"witness":[0,0,0]}
+{"n":5,"graph":"dualC5","and_cap":3,"second_functions":113310,"third_pairs":138915165,"found":false,"witness":[0,0,0,0]}

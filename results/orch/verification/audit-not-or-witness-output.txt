@@ -1,0 +1,102 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "2481b2a743d4098e12c087bd607876201a1bad463dc6f5e341312f2f978aa648",
+  "files": 60,
+  "exact_source_deltas": true,
+  "runs": [
+    {
+      "case": "oredge-consumed",
+      "nodes": 119275,
+      "exit_code": 0,
+      "wall_seconds": 120.45364185799917,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    },
+    {
+      "case": "oredge-retained",
+      "nodes": 59181,
+      "exit_code": 0,
+      "wall_seconds": 33.890373493999505,
+      "limit": false,
+      "heuristic_tree_finished": true,
+      "candidate": false
+    },
+    {
+      "case": "ornonedge-consumed",
+      "nodes": 97963,
+      "exit_code": 0,
+      "wall_seconds": 120.23771217300055,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    },
+    {
+      "case": "ornonedge-retained",
+      "nodes": 102108,
+      "exit_code": 0,
+      "wall_seconds": 120.44735177399889,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    },
+    {
+      "case": "full-oredge-consumed",
+      "nodes": 87661,
+      "exit_code": 0,
+      "wall_seconds": 180.17992586800028,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    },
+    {
+      "case": "full-ornonedge-consumed",
+      "nodes": 130243,
+      "exit_code": 0,
+      "wall_seconds": 180.40053988099862,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    },
+    {
+      "case": "full-ornonedge-retained",
+      "nodes": 99338,
+      "exit_code": 0,
+      "wall_seconds": 180.38640317400132,
+      "limit": true,
+      "heuristic_tree_finished": false,
+      "candidate": false
+    }
+  ],
+  "controls": [
+    {
+      "name": "selftest-oredge",
+      "physical_gates": 22,
+      "not_gates": 1,
+      "all_1024_rows": true,
+      "rejected_at_cap19": true
+    },
+    {
+      "name": "selftest-ornonedge",
+      "physical_gates": 21,
+      "not_gates": 1,
+      "all_1024_rows": true,
+      "rejected_at_cap19": true
+    },
+    {
+      "name": "selftest-full-oredge",
+      "physical_gates": 22,
+      "not_gates": 1,
+      "all_1024_rows": true,
+      "rejected_at_cap19": true
+    },
+    {
+      "name": "selftest-full-ornonedge",
+      "physical_gates": 21,
+      "not_gates": 1,
+      "all_1024_rows": true,
+      "rejected_at_cap19": true
+    }
+  ],
+  "scope": "Bounded heuristic witness-search preservation only. No accepted19gate candidate; six limits and one completed heuristic tree do not prove UNSAT. Full decoded controls have21/22gates and are not counterexamples."
+}

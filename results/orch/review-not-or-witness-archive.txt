@@ -1,0 +1,12 @@
+Independent archive/status/control review: PASS
+Reviewer: lean_setup
+Archive: results/orch/search/not-or-witness
+Frozen60-file manifest SHA256:2481b2a743d4098e12c087bd607876201a1bad463dc6f5e341312f2f978aa648
+
+All60 file sizes/hashes and the exact archive census match. Independently regenerated both unified patches byte-for-byte from the preserved baseline/adapter/full-row sources. The source hashes exactly match every command/status record and the previously reviewed adapter/refinement. FixedV3 hash matches all seven runs. Read both supervisors and the patch logic; no imported/exported memos or proof export is allowed. All stdout/stderr is preserved, statuses are exit0, and summaries agree exactly with final log nodes, limits and completion markers.
+
+Seven bounded runs are accurately classified: baseline OR-edge retained visits59181 and finishes its heuristic tree; other baseline cases visit119275,97963,102108 and hit120second limits. Full-row cases visit87661,130243,99338 and hit180second limits. Every start has two physical prefix gates and17 remaining gates, with11 or12 live roots according to whether the positive OR is retained. Six ordinary limits and one heuristic completion yield no UNSAT conclusion. There is no accepted candidate file or emitted candidate in any search log.
+
+Independently replayed all four preserved positive-control circuits on all1024 rows, checking every gate index/op and every intermediate truth word, the exact Petersen target, unique physical NOT and finalOR soundness/incomparability. Edge controls have22 gates and nonedge controls21; all are correctly accepted by the22gate control and rejected at cap19. They are emitter tests, not counterexamples.
+
+The full-row refinement checks a necessary positive-formula separation condition and was separately source reviewed; this archive audit does not upgrade the overall heuristic recurrence/prunes to a complete decision procedure. The README is accurate about bounded witness-only scope, original scratch paths in supervisors and absent19gate candidate. No new solver/build/search was run. Reproducible local audit and full output are verification/audit-not-or-witness.py/.json.

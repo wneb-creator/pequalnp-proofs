@@ -1,0 +1,13 @@
+{
+  "state": "prepared and independently reviewed; no witness searches launched",
+  "reason": "Coordinator stopped new work after desk withdrew gap L-meta-2373 and diagnostic renewal returned HTTP410/no live lease.",
+  "source_sha256": "7ac07f4b8dd8d888b3352119feb30a71d02d4b74f84fe9f93980624f8137ba12",
+  "selected_start_count": 8,
+  "control_runs": 2,
+  "control_exit_codes": [
+    0,
+    0
+  ],
+  "search_runs": 0,
+  "scope": "partial research artifact, not a proof/refutation/UNSAT result"
+}

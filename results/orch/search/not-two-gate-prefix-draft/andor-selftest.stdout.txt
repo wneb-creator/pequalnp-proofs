@@ -1,0 +1,8 @@
+HEURISTIC NOT_PREFIX witness search prefix_gates=3 total_cap=19 remaining=16 root_count=13 prefix_shortcut=disabled
+prefix_gate 0 0 1
+prefix_gate 1 10 2
+prefix_gate 2 11 11
+start_wires 0 1 2 3 4 5 6 7 8 9 10 11 12
+CANDIDATE gates=23 output=32 exact1024=1 bounded=1 final_or=1 sound_operands=1 incomparable=1
+CANDIDATE gates=23 output=32 exact1024=1 bounded=0 final_or=1 sound_operands=1 incomparable=1
+CANDIDATE SELFTEST PASS positive23cap and negative19cap controls

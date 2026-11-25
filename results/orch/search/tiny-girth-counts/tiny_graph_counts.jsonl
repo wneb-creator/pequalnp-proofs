@@ -1,0 +1,7 @@
+{"n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "gate_cap": 4, "count_kind": null, "count_cap": null, "status": "SAT", "seconds": 0.008, "variables": 304, "clauses": 2036, "model": [[0, 0, 2], [1, 2, 3], [1, 1, 4], [0, 5, 6]]}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "gate_cap": 11, "count_kind": "and", "count_cap": 2, "status": "UNKNOWN", "seconds": 12.044, "variables": 1447, "clauses": 18221, "model": []}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "gate_cap": 11, "count_kind": "or", "count_cap": 3, "status": "UNKNOWN", "seconds": 12.027, "variables": 1447, "clauses": 18386, "model": []}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "gate_cap": 12, "count_kind": "and", "count_cap": 2, "status": "UNKNOWN", "seconds": 12.067, "variables": 2976, "clauses": 43016, "model": []}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "gate_cap": 12, "count_kind": "or", "count_cap": 4, "status": "UNKNOWN", "seconds": 12.064, "variables": 2976, "clauses": 43588, "model": []}
+{"n": 7, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]], "gate_cap": 14, "count_kind": "and", "count_cap": 3, "status": "UNKNOWN", "seconds": 12.161, "variables": 6664, "clauses": 113458, "model": []}
+{"n": 7, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]], "gate_cap": 14, "count_kind": "or", "count_cap": 5, "status": "UNKNOWN", "seconds": 12.216, "variables": 6664, "clauses": 115460, "model": []}

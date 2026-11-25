@@ -1,0 +1,122 @@
+[
+  {
+    "edge": true,
+    "variable": 0,
+    "positive": 19,
+    "negative": 18
+  },
+  {
+    "edge": true,
+    "variable": 1,
+    "positive": 7,
+    "negative": 5
+  },
+  {
+    "edge": true,
+    "variable": 2,
+    "positive": 6,
+    "negative": 2
+  },
+  {
+    "edge": true,
+    "variable": 3,
+    "positive": 12,
+    "negative": 4
+  },
+  {
+    "edge": true,
+    "variable": 4,
+    "positive": 24,
+    "negative": 8
+  },
+  {
+    "edge": true,
+    "variable": 5,
+    "positive": 33,
+    "negative": 1
+  },
+  {
+    "edge": true,
+    "variable": 6,
+    "positive": 66,
+    "negative": 2
+  },
+  {
+    "edge": true,
+    "variable": 7,
+    "positive": 132,
+    "negative": 4
+  },
+  {
+    "edge": true,
+    "variable": 8,
+    "positive": 264,
+    "negative": 8
+  },
+  {
+    "edge": true,
+    "variable": 9,
+    "positive": 528,
+    "negative": 16
+  },
+  {
+    "edge": false,
+    "variable": 0,
+    "positive": 21,
+    "negative": 20
+  },
+  {
+    "edge": false,
+    "variable": 1,
+    "positive": 3,
+    "negative": 1
+  },
+  {
+    "edge": false,
+    "variable": 2,
+    "positive": 13,
+    "negative": 9
+  },
+  {
+    "edge": false,
+    "variable": 3,
+    "positive": 12,
+    "negative": 4
+  },
+  {
+    "edge": false,
+    "variable": 4,
+    "positive": 24,
+    "negative": 8
+  },
+  {
+    "edge": false,
+    "variable": 5,
+    "positive": 33,
+    "negative": 1
+  },
+  {
+    "edge": false,
+    "variable": 6,
+    "positive": 66,
+    "negative": 2
+  },
+  {
+    "edge": false,
+    "variable": 7,
+    "positive": 132,
+    "negative": 4
+  },
+  {
+    "edge": false,
+    "variable": 8,
+    "positive": 264,
+    "negative": 8
+  },
+  {
+    "edge": false,
+    "variable": 9,
+    "positive": 528,
+    "negative": 16
+  }
+]

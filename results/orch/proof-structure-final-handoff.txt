@@ -1,0 +1,27 @@
+Final proof_structure handoff after coordinator stop (2026-11-25)
+
+No active Lean or search process remains in this lane. The named target was not edited by this agent after the independently reviewed TwoAndCombined handoff. The exact posted gap theorem is still unproved.
+
+New checked cofactor milestones, all under results/orch/lemmas with complete compile output:
+- Mono18CanonicalCofactors.lean:17 canonical signed15/proper-subgraph/literal-lift priors,12240B. Reviewed by lean_setup.
+- CofactorMoves.lean: word-move/row-rename/slice transport,4503B. Reviewed by lean_setup.
+- CofactorCatalogCore.lean: guarded finite profile-to-Slice adapter,2622B. Reviewed by lean_setup.
+- Mono18FullProfiles.lean:299 actual weak-trace profiles,23798B, SHA2b83836202f5b43a658e3f28aae93b0295a532f8e93fad0ed2ebcdd5cd87a9df. Full record and trace-coverage review PASS in review-mono18-full-profiles.txt.
+- Weak77420Rescue.lean: exact sole profile1086-to1089 replacement,1068B, SHA2d9ff491c59847dc131100c5688ccb46150331c961154acaf45ceb001dc4821f. Parent owns final review.
+- Weak20369Cofactors.lean:10 terminal+5 gate Run exclusions,9180B, SHA5d5400b5fe31912e43a0581ef421f0b435a79f8d89c0933cd819360b79e53f1f. Independent full truth/history/cap/multiplicity review PASS in review-weak20369-cofactors.txt.
+- Mono18CofactorAxioms.lean/.log:17 new endpoints use only propext,Classical.choice,Quot.sound. Audit exit0,full output preserved.
+- Earlier Weak80905Profiles/Cofactors and Node1098Profiles/Cofactors/CutBudgets remain frozen and independently reviewed. Other agents own the completed recursive fixture assemblies.
+
+Associated cofactor data/audits: mono18-catalog-records.json,mono18-catalog-coverage.json,mono18-catalog-audit.json,audit-mono18-catalog.py/.log,weak20369-cut-data.json,weak20369-cofactor-build.json. Coverage explicitly omits original1086 and points to the separately checked1089 rescue; no whole-case proof is claimed.
+
+Independent reviews completed by this lane since the prior handoff:
+review-weak20369-data-proof-structure.txt (Data+Supports, full actual-literal audit), review-weak20369-budgets-proof-structure.txt, review-weak20369-generation-proof-structure.txt (all11manifest files and portable replay), verification/audit-weak20369-data-proof-structure.py/.json, review-not-prefix-adapter-proof-structure.txt/.json (witness-only parser/root/budget diff).
+
+Research preservation only:
+- structural-or-count-note.txt: exact existing TopForm deficit inequality and remaining U<=C+P charge, not a proof.
+- review-new-prior10976-applicability.json: new upstream graph is not a direct9-essential-variable Petersen projection; no stronger prior claimed.
+- search/tiny-girth-counts/: complete tiny free-OR enumeration and bounded SAT observations. No Lean or independent source-review claim. finite_invariants explicitly did not finish its review before stop.
+- search/petersen-and5-interrupted/: final long-run archive described below. No verdict and no independently reviewed encoding claim.
+
+The long SAT solver received SIGTERM at parent request after the desk withdrew L-meta-2373. Raw exit−15 after366.8857seconds; peakRSS78512KiB; CPU3; hard1GiB limits. Full stdout/stderr,status,stop reason,DIMACS,selector map,source,options and solver hash are frozen. Complete partial binary DRAT163692544B has raw SHA6fe285d3a6310f789d5056f920357e15991a3f3ddeb0e2bc7fe0fb277872e4d6. Deterministic gzip65753758B, SHA9b5fadf24a8114dd0829d5dae1fd5e08685946ed8676f6daeb573c63549a04b2,stored in one part below GitHub's100MB per-file limit. Decompression was verified against the raw SHA. The trace is incomplete and cannot certify UNSAT. Archive17files,total68533037B excluding manifest.
+Archive manifest SHA256: 44fbe42e2f6e994090de09234dfbf8d035855e74eb0443b43af87db568784a33

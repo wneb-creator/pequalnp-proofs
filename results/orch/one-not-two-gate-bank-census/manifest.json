@@ -1,0 +1,40 @@
+{
+  "scope": "Finite census and exact witness-search starting banks only.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1135,
+      "sha256": "1c18826441d1662c70ab0367c815f6717157e9d3fde0033e757832b693fb0fbc"
+    },
+    {
+      "path": "census.json",
+      "bytes": 21048,
+      "sha256": "a1a82137767470b58da6b6101c0aee7abace63e413828672343a5868dd232b3c"
+    },
+    {
+      "path": "one-not-two-gate-banks-census-02.txt",
+      "bytes": 1812,
+      "sha256": "91fc51c3b3fd4b5c12ef6bb0f1183cac380500d963b1d077a32dbc38edbbb842"
+    },
+    {
+      "path": "one-not-two-gate-banks-census.txt",
+      "bytes": 369,
+      "sha256": "3e7acfda9533c8dfc9f89ab8e919e2ca7caa1cadd407a5fe1a20bbb3ee70fcfc"
+    },
+    {
+      "path": "one_not_two_gate_banks.py",
+      "bytes": 4565,
+      "sha256": "aa849a20851be9a25611b2c949d25dfc98eca9ff63265c3196c84c00d1532cab"
+    },
+    {
+      "path": "priority-starts.json",
+      "bytes": 48688,
+      "sha256": "81f23ca24066f02f502ece67399b7912f733b8c68388874005920bd5f0699509"
+    },
+    {
+      "path": "starts.json",
+      "bytes": 313999,
+      "sha256": "585be548c3dddd7e226c3d584fcf79011c7260b355c9c4f24fe10687c998f9e0"
+    }
+  ]
+}

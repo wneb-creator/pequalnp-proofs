@@ -1,0 +1,32 @@
+Independent integrity-only preservation review: PASS.
+Reviewer: lean_setup. No solver, compiler, search, or Lean build was launched.
+
+Archive: results/orch/search/petersen-and5-interrupted
+The exact manifest hash is recorded in verification/audit-and5-interrupted.json.
+All 17 manifest entries, their lengths/hashes, and the exact archive file census
+passed. The entire deterministic gzip stream was decompressed through EOF, checking
+CRC and the raw 163,692,544-byte partial DRAT SHA256:
+6fe285d3a6310f789d5056f920357e15991a3f3ddeb0e2bc7fe0fb277872e4d6.
+The packed stream is 65,753,758 bytes with SHA256:
+9b5fadf24a8114dd0829d5dae1fd5e08685946ed8676f6daeb573c63549a04b2.
+
+Launch, raw status, launcher stdout, stop record/PID, and full solver stdout/stderr
+agree. CaDiCaL 2.1.2 was started at 17:08:23 UTC with the archived DIMACS, seed0,
+binary DRAT, a 900-second limit, CPU3, and hard 1GiB address/proof-file limits. The
+coordinator SIGTERM at 17:14:29 UTC precedes process completion. Return code is -15,
+wall time 366.885741654 seconds, peak recorded RSS 78,512KiB. The complete solver
+log ends by raising signal15 and contains no SATISFIABLE/UNSATISFIABLE status line.
+
+The exact DIMACS hash matches encoding.json and its emitted header/clause syntax:
+41,085 variables, 175,408 clauses. The generation log equals the encoding metadata.
+This is syntax/hash validation only; the relation between this SAT encoding and
+the graph/circuit statement was NOT independently reviewed. The solver executable
+hash is preserved in launch/status metadata but no executable is bundled or rerun.
+
+Classification INTERRUPTED_BY_COORDINATOR_NO_VERDICT is appropriate. The partial
+DRAT stream was preserved in full but was not verified and cannot certify UNSAT.
+No SAT/UNSAT verdict, five-AND lower bound, graph lower bound, or Lean result follows.
+
+Portable read-only audit: results/orch/verification/audit-and5-interrupted.py
+Structured result: results/orch/verification/audit-and5-interrupted.json
+Full diagnostics: results/orch/verification/audit-and5-interrupted-output.txt

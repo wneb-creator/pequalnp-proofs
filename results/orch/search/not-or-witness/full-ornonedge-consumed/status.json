@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-87/library_route/notor-witness/notor_search_full",
+    "--first",
+    "ornonedge",
+    "--cap",
+    "19",
+    "--seconds",
+    "180",
+    "--nodes",
+    "2000000",
+    "--extra-rectangles",
+    "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-loader/rectangles-v3.txt",
+    "--candidate",
+    "/tmp/oec/pequalnp-pilot-87/library_route/notor-witness/full-ornonedge-consumed/candidate.json",
+    "--consume-or"
+  ],
+  "source_sha256": "2dd0cc912fc29070159676d7402cc5e7b4712751fab1b1d0ba6d3bd46ee826c3",
+  "matrix_sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5",
+  "cpu": 4,
+  "address_limit": 1000000000,
+  "started_utc": "2026-11-25T17:03:03.781526+00:00",
+  "scope": "heuristic witness search only; negative outcomes do not establish UNSAT",
+  "exit_code": 0,
+  "wall_seconds": 180.40053988099862,
+  "ended_utc": "2026-11-25T17:06:04.182166+00:00"
+}

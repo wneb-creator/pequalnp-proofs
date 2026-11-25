@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "f20549727cb748e0324530ac18cb655c925a22aab4284dac12e185883ca109ee",
+  "patch_sha256": "b167a111fc682de7ad6254595d91dfd47092e432befc34116e075a113a737b9b",
+  "controls": [
+    {
+      "case": "oredge",
+      "gates": 22,
+      "output": 31,
+      "exact1024": true,
+      "final_or": true,
+      "sound": true,
+      "incomparable": true,
+      "rejected19": true,
+      "sha256": "3e0d768ddfabc173d33894ee7af11f8679f2d027be1d555f313036a6eab5f84c"
+    },
+    {
+      "case": "ornonedge",
+      "gates": 21,
+      "output": 30,
+      "exact1024": true,
+      "final_or": true,
+      "sound": true,
+      "incomparable": true,
+      "rejected19": true,
+      "sha256": "3fd22fbc2559cbb6ae86b8141cf98c42e6e67e80f80916261b43288bcb07acea"
+    }
+  ]
+}

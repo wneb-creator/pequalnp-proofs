@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-25T17:14:29.968968+00:00",
+  "reason": "Coordinator requested immediate stop after desk withdrew L-meta-2373; no solver verdict claimed.",
+  "signal": "SIGTERM",
+  "pid": 84327
+}

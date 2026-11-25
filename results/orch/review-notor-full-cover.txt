@@ -1,0 +1,9 @@
+Independent narrow-source review: PASS.
+
+Base notor_search.cpp SHA256 f20549727cb748e0324530ac18cb655c925a22aab4284dac12e185883ca109ee; variant notor_search_full.cpp SHA256 2dd0cc912fc29070159676d7402cc5e7b4712751fab1b1d0ba6d3bd46ee826c3. The full actual source difference matches the six localized changes in full-coverage.patch. No unrelated search or candidate-emission change is present.
+
+For each of the 76 target-negative rows n, candidates starts with exactly the 948 target-positive rows. Every bank value w with w(n)=0 removes candidates p with w(p)=1; values with w(n)=1 impose no condition. The optional candidate wire is handled by the identical test. A surviving p therefore has every input-to-the-positive-suffix bit at p at most its bit at n. AND/OR preserve that order, contradicting target(p)=1 and target(n)=0. This argument applies to arbitrary initial truth functions, including the negative root, and does not assume original-input monotonicity of those roots. Once candidates is empty, early termination is safe; the optional extra wire cannot add candidates.
+
+The check is applied both to whole banks and to outside-support roots plus a fresh candidate. In the latter case its exclusion is only the same necessary positive-continuation condition, and it does not assert any extra cofactor supply. The separate existing pruning/whole-search implementation remains outside this narrow mathematical validation; negative search results remain heuristic and are not Lean certificates.
+
+Initialization enumerates exactly all negative rows. Root, target-alone and single-input controls have the expected truth values; both existing physical-circuit selftests still report exact1024, final OR, sound operands and incomparability, above the19-gate cap. No search was rerun by this reviewer.

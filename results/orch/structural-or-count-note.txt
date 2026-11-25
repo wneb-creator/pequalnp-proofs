@@ -1,0 +1,17 @@
+Structural OR-count route for L-meta-2373 (conceptual note; not a new Lean proof)
+
+The exact useful existing theorem is L_meta_4183 (2499): for a NoFourCycle graph with a nonempty edge set and a least AO2 circuit in TopForm,
+  m + T + 2C + J + P <= size + U + 1,
+where T=#(tops\centreless), C=#centreless, J=#junk, P=#(orN\lam), U=#Ustar. In this model every AND is either a top or junk and every gate is AND/OR, so size=T+C+J+O. Consequently the theorem gives
+  m + C + P <= O + U + 1.
+A sufficient remaining lemma for O>=m-1 is the residual charging inequality U<=C+P. This is weaker than full cost-preserving star normalization and states its resource target exactly. It still requires handling dirty AND gates that feed several top operands; there is no proved injective edge assignment here.
+
+Do not silently drop leastness or TopForm. The existing theorem is not an arbitrary-circuit OR-count bound. A size-nonincreasing normalization plus a transfer argument would still be required to use it as a universal assertion about the original OR count. For total-size lower bounds it is enough to choose a least representative, but this does not automatically preserve its separate AND/OR counts.
+
+Related checked result L_meta_6240 (main,754) assumes that each gate in centreless U junk U mixing accepts at most one Ustar edge, and derives 2U<=2C+J+P. That additional premise is substantive, and its inequality does not imply U<=C+P without further information about J. L_meta_1407 and L_meta_7848 already prove m+vertexCover<=size+1 if every AND output is globally below the target. L_meta_4767/L_meta_8149 allow each dirty AND to accept at most one graph edge. Neither covers a general Petersen circuit.
+
+The first-generation assignment counterexample remains important: ((a OR b) AND (c OR d)) AND (a OR c)=ac OR ad OR bc. A dirty AND owns three path edges although no star covers them all; its unwanted bd pair is removed by the later AND. Any valid charge must account for that later filtering cost. The graph has neither triangles nor4cycles.
+
+R_meta_5375_41 explicitly assumes a size-preserving local repair to the first failed ownership profile; it is a reduction with an unresolved repair hypothesis, not a normalization theorem available for use. L_meta_8545 supplies the m+vertexCover-1 upper construction. The restricted allowed-host web search found no independently established general normalization theorem.
+
+Small complete computational evidence, separately archived under search/tiny-girth-counts: unlimited-OR enumeration excludes2AND for C5/C6 and3AND for dualC5; this supports C5 AND>=3/OR>=4 and C6 AND>=3 but is not a Lean proof. A sharper all-row SAT encoding also reports C7 AND<=3 UNSAT. The25-second Petersen5AND run was UNKNOWN; the separately authorized900-second continuation was interrupted after366.9seconds when the desk withdrew the gap, without a verdict (see search/petersen-and5-interrupted). No universal girth-based statement is claimed.

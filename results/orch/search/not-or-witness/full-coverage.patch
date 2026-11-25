@@ -1,0 +1,33 @@
+--- reviewed-notor-witness
++++ full-positive-row-coverage
+@@ -86,2 +86,12 @@
+ 
++vector<int> allNegativeRows;
++bool positive_full_cover(const vector<int>&state,const Word*extra=nullptr){
++ for(int n:allNegativeRows){
++  Word candidates=sigs[targetid].val;
++  for(int x:state){const Word&w=sigs[x].val;if(bit(w,n))continue;bool any=false;for(int i=0;i<16;i++){candidates.a[i]&=~w.a[i];any|=candidates.a[i]!=0;}if(!any)break;}
++  if(extra&&!bit(*extra,n))for(int i=0;i<16;i++)candidates.a[i]&=~extra->a[i];
++  for(auto v:candidates.a)if(v)return false;
++ }
++ return true;
++}
+ bool exact_cov(const vector<int>&state,const Word*extra=nullptr){
+@@ -326,3 +336,3 @@
+     Cov col=z>=0?sigs[z].col:column(zw);if(cband(it->second,cnot(col)).a!=Cov{}.a)continue;
+-    if(signedmode&&!exact_cov(outside,&zw))continue;
++    if(!positive_full_cover(outside,&zw))continue;
+     if(z<0)z=intern(zw);known.insert(((uint64_t)e.code<<32)|z);
+@@ -351,2 +361,3 @@
+  if(!signedmode&&deficit==0&&rectangle_cut(state)){frame.finish("rectangle");return false;}
++ if(!positive_full_cover(state)){fullcovcuts++;frame.finish("positive_full_cover");return false;}
+  if(prune(state,remaining)){cofcuts++;frame.finish("cofactor");return false;}
+@@ -390,3 +401,3 @@
+  for(auto[a,b]:edges){adj[a][b]=adj[b][a]=true;target=bor(target,band(inwords[a],inwords[b]));positives.push_back((1<<a)|(1<<b));}
+- for(int r=0;r<1024;r++)if(!bit(target,r)){bool maximal=true;for(int i=0;i<10;i++)if(!(r>>i&1)&&!bit(target,r|(1<<i)))maximal=false;if(signedmode||maximal)negatives.push_back(r);}
++ for(int r=0;r<1024;r++)if(!bit(target,r)){allNegativeRows.push_back(r);bool maximal=true;for(int i=0;i<10;i++)if(!(r>>i&1)&&!bit(target,r|(1<<i)))maximal=false;if(signedmode||maximal)negatives.push_back(r);}
+  for(int k=0;k<(int)(positives.size()*negatives.size());k++)allcov.a[k/64]|=1ull<<(k%64);
+@@ -405,2 +416,3 @@
+  vector<int>root(inputs.begin(),inputs.end());if(keepOr)root.push_back(firstZ);root.push_back(seedNot);sort(root.begin(),root.end());prefixBank.clear();beginat=lastreport=chrono::steady_clock::now();cout<<"HEURISTIC NOT_OR witness search first="<<first<<" keep_or="<<keepOr<<" total_cap="<<cap<<" remaining="<<(cap-2)<<" root_count="<<root.size()<<" negative_seed="<<seedNot<<" prefix_shortcut=disabled"<<endl;
++ if(allNegativeRows.size()!=76||!positive_full_cover(root)||!positive_full_cover(vector<int>{targetid})||positive_full_cover(vector<int>{inputs[0]}))throw runtime_error("positive coverage control failed");
+  if(candidateSelftest){

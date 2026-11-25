@@ -1,0 +1,15 @@
+{
+  "unique_proof_state_orbits": 5601,
+  "first_representative_kinds": {
+    "expand": 1343,
+    "formula1": 2330,
+    "formula0": 1928
+  },
+  "root_orbits": {
+    "edge": 3480,
+    "nonedge": 5592
+  },
+  "shared_orbits": 3471,
+  "seconds": 1.240793681001378,
+  "scope": "Full120 graph automorphism census of exact truth pools at equal budgets. A final DAG still needs actual memo transport and acyclic dependency choices."
+}

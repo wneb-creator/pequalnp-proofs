@@ -1,0 +1,4 @@
+{"case": "oredge-consumed", "exit": 0, "wall_seconds": 120.45364185799917, "witness": null}
+{"case": "oredge-retained", "exit": 0, "wall_seconds": 33.890373493999505, "witness": null}
+{"case": "ornonedge-consumed", "exit": 0, "wall_seconds": 120.23771217300055, "witness": null}
+{"case": "ornonedge-retained", "exit": 0, "wall_seconds": 120.44735177399889, "witness": null}

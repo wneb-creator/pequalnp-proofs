@@ -1,0 +1,30 @@
+{
+  "measured": {
+    "tables": 18379,
+    "entries": 2269469,
+    "derived_entries": 2040039,
+    "candidate_operations": 167719444,
+    "row_rejections": 151531758,
+    "row_shortlist_total": 2015671,
+    "base_tables": 1046,
+    "copied_tables": 17333
+  },
+  "parent_banks_touched": 1046,
+  "largest_completed_table_entries": 2669,
+  "binary_bytes": 12193843,
+  "binary_sha256": "245e645b37a0c1be895bab17b4644ebc407f2dd2112b80db5eff149fff26f8a7",
+  "zlib_bytes": 4219988,
+  "zlib_sha256": "349d8bd1c8f086a67718819a90927061a122114da66eed7f8a3833cc5f676568",
+  "status": {
+    "command": [
+      "/tmp/oec/pequalnp-pilot-87/library_route/signed17_formula_census",
+      "/tmp/oec/pequalnp-pilot-87/library_route/signed17-joint-measurement/formula-banks.txt",
+      "/tmp/oec/pequalnp-pilot-87/library_route/signed17-joint-measurement/formula-tables-shortlist.bin",
+      "180"
+    ],
+    "exit_code": 5,
+    "wall_seconds": 180.11535463200016,
+    "scope": "finite table recomputation and storage measurement only, no Lean proof"
+  },
+  "scope": "Bounded prefix of the 4258 signed formula bank orbit representatives; all recorded tables recomputed closed, but the last touched formula1 parent may have unfinished copy children. This is measured data volume, not a lower bound on optimal certificate size or a Lean replay. Encoding contains n roots, number of derived entries, then (op,left,right) per derived entry, followed by sorted distinct rejecting row pairs encoded as (positive<<10)|negative; every integer uses unsigned LEB128. Root banks, table order and child-parent associations are supplied separately in JSON/input. No decoder or certificate checker is claimed."
+}

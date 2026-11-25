@@ -1,0 +1,39 @@
+{
+  "terminal": {
+    "manifest_entries": 23,
+    "measured": {
+      "tables": 18379,
+      "entries": 2269469,
+      "derived_entries": 2040039,
+      "candidate_operations": 167719444,
+      "row_rejections": 151531758,
+      "row_shortlist_total": 2015671,
+      "base_tables": 1046,
+      "copied_tables": 17333
+    },
+    "parent_banks_touched": 1046,
+    "completed_parents": 1045,
+    "unfinished_parent_copy_tables": 8,
+    "unfinished_parent_total_copies": 93,
+    "all_binary_bytes_consumed": 12193843,
+    "source_patch_exact": true,
+    "derived_operations_replayed": true,
+    "row_pairs_classified": true,
+    "scope": "Preservation and table provenance/encoding audit; does not independently enumerate all rejected candidate operations or prove closure in Lean."
+  },
+  "rectangle": {
+    "manifest_entries": 14,
+    "matrices": 62,
+    "banks": 4360,
+    "signals": 1275,
+    "actual_unique_profiles": 157852,
+    "original_sanity_profiles": 390,
+    "strict_signed_margins": 0,
+    "all_margin_vectors_inspected": true,
+    "full_numerical_cost_rerun": false,
+    "estimated_gray_update_work": 181285237,
+    "source_review": "Gray-code smaller-support enumeration and exact-integer polarity/max application reviewed; preserved portable replay and1860 small-subset crosschecks read, no new native build or search.",
+    "scope": "Evidence for these62 matrices and parent banks only. Formula1 copied bases are not discharged; no signed Lean theorem or whole-case exclusion."
+  },
+  "elapsed_seconds": 6.212226900999667
+}

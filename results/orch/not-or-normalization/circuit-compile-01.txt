@@ -1,0 +1,49 @@
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/NotOrCircuit.lean:80:36: error: unsolved goals
+edgePair : Bool
+C : Circuit
+pre mid post : List Gate
+g : Gate
+gatesEq : C.gates = pre ++ [g] ++ mid ++ [{ op := GateOp.not, inputs := [10 + pre.length] }] ++ post
+value : gv (execute pre inputs) g = source edgePair
+legal : MetaComplexity.FanInTwo C
+monoPre : ∀ q ∈ pre, isNot q = false
+monoG : isNot g = false
+monoMid : ∀ q ∈ mid, isNot q = false
+monoPost : ∀ q ∈ post, isNot q = false
+computes : MetaComplexity.circuitFun 10 C = edge
+h : Sig := source edgePair
+ng : Gate := { op := GateOp.not, inputs := [10 + pre.length] }
+free : List Sig := [h, neg h]
+wp : List Sig := execute pre inputs
+wa : List Sig := wp ++ [gv wp g]
+wm : List Sig := execute mid wa
+wn : List Sig := wm ++ [gv wm ng]
+nv : gv wm ng = neg h
+whole : execute C.gates inputs = execute post wn
+output : graph ∈ execute post wn
+legalPre : ∀ q ∈ pre, q.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ q.inputs.length ≤ 2
+legalMid : ∀ q ∈ mid, q.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ q.inputs.length ≤ 2
+legalPrefix : ∀ q ∈ pre ++ [g] ++ mid, q.op ∈ {GateOp.and, GateOp.or, GateOp.not} ∧ q.inputs.length ≤ 2
+monoPrefix : ∀ q ∈ pre ++ [g] ++ mid, isNot q = false
+prefixEq : execute (pre ++ [g] ++ mid) inputs = wm
+size : C.size = pre.length + mid.length + post.length + 2
+k1 : ℕ
+S1 : Finset Sig
+bound1 : k1 ≤ post.length
+run1 : Live false graph k1 S1
+sub1 : ∀ a ∈ S1, a ∈ wn
+used : neg h ∈ S1
+r : Row := 1
+values : bit 0 (neg h) = true ∧ bit r (neg h) = false
+on : bit 0 (neg h) = true
+off : bit r (neg h) = false
+prefixOrder : bankOrder 0 r (execute (pre ++ [g]) inputs)
+waOrder : bankOrder 0 r wa
+subN : ∀ w ∈ S1, w ∈ execute mid wa ++ free
+k2 : ℕ
+S2 : Finset Sig
+bound2 : k2 ≤ k1 + mid.length
+run2 : Live false graph k2 S2
+sub2 : ∀ a ∈ S2, a ∈ wa ++ free
+kept2 : neg h ∈ S2
+⊢ source edgePair = h ∨ source edgePair = neg h

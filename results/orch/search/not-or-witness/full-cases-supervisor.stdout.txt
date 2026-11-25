@@ -1,0 +1,4 @@
+{"case": "full-oredge-consumed", "exit": 0, "wall_seconds": 180.17992586800028, "witness": null}
+{"case": "oredge-retained", "skipped": "baseline heuristic tree completed without witness"}
+{"case": "full-ornonedge-consumed", "exit": 0, "wall_seconds": 180.40053988099862, "witness": null}
+{"case": "full-ornonedge-retained", "exit": 0, "wall_seconds": 180.38640317400132, "witness": null}

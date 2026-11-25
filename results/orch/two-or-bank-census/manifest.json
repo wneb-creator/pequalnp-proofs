@@ -1,0 +1,35 @@
+{
+  "scope": "Finite census and exact witness-search starting banks only.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1135,
+      "sha256": "1c18826441d1662c70ab0367c815f6717157e9d3fde0033e757832b693fb0fbc"
+    },
+    {
+      "path": "census.json",
+      "bytes": 138005,
+      "sha256": "3f17d030aa1ee7ee343e02b6f03d49e6297e6658ba328081752817e5e1dd1e79"
+    },
+    {
+      "path": "exceptional-starts.json",
+      "bytes": 13892,
+      "sha256": "97778094ad02091a7dfc6c8da6e2cf76d7af57ac83af36aed09e90f16f0a7917"
+    },
+    {
+      "path": "starts.json",
+      "bytes": 471891,
+      "sha256": "ac2227a019fdef7e75db4858b0d297dff64705ddaa192ad558a56d0fc9395594"
+    },
+    {
+      "path": "two-or-banks-census.txt",
+      "bytes": 1433,
+      "sha256": "292f8a88f74912eb4af9a05bae941d787a148a0fb2259cd40b9419b78c83b995"
+    },
+    {
+      "path": "two_or_banks.py",
+      "bytes": 4730,
+      "sha256": "a1b1156cb4d11d6ce8a1875229fb6671b142fab9a2c63ec94bd15178b6536b5d"
+    }
+  ]
+}

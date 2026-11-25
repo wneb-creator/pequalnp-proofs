@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-87/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "-t",
+    "900",
+    "--seed=0",
+    "--binary=true",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-87/proof_structure/petersen-and5-long/model.out",
+    "/tmp/oec/pequalnp-pilot-87/proof_structure/petersen-and5-long/problem.cnf",
+    "/tmp/oec/pequalnp-pilot-87/proof_structure/petersen-and5-long/proof.drat"
+  ],
+  "start_utc": "2026-11-25T17:08:23.101737+00:00",
+  "cpu_affinity": [
+    3
+  ],
+  "address_limit_bytes": 1073741824,
+  "proof_file_limit_bytes": 1073741824,
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "solver_version": "2.1.2",
+  "scope": "Bounded computational search; UNKNOWN is not exclusion. DRAT trace is preserved even if incomplete."
+}

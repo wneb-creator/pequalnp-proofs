@@ -1,0 +1,41 @@
+Independent preservation/source review: PASS, with the limited scope below.
+Reviewer: lean_setup. No search, native build, or Lean build was launched.
+
+Frozen archive: results/orch/signed17-rectangle-applicability
+Manifest SHA256: 72b694c857879b2f49cb07e3ef364b41d9072040d578b9d02a39012a30e7a43e
+All 14 manifest files, sizes, hashes, and exact file census passed. The bank bytes
+are identical to the signed17-terminal-measurement archive's decompressed banks:
+4,360 actual banks (1,966 formula0; 2,394 formula1), 1,275 truth functions.
+
+I read the complete 930-byte rectangle_dynamic.cpp and portable replay.py. The C++
+enumerates all subsets of the smaller selected support using Gray-code updates;
+for a fixed subset, choosing every positive opposite-side sum gives the exact
+maximum, including the empty rectangle. Transposition preserves the objective.
+Negative weights are handled by the positive-part sum. All actual dimensions are
+at most 21, all weights are integers, and the sum of absolute weights of each matrix
+is safely below signed64 limits. The update loop and bit shifts stay within range.
+
+The Python application computes both signal polarities, uses their maximum, and
+preserves repeated bank occurrences in the cost sum. All 62 matrices' sample rows
+were independently classified against the actual Petersen truth table, and each
+reported total equals the exact sum of its matrix weights. All 4,360 complete
+62-entry preserved integer margin vectors were inspected: none has a strict signed
+margin. The original/replay summaries and full stdout JSON agree. Float division
+is used only to rank unsuccessful margins, never in an exclusion decision.
+
+Independent bit-profile reconstruction confirms 157,852 distinct actual trace
+profiles. The historical 158,242 cache count includes 390 sanity profiles; it is
+not the actual trace count. The portable replay separately records 1,860 direct
+small-subset checks and an exact reproduction of every margin vector. I reviewed
+that implementation and its frozen successful output, but did not repeat all
+181,285,237 estimated Gray-code update operations in this preservation review.
+
+Scope: evidence that these 62 existing matrices do not give strict margins on the
+listed signed parent banks. Formula1 parent sums are diagnostic; their copied
+bases still require separate treatment. This does not establish a signed Lean
+rectangle theorem, exclude a full signed circuit case, rule out other matrices,
+or prove UNSAT. Positive-only margins are explicitly inapplicable here.
+
+Reproducer: results/orch/verification/audit-signed17-preservation.py
+Results: results/orch/verification/audit-signed17-preservation.json
+Full diagnostics: results/orch/verification/audit-signed17-preservation-output.txt

@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "d15b929dbc23af2bec3b0eb2d5cca77ea77397d3424161d9723c3cabb845d57f",
+  "files": 182,
+  "payload_bytes": 5064537,
+  "preserve_paths": 183,
+  "checked_modules": 34,
+  "draft_paths": [
+    "results/orch/mono18-rectangle-drafts/Mono18Rectangle9611.lean",
+    "results/orch/mono18-rectangle-drafts/README.md",
+    "results/orch/mono18-rectangle-drafts/children9611.json",
+    "results/orch/mono18-rectangle-drafts/generate_children9611.py"
+  ],
+  "scope": "Integrity, declared status, source/log/status binding and draft separation only; no new Lean build or duplicate substantive theorem review."
+}

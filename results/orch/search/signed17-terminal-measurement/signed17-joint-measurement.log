@@ -1,0 +1,51 @@
+{
+  "trace_sha256": {
+    "part1": "95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb",
+    "edge": "4118466ecb357314b760ea7b424053e7406917b07e327f620d3c8cb5126fa24a",
+    "nonedge": "9cfb275df0ebbc20d1c66afaed0df459a2b11a966206f10546eedab576aeaa5e"
+  },
+  "total_visited": {
+    "part1": 302957,
+    "edge": 54844,
+    "nonedge": 440569
+  },
+  "roots": {
+    "edge": {
+      "reachable": 356601,
+      "kinds": {
+        "cofactor": 203215,
+        "row": 144859,
+        "formula0": 1340,
+        "formula1": 1491,
+        "expand": 649,
+        "memo": 5047
+      }
+    },
+    "nonedge": {
+      "reachable": 739779,
+      "kinds": {
+        "cofactor": 417786,
+        "row": 306542,
+        "memo": 9859,
+        "expand": 1336,
+        "formula1": 2330,
+        "formula0": 1926
+      }
+    }
+  },
+  "joint": {
+    "reachable": 797170,
+    "kinds": {
+      "cofactor": 452022,
+      "row": 328635,
+      "expand": 1453,
+      "memo": 10700,
+      "formula0": 1966,
+      "formula1": 2394
+    }
+  },
+  "proof_states": 5813,
+  "truth_functions": 1275,
+  "exact_distinct_formula_states": 4360,
+  "scope": "Structural root-reachable computational DAG and exact truth-bank census, not a Lean replay. Formula certificates remain obligations."
+}

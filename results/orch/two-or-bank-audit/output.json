@@ -1,0 +1,322 @@
+{
+  "verdict": "PASS_EXACT_FINITE_CENSUS",
+  "census_sha256": "3f17d030aa1ee7ee343e02b6f03d49e6297e6658ba328081752817e5e1dd1e79",
+  "automorphisms": 120,
+  "pair_pair_orbits": 17,
+  "pair_pair_cases": 990,
+  "negative_patterns": 68,
+  "witness_clauses": 688,
+  "minimal_bank_records": 76,
+  "all_row_checks": 5475648,
+  "cases": [
+    {
+      "index": 0,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023,
+        4094
+      ]
+    },
+    {
+      "index": 1,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "orbit_size": 120,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 2,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "orbit_size": 30,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 3,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 4,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 5,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "orbit_size": 30,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 6,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "orbit_size": 120,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 7,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 8,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "orbit_size": 15,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 9,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023,
+        4094
+      ]
+    },
+    {
+      "index": 10,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "orbit_size": 30,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 11,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          8
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 1,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 12,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 13,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "orbit_size": 60,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 14,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "orbit_size": 30,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 15,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "orbit_size": 120,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    },
+    {
+      "index": 16,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "orbit_size": 15,
+      "overlap": 0,
+      "both_negative_minima": [
+        1023
+      ]
+    }
+  ],
+  "scope": "Exact orbit and full-row order-separation census, not a gate-bound or circuit-existence result."
+}

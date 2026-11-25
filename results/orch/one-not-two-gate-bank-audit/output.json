@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS_EXACT_TWO_GATE_PREFIX_CENSUS",
+  "hashes": {
+    "census.json": "a1a82137767470b58da6b6101c0aee7abace63e413828672343a5868dd232b3c",
+    "starts.json": "585be548c3dddd7e226c3d584fcf79011c7260b355c9c4f24fe10687c998f9e0",
+    "priority-starts.json": "81f23ca24066f02f502ece67399b7912f733b8c68388874005920bd5f0699509"
+  },
+  "automorphisms": 120,
+  "orbits_per_family": 6,
+  "configurations_per_family": 360,
+  "clause_witnesses": 120,
+  "minimal_banks": 14,
+  "full_row_checks": 1008672,
+  "all_valid_starts": 52,
+  "selected_starts": 8,
+  "scope": "Exact row-order bank census and physical prefix/root truth-table validation only. Eight starts are selected, not exhaustive; no circuit search or gate-bound claim."
+}

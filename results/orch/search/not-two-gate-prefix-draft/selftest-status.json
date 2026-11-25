@@ -1,0 +1,26 @@
+[
+  {
+    "name": "orchain",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/not_prefix_search",
+      "--prefix",
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/orchain-selftest.prefix",
+      "--candidate-selftest",
+      "--candidate",
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/orchain-selftest.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "andor",
+    "command": [
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/not_prefix_search",
+      "--prefix",
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/andor-selftest.prefix",
+      "--candidate-selftest",
+      "--candidate",
+      "/tmp/oec/pequalnp-pilot-87/library_route/not-prefix-witness/andor-selftest.json"
+    ],
+    "exit_code": 0
+  }
+]

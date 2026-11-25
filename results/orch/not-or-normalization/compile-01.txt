@@ -1,0 +1,21 @@
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/NotOrBank.lean:1:0: error: unknown module prefix 'ZeroProfilesMonotone16'
+
+No directory 'ZeroProfilesMonotone16' or file 'ZeroProfilesMonotone16.olean' in the search path entries:
+/workspace/pequalnp-proofs/lean/.lake/packages/Cli/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/proofwidgets/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/importGraph/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/plausible/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/build/lib/lean
+/tmp/oec/pequalnp-pilot-87/elan/toolchains/leanprover--lean4---v4.36.0/lib/lean
+/tmp/oec/pequalnp-pilot-87/counterexample/one-forced
+/tmp/oec/pequalnp-pilot-87/one_not
+/tmp/oec/pequalnp-pilot-87/positive-tail
+/tmp/oec/pequalnp-pilot-87/slice-nine
+/tmp/oec/pequalnp-pilot-87/finite_invariants
+/tmp/oec/pequalnp-pilot-87/proof_structure
+/tmp/oec/pequalnp-pilot-87/elan/toolchains/leanprover--lean4---v4.36.0/lib/lean

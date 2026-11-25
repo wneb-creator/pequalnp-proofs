@@ -1,0 +1,13 @@
+{
+  "classification": "INTERRUPTED_BY_COORDINATOR_NO_VERDICT",
+  "reason": "Desk withdrew L-meta-2373; parent ordered immediate stop. Solver received SIGTERM. No SAT/UNSAT or lower-bound conclusion is claimed.",
+  "raw_drat_bytes": 163692544,
+  "raw_drat_sha256": "6fe285d3a6310f789d5056f920357e15991a3f3ddeb0e2bc7fe0fb277872e4d6",
+  "gzip_stream_bytes": 65753758,
+  "gzip_stream_sha256": "9b5fadf24a8114dd0829d5dae1fd5e08685946ed8676f6daeb573c63549a04b2",
+  "ordered_gzip_parts": [
+    "proof.drat.gz.part-000"
+  ],
+  "decompression_hash_verified": true,
+  "source_review": "No independent source/encoding review completed before stop. Positive models in earlier small controls were exhaustively truth checked by their producer; UNSAT observations remain computational only."
+}

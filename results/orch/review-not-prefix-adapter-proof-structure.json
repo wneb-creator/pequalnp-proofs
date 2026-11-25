@@ -1,0 +1,7 @@
+{
+  "base_sha256": "2dd0cc912fc29070159676d7402cc5e7b4712751fab1b1d0ba6d3bd46ee826c3",
+  "source_sha256": "7ac07f4b8dd8d888b3352119feb30a71d02d4b74f84fe9f93980624f8137ba12",
+  "patch_sha256": "ad736d5c1ecde58447787985114d65d5a2db6b8945ea2eb7dcf651992dc3e80d",
+  "exact_unified_diff": true,
+  "scope": "Parser/root/budget/emitter adapter review only; original search is already reviewed witness-only code, truth-table controls separately replayed."
+}

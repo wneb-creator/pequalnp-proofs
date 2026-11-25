@@ -1,0 +1,20 @@
+Final preservation independent review: PASS
+Reviewer: finite_invariants
+Reviewed UTC: 2026-11-25T17:20:52Z
+
+The frozen validation and desk records accurately distinguish checked partial results, computational evidence, incomplete research and the absent posted theorem. No blocking correction was found. The only authorized edit is the TIMING total field, now 269.0 minutes from 2026-11-25T12:51:53Z.
+
+Named source: 8179 lines, 376638 bytes, unchanged from the successful lake build and final checker source binding. Build exit 0; checker exit 1 REJECTED (no-theorem). The verifier reached its trustLevel0 module import before the missing-theorem rejection; this is not an ACCEPTED result. No new build was run for this preservation review.
+
+Red-team format recheck: regular nonexecutable UTF8 file below 512KiB; sole import PEqualNP.Defs; no _root_, string quotes, attributes, top-level hash commands, sorry, axiom, native_decide, custom datatype/instance declarations or forbidden code commands. Array literal #[...] notation is present and permitted. All set_option lines use allowed local numeric limits. Existing exact-assembly review binds the same source hash. The research branch and archived custom structures are explicitly not presented as a valid one-file proof PR.
+
+Stop/reporting review: desk withdrawal at 17:13:34 followed by HTTP410 no-live-lease is reported without asserting a new lease or release. The public opaque reporting endpoint redaction is disclosed. Search/build/renewal work stopped; these authorized final preservation audits do not resume proof work. Validation retains the explicit no-verdict SAT termination, unlaunched draft searches, bad_alloc partial checkpoint, conditional theorem scopes, uncompleted whole-case kernel reconstruction, external PR distinction and zero-null desk count. No completed proof/refutation or agent-created PR is claimed.
+
+Evidence hashes (SHA256):
+results/orch/validation.txt 36eccc0947178bc2607c554d216d6872d2fb4103d93a9714692acde4d0d4d43b (5437 bytes)
+results/orch/desk-withdrawn.txt fa2e92ac36af33beae05fb5043073a5ecf78985b6d38c2acdba6a40892a6e65a (1128 bytes)
+lean/PEqualNP/Outside/L_meta_2373.lean c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec (376638 bytes)
+results/orch/build-twoand.txt 63bb712e0f9311f03421b81edf7e3999d43a2ce845065572023e76d8d7029aa6 (97671 bytes)
+results/orch/check-twoand.txt be5745aefe955c8549c566438a07fa362fdfead113689c1fdff4033dabae1e38 (370 bytes)
+results/orch/check-twoand-status.json 91ae576fb194ab29c4f603ce45b32df67ec7b2e60bf1e7bd017a0c555c953d78 (452 bytes)
+results/orch/verification/audit-two-and-assembly.json e046c47736906b7315fb901ea2c915f41a6ad07ba676097bba9c5952fc1d4fac (1708 bytes)

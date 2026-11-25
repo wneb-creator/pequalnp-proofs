@@ -1,0 +1,34 @@
+{
+  "free_or_and_sat.jsonl": {
+    "bytes": 965,
+    "sha256": "dbfa1c0809d2ffc8d863e77199218da8c86d8528bc4aba41abfb88f3119ab9b1"
+  },
+  "README.txt": {
+    "bytes": 2687,
+    "sha256": "c524d61120616de1e44806de448a0e8a738e0cc4a1d17ab724e231896cee2c32"
+  },
+  "free_or_and_sat.py": {
+    "bytes": 2337,
+    "sha256": "250e1524fd682950f5e7ae0c2c36fe6a80311fb97327f4be3cd097cdd379447e"
+  },
+  "tiny_graph_counts.py": {
+    "bytes": 3306,
+    "sha256": "5e5fa33bbf63084394c98ed2199fd59ad08b92883b4b09d54d616947064c0676"
+  },
+  "tiny_graph_counts.jsonl": {
+    "bytes": 1488,
+    "sha256": "bdd3c769a25649903729948bd799463c5b6dc9fd5d5e14497daebc79defdc0fe"
+  },
+  "tiny_cycle_counts.cpp": {
+    "bytes": 3505,
+    "sha256": "ca4ee6301d607eb0d2aa16d2263095a9bd231c0cf43b89f0ea7486045f8a8e3e"
+  },
+  "tiny_cycle_counts.compile.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tiny_cycle_counts.jsonl": {
+    "bytes": 459,
+    "sha256": "c7dbc8f64a6586d65c3903f8bde01e2d7cd162d728df2493e6058bc7ceaa3710"
+  }
+}

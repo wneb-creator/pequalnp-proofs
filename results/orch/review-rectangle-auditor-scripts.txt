@@ -1,0 +1,10 @@
+PASS — peer review of rectangle preservation/data auditors
+Reviewer: finite_invariants
+Preservation auditor SHA256: 89836512a814d4d015f328c773ae92b6a7819ebe51bcd879cbca8d7c0871447c
+Node9611 auditor SHA256: b43871d54a44bff76495a08ec1719a2777b84b7b0faca30227594ba9977ff22f
+
+Read both scripts in full. Preservation checks unique payload paths, exact path/hash/size coverage, self-manifest staging, unique checked module sources, source/log/status identity, original build-source basenames, successful reported exit codes, no error diagnostics, review membership in the preserved set, separate unchecked drafts and prior dependency bindings. The requested additional evidence-membership/uniqueness guards are present. Its scope deliberately remains integrity and recorded status, not a duplicate Lean proof review.
+
+The node9611 parser checks the exact immutable Lean hash, empty successful log, frozen source-fixture hash, twelve literal words/records/label lists/certifiedAt calls, all exact signal values, cap decoding, ordered duplicate occurrence lists and costs against each original child record. The auditor now explicitly requires exactly12 signal IDs, profiles and nodes, preventing zip truncation. Its source fixture resolves through the preserved weak20369-generation archive, with the same recorded SHA256, so no lost scratch path is needed. The formula-signature bridge and cached record proofs are validated separately by compilation and the independent source review. This auditor does not itself recompute every rectangle maximum, and makes no full-DAG claim.
+
+Neither script launches a build or a network operation. Writes are limited to its declared JSON review report under results/orch. Both are suitable for preserving their current frozen audits.

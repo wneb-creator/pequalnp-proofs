@@ -1,0 +1,9 @@
+# Unlaunched two-gate-source NOT witness draft
+
+This prepared adapter explores one NOT of a positive two-gate source, either h=(a OR b) OR c or h=(a AND b) OR c. The three physical prefix gates leave a positive AND/OR suffix budget of16 at total cap19. Eight selected root banks come from the independently audited finite census. Original input retention is not assumed: the exact root wire indices are loaded from each prefix file. The negative seed is excluded from positive projected supply history; only the two positive prefix gates are included. Existing pruning and full-row separation logic are unchanged.
+
+NO SEARCHES WERE LAUNCHED. After source review and control validation, the coordinator stopped new work because the desk withdrew L-meta-2373 and reported HTTP410/no live lease. The prepared two-worker supervisor, all eight prefix fixtures, source patch, build output and controls are preserved as a partial draft only. There is no proof, refutation or UNSAT claim.
+
+Both constructed positive controls contain23 physical gates and compute the Petersen target on all1,024 rows, with exactly one NOT, finalOR and sound incomparable operands. They pass cap23 and correctly fail cap19. Independent reviewers replayed every intermediate truth word, checked all eight prefix files against the census, and reviewed the exact parser/root/budget/source delta. Reviews are under results/orch: review-not-prefix-adapter-proof-structure.txt/json, review-not-prefix-controls.json, and review-one-not-two-gate-census.txt.
+
+The exact base notor_search_full.cpp and its matrix snapshot are included. Compile with g++ -O2 -std=c++17 not_prefix_search.cpp -o not_prefix_search. The supervisor retains original scratch paths, resource limits and planned CPU1/4 allocation; do not infer any executed search from its presence. The full ordinary NOT(ORab) experiments are preserved separately in the sibling not-or-witness archive.

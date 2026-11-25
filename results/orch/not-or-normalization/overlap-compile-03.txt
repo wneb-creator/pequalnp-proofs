@@ -1,0 +1,12 @@
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:12:74: error: unsolved goals
+a b : Fin 10
+r : NineSigned.Row
+missing : BitVec.getLsbD (input a) ↑(rowMap a r) = false
+⊢ (inputs[↑a]?.getD zero)[↑(rowMap a r)] = true → (inputs[↑b]?.getD zero)[↑(rowMap a r)] = true
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:17:18: warning: This simp argument is unused:
+  missing
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bin, bit]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

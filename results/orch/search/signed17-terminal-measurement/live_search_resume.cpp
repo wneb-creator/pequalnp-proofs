@@ -1,0 +1,220 @@
+#include <algorithm>
+#include <array>
+#include <chrono>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <numeric>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+using namespace std;
+static constexpr int CP_COUNT=1145;
+struct CP {int z,o,lm,ls;};
+static const CP profiles[CP_COUNT] = {{1,0,16,15},{2,0,16,15},{4,0,16,15},{8,0,16,15},{16,0,16,15},{32,0,16,15},{64,0,16,15},{128,0,16,15},{256,0,16,15},{512,0,16,15},{0,1,11,11},{0,2,11,11},{0,4,11,11},{0,8,11,11},{0,16,11,11},{0,32,11,11},{0,64,11,11},{0,128,11,11},{0,256,11,11},{0,512,11,11},{3,0,13,13},{5,0,12,12},{9,0,12,12},{17,0,13,13},{33,0,13,13},{65,0,12,12},{129,0,12,12},{257,0,12,12},{513,0,12,12},{6,0,13,13},{10,0,12,12},{18,0,12,12},{34,0,12,12},{66,0,13,13},{130,0,12,12},{258,0,12,12},{514,0,12,12},{12,0,13,13},{20,0,12,12},{36,0,12,12},{68,0,12,12},{132,0,13,13},{260,0,12,12},{516,0,12,12},{24,0,13,13},{40,0,12,12},{72,0,12,12},{136,0,12,12},{264,0,13,13},{520,0,12,12},{48,0,12,12},{80,0,12,12},{144,0,12,12},{272,0,12,12},{528,0,13,13},{96,0,12,12},{160,0,13,13},{288,0,13,13},{544,0,12,12},{192,0,12,12},{320,0,13,13},{576,0,13,13},{384,0,12,12},{640,0,13,13},{768,0,12,12},{1,2,10,10},{2,1,10,10},{1,4,8,8},{4,1,8,8},{0,5,7,7},{1,8,8,8},{8,1,8,8},{0,9,7,7},{1,16,10,10},{16,1,10,10},{1,32,10,10},{32,1,10,10},{1,64,8,8},{64,1,8,8},{0,65,7,7},{1,128,8,8},{128,1,8,8},{0,129,7,7},{1,256,8,8},{256,1,8,8},{0,257,7,7},{1,512,8,8},{512,1,8,8},{0,513,7,7},{2,4,10,10},{4,2,10,10},{2,8,8,8},{8,2,8,8},{0,10,7,7},{2,16,8,8},{16,2,8,8},{0,18,7,7},{2,32,8,8},{32,2,8,8},{0,34,7,7},{2,64,10,10},{64,2,10,10},{2,128,8,8},{128,2,8,8},{0,130,7,7},{2,256,8,8},{256,2,8,8},{0,258,7,7},{2,512,8,8},{512,2,8,8},{0,514,7,7},{4,8,10,10},{8,4,10,10},{4,16,8,8},{16,4,8,8},{0,20,7,7},{4,32,8,8},{32,4,8,8},{0,36,7,7},{4,64,8,8},{64,4,8,8},{0,68,7,7},{4,128,10,10},{128,4,10,10},{4,256,8,8},{256,4,8,8},{0,260,7,7},{4,512,8,8},{512,4,8,8},{0,516,7,7},{8,16,10,10},{16,8,10,10},{8,32,8,8},{32,8,8,8},{0,40,7,7},{8,64,8,8},{64,8,8,8},{0,72,7,7},{8,128,8,8},{128,8,8,8},{0,136,7,7},{8,256,10,10},{256,8,10,10},{8,512,8,8},{512,8,8,8},{0,520,7,7},{16,32,8,8},{32,16,8,8},{0,48,7,7},{16,64,8,8},{64,16,8,8},{0,80,7,7},{16,128,8,8},{128,16,8,8},{0,144,7,7},{16,256,8,8},{256,16,8,8},{0,272,7,7},{16,512,10,10},{512,16,10,10},{32,64,8,8},{64,32,8,8},{0,96,7,7},{32,128,10,10},{128,32,10,10},{32,256,10,10},{256,32,10,10},{32,512,8,8},{512,32,8,8},{0,544,7,7},{64,128,8,8},{128,64,8,8},{0,192,7,7},{64,256,10,10},{256,64,10,10},{64,512,10,10},{512,64,10,10},{128,256,8,8},{256,128,8,8},{0,384,7,7},{128,512,10,10},{512,128,10,10},{256,512,8,8},{512,256,8,8},{0,768,7,7},{7,0,11,11},{11,0,9,9},{19,0,11,11},{35,0,11,11},{67,0,11,11},{131,0,9,9},{259,0,9,9},{515,0,9,9},{13,0,9,9},{21,0,9,9},{37,0,9,9},{69,0,8,8},{133,0,9,9},{261,0,8,8},{517,0,8,8},{25,0,11,11},{41,0,9,9},{73,0,8,8},{137,0,8,8},{265,0,9,9},{521,0,8,8},{49,0,11,11},{81,0,9,9},{145,0,9,9},{273,0,9,9},{529,0,11,11},{97,0,9,9},{161,0,11,11},{289,0,11,11},{545,0,9,9},{193,0,8,8},{321,0,9,9},{577,0,9,9},{385,0,8,8},{641,0,9,9},{769,0,8,8},{14,0,11,11},{22,0,9,9},{38,0,9,9},{70,0,11,11},{134,0,11,11},{262,0,9,9},{518,0,9,9},{26,0,9,9},{42,0,8,8},{74,0,9,9},{138,0,8,8},{266,0,9,9},{522,0,8,8},{50,0,8,8},{82,0,9,9},{146,0,8,8},{274,0,8,8},{530,0,9,9},{98,0,9,9},{162,0,9,9},{290,0,9,9},{546,0,8,8},{194,0,9,9},{322,0,11,11},{578,0,11,11},{386,0,8,8},{642,0,9,9},{770,0,8,8},{28,0,11,11},{44,0,9,9},{76,0,9,9},{140,0,11,11},{268,0,11,11},{524,0,9,9},{52,0,8,8},{84,0,8,8},{148,0,9,9},{276,0,8,8},{532,0,9,9},{100,0,8,8},{164,0,11,11},{292,0,9,9},{548,0,8,8},{196,0,9,9},{324,0,9,9},{580,0,9,9},{388,0,9,9},{644,0,11,11},{772,0,8,8},{56,0,9,9},{88,0,9,9},{152,0,9,9},{280,0,11,11},{536,0,11,11},{104,0,8,8},{168,0,9,9},{296,0,11,11},{552,0,8,8},{200,0,8,8},{328,0,11,11},{584,0,9,9},{392,0,9,9},{648,0,9,9},{776,0,9,9},{112,0,8,8},{176,0,9,9},{304,0,9,9},{560,0,9,9},{208,0,8,8},{336,0,9,9},{592,0,11,11},{400,0,8,8},{656,0,11,11},{784,0,9,9},{224,0,9,9},{352,0,11,11},{608,0,9,9},{416,0,11,11},{672,0,11,11},{800,0,9,9},{448,0,9,9},{704,0,11,11},{832,0,11,11},{896,0,9,9},{6,1,7,7},{5,2,9,9},{3,4,7,7},{2,5,6,6},{10,1,7,7},{9,2,7,7},{3,8,7,7},{2,9,6,6},{1,10,6,6},{18,1,9,9},{17,2,7,7},{3,16,7,7},{1,18,6,6},{34,1,9,9},{33,2,7,7},{3,32,7,7},{1,34,6,6},{66,1,7,7},{65,2,9,9},{3,64,7,7},{2,65,6,6},{130,1,7,7},{129,2,7,7},{3,128,7,7},{2,129,6,6},{1,130,6,6},{258,1,7,7},{257,2,7,7},{3,256,7,7},{2,257,6,6},{1,258,6,6},{514,1,7,7},{513,2,7,7},{3,512,7,7},{2,513,6,6},{1,514,6,6},{12,1,7,7},{9,4,7,7},{8,5,6,6},{5,8,7,7},{4,9,6,6},{20,1,7,7},{17,4,7,7},{16,5,6,6},{5,16,7,7},{1,20,6,6},{36,1,7,7},{33,4,7,7},{32,5,6,6},{5,32,7,7},{1,36,6,6},{68,1,6,6},{65,4,6,6},{64,5,4,4},{5,64,6,6},{4,65,4,4},{1,68,4,4},{0,69,6,6},{132,1,7,7},{129,4,7,7},{128,5,6,6},{5,128,7,7},{4,129,6,6},{260,1,5,5},{257,4,5,5},{256,5,6,6},{5,256,5,5},{4,257,6,6},{1,260,6,6},{0,261,5,5},{516,1,5,5},{513,4,5,5},{512,5,6,6},{5,512,5,5},{4,513,6,6},{1,516,6,6},{0,517,5,5},{24,1,7,7},{17,8,7,7},{16,9,6,6},{9,16,9,9},{40,1,7,7},{33,8,7,7},{32,9,6,6},{9,32,7,7},{1,40,6,6},{72,1,5,5},{65,8,5,5},{64,9,6,6},{9,64,5,5},{8,65,6,6},{1,72,6,6},{0,73,5,5},{136,1,5,5},{129,8,5,5},{128,9,6,6},{9,128,5,5},{8,129,6,6},{1,136,6,6},{0,137,5,5},{264,1,7,7},{257,8,7,7},{256,9,6,6},{9,256,7,7},{8,257,6,6},{520,1,6,6},{513,8,6,6},{512,9,4,4},{9,512,6,6},{8,513,4,4},{1,520,4,4},{0,521,6,6},{48,1,9,9},{33,16,7,7},{17,32,7,7},{1,48,6,6},{80,1,7,7},{65,16,7,7},{17,64,7,7},{16,65,6,6},{1,80,6,6},{144,1,7,7},{129,16,7,7},{17,128,7,7},{16,129,6,6},{1,144,6,6},{272,1,7,7},{257,16,7,7},{17,256,7,7},{16,257,6,6},{1,272,6,6},{528,1,7,7},{513,16,9,9},{17,512,7,7},{16,513,6,6},{96,1,7,7},{65,32,7,7},{33,64,7,7},{32,65,6,6},{1,96,6,6},{160,1,7,7},{129,32,9,9},{33,128,7,7},{32,129,6,6},{288,1,7,7},{257,32,9,9},{33,256,7,7},{32,257,6,6},{544,1,7,7},{513,32,7,7},{33,512,7,7},{32,513,6,6},{1,544,6,6},{192,1,5,5},{129,64,5,5},{128,65,6,6},{65,128,5,5},{64,129,6,6},{1,192,6,6},{0,193,5,5},{320,1,7,7},{257,64,7,7},{256,65,6,6},{65,256,7,7},{64,257,6,6},{576,1,7,7},{513,64,7,7},{512,65,6,6},{65,512,7,7},{64,513,6,6},{384,1,6,6},{257,128,6,6},{256,129,4,4},{129,256,6,6},{128,257,4,4},{1,384,4,4},{0,385,6,6},{640,1,7,7},{513,128,7,7},{512,129,6,6},{129,512,7,7},{128,513,6,6},{768,1,5,5},{513,256,5,5},{512,257,6,6},{257,512,5,5},{256,513,6,6},{1,768,6,6},{0,769,5,5},{12,2,7,7},{10,4,9,9},{6,8,7,7},{4,10,6,6},{20,2,7,7},{18,4,7,7},{6,16,7,7},{4,18,6,6},{2,20,6,6},{36,2,7,7},{34,4,7,7},{6,32,7,7},{4,34,6,6},{2,36,6,6},{68,2,9,9},{66,4,7,7},{6,64,7,7},{2,68,6,6},{132,2,7,7},{130,4,9,9},{6,128,7,7},{4,130,6,6},{260,2,7,7},{258,4,7,7},{6,256,7,7},{4,258,6,6},{2,260,6,6},{516,2,7,7},{514,4,7,7},{6,512,7,7},{4,514,6,6},{2,516,6,6},{24,2,7,7},{18,8,7,7},{16,10,6,6},{10,16,7,7},{8,18,6,6},{40,2,5,5},{34,8,5,5},{32,10,6,6},{10,32,5,5},{8,34,6,6},{2,40,6,6},{0,42,5,5},{72,2,7,7},{66,8,7,7},{64,10,6,6},{10,64,7,7},{2,72,6,6},{136,2,6,6},{130,8,6,6},{128,10,4,4},{10,128,6,6},{8,130,4,4},{2,136,4,4},{0,138,6,6},{264,2,7,7},{258,8,7,7},{256,10,6,6},{10,256,7,7},{8,258,6,6},{520,2,5,5},{514,8,5,5},{512,10,6,6},{10,512,5,5},{8,514,6,6},{2,520,6,6},{0,522,5,5},{48,2,6,6},{34,16,6,6},{32,18,4,4},{18,32,6,6},{16,34,4,4},{2,48,4,4},{0,50,6,6},{80,2,7,7},{66,16,7,7},{64,18,6,6},{18,64,7,7},{2,80,6,6},{144,2,5,5},{130,16,5,5},{128,18,6,6},{18,128,5,5},{16,130,6,6},{2,144,6,6},{0,146,5,5},{272,2,5,5},{258,16,5,5},{256,18,6,6},{18,256,5,5},{16,258,6,6},{2,272,6,6},{0,274,5,5},{528,2,7,7},{514,16,7,7},{512,18,6,6},{18,512,7,7},{16,514,6,6},{96,2,7,7},{66,32,7,7},{64,34,6,6},{34,64,7,7},{2,96,6,6},{160,2,7,7},{130,32,7,7},{128,34,6,6},{34,128,7,7},{32,130,6,6},{288,2,7,7},{258,32,7,7},{256,34,6,6},{34,256,7,7},{32,258,6,6},{544,2,5,5},{514,32,5,5},{512,34,6,6},{34,512,5,5},{32,514,6,6},{2,544,6,6},{0,546,5,5},{192,2,7,7},{130,64,7,7},{66,128,7,7},{64,130,6,6},{2,192,6,6},{320,2,7,7},{258,64,9,9},{66,256,7,7},{64,258,6,6},{576,2,7,7},{514,64,9,9},{66,512,7,7},{64,514,6,6},{384,2,5,5},{258,128,5,5},{256,130,6,6},{130,256,5,5},{128,258,6,6},{2,384,6,6},{0,386,5,5},{640,2,7,7},{514,128,7,7},{512,130,6,6},{130,512,7,7},{128,514,6,6},{768,2,6,6},{514,256,6,6},{512,258,4,4},{258,512,6,6},{256,514,4,4},{2,768,4,4},{0,770,6,6},{24,4,7,7},{20,8,9,9},{12,16,7,7},{8,20,6,6},{40,4,7,7},{36,8,7,7},{12,32,7,7},{8,36,6,6},{4,40,6,6},{72,4,7,7},{68,8,7,7},{12,64,7,7},{8,68,6,6},{4,72,6,6},{136,4,9,9},{132,8,7,7},{12,128,7,7},{4,136,6,6},{264,4,7,7},{260,8,9,9},{12,256,7,7},{8,260,6,6},{520,4,7,7},{516,8,7,7},{12,512,7,7},{8,516,6,6},{4,520,6,6},{48,4,5,5},{36,16,5,5},{32,20,6,6},{20,32,5,5},{16,36,6,6},{4,48,6,6},{0,52,5,5},{80,4,5,5},{68,16,5,5},{64,20,6,6},{20,64,5,5},{16,68,6,6},{4,80,6,6},{0,84,5,5},{144,4,7,7},{132,16,7,7},{128,20,6,6},{20,128,7,7},{4,144,6,6},{272,4,6,6},{260,16,6,6},{256,20,4,4},{20,256,6,6},{16,260,4,4},{4,272,4,4},{0,276,6,6},{528,4,7,7},{516,16,7,7},{512,20,6,6},{20,512,7,7},{16,516,6,6},{96,4,5,5},{68,32,5,5},{64,36,6,6},{36,64,5,5},{32,68,6,6},{4,96,6,6},{0,100,5,5},{160,4,7,7},{132,32,7,7},{128,36,6,6},{36,128,9,9},{288,4,7,7},{260,32,7,7},{256,36,6,6},{36,256,7,7},{32,260,6,6},{544,4,6,6},{516,32,6,6},{512,36,4,4},{36,512,6,6},{32,516,4,4},{4,544,4,4},{0,548,6,6},{192,4,7,7},{132,64,7,7},{128,68,6,6},{68,128,7,7},{4,192,6,6},{320,4,7,7},{260,64,7,7},{256,68,6,6},{68,256,7,7},{64,260,6,6},{576,4,7,7},{516,64,7,7},{512,68,6,6},{68,512,7,7},{64,516,6,6},{384,4,7,7},{260,128,7,7},{132,256,7,7},{128,260,6,6},{4,384,6,6},{640,4,7,7},{516,128,9,9},{132,512,7,7},{128,516,6,6},{768,4,5,5},{516,256,5,5},{512,260,6,6},{260,512,5,5},{256,516,6,6},{4,768,6,6},{0,772,5,5},{48,8,7,7},{40,16,7,7},{24,32,7,7},{16,40,6,6},{8,48,6,6},{80,8,7,7},{72,16,7,7},{24,64,7,7},{16,72,6,6},{8,80,6,6},{144,8,7,7},{136,16,7,7},{24,128,7,7},{16,136,6,6},{8,144,6,6},{272,8,9,9},{264,16,7,7},{24,256,7,7},{8,272,6,6},{528,8,7,7},{520,16,9,9},{24,512,7,7},{16,520,6,6},{96,8,6,6},{72,32,6,6},{64,40,4,4},{40,64,6,6},{32,72,4,4},{8,96,4,4},{0,104,6,6},{160,8,7,7},{136,32,7,7},{128,40,6,6},{40,128,7,7},{32,136,6,6},{288,8,7,7},{264,32,7,7},{256,40,6,6},{40,256,9,9},{544,8,5,5},{520,32,5,5},{512,40,6,6},{40,512,5,5},{32,520,6,6},{8,544,6,6},{0,552,5,5},{192,8,5,5},{136,64,5,5},{128,72,6,6},{72,128,5,5},{64,136,6,6},{8,192,6,6},{0,200,5,5},{320,8,7,7},{264,64,7,7},{256,72,6,6},{72,256,9,9},{576,8,7,7},{520,64,7,7},{512,72,6,6},{72,512,7,7},{64,520,6,6},{384,8,7,7},{264,128,7,7},{256,136,6,6},{136,256,7,7},{8,384,6,6},{640,8,7,7},{520,128,7,7},{512,136,6,6},{136,512,7,7},{128,520,6,6},{768,8,7,7},{520,256,7,7},{264,512,7,7},{256,520,6,6},{8,768,6,6},{96,16,5,5},{80,32,5,5},{64,48,6,6},{48,64,5,5},{32,80,6,6},{16,96,6,6},{0,112,5,5},{160,16,7,7},{144,32,7,7},{128,48,6,6},{48,128,7,7},{32,144,6,6},{288,16,7,7},{272,32,7,7},{256,48,6,6},{48,256,7,7},{32,272,6,6},{544,16,7,7},{528,32,7,7},{512,48,6,6},{48,512,7,7},{16,544,6,6},{192,16,6,6},{144,64,6,6},{128,80,4,4},{80,128,6,6},{64,144,4,4},{16,192,4,4},{0,208,6,6},{320,16,7,7},{272,64,7,7},{256,80,6,6},{80,256,7,7},{64,272,6,6},{576,16,7,7},{528,64,7,7},{512,80,6,6},{80,512,9,9},{384,16,5,5},{272,128,5,5},{256,144,6,6},{144,256,5,5},{128,272,6,6},{16,384,6,6},{0,400,5,5},{640,16,7,7},{528,128,7,7},{512,144,6,6},{144,512,9,9},{768,16,7,7},{528,256,7,7},{512,272,6,6},{272,512,7,7},{16,768,6,6},{192,32,7,7},{160,64,7,7},{128,96,6,6},{96,128,7,7},{32,192,6,6},{320,32,7,7},{288,64,7,7},{256,96,6,6},{96,256,9,9},{576,32,7,7},{544,64,7,7},{512,96,6,6},{96,512,7,7},{64,544,6,6},{384,32,9,9},{288,128,7,7},{160,256,7,7},{32,384,6,6},{640,32,7,7},{544,128,9,9},{160,512,7,7},{128,544,6,6},{768,32,7,7},{544,256,7,7},{288,512,7,7},{256,544,6,6},{32,768,6,6},{384,64,7,7},{320,128,7,7},{256,192,6,6},{192,256,7,7},{64,384,6,6},{640,64,7,7},{576,128,7,7},{512,192,6,6},{192,512,9,9},{768,64,9,9},{576,256,7,7},{320,512,7,7},{64,768,6,6},{768,128,7,7},{640,256,7,7},{512,384,6,6},{384,512,7,7},{128,768,6,6},{15,0,8,8},{23,0,8,8},{39,0,8,8},{71,0,8,8},{135,0,8,8},{263,0,7,7},{519,0,7,7},{27,0,8,8},{43,0,7,7},{75,0,7,7},{139,0,5,5},{267,0,6,6},{523,0,5,5},{51,0,8,8},{83,0,8,8},{147,0,7,7},{275,0,7,7},{531,0,8,8},{99,0,8,8},{163,0,8,8},{291,0,8,8},{547,0,7,7},{195,0,7,7},{323,0,8,8},{579,0,8,8},{387,0,5,5},{643,0,6,6},{771,0,5,5},{29,0,8,8},{45,0,6,6},{77,0,5,5},{141,0,7,7},{269,0,7,7},{525,0,5,5},{53,0,7,7},{85,0,5,5},{149,0,6,6},{277,0,5,5},{533,0,7,7},{101,0,5,5},{165,0,8,8},{293,0,7,7},{549,0,5,5},{197,0,5,5},{325,0,5,5},{581,0,5,5},{389,0,5,5},{645,0,7,7},{773,0,5,5},{57,0,8,8},{89,0,7,7},{153,0,7,7},{281,0,8,8},{537,0,8,8},{105,0,5,5},{169,0,7,7},{297,0,8,8},{553,0,5,5},{201,0,5,5},{329,0,7,7},{585,0,5,5},{393,0,5,5},{649,0,5,5},{777,0,5,5},{113,0,7,7},{177,0,8,8},{305,0,8,8},{561,0,8,8},{209,0,5,5},{337,0,6,6},{593,0,8,8},{401,0,5,5},{657,0,8,8},{785,0,7,7},{225,0,7,7},{353,0,8,8},{609,0,6,6},{417,0,8,8},{673,0,8,8},{801,0,7,7},{449,0,5,5},{705,0,7,7},{833,0,7,7},{897,0,5,5},{30,0,8,8},{46,0,7,7},{78,0,8,8},{142,0,8,8},{270,0,8,8},{526,0,7,7},{54,0,5,5},{86,0,7,7},{150,0,7,7},{278,0,5,5},{534,0,6,6},{102,0,7,7},{166,0,8,8},{294,0,6,6},{550,0,5,5},{198,0,8,8},{326,0,8,8},{582,0,8,8},{390,0,7,7},{646,0,8,8},{774,0,5,5},{58,0,5,5},{90,0,6,6},{154,0,5,5},{282,0,7,7},{538,0,7,7},{106,0,5,5},{170,0,5,5},{298,0,7,7},{554,0,5,5},{202,0,5,5},{330,0,8,8},{586,0,7,7},{394,0,5,5},{650,0,5,5},{778,0,5,5},{114,0,5,5},{178,0,5,5},{306,0,5,5},{562,0,5,5},{210,0,5,5},{338,0,7,7},{594,0,8,8},{402,0,5,5},{658,0,7,7},{786,0,5,5},{226,0,6,6},{354,0,8,8},{610,0,7,7},{418,0,7,7},{674,0,7,7},{802,0,5,5},{450,0,7,7},{706,0,8,8},{834,0,8,8},{898,0,5,5},{60,0,7,7},{92,0,7,7},{156,0,8,8},{284,0,8,8},{540,0,8,8},{108,0,5,5},{172,0,8,8},{300,0,8,8},{556,0,5,5},{204,0,7,7},{332,0,8,8},{588,0,6,6},{396,0,8,8},{652,0,8,8},{780,0,7,7},{116,0,5,5},{180,0,7,7},{308,0,5,5},{564,0,5,5},{212,0,5,5},{340,0,5,5},{596,0,7,7},{404,0,5,5},{660,0,8,8},{788,0,5,5},{228,0,7,7},{356,0,7,7},{612,0,5,5},{420,0,8,8},{676,0,8,8},{804,0,5,5},{452,0,6,6},{708,0,8,8},{836,0,7,7},{900,0,7,7},{120,0,5,5},{184,0,6,6},{312,0,8,8},{568,0,7,7},{216,0,5,5},{344,0,8,8},{600,0,8,8},{408,0,7,7},{664,0,8,8},{792,0,8,8},{232,0,5,5},{360,0,8,8},{616,0,5,5},{424,0,8,8},{680,0,7,7},{808,0,7,7},{456,0,7,7},{712,0,7,7},{840,0,8,8},{904,0,6,6},{240,0,5,5},{368,0,7,7},{624,0,7,7},{432,0,7,7},{688,0,8,8},{816,0,6,6},{464,0,5,5},{720,0,8,8},{848,0,8,8},{912,0,7,7},{480,0,8,8},{736,0,8,8},{864,0,8,8},{928,0,8,8},{960,0,8,8}};
+static const int properbounds[2][1024] = {{0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,4,0,1,0,2,0,1,1,4,1,2,1,4,2,4,4,7,0,1,0,2,0,1,1,4,0,1,0,2,1,3,2,5,0,2,0,3,0,2,1,5,1,4,1,5,2,5,4,8,0,0,1,2,0,0,2,3,0,0,1,2,1,1,4,5,0,1,1,4,0,1,2,5,1,2,3,5,2,4,5,8,0,1,1,4,0,1,2,5,0,1,1,4,1,3,4,7,0,2,1,5,0,2,2,6,1,4,3,7,2,5,5,9,0,0,0,1,1,1,2,4,0,0,0,1,2,2,3,5,0,1,0,2,1,3,2,5,1,2,1,4,4,5,5,8,1,2,1,4,2,4,4,7,1,2,1,4,4,5,5,8,1,4,1,5,2,5,4,8,3,5,3,7,5,8,7,11,0,0,1,2,1,1,4,5,0,0,1,2,2,2,5,6,0,1,1,4,1,3,4,7,1,2,3,5,4,5,7,9,1,2,3,5,2,4,5,8,1,2,3,5,4,5,7,9,1,4,3,7,2,5,5,9,3,5,5,8,5,8,8,12,0,0,0,1,0,0,1,2,1,1,1,3,2,2,4,5,0,1,0,2,0,1,1,4,2,4,2,5,3,5,5,8,1,2,1,4,1,2,3,5,2,4,2,5,4,5,5,8,1,4,1,5,1,4,3,7,4,7,4,8,5,8,7,11,1,1,2,4,1,1,4,5,2,2,4,5,4,4,7,8,1,3,2,5,1,3,4,7,4,5,5,8,5,7,8,11,2,4,4,7,2,4,5,8,3,5,5,8,5,7,8,11,2,5,4,8,2,5,5,9,5,8,7,11,6,9,9,13,0,0,0,1,1,1,2,4,1,1,1,3,4,4,5,7,0,1,0,2,1,3,2,5,2,4,2,5,5,7,6,9,2,3,2,5,4,5,5,8,4,5,4,7,7,8,8,11,2,5,2,6,4,7,5,9,5,8,5,9,8,11,9,13,1,1,2,4,3,3,5,7,2,2,4,5,5,5,8,9,1,3,2,5,3,5,5,8,4,5,5,8,7,8,9,12,4,5,5,8,5,7,8,11,5,6,7,9,8,9,11,13,4,7,5,9,5,8,8,12,7,9,8,12,9,12,12,16,0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,4,1,2,1,4,1,2,3,5,2,3,2,5,4,5,5,8,0,1,0,2,0,1,1,4,0,1,0,2,1,3,2,5,1,4,1,5,1,4,3,7,2,5,2,6,4,7,5,9,1,1,2,4,1,1,4,5,1,1,2,4,3,3,5,7,2,4,4,7,2,4,5,8,4,5,5,8,5,7,8,11,1,3,2,5,1,3,4,7,1,3,2,5,3,5,5,8,2,5,4,8,2,5,5,9,4,7,5,9,5,8,8,12,1,1,1,3,2,2,4,5,1,1,1,3,4,4,5,7,2,4,2,5,4,5,5,8,4,5,4,7,7,8,8,11,2,4,2,5,3,5,5,8,2,4,2,5,5,7,6,9,4,7,4,8,5,8,7,11,5,8,5,9,8,11,9,13,2,2,4,5,4,4,7,8,2,2,4,5,5,5,8,9,3,5,5,8,5,7,8,11,5,6,7,9,8,9,11,13,4,5,5,8,5,7,8,11,4,5,5,8,7,8,9,12,5,8,7,11,6,9,9,13,7,9,8,12,9,12,12,16,0,0,0,1,0,0,1,2,1,1,1,3,2,2,4,5,1,2,1,4,1,2,3,5,4,5,4,7,5,6,7,9,1,2,1,4,1,2,3,5,2,4,2,5,4,5,5,8,3,5,3,7,3,5,5,8,5,8,5,9,7,9,8,12,2,2,3,5,2,2,5,6,4,4,5,7,5,5,8,9,4,5,5,8,4,5,7,9,7,8,8,11,8,9,11,13,4,5,5,8,4,5,7,9,5,7,6,9,7,8,9,12,5,8,7,11,5,8,8,12,8,11,9,13,9,12,12,16,1,1,1,3,2,2,4,5,3,3,3,5,5,5,7,8,2,4,2,5,4,5,5,8,5,7,5,8,8,9,9,12,4,5,4,7,5,6,7,9,5,7,5,8,8,9,9,12,5,8,5,9,7,9,8,12,8,11,8,12,11,13,12,16,4,4,5,7,5,5,8,9,5,5,7,8,8,8,11,12,5,7,6,9,7,8,9,12,8,9,9,12,11,12,13,16,7,8,8,11,8,9,11,13,8,9,9,12,11,12,13,16,8,11,9,13,9,12,12,16,11,13,12,16,13,16,16,9},{0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,4,0,1,0,2,0,1,1,4,1,2,1,4,2,4,4,7,0,1,0,2,0,1,1,4,0,1,0,2,1,3,2,5,0,2,0,3,0,2,1,5,1,4,1,5,2,5,4,8,0,0,1,2,0,0,2,3,0,0,1,2,1,1,4,5,0,1,1,4,0,1,2,5,1,2,3,5,2,4,5,8,0,1,1,4,0,1,2,5,0,1,1,4,1,3,4,7,0,2,1,5,0,2,2,6,1,4,3,7,2,5,5,9,0,0,0,1,1,1,2,4,0,0,0,1,2,2,3,5,0,1,0,2,1,3,2,5,1,2,1,4,4,5,5,8,1,2,1,4,2,4,4,7,1,2,1,4,4,5,5,8,1,4,1,5,2,5,4,8,3,5,3,7,5,8,7,11,0,0,1,2,1,1,4,5,0,0,1,2,2,2,5,6,0,1,1,4,1,3,4,7,1,2,3,5,4,5,7,9,1,2,3,5,2,4,5,8,1,2,3,5,4,5,7,9,1,4,3,7,2,5,5,9,3,5,5,8,5,8,8,12,0,0,0,1,0,0,1,2,1,1,1,3,2,2,4,5,0,1,0,2,0,1,1,4,2,4,2,5,3,5,5,8,1,2,1,4,1,2,3,5,2,4,2,5,4,5,5,8,1,4,1,5,1,4,3,7,4,7,4,8,5,8,7,11,1,1,2,4,1,1,4,5,2,2,4,5,4,4,7,8,1,3,2,5,1,3,4,7,4,5,5,8,5,7,8,11,2,4,4,7,2,4,5,8,3,5,5,8,5,7,8,11,2,5,4,8,2,5,5,9,5,8,7,11,6,9,9,13,0,0,0,1,1,1,2,4,1,1,1,3,4,4,5,7,0,1,0,2,1,3,2,5,2,4,2,5,5,7,6,9,2,3,2,5,4,5,5,8,4,5,4,7,7,8,8,11,2,5,2,6,4,7,5,9,5,8,5,9,8,11,9,13,1,1,2,4,3,3,5,7,2,2,4,5,5,5,8,9,1,3,2,5,3,5,5,8,4,5,5,8,7,8,9,12,4,5,5,8,5,7,8,11,5,6,7,9,8,9,11,13,4,7,5,9,5,8,8,12,7,9,8,12,9,12,12,15,0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,4,1,2,1,4,1,2,3,5,2,3,2,5,4,5,5,8,0,1,0,2,0,1,1,4,0,1,0,2,1,3,2,5,1,4,1,5,1,4,3,7,2,5,2,6,4,7,5,9,1,1,2,4,1,1,4,5,1,1,2,4,3,3,5,7,2,4,4,7,2,4,5,8,4,5,5,8,5,7,8,11,1,3,2,5,1,3,4,7,1,3,2,5,3,5,5,8,2,5,4,8,2,5,5,9,4,7,5,9,5,8,8,12,1,1,1,3,2,2,4,5,1,1,1,3,4,4,5,7,2,4,2,5,4,5,5,8,4,5,4,7,7,8,8,11,2,4,2,5,3,5,5,8,2,4,2,5,5,7,6,9,4,7,4,8,5,8,7,11,5,8,5,9,8,11,9,13,2,2,4,5,4,4,7,8,2,2,4,5,5,5,8,9,3,5,5,8,5,7,8,11,5,6,7,9,8,9,11,13,4,5,5,8,5,7,8,11,4,5,5,8,7,8,9,12,5,8,7,11,6,9,9,13,7,9,8,12,9,12,12,15,0,0,0,1,0,0,1,2,1,1,1,3,2,2,4,5,1,2,1,4,1,2,3,5,4,5,4,7,5,6,7,9,1,2,1,4,1,2,3,5,2,4,2,5,4,5,5,8,3,5,3,7,3,5,5,8,5,8,5,9,7,9,8,12,2,2,3,5,2,2,5,6,4,4,5,7,5,5,8,9,4,5,5,8,4,5,7,9,7,8,8,11,8,9,11,13,4,5,5,8,4,5,7,9,5,7,6,9,7,8,9,12,5,8,7,11,5,8,8,12,8,11,9,13,9,12,12,15,1,1,1,3,2,2,4,5,3,3,3,5,5,5,7,8,2,4,2,5,4,5,5,8,5,7,5,8,8,9,9,12,4,5,4,7,5,6,7,9,5,7,5,8,8,9,9,12,5,8,5,9,7,9,8,12,8,11,8,12,11,13,12,15,4,4,5,7,5,5,8,9,5,5,7,8,8,8,11,12,5,7,6,9,7,8,9,12,8,9,9,12,11,12,13,15,7,8,8,11,8,9,11,13,8,9,9,12,11,12,13,15,8,11,9,13,9,12,12,15,11,13,12,15,13,15,15,9}};
+
+struct Word{array<uint64_t,16>a{};bool operator==(const Word&b)const{return a==b.a;}};
+struct WH{size_t operator()(Word const&w)const{uint64_t h=0x9e3779b97f4a7c15ull;for(auto a:w.a){h^=a+0x9e3779b97f4a7c15ull+(h<<6)+(h>>2);}return h;}};
+Word band(Word a,const Word&b){for(int i=0;i<16;i++)a.a[i]&=b.a[i];return a;}
+Word bor(Word a,const Word&b){for(int i=0;i<16;i++)a.a[i]|=b.a[i];return a;}
+Word bxor(Word a,const Word&b){for(int i=0;i<16;i++)a.a[i]^=b.a[i];return a;}
+Word bnot(Word a){for(auto&v:a.a)v=~v;return a;}
+Word sr(Word a,int n){Word b;int d=n/64,r=n%64;for(int i=0;i<16-d;i++){b.a[i]=a.a[i+d]>>r;if(r&&i+d+1<16)b.a[i]|=a.a[i+d+1]<<(64-r);}return b;}
+Word sl(Word a,int n){Word b;int d=n/64,r=n%64;for(int i=d;i<16;i++){b.a[i]=a.a[i-d]<<r;if(r&&i>d)b.a[i]|=a.a[i-d-1]>>(64-r);}return b;}
+bool lessw(const Word&a,const Word&b){for(int i=15;i>=0;i--)if(a.a[i]!=b.a[i])return a.a[i]<b.a[i];return false;}
+bool bit(const Word&w,int i){return (w.a[i/64]>>(i%64))&1;}
+void setbit(Word&w,int i){w.a[i/64]|=1ull<<(i%64);}
+Word op(int o,Word a,const Word&b){if(o==0)return band(a,b);if(o==1)return bor(a,b);if(o==2)return band(a,bnot(b));return band(bnot(a),b);}
+struct Cov{array<uint64_t,18>a{};};
+Cov cbor(Cov a,const Cov&b){for(int i=0;i<18;i++)a.a[i]|=b.a[i];return a;}
+Cov cband(Cov a,const Cov&b){for(int i=0;i<18;i++)a.a[i]&=b.a[i];return a;}
+Cov cnot(Cov a){for(auto&v:a.a)v=~v;return a;}
+struct Sig{Word val;Cov col;unique_ptr<array<int,305>>clip;Sig(Word w):val(w){}};
+uint64_t lazyclipcount=0;
+vector<Sig> sigs;unordered_map<Word,int,WH> sigids;vector<int> positives,negatives;bool signedmode=false;Cov allcov;int targetid;array<int,10>inputs;array<Word,CP_COUNT>masks;array<vector<int>,CP_COUNT> freekeys;array<int,CP_COUNT>lowerbounds;
+Cov column(const Word&w){Cov c;array<uint64_t,2> neg{};int nn=negatives.size();for(int i=0;i<nn;i++)if(bit(w,negatives[i]))neg[i/64]|=1ull<<(i%64);for(int p=0;p<(int)positives.size();p++){bool v=bit(w,positives[p]);if(!signedmode&&!v)continue;int offset=p*nn;for(int b=0;b<(nn+63)/64;b++){uint64_t row=neg[b];if(v)row=~row;if(b==(nn-1)/64&&nn%64)row&=(1ull<<(nn%64))-1;int j=(offset+64*b)/64,r=(offset+64*b)%64;c.a[j]|=row<<r;if(r&&j+1<18)c.a[j+1]|=row>>(64-r);}}return c;}
+int intern(const Word&w){auto it=sigids.find(w);if(it!=sigids.end())return it->second;int id=sigs.size();sigs.emplace_back(w);sigs.back().col=column(w);sigids.emplace(w,id);return id;}
+unordered_map<Word,int,WH>clipids;
+int clipintern(const Word&w){auto it=clipids.find(w);if(it!=clipids.end())return it->second;int id=clipids.size();clipids.emplace(w,id);return id;}
+unordered_map<uint64_t,int>clipcache;
+int clipped(int id,int v){if(v<305){if(!sigs[id].clip){sigs[id].clip=make_unique<array<int,305>>();sigs[id].clip->fill(-1);lazyclipcount++;}if((*sigs[id].clip)[v]>=0)return (*sigs[id].clip)[v];}uint64_t ck=((uint64_t)id<<12)|v;auto it=clipcache.find(ck);if(it!=clipcache.end())return it->second;Word w=band(sigs[id].val,masks[v]);if(signedmode){Word c=bxor(w,masks[v]);if(lessw(c,w))w=c;}int out=clipintern(w);if(v<305)(*sigs[id].clip)[v]=out;else clipcache[ck]=out;return out;}
+vector<array<int,10>>autos;vector<vector<pair<int,int>>>swaps;vector<int>group;array<array<bool,10>,10>adj{};array<array<Word,10>,10>smasks;
+void genauto(vector<int>&p,int used){int j=p.size();if(j==10){array<int,10>a;copy(p.begin(),p.end(),a.begin());autos.push_back(a);return;}for(int a=0;a<10;a++)if(!(used>>a&1)){bool ok=true;for(int k=0;k<j;k++)if(adj[j][k]!=adj[a][p[k]])ok=false;if(ok){p.push_back(a);genauto(p,used|(1<<a));p.pop_back();}}}
+unordered_map<uint64_t,int>movecache;
+int moved(int id,int g){uint64_t key=((uint64_t)id<<8)|g;auto it=movecache.find(key);if(it!=movecache.end())return it->second;Word w=sigs[id].val;for(auto [i,j]:swaps[g]){int d=(1<<j)-(1<<i);Word t=band(bxor(sr(w,d),w),smasks[i][j]);w=bxor(bxor(w,t),sl(t,d));}int out=intern(w);movecache[key]=out;return out;}
+vector<int> canonical(const vector<int>&s){
+ vector<int>bestinputs;vector<int>chosen;bool first=true;
+ for(int g:group){vector<int>in;for(int a:s)if(a>=1&&a<=10)in.push_back(moved(a,g));sort(in.begin(),in.end());if(first||in<bestinputs){first=false;bestinputs=move(in);chosen.clear();chosen.push_back(g);}else if(in==bestinputs)chosen.push_back(g);}
+ vector<int>best;first=true;for(int g:chosen){vector<int>other;for(int a:s)if(a<1||a>10)other.push_back(moved(a,g));sort(other.begin(),other.end());vector<int>r=bestinputs;r.insert(r.end(),other.begin(),other.end());if(first||r<best){first=false;best=move(r);}}
+ return best;
+}
+struct State{vector<int>s;uint8_t rem;bool operator==(State const&b)const{return rem==b.rem&&s==b.s;}};
+struct SH{size_t operator()(State const&k)const{uint64_t h=k.rem;for(int x:k.s)h=(h^(x+0x9e3779b9))*0x100000001b3ull;return h;}};
+unordered_map<State,int64_t,SH>seen;
+struct Step{int op,a,b,c;};vector<Step>hist;
+uint64_t nodes=0,steps=0,cardcuts=0,covcuts=0,cofcuts=0,formcuts=0,form1cuts=0,fullcovcuts=0,limitnodes=1000000;int cap=19;double seconds=60;chrono::steady_clock::time_point beginat,lastreport;array<uint64_t,25>bydepth{};
+void report(){double t=chrono::duration<double>(chrono::steady_clock::now()-beginat).count();cout<<"nodes="<<nodes<<" steps="<<steps<<" card="<<cardcuts<<" cover="<<covcuts<<" cof="<<cofcuts<<" formula="<<formcuts<<" share1="<<form1cuts<<" fullcover="<<fullcovcuts<<" lazyclips="<<lazyclipcount<<" clips="<<clipids.size()<<" signals="<<sigs.size()<<" seconds="<<t<<" levels=";for(int i=0;i<25;i++)if(bydepth[i])cout<<i<<":"<<bydepth[i]<<",";cout<<endl;}
+ofstream tracefile;unordered_set<int>traceSignals;vector<uint64_t>traceStack;array<int,5>incoming{-1,-1,-1,-1,3};uint64_t traceSerial=0;int lastRowPositive=-1,lastRowNegative=-1,lastCofProfile=-1,lastCofMass=0;unsigned lastCofUsed=0;
+struct TraceScope{
+ uint64_t id;bool ended=false;
+ TraceScope(const vector<int>&state,int remaining):id(++traceSerial){
+  if(tracefile){tracefile<<"{\"event\":\"node\",\"id\":"<<id<<",\"parent\":"<<(traceStack.empty()?0:traceStack.back())<<",\"remaining\":"<<remaining<<",\"step\":[";for(int i=0;i<5;i++){if(i)tracefile<<",";tracefile<<incoming[i];if(i>0&&i<4&&incoming[i]>=0)traceSignals.insert(incoming[i]);}tracefile<<"],\"state\":[";for(int i=0;i<(int)state.size();i++){if(i)tracefile<<",";tracefile<<state[i];traceSignals.insert(state[i]);}tracefile<<"]}\n";}
+  traceStack.push_back(id);
+ }
+ void finish(const char*kind,int a=-1,int b=-1,int c=-1){if(tracefile)tracefile<<"{\"event\":\"done\",\"id\":"<<id<<",\"kind\":\""<<kind<<"\",\"a\":"<<a<<",\"b\":"<<b<<",\"c\":"<<c<<"}\n";ended=true;}
+ ~TraceScope(){if(!ended)finish("open");traceStack.pop_back();}
+};
+void dump_trace_signals(){if(!tracefile)return;traceSignals.insert(targetid);vector<int>ids(traceSignals.begin(),traceSignals.end());sort(ids.begin(),ids.end());const char*digits="0123456789abcdef";for(int id:ids){tracefile<<"{\"event\":\"signal\",\"id\":"<<id<<",\"hex\":\"0x";for(int j=15;j>=0;j--)for(int k=15;k>=0;k--)tracefile<<digits[(sigs[id].val.a[j]>>(k*4))&15];tracefile<<"\"}\n";}tracefile.flush();}
+
+bool freeat(int x,int v){auto&f=freekeys[v];return find(f.begin(),f.end(),x)!=f.end();}
+unordered_map<int,vector<uint16_t>> constantProfiles;
+const vector<uint16_t>& constant_profiles(int x){
+ auto it=constantProfiles.find(x);if(it!=constantProfiles.end())return it->second;
+ vector<uint16_t>out;for(int v=0;v<CP_COUNT;v++){Word w=band(sigs[x].val,masks[v]);if(w==Word{}||w==masks[v])out.push_back(v);}
+ return constantProfiles.emplace(x,move(out)).first->second;
+}
+bool prune(const vector<int>&state,int remaining){
+ array<uint8_t,CP_COUNT>masses{};for(int x:state)for(int v:constant_profiles(x))masses[v]++;
+ for(int v=0;v<CP_COUNT;v++){
+  int lower=lowerbounds[v],mass=masses[v];vector<int>needed;
+  if(lower+mass<=remaining)continue;
+  for(int x:state){int k=clipped(x,v);if(!freeat(k,v))needed.push_back(k);}
+  vector<int>outs,as,bs;
+  for(auto s:hist){int ck=clipped(s.c,v);if(freeat(ck,v)||find(outs.begin(),outs.end(),ck)!=outs.end())continue;int ak=clipped(s.a,v),bk=clipped(s.b,v);if((!freeat(ak,v)&&find(outs.begin(),outs.end(),ak)==outs.end())||(!freeat(bk,v)&&find(outs.begin(),outs.end(),bk)==outs.end()))continue;outs.push_back(ck);as.push_back(ak);bs.push_back(bk);}
+  int used=0;bool missing=false;for(size_t i=0;i<needed.size();i++){int x=needed[i];if(freeat(x,v))continue;auto it=find(outs.begin(),outs.end(),x);if(it==outs.end()){missing=true;break;}int j=it-outs.begin();if(used>>j&1)continue;used|=1<<j;needed.push_back(as[j]);needed.push_back(bs[j]);}
+  if(!missing&&lower+mass>remaining+__builtin_popcount((unsigned)used)){lastCofProfile=v;lastCofMass=mass;lastCofUsed=used;return true;}
+ }
+ return false;
+}
+
+bool exact_cov(const vector<int>&state,const Word*extra=nullptr){
+ for(int n:negatives){
+  Word candidates=sigs[targetid].val;
+  for(int x:state){const Word&w=sigs[x].val;bool val=bit(w,n);bool any=false;for(int i=0;i<16;i++){candidates.a[i]&=val?w.a[i]:~w.a[i];any|=candidates.a[i]!=0;}if(!any)break;}
+  if(extra){bool val=bit(*extra,n);for(int i=0;i<16;i++)candidates.a[i]&=val?extra->a[i]:~extra->a[i];}
+  for(int j=0;j<16;j++)if(candidates.a[j]){lastRowPositive=64*j+__builtin_ctzll(candidates.a[j]);lastRowNegative=n;return false;}
+ }
+ return true;
+}
+
+struct Limit{};
+struct FormEntry{int mask,sig,left,right,op;};
+int formula_check(const vector<int>&state,vector<FormEntry>*closed=nullptr,bool save=true){
+ using Entry=FormEntry;int n=state.size();if(n>20)return -1;int full=(1<<n)-1;
+ vector<Entry>es;unordered_set<uint64_t>known;unordered_map<int,Cov>required;
+ for(int i=0;i<n;i++){es.push_back({1<<i,state[i],-1,-1,0});known.insert(((uint64_t)(1<<i)<<32)|state[i]);}
+ uint64_t tries=0;
+ for(int j=0;j<(int)es.size();j++){
+  if(es.size()>3000)return -1;
+  Entry ej=es[j];
+  for(int i=0;i<j;i++){
+   Entry ei=es[i];if(ei.mask&ej.mask)continue;int mask=ei.mask|ej.mask;
+   auto r=required.find(mask);if(r==required.end()){Cov cov;for(int t=0;t<n;t++)if(!(mask>>t&1))cov=cbor(cov,sigs[state[t]].col);r=required.emplace(mask,cband(allcov,cnot(cov))).first;}
+   Cov need=r->second;
+   for(int o=0;o<(signedmode?4:2);o++){
+    if(++tries>1000000)return -1;if((tries&4095)==0&&chrono::duration<double>(chrono::steady_clock::now()-beginat).count()>seconds)throw Limit{};
+    Word zw=op(o,sigs[ei.sig].val,sigs[ej.sig].val);auto zi=sigids.find(zw);int z=zi==sigids.end()?-1:zi->second;
+    if(z==0||z==ei.sig||z==ej.sig)continue;if(z>=0&&known.count(((uint64_t)mask<<32)|z))continue;
+    Cov col=z>=0?sigs[z].col:column(zw);if(cband(need,cnot(col)).a!=Cov{}.a)continue;
+    if(signedmode){vector<int>outside;for(int t=0;t<n;t++)if(!(mask>>t&1))outside.push_back(state[t]);if(!exact_cov(outside,&zw))continue;}
+    if(z<0)z=intern(zw);known.insert(((uint64_t)mask<<32)|z);int idx=es.size();es.push_back({mask,z,i,j,o});
+    if(mask==full&&z==targetid){
+     auto replay=[&](auto&&self,int t)->void{auto e=es[t];if(e.left<0)return;self(self,e.left);self(self,e.right);hist.push_back({e.op,es[e.left].sig,es[e.right].sig,e.sig});};if(save)replay(replay,idx);return 1;
+    }
+   }
+  }
+ }
+ if(closed)*closed=move(es);return 0;
+}
+int one_share_check(const vector<int>&state){
+ vector<FormEntry>closed;int ans=formula_check(state,&closed);if(ans)return ans;
+ for(int i=0;i<(int)closed.size();i++){
+  auto e=closed[i];vector<int>leaves;for(int j=0;j<(int)state.size();j++)if(!(e.mask>>j&1))leaves.push_back(state[j]);leaves.push_back(e.sig);leaves.push_back(e.sig);
+  int f=formula_check(leaves,nullptr,false);if(f<0)return -1;if(f==1){
+   auto replay=[&](auto&&self,int t)->void{auto x=closed[t];if(x.left<0)return;self(self,x.left);self(self,x.right);hist.push_back({x.op,closed[x.left].sig,closed[x.right].sig,x.sig});};replay(replay,i);return formula_check(leaves,nullptr,true);
+  }
+ }
+ return 0;
+}
+bool dfs(vector<int> const&state,int remaining){
+ if(nodes>=limitnodes||sigs.size()>2000000||clipids.size()>2000000)throw Limit{};
+ uint64_t mem=sigs.capacity()*sizeof(Sig)+lazyclipcount*1220+sigids.size()*180+clipids.size()*180+movecache.size()*40+clipcache.size()*40+seen.size()*150+constantProfiles.size()*700;if(mem>850000000)throw Limit{};
+ if((nodes&1023)==0){auto now=chrono::steady_clock::now();if(chrono::duration<double>(now-beginat).count()>seconds)throw Limit{};if(chrono::duration<double>(now-lastreport).count()>10){report();lastreport=now;}}
+ TraceScope trace(state,remaining);nodes++;bydepth[cap-remaining]++;
+ if(signedmode&&!exact_cov(state)){fullcovcuts++;trace.finish("row",lastRowPositive,lastRowNegative);return false;}
+ if(prune(state,remaining)){cofcuts++;trace.finish("cofactor",lastCofProfile,lastCofUsed,lastCofMass);return false;}
+ if(find(state.begin(),state.end(),targetid)!=state.end()){trace.finish("found");return true;}
+ State key{canonical(state),(uint8_t)remaining};auto memo=seen.find(key);if(memo!=seen.end()){trace.finish("memo",memo->second);return false;}seen.emplace(move(key),trace.id);
+ if((int)state.size()==remaining+1){int f=formula_check(state);if(f==0){formcuts++;trace.finish("formula0");return false;}if(f==1){trace.finish("found");return true;}}
+ if((int)state.size()==remaining){int f=one_share_check(state);if(f==0){form1cuts++;trace.finish("formula1");return false;}if(f==1){trace.finish("found");return true;}}
+ if(remaining==0){trace.finish("empty");return false;}
+ int n=state.size();vector<Cov>cols;for(int x:state)cols.push_back(sigs[x].col);Cov uni,one,two;
+ for(auto z:cols){Cov u=cbor(uni,z),o=cbor(cband(z,cnot(uni)),cband(one,cnot(z))),t=cbor(cband(z,one),cband(two,cnot(z)));uni=u;one=o;two=t;}
+ for(int i=0;i<n;i++)for(int j=i+1;j<n;j++){
+  int a=state[i],b=state[j];Cov ca=cols[i],cb=cols[j];
+  for(int o=0;o<(signedmode?4:2);o++){
+   Word zw=op(o,sigs[a].val,sigs[b].val);auto zi=sigids.find(zw);int z=zi==sigids.end()?-1:zi->second;if(z==0||(z>=0&&find(state.begin(),state.end(),z)!=state.end()))continue;Cov cz=z>=0?sigs[z].col:column(zw);
+   for(int keep=0;keep<4;keep++){
+    bool ka=keep&1,kb=keep&2;steps++;
+    if(n+1-(!ka)-(!kb)>remaining){cardcuts++;continue;}
+    Cov lost;if(!ka||!kb)lost=cband(one,ka?cb:kb?ca:cbor(ca,cb));if(!ka&&!kb)lost=cbor(lost,cband(two,cband(ca,cb)));
+    if(cbor(cband(uni,cnot(lost)),cz).a!=allcov.a){covcuts++;continue;}
+    if(z<0)z=intern(zw);vector<int>child;child.reserve(n+1);for(int k=0;k<n;k++)if((k!=i||ka)&&(k!=j||kb))child.push_back(state[k]);child.push_back(z);sort(child.begin(),child.end());hist.push_back({o,a,b,z});incoming={o,a,b,z,keep};if(dfs(child,remaining-1)){trace.finish("found");return true;}hist.pop_back();
+   }
+  }
+ }
+ trace.finish("expand");return false;
+}
+bool positive_control(){
+ const vector<array<int,3>> gs={{1,1,4},{1,10,5},{0,0,11},{1,2,6},{0,1,13},{1,2,4},{1,15,8},{0,3,16},{1,2,5},{1,18,9},{0,7,19},{1,6,5},{0,8,21},{1,4,6},{0,9,23},{1,12,14},{1,25,17},{1,26,20},{1,27,22},{1,28,24}};
+ vector<int>wire(inputs.begin(),inputs.end()),last(30,-1);
+ for(int i=0;i<20;i++){auto g=gs[i];last[g[1]]=last[g[2]]=i;wire.push_back(intern(op(g[0],sigs[wire[g[1]]].val,sigs[wire[g[2]]].val)));}
+ last[29]=20;if(wire[29]!=targetid){cerr<<"bad20target"<<endl;return false;}hist.clear();int terminals=0;
+ for(int t=0;t<=20;t++){
+  vector<int>state;for(int w=0;w<10+t;w++)if(last[w]>=t)state.push_back(wire[w]);sort(state.begin(),state.end());
+  if(prune(state,20-t)||(signedmode&&!exact_cov(state))){cerr<<"false20cut at "<<t<<endl;return false;}
+  int deficit=20-t-(int)state.size()+1;size_t nh=hist.size();
+  if(t<20&&deficit==0){if(formula_check(state)!=1){cerr<<"missed20formula at "<<t<<endl;return false;}terminals++;}
+  if(t<20&&deficit==1){if(one_share_check(state)!=1){cerr<<"missed20share at "<<t<<endl;return false;}terminals++;}
+  hist.resize(nh);if(t<20){auto g=gs[t];hist.push_back({g[0],wire[g[1]],wire[g[2]],wire[10+t]});}
+ }
+ cout<<"PASS positive20 all21states mode="<<signedmode<<" terminalchecks="<<terminals<<endl;return true;
+}
+
+bool load_resume(const string&path){
+ ifstream in(path);string sourcehash;size_t count=0;if(!(in>>sourcehash>>count)||sourcehash.size()!=64||sourcehash.find_first_not_of("0123456789abcdef")!=string::npos||count>1000000)return false;
+ if(tracefile)tracefile<<"{\"event\":\"resume_header\",\"sha256\":\""<<sourcehash<<"\",\"count\":"<<count<<"}\n";
+ size_t accepted=0;
+ for(size_t i=1;i<=count;i++){
+  uint64_t source;int remaining,n;if(!(in>>source>>remaining>>n)||remaining<0||remaining>cap||n<1||n>20)return false;vector<int>state;
+  for(int j=0;j<n;j++){string token;if(!(in>>token)||token.size()!=258||token.substr(0,2)!="0x"||token.find_first_not_of("0123456789abcdef",2)!=string::npos)return false;Word w;for(int k=0;k<16;k++)w.a[15-k]=stoull(token.substr(2+16*k,16),nullptr,16);if(w==Word{}||bit(w,0))return false;state.push_back(intern(w));}
+  sort(state.begin(),state.end());if(adjacent_find(state.begin(),state.end())!=state.end())return false;
+  State key{canonical(state),(uint8_t)remaining};if(seen.emplace(move(key),-(int64_t)i).second)accepted++;
+  if(tracefile){tracefile<<"{\"event\":\"resume\",\"id\":"<<-(int64_t)i<<",\"source_node\":"<<source<<",\"remaining\":"<<remaining<<",\"state\":[";for(int j=0;j<n;j++){if(j)tracefile<<",";tracefile<<state[j];traceSignals.insert(state[j]);}tracefile<<"]}\n";}
+ }
+ string extra;if(in>>extra)return false;cout<<"resumed completed states="<<count<<" distinct="<<accepted<<" source_sha256="<<sourcehash<<endl;return true;
+}
+
+int main(int argc,char**argv){bool selftest=false;string tracepath,resumePath;string first="andedge";for(int i=1;i<argc;i++){string a=argv[i];if(a=="--resume")resumePath=argv[++i];else if(a=="--trace")tracepath=argv[++i];else if(a=="--selftest")selftest=true;else if(a=="--signed")signedmode=true;else if(a=="--cap")cap=stoi(argv[++i]);else if(a=="--seconds")seconds=stod(argv[++i]);else if(a=="--nodes")limitnodes=stoull(argv[++i]);else if(a=="--first")first=argv[++i];}
+ vector<pair<int,int>>edges={{0,1},{1,2},{2,3},{3,4},{4,0},{0,5},{1,6},{2,7},{3,8},{4,9},{5,7},{7,9},{9,6},{6,8},{8,5}};Word target;array<Word,10>inwords;
+ for(int r=0;r<1024;r++)for(int i=0;i<10;i++)if(r>>i&1)setbit(inwords[i],r);
+ for(auto[a,b]:edges){adj[a][b]=adj[b][a]=true;target=bor(target,band(inwords[a],inwords[b]));positives.push_back((1<<a)|(1<<b));}
+ for(int r=0;r<1024;r++)if(!bit(target,r)){bool maximal=true;for(int i=0;i<10;i++)if(!(r>>i&1)&&!bit(target,r|(1<<i)))maximal=false;if(signedmode||maximal)negatives.push_back(r);}
+ for(int k=0;k<(int)(positives.size()*negatives.size());k++)allcov.a[k/64]|=1ull<<(k%64);
+ intern(Word{});for(int i=0;i<10;i++){inputs[i]=intern(inwords[i]);masks[i]=bnot(inwords[i]);}targetid=intern(target);
+ for(int v=0;v<CP_COUNT;v++){
+  masks[v]=bnot(Word{});auto p=profiles[v];for(int j=0;j<10;j++){if(p.z>>j&1)masks[v]=band(masks[v],bnot(inwords[j]));if(p.o>>j&1)masks[v]=band(masks[v],inwords[j]);}lowerbounds[v]=signedmode?p.ls:p.lm;
+ }
+ clipintern(Word{});for(int v=0;v<CP_COUNT;v++){freekeys[v].push_back(0);if(!signedmode)freekeys[v].push_back(clipintern(masks[v]));for(int x:inputs)freekeys[v].push_back(clipped(x,v));}
+ vector<int>p;genauto(p,0);for(auto p:autos){array<int,10>q; iota(q.begin(),q.end(),0);vector<pair<int,int>>ss;for(int i=0;i<10;i++)if(q[i]!=p[i]){int j=find(q.begin(),q.end(),p[i])-q.begin();swap(q[i],q[j]);ss.push_back({i,j});}swaps.push_back(ss);}
+ for(int i=0;i<10;i++)for(int j=i+1;j<10;j++)smasks[i][j]=band(inwords[i],bnot(inwords[j]));
+ int o=first.rfind("and",0)==0?0:first.rfind("or",0)==0?1:2;int a=inputs[0],b=inputs[first.find("nonedge")!=string::npos?2:1];int z=intern(op(o,sigs[a].val,sigs[b].val));for(int g=0;g<(int)autos.size();g++){if(moved(targetid,g)!=targetid){cerr<<"bad symmetry"<<endl;return 2;}group.push_back(g);}
+ vector<int>root(inputs.begin(),inputs.end());root.push_back(z);sort(root.begin(),root.end());hist.push_back({o,a,b,z});beginat=lastreport=chrono::steady_clock::now();cout<<"mode="<<signedmode<<" first="<<first<<" group="<<group.size()<<endl;
+ if(selftest)return positive_control()?0:2;
+ if(!tracepath.empty()){tracefile.open(tracepath);if(!tracefile){cerr<<"cannot open trace"<<endl;return 2;}tracefile<<"{\"event\":\"header\",\"mode\":"<<signedmode<<",\"cap\":"<<cap<<",\"first\":\""<<first<<"\",\"target\":"<<targetid<<"}\n";}incoming={o,a,b,z,3};
+ if(!resumePath.empty()&&!load_resume(resumePath)){cerr<<"invalid completed-state resume file"<<endl;return 3;}beginat=lastreport=chrono::steady_clock::now();
+ try{bool found=dfs(root,cap-1);cout<<"finished found="<<found<<endl;if(found)for(auto s:hist)cout<<"gate "<<s.op<<" "<<s.a<<" "<<s.b<<" "<<s.c<<endl;}catch(Limit const&){cout<<"limit reached"<<endl;}report();dump_trace_signals();
+}

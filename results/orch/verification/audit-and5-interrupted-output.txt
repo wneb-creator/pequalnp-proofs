@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS: archive integrity and interrupted status only",
+  "manifest_sha256": "44fbe42e2f6e994090de09234dfbf8d035855e74eb0443b43af87db568784a33",
+  "manifest_entries": 17,
+  "raw_drat_bytes": 163692544,
+  "raw_drat_sha256": "6fe285d3a6310f789d5056f920357e15991a3f3ddeb0e2bc7fe0fb277872e4d6",
+  "gzip_full_crc_and_hash": true,
+  "solver_returncode": -15,
+  "wall_seconds": 366.8857416539995,
+  "peak_rss_kib": 78512,
+  "solver_status_lines": [],
+  "cnf_variables": 41085,
+  "cnf_clauses": 175408,
+  "scope": "No independent semantic encoding review, solver rerun, DRAT verification, SAT/UNSAT verdict or Lean result. Partial DRAT is incomplete."
+}

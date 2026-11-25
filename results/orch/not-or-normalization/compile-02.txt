@@ -1,0 +1,2 @@
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/NotOrBank.lean:40:17: error(lean.unknownIdentifier): Unknown identifier `neg_bit`
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/NotOrBank.lean:40:6: error: `simp` made no progress

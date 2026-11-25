@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS_EMITTER_CONTROLS_AND_EIGHT_PREFIXES",
+  "source_sha256": "7ac07f4b8dd8d888b3352119feb30a71d02d4b74f84fe9f93980624f8137ba12",
+  "controls": [
+    {
+      "file": "orchain-selftest.json",
+      "sha256": "1eb4da280d53eb44525e840af774149ac12f0fb5ddc8ab64e0ad3cf9ee6e7202",
+      "gates": 23,
+      "exact_rows": 1024,
+      "final_or_sound_incomparable": true
+    },
+    {
+      "file": "andor-selftest.json",
+      "sha256": "2bb77eb95bd9492ed0b4b5afd93173d45264d079c510c6e0487dc6f8706741d4",
+      "gates": 23,
+      "exact_rows": 1024,
+      "final_or_sound_incomparable": true
+    }
+  ],
+  "exact_prefixes": 8,
+  "scope": "Candidate evaluator/emitter and supplied starts only; no search completeness or bounded witness claim."
+}

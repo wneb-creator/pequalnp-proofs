@@ -1,0 +1,11 @@
+completed=100 signals=58526 seconds=16.881
+completed=200 signals=69342 seconds=20.4372
+completed=300 signals=94481 seconds=30.7833
+completed=400 signals=102809 seconds=34.1395
+completed=500 signals=111016 seconds=38.1103
+completed=600 signals=121604 seconds=43.185
+completed=700 signals=261574 seconds=97.574
+completed=800 signals=385499 seconds=145.85
+completed=900 signals=415944 seconds=157.873
+completed=1000 signals=450184 seconds=170.326
+ordinary census time limit after 1045 banks

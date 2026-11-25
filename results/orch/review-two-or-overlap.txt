@@ -1,0 +1,6 @@
+PASS — independent immutable source review
+Source: results/orch/lemmas/TwoOrOverlap.lean
+SHA256: b30da01f069d693690a99a385831181f9cbd197ec8cc8a719593bc78b9a15129
+Author reports EXIT0; complete preserved compiler output is empty.
+
+Read all64 lines and the imported positive-to-signed Live bridge. Restricting the shared input a to zero turns a OR b and a OR c into their respective input literals; their complements are free signed literals. This holds even if indices coincide and needs no unproved distinctness premise. Every available bank root is therefore supplied at zero paid cost by the signed9 input basis. The separately assumed retained original input a contributes a constant root. The already checked signed15 projected-tail bound gives16≤k, contradicting k≤15. The proof preserves the actual S subset and explicitly requires retained a; it makes no claim about the exceptional banks omitting a or disjoint OR pairs. No new trust declarations or forbidden format constructs found. No new build was launched for this review.

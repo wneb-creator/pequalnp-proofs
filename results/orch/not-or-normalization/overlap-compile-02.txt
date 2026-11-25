@@ -1,0 +1,27 @@
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:12:74: error: unsolved goals
+a b : Fin 10
+r : NineSigned.Row
+missing : BitVec.getLsbD (input a) ↑(rowMap a r) = false
+⊢ BitVec.getLsbD (if 1 = 0 then input a &&& input b else input a ||| input b) ↑(rowMap a r) =
+    BitVec.getLsbD (input b) ↑(rowMap a r)
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:17:35: warning: This simp argument is unused:
+  BitVec.getLsbD_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, ↓reduceIte, bit, missing, Bool.false_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:17:54: warning: This simp argument is unused:
+  missing
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, ↓reduceIte, bit, BitVec.getLsbD_or, Bool.false_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-87/counterexample/not-or/TwoOrOverlap.lean:17:63: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, ↓reduceIte, bit, BitVec.getLsbD_or, missing]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

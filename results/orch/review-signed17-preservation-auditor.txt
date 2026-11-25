@@ -1,0 +1,7 @@
+PASS: independent source review by library_route.
+Source: verification/audit-signed17-preservation.py
+SHA256: b669cbae6bf910df0e509bb86f376b0690a265e018adae48b6d8ea5d96237bb4
+
+The script is a local read-only artifact audit apart from its own JSON report. It binds both frozen manifests, verifies exact file census and all compression hashes, checks the instrumentation patch, decodes every LEB128 table field with canonical encodings, reconstructs all derived truth functions and disjoint support masks, and relates each copied bank to the correct parent entry. The completion-boundary check correctly distinguishes 1045 fully processed parents from the final partially processed formula1 parent. Candidate-operation and rejection counts are reported measurements; the script does not pretend to re-enumerate closure. Row pairs are checked for target labels, while their applicability to every omitted candidate remains explicitly out of scope.
+
+The rectangle portion checks exact preserved bank identity, sample labels, matrix totals, both-polarity support sets and every recorded margin vector. Its report explicitly states that numerical rectangle maxima are not rerun. The implementation and stated preservation/provenance scope agree. No network calls, credential access, solver invocation or new search occur. No blocking findings.

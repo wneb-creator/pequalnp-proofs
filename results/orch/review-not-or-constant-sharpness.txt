@@ -1,0 +1,5 @@
+PASS — independent mathematical and finite identity review
+Source SHA256: a64368adadb7f085174b8ef1e0435cfb91164b977ba47ed707d500fb6d2928b5
+Output SHA256: 227f12a30bd8f18114f82b319471c56af7e451794691e9a8665ef68a3f8369d0
+
+Read the full local32-row script, reran it and reproduced the complete output. Independently checked the six-gate expression on every assignment: z AND (h OR (x AND y)), with h=a OR b and c=NOT h. The actual active-set trace consumes two distinct operands at each step, adds a fresh proper output, and ends at the target alone. Setting a=b=0 makes four original roots constant (a,b,h,c) while the three independent remaining variables still require and attain two binary gates. Thus6=2+4 is exact. The target is monotone and has no true singleton, but has a cubic minterm and admits a shorter circuit. The report correctly limits the obstruction to constant-mass-only strengthening; it makes no Petersen-specific or gate-minimal claim. No Lean certification is claimed.

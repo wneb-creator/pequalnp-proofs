@@ -1,0 +1,277 @@
+{
+  "scope": "Preservation addendum after checked node9611; signed rectangle measurements are research evidence only. No complete posted proof or signed18 theorem.",
+  "base_manifest": "results/orch/mono18-rectangle-preservation.json",
+  "base_manifest_sha256": "d15b929dbc23af2bec3b0eb2d5cca77ea77397d3424161d9723c3cabb845d57f",
+  "checked_new_modules": [
+    {
+      "source": "results/orch/lemmas/Mono18Rectangle9611.lean",
+      "sha256": "37ce07d4023fd4a9af6fe6203265fb28c8673e34dccd991be907df0833f539b2",
+      "bytes": 6393,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18Rectangle9611.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-9611/children9611-attempt3.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle9611.txt",
+        "results/orch/review-mono18-rectangle9611.json"
+      ]
+    }
+  ],
+  "total_checked_rectangle_modules_with_base": 35,
+  "research_archive": "results/orch/signed17-rectangle-applicability",
+  "research_scope": "Exact signed polarity failure measurement; no new Lean theorem, no full DAG exclusion. Independent archive audit owned by lean_setup.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/Mono18Rectangle9611.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18Rectangle9611.lean",
+      "bytes": 6393,
+      "sha256": "37ce07d4023fd4a9af6fe6203265fb28c8673e34dccd991be907df0833f539b2"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/README.md",
+      "bytes": 1173,
+      "sha256": "3079022347b0c3ff7696ee3fef03b68052cd5dc0ca459bf3e5e41a75f7f5ed80"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt1.status.json",
+      "bytes": 273,
+      "sha256": "2fcadedd91877860e42bc01058473fc4423515da2aa1e47458a3e79d59096caa"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt1.txt",
+      "bytes": 2192,
+      "sha256": "3b1a9102350848632ee02d30aa02caf65098bdc58a65e3833d3e3215378b0edd"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt2.status.json",
+      "bytes": 274,
+      "sha256": "6b962ebe6239ad1f3d73a7a4ad11fa707eb632910839ce649cd543e13b279f95"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt2.txt",
+      "bytes": 391,
+      "sha256": "0c2a3cac19be1cc9f04571dcc9f4e30dd897832c34ed986200a475151a9ff004"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt3.status.json",
+      "bytes": 273,
+      "sha256": "6e05288fc3d416d8ab805570f35d661cb6621319fdc81233470fb58a2d3914cf"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-attempt3.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611-generation.txt",
+      "bytes": 505,
+      "sha256": "e93f214a377f18396d0625ec557f63dfa0c267d698f5bb1432e27df4df13c551"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/children9611.json",
+      "bytes": 11988,
+      "sha256": "d114c3484c1118113d6a1b34bbd141abd44852da6c4145e7aeb97d8d1c2ed27f"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/generate_children9611.py",
+      "bytes": 4222,
+      "sha256": "fe9426648b3126f82d303308a369b31c2d0f03ebe960daa328f517550bc773d1"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-9611/manifest.json",
+      "bytes": 1496,
+      "sha256": "99f58731c20452761fe567dbe046b33adb25d30381467b44673f9e5d2a4c9485"
+    },
+    {
+      "path": "results/orch/review-count-fixture1098-children.txt",
+      "bytes": 915,
+      "sha256": "37a4bde37d6684f383e7851aaa84380568b0a4e455cfee2d9d345fb2d2ef3627"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-preservation.json",
+      "bytes": 638,
+      "sha256": "d195e2414ab9f2d686dcf55e8ca9401150dd302e9c934e32584c4f9fc98833fe"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-preservation.txt",
+      "bytes": 1049,
+      "sha256": "0c3caec1ee6a1e54949cdc3c82ff4b80699b065f09773abff0f5e267262de292"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle9611.json",
+      "bytes": 373,
+      "sha256": "40bff02f68e050bfeb0abc563c9f4de2d5f7d32826ea346aa43bd68ec539e7b3"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle9611.txt",
+      "bytes": 933,
+      "sha256": "65841b42cd4c36b6bef1df245b8311332efa20837d220b392cfa0699717cb585"
+    },
+    {
+      "path": "results/orch/review-not-or-circuit.txt",
+      "bytes": 1940,
+      "sha256": "20b1ce0d1b45c950cea2367bcb4cf45dd26b3149c795ebc332c8b5682b243f4d"
+    },
+    {
+      "path": "results/orch/review-rectangle-auditor-scripts.txt",
+      "bytes": 1768,
+      "sha256": "2d9c2c3e0c5773d1788ace07e8080cef4c4a7f4e25a1f23025a092ea7c1a288e"
+    },
+    {
+      "path": "results/orch/review-witness-decoder.txt",
+      "bytes": 1280,
+      "sha256": "efe816d2a089ca56f90a8df974000c9c33f9df9a1162011014e7446a78aee23d"
+    },
+    {
+      "path": "results/orch/review-witness-huffman.txt",
+      "bytes": 1337,
+      "sha256": "424cdbed65f31bdad2c2293d9dee1e17ee7f20c20d4949b26f57490be5bb56fd"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/README.md",
+      "bytes": 2837,
+      "sha256": "e29bd96ddb8ab6a96fc9e04d1b20497923538de38a8ce5f6546bf1e3f02ca362"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/all-signed-bank-margins.json",
+      "bytes": 6650071,
+      "sha256": "636f30f291d5f0af65ff16211f6eb70aab57da1fed4ecc2914622e958227531d"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/all-signed-summary.json",
+      "bytes": 1979,
+      "sha256": "9b72a119d358dbb0a60a461695456267514fae9760227159ebc72cfe1ce51a13"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/input-polarity-costs.json",
+      "bytes": 5711,
+      "sha256": "c15a34a8e7d766386a2e9b9e3296fc969acb1976586cc455bbad44b039af497d"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/leaf-banks.json",
+      "bytes": 1328276,
+      "sha256": "e242bec65efc2904847980e5aa0315e743d79f27b824a80b529125a1aa631dd5"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/manifest.json",
+      "bytes": 2014,
+      "sha256": "72b694c857879b2f49cb07e3ef364b41d9072040d578b9d02a39012a30e7a43e"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/matrices.json",
+      "bytes": 271964,
+      "sha256": "892bfd9a24abe34dbaf6d8a02f63972244a84f2ad4fb4ffa20e1d4fa82f052aa"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/measure-all-signed-full.txt",
+      "bytes": 1980,
+      "sha256": "e055dfc760a53986588fef865d8ae8a3e2821dd54ca560d6535e51f93dff8828"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/measure_all_signed.py",
+      "bytes": 3177,
+      "sha256": "a1a1c9009accc4ffffc6816d16d76bd17f8ab8b4b7d7524cc2237aac0c33dab8"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/rectangle-dynamic-build.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/rectangle_dynamic.cpp",
+      "bytes": 930,
+      "sha256": "55ee9b561f1966698e63a52984297e02ef3028930aebb12cd6065e391c532878"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/replay-full.txt",
+      "bytes": 2000,
+      "sha256": "af8c71335f2e9923af2b259192e92ad61e7b8c52ff2e08b1187e8122a2a5a3df"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/replay-summary.json",
+      "bytes": 1999,
+      "sha256": "8a7a8ea759c8a3b1088f5b723edf30a38c8f5c77b3ba0449c23b88e8c88d7b60"
+    },
+    {
+      "path": "results/orch/signed17-rectangle-applicability/replay.py",
+      "bytes": 3282,
+      "sha256": "7197f57f814af33797c08c0801e6f4892493e039e4879c3fdd52d06b5cdf5645"
+    },
+    {
+      "path": "results/orch/verification/audit_rectangle9611.py",
+      "bytes": 2412,
+      "sha256": "b43871d54a44bff76495a08ec1719a2777b84b7b0faca30227594ba9977ff22f"
+    },
+    {
+      "path": "results/orch/verification/audit_rectangle_preservation.py",
+      "bytes": 2453,
+      "sha256": "89836512a814d4d015f328c773ae92b6a7819ebe51bcd879cbca8d7c0871447c"
+    },
+    {
+      "path": "results/orch/verification/rectangle-preservation-audit.txt",
+      "bytes": 638,
+      "sha256": "d195e2414ab9f2d686dcf55e8ca9401150dd302e9c934e32584c4f9fc98833fe"
+    },
+    {
+      "path": "results/orch/verification/rectangle9611-audit.txt",
+      "bytes": 373,
+      "sha256": "40bff02f68e050bfeb0abc563c9f4de2d5f7d32826ea346aa43bd68ec539e7b3"
+    }
+  ],
+  "preserve_paths": [
+    "results/orch/lemmas/Mono18Rectangle9611.compile.txt",
+    "results/orch/lemmas/Mono18Rectangle9611.lean",
+    "results/orch/mono18-rectangle-9611/README.md",
+    "results/orch/mono18-rectangle-9611/children9611-attempt1.status.json",
+    "results/orch/mono18-rectangle-9611/children9611-attempt1.txt",
+    "results/orch/mono18-rectangle-9611/children9611-attempt2.status.json",
+    "results/orch/mono18-rectangle-9611/children9611-attempt2.txt",
+    "results/orch/mono18-rectangle-9611/children9611-attempt3.status.json",
+    "results/orch/mono18-rectangle-9611/children9611-attempt3.txt",
+    "results/orch/mono18-rectangle-9611/children9611-generation.txt",
+    "results/orch/mono18-rectangle-9611/children9611.json",
+    "results/orch/mono18-rectangle-9611/generate_children9611.py",
+    "results/orch/mono18-rectangle-9611/manifest.json",
+    "results/orch/mono18-rectangle-preservation-addendum.json",
+    "results/orch/review-count-fixture1098-children.txt",
+    "results/orch/review-mono18-rectangle-preservation.json",
+    "results/orch/review-mono18-rectangle-preservation.txt",
+    "results/orch/review-mono18-rectangle9611.json",
+    "results/orch/review-mono18-rectangle9611.txt",
+    "results/orch/review-not-or-circuit.txt",
+    "results/orch/review-rectangle-auditor-scripts.txt",
+    "results/orch/review-witness-decoder.txt",
+    "results/orch/review-witness-huffman.txt",
+    "results/orch/signed17-rectangle-applicability/README.md",
+    "results/orch/signed17-rectangle-applicability/all-signed-bank-margins.json",
+    "results/orch/signed17-rectangle-applicability/all-signed-summary.json",
+    "results/orch/signed17-rectangle-applicability/build.txt",
+    "results/orch/signed17-rectangle-applicability/input-polarity-costs.json",
+    "results/orch/signed17-rectangle-applicability/leaf-banks.json",
+    "results/orch/signed17-rectangle-applicability/manifest.json",
+    "results/orch/signed17-rectangle-applicability/matrices.json",
+    "results/orch/signed17-rectangle-applicability/measure-all-signed-full.txt",
+    "results/orch/signed17-rectangle-applicability/measure_all_signed.py",
+    "results/orch/signed17-rectangle-applicability/rectangle-dynamic-build.txt",
+    "results/orch/signed17-rectangle-applicability/rectangle_dynamic.cpp",
+    "results/orch/signed17-rectangle-applicability/replay-full.txt",
+    "results/orch/signed17-rectangle-applicability/replay-summary.json",
+    "results/orch/signed17-rectangle-applicability/replay.py",
+    "results/orch/verification/audit_rectangle9611.py",
+    "results/orch/verification/audit_rectangle_preservation.py",
+    "results/orch/verification/rectangle-preservation-audit.txt",
+    "results/orch/verification/rectangle9611-audit.txt"
+  ],
+  "manifest_self_not_hashed": true
+}

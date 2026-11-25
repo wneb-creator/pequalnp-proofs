@@ -1,0 +1,42 @@
+--- live_search_resume.cpp
++++ signed17_formula_measured.cpp
+@@ -101,6 +101,8 @@
+ }
+ 
+ struct Limit{};
++uint64_t measuredTries=0,measuredRejects=0; unordered_set<int> measuredRows;
++void rememberRow(int p,int n){measuredRejects++;measuredRows.insert((p<<10)|n);}
+ struct FormEntry{int mask,sig,left,right,op;};
+ int formula_check(const vector<int>&state,vector<FormEntry>*closed=nullptr,bool save=true){
+  using Entry=FormEntry;int n=state.size();if(n>20)return -1;int full=(1<<n)-1;
+@@ -115,11 +117,11 @@
+    auto r=required.find(mask);if(r==required.end()){Cov cov;for(int t=0;t<n;t++)if(!(mask>>t&1))cov=cbor(cov,sigs[state[t]].col);r=required.emplace(mask,cband(allcov,cnot(cov))).first;}
+    Cov need=r->second;
+    for(int o=0;o<(signedmode?4:2);o++){
+-    if(++tries>1000000)return -1;if((tries&4095)==0&&chrono::duration<double>(chrono::steady_clock::now()-beginat).count()>seconds)throw Limit{};
++    measuredTries++;if(++tries>1000000)return -1;if((tries&4095)==0&&chrono::duration<double>(chrono::steady_clock::now()-beginat).count()>seconds)throw Limit{};
+     Word zw=op(o,sigs[ei.sig].val,sigs[ej.sig].val);auto zi=sigids.find(zw);int z=zi==sigids.end()?-1:zi->second;
+     if(z==0||z==ei.sig||z==ej.sig)continue;if(z>=0&&known.count(((uint64_t)mask<<32)|z))continue;
+-    Cov col=z>=0?sigs[z].col:column(zw);if(cband(need,cnot(col)).a!=Cov{}.a)continue;
+-    if(signedmode){vector<int>outside;for(int t=0;t<n;t++)if(!(mask>>t&1))outside.push_back(state[t]);if(!exact_cov(outside,&zw))continue;}
++    Cov col=z>=0?sigs[z].col:column(zw);if(cband(need,cnot(col)).a!=Cov{}.a){auto miss=cband(need,cnot(col));for(int q=0;q<18;q++)if(miss.a[q]){int ix=64*q+__builtin_ctzll(miss.a[q]);rememberRow(positives[ix/negatives.size()],negatives[ix%negatives.size()]);break;}continue;}
++    if(signedmode){vector<int>outside;for(int t=0;t<n;t++)if(!(mask>>t&1))outside.push_back(state[t]);if(!exact_cov(outside,&zw)){rememberRow(lastRowPositive,lastRowNegative);continue;}}
+     if(z<0)z=intern(zw);known.insert(((uint64_t)mask<<32)|z);int idx=es.size();es.push_back({mask,z,i,j,o});
+     if(mask==full&&z==targetid){
+      auto replay=[&](auto&&self,int t)->void{auto e=es[t];if(e.left<0)return;self(self,e.left);self(self,e.right);hist.push_back({e.op,es[e.left].sig,es[e.right].sig,e.sig});};if(save)replay(replay,idx);return 1;
+@@ -198,7 +200,7 @@
+  string extra;if(in>>extra)return false;cout<<"resumed completed states="<<count<<" distinct="<<accepted<<" source_sha256="<<sourcehash<<endl;return true;
+ }
+ 
+-int main(int argc,char**argv){bool selftest=false;string tracepath,resumePath;string first="andedge";for(int i=1;i<argc;i++){string a=argv[i];if(a=="--resume")resumePath=argv[++i];else if(a=="--trace")tracepath=argv[++i];else if(a=="--selftest")selftest=true;else if(a=="--signed")signedmode=true;else if(a=="--cap")cap=stoi(argv[++i]);else if(a=="--seconds")seconds=stod(argv[++i]);else if(a=="--nodes")limitnodes=stoull(argv[++i]);else if(a=="--first")first=argv[++i];}
++int original_main(int argc,char**argv){bool selftest=false;string tracepath,resumePath;string first="andedge";for(int i=1;i<argc;i++){string a=argv[i];if(a=="--resume")resumePath=argv[++i];else if(a=="--trace")tracepath=argv[++i];else if(a=="--selftest")selftest=true;else if(a=="--signed")signedmode=true;else if(a=="--cap")cap=stoi(argv[++i]);else if(a=="--seconds")seconds=stod(argv[++i]);else if(a=="--nodes")limitnodes=stoull(argv[++i]);else if(a=="--first")first=argv[++i];}
+  vector<pair<int,int>>edges={{0,1},{1,2},{2,3},{3,4},{4,0},{0,5},{1,6},{2,7},{3,8},{4,9},{5,7},{7,9},{9,6},{6,8},{8,5}};Word target;array<Word,10>inwords;
+  for(int r=0;r<1024;r++)for(int i=0;i<10;i++)if(r>>i&1)setbit(inwords[i],r);
+  for(auto[a,b]:edges){adj[a][b]=adj[b][a]=true;target=bor(target,band(inwords[a],inwords[b]));positives.push_back((1<<a)|(1<<b));}
+@@ -217,4 +219,5 @@
+  if(!tracepath.empty()){tracefile.open(tracepath);if(!tracefile){cerr<<"cannot open trace"<<endl;return 2;}tracefile<<"{\"event\":\"header\",\"mode\":"<<signedmode<<",\"cap\":"<<cap<<",\"first\":\""<<first<<"\",\"target\":"<<targetid<<"}\n";}incoming={o,a,b,z,3};
+  if(!resumePath.empty()&&!load_resume(resumePath)){cerr<<"invalid completed-state resume file"<<endl;return 3;}beginat=lastreport=chrono::steady_clock::now();
+  try{bool found=dfs(root,cap-1);cout<<"finished found="<<found<<endl;if(found)for(auto s:hist)cout<<"gate "<<s.op<<" "<<s.a<<" "<<s.b<<" "<<s.c<<endl;}catch(Limit const&){cout<<"limit reached"<<endl;}report();dump_trace_signals();
+-}
++ return 0;
++}

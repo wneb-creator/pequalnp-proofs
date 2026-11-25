@@ -1,0 +1,13 @@
+OR_OR 0 (0, 1, 2) 60 pair_edge True forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+OR_OR 1 (0, 1, 3) 60 pair_edge True forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+OR_OR 2 (0, 2, 1) 30 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+OR_OR 3 (0, 2, 3) 120 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+OR_OR 4 (0, 2, 6) 30 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+OR_OR 5 (0, 2, 8) 60 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+AND_OR 0 (0, 1, 2) 60 pair_edge True forced [0, 1, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False), ([0, 1, 3, 4, 5, 6, 7, 8, 9], False, True)] banks 6
+AND_OR 1 (0, 1, 3) 60 pair_edge True forced [0, 1, 2, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False), ([0, 1, 2, 4, 5, 6, 7, 8, 9], False, True)] banks 6
+AND_OR 2 (0, 2, 1) 30 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+AND_OR 3 (0, 2, 3) 120 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+AND_OR 4 (0, 2, 6) 30 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+AND_OR 5 (0, 2, 8) 60 pair_edge False forced [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] minima [([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], False, False)] banks 4
+DONE 12 orbit-families 52 valid banks 0.23369194400038396

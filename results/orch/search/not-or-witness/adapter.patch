@@ -1,0 +1,70 @@
+--- reviewed-copy-search
++++ isolated-notor-witness
+@@ -249,2 +249,3 @@
+ vector<int> prefixBank;uint64_t prefixFormulaCuts=0;
++bool candidateSelftest=false;bool keepOr=true;int seedOr=-1,seedNot=-1,seedB=-1;string candidatePath;
+ bool monoNine15=false;string memoInput,memoOutput,memoCase;double checkpointSeconds=60;chrono::steady_clock::time_point lastCheckpoint;
+@@ -266,3 +267,3 @@
+ void trim_projection_cache(){
+- if(estimated_memory()<650000000||clearable_projection_memory()<180000000)return;auto resetStart=chrono::steady_clock::now();
++ if(estimated_memory()<500000000||clearable_projection_memory()<120000000)return;auto resetStart=chrono::steady_clock::now();
+  clipids.clear();clipids.rehash(0);clipcache.clear();clipcache.rehash(0);constantProfiles.clear();constantProfiles.rehash(0);
+@@ -311,3 +312,3 @@
+   trim_projection_cache();
+-  if(es.size()>10000||estimated_memory()>1500000000)throw Limit{};
++  if(es.size()>10000||estimated_memory()>600000000)throw Limit{};
+   if(chrono::duration<double>(chrono::steady_clock::now()-beginat).count()>seconds)throw Limit{};
+@@ -344,3 +345,3 @@
+  trim_projection_cache();
+- if(nodes>=limitnodes||estimated_memory()>1500000000)throw Limit{};
++ if(nodes>=limitnodes||estimated_memory()>600000000)throw Limit{};
+  auto now=chrono::steady_clock::now();if(chrono::duration<double>(now-beginat).count()>seconds)throw Limit{};
+@@ -348,3 +349,3 @@
+  nodes++;ProofFrame frame(nodes,state,remaining);int deficit=remaining-(int)state.size()+1;if(deficit<0){cardcuts++;frame.finish("card");return false;}bydepth[deficit]++;
+- if(!signedmode&&deficit==0&&state.size()<=19&&all_of(state.begin(),state.end(),[](int x){return find(prefixBank.begin(),prefixBank.end(),x)!=prefixBank.end();})){prefixFormulaCuts++;frame.finish("prefix_formula");return false;}
++ // The old positive-prefix20-leaf shortcut does not cover a negative initial root.
+  if(!signedmode&&deficit==0&&rectangle_cut(state)){frame.finish("rectangle");return false;}
+@@ -366,4 +367,21 @@
+ }
+-int main(int argc,char**argv){bool rectTest=false;string rectTracePath,bankTracePath,proofTracePath;string first="oredge";for(int i=1;i<argc;i++){string a=argv[i];if(a=="--proof-trace")proofTracePath=argv[++i];else if(a=="--extra-rectangles")extraRectPath=argv[++i];else if(a=="--bank-trace")bankTracePath=argv[++i];else if(a=="--memo-in")memoInput=argv[++i];else if(a=="--memo-out")memoOutput=argv[++i];else if(a=="--checkpoint-seconds")checkpointSeconds=stod(argv[++i]);else if(a=="--mono-nine15")monoNine15=true;else if(a=="--rect-selftest")rectTest=true;else if(a=="--rect-trace")rectTracePath=argv[++i];else if(a=="--signed")signedmode=true;else if(a=="--cap")cap=stoi(argv[++i]);else if(a=="--seconds")seconds=stod(argv[++i]);else if(a=="--nodes")limitnodes=stoull(argv[++i]);else if(a=="--first")first=argv[++i];}
+- if(signedmode){cerr<<"this compact build supports monotone mode only"<<endl;return 2;}
++bool emit_candidate(){
++ vector<Word>values;for(int x:inputs)values.push_back(sigs[x].val);
++ vector<array<int,3>>gates;unordered_map<int,int>wire;for(int i=0;i<10;i++)wire[inputs[i]]=i;
++ auto add=[&](int d,int a,int b){Word w=d==2?bnot(values[a]):op(d,values[a],values[b]);gates.push_back({d,a,b});values.push_back(w);return (int)values.size()-1;};
++ wire[seedOr]=add(1,0,seedB);wire[seedNot]=add(2,wire[seedOr],wire[seedOr]);
++ if(hist.empty()||hist[0].op!=1||hist[0].a!=inputs[0]||hist[0].b!=inputs[seedB]||hist[0].c!=seedOr)throw runtime_error("invalid seed history");
++ for(size_t j=1;j<hist.size();j++){auto h=hist[j];if(h.op<0||h.op>1||!wire.count(h.a)||!wire.count(h.b))throw runtime_error("unbound positive-tail history");Word w=op(h.op,values[wire.at(h.a)],values[wire.at(h.b)]);if(!(w==sigs[h.c].val))throw runtime_error("history truth mismatch");if(!wire.count(h.c))wire[h.c]=add(h.op,wire.at(h.a),wire.at(h.b));}
++ if(!wire.count(targetid))throw runtime_error("candidate lacks target wire");int output=wire.at(targetid);
++ bool exact=values[output]==sigs[targetid].val;bool bounded=(int)gates.size()<=cap;
++ bool finalOr=output>=10&&gates[output-10][0]==1,incomparable=false,sound=false;
++ if(finalOr){auto g=gates[output-10];Word a=values[g[1]],b=values[g[2]],outside=bnot(sigs[targetid].val);incomparable=!(band(a,bnot(b))==Word{})&&!(band(b,bnot(a))==Word{});sound=band(bor(a,b),outside)==Word{};}
++ cout<<"CANDIDATE gates="<<gates.size()<<" output="<<output<<" exact1024="<<exact<<" bounded="<<bounded<<" final_or="<<finalOr<<" sound_operands="<<sound<<" incomparable="<<incomparable<<endl;
++ if(!exact||!bounded)return false;
++ if(!candidatePath.empty()){ofstream out(candidatePath);if(!out)throw runtime_error("cannot write candidate");out<<"{\"scope\":\"witness only\",\"first_b\":"<<seedB<<",\"keep_or\":"<<keepOr<<",\"cap\":"<<cap<<",\"output\":"<<output<<",\"gates\":[";for(size_t i=0;i<gates.size();i++){if(i)out<<",";auto g=gates[i];out<<"["<<g[0]<<","<<g[1]<<","<<g[2]<<"]";}out<<"],\"exact1024\":"<<exact<<",\"final_or\":"<<finalOr<<",\"sound_operands\":"<<sound<<",\"incomparable\":"<<incomparable<<",\"values\":[";for(size_t i=0;i<values.size();i++){if(i)out<<",";out<<"\""<<rectHexWord(values[i])<<"\"";}out<<"]}\n";out.close();if(!out)throw runtime_error("candidate write failed");}
++ return true;
++}
++
++int main(int argc,char**argv){bool rectTest=false;string rectTracePath,bankTracePath,proofTracePath;string first="oredge";for(int i=1;i<argc;i++){string a=argv[i];if(a=="--candidate-selftest")candidateSelftest=true;else if(a=="--consume-or")keepOr=false;else if(a=="--candidate")candidatePath=argv[++i];else if(a=="--help"){cout<<"Heuristic positive-tail witness search: --first oredge|ornonedge --consume-or --cap 19 --seconds N --nodes N --candidate FILE --extra-rectangles FILE"<<endl;return 0;}else if(a=="--proof-trace")proofTracePath=argv[++i];else if(a=="--extra-rectangles")extraRectPath=argv[++i];else if(a=="--bank-trace")bankTracePath=argv[++i];else if(a=="--memo-in")memoInput=argv[++i];else if(a=="--memo-out")memoOutput=argv[++i];else if(a=="--checkpoint-seconds")checkpointSeconds=stod(argv[++i]);else if(a=="--mono-nine15")monoNine15=true;else if(a=="--rect-selftest")rectTest=true;else if(a=="--rect-trace")rectTracePath=argv[++i];else if(a=="--signed")signedmode=true;else if(a=="--cap")cap=stoi(argv[++i]);else if(a=="--seconds")seconds=stod(argv[++i]);else if(a=="--nodes")limitnodes=stoull(argv[++i]);else if(a=="--first")first=argv[++i];}
++ if(signedmode||!memoInput.empty()||!memoOutput.empty()||!proofTracePath.empty()){cerr<<"isolated witness search forbids signed mode, external memos and proof export"<<endl;return 2;}
+  if(!proofTracePath.empty()&&(!memoInput.empty()||rectTracePath.empty())){cerr<<"proof export requires a fresh memo and rectangle trace"<<endl;return 2;}
+@@ -384,4 +402,12 @@
+  int firstOp,firstB;if(first=="oredge"){firstOp=1;firstB=1;}else if(first=="ornonedge"){firstOp=1;firstB=2;}else if(first=="andedge"){firstOp=0;firstB=1;}else if(first=="andnonedge"){firstOp=0;firstB=2;}else{cerr<<"unknown first-gate case"<<endl;return 2;}
+- int firstZ=intern(op(firstOp,sigs[inputs[0]].val,sigs[inputs[firstB]].val));hist.push_back({firstOp,inputs[0],inputs[firstB],firstZ});
+- vector<int>root(inputs.begin(),inputs.end());root.push_back(firstZ);sort(root.begin(),root.end());prefixBank=root;beginat=lastreport=chrono::steady_clock::now();cout<<"EXPERIMENTAL first-copy recurrence mode="<<signedmode<<" group="<<group.size()<<" first="<<first<<" total_cap="<<cap<<" remaining="<<(cap-1)<<" prefix_formula_leaf_lower=20"<<endl;
++ if(firstOp!=1){cerr<<"NOT source must be an input OR"<<endl;return 2;}
++ int firstZ=intern(op(firstOp,sigs[inputs[0]].val,sigs[inputs[firstB]].val));hist.push_back({firstOp,inputs[0],inputs[firstB],firstZ});seedOr=firstZ;seedNot=intern(bnot(sigs[firstZ].val));seedB=firstB;
++ vector<int>root(inputs.begin(),inputs.end());if(keepOr)root.push_back(firstZ);root.push_back(seedNot);sort(root.begin(),root.end());prefixBank.clear();beginat=lastreport=chrono::steady_clock::now();cout<<"HEURISTIC NOT_OR witness search first="<<first<<" keep_or="<<keepOr<<" total_cap="<<cap<<" remaining="<<(cap-2)<<" root_count="<<root.size()<<" negative_seed="<<seedNot<<" prefix_shortcut=disabled"<<endl;
++ if(candidateSelftest){
++  auto gate=[&](int d,int a,int b){int z=intern(op(d,sigs[a].val,sigs[b].val));hist.push_back({d,a,b,z});return z;};
++  vector<pair<int,vector<int>>>stars={{1,{0,2,6}},{3,{2,8,4}},{4,{0,9}},{5,{0,8,7}},{6,{8,9}},{7,{2,9}}};vector<int>terms;
++  for(auto&st:stars){int z=inputs[st.second[0]];for(size_t j=1;j<st.second.size();j++)z=gate(1,z,inputs[st.second[j]]);terms.push_back(gate(0,inputs[st.first],z));}
++  int z=terms[0];for(size_t j=1;j<terms.size();j++)z=gate(1,z,terms[j]);if(z!=targetid)throw runtime_error("selftest target mismatch");
++  cap=22;if(!emit_candidate())return 4;candidatePath.clear();cap=19;if(emit_candidate())throw runtime_error("selftest19gate false positive");cout<<"CANDIDATE SELFTEST PASS positive22cap and negative19cap controls"<<endl;return 0;
++ }
+  if(!rectTracePath.empty()){rectangleTrace.open(rectTracePath);if(!rectangleTrace){cerr<<"cannot open rectangle trace"<<endl;return 2;}rectangleTrace<<"{\"event\":\"header\",\"signed\":"<<signedmode<<",\"cap\":"<<cap<<",\"first\":\""<<first<<"\",\"target\":\""<<rectHexWord(target)<<"\"}"<<endl;}
+@@ -390,3 +416,3 @@
+  memoCase=first;load_memo();lastCheckpoint=chrono::steady_clock::now();beginat=lastreport=lastCheckpoint;
+- try{bool found=dfs(root,cap-1);cout<<"finished found="<<found<<endl;if(found)for(auto s:hist)cout<<"gate "<<s.op<<" "<<s.a<<" "<<s.b<<" "<<s.c<<endl;}catch(Limit const&){cout<<"limit reached"<<endl;}save_memo();report();cout<<"copyclosures="<<closures<<" entries="<<entrytotal<<" subchecks="<<subchecks<<" subcuts="<<subcuts<<" memory_estimate="<<estimated_memory()<<" lazy_clip_tables="<<lazyClipCount<<" projected_cache="<<clipcache.size()<<" move_cache="<<movecache.size()<<" constant_profiles="<<constantProfiles.size()<<" memo_states="<<seen.size()<<" prefix_formula_cuts="<<prefixFormulaCuts<<" projection_resets="<<projectionResets<<" projection_reset_seconds="<<projectionResetSeconds<<" memo_save_seconds="<<memoSaveSeconds<<" rectangle_signals="<<rectangleSignalCosts.size()<<" rectangle_hits=";for(auto x:rectangleHits)cout<<x<<",";cout<<endl;
++ try{bool found=dfs(root,cap-2);cout<<"heuristic finished found="<<found<<endl;if(found){if(!emit_candidate())return 3;for(auto s:hist)cout<<"gate "<<s.op<<" "<<s.a<<" "<<s.b<<" "<<s.c<<endl;}}catch(Limit const&){cout<<"limit reached"<<endl;}save_memo();report();cout<<"copyclosures="<<closures<<" entries="<<entrytotal<<" subchecks="<<subchecks<<" subcuts="<<subcuts<<" memory_estimate="<<estimated_memory()<<" lazy_clip_tables="<<lazyClipCount<<" projected_cache="<<clipcache.size()<<" move_cache="<<movecache.size()<<" constant_profiles="<<constantProfiles.size()<<" memo_states="<<seen.size()<<" prefix_formula_cuts="<<prefixFormulaCuts<<" projection_resets="<<projectionResets<<" projection_reset_seconds="<<projectionResetSeconds<<" memo_save_seconds="<<memoSaveSeconds<<" rectangle_signals="<<rectangleSignalCosts.size()<<" rectangle_hits=";for(auto x:rectangleHits)cout<<x<<",";cout<<endl;
+  for(int kind=0;kind<2;kind++){cout<<"cofactor_profile_hits kind="<<kind;for(int v=0;v<CP_COUNT;v++)if(cofactorProfileHits[kind][v])cout<<" "<<v<<":"<<cofactorProfileHits[kind][v];cout<<endl;}

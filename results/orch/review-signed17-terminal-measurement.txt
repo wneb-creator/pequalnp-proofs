@@ -1,0 +1,43 @@
+Independent preservation/source review: PASS, with the limited scope below.
+Reviewer: lean_setup. No search, compiler, or Lean build was launched for this review.
+
+Frozen archive: results/orch/search/signed17-terminal-measurement
+Manifest SHA256: 123e4eacf738cf88ab13db7c3073e6f6b1c7f2b17d31d42aa93bded3f7dd0122
+All 23 manifest entries, exact file census, full gzip CRC/raw hashes, and the complete
+zlib stream/raw hash were checked. The 12,193,843-byte uncompressed table stream has
+SHA256 245e645b37a0c1be895bab17b4644ebc407f2dd2112b80db5eff149fff26f8a7.
+
+I read the joint-root census and symmetry scripts, the formula-only harness, the
+underlying finite formula oracle, and every instrumentation change. The archived
+unified patch independently regenerates byte-for-byte from the two frozen sources.
+Instrumentation adds counts/rejecting-row recording and changes the unused original
+main name; it does not change the formula oracle's operation/branch conditions.
+The harness invokes finite formula closures and copied-basis closures only. It does
+not invoke the global circuit DFS or cofactor pruning. All four signed operations
+are present; root occurrences, including duplicated signals, remain distinct leaves.
+
+The portable independent audit decoded the entire unsigned-LEB128 table stream,
+checked each recorded table against the input parent and exact copy index, replayed
+all 2,040,039 derived truth operations on 1024 rows, checked disjoint leaf masks,
+fresh proper outputs, no duplicate (mask,truth) entries, and absence of a full-mask
+target entry. Every rejecting-row shortlist is strictly sorted and consists of an
+actual positive/negative Petersen row pair. Every stream byte is consumed. These
+checks establish encoding/provenance, not closure against all omitted operations.
+
+Exact totals match the archived JSON: 18,379 tables, 2,269,469 entries, 2,040,039
+derived entries, 1,046 base and 17,333 copied tables, 167,719,444 reported candidate
+operations, 151,531,758 reported row rejections, and 2,015,671 shortlist rows.
+The largest completed table has 2,669 entries. Candidate/rejection counters were
+checked by summing preserved records, not independently rerunning every candidate.
+
+The explicit 180-second limit returned exit 5 after 180.115 seconds. Exactly 1,045
+parents are complete; the 1,046th parent has 93 required copy children and only eight
+completed copy tables. The full stderr says 'ordinary census time limit after 1045
+banks'. This is a bounded prefix of 4,258 orbit representatives, not a whole-case
+completion or a size lower bound for every possible encoding. I did not rerun the
+original joint-root searches or independently recompute all orbit representatives.
+No Lean decoder, certificate acceptance, signed17 lower bound, or UNSAT is claimed.
+
+Reproducer: results/orch/verification/audit-signed17-preservation.py
+Results: results/orch/verification/audit-signed17-preservation.json
+Full diagnostics: results/orch/verification/audit-signed17-preservation-output.txt

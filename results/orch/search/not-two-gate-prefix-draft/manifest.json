@@ -1,0 +1,122 @@
+{
+  "README.md": {
+    "bytes": 1925,
+    "sha256": "87d98864e86d4d94f48223a3a6aebf2050717e0665d36b2260b72999d00c89e6"
+  },
+  "andor-selftest.json": {
+    "bytes": 8987,
+    "sha256": "2bb77eb95bd9492ed0b4b5afd93173d45264d079c510c6e0487dc6f8706741d4"
+  },
+  "andor-selftest.prefix": {
+    "bytes": 82,
+    "sha256": "150b8d958d5b05402e7fd5714f372326225f4b7af6af4b2af722566d7c1454c1"
+  },
+  "andor-selftest.stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "andor-selftest.stdout.txt": {
+    "bytes": 467,
+    "sha256": "cb604c25d32fced404d4f8c44eacea5145e8b2b8d5ed4004c65c00a27cba3088"
+  },
+  "case0-or_or-0-2-6.prefix": {
+    "bytes": 82,
+    "sha256": "b2f8d1ffd0582a2190bdec5d0a2a79951975f74cf4fd95f578d02106b91adbc1"
+  },
+  "case1-or_or-0-2-8.prefix": {
+    "bytes": 82,
+    "sha256": "fa75d763959235bb953ac20868eed70b696281a90ee04f1d178f11bf0a4c95c0"
+  },
+  "case2-and_or-0-1-2.prefix": {
+    "bytes": 77,
+    "sha256": "08025d441ea3955b9de5590fca809e495d3d98fc6e57c7263892cec44aa02436"
+  },
+  "case3-and_or-0-1-3.prefix": {
+    "bytes": 77,
+    "sha256": "28635014099d08350e0fdd8b9f9942f9b054b4f4bd9a1fade8549724d38a4e08"
+  },
+  "case4-and_or-0-2-1.prefix": {
+    "bytes": 79,
+    "sha256": "0c934ffc2d7cbf486693087b5f33c8c9b4398e1f8e79449cb9e8b90aa0b23067"
+  },
+  "case5-and_or-0-2-3.prefix": {
+    "bytes": 79,
+    "sha256": "c206bc6ef82712639140384912f64f3cd051f99eb767bdfbcc1c5a1f892f38c8"
+  },
+  "case6-and_or-0-2-6.prefix": {
+    "bytes": 79,
+    "sha256": "399df3dd880ba4130ef7d89fcb42d9a86df8b0da27641b52960a615ca230b289"
+  },
+  "case7-and_or-0-2-8.prefix": {
+    "bytes": 79,
+    "sha256": "6fc0906f0315c951b574f5a9fc37eaa7f9098c9eb83bde4c3db8015d13635764"
+  },
+  "compile.stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "compile.stdout.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "not_prefix_search.cpp": {
+    "bytes": 96661,
+    "sha256": "7ac07f4b8dd8d888b3352119feb30a71d02d4b74f84fe9f93980624f8137ba12"
+  },
+  "notor_search_full.cpp": {
+    "bytes": 95716,
+    "sha256": "2dd0cc912fc29070159676d7402cc5e7b4712751fab1b1d0ba6d3bd46ee826c3"
+  },
+  "orchain-selftest.json": {
+    "bytes": 8987,
+    "sha256": "1eb4da280d53eb44525e840af774149ac12f0fb5ddc8ab64e0ad3cf9ee6e7202"
+  },
+  "orchain-selftest.prefix": {
+    "bytes": 82,
+    "sha256": "473b15bd2ce6620adf580379dad9f920a86353b806290a248130f41dd3805724"
+  },
+  "orchain-selftest.stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "orchain-selftest.stdout.txt": {
+    "bytes": 467,
+    "sha256": "f89f1fad8cd0301c86f3158e64db4cf93eb0301f4f49659a71a162c74dc1f1d5"
+  },
+  "prefix-adapter.patch": {
+    "bytes": 15320,
+    "sha256": "ad736d5c1ecde58447787985114d65d5a2db6b8945ea2eb7dcf651992dc3e80d"
+  },
+  "priority-starts.json": {
+    "bytes": 48688,
+    "sha256": "81f23ca24066f02f502ece67399b7912f733b8c68388874005920bd5f0699509"
+  },
+  "rectangles-v3.txt": {
+    "bytes": 15842,
+    "sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5"
+  },
+  "run_cases.py": {
+    "bytes": 4260,
+    "sha256": "201fbddc5ce82a0535a39a91777068469e2f8f1d0311c7807b53b472fa6b9bd4"
+  },
+  "selftest-status.json": {
+    "bytes": 825,
+    "sha256": "b7630ea0044f5f290feb72ad3b327bfe1bc566d1e41ff79a563bd7d0ed44fe95"
+  },
+  "starts-index.json": {
+    "bytes": 1791,
+    "sha256": "b9a0acab6a4c5a7bd30e5db86eb22cb0cf04ea5de8a41ae54a42607fb68502a1"
+  },
+  "status.json": {
+    "bytes": 496,
+    "sha256": "a72c0a9b998603ba44287d59711f8eaff39c74cca36fe77a2d9c83760e018677"
+  },
+  "supervisor-check.stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "supervisor-check.stdout.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-87/library_route/signed17_formula_census",
+    "/tmp/oec/pequalnp-pilot-87/library_route/signed17-joint-measurement/formula-banks.txt",
+    "/tmp/oec/pequalnp-pilot-87/library_route/signed17-joint-measurement/formula-tables-shortlist.bin",
+    "180"
+  ],
+  "exit_code": 5,
+  "wall_seconds": 180.11535463200016,
+  "scope": "finite table recomputation and storage measurement only, no Lean proof"
+}

@@ -1,0 +1,4 @@
+  File "/tmp/oec/pequalnp-pilot-87/status_review/one_not_two_gate_banks.py", line 62
+    positive_supply_history=[dict(op=1 if kind=='OR_OR'else0,left=hex(inputs[a]),right=hex(inputs[b]),output=hex(g)),dict(op=1,left=hex(g),right=hex(inputs[c]),output=hex(h))],
+                                     ^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression

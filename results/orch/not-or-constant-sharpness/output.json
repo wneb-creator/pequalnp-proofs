@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS_FINITE_COUNTEREXAMPLE_TO_CONSTANT_MASS_ONLY",
+  "inputs": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "h": 4008636142,
+  "complement": 286331153,
+  "gate_values": [
+    269488144,
+    3132799674,
+    4291624908,
+    3129522824,
+    4277075694,
+    4277010432
+  ],
+  "target": 4277010432,
+  "positive_gates": 6,
+  "projected_constants": 4,
+  "cofactor": "x AND y AND z",
+  "cofactor_minimum_gates": 2,
+  "reason_for_minimum": "Three essential independent inputs require at least two binary gates; two AND gates attain it.",
+  "scope": "Monotone target with no true singleton, strict fresh positive trace and exact constant-mass equality. The target includes a cubic term and this circuit is not gate-minimal. This does not refute any Petersen-specific or gate-minimality stability claim."
+}
