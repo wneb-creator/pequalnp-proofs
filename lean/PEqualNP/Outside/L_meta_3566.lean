@@ -1,4 +1,5 @@
 import Mathlib.Tactic
+import Mathlib.Combinatorics.SimpleGraph.DegreeSum
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_3566
@@ -764,5 +765,746 @@ lemma boundary_union_bound {α : Type*} [DecidableEq α]
       omega
 
 end BoundaryBudget
+
+namespace GF8Representation
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+
+set_option maxRecDepth 20000 in
+def gates : List Gate := [
+    ⟨GateOp.or, [0, 1]⟩,
+    ⟨GateOp.or, [128, 2]⟩,
+    ⟨GateOp.or, [129, 3]⟩,
+    ⟨GateOp.or, [130, 4]⟩,
+    ⟨GateOp.or, [131, 5]⟩,
+    ⟨GateOp.or, [132, 6]⟩,
+    ⟨GateOp.or, [133, 7]⟩,
+    ⟨GateOp.or, [8, 9]⟩,
+    ⟨GateOp.or, [135, 10]⟩,
+    ⟨GateOp.or, [136, 11]⟩,
+    ⟨GateOp.or, [137, 12]⟩,
+    ⟨GateOp.or, [138, 13]⟩,
+    ⟨GateOp.or, [139, 14]⟩,
+    ⟨GateOp.or, [140, 15]⟩,
+    ⟨GateOp.or, [16, 17]⟩,
+    ⟨GateOp.or, [142, 18]⟩,
+    ⟨GateOp.or, [143, 19]⟩,
+    ⟨GateOp.or, [144, 20]⟩,
+    ⟨GateOp.or, [145, 21]⟩,
+    ⟨GateOp.or, [146, 22]⟩,
+    ⟨GateOp.or, [147, 23]⟩,
+    ⟨GateOp.or, [24, 25]⟩,
+    ⟨GateOp.or, [149, 26]⟩,
+    ⟨GateOp.or, [150, 27]⟩,
+    ⟨GateOp.or, [151, 28]⟩,
+    ⟨GateOp.or, [152, 29]⟩,
+    ⟨GateOp.or, [153, 30]⟩,
+    ⟨GateOp.or, [154, 31]⟩,
+    ⟨GateOp.or, [32, 33]⟩,
+    ⟨GateOp.or, [156, 34]⟩,
+    ⟨GateOp.or, [157, 35]⟩,
+    ⟨GateOp.or, [158, 36]⟩,
+    ⟨GateOp.or, [159, 37]⟩,
+    ⟨GateOp.or, [160, 38]⟩,
+    ⟨GateOp.or, [161, 39]⟩,
+    ⟨GateOp.or, [40, 41]⟩,
+    ⟨GateOp.or, [163, 42]⟩,
+    ⟨GateOp.or, [164, 43]⟩,
+    ⟨GateOp.or, [165, 44]⟩,
+    ⟨GateOp.or, [166, 45]⟩,
+    ⟨GateOp.or, [167, 46]⟩,
+    ⟨GateOp.or, [168, 47]⟩,
+    ⟨GateOp.or, [48, 49]⟩,
+    ⟨GateOp.or, [170, 50]⟩,
+    ⟨GateOp.or, [171, 51]⟩,
+    ⟨GateOp.or, [172, 52]⟩,
+    ⟨GateOp.or, [173, 53]⟩,
+    ⟨GateOp.or, [174, 54]⟩,
+    ⟨GateOp.or, [175, 55]⟩,
+    ⟨GateOp.or, [56, 57]⟩,
+    ⟨GateOp.or, [177, 58]⟩,
+    ⟨GateOp.or, [178, 59]⟩,
+    ⟨GateOp.or, [179, 60]⟩,
+    ⟨GateOp.or, [180, 61]⟩,
+    ⟨GateOp.or, [181, 62]⟩,
+    ⟨GateOp.or, [182, 63]⟩,
+    ⟨GateOp.or, [0, 8]⟩,
+    ⟨GateOp.or, [184, 16]⟩,
+    ⟨GateOp.or, [185, 24]⟩,
+    ⟨GateOp.or, [186, 32]⟩,
+    ⟨GateOp.or, [187, 40]⟩,
+    ⟨GateOp.or, [188, 48]⟩,
+    ⟨GateOp.or, [189, 56]⟩,
+    ⟨GateOp.or, [1, 9]⟩,
+    ⟨GateOp.or, [191, 17]⟩,
+    ⟨GateOp.or, [192, 25]⟩,
+    ⟨GateOp.or, [193, 33]⟩,
+    ⟨GateOp.or, [194, 41]⟩,
+    ⟨GateOp.or, [195, 49]⟩,
+    ⟨GateOp.or, [196, 57]⟩,
+    ⟨GateOp.or, [2, 10]⟩,
+    ⟨GateOp.or, [198, 18]⟩,
+    ⟨GateOp.or, [199, 26]⟩,
+    ⟨GateOp.or, [200, 34]⟩,
+    ⟨GateOp.or, [201, 42]⟩,
+    ⟨GateOp.or, [202, 50]⟩,
+    ⟨GateOp.or, [203, 58]⟩,
+    ⟨GateOp.or, [3, 11]⟩,
+    ⟨GateOp.or, [205, 19]⟩,
+    ⟨GateOp.or, [206, 27]⟩,
+    ⟨GateOp.or, [207, 35]⟩,
+    ⟨GateOp.or, [208, 43]⟩,
+    ⟨GateOp.or, [209, 51]⟩,
+    ⟨GateOp.or, [210, 59]⟩,
+    ⟨GateOp.or, [4, 12]⟩,
+    ⟨GateOp.or, [212, 20]⟩,
+    ⟨GateOp.or, [213, 28]⟩,
+    ⟨GateOp.or, [214, 36]⟩,
+    ⟨GateOp.or, [215, 44]⟩,
+    ⟨GateOp.or, [216, 52]⟩,
+    ⟨GateOp.or, [217, 60]⟩,
+    ⟨GateOp.or, [5, 13]⟩,
+    ⟨GateOp.or, [219, 21]⟩,
+    ⟨GateOp.or, [220, 29]⟩,
+    ⟨GateOp.or, [221, 37]⟩,
+    ⟨GateOp.or, [222, 45]⟩,
+    ⟨GateOp.or, [223, 53]⟩,
+    ⟨GateOp.or, [224, 61]⟩,
+    ⟨GateOp.or, [6, 14]⟩,
+    ⟨GateOp.or, [226, 22]⟩,
+    ⟨GateOp.or, [227, 30]⟩,
+    ⟨GateOp.or, [228, 38]⟩,
+    ⟨GateOp.or, [229, 46]⟩,
+    ⟨GateOp.or, [230, 54]⟩,
+    ⟨GateOp.or, [231, 62]⟩,
+    ⟨GateOp.or, [7, 15]⟩,
+    ⟨GateOp.or, [233, 23]⟩,
+    ⟨GateOp.or, [234, 31]⟩,
+    ⟨GateOp.or, [235, 39]⟩,
+    ⟨GateOp.or, [236, 47]⟩,
+    ⟨GateOp.or, [237, 55]⟩,
+    ⟨GateOp.or, [238, 63]⟩,
+    ⟨GateOp.or, [64, 65]⟩,
+    ⟨GateOp.or, [240, 66]⟩,
+    ⟨GateOp.or, [241, 67]⟩,
+    ⟨GateOp.or, [242, 68]⟩,
+    ⟨GateOp.or, [243, 69]⟩,
+    ⟨GateOp.or, [244, 70]⟩,
+    ⟨GateOp.or, [245, 71]⟩,
+    ⟨GateOp.or, [72, 73]⟩,
+    ⟨GateOp.or, [247, 74]⟩,
+    ⟨GateOp.or, [248, 75]⟩,
+    ⟨GateOp.or, [249, 76]⟩,
+    ⟨GateOp.or, [250, 77]⟩,
+    ⟨GateOp.or, [251, 78]⟩,
+    ⟨GateOp.or, [252, 79]⟩,
+    ⟨GateOp.or, [80, 81]⟩,
+    ⟨GateOp.or, [254, 82]⟩,
+    ⟨GateOp.or, [255, 83]⟩,
+    ⟨GateOp.or, [256, 84]⟩,
+    ⟨GateOp.or, [257, 85]⟩,
+    ⟨GateOp.or, [258, 86]⟩,
+    ⟨GateOp.or, [259, 87]⟩,
+    ⟨GateOp.or, [88, 89]⟩,
+    ⟨GateOp.or, [261, 90]⟩,
+    ⟨GateOp.or, [262, 91]⟩,
+    ⟨GateOp.or, [263, 92]⟩,
+    ⟨GateOp.or, [264, 93]⟩,
+    ⟨GateOp.or, [265, 94]⟩,
+    ⟨GateOp.or, [266, 95]⟩,
+    ⟨GateOp.or, [96, 97]⟩,
+    ⟨GateOp.or, [268, 98]⟩,
+    ⟨GateOp.or, [269, 99]⟩,
+    ⟨GateOp.or, [270, 100]⟩,
+    ⟨GateOp.or, [271, 101]⟩,
+    ⟨GateOp.or, [272, 102]⟩,
+    ⟨GateOp.or, [273, 103]⟩,
+    ⟨GateOp.or, [104, 105]⟩,
+    ⟨GateOp.or, [275, 106]⟩,
+    ⟨GateOp.or, [276, 107]⟩,
+    ⟨GateOp.or, [277, 108]⟩,
+    ⟨GateOp.or, [278, 109]⟩,
+    ⟨GateOp.or, [279, 110]⟩,
+    ⟨GateOp.or, [280, 111]⟩,
+    ⟨GateOp.or, [112, 113]⟩,
+    ⟨GateOp.or, [282, 114]⟩,
+    ⟨GateOp.or, [283, 115]⟩,
+    ⟨GateOp.or, [284, 116]⟩,
+    ⟨GateOp.or, [285, 117]⟩,
+    ⟨GateOp.or, [286, 118]⟩,
+    ⟨GateOp.or, [287, 119]⟩,
+    ⟨GateOp.or, [120, 121]⟩,
+    ⟨GateOp.or, [289, 122]⟩,
+    ⟨GateOp.or, [290, 123]⟩,
+    ⟨GateOp.or, [291, 124]⟩,
+    ⟨GateOp.or, [292, 125]⟩,
+    ⟨GateOp.or, [293, 126]⟩,
+    ⟨GateOp.or, [294, 127]⟩,
+    ⟨GateOp.or, [64, 72]⟩,
+    ⟨GateOp.or, [296, 80]⟩,
+    ⟨GateOp.or, [297, 88]⟩,
+    ⟨GateOp.or, [298, 96]⟩,
+    ⟨GateOp.or, [299, 104]⟩,
+    ⟨GateOp.or, [300, 112]⟩,
+    ⟨GateOp.or, [301, 120]⟩,
+    ⟨GateOp.or, [65, 73]⟩,
+    ⟨GateOp.or, [303, 81]⟩,
+    ⟨GateOp.or, [304, 89]⟩,
+    ⟨GateOp.or, [305, 97]⟩,
+    ⟨GateOp.or, [306, 105]⟩,
+    ⟨GateOp.or, [307, 113]⟩,
+    ⟨GateOp.or, [308, 121]⟩,
+    ⟨GateOp.or, [66, 74]⟩,
+    ⟨GateOp.or, [310, 82]⟩,
+    ⟨GateOp.or, [311, 90]⟩,
+    ⟨GateOp.or, [312, 98]⟩,
+    ⟨GateOp.or, [313, 106]⟩,
+    ⟨GateOp.or, [314, 114]⟩,
+    ⟨GateOp.or, [315, 122]⟩,
+    ⟨GateOp.or, [67, 75]⟩,
+    ⟨GateOp.or, [317, 83]⟩,
+    ⟨GateOp.or, [318, 91]⟩,
+    ⟨GateOp.or, [319, 99]⟩,
+    ⟨GateOp.or, [320, 107]⟩,
+    ⟨GateOp.or, [321, 115]⟩,
+    ⟨GateOp.or, [322, 123]⟩,
+    ⟨GateOp.or, [68, 76]⟩,
+    ⟨GateOp.or, [324, 84]⟩,
+    ⟨GateOp.or, [325, 92]⟩,
+    ⟨GateOp.or, [326, 100]⟩,
+    ⟨GateOp.or, [327, 108]⟩,
+    ⟨GateOp.or, [328, 116]⟩,
+    ⟨GateOp.or, [329, 124]⟩,
+    ⟨GateOp.or, [69, 77]⟩,
+    ⟨GateOp.or, [331, 85]⟩,
+    ⟨GateOp.or, [332, 93]⟩,
+    ⟨GateOp.or, [333, 101]⟩,
+    ⟨GateOp.or, [334, 109]⟩,
+    ⟨GateOp.or, [335, 117]⟩,
+    ⟨GateOp.or, [336, 125]⟩,
+    ⟨GateOp.or, [70, 78]⟩,
+    ⟨GateOp.or, [338, 86]⟩,
+    ⟨GateOp.or, [339, 94]⟩,
+    ⟨GateOp.or, [340, 102]⟩,
+    ⟨GateOp.or, [341, 110]⟩,
+    ⟨GateOp.or, [342, 118]⟩,
+    ⟨GateOp.or, [343, 126]⟩,
+    ⟨GateOp.or, [71, 79]⟩,
+    ⟨GateOp.or, [345, 87]⟩,
+    ⟨GateOp.or, [346, 95]⟩,
+    ⟨GateOp.or, [347, 103]⟩,
+    ⟨GateOp.or, [348, 111]⟩,
+    ⟨GateOp.or, [349, 119]⟩,
+    ⟨GateOp.or, [350, 127]⟩,
+    ⟨GateOp.or, [134, 148]⟩,
+    ⟨GateOp.or, [352, 162]⟩,
+    ⟨GateOp.or, [353, 176]⟩,
+    ⟨GateOp.or, [141, 155]⟩,
+    ⟨GateOp.or, [355, 169]⟩,
+    ⟨GateOp.or, [356, 183]⟩,
+    ⟨GateOp.or, [134, 141]⟩,
+    ⟨GateOp.or, [358, 162]⟩,
+    ⟨GateOp.or, [359, 169]⟩,
+    ⟨GateOp.or, [148, 155]⟩,
+    ⟨GateOp.or, [361, 176]⟩,
+    ⟨GateOp.or, [362, 183]⟩,
+    ⟨GateOp.or, [134, 141]⟩,
+    ⟨GateOp.or, [364, 148]⟩,
+    ⟨GateOp.or, [365, 155]⟩,
+    ⟨GateOp.or, [162, 169]⟩,
+    ⟨GateOp.or, [367, 176]⟩,
+    ⟨GateOp.or, [368, 183]⟩,
+    ⟨GateOp.or, [190, 204]⟩,
+    ⟨GateOp.or, [370, 218]⟩,
+    ⟨GateOp.or, [371, 232]⟩,
+    ⟨GateOp.or, [197, 211]⟩,
+    ⟨GateOp.or, [373, 225]⟩,
+    ⟨GateOp.or, [374, 239]⟩,
+    ⟨GateOp.or, [190, 197]⟩,
+    ⟨GateOp.or, [376, 218]⟩,
+    ⟨GateOp.or, [377, 225]⟩,
+    ⟨GateOp.or, [204, 211]⟩,
+    ⟨GateOp.or, [379, 232]⟩,
+    ⟨GateOp.or, [380, 239]⟩,
+    ⟨GateOp.or, [190, 197]⟩,
+    ⟨GateOp.or, [382, 204]⟩,
+    ⟨GateOp.or, [383, 211]⟩,
+    ⟨GateOp.or, [218, 225]⟩,
+    ⟨GateOp.or, [385, 232]⟩,
+    ⟨GateOp.or, [386, 239]⟩,
+    ⟨GateOp.or, [246, 260]⟩,
+    ⟨GateOp.or, [388, 274]⟩,
+    ⟨GateOp.or, [389, 288]⟩,
+    ⟨GateOp.or, [253, 267]⟩,
+    ⟨GateOp.or, [391, 281]⟩,
+    ⟨GateOp.or, [392, 295]⟩,
+    ⟨GateOp.or, [246, 253]⟩,
+    ⟨GateOp.or, [394, 274]⟩,
+    ⟨GateOp.or, [395, 281]⟩,
+    ⟨GateOp.or, [260, 267]⟩,
+    ⟨GateOp.or, [397, 288]⟩,
+    ⟨GateOp.or, [398, 295]⟩,
+    ⟨GateOp.or, [246, 253]⟩,
+    ⟨GateOp.or, [400, 260]⟩,
+    ⟨GateOp.or, [401, 267]⟩,
+    ⟨GateOp.or, [274, 281]⟩,
+    ⟨GateOp.or, [403, 288]⟩,
+    ⟨GateOp.or, [404, 295]⟩,
+    ⟨GateOp.or, [302, 316]⟩,
+    ⟨GateOp.or, [406, 330]⟩,
+    ⟨GateOp.or, [407, 344]⟩,
+    ⟨GateOp.or, [309, 323]⟩,
+    ⟨GateOp.or, [409, 337]⟩,
+    ⟨GateOp.or, [410, 351]⟩,
+    ⟨GateOp.or, [302, 309]⟩,
+    ⟨GateOp.or, [412, 330]⟩,
+    ⟨GateOp.or, [413, 337]⟩,
+    ⟨GateOp.or, [316, 323]⟩,
+    ⟨GateOp.or, [415, 344]⟩,
+    ⟨GateOp.or, [416, 351]⟩,
+    ⟨GateOp.or, [302, 309]⟩,
+    ⟨GateOp.or, [418, 316]⟩,
+    ⟨GateOp.or, [419, 323]⟩,
+    ⟨GateOp.or, [330, 337]⟩,
+    ⟨GateOp.or, [421, 344]⟩,
+    ⟨GateOp.or, [422, 351]⟩,
+    ⟨GateOp.or, [390, 354]⟩,
+    ⟨GateOp.and, [393, 357]⟩,
+    ⟨GateOp.or, [390, 360]⟩,
+    ⟨GateOp.and, [393, 363]⟩,
+    ⟨GateOp.or, [390, 366]⟩,
+    ⟨GateOp.and, [393, 369]⟩,
+    ⟨GateOp.or, [396, 354]⟩,
+    ⟨GateOp.and, [399, 357]⟩,
+    ⟨GateOp.or, [396, 360]⟩,
+    ⟨GateOp.and, [399, 363]⟩,
+    ⟨GateOp.or, [396, 366]⟩,
+    ⟨GateOp.and, [399, 369]⟩,
+    ⟨GateOp.or, [402, 354]⟩,
+    ⟨GateOp.and, [405, 357]⟩,
+    ⟨GateOp.or, [402, 360]⟩,
+    ⟨GateOp.and, [405, 363]⟩,
+    ⟨GateOp.or, [402, 366]⟩,
+    ⟨GateOp.and, [405, 369]⟩,
+    ⟨GateOp.and, [426, 430]⟩,
+    ⟨GateOp.and, [427, 431]⟩,
+    ⟨GateOp.or, [442, 443]⟩,
+    ⟨GateOp.and, [426, 431]⟩,
+    ⟨GateOp.and, [427, 430]⟩,
+    ⟨GateOp.or, [445, 446]⟩,
+    ⟨GateOp.and, [428, 432]⟩,
+    ⟨GateOp.and, [429, 433]⟩,
+    ⟨GateOp.or, [448, 449]⟩,
+    ⟨GateOp.and, [428, 433]⟩,
+    ⟨GateOp.and, [429, 432]⟩,
+    ⟨GateOp.or, [451, 452]⟩,
+    ⟨GateOp.and, [450, 436]⟩,
+    ⟨GateOp.and, [453, 437]⟩,
+    ⟨GateOp.or, [454, 455]⟩,
+    ⟨GateOp.and, [450, 437]⟩,
+    ⟨GateOp.and, [453, 436]⟩,
+    ⟨GateOp.or, [457, 458]⟩,
+    ⟨GateOp.and, [434, 438]⟩,
+    ⟨GateOp.and, [435, 439]⟩,
+    ⟨GateOp.or, [460, 461]⟩,
+    ⟨GateOp.and, [434, 439]⟩,
+    ⟨GateOp.and, [435, 438]⟩,
+    ⟨GateOp.or, [463, 464]⟩,
+    ⟨GateOp.and, [424, 462]⟩,
+    ⟨GateOp.and, [425, 465]⟩,
+    ⟨GateOp.or, [466, 467]⟩,
+    ⟨GateOp.and, [424, 465]⟩,
+    ⟨GateOp.and, [425, 462]⟩,
+    ⟨GateOp.or, [469, 470]⟩,
+    ⟨GateOp.and, [444, 462]⟩,
+    ⟨GateOp.and, [447, 465]⟩,
+    ⟨GateOp.or, [472, 473]⟩,
+    ⟨GateOp.and, [444, 465]⟩,
+    ⟨GateOp.and, [447, 462]⟩,
+    ⟨GateOp.or, [475, 476]⟩,
+    ⟨GateOp.and, [474, 440]⟩,
+    ⟨GateOp.and, [477, 441]⟩,
+    ⟨GateOp.or, [478, 479]⟩,
+    ⟨GateOp.and, [474, 441]⟩,
+    ⟨GateOp.and, [477, 440]⟩,
+    ⟨GateOp.or, [481, 482]⟩,
+    ⟨GateOp.and, [456, 440]⟩,
+    ⟨GateOp.and, [459, 441]⟩,
+    ⟨GateOp.or, [484, 485]⟩,
+    ⟨GateOp.and, [456, 441]⟩,
+    ⟨GateOp.and, [459, 440]⟩,
+    ⟨GateOp.or, [487, 488]⟩,
+    ⟨GateOp.and, [468, 408]⟩,
+    ⟨GateOp.and, [471, 411]⟩,
+    ⟨GateOp.or, [490, 491]⟩,
+    ⟨GateOp.and, [468, 411]⟩,
+    ⟨GateOp.and, [471, 408]⟩,
+    ⟨GateOp.or, [493, 494]⟩,
+    ⟨GateOp.and, [480, 414]⟩,
+    ⟨GateOp.and, [483, 417]⟩,
+    ⟨GateOp.or, [496, 497]⟩,
+    ⟨GateOp.and, [480, 417]⟩,
+    ⟨GateOp.and, [483, 414]⟩,
+    ⟨GateOp.or, [499, 500]⟩,
+    ⟨GateOp.and, [486, 420]⟩,
+    ⟨GateOp.and, [489, 423]⟩,
+    ⟨GateOp.or, [502, 503]⟩,
+    ⟨GateOp.and, [486, 423]⟩,
+    ⟨GateOp.and, [489, 420]⟩,
+    ⟨GateOp.or, [505, 506]⟩,
+    ⟨GateOp.and, [492, 372]⟩,
+    ⟨GateOp.and, [495, 375]⟩,
+    ⟨GateOp.or, [508, 509]⟩,
+    ⟨GateOp.and, [498, 378]⟩,
+    ⟨GateOp.and, [501, 381]⟩,
+    ⟨GateOp.or, [511, 512]⟩,
+    ⟨GateOp.and, [504, 384]⟩,
+    ⟨GateOp.and, [507, 387]⟩,
+    ⟨GateOp.or, [514, 515]⟩,
+    ⟨GateOp.and, [510, 513]⟩,
+    ⟨GateOp.and, [517, 516]⟩,
+    ⟨GateOp.or, [354, 357]⟩,
+    ⟨GateOp.or, [390, 393]⟩,
+    ⟨GateOp.and, [519, 520]⟩,
+    ⟨GateOp.and, [521, 518]⟩]
+
+def circuit : Circuit := ⟨gates, 522⟩
+
+def witness : Fin 128 → Bool := fun v => decide (v.val = 0 ∨ v.val = 9 ∨ v.val = 73)
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma isAO2 : IsAO2 128 circuit := by decide
+
+set_option maxRecDepth 20000 in
+lemma size_eq : circuit.size = 395 := by decide
+
+set_option maxRecDepth 20000 in
+lemma and_count_eq :
+    (circuit.gates.filter fun g => match g.op with | GateOp.and => true | _ => false).length = 63 := by
+  decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma accepted_witness : circuitFun 128 circuit witness = true := by decide
+
+def gfTimesX (a : BitVec 3) : BitVec 3 :=
+  (a <<< 1) ^^^ (if a.getLsbD 2 then 3 else 0)
+
+def gfMul (a b : BitVec 3) : BitVec 3 :=
+  (if b.getLsbD 0 then a else 0) ^^^
+  (if b.getLsbD 1 then gfTimesX a else 0) ^^^
+  (if b.getLsbD 2 then gfTimesX (gfTimesX a) else 0)
+
+def incidence (p l : Fin 128) : Prop :=
+  p.val < 64 ∧ 64 ≤ l.val ∧
+    BitVec.ofNat 3 (p.val % 8) =
+      (gfMul (BitVec.ofNat 3 ((l.val - 64) / 8)) (BitVec.ofNat 3 (p.val / 8)) ^^^
+        BitVec.ofNat 3 ((l.val - 64) % 8))
+
+def adjacent (u v : Fin 128) : Prop := incidence u v ∨ incidence v u
+
+lemma no_edge_on_witness : ∀ u v : Fin 128,
+    witness u = true → witness v = true → ¬ adjacent u v := by
+  intro u v hu hv
+  have hu' : u.val = 0 ∨ u.val = 9 ∨ u.val = 73 := of_decide_eq_true hu
+  have hv' : v.val = 0 ∨ v.val = 9 ∨ v.val = 73 := of_decide_eq_true hv
+  rcases hu' with hu | hu | hu <;> rcases hv' with hv | hv | hv <;>
+    simp only [adjacent, incidence, hu, hv] <;> decide
+
+lemma false_positive : circuitFun 128 circuit witness = true ∧
+    ¬ ∃ u v : Fin 128, adjacent u v ∧ witness u = true ∧ witness v = true := by
+  refine ⟨accepted_witness, ?_⟩
+  rintro ⟨u, v, hadj, hu, hv⟩
+  exact no_edge_on_witness u v hu hv hadj
+
+def graph : SimpleGraph (Fin 128) where
+  Adj := adjacent
+  symm := ⟨fun _ _ h => h.symm⟩
+  loopless := ⟨by
+    intro v h
+    rcases h with h | h <;> have hp := h.1 <;> have hl := h.2.1 <;> omega⟩
+
+abbrev graphAdjDecidable : DecidableRel graph.Adj := by
+  intro u v
+  change Decidable (adjacent u v)
+  unfold adjacent incidence
+  infer_instance
+
+lemma bipartite : ∃ c : Fin 128 → Bool, ∀ u v, graph.Adj u v → c u ≠ c v := by
+  refine ⟨fun v => decide (64 ≤ v.val), ?_⟩
+  intro u v h
+  change incidence u v ∨ incidence v u at h
+  rcases h with h | h
+  · have hu : ¬ 64 ≤ u.val := by have := h.1; omega
+    have hv : 64 ≤ v.val := h.2.1
+    simp [hu, hv]
+  · have hu : 64 ≤ u.val := h.2.1
+    have hv : ¬ 64 ≤ v.val := by have := h.1; omega
+    simp [hu, hv]
+
+def linePerm (p : Fin 64) : Fin 64 :=
+  Fin.ofNat 64 (8 * (p.val / 8) +
+    ((BitVec.ofNat 3 (p.val % 8)) ^^^
+      gfMul (BitVec.ofNat 3 (p.val / 8)) (BitVec.ofNat 3 (p.val / 8))).toNat)
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 4000000 in
+lemma linePerm_involutive : Function.Involutive linePerm := by
+  change ∀ p : Fin 64, linePerm (linePerm p) = p
+  decide
+
+lemma linePerm_injective : Function.Injective linePerm := linePerm_involutive.injective
+
+def ends (p : Fin 64 × Bool) : Fin 128 :=
+  if p.2 then Fin.natAdd 64 (linePerm p.1) else Fin.castAdd 64 p.1
+
+lemma ends_injective : Function.Injective ends := by
+  rintro ⟨p, b⟩ ⟨q, c⟩ h
+  have hv := congrArg Fin.val h
+  cases b <;> cases c
+  · have hp : p = q := Fin.ext (by simpa [ends] using hv)
+    exact Prod.ext hp rfl
+  · have hp := p.isLt
+    simp [ends] at hv
+    omega
+  · have hq := q.isLt
+    simp [ends] at hv
+    omega
+  · have hidx : (linePerm p).val = (linePerm q).val := by
+      simp [ends] at hv
+      omega
+    exact Prod.ext (linePerm_injective (Fin.ext hidx)) rfl
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 4000000 in
+lemma matching_adj : ∀ p : Fin 64, graph.Adj (ends (p, false)) (ends (p, true)) := by
+  change ∀ p : Fin 64, adjacent (ends (p, false)) (ends (p, true))
+  unfold adjacent incidence
+  decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma degree_eq :
+    letI : DecidableRel graph.Adj := graphAdjDecidable
+    ∀ v : Fin 128, graph.degree v = 8 := by
+  letI : DecidableRel graph.Adj := graphAdjDecidable
+  change ∀ v : Fin 128, graph.degree v = 8
+  decide
+
+def pointCover : Finset (Fin 128) := Finset.univ.filter fun v => v.val < 64
+
+lemma pointCover_card : pointCover.card = 64 := by decide
+
+lemma pointCover_covers : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph pointCover := by
+  intro u v h
+  change incidence u v ∨ incidence v u at h
+  rcases h with h | h
+  · exact Or.inl (by simpa [pointCover] using h.1)
+  · exact Or.inr (by simpa [pointCover] using h.1)
+
+lemma cover_lower (T : Finset (Fin 128))
+    (hT : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph T) : 64 ≤ T.card := by
+  classical
+  let side : Fin 64 → Bool := fun i => if ends (i, false) ∈ T then false else true
+  let pick : Fin 64 → Fin 128 := fun i => ends (i, side i)
+  have hmem : ∀ i, pick i ∈ T := by
+    intro i
+    have h := hT _ _ (matching_adj i)
+    dsimp [pick, side]
+    split_ifs with hf
+    · exact hf
+    · exact h.resolve_left hf
+  have hpick : Function.Injective pick := by
+    intro i j heq
+    exact congrArg Prod.fst (ends_injective heq)
+  have hsub : Finset.univ.image pick ⊆ T := by
+    intro x hx
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hx
+    exact hmem i
+  have hcard := Finset.card_le_card hsub
+  simpa [Finset.card_image_of_injective _ hpick] using hcard
+
+lemma minimum_cover : ∃ T : Finset (Fin 128),
+    PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph T ∧ T.card = 64 ∧
+      ∀ S : Finset (Fin 128),
+        PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph S → T.card ≤ S.card := by
+  refine ⟨pointCover, pointCover_covers, pointCover_card, ?_⟩
+  intro S hS
+  rw [pointCover_card]
+  exact cover_lower S hS
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 2000000 in
+lemma mul_comm : ∀ a b : BitVec 3, gfMul a b = gfMul b a := by decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 2000000 in
+lemma mul_xor : ∀ a x y : BitVec 3,
+    gfMul a (x ^^^ y) = gfMul a x ^^^ gfMul a y := by decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 2000000 in
+lemma mul_eq_zero_iff : ∀ a x : BitVec 3, gfMul a x = 0 ↔ a = 0 ∨ x = 0 := by decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 2000000 in
+lemma mul_right_injective : ∀ x : BitVec 3, x ≠ 0 → Function.Injective (fun a => gfMul a x) := by
+  change ∀ x : BitVec 3, x ≠ 0 → ∀ a b : BitVec 3, gfMul a x = gfMul b x → a = b
+  decide
+
+lemma rectangle {a a' x x' : BitVec 3} (ha : a ≠ a') (hx : x ≠ x') :
+    gfMul a x ^^^ gfMul a x' ≠ gfMul a' x ^^^ gfMul a' x' := by
+  intro h
+  have hnonzero : x ^^^ x' ≠ 0 := fun hz => hx (BitVec.xor_eq_zero_iff.mp hz)
+  apply ha
+  apply mul_right_injective (x ^^^ x') hnonzero
+  simpa only [mul_xor] using h
+
+lemma xor_double_cancel {w : ℕ} (u v b : BitVec w) :
+    (u ^^^ b) ^^^ (v ^^^ b) = u ^^^ v := by
+  calc
+    (u ^^^ b) ^^^ (v ^^^ b) = (u ^^^ v) ^^^ (b ^^^ b) := by ac_rfl
+    _ = u ^^^ v := by simp
+
+lemma common_line_unique {x y x' y' a b a' b' : BitVec 3}
+    (hpoints : (x, y) ≠ (x', y'))
+    (h1 : y = gfMul a x ^^^ b) (h2 : y' = gfMul a x' ^^^ b)
+    (h3 : y = gfMul a' x ^^^ b') (h4 : y' = gfMul a' x' ^^^ b') :
+    (a, b) = (a', b') := by
+  have hx : x ≠ x' := by
+    intro hx
+    have hy : y = y' := by rw [h1, h2, hx]
+    exact hpoints (Prod.ext hx hy)
+  have hl : y ^^^ y' = gfMul a x ^^^ gfMul a x' := by
+    rw [h1, h2]
+    exact xor_double_cancel _ _ _
+  have hr : y ^^^ y' = gfMul a' x ^^^ gfMul a' x' := by
+    rw [h3, h4]
+    exact xor_double_cancel _ _ _
+  have ha : a = a' := by
+    by_contra hne
+    exact rectangle hne hx (hl.symm.trans hr)
+  have hb : b = b' := by
+    apply (BitVec.xor_right_inj (gfMul a x)).mp
+    simpa only [ha] using h1.symm.trans h3
+  exact Prod.ext ha hb
+
+lemma common_point_unique {x y x' y' a b a' b' : BitVec 3}
+    (hlines : (a, b) ≠ (a', b'))
+    (h1 : y = gfMul a x ^^^ b) (h2 : y' = gfMul a x' ^^^ b)
+    (h3 : y = gfMul a' x ^^^ b') (h4 : y' = gfMul a' x' ^^^ b') :
+    (x, y) = (x', y') := by
+  by_contra hpoints
+  exact hlines (common_line_unique hpoints h1 h2 h3 h4)
+
+lemma coordinatesNat_injective {u v : ℕ} (hu : u < 64) (hv : v < 64)
+    (h : (BitVec.ofNat 3 (u / 8), BitVec.ofNat 3 (u % 8)) =
+      (BitVec.ofNat 3 (v / 8), BitVec.ofNat 3 (v % 8))) : u = v := by
+  have hx := congrArg (fun p : BitVec 3 × BitVec 3 => p.1.toNat) h
+  have hy := congrArg (fun p : BitVec 3 × BitVec 3 => p.2.toNat) h
+  simp only [BitVec.toNat_ofNat] at hx hy
+  norm_num at hx hy
+  omega
+
+def pointCoordinates (p : Fin 128) : BitVec 3 × BitVec 3 :=
+  (BitVec.ofNat 3 (p.val / 8), BitVec.ofNat 3 (p.val % 8))
+
+def lineCoordinates (l : Fin 128) : BitVec 3 × BitVec 3 :=
+  (BitVec.ofNat 3 ((l.val - 64) / 8), BitVec.ofNat 3 ((l.val - 64) % 8))
+
+lemma pointCoordinates_injective {p q : Fin 128} (hp : p.val < 64) (hq : q.val < 64)
+    (h : pointCoordinates p = pointCoordinates q) : p = q := by
+  exact Fin.ext (coordinatesNat_injective hp hq h)
+
+lemma lineCoordinates_injective {p q : Fin 128} (hp : 64 ≤ p.val) (hq : 64 ≤ q.val)
+    (h : lineCoordinates p = lineCoordinates q) : p = q := by
+  have hp' : p.val - 64 < 64 := by have := p.isLt; omega
+  have hq' : q.val - 64 < 64 := by have := q.isLt; omega
+  have he := coordinatesNat_injective hp' hq' h
+  apply Fin.ext
+  omega
+
+lemma incidence_of_point_adj {p l : Fin 128} (hp : p.val < 64) (h : graph.Adj p l) :
+    incidence p l := by
+  change incidence p l ∨ incidence l p at h
+  rcases h with h | h
+  · exact h
+  · have := h.2.1
+    omega
+
+lemma incidence_of_line_adj {l p : Fin 128} (hl : 64 ≤ l.val) (h : graph.Adj l p) :
+    incidence p l := by
+  change incidence l p ∨ incidence p l at h
+  rcases h with h | h
+  · have := h.1
+    omega
+  · exact h
+
+lemma common_neighbor_unique {a b u v : Fin 128} (hab : a ≠ b)
+    (hau : graph.Adj a u) (hbu : graph.Adj b u)
+    (hav : graph.Adj a v) (hbv : graph.Adj b v) : u = v := by
+  by_cases ha : a.val < 64
+  · have hau' := incidence_of_point_adj ha hau
+    have hav' := incidence_of_point_adj ha hav
+    by_cases hb : b.val < 64
+    · have hbu' := incidence_of_point_adj hb hbu
+      have hbv' := incidence_of_point_adj hb hbv
+      have hpoints : pointCoordinates a ≠ pointCoordinates b :=
+        fun h => hab (pointCoordinates_injective ha hb h)
+      have he := common_line_unique hpoints hau'.2.2 hbu'.2.2 hav'.2.2 hbv'.2.2
+      exact lineCoordinates_injective hau'.2.1 hav'.2.1 he
+    · have hb' : 64 ≤ b.val := by omega
+      have hub := incidence_of_line_adj hb' hbu
+      have := hau'.2.1
+      have := hub.1
+      omega
+  · have ha' : 64 ≤ a.val := by omega
+    have hua := incidence_of_line_adj ha' hau
+    have hva := incidence_of_line_adj ha' hav
+    by_cases hb : b.val < 64
+    · have hbu' := incidence_of_point_adj hb hbu
+      have := hua.1
+      have := hbu'.2.1
+      omega
+    · have hb' : 64 ≤ b.val := by omega
+      have hub := incidence_of_line_adj hb' hbu
+      have hvb := incidence_of_line_adj hb' hbv
+      have hlines : lineCoordinates a ≠ lineCoordinates b :=
+        fun h => hab (lineCoordinates_injective ha' hb' h)
+      have he := common_point_unique hlines hua.2.2 hva.2.2 hub.2.2 hvb.2.2
+      exact pointCoordinates_injective hua.1 hva.1 he
+
+lemma no_four_cycle : @PEqualNP.TopForm.NoFourCycle 128 graph graphAdjDecidable := by
+  intro a b hab
+  apply Finset.card_le_one.mpr
+  intro u hu v hv
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hu hv
+  exact common_neighbor_unique hab hu.1 hu.2 hv.1 hv.2
+
+lemma edge_card :
+    letI : DecidableRel graph.Adj := graphAdjDecidable
+    graph.edgeFinset.card = 512 := by
+  letI : DecidableRel graph.Adj := graphAdjDecidable
+  change graph.edgeFinset.card = 512
+  have hd : ∀ v : Fin 128, graph.degree v = 8 := degree_eq
+  have hs : 1024 = 2 * graph.edgeFinset.card := by
+    simpa [hd] using graph.sum_degrees_eq_twice_card_edges
+  omega
+
+lemma graph_false_on_witness :
+    @PEqualNP.MetaComplexity.NestedCover.graphFun 128 graph graphAdjDecidable ∅ witness = false := by
+  have h : ¬ ∃ u v : Fin 128, graph.Adj u v ∧ witness u = true ∧ witness v = true :=
+    false_positive.2
+  simp [PEqualNP.MetaComplexity.NestedCover.graphFun, h]
+
+lemma does_not_compute_graph : circuitFun 128 circuit ≠
+    @PEqualNP.MetaComplexity.NestedCover.graphFun 128 graph graphAdjDecidable ∅ := by
+  intro h
+  have he := congrFun h witness
+  rw [accepted_witness, graph_false_on_witness] at he
+  exact Bool.noConfusion he
+
+end GF8Representation
 
 end PEqualNP.Outside.L_meta_3566
