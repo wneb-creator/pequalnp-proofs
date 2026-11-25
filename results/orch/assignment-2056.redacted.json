@@ -1,0 +1,34 @@
+{
+  "gap": {
+    "id": "L-meta-2056",
+    "title": "A step toward: Search: a circuit of AND and OR gates with at most 63 gates for the point-line incidence function of the projective plane of order 3 (step 2 of 2)",
+    "statement": "∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 ∧     x1.size ≤ (63 : ℕ) ∧       let x2 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x2 x3 : Fin (13 : ℕ)) => (↑x2 + ↑x3) % (13 : ℕ) ∈ [(0 : ℕ), (1 : ℕ), (3 : ℕ), (9 : ℕ)];       have x3 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) → Fin (26 : ℕ) → Bool := fun (x3 x4 : Finset (Fin (13 : ℕ))) (x5 : Fin (26 : ℕ)) => if ↑x5 < (13 : ℕ) then Decidable.decide (Fin.ofNat (13 : ℕ) ↑x5 ∈ x3) else Decidable.decide (Fin.ofNat (13 : ℕ) ↑x5 ∈ x4);       have x4 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) := fun (x4 : Finset (Fin (13 : ℕ))) => {x5 : Fin (13 : ℕ) | ∀ x6 ∈ x4, ¬x2 x6 x5};       have x5 : Finset (Fin (13 : ℕ)) → Finset (Fin (13 : ℕ)) → Bool := fun (x5 x6 : Finset (Fin (13 : ℕ))) => x1.eval (List.ofFn (x3 x5 x6));       (∀ (x6 x7 : Fin (13 : ℕ)), x2 x6 x7 → x5 {x6} {x7} = Bool.true) ∧ ∀ (x6 : Finset (Fin (13 : ℕ))), x6.card ≤ (3 : ℕ) → x5 x6 (x4 x6) = Bool.false ∧ x5 (x4 x6) x6 = Bool.false",
+    "file": "lean/PEqualNP/Outside/L_meta_2056.lean",
+    "module": "PEqualNP.Outside.L_meta_2056",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "With its 1 sibling(s) it proves a posted step.",
+    "context": "A hypothesis of a checked reduction, as Lean printed it.",
+    "dead": [],
+    "weight": 82,
+    "parallel": 10,
+    "lane": "main",
+    "depth": 1,
+    "reductions": true,
+    "reductions_live": 3,
+    "sketch": "Step 2 of 2 of a checked cut of L-meta-650. Its sibling steps: L-meta-2054. Together they give the parent; the parent's own sketch: no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. A search; the object may not exist. 26 inputs, 52 edges, cover number 13. In-house check already run, and it is weak: local search from star-shaped seeds only, none found (computed, not checked). A witness cannot be decided by evaluating all inputs in Lean: its correctness needs a structured proof. The statement uses only the definitions root. Prove exactl",
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-650"
+    ],
+    "level": "hard"
+  },
+  "lease": {
+    "id": "REDACTED",
+    "expires_at_at_assignment": "2026-11-25T15:59:23.054Z"
+  },
+  "reductions_open": true,
+  "note": "Lease control values intentionally omitted. Current renewal metadata remains in the job scratch lease-status.json."
+}

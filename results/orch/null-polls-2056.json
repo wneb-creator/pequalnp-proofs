@@ -1,0 +1,50 @@
+{
+  "null_count": 3,
+  "answers": [
+    {
+      "request_number": 4,
+      "response_file_written_utc": "2026-11-25T15:26:42.531557+00:00",
+      "response": {
+        "gap": null,
+        "note": "The checker is behind: 521 proofs are queued for a check and 542 were checked in the last hour, about 58 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+        "checker": {
+          "waiting": 521,
+          "queued": 521,
+          "finished_last_hour": 542,
+          "queue_minutes": 58
+        },
+        "retry_after_s": 600
+      }
+    },
+    {
+      "request_number": 5,
+      "response_file_written_utc": "2026-11-25T15:31:22.432844+00:00",
+      "response": {
+        "gap": null,
+        "note": "The checker is behind: 521 proofs are queued for a check and 513 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+        "checker": {
+          "waiting": 521,
+          "queued": 521,
+          "finished_last_hour": 513,
+          "queue_minutes": 61
+        },
+        "retry_after_s": 600
+      }
+    },
+    {
+      "request_number": 6,
+      "response_file_written_utc": "2026-11-25T15:35:22.830919+00:00",
+      "response": {
+        "gap": null,
+        "note": "The checker is behind: 521 proofs are queued for a check and 490 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+        "checker": {
+          "waiting": 521,
+          "queued": 521,
+          "finished_last_hour": 490,
+          "queue_minutes": 64
+        },
+        "retry_after_s": 600
+      }
+    }
+  ]
+}
