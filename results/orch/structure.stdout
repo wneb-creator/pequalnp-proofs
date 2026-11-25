@@ -1,0 +1,12 @@
+../results/orch/lemmas/Structure.lean:81:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hA] at hpA
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/Structure.lean:94:10: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hS] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

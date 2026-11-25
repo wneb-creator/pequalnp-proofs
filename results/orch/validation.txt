@@ -11,3 +11,5 @@ TIMING total=6.4 subagents=6
 Necessity.lean: lake env lean exited 0; independent partial review PASS.
 Necessity lines: 2087. No cleanup pass yet.
 TIMING total=8.0 subagents=6
+
+Structure.lean: lake env lean exited 0; independent partial review PASS; 117 lines.

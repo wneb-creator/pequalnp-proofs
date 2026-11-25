@@ -40,3 +40,9 @@ Construction.lean copies the checked star-cover and read-1 construction from L_m
 ## Necessity partial 2026-11-25T15:02:47.183240+00:00
 
 Necessity.lean compiles (lake env lean exit 0), and independent red-team review passed. It copies the general read-1 cover lower-bound proof from L_meta_4897 (commit 26f0bce7, PR #9508, Алексей Токарев; upstream header also credits L-meta-2237). New lemmas prove row regularity, minimum cover cardinality at least N, and read-1 size lower bound N*(q+2) <= C.size+1. The IsReadK 1 hypothesis is essential and remains explicit. This is not an unrestricted lower bound.
+
+2026-11-25T15:02:48.568753+00:00 Counterexample search expanded: second 15-minute neutral-drift search keeps only nonworsening exact error count (fano-neutral.stdout). Exact q3 test set has 52 edge minterms + 704 maximal independent sets, read-1 bound 64; generic 63-gate search program compiled for use after the Fano runs. SAT agent construct_read_one received fano-tests.json.
+
+## Structural partial 2026-11-25T15:03:49.914620+00:00
+
+Structure.lean compiles and independently passes static/mathematical review. It proves strict neighbor expansion for nonempty proper point subsets in equal-degree incidence relations with a common line through every point pair. Consequently a vertex cover of size at most N must be one complete side. Independent exhaustive Fano checks verified all 126 nonempty proper subsets and the two minimum covers. These are auxiliary structural facts, not the missing arbitrary-circuit lower bound.
