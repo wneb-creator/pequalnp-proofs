@@ -1,0 +1,10 @@
+Pinned Lean 4.36.0
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/BackwardNormalize.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit status: 0
+stdout: seven inherited if_pos/if_neg deprecation warnings, no errors
+stderr: empty
+Source SHA256: 27d55004ff7669044079c1f5bcec95a66782f4d02ecad832fce2e12f41d6de2d
+Source lines: 345
+Source origin: accepted L_meta_4181.A1527, lines8-318, plus newly proved normalize_graph and normalize_minimal wrappers.
+Scope: every exact monotone graph-function circuit admits a backward-reading exact-fan-in-two replacement of no larger size; minimum-size inputs admit equal-size replacements that remain globally minimum. No star-profile existence is claimed.
