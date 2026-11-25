@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-25T16:41:59.665660+00:00",
+  "sources": {
+    "SoleReaderFactor.lean": {
+      "sha256": "ba81489ac7f10173082d77106c728eaf0e1d9964249de13067e48c6e75a03357",
+      "bytes": 5415,
+      "lines": 118,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-002.stdout",
+          "bytes": 2282,
+          "sha256": "9b1b443154c03ca264d476ab094113615b07ee52b675571256529eec27744b6b",
+          "text": "../results/orch1884/lemmas/SoleReaderFactor.lean:98:4: warning: This simp argument is unused:\n  List.all_cons\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, Bool.or_false,\n    Bool.and_true, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n../results/orch1884/lemmas/SoleReaderFactor.lean:98:19: warning: This simp argument is unused:\n  List.all_nil\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons,\n    Bool.or_false, Bool.and_true, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n../results/orch1884/lemmas/SoleReaderFactor.lean:98:48: warning: This simp argument is unused:\n  Bool.and_true\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,\n    Bool.or_false, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n../results/orch1884/lemmas/SoleReaderFactor.lean:112:55: warning: This simp argument is unused:\n  List.any_cons\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, Bool.or_false,\n    Bool.and_true, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n../results/orch1884/lemmas/SoleReaderFactor.lean:112:70: warning: This simp argument is unused:\n  List.any_nil\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil,\n    Bool.or_false, Bool.and_true, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n../results/orch1884/lemmas/SoleReaderFactor.lean:113:33: warning: This simp argument is unused:\n  Bool.or_false\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,\n    Bool.and_true, id]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-sole-factor-002.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "text": ""
+        }
+      ]
+    },
+    "ClosedOrSet.lean": {
+      "sha256": "1f45e4239020b1583991a5ed484ea56be723359d71000f8905e8c3df21825ace",
+      "bytes": 3896,
+      "lines": 84,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-fourth.stdout",
+          "bytes": 230,
+          "sha256": "47795d2b8c95b31f00e1c97c474eaceb3be507a820abc700339cd9a3ad05c5dd",
+          "text": "/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedOrSet.lean:23:56: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335p\u0335o\u0335s\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332l\u0332e\u0332f\u0332t\u0332\n"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-closed-or-fourth.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "text": ""
+        }
+      ]
+    }
+  }
+}
