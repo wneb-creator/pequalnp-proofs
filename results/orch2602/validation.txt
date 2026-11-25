@@ -1,8 +1,0 @@
-L-meta-2602: assigned2026-11-25T05:50:38Z; lease advertised06:10:38expiry but heartbeat returnedHTTP410at05:55:37Z. Exact curl-si repetition and complete response preserved. Newproofwork paused; timer stopped.
-
-Exact Python monotone-antichain audit verifies64/65/66gate star-derived constructions and derivative outputs; this is not a Lean theorem or proof of the assigned lower bound. Root independent review: antichain union/product and subset minimization correctly model monotone formulas, and every distinct earlier-input condition is asserted. A separate earlier public PR supplies a65gate double-zero construction.
-
-GraphSearch.lean failed exit1 due Fin inference; no successful fullfile claim. Construction66 partial symbolic evaluation build pending. Full assigned proof and checker have not run.
-
-Sub-agents: status review, toolchain, structural, finite verification, normalization, restriction mathematics, compact runtime audit.
-TIMING total=194 subagents=7

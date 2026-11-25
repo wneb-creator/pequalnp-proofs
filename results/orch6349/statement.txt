@@ -1,2 +1,0 @@
-PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5805 : ℕ).testBit (4 * u.val + v.val)) 10 ∧
-  ¬ PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5805 : ℕ).testBit (4 * u.val + v.val)) 9
