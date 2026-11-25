@@ -280,4 +280,188 @@ lemma four_point_guard_is_not_an_edge :
   unfold near
   decide +kernel
 
+
+def WireLe (w z : List Bool) : Prop :=
+  w.length = z.length ∧ ∀ i, w.getD i false = true → z.getD i false = true
+
+lemma wireLe_append (w z : List Bool) (b c : Bool) (h : WireLe w z)
+    (hbc : b = true → c = true) : WireLe (w ++ [b]) (z ++ [c]) := by
+  have hlen := h.1
+  refine ⟨by simpa using hlen, ?_⟩
+  intro i hi
+  by_cases hlt : i < w.length
+  · rw [List.getD_append w [b] false i hlt] at hi
+    rw [List.getD_append z [c] false i (by omega)]
+    exact h.2 i hi
+  · rw [List.getD_append_right w [b] false i (by omega), hlen] at hi
+    rw [List.getD_append_right z [c] false i (by omega)]
+    cases hn : i - z.length <;> simp_all
+
+lemma gate_eval_mono (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (l : List ℕ) (f g : ℕ → Bool) (h : ∀ i ∈ l, f i = true → g i = true) :
+    op.eval (l.map f) = true → op.eval (l.map g) = true := by
+  rcases hop with rfl | rfl
+  · simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply, id_eq]
+    intro h1 i hi
+    exact h i hi (h1 i hi)
+  · simp only [GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq]
+    rintro ⟨i, hi, h1⟩
+    exact ⟨i, hi, h i hi h1⟩
+
+lemma fold_wireLe (gs : List Gate) (w z : List Bool) (h : WireLe w z)
+    (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    WireLe (gs.foldl step w) (gs.foldl step z) := by
+  induction gs generalizing w z with
+  | nil => exact h
+  | cons g gs ih =>
+    apply ih (step w g) (step z g)
+    · apply wireLe_append w z _ _ h
+      exact gate_eval_mono g.op (hgs g (by simp)) g.inputs _ _ (by intro i _; exact h.2 i)
+    · intro g hg
+      exact hgs g (by simp [hg])
+
+lemma wireLe_ofFn {n : ℕ} (x y : Fin n → Bool)
+    (h : ∀ i, x i = true → y i = true) : WireLe (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp, ?_⟩
+  intro i hi
+  by_cases hin : i < n
+  · rw [List.getD_eq_getElem _ _ (by simpa using hin)] at hi ⊢
+    simpa using h ⟨i, hin⟩ (by simpa using hi)
+  · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_gt hin)] at hi
+    contradiction
+
+lemma eval_split_or_indistinguishable (u sibling : ℕ) (pre tail : List Gate)
+    (output : ℕ) (x y : List Bool)
+    (hxy : SameExcept u x y) (hpre : ∀ g ∈ pre, u ∉ g.inputs)
+    (htail : ∀ g ∈ tail, u ∉ g.inputs) (hout : output ≠ u)
+    (hxs : (pre.foldl step x).getD sibling false = true)
+    (hys : (pre.foldl step y).getD sibling false = true) :
+    (Circuit.mk (pre ++ ⟨GateOp.or, [u, sibling]⟩ :: tail) output).eval x =
+      (Circuit.mk (pre ++ ⟨GateOp.or, [u, sibling]⟩ :: tail) output).eval y := by
+  have hfirst : GateOp.or.eval ([u, sibling].map fun i => (pre.foldl step x).getD i false) =
+      GateOp.or.eval ([u, sibling].map fun i => (pre.foldl step y).getD i false) := by
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil,
+      id_eq, Bool.or_false]
+    rw [hxs, hys]
+    simp
+  change ((pre ++ ⟨GateOp.or, [u, sibling]⟩ :: tail).foldl step x).getD output false =
+    ((pre ++ ⟨GateOp.or, [u, sibling]⟩ :: tail).foldl step y).getD output false
+  rw [List.foldl_append, List.foldl_append]
+  exact eval_first_indistinguishable u _ tail output _ _
+    (fold_sameExcept u pre x y hxy hpre) hfirst htail hout
+
+lemma graphFun_set_true_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) (v : Fin n)
+    (hx : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = false)
+    (hv : ¬ ∃ t, x t = true ∧ G.Adj t v) :
+    PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ (fun i => if i = v then true else x i) =
+      false := by
+  simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.notMem_empty,
+    false_and, exists_false, decide_false, Bool.false_or, decide_eq_false_iff_not]
+  rintro ⟨a, b, hab, ha, hb⟩
+  by_cases hav : a = v
+  · subst a
+    by_cases hbv : b = v
+    · subst b
+      simp at hab
+    · exact hv ⟨b, by simpa [hbv] using hb, by simpa only [G.adj_comm] using hab⟩
+  · by_cases hbv : b = v
+    · subst b
+      exact hv ⟨a, by simpa [hav] using ha, hab⟩
+    · have hf := graphFun_true_of_edge G x a b hab
+        (by simpa [hav] using ha) (by simpa [hbv] using hb)
+      rw [hx] at hf
+      contradiction
+
+lemma sole_or_reader_blocks_neighbors {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (u : Fin n) (sibling : ℕ) (pre tail : List Gate) (output : ℕ)
+    (hpre : ∀ g ∈ pre, u.val ∉ g.inputs) (htail : ∀ g ∈ tail, u.val ∉ g.inputs)
+    (hsib : sibling ≠ u.val)
+    (hmono : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hc : ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [u.val, sibling]⟩ :: tail) output).eval (List.ofFn x) =
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x)
+    (x : Fin n → Bool)
+    (hx : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = false)
+    (hxs : (pre.foldl step (List.ofFn x)).getD sibling false = true) :
+    ∀ v, G.Adj u v → ∃ t, x t = true ∧ G.Adj t v := by
+  intro v huv
+  by_contra hv
+  let y : Fin n → Bool := fun i => if i = v then true else x i
+  let z : Fin n → Bool := fun i => if i = u then true else y i
+  have hyneg : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ y = false :=
+    graphFun_set_true_false G x v hx hv
+  have hzy : SameExcept u.val (List.ofFn y) (List.ofFn z) := by
+    apply sameExcept_ofFn
+    intro i hi
+    simp [z, hi]
+  have hys : (pre.foldl step (List.ofFn y)).getD sibling false = true := by
+    apply (fold_wireLe pre _ _ (wireLe_ofFn x y ?_) hmono).2 sibling hxs
+    intro i hi
+    simp only [y]
+    split_ifs <;> simp_all
+  have hzs : (pre.foldl step (List.ofFn z)).getD sibling false = true := by
+    rw [← (fold_sameExcept u.val pre _ _ hzy hpre).2 sibling hsib]
+    exact hys
+  have heq := eval_split_or_indistinguishable u.val sibling pre tail output
+    (List.ofFn y) (List.ofFn z) hzy hpre htail (graph_output_ne_input G _ hc u) hys hzs
+  rw [hc, hc, hyneg] at heq
+  have hzpos : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ z = true := by
+    apply graphFun_true_of_edge G z u v huv
+    · simp [z]
+    · simp [z, y]
+  rw [hzpos] at heq
+  contradiction
+
+lemma neighbor_card_le_active_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (u : Fin n) (A : Finset (Fin n)) (x : Fin n → Bool)
+    (hxu : x u = false)
+    (hcover : ∀ v, G.Adj u v → ∃ t, x t = true ∧ G.Adj t v)
+    (hside : ∀ v t, G.Adj u v → G.Adj t v → t ∈ A)
+    (hunique : ∀ t, t ≠ u → ∀ v w, G.Adj u v → G.Adj t v →
+      G.Adj u w → G.Adj t w → v = w) :
+    (Finset.univ.filter fun v => G.Adj u v).card ≤ (A.filter fun t => x t = true).card := by
+  classical
+  let N := Finset.univ.filter fun v => G.Adj u v
+  let S := A.filter fun t => x t = true
+  have hchoose : ∀ v : ↥N, ∃ t : ↥S, G.Adj t.val v.val := by
+    intro v
+    have hv : G.Adj u v.val := (Finset.mem_filter.mp v.property).2
+    obtain ⟨t, ht, htv⟩ := hcover v.val hv
+    refine ⟨⟨t, ?_⟩, htv⟩
+    exact Finset.mem_filter.mpr ⟨hside v.val t hv htv, ht⟩
+  choose f hf using hchoose
+  have hinj : Function.Injective f := by
+    intro v w hfw
+    apply Subtype.ext
+    have hne : (f v).val ≠ u := by
+      intro heq
+      have ht : x (f v).val = true := (Finset.mem_filter.mp (f v).property).2
+      rw [heq, hxu] at ht
+      contradiction
+    exact hunique (f v).val hne v.val w.val (Finset.mem_filter.mp v.property).2 (hf v)
+      (Finset.mem_filter.mp w.property).2 (by simpa [hfw] using hf w)
+  change N.card ≤ S.card
+  simpa only [Fintype.card_coe] using Fintype.card_le_of_injective f hinj
+
+lemma sole_or_reader_support_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (u : Fin n) (A : Finset (Fin n))
+    (sibling : ℕ) (pre tail : List Gate) (output : ℕ)
+    (hpre : ∀ g ∈ pre, u.val ∉ g.inputs) (htail : ∀ g ∈ tail, u.val ∉ g.inputs)
+    (hsib : sibling ≠ u.val)
+    (hmono : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hc : ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [u.val, sibling]⟩ :: tail) output).eval (List.ofFn x) =
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x)
+    (x : Fin n → Bool) (hxu : x u = false)
+    (hx : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = false)
+    (hxs : (pre.foldl step (List.ofFn x)).getD sibling false = true)
+    (hside : ∀ v t, G.Adj u v → G.Adj t v → t ∈ A)
+    (hunique : ∀ t, t ≠ u → ∀ v w, G.Adj u v → G.Adj t v →
+      G.Adj u w → G.Adj t w → v = w) :
+    (Finset.univ.filter fun v => G.Adj u v).card ≤ (A.filter fun t => x t = true).card := by
+  exact neighbor_card_le_active_cover G u A x hxu
+    (sole_or_reader_blocks_neighbors G u sibling pre tail output hpre htail hsib hmono hc x hx hxs)
+    hside hunique
+
 end PEqualNP.Outside.L_meta_2056
