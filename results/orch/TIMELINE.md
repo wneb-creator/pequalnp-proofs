@@ -36,3 +36,6 @@ No complete proof or accepted submission yet.
 - 2026-11-25T08:26:05.783870+00:00: Checker12 rejected absent unconditional theorem after successful named build. Final137-file finite archive and explicit P4 strategy obstruction independently reviewed. No full proof or refutation found.
 
 - 2026-11-25T08:28:03.418024+00:00: All seven strategies/review assignments observed completed. Final red-team audit PASS for partial preservation only; no accepted submission. All solvers stopped. Strongest artifact remains the conditional at-most-one-junk theorem.
+
+- 08:31:23: Renewal returned no-such-live-lease; mandated curl-si retry returnedHTTP410. Root discovered it08:32:51; previous expiry had been08:43:23. All compiled artifacts were already pushed. No proof accepted.
+- 2026-11-25T08:34:15.666772+00:00: Ninety-minute minimum effort exceeded; all-neighborhood extraction independently ruled out by incidence-K5 example. Preserving lease error and final research before recovery.

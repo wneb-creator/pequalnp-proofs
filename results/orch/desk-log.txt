@@ -29,3 +29,4 @@
 2026-11-25T08:21:14.943000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:41:14.943Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-19.json"}
 2026-11-25T08:22:22.988000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:42:22.988Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-20.json"}
 2026-11-25T08:23:23.379312+00:00 {"lease": {"expires_at": "2026-11-25T08:43:23.181Z"}}
+2026-11-25T08:31:23.756304+00:00 {"error": "no such live lease: it expired or was released. Ask /desk/next again."}

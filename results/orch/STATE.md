@@ -16,3 +16,5 @@ L-meta-2448 remains UNPROVED. Do not open a proof PR for this partial.
 - No proof PR or lease release yet. Reduction slots were full(3 live), so no extra reduction was submitted.
 - Before ending: preserve all completed reviewed artifacts, finalchecker output, source hashes/timing, stop heartbeat, release only ownlease with honest reason, push finalrecords. User minimum90minutes must be respected.
 - Final include messageID, Sub-agents, TIMING total=<min> subagents=7; end with gap/pr/checker lines. No desk null replies.
+
+2026-11-25T08:34:15.666772+00:00: All compiled work and final checker output pushed through07314f7d. At08:31:23 the renewal timer received error and repeated curl-si once: HTTP410 no such live lease. Prior renewal advertised08:43:23 expiry. Timer exited; stop flag now exists. No release call made, because lease is no longer live. Final literature all-neighborhood route has24vs25 incidence-K5 obstruction; no full proof. Preserve/push current notes before any recovery call per user.
