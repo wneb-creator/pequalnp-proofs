@@ -1,0 +1,56 @@
+{
+  "review": "APPROVED labelled partial preservation, not proof submission",
+  "scope": "Named674-line partial compiles; four key theorem axiom dependencies are standard. Official checker FAULTed before verdict. No posted theorem, accepted proof, refutation or PR.",
+  "files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_2448.lean",
+      "sha256": "4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3",
+      "bytes": 29602
+    },
+    {
+      "path": "results/meta2448/TIMELINE.md",
+      "sha256": "d490aad8780ef751f63cc87a724843bcd3986f86817fea8625b07f9df40aa5d0",
+      "bytes": 668
+    },
+    {
+      "path": "results/meta2448/validation.txt",
+      "sha256": "2f23268daaba1d60e0e595b5763a0232e6784957a862d2151ff489db6f6207e3",
+      "bytes": 1146
+    },
+    {
+      "path": "results/meta2448/validation/named-partial-manifest.json",
+      "sha256": "35c8ec278581949cff8b3f97dd6451f4a31bec0f393912d4844a65bc3ab5045f",
+      "bytes": 1347
+    },
+    {
+      "path": "results/meta2448/validation/named-partial-independent-review.json",
+      "sha256": "b8acd9b0df65de6b33111c63076c323f48083e3e0311cba1061d54f0d7abb72e",
+      "bytes": 816
+    },
+    {
+      "path": "results/meta2448/validation/named-partial-build.log",
+      "sha256": "e422aa385cbe00ebde27aee13c199b4396d8250523f96e68919f9a26745dbddd",
+      "bytes": 60210
+    },
+    {
+      "path": "results/meta2448/validation/named-partial-build.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/axiom-audit.log",
+      "sha256": "6e1c07699c8b83182501a2ceb727fcb96762772cfc298e9c5f9c47c168110cd1",
+      "bytes": 501
+    },
+    {
+      "path": "results/meta2448/validation/posted-checker.log",
+      "sha256": "1d3e76976178ff42b39fc945b300204c957892305c1230582a7fc0385f1e9456",
+      "bytes": 443
+    },
+    {
+      "path": "results/meta2448/validation/posted-checker.json",
+      "sha256": "a5813d64857af87425fc9ff0e3b6b0c24d512148bdcb6f0119d03e70a5873737",
+      "bytes": 289
+    }
+  ]
+}

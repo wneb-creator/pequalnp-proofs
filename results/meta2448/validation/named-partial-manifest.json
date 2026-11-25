@@ -1,0 +1,44 @@
+{
+  "status": "named lake build passed; main posted theorem still absent and unproved; official checker FAULT before verdict",
+  "target": "lean/PEqualNP/Outside/L_meta_2448.lean",
+  "sha256": "4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3",
+  "lines": 674,
+  "components": [
+    {
+      "path": "results/meta2448/checked/Existence.lean",
+      "sha256": "9a9b9a3ce6d914eab83be6d4c215d8723d00b860424ac280aa64716a679abf36"
+    },
+    {
+      "path": "results/meta2448/checked/OwnershipCombinatorics.lean",
+      "sha256": "8fadf5bcd41aa843fc1e0a687efc6f7c6897ab036fcd4ff48f0dc6e8e949bd8c"
+    },
+    {
+      "path": "results/meta2448/checked/pair-sound.lean",
+      "sha256": "1a67c916b04fec82bf8b9e8f5bc0c7ccca1ef613ed995b611d41b9849a8aba9f"
+    }
+  ],
+  "build": {
+    "exit_code": 0,
+    "wall_seconds": 12.517821989000367,
+    "resource_stopped": false,
+    "peak_rss_kib": 2966536,
+    "peak_cgroup_bytes": 4643221504
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "checker": {
+    "started_utc": "2026-11-25T07:15:59.033206+00:00",
+    "elapsed_seconds": 6.766067233002104,
+    "exit_code": 3,
+    "command": [
+      "node",
+      "tools/check-lean.mjs",
+      "lean/PEqualNP/Outside/L_meta_2448.lean",
+      "/tmp/oec/pequalnp-pilot-62/meta2448/statement.txt",
+      "check"
+    ]
+  }
+}

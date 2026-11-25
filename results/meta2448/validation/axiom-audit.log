@@ -1,0 +1,10 @@
+'PEqualNP.Outside.L_meta_2448_aux.Existence.graph_minimal_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.star_iff_owned_edges_intersect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.pair_sound_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.bad_pair_of_not_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,17 @@
+{
+  "status": "PASS: exact reviewed concatenation, named lake build EXIT0 and standard key-theorem axioms; official checker FAULT/exit3 without verdict",
+  "target": "lean/PEqualNP/Outside/L_meta_2448.lean",
+  "sha256": "4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3",
+  "lines": 674,
+  "components_identical": true,
+  "remainder": "One posted Defs import and two explicit partial-status comments only",
+  "not_proved": "The exact posted minimum-circuit-with-star-profile statement. This file contains partial lemmas only.",
+  "build": {
+    "exit_code": 0,
+    "wall_seconds": 12.517821989000367,
+    "resource_stopped": false,
+    "peak_rss_kib": 2966536,
+    "peak_cgroup_bytes": 4643221504
+  },
+  "checker": "Missing Batteries.olean before verdict; posted main theorem also remains absent."
+}

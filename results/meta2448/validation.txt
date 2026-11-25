@@ -1,0 +1,13 @@
+PARTIAL CHECKPOINT — L-meta-2448
+UTC: 2026-11-25T07:17:15.616435+00:00
+Posted target remains unproved: a globally minimum circuit with HasStarProfile.
+Named file: lean/PEqualNP/Outside/L_meta_2448.lean
+SHA256: 4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3
+Lines:674. Cleanup not run because the full target and checker have not passed; before/after674/674.
+Checked components: minimum-circuit existence; triangle-free star profile iff owned edges intersect; pair-soundness implies star profile and a nonstar nonedge-pair witness.
+Named lake build PASS (exit0,12.52s); full output validation/named-partial-build.log.
+Axiom audit: propext, Classical.choice, Quot.sound only.
+Actual tools/check-lean.mjs returned FAULT/exit3 before a verdict; full output validation/posted-checker.log. The complete Mathlib statement environment is not cached (same missing Batteries.olean limitation as the prior gap). This is separate from the still-unproved target.
+No PR opened.
+Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
+TIMING total=273.8 subagents=7
