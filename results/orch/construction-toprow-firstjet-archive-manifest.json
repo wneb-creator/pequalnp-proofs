@@ -1,0 +1,32 @@
+[
+  {
+    "source": "construction_toprow_firstjet_numeric.py",
+    "archive": "results/orch/lemmas/construction_search_construction_toprow_firstjet_numeric.py",
+    "bytes": 7199,
+    "sha256": "b71965fcc740b3b4a71a831e32044cbbe8c4e59b868adf89eb28ecd390dc7d7d"
+  },
+  {
+    "source": "construction-toprow-firstjet.log",
+    "archive": "results/orch/lemmas/construction_search_construction-toprow-firstjet.log",
+    "bytes": 377796,
+    "sha256": "20bc9c8b2158b742cbaea1fcc33d21799b5f2935353cedfa39d02ecc8f9dbc30"
+  },
+  {
+    "source": "construction-toprow-firstjet-summary.json",
+    "archive": "results/orch/lemmas/construction_search_construction-toprow-firstjet-summary.json",
+    "bytes": 292,
+    "sha256": "31badc373bbeae427300422121e5f7cb1f3d816766ac17b2d9e6e91a85859942"
+  },
+  {
+    "source": "construction-toprow-firstjet-solutions.json",
+    "archive": "results/orch/lemmas/construction_search_construction-toprow-firstjet-solutions.json",
+    "bytes": 568381,
+    "sha256": "82d6c90f517e65ddbf42cd45ede27c8506b6198971481c0712b50f4a20b51ec2"
+  },
+  {
+    "source": "fresh_review_topjet.log",
+    "archive": "results/orch/lemmas/construction_search_fresh_review_topjet.log",
+    "bytes": 198,
+    "sha256": "1b3acc277c1c3b355c3a69da4d0c1a1cd11b279bb222f516bea750768c17da5b"
+  }
+]

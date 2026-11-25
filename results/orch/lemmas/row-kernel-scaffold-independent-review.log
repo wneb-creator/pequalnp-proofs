@@ -1,0 +1,6 @@
+APPROVED RowKernelScaffold exact SHA256 027e0b25d5082db10bd7e436e150ee0790cb354ae4a9e366e0489a64a41641f4
+permanent_zero_row correctly accounts for Mathlib column-product convention by choosing factor sigma inverse(i).
+constant_row_zero substitutes z=−1/c, creates an actual zero row, and contradicts24; no symmetry needed.
+rowDifference records columns1..3 minus column0 as a linear map. Kernel-to-zero-row equivalence derives constant row by Fin.cases and uses submodule scalar closure; reverse implication immediate.
+Noninjectivity yields actual nonzero submodule kernel direction. Equal dimension3 converts non-surjectivity into noninjectivity and surjectivity into bijectivity. Final four choices are independently nonzero zero-row directions; no independence or distinctness claim.
+Format passes. Recorded Lean exit0,3.52s,empty log.

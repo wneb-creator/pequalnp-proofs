@@ -1,0 +1,9 @@
+{
+  "classification": "Heuristic complex numerical search only, not proof",
+  "attempts": 1000,
+  "best_residual": 0.07966268234095926,
+  "valid_numerical_candidates": 0,
+  "degenerate_numerical_candidates": 0,
+  "seconds": 51.76840151899887,
+  "jacobian_relative_error": 7.438070446962857e-10
+}

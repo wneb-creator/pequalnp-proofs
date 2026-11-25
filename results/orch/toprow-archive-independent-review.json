@@ -1,0 +1,219 @@
+[
+  {
+    "manifest": "centered-two-explicit-lean-archive-manifest.json",
+    "files": [
+      {
+        "file": "results/orch/lemmas/construction_search_CenteredTwoCertificate3.lean.txt",
+        "bytes": 1179159,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered_two_certificate_lean_gen.py",
+        "bytes": 2678,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "pathlib",
+          "json",
+          "importlib.util",
+          "sys"
+        ],
+        "calls_for_review": []
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered_two_certificate3_run.py",
+        "bytes": 2348,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "pathlib",
+          "subprocess",
+          "resource",
+          "time",
+          "json",
+          "os",
+          "signal",
+          "sys"
+        ],
+        "calls_for_review": [
+          [
+            31,
+            "subprocess.Popen"
+          ]
+        ]
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-certificate3.log",
+        "bytes": 0,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-certificate3-run.json",
+        "bytes": 195,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered_two_chunk_statistics.py",
+        "bytes": 2158,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "pathlib",
+          "json",
+          "importlib.util",
+          "time"
+        ],
+        "calls_for_review": []
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-chart3-chunk-statistics.json",
+        "bytes": 6223,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-chart3-chunk-statistics.log",
+        "bytes": 3696,
+        "hash_ok": true,
+        "source_exact": true
+      }
+    ],
+    "issues": []
+  },
+  {
+    "manifest": "construction-toprow-numeric-archive-manifest.json",
+    "files": [
+      {
+        "file": "results/orch/lemmas/construction_search_construction_toprow_numeric.py",
+        "bytes": 5124,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "os",
+          "numpy",
+          "sympy",
+          "itertools",
+          "math",
+          "time",
+          "json",
+          "resource",
+          "signal",
+          "pathlib",
+          "scipy.optimize"
+        ],
+        "calls_for_review": []
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction_toprow_mixed_numeric.py",
+        "bytes": 5908,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "os",
+          "numpy",
+          "sympy",
+          "itertools",
+          "math",
+          "time",
+          "json",
+          "resource",
+          "signal",
+          "pathlib",
+          "scipy.optimize"
+        ],
+        "calls_for_review": []
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-numeric.log",
+        "bytes": 2323,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-numeric-summary.json",
+        "bytes": 296,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-numeric-best.json",
+        "bytes": 846,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-mixed-numeric.log",
+        "bytes": 6152,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-mixed-numeric-summary.json",
+        "bytes": 296,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-mixed-numeric-best.json",
+        "bytes": 850,
+        "hash_ok": true,
+        "source_exact": true
+      }
+    ],
+    "issues": []
+  },
+  {
+    "manifest": "construction-toprow-firstjet-archive-manifest.json",
+    "files": [
+      {
+        "file": "results/orch/lemmas/construction_search_construction_toprow_firstjet_numeric.py",
+        "bytes": 7199,
+        "hash_ok": true,
+        "source_exact": true,
+        "imports": [
+          "os",
+          "numpy",
+          "sympy",
+          "itertools",
+          "math",
+          "time",
+          "json",
+          "resource",
+          "signal",
+          "pathlib",
+          "scipy.optimize",
+          "scipy.linalg"
+        ],
+        "calls_for_review": []
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-firstjet.log",
+        "bytes": 377796,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-firstjet-summary.json",
+        "bytes": 292,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_construction-toprow-firstjet-solutions.json",
+        "bytes": 568381,
+        "hash_ok": true,
+        "source_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_fresh_review_topjet.log",
+        "bytes": 198,
+        "hash_ok": true,
+        "source_exact": true
+      }
+    ],
+    "issues": []
+  }
+]

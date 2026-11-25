@@ -1,0 +1,50 @@
+[
+  {
+    "source": "CenteredTwoCertificate3.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoCertificate3.lean.txt",
+    "bytes": 1179159,
+    "sha256": "d24051f20c922431ea46331441d300c7aedc78bba9c7524efa017fe6dc894fee"
+  },
+  {
+    "source": "centered_two_certificate_lean_gen.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_certificate_lean_gen.py",
+    "bytes": 2678,
+    "sha256": "26a9c0706f0bb0caa11eced9fde2de5079f9615c5cdaf4717c27ef6cf0a7f37a"
+  },
+  {
+    "source": "centered_two_certificate3_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_certificate3_run.py",
+    "bytes": 2348,
+    "sha256": "a5a2a9191c2174746ba3c5b07750193ff7dbcadd270a90fa7536f8b927258399"
+  },
+  {
+    "source": "centered-two-certificate3.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-certificate3.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "centered-two-certificate3-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-certificate3-run.json",
+    "bytes": 195,
+    "sha256": "f4d036320ba9520d48289a0c2c6b1f7d6aeca4025e2f5138b31c91a3009c813e"
+  },
+  {
+    "source": "centered_two_chunk_statistics.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_chunk_statistics.py",
+    "bytes": 2158,
+    "sha256": "64850d63dd71bfd1fdad15b5f1835cc56b952ddf83b4569257ff1e7b28fe9caf"
+  },
+  {
+    "source": "centered-two-chart3-chunk-statistics.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-chart3-chunk-statistics.json",
+    "bytes": 6223,
+    "sha256": "dc4eec83efda1946fc7c7def8aa36c9bcd5d243312cbd3cb8ebb8ed096b32f95"
+  },
+  {
+    "source": "centered-two-chart3-chunk-statistics.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-chart3-chunk-statistics.log",
+    "bytes": 3696,
+    "sha256": "55b77b05e112d8c589694553531bd3aa980dce52b32224b4e5f59e5eba6c4ee4"
+  }
+]

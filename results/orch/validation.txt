@@ -143,3 +143,9 @@ OverlapBlocks.lean: SHA256 62d349fd3b7138ea7e5e7f68c53a70bfd4dfde9822fe978c172ae
 Scope: Sym3 files exclude four explicit polynomial charts; TwoDoubleKernel and OverlapBlocks exclude the stated actual zero-row configurations. Global chart coverage and the posted target remain unresolved. Local target checker not run.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=158.6 subagents=7
+
+2026-11-25T11:16:43.800632+00:00 Checked reduction scaffolds
+Sym3ChartCoverage.lean: SHA256 633754b65f9173b7b7fb4be3dbd9897720796e1dd435e6ab0690070236a7092e; 117lines; exit0 in24.63s. Full log:lemmas/geometry-sym3chartcoverage-lean.log; independent review:lemmas/sym3-coverage-independent-review.log.
+RowKernelScaffold.lean: SHA256 027e0b25d5082db10bd7e436e150ee0790cb354ae4a9e366e0489a64a41641f4; 123lines; exit0 in3.52s. Full log:lemmas/row-kernel-scaffold-lean.log; independent review:lemmas/row-kernel-scaffold-independent-review.log.
+RowKernelScaffold gives a row-map dichotomy and four nonzero zero-row directions when all maps are singular. Distinctness/independence and global classification remain separate. Sym3ChartCoverage is a coordinate-level four-minor cover. No full target proof or checker verdict.
+Also preserved21 independently reviewed failed-Lean/numerical research artifacts with manifests/status; these are explicitly nonproof diagnostics.

@@ -1,0 +1,9 @@
+{
+  "classification": "Heuristic complex first-jet search, not proof",
+  "attempts": 803,
+  "distinct_first_jet_points": 481,
+  "full_space_candidates": 0,
+  "best_residual": 1.652800378373931e-14,
+  "seconds": 120.00015600200095,
+  "analytic_jacobian_relative_error": 6.78583871002495e-10
+}
