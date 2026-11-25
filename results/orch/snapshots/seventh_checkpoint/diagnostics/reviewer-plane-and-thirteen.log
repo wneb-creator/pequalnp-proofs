@@ -1,0 +1,53 @@
+TransferSmall namespace/header: import PEqualNP.Defs
+import PEqualNP.MetaComplexity.Helpers.PermInputs
+
+namespace PEqualNP.Outside.L_meta_650_aux.PlaneAndThirteenTransferSmall
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.Helpers.PermInputs
+
+def DifferenceAndLowerBound : Prop :=
+∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ (x3 x4 : Fin (13 : ℕ)), x3 = x4 ∨ x3 = x4 + (1 : Fin (13 : ℕ)) ∨ x3 = x4 + (3 : Fin (13 : ℕ)) ∨ x3 = x4 + (9 : Fin (13 : ℕ)) → (PEqualNP.MetaComplexity.circuitFun ((13 : ℕ) + (13 : ℕ)) x1 fun (x6 : Fin ((13 : ℕ) + (13 : ℕ))) => Decidable.decide (x6 = Fin.castAdd (13 : ℕ) x3 ∨ x6 = Fin.natAdd (13 : ℕ) x4)) = Bool.true) → (
+Adapter delta vs reviewed conditional file:
+--- 
++++ 
+@@ -1,10 +1,7 @@
+-TransferSmall
++
+ 
+ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+ open PEqualNP.MetaComplexity.Helpers.PermInputs
+-
+-def DifferenceAndLowerBound : Prop :=
+-∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ (x3 x4 : Fin (13 : ℕ)), x3 = x4 ∨ x3 = x4 + (1 : Fin (13 : ℕ)) ∨ x3 = x4 + (3 : Fin (13 : ℕ)) ∨ x3 = x4 + (9 : Fin (13 : ℕ)) → (PEqualNP.MetaComplexity.circuitFun ((13 : ℕ) + (13 : ℕ)) x1 fun (x6 : Fin ((13 : ℕ) + (13 : ℕ))) => Decidable.decide (x6 = Fin.castAdd (13 : ℕ) x3 ∨ x6 = Fin.natAdd (13 : ℕ) x4)) = Bool.true) → (∀ (x4 : Finset (Fin (13 : ℕ))), (∀ x5 ∉ x4, ∃ (x7 : Fin (13 : ℕ)), (∀ x8 ∈ x4, ¬(x8 = x7 ∨ x8 = x7 + (1 : Fin (13 : ℕ)) ∨ x8 = x7 + (3 : Fin (13 : ℕ)) ∨ x8 = x7 + (9 : Fin (13 : ℕ)))) ∧ (x5 = x7 ∨ x5 = x7 + (1 : Fin (13 : ℕ)) ∨ x5 = x7 + (3 : Fin (13 : ℕ)) ∨ x5 = x7 + (9 : Fin (13 : ℕ)))) → ((¬∃ (x6 : Fin (13 : ℕ)), ∀ x7 ∈ x4, x7 = x6 ∨ x7 = x6 + (1 : Fin (13 : ℕ)) ∨ x7 = x6 + (3 : Fin (13 : ℕ)) ∨ x7 = x6 + (9 : Fin (13 : ℕ))) ∧ ¬∃ (x6 : Fin (13 : ℕ)), ∀ (x7 : Fin (13 : ℕ)), (∀ x8 ∈ x4, ¬(x8 = x7 ∨ x8 = x7 + (1 : Fin (13 : ℕ)) ∨ x8 = x7 + (3 : Fin (13 : ℕ)) ∨ x8 = x7 + (9 : Fin (13 : ℕ)))) → x6 = x7 ∨ x6 = x7 + (1 : Fin (13 : ℕ)) ∨ x6 = x7 + (3 : Fin (13 : ℕ)) ∨ x6 = x7 + (9 : Fin (13 : ℕ))) → (PEqualNP.MetaComplexity.circuitFun ((13 : ℕ) + (13 : ℕ)) x1 fun (x7 : Fin ((13 : ℕ) + (13 : ℕ))) => Decidable.decide ((∃ x8 ∈ x4, x7 = Fin.castAdd (13 : ℕ) x8) ∨ ∃ (x8 : Fin (13 : ℕ)), x7 = Fin.natAdd (13 : ℕ) x8 ∧ ∀ x9 ∈ x4, ¬(x9 = x8 ∨ x9 = x8 + (1 : Fin (13 : ℕ)) ∨ x9 = x8 + (3 : Fin (13 : ℕ)) ∨ x9 = x8 + (9 : Fin (13 : ℕ))))) = Bool.false) → (13 : ℕ) ≤ {x5 : Fin x1.gates.length | (x1.gates.get x5).op = PEqualNP.CircuitLowerBounds.GateOp.and}.ncard
+ 
+ def edges : List (ℕ × ℕ) :=
+ [(0, 13), (0, 14), (0, 16), (0, 22), (1, 13), (1, 15), (1, 21), (1, 25), (2, 14), (2, 20), (2, 24), (2, 25), (3, 13), (3, 19), (3, 23), (3, 24), (4, 18), (4, 22), (4, 23), (4, 25), (5, 17), (5, 21), (5, 22), (5, 24), (6, 16), (6, 20), (6, 21), (6, 23), (7, 15), (7, 19), (7, 20), (7, 22), (8, 14), (8, 18), (8, 19), (8, 21), (9, 13), (9, 17), (9, 18), (9, 20), (10, 16), (10, 17), (10, 19), (10, 25), (11, 15), (11, 16), (11, 18), (11, 24), (12, 14), (12, 15), (12, 17), (12, 23)]
+@@ -102,7 +99,7 @@
+       exact hj
+     · exact Fin.ext rfl
+ 
+-theorem thirteen_ands (hBase : DifferenceAndLowerBound) (C : Circuit) (hm : Monotone2 C)
++theorem thirteen_ands (C : Circuit) (hm : Monotone2 C)
+     (hcorrect : ∀ x : Fin 26 → Bool, C.eval (List.ofFn x) = true ↔
+       ∃ u v : Fin 26, (u.val, v.val) ∈ edges ∧ x u = true ∧ x v = true) :
+     13 ≤ {j : Fin C.gates.length | (C.gates.get j).op = GateOp.and}.ncard := by
+@@ -130,7 +127,7 @@
+         ?_, ?_⟩
+       · simpa only [Function.comp_apply, flip_point] using hp
+       · simpa only [Function.comp_apply, flip_line, neg_neg_line] using hl
+-  have h13 := hBase D hdmono
++  have h13 := PEqualNP.Outside.L_meta_1898 D hdmono
+     (by
+       intro p l hinc
+       apply (hdcorrect _).mpr
+@@ -154,4 +151,4 @@
+   rw [← relabel_and_count C]
+   exact h13
+ 
+-end PEqualNP.Outside.L_meta_650_aux.PlaneAndThirteenTransferSmall
++end PEqualNP.Outside.L_meta_650_aux.PlaneAndThirteen
+
+Traceback (most recent call last):
+  File "<stdin>", line 21, in <module>
+AssertionError: ['maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxHeartbeats', 'maxHeartbeats', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'synthInstance.maxSize', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxHeartbeats', 'maxRecDepth', 'synthInstance.maxSize', 'maxRecDepth', 'maxHeartbeats', 'maxHeartbeats', 'maxRecDepth', 'synthInstance.maxSize', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxHeartbeats', 'maxHeartbeats', 'maxRecDepth', 'maxHeartbeats', 'maxRecDepth', 'maxRecDepth', 'maxHeartbeats']

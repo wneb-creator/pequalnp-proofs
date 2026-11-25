@@ -1,0 +1,5 @@
+case core6_02 raw 17 available 30
+PASS all 131072 raw assignments equivalent: feature6-unfold-fixture-seed.json feature6-unfold-short-correlated-fixture.json
+PASS all 131072 raw assignments equivalent: feature6-context-27g-best-25.json feature6-seven-test-correlated-fixture.json
+search_feature_context.cpp 4365cc5635ce49d36a32499c12a8b8d6b5be0b96aa14f46577a4ada160b1ade4
+search_feature_context_order.cpp b2e94639a62cf6238a986914793cb92c8c8a5e495484e22c8d037e6e8a015fd8

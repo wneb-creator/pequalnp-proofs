@@ -1,0 +1,7 @@
+2026-11-25T05:08:48.064322+00:00 START full_point0_residual_tap samples 77 full-care 756 slots 64 cost 61 target 61 minimum-noncopy-ands 12 exact-noncopy-ands None require-nonstar-and False require-assembled-nested-and True forbid-raw-absorption True forbid-parent-absorption True first-gate-orbits 9 require-pair-dirty-and True paid-parents-noncopy True lazy-absorption True variables 35407 clauses 1235484
+2026-11-25T05:08:48.081934+00:00 ROUND 0 ATTEMPT 0 COST 61 SOLVER 10
+2026-11-25T05:08:48.085150+00:00 DIRTY-INTERMEDIATE-WITNESS 8193
+2026-11-25T05:08:48.090293+00:00 CANDIDATE joint-size 61 H-size 59 H-errors 262 tap-errors 0
+2026-11-25T05:08:48.091147+00:00 ABSORPTION-CUTS 0
+2026-11-25T05:08:48.116569+00:00 ADD [(4098, 2)]
+2026-11-25T05:18:48.157309+00:00 ROUND 1 ATTEMPT 0 COST 61 SOLVER 0

@@ -1,0 +1,4 @@
+PASS exact copy truth table under one-hot selectors; prefix extra thresholds and cost arithmetic
+Support premise: all R raw inputs and G-1 nonfinal gate outputs are referenced; copy duplications imply f+K <=G-R+1, so E<=K gives f+E <=G-R+1.
+Compilation/control-flow not changed: helper remains optional and is not a target proof.
+source_sha256 7b1e0c7e7b219ea44563c7db9e476be47998f330e8a51661e0f2fcfcbe2d697b

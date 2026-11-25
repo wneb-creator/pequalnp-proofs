@@ -1,0 +1,41 @@
+{
+  "packet": "circuit_search/context-four-owner-packet.json",
+  "phase_file": "lower_bound/sat/context19_four_owner_phase.json",
+  "pivotal_witness_count": 14,
+  "max_extra_source_occurrences": 5,
+  "rows": [
+    {
+      "name": "exact-baseline",
+      "gates": 19,
+      "ands": 4,
+      "raw_inputs_omitted": [],
+      "truth": {
+        "raw_assignments": 16384,
+        "false_positives": 0,
+        "false_negatives": 0
+      },
+      "full_gate_count": 64,
+      "full_and_count": 13,
+      "full_missed_edges": 0,
+      "full_false_maximal_negatives": 0
+    },
+    {
+      "name": "context19-approximation",
+      "gates": 18,
+      "ands": 5,
+      "raw_inputs_omitted": [
+        8
+      ],
+      "truth": {
+        "raw_assignments": 16384,
+        "false_positives": 137,
+        "false_negatives": 0
+      },
+      "full_gate_count": 63,
+      "full_and_count": 14,
+      "full_missed_edges": 0,
+      "full_false_maximal_negatives": 262
+    }
+  ],
+  "status": "Prepared; no new SAT process launched."
+}

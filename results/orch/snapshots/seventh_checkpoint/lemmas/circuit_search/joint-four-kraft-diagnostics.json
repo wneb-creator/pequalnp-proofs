@@ -1,0 +1,230 @@
+[
+  {
+    "file": "joint-four-owner-seed18.json",
+    "gates": 18,
+    "ands": 5,
+    "false_boundary": 7,
+    "correct_negative_kraft_sum": 9,
+    "all_negative_kraft_sum": 37,
+    "capacity": 32,
+    "all_equal_count": 13,
+    "per_negative": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  {
+    "file": "joint-four-owner-best-6.json",
+    "gates": 18,
+    "ands": 4,
+    "false_boundary": 6,
+    "correct_negative_kraft_sum": 10,
+    "all_negative_kraft_sum": 22,
+    "capacity": 16,
+    "all_equal_count": 6,
+    "per_negative": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  {
+    "file": "joint4five-all-positive.json",
+    "gates": 18,
+    "ands": 5,
+    "false_boundary": 7,
+    "correct_negative_kraft_sum": 9,
+    "all_negative_kraft_sum": 37,
+    "capacity": 32,
+    "all_equal_count": 13,
+    "per_negative": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  }
+]

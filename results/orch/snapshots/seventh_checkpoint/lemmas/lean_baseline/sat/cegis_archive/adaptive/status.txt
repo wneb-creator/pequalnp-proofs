@@ -1,0 +1,1 @@
+CompletedLOCAL-NEIGHBORHOOD-STOP05:34:27. Lastcenter radii1,2,3 UNSAT;4through8 UNKNOWN60secondseach. NotaglobalUNSATclaim. ThreeSATpartialmodels andall80hardcases retained.

@@ -1,0 +1,60 @@
+[
+  {
+    "full_file": "full62_algebraic_5extra_seed.json",
+    "residual_file": "full_residual_algebraic_5extra_joint60_seed.json",
+    "gates": 62,
+    "and_count": 13,
+    "extra_edges": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ],
+    "same_function_as_filtered_seed": true,
+    "false_maximal_negative_inputs": 262,
+    "residual_size": 57
+  },
+  {
+    "full_file": "full63_algebraic_4extra_seed.json",
+    "residual_file": "full_residual_algebraic_4extra_joint61_seed.json",
+    "gates": 63,
+    "and_count": 14,
+    "extra_edges": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ],
+    "same_function_as_filtered_seed": false,
+    "false_maximal_negative_inputs": 234,
+    "residual_size": 58
+  }
+]

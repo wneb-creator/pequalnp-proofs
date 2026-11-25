@@ -1,0 +1,121 @@
+{
+  "verdict": "PASS",
+  "scope": "Joint-prefix grouping, full symbolic assembly semantics, and exact cost; no exact18 target witness.",
+  "one_pair_per_owner_choices_checked": 729,
+  "single_conflict_choices_checked": 18,
+  "raw_assignments_checked_for_boundary_completeness": 16384,
+  "boundary_cases": 32,
+  "raw_essentiality_witnesses": [
+    {
+      "raw_input": 0,
+      "false_mask": 16,
+      "true_mask": 17
+    },
+    {
+      "raw_input": 1,
+      "false_mask": 2048,
+      "true_mask": 2050
+    },
+    {
+      "raw_input": 2,
+      "false_mask": 128,
+      "true_mask": 132
+    },
+    {
+      "raw_input": 3,
+      "false_mask": 256,
+      "true_mask": 264
+    },
+    {
+      "raw_input": 4,
+      "false_mask": 15233,
+      "true_mask": 15249
+    },
+    {
+      "raw_input": 5,
+      "false_mask": 15233,
+      "true_mask": 15265
+    },
+    {
+      "raw_input": 6,
+      "false_mask": 15233,
+      "true_mask": 15297
+    },
+    {
+      "raw_input": 7,
+      "false_mask": 11604,
+      "true_mask": 11732
+    },
+    {
+      "raw_input": 8,
+      "false_mask": 7736,
+      "true_mask": 7992
+    },
+    {
+      "raw_input": 9,
+      "false_mask": 11604,
+      "true_mask": 12116
+    },
+    {
+      "raw_input": 10,
+      "false_mask": 15233,
+      "true_mask": 16257
+    },
+    {
+      "raw_input": 11,
+      "false_mask": 13538,
+      "true_mask": 15586
+    },
+    {
+      "raw_input": 12,
+      "false_mask": 11604,
+      "true_mask": 15700
+    },
+    {
+      "raw_input": 13,
+      "false_mask": 7736,
+      "true_mask": 15928
+    }
+  ],
+  "support_constraint": "A connected c-gate binary DAG that uses f distinct derived features must have c >= 13 + f, because all14 raw coordinates are indispensable.",
+  "features": 27,
+  "triple_owners": 6,
+  "fixed_pair_owners": 3,
+  "cost_formula": "44 + compacted core gates + sum(max(used optional pairs per owner - 1, 0)) + 1",
+  "fixtures": [
+    {
+      "core_gates": 18,
+      "outside_gates": 44,
+      "prefix_extra_cost": 0,
+      "used_optional_inputs": [
+        15,
+        19,
+        24,
+        30,
+        34,
+        38
+      ],
+      "gates": 63,
+      "within_budget": true
+    },
+    {
+      "core_gates": 17,
+      "outside_gates": 45,
+      "prefix_extra_cost": 1,
+      "used_optional_inputs": [
+        15,
+        16
+      ],
+      "gates": 63,
+      "within_budget": true
+    },
+    {
+      "core_gates": 1,
+      "outside_gates": 44,
+      "prefix_extra_cost": 0,
+      "used_optional_inputs": [],
+      "gates": 46,
+      "within_budget": true
+    }
+  ]
+}

@@ -12,6 +12,9 @@ The posted claim is not proved or refuted. No proof PR has been opened, and the 
 | verification/CertifiedAugmented17.lean | The same augmented circuit is verified by finite DNF certificates for all input lists of length 17. |
 | verification/CertifiedFullTwoExtra.lean | A 63-gate circuit computes the 52 required edges plus exactly (1,20) and (2,15). It is not a target witness. |
 | verification/SubmissionCalibration64.lean | The final DNF proof body proves the exact posted function with a 64-gate calibration circuit. |
+| reduction_analysis/FilteredPairIdentity.lean | Four checked Boolean identities supporting the filtered-pair seed rewrites. |
+| reduction_analysis/SaturatedNegativeFamily.lean | At the negative-family counting limit, each binary AND has unequal children on every member. |
+| reduction_analysis/FourOwnerSaturation.lean | Every paid binary AND in an exact four-owner core with at most four binary ANDs is graph-sound, even with arbitrary pure-OR features. The assembled size contradiction is separate. |
 | reduction_analysis/DNFVerifierMono.lean | A sound gate-by-gate DNF certificate checker, including every wire, false-default references and Monotone2. |
 | verification/FiniteVerification.lean | A candidate passing the stated finite boundary checks suffices for the exact posted target. No candidate is supplied. |
 | reduction_analysis/SpecializedLiftFast.lean | Smaller-core completion routes, including a circuit with at most 28 gates for the six-row core. |
@@ -53,6 +56,12 @@ The DNF verifier now avoids large input enumeration for Lean proofs. Its concret
 
 Preservation snapshots retain changed programs, datasets, seeds and selected diagnostics. MANIFEST files record original and stored SHA256 hashes; large datasets are gzip-compressed. Snapshot STATUS files distinguish checked results, near misses, calibration circuits and unfinished experiments, including frozen output from searches that were still running.
 
+The joint four-owner model now searches all compatible outside prefix choices together. Its assembler, explicit prefix costs, symmetry constraints and bounded support counts passed independent review. The first minimum-five-AND SAT run returned UNKNOWN after 300 seconds. The next run fixes five ANDs and adds the full exponential wildcard bound, with the arithmetic encoding independently checked. No exact core has been found.
+
+The residual SAT lane now supports bounded gate edits and counterexample-preserving recentering. A one-gate calibration was solved in under a second, and a later four-gate repair fixed both original offending pairs while introducing other errors. Local-radius UNSAT is recorded only for the stated neighborhood. Wider timeouts do not prove a global lower bound. Batching more exact counterexamples and widening the radius are the next search steps.
+
+The third upstream refresh (2239e82d294e0253da98cc18db45925e77796b01) added 11 proofs and 177 reductions. Independent scans found reusable local packing and circuit-cleaning proofs, but no general OR51 bound, full L650 result, or equality theorem upgrading the checked 13-AND bound to pair-clean structure. Reduction hypotheses remain unproved unless separately established.
+
 ## Administration
 
 Special check L-meta-1035 returned not_open; the response did not say whether it was checked or stood down. Three initial hard-desk requests returned null with this exact note:
@@ -63,6 +72,6 @@ L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease is 
 
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review (6 distinct agents).
 
-TIMING total=189.5 subagents=6 (checkpoint at 2026-11-25T05:10:37.943944+00:00; work continues).
+TIMING total=214.3 subagents=6 (checkpoint at 2026-11-25T05:35:23.761499+00:00; work continues).
 
 Job ID: msg-e98796d0d0ad050188abca1f.

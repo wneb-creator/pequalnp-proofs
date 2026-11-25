@@ -95,3 +95,13 @@
 - 2026-11-25T05:09:09.771679+00:00 lean_baseline: verified/reviewedgenuinefiltered61seed; intentionallyswitchedsoleSATlane afterrenewal.
 
 2026-11-25T05:10:37.943944+00:00 Sixth checkpoint frozen. Workspace restart04:48 stopped renewal process; manual renewal04:48:51 succeeded and timer restarted. Full13-AND adapter compiled05:04:18; residual noncopy necessity compiled and preserved. No full target proof.
+2026-11-25T05:18:52.005872+00:00 Renewed lease; expiry 2026-11-25T05:38:52.230Z.
+
+- 2026-11-25T05:26:17.394807+00:00 lean_baseline: freefilteredSATUNKNOWN; adaptiveonegaterepaircalibrated0.096s andreviewed; readyfornextsolelane.
+2026-11-25T05:28:52.414306+00:00 Renewed lease; expiry 2026-11-25T05:48:52.644Z.
+
+- 2026-11-25T05:29:04.323968+00:00 lean_baseline: adaptiveSAT repairedknownonegatecounterexample in0.14s; localradii1/2closed, widening.
+
+2026-11-25T05:33:46.540546+00:00 Root renewal before weighted joint18 SAT; expires 2026-11-25T05:53:46.338Z.
+
+2026-11-25T05:35:23.761499+00:00 Seventh checkpoint frozen. Joint-prefix and bounded-edit search improvements reviewed; exact target still open. Saturation partials pushed. Third upstream scan found no missing global bound.

@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+AssertionError: --- 
++++ 
+@@ -300,52 +300,4 @@
+         (S.filter (fun s => (post.foldl stp (stp (pre.foldl stp (List.ofFn (Z s)))
+           ⟨GateOp.and, [b]⟩)).getD o false = false))
+       have h3 : 2 ^ (r + 1) = 2 ^ r + 2 ^ r := by ring
+-      omega
+-
+--- The real AND gates are among the listed AND gates.
+-theorem countP_le : ∀ (l : List Gate) (A : Finset ℕ) (s : ℕ),
+-    (∀ j g, l[j]? = some g → realAnd g = true → j + s ∈ A) →
+-    l.countP realAnd ≤ (A.filter (fun j => s ≤ j)).card := by
+-  intro l
+-  induction l with
+-  | nil => intro A s _; simp
+-  | cons x xs ih =>
+-    intro A s h
+-    have ih' := ih A (s + 1) (fun j g hj hp => by
+-      have := h (j + 1) g (by simpa using hj) hp
+-      rwa [show j + 1 + s = j + (s + 1) by omega] at this)
+-    by_cases hx : realAnd x = true
+-    · rw [List.countP_cons_of_pos hx]
+-      have hs : s ∈ A := by
+-        have := h 0 x (by simp) hx
+-        simpa using this
+-      have hsub : insert s (A.filter (fun j => s + 1 ≤ j)) ⊆ A.filter (fun j => s ≤ j) := by
+-        intro j hj
+-        simp only [Finset.mem_insert, Finset.mem_filter] at hj ⊢
+-        rcases hj with rfl | ⟨h1, h2⟩
+-        · exact ⟨hs, le_refl _⟩
+-        · exact ⟨h1, by omega⟩
+-      have hc := Finset.card_le_card hsub
+-      rw [Finset.card_insert_of_notMem (by simp)] at hc
+-      omega
+-    · rw [List.countP_cons_of_neg hx]
+-      have hsub : A.filter (fun j => s + 1 ≤ j) ⊆ A.filter (fun j => s ≤ j) := by
+-        intro j hj
+-        simp only [Finset.mem_filter] at hj ⊢
+-        exact ⟨hj.1, by omega⟩
+-      have hc := Finset.card_le_card hsub
+-      omega
+-
+--- The nine maximal independent sets of two disjoint triangles.
+-def Zt (p : Fin 3 × Fin 3) : Fin 6 → Bool :=
+-  fun v => decide (v.val = p.1.val ∨ v.val = 3 + p.2.val)
+-
+-theorem noedge : ∀ p : Fin 3 × Fin 3, ¬ ∃ u v : Fin 6,
+-    (u.val, v.val) ∈ ([(0, 1), (0, 2), (1, 2), (3, 4), (3, 5), (4, 5)] : List (ℕ × ℕ)) ∧
+-      Zt p u = true ∧ Zt p v = true := by
+-  decide
+-
+-theorem joinedge : ∀ p q : Fin 3 × Fin 3, p ≠ q → ∃ u v : Fin 6,
+-    (u.val, v.val) ∈ ([(0, 1), (0, 2), (1, 2), (3, 4), (3, 5), (4, 5)] : List (ℕ × ℕ)) ∧
+-      jn (Zt p) (Zt q) u = true ∧ jn (Zt p) (Zt q) v = true := by
+-  decide+      omega

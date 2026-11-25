@@ -1,0 +1,2 @@
+all42 seeds verified on all16384 inputs, each18 gates/4AND/one derived feature
+profiles FP,boundary_errors,all_raw_used -> count {(72, 4, True): 12, (77, 6, False): 24, (82, 8, False): 6}

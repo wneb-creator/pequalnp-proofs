@@ -1,0 +1,5 @@
+PASS32768 signed-literal truth assignments: feature usage iff any selected occurrence; group at mostone
+Cardinality bound:2c edges minus14 mandatory raw uses minus(c-1) mandatory prior gate uses leaves c-13 feature occurrences; distinct feature count cannot exceed occurrences.
+joint_feature_compatibility.py c677a9d31300ba618ad750ad7d0f350e78d68c475c735d834e40d3576ead2a9a
+joint_feature_gadget_sat.py fd4db815bc1de4b62593a56d98dcd577009797b5ff41336e6d432d92bb98dc19
+feature_gadget_sat.py 62c8d1d941dd083092f508540f67ec7c957c3ca74cb9b4d9017ca3e29ae2b4b7

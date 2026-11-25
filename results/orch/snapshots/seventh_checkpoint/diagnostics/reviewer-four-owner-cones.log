@@ -1,0 +1,2 @@
+PASS context19 sufficient-packet cone: all16384 source assignments;18gates/5AND;0misses137 false positives
+PASS context27 diagnostic kernel13 restriction: all1024 assignments; no restoration conclusion

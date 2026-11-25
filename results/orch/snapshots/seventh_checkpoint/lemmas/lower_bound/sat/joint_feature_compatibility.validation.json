@@ -1,0 +1,6 @@
+{
+  "signed_selector_assignments_checked": 400,
+  "variables": 23,
+  "clauses": 16,
+  "status": "PASS: exact reference-use equivalence and group exclusion."
+}

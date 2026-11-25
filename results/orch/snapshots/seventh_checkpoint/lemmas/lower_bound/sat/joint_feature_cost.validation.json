@@ -1,0 +1,6 @@
+{
+  "signed_onehot_assignments": 144,
+  "variables": 61,
+  "clauses": 154,
+  "status": "PASS: prefix overhead, exact equal-fanin markers, credit and support bounds."
+}

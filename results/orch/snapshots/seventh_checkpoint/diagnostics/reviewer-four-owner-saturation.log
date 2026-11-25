@@ -1,0 +1,5 @@
+PASS approved generic saturation prefix byte-identical; concrete16 edges/private lines exactly match custom and joint four-owner packet
+PASS arbitrary pure-OR encoding is join-preserving and monotone; complete16-negative family extends saturation to every raw negative
+PASS theorem only asserts binary AND graph-soundness under<=4 binaryAND count; no assembly size contradiction claimed
+PASS Defs-only/safe namespace/format/empty successful log
+sha 5b278f52027bb29d5e4b66deb68a7889b1c28c4141aac8e4495dc4d6a9e580ae lines 562

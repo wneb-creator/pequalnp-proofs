@@ -1,0 +1,1 @@
+{'raw_inputs': 14, 'features': 15, 'outside_gates': 44, 'gadget_gates': 17, 'gadget_ands': 5, 'restricted_kernel_gates': 13, 'restricted_kernel_ands': 4}

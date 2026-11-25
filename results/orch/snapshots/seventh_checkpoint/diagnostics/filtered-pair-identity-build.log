@@ -1,0 +1,8 @@
+../results/orch/lemmas/reduction_analysis/FilteredPairIdentity.lean:7:49: error: Expected type must not contain free variables
+  ((p || q) && (u || v || t) && (q || u || t)) = ((p || q) && (u || t) || q && v)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../results/orch/lemmas/reduction_analysis/FilteredPairIdentity.lean:11:68: error: Expected type must not contain free variables
+  ((p || q) && (u || t) || q && v) = ((p || q) && t || p && u || q && v || q && u)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables

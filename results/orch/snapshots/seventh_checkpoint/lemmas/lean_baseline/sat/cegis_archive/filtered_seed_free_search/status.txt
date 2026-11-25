@@ -1,0 +1,1 @@
+UNKNOWN at05:18:48 after600seconds onfirstcounterexample. A concreteonegate repairwaslatercheckedSAT againstallthe savedclauses; thiswas aheuristicstall, notUNSAT.

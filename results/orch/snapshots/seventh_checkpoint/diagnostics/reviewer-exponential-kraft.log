@@ -1,0 +1,6 @@
+PASS truncated unary-threshold weights exactly encode sum(2^w-1)<=capacity for65 capacities and343 count triples; guard releases both local/global bounds
+PASS exact wildcard equivalence signs: AND and equal children
+Scope: exact rejected family only, pairwise-positive joins and pure-OR feature join preservation; guarded by binary AND count>=q+1
+global_synthesis.py 700f106db9b7301f9a7f8e3483e2d76e666d53a745f0e22135ee077e9503deb0
+feature_gadget_sat.py c5e064f9e9eaac94f90f72b7f7d9ce154888660b26b64ba2c48aa9e97ecf5b9f
+joint_feature_gadget_sat.py ef1382553a0e61bbb780bba4727b672152886a17bc83c75717f8b736c3801f52

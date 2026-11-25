@@ -1,0 +1,4 @@
+PASS accepted L267 reusable proof through bound byte-identical; only import/namespace wrapper differs
+PASS added theorem: unary replacements cover S, each zero subset<=2^r; equal operands force nonempty intersection contradicting saturated2^(r+1) family size
+PASS Defs-only, safe namespace/format, complete successful log empty; no concrete four-owner size claim yet
+sha256 6bc7bb710e7e2fbd5e60431e876016b3ba7d0ff221108e923a0ae69211641906 lines 394

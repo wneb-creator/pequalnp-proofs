@@ -1,0 +1,1 @@
+Exact fourAdj edge list matches joint-four-owner-packet.json after subtracting 4 from line coordinates. All four private columns 6,7,8,9 checked.

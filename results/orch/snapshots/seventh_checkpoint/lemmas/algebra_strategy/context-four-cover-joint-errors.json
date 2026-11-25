@@ -1,0 +1,606 @@
+{
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "family": "bilinear rectangle cover with shared free-prefix choices",
+  "all_augmented_edges_required": false,
+  "rectangles_considered": 267,
+  "features": [
+    {
+      "support": [
+        5,
+        11
+      ],
+      "owner": 1,
+      "optional": true
+    },
+    {
+      "support": [
+        5,
+        13
+      ],
+      "owner": 1,
+      "optional": true
+    },
+    {
+      "support": [
+        11,
+        13
+      ],
+      "owner": 1,
+      "optional": true
+    },
+    {
+      "support": [
+        5,
+        11,
+        13
+      ],
+      "owner": 1,
+      "optional": false
+    },
+    {
+      "support": [
+        6,
+        11
+      ],
+      "owner": 4,
+      "optional": true
+    },
+    {
+      "support": [
+        6,
+        12
+      ],
+      "owner": 4,
+      "optional": true
+    },
+    {
+      "support": [
+        11,
+        12
+      ],
+      "owner": 4,
+      "optional": true
+    },
+    {
+      "support": [
+        6,
+        11,
+        12
+      ],
+      "owner": 4,
+      "optional": false
+    },
+    {
+      "support": [
+        6,
+        9
+      ],
+      "owner": 5,
+      "optional": false
+    },
+    {
+      "support": [
+        8,
+        10
+      ],
+      "owner": 6,
+      "optional": true
+    },
+    {
+      "support": [
+        8,
+        12
+      ],
+      "owner": 6,
+      "optional": true
+    },
+    {
+      "support": [
+        10,
+        12
+      ],
+      "owner": 6,
+      "optional": true
+    },
+    {
+      "support": [
+        8,
+        10,
+        12
+      ],
+      "owner": 6,
+      "optional": false
+    },
+    {
+      "support": [
+        4,
+        7
+      ],
+      "owner": 8,
+      "optional": false
+    },
+    {
+      "support": [
+        5,
+        8
+      ],
+      "owner": 9,
+      "optional": false
+    },
+    {
+      "support": [
+        7,
+        10
+      ],
+      "owner": 10,
+      "optional": true
+    },
+    {
+      "support": [
+        7,
+        11
+      ],
+      "owner": 10,
+      "optional": true
+    },
+    {
+      "support": [
+        10,
+        11
+      ],
+      "owner": 10,
+      "optional": true
+    },
+    {
+      "support": [
+        7,
+        10,
+        11
+      ],
+      "owner": 10,
+      "optional": false
+    },
+    {
+      "support": [
+        9,
+        10
+      ],
+      "owner": 11,
+      "optional": true
+    },
+    {
+      "support": [
+        9,
+        13
+      ],
+      "owner": 11,
+      "optional": true
+    },
+    {
+      "support": [
+        10,
+        13
+      ],
+      "owner": 11,
+      "optional": true
+    },
+    {
+      "support": [
+        9,
+        10,
+        13
+      ],
+      "owner": 11,
+      "optional": false
+    },
+    {
+      "support": [
+        4,
+        12
+      ],
+      "owner": 12,
+      "optional": true
+    },
+    {
+      "support": [
+        4,
+        13
+      ],
+      "owner": 12,
+      "optional": true
+    },
+    {
+      "support": [
+        12,
+        13
+      ],
+      "owner": 12,
+      "optional": true
+    },
+    {
+      "support": [
+        4,
+        12,
+        13
+      ],
+      "owner": 12,
+      "optional": false
+    }
+  ],
+  "groups": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      4,
+      5,
+      6
+    ],
+    [
+      9,
+      10,
+      11
+    ],
+    [
+      15,
+      16,
+      17
+    ],
+    [
+      19,
+      20,
+      21
+    ],
+    [
+      23,
+      24,
+      25
+    ]
+  ],
+  "desired_target_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      13
+    ]
+  ],
+  "allowed_extra_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "optimization_scope": "A relaxation: cover all16 target edges while optionally accepting any of five specified nonedges. Optimum does not establish an exact target circuit.",
+  "arbitrary_circuit_lower_bound": false,
+  "objective_mode": "false assignments subject to core plus prefix cost at most18",
+  "core_plus_extra_objective": 18.0,
+  "solver_objective": 105.00019,
+  "solver_dual_bound": 105.00019,
+  "selected_rectangles": [
+    {
+      "rows": [
+        1
+      ],
+      "lines": [
+        9,
+        11
+      ],
+      "chunks": [
+        {
+          "support": [
+            9
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            11
+          ],
+          "feature": null
+        }
+      ]
+    },
+    {
+      "rows": [
+        0,
+        1
+      ],
+      "lines": [
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "chunks": [
+        {
+          "support": [
+            4
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            5
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            6
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            8,
+            10
+          ],
+          "feature": 9
+        }
+      ]
+    },
+    {
+      "rows": [
+        2
+      ],
+      "lines": [
+        5,
+        7,
+        9,
+        12
+      ],
+      "chunks": [
+        {
+          "support": [
+            5
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            7
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            9
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            12
+          ],
+          "feature": null
+        }
+      ]
+    },
+    {
+      "rows": [
+        3
+      ],
+      "lines": [
+        6,
+        7,
+        8,
+        13
+      ],
+      "chunks": [
+        {
+          "support": [
+            6
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            7
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            8
+          ],
+          "feature": null
+        },
+        {
+          "support": [
+            13
+          ],
+          "feature": null
+        }
+      ]
+    }
+  ],
+  "selected_optional_features": [
+    1,
+    4,
+    9,
+    17,
+    19
+  ],
+  "extra_prefix_cost": 0,
+  "achieved_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      13
+    ]
+  ],
+  "achieved_extra_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      10
+    ]
+  ],
+  "achieved_exact_target": false,
+  "achieved_false_assignments": 105
+}

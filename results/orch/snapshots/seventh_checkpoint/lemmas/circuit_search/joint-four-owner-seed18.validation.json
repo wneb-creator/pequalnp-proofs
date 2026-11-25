@@ -1,0 +1,36 @@
+{
+  "case": "context_arc_joint_prefixes",
+  "raw_assignments": 16384,
+  "gates": 18,
+  "active_gates": 18,
+  "active_ands": 5,
+  "omitted_raw_inputs": [
+    8
+  ],
+  "false_positives": 137,
+  "false_negatives": 0,
+  "boundary_false": 7,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      1,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      10
+    ]
+  ]
+}

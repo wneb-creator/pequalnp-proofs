@@ -1,0 +1,5 @@
+PASS affine stabilizer 0 order 6 first-pair orbits 109
+PASS affine stabilizer 7 order 48 first-pair orbits 33
+PASS432 incidence group closure,81 feature packet mappings,72/9 packet coverage
+PASS recomputed read-once DP collinear_pair_kernel 672 full-support signatures; target absent
+PASS recomputed read-once DP collinear_triple_kernel 5944 full-support signatures; target absent

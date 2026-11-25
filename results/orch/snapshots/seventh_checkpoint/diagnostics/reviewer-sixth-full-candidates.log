@@ -1,0 +1,4 @@
+PASS circuit_search/full62-context-four.json gates 62 ANDs 14 extra_pairs 6
+PASS circuit_search/full62-seven-and-core.json gates 62 ANDs 14 extra_pairs 6
+PASS circuit_search/full63-seven-and-core-19.json gates 63 ANDs 14 extra_pairs 5
+PASS lean_baseline/sat/full63_filtered_5extra_seed.json gates 63 ANDs 13 extra_pairs 5

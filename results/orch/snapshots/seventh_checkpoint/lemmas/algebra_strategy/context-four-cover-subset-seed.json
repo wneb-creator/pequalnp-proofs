@@ -1,0 +1,131 @@
+{
+  "gates": [
+    [
+      1,
+      9,
+      11
+    ],
+    [
+      0,
+      1,
+      29
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      1,
+      6,
+      32
+    ],
+    [
+      1,
+      19,
+      33
+    ],
+    [
+      0,
+      31,
+      34
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      1,
+      9,
+      36
+    ],
+    [
+      1,
+      12,
+      37
+    ],
+    [
+      0,
+      2,
+      38
+    ],
+    [
+      1,
+      6,
+      7
+    ],
+    [
+      1,
+      8,
+      40
+    ],
+    [
+      1,
+      13,
+      41
+    ],
+    [
+      0,
+      3,
+      42
+    ],
+    [
+      1,
+      30,
+      35
+    ],
+    [
+      1,
+      39,
+      44
+    ],
+    [
+      1,
+      43,
+      45
+    ]
+  ],
+  "output": 46,
+  "inputs": 29,
+  "raw_inputs": 14,
+  "packet": "circuit_search/context-four-owner-packet.json",
+  "packet_index": 0,
+  "gate_count": 18,
+  "and_count": 4,
+  "false_negatives": 0,
+  "false_positives": 105,
+  "boundary_errors": [
+    1038,
+    5162,
+    9286,
+    10501,
+    13538,
+    15233
+  ],
+  "extra_minimal_terms": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      10
+    ]
+  ],
+  "source_cover": "context-four-cover-joint-subset.json",
+  "status": "Incorrect approximation: all16384 raw assignments checked against achieved augmented function."
+}

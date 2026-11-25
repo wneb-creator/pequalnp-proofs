@@ -1,0 +1,6 @@
+2026-11-25T05:01:38.569075+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY collinear_triple_kernel 7
+2026-11-25T05:01:38.666025+00:00 FEATURE GADGET collinear_triple_kernel 8 gates variables 2403 clauses 11763 raw 7 features 1 excess 2 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.666597+00:00 RESULT collinear_triple_kernel 8 10 seconds 0.0
+2026-11-25T05:01:38.666752+00:00 VERIFIED ALL RAW INPUTS collinear_triple_kernel 128
+2026-11-25T05:01:38.744215+00:00 FEATURE GADGET collinear_triple_kernel 7 gates variables 1859 clauses 9146 raw 7 features 1 excess 1 minimum_ands 3 join_crossings True
+2026-11-25T05:01:39.463015+00:00 RESULT collinear_triple_kernel 7 20 seconds 0.72

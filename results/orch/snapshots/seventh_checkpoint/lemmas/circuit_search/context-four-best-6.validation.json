@@ -1,0 +1,32 @@
+{
+  "case": "context_arc_0_2_3_7",
+  "raw_assignments": 16384,
+  "gates": 18,
+  "active_gates": 18,
+  "active_ands": 4,
+  "omitted_raw_inputs": [
+    10
+  ],
+  "false_positives": 105,
+  "false_negatives": 0,
+  "boundary_false": 6,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      10
+    ]
+  ]
+}

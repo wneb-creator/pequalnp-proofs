@@ -1,0 +1,5 @@
+PASS full62_algebraic_5extra_seed.json gates 62 AND 13 extras 5 maxneg failures 262 joint 60 Hcone 57 ANDdepth1
+PASS full63_algebraic_4extra_seed.json gates 63 AND 14 extras 4 maxneg failures 234 joint 61 Hcone 58 ANDdepth1
+PASS full62_shared_rows_4extra_seed.json gates 62 AND 13 extras 4 maxneg failures 234 joint 60 Hcone 57 ANDdepth1
+PASS full63_shared_rows_2extra_seed.json gates 63 AND 13 extras 2 maxneg failures 140 joint 61 Hcone 58 ANDdepth1
+PASS all exact DNF/full and residual semantics, sizes, exactQ, independent maximal-negative counts; all remain approximate

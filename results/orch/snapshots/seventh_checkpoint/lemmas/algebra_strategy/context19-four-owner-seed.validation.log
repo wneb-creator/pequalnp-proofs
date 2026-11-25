@@ -1,0 +1,3 @@
+paid gates 18 AND 5
+all16384 source equality checked; errors 0 137
+boundary errors 7 extra primes [[1, 5], [3, 5], [1, 6], [0, 8], [1, 10]]

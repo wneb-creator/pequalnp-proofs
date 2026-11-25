@@ -1,0 +1,5 @@
+PASS exact symbolic DNF: residual48+5 edges, exact4line tap; full52+5 edges
+PASS input8193 independent, H=false/T=true, noncopy dirty gates [7]
+PASS exact DNF checker finds no comparable-parent gates; this is still an approximate seed
+full_residual_filtered_5extra_seed.json 54740e43e631230eba6145ec7bf4d3e78597c27b88781d489a14f1c090501d82
+full63_filtered_5extra_seed.json ebec08436101a9290b113654813f4ace460da6aaf022ca8c141ec3a6e8035160

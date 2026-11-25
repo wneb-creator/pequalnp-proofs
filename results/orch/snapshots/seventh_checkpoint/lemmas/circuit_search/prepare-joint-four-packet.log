@@ -1,0 +1,1 @@
+{'raw_inputs': 14, 'features': 27, 'inputs': 41, 'optional_prefix_groups': [[15, 16, 17], [19, 20, 21], [24, 25, 26], [30, 31, 32], [34, 35, 36], [38, 39, 40]], 'outside_base_cost': 44, 'seed_gates': 18}

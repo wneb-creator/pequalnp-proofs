@@ -1,0 +1,8 @@
+gadget17 extra pairs [[1, 5], [3, 5], [1, 6], [0, 8], [0, 9], [1, 10]]
+PASS all15 free feature wires exact in44-gate outside; target18+44+1=63
+PASS exact16edge/16maxnegative basis; seed17 and full62 share exactly6 extra pairs
+PASS source packet and full construction valid previous-reference AND/OR DAGs
+context-four-owner-packet.json d11dd5039a0fe662f9ff8e2310afce4f2c3e532c7108ac80e53451ec82855e5b
+prepare_context_four_packet.py 0ec52f9cae77afb40eba2f9e2c5a12f26754fc7d6ae2bbb3f837bb9f9df80e60
+context-four-owner-seed17.json de2ab81af44b0b947f57c55be7007531ac601066b8b3c43b54daec87414eae3c
+full62-context-four.json 3a78a16abe8817f70bce464e0b64d4f8089fb956515a3b50687ab11838a6c675

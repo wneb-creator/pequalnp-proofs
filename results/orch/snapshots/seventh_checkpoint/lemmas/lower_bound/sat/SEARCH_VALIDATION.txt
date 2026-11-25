@@ -1,0 +1,223 @@
+Captured 2026-11-25T04:55:08.563349+00:00
+Complete stdout/stderr logs follow.
+The first Heawood search was interrupted by the environment restart and has no solver verdict.
+All SAT UNSAT/UNKNOWN outcomes here are research results, not Lean proofs. No exact63-gate witness was found.
+
+FILE three-owner-sat.log
+2026-11-25T04:14:03.156135+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY noncollinear_01 12
+2026-11-25T04:14:03.295849+00:00 FEATURE GADGET noncollinear_01 14 gates variables 6277 clauses 42893 raw 12 features 14 excess 3
+2026-11-25T04:14:03.296223+00:00 RESULT noncollinear_01 14 10 seconds 0.0
+2026-11-25T04:14:03.331414+00:00 VERIFIED ALL RAW INPUTS noncollinear_01 4096
+2026-11-25T04:14:03.451829+00:00 FEATURE GADGET noncollinear_01 13 gates variables 5109 clauses 36468 raw 12 features 14 excess 2
+2026-11-25T04:15:33.453894+00:00 RESULT noncollinear_01 13 0 seconds 90.0
+
+FILE four-owner-sat.log
+2026-11-25T04:15:36.823430+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY arc_01 14
+2026-11-25T04:15:37.175001+00:00 FEATURE GADGET arc_01 19 gates variables 14605 clauses 107317 raw 14 features 15 excess 6
+2026-11-25T04:15:37.175283+00:00 RESULT arc_01 19 10 seconds 0.0
+2026-11-25T04:15:37.320828+00:00 VERIFIED ALL RAW INPUTS arc_01 16384
+2026-11-25T04:15:37.615845+00:00 FEATURE GADGET arc_01 18 gates variables 12467 clauses 95087 raw 14 features 15 excess 5
+2026-11-25T04:17:37.617596+00:00 RESULT arc_01 18 0 seconds 120.0
+
+FILE six-owner-sat.log
+2026-11-25T04:18:16.054926+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY core6_02 17
+2026-11-25T04:18:18.515032+00:00 FEATURE GADGET core6_02 29 gates variables 129322 clauses 824258 raw 17 features 13 excess 13 minimum_ands 6 join_crossings True
+2026-11-25T04:18:18.516872+00:00 RESULT core6_02 29 10 seconds 0.0
+2026-11-25T04:18:19.618184+00:00 VERIFIED ALL RAW INPUTS core6_02 131072
+2026-11-25T04:18:22.157499+00:00 FEATURE GADGET core6_02 28 gates variables 121579 clauses 778556 raw 17 features 13 excess 12 minimum_ands 6 join_crossings True
+2026-11-25T04:21:22.158824+00:00 RESULT core6_02 28 0 seconds 180.0
+
+FILE feature6-maxsat17.log
+2026-11-25T04:21:31.344162+00:00 INITIAL FEATURE MAXSAT core6_02 errors 17 variables 126621 clauses 848554 excess 12
+2026-11-25T04:21:32.022284+00:00 RESULT budget 17 attempt 0 10 seconds 0.68
+2026-11-25T04:21:32.026341+00:00 VERIFIED CANDIDATE 17 negative errors exact False
+2026-11-25T04:23:32.065586+00:00 RESULT budget 16 attempt 0 0 seconds 120.03
+
+FILE feature6-maxsat20.log
+2026-11-25T04:23:52.550367+00:00 INITIAL FEATURE MAXSAT core6_02 errors 20 variables 126621 clauses 848555 excess 12
+2026-11-25T04:23:53.528718+00:00 RESULT budget 20 attempt 0 10 seconds 0.98
+2026-11-25T04:23:53.533071+00:00 VERIFIED CANDIDATE 20 negative errors exact False
+2026-11-25T04:25:53.539437+00:00 RESULT budget 19 attempt 0 0 seconds 120.0
+2026-11-25T04:27:53.542257+00:00 RESULT budget 19 attempt 1 0 seconds 120.0
+
+FILE four-kernel-feature-phase.log
+2026-11-25T04:27:29.946140+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T04:27:30.152118+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 15 gates variables 11567 clauses 62554 raw 10 features 3 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T04:27:30.152458+00:00 RESULT four_owner_private_zero_diagnostic 15 10 seconds 0.0
+2026-11-25T04:27:30.156617+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T04:27:30.346972+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9915 clauses 54226 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T04:37:30.348872+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 600.0
+
+FILE four-kernel-and4.log
+2026-11-25T04:23:27.531472+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T04:23:28.015183+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 15 gates variables 11567 clauses 62554 raw 10 features 3 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T04:23:28.020793+00:00 RESULT four_owner_private_zero_diagnostic 15 10 seconds 0.01
+2026-11-25T04:23:28.024605+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T04:23:28.470485+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9985 clauses 54485 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T04:23:58.473317+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 30.0
+
+FILE four-kernel-and5.log
+2026-11-25T04:23:58.617635+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T04:23:59.075157+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 15 gates variables 11567 clauses 62554 raw 10 features 3 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T04:23:59.080760+00:00 RESULT four_owner_private_zero_diagnostic 15 10 seconds 0.01
+2026-11-25T04:23:59.084448+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T04:23:59.535302+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9999 clauses 54539 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T04:25:29.536344+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 90.0
+
+FILE kernel14-maxsat6.log
+2026-11-25T04:29:32.922431+00:00 INITIAL FEATURE MAXSAT four_owner_private_zero_diagnostic errors 6 variables 9703 clauses 59319 excess 5
+2026-11-25T04:29:33.074408+00:00 RESULT budget 6 attempt 0 10 seconds 0.15
+2026-11-25T04:29:33.075200+00:00 VERIFIED CANDIDATE 6 negative errors exact False
+2026-11-25T04:30:01.549357+00:00 RESULT budget 5 attempt 0 10 seconds 28.47
+2026-11-25T04:30:01.553615+00:00 VERIFIED CANDIDATE 5 negative errors exact False
+2026-11-25T04:32:01.558555+00:00 RESULT budget 4 attempt 0 0 seconds 120.0
+2026-11-25T04:34:01.561479+00:00 RESULT budget 4 attempt 1 0 seconds 120.0
+
+FILE kernel14-pair-cegis.log
+2026-11-25T04:35:07.853045+00:00 INITIAL FEATURE MAXSAT four_owner_private_zero_diagnostic errors 3 variables 9315 clauses 58434 excess 5
+2026-11-25T04:35:16.346036+00:00 RESULT budget 3 attempt 0 10 seconds 8.49
+2026-11-25T04:35:16.347360+00:00 VERIFIED CANDIDATE 3 objective errors 5 full negative errors exact False
+2026-11-25T04:37:16.348259+00:00 RESULT budget 2 attempt 0 0 seconds 120.0
+2026-11-25T04:39:16.349882+00:00 RESULT budget 2 attempt 1 0 seconds 120.0
+
+FILE kernel-restoration-calibration.log
+{
+  "kernel_gates": 15,
+  "kernel_output": 27,
+  "kernel_exact": true,
+  "raw_assignments_per_override": 1024,
+  "condition": "all16 joint override masks, output=F OR selected point inputs",
+  "sufficiency_only": true,
+  "single_override_candidates_by_owner": [
+    [
+      13,
+      14
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      19,
+      20
+    ],
+    [
+      22,
+      23
+    ]
+  ],
+  "tap_tuples_tested": 1
+}
+Joint restoration witnesses: 1
+
+FILE or-census-c4.log
+2026-11-25T04:43:15.275278+00:00 OR BUDGET c4 3 fixed True tests 6 variables 237 clauses 695
+2026-11-25T04:43:15.281069+00:00 RESULT c4 ORs 3 10 seconds 0.01
+2026-11-25T04:43:15.281737+00:00 VERIFIED CONCRETE CIRCUIT 7 gates 3 ORs
+2026-11-25T04:43:15.284367+00:00 OR BUDGET c4 2 fixed False tests 6 variables 145 clauses 400
+2026-11-25T04:43:15.308365+00:00 RESULT c4 ORs 2 10 seconds 0.02
+2026-11-25T04:43:15.308531+00:00 VERIFIED CONCRETE CIRCUIT 5 gates 2 ORs
+
+FILE or-census-c5.log
+2026-11-25T04:40:23.855226+00:00 OR BUDGET c5 4 fixed True tests 10 variables 431 clauses 1395
+2026-11-25T04:40:23.855299+00:00 RESULT c5 ORs 4 10 seconds 0.0
+2026-11-25T04:40:23.855502+00:00 VERIFIED CONCRETE CIRCUIT 9 gates 4 ORs
+2026-11-25T04:40:23.859861+00:00 OR BUDGET c5 3 fixed False tests 10 variables 293 clauses 910
+2026-11-25T04:40:23.865375+00:00 RESULT c5 ORs 3 20 seconds 0.01
+
+FILE or-census-c6.log
+2026-11-25T04:40:23.702548+00:00 OR BUDGET c6 5 fixed True tests 11 variables 659 clauses 2203
+2026-11-25T04:40:23.702775+00:00 RESULT c6 ORs 5 10 seconds 0.0
+2026-11-25T04:40:23.703055+00:00 VERIFIED CONCRETE CIRCUIT 11 gates 5 ORs
+2026-11-25T04:40:23.710151+00:00 OR BUDGET c6 4 fixed False tests 11 variables 481 clauses 1552
+2026-11-25T04:40:23.810792+00:00 RESULT c6 ORs 4 20 seconds 0.1
+
+FILE or-census-k4.log
+2026-11-25T04:40:23.963064+00:00 OR BUDGET subdiv_k4 11 fixed True tests 24 variables 4535 clauses 16558
+2026-11-25T04:40:23.963172+00:00 RESULT subdiv_k4 ORs 11 10 seconds 0.0
+2026-11-25T04:40:23.965758+00:00 VERIFIED CONCRETE CIRCUIT 23 gates 11 ORs
+2026-11-25T04:40:24.018611+00:00 OR BUDGET subdiv_k4 10 fixed False tests 24 variables 3871 clauses 13985
+2026-11-25T04:43:24.020352+00:00 RESULT subdiv_k4 ORs 10 0 seconds 180.0
+
+FILE or-census-heawood.log
+2026-11-25T04:43:24.611407+00:00 OR BUDGET heawood 20 fixed True tests 58 variables 30064 clauses 113087
+2026-11-25T04:43:24.611742+00:00 RESULT heawood ORs 20 10 seconds 0.0
+2026-11-25T04:43:24.686676+00:00 VERIFIED CONCRETE CIRCUIT 41 gates 20 ORs
+2026-11-25T04:43:25.145531+00:00 OR BUDGET heawood 19 fixed False tests 58 variables 27415 clauses 103107
+
+FILE or-census-heawood-ordered.log
+2026-11-25T04:50:55.451230+00:00 OR BUDGET heawood 20 fixed True tests 58 variables 31029 clauses 117331
+2026-11-25T04:50:55.452105+00:00 RESULT heawood ORs 20 10 seconds 0.0
+2026-11-25T04:50:55.504881+00:00 VERIFIED CONCRETE CIRCUIT 41 gates 20 ORs
+2026-11-25T04:50:55.895531+00:00 OR BUDGET heawood 19 fixed False tests 58 variables 28312 clauses 107049
+2026-11-25T04:54:55.912985+00:00 RESULT heawood ORs 19 0 seconds 240.02
+
+FILE kernel14-s4-nonlinear.log
+2026-11-25T04:52:05.140734+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T04:52:05.363736+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 15 gates variables 11567 clauses 62567 raw 10 features 3 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T04:52:05.364236+00:00 RESULT four_owner_private_zero_diagnostic 15 10 seconds 0.0
+2026-11-25T04:52:05.370522+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T04:52:05.582495+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9915 clauses 54239 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T04:55:05.583699+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 180.0
+
+Additional completed logs captured 2026-11-25T05:14:13.635166+00:00
+
+FILE kernel14-s4-and5-long.log
+2026-11-25T04:56:40.852472+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T04:56:41.128694+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 16 gates variables 13511 clauses 72083 raw 10 features 3 excess 7 minimum_ands 4 join_crossings True
+2026-11-25T04:56:41.129199+00:00 RESULT four_owner_private_zero_diagnostic 16 10 seconds 0.0
+2026-11-25T04:56:41.133191+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T04:56:41.343764+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9999 clauses 54552 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T05:06:41.345870+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 600.0
+
+FILE kernel14-s4-and5-context.log
+2026-11-25T05:09:02.403534+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T05:09:02.629863+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 16 gates variables 13511 clauses 72083 raw 10 features 3 excess 7 minimum_ands 4 join_crossings True
+2026-11-25T05:09:02.630156+00:00 RESULT four_owner_private_zero_diagnostic 16 10 seconds 0.0
+2026-11-25T05:09:02.630577+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T05:09:02.798455+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 9999 clauses 54552 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T05:10:32.799429+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 90.0
+
+FILE collinear-pair-tiny.log
+2026-11-25T05:01:38.055059+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY collinear_pair_kernel 6
+2026-11-25T05:01:38.133818+00:00 FEATURE GADGET collinear_pair_kernel 7 gates variables 1646 clauses 7384 raw 6 features 1 excess 2 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.134178+00:00 RESULT collinear_pair_kernel 7 10 seconds 0.0
+2026-11-25T05:01:38.134303+00:00 VERIFIED ALL RAW INPUTS collinear_pair_kernel 64
+2026-11-25T05:01:38.175036+00:00 FEATURE GADGET collinear_pair_kernel 6 gates variables 1221 clauses 5466 raw 6 features 1 excess 1 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.471737+00:00 RESULT collinear_pair_kernel 6 20 seconds 0.3
+
+FILE collinear-triple-tiny.log
+2026-11-25T05:01:38.569075+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY collinear_triple_kernel 7
+2026-11-25T05:01:38.666025+00:00 FEATURE GADGET collinear_triple_kernel 8 gates variables 2403 clauses 11763 raw 7 features 1 excess 2 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.666597+00:00 RESULT collinear_triple_kernel 8 10 seconds 0.0
+2026-11-25T05:01:38.666752+00:00 VERIFIED ALL RAW INPUTS collinear_triple_kernel 128
+2026-11-25T05:01:38.744215+00:00 FEATURE GADGET collinear_triple_kernel 7 gates variables 1859 clauses 9146 raw 7 features 1 excess 1 minimum_ands 3 join_crossings True
+2026-11-25T05:01:39.463015+00:00 RESULT collinear_triple_kernel 7 20 seconds 0.72
+
+FILE collinear-read-once-dp.log
+{"case": "collinear_pair_kernel", "sources": 7, "completed": true, "seconds": 0.0078666780009371, "pair_operations": 36629, "reachable_signature_count": 672, "target_read_once": false, "scope": "Every raw input and the single correlated OR feature occurs exactly once."}
+{"case": "collinear_triple_kernel", "sources": 8, "completed": true, "seconds": 0.09376375499959977, "pair_operations": 376450, "reachable_signature_count": 5944, "target_read_once": false, "scope": "Every raw input and the single correlated OR feature occurs exactly once."}
+
+COMPLETE LOG: kernel14-s4-and6-long.log
+2026-11-25T05:10:40.699378+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY four_owner_private_zero_diagnostic 10
+2026-11-25T05:10:40.974258+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 17 gates variables 15590 clauses 82248 raw 10 features 3 excess 8 minimum_ands 4 join_crossings True
+2026-11-25T05:10:40.974634+00:00 RESULT four_owner_private_zero_diagnostic 17 10 seconds 0.0
+2026-11-25T05:10:40.975120+00:00 VERIFIED ALL RAW INPUTS four_owner_private_zero_diagnostic 1024
+2026-11-25T05:10:41.157968+00:00 FEATURE GADGET four_owner_private_zero_diagnostic 14 gates variables 10013 clauses 54606 raw 10 features 3 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T05:20:41.159130+00:00 RESULT four_owner_private_zero_diagnostic 14 0 seconds 600.0
+
+COMPLETE LOG: joint-four-and4-diagnostic.log
+2026-11-25T05:24:35.708787+00:00 JOINT FEATURE BASIS VERIFIED 14 raw inputs 27 features 6 optional groups
+2026-11-25T05:24:36.184507+00:00 FEATURE GADGET context_arc_joint_prefixes 19 gates variables 21281 clauses 154913 raw 14 features 27 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T05:24:36.185059+00:00 RESULT context_arc_joint_prefixes 19 10 seconds 0.0
+2026-11-25T05:24:36.186060+00:00 VERIFIED ALL RAW INPUTS context_arc_joint_prefixes 16384
+2026-11-25T05:24:36.661061+00:00 FEATURE GADGET context_arc_joint_prefixes 18 gates variables 18776 clauses 140115 raw 14 features 27 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T05:25:06.661562+00:00 RESULT context_arc_joint_prefixes 18 0 seconds 30.0
+
+COMPLETE LOG: joint-four-minand5-first.log
+2026-11-25T05:27:30.543409+00:00 JOINT FEATURE BASIS VERIFIED 14 raw inputs 27 features 6 optional groups
+2026-11-25T05:27:31.083403+00:00 FEATURE GADGET context_arc_joint_prefixes 20 gates variables 23950 clauses 169819 raw 14 features 27 excess 7 minimum_ands 4 join_crossings True
+2026-11-25T05:27:31.083886+00:00 RESULT context_arc_joint_prefixes 20 10 seconds 0.0
+2026-11-25T05:27:31.084991+00:00 VERIFIED ALL RAW INPUTS context_arc_joint_prefixes 16384
+2026-11-25T05:27:31.639953+00:00 FEATURE GADGET context_arc_joint_prefixes 18 gates variables 23240 clauses 157411 raw 14 features 27 excess 5 minimum_ands 5 join_crossings True
+2026-11-25T05:32:31.640922+00:00 RESULT context_arc_joint_prefixes 18 0 seconds 300.0

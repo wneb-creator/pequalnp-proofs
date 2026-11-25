@@ -1,0 +1,6 @@
+2026-11-25T05:24:35.708787+00:00 JOINT FEATURE BASIS VERIFIED 14 raw inputs 27 features 6 optional groups
+2026-11-25T05:24:36.184507+00:00 FEATURE GADGET context_arc_joint_prefixes 19 gates variables 21281 clauses 154913 raw 14 features 27 excess 6 minimum_ands 4 join_crossings True
+2026-11-25T05:24:36.185059+00:00 RESULT context_arc_joint_prefixes 19 10 seconds 0.0
+2026-11-25T05:24:36.186060+00:00 VERIFIED ALL RAW INPUTS context_arc_joint_prefixes 16384
+2026-11-25T05:24:36.661061+00:00 FEATURE GADGET context_arc_joint_prefixes 18 gates variables 18776 clauses 140115 raw 14 features 27 excess 5 minimum_ands 4 join_crossings True
+2026-11-25T05:25:06.661562+00:00 RESULT context_arc_joint_prefixes 18 0 seconds 30.0

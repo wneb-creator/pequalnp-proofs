@@ -1,0 +1,6 @@
+{
+  "signed_onehot_assignments": 400,
+  "variables": 44,
+  "clauses": 78,
+  "status": "PASS: optional-prefix group exclusion and exact distinct-feature cardinality."
+}

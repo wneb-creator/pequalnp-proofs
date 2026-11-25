@@ -1,0 +1,10 @@
+{
+  "signed_threshold_assignments": 1728,
+  "capacities": [
+    0,
+    1,
+    4,
+    16
+  ],
+  "status": "PASS: guarded exact sum of exponential wildcard costs."
+}

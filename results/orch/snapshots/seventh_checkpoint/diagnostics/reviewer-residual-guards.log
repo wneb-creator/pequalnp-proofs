@@ -1,0 +1,3 @@
+PASS exact DNF implication and replacement, 1000 random DAGs/all32 assignments/four caps; relations 18888
+PASS paid-parent noncopy clause truth table
+source_sha256 d3941fe8e1413f17a4b67b2fa4e69166631b0006e5d86018d1447e3877d8ae18

@@ -1,0 +1,7 @@
+{
+  "cases": 16,
+  "all_outside_dnfs_correct": true,
+  "all_features_correct": true,
+  "all_extended_tests_correct": true,
+  "total_prefix_patterns": 729
+}

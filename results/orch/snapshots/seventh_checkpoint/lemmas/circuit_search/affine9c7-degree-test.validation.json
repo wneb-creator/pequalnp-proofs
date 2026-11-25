@@ -1,0 +1,8 @@
+{
+  "seeds": 48,
+  "boundary_errors_each": 85,
+  "rewrites": 5000,
+  "context_comparisons": 20000,
+  "raw_assignments": 2097152,
+  "fixture_equivalent": true
+}

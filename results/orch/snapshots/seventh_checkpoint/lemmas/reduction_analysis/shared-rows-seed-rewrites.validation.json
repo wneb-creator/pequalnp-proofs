@@ -1,0 +1,46 @@
+[
+  {
+    "full_file": "full62_shared_rows_4extra_seed.json",
+    "residual_file": "full_residual_shared_rows_4extra_joint60_seed.json",
+    "gates": 62,
+    "and_count": 13,
+    "extra_edges": [
+      [
+        1,
+        20
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        2,
+        21
+      ]
+    ],
+    "residual_size": 57,
+    "false_maximal_negative_inputs": 234
+  },
+  {
+    "full_file": "full63_shared_rows_2extra_seed.json",
+    "residual_file": "full_residual_shared_rows_2extra_joint61_seed.json",
+    "gates": 63,
+    "and_count": 13,
+    "extra_edges": [
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        21
+      ]
+    ],
+    "residual_size": 58,
+    "false_maximal_negative_inputs": 140
+  }
+]
