@@ -4,3 +4,5 @@ Full localchecker knownunavailable: fullMathlibdoesnotfit; prioractualrunexit3Ba
 Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
 TIMING total=74 subagents=6
 MonoFirstChecked.lean1280lines, MonotoneResidualChecked.lean1198lines, PetersenBoundary.v2.checked.lean63lines andPetersenSymmetry.checked.lean147lines allcompilewithmatchinglogsandindependentAPPROVEDreviews. Noexacttargettheorem.
+MonotoneTwoDropChecked.lean2701linescompiledexit0: unconditionalmonotonetwo-gatecofactorandconditional9floor transfer; independentlyAPPROVED. FullFloor18pending.
+PinBudget.leancheckedconditional38pin-countidentity; actualoutput/livenessmustbesupplied, independentlyAPPROVED.
