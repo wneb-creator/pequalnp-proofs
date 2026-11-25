@@ -47,3 +47,26 @@ Correction: measured line counts are L4239=122, L5863=154, L2416=160 (the earlie
 ## 2026-11-25 06:40:07 UTC — independent partial-preservation review (status_review)
 
 Reviewed root maximal_pair_cover, structural weighted_cut, and geometry delta/incidence/separated_points/singleton_maximal/incidence_refl source. PASS for mathematical validity and namespace/forbidden-source rules; all helpers are isolated under PEqualNP.Outside.L_meta_2089, ordinary proof terms/tactics, no new axioms/sorry/native evaluation. Weighted descending-frontier induction charges each possible branching O gate once. Geometry uses ordinary decide on a finite proposition. The exact target theorem remains intentionally absent, so this is approval to preserve partial work only, not a full proof/checker/PR verdict. Structural build log predates cosmetic edits; rebuild the merged current source before asserting it compiles.
+
+### 2026-11-25T06:41:34.278006+00:00 library_route
+
+- Existing checked geometry L_meta_4239 and replacement L_meta_5863 can be copied into allowed module namespace. No direct circuit lower bounds available through Defs.
+- Exhaustive Python geometry census: 704 maximal false rows; 236 degenerate rows, types (0,13):1,(1,9):13,(2,6):78,(3,3):52,(6,2):78,(9,1):13,(13,0):1. Remaining 468 generic rows are (3,4) or (4,3).
+- Any independent input with at most 2 points or at most 2 lines extends to a degenerate row. Thus spurious minterms of a promised circuit need at least 3 points AND 3 lines.
+- Building a new adaptation of L_meta_6206 plus copied L_meta_6208: AND rejection of only pair-generated degenerate rows already implies one operand accepts at most 12 nonincident point-line pairs. Scratch BadPairs.lean and complete build log under /tmp/oec/pequalnp-pilot-73/library-route/.
+
+- 2026-11-25T06:41:52.346584+00:00 counterexample: Geometry.lean extended and Lean-checked (exit 0, empty log). Abstract monotone function satisfying promise rejects all nonincident pairs and all one-sided inputs; pair_truth_iff recovers exact incidence shadow. Scratch file /tmp/oec/pequalnp-pilot-73/counterexample/Geometry.lean, now 138 lines. Beginning bounded stochastic local optimization from a known 65-gate final-AND separator to test 63-gate candidates.
+
+- 2026-11-25T06:42:19.696277+00:00: structural_proof compiled generic false_certificate in scratch structural/Structural.checked.lean. Every false wire has a raw-input false certificate B with |B| ≤ number of false OR gates in its prefix + 1. Handles forward/out-of-bounds references. Full build log structural-build-3.log is empty (exit 0). Geometry should force B to contain all zeros at closed independent-set inputs.
+
+- 2026-11-25T06:43:29.217421+00:00 normal-form: compiled scratch normal-form/NormalForm.lean: nf_common_lines (kernel-checked unique common line), nf_rectangle (all-incident rectangle has a singleton side). Full lake env lean exit 0, build.log empty. A naive AND-birth biclique cover is invalid: P4 edge function xy OR yz OR zw = (x OR z) AND (y OR w) AND (y OR z); first AND creates bad xw, final AND deletes it, total 5 gates. Need global counting invariant.
+
+## 2026-11-25 06:43:29 UTC — independent second partial review (status_review)
+
+PASS for partial preservation, not full target completion. Reviewed structural false_certificate, geometry pair-truth/one-side rejection, and BadPairs.cross_bad/few_bad with copied combinatorial count proof. Gate semantics explicitly handle forward/missing references as false. Geometry keeps monotonicity/negative-row hypotheses explicit. Bad-pair cross incidence follows from pair-generated degenerate cuts, then ≤12 follows from finite projective-plane counting. Namespace isolation and forbidden-source scans passed; ordinary decide and decide +kernel are used, no new axioms or placeholders. Root must rebuild merged source.
+
+- Structural.checked.lean: 294 lines, SHA256 c6c2690e88c64ae3bea58478f941bfa9f60950f7aec9de6f9c3a774bfbc2bd2c
+- Geometry.lean: 131 lines, SHA256 b16dfed8f3ed6b286bb6aa018621cc977f8d9a1df5a0ab2823ff89c1eff34b38
+- BadPairs.lean: 489 lines, SHA256 746e585969dd470927d0540769160a2d7ff8287a4cacc2bf0417192779d5b1f4
+
+- 2026-11-25T06:44:26.098777+00:00 counterexample correction: final Geometry.lean line count is 131 (prior 138 was an estimate). Kernel check exit 0. Stochastic run still has only a near-witness: 63 gates, final AND, two missing positive edges, zero false positives. This is not a counterexample.

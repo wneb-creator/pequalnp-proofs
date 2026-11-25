@@ -3,6 +3,9 @@ Posted theorem is not yet proved; no proof PR opened.
 Build: lake build PEqualNP.Outside.L_meta_2089 passed.
 Local checker: not run; the main theorem is intentionally absent from this partial file.
 Independent review: status_review PASS for reviewed helper components, not full statement acceptance.
-Lines: 144
+Lines: 945
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form
-TIMING total=13 subagents=6
+TIMING total=15 subagents=6
+
+Second merged build passed; independent source and body-equivalence review passed.
+Preserved separately: checked 29-line incidence rectangle lemma, independently reviewed by root.
