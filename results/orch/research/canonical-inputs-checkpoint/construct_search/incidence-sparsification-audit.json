@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS independent exact row-transformation audit",
+  "quartic_entry_identities": 84,
+  "flat_coefficient_equivalences": 12,
+  "first_five_rows_unchanged": true,
+  "scope": "All three transformed matrices have identical ranks on the permanent-flat locus; first two are equivalent for every parameter value. No rank or infeasibility conclusion.",
+  "source_sha256": "6f2387cdae2f37649bb82115ddb7bfdba66b362be5d83452f596c20d92105944",
+  "seconds": 5.649634949000756
+}

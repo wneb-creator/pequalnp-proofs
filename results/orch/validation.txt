@@ -1,3 +1,33 @@
+CURRENT VALIDATION SNAPSHOT — 2026-11-25T13:01:53.655118+00:00
+
+PARTIAL RESULTS ONLY. The posted dimension-three existence theorem is absent. No full proof/refutation, proof PR, or tools/check-lean.mjs verdict is claimed.
+
+Named file: lean/PEqualNP/Outside/L_gct_231.lean
+Source: 3700 lines, 163040 bytes, 211 unique declarations.
+Source SHA256: b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e
+Command: lake build PEqualNP.Outside.L_gct_231
+Exit: 0
+Result: Build completed successfully (5159 jobs).
+Complete latest build diagnostics:
+combined3700-build.stdout: 66151 bytes; SHA256 10b2d3db4c324d81e082165c717d8d8a4bbb7baf9a578706e8b2a272063410ca
+combined3700-build.stderr: 105 bytes; SHA256 7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98
+combined3700-build.exit: 2 bytes; SHA256 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+Independent integration/source/format review: PASS; integration-3700-audit.json and rowzero/route-generators-assembly-independent-review.json reconstruct the exact main source from reviewed component bodies.
+
+Rank-two status: geometry and twelve exact incident coefficient equations are checked in main. Standalone lemmas/IncidentArithmeticGlue.lean, 48 lines, compiles and reduces the normalized opposite-edge claim to the explicit NormalizedIncidentArithmetic premise (twelve equations plus inverse guard). Its SHA256 is 6dabc2112f73a9de77a3d5bfe1b7d5a3d346f0846b4b31759357fc26825cb9c4. That premise has not been proved; the finite-prime candidate is not a rational certificate.
+
+Rank-three status: main contains unconditional Hadamard coordinates and incidence normalization. Standalone lemmas/CanonicalHomogeneous.lean, 162 lines, compiles and proves the exact radial formula plus canonical D=identity family. Its SHA256 is 2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3. Complete successful logs/validation accompany both standalone components. The 31-generator coefficient collection and 174-line proof-size optimization are audited drafts, not yet compiled. No exact rank-three inconsistency certificate is available.
+
+Missing global obligations: (1) prove NormalizedIncidentArithmetic unconditionally; (2) prove complex inconsistency of the canonical 31 coefficient equations, with any augmented consequences verified; (3) assemble the exact posted negated twin if these succeed, then run its full named build and authoritative checker. These are outstanding tasks, not new hypotheses asserted in the posted theorem.
+
+Checker: no verdict. Earlier full runtime smoke was resource-blocked; no full-checker runtime retest after cache migration. No checker implementation or project build configuration was altered. Selective axioms/main2629 audit of five older major helpers found only propext, Classical.choice, Quot.sound; this is not a current all-declaration audit or checker verdict.
+
+Measurement starts 2026-11-25T08:14:51Z; elapsed value below is wall-clock minutes at this snapshot. The seven used subagents include the earlier artifact_analysis reviewer as well as the currently active/recent workers.
+Sub-agents: construct_search, geometry_search, status_review, toolchain_setup, artifact_analysis, rowzero, net_normal_form
+TIMING total=287.0 subagents=7
+
+HISTORICAL CHECKPOINTS FOLLOW. Their line counts, timings, intermediate open tasks and build outcomes describe their own earlier snapshots; the current summary above supersedes them.
+
 PARTIAL CHECKPOINT: compiled helper lemmas only. The posted dimension-three existence theorem is not yet proved.
 
 Build: lake build PEqualNP.Outside.L_gct_231

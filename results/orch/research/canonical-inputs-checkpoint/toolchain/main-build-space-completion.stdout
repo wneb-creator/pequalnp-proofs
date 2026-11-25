@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-25T12:55:29.692804+00:00",
+  "scope": "After root confirmed new main build and preservation push, discarded only the SHA-verified obsolete binary backup, then restored authentic private artifacts to disk with exact SHA/mode/mtime verification. New main artifact was read only.",
+  "old_backup_removed": "/tmp/oec/pequalnp-pilot-78/toolchain/main-2629.olean.zst",
+  "old_backup_sha256": "e4bf901d047eb9d1a5728a7686417b857ac130427e7d86199bb701864958a8a4",
+  "new_main_sha256": "be274904f06e293abf4b34fcc94a5c509b2102f7e23358607dd8611f62b5d426",
+  "new_main_bytes": 125550912,
+  "before": {
+    "ok": true,
+    "count": 8677,
+    "bytes": 2947357632,
+    "pid": 4303
+  },
+  "after": {
+    "ok": true,
+    "count": 8655,
+    "bytes": 2906826168,
+    "pid": 4303
+  },
+  "disk_free_before": 65056768,
+  "disk_free_after": 53989376,
+  "restored_bytes": 40531464
+}

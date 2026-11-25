@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "generators_checked": 55,
+  "native_terms_checked": 8623,
+  "variable_order_checked": true,
+  "primitive_scalings_checked": 24,
+  "source_sha256": "a05d794793ea33fbcdafc4ac53b7dd285e7d0b31120bc6eeddf4a356c2fe5e76",
+  "wrapper_limits": {
+    "address_space_mib": 1536,
+    "cpu_seconds": 1200,
+    "wall_seconds": 1500,
+    "single_process_threads": 1,
+    "file_size_mib": 16
+  },
+  "exact_identity_gate_checked": true,
+  "scope": "Independent exact comparison of native55 input against original31 and24 previously audited reduced rational certificates. No engine run and no feasibility conclusion."
+}

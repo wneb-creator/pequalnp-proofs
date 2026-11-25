@@ -1,0 +1,122 @@
+{
+  "created_utc": "2026-11-25T12:56:21.104156+00:00",
+  "scope": "Independently verified exact compact reformulation of tracezero incidence module: matrix800to508terms, flat equations508to293terms. No guards; ideals/modules equal. No native probe on this representation and no infeasibility conclusion. Complete original and final audit diagnostics included.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_incidence_sparsification.py",
+      "relative_path": "construct_search/audit_incidence_sparsification.py",
+      "bytes": 3278,
+      "sha256": "ce76327fca028cfde7e89cb23eba332ecd76ee3c807410c859eeb6b3d4f4fe5b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_incidence_sparsification_compact.py",
+      "relative_path": "construct_search/audit_incidence_sparsification_compact.py",
+      "bytes": 3835,
+      "sha256": "9fb0fd9a071f5264e60a3d9207cf31305f16f0e3adcea99b46d82ac6bdfc9673"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-audit.json",
+      "relative_path": "construct_search/incidence-sparsification-audit.json",
+      "bytes": 480,
+      "sha256": "ad24bf43ec72124d2a5bfbc8e3f860671ddc90ac54cea8250e81f73e1b309955"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-audit.stderr",
+      "relative_path": "construct_search/incidence-sparsification-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-audit.stdout",
+      "relative_path": "construct_search/incidence-sparsification-audit.stdout",
+      "bytes": 464,
+      "sha256": "1cc4498b0db4f4742a8c5ebfb0411d23d4987f8778abfaeb4ac18b8c8b751eff"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-compact-audit.json",
+      "relative_path": "construct_search/incidence-sparsification-compact-audit.json",
+      "bytes": 555,
+      "sha256": "cf4997802bf0d01d5da3507e34231917d827c770d7b4687259b8c4340a3f1fd7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-compact-audit.stderr",
+      "relative_path": "construct_search/incidence-sparsification-compact-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/incidence-sparsification-compact-audit.stdout",
+      "relative_path": "construct_search/incidence-sparsification-compact-audit.stdout",
+      "bytes": 535,
+      "sha256": "e23b100c8433db787c5ec34f9d0e9f9d24300c721cdf19dcfb88c74b462e0332"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification-2.stderr",
+      "relative_path": "geometry_search/incidence-row-sparsification-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification-2.stdout",
+      "relative_path": "geometry_search/incidence-row-sparsification-2.stdout",
+      "bytes": 296,
+      "sha256": "3df4ef2ecd2d87f05d4077a07b12a5460d0848c6323a74482e98a0cb25393fc9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification-3.stderr",
+      "relative_path": "geometry_search/incidence-row-sparsification-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification-3.stdout",
+      "relative_path": "geometry_search/incidence-row-sparsification-3.stdout",
+      "bytes": 323,
+      "sha256": "924fee568459b45fb8ba0a8daf98a50e3ada6c95ec82a35ab778c99247daa8b8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification.json",
+      "relative_path": "geometry_search/incidence-row-sparsification.json",
+      "bytes": 30702,
+      "sha256": "1cb9d28ecf54002f96ebd06bbbaf64df97898cb430da9f7de2bf5271b060540f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification.stderr",
+      "relative_path": "geometry_search/incidence-row-sparsification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-row-sparsification.stdout",
+      "relative_path": "geometry_search/incidence-row-sparsification.stdout",
+      "bytes": 219,
+      "sha256": "ee82e6ae466a0ea4e8b2a9865e4a5cd82f32f80c86e95db79fed85400ec3b58f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/sparsify_incidence_rows.py",
+      "relative_path": "geometry_search/sparsify_incidence_rows.py",
+      "bytes": 4581,
+      "sha256": "0b9046107f1d5e89ef61239ce1e1b6047aff096547e5c8b812e137b664badf51"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "bytes": 32849,
+      "sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/matrix.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/matrix.json",
+      "bytes": 15903,
+      "sha256": "9f0d96e48d992eac1df739c8d2f089ef0f76f90e33e4ed35bd2b61a26a97175f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "bytes": 16539,
+      "sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6"
+    }
+  ],
+  "file_count": 19,
+  "total_bytes": 110559
+}

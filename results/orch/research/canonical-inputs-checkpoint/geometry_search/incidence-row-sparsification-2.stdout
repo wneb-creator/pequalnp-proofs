@@ -1,0 +1,1 @@
+{"original_terms": 800, "trials": [{"label": "subtract_Fq", "term_count": 892, "quartic_term_count": 766}, {"label": "subtract_Fq_and_Qq", "term_count": 646, "quartic_term_count": 520}, {"label": "compact_mod_flat", "term_count": 508, "quartic_term_count": 382}], "seconds": 0.34273066700006893}

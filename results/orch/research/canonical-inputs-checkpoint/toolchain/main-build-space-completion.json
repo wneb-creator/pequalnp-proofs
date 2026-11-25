@@ -1,0 +1,202 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-25T12:55:29.692804+00:00",
+  "scope": "After root confirmed new main build and preservation push, discarded only the SHA-verified obsolete binary backup, then restored authentic private artifacts to disk with exact SHA/mode/mtime verification. New main artifact was read only.",
+  "old_backup_removed": "/tmp/oec/pequalnp-pilot-78/toolchain/main-2629.olean.zst",
+  "old_backup_sha256": "e4bf901d047eb9d1a5728a7686417b857ac130427e7d86199bb701864958a8a4",
+  "new_main_sha256": "be274904f06e293abf4b34fcc94a5c509b2102f7e23358607dd8611f62b5d426",
+  "new_main_bytes": 125550912,
+  "before": {
+    "ok": true,
+    "count": 8677,
+    "bytes": 2947357632,
+    "pid": 4303
+  },
+  "after": {
+    "ok": true,
+    "count": 8655,
+    "bytes": 2906826168,
+    "pid": 4303
+  },
+  "disk_free_before": 65056768,
+  "disk_free_after": 53989376,
+  "restored_bytes": 40531464,
+  "restored_files": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Reproducing.olean.private",
+      "bytes": 1868696,
+      "sha256": "22ae64b94a04870a623be839a3021694d9294710d4fdb732f60422e52eb44545",
+      "mode": 292,
+      "mtime_ns": 1795595225184526609,
+      "atime_ns": 1795608448120371656
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/CoprodI.olean.private",
+      "bytes": 1865336,
+      "sha256": "a5d7622a56a079f27ad0c50a0b69c3a3e99de6d8cb4ca7310400605fadaad40e",
+      "mode": 292,
+      "mtime_ns": 1795595199984031061,
+      "atime_ns": 1795608448131271057
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Image.olean.private",
+      "bytes": 1858024,
+      "sha256": "7f3fc7f2a0c0c2c116a726c2396c7e63e4482cd367920209d3899fb023ccfa74",
+      "mode": 292,
+      "mtime_ns": 1795594957491257469,
+      "atime_ns": 1795608448142379313
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/AffineScheme.olean.private",
+      "bytes": 1854768,
+      "sha256": "21699339cfaf5a8b59d2c6851bb959719476aa64ec6ad1bd88c98be33ddf07d5",
+      "mode": 292,
+      "mtime_ns": 1795595177575590736,
+      "atime_ns": 1795608448153082058
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TacticAnalysis/Declarations.olean.private",
+      "bytes": 1852624,
+      "sha256": "cc302817a8de6befe6cfc7116508d36703359a768faa0d05ecd212484ffc9ea5",
+      "mode": 292,
+      "mtime_ns": 1795594805796379033,
+      "atime_ns": 1795608448163878043
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Bounds.olean.private",
+      "bytes": 1851448,
+      "sha256": "d0d74b7b4f7e67c0f62c59bb923cf62d3566a16e5b3f48c3a28aab382ace41c5",
+      "mode": 292,
+      "mtime_ns": 1795595178695612789,
+      "atime_ns": 1795608448174100175
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Module/HahnEmbedding.olean.private",
+      "bytes": 1848976,
+      "sha256": "d115b4801646eacb4de07358831e0c22564f74da6e09088f8ba74295ffb05476",
+      "mode": 292,
+      "mtime_ns": 1795595394415856360,
+      "atime_ns": 1795608448183914412
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Forall2.olean.private",
+      "bytes": 1847736,
+      "sha256": "4ff19b458526877e7d4e1b70bd4f0c597d35b4771f130b70811400195ebbc136",
+      "mode": 292,
+      "mtime_ns": 1795594960379314521,
+      "atime_ns": 1795608448193480756
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Substitution.olean.private",
+      "bytes": 1846800,
+      "sha256": "5dec6b6a18db30157043cabbe78c2e114a4d4c436d9c4a9a374c0540263c589e",
+      "mode": 292,
+      "mtime_ns": 1795595201584062527,
+      "atime_ns": 1795608448202972748
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Height/MvPolynomial.olean.private",
+      "bytes": 1843432,
+      "sha256": "61e650230e4f2e7cab19701fca6b46060e12cf99294be0f2454f982ac46640b8",
+      "mode": 292,
+      "mtime_ns": 1795595391591800800,
+      "atime_ns": 1795608448213315712
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Lie/Basis/Prod.olean.private",
+      "bytes": 1841200,
+      "sha256": "2257611d258dbb7c2421061857d000e7ff8d7daadf515b4dcb11355a082df42d",
+      "mode": 292,
+      "mtime_ns": 1795595194363920604,
+      "atime_ns": 1795608448223691194
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Comma/Over/Basic.olean.private",
+      "bytes": 1840264,
+      "sha256": "b97aee9a0145930e1b11dbd4ff13264a04c3545c8ba225f8eb08661a766e1a2e",
+      "mode": 292,
+      "mtime_ns": 1795595204648122784,
+      "atime_ns": 1795608448231218618
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicTopology/SimplexCategory/GeneratorsRelations/NormalForms.olean.private",
+      "bytes": 1839480,
+      "sha256": "88891a8fab48d0f3bd427dd5d71806572c9fb12d6cd2be55572175d35b198331",
+      "mode": 292,
+      "mtime_ns": 1795595183375704675,
+      "atime_ns": 1795608448239431234
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/AdjoinRoot.olean.private",
+      "bytes": 1838976,
+      "sha256": "a3abfe2d534b4e3fb3a043940bfc2a5e288aea644550f503d364413cad23d2e4",
+      "mode": 292,
+      "mtime_ns": 1795594956571239204,
+      "atime_ns": 1795608448246898748
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ClickSuggestions/Util.olean.private",
+      "bytes": 1837376,
+      "sha256": "6abd80534547fe5c4befab5a2d8bc6ad46574ebbd3e4350770db3de52fa81548",
+      "mode": 292,
+      "mtime_ns": 1795594958795283356,
+      "atime_ns": 1795608448255833130
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Combinatorics/SimpleGraph/Subgraph.olean.private",
+      "bytes": 1837216,
+      "sha256": "ceb41ea21450fbd2b60f58eebd26b14d724b3fd8aa6ff7b06597aae41f3b686d",
+      "mode": 292,
+      "mtime_ns": 1795594958731282086,
+      "atime_ns": 1795608448263298090
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/CosetCover.olean.private",
+      "bytes": 1830816,
+      "sha256": "c87242b32ceb135fb8e86d25a81c22679385c74fd17e0ba512e15687aa7eab25",
+      "mode": 292,
+      "mtime_ns": 1795595199232016272,
+      "atime_ns": 1795608448269992741
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Reflection.olean.private",
+      "bytes": 1830096,
+      "sha256": "d609e1c62dc6b6593ac8e41671e0527b022725c67f7c204f5224b52ab23c4e4c",
+      "mode": 292,
+      "mtime_ns": 1795595198676005338,
+      "atime_ns": 1795608448276875258
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/PushoutI.olean.private",
+      "bytes": 1829920,
+      "sha256": "370ae77509a8cd2ba27a56d6611cbe4b8ffc69feb7eae5bf9baf6ee02c135599",
+      "mode": 292,
+      "mtime_ns": 1795595188655808495,
+      "atime_ns": 1795608448284036286
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Lie/Weights/RootSystem.olean.private",
+      "bytes": 1823896,
+      "sha256": "4eb8ca55118cc548a4031978d59ccac4b41b8b4f7c6c408cba4e723791fe7bc8",
+      "mode": 292,
+      "mtime_ns": 1795595217212369830,
+      "atime_ns": 1795608448290261650
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Transvection/Basic.olean.private",
+      "bytes": 1822592,
+      "sha256": "1220c307cde0a26fdebb4f4b51cd3abb9de67f04a8b93d8e5adae6367ca87045",
+      "mode": 292,
+      "mtime_ns": 1795595188759810535,
+      "atime_ns": 1795608448296647695
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Triangulated/Subcategory.olean.private",
+      "bytes": 1821792,
+      "sha256": "7fd4244d4fb3a1618a7bea43dbb9bf343e087d9ee4ff781d56c8c2a1f331f3ef",
+      "mode": 292,
+      "mtime_ns": 1795595195195936970,
+      "atime_ns": 1795608448302360026
+    }
+  ]
+}

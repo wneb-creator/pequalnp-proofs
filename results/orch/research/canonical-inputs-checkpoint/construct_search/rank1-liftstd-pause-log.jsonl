@@ -1,0 +1,1 @@
+{"utc": "2026-11-25T12:48:37.706386+00:00", "action": "SIGSTOP", "reason": "Root heavy Lean build memory reservation", "process_sample": "    PID STAT     ELAPSED     TIME   RSS\n  27989 R          01:00 00:00:20 265628\n"}

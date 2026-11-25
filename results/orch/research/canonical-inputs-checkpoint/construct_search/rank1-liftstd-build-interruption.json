@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T12:53:43.263238+00:00",
+  "status": "interrupted_inconclusive",
+  "reason": "Root main Lean build at8GiB limit; release retained265MiB. Restart exact same input only after BUILD END with adequate wall limit.",
+  "process_sample": "    PID STAT     ELAPSED     TIME   RSS\n  27989 T          06:06 00:00:20 257592\n",
+  "signal_sequence": [
+    "SIGTERM",
+    "SIGCONT"
+  ]
+}

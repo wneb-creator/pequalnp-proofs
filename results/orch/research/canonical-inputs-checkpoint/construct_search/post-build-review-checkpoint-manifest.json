@@ -1,0 +1,97 @@
+{
+  "utc": "2026-11-25T12:58:38.827495+00:00",
+  "scope": "Completed independent source/algebra reviews plus first focused liftstd run deliberately terminated after20CPU sec for main-build memory. Exit0 on SIGTERM is NOT success; no rational unit certificate. Active rerun and unrun homogeneous fallback excluded.",
+  "files": [
+    {
+      "path": "construct_search/run_rank1_liftstd.py",
+      "bytes": 1290,
+      "sha256": "c0d278b741170585c4122ae987750399d709c9a44032722c6d44944289f3bbfe"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q.sing",
+      "bytes": 7434,
+      "sha256": "7466b6a35f1a5caaa54cfc2537fb4d319e093a534369bd3afc415959092211b5"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q.stdout",
+      "bytes": 56,
+      "sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q.result.json",
+      "bytes": 194,
+      "sha256": "85c7761ad9db7459f8bc24b62bd722d0adeb2e713c2ea03df8cfbdf87ad51efc"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-run.stdout",
+      "bytes": 194,
+      "sha256": "85c7761ad9db7459f8bc24b62bd722d0adeb2e713c2ea03df8cfbdf87ad51efc"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-pause-log.jsonl",
+      "bytes": 224,
+      "sha256": "ba68abd7315a39a27bca16d8e10659d90de67995218cede707f7df0c6ccf53f7"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-build-interruption.json",
+      "bytes": 398,
+      "sha256": "78c18a969d1b4c204f305282decd8c078ca2f89e2d5993ced74c451b784f6c74"
+    },
+    {
+      "path": "construct_search/incident-arithmetic-glue-independent-review.json",
+      "bytes": 986,
+      "sha256": "6bb5c0975072cb17a7e7e948f1dd0721d63f7e98474b7031d00e2e08d4b3daba"
+    },
+    {
+      "path": "construct_search/audit_Bone_single_D.py",
+      "bytes": 5017,
+      "sha256": "411992e905894bea1de88d76a3c5bc2b08e98a6147ad645ead36b8c2411be461"
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit.json",
+      "bytes": 1628,
+      "sha256": "a7f1266ce375240082bd019c514d46792b0943c4f3f817b50da0e9384c8bd26b"
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit-2.stdout",
+      "bytes": 1452,
+      "sha256": "a35579c1a7a888b6fbf32c7bde5e1108a27ee82d5e1c447ab0a39e7687fee8fe"
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/audit_incidence_sparsification_compact.py",
+      "bytes": 3835,
+      "sha256": "9fb0fd9a071f5264e60a3d9207cf31305f16f0e3adcea99b46d82ac6bdfc9673"
+    },
+    {
+      "path": "construct_search/incidence-sparsification-compact-audit.json",
+      "bytes": 555,
+      "sha256": "cf4997802bf0d01d5da3507e34231917d827c770d7b4687259b8c4340a3f1fd7"
+    },
+    {
+      "path": "construct_search/incidence-sparsification-compact-audit.stdout",
+      "bytes": 535,
+      "sha256": "e23b100c8433db787c5ec34f9d0e9f9d24300c721cdf19dcfb88c74b462e0332"
+    },
+    {
+      "path": "construct_search/incidence-sparsification-compact-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "total_bytes": 23798
+}

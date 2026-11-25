@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-11-25T12:55:30.324030+00:00",
+  "scope": "Frozen independently audited canonical55 native inputs and exact source dependencies. Native computation is active and growing outputs are excluded. All55 equations are necessary consequences in a full D-rank-three chart; no infeasibility or final Lean result.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/prepare_canonical55.py",
+      "relative_path": "geometry_search/prepare_canonical55.py",
+      "bytes": 3090,
+      "sha256": "4fff6bb3ff661bd82038d9fa4447be31f6e4244e5cbceca5759172d2ab4fb2ed"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/run_canonical55.py",
+      "relative_path": "geometry_search/run_canonical55.py",
+      "bytes": 2368,
+      "sha256": "1e7483b28760083b17ffcc88ce7605369a895c10185ff7d8b92ccc8c5ec92e0f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/prepare-canonical55.stdout",
+      "relative_path": "geometry_search/prepare-canonical55.stdout",
+      "bytes": 177,
+      "sha256": "3d2b6bd4273e4e0553ee3874823b83b93d91637d431ee986898601e9e450a059"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/prepare-canonical55.stderr",
+      "relative_path": "geometry_search/prepare-canonical55.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/input.json",
+      "relative_path": "geometry_search/canonical55/input.json",
+      "bytes": 828291,
+      "sha256": "9111d1aacc49deed879e59172999a51d0e1f1488784d081d7a97491f7358dd19"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/canonical55-modGB.sing",
+      "relative_path": "geometry_search/canonical55/canonical55-modGB.sing",
+      "bytes": 129496,
+      "sha256": "a05d794793ea33fbcdafc4ac53b7dd285e7d0b31120bc6eeddf4a356c2fe5e76"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/chart.json",
+      "relative_path": "numeric/s4-hadamard/chart.json",
+      "bytes": 51196,
+      "sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-id-rowmap.json",
+      "relative_path": "numeric/s4-structure/rational-id-rowmap.json",
+      "bytes": 634177,
+      "sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-augmented/reduced-certificates.jsonl",
+      "relative_path": "numeric/s4-augmented/reduced-certificates.jsonl",
+      "bytes": 117773,
+      "sha256": "905c24be354861695a2b44b3cab1838e78cf67e5bf5631ddb61b3421d505aff8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-augmented/canonical55-independent-audit.json",
+      "relative_path": "numeric/s4-augmented/canonical55-independent-audit.json",
+      "bytes": 621,
+      "sha256": "a9ed102c0ab0467e33e299b4b8d3ca69fee41bcc8d53d20b1933839d80d1ba61"
+    }
+  ],
+  "file_count": 10,
+  "total_bytes": 1767189
+}
