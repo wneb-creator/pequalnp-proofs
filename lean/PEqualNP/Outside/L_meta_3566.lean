@@ -52,4 +52,42 @@ lemma reviewPath_noSingleCover :
   unfold CoverPromise.IsVertexCover reviewPath reviewPathAdj
   decide
 
+def reviewBoundaryHood : Fin 11 → ℕ :=
+  ![1536, 272, 1056, 192, 1282, 772, 1160, 584, 562, 417, 85]
+
+abbrev reviewBoundaryAdj (v w : Fin 11) :=
+  (reviewBoundaryHood v).testBit w.val = true
+
+def reviewBoundaryGraph : SimpleGraph (Fin 11) where
+  Adj := reviewBoundaryAdj
+  symm := ⟨by decide⟩
+  loopless := ⟨by decide⟩
+
+def reviewBoundaryCircuit : PEqualNP.AndCount.AndCountCircuit 11 where
+  size := 6
+  leftVars := ![{7, 10}, {2}, {0}, {8}, {4, 8}, {3}]
+  leftGates := ![∅, ∅, ∅, {0}, ∅, ∅]
+  rightVars := ![{6, 9}, {5, 10}, {9, 10}, {4, 5}, {1}, {6, 7}]
+  rightGates := ![∅, {0}, ∅, ∅, {0}, ∅]
+  outVars := ∅
+  outGates := {1, 2, 3, 4, 5}
+
+lemma reviewBoundary_wellFormed : reviewBoundaryCircuit.WellFormed := by
+  unfold PEqualNP.AndCount.AndCountCircuit.WellFormed
+  decide
+
+lemma reviewBoundary_edge : reviewBoundaryGraph.Adj 6 7 := by
+  change reviewBoundaryAdj 6 7
+  decide
+
+lemma reviewBoundary_missed : reviewBoundaryCircuit.eval {6, 7} = false := by decide
+
+lemma reviewBoundary_notComputes :
+    ¬ reviewBoundaryCircuit.Computes reviewBoundaryGraph := by
+  intro h
+  have ht := (h {6, 7}).mpr
+    ⟨6, by decide, 7, by decide, reviewBoundary_edge⟩
+  rw [reviewBoundary_missed] at ht
+  contradiction
+
 end PEqualNP.Outside.L_meta_3566
