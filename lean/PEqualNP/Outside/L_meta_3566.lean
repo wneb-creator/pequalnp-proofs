@@ -257,4 +257,76 @@ lemma minimum_cover : ∃ S : Finset (Fin 21), CoverPromise.IsVertexCover graph 
 
 end K6Subdivision
 
+namespace C6Book3
+
+open PEqualNP.MetaComplexity PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+abbrev graph : SimpleGraph (Fin 14) :=
+  edgeGraph 14
+    [(0, 1), (0, 2), (2, 3), (3, 4), (4, 5), (5, 1), (0, 6), (6, 7), (7, 8), (8, 9), (9, 1), (0, 10), (10, 11), (11, 12), (12, 13), (13, 1)]
+
+def cover : Finset (Fin 14) := {0, 3, 5, 7, 9, 11, 13}
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma bipartite : ∃ c : Fin 14 → Bool, ∀ u v, graph.Adj u v → c u ≠ c v := by
+  refine ⟨fun v => decide (v ∈ cover), ?_⟩
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma noFourCycle : NoFourCycle graph := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma card_edges : graph.edgeFinset.card = 16 := by decide
+
+set_option maxRecDepth 10000 in
+lemma cover_isCover : CoverPromise.IsVertexCover graph cover := by
+  unfold CoverPromise.IsVertexCover
+  decide
+
+lemma cover_card : cover.card = 7 := by decide
+
+def leftEndpoint : Fin 7 → Fin 14 := ![0, 2, 4, 6, 8, 10, 12]
+
+def rightEndpoint : Fin 7 → Fin 14 := ![1, 3, 5, 7, 9, 11, 13]
+
+lemma leftEndpoint_injective : Function.Injective leftEndpoint := by decide
+
+lemma rightEndpoint_injective : Function.Injective rightEndpoint := by decide
+
+lemma endpoints_disjoint : ∀ i j, leftEndpoint i ≠ rightEndpoint j := by decide
+
+set_option maxRecDepth 10000 in
+lemma matching_edges : ∀ i, graph.Adj (leftEndpoint i) (rightEndpoint i) := by decide
+
+lemma cover_card_lower (S : Finset (Fin 14))
+    (hS : CoverPromise.IsVertexCover graph S) : 7 ≤ S.card :=
+  K6Subdivision.matching_card_le_cover graph leftEndpoint rightEndpoint leftEndpoint_injective
+    rightEndpoint_injective endpoints_disjoint matching_edges S hS
+
+lemma minimum_cover : ∃ S : Finset (Fin 14), CoverPromise.IsVertexCover graph S ∧
+    S.card = 7 ∧ ∀ T : Finset (Fin 14), CoverPromise.IsVertexCover graph T → S.card ≤ T.card := by
+  refine ⟨cover, cover_isCover, cover_card, ?_⟩
+  intro T hT
+  rw [cover_card]
+  exact cover_card_lower T hT
+
+abbrev jsonGraph : SimpleGraph (Fin 14) :=
+  edgeGraph 14
+    [(0, 7), (0, 8), (1, 8), (1, 9), (2, 9), (2, 7), (0, 10), (3, 10), (3, 11), (4, 11), (4, 7), (0, 12), (5, 12), (5, 13), (6, 13), (6, 7)]
+
+def requestedToJson : Fin 14 → Fin 14 := ![0, 7, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 13, 6]
+
+set_option maxRecDepth 10000 in
+lemma requestedToJson_bijective : Function.Bijective requestedToJson := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma requestedToJson_adj : ∀ u v, graph.Adj u v ↔
+    jsonGraph.Adj (requestedToJson u) (requestedToJson v) := by decide
+
+end C6Book3
+
 end PEqualNP.Outside.L_meta_3566
