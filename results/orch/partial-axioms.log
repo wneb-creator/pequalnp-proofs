@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2592.notCount_le_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592.no_five_nots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592.OneNot.essential_witnesses' depends on axioms: [propext]

@@ -6,3 +6,8 @@ Independent red-team: toolchain agent PASS for partial archival push; root also 
 Sub-agents: status_audit, structural_proof, counterexample_search, library_route, toolchain, one_not_route
 TIMING total=7.5 subagents=6
 No PR opened for this partial checkpoint.
+
+Second checkpoint: LibraryRoute, Structural, and extended OneNot each compile with lake env lean (exit 0).
+Independent review: toolchain agent reviewed LibraryRoute; root reviewed Structural and extended OneNot.
+Axiom check: only propext, Classical.choice, Quot.sound in inspected partials.
+Main posted statement still unsolved.
