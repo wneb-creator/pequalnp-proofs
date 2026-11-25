@@ -4789,12 +4789,651 @@ lemma decoded_lowN13_of_check (checked : decodedAllCheck = true) :
 
 end PEqualNP.Outside.L_meta_10760.RestrictionData
 
-namespace PEqualNP.Outside.L_meta_10760
 
-lemma posted_of_checked (checked : RestrictionData.decodedAllCheck = true) :
-    ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true) := by
-  intro gates o legal _singleNot computes
-  exact RestrictionSixProof.positive_replacement_of_lowN13
-    (RestrictionData.decoded_lowN13_of_check checked) ⟨gates, o⟩ legal computes
+namespace PEqualNP.Outside.L_meta_10760.AutoPool
 
-end PEqualNP.Outside.L_meta_10760
+def guessWithin (d : Nat) (vs allWords : List Nat) : Nat → List Nat → List Nat → Bool
+  | _budget,pool,[] => allWords.all (available d pool)
+  | budget,pool,w :: ws =>
+    if budget == 0 then allWords.all (available d pool) else
+      let program := guessOne d vs pool w
+      if budget < program.length then false else
+        guessWithin d vs allWords (budget-program.length) (poolRun pool program) ws
+
+def autoCutBounded (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  if L+constants <= k then false else
+    guessWithin d vs ws (L+constants-k-1) (vs.map (fun v => var v &&& d)) ws
+
+def quickCut (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  decide (k < L+constants) &&
+    ws.all (available d (vs.map (fun v => var v &&& d)))
+
+
+
+end PEqualNP.Outside.L_meta_10760.AutoPool
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool
+
+theorem poolRun_append_budget (pool : List Nat) (left right : List (Nat × Nat × Nat)) :
+    poolRun pool (left ++ right) = poolRun (poolRun pool left) right := by
+  induction left generalizing pool with
+  | nil => rfl
+  | cons gate gates ih =>
+    rcases gate with ⟨o,a,b⟩
+    simpa only [List.cons_append, poolRun] using
+      ih (pool ++ [op o (pool.getD a 0) (pool.getD b 0)])
+
+end PEqualNP.Outside.L_meta_10760.AutoPool
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool
+
+lemma guessAux_eq_nil_of_available (d : Nat) (vs pool ws : List Nat)
+    (allAvailable : ws.all (available d pool) = true) :
+    guessAux d vs pool ws = [] := by
+  induction ws with
+  | nil => rfl
+  | cons w ws ih =>
+    have parts : available d pool w = true ∧ ws.all (available d pool) = true := by
+      simpa only [List.all_cons, Bool.and_eq_true] using allAvailable
+    have one : guessOne d vs pool w = [] := by simp [guessOne, parts.1]
+    simpa only [guessAux, one, poolRun, List.nil_append] using ih parts.2
+
+lemma guessWithin_actual (d : Nat) (vs allWords : List Nat)
+    (budget : Nat) (pool ws : List Nat)
+    (contained : ∀ w ∈ ws, w ∈ allWords)
+    (checked : guessWithin d vs allWords budget pool ws = true) :
+    (guessAux d vs pool ws).length ≤ budget ∧
+      allWords.all (available d (poolRun pool (guessAux d vs pool ws))) = true := by
+  induction ws generalizing budget pool with
+  | nil =>
+    exact ⟨Nat.zero_le budget, checked⟩
+  | cons w ws ih =>
+    by_cases zeroBudget : budget = 0
+    · have allAvailable : allWords.all (available d pool) = true := by
+        simpa [guessWithin, zeroBudget] using checked
+      have remainingAvailable : (w :: ws).all (available d pool) = true := by
+        apply List.all_eq_true.mpr
+        intro x hx
+        exact List.all_eq_true.mp allAvailable x (contained x hx)
+      have empty := guessAux_eq_nil_of_available d vs pool (w :: ws) remainingAvailable
+      rw [empty]
+      exact ⟨Nat.zero_le budget, allAvailable⟩
+    · have zeroFalse : (budget == 0) = false := by simp [zeroBudget]
+      simp only [guessWithin, zeroFalse, Bool.false_eq_true, ite_false] at checked
+      split at checked
+      · contradiction
+      · rename_i fits
+        have tail := ih (budget - (guessOne d vs pool w).length)
+          (poolRun pool (guessOne d vs pool w))
+          (fun x hx => contained x (List.mem_cons_of_mem w hx)) checked
+        constructor
+        · simp only [guessAux, List.length_append]
+          omega
+        · simpa only [guessAux, poolRun_append_budget] using tail.2
+
+lemma autoCutBounded_implies_autoCut {k : Nat} {ws : List Nat}
+    {spec : Nat × Nat × List Nat} (checked : autoCutBounded k ws spec = true) :
+    autoCut k ws spec = true := by
+  rcases spec with ⟨d, L, vs⟩
+  unfold autoCutBounded at checked
+  dsimp only at checked
+  split at checked
+  · contradiction
+  · rename_i bound
+    have actual := guessWithin_actual d vs ws
+      (L + ws.countP (fun w => w &&& d == 0 || w &&& d == d) - k - 1)
+      (vs.map (fun v => var v &&& d)) ws (fun _ h => h) checked
+    have lengthBound : k + (guess d vs ws).length <
+        L + ws.countP (fun w => w &&& d == 0 || w &&& d == d) := by
+      unfold guess
+      omega
+    simp only [autoCut, bound, ite_false, Bool.and_eq_true, decide_eq_true_eq]
+    exact ⟨lengthBound, actual.2⟩
+
+lemma quickCut_implies_autoCut {k : Nat} {ws : List Nat}
+    {spec : Nat × Nat × List Nat} (checked : quickCut k ws spec = true) :
+    autoCut k ws spec = true := by
+  rcases spec with ⟨d, L, vs⟩
+  simp only [quickCut, Bool.and_eq_true, decide_eq_true_eq] at checked
+  have empty : guess d vs ws = [] :=
+    guessAux_eq_nil_of_available d vs (vs.map (fun v => var v &&& d)) ws checked.2
+  have bound : ¬ L + ws.countP (fun w => w &&& d == 0 || w &&& d == d) ≤ k := by omega
+  simp only [autoCut, bound, ite_false, empty, List.length_nil, Nat.add_zero,
+    Bool.and_eq_true, decide_eq_true_eq, poolRun]
+  exact checked
+
+end PEqualNP.Outside.L_meta_10760.AutoPool
+
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool.Unrolled
+
+def phaseMatrix4 (target : Nat) (negativeRows : List Nat) (a b : Nat) (rest : List Nat) : Nat :=
+  forceNat (Nat.land (Nat.xor full a) (Nat.xor full b)) (fun p0 =>
+  forceNat (Nat.land a (Nat.xor full b)) (fun p1 =>
+  forceNat (Nat.land (Nat.xor full a) b) (fun p2 =>
+  forceNat (Nat.land a b) (fun p3 =>
+  negativeRows.foldl (fun bad r =>
+    forceNat (rest.foldl (fun same w => Nat.land same
+      (if w.testBit r then w else Nat.xor full w)) target) (fun same =>
+    if Nat.beq same 0 then bad else
+    let q := Nat.add (if a.testBit r then 1 else 0) (if b.testBit r then 2 else 0)
+    let bad := if Nat.beq (Nat.land same p0) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 q)
+    let bad := if Nat.beq (Nat.land same p1) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 4 q))
+    let bad := if Nat.beq (Nat.land same p2) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 8 q))
+    if Nat.beq (Nat.land same p3) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 12 q)))) 0))))
+
+lemma nat_beq_eq_decide (a b : Nat) : Nat.beq a b = decide (a = b) := by
+  apply Bool.eq_iff_iff.mpr
+  simp
+
+lemma phaseMatrix4_eq (target : Nat) (negativeRows : List Nat) (a b : Nat) (rest : List Nat) :
+    phaseMatrix4 target negativeRows a b rest = phaseMatrix target negativeRows a b rest := by
+  have tb11 : Nat.testBit 1 1 = false := by decide
+  have tb21 : Nat.testBit 2 1 = true := by decide
+  have tb31 : Nat.testBit 3 1 = true := by decide
+  unfold phaseMatrix4 phaseMatrix
+  simp only [forceNat_eq]
+  congr 1
+  funext bad r
+  by_cases hs : rest.foldl (fun same w => same &&&
+      (if w.testBit r then w else full ^^^ w)) target = 0
+  all_goals simp [List.range_succ, phaseMask, hs, nat_beq_eq_decide,
+    tb11, tb21, tb31, Nat.add_comm, Nat.add_left_comm, Nat.add_assoc]
+
+end PEqualNP.Outside.L_meta_10760.AutoPool.Unrolled
+
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool.Unrolled
+
+def childCheck (k bad mask : Nat) (child : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat)) : Bool :=
+  decide (k+1 < child.length) || (bad &&& mask != 0) ||
+    deps.any (fun q => decide (k <= q.1) && ordered child == q.2) ||
+    specs.any (autoCut k child)
+
+def gateCheck (k bad : Nat) (ws : List Nat) (a b : Nat) (rest : List Nat)
+    (z m0 m1 m2 m3 : Nat) (specs : List (Nat × Nat × List Nat))
+    (deps : List (Nat × List Nat)) : Bool :=
+  forceNat z (fun z =>
+    if ws.contains z || z == 0 || z == full then true else
+      childCheck k bad m0 (z :: rest) specs deps &&
+      childCheck k bad m1 (z :: a :: rest) specs deps &&
+      childCheck k bad m2 (z :: b :: rest) specs deps &&
+      childCheck k bad m3 (z :: a :: b :: rest) specs deps)
+
+def nodeCheck4 (target : Nat) (negativeRows : List Nat) (k : Nat) (ws : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat)) : Bool :=
+  !ws.contains target && (pairs ws).all (fun (a,b,rest) =>
+    forceNat (phaseMatrix4 target negativeRows a b rest) (fun bad =>
+      gateCheck k bad ws a b rest (a &&& b) 34679 34085 33843 33825 specs deps &&
+      gateCheck k bad ws a b rest (a ||| b) 61153 42145 52257 33825 specs deps &&
+      gateCheck k bad ws a b rest (a ^^^ (a &&& b)) 56621 34085 52257 33825 specs deps &&
+      gateCheck k bad ws a b rest (b ^^^ (a &&& b)) 46267 42145 33843 33825 specs deps))
+
+lemma nodeCheck4_eq (target : Nat) (negativeRows : List Nat) (k : Nat) (ws : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat)) :
+    nodeCheck4 target negativeRows k ws specs deps =
+      nodeCheck target negativeRows k ws specs deps := by
+  have tb11 : Nat.testBit 1 1 = false := by decide
+  have tb21 : Nat.testBit 2 1 = true := by decide
+  have tb31 : Nat.testBit 3 1 = true := by decide
+  simp [nodeCheck4, phaseMatrix4_eq, nodeCheck, gateCheck, childCheck, forceNat_eq, List.range_succ,
+    op, collisionMasks, Bool.and_assoc, tb11, tb21, tb31,
+    Nat.add_comm, Nat.add_left_comm, Nat.add_assoc]
+
+end PEqualNP.Outside.L_meta_10760.AutoPool.Unrolled
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool.UnrolledBounded
+
+def guessWithin (d : Nat) (vs allWords : List Nat) : Nat → List Nat → List Nat → Bool
+  | budget,pool,[] => allWords.all (available d pool)
+  | budget,pool,w :: ws =>
+    if budget == 0 then allWords.all (available d pool) else
+      let program := guessOne d vs pool w
+      if budget < program.length then false else
+        guessWithin d vs allWords (budget-program.length) (poolRun pool program) ws
+
+def autoCutBounded (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  if L+constants <= k then false else
+    guessWithin d vs ws (L+constants-k-1) (vs.map (fun v => var v &&& d)) ws
+
+def quickCut (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  decide (k < L+constants) &&
+    ws.all (available d (vs.map (fun v => var v &&& d)))
+
+def phaseMatrix4 (target : Nat) (negativeRows : List Nat) (a b : Nat) (rest : List Nat) : Nat :=
+  forceNat (Nat.land (Nat.xor full a) (Nat.xor full b)) (fun p0 =>
+  forceNat (Nat.land a (Nat.xor full b)) (fun p1 =>
+  forceNat (Nat.land (Nat.xor full a) b) (fun p2 =>
+  forceNat (Nat.land a b) (fun p3 =>
+  negativeRows.foldl (fun bad r =>
+    forceNat (rest.foldl (fun same w => Nat.land same
+      (if w.testBit r then w else Nat.xor full w)) target) (fun same =>
+    if Nat.beq same 0 then bad else
+    let q := Nat.add (if a.testBit r then 1 else 0) (if b.testBit r then 2 else 0)
+    let bad := if Nat.beq (Nat.land same p0) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 q)
+    let bad := if Nat.beq (Nat.land same p1) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 4 q))
+    let bad := if Nat.beq (Nat.land same p2) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 8 q))
+    if Nat.beq (Nat.land same p3) 0 then bad else Nat.lor bad (Nat.shiftLeft 1 (Nat.add 12 q)))) 0))))
+
+def childCheck (k bad mask : Nat) (child : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat)) : Bool :=
+  decide (k+1 < child.length) || (bad &&& mask != 0) ||
+    deps.any (fun q => decide (k <= q.1) && ordered child == q.2) ||
+    specs.any (quickCut k child) || specs.any (autoCutBounded k child)
+
+def gateCheck (k bad : Nat) (ws : List Nat) (a b : Nat) (rest : List Nat)
+    (z m0 m1 m2 m3 : Nat) (specs : List (Nat × Nat × List Nat))
+    (deps : List (Nat × List Nat)) : Bool :=
+  forceNat z (fun z =>
+    if ws.contains z || z == 0 || z == full then true else
+      childCheck k bad m0 (z :: rest) specs deps &&
+      childCheck k bad m1 (z :: a :: rest) specs deps &&
+      childCheck k bad m2 (z :: b :: rest) specs deps &&
+      childCheck k bad m3 (z :: a :: b :: rest) specs deps)
+
+def nodeCheck4 (target : Nat) (negativeRows : List Nat) (k : Nat) (ws : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat)) : Bool :=
+  !ws.contains target && (pairs ws).all (fun (a,b,rest) =>
+    forceNat (phaseMatrix4 target negativeRows a b rest) (fun bad =>
+      gateCheck k bad ws a b rest (a &&& b) 34679 34085 33843 33825 specs deps &&
+      gateCheck k bad ws a b rest (a ||| b) 61153 42145 52257 33825 specs deps &&
+      gateCheck k bad ws a b rest (a ^^^ (a &&& b)) 56621 34085 52257 33825 specs deps &&
+      gateCheck k bad ws a b rest (b ^^^ (a &&& b)) 46267 42145 33843 33825 specs deps))
+
+end PEqualNP.Outside.L_meta_10760.AutoPool.UnrolledBounded
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool.UnrolledBounded
+
+lemma quickCut_eq (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) :
+    quickCut k ws spec = AutoPool.quickCut k ws spec := rfl
+
+lemma guessWithin_eq (d : Nat) (vs allWords : List Nat) (budget : Nat)
+    (pool ws : List Nat) :
+    guessWithin d vs allWords budget pool ws = AutoPool.guessWithin d vs allWords budget pool ws := by
+  induction ws generalizing budget pool with
+  | nil => rfl
+  | cons w ws ih => simp only [guessWithin, AutoPool.guessWithin, ih]
+
+lemma autoCutBounded_eq (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) :
+    autoCutBounded k ws spec = AutoPool.autoCutBounded k ws spec := by
+  simp only [autoCutBounded, AutoPool.autoCutBounded, guessWithin_eq]
+
+lemma phaseMatrix4_eq_unrolled (target : Nat) (negativeRows : List Nat)
+    (a b : Nat) (rest : List Nat) :
+    phaseMatrix4 target negativeRows a b rest =
+      Unrolled.phaseMatrix4 target negativeRows a b rest := rfl
+
+lemma childCheck_refines (k bad mask : Nat) (child : List Nat)
+    (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat))
+    (checked : childCheck k bad mask child specs deps = true) :
+    Unrolled.childCheck k bad mask child specs deps = true := by
+  simp only [childCheck, Unrolled.childCheck, Bool.or_eq_true] at checked ⊢
+  rcases checked with (((long | collision) | dependency) | quick) | bounded
+  · exact Or.inl (Or.inl (Or.inl long))
+  · exact Or.inl (Or.inl (Or.inr collision))
+  · exact Or.inl (Or.inr dependency)
+  · apply Or.inr
+    obtain ⟨spec, hs, hc⟩ := List.any_eq_true.mp quick
+    exact List.any_eq_true.mpr ⟨spec, hs,
+      AutoPool.quickCut_implies_autoCut (by simpa only [quickCut_eq] using hc)⟩
+  · apply Or.inr
+    obtain ⟨spec, hs, hc⟩ := List.any_eq_true.mp bounded
+    exact List.any_eq_true.mpr ⟨spec, hs,
+      AutoPool.autoCutBounded_implies_autoCut (by simpa only [autoCutBounded_eq] using hc)⟩
+
+lemma gateCheck_refines (k bad : Nat) (ws : List Nat) (a b : Nat) (rest : List Nat)
+    (z m0 m1 m2 m3 : Nat) (specs : List (Nat × Nat × List Nat))
+    (deps : List (Nat × List Nat))
+    (checked : gateCheck k bad ws a b rest z m0 m1 m2 m3 specs deps = true) :
+    Unrolled.gateCheck k bad ws a b rest z m0 m1 m2 m3 specs deps = true := by
+  simp only [gateCheck, Unrolled.gateCheck, forceNat_eq] at checked ⊢
+  by_cases hs : (ws.contains z || z == 0 || z == full) = true
+  · simp only [hs, ite_true]
+  · have hf : (ws.contains z || z == 0 || z == full) = false := Bool.eq_false_iff.mpr hs
+    simp only [hf, Bool.false_eq_true, ite_false, Bool.and_eq_true] at checked ⊢
+    exact ⟨⟨⟨childCheck_refines _ _ _ _ _ _ checked.1.1.1,
+      childCheck_refines _ _ _ _ _ _ checked.1.1.2⟩,
+      childCheck_refines _ _ _ _ _ _ checked.1.2⟩,
+      childCheck_refines _ _ _ _ _ _ checked.2⟩
+
+lemma nodeCheck4_refines (target : Nat) (negativeRows : List Nat) (k : Nat)
+    (ws : List Nat) (specs : List (Nat × Nat × List Nat)) (deps : List (Nat × List Nat))
+    (checked : nodeCheck4 target negativeRows k ws specs deps = true) :
+    AutoPool.nodeCheck target negativeRows k ws specs deps = true := by
+  rw [← Unrolled.nodeCheck4_eq]
+  simp only [nodeCheck4, Unrolled.nodeCheck4, Bool.and_eq_true] at checked ⊢
+  refine ⟨checked.1, List.all_eq_true.mpr ?_⟩
+  intro p hp
+  obtain ⟨a, b, rest⟩ := p
+  have h := List.all_eq_true.mp checked.2 (a,b,rest) hp
+  simp only [forceNat_eq, phaseMatrix4_eq_unrolled, Bool.and_eq_true] at h ⊢
+  exact ⟨⟨⟨gateCheck_refines _ _ _ _ _ _ _ _ _ _ _ _ _ h.1.1.1,
+    gateCheck_refines _ _ _ _ _ _ _ _ _ _ _ _ _ h.1.1.2⟩,
+    gateCheck_refines _ _ _ _ _ _ _ _ _ _ _ _ _ h.1.2⟩,
+    gateCheck_refines _ _ _ _ _ _ _ _ _ _ _ _ _ h.2⟩
+
+end PEqualNP.Outside.L_meta_10760.AutoPool.UnrolledBounded
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData
+
+def decodedNodeCheckOptimized (forest index : Nat) : Bool :=
+  decodedMetadata forest index &&
+  AutoPool.UnrolledBounded.nodeCheck4 (forestTarget forest) (negativeRows forest)
+    ((node forest index).1-1) (node forest index).2
+    (cutSpecs forest index) (dependencies forest index)
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData
+
+open RestrictionSixProof
+
+def decodedForestCheckOptimized (forest : Nat) : Bool :=
+  (List.range (forestSize forest)).all (decodedNodeCheckOptimized forest)
+
+def decodedAllCheckOptimized : Bool :=
+  (List.range 4).all decodedForestCheckOptimized
+
+lemma decodedNodeCheckOptimized_refines {forest index : Nat}
+    (checked : decodedNodeCheckOptimized forest index = true) :
+    decodedNodeCheck forest index = true := by
+  simp only [decodedNodeCheckOptimized, Bool.and_eq_true] at checked
+  simp only [decodedNodeCheck, Bool.and_eq_true]
+  exact ⟨checked.1, AutoPool.UnrolledBounded.nodeCheck4_refines _ _ _ _ _ _ checked.2⟩
+
+lemma decodedForestCheckOptimized_refines {forest : Nat}
+    (checked : decodedForestCheckOptimized forest = true) :
+    decodedForestCheck forest = true := by
+  apply List.all_eq_true.mpr
+  intro i hi
+  exact decodedNodeCheckOptimized_refines (List.all_eq_true.mp checked i hi)
+
+lemma decodedAllCheckOptimized_refines (checked : decodedAllCheckOptimized = true) :
+    decodedAllCheck = true := by
+  apply List.all_eq_true.mpr
+  intro f hf
+  exact decodedForestCheckOptimized_refines (List.all_eq_true.mp checked f hf)
+
+lemma decoded_optimized_lowN13 (checked : decodedAllCheckOptimized = true) :
+    LowN originalGRoots originalGWord 13 :=
+  decoded_lowN13_of_check (decodedAllCheckOptimized_refines checked)
+
+lemma decoded_optimized_checks_lowN13
+    (checked : ∀ f : Fin 4, ∀ i, i < forestSize f →
+      decodedNodeCheckOptimized f i = true) : LowN originalGRoots originalGWord 13 := by
+  apply decoded_optimized_lowN13
+  apply List.all_eq_true.mpr
+  intro f hf
+  apply List.all_eq_true.mpr
+  intro i hi
+  exact checked ⟨f, List.mem_range.mp hf⟩ i (List.mem_range.mp hi)
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData.SmallCertificates
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c0 : ∀ i : Fin 32, decodedNodeCheckOptimized 1 (0+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c1 : ∀ i : Fin 32, decodedNodeCheckOptimized 1 (32+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c2 : ∀ i : Fin 32, decodedNodeCheckOptimized 1 (64+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c3 : ∀ i : Fin 32, decodedNodeCheckOptimized 1 (96+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c4 : ∀ i : Fin 32, decodedNodeCheckOptimized 1 (128+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f1_c5 : ∀ i : Fin 26, decodedNodeCheckOptimized 1 (160+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f2_c0 : ∀ i : Fin 32, decodedNodeCheckOptimized 2 (0+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f2_c1 : ∀ i : Fin 32, decodedNodeCheckOptimized 2 (32+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f2_c2 : ∀ i : Fin 32, decodedNodeCheckOptimized 2 (64+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f2_c3 : ∀ i : Fin 32, decodedNodeCheckOptimized 2 (96+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f2_c4 : ∀ i : Fin 32, decodedNodeCheckOptimized 2 (128+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c0 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (0+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c1 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (32+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c2 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (64+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c3 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (96+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c4 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (128+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c5 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (160+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c6 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (192+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c7 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (224+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c8 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (256+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c9 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (288+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c10 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (320+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c11 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (352+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c12 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (384+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c13 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (416+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c14 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (448+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c15 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (480+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c16 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (512+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c17 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (544+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c18 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (576+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c19 : ∀ i : Fin 32, decodedNodeCheckOptimized 3 (608+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000000 in
+def checked_f3_c20 : ∀ i : Fin 18, decodedNodeCheckOptimized 3 (640+i.val) = true := by
+  intro i
+  fin_cases i <;> decide +kernel
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData.SmallCertificates
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData
+lemma joinChecked {P : Nat → Prop} (start a b : Nat)
+    (first : ∀ i : Fin a, P (start+i.val))
+    (last : ∀ i : Fin b, P (start+a+i.val)) :
+    ∀ i : Fin (a+b), P (start+i.val) := by
+  intro i
+  by_cases hi : i.val < a
+  · exact first ⟨i.val, hi⟩
+  · have hj : i.val-a < b := by omega
+    have h := last ⟨i.val-a, hj⟩
+    have he : start+a+(i.val-a) = start+i.val := by omega
+    simpa only [Fin.val_mk, he] using h
+end PEqualNP.Outside.L_meta_10760.RestrictionData
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData.SmallCertificates
+def checked_f1 (i : Fin 186) : decodedNodeCheckOptimized 1 i.val = true := by
+  have join := @joinChecked (fun j => decodedNodeCheckOptimized 1 j = true)
+  have h := (join 0 32 154 checked_f1_c0 (join 32 32 122 checked_f1_c1 (join 64 32 90 checked_f1_c2 (join 96 32 58 checked_f1_c3 (join 128 32 26 checked_f1_c4 checked_f1_c5)))))
+  simpa only [Nat.zero_add] using h i
+
+def checked_f2 (i : Fin 160) : decodedNodeCheckOptimized 2 i.val = true := by
+  have join := @joinChecked (fun j => decodedNodeCheckOptimized 2 j = true)
+  have h := (join 0 32 128 checked_f2_c0 (join 32 32 96 checked_f2_c1 (join 64 32 64 checked_f2_c2 (join 96 32 32 checked_f2_c3 checked_f2_c4))))
+  simpa only [Nat.zero_add] using h i
+
+def checked_f3 (i : Fin 658) : decodedNodeCheckOptimized 3 i.val = true := by
+  have join := @joinChecked (fun j => decodedNodeCheckOptimized 3 j = true)
+  have h := (join 0 32 626 checked_f3_c0 (join 32 32 594 checked_f3_c1 (join 64 32 562 checked_f3_c2 (join 96 32 530 checked_f3_c3 (join 128 32 498 checked_f3_c4 (join 160 32 466 checked_f3_c5 (join 192 32 434 checked_f3_c6 (join 224 32 402 checked_f3_c7 (join 256 32 370 checked_f3_c8 (join 288 32 338 checked_f3_c9 (join 320 32 306 checked_f3_c10 (join 352 32 274 checked_f3_c11 (join 384 32 242 checked_f3_c12 (join 416 32 210 checked_f3_c13 (join 448 32 178 checked_f3_c14 (join 480 32 146 checked_f3_c15 (join 512 32 114 checked_f3_c16 (join 544 32 82 checked_f3_c17 (join 576 32 50 checked_f3_c18 (join 608 32 18 checked_f3_c19 checked_f3_c20))))))))))))))))))))
+  simpa only [Nat.zero_add] using h i
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData.SmallCertificates
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData
+open RestrictionSixProof
+
+lemma forest_lowN_of_optimized (f : Fin 4) (scope : ScopedSlices f)
+    (checked : ∀ i : Fin (forestSize f), decodedNodeCheckOptimized f i.val = true) :
+    LowN (rootVars f) (forestTarget f) (rootBudget f + 1) := by
+  apply decoded_checks_lowN f scope (matrixSound f) (autoSound f) (decoded_forestSize_pos f)
+  intro i hi
+  exact decodedNodeCheckOptimized_refines (checked ⟨i, hi⟩)
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionData
+open RestrictionSixProof
+
+lemma smallLowN1 : LowN (rootVars 1) (forestTarget 1) 10 :=
+  forest_lowN_of_optimized 1 scopedSlices1 SmallCertificates.checked_f1
+
+lemma smallLowN2 : LowN (rootVars 2) (forestTarget 2) 10 :=
+  forest_lowN_of_optimized 2 scopedSlices2 SmallCertificates.checked_f2
+
+lemma smallLowN3 : LowN (rootVars 3) (forestTarget 3) 10 :=
+  forest_lowN_of_optimized 3 scopedSlices3 SmallCertificates.checked_f3
+
+lemma original_lowN13_of_main
+    (checked : ∀ i : Fin 9598, decodedNodeCheckOptimized 0 i.val = true) :
+    LowN originalGRoots originalGWord 13 :=
+  forest_lowN_of_optimized 0 (scopedSlices0 smallLowN1 smallLowN2 smallLowN3) checked
+
+end PEqualNP.Outside.L_meta_10760.RestrictionData
