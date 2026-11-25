@@ -1,0 +1,175 @@
+{
+  "recorded_at": "2026-11-25T03:58:43.744911+00:00",
+  "scope": "Six-cycle graph on six inputs, four or five OR nodes whose operands and final output are arbitrary nonempty conjunctions of inputs and earlier OR nodes. All64assignments are encoded.",
+  "status": "Computational only; neither CNF soundness nor the arbitrary-circuit normalization bridge is proved in Lean. No L-meta-2602 result.",
+  "files": [
+    {
+      "file": "audit_cycle6_or_sat.py",
+      "bytes": 1692,
+      "sha256": "b88d757f4f9aa2b46856b021b6bb8779cb3e9bb35ab9775dd052fb3cbff31554"
+    },
+    {
+      "file": "audit_cycle6_or5_sat.py",
+      "bytes": 1692,
+      "sha256": "d31b55712bf82248449f3d57aa59e17e77c7e79759467f352d69412feed550d5"
+    },
+    {
+      "file": "audit-cycle6-or4-summary.json",
+      "bytes": 148,
+      "sha256": "e09786ee81abd0400a56046cf12b45872dce6a67c6e502a117478838ea11ad70"
+    },
+    {
+      "file": "audit-cycle6-or5-summary.json",
+      "bytes": 350,
+      "sha256": "ecac8dcd3bb0ff0b5eae12203544894cc1d121bd5b91c94781a4e4253db52b8e"
+    },
+    {
+      "file": "audit-cycle6-or4-run.log",
+      "bytes": 134,
+      "sha256": "dfa8a226dae93986e7c0f6a2c59d2933894a912835d69a154af621d260afe46b"
+    },
+    {
+      "file": "audit-cycle6-or5-run.log",
+      "bytes": 216,
+      "sha256": "53e906c8955e3f83f673e63941b59dc469a5e8aaa821eb674dfe80f1b97d3224"
+    },
+    {
+      "file": "audit-cycle6-validation.json",
+      "bytes": 191,
+      "sha256": "135aeb3f33a01b0fbd161cb63a9a846b3333af77d0accf257d8ce1ef7811045a"
+    },
+    {
+      "file": "audit-cycle6-or4.stdout.gz",
+      "bytes": 2200,
+      "sha256": "dc891fbbb2354c2c522607768f499f281c253f306c9470649adf83c18a745910",
+      "encoding": "gzip",
+      "original_bytes": 7239,
+      "original_sha256": "0fb8f143af18f99e631e8ee1f71ecec4917a462fdfc52530b1cdd348225fd6d5"
+    },
+    {
+      "file": "audit-cycle6-or4.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit-cycle6-or5.stdout.gz",
+      "bytes": 13846,
+      "sha256": "fe49880809fd5d8d6c1cdd9acc82821aa180a05e991bec2c8c78ded2a1c80297",
+      "encoding": "gzip",
+      "original_bytes": 30922,
+      "original_sha256": "4ff13cab3f809fd2318552d6c009cf4044e5e54214a514085e9fdf52919974a2"
+    },
+    {
+      "file": "audit-cycle6-or5.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1349,
+      "sha256": "429583806fa53be59e809d8c3fecccf7ca4871772de06044ac6957d1ea879242"
+    },
+    {
+      "file": "validate.py",
+      "bytes": 1688,
+      "sha256": "f8aefb3651a25c6c172a7034de986f64cff35b4aecdaa148175d8e6789668d3e"
+    },
+    {
+      "file": "validation.log",
+      "bytes": 87,
+      "sha256": "8e9bab8bdb1cff51a32bb86a01d12c3f2ab082550e8b6504cc788b7a7b4db552"
+    }
+  ],
+  "runs": [
+    {
+      "or_gates": 4,
+      "encoder": "audit_cycle6_or_sat.py",
+      "encoder_sha256": "b88d757f4f9aa2b46856b021b6bb8779cb3e9bb35ab9775dd052fb3cbff31554",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-cycle6-or4.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 138407,
+      "cnf_sha256": "278bf0dc6f200b09c75c0a7e3535dcae4cee9a84592b47cdc34ec707d1ef2bd2",
+      "summary": {
+        "or_gates": 4,
+        "arbitrary_and_regions": true,
+        "variables": 3500,
+        "clauses": 10360,
+        "solver_code": 20,
+        "seconds": 0.8125181198120117
+      }
+    },
+    {
+      "or_gates": 5,
+      "encoder": "audit_cycle6_or5_sat.py",
+      "encoder_sha256": "d31b55712bf82248449f3d57aa59e17e77c7e79759467f352d69412feed550d5",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-cycle6-or5.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 200326,
+      "cnf_sha256": "95057f87f21cd8ad76b912936aa87cf48e2fbd685a246b59b51d3289841e8716",
+      "summary": {
+        "or_gates": 5,
+        "arbitrary_and_regions": true,
+        "variables": 4976,
+        "clauses": 14727,
+        "solver_code": 10,
+        "seconds": 0.0879814624786377,
+        "normalized_or_gates": [
+          [
+            24,
+            4
+          ],
+          [
+            48,
+            66
+          ],
+          [
+            3,
+            128
+          ],
+          [
+            72,
+            256
+          ],
+          [
+            33,
+            512
+          ],
+          1024
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "results/orch/search/and_count_search.py",
+      "bytes": 6697,
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1"
+    }
+  ],
+  "solver": {
+    "file": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "bytes": 1115504,
+    "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+  }
+}

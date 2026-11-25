@@ -4,7 +4,7 @@ Gap: L-meta-2602
 Status: checked partial lemmas only; posted statement remains unresolved; no proof PR opened.
 
 Sub-agents: 6 (toolchain/status, structural argument, counterexample search, reductions and gate counts, derivatives, independent review)
-TIMING total=41.6 subagents=6
+TIMING total=56.5 subagents=6
 
 Lean 4.36.0, Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
 Audit.lean: lake env lean passed, exit 0, stdout and stderr empty.
@@ -50,3 +50,6 @@ Reductions.lean: lake env lean passed, exit0; explicit2537-clause CNF UNSAT via1
 Double-star audit: complete computational nine-gate UNSAT coverage;37solver runs and10gate SAT control archived with hashes. No kernel bridge or global lower bound claimed. Independently reviewed.
 
 CofactorProductive.lean: lake env lean passed, exit0;819lines, three unnecessarySimpa and eleven deprecation warnings. Applies directly to posted26-input incidence semantics and proves39weighted(point,productive-OR) charges. Distinct physical gates are not counted; fullgap remains unresolved. Independent review PASS, SHA256b5eb4a789db0dacac3dd42f59610d4efbd236936ab4f7275a1f089a7f51b6f8a.
+
+ClassificationObstruction.lean: lake env lean passed, exit0;44lines, empty build output. Concrete counterexample to a proposed type-classification shortcut; not to the posted gap. Independent review PASS.
+Cycle6 OR-count audit: unrestricted-AND normalized model with4OR nodes computationally UNSAT and5OR nodes SAT; all64rows of positive control independently checked. No Lean encoding bridge claimed. Independent archive review PASS.

@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "witness_or_count": 5,
+  "assignments": 64,
+  "nonempty_earlier_conjunction_regions": true,
+  "limitation": "Not kernel checked; no L-meta-2602 implication claimed"
+}

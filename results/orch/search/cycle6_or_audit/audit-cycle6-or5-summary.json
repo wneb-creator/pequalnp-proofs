@@ -1,0 +1,31 @@
+{
+  "or_gates": 5,
+  "arbitrary_and_regions": true,
+  "variables": 4976,
+  "clauses": 14727,
+  "solver_code": 10,
+  "seconds": 0.0879814624786377,
+  "normalized_or_gates": [
+    [
+      24,
+      4
+    ],
+    [
+      48,
+      66
+    ],
+    [
+      3,
+      128
+    ],
+    [
+      72,
+      256
+    ],
+    [
+      33,
+      512
+    ],
+    1024
+  ]
+}
