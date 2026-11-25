@@ -1,6 +1,4 @@
 import PEqualNP.Defs
-set_option maxHeartbeats 0
-set_option maxRecDepth 8192
 
 namespace PEqualNP.Outside.L_meta_1884.ReaderBound
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity Sum List
