@@ -269,15 +269,238 @@ def canonicalEdges : Fin 3 → Fin 3 → Fin 6 :=
 def SameUnorderedEnds (a b : Fin 4 × Fin 4) : Prop :=
   (a.1 = b.1 ∧ a.2 = b.2) ∨ (a.1 = b.2 ∧ a.2 = b.1)
 
+noncomputable def orbitVertex : Fin 24 → Equiv.Perm (Fin 4) :=
+  ![
+    Equiv.ofBijective (![0, 1, 2, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![0, 1, 3, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![0, 2, 1, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![0, 2, 3, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![0, 3, 1, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![0, 3, 2, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 0, 2, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 0, 3, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 2, 0, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 2, 3, 0] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 3, 0, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![1, 3, 2, 0] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 0, 1, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 0, 3, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 1, 0, 3] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 1, 3, 0] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 3, 0, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![2, 3, 1, 0] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 0, 1, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 0, 2, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 1, 0, 2] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 1, 2, 0] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 2, 0, 1] : Fin 4 → Fin 4) (by decide),
+    Equiv.ofBijective (![3, 2, 1, 0] : Fin 4 → Fin 4) (by decide)]
+
+noncomputable def orbitCoordinate : Fin 6 → Equiv.Perm (Fin 3) :=
+  ![
+    Equiv.ofBijective (![0, 1, 2] : Fin 3 → Fin 3) (by decide),
+    Equiv.ofBijective (![0, 2, 1] : Fin 3 → Fin 3) (by decide),
+    Equiv.ofBijective (![1, 0, 2] : Fin 3 → Fin 3) (by decide),
+    Equiv.ofBijective (![1, 2, 0] : Fin 3 → Fin 3) (by decide),
+    Equiv.ofBijective (![2, 0, 1] : Fin 3 → Fin 3) (by decide),
+    Equiv.ofBijective (![2, 1, 0] : Fin 3 → Fin 3) (by decide)]
+
+def orbitWitness : Fin 6 → Fin 6 → Fin 6 → Fin 24 × Fin 6 × Fin 3 :=
+  ![
+    ![![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,1), (8,2,2), (6,0,2)], ![(0,0,0), (0,1,0), (0,0,0), (9,2,2), (1,0,1), (7,0,2)], ![(0,0,0), (0,1,1), (9,4,2), (0,0,0), (6,0,0), (0,0,2)], ![(0,0,0), (8,4,2), (1,1,1), (6,1,0), (0,0,0), (1,0,2)], ![(0,0,0), (6,1,2), (7,1,2), (0,1,2), (1,1,2), (0,0,0)]],
+    ![![(0,0,0), (0,0,0), (0,2,0), (0,2,1), (8,0,2), (6,2,2)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)], ![(0,4,0), (0,0,0), (0,0,0), (11,2,2), (10,0,2), (4,0,1)], ![(0,4,1), (0,0,0), (11,4,2), (0,0,0), (2,0,2), (8,0,0)], ![(8,1,2), (0,0,0), (10,1,2), (2,1,2), (0,0,0), (4,1,2)], ![(6,4,2), (0,0,0), (4,1,1), (8,1,0), (4,0,2), (0,0,0)]],
+    ![![(0,0,0), (0,3,0), (0,0,0), (9,0,2), (1,2,1), (7,2,2)], ![(0,5,0), (0,0,0), (0,0,0), (11,0,2), (10,2,2), (4,2,1)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)], ![(9,1,2), (11,1,2), (0,0,0), (0,0,0), (3,1,2), (5,1,2)], ![(1,4,1), (10,4,2), (0,0,0), (3,0,2), (0,0,0), (9,0,0)], ![(7,4,2), (4,4,1), (0,0,0), (5,0,2), (9,1,0), (0,0,0)]],
+    ![![(0,0,0), (0,3,1), (9,5,2), (0,0,0), (6,2,0), (0,2,2)], ![(0,5,1), (0,0,0), (11,5,2), (0,0,0), (2,2,2), (8,2,0)], ![(9,3,2), (11,3,2), (0,0,0), (0,0,0), (3,3,2), (5,3,2)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)], ![(6,4,0), (2,4,2), (3,5,2), (0,0,0), (0,0,0), (18,0,1)], ![(0,4,2), (8,4,0), (5,5,2), (0,0,0), (18,1,1), (0,0,0)]],
+    ![![(0,0,0), (8,5,2), (1,3,1), (6,3,0), (0,0,0), (1,2,2)], ![(8,3,2), (0,0,0), (10,3,2), (2,3,2), (0,0,0), (4,3,2)], ![(1,5,1), (10,5,2), (0,0,0), (3,2,2), (0,0,0), (9,2,0)], ![(6,5,0), (2,5,2), (3,4,2), (0,0,0), (0,0,0), (18,2,1)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)], ![(1,4,2), (4,5,2), (9,4,0), (18,4,1), (0,0,0), (0,0,0)]],
+    ![![(0,0,0), (6,3,2), (7,3,2), (0,3,2), (1,3,2), (0,0,0)], ![(6,5,2), (0,0,0), (4,3,1), (8,3,0), (4,2,2), (0,0,0)], ![(7,5,2), (4,5,1), (0,0,0), (5,2,2), (9,3,0), (0,0,0)], ![(0,5,2), (8,5,0), (5,4,2), (0,0,0), (18,3,1), (0,0,0)], ![(1,5,2), (4,4,2), (9,5,0), (18,5,1), (0,0,0), (0,0,0)], ![(0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0), (0,0,0)]]]
+
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 4000000 in
+theorem orbitWitness_valid :
+    ∀ a b c : Fin 6, a ≠ b → a ≠ c → b ≠ c → ∀ k : Fin 3,
+      let w := orbitWitness a b c
+      let p := orbitVertex w.1
+      let q := orbitCoordinate w.2.1
+      SameUnorderedEnds
+        (p (edgeEnds (![a,b,c] (q k))).1, p (edgeEnds (![a,b,c] (q k))).2)
+        (edgeEnds (canonicalEdges w.2.2 k)) := by
+  unfold SameUnorderedEnds
+  decide
+
 theorem three_edge_orbits :
     ∀ pick : Fin 3 → Fin 6, Function.Injective pick →
       ∃ p : Equiv.Perm (Fin 4), ∃ q : Equiv.Perm (Fin 3), ∃ kind : Fin 3,
         ∀ k : Fin 3, SameUnorderedEnds
           (p (edgeEnds (pick (q k))).1, p (edgeEnds (pick (q k))).2)
           (edgeEnds (canonicalEdges kind k)) := by
-  unfold SameUnorderedEnds
-  decide
+  intro pick hi
+  let w := orbitWitness (pick 0) (pick 1) (pick 2)
+  refine ⟨orbitVertex w.1, orbitCoordinate w.2.1, w.2.2, ?_⟩
+  have h01 : pick 0 ≠ pick 1 := fun h => by have := hi h; contradiction
+  have h02 : pick 0 ≠ pick 2 := fun h => by have := hi h; contradiction
+  have h12 : pick 1 ≠ pick 2 := fun h => by have := hi h; contradiction
+  have hv : ![pick 0, pick 1, pick 2] = pick := by
+    funext k
+    fin_cases k <;> rfl
+  intro k
+  simpa only [hv] using orbitWitness_valid (pick 0) (pick 1) (pick 2) h01 h02 h12 k
+
+
+noncomputable def relabel (p : Equiv.Perm (Fin 4)) :
+    (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) where
+  toFun t ij := t (p.symm ij.1, p.symm ij.2)
+  map_add' _ _ := rfl
+  map_smul' _ _ := rfl
+
+theorem relabel_symmetric (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, t (i,j) = t (j,i)) :
+    ∀ i j : Fin 4, relabel p t (i,j) = relabel p t (j,i) := by
+  intro i j
+  exact hs (p.symm i) (p.symm j)
+
+theorem relabel_permanent (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ) :
+    Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + relabel p t (i,j)) =
+      Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) := by
+  let M : Matrix (Fin 4) (Fin 4) ℂ := Matrix.of fun i j => (1 : ℂ) + t (i,j)
+  change (M.submatrix p.symm p.symm).permanent = M.permanent
+  calc
+    _ = ((M.submatrix p.symm id).submatrix id p.symm).permanent := rfl
+    _ = (M.submatrix p.symm id).permanent := Matrix.permanent_permute_rows p.symm _
+    _ = M.permanent := Matrix.permanent_permute_cols p.symm M
+
+theorem relabel_injective (p : Equiv.Perm (Fin 4)) : Function.Injective (relabel p) := by
+  intro t u h
+  funext ij
+  have he := congrFun h (p ij.1, p ij.2)
+  simpa [relabel] using he
+
+theorem offDiagonal_apply (t : Fin 4 × Fin 4 → ℂ) (k : Fin 6) :
+    offDiagonal t k = t (edgeEnds k) := by
+  fin_cases k <;> rfl
+
+theorem relabel_matches_edge (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ) (hs : ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (a b : Fin 4 × Fin 4)
+    (h : SameUnorderedEnds (p a.1, p a.2) b) :
+    relabel p t b = t a := by
+  change t (p.symm b.1, p.symm b.2) = t a
+  rcases h with ⟨h1,h2⟩ | ⟨h1,h2⟩
+  · rw [← h1, ← h2]
+    simp
+  · rw [← h2, ← h1]
+    simpa using hs a.2 a.1
+
+theorem parameterize_chart_data
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hs : ∀ t ∈ L, ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (hp : ∀ t ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) = 24)
+    (pick : Fin 3 → Fin 6)
+    (hbij : Function.Bijective (fun t : L => fun k : Fin 3 => offDiagonal t.val (pick k)))
+    (p : Equiv.Perm (Fin 4)) (q : Equiv.Perm (Fin 3)) (kind : Fin 3)
+    (horbit : ∀ k : Fin 3, SameUnorderedEnds
+      (p (edgeEnds (pick (q k))).1, p (edgeEnds (pick (q k))).2)
+      (edgeEnds (canonicalEdges kind k))) :
+    ∃ F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ),
+      Function.Injective F ∧
+      (∀ x, ∀ i j : Fin 4, F x (i,j) = F x (j,i)) ∧
+      (∀ x, Matrix.permanent
+        (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + F x (i,j)) = 24) ∧
+      ∀ x k, F x (edgeEnds (canonicalEdges kind k)) = x k := by
+  let G : L →ₗ[ℂ] (Fin 3 → ℂ) := LinearMap.pi fun k =>
+    (LinearMap.proj (pick (q k))).comp (offDiagonal.comp L.subtype)
+  have hG : Function.Bijective G := by
+    constructor
+    · intro t u h
+      apply hbij.1
+      funext k
+      have he := congrFun h (q.symm k)
+      simpa [G] using he
+    · intro x
+      obtain ⟨t, ht⟩ := hbij.2 (fun k => x (q.symm k))
+      refine ⟨t, ?_⟩
+      funext k
+      have he := congrFun ht (q k)
+      simpa [G] using he
+  let e : L ≃ₗ[ℂ] (Fin 3 → ℂ) := LinearEquiv.ofBijective G hG
+  let F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) :=
+    (relabel p).comp (L.subtype.comp e.symm.toLinearMap)
+  refine ⟨F, ?_, ?_, ?_, ?_⟩
+  · exact (relabel_injective p).comp (Subtype.val_injective.comp e.symm.injective)
+  · intro x i j
+    exact relabel_symmetric p (e.symm x).val (hs _ (e.symm x).property) i j
+  · intro x
+    exact (relabel_permanent p (e.symm x).val).trans (hp _ (e.symm x).property)
+  · intro x k
+    change relabel p (e.symm x).val (edgeEnds (canonicalEdges kind k)) = x k
+    rw [relabel_matches_edge p _ (hs _ (e.symm x).property) _ _ (horbit k)]
+    have he := congrFun (e.apply_symm_apply x) k
+    change offDiagonal (e.symm x).val (pick (q k)) = x k at he
+    simpa only [offDiagonal_apply] using he
+
+
+theorem candidate_canonical_parameterization
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hdim : Module.finrank ℂ L = 3)
+    (hs : ∀ t ∈ L, ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (hp : ∀ t ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) = 24) :
+    ∃ kind : Fin 3, ∃ F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ),
+      Function.Injective F ∧
+      (∀ x, ∀ i j : Fin 4, F x (i,j) = F x (j,i)) ∧
+      (∀ x, Matrix.permanent
+        (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + F x (i,j)) = 24) ∧
+      ∀ x k, F x (edgeEnds (canonicalEdges kind k)) = x k := by
+  obtain ⟨pick, hpick, hbij⟩ := candidate_three_coordinate_chart L hdim hs hp
+  obtain ⟨p,q,kind,horbit⟩ := three_edge_orbits pick hpick
+  exact ⟨kind, parameterize_chart_data L hs hp pick hbij p q kind horbit⟩
+
+
+noncomputable def parametricEntry
+    (A : Fin 3 → Fin 4 × Fin 4 → ℂ) (i j : Fin 4) :
+    MvPolynomial (Fin 3) ℂ :=
+  1 + ∑ k : Fin 3, MvPolynomial.C (A k (i,j)) * MvPolynomial.X k
+
+theorem eval_parametricEntry
+    (A : Fin 3 → Fin 4 × Fin 4 → ℂ) (v : Fin 3 → ℂ) (i j : Fin 4) :
+    MvPolynomial.eval v (parametricEntry A i j) =
+      1 + ∑ k : Fin 3, A k (i,j) * v k := by
+  simp [parametricEntry]
+
+theorem polynomial_permanent_identity
+    (A : Fin 3 → Fin 4 × Fin 4 → ℂ)
+    (hp : ∀ v : Fin 3 → ℂ, Matrix.permanent
+      (Matrix.of fun i j : Fin 4 => 1 + ∑ k : Fin 3, A k (i,j) * v k) = 24) :
+    Matrix.permanent (Matrix.of (parametricEntry A)) =
+      (24 : MvPolynomial (Fin 3) ℂ) := by
+  apply MvPolynomial.funext
+  intro v
+  simpa [Matrix.permanent, Matrix.of_apply, parametricEntry] using hp v
+
+theorem linear_map_coordinate_expansion
+    (F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ)) (v : Fin 3 → ℂ) :
+    F v = ∑ k : Fin 3, v k • F (Pi.single k 1) := by
+  have hv : v = ∑ k : Fin 3, v k • Pi.single k 1 := by
+    funext j
+    simp [Pi.single_apply]
+  calc
+    F v = F (∑ k : Fin 3, v k • Pi.single k 1) := congrArg F hv
+    _ = ∑ k : Fin 3, v k • F (Pi.single k 1) := by simp
+
+theorem linear_map_polynomial_permanent_identity
+    (F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ))
+    (hp : ∀ v : Fin 3 → ℂ, Matrix.permanent
+      (Matrix.of fun i j : Fin 4 => 1 + F v (i,j)) = 24) :
+    Matrix.permanent (Matrix.of (parametricEntry (fun k => F (Pi.single k 1)))) =
+      (24 : MvPolynomial (Fin 3) ℂ) := by
+  apply polynomial_permanent_identity
+  intro v
+  convert hp v using 1
+  congr 1
+  ext i j
+  rw [linear_map_coordinate_expansion F v]
+  simp [Finset.sum_apply, smul_eq_mul, mul_comm]
 
 end PEqualNP.Outside.L_gct_231_aux

@@ -1,0 +1,9 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/lean/ConditionalParameterization.lean",
+  "sha256": "23fffea59e4a4f1ff777ab0639aafe1fb71acee7b64dd2ec1702fb4084d1a661",
+  "exit_code": 0,
+  "stdout_stderr_log": "/tmp/oec/pequalnp-pilot-75/gct231/lean/ConditionalParameterization.review.log",
+  "working_directory": "/workspace/pequalnp-proofs/lean",
+  "command": "PATH=/tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin:$PATH lake env lean /tmp/oec/pequalnp-pilot-75/gct231/lean/ConditionalParameterization.lean",
+  "verdict": "independent compile and mathematical review passed"
+}

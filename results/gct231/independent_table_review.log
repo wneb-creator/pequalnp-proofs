@@ -1,0 +1,6 @@
+Source SHA256 c3ddd441498587ace5f3e636d6ee7e9dd31acfa231af71dcac061b3bbe0d1680
+24 vertex permutations and 6 coordinate permutations checked
+All216 table entries have valid indices
+All120 injective triples checked at all3 coordinates
+Orbit counts: {0: 24, 1: 24, 2: 72}
+PASS

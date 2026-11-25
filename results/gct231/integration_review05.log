@@ -1,0 +1,10 @@
+Exact reviewed block preserved: orbit table
+Exact reviewed block preserved: parameterization
+Exact reviewed block preserved: polynomial bridge
+Preserved prefix matches prior commit snapshot exactly
+Allowed imports, namespace containment, limits, and helper-only format checked
+Posted main theorem is absent; file remains partial helper work
+Frozen source SHA256 449df515d9a915699114a3680c21d9de5b4cbcf8e823143374ad52724ff48227
+Source lines 506 bytes 23810
+Review UTC 2026-11-25T10:16:02.947897+00:00
+PASS

@@ -1,0 +1,10 @@
+'PEqualNP.Outside.L_gct_231_aux.three_edge_orbits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.candidate_canonical_parameterization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.polynomial_permanent_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.linear_map_polynomial_permanent_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

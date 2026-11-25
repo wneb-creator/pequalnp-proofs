@@ -1,0 +1,5 @@
+import PEqualNP.Outside.L_gct_231
+#print axioms PEqualNP.Outside.L_gct_231_aux.three_edge_orbits
+#print axioms PEqualNP.Outside.L_gct_231_aux.candidate_canonical_parameterization
+#print axioms PEqualNP.Outside.L_gct_231_aux.polynomial_permanent_identity
+#print axioms PEqualNP.Outside.L_gct_231_aux.linear_map_polynomial_permanent_identity

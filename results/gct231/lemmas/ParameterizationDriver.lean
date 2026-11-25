@@ -1,0 +1,117 @@
+-- Scratch integration check against the already compiled partial, not a submission source.
+import PEqualNP.Outside.L_gct_231
+
+namespace PEqualNP.Outside.L_gct_231_aux
+
+noncomputable def relabel (p : Equiv.Perm (Fin 4)) :
+    (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) where
+  toFun t ij := t (p.symm ij.1, p.symm ij.2)
+  map_add' _ _ := rfl
+  map_smul' _ _ := rfl
+
+theorem relabel_symmetric (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, t (i,j) = t (j,i)) :
+    ∀ i j : Fin 4, relabel p t (i,j) = relabel p t (j,i) := by
+  intro i j
+  exact hs (p.symm i) (p.symm j)
+
+theorem relabel_permanent (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ) :
+    Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + relabel p t (i,j)) =
+      Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) := by
+  let M : Matrix (Fin 4) (Fin 4) ℂ := Matrix.of fun i j => (1 : ℂ) + t (i,j)
+  change (M.submatrix p.symm p.symm).permanent = M.permanent
+  calc
+    _ = ((M.submatrix p.symm id).submatrix id p.symm).permanent := rfl
+    _ = (M.submatrix p.symm id).permanent := Matrix.permanent_permute_rows p.symm _
+    _ = M.permanent := Matrix.permanent_permute_cols p.symm M
+
+theorem relabel_injective (p : Equiv.Perm (Fin 4)) : Function.Injective (relabel p) := by
+  intro t u h
+  funext ij
+  have he := congrFun h (p ij.1, p ij.2)
+  simpa [relabel] using he
+
+theorem offDiagonal_apply (t : Fin 4 × Fin 4 → ℂ) (k : Fin 6) :
+    offDiagonal t k = t (edgeEnds k) := by
+  fin_cases k <;> rfl
+
+theorem relabel_matches_edge (p : Equiv.Perm (Fin 4))
+    (t : Fin 4 × Fin 4 → ℂ) (hs : ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (a b : Fin 4 × Fin 4)
+    (h : SameUnorderedEnds (p a.1, p a.2) b) :
+    relabel p t b = t a := by
+  change t (p.symm b.1, p.symm b.2) = t a
+  rcases h with ⟨h1,h2⟩ | ⟨h1,h2⟩
+  · rw [← h1, ← h2]
+    simp
+  · rw [← h2, ← h1]
+    simpa using hs a.2 a.1
+
+theorem parameterize_chart_data
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hs : ∀ t ∈ L, ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (hp : ∀ t ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) = 24)
+    (pick : Fin 3 → Fin 6)
+    (hbij : Function.Bijective (fun t : L => fun k : Fin 3 => offDiagonal t.val (pick k)))
+    (p : Equiv.Perm (Fin 4)) (q : Equiv.Perm (Fin 3)) (kind : Fin 3)
+    (horbit : ∀ k : Fin 3, SameUnorderedEnds
+      (p (edgeEnds (pick (q k))).1, p (edgeEnds (pick (q k))).2)
+      (edgeEnds (canonicalEdges kind k))) :
+    ∃ F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ),
+      Function.Injective F ∧
+      (∀ x, ∀ i j : Fin 4, F x (i,j) = F x (j,i)) ∧
+      (∀ x, Matrix.permanent
+        (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + F x (i,j)) = 24) ∧
+      ∀ x k, F x (edgeEnds (canonicalEdges kind k)) = x k := by
+  let G : L →ₗ[ℂ] (Fin 3 → ℂ) := LinearMap.pi fun k =>
+    (LinearMap.proj (pick (q k))).comp (offDiagonal.comp L.subtype)
+  have hG : Function.Bijective G := by
+    constructor
+    · intro t u h
+      apply hbij.1
+      funext k
+      have he := congrFun h (q.symm k)
+      simpa [G] using he
+    · intro x
+      obtain ⟨t, ht⟩ := hbij.2 (fun k => x (q.symm k))
+      refine ⟨t, ?_⟩
+      funext k
+      have he := congrFun ht (q k)
+      simpa [G] using he
+  let e : L ≃ₗ[ℂ] (Fin 3 → ℂ) := LinearEquiv.ofBijective G hG
+  let F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) :=
+    (relabel p).comp (L.subtype.comp e.symm.toLinearMap)
+  refine ⟨F, ?_, ?_, ?_, ?_⟩
+  · exact (relabel_injective p).comp (Subtype.val_injective.comp e.symm.injective)
+  · intro x i j
+    exact relabel_symmetric p (e.symm x).val (hs _ (e.symm x).property) i j
+  · intro x
+    exact (relabel_permanent p (e.symm x).val).trans (hp _ (e.symm x).property)
+  · intro x k
+    change relabel p (e.symm x).val (edgeEnds (canonicalEdges kind k)) = x k
+    rw [relabel_matches_edge p _ (hs _ (e.symm x).property) _ _ (horbit k)]
+    have he := congrFun (e.apply_symm_apply x) k
+    change offDiagonal (e.symm x).val (pick (q k)) = x k at he
+    simpa only [offDiagonal_apply] using he
+
+
+theorem candidate_canonical_parameterization
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hdim : Module.finrank ℂ L = 3)
+    (hs : ∀ t ∈ L, ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (hp : ∀ t ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) = 24) :
+    ∃ kind : Fin 3, ∃ F : (Fin 3 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ),
+      Function.Injective F ∧
+      (∀ x, ∀ i j : Fin 4, F x (i,j) = F x (j,i)) ∧
+      (∀ x, Matrix.permanent
+        (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + F x (i,j)) = 24) ∧
+      ∀ x k, F x (edgeEnds (canonicalEdges kind k)) = x k := by
+  obtain ⟨pick, hpick, hbij⟩ := candidate_three_coordinate_chart L hdim hs hp
+  obtain ⟨p,q,kind,horbit⟩ := three_edge_orbits pick hpick
+  exact ⟨kind, parameterize_chart_data L hs hp pick hbij p q kind horbit⟩
+
+end PEqualNP.Outside.L_gct_231_aux

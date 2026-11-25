@@ -1,0 +1,9 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/lean/Relabel.lean",
+  "sha256": "9bb9c8fc68852fa9909c988a7c3dd6b8355229ffa0323b7e363d69abee640609",
+  "exit_code": 0,
+  "stdout_stderr_log": "/tmp/oec/pequalnp-pilot-75/gct231/lean/Relabel.review.log",
+  "working_directory": "/workspace/pequalnp-proofs/lean",
+  "command": "PATH=/tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin:$PATH lake env lean /tmp/oec/pequalnp-pilot-75/gct231/lean/Relabel.lean",
+  "verdict": "independent compile and mathematical review passed"
+}
