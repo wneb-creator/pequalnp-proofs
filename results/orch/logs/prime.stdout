@@ -1,0 +1,6 @@
+../results/orch/lemmas/Prime.lean:37:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [ht] at hz
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

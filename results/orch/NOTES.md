@@ -91,3 +91,16 @@ Exact SAT synthesis independently found C6 seven-gate UNSAT (Cadical exit20); ex
 Important upstream discoveries: L_meta_723 line3448 proves the subdivided K4 monotone bound15. L_meta_971 line9365 proves the Heawood/Fano monotone bound27, and L_meta_7995_aux.ao27 line9428 directly covers cyclic Fano. Hence K4 14-gate and Fano26 searches were stopped as mathematically settled. The cyclic Fano-to-L_meta_971 isomorphism is point image (0,1,2,6,5,3,4), line image (3,0,6,1,2,5,4).
 
 Active replacement: subdivision of K5, P=5,L=10,20 incidence edges, explicit star baseline24. Search budget23 gates. Exact SAT has60min cap; stochastic search30min. SAT uses all20 edge assignments plus all maximal independent assignments, sufficient for monotone equivalence. Symmetry constraints sort adjacent independent gates by operand indices/op and choose first-gate input-pair orbit representatives under120 explicitly verified graph automorphisms. Both reductions preserve a representative: globally lexicographically least circuit under topological orders and graph automorphisms satisfies both.
+
+## Prime implicants checked (status_review, 2026-11-25 12:36:51 UTC)
+- results/orch/lemmas/Prime.lean compiled with lake env lean, exit 0; one unnecessarySimpa warning only. Full logs copied to results/orch/logs/prime.stdout and prime.stderr.
+- prime_incidence_iff: prime implicants are exactly incident pairs, without requiring no-four-cycle.
+- read_one_of_incidence_edges: READ-1 witnesses for incident pairs imply IsReadK 1 for any circuit computing the incidence function.
+
+## 2026-11-25T12:37:20.838420+00:00 — OrBound checked (math_bound)
+
+The full actual-circuit OR-only bound now compiles with Lean4.36 (exit0, empty stdout/stderr), using only PEqualNP.Defs. Source and complete logs copied to results/orch/lemmas/OrBound.lean and results/orch/logs/orbound.{stdout,stderr}. Sharp statement linear_family_or_cost: rows with pairwise intersections at most1, every nonempty row served by an OR circuit with c gates, then sum_p (|row_p|-1)<=c. Active-row and all-row cardinal corollaries included. This is a checked partial; it does not handle general AND/OR circuits.
+
+## 2026-11-25T12:37:28.961952+00:00 normalization compilation and Prime review
+
+Actual Normalization.lean with allowed Defs import compiled successfully (exit 0, empty stdout/stderr), after scratch minimal-import debugging also passed. Complete logs and validation preserved in results/orch/logs/normalization.*. Independently reviewed Prime.lean: prime-incidence equivalence and read1 bridge are semantically correct, and no forbidden source features were found. Root notified both are ready for partial preservation.

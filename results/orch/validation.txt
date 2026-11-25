@@ -11,3 +11,6 @@ TIMING total=16 subagents=6
 RelCount.lean: lake env lean exit 0; empty complete logs saved. Independent review passed.
 
 Assigned L_meta_2585.lean (36 lines): lake build PEqualNP.Outside.L_meta_2585 PASSED, exit 0, 5149 jobs. This file currently proves only empty_incidence_replacement, not the posted theorem. Full logs retained, including one unused simp argument warning.
+
+Normalization.lean: lake env lean exit 0, complete logs empty; independent review passed.
+Prime.lean: lake env lean exit 0, complete logs retained, one unnecessarySimpa warning; independent review passed.
