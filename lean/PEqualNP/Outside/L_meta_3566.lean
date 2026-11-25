@@ -2194,3 +2194,186 @@ theorem cover_profile_bound (G H : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (fun a => hprofile (ell a) (r a) (hdiag a))
 
 end PEqualNP.Outside.L_meta_3566.FilteredRectangleProfile
+
+/-
+  A globally safe conjunction has an ambient edge-profile cover bounded by
+  the sum of its two pair-matrix rectangle-cover sizes. Full equality with
+  the graph function and pure-factor representations are not required.
+-/
+namespace PEqualNP.Outside.L_meta_3566.CandidateLocalRank
+
+variable {m r s : ℕ}
+
+def goodLabel (E : Fin m → Fin m → Prop)
+    (R : Fin r → Fin m → Prop) (V : Fin s → Fin m → Prop)
+    (i : Fin m) : Sum (Fin r) (Fin s) → Prop
+  | Sum.inl a => R a i ∧ ∀ j, R a j → E i j
+  | Sum.inr b => V b i ∧ ∀ j, V b j → E i j
+
+/-- A sound triple condition gives an injective choice among the two sets of
+rectangle labels. Only matching cross-antisymmetry is needed here. -/
+theorem matching_bound_of_cross
+    (E : Fin m → Fin m → Prop)
+    (L R : Fin r → Fin m → Prop) (U V : Fin s → Fin m → Prop)
+    (hcross : ∀ i j, i ≠ j → E i j → ¬ E j i)
+    (hdiagA : ∀ i, ∃ a, L a i ∧ R a i)
+    (hdiagB : ∀ i, ∃ b, U b i ∧ V b i)
+    (htriple : ∀ i j k,
+      (∃ a, L a i ∧ R a j) → (∃ b, U b i ∧ V b k) → E i j ∨ E i k) :
+    m ≤ r + s := by
+  classical
+  have hex (i : Fin m) : ∃ t, goodLabel E R V i t := by
+    obtain ⟨a, hLa, hRa⟩ := hdiagA i
+    obtain ⟨b, hUb, hVb⟩ := hdiagB i
+    by_cases ha : ∀ j, R a j → E i j
+    · exact ⟨Sum.inl a, hRa, ha⟩
+    · have hbad : ∃ j, R a j ∧ ¬ E i j := by
+        by_contra hn
+        apply ha
+        intro j hj
+        by_contra he
+        exact hn ⟨j, hj, he⟩
+      obtain ⟨j, hRj, hEj⟩ := hbad
+      refine ⟨Sum.inr b, hVb, ?_⟩
+      intro k hVk
+      exact (htriple i j k ⟨a, hLa, hRj⟩ ⟨b, hUb, hVk⟩).resolve_left hEj
+  let owner : Fin m → Sum (Fin r) (Fin s) := fun i => Classical.choose (hex i)
+  have howner (i : Fin m) : goodLabel E R V i (owner i) :=
+    Classical.choose_spec (hex i)
+  have hinj : Function.Injective owner := by
+    intro i j hij
+    have hi := howner i
+    have hj := howner j
+    rw [← hij] at hj
+    cases ho : owner i with
+    | inl a =>
+      simp only [ho, goodLabel] at hi hj
+      by_contra hne
+      exact hcross i j hne (hi.2 j hj.1) (hj.2 i hi.1)
+    | inr b =>
+      simp only [ho, goodLabel] at hi hj
+      by_contra hne
+      exact hcross i j hne (hi.2 j hj.1) (hj.2 i hi.1)
+  have hcard := Fintype.card_le_of_injective owner hinj
+  simpa using hcard
+
+/-- The same bound using the usual prohibition on a complete 2-by-2 rectangle.
+Diagonal membership of E follows from the two diagonal covers and htriple. -/
+theorem matching_bound
+    (E : Fin m → Fin m → Prop)
+    (L R : Fin r → Fin m → Prop) (U V : Fin s → Fin m → Prop)
+    (hnorect : ∀ a b c d, a ≠ b → c ≠ d →
+      E a c → E a d → E b c → ¬ E b d)
+    (hdiagA : ∀ i, ∃ a, L a i ∧ R a i)
+    (hdiagB : ∀ i, ∃ b, U b i ∧ V b i)
+    (htriple : ∀ i j k,
+      (∃ a, L a i ∧ R a j) → (∃ b, U b i ∧ V b k) → E i j ∨ E i k) :
+    m ≤ r + s := by
+  have hdiag (i : Fin m) : E i i :=
+    (htriple i i i (hdiagA i) (hdiagB i)).elim id id
+  apply matching_bound_of_cross E L R U V _ hdiagA hdiagB htriple
+  intro i j hij hEij hEji
+  exact hnorect i j i j hij hij (hdiag i) hEij hEji (hdiag j)
+
+end PEqualNP.Outside.L_meta_3566.CandidateLocalRank
+
+namespace PEqualNP.Outside.L_meta_3566.LocalRankProfile
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_3566.FilteredRectangleGraph
+open PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics (singleton)
+
+variable {n m r s : ℕ}
+
+lemma triple_edges (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (ell right : Fin m → Fin n)
+    (hL : ∀ i, c (ell i) = false) (hR : ∀ i, c (right i) = true)
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hsafe : ∀ x, f x = true → g x = true → graphFun G ∅ x = true)
+    (i j k : Fin m) (hfj : f (pairInput (ell i) (right j)) = true)
+    (hgk : g (pairInput (ell i) (right k)) = true) :
+    G.Adj (ell i) (right j) ∨ G.Adj (ell i) (right k) := by
+  let y : Fin m → Bool := fun a => decide (a = j ∨ a = k)
+  let x := matchingInput ell right (singleton i) y
+  have hpj : pairInput (ell i) (right j) ≤ x := by
+    intro v
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    have hv' : v = ell i ∨ v = right j := by simpa [pairInput] using hv
+    rcases hv' with rfl | rfl
+    · exact (matchingInput_true ell right (singleton i) y (ell i)).mpr
+        (Or.inl ⟨i, rfl, by simp [FilteredRectangleSemantics.singleton]⟩)
+    · exact (matchingInput_true ell right (singleton i) y (right j)).mpr
+        (Or.inr ⟨j, rfl, by simp [y]⟩)
+  have hpk : pairInput (ell i) (right k) ≤ x := by
+    intro v
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    have hv' : v = ell i ∨ v = right k := by simpa [pairInput] using hv
+    rcases hv' with rfl | rfl
+    · exact (matchingInput_true ell right (singleton i) y (ell i)).mpr
+        (Or.inl ⟨i, rfl, by simp [FilteredRectangleSemantics.singleton]⟩)
+    · exact (matchingInput_true ell right (singleton i) y (right k)).mpr
+        (Or.inr ⟨k, rfl, by simp [y]⟩)
+  have hfx : f x = true := (Bool.le_iff_imp.mp (hf hpj)) hfj
+  have hgx : g x = true := (Bool.le_iff_imp.mp (hg hpk)) hgk
+  obtain ⟨a, b, hab, ha, hb⟩ :=
+    (graphFun_matchingInput_of_coloring G ell right c hcolor hL hR (singleton i) y).mp
+      (hsafe x hfx hgx)
+  have hai : a = i := by simpa [FilteredRectangleSemantics.singleton] using ha
+  have hbj : b = j ∨ b = k := by simpa [y] using hb
+  subst a
+  rcases hbj with rfl | rfl
+  · exact Or.inl hab
+  · exact Or.inr hab
+
+theorem matching_bound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hsafe : ∀ x, f x = true → g x = true → graphFun G ∅ x = true)
+    (ell right : Fin m → Fin n) (hell : Function.Injective ell)
+    (hright : Function.Injective right) (hdiag : ∀ i, G.Adj (ell i) (right i))
+    (hL : ∀ i, c (ell i) = false) (hR : ∀ i, c (right i) = true)
+    (L R : Fin r → Fin m → Prop) (U V : Fin s → Fin m → Prop)
+    (hA : ∀ i j, f (pairInput (ell i) (right j)) = true ↔ ∃ a, L a i ∧ R a j)
+    (hB : ∀ i j, g (pairInput (ell i) (right j)) = true ↔ ∃ b, U b i ∧ V b j)
+    (haccept : ∀ i, f (pairInput (ell i) (right i)) = true ∧
+      g (pairInput (ell i) (right i)) = true) : m ≤ r + s := by
+  apply CandidateLocalRank.matching_bound_of_cross (fun i j => G.Adj (ell i) (right j))
+    L R U V (matching_cross G hno4 ell right hell hright hdiag)
+  · intro i
+    exact (hA i i).mp (haccept i).1
+  · intro i
+    exact (hB i i).mp (haccept i).2
+  · intro i j k ha hb
+    exact triple_edges G c hcolor ell right hL hR f g hf hg hsafe i j k
+      ((hA i j).mpr ha) ((hB i k).mpr hb)
+
+theorem cover_profile_bound (G H : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    [DecidableRel H.Adj] (hsub : H ≤ G) (hno4 : NoFourCycle G) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hsafe : ∀ x, f x = true → g x = true → graphFun G ∅ x = true)
+    (L R : Fin r → Fin n → Prop) (U V : Fin s → Fin n → Prop)
+    (hA : ∀ u v, c u = false → c v = true →
+      (f (pairInput u v) = true ↔ ∃ a, L a u ∧ R a v))
+    (hB : ∀ u v, c u = false → c v = true →
+      (g (pairInput u v) = true ↔ ∃ b, U b u ∧ V b v))
+    (hprofile : ∀ u v, H.Adj u v → f (pairInput u v) = true ∧ g (pairInput u v) = true) :
+    ∃ T : Finset (Fin n), H.IsVertexCover (T : Set (Fin n)) ∧ T.card ≤ r + s := by
+  apply FilteredRectangleKonig.cover_of_matching_bound H c (fun u v h => hcolor u v (hsub h))
+  intro m ell right hell hright hL hR hdiag
+  apply matching_bound G hno4 c hcolor f g hf hg hsafe ell right hell hright
+    (fun i => hsub (hdiag i)) hL hR
+    (fun a i => L a (ell i)) (fun a j => R a (right j))
+    (fun b i => U b (ell i)) (fun b j => V b (right j))
+  · intro i j
+    exact hA (ell i) (right j) (hL i) (hR j)
+  · intro i j
+    exact hB (ell i) (right j) (hL i) (hR j)
+  · intro i
+    exact hprofile (ell i) (right i) (hdiag i)
+
+end PEqualNP.Outside.L_meta_3566.LocalRankProfile
