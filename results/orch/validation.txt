@@ -13,3 +13,10 @@ TIMING total=14 subagents=6
 
 Independent root review PASS: bankfinite.lean exact Petersen truth table on all1024 inputs; ten pins cover all assignments; all8 witness cases checked; forbidden-token scan clean. Lean compilation separately exited0. Partial component only.
 bankfinite.lean compilation: exit0, empty output.
+
+2026-11-25T14:05:44Z: lake build PEqualNP.Outside.L_meta_2592 PASSED, exit0.
+Named file:4603 lines,285204 bytes. Independent review by reduction_design passed before build; source unchanged after review.
+Proved partial lemmas: sixteen_binary_floor (16+NOTcount <= size), four_not_exclusion (no <=19gate circuit with>=4NOT).
+Exact posted theorem remains absent; cases1,2,3NOT remain. No full checker acceptance is claimed.
+Sub-agents:6 (audit/integration, SAT search, structural proof, reduction/review, setup/one-NOT analysis, local search).
+TIMING total=23 subagents=6

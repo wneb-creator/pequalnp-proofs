@@ -57,3 +57,12 @@ Found 18 used monotone gates plus one unused NOT computing the target except fou
 
 2026-11-25T13:59:44.253116+00:00 [local batch complete]
 Full 600second stochastic run exhausted 1,667,631,432 candidate evaluations across66,703 restarts without a witness. This is heuristic evidence only, not a lower-bound proof. Best is the four-error K4 near-witness. Prepared uncompiled Defs-only local_near.lean with explicit18gate circuit and exact cubic-completion semantics; deterministic two-edit search and neutral-network CGP source are ready but paused for Lean CPU.
+
+Canonical-bank strategy 2026-11-25T14:04:19.477369+00:00
+- bank16.lean drafts a16binary residual lower bound for all8canonicalfirst signedgates (4operations, adjacent/nonadjacent pair), plus17residual lower bound forconjunctioncases ifnewgateused.
+- bankfinite.lean compiled successfully: concrete1024row finite witnesses target_diff/other_stable for all8cases. Build log /tmp/oec/pequalnp-pilot-92/bankfinite-build.txt is empty(exit0).
+- live_map.fragment.lean drafts injective Sig homomorphism transport of Live preservingcost, forpaircanonicalization.
+- Genericduplicate-input charge is false evenformonotone targets; conjunction strengthening uses onlytwo constants, whileORcase needsPetersen-specific argument.
+
+2026-11-25T14:05:56.439495+00:00 [audit16 build passed]
+lake build PEqualNP.Outside.L_meta_2592 exited0. New kernel-checked16+notCount<=size and>=4NOTexclusion proven. Full stdout/stderr in scratchpartial-build.*. Root notified immediately forpush. NoLeanerrors or edits needed.

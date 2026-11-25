@@ -67,3 +67,5 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T13:59:44.253116+00:00 local stochastic batch finished: 600s, 1667631432 candidates,66703 restarts; no witness. Paused CPU for Lean.
 2026-11-25T14:03:11.038644+00:00 renewed; expiry 2026-11-25T14:23:10.715Z
 2026-11-25T14:03:35.157057+00:00 bankfinite.lean compiled and independently reviewed; preparing early push.
+2026-11-25T14:04:19.477369+00:00 reduction_design: canonical-bank finite certificate compiled; generalizedbank lower andLive-map drafted pendingmainolean.
+2026-11-25T14:06:21.829802+00:00 named partial build PASSED (16 binary gates plus NOT count lower bound); preparing early push.
