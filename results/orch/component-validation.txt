@@ -152,3 +152,47 @@ C5 AND lower bound: cycle_and_bound.lean346lines, SHA66403284a082faf66974778b59b
  Quot.sound]
 
 Complete stderr:
+
+Generic bounded two-OR program bridge now428lines SHA8ab95e7cdc5c5a33a3b8ed2bb85caf33194d8022ed64a695608f4eb78b874cfe. Direct compile exit0, stdout/stderr empty; independent lean_setup review PASS. Full16-declaration axiom audit:
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.factor_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.hasEdge_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.corners_repeat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.edgeCorners_card_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.HasEdge.card_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_choices_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.three_monomials_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_or_pattern_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_get' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.support_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.evalTwo_pattern' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.two_or_program_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete stderr:

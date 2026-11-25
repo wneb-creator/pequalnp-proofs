@@ -182,3 +182,53 @@ Complete author audit log two-choice-rectangle-axioms.stdout:
  Quot.sound]
 
 Complete author audit log two-choice-rectangle-axioms.stderr:
+
+
+TwoOrBridge extension review: PASS
+UTC: 2026-11-25T02:06:05.549502+00:00
+SHA256: 8ab95e7cdc5c5a33a3b8ed2bb85caf33194d8022ed64a695608f4eb78b874cfe
+428 lines. The diff adds only Mathlib.Data.List.GetD and the TwoOrBridge namespace; the earlier283-line argument is unchanged. support retains exactly original variables in an atom list. Bounds n, n+1 and n+2 split atom references exhaustively into original input indices and prior OR wires. Empty lists, repeated indices, and absent OR wires are handled by all/implication semantics. evalTwo_pattern is an equivalence on every finite input set. Consequently all accepted two-element sets map into the earlier pattern theorem, and global soundness transports in the reverse direction. This proves the two-OR compact-program bound, with no unprovided arbitrary-circuit normalization premise. No forbidden tokens or attributes. Author reports full16-lemma audit/compile exit0 with only standard axioms; complete outputs follow.
+
+Complete latest two-choice-rectangle-axioms.stdout:
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.factor_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.hasEdge_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.corners_repeat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.edgeCorners_card_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.HasEdge.card_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_choices_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.three_monomials_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_or_pattern_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_get' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.support_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.evalTwo_pattern' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.two_or_program_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete latest two-choice-rectangle-axioms.stderr:

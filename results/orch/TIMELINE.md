@@ -53,3 +53,7 @@
 - 2026-11-25T01:56:55.849721+00:00: generic unique-bare-occurrence biclique-cover theorem compiled against narrow AndCountCircuit definitions.
 
 - 2026-11-25T01:58:50+00:00 checker_review: semantic checker soundness and102-case assembly validated/audited; complete C5 proof suffix prepared and narrow import verified, awaiting counterexample agent's serial finite cases.
+
+- 2026-11-25 02:05 UTC, exchange: completed and independently reviewed actual-Circuit C5 AND-count lower bound (>=3), adapting checked L_meta_267. Conditional unique-bare-use vertex-cover theorem extended and checked. General sound/ownership normalization remains unresolved.
+
+2026-11-25T02:05:39.160848+00:00 graph_ownership: generic sound two-OR compact program accepts at most3graph-edge pairs on C4-free G;428line proof compiled, all16lemma standard-axiom audit PASS.

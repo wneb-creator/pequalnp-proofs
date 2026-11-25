@@ -1,5 +1,6 @@
 import Mathlib.Combinatorics.SimpleGraph.Basic
 import Mathlib.Data.Finset.Card
+import Mathlib.Data.List.GetD
 
 namespace PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle
 
@@ -281,3 +282,147 @@ lemma two_or_pattern_at_most_three {α : Type} [DecidableEq α] (G : SimpleGraph
         simpa only [pattern, hr, hu, false_implies, and_true, or_self] using h
 
 end PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle
+
+
+namespace PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge
+
+open TwoChoiceRectangle
+
+def support (n : ℕ) (atoms : List ℕ) : Finset (Fin n) :=
+  Finset.univ.filter (fun i => i.val ∈ atoms)
+
+def input (n : ℕ) (S : Finset (Fin n)) : List Bool :=
+  List.ofFn (fun i : Fin n => decide (i ∈ S))
+
+def meet (values : List Bool) (atoms : List ℕ) : Bool :=
+  atoms.all (fun i => values.getD i false)
+
+def bounded (n : ℕ) (atoms : List ℕ) : Prop := ∀ i ∈ atoms, i < n
+
+lemma input_length (n : ℕ) (S : Finset (Fin n)) : (input n S).length = n := by
+  simp [input]
+
+lemma input_get (n : ℕ) (S : Finset (Fin n)) (i : ℕ) (hi : i < n) :
+    (input n S).getD i false = decide ((⟨i, hi⟩ : Fin n) ∈ S) := by
+  simp [input, hi]
+
+lemma support_subset (n : ℕ) (atoms : List ℕ) (S : Finset (Fin n)) :
+    support n atoms ⊆ S ↔ ∀ i : Fin n, i.val ∈ atoms → i ∈ S := by
+  simp only [support, Finset.subset_iff, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma meet_input (n : ℕ) (atoms : List ℕ) (hb : bounded n atoms) (S : Finset (Fin n)) :
+    meet (input n S) atoms = true ↔ support n atoms ⊆ S := by
+  rw [support_subset]
+  simp only [meet, List.all_eq_true]
+  constructor
+  · intro h i hi
+    have hv := h i.val hi
+    rw [input_get n S i.val i.isLt] at hv
+    exact of_decide_eq_true hv
+  · intro h i hi
+    rw [input_get n S i (hb i hi)]
+    exact decide_eq_true (h ⟨i, hb i hi⟩ hi)
+
+lemma meet_append_one (n : ℕ) (atoms : List ℕ) (hb : bounded (n + 1) atoms)
+    (S : Finset (Fin n)) (v : Bool) :
+    meet (input n S ++ [v]) atoms = true ↔
+      support n atoms ⊆ S ∧ (n ∈ atoms → v = true) := by
+  rw [support_subset]
+  simp only [meet, List.all_eq_true]
+  constructor
+  · intro h
+    constructor
+    · intro i hi
+      have hv := h i.val hi
+      rw [List.getD_append _ _ _ _ (by simp [input_length]),
+        input_get n S i.val i.isLt] at hv
+      exact of_decide_eq_true hv
+    · intro hn
+      have hv := h n hn
+      simpa [List.getD_eq_getElem?_getD, input_length] using hv
+  · rintro ⟨hS, hv⟩ i hi
+    by_cases hin : i < n
+    · rw [List.getD_append _ _ _ _ (by simpa [input_length] using hin), input_get n S i hin]
+      exact decide_eq_true (hS ⟨i, hin⟩ hi)
+    · have heq : i = n := by have := hb i hi; omega
+      subst i
+      simpa [List.getD_eq_getElem?_getD, input_length] using hv hi
+
+lemma meet_append_two (n : ℕ) (atoms : List ℕ) (hb : bounded (n + 2) atoms)
+    (S : Finset (Fin n)) (v w : Bool) :
+    meet (input n S ++ [v] ++ [w]) atoms = true ↔
+      support n atoms ⊆ S ∧ (n ∈ atoms → v = true) ∧ (n + 1 ∈ atoms → w = true) := by
+  rw [support_subset]
+  simp only [meet, List.all_eq_true]
+  constructor
+  · intro h
+    constructor
+    · intro i hi
+      have hv := h i.val hi
+      rw [List.getD_append _ _ _ _ (by simp [input_length]; omega),
+        List.getD_append _ _ _ _ (by simp [input_length]),
+        input_get n S i.val i.isLt] at hv
+      exact of_decide_eq_true hv
+    · constructor
+      · intro hn
+        have hv := h n hn
+        simpa [List.getD_eq_getElem?_getD, input_length] using hv
+      · intro hn
+        have hv := h (n + 1) hn
+        simpa [List.getD_eq_getElem?_getD, input_length] using hv
+  · rintro ⟨hS, hv, hw⟩ i hi
+    by_cases hin : i < n
+    · rw [List.getD_append _ _ _ _ (by simp [input_length]; omega),
+        List.getD_append _ _ _ _ (by simpa [input_length] using hin), input_get n S i hin]
+      exact decide_eq_true (hS ⟨i, hin⟩ hi)
+    · have heq : i = n ∨ i = n + 1 := by have := hb i hi; omega
+      rcases heq with rfl | rfl
+      · simpa [List.getD_eq_getElem?_getD, input_length] using hv hi
+      · simpa [List.getD_eq_getElem?_getD, input_length] using hw hi
+
+
+def evalTwo (a b c d out : List ℕ) (x : List Bool) : Bool :=
+  let v := meet x a || meet x b
+  let w := meet (x ++ [v]) c || meet (x ++ [v]) d
+  meet (x ++ [v] ++ [w]) out
+
+lemma evalTwo_pattern (n : ℕ) (a b c d out : List ℕ)
+    (ha : bounded n a) (hb : bounded n b)
+    (hc : bounded (n + 1) c) (hd : bounded (n + 1) d)
+    (hout : bounded (n + 2) out) (S : Finset (Fin n)) :
+    evalTwo a b c d out (input n S) = true ↔
+      pattern (support n a) (support n b) (support n c) (support n d) (support n out)
+        (n ∈ c) (n ∈ d) (n ∈ out) (n + 1 ∈ out) S := by
+  let v := meet (input n S) a || meet (input n S) b
+  let w := meet (input n S ++ [v]) c || meet (input n S ++ [v]) d
+  have hv : v = true ↔ support n a ⊆ S ∨ support n b ⊆ S := by
+    simp only [v, Bool.or_eq_true, meet_input n a ha S, meet_input n b hb S]
+  have hw : w = true ↔
+      (support n c ⊆ S ∧ (n ∈ c → support n a ⊆ S ∨ support n b ⊆ S)) ∨
+      (support n d ⊆ S ∧ (n ∈ d → support n a ⊆ S ∨ support n b ⊆ S)) := by
+    simp only [w, Bool.or_eq_true, meet_append_one n c hc S v, meet_append_one n d hd S v, hv]
+  change meet (input n S ++ [v] ++ [w]) out = true ↔ _
+  rw [meet_append_two n out hout S v w]
+  simp only [pattern, hv, hw]
+
+theorem two_or_program_at_most_three (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj]
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (a b c d out : List ℕ)
+    (ha : bounded n a) (hb : bounded n b)
+    (hc : bounded (n + 1) c) (hd : bounded (n + 1) d)
+    (hout : bounded (n + 2) out) (E : Finset (Finset (Fin n)))
+    (hcard : ∀ S ∈ E, S.card = 2)
+    (haccept : ∀ S ∈ E, evalTwo a b c d out (input n S) = true)
+    (hsound : ∀ S : Finset (Fin n), evalTwo a b c d out (input n S) = true → HasEdge G S) :
+    E.card ≤ 3 := by
+  apply two_or_pattern_at_most_three G hfour
+    (support n a) (support n b) (support n c) (support n d) (support n out)
+    (n ∈ c) (n ∈ d) (n ∈ out) (n + 1 ∈ out) E hcard
+  · intro S hS
+    exact (evalTwo_pattern n a b c d out ha hb hc hd hout S).mp (haccept S hS)
+  · intro S hp
+    exact hsound S ((evalTwo_pattern n a b c d out ha hb hc hd hout S).mpr hp)
+
+end PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge
