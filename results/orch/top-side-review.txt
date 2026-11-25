@@ -1,0 +1,5 @@
+Independent review: TopSide.lean
+SHA2566d0464cf536a675bea44e1e25f6814be524a23250300d117dec975dcd1c63cf7;1353lines59797bytes.
+Reviewed ChainClauses prefix unchanged. Generic one_and_wire_eval is valid strong induction: primary input base, unique allowed AND frontier T, and OR union of children. It characterizes truth by an active primary ORsupport or a reached trueT. It does not assume the wire itself pure.
+For clean top sides, TopForm rules out any BelowF AND ancestor; exact junk set leaves g orT. g cannot reach the side directly (empty primary support versus noncentreless side) or through an ORreader (sole reader would beT, which isAND). Thus onlyT can occur on the ORfrontier and generic decomposition applies. Finally both top operands reachingdirtyT would makeT imply top imply graphFun, contradictingT dirty.
+All AO2/TopForm/twojunk/centreless/sole-reader premises explicit. These lemmas do not assert any subsequent replacement preserves every edge. Guard only expected missing final theorem; savedlog warning-only, authorreportscompileexit0. Review passed.

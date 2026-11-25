@@ -1,0 +1,3 @@
+Independent review by counterexample agent: CommonEntry.lean
+SHA256872d6d07b14dffd6791ec7edc8589b22e49a0cc85393492d798f2ae52564761c.
+Exactly36 new lines over reviewed ChainClauses. The first OR reader p of bad empty-support T belongs to orN\lam. If p also had empty support, reaching the nonempty endpoint would force a second distinct extra OR, contradicting extraORcard<=1. For any other nonempty OR-reachable endpoint, its first OR reader q equals p by unique_bad_readers, yielding primary-support inclusion. All bounds/arity hypotheses are explicit. No extra declarations or forbidden syntax in the delta. No build rerun; author reported compiledexit0. Independent semantic review passed.

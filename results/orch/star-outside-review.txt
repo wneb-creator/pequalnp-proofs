@@ -1,0 +1,4 @@
+Independent review: StarOutside.lean
+SHA25673c577be5cb9003af8e4e9f7c0a51bca323033d7d3598486d7d1b7d4e5609ea4;28lines (parent estimate29).
+The genuine Sym2 edge set U lies in incidenceFinset b. Adjacent edge{b,z} is in that incidence set but outsideU becauseU avoidsz. Inserting it adds exactlyone toUcard; degreeb<=3 therefore givesUcard<=2. No directed/ordered-edge doublecount issue; actual incidenceFinset cardinality theorem is used.
+Explicit graphsubset, commonincidentb, andavoidanceofneighborz are essential and retained. Does not establish them forUstar or claim circuit lowerbound. Guardonlyexpectedmissingfinaltheorem; parentreportscompileexit0emptylog. Review passed.

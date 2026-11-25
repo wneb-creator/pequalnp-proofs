@@ -1,0 +1,4 @@
+Independent review: BlockingAll.lean
+SHA25668527669db4674208e15e8768ae5abf788ff79cb35273142b3efdec9c6d3cc6a;487lines23001bytes.
+Reviewed BlockingNeighborhood prefix unchanged modulo namespace. New not_primary lemma correctly evaluates a valid unary NOT with its exact one-primary input. Sole reader ofp paired with NOT(q), q!=p, cannot be AND: choose robust witness fixingq=true, so NOT(q)=false blocks reader. It cannot be OR: choose q=false, so NOT(q)=true blocks reader. Earlier-child premise makes the true OR input available. Existing generic semantic dependence contradiction applies in both cases.
+Correcttarget,output!=p,sole-reader,distinctprimaryq,exactunaryNOT input,andearlierchild assumptions remain explicit. No ban on other NOT gates and no fullsizeboundclaim. Officialguard onlyexpectedmissingfinaltheorem. Savedlog16warnings/noerrors; authorreportscompileexit0. Review passed.

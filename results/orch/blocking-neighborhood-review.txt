@@ -1,0 +1,4 @@
+Independent review: BlockingNeighborhood.lean
+SHA256c5cbc31d22a4ba4dc66497d8dd7f9b3fc0f2bb822a329580e4bb93091a8824f9;446lines20477bytes.
+Reviewed DegreeThree prefix unchanged modulo namespace. New finite pair witness independently checked for every permitted(p,a,b): if degree3p differs froma,b andtheir pair is a nonedge, some k makes thetarget depend onp whilea,b staytrue. Earlier AND(a,b) then stays true, so its OR parent cannot convey p despite being p sole reader, contradicting semantic dependence. Thus target(pair a b)=true.
+Exacttwo-primary child, t<r,degree3p,correcttarget,output!=p,andsole-reader assumptions remain explicit. Duplicate a=b is allowed by theorem premise and correctly ruled out by conclusion. NOT elsewhere is unrestricted. Guard only expected missing final theorem; author reports compiledexit0 with warning-only log. Review passed.
