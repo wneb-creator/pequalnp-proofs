@@ -1,0 +1,5 @@
+Command: PATH=<scratch Lean4.36.0>/bin:$PATH XDG_CACHE_HOME=<scratch>/cache lake env lean /tmp/oec/pequalnp-pilot-178/gate_elimination/TrackedTest.lean
+Exit code: 0
+Source: results/orch/lemmas/TrackedFull.lean
+Development import: PEqualNP.Outside.L_meta_10760 (checked lower13 plus upper14). Final submission merges declarations into target file and retains only PEqualNP.Defs import.
+Full stdout/stderr follows (empty):

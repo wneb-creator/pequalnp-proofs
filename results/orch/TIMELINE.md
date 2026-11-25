@@ -15,3 +15,5 @@
 -2026-11-25 19:11:12 UTC:13gate lower bound Lean-checked.
 -2026-11-25 19:13 UTC: tracked core, NOT-count helper and LRAT fallback compiled.
 -2026-11-25 19:13 UTC: one-NOT root search returned false after350852states/24seconds; Lean verification pending.
+-2026-11-25 19:14:53 UTC: combined named-file partial build passed.
+-2026-11-25 19:15 UTC: full tracked bridge passed.

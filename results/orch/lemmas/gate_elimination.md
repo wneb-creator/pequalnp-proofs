@@ -60,3 +60,7 @@ Verdict: no semantic loophole found; acceptable as a partial lower bound conditi
 - The final posted replacement theorem is absent. This file is a partial lower-bound component, not a complete proof of the leased statement.
 
 The prior suspected delete0 bound11 was indeed invalid: a concrete monotone10gate restriction witness is `(x3∨x5)(x1∨x6) ∨ x1x4 ∨ x2(x4∨x6) ∨ x3x5`. Sent its explicit gate list to certificate_search to diagnose the Python port. Current Lower13 bound layer uses10 for that restriction.
+
+## Independent review of unique_not_count
+
+Reviewed root helper `/tmp/oec/pequalnp-pilot-178/root_helpers/NotCount.lean`, SHA256 `8431b42887b252cfb9216e36ec7d64c295921c84dd5799d8f18263b73e701529`. Verdict: PASS. The count definition matches the tracked bridge. Indexed uniqueness is exactly the posted assumption. A NOT at the list head rules out all tail NOT positions by contradiction between index zero and a successor; otherwise the induction passes uniqueness to the tail through Fin.succ injectivity. Repeated equal Gate values are counted correctly because the assumption concerns positions. No extra hypotheses or unsafe declarations found. Root reported successful kernel compilation.
