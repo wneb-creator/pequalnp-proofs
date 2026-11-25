@@ -1,0 +1,12 @@
+L-meta-2592 partial checkpoint; full posted theorem remains unproved.
+
+Compiled file: results/orch/lemmas/BracketWitnesses.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/BracketWitnesses.lean
+Lean: 4.36.0
+Exit status: 0
+Complete stdout: bracket-build.stdout (empty)
+Complete stderr: bracket-build.stderr (empty)
+Independent red-team review: status_review approved source SHA256 d63099b3262a1efc22a96f6d9bce56f98d49be498988f8c369b547465d2a292d.
+Checker: not run; this is a partial lemma collection, not the posted theorem.
+Sub-agents: status_review, proof_route, circuit_search, not_elimination, toolchain_setup, gate_elimination
+TIMING total=11.87 subagents=6
