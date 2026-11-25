@@ -1,0 +1,6 @@
+L-meta-3457 partial: small incidence classification
+2026-11-25T02:10:29.311252+00:00
+SHA256 b67e595a1512fe15675fef8a356822d89a6540a6154183e2e561d3a23db95baf
+Lines 203
+Central lake env lean SmallIncidenceClassificationV5.lean: exit 0, empty stdout/stderr.
+Proves C4-free incidence graphs for N<=2 are acyclic, and for N=3 are either acyclic or the complement of a bijection. The finite matrix lemma is proved by kernel decision with explicit finite predicates and permitted instance-search limits. This is a classification component, not the unrestricted gap.
