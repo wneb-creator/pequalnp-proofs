@@ -1,0 +1,143 @@
+{
+  "graph": "matching2",
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "free_supports": [
+    1,
+    2,
+    4,
+    8,
+    5,
+    9,
+    6,
+    10
+  ],
+  "paid_gates": [
+    [
+      0,
+      4,
+      5
+    ],
+    [
+      0,
+      6,
+      7
+    ],
+    [
+      0,
+      8,
+      9
+    ]
+  ],
+  "truth_table": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      0,
+      0
+    ],
+    [
+      5,
+      0,
+      0
+    ],
+    [
+      6,
+      0,
+      0
+    ],
+    [
+      7,
+      1,
+      1
+    ],
+    [
+      8,
+      0,
+      0
+    ],
+    [
+      9,
+      0,
+      0
+    ],
+    [
+      10,
+      0,
+      0
+    ],
+    [
+      11,
+      1,
+      1
+    ],
+    [
+      12,
+      1,
+      1
+    ],
+    [
+      13,
+      1,
+      1
+    ],
+    [
+      14,
+      1,
+      1
+    ],
+    [
+      15,
+      1,
+      1
+    ]
+  ],
+  "source_ands": [
+    0,
+    1
+  ],
+  "dirty_inputs_per_and": [
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      2,
+      6,
+      10
+    ],
+    []
+  ],
+  "paid_gate_count": 3,
+  "ordinary_gate_count": 7,
+  "lower_bound_reference": "matching2-k2-packing-oracle: normalized oracle SAT query UNSAT",
+  "scope": "Counterexample to universal clean-source property for minimum paid oracle circuits, not to existential normalization, oracle cost conjecture, or L-meta-2448."
+}

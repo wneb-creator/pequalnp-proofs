@@ -1,0 +1,11 @@
+MODEL {"graph": "p4.graph", "n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "K": 5, "rows": [3, 6, 12, 5, 9, 10], "ordered": true, "goal": "every source AND true on some maximal independent set", "clauses": 1111, "cnf_sha256": "a2c7bee3ca44067f4e2ff011e9c4396f587972cd2f88feb04012272aa3c1d0e2"}
+RESULT 10 SECONDS 0.007744325000203389
+STATUS ['s SATISFIABLE']
+0 or 1 2
+1 or 0 2
+2 or 1 3
+3 and 5 6
+4 and 4 7
+FULL_TRUTH_FAILED []
+DIRTY_AND_WITNESSES [(3, 9)]
+SOURCE_ANDS [3]

@@ -1,0 +1,3 @@
+MODEL {"graph": "double_star6.graph", "n": 6, "edges": [[0, 1], [0, 2], [0, 3], [1, 4], [1, 5]], "K": 6, "rows": [3, 5, 9, 18, 34, 14, 49, 60], "ordered": true, "goal": "every source AND true on some maximal independent set", "clauses": 2333, "cnf_sha256": "ac71132aef0643b3a8755e162c92360ed069624b9b81a395ed5bddfdb37f608e"}
+RESULT 20 SECONDS 0.06403492800018284
+STATUS ['s UNSATISFIABLE']

@@ -1,0 +1,10 @@
+Gap: L-gct-231
+Status: PARTIAL ONLY; no proof/refutation and no PR.
+Named file: lean/PEqualNP/Outside/L_gct_231.lean
+Source:66lines,3019bytes,SHA256428d0f7caffd36ebe05e217bf8069fb4527007eeb54643aa3188532743e9e3d0
+Named lake build: exit0; complete build-partial-01.log. Independent source review and recompilation PASS.
+Scope: permanent expansion, coordinate injectivity, and conditional range construction requiring an explicit valid linear map. No such map supplied.
+Cleanup: not reached.
+Sub-agents:7 (status_review,structural_proof,library_route,finite_cases,lean_setup,global_normal_form,fresh_main_proof)
+TIMING total=160.0 subagents=7
+Message ID: msg-8f0f42bb760e4ee78f16c6cd

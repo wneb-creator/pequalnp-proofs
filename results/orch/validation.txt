@@ -11,9 +11,9 @@ Cleanup: not reached because the full posted theorem is absent; no accepted-proo
 Axiom audit: final conditional theorem uses only propext, Classical.choice, Quot.sound. All143 earlier integrated lemmas were audited too; full logs retained.
 Finite archive:137 independently reviewed artifacts. Solver evidence and UNKNOWN timeouts do not constitute a Lean proof.
 Free-OR archive:14 CNFs independently reconstructed; all5 SAT models fully checked;6 UNSAT/5 SAT/3 UNKNOWN.
-Desk next nulls:15. Recovery polling active; no live lease currently held.
+Desk next nulls:15. Recovery ended with L-gct-231 assignment on request16; no live L-meta-2448 lease.
 Sub-agents: 7 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof)
-TIMING total=148.4 subagents=7
+TIMING total=160.0 subagents=7
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 Final red-team review: PASS FOR PARTIAL CHECKPOINT, not a proof PR. No full theorem/refutation found.
 EssentialP4.lean compiled; independent source and executable checks passed; no full-gap refutation claimed.
@@ -25,3 +25,4 @@ Integrated named partial:9885lines,496646bytes; exact old9440line source plus re
 Compact two-product standalone:1140lines,52816bytes,SHA2561d902852fc9202616b3ca6abdeb8d857acfb3f075c024f86b3796d81b848de1c; allowed imports only; build and standard-axiom audit pass. Graph-subclass result, not full gap.
 SharedNeighborhood.lean:88lines,3081bytes,SHA2564ad767c807199f1eee5b5ce1cc276d474e8bbd3f0e248bc2a8426f7b1c6fd966; independent compile, source review and standard-axiom audit PASS. Boolean identities and gate budgets only; no circuit assembly claimed.
 SharedNeighborhoodContext.lean179lines/7886bytes and SharedNeighborhoodStar.lean264lines/12125bytes: independent source review, compilation and standard-axiom audit PASS. Actual equal-size contextual3-to3 circuit rewrite preserves function and monotonicity; stronger version preserves public minimality and proves the two new primary-input ANDs have ownership stars. Prefix cross implications and no outside reads of first two internal wires are required. No full or later-gate profile preservation claimed. Complete build and independent audit logs preserved.
+Final old-source archive: results/orch/final-partial/L_meta_2448.lean, exact SHA3f48f63c741b29fcc7429d90f40b5627122f9444892534d044799cf2ea8edf95. New own gap L-gct-231 is now the sole project addition. Full381-file finite and10-file review archives independently PASS; no solver result proves/refutes L2448.

@@ -92,3 +92,30 @@ The fixed-prefix search was independently confirmed by the finite-cases agent's 
 `MixedSupport.lean` (30 lines, allowed Mathlib+Defs imports) proves that a set containing at least two neighbors of a and at least two neighbors of distinct b has no common graph neighbor in a C4-free graph. `MixedReader.lean` (85 lines, prototype L3760 dependency) proves the stronger circuit consequence: if one OR-input side of a clean top contains such a set, the opposite OR-input side is empty; the top is centreless. Both compiled with empty logs. SHA256 values: `f6f7047c12bd46af5486fa920723ecc9540a4bfee708686f2eca001c1b93a31b` and `643530e6c2980e46e56981288828083a82c6c996c903a0993c4600f49ee93eee` respectively.
 
 No injective assignment of all mixed supports to terminal centreless readers follows from graph structure alone. For three disjoint 2-leaf stars, the irredundant monotone CNF has eight clauses, several mixing two whole leaf sets. A balanced AND tree has only one clean top, since every proper conjunction omits an essential clause and is dirty. Many mixed supports therefore terminate at the same centreless output. The intermediate junk AND merges must also pay. A generic binary-DAG leaf bound gives the right weighted resource shape, but assigning distinct residual-edge/cover labels to leaves without counting a shared OR signal several times is still unproved. Circuit minimality must supply an additional argument.
+
+## Recovery research: checked closed two-product case
+
+Read `HANDOFF.md`, `fresh.md`, and these notes before resuming. No desk, git, PR, or named-file mutation was performed. This research still concerns L-meta-2448 while root handles expired-lease recovery.
+
+At 09:25 UTC on 2026-11-25, a stronger graph-only conditional is checked:
+
+`twoSilentProducts.exists_minimum_star_of_four_sides` assumes a graph G with NoFourCycle and four vertex sets P,Q,R,S with P disjoint Q and R disjoint S, such that adjacency of u,v is equivalent to the pair {u,v} meeting each of the four sets. It proves existence of a PUBLIC minimum Monotone2 circuit with HasStarProfile. It needs no supplied minimum circuit, no IsAO2 premise, no triangle premise, and no assumption on a circuit's number of junk gates.
+
+This is exactly the graph class arising when the whole graph function is a conjunction of two singleton-silent pure-OR products. Its adjacency splits into the disjoint bicliques `(P ∩ R) × (Q ∩ S)` and `(P ∩ S) × (Q ∩ R)` (including symmetric orientations). NoFourCycle makes each nonempty biclique a star. It is therefore an explicit subclass with at most two disjoint star components, NOT a theorem for arbitrary circuits with two dirty ANDs. Empty/dangling intersections contribute no fake input support.
+
+The new counting proof maps every actual graph edge injectively to its unique noncenter leaf, disjoint from the chosen active centers. This gives `|E| + |K| <= |support|`. The canonical star constructor then gives a circuit of size at most `|support| - 1` when the graph is nonempty.
+
+The lower bound for every public competitor is a checked adaptation of `L_meta_2074.lean`: its input-dependency proof only needs fan-in AT MOST two. The changes are exactly namespace rename, replacing `= 2` by `<= 2` in `dep` and `main`, and removing `.le` at the sole counting use. Gate operations need not even be monotone for this support bound. Thus the star witness is minimum against every public Monotone2 competitor without assuming an AO2/public-minimum bridge.
+
+Frozen artifacts in `/tmp/oec/pequalnp-pilot-75/library/`:
+
+- `TwoSilentProducts.lean`: 201 lines, 8,883 bytes, only Mathlib+Defs, SHA256 `dcd70e69fe55877223e70e35f5872a5b1e0f8dcd94161fb39a3d4a49f67a33bb`; empty `two-silent-products-build.log`, exit 0.
+- `InputBound.lean`: 218 lines, 9,437 bytes, only Mathlib+Defs, SHA256 `48c5a4627ac72f02500b8e29f8e98c72d6e7366d64242b4fe6d7dcef8c6580f6`; empty `input-bound-build.log`, exit 0.
+- `TwoSilentProductsGraphOnly.lean`: 445 lines, 19,722 bytes, SHA256 `e504f6940b327d5af4892bcb2455c6e04088f5ae7bf819b3aee9fca2e89b2903`; empty `two-silent-products-graph-only-build.log`, exit 0. This aggregate still uses the current named-file import solely for the star constructor and empty-graph witness; global_normal_form is extracting a compact allowed-import closure.
+- `TwoSilentProductsAudit.lean`: separate audit driver, SHA256 `c40b3726e70385e53262da0d408eae060364b1398120479b295d92920e75f72e`. Complete `two-silent-products-axioms.log` reports only propext, Classical.choice, Quot.sound for the generalized input bound, graph budget, and final conditional.
+
+Status_review independently passed the graph counting, exact source adaptation, theorem scope, format, and final minimality transfer. Intermediate `TwoSilentProductsStar.lean` (249 lines) retains a supplied minimum and AO2 premise; the graph-only theorem supersedes it.
+
+Remaining step toward a general two-junk theorem: the closed product case does not account for additional clean-star terms, separate guarded g/h outputs, or external uses of their shared OR networks. Structural_proof suggested the semantic shape `F_starEdges OR (g AND OR(Wg)) OR (h AND OR(Wh)) OR epsilon(g AND h)` for two incomparable junk gates. The new theorem handles the isolated epsilon(g AND h) graph component, but a size-preserving assembly with the other three terms still lacks shared-resource accounting. The fixed-prefix counterexample continues to rule out simply replacing only the three interacting ANDs.
+
+A general monotone disjoint-OR direct-sum lower bound was not assumed. Root located primary historical sources distinguishing Fischer's MULTIOUTPUT additivity theorem from the single-output OR composition question. The latter's current status remains unverified in this session; no unsupported direct-sum inference enters these proofs.

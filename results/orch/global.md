@@ -72,3 +72,12 @@ Frozen at 2026-11-25T08:17:28.204161+00:00.
 - Scope: a public minimum circuit C computing the graph function, additionally satisfying IsAO2 and at most one junk gate, gives a public minimum star-profile witness for any triangle/C4-free graph. Empty graph and zero/one junk are handled. No TopForm or nonempty assumption remains. There is NO claim for two or more junk gates, and NO full posted-gap theorem.
 - Independent reviews requested from lean_setup (source/dependency rename) and status_review (scope/format). Main named file was not changed by this worker.
 - Preserved source/provenance and full logs in `results/orch/standalone/`. Separate scratch axiom audit also built exit 0; final conditional theorem depends only on `propext`, `Classical.choice`, `Quot.sound`. The preserved proof source contains no audit command.
+
+## Compact allowed-import graph-only two-product result
+
+- Frozen source: `results/orch/standalone/two_products/TwoProductsStandalone.lean`; 1,140 lines / 52,816 bytes.
+- SHA256: `1d902852fc9202616b3ca6abdeb8d857acfb3f075c024f86b3796d81b848de1c`. Build exit 0, empty complete build log.
+- Only Mathlib + PEqualNP.Defs. Actual proof closure has 142 constants, retaining 34 foundation declarations and 21 graph-only declarations. All declaration bodies unchanged; removed stale selective-open names for omitted foundations.
+- Scope: the final helper constructs a minimum star-profile circuit for a graph described by four pair-support hits, with the two support pairs disjoint and NoFourCycle. Such graphs have at most two vertex-disjoint stars. No given circuit/minimum/IsAO2/junk premise is assumed. This remains a graph subclass, not the full posted gap.
+- Foundation extraction uses frozen previous standalone SHA72c333, not the mutable named main. Source/provenance independent review requested from lean_setup; scope/format review from status_review.
+- Separate exact-source axiom audit exit 0: only propext, Classical.choice, Quot.sound. Complete output saved beside frozen source in `axiom-audit.log`; preserved proof source has no audit command.

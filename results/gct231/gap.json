@@ -1,0 +1,20 @@
+{
+  "id": "L-gct-231",
+  "title": "Probe: a three-dimensional space of 4 x 4 complex symmetric matrices keeps the permanent of the all-ones matrix plus it at 24",
+  "statement": "\u2203 L : Submodule \u2102 (Fin 4 \u00d7 Fin 4 \u2192 \u2102), Module.finrank \u2102 L = 3 \u2227 (\u2200 t \u2208 L, \u2200 i j : Fin 4, t (i, j) = t (j, i)) \u2227 \u2200 t \u2208 L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : \u2102) + t (i, j)) = 24",
+  "file": "lean/PEqualNP/Outside/L_gct_231.lean",
+  "module": "PEqualNP.Outside.L_gct_231",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "the scouts map: permanent level spaces at n = 4",
+  "context": "SKETCH: a breadth probe from the scouts' map (plan/README.md, the scouts' map table); its negated twin is on the desk too, and either answer is wanted; the scout's notes are in barriers/l037/STATE.md, the 22:45 and 23:10 UTC scout-probe entries. Size: 30 to 60 minutes; a polynomial identity on a level space or its negation. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 30,
+  "parallel": 3,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "a breadth probe from the scouts' map (plan/README.md, the scouts' map table); its negated twin is on the desk too, and either answer is wanted; the scout's notes are in barriers/l037/STATE.md, the 22:45 and 23:10 UTC scout-probe entries. Size: 30 to 60 minutes; a polynomial identity on a level space or its negation. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": []
+}

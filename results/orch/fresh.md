@@ -67,3 +67,33 @@ The vector of all 15 neighborhood sums requires 25 gates. The five degree-four n
 Each individual neighborhood sum can be obtained by restricting the edge function: set its center to one and all nonneighbors to zero. Triangle freedom eliminates edges within the neighborhood. However these are different restrictions for different centers, so evaluating them simultaneously does not preserve the original shared circuit's gate count. The usual Boolean derivative is also unsuitable: it contains a complement of the center-zero cofactor, while the center-one cofactor alone still contains the residual graph function.
 
 Extracting only the neighborhood sums for a selected vertex cover avoids this counterexample. No cost-preserving extraction with the necessary cover choice and gate accounting was established; that would still require the missing global argument. The obstruction rules out the naive all-neighborhood interface, not the posted theorem.
+
+## Recovery-period global continuation: packing-OR abstraction
+
+No full theorem obtained. The following is a mathematical reformulation and transfer argument, not Lean checked.
+
+For a nontrivial lambda OR support S, the clean top exposing it supplies a center c with S contained in N(c). Choose K to include every such top center (one center per noncentre top suffices). After deleting K, the surviving support S minus K is independent and every remaining vertex has at most one neighbor in it: triangle freedom gives independence, while two neighbors together with c would create a four-cycle. Equivalently its vertices have pairwise distance at least three. Supports attached to different centers have intersection size at most one.
+
+This suggests granting ORs of distance-two packings as free inputs when studying the residual graph. Supports assigned to different centers intersect in at most one vertex, but distinct supports assigned to the same center can overlap in several vertices. Therefore reducing to a linear oracle family requires an additional selection or grouping argument with cost preservation; it does not follow automatically. There is also a semantic caveat: lambda wires can OR in dirty AND signals in addition to their primary support. Those signals entered through charged mixing gates, but a precise contraction preserving this accounting is still needed. A theorem only about pure-OR packing oracles would not automatically justify that contraction.
+
+A hypothetical cost saving with a **linear family** of such oracles transfers to a genuine counterexample to the formula-size lower bound on an augmented triangle/four-cycle-free graph. Suppose G has m edges and cover number tau, and a monotone fan-in-at-most-two circuit computes its edge function with s paid gates when z_i=OR(S_i), |S_i|=k_i>=2, are free. Assume every S_i is a distance-two packing in G and |S_i intersect S_j|<=1 for i!=j. Add for every i a new center c_i adjacent to S_i and to two fresh private leaves. Call the result G'.
+
+The augmentation preserves absence of triangles/four-cycles. A triangle through c_i would use an edge within S_i. A four-cycle through one new center would require a common neighbor of two S_i vertices. A four-cycle through two new centers would require two vertices in S_i intersect S_j. Private leaves lie on no cycle.
+
+Every minimum cover of G' contains every c_i: omitting one forces both private leaves into the cover, and replacing those leaves by c_i reduces its size. Removing all c_i then leaves a cover of G; conversely a minimum cover of G together with all c_i covers G'. Therefore tau(G')=tau(G)+r, where r is the number of oracles, and |E(G')|=m+sum_i(k_i+2).
+
+Build each z_i with k_i-1 ORs, extend it by its two private leaf variables with two ORs, AND with c_i, and combine that star term with the original circuit output using one OR. The added cost is k_i+3 per oracle. Consequently the constructed circuit has size
+
+    s + sum_i(k_i+3),
+
+while the formula upper-bound expression for G' is
+
+    m + tau(G) - 1 + sum_i(k_i+3).
+
+Thus any strict oracle saving s < m+tau(G)-1 survives unchanged. This shows that the linear-family packing-oracle lower bound is another form of the difficult global formula-size bound, rather than an immediate consequence of the Boolean-sum theorem. Applying it to every lambda wire would additionally require the unresolved same-center grouping and dirty-atom contraction steps described above. It does not establish equivalence to the posted star-profile theorem, and no counterexample was found.
+
+A further extraction caveat: even full neighborhood sums restricted to a minimum cover can overcount. For P4=a-b-c-d, cover {b,c} has full sums a OR c and b OR d, costing two OR gates, but |E|-|T|=1. The four-gate star circuit assigns bc to b and uses only the owned-neighbor sum a OR c, with c's owned leaf set {d}. Any sharp extraction therefore needs an edge ownership orientation as well as a cover selection.
+
+Source check during continuation: Jukna, *Disproving the Single Level Conjecture*, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf (read 2026-11-25), explicitly distinguishes total size and AND count; Theorem 2.4 gives an AND-count separation using saturated matching extensions. Thus unrestricted AND-count-preserving single-level normalization is ruled out, not only total-size normalization. This is a primary-source mathematical claim, not a Lean check. It does not by itself refute the weaker existence of one clean source AND: in a general graph such a source can own a large biclique, whereas no four-cycle would force a star.
+
+A scoped alternative to essential-star peeling: a vertex restriction may permit absorption of an AND even when its original essential-edge set is not a star. In the P4 expression, setting a=0 gives g=c AND (b OR d), after which g AND (b OR c)=g. This deletes the second AND by replacing it with one operand. A universal existence theorem for such a vertex/redundant-AND pair would imply the AND-count cover bound by induction, but no such theorem was established here.

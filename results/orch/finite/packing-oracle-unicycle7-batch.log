@@ -1,0 +1,5 @@
+c6leaf 8 wrapper_exit 0
+c5path2 9 wrapper_exit 0
+c5leaves_same 8 wrapper_exit 0
+c5leaves_adjacent 8 wrapper_exit 0
+c5leaves_apart 8 wrapper_exit 0

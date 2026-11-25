@@ -1,0 +1,6 @@
+matching2 2 wrapper_exit 0
+matching3 4 wrapper_exit 0
+p4 3 wrapper_exit 0
+p6 6 wrapper_exit 0
+c5leaf 7 wrapper_exit 0
+c6 7 wrapper_exit 0

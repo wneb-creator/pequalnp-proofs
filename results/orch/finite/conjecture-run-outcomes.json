@@ -1,0 +1,2870 @@
+{
+  "recorded_at": "2026-11-25T09:30:50.749661+00:00",
+  "scope": "Normalized binary AO2 circuits; solver results and finite verification, not Lean proofs. UNKNOWN means native time limit, never a lower bound. Source queries forbid every clean source AND; oracle queries supply all primary OR supports at pairwise graph distance at least three for free.",
+  "cases": [
+    {
+      "kind": "source",
+      "graph": "p4.graph",
+      "K": 4,
+      "native_limit_seconds": 60,
+      "prefix": "p4-k4-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.01646993200029101,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        5,
+        9,
+        10
+      ],
+      "cnf_sha256": "ccc22e640d23ce7a1810bb11a5a764ed58a2c9eab569a438160975c6f2365998",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "p4.graph",
+      "K": 5,
+      "native_limit_seconds": 60,
+      "prefix": "p4-k5-sources-dirty",
+      "exit": 10,
+      "wrapper_seconds": 0.007744325000203389,
+      "solver_status": [
+        "s SATISFIABLE"
+      ],
+      "status": "SAT",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        5,
+        9,
+        10
+      ],
+      "cnf_sha256": "a2c7bee3ca44067f4e2ff011e9c4396f587972cd2f88feb04012272aa3c1d0e2",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "p5.graph",
+      "K": 5,
+      "native_limit_seconds": 90,
+      "prefix": "p5-k5-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.032238439000138897,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        9,
+        10,
+        18,
+        21
+      ],
+      "cnf_sha256": "cfcb6a2cd35f75f7fe42bd869247fda59c10423e685c979e746e680f49a8acbc",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "p6.graph",
+      "K": 7,
+      "native_limit_seconds": 90,
+      "prefix": "p6-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.36549906599975657,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        18,
+        21,
+        37,
+        41,
+        42
+      ],
+      "cnf_sha256": "6bada7f96e675da527e030cce65e9b7e33a4d18265b4f069380894890450eaa9",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "double_star6.graph",
+      "K": 6,
+      "native_limit_seconds": 90,
+      "prefix": "double_star6-k6-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.06403492800018284,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        18,
+        34,
+        14,
+        49,
+        60
+      ],
+      "cnf_sha256": "ac71132aef0643b3a8755e162c92360ed069624b9b81a395ed5bddfdb37f608e",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "fork6.graph",
+      "K": 7,
+      "native_limit_seconds": 90,
+      "prefix": "fork6-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.415084348000164,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        36,
+        21,
+        41,
+        42,
+        49,
+        50
+      ],
+      "cnf_sha256": "db08f325a2dbdea02b187d34deb03d0ceb8df1048e1c3cf60da9861d7e2de77a",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c5leaf.graph",
+      "K": 8,
+      "native_limit_seconds": 300,
+      "prefix": "c5leaf-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 3.934700010000597,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        5,
+        9,
+        42,
+        50,
+        52
+      ],
+      "cnf_sha256": "2e49a231991558ce0a4a2434298b75693fcf147fab0da06541330f300c04a372",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c7.graph",
+      "K": 10,
+      "native_limit_seconds": 300,
+      "prefix": "c7-k10-sources-dirty",
+      "exit": 0,
+      "wrapper_seconds": 300.03981413400106,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        65,
+        21,
+        37,
+        41,
+        42,
+        74,
+        82,
+        84
+      ],
+      "cnf_sha256": "e5bb72389386bc8bafbb9007058c6e360ebf4489bcc1432aeb5b1f14afa6d7df",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "theta233.graph",
+      "K": 11,
+      "native_limit_seconds": 300,
+      "prefix": "theta233-k11-sources-dirty",
+      "exit": 0,
+      "wrapper_seconds": 300.0585510330011,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "rows": [
+        5,
+        9,
+        33,
+        6,
+        18,
+        66,
+        24,
+        96,
+        3,
+        42,
+        44,
+        52,
+        76,
+        81,
+        84
+      ],
+      "cnf_sha256": "a0ce81863e1ef6766fe851cd0d5ecea597b33160f74e12f845ca782d2049b407",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "theta333.graph",
+      "K": 12,
+      "native_limit_seconds": 300,
+      "prefix": "theta333-k12-sources-dirty",
+      "exit": 0,
+      "wrapper_seconds": 300.04786411200075,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 8,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "rows": [
+        5,
+        17,
+        65,
+        10,
+        34,
+        130,
+        12,
+        48,
+        192,
+        3,
+        86,
+        88,
+        100,
+        104,
+        148,
+        152,
+        164,
+        169
+      ],
+      "cnf_sha256": "54ce76d74311dc45ca89bae908bf30a05109a84388a0db47ec518091e01df4c1",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-01.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-01-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 6.1426342590002605,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        33,
+        6,
+        12,
+        24,
+        80,
+        21,
+        50,
+        52,
+        69,
+        73,
+        100,
+        106
+      ],
+      "cnf_sha256": "57a233451d8ce18addeeb10b087c46bbfdb0cb625612a8a9a6d7b3d36f6433da",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-02.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-02-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 5.355727473000115,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        17,
+        33,
+        6,
+        12,
+        72,
+        9,
+        58,
+        69,
+        114,
+        116
+      ],
+      "cnf_sha256": "d1c534538d1a277866ec95ef3bfca8f7afe8799700c6e088ea3a33290500a82a",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-03.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-03-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 7.499698800999795,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        17,
+        34,
+        12,
+        72,
+        26,
+        41,
+        56,
+        86,
+        97,
+        116
+      ],
+      "cnf_sha256": "607a3296b4a46f7127c02b56234a1fd8a41d0f3abed189c49f93f95703f69385",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-04.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-04-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.666482927999823,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        33,
+        6,
+        68,
+        5,
+        60,
+        65,
+        122
+      ],
+      "cnf_sha256": "6243d12d5811d6714cdda1c4520ae8e4cecdf958774548dde8fbc9ff33a07929",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-05.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-05-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 7.543281295999805,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        6,
+        34,
+        68,
+        37,
+        60,
+        90,
+        97,
+        120
+      ],
+      "cnf_sha256": "3a015c37bfe9a80d6008f4c772a3e87725a5d15d14a7ff58f39e411933724095",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-06.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-06-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 1.0199756660003914,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        6,
+        36,
+        68,
+        5,
+        28,
+        97,
+        122
+      ],
+      "cnf_sha256": "65013d23804d2580333808e8d64cee9272f48a5f06a2f7d83dc2d144f4654071",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-07.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-07-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 9.045464071999959,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        17,
+        6,
+        10,
+        36,
+        72,
+        13,
+        28,
+        41,
+        56,
+        69,
+        84,
+        97,
+        114
+      ],
+      "cnf_sha256": "fa9f5fcdc6868baff37f9bfb86d402792c8fb2a830435cd921fec38da9ee49fe",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-08.graph",
+      "K": 8,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-08-k8-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 6.050291949999519,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        34,
+        68,
+        30,
+        60,
+        90,
+        97,
+        120
+      ],
+      "cnf_sha256": "109e970460a505d3a0993ed6ed7256058d8f9f5e5b8c8b4ba83a44089f0ceb4b",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-09.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-09-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.7493411719997312,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        33,
+        66,
+        62,
+        65,
+        124
+      ],
+      "cnf_sha256": "ecb1b4b2f70fd46513cdaa2af88ed89635d429ccfd4291d3038500756c9e58dd",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-10.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-10-k7-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.5391841589998876,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        34,
+        66,
+        30,
+        97,
+        124
+      ],
+      "cnf_sha256": "2fc8d1296ccfc0aabd5f88290a3096dc6f2c9f14449e46e07e95423f04cd1983",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "tree7-11.graph",
+      "K": 6,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-11-k6-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 0.11455282099996111,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        33,
+        65,
+        1,
+        126
+      ],
+      "cnf_sha256": "3ee2c91e49a52ab7a9e0b9205d7b60b89f0f5574b30f94b240c7200edd75ac73",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c6leaf.graph",
+      "K": 9,
+      "native_limit_seconds": 120,
+      "prefix": "c6leaf-k9-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 61.32542128300156,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        33,
+        65,
+        9,
+        21,
+        82,
+        84,
+        100,
+        106
+      ],
+      "cnf_sha256": "1589ba9ad4b47321a001fee5b0b2d995ad5b954a7305b27db13f83900b497f55",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c5path2.graph",
+      "K": 10,
+      "native_limit_seconds": 120,
+      "prefix": "c5path2-k10-sources-dirty",
+      "exit": 0,
+      "wrapper_seconds": 120.04024683999887,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        96,
+        42,
+        50,
+        52,
+        69,
+        73,
+        74,
+        82,
+        84
+      ],
+      "cnf_sha256": "f14b719c371a6e83040794ba132e8b93542cfbc0e840c491af0689e7c9e9dc62",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c5leaves_same.graph",
+      "K": 9,
+      "native_limit_seconds": 120,
+      "prefix": "c5leaves_same-k9-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 47.61085709300096,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        65,
+        5,
+        9,
+        106,
+        114,
+        116
+      ],
+      "cnf_sha256": "a757919eb7b0ecc7f0a18d6cea7836b66b9e96fff3e510b4173dfe02ec932e73",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c5leaves_adjacent.graph",
+      "K": 9,
+      "native_limit_seconds": 120,
+      "prefix": "c5leaves_adjacent-k9-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 55.97389817500152,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        66,
+        42,
+        50,
+        69,
+        73,
+        104,
+        116
+      ],
+      "cnf_sha256": "2a96d66d93b3b582ef1f2e305453909b49bac557c69a1084d5f19b2ef2484710",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "source",
+      "graph": "c5leaves_apart.graph",
+      "K": 9,
+      "native_limit_seconds": 120,
+      "prefix": "c5leaves_apart-k9-sources-dirty",
+      "exit": 20,
+      "wrapper_seconds": 57.21593018800013,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        68,
+        5,
+        52,
+        73,
+        106,
+        114
+      ],
+      "cnf_sha256": "ac132d7c98ff81f47d9d6d7bd8a58685cbccf9b30096e12b243ca6a71659fc08",
+      "ordered": true,
+      "source": "synth_sat_sources_dirty.py",
+      "source_sha256": "1fc86038dc91c1d981d3779872dbce905d396af195659ab7cb5f5f6fb5494f2d"
+    },
+    {
+      "kind": "oracle",
+      "graph": "matching2.graph",
+      "K": 2,
+      "native_limit_seconds": 120,
+      "prefix": "matching2-k2-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.008991807999336743,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "rows": [
+        3,
+        12,
+        5,
+        6,
+        9,
+        10
+      ],
+      "cnf_sha256": "ab9916937a3278227ef52254d040781b74e0a0db8bf5ce8a8aa2f389bc8c2cd3",
+      "ordered": true,
+      "nontrivial_free_or_count": 4,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "matching3.graph",
+      "K": 4,
+      "native_limit_seconds": 120,
+      "prefix": "matching3-k4-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.06473145699965244,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        12,
+        48,
+        21,
+        22,
+        25,
+        26,
+        37,
+        38,
+        41,
+        42
+      ],
+      "cnf_sha256": "14c139d7ef9efcb572310010e282182a8af621d72096bdb5d1392b8e758aab6c",
+      "ordered": true,
+      "nontrivial_free_or_count": 20,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "p4.graph",
+      "K": 3,
+      "native_limit_seconds": 120,
+      "prefix": "p4-k3-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.0039012239994917763,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        5,
+        9,
+        10
+      ],
+      "cnf_sha256": "b977c5d525675f9066bc6c6bf36a8895f74abf5d6062b40eb814f52d0166d8d6",
+      "ordered": true,
+      "nontrivial_free_or_count": 1,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "p6.graph",
+      "K": 6,
+      "native_limit_seconds": 120,
+      "prefix": "p6-k6-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.4155239130013797,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        18,
+        21,
+        37,
+        41,
+        42
+      ],
+      "cnf_sha256": "5dd64a9dc45279f2ec8110435aad0efab5e5b295319e6aeb1b6cff3076dc4a0f",
+      "ordered": true,
+      "nontrivial_free_or_count": 6,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c5leaf.graph",
+      "K": 7,
+      "native_limit_seconds": 120,
+      "prefix": "c5leaf-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 1.321317583999189,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        5,
+        9,
+        42,
+        50,
+        52
+      ],
+      "cnf_sha256": "4f68c0126cd11f2847165cdf0ed46cdc0f376d5513745c60cebf7f3798f25be0",
+      "ordered": true,
+      "nontrivial_free_or_count": 2,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c6.graph",
+      "K": 7,
+      "native_limit_seconds": 120,
+      "prefix": "c6-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 1.7694643399991037,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        33,
+        9,
+        18,
+        21,
+        36,
+        42
+      ],
+      "cnf_sha256": "82e6827114f99ff831ae51e608589907390934f1f9e0cb77da49ee460bcb3ae0",
+      "ordered": true,
+      "nontrivial_free_or_count": 3,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-01.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-01-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 8.951430162000179,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        33,
+        6,
+        12,
+        24,
+        80,
+        21,
+        50,
+        52,
+        69,
+        73,
+        100,
+        106
+      ],
+      "cnf_sha256": "7f9b180f5dbc7e1f7589f399642824cb6290a58fdc13462adaff18b8f7603dc6",
+      "ordered": true,
+      "nontrivial_free_or_count": 11,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-02.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-02-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 3.030114135999611,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        17,
+        33,
+        6,
+        12,
+        72,
+        9,
+        58,
+        69,
+        114,
+        116
+      ],
+      "cnf_sha256": "2b6bcac7d52f988163dc2d0847f6d34202bd67a90f5cd7e2ddfe0efffee2bbd5",
+      "ordered": true,
+      "nontrivial_free_or_count": 9,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-03.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-03-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 4.027556390999962,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        17,
+        34,
+        12,
+        72,
+        26,
+        41,
+        56,
+        86,
+        97,
+        116
+      ],
+      "cnf_sha256": "8cb6104be574c0f3330f395cd026e9e0157f70ea5e2badb1ea2f7b51b28db270",
+      "ordered": true,
+      "nontrivial_free_or_count": 11,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-04.graph",
+      "K": 6,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-04-k6-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.3476141749997623,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        33,
+        6,
+        68,
+        5,
+        60,
+        65,
+        122
+      ],
+      "cnf_sha256": "c9f7bde92e36a5aacc3e26773e5a0e3821adc648d353786291605efb751db9a0",
+      "ordered": true,
+      "nontrivial_free_or_count": 7,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-05.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-05-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 2.6954448420001427,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        6,
+        34,
+        68,
+        37,
+        60,
+        90,
+        97,
+        120
+      ],
+      "cnf_sha256": "23d741e0c357a777b48995cd31f25e58109b24d27f6d8d2375da71d2eb322903",
+      "ordered": true,
+      "nontrivial_free_or_count": 10,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-06.graph",
+      "K": 6,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-06-k6-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.3517727949983964,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        9,
+        17,
+        6,
+        36,
+        68,
+        5,
+        28,
+        97,
+        122
+      ],
+      "cnf_sha256": "8b30a9537583de92edf607a92065fde56e8ef9063ec767ab4475b62ee0f19e65",
+      "ordered": true,
+      "nontrivial_free_or_count": 8,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-07.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-07-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 3.3931243409988383,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        17,
+        6,
+        10,
+        36,
+        72,
+        13,
+        28,
+        41,
+        56,
+        69,
+        84,
+        97,
+        114
+      ],
+      "cnf_sha256": "0c1a816abb5773c6cc21dda22686c4c476264a70735c3bd6645075a91a49dfe9",
+      "ordered": true,
+      "nontrivial_free_or_count": 13,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-08.graph",
+      "K": 7,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-08-k7-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 2.3431723399990005,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        34,
+        68,
+        30,
+        60,
+        90,
+        97,
+        120
+      ],
+      "cnf_sha256": "11ee728e8b0103155ca836b579b68b212e3f0f38b8ee13b97899df4d74d068c5",
+      "ordered": true,
+      "nontrivial_free_or_count": 9,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-09.graph",
+      "K": 6,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-09-k6-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.26793420700050774,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        33,
+        66,
+        62,
+        65,
+        124
+      ],
+      "cnf_sha256": "97ef8e9eea2df94e3ce30b52c7950b9e685eebf8201ae1aee52dfbfcb5149cde",
+      "ordered": true,
+      "nontrivial_free_or_count": 4,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-10.graph",
+      "K": 6,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-10-k6-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.21464222199938376,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        34,
+        66,
+        30,
+        97,
+        124
+      ],
+      "cnf_sha256": "2a9d2a01e7e6b1a8813184e7671be3bf154587addda6d8f34020b87728743e30",
+      "ordered": true,
+      "nontrivial_free_or_count": 6,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "tree7-11.graph",
+      "K": 5,
+      "native_limit_seconds": 60,
+      "prefix": "tree7-11-k5-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 0.06395832599991991,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        5,
+        9,
+        17,
+        33,
+        65,
+        1,
+        126
+      ],
+      "cnf_sha256": "1f3e2d65cac205de8451e2ca40dcde170125b5046fd868e6bb8f63ebf5c03908",
+      "ordered": true,
+      "nontrivial_free_or_count": 0,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c7.graph",
+      "K": 9,
+      "native_limit_seconds": 300,
+      "prefix": "c7-k9-packing-oracle",
+      "exit": 0,
+      "wrapper_seconds": 300.0674684309997,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          0
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        96,
+        65,
+        21,
+        37,
+        41,
+        42,
+        74,
+        82,
+        84
+      ],
+      "cnf_sha256": "16c8454ce8b52e0fa6e18a3dafa24d4190702dc519363d4fb26ae63770f1d86b",
+      "ordered": true,
+      "nontrivial_free_or_count": 7,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "theta233.graph",
+      "K": 10,
+      "native_limit_seconds": 300,
+      "prefix": "theta233-k10-packing-oracle",
+      "exit": 0,
+      "wrapper_seconds": 300.0455220969998,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "rows": [
+        5,
+        9,
+        33,
+        6,
+        18,
+        66,
+        24,
+        96,
+        3,
+        42,
+        44,
+        52,
+        76,
+        81,
+        84
+      ],
+      "cnf_sha256": "759cdda39c25985977c25e55a9dfdda8f2d8ee90d9b82ba310a059f4ffb4c887",
+      "ordered": true,
+      "nontrivial_free_or_count": 2,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c6leaf.graph",
+      "K": 8,
+      "native_limit_seconds": 90,
+      "prefix": "c6leaf-k8-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 30.953747952000413,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        48,
+        33,
+        65,
+        9,
+        21,
+        82,
+        84,
+        100,
+        106
+      ],
+      "cnf_sha256": "d253aa66c3fa2851999b50eb89b4b4f933fb4b859f8a9fd3a00848cd920351b8",
+      "ordered": true,
+      "nontrivial_free_or_count": 6,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c5path2.graph",
+      "K": 9,
+      "native_limit_seconds": 90,
+      "prefix": "c5path2-k9-packing-oracle",
+      "exit": 0,
+      "wrapper_seconds": 90.02816328799963,
+      "solver_status": [],
+      "status": "UNKNOWN_TIME_LIMIT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        96,
+        42,
+        50,
+        52,
+        69,
+        73,
+        74,
+        82,
+        84
+      ],
+      "cnf_sha256": "2e2d55e2081e81fc5baeb2fd7e18a597e33e5d1b4d33dc40f3f6ebb5b0a5d74c",
+      "ordered": true,
+      "nontrivial_free_or_count": 6,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c5leaves_same.graph",
+      "K": 8,
+      "native_limit_seconds": 90,
+      "prefix": "c5leaves_same-k8-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 27.813612904001275,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        65,
+        5,
+        9,
+        106,
+        114,
+        116
+      ],
+      "cnf_sha256": "4533e46712ba07197ef087cdc10755fd0544bc9c433c6fdbb582e82bf7f0427d",
+      "ordered": true,
+      "nontrivial_free_or_count": 4,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c5leaves_adjacent.graph",
+      "K": 8,
+      "native_limit_seconds": 90,
+      "prefix": "c5leaves_adjacent-k8-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 42.98942780699872,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        66,
+        42,
+        50,
+        69,
+        73,
+        104,
+        116
+      ],
+      "cnf_sha256": "77d23ad28e4ae1878953d5128aa9020e064c1040a9fa27955fbed73c08061c40",
+      "ordered": true,
+      "nontrivial_free_or_count": 6,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    },
+    {
+      "kind": "oracle",
+      "graph": "c5leaves_apart.graph",
+      "K": 8,
+      "native_limit_seconds": 90,
+      "prefix": "c5leaves_apart-k8-packing-oracle",
+      "exit": 20,
+      "wrapper_seconds": 34.292742495999846,
+      "solver_status": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "UNSAT",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "rows": [
+        3,
+        6,
+        12,
+        24,
+        17,
+        33,
+        68,
+        5,
+        52,
+        73,
+        106,
+        114
+      ],
+      "cnf_sha256": "472f9e884fcc98d98648f612a50fb15b921eb322a66016a11c1edc0eb7812ecf",
+      "ordered": true,
+      "nontrivial_free_or_count": 5,
+      "source": "synth_sat_packing_oracle.py",
+      "source_sha256": "d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19"
+    }
+  ],
+  "source_counts": {
+    "SAT": 1,
+    "UNSAT": 21,
+    "UNKNOWN_TIME_LIMIT": 4
+  },
+  "oracle_counts": {
+    "SAT": 0,
+    "UNSAT": 21,
+    "UNKNOWN_TIME_LIMIT": 3
+  }
+}

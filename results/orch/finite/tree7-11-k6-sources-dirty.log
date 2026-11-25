@@ -1,0 +1,3 @@
+MODEL {"graph": "tree7-11.graph", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6]], "K": 6, "rows": [3, 5, 9, 17, 33, 65, 1, 126], "ordered": true, "goal": "every source AND true on some maximal independent set", "clauses": 2641, "cnf_sha256": "3ee2c91e49a52ab7a9e0b9205d7b60b89f0f5574b30f94b240c7200edd75ac73"}
+RESULT 20 SECONDS 0.11455282099996111
+STATUS ['s UNSATISFIABLE']

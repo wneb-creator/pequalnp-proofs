@@ -1,0 +1,3 @@
+MODEL {"graph": "c6.graph", "n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "K": 7, "free_supports": [1, 2, 4, 8, 16, 32, 9, 18, 36], "free_wire_count": 9, "goal": "edge function using free ORs of distance-two packings", "rows": [3, 6, 12, 24, 48, 33, 9, 18, 21, 36, 42], "ordered": true, "clauses": 4680, "cnf_sha256": "82e6827114f99ff831ae51e608589907390934f1f9e0cb77da49ee460bcb3ae0"}
+RESULT 20 SECONDS 1.7694643399991037
+STATUS ['s UNSATISFIABLE']

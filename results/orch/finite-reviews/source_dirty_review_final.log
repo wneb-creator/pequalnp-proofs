@@ -1,0 +1,30 @@
+SOURCE_HASHES PASS
+c5leaf-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+c5leaves_adjacent-k9-sources-dirty CNF_PASS UNSAT solver_report_only
+c5leaves_apart-k9-sources-dirty CNF_PASS UNSAT solver_report_only
+c5leaves_same-k9-sources-dirty CNF_PASS UNSAT solver_report_only
+c5path2-k10-sources-dirty CNF_PASS UNKNOWN no_proof_claim
+c6leaf-k9-sources-dirty CNF_PASS UNSAT solver_report_only
+c7-k10-sources-dirty CNF_PASS UNKNOWN no_proof_claim
+double_star6-k6-sources-dirty CNF_PASS UNSAT solver_report_only
+fork6-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+p4-k4-sources-dirty CNF_PASS UNSAT solver_report_only
+p4-k5-sources-dirty CNF_PASS SAT full_truth_and_CNF_PASS
+p5-k5-sources-dirty CNF_PASS UNSAT solver_report_only
+p6-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+theta233-k11-sources-dirty CNF_PASS UNKNOWN no_proof_claim
+theta333-k12-sources-dirty CNF_PASS UNKNOWN no_proof_claim
+tree7-01-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-02-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-03-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-04-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-05-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-06-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-07-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-08-k8-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-09-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-10-k7-sources-dirty CNF_PASS UNSAT solver_report_only
+tree7-11-k6-sources-dirty CNF_PASS UNSAT solver_report_only
+OUTCOMES {'UNSAT': 21, 'UNKNOWN': 4, 'SAT': 1}
+TREE_CENSUS PASS independent_leaf_extension_counts [1, 1, 1, 2, 3, 6, 11] coverage=11/11
+REVIEW PASS; bounded computational evidence, not a Lean proof or universal conjecture proof

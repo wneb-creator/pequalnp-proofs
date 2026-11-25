@@ -1,0 +1,28 @@
+PASS archive: exact381-file coverage, all hashes, manifest hash
+PASS oracle census: {'UNSAT': 21, 'UNKNOWN_TIME_LIMIT': 3} sourceSHA d750dd818860db0e27763b806e3ec6db2ca93b52dd4e2a1ee8a64810924e6c19
+PASS matching2-k2-packing-oracle UNSAT n 4 K 2 free 8 clauses 535
+PASS matching3-k4-packing-oracle UNSAT n 6 K 4 free 26 clauses 8379
+PASS p4-k3-packing-oracle UNSAT n 4 K 3 free 5 clauses 553
+PASS p6-k6-packing-oracle UNSAT n 6 K 6 free 12 clauses 4757
+PASS c5leaf-k7-packing-oracle UNSAT n 6 K 7 free 8 clauses 4225
+PASS c6-k7-packing-oracle UNSAT n 6 K 7 free 9 clauses 4680
+PASS tree7-01-k7-packing-oracle UNSAT n 7 K 7 free 18 clauses 10748
+PASS tree7-02-k7-packing-oracle UNSAT n 7 K 7 free 16 clauses 8621
+PASS tree7-03-k7-packing-oracle UNSAT n 7 K 7 free 18 clauses 10369
+PASS tree7-04-k6-packing-oracle UNSAT n 7 K 6 free 14 clauses 5694
+PASS tree7-05-k7-packing-oracle UNSAT n 7 K 7 free 17 clauses 9292
+PASS tree7-06-k6-packing-oracle UNSAT n 7 K 6 free 15 clauses 6197
+PASS tree7-07-k7-packing-oracle UNSAT n 7 K 7 free 20 clauses 12688
+PASS tree7-08-k7-packing-oracle UNSAT n 7 K 7 free 16 clauses 8621
+PASS tree7-09-k6-packing-oracle UNSAT n 7 K 6 free 11 clauses 4094
+PASS tree7-10-k6-packing-oracle UNSAT n 7 K 6 free 13 clauses 4961
+PASS tree7-11-k5-packing-oracle UNSAT n 7 K 5 free 7 clauses 1868
+PASS c7-k9-packing-oracle UNKNOWN_TIME_LIMIT n 7 K 9 free 14 clauses 11891
+PASS theta233-k10-packing-oracle UNKNOWN_TIME_LIMIT n 7 K 10 free 9 clauses 9857
+PASS c6leaf-k8-packing-oracle UNSAT n 7 K 8 free 13 clauses 8931
+PASS c5path2-k9-packing-oracle UNKNOWN_TIME_LIMIT n 7 K 9 free 13 clauses 11472
+PASS c5leaves_same-k8-packing-oracle UNSAT n 7 K 8 free 11 clauses 7239
+PASS c5leaves_adjacent-k8-packing-oracle UNSAT n 7 K 8 free 13 clauses 8931
+PASS c5leaves_apart-k8-packing-oracle UNSAT n 7 K 8 free 12 clauses 7885
+PASS matching2: full16rows; bothsourceANDs dirty; 3paid/7ordinary; exhaustive56 one-gate and4032 two-gate circuits fail
+REVIEW PASS: finite solver evidence only. UNKNOWN is not a lower bound; oracle gates have different cost from ordinary circuits. No full-gap refutation.

@@ -38,3 +38,5 @@ Continue four routes: whole common-singleton component extraction; graph-only gu
 ## Second strategy review
 
 The at-most-one-junk case now gives the desired star-profile existential conditionally, including zero junk and empty graphs. Multiple dirty gates remain unresolved. A concrete two-junk circuit blocks a fixed-prefix replacement within three added gates; this is not a full counterexample because the whole OR prefix can be rebuilt. Free-OR bounded-AND searches and finite total-gate synthesis support small instances but do not prove a global size bound. A fresh independent full-theorem route and allowed-import dependency extraction are underway.
+
+Recovery phase concluded with a new own assignment L-gct-231 at09:35UTC, after15 nulls. All old proof attempts stopped. Final old-source location is final-partial/L_meta_2448.lean; checked partial only. Shared-neighborhood graph-pair and later-cone arguments in structural.md remain paper arguments, not Lean results.

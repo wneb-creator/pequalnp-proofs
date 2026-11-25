@@ -1,0 +1,11 @@
+{
+  "null_count": 15,
+  "messages": {
+    "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes": 6,
+    "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes": 1,
+    "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes": 1,
+    "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes": 5,
+    "No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes.": 2
+  },
+  "assigned_afterwards": "L-gct-231"
+}

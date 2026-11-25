@@ -1,0 +1,6 @@
+AtMostOneJunkStandalone.lean EXACT_DECLARATION_BODIES_PASS 34
+TwoSilentProductsGraphOnly.lean EXACT_DECLARATION_BODIES_PASS 21
+ALL_BYTES_REPRODUCED_PASS; only documented selective-open adjustments
+DEPENDENCY_CLOSURE_PASS 142 constants; all 55 retained declarations exactly accounted for
+PROVENANCE_REVIEW_PASS 1d902852fc9202616b3ca6abdeb8d857acfb3f075c024f86b3796d81b848de1c
+Scope: graph-only four-side subclass; no full-gap claim, independent compilation not repeated

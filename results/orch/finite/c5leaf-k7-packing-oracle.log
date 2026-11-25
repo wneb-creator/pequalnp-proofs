@@ -1,0 +1,3 @@
+MODEL {"graph": "c5leaf.graph", "n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5]], "K": 7, "free_supports": [1, 2, 4, 8, 16, 32, 36, 40], "free_wire_count": 8, "goal": "edge function using free ORs of distance-two packings", "rows": [3, 6, 12, 24, 17, 33, 5, 9, 42, 50, 52], "ordered": true, "clauses": 4225, "cnf_sha256": "4f68c0126cd11f2847165cdf0ed46cdc0f376d5513745c60cebf7f3798f25be0"}
+RESULT 20 SECONDS 1.321317583999189
+STATUS ['s UNSATISFIABLE']
