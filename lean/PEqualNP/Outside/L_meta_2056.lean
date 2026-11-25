@@ -61,6 +61,43 @@ lemma core_exact_of_tests {α β : Type} [Fintype α] [Fintype β]
     exact hm {a} s {b} t (Finset.singleton_subset_iff.mpr ha)
       (Finset.singleton_subset_iff.mpr hb) (hp a har b hab)
 
+lemma reuse_exact_of_tests {α β : Type} [Fintype α] [Fintype β]
+    [DecidableEq α] [DecidableEq β] (R : α → β → Prop) [DecidableRel R]
+    (rows : Finset α) (cols : Finset β) (f : Finset α → Finset β → Bool)
+    (hm : ∀ s s' t t', s ⊆ s' → t ⊆ t' → f s t = true → f s' t' = true)
+    (hp : ∀ b ∈ cols, f ∅ {b} = true)
+    (hn : ∀ s ∈ rows.powerset,
+      f (s ∪ rowsᶜ) (offSet R s \ cols) = false) :
+    ∀ s t, (∀ a ∈ s ∩ rows, ∀ b ∈ t, ¬R a b) →
+      (f s t = true ↔ ∃ b ∈ t, b ∈ cols) := by
+  intro s t hfree
+  constructor
+  · intro hf
+    by_contra h
+    have ht : t ⊆ offSet R (s ∩ rows) \ cols := by
+      intro b hb
+      apply Finset.mem_sdiff.mpr
+      constructor
+      · simp only [offSet, Finset.mem_filter, Finset.mem_univ, true_and]
+        intro a ha
+        exact hfree a ha b hb
+      · intro hbc
+        exact h ⟨b, hb, hbc⟩
+    have hs : s ⊆ (s ∩ rows) ∪ rowsᶜ := by
+      intro a ha
+      by_cases har : a ∈ rows
+      · exact Finset.mem_union_left _ (Finset.mem_inter.mpr ⟨ha, har⟩)
+      · exact Finset.mem_union_right _ (Finset.mem_compl.mpr har)
+    have hf' := hm s ((s ∩ rows) ∪ rowsᶜ) t
+      (offSet R (s ∩ rows) \ cols) hs ht hf
+    have hi : s ∩ rows ∈ rows.powerset :=
+      Finset.mem_powerset.mpr (fun _ h => (Finset.mem_inter.mp h).2)
+    rw [hn _ hi] at hf'
+    contradiction
+  · rintro ⟨b, hb, hbc⟩
+    exact hm ∅ s {b} t (Finset.empty_subset s)
+      (Finset.singleton_subset_iff.mpr hb) (hp b hbc)
+
 lemma fold_mono (gs : List Gate)
     (hm : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
     (a b : List Bool) (hab : ∀ i, a.getD i false = true → b.getD i false = true)
@@ -486,6 +523,21 @@ lemma pgBits_mono (D : Circuit) (hm : Monotone2 D)
     exact hS hi
   · simp only [h, ite_false, decide_eq_true_eq] at hi ⊢
     exact hT hi
+
+lemma wireReuseTests_correct (D : Circuit) (rows cols : Finset (Fin 13))
+    (q : ℕ) (hm : Monotone2 D)
+    (hp : ∀ l ∈ cols, (D.wires (pgBits ∅ {l})).getD q false = true)
+    (hn : ∀ S ∈ rows.powerset,
+      (D.wires (pgBits (S ∪ rowsᶜ)
+        (offSet (fun p l : Fin 13 => (p.val + l.val) % 13 ∈ ([0,1,3,9] : List ℕ)) S \ cols))).getD q false = false) :
+    ∀ S T, (∀ p ∈ S ∩ rows, ∀ l ∈ T, ¬pgNear p l) →
+      ((D.wires (pgBits S T)).getD q false = true ↔ ∃ l ∈ T, l ∈ cols) := by
+  let Q : Circuit := ⟨D.gates, q⟩
+  have hQ : Monotone2 Q := hm
+  exact reuse_exact_of_tests
+    (fun p l : Fin 13 => (p.val + l.val) % 13 ∈ ([0,1,3,9] : List ℕ))
+    rows cols (fun S T => Q.eval (pgBits S T))
+    (pgBits_mono Q hQ) hp hn
 
 lemma coreTests_correct (D : Circuit) (rows : List (Fin 13))
     (hm : Monotone2 D)
