@@ -1,0 +1,38 @@
+PASS generic prefix byte-identical after import replacement
+PASS exact final parameter/hypothesis/conjunction statement preserved
+PASS helper 0 certEq400 exact equation and original proof branch
+PASS helper 1 certEq310 exact equation and original proof branch
+PASS helper 2 certEq301 exact equation and original proof branch
+PASS helper 3 certEq300 exact equation and original proof branch
+PASS helper 4 certEq220 exact equation and original proof branch
+PASS helper 5 certEq211 exact equation and original proof branch
+PASS helper 6 certEq210 exact equation and original proof branch
+PASS helper 7 certEq202 exact equation and original proof branch
+PASS helper 8 certEq201 exact equation and original proof branch
+PASS helper 9 certEq200 exact equation and original proof branch
+PASS helper 10 certEq130 exact equation and original proof branch
+PASS helper 11 certEq121 exact equation and original proof branch
+PASS helper 12 certEq120 exact equation and original proof branch
+PASS helper 13 certEq112 exact equation and original proof branch
+PASS helper 14 certEq111 exact equation and original proof branch
+PASS helper 15 certEq110 exact equation and original proof branch
+PASS helper 16 certEq103 exact equation and original proof branch
+PASS helper 17 certEq102 exact equation and original proof branch
+PASS helper 18 certEq101 exact equation and original proof branch
+PASS helper 19 certEq040 exact equation and original proof branch
+PASS helper 20 certEq031 exact equation and original proof branch
+PASS helper 21 certEq030 exact equation and original proof branch
+PASS helper 22 certEq022 exact equation and original proof branch
+PASS helper 23 certEq021 exact equation and original proof branch
+PASS helper 24 certEq020 exact equation and original proof branch
+PASS helper 25 certEq013 exact equation and original proof branch
+PASS helper 26 certEq012 exact equation and original proof branch
+PASS helper 27 certEq011 exact equation and original proof branch
+PASS helper 28 certEq004 exact equation and original proof branch
+PASS helper 29 certEq003 exact equation and original proof branch
+PASS helper 30 certEq002 exact equation and original proof branch
+PASS exact31helper conjunction, parameter order and h unchanged
+PASS all new declarations exactly31helpers; eight Mathlib imports; format/options clean
+PASS source delta review only; no Lean build performed
+source_sha256 4e3efa0b397320b678920ea30e5c1228261ee1d043e99e6134e2d8be60a9e6a3
+manifest_sha256 a91063c68ff7cae5491bc57ac2520519a2a2f96e5bd0d9b241fe86403edface8
