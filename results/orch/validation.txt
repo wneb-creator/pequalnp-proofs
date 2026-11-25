@@ -4,4 +4,5 @@ ReplaceLast.lean: lake env lean exit 0, compiler output empty.
 Independent red-team review: PASS for partial checkpoint, pending full theorem.
 Full checker: not run; main theorem absent, full Mathlib cache absent.
 Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route
-TIMING total=11.48 subagents=5
+SensitivityMask.lean: lake env lean exit 0, compiler output empty; independent semantic and format review PASS for partial checkpoint.
+TIMING total=14.34 subagents=5
