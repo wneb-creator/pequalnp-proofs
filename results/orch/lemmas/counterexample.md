@@ -32,6 +32,24 @@ Added optional symmetry breaking: maximum fanin indices are nondecreasing across
 
 `repair.py` probes local SAT neighborhoods of the best approximate circuit, releasing roughly 8–10 gates while fixing the others. Its per-neighborhood cap is ten seconds. These are explicitly partial searches, and any local UNSAT is not a global circuit lower bound.
 
+The first stochastic run completed 1,004,863,488 mutations in 600 seconds. Its best circuit computes the target plus the two nonedges `{0,2}` and `{4,7}`, differing on ten assignments. Its NOT is unused. A second run penalized absence of a syntactically live NOT; after 1,072,496,640 mutations in 600 seconds its best circuit has one live NOT and sixteen independently verified errors. Neither run found a witness.
+
+All 24 local repair neighborhoods finished: five were UNSAT, nineteen timed out. Both five-minute colex searches also timed out without a verdict.
+
+## Unrestricted canonical encoding
+
+`canonical.py` now implements exactly the numeric scheme and clause order requested by the `sat_encoding` agent: AND0, OR1, TRUE2, NOT3; each gate source ranges through all earlier wires plus the explicit false source; output is arbitrary; unused and constant gates are permitted. There are no at-most-one, connectivity, ordering, or other normalization clauses. Only existence of at least one NOT is required. The agent independently reviewed the Python encoder against its Lean `encN` completeness theorem.
+
+`canonical19.cnf` has 117,946 clauses and uses maximum DIMACS variable 126,510. It constrains the same 91 rows. An UNSAT certificate for this exact CNF would suffice for the full posted statement through the proved completeness bridge, without the restricted-search assumptions above.
+
+Positive sanity check exercised a 21-gate circuit: the known 20-gate witness plus an unused NOT reading the explicit false source, with the output pointing to the previous gate. The canonical formula is SAT, and decoding agrees on all 1024 assignments.
+
+At about 14:07 UTC, following root's fresh lease renewal, started a 1500-second Cadical run on the canonical CNF, retaining text LRAT and complete stdout/stderr as `long-canonical.*`. A separate 1500-second restricted colex run started about 14:02 UTC (`long-colex.*`). Neither has a verdict yet. The first 100,000 canonical LRAT lines contain 89,460 additions, 10,540 deletion records, and no negative hint records; this is only a prefix sample.
+
+## Essential-NOT witness branches
+
+The lower-bound agent supplied five simultaneous automorphism orbits with fixed true edge mask3 and independent blocker masks50,104,116,138,201. `witness_branches.py` adds exactly-one-NOT and the source/sign witness constraints, plus six counterfactual evaluations forcing the opened suffix to have the majority pattern on intersection, edge, blocker, and union. These are currently search constraints only; the full canonical CNF is kept unchanged. Each branch has an initial 60-second run, with all outputs retained.
+
 ## Existing reductions
 
 All three reductions are already in the repository: `R_meta_2592_408` normalizes wires and output; `R_meta_2592_271` separates the 15-binary-gate floor from the one-to-four-NOT case; `R_meta_2592_318` cuts at the last NOT. A fourth reduction should not be assumed available.

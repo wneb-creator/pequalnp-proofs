@@ -14,3 +14,6 @@ TIMING total=24 subagents=6
 PetersenCNF.lean (548lines) compiled and independentlyreviewed; conditional conclusion exactlymatchespostedstatement. UNSATpremise unproved.
 Local checker on503line namedpartial: REJECTED(no-theorem), missing PEqualNP.Outside.L_meta_2592. Full checker stdout/stderr archived. No accepted proof/PR.
 TIMING total=27 subagents=6
+
+RetainedInput andFirstCollision eachcompiled exit0 with emptylogs; independentreview passed including360finitecollisioncases. Full17/18bound assembly pending.
+TIMING total=30 subagents=6

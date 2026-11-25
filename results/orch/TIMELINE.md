@@ -8,3 +8,4 @@
 2026-11-25T14:09:14.931927+00:00 Replanned after~23minutes; prioritize verified finiteCNF + unrestrictedsearch, retain structural cost approach.
 2026-11-25T14:10:05.884725+00:00 CompleteCNF,OneNotCross,Partial16 independentlyreviewed and compiled; preservingexactsource andfulllogs incheckpoint.
 2026-11-25T14:13:52.343627+00:00 PetersenCNF exact-statement conditional wrapper compiled and reviewed; local checker on503line partial returned REJECTED(no-theorem), as expected.
+2026-11-25T14:16:15.651457+00:00 RetainedInput andFirstCollision compiled and independentlyreviewed; preservepartial17/18bound components.
