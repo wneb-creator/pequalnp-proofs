@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/GuardCharging.lean",
+  "sha256": "6e2c31baa3ce2f08339feb65bfaa9e5f13da150da828e5bd7f669ca63b52d9be",
+  "lines": 245,
+  "change_from_reviewed_draft": "Replace unavailable Finset.subset_inter.mpr by explicit Finset.mem_inter proof; same statement and argument.",
+  "exit_code": 0,
+  "status": "checked generic conditional lemmas; no unrestricted 39 or posted 51 bound",
+  "finished_utc": "2026-11-25T05:50:21.818269+00:00",
+  "olean": "/tmp/oec/pequalnp-pilot-62/lean-modules/GuardCharging.olean",
+  "olean_bytes": 396296
+}
