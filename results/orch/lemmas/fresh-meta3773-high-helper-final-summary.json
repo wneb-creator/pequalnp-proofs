@@ -1,0 +1,22 @@
+{
+  "orbits": {
+    "63": [
+      1,
+      12,
+      106
+    ],
+    "126": [
+      1,
+      6,
+      34
+    ],
+    "127": [
+      1,
+      7
+    ]
+  },
+  "total": 168,
+  "tested_all": true,
+  "hits": 0,
+  "scope": "one-triple patch with six or seven actually used helpers only"
+}

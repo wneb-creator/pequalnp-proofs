@@ -1,0 +1,76 @@
+{
+  "utc": "2026-11-25T14:18:24.473162+00:00",
+  "scope": "Reviewed six-point PG(2,3) patch synthesis diagnostics. Ninety-second search found no28gate patch/no63gate global witness. The known29gate baseline remains; an exported31gate bad-AND patch is physically correct but over budget. Frozen27gate near misses three positive edge samples and5898physical inputs. The projective normalizer checks all156ordered line pairs but is only a finite input-permutation helper, not a Lean theorem or circuit witness. Denser-sixpoint followup excluded until completed.",
+  "artifacts": [
+    {
+      "file": "meta3773_six_patch_data.py",
+      "sha256": "d14805c3cbee8463eb854a3701992d9da99b70c6bda185f7921deca5e8bec854",
+      "bytes": 3233
+    },
+    {
+      "file": "meta3773-six-patch-data.json",
+      "sha256": "2ee0428c32ce444f91847d29ef053eb9c18494fe3243de0883f8ab01f96584cf",
+      "bytes": 25843
+    },
+    {
+      "file": "meta3773_six_patch_data.hpp",
+      "sha256": "7d9d72fd73c34bf162908dfec212c838283dbc1b0d86eab94ada8f22bac992c3",
+      "bytes": 2863
+    },
+    {
+      "file": "meta3773-six-patch-data.log",
+      "sha256": "6a6afc339ba4bf8717beeea616a413ea1bd4e1fbe59c8f7835a6fcf3003785b2",
+      "bytes": 231
+    },
+    {
+      "file": "meta3773_six_patch_cgp.cpp",
+      "sha256": "55098fbff3cb14809235c904c47c0c69cc760eab72c5d2b84bcceefdc8e3f9f0",
+      "bytes": 10866
+    },
+    {
+      "file": "meta3773_six_patch_cgp_run.py",
+      "sha256": "1125b3626c4554275f906b2a722b45454af0e462a666ee290402138a19835e20",
+      "bytes": 1381
+    },
+    {
+      "file": "meta3773-six-patch-cgp-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "meta3773-six-patch-cgp-3773800.log",
+      "sha256": "eed7db70e217300497d4115238f8af34d519800abf140c19371ec4b044cd09ed",
+      "bytes": 5328
+    },
+    {
+      "file": "meta3773-six-patch-cgp-3773800-run.log",
+      "sha256": "5e1f99163162e03fde974e569601e92e76f0027420465a6812be237f615dcb9f",
+      "bytes": 456
+    },
+    {
+      "file": "meta3773-six-patch-cgp-3773800-status.json",
+      "sha256": "076a3e758172da875b708a5dd37b7aa6e2d34c792d769f64b2e66c742057ad2a",
+      "bytes": 484
+    },
+    {
+      "file": "meta3773-six-patch-frozen-near27.json",
+      "sha256": "61157b780a024f70ca9b01a6b56691d5a490fa7cec505240ac329cc8cd0e75a2",
+      "bytes": 2078
+    },
+    {
+      "file": "meta3773_projective_normalize.py",
+      "sha256": "3b33fb42c289bf2d9017536c2873d309f16c539fee624598f8a988bafb1b1813",
+      "bytes": 2457
+    },
+    {
+      "file": "meta3773-projective-normalize-result.json",
+      "sha256": "2d7c3b16b46202db5352cc9abf6da737f4f9f95f90cce56ca50663912cdb3f0a",
+      "bytes": 274
+    },
+    {
+      "file": "meta3773-projective-normalize.log",
+      "sha256": "a0c2d41237f9b706c4462255c21792773de63f18831b28f766b40ebf33d4d1e7",
+      "bytes": 264
+    }
+  ]
+}

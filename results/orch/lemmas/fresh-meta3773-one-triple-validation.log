@@ -1,0 +1,5 @@
+high-helper orbit representative 63 6 orbit size 6
+high-helper orbit representative 126 6 orbit size 1
+high-helper orbit representative 127 7 orbit size 1
+105 arbitrary cone specifications including 40 negative rows agree with independent labelled Python recurrence
+representative [0, 1, 2, 3, 6] edge rows 17 maximal negatives 24 raw 13 helpers 7 symmetries 12

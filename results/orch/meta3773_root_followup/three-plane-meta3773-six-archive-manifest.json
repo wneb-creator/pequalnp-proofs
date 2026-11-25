@@ -1,0 +1,98 @@
+{
+  "classification": "incomplete six-point circuit search; no new proof",
+  "files": [
+    {
+      "path": "results/orch/meta3773_sat_six/README.md",
+      "sha256": "c109a0856ce69fa3d569dc3bc5b35b9f4cc87adb5a0a63ce95e1b7b658b209ef",
+      "bytes": 1194
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-known29-physical-verification.log",
+      "sha256": "c8aa6f1213a7adec5a5c8cc79561c3ab8fdd37fee8cefeb579d7871a0d574308",
+      "bytes": 338
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-known29-verification.log",
+      "sha256": "88c144bc4737c593f86f562e3a04d543341f4033a5adbeda5a183c257545f574",
+      "bytes": 107
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-known29.json",
+      "sha256": "db44bd2f63fe1a349018bb68a96d86ffddeb256101a9ac0929f04124d3543ae1",
+      "bytes": 363
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-patch-data.json",
+      "sha256": "2ee0428c32ce444f91847d29ef053eb9c18494fe3243de0883f8ab01f96584cf",
+      "bytes": 25843
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0-metadata.json",
+      "sha256": "97af809c1bc65c8418d300893a141dd51241dec3ca28a23220af1e1785195432",
+      "bytes": 105222
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0-run.log",
+      "sha256": "affb9b13e6910f615db62b5c9f8e779ed5b45233cb0b3ef0739608701408dc8f",
+      "bytes": 365
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0-solver.log",
+      "sha256": "432e18ce156774100faa629c083eae6c13b53d38114e733a2b3779197ab4b094",
+      "bytes": 18657
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0-source.py",
+      "sha256": "18aa4f495ec9c52102427f233dc2f9dd6da88033d9cd031622629c638c241125",
+      "bytes": 12922
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0-status.json",
+      "sha256": "7445816f19e728ed59d405694222fdd4640c797601286ad42f2d5266bb0e7288",
+      "bytes": 251
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r0.cnf.gz",
+      "sha256": "a90bcbf1ea2f575c84d1662d67da6f389ea64992d16b4c3bef939a71629e6b12",
+      "bytes": 1474470,
+      "uncompressed_sha256": "f9d65f37fb48050bca9c6d9ede99b18e5c2bf42442780c9dd947de5401101925",
+      "uncompressed_bytes": 6685872
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r990-metadata.json",
+      "sha256": "925f354c3149bb024dce303988c64105daeef94fabe9b9388ce256d327a3bc18",
+      "bytes": 108977
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r990-run.log",
+      "sha256": "b7fe0e44096dced25ff8f122c528efd7c62f21b2d1ed4bfdd831410dc0e4eee7",
+      "bytes": 126
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773-six-sat-r990-source.py",
+      "sha256": "18aa4f495ec9c52102427f233dc2f9dd6da88033d9cd031622629c638c241125",
+      "bytes": 12922
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773_six_sat.py",
+      "sha256": "18aa4f495ec9c52102427f233dc2f9dd6da88033d9cd031622629c638c241125",
+      "bytes": 12922
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773_six_verify_encoding.py",
+      "sha256": "22ddabe677faee657b5fc90bd64369a83ee95e9bde2b8b8aa23704404282c0fa",
+      "bytes": 3979
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/meta3773_six_verify_physical.py",
+      "sha256": "d8bd829cfea0a864e951825da73716029cbebf505dbd6eab3f011e61e6616255",
+      "bytes": 1382
+    },
+    {
+      "path": "results/orch/meta3773_sat_six/three_plane_meta3773_six_archive.py",
+      "sha256": "9fac9116ed45550ca3b567a7d8e317221f6502ab7a688766de75fc1bcaf4d5e6",
+      "bytes": 4097
+    }
+  ],
+  "total_bytes": 1784137
+}

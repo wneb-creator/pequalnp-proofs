@@ -1,0 +1,3 @@
+model [0, 1, 2, 3, 6] rows 17 24 group 12
+case 1 of 1 result False branch-eligible True states 5 seconds 0.646
+{'cases': 1, 'tested': 1, 'solutions': [], 'seconds': 0.6459070689998043}

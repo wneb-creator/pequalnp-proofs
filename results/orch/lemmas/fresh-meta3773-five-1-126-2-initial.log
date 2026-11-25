@@ -1,0 +1,36 @@
+model [0, 1, 2, 3, 6] rows 17 24 group 12
+case 1 of 34 result False branch-eligible False states 0 seconds 0.001
+case 2 of 34 result False branch-eligible False states 0 seconds 0.001
+case 3 of 34 result False branch-eligible False states 0 seconds 0.001
+case 4 of 34 result False branch-eligible False states 0 seconds 0.001
+case 5 of 34 result False branch-eligible False states 0 seconds 0.002
+case 6 of 34 result False branch-eligible False states 0 seconds 0.002
+case 7 of 34 result False branch-eligible False states 0 seconds 0.002
+case 8 of 34 result False branch-eligible False states 0 seconds 0.002
+case 9 of 34 result False branch-eligible False states 0 seconds 0.002
+case 10 of 34 result False branch-eligible False states 0 seconds 0.002
+case 11 of 34 result False branch-eligible False states 0 seconds 0.003
+case 12 of 34 result False branch-eligible False states 0 seconds 0.003
+case 13 of 34 result False branch-eligible False states 0 seconds 0.003
+case 14 of 34 result False branch-eligible False states 0 seconds 0.003
+case 15 of 34 result False branch-eligible False states 0 seconds 0.003
+case 16 of 34 result False branch-eligible True states 1 seconds 1.164
+case 17 of 34 result False branch-eligible False states 1 seconds 1.164
+case 18 of 34 result False branch-eligible False states 1 seconds 1.164
+case 19 of 34 result False branch-eligible False states 1 seconds 1.165
+case 20 of 34 result False branch-eligible False states 1 seconds 1.165
+case 21 of 34 result False branch-eligible False states 1 seconds 1.165
+case 22 of 34 result False branch-eligible False states 1 seconds 1.165
+case 23 of 34 result False branch-eligible False states 1 seconds 1.166
+case 24 of 34 result False branch-eligible False states 1 seconds 1.166
+case 25 of 34 result False branch-eligible False states 1 seconds 1.166
+case 26 of 34 result False branch-eligible False states 1 seconds 1.166
+case 27 of 34 result False branch-eligible False states 1 seconds 1.167
+case 28 of 34 result False branch-eligible False states 1 seconds 1.167
+case 29 of 34 result False branch-eligible False states 1 seconds 1.167
+case 30 of 34 result False branch-eligible False states 1 seconds 1.167
+case 31 of 34 result False branch-eligible False states 1 seconds 1.167
+case 32 of 34 result False branch-eligible False states 1 seconds 1.168
+case 33 of 34 result False branch-eligible False states 1 seconds 1.168
+case 34 of 34 result False branch-eligible False states 1 seconds 1.168
+{'cases': 34, 'tested': 34, 'solutions': [], 'seconds': 1.1682453579996945}

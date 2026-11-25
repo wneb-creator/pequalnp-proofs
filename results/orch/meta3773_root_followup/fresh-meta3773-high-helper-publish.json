@@ -1,0 +1,250 @@
+{
+  "scope": "one-triple five-point reduced patch, six/seven actually used exterior ORs only; all168 orbits exhausted; no Lean/global bound",
+  "files": [
+    {
+      "file": "fresh-meta3773-component-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "fresh-meta3773-component-extended-checks.log",
+      "sha256": "5287be3313c93f6b992e6bdaecd95311f8d67a17f76363833e538812eacf8720",
+      "bytes": 388
+    },
+    {
+      "file": "fresh-meta3773-component-test-short.log",
+      "sha256": "5d809ed37ad7a688600203e66a7877ec6ea7a52c0323bd707a271183f33fc307",
+      "bytes": 423
+    },
+    {
+      "file": "fresh-meta3773-component-test.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-0-progress.json",
+      "sha256": "e51c04d3253a47dbcd8f90178504d3d37d7f71baa5efd995900465b7bdaeb814",
+      "bytes": 197
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-0-roundb.log",
+      "sha256": "155661a72f1088b53d63d115c006e579e9355b887159aed811a629bc268d5ce6",
+      "bytes": 185
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-1-progress.json",
+      "sha256": "1dad594cfba6f49fe9d7f6bda135202d926022ad6e1ad4580eec038c778fbd12",
+      "bytes": 197
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-1-roundb.log",
+      "sha256": "be27cdae1c4d2963b0c4678f4be8eca30ec06fff2880d50c6b9e4c5f11e31512",
+      "bytes": 535
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-2-initial.log",
+      "sha256": "1c892da4755cf44f06e09f1ba52cf64070a208029c10996fbaf0366fce7dea63",
+      "bytes": 2556
+    },
+    {
+      "file": "fresh-meta3773-five-1-126-2-progress.json",
+      "sha256": "cbba3dcc8c41b264b001e9ee4dc3149dc520ca875a6dbcfdee24d31990b5d8db",
+      "bytes": 199
+    },
+    {
+      "file": "fresh-meta3773-five-1-127-0-initial.log",
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c",
+      "bytes": 42
+    },
+    {
+      "file": "fresh-meta3773-five-1-127-0-progress.json",
+      "sha256": "ec4b646ae61c0ecac7b27006f1edda110e20ddb54e3d6ca897f2d2b95e05f461",
+      "bytes": 196
+    },
+    {
+      "file": "fresh-meta3773-five-1-127-0-roundb.log",
+      "sha256": "67c58aeedee0409761e9d8f488aceec9c730f41725b924b7481e174a2e99264b",
+      "bytes": 186
+    },
+    {
+      "file": "fresh-meta3773-five-1-127-1-initial.log",
+      "sha256": "bdb5b389ca9fbd5eb93712e1fd4e8ea4f5f6788eb3327236a5bcb51b86f7ecbe",
+      "bytes": 595
+    },
+    {
+      "file": "fresh-meta3773-five-1-127-1-progress.json",
+      "sha256": "c0e2301b0977836f0c7972413a39e30dc5c36e689515ce588fde1322c648b1d9",
+      "bytes": 195
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-0-g1795616295.log",
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c",
+      "bytes": 42
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-0-g1795616319.log",
+      "sha256": "aa9076dd820ac6a2624f9e0f48438cfd01f6d626267b6560b0858237808599bb",
+      "bytes": 189
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-0-progress.json",
+      "sha256": "596e39510363e6abdbbd018ddd9e8af4ae40a85c12356245e1e8a6fc51121a76",
+      "bytes": 196
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-0-roundb.log",
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c",
+      "bytes": 42
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-g1795616276.log",
+      "sha256": "e5f2a76cc12f40717d9ff3c8b5186944455968f4288c4080a4a0e935853ba151",
+      "bytes": 783
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-g1795616314.log",
+      "sha256": "451746a86a2d4782239b039a0103fba0f3a33a98ed12e1888e692cc032141261",
+      "bytes": 265
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-g1795616333.log",
+      "sha256": "9e8ebee48da724e274767ba36b66275fa114db82e7287462762506bfaf99ddc2",
+      "bytes": 121
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-p1795616175.log",
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c",
+      "bytes": 42
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-progress.json",
+      "sha256": "9bda70175869e65f4e749c787efc5ce18873202c68ca3c8a73297e9d02dad4a8",
+      "bytes": 197
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-1-roundb.log",
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c",
+      "bytes": 42
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-2-g1795616275.log",
+      "sha256": "633b3d57736316655baf147194c5f619c322337e80e41742fee90a648a004f0e",
+      "bytes": 3691
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-2-initial.log",
+      "sha256": "ae20d16c0eb11aefa3ffd732a669baa9f6340817b676bd3a4da989adf9f0c290",
+      "bytes": 1493
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-2-p1795616156.log",
+      "sha256": "76574e6227ba2495a40cfc18f010c872962d0d16dca5a2fde1ed47640d7b06b6",
+      "bytes": 1504
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-2-progress.json",
+      "sha256": "68bfe3c9d93474f61a904fc5198203dad627f8d34e4c99032de82f8560534b2f",
+      "bytes": 200
+    },
+    {
+      "file": "fresh-meta3773-five-1-63-2-roundb.log",
+      "sha256": "d4e17ae5b062c85e91dddd995d3f2196807edc3f44dfb7f8dd90ba67fb1c7805",
+      "bytes": 1280
+    },
+    {
+      "file": "fresh-meta3773-high-helper-final-summary.json",
+      "sha256": "c9402859f07c1a576335b19355a3f22563bbc72a84efbfcf2d39c3f1e4b42a79",
+      "bytes": 280
+    },
+    {
+      "file": "fresh-meta3773-high-helper-summary-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "fresh-meta3773-one-triple-cone-counts.log",
+      "sha256": "83fbd0f19cb9cfd8580776e229a8e4d02b607d4b39d1b998abded8396a94f23b",
+      "bytes": 434
+    },
+    {
+      "file": "fresh-meta3773-one-triple-validation.log",
+      "sha256": "8f724efb2e71325662f2452770c07130c6ce71d45ffdb14ebe882e4f9a5283fc",
+      "bytes": 362
+    },
+    {
+      "file": "fresh-meta3773-partition-filter-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "fresh-meta3773-partition-test.log",
+      "sha256": "ef597b2cd5ec78bf003ab426ddfe69e2baa46c6f4bc58ef96d12b89ff9594fe9",
+      "bytes": 305
+    },
+    {
+      "file": "fresh-meta3773-readonce-wide-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "fresh_meta3773_ONE_TRIPLE_HIGH_HELPERS.md",
+      "sha256": "3a23e19e7e89435a9b5b74300c2b94099a1918f86dfb691f3e4f52feaace0b57",
+      "bytes": 4558
+    },
+    {
+      "file": "fresh_meta3773_component_extended_checks.py",
+      "sha256": "846ecb32c4ed069a31880cea91050a63c13cc33a3f4b9558b04f51cbb92d04e4",
+      "bytes": 1078
+    },
+    {
+      "file": "fresh_meta3773_component_solve.cpp",
+      "sha256": "3418fee5765d50d35ab6fb898874d21bf6c07d36a139e1611c19f68ef4177000",
+      "bytes": 3152
+    },
+    {
+      "file": "fresh_meta3773_component_test.py",
+      "sha256": "dcac7810875173754e9639d83cbd320efca1cd542cd56c4cb91bf767901df7f6",
+      "bytes": 938
+    },
+    {
+      "file": "fresh_meta3773_five_component.py",
+      "sha256": "0355954bcb84361b7c5cba2780b42be1025ee59758c627293e4d1d8b80bbb6a2",
+      "bytes": 944
+    },
+    {
+      "file": "fresh_meta3773_five_partition.py",
+      "sha256": "8d9254c4f6895432c33913bcc0299479645ace133e747263056cdbe2e9fcff8a",
+      "bytes": 1162
+    },
+    {
+      "file": "fresh_meta3773_five_wide.py",
+      "sha256": "9f4cfc2c17347065695355375b2518a74d0ec7f28ef75c03db667795ab5598b7",
+      "bytes": 946
+    },
+    {
+      "file": "fresh_meta3773_high_helper_results.py",
+      "sha256": "6375fe5394ad1010df4d47a4548aee6156430efe489cace1e93d7b47ed7bcb1e",
+      "bytes": 780
+    },
+    {
+      "file": "fresh_meta3773_one_triple_validate.py",
+      "sha256": "012bd715aec9777177ee268b8a5d7d9393af6e6af1112bfbae2fed280572c113",
+      "bytes": 1710
+    },
+    {
+      "file": "fresh_meta3773_partition_filter.cpp",
+      "sha256": "bee2bd061a28b072933877ac36fcfbf79eb82a34f65edbbea14de10a06bc62a7",
+      "bytes": 1818
+    },
+    {
+      "file": "fresh_meta3773_partition_test.py",
+      "sha256": "eb95904d060ba5b9eff43b82399e56db910f484ff8f6c9c1991f2f031254a4c9",
+      "bytes": 1043
+    },
+    {
+      "file": "fresh_meta3773_readonce_wide.cpp",
+      "sha256": "d7b1009f6c5f02adafbff1fd625b6e60a7c0dac4f0fd5466bf5781093937b47a",
+      "bytes": 2884
+    }
+  ]
+}
