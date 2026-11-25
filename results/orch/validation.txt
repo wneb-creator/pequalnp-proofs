@@ -1,7 +1,8 @@
-L-meta-10760: full candidate source compiled with lake env lean --profile.
-Original source: MohamadEidAlAktaa, PR16243 (Apache-2.0), attribution retained.
-Build command exit0; elapsed1286.965seconds; full logs under lemmas/replacement/.
-The earlier35-line witness passed named-file lake build. The full candidate has not yet run through the local checker.
-Compression is in progress to fit the public checker time limit.
+L-meta-10760: 256-column candidate passed named-file lake build.
+Build: lake build PEqualNP.Outside.L_meta_10760, exit0, elapsed1473.661seconds.
+Source: 496125bytes,7861lines,SHA25698b6fde1f0e110353ba89d38bd687fe717d0db841e197ea231571bc095a66812.
+Independent source/diff review and repository format guard passed; exact posted statement unchanged.
+Independent computational screen: all22grids and82primitive checks passed.
+Local checker pending completion of fullMathlib runtimecache; no ACCEPTED claim yet.
 Sub-agents: status_review, replacement_proof, circuit_search, lower_bound, lean_setup
-TIMING total=38.5 subagents=5
+TIMING total=67.2 subagents=5

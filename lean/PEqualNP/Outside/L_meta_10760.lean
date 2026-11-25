@@ -1,7 +1,6 @@
 import PEqualNP.Defs
 
--- Candidate proof by MohamadEidAlAktaa in PR 16243, Apache-2.0.
-
+-- Certificate adapted from MohamadEidAlAktaa, PR 16243, with selected sample pairs.
 -- The signed circuit and cofactor framework follows L_meta_10802, L_meta_1674, L_meta_670,
 -- and the checker in L_meta_1667 (Apache-2.0).
 -- The verified restriction bounds and monotone witness below concern this graph.
@@ -1719,7 +1718,7 @@ theorem materialize_sound {u raw T d L cs c} (slice : Slice u raw T d L)
     exact build_valid slice cs he
 
 
-abbrev Bits := BitVec 1024
+abbrev Bits := BitVec 256
 abbrev Signals := Bits × Bits
 abbrev Decor := Sig × Signals
 
@@ -1729,12 +1728,12 @@ theorem ofRows_bit {n : Nat} (r : Fin n → Row) (v : Sig) (i : Fin n) :
     (ofRows r v).getLsbD i.val = bit (r i) v := by
   simp only [ofRows,BitVec.getLsbD_cast,BitVec.getLsbD_ofBoolListLE,List.getD_eq_getElem?_getD,List.getElem?_ofFn]
   simp [i.isLt]
-def pairSig (r s : Fin 1024 → Row) (a : Sig) : Signals := (ofRows r a,ofRows s a)
-def properPairs (T : Sig) (r s : Fin 1024 → Row) :=
+def pairSig (r s : Fin 256 → Row) (a : Sig) : Signals := (ofRows r a,ofRows s a)
+def properPairs (T : Sig) (r s : Fin 256 → Row) :=
   ∀ i, bit (r i) T = true ∧ bit (s i) T = false
-theorem pair_sep {T r s} (h : properPairs T r s) : Sep T 1024 r s (pairSig r s) := by
+theorem pair_sep {T r s} (h : properPairs T r s) : Sep T 256 r s (pairSig r s) := by
   exact ⟨h,fun a i => ⟨ofRows_bit _ _ _,ofRows_bit _ _ _⟩⟩
-def faithful (r s : Fin 1024 → Row) (x : Decor) := x.2 = pairSig r s x.1
+def faithful (r s : Fin 256 → Row) (x : Decor) := x.2 = pairSig r s x.1
 def bv {n : Nat} (d : Nat) (a b : BitVec n) : BitVec n :=
   if d=0 then a &&& b else if d=1 then a ||| b else if d=2 then a &&& ~~~b else ~~~a &&& b
 def dbin (d : Nat) (x y : Decor) : Decor := (bin d x.1 y.1,bv d x.2.1 y.2.1,bv d x.2.2 y.2.2)
@@ -1788,7 +1787,7 @@ theorem decode_faithful (n bits) (ws) (r s) (base : ∀ v ∈ ws, faithful r s v
     · obtain rfl := List.mem_singleton.mp hz
       exact faithful_bin _ (faithful_get base _) (faithful_get base _)
 
-def asRow (cols : Nat → Bits) (i : Fin 1024) : Row :=
+def asRow (cols : Nat → Bits) (i : Fin 256) : Row :=
   (BitVec.ofBoolListLE (List.ofFn (fun j : Fin 7 => (cols j.val).getLsbD i.val))).toFin.cast
     (by simp [List.length_ofFn])
 theorem coordinate0 : ∀ r : Row, bit r (inputs.getD 0 zero) = r.val.testBit 0 := by decide +kernel
@@ -1811,7 +1810,7 @@ theorem input_coords : ∀ (j : Fin 7) (r : Row),
   · exact coordinate4 r
   · exact coordinate5 r
   · exact coordinate6 r
-theorem asRow_bit (cols : Nat → Bits) (i : Fin 1024) (j : Fin 7) :
+theorem asRow_bit (cols : Nat → Bits) (i : Fin 256) (j : Fin 7) :
     bit (asRow cols i) (inputs.getD j.val zero) = (cols j.val).getLsbD i.val := by
   rw [input_coords]
   change (BitVec.ofBoolListLE (List.ofFn (fun h : Fin 7 => (cols h.val).getLsbD i.val))).getLsbD j.val = _
@@ -1840,13 +1839,13 @@ theorem raw_faithful (m) (p q : Nat → Bits) :
 def liftGoal (m : Nat) (v : Nat → Bits) : Bits :=
   let x := fun j => if m.testBit j then v j else 0
   (x 0 &&& x 2) ||| (x 1 &&& x 3) ||| (x 0 &&& x 4) ||| (x 1 &&& x 4) ||| (x 2 &&& x 4) ||| (x 0 &&& x 5) ||| (x 1 &&& x 5) ||| (x 3 &&& x 5) ||| (x 0 &&& x 6) ||| (x 2 &&& x 6) ||| (x 3 &&& x 6) ||| (x 5 &&& x 6)
-theorem bit_vertex (m : Nat) (v : Nat → Bits) (i : Fin 1024) (j : Fin 7) :
+theorem bit_vertex (m : Nat) (v : Nat → Bits) (i : Fin 256) (j : Fin 7) :
     bit (asRow v i) (vertex m j.val) =
     ((if m.testBit j.val then v j.val else 0) : Bits).getLsbD i.val := by
   by_cases hh : m.testBit j.val = true
   · simpa [vertex,hh] using asRow_bit v i j
   · simp [vertex,hh,bit_zero]
-theorem bit_liftGoal (m : Nat) (v : Nat → Bits) (i : Fin 1024) :
+theorem bit_liftGoal (m : Nat) (v : Nat → Bits) (i : Fin 256) :
     bit (asRow v i) (graphGoal m) = (liftGoal m v).getLsbD i.val := by
   have pos (j : Nat) (hj : j<7) : (vertex m j).getLsbD (asRow v i).val = ((if m.testBit j then v j else 0) : Bits).getLsbD i.val := bit_vertex m v i ⟨j,hj⟩
   simp only [bit,graphGoal,liftGoal,BitVec.getLsbD_and,BitVec.getLsbD_or]
@@ -1996,7 +1995,7 @@ def evalMove (c : NodeContext) (op : Nat) (a b z : Decor) (ka kb : Bool) :=
   if len>cap then true else
     let d := !cov.2
     let rs := restCov cov.1 (column d a.2) (column d b.2) ka kb
-    if (rs ||| column d z.2) != BitVec.allOnes 1024 then true else
+    if (rs ||| column d z.2) != BitVec.allOnes 256 then true else
     if !properB z.1 || ws.any (fun v => v.1==z.1) then true else
       let rest := (delTwo ws a b ka kb).map Prod.fst
       closeChild cov.2 pools links (cap-1) rest (movedChoice op a b)
@@ -2045,9 +2044,9 @@ theorem evalMove_sound {u raw T r s ws pools links cap a b op ka kb}
   change column d (pairSig r s z.1) ||| covered d (pairSig r s) (rest.map Prod.fst) = _ at sep
   change z.2 = pairSig r s z.1 at hf
   rw [←hf,←g,rz,BitVec.or_comm] at sep
-  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 1024) = false := by
+  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 256) = false := by
     simpa using sep
-  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 1024 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test
+  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 256 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test
   rw [be,pp,fr] at test
   exact closeChild_sound (op:=movedChoice op a b) (rest:=rest.map Prod.fst) pv lv ndc test k hk h
 
@@ -2450,7 +2449,7 @@ def cached_evalMove (c : cached_NodeContext) (op : Nat) (a b z : Decor) (ka kb :
   if len>cap then true else
     let d := !cov.2
     let rs := restCov cov.1 (column d a.2) (column d b.2) ka kb
-    if (rs ||| column d z.2) != BitVec.allOnes 1024 then true else
+    if (rs ||| column d z.2) != BitVec.allOnes 256 then true else
     if !properB z.1 || ws.any (fun v => v.1==z.1) then true else
       let rest := (delTwo ws a b ka kb).map Prod.fst
       cachedClose cov.2 pools links (cap-1) rest (movedChoice op a b)
@@ -2499,9 +2498,9 @@ theorem cached_evalMove_sound {u raw T r s ws} {pools : List BoundPool} {links c
   change column d (pairSig r s z.1) ||| covered d (pairSig r s) (rest.map Prod.fst) = _ at sep
   change z.2 = pairSig r s z.1 at hf
   rw [←hf,←g,rz,BitVec.or_comm] at sep
-  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 1024) = false := by
+  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 256) = false := by
     simpa using sep
-  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 1024 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test
+  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 256 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test
   rw [be,pp,fr] at test
   exact cachedClose_sound (op:=movedChoice op a b) (rest:=rest.map Prod.fst) pv lv ndc (sub.map _).subset (List.mem_map_of_mem ha) (List.mem_map_of_mem hb) test k hk h
 
@@ -2702,7 +2701,7 @@ theorem compactAll {g t dom perms}
     exact compactNode_sound pairs valid autos (fun _ => ih (by omega)) (chartBlock_at (blocks _ h) i (by omega) (by simpa using hi))
 
 theorem compactPairs {g : CompactGrid}
-    (yes : liftGoal g.mask g.pos = BitVec.allOnes 1024) (no : liftGoal g.mask g.neg = 0) :
+    (yes : liftGoal g.mask g.pos = BitVec.allOnes 256) (no : liftGoal g.mask g.neg = 0) :
     properPairs (graphGoal g.mask) (asRow g.pos) (asRow g.neg) := by
   intro i
   constructor
@@ -3053,15 +3052,15 @@ def compactIDsFromBits (bits width : Nat) : Nat → List Nat
   | 0 => []
   | n+1 => (bits &&& ((1 <<< width)-1)) :: compactIDsFromBits (bits >>> width) width n
 def samplesP21 : Nat → Bits
-  | 0 => ~~~(0x4046 : Bits)
-  | 2 => 0xeef6
-  | 4 => ~~~(0x20b0 : Bits)
+  | 0 => ~~~(0x6 : Bits)
+  | 2 => 0x36
+  | 4 => ~~~(0x30 : Bits)
   | _ => 0
 
 def samplesQ21 : Nat → Bits
-  | 0 => ~~~(0xbbde : Bits)
-  | 2 => 0x1214
-  | 4 => 0x280a
+  | 0 => ~~~(0x1e : Bits)
+  | 2 => 0x14
+  | 4 => 0xa
   | _ => 0
 
 def compactPerms21 : Array (List Nat) := ([[], [66], [32], [32, 66], [64, 66], [64]] : List (List Nat)).toArray
@@ -3094,17 +3093,17 @@ def compactPoolIDs21 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket21 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP23 : Nat → Bits
-  | 0 => 0x5eff31efd7bc8ee2
-  | 1 => ~~~(0x130c29f084bea0fa : Bits)
-  | 2 => 0x79fde8dfadcea7d8
-  | 4 => ~~~(0x80100c3010c86c0 : Bits)
+  | 0 => 0xe2
+  | 1 => ~~~(0x3a : Bits)
+  | 2 => 0xd8
+  | 4 => ~~~(0xc0 : Bits)
   | _ => 0
 
 def samplesQ23 : Nat → Bits
-  | 0 => 0x21284c0606144c82
-  | 1 => ~~~(0x6cb1bea3eeab00fe : Bits)
-  | 2 => 0x61602292080b350
-  | 4 => 0x8800080c800002c
+  | 0 => 0x82
+  | 1 => ~~~(0x3e : Bits)
+  | 2 => 0x50
+  | 4 => 0x2c
   | _ => 0
 
 def compactPerms23 : Array (List Nat) := ([[], [32]] : List (List Nat)).toArray
@@ -3137,17 +3136,17 @@ def compactPoolIDs23 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket23 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP27 : Nat → Bits
-  | 0 => 0xbbf8f1bfbb341bd2
-  | 1 => ~~~(0x20006184a0341252 : Bits)
-  | 3 => 0xf3f7627cf7c167e8
-  | 4 => ~~~(0x10300240134161a8 : Bits)
+  | 0 => 0x3c
+  | 1 => ~~~(0x2c : Bits)
+  | 3 => 0x38
+  | 4 => ~~~(0x10 : Bits)
   | _ => 0
 
 def samplesQ27 : Nat → Bits
-  | 0 => 0x448b26282954ab82
-  | 1 => ~~~(0xddfddef6ebef56de : Bits)
-  | 3 => 0xd2988b082cd16c8
-  | 4 => 0x1060805640091454
+  | 0 => 0x30
+  | 1 => ~~~(0x3e : Bits)
+  | 3 => 0x38
+  | 4 => 0xe
   | _ => 0
 
 def compactPerms27 : Array (List Nat) := ([[], [48, 65]] : List (List Nat)).toArray
@@ -3180,19 +3179,19 @@ def compactPoolIDs27 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket27 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP31 : Nat → Bits
-  | 0 => 0x7daff4ff85feae1f7df77fdd780a5af02f2feeeb94dbd5538a285fd2c2
-  | 1 => ~~~(0x21400052059b1f800920271e309012ea2fa9040d0691995bcb2c925aea : Bits)
-  | 2 => 0x7adfdfde2bb9799fdb7fe72e73b3756a0abbfd776a33b909cb2586eea8
-  | 3 => 0x774feb77d6cb501fafebf9569ddda3a0505dff9c2fc4dfa01053bb5d10
-  | 4 => ~~~(0x1080400482e8680000434944590b61205a60e8322842d5a19a730fc790 : Bits)
+  | 0 => 0x8fc2
+  | 1 => ~~~(0x984a : Bits)
+  | 2 => 0x32a8
+  | 3 => 0x3d70
+  | 4 => ~~~(0x27b0 : Bits)
   | _ => 0
 
 def samplesQ31 : Nat → Bits
-  | 0 => 0x25213104a0011c50191040d04362183400ca0e00098149286105f0202
-  | 1 => ~~~(0x5eb7fdecfaf6faf9cfb7f97be31fdf7fdd7d2f2fefb9dfef726db35afe : Bits)
-  | 2 => 0x5212403900286328024429038c8c400910359064801012009a700eca0
-  | 3 => 0x8b4358420142af90c028839211edd2c043d2f002400caae122db35810
-  | 4 => 0x1080808400e048084200382001001820085006098320000c1008a0104c
+  | 0 => 0x4f02
+  | 1 => ~~~(0xb94e : Bits)
+  | 2 => 0x20a8
+  | 3 => 0x3940
+  | 4 => 0x1044
   | _ => 0
 
 def compactPerms31 : Array (List Nat) := ([[], [32]] : List (List Nat)).toArray
@@ -3248,19 +3247,19 @@ def compactBucket31 (k : Nat) (i : Nat) : List Nat := match k with
     if v >>> 1 == (i/104729)%251 then [v &&& 1] else []
   | _ => []
 def samplesP55 : Nat → Bits
-  | 0 => 0xbf7fff90eb7bcfff7df17fcf634587ec2fe63b9af0f8a66c386ef42
-  | 1 => ~~~(0x11809809c123ec024111734a3224c7ef0441128e92cca76f3107fca : Bits)
-  | 2 => 0xf8ffd9ffc2e627fecf7ff0beba2640e337df36e5be4407630775688
-  | 4 => ~~~(0x841010222f20c180060c88da34294f8838223e028727e68b66ce70 : Bits)
-  | 5 => 0xddbfbf6b35b30bdbf3fccb49b7fa94189ff9c3ee0bf27808b78f870
+  | 0 => 0x23a
+  | 1 => ~~~(0x4e : Bits)
+  | 2 => 0x1f4
+  | 4 => ~~~(0x1b2 : Bits)
+  | 5 => 0x1ce
   | _ => 0
 
 def samplesQ55 : Nat → Bits
-  | 0 => 0x408410251080221009818110208060100a060300c080c2102848442
-  | 1 => ~~~(0xee6fe3d77efd54fbdfb65aefdc4f7dbdd4eb7fafdbdf2dad9387fde : Bits)
-  | 2 => 0x7024e002409d988841034440b780c04a5982484180018635635280
-  | 4 => 0x86100820230046302024802c00010881060180903052004818210c
-  | 5 => 0x22494280484454c050265846c848012154e94022005528259387810
+  | 0 => 0x222
+  | 1 => 0x330
+  | 2 => 0x194
+  | 4 => ~~~(0x3b6 : Bits)
+  | 5 => 0xcc
   | _ => 0
 
 def compactPerms55 : Array (List Nat) := ([[], [81, 64]] : List (List Nat)).toArray
@@ -3293,21 +3292,21 @@ def compactPoolIDs55 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket55 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP63 : Nat → Bits
-  | 0 => 0xbfb7fffa7fb93bf7cb65ec2abffbffbf3d7ff6fcf2ed02d55fee01a30f6b9f07e3673047dffe7b55cdf37f63f64fe7117bdcded0853adc036e4505ce045a9b04b95efebf29c8ba4988e6764cf4140e1b84d4120bebcda02
-  | 1 => ~~~(0x114002000970094363064f6500108122006452a0b84821810b84513f6e078bc265ff3544910810188661544a4482c1b1f15e4e95e5ac1645437615c734dbbbc5889832c630acd288dcccb2e9c6371f3be5dd66652dede9a : Bits)
-  | 2 => 0xfcdbfe6ffdf277cf345e00f73ff79f6fffbc3fe33cf8e79b7f90f34c3e0fa0d61b840505f7fbf7f9f3ecdcb9cf8fd8f3f02e1f0f607d0fc3c0fa06d1100218c79f8f79ded774378e741c79e0c2010718e088e1e374b5408
-  | 3 => 0xfb57f7f5df7d9cf9771237293ffdf3fedecdc9e5dd1f79efa7af3c375225c7e82c98800bb9ffbffebe27ecdef3b1e72c94d72673eb8470dc831e3b6060a5200bebb7f7e23e9cc1b03fa99667486210600323ee2dad12190
-  | 4 => ~~~(0x8900440108814e5045d243b8040000c158d00c5108d4058662239e4132de6372b3ce86c00e22014f1040880f20da32f9cc5175309335cd3aa59267266e77e2c0306e8ba06d0a3fe32285e44f96ed67a97e7c1abe39f3f0 : Bits)
-  | 5 => 0xdfebffdfbbcecd67ec8d4f55ffdeedfff7e7529fbbcffd78ea7459fce1946a3365786862ffeffc9ef75d13ce7cfeb9af8d4141951da316753b71f43626c1662146f8aafff6a3c2fed2488a99b12ed022154545f403e82f0
+  | 0 => 0x10bf8
+  | 1 => ~~~(0x3652c : Bits)
+  | 2 => 0xe346
+  | 3 => 0x32da2
+  | 4 => ~~~(0xabd2 : Bits)
+  | 5 => 0x2f41c
   | _ => 0
 
 def samplesQ63 : Nat → Bits
-  | 0 => 0x4048200981444400100a02c54880103104c0310032120531200102103084401000904582588202544000602206400012840cc02005442c009141032018210400a15288a0094082400086004c081a0a048424120b8304202
-  | 1 => ~~~(0xeebefcfefedff6feddfdb8bedf5fb7f77fbfecefeff1cbfedef7bff9f7fef77fdae5fbbdbb3efcffd77ff5efdfd7efc5bdfbbb9fbcbffbfe4fdf7eddff6fef7feeba77ef72edffdaffdebeffdfe77debb3ddeef5adedfbe : Bits)
-  | 2 => 0x3241392040880104ba0fd00b44402022010c658844d3840c19a042041100120806b1a598761a52083080481000300ac62110fc06210510f2aa8d400014421201a0d615ad6042408600828004060d01868cac1a074b1400
-  | 3 => 0x4a8441aa082020280cd8894cd0101801285a402a2504370cc50818880023000422479b139123c4a002600408100a280847989061404685a47c116458400c006aab255a2308041001a00142208433840819caa25ad00110
-  | 4 => 0x8920420300010640455003a031a004009050023402042020e601840022802030804a024201c58810450800c080047410860000798098050440208442202020b44a0160520081800851080900285206111102c54084080c
-  | 5 => 0x201480a0141120880130302a1200a404411040694421080202a020010440844c1001820c822cc080100111005094094528000281a8199104080a4800400808514408224d422100920040020192a44029304044d000e80a0
+  | 0 => 0x10b90
+  | 1 => ~~~(0x3f5ac : Bits)
+  | 2 => 0xa046
+  | 3 => 0x125a0
+  | 4 => 0x25428
+  | 5 => 0x2d00c
   | _ => 0
 
 def compactPerms63 : Array (List Nat) := ([[], [64, 81], [50, 16, 84], [50, 80, 65]] : List (List Nat)).toArray
@@ -3340,17 +3339,17 @@ def compactPoolIDs63 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket63 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP85 : Nat → Bits
-  | 0 => 0xdffb4f7fcd93bb4
-  | 2 => ~~~(0x4020075441838b4 : Bits)
-  | 4 => 0xf3e7a33c7f8cccc
-  | 6 => ~~~(0x1403eb080d9c3cc : Bits)
+  | 0 => 0xb6
+  | 2 => ~~~(0x86 : Bits)
+  | 4 => 0xca
+  | 6 => ~~~(0x3a : Bits)
   | _ => 0
 
 def samplesQ85 : Nat → Bits
-  | 0 => 0x204080920800224
-  | 2 => 0x420006012400142
-  | 4 => 0xc89186842a5c88
-  | 6 => ~~~(0xeaf69edb6f5a3ee : Bits)
+  | 0 => 0x26
+  | 2 => ~~~(0xe6 : Bits)
+  | 4 => 0xc0
+  | 6 => 0xc0
   | _ => 0
 
 def compactPerms85 : Array (List Nat) := ([[], [32], [100], [100, 32]] : List (List Nat)).toArray
@@ -3383,19 +3382,19 @@ def compactPoolIDs85 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket85 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP87 : Nat → Bits
-  | 0 => 0xdfbfff3b167bd5ffbf3bab65be76583b9fd9bf3f43c39210f4e5ec8
-  | 1 => 0xed3f47f6679d00f9fdfdd7db4c9845800bffd9d98db8006b0f77014
-  | 2 => ~~~(0x4080440103d9c1008109c3248c9855a993806b594503806bfc872dc : Bits)
-  | 4 => 0xfafffcf5d9f8caf7e3ffeb3ec18fe7a1cfa767d07f6781ef0c9a33c
-  | 6 => ~~~(0xb0100365438de012030ab5b40066fb3c80195900be393ff0470f3c : Bits)
+  | 0 => 0x1af2
+  | 1 => 0x3b84
+  | 2 => ~~~(0x2396 : Bits)
+  | 4 => 0x251e
+  | 6 => ~~~(0x187e : Bits)
   | _ => 0
 
 def samplesQ87 : Nat → Bits
-  | 0 => 0x204820440904284010232086020824002141a028030082082444888
-  | 1 => 0x12d13c489040ef7860086b87c279902649df085080a08e1f3f75004
-  | 2 => 0x408414010290812408904a000051010908141084205008160230502
-  | 4 => 0x520011024031081030484081402005016204500480520a0408a230
-  | 6 => ~~~(0xf4fcf6edbfd7a96d7bbf7af62bdd757f7955fdfcebf6db5ea674fbe : Bits)
+  | 0 => 0x1242
+  | 1 => 0x3a80
+  | 2 => ~~~(0x37d6 : Bits)
+  | 4 => 0x514
+  | 6 => 0x2580
   | _ => 0
 
 def compactPerms87 : Array (List Nat) := ([[], [32]] : List (List Nat)).toArray
@@ -3451,19 +3450,19 @@ def compactBucket87 (k : Nat) (i : Nat) : List Nat := match k with
     if v >>> 1 == (i/104729)%251 then [v &&& 1] else []
   | _ => []
 def samplesP91 : Nat → Bits
-  | 0 => 0x5f6fffcd469bf67deef7f8f1b73799514afbdb7eba7949c901b2adad64
-  | 1 => ~~~(0x11103200250b3e000415008197391d956ea2016ce33011fd81ba26c976 : Bits)
-  | 3 => 0x7d5fb7bffd8d197eff9f972eeb993d84b566ff44e7aafe34924c7bca92
-  | 4 => ~~~(0x46005804a855b00a8021f22a3172015b5805814ac4a6a7493de192ef2 : Bits)
-  | 6 => 0x76bffff22b677a7fbd7f4f83977f669524bf7dbded563074819b167c72
+  | 0 => ~~~(0x5250 : Bits)
+  | 1 => 0x5538
+  | 3 => 0xfc0
+  | 4 => ~~~(0x252e : Bits)
+  | 6 => 0x327e
   | _ => 0
 
 def samplesQ91 : Nat → Bits
-  | 0 => 0x20911052812408a82084491250b00388844a4a2088210a498850a92844
-  | 1 => ~~~(0x6eebedeedbfde3cdbfddfebf83eef8ef9ff6a9eeebf77ff3f3a867d9fe : Bits)
-  | 3 => 0x2a244420250228c9210189280e0a0a108468904420246439028638890
-  | 4 => 0x4684484088143440448b2848142a80401b4a1c20090109230a846d108
-  | 6 => 0x940828550088551090122442d030c0212313408214420942487145422
+  | 0 => ~~~(0x72da : Bits)
+  | 1 => 0x3428
+  | 3 => 0x4b80
+  | 4 => 0x42d0
+  | 6 => 0x305a
   | _ => 0
 
 def compactPerms91 : Array (List Nat) := ([[], [49, 100], [16, 99], [16, 97, 99, 100], [48, 49, 67, 100], [48, 65], [64, 49, 99, 100], [64, 97], [96, 67], [96, 65, 67, 100]] : List (List Nat)).toArray
@@ -3519,21 +3518,21 @@ def compactBucket91 (k : Nat) (i : Nat) : List Nat := match k with
     if v >>> 4 == (i/104729)%251 then [v &&& 15] else []
   | _ => []
 def samplesP95 : Nat → Bits
-  | 0 => 0xbeefffff5b5b0fbfdb3759cc3ff7cfeff6bdc7defb75fc665eae88c39c43761f1ef6660bfbfb9f4feb7d95f8dca77f8a58e58a7d0856a36ee43b3e846091b30dd7ccf56ee59bf1795688dc92271062048751152dd13b310
-  | 1 => 0xdfabf59fffebf9ce7039ccb07ffeffb67fdef8f90f878f879fdfc78ce0739863ec0000b1fddffbf8f39e1f3f7f3b8ff1a0fa0f87f3e0fc1f07c1c00513260012eaef67f7b9e31e1e0d0f70e3c82080393886dbc9a1d4424
-  | 2 => ~~~(0x24804120041a5844b1988cf000041242109844c0b460607030fa64686699e57469f22b8d100011063889230088d2ff510ec0daf1b16cb964575a30557beab548489c5c5245975db2e8b60a70ff1d0793bdf9f2315b577c : Bits)
-  | 3 => 0xfad7fefebeb7a7d4bf4332273ffffb7fe945bd3d375a36ff677fb6164ed827c4c1c90083d73ffff12febfaa9a7ff69350b2cf59f370ec59148f46718042e0853be77bfcd663423c7aa1927bf28e11048088e6f175c64448
-  | 4 => 0xf75fff73ffd4ffa96f8caa5bbfa9fffdff3bf6e7ccee4b7ff92d776a132cdf1b03062973fff477f6d691faf6f8dcfe4c54d56d62cf995a909734b9679b102383d59bde913f5cdc91aae6e84d1612c1b17060bc223e818b4
-  | 6 => ~~~(0x108400001a920b8833277a3000208a004014f0b1040008665c2fd78a5852770b89666df100101260821118a8f4324b0848f5ef57e7c8f41986b07c07bb37339bd246360021b69a158a0cfcdb2e32e3bdfce67d0df84fcb4 : Bits)
+  | 0 => 0x504454ee89b10
+  | 1 => 0xa8b6f4d0f4a4
+  | 2 => ~~~(0x1ede7c98ad5fc : Bits)
+  | 3 => 0x419bc3ae24c8
+  | 4 => 0x3ba2f091f4134
+  | 6 => ~~~(0x1ba9f46fc2fb4 : Bits)
   | _ => 0
 
 def samplesQ95 : Nat → Bits
-  | 0 => 0x411042012404904020c82412a410080c10404c2204340200e1810100420480c0210898604b089040090400a04024148900039882088863012000e18090200821820c812c218801280200c012091052018090150d0128210
-  | 1 => 0x205502702210042087443247b820018208500437c8103619c02c282210802110008f8d0858cb7218121200082801004943ca80170fd01101608fa060401850806a4a4163b92104120108304000110e05709793c8a154004
-  | 2 => 0x2482052404121000a10884d120422010582808088406411022a044004090c024015201900a24aa40040440492020046468c0054162080180209024002048240706222025206080440400a00a020084664244090e842802
-  | 3 => 0x52880834508480140b88d984748806001aac98804e4488027804001812050200a30327507308dc12481100104900186141518c83029ea188e4047830080240b9035b60c46002281001104890922d04a84686c175820440
-  | 4 => 0x8a2008409220016002341a04181441040281108118088a20c1000142842000494204286a4140500800088500048cb1030102108600308228c500c080441001605911c900450900088840004124680980148282216810a0
-  | 6 => ~~~(0xef7befdbf57ffd77eef8addff77defff5defefeaaeff6fd5f7eb6d77ffeffdf6ffbdba7d4fbadffdbfd7dcfdfeffddefdebfdefebeadefddbf69f7d7d6fdfefff27fb72e77ffbfbfcbddfedfbdbafb6feefc7d9ff96fef6 : Bits)
+  | 0 => 0x200546808810
+  | 1 => 0x38e4f450b404
+  | 2 => 0x5a1020742202
+  | 3 => 0xc31b03ac00c0
+  | 4 => 0x2810a090b4120
+  | 6 => ~~~(0x3ff1f67fcaff6 : Bits)
   | _ => 0
 
 def compactPerms95 : Array (List Nat) := ([[], [32], [49, 100], [49, 32, 100]] : List (List Nat)).toArray
@@ -3615,19 +3614,19 @@ def compactBucket95 (k : Nat) (i : Nat) : List Nat := match k with
     if v >>> 5 == (i/104729)%251 then [v &&& 31] else []
   | _ => []
 def samplesP107 : Nat → Bits
-  | 0 => 0x7abf2fefd4580fffe76c98cbfa8ec006feece7267402acb7e488
-  | 1 => 0x5e7ffcbd6d8447dd3ffb73515d20252bfc573e9cf990517d5260
-  | 3 => ~~~(0x841009dd004780c240c89115adec13a0454a5383597ac8d6cea : Bits)
-  | 5 => 0x7dfff7d6db677faeffb5adbd1fd343bfa797897b31d7860e2d72
-  | 6 => ~~~(0x108024264d434880032130c91da367a8a2870a0679d2d7363770 : Bits)
+  | 0 => 0x1f80
+  | 1 => 0x1f10
+  | 3 => ~~~(0x7d2 : Bits)
+  | 5 => 0x4fa
+  | 6 => ~~~(0x1cb8 : Bits)
   | _ => 0
 
 def samplesQ107 : Nat → Bits
-  | 0 => 0x545511008a2f590a00c6a1c89102264ec8c21004cc89c378480
-  | 1 => 0x21a045408253ae081245c078b1891013d442121020b199ed5040
-  | 3 => 0x84910051004514200a82a04084281042a2008850c4804128214
-  | 5 => 0x21000082408002409000000002408000001804a100000002122
-  | 6 => ~~~(0x6f7dfb9dbefef5febbee7f9fcfffbb74eeefbbdf7fcefe37b7f6 : Bits)
+  | 0 => 0x1e00
+  | 1 => 0x1700
+  | 3 => 0x80c
+  | 5 => 0xb2
+  | 6 => ~~~(0x1ebe : Bits)
   | _ => 0
 
 def compactPerms107 : Array (List Nat) := ([[], [16, 99]] : List (List Nat)).toArray
@@ -3660,21 +3659,21 @@ def compactPoolIDs107 (k : Nat) (i : Nat) : List Nat := match k with
 def compactBucket107 (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 def samplesP111 : Nat → Bits
-  | 0 => 0x7d6ffd5fffff6c6cc32c675ffffff3d9edca3916fdf7bef98dedee19903099d10099c77ffff9f3ff3f2398df964310624670f0cf3e7f1eec479c10300f18c6fffe67299e4698d0673a00105a6ec408f5ef5220
-  | 1 => 0x5f5bfffb4f3bb9c3f2c508dfefed3fff9f1dd9e35f1dcfa7c2f0967271ed70200a023fffb7ae9e3bdcbcf5fe9cbc62d4e9d9347a8b1c65519002610231fdfcbdbbb314e1e9d283cadcc9c000112adeb3348980
-  | 2 => ~~~(0x44c08010cb1244263b66bd0060520000c8c81c15e0722d1a27cce385998c57feb7f80012408c21e222c80e09ebb4278a0ff88fc625e05697dfff3cbb5014031224d31ec499b41fa1fefe8a3b7fc1823aebffc : Bits)
-  | 3 => 0x77affaffbcf19fbeec9e632fff3fecff13b5bfddfee761d7e00e19e5df88c5cee0027fffec59eec6e6dc1ff3f9b8df5ba67e888ce142e11b1023e2c884ffc77365dc276439371c7e25662820113b3964988c54
-  | 5 => 0x7ef7ffedfdf677733972fcbfded7ffef6eeee7fb9e1bf75a333e660c6dd38e3e0b7c7fa57fcf5d3c637feaed7b3f82a891a7cb75449f85a1e8ec03c337237bde03ccdaf9910d63b118ade083a251e00bc235c8
-  | 6 => ~~~(0x1020004801721920884c6430080000c9030039129c11c503c1ae3645f5e1989e0a9a072400491c20441018df113c92c2c770f04f8d1fe591d2ae63f23838c6de01f60ef1b11492673cedf05a7b7be8f5d3ddc0 : Bits)
+  | 0 => 0x11dd409ebdc20
+  | 1 => 0x2adf666880
+  | 2 => ~~~(0x4c7fc18475ffc : Bits)
+  | 3 => 0x3c02b38c93154
+  | 5 => 0x68751e01787c8
+  | 6 => ~~~(0x39d7be9eba5c0 : Bits)
   | _ => 0
 
 def samplesQ111 : Nat → Bits
-  | 0 => 0x29104a0800010921451982881031001124980392000a12812001004424824089d2004631c483201212000100604c22720018803212104150802020a4410c0f0e224098240080006060c084061c008e1a91200
-  | 1 => 0x20a42088b88402280d1ae62d0480089078008eb0b4b4211a080241010802890ed1d92e5932a0081084084088832d499604539321257432414421082101d968a99b11004108508100100b4550a1ac9e93348100
-  | 2 => 0x44c89022c21044023a643d648208204cc9214c09acd0cc120180c10011040156257f394c30500a01012040241720c108f4c263c4c9a58c800485080a2ae370e1582801024040a00a061a63d0a23e51c504002
-  | 3 => 0x8520d200108600102611890e014002882cb0009020984a001218008200412310e2440a68c1080044080122114408221a1080c0a4883049c209001040c24855264402400112210500644282448422164880850
-  | 5 => 0x10810020600880440840142124004400410104008400840444000a290200040200291004100450800442844001204000a04201400084800110084100202120400800228800120a10820820902014008420488
-  | 6 => ~~~(0x6fdfbff7efadfeff77f7dbfefff79efddffff5fffbcfffed7f7bddbffb7eff7dff77f7f7df7dffbdf5fe7effd7f6fe7fffedeeffffbbddfffdfbdfbfeebef7fef7f7affbfd7fbbf7bffdbeff7ff3edfdfbdfda : Bits)
+  | 0 => 0x5513009c35000
+  | 1 => 0x112c9f266800
+  | 2 => 0x2aa43e438a002
+  | 3 => 0x4c01220c91050
+  | 5 => 0x2a4140108588
+  | 6 => ~~~(0x7fff3edfbf5da : Bits)
   | _ => 0
 
 def compactPerms111 : Array (List Nat) := ([[], [33, 48, 101]] : List (List Nat)).toArray
@@ -3756,21 +3755,21 @@ def compactBucket111 (k : Nat) (i : Nat) : List Nat := match k with
     if v >>> 4 == (i/104729)%251 then [v &&& 15] else []
   | _ => []
 def samplesP119 : Nat → Bits
-  | 0 => 0x6f7ffffff3d70bdbe5bef46fdfe7fcfff7ccd9eff9dc7f7133c06ec184e7d1eecc3f1ff7dfd4bfe8fafeb0fd32bb6e32213d630af59a5d85380fc6b03e3e35e98b26b279ae95f00c7444410d417c81c367cc90
-  | 1 => 0x7b5bffb1feee70fe7898127fee7ff7bf3d8f2ef0f6f3a7e60f0f13c7eb80fa500081ffddfd3ecf2fcdf3e372fc44f4545ed83e6567a5e00e04e00101cce7e7bfef5e1d47230ac793619380320682eeda2c0324
-  | 2 => ~~~(0x200c001180c1006d6ece7020082004181c0f08e0590c062309c543e6ce35d47e66b700148004664b08e2314437186fa273846e0567a5f887aeef49f1ea6632080c7a39d1b296a3387dd78633e7ff89166e6fbc : Bits)
-  | 4 => 0x7eafff7f9c6bef3debc6698ff9ff1fff0bffdbe73f2f896f84738d7e46175c2e1181ffffa2d761df3dd0bfcffd832fa2af4142f50a65a5f44563003c47fe3a5e76f8b581d0fb90f896c000f25a83990cd85074
-  | 5 => 0x77b7fddfed9ddce5f6479d1ffffbeff8fe7fb4f8cf3d569bc88ce3b61d78a4b02631f63ffe29fedf12ef5ffcc3785ba970a6bd9587c59a0b828c09c19be9dfce1c994af6d0142f7c69178601a5117837522b08
-  | 6 => ~~~(0x2300d00000e4890e1969d50004300a023cc90e0a6310141860aafd705c2f8be9db816010010898c10d082f8d8e37e302c7933f587c5850d55ef87bdc4a805ce039c9667c019d4dc77d7c1ff5f90f8cb53db74 : Bits)
+  | 0 => 0x3c8440172071b3ec90
+  | 1 => 0x10318268bbb5160324
+  | 2 => ~~~(0x3a8d937fe243373fbc : Bits)
+  | 4 => 0x3460ea8e6466c2074
+  | 5 => 0xac991545e0ba91b08
+  | 6 => ~~~(0x47cefc3e35a9eb74 : Bits)
   | _ => 0
 
 def samplesQ119 : Nat → Bits
-  | 0 => 0x1082000804082420120108841800808408008110012080104c00810841100201300011044000a020023000c122c0006001c0010012002000c4000102002204200b200248200580080050010201088082210c10
-  | 1 => 0x4a4210f04108a0107474d8684121010d8b291b511358010a0204820040c008b3b34b5c4d50205020081202086ca34e001cac92096d6e051200224480c636525ea120105010042804052a90a338ec6da240204
-  | 2 => 0x200d0025804100444cc4602301004222952310c610082004004402048220442c02a6c68218a00804840888080413210420120c40855d4060024840211509818740050420484014020003300c9a106469109002
-  | 4 => 0x1504480318010820038925860440c002044060862401ae00088100118408150c449083922114088280012021820c2019605121320000b820090888022941a5814409080808800508e8c025044211904c84060
-  | 5 => 0x84810a09222010808a82261420900482501024a600828a4111104402081080440cb420b0a0012111040401448314104a2151640010902a20801120453888aca00880012101009042a851004cc103825520108
-  | 6 => ~~~(0x7dcf7afddffbbfef5eed6ae77f5fdefebf2bfbdefdaaedbefdfddf6dfffdcfed72efd78f5bb3ffbfbef9faffeff7697eebf73fccdf7d76efeedbffef77ab8fef4bff97fff9dddfdefbf775afdf58fcef73df7e : Bits)
+  | 0 => 0x48002122021108c10
+  | 1 => 0x1001a23bb1b5120204
+  | 2 => 0x202101a4191c884002
+  | 4 => 0x4e14404642642060
+  | 5 => 0xa0a01c40e0aa90108
+  | 6 => ~~~(0x3eeb4bf63f3fb9ef7e : Bits)
   | _ => 0
 
 def compactPerms119 : Array (List Nat) := ([[], [98, 84]] : List (List Nat)).toArray
@@ -4954,19 +4953,19 @@ set_option maxHeartbeats 0 in
 theorem bound126 : Lower true (vars 126) (graphGoal 126) 10 :=
   carry_of (old := 126) (rep := 95) (swaps := [65, 50, 80]) (by decide +kernel) bound95
 def ax31P : Nat → Bits
-  | 0 => 0x7daff4ff85feae1f7df77fdd780a5af02f2feeeb94dbd5538a285fd2c2
-  | 1 => ~~~(0x21400052059b1f800920271e309012ea2fa9040d0691995bcb2c925aea : Bits)
-  | 2 => 0x7adfdfde2bb9799fdb7fe72e73b3756a0abbfd776a33b909cb2586eea8
-  | 3 => 0x774feb77d6cb501fafebf9569ddda3a0505dff9c2fc4dfa01053bb5d10
-  | 4 => ~~~(0x1080400482e8680000434944590b61205a60e8322842d5a19a730fc790 : Bits)
+  | 0 => 0x3c45fd12
+  | 1 => ~~~(0x3641259a : Bits)
+  | 2 => 0x32486ec8
+  | 3 => 0x288bb5e0
+  | 4 => ~~~(0x8c8fc60 : Bits)
   | _ => 0
 
 def ax31Q : Nat → Bits
-  | 0 => 0x25213104a0011c50191040d04362183400ca0e00098149286105f0202
-  | 1 => ~~~(0x5eb7fdecfaf6faf9cfb7f97be31fdf7fdd7d2f2fefb9dfef726db35afe : Bits)
-  | 2 => 0x5212403900286328024429038c8c400910359064801012009a700eca0
-  | 3 => 0x8b4358420142af90c028839211edd2c043d2f002400caae122db35810
-  | 4 => 0x1080808400e048084200382001001820085006098320000c1008a0104c
+  | 0 => 0x25f002
+  | 1 => ~~~(0x3f8b359e : Bits)
+  | 2 => 0x20580ec0
+  | 3 => 0x288b3580
+  | 4 => 0x1082011c
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5063,19 +5062,19 @@ def ax31Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax55P : Nat → Bits
-  | 0 => 0xbf7fff90eb7bcfff7df17fcf634587ec2fe63b9af0f8a66c386ef42
-  | 1 => ~~~(0x11809809c123ec024111734a3224c7ef0441128e92cca76f3107fca : Bits)
-  | 2 => 0xf8ffd9ffc2e627fecf7ff0beba2640e337df36e5be4407630775688
-  | 4 => ~~~(0x841010222f20c180060c88da34294f8838223e028727e68b66ce70 : Bits)
-  | 5 => 0xddbfbf6b35b30bdbf3fccb49b7fa94189ff9c3ee0bf27808b78f870
+  | 0 => 0x31d8
+  | 1 => ~~~(0x2278 : Bits)
+  | 2 => 0xfb0
+  | 4 => ~~~(0x2d9c : Bits)
+  | 5 => 0x2e6c
   | _ => 0
 
 def ax55Q : Nat → Bits
-  | 0 => 0x408410251080221009818110208060100a060300c080c2102848442
-  | 1 => ~~~(0xee6fe3d77efd54fbdfb65aefdc4f7dbdd4eb7fafdbdf2dad9387fde : Bits)
-  | 2 => 0x7024e002409d988841034440b780c04a5982484180018635635280
-  | 4 => 0x86100820230046302024802c00010881060180903052004818210c
-  | 5 => 0x22494280484454c050265846c848012154e94022005528259387810
+  | 0 => 0x1108
+  | 1 => ~~~(0x267a : Bits)
+  | 2 => 0x2cb0
+  | 4 => 0x242
+  | 5 => 0x2660
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5122,19 +5121,19 @@ def ax55Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax87P : Nat → Bits
-  | 0 => 0xdfbfff3b167bd5ffbf3bab65be76583b9fd9bf3f43c39210f4e5ec8
-  | 1 => 0xed3f47f6679d00f9fdfdd7db4c9845800bffd9d98db8006b0f77014
-  | 2 => ~~~(0x4080440103d9c1008109c3248c9855a993806b594503806bfc872dc : Bits)
-  | 4 => 0xfafffcf5d9f8caf7e3ffeb3ec18fe7a1cfa767d07f6781ef0c9a33c
-  | 6 => ~~~(0xb0100365438de012030ab5b40066fb3c80195900be393ff0470f3c : Bits)
+  | 0 => 0x1dc13af48
+  | 1 => 0x141fdf814
+  | 2 => ~~~(0x19f2395c : Bits)
+  | 4 => 0x3bf251bc
+  | 6 => ~~~(0x5fd1c7bc : Bits)
   | _ => 0
 
 def ax87Q : Nat → Bits
-  | 0 => 0x204820440904284010232086020824002141a028030082082444888
-  | 1 => 0x12d13c489040ef7860086b87c279902649df085080a08e1f3f75004
-  | 2 => 0x408414010290812408904a000051010908141084205008160230502
-  | 4 => 0x520011024031081030484081402005016204500480520a0408a230
-  | 6 => ~~~(0xf4fcf6edbfd7a96d7bbf7af62bdd757f7955fdfcebf6db5ea674fbe : Bits)
+  | 0 => 0x81112448
+  | 1 => 0x141fde804
+  | 2 => 0x10088c282
+  | 4 => 0x2a021130
+  | 6 => ~~~(0x1f599e7fe : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5219,19 +5218,19 @@ def ax87Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax91P : Nat → Bits
-  | 0 => 0x5f6fffcd469bf67deef7f8f1b73799514afbdb7eba7949c901b2adad64
-  | 1 => ~~~(0x11103200250b3e000415008197391d956ea2016ce33011fd81ba26c976 : Bits)
-  | 3 => 0x7d5fb7bffd8d197eff9f972eeb993d84b566ff44e7aafe34924c7bca92
-  | 4 => ~~~(0x46005804a855b00a8021f22a3172015b5805814ac4a6a7493de192ef2 : Bits)
-  | 6 => 0x76bffff22b677a7fbd7f4f83977f669524bf7dbded563074819b167c72
+  | 0 => 0x22ab5b2
+  | 1 => 0x7dda744
+  | 3 => ~~~(0x7807b6 : Bits)
+  | 4 => 0x55e5a86
+  | 6 => ~~~(0x7ceb0c6 : Bits)
   | _ => 0
 
 def ax91Q : Nat → Bits
-  | 0 => 0x20911052812408a82084491250b00388844a4a2088210a498850a92844
-  | 1 => ~~~(0x6eebedeedbfde3cdbfddfebf83eef8ef9ff6a9eeebf77ff3f3a867d9fe : Bits)
-  | 3 => 0x2a244420250228c9210189280e0a0a108468904420246439028638890
-  | 4 => 0x4684484088143440448b2848142a80401b4a1c20090109230a846d108
-  | 6 => 0x940828550088551090122442d030c0212313408214420942487145422
+  | 0 => 0x8aa422
+  | 1 => 0x198500
+  | 3 => 0x3c67048
+  | 4 => 0x4645a84
+  | 6 => ~~~(0x7cef4ee : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5303,19 +5302,19 @@ def ax91Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax107P : Nat → Bits
-  | 0 => 0x7abf2fefd4580fffe76c98cbfa8ec006feece7267402acb7e488
-  | 1 => 0x5e7ffcbd6d8447dd3ffb73515d20252bfc573e9cf990517d5260
-  | 3 => ~~~(0x841009dd004780c240c89115adec13a0454a5383597ac8d6cea : Bits)
-  | 5 => 0x7dfff7d6db677faeffb5adbd1fd343bfa797897b31d7860e2d72
-  | 6 => ~~~(0x108024264d434880032130c91da367a8a2870a0679d2d7363770 : Bits)
+  | 0 => 0xa37e08
+  | 1 => 0x64fd4a0
+  | 3 => ~~~(0x7a0d72a : Bits)
+  | 5 => 0x7b0e372
+  | 6 => ~~~(0x6fb62f0 : Bits)
   | _ => 0
 
 def ax107Q : Nat → Bits
-  | 0 => 0x545511008a2f590a00c6a1c89102264ec8c21004cc89c378480
-  | 1 => 0x21a045408253ae081245c078b1891013d442121020b199ed5040
-  | 3 => 0x84910051004514200a82a04084281042a2008850c4804128214
-  | 5 => 0x21000082408002409000000002408000001804a100000002122
-  | 6 => ~~~(0x6f7dfb9dbefef5febbee7f9fcfffbb74eeefbbdf7fcefe37b7f6 : Bits)
+  | 0 => 0x4637800
+  | 1 => 0x64ed400
+  | 3 => 0x212894
+  | 5 => 0x262
+  | 6 => ~~~(0x5f37af6 : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5398,21 +5397,21 @@ def ax107Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax63P : Nat → Bits
-  | 0 => 0xbfb7fffa7fb93bf7cb65ec2abffbffbf3d7ff6fcf2ed02d55fee01a30f6b9f07e3673047dffe7b55cdf37f63f64fe7117bdcded0853adc036e4505ce045a9b04b95efebf29c8ba4988e6764cf4140e1b84d4120bebcda02
-  | 1 => ~~~(0x114002000970094363064f6500108122006452a0b84821810b84513f6e078bc265ff3544910810188661544a4482c1b1f15e4e95e5ac1645437615c734dbbbc5889832c630acd288dcccb2e9c6371f3be5dd66652dede9a : Bits)
-  | 2 => 0xfcdbfe6ffdf277cf345e00f73ff79f6fffbc3fe33cf8e79b7f90f34c3e0fa0d61b840505f7fbf7f9f3ecdcb9cf8fd8f3f02e1f0f607d0fc3c0fa06d1100218c79f8f79ded774378e741c79e0c2010718e088e1e374b5408
-  | 3 => 0xfb57f7f5df7d9cf9771237293ffdf3fedecdc9e5dd1f79efa7af3c375225c7e82c98800bb9ffbffebe27ecdef3b1e72c94d72673eb8470dc831e3b6060a5200bebb7f7e23e9cc1b03fa99667486210600323ee2dad12190
-  | 4 => ~~~(0x8900440108814e5045d243b8040000c158d00c5108d4058662239e4132de6372b3ce86c00e22014f1040880f20da32f9cc5175309335cd3aa59267266e77e2c0306e8ba06d0a3fe32285e44f96ed67a97e7c1abe39f3f0 : Bits)
-  | 5 => 0xdfebffdfbbcecd67ec8d4f55ffdeedfff7e7529fbbcffd78ea7459fce1946a3365786862ffeffc9ef75d13ce7cfeb9af8d4141951da316753b71f43626c1662146f8aafff6a3c2fed2488a99b12ed022154545f403e82f0
+  | 0 => 0xb70905f668
+  | 1 => ~~~(0xb733329768 : Bits)
+  | 2 => 0x1b070f1bba0
+  | 3 => 0x80f716d490
+  | 4 => ~~~(0xbfe0d5f2fc : Bits)
+  | 5 => 0xf22fa034c
   | _ => 0
 
 def ax63Q : Nat → Bits
-  | 0 => 0x4048200981444400100a02c54880103104c0310032120531200102103084401000904582588202544000602206400012840cc02005442c009141032018210400a15288a0094082400086004c081a0a048424120b8304202
-  | 1 => ~~~(0xeebefcfefedff6feddfdb8bedf5fb7f77fbfecefeff1cbfedef7bff9f7fef77fdae5fbbdbb3efcffd77ff5efdfd7efc5bdfbbb9fbcbffbfe4fdf7eddff6fef7feeba77ef72edffdaffdebeffdfe77debb3ddeef5adedfbe : Bits)
-  | 2 => 0x3241392040880104ba0fd00b44402022010c658844d3840c19a042041100120806b1a598761a52083080481000300ac62110fc06210510f2aa8d400014421201a0d615ad6042408600828004060d01868cac1a074b1400
-  | 3 => 0x4a8441aa082020280cd8894cd0101801285a402a2504370cc50818880023000422479b139123c4a002600408100a280847989061404685a47c116458400c006aab255a2308041001a00142208433840819caa25ad00110
-  | 4 => 0x8920420300010640455003a031a004009050023402042020e601840022802030804a024201c58810450800c080047410860000798098050440208442202020b44a0160520081800851080900285206111102c54084080c
-  | 5 => 0x201480a0141120880130302a1200a404411040694421080202a020010440844c1001820c822cc080100111005094094528000281a8199104080a4800400808514408224d422100920040020192a44029304044d000e80a0
+  | 0 => 0x950905c028
+  | 1 => ~~~(0x1eb777ad76a : Bits)
+  | 2 => 0x2e0d03b80
+  | 3 => 0x415512d400
+  | 4 => 0x148162a0402
+  | 5 => 0xa22680340
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5471,21 +5470,21 @@ def ax63Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax95P : Nat → Bits
-  | 0 => 0xbeefffff5b5b0fbfdb3759cc3ff7cfeff6bdc7defb75fc665eae88c39c43761f1ef6660bfbfb9f4feb7d95f8dca77f8a58e58a7d0856a36ee43b3e846091b30dd7ccf56ee59bf1795688dc92271062048751152dd13b310
-  | 1 => 0xdfabf59fffebf9ce7039ccb07ffeffb67fdef8f90f878f879fdfc78ce0739863ec0000b1fddffbf8f39e1f3f7f3b8ff1a0fa0f87f3e0fc1f07c1c00513260012eaef67f7b9e31e1e0d0f70e3c82080393886dbc9a1d4424
-  | 2 => ~~~(0x24804120041a5844b1988cf000041242109844c0b460607030fa64686699e57469f22b8d100011063889230088d2ff510ec0daf1b16cb964575a30557beab548489c5c5245975db2e8b60a70ff1d0793bdf9f2315b577c : Bits)
-  | 3 => 0xfad7fefebeb7a7d4bf4332273ffffb7fe945bd3d375a36ff677fb6164ed827c4c1c90083d73ffff12febfaa9a7ff69350b2cf59f370ec59148f46718042e0853be77bfcd663423c7aa1927bf28e11048088e6f175c64448
-  | 4 => 0xf75fff73ffd4ffa96f8caa5bbfa9fffdff3bf6e7ccee4b7ff92d776a132cdf1b03062973fff477f6d691faf6f8dcfe4c54d56d62cf995a909734b9679b102383d59bde913f5cdc91aae6e84d1612c1b17060bc223e818b4
-  | 6 => ~~~(0x108400001a920b8833277a3000208a004014f0b1040008665c2fd78a5852770b89666df100101260821118a8f4324b0848f5ef57e7c8f41986b07c07bb37339bd246360021b69a158a0cfcdb2e32e3bdfce67d0df84fcb4 : Bits)
+  | 0 => 0x16aaaa8020d1152dd13b310
+  | 1 => 0x11e45400d722dbc9a1d4424
+  | 2 => ~~~(0x1a7a0789d7779f2315b577c : Bits)
+  | 3 => 0x1918ad0941266f175c64448
+  | 4 => 0x95b42909e18bc223e818b4
+  | 6 => ~~~(0x1508ee90ffba7d0df84fcb4 : Bits)
   | _ => 0
 
 def ax95Q : Nat → Bits
-  | 0 => 0x411042012404904020c82412a410080c10404c2204340200e1810100420480c0210898604b089040090400a04024148900039882088863012000e18090200821820c812c218801280200c012091052018090150d0128210
-  | 1 => 0x205502702210042087443247b820018208500437c8103619c02c282210802110008f8d0858cb7218121200082801004943ca80170fd01101608fa060401850806a4a4163b92104120108304000110e05709793c8a154004
-  | 2 => 0x2482052404121000a10884d120422010582808088406411022a044004090c024015201900a24aa40040440492020046468c0054162080180209024002048240706222025206080440400a00a020084664244090e842802
-  | 3 => 0x52880834508480140b88d984748806001aac98804e4488027804001812050200a30327507308dc12481100104900186141518c83029ea188e4047830080240b9035b60c46002281001104890922d04a84686c175820440
-  | 4 => 0x8a2008409220016002341a04181441040281108118088a20c1000142842000494204286a4140500800088500048cb1030102108600308228c500c080441001605911c900450900088840004124680980148282216810a0
-  | 6 => ~~~(0xef7befdbf57ffd77eef8addff77defff5defefeaaeff6fd5f7eb6d77ffeffdf6ffbdba7d4fbadffdbfd7dcfdfeffddefdebfdefebeadefddbf69f7d7d6fdfefff27fb72e77ffbfbfcbddfedfbdbafb6feefc7d9ff96fef6 : Bits)
+  | 0 => 0x80824801020150d0128210
+  | 1 => 0xa4408e3e2393c8a154004
+  | 2 => 0x10108052c884090e842802
+  | 3 => 0x19008411409c6c175820440
+  | 4 => 0x16420230c054282216810a0
+  | 6 => ~~~(0x1f6fedd57dbc7d9ff96fef6 : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5623,21 +5622,21 @@ def ax95Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax111P : Nat → Bits
-  | 0 => 0x7d6ffd5fffff6c6cc32c675ffffff3d9edca3916fdf7bef98dedee19903099d10099c77ffff9f3ff3f2398df964310624670f0cf3e7f1eec479c10300f18c6fffe67299e4698d0673a00105a6ec408f5ef5220
-  | 1 => 0x5f5bfffb4f3bb9c3f2c508dfefed3fff9f1dd9e35f1dcfa7c2f0967271ed70200a023fffb7ae9e3bdcbcf5fe9cbc62d4e9d9347a8b1c65519002610231fdfcbdbbb314e1e9d283cadcc9c000112adeb3348980
-  | 2 => ~~~(0x44c08010cb1244263b66bd0060520000c8c81c15e0722d1a27cce385998c57feb7f80012408c21e222c80e09ebb4278a0ff88fc625e05697dfff3cbb5014031224d31ec499b41fa1fefe8a3b7fc1823aebffc : Bits)
-  | 3 => 0x77affaffbcf19fbeec9e632fff3fecff13b5bfddfee761d7e00e19e5df88c5cee0027fffec59eec6e6dc1ff3f9b8df5ba67e888ce142e11b1023e2c884ffc77365dc276439371c7e25662820113b3964988c54
-  | 5 => 0x7ef7ffedfdf677733972fcbfded7ffef6eeee7fb9e1bf75a333e660c6dd38e3e0b7c7fa57fcf5d3c637feaed7b3f82a891a7cb75449f85a1e8ec03c337237bde03ccdaf9910d63b118ade083a251e00bc235c8
-  | 6 => ~~~(0x1020004801721920884c6430080000c9030039129c11c503c1ae3645f5e1989e0a9a072400491c20441018df113c92c2c770f04f8d1fe591d2ae63f23838c6de01f60ef1b11492673cedf05a7b7be8f5d3ddc0 : Bits)
+  | 0 => 0x2827af610
+  | 1 => 0x2177d99c40
+  | 2 => ~~~(0x118611d7fe : Bits)
+  | 3 => 0x514e3248aa
+  | 5 => 0x503805e3e4
+  | 6 => ~~~(0x537a7aeae0 : Bits)
   | _ => 0
 
 def ax111Q : Nat → Bits
-  | 0 => 0x29104a0800010921451982881031001124980392000a12812001004424824089d2004631c483201212000100604c22720018803212104150802020a4410c0f0e224098240080006060c084061c008e1a91200
-  | 1 => 0x20a42088b88402280d1ae62d0480089078008eb0b4b4211a080241010802890ed1d92e5932a0081084084088832d499604539321257432414421082101d968a99b11004108508100100b4550a1ac9e93348100
-  | 2 => 0x44c89022c21044023a643d648208204cc9214c09acd0cc120180c10011040156257f394c30500a01012040241720c108f4c263c4c9a58c800485080a2ae370e1582801024040a00a061a63d0a23e51c504002
-  | 3 => 0x8520d200108600102611890e014002882cb0009020984a001218008200412310e2440a68c1080044080122114408221a1080c0a4883049c209001040c24855264402400112210500644282448422164880850
-  | 5 => 0x10810020600880440840142124004400410104008400840444000a290200040200291004100450800442844001204000a04201400084800110084100202120400800228800120a10820820902014008420488
-  | 6 => ~~~(0x6fdfbff7efadfeff77f7dbfefff79efddffff5fffbcfffed7f7bddbffb7eff7dff77f7f7df7dffbdf5fe7effd7f6fe7fffedeeffffbbddfffdfbdfbfeebef7fef7f7affbfd7fbbf7bffdbeff7ff3edfdfbdfda : Bits)
+  | 0 => 0x10270d000
+  | 1 => 0x5a7c99c00
+  | 2 => 0x3a790e2800
+  | 3 => 0x5048324028
+  | 5 => 0xa100422c4
+  | 6 => ~~~(0x7b7b7efaec : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in
@@ -5721,23 +5720,23 @@ def ax111Bucket (k : Nat) (i : Nat) : List Nat := match k with
   | _ => []
 
 def ax127P : Nat → Bits
-  | 0 => 0xc1f2283873ca6006965c501c3f705cbb0d61b0e00c1de3d7e5cdfe738ff8afdd57a3e5e51d3ffce06afecb8cad782c633f972f482871b42fa150686e2b00a0a362b46e01a879d6c80ab41aef40580e80b618862c035bca2de18c795b1fd967147145ae429e6854d1a19d0608c96b01100c080ca847aa209022da2763d92220
-  | 1 => 0x403ec2c3444c0e731f21ea01f183ab94044002440311c0be5bfba7cfd7f3eefcfa7f4a3f51f1878d27d39733f61bd14fb5f2c1fe71478644b54480de80ddbc074d4807f4e8175c1e92701bad0002e1810e086020403c8795ea73e7e0753cf675c7d61983a8e1ca83a0d4d03d1166701c41e000e101b04158ccec99842d209844
-  | 2 => 0xeac38d86889f9186247e802e58d08ad9500805098860135f3d7ebcf7fce7bf4f73b7f3ce9f623cc79c92eb7c47a39fd2783b7ac0a228cbdb5040dd09dd80ea18074f4a07dc2867611ce1a4113a7d8214204016068342b8bd74bcc3afc68f6ea6e9da2170cc1393342e4917e18c0f8080a405ce0e0e04100b0f0dce9194520103
-  | 3 => 0x772c0138f308e1a3c0470cffa104132278b21a00050061c3ee9f7f16fefb3fff9fe97c70e67bd819d8fd529c7b5419fcbec3bd3303d70c13c1873f960e0f0fda789070380ec3848160ff40e1438700c01109e1190084ed1e733efc2b9ff189db19a3a6040f6403eb428e61c63e7110660a120130001845cb71b1723a0620c488
-  | 4 => 0x870e1c173783345c7910535c22396c20c20160110a5080ffffe5fbf96f7cd7d93ea9dd951a9ec0e2ff757d2b0f5566335fcc56ecb43001a82e594e746124f0bcdc82c851f1558128b70b4b646cb85311260600800f08adeb9fc57855bce23799fa4d7a2ab10074695d51e401c7b08a89042806c126a03015f25220f8d80a0164
-  | 5 => 0xb83122fc87b00e0c98c9b5a1ce42d42b07f08066308f21bdbcfe562fabfcf1f2e5feb43aa9ee677227ac08c7f9feae8fc9fd29d18e87f8049aba20a110f24347b2b5078b1616a21e6d841bd29002bc60c930017870307661db8a179e6adf178827a89e5154f9b502012a2a3ae198641259d03010d14882862f50054750855c10
-  | 6 => 0x1dd07d4148647199e3a8238207ec05c7ac069c8a54a20f7ce31bfbf99d1f4f37efde8fcb7e85fb3f5b0fa5f4b0eae7f18604ee185dd8366b403ea303b3501561003db98023e81ae10314e40e95fd242a50c18e4190c15276845f3bd6a160e87efe04c0dd330e0c9cbe360ad872068560a203f10250030c34008f2548ab04229b
+  | 0 => 0x1305c8c2088cc9b482408b689d8f65220
+  | 1 => 0x4c723234e01134436333b26610b480c44
+  | 2 => ~~~(0x46bfd7f7f431beffd3c3c8c5b9aeb7efc : Bits)
+  | 3 => 0x2771e011420024b2dc6c5c8e81882088
+  | 4 => 0x2e8de4902051942057c94883e36028164
+  | 5 => 0x61ba4127d0002a8418bd40151d4216c10
+  | 6 => ~~~(0x33776ab7f8ddffe72ffdc36add53eed64 : Bits)
   | _ => 0
 
 def ax127Q : Nat → Bits
-  | 0 => 0x81200100088240021410002430000824082044b00d0008016808d0011880828414120200505000400085040840400006300020848208c008020d16200040021a4104016018004482800100540c20031000801014040490029018c004310484104504400428208004021800008c01101480a080108404a009020d00622412020
-  | 1 => 0x84800800a0220108000410880060102820b33403980c0894125384c411434628d01a0a0010500281020002022202400800a080801a259502740c9020080d00716c458102408024da0420cd0c402a08080105040412000294a82346c04108c435c54210802041408020805011000040014341480914e0497088ac898425201004
-  | 2 => 0x1008106002004800520002410401050003255814120acd1b207c00968066244612944108800214001402010840810500000a2000921e218b20150080cca80518410c01a88201e2145440aa58013000004420481008a010b840b8432a048d06a28980214080101210080804a0000500060191810e4684910a0d090e9114120002
-  | 3 => 0x102040c4010100090c10000804011850c807c40d38302ac842910c89838c50b4110504200801080c40010080010a090010102c098082880e141c242804c048018483427034301f910105103c01700808000a08002c9085314a823165109c2182002040900014202040104242011040c3a0122080c36095111723202008480
-  | 4 => 0x20202180400480208408240008060244004883a065213260c90072296e1091912c2084040888004060102400011020120400502720c0406402c0260413107a8600a21a40340e0901811700209e013040184010402005a44316443015b8623108320500221000202110402000830086a8342012702109240562522068c8080140
-  | 5 => 0x41404401100100c1002208043008080008004a8006205429002812032224800204a480002020610201200805100088040854004120026085001002008520138a012202c880008004004522201410208200028202010834610088110c2886120000880800042884000102020a0018248a10808014630080022640044150804810
-  | 6 => 0x204800a01100206080000308010a00010502100a90420444103406804014310a00a008300000828080180a00068024100000c1400411040560824041011204008c19000500c088200224500880900042210200804100206844200d08020a01c620080190004000c841008405002022022405240102100740086010889040209
+  | 0 => 0x1010a450481485402408340188905020
+  | 1 => 0x820000442891c53c222b226109480804
+  | 2 => 0x932e11822834243a445048002
+  | 3 => 0x4612413422432c254445c8c80800080
+  | 4 => 0x2680a5922050a22815894881a32020140
+  | 5 => 0x1841128104a08008990011054202410
+  | 6 => ~~~(0x47ffff7fbfaffbfe2ffde7fbdddbefdf6 : Bits)
   | _ => 0
 
 set_option maxRecDepth 32768 in

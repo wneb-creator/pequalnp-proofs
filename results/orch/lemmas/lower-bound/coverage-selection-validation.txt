@@ -1,0 +1,27 @@
+Python selection over Lean-dumped original decorated wire states, including raw primitive states.
+Every original coverage rejection preserved by the selected columns; full Lean validation remains required.
+compact21 states 1 constraints 18 selected 6 mandatory 5 seconds 0.39
+compact23 states 1 constraints 39 selected 8 mandatory 5 seconds 0.39
+compact27 states 1 constraints 24 selected 6 mandatory 0 seconds 0.39
+compact31 states 5 constraints 167 selected 16 mandatory 9 seconds 0.4
+compact55 states 1 constraints 76 selected 10 mandatory 8 seconds 0.4
+compact63 states 1 constraints 116 selected 18 mandatory 8 seconds 0.4
+compact85 states 1 constraints 41 selected 8 mandatory 6 seconds 0.4
+compact87 states 3 constraints 126 selected 14 mandatory 3 seconds 0.41
+compact91 states 4 constraints 165 selected 15 mandatory 12 seconds 0.41
+compact95 states 72 constraints 2063 selected 51 mandatory 37 seconds 0.43
+compact107 states 1 constraints 74 selected 13 mandatory 8 seconds 0.43
+compact111 states 91 constraints 2514 selected 51 mandatory 35 seconds 0.45
+compact119 states 365 constraints 7385 selected 70 mandatory 51 seconds 0.53
+ax31 states 132 constraints 2121 selected 30 mandatory 20 seconds 0.55
+ax55 states 2 constraints 101 selected 14 mandatory 10 seconds 0.56
+ax87 states 110 constraints 1779 selected 33 mandatory 22 seconds 0.57
+ax91 states 37 constraints 950 selected 27 mandatory 23 seconds 0.58
+ax107 states 36 constraints 785 selected 27 mandatory 20 seconds 0.58
+ax63 states 11 constraints 478 selected 41 mandatory 33 seconds 0.59
+ax95 states 491 constraints 10058 selected 89 mandatory 68 seconds 0.71
+ax111 states 41 constraints 1557 selected 39 mandatory 28 seconds 0.73
+ax127 states 1257 constraints 30955 selected 131 mandatory 101 seconds 1.26
+RESULT 22 grids; maxselected 131 time 1.26
+
+stderr:
