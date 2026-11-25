@@ -5770,4 +5770,814 @@ lemma prefixTwo_length_ge_eight_add_Bzero {R : Dag} (h : StrictLive 6 (prefixTwo
 
 end C6
 
+
+
+namespace FreePairCausalTrace
+
+open C6.DagTools
+
+def SeedsBefore {n : Nat} (D : Dag) (Free : Finset (Fin n) → Prop)
+    (P : Finset (Fin n)) (w : Nat) (x : Fin n → Bool) : Prop :=
+  (∃ u, u < w ∧ ¬ Free (supp n D u) ∧ supp n D u ⊆ P ∧ val D x u = true) ∨
+  (∃ u v, u < w ∧ v < w ∧ u ≠ v ∧ ¬ Free (supp n D u) ∧ ¬ Free (supp n D v) ∧
+    supp n D u ∩ supp n D v = P ∧ val D x u = true ∧ val D x v = true)
+
+lemma seeds_mono {n : Nat} {D : Dag} {Free : Finset (Fin n) → Prop}
+    {P : Finset (Fin n)} {u w : Nat} {x : Fin n → Bool}
+    (h : SeedsBefore D Free P u x) (huw : u ≤ w) : SeedsBefore D Free P w x := by
+  rcases h with ⟨v, hv, hf, hs, hx⟩ | ⟨v, z, hv, hz, hvz, hfv, hfz, hs, hxv, hxz⟩
+  · exact Or.inl ⟨v, hv.trans_le huw, hf, hs, hx⟩
+  · exact Or.inr ⟨v, z, hv.trans_le huw, hz.trans_le huw, hvz, hfv, hfz, hs, hxv, hxz⟩
+
+lemma free_carrier_trace {n : Nat} {D : Dag} (hD : Strict n D)
+    (Free : Finset (Fin n) → Prop) (P : Finset (Fin n)) (hP : Free P)
+    (hraw : ∀ v : Fin n, ¬ Free {v})
+    (hclass : ∀ S, Free S → (S ⊆ P ∨ P ⊆ S) → S = P)
+    (x : Fin n → Bool) :
+    ∀ w, w < n + D.length → supp n D w = P → val D x w = true →
+      SeedsBefore D Free P w x := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw hs hx
+    by_cases hin : w < n
+    · have hsingle : supp n D w = {⟨w, hin⟩} := supp_input D ⟨w, hin⟩
+      exact False.elim (hraw ⟨w, hin⟩ (by rwa [← hsingle, hs]))
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < D.length := by omega
+      obtain ⟨ha, hb, hab⟩ := hD j hj
+      by_cases ht : tag D j = true
+      · have hs' : supp n D (opA D j) ∩ supp n D (opB D j) = P := by
+          rwa [sem_supp_and hD hj ht] at hs
+        have hx' : val D x (opA D j) = true ∧ val D x (opB D j) = true := by
+          rwa [val_gate hD x j hj, ht, gop_true, Bool.and_eq_true] at hx
+        by_cases hfA : Free (supp n D (opA D j))
+        · have hsA : supp n D (opA D j) = P :=
+            hclass _ hfA (Or.inr (by rw [← hs']; exact Finset.inter_subset_left))
+          exact seeds_mono (ih _ ha (by omega) hsA hx'.1) ha.le
+        · by_cases hfB : Free (supp n D (opB D j))
+          · have hsB : supp n D (opB D j) = P :=
+              hclass _ hfB (Or.inr (by rw [← hs']; exact Finset.inter_subset_right))
+            exact seeds_mono (ih _ hb (by omega) hsB hx'.2) hb.le
+          · exact Or.inr ⟨opA D j, opB D j, ha, hb, hab, hfA, hfB, hs', hx'.1, hx'.2⟩
+      · have ht0 : tag D j = false := Bool.eq_false_of_not_eq_true ht
+        have hs' : supp n D (opA D j) ∪ supp n D (opB D j) = P := by
+          rwa [sem_supp_or hD hj ht0] at hs
+        have hx' : val D x (opA D j) = true ∨ val D x (opB D j) = true := by
+          rwa [val_gate hD x j hj, ht0, gop_false, Bool.or_eq_true] at hx
+        rcases hx' with hxA | hxB
+        · have hsub : supp n D (opA D j) ⊆ P := by rw [← hs']; exact Finset.subset_union_left
+          by_cases hfA : Free (supp n D (opA D j))
+          · exact seeds_mono (ih _ ha (by omega) (hclass _ hfA (Or.inl hsub)) hxA) ha.le
+          · exact Or.inl ⟨opA D j, ha, hfA, hsub, hxA⟩
+        · have hsub : supp n D (opB D j) ⊆ P := by rw [← hs']; exact Finset.subset_union_right
+          by_cases hfB : Free (supp n D (opB D j))
+          · exact seeds_mono (ih _ hb (by omega) (hclass _ hfB (Or.inl hsub)) hxB) hb.le
+          · exact Or.inl ⟨opB D j, hb, hfB, hsub, hxB⟩
+
+lemma paid_trace {n : Nat} {D : Dag} {Free : Finset (Fin n) → Prop}
+    {P : Finset (Fin n)} {w : Nat} {x : Fin n → Bool}
+    (hP : 1 < P.card) (hx : ∀ v ∈ P, x v = false)
+    (h : SeedsBefore D Free P w x) :
+    (∃ u, n ≤ u ∧ u < w ∧ ¬ Free (supp n D u) ∧ supp n D u ⊆ P ∧ val D x u = true) ∨
+    (∃ u v, n ≤ u ∧ n ≤ v ∧ u < w ∧ v < w ∧ u ≠ v ∧
+      ¬ Free (supp n D u) ∧ ¬ Free (supp n D v) ∧
+      supp n D u ∩ supp n D v = P ∧ val D x u = true ∧ val D x v = true) := by
+  have hlarge (u : Nat) (hu : P ⊆ supp n D u) : n ≤ u := by
+    by_contra hn
+    have hu' : u < n := by omega
+    have hc := Finset.card_le_card hu
+    rw [show supp n D u = {⟨u, hu'⟩} from supp_input D ⟨u, hu'⟩,
+      Finset.card_singleton] at hc
+    omega
+  rcases h with ⟨u, hu, hf, hs, hval⟩ | ⟨u, v, hu, hv, huv, hfu, hfv, hs, hxu, hxv⟩
+  · have hnu : n ≤ u := by
+      by_contra hn
+      have hu' : u < n := by omega
+      have hv : (⟨u, hu'⟩ : Fin n) ∈ P := hs (by
+        rw [show supp n D u = {⟨u, hu'⟩} from supp_input D ⟨u, hu'⟩]
+        exact Finset.mem_singleton_self _)
+      rw [val_input D x u hu', hx _ hv] at hval
+      cases hval
+    exact Or.inl ⟨u, hnu, hu, hf, hs, hval⟩
+  · have hnu := hlarge u (by rw [← hs]; exact Finset.inter_subset_left)
+    have hnv := hlarge v (by rw [← hs]; exact Finset.inter_subset_right)
+    exact Or.inr ⟨u, v, hnu, hnv, hu, hv, huv, hfu, hfv, hs, hxu, hxv⟩
+
+lemma cardinal_two_trace {n : Nat} {D : Dag} (hD : Strict n D)
+    (Free : Finset (Fin n) → Prop) (hsize : ∀ S, Free S → S.card = 2)
+    (P : Finset (Fin n)) (hP : Free P) (x : Fin n → Bool)
+    (w : Nat) (hw : w < n + D.length) (hs : supp n D w = P)
+    (hx : val D x w = true) : SeedsBefore D Free P w x := by
+  apply free_carrier_trace hD Free P hP ?_ ?_ x w hw hs hx
+  · intro v hv
+    have hc := hsize {v} hv
+    simp only [Finset.card_singleton] at hc
+    omega
+  · intro S hS hcomp
+    rcases hcomp with hsub | hsub
+    · exact Finset.eq_of_subset_of_card_le hsub (by rw [hsize S hS, hsize P hP])
+    · exact (Finset.eq_of_subset_of_card_le hsub (by rw [hsize S hS, hsize P hP])).symm
+
+end FreePairCausalTrace
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma bf_budget {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4) :
+    ∃ b : V → ℕ, PureBranch 6 D b ∧
+      eligSet 6 D = fourEndpoints ∧
+      residualUnits 6 D b = ∅ := by
+  classical
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
+  have hsub : fourEndpoints ⊆ eligSet 6 D := hE
+  have hfour : fourEndpoints.card = 4 := by decide
+  have hbound := elig_le_Bplus h.1 b hb
+  have heq : eligSet 6 D = fourEndpoints :=
+    (Finset.eq_of_subset_of_card_le hsub (by omega)).symm
+  have hr := card_residual h.1 b hb
+  rw [heq, hfour, hb4] at hr
+  exact ⟨b, hb, heq, Finset.card_eq_zero.mp (by omega)⟩
+
+lemma bf_inelig {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4) :
+    ineligSet 6 D = {2, 3} := by
+  classical
+  obtain ⟨_, _, heq, _⟩ := bf_budget h hc hE hb4
+  ext v
+  rw [sem_mem_inelig, heq]
+  fin_cases v <;> decide
+
+lemma bf_flow {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (v : V) :
+    (sem_W 6 D v).card +
+      (merges 6 D (carrierT 6 D {v})).card =
+      1 + if v ∈ fourEndpoints then 1 else 0 := by
+  classical
+  obtain ⟨b, hb, heq, hr⟩ := bf_budget h hc hE hb4
+  have hf := sem_code_count graph_ok h hc b hb v
+  rw [hr, heq] at hf
+  by_cases hv : v ∈ fourEndpoints <;> simpa [hv] using hf
+
+lemma consumer_two_exits {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    {z v u : V} {e : ℕ × Bool} (he : Consumer D z e)
+    (hvz : adj z v) (hvu : adj v u) (huz : u ≠ z) :
+    2 ≤ (sem_W 6 D v).card := by
+  classical
+  have hve : sem_bar e ∈ sem_W 6 D v := by
+    apply sem_mem_W.mpr
+    refine ⟨he.1, he.2.2.2.2.1 v hvz, ?_⟩
+    change v ∉ supp 6 D (6 + e.1)
+    rw [he.2.2.2.1]
+    exact Finset.notMem_empty _
+  obtain ⟨f, hfv, hfu, _⟩ := sem_edge_slots graph_ok h.1 hc hvu
+  have hne : f ≠ sem_bar e := by
+    intro hf
+    have hu := (sem_mem_W.mp hfu).2.1
+    rw [hf, sem_bar_bar, he.2.2.1, Finset.mem_singleton] at hu
+    exact huz hu
+  have hs : {sem_bar e, f} ⊆ sem_W 6 D v := by
+    intro q hq
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hq
+    rcases hq with rfl | rfl
+    · exact hve
+    · exact hfv
+  have hc2 := Finset.card_le_card hs
+  simpa [Ne.symm hne] using hc2
+
+lemma bf_endpoint_exits {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {v : V} (hv : v ∈ fourEndpoints) : 2 ≤ (sem_W 6 D v).card := by
+  have hi := bf_inelig h hc hE hb4
+  obtain ⟨ec, hec⟩ := consumer_exists h hc (v := (2 : V)) (by rw [hi]; decide)
+  obtain ⟨ed, hed⟩ := consumer_exists h hc (v := (3 : V)) (by rw [hi]; decide)
+  simp only [fourEndpoints, Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hv with rfl | rfl | rfl | rfl
+  · exact consumer_two_exits h hc hed (v := 0) (u := 4)
+      (by unfold adj; decide) (by unfold adj; decide) (by decide)
+  · exact consumer_two_exits h hc hed (v := 1) (u := 5)
+      (by unfold adj; decide) (by unfold adj; decide) (by decide)
+  · exact consumer_two_exits h hc hec (v := 4) (u := 0)
+      (by unfold adj; decide) (by unfold adj; decide) (by decide)
+  · exact consumer_two_exits h hc hec (v := 5) (u := 1)
+      (by unfold adj; decide) (by unfold adj; decide) (by decide)
+
+lemma bf_merges_empty {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (v : V) : merges 6 D (carrierT 6 D {v}) = ∅ := by
+  classical
+  by_cases hv : v ∈ fourEndpoints
+  · have hf := bf_flow h hc hE hb4 v
+    have he := bf_endpoint_exits h hc hE hb4 hv
+    simp only [hv, ↓reduceIte] at hf
+    exact Finset.card_eq_zero.mp (by omega)
+  · obtain ⟨_, _, heq, _⟩ := bf_budget h hc hE hb4
+    have hi : v ∈ ineligSet 6 D := sem_mem_inelig.mpr (by rwa [heq])
+    obtain ⟨_, _, _, _, _, _, _, hm⟩ := sem_inelig_consumer graph_ok h hc hi
+    exact hm
+
+lemma bf_and_empty {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
+    supp 6 D (6 + j) = ∅ := by
+  apply Finset.eq_empty_of_forall_notMem
+  intro v hv
+  have hg := sem_zm_gate h.1 (bf_merges_empty h hc hE hb4 v) hj hv
+  rw [ht] at hg
+  exact Bool.noConfusion hg.1
+
+lemma bf_exits_le_two {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (v : V) : (sem_W 6 D v).card ≤ 2 := by
+  have hf := bf_flow h hc hE hb4 v
+  split_ifs at hf <;> omega
+
+lemma consumer_other_exit {D : Dag} {z v : V} {e : ℕ × Bool}
+    (he : Consumer D z e) (hv : v ∈ supp 6 D (src D (sem_bar e))) :
+    sem_bar e ∈ sem_W 6 D v := by
+  apply sem_mem_W.mpr
+  refine ⟨he.1, hv, ?_⟩
+  change v ∉ supp 6 D (6 + e.1)
+  rw [he.2.2.2.1]
+  exact Finset.notMem_empty _
+
+lemma joint_not_consumer {D : Dag} {v u z : V} {f e : ℕ × Bool}
+    (hfv : f ∈ sem_W 6 D v) (hfu : sem_bar f ∈ sem_W 6 D u)
+    (he : Consumer D z e) (hvz : v ≠ z) (huz : u ≠ z) : f.1 ≠ e.1 := by
+  intro hgate
+  rcases sem_same_gate hgate.symm with hf | hf
+  · have hv := (sem_mem_W.mp hfv).2.1
+    rw [hf, he.2.2.1, Finset.mem_singleton] at hv
+    exact hvz hv
+  · have hu := (sem_mem_W.mp hfu).2.1
+    rw [hf, sem_bar_bar, he.2.2.1, Finset.mem_singleton] at hu
+    exact huz hu
+
+lemma consumer_extra_impossible {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    {z w v u : V} {ec ed : ℕ × Bool} (hec : Consumer D z ec) (hed : Consumer D w ed)
+    (hzw : z ≠ w) (hvz : v ≠ z) (huz : u ≠ z) (hvw' : v ≠ w) (huw : u ≠ w)
+    (hvw : adj w v) (hvu : adj v u)
+    (hv : v ∈ supp 6 D (src D (sem_bar ec)))
+    (hle : (sem_W 6 D v).card ≤ 2) : False := by
+  classical
+  have hce := consumer_other_exit hec hv
+  have hde := consumer_other_exit hed (hed.2.2.2.2.1 v hvw)
+  obtain ⟨f, hfv, hfu, _⟩ := sem_edge_slots graph_ok h.1 hc hvu
+  have hcf := joint_not_consumer hfv hfu hec hvz huz
+  have hdf := joint_not_consumer hfv hfu hed hvw' huw
+  have hcd : sem_bar ec ≠ sem_bar ed := by
+    intro he
+    have hg : ec.1 = ed.1 := by
+      simpa only [sem_bar] using congrArg (fun q : ℕ × Bool => q.1) he
+    exact hzw (consumers_injective hec hed hg)
+  have hcfn : sem_bar ec ≠ f := by
+    intro he
+    exact hcf (congrArg Prod.fst he).symm
+  have hdfn : sem_bar ed ≠ f := by
+    intro he
+    exact hdf (congrArg Prod.fst he).symm
+  have hs : {sem_bar ec, sem_bar ed, f} ⊆ sem_W 6 D v := by
+    intro q hq
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hq
+    rcases hq with rfl | rfl | rfl
+    · exact hce
+    · exact hde
+    · exact hfv
+  have hcard := Finset.card_le_card hs
+  have hthree : ({sem_bar ec, sem_bar ed, f} : Finset (ℕ × Bool)).card = 3 := by
+    simp [hcd, hcfn, hdfn]
+  rw [hthree] at hcard
+  omega
+
+lemma consumer_own_not_other {D : Dag} {z : V} {e : ℕ × Bool}
+    (he : Consumer D z e) : z ∉ supp 6 D (src D (sem_bar e)) := by
+  intro hz
+  have hm := consumer_other_exit he hz
+  rw [he.2.2.2.2.2, Finset.mem_singleton] at hm
+  exact (sem_bar_ne e) hm
+
+lemma consumer_other_inelig_not {D : Dag} {z w : V} {ec ed : ℕ × Bool}
+    (hec : Consumer D z ec) (hed : Consumer D w ed) (hne : z ≠ w) :
+    w ∉ supp 6 D (src D (sem_bar ec)) := by
+  intro hw
+  have hm := consumer_other_exit hec hw
+  rw [hed.2.2.2.2.2, Finset.mem_singleton] at hm
+  have hg : ec.1 = ed.1 := by
+    simpa only [sem_bar] using congrArg (fun q : ℕ × Bool => q.1) hm
+  exact hne (consumers_injective hec hed hg)
+
+lemma bf_C_opposite {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed) :
+    supp 6 D (src D (sem_bar ec)) = {4, 5} := by
+  classical
+  apply Finset.Subset.antisymm
+  · intro v hv
+    fin_cases v
+    · exact (consumer_extra_impossible h hc hec hed (u := 4)
+        (by decide) (by decide) (by decide) (by decide) (by decide)
+        (by unfold adj; decide) (by unfold adj; decide) hv
+        (bf_exits_le_two h hc hE hb4 0)).elim
+    · exact (consumer_extra_impossible h hc hec hed (u := 5)
+        (by decide) (by decide) (by decide) (by decide) (by decide)
+        (by unfold adj; decide) (by unfold adj; decide) hv
+        (bf_exits_le_two h hc hE hb4 1)).elim
+    · exact (consumer_own_not_other hec hv).elim
+    · exact (consumer_other_inelig_not hec hed (by decide) hv).elim
+    · decide
+    · decide
+  · intro v hv
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl
+    · exact hec.2.2.2.2.1 4 (by unfold adj; decide)
+    · exact hec.2.2.2.2.1 5 (by unfold adj; decide)
+
+lemma bf_D_opposite {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed) :
+    supp 6 D (src D (sem_bar ed)) = {0, 1} := by
+  classical
+  apply Finset.Subset.antisymm
+  · intro v hv
+    fin_cases v
+    · decide
+    · decide
+    · exact (consumer_other_inelig_not hed hec (by decide) hv).elim
+    · exact (consumer_own_not_other hed hv).elim
+    · exact (consumer_extra_impossible h hc hed hec (u := 0)
+        (by decide) (by decide) (by decide) (by decide) (by decide)
+        (by unfold adj; decide) (by unfold adj; decide) hv
+        (bf_exits_le_two h hc hE hb4 4)).elim
+    · exact (consumer_extra_impossible h hc hed hec (u := 1)
+        (by decide) (by decide) (by decide) (by decide) (by decide)
+        (by unfold adj; decide) (by unfold adj; decide) hv
+        (bf_exits_le_two h hc hE hb4 5)).elim
+  · intro v hv
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl
+    · exact hed.2.2.2.2.1 0 (by unfold adj; decide)
+    · exact hed.2.2.2.2.1 1 (by unfold adj; decide)
+
+lemma joint_support_eligible {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    {u v : V} (hne : u ≠ v) {w : ℕ}
+    (hu : u ∈ supp 6 D w) (hv : v ∈ supp 6 D w) :
+    u ∈ eligSet 6 D ∧ v ∈ eligSet 6 D := by
+  classical
+  constructor
+  · by_contra hue
+    have hi : u ∈ ineligSet 6 D := sem_mem_inelig.mpr hue
+    have hs := sem_inelig_pure graph_ok h.1 hc hi hu
+    rw [hs, Finset.mem_singleton] at hv
+    exact hne hv.symm
+  · by_contra hve
+    have hi : v ∈ ineligSet 6 D := sem_mem_inelig.mpr hve
+    have hs := sem_inelig_pure graph_ok h.1 hc hi hv
+    rw [hs, Finset.mem_singleton] at hu
+    exact hne hu
+
+end C6.GenericPair
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma common_exit_of_joint_support {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D)
+    (ha : ∀ j, j < D.length → tag D j = true → supp 6 D (6 + j) = ∅)
+    (u v : V) {w : ℕ} (hu : u ∈ supp 6 D w) (hv : v ∈ supp 6 D w) :
+    ∃ e, e ∈ sem_W 6 D u ∧ e ∈ sem_W 6 D v := by
+  classical
+  let S := (Finset.range (6 + D.length)).filter
+    (fun a => u ∈ supp 6 D a ∧ v ∈ supp 6 D a)
+  have hS : S.Nonempty := ⟨w, Finset.mem_filter.mpr
+    ⟨Finset.mem_range.mpr (sem_supp_lt hu), hu, hv⟩⟩
+  let a := S.max' hS
+  have haS : a ∈ S := Finset.max'_mem S hS
+  obtain ⟨halt, hau, hav⟩ := Finset.mem_filter.mp haS
+  have halt' := Finset.mem_range.mp halt
+  have hne : a ≠ outW 6 D := by
+    intro he
+    rw [he, sem_supp_out graph_ok hc] at hau
+    exact Finset.notMem_empty _ hau
+  have hinner : a + 1 < 6 + D.length := by unfold outW at hne; omega
+  have hf := h.2.1 a hinner
+  obtain ⟨j, hj⟩ := Finset.card_pos.mp (show 0 < (readers D a).card by change 0 < fanout D a; omega)
+  obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+  have hj' := Finset.mem_range.mp hj
+  have ht : tag D j = true := by
+    by_contra ht
+    have ht' : tag D j = false := by cases htag : tag D j <;> simp_all
+    have hp : 6 + j ∈ S := by
+      apply Finset.mem_filter.mpr
+      refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+      rw [sem_supp_or h.1 hj' ht']
+      rcases hr with hr | hr
+      · rw [hr]
+        exact ⟨Finset.mem_union_left _ hau, Finset.mem_union_left _ hav⟩
+      · rw [hr]
+        exact ⟨Finset.mem_union_right _ hau, Finset.mem_union_right _ hav⟩
+    have hle : 6 + j ≤ a := Finset.le_max' S _ hp
+    have hs := h.1 j hj'
+    rcases hr with hr | hr <;> omega
+  have hout := ha j hj' ht
+  rcases hr with hr | hr
+  · refine ⟨(j, false), sem_mem_W.mpr ?_, sem_mem_W.mpr ?_⟩
+    · refine ⟨hj', ?_, ?_⟩
+      · simpa [src, hr] using hau
+      · rw [hout]; exact Finset.notMem_empty _
+    · refine ⟨hj', ?_, ?_⟩
+      · simpa [src, hr] using hav
+      · rw [hout]; exact Finset.notMem_empty _
+  · refine ⟨(j, true), sem_mem_W.mpr ?_, sem_mem_W.mpr ?_⟩
+    · refine ⟨hj', ?_, ?_⟩
+      · simpa [src, hr] using hau
+      · rw [hout]; exact Finset.notMem_empty _
+    · refine ⟨hj', ?_, ?_⟩
+      · simpa [src, hr] using hav
+      · rw [hout]; exact Finset.notMem_empty _
+
+lemma bf_common_AF {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w) :
+    ∃ k, k ∈ sem_W 6 D 0 ∧ k ∈ sem_W 6 D 5 := by
+  obtain ⟨w, hwa, hwf⟩ := hAF
+  exact common_exit_of_joint_support h hc (fun j hj ht => bf_and_empty h hc hE hb4 hj ht)
+    0 5 hwa hwf
+
+lemma two_exits_eq {D : Dag} {v : V} {e f : ℕ × Bool}
+    (hle : (sem_W 6 D v).card ≤ 2) (he : e ∈ sem_W 6 D v)
+    (hf : f ∈ sem_W 6 D v) (hne : e ≠ f) : sem_W 6 D v = {e, f} := by
+  classical
+  have hs : {e, f} ⊆ sem_W 6 D v := by
+    intro q hq
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hq
+    rcases hq with rfl | rfl <;> assumption
+  exact (Finset.eq_of_subset_of_card_le hs (by simpa [hne] using hle)).symm
+
+lemma slot_not_consumer {D : Dag} {v z : V} {k e : ℕ × Bool}
+    (hk : k ∈ sem_W 6 D v) (he : Consumer D z e)
+    (hvz : v ≠ z) (hopp : v ∉ supp 6 D (src D (sem_bar e))) : k.1 ≠ e.1 := by
+  intro hg
+  have hv := (sem_mem_W.mp hk).2.1
+  rcases sem_same_gate hg.symm with hf | hf
+  · rw [hf, he.2.2.1, Finset.mem_singleton] at hv
+    exact hvz hv
+  · rw [hf] at hv
+    exact hopp hv
+
+lemma bf_AF_distinct {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed k : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed)
+    (hka : k ∈ sem_W 6 D 0) (hkf : k ∈ sem_W 6 D 5) :
+    k.1 ≠ ec.1 ∧ k.1 ≠ ed.1 := by
+  constructor
+  · apply slot_not_consumer hka hec (by decide)
+    rw [bf_C_opposite h hc hE hb4 hec hed]
+    decide
+  · apply slot_not_consumer hkf hed (by decide)
+    rw [bf_D_opposite h hc hE hb4 hec hed]
+    decide
+
+lemma bf_cross_partners {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed k : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed)
+    (hka : k ∈ sem_W 6 D 0) (hkf : k ∈ sem_W 6 D 5) :
+    sem_bar k ∈ sem_W 6 D 1 ∧
+      sem_bar k ∈ sem_W 6 D 4 := by
+  have hd := bf_AF_distinct h hc hE hb4 hec hed hka hkf
+  have heA := consumer_other_exit hed (hed.2.2.2.2.1 0 (by unfold adj; decide))
+  have heF := consumer_other_exit hec (hec.2.2.2.2.1 5 (by unfold adj; decide))
+  have hWA := two_exits_eq (bf_exits_le_two h hc hE hb4 0) heA hka
+    (fun he => hd.2 (congrArg Prod.fst he).symm)
+  have hWF := two_exits_eq (bf_exits_le_two h hc hE hb4 5) heF hkf
+    (fun he => hd.1 (congrArg Prod.fst he).symm)
+  constructor
+  · obtain ⟨f, hff, hfb, _⟩ := sem_edge_slots graph_ok h.1 hc
+      (x := (5 : V)) (y := (1 : V)) (by unfold adj; decide)
+    rw [hWF, Finset.mem_insert, Finset.mem_singleton] at hff
+    rcases hff with hf | rfl
+    · have hb := (sem_mem_W.mp hfb).2.1
+      rw [hf, sem_bar_bar, hec.2.2.1, Finset.mem_singleton] at hb
+      exact (by decide : (1 : V) ≠ 2) hb |>.elim
+    · exact hfb
+  · obtain ⟨f, hfa, hfe, _⟩ := sem_edge_slots graph_ok h.1 hc
+      (x := (0 : V)) (y := (4 : V)) (by unfold adj; decide)
+    rw [hWA, Finset.mem_insert, Finset.mem_singleton] at hfa
+    rcases hfa with hf | rfl
+    · have he := (sem_mem_W.mp hfe).2.1
+      rw [hf, sem_bar_bar, hed.2.2.1, Finset.mem_singleton] at he
+      exact (by decide : (4 : V) ≠ 3) he |>.elim
+    · exact hfe
+
+lemma exit_not_opposite {D : Dag} (hS : Strict 6 D) {v : V} {e : ℕ × Bool}
+    (he : e ∈ sem_W 6 D v) : v ∉ supp 6 D (src D (sem_bar e)) := by
+  have ht := sem_W_and hS he
+  obtain ⟨hj, hv, hout⟩ := sem_mem_W.mp he
+  intro hb
+  apply hout
+  rw [sem_supp_and hS hj ht]
+  obtain ⟨j, s⟩ := e
+  cases s
+  · exact Finset.mem_inter.mpr ⟨by simpa [src] using hv, by simpa [src, sem_bar] using hb⟩
+  · exact Finset.mem_inter.mpr ⟨by simpa [src, sem_bar] using hb, by simpa [src] using hv⟩
+
+lemma consumer_not_other_gate {D : Dag} {z : V} {e k : ℕ × Bool}
+    (he : Consumer D z e) (hj : k.1 < D.length)
+    (hempty : supp 6 D (6 + k.1) = ∅) (hne : k.1 ≠ e.1) :
+    z ∉ supp 6 D (src D k) := by
+  intro hz
+  have hk : k ∈ sem_W 6 D z := sem_mem_W.mpr
+    ⟨hj, hz, by rw [hempty]; exact Finset.notMem_empty _⟩
+  rw [he.2.2.2.2.2, Finset.mem_singleton] at hk
+  exact hne (congrArg Prod.fst hk)
+
+lemma bf_cross_supports {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed k : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed)
+    (hka : k ∈ sem_W 6 D 0) (hkf : k ∈ sem_W 6 D 5) :
+    supp 6 D (src D k) = {0, 5} ∧
+      supp 6 D (src D (sem_bar k)) = {1, 4} := by
+  classical
+  obtain ⟨hkb, hke⟩ := bf_cross_partners h hc hE hb4 hec hed hka hkf
+  obtain ⟨hkc, hkd⟩ := bf_AF_distinct h hc hE hb4 hec hed hka hkf
+  have hj := (sem_mem_W.mp hka).1
+  have hz := bf_and_empty h hc hE hb4 hj (sem_W_and h.1 hka)
+  have hcnot := consumer_not_other_gate hec hj hz hkc
+  have hdnot := consumer_not_other_gate hed hj hz hkd
+  have hcnot' : (2 : V) ∉ supp 6 D (src D (sem_bar k)) :=
+    consumer_not_other_gate hec hj hz hkc
+  have hdnot' : (3 : V) ∉ supp 6 D (src D (sem_bar k)) :=
+    consumer_not_other_gate hed hj hz hkd
+  constructor
+  · apply Finset.Subset.antisymm
+    · intro v hv
+      fin_cases v
+      · decide
+      · have hn := exit_not_opposite h.1 hkb
+        rw [sem_bar_bar] at hn
+        exact (hn hv).elim
+      · exact (hcnot hv).elim
+      · exact (hdnot hv).elim
+      · have hn := exit_not_opposite h.1 hke
+        rw [sem_bar_bar] at hn
+        exact (hn hv).elim
+      · decide
+    · intro v hv
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+      rcases hv with rfl | rfl
+      · exact (sem_mem_W.mp hka).2.1
+      · exact (sem_mem_W.mp hkf).2.1
+  · apply Finset.Subset.antisymm
+    · intro v hv
+      fin_cases v
+      · exact (exit_not_opposite h.1 hka hv).elim
+      · decide
+      · exact (hcnot' hv).elim
+      · exact (hdnot' hv).elim
+      · decide
+      · exact (exit_not_opposite h.1 hkf hv).elim
+    · intro v hv
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+      rcases hv with rfl | rfl
+      · exact (sem_mem_W.mp hkb).2.1
+      · exact (sem_mem_W.mp hke).2.1
+
+lemma bf_three_exit_gates {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed k : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed)
+    (hka : k ∈ sem_W 6 D 0) (hkf : k ∈ sem_W 6 D 5) :
+    ∀ v : V, ∀ e ∈ sem_W 6 D v,
+      e.1 = ec.1 ∨ e.1 = ed.1 ∨ e.1 = k.1 := by
+  obtain ⟨hkb, hke⟩ := bf_cross_partners h hc hE hb4 hec hed hka hkf
+  obtain ⟨hkc, hkd⟩ := bf_AF_distinct h hc hE hb4 hec hed hka hkf
+  have hWA := two_exits_eq (bf_exits_le_two h hc hE hb4 0)
+    (consumer_other_exit hed (hed.2.2.2.2.1 0 (by unfold adj; decide))) hka
+    (fun he => hkd (congrArg Prod.fst he).symm)
+  have hWB := two_exits_eq (bf_exits_le_two h hc hE hb4 1)
+    (consumer_other_exit hed (hed.2.2.2.2.1 1 (by unfold adj; decide))) hkb
+    (fun he => hkd (congrArg Prod.fst he).symm)
+  have hWE := two_exits_eq (bf_exits_le_two h hc hE hb4 4)
+    (consumer_other_exit hec (hec.2.2.2.2.1 4 (by unfold adj; decide))) hke
+    (fun he => hkc (congrArg Prod.fst he).symm)
+  have hWF := two_exits_eq (bf_exits_le_two h hc hE hb4 5)
+    (consumer_other_exit hec (hec.2.2.2.2.1 5 (by unfold adj; decide))) hkf
+    (fun he => hkc (congrArg Prod.fst he).symm)
+  intro v e he
+  fin_cases v
+  · change e ∈ sem_W 6 D (0 : V) at he
+    rw [hWA, Finset.mem_insert, Finset.mem_singleton] at he
+    rcases he with rfl | rfl <;> simp [sem_bar]
+  · change e ∈ sem_W 6 D (1 : V) at he
+    rw [hWB, Finset.mem_insert, Finset.mem_singleton] at he
+    rcases he with rfl | rfl <;> simp [sem_bar]
+  · change e ∈ sem_W 6 D (2 : V) at he
+    rw [hec.2.2.2.2.2, Finset.mem_singleton] at he
+    subst e
+    simp
+  · change e ∈ sem_W 6 D (3 : V) at he
+    rw [hed.2.2.2.2.2, Finset.mem_singleton] at he
+    subst e
+    simp
+  · change e ∈ sem_W 6 D (4 : V) at he
+    rw [hWE, Finset.mem_insert, Finset.mem_singleton] at he
+    rcases he with rfl | rfl <;> simp [sem_bar]
+  · change e ∈ sem_W 6 D (5 : V) at he
+    rw [hWF, Finset.mem_insert, Finset.mem_singleton] at he
+    rcases he with rfl | rfl <;> simp [sem_bar]
+
+lemma bf_other_and_inputs_empty {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    {ec ed k : ℕ × Bool} (hec : Consumer D 2 ec)
+    (hed : Consumer D 3 ed)
+    (hka : k ∈ sem_W 6 D 0) (hkf : k ∈ sem_W 6 D 5)
+    {j : ℕ} (hj : j < D.length) (ht : tag D j = true)
+    (hjc : j ≠ ec.1) (hjd : j ≠ ed.1) (hjk : j ≠ k.1) :
+    supp 6 D (opA D j) = ∅ ∧
+      supp 6 D (opB D j) = ∅ := by
+  have hs : ∀ s : Bool, supp 6 D (src D (j, s)) = ∅ := by
+    intro s
+    apply Finset.eq_empty_of_forall_notMem
+    intro v hv
+    have he : (j, s) ∈ sem_W 6 D v := sem_mem_W.mpr
+      ⟨hj, hv, by rw [bf_and_empty h hc hE hb4 hj ht]; exact Finset.notMem_empty _⟩
+    rcases bf_three_exit_gates h hc hE hb4 hec hed hka hkf v (j, s) he with he | he | he
+    · exact hjc he
+    · exact hjd he
+    · exact hjk he
+  exact ⟨by simpa [src] using hs false, by simpa [src] using hs true⟩
+
+lemma bf_three_birth_geometry {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w) :
+    ∃ ec ed k : ℕ × Bool,
+      Consumer D 2 ec ∧ Consumer D 3 ed ∧
+      k.1 < D.length ∧ tag D k.1 = true ∧
+      ec.1 ≠ ed.1 ∧ k.1 ≠ ec.1 ∧ k.1 ≠ ed.1 ∧
+      supp 6 D (src D (sem_bar ec)) = {4, 5} ∧
+      supp 6 D (src D (sem_bar ed)) = {0, 1} ∧
+      supp 6 D (src D k) = {0, 5} ∧
+      supp 6 D (src D (sem_bar k)) = {1, 4} ∧
+      (∀ j, j < D.length → tag D j = true →
+        j ≠ ec.1 → j ≠ ed.1 → j ≠ k.1 →
+        supp 6 D (opA D j) = ∅ ∧
+          supp 6 D (opB D j) = ∅) := by
+  have hi := bf_inelig h hc hE hb4
+  obtain ⟨ec, hec⟩ := consumer_exists h hc (v := (2 : V)) (by rw [hi]; decide)
+  obtain ⟨ed, hed⟩ := consumer_exists h hc (v := (3 : V)) (by rw [hi]; decide)
+  obtain ⟨k, hka, hkf⟩ := bf_common_AF h hc hE hb4 hAF
+  obtain ⟨hkc, hkd⟩ := bf_AF_distinct h hc hE hb4 hec hed hka hkf
+  obtain ⟨hkA, hkB⟩ := bf_cross_supports h hc hE hb4 hec hed hka hkf
+  have hcd : ec.1 ≠ ed.1 := by
+    intro hg
+    exact (by decide : (2 : V) ≠ 3) (consumers_injective hec hed hg)
+  exact ⟨ec, ed, k, hec, hed, (sem_mem_W.mp hka).1, sem_W_and h.1 hka,
+    hcd, hkc, hkd, bf_C_opposite h hc hE hb4 hec hed, bf_D_opposite h hc hE hb4 hec hed,
+    hkA, hkB, fun _ hj ht hjc hjd hjk =>
+      bf_other_and_inputs_empty h hc hE hb4 hec hed hka hkf hj ht hjc hjd hjk⟩
+
+end C6.GenericPair
+
+
+namespace C6.GenericPair
+open DagTools LinearNoise
+
+lemma bf_birth_data {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w) :
+    ∃ G L T : Fin 3 → ℕ,
+      Function.Injective G ∧
+      (∀ i, G i < D.length) ∧
+      (∀ i, L i < 6 + G i ∧ T i < 6 + G i) ∧
+      (∀ i (x : V → Bool), val D x (6 + G i) =
+        (val D x (L i) && val D x (T i))) ∧
+      (∀ i (x : V → Bool), linear (supp 6 D (L i)) x = (ThreeBirth.factors i x).1 ∧
+        linear (supp 6 D (T i)) x = (ThreeBirth.factors i x).2) ∧
+      (∀ j, j < D.length → tag D j = true →
+        (∃ i, G i = j) ∨ (supp 6 D (opA D j) = ∅ ∧
+          supp 6 D (opB D j) = ∅)) := by
+  obtain ⟨ec, ed, k, hec, hed, hkj, hkt, hcd, hkc, hkd, hC, hD, hK, hK', hother⟩ :=
+    bf_three_birth_geometry h hc hE hb4 hAF
+  let G : Fin 3 → ℕ := ![ec.1, ed.1, k.1]
+  let L : Fin 3 → ℕ := ![src D ec, src D ed, src D k]
+  let T : Fin 3 → ℕ := ![src D (sem_bar ec),
+    src D (sem_bar ed), src D (sem_bar k)]
+  refine ⟨G, L, T, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro i j hij
+    fin_cases i <;> fin_cases j <;> simp_all [G]
+  · intro i
+    fin_cases i
+    · exact hec.1
+    · exact hed.1
+    · exact hkj
+  · intro i
+    fin_cases i
+    · exact ⟨sem_src_lt h.1 hec.1 ec.2, sem_src_lt h.1 hec.1 (!ec.2)⟩
+    · exact ⟨sem_src_lt h.1 hed.1 ed.2, sem_src_lt h.1 hed.1 (!ed.2)⟩
+    · exact ⟨sem_src_lt h.1 hkj k.2, sem_src_lt h.1 hkj (!k.2)⟩
+  · intro i x
+    fin_cases i
+    · exact and_value_on_slots h.1 ec hec.1 hec.2.1 x
+    · exact and_value_on_slots h.1 ed hed.1 hed.2.1 x
+    · exact and_value_on_slots h.1 k hkj hkt x
+  · intro i x
+    fin_cases i
+    · constructor
+      · change linear (supp 6 D (src D ec)) x = x 2
+        rw [hec.2.2.1, linear_singleton]
+      · change linear (supp 6 D (src D (sem_bar ec))) x = (x 4 || x 5)
+        rw [hC, linear_pair]
+    · constructor
+      · change linear (supp 6 D (src D ed)) x = x 3
+        rw [hed.2.2.1, linear_singleton]
+      · change linear (supp 6 D (src D (sem_bar ed))) x = (x 0 || x 1)
+        rw [hD, linear_pair]
+    · constructor
+      · change linear (supp 6 D (src D k)) x = (x 0 || x 5)
+        rw [hK, linear_pair]
+      · change linear (supp 6 D (src D (sem_bar k))) x = (x 1 || x 4)
+        rw [hK', linear_pair]
+  · intro j hj ht
+    by_cases hjc : j = ec.1
+    · left
+      exact ⟨0, hjc.symm⟩
+    by_cases hjd : j = ed.1
+    · left
+      exact ⟨1, hjd.symm⟩
+    by_cases hjk : j = k.1
+    · left
+      exact ⟨2, hjk.symm⟩
+    exact Or.inr (hother j hj ht hjc hjd hjk)
+
+end C6.GenericPair
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma no_Bplus_four {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hE : fourEndpoints ⊆ eligSet 6 D) (hb4 : Bplus 6 D = 4)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w) : False := by
+  obtain ⟨G, L, T, hG, hvalid, hbound, hgate, hlin, hkind⟩ := bf_birth_data h hc hE hb4 hAF
+  apply BirthNoiseAdapter.no_three_births h.1 G L T hG hvalid
+    (fun i => (hbound i).1) (fun i => (hbound i).2) hgate
+    (fun i x => (hlin i x).1) (fun i x => (hlin i x).2)
+    (fun j hj ht => bf_and_empty h hc hE hb4 hj ht) ?_ (outW 6 D) ?_
+    (sem_supp_out graph_ok hc) ?_
+  · intro j hj ht hnot
+    rcases hkind j hj ht with ⟨i, hi⟩ | he
+    · exact (hnot i hi.symm).elim
+    · exact he
+  · unfold outW
+    omega
+  · intro x
+    apply Bool.eq_iff_iff.mpr
+    exact (hc x).trans (edgeBool_spec x).symm
+
+lemma two_pair_occurrences_Bplus_ge_five {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w) :
+    5 ≤ Bplus 6 D := by
+  classical
+  obtain ⟨a, ha0, ha5⟩ := hAF
+  obtain ⟨b, hb1, hb4⟩ := hBE
+  have heA := joint_support_eligible h hc (by decide : (0 : V) ≠ 5) ha0 ha5
+  have heB := joint_support_eligible h hc (by decide : (1 : V) ≠ 4) hb1 hb4
+  have hE : fourEndpoints ⊆ eligSet 6 D := by
+    intro v hv
+    simp only [fourEndpoints, Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl | rfl | rfl
+    · exact heA.1
+    · exact heB.1
+    · exact heB.2
+    · exact heA.2
+  obtain ⟨p, hp⟩ := sem_exists_pureBranch graph_ok h.1 hc
+  have hcount := (Finset.card_le_card hE).trans (elig_le_Bplus h.1 p hp)
+  have hfour : fourEndpoints.card = 4 := by decide
+  rw [hfour] at hcount
+  by_contra hn
+  have heq : Bplus 6 D = 4 := by omega
+  exact no_Bplus_four h hc hE heq ⟨a, ha0, ha5⟩
+
+lemma two_pair_occurrences_length_ge_ten_add_Bzero {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w) :
+    10 + Bzero 6 D ≤ D.length := by
+  have hb := two_pair_occurrences_Bplus_ge_five h hc hAF hBE
+  have hs := surplus_identity h
+  rw [totalSurplus_split] at hs
+  omega
+
+end C6.GenericPair
+
 end PEqualNP.Outside.L_meta_2590_aux
