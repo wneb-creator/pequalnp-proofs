@@ -480,3 +480,347 @@ lemma exists_least_ao {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   exact Nat.find_min' hex ⟨C', hC', hC'F, rfl⟩
 
 end PEqualNP.Outside.L_meta_3566
+
+namespace PEqualNP.Outside.L_meta_3566.FalseRestrict
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.AO2Upper
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+def readOption (a : Option ℕ) (w : List Bool) : Bool :=
+  a.elim false (fun i => w.getD i false)
+
+def Bound (m : ℕ) (a : Option ℕ) : Prop :=
+  ∀ i, a = some i → i < m
+
+def reduceGate (m : ℕ) (op : GateOp) : Option ℕ → Option ℕ → List Gate × Option ℕ
+  | some a, some b => ([⟨op, [a, b]⟩], some m)
+  | none, none => ([], none)
+  | some a, none => ([], match op with | .or => some a | _ => none)
+  | none, some b => ([], match op with | .or => some b | _ => none)
+
+lemma reduce_good (m : ℕ) (op : GateOp) (a b : Option ℕ)
+    (hop : op = GateOp.and ∨ op = GateOp.or) (ha : Bound m a) (hb : Bound m b) :
+    Good m (reduceGate m op a b).1 := by
+  rcases hop with rfl | rfl <;> cases a <;> cases b <;>
+    simp_all [reduceGate, Good, Bound]
+
+lemma reduce_bound (m : ℕ) (op : GateOp) (a b : Option ℕ)
+    (hop : op = GateOp.and ∨ op = GateOp.or) (ha : Bound m a) (hb : Bound m b) :
+    Bound (m + (reduceGate m op a b).1.length) (reduceGate m op a b).2 := by
+  rcases hop with rfl | rfl <;> cases a <;> cases b <;>
+    simp_all [reduceGate, Bound]
+
+lemma reduce_size (m : ℕ) (op : GateOp) (a b : Option ℕ) :
+    (reduceGate m op a b).1.length + (if a.isNone || b.isNone then 1 else 0) = 1 := by
+  cases a <;> cases b <;> simp [reduceGate]
+
+lemma reduce_eval (w : List Bool) (op : GateOp) (a b : Option ℕ)
+    (hop : op = GateOp.and ∨ op = GateOp.or) :
+    readOption (reduceGate w.length op a b).2 (wiresFrom (reduceGate w.length op a b).1 w) =
+      op.eval [readOption a w, readOption b w] := by
+  rcases hop with rfl | rfl <;> cases a <;> cases b <;>
+    simp [reduceGate, readOption, wiresFrom, GateOp.eval]
+
+lemma readOption_preserved (a : Option ℕ) (w : List Bool) (gs : List Gate)
+    (ha : Bound w.length a) : readOption a (wiresFrom gs w) = readOption a w := by
+  cases a with
+  | none => rfl
+  | some i => exact getD_wiresFrom gs w i (ha i rfl)
+
+def MapRel (σ : List (Option ℕ)) (s t : List Bool) : Prop :=
+  σ.length = s.length ∧ (∀ i, Bound t.length (σ.getD i none)) ∧
+    ∀ i, s.getD i false = readOption (σ.getD i none) t
+
+def emit (m : ℕ) (σ : List (Option ℕ)) (g : Gate) : List Gate × Option ℕ :=
+  reduceGate m g.op (σ.getD (g.inputs.getD 0 0) none) (σ.getD (g.inputs.getD 1 0) none)
+
+lemma mapRel_step (σ : List (Option ℕ)) (s t : List Bool) (g : Gate)
+    (h : MapRel σ s t) (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hlen : g.inputs.length = 2) :
+    MapRel (σ ++ [(emit t.length σ g).2])
+      (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)])
+      (wiresFrom (emit t.length σ g).1 t) := by
+  have hev : readOption (emit t.length σ g).2 (wiresFrom (emit t.length σ g).1 t) =
+      g.op.eval (g.inputs.map fun i => s.getD i false) := by
+    obtain ⟨a, b, hg⟩ := List.length_eq_two.mp hlen
+    calc
+      _ = g.op.eval [readOption (σ.getD a none) t, readOption (σ.getD b none) t] := by
+        simpa [emit, hg] using reduce_eval t g.op (σ.getD a none) (σ.getD b none) hop
+      _ = _ := by rw [← h.2.2 a, ← h.2.2 b]; simp [hg]
+  have hb : Bound (t.length + (emit t.length σ g).1.length) (emit t.length σ g).2 :=
+    reduce_bound t.length g.op _ _ hop (h.2.1 _) (h.2.1 _)
+  refine ⟨by simp [h.1], ?_, ?_⟩
+  · intro j
+    by_cases hj : j = σ.length
+    · subst j
+      rw [getD_snoc_eq, length_wiresFrom]
+      exact hb
+    · intro i hi
+      rw [getD_snoc_ne _ _ _ _ hj] at hi
+      have := h.2.1 j i hi
+      rw [length_wiresFrom]
+      omega
+  · intro j
+    by_cases hj : j = σ.length
+    · subst j
+      have hs : (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)]).getD σ.length false =
+          g.op.eval (g.inputs.map fun i => s.getD i false) := by
+        rw [h.1, getD_snoc_eq]
+      rw [hs, getD_snoc_eq]
+      exact hev.symm
+    · have hjs : j ≠ s.length := by rw [← h.1]; exact hj
+      rw [getD_snoc_ne _ _ _ _ hjs, getD_snoc_ne _ _ _ _ hj, h.2.2 j]
+      exact (readOption_preserved _ t _ (h.2.1 j)).symm
+
+lemma emit_good (m : ℕ) (σ : List (Option ℕ)) (g : Gate)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hbound : ∀ i, Bound m (σ.getD i none)) : Good m (emit m σ g).1 :=
+  reduce_good m g.op _ _ hop (hbound _) (hbound _)
+
+def compile (m : ℕ) (σ : List (Option ℕ)) : List Gate → List Gate × List (Option ℕ)
+  | [] => ([], σ)
+  | g :: gs =>
+      let r := emit m σ g
+      let rest := compile (m + r.1.length) (σ ++ [r.2]) gs
+      (r.1 ++ rest.1, rest.2)
+
+def saved (m : ℕ) (σ : List (Option ℕ)) : List Gate → ℕ
+  | [] => 0
+  | g :: gs =>
+      let r := emit m σ g
+      (if (σ.getD (g.inputs.getD 0 0) none).isNone ||
+          (σ.getD (g.inputs.getD 1 0) none).isNone then 1 else 0) +
+        saved (m + r.1.length) (σ ++ [r.2]) gs
+
+lemma compile_size (gs : List Gate) (m : ℕ) (σ : List (Option ℕ)) :
+    (compile m σ gs).1.length + saved m σ gs = gs.length := by
+  induction gs generalizing m σ with
+  | nil => simp [compile, saved]
+  | cons g gs ih =>
+    have hstep := reduce_size m g.op (σ.getD (g.inputs.getD 0 0) none)
+      (σ.getD (g.inputs.getD 1 0) none)
+    have hrest := ih (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2])
+    simp only [compile, saved, List.length_append, List.length_cons]
+    change (emit m σ g).1.length + _ + _ = gs.length + 1
+    change (emit m σ g).1.length + _ = 1 at hstep
+    omega
+
+lemma compile_correct (gs : List Gate) (σ : List (Option ℕ)) (s t : List Bool)
+    (h : MapRel σ s t)
+    (hbasis : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2) :
+    Good t.length (compile t.length σ gs).1 ∧
+      MapRel (compile t.length σ gs).2 (wiresFrom gs s)
+        (wiresFrom (compile t.length σ gs).1 t) := by
+  induction gs generalizing σ s t with
+  | nil => exact ⟨True.intro, h⟩
+  | cons g gs ih =>
+    obtain ⟨hop, hlen⟩ := hbasis g List.mem_cons_self
+    have hstep := mapRel_step σ s t g h hop hlen
+    have hrest := ih (σ ++ [(emit t.length σ g).2])
+      (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)])
+      (wiresFrom (emit t.length σ g).1 t) hstep
+      (fun g' hg' => hbasis g' (List.mem_cons_of_mem g hg'))
+    rw [length_wiresFrom] at hrest
+    constructor
+    · exact good_append _ _ _ (emit_good _ _ _ hop h.2.1) hrest.1
+    · have hcons : wiresFrom (g :: gs) s =
+          wiresFrom gs (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)]) := rfl
+      simpa only [compile, wiresFrom_append, hcons] using hrest.2
+
+def initialMap (n : ℕ) (z : Fin n) : List (Option ℕ) :=
+  List.ofFn fun i : Fin n => if i = z then none else some i.val
+
+lemma initial_rel (n : ℕ) (z : Fin n) (y : Fin n → Bool) :
+    MapRel (initialMap n z) (List.ofFn (Function.update y z false)) (List.ofFn y) := by
+  refine ⟨by simp [initialMap], ?_, ?_⟩
+  · intro j
+    by_cases hj : j < n
+    · have he : (initialMap n z).getD j none =
+          if (⟨j, hj⟩ : Fin n) = z then none else some j := by simp [initialMap, hj]
+      rw [he]
+      split <;> simp_all [Bound]
+    · rw [List.getD_eq_default _ _ (by simp [initialMap]; omega)]
+      simp [Bound]
+  · intro j
+    by_cases hj : j < n
+    · by_cases he : (⟨j, hj⟩ : Fin n) = z
+      · simp [initialMap, hj, he, readOption]
+      · simp [initialMap, hj, he, readOption]
+    · rw [List.getD_eq_default _ _ (by simp; omega),
+        List.getD_eq_default _ _ (by simp [initialMap]; omega)]
+      rfl
+
+lemma read_output (a : Option ℕ) (gs : List Gate) (w : List Bool) :
+    (wiresFrom gs w).getD (a.getD (w.length + gs.length)) false =
+      readOption a (wiresFrom gs w) := by
+  cases a <;> simp [readOption, ← length_wiresFrom gs w]
+
+def restricted (n : ℕ) (z : Fin n) (C : Circuit) : Circuit :=
+  let r := compile n (initialMap n z) C.gates
+  ⟨r.1, (r.2.getD C.output none).getD (n + r.1.length)⟩
+
+def removalCount (n : ℕ) (z : Fin n) (C : Circuit) : ℕ :=
+  saved n (initialMap n z) C.gates
+
+lemma restricted_spec (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C) :
+    IsAO2 n (restricted n z C) ∧
+      circuitFun n (restricted n z C) =
+        (fun y : Fin n → Bool => circuitFun n C (Function.update y z false)) ∧
+      (restricted n z C).size + removalCount n z C = C.size := by
+  have hbasis : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 := by
+    intro g hg
+    exact ⟨hAO.1 g hg, hAO.2.2 g hg⟩
+  have hc (y : Fin n → Bool) :
+      Good n (compile n (initialMap n z) C.gates).1 ∧
+        MapRel (compile n (initialMap n z) C.gates).2
+          (wiresFrom C.gates (List.ofFn (Function.update y z false)))
+          (wiresFrom (compile n (initialMap n z) C.gates).1 (List.ofFn y)) := by
+    simpa only [List.length_ofFn] using
+      compile_correct C.gates (initialMap n z) _ _ (initial_rel n z y) hbasis
+  refine ⟨good_ao2 _ _ _ (hc (fun _ => false)).1, ?_, ?_⟩
+  · funext y
+    change (wiresFrom (compile n (initialMap n z) C.gates).1 (List.ofFn y)).getD
+        (((compile n (initialMap n z) C.gates).2.getD C.output none).getD
+          (n + (compile n (initialMap n z) C.gates).1.length)) false = _
+    have hout := read_output ((compile n (initialMap n z) C.gates).2.getD C.output none)
+      (compile n (initialMap n z) C.gates).1 (List.ofFn y)
+    simp only [List.length_ofFn] at hout
+    rw [hout]
+    exact ((hc y).2.2.2 C.output).symm
+  · exact compile_size C.gates n (initialMap n z)
+
+lemma exists_restriction (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool => circuitFun n C (Function.update y z false)) ∧
+      D.size + removalCount n z C ≤ C.size := by
+  obtain ⟨hD, hF, hsize⟩ := restricted_spec n z C hAO
+  exact ⟨restricted n z C, hD, hF, hsize.le⟩
+
+def blockStep (op : GateOp) (a b : Bool) : Bool :=
+  match op with
+  | .or => a && b
+  | _ => a || b
+
+lemma reduce_dead (m : ℕ) (op : GateOp) (a b : Option ℕ) :
+    (reduceGate m op a b).2.isNone = blockStep op a.isNone b.isNone := by
+  cases a <;> cases b <;> cases op <;> rfl
+
+lemma getD_map_none (σ : List (Option ℕ)) (i : ℕ) :
+    (σ.map Option.isNone).getD i true = (σ.getD i none).isNone := by
+  induction σ generalizing i with
+  | nil => simp
+  | cons a σ ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact ih i
+
+def deadRun (bs : List Bool) : List Gate → List Bool × ℕ
+  | [] => (bs, 0)
+  | g :: gs =>
+      let a := bs.getD (g.inputs.getD 0 0) true
+      let b := bs.getD (g.inputs.getD 1 0) true
+      let rest := deadRun (bs ++ [blockStep g.op a b]) gs
+      (rest.1, (if a || b then 1 else 0) + rest.2)
+
+lemma compile_dead (gs : List Gate) (m : ℕ) (σ : List (Option ℕ)) :
+    (compile m σ gs).2.map Option.isNone = (deadRun (σ.map Option.isNone) gs).1 ∧
+      saved m σ gs = (deadRun (σ.map Option.isNone) gs).2 := by
+  induction gs generalizing m σ with
+  | nil => exact ⟨rfl, rfl⟩
+  | cons g gs ih =>
+    have hstep : (σ ++ [(emit m σ g).2]).map Option.isNone =
+        σ.map Option.isNone ++ [blockStep g.op (σ.getD (g.inputs.getD 0 0) none).isNone
+          (σ.getD (g.inputs.getD 1 0) none).isNone] := by
+      simp [emit, reduce_dead]
+    have hrest := ih (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2])
+    simp only [compile, saved, deadRun, getD_map_none]
+    rw [← hstep]
+    exact ⟨hrest.1, congrArg (fun k => _ + k) hrest.2⟩
+
+def initialDead (n : ℕ) (z : Fin n) : List Bool :=
+  List.ofFn fun i : Fin n => decide (i = z)
+
+lemma initial_map_dead (n : ℕ) (z : Fin n) :
+    (initialMap n z).map Option.isNone = initialDead n z := by
+  simp only [initialMap, initialDead, List.map_ofFn]
+  congr 1
+  funext i
+  by_cases h : i = z <;> simp [h]
+
+def blockedWires (n : ℕ) (z : Fin n) (C : Circuit) : List Bool :=
+  (deadRun (initialDead n z) C.gates).1
+
+def blockedCount (n : ℕ) (z : Fin n) (C : Circuit) : ℕ :=
+  (deadRun (initialDead n z) C.gates).2
+
+lemma removal_eq_blocked (n : ℕ) (z : Fin n) (C : Circuit) :
+    removalCount n z C = blockedCount n z C := by
+  have h := (compile_dead C.gates n (initialMap n z)).2
+  rw [initial_map_dead] at h
+  exact h
+
+lemma exists_blocked_restriction (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool => circuitFun n C (Function.update y z false)) ∧
+      D.size + blockedCount n z C = C.size := by
+  obtain ⟨hD, hF, hsize⟩ := restricted_spec n z C hAO
+  rw [removal_eq_blocked] at hsize
+  exact ⟨restricted n z C, hD, hF, hsize⟩
+
+lemma getD_map_not (s : List Bool) (i : ℕ) :
+    (s.map Bool.not).getD i true = !(s.getD i false) := by
+  induction s generalizing i with
+  | nil => simp
+  | cons a s ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact ih i
+
+lemma blockStep_not (op : GateOp) (a b : Bool)
+    (hop : op = GateOp.and ∨ op = GateOp.or) :
+    blockStep op (!a) (!b) = !(op.eval [a, b]) := by
+  rcases hop with rfl | rfl <;> cases a <;> cases b <;> rfl
+
+lemma deadRun_values (gs : List Gate) (s : List Bool)
+    (hbasis : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2) :
+    (deadRun (s.map Bool.not) gs).1 = (wiresFrom gs s).map Bool.not := by
+  induction gs generalizing s with
+  | nil => rfl
+  | cons g gs ih =>
+    obtain ⟨hop, hlen⟩ := hbasis g List.mem_cons_self
+    have hgate : blockStep g.op ((s.map Bool.not).getD (g.inputs.getD 0 0) true)
+        ((s.map Bool.not).getD (g.inputs.getD 1 0) true) =
+        !(g.op.eval (g.inputs.map fun i => s.getD i false)) := by
+      rw [getD_map_not, getD_map_not]
+      obtain ⟨a, b, hg⟩ := List.length_eq_two.mp hlen
+      simpa [hg] using blockStep_not g.op (s.getD a false) (s.getD b false) hop
+    have hstep : s.map Bool.not ++
+        [blockStep g.op ((s.map Bool.not).getD (g.inputs.getD 0 0) true)
+          ((s.map Bool.not).getD (g.inputs.getD 1 0) true)] =
+        (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)]).map Bool.not := by
+      simp only [List.map_append, List.map_cons, List.map_nil, hgate]
+    simp only [deadRun, hstep]
+    exact ih _ (fun g' hg' => hbasis g' (List.mem_cons_of_mem g hg'))
+
+lemma initialDead_values (n : ℕ) (z : Fin n) :
+    initialDead n z = (List.ofFn (fun i : Fin n => decide (i ≠ z))).map Bool.not := by
+  simp only [initialDead, List.map_ofFn]
+  congr 1
+  funext i
+  by_cases h : i = z <;> simp [h]
+
+lemma blockedWires_eq (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C) :
+    blockedWires n z C =
+      (C.wires (List.ofFn (fun i : Fin n => decide (i ≠ z)))).map Bool.not := by
+  unfold blockedWires
+  rw [initialDead_values]
+  exact deadRun_values C.gates _ (fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩)
+
+end PEqualNP.Outside.L_meta_3566.FalseRestrict
