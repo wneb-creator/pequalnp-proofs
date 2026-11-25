@@ -1341,9 +1341,8 @@ lemma no_output_two_ands {f a b c : BitVec 7}
 
 end SevenRows
 
-end PEqualNP.Outside.L_meta_2590
 
-namespace PEqualNP.Outside.L_meta_2590.IndexSchedule
+namespace IndexSchedule
 
 open ResourceExclusion
 
@@ -1593,9 +1592,9 @@ lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
         rw [heq] at hca
         exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
-end PEqualNP.Outside.L_meta_2590.IndexSchedule
+end IndexSchedule
 
-namespace PEqualNP.Outside.L_meta_2590.SevenRows.Adapter
+namespace SevenRows.Adapter
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -1936,9 +1935,9 @@ lemma circuit_requires_three_ands (C : Circuit) (hC : Monotone2 C) (xs : List (B
   have hle : andCount C.gates ≤ 2 := by omega
   exact circuit_no_two_ands C hC xs hxs hle hcomp
 
-end PEqualNP.Outside.L_meta_2590.SevenRows.Adapter
+end SevenRows.Adapter
 
-namespace PEqualNP.Outside.L_meta_2590.FiveGroup.CausalBarrier
+namespace FiveGroup.CausalBarrier
 
 abbrev Wire := Finset (Fin 10) × Bool
 
@@ -2047,9 +2046,9 @@ lemma all_vertices_separation :
   revert v
   decide
 
-end PEqualNP.Outside.L_meta_2590.FiveGroup.CausalBarrier
+end FiveGroup.CausalBarrier
 
-namespace PEqualNP.Outside.L_meta_2590.FiveGroup.ResourceExclusion
+namespace FiveGroup.ResourceExclusion
 
 open CausalBarrier
 
@@ -2410,9 +2409,9 @@ lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
   have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
   exact invariant_no_target (invariant_trace hi ht q hq) hout
 
-end PEqualNP.Outside.L_meta_2590.FiveGroup.ResourceExclusion
+end FiveGroup.ResourceExclusion
 
-namespace PEqualNP.Outside.L_meta_2590.FiveGroup.IndexSchedule
+namespace FiveGroup.IndexSchedule
 
 open ResourceExclusion
 
@@ -2662,9 +2661,9 @@ lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
         rw [heq] at hca
         exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
-end PEqualNP.Outside.L_meta_2590.FiveGroup.IndexSchedule
+end FiveGroup.IndexSchedule
 
-namespace PEqualNP.Outside.L_meta_2590.S45.CausalBarrier
+namespace S45.CausalBarrier
 
 abbrev Wire := Finset (Fin 10) × Bool
 
@@ -2773,9 +2772,9 @@ lemma all_vertices_separation :
   revert v
   decide
 
-end PEqualNP.Outside.L_meta_2590.S45.CausalBarrier
+end S45.CausalBarrier
 
-namespace PEqualNP.Outside.L_meta_2590.S45.ResourceExclusion
+namespace S45.ResourceExclusion
 
 open CausalBarrier
 
@@ -3136,9 +3135,9 @@ lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
   have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
   exact invariant_no_target (invariant_trace hi ht q hq) hout
 
-end PEqualNP.Outside.L_meta_2590.S45.ResourceExclusion
+end S45.ResourceExclusion
 
-namespace PEqualNP.Outside.L_meta_2590.S45.IndexSchedule
+namespace S45.IndexSchedule
 
 open ResourceExclusion
 
@@ -3388,9 +3387,9 @@ lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
         rw [heq] at hca
         exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
-end PEqualNP.Outside.L_meta_2590.S45.IndexSchedule
+end S45.IndexSchedule
 
-namespace PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+namespace DAGBridge.DagTools
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -3631,9 +3630,9 @@ lemma supp_gate (hS : Strict n D) (j : ℕ) (hj : j < D.length) :
   rw [mem_supp, val_gate hS _ j hj]
   cases tag D j <;> simp [mem_supp, gop]
 
-end PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+end DAGBridge.DagTools
 
-namespace PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+namespace FiveGroup.DAGBridge
 
 open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
 open ResourceExclusion IndexSchedule CausalBarrier
@@ -3820,9 +3819,9 @@ lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
   intro w hw
   exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
 
-end PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+end FiveGroup.DAGBridge
 
-namespace PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+namespace S45.DAGBridge
 
 open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
 open ResourceExclusion IndexSchedule CausalBarrier
@@ -4009,9 +4008,9 @@ lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
   intro w hw
   exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
 
-end PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+end S45.DAGBridge
 
-namespace PEqualNP.Outside.L_meta_2590.DAGBridge
+namespace DAGBridge
 
 open DagTools
 
@@ -4019,9 +4018,9 @@ lemma petersen_single_false : ∀ v : Fin 10,
     PEqualNP.Outside.L_meta_2590.edgeFn (single v) = false := by
   decide
 
-end PEqualNP.Outside.L_meta_2590.DAGBridge
+end DAGBridge
 
-namespace PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+namespace FiveGroup.DAGBridge
 
 open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
 open PEqualNP.Outside.L_meta_2590.DAGBridge
@@ -4055,9 +4054,9 @@ lemma petersen_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
   intro hc
   exact canonical_dag_exclusion hS hB hg ht hdirty hsides w hw (target_of_computes hc)
 
-end PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+end FiveGroup.DAGBridge
 
-namespace PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+namespace S45.DAGBridge
 
 open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
 open PEqualNP.Outside.L_meta_2590.DAGBridge
@@ -4091,4 +4090,6 @@ lemma petersen_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
   intro hc
   exact canonical_dag_exclusion hS hB hg ht hdirty hsides w hw (target_of_computes hc)
 
-end PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+end S45.DAGBridge
+
+end PEqualNP.Outside.L_meta_2590
