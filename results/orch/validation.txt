@@ -49,3 +49,12 @@ Checked thirteen-gate ownership upper bound only; no minimality or full target c
 2026-11-25T04:08:29.614077+00:00 search2 archive: all 81 payload hashes and manifest verified before staging.
 Independent data/model review: rules_review PASS. Corrected README precision review: normal_form PASS.
 The archive contains computational evidence under explicitly unverified normalization/pruning assumptions, not Lean-checked lower bounds. Timeouts remain UNKNOWN.
+
+2026-11-25T04:09:45.033934+00:00 partial proof batch
+SingletonEdge.lean: lake env lean ../results/orch/lemmas/SingletonEdge.lean; exit 0, full output singleton-edge-build.log.
+SingletonEdgeRepair.lean: lake env lean ../results/orch/lemmas/SingletonEdgeRepair.lean; exit 0, full output singleton-edge-repair-build.log.
+StarSemantics.lean: lake env lean ../results/orch/lemmas/StarSemantics.lean; exit 0, full output star-semantics-build.log.
+StarWire.lean: lake env lean ../results/orch/lemmas/StarWire.lean; exit 0, full output star-wire-build.log.
+CaptureBridge.lean: lake env lean ../results/orch/lemmas/CaptureBridge.lean; exit 0, full output capture-bridge-build.log.
+StressSymmetry.lean: lake env lean ../results/orch/lemmas/StressSymmetry.lean; exit 0, full output stress-symmetry-lean.log.
+Independent source review: rules_review PASS for all six; reviewed source hashes matched before staging. These are partial repairs and finite symmetry checks; the exact posted target is still unproved.

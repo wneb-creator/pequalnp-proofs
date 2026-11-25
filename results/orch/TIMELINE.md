@@ -15,3 +15,5 @@
 - 2026-11-25 03:52:35 UTC: renewed lease before stress-graph witness build; expiry 2026-11-25 04:12:35 UTC.
 - 2026-11-25T04:02:54.386442+00:00: preserving reviewed thirteen-gate stress-graph witness.
 - 2026-11-25T04:08:29.614077+00:00: preserving independently reviewed second search archive and documentation.
+- 2026-11-25 04:09:09 UTC: lease renewed after detecting interrupted background processes; expiry 04:29:09 UTC. Renewal timer restarted with an exclusive lock.
+- 2026-11-25T04:09:45.033934+00:00: preserving reviewed singleton/star repairs, capture bridge and finite symmetry checks.
