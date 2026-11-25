@@ -1,0 +1,17 @@
+{
+  "source_sha256": "d0d1762786f2721c7ec753d2d4a880d9adacbd1042af708000b33eb621d32e63",
+  "bytes": 5195,
+  "independent_sets_exact": 76,
+  "permutations_checked": 51,
+  "adjacency_entries_checked": 5100,
+  "witness_images_checked": 76,
+  "class_sizes": {
+    "0": 1,
+    "1": 10,
+    "2": 30,
+    "3": 20,
+    "4": 10,
+    "5": 5
+  },
+  "all_literal_data_checks_pass": true
+}

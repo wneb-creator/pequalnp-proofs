@@ -1,0 +1,4 @@
+{"control": "all20dynamic_pins_fixed_known_positive", "result": 10, "expected": 10, "variables": 62320, "clauses": 1407045, "seconds": 0.0013772929996775929}
+{"control": "same20fixed_but_exact_one_NOT_contradiction", "result": 20, "expected": 20, "variables": 62320, "clauses": 1407046, "seconds": 0.0009134680003626272}
+{"control": "dynamic_NOT_x0_followed_by_OR_false", "result": 10, "expected": 10, "variables": 6196, "clauses": 66946, "seconds": 0.00014187900160322897}
+ALL_CONTROLS_PASS

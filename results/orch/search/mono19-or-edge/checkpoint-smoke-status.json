@@ -1,0 +1,32 @@
+[
+  {
+    "label": "old",
+    "exit": 0,
+    "fields": {
+      "nodes": 3000,
+      "steps": 0,
+      "card": 0,
+      "cover": 0,
+      "cof": 234,
+      "formula": 0,
+      "share1": 0,
+      "fullcover": 0,
+      "signals": 8853
+    }
+  },
+  {
+    "label": "new",
+    "exit": 0,
+    "fields": {
+      "nodes": 3000,
+      "steps": 0,
+      "card": 0,
+      "cover": 0,
+      "cof": 234,
+      "formula": 0,
+      "share1": 0,
+      "fullcover": 0,
+      "signals": 8853
+    }
+  }
+]

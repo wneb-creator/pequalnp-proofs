@@ -1,0 +1,7 @@
+Independent source/mathematical review by status_review: PASS.
+
+Frozen lemmas/RectangleMaskCheck.lean SHA256 9e109e083c7d3074b91faa77fb1c16de10e7d47b77150a1ed1832e2c0ca68882,3446bytes/77lines. The author reports EXIT0; the complete preserved log is empty. Its sole RectangleRun dependency is preserved and previously reviewed. No new axioms, proof holes, native evaluation, prohibited source text, attributes, or resource options occur.
+
+check enumerates every subset of the smaller allowed support side, retaining the empty subset. For a fixed row subset, rowScore is the sum of positive column sums over all allowed columns; this bounds every column subset even for signed weights. The transposed colScore proof is symmetric. The monotone extension from selected columns/rows is applied only after taking max(sum,0), so all added terms are nonnegative. Finset.mem_powerset supplies the actual queried subset in either branch.
+
+bounds_of_check requires explicit inclusion of every positive-sample true row and every negative-sample false column in the allowed masks. Extra allowed positions merely weaken the upper bound. The two empty-support lemmas force an admissible rectangle to have an empty dimension and correctly return0, including degenerate finite dimensions. This is a generic sound checker; no particular unprovided finite table or full Petersen exclusion is asserted.

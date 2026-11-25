@@ -105,3 +105,7 @@
 2026-11-25T15:08:07.894957+00:00 finite_invariants: compound bank13338 proof and BudgetRunCut adapter independently audited PASS; rectangle strategy handoff complete with all45 sampled banks computationally covered.
 
 - 2026-11-25T15:12:23.980467+00:00: counterexample compiled shared rectangle proof replacing all13 fixture0 copied children with direct whole-bank cuts. One13-signal profile basis, target135, all bank costs116–132. EXIT0/empty log.
+
+- 2026-11-25T15:19:38.945705+00:00: counterexample compiled all76 independent-set canonicalization and nonempty5-case corollary, source5195bytes, EXIT0/emptylog.
+
+2026-11-25T15:21:32.440179+00:00 root20–30minute re-plan: compactcheckedfixturepreserved; resumablewholecaseweightedsearch; bounded signed18 witnessroute; genericHeawoodrouteinsufficient; originalgoalstillopen.

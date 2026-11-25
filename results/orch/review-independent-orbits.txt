@@ -1,0 +1,7 @@
+Independent source and finite-data review by status_review: PASS.
+
+Frozen lemmas/IndependentOrbits.lean SHA256 d0d1762786f2721c7ec753d2d4a880d9adacbd1042af708000b33eb621d32e63,5195bytes/54lines, matches the reviewed scratch source exactly. Its author reports compiler EXIT0; the complete archived log matches the final scratch log and is empty. The sole import is PEqualNP.Defs, resource limits are local, and no prohibited proof escape or formatting construct occurs.
+
+The adjacency relation is exactly the symmetric15-edge Petersen relation. Independently parsed the actual Lean tables and enumerated all1024 subsets: knownSet lists each of the76 independent sets once. All51 stored vertex maps are bijections preserving every adjacency pair. Each of the76 selected maps sends its actual known set to the declared representative, with class sizes1,10,30,20,10,5. The accompanying JSON records these checks.
+
+The Lean coverage and witness_facts lemmas kernel-check the finite obligations. canonicalize composes them with the correct image orientation; nonempty_canonicalize rules out the empty representative using an actual image element before restricting the index to the remaining five choices. The result supplies a small graph-automorphism canonicalization interface. It assumes and proves no circuit normalization, eligible-label count, surplus inequality, or complete gap theorem. The theorem itself asserts coverage by six candidates; the separate computational enumeration additionally confirms the six orbit sizes.

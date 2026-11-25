@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "./copy_search_first_allrect",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "180",
+    "--nodes",
+    "5000000",
+    "--rect-trace",
+    "copy-first-allrect-oredge-cuts.jsonl"
+  ],
+  "started_utc": "2026-11-25T15:07:18.080885+00:00",
+  "finished_utc": "2026-11-25T15:10:18.719795+00:00",
+  "wall_seconds": 180.6389300280007,
+  "exit_status": 0
+}

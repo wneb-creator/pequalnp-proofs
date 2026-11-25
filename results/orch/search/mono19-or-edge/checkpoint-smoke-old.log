@@ -1,0 +1,4 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+limit reached
+nodes=3000 steps=0 card=0 cover=0 cof=234 formula=0 share1=0 fullcover=0 clips=93578 signals=8853 seconds=0.800856 levels=0:2673,1:282,2:29,3:5,4:4,5:3,6:2,7:1,8:1,
+copyclosures=74 entries=3188 subchecks=28804 subcuts=26467 memory_estimate=41076000 lazy_clip_tables=8845 projected_cache=15254 move_cache=1407 constant_profiles=8845 memo_states=74 prefix_formula_cuts=224 projection_resets=0 rectangle_signals=513 rectangle_hits=1099,28,5,37,0,890,268,64,43,9,0,4,2,

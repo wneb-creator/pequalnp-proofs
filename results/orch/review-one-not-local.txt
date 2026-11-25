@@ -1,0 +1,34 @@
+Independent focused one-NOT local search review
+Reviewer: library_route
+Verdict: PASS within the stated local computational scope.
+Source SHA256 26f75be957201d0d8ca866885a75af476065a0579feac8f2c4e20fd7b4604e51
+
+Verified all106 archived hashes and all100 trial records. Each outcome is
+solver UNSAT, with zero SAT witnesses and zero UNKNOWN results. Relaxed gate
+counts are3:21,4:29,5:25,6:4,7:21. Independently evaluated all13 distinct
+20-gate monotone seeds on all1024 input assignments; each equals the exact
+Petersen edge function, uses legal earlier pins, and ends in OR.
+
+The variable-pin encoding has one-hot gate type/pin choices, forward-only
+sources, at most one NOT and an explicit at-least-one NOT clause. Fixed gates
+are monotone seed gates. The commutative pin-order constraint is disabled for
+NOT, whose right pin is immaterial. The chosen skipped gate is in the relaxed
+set and is forced to OR two equal pins; bypass and renumbering preserve the
+remaining19-gate candidate. The dynamic AND, OR and NOT clauses were checked
+against their Boolean truth tables. Fixed gates consume the current symbolic
+wire values, so a prior relaxed NOT is propagated rather than treated as a
+constant seed value.
+
+Every search constrains the91 necessary rows:76 negative assignments and15
+edge-positive assignments. UNSAT there excludes that recorded fixed-outside
+neighborhood, but not arbitrary19-gate circuits. Any SAT candidate would be
+validated on all1024 rows before reporting, and all failing rows would be
+added. Positive/failure/actual-NOT controls cover all1024 rows and have the
+expected SAT/UNSAT outcomes in the complete preserved log.
+
+This review did not rerun the100 SAT jobs or certify solver UNSAT traces in
+Lean. It independently checks source semantics, exact seed evaluations, hash
+integrity and reported scope. The archive accurately disclaims a global
+lower bound and a kernel-checked UNSAT certificate. Its local dependencies
+synth.py, local_sat.py and cadical_wrap.cpp are preserved in the parent search
+archive; no network or credential operation is introduced by the new code.

@@ -1,0 +1,10 @@
+Independent completed-state checkpoint review
+Reviewer: /root/proof_structure
+Source SHA256: 79520fd42518f0edf0f2afca234e7fa21484484233f4afc043b153a0938930b7
+Verdict: PASS for the checkpoint delta under the exact archived source/profile/matrix manifest; not a Lean proof certificate. Final parser-hardened compile and936-cost/4-bank/13-matrix selftest both exited0; compile log empty and selftest PASS, confirmed by author.
+
+Compared the complete delta against copy_search_first_allrect.cpp. States now enter the memo only after a target-free depth0 closure finishes or every copied child returns excluded. Limit exceptions bypass insertion. Every copied entry has nonempty support of size s; child m=m−s+2 and k=k−s+1, so deficit decreases by exactly1 and no active-state recursion cycle is used as a proof. Immediate semantic cuts remain safe but are not persisted; target hits are never persisted.
+
+Snapshots write complete truth words and duplicate pool entries, not process-local signal IDs. Reload validates mode, total cap, first-gate case, lower15 switch, remaining budget and pool cardinality, interns every full1024-bit value and recomputes canonical form. Canonical automorphisms preserve the target and multiplicities. The per-state property is intrinsic to the pool and budget; history supplies constructive cofactor witnesses but is not an unstated promise about future gates.
+
+The writer closes and checks the temporary stream before same-directory rename, so an interrupted write leaves the previous published snapshot. Source/profile/matrix version binding is external in the archive manifest, not in the file header; snapshots must not be imported against unmatched search artifacts. During review memo_word was strengthened to reject every nonhex character in all256 digits before stoull, preventing partial-chunk parses. The final source contains that fix. The full reviewed delta is preserved in scratch library_route/independent-checkpoint-diff.txt (before this parser-only fix).

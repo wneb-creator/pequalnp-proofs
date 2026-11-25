@@ -16,8 +16,8 @@
     "sha256": "4ea4d771e423739fa34417c7134d9ec13d68ae87ef5a0793963deb334f66d506"
   },
   "README.md": {
-    "bytes": 3366,
-    "sha256": "61076d607ddedf8afc8268759099ecdc438cc1e516f48ceeb6f1d1267e6a687c"
+    "bytes": 3837,
+    "sha256": "d03b7e02f5b3a2c77663c798bb4e47a0e3efcdd8d36ecb1234744316e48484fd"
   },
   "audit_live_trace_ornonedge.py": {
     "bytes": 8533,
@@ -62,5 +62,21 @@
   "audit-import-closure-89.txt": {
     "bytes": 284,
     "sha256": "40603437c6fce24ad9c1821f01a608da481c242cd493705f9abc163267da4b93"
+  },
+  "audit_allrect_oracle.py": {
+    "bytes": 4625,
+    "sha256": "5c9f569fb88b6ca0a12d937a3f5357baef6ae876dc091063b9fed9680ce05020"
+  },
+  "audit-allrect-oracle.txt": {
+    "bytes": 1917,
+    "sha256": "b7b42b8c9b24bb1075fbc21186b0cfd68abf8be3d5b4b0b391f610c9e0ce42e1"
+  },
+  "audit_allrect_trace.py": {
+    "bytes": 4148,
+    "sha256": "2adc0524afa3f769b3d1ece143222ad6817f00b72aa4692f9296ca0d80a8b6b9"
+  },
+  "audit-allrect-trace.txt": {
+    "bytes": 580,
+    "sha256": "8455b9e28b06a9faa20c9a64e6a5b452da69459655c623a374283b7b5fc92241"
   }
 }

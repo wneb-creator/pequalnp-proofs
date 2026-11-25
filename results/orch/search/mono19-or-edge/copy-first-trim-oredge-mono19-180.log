@@ -1,0 +1,38 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+nodes=13331 steps=0 card=0 cover=0 cof=9323 formula=1254 share1=0 fullcover=0 clips=523709 signals=50758 seconds=10.025 levels=0:11033,1:2076,2:203,3:8,4:4,5:3,6:2,7:1,8:1,
+copyclosures=1644 entries=50709 subchecks=333705 subcuts=302919
+nodes=39043 steps=0 card=0 cover=0 cof=26123 formula=3175 share1=0 fullcover=0 clips=784267 signals=83736 seconds=20.044 levels=0:29711,1:7274,2:1764,3:238,4:36,5:15,6:3,7:1,8:1,
+copyclosures=4625 entries=124058 subchecks=682006 subcuts=613939
+nodes=52875 steps=0 card=0 cover=0 cof=35211 formula=4837 share1=0 fullcover=0 clips=1087271 signals=117082 seconds=30.0492 levels=0:41791,1:8919,2:1869,3:240,4:36,5:15,6:3,7:1,8:1,
+copyclosures=6728 entries=184120 subchecks=1036207 subcuts=933212
+nodes=79261 steps=0 card=0 cover=0 cof=52179 formula=7159 share1=0 fullcover=0 clips=1305861 signals=140385 seconds=40.0495 levels=0:62273,1:13825,2:2770,3:323,4:49,5:16,6:3,7:1,8:1,
+copyclosures=10099 entries=265709 subchecks=1411044 subcuts=1267036
+nodes=86198 steps=0 card=0 cover=0 cof=56622 formula=8044 share1=0 fullcover=0 clips=336653 signals=163641 seconds=50.1826 levels=0:68479,1:14514,2:2811,3:324,4:49,5:16,6:3,7:1,8:1,
+copyclosures=11161 entries=304074 subchecks=1695408 subcuts=1525580
+nodes=97426 steps=0 card=0 cover=0 cof=63883 formula=9410 share1=0 fullcover=0 clips=715685 signals=189766 seconds=60.1866 levels=0:78565,1:15605,2:2861,3:325,4:49,5:16,6:3,7:1,8:1,
+copyclosures=12854 entries=355147 subchecks=2001346 subcuts=1800706
+nodes=116701 steps=0 card=0 cover=0 cof=76267 formula=11222 share1=0 fullcover=0 clips=1127067 signals=212926 seconds=72.5326 levels=0:94437,1:18632,2:3217,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=15339 entries=423171 subchecks=2375429 subcuts=2136582
+nodes=117836 steps=0 card=0 cover=0 cof=77112 formula=11381 share1=0 fullcover=0 clips=482589 signals=252869 seconds=83.1319 levels=0:95571,1:18633,2:3217,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=15499 entries=435511 subchecks=2515438 subcuts=2266141
+nodes=118922 steps=0 card=0 cover=0 cof=77917 formula=11521 share1=0 fullcover=0 clips=1067959 signals=288333 seconds=93.5273 levels=0:96656,1:18634,2:3217,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=15640 entries=446893 subchecks=2650501 subcuts=2391484
+nodes=120526 steps=0 card=0 cover=0 cof=79038 formula=11818 share1=0 fullcover=0 clips=487103 signals=315215 seconds=103.551 levels=0:98251,1:18643,2:3217,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=15944 entries=462596 subchecks=2787978 subcuts=2516941
+nodes=126316 steps=0 card=0 cover=0 cof=82763 formula=12664 share1=0 fullcover=0 clips=970142 signals=342440 seconds=113.851 levels=0:103609,1:19074,2:3218,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=16912 entries=492125 subchecks=2961418 subcuts=2672720
+nodes=128000 steps=0 card=0 cover=0 cof=83969 formula=13036 share1=0 fullcover=0 clips=493734 signals=373054 seconds=123.858 levels=0:105283,1:19084,2:3218,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=17291 entries=510615 subchecks=3112933 subcuts=2810285
+nodes=131743 steps=0 card=0 cover=0 cof=86446 formula=13483 share1=0 fullcover=0 clips=1074678 signals=402652 seconds=134.169 levels=0:108573,1:19536,2:3219,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=17814 entries=531070 subchecks=3284955 subcuts=2968132
+nodes=134205 steps=0 card=0 cover=0 cof=88187 formula=14040 share1=0 fullcover=0 clips=597630 signals=424870 seconds=144.181 levels=0:111016,1:19555,2:3219,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=18384 entries=554621 subchecks=3441005 subcuts=3107530
+nodes=153086 steps=0 card=0 cover=0 cof=100659 formula=15817 share1=0 fullcover=0 clips=1082842 signals=447460 seconds=157.849 levels=0:126727,1:22529,2:3414,3:345,4:50,5:16,6:3,7:1,8:1,
+copyclosures=20734 entries=616049 subchecks=3696940 subcuts=3330499
+nodes=153124 steps=0 card=0 cover=0 cof=100669 formula=15834 share1=0 fullcover=0 clips=548482 signals=475186 seconds=168.02 levels=0:126765,1:22529,2:3414,3:345,4:50,5:16,6:3,7:1,8:1,
+copyclosures=20751 entries=623039 subchecks=3809283 subcuts=3436055
+nodes=153301 steps=0 card=0 cover=0 cof=100731 formula=15944 share1=0 fullcover=0 clips=1132036 signals=508906 seconds=178.034 levels=0:126942,1:22529,2:3414,3:345,4:50,5:16,6:3,7:1,8:1,
+copyclosures=20861 entries=636039 subchecks=3952917 subcuts=3567989
+limit reached
+nodes=153444 steps=0 card=0 cover=0 cof=100805 formula=16011 share1=0 fullcover=0 clips=113712 signals=512159 seconds=180.001 levels=0:127085,1:22529,2:3414,3:345,4:50,5:16,6:3,7:1,8:1,
+copyclosures=20929 entries=639093 subchecks=3971144 subcuts=3583940 memory_estimate=279087390 lazy_clip_tables=5944 projected_cache=43560 move_cache=84041 constant_profiles=5907 memo_states=20929 prefix_formula_cuts=2133 projection_resets=7

@@ -1,0 +1,143 @@
+{
+  "description": "Incomplete first-gate computation; exact terminal cuts and checkpoint smoke data",
+  "files": {
+    "README.md": {
+      "bytes": 2711,
+      "sha256": "4a7732ce3db935209d24b724c1f92f8981ace7abd13bc92175ca3a5049a936ba"
+    },
+    "checkpoint-smoke-new.log": {
+      "bytes": 2179,
+      "sha256": "8374b16543e0a53c363bf411843c0e151a4e9cf07b539126354b5df6f08b2dbf"
+    },
+    "checkpoint-smoke-old.log": {
+      "bytes": 600,
+      "sha256": "a1886105eba871c7d3cbacfb6eba29e00c6d0ef602ed6180d6d7ef0faa874088"
+    },
+    "checkpoint-smoke-status.json": {
+      "bytes": 485,
+      "sha256": "9875a4b0e453c30812bfeb792ae5de6326e146e33dd706b2c321dbb79905c6ca"
+    },
+    "checkpoint-smoke.memo.gz": {
+      "bytes": 3454,
+      "sha256": "a10eef6a6e76c3b43938e5011bd0b87f24b27281622cbeb7356cc1bd647e1433"
+    },
+    "compile-copy-first-allrect.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-copy-first-banks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-copy-first-checkpoint.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-copy-first-trim.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-copy-first.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "copy-first-all-rectangle-matrices.json": {
+      "bytes": 43512,
+      "sha256": "9f20e62b0ae684d8e13e14f397a189a30a8a1409dc72ad4b412adcf07d7c70e3"
+    },
+    "copy-first-allrect-oredge-cuts.jsonl.gz": {
+      "bytes": 5536388,
+      "sha256": "6e5b9fab2a89e6dd309c2179ceac4d8aa594e2870cd5ff9d5ea45b379fd461b1"
+    },
+    "copy-first-allrect-oredge-mono19-180.log": {
+      "bytes": 4938,
+      "sha256": "d2aaeb040352ece0ae787645a51a640056a1c3b3c21b8338bd3546b2e0fef994"
+    },
+    "copy-first-allrect-oredge-mono19-180.status.json": {
+      "bytes": 392,
+      "sha256": "cf7aa71b2f08abec9c320f54e0bad5c69c39dd3c57acb639750afe3624389e27"
+    },
+    "copy-first-allrect-selftest.log": {
+      "bytes": 60,
+      "sha256": "186c50f40bb04f844001c190bec546748d6d18f633f223311d15b20dbfebe8af"
+    },
+    "copy-first-banks-oredge-mono19-90.log": {
+      "bytes": 2550,
+      "sha256": "0b32278f00ba05a29fb78c1616a92461405b299f50bd2b471dedf3a380ac33ff"
+    },
+    "copy-first-checkpoint-selftest.log": {
+      "bytes": 60,
+      "sha256": "186c50f40bb04f844001c190bec546748d6d18f633f223311d15b20dbfebe8af"
+    },
+    "copy-first-oredge-banks-selected.json": {
+      "bytes": 48972,
+      "sha256": "d01664b20960156a387998b1bee03975cfabded648d8648fccb35d6324c4a882"
+    },
+    "copy-first-oredge-banks.jsonl": {
+      "bytes": 426341,
+      "sha256": "65c550179fe22aed452d62496bbf3219cf8d058c05a3653bdaeb67d371769c72"
+    },
+    "copy-first-oredge-mono19-120.log": {
+      "bytes": 2275,
+      "sha256": "d38fa6be3cfbd4da20d352e17eddaaf0fb3a36f79d95cf43d6f9f2831eedd996"
+    },
+    "copy-first-trim-oredge-mono19-180.log": {
+      "bytes": 4827,
+      "sha256": "78ae4342fb1287fefa369eea8fab3a48b76f762deed31b98b2a92971b0d95453"
+    },
+    "copy_search_first.cpp": {
+      "bytes": 33998,
+      "sha256": "6df2d4f3edbc55638b7e74e0474d139cca9f9af2ee1c32c038897e54b8ce07a3"
+    },
+    "copy_search_first_allrect.cpp": {
+      "bytes": 75566,
+      "sha256": "86b12146cd8494002a7d48dadfe0677714887750e4714c0f5f57aaa36a6597f1"
+    },
+    "copy_search_first_banks.cpp": {
+      "bytes": 36081,
+      "sha256": "409df8d9db64f2401f4efee38f9b3ddaaf49feaf34c2b03f4f59ba4c145645a3"
+    },
+    "copy_search_first_checkpoint.cpp": {
+      "bytes": 79083,
+      "sha256": "79520fd42518f0edf0f2afca234e7fa21484484233f4afc043b153a0938930b7"
+    },
+    "copy_search_first_trim.cpp": {
+      "bytes": 34599,
+      "sha256": "20d69211127cb6292caed92c6dca9fd681e928143f0681a88423e7dd72228d80"
+    },
+    "fixture0-child-banks.json": {
+      "bytes": 46123,
+      "sha256": "707e345e0f2955a2e7ee2449d0e27ea845e4531e2a9d1d3d5516493c364c8ac8"
+    },
+    "fixture0-child-rectangle-results.json": {
+      "bytes": 71947,
+      "sha256": "c65ef623453e524b49118accabb448e916b0f431b0babbd841c7ab86ac70350e"
+    },
+    "fixture0-child-rectangle-results.log": {
+      "bytes": 1619,
+      "sha256": "b47578cdafd4883b6e581d17672311e67e9e26c537ea23aae4850b5a48fe43c8"
+    },
+    "rectangle-all-certificates.json": {
+      "bytes": 13259,
+      "sha256": "916de15737158512f9a5bbf8aad90419081775516bd0681e1ac4db30566fe0b0"
+    },
+    "rectangle_all_cost.cpp": {
+      "bytes": 8074,
+      "sha256": "374180f0582b8db76dbde79644eeb9c419136dc0a581ef635a7a9cc9b436a76e"
+    },
+    "test_all_rectangles.py": {
+      "bytes": 2616,
+      "sha256": "407d967a2e81d36f49e7bf2393a5bfe91aff32e2d95c864d438ec50664b0a0bb"
+    }
+  },
+  "decompressed": {
+    "copy-first-allrect-oredge-cuts.jsonl.gz": {
+      "bytes": 78855046,
+      "sha256": "9d7098c0e5aab6c12b6791b7e894828d4b5f968a44202107936119048830c0f5"
+    },
+    "checkpoint-smoke.memo.gz": {
+      "bytes": 295568,
+      "sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f"
+    }
+  }
+}

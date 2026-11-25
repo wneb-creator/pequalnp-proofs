@@ -1,0 +1,18 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+nodes=10326 steps=0 card=0 cover=0 cof=7200 formula=1019 share1=0 fullcover=0 clips=450669 signals=44093 seconds=10.002 levels=0:8714,1:1447,2:147,3:7,4:4,5:3,6:2,7:1,8:1,
+copyclosures=1311 entries=41338 subchecks=281495 subcuts=256019
+nodes=37293 steps=0 card=0 cover=0 cof=24983 formula=2877 share1=0 fullcover=0 clips=689184 signals=72869 seconds=20.003 levels=0:28070,1:7166,2:1763,3:238,4:36,5:15,6:3,7:1,8:1,
+copyclosures=4285 entries=112501 subchecks=600990 subcuts=540450
+nodes=46359 steps=0 card=0 cover=0 cof=30960 formula=4142 share1=0 fullcover=0 clips=1000892 signals=107719 seconds=30.0043 levels=0:36116,1:8130,2:1818,3:239,4:36,5:15,6:3,7:1,8:1,
+copyclosures=5811 entries=159670 subchecks=905038 subcuts=815436
+nodes=66629 steps=0 card=0 cover=0 cof=44147 formula=6110 share1=0 fullcover=0 clips=1220383 signals=131369 seconds=40.0451 levels=0:52822,1:11272,2:2217,3:261,4:37,5:15,6:3,7:1,8:1,
+copyclosures=8518 entries=228683 subchecks=1251335 subcuts=1125268
+nodes=83192 steps=0 card=0 cover=0 cof=54687 formula=7701 share1=0 fullcover=0 clips=1406971 signals=151372 seconds=50.0457 levels=0:65948,1:14078,2:2773,3:323,4:49,5:16,6:3,7:1,8:1,
+copyclosures=10731 entries=287646 subchecks=1567181 subcuts=1408699
+nodes=91076 steps=0 card=0 cover=0 cof=59836 formula=8733 share1=0 fullcover=0 clips=1656921 signals=177605 seconds=60.0458 levels=0:73090,1:14779,2:2813,3:324,4:49,5:16,6:3,7:1,8:1,
+copyclosures=11966 entries=329079 subchecks=1848210 subcuts=1662995
+nodes=108138 steps=0 card=0 cover=0 cof=70675 formula=10519 share1=0 fullcover=0 clips=1835975 signals=196454 seconds=70.046 levels=0:87680,1:17101,2:2960,3:327,4:49,5:16,6:3,7:1,8:1,
+copyclosures=14336 entries=392924 subchecks=2184225 subcuts=1963596
+limit reached
+nodes=115748 steps=0 card=0 cover=0 cof=75608 formula=11101 share1=0 fullcover=0 clips=1870698 signals=200956 seconds=73.607 levels=0:93569,1:18548,2:3216,3:344,4:50,5:16,6:3,7:1,8:1,
+copyclosures=15198 entries=417095 subchecks=2321633 subcuts=2087161 memory_estimate=850002860 lazy_clip_tables=197171 projected_cache=529694 move_cache=41726 constant_profiles=197171 memo_states=15198 prefix_formula_cuts=1979

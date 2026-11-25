@@ -1,0 +1,107 @@
+{
+  "source_sha256": "86b12146cd8494002a7d48dadfe0677714887750e4714c0f5f57aaa36a6597f1",
+  "baseline_sha256": "20d69211127cb6292caed92c6dca9fd681e928143f0681a88423e7dd72228d80",
+  "data_sha256": "916de15737158512f9a5bbf8aad90419081775516bd0681e1ac4db30566fe0b0",
+  "matrices_checked": 13,
+  "all_literal_weights_rows_and_totals_match": true,
+  "all_positive_negative_samples_match_exact_petersen": true,
+  "independent_root_cost_comparisons": 936,
+  "unique_costs_evaluated": 195,
+  "bank_results": [
+    {
+      "root_occurrences": 18,
+      "distinct_roots": 12,
+      "cut_matrices": [
+        10
+      ],
+      "cost_sums": [
+        80,
+        122,
+        42,
+        250,
+        2623,
+        120,
+        196,
+        152,
+        264,
+        134,
+        132,
+        290,
+        126
+      ]
+    },
+    {
+      "root_occurrences": 18,
+      "distinct_roots": 12,
+      "cut_matrices": [
+        10
+      ],
+      "cost_sums": [
+        80,
+        122,
+        42,
+        250,
+        2618,
+        120,
+        184,
+        152,
+        264,
+        134,
+        132,
+        290,
+        132
+      ]
+    },
+    {
+      "root_occurrences": 18,
+      "distinct_roots": 12,
+      "cut_matrices": [
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cost_sums": [
+        80,
+        122,
+        42,
+        250,
+        2623,
+        108,
+        172,
+        140,
+        246,
+        122,
+        124,
+        254,
+        120
+      ]
+    },
+    {
+      "root_occurrences": 18,
+      "distinct_roots": 12,
+      "cut_matrices": [
+        8,
+        10
+      ],
+      "cost_sums": [
+        80,
+        122,
+        42,
+        250,
+        2618,
+        122,
+        190,
+        146,
+        252,
+        128,
+        132,
+        288,
+        120
+      ]
+    }
+  ],
+  "limitation": "Finite oracle audit only; no complete search or new Lean certificate is claimed."
+}
