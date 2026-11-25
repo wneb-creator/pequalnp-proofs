@@ -1,0 +1,92 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/triangle_generic_qc/generic-qc-eleven-equations.json",
+  "source_sha256": "5ae1a441eea78b11b84a8ba801771d3e02258a115dd422025630c47bd409675b",
+  "characteristic": 1009,
+  "variables": [
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "A",
+    "B",
+    "C",
+    "S",
+    "T",
+    "w"
+  ],
+  "generator_count": 17,
+  "term_count": 803,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    }
+  ],
+  "input_sha256": "f0706ff5e74c6683cd0be8ae95ad028cf303149ed763b5860a05b52dd230098c"
+}

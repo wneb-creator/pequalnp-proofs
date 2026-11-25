@@ -1,0 +1,119 @@
+{
+  "unknowns": [
+    "d5",
+    "d8",
+    "o5",
+    "o8"
+  ],
+  "equations": [
+    {
+      "source_index": 4,
+      "monomial": [
+        2,
+        0,
+        2
+      ],
+      "coefficient": "-d8**2 - 4*d8*o5 - 2*d8*o8 - 2*d8 + o8**2 - 2*o8 + 1"
+    },
+    {
+      "source_index": 5,
+      "monomial": [
+        2,
+        0,
+        1
+      ],
+      "coefficient": "-d8 - 4*o5 - 2*o8 - 2"
+    },
+    {
+      "source_index": 9,
+      "monomial": [
+        1,
+        1,
+        2
+      ],
+      "coefficient": "2*(d5*d8 - d5*o8 - d5 - d8*o5 - d8 + o5*o8 - 3*o5 - 3*o8 - 1)"
+    },
+    {
+      "source_index": 10,
+      "monomial": [
+        1,
+        1,
+        1
+      ],
+      "coefficient": "-2*(d5 + d8 + 3*o5 + 3*o8 + 1)"
+    },
+    {
+      "source_index": 12,
+      "monomial": [
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-2*(2*d5*d8 + d5*o8 + d5 + d8**2 + 2*d8*o5 + 2*d8*o8 + 3*d8 - o5*o8 + 3*o5 - o8**2 + 2*o8 + 3)"
+    },
+    {
+      "source_index": 13,
+      "monomial": [
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-4*(2*d5 + d8 + 2*o5 + o8 + 3)"
+    },
+    {
+      "source_index": 15,
+      "monomial": [
+        0,
+        2,
+        2
+      ],
+      "coefficient": "-d5**2 - 2*d5*o5 - 4*d5*o8 - 2*d5 + o5**2 - 2*o5 + 1"
+    },
+    {
+      "source_index": 16,
+      "monomial": [
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-d5 - 2*o5 - 4*o8 - 2"
+    },
+    {
+      "source_index": 18,
+      "monomial": [
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-2*(d5**2 + 2*d5*d8 + 2*d5*o5 + 2*d5*o8 + 3*d5 + d8*o5 + d8 - o5**2 - o5*o8 + 2*o5 + 3*o8 + 3)"
+    },
+    {
+      "source_index": 19,
+      "monomial": [
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-4*(d5 + 2*d8 + o5 + 2*o8 + 3)"
+    },
+    {
+      "source_index": 20,
+      "monomial": [
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-d5**2*d8 - d5*d8**2 - 2*d5*d8*o5 - 2*d5*d8*o8 - 2*d5*d8 + d5*o8**2 - d5 + d8*o5**2 - d8 + 2*o5*o8 - 2*o5 - 2*o8 - 2"
+    },
+    {
+      "source_index": 21,
+      "monomial": [
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-2*(d5**2 + d5*d8 + 2*d5*o5 + 4*d5 + d8**2 + 2*d8*o8 + 4*d8 - o5**2 - 2*o5*o8 + 2*o5 - o8**2 + 2*o8 + 3)"
+    }
+  ],
+  "scope": "Original triangle26 equations specialized after support2 star-pencil classification. Necessary, not standalone global claim."
+}

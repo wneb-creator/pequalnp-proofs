@@ -1,0 +1,1599 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "declarations": 322,
+  "named_sha256": "d2a724e6eb3c78592987233a86919f6d41e2acdcdee49b7b4c862c92b770026a",
+  "scope": "All322partialhelpers; main theorem absent.",
+  "axioms_by_declaration": {
+    "PEqualNP.Outside.L_gct_231_aux.sum_perm_succ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.perm4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.range_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.injective_of_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.symmetric_permanent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.diagonal_entries_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.diagonal_rigid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.off_diagonal_determines": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.offDiagonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.offDiagonal_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.select_three_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.candidate_three_coordinate_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.total_entry_sum_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.submodule_total_entry_sum_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.diagonal33_of_total_entry_sum_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.edgeEnds": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.canonicalEdges": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.SameUnorderedEnds": [],
+    "PEqualNP.Outside.L_gct_231_aux.orbitVertex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.orbitCoordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.orbitWitness": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.orbitWitness_valid": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.three_edge_orbits": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.relabel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.relabel_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.relabel_permanent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.relabel_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.offDiagonal_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.relabel_matches_edge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.parameterize_chart_data": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.candidate_canonical_parameterization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.parametricEntry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.eval_parametricEntry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.polynomial_permanent_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.linear_map_coordinate_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.linear_map_polynomial_permanent_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.starAffine": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.fullStarMatrix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.linear_entry_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.starFromFamily": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.normalized_star_formal_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.path_minor_strata": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.block_scalar_rigidity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.sum_perm_succ_poly": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.perm4_poly": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD400": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD400_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD400_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD400_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD310": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD310_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD310_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD310_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD301": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD301_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD301_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD301_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD300": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD300_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD300_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD300_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD220": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD220_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD220_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD220_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD211": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD211_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD211_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD211_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD210": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD210_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD210_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD210_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD202": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD202_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD202_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD202_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD201": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD201_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD201_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD201_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD200": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD200_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD200_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD200_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD130": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD130_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD130_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD130_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD121": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD121_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD121_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD121_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD120": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD120_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD120_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD120_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD112": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD112_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD112_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD112_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD111": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD111_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD111_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD111_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD110": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD110_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD110_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD110_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD103": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD103_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD103_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD103_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD102": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD102_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD102_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD102_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD101": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD101_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD101_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD101_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD040": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD040_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD040_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD040_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD031": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD031_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD031_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD031_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD030": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD030_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD030_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD030_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD022": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD022_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD022_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD022_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD021": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD021_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD021_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD021_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD020": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD020_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD020_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD020_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD013": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD013_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD013_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD013_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD012": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD012_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD012_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD012_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD011": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD011_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD011_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD011_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD004": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD004_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD004_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD004_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD003": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD003_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD003_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD003_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD002": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD002_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD002_nat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certD002_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq400": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq310": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq301": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq300": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq220": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq211": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq210": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq202": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq201": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq200": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq130": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq121": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq120": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq112": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq111": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq110": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq103": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq102": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq101": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq040": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq031": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq030": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq022": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq021": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq020": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq013": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq012": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq011": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq004": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq003": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.certEq002": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.block_zero_det_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.block_zero_det_congruence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.polynomial_det_square_of_constant_congruence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.symmetric_zero_block": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.symmetric_congruence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_adapted": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.symmetric_quadratic_vanishing_polarizes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.congruence_entry_is_pairing": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_isotropic_columns": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_quadratic_columns": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Index4": [],
+    "PEqualNP.Outside.L_gct_231_aux.exists_adapted_basis": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.exists_adapted_matrix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_common_isotropic_plane": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.quartic_square_coefficient_identities": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.common_isotropic_plane_coefficient_identities": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.pair_proportional_of_kernel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_proportional_of_kernel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_one_factor_matches": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_ne_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_finish_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_cancel_first": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.binaryLinear_three_factors_match": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.sum_perm_succ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.perm4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quadratic": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.cubic": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_tangent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaled_permanent_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_expansion_coeff_two_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_coeffs_zero_of_eval_constant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_coeffs_zero_of_pointwise": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix_tangent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.permanent_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial_eval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.coefficient_formulas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quadratic_cubic_zero_of_constant_line": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.cubic_at_e_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.product_identity_of_constant_line": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_reconstruct_entries": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_reconstruct_supported": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.polynomial_not_square_of_coefficients": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.sum_perm_succ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.perm4": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.four_coefficients_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockSum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockRookTwo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockPermanent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolatedMatrix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_permanent_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_matrix_diagonal_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_vertex_zero_diagonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_vertex_diagonal_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_0_v_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_0_v_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_1_v_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_1_v_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.TriangleAxis.reduced_system_inconsistent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Case2Endpoints.case2_endpoint_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.C4Case2Endpoints.case2_endpoint_sixteen_thirds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.case3_beta_neg2_A_three32_impossible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.case3_beta_half_A_four_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2ProjectiveNorm.case2_projective_norm_obstruction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.resultant_zero_of_common_root": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalQ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalC": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.scaleCurve": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalR": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalL": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.chartDet": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.curveLeading": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rA": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rB": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rC": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l20": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l11": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l10": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l02": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l01": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_linear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_quadratic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.chart_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminate_quadratic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminate_cubic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.affinePolynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.qEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.lEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.cEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminant_degree_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminants_vanish": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalSaturation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.raw_resultants_vanish": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.six_equations_necessary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseAffinePolynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseQEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseLEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseCEliminant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_eliminant_degree_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_eliminants_vanish": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_raw_resultants_vanish": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.scaleCurve": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.chartDet": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.curveLeading": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rA": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rB": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.boundaryQuartic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.normA": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.normB": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affineMultiplier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affineRelation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.norms_inconsistent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affine_multiplier_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rA_norm_vanishes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rB_norm_vanishes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.slopes_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}

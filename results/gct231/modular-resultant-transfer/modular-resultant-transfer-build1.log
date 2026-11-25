@@ -1,0 +1,13 @@
+/tmp/oec/pequalnp-pilot-75/gct231/ModularResultantTransfer.lean:55:39: error: Application type mismatch: The argument
+  f
+has type
+  Polynomial ℤ
+but is expected to have type
+  Polynomial ℂ
+in the application
+  @Polynomial.resultant ℂ ?m.116 f
+/tmp/oec/pequalnp-pilot-75/gct231/ModularResultantTransfer.lean:62:45: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,14 @@
+{
+  "C4Case3ModularCoprime.lean": "3487c72a1a47582e6f34d502790720c77eed18da4b8282ccd587e89f508300e7",
+  "C4Case3NormModular.lean": "b1e72dfa603f8b560b85aace6474c07dfadbe35ebbf7047f9074b9cce1ca405b",
+  "C4Case3NormModularAudit.lean": "7cb0469f2826aa6d00d6ede0beb258968a3da6e8dcf1ea8f86ebca6ed217a1b2",
+  "Case3NormModularAdditions.txt": "a1ea3b424d86afa7c0895fe73b17923248880f82e43a2c7e63714bc8e2f738bc",
+  "c4-case3-modular-certificate.json": "eb447b5f200b666a673d68340c1e267c8a0e4e4a16d0e32271ef9073f7b80d7f",
+  "c4-case3-modular-certificate.log": "441f6fa6dfa4a084f3fc635870cdcbcf5af0c9f1b5841e872a22032d8e566af1",
+  "c4-case3-modular-coprime.json": "bf2a61c39c5794fdd64e6887070ffea124df790bebf57abd8dcd035812839690",
+  "c4_case3_modular_certificate.py": "fe99fa0c82afa5eaf56dc7849e470de2b34069479d4c21df64bcb5328698f5d5",
+  "case3-modular-source-review.log": "73b3503a13b062eb397540009463c9003382295efd35238eaa5fcea1a2aa4a26",
+  "case3_modular_source_review.py": "27e39d4ad60e8cc451521c34e5ba148b38ceed7725cd4b328dafc85bf6e24c5c",
+  "emit_case3_modular.log": "db5a73a3ae3466f624fc828f6007e53ddd1578be496e9ad5425808813aa84173",
+  "emit_case3_modular.py": "575f918654d8a878e4f952b8018dc9c34220ab36820e2709f0d787abae6c2279"
+}

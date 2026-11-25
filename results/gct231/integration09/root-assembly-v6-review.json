@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "sha256": "d2a724e6eb3c78592987233a86919f6d41e2acdcdee49b7b4c862c92b770026a",
+  "top_level_namespace_count": 1,
+  "source_scope": "Checked partial helpers only; main theorem absent.",
+  "bytes": 491683,
+  "lines": 3039,
+  "independent_review": "Root parser verified original2593innerbody and all5 new innerbodies exact; one outerblock; imports/limits/bannedfeatures; c3 also independentPASS."
+}

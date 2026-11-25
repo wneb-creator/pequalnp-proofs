@@ -1,0 +1,484 @@
+'PEqualNP.Outside.L_gct_231_aux.sum_perm_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.perm4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.range_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.injective_of_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.symmetric_permanent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.diagonal_entries_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.diagonal_rigid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.off_diagonal_determines' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.offDiagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.offDiagonal_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.select_three_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.candidate_three_coordinate_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.total_entry_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.submodule_total_entry_sum_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.diagonal33_of_total_entry_sum_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.edgeEnds' depends on axioms: [propext]
+'PEqualNP.Outside.L_gct_231_aux.canonicalEdges' depends on axioms: [propext]
+'PEqualNP.Outside.L_gct_231_aux.SameUnorderedEnds' does not depend on any axioms
+'PEqualNP.Outside.L_gct_231_aux.orbitVertex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.orbitCoordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.orbitWitness' depends on axioms: [propext]
+'PEqualNP.Outside.L_gct_231_aux.orbitWitness_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.three_edge_orbits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.relabel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.relabel_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.relabel_permanent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.relabel_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.offDiagonal_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.relabel_matches_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.parameterize_chart_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.candidate_canonical_parameterization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.parametricEntry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.eval_parametricEntry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.polynomial_permanent_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.linear_map_coordinate_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.linear_map_polynomial_permanent_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.starAffine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.fullStarMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.linear_entry_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.starFromFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.normalized_star_formal_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.path_minor_strata' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.block_scalar_rigidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.sum_perm_succ_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.perm4_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD400' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD400_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD400_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD400_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD310' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD310_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD310_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD310_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD301' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD301_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD301_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD301_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD300' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD300_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD300_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD300_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD220' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD220_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD220_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD220_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD211' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD211_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD211_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD211_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD210' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD210_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD210_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD210_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD202' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD202_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD202_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD202_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD201' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD201_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD201_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD201_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD200' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD200_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD200_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD200_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD130' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD130_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD130_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD130_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD121' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD121_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD121_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD121_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD120' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD120_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD120_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD120_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD112' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD112_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD112_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD112_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD111' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD111_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD111_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD111_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD110' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD110_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD110_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD110_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD103' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD103_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD103_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD103_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD102' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD102_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD102_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD102_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD101' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD101_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD101_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD101_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD040' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD040_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD040_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD040_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD031' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD031_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD031_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD031_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD030' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD030_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD030_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD030_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD022' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD022_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD022_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD022_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD021' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD021_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD021_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD021_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD020' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD020_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD020_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD020_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD013' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD013_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD013_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD013_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD012' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD012_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD012_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD012_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD011' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD011_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD011_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD011_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD004' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD004_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD004_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD004_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD003' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD003_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD003_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD003_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD002' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD002_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD002_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certD002_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq400' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq310' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq301' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq300' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq220' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq211' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq210' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq202' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq201' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq200' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq130' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq121' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq120' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq112' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq111' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq110' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq103' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq102' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq101' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq040' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq031' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq030' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq022' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq021' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq020' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq013' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq012' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq011' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq004' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq003' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq002' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.block_zero_det_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.block_zero_det_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.polynomial_det_square_of_constant_congruence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.symmetric_zero_block' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.symmetric_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_adapted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.symmetric_quadratic_vanishing_polarizes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.congruence_entry_is_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_isotropic_columns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_quadratic_columns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Index4' does not depend on any axioms
+'PEqualNP.Outside.L_gct_231_aux.exists_adapted_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.exists_adapted_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_common_isotropic_plane' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.quartic_square_coefficient_identities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.common_isotropic_plane_coefficient_identities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.pair_proportional_of_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_proportional_of_kernel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_one_factor_matches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_finish_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_cancel_first' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_three_factors_match' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.sum_perm_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.perm4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quadratic' depends on axioms: [propext]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.cubic' depends on axioms: [propext]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_symmetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_tangent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaled_permanent_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_expansion_coeff_two_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_coeffs_zero_of_eval_constant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quartic_coeffs_zero_of_pointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix_symmetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.matrix_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.permanent_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.linePolynomial_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.coefficient_formulas' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.quadratic_cubic_zero_of_constant_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.cubic_at_e_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.product_identity_of_constant_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_reconstruct_entries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_reconstruct_supported' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.polynomial_not_square_of_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.sum_perm_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.perm4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.four_coefficients_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockRookTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.blockPermanent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolatedMatrix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_permanent_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_matrix_diagonal_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_vertex_zero_diagonal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.IsolatedVertex.isolated_vertex_diagonal_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_0_v_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_0_v_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_1_v_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4OpenCertificates.c4_open_1_v_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.TriangleAxis.reduced_system_inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Case2Endpoints.case2_endpoint_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Case2Endpoints.case2_endpoint_sixteen_thirds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.case3_beta_neg2_A_three32_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.case3_beta_half_A_four_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2ProjectiveNorm.case2_projective_norm_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.resultant_zero_of_common_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.scaleCurve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalR' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalL' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.chartDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.curveLeading' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.rC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l11' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l10' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l02' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.l01' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_linear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reduced_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.chart_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminate_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminate_cubic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.affinePolynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.qEliminant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.lEliminant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.cEliminant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminant_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.eliminants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.originalSaturation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.raw_resultants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.six_equations_necessary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseAffinePolynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseQEliminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseLEliminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverseCEliminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_eliminant_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_eliminants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2Necessity.reverse_raw_resultants_vanish' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.scaleCurve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.chartDet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.curveLeading' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.boundaryQuartic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.normA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.normB' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affineMultiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affineRelation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.norms_inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.affine_multiplier_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rA_norm_vanishes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.rB_norm_vanishes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.Case2SlopeBoundary.slopes_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

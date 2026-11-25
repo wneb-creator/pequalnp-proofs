@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T12:28:10.499997+00:00
+Exact44-file manifest coverage/hash/text-only/full scratch-copy equality; both source snapshots and complete final/diagnostic logs/status consistent: PASS
+Final checked source is7bdbee0..., empty log exit0,52.081710s/4342128KiB. Axiom audit remains explicitlypending. CAS replay says97 identities, not unit; final proof uses exact scalar identity. No source/compiler rerun.
+Payload/inclusive bytes 2015627 2019934
+Finish UTC 2026-11-25T12:28:10.520604+00:00
+PASS

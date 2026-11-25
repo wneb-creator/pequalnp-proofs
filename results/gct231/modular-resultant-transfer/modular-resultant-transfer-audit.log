@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231_aux.no_common_complex_zero_of_modular_coprime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

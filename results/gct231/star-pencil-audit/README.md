@@ -1,0 +1,7 @@
+# Completed star classification and residual-extension audit
+
+`StarPencilWithExtension.lean` is the exact previously compiled classification source followed by the independently reviewed small residual-extension lemma. Its classification theorem retains seven explicit scalar hypotheses. The extension lemma retains five explicit specialized triangle coefficient equations and combines them to the impossible equality `36 = 0`. This does not discharge geometric chart coverage or assert the full gap statement.
+
+`StarPencilAudit.lean` is exactly that source followed by three `#print axioms` commands. The full driver compiled successfully in 49.444782572001714 seconds, sampled peak RSS 4,350,560 KiB, under the serial 180-second / 6,144-MiB sampled monitor. The complete stdout/stderr log reports only `propext`, `Classical.choice`, and `Quot.sound` for all three theorems. This completes the audit that was marked pending in the frozen neighboring `star-pencil-classification` archive.
+
+All source, driver, complete run logs, and specialized coefficient data are included. The independent delta review confirms that the earlier square-zero lemma-name fix did not change any scalar hypothesis, conclusion, or large polynomial identity; it also independently checks the five residual-extension equations against the original triangle export and expands their combination to 36. The separate original-checkpoint packaging review is retained here. No previously frozen archive was modified.

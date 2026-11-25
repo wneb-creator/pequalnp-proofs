@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:24:04.178711+00:00
+Literal subset removes exactly quartic source rows1,3,12; all6Q+10C+inverse unchanged. Previous geometric necessity used full permanent; no broader Q+C-only geometric coverage asserted: PASS
+All 17 actual sparse F1009 rows, 11-variable order, primitive scaling, 803 terms and source/input provenance: PASS
+Input SHA256 f0706ff5e74c6683cd0be8ae95ad028cf303149ed763b5860a05b52dd230098c provenance SHA256 caf97f8da19559386455ecc0d012e356ecfb166a20b26278ac73d899461f565d
+No solver rerun; finite-field input validity only, no characteristic-zero verdict.
+Finish UTC 2026-11-25T12:24:04.941549+00:00
+PASS

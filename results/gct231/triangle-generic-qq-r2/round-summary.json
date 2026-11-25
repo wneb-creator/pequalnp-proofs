@@ -1,0 +1,7 @@
+{
+  "status": "UNKNOWN_TIME_LIMIT",
+  "completed_rounds": 32,
+  "last_complete_round": "  6      32    4264    1227 x 2522       22.33%     32 new       0 zero       134.19 | 133.17       ",
+  "basis_exists": false,
+  "scope": "Resource-capped unsuccessful exactQQ search, not a mathematical verdict."
+}

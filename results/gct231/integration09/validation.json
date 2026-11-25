@@ -1,0 +1,17 @@
+{
+  "scope": "Partial helpers only; no posted theorem or refutation.",
+  "lines": 3039,
+  "bytes": 491683,
+  "lake_build_exit": 0,
+  "module_seconds": 247,
+  "lake_jobs": 6687,
+  "axiom_audit_exit": 0,
+  "axiom_audit_declarations": 322,
+  "axioms": "Only propext/Classical.choice/Quot.sound",
+  "independent_review": "Root+c3 PASS, exact innerbody preservation and exactly one outer namespace",
+  "format_rg_exit": 1,
+  "format_interpretation": "No forbidden matches or attributes",
+  "checker09": "RUNNING; final log will be preserved separately",
+  "last_completed_checker": "08 REJECTED(no-theorem)",
+  "earlier_candidates": "V3-V5 unbuilt diagnostics missed one-block requirement; V6 corrects it."
+}

@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:27:24.158267+00:00
+Corrected star source differs only by exact pow_two/mul_eq_zero square-zero API proof and removal of unused simp arguments. All hypotheses, giant identity and theorem conclusions byte-preserved: PASS
+All5 actual extension hypotheses exactly match reviewed triangle rows5/10/13/16/19 under standard-star substitution; independent combination gives36: PASS
+Scope: scalar conditional extension contradiction for this normalized standard star. No general triangle or whole-gap assertion. No compiler run.
+Hashes {"StarPencilClassification.first-corollary.lean": "9cd27b8c23633b4efb7fa36f866a4f8b0633e43da64ba47b51f880928fef5fe9", "StarPencilClassification.lean": "7bdbee0dc04cb54742c6a0e3a60c474cbd5a9bc50dc1df6529bca5899db32603", "StandardStarTriangleExtension.lean": "6489a8b3eb7ba20ea65c77dfb5f2c2dc34bcfb13926bc94f51b20864ed84f7b7"}
+Finish UTC 2026-11-25T12:27:24.301793+00:00
+PASS
