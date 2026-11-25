@@ -1,0 +1,19 @@
+Job: pequalnp-pilot-107
+Message: msg-76e9e7cc2ecd8e7693ec45e9
+Current gap: L-meta-2583
+Status: checked partial results; exact posted theorem remains unproved. No PR opened.
+Canonical source: lean/PEqualNP/Outside/L_meta_2583.lean
+Canonical SHA256: 4af044243b5642309482cbf40b83516b853bfd40c689517e940abcd3965377e3
+Canonical line count: 3374
+Result: exact equivalence between posted READ1 normalization and unrestricted sharp bound N(q+2)-1. The READ1 lower bound and standard construction are proved; the unrestricted bound is not.
+Build: lake build PEqualNP.Outside.L_meta_2583 exited0.
+Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_2583.lean results/orch/2583/statement.txt check exited1.
+Verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583 (one lemma, one file: the theorem carries the module's name)
+Initial checker attempt exited3 because a generated cached ilean was read-only; detaching that generated artifact into a writable local copy allowed the checker to run. No tracked build configuration changed.
+Cleanup: not started because the full theorem is unproved. Before/after cleanup line counts: 3374/3374 (no cleanup).
+Old gap L-meta-2592: lease ended with HTTP410 despite a previously future expiry; all checked partials and diagnostic records were preserved on this branch before recovery request. No old lease release or further work attempted.
+Desk null answers:0.
+Search evidence: first Fano26 run had7907601077 evaluations, best approximation0 false positives and47 false negatives on all16384 assignments. It is not a counterexample.
+Sub-agents:6 reused agents (existing_results, counterexample_search, lower_bound, one_not, semantics, status_1035), covering constructions, search, lower bounds, transformations, semantics, and independent review.
+Checkpoint UTC: 2026-11-25T15:08:41.396276+00:00
+TIMING total=68.8 subagents=6

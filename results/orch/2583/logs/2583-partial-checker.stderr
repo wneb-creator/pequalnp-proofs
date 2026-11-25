@@ -1,0 +1,35 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+checker stage: building the file and the definitions root t=15s
+CHECKER FAULT: the build failed for a reason that is not an error in a project file.
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2811:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:2811:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:3089:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PEqualNP/Outside/L_meta_2583.lean:3089:61: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:3114:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+info: stderr:
+permission denied (error code: 13)
+  file: /workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/L_meta_2583.ilean
+error: Lean exited with code 1
+Some required targets logged failures:
+- PEqualNP.Outside.L_meta_2583
+error: build failed

@@ -1,0 +1,327 @@
+{
+  "status": "completed finite SMT searches; UNSAT findings are not Lean-certified",
+  "utc": "2026-11-25T15:08:00.263325+00:00",
+  "source": "results/orch/2583/lemmas/search_gadget_smt_v1.py",
+  "original_source_sha256": "0fdcc952d631edecc1ce90e5200eb583e114b5e1dcd4880809686adfbd93a83c",
+  "results": [
+    {
+      "name": "two-stars-shared",
+      "n": 7,
+      "gates": 7,
+      "critical_rows": 10,
+      "edges": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "bad_edge": [
+        0,
+        5
+      ],
+      "status": -1,
+      "seconds": 5.468009367999912
+    },
+    {
+      "name": "two-stars-private",
+      "n": 7,
+      "gates": 7,
+      "critical_rows": 10,
+      "edges": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "bad_edge": [
+        1,
+        5
+      ],
+      "status": -1,
+      "seconds": 4.053515397999945
+    },
+    {
+      "name": "three-stars-intersection",
+      "n": 9,
+      "gates": 11,
+      "critical_rows": 17,
+      "edges": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "bad_edge": [
+        0,
+        6
+      ],
+      "status": 0,
+      "seconds": 10.032779122999727
+    },
+    {
+      "name": "three-stars-private",
+      "n": 9,
+      "gates": 11,
+      "critical_rows": 17,
+      "edges": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "bad_edge": [
+        3,
+        6
+      ],
+      "status": 0,
+      "seconds": 10.0059610039998
+    },
+    {
+      "name": "K4-incidence-subdivision",
+      "n": 10,
+      "gates": 14,
+      "critical_rows": 24,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "bad_edge": null,
+      "status": 0,
+      "seconds": 10.005401388999871
+    }
+  ],
+  "positive_control": {
+    "status": "SAT; independently exhaustive verified all64 Boolean inputs and exact capped-vector nonREAD1 on edge(1,5)",
+    "n": 6,
+    "gates": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        4
+      ],
+      [
+        0,
+        5,
+        6
+      ],
+      [
+        1,
+        5,
+        7
+      ],
+      [
+        1,
+        0,
+        8
+      ],
+      [
+        0,
+        9,
+        10
+      ]
+    ],
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "bad_edge": [
+      1,
+      5
+    ]
+  },
+  "logs": [
+    {
+      "path": "results/orch/2583/search_logs/2583-search-gadget-smt-v1.stdout",
+      "sha256": "74edffe0f7f5dec49222ad0644041d02f8b2dc45e03383bbb6ec2141a683057f",
+      "bytes": 1126
+    },
+    {
+      "path": "results/orch/2583/search_logs/2583-search-gadget-smt-v1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/2583/search_logs/2583-search-gadget-smt-positive.stdout",
+      "sha256": "2b306f86ca95ec1c1f39bbcf4595bb0cf744f5b7cf61d4d02ddbd1d93f3efbcd",
+      "bytes": 601
+    },
+    {
+      "path": "results/orch/2583/search_logs/2583-search-gadget-smt-positive.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}
