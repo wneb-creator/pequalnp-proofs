@@ -1,0 +1,5 @@
+2026-11-25 independent review PASS.
+NorReaders reviewed by toolchain agent: h15, distinct inputs, exact prefix and monotone suffix remain explicit. Reader bounds and clean readers derive unused negative wires; output exclusion and compression yield size<=18 with exactly1 NOT. No arbitrary-two-NOT normalization is claimed.
+NegOrReassociate reviewed by toolchain agent: the negative OR cube is reassociated through a difference gate; one extra Live step and pair_seventeen prove residual>=16. The raw frontier restriction remains explicit.
+TwoStepSeed reviewed and independently compiled by structural_proof: a raw-pin non-OR second gate is independent of the OR and can be reordered using Live.binary. Properness, freshness and pin distinctness are proved. Forbidden-text scan has no matches.
+All three source hashes frozen and author builds exited0. Main posted gap remains unresolved.
