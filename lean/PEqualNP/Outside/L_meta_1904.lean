@@ -1110,4 +1110,499 @@ lemma signed_grid_certificate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel 
 
 end LiteralGridRepair
 
+namespace BatchSubstitution
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def evalGate (g : Gate) (w : List Bool) : Bool :=
+  g.op.eval (g.inputs.map fun i => w.getD i false)
+
+def run (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [evalGate g w]) w
+
+def Related (positive : Bool) (old new : Bool) : Prop :=
+  if positive then old = true → new = true else new = true → old = true
+
+def Extends (initial whole : List Bool) : Prop := ∃ tail, whole = initial ++ tail
+
+def Mapped (positive : Bool) (m : List ℕ) (old new : List Bool) : Prop :=
+  m.length = old.length ∧
+    (∀ i < m.length, m.getD i 0 < new.length) ∧
+    ∀ i < m.length, Related positive (old.getD i false) (new.getD (m.getD i 0) false)
+
+def rename (m : List ℕ) (fallback : ℕ) (g : Gate) : Gate :=
+  ⟨g.op,g.inputs.map fun i => m.getD i fallback⟩
+
+def scanStep (n : ℕ) (state : List ℕ × List Gate) (entry : Gate × Option ℕ) :
+    List ℕ × List Gate :=
+  match entry.2 with
+  | some k => (state.1 ++ [k],state.2)
+  | none => (state.1 ++ [n + state.2.length],
+      state.2 ++ [rename state.1 (n + state.2.length) entry.1])
+
+def scan (n : ℕ) (entries : List (Gate × Option ℕ)) (state : List ℕ × List Gate) :
+    List ℕ × List Gate := entries.foldl (scanStep n) state
+
+lemma run_append (pre post : List Gate) (w : List Bool) :
+    run (pre ++ post) w = run post (run pre w) := by simp [run,List.foldl_append]
+
+lemma run_cons (g : Gate) (gs : List Gate) (w : List Bool) :
+    run (g :: gs) w = run gs (w ++ [evalGate g w]) := rfl
+
+lemma run_prefix (gs : List Gate) (w : List Bool) :
+    ∃ tail, run gs w = w ++ tail ∧ tail.length = gs.length := by
+  induction gs generalizing w with
+  | nil => exact ⟨[],by simp [run],rfl⟩
+  | cons g gs ih =>
+    obtain ⟨tail,ht,hl⟩ := ih (w ++ [evalGate g w])
+    exact ⟨_::tail,by simpa [run_cons,List.append_assoc] using ht,by simp [hl]⟩
+
+lemma run_length (gs : List Gate) (w : List Bool) :
+    (run gs w).length = w.length + gs.length := by
+  obtain ⟨tail,ht,hl⟩ := run_prefix gs w
+  simp [ht,hl]
+
+lemma run_first (g : Gate) (gs : List Gate) (w : List Bool) :
+    (run (g::gs) w).getD w.length false = evalGate g w := by
+  obtain ⟨tail,ht,_⟩ := run_prefix gs (w ++ [evalGate g w])
+  rw [run_cons,ht,List.append_assoc]
+  simp
+
+lemma extends_refl (w : List Bool) : Extends w w := ⟨[],by simp⟩
+
+lemma extends_append {p w : List Bool} (h : Extends p w) (tail : List Bool) :
+    Extends p (w ++ tail) := by
+  obtain ⟨t,ht⟩ := h
+  exact ⟨t++tail,by simp [ht,List.append_assoc]⟩
+
+lemma extends_getD {p w : List Bool} (h : Extends p w) (i : ℕ) (hi : i < p.length) :
+    w.getD i false = p.getD i false := by
+  obtain ⟨t,rfl⟩ := h
+  exact List.getD_append _ _ _ _ hi
+
+lemma extends_length {p w : List Bool} (h : Extends p w) : p.length ≤ w.length := by
+  obtain ⟨t,rfl⟩ := h
+  simp
+
+lemma mapped_extend {positive : Bool} {m : List ℕ} {old new newer : List Bool}
+    (h : Mapped positive m old new) (he : Extends new newer) (k : ℕ) (value : Bool)
+    (hk : k < newer.length) (hv : Related positive value (newer.getD k false)) :
+    Mapped positive (m ++ [k]) (old ++ [value]) newer := by
+  obtain ⟨hlen,hbound,hvalue⟩ := h
+  refine ⟨by simp [hlen],?_,?_⟩
+  · intro i hi
+    by_cases hold : i < m.length
+    · rw [List.getD_append _ _ _ _ hold]
+      exact lt_of_lt_of_le (hbound i hold) (extends_length he)
+    · have hie : i = m.length := by simp at hi; omega
+      subst i
+      simpa using hk
+  · intro i hi
+    by_cases hold : i < m.length
+    · rw [List.getD_append _ _ _ _ hold,
+        List.getD_append _ _ _ _ (by omega),extends_getD he _ (hbound i hold)]
+      exact hvalue i hold
+    · have hie : i = m.length := by simp at hi; omega
+      subst i
+      simpa [hlen] using hv
+
+lemma gate_value_mono (g : Gate) (hop : g.op = .and ∨ g.op = .or)
+    (f h : ℕ → Bool) (hf : ∀ i ∈ g.inputs, f i = true → h i = true) :
+    g.op.eval (g.inputs.map f) = true → g.op.eval (g.inputs.map h) = true := by
+  rcases hop with ha|ho
+  · simp only [ha,GateOp.eval,List.all_map,List.all_eq_true,Function.comp_apply,id_eq]
+    exact fun hh i hi => hf i hi (hh i hi)
+  · simp only [ho,GateOp.eval,List.any_map,List.any_eq_true,Function.comp_apply,id_eq]
+    rintro ⟨i,hi,hv⟩
+    exact ⟨i,hi,hf i hi hv⟩
+
+lemma mapped_all_indices {positive : Bool} {m : List ℕ} {old new : List Bool}
+    (hm : Mapped positive m old new) (i : ℕ) :
+    Related positive (old.getD i false) (new.getD (m.getD i new.length) false) := by
+  by_cases hi : i < m.length
+  · have he : m.getD i new.length = m.getD i 0 := by
+      rw [List.getD_eq_getElem _ _ hi,List.getD_eq_getElem _ _ hi]
+    rw [he]
+    exact hm.2.2 i hi
+  · have hmo : m.getD i new.length = new.length := List.getD_eq_default _ _ (by omega)
+    have ho : old.getD i false = false := List.getD_eq_default _ _ (by have := hm.1; omega)
+    rw [hmo,ho]
+    simp [Related]
+
+lemma gate_related (positive : Bool) (g : Gate) (m : List ℕ) (old new : List Bool)
+    (hop : g.op = .and ∨ g.op = .or) (hm : Mapped positive m old new) :
+    Related positive (evalGate g old) (evalGate (rename m new.length g) new) := by
+  have hvals : ∀ i ∈ g.inputs,
+      Related positive (old.getD i false) (new.getD (m.getD i new.length) false) :=
+    fun i _ => mapped_all_indices hm i
+  simp only [evalGate,rename,List.map_map]
+  cases positive
+  · exact gate_value_mono g hop _ _ hvals
+  · exact gate_value_mono g hop _ _ hvals
+
+lemma scan_cons (n : ℕ) (entry : Gate × Option ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate) :
+    scan n (entry::entries) state = scan n entries (scanStep n state entry) := rfl
+
+lemma scan_map_length (n : ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate) :
+    (scan n entries state).1.length = state.1.length + entries.length := by
+  induction entries generalizing state with
+  | nil => simp [scan]
+  | cons entry entries ih =>
+    rw [scan_cons,ih]
+    cases he : entry.2 <;> simp [scanStep,he] <;> omega
+
+lemma scan_gate_count (n : ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate) :
+    (scan n entries state).2.length = state.2.length + entries.countP (fun e => e.2.isNone) := by
+  induction entries generalizing state with
+  | nil => simp [scan]
+  | cons entry entries ih =>
+    rw [scan_cons,ih]
+    cases he : entry.2 <;> simp [scanStep,he,Nat.add_assoc,Nat.add_comm]
+
+lemma scan_mono (n : ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate)
+    (hseed : ∀ g ∈ state.2, g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (hsource : ∀ e ∈ entries, e.1.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ e.1.inputs.length ≤ 2) :
+    ∀ g ∈ (scan n entries state).2,
+      g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2 := by
+  induction entries generalizing state with
+  | nil => exact hseed
+  | cons entry entries ih =>
+    rw [scan_cons]
+    apply ih
+    · cases he : entry.2
+      · intro g hg
+        simp only [scanStep,he,List.mem_append,List.mem_singleton] at hg
+        rcases hg with hg|rfl
+        · exact hseed g hg
+        · simpa [rename] using hsource entry List.mem_cons_self
+      · simpa [scanStep,he] using hseed
+    · exact fun e he => hsource e (List.mem_cons_of_mem _ he)
+
+lemma scanStep_sim (positive : Bool) (n : ℕ) (x old seed : List Bool)
+    (state : List ℕ × List Gate) (entry : Gate × Option ℕ)
+    (hx : x.length = n)
+    (hm : Mapped positive state.1 old (run state.2 x))
+    (hp : Extends seed (run state.2 x))
+    (hop : entry.1.op = .and ∨ entry.1.op = .or)
+    (hredirect : ∀ k, entry.2 = some k → k < seed.length ∧
+      Related positive (evalGate entry.1 old) (seed.getD k false)) :
+    Mapped positive (scanStep n state entry).1 (old ++ [evalGate entry.1 old])
+      (run (scanStep n state entry).2 x) ∧
+    Extends seed (run (scanStep n state entry).2 x) := by
+  cases he : entry.2 with
+  | some k =>
+    obtain ⟨hk,hr⟩ := hredirect k he
+    simp only [scanStep,he]
+    refine ⟨mapped_extend hm (extends_refl _) k _
+      (lt_of_lt_of_le hk (extends_length hp)) ?_,hp⟩
+    rwa [extends_getD hp k hk]
+  | none =>
+    let current := run state.2 x
+    let copied := rename state.1 (n + state.2.length) entry.1
+    let value := evalGate copied current
+    have hlen : current.length = n + state.2.length := by
+      simp [current,run_length,hx]
+    have heval : run (state.2 ++ [copied]) x = current ++ [value] := by
+      rw [run_append]
+      rfl
+    simp only [scanStep,he]
+    change Mapped positive (state.1 ++ [n + state.2.length])
+      (old ++ [evalGate entry.1 old]) (run (state.2 ++ [copied]) x) ∧
+      Extends seed (run (state.2 ++ [copied]) x)
+    rw [heval]
+    refine ⟨mapped_extend hm ⟨[value],rfl⟩ (n + state.2.length) _ ?_ ?_,
+      extends_append hp [value]⟩
+    · simp [run_length,hx]
+    · have hv : (current ++ [value]).getD (n + state.2.length) false = value := by
+        rw [← hlen]
+        simp
+      rw [hv]
+      have hh := gate_related positive entry.1 state.1 old current hop hm
+      simpa only [hlen] using hh
+
+lemma scan_sim (positive : Bool) (n : ℕ) (x seed : List Bool)
+    (entries : List (Gate × Option ℕ)) (old : List Bool) (state : List ℕ × List Gate)
+    (hx : x.length = n)
+    (hm : Mapped positive state.1 old (run state.2 x))
+    (hp : Extends seed (run state.2 x))
+    (hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < seed.length)
+    (hredirect : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) old).getD (old.length + j) false)
+        (seed.getD k false)) :
+    Mapped positive (scan n entries state).1 (run (entries.map Prod.fst) old)
+      (run (scan n entries state).2 x) ∧
+    Extends seed (run (scan n entries state).2 x) := by
+  induction entries generalizing old state with
+  | nil => exact ⟨hm,hp⟩
+  | cons entry entries ih =>
+    have hhead : ∀ k, entry.2 = some k → k < seed.length ∧
+        Related positive (evalGate entry.1 old) (seed.getD k false) := by
+      intro k hk
+      refine ⟨hbound entry List.mem_cons_self k hk,?_⟩
+      have hh := hredirect 0 entry (by simp) k hk
+      simpa only [List.map_cons,Nat.add_zero,run_first] using hh
+    obtain ⟨hm',hp'⟩ := scanStep_sim positive n x old seed state entry hx hm hp
+      (hops entry List.mem_cons_self) hhead
+    have hr : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+        Related positive
+          ((run (entries.map Prod.fst) (old ++ [evalGate entry.1 old])).getD
+            ((old ++ [evalGate entry.1 old]).length + j) false)
+          (seed.getD k false) := by
+      intro j e hj k hk
+      have hh := hredirect (j+1) e (by simpa using hj) k hk
+      have hl : (old ++ [evalGate entry.1 old]).length + j = old.length + (j+1) := by
+        simp
+        omega
+      rw [hl]
+      simpa only [List.map_cons,run_cons] using hh
+    have ht := ih (old := old ++ [evalGate entry.1 old]) (state := scanStep n state entry)
+      hm' hp' (fun e he => hops e (List.mem_cons_of_mem _ he))
+      (fun e he k hk => hbound e (List.mem_cons_of_mem _ he) k hk) hr
+    simpa only [scan_cons,List.map_cons,run_cons] using ht
+
+def compileCircuit (n : ℕ) (prebuilt : List Gate) (entries : List (Gate × Option ℕ))
+    (output : ℕ) : Circuit :=
+  let final := scan n entries (List.range n,prebuilt)
+  ⟨final.2,final.1.getD output (n + final.2.length)⟩
+
+lemma mapped_initial (positive : Bool) (prebuilt : List Gate) (x : List Bool) :
+    Mapped positive (List.range x.length) x (run prebuilt x) := by
+  have hmap : ∀ i < x.length, (List.range x.length).getD i 0 = i := by
+    intro i hi
+    simp [List.getD,hi]
+  obtain ⟨tail,ht,_⟩ := run_prefix prebuilt x
+  have hp : Extends x (run prebuilt x) := ⟨tail,ht⟩
+  refine ⟨by simp,?_,?_⟩
+  · intro i hi
+    have hix : i < x.length := by simpa using hi
+    rw [hmap i hix]
+    exact lt_of_lt_of_le hix (extends_length hp)
+  · intro i hi
+    have hix : i < x.length := by simpa using hi
+    rw [hmap i hix,extends_getD hp i hix]
+    simp [Related]
+
+lemma compile_eval_related (positive : Bool) (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output : ℕ) (x : List Bool)
+    (hx : x.length = n)
+    (hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < n + prebuilt.length)
+    (hredirect : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) x).getD (n + j) false)
+        ((run prebuilt x).getD k false)) :
+    Related positive (Circuit.mk (entries.map Prod.fst) output |>.eval x)
+      ((compileCircuit n prebuilt entries output).eval x) := by
+  let state : List ℕ × List Gate := (List.range n,prebuilt)
+  have hm : Mapped positive state.1 x (run state.2 x) := by
+    change Mapped positive (List.range n) x (run prebuilt x)
+    rw [← hx]
+    exact mapped_initial positive prebuilt x
+  have hb : ∀ e ∈ entries, ∀ k, e.2 = some k → k < (run prebuilt x).length := by
+    simpa only [run_length,hx] using hbound
+  have hr : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) x).getD (x.length + j) false)
+        ((run prebuilt x).getD k false) := by
+    simpa only [hx] using hredirect
+  have hsim := scan_sim positive n x (run prebuilt x) entries x state hx hm
+    (extends_refl _) hops hb hr
+  have hout := mapped_all_indices hsim.1 output
+  have hl : (run (scan n entries state).2 x).length =
+      n + (scan n entries state).2.length := by simp [run_length,hx]
+  rw [hl] at hout
+  exact hout
+
+lemma compile_size (n : ℕ) (prebuilt : List Gate) (entries : List (Gate × Option ℕ))
+    (output : ℕ) :
+    (compileCircuit n prebuilt entries output).size =
+      prebuilt.length + entries.countP (fun e => e.2.isNone) := by
+  exact scan_gate_count n entries (List.range n,prebuilt)
+
+lemma copy_skip_partition (entries : List (Gate × Option ℕ)) :
+    entries.countP (fun e => e.2.isNone) + entries.countP (fun e => e.2.isSome) =
+      entries.length := by
+  induction entries with
+  | nil => rfl
+  | cons e es ih =>
+    cases he : e.2 <;> simp [he] <;> omega
+
+lemma compile_same_size (n : ℕ) (prebuilt : List Gate) (entries : List (Gate × Option ℕ))
+    (output : ℕ) (hcount : prebuilt.length = entries.countP (fun e => e.2.isSome)) :
+    (compileCircuit n prebuilt entries output).size =
+      (Circuit.mk (entries.map Prod.fst) output).size := by
+  rw [compile_size]
+  have hc := copy_skip_partition entries
+  simp only [Circuit.size,List.length_map]
+  omega
+
+lemma compile_mono (n : ℕ) (prebuilt : List Gate) (entries : List (Gate × Option ℕ))
+    (output : ℕ)
+    (hseed : ∀ g ∈ prebuilt,
+      g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (hsource : ∀ e ∈ entries,
+      e.1.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ e.1.inputs.length ≤ 2) :
+    Monotone2 (compileCircuit n prebuilt entries output) := by
+  exact scan_mono n entries (List.range n,prebuilt) hseed hsource
+
+lemma scan_prefix (n : ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate) :
+    ∃ mt gt, (scan n entries state).1 = state.1 ++ mt ∧
+      (scan n entries state).2 = state.2 ++ gt := by
+  induction entries generalizing state with
+  | nil => exact ⟨[],[],by simp [scan],by simp [scan]⟩
+  | cons e es ih =>
+    obtain ⟨mt,gt,hm,hg⟩ := ih (scanStep n state e)
+    rw [scan_cons]
+    cases he : e.2 with
+    | none =>
+      exact ⟨_::mt,_::gt,by simpa [scanStep,he,List.append_assoc] using hm,
+        by simpa [scanStep,he,List.append_assoc] using hg⟩
+    | some k =>
+      exact ⟨k::mt,gt,by simpa [scanStep,he,List.append_assoc] using hm,
+        by simpa [scanStep,he] using hg⟩
+
+lemma scan_copied_origin (n : ℕ) (entries : List (Gate × Option ℕ))
+    (state : List ℕ × List Gate) (j : ℕ)
+    (hj₀ : state.2.length ≤ j) (hj₁ : j < (scan n entries state).2.length) :
+    ∃ i e g, entries[i]? = some e ∧ e.2 = none ∧
+      (scan n entries state).2[j]? = some g ∧ g.op = e.1.op ∧
+      (scan n entries state).1.getD (state.1.length + i) 0 = n + j := by
+  induction entries generalizing state with
+  | nil => simp [scan] at hj₁; omega
+  | cons e es ih =>
+    rw [scan_cons] at hj₁ ⊢
+    cases he : e.2 with
+    | some k =>
+      have hj' : (scanStep n state e).2.length ≤ j := by simpa [scanStep,he] using hj₀
+      obtain ⟨i,e',g,hi,he',hg,hop,hm⟩ := ih (scanStep n state e) hj' hj₁
+      refine ⟨i+1,e',g,by simpa using hi,he',hg,hop,?_⟩
+      have hl : (scanStep n state e).1.length + i = state.1.length + (i+1) := by
+        simp [scanStep,he]
+        omega
+      rwa [hl] at hm
+    | none =>
+      by_cases hj : j = state.2.length
+      · subst j
+        obtain ⟨mt,gt,hm,hg⟩ := scan_prefix n es (scanStep n state e)
+        refine ⟨0,e,rename state.1 (n+state.2.length) e.1,by simp,he,?_,rfl,?_⟩
+        · rw [hg]
+          simp [scanStep,he,List.append_assoc]
+        · rw [hm]
+          simp [scanStep,he,List.append_assoc]
+      · have hj' : (scanStep n state e).2.length ≤ j := by
+          simp [scanStep,he]
+          omega
+        obtain ⟨i,e',g,hi,he',hg,hop,hm⟩ := ih (scanStep n state e) hj' hj₁
+        refine ⟨i+1,e',g,by simpa using hi,he',hg,hop,?_⟩
+        have hl : (scanStep n state e).1.length + i = state.1.length + (i+1) := by
+          simp [scanStep,he]
+          omega
+        rwa [hl] at hm
+
+lemma compile_wires_mapped (positive : Bool) (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (x : List Bool)
+    (hx : x.length = n)
+    (hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < n + prebuilt.length)
+    (hredirect : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) x).getD (n + j) false)
+        ((run prebuilt x).getD k false)) :
+    Mapped positive (scan n entries (List.range n,prebuilt)).1
+      (run (entries.map Prod.fst) x)
+      (run (scan n entries (List.range n,prebuilt)).2 x) := by
+  have hm : Mapped positive (List.range n) x (run prebuilt x) := by
+    rw [← hx]
+    exact mapped_initial positive prebuilt x
+  have hb : ∀ e ∈ entries, ∀ k, e.2 = some k → k < (run prebuilt x).length := by
+    simpa only [run_length,hx] using hbound
+  have hr : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) x).getD (x.length + j) false)
+        ((run prebuilt x).getD k false) := by
+    simpa only [hx] using hredirect
+  exact (scan_sim positive n x (run prebuilt x) entries x (List.range n,prebuilt)
+    hx hm (extends_refl _) hops hb hr).1
+
+lemma compile_copied_origin (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output j : ℕ)
+    (hj₀ : prebuilt.length ≤ j)
+    (hj₁ : j < (compileCircuit n prebuilt entries output).gates.length) :
+    ∃ i e g, i < entries.length ∧ entries[i]? = some e ∧ e.2 = none ∧
+      (compileCircuit n prebuilt entries output).gates[j]? = some g ∧
+      g.op = e.1.op ∧
+      (scan n entries (List.range n,prebuilt)).1.getD (n+i) 0 = n+j := by
+  obtain ⟨i,e,g,hi,he,hg,hop,hm⟩ :=
+    scan_copied_origin n entries (List.range n,prebuilt) j hj₀ hj₁
+  have hil : i < entries.length := by
+    by_contra hn
+    have hh : entries[i]? = none := List.getElem?_eq_none (by omega)
+    rw [hh] at hi
+    contradiction
+  exact ⟨i,e,g,hil,hi,he,hg,hop,by simpa using hm⟩
+
+lemma copied_value_related (positive : Bool) (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output i j : ℕ) (x : List Bool)
+    (hx : x.length = n) (hi : i < entries.length)
+    (hmapping : (scan n entries (List.range n,prebuilt)).1.getD (n+i) 0 = n+j)
+    (hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < n + prebuilt.length)
+    (hredirect : ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k →
+      Related positive
+        ((run (entries.map Prod.fst) x).getD (n+j) false)
+        ((run prebuilt x).getD k false)) :
+    Related positive ((run (entries.map Prod.fst) x).getD (n+i) false)
+      ((run (compileCircuit n prebuilt entries output).gates x).getD (n+j) false) := by
+  have hm := compile_wires_mapped positive n prebuilt entries x hx hops hbound hredirect
+  have hib : n+i < (scan n entries (List.range n,prebuilt)).1.length := by
+    simp [scan_map_length]
+    exact hi
+  have hv := hm.2.2 (n+i) hib
+  rwa [hmapping] at hv
+
+lemma remapped_card_le (n : ℕ) (mapping : List ℕ) (oldMarks newMarks : Finset ℕ)
+    (h : ∀ j ∈ newMarks, ∃ i ∈ oldMarks, mapping.getD (n+i) 0 = n+j) :
+    newMarks.card ≤ oldMarks.card := by
+  classical
+  have hex : ∀ j, ∃ i, j ∈ newMarks →
+      i ∈ oldMarks ∧ mapping.getD (n+i) 0 = n+j := by
+    intro j
+    by_cases hj : j ∈ newMarks
+    · obtain ⟨i,hi,hm⟩ := h j hj
+      exact ⟨i,fun _ => ⟨hi,hm⟩⟩
+    · exact ⟨0,fun hh => (hj hh).elim⟩
+  choose f hf using hex
+  apply Finset.card_le_card_of_injOn f
+  · exact fun j hj => (hf j hj).1
+  · intro j hj k hk he
+    have hjm := (hf j hj).2
+    have hkm := (hf k hk).2
+    rw [he] at hjm
+    omega
+
+lemma compile_marked_count_le (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output : ℕ) (oldMarks newMarks : Finset ℕ)
+    (hnew : ∀ j ∈ newMarks, prebuilt.length ≤ j ∧
+      j < (compileCircuit n prebuilt entries output).gates.length)
+    (htransfer : ∀ i e g j, i < entries.length → entries[i]? = some e →
+      e.2 = none → (compileCircuit n prebuilt entries output).gates[j]? = some g →
+      g.op = e.1.op →
+      (scan n entries (List.range n,prebuilt)).1.getD (n+i) 0 = n+j →
+      j ∈ newMarks → i ∈ oldMarks) :
+    newMarks.card ≤ oldMarks.card := by
+  apply remapped_card_le n (scan n entries (List.range n,prebuilt)).1
+  intro j hj
+  obtain ⟨i,e,g,hi,hei,he,hg,hop,hm⟩ :=
+    compile_copied_origin n prebuilt entries output j (hnew j hj).1 (hnew j hj).2
+  exact ⟨i,htransfer i e g j hi hei he hg hop hm hj,hm⟩
+
+end BatchSubstitution
+
 end PEqualNP.Outside.L_meta_1904
