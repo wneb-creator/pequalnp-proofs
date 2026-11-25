@@ -71,4 +71,38 @@ lemma pair_table_suffices (g : (Fin 7 → Bool) → Bool) (hg : Monotone g)
     rw [hpair i j hij, hf] at h
     exact Bool.eq_true_of_true_le h
 
+lemma monotone_target_order {α β : Type*} [Preorder β]
+    (target : α → Bool) (F : β → Bool) (hF : Monotone F)
+    (u v : α → β) (hcorrect : ∀ x, F (u x) = target x)
+    (hpositive : ∀ x, target x = true → u x ≤ v x)
+    (hnegative : ∀ x, target x = false → v x ≤ u x) :
+    ∀ x, F (v x) = target x := by
+  intro x
+  cases hx : target x with
+  | false =>
+    have h := hF (hnegative x hx)
+    rw [hcorrect x, hx] at h
+    exact Bool.eq_false_of_le_false h
+  | true =>
+    have h := hF (hpositive x hx)
+    rw [hcorrect x, hx] at h
+    exact Bool.eq_true_of_true_le h
+
+lemma replace_dominated_signal {α : Type*} {n : ℕ}
+    (target : α → Bool) (F : (Fin n → Bool) → Bool) (hF : Monotone F)
+    (w : α → Fin n → Bool) (i j : Fin n)
+    (hcorrect : ∀ x, F (w x) = target x)
+    (hpositive : ∀ x, target x = true → w x i ≤ w x j)
+    (hnegative : ∀ x, target x = false → w x j ≤ w x i) :
+    ∀ x, F (fun k => if k = i then w x j else w x k) = target x := by
+  apply monotone_target_order target F hF w _ hcorrect
+  · intro x hx k
+    by_cases hk : k = i
+    · simpa [hk] using hpositive x hx
+    · simp [hk]
+  · intro x hx k
+    by_cases hk : k = i
+    · simpa [hk] using hnegative x hx
+    · simp [hk]
+
 end PEqualNP.Outside.L_meta_10760
