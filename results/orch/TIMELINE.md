@@ -6,3 +6,4 @@
 2026-11-25T14:28:53.180664+00:00: EliminationSound compiled and independently approved; preserving second partial.
 2026-11-25T14:30:27.210092+00:00: named partial module build passed; preserving reviewed source and complete build output.
 2026-11-25T14:31:54.544927+00:00: ProfilePruning and EliminationBound compiled, independently reviewed, and checkpointed.
+2026-11-25T14:32:51.861236+00:00: concrete Petersen bracket witnesses compiled and independently reviewed.

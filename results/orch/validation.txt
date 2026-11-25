@@ -34,3 +34,9 @@ Command (from lean/): lake env lean ../results/orch/lemmas/EliminationBound.lean
 Exit status: 0. Complete logs: profile-bound-build.stdout and profile-bound-build.stderr
 Independent review: status_review approved SHA256 bd8385aa5a11b5196b5d128af831366d950fa78273693317624e66f1dd20c16b.
 Scope: generic profile-trace pruning and conditional eight-binary-profile lower bound. The finite checked=true certificate remains a hypothesis in EliminationBound.
+
+Compiled partial: results/orch/lemmas/PetersenBracket.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/PetersenBracket.lean
+Exit status: 0. Complete logs: petersen-bracket-build.stdout and .stderr (empty).
+Independent review: status_review approved SHA256 07f1033a93fbfd50a46dd112dde79902d187de49493e2cc40a0d9334f7f6090d.
+Scope: exact Petersen true/false generators and critical one-NOT witnesses, not full gate lower bound.
