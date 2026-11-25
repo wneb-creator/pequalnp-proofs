@@ -45,3 +45,37 @@ Environment is ready: pinned Lean 4.36.0 and full prebuilt Mathlib cache, checkl
 - Full Hadamard tangent t=H B H/4 with B00=0, B=[[0,x,y,z],[x,a,d,e],[y,d,b,f],[z,e,f,c]] has q=tr(C^2)-6(x^2+y^2+z^2); full expansion scratch hadamard-tangent.txt.
 - Pointwise transposition-invariant3planes: all8 exact Witt charts inconsistent, GroebnerBasis([1]) over QQ(i,sqrt2). Scripts/logs scratch transposition_planes.*. This is CAS evidence, not Lean proof.
 - Testing transposition-stable3planes with anti-invariantline plus invariant2plane now; anti-invariantlevel lines have representative star signededges or diag(-4,4)+star signededges.
+
+## Computational construction search / 2026-11-25T09:26:51.251098+00:00
+- Gaussian-unit exhaustive direction search completed: 30 constant-permanent lines up to unit scaling; compatible-pair graph still has only12 edges andfourtriangles, allrank2. No3plane inthatdiscretealphabet.
+- FullGrassmann numericalsearch completed1000 complex randomstarts acrossrandompivotcharts. Eachchart fixes3coordinates asidentity, hencecannotcollapsebasisrank. Nozeroresidual; bestnorm6.56e-4. This issearch evidenceonly, notrefutation. Code/log/bestmatrix: scratch search_numeric.py, search_numeric.log, numeric_best.json.
+- Forstarline t01=−t02, first-orderextensionconstraints pluscoefficient x²z²=(B13−B23)² force rows1,2ofB equalexceptcol0. Quotientbythatstarline has5coords(u,d,h,i,j), qmatrixdet144 andrationalWittindex2. Thus3spacecontainingastarline reducesto2planeonquadric5 withcubic/quarticconstraints; couldtestfourWittchartsby3-variableGroebner. Not yetdone.
+
+## Independent review / literature scout, 2026-11-25T09:26:55.829143+00:00
+- StarPlane.lean independently approved as a dimension-2 partial, not the dimension-3 target. Its current _star namespace is archival only; final integration must rename into L_gct_231 or L_gct_231_aux and descendants.
+- No general symmetric affine permanent-level dimension bound n-2 located in bounded searches of allowed GitHub/pequalnp hosts. Such a theorem remains UNVERIFIED; the search result is not evidence of nonexistence.
+- Related checked local statements: L_gct_121 excludes symmetric rank-one J-level directions via unequal-support necessity; L_gct_109 bounds 3x3 doubly-centered spaces by 1; L_gct_216 bounds 4x4 doubly-centered spaces by 3. None alone supplies the required symmetric bound or converts symmetry to centering.
+
+## Isotropic common-kernel route / 2026-11-25 09:27 UTC
+- For common kernel u=(1,-1,i,-i), symmetric Tu=0 plus total-entry sum0 gives dimension5. The quadratic permanent coefficient has rank2 and discriminant 24(x₂+2x₃+x₄)².
+- Its two maximal isotropic4D hyperplanes split over Q(i,sqrt6). Exact cubic/quartic gcd is1 on BOTH hyperplanes. Thus no constant-permanent3-plane with this fixed common kernel. This is CAS evidence with algebraic reasoning, not Lean checked.
+- Reproduction: scratch common-kernel-isotropic-gcd.py and complete log. Trying special kernel (1,omega,omega²,0) next.
+
+## Algebraic follow-up / 2026-11-25T09:27:49.923448+00:00
+- No Klein-four-stable3D candidate: selecting one isotropic line from each nontrivial character leaves8 choices; all nonzero cubic. The invariant tangent component has no nonzero full level line.
+- All arrowhead-supported3D spaces are obstructed, by separating rank of projection to three leaf diagonal entries. Rank3 forces b=βe etc and incompatiblequadratic identities; rank1 contains star2; rank2 reduces to g=0 (Sym3 support) or e+f=0, where a nonzero mixed quadratic coefficient survives. These are mathematical derivations, not Lean-checked.
+- Copied exact block-extension Groebner script and full log to results/orch/lemmas/algebra-extend-block-quotient.py/.log. Last symbolic solve was stopped after zero-dimensional Groebner result, as redundant.
+
+## Three-plane search / 2026-11-25T09:28:09.306432+00:00
+- V4-equivariant candidate: each nontrivial weight direction Sym(h0,hr)+k Sym(hj,hk) has quadratic coefficient32(k²−3) and quartic64(k²+1)², so no such nonzero constant line.
+- C4-equivariant candidate3planes (one line in weights1,2,3) have coefficient ideal Groebner basis1; weight0 has no good line. This excludes symmetry-restricted planes only.
+- Centered t=H B Hᵀ: independently verified cubic coefficient64per(B). Parameterizing maximal-isotropic B-spaces by d=(I+K)x, o=(i/√2)(I−K)x for skew3×3 K, the10 cubic coefficients have Groebner basis1 in each parity of off-coordinate signs. These8 natural Witt charts seem to cover both OGr(3,6) components, but coverage is not yet formalized. Scripts centered_ogr_search*.py/log in scratch.
+- Full-Grassmann numeric search was stopped as duplicate of construction_search; 117 starts found no zero, best residual6.56e−4. This is evidence only.
+- Dense Gaussian line extension has quotient dimension6 with3 rank6 quadratic constraints, determinant pencil splits2+4. Exact formulas in dense_line_extension.log.
+
+## Common-kernel route: finite reduction and obstruction / 2026-11-25 09:32 UTC
+- Both hyperplanes for u=(1,omega,omega²,0) also have cubic/quartic gcd1 (common-kernel-omega.py/log).
+- For centered isotropic u, write p=e3(u), q=e4(u), e=ones/2, B=euᵀ+ueᵀ, E=uuᵀ. Any desired3-plane must contain B+beta E because it cannot contain E. Its cubic coefficient is6p(beta³p+1); quartic is3/2(16beta⁴q²+16beta³pq+3beta²p²+2q). Resultant:4374p⁴(p⁴−8q³)(27p⁴−512q³).
+- If p!=0 normalize p=-1,beta=1. Then q=3/8 or1/2. Let z0_i=u_i³−(4q/3)u_i²+3/4 and D=z0uᵀ+uz0ᵀ. Every candidate3-plane contains bB+dD+(b+Gd)E. For q=1/2, vanishing b³d and b²d coefficients requires G=7/6 and G=8/9. For q=3/8, they require G=1/2 but bd² coefficient is9(2G²−2G+1), nonzero. Thus no centered-isotropic common-kernel3-plane. p=0 is scaled/permuted earlier four-root case. This is exact CAS plus algebraic reasoning, NOT Lean checked.
+- Full computation common-kernel-ratios.py/log uses resultant P(X,Y,Z)=product_i(X/2+Y u_i+Z z0_i) and permanent Cauchy-Binet sum of alpha! times coefficients of P and P(KX). Each4D isotropic hyperplane has Groebner basis[1], but simple contradictions above suffice.
+- Does NOT exclude all common kernels: when u·u!=0, exceptional projection norms k=4−(sumu)²/(u·u) include k=1 (quadratic rank3/radical2) and k=0 (isotropic projection, possible rank4/radical1).

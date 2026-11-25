@@ -26,3 +26,17 @@ Independent review: passed; statement has dimension 2, while target requires 3.
 Local checker for target: not run; target remains unproved.
 Sub-agents: six.
 TIMING total=50.8 subagents=6
+
+Additional checked partial: necessary tangent and Hessian equations.
+UTC: 2026-11-25T09:32:26.999773+00:00
+File: results/orch/lemmas/Tangent.lean
+Lines: 64
+SHA256: 5bbe9e4726720474bed33ec014e1d0bcf3a7f6773b58e244d137a5b881b949e9
+Command (cwd lean/): lake env lean ../results/orch/lemmas/Tangent.lean
+Build exit status: 0
+Complete build stdout and stderr follows:
+
+Independent review: passed; necessary linear/quadratic conditions only.
+Local checker for target: not run; target remains unproved.
+Sub-agents: six.
+TIMING total=56.7 subagents=6
