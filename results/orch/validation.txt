@@ -1,0 +1,9 @@
+Gap: L-meta-4675
+Status: PARTIAL; posted theorem not proved; no PR opened.
+Build: lake build PEqualNP.Outside.L_meta_4675
+Exit: 0
+Output: Build completed successfully (5149 jobs).
+Checker: not run on this partial; required main theorem is absent.
+Independent review: status_review checked mathematics, format, scope, and absence of credentials; suitable for archival after compilation.
+Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
+TIMING total=8.29 subagents=6
