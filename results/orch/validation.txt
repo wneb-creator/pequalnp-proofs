@@ -1,10 +1,13 @@
 Gap: L-meta-5012
 Partial only: posted theorem absent; no proof PR opened.
-Named target8633 lines410571bytes: lake build PASSED (combined-build-04).
+Named target: 8633 lines, 410571 bytes: lake build PASSED (combined-build-04).
 Output: Build completed successfully (5149 jobs).
 Integrated guarded-residual normalization and clean-rewrite first-rung criterion.
 Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing.
-Cleanup: skipped because full checker unavailable and exact theorem unproved. Current cleanup counts8633/8633; last integration6771/8633.
+Cleanup: skipped because full checker unavailable and exact theorem unproved. Current cleanup counts 8633/8633; last integration 6771/8633.
 Sub-agents: 6 (status/reviewer, toolchain/matching/geometry, structural, finite search, restrictions, proof inventory)
-TIMING total=76.9 subagents=6
+TIMING total=90.5 subagents=6
 Desk nulls: 0; assigned L-meta-5012 on first request. Only own lease renewed.
+Final preservation: 91 Lean artifact hashes match CHECKED_FILES.json; independent review records 01–18 preserved.
+Strongest aggregate axiom audit: propext, Classical.choice, Quot.sound only.
+Result: partial research; no complete proof or refutation, no PR. Remaining issue: combine guarded/residual edge charges without double-counting shared OR gates.
