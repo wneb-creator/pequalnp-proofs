@@ -1,0 +1,46 @@
+Independent review: lean_setup agent
+Verdict: PASS for a partial-result backup push; NOT a proof of posted gap L-meta-2373.
+
+Reviewed file: results/orch/lemmas/BinaryLower.lean
+SHA256: 8f3f7098e38a6e84ee3f96515594eb165adfb88532e63dc26d7856cd72e19931
+Size: 146765 bytes, 3262 lines. Regular nonexecutable UTF-8 file, not a symlink.
+
+Scope and mathematical statement:
+The file proves that every fan-in-two AND/OR/NOT circuit computing the exact
+15-edge Petersen function has at least 15 non-NOT gates. Consequently its
+size is at least 15 plus its NOT-gate count, and a circuit of size at most 19
+with at least five NOT gates fails on some input. Cases with zero through
+four NOT gates remain open. The named posted theorem is not declared here.
+
+Evidence reviewed:
+- Read the complete adaptation diff against upstream L_meta_2165 and audited
+  declarations, scope commands, imports, options, attributes and proof tactics
+  across the whole file. The preserved result is byte-identical to that draft.
+- The 15 edge terms and adjacency masks match the posted Petersen graph.
+  An independent memoized finite calculation assessed 983 remaining-vertex
+  states and found minimum six maximal-twin-class removals, agreeing with
+  the kernel-checked finite lemma used by the branch-count argument.
+- The simplifier preserves circuit semantics and does not increase non-NOT
+  count. The final arithmetic combines six required branches, ten inputs,
+  the operand budget, and the exact partition into NOT/non-NOT gates.
+- Replacement of the original custom Stat, Least and MaskGraph types with
+  Sum, conjunctions and products preserves their fields and logical content.
+
+Red-team format and trust checks:
+- Imports are exactly Mathlib.Tactic, Mathlib.Combinatorics.SimpleGraph.Basic,
+  and PEqualNP.Defs, all permitted for this gap. Import lines appear only at top.
+- No sorry, axioms, native_decide, bv_decide, unsafe declarations, compile-time
+  command extensions, strings, or forbidden root-namespace text found.
+- No custom datatype, structure, class or instance declaration remains.
+- All declarations are inside PEqualNP.Outside.L_meta_2373 or a namespace
+  below it. Every namespace/section closure is explicitly named.
+- Four attributes are local simp only. The only options are maxRecDepth and
+  maxHeartbeats, in the permitted declaration-local syntax.
+- Computed finite facts use ordinary decide or decide +kernel.
+
+Validation:
+The proof author reported Lean compilation exit 0. The complete preserved
+BinaryLower.compile.txt contains 20 linter warnings and no errors. No new
+build was run by the reviewer, and tools/check-lean.mjs has not accepted
+this partial file as the posted statement. This file belongs in the branch's
+results archive and must not be represented as a completed proof PR.
