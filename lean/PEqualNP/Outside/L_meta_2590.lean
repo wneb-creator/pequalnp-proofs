@@ -5021,4 +5021,85 @@ lemma petersen_dag_exclusion (C : Bool) {D : Dag} (hS : Strict 10 D) (hB : Bzero
 
 end Generic.DAGBridge
 
+namespace OnceResource
+
+abbrev State := ℕ × List ℕ × List ℕ × Bool
+
+def values (bits : ℕ) : List ℕ := (List.range 64).filter bits.testBit
+
+def pairMasks (op : ℕ → ℕ → ℕ) (a b : ℕ) : ℕ :=
+  (values a).foldl (fun acc x =>
+    (values b).foldl (fun acc y => acc ||| (1 <<< op x y)) acc) 0
+
+def mergePools (a b : ℕ) : ℕ := pairMasks (· ||| ·) a b
+
+def addCarrier (pool k : ℕ) : ℕ := pool ||| mergePools pool (1 <<< k)
+
+def live (used loc : ℕ) : Bool :=
+  if loc = 0 then !used.testBit 0
+  else if loc < 4 then !used.testBit 0 || !used.testBit loc
+  else !used.testBit (loc - 3)
+
+def prune (s : State) : State :=
+  (s.1, (List.range 7).map (fun i =>
+    if live s.1 i then s.2.1.getD i 1 else 1), s.2.2.1, s.2.2.2)
+
+def insertZero (k : ℕ) (zs : List ℕ) : List ℕ :=
+  (k :: zs).mergeSort (fun a b => decide (a ≤ b))
+
+def basis : ℕ → ℕ | 0 => 0 | 1 => 25 | 2 => 42 | _ => 52
+
+def rightPool (ps : List ℕ) (g : ℕ) : ℕ :=
+  if g = 0 then mergePools (mergePools (ps.getD 1 1) (ps.getD 2 1)) (ps.getD 3 1)
+  else mergePools (1 <<< basis g) (ps.getD (g + 3) 1)
+
+def groupNext (s : State) : List State :=
+  (List.range 4).flatMap fun g =>
+    if s.1.testBit g then [] else
+    (values (pairMasks (· &&& ·) (s.2.1.getD g 1) (rightPool s.2.1 g))).filterMap
+      fun k => if k = 0 then none else
+        some (prune (s.1 ||| (1 <<< g), s.2.1, insertZero k s.2.2.1, s.2.2.2))
+
+def forkNext (s : State) : List State :=
+  if s.2.2.2 then [] else s.2.2.1.map fun k =>
+    prune (s.1, s.2.1, insertZero k s.2.2.1, true)
+
+def liftNext (s : State) : List State :=
+  s.2.2.1.flatMap fun k => (List.range 7).filterMap fun loc =>
+    if live s.1 loc then
+      let old := s.2.1.getD loc 1
+      let new := addCarrier old k
+      if new = old then none else
+        some (prune (s.1, s.2.1.set loc new, s.2.2.1.erase k, s.2.2.2))
+    else none
+
+def discardNext (s : State) : List State :=
+  s.2.2.1.map fun k => prune (s.1, s.2.1, s.2.2.1.erase k, s.2.2.2)
+
+def combineNext (s : State) : List State :=
+  s.2.2.1.flatMap fun a => (s.2.2.1.erase a).flatMap fun b =>
+    [a &&& b, a ||| b].filterMap fun k => if k = 0 then none else
+      some (prune (s.1, s.2.1, insertZero k ((s.2.2.1.erase a).erase b), s.2.2.2))
+
+def successors (s : State) : List State :=
+  groupNext s ++ forkNext s ++ liftNext s ++ discardNext s ++ combineNext s
+
+def initial : State := (0, List.replicate 7 1, [63], false)
+
+def listLess : List ℕ → List ℕ → Bool
+  | [], [] => false
+  | [], _ :: _ => true
+  | _ :: _, [] => false
+  | a :: as, b :: bs => if a = b then listLess as bs else decide (a < b)
+
+def stateLess (a b : State) : Bool :=
+  if a.1 ≠ b.1 then decide (a.1 < b.1)
+  else if a.2.1 ≠ b.2.1 then listLess a.2.1 b.2.1
+  else if a.2.2.1 ≠ b.2.2.1 then listLess a.2.2.1 b.2.2.1
+  else !a.2.2.2 && b.2.2.2
+
+def safe (s : State) : Bool := !s.2.2.1.contains 56
+
+end OnceResource
+
 end PEqualNP.Outside.L_meta_2590
