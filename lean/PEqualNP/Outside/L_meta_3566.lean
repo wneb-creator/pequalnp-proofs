@@ -55,4 +55,72 @@ lemma peel_of_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   · obtain ⟨z, hz⟩ := hpos
     exact ⟨z, hz, fun C hAO hfun => (hex ⟨C, hAO, hfun⟩).elim⟩
 
+lemma cut_adj_iff {n : ℕ} (G : SimpleGraph (Fin n)) (z a b : Fin n) :
+    (G.deleteEdges (G.incidenceSet z)).Adj a b ↔ G.Adj a b ∧ a ≠ z ∧ b ≠ z := by
+  rw [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+  tauto
+
+lemma twin_leaves_no_cover_drop {n : ℕ} (G : SimpleGraph (Fin n))
+    (u v w : Fin n) (huv : u ≠ v) (huw : G.Adj u w) (hvw : G.Adj v w)
+    (hu : ∀ t : Fin n, G.Adj u t → t = w)
+    (hv : ∀ t : Fin n, G.Adj v t → t = w) :
+    ¬ ∃ S : Finset (Fin n),
+      CoverPromise.IsVertexCover (G.deleteEdges (G.incidenceSet u)) S ∧
+      ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card := by
+  rintro ⟨S, hS, hsmall⟩
+  let T := insert w (S.erase v)
+  have hT : CoverPromise.IsVertexCover G T := by
+    intro a b hab
+    by_cases hau : a = u
+    · subst a
+      have hbw := hu b hab
+      right
+      simp [T, hbw]
+    by_cases hbu : b = u
+    · subst b
+      have haw := hu a hab.symm
+      left
+      simp [T, haw]
+    by_cases hav : a = v
+    · subst a
+      have hbw := hv b hab
+      right
+      simp [T, hbw]
+    by_cases hbv : b = v
+    · subst b
+      have haw := hv a hab.symm
+      left
+      simp [T, haw]
+    obtain ha | hb := hS a b ((cut_adj_iff G u a b).mpr ⟨hab, hau, hbu⟩)
+    · exact Or.inl (Finset.mem_insert_of_mem (Finset.mem_erase.mpr ⟨hav, ha⟩))
+    · exact Or.inr (Finset.mem_insert_of_mem (Finset.mem_erase.mpr ⟨hbv, hb⟩))
+  have hcard : T.card ≤ S.card := by
+    obtain hvS | hwS := hS v w
+      ((cut_adj_iff G u v w).mpr ⟨hvw, huv.symm, huw.ne.symm⟩)
+    · have h1 := Finset.card_insert_le w (S.erase v)
+      have h2 := Finset.card_erase_of_mem hvS
+      have h3 : 0 < S.card := Finset.card_pos.mpr ⟨v, hvS⟩
+      dsimp [T]
+      omega
+    · have hw : w ∈ S.erase v := Finset.mem_erase.mpr ⟨hvw.ne.symm, hwS⟩
+      dsimp [T]
+      rw [Finset.card_insert_of_mem hw]
+      exact Finset.card_le_card (Finset.erase_subset _ _)
+  exact (Nat.not_lt_of_ge hcard) (hsmall T hT)
+
+lemma cutWitness_of_twin_leaves {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u v w : Fin n) (huv : u ≠ v) (huw : G.Adj u w) (hvw : G.Adj v w)
+    (hu : ∀ t : Fin n, G.Adj u t → t = w)
+    (hv : ∀ t : Fin n, G.Adj v t → t = w)
+    (C D : Circuit) (hAO : IsAO2 n D)
+    (hfun : circuitFun n D = (fun y : Fin n → Bool =>
+      @decide (∃ a b : Fin n, (G.deleteEdges (G.incidenceSet u)).Adj a b ∧
+        y a = true ∧ y b = true) (Classical.propDecidable _)))
+    (hsize : D.size + 1 ≤ C.size) : CutWitness G u C := by
+  have hdeg : G.degree u = 1 :=
+    SimpleGraph.degree_eq_one_iff_existsUnique_adj.mpr ⟨w, huw, hu⟩
+  refine ⟨D, hAO, hfun, by simpa [hdeg] using hsize, ?_⟩
+  intro hdrop
+  exact (twin_leaves_no_cover_drop G u v w huv huw hvw hu hv hdrop).elim
+
 end PEqualNP.Outside.L_meta_3566
