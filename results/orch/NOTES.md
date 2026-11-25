@@ -100,3 +100,23 @@ The endpoint OR-only equality discussion is conditional: seed may be unused, and
 
 ## readtwice 2026-11-25T15:01:16.181280+00:00
 GraphFacts.lean compiled exit0: kernelchecked Petersen has no triangles and noC4. FiniteDecidable synthesis required allowed synthInstance.maxSize100000 for3/4 quantifiers. Full FormulaLower now rerunning with thisfix; previousrun otherfinitefacts (edgecount15,cover≥6,edgeevalidentity) and extractedproofs had noerrors.
+
+## counterexample 2026-11-25T15:01:37.371617+00:00
+LEAN-COMPILED partial: SeedNotCollisions.lean passed Lean (exit0, empty stdout/stderr). For either seed endpoint and either AND/OR, explicit two inputs agree on every other rawinput and on endpoint OP NOT(seed), but Petersen outputsfalse/true. This supplies the information-loss witness for shared-consumer collisions in endpoint restriction arguments. Full log scratch seed-not-collisions-lean-2.txt. Root notified immediately.
+
+## counterexample 2026-11-25T15:02:30.964146+00:00
+LEAN-COMPILED sanity baseline: Upper20Symbolic.lean passed exit0, only unused simp/tactic warnings. Defines explicit20-gate fan-in-two circuit over the seeded inputs and proves exact Petersen evaluation symbolically. This is not a refutation of18bound. Full log scratch upper20-symbolic-lean-2.txt. Root notified immediately for preservation.
+
+## readtwice 2026-11-25T15:02:40.390531+00:00 — checked components
+
+FormulaLower.lean compiled exit0 via lake env lean: positive Petersen DMFormula requires≥21 leaves, shaped fanout-one AND/OR circuit requires≥20gates, and tight inputmass count implies internalwire-use Nodup. Complete log readtwice-build-004.txt in job scratch. Counts.lean compiled exit0 separately: filtered rawinput mass equals sum of occurrencecounts; alln inputs occur≥2 implies inputmass≥2n. Complete log readtwice-counts-build-006.txt. Sourcefiles frozen pending parent review/push.
+
+## counterexample 2026-11-25T15:03:01.183785+00:00
+All my search processes have finished. Final focused600-second run requiring the NOT on output path tested1332543488mutations, no witness (best25wrong rows). Three SAT runs returnedUNKNOWN, with120/300/300second limits. General600-second search tested1493762048mutations, no witness (best12wrong rows). Files to preserve: SeedNotCollisions.lean and Upper20Symbolic.lean, both Lean exit0; search.cpp and synth.py reproduce searches. Original Upper20.lean and Upper20Fast.lean were unsuccessful enumeration drafts and are not validated. No desk calls or git mutations by this agent.
+
+### finite_certificate 2026-11-25T15:03:01.979377+00:00
+FirstStep.lean compiled successfully with Defs-only; independentsearch_audit reviewed39/41line helper. It showsanendpoint0or2cannotbeconsumedintoORwitha rawinputoutside{0,2}: explicit16assignmentpairsagreeonallretainedobservationsbutPetersenoutputsoppose. NoCircuit/minimalityhypothesisneeded.
+ExactcoverC accelerator mathematicallyaudited andcrosscheckedagainstPython on4000randomcases and886completefirststepcases(280true,606false); itisgenerationonly, nottrustedbyLean. UnboundedfullsearchstillfirstNOTsubtreeafter11.2Mnodes/220s. Addedclosedstatecheckpoint/resume(full-depthonly, excludingrecursionancestors).
+Rootidentifiedchecked L6581 nonNOT≥16, strongerthanprior15. Thusseed-live18suffixhasatmost3NOT, plainseedunused18hasatmost2. Implementedexplicit--max-nots withremainingbudgetinmemo/checkpointmodeandorientedseparationwhenexhausted. Awaitingfreshrenewalforboundedrun.
+
+2026-11-25T15:03:12.040907+00:00 structural: OneNot.lean compiled exit0, complete empty log one-not-check-002.log. Strengthens L3068 complement-one-NOT lemma to arbitrary bottom/top-bracketed input families; monotone prefix saves >=1 gate. It therefore applies directly to mapped ten inputs plus free seed. status_review reviewing frozen file. No generic one-NOT monotone-positive conversion located: L1427/L1441 use finite certificates, L2909 uses full minor lower bound and discards one-NOT assumptions. Constant replacement alone is false even for monotone single output: H(a,b,z)=ab OR z(a OR b), h=a gives f=b but neither z=0 nor z=1 computes b.

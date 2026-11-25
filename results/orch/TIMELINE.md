@@ -7,3 +7,5 @@
 2026-11-25T14:58:01.975104+00:00 RawRaw partial compiled and independently reviewed; preserving separately.
 2026-11-25T15:00:00.190412+00:00 Input relabeling and endpoint OR-obstruction partials compiled and independently reviewed.
 2026-11-25T15:01:31.345293+00:00 GraphFacts and SeedNotCollisions compiled; root independently reviewed both finite partials.
+2026-11-25T15:02:40.390531+00:00 readtwice: FormulaLower and Counts components compiled; reported immediately for earlypush.
+2026-11-25T15:04:19.605976+00:00 FormulaLower, Counts, Upper20Symbolic and OneNot partials compiled and independently reviewed. Full gap remains open; exact searches continue.

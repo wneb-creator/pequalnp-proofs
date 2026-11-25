@@ -7,7 +7,7 @@ Checker: not run against the posted statement; the final theorem is intentionall
 Independent review: status_review checked mathematics, allowed imports, helper namespaces, forbidden syntax and whitespace.
 Cleanup: not yet applicable to a complete proof; 50 lines in the first checked partial.
 Sub-agents: status_review, toolchain, structural_proof, counterexample, finite_certificate, readtwice, finite_certificate/search_audit
-TIMING total=15.2 subagents=7
+TIMING total=25.7 subagents=7
 
 Additional checked partial: results/orch/lemmas/structural/SeedErase.lean (125 lines).
 Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/structural/SeedErase.lean
@@ -26,3 +26,13 @@ Full posted theorem remains absent; local checker would reject no-theorem, so no
 
 Additional checked partials: GraphFacts.lean (Petersen has no triangles or four-cycles), and SeedNotCollisions.lean (explicit endpoint/negated-seed collision witnesses under the stated retained raw-input observations).
 Both lake env lean runs exited 0; complete logs preserved. Root independently reviewed both finite statements, kernel proofs, and file format.
+
+Additional checked partial: results/orch/lemmas/readtwice/Counts.lean (36 lines). lake env lean exited 0; full output in results/orch/readtwice-counts-build-006.txt.
+
+Additional checked partial: results/orch/lemmas/readtwice/FormulaLower.lean (837 lines). lake env lean exited 0; full output in results/orch/readtwice-build-004.txt.
+
+Additional checked partial: results/orch/lemmas/counterexample/Upper20Symbolic.lean (43 lines). lake env lean exited 0; full output in results/orch/upper20-symbolic-lean-2.txt.
+
+Additional checked partial: results/orch/lemmas/structural/OneNot.lean (172 lines). lake env lean exited 0; full output in results/orch/one-not-check-002.log.
+Independent review: status_review approved FormulaLower; root reviewed Counts, Upper20Symbolic, and OneNot.
+Upper20Symbolic is only a 20-gate sanity upper bound, not a counterexample to the posted 18-gate claim. FormulaLower has explicit positive-formula or shaped/no-sharing hypotheses. OneNot concerns circuits computing the complement on a bracketed input family.
