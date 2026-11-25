@@ -900,4 +900,168 @@ lemma strip_constants_of_false (n : ℕ) (gs : List Gate) (o : ℕ)
   rw [initialTrue_value] at h0
   cases h0
 
+
+
+variable {α : Type} [DecidableEq α]
+
+def live (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, s => s = {goal}
+  | k + 1, s => live ops goal k s ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest)
+
+lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal k s) : s.card ≤ k + 1 := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; simp [h]
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact (ih skip).trans (by omega)
+    · have hzrest : z ∉ rest := fun hm => hout (by simp [hm])
+      have htail := ih tail
+      rw [Finset.card_insert_of_notMem hzrest] at htail
+      have h₁ := Finset.card_insert_le a (insert b rest)
+      have h₂ := Finset.card_insert_le b rest
+      omega
+
+lemma live_tight_step {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal (k + 1) s) (hcard : s.card = k + 2) :
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧
+        a ∉ rest ∧ b ∉ rest ∧ rest.card = k ∧ live ops goal k (insert z rest) := by
+  rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+  · have hh := live_card skip
+    omega
+  · have hzrest : z ∉ rest := fun hm => hout (by simp [hm])
+    have htail := live_card tail
+    rw [Finset.card_insert_of_notMem hzrest] at htail
+    have h₁ := Finset.card_insert_le a (insert b rest)
+    have h₂ := Finset.card_insert_le b rest
+    have hrest : rest.card = k := by omega
+    have han : a ∉ rest := by
+      intro har
+      have hai : a ∈ insert b rest := Finset.mem_insert_of_mem har
+      rw [Finset.insert_eq_of_mem hai] at hcard
+      omega
+    have hbn : b ∉ rest := by
+      intro hbr
+      rw [Finset.insert_eq_of_mem hbr] at hcard
+      have hh := Finset.card_insert_le a rest
+      omega
+    exact ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, han, hbn, hrest, tail⟩
+
+def ops {width : ℕ} (x y : BitVec width) : List (BitVec width) :=
+  [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
+
+abbrev basicOps {width : ℕ} (a b : BitVec width) : Finset (BitVec width) :=
+  (ops a b).toFinset
+
+def signedValue (positive value : Bool) : Bool := if positive then value else !value
+
+def boolOp (t : Fin 4) (a b : Bool) : Bool :=
+  if t.val = 0 then a && b else if t.val = 1 then a || b
+  else if t.val = 2 then a && !b else b && !a
+
+lemma binary_orientation : ∀ t : Fin 4, ∀ d : Bool, ∃ da db : Bool,
+    ∀ a0 a1 b0 b1 : Bool,
+      (signedValue da a0 = true → signedValue da a1 = true) →
+      (signedValue db b0 = true → signedValue db b1 = true) →
+      signedValue d (boolOp t a0 b0) = true → signedValue d (boolOp t a1 b1) = true := by
+  decide
+
+lemma basicOps_bits {width : ℕ} {a b z : BitVec width} (hz : z ∈ basicOps a b) :
+    ∃ t : Fin 4, ∀ p : Fin width,
+      z.getLsbD p.val = boolOp t (a.getLsbD p.val) (b.getLsbD p.val) := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  · exact ⟨0, by intro p; simp [boolOp]⟩
+  · exact ⟨1, by intro p; simp [boolOp]⟩
+  · exact ⟨2, by intro p; simp [boolOp]⟩
+  · exact ⟨3, by intro p; simp [boolOp]⟩
+
+def unateSeparator {width : ℕ} (goal : BitVec width) (s : Finset (BitVec width)) : Prop :=
+  ∃ direction : BitVec width → Bool, ∀ p q : Fin width,
+    (∀ w ∈ s, signedValue (direction w) (w.getLsbD p.val) = true →
+      signedValue (direction w) (w.getLsbD q.val) = true) →
+    goal.getLsbD p.val = true → goal.getLsbD q.val = true
+
+lemma live_tight_unate {width : ℕ} {goal : BitVec width} {k : ℕ}
+    {s : Finset (BitVec width)} (h : live basicOps goal k s) (hcard : s.card = k + 1) :
+    unateSeparator goal s := by
+  induction k generalizing s with
+  | zero =>
+    change s = {goal} at h
+    subst s
+    refine ⟨fun _ => true, ?_⟩
+    intro p q hpq
+    simpa only [signedValue, ite_true] using hpq goal (Finset.mem_singleton_self _)
+  | succ k ih =>
+    obtain ⟨a, ha, b, hb, hab, z, hz, hzout, rest, hs, han, hbn, hrest, htail⟩ :=
+      live_tight_step h (by omega)
+    have hzrest : z ∉ rest := fun hzmem => hzout (by rw [hs]; simp [hzmem])
+    obtain ⟨direction, hdir⟩ := ih htail (by rw [Finset.card_insert_of_notMem hzrest, hrest])
+    obtain ⟨t, ht⟩ := basicOps_bits hz
+    obtain ⟨da, db, hd⟩ := binary_orientation t (direction z)
+    let newDirection : BitVec width → Bool :=
+      fun w => if w = a then da else if w = b then db else direction w
+    refine ⟨newDirection, ?_⟩
+    intro p q hpq hp
+    apply hdir p q _ hp
+    intro w hw
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · have hapq := hpq a ha
+      have hbpq := hpq b hb
+      rw [show newDirection a = da by simp [newDirection]] at hapq
+      rw [show newDirection b = db by simp [newDirection, Ne.symm hab]] at hbpq
+      rw [ht p, ht q]
+      exact hd _ _ _ _ hapq hbpq
+    · have hwa : w ≠ a := by intro he; subst w; exact han hw
+      have hwb : w ≠ b := by intro he; subst w; exact hbn hw
+      have hwpq := hpq w (by rw [hs]; simp [hw])
+      simpa only [newDirection, hwa, hwb, ite_false] using hwpq
+
+lemma unate_no_opposite_edges {width : ℕ} {goal w : BitVec width}
+    {s : Finset (BitVec width)} (hs : unateSeparator goal s) (_hw : w ∈ s)
+    (p q r t : Fin width)
+    (hp : goal.getLsbD p.val = true) (hq : goal.getLsbD q.val = false)
+    (hr : goal.getLsbD r.val = true) (ht : goal.getLsbD t.val = false)
+    (hwp : w.getLsbD p.val = true) (_hwq : w.getLsbD q.val = false)
+    (_hwr : w.getLsbD r.val = false) (hwt : w.getLsbD t.val = true)
+    (hpq : ∀ u ∈ s, u ≠ w → u.getLsbD p.val = u.getLsbD q.val)
+    (hrt : ∀ u ∈ s, u ≠ w → u.getLsbD r.val = u.getLsbD t.val) : False := by
+  obtain ⟨direction, hdir⟩ := hs
+  cases hd : direction w with
+  | false =>
+    have hc := hdir p q (by
+      intro u hu
+      by_cases he : u = w
+      · subst u
+        simp [signedValue, hd, hwp]
+      · rw [hpq u hu he]
+        exact id) hp
+    rw [hq] at hc
+    cases hc
+  | true =>
+    have hc := hdir r t (by
+      intro u hu
+      by_cases he : u = w
+      · subst u
+        simp [signedValue, hd, hwt]
+      · rw [hrt u hu he]
+        exact id) hr
+    rw [ht] at hc
+    cases hc
+
+lemma live_tight_no_opposite_edges {width : ℕ} {goal w : BitVec width} {k : ℕ}
+    {s : Finset (BitVec width)} (h : live basicOps goal k s) (hcard : s.card = k + 1)
+    (hw : w ∈ s) (p q r t : Fin width)
+    (hp : goal.getLsbD p.val = true) (hq : goal.getLsbD q.val = false)
+    (hr : goal.getLsbD r.val = true) (ht : goal.getLsbD t.val = false)
+    (hwp : w.getLsbD p.val = true) (hwq : w.getLsbD q.val = false)
+    (hwr : w.getLsbD r.val = false) (hwt : w.getLsbD t.val = true)
+    (hpq : ∀ u ∈ s, u ≠ w → u.getLsbD p.val = u.getLsbD q.val)
+    (hrt : ∀ u ∈ s, u ≠ w → u.getLsbD r.val = u.getLsbD t.val) : False :=
+  unate_no_opposite_edges (live_tight_unate h hcard) hw p q r t hp hq hr ht
+    hwp hwq hwr hwt hpq hrt
+
 end PEqualNP.Outside.L_meta_10760
