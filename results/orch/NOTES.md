@@ -18,3 +18,9 @@ Goal: C4-free bipartite edge function, AO2, T(C)=0 implies edge count + vertex-c
 - Runtime had no installed Lean or warm Mathlib cache for the active user. Installed verified pinned elan and Lean 4.36.0; downloading pinned prebuilt Mathlib cache, never building Mathlib from source.
 
 Only sources explicitly listed in validation.txt have compiled. No exact target proof and no accepted checker result yet.
+
+## Replan at 2026-11-25T17:26:33.390071+00:00
+
+The complete target remains unproved. Current proof chain: choose a size/AND-pair-minimal T0 circuit (checked); preserve T0 during false-wire folding (generic builder checked, deletion wrapper pending) and top-form lifting (redirect reach lemma underway); classify the earliest dirty AND; eliminate or charge dirty rectangles; apply checked pair-clean lower bound and checked exact bipartite bridge. The dirty-rectangle step is still open.
+
+Counterexample searches: no witness found on <=6 inputs; independent 2+2 brute-force cross-check agrees. Fano 26-gate synthesis and C6 optimal-dirty SMT are ongoing. Failed searches are not proofs.

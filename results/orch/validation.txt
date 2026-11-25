@@ -25,3 +25,11 @@ library-pairclean.lean: lake env lean exit 0; SHA256 602e46aba2333e4c4470ad4e2a7
 structural-partners.lean: lake env lean exit 0; SHA256 7d6da6481fa6aac4fb253ed59e80c8134247e5f66e0711ab6f77058ea2e0cd66
 Named file assembles helpers plus star_forest_bound; lake build PEqualNP.Outside.L_meta_4675 exit 0. Exact posted theorem absent; no PR acceptance claimed.
 Exact posted-statement checker: REJECTED (no-theorem): target declaration absent. This is the expected status of the helper-only snapshot.
+
+Checked partial snapshot 4:
+algebraic-bridge.lean: lake env lean exit 0; SHA256 5fd222633bdd43deedc7c3b22a275685975e5c3dad193f362a3b826ec3c27dee
+semantic-fold-build.lean: lake env lean exit 0; SHA256 a1aa64d0826cd15c798d0ccbe16a9dc1218437674ee466bc83e8f2367bbc630a
+orchestrator-minimum.lean: lake env lean exit 0; SHA256 9d490bd84ee12453dc8e453272c60ba18dd83b2704d3896f08b1d882e2dd853d
+library-redirect.lean: lake env lean exit 0; SHA256 e39fed429d79a838c6598b6642ecc0ebcf03d9c07f123a5dc8f3716c0ff3b8b9
+semantic-fold-delete.lean: lake env lean exit 0; SHA256 1c1b23465a590c468c07a1ba6b681b57a0c9c4e87c889fd5720040e1c06a122b
+structural-pairclean-prefix.lean: lake env lean exit 0; SHA256 833b13f8ab9a07305d531a1c47f453e9249b4121cf9e49af810cfb53e8c7c1a9
