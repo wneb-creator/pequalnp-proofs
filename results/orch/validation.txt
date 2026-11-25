@@ -242,3 +242,13 @@ Review: toolchain PASS for exact byte hashes, credential/write-scope checks and 
 This preserves scripts, audits, exact compressed CNFs and full logs for completed UNKNOWN searches, not an UNSAT certificate or proof PR. Scratch-only audit dependencies and chronology uncertainties are explicitly documented in the review.
 Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
 TIMING total=49.2 subagents=6
+
+Lease-loss preservation checkpoint 2026-11-25T14:42:01.456457+00:00
+Desk: HTTP410, exact body: {
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+Prior successful renewal:14:36:01 UTC; returned expiry14:56:01.131Z. No other pilot lease touched. Null allocations:0.
+All12 follow-up support files independently reviewed by toolchain and hash-matched. memfd estimate note separately reviewed by few_not. CofactorRobust.lean independently reviewed by proof_strategy for semantics/format but UNCOMPILED; Python sanity check is not a Lean proof. Main named Lean remains compiled partial,4247 lines; full target theorem absent.
+Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=57.1 subagents=6
+Timer diagnostic: the manual14:36 renewal wrote a Unix timestamp where the timer expected an ISO timestamp; the timer subsequently exited with ValueError. This automation error is distinct from the desk410: the manual14:40 retry still occurred before the explicitly returned14:56 expiry. No further timer requests occurred.

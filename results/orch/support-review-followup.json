@@ -1,0 +1,93 @@
+{
+  "reviewer": "toolchain",
+  "reviewed_at": "2026-11-25T14:40:10.071969+00:00",
+  "verdict": "PASS for exact listed branch-only support artifact bytes; not a full proof or checker verdict",
+  "safe_files": [
+    {
+      "path": "results/orch/lemmas/certificate-feasibility.md",
+      "sha256": "15f8524e1240b77bc4c34e70b2d660c20ca60e54e49423810d4e8cbbd8694329",
+      "bytes": 8683,
+      "mtime_ns": 1795617034034061187
+    },
+    {
+      "path": "results/orch/lemmas/structural-bound-notes.md",
+      "sha256": "e052b2b923e6ab593e0b0f46cfdb07f0344755a3cccc1df2ebf495eec194a985",
+      "bytes": 7730,
+      "mtime_ns": 1795617452420771904
+    },
+    {
+      "path": "results/orch/lemmas/few-not-notes.md",
+      "sha256": "4baad08c864f2a950a813fe9bf51e9cfb24a0cb592afdbfe7d840d10c9eff596",
+      "bytes": 7969,
+      "mtime_ns": 1795617530722567216
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-notes.md",
+      "sha256": "7cc7dcdd273d8d9b505a11c76c9f789d6e30d96f793a2c1961412795bd6ed43a",
+      "bytes": 7669,
+      "mtime_ns": 1795617482712928869
+    },
+    {
+      "path": "results/orch/lemmas/audit_baseline_identity.py",
+      "sha256": "b8fe936301c469a8ed70750c14dee024aa471ba8e8dd701caaa2fceb0cf12bb3",
+      "bytes": 1622,
+      "mtime_ns": 1795617530722966677
+    },
+    {
+      "path": "results/orch/lemmas/baseline-identity-audit.json",
+      "sha256": "1658079d98088fd1041373edaae67705c53a796ce21dca3601bd875131ec538f",
+      "bytes": 582,
+      "mtime_ns": 1795617530815197850
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/summary.json",
+      "sha256": "a5fba7134031b528014f3f947ba23754172bc7b7bbd7ee0f9df07237e5ec2fad",
+      "bytes": 608,
+      "mtime_ns": 1795617355307242783
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795617317442432241
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795616117429514746
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/iteration-00.cnf.gz",
+      "sha256": "9eb12fdef76b17f28b9ac2c8fccfc29ea748e00b543e96143b25394c0229c42a",
+      "bytes": 221771,
+      "mtime_ns": 1795617349826132780
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/sat-exact-one-not.stdout",
+      "sha256": "acdfc505877bb8e916ff181f3e137c64e3cda443a881a6e0057962abaf2d8322",
+      "bytes": 170,
+      "mtime_ns": 1795617317494431761
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-one-not/sat-exact-one-not.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795616117041518359
+    }
+  ],
+  "verification": [
+    "Exact-one compressed CNF fully decompressed with CRC/hash validation, all63389clauses and3135variable bounds checked;1007253bytes SHA256e734be3726dc605936c0beeab85c0fe25712b6dec9900330a618902409ffe467. Full raw/wrapper logs correctly reportUNKNOWN/exit0/timecap. Seed12592096 and1200secondcap appear in already-preserved driver.",
+    "Baseline identity independently recomputed on all1024inputs from raw19gate list. Deleted edge7\u20139 OR x7*x8*x9 restores896,897,898 from9deleted-edge losses; exact6remaining failures640,641,642,648,649,650. New audit source safe, baseline source hash matches.",
+    "Structural cofactor counts independently reproduced:10,180,1320cases at0,1,2fixedvariables, no failures;5250cases at3fixed,150failures. All1680stored singleton witnesses independently checked for claimed induced-edge conditions. Proof sketches remain explicitly unformalized.",
+    "Certificate note source references, encoder mismatch, default links lacking NOT preservation,19240byte adapted checker,188910byte helper and316138remaining-byte arithmetic checked against exactlocal files; no certificate or final size guarantee claimed.",
+    "No credential-shaped content or unauthorized-write/network code found. All writes in new script use fixedallowed scratch paths."
+  ],
+  "limitations": [
+    "Research notes may change after this hash snapshot; root must recheck staged bytes.",
+    "Structural proof sketches are not machine-checked conclusions; finite data/encoder audits do not prove the posted lower bound.",
+    "Some support dependencies remain only in scratch, as documented in the earlier support review.",
+    "My authored memfd-cache-notes.md update is excluded from independent approval and awaits another reviewer.",
+    "No staging or commit performed."
+  ]
+}

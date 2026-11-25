@@ -1,0 +1,17 @@
+{
+  "status": "INTERRUPTED_LEASE_LOST",
+  "shell_exit": 130,
+  "started_utc": "2026-11-25T14:36:18.321870+00:00",
+  "interrupted_utc": "2026-11-25T14:41:34.243015+00:00",
+  "elapsed_seconds": 315.921146,
+  "archived_utc": "2026-11-25T14:41:49.244096+00:00",
+  "rows": 46,
+  "variables": 3439,
+  "clauses": 81196,
+  "gates": 19,
+  "maximum_changed_gates": 4,
+  "at_least_one_not": true,
+  "cnf_bytes": 1424133,
+  "cnf_sha256": "437a2e4d1aaf1f0574b4bd661dc4b3b2da62d68a3b64276056d45b673cc4081e",
+  "scope": "Fixed-order four-gate-change neighborhood of the approximate monotone baseline. Interrupted on root instruction after lease HTTP410; no SAT model, no UNSAT result, no lower-bound conclusion."
+}

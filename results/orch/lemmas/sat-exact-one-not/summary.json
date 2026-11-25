@@ -1,0 +1,17 @@
+{
+  "status": "UNKNOWN_TIMEOUT",
+  "solver_exit": 0,
+  "elapsed_seconds": 1200.32,
+  "completed_utc": "2026-11-25T14:35:17.494432+00:00",
+  "rows": 41,
+  "variables": 3135,
+  "clauses": 63389,
+  "gates": 19,
+  "not_count": 1,
+  "normalized_live_restrictions": false,
+  "binary_operand_sorting": true,
+  "cnf_bytes": 1007253,
+  "cnf_sha256": "e734be3726dc605936c0beeab85c0fe25712b6dec9900330a618902409ffe467",
+  "scope": "Generic exact19 final-output/freefalse circuit class with exactly1 NOT. No SAT model, no UNSAT result, no lower-bound conclusion.",
+  "archived_utc": "2026-11-25T14:35:49.829480+00:00"
+}

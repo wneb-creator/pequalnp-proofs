@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "rows": 1024,
+  "baseline_sha256": "58918259bc4f08a67135a835785671654f7ff52c61b3baced6eaa6df3e132448",
+  "exact_identity": "Petersen with edge 7-9 deleted OR x7 AND x8 AND x9",
+  "edge_deletion_losses": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650,
+    896,
+    897,
+    898
+  ],
+  "triple_restored": [
+    896,
+    897,
+    898
+  ],
+  "full_target_failures": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650
+  ],
+  "scope": "Truth table identity for a 19-gate zero-NOT approximate candidate; not a counterexample to the posted statement."
+}

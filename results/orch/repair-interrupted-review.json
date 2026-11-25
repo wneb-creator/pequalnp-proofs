@@ -1,0 +1,44 @@
+{
+  "reviewer": "toolchain",
+  "reviewed_at": "2026-11-25T14:42:09.630516+00:00",
+  "verdict": "PASS for frozen interrupted-query support artifacts; no proof or solver verdict",
+  "safe_files": [
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/summary.json",
+      "bytes": 700,
+      "sha256": "2f7e8a0d29cd282bb1d6dc181690153dd307282c0d9c172e422adeb67fdf57f1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/iteration-00.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/iteration-00.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/iteration-00.cnf.gz",
+      "bytes": 277842,
+      "sha256": "f978c24743daf00fb6d46a0d5e0f0da417a2cd16aded9b7dc1c7870a7bc64da3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/sat-local-repair-four.stdout",
+      "bytes": 104,
+      "sha256": "2ab11ae8ac5ec64165d0cade9912127108af471fc2cc24973e200f48c66ec6c5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-local-repair-four/sat-local-repair-four.stderr",
+      "bytes": 1624,
+      "sha256": "a987818ba63d46f1d2548a8ef69dc43777a5590fe6a9fdc139814f3def490c8c"
+    }
+  ],
+  "verification": {
+    "variables": 3439,
+    "clauses": 81196,
+    "cnf_bytes": 1424133,
+    "cnf_sha256": "437a2e4d1aaf1f0574b4bd661dc4b3b2da62d68a3b64276056d45b673cc4081e",
+    "full_logs": "preserved, traceback confirms interruption, no model or UNSAT claim"
+  }
+}
