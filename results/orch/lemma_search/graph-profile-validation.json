@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-11-25T12:30:48.907932+00:00",
+  "scope": "Finite graph cover facts and bitmask encoding only; no arbitrary-circuit lower bound claimed.",
+  "command": "source /tmp/oec/pequalnp-pilot-85/lean-env.sh && lake env lean <absolute source path>",
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "files": [
+    {
+      "path": "results/orch/lemmas/GraphProfile.lean",
+      "sha256": "70cb09405ff4994e70804a653be499f78766a98014a968eb2d04bc8afb34dc84",
+      "bytes": 32475,
+      "lines": 1112,
+      "lean_exit_code": 0,
+      "stdout_stderr": "empty"
+    },
+    {
+      "path": "results/orch/lemmas/MaskBridge.lean",
+      "sha256": "fe2a0285612e41bc8c058386a69fd76fe0f19ece0d3fb97168b9561c1cd57976",
+      "bytes": 1422,
+      "lines": 44,
+      "lean_exit_code": 0,
+      "stdout_stderr": "empty"
+    }
+  ]
+}

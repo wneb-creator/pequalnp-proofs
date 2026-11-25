@@ -1,0 +1,15 @@
+Independent review by status_review, 2026-11-25
+
+DirtyReader.lean
+SHA256 a78766620078d05323e17abe7a27665c752682ad243062ac711232d9f2d9760d
+Review passed. A true dirty predecessor makes its later OR reader true, so an OR reader cannot be BelowF when that predecessor is not BelowF. The explicitly empty primary OR support excludes membership in lam because lam requires both operand supports to be nonempty. The proof explicitly assumes a valid reader index, earlier predecessor, actual input occurrence, OR operation, and exactly two inputs. Uniqueness follows only under the stated cardinal-at-most-one hypothesis. The result does not prove these structural assumptions and does not constrain AND readers.
+
+TopFormArithmetic.lean
+SHA256 f170dfc25ec36d40b310f4d76e0eb87fbbf63d58453df44fcb351fa4dedda871
+Review passed. The two counting inequalities exclude u=0; dirty positivity and j!=1 force j>=2; cleanup positivity contributes another unit. Combining these bounds forces u>=3. At u=3 all inequalities saturate, giving t=6,c=0,j=2,o=1. All five input hypotheses are explicit numerical assumptions. No circuit-to-counting bridge, no-one-junk theorem, or cleanup theorem is established by this artifact.
+
+MaskBridge.lean
+SHA256 fe2a0285612e41bc8c058386a69fd76fe0f19ece0d3fb97168b9561c1cd57976
+Review passed. OR-fold encoding sets precisely the bits of list membership; Finset.toList gives the required set encoding. Reduction modulo 2^14 preserves every bit indexed by Fin14. Euclidean division by 128 splits every Fin16384 mask into two Fin128 components. Noncomputable list extraction is confined to the existence bridge; no new axioms are declared. This is only finite-set/mask coverage, not a graph or circuit result.
+
+All three files use permitted imports and helper namespaces. The official outside-guard reports only their intentionally absent final gap theorem. Authors report successful Lean compilation. Approved for preservation as accurately labeled partials; no full posted-gap proof is claimed.

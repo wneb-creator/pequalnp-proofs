@@ -1,0 +1,52 @@
+{
+  "profile": [
+    {
+      "k": 0,
+      "minimum": 19,
+      "count": 1
+    },
+    {
+      "k": 1,
+      "minimum": 16,
+      "count": 10
+    },
+    {
+      "k": 2,
+      "minimum": 13,
+      "count": 33
+    },
+    {
+      "k": 3,
+      "minimum": 10,
+      "count": 42
+    },
+    {
+      "k": 4,
+      "minimum": 7,
+      "count": 18
+    },
+    {
+      "k": 5,
+      "minimum": 4,
+      "count": 2
+    },
+    {
+      "k": 6,
+      "minimum": 2,
+      "count": 4
+    },
+    {
+      "k": 7,
+      "minimum": 0,
+      "count": 2
+    }
+  ],
+  "automorphisms": 4,
+  "six_three": 37,
+  "six_three_orbits": 12,
+  "residual_types": {
+    "[3, 1, 1, 1]": 10,
+    "[2, 1, 1, 1, 1]": 22,
+    "[1, 1, 1, 1, 1, 1]": 5
+  }
+}

@@ -1,0 +1,19 @@
+Independent review by status_review, 2026-11-25
+
+DirtyTopEntry.lean
+SHA256 600b044af9c7e61a1f10ff7bfb6da6e4bfb1fcc629471fc99b1903bddb4aacda
+19801 bytes, 481 lines.
+
+Review passed. The previously reviewed DirtyReader prefix is unchanged. The extension traces an OR path to its first direct OR reader, uses the cardinal-at-most-one extra-OR hypothesis to identify the first readers of two dirty empty-support gates, and uses exact arity two to show that a common reader of distinct such gates again has empty primary support. A path from that reader to a nonempty-support wire then needs a second distinct extra OR, contradicting the cardinality hypothesis. The wrapper derives empty support from membership in junk and nonempty top-side support from centreless being empty.
+
+Scope limitation: the final theorem assumes the two dirty gates already OR-reach operands of tops. It does not establish such paths for every junk gate, nor does it prove junk.card <= 1. It makes no unrestricted circuit or posted-gap claim.
+
+GraphProfile.lean
+SHA256 70cb09405ff4994e70804a653be499f78766a98014a968eb2d04bc8afb34dc84
+32475 bytes, 1112 lines.
+
+Review passed. Exact desk graph verified. Independent exhaustive enumeration of all 16384 vertex subsets reproduces the minimum uncovered profile [19,16,13,10,7,4,2,0] for center counts zero through seven. All listed classifications agree exactly with independently computed sets: optimalSix has 4 members, optimalFive 2, optimalSeven 2, and sixThree 37. For six centers leaving two edges, the two edges form the full star of one excluded degree-two vertex in {0,1,7,9}. The cover floor after deleting at most one edge follows directly from the previously reviewed cycle inequality.
+
+Verified that certificate declarations cover each high mask 0 through 127 exactly once and that classified_all uses all 128 corresponding rows. The previously reviewed mask bridge establishes complete coverage of all Finset(Fin14), so row splitting omits no vertex set. No circuit lower bound is claimed.
+
+Both sources pass the official import/plain/namespace guard except for their intentionally absent final gap theorem. Authors report successful compilation with full logs. Approved for preservation as accurately labeled partials.

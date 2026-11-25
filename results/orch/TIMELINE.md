@@ -26,3 +26,10 @@
 - 2026-11-25T12:21:17.416381+00:00 lower_bound: CoverProfile and TopFormArithmetic compiled; critical ≤24 monotone case now conditionally reduced to at least three uncovered edges; exact three implies six clean tops, two dirty ANDs, one extra OR.
 2026-11-25T12:21:45.592837+00:00 linear_network ABC synthesis driver and independent netlist validator ready; awaiting toolchain build.
 2026-11-25T12:25:12.172689+00:00 officialpostedcheckerREJECTED(no-theorem), as expected forpartial. Coverprofile andconditionalarithmetic separatelycompiled; nofullcircuit25claim.
+
+- 2026-11-25T12:29:51.654398+00:00 lemma_search: generic 14-bit mask bridge compiled and independently reviewed; complete finite graph profile certificate running.
+
+- 2026-11-25T12:30:48.907932+00:00 lemma_search: complete GraphProfile kernel certificate compiled (exit0, emptylog); exact five/six/seven classifications and robust cover floor now checked. Parent/reviewer notified.
+
+- 2026-11-25T12:32:14.551438+00:00 lower_bound: DirtyTopEntry kernel check passed; one-extra-OR/zero-centreless critical case has a unique dirty AND entry into all clean tops. Full arbitrary-NOT lower25 remains open.
+2026-11-25T12:34:55.841922+00:00 preserving reviewedGraphProfile1112lines, MaskBridge, andDirtyTopEntry481lines; allcompiled. Fullgapstillunproved. ABCconstructivesearchlive.
