@@ -1,0 +1,6 @@
+L-meta-3457 partial: iterated removal of edge-useless ANDs
+2026-11-25T01:36:01.412312+00:00
+SHA256 3dd8b9d92db02c7d88a2d90c43e242aeaeae5a2620cd8b3ee3292a33279c48fa
+Lines 405
+Central lake env lean DropUnusedAndV7.lean: exit 0. Full stdout/stderr: drop-v7.stdout/.stderr. Warnings are deprecated tactic/lemma names and unused simp arguments.
+The partial preserves circuit size, function, Monotone2, ReadsBack, singleton-cleanliness and all previous false wire values. Every remaining AND serves at least one incident pair. This does not establish nonincident-pair cleanliness or the posted statement.
