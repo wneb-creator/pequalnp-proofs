@@ -72,3 +72,58 @@ Empty (combined compiler stream above).
 These are semantic normalization components, not a proof of the posted lower bound. The full-gap checker remains NOT RUN.
 Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
 TIMING total=18.1 subagents=5
+
+Checkpoint 3: 2026-11-25T14:06:35.310473+00:00
+
+Artifact: results/orch/lemmas/SatNormalizeComplete.lean
+SHA256: 34a92f819aabfebf307547678e9cb9ffb065a0030e31a3001a4f07551c07d06d
+Lines: 441
+Build: lake env lean ../results/orch/lemmas/SatNormalizeComplete.lean (workdir lean/), exit 0.
+Independent review: status_1035 mathematical/plain-file review; root source inspection.
+Compiler stdout (complete):
+../results/orch/lemmas/SatNormalizeComplete.lean:96:203: warning: This simp argument is unused:
+  Bool.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.or_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/SatNormalizeComplete.lean:96:218: warning: This simp argument is unused:
+  Bool.or_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/SatNormalizeComplete.lean:197:10: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+Compiler stderr (complete):
+
+
+Artifact: results/orch/lemmas/IdentityPad.lean
+SHA256: bdf534932182b3b45b5b21803c8c5d8695106b28503c3c00b619bef8b89e8caf
+Lines: 148
+Build: lake env lean ../results/orch/lemmas/IdentityPad.lean (workdir lean/), exit 0.
+Independent review: status_1035 mathematical/plain-file review; root source inspection.
+Compiler stdout (complete):
+../results/orch/lemmas/IdentityPad.lean:33:24: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Circuit.size, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+Compiler stderr (complete):
+
+Scope: normalization and identity-padding only. The absence of a normalized19gate Petersen circuit is still unproved. Full-gap checker NOT RUN.
+Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
+TIMING total=21.7 subagents=5
