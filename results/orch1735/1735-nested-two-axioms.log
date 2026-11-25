@@ -1,0 +1,19 @@
+/tmp/oec/pequalnp-pilot-65/nested-two-axioms.lean:228:91: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-65/nested-two-axioms.lean:801:63: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-65/nested-two-axioms.lean:1163:30: warning: Variable name `cone` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cone
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'PEqualNP.Outside.L_meta_1735_aux.nested_two_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

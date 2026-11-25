@@ -1,0 +1,7 @@
+KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
+Gap: L-meta-1735
+Sub-agents: 6 reused (library, structure, finite search, status, toolchain, independent review)
+TIMING total=96.74 subagents=6
+No proof or checker verdict for this new gap yet.
+
+Nested-two partial (1635 lines,75898bytes) compiled with lake env lean; exit0,three harmless unused-binder warnings. Independent mathematical review PASS; final axiom audit only propext,Classical.choice,Quot.sound. Proves Ustar.card≤4*(size+1) under girth≥5,IsLeastAO,TopForm,junk.card=2,and nestedjunk. Full arbitrary-junk1735 theorem remains unproved.
