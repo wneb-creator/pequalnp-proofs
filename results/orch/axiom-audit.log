@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2089.or_quota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2089.BadPairs.few_bad_posted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2089.spurious_input_large' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2089.small_bad_singleton_support' depends on axioms: [propext, Classical.choice, Quot.sound]

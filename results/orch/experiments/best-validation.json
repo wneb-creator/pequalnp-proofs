@@ -1,0 +1,23 @@
+{
+  "valid_backward_binary_gates": true,
+  "gate_count": 63,
+  "last_gate": [
+    0,
+    86,
+    87
+  ],
+  "positive_rows": 52,
+  "negative_rows": 236,
+  "missing_positive_edges": [
+    [
+      5,
+      18
+    ],
+    [
+      7,
+      24
+    ]
+  ],
+  "false_positive_rows": [],
+  "verdict": "NOT A WITNESS: misses positive edges"
+}

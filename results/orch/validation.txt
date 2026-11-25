@@ -3,11 +3,16 @@ Posted theorem is not yet proved; no proof PR opened.
 Build: lake build PEqualNP.Outside.L_meta_2089 passed.
 Local checker: not run; the main theorem is intentionally absent from this partial file.
 Independent review: status_review PASS for reviewed helper components, not full statement acceptance.
-Lines: 1347
+Lines: 1444
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form
-TIMING total=23 subagents=6
+TIMING total=49 subagents=6
 
 Second merged build passed; independent source and body-equivalence review passed.
 Preserved separately: checked 29-line incidence rectangle lemma, independently reviewed by root.
 
 Third merged build passed, including complete OR quota, exact thin-input restrictions, posted-mask bridge, and small singleton support. All independently reviewed.
+
+Fourth merged build: passed (1444 lines). Independent merged-pair review: PASS for partial preservation.
+Checker checkpoint for the preceding1347-line partial: REJECTED (no-theorem). The main theorem remains absent.
+Format guard: REFUSED, no theorem. Axiom audit of four major helper lemmas: only propext, Classical.choice, Quot.sound.
+Experimental programs and outputs are computational research artifacts, not Lean certificates; no counterexample witness found.

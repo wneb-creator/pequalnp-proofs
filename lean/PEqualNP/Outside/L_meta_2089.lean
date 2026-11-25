@@ -1345,3 +1345,100 @@ lemma small_bad_singleton_support (f : (Fin 26 → Bool) → Bool)
   omega
 
 end PEqualNP.Outside.L_meta_2089
+
+namespace PEqualNP.Outside.L_meta_2089.MergedPair
+
+open PEqualNP.HeptadCover
+
+lemma separating_line : ∀ p q r : Fin 13, p ≠ q → r ≠ q →
+    ∃ l : Fin 13, q ∈ singerLines3 l ∧ p ∉ singerLines3 l ∧ r ∉ singerLines3 l := by
+  decide +kernel
+
+lemma common_line : ∀ p q : Fin 13,
+    ∃ l : Fin 13, p ∈ singerLines3 l ∧ q ∈ singerLines3 l := by
+  decide
+
+lemma common_line_count : ∀ p q : Fin 13, p ≠ q →
+    (Finset.univ.filter fun l : Fin 13 => p ∈ singerLines3 l ∧ q ∈ singerLines3 l).card ≤ 1 := by
+  decide
+
+lemma nonincident_point_count : ∀ l : Fin 13,
+    (Finset.univ.filter fun p : Fin 13 => p ∉ singerLines3 l).card = 9 := by
+  decide
+
+lemma common_line_unique (p q k l : Fin 13) (hpq : p ≠ q)
+    (hpk : p ∈ singerLines3 k) (hqk : q ∈ singerLines3 k)
+    (hpl : p ∈ singerLines3 l) (hql : q ∈ singerLines3 l) : k = l := by
+  exact Finset.card_le_one.mp (common_line_count p q hpq) k (by simp [hpk, hqk])
+    l (by simp [hpl, hql])
+
+lemma forced_common_line (p q r k : Fin 13) (hpq : p ≠ q)
+    (hrk : r ∉ singerLines3 k)
+    (hp : ∀ l, q ∈ singerLines3 l → p ∉ singerLines3 l →
+      p ∈ singerLines3 k ∨ r ∈ singerLines3 l)
+    (hq : ∀ l, p ∈ singerLines3 l → q ∉ singerLines3 l →
+      q ∈ singerLines3 k ∨ r ∈ singerLines3 l) :
+    p ∈ singerLines3 k ∧ q ∈ singerLines3 k ∧ r ≠ p ∧ r ≠ q := by
+  have hrp : r ≠ p := by
+    intro he
+    obtain ⟨l, hql, hpl, hrl⟩ := separating_line p q r hpq (by simpa [he] using hpq)
+    rcases hp l hql hpl with hpk | hrl'
+    · exact hrk (he ▸ hpk)
+    · exact hrl hrl'
+  have hrq : r ≠ q := by
+    intro he
+    obtain ⟨l, hpl, hql, hrl⟩ := separating_line q p r hpq.symm (by simpa [he] using hpq.symm)
+    rcases hq l hpl hql with hqk | hrl'
+    · exact hrk (he ▸ hqk)
+    · exact hrl hrl'
+  have hpk : p ∈ singerLines3 k := by
+    obtain ⟨l, hql, hpl, hrl⟩ := separating_line p q r hpq hrq
+    exact (hp l hql hpl).resolve_right hrl
+  have hqk : q ∈ singerLines3 k := by
+    obtain ⟨l, hpl, hql, hrl⟩ := separating_line q p r hpq.symm hrp
+    exact (hq l hpl hql).resolve_right hrl
+  exact ⟨hpk, hqk, hrp, hrq⟩
+
+lemma bad_family_forced_common_line
+    (A B : Finset (Fin 13 × Fin 13)) (p q : Fin 13) (hpq : p ≠ q)
+    (hB : ∀ b ∈ B, b.1 ∉ singerLines3 b.2)
+    (hcross : ∀ a ∈ A, ∀ b ∈ B,
+      a.1 ∈ singerLines3 b.2 ∨ b.1 ∈ singerLines3 a.2)
+    (hp : ∀ l, q ∈ singerLines3 l → p ∉ singerLines3 l → (p, l) ∈ A)
+    (hq : ∀ l, p ∈ singerLines3 l → q ∉ singerLines3 l → (q, l) ∈ A)
+    (b : Fin 13 × Fin 13) (hb : b ∈ B) :
+    p ∈ singerLines3 b.2 ∧ q ∈ singerLines3 b.2 ∧ b.1 ≠ p ∧ b.1 ≠ q := by
+  apply forced_common_line p q b.1 b.2 hpq (hB b hb)
+  · intro l hql hpl
+    exact hcross (p, l) (hp l hql hpl) b hb
+  · intro l hpl hql
+    exact hcross (q, l) (hq l hpl hql) b hb
+
+lemma bad_family_column_and_card
+    (A B : Finset (Fin 13 × Fin 13)) (p q : Fin 13) (hpq : p ≠ q)
+    (hB : ∀ b ∈ B, b.1 ∉ singerLines3 b.2)
+    (hcross : ∀ a ∈ A, ∀ b ∈ B,
+      a.1 ∈ singerLines3 b.2 ∨ b.1 ∈ singerLines3 a.2)
+    (hp : ∀ l, q ∈ singerLines3 l → p ∉ singerLines3 l → (p, l) ∈ A)
+    (hq : ∀ l, p ∈ singerLines3 l → q ∉ singerLines3 l → (q, l) ∈ A) :
+    (∃ k : Fin 13, p ∈ singerLines3 k ∧ q ∈ singerLines3 k ∧
+      ∀ b ∈ B, b.2 = k ∧ b.1 ≠ p ∧ b.1 ≠ q) ∧ B.card ≤ 9 := by
+  obtain ⟨k, hpk, hqk⟩ := common_line p q
+  have hcolumn : ∀ b ∈ B, b.2 = k ∧ b.1 ≠ p ∧ b.1 ≠ q := by
+    intro b hb
+    obtain ⟨hpb, hqb, hrp, hrq⟩ :=
+      bad_family_forced_common_line A B p q hpq hB hcross hp hq b hb
+    exact ⟨common_line_unique p q b.2 k hpq hpb hqb hpk hqk, hrp, hrq⟩
+  refine ⟨⟨k, hpk, hqk, hcolumn⟩, ?_⟩
+  have hsub : B ⊆ (Finset.univ.filter fun r : Fin 13 => r ∉ singerLines3 k).product {k} := by
+    intro b hb
+    have hbk := (hcolumn b hb).1
+    apply Finset.mem_product.mpr
+    constructor
+    · simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      simpa [hbk] using hB b hb
+    · simpa using hbk
+  have hcard := Finset.card_le_card hsub
+  simpa [Finset.card_product, nonincident_point_count] using hcard
+
+end PEqualNP.Outside.L_meta_2089.MergedPair
