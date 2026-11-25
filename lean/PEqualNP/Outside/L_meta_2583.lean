@@ -1690,4 +1690,353 @@ lemma relative_shared_cnf_cover_bound_semantic (P : Finset (Fin n))
 
 end RelativeCnf
 
+namespace MatchingSurplus
+
+open Finset
+
+variable {r : ℕ} (I : Fin r → Fin r → Prop) [DecidableRel I]
+
+def Independent (S : Finset (Bool × Fin r)) : Prop :=
+  ∀ a b, (false, a) ∈ S → (true, b) ∈ S → ¬ I a b
+
+def points : Finset (Bool × Fin r) := univ.image fun a => (false, a)
+
+def lines : Finset (Bool × Fin r) := univ.image fun a => (true, a)
+
+def witness (i : Fin r) : Finset (Bool × Fin r) :=
+  insert (true, i) ((univ.filter fun a => ¬ I a i).image fun a => (false, a))
+
+lemma mem_points (a : Fin r) : (false, a) ∈ points (r := r) := by simp [points]
+
+lemma mem_lines (a : Fin r) : (true, a) ∈ lines (r := r) := by simp [lines]
+
+lemma mem_witness_point (a i : Fin r) : (false, a) ∈ witness I i ↔ ¬ I a i := by
+  simp [witness]
+
+lemma mem_witness_line (a i : Fin r) : (true, a) ∈ witness I i ↔ a = i := by
+  simp [witness]
+
+lemma points_independent : Independent I (points (r := r)) := by
+  intro a b ha hb
+  simp [points] at hb
+
+lemma lines_independent : Independent I (lines (r := r)) := by
+  intro a b ha hb
+  simp [lines] at ha
+
+lemma witness_independent (i : Fin r) : Independent I (witness I i) := by
+  intro a b ha hb
+  have hbi := (mem_witness_line I b i).mp hb
+  subst b
+  exact (mem_witness_point I a i).mp ha
+
+lemma clause_count_strict (hr : 3 ≤ r)
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hmiss : ∀ S, Independent I S → ∃ W ∈ F, Disjoint W S) :
+    r + 2 ≤ F.card := by
+  classical
+  let B : Option (Fin r) → Finset (Bool × Fin r)
+    | none => points
+    | some i => witness I i
+  have hB : ∀ a, Independent I (B a) := by
+    intro a
+    cases a with
+    | none => exact points_independent I
+    | some i => exact witness_independent I i
+  have hchoice : ∀ a, ∃ W ∈ F, Disjoint W (B a) := fun a => hmiss _ (hB a)
+  choose K hKF hKB using hchoice
+  have hline : ∀ i, (true, i) ∈ K none := by
+    intro i
+    rcases hcover _ (hKF none) i with hp | hl
+    · exact (Finset.disjoint_left.mp (hKB none) hp (mem_points i)).elim
+    · exact hl
+  have hpoint : ∀ i, (false, i) ∈ K (some i) := by
+    intro i
+    rcases hcover _ (hKF (some i)) i with hp | hl
+    · exact hp
+    · exact (Finset.disjoint_left.mp (hKB (some i)) hl
+        ((mem_witness_line I i i).mpr rfl)).elim
+  have hneqnone : ∀ i, K none ≠ K (some i) := by
+    intro i heq
+    have hp := hpoint i
+    rw [← heq] at hp
+    exact Finset.disjoint_left.mp (hKB none) hp (mem_points i)
+  have hinj : Function.Injective K := by
+    intro a b heq
+    cases a with
+    | none =>
+      cases b with
+      | none => rfl
+      | some j => exact (hneqnone j heq).elim
+    | some i =>
+      cases b with
+      | none => exact (hneqnone i heq.symm).elim
+      | some j =>
+        congr 1
+        by_contra hij
+        have hijI : I i j := by
+          by_contra hn
+          have hp := hpoint i
+          rw [heq] at hp
+          exact Finset.disjoint_left.mp (hKB (some j)) hp
+            ((mem_witness_point I i j).mpr hn)
+        have hjiI : I j i := by
+          by_contra hn
+          have hp := hpoint j
+          rw [← heq] at hp
+          exact Finset.disjoint_left.mp (hKB (some i)) hp
+            ((mem_witness_point I j i).mpr hn)
+        exact hfour i j i j hij hij ⟨hdiag i, hijI, hjiI, hdiag j⟩
+  have hsub : univ.image K ⊆ F := by
+    intro W hW
+    obtain ⟨a, _, rfl⟩ := mem_image.mp hW
+    exact hKF a
+  have hcard : (univ.image K).card = r + 1 := by
+    rw [card_image_of_injective _ hinj]
+    simp
+  by_contra hgoal
+  have hupper : F.card ≤ r + 1 := by omega
+  have heq : univ.image K = F := eq_of_subset_of_card_le hsub (by omega)
+  have hexhaust : ∀ W ∈ F, ∃ a, K a = W := by
+    intro W hW
+    rw [← heq] at hW
+    obtain ⟨a, _, ha⟩ := mem_image.mp hW
+    exact ⟨a, ha⟩
+  obtain ⟨Wp, hWpF, hWp⟩ := hmiss (lines (r := r)) (lines_independent I)
+  obtain ⟨a, ha⟩ := hexhaust Wp hWpF
+  have hanone : a ≠ none := by
+    intro hnone
+    subst a
+    let i : Fin r := ⟨0, by omega⟩
+    have hl := hline i
+    rw [ha] at hl
+    exact Finset.disjoint_left.mp hWp hl (mem_lines i)
+  obtain ⟨j, hj⟩ := Option.ne_none_iff_exists'.mp hanone
+  subst a
+  have hallpoints : ∀ i, (false, i) ∈ K (some j) := by
+    intro i
+    rcases hcover _ (hKF (some j)) i with hp | hl
+    · exact hp
+    · rw [ha] at hl
+      exact (Finset.disjoint_left.mp hWp hl (mem_lines i)).elim
+  have huniversal : ∀ i, I i j := by
+    intro i
+    by_contra hn
+    exact Finset.disjoint_left.mp (hKB (some j)) (hallpoints i)
+      ((mem_witness_point I i j).mpr hn)
+  have hsparse : ∀ i, i ≠ j → ∀ a, a ≠ i → ¬ I a i := by
+    intro i hij a hai haiI
+    exact hfour i a i j (Ne.symm hai) hij ⟨hdiag i, huniversal i, haiI, huniversal a⟩
+  have hrestlines : ∀ i, i ≠ j → ∀ a, a ≠ i → (true, a) ∈ K (some i) := by
+    intro i hij a hai
+    rcases hcover _ (hKF (some i)) a with hp | hl
+    · exact (Finset.disjoint_left.mp (hKB (some i)) hp
+        ((mem_witness_point I a i).mpr (hsparse i hij a hai))).elim
+    · exact hl
+  have htwo : 1 < (univ.erase j : Finset (Fin r)).card := by
+    simp
+    omega
+  obtain ⟨i, hi, k, hk, hik⟩ := Finset.one_lt_card.mp htwo
+  have hij : i ≠ j := (mem_erase.mp hi).1
+  have hkj : k ≠ j := (mem_erase.mp hk).1
+  let S : Finset (Bool × Fin r) := {(false, j), (true, i), (true, k)}
+  have hS : Independent I S := by
+    intro a b haS hbS
+    have haj : a = j := by simpa [S] using haS
+    have hbb : b = i ∨ b = k := by simpa [S] using hbS
+    subst a
+    rcases hbb with hbi | hbk
+    · rw [hbi]
+      exact hsparse i hij j (Ne.symm hij)
+    · rw [hbk]
+      exact hsparse k hkj j (Ne.symm hkj)
+  obtain ⟨W, hWF, hWS⟩ := hmiss S hS
+  obtain ⟨a, ha⟩ := hexhaust W hWF
+  have hhit : ∃ z ∈ K a, z ∈ S := by
+    cases a with
+    | none => exact ⟨(true, i), hline i, by simp [S]⟩
+    | some t =>
+      by_cases htj : t = j
+      · subst t
+        exact ⟨(false, j), hallpoints j, by simp [S]⟩
+      · by_cases hit : i = t
+        · subst t
+          exact ⟨(true, k), hrestlines i htj k (Ne.symm hik), by simp [S]⟩
+        · exact ⟨(true, i), hrestlines t htj i hit, by simp [S]⟩
+  obtain ⟨z, hzK, hzS⟩ := hhit
+  rw [ha] at hzK
+  exact Finset.disjoint_left.mp hWS hzK hzS
+
+lemma clause_count_strict_semantic (hr : 3 ≤ r)
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin r → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ i j, I i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    r + 2 ≤ F.card := by
+  apply clause_count_strict I hr hdiag hfour F hcover
+  intro S hS
+  by_contra hn
+  push Not at hn
+  let x : Bool × Fin r → Bool := fun u => decide (u ∈ S)
+  have hx : ∀ W ∈ F, ∃ u ∈ W, x u = true := by
+    intro W hWF
+    have hint : ∃ u ∈ W, u ∈ S := by
+      by_contra hnone
+      push Not at hnone
+      exact hn W hWF (Finset.disjoint_left.mpr hnone)
+    obtain ⟨u, huW, huS⟩ := hint
+    exact ⟨u, huW, by simp [x, huS]⟩
+  obtain ⟨i, j, hij, hi, hj⟩ := hsafe x hx
+  exact hS i j (by simpa [x] using hi) (by simpa [x] using hj) hij
+
+lemma safe_clause_miss {n : ℕ} (G : SimpleGraph (Fin n))
+    (F : Finset (Finset (Fin n)))
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (S : Finset (Fin n)) (hS : ∀ u ∈ S, ∀ v ∈ S, ¬ G.Adj u v) :
+    ∃ W ∈ F, Disjoint W S := by
+  classical
+  by_contra hn
+  push Not at hn
+  let x : Fin n → Bool := fun u => decide (u ∈ S)
+  have hx : ∀ W ∈ F, ∃ u ∈ W, x u = true := by
+    intro W hWF
+    have hint : ∃ u ∈ W, u ∈ S := by
+      by_contra hnone
+      push Not at hnone
+      exact hn W hWF (Finset.disjoint_left.mpr hnone)
+    obtain ⟨u, huW, huS⟩ := hint
+    exact ⟨u, huW, by simp [x, huS]⟩
+  obtain ⟨u, v, huv, hu, hv⟩ := hsafe x hx
+  exact hS u (by simpa [x] using hu) v (by simpa [x] using hv) huv
+
+lemma graph_matching_clause_count {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hr : 3 ≤ r) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (p l : Fin r → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpp : ∀ i j, ¬ G.Adj (p i) (p j)) (hll : ∀ i j, ¬ G.Adj (l i) (l j))
+    (hdiag : ∀ i, G.Adj (p i) (l i))
+    (F : Finset (Finset (Fin n)))
+    (hcover : ∀ W ∈ F, ∀ i, p i ∈ W ∨ l i ∈ W)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    r + 2 ≤ F.card := by
+  classical
+  let J : Fin r → Fin r → Prop := fun i j => G.Adj (p i) (l j)
+  let f : Bool × Fin r → Fin n
+    | (false, i) => p i
+    | (true, i) => l i
+  let Q : Finset (Fin n) → Finset (Bool × Fin r) :=
+    fun W => univ.filter fun u => f u ∈ W
+  have hJfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (J a c ∧ J a d ∧ J b c ∧ J b d) := by
+    intro a b c d hab hcd ⟨hac, had, hbc, hbd⟩
+    have hpab : p a ≠ p b := fun heq => hab (hp heq)
+    have heq : l c = l d := by
+      apply Finset.card_le_one.mp (hfour (p a) (p b) hpab)
+      · exact mem_filter.mpr ⟨mem_univ _, hac, hbc⟩
+      · exact mem_filter.mpr ⟨mem_univ _, had, hbd⟩
+    exact hcd (hl heq)
+  have hQcover : ∀ W ∈ F.image Q, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W := by
+    intro W hW i
+    obtain ⟨V, hVF, rfl⟩ := mem_image.mp hW
+    rcases hcover V hVF i with hpW | hlW
+    · exact Or.inl (by simpa [Q, f] using hpW)
+    · exact Or.inr (by simpa [Q, f] using hlW)
+  have hQmiss : ∀ S, Independent J S → ∃ W ∈ F.image Q, Disjoint W S := by
+    intro S hS
+    have himg : ∀ u ∈ S.image f, ∀ v ∈ S.image f, ¬ G.Adj u v := by
+      intro u hu v hv huv
+      obtain ⟨⟨tu, iu⟩, hiu, rfl⟩ := mem_image.mp hu
+      obtain ⟨⟨tv, iv⟩, hiv, rfl⟩ := mem_image.mp hv
+      cases tu <;> cases tv
+      · exact hpp iu iv huv
+      · exact hS iu iv hiu hiv huv
+      · exact hS iv iu hiv hiu huv.symm
+      · exact hll iu iv huv
+    obtain ⟨W, hWF, hWS⟩ := safe_clause_miss G F hsafe (S.image f) himg
+    refine ⟨Q W, mem_image.mpr ⟨W, hWF, rfl⟩, ?_⟩
+    apply Finset.disjoint_left.mpr
+    intro u huQ huS
+    have huW : f u ∈ W := (mem_filter.mp huQ).2
+    have huImg : f u ∈ S.image f := mem_image.mpr ⟨u, huS, rfl⟩
+    exact Finset.disjoint_left.mp hWS huW huImg
+  have hb := clause_count_strict J hr hdiag hJfour (F.image Q) hQcover hQmiss
+  exact le_trans hb card_image_le
+
+end MatchingSurplus
+
+namespace MatchingCounterexample
+
+abbrev cycleGraph : SimpleGraph (Fin 8) :=
+  PEqualNP.EdgeOwnership.edgeGraph 8
+    [(0, 4), (0, 5), (1, 5), (1, 6), (2, 6), (2, 7), (3, 7), (3, 4)]
+
+def clauses : Finset (Finset (Fin 8)) :=
+  {{0, 1, 2, 3}, {2, 3, 4, 5}, {0, 3, 5, 6},
+    {0, 1, 6, 7}, {1, 2, 4, 7}, {4, 5, 6, 7}}
+
+lemma cycle_no_four_cycle : PEqualNP.TopForm.NoFourCycle cycleGraph := by decide
+
+lemma cycle_bipartite : ∀ u v : Fin 8, cycleGraph.Adj u v →
+    decide (u.val < 4) ≠ decide (v.val < 4) := by decide
+
+lemma cycle_contains_matching : ∀ i : Fin 4,
+    cycleGraph.Adj (Fin.castAdd 4 i) (Fin.natAdd 4 i) := by decide
+
+lemma clauses_card : clauses.card = 6 := by decide
+
+set_option maxRecDepth 10000 in
+lemma clauses_accept_matching : ∀ i : Fin 4, ∀ W ∈ clauses,
+    Fin.castAdd 4 i ∈ W ∨ Fin.natAdd 4 i ∈ W := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 5000000 in
+lemma clauses_safe : ∀ x : Fin 8 → Bool,
+    (∀ W ∈ clauses, ∃ u ∈ W, x u = true) →
+    ∃ u v, cycleGraph.Adj u v ∧ x u = true ∧ x v = true := by decide
+
+lemma clauses_below_two_r_minus_one : clauses.card < 2 * 4 - 1 := by decide
+
+end MatchingCounterexample
+
+namespace RelativeCnf
+
+lemma relative_shared_cnf_matching_surplus {n r : ℕ}
+    (G H : SimpleGraph (Fin n)) [DecidableRel G.Adj] [DecidableRel H.Adj]
+    (P : Finset (Fin n)) (hcover : Cnf.Covers G P)
+    (hP : ∀ a ∈ P, ∀ b ∈ P, ¬ G.Adj a b)
+    (hHG : H ≤ G) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hr : 3 ≤ r) (p l : Fin r → Fin n)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpP : ∀ i, p i ∈ P) (hdiag : ∀ i, H.Adj (p i) (l i))
+    (F : Finset (Finset (Fin n))) (k : ℕ)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (haccept : ∀ u v, H.Adj u v →
+      ∀ W ∈ F, ∃ a ∈ W, a = u ∨ a = v)
+    (hcost : PEqualNP.SharedBlockCost.HasOrCost n F k) :
+    H.edgeFinset.card + r + 1 ≤ k + F.card := by
+  have hlP : ∀ i, l i ∉ P := by
+    intro i hi
+    exact hP (p i) (hpP i) (l i) hi (hHG (hdiag i))
+  have hll : ∀ i j, ¬ G.Adj (l i) (l j) := by
+    intro i j hij
+    exact (hcover _ _ hij).elim (hlP i) (hlP j)
+  have hFc := (relative_clause_properties G H F hsafe haccept).1
+  have hclauses := MatchingSurplus.graph_matching_clause_count G hr hfour p l hp hl
+    (fun i j => hP (p i) (hpP i) (p j) (hpP j)) hll
+    (fun i => hHG (hdiag i)) F (fun W hW i => hFc W hW _ _ (hdiag i)) hsafe
+  have hedge := relative_shared_cnf_edge_bound G H P hcover hP hHG hfour F k hsafe haccept hcost
+  omega
+
+end RelativeCnf
+
 end PEqualNP.Outside.L_meta_2583
