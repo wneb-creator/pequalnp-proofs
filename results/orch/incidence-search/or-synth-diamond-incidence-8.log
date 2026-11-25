@@ -1,0 +1,36 @@
+2026-11-25T16:21:40.749944+00:00 GRAPH diamond-incidence OR budget 8 truth bits 45 maxzeros 11 all star witnesses
+RESULT unknown seconds 180.012
+REASON timeout
+(:max-memory              57.57
+ :memory                  18.17
+ :num-allocs              4696319202.00
+ :rlimit-count            539519768
+ :sat-ate                 21
+ :sat-backjumps           1909356
+ :sat-bce                 719
+ :sat-conflicts           1909356
+ :sat-decisions           3674490
+ :sat-del-clause          1850236
+ :sat-elim-bool-vars-res  2244
+ :sat-elim-clauses        2
+ :sat-elim-literals       115941
+ :sat-gc-clause           1827206
+ :sat-minimized-lits      53172580
+ :sat-mk-clause-2ary      16456
+ :sat-mk-clause-3ary      3988
+ :sat-mk-clause-nary      1920035
+ :sat-mk-var              5351
+ :sat-probing-assigned    13
+ :sat-propagations-2ary   412004069
+ :sat-propagations-nary   210690987
+ :sat-restarts            134913
+ :sat-scc-elim-binary     38
+ :sat-scc-elim-vars       1
+ :sat-subs-resolution     70243
+ :sat-subs-resolution-dyn 2756623
+ :sat-subsumed            11664
+ :sat-tr                  78
+ :sat-units               15
+ :solve-eqs-elim-vars     8
+ :solve-eqs-steps         494
+ :time                    180.01)

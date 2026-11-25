@@ -1,0 +1,27 @@
+2026-11-25T16:26:21.225168+00:00 GRAPH k4-incidence OR budget 13 truth bits 56 maxzeros 12 all star witnesses mode matchingprefix
+RESULT sat seconds 0.257
+VERIFIED_FULL_TRUTH_TABLE {"p": 4, "q": 6, "edges": [[0, 0], [1, 0], [0, 1], [2, 1], [0, 2], [3, 2], [1, 3], [2, 3], [1, 4], [3, 4], [2, 5], [3, 5]], "gates": [[[0], [1]], [[2], [3]], [[5], [6]], [[5], [7]], [[6], [8]], [[7], [8]], [[1, 7], [0, 10, 12]], [[1, 8], [2, 13]], [[9], [8, 9]], [[9], [3, 14]], [[4, 10], [16]], [[17], [11, 19]], [[20], [21]]], "outputs": [12], "starrows": [[0, 48], [0, 80], [0, 96], [0, 112], [1, 144], [1, 272], [1, 384], [1, 400], [2, 160], [2, 544], [2, 640], [2, 672], [3, 320], [3, 576], [3, 768], [3, 832], [4, 3], [5, 5], [6, 9], [7, 6], [8, 10], [9, 12]], "star_witnesses": [[], [], [2], [], [], [], [5], [], [3], [], [], [], [4], [], [], [], [0], [], [], [], [], [1]]}
+(:max-memory              27.73
+ :memory                  18.04
+ :num-allocs              11129110
+ :rlimit-count            570808
+ :sat-backjumps           2030
+ :sat-conflicts           2030
+ :sat-decisions           4735
+ :sat-del-clause          6887
+ :sat-elim-bool-vars-res  1758
+ :sat-elim-literals       6
+ :sat-minimized-lits      23596
+ :sat-mk-clause-2ary      9745
+ :sat-mk-clause-3ary      4863
+ :sat-mk-clause-nary      9893
+ :sat-mk-var              3411
+ :sat-propagations-2ary   266649
+ :sat-propagations-nary   157807
+ :sat-restarts            269
+ :sat-subs-resolution     6
+ :sat-subs-resolution-dyn 1606
+ :sat-subsumed            2290
+ :solve-eqs-elim-vars     169
+ :solve-eqs-steps         776
+ :time                    0.26)

@@ -15,3 +15,5 @@
 - 2026-11-25T16:20:11.053990+00:00: second roughly20-minute replan. Typed AND cut/lift and complete T0 OR bypass compiled. Finish lexicographic TopForm normalization, then pivot most effort to global dirty-use/OR charge accounting; direct total-gate SAT searches timed out, no posted counterexample.
 - 2026-11-25T16:24:03.312753+00:00: full witness-preserving TopForm and protected dirty-use charge compiled and independently reviewed; preserving both plus finite-search bundle.
 - 2026-11-25T16:30:36.624997+00:00: selected-terminal structural budget compiled and independently reviewed; preserving while testing stronger accounting of positive AND filters.
+- 2026-11-25T16:30:59Z: automatic renewal unexpectedly returned410; last successful renewal at16:25:59 advertised expiry16:45:59.344Z. Root discovered loss during manual pre-build renewal16:32:37, repeated curl-si and paused team.
+- 2026-11-25T16:33:48.211226+00:00: preserving remaining completed artifacts before required410 recovery request.

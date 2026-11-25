@@ -1,0 +1,6 @@
+2026-11-25T16:30:26.449907+00:00 PG(2,5) auxiliary score counterexample
+vertices 62 edges 186 cover_number 31 gates 959 selected_cone 959
+B 1 M 214 2B+M 216 E+tau 217
+EXACT_DNF_VERIFIED AO2 T0 C4free regular perfect_matching all_star_witnesses
+NOT a counterexample to posted gate bound: 217 <= 960
+saved /tmp/oec/pequalnp-pilot-152/score-counterexample-q5.json seconds 0.25

@@ -1,0 +1,3 @@
+k4-incidence maximal_false 12 E+tau 16 complete_CNF_score_lower_bound 24
+PG(2,2) maximal_false 37 E+tau 28 complete_CNF_score_lower_bound 74
+PG(2,3) maximal_false 704 E+tau 65 complete_CNF_score_lower_bound 1408

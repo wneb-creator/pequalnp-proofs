@@ -1,0 +1,3 @@
+INDEPENDENT EXACT ANTICHAIN CHECK PASSED; AO2, T0, no4cycles, matching31, all93starwitnesses, E186, B1, M214, score216<217.
+OutputTopForm also holds: every other AND accepts a singleton; output AND has no readers.
+Posted size bound unaffected: 217 <= 960.

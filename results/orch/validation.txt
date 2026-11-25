@@ -45,3 +45,10 @@ TIMING total=61.4 subagents=6
 Compiled multioutput structural budget (460 lines; SHA2569d7c326cdf35a3272e88d2931345ccece0fc16797ef590d29c10e7129aa07fef), independently reviewed and independently compiled by ledger_proof. Counts selected output and unused pure OR witness cones, without a clean-AND assumption.
 This valid structural inequality does not close the gap. A proposed semantic inequality using only its births and merges is being refuted by a finite anchored construction; positive AND filtering cannot be omitted.
 TIMING total=68.0 subagents=6
+
+Lease lost: HTTP410 returned no such live lease, before last advertised expiry. Complete headers/body retained in lease-error-full.txt; all desk answers retained in desk-log.txt. No proof PR or posted-statement checker acceptance.
+Separate incidence-search bundle independently verifies q5 counterexample to auxiliary score2B+M only, including all posted hypotheses and TopForm. Actualsize959 satisfies postedbound; no refutation claimed. Complete exact antichain programs/model/logs retained; manifest verified.
+CNF score stress-test artifacts retained; solver/finite computations do not constitute Lean certificates.
+Sub-agents: 6
+TIMING total=71.2 subagents=6
+Strengthened selected-terminal structural bound2B+M+J<=size+1 compiled in527lines; SHA256edad61d15df9280dda64d059d99b5ec4b67782ea990f2e3a72e4ba2cf396e360. Independently reviewed and compiled by ledger_proof. No semantic E+tau lower bound claimed.

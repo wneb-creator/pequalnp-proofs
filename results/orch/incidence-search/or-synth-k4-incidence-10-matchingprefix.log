@@ -1,0 +1,28 @@
+2026-11-25T16:26:11.045334+00:00 GRAPH k4-incidence OR budget 10 truth bits 56 maxzeros 12 all star witnesses mode matchingprefix
+RESULT unsat seconds 0.226
+(:max-memory              26.33
+ :memory                  17.52
+ :num-allocs              3512349
+ :rlimit-count            720476
+ :sat-backjumps           7635
+ :sat-conflicts           7636
+ :sat-decisions           12277
+ :sat-del-clause          4509
+ :sat-elim-bool-vars-res  855
+ :sat-elim-clauses        1016
+ :sat-elim-literals       1232
+ :sat-minimized-lits      55586
+ :sat-mk-clause-2ary      4439
+ :sat-mk-clause-3ary      2277
+ :sat-mk-clause-nary      11236
+ :sat-mk-var              1518
+ :sat-propagations-2ary   321870
+ :sat-propagations-nary   379270
+ :sat-restarts            341
+ :sat-subs-resolution     6
+ :sat-subs-resolution-dyn 5283
+ :sat-subsumed            1075
+ :sat-units               8
+ :solve-eqs-elim-vars     166
+ :solve-eqs-steps         488
+ :time                    0.23)
