@@ -38,3 +38,4 @@
 2026-11-25T12:42:43.279482+00:00 two-dirty-gate chain and sole-reader bridge compiled and independently reviewed; preserving conditional monotone result.
 2026-11-25T12:44:45.636113+00:00 strengthened replacement helper compiled, independently reviewed, and preserved; remaining normal-form hypotheses explicit.
 2026-11-25T12:45:16.517853+00:00 seven ABC batches finished: 8631 validated outputs, best25 gates; artifacts and14 retained circuits independently reviewed. New local frozen-star SAT strategy started.
+2026-11-25T12:48:35.108705+00:00 abstract C4-free rectangle/star dichotomy kernel-checked and independently reviewed; exploring degree-three critical-case consequence.
