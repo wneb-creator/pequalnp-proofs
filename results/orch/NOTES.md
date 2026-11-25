@@ -215,3 +215,48 @@ Independent exhaustive Python checks passed for translation invariance (13^3 tri
 All imports allowed; only allowed scoped limit options; no forbidden patterns, quotes, attributes, axioms, or prohibited commands. No complete gap theorem exists in this partial checkpoint.
 
 Build metrics: exit0; wall26.602342933s; maximumRSS3924716KiB (approximately3.74GiB); complete build log empty.
+
+## 2026-11-25T03:49:20.024847+00:00 status_review: theta augmentation family exhausted
+
+Ranked all675 verified theta17 cores against finite_search/theta_extend_virtual.py with the common39-gate8-line-star prefix and its full virtual pool of free point-pair/triple OR subexpressions. Initial single-action ranking took44.0seconds: maximum gain1; many mixed cores individually cover all8 missing edges.
+
+The stronger source-distinction metric rejects every core. For each individually safe port-OR injection, compare its fixed source on each missing point-line pair against that line-only input. Every safe source distinguishes at most1 of the8 pairs. Exact8-bit set-cover DP therefore returns lower bound8 for all675 cores, even allowing all virtual prefix ORs optimistically without joint compatibility restrictions. Seven such port-OR injections cannot complete any core: each missing pair must acquire dependence on its outside point from some injected source. An individually unsafe OR injection cannot be repaired by further OR injections, since circuit values and derivative values are monotone in them. This is an obstruction for this augmentation family only; it does not prove the posted unrestricted circuit statement.
+
+Complete source-cover reranking took41.2seconds. Results:/tmp/oec/pequalnp-pilot-65/status-review/theta-ranking-cover.json; per-seed records theta-rank-cover-records.jsonl; source snapshot theta-rank-source-snapshot.py; executable reproducer rank_theta_cover.py; complete log theta-ranking-cover.log. finite_search and root notified. No active process remains.
+
+UTC 2026-11-25T03:53:16.634766+00:00
+### Accepted-library search: OR budget and current upstream
+- Reviewed all 64 accepted files matching OR-count/circuit-edge accounting and all 82 L_meta files added/changed in current FETCH_HEAD since initial upstream snapshot. No complete unconditional PG(2,3) size/OR bound found.
+- L599/4837 proves OR >= E-1 only for induced pseudoforests; PG(2,3) fails that hypothesis. L2237/4897 needs ReadK1. L1407/2656 needs all AND gates BelowF. L4767 permits each AND to be BelowF or accept at most one graph-edge pair, yielding total E+vertexcover <= size+1; this can only help after a dirty-gate classification.
+- Fresh upstream L4019 transports a dirty double-reread plane incidence to the already-normalized marked edge. L3700 eliminates a single dirty gate in an appropriately normalized least circuit. Fresh two-dirty L2264/4901 applies only to the fixed 11-vertex16-edge graph.
+- L3679's counterexample has 39 inputs,64 edges,58 gates (15 AND43 OR), four nested-AND pairs. It is bipartite but NOT C4-free (selectors30,31 share data6,7); every edge has at least one nonzero directional trace. It is not a counterexample seed for our C4-free double-zero setting. Proof establishes every AND-separated realization >=59, not exact global minimum58.
+- Detailed JSON census, exact fresh-upstream source snapshots, and independent L3679 computational audit are preserved under /tmp/oec/pequalnp-pilot-65 (lemma-or-count-*, new-meta-read/, lemma-3679-audit.txt).
+
+2026-11-25T03:53:23.735693+00:00
+## Theta extension and equality-case counterexample
+
+The polarized theta4 seeds from status_review embed as an induced plane subgraph. Mapping abstract inputs 0..9 to plane inputs [3,0,12,2,8,25,16,13,20,15] sends double edge (1,7) to marked (0,13). Other eight line-stars form a 39-gate prefix. Together with theta17 and one final OR, this gives a 57-gate circuit missing exactly eight incidence edges.
+
+Pure OR injections were exhaustively screened at every theta gate port using all fixed prefix signals and every pair/triple OR that can be prepared inside the prefix stars at no extra gate cost. Prefix OR-tree compatibility is enforced (at most two proper subsets per four-point star, nested or disjoint). Any initially unsafe OR injection remains unsafe after further OR additions, because both output values and derivative values are monotone in these additions.
+
+For all 675 theta variants, status_review found that each initially safe source distinguishes at most one of the eight missing edge assignments from its line-only singleton. Exact set-cover lower bound is eight introduced sources, so seven OR injections cannot yield64 in this family. This is a finite obstruction for the chosen augmentation family, not a general circuit lower bound. Artifacts: finite-search/theta_extend_virtual.py and status-review/theta-ranking-cover.json.
+
+Nevertheless, mixed theta027 plus eight injections produces a second verified 65-gate plane circuit with14 AND and51 OR gates, complementing the original13 AND/52 OR circuit. Data: finite-search/theta-extended-virtual-mixed-027.json; independent validator output theta-plane65-validation.json. All758 rows (52 positive,704 maximal negative,2 singleton) and both derivative recurrences pass.
+
+A twelve-gate branch of this new circuit is especially informative: it computes a bipartite C4-free tree with10 edges and minimum vertex cover3, using3 AND and9 OR gates, while double-reading an edge. Thus the generic equality-case claim AND=cover andOR=edges−1 implies no double-read is false even for trees. Graph: left vertex0 adjacent to right7,8,9,10; right7 adjacent additionally to left1,2,3; right10 adjacent additionally to left4,5,6. Double edge(1,7). Formula: A=r7(l1∨l2∨l3), V=l0∨A, R=r7∨r8∨r9, B=l4∨l5∨l6; output=(B∨V)∧(r10∨V R). It simplifies to r10B∨l0(r7∨r8∨r9∨r10)∨A. All2048 rows and both traces checked. Vertex cover{0,7,10} and matching{(0,8),(1,7),(4,10)} certify cover number3. Artifact: finite-search/tree10-double12-witness.json. Ordinary circuit optimum12 has NOT yet been established; the ordinary≤11 SAT run is separate. Any global plane proof must use its special minimum-cover structure, not generic bipartite equality-case linearity.
+
+## 2026-11-25 03:56 UTC — structure_proof active dirty gates and shared rectangle centers
+
+Checked stronger theorem `results/orch/lemmas/one_junk_active.lean` (595 lines, Defs-only): TopForm plus at most one dirty AND active on the chosen pair forces a surviving derivative. Thus a TopForm double witness needs two distinct dirty ANDs active on its pair. Build exit0; log `structure/one-junk-active-build.log`. Reviewer notified.
+
+Checked `results/orch/lemmas/rectangle_meet.lean` (174 lines, Defs-only): if the product of two pure bipartite rectangle functions is below the graph function, every common point is a full-row center of one rectangle and every common line is a full-column center of one rectangle. Under noK22 and all four axes having at least two elements, the unions of full centers have cardinal at most two per side and contain the entire intersection axes. This supports a shared-two-rectangle cover with at most four global centers plus one direct star center per clean top. A double accepted intersection supplies an adjacent point and line among these centers, allowing mixed-cover >=16 to force at least14AND when the cover count is <=AND+2. Still missing: actual circuit classification, singleton-axis and mixed-color dirty rectangles, and OR>=51.
+
+Rejected stronger claim: two active dirty ANDs need not both be false on both singleton endpoints. Root supplied nontrivial forest/plane example using D1=(p or a)(p or b), D2=(q or c)(q or d), clean product and separate edge terms. Simpler redundant example x AND (x OR z), y AND (y OR w), then their AND also kills both formal derivatives with no pair-only dirty gates. Do not use the pair-only strengthening without an independent size/minimality argument.
+
+## 2026-11-25T03:57:32.536764+00:00 Independent review: resource-safe merge and stronger structural helpers
+
+PASS for canonical 1232-line merge, SHA256 ed3ed0416ffca92a0f50934347d4db19c2b436812b312a0feec49d4665aacc69. Previously independently reviewed canonical_thin prefix is unchanged (SHA256 7a927bad2d530a03484c3e99d13f4c6ff9cc8bdf611bb44cd320c59d4625ebdb), and the reviewed one_junk body is unchanged under equivalent nested namespace OneJunk. Build007 metrics read directly: exit0,28.70 seconds,3982708KiB peak RSS. Imports, namespace closure and forbidden-pattern checks pass.
+
+PASS for one_junk_active.lean,595 lines,SHA256 1491416a933d6e51ae96961221ec057da9a547aeb12cc626d7753cfc9ee1077f. The assumption now bounds only dirty AND gates true on the chosen pair. All uniqueness uses correctly carry both pair-truth witnesses; the no-lower-AND argument now takes the parent truth too. TopForm remains essential.
+
+PASS for rectangle_meet.lean,174 lines,SHA256 2543182f13e1db7f954a4f3d6e59e9551d7226675382dada1e5eb6f03a9d3bae. Shared-axis vertices must form a full row or column in one of the two clean intersected rectangles, proved by a shared-point/two-nonneighbor assignment. No-rectangle bounds then give at most two global centers on each side. Existing filter body is unchanged. Both new files use Defs-only imports, allowed namespaces, and no forbidden patterns; complete build logs have deprecation warnings only with reported exit0.

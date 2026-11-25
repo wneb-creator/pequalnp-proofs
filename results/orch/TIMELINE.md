@@ -47,3 +47,9 @@
 2026-11-25T03:46:13.566283+00:00 lemma_route independently approved canonical_thin resource fix; exact statements and later body preserved.
 
 2026-11-25T03:46:44.814238+00:00 Checked resource fix and whole-circuit TopForm partial preserved before integration.
+
+2026-11-25T03:53:23.735693+00:00 finite_search: local SAT phase found no64 witness; theta OR-only augmentation ruled out for675 cores by source-cover bound8. Constructed and independently verified alternative plane65 with14AND/51OR. Extracted bipartite tree equality-case double-read counterexample.
+
+- 2026-11-25 03:56 UTC: structure_proof completes stronger active-pair dirty-count trace theorem and shared-rectangle center certificate; both Lean-checked. Pair-only dirty-count strategy rejected by counterexamples.
+
+2026-11-25T03:59:44.455140+00:00 Integrated resource-safe TopForm partial and active-junk/rectangle-meet snapshots saved.

@@ -3,7 +3,7 @@ Gap: L-meta-2602
 Status: checked partial components only; exact gap theorem is NOT proved.
 
 Sub-agents: 6 (status/counterexample search, structural proof, lemma route, finite search, toolchain, independent review)
-TIMING total=38.39 subagents=6
+TIMING total=54.27 subagents=6
 
 Lean: v4.36.0; pinned Mathlib cache fetched successfully (9117 files).
 Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean ../results/orch/lemmas/lemma_route.lean
@@ -54,3 +54,8 @@ Narrow imports plus translation reduce no-rectangle enumeration from 13^4 to 13^
 Whole-circuit partial one_junk: 590 lines, lake env lean exit 0, eight deprecation warnings.
 TopForm plus at most one dirty AND forces one derivative to survive. Independent review PASS.
 The posted size constraint does not yet imply these structural assumptions.
+
+Integrated canonical partial: 1232 lines; lake build exit 0, 28.70 seconds, peak 3,982,708 KiB (3.80 GiB).
+Independent merge review PASS. Resource concern resolved for this checked snapshot.
+Active-junk theorem and rectangle-meet helpers independently reviewed PASS and compiled; preserved separately pending integration.
+The full posted statement remains unproved.
