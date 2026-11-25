@@ -182,4 +182,113 @@ lemma baseline_nearWitness : ∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   P
       apply (Finset.mem_filter.mp hp).2 l hl
       simpa [near, Nat.add_comm] using incident
 
+lemma mixed_pair (a b y u v : Bool) :
+    (((y || (a && u)) || (b && v)) && (a || b)) =
+      ((a && (y || u)) || (b && (y || v))) := by
+  cases a <;> cases b <;> cases y <;> cases u <;> cases v <;> rfl
+
+def mixed65 : Circuit :=
+  { gates := [
+      ⟨GateOp.or, [14, 16]⟩,
+      ⟨GateOp.or, [26, 22]⟩,
+      ⟨GateOp.and, [0, 27]⟩,
+      ⟨GateOp.or, [15, 21]⟩,
+      ⟨GateOp.or, [29, 25]⟩,
+      ⟨GateOp.and, [1, 30]⟩,
+      ⟨GateOp.or, [14, 20]⟩,
+      ⟨GateOp.or, [32, 24]⟩,
+      ⟨GateOp.or, [33, 25]⟩,
+      ⟨GateOp.and, [2, 34]⟩,
+      ⟨GateOp.or, [13, 19]⟩,
+      ⟨GateOp.or, [36, 23]⟩,
+      ⟨GateOp.or, [37, 24]⟩,
+      ⟨GateOp.and, [3, 38]⟩,
+      ⟨GateOp.or, [18, 22]⟩,
+      ⟨GateOp.or, [40, 23]⟩,
+      ⟨GateOp.or, [41, 25]⟩,
+      ⟨GateOp.and, [4, 42]⟩,
+      ⟨GateOp.or, [17, 21]⟩,
+      ⟨GateOp.or, [44, 22]⟩,
+      ⟨GateOp.or, [45, 24]⟩,
+      ⟨GateOp.and, [5, 46]⟩,
+      ⟨GateOp.or, [16, 20]⟩,
+      ⟨GateOp.or, [48, 21]⟩,
+      ⟨GateOp.or, [49, 23]⟩,
+      ⟨GateOp.and, [6, 50]⟩,
+      ⟨GateOp.or, [15, 19]⟩,
+      ⟨GateOp.or, [52, 20]⟩,
+      ⟨GateOp.or, [53, 22]⟩,
+      ⟨GateOp.and, [7, 54]⟩,
+      ⟨GateOp.or, [14, 18]⟩,
+      ⟨GateOp.or, [56, 19]⟩,
+      ⟨GateOp.or, [57, 21]⟩,
+      ⟨GateOp.and, [8, 58]⟩,
+      ⟨GateOp.or, [13, 17]⟩,
+      ⟨GateOp.or, [60, 18]⟩,
+      ⟨GateOp.or, [61, 20]⟩,
+      ⟨GateOp.and, [9, 62]⟩,
+      ⟨GateOp.or, [16, 17]⟩,
+      ⟨GateOp.or, [64, 19]⟩,
+      ⟨GateOp.or, [65, 25]⟩,
+      ⟨GateOp.and, [10, 66]⟩,
+      ⟨GateOp.or, [15, 16]⟩,
+      ⟨GateOp.or, [68, 18]⟩,
+      ⟨GateOp.or, [69, 24]⟩,
+      ⟨GateOp.and, [11, 70]⟩,
+      ⟨GateOp.or, [14, 15]⟩,
+      ⟨GateOp.or, [72, 17]⟩,
+      ⟨GateOp.or, [73, 23]⟩,
+      ⟨GateOp.and, [12, 74]⟩,
+      ⟨GateOp.or, [13, 28]⟩,
+      ⟨GateOp.or, [76, 31]⟩,
+      ⟨GateOp.or, [0, 1]⟩,
+      ⟨GateOp.and, [77, 78]⟩,
+      ⟨GateOp.or, [79, 35]⟩,
+      ⟨GateOp.or, [80, 39]⟩,
+      ⟨GateOp.or, [81, 43]⟩,
+      ⟨GateOp.or, [82, 47]⟩,
+      ⟨GateOp.or, [83, 51]⟩,
+      ⟨GateOp.or, [84, 55]⟩,
+      ⟨GateOp.or, [85, 59]⟩,
+      ⟨GateOp.or, [86, 63]⟩,
+      ⟨GateOp.or, [87, 67]⟩,
+      ⟨GateOp.or, [88, 71]⟩,
+      ⟨GateOp.or, [89, 75]⟩],
+    output := 90 }
+
+def mixed65Expression (x : Fin 26 → Bool) : Bool :=
+  ((((((((((((((x 13 || (x 0 && ((x 14 || x 16) || x 22))) || (x 1 && ((x 15 || x 21) || x 25))) && (x 0 || x 1)) || (x 2 && (((x 14 || x 20) || x 24) || x 25))) || (x 3 && (((x 13 || x 19) || x 23) || x 24))) || (x 4 && (((x 18 || x 22) || x 23) || x 25))) || (x 5 && (((x 17 || x 21) || x 22) || x 24))) || (x 6 && (((x 16 || x 20) || x 21) || x 23))) || (x 7 && (((x 15 || x 19) || x 20) || x 22))) || (x 8 && (((x 14 || x 18) || x 19) || x 21))) || (x 9 && (((x 13 || x 17) || x 18) || x 20))) || (x 10 && (((x 16 || x 17) || x 19) || x 25))) || (x 11 && (((x 15 || x 16) || x 18) || x 24))) || (x 12 && (((x 14 || x 15) || x 17) || x 23)))
+
+lemma mixed65_size : mixed65.size = 65 := rfl
+
+lemma mixed65_monotone : Monotone2 mixed65 := by
+  simp [Monotone2, mixed65]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma mixed65_eval (x : Fin 26 → Bool) :
+    mixed65.eval (List.ofFn x) = mixed65Expression x := by
+  simp [mixed65, Circuit.eval, Circuit.wires, GateOp.eval, mixed65Expression, List.ofFn_succ]
+
+lemma mixed65_same (x : Fin 26 → Bool) :
+    mixed65Expression x = baselineExpression x := by
+  unfold mixed65Expression baselineExpression
+  rw [mixed_pair]
+  simp only [Bool.or_assoc]
+
+lemma mixed65_equiv (x : Fin 26 → Bool) :
+    mixed65.eval (List.ofFn x) = baseline.eval (List.ofFn x) := by
+  rw [mixed65_eval, mixed65_same, baseline_eval]
+
+lemma mixed65_correct (x : Fin 26 → Bool) :
+    mixed65.eval (List.ofFn x) = true ↔
+      ∃ p l : Fin 13, (p.val + l.val) % 13 ∈ ([0, 1, 3, 9] : List ℕ) ∧
+        x (pointWire p) = true ∧ x (lineWire l) = true := by
+  rw [mixed65_equiv, baseline_correct]
+
+lemma mixed65_sets (s t : Finset (Fin 13)) :
+    mixed65.eval (List.ofFn (baselineBits s t)) = true ↔
+      ∃ p ∈ s, ∃ l ∈ t, (p.val + l.val) % 13 ∈ ([0, 1, 3, 9] : List ℕ) := by
+  rw [mixed65_equiv, baseline_sets]
+
 end PEqualNP.Outside.L_meta_2056_aux
