@@ -830,29 +830,79 @@
     "sha256": "2544d46e492c8aa645dfae37b418fd45d0bc6929ee71124b02912fd24460184a"
   },
   {
+    "path": "results/orch/FINAL-DESK-STOP.md",
+    "bytes": 1351,
+    "sha256": "75f9ec48792179ed68b0d9d76caf4ed80f6ee377d66562dfb464f4dc943c0478"
+  },
+  {
     "path": "results/orch/README.md",
-    "bytes": 2724,
-    "sha256": "e33fc188a8edd7676e4600be3d70ffbbf217ccbbca6fa1438cf8547278b5f561"
+    "bytes": 2853,
+    "sha256": "5d61525d39b44cdbb267c41d8fa438a781e8ffef3374dd67236681dc0a924dc9"
   },
   {
     "path": "results/orch/TIMELINE.md",
-    "bytes": 2979,
-    "sha256": "435dd721a351bbbb1b94d7d059ec1d58440f1a05d2766a98203689945c3e987f"
+    "bytes": 3168,
+    "sha256": "71b733877e2d58c9465df2b34621e51d16e04947a3d673abb29e936fdaaf7aaa"
+  },
+  {
+    "path": "results/orch/checkpoint-01/validation.txt",
+    "bytes": 827,
+    "sha256": "0af4044d18b34aba28e543426e888791bc42d5bee62a89bd4ae0baca74994620"
+  },
+  {
+    "path": "results/orch/checkpoint-02/validation.txt",
+    "bytes": 726,
+    "sha256": "52147a222454ee6af099440c08ef7ce820e4a246f3d54a86d951ae4ca614c920"
+  },
+  {
+    "path": "results/orch/checkpoint-03/validation.txt",
+    "bytes": 613,
+    "sha256": "87bb08af87f8f0f27567e37a97eb3e86ff072af8753175c72f49aa2c78fb355f"
+  },
+  {
+    "path": "results/orch/checkpoint-04/validation.txt",
+    "bytes": 646,
+    "sha256": "983207cfa0c5e46860ce60eee1b14f0fa80dd332b9df71be95b7fd627deaaad9"
+  },
+  {
+    "path": "results/orch/checkpoint-05/validation.txt",
+    "bytes": 869,
+    "sha256": "2970fbc796aab443d576bc5593658fce1f439c03fede6f46fd6e2e1bba0896c8"
+  },
+  {
+    "path": "results/orch/checkpoint-06/validation.txt",
+    "bytes": 502,
+    "sha256": "97ffd4aa3e730688f75789bc93f1740f48fbe5457fe8e63ca6c3fb3cf955e9ed"
+  },
+  {
+    "path": "results/orch/desk-capacity-retry.json",
+    "bytes": 3241,
+    "sha256": "85b7e8636eccb567f7b967a4e828c4d94556480af089eb74eff0ac080953fc24"
   },
   {
     "path": "results/orch/desk-log-latest.txt",
-    "bytes": 15912,
-    "sha256": "50d6fdff72b850c0cd9d557b219296d8bcfe57a348686ed975b1063b72af8368"
+    "bytes": 22463,
+    "sha256": "e85d616263302b432b973a6465c4f3575c8d0d1cf942aecf01705a2133d54eff"
   },
   {
     "path": "results/orch/desk-log-latest.txt.raw.gz",
-    "bytes": 2747,
-    "sha256": "f4c85e72e5dc26140e5205dc2d0bbf246f00c698c2e0092fcfae8a04c0e0d570"
+    "bytes": 3023,
+    "sha256": "a87fd31f3ad09c37faf2193df17450e11cefc24f1827f1d6555b0a0ca2089ca6"
+  },
+  {
+    "path": "results/orch/desk-rerequest-2583.json",
+    "bytes": 3241,
+    "sha256": "85b7e8636eccb567f7b967a4e828c4d94556480af089eb74eff0ac080953fc24"
   },
   {
     "path": "results/orch/exact/README.md",
     "bytes": 827,
     "sha256": "7eef1b99784e0330b89c79b7046a15aed8df6a619fc9bcbe73351667f0f6b4bb"
+  },
+  {
+    "path": "results/orch/final-preservation-review.md",
+    "bytes": 1848,
+    "sha256": "df49f0414d0551f36c393bf7f0dda7e6624369a3c1ade2b094d7c310aab96330"
   },
   {
     "path": "results/orch/heartbeat-log-latest.txt",
@@ -923,5 +973,10 @@
     "path": "results/orch/search/README.md",
     "bytes": 2142,
     "sha256": "cc95086f31b15c2cbf3d1513db31db205e3cdfee0af0d84ab713c22798c40b91"
+  },
+  {
+    "path": "results/orch/validation.txt",
+    "bytes": 2023,
+    "sha256": "21568fe9023cd192bf460808cbdb2bf53ff51b49c103cc52e313ad373b4c0152"
   }
 ]

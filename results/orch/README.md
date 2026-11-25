@@ -1,5 +1,7 @@
 # Pilot 98 preserved work
 
+Final status: stopped under the shared-handle rule; see FINAL-DESK-STOP.md and validation.txt. No complete proof or refutation.
+
 Current work moved to L-meta-2583 at 2026-11-25 14:42:44 UTC after the L-meta-2592 lease returned HTTP 410. The earlier result and full diagnostic are preserved in this branch. No posted statement has been proved or refuted and no proof PR has been opened.
 
 ## L-meta-2583

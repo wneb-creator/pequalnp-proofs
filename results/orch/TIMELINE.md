@@ -23,3 +23,5 @@
 - 2026-11-25 15:06 UTC: L-meta-2583 renewal unexpectedly returned no-live-lease; exact curl -si diagnostic confirmed HTTP410 at15:06:34 UTC, despite successful prior renewal expiry15:23:57.574 UTC. All work stopped. Active type1 solver interrupted, no SAT/UNSAT verdict.
 
 - 2026-11-25 15:08 UTC: stopped-state preservation review confirms closed-boundary proof; all solver outcomes remain UNKNOWN or negative heuristic searches. Last timer renewal had expiry15:24:57.304 UTC, later than the410 diagnostic.
+
+- 2026-11-25 15:09:33 UTC: second recovery request returns the same pre-existing L-meta-2590 lease at five-gap cap. Stop under shared-handle rule; do not renew, release, or work that gap.

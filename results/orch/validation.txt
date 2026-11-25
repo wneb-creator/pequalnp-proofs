@@ -1,13 +1,21 @@
-PARTIAL RESULT — target not proved
-Gap:L-meta-2592
-Main file:lean/PEqualNP/Outside/L_meta_2592.lean,245lines, named lake build PASS.
-New finite certificate:results/orch/lemmas/union_prune_all_chunks.lean,7202lines,240513bytes, Lean exit0; all23426 triples checked.
-Certificate SHA256:953da8fd112cb367155e2c98d23af94a7ed60d40edd690cb9a93ee1c663177e1
-Independent certificate review:PASS, union-prune-review.md. It proves only starHelperSearch=false; semantic bridges to the full circuit statement remain missing.
-Local checker:CHECKER FAULT: the verifier ended without a verdict (exit137).
-Full target theorem absent; intake guard rejects that absence; no proof PR.
-Cleanup skipped: incomplete target and no checker acceptance. Main line count245→245; finite certificate7202→7202.
-Desk stopped ownlease withHTTP410 despite last reported expiry2026-11-25T14:54:59.114Z. All agent proof/search work stopped. Complete diagnostic headers/body:desk-error-full.txt.
-Desk null answers:0; no null-message text.
-Sub-agents:6 (environment/review, direct lower bound, counterexample, graphfacts, Lean structure, exact synthesis).
-TIMING total=56.2 subagents=6
+Job: pequalnp-pilot-98; KIT-MESSAGE-ID msg-774a21af73642a4c4444b057
+Started:2026-11-25T13:45:37+00:00
+Stopped:2026-11-25T15:10:22.484503+00:00
+
+No full posted proof or refutation found. No proof PR opened.
+
+L-meta-2592: named245-line partial lake build PASS. Exact-statement checker: CHECKER FAULT, verifier exited137 without verdict. Strongest separate finite certificate: union_prune_all_chunks.lean,7202lines,Leanexit0,23426unorderedtripleschecked; missing semantic bridges remain explicit.
+
+L-meta-2583: named3507-line partial lake build PASS (5149jobs). Exact-statement checker: processkilledexit137 before verdict. Source independentreviewPASS. The file proves read1 upper/lower bounds and normalization iff the unrestricted gate budget, but not the unrestricted budget or posted theorem. Additional checked boundary/shared-filter helpers and uncompiled filter drafts are preserved with distinct labels.
+
+Cleanup: no final-proof cleanup was run because no full theorem/checker acceptance exists. Named line counts remain245→245 and3507→3507 at the final preservation stage.
+
+All full build/checker/search logs are preserved. Text logs with whitespace normalized have .raw.gz originals. All work is on fork branch pnp/pilot-98; main files and results are partial-preservation artifacts, not a PR-ready single-file diff.
+
+Stop reason: twoHTTP410lease terminations, followed by two desk responses returning the same pre-existing L-meta-2590 lease at the shared handle cap. No L-meta-2590 work/renewal/release. Exactnote: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk null answers:0.
+
+Sub-agents: counterexample_search, direct_lower_bound, exact_synthesis, existing_reductions, lean_structure, status_review
+TIMING total=86.3 subagents=6
+Preservation finalized:2026-11-25T15:11:56.744101+00:00
+Ownership caveat: earlier cap responses were initially treated as new assignments; the repeated pre-existing recovery lease makes earlier ownership uncertain. No lease was released.
