@@ -1,0 +1,25 @@
+{
+  "status": "COMPILED and independently APPROVED",
+  "exit_code": 0,
+  "sha256": "4ab6771fe84d494a0a7791d6d14a868d4961588d733fa962855396695f6b4e60",
+  "lines": 881,
+  "log": "SharedLineMarker.build.log",
+  "log_bytes": 2779,
+  "completed_utc": "2026-11-25T07:44:51.746290+00:00",
+  "build_command": "lake env lean -j1 -M3072 ../results/orch/lemmas/algebra_strategy/SharedLineMarker.lean",
+  "build_session": 69917,
+  "scope": "Generic no-C4 common-neighbor bound: a shared OR-path marker inside two distinct centers line wings has raw support cardinality at most1; nonempty support is a singleton. Explicit support-subset and OR-reach premises. The singleton sharing case remains open; no full L650 exclusion.",
+  "copied_prefix": "Exact independently approved SingletonMixingMarker.lean",
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "final_gap_ready": false,
+  "format_scan": {
+    "forbidden_keywords": [],
+    "root_marker": false,
+    "quote": false,
+    "attributes": []
+  },
+  "review": "status_review: exact checked prefix,36line tail,source hash,full log,receipt and scope all pass"
+}
