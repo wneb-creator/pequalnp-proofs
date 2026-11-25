@@ -37,3 +37,7 @@
 - 2026-11-25 19:55 UTC: All remaining lower13 t1..12 closedcomputations and13-way assembly checked under6000MB;15.2s kernel. Root reviewed exact parameters and explicit t0 premise only for assembly demonstration; t0 separately proved. Savedcomplete source/log.
 
 - 2026-11-25 20:04 UTC: Compact certificate tables, six-stage budget decoder, full-field normalization, and largest binary leaf passed Lean under6000MB (13.8s kernel,50.8s wall,peak4,864,540KiB). Root independently reviewed normalization identity and closed kernel leaf check; no forbidden constructs. Preserving complete source/log before further resource optimization.
+
+- 2026-11-25 20:10 UTC: Re-plan after resource benchmarks: chunk large arrays, hash continuation lookups with exact-key checks, fully normalize states, and select a safe group cap. Full scratch candidate507,796bytes; full proof not yet checked. All previously compiled results already pushed.
+
+- 2026-11-25 20:12 UTC: IndexMask group-coverage helper kernel-checked (1.73ms). proof_route independent red-team review PASS: duplicate/unsorted group IDs are harmless, mask equality covers every required index without additional assumptions. Full source/log preserved.
