@@ -1,8 +1,8 @@
 Gap: L-meta-5012
 Partial only: posted theorem absent.
-Named target2114 lines: lake build PASSED; standard three axioms only for normalized_two_junk.
-New empty_wmax_exclusion.lean4095 lines: Lean PASSED; independently reviewed complete normalized both-wmax-empty exclusion.
+Named target6236 lines297366bytes: lake build PASSED.
+Stronger no_guarded_residual_exclusion.lean4574 lines228490bytes: Lean PASSED, independent glue review passed.
 Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing.
 Cleanup: not applicable to full proof yet.
 Sub-agents: 6 (status/reviewer, toolchain/matching/geometry, structural, finite search, restrictions, proof inventory)
-TIMING total=29.7 subagents=6
+TIMING total=35.9 subagents=6

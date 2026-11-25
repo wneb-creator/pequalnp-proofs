@@ -1,0 +1,29 @@
+{
+  "source": "lean/PEqualNP/Outside/L_meta_5412.lean",
+  "base_range": [
+    1,
+    2281
+  ],
+  "rename_from": "PEqualNP.Outside.L_meta_5412",
+  "rename_to": "PEqualNP.Outside.L_meta_5012.Surgery",
+  "additional_ranges": [
+    {
+      "name": "top_opnd_not_belowF",
+      "start": 2629,
+      "end": 2635
+    },
+    {
+      "name": "mixing_of_reaches_and_nonempty",
+      "start": 3997,
+      "end": 4059
+    },
+    {
+      "name": "exists_mixing_gt_g2",
+      "start": 4515,
+      "end": 4624
+    }
+  ],
+  "result_lines": 2466,
+  "sha256": "ee74db34ed3c503fa22b78b51718b69a2b1ed9447026a9e5ed94850c45ff2f0e",
+  "build_exit_code": 0
+}

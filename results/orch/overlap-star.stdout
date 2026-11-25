@@ -1,0 +1,6 @@
+../results/orch/lemmas/overlap_star_decomposition.lean:17:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hWQ] at ha'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

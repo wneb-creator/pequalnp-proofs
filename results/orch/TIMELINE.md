@@ -26,3 +26,11 @@
 - 2026-11-25T19:20:05.962235+00:00: private nested absorption subcase checked; structural cone-preservation extension in progress.
 - 2026-11-25T19:23:39.407239+00:00: lease renewed; expires 2026-11-25T19:43:38.257Z.
 - 2026-11-25T19:24:51.160319+00:00: normalized both-wmax-empty case excluded in Lean; two independent glue reviews; checkpoint8.
+
+- 2026-11-25T19:26:21+00:00: toolchain agent compiled matching-cover composition and overlap/singleton cleaner classification; requested independent review.
+
+- 2026-11-25T19:27:20.539043+00:00: late-mixing helper extraction compiled; frozen and submittedforindependentreview.
+- 2026-11-25T19:28:39.987247+00:00: lease renewed; expires 2026-11-25T19:48:39.000Z.
+
+- 2026-11-25T19:28:51+00:00: toolchain agent compiled singleton-overlap exact double-star pair decomposition.
+- 2026-11-25T19:31:06.241964+00:00: stronger no-guarded-residual case excluded; integrated empty-wmax case and further geometry/surgery reviewed; checkpoint9.

@@ -1,0 +1,4 @@
+{"n": 6, "gates": 8, "junk": 1, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]]}
+Error: unknown
+(error "line 175 column 140: model is not available")
+

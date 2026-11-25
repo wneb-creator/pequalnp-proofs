@@ -1,0 +1,5 @@
+{"n": 6, "gates": 8, "junk": 2, "edges": [[0, 1], [0, 5], [1, 2], [2, 3], [3, 4], [4, 5]], "critical": true, "rows": [3, 6, 9, 12, 18, 21, 24, 33, 36, 42, 48], "maximal_independent_sets": [9, 18, 21, 36, 42], "seed": 0, "timeout_ms": 120000}
+artifact twojunk-critical-062715af426d
+unsat
+
+elapsed 4.278199672698975

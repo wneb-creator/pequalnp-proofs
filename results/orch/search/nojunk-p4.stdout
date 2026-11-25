@@ -1,0 +1,21 @@
+{"n": 4, "gates": 4, "junk": 0, "edges": [[0, 1], [1, 2], [2, 3]]}
+sat
+
+elapsed 0.42516469955444336
+((a0 #b000)
+ (b0 #b001)
+ (op0 true)
+ (junk0 false)
+ (a1 #b001)
+ (b1 #b011)
+ (op1 false)
+ (junk1 false)
+ (a2 #b010)
+ (b2 #b100)
+ (op2 false)
+ (junk2 false)
+ (a3 #b101)
+ (b3 #b110)
+ (op3 true)
+ (junk3 false))
+

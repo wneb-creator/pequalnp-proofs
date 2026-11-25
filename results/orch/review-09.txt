@@ -1,0 +1,3 @@
+Independent reviewers cleared: named6236-line integration and cleaner-existence corollaries; master late-mixing extraction; bounded residual stars; overlap geometry, matching cover, nested independence, edge-hit necessity, nonleast C6 regression, and search snapshot.
+proof_inventory independently cleared root no_two_junk_without_guarded_residual glue: bounded earlyOR charge plus required laterOR gives contradiction.
+All listed Lean sources compiled; no full posted theorem claimed.

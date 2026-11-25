@@ -1,0 +1,4 @@
+{"n": 4, "gates": 4, "junk": 2, "edges": [[0, 1], [1, 2], [2, 3]]}
+Error: unsat
+(error "line 75 column 76: model is not available")
+

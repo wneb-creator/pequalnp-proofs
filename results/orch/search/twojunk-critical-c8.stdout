@@ -1,0 +1,7 @@
+{"n": 8, "gates": 11, "junk": 2, "edges": [[0, 1], [0, 7], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]], "critical": true, "rows": [3, 6, 12, 24, 37, 41, 48, 73, 74, 82, 85, 96, 129, 146, 148, 164, 170, 192], "maximal_independent_sets": [37, 41, 73, 74, 82, 85, 146, 148, 164, 170], "seed": 0, "timeout_ms": 600000}
+artifact twojunk-critical-e1f829605084
+unknown
+
+elapsed 600.120668888092
+(:reason-unknown "timeout")
+

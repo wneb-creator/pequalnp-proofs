@@ -1,0 +1,59 @@
+[
+  {
+    "B": 27,
+    "candidates": 9,
+    "pairs": 1,
+    "best": {
+      "B": 27,
+      "g": [
+        5,
+        34
+      ],
+      "h": [
+        20,
+        40
+      ],
+      "naive_gates": 11,
+      "edges_g": 35,
+      "edges_h": 28
+    }
+  },
+  {
+    "B": 45,
+    "candidates": 9,
+    "pairs": 1,
+    "best": {
+      "B": 45,
+      "g": [
+        10,
+        20
+      ],
+      "h": [
+        17,
+        34
+      ],
+      "naive_gates": 11,
+      "edges_g": 14,
+      "edges_h": 49
+    }
+  },
+  {
+    "B": 54,
+    "candidates": 9,
+    "pairs": 1,
+    "best": {
+      "B": 54,
+      "g": [
+        5,
+        10
+      ],
+      "h": [
+        17,
+        40
+      ],
+      "naive_gates": 11,
+      "edges_g": 7,
+      "edges_h": 56
+    }
+  }
+]
