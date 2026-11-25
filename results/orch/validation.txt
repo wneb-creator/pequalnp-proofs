@@ -4,6 +4,6 @@ File: lean/PEqualNP/Outside/L_meta_2448.lean
 Build: lake build PEqualNP.Outside.L_meta_2448, exit 0
 Local checker: REJECTED (no-theorem), expected for partial; full output retained.
 Independent red-team reviews: PASS for minimum existence, cross-nonedge witness, proper-pair-sound star criterion, and bipartite ownership lemma.
-Line counts: first partial 142; integrated partial 575; final cleanup not started.
+Line counts: first partial 142; integrated partial 639; final cleanup not started.
 Sub-agents: 6 (status review, structural proof, library route, finite cases, Lean setup, global normal form)
-TIMING total=13 subagents=6
+TIMING total=17 subagents=6

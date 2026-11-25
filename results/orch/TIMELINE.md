@@ -11,3 +11,5 @@ No complete proof or accepted submission yet.
 
 - 07:15:17: Checker rejected the first partial because main theorem is absent; this is expected, not proof acceptance. Lease renewed to 07:35:17.143 UTC.
 - 07:15:50: Integrated cross-nonedge and proper-pair-sound star criterion built successfully (575 lines). Standalone ownership bipartition lemma also compiled and independently reviewed.
+
+- 2026-11-25T07:19:50.514552+00:00: Integrated 64-line bipartite-ownership proof; named file builds with 639 lines. Independent review passed.

@@ -27,3 +27,17 @@ No checked general theorem mentioning HasStarProfile has that property as its co
 - `L_meta_3679.lean` is a checked counterexample to the claim that arbitrary bipartite graph functions have a least circuit with no AND gate in another AND gate cone. Its example has many four-cycles, so it does not refute this task, but rules out relying on an unrestricted Boolean homogeneous normalization theorem.
 - A potential no-four-cycle argument would show that sharing noninput subcomputations cannot improve the monotone formula bound; no complete argument found. The analogy to union/intersection circuits computing set families whose rows intersect in at most one point is suggestive but does not establish the single-output graph circuit claim.
 - GitHub-limited literature searches did not locate a primary theorem settling this normalization. No external claim was used in the partial Lean file.
+
+## Audit of L_meta_3760 one-junk proof
+
+The theorem needs bipartiteness in addition to no four-cycle. Its endpoint is that a least AO circuit cannot have exactly one dirty AND; this is stronger than star profile for one gate and not yet the target for arbitrary triangle-free graphs.
+
+Exact uses of `junk G C = {g}`:
+
+1. Lines 6846–6889 (`junk_single_props`): uniqueness proves no AND ancestor of g, and also that every AND ancestor of every clean top is g. Selecting the earliest dirty gate generalizes the first part, via TopForm excluding clean-AND ancestors. It does not generalize the second part.
+2. Lines 6932–6952 (`g_semantics`): g is a conjunction of two pure ORs. This local part extends to an earliest dirty gate. No global single-junk assumption is inherently needed once the ancestor-free condition is supplied.
+3. Lines 4191–4205 (`M1528.P2.final`): global uniqueness of every top AND ancestor is proved and passed into the abstract cover-count theorem at lines 4242–4245. This is the first decisive nonlocal obstacle.
+4. Lines 7163 onward (`ustar_edge_structure`): every residual edge fires g and has an endpoint in `wmax g`. This is a global attribution of all residual edges to the sole dirty gate.
+5. Lines 7678–7708 (`replace_gate_by_wire`): for a clean top, an operand not reaching g has no AND ancestor and therefore is a pure OR. With a second dirty gate, that operand may reach the other gate, so deletion soundness fails.
+
+Earliest/latest induction: earliest g gives pure input cones, while latest g rules out dirty descendants; neither eliminates other dirty ancestors of affected clean tops or disjoint dirty subsystems. A valid generalization needs a local residual-edge partition and disjoint accounting of shared OR/cone resources. Merely summing the one-gate counting argument would count shared gates multiple times. No valid iterative repair was obtained from this proof.

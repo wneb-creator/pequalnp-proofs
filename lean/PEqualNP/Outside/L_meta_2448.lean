@@ -571,5 +571,69 @@ lemma star_of_proper_pair_sound (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRe
   · left
     exact fun u v huv ho => used ⟨u, v, huv, ho⟩
 
+open PEqualNP.EdgeOwnership PEqualNP.MetaComplexity.NestedCover
+
+lemma owns_bipartite_of_singleton_silent (n : ℕ) (C : Circuit) (j : ℕ)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (hs : ∀ u : Fin n, gateVal n C j (pairInput u u) = false) :
+    ∃ color : Fin n → Bool, ∀ u v : Fin n,
+      Owns n C j u v → color u ≠ color v := by
+  by_cases hex : ∃ u v : Fin n, Owns n C j u v
+  · obtain ⟨u0, v0, ho⟩ := hex
+    have hj := ho.1
+    have hop := ho.2.1
+    rw [gateAt_eq C j hj] at hop
+    let val (i : ℕ) (u : Fin n) :=
+      (wf (C.gates.take j) (List.ofFn (pairInput u u))).getD i false
+    have polar (u v : Fin n) (ho : Owns n C j u v) (i : ℕ)
+        (hi : i ∈ C.gates[j].inputs) : val i u = true ∨ val i v = true := by
+      have hown : ∀ k, InCone n C k j → (gateAt C k).op = GateOp.and →
+          gateVal n C k (pairInput u v) = false :=
+        fun k hc ha => ho.2.2.2 k (cone_idx n C.gates j k hc) hc ha
+      have hv := ho.2.2.1
+      rw [valf n C _ j hj, hop] at hv
+      simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp, id] at hv
+      obtain ⟨w, hw, hr⟩ := wire_reach n C hm _ j hj
+        (fun k hk a b c => or_reach n C hm _ k (lt_trans hk hj) a b c)
+        hown i hi (hv i hi)
+      have hwu : w = u ∨ w = v := of_decide_eq_true hw
+      rcases hwu with rfl | rfl
+      · exact Or.inl (hr _ (by simp [pairInput]))
+      · exact Or.inr (hr _ (by simp [pairInput]))
+    have silent (u : Fin n) (hr : ∀ i ∈ C.gates[j].inputs, val i u = true) : False := by
+      have hv : gateVal n C j (pairInput u u) = true := by
+        rw [valf n C _ j hj, hop]
+        simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp, id]
+        exact hr
+      rw [hs u] at hv
+      contradiction
+    have hlen := (hm _ (List.getElem_mem hj)).2
+    match hin : C.gates[j].inputs, hlen with
+    | [], _ => exact (silent u0 (by simp [hin])).elim
+    | [p], _ =>
+      rcases polar u0 v0 ho p (by simp [hin]) with hu | hv
+      · exact (silent u0 (by simpa [hin] using hu)).elim
+      · exact (silent v0 (by simpa [hin] using hv)).elim
+    | [p, q], _ =>
+      have separate (u : Fin n) (hp : val p u = true) (hq : val q u = true) : False := by
+        apply silent u
+        intro i hi
+        rcases (by simpa only [hin, List.mem_cons, List.not_mem_nil, or_false] using hi :
+            i = p ∨ i = q) with rfl | rfl
+        · exact hp
+        · exact hq
+      refine ⟨val p, ?_⟩
+      intro u v huv he
+      have hup := polar u v huv p (by simp [hin])
+      have huq := polar u v huv q (by simp [hin])
+      rcases hup with hup | hvp <;> rcases huq with huq | hvq
+      · exact separate u hup huq
+      · exact separate v (he ▸ hup) hvq
+      · exact separate u (he.symm ▸ hvp) huq
+      · exact separate v hvp hvq
+    | _ :: _ :: _ :: _, h => simp at h
+  · refine ⟨fun _ => false, ?_⟩
+    intro u v ho
+    exact (hex ⟨u, v, ho⟩).elim
 
 end PEqualNP.Outside.L_meta_2448.cross
