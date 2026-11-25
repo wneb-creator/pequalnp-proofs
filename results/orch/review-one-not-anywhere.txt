@@ -1,0 +1,12 @@
+PASS: independent original-index semantics and counting review for the AND/NOT-anywhere consumer.
+Source: results/orch/lemmas/OneNotAnywhere.lean
+SHA256: 5a672b8a8b0b1512e70e9aa3652de85189a7957c8f8e6a4c971e8bc4c7c99e49
+Size:5140 bytes,112 lines. Author-reported EXIT0; preserved complete compiler log contains no diagnostics and the explicit exit record.
+
+The circuit decomposition is explicit: positive pre, AND of distinct original input indices a,b, positive mid, NOT of index10+pre.length, positive post. Thus the NOT really complements that specific AND even when the two gates are separated. execute_prefix proves existing wires are never changed; execute_length locates the AND at the exact original index. execute_input preserves every original Fin10 input across arbitrary pre. getD_append_slot selects the AND after arbitrary mid execution. No gate list is reordered and no references or out-of-range defaults are renumbered.
+
+The actual full table is decomposed into these original execution chunks. output_member supplies graph membership using the real Circuit semantics. The consumer pulls post, mid and pre backwards through the reviewed FreeBank interface, carrying the same two truth functions h and NOT h as free available values. The fixed free bank is a proof-side availability set: gate_rep_free evaluates gv at the original w and only weakens representation into w++free, so appended free functions do not alter actual gate lookup/default semantics. Each explicit AND/NOT gate is skipped only after proving its actual value belongs to that bank. The three length bounds compose to at most pre.length+mid.length+post.length positive Live gates.
+
+The resulting roots lie in inputs plus h and NOT h. The already reviewed all_positive_tail_lower gives at least18 gates, including the case where one or both extra functions are unused. Adding the two explicit special gates yields Circuit.size at least20. The theorem covers a single NOT of an AND of two distinct original variables, at arbitrary positions amid positive chunks. It makes no normalization claim for other one-NOT circuits and does not prove the posted gap.
+
+I read the full112-line consumer and the exact FreeBank interface/proof-side gate semantics. Counterexample is independently reviewing the extractor module itself. Both imports have preserved archived source. No forbidden namespace substring, strings, attributes, holes, new axioms, native_decide, or options occur in this consumer. No additional Lean build was needed for the independent review.

@@ -1,0 +1,2 @@
+import OneNotAnywhere
+#print axioms PEqualNP.Outside.L_meta_2373.Live1024.OneNotFirstAnd.anywhere_circuit_lower

@@ -1,0 +1,3 @@
+PASS: finite benchmark only.
+Source SHA256: fc8f66500f966f2e22bdc23d6aee4adf1e3d2d1731663cf8f0d834ece81ca65c
+Independently decoded all225 packed3-bit signed weights and matched RectangleOrEdge matrix exactly. Parsed all20 mask/cap entries and matched the actual profile census. Independently enumerated2560 selected subsets and verified every maximum is at most its stated cap. Lean computation checks exactly those20Boolean facts with ordinary decide+kernel; no semantic rectangle theorem is claimed by this benchmark. Both options are local limits and import is Defs only. Archived compiler log is empty; timing metadata records EXIT0 in7.707seconds and3607424KiB peak RSS.

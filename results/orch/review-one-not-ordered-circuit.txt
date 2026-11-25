@@ -1,0 +1,10 @@
+PASS: independent review of the ordinary ordered-prefix circuit exclusion.
+Source: results/orch/lemmas/OneNotOrderedCircuit.lean
+SHA256: 90b3ccd1599eef20af3177a4075835fbeb1fbcff0a2c338937f982a597281c05
+Size: 2957 bytes, 72 lines. Rebuilt EXIT0 against the renamed MonotoneEighteen; preserved full compiler output has no diagnostics and the explicit exit record.
+
+The theorem fixes the exact syntactic prefix: AND of two distinct original Fin10 input indices, then NOT of wire10, followed only by AND/OR gates. Its finite prefix-table equality is kernel checked for all original operand pairs. The output-member proof uses the existing exact circuit/table semantics and the posted edge function; an out-of-range output would be the zero truth table, contradicted by graph_proper, so no hidden well-formed-output assumption is needed.
+
+The positive-tail extractor receives the actual post-prefix bank and the tail's explicit legal/no-NOT premises. It yields a genuine Live false run with at most the tail length and roots contained in that bank. The exact Finset conversion is inputs plus h and NOT h. The reviewed all_positive_tail_lower gives18 gates even if extraction discarded both prefix outputs. Adding the two explicit prefix gates yields size at least20. The exclusion corollary then combines this with size at most19. All counts are ordinary circuit gate counts; no normalization or topological reordering of arbitrary prefixes is asserted.
+
+I read all source, its imported extractor, and the complete new MonotoneEighteen argument. Final bytes match the frozen hash; imports have archived reviewed sources. Only the two permitted local resource limits occur, and the source contains no forbidden namespace substring, strings, attributes, holes, new axioms, or native_decide. The result covers this ordered AND-then-NOT family only; it is not the complete posted L-meta-2373 theorem.

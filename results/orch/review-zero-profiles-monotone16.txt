@@ -1,0 +1,7 @@
+Independent source review by status_review: PASS.
+
+Frozen lemmas/ZeroProfilesMonotone16.lean SHA256 caa3864f60226b466f32c8dd2e21b4e15ca48336ba3f187daa67891a5781c10f,930bytes. The preserved log records compiler exit0 and no diagnostics; the author independently confirmed the completed build. Both imported modules, NineMonotoneExtension and SliceProfiles, are preserved and reviewed.
+
+slice_monotone16 applies the already checked Slice_from_nine transport using exactly the existing rowMap, domain, target equality, and arbitrary-mode input availability. Its sole stronger premise is the newly checked NineSigned.nine_monotone_reach_lower, Lower false inputs graph16. There is no new finite literal data or changed row restriction. slice_mode_bound splits on the Boolean mode and returns the previous signed15 result or the new monotone16 result, with the correct mode-dependent bound.
+
+The archived repository-relative nine-monotone-replay_extraction.py was inspected and rerun successfully against the preserved extraction map and sources; it reproduces the same0223291f... extension hash without scratch inputs. No inline combined-source compilation is claimed by this wrapper or review. No prohibited source constructs occur, and the result remains a cofactor bound rather than the exact posted gap.

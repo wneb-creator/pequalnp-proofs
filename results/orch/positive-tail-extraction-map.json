@@ -1,0 +1,26 @@
+{
+  "live_proper": {
+    "source_block_sha256": "b71d8ca225fdc131fdc797024f83c93111ce905ab688d0792f391874fee4cbab",
+    "byte_identical_in_new_module": true
+  },
+  "neg_laws": {
+    "source_block_sha256": "38c77612b34dd294f0d6914c6b11e3e8a6928b7672bc046b54b429edf46b61e1",
+    "byte_identical_in_new_module": true
+  },
+  "get_rep": {
+    "source_block_sha256": "2ecf427ebdf1826e8f63ca7080c38e966ad0394dbdd92b869b20a3325442a07b",
+    "byte_identical_in_new_module": true
+  },
+  "gate_rep": {
+    "source_block_sha256": "2f28234142a0e0ab86f6f1b7a4749fc60c4de84abbfbce545eca579334366897",
+    "byte_identical_in_new_module": true
+  },
+  "pull_gate": {
+    "source_block_sha256": "d9df09bd8a164022ab80e37bf0c180a3dc78456a8a88ba8289bd995badc431c0",
+    "byte_identical_in_new_module": true
+  },
+  "extract": {
+    "source_block_sha256": "b1b0aac43876b6f39b99bab6daa00f34be1f78cd663fa110527ee586d0fc1ca9",
+    "byte_identical_in_new_module": true
+  }
+}

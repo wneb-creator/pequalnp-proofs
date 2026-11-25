@@ -1,0 +1,12 @@
+Independent source/mathematical review by root: PASS for the stated Live-state family.
+Source: results/orch/lemmas/OneNotFirstAnd.lean
+SHA256: ed0e755946cb01fdcbe52bd0fc8bf34df7a8e019f86a07f18c417c615b0e97fe
+Reviewed: 2026-11-25T15:30:15.508473+00:00
+
+Read all source and checked the exact use of projected_bound, the previously reviewed two-constant mass lemma, row witnesses, and new monotone nine-input lower16 endpoint. mono_reach_bridge transfers only the false/positive Reach constructors, preserving initial bank and gate count. The projected theorem supplies every restricted root from the nine inputs or constants, then uses two distinct original roots whose projections are constant; duplicate projected values remain two occurrences. The lower bound is16 plus their lost-root mass2, hence18.
+
+For h=x_a AND x_b with a different from b, the checked row witness forces original input a to remain in every Live state drawn from inputs plus h and its complement. Both extra functions agree on that witness, so complement availability does not invalidate retention. Under a=0, input a and h are false, and complement h is true. The finite distinctness fact concerns original truth functions, not projected constants. Therefore using either extra function supplies the necessary second distinct constant occurrence. No assumption that h and its complement are independent inputs enters the proof.
+
+positive_tail_lower requires an actual positive Live run, subset membership in the explicit bank, and use of an extra wire. prefix_exclusion combines only that conditional result with k+2<=19. It does not yet exclude every ordinary circuit with that syntactic prefix: extraction must justify use of an extra wire or separately handle a resulting run on the original inputs alone. The author was notified of this boundary.
+
+The preserved compiler log contains only the explicit exit-code0 record and no compiler diagnostics. Imports resolve to checked archived components. Only local permitted limits occur; no holes, axioms, native evaluation, forbidden namespace text, strings, or attributes. The original posted gap remains unproved.

@@ -109,3 +109,24 @@
 - 2026-11-25T15:19:38.945705+00:00: counterexample compiled all76 independent-set canonicalization and nonempty5-case corollary, source5195bytes, EXIT0/emptylog.
 
 2026-11-25T15:21:32.440179+00:00 root20–30minute re-plan: compactcheckedfixturepreserved; resumablewholecaseweightedsearch; bounded signed18 witnessroute; genericHeawoodrouteinsufficient; originalgoalstillopen.
+
+- 2026-11-25 15:21:17 UTC — lean_setup launched fresh signed18 first-AND-edge bounded search with no resume, one CPU and 1GB address-space ceiling.
+- 2026-11-25 15:26:17 UTC — bounded run completed its 300-second allowance: 446,597 nodes, no witness, root still open; complete trace and completed-only cache archived. This strategy remains unresolved.
+
+2026-11-25T15:30:12.471205+00:00 finite_invariants: packed rectangle benchmark20profiles passed; shared certificate source/kernel feasibility measured; awaiting generic fast-check soundness.
+
+- 2026-11-25T15:32:16.700130+00:00: counterexample finished bounded I=empty analysis: carrier-diamond gate-saving argument, exact two independent contamination triples per input, and computational counterexample to unrestricted quadratic extraction. Petersen contradiction remains unproved.
+
+- 2026-11-25 15:32:27 UTC — lean_setup completed PositiveTailExtraction (EXIT0, empty compiler log), supplying arbitrary-bank monotone-tail extraction to the ordered one-NOT prefix proof.
+
+- 2026-11-25T15:34:23.946661+00:00: proof_structure completed ordinary ordered AND→NOT circuit lower20; EXIT0, no compiler warnings; independent wrapper review requested.
+
+- 2026-11-25T15:39:56.358891+00:00: counterexample independently validated all8 newly tailored DynamicV1 rectangle matrices on8 actual second-orbit banks;64exact cross-pairs, all8producer claims match, margins1–6. Full immutable audit archived.
+
+- 2026-11-25T15:42:40.711873+00:00: proof_structure checked arbitrary-location AND-of-inputs / sole-NOT exclusion at size19; full ordinary circuit theorem20≤size compiled EXIT0.
+
+- 2026-11-25T15:44:58.623468+00:00 counterexample: exact7×119 symmetry-matrix audit PASS;833 combinations,406 profiles,119/119 banks covered. Full archive ready for parent checkpoint.
+
+- 2026-11-25T15:49:10.384030+00:00: proof_structure completed generic forced-pair source-value / later-NOT ordinary circuit lower20, compiled EXIT0.
+
+- 2026-11-25T15:49:36.450968+00:00 counterexample: all in-flight dynamic matrix audits complete and archived. First-OR-edge search now computationally finished perlibrary; later optional matrices explicitly separated.

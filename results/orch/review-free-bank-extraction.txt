@@ -1,0 +1,13 @@
+Independent review: PASS
+UTC: 2026-11-25T15:43:18.794233+00:00
+Reviewer: /root/counterexample
+Source: results/orch/lemmas/FreeBankExtraction.lean
+SHA256: 7aa500427f2c9bd37fdd1b790a2f07529f2d3c0c02c105bbddb74e5d08eb5d15
+Bytes: 8491
+Compiler evidence: archived log reports exit 0 with no diagnostics. No compiler rerun in this review.
+
+Scope: The entire pre-existing PositiveTailExtraction prefix is identical after namespace renaming and trailing whitespace normalization. Reviewed all three new declarations gate_rep_free, pull_positive_chunk, skip_free_gate.
+
+The gate representation computes gv w g on the original execution list w and extends only representation/witness membership to w ++ free. Therefore free values cannot change any index lookup, including out-of-range default-zero behavior. pull_positive_chunk inducts over the actual execute state w ++ [gv w g], reorders only list membership, and consumes at most one positive gate per step through pull_gate. Fixed free roots stay available throughout; no free gate is charged or semantically executed. skip_free_gate discards only the extra list occurrence of a value already proven to belong to free. Duplicate values cause no issue because the Live subset statements use membership.
+
+Trust/format checks: no new axiom, sorry, native_decide, forbidden root namespace text, string literals, attributes, options, or imports beyond the existing cached ancestor. This is helper soundness, not a complete one-NOT lower bound; the separately compiled consumer needs its own review.

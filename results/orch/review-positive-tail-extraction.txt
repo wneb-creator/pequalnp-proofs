@@ -1,0 +1,4 @@
+PASS: immutable public positive-tail extractor.
+Source SHA256: f74f1e7f095c0dccc1bc3edba3597c8b8b4093d6ef9d459615e973591f11c66b
+Read all133lines. Six private helper blocks are independently byte-compared unchanged against Live1024Count (ignoring inter-declaration whitespace only). The new wrapper fixes mode false, proves normalization identity by reflexivity, invokes the generic backward extraction, and weakens countP to tail length. Every extracted root remains a member of the supplied initial list. Legal operations and absence of tail NOTs remain explicit; no assumptions about unused prefix outputs are introduced.
+Compile: archived full log and parent-reported EXIT0; empty compiler log. Allowed scratch cached import; final standalone assembly still must remove cached imports. No axioms, sorry, native_decide, forbidden tokens, global options or new instances.

@@ -1,0 +1,4 @@
+import OneNotOrderedCircuit
+#print axioms PEqualNP.Outside.L_meta_2373.NineSigned.nine_monotone_reach_lower
+#print axioms PEqualNP.Outside.L_meta_2373.LiftSeventeen.monotone_rt_lower
+#print axioms PEqualNP.Outside.L_meta_2373.Live1024.OneNotFirstAnd.ordered_circuit_lower
