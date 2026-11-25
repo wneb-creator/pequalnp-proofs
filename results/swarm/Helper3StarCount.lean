@@ -1540,3 +1540,388 @@ lemma component_productive_or_count {ι : Type*} [DecidableEq ι]
 
 
 end PEqualNP.Outside.L_meta_4970_aux
+
+namespace PEqualNP.Outside.L_meta_4970.ChosenForest
+
+open Classical
+open Connectivity
+
+variable {α : Type*} [Fintype α] [DecidableEq α]
+
+omit [Fintype α] in
+lemma bridge_support (F : SimpleGraph α) (A B S : Finset α)
+    (hA : Connects F A) (hB : Connects F B) (hS : S ⊆ A ∪ B)
+    (hnc : ¬ Connects F S) :
+    ∃ u ∈ S, ∃ v ∈ S, ¬ F.Reachable u v ∧
+      Connects (F ⊔ SimpleGraph.edge u v) S := by
+  classical
+  have cross : ∀ u ∈ S, ∀ v ∈ S, u ∈ A → v ∈ B → ¬ F.Reachable u v →
+      Connects (F ⊔ SimpleGraph.edge u v) S := by
+    intro u hu v hv huA hvB hn
+    have hne : u ≠ v := fun he => hn (he ▸ SimpleGraph.Reachable.rfl)
+    have hed : (SimpleGraph.edge u v).Adj u v := by simp [SimpleGraph.edge_adj, hne]
+    have huv : (F ⊔ SimpleGraph.edge u v).Reachable u v := hed.reachable.mono le_sup_right
+    intro x hx y hy
+    rcases Finset.mem_union.mp (hS hx) with hxA | hxB <;>
+      rcases Finset.mem_union.mp (hS hy) with hyA | hyB
+    · exact (hA x hxA y hyA).mono le_sup_left
+    · exact ((hA x hxA u huA).mono le_sup_left).trans
+        (huv.trans ((hB v hvB y hyB).mono le_sup_left))
+    · exact ((hB x hxB v hvB).mono le_sup_left).trans
+        (huv.symm.trans ((hA u huA y hyA).mono le_sup_left))
+    · exact (hB x hxB y hyB).mono le_sup_left
+  dsimp [Connects] at hnc
+  push Not at hnc
+  obtain ⟨u, hu, v, hv, hn⟩ := hnc
+  rcases Finset.mem_union.mp (hS hu) with huA | huB <;>
+    rcases Finset.mem_union.mp (hS hv) with hvA | hvB
+  · exact False.elim (hn (hA u huA v hvA))
+  · exact ⟨u, hu, v, hv, hn, cross u hu v hv huA hvB hn⟩
+  · have hnr : ¬ F.Reachable v u := fun hr => hn hr.symm
+    exact ⟨v, hv, u, hu, hnr, cross v hv u hu hvA huB hnr⟩
+  · exact False.elim (hn (hB u huB v hvB))
+
+
+omit [Fintype α] in
+lemma labelled_support_forest (safe split : ℕ → Prop) (T : ℕ → Finset α)
+    (h : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b)) :
+    ∀ M, ∃ (F : SimpleGraph α) (label : Sym2 α → ℕ),
+      F.IsAcyclic ∧ Set.InjOn label F.edgeSet ∧
+      (∀ e ∈ F.edgeSet, label e < M ∧ safe (label e) ∧ split (label e) ∧
+        2 ≤ (T (label e)).card ∧
+        ∃ u ∈ T (label e), ∃ v ∈ T (label e), e = s(u, v)) ∧
+      ∀ w < M, safe w → Connects F (T w) := by
+  classical
+  intro M
+  induction M with
+  | zero =>
+    refine ⟨⊥, fun _ => 0, SimpleGraph.isAcyclic_bot, ?_, ?_, ?_⟩
+    · intro e he
+      simp at he
+    · intro e he
+      simp at he
+    · intro w hw
+      exact False.elim (Nat.not_lt_zero w hw)
+  | succ M ih =>
+    obtain ⟨F, label, hacyc, hinj, hlab, hconn⟩ := ih
+    have keep : (safe M → Connects F (T M)) →
+        ∃ (F' : SimpleGraph α) (label' : Sym2 α → ℕ),
+          F'.IsAcyclic ∧ Set.InjOn label' F'.edgeSet ∧
+          (∀ e ∈ F'.edgeSet, label' e < M + 1 ∧ safe (label' e) ∧ split (label' e) ∧
+            2 ≤ (T (label' e)).card ∧
+            ∃ u ∈ T (label' e), ∃ v ∈ T (label' e), e = s(u, v)) ∧
+          ∀ w < M + 1, safe w → Connects F' (T w) := by
+      intro hnew
+      refine ⟨F, label, hacyc, hinj, ?_, ?_⟩
+      · intro e he
+        exact ⟨Nat.lt_succ_of_lt (hlab e he).1, (hlab e he).2⟩
+      · intro w hw hsw
+        by_cases he : w = M
+        · subst w
+          exact hnew hsw
+        · exact hconn w (by omega) hsw
+    by_cases hs : safe M
+    · by_cases hc : Connects F (T M)
+      · exact keep (fun _ => hc)
+      · have hcard : 2 ≤ (T M).card := by
+          by_contra hn
+          exact hc (connects_of_card_le_one F (T M) (by omega))
+        rcases h M hs with hsmall | hb | ⟨hsp, a, b, ha, hb, hsa, hsb, hT⟩
+        · exact False.elim (hc (connects_of_card_le_one F (T M) hsmall))
+        · obtain ⟨a, ha, hsa, hT⟩ := hb
+          exact False.elim (hc (connects_subset (hconn a ha hsa) hT))
+        · obtain ⟨u, hu, v, hv, hnreach, hnewconn⟩ :=
+            bridge_support F (T a) (T b) (T M) (hconn a ha hsa) (hconn b hb hsb) hT hc
+          have hne : u ≠ v := fun he => hnreach (he ▸ SimpleGraph.Reachable.rfl)
+          have hnot : s(u, v) ∉ F.edgeSet := by
+            intro he
+            have hadj : F.Adj u v := by simpa using he
+            exact hnreach hadj.reachable
+          let label' : Sym2 α → ℕ := Function.update label s(u, v) M
+          have hnew : label' s(u, v) = M := by simp [label']
+          have hold : ∀ e ∈ F.edgeSet, label' e = label e := by
+            intro e he
+            have hne' : e ≠ s(u, v) := fun heq => hnot (heq ▸ he)
+            simp [label', hne']
+          have hsup : (F ⊔ SimpleGraph.edge u v).edgeSet = insert s(u, v) F.edgeSet := by
+            rw [SimpleGraph.edgeSet_sup, SimpleGraph.edgeSet_edge_of_ne hne]
+            ext e
+            simp
+          refine ⟨F ⊔ SimpleGraph.edge u v, label',
+            hacyc.sup_edge_of_not_reachable hnreach, ?_, ?_, ?_⟩
+          · intro e he f hf heq
+            rw [hsup] at he hf
+            rcases Set.mem_insert_iff.mp he with rfl | he <;>
+              rcases Set.mem_insert_iff.mp hf with rfl | hf
+            · rfl
+            · rw [hnew, hold f hf] at heq
+              exact False.elim ((Nat.ne_of_lt (hlab f hf).1) heq.symm)
+            · rw [hold e he, hnew] at heq
+              exact False.elim ((Nat.ne_of_lt (hlab e he).1) heq)
+            · rw [hold e he, hold f hf] at heq
+              exact hinj he hf heq
+          · intro e he
+            rw [hsup] at he
+            rcases Set.mem_insert_iff.mp he with rfl | he
+            · rw [hnew]
+              exact ⟨Nat.lt_succ_self M, hs, hsp, hcard, u, hu, v, hv, rfl⟩
+            · rw [hold e he]
+              exact ⟨Nat.lt_succ_of_lt (hlab e he).1, (hlab e he).2⟩
+          · intro w hw hsw
+            by_cases he : w = M
+            · subst w
+              exact hnewconn
+            · exact connects_mono (hconn w (by omega) hsw) le_sup_left
+    · exact keep (fun hsm => False.elim (hs hsm))
+
+
+lemma chosen_support_forest (safe split : ℕ → Prop) [DecidablePred safe]
+    [DecidablePred split] (T : ℕ → Finset α)
+    (h : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b))
+    (M : ℕ) :
+    ∃ (F : SimpleGraph α) (K : Finset ℕ) (label : Sym2 α → ℕ),
+      F.IsAcyclic ∧ Set.InjOn label F.edgeSet ∧ K = F.edgeFinset.image label ∧
+      K ⊆ (Finset.range M).filter (fun k => safe k ∧ split k ∧ 2 ≤ (T k).card) ∧
+      K.card + Nat.card F.ConnectedComponent = Fintype.card α ∧
+      (∀ e ∈ F.edgeSet, ∃ u ∈ T (label e), ∃ v ∈ T (label e), e = s(u, v)) ∧
+      ∀ w < M, safe w → Connects F (T w) := by
+  classical
+  obtain ⟨F, label, hacyc, hinj, hlab, hconn⟩ := labelled_support_forest safe split T h M
+  let K : Finset ℕ := F.edgeFinset.image label
+  have hcard : K.card = F.edgeFinset.card := by
+    apply Finset.card_image_of_injOn
+    intro e he f hf hef
+    exact hinj (by simpa using he) (by simpa using hf) hef
+  have hedge : F.edgeSet.ncard = F.edgeFinset.card := by
+    rw [← Set.fintypeCard_eq_ncard, SimpleGraph.edgeFinset_card]
+  refine ⟨F, K, label, hacyc, hinj, rfl, ?_, ?_, ?_, hconn⟩
+  · intro k hk
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hk
+    have hp := hlab e (by simpa using he)
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hp.1, hp.2.1, hp.2.2.1, hp.2.2.2.1⟩
+  · have hrank := hacyc.ncard_edgeSet_add_card_connectedComponent
+    rw [hedge, ← hcard, @Nat.card_eq_fintype_card α _] at hrank
+    exact hrank
+  · intro e he
+    exact (hlab e he).2.2.2.2
+
+omit [DecidableEq α] in
+lemma spanning_forest_certificate (G : SimpleGraph α) :
+    ∃ F : SimpleGraph α, F ≤ G ∧ F.IsAcyclic ∧
+      (∀ u v, F.Reachable u v ↔ G.Reachable u v) ∧
+      F.edgeFinset.card + Nat.card F.ConnectedComponent = Fintype.card α := by
+  classical
+  obtain ⟨F, hle, hacyc, hreach⟩ := G.exists_isAcyclic_reachable_eq_le
+  refine ⟨F, hle, hacyc, ?_, ?_⟩
+  · intro u v
+    rw [hreach]
+  · have hrank := hacyc.ncard_edgeSet_add_card_connectedComponent
+    have hedge : F.edgeSet.ncard = F.edgeFinset.card := by
+      rw [← Set.fintypeCard_eq_ncard, SimpleGraph.edgeFinset_card]
+    rw [hedge, @Nat.card_eq_fintype_card α _] at hrank
+    exact hrank
+
+
+lemma chosen_connected_frontier [Nonempty α] (safe split : ℕ → Prop)
+    [DecidablePred safe] [DecidablePred split] (T : ℕ → Finset α)
+    (h : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b))
+    (M : ℕ) (W : Finset ℕ) (hW : ∀ w ∈ W, w < M ∧ safe w)
+    (hc : ∀ u v : α, Relation.ReflTransGen
+      (fun a b => ∃ w ∈ W, a ∈ T w ∧ b ∈ T w) u v) :
+    ∃ (F : SimpleGraph α) (K : Finset ℕ) (label : Sym2 α → ℕ),
+      F.IsTree ∧ Set.InjOn label F.edgeSet ∧ K = F.edgeFinset.image label ∧
+      K ⊆ (Finset.range M).filter (fun k => safe k ∧ split k ∧ 2 ≤ (T k).card) ∧
+      K.card + 1 = Fintype.card α ∧
+      (∀ e ∈ F.edgeSet, ∃ u ∈ T (label e), ∃ v ∈ T (label e), e = s(u, v)) ∧
+      ∀ w < M, safe w → Connects F (T w) := by
+  classical
+  obtain ⟨F, K, label, hacyc, hinj, hK, hsub, _, hends, hconn⟩ :=
+    chosen_support_forest safe split T h M
+  have hpre : F.Preconnected := by
+    intro u v
+    have huv := hc u v
+    induction huv with
+    | refl => exact SimpleGraph.Reachable.rfl
+    | @tail v z hvz hz ih =>
+      obtain ⟨w, hw, hv, hz⟩ := hz
+      exact ih.trans (hconn w (hW w hw).1 (hW w hw).2 v hv z hz)
+  have htree : F.IsTree := ⟨⟨hpre⟩, hacyc⟩
+  have hcard : K.card = F.edgeFinset.card := by
+    rw [hK]
+    apply Finset.card_image_of_injOn
+    intro e he f hf hef
+    exact hinj (by simpa using he) (by simpa using hf) hef
+  refine ⟨F, K, label, htree, hinj, hK, hsub, ?_, hends, hconn⟩
+  rw [hcard]
+  exact htree.card_edgeFinset
+
+end PEqualNP.Outside.L_meta_4970.ChosenForest
+
+
+namespace PEqualNP.Outside.L_meta_4970.ForestLabels
+
+open Classical
+
+variable {α β : Type*} [Fintype α] [DecidableEq α] [DecidableEq β]
+
+omit [DecidableEq α] in
+lemma labelled_spanning_forest (G : SimpleGraph α) (label : Sym2 α → β)
+    (hinj : Set.InjOn label G.edgeSet) (K : Finset β)
+    (hK : ∀ e ∈ G.edgeSet, label e ∈ K) :
+    ∃ (F : SimpleGraph α) (L : Finset β),
+      F ≤ G ∧ F.IsAcyclic ∧ F.Reachable = G.Reachable ∧
+      L ⊆ K ∧ L = F.edgeFinset.image label ∧
+      L.card + Nat.card G.ConnectedComponent = Fintype.card α := by
+  classical
+  obtain ⟨F, hFG, hF, hreach⟩ := G.exists_isAcyclic_reachable_eq_le
+  let L := F.edgeFinset.image label
+  have hL : L ⊆ K := by
+    intro a ha
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+    exact hK e (SimpleGraph.edgeSet_mono hFG (by simpa using he))
+  have hcard : L.card = F.edgeFinset.card := by
+    apply Finset.card_image_of_injOn
+    intro e he d hd hed
+    exact hinj (SimpleGraph.edgeSet_mono hFG (by simpa using he))
+      (SimpleGraph.edgeSet_mono hFG (by simpa using hd)) hed
+  have hcomponents : Nat.card F.ConnectedComponent = Nat.card G.ConnectedComponent := by
+    unfold SimpleGraph.ConnectedComponent
+    rw [hreach]
+  have hcount := hF.ncard_edgeSet_add_card_connectedComponent
+  have hcount' : F.edgeFinset.card + Nat.card F.ConnectedComponent = Fintype.card α := by
+    have hedge : F.edgeSet.ncard = F.edgeFinset.card := by
+      rw [← Set.fintypeCard_eq_ncard, SimpleGraph.edgeFinset_card]
+    rw [hedge, @Nat.card_eq_fintype_card α _] at hcount
+    exact hcount
+  exact ⟨F, L, hFG, hF, hreach, hL, rfl, by rw [hcard, ← hcomponents]; exact hcount'⟩
+
+end PEqualNP.Outside.L_meta_4970.ForestLabels
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.Connectivity
+open PEqualNP.Outside.L_meta_4970.ChosenForest
+
+open Classical
+
+lemma chosen_productive_star_tree (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (hQ : Q.Nonempty) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < n + C.gates.length ∧ Safe Q (wireFn n C w))
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W,
+        (a : Fin n) ∈ singletonSupport n C w ∧ (b : Fin n) ∈ singletonSupport n C w) u v) :
+    ∃ (F : SimpleGraph Q) (K : Finset ℕ) (label : Sym2 Q → ℕ),
+      F.IsTree ∧ Set.InjOn label F.edgeSet ∧ K = F.edgeFinset.image label ∧
+      K ⊆ productiveOr n C Q ∧ K.card + 1 = Q.card ∧
+      ∀ e ∈ F.edgeSet, ∃ u : Q, (u : Fin n) ∈ singletonSupport n C (label e) ∧
+        ∃ v : Q, (v : Fin n) ∈ singletonSupport n C (label e) ∧ e = s(u, v) := by
+  classical
+  obtain ⟨q, hq⟩ := hQ
+  let : Nonempty Q := ⟨⟨q, hq⟩⟩
+  let safe := fun w => w < n + C.gates.length ∧ Safe Q (wireFn n C w)
+  let split := fun w => (n ≤ w ∧ (gateAt C (w - n)).op = GateOp.or) ∧
+    ¬ HasSafeCarrier n C Q w
+  let T : ℕ → Finset Q := fun w => (singletonSupport n C w).subtype (fun a => a ∈ Q)
+  have hcard : ∀ w, (T w).card ≤ (singletonSupport n C w).card := by
+    intro w
+    exact (Finset.card_subtype _ _).le.trans (Finset.card_filter_le _ _)
+  have hstruct : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b) := by
+    intro w hw
+    rcases productive_singleton_structure n C hC Q w hw with
+      hs | ⟨a, ha, hsa, hTa⟩ | ⟨hsp, a, b, ha, hb, hsa, hsb, hTab⟩
+    · exact Or.inl ((hcard w).trans hs)
+    · right; left
+      refine ⟨a, ha, hsa, ?_⟩
+      intro x hx
+      exact Finset.mem_subtype.mpr (hTa (Finset.mem_subtype.mp hx))
+    · right; right
+      refine ⟨hsp, a, b, ha, hb, hsa, hsb, ?_⟩
+      intro x hx
+      rcases Finset.mem_union.mp (hTab (Finset.mem_subtype.mp hx)) with hxa | hxb
+      · exact Finset.mem_union.mpr (Or.inl (Finset.mem_subtype.mpr hxa))
+      · exact Finset.mem_union.mpr (Or.inr (Finset.mem_subtype.mpr hxb))
+  have hc' : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b => ∃ w ∈ W, a ∈ T w ∧ b ∈ T w) u v := by
+    simpa only [T, Finset.mem_subtype] using hc
+  obtain ⟨F, K, label, htree, hinj, hK, hsub, hsize, hends, _⟩ :=
+    chosen_connected_frontier safe split T hstruct (n + C.gates.length) W
+      (fun w hw => ⟨(hW w hw).1, hW w hw⟩) hc'
+  refine ⟨F, K, label, htree, hinj, hK, ?_, by simpa using hsize, ?_⟩
+  · intro w hw
+    have hh := hsub hw
+    simp only [Finset.mem_filter, Finset.mem_range, safe, split] at hh
+    apply Finset.mem_filter.mpr
+    refine ⟨?_, hh.2.2.1.2⟩
+    simp only [chargedOr, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hh.1, hh.2.1, hh.2.2.1.1, hh.2.2.2.trans (hcard w)⟩
+  · intro e he
+    simpa only [T, Finset.mem_subtype] using hends e he
+
+end PEqualNP.Outside.L_meta_4970_aux
+
+namespace PEqualNP.Outside.L_meta_4970.ForestLabels
+
+open Classical
+
+variable {α ι : Type*} [Fintype α] [DecidableEq ι]
+
+lemma family_labelled_spanning_forest (I : Finset ι)
+    (G : SimpleGraph α) (F : ι → SimpleGraph α)
+    (labels : ι → Sym2 α → ℕ) (K : ι → Finset ℕ)
+    (hcover : ∀ e ∈ G.edgeSet, ∃ i ∈ I, e ∈ (F i).edgeSet)
+    (hinj : ∀ i ∈ I, Set.InjOn (labels i) (F i).edgeSet)
+    (hK : ∀ i ∈ I, ∀ e ∈ (F i).edgeSet, labels i e ∈ K i)
+    (hdis : (I : Set ι).PairwiseDisjoint K) :
+    ∃ (H : SimpleGraph α) (L : Finset ℕ) (label : Sym2 α → ℕ),
+      H ≤ G ∧ H.IsAcyclic ∧ H.Reachable = G.Reachable ∧
+      Set.InjOn label G.edgeSet ∧ L = H.edgeFinset.image label ∧
+      L ⊆ I.biUnion K ∧
+      L.card + Nat.card G.ConnectedComponent = Fintype.card α ∧
+      ∀ e ∈ G.edgeSet, ∃ i ∈ I, e ∈ (F i).edgeSet ∧ label e = labels i e := by
+  classical
+  let owner : G.edgeSet → ι := fun e => Classical.choose (hcover e e.property)
+  have howner : ∀ e : G.edgeSet, owner e ∈ I ∧ (e : Sym2 α) ∈ (F (owner e)).edgeSet := by
+    intro e
+    exact Classical.choose_spec (hcover e e.property)
+  let label : Sym2 α → ℕ := fun e =>
+    if he : e ∈ G.edgeSet then labels (owner ⟨e, he⟩) e else 0
+  have hlabel : ∀ (e : Sym2 α) (he : e ∈ G.edgeSet), label e ∈ K (owner ⟨e, he⟩) := by
+    intro e he
+    simp only [label, dite_eq_left he]
+    exact hK _ (howner ⟨e, he⟩).1 e (howner ⟨e, he⟩).2
+  have hlabelK : ∀ e ∈ G.edgeSet, label e ∈ I.biUnion K := by
+    intro e he
+    exact Finset.mem_biUnion.mpr ⟨owner ⟨e, he⟩, (howner ⟨e, he⟩).1, hlabel e he⟩
+  have hlabelinj : Set.InjOn label G.edgeSet := by
+    intro e he f hf hef
+    let i := owner ⟨e, he⟩
+    let j := owner ⟨f, hf⟩
+    have hi : i ∈ I := (howner ⟨e, he⟩).1
+    have hj : j ∈ I := (howner ⟨f, hf⟩).1
+    have heF : e ∈ (F i).edgeSet := (howner ⟨e, he⟩).2
+    have hfF : f ∈ (F j).edgeSet := (howner ⟨f, hf⟩).2
+    have hei : label e ∈ K i := hlabel e he
+    have hfj : label f ∈ K j := hlabel f hf
+    by_cases hij : i = j
+    · have hle : label e = labels i e := by simp [label, i, he]
+      have hlf : label f = labels j f := by simp [label, j, hf]
+      rw [hle, hlf, ← hij] at hef
+      exact hinj i hi heF (by simpa only [← hij] using hfF) hef
+    · exact False.elim (Finset.disjoint_left.mp (hdis hi hj hij) hei (hef.symm ▸ hfj))
+  obtain ⟨H, L, hHG, hH, hreach, hL, himage, hcount⟩ :=
+    labelled_spanning_forest G label hlabelinj (I.biUnion K) hlabelK
+  refine ⟨H, L, label, hHG, hH, hreach, hlabelinj, himage, hL, hcount, ?_⟩
+  intro e he
+  exact ⟨owner ⟨e, he⟩, (howner ⟨e, he⟩).1, (howner ⟨e, he⟩).2, by simp [label, he]⟩
+
+end PEqualNP.Outside.L_meta_4970.ForestLabels
