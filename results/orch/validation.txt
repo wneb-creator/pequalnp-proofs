@@ -4,10 +4,10 @@ The posted statement needs at least 72 gates and remains open.
 File: lean/PEqualNP/Outside/L_meta_9502.lean (619 lines).
 lake build PEqualNP.Outside.L_meta_9502: PASS (exit 0), 5149 jobs.
 Compiled axiom audit: lower66, path, back use only propext, Classical.choice, Quot.sound.
-Additional compiled components: results/orch/lemmas/RowProto.lean and RowGraph.lean.
+Additional compiled components: RowProto, RowGraph, Baseline76Rows (upper bound 76), TraceProto, WithInduced; all under results/orch/lemmas.
 Local checker: previous FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
 No final theorem for the posted statement is claimed. No PR opened for this checkpoint.
 Cleanup pass: not applicable to incomplete proof.
 Independent review: lean_setup, PASS for explicitly marked partial batch only.
 Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
-TIMING total=43.9 subagents=7
+TIMING total=48.5 subagents=7
