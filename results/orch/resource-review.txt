@@ -1,0 +1,8 @@
+2026-11-25T03:46:13.566283+00:00
+PASS: independent resource-fix review of canonical_thin.lean.
+SHA256: 7a927bad2d530a03484c3e99d13f4c6ff9cc8bdf611bb44cd320c59d4625ebdb
+644 lines. Diff only replaces full Mathlib with Mathlib.Combinatorics.Additive.CauchyDavenport + Mathlib.Tactic, keeps PEqualNP.Defs, and changes the no-rectangle proof to common-translation invariance plus a three-variable normalized finite check. Original incidence_no_rectangle statement is unchanged. Every byte from lemma incidence_point_degree through the final namespace end is unchanged.
+Algebra review: subtracting l from both arguments preserves incidence offsets 0,1,3,9 in Fin13; sub_left_inj cancels the common subtraction. p≠q implies p−l≠q−l; l≠m gives m−l≠0 through symmetry. All four incidence premises transport to the normalized case with first line0 and second line m−l.
+Independent exhaustive Python checks passed for translation invariance (13^3 triples), normalized no-rectangle (13^3 triples), and original no-rectangle (13^4 quadruples).
+All imports allowed; only allowed scoped limit options; no forbidden patterns, quotes, attributes, axioms, or prohibited commands. No complete gap theorem exists in this partial checkpoint.
+Build metrics: exit0; wall26.602342933s; maximumRSS3924716KiB (approximately3.74GiB); complete build log empty.

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-11-25T03:45:24.584056+00:00",
+  "metrics": {
+    "geometry-compact-build-1": {
+      "exit_code": 0,
+      "wall_seconds": 7.76187793400004,
+      "user_seconds": 4.722408,
+      "system_seconds": 3.107678,
+      "max_rss_kib": 7307496
+    },
+    "geometry-defs-build": {
+      "exit_code": 0,
+      "wall_seconds": 8.59661024099978,
+      "user_seconds": 4.217807,
+      "system_seconds": 2.020832,
+      "max_rss_kib": 3039824
+    },
+    "canonical-thin-build-1": {
+      "exit_code": 0,
+      "wall_seconds": 26.602342932999818,
+      "user_seconds": 61.094423,
+      "system_seconds": 3.738583,
+      "max_rss_kib": 3924716
+    }
+  },
+  "candidate": "/tmp/oec/pequalnp-pilot-65/toolchain/canonical_thin.lean",
+  "candidate_sha256": "7a927bad2d530a03484c3e99d13f4c6ff9cc8bdf611bb44cd320c59d4625ebdb",
+  "canonical_unchanged_by_toolchain_agent": true
+}

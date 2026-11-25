@@ -169,3 +169,49 @@ PASS: canonical622-line SHA256 582a330eecded7b2a20bc0b77a1f07f30efe26e915cec896c
 PASS: trace_two_and.lean,21lines,SHA256 1737675734bd7e4685f24b0a8e9b719f0a914b13d61131d48f76b5760b3c2291. Eight-Boolean identity correctly models the single-use form(D∨A)∧B withD=U∧V andOR-linear U,V,A,B; independent enumeration checks256assignments,36withpremises true. Repeated-factor implication is elementary absorption. These are restricted structural facts, not arbitrary circuit lowerbounds. Reported build1exit0, emptylog confirmed; format clean.
 
 2026-11-25T03:40:46.465986+00:00 Refined clean strategy avoids full normalization: in a minimum all-clean-AND circuit, empty-singleton wires form a forest (one consumer, no AND consumer), forcing at least a-1 zero/mask ORs for a ANDs. Positive-support ORs of support≥2 belong to unique star centers by no-C4; union-network counts force at least |E|-a such ORs. Assigned stars cover E, so a≥τ and C≥|E|+τ−1. Equality64 gives13 distinct pure-orientation stars; first-collision trace rigidity still unproved. Full argument and remaining formal gaps recorded in demasking_strategy.md.
+
+## 2026-11-25 03:44 UTC — structure_proof complete one-junk trace theorem
+
+Lean-checked `results/orch/lemmas/one_junk.lean` (590 lines; SHA256 f7a32a51c951e1675f52bb22e860659e6c12d0fc7f6ba407ed7191d50725938a). Exact theorem: any valid binary AND/OR circuit computing a graph edge function, satisfying TopForm and having at most one dirty AND gate, has at least one surviving formal derivative trace at each edge. Proof uses OR-path terminal decomposition; two dirty terminals must coincide and would imply that supposedly dirty gate is below the graph function. One dirty terminal reduces to eight endpoint cases through two ANDs. Build exit 0, log `/tmp/oec/pequalnp-pilot-65/structure/one-junk-build-2.log` has only copied-helper deprecation warnings. First 405 lines reuse foundational helpers from accepted L_meta_1878; new whole-circuit theorem is original here. Root and independent reviewer notified. Remaining bridge: the actual target circuit has neither TopForm nor dirty-count bound; a normalization must preserve the double-reread witness or give strict gate savings.
+
+## 2026-11-25T03:44:43.324487+00:00 Independent review: one dirty AND bridge
+
+PASS: one_junk.lean, 590 lines, SHA256 f7a32a51c951e1675f52bb22e860659e6c12d0fc7f6ba407ed7191d50725938a. The copied wire/cone helper block is verbatim in L_meta_1878. New proof correctly descends from the accepted output to a clean AND, uses TopForm to classify every lower AND as dirty, and uses at most one dirty AND to eliminate deeper nesting and the same dirty factor on both sides. Remaining endpoint-path cases force one trace to survive. It applies to arbitrary simple graphs under valid AO2, exact graphFun semantics, TopForm, at most one dirty AND, and the explicit initialized trace recurrences. No size or no-rectangle hypothesis is asserted.
+
+TopForm is essential: the posted circuit has not yet been shown to have it, and normalization can change formal derivative traces. The result must not be promoted to the original gap without those bridges. Allowed imports, nested auxiliary namespace, heartbeat option and forbidden-pattern checks pass. Complete build2 log contains eight deprecation warnings and no errors; root reports exit0.
+
+## 2026-11-25T03:45:10.732297+00:00 status_review: exact SAT small graphs and theta lift
+
+Independent CNF encoder small_sat.py uses one-hot ordered fanins, AND/OR semantics, and exact directional recurrences; decoded SAT models independently checked on every Boolean input. Base runs allow unused gates, so UNSAT covers every circuit of at most the budget. SAT results are computational evidence, not Lean lower-bound certificates.
+
+- C5: ordinary≤6 UNSAT; ordinary7 SAT. Double at7 UNSAT; double8 SAT.
+- C6: ordinary≤7 UNSAT; double8 UNSAT (29.79s); double9 SAT (60.74s).
+- House: ordinary≤5 UNSAT; ordinary6 SAT. Double6 UNSAT for all4 edge orbits. Roof-base edge double7 UNSAT, double8 SAT.
+- K4: double7 UNSAT, completing the remaining4-input sanity case.
+- Bowtie (edges01,02,12,03,04,34): ordinary≤7 UNSAT (11.45s); ordinary8 SAT. Double8 on center-edge01 UNSAT; on outer triangle edge12 SAT (3.52s). Witness:5=1 AND2;6=0 OR5;7=1 OR2;8=4 OR7;9=4 OR6;10=6 AND8;11=3 OR10;12=9 AND11. Thus generic minimum-circuit no-double fails even for C4-free graphs; this example has triangles and is not bipartite. No Lean minimality claim is made.
+
+Root then redirected effort to the bowtie bipartite double cover, theta4 (10vertices,12edges,4 length3 paths between nonincident centers). Of256 complementary two-channel routings,2 yield exact17-gate double witnesses:polarized-225.json and polarized-227.json. Inputs label paths0–6–2–5,0–7–1–5,0–8–4–5,0–9–3–5; double edges(1,7),(2,6). Direct embedding into plane markededge(0,13): inputs0..9 map to[1,0,4,5,7,17,14,13,24,18]. Full1024 rows checked;29 critical rows suffice (12edges+17 maximal independent sets).
+
+All612 single-gate bypasses of the two seeds fail to reach16. General SAT ordinary15 and double16 timed out300s; focused AND5 double16 timed out180s, all UNKNOWN. Theta mutation from both polarizations and a17-gate absorption seed ran1,051,400,000 iterations with no16 witness. No heavy processes remain.
+
+Shared675 exact17-gate theta variants with finite_search for plane injection:18 OR-association variants in theta-variants/ and657 mixed variants in theta-mixed-variants/. Mixed variants retain the marked nonlinear branch while replacing the other branch by all minimal-cover star assignments and OR-tree associations for its forest function. Every variant checked on all1024 rows and both zero traces. Scratch prefix:/tmp/oec/pequalnp-pilot-65/status-review/.
+
+## 2026-11-25T03:45:24.584056+00:00 proof-resource fix CHECKED
+
+Normalized no-rectangle proof uses translation invariance proved algebraically plus a 13^3 finite check; canonical theorem unchanged. Standalone helper results/orch/lemmas/geometry_compact.lean imports only PEqualNP.Defs. Full644-line scratch canonical at /tmp/oec/pequalnp-pilot-65/toolchain/canonical_thin.lean compiled exit0 with no warnings/errors in26.6s, peak3,924,716KiB (~3.74GiB), using CauchyDavenport + Mathlib.Tactic + Defs. With root Mathlib, even the tiny geometry file peaked7,307,496KiB; Defs-only version peaked3,039,824KiB. Full logs and machine-readable metrics retained under task scratch; metrics copied to results/orch/resource-validation.json. Root notified for independent review and canonical merge; canonical was not edited by this agent.
+
+## 2026-11-25T03:46:13.566283+00:00 lemma_route independent review of resource fix
+
+PASS: independent resource-fix review of canonical_thin.lean.
+
+SHA256: 7a927bad2d530a03484c3e99d13f4c6ff9cc8bdf611bb44cd320c59d4625ebdb
+
+644 lines. Diff only replaces full Mathlib with Mathlib.Combinatorics.Additive.CauchyDavenport + Mathlib.Tactic, keeps PEqualNP.Defs, and changes the no-rectangle proof to common-translation invariance plus a three-variable normalized finite check. Original incidence_no_rectangle statement is unchanged. Every byte from lemma incidence_point_degree through the final namespace end is unchanged.
+
+Algebra review: subtracting l from both arguments preserves incidence offsets 0,1,3,9 in Fin13; sub_left_inj cancels the common subtraction. p≠q implies p−l≠q−l; l≠m gives m−l≠0 through symmetry. All four incidence premises transport to the normalized case with first line0 and second line m−l.
+
+Independent exhaustive Python checks passed for translation invariance (13^3 triples), normalized no-rectangle (13^3 triples), and original no-rectangle (13^4 quadruples).
+
+All imports allowed; only allowed scoped limit options; no forbidden patterns, quotes, attributes, axioms, or prohibited commands. No complete gap theorem exists in this partial checkpoint.
+
+Build metrics: exit0; wall26.602342933s; maximumRSS3924716KiB (approximately3.74GiB); complete build log empty.

@@ -39,3 +39,11 @@
 2026-11-25T03:37:34.745073+00:00 finite_search: exact SAT ruled out basic one-star 8→7 windows at selected lines 0, 2, 12; expanded line12 predecessor window also UNSAT. Two-star lines0,5 10→9 window UNSAT in104.36s. Three-star lines0,5,11 12→11 timed out; raw-star and cross-pair-sharing windows continue.
 
 2026-11-25T03:43:51.464834+00:00 Combined622-line build and additional checked structural components preserved. Memory reduction now in progress.
+
+- 2026-11-25 03:44 UTC: structure_proof completes Lean-checked TopForm + at-most-one-dirty-AND derivative-survival theorem (590 lines), pending independent review.
+
+2026-11-25T03:45:24.584056+00:00 Full canonical resource-fix candidate checked at3.74GiB peak, reported for merge.
+
+2026-11-25T03:46:13.566283+00:00 lemma_route independently approved canonical_thin resource fix; exact statements and later body preserved.
+
+2026-11-25T03:46:44.814238+00:00 Checked resource fix and whole-circuit TopForm partial preserved before integration.

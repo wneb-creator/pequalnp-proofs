@@ -47,3 +47,10 @@ Axiom audit of33canonical lemmas PASS: onlypropext,Classical.choice,Quot.sound. 
 Observed Lean RSS approximately 8.2 GB; memory optimization is pending before any submission.
 Extended rectangle helper (142 lines) and two-AND trace helper (21 lines) also compile; independent review PASS.
 Exact posted theorem remains unproved.
+
+Resource fix candidate: 644 lines, lake env lean exit 0, 26.6 seconds, peak 3.74 GiB.
+Narrow imports plus translation reduce no-rectangle enumeration from 13^4 to 13^3; independent review PASS.
+
+Whole-circuit partial one_junk: 590 lines, lake env lean exit 0, eight deprecation warnings.
+TopForm plus at most one dirty AND forces one derivative to survive. Independent review PASS.
+The posted size constraint does not yet imply these structural assumptions.
