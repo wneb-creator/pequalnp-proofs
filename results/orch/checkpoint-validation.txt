@@ -52,3 +52,5 @@ Fifteenth checkpoint: completed search sources, full diagnostics, and explicitly
 
 Sixteenth checkpoint: ReaderCharge, MaskedConjunction, and LiveReorder compiled exit0 and passed independent review. Last result forbids every intermediate raw-pin nonOR signature in a17-binary semantic trace, strengthening the earlier firstgate bound. Preserving before lease410 recovery. Sub-agents: status_audit, structural_proof, counterexample_search, library_route, toolchain, one_not_route
 TIMING total=55 subagents=6
+
+Seventeenth checkpoint: AndConsumer compiled exit0 and independent library_route review PASS. It proves a unique positive-input AND reader must have a later consumer in the concrete NOR-prefix case. The planned fourth-deletion application is not yet implemented.

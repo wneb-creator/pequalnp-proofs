@@ -1,0 +1,2 @@
+Independent library_route review PASS at source SHA256 179ccf9fd4a107b0e3f853765c201febd3cd651f4699084543fda04e35b22ec0.
+The finite off(i) witness always gives an edge avoiding i, proving output differs from the positive AND reader. If no later consumer exists, replacing that gate by OR[] preserves all other wires and output, including default reads. CleanReader then contradicts uniqueness of the positive input reader. The consumer lies in post and is a different gate position. No h15 or size premise is hidden. Author build exited0.
