@@ -10,9 +10,17 @@ H1Partial, H2SemanticTests, Helper3StarCount: independent root builds PASS.
 WitnessBasics, GateLedger: pinned Lean builds and independent source review PASS.
 RootEdgeCount: pinned Lean build PASS; independent source and semantic review PASS.
 RootEdgeCount proves only E.card <= 2*OR-gate-count from the posted C4-free, IsAO2, and served-star assumptions.
-RootEdgeCount SHA256: 51eaedf4bad462827b2235c3dd3600a01f10a67b5e87812a110f0b676cccf106
+RootEdgeCount SHA256: 466967bc5d5994e6be39506da66da36522634ce7d1b46505476db30d696efb44
 Official full-gap checker: not run, because no full candidate exists.
 Initial gap-list reduction guard: REFUSED, row lacks reductions:true.
 
-Sub-agents: external helper-1, helper-2, helper-3; local independent_audit, restore_lean, bipartite_refutation. Six additional external helpers assigned but not yet responsive.
-TIMING total=23.1 subagents=6
+Sub-agents: external helper-1, helper-2, helper-3, helper-5; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound. Five additional external helpers assigned but not yet responsive.
+TIMING total=41.8 subagents=10
+
+RootEdgeCount now also constructs a witness-center cover of size <= OR count; its full-bound closure has an explicit additional budget premise, not established universally.
+Helper3StarCountV2 connected-component and one-center toolkit: independent build and source review PASS.
+CofactorBudget: pinned build and independent build/source review PASS; proves restricted essential support plus constant/bypass-erased gate count <= circuit size+1.
+CofactorBudget SHA256: 7255dd13cf5ef9b73e6a33e1e5a9020ed59184295961427f03d373fd3191cfbc
+Available-center cover <= AND count: refuted by independently exhaustive Fano construction. Ordinary minimum vertex cover <= AND count remains unresolved.
+Existence of independent assignment erasing >= E.card gates by constant/bypass alone: refuted by independently exhaustive 7-edge tree construction.
+Live-row reduction guard: REFUSED, row still lacks reductions:true. No guard bypass attempted.

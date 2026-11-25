@@ -934,4 +934,75 @@ lemma edge_le_twice_or_wires {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circ
     · exact Or.inr (right_witness_mem E C a b j P hj ho hP ha hE hf)
   exact (edge_card_le_family E (leaves E C) hc).trans (leaves_sum_bound E C hC hno)
 
+noncomputable def activeCenters {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit) :
+    Finset (Fin p ⊕ Fin l) := by
+  classical
+  exact Finset.univ.filter fun c => (roots E C c).Nonempty
+
+def centerVertex {p l : ℕ} : Fin p ⊕ Fin l → Fin (p + l)
+  | .inl a => Fin.castAdd l a
+  | .inr b => Fin.natAdd p b
+
+noncomputable def witnessCover {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit) :
+    Finset (Fin (p + l)) := (activeCenters E C).image centerVertex
+
+lemma roots_subset_charged {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (c : Fin p ⊕ Fin l) : roots E C c ⊆ chargedOr (p + l) C (leaves E C c) := by
+  classical
+  intro w hw
+  obtain ⟨hw', hs, hn, ho, hc⟩ := root_facts E C c w hw
+  simp only [chargedOr, Finset.mem_filter, Finset.mem_range]
+  exact ⟨hw', ⟨hw', hs⟩, ⟨hn, ho⟩, hc⟩
+
+lemma witnessCover_card_le_or {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hno : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) :
+    (witnessCover E C).card ≤ (orWires (p + l) C).card := by
+  classical
+  have ha : (activeCenters E C).card ≤
+      ∑ c ∈ activeCenters E C, (chargedOr (p + l) C (leaves E C c)).card := by
+    rw [Finset.card_eq_sum_ones]
+    apply Finset.sum_le_sum
+    intro c hc
+    obtain ⟨w, hw⟩ := (Finset.mem_filter.mp hc).2
+    exact Finset.card_pos.mpr ⟨w, roots_subset_charged E C c hw⟩
+  have hb : (∑ c ∈ activeCenters E C, (chargedOr (p + l) C (leaves E C c)).card) ≤
+      ∑ c : Fin p ⊕ Fin l, (chargedOr (p + l) C (leaves E C c)).card :=
+    Finset.sum_le_sum_of_subset (Finset.subset_univ _)
+  have hd := chargedOr_family_bound (p + l) C Finset.univ (leaves E C)
+    (fun c _ d _ hne => leaves_inter_card_le_one E C hno c d hne)
+  exact Finset.card_image_le.trans (ha.trans (hb.trans hd))
+
+lemma witnessCover_covers {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hc : ∀ a b, (a, b) ∈ E →
+      Fin.natAdd p b ∈ leaves E C (.inl a) ∨ Fin.castAdd l a ∈ leaves E C (.inr b)) :
+    ∀ a b, (a, b) ∈ E →
+      Fin.castAdd l a ∈ witnessCover E C ∨ Fin.natAdd p b ∈ witnessCover E C := by
+  classical
+  intro a b hab
+  rcases hc a b hab with ha | hb
+  · obtain ⟨w, hw, _⟩ := Finset.mem_biUnion.mp ha
+    left
+    apply Finset.mem_image.mpr
+    refine ⟨Sum.inl a, ?_, rfl⟩
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, ⟨w, hw⟩⟩
+  · obtain ⟨w, hw, _⟩ := Finset.mem_biUnion.mp hb
+    right
+    apply Finset.mem_image.mpr
+    refine ⟨Sum.inr b, ?_, rfl⟩
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, ⟨w, hw⟩⟩
+
+lemma full_bound_of_or_budget {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hno : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E))
+    (hc : ∀ a b, (a, b) ∈ E →
+      Fin.natAdd p b ∈ leaves E C (.inl a) ∨ Fin.castAdd l a ∈ leaves E C (.inr b))
+    (hbudget : E.card + (orWires (p + l) C).card ≤ C.size + 1) :
+    ∃ S : Finset (Fin (p + l)),
+      (∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧
+        E.card + S.card ≤ C.size + 1 := by
+  refine ⟨witnessCover E C, witnessCover_covers E C hc, ?_⟩
+  have hs := witnessCover_card_le_or E C hno
+  omega
+
 end PEqualNP.Outside.L_meta_4970_aux.RootCount
