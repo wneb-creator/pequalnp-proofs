@@ -7335,3 +7335,2792 @@ lemma petersen_two_ineligible_both_one {D : Dag}
   omega
 
 end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+open DagTools
+
+lemma outside_code_cap {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) :
+    ∀ x ∈ ({3,4,5,6,7,8,9} : Finset V),
+      ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).card ≤ 1 := by
+  have hcaps := (petersen_two_ineligible_code_caps h hc small two h0 h2 b hb).2.2
+  have h6 := (petersen_six_code_and_exit_caps h hc small two h0 h2 b hb).1
+  have cases : ∀ x : V, x ∈ ({3,4,5,6,7,8,9} : Finset V) →
+      x = 6 ∨ x ∈ ({3,4,5,7,8,9} : Finset V) := by decide +kernel
+  intro x hx
+  rcases cases x hx with rfl | hx
+  · exact h6
+  · exact (hcaps x hx).2.1
+
+lemma residual_avoids_ineligible {D : Dag} (b : V → ℕ)
+    {u : Σ _ : ℕ, ℕ} (hu : u ∈ residualUnits 10 D b)
+    {x : V} (hx : x ∈ ineligSet 10 D) : x ∉ supp 10 D u.1 := by
+  intro hxs
+  have hunit := (mem_units.mp
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu).1).1).2
+  have hfan : 2 ≤ fanout D u.1 := by omega
+  exact (sem_mem_inelig.mp hx) (mem_eligSet.mpr ⟨u.1,hfan,hxs⟩)
+
+lemma residual_pair_free {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    {u : Σ _ : ℕ, ℕ} (hu : u ∈ residualUnits 10 D b) :
+    ∀ k : Fin 10, ¬ (I2ForbiddenPairs.left k ∈ supp 10 D u.1 ∧
+      I2ForbiddenPairs.right k ∈ supp 10 D u.1) := by
+  have hz := (two_ineligible_tight h hc small two).2.1
+  have hcap := outside_code_cap h hc small two h0 h2 b hb
+  have lefts : ∀ k : Fin 10, I2ForbiddenPairs.left k ∈ ({3,4,5,6,7,8,9} : Finset V) := by
+    decide +kernel
+  intro k hpair
+  apply I2ForbiddenPairs.code_not_subset h hc hz b hb h0 h2 k ⟨u,hu,hpair.1⟩
+  intro v hv hvx
+  have heq : v = u := Finset.card_le_one.mp (hcap _ (lefts k))
+    v (Finset.mem_filter.mpr ⟨hv,hvx⟩) u (Finset.mem_filter.mpr ⟨hu,hpair.1⟩)
+  exact heq ▸ hpair.2
+
+lemma residual_decomposition {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b) :
+    ∃ (u v : Σ _ : ℕ, ℕ) (R S : Finset V),
+      u ≠ v ∧ residualUnits 10 D b = {u,v} ∧
+      supp 10 D u.1 = insert 1 R ∧ supp 10 D v.1 = insert 1 S ∧
+      R ⊆ {3,4,5,6,7,8,9} ∧ S ⊆ {3,4,5,6,7,8,9} ∧
+      Disjoint R S ∧ R ∈ (∅ :: I2ForbiddenPairs.supports) ∧
+      S ∈ (∅ :: I2ForbiddenPairs.supports) := by
+  classical
+  have hbp := sem_minBranch_pure hb
+  have hcard := (petersen_two_ineligible_code_caps h hc small two h0 h2 b hbp).2.1
+  have hboth := petersen_two_ineligible_both_one h hc small two h0 h2 b hb
+  have hall : ∀ u ∈ residualUnits 10 D b, (1 : V) ∈ supp 10 D u.1 :=
+    Finset.card_filter_eq_iff.mp (hboth.trans hcard.symm)
+  obtain ⟨u,v,huv,hR⟩ := Finset.card_eq_two.mp hcard
+  have hu : u ∈ residualUnits 10 D b := by rw [hR]; simp
+  have hv : v ∈ residualUnits 10 D b := by rw [hR]; simp
+  let R := (supp 10 D u.1).erase 1
+  let S := (supp 10 D v.1).erase 1
+  have hus : supp 10 D u.1 = insert 1 R := (Finset.insert_erase (hall u hu)).symm
+  have hvs : supp 10 D v.1 = insert 1 S := (Finset.insert_erase (hall v hv)).symm
+  have hsub (w : Σ _ : ℕ, ℕ) (hw : w ∈ residualUnits 10 D b) :
+      (supp 10 D w.1).erase 1 ⊆ ({3,4,5,6,7,8,9} : Finset V) := by
+    have finite : ∀ x : V, x = 0 ∨ x = 1 ∨ x = 2 ∨ x ∈ ({3,4,5,6,7,8,9} : Finset V) := by
+      decide +kernel
+    intro x hx
+    obtain ⟨hx1,hxs⟩ := Finset.mem_erase.mp hx
+    rcases finite x with rfl | rfl | rfl | hh
+    · exact False.elim (residual_avoids_ineligible b hw h0 hxs)
+    · exact False.elim (hx1 rfl)
+    · exact False.elim (residual_avoids_ineligible b hw h2 hxs)
+    · exact hh
+  have hcatalog (w : Σ _ : ℕ, ℕ) (hw : w ∈ residualUnits 10 D b) :
+      (supp 10 D w.1).erase 1 ∈ (∅ :: I2ForbiddenPairs.supports) := by
+    by_cases he : (supp 10 D w.1).erase 1 = ∅
+    · simp [he]
+    · apply List.mem_cons_of_mem
+      apply I2ForbiddenPairs.finite_supports _ (Finset.nonempty_iff_ne_empty.mpr he) (hsub w hw)
+      intro k hk
+      exact residual_pair_free h hc small two h0 h2 b hbp hw k
+        ⟨(Finset.mem_erase.mp hk.1).2,(Finset.mem_erase.mp hk.2).2⟩
+  refine ⟨u,v,R,S,huv,hR,hus,hvs,hsub u hu,hsub v hv,?_,hcatalog u hu,hcatalog v hv⟩
+  apply Finset.disjoint_left.mpr
+  intro x hxR hxS
+  have cap := outside_code_cap h hc small two h0 h2 b hbp x (hsub u hu hxR)
+  exact huv (Finset.card_le_one.mp cap
+    u (Finset.mem_filter.mpr ⟨hu,(Finset.mem_erase.mp hxR).2⟩)
+    v (Finset.mem_filter.mpr ⟨hv,(Finset.mem_erase.mp hxS).2⟩))
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+open DagTools
+
+def budgetFormula (R S : Finset V) (x : V) : ℕ :=
+  if x = 0 ∨ x = 2 then 1 else if x = 1 then 4 else 2 + if x ∈ R ∪ S then 1 else 0
+
+lemma codes_and_budget {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u v : Σ _ : ℕ, ℕ) (huv : u ≠ v) (R S : Finset V)
+    (hres : residualUnits 10 D b = {u,v})
+    (hu : supp 10 D u.1 = insert 1 R) (hv : supp 10 D v.1 = insert 1 S)
+    (hR : R ⊆ {3,4,5,6,7,8,9}) (hS : S ⊆ {3,4,5,6,7,8,9}) (hdis : Disjoint R S) :
+    (∀ x ∈ R, (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {u}) ∧
+    (∀ x ∈ S, (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {v}) ∧
+    (residualUnits 10 D b).filter (fun a => (1 : V) ∈ supp 10 D a.1) = {u,v} ∧
+    (∀ x, 1 + (({x} : Finset V) ∩ eligSet 10 D).card +
+      ((residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1)).card ≤ budgetFormula R S x) ∧
+    (∀ x, (sem_W 10 D x).card ≤ budgetFormula R S x) := by
+  classical
+  have hone : (1 : V) ∉ ({3,4,5,6,7,8,9} : Finset V) := by decide
+  have hx1R (x : V) (hx : x ∈ R) : x ≠ 1 := by intro he; exact hone (he ▸ hR hx)
+  have hx1S (x : V) (hx : x ∈ S) : x ≠ 1 := by intro he; exact hone (he ▸ hS hx)
+  have codeR (x : V) (hx : x ∈ R) :
+      (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {u} := by
+    have hs : x ∉ S := fun hs => Finset.disjoint_left.mp hdis hx hs
+    rw [hres]
+    simp [Finset.filter_insert, Finset.filter_singleton, hu, hv, hx1R x hx, hx, hs]
+  have codeS (x : V) (hx : x ∈ S) :
+      (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {v} := by
+    have hr : x ∉ R := fun hr => Finset.disjoint_left.mp hdis hr hx
+    rw [hres]
+    simp [Finset.filter_insert, Finset.filter_singleton, hu, hv, hx1S x hx, hr, hx]
+  have code1 : (residualUnits 10 D b).filter (fun a => (1 : V) ∈ supp 10 D a.1) = {u,v} := by
+    rw [hres]
+    simp [Finset.filter_insert, Finset.filter_singleton, hu, hv]
+  have cap (x : V) (hx : x ≠ 1) :
+      ((residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1)).card ≤
+        if x ∈ R ∪ S then 1 else 0 := by
+    by_cases hr : x ∈ R
+    · rw [codeR x hr]
+      simp [hr]
+    · by_cases hs : x ∈ S
+      · rw [codeS x hs]
+        simp [hs]
+      · rw [hres]
+        simp [Finset.filter_insert, Finset.filter_singleton, hu, hv, hx, hr, hs]
+  have flow (x : V) : 1 + (({x} : Finset V) ∩ eligSet 10 D).card +
+      ((residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1)).card ≤ budgetFormula R S x := by
+    by_cases hi : x = 0 ∨ x = 2
+    · rcases hi with rfl | rfl
+      · have ff := sem_flow1 graph_ok h hc (0 : V)
+        rw [sem_inelig_surplus h0] at ff
+        have cc := sem_code_count graph_ok h hc b hb (0 : V)
+        rw [show budgetFormula R S (0 : V) = 1 by simp [budgetFormula]]
+        omega
+      · have ff := sem_flow1 graph_ok h hc (2 : V)
+        rw [sem_inelig_surplus h2] at ff
+        have cc := sem_code_count graph_ok h hc b hb (2 : V)
+        rw [show budgetFormula R S (2 : V) = 1 by simp [budgetFormula]]
+        omega
+    · have single : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+        (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+      by_cases hx : x = 1
+      · subst x
+        have cc : ((residualUnits 10 D b).filter (fun a => (1 : V) ∈ supp 10 D a.1)).card = 2 := by
+          rw [code1]; simp [huv]
+        rw [show budgetFormula R S (1 : V) = 4 by simp [budgetFormula]]
+        omega
+      · have cc := cap x hx
+        rw [show budgetFormula R S x = 2 + if x ∈ R ∪ S then 1 else 0 by simp [budgetFormula,hi,hx]]
+        omega
+  refine ⟨codeR,codeS,code1,flow,?_⟩
+  intro x
+  have count := sem_code_count graph_ok h hc b hb x
+  have bound := flow x
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+def budgetBoth (R T : Finset V) (v : V) : Nat :=
+  if v = 0 ∨ v = 2 then 1 else if v = 1 then 4 else 2 + if v ∈ R ∪ T then 1 else 0
+
+abbrev Related (R T : Finset V) (x y : V) : Prop :=
+  (x ∈ R ∧ y ∈ insert 1 R) ∨ (x ∈ T ∧ y ∈ insert 1 T)
+
+def vv (n : Nat) : V := ⟨n % 10, by omega⟩
+def pp (n : Nat) : P := ⟨n % 22, by omega⟩
+def rr (n : Nat) : Fin 15 := ⟨n % 15, by omega⟩
+def ww (n : Nat) : Fin 151 := ⟨n % 151, by omega⟩
+
+abbrev CertifiedOmission (R T : Finset V) (a : List Nat) (p : P) (y : V) (w : Fin 151) : Prop :=
+  if w.val = 0 then I2Census.omits a p y
+  else
+    let v := vv ((w.val - 1) % 10)
+    let r := rr ((w.val - 1) / 10)
+    (selected a v).card = budgetBoth R T v ∧ touches v r ∧ p ∈ selected a v ∧ y ∈ row r ∧
+      ∀ q ∈ selected a v, q ≠ p → ¬ Disjoint (lower a q) (row r)
+
+def triplesIn (U : Finset V) (a : List Nat) : Finset V :=
+  U.filter fun v => (selected a v).card = 3
+
+def commonIn (U : Finset V) (a : List Nat) : Finset P :=
+  Finset.univ.filter fun p => ∀ v ∈ triplesIn U a, p ∈ selected a v
+
+abbrev HasCommon (U : Finset V) (a : List Nat) : Prop :=
+  (triplesIn U a).Nonempty → 2 ≤ (commonIn U a).card
+
+abbrev ConditionsBoth (R T : Finset V) (a : List Nat) : Prop :=
+  (∀ p, Disjoint (lower a p) (lower a (bar p))) ∧
+  (∀ v, (selected a v).card ≤ budgetBoth R T v) ∧
+  (∀ v, (selected a v).card = budgetBoth R T v → ∀ r, touches v r →
+    ∃ p ∈ selected a v, Disjoint (lower a p) (row r)) ∧
+  (∀ x y, Related R T x y → x ≠ y → ∀ p ∈ selected a x, ∀ q ∈ selected a x,
+    p ≠ q → ∀ w z, ¬ (CertifiedOmission R T a p y w ∧ CertifiedOmission R T a q y z)) ∧
+  HasCommon R a ∧ HasCommon T a
+
+set_option synthInstance.maxSize 100000 in
+def rejects (R T : Finset V) (a : List Nat) (n : Nat) : Bool :=
+  if n % 8 = 1 then
+    let p := pp ((n / 8) % 32)
+    let v := vv ((n / 256) % 16)
+    decide (v ∈ lower a p ∧ v ∈ lower a (bar p))
+  else if n % 8 = 2 then
+    let v := vv ((n / 8) % 16)
+    decide (budgetBoth R T v < (selected a v).card)
+  else if n % 8 = 3 then
+    let v := vv ((n / 8) % 16)
+    let r := rr ((n / 128) % 16)
+    decide ((selected a v).card = budgetBoth R T v ∧ touches v r ∧
+      ∀ p ∈ selected a v, ¬ Disjoint (lower a p) (row r))
+  else if n % 8 = 4 then
+    let x := vv ((n / 8) % 16)
+    let y := vv ((n / 128) % 16)
+    let p := pp ((n / 2048) % 32)
+    let q := pp ((n / 65536) % 32)
+    let w := ww ((n / 2097152) % 256)
+    let z := ww ((n / 536870912) % 256)
+    decide (Related R T x y ∧ x ≠ y ∧ p ∈ selected a x ∧ q ∈ selected a x ∧ p ≠ q ∧
+      CertifiedOmission R T a p y w ∧ CertifiedOmission R T a q y z)
+  else if n % 8 = 5 then
+    let U := if (n / 8) % 2 = 0 then R else T
+    decide ((triplesIn U a).Nonempty ∧ (commonIn U a).card < 2)
+  else false
+
+lemma rejects_false (R T : Finset V) (a : List Nat) (hc : ConditionsBoth R T a)
+    (n : Nat) (hn : rejects R T a n = true) : False := by
+  unfold rejects at hn
+  split_ifs at hn with h1 h2 h3 h4 h5
+  · have h := of_decide_eq_true hn
+    exact Finset.disjoint_left.mp (hc.1 _) h.1 h.2
+  · have h := of_decide_eq_true hn
+    have le := hc.2.1 (vv ((n / 8) % 16))
+    omega
+  · have h := of_decide_eq_true hn
+    obtain ⟨p, hp, hd⟩ := hc.2.2.1 _ h.1 _ h.2.1
+    exact h.2.2 p hp hd
+  · have h := of_decide_eq_true hn
+    exact hc.2.2.2.1 _ _ h.1 h.2.1 _ h.2.2.1 _ h.2.2.2.1 h.2.2.2.2.1 _ _ h.2.2.2.2.2
+  · have h := of_decide_eq_true hn
+    have le := hc.2.2.2.2.1 h.1
+    omega
+  · have h := of_decide_eq_true hn
+    have le := hc.2.2.2.2.2 h.1
+    omega
+
+def scan (f : Nat → List Nat → Option (List Nat)) : List Nat → List Nat → Option (List Nat)
+  | [], ns => some ns
+  | c :: cs, ns => (f c ns).bind fun rest => scan f cs rest
+
+lemma bind_some {α β : Type} {x : Option α} {f : α → Option β} {b : β}
+    (h : x.bind f = some b) : ∃ a, x = some a ∧ f a = some b := by
+  cases x with
+  | none => cases h
+  | some a => exact ⟨a, rfl, h⟩
+
+lemma scan_success (f : Nat → List Nat → Option (List Nat)) (cs ns rest : List Nat)
+    (h : scan f cs ns = some rest) (c : Nat) (hc : c ∈ cs) :
+    ∃ x y, f c x = some y := by
+  induction cs generalizing ns with
+  | nil => simp at hc
+  | cons d ds ih =>
+    obtain ⟨mid, hd, ht⟩ := bind_some h
+    rcases List.mem_cons.mp hc with rfl | hc
+    · exact ⟨ns, mid, hd⟩
+    · exact ih mid ht hc
+
+def target (R T : Finset V) : Bool := decide (R = {4,5} ∧ T = {3,7})
+
+def check (R T : Finset V) : Nat → List Nat → List Nat → Option (List Nat)
+  | _, _, [] => none
+  | depth, a, n :: ns =>
+    if n % 8 = 0 then
+      match depth with
+      | 0 => none
+      | d + 1 => scan (fun c => check R T d (a ++ [c])) (List.range (2 * groups a + 1)) ns
+    else if n % 8 = 6 then if target R T then some ns else none
+    else if rejects R T a n then some ns else none
+
+def AdmissibleBoth (R T : Finset V) : List Nat → List Nat → Prop
+  | p, [] => ConditionsBoth R T p
+  | p, c :: cs => ConditionsBoth R T p ∧ c < 2 * groups p + 1 ∧ AdmissibleBoth R T (p ++ [c]) cs
+
+lemma admissible_here (R T : Finset V) (p a : List Nat) (ha : AdmissibleBoth R T p a) : ConditionsBoth R T p := by
+  cases a with
+  | nil => exact ha
+  | cons c cs => exact ha.1
+
+lemma check_sound (R T : Finset V) (depth : Nat) (p ns rest a : List Nat)
+    (ht : check R T depth p ns = some rest) (ha : AdmissibleBoth R T p a)
+    (hlen : a.length = depth) : R = {4,5} ∧ T = {3,7} := by
+  induction depth generalizing p ns rest a with
+  | zero =>
+    cases ns with
+    | nil => cases ht
+    | cons n ns =>
+      by_cases h0 : n % 8 = 0
+      · simp only [check, if_pos h0] at ht
+        cases ht
+      · by_cases h6 : n % 8 = 6
+        · simp only [check, if_neg h0, if_pos h6] at ht
+          by_cases hg : target R T = true
+          · exact of_decide_eq_true hg
+          · simp only [if_neg hg] at ht
+            cases ht
+        · simp only [check, if_neg h0, if_neg h6] at ht
+          by_cases hr : rejects R T p n = true
+          · exact (rejects_false R T p (admissible_here R T p a ha) n hr).elim
+          · simp only [if_neg hr] at ht
+            cases ht
+  | succ depth ih =>
+    cases ns with
+    | nil => cases ht
+    | cons n ns =>
+      by_cases h0 : n % 8 = 0
+      · simp only [check, if_pos h0] at ht
+        cases a with
+        | nil => simp at hlen
+        | cons c cs =>
+          obtain ⟨start, finish, hs⟩ := scan_success _ _ _ _ ht c (List.mem_range.mpr ha.2.1)
+          exact ih _ _ _ cs hs ha.2.2 (by simpa using hlen)
+      · by_cases h6 : n % 8 = 6
+        · simp only [check, if_neg h0, if_pos h6] at ht
+          by_cases hg : target R T = true
+          · exact of_decide_eq_true hg
+          · simp only [if_neg hg] at ht
+            cases ht
+        · simp only [check, if_neg h0, if_neg h6] at ht
+          by_cases hr : rejects R T p n = true
+          · exact (rejects_false R T p (admissible_here R T p a ha) n hr).elim
+          · simp only [if_neg hr] at ht
+            cases ht
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+lemma conditions_swap (R T : Finset V) (a : List ℕ)
+    (h : ConditionsBoth R T a) : ConditionsBoth T R a := by
+  have budgets : budgetBoth T R = budgetBoth R T := by
+    funext v
+    simp only [budgetBoth,Finset.union_comm]
+  have omissions (p : P) (y : V) (w : Fin 151)
+      (ho : CertifiedOmission T R a p y w) : CertifiedOmission R T a p y w := by
+    simpa only [CertifiedOmission,budgets] using ho
+  refine ⟨h.1,?_,?_,?_,h.2.2.2.2.2,h.2.2.2.2.1⟩
+  · simpa only [budgets] using h.2.1
+  · intro v hsat r hr
+    rw [budgets] at hsat
+    exact h.2.2.1 v hsat r hr
+  · intro x y hrel hxy p hp q hq hpq w z ho
+    have hrel' : Related R T x y := hrel.symm
+    exact h.2.2.2.1 x y hrel' hxy p hp q hq hpq w z ⟨omissions p y w ho.1,omissions q y z ho.2⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+lemma admissible_of_prefix_conditions (R T : Finset V) (p a : List Nat)
+    (hc : ∀ b c, b ++ c = a → ConditionsBoth R T (p ++ b))
+    (hg : ∀ b c d, b ++ c :: d = a → c < 2 * groups (p ++ b) + 1) :
+    AdmissibleBoth R T p a := by
+  induction a generalizing p with
+  | nil =>
+    change ConditionsBoth R T p
+    simpa using hc [] [] rfl
+  | cons c cs ih =>
+    refine ⟨?_, ?_, ?_⟩
+    · simpa using hc [] (c :: cs) rfl
+    · simpa using hg [] c cs rfl
+    · apply ih (p ++ [c])
+      · intro b d hbd
+        simpa only [List.append_assoc, List.singleton_append] using hc (c :: b) d (by simp [hbd])
+      · intro b d es hbd
+        simpa only [List.append_assoc, List.singleton_append] using hg (c :: b) d es (by simp [hbd])
+
+
+lemma admissible_of_growth (R T : Finset V) (a : List Nat) (hg : PortCodes.Growth a)
+    (hc : ∀ i, i ≤ a.length → ConditionsBoth R T (a.take i)) : AdmissibleBoth R T [] a := by
+  apply admissible_of_prefix_conditions R T [] a
+  · intro b c he
+    have hb : b.length ≤ a.length := by rw [← he]; simp
+    have ht : a.take b.length = b := by rw [← he]; simp
+    simpa only [List.nil_append, ht] using hc b.length hb
+  · intro b c d he
+    have hb : b.length < a.length := by rw [← he]; simp
+    have ht : a.take b.length = b := by rw [← he]; simp
+    have hi : a[b.length] = c := by simp [← he]
+    have hh := hg b.length hb
+    rw [hi, ht] at hh
+    change c < 2 * PortCodes.groups b + 1
+    omega
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma included_residual_omitting_exits_equal {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b)
+    {x y : Fin n} (hxy : x ≠ y) (u0 : Σ _ : ℕ, ℕ)
+    (hu0 : u0 ∈ residualUnits n D b) (hx0 : x ∈ supp n D u0.1)
+    (hinclusion : ∀ u ∈ residualUnits n D b,
+      x ∈ supp n D u.1 → y ∈ supp n D u.1) :
+    ∀ e ∈ sem_W n D x, ∀ f ∈ sem_W n D x,
+      y ∉ supp n D (src D e) → y ∉ supp n D (src D f) → e = f := by
+  classical
+  have hy0 := hinclusion u0 hu0 hx0
+  have hunit := (mem_units.mp
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu0).1).1).2
+  have fan : 2 ≤ fanout D u0.1 := by omega
+  have eligible : x ∈ eligSet n D := mem_eligSet.mpr ⟨u0.1, fan, hx0⟩
+  obtain ⟨e0, he0⟩ := ri_gen hG h hC b hb hxy eligible hinclusion ⟨hx0, hy0⟩
+  intro e he f hf hey hfy
+  have heq : e = e0 := by
+    by_contra hn
+    exact hey (he0 e he hn)
+  have hfq : f = e0 := by
+    by_contra hn
+    exact hfy (he0 f hf hn)
+  exact heq.trans hfq.symm
+
+lemma singleton_code_omitting_exits_equal {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b)
+    {x y : Fin n} (hxy : x ≠ y) (u0 : Σ _ : ℕ, ℕ)
+    (hxcode : ((residualUnits n D b).filter (fun u => x ∈ supp n D u.1)) = {u0})
+    (hy0 : y ∈ supp n D u0.1) :
+    ∀ e ∈ sem_W n D x, ∀ f ∈ sem_W n D x,
+      y ∉ supp n D (src D e) → y ∉ supp n D (src D f) → e = f := by
+  classical
+  have hxu0 : u0 ∈ (residualUnits n D b).filter (fun u => x ∈ supp n D u.1) := by
+    rw [hxcode]
+    exact Finset.mem_singleton_self _
+  obtain ⟨hu0, hx0⟩ := Finset.mem_filter.mp hxu0
+  apply included_residual_omitting_exits_equal hG h hC b hb hxy u0 hu0 hx0
+  intro u hu hxu
+  have hm : u ∈ (residualUnits n D b).filter (fun w => x ∈ supp n D w.1) :=
+    Finset.mem_filter.mpr ⟨hu, hxu⟩
+  rw [hxcode, Finset.mem_singleton] at hm
+  rw [hm]
+  exact hy0
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma exposure_forces_disjoint (F Pos : P → Finset V) (ports : Finset P)
+    (row : Finset V) (p : P)
+    (hpositive : ∀ q ∈ ports, Pos q ⊆ F q)
+    (hexposure : ∃ q ∈ ports, Disjoint (F q) row)
+    (hothers : ∀ q ∈ ports, q ≠ p → ¬ Disjoint (Pos q) row) :
+    Disjoint (F p) row := by
+  obtain ⟨q, hq, hdis⟩ := hexposure
+  have hqp : q = p := by
+    by_contra hne
+    apply hothers q hq hne
+    apply Finset.disjoint_left.mpr
+    intro v hv hvr
+    exact Finset.disjoint_left.mp hdis (hpositive q hq hv) hvr
+  simpa only [hqp] using hdis
+
+lemma exposure_negative_union_safe (F Pos Neg : P → Finset V) (ports : Finset P)
+    (row : Finset V) (p : P)
+    (hpositive : ∀ q ∈ ports, Pos q ⊆ F q)
+    (hnegative : Disjoint (Neg p) (F p))
+    (hexposure : ∃ q ∈ ports, Disjoint (F q) row)
+    (hothers : ∀ q ∈ ports, q ≠ p → ¬ Disjoint (Pos q) row) :
+    Disjoint (Neg p ∪ row) (F p) := by
+  have hforced := exposure_forces_disjoint F Pos ports row p hpositive hexposure hothers
+  apply Finset.disjoint_left.mpr
+  intro v hv hvF
+  rcases Finset.mem_union.mp hv with hvN | hvR
+  · exact Finset.disjoint_left.mp hnegative hvN hvF
+  · exact Finset.disjoint_left.mp hforced hvF hvR
+
+lemma saturated_selected_exposure {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (a : List ℕ) (f : P → ℕ × Bool)
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
+    (v : V) (cap : ℕ) (hcap : (sem_W 10 D v).card ≤ cap)
+    (hsat : (selected a v).card = cap)
+    (row : Finset V) (hrow : ∀ x ∈ row, ∀ y ∈ row, ¬ adj x y)
+    (htouch : ∃ y ∈ row, adj v y) :
+    ∃ p ∈ selected a v, Disjoint (supp 10 D (src D (f p))) row := by
+  classical
+  have selected_mem (p : P) : p ∈ selected a v ↔ v ∈ lower a p := by
+    simp only [selected, Finset.mem_filter, Finset.mem_univ, true_and]
+  have image_sub : (selected a v).image f ⊆ sem_W 10 D v := by
+    intro e he
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp he
+    exact hselected p v ((selected_mem p).mp hp)
+  have image_card : ((selected a v).image f).card = cap := by
+    rw [← hsat]
+    apply Finset.card_image_of_injOn
+    intro p hp q hq he
+    exact hinj p q ⟨v, (selected_mem p).mp hp⟩ ⟨v, (selected_mem q).mp hq⟩ he
+  have image_eq : (selected a v).image f = sem_W 10 D v := by
+    apply Finset.eq_of_subset_of_card_le image_sub
+    rw [image_card]
+    exact hcap
+  obtain ⟨j, s, hj, _, hvs, hvout, hdis⟩ := sem_exposure graph_ok h.1 hc row hrow v htouch
+  have he : (j, s) ∈ sem_W 10 D v := sem_mem_W.mpr ⟨hj, hvs, hvout⟩
+  rw [← image_eq] at he
+  obtain ⟨p, hp, hpe⟩ := Finset.mem_image.mp he
+  exact ⟨p, hp, by simpa only [hpe] using hdis⟩
+
+lemma forced_omissions_contradict_code_inclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (a : List ℕ) (f : P → ℕ × Bool)
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
+    {x y : V} (hxy : x ≠ y) (u0 : Σ _ : ℕ, ℕ)
+    (hxcode : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)) = {u0})
+    (hy0 : y ∈ supp 10 D u0.1)
+    (Neg : P → Finset V)
+    (hnegative : ∀ p, Disjoint (Neg p) (supp 10 D (src D (f p))))
+    (p q : P) (hpx : x ∈ lower a p) (hqx : x ∈ lower a q)
+    (hpq : p ≠ q) (hyp : y ∈ Neg p) (hyq : y ∈ Neg q) : False := by
+  have eq := singleton_code_omitting_exits_equal graph_ok h hc b hb hxy u0 hxcode hy0
+    (f p) (hselected p x hpx) (f q) (hselected q x hqx)
+    (fun hy => Finset.disjoint_left.mp (hnegative p) hyp hy)
+    (fun hy => Finset.disjoint_left.mp (hnegative q) hyq hy)
+  exact hpq (hinj p q ⟨x, hpx⟩ ⟨x, hqx⟩ eq)
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open DagTools I2Census
+
+lemma conditions_of_semantics {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b)
+    (R T : Finset V) (u v : Σ _ : ℕ, ℕ)
+    (hR : R ⊆ {3,4,5,6,7,8,9}) (hT : T ⊆ {3,4,5,6,7,8,9})
+    (hu : supp 10 D u.1 = insert 1 R) (hv : supp 10 D v.1 = insert 1 T)
+    (codeR : ∀ x ∈ R, (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {u})
+    (codeT : ∀ x ∈ T, (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {v})
+    (hbudget : ∀ x, (sem_W 10 D x).card ≤ budgetBoth R T x)
+    (a : List ℕ) (f : P → ℕ × Bool)
+    (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p x, x ∈ lower a p → f p ∈ sem_W 10 D x)
+    (hfixed : ∀ p, p.val < 4 → supp 10 D (src D (f p)) = lower a p) :
+    ConditionsBoth R T a := by
+  classical
+  have selected_mem (x : V) (p : P) : p ∈ selected a x ↔ x ∈ lower a p := by
+    simp only [selected, Finset.mem_filter, Finset.mem_univ, true_and]
+  have label_sub (p : P) : lower a p ⊆ supp 10 D (src D (f p)) := by
+    intro x hx
+    exact (sem_mem_W.mp (hselected p x hx)).2.1
+  have image_sub (x : V) : (selected a x).image f ⊆ sem_W 10 D x := by
+    intro e he
+    obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp he
+    exact hselected p x ((selected_mem x p).mp hp)
+  have image_card (x : V) : ((selected a x).image f).card = (selected a x).card := by
+    apply Finset.card_image_of_injOn
+    intro p hp q hq he
+    exact hinj p q ⟨x,(selected_mem x p).mp hp⟩ ⟨x,(selected_mem x q).mp hq⟩ he
+  have selected_le (x : V) : (selected a x).card ≤ (sem_W 10 D x).card := by
+    rw [← image_card x]
+    exact Finset.card_le_card (image_sub x)
+  have pullback (x : V) (hsat : (selected a x).card = budgetBoth R T x)
+      (e : ℕ × Bool) (he : e ∈ sem_W 10 D x) : ∃ p ∈ selected a x, f p = e := by
+    have eq : (selected a x).image f = sem_W 10 D x :=
+      Finset.eq_of_subset_of_card_le (image_sub x) (by rw [image_card x,hsat]; exact hbudget x)
+    rw [← eq] at he
+    exact Finset.mem_image.mp he
+  have omission (p : P) (y : V) (w : Fin 151) (hw : CertifiedOmission R T a p y w) :
+      y ∉ supp 10 D (src D (f p)) := by
+    by_cases hz : w.val = 0
+    · have ho : omits a p y := by simpa only [CertifiedOmission,hz,ite_true] using hw
+      by_cases hp : p.val < 4
+      · rw [hfixed p hp]
+        simpa only [omits,hp,ite_true] using ho
+      · have hym : y ∈ lower a (bar p) := by simpa only [omits,hp,ite_false] using ho
+        have he := hselected (bar p) y hym
+        rw [hbar] at he
+        exact opposite_exit_omits h.1 he
+    · have hf := hw
+      simp only [CertifiedOmission,hz,ite_false] at hf
+      obtain ⟨hsat,htouch,hp,hy,hothers⟩ := hf
+      have hex := saturated_selected_exposure h hc a f hinj hselected
+        (vv ((w.val - 1) % 10)) _ (hbudget _) hsat _
+        (row_independent _) (touches_neighbor _ _ htouch)
+      have hd := exposure_forces_disjoint (fun q => supp 10 D (src D (f q))) (lower a)
+        (selected a (vv ((w.val - 1) % 10))) (row (rr ((w.val - 1) / 10))) p
+        (fun q _ => label_sub q) hex hothers
+      exact fun hys => Finset.disjoint_left.mp hd hys hy
+  have common (U : Finset V) (w : Σ _ : ℕ, ℕ)
+      (hU : U ⊆ {3,4,5,6,7,8,9}) (hUnion : U ⊆ R ∪ T)
+      (hcode : ∀ x ∈ U, (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {w}) :
+      HasCommon U a := by
+    intro nonempty
+    have triple_facts (x : V) (hx : x ∈ triplesIn U a) :
+        x ∈ U ∧ (selected a x).card = budgetBoth R T x ∧ 3 ≤ (sem_W 10 D x).card := by
+      obtain ⟨hxU,hcard⟩ := Finset.mem_filter.mp hx
+      have geometry : ∀ x : V, x ∈ ({3,4,5,6,7,8,9} : Finset V) →
+          x ≠ 0 ∧ x ≠ 1 ∧ x ≠ 2 := by decide +kernel
+      obtain ⟨hx0,hx1,hx2⟩ := geometry x (hU hxU)
+      have hbudgeteq : budgetBoth R T x = 3 := by
+        simp [budgetBoth,hx0,hx1,hx2,hUnion hxU]
+      exact ⟨hxU,by omega,by have hh := selected_le x; omega⟩
+    obtain ⟨P0,Q0,hPQ,hall,_,_⟩ := sem_local_common_terminals_support graph_ok h hc b hb
+      (triplesIn U a) nonempty w
+      (fun x hx => hcode x (triple_facts x hx).1)
+      (fun x hx => (triple_facts x hx).2.2)
+    obtain ⟨x0,hx0⟩ := nonempty
+    obtain ⟨p,hp,hpe⟩ := pullback x0 (triple_facts x0 hx0).2.1 P0 (hall x0 hx0).1
+    obtain ⟨q,hq,hqe⟩ := pullback x0 (triple_facts x0 hx0).2.1 Q0 (hall x0 hx0).2
+    have shared (r : P) (hr : r ∈ selected a x0) (e : ℕ × Bool) (hre : f r = e)
+        (he : ∀ x ∈ triplesIn U a, e ∈ sem_W 10 D x) : r ∈ commonIn U a := by
+      apply Finset.mem_filter.mpr
+      refine ⟨Finset.mem_univ _,?_⟩
+      intro x hx
+      obtain ⟨r',hr',hr'e⟩ := pullback x (triple_facts x hx).2.1 e (he x hx)
+      have eq := hinj r' r ⟨x,(selected_mem x r').mp hr'⟩
+        ⟨x0,(selected_mem x0 r).mp hr⟩ (hr'e.trans hre.symm)
+      exact eq ▸ hr'
+    have hpcommon := shared p hp P0 hpe (fun x hx => (hall x hx).1)
+    have hqcommon := shared q hq Q0 hqe (fun x hx => (hall x hx).2)
+    have hpq : p ≠ q := by
+      intro eq
+      exact hPQ (congrArg Prod.fst (hpe.symm.trans ((congrArg f eq).trans hqe)))
+    have hh := Finset.one_lt_card.mpr ⟨p,hpcommon,q,hqcommon,hpq⟩
+    omega
+  refine ⟨?_,?_,?_,?_,common R u hR Finset.subset_union_left codeR,
+    common T v hT Finset.subset_union_right codeT⟩
+  · intro p
+    apply Finset.disjoint_left.mpr
+    intro x hx hxb
+    have he := hselected p x hx
+    have he' := hselected (bar p) x hxb
+    rw [hbar] at he'
+    exact sem_bar_ne (f p) (W_gate_injective h.1 he he' rfl).symm
+  · intro x
+    exact (selected_le x).trans (hbudget x)
+  · intro x hsat r htouch
+    obtain ⟨p,hp,hd⟩ := saturated_selected_exposure h hc a f hinj hselected x _
+      (hbudget x) hsat _ (row_independent r) (touches_neighbor x r htouch)
+    refine ⟨p,hp,Finset.disjoint_left.mpr ?_⟩
+    intro y hy hyr
+    exact Finset.disjoint_left.mp hd (label_sub p hy) hyr
+  · intro x y hrelated hxy p hp q hq hpq w z hboth
+    have hey := omission p y w hboth.1
+    have hfy := omission q y z hboth.2
+    have equal (u0 : Σ _ : ℕ, ℕ)
+        (hxcode : (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) = {u0})
+        (hy0 : y ∈ supp 10 D u0.1) : f p = f q :=
+      singleton_code_omitting_exits_equal graph_ok h hc b (sem_minBranch_pure hb) hxy u0 hxcode hy0
+        (f p) (hselected p x ((selected_mem x p).mp hp))
+        (f q) (hselected q x ((selected_mem x q).mp hq)) hey hfy
+    have eq : f p = f q := by
+      rcases hrelated with ⟨hx,hy⟩ | ⟨hx,hy⟩
+      · exact equal u (codeR x hx) (hu.symm ▸ hy)
+      · exact equal v (codeT x hx) (hv.symm ▸ hy)
+    exact hpq (hinj p q ⟨x,(selected_mem x p).mp hp⟩ ⟨x,(selected_mem x q).mp hq⟩ eq)
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+def support20 (i : Fin 20) : Finset V :=
+  I2Census.decode ((![0,8,16,24,32,48,64,128,136,160,256,264,288,320,512,528,576,640,768,832] : Fin 20 → Nat) i)
+
+def pairIndices : Fin 134 → Fin 20 × Fin 20 :=
+  ![(0,0),(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(0,7),(0,8),(0,9),(0,10),(0,11),(0,12),(0,13),(0,14),(0,15),(0,16),(0,17),(0,18),(0,19),(1,2),(1,4),(1,5),(1,6),(1,7),(1,9),(1,10),(1,12),(1,13),(1,14),(1,15),(1,16),(1,17),(1,18),(1,19),(2,4),(2,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(2,13),(2,14),(2,16),(2,17),(2,18),(2,19),(3,4),(3,6),(3,7),(3,9),(3,10),(3,12),(3,13),(3,14),(3,16),(3,17),(3,18),(3,19),(4,6),(4,7),(4,8),(4,10),(4,11),(4,13),(4,14),(4,15),(4,16),(4,17),(4,18),(4,19),(5,6),(5,7),(5,8),(5,10),(5,11),(5,13),(5,14),(5,16),(5,17),(5,18),(5,19),(6,7),(6,8),(6,9),(6,10),(6,11),(6,12),(6,14),(6,15),(6,17),(6,18),(7,10),(7,11),(7,12),(7,13),(7,14),(7,15),(7,16),(7,18),(7,19),(8,10),(8,12),(8,13),(8,14),(8,15),(8,16),(8,18),(8,19),(9,10),(9,11),(9,13),(9,14),(9,15),(9,16),(9,18),(9,19),(10,14),(10,15),(10,16),(10,17),(11,14),(11,15),(11,16),(11,17),(12,14),(12,15),(12,16),(12,17),(13,14),(13,15),(13,17)]
+
+def left (k : Fin 134) : Finset V := support20 (pairIndices k).1
+def right (k : Fin 134) : Finset V := support20 (pairIndices k).2
+
+lemma support20_list_eq : List.ofFn support20 = (∅ :: I2ForbiddenPairs.supports) := by decide +kernel
+
+lemma support20_exists_of_mem {U : Finset V} (hU : U ∈ (∅ :: I2ForbiddenPairs.supports)) :
+    ∃ i, U = support20 i := by
+  rw [← support20_list_eq] at hU
+  obtain ⟨i, hi⟩ := List.mem_ofFn.mp hU
+  exact ⟨i, hi.symm⟩
+
+def pairPick : Fin 20 → Fin 20 → Fin 134 :=
+  ![![0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
+    ![0,0,20,0,21,22,23,24,0,25,26,0,27,28,29,30,31,32,33,34],
+    ![0,0,0,0,35,0,36,37,38,39,40,41,42,43,44,0,45,46,47,48],
+    ![0,0,0,0,49,0,50,51,0,52,53,0,54,55,56,0,57,58,59,60],
+    ![0,0,0,0,0,0,61,62,63,0,64,65,0,66,67,68,69,70,71,72],
+    ![0,0,0,0,0,0,73,74,75,0,76,77,0,78,79,0,80,81,82,83],
+    ![0,0,0,0,0,0,0,84,85,86,87,88,89,0,90,91,0,92,93,0],
+    ![0,0,0,0,0,0,0,0,0,0,94,95,96,97,98,99,100,0,101,102],
+    ![0,0,0,0,0,0,0,0,0,0,103,0,104,105,106,107,108,0,109,110],
+    ![0,0,0,0,0,0,0,0,0,0,111,112,0,113,114,115,116,0,117,118],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,119,120,121,122,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,124,125,126,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,127,128,129,130,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,132,0,133,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    ![0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma pairPick_correct : ∀ i j : Fin 20, i ≤ j → Disjoint (support20 i) (support20 j) →
+    left (pairPick i j) = support20 i ∧ right (pairPick i j) = support20 j := by decide +kernel
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+def tree0 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked0 : check (left 0) (right 0) 9 [] tree0 = some [] := by decide +kernel
+
+def tree1 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked1 : check (left 1) (right 1) 9 [] tree1 = some [] := by decide +kernel
+
+def tree2 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked2 : check (left 2) (right 2) 9 [] tree2 = some [] := by decide +kernel
+
+def tree3 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked3 : check (left 3) (right 3) 9 [] tree3 = some [] := by decide +kernel
+
+def tree4 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked4 : check (left 4) (right 4) 9 [] tree4 = some [] := by decide +kernel
+
+def tree5 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,13,13,13,2097,1723,1345,72740386980,13,13,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked5 : check (left 5) (right 5) 9 [] tree5 = some [] := by decide +kernel
+
+def tree6 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked6 : check (left 6) (right 6) 9 [] tree6 = some [] := by decide +kernel
+
+def tree7 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked7 : check (left 7) (right 7) 9 [] tree7 = some [] := by decide +kernel
+
+def tree8 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,1707,13,0,555,555,547,795,0,13,50466269340,795,13,1857,1707,13,1699,817,0,555,811,547,291,555,939,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,1707,13]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked8 : check (left 8) (right 8) 9 [] tree8 = some [] := by decide +kernel
+
+def tree9 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked9 : check (left 9) (right 9) 9 [] tree9 = some [] := by decide +kernel
+
+def tree10 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked10 : check (left 10) (right 10) 9 [] tree10 = some [] := by decide +kernel
+
+def tree11 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked11 : check (left 11) (right 11) 9 [] tree11 = some [] := by decide +kernel
+
+def tree12 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked12 : check (left 12) (right 12) 9 [] tree12 = some [] := by decide +kernel
+
+def tree13 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked13 : check (left 13) (right 13) 9 [] tree13 = some [] := by decide +kernel
+
+def tree14 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked14 : check (left 14) (right 14) 9 [] tree14 = some [] := by decide +kernel
+
+def tree15 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked15 : check (left 15) (right 15) 9 [] tree15 = some [] := by decide +kernel
+
+def tree16 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked16 : check (left 16) (right 16) 9 [] tree16 = some [] := by decide +kernel
+
+def tree17 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked17 : check (left 17) (right 17) 9 [] tree17 = some [] := by decide +kernel
+
+def tree18 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked18 : check (left 18) (right 18) 9 [] tree18 = some [] := by decide +kernel
+
+def tree19 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked19 : check (left 19) (right 19) 9 [] tree19 = some [] := by decide +kernel
+
+def tree20 : List Nat := [0,0,0,0,555,811,0,58,58,1841,1707,58,801,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,801,0,555,555,0,58,58,1841,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,555,811,555,811,0,58,58,58,58,1857,1707,58,817,0,555,811,555,811,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked20 : check (left 20) (right 20) 9 [] tree20 = some [] := by decide +kernel
+
+def tree21 : List Nat := [0,0,291,547,0,0,315,59,27,1179,0,58,58,58,58,1857,0,34,34,1073,1691,2369,34,34,58,0,315,59,547,795,0,58,58,58,58,1857,0,34,34,1073,331,2369,34,34,58,1699,817,0,315,59,547,291,1723,315,0,58,58,58,58,58,58,1873,0,34,34,1073,331,34,34,2385,34,34,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked21 : check (left 21) (right 21) 9 [] tree21 = some [] := by decide +kernel
+
+def tree22 : List Nat := [0,0,0,0,59,59,0,58,58,1841,0,1057,75,2353,59,72478107812,58,801,0,59,59,27,1179,0,58,58,58,58,1857,0,1057,75,27,1691,2369,59,0,13,67109529764,13,2097,1723,1345,291,13,13,58,0,801,0,315,59,0,58,58,1841,0,331,1057,2353,547,0,2081,13,1723,1329,1571,13,13,58,0,315,59,1723,795,0,58,58,58,58,1857,0,331,1057,795,1699,2369,547,0,1707,13,13,2097,1723,1345,1571,13,13,58,0,0,315,59,27,1179,0,58,58,58,58,1857,0,331,75,1073,1691,2369,59,0,13,2081,13,1179,1723,1345,73277257892,13,13,58,0,315,59,59,795,0,58,58,58,58,1857,0,331,75,1073,331,2369,59,0,2081,13,13,579,1723,1345,1603,13,13,58,0,315,59,59,315,0,58,58,58,58,1857,0,1699,75,1073,331,2369,59,0,13,13,13,2097,1723,1345,72740386980,13,13,58,817,0,315,59,59,315,1723,315,0,58,58,58,58,58,58,1873,0,331,75,1073,331,0,13,13,13,1179,73023369372,2113,1723,1361,13,331,2385,59,0,13,13,13,67394877604,13,2113,1723,1361,73277388964,13,13,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked22 : check (left 22) (right 22) 9 [] tree22 = some [] := by decide +kernel
+
+def tree23 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked23 : check (left 23) (right 23) 9 [] tree23 = some [] := by decide +kernel
+
+def tree24 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,74088786108,1179,1691,1857,1707,0,34,34,1073,1691,34,34,34,2385,34,0,555,555,547,795,0,71941105820,50466269340,795,547,1857,1707,0,34,34,1073,0,2081,42,42,42,579,1345,42,42,42,34,34,34,2385,34,1699,817,0,555,811,547,291,555,939,0,0,34,2337,1073,331,34,34,34,34,34,0,2337,34,1073,587,34,34,34,34,34,1443,547,0,34,34,1073,72138371228,34,2369,34,34,34,0,34,34,1073,1691,2369,34,34,34,34,1873,1707,0,34,34,1073,0,42,42,42,42,42,2113,0,1569,66,66,66,0,1569,74,2353,50,74,1601,50,50,50,2401,50,2113,811,2129,66,66,66,1361,42,42,42,34,34,34,34,34,2401,34]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked24 : check (left 24) (right 24) 9 [] tree24 = some [] := by decide +kernel
+
+def tree25 : List Nat := [0,0,291,547,0,0,265132,330668,27,1179,527276,0,50466269340,2147887260,547,795,527276,1699,817,0,265132,330668,547,291,527276,592812,658348]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked25 : check (left 25) (right 25) 9 [] tree25 = some [] := by decide +kernel
+
+def tree26 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked26 : check (left 26) (right 26) 9 [] tree26 = some [] := by decide +kernel
+
+def tree27 : List Nat := [0,0,291,547,0,0,315,59,27,1179,0,58,58,58,58,1857,0,34,34,1073,1691,2369,34,34,58,0,315,59,547,795,0,58,58,58,58,1857,0,34,34,1073,331,2369,34,34,58,1699,817,0,315,59,547,291,1723,315,0,58,58,58,58,58,58,1873,0,34,34,1073,331,34,34,2385,34,34,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked27 : check (left 27) (right 27) 9 [] tree27 = some [] := by decide +kernel
+
+def tree28 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked28 : check (left 28) (right 28) 9 [] tree28 = some [] := by decide +kernel
+
+def tree29 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked29 : check (left 29) (right 29) 9 [] tree29 = some [] := by decide +kernel
+
+def tree30 : List Nat := [0,0,0,0,555,811,0,58,58,1841,1707,58,801,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,801,0,555,555,0,58,58,1841,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,555,811,555,811,0,58,58,58,58,1857,1707,58,817,0,555,811,555,811,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked30 : check (left 30) (right 30) 9 [] tree30 = some [] := by decide +kernel
+
+def tree31 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked31 : check (left 31) (right 31) 9 [] tree31 = some [] := by decide +kernel
+
+def tree32 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,269500,74088786108,1179,1691,1857,1707,662716,0,555,555,547,795,0,71941105820,50466269340,795,547,1857,1707,662716,1699,817,0,555,811,547,291,555,939,0,269500,335036,1443,547,531644,597180,1873,1707,793788]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked32 : check (left 32) (right 32) 9 [] tree32 = some [] := by decide +kernel
+
+def tree33 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked33 : check (left 33) (right 33) 9 [] tree33 = some [] := by decide +kernel
+
+def tree34 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked34 : check (left 34) (right 34) 9 [] tree34 = some [] := by decide +kernel
+
+def tree35 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,1707,67,27,2097,1723,1345,72740386980,1699,0,1569,66,795,2097,66,66,66,66,0,1569,74,50,50,2369,50,50,2385,74,1633,50,2145,66,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked35 : check (left 35) (right 35) 9 [] tree35 = some [] := by decide +kernel
+
+def tree36 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked36 : check (left 36) (right 36) 9 [] tree36 = some [] := by decide +kernel
+
+def tree37 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,0,1699,2337,1073,1691,811,1707,0,42,42,42,2097,1723,1345,42,42,42,0,2337,24159660196,1073,1691,811,1707,0,42,42,42,2097,835,1345,42,42,42,795,1691,1857,1707,0,1699,0,42,42,42,2097,835,1345,42,42,42,1073,1691,811,1707,72572614820,2385,0,42,42,42,2097,835,1345,42,42,42,42,42,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked37 : check (left 37) (right 37) 9 [] tree37 = some [] := by decide +kernel
+
+def tree38 : List Nat := [0,0,0,0,555,811,0,0,1057,2337,291,1707,67109398692,4295436476,1841,1707,0,1057,0,42,2081,707,1329,42,42,42,291,1707,72478107812,2369,72478238884,801,0,555,811,27,1179,0,0,1057,2337,27,1691,291,1707,67109529764,13,1179,13,1857,1707,13,0,801,0,555,555,0,68719944124,68719945916,1841,1707,0,0,2081,42,579,1329,42,42,42,1057,1571,547,547,2369,0,2081,42,579,1329,42,42,42,42,42,0,555,555,555,795,0,13,50466269340,795,13,1857,1707,13,0,0,555,811,27,1179,0,0,0,42,2081,42,42,1723,1345,42,2337,1073,1691,811,1707,0,42,2081,42,42,1723,1345,42,42,42,13,1179,13,1857,1707,13,0,555,555,555,795,0,13,50466269340,795,13,1857,1707,13,0,555,811,555,811,0,0,1699,2337,1073,331,811,1707,0,42,42,42,2097,1723,1345,42,42,42,0,2337,24159660196,1073,587,811,1707,0,42,42,42,2097,835,1345,42,42,42,0,1571,75,1073,2353,1443,1707,0,42,42,42,2097,835,1345,42,42,42,0,547,587,1073,0,42,42,42,2097,1723,1345,42,811,547,0,42,42,42,2097,1723,1345,42,42,42,1857,1707,0,1699,0,42,42,42,2097,835,1345,42,42,42,1073,0,42,42,42,2097,835,1345,42,42,42,811,1707,72572614820,2385,0,42,42,42,2097,835,1345,42,42,42,42,42,817,0,555,811,555,811,555,939,0,13,13,0,1571,75,1073,2353,795,1699,1443,1707,0,42,42,42,42,42,2113,50755809436,1361,42,42,42,13,0,0,42,42,42,42,42,2113,74285854876,1361,42,1227,1073,72138371228,0,42,42,42,42,42,2113,74183096484,1361,42,2369,811,1707,0,42,42,42,42,42,2113,74285854876,1361,42,42,42,13,1873,1707,13]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked38 : check (left 38) (right 38) 9 [] tree38 = some [] := by decide +kernel
+
+def tree39 : List Nat := [0,0,27,795,0,26,26,0,265132,330668,27,795,527276,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked39 : check (left 39) (right 39) 9 [] tree39 = some [] := by decide +kernel
+
+def tree40 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked40 : check (left 40) (right 40) 9 [] tree40 = some [] := by decide +kernel
+
+def tree41 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked41 : check (left 41) (right 41) 9 [] tree41 = some [] := by decide +kernel
+
+def tree42 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,1707,330796,27,2097,1723,1345,72740386980,1699,789548,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked42 : check (left 42) (right 42) 9 [] tree42 = some [] := by decide +kernel
+
+def tree43 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked43 : check (left 43) (right 43) 9 [] tree43 = some [] := by decide +kernel
+
+def tree44 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked44 : check (left 44) (right 44) 9 [] tree44 = some [] := by decide +kernel
+
+def tree45 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked45 : check (left 45) (right 45) 9 [] tree45 = some [] := by decide +kernel
+
+def tree46 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,269500,335036,795,1691,1857,1707,662716,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked46 : check (left 46) (right 46) 9 [] tree46 = some [] := by decide +kernel
+
+def tree47 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked47 : check (left 47) (right 47) 9 [] tree47 = some [] := by decide +kernel
+
+def tree48 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked48 : check (left 48) (right 48) 9 [] tree48 = some [] := by decide +kernel
+
+def tree49 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked49 : check (left 49) (right 49) 9 [] tree49 = some [] := by decide +kernel
+
+def tree50 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked50 : check (left 50) (right 50) 9 [] tree50 = some [] := by decide +kernel
+
+def tree51 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked51 : check (left 51) (right 51) 9 [] tree51 = some [] := by decide +kernel
+
+def tree52 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked52 : check (left 52) (right 52) 9 [] tree52 = some [] := by decide +kernel
+
+def tree53 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked53 : check (left 53) (right 53) 9 [] tree53 = some [] := by decide +kernel
+
+def tree54 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked54 : check (left 54) (right 54) 9 [] tree54 = some [] := by decide +kernel
+
+def tree55 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked55 : check (left 55) (right 55) 9 [] tree55 = some [] := by decide +kernel
+
+def tree56 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked56 : check (left 56) (right 56) 9 [] tree56 = some [] := by decide +kernel
+
+def tree57 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked57 : check (left 57) (right 57) 9 [] tree57 = some [] := by decide +kernel
+
+def tree58 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked58 : check (left 58) (right 58) 9 [] tree58 = some [] := by decide +kernel
+
+def tree59 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked59 : check (left 59) (right 59) 9 [] tree59 = some [] := by decide +kernel
+
+def tree60 : List Nat := [0,0,268828,334364,399900]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked60 : check (left 60) (right 60) 9 [] tree60 = some [] := by decide +kernel
+
+def tree61 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked61 : check (left 61) (right 61) 9 [] tree61 = some [] := by decide +kernel
+
+def tree62 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked62 : check (left 62) (right 62) 9 [] tree62 = some [] := by decide +kernel
+
+def tree63 : List Nat := [0,0,291,547,0,0,50466268060,0,0,34,2337,1073,1691,34,1825,795,1691,0,34,34,1073,1691,34,2369,34,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,0,34,34,1073,1691,2369,34,34,13,0,50466269340,2147887260,547,795,0,13,50466269340,795,13,1857,0,34,34,1073,331,2369,34,34,13,1699,817,0,0,1825,0,2337,34,1073,331,34,34,34,1443,13,315,13,13,0,0,34,2337,1073,331,34,34,34,1825,1443,13,1595,13,13,547,291,0,13,13,1443,13,1857,0,34,34,1073,1691,2369,34,34,13,0,1595,315,795,547,0,34,34,1073,331,34,2369,34,1857,0,34,34,1073,72138371228,34,34,34,2385,34,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,0,34,34,1073,331,34,34,2385,34,34,13]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked63 : check (left 63) (right 63) 9 [] tree63 = some [] := by decide +kernel
+
+def tree64 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked64 : check (left 64) (right 64) 9 [] tree64 = some [] := by decide +kernel
+
+def tree65 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked65 : check (left 65) (right 65) 9 [] tree65 = some [] := by decide +kernel
+
+def tree66 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked66 : check (left 66) (right 66) 9 [] tree66 = some [] := by decide +kernel
+
+def tree67 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked67 : check (left 67) (right 67) 9 [] tree67 = some [] := by decide +kernel
+
+def tree68 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,330916,1073,1691,2369,59,658596,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked68 : check (left 68) (right 68) 9 [] tree68 = some [] := by decide +kernel
+
+def tree69 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked69 : check (left 69) (right 69) 9 [] tree69 = some [] := by decide +kernel
+
+def tree70 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked70 : check (left 70) (right 70) 9 [] tree70 = some [] := by decide +kernel
+
+def tree71 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked71 : check (left 71) (right 71) 9 [] tree71 = some [] := by decide +kernel
+
+def tree72 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked72 : check (left 72) (right 72) 9 [] tree72 = some [] := by decide +kernel
+
+def tree73 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked73 : check (left 73) (right 73) 9 [] tree73 = some [] := by decide +kernel
+
+def tree74 : List Nat := [0,0,27,795,0,26,26,0,0,1825,0,2337,24159660196,1073,1691,0,451,1313,5,2097,1195,5,5,795,1691,0,1699,24159660196,1073,1691,72572483748,2369,0,451,1313,5,2097,5,5,1195,5,5,0,0,1699,2337,1073,1691,0,1313,67,5,2097,811,5,5,1825,795,1691,0,1699,67109333156,1073,1691,59,2369,0,1313,67,5,2097,5,5,811,5,5,27,795,0,0,1699,2337,1073,1691,1595,59,0,5,5,5,2097,1723,1345,72740386980,5,5,0,2337,24159660196,1073,1691,587,75,0,5,5,5,2097,835,1345,1227,5,5,795,1691,1857,0,1699,75,1073,1691,2369,72572549284,0,5,5,5,2097,835,1345,72740386980,5,5,0,1699,0,5,67,5,2097,835,1345,5,5,5,1073,1691,72740255908,72572549284,72572614820,2385,0,5,5,5,2097,835,1345,5,5,72740518052,5,5,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked74 : check (left 74) (right 74) 9 [] tree74 = some [] := by decide +kernel
+
+def tree75 : List Nat := [6]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked75 : check (left 75) (right 75) 9 [] tree75 = some [] := by decide +kernel
+
+def tree76 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked76 : check (left 76) (right 76) 9 [] tree76 = some [] := by decide +kernel
+
+def tree77 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked77 : check (left 77) (right 77) 9 [] tree77 = some [] := by decide +kernel
+
+def tree78 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked78 : check (left 78) (right 78) 9 [] tree78 = some [] := by decide +kernel
+
+def tree79 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked79 : check (left 79) (right 79) 9 [] tree79 = some [] := by decide +kernel
+
+def tree80 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked80 : check (left 80) (right 80) 9 [] tree80 = some [] := by decide +kernel
+
+def tree81 : List Nat := [0,0,27,795,0,26,26,0,0,1825,335036,795,1691,531644,0,269500,1825,795,1691,531644,27,795,0,269500,335036,795,1691,1857,597180,662716,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked81 : check (left 81) (right 81) 9 [] tree81 = some [] := by decide +kernel
+
+def tree82 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67109333156,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked82 : check (left 82) (right 82) 9 [] tree82 = some [] := by decide +kernel
+
+def tree83 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67109333156,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked83 : check (left 83) (right 83) 9 [] tree83 = some [] := by decide +kernel
+
+def tree84 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked84 : check (left 84) (right 84) 9 [] tree84 = some [] := by decide +kernel
+
+def tree85 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,1707,13,0,555,555,547,795,0,13,50466269340,795,13,1857,1707,13,1699,817,0,555,811,547,291,555,939,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,1707,13]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked85 : check (left 85) (right 85) 9 [] tree85 = some [] := by decide +kernel
+
+def tree86 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked86 : check (left 86) (right 86) 9 [] tree86 = some [] := by decide +kernel
+
+def tree87 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked87 : check (left 87) (right 87) 9 [] tree87 = some [] := by decide +kernel
+
+def tree88 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked88 : check (left 88) (right 88) 9 [] tree88 = some [] := by decide +kernel
+
+def tree89 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked89 : check (left 89) (right 89) 9 [] tree89 = some [] := by decide +kernel
+
+def tree90 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked90 : check (left 90) (right 90) 9 [] tree90 = some [] := by decide +kernel
+
+def tree91 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked91 : check (left 91) (right 91) 9 [] tree91 = some [] := by decide +kernel
+
+def tree92 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked92 : check (left 92) (right 92) 9 [] tree92 = some [] := by decide +kernel
+
+def tree93 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked93 : check (left 93) (right 93) 9 [] tree93 = some [] := by decide +kernel
+
+def tree94 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked94 : check (left 94) (right 94) 9 [] tree94 = some [] := by decide +kernel
+
+def tree95 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked95 : check (left 95) (right 95) 9 [] tree95 = some [] := by decide +kernel
+
+def tree96 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked96 : check (left 96) (right 96) 9 [] tree96 = some [] := by decide +kernel
+
+def tree97 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked97 : check (left 97) (right 97) 9 [] tree97 = some [] := by decide +kernel
+
+def tree98 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked98 : check (left 98) (right 98) 9 [] tree98 = some [] := by decide +kernel
+
+def tree99 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,0,1699,2337,1073,1691,811,1707,658596,0,2337,4295567548,1073,1691,811,1707,658596,795,1691,1857,1707,0,1699,330916,1073,1691,811,1707,72495024316,2385,789668,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked99 : check (left 99) (right 99) 9 [] tree99 = some [] := by decide +kernel
+
+def tree100 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked100 : check (left 100) (right 100) 9 [] tree100 = some [] := by decide +kernel
+
+def tree101 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked101 : check (left 101) (right 101) 9 [] tree101 = some [] := by decide +kernel
+
+def tree102 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked102 : check (left 102) (right 102) 9 [] tree102 = some [] := by decide +kernel
+
+def tree103 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked103 : check (left 103) (right 103) 9 [] tree103 = some [] := by decide +kernel
+
+def tree104 : List Nat := [0,0,291,547,0,0,50466268060,0,0,34,2337,1073,1691,34,1825,795,1691,0,34,34,1073,1691,34,2369,34,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,0,34,34,1073,1691,2369,34,34,5,0,50466269340,2147887260,547,795,0,5,50466269340,795,5,1857,0,34,34,1073,331,2369,34,34,5,1699,817,0,0,1825,0,2337,34,1073,331,34,34,34,1443,5,315,5,5,0,0,34,2337,1073,331,34,34,34,1825,1443,5,1595,5,5,547,291,527404,0,1595,315,795,547,0,34,34,1073,331,34,2369,34,1857,0,34,34,1073,72138371228,34,34,34,2385,34,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,0,34,34,1073,331,34,34,2385,34,34,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked104 : check (left 104) (right 104) 9 [] tree104 = some [] := by decide +kernel
+
+def tree105 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked105 : check (left 105) (right 105) 9 [] tree105 = some [] := by decide +kernel
+
+def tree106 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked106 : check (left 106) (right 106) 9 [] tree106 = some [] := by decide +kernel
+
+def tree107 : List Nat := [0,0,0,0,555,811,0,0,1057,2337,291,1707,67109398692,4295436476,1841,1707,0,1057,330916,291,1707,72494889148,2369,72478238884,801,0,555,811,27,1179,0,0,1057,2337,27,1691,291,1707,67109529764,5,1179,5,1857,1707,5,0,801,0,555,555,0,68719944124,68719945916,1841,1707,0,265380,1057,1571,547,547,2369,658596,0,555,555,555,795,0,5,50466269340,795,5,1857,1707,5,0,0,555,811,27,1179,0,0,265380,2337,1073,1691,811,1707,658596,5,1179,5,1857,1707,5,0,555,555,555,795,0,5,50466269340,795,5,1857,1707,5,0,555,811,555,811,0,0,1699,2337,1073,461988,811,1707,658596,0,2337,4295567548,1073,461988,811,1707,658596,0,1571,330916,1073,2353,1443,1707,658596,461988,1857,1707,0,1699,330916,1073,461988,811,1707,72495024316,2385,789668,817,0,555,811,555,811,555,939,0,5,5,0,1571,330916,1073,2353,795,1699,1443,1707,789668,5,0,265380,330916,1073,72138371228,67109325988,2369,811,1707,789668,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked107 : check (left 107) (right 107) 9 [] tree107 = some [] := by decide +kernel
+
+def tree108 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked108 : check (left 108) (right 108) 9 [] tree108 = some [] := by decide +kernel
+
+def tree109 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked109 : check (left 109) (right 109) 9 [] tree109 = some [] := by decide +kernel
+
+def tree110 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked110 : check (left 110) (right 110) 9 [] tree110 = some [] := by decide +kernel
+
+def tree111 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked111 : check (left 111) (right 111) 9 [] tree111 = some [] := by decide +kernel
+
+def tree112 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked112 : check (left 112) (right 112) 9 [] tree112 = some [] := by decide +kernel
+
+def tree113 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked113 : check (left 113) (right 113) 9 [] tree113 = some [] := by decide +kernel
+
+def tree114 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked114 : check (left 114) (right 114) 9 [] tree114 = some [] := by decide +kernel
+
+def tree115 : List Nat := [0,0,27,795,0,26,26,0,265132,330668,27,795,527276,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked115 : check (left 115) (right 115) 9 [] tree115 = some [] := by decide +kernel
+
+def tree116 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked116 : check (left 116) (right 116) 9 [] tree116 = some [] := by decide +kernel
+
+def tree117 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked117 : check (left 117) (right 117) 9 [] tree117 = some [] := by decide +kernel
+
+def tree118 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked118 : check (left 118) (right 118) 9 [] tree118 = some [] := by decide +kernel
+
+def tree119 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked119 : check (left 119) (right 119) 9 [] tree119 = some [] := by decide +kernel
+
+def tree120 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked120 : check (left 120) (right 120) 9 [] tree120 = some [] := by decide +kernel
+
+def tree121 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked121 : check (left 121) (right 121) 9 [] tree121 = some [] := by decide +kernel
+
+def tree122 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked122 : check (left 122) (right 122) 9 [] tree122 = some [] := by decide +kernel
+
+def tree123 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked123 : check (left 123) (right 123) 9 [] tree123 = some [] := by decide +kernel
+
+def tree124 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked124 : check (left 124) (right 124) 9 [] tree124 = some [] := by decide +kernel
+
+def tree125 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked125 : check (left 125) (right 125) 9 [] tree125 = some [] := by decide +kernel
+
+def tree126 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked126 : check (left 126) (right 126) 9 [] tree126 = some [] := by decide +kernel
+
+def tree127 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked127 : check (left 127) (right 127) 9 [] tree127 = some [] := by decide +kernel
+
+def tree128 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,330916,1073,1691,2369,59,658596,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked128 : check (left 128) (right 128) 9 [] tree128 = some [] := by decide +kernel
+
+def tree129 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked129 : check (left 129) (right 129) 9 [] tree129 = some [] := by decide +kernel
+
+def tree130 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked130 : check (left 130) (right 130) 9 [] tree130 = some [] := by decide +kernel
+
+def tree131 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked131 : check (left 131) (right 131) 9 [] tree131 = some [] := by decide +kernel
+
+def tree132 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked132 : check (left 132) (right 132) 9 [] tree132 = some [] := by decide +kernel
+
+def tree133 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma checked133 : check (left 133) (right 133) 9 [] tree133 = some [] := by decide +kernel
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+def trees : Fin 134 → List Nat :=
+  ![tree0,tree1,tree2,tree3,tree4,tree5,tree6,tree7,tree8,tree9,tree10,tree11,tree12,tree13,tree14,tree15,tree16,tree17,tree18,tree19,tree20,tree21,tree22,tree23,tree24,tree25,tree26,tree27,tree28,tree29,tree30,tree31,tree32,tree33,tree34,tree35,tree36,tree37,tree38,tree39,tree40,tree41,tree42,tree43,tree44,tree45,tree46,tree47,tree48,tree49,tree50,tree51,tree52,tree53,tree54,tree55,tree56,tree57,tree58,tree59,tree60,tree61,tree62,tree63,tree64,tree65,tree66,tree67,tree68,tree69,tree70,tree71,tree72,tree73,tree74,tree75,tree76,tree77,tree78,tree79,tree80,tree81,tree82,tree83,tree84,tree85,tree86,tree87,tree88,tree89,tree90,tree91,tree92,tree93,tree94,tree95,tree96,tree97,tree98,tree99,tree100,tree101,tree102,tree103,tree104,tree105,tree106,tree107,tree108,tree109,tree110,tree111,tree112,tree113,tree114,tree115,tree116,tree117,tree118,tree119,tree120,tree121,tree122,tree123,tree124,tree125,tree126,tree127,tree128,tree129,tree130,tree131,tree132,tree133]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma all_checked (k : Fin 134) : check (left k) (right k) 9 [] (trees k) = some [] := by
+  fin_cases k
+  · exact checked0
+  · exact checked1
+  · exact checked2
+  · exact checked3
+  · exact checked4
+  · exact checked5
+  · exact checked6
+  · exact checked7
+  · exact checked8
+  · exact checked9
+  · exact checked10
+  · exact checked11
+  · exact checked12
+  · exact checked13
+  · exact checked14
+  · exact checked15
+  · exact checked16
+  · exact checked17
+  · exact checked18
+  · exact checked19
+  · exact checked20
+  · exact checked21
+  · exact checked22
+  · exact checked23
+  · exact checked24
+  · exact checked25
+  · exact checked26
+  · exact checked27
+  · exact checked28
+  · exact checked29
+  · exact checked30
+  · exact checked31
+  · exact checked32
+  · exact checked33
+  · exact checked34
+  · exact checked35
+  · exact checked36
+  · exact checked37
+  · exact checked38
+  · exact checked39
+  · exact checked40
+  · exact checked41
+  · exact checked42
+  · exact checked43
+  · exact checked44
+  · exact checked45
+  · exact checked46
+  · exact checked47
+  · exact checked48
+  · exact checked49
+  · exact checked50
+  · exact checked51
+  · exact checked52
+  · exact checked53
+  · exact checked54
+  · exact checked55
+  · exact checked56
+  · exact checked57
+  · exact checked58
+  · exact checked59
+  · exact checked60
+  · exact checked61
+  · exact checked62
+  · exact checked63
+  · exact checked64
+  · exact checked65
+  · exact checked66
+  · exact checked67
+  · exact checked68
+  · exact checked69
+  · exact checked70
+  · exact checked71
+  · exact checked72
+  · exact checked73
+  · exact checked74
+  · exact checked75
+  · exact checked76
+  · exact checked77
+  · exact checked78
+  · exact checked79
+  · exact checked80
+  · exact checked81
+  · exact checked82
+  · exact checked83
+  · exact checked84
+  · exact checked85
+  · exact checked86
+  · exact checked87
+  · exact checked88
+  · exact checked89
+  · exact checked90
+  · exact checked91
+  · exact checked92
+  · exact checked93
+  · exact checked94
+  · exact checked95
+  · exact checked96
+  · exact checked97
+  · exact checked98
+  · exact checked99
+  · exact checked100
+  · exact checked101
+  · exact checked102
+  · exact checked103
+  · exact checked104
+  · exact checked105
+  · exact checked106
+  · exact checked107
+  · exact checked108
+  · exact checked109
+  · exact checked110
+  · exact checked111
+  · exact checked112
+  · exact checked113
+  · exact checked114
+  · exact checked115
+  · exact checked116
+  · exact checked117
+  · exact checked118
+  · exact checked119
+  · exact checked120
+  · exact checked121
+  · exact checked122
+  · exact checked123
+  · exact checked124
+  · exact checked125
+  · exact checked126
+  · exact checked127
+  · exact checked128
+  · exact checked129
+  · exact checked130
+  · exact checked131
+  · exact checked132
+  · exact checked133
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma classified_ordered (i j : Fin 20) (hij : i ≤ j) (hd : Disjoint (support20 i) (support20 j))
+    (a : List Nat) (ha : AdmissibleBoth (support20 i) (support20 j) [] a) (hlen : a.length = 9) :
+    support20 i = {4,5} ∧ support20 j = {3,7} := by
+  let k := pairPick i j
+  have hh := pairPick_correct i j hij hd
+  have hc := all_checked k
+  rw [show left k = support20 i from hh.1, show right k = support20 j from hh.2] at hc
+  exact check_sound _ _ 9 [] (trees k) [] a hc ha hlen
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+open DagTools I2Census
+
+lemma actual_shapes_of_classification
+    (classify : ∀ (R T : Finset V) (a : List ℕ),
+      R ∈ (∅ :: I2ForbiddenPairs.supports) → T ∈ (∅ :: I2ForbiddenPairs.supports) →
+      Disjoint R T → a.length = 9 → PortCodes.Growth a →
+      (∀ i, i ≤ a.length → I2BothCensus.ConditionsBoth R T (a.take i)) →
+      (R = {4,5} ∧ T = {3,7}) ∨ (R = {3,7} ∧ T = {4,5}))
+    {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b) :
+    ∃ u v : Σ _ : ℕ, ℕ, residualUnits 10 D b = {u,v} ∧
+      supp 10 D u.1 = {1,4,5} ∧ supp 10 D v.1 = {1,3,7} := by
+  obtain ⟨u,v,R,T,huv,hres,hu,hv,hR,hT,hdis,hRc,hTc⟩ :=
+    residual_decomposition h hc small two h0 h2 b hb
+  obtain ⟨codeR,codeT,_,_,hbudget⟩ := codes_and_budget h hc h0 h2 b
+    (sem_minBranch_pure hb) u v huv R T hres hu hv hR hT hdis
+  have cap (x : V) : (sem_W 10 D x).card ≤ I2BothCensus.budgetBoth R T x := hbudget x
+  obtain ⟨A,B,e,hA,hB,hAB,he⟩ := actual_free_port_choice h hc small two h0 h2
+  obtain ⟨a,f,hlen,hgrowth,hbar,hinj,hselected,hfixed⟩ := normalize_actual_ports A B e hA hB hAB he
+  have conditions (i : ℕ) (_ : i ≤ a.length) : I2BothCensus.ConditionsBoth R T (a.take i) := by
+    obtain ⟨hi,hs,hf⟩ := map_properties_take a f hinj hselected hfixed i
+    exact I2BothCensus.conditions_of_semantics h hc b hb R T u v hR hT hu hv codeR codeT cap
+      (a.take i) f hbar hi hs hf
+  rcases classify R T a hRc hTc hdis hlen hgrowth conditions with ⟨hr,ht⟩ | ⟨hr,ht⟩
+  · refine ⟨u,v,hres,?_,?_⟩
+    · simpa only [hr] using hu
+    · simpa only [ht] using hv
+  · refine ⟨v,u,?_,?_,?_⟩
+    · simpa only [Finset.pair_comm] using hres
+    · simpa only [ht] using hv
+    · simpa only [hr] using hu
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothModels
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma two_ineligible_exclusion_of_canonical
+    (canonical : ∀ D : Dag, StrictLive 10 D → sem_Comp 10 adj D → D.length ≤ 19 →
+      (ineligSet 10 D).card = 2 → (0 : V) ∈ ineligSet 10 D → (2 : V) ∈ ineligSet 10 D → False)
+    {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2) : False := by
+  classical
+  obtain ⟨i,j,hij,hI⟩ := Finset.card_eq_two.mp two
+  have hi : i ∈ ineligSet 10 D := by rw [hI]; simp
+  have hj : j ∈ ineligSet 10 D := by rw [hI]; simp
+  have nonadj : ¬ adj i j := by
+    intro ha
+    rcases sem_elig_cover graph_ok h hc ha with hm | hm
+    · exact (sem_mem_inelig.mp hi) hm
+    · exact (sem_mem_inelig.mp hj) hm
+  let σ := r1_perm i j
+  have maps : σ i = 0 ∧ σ j = 2 := r1_perm_maps i j hij nonadj
+  have hE := relabel_strictLive σ h
+  have hEC := r1_relabel_comp h hc σ (r1_perm_adj i j)
+  have hsmall : (relabel σ D).length ≤ 19 := by simpa only [relabel_length] using small
+  have htwo : (ineligSet 10 (relabel σ D)).card = 2 := by
+    rw [relabel_ineligSet σ h.1,Finset.card_image_of_injective _ σ.injective,two]
+  have hzero : (0 : V) ∈ ineligSet 10 (relabel σ D) := by
+    rw [relabel_ineligSet σ h.1]
+    exact Finset.mem_image.mpr ⟨i,hi,maps.1⟩
+  have htwoin : (2 : V) ∈ ineligSet 10 (relabel σ D) := by
+    rw [relabel_ineligSet σ h.1]
+    exact Finset.mem_image.mpr ⟨j,hj,maps.2⟩
+  exact canonical (relabel σ D) hE hEC hsmall htwo hzero htwoin
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma val_imp_of_exit_sources_true {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z : Fin n) (x y : Fin n → Bool)
+    (hxy : ∀ i, i ≠ z → x i = true → y i = true)
+    (hexit : ∀ e ∈ sem_W n D z, val D y (src D e) = true) :
+    ∀ w, z ∉ supp n D w → val D x w = true → val D y w = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hn : w < n
+    · have hne : (⟨w, hn⟩ : Fin n) ≠ z := by
+        intro heq
+        apply hw
+        rw [← heq]
+        exact (supp_input D ⟨w, hn⟩).symm ▸ Finset.mem_singleton_self _
+      rw [val_input D x w hn, val_input D y w hn]
+      exact hxy _ hne
+    · by_cases hbound : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        obtain ⟨ha, hb, _⟩ := hS j hj
+        by_cases hzA : z ∈ supp n D (opA D j)
+        · have he : (j, false) ∈ sem_W n D z :=
+            sem_mem_W.mpr ⟨hj, by simpa only [sb_src_false] using hzA, hw⟩
+          have ht := sem_W_and hS he
+          have hzB : z ∉ supp n D (opB D j) := by
+            intro hzB
+            apply hw
+            rw [sem_supp_and hS hj ht]
+            exact Finset.mem_inter.mpr ⟨hzA, hzB⟩
+          have hyA : val D y (opA D j) = true := by
+            simpa only [sb_src_false] using hexit (j, false) he
+          simp only [val_gate hS x j hj, val_gate hS y j hj, ht, gop_true, Bool.and_eq_true]
+          intro hx
+          exact ⟨hyA, ih _ hb hzB hx.2⟩
+        · by_cases hzB : z ∈ supp n D (opB D j)
+          · have he : (j, true) ∈ sem_W n D z :=
+              sem_mem_W.mpr ⟨hj, by simpa only [sb_src_true] using hzB, hw⟩
+            have ht := sem_W_and hS he
+            have hyB : val D y (opB D j) = true := by
+              simpa only [sb_src_true] using hexit (j, true) he
+            simp only [val_gate hS x j hj, val_gate hS y j hj, ht, gop_true, Bool.and_eq_true]
+            intro hx
+            exact ⟨ih _ ha hzA hx.1, hyB⟩
+          · rw [val_gate hS x j hj, val_gate hS y j hj]
+            have hA := ih _ ha hzA
+            have hB := ih _ hb hzB
+            cases tag D j <;>
+              simp only [gop_true, gop_false, Bool.and_eq_true, Bool.or_eq_true] <;>
+              tauto
+      · rw [val_ge D x w (by omega)]
+        simp
+
+lemma sem_value_exposure {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hc : sem_Comp n G D)
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b)
+    (z : Fin n) (htouch : ∃ a ∈ A, G z a) :
+    ∃ e ∈ sem_W n D z, val D (sem_ind A) (src D e) = false := by
+  classical
+  by_contra bad
+  have sources : ∀ e ∈ sem_W n D z, val D (sem_ind A) (src D e) = true := by
+    intro e he
+    by_contra hn
+    rw [Bool.not_eq_true] at hn
+    exact bad ⟨e, he, hn⟩
+  have dominance : ∀ i, i ≠ z → sem_ins z (sem_ind A) i = true → sem_ind A i = true := by
+    intro i hi ht
+    simpa [sem_ins, hi] using ht
+  obtain ⟨a, ha, hza⟩ := htouch
+  have positive : val D (sem_ins z (sem_ind A)) (outW n D) = true := by
+    apply (hc _).mpr
+    exact ⟨z, a, hza, by simp [sem_ins], by simp [sem_ins, sem_ind, ha]⟩
+  have target := val_imp_of_exit_sources_true hS z (sem_ins z (sem_ind A)) (sem_ind A)
+    dominance sources (outW n D) (by rw [sem_supp_out hG hc]; simp) positive
+  exact sem_ind_no_edge hA ((hc _).mp target)
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+abbrev sem_CarrierStep (n : ℕ) (D : Dag) (x : Fin n) (a c : ℕ) : Prop :=
+  sem_step n D a c ∧ x ∈ supp n D a ∧ x ∈ supp n D c
+
+abbrev sem_RootedCarrierStep (n : ℕ) (D : Dag) (x : Fin n) (r a c : ℕ) : Prop :=
+  sem_CarrierStep n D x a c ∧ Relation.ReflTransGen (sem_CarrierStep n D x) r a
+
+abbrev sem_NoLaterCarrierMerge (n : ℕ) (D : Dag) (x : Fin n) (r : ℕ) : Prop :=
+  ∀ j, j < D.length → r < n + j →
+    Relation.ReflTransGen (sem_CarrierStep n D x) r (n + j) →
+    j ∉ merges n D (carrierT n D {x})
+
+section LocalTwoArms
+
+variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag} {x : Fin n} {r : ℕ}
+
+lemma sem_no_later_carrier_gate (hS : Strict n D)
+    (hM : sem_NoLaterCarrierMerge n D x r)
+    {j : ℕ} (hj : j < D.length) (hrj : r < n + j)
+    (hp : Relation.ReflTransGen (sem_CarrierStep n D x) r (n + j))
+    (hx : x ∈ supp n D (n + j)) :
+    tag D j = false ∧ ¬ (x ∈ supp n D (opA D j) ∧ x ∈ supp n D (opB D j)) := by
+  have hnot : ¬ (x ∈ supp n D (opA D j) ∧ x ∈ supp n D (opB D j)) := by
+    intro hh
+    apply hM j hj hrj hp
+    rw [merges, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hj, sem_mem_carrier1.mpr hx,
+      sem_mem_carrier1.mpr hh.1, sem_mem_carrier1.mpr hh.2⟩
+  refine ⟨?_, hnot⟩
+  by_contra ht
+  rw [Bool.not_eq_false] at ht
+  rw [sem_supp_and hS hj ht, Finset.mem_inter] at hx
+  exact hnot hx
+
+lemma sem_rooted_carrier_support_mono (hS : Strict n D)
+    (hM : sem_NoLaterCarrierMerge n D x r)
+    {a c : ℕ} (ha : sem_RootedCarrierStep n D x r a c) :
+    supp n D a ⊆ supp n D c := by
+  obtain ⟨j, s, hj, hceq, hs⟩ := sem_step_iff.mp ha.1.1
+  have hrj : r < n + j := by
+    have hle := sem_rtg_le hS (fun _ _ hh => hh.1) ha.2
+    have hlt := sem_step_lt hS ha.1.1
+    omega
+  have hp : Relation.ReflTransGen (sem_CarrierStep n D x) r (n + j) := by
+    rw [← hceq]
+    exact Relation.ReflTransGen.tail ha.2 ha.1
+  have hxj : x ∈ supp n D (n + j) := by
+    rw [← hceq]
+    exact ha.1.2.2
+  have hor := (sem_no_later_carrier_gate hS hM hj hrj hp hxj).1
+  rw [hceq, sem_supp_or hS hj hor]
+  cases s
+  · rw [sb_src_false] at hs
+    rw [hs]
+    exact Finset.subset_union_left
+  · rw [sb_src_true] at hs
+    rw [hs]
+    exact Finset.subset_union_right
+
+lemma sem_carrier_support_mono (hS : Strict n D)
+    (hM : sem_NoLaterCarrierMerge n D x r) {c : ℕ}
+    (hp : Relation.ReflTransGen (sem_CarrierStep n D x) r c) :
+    supp n D r ⊆ supp n D c := by
+  induction hp with
+  | refl => exact Finset.Subset.refl _
+  | @tail a c hp step ih =>
+    exact ih.trans (sem_rooted_carrier_support_mono hS hM ⟨step, hp⟩)
+
+lemma sem_carrier_support_mono_of_no_merges (hS : Strict n D)
+    (hM : merges n D (carrierT n D {x}) = ∅) {c : ℕ}
+    (hp : Relation.ReflTransGen (sem_CarrierStep n D x) r c) :
+    supp n D r ⊆ supp n D c := by
+  apply sem_carrier_support_mono hS (r := r) ?_ hp
+  intro j hj hrj hpath hmem
+  rw [hM] at hmem
+  exact Finset.notMem_empty _ hmem
+
+lemma sem_local_carrier_exit_support (hG : sem_Gr G) (h : StrictLive n D)
+    (hc : sem_Comp n G D) (hM : sem_NoLaterCarrierMerge n D x r)
+    {c : ℕ} (hxc : x ∈ supp n D c)
+    (hrc : Relation.ReflTransGen (sem_CarrierStep n D x) r c) :
+    ∃ e ∈ sem_W n D x,
+      Relation.ReflTransGen (sem_RootedCarrierStep n D x r) c (src D e) ∧
+      supp n D c ⊆ supp n D (src D e) := by
+  classical
+  by_contra bad
+  have preserves {u v : ℕ} (step : sem_step n D u v)
+      (hu : x ∈ supp n D u)
+      (path : Relation.ReflTransGen (sem_RootedCarrierStep n D x r) c u)
+      (sub : supp n D c ⊆ supp n D u) :
+      x ∈ supp n D v ∧
+      Relation.ReflTransGen (sem_RootedCarrierStep n D x r) c v ∧
+      supp n D c ⊆ supp n D v := by
+    obtain ⟨j, s, hj, rfl, hsrc⟩ := sem_step_iff.mp step
+    have hxj : x ∈ supp n D (n + j) := by
+      by_contra hn
+      apply bad
+      refine ⟨(j,s), sem_mem_W.mpr ⟨hj, ?_, hn⟩, ?_, ?_⟩
+      · simpa only [hsrc] using hu
+      · simpa only [hsrc] using path
+      · simpa only [hsrc] using sub
+    have root : Relation.ReflTransGen (sem_CarrierStep n D x) r u :=
+      hrc.trans (sem_rtg_mono (fun _ _ hh => hh.1) path)
+    have next : sem_RootedCarrierStep n D x r u (n + j) :=
+      ⟨⟨step, hu, hxj⟩, root⟩
+    exact ⟨hxj, Relation.ReflTransGen.tail path next,
+      sub.trans (sem_rooted_carrier_support_mono h.1 hM next)⟩
+  have propagate : ∀ u, Relation.ReflTransGen (sem_step n D) c u →
+      x ∈ supp n D u ∧
+      Relation.ReflTransGen (sem_RootedCarrierStep n D x r) c u ∧
+      supp n D c ⊆ supp n D u := by
+    intro u path
+    induction path with
+    | refl => exact ⟨hxc, Relation.ReflTransGen.refl, Finset.Subset.refl _⟩
+    | @tail u v path step ih => exact preserves step ih.1 ih.2.1 ih.2.2
+  have hout := (propagate _ (live_reaches_output h (sem_supp_lt hxc))).1
+  rw [sem_supp_out hG hc] at hout
+  exact Finset.notMem_empty _ hout
+
+lemma sem_local_two_arms_support (hG : sem_Gr G) (h : StrictLive n D)
+    (hc : sem_Comp n G D) (hM : sem_NoLaterCarrierMerge n D x r)
+    (hr : x ∈ supp n D r) (hf : 2 ≤ fanout D r) :
+    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ P ∈ sem_W n D x ∧ Q ∈ sem_W n D x ∧
+      supp n D r ⊆ supp n D (src D P) ∧ supp n D r ⊆ supp n D (src D Q) := by
+  classical
+  have hS := h.1
+  obtain ⟨j1, hj1, j2, hj2, hne⟩ := Finset.one_lt_card.mp (show 1 < (readers D r).card from hf)
+  have hread : ∀ j ∈ readers D r, j < D.length ∧ r < n + j ∧
+      (opA D j = r ∨ opB D j = r) := by
+    intro j hj
+    simp only [readers, Finset.mem_filter, Finset.mem_range] at hj
+    have hs := hS j hj.1
+    exact ⟨hj.1, by omega, hj.2⟩
+  have hterm : ∀ j ∈ readers D r, ∃ e : ℕ × Bool, e ∈ sem_W n D x ∧
+      ((e.1 = j ∧ src D e = r) ∨
+        Relation.ReflTransGen (sem_RootedCarrierStep n D x r) (n + j) (src D e)) ∧
+      supp n D r ⊆ supp n D (src D e) := by
+    intro j hj
+    obtain ⟨hjl, hrj, hop⟩ := hread j hj
+    obtain ⟨s, hs⟩ : ∃ s : Bool, src D (j,s) = r := by
+      rcases hop with ha | hb
+      · exact ⟨false, by rw [sb_src_false]; exact ha⟩
+      · exact ⟨true, by rw [sb_src_true]; exact hb⟩
+    by_cases hcar : x ∈ supp n D (n + j)
+    · have step : sem_step n D r (n + j) := by
+        rw [← hs]
+        exact sem_step_src hjl s
+      have color : sem_CarrierStep n D x r (n + j) := ⟨step, hr, hcar⟩
+      have path : Relation.ReflTransGen (sem_CarrierStep n D x) r (n + j) :=
+        Relation.ReflTransGen.tail Relation.ReflTransGen.refl color
+      have first : sem_RootedCarrierStep n D x r r (n + j) :=
+        ⟨color, Relation.ReflTransGen.refl⟩
+      obtain ⟨e, he, hp, hsub⟩ := sem_local_carrier_exit_support hG h hc hM hcar path
+      exact ⟨e, he, Or.inr hp, (sem_rooted_carrier_support_mono hS hM first).trans hsub⟩
+    · exact ⟨(j,s), sem_mem_W.mpr ⟨hjl, by rw [hs]; exact hr, hcar⟩,
+        Or.inl ⟨rfl, hs⟩, by rw [hs]⟩
+  have hRstep : ∀ a c, sem_RootedCarrierStep n D x r a c → sem_step n D a c :=
+    fun _ _ hh => hh.1.1
+  have hfun : ∀ a a' c, sem_RootedCarrierStep n D x r a c →
+      sem_RootedCarrierStep n D x r a' c → a = a' := by
+    intro a a' c h1 h2
+    by_contra hne2
+    obtain ⟨hc1, hc2, hca⟩ := h1.1.1
+    obtain ⟨_, _, hca'⟩ := h2.1.1
+    have hj : c - n < D.length := by omega
+    have hroot : Relation.ReflTransGen (sem_CarrierStep n D x) r (n + (c - n)) := by
+      rw [Nat.add_sub_cancel' hc2]
+      exact Relation.ReflTransGen.tail h1.2 h1.1
+    have hlt : r < n + (c - n) := by
+      have hle := sem_rtg_le hS (fun _ _ hh => hh.1) h1.2
+      have hstep := sem_step_lt hS h1.1.1
+      omega
+    have hxc : x ∈ supp n D (n + (c - n)) := by
+      rw [Nat.add_sub_cancel' hc2]
+      exact h1.1.2.2
+    apply (sem_no_later_carrier_gate hS hM hj hlt hroot hxc).2
+    have ha := h1.1.2.1
+    have ha' := h2.1.2.1
+    rcases hca with e1 | e1 <;> rcases hca' with e2 | e2
+    · exact absurd (e1.symm.trans e2) hne2
+    · rw [e1, e2]; exact ⟨ha, ha'⟩
+    · rw [e1, e2]; exact ⟨ha', ha⟩
+    · exact absurd (e1.symm.trans e2) hne2
+  have hcross : ∀ ja ∈ readers D r, ∀ jb ∈ readers D r, ja ≠ jb →
+      ¬ Relation.ReflTransGen (sem_RootedCarrierStep n D x r) (n + ja) (n + jb) := by
+    intro ja hja jb hjb hab hp
+    obtain ⟨hjla, hrja, _⟩ := hread ja hja
+    obtain ⟨hjlb, hrjb, hopb⟩ := hread jb hjb
+    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨u, hu1, hu2⟩
+    · exact hab (by omega)
+    · have directStep : sem_step n D r (n + jb) := by
+        refine ⟨by omega, by omega, ?_⟩
+        simpa only [Nat.add_sub_cancel_left] using hopb
+      have direct : sem_RootedCarrierStep n D x r r (n + jb) :=
+        ⟨⟨directStep, hr, hu2.1.2.2⟩, Relation.ReflTransGen.refl⟩
+      have hur : u = r := hfun _ _ _ hu2 direct
+      have hle := sem_rtg_le hS hRstep hu1
+      omega
+  obtain ⟨P, hP, hP2, hPs⟩ := hterm j1 hj1
+  obtain ⟨Q, hQ, hQ2, hQs⟩ := hterm j2 hj2
+  refine ⟨P, Q, ?_, hP, hQ, hPs, hQs⟩
+  intro hPQ
+  have hsame : Q = P := (W_gate_injective hS hP hQ hPQ).symm
+  rw [hsame] at hQ2
+  obtain ⟨_, hrj1, _⟩ := hread j1 hj1
+  obtain ⟨_, hrj2, _⟩ := hread j2 hj2
+  rcases hP2 with ⟨hPa, hPb⟩ | hPp <;> rcases hQ2 with ⟨hQa, hQb⟩ | hQp
+  · exact hne (hPa.symm.trans hQa)
+  · have hle := sem_rtg_le hS hRstep hQp
+    omega
+  · have hle := sem_rtg_le hS hRstep hPp
+    omega
+  · rcases sem_rtg_comparable hfun hPp hQp with hp | hp
+    · exact hcross j1 hj1 j2 hj2 hne hp
+    · exact hcross j2 hj2 j1 hj1 (Ne.symm hne) hp
+
+end LocalTwoArms
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+section LaterCarrierMerge
+
+variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag} {x : Fin n} {r : ℕ}
+
+lemma sem_branch_has_later_carrier_merge (hG : sem_Gr G) (h : StrictLive n D)
+    (hc : sem_Comp n G D) (hr : x ∈ supp n D r) (hf : 2 ≤ fanout D r)
+    (hunique : ∀ P ∈ sem_W n D x, ∀ Q ∈ sem_W n D x,
+      supp n D r ⊆ supp n D (src D P) → supp n D r ⊆ supp n D (src D Q) →
+      P.1 = Q.1) :
+    ∃ j, j < D.length ∧ r < n + j ∧
+      Relation.ReflTransGen (sem_CarrierStep n D x) r (n + j) ∧
+      j ∈ merges n D (carrierT n D {x}) := by
+  classical
+  by_contra bad
+  have hM : sem_NoLaterCarrierMerge n D x r := by
+    intro j hj hrj hp hmem
+    exact bad ⟨j, hj, hrj, hp, hmem⟩
+  obtain ⟨P, Q, hne, hP, hQ, hPs, hQs⟩ :=
+    sem_local_two_arms_support hG h hc hM hr hf
+  exact hne (hunique P hP Q hQ hPs hQs)
+
+lemma sem_branch_strictly_precedes_unique_merge (hG : sem_Gr G) (h : StrictLive n D)
+    (hc : sem_Comp n G D) (hr : x ∈ supp n D r) (hf : 2 ≤ fanout D r)
+    {m : ℕ} (hm : merges n D (carrierT n D {x}) = {m})
+    (hunique : ∀ P ∈ sem_W n D x, ∀ Q ∈ sem_W n D x,
+      supp n D r ⊆ supp n D (src D P) → supp n D r ⊆ supp n D (src D Q) →
+      P.1 = Q.1) :
+    r < n + m ∧ Relation.ReflTransGen (sem_CarrierStep n D x) r (n + m) := by
+  obtain ⟨j, hj, hrj, hp, hmem⟩ :=
+    sem_branch_has_later_carrier_merge hG h hc hr hf hunique
+  have hjeq : j = m := by simpa only [hm, Finset.mem_singleton] using hmem
+  subst j
+  exact ⟨hrj, hp⟩
+
+end LaterCarrierMerge
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma branch_exit_card_lower {n : ℕ} {D : Dag} (hS : Strict n D)
+    (K : Finset ℕ) {R S : ℕ} (hRS : R ≠ S)
+    (hall : ∀ a ∈ arcs D, src D a = R ∨ src D a = S → a ∈ exitArcs n D K)
+    (e : ℕ × Bool) (he : e ∈ exitArcs n D K)
+    (heR : src D e ≠ R) (heS : src D e ≠ S) :
+    fanout D R + fanout D S + 1 ≤ (exitArcs n D K).card := by
+  classical
+  let A := (arcs D).filter (fun a => src D a ∈ ({R, S} : Finset ℕ))
+  have hcount : A.card = fanout D R + fanout D S := by
+    simpa [A, hRS] using (sb_sum_fanout_eq hS ({R, S} : Finset ℕ)).symm
+  have hnot : e ∉ A := by
+    intro hmem
+    have hs : src D e = R ∨ src D e = S := by
+      simpa only [Finset.mem_insert, Finset.mem_singleton] using
+        (Finset.mem_filter.mp hmem).2
+    exact hs.elim heR heS
+  have hsub : insert e A ⊆ exitArcs n D K := by
+    intro a ha
+    rcases Finset.mem_insert.mp ha with rfl | ha
+    · exact he
+    · exact hall a (Finset.mem_filter.mp ha).1 (by
+        simpa only [Finset.mem_insert, Finset.mem_singleton] using
+          (Finset.mem_filter.mp ha).2)
+  have hcard := Finset.card_le_card hsub
+  rw [Finset.card_insert_of_notMem hnot, hcount] at hcard
+  exact hcard
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools.CarrierCut
+
+variable {n : ℕ} {D : Dag}
+
+def Step (n : ℕ) (D : Dag) (x : Fin n) (a b : ℕ) : Prop :=
+  sem_step n D a b ∧ x ∈ supp n D a ∧ x ∈ supp n D b
+
+abbrev Reaches (n : ℕ) (D : Dag) (x : Fin n) := Relation.ReflTransGen (Step n D x)
+
+noncomputable def Ancestors (n : ℕ) (D : Dag) (x : Fin n) (T : Finset ℕ) : Finset ℕ := by
+  classical
+  exact (carrierT n D {x}).filter (fun w => ∃ t ∈ T, Reaches n D x w t)
+
+lemma mem_ancestors (x : Fin n) (T : Finset ℕ) (w : ℕ) :
+    w ∈ Ancestors n D x T ↔ x ∈ supp n D w ∧ ∃ t ∈ T, Reaches n D x w t := by
+  classical
+  simp only [Ancestors, Finset.mem_filter, sem_mem_carrier1]
+
+lemma ancestors_subset (x : Fin n) (T : Finset ℕ) :
+    Ancestors n D x T ⊆ carrierT n D {x} := by
+  intro w hw
+  exact sem_mem_carrier1.mpr ((mem_ancestors x T w).mp hw).1
+
+lemma target_mem (x : Fin n) (T : Finset ℕ) {w : ℕ}
+    (hw : w ∈ T) (hx : x ∈ supp n D w) : w ∈ Ancestors n D x T := by
+  exact (mem_ancestors x T w).mpr ⟨hx,w,hw,Relation.ReflTransGen.refl⟩
+
+lemma predecessor_mem (x : Fin n) (T : Finset ℕ) {a b : ℕ}
+    (hs : sem_step n D a b) (ha : x ∈ supp n D a)
+    (hb : b ∈ Ancestors n D x T) : a ∈ Ancestors n D x T := by
+  obtain ⟨hb, t, ht, hp⟩ := (mem_ancestors x T b).mp hb
+  exact (mem_ancestors x T a).mpr ⟨ha,t,ht,Relation.ReflTransGen.head ⟨hs,ha,hb⟩ hp⟩
+
+lemma ancestors_pred (hS : Strict n D) (x : Fin n) (T : Finset ℕ)
+    (j : ℕ) (hj : j < D.length) (hmem : n + j ∈ Ancestors n D x T) :
+    opA D j ∈ Ancestors n D x T ∨ opB D j ∈ Ancestors n D x T := by
+  have hx := ((mem_ancestors x T (n + j)).mp hmem).1
+  have hleft : sem_step n D (opA D j) (n + j) := by
+    simpa [src] using sem_step_src (n := n) (D := D) hj false
+  have hright : sem_step n D (opB D j) (n + j) := by
+    simpa [src] using sem_step_src (n := n) (D := D) hj true
+  rw [supp_gate hS j hj] at hx
+  split_ifs at hx with htag
+  · exact Or.inl (predecessor_mem x T hleft (Finset.mem_inter.mp hx).1 hmem)
+  · rcases Finset.mem_union.mp hx with hx | hx
+    · exact Or.inl (predecessor_mem x T hleft hx hmem)
+    · exact Or.inr (predecessor_mem x T hright hx hmem)
+
+lemma exit_card_le (h : StrictLive n D) (x : Fin n) (T : Finset ℕ)
+    (hout : x ∉ supp n D (outW n D)) :
+    (exitArcs n D (Ancestors n D x T)).card ≤ 1 + surplusOn D (carrierT n D {x}) := by
+  have hsub := ancestors_subset (D := D) x T
+  have hout' : supp n D (outW n D) ∩ ({x} : Finset (Fin n)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro v hv
+    obtain ⟨hv, hveq⟩ := Finset.mem_inter.mp hv
+    have heq : v = x := Finset.mem_singleton.mp hveq
+    exact hout (heq ▸ hv)
+  have hflow := carrier_flow h (Ancestors n D x T)
+    (hsub.trans (sb_carrierT_sub {x} hout')) (ancestors_pred h.1 x T)
+  have hsource_sub : sources n (Ancestors n D x T) ⊆ sources n (carrierT n D {x}) := by
+    intro w hw
+    obtain ⟨hw, hlt⟩ := Finset.mem_filter.mp hw
+    exact Finset.mem_filter.mpr ⟨hsub hw,hlt⟩
+  have hsources := Finset.card_le_card hsource_sub
+  rw [sb_sources_carrierT, Finset.card_singleton] at hsources
+  have hsurplus : surplusOn D (Ancestors n D x T) ≤ surplusOn D (carrierT n D {x}) := by
+    unfold surplusOn
+    exact Finset.sum_le_sum_of_subset_of_nonneg hsub (fun _ _ _ => Nat.zero_le _)
+  omega
+
+lemma terminal_readers_exit (hS : Strict n D) (x : Fin n) (T : Finset ℕ) {r : ℕ}
+    (hr : r ∈ T) (hx : x ∈ supp n D r)
+    (hmax : ∀ t ∈ T, Reaches n D x r t → t = r)
+    {e : ℕ × Bool} (he : e ∈ arcs D) (hsrc : src D e = r) :
+    e ∈ exitArcs n D (Ancestors n D x T) := by
+  apply Finset.mem_filter.mpr
+  refine ⟨he, hsrc.symm ▸ target_mem x T hr hx, ?_⟩
+  intro hmem
+  obtain ⟨hxo, t, ht, hpath⟩ := (mem_ancestors x T (n + e.1)).mp hmem
+  have hj : e.1 < D.length := by simpa [arcs] using he
+  have hs : sem_step n D r (n + e.1) := by
+    rw [← hsrc]
+    exact sem_step_src (n := n) (D := D) hj e.2
+  have ht' := hmax t ht (Relation.ReflTransGen.head ⟨hs,hx,hxo⟩ hpath)
+  have hle := sem_rtg_le hS (fun _ _ hh => hh.1) hpath
+  have hlt := sem_step_lt hS hs
+  omega
+
+lemma marked_arc_mem (x : Fin n) (T : Finset ℕ) {e : ℕ × Bool}
+    (he : e ∈ arcs D) (hx : x ∈ supp n D (src D e)) (hsrc : src D e ∈ T)
+    (hout : n + e.1 ∉ Ancestors n D x T) :
+    e ∈ exitArcs n D (Ancestors n D x T) :=
+  Finset.mem_filter.mpr ⟨he,target_mem x T hsrc hx,hout⟩
+
+lemma two_terminal_bound (h : StrictLive n D) (x : Fin n) (T : Finset ℕ)
+    (hout : x ∉ supp n D (outW n D)) {r s : ℕ}
+    (hr : r ∈ T) (hs : s ∈ T) (hxr : x ∈ supp n D r) (hxs : x ∈ supp n D s)
+    (hrs : r ≠ s)
+    (hmaxr : ∀ t ∈ T, Reaches n D x r t → t = r)
+    (hmaxs : ∀ t ∈ T, Reaches n D x s t → t = s)
+    {e : ℕ × Bool} (he : e ∈ exitArcs n D (Ancestors n D x T))
+    (her : src D e ≠ r) (hes : src D e ≠ s) :
+    fanout D r + fanout D s + 1 ≤ 1 + surplusOn D (carrierT n D {x}) := by
+  have hlow := branch_exit_card_lower h.1 (Ancestors n D x T) hrs
+    (fun a ha hh => hh.elim
+      (terminal_readers_exit h.1 x T hr hxr hmaxr ha)
+      (terminal_readers_exit h.1 x T hs hxs hmaxs ha)) e he her hes
+  exact hlow.trans (exit_card_le h x T hout)
+
+lemma two_branches_marked_arc (h : StrictLive n D) (x : Fin n)
+    (hout : x ∉ supp n D (outW n D)) {r s : ℕ} {e : ℕ × Bool}
+    (hxr : x ∈ supp n D r) (hxs : x ∈ supp n D s)
+    (hrs : ¬ Reaches n D x r s) (hsr : ¬ Reaches n D x s r)
+    (hrc : ¬ Reaches n D x r (src D e)) (hsc : ¬ Reaches n D x s (src D e))
+    (hrfan : 2 ≤ fanout D r) (hsfan : 2 ≤ fanout D s)
+    (he : e ∈ exitArcs n D (Ancestors n D x {r,s,src D e}))
+    (hbudget : surplusOn D (carrierT n D {x}) ≤ 3) : False := by
+  have ne : r ≠ s := by intro hh; subst s; exact hrs Relation.ReflTransGen.refl
+  have her : src D e ≠ r := by intro hh; rw [hh] at hrc; exact hrc Relation.ReflTransGen.refl
+  have hes : src D e ≠ s := by intro hh; rw [hh] at hsc; exact hsc Relation.ReflTransGen.refl
+  have hmaxr : ∀ t ∈ ({r,s,src D e} : Finset ℕ), Reaches n D x r t → t = r := by
+    intro t ht hp
+    simp only [Finset.mem_insert, Finset.mem_singleton] at ht
+    rcases ht with rfl | rfl | rfl
+    · rfl
+    · exact False.elim (hrs hp)
+    · exact False.elim (hrc hp)
+  have hmaxs : ∀ t ∈ ({r,s,src D e} : Finset ℕ), Reaches n D x s t → t = s := by
+    intro t ht hp
+    simp only [Finset.mem_insert, Finset.mem_singleton] at ht
+    rcases ht with rfl | rfl | rfl
+    · exact False.elim (hsr hp)
+    · rfl
+    · exact False.elim (hsc hp)
+  have hbound := two_terminal_bound h x {r,s,src D e} hout
+    (by simp) (by simp) hxr hxs ne hmaxr hmaxs he her hes
+  omega
+
+lemma two_branches_exit (h : StrictLive n D) (x : Fin n)
+    (hout : x ∉ supp n D (outW n D)) {r s : ℕ} {e : ℕ × Bool}
+    (hxr : x ∈ supp n D r) (hxs : x ∈ supp n D s)
+    (hrs : ¬ Reaches n D x r s) (hsr : ¬ Reaches n D x s r)
+    (hrc : ¬ Reaches n D x r (src D e)) (hsc : ¬ Reaches n D x s (src D e))
+    (hrfan : 2 ≤ fanout D r) (hsfan : 2 ≤ fanout D s)
+    (he : e ∈ sem_W n D x)
+    (hbudget : surplusOn D (carrierT n D {x}) ≤ 3) : False := by
+  have he' := sem_mem_W.mp he
+  have harc : e ∈ arcs D := by simpa [arcs] using he'.1
+  have hm : e ∈ exitArcs n D (Ancestors n D x {r,s,src D e}) := by
+    apply marked_arc_mem x {r,s,src D e} harc he'.2.1 (by simp)
+    intro hh
+    exact he'.2.2 ((mem_ancestors x {r,s,src D e} (n + e.1)).mp hh).1
+  exact two_branches_marked_arc h x hout hxr hxs hrs hsr hrc hsc hrfan hsfan hm hbudget
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools.CarrierCut
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma residual_mem_fanout_two {n : ℕ} {D : Dag} (b : Fin n → ℕ)
+    {u : Σ _ : ℕ, ℕ} (hu : u ∈ residualUnits n D b) : 2 ≤ fanout D u.1 := by
+  have hplus := (Finset.mem_sdiff.mp hu).1
+  have hunit := (Finset.mem_filter.mp hplus).1
+  have hf := (mem_units.mp hunit).2
+  omega
+
+lemma residual_pair_singleton_surplus_le_three {n : ℕ} {D : Dag}
+    (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D b)
+    (u v : Σ _ : ℕ, ℕ) (hres : residualUnits n D b = {u,v}) (x : Fin n) :
+    surplusOn D (carrierT n D {x}) ≤ 3 := by
+  classical
+  have hs := surplus_carrierT_eq hS b hb {x}
+  have helig : (({x} : Finset (Fin n)) ∩ eligSet n D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have hrescard : (residualUnits n D b).card ≤ 2 := by
+    rw [hres]
+    by_cases huv : u = v <;> simp [huv]
+  have hfilter := Finset.card_filter_le (residualUnits n D b)
+    (fun a => (supp n D a.1 ∩ ({x} : Finset (Fin n))).Nonempty)
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_both_clean_supports_zero_merges_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u v : Σ _ : ℕ, ℕ) (hres : residualUnits 10 D b = {u,v})
+    (hu : supp 10 D u.1 = {1,4,5}) (hv : supp 10 D v.1 = {1,3,7})
+    (hM : merges 10 D (carrierT 10 D {(1 : V)}) = ∅) : False := by
+  have hufan : 2 ≤ fanout D u.1 := residual_mem_fanout_two (D := D) b (u := u) (by rw [hres]; simp)
+  have hvfan : 2 ≤ fanout D v.1 := residual_mem_fanout_two (D := D) b (u := v) (by rw [hres]; simp)
+  have hbudget := residual_pair_singleton_surplus_le_three h.1 b hb u v hres (1 : V)
+  have hxu : (1 : V) ∈ supp 10 D u.1 := by rw [hu]; simp
+  have hxv : (1 : V) ∈ supp 10 D v.1 := by rw [hv]; simp
+  have mono {a c : ℕ} (hp : CarrierCut.Reaches 10 D (1 : V) a c) :
+      supp 10 D a ⊆ supp 10 D c :=
+    sem_carrier_support_mono_of_no_merges h.1 hM hp
+  have huv : ¬ CarrierCut.Reaches 10 D (1 : V) u.1 v.1 := by
+    intro hp
+    have hfour := mono hp (show (4 : V) ∈ supp 10 D u.1 by rw [hu]; simp)
+    rw [hv] at hfour
+    norm_num at hfour
+  have hvu : ¬ CarrierCut.Reaches 10 D (1 : V) v.1 u.1 := by
+    intro hp
+    have hthree := mono hp (show (3 : V) ∈ supp 10 D v.1 by rw [hv]; simp)
+    rw [hu] at hthree
+    norm_num at hthree
+  obtain ⟨e, he, hfalse⟩ := sem_value_exposure graph_ok h.1 hc {4,6,7}
+    (by decide) (1 : V) ⟨6, by decide, by decide⟩
+  have hue : ¬ CarrierCut.Reaches 10 D (1 : V) u.1 (src D e) := by
+    intro hp
+    have hfour := mono hp (show (4 : V) ∈ supp 10 D u.1 by rw [hu]; simp)
+    have htrue := sem_val_of_supp h.1 hfour
+      (x := sem_ind ({4,6,7} : Finset V)) (by simp [sem_ind])
+    rw [hfalse] at htrue
+    exact Bool.false_ne_true htrue
+  have hve : ¬ CarrierCut.Reaches 10 D (1 : V) v.1 (src D e) := by
+    intro hp
+    have hseven := mono hp (show (7 : V) ∈ supp 10 D v.1 by rw [hv]; simp)
+    have htrue := sem_val_of_supp h.1 hseven
+      (x := sem_ind ({4,6,7} : Finset V)) (by simp [sem_ind])
+    rw [hfalse] at htrue
+    exact Bool.false_ne_true htrue
+  have hout : (1 : V) ∉ supp 10 D (outW 10 D) := by rw [sem_supp_out graph_ok hc]; simp
+  exact CarrierCut.two_branches_exit h (1 : V) hout hxu hxv huv hvu hue hve hufan hvfan he hbudget
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+section CarrierUniqueMerge
+
+variable {n : ℕ} {D : Dag} {x : Fin n}
+
+lemma sem_not_carrier_merge_gate (hS : Strict n D) {j : ℕ}
+    (hj : j < D.length) (hx : x ∈ supp n D (n + j))
+    (hm : j ∉ merges n D (carrierT n D {x})) :
+    tag D j = false ∧ ¬ (x ∈ supp n D (opA D j) ∧ x ∈ supp n D (opB D j)) := by
+  have hnot : ¬ (x ∈ supp n D (opA D j) ∧ x ∈ supp n D (opB D j)) := by
+    intro hh
+    apply hm
+    rw [merges, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hj, sem_mem_carrier1.mpr hx,
+      sem_mem_carrier1.mpr hh.1, sem_mem_carrier1.mpr hh.2⟩
+  refine ⟨?_, hnot⟩
+  by_contra ht
+  rw [Bool.not_eq_false] at ht
+  rw [sem_supp_and hS hj ht, Finset.mem_inter] at hx
+  exact hnot hx
+
+lemma sem_carrier_prefix_support_mono (hS : Strict n D) {m r c : ℕ}
+    (hm : merges n D (carrierT n D {x}) = {m})
+    (hp : Relation.ReflTransGen (sem_CarrierStep n D x) r c)
+    (hc : c < n + m) : supp n D r ⊆ supp n D c := by
+  revert hc
+  induction hp with
+  | refl => intro hc; exact Finset.Subset.refl _
+  | @tail a c hp step ih =>
+    intro hc
+    have hac : a < c := sem_step_lt hS step.1
+    have hsub := ih (lt_trans hac hc)
+    apply hsub.trans
+    obtain ⟨j, s, hj, hceq, hs⟩ := sem_step_iff.mp step.1
+    have hnot : j ∉ merges n D (carrierT n D {x}) := by
+      intro hmem
+      have hjeq : j = m := by simpa only [hm, Finset.mem_singleton] using hmem
+      omega
+    have hxj : x ∈ supp n D (n + j) := by
+      rw [← hceq]
+      exact step.2.2
+    have hor := (sem_not_carrier_merge_gate hS hj hxj hnot).1
+    rw [hceq, sem_supp_or hS hj hor]
+    cases s
+    · rw [sb_src_false] at hs
+      rw [hs]
+      exact Finset.subset_union_left
+    · rw [sb_src_true] at hs
+      rw [hs]
+      exact Finset.subset_union_right
+
+lemma sem_carrier_value_of_unique_merge_true (hS : Strict n D) {m r c : ℕ}
+    (hm : merges n D (carrierT n D {x}) = {m})
+    (row : Fin n → Bool) (hmtrue : val D row (n + m) = true)
+    (hp : Relation.ReflTransGen (sem_CarrierStep n D x) r c)
+    (hrtrue : val D row r = true) : val D row c = true := by
+  induction hp with
+  | refl => exact hrtrue
+  | @tail a c hp step ih =>
+    by_cases hcm : c = n + m
+    · simpa only [hcm] using hmtrue
+    · obtain ⟨j, s, hj, hceq, hs⟩ := sem_step_iff.mp step.1
+      have hnot : j ∉ merges n D (carrierT n D {x}) := by
+        intro hmem
+        have hjeq : j = m := by simpa only [hm, Finset.mem_singleton] using hmem
+        exact hcm (hceq.trans (congrArg (fun k => n + k) hjeq))
+      have hxj : x ∈ supp n D (n + j) := by
+        rw [← hceq]
+        exact step.2.2
+      have hor := (sem_not_carrier_merge_gate hS hj hxj hnot).1
+      rw [hceq, val_gate hS row j hj, hor, gop_false, Bool.or_eq_true]
+      cases s
+      · left
+        rw [sb_src_false] at hs
+        rw [hs]
+        exact ih
+      · right
+        rw [sb_src_true] at hs
+        rw [hs]
+        exact ih
+
+end CarrierUniqueMerge
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_three_one_supported_exit_unique {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (cap : (sem_W 10 D (1 : V)).card ≤ 3) :
+    ∀ r, (supp 10 D r = {(1 : V), 4, 5} ∨ supp 10 D r = {(1 : V), 3, 7}) →
+      ∀ P ∈ sem_W 10 D (1 : V), ∀ Q ∈ sem_W 10 D (1 : V),
+        supp 10 D r ⊆ supp 10 D (src D P) → supp 10 D r ⊆ supp 10 D (src D Q) →
+        P.1 = Q.1 := by
+  classical
+  obtain ⟨⟨A, hA⟩, ⟨B, hB⟩⟩ := petersen_two_ineligible_clean_stars h hc small two h0 h2
+  let P := sem_bar A
+  let Q := sem_bar B
+  have pureP : supp 10 D (src D (sem_bar P)) = {(0 : V)} := by
+    simpa only [P, sem_bar_bar] using hA.2.2.1
+  have pureQ : supp 10 D (src D (sem_bar Q)) = {(2 : V)} := by
+    simpa only [Q, sem_bar_bar] using hB.2.2.1
+  have srcP : supp 10 D (src D P) = {(1 : V), 4, 5} := by
+    ext v
+    have geometry : ∀ v : V, adj 0 v ↔ v ∈ ({1,4,5} : Finset V) := by decide +kernel
+    exact (hA.2.2.2.2.2.2.1 v).trans (geometry v)
+  have srcQ : supp 10 D (src D Q) = {(1 : V), 3, 7} := by
+    ext v
+    have geometry : ∀ v : V, adj 2 v ↔ v ∈ ({1,3,7} : Finset V) := by decide +kernel
+    exact (hB.2.2.2.2.2.2.1 v).trans (geometry v)
+  have hP : P ∈ sem_W 10 D (1 : V) := by
+    refine sem_mem_W.mpr ⟨hA.1, ?_, ?_⟩
+    · rw [srcP]; simp
+    · change (1 : V) ∉ supp 10 D (10 + A.1)
+      rw [hA.2.2.2.1]; simp
+  have hQ : Q ∈ sem_W 10 D (1 : V) := by
+    refine sem_mem_W.mpr ⟨hB.1, ?_, ?_⟩
+    · rw [srcQ]; simp
+    · change (1 : V) ∉ supp 10 D (10 + B.1)
+      rw [hB.2.2.2.1]; simp
+  have nePQ : P ≠ Q := by
+    intro eq
+    have hp : (0 : V) ∈ supp 10 D (src D (sem_bar P)) := by rw [pureP]; simp
+    rw [eq, pureQ, Finset.mem_singleton] at hp
+    exact (by decide : (0 : V) ≠ 2) hp
+  obtain ⟨C, hC, hbarC, _, _, _⟩ := sem_edge_slots graph_ok h.1 hc (show adj 1 6 by decide)
+  have sixC : (6 : V) ∈ supp 10 D (src D (sem_bar C)) := (sem_mem_W.mp hbarC).2.1
+  have neCP : C ≠ P := by
+    intro eq
+    rw [eq, pureP, Finset.mem_singleton] at sixC
+    exact (by decide : (6 : V) ≠ 0) sixC
+  have neCQ : C ≠ Q := by
+    intro eq
+    rw [eq, pureQ, Finset.mem_singleton] at sixC
+    exact (by decide : (6 : V) ≠ 2) sixC
+  have casesOne (e) (he : e ∈ sem_W 10 D (1 : V)) : e = P ∨ e = Q ∨ e = C :=
+    mem_three_of_card_le cap hP hQ hC nePQ neCP.symm neCQ.symm he
+  have no3 : (3 : V) ∉ supp 10 D (src D C) := by
+    obtain ⟨e, he, he3, he5⟩ := sem_cover_free graph_ok h.1 hc
+      (show ¬ adj 3 5 by decide) (show adj 1 6 by decide)
+      (show ¬ adj 6 3 by decide) (show ¬ adj 6 5 by decide)
+    rcases casesOne e he with rfl | rfl | rfl
+    · exact False.elim (he5 (by rw [srcP]; simp))
+    · exact False.elim (he3 (by rw [srcQ]; simp))
+    · exact he3
+  have no4 : (4 : V) ∉ supp 10 D (src D C) := by
+    obtain ⟨e, he, he4, he7⟩ := sem_cover_free graph_ok h.1 hc
+      (show ¬ adj 4 7 by decide) (show adj 1 6 by decide)
+      (show ¬ adj 6 4 by decide) (show ¬ adj 6 7 by decide)
+    rcases casesOne e he with rfl | rfl | rfl
+    · exact False.elim (he4 (by rw [srcP]; simp))
+    · exact False.elim (he7 (by rw [srcQ]; simp))
+    · exact he4
+  have onlyP (e) (he : e ∈ sem_W 10 D (1 : V))
+      (hs : ({1,4,5} : Finset V) ⊆ supp 10 D (src D e)) : e = P := by
+    have h4 := hs (show (4 : V) ∈ ({1,4,5} : Finset V) by simp)
+    rcases casesOne e he with eq | rfl | rfl
+    · exact eq
+    · rw [srcQ] at h4; simp at h4
+    · exact False.elim (no4 h4)
+  have onlyQ (e) (he : e ∈ sem_W 10 D (1 : V))
+      (hs : ({1,3,7} : Finset V) ⊆ supp 10 D (src D e)) : e = Q := by
+    have h3 := hs (show (3 : V) ∈ ({1,3,7} : Finset V) by simp)
+    rcases casesOne e he with rfl | eq | rfl
+    · rw [srcP] at h3; simp at h3
+    · exact eq
+    · exact False.elim (no3 h3)
+  intro r hr e he f hf hs ht
+  rcases hr with hr | hr
+  · rw [hr] at hs ht
+    exact congrArg Prod.fst ((onlyP e he hs).trans (onlyP f hf ht).symm)
+  · rw [hr] at hs ht
+    exact congrArg Prod.fst ((onlyQ e he hs).trans (onlyQ f hf ht).symm)
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma sem_unique_merge_exit_sources_true {n : ℕ} {D : Dag}
+    (h : StrictLive n D) (x : Fin n) (row : Fin n → Bool)
+    (hout : x ∉ supp n D (outW n D)) {r s m : ℕ}
+    (hM : merges n D (carrierT n D {x}) = {m})
+    (hxr : x ∈ supp n D r) (hxs : x ∈ supp n D s)
+    (hrfan : 2 ≤ fanout D r) (hsfan : 2 ≤ fanout D s)
+    (hbudget : surplusOn D (carrierT n D {x}) ≤ 3)
+    (hrm : r < n + m) (hsm : s < n + m)
+    (hnotrs : ¬ supp n D r ⊆ supp n D s)
+    (hnotsr : ¬ supp n D s ⊆ supp n D r)
+    (hrtrue : ∃ v ∈ supp n D r, row v = true)
+    (hstrue : ∃ v ∈ supp n D s, row v = true) :
+    ∀ e ∈ sem_W n D x, val D row (src D e) = true := by
+  classical
+  have hrs : ¬ CarrierCut.Reaches n D x r s := by
+    intro hp
+    exact hnotrs (sem_carrier_prefix_support_mono h.1 hM hp hsm)
+  have hsr : ¬ CarrierCut.Reaches n D x s r := by
+    intro hp
+    exact hnotsr (sem_carrier_prefix_support_mono h.1 hM hp hrm)
+  have hm : m ∈ merges n D (carrierT n D {x}) := by rw [hM]; simp
+  obtain ⟨hmvalid, hmout, hma, hmb⟩ := Finset.mem_filter.mp hm
+  have hmlt : m < D.length := Finset.mem_range.mp hmvalid
+  have hinput (side : Bool) : x ∈ supp n D (src D (m,side)) := by
+    cases side
+    · simpa only [sb_src_false] using sem_mem_carrier1.mp hma
+    · simpa only [sb_src_true] using sem_mem_carrier1.mp hmb
+  have hinputlt (side : Bool) : src D (m,side) < n + m := by
+    cases side
+    · simpa only [sb_src_false] using (h.1 m hmlt).1
+    · simpa only [sb_src_true] using (h.1 m hmlt).2.1
+  have input_reached (side : Bool) :
+      CarrierCut.Reaches n D x r (src D (m,side)) ∨
+      CarrierCut.Reaches n D x s (src D (m,side)) := by
+    by_contra bad
+    have hn := not_or.mp bad
+    have hexit : (m,side) ∈ exitArcs n D
+        (CarrierCut.Ancestors n D x {r,s,src D (m,side)}) := by
+      apply CarrierCut.marked_arc_mem x {r,s,src D (m,side)}
+        (by simpa [arcs] using hmlt) (hinput side) (by simp)
+      intro hancestor
+      obtain ⟨_, t, ht, hp⟩ := (CarrierCut.mem_ancestors x _ _).mp hancestor
+      have hle := sem_rtg_le h.1 (fun _ _ hh => hh.1) hp
+      simp only [Finset.mem_insert, Finset.mem_singleton] at ht
+      rcases ht with rfl | rfl | rfl
+      · omega
+      · omega
+      · have := hinputlt side
+        omega
+    exact CarrierCut.two_branches_marked_arc h x hout hxr hxs hrs hsr
+      hn.1 hn.2 hrfan hsfan hexit hbudget
+  have input_true (side : Bool) : val D row (src D (m,side)) = true := by
+    rcases input_reached side with hp | hp
+    · obtain ⟨v, hv, hvrow⟩ := hrtrue
+      exact sem_val_of_supp h.1
+        (sem_carrier_prefix_support_mono h.1 hM hp (hinputlt side) hv) hvrow
+    · obtain ⟨v, hv, hvrow⟩ := hstrue
+      exact sem_val_of_supp h.1
+        (sem_carrier_prefix_support_mono h.1 hM hp (hinputlt side) hv) hvrow
+  have hmtrue : val D row (n + m) = true := by
+    rw [sem_val_gate_src h.1 row hmlt false, Bool.not_false, input_true false, input_true true]
+    cases tag D m <;> rfl
+  have value_r : val D row r = true := by
+    obtain ⟨v, hv, hvrow⟩ := hrtrue
+    exact sem_val_of_supp h.1 hv hvrow
+  have value_s : val D row s = true := by
+    obtain ⟨v, hv, hvrow⟩ := hstrue
+    exact sem_val_of_supp h.1 hv hvrow
+  intro e he
+  by_cases hr : CarrierCut.Reaches n D x r (src D e)
+  · exact sem_carrier_value_of_unique_merge_true h.1 hM row hmtrue hr value_r
+  by_cases hs : CarrierCut.Reaches n D x s (src D e)
+  · exact sem_carrier_value_of_unique_merge_true h.1 hM row hmtrue hs value_s
+  exact False.elim (CarrierCut.two_branches_exit h x hout hxr hxs hrs hsr
+    hr hs hrfan hsfan he hbudget)
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_both_clean_supports_unique_merge_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u v : Σ _ : ℕ, ℕ) (hres : residualUnits 10 D b = {u,v})
+    (hu : supp 10 D u.1 = {1,4,5}) (hv : supp 10 D v.1 = {1,3,7})
+    (m : ℕ) (hM : merges 10 D (carrierT 10 D {(1 : V)}) = {m}) : False := by
+  have hufan : 2 ≤ fanout D u.1 := residual_mem_fanout_two (D := D) b (u := u) (by rw [hres]; simp)
+  have hvfan : 2 ≤ fanout D v.1 := residual_mem_fanout_two (D := D) b (u := v) (by rw [hres]; simp)
+  have hbudget := residual_pair_singleton_surplus_le_three h.1 b hb u v hres (1 : V)
+  have hxu : (1 : V) ∈ supp 10 D u.1 := by rw [hu]; simp
+  have hxv : (1 : V) ∈ supp 10 D v.1 := by rw [hv]; simp
+  have cap : (sem_W 10 D (1 : V)).card ≤ 3 := by
+    have hf := sem_flow1 graph_ok h hc (1 : V)
+    rw [hM, Finset.card_singleton] at hf
+    omega
+  have unique := petersen_three_one_supported_exit_unique h hc small two h0 h2 cap
+  have hum := (sem_branch_strictly_precedes_unique_merge graph_ok h hc hxu hufan hM
+    (unique u.1 (Or.inl hu))).1
+  have hvm := (sem_branch_strictly_precedes_unique_merge graph_ok h hc hxv hvfan hM
+    (unique v.1 (Or.inr hv))).1
+  have hunot : ¬ supp 10 D u.1 ⊆ supp 10 D v.1 := by
+    rw [hu, hv]
+    decide
+  have hvnot : ¬ supp 10 D v.1 ⊆ supp 10 D u.1 := by
+    rw [hu, hv]
+    decide
+  have hout : (1 : V) ∉ supp 10 D (outW 10 D) := by rw [sem_supp_out graph_ok hc]; simp
+  have alltrue := sem_unique_merge_exit_sources_true h (1 : V)
+    (sem_ind ({4,6,7} : Finset V)) hout hM hxu hxv hufan hvfan hbudget hum hvm hunot hvnot
+    ⟨4, by rw [hu]; simp, by simp [sem_ind]⟩
+    ⟨7, by rw [hv]; simp, by simp [sem_ind]⟩
+  obtain ⟨e, he, hfalse⟩ := sem_value_exposure graph_ok h.1 hc {4,6,7}
+    (by decide) (1 : V) ⟨6, by decide, by decide⟩
+  have htrue := alltrue e he
+  rw [hfalse] at htrue
+  exact Bool.false_ne_true htrue
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_both_clean_supports_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u v : Σ _ : ℕ, ℕ) (hres : residualUnits 10 D b = {u,v})
+    (hu : supp 10 D u.1 = {1,4,5}) (hv : supp 10 D v.1 = {1,3,7}) : False := by
+  classical
+  have huv : u ≠ v := by
+    intro heq
+    have hfour : (4 : V) ∈ supp 10 D u.1 := by rw [hu]; simp
+    rw [heq, hv] at hfour
+    exact (by decide : (4 : V) ∉ ({1,3,7} : Finset V)) hfour
+  have hfilter : (residualUnits 10 D b).filter
+      (fun a => (1 : V) ∈ supp 10 D a.1) = {u,v} := by
+    rw [hres]
+    apply Finset.filter_eq_self.mpr
+    intro a ha
+    simp only [Finset.mem_insert, Finset.mem_singleton] at ha
+    rcases ha with rfl | rfl
+    · rw [hu]; simp
+    · rw [hv]; simp
+  have both : ((residualUnits 10 D b).filter
+      (fun a => (1 : V) ∈ supp 10 D a.1)).card = 2 := by
+    rw [hfilter]
+    simp [huv]
+  rcases petersen_both_one_flow_cases h hc h0 h2 b hb both with ⟨_, hcard⟩ | ⟨_, hM⟩
+  · obtain ⟨m, hM⟩ := Finset.card_eq_one.mp hcard
+    exact petersen_both_clean_supports_unique_merge_exclusion
+      h hc small two h0 h2 b hb u v hres hu hv m hM
+  · exact petersen_both_clean_supports_zero_merges_exclusion h hc b hb u v hres hu hv hM
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+open I2Census
+
+lemma classified_unordered (R T : Finset V) (a : List ℕ)
+    (hR : R ∈ (∅ :: I2ForbiddenPairs.supports)) (hT : T ∈ (∅ :: I2ForbiddenPairs.supports))
+    (hd : Disjoint R T) (hlen : a.length = 9) (hg : PortCodes.Growth a)
+    (hc : ∀ i, i ≤ a.length → ConditionsBoth R T (a.take i)) :
+    (R = {4,5} ∧ T = {3,7}) ∨ (R = {3,7} ∧ T = {4,5}) := by
+  obtain ⟨i,rfl⟩ := support20_exists_of_mem hR
+  obtain ⟨j,rfl⟩ := support20_exists_of_mem hT
+  by_cases hij : i ≤ j
+  · exact Or.inl (classified_ordered i j hij hd a
+      (admissible_of_growth _ _ a hg hc) hlen)
+  · have hji : j ≤ i := le_of_lt (lt_of_not_ge hij)
+    obtain ⟨hj,hi⟩ := classified_ordered j i hji hd.symm a
+      (admissible_of_growth _ _ a hg (fun k hk => conditions_swap _ _ _ (hc k hk))) hlen
+    exact Or.inr ⟨hi,hj⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_two_ineligible_residual_supports {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b) :
+    ∃ u v : Σ _ : ℕ, ℕ, residualUnits 10 D b = {u,v} ∧
+      supp 10 D u.1 = {1,4,5} ∧ supp 10 D v.1 = {1,3,7} :=
+  I2BothModels.actual_shapes_of_classification I2BothCensus.classified_unordered h hc small two h0 h2 b hb
+
+lemma petersen_two_ineligible_canonical_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D) : False := by
+  obtain ⟨b,hb⟩ := sem_exists_minBranch graph_ok h.1 hc
+  obtain ⟨u,v,hres,hu,hv⟩ := petersen_two_ineligible_residual_supports h hc small two h0 h2 b hb
+  exact petersen_both_clean_supports_exclusion h hc small two h0 h2 b
+    (sem_minBranch_pure hb) u v hres hu hv
+
+lemma petersen_two_ineligible_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2) : False := by
+  apply two_ineligible_exclusion_of_canonical ?_ h hc small two
+  intro E hE hcE hsmall htwo h0 h2
+  exact petersen_two_ineligible_canonical_exclusion hE hcE hsmall htwo h0 h2
+
+end PEqualNP.Outside.L_meta_2590_aux
