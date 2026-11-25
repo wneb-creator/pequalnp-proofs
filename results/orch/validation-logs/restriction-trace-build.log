@@ -1,0 +1,54 @@
+results/orch/lemmas/restriction/SingleReadTrace.lean:60:43: error: unsolved goals
+pre post : List ((List Bool → Bool) × List Nat)
+preUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ pre → ¬0 ∈ g.snd
+postUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ post → ¬0 ∈ g.snd
+i out : Nat
+hi : i ≠ 0
+ho : out ≠ 0
+b : Bool
+w : List Bool
+⊢ ((shifted pre w)[i - 1]?.getD false = false ∨ b = true) ∨ (shifted pre w)[i - 1]?.getD false = true
+results/orch/lemmas/restriction/SingleReadTrace.lean:62:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  decide ((List.map (read (b :: shifted pre w)) [0, i]).any id = b) || read (shifted pre w) (i - 1)
+in the target expression
+  read (execute post (b :: shifted pre w ++ [(List.map (read (b :: shifted pre w)) [0, i]).any id])) out =
+    read (shifted post (shifted pre w ++ [b || read (shifted pre w) (i - 1)])) (out - 1)
+
+pre post : List ((List Bool → Bool) × List Nat)
+preUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ pre → ¬0 ∈ g.snd
+postUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ post → ¬0 ∈ g.snd
+i out : Nat
+hi : i ≠ 0
+ho : out ≠ 0
+b : Bool
+w : List Bool
+gate : (decide ((List.map (read (b :: shifted pre w)) [0, i]).any id = b) || read (shifted pre w) (i - 1)) = true
+⊢ read (execute post (b :: shifted pre w ++ [(List.map (read (b :: shifted pre w)) [0, i]).any id])) out =
+    read (shifted post (shifted pre w ++ [b || read (shifted pre w) (i - 1)])) (out - 1)
+results/orch/lemmas/restriction/SingleReadTrace.lean:77:43: error: unsolved goals
+pre post : List ((List Bool → Bool) × List Nat)
+preUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ pre → ¬0 ∈ g.snd
+postUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ post → ¬0 ∈ g.snd
+i out : Nat
+hi : i ≠ 0
+ho : out ≠ 0
+b : Bool
+w : List Bool
+⊢ (b = false ∨ (shifted pre w)[i - 1]?.getD false = true) ∧ (shifted pre w)[i - 1]?.getD false = true
+results/orch/lemmas/restriction/SingleReadTrace.lean:79:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  decide ((List.map (read (b :: shifted pre w)) [0, i]).all id = b) && read (shifted pre w) (i - 1)
+in the target expression
+  read (execute post (b :: shifted pre w ++ [(List.map (read (b :: shifted pre w)) [0, i]).all id])) out =
+    read (shifted post (shifted pre w ++ [b && read (shifted pre w) (i - 1)])) (out - 1)
+
+pre post : List ((List Bool → Bool) × List Nat)
+preUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ pre → ¬0 ∈ g.snd
+postUnread : ∀ (g : (List Bool → Bool) × List Nat), g ∈ post → ¬0 ∈ g.snd
+i out : Nat
+hi : i ≠ 0
+ho : out ≠ 0
+b : Bool
+w : List Bool
+gate : (decide ((List.map (read (b :: shifted pre w)) [0, i]).all id = b) && read (shifted pre w) (i - 1)) = true
+⊢ read (execute post (b :: shifted pre w ++ [(List.map (read (b :: shifted pre w)) [0, i]).all id])) out =
+    read (shifted post (shifted pre w ++ [b && read (shifted pre w) (i - 1)])) (out - 1)

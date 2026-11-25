@@ -1,0 +1,12 @@
+UTC: 2026-11-25T14:37:09.136096+00:00
+File: results/orch/lemmas/few_not/OrbitCertificate.lean
+SHA256: cd8c145fb6bac0831a46576034c8cda36199c2030858378e340b1961df64ad7d
+Lean: 4.36.0, no imports
+Command: LEAN_NUM_THREADS=1 lake env lean ../results/orch/lemmas/few_not/OrbitCertificate.lean
+Exit status: 0
+Complete stdout and stderr: empty
+Lines: 181
+Checked: 120 graph automorphisms and 225 pair-to-orbit witnesses.
+Representatives (edge mask, maximal independent mask): (3,50), (6,50), (12,50), (3,116), (6,116).
+Scope: finite certificates only, not a proof of L-meta-2592.
+Independent review: prior_status checked all data, source, and format rules for this SHA256.

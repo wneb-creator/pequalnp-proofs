@@ -1,0 +1,122 @@
+[
+  {
+    "file": "results/orch/lemmas/few_not/CircuitEndpoints.lean",
+    "sha256": "4a82f9f7a79fa454eafec95ca5c36d5eb06b63b76e2659bf80509d4e7a5c7286",
+    "lines": 57,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/few_not/ComparableNot.lean",
+    "sha256": "6a794c85ccb8a03057479f4265c5e47e354ac496b9adb30a08b5a55149f9a288",
+    "lines": 147,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/few_not/OrbitCertificate.lean",
+    "sha256": "cd8c145fb6bac0831a46576034c8cda36199c2030858378e340b1961df64ad7d",
+    "lines": 181,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/few_not/ReadOnceCofactors.lean",
+    "sha256": "4ad2b53543767a6a728321445fbe61d3256c534bbcb7d42e20f372fc32233c78",
+    "lines": 60,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/normalization/LastNot.lean",
+    "sha256": "5f07be2c43cc4d07e113cc568092e5685306f5a223055c7e669c5f1fb427ddf6",
+    "lines": 136,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/normalization/TrimOutput.lean",
+    "sha256": "af56d54518473da12d6f60a8d75bcf65afbf8001a77d29150111f5a365541496",
+    "lines": 60,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/GateInputOccurrences.lean",
+    "sha256": "604ba0b662488318dfeb3a168d78758674ae1b9f0ad2aac2873f8167a2111aae",
+    "lines": 116,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/InputOccurrences.lean",
+    "sha256": "f48e3c3fbaa0d76a59c73cbe127e67569a38e3ffc999695f0548733ff21d0361",
+    "lines": 72,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/PetersenElementaryRead.lean",
+    "sha256": "db6c112e19771254060526f1039411f386282e96e6a24767388a4b3de97e3899",
+    "lines": 199,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/PetersenOneGateRead.lean",
+    "sha256": "99e704698228e4dfde910ae16e365064e90e4b994a3fc68c14ef68989f95b998",
+    "lines": 307,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/PetersenReadOnce.lean",
+    "sha256": "8c370a5065feb312b875fb1613874611ca8ec92a2cb144f962f0db87e71f235b",
+    "lines": 106,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/restriction/SingleReadTrace.lean",
+    "sha256": "c1d9d3cfd053d633e621c76f2626008748f5154fceb48cda4b47ea5571bb663e",
+    "lines": 82,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/search/DeletedDominating.lean",
+    "sha256": "f24e947db676fd4fe52c1785a41a9c7e650a1c48704d6de2b05f76ee770c425d",
+    "lines": 32,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/search/DeletedDominatingCore.lean",
+    "sha256": "dabe4982a832c600624d1b43167798bbfd1c956bd01428cff259994f0b32e136",
+    "lines": 28,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/search/PetersenTests.lean",
+    "sha256": "34f074e6ebe52a1e3d4cbfa4f0e87a898c4385256841e4a0bb620efeb27ffbad",
+    "lines": 66,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/structural/BooleanFactor.lean",
+    "sha256": "22428ea359811884284a350efbf96ae4d9873515145932740bf8c2d656950b85",
+    "lines": 43,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/structural/L_meta_2592_partial.lean",
+    "sha256": "1d8e7662ffb18a3befa957a5d8724fab266c7b8a9481134a9dcd917eb75a42ca",
+    "lines": 3273,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/structural/MonotoneWires.lean",
+    "sha256": "116516bdc92341bfc2b4cce0cdd1da44158d6f14c6c9faa1e69b1905ffded5bb",
+    "lines": 143,
+    "status": "UNCHECKED DRAFT; not a proof result"
+  },
+  {
+    "file": "results/orch/lemmas/structural/PetersenTwins.lean",
+    "sha256": "d0f3b5ee42cbb100deed06d730b2f75d2ac61580b6ff16c20de258b63e128360",
+    "lines": 24,
+    "status": "checked component; not full gap proof"
+  },
+  {
+    "file": "results/orch/lemmas/structural/PetersenTwinsFast.lean",
+    "sha256": "45e5643fb7ed355e7083d42d242c3be267c96fb7e922fc7092c91cbe006d36ad",
+    "lines": 59,
+    "status": "checked component; not full gap proof"
+  }
+]

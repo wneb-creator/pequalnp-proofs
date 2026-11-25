@@ -1,38 +1,20 @@
-L-meta-2592 PARTIAL ONLY; full posted theorem remains unproved.
+L-meta-2592: PARTIAL ONLY. Full posted theorem remains unproved. No PR opened.
 
-Checked component: InputOccurrences.lean, 72 lines.
-Pinned Lean4.36 direct elaboration: exit0, no stdout/stderr.
-Independent source review PASS; reviewer independently repeated Lean4.36 elaboration: exit0.
-Full local checker not yet run: no full theorem claimed.
-
-Sub-agents: 6 (status/review, structural proof, counterexample search, normalization, few-NOT analysis, restriction route)
-TIMING total=24.1 subagents=6
-
-Named-file lake build output:
-✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (4.2s)
-Build completed successfully (3 jobs).
-
-Second checked partial snapshot:
-- GateInputOccurrences.lean: 116 lines; author and independent reviewer Lean4.36 exit0.
-- ComparableNot.lean: 147 lines; author Lean4.36 exit0; independent mathematical/format review PASS.
-Named-file lake build:
-✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (2.4s)
-Build completed successfully (3 jobs).
-
-Local checker output (exit3):
-CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
-
-Third snapshot checked sources:
-- BooleanFactor.lean: 43 lines; author and root independently elaborated with pinnedLean exit0, empty output.
-- PetersenTests.lean: 66 lines; pinnedLean exit0, empty output; independent exhaustive Python check and mathematical review PASS; root reviewed final source.
-Full L-meta-2592 remains unproved; no PR opened.
-
-Fourth checked partial snapshot:
-- PetersenReadOnce.lean and PetersenElementaryRead.lean: author plus independent reviewer Lean4.36 exit0; all cofactor and finite extension checks passed.
-- ReadOnceCofactors.lean: author plus independent reviewer Lean4.36 exit0.
-- PetersenTwins.lean: author Lean4.36 exit0; root mathematical review and 15840 independent finite deletion checks passed.
-Named-file build:
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean
+Named-file build: exit 0; complete output below.
 ✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (16s)
 Build completed successfully (3 jobs).
 
-OrbitCertificate.lean: author pinnedLean4.36 exit0 (empty output); independent reviewer verified all120 graph automorphisms and225 pair witnesses; final source hash matched.
+Local checker: exit 3; complete output below.
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+
+Cleanup: not performed because full checker could not run; named file 377 lines before/after.
+Independent source/format reviews passed for checked components. All 20 archived Lean sources contain no forbidden proof construct.
+MANIFEST.json records hashes, line counts and checked/draft status for every component.
+Complete compiler/checker logs are in validation-logs/. Search logs are in lemmas/search/logs/.
+
+Lease renewal HTTP410 at 2026-11-25 14:38:58UTC; exact full response is desk-error-response.txt. Last successful renewal 14:36:19.967936UTC gave expiry 14:56:19.322UTC. Work paused, no release called.
+Desk null answers: 0. Exact error: no such live lease: it expired or was released. Ask /desk/next again.
+
+Sub-agents: 6 (status/review, structural proof, counterexample search, normalization, few-NOT analysis, restriction route)
+TIMING total=28.8 subagents=6

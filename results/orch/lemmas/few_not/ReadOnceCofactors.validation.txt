@@ -1,0 +1,10 @@
+UTC: 2026-11-25T14:35:13.824031+00:00
+File: results/orch/lemmas/few_not/ReadOnceCofactors.lean
+SHA256: 4ad2b53543767a6a728321445fbe61d3256c534bbcb7d42e20f372fc32233c78
+Lean: 4.36.0, no imports
+Command: LEAN_NUM_THREADS=1 lake env lean ../results/orch/lemmas/few_not/ReadOnceCofactors.lean
+Exit status: 0
+Complete stdout and stderr: empty
+Lines: 60
+Scope: checked generic cofactor helper lemmas; not a proof of L-meta-2592.
+Independent review: prior_status compiled same source and checked semantic/format rules.

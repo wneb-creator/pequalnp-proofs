@@ -50,3 +50,10 @@
 2026-11-25T14:35:13.829054+00:00 [few_not_analysis] ReadOnceCofactors.lean checked coreLean exit0, independently reviewed and compiled by prior_status. OrbitCertificate.lean core182lines currently computing120 graphautomorphism and225 pairorbit certificates. Exact pairrepresentatives(3,50),(6,50),(12,50),(3,116),(6,116). CircuitEndpoints.lean57lines still waiting on rootDefs rebuild.
 
 2026-11-25T14:37:09.139459+00:00 [few_not_analysis] OrbitCertificate.lean kernelchecked coreLean4.36 exit0, emptylog, 120automorphisms and225pairs mapped tofive representatives; independentreviewPASS. Readyarchivepush. Simple essential oneNOT operands up tovertexautomorphism havefourshapes: literalx0, ANDnonedge(x0,x2), ORedge(x0,x1), ORnonedge(x0,x2). ANDedge impliesoperand≤target and canbe replacedbytrue (ComparableNot).
+
+2026-11-25T14:39:03.757542+00:00 Structural equality case: finite Python census found 8640 six-step maximal-twin elimination paths; active class-size shapes are 111111, 111112, 111121, 111123. Thus the first four classes are singleton in this maximal-class model (computed, not yet connected to circuit equality). `PetersenTwinsFast.lean` now Lean-checks the supporting geometry: distinct original neighbor rows differ at ≥4 positions, and deleting ≤3 vertices leaves all neighbor rows distinct. It uses a generic filter-count proof and compiles in seconds with the Lean prelude; the slower finite-mask version is also checked. No stronger than 15 binary gates has been proved yet.
+
+### Search stopped on lease410 2026-11-25T14:39:18.152764+00:00
+- All active solver processes interrupted immediately at root instruction; no SAT candidate or UNSAT certificate obtained.
+- Complete solver/compiler stdout andstderr copied to results/orch/lemmas/search/logs/. Scripts remain in the same parent folder.
+- PetersenTests.lean checked. DeletedDominating.lean import blocked by cache reset; core-only adaptation attempted separately, verdict in its log.

@@ -9,3 +9,6 @@
 - 2026-11-25T14:29:09.772673+00:00: Structural polarity lemma and zero-point-sign corollary Lean-checked (45 lines).
 - 2026-11-25T14:29:50.873813+00:00 counterexample_search: finite Petersen critical-test Lean lemmas compiled; root notified for push.
 - 2026-11-25T14:36:53.882128+00:00: Checked Petersen-specific read-once restrictions and deletion neighborhood separation.
+
+- 2026-11-25T14:39:03.757542+00:00: Petersen neighborhood separation and no twins after three deletions Lean-checked; fast proof generalized to arbitrary natural-number masks.
+- 2026-11-25T14:39:16.771604+00:00: Renewal HTTP410 despite last successful renewal14:36:19 and stated expiry14:56:19. Work paused; preserving artifacts before requested recovery.

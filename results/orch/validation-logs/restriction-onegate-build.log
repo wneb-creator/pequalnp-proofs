@@ -1,0 +1,7 @@
+results/orch/lemmas/restriction/PetersenOneGateRead.lean:282:29: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [oneGateOutput, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

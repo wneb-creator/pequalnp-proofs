@@ -1,0 +1,15 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/search/DeletedDominating.lean:1:0: error: unknown module prefix 'Mathlib'
+
+No directory 'Mathlib' or file 'Mathlib.olean' in the search path entries:
+/workspace/pequalnp-proofs/lean/.lake/packages/Cli/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/proofwidgets/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/importGraph/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/plausible/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/build/lib/lean
+/tmp/oec/pequalnp-pilot-116/lean-4.36.0-linux/lib/lean
+/tmp/oec/pequalnp-pilot-116/lean-4.36.0-linux/lib/lean

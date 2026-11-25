@@ -1,0 +1,34 @@
+⚠ [2586/2619] Built PEqualNP.Defs.Base (11s)
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2587/2619] Ran PEqualNP.Defs.Base:irArts
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2594/2619] Built PEqualNP.Defs.CircuitLowerBounds (12s)
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2595/2619] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [2611/2633] Built PEqualNP.Defs.Classes (10s)
+⚠ [2613/2637] Built PEqualNP.Defs.ProofComplexity (7.3s)
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2614/2637] Ran PEqualNP.Defs.ProofComplexity:irArts
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2615/2641] Built PEqualNP.Defs.MetaComplexity (18s)
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2616/2641] Ran PEqualNP.Defs.MetaComplexity:irArts
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2617/2641] Built PEqualNP.Defs.ProofComplexityLin (3.3s)
+warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [2618/2641] Built PEqualNP.Defs.ProofComplexityResK (9.1s)

@@ -1,0 +1,10 @@
+UTC: 2026-11-25T14:26:12.890014+00:00
+File: results/orch/lemmas/few_not/ComparableNot.lean
+SHA256: 6a794c85ccb8a03057479f4265c5e47e354ac496b9adb30a08b5a55149f9a288
+Lean: 4.36.0
+Command: lake env lean ../results/orch/lemmas/few_not/ComparableNot.lean
+Exit status: 0
+Complete stdout and stderr: empty
+Lines: 147
+Scope: checked helper lemmas only; L-meta-2592 is not proved here.
+Local checker: not run on standalone helper file (no final theorem).
