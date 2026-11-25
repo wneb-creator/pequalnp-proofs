@@ -37,4 +37,13 @@ Checkpoint6:
 Independent review passed all frozen sources. One-NOT and two-NOT cases of the posted theorem remain open.
 
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=38.1 subagents=6
+TIMING total=43.6 subagents=6
+
+Checkpoint7:
+- OneNotPetersen/OneUseInput: Lean exit0; sole-reader obstructions, under explicit structural hypotheses.
+- OrFirstCore: self-contained small version of checked second-gate retention and commutation lemmas; Lean exit0 and empty logs.
+- SeededRows: exact13-row seed/target encoding, Lean exit0.
+- SeededSemantics: semantic bridge conditional on the finite three-gate certificate, which is still pending; Lean exit0.
+- Prefix searches: two fixed input NOTs and17AND/OR gates; independent source, symmetry and candidate review passed. General two-NOT and fixed-prefix searches remain heuristic evidence only.
+Full L-meta-2592 remains unproved; no full-statement checker or proof PR.
+- OneUseMask: Lean exit0; the sole binary reader mask depending on two distinct inputs must be neutral except possibly when both are true and adjacent. Independent review passed exact source hash f2d3fca2563ec361c0f2a93110074f424033fb93892f1822331ae52eacbd6877.

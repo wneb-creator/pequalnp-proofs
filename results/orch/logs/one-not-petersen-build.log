@@ -1,0 +1,13 @@
+../results/orch/lemmas/OneNotPetersen.lean:173:8: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [W_zero]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/OneNotPetersen.lean:248:19: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

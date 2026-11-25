@@ -21,3 +21,5 @@
 - 2026-11-25 14:20:50 UTC: Started capped300s signed-binary SAT on the full512-row 9-input Petersen vertex-deletion graph,15 gates, free0 input. Main lease renewed14:20:32; expiry14:40:32.
 2026-11-25T14:20:54.241054+00:00 compact standalone OR-prefix partial compiled
 2026-11-25T14:22:36.532176+00:00 Sixth reviewed checkpoint: unconditional17binary floor, standard axioms verified
+
+2026-11-25T14:27:12.261522+00:00 Checkpoint7: independently reviewed and checked sole-reader, first-OR core, and seeded semantics partials; full theorem remains open. Last lease renewal14:25:00UTC, expiry14:45:00UTC.

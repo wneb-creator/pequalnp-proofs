@@ -63,3 +63,7 @@ A fresh signed-binary 9-input, 15-gate CNF for the Petersen graph with vertex 9 
 2026-11-25 14:19:07 UTC [structural_proof] OneNotPetersen.lean compiled exit 0: a raw input used only at the unique NOT makes the output antitone in that input, contradicting explicit Petersen witnesses. Next proving that a raw input used only by an AND/OR gate with a distinct raw input also cannot compute Petersen, regardless of other gate operations.
 
 2026-11-25T14:20:54.241054+00:00 or_first_bound: Preferred self-contained OrFirstCore.lean passed Lean, exit 0, empty or-first-core.stdout/stderr. It has 217 lines and 23,045 bytes, sole import PEqualNP.Defs, and contains only the definitions needed for second-gate retention and OR/difference commutation. The redundant 301KB full-prefix standalone build was canceled with exit 130; its log is not a success record. OrFirstCore, OrFirst, OrFirstAlgebra and OrFirstFloor are frozen checked artifacts.
+
+## 2026-11-25 14:24:13 UTC — seeded semantic bridge compiled
+
+SeededSemantics.lean compiled with exit0 and empty stdout/stderr. It proves signature agreement respects AND, OR, and NOT; all generated signatures stay below8192; agreement with the matching target implies signature30; and the three-gate Boolean certificate implies no three generated signals compute that matching on the13 selected rows. This file assumes the explicit certificate proposition; the closed114-case certificate in SeededMatch.lean is still checking.

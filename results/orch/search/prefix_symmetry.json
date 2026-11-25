@@ -1,0 +1,14 @@
+{
+  "automorphism_count": 120,
+  "edge_representative": [
+    0,
+    1
+  ],
+  "edge_orbit_size": 15,
+  "nonedge_representative": [
+    0,
+    2
+  ],
+  "nonedge_orbit_size": 30,
+  "scope": "Finite Python computation only; neither this symmetry argument nor the search is Lean-checked."
+}

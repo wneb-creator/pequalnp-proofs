@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-11-25T14:16:54.272728+00:00",
+  "renewed_at": "2026-11-25T14:16:31Z",
+  "duration_per_case_seconds": 600,
+  "cases": {
+    "adjacent": {
+      "not_inputs": [
+        0,
+        1
+      ],
+      "seed": 259201
+    },
+    "nonadjacent": {
+      "not_inputs": [
+        0,
+        2
+      ],
+      "seed": 259202
+    }
+  },
+  "remaining_gates": 17,
+  "gate_ops_remaining": [
+    "AND",
+    "OR"
+  ],
+  "scope": "Heuristic CGP searches, not exhaustive and not Lean-checked. Both NOT gates must be in the output cone for an unpenalized score.",
+  "source_sha256": "91f5b0411edfb2d91c8a6c9fab400525588feb573b9aaf6628183e9c2bf8cba7",
+  "symmetry_source_sha256": "cd4d00fda8b84068d94fa721e872b2904f09d0e10adb96534cb2998afd186176",
+  "status": "running"
+}
