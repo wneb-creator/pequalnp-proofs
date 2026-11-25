@@ -1,0 +1,13 @@
+Job: pequalnp-pilot-107
+Message: msg-76e9e7cc2ecd8e7693ec45e9
+Gap: L-meta-2590
+Status: checked partials only; exact target unproved; no PR.
+Canonical source: lean/PEqualNP/Outside/L_meta_2590.lean
+Canonical SHA256: 4a780ee1d4ba8dd2f4f3df2b9f548d1be468f8d322de7698be6fd9243b9992a0
+Canonical source compiled using lake env lean, exit0, and passed independent source review. It contains no theorem with the final target name.
+Full local checker: not run for this incomplete target; no acceptance claimed.
+Cleanup: not started; full proof absent. Canonical lines before/after cleanup:260/260 (no cleanup).
+Desk null answers:0. Three successive leases ended withHTTP410 before their displayed expiry, and all work stopped and was preserved each time.
+Sub-agents:6 reused agents: existing_results, counterexample_search, lower_bound, one_not, semantics, status_1035.
+TIMING total=86.9 subagents=6
+Checkpoint UTC:2026-11-25T15:26:52.784065+00:00

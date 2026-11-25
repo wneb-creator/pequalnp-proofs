@@ -1,0 +1,561 @@
+{
+  "utc": "2026-11-25T15:26:21.191328+00:00",
+  "status": "completed600-second run normally before root renewal-error stop; no exact circuit",
+  "exit_code": 0,
+  "stopped_by_signal": false,
+  "rounds": 80415,
+  "evaluations": 8041546416,
+  "best_critical_errors": 1,
+  "source": "results/orch/2590/lemmas/search_petersen19_v1.cpp",
+  "source_sha256": "1dcd6292fe80c2d17c02dfeb3cda0eb0a849ec43f0a9e5ab8efe1b2bdb3528cc",
+  "printed_candidate_verification": "all5printedcandidateblocks are byte-identical to sanitizedsmoke candidates alreadyindependently verified onall1024rows; correspondingfulltruth counts copiedhere",
+  "candidates": [
+    {
+      "evaluations": 2,
+      "critical_fp": 5,
+      "critical_fn": 0,
+      "full_fp": 18,
+      "full_fn": 0,
+      "gates": [
+        [
+          1,
+          6,
+          0
+        ],
+        [
+          1,
+          9,
+          0
+        ],
+        [
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          4,
+          12
+        ],
+        [
+          1,
+          6,
+          7
+        ],
+        [
+          0,
+          9,
+          14
+        ],
+        [
+          1,
+          6,
+          3
+        ],
+        [
+          0,
+          8,
+          16
+        ],
+        [
+          1,
+          0,
+          8
+        ],
+        [
+          1,
+          18,
+          7
+        ],
+        [
+          0,
+          5,
+          19
+        ],
+        [
+          1,
+          7,
+          3
+        ],
+        [
+          1,
+          21,
+          1
+        ],
+        [
+          0,
+          2,
+          22
+        ],
+        [
+          1,
+          17,
+          15
+        ],
+        [
+          1,
+          24,
+          1
+        ],
+        [
+          1,
+          25,
+          13
+        ],
+        [
+          1,
+          26,
+          20
+        ],
+        [
+          1,
+          27,
+          23
+        ]
+      ],
+      "output_wire": 28
+    },
+    {
+      "evaluations": 200004,
+      "critical_fp": 4,
+      "critical_fn": 0,
+      "full_fp": 4,
+      "full_fn": 0,
+      "gates": [
+        [
+          1,
+          9,
+          0
+        ],
+        [
+          1,
+          10,
+          3
+        ],
+        [
+          1,
+          0,
+          6
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          6,
+          3
+        ],
+        [
+          1,
+          5,
+          14
+        ],
+        [
+          1,
+          2,
+          12
+        ],
+        [
+          1,
+          13,
+          9
+        ],
+        [
+          0,
+          17,
+          15
+        ],
+        [
+          0,
+          1,
+          16
+        ],
+        [
+          0,
+          18,
+          16
+        ],
+        [
+          1,
+          4,
+          20
+        ],
+        [
+          0,
+          17,
+          7
+        ],
+        [
+          1,
+          19,
+          22
+        ],
+        [
+          0,
+          15,
+          8
+        ],
+        [
+          0,
+          21,
+          11
+        ],
+        [
+          1,
+          25,
+          24
+        ],
+        [
+          1,
+          23,
+          26
+        ],
+        [
+          1,
+          27,
+          27
+        ]
+      ],
+      "output_wire": 28
+    },
+    {
+      "evaluations": 232485,
+      "critical_fp": 0,
+      "critical_fn": 3,
+      "full_fp": 0,
+      "full_fn": 27,
+      "gates": [
+        [
+          1,
+          9,
+          5
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          8,
+          2
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          9,
+          4
+        ],
+        [
+          1,
+          5,
+          3
+        ],
+        [
+          0,
+          15,
+          8
+        ],
+        [
+          1,
+          6,
+          13
+        ],
+        [
+          1,
+          2,
+          10
+        ],
+        [
+          0,
+          1,
+          17
+        ],
+        [
+          0,
+          9,
+          6
+        ],
+        [
+          0,
+          18,
+          7
+        ],
+        [
+          1,
+          21,
+          16
+        ],
+        [
+          1,
+          14,
+          11
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          1,
+          24,
+          23
+        ],
+        [
+          1,
+          19,
+          20
+        ],
+        [
+          1,
+          22,
+          25
+        ],
+        [
+          1,
+          27,
+          26
+        ]
+      ],
+      "output_wire": 28
+    },
+    {
+      "evaluations": 600020,
+      "critical_fp": 0,
+      "critical_fn": 2,
+      "full_fp": 0,
+      "full_fn": 19,
+      "gates": [
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          7,
+          6
+        ],
+        [
+          0,
+          4,
+          12
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          1,
+          13,
+          4
+        ],
+        [
+          1,
+          14,
+          9
+        ],
+        [
+          0,
+          12,
+          5
+        ],
+        [
+          0,
+          1,
+          15
+        ],
+        [
+          0,
+          18,
+          11
+        ],
+        [
+          1,
+          7,
+          20
+        ],
+        [
+          0,
+          17,
+          16
+        ],
+        [
+          1,
+          19,
+          22
+        ],
+        [
+          1,
+          6,
+          5
+        ],
+        [
+          0,
+          24,
+          8
+        ],
+        [
+          0,
+          21,
+          10
+        ],
+        [
+          1,
+          26,
+          25
+        ],
+        [
+          1,
+          23,
+          27
+        ]
+      ],
+      "output_wire": 28
+    },
+    {
+      "evaluations": 700023,
+      "critical_fp": 0,
+      "critical_fn": 1,
+      "full_fp": 0,
+      "full_fn": 9,
+      "gates": [
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          0,
+          10
+        ],
+        [
+          1,
+          0,
+          6
+        ],
+        [
+          1,
+          12,
+          2
+        ],
+        [
+          0,
+          1,
+          13
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          3,
+          15
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          1,
+          17,
+          7
+        ],
+        [
+          0,
+          9,
+          18
+        ],
+        [
+          1,
+          5,
+          2
+        ],
+        [
+          0,
+          7,
+          20
+        ],
+        [
+          1,
+          6,
+          5
+        ],
+        [
+          0,
+          8,
+          22
+        ],
+        [
+          1,
+          11,
+          23
+        ],
+        [
+          1,
+          24,
+          19
+        ],
+        [
+          1,
+          25,
+          21
+        ],
+        [
+          1,
+          26,
+          14
+        ],
+        [
+          1,
+          27,
+          16
+        ]
+      ],
+      "output_wire": 28
+    }
+  ],
+  "logs": [
+    {
+      "path": "results/orch/2590/search_logs/2590-search-run1.stdout",
+      "bytes": 2325,
+      "sha256": "b346e85f1aa7d01e9f218e37e8e47270b946f68054e4e3e38842a1735a09e683"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-run1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

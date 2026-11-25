@@ -1,0 +1,6 @@
+score fp=6 fn=2 tests=1 pos=0 op=0 a=0 b=0 redirects=0,
+score fp=3 fn=2 tests=3 pos=0 op=0 a=0 b=1 redirects=0,
+score fp=4 fn=0 tests=39 pos=0 op=0 a=2 b=2 redirects=0,
+score fp=0 fn=3 tests=47971 pos=0 op=0 a=0 b=5 redirects=0,16,
+score fp=0 fn=2 tests=760331 pos=0 op=0 a=0 b=5 redirects=16,
+DONE tests=8768006 best_critical_errors=2 elapsed=0.929659

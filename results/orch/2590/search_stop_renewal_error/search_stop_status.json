@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T15:26:21.191328+00:00",
+  "status": "root ordered STOP after renewal-error; no active own searches",
+  "run1": "completed600s beforestop, exit0,8,041,546,416evaluations, noexactcircuit",
+  "v2": "source prepared and sanitizer smoke passed; optimizedrun neverlaunched",
+  "completed_local_searches": [
+    "6110shared-sourceonegateinsertions",
+    "111800arbitrary-sourceonegateinsertionswithoneoldwireredirection",
+    "8768006onegateinsertionswith1to3arbitraryoccurrenceredirections"
+  ],
+  "unfinished_or_running_processes": [],
+  "frozen_after_stop": true,
+  "next_strategy_note": "Potential future variant would alternate false-positive/false-negative objective weights and separately log best overapproximation; no such v3source orrun wascreated."
+}

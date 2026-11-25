@@ -1,0 +1,83 @@
+namespace PEqualNP.Outside.L_meta_2590_aux.MonoNine
+
+open PEqualNP.Outside.L_meta_2590_aux
+
+def overlapExtra (a b c : Fin 10) (dep : Bool) : Extended.Sig :=
+  Extended.bin 0 (if dep then Extended.bin 0 (inputPin a) (inputPin b) else inputPin a)
+    (inputPin c)
+
+def overlapRoots (a b c : Fin 10) (dep : Bool) : List Extended.Sig :=
+  Extended.pins ++ [Extended.bin 0 (inputPin a) (inputPin b), overlapExtra a b c dep]
+
+lemma overlap_suffix_eighteen (monoRoot : Impossible false graph 15 inputs.toFinset)
+    (a b c : Fin 10) (hne : a ≠ b) (dep : Bool) (hdep : dep = true ∨ c ≠ a)
+    {k : ℕ} {S : Finset Extended.Sig}
+    (run : Extended.Live false Extended.target k S)
+    (raw : ∀ v ∈ S, v ∈ overlapRoots a b c dep)
+    (hextra : overlapExtra a b c dep ∈ S) : 18 ≤ k := by
+  classical
+  obtain ⟨hzero,hsecond,hbij,hadj⟩ := pairMove_properties a b hne
+  let e : Fin 10 ≃ Fin 10 := Equiv.ofBijective (pairMove a b) hbij
+  let j : Fin 2 := if pairSecond a b = 1 then 0 else 1
+  have hj : (⟨j.val + 1, by have := j.isLt; omega⟩ : Fin 10) = pairSecond a b := by
+    rcases canonical_second a b with h | h <;> simp [j,h]
+  have ea : e.symm a = 0 := by
+    apply e.injective
+    simpa [e] using hzero.symm
+  have eb : e.symm b = ⟨j.val + 1, by have := j.isLt; omega⟩ := by
+    rw [hj]
+    apply e.injective
+    simpa [e] using hsecond.symm
+  have hp : ∀ x : Fin 10 → Bool,
+      edgeFunction (fun i => x (e.symm i)) = edgeFunction x := by
+    intro x
+    have hh := edgeFunction_pairMove a b hne (fun i => x (e.symm i))
+    change edgeFunction (fun i => x (e.symm (e i))) =
+      edgeFunction (fun i => x (e.symm i)) at hh
+    simpa only [Equiv.symm_apply_apply] using hh.symm
+  let φ : Extended.Sig → Extended.Sig := RowEncoding.transform e.symm
+  have hfirstExtra : φ (Extended.bin 0 (inputPin a) (inputPin b)) = canonicalExtra j 0 := by
+    change RowEncoding.transform e.symm (Extended.bin 0 (inputPin a) (inputPin b)) = _
+    rw [transform_bin, transform_pin, transform_pin, ea, eb]
+    rfl
+  have hsecondExtra : φ (overlapExtra a b c dep) = canonicalDoubleExtra j (e.symm c) dep := by
+    cases dep
+    · change RowEncoding.transform e.symm (Extended.bin 0 (inputPin a) (inputPin c)) =
+        Extended.bin 0 Extended.first (inputPin (e.symm c))
+      rw [transform_bin, transform_pin, transform_pin, ea]
+      rfl
+    · change RowEncoding.transform e.symm
+        (Extended.bin 0 (Extended.bin 0 (inputPin a) (inputPin b)) (inputPin c)) =
+        Extended.bin 0 (canonicalExtra j 0) (inputPin (e.symm c))
+      rw [transform_bin, transform_pin]
+      exact congrArg (fun z => Extended.bin 0 z (inputPin (e.symm c))) hfirstExtra
+  have moved := map_live run φ (RowEncoding.transform_injective e.symm e.symm.surjective)
+    (RowEncoding.transform_zero e.symm) (RowEncoding.transform_one e.symm)
+    (transform_bin e.symm)
+  have ht : φ Extended.target = Extended.target := transform_target e.symm hp
+  rw [ht] at moved
+  have hdep' : dep = true ∨ e.symm c ≠ 0 := by
+    rcases hdep with hd | hc
+    · exact Or.inl hd
+    · exact Or.inr (fun h => hc (e.symm.injective (h.trans ea.symm)))
+  apply doubleSuffixEighteen monoRoot j (e.symm c) dep hdep' moved
+  · intro v hv
+    obtain ⟨w,hw,rfl⟩ := Finset.mem_image.mp hv
+    have hr := raw w hw
+    rcases List.mem_append.mp hr with hr | hr
+    · obtain ⟨i,rfl⟩ := member_pin hr
+      apply List.mem_append_left
+      change RowEncoding.transform e.symm (inputPin i) ∈ Extended.pins
+      rw [transform_pin]
+      exact pin_mem _
+    · have he : w = Extended.bin 0 (inputPin a) (inputPin b) ∨ w = overlapExtra a b c dep := by
+        simpa only [List.mem_cons, List.mem_singleton] using hr
+      rcases he with rfl | rfl
+      · rw [hfirstExtra]
+        simp [doubleRoots]
+      · rw [hsecondExtra]
+        simp [doubleRoots]
+  · have hx : φ (overlapExtra a b c dep) ∈ S.image φ := Finset.mem_image.mpr ⟨_,hextra,rfl⟩
+    rwa [hsecondExtra] at hx
+
+end PEqualNP.Outside.L_meta_2590_aux.MonoNine

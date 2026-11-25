@@ -1,0 +1,69 @@
+{
+  "utc": "2026-11-25T15:22:42.066747+00:00",
+  "status": "prepared v2; optimized run not started",
+  "source": "results/orch/2590/lemmas/search_petersen19_v2.cpp",
+  "original_source_sha256": "a8fcaef5e8a08602426b4ed9e2c9e1b19a8b49269d6aed2a797677222f291886",
+  "provenance": "source fixed before sanitizer compile; digest recorded before any optimized compile/run",
+  "change": "adds random double-star20gate seeds, orientations, andcore order before deleting1gate; othersearch mechanics sameasv1",
+  "seed_family_verification": "search_double_star20_seeds.json verifies40canonicalcases; randomorders andautomorphisms preserve semantics",
+  "sanitizer_smoke": "exit0, empty stderr, all5printed scores independently checked1024rows",
+  "smoke_checks": [
+    {
+      "evaluations": 2,
+      "critical_fp": 7,
+      "critical_fn": 1,
+      "full_fp": 23,
+      "full_fn": 6
+    },
+    {
+      "evaluations": 3,
+      "critical_fp": 6,
+      "critical_fn": 1,
+      "full_fp": 22,
+      "full_fn": 4
+    },
+    {
+      "evaluations": 4,
+      "critical_fp": 5,
+      "critical_fn": 0,
+      "full_fp": 18,
+      "full_fn": 0
+    },
+    {
+      "evaluations": 100003,
+      "critical_fp": 0,
+      "critical_fn": 3,
+      "full_fp": 0,
+      "full_fn": 30
+    },
+    {
+      "evaluations": 100029,
+      "critical_fp": 0,
+      "critical_fn": 1,
+      "full_fp": 0,
+      "full_fn": 9
+    }
+  ],
+  "logs": [
+    {
+      "path": "results/orch/2590/search_logs/2590-search-v2-sanitizer-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-v2-sanitizer-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-v2-smoke.stdout",
+      "bytes": 1258,
+      "sha256": "e571f5780467ab5ab8171475468b307f3f7d2b67196ec66ec870f0e53827920b"
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-v2-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

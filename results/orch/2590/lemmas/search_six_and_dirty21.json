@@ -1,0 +1,125 @@
+{
+  "utc": "2026-11-25T15:23:48.968748+00:00",
+  "status": "exact21gate Petersen circuit with6AND and a dirtyAND; not a counterexample to2590",
+  "gates": [
+    [
+      1,
+      2,
+      6
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      11,
+      10
+    ],
+    [
+      1,
+      0,
+      12
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      1,
+      1,
+      14
+    ],
+    [
+      0,
+      13,
+      15
+    ],
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      0,
+      8,
+      17
+    ],
+    [
+      1,
+      3,
+      18
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      8,
+      20
+    ],
+    [
+      0,
+      19,
+      21
+    ],
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      0,
+      9,
+      23
+    ],
+    [
+      1,
+      7,
+      24
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      9,
+      26
+    ],
+    [
+      0,
+      25,
+      27
+    ],
+    [
+      1,
+      28,
+      22
+    ],
+    [
+      1,
+      29,
+      16
+    ]
+  ],
+  "output_wire": 30,
+  "and_count": 6,
+  "or_count": 15,
+  "verified_rows": 1024,
+  "dirty_gate_index": 2,
+  "dirty_gate_wire": 12,
+  "nonedge_pair": [
+    0,
+    2
+  ],
+  "nonedge_mask": 5,
+  "dirty_gate_value_on_pair": true,
+  "circuit_value_on_pair": false,
+  "identity": "a OR ((a OR b) AND L) = a OR (b AND L)"
+}

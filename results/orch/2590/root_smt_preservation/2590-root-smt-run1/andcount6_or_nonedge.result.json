@@ -1,0 +1,11 @@
+{
+  "label": "andcount6_or_nonedge",
+  "gates": 19,
+  "and_count": 6,
+  "first_op": 1,
+  "first_b": 2,
+  "status": 0,
+  "seconds": 120.01835664200007,
+  "scope": "finite SMT search only; no Lean lower-bound certificate",
+  "unknown_reason": "timeout"
+}

@@ -194,3 +194,21 @@ L1006 is a boundary-test counterexample, not an exact edge function: its 20-gate
 Stopped immediately on root renewal-error instruction. No own build/search remains active. All five lower-bound Lean sources compiled successfully; exact hashes and theorem scope are in `2583/lemmas/lower_PRESERVATION.md`. All complete diagnostics copied to `2583/logs/`; exploratory sources copied to `2583/research/`. The complete gap remains unresolved.
 
 2026-11-25T15:10:11.199982+00:00 — Root reported renewal error and ordered stop. Counterexample search killed sole live process23761/session42679 via SIGTERM, exit143. Complete run2 stdout/stderr and all printed candidates preserved in results/orch/2583/search_stop_renewal_error/. No0-error candidate logged; besttruth1criticalerror, bestnonREAD1 2criticalerrors. Final evaluationcount unavailable because run interrupted. All other searches had completed.
+
+## New assignment L-meta-2590 after second HTTP410 recovery
+
+Only L-meta-2590 is now leased by this pilot. All2583 work is stopped and archived. Exact statement and imports are in results/orch/2590/. Goal: no monotone circuit ofatmost19 gates computes the Petersen edgefunction. Reuse old2592 checkedcomponents only as ingredients of this new task. New sources belong in2590/lemmas and L_meta_2590_aux namespaces. Root alone handles lease and git.
+
+### 2026-11-25T15:19:26.052168+00:00 — 2590 normalization checked
+`semantics_normalize.lean` (241lines, SHA399e06f09d59a4e796df3f17fc73b41f7349a2137165b5e8ea377477515e1c02) adapts L4342 to L_meta_2590_aux.Normalize. For Monotone2 and f(allfalse)=false, produces exact2 backward AND/OR circuit, samefunction,size≤original. It handles emptyarity constants,unarycopies,future-readfalse semantics. normalize_nonconstant proves realgateoutput if target accepts some input and rejects all singletons. Build2590-semantics-normalize.* exit0, oneinheritedunusedbinderwarning. Frozenfullspecialization `semantics_petersen_normalize.lean` (260lines,SHA4a780ee1d4ba8dd2f4f3df2b9f548d1be468f8d322de7698be6fd9243b9992a0) checks exactposted15-edge target; secondbuild2590-semantics-normalize-2.* exit0. `semantics_output_last.lean` (90lines,SHA c62ccf0d0e27a024cf6df3b24e54845556639126e2d63f6aee42122ef0864d5f) separately truncates validAO2output tolastgate withsamefunction/size≤; build2590-semantics-output-last.* exit0/emptylogs. No unused-interior-gate pruning claim. Root notified immediately; status_1035 reviews frozen sources.
+
+### 2026-11-25T15:25:55.732495+00:00 semantics 2590 stopped and preserved
+- No active own builds or searches. Six-AND free-OR pair-cleanliness is false: the dirty absorption rewrite preserves six AND gates but adds an OR; search agent preserved an exact 21-gate Petersen witness. A correct classification must include a size/minimality condition.
+- Narrow double-star solver evidence: 6 inputs, edges 03/04/05/15/25, exactly two ANDs, all gates in output cone, and any AND accepting a nonedge pair. Six gates UNSAT (5.49s), seven gates SAT (0.62s), latter independently verified on all64 assignments. This is not a Lean certificate and does not prove a Petersen lower bound. Source and complete logs: results/orch/2590/lemmas/semantics_double_star_smt.py and semantics_double_star_smt_validation.txt.
+- Proposed finite Lean K4-incidence classification was not started before STOP.
+
+## 2026-11-25T15:26:19.197160+00:00 2590 lower-bound preservation stop
+
+Stopped on renewal failure. No own builds active. Checked conditional 18 and 18-gate suffix bounds after a first AND or canonical overlapping ANDs are preserved. The nine-input premise and applicable live-root hypotheses remain explicit; no full first-two-gate extraction was compiled. Arbitrary-variable overlap transport failed with one type mismatch and remains a draft. Full logs and exact hashes/status are in `2590/lemmas/lower_PRESERVATION.md` and `2590/logs/`.
+
+2026-11-25T15:26:21.191328+00:00 — 2590 STOP on root renewal error. V1monotone19annealer completed600s justbeforestop:80,415rounds,8,041,546,416evaluations, best1criticalerror, noexactcircuit. Fullrunlogs/all5candidatecircuits preserved withverifiedfulltruthcounts. V2double-star source/sanitizerchecks frozen; optimizedv2run neverstarted. No own processesremain.

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T15:25:54.296953+00:00",
+  "status": "UNFINISHED: parent stopped work after renewal timer error",
+  "compile_exit": 143,
+  "termination": "SIGTERM sent only to own Lean process28350 after explicit parent instruction",
+  "source": "results/orch/2590/lemmas/count_petersen_and.lean",
+  "sha256": "7eddf933dabc61ab785fc67bb31ede1c0d77484bab22482712dee9c4e8ab0912",
+  "source_bytes": 171799,
+  "checked": false,
+  "notes": [
+    "No success verdict was obtained for this combined certificate.",
+    "The separate count_compression.lean compiled and was independently reviewed and pushed.",
+    "The combined source copies the L635 helper certificate with namespace renaming and theorem-to-lemma changes, and adds an unverified exact-Petersen bridge.",
+    "Complete stdout and stderr existed and were both empty when the terminated process exited."
+  ]
+}

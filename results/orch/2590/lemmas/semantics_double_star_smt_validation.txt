@@ -1,0 +1,39 @@
+Scope: solver evidence only, not a Lean proof or a general Petersen lower bound.
+Exact 6-input double-star edges 03,04,05,15,25; binary monotone circuits with exactly 2 AND gates, latest gate output, and every earlier gate used by a later gate. Require at least one AND to accept a nonedge pair.
+Six gates: Z3 UNSAT. Seven gates: Z3 SAT, witness independently checked against all 64 input assignments.
+The monotone equality query uses every true edge and every maximal independent false assignment, which is complete for monotone functions; all nonedge pairs are additionally included to detect dirtiness.
+Complete stdout:
+{"name": "double-star-six-gates-two-AND-dirty", "n": 6, "gates": 6, "critical_rows": 18, "edges": [[0, 3], [0, 4], [0, 5], [1, 5], [2, 5]], "bad_edge": null, "status": -1, "seconds": 5.492466677999801}
+{"name": "double-star-seven-gates-two-AND-dirty", "n": 6, "gates": 7, "critical_rows": 18, "edges": [[0, 3], [0, 4], [0, 5], [1, 5], [2, 5]], "bad_edge": null, "status": 1, "seconds": 0.6197463859998606}
+o4 -> true
+b5 -> #xa
+a6 -> #x6
+a5 -> #x8
+o3 -> true
+b2 -> #x7
+a0 -> #x0
+o6 -> false
+o2 -> true
+o1 -> true
+a2 -> #x4
+o0 -> true
+b1 -> #x5
+a3 -> #x0
+b3 -> #x1
+a4 -> #x2
+b6 -> #xb
+a1 -> #x3
+o5 -> false
+b0 -> #x5
+b4 -> #x9
+w3 -> #b000011100110111111
+w2 -> #b111111111111110000
+w1 -> #b111111110001110000
+w6 -> #b000111000010010000
+w0 -> #b111111000010011011
+w4 -> #b000111101111111111
+w5 -> #b000111101111110000
+
+{"verified_rows": 64, "program": [["or", 0, 5], ["or", 3, 5], ["or", 4, 7], ["or", 0, 1], ["or", 2, 9], ["and", 8, 10], ["and", 6, 11]], "dirty_gate_pair_masks": [[5, 10], [5, 12], [5, 18], [5, 20]]}
+
+Complete stderr:

@@ -1,0 +1,453 @@
+lean/PEqualNP/Outside/R_meta_3229_1.lean
+theorem PEqualNP.Outside.R_meta_3229_1
+    (h_and :
+      let T (D : Circuit) :=
+        (∃ m ∈ ([3, 12, 24, 17, 33, 264] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [false]) = false) ∧
+        (∃ m ∈ ([50, 116, 208, 276, 402] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [true]) = true)
+      let v (D : Circuit) (m : ℕ) := D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [m.testBit 0 || m.testBit 3])
+      ∀ D : Circuit, D.gates.length = 14 → Monotone2 D → D.output = 23 → T D →
+        (∃ g gs, D.gates = g :: gs ∧ g.op = GateOp.and) →
+        (∀ m ∈ ([3, 6, 12, 24, 17, 33, 66, 132, 264, 160, 320, 288] : List ℕ), v D m = true) →
+        ¬∀ m ∈ ([42, 50, 69, 104, 116, 138, 201, 208, 261, 276, 385, 402] : List ℕ), v D m = false)
+    (h_or_03 :
+      let T (D : Circuit) :=
+        (∃ m ∈ ([3, 12, 24, 17, 33, 264] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [false]) = false) ∧
+        (∃ m ∈ ([50, 116, 208, 276, 402] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [true]) = true)
+      let v (D : Circuit) (m : ℕ) := D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [m.testBit 0 || m.testBit 3])
+      ∀ D : Circuit, D.gates.length = 14 → Monotone2 D → D.output = 23 → T D →
+        (∃ g gs, D.gates = g :: gs ∧ g.op = GateOp.or ∧ (0 ∈ g.inputs ∨ 3 ∈ g.inputs)) →
+        (∀ m ∈ ([3, 6, 12, 24, 17, 33, 66, 132, 264, 160, 320, 288] : List ℕ), v D m = true) →
+        ¬∀ m ∈ ([42, 50, 69, 104, 116, 138, 201, 208, 261, 276, 385, 402] : List ℕ), v D m = false)
+    (h_or_9 :
+      let T (D : Circuit) :=
+        (∃ m ∈ ([3, 12, 24, 17, 33, 264] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [false]) = false) ∧
+        (∃ m ∈ ([50, 116, 208, 276, 402] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [true]) = true)
+      let v (D : Circuit) (m : ℕ) := D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [m.testBit 0 || m.testBit 3])
+      ∀ D : Circuit, D.gates.length = 14 → Monotone2 D → D.output = 23 → T D →
+        (∃ g gs, D.gates = g :: gs ∧ g.op = GateOp.or ∧ 0 ∉ g.inputs ∧ 3 ∉ g.inputs ∧ 9 ∈ g.inputs) →
+        (∀ m ∈ ([3, 6, 12, 24, 17, 33, 66, 132, 264, 160, 320, 288] : List ℕ), v D m = true) →
+        ¬∀ m ∈ ([42, 50, 69, 104, 116, 138, 201, 208, 261, 276, 385, 402] : List ℕ), v D m = false)
+    (h_or_rest :
+      let T (D : Circuit) :=
+        (∃ m ∈ ([3, 12, 24, 17, 33, 264] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [false]) = false) ∧
+        (∃ m ∈ ([50, 116, 208, 276, 402] : List ℕ), D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [true]) = true)
+      let v (D : Circuit) (m : ℕ) := D.eval (List.ofFn (fun i : Fin 9 => m.testBit i.val) ++ [m.testBit 0 || m.testBit 3])
+      ∀ D : Circuit, D.gates.length = 14 → Monotone2 D → D.output = 23 → T D →
+        (∃ g gs, D.gates = g :: gs ∧ g.op = GateOp.or ∧ 0 ∉ g.inputs ∧ 3 ∉ g.inputs ∧ 9 ∉ g.inputs) →
+        (∀ m ∈ ([3, 6, 12, 24, 17, 33, 66, 132, 264, 160, 320, 288] : List ℕ), v D m = true) →
+        ¬∀ m ∈ ([42, 50, 69, 104, 116, 138, 201, 208, 261, 276, 385, 402] : List ℕ), v D m = false) :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∀ x8 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x8 = Bool.true) → ¬∀ x9 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x9 = Bool.false 
+
+lean/PEqualNP/Outside/R_meta_3268_1.lean
+theorem PEqualNP.Outside.R_meta_3268_1
+    (separation :
+      have read : (Fin 17 → (Fin 9 → Bool) → Bool) → (Bool ⊕ Fin 17) → (Fin 9 → Bool) → Bool :=
+        fun z a x => Sum.elim id (fun j => z j x) a
+      have good : (Fin 17 → (Fin 9 → Bool) → Bool) → Fin 17 → Prop := fun z i =>
+        ∃ a b : Bool ⊕ Fin 17, (∀ j : Fin 17, a = Sum.inr j ∨ b = Sum.inr j → j < i) ∧
+          ((∀ x, z i x = (read z a x && read z b x)) ∨ (∀ x, z i x = (read z a x || read z b x)))
+      have edge : (Fin 9 → Bool) → Bool := fun x => ([1, 12, 23, 34, 40, 5, 16, 27, 38, 57, 68, 85] : List ℕ).any
+        (fun k => x (Fin.ofNat 9 (k / 10)) && x (Fin.ofNat 9 (k % 10)))
+      ∀ z : Fin 17 → (Fin 9 → Bool) → Bool,
+        (∀ (i : Fin 9) x, z (Fin.castAdd 8 i) x = x i) →
+        (∀ x, z 9 x = (x 0 || x 2)) →
+        (∀ i : Fin 17, 9 < (i : ℕ) → good z i) →
+        ∀ S : Finset (Fin 17), S.card ≤ 6 →
+          ∃ x y : Fin 9 → Bool, (∀ i ∈ S, z i x = z i y) ∧ edge x ≠ edge y)
+    (representation :
+      have read : (Fin 17 → (Fin 9 → Bool) → Bool) → (Bool ⊕ Fin 17) → (Fin 9 → Bool) → Bool :=
+        fun z a x => Sum.elim id (fun j => z j x) a
+      have good : (Fin 17 → (Fin 9 → Bool) → Bool) → Fin 17 → Prop := fun z i =>
+        ∃ a b : Bool ⊕ Fin 17, (∀ j : Fin 17, a = Sum.inr j ∨ b = Sum.inr j → j < i) ∧
+          ((∀ x, z i x = (read z a x && read z b x)) ∨ (∀ x, z i x = (read z a x || read z b x)))
+      ∀ C : Circuit, Monotone2 C → C.size = 8 →
+        ∀ i : Fin 17, 9 < (i : ℕ) → good (fun j x => (C.wires (List.ofFn x)).getD j.val false) i) :
+    have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); ∀ (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x2 → x2.size = (8 : ℕ) → (∀ (x5 : Fin (9 : ℕ) → Bool), (x2.wires (List.ofFn x5)).getD (9 : ℕ) Bool.false = (x5 (0 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)))) → ∀ (x6 : Finset ℕ), x6.card ≤ (6 : ℕ) → ∃ (x8 : Fin (9 : ℕ) → Bool) (x9 : Fin (9 : ℕ) → Bool), (∀ x10 ∈ x6, (x2.wires (List.ofFn x8)).getD x10 Bool.false = (x2.wires (List.ofFn x9)).getD x10 Bool.false) ∧ x1 x8 ≠ x1 x9 
+
+lean/PEqualNP/Outside/L_meta_3953.lean
+theorem PEqualNP.Outside.L_meta_3953 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     x1.size ≤ (14 : ℕ) →       (∀ x4 ∈ [(4 : ℕ), (6 : ℕ)], ∃! x6 : Fin x1.gates.length, x4 ∈ (x1.gates.get x6).inputs) →         (∀ x5 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)] ++ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)],             have x7 : Fin (9 : ℕ) → Bool := fun (x7 : Fin (9 : ℕ)) => x5.testBit ↑x7;             x1.eval (List.ofFn x7 ++ [x7 (4 : Fin (9 : ℕ)) || x7 (6 : Fin (9 : ℕ))]) = Decidable.decide (x5 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →           False := PEqualNP.Outside.L_meta_3953_aux.solved
+
+
+lean/PEqualNP/Outside/R_meta_3410_1.lean
+theorem PEqualNP.Outside.R_meta_3410_1
+    (excluded : have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); ¬PEqualNP.MetaComplexity.HasCircuitSize (9 : ℕ) x1 (14 : ℕ))
+    (rawCases : ∀ a b : Fin 9, (9*a.val+b.val) ∈ ([1,2,3,6,11,12,13,14,15,16,17,21,22,24,25,26,31,33,42,61] : List ℕ) → ∀ P D : Circuit,
+      Monotone2 P → FanInTwo D → P.size + D.size = 12 → P.output ≤ 24 → D.output = 23 →
+      (∀ g ∈ P.gates ++ D.gates, ∀ i ∈ g.inputs, i ≤ 24) →
+      ∃ x : Fin 9 → Bool,
+        let v := P.wires (List.ofFn x ++ [x 0 || x 4] ++ [x a || x b])
+        D.eval (v ++ [!(v.getD P.output false)]) ≠ (fun x : Fin 9 → Bool => [1,12,23,34,40,5,16,27,38,57,68,85].any fun e : ℕ =>
+        x (Fin.ofNat 9 (e / 10)) && x (Fin.ofNat 9 (e % 10))) x)
+    (thirdCases : ∀ a : Fin 9, a ∈ ([1,2,3,6] : List (Fin 9)) → ∀ P D : Circuit,
+      Monotone2 P → FanInTwo D → P.size + D.size = 12 → P.output ≤ 24 → D.output = 23 →
+      (∀ g ∈ P.gates ++ D.gates, ∀ i ∈ g.inputs, i ≤ 24) →
+      ∃ x : Fin 9 → Bool,
+        let v := P.wires (List.ofFn x ++ [x 0 || x 4] ++ [(x 0 || x 4) || x a])
+        D.eval (v ++ [!(v.getD P.output false)]) ≠ (fun x : Fin 9 → Bool => [1,12,23,34,40,5,16,27,38,57,68,85].any fun e : ℕ =>
+        x (Fin.ofNat 9 (e / 10)) && x (Fin.ofNat 9 (e % 10))) x) :
+∀ (x1 : List (Fin (11 : ℕ))) (x2 x3 : PEqualNP.CircuitLowerBounds.Circuit),   x1.length ≤ (2 : ℕ) →     PEqualNP.MetaComplexity.Monotone2 x2 →       PEqualNP.MetaComplexity.FanInTwo x3 →         x2.size + x3.size ≤ (12 : ℕ) →           x2.output ≤ (24 : ℕ) →             x3.output ≤ (24 : ℕ) →               (∀ x10 ∈ x2.gates ++ x3.gates, ∀ x12 ∈ x10.inputs, x12 ≤ (24 : ℕ)) →                 ∃ (x11 : Fin (9 : ℕ) → Bool),                   have x12 : List Bool := List.ofFn x11 ++ [x11 (0 : Fin (9 : ℕ)) || x11 (4 : Fin (9 : ℕ))];                   have x13 : List Bool := x2.wires (x12 ++ [PEqualNP.CircuitLowerBounds.GateOp.or.eval (List.map (fun (x13 : Fin (11 : ℕ)) => x12.getD (↑x13) Bool.false) x1)]);                   x3.eval (x13 ++ [!x13.getD x2.output Bool.false]) ≠ (x11 (0 : Fin (9 : ℕ)) && x11 (1 : Fin (9 : ℕ)) || x11 (1 : Fin (9 : ℕ)) && x11 (2 : Fin (9 : ℕ)) || x11 (2 : Fin (9 : ℕ)) && x11 (3 : Fin (9 : ℕ)) || x11 (3 : Fin (9 : ℕ)) && x11 (4 : Fin (9 : ℕ)) || x11 (4 : Fin (9 : ℕ)) && x11 (0 : Fin (9 : ℕ)) || x11 (0 : Fin (9 : ℕ)) && x11 (5 : Fin (9 : ℕ)) || x11 (1 : Fin (9 : ℕ)) && x11 (6 : Fin (9 : ℕ)) || x11 (2 : Fin (9 : ℕ)) && x11 (7 : Fin (9 : ℕ)) || x11 (3 : Fin (9 : ℕ)) && x11 (8 : Fin (9 : ℕ)) || x11 (5 : Fin (9 : ℕ)) && x11 (7 : Fin (9 : ℕ)) || x11 (6 : Fin (9 : ℕ)) && x11 (8 : Fin (9 : ℕ)) || x11 (8 : Fin (9 : ℕ)) && x11 (5 : Fin (9 : ℕ))) 
+
+lean/PEqualNP/Outside/R_meta_3083_394.lean
+theorem PEqualNP.Outside.R_meta_3083_394
+    (decompose : have reads : PEqualNP.CircuitLowerBounds.Gate → ℕ → Prop := fun g v =>
+      (g.op = .not ∧ g.inputs.head? = some v) ∨ (g.op ≠ .not ∧ v ∈ g.inputs);
+    ∀ (C : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo C →
+      C.size ≤ 15 →
+      (∃ i j : Fin C.gates.length, i < j ∧ i.val ≤ 3 ∧ (C.gates.get i).op = .not ∧
+        (C.gates.get j).op = .not ∧ ∀ k : Fin C.gates.length,
+          (C.gates.get k).op = .not → k = i ∨ k = j) →
+      (∀ (x : Fin 9 → Bool), (C.wires (List.ofFn x)).getD 9 false = (x 0 || x 2)) →
+      (∀ v : ℕ, v = 0 ∨ v = 2 → ∃ g ∈ C.gates.drop 1, reads g v) →
+      ∃ (P D : PEqualNP.CircuitLowerBounds.Circuit) (q : Fin 13),
+        PEqualNP.MetaComplexity.Monotone2 P ∧ PEqualNP.MetaComplexity.FanInTwo D ∧
+        P.size ≤ 2 ∧ P.size + D.size ≤ 13 ∧
+        D.gates.countP (fun g => g.op.eval [false]) = 1 ∧
+        (∀ v : ℕ, v = 0 ∨ v = 2 → q.val = v ∨ ∃ g ∈ P.gates ++ D.gates, reads g v) ∧
+        ∀ (x : Fin 9 → Bool), have w : List Bool := P.wires (List.ofFn x ++ [x 0 || x 2]); D.eval (w ++ [!w.getD q false]) = C.eval (List.ofFn x))
+    (remaining : have reads : PEqualNP.CircuitLowerBounds.Gate → ℕ → Prop := fun g v =>
+      (g.op = .not ∧ g.inputs.head? = some v) ∨ (g.op ≠ .not ∧ v ∈ g.inputs);
+    ∀ (P D : PEqualNP.CircuitLowerBounds.Circuit) (q : Fin 13),
+      PEqualNP.MetaComplexity.Monotone2 P → PEqualNP.MetaComplexity.FanInTwo D →
+      P.size ≤ 2 → P.size + D.size ≤ 13 → D.gates.countP (fun g => g.op.eval [false]) = 1 →
+      (∀ v : ℕ, v = 0 ∨ v = 2 → q.val = v ∨ ∃ g ∈ P.gates ++ D.gates, reads g v) →
+      ∃ (x : Fin 9 → Bool), have w : List Bool := P.wires (List.ofFn x ++ [x 0 || x 2]); D.eval (w ++ [!w.getD q false]) ≠ (x (0 : Fin (9 : ℕ)) && x (1 : Fin (9 : ℕ)) || x (1 : Fin (9 : ℕ)) && x (2 : Fin (9 : ℕ)) || x (2 : Fin (9 : ℕ)) && x (3 : Fin (9 : ℕ)) || x (3 : Fin (9 : ℕ)) && x (4 : Fin (9 : ℕ)) || x (4 : Fin (9 : ℕ)) && x (0 : Fin (9 : ℕ)) || x (0 : Fin (9 : ℕ)) && x (5 : Fin (9 : ℕ)) || x (1 : Fin (9 : ℕ)) && x (6 : Fin (9 : ℕ)) || x (2 : Fin (9 : ℕ)) && x (7 : Fin (9 : ℕ)) || x (3 : Fin (9 : ℕ)) && x (8 : Fin (9 : ℕ)) || x (5 : Fin (9 : ℕ)) && x (7 : Fin (9 : ℕ)) || x (6 : Fin (9 : ℕ)) && x (8 : Fin (9 : ℕ)) || x (8 : Fin (9 : ℕ)) && x (5 : Fin (9 : ℕ)))) :
+    have x1 : PEqualNP.CircuitLowerBounds.Gate → ℕ → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Gate) (x2 : ℕ) => x1.op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ x1.inputs.head? = Option.some x2 ∨ x1.op ≠ PEqualNP.CircuitLowerBounds.GateOp.not ∧ x2 ∈ x1.inputs; ∀ (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x2 → (∃ (x4 : Fin x2.gates.length) (x5 : Fin x2.gates.length), x4 < x5 ∧ ↑x4 ≤ (3 : ℕ) ∧ (x2.gates.get x4).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ (x2.gates.get x5).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ ∀ (x6 : Fin x2.gates.length), (x2.gates.get x6).op = PEqualNP.CircuitLowerBounds.GateOp.not → x6 = x4 ∨ x6 = x5) → (∀ (x5 : Fin (9 : ℕ) → Bool), (x2.wires (List.ofFn x5)).getD (9 : ℕ) Bool.false = (x5 (0 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x2 = fun (x6 : Fin (9 : ℕ) → Bool) => x6 (0 : Fin (9 : ℕ)) && x6 (1 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (2 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (3 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (4 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) && x6 (0 : Fin (9 : ℕ)) || x6 (0 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ)) || x6 (1 : Fin (9 : ℕ)) && x6 (6 : Fin (9 : ℕ)) || x6 (2 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (3 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (5 : Fin (9 : ℕ)) && x6 (7 : Fin (9 : ℕ)) || x6 (6 : Fin (9 : ℕ)) && x6 (8 : Fin (9 : ℕ)) || x6 (8 : Fin (9 : ℕ)) && x6 (5 : Fin (9 : ℕ))) → (∀ (x7 : ℕ), x7 = (0 : ℕ) ∨ x7 = (2 : ℕ) → ∃ x9 ∈ List.drop (1 : ℕ) x2.gates, x1 x9 x7) → (16 : ℕ) ≤ x2.size 
+
+lean/PEqualNP/Outside/L_meta_4996.lean
+theorem PEqualNP.Outside.L_meta_4996 :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∃ (x8 : PEqualNP.CircuitLowerBounds.Gate) (x9 : List PEqualNP.CircuitLowerBounds.Gate), x3.gates = x8 :: x9 ∧ x8.op = PEqualNP.CircuitLowerBounds.GateOp.and) → (∀ x9 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x9 = Bool.true) → ¬∀ x10 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x10 = Bool.false :=
+  PEqualNP.Outside.L_meta_4996.shape_sound PEqualNP.Outside.L_meta_4996.noStartH
+
+
+lean/PEqualNP/Outside/R_meta_3229_415.lean
+theorem PEqualNP.Outside.R_meta_3229_415
+    (hshape : ∀ C : PEqualNP.CircuitLowerBounds.Circuit, C.gates.length = 14 → PEqualNP.MetaComplexity.Monotone2 C → C.output = 23 →
+      ∃ D : PEqualNP.CircuitLowerBounds.Circuit, D.gates.length = 10 ∧ PEqualNP.MetaComplexity.Monotone2 D ∧
+      ∃ j : Fin 5 → Nat, ∃ m ∈ ([2147483648,2155905024,2290122880,2290649216,2827520136,2829625344,2829625480,2860548224,2863179944,2863311528,3937053354,3941263872,3941264042,4008372970,4008636128,4008636138,4169697416,4177066120,4277071598,4278124202,4278124270,4293585642,4294901502,4294967294] : List Nat), ∀ x : List Bool, x.length = 10 → C.eval x = m.testBit (BitVec.ofBoolListLE (List.ofFn fun i : Fin 5 => (true :: D.wires (x)).getD (j i) false)).toNat)
+    (hfront : ∀ D : PEqualNP.CircuitLowerBounds.Circuit, D.gates.length = 10 → PEqualNP.MetaComplexity.Monotone2 D →
+      ∀ j : Fin 5 → Nat, ∀ m ∈ ([2147483648,2155905024,2290122880,2290649216,2827520136,2829625344,2829625480,2860548224,2863179944,2863311528,3937053354,3941263872,3941264042,4008372970,4008636128,4008636138,4169697416,4177066120,4277071598,4278124202,4278124270,4293585642,4294901502,4294967294] : List Nat),
+      let f := fun (r : Nat) (v : Bool) => m.testBit (BitVec.ofBoolListLE (List.ofFn fun i : Fin 5 => (true :: D.wires (((List.ofFn fun i : Fin 9 => r.testBit i.val) ++ [v]))).getD (j i) false)).toNat
+      let g := fun r : Nat => f r (r.testBit 0 || r.testBit 3)
+      ∀ p ∈ ([3,12,24,17,33,264] : List Nat), ∀ n ∈ ([50,116,208,276,402] : List Nat),
+      f p false = false → f n true = true → (∀ t ∈ ([3,6,12,24,17,33,66,132,264,160,320,288] : List Nat), g t = true) →
+      ¬ ∀ t ∈ ([42,50,69,104,116,138,201,208,261,276,385,402] : List Nat), g t = false) :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∀ x8 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x8 = Bool.true) → ¬∀ x9 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x9 = Bool.false 
+
+lean/PEqualNP/Outside/R_meta_2830_271.lean
+theorem PEqualNP.Outside.R_meta_2830_271
+    (complete : ∀ (n s : ℕ) (g : ℕ → Bool) (rows : List ℕ) (C : Circuit),
+      (∀ r ∈ rows, r < 2^n) → Monotone2 C → C.size ≤ s →
+      (∀ r ∈ rows, C.eval (List.ofFn fun i : Fin n => r.testBit i.val) = g r) →
+      FormulaSat (enc n s g rows))
+    (impossible :
+      let p : List ℕ := [515,518,12,529,24,545,578,132,160,264,288,320]
+      let n : List ℕ := [554,562,581,104,116,650,713,208,773,276,897,914]
+      ¬ FormulaSat (enc 10 14 (fun r => p.contains r) (p ++ n))) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)], x1.eval ((List.ofFn fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5) ++ [x3.testBit (0 : ℕ) || x3.testBit (1 : ℕ)]) = Bool.true) → (∀ x4 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6) ++ [x4.testBit (0 : ℕ) || x4.testBit (1 : ℕ)]) = Bool.false) → (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_4375.lean
+theorem PEqualNP.Outside.L_meta_4375 : have x1 : ℕ → Finset (Fin (9 : ℕ)) := fun (x1 : ℕ) => {x2 : Fin (9 : ℕ) | x1.testBit ↑x2 = Bool.true}; have x2 : ℕ → Fin (9 : ℕ) → Bool := fun (x2 : ℕ) (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3; have x3 : (Fin (9 : ℕ) → Bool) → Bool := fun (x3 : Fin (9 : ℕ) → Bool) => [((0 : Fin (9 : ℕ)), (1 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((4 : Fin (9 : ℕ)), (0 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (6 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((6 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((8 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ)))].any fun (x4 : Fin (9 : ℕ) × Fin (9 : ℕ)) => x3 x4.1 && x3 x4.2; have x4 : Finset (Fin (9 : ℕ)) → (Fin (9 : ℕ) → Bool) → List Bool := fun (x4 : Finset (Fin (9 : ℕ))) (x5 : Fin (9 : ℕ) → Bool) => List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ)), Decidable.decide (∃ x6 ∈ x4, x5 x6 = Bool.true)]; ∀ x5 ∈ [(0 : ℕ), (1 : ℕ), (2 : ℕ), (4 : ℕ), (8 : ℕ), (16 : ℕ), (64 : ℕ), (17 : ℕ)], ∀ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x7 → x7.size ≤ (13 : ℕ) → ∃ x10 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ), (42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x7.eval (x4 (x1 x5) (x2 x10)) ≠ x3 (x2 x10) 
+
+lean/PEqualNP/Outside/L_meta_3907.lean
+theorem PEqualNP.Outside.L_meta_3907 : have x1 : (Fin (17 : ℕ) → (Fin (9 : ℕ) → Bool) → Bool) → Bool ⊕ Fin (17 : ℕ) → (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (17 : ℕ) → (Fin (9 : ℕ) → Bool) → Bool) (x2 : Bool ⊕ Fin (17 : ℕ)) (x3 : Fin (9 : ℕ) → Bool) => Sum.elim id (fun (x4 : Fin (17 : ℕ)) => x1 x4 x3) x2; have x2 : (Fin (17 : ℕ) → (Fin (9 : ℕ) → Bool) → Bool) → Fin (17 : ℕ) → Prop := fun (x2 : Fin (17 : ℕ) → (Fin (9 : ℕ) → Bool) → Bool) (x3 : Fin (17 : ℕ)) => ∃ (x4 : Bool ⊕ Fin (17 : ℕ)) (x5 : Bool ⊕ Fin (17 : ℕ)), (∀ (x6 : Fin (17 : ℕ)), x4 = Sum.inr x6 ∨ x5 = Sum.inr x6 → x6 < x3) ∧ ((∀ (x6 : Fin (9 : ℕ) → Bool), x2 x3 x6 = (x1 x2 x4 x6 && x1 x2 x5 x6)) ∨ ∀ (x6 : Fin (9 : ℕ) → Bool), x2 x3 x6 = (x1 x2 x4 x6 || x1 x2 x5 x6)); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x3 → x3.size = (8 : ℕ) → ∀ (x6 : Fin (17 : ℕ)), (9 : ℕ) < ↑x6 → x2 (fun (x8 : Fin (17 : ℕ)) (x9 : Fin (9 : ℕ) → Bool) => (x3.wires (List.ofFn x9)).getD (↑x8) Bool.false) x6 
+
+lean/PEqualNP/Outside/L_meta_3511.lean
+theorem PEqualNP.Outside.L_meta_3511 : ∀ (x1 : Fin (9 : ℕ)) (x2 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x2 →     (∀ x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x6 : Fin (9 : ℕ) → Bool := fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6;         x2.eval (List.ofFn x6 ++ [x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)), x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) || x6 x1]) = Decidable.decide (x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (14 : ℕ) ≤ x2.size 
+
+lean/PEqualNP/Outside/R_meta_1910_461.lean
+theorem PEqualNP.Outside.R_meta_1910_461
+    (small : have f : (Fin 9 → Bool) → Bool := fun x => ([1,12,23,34,40,5,16,27,38,57,68,85] : List ℕ).any fun e => x (Fin.ofNat 9 (e / 10)) && x (Fin.ofNat 9 (e % 10)); ¬ HasCircuitSize 9 f 14)
+    (andOr : ∀ D : Circuit, Monotone2 D → D.size ≤ 14 →
+      (∀ v ∈ ([4,6] : List ℕ), ∃! j : Fin D.gates.length, v ∈ (D.gates.get j).inputs) →
+      (∀ r ∈ ([3,6,12,17,24,33,66,132,160,264,288,320] : List ℕ) ++ ([42,50,69,104,116,138,201,208,261,276,385,402] : List ℕ),
+        let x : Fin 9 → Bool := fun i => r.testBit i.val
+        D.eval (List.ofFn x ++ [x 4 || x 6]) = decide (r ∈ ([3,6,12,17,24,33,66,132,160,264,288,320] : List ℕ))) → False)
+    (withNot : ∀ D : Circuit, FanInTwo D → D.size ≤ 14 →
+      (∃ g ∈ D.gates, g.op = GateOp.not) →
+      (∃ x : Fin 9 → Bool, D.eval (List.ofFn x ++ [false]) ≠ D.eval (List.ofFn x ++ [true])) →
+      (∀ x : Fin 9 → Bool, D.eval (List.ofFn x ++ [x 4 || x 6]) = ((x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5))) → False) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.FanInTwo x1 →     (∀ (x3 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x3)).getD (9 : ℕ) Bool.false = (x3 (4 : Fin (9 : ℕ)) || x3 (6 : Fin (9 : ℕ)))) →       (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x4 : Fin (9 : ℕ) → Bool) => x4 (0 : Fin (9 : ℕ)) && x4 (1 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (2 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (3 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (4 : Fin (9 : ℕ)) || x4 (4 : Fin (9 : ℕ)) && x4 (0 : Fin (9 : ℕ)) || x4 (0 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (6 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (5 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (6 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (8 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ))) →         (∀ x5 ∈ [(4 : ℕ), (6 : ℕ)],             ∃! x7 : Fin (List.drop (1 : ℕ) x1.gates).length,               have x8 : PEqualNP.CircuitLowerBounds.Gate := (List.drop (1 : ℕ) x1.gates).get x7;               x8.inputs[(0 : ℕ)]? = Option.some x5 ∨ x8.op ≠ PEqualNP.CircuitLowerBounds.GateOp.not ∧ x5 ∈ x8.inputs) →           (16 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_5314_1.lean
+theorem PEqualNP.Outside.R_meta_5314_1
+    (h1 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.gates.length = (10 : ℕ) →     PEqualNP.MetaComplexity.Monotone2 x1 →       ∀ (x4 : Fin (5 : ℕ) → ℕ),         ∀ x5 ∈ [(2147483648 : ℕ), (2155905024 : ℕ), (2290122880 : ℕ), (2290649216 : ℕ), (2827520136 : ℕ), (2829625344 : ℕ), (2829625480 : ℕ), (2860548224 : ℕ), (2863179944 : ℕ), (2863311528 : ℕ), (3937053354 : ℕ), (3941263872 : ℕ)],           have x7 : ℕ → Bool → Bool := fun (x7 : ℕ) (x8 : Bool) => x5.testBit (BitVec.ofBoolListLE (List.ofFn fun (x9 : Fin (5 : ℕ)) => (Bool.true :: x1.wires ((List.ofFn fun (x10 : Fin (9 : ℕ)) => x7.testBit ↑x10) ++ [x8])).getD (x4 x9) Bool.false)).toNat;           have x8 : ℕ → Bool := fun (x8 : ℕ) => x7 x8 (x8.testBit (0 : ℕ) || x8.testBit (3 : ℕ));           ∀ x9 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], ∀ x11 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x7 x9 Bool.false = Bool.false → x7 x11 Bool.true = Bool.true → (∀ x15 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x8 x15 = Bool.true) → ¬∀ x16 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x8 x16 = Bool.false)
+    (h2 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.gates.length = (10 : ℕ) →     PEqualNP.MetaComplexity.Monotone2 x1 →       ∀ (x4 : Fin (5 : ℕ) → ℕ),         ∀ x5 ∈ [(3941264042 : ℕ), (4008372970 : ℕ), (4008636128 : ℕ), (4008636138 : ℕ), (4169697416 : ℕ), (4177066120 : ℕ), (4277071598 : ℕ), (4278124202 : ℕ), (4278124270 : ℕ), (4293585642 : ℕ), (4294901502 : ℕ), (4294967294 : ℕ)],           have x7 : ℕ → Bool → Bool := fun (x7 : ℕ) (x8 : Bool) => x5.testBit (BitVec.ofBoolListLE (List.ofFn fun (x9 : Fin (5 : ℕ)) => (Bool.true :: x1.wires ((List.ofFn fun (x10 : Fin (9 : ℕ)) => x7.testBit ↑x10) ++ [x8])).getD (x4 x9) Bool.false)).toNat;           have x8 : ℕ → Bool := fun (x8 : ℕ) => x7 x8 (x8.testBit (0 : ℕ) || x8.testBit (3 : ℕ));           ∀ x9 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], ∀ x11 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x7 x9 Bool.false = Bool.false → x7 x11 Bool.true = Bool.true → (∀ x15 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x8 x15 = Bool.true) → ¬∀ x16 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x8 x16 = Bool.false) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.gates.length = (10 : ℕ) →     PEqualNP.MetaComplexity.Monotone2 x1 →       ∀ (x4 : Fin (5 : ℕ) → ℕ),         ∀ x5 ∈ [(2147483648 : ℕ), (2155905024 : ℕ), (2290122880 : ℕ), (2290649216 : ℕ), (2827520136 : ℕ), (2829625344 : ℕ), (2829625480 : ℕ), (2860548224 : ℕ), (2863179944 : ℕ), (2863311528 : ℕ), (3937053354 : ℕ), (3941263872 : ℕ), (3941264042 : ℕ), (4008372970 : ℕ), (4008636128 : ℕ), (4008636138 : ℕ), (4169697416 : ℕ), (4177066120 : ℕ), (4277071598 : ℕ), (4278124202 : ℕ), (4278124270 : ℕ), (4293585642 : ℕ), (4294901502 : ℕ), (4294967294 : ℕ)],           have x7 : ℕ → Bool → Bool := fun (x7 : ℕ) (x8 : Bool) => x5.testBit (BitVec.ofBoolListLE (List.ofFn fun (x9 : Fin (5 : ℕ)) => (Bool.true :: x1.wires ((List.ofFn fun (x10 : Fin (9 : ℕ)) => x7.testBit ↑x10) ++ [x8])).getD (x4 x9) Bool.false)).toNat;           have x8 : ℕ → Bool := fun (x8 : ℕ) => x7 x8 (x8.testBit (0 : ℕ) || x8.testBit (3 : ℕ));           ∀ x9 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], ∀ x11 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x7 x9 Bool.false = Bool.false → x7 x11 Bool.true = Bool.true → (∀ x15 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x8 x15 = Bool.true) → ¬∀ x16 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x8 x16 = Bool.false 
+
+lean/PEqualNP/Outside/L_meta_4397.lean
+theorem PEqualNP.Outside.L_meta_4397 : ∀ x1 ∈ [(1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ)), (6 : Fin (9 : ℕ))],   ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit),     PEqualNP.MetaComplexity.Monotone2 x3 →       x3.size ≤ (13 : ℕ) →         ∃ (x6 : Fin (29 : ℕ)),           have x7 : ℕ := [(3 : ℕ), (6 : ℕ), (12 : ℕ), (13 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (133 : ℕ), (160 : ℕ), (264 : ℕ), (265 : ℕ), (288 : ℕ), (320 : ℕ), (321 : ℕ), (42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (200 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)].getD ↑x6 (0 : ℕ);           have x8 : Fin (9 : ℕ) → Bool := fun (x8 : Fin (9 : ℕ)) => x7.testBit ↑x8;           x3.eval (List.ofFn x8 ++ [!x8 (0 : Fin (9 : ℕ))] ++ [x8 (4 : Fin (9 : ℕ)) || x8 x1]) ≠ Decidable.decide (↑x6 < (16 : ℕ)) 
+
+lean/PEqualNP/Outside/L_meta_2776.lean
+theorem PEqualNP.Outside.L_meta_2776 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       have x4 : List (BitVec (24 : ℕ)) := [(0 : BitVec (24 : ℕ)), (16777215 : BitVec (24 : ℕ)), (4358697 : BitVec (24 : ℕ)), (8397251 : BitVec (24 : ℕ)), (662022 : BitVec (24 : ℕ)), (304212 : BitVec (24 : ℕ)), (8980632 : BitVec (24 : ℕ)), (1068256 : BitVec (24 : ℕ)), (2199296 : BitVec (24 : ℕ)), (12709888 : BitVec (24 : ℕ)), (16646144 : BitVec (24 : ℕ)), (13339321 : BitVec (24 : ℕ))];       ∃ (x5 : List (BitVec (24 : ℕ))), x5.length ≤ x1.size ∧ (∀ (x6 : ℕ) (x7 : x6 < x5.length), x5[x6] ∉ x4 ++ List.take x6 x5 ∧ ∃ x8 ∈ x4 ++ List.take x6 x5, ∃ x9 ∈ x4 ++ List.take x6 x5, x5[x6] = x8 &&& x9 ∨ x5[x6] = x8 ||| x9) ∧ (3428671 : BitVec (24 : ℕ)) ∈ x4 ++ x5 
+
+lean/PEqualNP/Outside/R_meta_3229_614.lean
+theorem PEqualNP.Outside.R_meta_3229_614
+    (complete : ∀ (n s : ℕ) (g : ℕ → Bool) (rows : List ℕ) (C : Circuit),
+      (∀ r ∈ rows, r < 2^n) → Monotone2 C → C.size ≤ s →
+      (∀ r ∈ rows, C.eval (List.ofFn fun i : Fin n => r.testBit i.val) = g r) →
+      FormulaSat (enc n s g rows))
+    (impossible :
+      let p : List ℕ := [515,6,524,536,529,545,66,132,776,160,320,288]
+      let n : List ℕ := [554,50,581,616,116,650,713,208,773,276,897,402]
+      ¬ FormulaSat (enc 10 14 (fun r => p.contains r) (p ++ n))) :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∀ x8 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x8 = Bool.true) → ¬∀ x9 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x9 = Bool.false 
+
+lean/PEqualNP/Outside/L_meta_2902.lean
+theorem PEqualNP.Outside.L_meta_2902 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       ∀ x4 ∈ [(1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))], (4 : ℕ) ≤ (List.filter (fun (x6 : PEqualNP.CircuitLowerBounds.Gate) => Decidable.decide (↑x4 ∈ x6.inputs)) x1.gates).length → ∃ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x7 ∧ x7.size + (4 : ℕ) ≤ x1.size ∧ ∀ (x8 : Fin (9 : ℕ) → Bool), x7.eval (List.ofFn x8 ++ [x8 (0 : Fin (9 : ℕ)) || x8 (4 : Fin (9 : ℕ))]) = [((0 : Fin (9 : ℕ)), (1 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (6 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((6 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ)))].any fun (x9 : Fin (9 : ℕ) × Fin (9 : ℕ)) => x9.1 != x4 && x9.2 != x4 && x8 x9.1 && x8 x9.2 
+
+lean/PEqualNP/Outside/R_meta_3091_1.lean
+theorem PEqualNP.Outside.R_meta_3091_1
+    (h2496 : ∀ (x1 : ℕ), PEqualNP.MetaComplexity.HasCircuitSize (8 : ℕ) (fun (x2 : Fin (8 : ℕ) → Bool) => [((0 : Fin (8 : ℕ)), (1 : Fin (8 : ℕ))), ((0 : Fin (8 : ℕ)), (5 : Fin (8 : ℕ))), ((1 : Fin (8 : ℕ)), (2 : Fin (8 : ℕ))), ((1 : Fin (8 : ℕ)), (6 : Fin (8 : ℕ))), ((2 : Fin (8 : ℕ)), (3 : Fin (8 : ℕ))), ((2 : Fin (8 : ℕ)), (7 : Fin (8 : ℕ))), ((4 : Fin (8 : ℕ)), (6 : Fin (8 : ℕ))), ((4 : Fin (8 : ℕ)), (7 : Fin (8 : ℕ))), ((5 : Fin (8 : ℕ)), (7 : Fin (8 : ℕ)))].any fun (x3 : Fin (8 : ℕ) × Fin (8 : ℕ)) => x2 x3.1 && x2 x3.2) x1 → (12 : ℕ) ≤ x1)
+    (h3208 : ∀ (x1 x2 : ℕ) (x3 : ℕ → Bool) (x4 : List ℕ) (x5 : PEqualNP.CircuitLowerBounds.Circuit), (∀ x6 ∈ x4, x6 < (2 : ℕ) ^ x1) → PEqualNP.MetaComplexity.Monotone2 x5 → x5.size ≤ x2 → (∀ x9 ∈ x4, x5.eval (List.ofFn fun (x11 : Fin x1) => x9.testBit ↑x11) = x3 x9) → PEqualNP.Defs.LratEncoding.FormulaSat (PEqualNP.Defs.LratEncoding.enc x1 x2 x3 x4))
+    (hUnsat : have p : List ℕ := [(515 : ℕ), (6 : ℕ), (524 : ℕ), (536 : ℕ), (529 : ℕ), (545 : ℕ), (66 : ℕ), (132 : ℕ), (776 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)]; have n : List ℕ := [(554 : ℕ), (50 : ℕ), (581 : ℕ), (616 : ℕ), (116 : ℕ), (650 : ℕ), (713 : ℕ), (208 : ℕ), (773 : ℕ), (276 : ℕ), (897 : ℕ), (402 : ℕ)]; ¬PEqualNP.Defs.LratEncoding.FormulaSat (PEqualNP.Defs.LratEncoding.enc (10 : ℕ) (14 : ℕ) (fun (r : ℕ) => p.contains r) (p ++ n)))
+    (hCore : have f : (Fin (9 : ℕ) → Bool) → Bool := fun (x : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (e : ℕ) => x (Fin.ofNat (9 : ℕ) (e / (10 : ℕ))) && x (Fin.ofNat (9 : ℕ) (e % (10 : ℕ))); have isNot : PEqualNP.CircuitLowerBounds.Gate → Bool := fun (g : PEqualNP.CircuitLowerBounds.Gate) => g.op.eval [Bool.false] && !g.op.eval [Bool.true]; have rdb : PEqualNP.CircuitLowerBounds.Gate → ℕ → Bool := fun (g : PEqualNP.CircuitLowerBounds.Gate) (w : ℕ) => Decidable.decide (g.inputs[(0 : ℕ)]? = Option.some w) || (!isNot g && g.inputs.contains w); ∀ (C : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo C → C.size = (14 : ℕ) → (C.output ≤ (24 : ℕ) ∧ ∀ g ∈ C.gates, ∀ w ∈ g.inputs, w ≤ (24 : ℕ)) → (∀ w < (24 : ℕ), w ∈ C.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs C.gates) → (9 : ℕ) + (C.gates.filter isNot).length + ∑ w ∈ Finset.range (24 : ℕ), (List.count w (C.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs C.gates) - (1 : ℕ)) ≤ (14 : ℕ) → (1 : ℕ) ≤ (C.gates.filter isNot).length → (2 : ℕ) ≤ List.count (9 : ℕ) (C.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs C.gates) → (∀ (i : Fin (9 : ℕ)), ∃ (xs : Fin (9 : ℕ) → Bool), C.eval (List.ofFn xs ++ [xs i]) ≠ f xs) → (C.gates.countP fun g => rdb g (0 : ℕ)) ≤ (2 : ℕ) → (C.gates.countP fun g => rdb g (3 : ℕ)) ≤ (2 : ℕ) → ∃ (xs : Fin (9 : ℕ) → Bool), C.eval (List.ofFn xs ++ [xs (0 : Fin (9 : ℕ)) || xs (3 : Fin (9 : ℕ))]) ≠ f xs) :
+    have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => x1 (0 : Fin (9 : ℕ)) && x1 (1 : Fin (9 : ℕ)) || x1 (1 : Fin (9 : ℕ)) && x1 (2 : Fin (9 : ℕ)) || x1 (2 : Fin (9 : ℕ)) && x1 (3 : Fin (9 : ℕ)) || x1 (3 : Fin (9 : ℕ)) && x1 (4 : Fin (9 : ℕ)) || x1 (4 : Fin (9 : ℕ)) && x1 (0 : Fin (9 : ℕ)) || x1 (0 : Fin (9 : ℕ)) && x1 (5 : Fin (9 : ℕ)) || x1 (1 : Fin (9 : ℕ)) && x1 (6 : Fin (9 : ℕ)) || x1 (2 : Fin (9 : ℕ)) && x1 (7 : Fin (9 : ℕ)) || x1 (3 : Fin (9 : ℕ)) && x1 (8 : Fin (9 : ℕ)) || x1 (5 : Fin (9 : ℕ)) && x1 (7 : Fin (9 : ℕ)) || x1 (6 : Fin (9 : ℕ)) && x1 (8 : Fin (9 : ℕ)) || x1 (8 : Fin (9 : ℕ)) && x1 (5 : Fin (9 : ℕ)); ∀ (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x2 → x2.size = (14 : ℕ) → (x2.output ≤ (10 : ℕ) + x2.size ∧ ∀ x5 ∈ x2.gates, ∀ x7 ∈ x5.inputs, x7 ≤ (10 : ℕ) + x2.size) → (∀ x6 < (10 : ℕ) + x2.size, x6 ∈ x2.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs x2.gates) → (9 : ℕ) + (List.filter (fun (x7 : PEqualNP.CircuitLowerBounds.Gate) => x7.op.eval [Bool.false] && !x7.op.eval [Bool.true]) x2.gates).length + ∑ x7 ∈ Finset.range ((10 : ℕ) + x2.size), (List.count x7 (x2.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs x2.gates) - (1 : ℕ)) ≤ x2.size → (2 : ℕ) ≤ List.count (9 : ℕ) (x2.output :: List.flatMap PEqualNP.CircuitLowerBounds.Gate.inputs x2.gates) → (∀ (x9 : Fin (9 : ℕ)), ∃ (x10 : Fin (9 : ℕ) → Bool), x2.eval (List.ofFn x10 ++ [x10 x9]) ≠ x1 x10) → ∃ (x10 : Fin (9 : ℕ) → Bool), x2.eval (List.ofFn x10 ++ [x10 (0 : Fin (9 : ℕ)) || x10 (3 : Fin (9 : ℕ))]) ≠ x1 x10 
+
+lean/PEqualNP/Outside/L_meta_2830.lean
+theorem PEqualNP.Outside.L_meta_2830 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)], x1.eval ((List.ofFn fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5) ++ [x3.testBit (0 : ℕ) || x3.testBit (1 : ℕ)]) = Bool.true) → (∀ x4 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6) ++ [x4.testBit (0 : ℕ) || x4.testBit (1 : ℕ)]) = Bool.false) → (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_2519_61.lean
+theorem PEqualNP.Outside.R_meta_2519_61
+ (h1 : ∀ (n : ℕ) (D : Circuit), FanInTwo D →
+  ∃ S : Finset ℕ, S.card ≤ (D.gates.countP fun g => !(g.op.eval [false]))+1 ∧
+    ∀ X Y : List Bool, X.length=n → Y.length=n →
+      (∀ i ∈ S, X.getD i false=Y.getD i false) → D.eval X=D.eval Y)
+ (h2 :
+  let F := fun x : Fin 9 → Bool => ([1,12,23,34,40,5,16,27,38,57,68,85] : List ℕ).any (fun e => x (Fin.ofNat 9 (e / 10)) && x (Fin.ofNat 9 (e % 10)))
+  ∀ P : Circuit, Monotone2 P → P.size=8 →
+  (∀ x : Fin 9 → Bool, (P.wires (List.ofFn x)).getD 9 false=(x 0 || x 2)) →
+  ∀ S : Finset ℕ, S.card ≤ 6 → ∃ x y : Fin 9 → Bool,
+    (∀ j ∈ S, (P.wires (List.ofFn x)).getD j false=(P.wires (List.ofFn y)).getD j false) ∧ F x ≠ F y) :
+∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → (∃ (x3 : Fin x1.gates.length) (x4 : Fin x1.gates.length), x3 < x4 ∧ (8 : ℕ) ≤ ↑x3 ∧ (x1.gates.get x3).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ (x1.gates.get x4).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ ∀ (x5 : Fin x1.gates.length), (x1.gates.get x5).op = PEqualNP.CircuitLowerBounds.GateOp.not → x5 = x3 ∨ x5 = x4) → (∀ (x4 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x4)).getD (9 : ℕ) Bool.false = (x4 (0 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x5 : Fin (9 : ℕ) → Bool) => x5 (0 : Fin (9 : ℕ)) && x5 (1 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (2 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (3 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (4 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ)) && x5 (0 : Fin (9 : ℕ)) || x5 (0 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (6 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (5 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (6 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (8 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ))) → (16 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_5000.lean
+theorem PEqualNP.Outside.L_meta_5000 :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∃ (x8 : PEqualNP.CircuitLowerBounds.Gate) (x9 : List PEqualNP.CircuitLowerBounds.Gate), x3.gates = x8 :: x9 ∧ x8.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ (0 : ℕ) ∉ x8.inputs ∧ (3 : ℕ) ∉ x8.inputs ∧ (9 : ℕ) ∈ x8.inputs) → (∀ x9 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x9 = Bool.true) → ¬∀ x10 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x10 = Bool.false :=
+  PEqualNP.Outside.L_meta_5000.shape_sound PEqualNP.Outside.L_meta_5000.noStartH
+
+
+lean/PEqualNP/Outside/R_meta_3511_401.lean
+theorem PEqualNP.Outside.R_meta_3511_401
+    (normalize : ∀ (n s : ℕ) (g : ℕ → Bool) (rows : List ℕ) (C : Circuit),
+      0 < s → (∀ r ∈ rows, r < 2^n) → Monotone2 C → C.size ≤ s →
+      (∀ r ∈ rows, C.eval (List.ofFn fun i : Fin n => r.testBit i.val) = g r) →
+      ∃ k < enc2CubeCount n s, FormulaSat (enc2 n s g rows ++ enc2Cube n s k))
+    (certificates : ∀ (v : Fin 9) (k : ℕ), k < enc2CubeCount 11 13 →
+      let rows : List ℕ := [3,6,12,17,24,33,42,50,66,69,104,116,132,138,160,201,208,261,264,276,288,320,385,402]
+      let pos : List ℕ := [3,6,12,17,24,33,66,132,160,264,288,320]
+      let pack := fun (m : ℕ) =>
+        let uv := m.testBit 0 || m.testBit 4
+        m + 512 * uv.toNat + 1024 * (uv || m.testBit v.val).toNat
+      ¬ FormulaSat (enc2 11 13 (fun m => pos.contains (m % 512)) (rows.map pack) ++
+        enc2Cube 11 13 k)) :
+    ∀ (x1 : Fin (9 : ℕ)) (x2 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x2 →     (∀ x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x6 : Fin (9 : ℕ) → Bool := fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6;         x2.eval (List.ofFn x6 ++ [x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)), x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) || x6 x1]) = Decidable.decide (x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (14 : ℕ) ≤ x2.size 
+
+lean/PEqualNP/Outside/R_meta_3268_625.lean
+theorem PEqualNP.Outside.R_meta_3268_625
+    (clamp : ∀ (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (X : List Bool), X.length = n →
+      (⟨C.gates.map (fun g => ⟨g.op, g.inputs.map fun i => min i (n+C.size)⟩), 0⟩ : PEqualNP.CircuitLowerBounds.Circuit).wires X = C.wires X)
+    (finiteCore : let F := fun x : Fin 9 → Bool => ([1,12,23,34,40,5,16,27,38,57,68,85] : List ℕ).any (fun e => x (Fin.ofNat 9 (e / 10)) && x (Fin.ofNat 9 (e % 10)))
+      ∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C → C.size = 8 → C.output = 0 →
+      (∀ g ∈ C.gates, ∀ i ∈ g.inputs, i ≤ 17) →
+      (∀ x : Fin 9 → Bool, (C.wires (List.ofFn x)).getD 9 false = (x 0 || x 2)) →
+      ∀ S : Finset ℕ, S ⊆ Finset.range 17 → S.card ≤ 6 → ∃ x y : Fin 9 → Bool,
+        (∀ i ∈ S, (C.wires (List.ofFn x)).getD i false = (C.wires (List.ofFn y)).getD i false) ∧ F x ≠ F y) :
+    have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); ∀ (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x2 → x2.size = (8 : ℕ) → (∀ (x5 : Fin (9 : ℕ) → Bool), (x2.wires (List.ofFn x5)).getD (9 : ℕ) Bool.false = (x5 (0 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)))) → ∀ (x6 : Finset ℕ), x6.card ≤ (6 : ℕ) → ∃ (x8 : Fin (9 : ℕ) → Bool) (x9 : Fin (9 : ℕ) → Bool), (∀ x10 ∈ x6, (x2.wires (List.ofFn x8)).getD x10 Bool.false = (x2.wires (List.ofFn x9)).getD x10 Bool.false) ∧ x1 x8 ≠ x1 x9 
+
+lean/PEqualNP/Outside/L_meta_3229.lean
+theorem PEqualNP.Outside.L_meta_3229 : have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∀ x8 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x8 = Bool.true) → ¬∀ x9 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x9 = Bool.false 
+
+lean/PEqualNP/Outside/R_meta_3660_1.lean
+theorem PEqualNP.Outside.R_meta_3660_1
+    (lowerKnown : have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); ¬PEqualNP.MetaComplexity.HasCircuitSize (9 : ℕ) x1 (14 : ℕ))
+    (positiveTail : let f := fun x : Fin 9 → Bool =>
+      (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) ||
+      (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) ||
+      (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)
+      ∀ C : Circuit, Monotone2 C → C.size = 13 → (∀ v ∈ ([9, 10] : List ℕ), ∃ g ∈ C.gates, v ∈ g.inputs) →
+        ∃ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [!(x 0), !(x 2)]) ≠ f x)
+    (negatedTail : let f := fun x : Fin 9 → Bool =>
+      (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) ||
+      (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) ||
+      (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)
+      ∀ C : Circuit, FanInTwo C → C.size = 13 → (∀ v ∈ ([9, 10] : List ℕ), ∃ g ∈ C.gates, v ∈ g.inputs) →
+        (∃ g ∈ C.gates, g.op = GateOp.not) →
+        (∀ g ∈ C.gates, g.op = GateOp.not →
+          g.inputs.length ≤ 1 ∧ ∀ i ∈ g.inputs, i ∉ ([0, 2, 9, 10] : List ℕ)) →
+        ∃ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [!(x 0), !(x 2)]) ≠ f x) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → x1.size ≤ (13 : ℕ) → ∃ (x4 : Fin (9 : ℕ) → Bool), x1.eval (List.ofFn x4 ++ [!x4 (0 : Fin (9 : ℕ)), !x4 (2 : Fin (9 : ℕ))]) ≠ (x4 (0 : Fin (9 : ℕ)) && x4 (1 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (2 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (3 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (4 : Fin (9 : ℕ)) || x4 (4 : Fin (9 : ℕ)) && x4 (0 : Fin (9 : ℕ)) || x4 (0 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ)) || x4 (1 : Fin (9 : ℕ)) && x4 (6 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (3 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (5 : Fin (9 : ℕ)) && x4 (7 : Fin (9 : ℕ)) || x4 (6 : Fin (9 : ℕ)) && x4 (8 : Fin (9 : ℕ)) || x4 (8 : Fin (9 : ℕ)) && x4 (5 : Fin (9 : ℕ))) 
+
+lean/PEqualNP/Outside/R_meta_1922_683.lean
+theorem PEqualNP.Outside.R_meta_1922_683
+    (encode :
+      ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) → let seeds : List (BitVec 24) := [0, 16777215, 4358697, 8397251, 662022, 304212, 8980632, 1068256, 2199296, 12709888, 16646144, 13339321]; ∃ values : List (BitVec 24), values.length ≤ x1.size ∧ (∀ j (hj : j < values.length), values[j] ∉ seeds ++ values.take j ∧ ∃ a ∈ seeds ++ values.take j, ∃ b ∈ seeds ++ values.take j, values[j] = a &&& b ∨ values[j] = a ||| b) ∧ 3428671 ∈ seeds ++ values)
+    (exclude :
+      let seeds : List (BitVec 24) := [0, 16777215, 4358697, 8397251, 662022, 304212, 8980632, 1068256, 2199296, 12709888, 16646144, 13339321]; ∀ values : List (BitVec 24), values.length ≤ 14 → (∀ j (hj : j < values.length), values[j] ∉ seeds ++ values.take j ∧ ∃ a ∈ seeds ++ values.take j, ∃ b ∈ seeds ++ values.take j, values[j] = a &&& b ∨ values[j] = a ||| b) → 3428671 ∉ seeds ++ values) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_1922.lean
+theorem PEqualNP.Outside.L_meta_1922 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_2830_1.lean
+theorem PEqualNP.Outside.R_meta_2830_1
+    (boundary : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)], x1.eval ((List.ofFn fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5) ++ [x3.testBit (0 : ℕ) || x3.testBit (1 : ℕ)]) = Bool.true) → (∀ x4 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6) ++ [x4.testBit (0 : ℕ) || x4.testBit (1 : ℕ)]) = Bool.false) → (∀ x : Fin 9 → Bool, x1.eval (List.ofFn x ++ [x 0 || x 1]) = ([(0,1),(1,2),(2,3),(0,4),(3,4),(0,5),(1,6),(2,7),(5,7),(3,8),(5,8),(6,8)] : List (Fin 9 × Fin 9)).any (fun e => x e.1 && x e.2)))
+    (lower : ∀ x1 : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x : Fin 9 → Bool, x1.eval (List.ofFn x ++ [x 0 || x 1]) = ([(0,1),(1,2),(2,3),(0,4),(3,4),(0,5),(1,6),(2,7),(5,7),(3,8),(5,8),(6,8)] : List (Fin 9 × Fin 9)).any (fun e => x e.1 && x e.2)) → 15 ≤ x1.size) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)], x1.eval ((List.ofFn fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5) ++ [x3.testBit (0 : ℕ) || x3.testBit (1 : ℕ)]) = Bool.true) → (∀ x4 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6) ++ [x4.testBit (0 : ℕ) || x4.testBit (1 : ℕ)]) = Bool.false) → (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_2159_317.lean
+theorem PEqualNP.Outside.R_meta_2159_317
+    (compile : ∀ (col : Fin 9 → BitVec 24) (h t : BitVec 24) (C : Circuit)
+    , Monotone2 C → t≠0 → t≠-1 →
+    (∀ i : Fin 24, let x := fun u => (col u).getLsbD i.val
+      (C.wires (List.ofFn x)).getD 9 false = h.getLsbD i.val ∧
+        C.eval (List.ofFn x) = t.getLsbD i.val) →
+    let p := List.ofFn col ++ [h]
+    ∃ fs : List (BitVec 24), fs.length ≤ C.size-1 ∧ t ∈ p ++ fs ∧
+      ∀ j : Fin fs.length, let old := p ++ fs.take j.val
+        fs.get j ∉ old ∧ fs.get j ≠ 0 ∧ fs.get j ≠ -1 ∧
+          ∃ a ∈ old, ∃ b ∈ old, fs.get j = a &&& b ∨ fs.get j = a ||| b)
+    (finite : let raw (u : Fin 9) : BitVec 24 := let p := ([(49,1348),(67,2083),(134,788),(268,105),(24,2706),(2592,27),(1088,220),(640,3296),(3328,3840)] : List (ℕ × ℕ)).getD u.val (0,0)
+      BitVec.ofNat 24 (4096 * p.1 + p.2)
+      let p := List.ofFn raw ++ [raw 0 ||| raw 2]
+      ∀ fs : List (BitVec 24), (BitVec.ofNat 24 (4095 * 4096)) ∈ p ++ fs → (∀ j : Fin fs.length, let old := p ++ fs.take j.val
+      fs.get j ∉ old ∧ fs.get j ≠ 0 ∧ fs.get j ≠ -1 ∧ ∃ a ∈ old, ∃ b ∈ old,
+      fs.get j = a &&& b ∨ fs.get j = a ||| b) → 15 ≤ fs.length) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → (∀ x3 ∈ x1.gates, x3.op ≠ PEqualNP.CircuitLowerBounds.GateOp.not) → (∀ (x4 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x4)).getD (9 : ℕ) Bool.false = (x4 (0 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x5 : Fin (9 : ℕ) → Bool) => x5 (0 : Fin (9 : ℕ)) && x5 (1 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (2 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (3 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (4 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ)) && x5 (0 : Fin (9 : ℕ)) || x5 (0 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (6 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (5 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (6 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (8 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ))) → (16 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_4998.lean
+theorem PEqualNP.Outside.L_meta_4998 :
+    have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∃ (x8 : PEqualNP.CircuitLowerBounds.Gate) (x9 : List PEqualNP.CircuitLowerBounds.Gate), x3.gates = x8 :: x9 ∧ x8.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ ((0 : ℕ) ∈ x8.inputs ∨ (3 : ℕ) ∈ x8.inputs)) → (∀ x9 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x9 = Bool.true) → ¬∀ x10 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x10 = Bool.false :=
+  PEqualNP.Outside.L_meta_4998.shape_sound PEqualNP.Outside.L_meta_4998.noStartH
+
+
+lean/PEqualNP/Outside/L_meta_5002.lean
+theorem PEqualNP.Outside.L_meta_5002 : have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x2 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.false]) = Bool.false) ∧ ∃ x2 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x3 : Fin (9 : ℕ)) => x2.testBit ↑x3) ++ [Bool.true]) = Bool.true; have x2 : PEqualNP.CircuitLowerBounds.Circuit → ℕ → Bool := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : ℕ) => x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [x3.testBit (0 : ℕ) || x3.testBit (3 : ℕ)]); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → x1 x3 → (∃ (x8 : PEqualNP.CircuitLowerBounds.Gate) (x9 : List PEqualNP.CircuitLowerBounds.Gate), x3.gates = x8 :: x9 ∧ x8.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ (0 : ℕ) ∉ x8.inputs ∧ (3 : ℕ) ∉ x8.inputs ∧ (9 : ℕ) ∉ x8.inputs) → (∀ x9 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x2 x3 x9 = Bool.true) → ¬∀ x10 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x2 x3 x10 = Bool.false 
+
+lean/PEqualNP/Outside/R_meta_2830_691.lean
+theorem PEqualNP.Outside.R_meta_2830_691
+    (project : ∀ (C : Circuit) (xs : Fin 24 → List Bool) (seed : List (BitVec 24)),
+      Monotone2 C → (∀ i, seed.map (fun w => w.getLsbD i.val) = xs i) →
+      ∃ ws : List (BitVec 24), ws.length = seed.length + C.size ∧
+        ws.take seed.length = seed ∧
+        (∀ i, (ws.getD C.output 0).getLsbD i.val = C.eval (xs i)) ∧
+        ∀ j, seed.length ≤ j → j < ws.length →
+          ws.getD j 0 = BitVec.allOnes 24 ∨
+          ∃ a ∈ (0 :: ws.take j), ∃ b ∈ (0 :: ws.take j),
+            ws.getD j 0 = a &&& b ∨ ws.getD j 0 = a ||| b)
+    (exclude : ¬∃ ws : List (BitVec 24), ws.length ≤ 24 ∧
+      ws.take 10 = [5521449,8532035,3227782,430612,11083800,111904,903232,13500800,15732224,14053483] ∧
+      (4095 : BitVec 24) ∈ ws ∧
+      ∀ j, 10 ≤ j → j < ws.length →
+        ws.getD j 0 = BitVec.allOnes 24 ∨
+        ∃ a ∈ (0 :: ws.take j), ∃ b ∈ (0 :: ws.take j),
+          ws.getD j 0 = a &&& b ∨ ws.getD j 0 = a ||| b) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)], x1.eval ((List.ofFn fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5) ++ [x3.testBit (0 : ℕ) || x3.testBit (1 : ℕ)]) = Bool.true) → (∀ x4 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x1.eval ((List.ofFn fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6) ++ [x4.testBit (0 : ℕ) || x4.testBit (1 : ℕ)]) = Bool.false) → (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_2549.lean
+theorem PEqualNP.Outside.L_meta_2549 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       ∀ (x4 : Fin (9 : ℕ) → Bool), x1.eval (List.ofFn x4 ++ [x4 (0 : Fin (9 : ℕ)) || x4 (4 : Fin (9 : ℕ))]) = (fun (x5 : Fin (9 : ℕ) → Bool) => [((0 : Fin (9 : ℕ)), (1 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (6 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((6 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ)))].any fun (x6 : Fin (9 : ℕ) × Fin (9 : ℕ)) => x5 x6.1 && x5 x6.2) x4 :=
+  PEqualNP.Outside.L_meta_2549_aux.m49
+
+
+lean/PEqualNP/Outside/L_meta_3227.lean
+theorem PEqualNP.Outside.L_meta_3227 : have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); have x2 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) => (∃ x3 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [Bool.false]) = Bool.false) ∧ ∃ x3 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x2.eval ((List.ofFn fun (x4 : Fin (9 : ℕ)) => x3.testBit ↑x4) ++ [Bool.true]) = Bool.true; ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), x3.gates.length = (14 : ℕ) → PEqualNP.MetaComplexity.Monotone2 x3 → x3.output = (23 : ℕ) → (∀ (x7 : Fin (9 : ℕ) → Bool), x3.eval (List.ofFn x7 ++ [x7 (0 : Fin (9 : ℕ)) || x7 (3 : Fin (9 : ℕ))]) = x1 x7) → x2 x3 
+
+lean/PEqualNP/Outside/R_meta_1922_1.lean
+theorem PEqualNP.Outside.R_meta_1922_1
+    (certificate : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 C → (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         C.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) → ∀ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [x 0 || x 4]) = (fun x : Fin 9 → Bool => ([(0, 1), (1, 2), (2, 3), (0, 4), (3, 4), (0, 5), (1, 6), (2, 7), (5, 7), (3, 8), (5, 8), (6, 8)] : List (Fin 9 × Fin 9)).any (fun e => x e.1 && x e.2)) x)
+    (fullLower : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 C → (∀ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [x 0 || x 4]) = (fun x : Fin 9 → Bool => ([(0, 1), (1, 2), (2, 3), (0, 4), (3, 4), (0, 5), (1, 6), (2, 7), (5, 7), (3, 8), (5, 8), (6, 8)] : List (Fin 9 × Fin 9)).any (fun e => x e.1 && x e.2)) x) → 15 ≤ C.size) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_3511_714.lean
+theorem PEqualNP.Outside.R_meta_3511_714
+    (encode : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (w : List (BitVec 24)),
+      PEqualNP.MetaComplexity.Monotone2 C →
+      ∃ s : List (Bool × ℕ × ℕ), s.length = C.size ∧ ∀ i : Fin 24,
+        ((s.foldl (fun (w : List (BitVec 24)) (g : Bool × ℕ × ℕ) =>
+      w ++ [if g.1 then w.getD g.2.1 0 ||| w.getD g.2.2 0
+        else w.getD g.2.1 0 &&& w.getD g.2.2 0])
+          (0 :: BitVec.allOnes 24 :: w)).getD (C.output + 2) 0).getLsbD i =
+            C.eval (w.map fun b => b.getLsbD i))
+    (wordBound : ∀ (v : Fin 9) (s : List (Bool × ℕ × ℕ)) (out : ℕ),
+      let raw : List (BitVec 24) := [0x428229, 0x8021c3, 0x0a1a06, 0x04a454, 0x890898, 0x104ce0, 0x218f00, 0xc1f000, 0xfe0000]
+      let a := raw.getD 0 0 ||| raw.getD 4 0
+      let w := raw ++ [a, a ||| raw.getD v.val 0]
+      (s.foldl (fun (w : List (BitVec 24)) (g : Bool × ℕ × ℕ) =>
+      w ++ [if g.1 then w.getD g.2.1 0 ||| w.getD g.2.2 0
+        else w.getD g.2.1 0 &&& w.getD g.2.2 0])
+        (0 :: BitVec.allOnes 24 :: w)).getD out 0 = 0x34513f → 14 ≤ s.length) :
+    ∀ (x1 : Fin (9 : ℕ)) (x2 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x2 →     (∀ x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x6 : Fin (9 : ℕ) → Bool := fun (x6 : Fin (9 : ℕ)) => x4.testBit ↑x6;         x2.eval (List.ofFn x6 ++ [x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)), x6 (0 : Fin (9 : ℕ)) || x6 (4 : Fin (9 : ℕ)) || x6 x1]) = Decidable.decide (x4 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (14 : ℕ) ≤ x2.size 
+
+lean/PEqualNP/Outside/R_meta_1922_2.lean
+theorem PEqualNP.Outside.R_meta_1922_2 :
+    (∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →
+      ∀ v ∈ ([1, 2, 3, 5, 8] : List (Fin 9)), 4 ≤ (x1.gates.filter fun g => decide (v.val ∈ g.inputs)).length →
+      ∃ T : PEqualNP.CircuitLowerBounds.Circuit,
+        PEqualNP.MetaComplexity.Monotone2 T ∧ T.size + 4 ≤ x1.size ∧
+        (∀ x : Fin 9 → Bool, T.eval (List.ofFn x ++ [x 0 || x 4]) = ([(0, 1), (1, 2), (2, 3), (0, 4), (3, 4), (0, 5), (1, 6), (2, 7), (5, 7), (3, 8), (5, 8), (6, 8)] : List (Fin 9 × Fin 9)).any (fun e => e.1 != v && e.2 != v && x e.1 && x e.2))) →
+    (∀ v ∈ ([1, 2, 3, 5, 8] : List (Fin 9)), ∀ T : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 T →
+      (∀ x : Fin 9 → Bool, T.eval (List.ofFn x ++ [x 0 || x 4]) = ([(0, 1), (1, 2), (2, 3), (0, 4), (3, 4), (0, 5), (1, 6), (2, 7), (5, 7), (3, 8), (5, 8), (6, 8)] : List (Fin 9 × Fin 9)).any (fun e => e.1 != v && e.2 != v && x e.1 && x e.2)) →
+      11 ≤ T.size) →
+    (∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →
+      (∀ v ∈ ([1, 2, 3, 5, 8] : List (Fin 9)), (x1.gates.filter fun g => decide (v.val ∈ g.inputs)).length ≤ 3) →
+      15 ≤ x1.size) →
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.MetaComplexity.Monotone2 x1 →     (∀ x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (42 : ℕ), (50 : ℕ), (66 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (132 : ℕ), (138 : ℕ), (160 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (264 : ℕ), (276 : ℕ), (288 : ℕ), (320 : ℕ), (385 : ℕ), (402 : ℕ)],         have x5 : Fin (9 : ℕ) → Bool := fun (x5 : Fin (9 : ℕ)) => x3.testBit ↑x5;         x1.eval (List.ofFn x5 ++ [x5 (0 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ))]) = Decidable.decide (x3 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (17 : ℕ), (24 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (160 : ℕ), (264 : ℕ), (288 : ℕ), (320 : ℕ)])) →       (15 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_3196_143.lean
+theorem PEqualNP.Outside.R_meta_3196_143
+    (strip : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo C →
+    (∃ i j : Fin C.gates.length, i < j ∧ i.val = 4 ∧
+      (C.gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ (C.gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧
+      ∀ t : Fin C.gates.length, (C.gates.get t).op = PEqualNP.CircuitLowerBounds.GateOp.not → t = i ∨ t = j) →
+    (∀ x : Fin 9 → Bool, (C.wires (List.ofFn x)).getD 9 false = (x 0 || x 2)) →
+    ∃ (P S : PEqualNP.CircuitLowerBounds.Circuit) (k : Fin 14), P.size = 3 ∧ PEqualNP.MetaComplexity.Monotone2 P ∧
+      S.size + 5 = C.size ∧ PEqualNP.MetaComplexity.FanInTwo S ∧
+      (∃! j : Fin S.gates.length, (S.gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧
+      ∀ x : Fin 9 → Bool,
+        let w := P.wires (List.ofFn x ++ [x 0 || x 2])
+        S.eval (w ++ [!(w.getD k false)]) = C.eval (List.ofFn x))
+    (suffix_bound : ∀ (P S : PEqualNP.CircuitLowerBounds.Circuit) (k : Fin 14),
+    P.size = 3 → PEqualNP.MetaComplexity.Monotone2 P → S.size ≤ 10 → PEqualNP.MetaComplexity.FanInTwo S →
+    (∃! j : Fin S.gates.length, (S.gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not) →
+    ∃ x : Fin 9 → Bool,
+      let w := P.wires (List.ofFn x ++ [x 0 || x 2])
+      S.eval (w ++ [!(w.getD k false)]) ≠ (([18440827511444797640, 18441957826578283724, 18446744073709222136, 18446744073709485308, 18446744073708175304, 18446744073709551615, 18446744073709223928, 18446744073709551615] : List ℕ).getD
+          (PEqualNP.MetaComplexity.tableIndex x / 64) 0).testBit (PEqualNP.MetaComplexity.tableIndex x % 64)) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → (∃ (x3 : Fin x1.gates.length) (x4 : Fin x1.gates.length), x3 < x4 ∧ ↑x3 = (4 : ℕ) ∧ (x1.gates.get x3).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ (x1.gates.get x4).op = PEqualNP.CircuitLowerBounds.GateOp.not ∧ ∀ (x5 : Fin x1.gates.length), (x1.gates.get x5).op = PEqualNP.CircuitLowerBounds.GateOp.not → x5 = x3 ∨ x5 = x4) → (∀ (x4 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x4)).getD (9 : ℕ) Bool.false = (x4 (0 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x5 : Fin (9 : ℕ) → Bool) => x5 (0 : Fin (9 : ℕ)) && x5 (1 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (2 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (3 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (4 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ)) && x5 (0 : Fin (9 : ℕ)) || x5 (0 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (6 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (5 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (6 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (8 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ))) → (16 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/R_meta_2159_521.lean
+theorem PEqualNP.Outside.R_meta_2159_521
+    (andFirst : ∀ (a b : Fin 9), (a.val, b.val) ∈ ([(0,1),(0,2),(0,3),(0,4),(0,6),(4,6)] : List (ℕ × ℕ)) →
+      ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin 9 → Bool, (D.wires (List.ofFn x)).getD 9 false = (x a && x b)) →
+      circuitFun 9 D = (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) → 16 ≤ D.size)
+    (remaining : ∀ C : Circuit, Monotone2 C →
+      (∀ x : Fin 9 → Bool, (C.wires (List.ofFn x)).getD 9 false = (x 0 || x 2)) →
+      (∀ a b : Fin 9, a ≠ b → (⟨.and, [a.val, b.val]⟩ : Gate) ∉ C.gates) →
+      circuitFun 9 C = (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) → 16 ≤ C.size) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → (∀ x3 ∈ x1.gates, x3.op ≠ PEqualNP.CircuitLowerBounds.GateOp.not) → (∀ (x4 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x4)).getD (9 : ℕ) Bool.false = (x4 (0 : Fin (9 : ℕ)) || x4 (2 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x5 : Fin (9 : ℕ) → Bool) => x5 (0 : Fin (9 : ℕ)) && x5 (1 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (2 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (3 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (4 : Fin (9 : ℕ)) || x5 (4 : Fin (9 : ℕ)) && x5 (0 : Fin (9 : ℕ)) || x5 (0 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ)) || x5 (1 : Fin (9 : ℕ)) && x5 (6 : Fin (9 : ℕ)) || x5 (2 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (3 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (5 : Fin (9 : ℕ)) && x5 (7 : Fin (9 : ℕ)) || x5 (6 : Fin (9 : ℕ)) && x5 (8 : Fin (9 : ℕ)) || x5 (8 : Fin (9 : ℕ)) && x5 (5 : Fin (9 : ℕ))) → (16 : ℕ) ≤ x1.size 
+
+lean/PEqualNP/Outside/L_meta_5314.lean
+theorem PEqualNP.Outside.L_meta_5314 : ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   x1.gates.length = (10 : ℕ) →     PEqualNP.MetaComplexity.Monotone2 x1 →       ∀ (x4 : Fin (5 : ℕ) → ℕ),         ∀ x5 ∈ [(2147483648 : ℕ), (2155905024 : ℕ), (2290122880 : ℕ), (2290649216 : ℕ), (2827520136 : ℕ), (2829625344 : ℕ), (2829625480 : ℕ), (2860548224 : ℕ), (2863179944 : ℕ), (2863311528 : ℕ), (3937053354 : ℕ), (3941263872 : ℕ), (3941264042 : ℕ), (4008372970 : ℕ), (4008636128 : ℕ), (4008636138 : ℕ), (4169697416 : ℕ), (4177066120 : ℕ), (4277071598 : ℕ), (4278124202 : ℕ), (4278124270 : ℕ), (4293585642 : ℕ), (4294901502 : ℕ), (4294967294 : ℕ)],           have x7 : ℕ → Bool → Bool := fun (x7 : ℕ) (x8 : Bool) => x5.testBit (BitVec.ofBoolListLE (List.ofFn fun (x9 : Fin (5 : ℕ)) => (Bool.true :: x1.wires ((List.ofFn fun (x10 : Fin (9 : ℕ)) => x7.testBit ↑x10) ++ [x8])).getD (x4 x9) Bool.false)).toNat;           have x8 : ℕ → Bool := fun (x8 : ℕ) => x7 x8 (x8.testBit (0 : ℕ) || x8.testBit (3 : ℕ));           ∀ x9 ∈ [(3 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (264 : ℕ)], ∀ x11 ∈ [(50 : ℕ), (116 : ℕ), (208 : ℕ), (276 : ℕ), (402 : ℕ)], x7 x9 Bool.false = Bool.false → x7 x11 Bool.true = Bool.true → (∀ x15 ∈ [(3 : ℕ), (6 : ℕ), (12 : ℕ), (24 : ℕ), (17 : ℕ), (33 : ℕ), (66 : ℕ), (132 : ℕ), (264 : ℕ), (160 : ℕ), (320 : ℕ), (288 : ℕ)], x8 x15 = Bool.true) → ¬∀ x16 ∈ [(42 : ℕ), (50 : ℕ), (69 : ℕ), (104 : ℕ), (116 : ℕ), (138 : ℕ), (201 : ℕ), (208 : ℕ), (261 : ℕ), (276 : ℕ), (385 : ℕ), (402 : ℕ)], x8 x16 = Bool.false :=
+  PEqualNP.Outside.L_meta_5314.finish5314 (fun hk run sub => PEqualNP.Outside.L_meta_5314.impossible5314 hk run sub)
+
+
+lean/PEqualNP/Outside/R_meta_2498_301.lean
+theorem PEqualNP.Outside.R_meta_2498_301
+    (h_mono : ∀ (D : Circuit), Monotone2 D →
+      (∀ x : Fin 9 → Bool, D.eval (List.ofFn x ++ [x 0 || x 1]) =
+        ([(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(5,7),(6,8),(8,5)] : List (Fin 9 × Fin 9)).any
+          fun e => x e.1 && x e.2) →
+      (∀ v ∈ ([0, 1, 2, 3, 5, 8] : List (Fin 9)), ∀ S : Finset ℕ,
+        (∀ j ∈ S, j < D.size ∧
+          ((∃ b : Bool, ∀ x : Fin 9 → Bool, x v = false → (D.wires (List.ofFn x ++ [x 0 || x 1])).getD (10 + j) false = b) ∨
+           (∃ i < 10 + j, ∀ x : Fin 9 → Bool, x v = false → (D.wires (List.ofFn x ++ [x 0 || x 1])).getD (10 + j) false = (D.wires (List.ofFn x ++ [x 0 || x 1])).getD i false))) →
+        S.card ≤ if v = 0 ∨ v = 1 then 2 else 3) →
+      15 ≤ D.size)
+    (h_signed : ∀ (B : BinaryCircuit) (p : Bool),
+      (∀ g ∈ B.gates, ∃ a b : Bool, g.op = fun x y => (x == a) && (y == b)) →
+      (∀ x : Fin 9 → Bool, (B.eval (List.ofFn x ++ [x 0 || x 1, false]) != p) =
+        ([(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(5,7),(6,8),(8,5)] : List (Fin 9 × Fin 9)).any
+          fun e => x e.1 && x e.2) →
+      14 ≤ B.size) :
+    ∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 → (∀ (x3 : Fin (9 : ℕ) → Bool), (x1.wires (List.ofFn x3)).getD (9 : ℕ) Bool.false = (x3 (0 : Fin (9 : ℕ)) || x3 (1 : Fin (9 : ℕ)))) → (PEqualNP.MetaComplexity.circuitFun (9 : ℕ) x1 = fun (x4 : Fin (9 : ℕ) → Bool) => [((0 : Fin (9 : ℕ)), (1 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (4 : Fin (9 : ℕ))), ((4 : Fin (9 : ℕ)), (0 : Fin (9 : ℕ))), ((0 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ))), ((1 : Fin (9 : ℕ)), (6 : Fin (9 : ℕ))), ((2 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((3 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((5 : Fin (9 : ℕ)), (7 : Fin (9 : ℕ))), ((6 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))), ((8 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ)))].any fun (x5 : Fin (9 : ℕ) × Fin (9 : ℕ)) => x4 x5.1 && x4 x5.2) → (∀ x5 ∈ [(0 : Fin (9 : ℕ)), (1 : Fin (9 : ℕ)), (2 : Fin (9 : ℕ)), (3 : Fin (9 : ℕ)), (5 : Fin (9 : ℕ)), (8 : Fin (9 : ℕ))], ∀ (x7 : Finset ℕ), (∀ x8 ∈ x7, x8 < x1.size ∧ ((∃ (x10 : Bool), ∀ (x11 : Fin (9 : ℕ) → Bool), x11 x5 = Bool.false → (x1.wires (List.ofFn x11)).getD ((9 : ℕ) + x8) Bool.false = x10) ∨ ∃ x10 < (9 : ℕ) + x8, ∀ (x11 : Fin (9 : ℕ) → Bool), x11 x5 = Bool.false → (x1.wires (List.ofFn x11)).getD ((9 : ℕ) + x8) Bool.false = (x1.wires (List.ofFn x11)).getD x10 Bool.false)) → x7.card ≤ (3 : ℕ)) → (16 : ℕ) ≤ x1.size 

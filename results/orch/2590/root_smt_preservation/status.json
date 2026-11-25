@@ -1,0 +1,24 @@
+{
+  "status": "stopped after lease HTTP410",
+  "run1_exit": 143,
+  "run1_scope": "Six planned restricted SMT cases: three completed with timeout; the fourth was interrupted after lease failure.",
+  "v2_scope": "prepared source and successful positive20 smoke only; no search run launched",
+  "proof_status": "No Lean lower-bound certificate or counterexample. All SAT positive controls were the known20gate circuit.",
+  "completed_cases": [
+    {
+      "label": "andcount6_and_edge",
+      "status": 0,
+      "unknown_reason": "timeout"
+    },
+    {
+      "label": "andcount6_or_edge",
+      "status": 0,
+      "unknown_reason": "timeout"
+    },
+    {
+      "label": "andcount6_or_nonedge",
+      "status": 0,
+      "unknown_reason": "timeout"
+    }
+  ]
+}

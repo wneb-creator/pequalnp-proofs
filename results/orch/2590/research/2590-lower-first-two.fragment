@@ -1,0 +1,63 @@
+namespace PEqualNP.Outside.L_meta_2590_aux.MonoNine
+
+open PEqualNP.CircuitLowerBounds
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma target_ne_first_binary : ∀ (a b : Fin 10) (d : Fin 2),
+    Extended.target ≠ Extended.bin d.val (inputPin a) (inputPin b) := by decide +kernel
+
+lemma first_two_binary_split (C : Circuit) (legal : PEqualNP.MetaComplexity.Monotone2 C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    ∃ (k : ℕ) (U : Finset Extended.Sig) (a b c d : Extended.Sig) (op₁ op₂ : ℕ),
+      k + 2 ≤ C.size ∧ op₁ < 2 ∧ op₂ < 2 ∧
+      a ∈ Extended.initial ∧ b ∈ Extended.initial ∧ a ≠ b ∧
+      c ∈ Extended.initial ++ [Extended.bin op₁ a b] ∧
+      d ∈ Extended.initial ++ [Extended.bin op₁ a b] ∧ c ≠ d ∧
+      Extended.Live false Extended.target k (insert (Extended.bin op₂ c d) U) ∧
+      (∀ v ∈ U, v ∈ Extended.initial ++ [Extended.bin op₁ a b]) ∧
+      (Extended.bin op₁ a b = c ∨ Extended.bin op₁ a b = d ∨ Extended.bin op₁ a b ∈ U) := by
+  obtain ⟨k, U, a, b, op, hk, hop, ha, hb, hab, tail, raw⟩ := first_binary_split C legal computes
+  have raw' : ∀ v ∈ insert (Extended.bin op a b) U,
+      v ∈ Extended.initial ++ [Extended.bin op a b] := by
+    intro v hv
+    rcases Finset.mem_insert.mp hv with rfl | hv
+    · simp
+    · exact List.mem_append_left _ (raw v hv)
+  cases k with
+  | zero =>
+    obtain ⟨heq, hp⟩ := tail
+    have ht := raw' Extended.target (heq.symm ▸ (by simp))
+    rcases List.mem_append.mp ht with ht | ht
+    · have hn : Extended.target ∉ Extended.initial := by decide +kernel
+      exact False.elim (hn ht)
+    · have ht' : Extended.target = Extended.bin op a b := by simpa using ht
+      obtain ⟨ia, rfl⟩ := member_pin ha
+      obtain ⟨ib, rfl⟩ := member_pin hb
+      exact False.elim (target_ne_first_binary ia ib ⟨op, hop⟩ ht')
+  | succ k =>
+    obtain ⟨V, c, d, op₂, hd, heq, hc, hd', hcd, hfresh, tail₂⟩ := tail
+    have hop₂ : op₂ < 2 := by
+      rcases hd with hd | ⟨hbad, _⟩
+      · exact hd
+      · exact Bool.noConfusion hbad
+    have cm : c ∈ insert (Extended.bin op a b) U := heq.symm ▸ (by simp)
+    have dm : d ∈ insert (Extended.bin op a b) U := heq.symm ▸ (by simp)
+    refine ⟨k, V, a, b, c, d, op, op₂, by omega, hop, hop₂,
+      ha, hb, hab, raw' c cm, raw' d dm, hcd, tail₂, ?_, ?_⟩
+    · intro v hv
+      exact raw' v (heq.symm ▸ (by simp [hv]))
+    · have hm : Extended.bin op a b ∈ insert c (insert d V) := heq ▸ (by simp)
+      simpa only [Finset.mem_insert] using hm
+
+lemma no_overlap_with_nineteen (monoRoot : Impossible false graph 15 inputs.toFinset)
+    (a b c : Fin 10) (hne : a ≠ b) (dep : Bool) (hdep : dep = true ∨ c ≠ a)
+    {k : ℕ} {S : Finset Extended.Sig}
+    (small : k + 2 ≤ 19)
+    (run : Extended.Live false Extended.target k S)
+    (raw : ∀ v ∈ S, v ∈ overlapRoots a b c dep)
+    (hextra : overlapExtra a b c dep ∈ S) : False := by
+  have floor := overlap_suffix_eighteen monoRoot a b c hne dep hdep run raw hextra
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.MonoNine

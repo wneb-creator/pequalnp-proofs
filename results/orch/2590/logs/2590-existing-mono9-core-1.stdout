@@ -1,0 +1,1515 @@
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:144:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:144:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:144:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:145:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:146:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:146:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:146:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:146:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:373:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:373:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:374:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:374:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:553:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:583:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:791:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:936:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1357:27: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1359:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1357:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1359:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1392:22: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1393:96: error(lean.invalidField): Invalid field `bound`: The environment does not contain `Prod.bound`, so it is not possible to project the field `bound` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1394:68: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1396:8: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1404:40: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1404:49: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1405:37: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1405:46: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1406:27: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1406:36: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1408:8: error(lean.invalidField): Invalid field `bound`: The environment does not contain `Prod.bound`, so it is not possible to project the field `bound` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1408:68: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1423:35: error(lean.invalidField): Invalid field `bound`: The environment does not contain `Prod.bound`, so it is not possible to project the field `bound` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1423:71: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1438:27: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1444:32: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1444:41: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1445:29: error(lean.invalidField): Invalid field `bound`: The environment does not contain `Prod.bound`, so it is not possible to project the field `bound` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1445:72: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1446:29: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1446:38: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1446:73: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1446:82: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1451:32: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1451:41: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1456:30: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1456:39: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  c
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1453:15: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1558:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:1831:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2058:23: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2058:41: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2058:68: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2062:32: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2062:65: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2063:23: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2063:41: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2063:68: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2065:41: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2078:71: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart_bit, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2091:12: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2118:36: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2121:30: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2138:5: error(lean.invalidField): Invalid field `cols`: The environment does not contain `Prod.cols`, so it is not possible to project the field `cols` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2139:18: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2139:41: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2142:21: error(lean.invalidField): Invalid field `cols`: The environment does not contain `Prod.cols`, so it is not possible to project the field `cols` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2142:35: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2142:58: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2144:16: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2144:29: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2146:14: error(lean.invalidField): Invalid field `cols`: The environment does not contain `Prod.cols`, so it is not possible to project the field `cols` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2209:7: error(lean.invalidField): Invalid field `autos`: The environment does not contain `Prod.autos`, so it is not possible to project the field `autos` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2208:17: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2209:77: error(lean.invalidField): Invalid field notation: Type of
+  perm
+is not known; cannot resolve field `map`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Abelianization.map`
+  • `AbstractCompletion.map`
+  • `AddCommute.map`
+  • `AddCon.map`
+  • `AddConjClasses.map`
+  • `AddIrreducible.map`
+  • `AddMonoidAlgebra.map`
+  • `AddSemiconjBy.map`
+  • `AddSubgroup.map`
+  • `AddSubmonoid.map`
+  • `AddSubsemigroup.map`
+  • `AddUnits.map`
+  • `AdjoinRoot.map`
+  • `AlgebraicIndependent.map`
+  • `Array.map`
+  • `Associated.map`
+  • `Associates.map`
+  • `BaseIO.map`
+  • `BinaryTree.map`
+  • `Cardinal.map`
+  • `Cauchy.map`
+  • `ClosedSubmodule.map`
+  • `ClusterPt.map`
+  • `Codisjoint.map`
+  • `Commute.map`
+  • `Con.map`
+  • `ConjClasses.map`
+  • `Cycle.map`
+  • `DirectSum.map`
+  • `Disjoint.map`
+  • `EIO.map`
+  • `ENat.map`
+  • `EStateM.map`
+  • `EquivFunctor.map`
+  • `Even.map`
+  • `Except.map`
+  • `ExceptT.map`
+  • `Filter.map`
+  • `FinVec.map`
+  • `Finset.map`
+  • `Flag.map`
+  • `FreeAbelianGroup.map`
+  • `FreeAddGroup.map`
+  • `FreeAddMonoid.map`
+  • `FreeGroup.map`
+  • `FreeMonoid.map`
+  • `FunOnFinite.map`
+  • `Functor.map`
+  • `HasProd.map`
+  • `HasSum.map`
+  • `Ideal.map`
+  • `Inseparable.map`
+  • `IntermediateField.map`
+  • `Invertible.map`
+  • `Irreducible.map`
+  • `IsAddCentral.map`
+  • `IsAddUnit.map`
+  • `IsCompl.map`
+  • `IsCoprime.map`
+  • `IsFractionRing.map`
+  • `IsIdempotentElem.map`
+  • `IsIntegral.map`
+  • `IsLocalization.map`
+  • `IsLocalizedModule.map`
+  • `IsMulCentral.map`
+  • `IsNilpotent.map`
+  • `IsSMulRegular.map`
+  • `IsSelfAdjoint.map`
+  • `IsSeparable.map`
+  • `IsSquare.map`
+  • `IsStarNormal.map`
+  • `IsStarProjection.map`
+  • `IsTensorProduct.map`
+  • `IsTrans.map`
+  • `IsUnit.map`
+  • `IsVAddRegular.map`
+  • `LTSeries.map`
+  • `Language.map`
+  • `LinearIndependent.map`
+  • `List.map`
+  • `LocalizedModule.map`
+  • `LowerSet.map`
+  • `MLList.map`
+  • `Matrix.map`
+  • `Matroid.map`
+  • `MonoidAlgebra.map`
+  • `MultilinearMap.map`
+  • `Multipliable.map`
+  • `Multiset.map`
+  • `MvPolynomial.map`
+  • `NonUnitalStarSubalgebra.map`
+  • `NonUnitalSubalgebra.map`
+  • `NonUnitalSubring.map`
+  • `NonUnitalSubsemiring.map`
+  • `Nondet.map`
+  • `Nonempty.map`
+  • `Odd.map`
+  • `Option.map`
+  • `PFun.map`
+  • `PLift.map`
+  • `PSigma.map`
+  • `Part.map`
+  • `Pi.map`
+  • `Polynomial.map`
+  • `PowerBasis.map`
+  • `Prod.map`
+  • `Quot.map`
+  • `Quotient.map`
+  • `QuotientAddGroup.map`
+  • `QuotientGroup.map`
+  • `RCLike.map`
+  • `RelSeries.map`
+  • `SModEq.map`
+  • `SemiconjBy.map`
+  • `SeparationQuotient.map`
+  • `Setoid.map`
+  • `Sigma.map`
+  • `SimpleGraph.map`
+  • `Specializes.map`
+  • `StarSubalgebra.map`
+  • `StateT.map`
+  • `String.map`
+  • `Subalgebra.map`
+  • `Subfield.map`
+  • `Subgroup.map`
+  • `Sublattice.map`
+  • `Submodule.map`
+  • `Submonoid.map`
+  • `Subring.map`
+  • `Subsemigroup.map`
+  • `Subsemiring.map`
+  • `Subtype.map`
+  • `Sum.map`
+  • `Summable.map`
+  • `SummationFilter.map`
+  • `Sym.map`
+  • `Sym2.map`
+  • `Task.map`
+  • `TensorProduct.map`
+  • `Thunk.map`
+  • `Tree.map`
+  • `Trunc.map`
+  • `TwoSidedIdeal.map`
+  • `ULift.map`
+  • `Ultrafilter.map`
+  • `UniformSpace.map`
+  • `Unitary.map`
+  • `Units.map`
+  • `UpperSet.map`
+  • `Vector.map`
+  • `WithBot.map`
+  • `WithOne.map`
+  • `WithTop.map`
+  • `WithZero.map`
+  • `AddCommGroup.ModEq.map`
+  • `AddGroup.Abelianization.map`
+  • `AddSubgroup.IsFiniteRelIndex.map`
+  • `AddSubgroup.Normal.map`
+  • `AddSubmonoid.FG.map`
+  • `AddSubmonoid.LocalizationMap.map`
+  • `Aesop.EMap.map`
+  • `Aesop.InstMap.map`
+  • `Aesop.Rule.map`
+  • `Aesop.RulePatternCache.map`
+  • `Aesop.VariableMap.map`
+  • `Algebra.TensorProduct.map`
+  • `Array.mapFinIdxM.map`
+  • `Array.mapM.map`
+  • `Filter.HasAntitoneBasis.map`
+  • `Filter.HasBasis.map`
+  • `Filter.NeBot.map`
+  • `Filter.Subsingleton.map`
+  • `Filter.TotallyBounded.map`
+  • `Finset.Nonempty.map`
+  • `Function.IsFixedPt.map`
+  • `Function.IsPeriodicPt.map`
+  • `Functor.Comp.map`
+  • `Functor.Const.map`
+  • `Group.Abelianization.map`
+  • `Ideal.FG.map`
+  • `IsLocalization.Away.map`
+  • `Lean.AttributeExtensionState.map`
+  • `Lean.ClosedTermCache.map`
+  • `Lean.PersistentArray.map`
+  • `Lean.PersistentHashMap.map`
+  • `List.Disjoint.map`
+  • `List.IsInfix.map`
+  • `List.IsPrefix.map`
+  • `List.IsRotated.map`
+  • `List.IsSuffix.map`
+  • `List.Nodup.map`
+  • `List.Pairwise.map`
+  • `List.Perm.map`
+  • `List.Sublist.map`
+  • `List.Subperm.map`
+  • `List.Vector.map`
+  • `Matrix.BlockTriangular.map`
+  • `Matrix.GeneralLinearGroup.map`
+  • `Matrix.IsSymm.map`
+  • `Matrix.SpecialLinearGroup.map`
+  • `Matroid.Indep.map`
+  • `Matroid.IsBase.map`
+  • `Matroid.IsBasis.map`
+  • `Module.Basis.map`
+  • `Module.Finite.map`
+  • `Multiset.Nodup.map`
+  • `MvPolynomial.IsHomogeneous.map`
+  • `NormedAddGroupHom.Equalizer.map`
+  • `OmegaCompletePartialOrder.Chain.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.map`
+  • `Polynomial.IsRoot.map`
+  • `Polynomial.IsSplittingField.map`
+  • `Polynomial.Monic.map`
+  • `Polynomial.MonicDegreeEq.map`
+  • `Polynomial.Separable.map`
+  • `Polynomial.Splits.map`
+  • `RingHom.IsIntegralElem.map`
+  • `Set.Finite.map`
+  • `SimpleGraph.Embedding.map`
+  • `SimpleGraph.Hom.map`
+  • `SimpleGraph.IsClique.map`
+  • `SimpleGraph.IsNClique.map`
+  • `SimpleGraph.Iso.map`
+  • `SimpleGraph.Path.map`
+  • `SimpleGraph.Subgraph.map`
+  • `SimpleGraph.Walk.map`
+  • `Std.DHashMap.map`
+  • `Std.DTreeMap.map`
+  • `Std.ExtDHashMap.map`
+  • `Std.ExtDTreeMap.map`
+  • `Std.ExtHashMap.map`
+  • `Std.ExtTreeMap.map`
+  • `Std.HashMap.map`
+  • `Std.Iter.map`
+  • `Std.IterM.map`
+  • `Std.Refl.map`
+  • `Std.Symm.map`
+  • `Std.TreeMap.map`
+  • `Subalgebra.FG.map`
+  • `Subgroup.IsFiniteRelIndex.map`
+  • `Subgroup.Normal.map`
+  • `Submodule.FG.map`
+  • `Submodule.IsPrincipal.map`
+  • `Submonoid.FG.map`
+  • `Submonoid.LocalizationMap.map`
+  • `Sym2.IsDiag.map`
+  • `TensorProduct.AlgebraTensorModule.map`
+  • `TopologicalSpace.IrreducibleCloseds.map`
+  • `Turing.ListBlank.map`
+  • `Turing.Tape.map`
+  • `UniformSpace.Completion.map`
+  • `Vector.mapFinIdxM.map`
+  • `ImportGraph.Shake.Needs.map`
+  • `Lean.Language.SnapshotTask.map`
+  • `Lean.Meta.CustomEliminators.map`
+  • `Lean.Meta.FVarSubst.map`
+  • `Lean.Meta.KExprMap.map`
+  • `Lean.Meta.MVarRenaming.map`
+  • `Lean.Omega.Coeffs.map`
+  • `Lean.Omega.Constraint.map`
+  • `Lean.ScopedEnvExtension.ScopedEntries.map`
+  • `Lean.Widget.TaggedText.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.ωScottContinuous.map`
+  • `SimpleGraph.Subgraph.IsInduced.map`
+  • `SimpleGraph.Walk.IsCircuit.map`
+  • `SimpleGraph.Walk.IsCycle.map`
+  • `SimpleGraph.Walk.IsPath.map`
+  • `SimpleGraph.Walk.IsSubwalk.map`
+  • `SimpleGraph.Walk.IsTrail.map`
+  • `Std.DHashMap.Equiv.map`
+  • `Std.DHashMap.Raw.map`
+  • `Std.DTreeMap.Equiv.map`
+  • `Std.Do.Spec.map`
+  • `Std.Do.WP.map`
+  • `Std.HashMap.Equiv.map`
+  • `Std.HashMap.Raw.map`
+  • `Std.Internal.Small.map`
+  • `Std.IterM.Equiv.map`
+  • `Std.IterM.InternalCombinators.map`
+  • `Std.Iterators.HetT.map`
+  • `Std.Iterators.PostconditionT.map`
+  • `Std.TreeMap.Equiv.map`
+  • `Turing.TM0.Cfg.map`
+  • `Turing.TM0.Machine.map`
+  • `Turing.TM0.Stmt.map`
+  • `Lean.Compiler.CSimp.State.map`
+  • `Lean.Meta.Grind.SymbolPriorities.map`
+  • `Lean.Meta.Grind.VarRename.map`
+  • `Lean.Meta.Match.MatchEqnsExtState.map`
+  • `Lean.Meta.Match.Overlaps.map`
+  • `Lean.Meta.Simp.UsedSimps.map`
+  • `Std.DHashMap.Internal.AssocList.map`
+  • `Std.DHashMap.Internal.Raw₀.map`
+  • `Std.DHashMap.Raw.Equiv.map`
+  • `Std.DHashMap.Raw.WF.map`
+  • `Std.DTreeMap.Internal.Impl.map`
+  • `Std.HashMap.Raw.Equiv.map`
+  • `Std.HashMap.Raw.WF.map`
+  • `Std.Internal.List.DistinctKeys.map`
+  • `Lean.Compiler.LCNF.CSE.State.map`
+  • `Lean.Compiler.LCNF.NormLevelParam.State.map`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfoMap.map`
+  • `Lean.Meta.Grind.UnitLike.State.map`
+  • `Lean.Meta.Match.Extension.State.map`
+  • `Std.DTreeMap.Internal.Impl.Balanced.map`
+  • `Std.DTreeMap.Internal.Impl.Equiv.map`
+  • `Std.DTreeMap.Internal.Impl.WF.map`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2212:21: error(lean.invalidField): Invalid field `autos`: The environment does not contain `Prod.autos`, so it is not possible to project the field `autos` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2213:50: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2215:17: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2212:49: error(lean.invalidField): Invalid field notation: Type of
+  x
+is not known; cannot resolve field `map`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Abelianization.map`
+  • `AbstractCompletion.map`
+  • `AddCommute.map`
+  • `AddCon.map`
+  • `AddConjClasses.map`
+  • `AddIrreducible.map`
+  • `AddMonoidAlgebra.map`
+  • `AddSemiconjBy.map`
+  • `AddSubgroup.map`
+  • `AddSubmonoid.map`
+  • `AddSubsemigroup.map`
+  • `AddUnits.map`
+  • `AdjoinRoot.map`
+  • `AlgebraicIndependent.map`
+  • `Array.map`
+  • `Associated.map`
+  • `Associates.map`
+  • `BaseIO.map`
+  • `BinaryTree.map`
+  • `Cardinal.map`
+  • `Cauchy.map`
+  • `ClosedSubmodule.map`
+  • `ClusterPt.map`
+  • `Codisjoint.map`
+  • `Commute.map`
+  • `Con.map`
+  • `ConjClasses.map`
+  • `Cycle.map`
+  • `DirectSum.map`
+  • `Disjoint.map`
+  • `EIO.map`
+  • `ENat.map`
+  • `EStateM.map`
+  • `EquivFunctor.map`
+  • `Even.map`
+  • `Except.map`
+  • `ExceptT.map`
+  • `Filter.map`
+  • `FinVec.map`
+  • `Finset.map`
+  • `Flag.map`
+  • `FreeAbelianGroup.map`
+  • `FreeAddGroup.map`
+  • `FreeAddMonoid.map`
+  • `FreeGroup.map`
+  • `FreeMonoid.map`
+  • `FunOnFinite.map`
+  • `Functor.map`
+  • `HasProd.map`
+  • `HasSum.map`
+  • `Ideal.map`
+  • `Inseparable.map`
+  • `IntermediateField.map`
+  • `Invertible.map`
+  • `Irreducible.map`
+  • `IsAddCentral.map`
+  • `IsAddUnit.map`
+  • `IsCompl.map`
+  • `IsCoprime.map`
+  • `IsFractionRing.map`
+  • `IsIdempotentElem.map`
+  • `IsIntegral.map`
+  • `IsLocalization.map`
+  • `IsLocalizedModule.map`
+  • `IsMulCentral.map`
+  • `IsNilpotent.map`
+  • `IsSMulRegular.map`
+  • `IsSelfAdjoint.map`
+  • `IsSeparable.map`
+  • `IsSquare.map`
+  • `IsStarNormal.map`
+  • `IsStarProjection.map`
+  • `IsTensorProduct.map`
+  • `IsTrans.map`
+  • `IsUnit.map`
+  • `IsVAddRegular.map`
+  • `LTSeries.map`
+  • `Language.map`
+  • `LinearIndependent.map`
+  • `List.map`
+  • `LocalizedModule.map`
+  • `LowerSet.map`
+  • `MLList.map`
+  • `Matrix.map`
+  • `Matroid.map`
+  • `MonoidAlgebra.map`
+  • `MultilinearMap.map`
+  • `Multipliable.map`
+  • `Multiset.map`
+  • `MvPolynomial.map`
+  • `NonUnitalStarSubalgebra.map`
+  • `NonUnitalSubalgebra.map`
+  • `NonUnitalSubring.map`
+  • `NonUnitalSubsemiring.map`
+  • `Nondet.map`
+  • `Nonempty.map`
+  • `Odd.map`
+  • `Option.map`
+  • `PFun.map`
+  • `PLift.map`
+  • `PSigma.map`
+  • `Part.map`
+  • `Pi.map`
+  • `Polynomial.map`
+  • `PowerBasis.map`
+  • `Prod.map`
+  • `Quot.map`
+  • `Quotient.map`
+  • `QuotientAddGroup.map`
+  • `QuotientGroup.map`
+  • `RCLike.map`
+  • `RelSeries.map`
+  • `SModEq.map`
+  • `SemiconjBy.map`
+  • `SeparationQuotient.map`
+  • `Setoid.map`
+  • `Sigma.map`
+  • `SimpleGraph.map`
+  • `Specializes.map`
+  • `StarSubalgebra.map`
+  • `StateT.map`
+  • `String.map`
+  • `Subalgebra.map`
+  • `Subfield.map`
+  • `Subgroup.map`
+  • `Sublattice.map`
+  • `Submodule.map`
+  • `Submonoid.map`
+  • `Subring.map`
+  • `Subsemigroup.map`
+  • `Subsemiring.map`
+  • `Subtype.map`
+  • `Sum.map`
+  • `Summable.map`
+  • `SummationFilter.map`
+  • `Sym.map`
+  • `Sym2.map`
+  • `Task.map`
+  • `TensorProduct.map`
+  • `Thunk.map`
+  • `Tree.map`
+  • `Trunc.map`
+  • `TwoSidedIdeal.map`
+  • `ULift.map`
+  • `Ultrafilter.map`
+  • `UniformSpace.map`
+  • `Unitary.map`
+  • `Units.map`
+  • `UpperSet.map`
+  • `Vector.map`
+  • `WithBot.map`
+  • `WithOne.map`
+  • `WithTop.map`
+  • `WithZero.map`
+  • `AddCommGroup.ModEq.map`
+  • `AddGroup.Abelianization.map`
+  • `AddSubgroup.IsFiniteRelIndex.map`
+  • `AddSubgroup.Normal.map`
+  • `AddSubmonoid.FG.map`
+  • `AddSubmonoid.LocalizationMap.map`
+  • `Aesop.EMap.map`
+  • `Aesop.InstMap.map`
+  • `Aesop.Rule.map`
+  • `Aesop.RulePatternCache.map`
+  • `Aesop.VariableMap.map`
+  • `Algebra.TensorProduct.map`
+  • `Array.mapFinIdxM.map`
+  • `Array.mapM.map`
+  • `Filter.HasAntitoneBasis.map`
+  • `Filter.HasBasis.map`
+  • `Filter.NeBot.map`
+  • `Filter.Subsingleton.map`
+  • `Filter.TotallyBounded.map`
+  • `Finset.Nonempty.map`
+  • `Function.IsFixedPt.map`
+  • `Function.IsPeriodicPt.map`
+  • `Functor.Comp.map`
+  • `Functor.Const.map`
+  • `Group.Abelianization.map`
+  • `Ideal.FG.map`
+  • `IsLocalization.Away.map`
+  • `Lean.AttributeExtensionState.map`
+  • `Lean.ClosedTermCache.map`
+  • `Lean.PersistentArray.map`
+  • `Lean.PersistentHashMap.map`
+  • `List.Disjoint.map`
+  • `List.IsInfix.map`
+  • `List.IsPrefix.map`
+  • `List.IsRotated.map`
+  • `List.IsSuffix.map`
+  • `List.Nodup.map`
+  • `List.Pairwise.map`
+  • `List.Perm.map`
+  • `List.Sublist.map`
+  • `List.Subperm.map`
+  • `List.Vector.map`
+  • `Matrix.BlockTriangular.map`
+  • `Matrix.GeneralLinearGroup.map`
+  • `Matrix.IsSymm.map`
+  • `Matrix.SpecialLinearGroup.map`
+  • `Matroid.Indep.map`
+  • `Matroid.IsBase.map`
+  • `Matroid.IsBasis.map`
+  • `Module.Basis.map`
+  • `Module.Finite.map`
+  • `Multiset.Nodup.map`
+  • `MvPolynomial.IsHomogeneous.map`
+  • `NormedAddGroupHom.Equalizer.map`
+  • `OmegaCompletePartialOrder.Chain.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.map`
+  • `Polynomial.IsRoot.map`
+  • `Polynomial.IsSplittingField.map`
+  • `Polynomial.Monic.map`
+  • `Polynomial.MonicDegreeEq.map`
+  • `Polynomial.Separable.map`
+  • `Polynomial.Splits.map`
+  • `RingHom.IsIntegralElem.map`
+  • `Set.Finite.map`
+  • `SimpleGraph.Embedding.map`
+  • `SimpleGraph.Hom.map`
+  • `SimpleGraph.IsClique.map`
+  • `SimpleGraph.IsNClique.map`
+  • `SimpleGraph.Iso.map`
+  • `SimpleGraph.Path.map`
+  • `SimpleGraph.Subgraph.map`
+  • `SimpleGraph.Walk.map`
+  • `Std.DHashMap.map`
+  • `Std.DTreeMap.map`
+  • `Std.ExtDHashMap.map`
+  • `Std.ExtDTreeMap.map`
+  • `Std.ExtHashMap.map`
+  • `Std.ExtTreeMap.map`
+  • `Std.HashMap.map`
+  • `Std.Iter.map`
+  • `Std.IterM.map`
+  • `Std.Refl.map`
+  • `Std.Symm.map`
+  • `Std.TreeMap.map`
+  • `Subalgebra.FG.map`
+  • `Subgroup.IsFiniteRelIndex.map`
+  • `Subgroup.Normal.map`
+  • `Submodule.FG.map`
+  • `Submodule.IsPrincipal.map`
+  • `Submonoid.FG.map`
+  • `Submonoid.LocalizationMap.map`
+  • `Sym2.IsDiag.map`
+  • `TensorProduct.AlgebraTensorModule.map`
+  • `TopologicalSpace.IrreducibleCloseds.map`
+  • `Turing.ListBlank.map`
+  • `Turing.Tape.map`
+  • `UniformSpace.Completion.map`
+  • `Vector.mapFinIdxM.map`
+  • `ImportGraph.Shake.Needs.map`
+  • `Lean.Language.SnapshotTask.map`
+  • `Lean.Meta.CustomEliminators.map`
+  • `Lean.Meta.FVarSubst.map`
+  • `Lean.Meta.KExprMap.map`
+  • `Lean.Meta.MVarRenaming.map`
+  • `Lean.Omega.Coeffs.map`
+  • `Lean.Omega.Constraint.map`
+  • `Lean.ScopedEnvExtension.ScopedEntries.map`
+  • `Lean.Widget.TaggedText.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.ωScottContinuous.map`
+  • `SimpleGraph.Subgraph.IsInduced.map`
+  • `SimpleGraph.Walk.IsCircuit.map`
+  • `SimpleGraph.Walk.IsCycle.map`
+  • `SimpleGraph.Walk.IsPath.map`
+  • `SimpleGraph.Walk.IsSubwalk.map`
+  • `SimpleGraph.Walk.IsTrail.map`
+  • `Std.DHashMap.Equiv.map`
+  • `Std.DHashMap.Raw.map`
+  • `Std.DTreeMap.Equiv.map`
+  • `Std.Do.Spec.map`
+  • `Std.Do.WP.map`
+  • `Std.HashMap.Equiv.map`
+  • `Std.HashMap.Raw.map`
+  • `Std.Internal.Small.map`
+  • `Std.IterM.Equiv.map`
+  • `Std.IterM.InternalCombinators.map`
+  • `Std.Iterators.HetT.map`
+  • `Std.Iterators.PostconditionT.map`
+  • `Std.TreeMap.Equiv.map`
+  • `Turing.TM0.Cfg.map`
+  • `Turing.TM0.Machine.map`
+  • `Turing.TM0.Stmt.map`
+  • `Lean.Compiler.CSimp.State.map`
+  • `Lean.Meta.Grind.SymbolPriorities.map`
+  • `Lean.Meta.Grind.VarRename.map`
+  • `Lean.Meta.Match.MatchEqnsExtState.map`
+  • `Lean.Meta.Match.Overlaps.map`
+  • `Lean.Meta.Simp.UsedSimps.map`
+  • `Std.DHashMap.Internal.AssocList.map`
+  • `Std.DHashMap.Internal.Raw₀.map`
+  • `Std.DHashMap.Raw.Equiv.map`
+  • `Std.DHashMap.Raw.WF.map`
+  • `Std.DTreeMap.Internal.Impl.map`
+  • `Std.HashMap.Raw.Equiv.map`
+  • `Std.HashMap.Raw.WF.map`
+  • `Std.Internal.List.DistinctKeys.map`
+  • `Lean.Compiler.LCNF.CSE.State.map`
+  • `Lean.Compiler.LCNF.NormLevelParam.State.map`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfoMap.map`
+  • `Lean.Meta.Grind.UnitLike.State.map`
+  • `Lean.Meta.Match.Extension.State.map`
+  • `Std.DTreeMap.Internal.Impl.Balanced.map`
+  • `Std.DTreeMap.Internal.Impl.Equiv.map`
+  • `Std.DTreeMap.Internal.Impl.WF.map`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2213:24: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2229:45: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2232:31: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2233:27: error(lean.invalidField): Invalid field `index`: The environment does not contain `Prod.index`, so it is not possible to project the field `index` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2235:60: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2239:21: error(lean.invalidField): Invalid field `cols`: The environment does not contain `Prod.cols`, so it is not possible to project the field `cols` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2239:35: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2239:58: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2240:21: error(lean.invalidField): Invalid field `autos`: The environment does not contain `Prod.autos`, so it is not possible to project the field `autos` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2241:58: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2242:55: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2238:59: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2238:92: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2240:49: error(lean.invalidField): Invalid field notation: Type of
+  x
+is not known; cannot resolve field `map`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Abelianization.map`
+  • `AbstractCompletion.map`
+  • `AddCommute.map`
+  • `AddCon.map`
+  • `AddConjClasses.map`
+  • `AddIrreducible.map`
+  • `AddMonoidAlgebra.map`
+  • `AddSemiconjBy.map`
+  • `AddSubgroup.map`
+  • `AddSubmonoid.map`
+  • `AddSubsemigroup.map`
+  • `AddUnits.map`
+  • `AdjoinRoot.map`
+  • `AlgebraicIndependent.map`
+  • `Array.map`
+  • `Associated.map`
+  • `Associates.map`
+  • `BaseIO.map`
+  • `BinaryTree.map`
+  • `Cardinal.map`
+  • `Cauchy.map`
+  • `ClosedSubmodule.map`
+  • `ClusterPt.map`
+  • `Codisjoint.map`
+  • `Commute.map`
+  • `Con.map`
+  • `ConjClasses.map`
+  • `Cycle.map`
+  • `DirectSum.map`
+  • `Disjoint.map`
+  • `EIO.map`
+  • `ENat.map`
+  • `EStateM.map`
+  • `EquivFunctor.map`
+  • `Even.map`
+  • `Except.map`
+  • `ExceptT.map`
+  • `Filter.map`
+  • `FinVec.map`
+  • `Finset.map`
+  • `Flag.map`
+  • `FreeAbelianGroup.map`
+  • `FreeAddGroup.map`
+  • `FreeAddMonoid.map`
+  • `FreeGroup.map`
+  • `FreeMonoid.map`
+  • `FunOnFinite.map`
+  • `Functor.map`
+  • `HasProd.map`
+  • `HasSum.map`
+  • `Ideal.map`
+  • `Inseparable.map`
+  • `IntermediateField.map`
+  • `Invertible.map`
+  • `Irreducible.map`
+  • `IsAddCentral.map`
+  • `IsAddUnit.map`
+  • `IsCompl.map`
+  • `IsCoprime.map`
+  • `IsFractionRing.map`
+  • `IsIdempotentElem.map`
+  • `IsIntegral.map`
+  • `IsLocalization.map`
+  • `IsLocalizedModule.map`
+  • `IsMulCentral.map`
+  • `IsNilpotent.map`
+  • `IsSMulRegular.map`
+  • `IsSelfAdjoint.map`
+  • `IsSeparable.map`
+  • `IsSquare.map`
+  • `IsStarNormal.map`
+  • `IsStarProjection.map`
+  • `IsTensorProduct.map`
+  • `IsTrans.map`
+  • `IsUnit.map`
+  • `IsVAddRegular.map`
+  • `LTSeries.map`
+  • `Language.map`
+  • `LinearIndependent.map`
+  • `List.map`
+  • `LocalizedModule.map`
+  • `LowerSet.map`
+  • `MLList.map`
+  • `Matrix.map`
+  • `Matroid.map`
+  • `MonoidAlgebra.map`
+  • `MultilinearMap.map`
+  • `Multipliable.map`
+  • `Multiset.map`
+  • `MvPolynomial.map`
+  • `NonUnitalStarSubalgebra.map`
+  • `NonUnitalSubalgebra.map`
+  • `NonUnitalSubring.map`
+  • `NonUnitalSubsemiring.map`
+  • `Nondet.map`
+  • `Nonempty.map`
+  • `Odd.map`
+  • `Option.map`
+  • `PFun.map`
+  • `PLift.map`
+  • `PSigma.map`
+  • `Part.map`
+  • `Pi.map`
+  • `Polynomial.map`
+  • `PowerBasis.map`
+  • `Prod.map`
+  • `Quot.map`
+  • `Quotient.map`
+  • `QuotientAddGroup.map`
+  • `QuotientGroup.map`
+  • `RCLike.map`
+  • `RelSeries.map`
+  • `SModEq.map`
+  • `SemiconjBy.map`
+  • `SeparationQuotient.map`
+  • `Setoid.map`
+  • `Sigma.map`
+  • `SimpleGraph.map`
+  • `Specializes.map`
+  • `StarSubalgebra.map`
+  • `StateT.map`
+  • `String.map`
+  • `Subalgebra.map`
+  • `Subfield.map`
+  • `Subgroup.map`
+  • `Sublattice.map`
+  • `Submodule.map`
+  • `Submonoid.map`
+  • `Subring.map`
+  • `Subsemigroup.map`
+  • `Subsemiring.map`
+  • `Subtype.map`
+  • `Sum.map`
+  • `Summable.map`
+  • `SummationFilter.map`
+  • `Sym.map`
+  • `Sym2.map`
+  • `Task.map`
+  • `TensorProduct.map`
+  • `Thunk.map`
+  • `Tree.map`
+  • `Trunc.map`
+  • `TwoSidedIdeal.map`
+  • `ULift.map`
+  • `Ultrafilter.map`
+  • `UniformSpace.map`
+  • `Unitary.map`
+  • `Units.map`
+  • `UpperSet.map`
+  • `Vector.map`
+  • `WithBot.map`
+  • `WithOne.map`
+  • `WithTop.map`
+  • `WithZero.map`
+  • `AddCommGroup.ModEq.map`
+  • `AddGroup.Abelianization.map`
+  • `AddSubgroup.IsFiniteRelIndex.map`
+  • `AddSubgroup.Normal.map`
+  • `AddSubmonoid.FG.map`
+  • `AddSubmonoid.LocalizationMap.map`
+  • `Aesop.EMap.map`
+  • `Aesop.InstMap.map`
+  • `Aesop.Rule.map`
+  • `Aesop.RulePatternCache.map`
+  • `Aesop.VariableMap.map`
+  • `Algebra.TensorProduct.map`
+  • `Array.mapFinIdxM.map`
+  • `Array.mapM.map`
+  • `Filter.HasAntitoneBasis.map`
+  • `Filter.HasBasis.map`
+  • `Filter.NeBot.map`
+  • `Filter.Subsingleton.map`
+  • `Filter.TotallyBounded.map`
+  • `Finset.Nonempty.map`
+  • `Function.IsFixedPt.map`
+  • `Function.IsPeriodicPt.map`
+  • `Functor.Comp.map`
+  • `Functor.Const.map`
+  • `Group.Abelianization.map`
+  • `Ideal.FG.map`
+  • `IsLocalization.Away.map`
+  • `Lean.AttributeExtensionState.map`
+  • `Lean.ClosedTermCache.map`
+  • `Lean.PersistentArray.map`
+  • `Lean.PersistentHashMap.map`
+  • `List.Disjoint.map`
+  • `List.IsInfix.map`
+  • `List.IsPrefix.map`
+  • `List.IsRotated.map`
+  • `List.IsSuffix.map`
+  • `List.Nodup.map`
+  • `List.Pairwise.map`
+  • `List.Perm.map`
+  • `List.Sublist.map`
+  • `List.Subperm.map`
+  • `List.Vector.map`
+  • `Matrix.BlockTriangular.map`
+  • `Matrix.GeneralLinearGroup.map`
+  • `Matrix.IsSymm.map`
+  • `Matrix.SpecialLinearGroup.map`
+  • `Matroid.Indep.map`
+  • `Matroid.IsBase.map`
+  • `Matroid.IsBasis.map`
+  • `Module.Basis.map`
+  • `Module.Finite.map`
+  • `Multiset.Nodup.map`
+  • `MvPolynomial.IsHomogeneous.map`
+  • `NormedAddGroupHom.Equalizer.map`
+  • `OmegaCompletePartialOrder.Chain.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.map`
+  • `Polynomial.IsRoot.map`
+  • `Polynomial.IsSplittingField.map`
+  • `Polynomial.Monic.map`
+  • `Polynomial.MonicDegreeEq.map`
+  • `Polynomial.Separable.map`
+  • `Polynomial.Splits.map`
+  • `RingHom.IsIntegralElem.map`
+  • `Set.Finite.map`
+  • `SimpleGraph.Embedding.map`
+  • `SimpleGraph.Hom.map`
+  • `SimpleGraph.IsClique.map`
+  • `SimpleGraph.IsNClique.map`
+  • `SimpleGraph.Iso.map`
+  • `SimpleGraph.Path.map`
+  • `SimpleGraph.Subgraph.map`
+  • `SimpleGraph.Walk.map`
+  • `Std.DHashMap.map`
+  • `Std.DTreeMap.map`
+  • `Std.ExtDHashMap.map`
+  • `Std.ExtDTreeMap.map`
+  • `Std.ExtHashMap.map`
+  • `Std.ExtTreeMap.map`
+  • `Std.HashMap.map`
+  • `Std.Iter.map`
+  • `Std.IterM.map`
+  • `Std.Refl.map`
+  • `Std.Symm.map`
+  • `Std.TreeMap.map`
+  • `Subalgebra.FG.map`
+  • `Subgroup.IsFiniteRelIndex.map`
+  • `Subgroup.Normal.map`
+  • `Submodule.FG.map`
+  • `Submodule.IsPrincipal.map`
+  • `Submonoid.FG.map`
+  • `Submonoid.LocalizationMap.map`
+  • `Sym2.IsDiag.map`
+  • `TensorProduct.AlgebraTensorModule.map`
+  • `TopologicalSpace.IrreducibleCloseds.map`
+  • `Turing.ListBlank.map`
+  • `Turing.Tape.map`
+  • `UniformSpace.Completion.map`
+  • `Vector.mapFinIdxM.map`
+  • `ImportGraph.Shake.Needs.map`
+  • `Lean.Language.SnapshotTask.map`
+  • `Lean.Meta.CustomEliminators.map`
+  • `Lean.Meta.FVarSubst.map`
+  • `Lean.Meta.KExprMap.map`
+  • `Lean.Meta.MVarRenaming.map`
+  • `Lean.Omega.Coeffs.map`
+  • `Lean.Omega.Constraint.map`
+  • `Lean.ScopedEnvExtension.ScopedEntries.map`
+  • `Lean.Widget.TaggedText.map`
+  • `OmegaCompletePartialOrder.ContinuousHom.ωScottContinuous.map`
+  • `SimpleGraph.Subgraph.IsInduced.map`
+  • `SimpleGraph.Walk.IsCircuit.map`
+  • `SimpleGraph.Walk.IsCycle.map`
+  • `SimpleGraph.Walk.IsPath.map`
+  • `SimpleGraph.Walk.IsSubwalk.map`
+  • `SimpleGraph.Walk.IsTrail.map`
+  • `Std.DHashMap.Equiv.map`
+  • `Std.DHashMap.Raw.map`
+  • `Std.DTreeMap.Equiv.map`
+  • `Std.Do.Spec.map`
+  • `Std.Do.WP.map`
+  • `Std.HashMap.Equiv.map`
+  • `Std.HashMap.Raw.map`
+  • `Std.Internal.Small.map`
+  • `Std.IterM.Equiv.map`
+  • `Std.IterM.InternalCombinators.map`
+  • `Std.Iterators.HetT.map`
+  • `Std.Iterators.PostconditionT.map`
+  • `Std.TreeMap.Equiv.map`
+  • `Turing.TM0.Cfg.map`
+  • `Turing.TM0.Machine.map`
+  • `Turing.TM0.Stmt.map`
+  • `Lean.Compiler.CSimp.State.map`
+  • `Lean.Meta.Grind.SymbolPriorities.map`
+  • `Lean.Meta.Grind.VarRename.map`
+  • `Lean.Meta.Match.MatchEqnsExtState.map`
+  • `Lean.Meta.Match.Overlaps.map`
+  • `Lean.Meta.Simp.UsedSimps.map`
+  • `Std.DHashMap.Internal.AssocList.map`
+  • `Std.DHashMap.Internal.Raw₀.map`
+  • `Std.DHashMap.Raw.Equiv.map`
+  • `Std.DHashMap.Raw.WF.map`
+  • `Std.DTreeMap.Internal.Impl.map`
+  • `Std.HashMap.Raw.Equiv.map`
+  • `Std.HashMap.Raw.WF.map`
+  • `Std.Internal.List.DistinctKeys.map`
+  • `Lean.Compiler.LCNF.CSE.State.map`
+  • `Lean.Compiler.LCNF.NormLevelParam.State.map`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfoMap.map`
+  • `Lean.Meta.Grind.UnitLike.State.map`
+  • `Lean.Meta.Match.Extension.State.map`
+  • `Std.DTreeMap.Internal.Impl.Balanced.map`
+  • `Std.DTreeMap.Internal.Impl.Equiv.map`
+  • `Std.DTreeMap.Internal.Impl.WF.map`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2241:28: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2242:102: error: unsolved goals
+g : Forest
+k i : ℕ
+samples : properPairs (targetOf g) (asRow fun j => sorry) (asRow fun j => sorry)
+cols : ∀ ci ∈ sorry, Slice sorry (varsX (rawMask sorry ci)) (targetOf g) (subcube ci.1 ci.2.1) ci.2.2.2.2
+names : ∀ x ∈ sorry, autoOK (targetOf g) sorry = true
+prior : k > 0 → ∀ j < sorry, Impossible sorry (targetOf g) (k - 1) (stateSet g (k - 1) j).toFinset
+checked : sorry = true
+⊢ Impossible sorry (targetOf g) k (stateSet g k i).toFinset
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2243:13: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2243:26: warning: This simp argument is unused:
+  Bool.and_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nodeVerified, decide_eq_true_eq, Bool.not_eq_true', List.contains_eq_mem] at checked
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2243:43: warning: This simp argument is unused:
+  decide_eq_true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nodeVerified, Bool.and_eq_true, Bool.not_eq_true', List.contains_eq_mem] at checked
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2243:61: warning: This simp argument is unused:
+  Bool.not_eq_true'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nodeVerified, Bool.and_eq_true, decide_eq_true_eq, List.contains_eq_mem] at checked
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2243:79: warning: This simp argument is unused:
+  List.contains_eq_mem
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nodeVerified, Bool.and_eq_true, decide_eq_true_eq, Bool.not_eq_true'] at checked
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2286:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2290:28: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2293:18: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2294:18: error(lean.invalidField): Invalid field `mask`: The environment does not contain `Prod.mask`, so it is not possible to project the field `mask` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2295:4: error(lean.invalidField): Invalid field `cols`: The environment does not contain `Prod.cols`, so it is not possible to project the field `cols` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2296:4: error(lean.invalidField): Invalid field `autos`: The environment does not contain `Prod.autos`, so it is not possible to project the field `autos` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2293:36: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2294:36: error(lean.invalidField): Invalid field `samples`: The environment does not contain `Prod.samples`, so it is not possible to project the field `samples` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2299:26: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2301:50: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2301:24: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2307:10: error(lean.unknownIdentifier): Unknown identifier `nodeVerified_sound`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2309:4: error: No goals to be solved
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2312:10: error(lean.unknownIdentifier): Unknown identifier `nodeVerified_sound`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2315:4: error: No goals to be solved
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2302:13: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2302:41: warning: This simp argument is unused:
+  List.all_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphValid, Bool.and_eq_true, beq_iff_eq] at geometry
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2318:17: error(lean.invalidField): Invalid field `levels`: The environment does not contain `Prod.levels`, so it is not possible to project the field `levels` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2322:53: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2320:60: error(lean.invalidField): Invalid field `mode`: The environment does not contain `Prod.mode`, so it is not possible to project the field `mode` from an expression
+  g
+of type
+  ℕ × ℕ × (ℕ → Bits × Bits) × List ColumnInfo × List (List ℕ) × (ℕ → Packing) × (ℕ → ℕ → Option (ℕ × ℕ))
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2322:86: error: unsolved goals
+g : Forest
+top : ℕ
+prior : ℕ → ℕ
+k i : ℕ
+ws : List Sig
+low : ∀ (q : ℕ), Lower sorry (varsX q) (graphGoal q) (prior q)
+geom : graphValid g prior = true
+blocks : checkedTables g top
+le : k ≤ top
+idx : i < sorry ∧ sameWords (stateSet g k i) ws = true
+⊢ Impossible sorry (targetOf g) k ws.toFinset
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2323:13: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2445:17: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2445:20: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2445:30: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2550:54: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2550:72: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2611:31: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2631:78: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2631:87: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2634:51: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2636:102: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2638:38: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2638:47: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2638:66: error(lean.invalidField): Invalid field `bound`: The environment does not contain `Prod.bound`, so it is not possible to project the field `bound` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:20: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:29: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:56: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:65: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:93: error(lean.invalidField): Invalid field `domain`: The environment does not contain `Prod.domain`, so it is not possible to project the field `domain` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2639:102: error(lean.invalidField): Invalid field `wires`: The environment does not contain `Prod.wires`, so it is not possible to project the field `wires` from an expression
+  p
+of type `Sig × ℕ × ℕ × List Sig`
+/tmp/oec/pequalnp-pilot-107/leanmods/ExistingMonoNine.lean:2701:13: error: maximum number of errors (100; from option `maxErrors`) reached, exiting

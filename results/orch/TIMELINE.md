@@ -42,3 +42,14 @@ The exact posted normalization is now Lean-equivalent to the unrestricted sharp 
 ## 2026-11-25T15:10:43.887778+00:00 L-meta-2583 leaseHTTP410 and preservation
 
 Renewal failed15:08:28UTC beforepreviousdisplayed15:24:07expiry. Allagentsstopped; complete diagnosticcaptured. No fullgoalproof. Preserveallcheckedcomponents andcompletechecker/searchoutputs beforeanyrecoveryrequest.
+
+## 2026-11-25T15:14:11.032796+00:00 L-meta-2590 assigned
+
+Recoveryafterfull2583archivepush e1ae53f75aed9ece82265dff6bce39db16130803 assigned siblingPetersenmonotonegap. Leaseexpiry15:33:02.523Z. Sixreusedagents restarted on distinctnormalization,lowerbound,counting,search,existingresults,andreviewtasks.
+- 2026-11-25T15:14:38.333259+00:00: timer renewed lease; expires 2026-11-25T15:34:38.329Z.
+- 2026-11-25T15:16:33.698939+00:00: timer renewed lease; expires 2026-11-25T15:36:33.845Z.
+- 2026-11-25T15:18:59.124439+00:00: timer renewed lease; expires 2026-11-25T15:38:59.206Z.
+
+## 2026-11-25T15:26:52.784065+00:00 L-meta-2590 HTTP410 preservation
+
+Renewal failed at15:23:59UTC before displayed15:38:59expiry. Root and allagents stopped; largecertificate builds interrupted without localsuccess. All compiled partials and complete diagnostics are being archived before recovery.

@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-25T15:20:00.957198+00:00",
+  "status": "completed specified local insertion class; no exact repair",
+  "source": "results/orch/2590/lemmas/search_insert_rewire_v1.cpp",
+  "source_sha256": "ae66cd550d6e1584bfe812617fd33cab12ca3404e07c7165899816bb13d0f7e9",
+  "source_provenance": "source created before compile and remained unchanged; digest recorded after run",
+  "class": "insert1binaryANDOR gate atanyposition into18gateapprox, arbitrary two earlier sources, redirect1to3arbitrary later input/output occurrences to newwire; no other changes",
+  "tests": 8768006,
+  "best_critical_errors": 2,
+  "exit_code": 0,
+  "signature": "complete30criticalrows for monotone target",
+  "independent_printed_candidate_checks": [
+    {
+      "tests": 1,
+      "critical_fp": 6,
+      "critical_fn": 2,
+      "full_fp": 12,
+      "full_fn": 10
+    },
+    {
+      "tests": 3,
+      "critical_fp": 3,
+      "critical_fn": 2,
+      "full_fp": 3,
+      "full_fn": 17
+    },
+    {
+      "tests": 39,
+      "critical_fp": 4,
+      "critical_fn": 0,
+      "full_fp": 4,
+      "full_fn": 0
+    },
+    {
+      "tests": 47971,
+      "critical_fp": 0,
+      "critical_fn": 3,
+      "full_fp": 0,
+      "full_fn": 34
+    },
+    {
+      "tests": 760331,
+      "critical_fp": 0,
+      "critical_fn": 2,
+      "full_fp": 0,
+      "full_fn": 21
+    }
+  ],
+  "logs": [
+    {
+      "path": "results/orch/2590/search_logs/2590-search-insert-rewire.stdout",
+      "sha256": "8b7240a9d43cd5e612e530cafdde69216e70f735a4fd242530ca8fba6790fc77",
+      "bytes": 353
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-insert-rewire.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-insert-rewire-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/2590/search_logs/2590-search-insert-rewire-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}
