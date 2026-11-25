@@ -68,4 +68,8 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:41:47 UTC: Fifth route re-plan posted (bus 3886); requested smallest substantive remaining bridges to the full target from every helper.
 - 2026-11-25 22:46:37 UTC: Private contiguous mixed-shell compiler, pruning trace and corrected pure/singleton-clean edge-agreement lemmas passed independent source/axiom reviews and combined named build. No final theorem.
 
-TIMING total=105.3 subagents=10
+
+- 2026-11-25 22:47:18 UTC: Pushed reviewed mixed-shell/pruning checkpoint 6d810eb9eab001b710b58a352bf7d93ba5ca51a8; remote SHA verified; bus 3981 marked PARTIAL.
+- 2026-11-25 22:55:20 UTC: Arbitrary-position insert/prune projection, pure/singleton-clean wrapper and SIZE/WIRE/JUNK selector passed independent source/axiom reviews and combined named build. Existing four part wires and private OR outputs remain substantive hypotheses. No final theorem.
+
+TIMING total=114.0 subagents=10
