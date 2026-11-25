@@ -40,3 +40,7 @@ TIMING total=33 subagents=7
 PetersenPartial.lean: standalone compile exit0; only PEqualNP.Defs import;4889lines299494bytes; independent review PASS. Unconditional17+notCount lower bound and ≥3NOT exclusion. Axiom audit: propext, Classical.choice, Quot.sound only. No cleanup of a full proof and no full-gap local checker run.
 Sub-agents: 7
 TIMING total=37 subagents=7
+
+TightBudget.lean and Fresh.lean: compile exit0; independent review PASS. TightBudget fixes remaining≥2NOT case to exactly19total/2NOT/17other and normalized firstOR; Fresh is a conditional support lemma only. Desk410 at14:38 UTC despite prior14:54:27expiry; work paused pending recovery.
+Sub-agents: 7
+TIMING total=38 subagents=7

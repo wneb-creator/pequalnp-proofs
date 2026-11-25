@@ -1,0 +1,7 @@
+2026-11-25 14:34:27 UTC: successful renewal advertised expiry14:54:27.404Z.
+2026-11-25 14:38:04 UTC: required curl -si retry confirmed HTTP410.
+Exact response body:
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+Proof and search work paused. No lease was released by this pilot. The original desk response terms issued_at was13:44:05.796Z, earlier than this job first request around14:02; cause of loss is unconfirmed.
