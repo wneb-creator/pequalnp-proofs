@@ -1,0 +1,4 @@
+{"or_count": 39, "inputs": 13, "positive_samples": 13, "negative_samples": 234, "solver_seconds": 60}
+{"result": "sat", "solver_exit": 10, "solver_wall_seconds": 6.345798747001027, "child_user_cpu_seconds": 2.917861, "child_system_cpu_seconds": 1.113926, "child_max_rss_KiB": 254364, "stop_reason": null, "signals": [], "maximum_shared_memory_bytes": 3304628224, "reader_exit": null}
+WITNESS_VERIFIED 39 ORs 13 outputs 560 caps
+GLOBAL_WITNESS_VERIFIED 51 ORs

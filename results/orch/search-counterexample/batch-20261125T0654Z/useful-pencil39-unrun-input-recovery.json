@@ -1,0 +1,20 @@
+{
+  "removed_name": "useful-pencil39-control.cnf",
+  "bytes": 57177553,
+  "sha256": "9ed46d08d96d99cd504ae7eebe5533e2a68dabe4513ef971322379ef70239cd5",
+  "reason": "Unrun un-ordered control superseded by combined ordered control; source/mapping/complete encoding log retained; no solver or witness existed.",
+  "recipe": [
+    "python3",
+    "multi_output_useful_pencil_cnf.py",
+    "39",
+    "--fixed-baseline",
+    "--cover-suffix",
+    "3",
+    "--exact-pencil",
+    "--useful-exact-pencil",
+    "--cnf-only",
+    "--tag",
+    "useful-pencil39-control"
+  ],
+  "source_sha256": "7d745c804f574f5b0b26ec28a7c032ab53705748948a9281fff8e7e1982e6955"
+}

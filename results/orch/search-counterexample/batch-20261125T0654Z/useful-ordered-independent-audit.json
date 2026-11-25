@@ -1,0 +1,31 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS combined ordering source and guarded multioutput runner; no solver or Lean run",
+  "scope": "Restricted13-output39-OR baseline control and preparation for38-OR query.39 control embeds to51 and is not a counterexample.",
+  "checks": {
+    "normalizer_ast_identical_to_approved_global": true,
+    "comparator_identical_modulo_dimension_and_branch_name": true,
+    "normalization_swaps": 9,
+    "all560cap_values_checked_after_every_swap": true,
+    "each_gate_values_only_decrease_after_swaps": true,
+    "gate_zero_unchanged": true,
+    "useful_exact_P0_retained": true,
+    "output_cap_pairs_checked_each_time": 7280,
+    "final_global_control_samples": 547,
+    "global_control_or_count": 51,
+    "runner_ceiling_restored_gib": 4
+  },
+  "runner_review": [
+    "Same owned process-group memory guard, reader cleanup and nonzero-reader verdict suppression as reviewed runner. Gzip input digest verified before launch.",
+    "Reconstructs actual canonical references from signatures, checks exact positive closure/incomparability, all encoded output rows and false-OR bounds, useful exact-support row predicate, and adjacent ordering assertions.",
+    "Independently regenerates all560 geometric caps and replays7280 output-cap pairs. Full13-output model lifts through12point-weighted OR joins and checks all52positive/468generic/26singleton global samples; this audit additionally checked empty.",
+    "Address-space default1.25GiB with restored0<cap<=4GiB; parent chooses actual cap/shared thresholds. No arbitrary process termination or credential access."
+  ],
+  "files": {
+    "multi_output_useful_ordered_cnf.py": "d6befc712744ff7d3407f70ed8ed67a7d1157fba53da4d9866032bcca6eab538",
+    "solve_multi_cnf_v3.py": "61afd035750efeba07a4eecbcc72a87518d7dfd3c1297dce2e8655f086505ae7",
+    "useful-ordered-pencil39-control.mapping.json": "a951dda390bcc6e746170ab6b88329ec5ad5b988bb27e5fc7bb477ef7a13d4b2",
+    "useful-ordered-pencil39-control.encode.log": "8691b68ae4bf87c853b5f697deb89144142742e79285ac32c3757bdf2bea5b79",
+    "useful-pencil39-unrun-input-recovery.json": "1f645a40a6bfc83865743d23c62aa3afc1384941063868abf61a19cedc63cc10"
+  }
+}

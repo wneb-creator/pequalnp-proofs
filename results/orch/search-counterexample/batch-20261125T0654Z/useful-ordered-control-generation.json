@@ -1,0 +1,23 @@
+{
+  "working_directory": "/tmp/oec/pequalnp-pilot-62",
+  "commands": [
+    [
+      "python3",
+      "multi_output_useful_ordered_cnf.py",
+      "39",
+      "--fixed-baseline",
+      "--cover-suffix",
+      "3",
+      "--exact-pencil",
+      "--useful-exact-pencil",
+      "--ordered-independent",
+      "--cnf-only",
+      "--tag",
+      "useful-ordered-pencil39-control"
+    ]
+  ],
+  "dependencies": {
+    "multi-output-line-neighborhoods.json": "673b99e94dfea3d73a5b8e006629891597310c50db198cb76a986ad4cd40fb4e",
+    "global_ordered_cnf.py": "7cf53b04cead3e4f61811a6972752d95d12aef82ec5a289091897c325fea8e4a"
+  }
+}

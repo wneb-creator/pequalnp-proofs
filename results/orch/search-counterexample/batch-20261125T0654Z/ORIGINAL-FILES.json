@@ -1,0 +1,152 @@
+[
+  {
+    "original_name": "multi_output_useful_ordered_cnf.py",
+    "original_sha256": "d6befc712744ff7d3407f70ed8ed67a7d1157fba53da4d9866032bcca6eab538",
+    "original_size": 15961,
+    "archived_name": "multi_output_useful_ordered_cnf.py"
+  },
+  {
+    "original_name": "solve_multi_cnf_v1.py",
+    "original_sha256": "f90869f71da548f23583f9aea94f1790b51d4ac7f4e1c65a848d423c281612c2",
+    "original_size": 10957,
+    "archived_name": "solve_multi_cnf_v1.py"
+  },
+  {
+    "original_name": "solve_multi_cnf_v2.py",
+    "original_sha256": "0f42b049cae983e228591a56c28b37fe4dd2f17cc48a9d78b46d1ce1dcbb8819",
+    "original_size": 11702,
+    "archived_name": "solve_multi_cnf_v2.py"
+  },
+  {
+    "original_name": "solve_multi_cnf_v3.py",
+    "original_sha256": "61afd035750efeba07a4eecbcc72a87518d7dfd3c1297dce2e8655f086505ae7",
+    "original_size": 11713,
+    "archived_name": "solve_multi_cnf_v3.py"
+  },
+  {
+    "original_name": "solve-multi-cnf-v3-help.txt",
+    "original_sha256": "e0b9bea297a686b644bfb3a8a1e5e1bc21278a21c044a50aa1d0c48617d8c6e5",
+    "original_size": 817,
+    "archived_name": "solve-multi-cnf-v3-help.txt"
+  },
+  {
+    "original_name": "useful-ordered-pencil-cnf-help.txt",
+    "original_sha256": "69bcef4023817a0fb39236e38ffa2c325711eb76acbbaeb398ffb6249cc8645f",
+    "original_size": 804,
+    "archived_name": "useful-ordered-pencil-cnf-help.txt"
+  },
+  {
+    "original_name": "useful-ordered-control-generation.json",
+    "original_sha256": "d0d2b710c477c9ab1f96609b619a4d3a1e9a03ce916f20e3073852f0158c3b86",
+    "original_size": 617,
+    "archived_name": "useful-ordered-control-generation.json"
+  },
+  {
+    "original_name": "repo_audit_useful_ordered.py",
+    "original_sha256": "b9256d85dff5a1dd73ecc66f1afdc5fb3f4c4a22518ac57d9db87ac2e3bdba85",
+    "original_size": 6038,
+    "archived_name": "repo_audit_useful_ordered.py"
+  },
+  {
+    "original_name": "useful-ordered-independent-audit.json",
+    "original_sha256": "60a5c838e5a4147405b11b4f4c3bf57fa00c410d0cd3c8ffd24f0be96dce0861",
+    "original_size": 2191,
+    "archived_name": "useful-ordered-independent-audit.json"
+  },
+  {
+    "original_name": "useful-ordered-independent-audit.log",
+    "original_sha256": "60a5c838e5a4147405b11b4f4c3bf57fa00c410d0cd3c8ffd24f0be96dce0861",
+    "original_size": 2191,
+    "archived_name": "useful-ordered-independent-audit.log"
+  },
+  {
+    "original_name": "useful-pencil39-unrun-input-recovery.json",
+    "original_sha256": "1f645a40a6bfc83865743d23c62aa3afc1384941063868abf61a19cedc63cc10",
+    "original_size": 649,
+    "archived_name": "useful-pencil39-unrun-input-recovery.json"
+  },
+  {
+    "original_name": "useful-pencil39-control.mapping.json",
+    "original_sha256": "04b83d336c6990254589922ea71aa5df5d1f3f1b235993f4122e469f85af5fd1",
+    "original_size": 20463,
+    "archived_name": "useful-pencil39-control.mapping.json"
+  },
+  {
+    "original_name": "useful-pencil39-control.encode.log",
+    "original_sha256": "bde02e57e3aec4a965c69e7a4102f76a6c4fb6c7f03594f2c4667071097d684b",
+    "original_size": 210,
+    "archived_name": "useful-pencil39-control.encode.log"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control.cnf",
+    "original_sha256": "2a1846c263d33a24717f86e5f4e2339c0300b8a202dad2f461b8ae8ed06f9e1c",
+    "original_size": 57394838,
+    "archived_name": "useful-ordered-pencil39-control.cnf.gz"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control.mapping.json",
+    "original_sha256": "a951dda390bcc6e746170ab6b88329ec5ad5b988bb27e5fc7bb477ef7a13d4b2",
+    "original_size": 20820,
+    "archived_name": "useful-ordered-pencil39-control.mapping.json"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control.encode.log",
+    "original_sha256": "8691b68ae4bf87c853b5f697deb89144142742e79285ac32c3757bdf2bea5b79",
+    "original_size": 210,
+    "archived_name": "useful-ordered-pencil39-control.encode.log"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.log",
+    "original_sha256": "9d714e886fc8400927676035e77191379159c054449b378c0ba8d12ab7fc6fdd",
+    "original_size": 459,
+    "archived_name": "useful-ordered-pencil39-control-run.log"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.command.json",
+    "original_sha256": "d81a42ca3f64eb9f3ceec50e3d702f6c92f503289bf6718ab8a5d93503c4ea31",
+    "original_size": 255,
+    "archived_name": "useful-ordered-pencil39-control-run.command.json"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.process.json",
+    "original_sha256": "a8c209b1e6f9d8ead9d37ad441bab0b3c5dc4f11df593a53d5b99eb1136108f1",
+    "original_size": 720,
+    "archived_name": "useful-ordered-pencil39-control-run.process.json"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.status.json",
+    "original_sha256": "b61551cbe3a9ee387c231d5e40d001bdb6c0f691201045f6cdb8a0afe27905c6",
+    "original_size": 304,
+    "archived_name": "useful-ordered-pencil39-control-run.status.json"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.solver.log",
+    "original_sha256": "2788357f3d9d30e227b228df958879c217a43fbf81ea7763f18c4c6d95ec6b74",
+    "original_size": 36930,
+    "archived_name": "useful-ordered-pencil39-control-run.solver.log"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "useful-ordered-pencil39-control-run.reader.log"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.sol",
+    "original_sha256": "86c1c89732ca9555e0f9a62a178ab3482dea3760d7b4dffda0c148fb926939ea",
+    "original_size": 6160487,
+    "archived_name": "useful-ordered-pencil39-control-run.sol.gz"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.witness.json",
+    "original_sha256": "2fda65d0dc11d9f85210e6b41ae4a20a3e0fd25ac4f2efefd8fb44732b834503",
+    "original_size": 6466,
+    "archived_name": "useful-ordered-pencil39-control-run.witness.json"
+  },
+  {
+    "original_name": "useful-ordered-pencil39-control-run.global-witness.json",
+    "original_sha256": "4097973bfcf4027b05db180301d96e490dc286bc21af0878afdda97717b78042",
+    "original_size": 5700,
+    "archived_name": "useful-ordered-pencil39-control-run.global-witness.json"
+  }
+]
