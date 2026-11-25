@@ -1,0 +1,5 @@
+UTC 2026-11-25T05:28:41.985271+00:00
+Lean build exit 0, complete stdout/stderr empty.
+Defs-only; copied accepted L267 reusable counting proof, added saturation theorem.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/SaturatedNegativeFamily.lean
+SHA256 6bc7bb710e7e2fbd5e60431e876016b3ba7d0ff221108e923a0ae69211641906
