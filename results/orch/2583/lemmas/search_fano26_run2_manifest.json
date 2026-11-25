@@ -1,0 +1,19 @@
+{
+  "status": "prepared for900s run",
+  "source_file": "results/orch/2583/lemmas/search_fano26_v2.cpp",
+  "original_source_sha256": "b49b2a7755dc0ea073a6c84e86113be046152afd1b86298ab2512d3160eab631",
+  "source_provenance": "digest recorded before optimized compile and run; source frozen",
+  "seed": 2584,
+  "planned_seconds": 900,
+  "model": "26 sequential gates,14primary inputs, exactly two earlier wires perAND/OR gate",
+  "critical_rows": 58,
+  "goal": "find0truth errors; bias avoids candidates that are READ1 on every accepted target edge",
+  "fitness": "fp*weight +fn +2 if no accepted edge lacks a jointREAD1 proof",
+  "independent_validation": "zero-error candidates must be checked on all16384assignments",
+  "compiler_options": [
+    "-O3",
+    "-march=native",
+    "-std=c++17"
+  ],
+  "sanitizer_smoke": "passed1s; printed truth/read1 scores independently verified"
+}
