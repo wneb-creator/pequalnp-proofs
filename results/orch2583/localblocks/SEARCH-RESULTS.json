@@ -1,0 +1,46 @@
+[
+  {
+    "file": "k4-noline-14-op-result.json",
+    "status": "UNKNOWN",
+    "gates": 14,
+    "inputs": 10,
+    "elapsed_seconds": 120.07463378900002,
+    "first": null,
+    "ordered": true,
+    "productive": true,
+    "bad_rows": null
+  },
+  {
+    "file": "k3-noline-baseline-result.json",
+    "status": "SAT",
+    "gates": 11,
+    "inputs": 9,
+    "elapsed_seconds": 0.030446333000327286,
+    "first": null,
+    "ordered": false,
+    "productive": false,
+    "bad_rows": []
+  },
+  {
+    "file": "k3-noline-10-result.json",
+    "status": "UNKNOWN",
+    "gates": 10,
+    "inputs": 9,
+    "elapsed_seconds": 60.04778809599975,
+    "first": null,
+    "ordered": false,
+    "productive": false,
+    "bad_rows": null
+  },
+  {
+    "file": "k3-line-10-op-result.json",
+    "status": "UNKNOWN",
+    "gates": 10,
+    "inputs": 10,
+    "elapsed_seconds": 20.06919772800029,
+    "first": null,
+    "ordered": true,
+    "productive": true,
+    "bad_rows": null
+  }
+]

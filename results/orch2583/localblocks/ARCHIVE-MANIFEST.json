@@ -1,0 +1,192 @@
+[
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-data.json",
+    "bytes": 1977,
+    "sha256": "dcfc61cf882c67141eec6fe7714cd48bd026fdb3ae67259ff981c7b7e7f5af11"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-data.json",
+    "bytes": 1971,
+    "sha256": "1c8a9662e59329b1fd1df3d4afbb887212c180cd47856c1fdec023b7cf602ef5"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op.cnf",
+    "bytes": 150463,
+    "sha256": "5ddd548f3080410fa181e62dcaeb2ba9cdf32c5c64acb890be1044ae9a0f4355"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-line-data.json",
+    "bytes": 2948,
+    "sha256": "dcc7dc3ace5f7b7c021cd3cf0b9cbf4c107bc05ff4db02f32e951bd6c98a03f5"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.json",
+    "bytes": 131,
+    "sha256": "6709e4bb4689c8c90679b985260f5d755147b760c471d03dc9b8ffa25ed013db"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op-result.json",
+    "bytes": 528,
+    "sha256": "46c4f7c0f3e4f80be29a3d0ac62c34697d80c44606dbd62a99ca041012874c3b"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op.cnf",
+    "bytes": 353144,
+    "sha256": "e117a1fc17f19b06b6fea97dc407478425db017d41860774394042f956b79650"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op.driver.stdout",
+    "bytes": 668,
+    "sha256": "0a24c138010b7e2e311c1c9d22e0a35d315345df2f946d2aac9be60475055683"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.stdout",
+    "bytes": 7125,
+    "sha256": "2d2c75e6fc1fb6ee46f4e942437221166b537038abc9f217bcf29f92bea8b26b"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-baseline.json",
+    "bytes": 132,
+    "sha256": "62f5aad93c9a21f0c99195a9e8b6622144483708105a90cf8c3c008e6d9a36d1"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op.stdout",
+    "bytes": 28886,
+    "sha256": "26bb021bdec0effe787fdb07d2768fb2367ae2909ba73a93125ec9b9bddffcaf"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline-result.json",
+    "bytes": 542,
+    "sha256": "37bde8c69032702a45ec5b12022e7e21032250a2eb68d88a918e5ca971251b52"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.driver.stdout",
+    "bytes": 933,
+    "sha256": "8e3a3a93ca90c9a1b99cb091c35cd5bb1fc34bec29aa7c0855203b3c3202222e"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-baseline.json",
+    "bytes": 180,
+    "sha256": "8bcb152d839f475774308b5995e75f0291caac14dd7536873a9aa5c31e659791"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10.driver.stdout",
+    "bytes": 640,
+    "sha256": "ec4827e550a0b2b1c14af277abbcc5ed23058ec3b33fd483b2abb9b07664796d"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-line-baseline.json",
+    "bytes": 182,
+    "sha256": "f3f0f5829472db24e0094b67a0b8b05169a635902c965047ed87c7884ef038f1"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10.cnf",
+    "bytes": 131504,
+    "sha256": "d976c4d06778804ab5d6446f0af45cb87ca29de18c5eb67e8a1c457441c85a38"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline-witness.json",
+    "bytes": 131,
+    "sha256": "08eeae47741aa30ccdcea3e38a9a5f466d0c15dd0613ba4a0813998294b57ae4"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10-result.json",
+    "bytes": 495,
+    "sha256": "59f2621e4b5a1c3c07b0aa975c9c6b92a0ebf668bc9d463ddb73dd548e6e2e29"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/cases.json",
+    "bytes": 10542,
+    "sha256": "fe1b2314364443c58805cbb3e6d08cfc6a5b804d1eaadf1645a44465732af51f"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-data.json",
+    "bytes": 1819,
+    "sha256": "1569cf73e9e4ad915f069875b96489887c45678cc4fc9d495cc7032a23029240"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.cnf",
+    "bytes": 154276,
+    "sha256": "81dc2d6c10c57fc091ceb786ca10e53b0c0dd3391b8f49f5c67c76a2ee3273a8"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-baseline.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op.stdout",
+    "bytes": 16729,
+    "sha256": "291f30a535005b002ac58b255bbfc5776dc1caa8c1335c861314c80c324485d2"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-noline-10.stdout",
+    "bytes": 20102,
+    "sha256": "10146e34c416b0f977273dd8f22227c01508f20f60296d466e024d69b7f35ed0"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k3-line-10-op-result.json",
+    "bytes": 524,
+    "sha256": "214d5fc421cec0a96f19bf67c63fc811d46741a2583516fa2082549904b07158"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/k4-noline-14-op.driver.stdout",
+    "bytes": 673,
+    "sha256": "497dc21ecbafdcfa29078641cd6da8b9f09913dfd06db87ed0e37aec546af035"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/localblocks-prepare.stdout",
+    "bytes": 2042,
+    "sha256": "126f5dbe43c5efb6d45e68d499784c6b7d426be8bcb310eea07fbb6e4e2231b5"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/localblocks-prepare.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/cadical-localblocks-help.stdout",
+    "bytes": 14905,
+    "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+  },
+  {
+    "file": "results/orch2583/localblocks/diagnostics/cadical-localblocks-help.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

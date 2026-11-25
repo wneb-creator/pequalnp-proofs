@@ -1,0 +1,162 @@
+[
+  {
+    "case": 0,
+    "first_gate": [
+      0,
+      0,
+      7
+    ],
+    "started_at": "2026-11-25T14:56:21.380937+00:00",
+    "finished_at": "2026-11-25T14:58:21.696730+00:00",
+    "elapsed_seconds": 120.31581757499998,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf_productive.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "0,0,7",
+      "--tag",
+      "productive-fano26-case0-and-0-7"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T14:56:21.412445+00:00",
+      "finished_at": "2026-11-25T14:58:21.643841+00:00",
+      "elapsed_seconds": 120.2314008340004,
+      "first": "0,0,7",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155384,
+      "cnf_sha256": "252e5b962663c6ea45a8429487dd57739af1f5198a5c8968b73823816bb8195e",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false,
+      "productive_on_edge": true
+    }
+  },
+  {
+    "case": 1,
+    "first_gate": [
+      1,
+      0,
+      1
+    ],
+    "started_at": "2026-11-25T14:58:21.698013+00:00",
+    "finished_at": "2026-11-25T15:00:21.885983+00:00",
+    "elapsed_seconds": 120.18798922299993,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf_productive.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "1,0,1",
+      "--tag",
+      "productive-fano26-case1-or-0-1"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T14:58:21.727824+00:00",
+      "finished_at": "2026-11-25T15:00:21.865734+00:00",
+      "elapsed_seconds": 120.13791263400026,
+      "first": "1,0,1",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155384,
+      "cnf_sha256": "fb17d23aa57140523b158e2e2fb628e7cb54f568a72f97c590799913ccbc4709",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false,
+      "productive_on_edge": true
+    }
+  },
+  {
+    "case": 2,
+    "first_gate": [
+      1,
+      0,
+      7
+    ],
+    "started_at": "2026-11-25T15:00:21.886899+00:00",
+    "finished_at": "2026-11-25T15:02:22.138756+00:00",
+    "elapsed_seconds": 120.25187420999964,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf_productive.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "1,0,7",
+      "--tag",
+      "productive-fano26-case2-or-0-7"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T15:00:21.912745+00:00",
+      "finished_at": "2026-11-25T15:02:22.059175+00:00",
+      "elapsed_seconds": 120.14656889499975,
+      "first": "1,0,7",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155384,
+      "cnf_sha256": "d0aeaa5bb7bc209698d5ac76f6bed4d91d2c783816767182bf1618b830e20dc9",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false,
+      "productive_on_edge": true
+    }
+  },
+  {
+    "case": 3,
+    "first_gate": [
+      1,
+      2,
+      7
+    ],
+    "started_at": "2026-11-25T15:02:22.139717+00:00",
+    "finished_at": "2026-11-25T15:04:22.332256+00:00",
+    "elapsed_seconds": 120.1925607799999,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf_productive.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "1,2,7",
+      "--tag",
+      "productive-fano26-case3-or-2-7"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T15:02:22.169420+00:00",
+      "finished_at": "2026-11-25T15:04:22.293520+00:00",
+      "elapsed_seconds": 120.12411100300005,
+      "first": "1,2,7",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155384,
+      "cnf_sha256": "4b61d6281bff03c6092014ea38e4e9b0aaf17c5ab6f67e14f246dc10d1b3b438",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false,
+      "productive_on_edge": true
+    }
+  }
+]

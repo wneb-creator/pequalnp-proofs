@@ -24,3 +24,11 @@ Read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.l
 Read 2026-11-25: https://github.com/open-goat/pequalnp-proofs/discussions/12644 reports no small counterexample to the core-cover inequality |D|+τ(G)≤|U|+mc+τ(G−D), and inconclusive PG(2,3) 63-gate searches. Counts and outcomes are the discussion author’s reported results, not independently reproduced here.
 
 Repo L_meta_2969 and L_meta_3444 refute broad complementary cone-count bounds without minimality. Their circuits are nonminimal; root correctly notes they do not refute a least-circuit version. L_meta_3446 likewise concerns a stronger protected-cone cover inequality without minimality. The original full-U core-cover inequality alone is insufficient unless a complementary least-circuit count is also established.
+
+## Checked two-junk obstruction
+
+`TwoJunk.lean` compiled exit0 with empty stdout/stderr in `2583-twojunk-first.*`. It independently formalizes lean_setup’s nine-gate P5 example using the actual library Circuit/TopForm/Core definitions. It proves AO2, exact P5 function, bipartite and NoFourCycle, TopForm, lift fixed point, all gates live, junk indices exactly{3,5}, four accepted graph edges at each junk, and failure of Read1. Every gate is pivotal on an edge after `CircuitMoves.eraseGate 5 circuit j 14` (redirect to an out-of-range wire, hence false). Neither junk’s accepted edges can be covered by the endpoints of one graph edge. The explicit five-gate equivalent proves the example is not least; it does not refute gap2583.
+
+`TwoJunkBypass.lean` also compiled exit0 with empty output (`2583-twojunk-bypass.*`). It adds the fact that bypassing any gate by either operand changes the function. Independent Python verification of these18 cases was performed by lower_bound; the Lean proof uses the existing library eraseGate operation.
+
+`TwoJunkIrreducible.lean` is the strongest standalone version (121lines); compiled exit0, empty logs `2583-twojunk-irreducible.stdout/.stderr`. It additionally proves all81 bypasses to any earlier wire change the function, and forcing any gate to true changes the function on some originally false assignment. Thus this example survives zero forcing, one forcing, and all earlier-wire one-gate bypasses while still having a much smaller globally different circuit. Forbidden-token scan returned no matches (rg exit1).

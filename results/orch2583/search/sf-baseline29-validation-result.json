@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-25T15:05:48.218798+00:00",
+  "finished_at": "2026-11-25T15:05:48.636628+00:00",
+  "elapsed_seconds": 0.41783413599978303,
+  "first": null,
+  "gates": 29,
+  "rows": 58,
+  "variables": 10962,
+  "clauses": 281764,
+  "cnf_sha256": "9bc0926e0d59010250257736e9a1074af45c7248564074df66fda1993fc35dc3",
+  "exit": 10,
+  "status": "SAT",
+  "all_gates_used": true,
+  "ordered_sources": false,
+  "productive_on_edge": true,
+  "nonread1_required": true,
+  "full_rows_checked": 16384,
+  "bad_rows": [],
+  "squarefree_missing_edges": [
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      0,
+      13
+    ]
+  ]
+}

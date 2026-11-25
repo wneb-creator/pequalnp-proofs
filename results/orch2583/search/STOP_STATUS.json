@@ -1,0 +1,27 @@
+{
+  "stopped_at": "2026-11-25T15:07:13.569711+00:00",
+  "reason": "Parent reported no live L-meta-2583 lease; all work stopped.",
+  "stopped_processes": [],
+  "process_checks": [
+    {
+      "kind": "driver",
+      "status": 1,
+      "pids": ""
+    },
+    {
+      "kind": "case",
+      "status": 1,
+      "pids": ""
+    },
+    {
+      "kind": "solver",
+      "status": 1,
+      "pids": ""
+    }
+  ],
+  "diagnostic_files": 56,
+  "counterexamples_found": 0,
+  "productive_four_case_status": "All four UNKNOWN at120seconds",
+  "squarefree_search_status": "Not started; three validation tests passed",
+  "source_files": 5
+}

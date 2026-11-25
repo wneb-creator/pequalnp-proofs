@@ -1,0 +1,4 @@
+START 2026-11-25T15:02:29.786213+00:00 gates 11 first None rows 17 variables 880 clauses 11478 cnf_sha256 81dc2d6c10c57fc091ceb786ca10e53b0c0dd3391b8f49f5c67c76a2ee3273a8
+RESULT {"all_gates_used": true, "clauses": 11478, "cnf_sha256": "81dc2d6c10c57fc091ceb786ca10e53b0c0dd3391b8f49f5c67c76a2ee3273a8", "data": "/tmp/oec/pequalnp-pilot-103/localblocks/k3-noline-data.json", "elapsed_seconds": 0.030446333000327286, "exit": 10, "finished_at": "2026-11-25T15:02:29.816661+00:00", "first": null, "gates": 11, "inputs": 9, "ordered_sources": false, "rows": 17, "started_at": "2026-11-25T15:02:29.786213+00:00", "status": "SAT", "variables": 880}
+CANDIDATE [[1, 3, 6], [1, 8, 9], [0, 0, 10], [1, 3, 4], [1, 7, 12], [0, 1, 13], [1, 4, 5], [1, 8, 15], [0, 2, 16], [1, 11, 14], [1, 17, 18]] bad_rows 0
+WITNESS [[1, 3, 6], [1, 8, 9], [0, 0, 10], [1, 3, 4], [1, 7, 12], [0, 1, 13], [1, 4, 5], [1, 8, 15], [0, 2, 16], [1, 11, 14], [1, 17, 18]]

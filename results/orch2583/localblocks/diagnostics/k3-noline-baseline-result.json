@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-11-25T15:02:29.786213+00:00",
+  "finished_at": "2026-11-25T15:02:29.816661+00:00",
+  "elapsed_seconds": 0.030446333000327286,
+  "first": null,
+  "gates": 11,
+  "inputs": 9,
+  "data": "/tmp/oec/pequalnp-pilot-103/localblocks/k3-noline-data.json",
+  "rows": 17,
+  "variables": 880,
+  "clauses": 11478,
+  "cnf_sha256": "81dc2d6c10c57fc091ceb786ca10e53b0c0dd3391b8f49f5c67c76a2ee3273a8",
+  "exit": 10,
+  "status": "SAT",
+  "all_gates_used": true,
+  "ordered_sources": false,
+  "full_rows_checked": 512,
+  "bad_rows": []
+}
