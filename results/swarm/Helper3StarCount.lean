@@ -2224,3 +2224,932 @@ lemma productiveOr_not_bad {β : Type*} (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
     exact hij ((hm i hi).trans (hm j hj).symm)
 
 end PEqualNP.Outside.L_meta_4970_aux
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SemanticSafe
+
+lemma zsplit_gates (gs : List Gate) (j : ℕ) (hj : j < gs.length) :
+    ∃ (pre post : List Gate) (gj : Gate),
+      gs = pre ++ gj :: post ∧ pre.length = j ∧ gs[j]'hj = gj := by
+  refine ⟨gs.take j, gs.drop (j + 1), gs[j]'hj, ?_, by simp; omega, rfl⟩
+  rw [List.cons_getElem_drop_succ, List.take_append_drop]
+
+
+lemma zgateAt_eq (C : Circuit) (k : ℕ) (hk : k < C.gates.length) : gateAt C k = C.gates[k] := by
+  simp [gateAt, List.getD_eq_getElem?_getD, hk]
+
+lemma zorFold_length (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) :
+    (gs.foldl (orStep n) cs).length = cs.length + gs.length := by
+  induction gs generalizing cs with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [orStep]
+    omega
+
+lemma zorStep_mem_last (n : ℕ) (cs : List (List ℕ)) (g : Gate) (x : ℕ) :
+    x ∈ (orStep n cs g).getD cs.length [] ↔ x = cs.length ∨ (g.op = GateOp.or ∧
+      ∃ w ∈ g.inputs, n ≤ w ∧ w < n + cs.length ∧ x ∈ cs.getD (w - n) []) := by
+  by_cases h : g.op = GateOp.or
+  · simp only [orStep, List.getD_eq_getElem?_getD, List.getElem?_append_right le_rfl, h,
+      ↓reduceIte, true_and, Nat.sub_self, List.getElem?_cons_zero, Option.getD_some,
+      List.mem_cons, List.mem_flatMap, List.mem_filter, decide_eq_true_eq]
+    constructor
+    · rintro (h1 | ⟨w, ⟨hw, hn, hlt⟩, hx⟩)
+      · exact Or.inl h1
+      · exact Or.inr ⟨w, hw, hn, hlt, hx⟩
+    · rintro (h1 | ⟨w, hw, hn, hlt, hx⟩)
+      · exact Or.inl h1
+      · exact Or.inr ⟨w, ⟨hw, hn, hlt⟩, hx⟩
+  · simp [orStep, List.getD_eq_getElem?_getD, h]
+
+lemma zorStep_getD_lt (n : ℕ) (cs : List (List ℕ)) (g : Gate) (m : ℕ) (hm : m < cs.length) :
+    (orStep n cs g).getD m [] = cs.getD m [] := by
+  simp [orStep, List.getD_eq_getElem?_getD, List.getElem?_append_left hm]
+
+lemma zorFold_getD_lt (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) (k : ℕ)
+    (hk : k < cs.length) :
+    (gs.foldl (orStep n) cs).getD k [] = cs.getD k [] := by
+  induction gs generalizing cs with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    rw [ih (orStep n cs g) (by simp [orStep]; omega)]
+    exact zorStep_getD_lt n cs g k hk
+
+lemma zorSets_mem_iff (n : ℕ) (C : Circuit) (k x : ℕ) (hk : k < C.gates.length) :
+    x ∈ (orSets n C).getD k [] ↔ x = k ∨ ((gateAt C k).op = GateOp.or ∧
+      ∃ w ∈ (gateAt C k).inputs, n ≤ w ∧ w < n + k ∧ x ∈ (orSets n C).getD (w - n) []) := by
+  obtain ⟨pre, post, gk, hgs, hpre_len, hgk⟩ := zsplit_gates C.gates k hk
+  have hga : gateAt C k = gk := by rw [zgateAt_eq C k hk]; exact hgk
+  rw [hga]
+  have hc : orSets n C = post.foldl (orStep n) (orStep n (pre.foldl (orStep n) []) gk) := by
+    simp only [orSets]
+    rw [hgs, List.foldl_append, List.foldl_cons]
+  have hl0 : (pre.foldl (orStep n) []).length = k := by
+    rw [zorFold_length]; simp [hpre_len]
+  have hl1 : (orStep n (pre.foldl (orStep n) []) gk).length = k + 1 := by
+    simp [orStep, hl0]
+  have h1 : (orSets n C).getD k [] = (orStep n (pre.foldl (orStep n) []) gk).getD k [] := by
+    rw [hc, zorFold_getD_lt n post _ k (by omega)]
+  have h2 : ∀ m, m < k → (orSets n C).getD m [] = (pre.foldl (orStep n) []).getD m [] := by
+    intro m hm
+    rw [hc, zorFold_getD_lt n post _ m (by omega)]
+    exact zorStep_getD_lt n _ gk m (by omega)
+  have h3 := zorStep_mem_last n (pre.foldl (orStep n) []) gk x
+  rw [hl0] at h3
+  rw [h1, h3]
+  constructor
+  · rintro (h | ⟨hop, w, hw, hn, hlt, hx⟩)
+    · exact Or.inl h
+    · exact Or.inr ⟨hop, w, hw, hn, hlt, by rw [h2 (w - n) (by omega)]; exact hx⟩
+  · rintro (h | ⟨hop, w, hw, hn, hlt, hx⟩)
+    · exact Or.inl h
+    · exact Or.inr ⟨hop, w, hw, hn, hlt, by rw [← h2 (w - n) (by omega)]; exact hx⟩
+
+
+lemma zqorSets_len (n : ℕ) (C : Circuit) : (orSets n C).length = C.gates.length := by
+  simp only [orSets]
+  rw [zorFold_length]
+  simp
+
+lemma zqreach_iff (n : ℕ) (C : Circuit) (k g : ℕ) (hk : k < C.gates.length) :
+    OrReaches n C (n + k) g ↔ g = k ∨ ((gateAt C k).op = GateOp.or ∧
+      ∃ w ∈ (gateAt C k).inputs, w < n + k ∧ OrReaches n C w g) := by
+  have e : n + k - n = k := by omega
+  constructor
+  · intro h
+    have h2 := h.2
+    rw [e] at h2
+    rcases (zorSets_mem_iff n C k g hk).1 h2 with h3 | ⟨hop, w, hw, hn, hlt, hx⟩
+    · exact Or.inl h3
+    · exact Or.inr ⟨hop, w, hw, hlt, hn, hx⟩
+  · intro h
+    refine ⟨by omega, ?_⟩
+    rw [e]
+    refine (zorSets_mem_iff n C k g hk).2 ?_
+    rcases h with h | ⟨hop, w, hw, hlt, hr⟩
+    · exact Or.inl h
+    · exact Or.inr ⟨hop, w, hw, hr.1, hlt, hr.2⟩
+
+lemma zqreach_bound (n : ℕ) (C : Circuit) (w g : ℕ) (h : OrReaches n C w g) :
+    n ≤ w ∧ w - n < C.gates.length := by
+  refine ⟨h.1, ?_⟩
+  by_contra hc
+  have h2 := h.2
+  have hlen : (orSets n C).length ≤ w - n := by rw [zqorSets_len]; omega
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none hlen] at h2
+  simp at h2
+
+lemma zqreach_self (n : ℕ) (C : Circuit) (k : ℕ) (hk : k < C.gates.length) :
+    OrReaches n C (n + k) k := (zqreach_iff n C k k hk).2 (Or.inl rfl)
+
+lemma zqmem_orIn (n : ℕ) (C : Circuit) (w : ℕ) (b : Fin n) :
+    b ∈ PEqualNP.TopForm.orIn n C w ↔ ((b : ℕ) = w ∨ ∃ k, k < C.gates.length ∧
+      OrReaches n C w k ∧ (gateAt C k).op = GateOp.or ∧ (b : ℕ) ∈ (gateAt C k).inputs) := by
+  unfold PEqualNP.TopForm.orIn
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma zqorIn_eq_self (n : ℕ) (C : Circuit) (w : ℕ)
+    (hw : ¬ (n ≤ w ∧ w - n < C.gates.length ∧ (gateAt C (w - n)).op = GateOp.or)) :
+    ∀ b ∈ PEqualNP.TopForm.orIn n C w, (b : ℕ) = w := by
+  intro b hb
+  rcases (zqmem_orIn n C w b).1 hb with h | ⟨k', hk', hr, hop', hi⟩
+  · exact h
+  · exfalso
+    obtain ⟨h1, h2⟩ := zqreach_bound n C w k' hr
+    obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+    have e : n + k - n = k := by omega
+    rw [e] at hw h2
+    rcases (zqreach_iff n C k k' h2).1 hr with h | ⟨hop, _⟩
+    · rw [h] at hop'
+      exact hw ⟨h1, h2, hop'⟩
+    · exact hw ⟨h1, h2, hop⟩
+
+lemma zqorIn_small (n : ℕ) (C : Circuit) (w : ℕ)
+    (hw : ¬ (n ≤ w ∧ w - n < C.gates.length ∧ (gateAt C (w - n)).op = GateOp.or)) :
+    (PEqualNP.TopForm.orIn n C w).card ≤ 1 := by
+  rw [Finset.card_le_one]
+  intro a ha b hb
+  have h1 := zqorIn_eq_self n C w hw a ha
+  have h2 := zqorIn_eq_self n C w hw b hb
+  exact Fin.ext (by omega)
+
+lemma zqorIn_or (n : ℕ) (C : Circuit) (k a b : ℕ) (hk : k < C.gates.length)
+    (hop : (gateAt C k).op = GateOp.or) (hin : (gateAt C k).inputs = [a, b])
+    (ha : a < n + k) (hb : b < n + k) :
+    PEqualNP.TopForm.orIn n C (n + k) =
+      PEqualNP.TopForm.orIn n C a ∪ PEqualNP.TopForm.orIn n C b := by
+  have hma : a ∈ (gateAt C k).inputs := by rw [hin]; simp
+  have hmb : b ∈ (gateAt C k).inputs := by rw [hin]; simp
+  ext i
+  rw [Finset.mem_union, zqmem_orIn, zqmem_orIn, zqmem_orIn]
+  constructor
+  · rintro (h | ⟨k', hk', hr, hop', hi⟩)
+    · exfalso
+      have := i.2
+      omega
+    · rcases (zqreach_iff n C k k' hk).1 hr with h | ⟨_, w, hw, hwlt, hr'⟩
+      · rw [h, hin, List.mem_cons, List.mem_singleton] at hi
+        rcases hi with h4 | h4
+        · exact Or.inl (Or.inl h4)
+        · exact Or.inr (Or.inl h4)
+      · rw [hin, List.mem_cons, List.mem_singleton] at hw
+        rcases hw with h4 | h4
+        · rw [h4] at hr'
+          exact Or.inl (Or.inr ⟨k', hk', hr', hop', hi⟩)
+        · rw [h4] at hr'
+          exact Or.inr (Or.inr ⟨k', hk', hr', hop', hi⟩)
+  · rintro ((h | ⟨k', hk', hr, hop', hi⟩) | (h | ⟨k', hk', hr, hop', hi⟩))
+    · exact Or.inr ⟨k, hk, zqreach_self n C k hk, hop, by rw [h]; exact hma⟩
+    · exact Or.inr ⟨k', hk', (zqreach_iff n C k k' hk).2 (Or.inr ⟨hop, a, hma, ha, hr⟩), hop', hi⟩
+    · exact Or.inr ⟨k, hk, zqreach_self n C k hk, hop, by rw [h]; exact hmb⟩
+    · exact Or.inr ⟨k', hk', (zqreach_iff n C k k' hk).2 (Or.inr ⟨hop, b, hmb, hb, hr⟩), hop', hi⟩
+
+lemma raw_input (n : ℕ) (C : Circuit) (w : ℕ) (hw : w < n) :
+    orIn n C w = {⟨w, hw⟩} := by
+  ext i
+  constructor
+  · intro hi
+    have he := zqorIn_eq_self n C w (by omega) i hi
+    exact Finset.mem_singleton.mpr (Fin.ext he)
+  · intro hi
+    have he := Finset.mem_singleton.mp hi
+    exact (zqmem_orIn n C w i).mpr (Or.inl (congrArg Fin.val he))
+
+lemma raw_and_empty (n : ℕ) (C : Circuit) (w : ℕ) (hn : n ≤ w)
+    (hand : (gateAt C (w - n)).op = GateOp.and) : orIn n C w = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro i hi
+  have he := zqorIn_eq_self n C w (by
+    rintro ⟨_, _, hor⟩
+    rw [hand] at hor
+    cases hor) i hi
+  have := i.isLt
+  omega
+
+lemma raw_or_union (n : ℕ) (C : Circuit) (w a b : ℕ)
+    (hw : w < n + C.gates.length) (hn : n ≤ w)
+    (hor : (gateAt C (w - n)).op = GateOp.or)
+    (hab : (gateAt C (w - n)).inputs = [a, b]) (ha : a < w) (hb : b < w) :
+    orIn n C w = orIn n C a ∪ orIn n C b := by
+  have he : n + (w - n) = w := by omega
+  have hraw := zqorIn_or n C (w - n) a b (by omega) hor hab
+    (by omega) (by omega)
+  rwa [he] at hraw
+
+lemma raw_subset_singletonSupport (n : ℕ) (C : Circuit) (hC : IsAO2 n C) :
+    ∀ w, w < n + C.gates.length → orIn n C w ⊆ singletonSupport n C w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hin : w < n
+    · rw [raw_input n C w hin, singletonSupport_input n C w hin]
+    · have hn : n ≤ w := by omega
+      have hj : w - n < C.gates.length := by omega
+      have he : n + (w - n) = w := by omega
+      obtain ⟨a, b, ha, hb, hab, hop, heval⟩ := binary_gate n C hC (w - n) hj
+      rw [he] at ha hb heval
+      rcases hop with hand | hor
+      · rw [raw_and_empty n C w hn hand]
+        exact Finset.empty_subset _
+      · rw [raw_or_union n C w a b hw hn hor hab ha hb]
+        intro i hi
+        rw [mem_singletonSupport, heval, hor]
+        simp only [GateOp.eval, List.any_cons, List.any_nil, Bool.or_false, id_eq,
+          Bool.or_eq_true]
+        rcases Finset.mem_union.mp hi with hi | hi
+        · exact Or.inl ((mem_singletonSupport n C a i).mp (ih a ha (by omega) hi))
+        · exact Or.inr ((mem_singletonSupport n C b i).mp (ih b hb (by omega) hi))
+
+noncomputable def blendedSupport (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ) :
+    Finset (Fin n) := by
+  classical
+  exact if Safe Q (wireFn n C w) then singletonSupport n C w else orIn n C w
+
+lemma blendedSupport_of_safe (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ)
+    (hs : Safe Q (wireFn n C w)) : blendedSupport n C Q w = singletonSupport n C w := by
+  classical
+  simp [blendedSupport, hs]
+
+lemma blendedSupport_of_not_safe (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ)
+    (hs : ¬ Safe Q (wireFn n C w)) : blendedSupport n C Q w = orIn n C w := by
+  classical
+  simp [blendedSupport, hs]
+
+lemma raw_subset_blendedSupport (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w < n + C.gates.length) :
+    orIn n C w ⊆ blendedSupport n C Q w := by
+  classical
+  by_cases hs : Safe Q (wireFn n C w)
+  · rw [blendedSupport_of_safe n C Q w hs]
+    exact raw_subset_singletonSupport n C hC w hw
+  · rw [blendedSupport_of_not_safe n C Q w hs]
+
+lemma blendedSupport_subset_singletonSupport (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w < n + C.gates.length) :
+    blendedSupport n C Q w ⊆ singletonSupport n C w := by
+  classical
+  by_cases hs : Safe Q (wireFn n C w)
+  · rw [blendedSupport_of_safe n C Q w hs]
+  · rw [blendedSupport_of_not_safe n C Q w hs]
+    exact raw_subset_singletonSupport n C hC w hw
+
+lemma blendedSupport_subset_Q (n : ℕ) (C : Circuit) (Q : Finset (Fin n))
+    (w : ℕ) (hraw : orIn n C w ⊆ Q) : blendedSupport n C Q w ⊆ Q := by
+  classical
+  by_cases hs : Safe Q (wireFn n C w)
+  · rw [blendedSupport_of_safe n C Q w hs]
+    exact singletonSupport_safe_subset n C w Q hs
+  · rw [blendedSupport_of_not_safe n C Q w hs]
+    exact hraw
+
+
+lemma safe_admissible (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w < n + C.gates.length)
+    (hs : Safe Q (wireFn n C w)) : w < n + C.gates.length ∧ orIn n C w ⊆ Q :=
+  ⟨hw, (raw_subset_singletonSupport n C hC w hw).trans
+    (singletonSupport_safe_subset n C w Q hs)⟩
+
+lemma blended_singleton_structure (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) :
+    ∀ w, (w < n + C.gates.length ∧ orIn n C w ⊆ Q) →
+      (blendedSupport n C Q w).card ≤ 1 ∨
+      (∃ a, a < w ∧ (a < n + C.gates.length ∧ orIn n C a ⊆ Q) ∧
+        blendedSupport n C Q w ⊆ blendedSupport n C Q a) ∨
+      ((n ≤ w ∧ (gateAt C (w - n)).op = GateOp.or) ∧
+        ∃ a b, a < w ∧ b < w ∧
+          (a < n + C.gates.length ∧ orIn n C a ⊆ Q) ∧
+          (b < n + C.gates.length ∧ orIn n C b ⊆ Q) ∧
+          blendedSupport n C Q w ⊆ blendedSupport n C Q a ∪ blendedSupport n C Q b) := by
+  classical
+  intro w ⟨hw, hraw⟩
+  by_cases hs : Safe Q (wireFn n C w)
+  · rcases safe_singleton_structure n C hC Q w ⟨hw, hs⟩ with
+      hsmall | ⟨a, ha, ⟨haw, hsa⟩, hsub⟩ |
+      ⟨hor, a, b, ha, hb, ⟨haw, hsa⟩, ⟨hbw, hsb⟩, hsub⟩
+    · exact Or.inl (by rwa [blendedSupport_of_safe n C Q w hs])
+    · right; left
+      refine ⟨a, ha, safe_admissible n C hC Q a haw hsa, ?_⟩
+      rwa [blendedSupport_of_safe n C Q w hs, blendedSupport_of_safe n C Q a hsa]
+    · right; right
+      refine ⟨hor, a, b, ha, hb, safe_admissible n C hC Q a haw hsa,
+        safe_admissible n C hC Q b hbw hsb, ?_⟩
+      rwa [blendedSupport_of_safe n C Q w hs, blendedSupport_of_safe n C Q a hsa,
+        blendedSupport_of_safe n C Q b hsb]
+  · rw [blendedSupport_of_not_safe n C Q w hs]
+    by_cases hin : w < n
+    · left
+      rw [raw_input n C w hin]
+      simp
+    · have hn : n ≤ w := by omega
+      have hj : w - n < C.gates.length := by omega
+      have he : n + (w - n) = w := by omega
+      obtain ⟨a, b, ha, hb, hab, hop, _⟩ := binary_gate n C hC (w - n) hj
+      rw [he] at ha hb
+      rcases hop with hand | hor
+      · left
+        rw [raw_and_empty n C w hn hand]
+        simp
+      · have hu := raw_or_union n C w a b hw hn hor hab ha hb
+        have hsuba : orIn n C a ⊆ Q := by
+          intro i hi
+          exact hraw (hu ▸ Finset.mem_union.mpr (Or.inl hi))
+        have hsubb : orIn n C b ⊆ Q := by
+          intro i hi
+          exact hraw (hu ▸ Finset.mem_union.mpr (Or.inr hi))
+        right; right
+        refine ⟨⟨hn, hor⟩, a, b, ha, hb, ⟨by omega, hsuba⟩, ⟨by omega, hsubb⟩, ?_⟩
+        rw [hu]
+        exact Finset.union_subset_union (raw_subset_blendedSupport n C hC Q a (by omega))
+          (raw_subset_blendedSupport n C hC Q b (by omega))
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+lemma sem_raw_choices_nested {α : Type*} (sem raw X Y : Finset α)
+    (hraw : raw ⊆ sem) (hX : X = sem ∨ X = raw) (hY : Y = sem ∨ Y = raw) :
+    X ⊆ Y ∨ Y ⊆ X := by
+  rcases hX with rfl | rfl <;> rcases hY with rfl | rfl
+  · exact Or.inl (Finset.Subset.refl _)
+  · exact Or.inr hraw
+  · exact Or.inl hraw
+  · exact Or.inl (Finset.Subset.refl _)
+
+lemma sem_raw_large_supports_incompatible {α : Type*} [DecidableEq α]
+    (sem raw X Y Q R : Finset α) (hraw : raw ⊆ sem)
+    (hX : X = sem ∨ X = raw) (hY : Y = sem ∨ Y = raw)
+    (hXQ : X ⊆ Q) (hYR : Y ⊆ R)
+    (hXcard : 2 ≤ X.card) (hYcard : 2 ≤ Y.card) (hinter : (Q ∩ R).card ≤ 1) :
+    False := by
+  rcases sem_raw_choices_nested sem raw X Y hraw hX hY with hXY | hYX
+  · have hsub : X ⊆ Q ∩ R := by
+      intro a ha
+      exact Finset.mem_inter.mpr ⟨hXQ ha, hYR (hXY ha)⟩
+    have hcard := Finset.card_le_card hsub
+    omega
+  · have hsub : Y ⊆ Q ∩ R := by
+      intro a ha
+      exact Finset.mem_inter.mpr ⟨hXQ (hYX ha), hYR ha⟩
+    have hcard := Finset.card_le_card hsub
+    omega
+
+lemma sem_raw_charges_disjoint {α ι : Type*} [DecidableEq α]
+    (U V : Finset ι) (sem raw BQ BR : ι → Finset α) (Q R : Finset α)
+    (hraw : ∀ w ∈ U, raw w ⊆ sem w)
+    (hU : ∀ w ∈ U, (BQ w = sem w ∨ BQ w = raw w) ∧ BQ w ⊆ Q ∧ 2 ≤ (BQ w).card)
+    (hV : ∀ w ∈ V, (BR w = sem w ∨ BR w = raw w) ∧ BR w ⊆ R ∧ 2 ≤ (BR w).card)
+    (hinter : (Q ∩ R).card ≤ 1) : Disjoint U V := by
+  classical
+  apply Finset.disjoint_left.mpr
+  intro w hwU hwV
+  obtain ⟨hchoiceQ, hsubQ, hcardQ⟩ := hU w hwU
+  obtain ⟨hchoiceR, hsubR, hcardR⟩ := hV w hwV
+  exact sem_raw_large_supports_incompatible (sem w) (raw w) (BQ w) (BR w) Q R
+    (hraw w hwU) hchoiceQ hchoiceR hsubQ hsubR hcardQ hcardR hinter
+
+lemma sem_raw_family_charges_disjoint {α ι κ : Type*} [DecidableEq α]
+    (I : Finset ι) (K : ι → Finset κ) (sem raw : κ → Finset α)
+    (B : ι → κ → Finset α) (Q : ι → Finset α)
+    (hraw : ∀ i ∈ I, ∀ w ∈ K i, raw w ⊆ sem w)
+    (hK : ∀ i ∈ I, ∀ w ∈ K i,
+      (B i w = sem w ∨ B i w = raw w) ∧ B i w ⊆ Q i ∧ 2 ≤ (B i w).card)
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1) :
+    (I : Set ι).PairwiseDisjoint K := by
+  intro i hi j hj hij
+  exact sem_raw_charges_disjoint (K i) (K j) sem raw (B i) (B j) (Q i) (Q j)
+    (hraw i hi) (hK i hi) (hK j hj) (hinter i hi j hj hij)
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SemanticSafe
+
+lemma blendedSupport_choice (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ) :
+    blendedSupport n C Q w = singletonSupport n C w ∨
+      blendedSupport n C Q w = orIn n C w := by
+  classical
+  by_cases hs : Safe Q (wireFn n C w)
+  · exact Or.inl (blendedSupport_of_safe n C Q w hs)
+  · exact Or.inr (blendedSupport_of_not_safe n C Q w hs)
+
+lemma blendedSupport_of_raw_eq (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w < n + C.gates.length)
+    (hraw : orIn n C w = Q) : blendedSupport n C Q w = Q := by
+  apply Finset.Subset.antisymm (blendedSupport_subset_Q n C Q w (by rw [hraw]))
+  have hsub := raw_subset_blendedSupport n C hC Q w hw
+  rwa [hraw] at hsub
+
+lemma blendedSupport_of_pure (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ)
+    (hp : PureOr Q (wireFn n C w)) : blendedSupport n C Q w = Q := by
+  rw [blendedSupport_of_safe n C Q w (fun x hx => (hp x).mp hx)]
+  exact singletonSupport_pure n C w Q hp
+
+noncomputable def blendedChargedOr (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
+    Finset ℕ := by
+  classical
+  exact (Finset.range (n + C.gates.length)).filter fun k =>
+    (k < n + C.gates.length ∧ orIn n C k ⊆ Q) ∧
+    (n ≤ k ∧ (gateAt C (k - n)).op = GateOp.or) ∧
+    2 ≤ (blendedSupport n C Q k).card
+
+lemma blendedChargedOr_disjoint (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q R : Finset (Fin n)) (hQR : (Q ∩ R).card ≤ 1) :
+    Disjoint (blendedChargedOr n C Q) (blendedChargedOr n C R) := by
+  classical
+  apply Finset.disjoint_left.mpr
+  intro w hwQ hwR
+  simp only [blendedChargedOr, Finset.mem_filter, Finset.mem_range] at hwQ hwR
+  exact sem_raw_large_supports_incompatible
+    (singletonSupport n C w) (orIn n C w)
+    (blendedSupport n C Q w) (blendedSupport n C R w) Q R
+    (raw_subset_singletonSupport n C hC w hwQ.1)
+    (blendedSupport_choice n C Q w) (blendedSupport_choice n C R w)
+    (blendedSupport_subset_Q n C Q w hwQ.2.1.2)
+    (blendedSupport_subset_Q n C R w hwR.2.1.2)
+    hwQ.2.2.2 hwR.2.2.2 hQR
+
+lemma blendedChargedOr_subset_allOr (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
+    blendedChargedOr n C Q ⊆ allOrWires n C := by
+  classical
+  intro w hw
+  simp only [blendedChargedOr, Finset.mem_filter, Finset.mem_range] at hw
+  exact Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hw.2.2.1.1, hw.1⟩, hw.2.2.1.2⟩
+
+lemma blended_frontier_or_count (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < n + C.gates.length ∧ orIn n C w ⊆ Q) :
+    (W.biUnion (blendedSupport n C Q)).card ≤ W.card + (blendedChargedOr n C Q).card := by
+  classical
+  apply safe_leaf_count
+    (fun k => k < n + C.gates.length ∧ orIn n C k ⊆ Q)
+    (fun k => n ≤ k ∧ (gateAt C (k - n)).op = GateOp.or)
+    (blendedSupport n C Q) (blended_singleton_structure n C hC Q)
+  intro w hw
+  exact ⟨(hW w hw).1, hW w hw⟩
+
+lemma blended_frontier_family_or_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (Q : ι → Finset (Fin n)) (W : ι → Finset ℕ)
+    (hQ : ∀ i ∈ I, Q i = (W i).biUnion (blendedSupport n C (Q i)))
+    (hW : ∀ i ∈ I, ∀ w ∈ W i,
+      w < n + C.gates.length ∧ orIn n C w ⊆ Q i)
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1) :
+    (∑ i ∈ I, (Q i).card) ≤ (∑ i ∈ I, (W i).card) + (allOrWires n C).card := by
+  classical
+  have hlocal : ∑ i ∈ I, (Q i).card ≤
+      ∑ i ∈ I, ((W i).card + (blendedChargedOr n C (Q i)).card) := by
+    apply Finset.sum_le_sum
+    intro i hi
+    conv_lhs => rw [hQ i hi]
+    exact blended_frontier_or_count n C hC (Q i) (W i) (hW i hi)
+  have hd : (I : Set ι).PairwiseDisjoint (fun i => blendedChargedOr n C (Q i)) := by
+    intro i hi j hj hij
+    exact blendedChargedOr_disjoint n C hC (Q i) (Q j) (hinter i hi j hj hij)
+  have hsub : I.biUnion (fun i => blendedChargedOr n C (Q i)) ⊆ allOrWires n C := by
+    intro w hw
+    obtain ⟨i, _, hw⟩ := Finset.mem_biUnion.mp hw
+    exact blendedChargedOr_subset_allOr n C (Q i) hw
+  have hsum : (∑ i ∈ I, (blendedChargedOr n C (Q i)).card) ≤ (allOrWires n C).card := by
+    rw [← Finset.card_biUnion hd]
+    exact Finset.card_le_card hsub
+  rw [Finset.sum_add_distrib] at hlocal
+  omega
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.Connectivity PEqualNP.Outside.L_meta_4970.ChosenForest
+open Classical
+
+lemma blended_star_or_count (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < n + C.gates.length ∧ orIn n C w ⊆ Q)
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W,
+        (a : Fin n) ∈ blendedSupport n C Q w ∧
+        (b : Fin n) ∈ blendedSupport n C Q w) u v) :
+    Q.card ≤ 1 + (blendedChargedOr n C Q).card := by
+  classical
+  exact connected_subset_frontier_count
+    (fun k => k < n + C.gates.length ∧ orIn n C k ⊆ Q)
+    (fun k => n ≤ k ∧ (gateAt C (k - n)).op = GateOp.or)
+    (blendedSupport n C Q) (blended_singleton_structure n C hC Q)
+    (n + C.gates.length) W (fun w hw => ⟨(hW w hw).1, hW w hw⟩) Q hc
+
+lemma blended_star_family_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (Q : ι → Finset (Fin n)) (W : ι → Finset ℕ)
+    (hW : ∀ i ∈ I, ∀ w ∈ W i,
+      w < n + C.gates.length ∧ orIn n C w ⊆ Q i)
+    (hc : ∀ i ∈ I, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i,
+        (a : Fin n) ∈ blendedSupport n C (Q i) w ∧
+        (b : Fin n) ∈ blendedSupport n C (Q i) w) u v)
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1) :
+    (∑ i ∈ I, (Q i).card) ≤
+      I.card + (I.biUnion fun i => blendedChargedOr n C (Q i)).card := by
+  classical
+  have hlocal : ∑ i ∈ I, (Q i).card ≤
+      ∑ i ∈ I, (1 + (blendedChargedOr n C (Q i)).card) := by
+    apply Finset.sum_le_sum
+    intro i hi
+    exact blended_star_or_count n C hC (Q i) (W i) (hW i hi) (hc i hi)
+  have hd : (I : Set ι).PairwiseDisjoint (fun i => blendedChargedOr n C (Q i)) := by
+    intro i hi j hj hij
+    exact blendedChargedOr_disjoint n C hC (Q i) (Q j) (hinter i hi j hj hij)
+  rw [Finset.card_biUnion hd]
+  simpa only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] using hlocal
+
+lemma chosen_blended_star_tree (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (hQ : Q.Nonempty) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < n + C.gates.length ∧ orIn n C w ⊆ Q)
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W,
+        (a : Fin n) ∈ blendedSupport n C Q w ∧
+        (b : Fin n) ∈ blendedSupport n C Q w) u v) :
+    ∃ (F : SimpleGraph Q) (K : Finset ℕ) (label : Sym2 Q → ℕ),
+      F.IsTree ∧ Set.InjOn label F.edgeSet ∧ K = F.edgeFinset.image label ∧
+      K ⊆ blendedChargedOr n C Q ∧ K.card + 1 = Q.card ∧
+      ∀ e ∈ F.edgeSet, ∃ u : Q, (u : Fin n) ∈ blendedSupport n C Q (label e) ∧
+        ∃ v : Q, (v : Fin n) ∈ blendedSupport n C Q (label e) ∧ e = s(u, v) := by
+  classical
+  obtain ⟨q, hq⟩ := hQ
+  let : Nonempty Q := ⟨⟨q, hq⟩⟩
+  let safe := fun w => w < n + C.gates.length ∧ orIn n C w ⊆ Q
+  let split := fun w => n ≤ w ∧ (gateAt C (w - n)).op = GateOp.or
+  let T : ℕ → Finset Q := fun w => (blendedSupport n C Q w).subtype (fun a => a ∈ Q)
+  have hcard : ∀ w, (T w).card ≤ (blendedSupport n C Q w).card := by
+    intro w
+    exact (Finset.card_subtype _ _).le.trans (Finset.card_filter_le _ _)
+  have hstruct : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b) := by
+    intro w hw
+    rcases blended_singleton_structure n C hC Q w hw with
+      hs | ⟨a, ha, hsa, hTa⟩ | ⟨hsp, a, b, ha, hb, hsa, hsb, hTab⟩
+    · exact Or.inl ((hcard w).trans hs)
+    · right; left
+      refine ⟨a, ha, hsa, ?_⟩
+      intro x hx
+      exact Finset.mem_subtype.mpr (hTa (Finset.mem_subtype.mp hx))
+    · right; right
+      refine ⟨hsp, a, b, ha, hb, hsa, hsb, ?_⟩
+      intro x hx
+      rcases Finset.mem_union.mp (hTab (Finset.mem_subtype.mp hx)) with hxa | hxb
+      · exact Finset.mem_union.mpr (Or.inl (Finset.mem_subtype.mpr hxa))
+      · exact Finset.mem_union.mpr (Or.inr (Finset.mem_subtype.mpr hxb))
+  have hc' : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b => ∃ w ∈ W, a ∈ T w ∧ b ∈ T w) u v := by
+    simpa only [T, Finset.mem_subtype] using hc
+  obtain ⟨F, K, label, htree, hinj, hK, hsub, hsize, hends, _⟩ :=
+    chosen_connected_frontier safe split T hstruct (n + C.gates.length) W
+      (fun w hw => ⟨(hW w hw).1, hW w hw⟩) hc'
+  refine ⟨F, K, label, htree, hinj, hK, ?_, by simpa using hsize, ?_⟩
+  · intro w hw
+    have hh := hsub hw
+    simp only [Finset.mem_filter, Finset.mem_range, safe, split] at hh
+    simp only [blendedChargedOr, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hh.1, hh.2.1, hh.2.2.1, hh.2.2.2.trans (hcard w)⟩
+  · intro e he
+    simpa only [T, Finset.mem_subtype] using hends e he
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SemanticSafe
+
+lemma mixed_frontier_admissible (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q R : Finset (Fin n)) (w : ℕ) (hw : w < n + C.gates.length)
+    (hRQ : R ⊆ Q) (hR : R = orIn n C w ∨ PureOr R (wireFn n C w)) :
+    (w < n + C.gates.length ∧ orIn n C w ⊆ Q) ∧ R ⊆ blendedSupport n C Q w := by
+  rcases hR with rfl | hp
+  · exact ⟨⟨hw, hRQ⟩, raw_subset_blendedSupport n C hC Q w hw⟩
+  · have hs : Safe Q (wireFn n C w) := by
+      intro x hx
+      obtain ⟨i, hi, hxi⟩ := (hp x).mp hx
+      exact ⟨i, hRQ hi, hxi⟩
+    refine ⟨safe_admissible n C hC Q w hw hs, ?_⟩
+    rw [blendedSupport_of_safe n C Q w hs, singletonSupport_pure n C w R hp]
+
+lemma mixed_frontier_connectivity (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (W : Finset ℕ) (R : ℕ → Finset (Fin n))
+    (hW : ∀ w ∈ W, w < n + C.gates.length)
+    (hRQ : ∀ w ∈ W, R w ⊆ Q)
+    (hR : ∀ w ∈ W, R w = orIn n C w ∨ PureOr (R w) (wireFn n C w))
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W, (a : Fin n) ∈ R w ∧ (b : Fin n) ∈ R w) u v) :
+    (∀ w ∈ W, w < n + C.gates.length ∧ orIn n C w ⊆ Q) ∧
+    ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W,
+        (a : Fin n) ∈ blendedSupport n C Q w ∧
+        (b : Fin n) ∈ blendedSupport n C Q w) u v := by
+  have hadm := fun w hw => mixed_frontier_admissible n C hC Q (R w) w
+    (hW w hw) (hRQ w hw) (hR w hw)
+  refine ⟨fun w hw => (hadm w hw).1, ?_⟩
+  intro u v
+  induction hc u v with
+  | refl => exact Relation.ReflTransGen.refl
+  | @tail v z huv hvz ih =>
+    obtain ⟨w, hw, hv, hz⟩ := hvz
+    exact ih.tail ⟨w, hw, (hadm w hw).2 hv, (hadm w hw).2 hz⟩
+
+lemma mixed_star_or_count (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (W : Finset ℕ) (R : ℕ → Finset (Fin n))
+    (hW : ∀ w ∈ W, w < n + C.gates.length)
+    (hRQ : ∀ w ∈ W, R w ⊆ Q)
+    (hR : ∀ w ∈ W, R w = orIn n C w ∨ PureOr (R w) (wireFn n C w))
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W, (a : Fin n) ∈ R w ∧ (b : Fin n) ∈ R w) u v) :
+    Q.card ≤ 1 + (blendedChargedOr n C Q).card := by
+  obtain ⟨hW', hc'⟩ := mixed_frontier_connectivity n C hC Q W R hW hRQ hR hc
+  exact blended_star_or_count n C hC Q W hW' hc'
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+lemma mixed_component_or_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (W : ι → Finset ℕ) (S : ι → ℕ → Finset (Fin n))
+    (hW : ∀ i ∈ I, ∀ w ∈ W i, w < n + C.gates.length ∧
+      (S i w = orIn n C w ∨ PureOr (S i w) (wireFn n C w)))
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j →
+      ((W i).biUnion (S i) ∩ (W j).biUnion (S j)).card ≤ 1) :
+    (∑ i ∈ I, ((W i).biUnion (S i)).card) ≤
+      (∑ i ∈ I, (parts (W i) (S i)).card) + (allOrWires n C).card := by
+  classical
+  let J := I.sigma fun i => parts (W i) (S i)
+  let V : (Σ _ : ι, Finset (Fin n)) → Finset (Fin n) := fun j => j.2
+  let R : (Σ _ : ι, Finset (Fin n)) → Finset ℕ := fun j =>
+    rootsInPart (W j.1) (S j.1) j.2
+  have hdata : ∀ j ∈ J,
+      (∀ w ∈ R j, w < n + C.gates.length ∧ orIn n C w ⊆ V j) ∧
+      ∀ u v : V j, Relation.ReflTransGen
+        (fun a b : V j => ∃ w ∈ R j,
+          (a : Fin n) ∈ blendedSupport n C (V j) w ∧
+            (b : Fin n) ∈ blendedSupport n C (V j) w) u v := by
+    intro j hj
+    obtain ⟨hi, hP⟩ := Finset.mem_sigma.mp hj
+    apply mixed_frontier_connectivity n C hC (V j) (R j) (S j.1)
+    · intro w hw
+      exact (hW j.1 hi w (Finset.mem_filter.mp hw).1).1
+    · intro w hw
+      exact (Finset.mem_filter.mp hw).2
+    · intro w hw
+      exact (hW j.1 hi w (Finset.mem_filter.mp hw).1).2
+    · exact part_roots_connected (W j.1) (S j.1) j.2 hP
+  have hi : ∀ j ∈ J, ∀ k ∈ J, j ≠ k → (V j ∩ V k).card ≤ 1 := by
+    intro j hj k hk hne
+    have hp : (j.1, j.2) ≠ (k.1, k.2) := by
+      intro he
+      cases j with
+      | mk a P =>
+        cases k with
+        | mk b Q =>
+          simp only [Prod.mk.injEq] at he
+          obtain ⟨rfl, rfl⟩ := he
+          exact hne rfl
+    exact parts_inter_card_le_one I W S hinter
+      j.1 (Finset.mem_sigma.mp hj).1 j.2 (Finset.mem_sigma.mp hj).2
+      k.1 (Finset.mem_sigma.mp hk).1 k.2 (Finset.mem_sigma.mp hk).2 hp
+  have hh := blended_star_family_count n C hC J V R
+    (fun j hj => (hdata j hj).1) (fun j hj => (hdata j hj).2) hi
+  have hsub : (J.biUnion fun j => blendedChargedOr n C (V j)) ⊆ allOrWires n C := by
+    intro w hw
+    obtain ⟨j, _, hw⟩ := Finset.mem_biUnion.mp hw
+    exact blendedChargedOr_subset_allOr n C (V j) hw
+  have hbudget := hh.trans (Nat.add_le_add_left (Finset.card_le_card hsub) J.card)
+  simpa only [J, V, Finset.sum_sigma, Finset.card_sigma, parts_sum_card] using hbudget
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.SupportFamily
+
+open Classical
+
+open PEqualNP.Outside.L_meta_4970.ChosenForest
+open PEqualNP.Outside.L_meta_4970.ForestLabels
+open PEqualNP.Outside.L_meta_4970.MappedLabels
+open PEqualNP.Outside.L_meta_4970.OverlapReachability
+
+noncomputable def supportCharges {β : Type*} (M : ℕ)
+    (safe split : ℕ → Prop) (U : ℕ → Finset β) : Finset ℕ := by
+  classical
+  exact (Finset.range M).filter fun w => safe w ∧ split w ∧ 2 ≤ (U w).card
+
+lemma chosen_support_tree_on_finset {β : Type*} [DecidableEq β]
+    (safe split : ℕ → Prop) (U : ℕ → Finset β)
+    (h : ∀ w, safe w → (U w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ U w ⊆ U a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ U w ⊆ U a ∪ U b))
+    (M : ℕ) (Q : Finset β) (hQ : Q.Nonempty) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < M ∧ safe w)
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W, (a : β) ∈ U w ∧ (b : β) ∈ U w) u v) :
+    ∃ (F : SimpleGraph Q) (K : Finset ℕ) (label : Sym2 Q → ℕ),
+      F.IsTree ∧ Set.InjOn label F.edgeSet ∧ K = F.edgeFinset.image label ∧
+      K ⊆ supportCharges M safe split U ∧ K.card + 1 = Q.card ∧
+      ∀ e ∈ F.edgeSet, ∃ u : Q, (u : β) ∈ U (label e) ∧
+        ∃ v : Q, (v : β) ∈ U (label e) ∧ e = s(u, v) := by
+  classical
+  obtain ⟨q, hq⟩ := hQ
+  let : Nonempty Q := ⟨⟨q, hq⟩⟩
+  let T : ℕ → Finset Q := fun w => (U w).subtype (fun a => a ∈ Q)
+  have hcard : ∀ w, (T w).card ≤ (U w).card := by
+    intro w
+    exact (Finset.card_subtype _ _).le.trans (Finset.card_filter_le _ _)
+  have hstruct : ∀ w, safe w → (T w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe a ∧ T w ⊆ T a) ∨
+      (split w ∧ ∃ a b, a < w ∧ b < w ∧ safe a ∧ safe b ∧ T w ⊆ T a ∪ T b) := by
+    intro w hw
+    rcases h w hw with hs | ⟨a, ha, hsa, hTa⟩ | ⟨hsp, a, b, ha, hb, hsa, hsb, hTab⟩
+    · exact Or.inl ((hcard w).trans hs)
+    · right; left
+      refine ⟨a, ha, hsa, ?_⟩
+      intro x hx
+      exact Finset.mem_subtype.mpr (hTa (Finset.mem_subtype.mp hx))
+    · right; right
+      refine ⟨hsp, a, b, ha, hb, hsa, hsb, ?_⟩
+      intro x hx
+      rcases Finset.mem_union.mp (hTab (Finset.mem_subtype.mp hx)) with hxa | hxb
+      · exact Finset.mem_union.mpr (Or.inl (Finset.mem_subtype.mpr hxa))
+      · exact Finset.mem_union.mpr (Or.inr (Finset.mem_subtype.mpr hxb))
+  have hc' : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b => ∃ w ∈ W, a ∈ T w ∧ b ∈ T w) u v := by
+    simpa only [T, Finset.mem_subtype] using hc
+  obtain ⟨F, K, label, htree, hinj, hK, hsub, hsize, hends, _⟩ :=
+    chosen_connected_frontier safe split T hstruct M W hW hc'
+  refine ⟨F, K, label, htree, hinj, hK, ?_, by simpa using hsize, ?_⟩
+  · intro w hw
+    have hh := hsub hw
+    simp only [Finset.mem_filter] at hh
+    exact Finset.mem_filter.mpr ⟨hh.1, hh.2.1, hh.2.2.1,
+      hh.2.2.2.trans (hcard w)⟩
+  · intro e he
+    simpa only [T, Finset.mem_subtype] using hends e he
+
+lemma chosen_support_family_forest {ι α β : Type*}
+    [Fintype ι] [DecidableEq ι] [Fintype α] [DecidableEq β]
+    (M : ℕ) (safe split : ι → ℕ → Prop) (U : ι → ℕ → Finset β)
+    (h : ∀ i w, safe i w → (U i w).card ≤ 1 ∨
+      (∃ a, a < w ∧ safe i a ∧ U i w ⊆ U i a) ∨
+      (split i w ∧ ∃ a b, a < w ∧ b < w ∧ safe i a ∧ safe i b ∧
+        U i w ⊆ U i a ∪ U i b))
+    (Q : ι → Finset β) (hQ : ∀ i, (Q i).Nonempty) (W : ι → Finset ℕ)
+    (hW : ∀ i, ∀ w ∈ W i, w < M ∧ safe i w)
+    (hc : ∀ i, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i, (a : β) ∈ U i w ∧ (b : β) ∈ U i w) u v)
+    (hdis : ∀ i j, i ≠ j → Disjoint
+      (supportCharges M (safe i) (split i) (U i))
+      (supportCharges M (safe j) (split j) (U j)))
+    (embed : ∀ i, Q i ↪ α) :
+    ∃ (H : SimpleGraph α) (L : Finset ℕ) (label : Sym2 α → ℕ),
+      H.IsAcyclic ∧ Set.InjOn label H.edgeSet ∧ L = H.edgeFinset.image label ∧
+      L ⊆ Finset.univ.biUnion (fun i => supportCharges M (safe i) (split i) (U i)) ∧
+      L.card + Nat.card H.ConnectedComponent = Fintype.card α ∧
+      H.Reachable = Relation.ReflTransGen (CoOccurs (fun i => (embed i : Q i → α))) ∧
+      ∀ e ∈ H.edgeSet, ∃ i,
+        label e ∈ supportCharges M (safe i) (split i) (U i) ∧
+        ∃ u : Q i, (u : β) ∈ U i (label e) ∧
+          ∃ v : Q i, (v : β) ∈ U i (label e) ∧ e = s(embed i u, embed i v) := by
+  classical
+  choose F K labels htree hinj hK hsub hsize hends using
+    fun i => chosen_support_tree_on_finset (safe i) (split i) (U i) (h i)
+      M (Q i) (hQ i) (W i) (hW i) (hc i)
+  have hrange : ∀ i, ∀ e ∈ (F i).edgeSet, labels i e ∈ K i := by
+    intro i e he
+    rw [hK i]
+    exact Finset.mem_image.mpr ⟨e, by simpa using he, rfl⟩
+  choose mapped hinjMap hrangeMap hsourceMap hpreMap using
+    fun i => embedding_label_transport (F i) (embed i) (labels i) (K i) (hinj i) (hrange i)
+  let J : ι → SimpleGraph α := fun i => (F i).map (embed i)
+  let G : SimpleGraph α := ⨆ i, J i
+  have hcover : ∀ e ∈ G.edgeSet, ∃ i ∈ (Finset.univ : Finset ι), e ∈ (J i).edgeSet := by
+    intro e he
+    rw [SimpleGraph.edgeSet_iSup] at he
+    obtain ⟨i, hi⟩ := Set.mem_iUnion.mp he
+    exact ⟨i, Finset.mem_univ i, hi⟩
+  have hdisK : ((Finset.univ : Finset ι) : Set ι).PairwiseDisjoint K := by
+    intro i hi j hj hij
+    exact Finset.disjoint_of_subset_left (hsub i)
+      (Finset.disjoint_of_subset_right (hsub j) (hdis i j hij))
+  obtain ⟨H, L, label, hHG, hH, hreach, hlabel, hL, hLsub, hcount, horigin⟩ :=
+    family_labelled_spanning_forest Finset.univ G J mapped K hcover
+      (fun i _ => hinjMap i) (fun i _ => hrangeMap i) hdisK
+  have hcomponents : Nat.card H.ConnectedComponent = Nat.card G.ConnectedComponent := by
+    unfold SimpleGraph.ConnectedComponent
+    rw [hreach]
+  have hLall : L ⊆ Finset.univ.biUnion
+      (fun i => supportCharges M (safe i) (split i) (U i)) := by
+    intro k hk
+    obtain ⟨i, hi, hki⟩ := Finset.mem_biUnion.mp (hLsub hk)
+    exact Finset.mem_biUnion.mpr ⟨i, hi, hsub i hki⟩
+  have hconn : ∀ i, ∀ u v : Q i, H.Reachable (embed i u) (embed i v) := by
+    intro i u v
+    have hFi := (htree i).connected.preconnected u v
+    have hJi : (J i).Reachable (embed i u) (embed i v) :=
+      hFi.map (SimpleGraph.Embedding.map (embed i) (F i)).toHom
+    rw [hreach]
+    exact hJi.mono (le_iSup J i)
+  have hfinal : ∀ e ∈ H.edgeSet, ∃ i,
+      label e ∈ supportCharges M (safe i) (split i) (U i) ∧
+      ∃ u : Q i, (u : β) ∈ U i (label e) ∧
+        ∃ v : Q i, (v : β) ∈ U i (label e) ∧ e = s(embed i u, embed i v) := by
+    intro e he
+    obtain ⟨i, _, hei, heiLabel⟩ := horigin e (SimpleGraph.edgeSet_mono hHG he)
+    obtain ⟨d, hd, hde, hLabel⟩ := hpreMap i e hei
+    have hsame : label e = labels i d := heiLabel.trans hLabel
+    have hprod : label e ∈ supportCharges M (safe i) (split i) (U i) := by
+      rw [hsame]
+      exact hsub i (hrange i d hd)
+    obtain ⟨u, hu, v, hv, huv⟩ := hends i d hd
+    refine ⟨i, hprod, u, ?_, v, ?_, ?_⟩
+    · simpa only [hsame] using hu
+    · simpa only [hsame] using hv
+    · rw [← hde, huv]
+      rfl
+  refine ⟨H, L, label, hH, ?_, hL, hLall, ?_, ?_, hfinal⟩
+  · intro e he f hf hef
+    exact hlabel (SimpleGraph.edgeSet_mono hHG he) (SimpleGraph.edgeSet_mono hHG hf) hef
+  · rw [hcomponents]
+    exact hcount
+  · apply reachable_eq_cooccurrence H (fun i => (embed i : Q i → α)) hconn
+    intro e he
+    obtain ⟨i, _, u, _, v, _, huv⟩ := hfinal e he
+    exact ⟨i, u, v, huv⟩
+
+end PEqualNP.Outside.L_meta_4970.SupportFamily
+
+namespace PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+open Classical
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.SupportFamily
+open PEqualNP.Outside.L_meta_4970.OverlapReachability
+
+lemma chosen_blended_family_forest {ι α : Type*} [Fintype ι] [DecidableEq ι]
+    [Fintype α] (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : ι → Finset (Fin n)) (hQ : ∀ i, (Q i).Nonempty)
+    (W : ι → Finset ℕ)
+    (hW : ∀ i, ∀ w ∈ W i, w < n + C.gates.length ∧ orIn n C w ⊆ Q i)
+    (hc : ∀ i, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i,
+        (a : Fin n) ∈ blendedSupport n C (Q i) w ∧
+        (b : Fin n) ∈ blendedSupport n C (Q i) w) u v)
+    (hinter : ∀ i j, i ≠ j → (Q i ∩ Q j).card ≤ 1)
+    (embed : ∀ i, Q i ↪ α) :
+    ∃ (H : SimpleGraph α) (L : Finset ℕ) (label : Sym2 α → ℕ),
+      H.IsAcyclic ∧ Set.InjOn label H.edgeSet ∧ L = H.edgeFinset.image label ∧
+      L ⊆ allOrWires n C ∧
+      L.card + Nat.card H.ConnectedComponent = Fintype.card α ∧
+      H.Reachable = Relation.ReflTransGen (CoOccurs (fun i => (embed i : Q i → α))) ∧
+      ∀ e ∈ H.edgeSet, ∃ i, label e ∈ blendedChargedOr n C (Q i) ∧
+        ∃ u : Q i, (u : Fin n) ∈ blendedSupport n C (Q i) (label e) ∧
+          ∃ v : Q i, (v : Fin n) ∈ blendedSupport n C (Q i) (label e) ∧
+            e = s(embed i u, embed i v) := by
+  classical
+  let safe := fun i w => w < n + C.gates.length ∧ orIn n C w ⊆ Q i
+  let split := fun (_ : ι) w => n ≤ w ∧ (gateAt C (w - n)).op = GateOp.or
+  let U := fun i => blendedSupport n C (Q i)
+  have hcharge : ∀ i, supportCharges (n + C.gates.length) (safe i) (split i) (U i) =
+      blendedChargedOr n C (Q i) := by
+    intro i
+    ext w
+    simp only [supportCharges, blendedChargedOr, Finset.mem_filter, safe, split, U]
+  obtain ⟨H, L, label, hacyc, hinj, hL, hsub, hcount, hreach, hends⟩ :=
+    chosen_support_family_forest (n + C.gates.length) safe split U
+      (fun i => blended_singleton_structure n C hC (Q i)) Q hQ W
+      (fun i w hw => ⟨(hW i w hw).1, hW i w hw⟩) hc
+      (fun i j hij => by
+        rw [hcharge i, hcharge j]
+        exact blendedChargedOr_disjoint n C hC (Q i) (Q j) (hinter i j hij)) embed
+  refine ⟨H, L, label, hacyc, hinj, hL, ?_, hcount, hreach, ?_⟩
+  · intro w hw
+    obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.mp (hsub hw)
+    rw [hcharge i] at hi
+    exact blendedChargedOr_subset_allOr n C (Q i) hi
+  · intro e he
+    obtain ⟨i, hi, u, hu, v, hv, huv⟩ := hends e he
+    rw [hcharge i] at hi
+    exact ⟨i, hi, u, hu, v, hv, huv⟩
+
+end PEqualNP.Outside.L_meta_4970.BlendedSupport
