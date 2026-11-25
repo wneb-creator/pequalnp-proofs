@@ -808,4 +808,62 @@ lemma normalize_edge_circuit_size_minimal {n : ℕ} (edges : List (Fin n × Fin 
     · simpa only [hxeq] using hzeroX
     · simpa only [hyeq] using hzeroY
 
+def inputOfMask (m : ℕ) : Fin 10 → Bool := fun i => m.testBit i.val
+
+def maximalNegativeMasks : List ℕ :=
+  [50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma maximalNegativeMasks_false :
+    ∀ m ∈ maximalNegativeMasks, edgeFunction petersenEdges (inputOfMask m) = false := by
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma maximalNegativeMasks_cover :
+    ∀ x : Fin 10 → Bool, edgeFunction petersenEdges x = false →
+      (maximalNegativeMasks.any fun m => decide (x ≤ inputOfMask m)) = true := by
+  decide
+
+lemma negative_below_maximal {x : Fin 10 → Bool}
+    (hx : edgeFunction petersenEdges x = false) :
+    ∃ m ∈ maximalNegativeMasks, x ≤ inputOfMask m := by
+  simpa only [List.any_eq_true, decide_eq_true_eq] using maximalNegativeMasks_cover x hx
+
+lemma petersen_impure_iff_maximal (f : (Fin 10 → Bool) → Bool) (hf : Monotone f) :
+    Impure (EdgeNegative petersenEdges) f ↔
+      ∃ m ∈ maximalNegativeMasks, f (inputOfMask m) = true := by
+  constructor
+  · rintro ⟨x, hx, hfx⟩
+    obtain ⟨m, hm, hxm⟩ := negative_below_maximal hx
+    exact ⟨m, hm, hf hxm hfx⟩
+  · rintro ⟨m, hm, hfm⟩
+    exact ⟨inputOfMask m, maximalNegativeMasks_false m hm, hfm⟩
+
+lemma petersen_boundary30_iff (f : (Fin 10 → Bool) → Bool) (hf : Monotone f) :
+    ((∀ e ∈ petersenEdges, f (PEqualNP.EdgeOwnership.pairInput e.1 e.2) = true) ∧
+      ∀ m ∈ maximalNegativeMasks, f (inputOfMask m) = false) ↔
+        f = edgeFunction petersenEdges := by
+  rw [← edge_correct_iff petersenEdges f hf]
+  constructor
+  · rintro ⟨hp, hn⟩
+    constructor
+    · rintro x ⟨e, he, rfl⟩
+      exact hp e he
+    · intro x hx
+      obtain ⟨m, hm, hxm⟩ := negative_below_maximal hx
+      have hle := hf hxm
+      rw [hn m hm] at hle
+      exact le_antisymm hle (Bool.false_le _)
+  · rintro ⟨hp, hn⟩
+    exact ⟨fun e he => hp _ ⟨e, he, rfl⟩,
+      fun m hm => hn _ (maximalNegativeMasks_false m hm)⟩
+
+lemma selectedValue_impure_iff_maximal (pre : List Gate) (g : Gate)
+    (post : List Gate) (out : ℕ) (hC : Monotone2 (splice pre g post out)) :
+    Impure (EdgeNegative petersenEdges) (selectedValue 10 pre g) ↔
+      ∃ m ∈ maximalNegativeMasks, selectedValue 10 pre g (inputOfMask m) = true :=
+  petersen_impure_iff_maximal _ (selectedValue_mono_of_splice pre g post out hC)
+
 end PEqualNP.Outside.L_meta_2590.EssentialPruning
