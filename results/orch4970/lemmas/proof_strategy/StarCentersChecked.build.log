@@ -1,0 +1,6 @@
+../results/orch4970/lemmas/proof_strategy/StarCenters.lean:125:4: warning: Unused tactic linter: `change isOr (gateAt C j) = true` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch4970/lemmas/proof_strategy/StarCenters.lean:129:4: warning: Unused tactic linter: `change isOr (gateAt C j) = true` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

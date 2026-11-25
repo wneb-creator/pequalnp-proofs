@@ -1,0 +1,4 @@
+lake env lean ../results/orch4970/lemmas/reduction_strategy/LinearOrCharge.lean
+Exit status: 0
+stdout: empty
+stderr: empty

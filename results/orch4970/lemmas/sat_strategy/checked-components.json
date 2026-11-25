@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-25T15:50:27.432748+00:00",
+  "OrCharge.checked.lean": {
+    "sha256": "468053bc70d46ad274d17367b270abfcea7438889674469c333af9887cd0232f",
+    "lines": 561,
+    "lean_exit": 0,
+    "diagnostics": "empty",
+    "key": "family_component_charge; simultaneous all clean wires; OR-only count; components allowed"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source": "results/orch4970/lemmas/toolchain_setup/FeatureCover.v4.checked.lean",
+  "sha256": "75701aa641dfaf747011e0dc210f3df57adf2fc97d9323c12dbf450ee2307d30",
+  "exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "command": "lake -d lean env lean /workspace/pequalnp-proofs/results/orch4970/lemmas/toolchain_setup/FeatureCover.v4.lean"
+}

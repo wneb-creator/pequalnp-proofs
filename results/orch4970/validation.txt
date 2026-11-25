@@ -1,0 +1,7 @@
+L-meta-4970 partial preservation; no complete proof or refutation.
+Eleven independently reviewed Lean artifacts compile with Lean 4.36.0 and the pinned Defs cache.
+StarCentersChecked and CountedCentersChecked each emit two harmless unused-tactic warnings. Other included checked artifacts have empty diagnostics; some log files include command/status metadata.
+Local checker has not verified this gap. Prior checker attempts faulted due unavailable full Mathlib cache and insufficient disk.
+No proof PR opened. Final single-file cleanup remains contingent on a full proof.
+Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
+TIMING total=114 subagents=6

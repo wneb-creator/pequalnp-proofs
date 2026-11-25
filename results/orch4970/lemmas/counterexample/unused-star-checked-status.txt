@@ -1,0 +1,1 @@
+lake env lean UnusedStarObstruction.lean: exit0. AllL4970hypotheseshold on3edgepath; onlysemanticstarwitnessforfirstedge isunused. Postedboundholds, soNOTarefutation.

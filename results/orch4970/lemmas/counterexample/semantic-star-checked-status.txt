@@ -1,0 +1,1 @@
+lake env lean SemanticStarObstruction.lean: exit0. Allpostedhypotheseshold for1point/2line star, yet samecircuitnotread1 andsemanticstarORhasorIn={2}. Postedboundholds, soNOTarefutationofgap4970.
