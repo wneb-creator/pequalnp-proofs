@@ -1,0 +1,5 @@
+L-meta-1031: PARTIAL RESULT ONLY; posted theorem not proved.
+Lean 4.36.0: Structure.lean compiled successfully (exit 0).
+Local checker: not run; no theorem with the posted statement yet.
+Sub-agents: 5 (prior-gap and construction, structure, counterexample search, reductions/exchange, ownership/review)
+TIMING total=6 subagents=5
