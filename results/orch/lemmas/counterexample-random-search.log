@@ -1,0 +1,40 @@
+best 98 iteration 1 restart 0
+elapsed 0 iterations 1 best 98 current 98 restarts 0
+best 96 iteration 3 restart 0
+best 81 iteration 5 restart 0
+best 76 iteration 10 restart 0
+best 74 iteration 12 restart 0
+best 72 iteration 16 restart 0
+best 68 iteration 84 restart 0
+best 64 iteration 145 restart 0
+best 62 iteration 180 restart 0
+best 60 iteration 184 restart 0
+best 56 iteration 2422 restart 0
+best 54 iteration 3354 restart 0
+best 52 iteration 3885 restart 0
+best 51 iteration 3999 restart 0
+best 46 iteration 5885 restart 0
+best 44 iteration 5892 restart 0
+best 42 iteration 9004 restart 0
+best 40 iteration 27912 restart 0
+best 35 iteration 43484 restart 0
+best 33 iteration 51853 restart 0
+best 32 iteration 52943 restart 0
+best 31 iteration 53272 restart 0
+best 30 iteration 53353 restart 0
+best 28 iteration 72569 restart 0
+best 24 iteration 72606 restart 0
+best 22 iteration 1352103 restart 18
+best 20 iteration 1507148 restart 20
+best 18 iteration 4177925 restart 59
+elapsed 30 iterations 13962200 best 18 current 110 restarts 187
+elapsed 60 iterations 26345863 best 18 current 31 restarts 350
+elapsed 90 iterations 36521504 best 18 current 132 restarts 484
+best 14 iteration 44867804 restart 599
+elapsed 120 iterations 45961519 best 14 current 26 restarts 613
+elapsed 150 iterations 60438568 best 14 current 56 restarts 815
+elapsed 180 iterations 72792194 best 14 current 48 restarts 980
+elapsed 210 iterations 110495334 best 14 current 44 restarts 1484
+elapsed 240 iterations 154513525 best 14 current 49 restarts 2066
+elapsed 270 iterations 209309893 best 14 current 51 restarts 2809
+DONE no witness found; best errors 14 iterations 248261920 restarts 3334

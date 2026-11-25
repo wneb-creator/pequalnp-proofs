@@ -1,0 +1,3 @@
+selftest corrupt=0 status=10
+selftest corrupt=1 status=20
+SELFTEST PASS full1024 known20 and corrupted20

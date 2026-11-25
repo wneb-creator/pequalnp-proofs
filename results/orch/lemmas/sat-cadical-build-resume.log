@@ -1,0 +1,51 @@
+make -C "/tmp/oec/pequalnp-pilot-128/sat-cadical/build"
+make[1]: Entering directory '/tmp/oec/pequalnp-pilot-128/sat-cadical/build'
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/minimize.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/occs.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/options.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/parse.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/phases.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/probe.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/profile.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/proof.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/propagate.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/queue.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/random.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/reap.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/reduce.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/rephase.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/report.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/resources.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/restart.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/restore.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/score.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/shrink.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/signal.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/solution.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/solver.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/stable.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/stats.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/subsume.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/sweep.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/terminal.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/ternary.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/tier.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/transred.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/unstable.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/util.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/var.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/veripbtracer.cpp
+../scripts/make-build-header.sh > build.hpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/vivify.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/walk.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/warmup.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/watch.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../contrib/craigtracer.cpp
+gcc -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -x c -c ../src/citten.c -o citten.o
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/cadical.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/mobical.cpp
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -c ../src/version.cpp
+ar rc libcadical.a analyze.o arena.o assume.o averages.o backbone.o backtrack.o backward.o bins.o block.o ccadical.o checker.o citterr.o clause.o collect.o compact.o condition.o config.o congruence.o constrain.o contract.o cover.o ddfw.o decide.o decompose.o deduplicate.o definition.o drattracer.o elim.o elimfast.o ema.o extend.o external.o extprop.o exttoint.o factor.o file.o flags.o flip.o format.o frattracer.o gates.o idruptracer.o instantiate.o internal.o ipasir.o ipasir2.o lidruptracer.o limit.o logging.o lookahead.o lratchecker.o lrattracer.o lucky.o message.o minimize.o occs.o options.o parse.o phases.o probe.o profile.o proof.o propagate.o queue.o random.o reap.o reduce.o rephase.o report.o resources.o restart.o restore.o score.o shrink.o signal.o solution.o solver.o stable.o stats.o subsume.o sweep.o terminal.o ternary.o tier.o transred.o unstable.o util.o var.o veripbtracer.o version.o vivify.o walk.o warmup.o watch.o craigtracer.o citten.o
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -o cadical cadical.o -L. libcadical.a 
+g++ -Wall -Wextra -O3 -DNDEBUG -I../build -I../src -o mobical mobical.o -L. libcadical.a
+make[1]: Leaving directory '/tmp/oec/pequalnp-pilot-128/sat-cadical/build'

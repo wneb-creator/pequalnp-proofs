@@ -1,0 +1,15 @@
+Gap: L-meta-2592
+Status: PARTIAL ONLY; the posted theorem is not proved.
+The named Lean file preserves inherited binary-floor work plus >=5-NOT exclusion.
+Named file: 3228 lines; Lean compilation NOT RUN before lease loss.
+Other Lean partials: boundary separator and LRAT linkage; also uncompiled.
+Toolchain: pinned Lean 4.36.0 installed and verified.
+Required lake exe cache get attempted: full cache failed ENOSPC. Narrow prebuilt cache succeeded.
+Narrow cached Mathlib target validation via lake build --no-build passed.
+Checker: NOT RUN; no full-gap theorem claimed, and full Mathlib cache exceeds available disk.
+Cleanup: not started because build/checker for posted theorem have not passed.
+Independent reviews: theory checked named partial diff and boundary lemma; checker_audit reviews staged snapshot before push.
+Lease: renewal at14:39:36UTC returned HTTP410, although previous renewal confirmed14:54:38UTC expiry. Stopped proof/search work immediately on diagnostic confirmation.
+Desk null count:0. Exact message: no such live lease: it expired or was released. Ask /desk/next again.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=15 subagents=6

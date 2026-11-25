@@ -1,0 +1,2 @@
+local trial=0 unsats=1 unknowns=0
+local trial=100 unsats=101 unknowns=0
