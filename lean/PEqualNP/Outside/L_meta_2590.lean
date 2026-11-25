@@ -5746,3 +5746,326 @@ lemma four_ineligible_impossible {D : Dag} (h : StrictLive 10 D)
 end I4Case
 
 end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma sem_neighbor_exclusion_slot
+    {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    (i c : Fin n) (hci : ¬ G i c)
+    (chain : sem_Chain n D i.val (outW n D))
+    (N : Finset (Fin n)) (hN : ∀ a ∈ N, G i a) :
+    ∃ e : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+      (∀ x ∈ N, e ∈ sem_W n D x) ∧ c ∉ supp n D (src D e) ∧
+      N ⊆ supp n D (src D e) := by
+  classical
+  have hcN : c ∉ N := fun hc => hci (hN c hc)
+  have diff : insert c N \ N = ({c} : Finset (Fin n)) := by
+    ext a
+    simp only [Finset.mem_sdiff,Finset.mem_insert,Finset.mem_singleton]
+    constructor
+    · rintro ⟨h|h,hno⟩
+      · exact h
+      · exact False.elim (hno h)
+    · rintro rfl
+      exact ⟨Or.inl rfl,hcN⟩
+  have hzero : val D (sem_ins i (sem_ind (insert c N \ N))) (outW n D) = false := by
+    rw [diff]
+    apply Bool.eq_false_iff.mpr
+    intro hv
+    rcases sem_ins_ind_edge hG ((hC _).mp hv) with ⟨a,ha,hia⟩ | ⟨a,ha,b,hb,hab⟩
+    · have eq := Finset.mem_singleton.mp ha
+      exact hci (eq ▸ hia)
+    · have ea := Finset.mem_singleton.mp ha
+      have eb := Finset.mem_singleton.mp hb
+      subst a
+      subst b
+      exact hG.2.1 c hab
+  have hone (a : Fin n) (ha : a ∈ N) :
+      val D (sem_ins i (sem_ind {a})) (outW n D) = true :=
+    (hC _).mpr ⟨i,a,hN a ha,sem_ins_self i _,by simp [sem_ins,sem_ind]⟩
+  have hz (a : Fin n) (_ : a ∈ N) : val D (sem_ind {a}) (outW n D) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro hv
+    rw [sem_ind_single] at hv
+    exact sem_single_no_edge hG a ((hC _).mp hv)
+  obtain ⟨g,s,hg,ht,_,other,hs⟩ := sem_factor hS i (outW n D) chain
+    (insert c N) N (Finset.subset_insert c N) hzero hone hz
+  have has (x : Fin n) (hx : x ∈ N) : x ∈ supp n D (src D (g,s)) :=
+    (Finset.mem_inter.mp (hs.symm ▸ hx)).1
+  refine ⟨(g,s),hg,ht,fun x hx => ?_,?_,has⟩
+  · apply sem_mem_W.mpr
+    refine ⟨hg,has x hx,fun hxout => ?_⟩
+    have ho := sem_supp_and_sub hS hg ht (!s) hxout
+    have hp := sem_dom_pure hG hS hC i _ (sem_chain_dom hS other) ho
+    have eq := Finset.mem_singleton.mp hp
+    exact hG.2.1 i (eq ▸ hN x hx)
+  · intro hcs
+    have hc : c ∈ N := hs ▸ Finset.mem_inter.mpr ⟨hcs,Finset.mem_insert_self c N⟩
+    exact hcN hc
+
+lemma sem_neighbor_exclusion_slot_of_bzero
+    {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag} [DecidableRel G]
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (zero : Bzero n D = 0) {i : Fin n} (hi : i ∈ ineligSet n D)
+    (c : Fin n) (hci : ¬ G i c) :
+    ∃ e : Nat × Bool, (∀ x, G i x → e ∈ sem_W n D x) ∧
+      c ∉ supp n D (src D e) ∧ (∀ a, G i a → a ∈ supp n D (src D e)) := by
+  classical
+  let N := Finset.univ.filter (G i)
+  have chain : sem_Chain n D i.val (outW n D) := by
+    rcases sem_inelig_reach hG h hC hi with chain | ⟨b,_,hf,hs⟩
+    · exact chain
+    · have bound : fanout D b - 1 ≤
+          ∑ w ∈ (inner n D).filter (fun w => ¬ (supp n D w).Nonempty), (fanout D w - 1) :=
+        Finset.single_le_sum (f := fun w => fanout D w - 1)
+          (fun _ _ => Nat.zero_le _) (sem_bzero_mem h.1 hf hs)
+      unfold Bzero surplusOn at zero
+      omega
+  obtain ⟨e,_,_,hW,hc,hs⟩ := sem_neighbor_exclusion_slot hG h.1 hC i c hci
+    chain N
+    (fun a ha => (Finset.mem_filter.mp ha).2)
+  exact ⟨e,fun x hx => hW x (Finset.mem_filter.mpr ⟨Finset.mem_univ _,hx⟩),
+    hc,fun a ha => hs (Finset.mem_filter.mpr ⟨Finset.mem_univ _,ha⟩)⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+set_option maxHeartbeats 0 in
+lemma zero_neighbors : ∀ x : V, Adj 0 x ↔ x ∈ ({1,4,5} : Finset V) := by
+  unfold Adj
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+lemma exposure_vertices : ∀ x c : V, Adj 0 x → c ≠ 0 → ¬ Adj 0 c →
+    ∃ m y : V, Adj x m ∧ Adj 0 y ∧ ¬ Adj c m ∧ ¬ Adj c y ∧ ¬ Adj m y := by
+  unfold Adj
+  decide +kernel
+
+lemma exposure_geometry {x c : V} (hx : Adj 0 x) (hc : c ≠ 0) (hcn : ¬ Adj 0 c) :
+    ∃ A : Finset V, (∀ a ∈ A, ∀ d ∈ A, ¬ Adj a d) ∧ c ∈ A ∧
+      (∃ a ∈ A, Adj 0 a) ∧ (∃ a ∈ A, Adj x a) := by
+  obtain ⟨m,y,hxm,hiy,hcm,hcy,hmy⟩ := exposure_vertices x c hx hc hcn
+  refine ⟨{c,m,y},?_,by simp,⟨y,by simp,hiy⟩,⟨m,by simp,hxm⟩⟩
+  intro a ha d hd
+  simp only [Finset.mem_insert,Finset.mem_singleton] at ha hd
+  rcases ha with rfl | rfl | rfl <;> rcases hd with rfl | rfl | rfl
+  · exact graph_ok.2.1 _
+  · exact hcm
+  · exact hcy
+  · exact fun hmc => hcm (graph_ok.1 _ _ hmc)
+  · exact graph_ok.2.1 _
+  · exact hmy
+  · exact fun hyc => hcy (graph_ok.1 _ _ hyc)
+  · exact fun hym => hmy (graph_ok.1 _ _ hym)
+  · exact graph_ok.2.1 _
+
+lemma residual_support_eligible {n : Nat} {D : Dag} {b : Fin n → Nat}
+    {r : Sigma (fun _ : Nat => Nat)} (hr : r ∈ residualUnits n D b) :
+    supp n D r.1 ⊆ eligSet n D := by
+  have hu : r ∈ unitsPlus n D := (Finset.mem_sdiff.mp hr).1
+  have hm : r ∈ units n D := (Finset.mem_filter.mp hu).1
+  have hf := (mem_units.mp hm).2
+  intro a ha
+  exact mem_eligSet.mpr ⟨r.1,by omega,ha⟩
+
+def ZeroOmission (D : Dag) (c : V) : Prop :=
+  ∃ e : Nat × Bool, (∀ x : V, Adj 0 x → e ∈ sem_W 10 D x) ∧
+    c ∉ supp 10 D (src D e) ∧ ∀ a : V, Adj 0 a → a ∈ supp 10 D (src D e)
+
+lemma outside_not_in_single_residual {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    {x c : V} (hx : Adj 0 x) (hxr : x ∈ supp 10 D r.1)
+    (hcE : c ∈ eligSet 10 D) (hcn : ¬ Adj 0 c) (localExit : ZeroOmission D c) :
+    c ∉ supp 10 D r.1 := by
+  have hr : r ∈ residualUnits 10 D b := hR ▸ Finset.mem_singleton_self r
+  have hxE := residual_support_eligible hr hxr
+  have hc0 : c ≠ 0 := by
+    intro he
+    exact (sem_mem_inelig.mp hi) (he ▸ hcE)
+  obtain ⟨A,ind,ca,hit0,hitx⟩ := exposure_geometry hx hc0 hcn
+  obtain ⟨e,he,hec,hall⟩ := localExit
+  obtain ⟨g,s,hg,_,hxs,hxo,free⟩ := sem_exposure graph_ok h.1 hc A ind x hitx
+  have hf : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hxs,hxo⟩
+  have hfc : c ∉ supp 10 D (src D (g,s)) := fun hm => Finset.disjoint_left.mp free hm ca
+  have hef : e ≠ (g,s) := by
+    intro eq
+    obtain ⟨a,ha,hia⟩ := hit0
+    have has := hall a hia
+    rw [eq] at has
+    exact Finset.disjoint_left.mp free has ha
+  obtain ⟨u,hu,_,hcu⟩ := residual_separation_of_two_omissions graph_ok h hc b hb
+    (show x ≠ c from fun eq => hcn (eq ▸ hx)) hxE ⟨r,hr,hxr⟩ (he x hx) hf hef hec hfc
+  have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+  exact eq ▸ hcu
+
+lemma single_residual_support_subset {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x : V, Adj 0 x ∧ x ∈ supp 10 D r.1)
+    (localExits : ∀ c : V, c ∈ eligSet 10 D → ¬ Adj 0 c → ZeroOmission D c) :
+    supp 10 D r.1 ⊆ ({1,4,5} : Finset V) := by
+  obtain ⟨x,hx,hxr⟩ := coded
+  have hr : r ∈ residualUnits 10 D b := hR ▸ Finset.mem_singleton_self r
+  intro c hcr
+  apply (zero_neighbors c).mp
+  by_contra hcn
+  have hcE := residual_support_eligible hr hcr
+  exact outside_not_in_single_residual h hc b hb hi hR hx hxr hcE hcn
+    (localExits c hcE hcn) hcr
+
+lemma exact_slot_local {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D) (slot : ExactSlot D 0)
+    {c : V} (hcE : c ∈ eligSet 10 D) (hcn : ¬ Adj 0 c) : ZeroOmission D c := by
+  obtain ⟨e,_,_,hs,hW⟩ := slot
+  have neighborE (a : V) (ha : Adj 0 a) : a ∈ eligSet 10 D := by
+    rcases sem_elig_cover graph_ok h hc ha with hzero | hEa
+    · exact False.elim ((sem_mem_inelig.mp hi) hzero)
+    · exact hEa
+  refine ⟨e,fun x hx => hW x (Finset.mem_filter.mpr ⟨neighborE x hx,hx⟩),?_,?_⟩
+  · intro hm
+    have hcN := hs ▸ Finset.mem_inter.mpr ⟨hm,hcE⟩
+    exact hcn (Finset.mem_filter.mp hcN).2
+  · intro a ha
+    exact (Finset.mem_inter.mp (hs.symm ▸ Finset.mem_filter.mpr ⟨neighborE a ha,ha⟩)).1
+
+lemma single_residual_support_subset_of_exact_slot {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : V) ∈ ineligSet 10 D) (slot : ExactSlot D 0)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x : V, Adj 0 x ∧ x ∈ supp 10 D r.1) :
+    supp 10 D r.1 ⊆ ({1,4,5} : Finset V) :=
+  single_residual_support_subset h hc b hb hi hR coded
+    (fun _ hcE hcn => exact_slot_local h hc hi slot hcE hcn)
+
+
+lemma single_residual_support_subset_of_bzero {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x : V, Adj 0 x ∧ x ∈ supp 10 D r.1) :
+    supp 10 D r.1 ⊆ ({1,4,5} : Finset V) :=
+  single_residual_support_subset h hc b hb hi hR coded
+    (fun c _ hcn => sem_neighbor_exclusion_slot_of_bzero graph_ok h hc zero hi c hcn)
+
+end PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+
+lemma common_exit_unique {n : Nat} {D : Dag} {x : Fin n}
+    (small : (sem_W n D x).card ≤ 2)
+    {f e g : Nat × Bool} (hf : f ∈ sem_W n D x)
+    (he : e ∈ sem_W n D x) (hg : g ∈ sem_W n D x)
+    {a : Fin n} (haf : a ∉ supp n D (src D f))
+    (hae : a ∈ supp n D (src D e)) (hag : a ∈ supp n D (src D g)) : e = g := by
+  classical
+  by_contra neg
+  have nef : e ≠ f := fun eq => haf (eq ▸ hae)
+  have ngf : g ≠ f := fun eq => haf (eq ▸ hag)
+  have sub : ({e,g,f} : Finset (Nat × Bool)) ⊆ sem_W n D x := by
+    intro q hq
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hq
+    rcases hq with rfl | rfl | rfl <;> assumption
+  have bound := Finset.card_le_card sub
+  have card : ({e,g,f} : Finset (Nat × Bool)).card = 3 := by simp [neg,nef,ngf]
+  omega
+
+def FullZeroSlot (D : Dag) : Prop :=
+  ∃ e : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+    supp 10 D (src D e) = ({1,4,5} : Finset V) ∧
+    ∀ x : V, Adj 0 x → e ∈ sem_W 10 D x
+
+lemma empty_neighbor_code_full_slot {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {x : V} (hx : Adj 0 x)
+    (empty : ∀ u ∈ residualUnits 10 D b, x ∉ supp 10 D u.1) : FullZeroSlot D := by
+  classical
+  have count := sem_code_count graph_ok h hc b hb x
+  have filt : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro u hu
+    exact empty u (Finset.mem_filter.mp hu).1 (Finset.mem_filter.mp hu).2
+  have single : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have small : (sem_W 10 D x).card ≤ 2 := by
+    rw [filt,Finset.card_empty] at count
+    omega
+  obtain ⟨A,ind,_,hit0,hitx⟩ := I1Exposure.exposure_geometry hx
+    (show (2 : V) ≠ 0 by decide) (show ¬ Adj 0 2 by decide +kernel)
+  obtain ⟨g,s,hg,_,hxs,hxo,free⟩ := sem_exposure graph_ok h.1 hc A ind x hitx
+  have hf : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hxs,hxo⟩
+  obtain ⟨a,ha,hia⟩ := hit0
+  have haf : a ∉ supp 10 D (src D (g,s)) := fun hs => Finset.disjoint_left.mp free hs ha
+  obtain ⟨e,he,_,hall⟩ := sem_neighbor_exclusion_slot_of_bzero graph_ok h hc zero hi 0
+    (graph_ok.2.1 0)
+  have exact_source : supp 10 D (src D e) = ({1,4,5} : Finset V) := by
+    apply Finset.Subset.antisymm
+    · intro c hcs
+      apply (zero_neighbors c).mp
+      by_contra hcn
+      obtain ⟨ec,hec,hcc,hallc⟩ := sem_neighbor_exclusion_slot_of_bzero graph_ok h hc zero hi c hcn
+      have eq := common_exit_unique small hf (he x hx) (hec x hx) haf (hall a hia) (hallc a hia)
+      exact hcc (eq ▸ hcs)
+    · intro c hcN
+      exact hall c ((zero_neighbors c).mpr hcN)
+  exact ⟨e,(sem_mem_W.mp (he x hx)).1,sem_W_and h.1 (he x hx),exact_source,he⟩
+
+lemma full_zero_slot_exact {D : Dag} (full : FullZeroSlot D) : ExactSlot D 0 := by
+  obtain ⟨e,he,ht,hs,hW⟩ := full
+  refine ⟨e,he,ht,?_,fun x hx => hW x (Finset.mem_filter.mp hx).2⟩
+  rw [hs]
+  ext a
+  simp only [Finset.mem_inter,Finset.mem_filter]
+  rw [← zero_neighbors a]
+  tauto
+
+lemma single_residual_or_full_zero_slot {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r}) :
+    supp 10 D r.1 = ({1,4,5} : Finset V) ∨ FullZeroSlot D := by
+  classical
+  by_cases all : ∀ x : V, Adj 0 x → x ∈ supp 10 D r.1
+  · left
+    apply Finset.Subset.antisymm
+    · exact single_residual_support_subset_of_bzero h hc b hb zero hi hR
+        ⟨1,by decide +kernel,all 1 (by decide +kernel)⟩
+    · intro x hx
+      exact all x ((zero_neighbors x).mpr hx)
+  · push Not at all
+    obtain ⟨x,hx,hxr⟩ := all
+    right
+    apply empty_neighbor_code_full_slot h hc b hb zero hi hx
+    intro u hu
+    have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+    exact eq ▸ hxr
+
+lemma single_residual_or_exact_zero_slot {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r}) :
+    supp 10 D r.1 = ({1,4,5} : Finset V) ∨ ExactSlot D 0 :=
+  (single_residual_or_full_zero_slot h hc b hb zero hi hR).imp_right full_zero_slot_exact
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
