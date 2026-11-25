@@ -1,0 +1,13 @@
+{
+  "reviewer": "circuit_search",
+  "status": "PASS",
+  "wrapper_sha256": "4a90ba9cecfb1d532e1684020561686c41c1bd75d811f3e7f1c129620fb26763",
+  "verifier_sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b",
+  "production_cnf_sha256": "6ff5e62b19607e099ce4c324b20e3a21d9de11da80a76d00a1bc531e9eb65538",
+  "production_map_sha256": "5d904111e8cf151235f40dc82f96169b6b0bf08e1370d771b56c41ea65c335a2",
+  "smoke_gate_count": 27,
+  "independent_cnf_clauses_checked": 211180,
+  "independent_full_assignments": 16384,
+  "wrong_pin_rejected_before_solver": true,
+  "scope": "Runner/source/map/solver pinning and complete model/truth verification passed; known27 baseline only, no26 witness or target-budget solve."
+}

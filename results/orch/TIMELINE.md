@@ -40,3 +40,10 @@
 - 2026-11-25T08:38:16.089439+00:00: joint six-variant ten-gate search began with reviewed CNF and correlated-input decoder.
 - 2026-11-25T08:49:40+00:00: RawOccurrence (80lines) compiled and passed independent review; conditional counting and padding lemmas preserved.
 - 2026-11-25T08:52:12.146505+00:00: strategy review prioritizes reviewed unique-input general synthesis; current general final-OR run being reallocated. No full proof.
+- 2026-11-25T08:52:15.521485+00:00: general final-OR run interrupted for reallocation after1666.356wallseconds/1610.170CPUseconds; no solver verdict.
+- 2026-11-25T08:52:27.449939+00:00: reviewed unique-input general synthesis began with60minute cap.
+- 2026-11-25T09:06:00.631436+00:00: post-recovery named-module no-build validation passed:5149jobs up to date, unchanged518line partial.
+- 2026-11-25T09:12:42.133670+00:00: exact reviewed25file obsolete-CNF cleanup removed91,755,570bytes; every protected input and evidence file retained.
+- 2026-11-25T09:23:16.116927+00:00: joint six-variant ten-gate run completed UNKNOWN after2700.022wallseconds/2610.163CPUseconds; complete log preserved.
+- 2026-11-25T09:23:37.561179+00:00: reviewed joint noncollinear14-live search began with45minute cap.
+- 2026-11-25T09:24:31.665347+00:00: strategy review retained unique-input, noncollinear and anchored-tail synthesis; no full proof or accepted checker result.

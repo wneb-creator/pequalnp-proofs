@@ -1,0 +1,4 @@
+  File "/tmp/oec/pequalnp-pilot-70/lower-bound/and_root_probe.py", line 58
+    assert influence_extension==not P
+                                ^^^
+SyntaxError: invalid syntax

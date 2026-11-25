@@ -1,0 +1,36 @@
+{
+  "status": "Prepared only; requires root allocation and fresh renewal.",
+  "workdir": "/tmp/oec/pequalnp-pilot-70/constructive",
+  "command": [
+    "python3",
+    "anchored_run.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat",
+    "--seconds",
+    "3600",
+    "--preset",
+    "default",
+    "--seed",
+    "1"
+  ],
+  "candidate_sha256": "6ff5e62b19607e099ce4c324b20e3a21d9de11da80a76d00a1bc531e9eb65538",
+  "map_sha256": "5d904111e8cf151235f40dc82f96169b6b0bf08e1370d771b56c41ea65c335a2",
+  "wrapper_sha256": "4a90ba9cecfb1d532e1684020561686c41c1bd75d811f3e7f1c129620fb26763",
+  "verifier_sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b",
+  "variables": 7249,
+  "clauses": 199034,
+  "checks_on_sat": [
+    "Every CNF clause and complete model",
+    "All16384 raw-input assignments",
+    "Core inclusion F0<=C<=target",
+    "Exact26 gate count and final AND/OR tail"
+  ],
+  "reviews": [
+    "sat-review/anchored-tail-review.json",
+    "circuit-search/anchored-run-independent-review.json"
+  ],
+  "scope": "C OR (U AND V), with F0 <= C <= Heawood. Restricted sufficient family only.",
+  "duration_note": "Root requested45\u201360 minutes; the prepared command uses60 and may be shortened before launch."
+}

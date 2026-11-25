@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "searches": [
+    {
+      "name": "repair-near26-k2",
+      "budget": 2,
+      "status": "UNSAT",
+      "wall_seconds": 1.355982111999765,
+      "cpu_seconds": 1.348986,
+      "seed_sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "9669c37e4fe26735978bc8675de9a2cb5166d858658c33d85ddfb396f683718e",
+      "complete_log_sha256": "37f04ff52ecbdc6b996b7de6d402edb78a51f134b4424700860dfee22b7c9fda"
+    },
+    {
+      "name": "repair-near26-k3",
+      "budget": 3,
+      "status": "UNSAT",
+      "wall_seconds": 4.183337070000562,
+      "cpu_seconds": 4.166273,
+      "seed_sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "59710dae70fc04a87f96ce8a54976fc6939ee4b747789f500e68e2a88a855672",
+      "complete_log_sha256": "08307374344b2838121f1093851bb2be97c49b05242eb0e363f2147e92de1120"
+    },
+    {
+      "name": "repair-near26-k4",
+      "budget": 4,
+      "status": "UNSAT",
+      "wall_seconds": 36.34408917499968,
+      "cpu_seconds": 23.888116999999998,
+      "seed_sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "37cb86cf46e0a7c3a38da76185681bc3cc9cb35ca5bc0c738b6320eca348996f",
+      "complete_log_sha256": "add316caa381dcb815aebf063b759e95ad6a1d378d8e5697bb6c031d3bebf9bf"
+    },
+    {
+      "name": "repair-cegis26-k2",
+      "budget": 2,
+      "status": "UNSAT",
+      "wall_seconds": 0.5017467289999331,
+      "cpu_seconds": 0.501303,
+      "seed_sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "708ca0677353d48b14c0388d9bcefcb554cb7e52f1772764f7e8848008286b59",
+      "complete_log_sha256": "6db33089b7e7c32fc3e065d44625fc7e2f6baff65df9d2b7cce9ed56f56b98a5"
+    },
+    {
+      "name": "repair-cegis26-k3",
+      "budget": 3,
+      "status": "UNSAT",
+      "wall_seconds": 1.372422803999143,
+      "cpu_seconds": 1.3512089999999999,
+      "seed_sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "37277227c39030a04109a22765e43d9d5ec84aca6cec2ec019872cc725e2132f",
+      "complete_log_sha256": "ed2fb54cd83036a58ea8ff9eae514e6f3dc563ca36ed187d826676a042384063"
+    },
+    {
+      "name": "repair-cegis26-k4",
+      "budget": 4,
+      "status": "UNSAT",
+      "wall_seconds": 6.464670813000339,
+      "cpu_seconds": 4.339875,
+      "seed_sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+      "base_cnf_sha256": "7662407a947acc406b911c1cc222a57a2f39197006abaead1faca926368f65b4",
+      "result_sha256": "8bb9c1e5a0bf70652e26c05d8200e14716dab5f8a7e12948e6e0869c52cb74b6",
+      "complete_log_sha256": "12eb46ec1c825c1f903f50879e1188ee89b287d565075d3f99d5c4c93d683006"
+    }
+  ],
+  "source_hashes": {
+    "repair_base.py": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+    "repair_neighborhood.py": "5590d94344a5290fd83970b442ad49eecaad228f7d70319e7a29e0d622048457",
+    "repair_properties.py": "d0dab730323be33a8558e008c295c7bb78d4825bb7b6a35576709d744fef6a8c",
+    "run_kissat.py": "46632f432f6f0e6da1538f126ed6fe0edf01ec10e5b78150456f2ba60796f084"
+  },
+  "scope": "Six fixed-slot neighborhoods only: two unchanged seeds at radii2,3,4. No unrestricted26-gate nonexistence conclusion."
+}

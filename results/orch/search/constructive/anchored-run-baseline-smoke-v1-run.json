@@ -1,0 +1,37 @@
+{
+  "started_at": "2026-11-25T09:13:38.322217+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=5",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.cnf"
+  ],
+  "wall_limit_seconds": 5,
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1,
+  "gate_count": 27,
+  "variables": 7582,
+  "clauses": 211180,
+  "wrapper_sha256": "4a90ba9cecfb1d532e1684020561686c41c1bd75d811f3e7f1c129620fb26763",
+  "pins": {
+    "source": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored_tail.py",
+      "sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b"
+    },
+    "solver": {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+      "sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+    },
+    "cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.cnf",
+      "sha256": "9705bb2f63bd8e30047d33addd464774be42a6f581579c491ecdc984015ae7e4"
+    },
+    "map": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.map.json",
+      "sha256": "d8eb249ffec3fa7c23e570b703f2407d74bfcc9d35d580ce51de6f21c1eedd32"
+    }
+  },
+  "scope": "C OR (U AND V), with F0 <= C <= Heawood. Restricted sufficient family only."
+}

@@ -1,0 +1,15 @@
+{
+  "review": "/tmp/oec/pequalnp-pilot-70/sat-review/joint-ten-review.json",
+  "status": "PASS",
+  "cnf_sha256": "80fcc7fd598276ab66375282674e77f777dfc623e388f2d36ff5e48aa3cacb4d",
+  "source_sha256": {
+    "joint_correlated.py": "98d3ec9c9b9bc620419d8e20fd9eb49041ec4a1e46816c677dd57716d3f8fdb1",
+    "joint_decode.py": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+    "joint_run.py": "90710efbcf80a9fc7f3d42ffc24cb299810729f7425b347987e4c8bf1c4559ef",
+    "joint_smoke.py": "f6777c9120ec0afcb1e69964b2537b33e3a2755c89ad2c7383eedcfb07200d97"
+  },
+  "scope": "All six reviewed fixed-four-star cut families with a shared ten-gate cone; not unrestricted 26-gate existence.",
+  "variables": 1423,
+  "clauses": 24789,
+  "branches": 6
+}

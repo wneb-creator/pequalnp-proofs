@@ -1,0 +1,68 @@
+{
+  "verdict": "PASS",
+  "snapshot_utc": "2026-11-25T09:25:04.589398+00:00",
+  "duration_minutes": 246.9,
+  "source_lines": 518,
+  "source_sha256": "aaeb9e91385f2cb04fb7232630d4dd565c26ae3f0523e930f5ea07dd3d1c0143",
+  "desk_null_count": 2,
+  "exact_null_message": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes",
+  "repair_results": [
+    {
+      "name": "repair-near26-k2",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 2,
+      "wall_seconds": 1.355982111999765,
+      "full_log_sha256": "37f04ff52ecbdc6b996b7de6d402edb78a51f134b4424700860dfee22b7c9fda",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    },
+    {
+      "name": "repair-near26-k3",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 3,
+      "wall_seconds": 4.183337070000562,
+      "full_log_sha256": "08307374344b2838121f1093851bb2be97c49b05242eb0e363f2147e92de1120",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    },
+    {
+      "name": "repair-near26-k4",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 4,
+      "wall_seconds": 36.34408917499968,
+      "full_log_sha256": "add316caa381dcb815aebf063b759e95ad6a1d378d8e5697bb6c031d3bebf9bf",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    },
+    {
+      "name": "repair-cegis26-k2",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 2,
+      "wall_seconds": 0.5017467289999331,
+      "full_log_sha256": "6db33089b7e7c32fc3e065d44625fc7e2f6baff65df9d2b7cce9ed56f56b98a5",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    },
+    {
+      "name": "repair-cegis26-k3",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 3,
+      "wall_seconds": 1.372422803999143,
+      "full_log_sha256": "ed2fb54cd83036a58ea8ff9eae514e6f3dc563ca36ed187d826676a042384063",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    },
+    {
+      "name": "repair-cegis26-k4",
+      "status": "UNSAT",
+      "exit_code": 20,
+      "budget": 4,
+      "wall_seconds": 6.464670813000339,
+      "full_log_sha256": "12eb46ec1c825c1f903f50879e1188ee89b287d565075d3f99d5c4c93d683006",
+      "scope": "fixed topological slot neighborhood, with commutative operands"
+    }
+  ],
+  "build_scope": "Recorded full build and post-recovery no-build of unchanged partial; no posted theorem or checker acceptance.",
+  "checker": "FAULT exit137,noverdict",
+  "credential_or_lease_values_copied": false
+}
