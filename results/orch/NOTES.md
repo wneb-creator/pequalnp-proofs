@@ -99,3 +99,13 @@ Both compile with pinned Lean, exit 0, empty stdout/stderr on 2026-11-25T17:18:3
 - All scripts now validate graph dimensions and C4-freeness, gate indices/operations, full truth table, syntactic coloring, and the required dirty AND on a full independent input.
 - Exhaustive Python graph census: the12 labelled C4-free4x4 graphs with9 edges containing the fixed diagonal matching form exactly one bipartition-preserving isomorphism class: theta8. Therefore fixed theta8 at11 gates is the same counterexample family as an unknown graph search under those conditions.
 - Original Fano search stopped after roughly3min to reserve one of3 CPUs for Lean work. Optimized Fano26 now runs with3600s/2048MiB limits; theta8k11 runs with600s/2048MiB.
+
+### Composed restricted lower bound (lemma_search)
+
+`Combined.lean` compiles on 2026-11-25T17:23:37.663582+00:00 with the immutable Normalize, OrInvariant, Reuse bodies and two additional wrappers. `Normalize.repair_tCount` proves the repair construction preserves tCount exactly. `Restricted.inactive_dirty_bound` proves the exact posted conclusion under the original hypotheses plus an extra explicit assumption that every dirty AND is false on every actual graph-edge pair input. This composes normalization with the clean bound. The original tCount hypothesis is unused in this stronger-restriction result. `CombinedWrappers.txt` holds just the new suffix for root integration. Full successful logs: `combined-build-003.stdout/.stderr` under scratch.
+
+### Checked local reader pricing
+
+`ReaderPricing.lean` and `ReaderPricingExtended.lean` compile with Defs-only imports, exit0 and no diagnostics. For a pure dirty rectangle A(point)×B(line), a clean reader `(g OR P_lines) AND Q_points` has direct terms Q×P and possible new terms (A∩Q)×(B\P). Under |A|,|B|,|Q|≥2 and P nonempty, with explicit row/base adjacency and triple-cleanliness hypotheses, every new pair is both a complete row and complete column of A×B. C4-freeness makes that common corner unique. `readers_share_at_most_one_novel_edge` shows the UNION across any finite family of such readers still has cardinality at most1. This prices nonstar P4 readers relative to their direct terms, avoiding the false claim that the full reader edge set must be a star.
+
+The remaining region obstacle is nested dirty ANDs or clean readers whose both operands contain only dirty flags. Multiple pure dirty flags joined only by OR can each be priced independently by monotonicity (algebraic agent extending). No arbitrary-circuit extraction/counting theorem yet.

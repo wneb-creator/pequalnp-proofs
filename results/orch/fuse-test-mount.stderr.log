@@ -1,0 +1,2 @@
+/usr/bin/fusermount: mount failed: Operation not permitted
+open dir error: No such file or directory

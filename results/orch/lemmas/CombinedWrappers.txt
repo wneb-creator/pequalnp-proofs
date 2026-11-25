@@ -1,0 +1,108 @@
+namespace PEqualNP.Outside.L_meta_4675.Normalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+
+lemma repair_tCount {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (pick : ℕ → Fin n × Fin n) (colour : ℕ → Bool) :
+    PEqualNP.TwoColour.tCount n (repair G C pick) colour =
+      PEqualNP.TwoColour.tCount n C colour := by
+  classical
+  have hrel : List.Forall₂ OrInvariant.SameOr C.gates (repair G C pick).gates := by
+    apply List.forall₂_of_length_eq_of_get (repair_len G C pick).symm
+    intro j hjC hjD
+    change OrInvariant.SameOr C.gates[j] (repair G C pick).gates[j]
+    rw [← gateAt_eq hjC, ← gateAt_eq hjD, repair_gate pick hjC]
+    split_ifs with hd
+    · refine ⟨hd.1, ?_⟩
+      intro hop
+      rw [hd.1] at hop
+      cases hop
+    · exact OrInvariant.sameOr_refl _
+  exact (OrInvariant.tCount_eq n hrel colour).symm
+
+end PEqualNP.Outside.L_meta_4675.Normalize
+
+namespace PEqualNP.Outside.L_meta_4675.Restricted
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma inactive_dirty_bound (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hfour : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E))
+    (hao : IsAO2 (p + l) C)
+    (hcomp : ∀ x : Fin (p + l) → Bool, circuitFun (p + l) C x =
+      decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (htc : PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0)
+    (hdead : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ (∀ x : Fin (p + l) → Bool, gateVal (p + l) C j x = true →
+        circuitFun (p + l) C x = true) →
+      ∀ (a : Fin p) (b : Fin l), (a, b) ∈ E →
+        gateVal (p + l) C j (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false) :
+    ∃ S : Finset (Fin (p + l)),
+      (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E →
+        Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧
+      E.card + S.card ≤ C.size + 1 := by
+  classical
+  by_cases he : E = ∅
+  · subst E
+    exact ⟨∅, by simp, by simp⟩
+  obtain ⟨⟨a, b⟩, hab⟩ := Finset.nonempty_iff_ne_empty.mpr he
+  let G := Reuse.graph E
+  letI : DecidableRel G.Adj := Classical.decRel _
+  have hrel (x : Fin (p + l) → Bool) :
+      (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true) ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    constructor
+    · rintro ⟨a, b, he, ha, hb⟩
+      exact ⟨Fin.castAdd l a, Fin.natAdd p b,
+        by simpa [G, Reuse.graph, Reuse.cross] using he, ha, hb⟩
+    · rintro ⟨u, v, huv, hu, hv⟩
+      cases u using Fin.addCases <;> cases v using Fin.addCases <;>
+        simp [G, Reuse.graph, Reuse.cross] at huv
+      · exact ⟨_, _, huv, hu, hv⟩
+      · exact ⟨_, _, huv, hv, hu⟩
+  have hgraph : circuitFun (p + l) C = graphFun G ∅ := by
+    funext x
+    apply Bool.eq_iff_iff.mpr
+    rw [hcomp, decide_eq_true_eq]
+    simpa [graphFun] using hrel x
+  have hne : ∃ u v, G.Adj u v :=
+    ⟨Fin.castAdd l a, Fin.natAdd p b, by simpa [G, Reuse.graph, Reuse.cross] using hab⟩
+  have hswap (u v : Fin (p + l)) : pairInput u v = pairInput v u := by
+    funext w
+    simp only [pairInput]
+    congr 1
+    exact propext or_comm
+  have hinactive : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → ∀ u v, G.Adj u v →
+        gateVal (p + l) C j (pairInput u v) = false := by
+    intro j hj hop hn u v huv
+    have hn' : ¬ (∀ x : Fin (p + l) → Bool, gateVal (p + l) C j x = true →
+        circuitFun (p + l) C x = true) := by
+      simpa only [hgraph, BelowF] using hn
+    cases u using Fin.addCases <;> cases v using Fin.addCases <;>
+      simp [G, Reuse.graph, Reuse.cross] at huv
+    · exact hdead j hj hop hn' _ _ huv
+    · rw [hswap]
+      exact hdead j hj hop hn' _ _ huv
+  obtain ⟨D, hD, hsize, hDcomp, hclean⟩ :=
+    Normalize.erase_edge_inactive_dirty G C hao hgraph hne hinactive
+  have hcompD (x : Fin (p + l) → Bool) : circuitFun (p + l) D x =
+      decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true) := by
+    rw [hDcomp]
+    apply Bool.eq_iff_iff.mpr
+    simpa [graphFun] using (hrel x).symm
+  have hcleanD : ∀ j < D.gates.length, (gateAt D j).op = GateOp.and →
+      ∀ x : Fin (p + l) → Bool, gateVal (p + l) D j x = true →
+        circuitFun (p + l) D x = true := by
+    intro j hj hop x hx
+    rw [hDcomp]
+    exact hclean j hj hop x hx
+  obtain ⟨S, hcover, hbound⟩ := Reuse.clean_bound p l E D hfour hD hcompD hcleanD
+  exact ⟨S, hcover, by simpa [hsize] using hbound⟩
+
+end PEqualNP.Outside.L_meta_4675.Restricted

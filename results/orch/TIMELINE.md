@@ -18,3 +18,6 @@
 - 2026-11-25T17:20:43.494340+00:00: lemma_search OR-reach/count invariance compiled, exit 0.
 - 2026-11-25T17:21:08.596806+00:00: C6 optimal forced-dirty search UNSAT; started optimized Fano26 and theta8k11 searches, stopped superseded Fano run.
 - 2026-11-25T17:21:26.699217+00:00: integrated 1,606-line named partial passed lake build; official checker gave cache infrastructure fault; independent archival review passed.
+- 2026-11-25T17:23:37.663582+00:00: lemma_search repair tCount invariance and composed inactive-dirty bipartite bound compiled, exit 0.
+- 2026-11-25T17:24:56.397887+00:00: shared-corner reader pricing Lean-checked (ReaderPricingExtended.lean), extending pure-rectangle local strategy.
+- 2026-11-25T17:25:11.796322+00:00: checked and independently reviewed OR-invariant, conditional normalization composition, and shared-corner reader pricing; archival checkpoint.
