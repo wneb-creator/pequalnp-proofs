@@ -1,0 +1,10 @@
+Independent review PASS: algebraic-blocking.lean
+2026-11-25T10:23:37.448706+00:00
+SHA256 17b290a51797f2f52376b55654c1f9ec623b2a043cc3f6c246fbdfeace4b0160
+Lines 44
+All 128 point subsets independently satisfy blocking iff containing a Fano line.
+Analytic lemma uses monotonicity to add each individual line variable, applies exact masked correctness, and extracts an incident point from the unchanged point set.
+Scope: necessary condition on pure-point inputs accepted by a monotone factor g when Fano = g AND (OR all line inputs). No arbitrary top-AND factorization or gate lower bound claimed.
+Only PEqualNP.Defs import; expected helper namespace; only two permitted resource options; no forbidden trust/format markers.
+Provenance: algebraic_route reported completed Lean build exit 0; complete algebraic-blocking-lean3 stdout/stderr are both empty.
+Source modification time precedes both recorded build logs.

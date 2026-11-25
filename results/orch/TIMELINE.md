@@ -12,3 +12,5 @@
 - 2026-11-25T09:57:45.040238+00:00: 838-line partial built and independently reviewed; preparing third preservation push.
 - 2026-11-25T10:08:12.049195+00:00: full supported-gate normalization merged; 1301-line partial built and reviewed; preserving it before further search.
 - 2026-11-25T10:14:04.844887+00:00: finite row/column-completion obstruction compiled and independently reviewed (441 cases); archiving the 80-line lemma.
+
+2026-11-25T10:25Z — Preserving independently reviewed blocking-set partial and configured checker output. Exact target remains unresolved; configured checker rejects no-theorem. Four-cap and five-point stochastic searches continue; fixed-prefix joint12 SAT gains independently reviewed essential-input cuts.
