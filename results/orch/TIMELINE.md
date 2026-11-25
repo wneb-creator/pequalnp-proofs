@@ -10,3 +10,6 @@
 2026-11-25T14:26:40.002262+00:00 First complete finite helper row and one-NOT join obligation passed Lean and independent review; full chunked enumeration running.
 2026-11-25T14:34:56.590475+00:00 Replan: continue sequentialNOT-count searches; finite table now3GB; actualCircuit signed-path proof prepared.
 2026-11-25T14:41:50.752773+00:00 DeskHTTP410 confirmed withcurl-si; allagentworkstopped; preservingfullcheckedfinitecertificatebefore anyre-request.
+
+- 2026-11-25 14:42:44 UTC: desk assigned L-meta-2583 after L-meta-2592 returned HTTP 410; new lease active, reductions unavailable.
+- 2026-11-25 14:44:44 UTC: renewed L-meta-2583; expiry 15:04:44.551 UTC. Root restarted five-minute heartbeat; six agents assigned distinct strategies.

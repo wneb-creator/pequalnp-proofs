@@ -1,0 +1,7 @@
+L-meta-2583 partial checkpoint 01
+Named module lake build: PASS (5149 jobs, named module 7.3s).
+1154 Lean lines. Only Defs import.
+This is NOT the posted theorem: upper construction plus normalization assuming the missing gate budget.
+No acceptance checker run for a missing final theorem. No proof PR eligible.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=63 subagents=6
