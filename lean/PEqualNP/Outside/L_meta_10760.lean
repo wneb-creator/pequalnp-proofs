@@ -1,4 +1,3 @@
-import Mathlib
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_10760
