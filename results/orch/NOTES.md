@@ -33,3 +33,9 @@ The retry requesting2592 returned L-meta-2583 instead. Active exact assignment i
 2026-11-25T15:20:25.601367+00:00 Valid desk assignment followed by successful renewals; prove unrestricted monotone Petersen circuit size at least20. Exactstatement: /tmp/oec/pequalnp-pilot-121/statement-2590.txt. Reductions are enabled but allthree slots are occupied.
 
 ReadOnePetersen2590 is compiled, independently reviewed and pushed at816be3f7; its IsAO2 and jointread1 hypotheses remain essential. SAT and stochastic searches use all15 minimaltrue edge rows and15 maximalfalse independentset rows;20gatecontrols passall1024assignments. Generic Heawood surplus-flow helpers may transfer; no unrestricted Petersen20 theorem found in bounded repository census. Two priorleases returned410 before statedexpiry; no reason established and no releasecalls made.
+
+## L-meta-2056 current assignment
+
+2026-11-25T15:40:49.261378+00:00 Need63gate monotone Singer13 circuit for exactposted sumincidence relation. Positive52edges and704negative maximalindependentsets; postedsubset≤3 testscoverallmaximalfalse rows. Prior2583 work reused via line sign relabeling,64gatecontrolvalidated. Reductionsenabled but3slotsalreadyoccupied. Sixdifferent strategies running.
+
+L-meta-2056 checkpoint clarification: no complete proof, refutation, or accepted local checker verdict exists. PackedChunks2056 is a compiled verifier plus a64-gate positive control; the posted budget is63. A core witness does not automatically extend by one gate per private leaf: such deletions justify lower bounds, while constructive extension requires actual factor positions. Star-extension infrastructure applies to full point patches.

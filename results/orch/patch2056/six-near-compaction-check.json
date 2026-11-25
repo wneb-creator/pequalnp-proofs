@@ -1,0 +1,10 @@
+{
+  "gates": 27,
+  "missing_edge_indices": [
+    6,
+    16
+  ],
+  "clean_wires_accepting_both_missed": [],
+  "appended_gate_candidates_checked": 1980,
+  "exact_appended_gate_hits": []
+}

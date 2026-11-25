@@ -1,0 +1,46 @@
+{
+  "status": "stopped to switch to independently reviewed semantic alias continuation; no witness",
+  "last_logged_seconds": 396.367,
+  "cases": [
+    {
+      "case": 1,
+      "iterations": 341997482,
+      "populations": [
+        {
+          "mode": 0,
+          "score": 1,
+          "raw": 1,
+          "fp": 0,
+          "bad_edges": 0
+        },
+        {
+          "mode": 1,
+          "score": 4,
+          "raw": 4,
+          "fp": 0,
+          "bad_edges": 2
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "iterations": 358516075,
+      "populations": [
+        {
+          "mode": 0,
+          "score": 1,
+          "raw": 1,
+          "fp": 0,
+          "bad_edges": 0
+        },
+        {
+          "mode": 1,
+          "score": 3,
+          "raw": 3,
+          "fp": 0,
+          "bad_edges": 2
+        }
+      ]
+    }
+  ]
+}

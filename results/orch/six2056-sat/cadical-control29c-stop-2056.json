@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T15:59:03.314748+00:00",
+  "reason": "Superseded preprocessing-only control by propagate-values/solve-eqs preprocessing; no solver verdict",
+  "pids": [
+    "19850"
+  ]
+}

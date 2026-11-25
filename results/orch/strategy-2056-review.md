@@ -1,0 +1,97 @@
+# Independent review for L-meta-2056
+
+Only the parent holds or renews the lease. This reviewer made no desk calls.
+
+## Exact semantic scope
+
+The assignment asks for a monotone fan-in-two circuit of at most 63 gates. Its positive tests are all 52 incident singleton pairs for the symmetric relation `(p+l)%13` in `{0,1,3,9}`. Its negative tests are `(S,off(S))` and `(off(S),S)` for sets of at most three elements.
+
+These tests are equivalent to correctness on every input, not a weaker promise. Checked `L_meta_2054.lean` proves that any incidence-free pair of point/line sets has at least one side of cardinality at most three. If that side is S, the input is below the corresponding tested closure input. Monotonicity forces false there. Every true input contains an incident singleton pair, so the positive tests force true. Relation symmetry justifies the transposed closure case.
+
+Independent finite enumeration confirmed 378 subsets of size at most three, giving 756 negative test occurrences but exactly 704 distinct maximal-false masks. The 52 duplicates have side sizes (3,3). The counts by side sizes are (0,13):1, (1,9):13, (2,6):78, (3,3):52, (3,4):234, (4,3):234, (6,2):78, (9,1):13, (13,0):1. All these small subsets are closed under double off. All 8192 point subsets were checked for the maximality enumeration. The relation has degree four and every distinct point pair has exactly one common line.
+
+## Relabeling and search data
+
+The previous q3 difference incidence `p-l` in `{0,1,3,9}` is transformed into the current sum incidence by negating only the line labels modulo 13. Old point labels stay fixed. This permutation also transports circuits, full boundary rows, and automorphisms; the canonical edge (0,13) remains fixed.
+
+Independent checks of `plane2056-data.json`, SHA256 `4081d42537366e1e623bd478fef4a4ae9f8cb5de3e8bfc74cc64a4f488545a74`, confirmed the exact 52 edges and all 704 maximal-false masks. All 756 rows are distinct. Its 64-gate positive control has zero errors on this complete boundary, hence computes the full function by monotonicity. This is one gate above the requested bound.
+
+The 73-row seed file, SHA256 `33b9710aba98e6ec44d3bff63a81f8c6252ff6f5074ecfe6b533ec0cac5b54da`, contains all 52 positives plus exactly the 21 previously reviewed edge-stabilizer representatives after the same line-negation permutation. They are only a search seed; any witness must pass all 704 negative rows.
+
+## SAT pruning audit
+
+Reviewed generator SHA256 `4d6653026cf7ecd5b801262d0c2871337453a87449a23a316809240c354e78dd`.
+
+- The padding scheme represents a circuit with any nonempty active prefix up to the requested budget. Once a gate has equal inputs, it is an OR of the previous output with itself, and every subsequent gate must be another such padding gate.
+- Full-boundary irredundancy is guarded by the presence of all 704 negatives. Matching all critical rows permits later-wire substitution without changing correctness. Distinct positive profiles alone would not justify that substitution.
+- Zero positive profiles can be deleted by replacing the gate with false. Gates true on every negative row can be replaced by true. Both surgeries preserve every required boundary output and lower the size after constant propagation.
+- Clean-wire pruning and canonical singleton-positive-profile replacement have the previously reviewed least-circuit/lexicographic normalization argument. Their joint Lean bridge is still work in progress, so no complete machine-checked UNSAT claim follows merely from running this generator.
+- Adjacent independent gates can be sorted lexicographically by selecting a lexicographically minimal topological ordering. The selector-width extension in the script preserves the numeric comparison.
+- The canonical bad-edge read-one condition is consistent with the proved read-one lower bound and edge transitivity. The three-bit recurrence records proof trees whose endpoint counts are at most one; AND combines only the two distinct singleton witnesses, while OR takes their union.
+
+No concrete witness or SAT/UNSAT result was established by this audit.
+
+The first-pair orbit data, SHA256 `a80e2765ca3699bf1d38de2c4debfb5b487fb7e0e8e32cbd8a863b393acf70a8`, was independently reconstructed by enumerating projective matrices fixing point zero, then applying line negation and side duality. It has 108 collineations and 216 distinct sum-incidence permutations preserving the unordered marked edge {0,13}. All 325 unordered input pairs partition into exactly the saved 14 orbits. The incident AND representatives are (0,13), (0,14), (1,15), and (2,20). The union of canonical first-gate cases can coexist with adjacent lexicographic ordering: select a global lex minimum over both stabilizer permutations and topological orders. An individual first-orbit case need not remain the same after reordering.
+
+The stochastic source `plane2056_local.cpp`, SHA256 `a115e2ae11f8471d71559999d4a83407883c6cc30e460f8c8bf5c8f74f60ad6f`, was also reviewed. Its sum-incidence evaluator, packed boundary values, singleton-profile replacement, and joint-read-one recurrence are consistent. It reports any zero-error candidate regardless of heuristic penalties. The search is not exhaustive; no lower-bound claim follows from failure.
+
+## Existing checked helper census
+
+A bounded search found 87 files mentioning a size-63 budget, of which 13 are recorded L-files. None provides an actual 63-gate incidence witness. `L_meta_4891` and `L_meta_8279` convert gate tables and circuits; `L_meta_5989` appends an output OR to a prefix of at most 62 gates; `L_meta_4091` joins a 44-gate prefix and a suffix of at most 18 gates with one OR. These do not supply the missing constructive component.
+
+`L_meta_8141` gives a necessary condition: a correct monotone backward-reading circuit of at most 63 gates has an AND gate that is true on some nonincident pair. Other checked hits impose line-degree-one or nested-AND restrictions. The affine 43-gate construction requested in reduction `R_meta_2056_419` remains a separate search route owned by another agent.
+
+## Independently approved compiled partial
+
+`PackedCircuit2056.lean`, SHA256 `bc74c73e812cbbdbceb78d757aa647608a61493ed870513fa7c11257e90c3909`, 216 lines, compiled according to its author and was statically approved. Relative to the previously reviewed 2583 snapshot, it only changes the namespace, weakens the final premise from IsAO2 to Monotone2, and fixes the final pointwise rewrite. The generic packed evaluator needs only AND/OR gate operators. Its final closure theorem still explicitly assumes a zero packed-evaluation certificate; this is soundness infrastructure, not a 63-gate witness or a completed certificate computation.
+
+`PackedControl2056.lean`, SHA256 `cc89cfd8d9a8b652a024cb20ba6b267c7a9bf473fcde9874235a502c21f88d64`, 358 lines, was independently approved statically pending compilation. The shared prefix matches the compiled generic verifier modulo namespace. The added literal 64-gate circuit was parsed and independently evaluated on all 756 boundary rows with zero errors; all reads are backward and output index 89 is valid. Its intended checks cover all 8192 closure inputs and all 52 incident pairs, still for a 64-gate control rather than the requested 63-gate witness.
+
+The first control build checked the finite packed certificates but failed at the final row-conversion bridge's heartbeat limit. Its revised SHA256 is `7724b8809702645b912288a06683b5f928cc8de25525c8df2ad9530af6799f74`, 363 lines. The reviewed delta names the exact row-function equality, rewrites it, and uses the already established row theorem, with a permitted scoped heartbeat limit. This revision remains pending a successful full build at the time of this note.
+
+## Quadrangle patch search audit
+
+The patch data SHA256 is `5d0002b54975b68a413691fe40e74b493d329045f4f1d7a589509b2b219ab9e3`; generator SHA256 is `e0a1fe1bd2b722904ceedae768e17c88f50b40fdda9d831e79cbf49ee70807ec`. The four plane points are 0,1,2,5 and their ten incident lines are 0,1,2,3,4,7,8,9,11,12. Independent evaluation confirms the exact 16-edge incidence graph, all 16 maximal-false masks, and 32 distinct boundary rows. The 19-gate control is correct on all 16,384 assignments.
+
+The graph is the subdivision of K4 with an additional private line leaf at each of the four point vertices. All 24 point permutations extend to graph automorphisms. The two edge orbits have sizes 12 and 4 with representatives (0,4) and (0,7), exactly matching the generator's bad-edge disjunction. The graph is four-cycle-free and has a matching of size four and a point-side cover of size four, so the read-one lower bound is 16+4-1=19. An 18-gate witness would necessarily fail joint read-one on at least one of those two edge orbits. No 18-gate witness or exhaustive lower bound is claimed.
+
+## Existing bounds that exclude small patch searches
+
+Later source inspection establishes an unconditional exclusion of that quadrangle search: the final theorem of checked `L_meta_723.lean` proves that every Monotone2 circuit for the ten-vertex subdivided K4 needs at least 15 gates. No read-one or structural restriction remains. Setting each of the four private input variables false saves at least one gate; each remaining private variable stays essential, and the exact restricted graph is the core. Hence the full patch needs at least 19 gates. This uses primary-input restriction, not replacing an internal gate, so cubic residual terms are not an issue.
+
+The four-point class [0,1,2,3] is also excluded. Its seven private lines are [2,3,6,7,8,9,10]. Its core is thetaEdges 2 2 2: the two in each parameter count internal vertices, so each leg has three edges. Vertices 0 through 7 map to [point2,line0,line1,point0,line11,point3,line12,point1]. The matching (0,2),(3,1),(4,5),(6,7) proves minimum cover at least four. Checked `L_meta_723.lean:1969` theta_lower therefore gives 12 gates for this core, and seven essential private-input eliminations imply at least 19 for the patch.
+
+The five-point two-triple-lines class [0,1,2,3,4] is excluded as well. Checked `L_meta_5187.lean:2008` core5_lb gives at least 18 gates for its eleven-vertex, fourteen-edge core. The point vertices 0..4 stay unchanged, and its old line vertices 5..10 map to actual lines [0,12,11,10,9,1]. The six private lines are [2,3,5,6,7,8], so the full patch needs at least 24 gates, ruling out 23. The theorem only assumes Monotone2 and GraphEval, which at line 999 means correctness on singleton/pair assignments; this is even weaker than full graph correctness. Copies occur in L2098, L4232, and L2713.
+
+A bounded census of 312 checked files containing Fin11/Fin13 found no unconditional 21-gate bound for the thirteen-vertex, seventeen-edge core of the one-triple five-point class [0,1,2,3,6]. No literal seventeen-edge/thirteen-vertex graph candidate was located either. This is a search limitation, not a claim that no generic bound applies. No inference from the full Fano bound was used.
+
+## Further approved compiled infrastructure
+
+- StarExtension2056.lean, SHA256 `cfd9cf6b5b63d7fc46f92b3ad9320269e49601d9e2dd6c04fcd973314ef3df18`, 234 lines: exact five-gate star extension and budget accounting. The previous output must be valid before appending.
+- RelabelStarExtension2056.lean, SHA256 `3d95e732ed2b9c57b351173c2387d9cbd868eedf2824df0c29690ee9f82ef0b4`, 360 lines: arbitrary input substitution, exact gate-offset relabeling, preserved size/output validity, and star extension. Still requires a sufficiently small patch witness.
+- PackedControl2056.lean final compiled SHA256 `1bdf1123a4cc949f9c23ea71e90f7e9a2b7b11373955486f66ef386cf31f1071`, 365 lines. The final change used a Boolean operator-pattern test to prove Monotone2. All stated control checks compiled, still for 64 gates.
+- PackedWitness2056.lean, SHA256 `b6bed66e77a0a3d9daaead16de704f0860e27a7a97cc86dae949eb259ed593a7`, 378 lines: three explicit packed-check hypotheses plus size at most 63 imply the literal desk statement. The Fin.ofNat modulo bridge and swapped closure tests were independently reviewed. No concrete witness is supplied.
+- PackedEndToEnd2056.lean, SHA256 `a9684a60606e69d5801ed0aa5ece6adea37cee4272a9410003667be1cc268e2d`, 475 lines, compiled exit 0 and independently approved: copied verified witness infrastructure plus the 64-gate control and all three checks. It proves only PostedTests for that control, without the required size bound.
+
+The six-point orbit data, SHA256 `9f81343fd37f28d4e01c7d9528c246ba4b37f5a6d3872d6c9e2964234477b07d`, was independently verified using all 5616 normalized invertible projective matrices. Four disjoint orbits cover all 1716 six-subsets: masks 63,95,183,207 have sizes 234,936,468,78 respectively. All member lists and degree histograms match. Mask207 has two unused lines, nine lines meeting two selected points, and two meeting three, with no private leaves. This finite geometry guides search and is not a Lean proof of a circuit bound.
+
+
+## Further search implementation review
+
+The aliased five-point stochastic engine `patch2056_five_alias.cpp`, SHA256 `c6d4be19755db0a4dc8e4d9186dde940e51cdf7af497789c875e7388799e6467`, was statically approved. Each operand representative is an earlier wire with the same full 52-row signature. Replacing operands preserves the sampled rows; atomic singleton replacement preserves positives and decreases negatives. The effective-output read-one score and live-cone penalty are heuristics only. A reported zero raw error still refers to the actual emitted net and all complete boundary tests. Its author reports a 60,000-network differential test passing across all three original data cases. The already excluded case zero is disabled in this continuation.
+
+Initial CaDiCaL backend review found a missing reference increment on the `Z3_ast_vector` returned by `Z3_solver_get_assertions`. Its original fixed-control run produced a spurious empty CNF and crashed while validating original assertions. The author has added the required retained reference and is rerunning; no backend result was accepted from the defective version. The pipeline is designed to verify every exported CNF clause, convert the model back, verify every original SMT assertion, and then check the extracted network on the full boundary and exhaustive truth table when small enough. Operational approval remains pending that corrected positive control.
+
+
+Corrected CaDiCaL backend SHA256 `99be447e8e9c74d89966410b6af71322be3d2ebce9fe8c2e9c5b55478b8fffa7` passed independent review. The fixed positive control and a nontrivial control with three free gates both reconstructed valid original models. Independently rechecked all 96,827 CNF clauses for the latter, with 6,345 variables, and recomputed its 29-gate network on all 131,072 assignments with zero mismatches. The wrapper also verifies every original SMT assertion. Query-SAT candidates with boundary or exhaustive errors are now explicitly labeled invalid; external UNSAT remains unverified by Lean.
+
+`PackedChunks2056.lean`, current SHA256 `70e87e4889a60cb08d50aefe029d997ddc4ac31e4f77a72b57dd14712e432b13`, 727 lines, was statically approved pending compilation. It represents every 13-point subset by low nine bits and high four bits, giving sixteen 512-bit chunks. The generic soundness and exact posted bridge follow from this representation. A first all-chunks-in-one decide attempt was terminated for high memory; the revised control uses 32 separate finite checks, one per chunk in each direction, then fin_cases assembles them. It still supplies only a 64-gate control.
+
+
+The six-point orbit represented by [0,1,2,3,4,5] is also excluded from a 28-gate patch search. Checked `L_meta_9730.lean:9585` unconditionally rules out at most 22 Monotone2 gates for its thirteen-vertex, eighteen-edge graph. Its vertices 0 through 12 map to [line0,line1,line8,line9,line10,line11,line12,point0,point1,point2,point3,point4,point5], an exact independently verified isomorphism to this patch core. Private lines [2,3,4,5,6,7] each permit one essential-input gate saving, so the full patch requires at least 29. This does not exclude the separate mask207 orbit being searched.
+
+The final chunked verifier compiled successfully at SHA256 `19c0e60b53f255ed800c96b51539473d84a44c65da699e1838c61542a85fd38d`, 728 lines, and received independent final-byte approval. It now imports only PEqualNP.Defs, with explicit pointChunk zero/all-ones proofs replacing a broad simp. Author-reported build metrics were 37.998 seconds and 3,187,024 KiB peak RSS. The literal concrete circuit remains the 64-gate control.
+
+The active six-point SAT data, SHA256 `5efeda44ae34091792f161547a74324d15b64435737f6decaf39c4fac52d8991`, was independently verified: points [0,1,2,3,6,7], 24 exact sum-incidence edges, all 52 maximal-false rows, and 76 distinct boundary rows. Each of its 72 listed automorphisms preserves adjacency. Bad-edge representatives (0,6) and (0,7) generate disjoint edge orbits of sizes 6 and 18 covering the graph.
+
+The theta4 bounded SAT search was independently approved: generator SHA256 `2f908779a78cc901639947997e694a915bde940aef6073726b5e8d08b786e6e6` differs from the reviewed six-point generator only by filenames and emit-only mode. Data SHA256 `73b3d3dd053dff824b47c3c3bbf2eac088b1ff50363db342e526761fc6160fef` matches four length-three paths joining two endpoints, with ten vertices and twelve edges. Independent enumeration confirms all twelve positive rows and seventeen maximal-false rows. The extracted sixteen-gate control has zero errors on all 1024 inputs. The target query contains fifteen gates and no bad-edge constraint. Its normalizations retain their reviewed mathematical justification, but external UNSAT would still need a Lean lower-bound proof.

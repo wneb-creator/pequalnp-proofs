@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T16:01:29.352001+00:00",
+  "variables": 69252,
+  "clauses": 792497,
+  "conversion_seconds": 36.01893424987793,
+  "size": 28,
+  "seconds_limit": 300,
+  "exit_code": 0,
+  "status": "unknown; time or resource limit"
+}

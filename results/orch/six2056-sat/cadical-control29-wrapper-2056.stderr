@@ -1,0 +1,6 @@
+ASSERTION VIOLATION
+File: ./src/ast/rewriter/rewriter_def.h
+Line: 226
+UNEXPECTED CODE WAS REACHED.
+4.13.3.0
+Please file an issue with this message and more detail about how you encountered it at https://github.com/Z3Prover/z3/issues/new

@@ -1,0 +1,8 @@
+{
+  "last_logged_seconds": 331.515,
+  "last_logged_iterations": 65009659,
+  "best_score": 40,
+  "critical_errors": 3,
+  "false_positives": 0,
+  "status": "stopped to switch to distinct five-point patch cases; no witness"
+}

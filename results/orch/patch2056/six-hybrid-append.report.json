@@ -1,0 +1,213 @@
+{
+  "seconds": 3.2886648960002276,
+  "candidates": [
+    {
+      "candidate": 0,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 1,
+      "original": 28,
+      "compacted": 25,
+      "remaining": 3,
+      "searched_append_depth": 3,
+      "hit": false
+    },
+    {
+      "candidate": 2,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 3,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 4,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 5,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 6,
+      "original": 28,
+      "compacted": 24,
+      "remaining": 4,
+      "searched_append_depth": 3,
+      "hit": false
+    },
+    {
+      "candidate": 7,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 8,
+      "original": 28,
+      "compacted": 26,
+      "remaining": 2,
+      "searched_append_depth": 2,
+      "hit": false
+    },
+    {
+      "candidate": 9,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 10,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 11,
+      "original": 28,
+      "compacted": 26,
+      "remaining": 2,
+      "searched_append_depth": 2,
+      "hit": false
+    },
+    {
+      "candidate": 12,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 13,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 14,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 15,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 16,
+      "original": 28,
+      "compacted": 25,
+      "remaining": 3,
+      "searched_append_depth": 3,
+      "hit": false
+    },
+    {
+      "candidate": 17,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 18,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 19,
+      "original": 28,
+      "compacted": 25,
+      "remaining": 3,
+      "searched_append_depth": 3,
+      "hit": false
+    },
+    {
+      "candidate": 20,
+      "original": 28,
+      "compacted": 28,
+      "remaining": 0,
+      "searched_append_depth": 0,
+      "hit": false
+    },
+    {
+      "candidate": 21,
+      "original": 28,
+      "compacted": 26,
+      "remaining": 2,
+      "searched_append_depth": 2,
+      "hit": false
+    },
+    {
+      "candidate": 22,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    },
+    {
+      "candidate": 23,
+      "original": 28,
+      "compacted": 26,
+      "remaining": 2,
+      "searched_append_depth": 2,
+      "hit": false
+    },
+    {
+      "candidate": 24,
+      "original": 28,
+      "compacted": 25,
+      "remaining": 3,
+      "searched_append_depth": 3,
+      "hit": false
+    },
+    {
+      "candidate": 25,
+      "original": 28,
+      "compacted": 27,
+      "remaining": 1,
+      "searched_append_depth": 1,
+      "hit": false
+    }
+  ]
+}
