@@ -709,4 +709,209 @@ lemma incidence_transport_exists {m n : ℕ}
 
 end InputRelabel
 
+namespace AndCrossing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+def stepW (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma foldl_len (gs : List Gate) (w : List Bool) :
+    (gs.foldl stepW w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [stepW]
+    omega
+
+lemma foldl_getD_lt (gs : List Gate) (w : List Bool) (i : ℕ) (hi : i < w.length) :
+    (gs.foldl stepW w).getD i false = w.getD i false := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    have hlt : i < (stepW w g).length := by simp [stepW]; omega
+    rw [ih (stepW w g) hlt]
+    simp [stepW, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma foldl_char (gs : List Gate) (w : List Bool) :
+    ∀ j, j < gs.length → (gs.foldl stepW w).getD (w.length + j) false =
+      (gs.getD j ⟨GateOp.or, []⟩).op.eval ((gs.getD j ⟨GateOp.or, []⟩).inputs.map fun i =>
+        if i < w.length + j then (gs.foldl stepW w).getD i false else false) := by
+  induction gs using List.reverseRecOn with
+  | nil => intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    intro j hj
+    rw [List.foldl_append, List.foldl_cons, List.foldl_nil]
+    have hlen := foldl_len gs w
+    simp only [List.length_append, List.length_singleton] at hj
+    have key : ∀ i, i < w.length + gs.length →
+        (stepW (gs.foldl stepW w) g).getD i false = (gs.foldl stepW w).getD i false := by
+      intro i hi
+      simp only [stepW, List.getD_eq_getElem?_getD]
+      rw [List.getElem?_append_left (by omega)]
+    rcases Nat.lt_or_ge j gs.length with h | h
+    · have e1 : (gs ++ [g]).getD j ⟨GateOp.or, []⟩ = gs.getD j ⟨GateOp.or, []⟩ := by
+        simp only [List.getD_eq_getElem?_getD]
+        rw [List.getElem?_append_left h]
+      rw [e1, key _ (by omega), ih j h]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      split_ifs with hi
+      · rw [key i (by omega)]
+      · rfl
+    · have hj' : j = gs.length := by omega
+      subst hj'
+      have e1 : (gs ++ [g]).getD gs.length ⟨GateOp.or, []⟩ = g := by
+        simp [List.getD_eq_getElem?_getD]
+      rw [e1]
+      have e2 : (stepW (gs.foldl stepW w) g).getD (w.length + gs.length) false =
+          g.op.eval (g.inputs.map fun i => (gs.foldl stepW w).getD i false) := by
+        simp only [stepW, List.getD_eq_getElem?_getD]
+        rw [List.getElem?_append_right (by omega)]
+        simp [hlen]
+      rw [e2]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      split_ifs with hi
+      · rw [key i hi]
+      · simp only [List.getD_eq_getElem?_getD]
+        rw [List.getElem?_eq_none (by omega)]
+        rfl
+
+def wv (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) : Bool :=
+  (C.wires (List.ofFn x)).getD w false
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = C.gates.foldl stepW x := rfl
+
+lemma wv_input (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) (hw : w < n) :
+    wv n C x w = x ⟨w, hw⟩ := by
+  unfold wv
+  rw [wires_eq, foldl_getD_lt _ _ _ (by simpa using hw)]
+  simp [List.getD_eq_getElem?_getD, hw]
+
+lemma wv_rec (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hC : ReadsBack n C) (j : ℕ) (hj : j < C.gates.length) :
+    wv n C x (n + j) = (gateAt C j).op.eval ((gateAt C j).inputs.map (wv n C x)) := by
+  have h := foldl_char C.gates (List.ofFn x) j hj
+  simp only [List.length_ofFn] at h
+  unfold wv gateAt
+  rw [wires_eq, h]
+  congr 1
+  apply List.map_congr_left
+  intro i hi
+  rw [ite_eq_left (hC j hj i hi)]
+
+lemma wv_missing (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (w : ℕ) (hw : n + C.gates.length ≤ w) : wv n C x w = false := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.gates.length := by
+    rw [wires_eq, foldl_len, List.length_ofFn]
+  unfold wv
+  simp only [List.getD_eq_getElem?_getD]
+  rw [List.getElem?_eq_none (by omega)]
+  rfl
+
+lemma gate_mem (C : Circuit) (k : ℕ) (hk : k < C.gates.length) : gateAt C k ∈ C.gates := by
+  unfold gateAt
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hk]
+  exact List.getElem_mem hk
+
+lemma inputs_two (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (k : ℕ) (hk : k < C.gates.length) :
+    (gateAt C k).inputs = [opnd C k 0, opnd C k 1] := by
+  obtain ⟨a, b, hin⟩ := List.length_eq_two.mp (hAO.2.2 _ (gate_mem C k hk))
+  simp [opnd, hin]
+
+lemma opnd_back (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (k : ℕ) (hk : k < C.gates.length) (b : Fin 2) : opnd C k b < n + k := by
+  apply hAO.2.1 k hk
+  rw [inputs_two n C hAO k hk]
+  fin_cases b <;> simp
+
+
+def Crosses (n : ℕ) (C : Circuit) (x y : Fin n → Bool) (k : ℕ) : Prop :=
+  (wv n C x (opnd C k 0) = true ∧ wv n C x (opnd C k 1) = false ∧
+   wv n C y (opnd C k 0) = false ∧ wv n C y (opnd C k 1) = true) ∨
+  (wv n C x (opnd C k 0) = false ∧ wv n C x (opnd C k 1) = true ∧
+   wv n C y (opnd C k 0) = true ∧ wv n C y (opnd C k 1) = false)
+
+lemma and_false_common (a b c d : Bool)
+    (hx : (a && b) = false) (hy : (c && d) = false)
+    (hno : ¬ ((a = true ∧ b = false ∧ c = false ∧ d = true) ∨
+              (a = false ∧ b = true ∧ c = true ∧ d = false))) :
+    (a = false ∧ c = false) ∨ (b = false ∧ d = false) := by
+  cases a <;> cases b <;> cases c <;> cases d <;> simp_all
+
+lemma false_join_of_no_crossing (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (x y : Fin n → Bool)
+    (hno : ∀ k < r, (gateAt C k).op = GateOp.and → ¬ Crosses n C x y k) :
+    ∀ w, w < n + r → wv n C x w = false → wv n C y w = false →
+      wv n C (fun i => x i || y i) w = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hx hy
+    by_cases hwn : w < n
+    · rw [wv_input n C x w hwn] at hx
+      rw [wv_input n C y w hwn] at hy
+      rw [wv_input n C _ w hwn]
+      simp [hx, hy]
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hkr : k < r := by omega
+      have hk : k < C.gates.length := by omega
+      have ha := opnd_back n C hAO k hk 0
+      have hb := opnd_back n C hAO k hk 1
+      rw [wv_rec n C x hAO.2.1 k hk, inputs_two n C hAO k hk] at hx
+      rw [wv_rec n C y hAO.2.1 k hk, inputs_two n C hAO k hk] at hy
+      rw [wv_rec n C _ hAO.2.1 k hk, inputs_two n C hAO k hk]
+      rcases hAO.1 _ (gate_mem C k hk) with hop | hop
+      · have hcommon := and_false_common
+          (wv n C x (opnd C k 0)) (wv n C x (opnd C k 1))
+          (wv n C y (opnd C k 0)) (wv n C y (opnd C k 1))
+          (by simpa [hop, GateOp.eval] using hx)
+          (by simpa [hop, GateOp.eval] using hy)
+          (hno k hkr hop)
+        rcases hcommon with ⟨hx0, hy0⟩ | ⟨hx1, hy1⟩
+        · have hj := ih _ ha (by omega) hx0 hy0
+          simp [hop, GateOp.eval, hj]
+        · have hj := ih _ hb (by omega) hx1 hy1
+          simp [hop, GateOp.eval, hj]
+      · have hxx : wv n C x (opnd C k 0) = false ∧
+            wv n C x (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hx
+        have hyy : wv n C y (opnd C k 0) = false ∧
+            wv n C y (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hy
+        have hj0 := ih _ ha (by omega) hxx.1 hyy.1
+        have hj1 := ih _ hb (by omega) hxx.2 hyy.2
+        simp [hop, GateOp.eval, hj0, hj1]
+
+lemma crossing_of_join_true (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (x y : Fin n → Bool)
+    (hx : circuitFun n C x = false) (hy : circuitFun n C y = false)
+    (hjoin : circuitFun n C (fun i => x i || y i) = true) :
+    ∃ k < C.gates.length, (gateAt C k).op = GateOp.and ∧ Crosses n C x y k := by
+  classical
+  change wv n C x C.output = false at hx
+  change wv n C y C.output = false at hy
+  change wv n C (fun i => x i || y i) C.output = true at hjoin
+  have hout : C.output < n + C.gates.length := by
+    by_contra h
+    have hf := wv_missing n C (fun i => x i || y i) C.output (by omega)
+    rw [hjoin] at hf
+    cases hf
+  by_contra hcross
+  have hno : ∀ k < C.gates.length, (gateAt C k).op = GateOp.and →
+      ¬ Crosses n C x y k := by
+    intro k hk hop h
+    exact hcross ⟨k, hk, hop, h⟩
+  have hf := false_join_of_no_crossing n C hAO C.gates.length le_rfl x y hno
+    C.output hout hx hy
+  rw [hjoin] at hf
+  cases hf
+
+end AndCrossing
+
 end PEqualNP.Outside.L_meta_2583
