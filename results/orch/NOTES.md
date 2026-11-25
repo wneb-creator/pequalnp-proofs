@@ -105,3 +105,19 @@ Baseline common verifier plus g15 certificate compiled in55.22s, peak RSS4519676
 ## L4338 PackingT 2026-11-25T03:22:52.164419+00:00
 - MainT table is only5layers/199nodes/7736hexchars. Slots42,39,36,33,30 are k14..10 withtmax0; parentopcode is atslot+3. Every196nonroot opcodeprefix matches,3depth1 roots needexception/basecase.
 - Added packingT_analysis.py and encode_packingT.py. Exactopcode/live roundtrip and originalrule inclusion verified. Output L_meta_4338-packingT-parent-rules.json uses the same9field Packing layout, 5bitnr (maxnewrules15), and records actualslot plusparentSlotDelta3. Numericdatasize7736→5513chars, savings2223chars. SeparateLean decoder not worthwhile unlessnear512KiBthreshold.
+
+### 2026-11-25T03:24:28.152219+00:00 Parent codec smoke check passed
+
+ParentSmallProbe.lean passed Lean -j1 in56.46s, peak RSS4512236KB. It compiles the9field Packing representation and generic cmpOps/cmpRules reconstruction and checks the depth0 g15 certificate. Deeper recursion and representative search remain pending in ParentLargeProbe.lean (throughg383). Frozen sources/logs retained.
+
+Eight transformed source candidates retain original namespaces in scratch parent-cases/. Total source saving165100bytes. L4338 is mostly proof machinery: its PackingT payload is only7.7KB, so an additional T codec saves2.2KB at most and is deferred.
+
+2026-11-25T03:26:27.762163+00:00 status_review records:
+- scratch normalize_records.py standardizes C2444/C1676 BoundPool, IndexTree, Forest to C1676 product/list aliases; C1678 BoundPool alone is standardized, preserving its List-based Forest for now.
+- Records2444Prefix.lean compiled exit0 with all generic verifier lemmas through g15 data, independently of Live/Reach/Run conversion. Frozen source141582B; full build log results/orch/records2444-prefix-build.log.
+- Original C2444 data:17 column trees,193 forks; Python checked every stored pivot equals flattened left subtree length. Thus List-based tree lookup agrees on actual data. Kernel replay of full certificate still required.
+- Exact-text dedup measured24,469B saving from records alone,30,889B when composed after current Live unification. More sharing requires semantic/type-level dedup.
+
+### 2026-11-25T03:27:54.585298+00:00 Further safe compression estimates
+
+After parent-opcode and rule-inheritance encoding, one offset per16nodes with a bounded sequential header walk saves an additional28.7KB across7Packing-based files; it loses some interned-rule sharing but still wins overall. Not implemented or Lean-checked yet. Hash-table sorted-pair extractor delivered to finite_verification yields87.3KB additional numeric saving, Python checked against originallookup.

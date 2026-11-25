@@ -17,3 +17,4 @@
 - 2026-11-25T03:20:16.705376+00:00: first strategy review: all case mathematics identified; counterexample search stopped; focus on shared state interfaces, batched proof checks, and parent-based certificate data. Independent review passed FiniteBatchProbe.
 - 2026-11-25T03:20:41.232768+00:00: first finite forest proof passed after cells-proof batching; grouped scoped-open behavior checked.
 - 2026-11-25T03:23:48.135170+00:00: root independently reviewed kernel-checked parent opcode/rule decoder and unchanged certificate soundness chain; preserving ParentSmallProbe.
+- 2026-11-25T03:28:23.982946+00:00: root independently reviewed separately compiled Church-state and product/list-record conversions of the 2444 verifier prefix; preserving both before integration.
