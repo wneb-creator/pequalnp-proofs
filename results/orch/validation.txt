@@ -87,3 +87,19 @@ Command (from lean/): lake env lean ../results/orch/lemmas/PlaneStarExact2583.le
 Exit status: 0. Complete logs: plane-star-exact-2583.stdout and .stderr.
 Independent review: status_review approved SHA256 dd6e73b3f2a7b599d143eed3e8726f87f833001f9b596e5a4f741612f9d5ec1a.
 Scope: explicit read1 plane circuit of exact cost N(q+2)-1; target normalization follows only under the still-unproved unrestricted numeric lower bound. No full checker acceptance claimed.
+
+L-meta-2583 compiled component: results/orch/lemmas/OrLift2583.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/OrLift2583.lean
+Exit status: 0. Complete logs: or-lift-2583.stdout and .stderr.
+Independent review: status_review approved SHA256 5d8f2c04974fba8e0753ba7dc6b57f2dff01c6144991d12b38a8ad167a132f2b.
+
+L-meta-2583 compiled component: results/orch/lemmas/FanoReadOneBound.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/FanoReadOneBound.lean
+Exit status: 0. Complete logs: fano-read-one-bound.stdout and .stderr.
+Independent review: status_review approved SHA256 61570a7a4558d5248e4aee15295dfe37e8e94556a601e99a1c5e36a9bdd73229.
+
+L-meta-2583 compiled component: results/orch/lemmas/FanoGeometryTest.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/FanoGeometryTest.lean
+Exit status: 0. Complete logs: fano-geometry.stdout and .stderr.
+Independent review: root approved SHA256 6afbd73daec1536428bc1ab6eb50c53cefc3e230f33abd1dd8f7a53b273f82d2.
+Scope: size-preserving OR surgery and strict AND deletion; concrete Fano geometry; READ1 Fano circuits require at least27gates. This does not bound arbitrary monotone Fano circuits and does not prove full2583.
