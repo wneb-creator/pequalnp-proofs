@@ -5814,7 +5814,7 @@ lemma charge_zero_of_small {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.A
   have hle : (leaf side c S).card ≤ S.card := Finset.card_filter_le _ _
   omega
 
-lemma projected_root_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma projected_source_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (side : Fin n → Bool) (s : ℕ → Finset (Fin n)) (a b : ℕ → ℕ)
     (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
     (hinput : ∀ i < n, (s i).card ≤ 1)
@@ -5888,7 +5888,7 @@ lemma charge_card_le_one_of_contained {n : ℕ} (G : SimpleGraph (Fin n)) [Decid
   intro c hc e he
   exact (heq c hc).trans (heq e he).symm
 
-lemma circuit_projected_root_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma circuit_projected_source_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (side : Fin n → Bool) (C : PEqualNP.CircuitLowerBounds.Circuit)
     (hAO : PEqualNP.TopForm.IsAO2 n C) (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
     (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
@@ -5896,7 +5896,7 @@ lemma circuit_projected_root_budget {n : ℕ} (G : SimpleGraph (Fin n)) [Decidab
     (∑ c ∈ K, ((T c).biUnion (fun w => leaf side c (PEqualNP.TopForm.orIn n C w))).card) ≤
       (∑ k ∈ Finset.range C.gates.length,
         (chargeSet G side K (PEqualNP.TopForm.orIn n C (n + k))).card) + ∑ c ∈ K, (T c).card := by
-  exact projected_root_budget G side (PEqualNP.TopForm.orIn n C)
+  exact projected_source_budget G side (PEqualNP.TopForm.orIn n C)
     (fun k => PEqualNP.TopForm.opnd C k 0) (fun k => PEqualNP.TopForm.opnd C k 1) K T
     (RawOrSupport.orIn_input C)
     (fun k hk => RawOrSupport.opnd_lt hAO.2.2 hAO.2.1 hk 0)
@@ -6101,7 +6101,7 @@ lemma node_charge_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     have hc := CProjectionCharges.charge_zero_of_small G side K ∅ (by simp)
     simp [hb, hc]
 
-lemma two_root_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma two_source_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
     (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
     (s : ℕ → Finset (Fin n)) (a b : ℕ → ℕ) (K : Finset (Fin n)) (T U : Fin n → Finset ℕ)
@@ -6123,7 +6123,7 @@ lemma two_root_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   let costC : ℕ → ℕ := fun k => (CProjectionCharges.chargeSet G side K (s (n + k))).card
   have hB := NearProjectionBudget.filtered_projection_budget G (NearColorCases.BAllowed G side)
     (NearColorCases.allowed_mono G side) s a b K T hinput ha hb hstep hT hallowed
-  have hC := CProjectionCharges.projected_root_budget G side s a b K U hinput ha hb hstep hU hvalid
+  have hC := CProjectionCharges.projected_source_budget G side s a b K U hinput ha hb hstep hU hvalid
   change _ ≤ (Finset.range m).sum costB + _ at hB
   change _ ≤ (Finset.range m).sum costC + _ at hC
   have hcost : (Finset.range m).sum costB + (Finset.range m).sum costC ≤
@@ -6151,7 +6151,7 @@ lemma two_root_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     exact hh.trans_eq heq
   omega
 
-lemma circuit_two_root_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma circuit_two_source_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
     (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
     (C : PEqualNP.CircuitLowerBounds.Circuit) (hAO : PEqualNP.TopForm.IsAO2 n C)
@@ -6169,7 +6169,7 @@ lemma circuit_two_root_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel 
     (hroots : (∑ c ∈ K, (T c).card) + (∑ c ∈ K, (U c).card) ≤ 2 * budget) :
     X ≤ ((Finset.range C.gates.length).filter (fun k =>
       2 ≤ (PEqualNP.TopForm.orIn n C (n + k)).card)).card + budget := by
-  exact two_root_budget G hfour side hproper (PEqualNP.TopForm.orIn n C)
+  exact two_source_budget G hfour side hproper (PEqualNP.TopForm.orIn n C)
     (fun k => PEqualNP.TopForm.opnd C k 0) (fun k => PEqualNP.TopForm.opnd C k 1) K T U
     (RawOrSupport.orIn_input C)
     (fun k hk => RawOrSupport.opnd_lt hAO.2.2 hAO.2.1 hk 0)
@@ -6235,12 +6235,1128 @@ lemma shared_family_cover_bound {n p l : ℕ} (G : SimpleGraph (Fin n)) [Decidab
     (hroots : (∑ c ∈ K, (T c).card) + (∑ c ∈ K, (U c).card) ≤ 2 * (2 * r + s + t))
     (hands : 2 * r + 2 * s + t ≤ M.card) (haggregation : r + s + t ≤ O.card + 1) :
     (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card + s ≤ C.size + 1 := by
-  have hb := ComplementaryBudget.circuit_two_root_budget G hfour side hproper C hAO K T U
+  have hb := ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO K T U
     hT hU hallowed hvalid (EL.card + ER.card) (2 * r + s + t) hleavesB hleavesC hroots
   exact shared_family_cover_of_budget C M O hM hO E EL ER F L ZL R ZR r s t
     hcover hfl hfr hlcover hrcover hr ht hleft hright
       (by simpa only [Nat.add_assoc] using hb) hands haggregation
 
 end ComplementaryFamily
+
+namespace RelaxedFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma shared_family_cover_of_budget_with_surplus {n p l : ℕ}
+    (C : Circuit)
+    (M O : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (hO : ∀ k ∈ O, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      orIn n C (n + k) = ∅)
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r s t surplus : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ s + t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hbudget : EL.card + ER.card ≤
+      ((Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card).card +
+        2 * r + s + t)
+    (hands : 2 * r + s + t + surplus ≤ M.card) (haggregation : r + s + t ≤ O.card + 1) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card + surplus ≤ C.size + 1 := by
+  constructor
+  · intro e he
+    have he' : e ∈ EL ∪ ER := hcover.symm ▸ he
+    exact (Finset.mem_union.mp he').elim (fun h => Or.inl (hleft e h))
+      (fun h => Or.inr (hright e h))
+  · have hg := ThinFamily.nontrivial_gate_accounting C M O hM hO
+    have hm := SharedThreeClauseLedger.edge_multiplicity E EL ER hcover
+    have hc := SharedThreeClauseLedger.centre_budget EL ER F L ZL R ZR r (s + t)
+      hfl hfr hlcover hrcover hr ht
+    omega
+
+
+lemma shared_family_cover_with_surplus {n p l : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (K : Finset (Fin n)) (T U : Fin n → Finset ℕ)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hU : ∀ c ∈ K, U c ⊆ Finset.range (n + C.size))
+    (hallowed : ∀ c ∈ K, ∀ w ∈ T c, NearColorCases.BAllowed G side c (orIn n C w))
+    (hvalid : ∀ c ∈ K, ∀ w ∈ U c,
+      ∀ v ∈ CProjectionCharges.leaf side c (orIn n C w), G.Adj c v)
+    (M O : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (hO : ∀ k ∈ O, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      orIn n C (n + k) = ∅)
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r s t surplus : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ s + t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hleavesB : EL.card + ER.card ≤
+      ∑ c ∈ K, ((T c).biUnion (fun w => NearMergeCharges.project G c (orIn n C w))).card)
+    (hleavesC : EL.card + ER.card ≤
+      ∑ c ∈ K, ((U c).biUnion (fun w => CProjectionCharges.leaf side c (orIn n C w))).card)
+    (hroots : (∑ c ∈ K, (T c).card) + (∑ c ∈ K, (U c).card) ≤ 2 * (2 * r + s + t))
+    (hands : 2 * r + s + t + surplus ≤ M.card) (haggregation : r + s + t ≤ O.card + 1) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card + surplus ≤ C.size + 1 := by
+  have hb := ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO K T U
+    hT hU hallowed hvalid (EL.card + ER.card) (2 * r + s + t) hleavesB hleavesC hroots
+  exact shared_family_cover_of_budget_with_surplus C M O hM hO E EL ER F L ZL R ZR r s t surplus
+    hcover hfl hfr hlcover hrcover hr ht hleft hright
+      (by simpa only [Nat.add_assoc] using hb) hands haggregation
+
+end RelaxedFamily
+
+namespace ResidualFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma residual_family_cover_of_budget {n p l : ℕ}
+    (C : Circuit)
+    (M : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r s t : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ s + t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hbudget : EL.card + ER.card ≤
+      ((Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card).card +
+        2 * r + s + t)
+    (hands : r ≤ M.card) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card ≤ C.size + 2 * (r + s + t) := by
+  constructor
+  · intro e he
+    have he' : e ∈ EL ∪ ER := hcover.symm ▸ he
+    exact (Finset.mem_union.mp he').elim (fun h => Or.inl (hleft e h))
+      (fun h => Or.inr (hright e h))
+  · have hg := ThinFamily.nontrivial_gate_accounting (n := n) C M ∅ hM (by simp)
+    have hm := SharedThreeClauseLedger.edge_multiplicity E EL ER hcover
+    have hc := SharedThreeClauseLedger.centre_budget EL ER F L ZL R ZR r (s + t)
+      hfl hfr hlcover hrcover hr ht
+    omega
+
+
+lemma residual_family_cover_bound {n p l : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (K : Finset (Fin n)) (T U : Fin n → Finset ℕ)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hU : ∀ c ∈ K, U c ⊆ Finset.range (n + C.size))
+    (hallowed : ∀ c ∈ K, ∀ w ∈ T c, NearColorCases.BAllowed G side c (orIn n C w))
+    (hvalid : ∀ c ∈ K, ∀ w ∈ U c,
+      ∀ v ∈ CProjectionCharges.leaf side c (orIn n C w), G.Adj c v)
+    (M : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r s t : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ s + t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hleavesB : EL.card + ER.card ≤
+      ∑ c ∈ K, ((T c).biUnion (fun w => NearMergeCharges.project G c (orIn n C w))).card)
+    (hleavesC : EL.card + ER.card ≤
+      ∑ c ∈ K, ((U c).biUnion (fun w => CProjectionCharges.leaf side c (orIn n C w))).card)
+    (hroots : (∑ c ∈ K, (T c).card) + (∑ c ∈ K, (U c).card) ≤ 2 * (2 * r + s + t))
+    (hands : r ≤ M.card) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card ≤ C.size + 2 * (r + s + t) := by
+  have hb := ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO K T U
+    hT hU hallowed hvalid (EL.card + ER.card) (2 * r + s + t) hleavesB hleavesC hroots
+  exact residual_family_cover_of_budget C M hM E EL ER F L ZL R ZR r s t
+    hcover hfl hfr hlcover hrcover hr ht hleft hright
+      (by simpa only [Nat.add_assoc] using hb) hands
+
+end ResidualFamily
+
+namespace StarRootFamily
+
+def indexFiber {n m : ℕ} (a : Fin m → Fin n) (v : Fin n) : Finset (Fin m) :=
+  Finset.univ.filter fun i => a i = v
+
+def rootPool {n m : ℕ} (a : Fin m → Fin n) (d : Fin m → ℕ) (v : Fin n) : Finset ℕ :=
+  (indexFiber a v).image d
+
+lemma root_pool_mem {n m : ℕ} (a : Fin m → Fin n) (d : Fin m → ℕ) (v : Fin n) (w : ℕ) :
+    w ∈ rootPool a d v ↔ ∃ i : Fin m, a i = v ∧ d i = w := by
+  simp only [rootPool, indexFiber, Finset.mem_image, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma index_fiber_card_sum {n m : ℕ} (a : Fin m → Fin n) :
+    (∑ v : Fin n, (indexFiber a v).card) = m := by
+  have hd : ((Finset.univ : Finset (Fin n)) : Set (Fin n)).PairwiseDisjoint (indexFiber a) := by
+    intro v hv u hu hvu
+    apply Finset.disjoint_left.mpr
+    intro i hiv hiu
+    exact hvu ((Finset.mem_filter.mp hiv).2.symm.trans (Finset.mem_filter.mp hiu).2)
+  have he : (Finset.univ : Finset (Fin n)).biUnion (indexFiber a) = Finset.univ := by
+    ext i
+    constructor
+    · intro hi
+      exact Finset.mem_univ i
+    · intro hi
+      exact Finset.mem_biUnion.mpr ⟨a i, Finset.mem_univ _, Finset.mem_filter.mpr ⟨Finset.mem_univ _, rfl⟩⟩
+  have hc := Finset.card_biUnion hd
+  rw [he, Finset.card_univ, Fintype.card_fin] at hc
+  exact hc.symm
+
+lemma root_pool_card_bound {n m : ℕ} (a : Fin m → Fin n) (d : Fin m → ℕ) :
+    (∑ v : Fin n, (rootPool a d v).card) ≤ m := by
+  calc
+    (∑ v : Fin n, (rootPool a d v).card) ≤ ∑ v : Fin n, (indexFiber a v).card := by
+      apply Finset.sum_le_sum
+      intro v hv
+      exact Finset.card_image_le
+    _ = m := index_fiber_card_sum a
+
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+def centerLeaves {n m : ℕ} (C : Circuit) (a : Fin m → Fin n) (b c : Fin m → ℕ)
+    (v : Fin n) : Finset (Fin n) :=
+  (indexFiber a v).biUnion fun i => orIn n C (b i) ∩ orIn n C (c i)
+
+lemma select_source_wires {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (a : Fin n) (b c : ℕ)
+    (hsafe : ∀ x, StarThreeClause.starCNF a (orIn n C b) (orIn n C c) x = true →
+      graphFun G ∅ x = true) :
+    ∃ d e : ℕ, (d = b ∨ d = c) ∧ (e = b ∨ e = c) ∧
+      NearColorCases.BAllowed G side a (orIn n C d) ∧
+      (∀ u ∈ CProjectionCharges.leaf side a (orIn n C e), G.Adj a u) ∧
+      orIn n C b ∩ orIn n C c ⊆ NearMergeCharges.project G a (orIn n C d) ∧
+      orIn n C b ∩ orIn n C c ⊆ CProjectionCharges.leaf side a (orIn n C e) := by
+  obtain ⟨D, E, hD, hE, hallowed, hvalid, hBD, hBE⟩ :=
+    StarClauseSelector.safe_clause_selector_for_budget G side hproper hfour a
+      (orIn n C b) (orIn n C c) hsafe
+  rcases hD with rfl | rfl <;> rcases hE with rfl | rfl
+  · exact ⟨b, b, Or.inl rfl, Or.inl rfl, hallowed, hvalid, hBD, hBE⟩
+  · exact ⟨b, c, Or.inl rfl, Or.inr rfl, hallowed, hvalid, hBD, hBE⟩
+  · exact ⟨c, b, Or.inr rfl, Or.inl rfl, hallowed, hvalid, hBD, hBE⟩
+  · exact ⟨c, c, Or.inr rfl, Or.inr rfl, hallowed, hvalid, hBD, hBE⟩
+
+lemma select_source_family {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (a : Fin m → Fin n) (b c : Fin m → ℕ)
+    (hb : ∀ i, b i < n + C.size) (hc : ∀ i, c i < n + C.size)
+    (hsafe : ∀ i x, StarThreeClause.starCNF (a i) (orIn n C (b i)) (orIn n C (c i)) x = true →
+      graphFun G ∅ x = true) :
+    ∃ T U : Fin n → Finset ℕ,
+      (∀ v, T v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, U v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, ∀ w ∈ T v, NearColorCases.BAllowed G side v (orIn n C w)) ∧
+      (∀ v, ∀ w ∈ U v, ∀ u ∈ CProjectionCharges.leaf side v (orIn n C w), G.Adj v u) ∧
+      (∀ v, centerLeaves C a b c v ⊆
+        (T v).biUnion (fun w => NearMergeCharges.project G v (orIn n C w))) ∧
+      (∀ v, centerLeaves C a b c v ⊆
+        (U v).biUnion (fun w => CProjectionCharges.leaf side v (orIn n C w))) ∧
+      (∑ v : Fin n, (T v).card) ≤ m ∧ (∑ v : Fin n, (U v).card) ≤ m := by
+  classical
+  have hselect := fun i => select_source_wires G hfour side hproper C (a i) (b i) (c i) (hsafe i)
+  choose d e hd he hallowed hvalid hcovB hcovC using hselect
+  let T := rootPool a d
+  let U := rootPool a e
+  refine ⟨T, U, ?_, ?_, ?_, ?_, ?_, ?_, root_pool_card_bound a d, root_pool_card_bound a e⟩
+  · intro v w hw
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hw
+    apply Finset.mem_range.mpr
+    rcases hd i with hdi | hdi
+    · rw [hdi]
+      exact hb i
+    · rw [hdi]
+      exact hc i
+  · intro v w hw
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hw
+    apply Finset.mem_range.mpr
+    rcases he i with hei | hei
+    · rw [hei]
+      exact hb i
+    · rw [hei]
+      exact hc i
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    have hiv := (Finset.mem_filter.mp hi).2
+    rw [← hiv]
+    exact hallowed i
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    have hiv := (Finset.mem_filter.mp hi).2
+    rw [← hiv]
+    exact hvalid i
+  · intro v u hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiv := (Finset.mem_filter.mp hi).2
+    have hp := hcovB i hui
+    rw [hiv] at hp
+    exact Finset.mem_biUnion.mpr ⟨d i, Finset.mem_image.mpr ⟨i, hi, rfl⟩, hp⟩
+  · intro v u hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiv := (Finset.mem_filter.mp hi).2
+    have hp := hcovC i hui
+    rw [hiv] at hp
+    exact Finset.mem_biUnion.mpr ⟨e i, Finset.mem_image.mpr ⟨i, hi, rfl⟩, hp⟩
+
+lemma shared_star_clause_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (b c : Fin m → ℕ)
+    (hb : ∀ i, b i < n + C.size) (hc : ∀ i, c i < n + C.size)
+    (hsafe : ∀ i x, StarThreeClause.starCNF (a i) (orIn n C (b i)) (orIn n C (c i)) x = true →
+      graphFun G ∅ x = true) :
+    (∑ v : Fin n, (centerLeaves C a b c v).card) ≤
+      ((Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card).card + m := by
+  obtain ⟨T, U, hT, hU, hallowed, hvalid, hcovB, hcovC, hrootsB, hrootsC⟩ :=
+    select_source_family G hfour side hproper C a b c hb hc hsafe
+  apply ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO Finset.univ T U
+    (fun v _ => hT v) (fun v _ => hU v) (fun v _ => hallowed v) (fun v _ => hvalid v)
+    (∑ v : Fin n, (centerLeaves C a b c v).card) m
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovB v)
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovC v)
+  · omega
+
+lemma mem_centerLeaves_iff_accepted_pair {n m : ℕ}
+    (C : Circuit) (a : Fin m → Fin n) (b c : Fin m → ℕ)
+    (hab : ∀ i, a i ∉ orIn n C (b i)) (hac : ∀ i, a i ∉ orIn n C (c i))
+    (v u : Fin n) :
+    u ∈ centerLeaves C a b c v ↔ ∃ i : Fin m, a i = v ∧
+      StarThreeClause.starCNF (a i) (orIn n C (b i)) (orIn n C (c i))
+        (fun w => decide (w = a i ∨ w = u)) = true := by
+  constructor
+  · intro hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    refine ⟨i, (Finset.mem_filter.mp hi).2, ?_⟩
+    exact (StarThreeClause.accepted_pair_iff (a i) u (orIn n C (b i)) (orIn n C (c i))
+      (hab i) (hac i)).mpr hui
+  · rintro ⟨i, hiv, hi⟩
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hiv⟩,
+      (StarThreeClause.accepted_pair_iff (a i) u (orIn n C (b i)) (orIn n C (c i))
+        (hab i) (hac i)).mp hi⟩
+
+end StarRootFamily
+
+namespace SharedBottomStar
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm StarThreeClause
+
+def groupFun {n : ℕ} (X B C : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  clause X x && (clause B x && clause C x)
+
+def replacement {n : ℕ} (X B C : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  clause X x && clause (B ∩ C) x
+
+lemma group_true {n : ℕ} (X B C : Finset (Fin n)) (x : Fin n → Bool) :
+    groupFun X B C x = true ↔
+      (∃ a ∈ X, x a = true) ∧ (∃ b ∈ B, x b = true) ∧ (∃ c ∈ C, x c = true) := by
+  simp [groupFun, clause]
+
+lemma replacement_true {n : ℕ} (X B C : Finset (Fin n)) (x : Fin n → Bool) :
+    replacement X B C x = true ↔ (∃ a ∈ X, x a = true) ∧ (∃ s ∈ B ∩ C, x s = true) := by
+  simp [replacement, clause]
+
+lemma replacement_le_group {n : ℕ} (X B C : Finset (Fin n)) :
+    ∀ x, replacement X B C x = true → groupFun X B C x = true := by
+  intro x hx
+  obtain ⟨ha, s, hs, hxs⟩ := (replacement_true X B C x).mp hx
+  obtain ⟨hsB, hsC⟩ := Finset.mem_inter.mp hs
+  exact (group_true X B C x).mpr ⟨ha, ⟨s, hsB, hxs⟩, ⟨s, hsC, hxs⟩⟩
+
+lemma replacement_monotone {n : ℕ} (X B C : Finset (Fin n)) :
+    ∀ x y : Fin n → Bool, (∀ u, x u = true → y u = true) →
+      replacement X B C x = true → replacement X B C y = true := by
+  intro x y hxy hx
+  obtain ⟨⟨a, ha, hxa⟩, ⟨s, hs, hxs⟩⟩ := (replacement_true X B C x).mp hx
+  exact (replacement_true X B C y).mpr ⟨⟨a, ha, hxy a hxa⟩, ⟨s, hs, hxy s hxs⟩⟩
+
+lemma group_pair_iff {n : ℕ} (X B C : Finset (Fin n))
+    (haway : ∀ a ∈ X, a ∉ B ∧ a ∉ C) (u v : Fin n) :
+    groupFun X B C (pairInput u v) = true ↔
+      (u ∈ X ∧ v ∈ B ∩ C) ∨ (v ∈ X ∧ u ∈ B ∩ C) := by
+  constructor
+  · intro h
+    obtain ⟨⟨a, ha, hxa⟩, hB, hC⟩ := (group_true X B C (pairInput u v)).mp h
+    have hav : a = u ∨ a = v := by simpa [pairInput] using hxa
+    have hb : clause B (pairInput u v) = true := decide_eq_true hB
+    have hc : clause C (pairInput u v) = true := decide_eq_true hC
+    rcases hav with hau | hav
+    · subst a
+      left
+      refine ⟨ha, ?_⟩
+      apply (accepted_pair_iff u v B C (haway u ha).1 (haway u ha).2).mp
+      change starCNF u B C (pairInput u v) = true
+      rw [starCNF, hb, hc]
+      simp [pairInput]
+    · subst a
+      right
+      refine ⟨ha, ?_⟩
+      have heq : pairInput u v = pairInput v u := by
+        funext w
+        simp only [pairInput, or_comm]
+      rw [heq] at hb hc
+      apply (accepted_pair_iff v u B C (haway v ha).1 (haway v ha).2).mp
+      change starCNF v B C (pairInput v u) = true
+      rw [starCNF, hb, hc]
+      simp [pairInput]
+  · rintro (⟨hu, hv⟩ | ⟨hv, hu⟩)
+    · obtain ⟨hvB, hvC⟩ := Finset.mem_inter.mp hv
+      exact (group_true X B C (pairInput u v)).mpr
+        ⟨⟨u, hu, by simp [pairInput]⟩, ⟨v, hvB, by simp [pairInput]⟩, ⟨v, hvC, by simp [pairInput]⟩⟩
+    · obtain ⟨huB, huC⟩ := Finset.mem_inter.mp hu
+      exact (group_true X B C (pairInput u v)).mpr
+        ⟨⟨v, hv, by simp [pairInput]⟩, ⟨u, huB, by simp [pairInput]⟩, ⟨u, huC, by simp [pairInput]⟩⟩
+
+lemma replacement_preserves_pairs {n : ℕ} (X B C : Finset (Fin n))
+    (haway : ∀ a ∈ X, a ∉ B ∧ a ∉ C) (u v : Fin n) :
+    groupFun X B C (pairInput u v) = true ↔ replacement X B C (pairInput u v) = true := by
+  constructor
+  · intro h
+    rcases (group_pair_iff X B C haway u v).mp h with ⟨hu, hv⟩ | ⟨hv, hu⟩
+    · exact (replacement_true X B C (pairInput u v)).mpr
+        ⟨⟨u, hu, by simp [pairInput]⟩, ⟨v, hv, by simp [pairInput]⟩⟩
+    · exact (replacement_true X B C (pairInput u v)).mpr
+        ⟨⟨v, hv, by simp [pairInput]⟩, ⟨u, hu, by simp [pairInput]⟩⟩
+  · exact replacement_le_group X B C (pairInput u v)
+
+lemma safe_group_biclique {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (X B C : Finset (Fin n))
+    (hsafe : ∀ a ∈ X, ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    ∀ a ∈ X, ∀ s ∈ B ∩ C, G.Adj a s := by
+  intro a ha
+  exact safe_intersection_neighbors G a B C (hsafe a ha)
+
+lemma biclique_card_cases {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (X S : Finset (Fin n))
+    (hXS : ∀ a ∈ X, ∀ s ∈ S, G.Adj a s) : X.card ≤ 1 ∨ S.card ≤ 1 := by
+  by_cases hx : X.card ≤ 1
+  · exact Or.inl hx
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (show 1 < X.card by omega)
+  right
+  have hsub : S ⊆ Finset.univ.filter (fun s => G.Adj a s ∧ G.Adj b s) := by
+    intro s hs
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hXS a ha s hs, hXS b hb s hs⟩
+  exact (Finset.card_le_card hsub).trans (hfour a b hab)
+
+lemma shared_bottom_classification {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (X B C : Finset (Fin n))
+    (hsafe : ∀ a ∈ X, ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    X.card ≤ 1 ∨ (B ∩ C).card ≤ 1 :=
+  biclique_card_cases G hfour X (B ∩ C) (safe_group_biclique G X B C hsafe)
+
+lemma multiple_leaves_unique_center {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (X B C : Finset (Fin n))
+    (hsafe : ∀ a ∈ X, ∀ x, starCNF a B C x = true → graphFun G ∅ x = true)
+    (hlarge : 2 ≤ (B ∩ C).card) : X.card ≤ 1 := by
+  rcases shared_bottom_classification G hfour X B C hsafe with hx | hs
+  · exact hx
+  · omega
+
+lemma singleton_replacement {n : ℕ} (X B C : Finset (Fin n)) (v : Fin n)
+    (hS : B ∩ C = {v}) : ∀ x, replacement X B C x = (x v && clause X x) := by
+  intro x
+  simp [replacement, hS, clause, Bool.and_comm]
+
+lemma distinct_centers_budget {n : ℕ} (X : Finset (Fin n)) (tops : Finset ℕ)
+    (center : ℕ → Fin n) (hcovered : X ⊆ tops.image center) : X.card ≤ tops.card :=
+  (Finset.card_le_card hcovered).trans Finset.card_image_le
+
+lemma reverse_star_gate_budget {n : ℕ} (X : Finset (Fin n)) (tops : Finset ℕ)
+    (center : ℕ → Fin n) (hcovered : X ⊆ tops.image center) (hX : X.Nonempty) :
+    (X.card - 1) + 1 ≤ tops.card := by
+  have hpos := Finset.card_pos.mpr hX
+  have hbound := distinct_centers_budget X tops center hcovered
+  omega
+
+lemma replace_in_monotone_or {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (X B C : Finset (Fin n)) (haway : ∀ a ∈ X, a ∉ B ∧ a ∉ C)
+    (H : (Fin n → Bool) → Bool)
+    (hmono : ∀ x y : Fin n → Bool, (∀ u, x u = true → y u = true) → H x = true → H y = true)
+    (hfull : ∀ x, (H x || groupFun X B C x) = graphFun G ∅ x) :
+    ∀ x, (H x || replacement X B C x) = graphFun G ∅ x := by
+  intro x
+  have hiff : (H x || replacement X B C x) = true ↔ graphFun G ∅ x = true := by
+    constructor
+    · intro hh
+      have hh' : H x = true ∨ replacement X B C x = true := by simpa using hh
+      have hold : H x = true ∨ groupFun X B C x = true :=
+        hh'.elim Or.inl (fun h => Or.inr (replacement_le_group X B C x h))
+      rw [← hfull x]
+      simpa using hold
+    · intro hF
+      have hedge : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+        simpa [graphFun] using hF
+      obtain ⟨u, v, huv, hxu, hxv⟩ := hedge
+      have hpair : graphFun G ∅ (pairInput u v) = true := by
+        have he : ∃ a b, G.Adj a b ∧ pairInput u v a = true ∧ pairInput u v b = true :=
+          ⟨u, v, huv, by simp [pairInput], by simp [pairInput]⟩
+        simpa [graphFun] using he
+      have hle : ∀ w, pairInput u v w = true → x w = true := by
+        intro w hw
+        have hw' : w = u ∨ w = v := by simpa [pairInput] using hw
+        exact hw'.elim (fun h => h ▸ hxu) (fun h => h ▸ hxv)
+      rw [← hfull (pairInput u v)] at hpair
+      have hcases : H (pairInput u v) = true ∨ groupFun X B C (pairInput u v) = true := by
+        simpa using hpair
+      have hout : H x = true ∨ replacement X B C x = true := by
+        rcases hcases with hh | hg
+        · exact Or.inl (hmono (pairInput u v) x hle hh)
+        · exact Or.inr (replacement_monotone X B C (pairInput u v) x hle
+            ((replacement_preserves_pairs X B C haway u v).mp hg))
+      simpa using hout
+  cases hleft : H x || replacement X B C x <;> cases hright : graphFun G ∅ x <;> simp_all
+
+lemma bipartite_reverse_star_read_one (p l : ℕ) (X : Finset (Fin p)) (S : Finset (Fin l))
+    (hS : S.card ≤ 1) :
+    ∃ D : Circuit, IsAO2 (p + l) D ∧ D.size ≤ X.card ∧
+      (∀ x : Fin (p + l) → Bool, circuitFun (p + l) D x =
+        decide (∃ a ∈ X, ∃ s ∈ S, x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p s) = true)) ∧
+      PEqualNP.ReadK.IsReadK (p + l) D 1 := by
+  classical
+  obtain ⟨D, hAO, hsize, hfun, hread⟩ := star_cover_read_one p l (X ×ˢ S) ∅ S (by
+    intro e he
+    exact Or.inr (Finset.mem_product.mp he).2)
+  refine ⟨D, hAO, ?_, ?_, hread⟩
+  · simp only [Finset.card_product, Finset.card_empty, Nat.add_zero] at hsize
+    have hc : S.card = 0 ∨ S.card = 1 := by omega
+    rcases hc with hc | hc
+    · simp only [hc, Nat.mul_zero, Nat.zero_add, Nat.zero_sub] at hsize
+      omega
+    · simpa only [hc, Nat.mul_one, Nat.add_sub_cancel] using hsize
+  · intro x
+    rw [hfun x]
+    congr 1
+    simp only [Finset.mem_product]
+    aesop
+
+lemma raw_gate_pair_unique {n : ℕ} (C : Circuit) (k j j' : ℕ) (a b : Fin n)
+    (hfirst : (gateAt C k).inputs = [a.val, n + j] ∨ (gateAt C k).inputs = [n + j, a.val])
+    (hsecond : (gateAt C k).inputs = [b.val, n + j'] ∨ (gateAt C k).inputs = [n + j', b.val]) :
+    a = b ∧ j = j' := by
+  rcases hfirst with hfirst | hfirst <;> rcases hsecond with hsecond | hsecond
+  · have he := List.cons.inj (hfirst.symm.trans hsecond)
+    have ht := (List.cons.inj he.2).1
+    exact ⟨Fin.ext he.1, by omega⟩
+  · have he := (List.cons.inj (hfirst.symm.trans hsecond)).1
+    have ha := a.isLt
+    omega
+  · have he := (List.cons.inj (hfirst.symm.trans hsecond)).1
+    have hb := b.isLt
+    omega
+  · have he := List.cons.inj (hfirst.symm.trans hsecond)
+    have ht := (List.cons.inj he.2).1
+    exact ⟨Fin.ext ht, by omega⟩
+
+lemma label_count_in_top_set {n : ℕ} (C : Circuit) (F : Finset (Fin n × ℕ))
+    (top : Fin n × ℕ → ℕ) (M : Finset ℕ) (hmem : ∀ z ∈ F, top z ∈ M)
+    (hinputs : ∀ z ∈ F, (gateAt C (top z)).inputs = [z.1.val, n + z.2] ∨
+      (gateAt C (top z)).inputs = [n + z.2, z.1.val]) : F.card ≤ M.card := by
+  apply Finset.card_le_card_of_injOn top
+  · exact hmem
+  · intro z hz z' hz' heq
+    have hsecond := hinputs z' hz'
+    rw [← heq] at hsecond
+    obtain ⟨ha, hj⟩ := raw_gate_pair_unique C (top z) z.2 z'.2 z.1 z'.1 (hinputs z hz) hsecond
+    exact Prod.ext ha hj
+
+lemma top_image_card {n : ℕ} (C : Circuit) (F : Finset (Fin n × ℕ)) (top : Fin n × ℕ → ℕ)
+    (hinputs : ∀ z ∈ F, (gateAt C (top z)).inputs = [z.1.val, n + z.2] ∨
+      (gateAt C (top z)).inputs = [n + z.2, z.1.val]) : (F.image top).card = F.card := by
+  apply Nat.le_antisymm Finset.card_image_le
+  exact label_count_in_top_set C F top (F.image top)
+    (fun z hz => Finset.mem_image_of_mem top hz) hinputs
+
+lemma top_image_ands {n : ℕ} (C : Circuit) (F : Finset (Fin n × ℕ)) (top : Fin n × ℕ → ℕ)
+    (hkind : ∀ z ∈ F, top z < C.gates.length ∧ (gateAt C (top z)).op = GateOp.and) :
+    ∀ k ∈ F.image top, k < C.gates.length ∧ (gateAt C k).op = GateOp.and := by
+  intro k hk
+  obtain ⟨z, hz, rfl⟩ := Finset.mem_image.mp hk
+  exact hkind z hz
+
+end SharedBottomStar
+
+namespace GeneralThreeClauseSelector
+
+open PEqualNP.MetaComplexity.NestedCover StarThreeClause
+
+def cnf3 {n : ℕ} (A B C : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  clause A x && (clause B x && clause C x)
+
+lemma hits_pair {n : ℕ} (A B C : Finset (Fin n)) (u v : Fin n) :
+    cnf3 A B C (fun w => decide (w = u ∨ w = v)) = true ↔ ThreeClause.Hits A B C u v := by
+  have hc (S : Finset (Fin n)) :
+      clause S (fun w => decide (w = u ∨ w = v)) = true ↔ u ∈ S ∨ v ∈ S := by
+    constructor
+    · intro h
+      obtain ⟨w, hw, hx⟩ := of_decide_eq_true h
+      rcases of_decide_eq_true hx with rfl | rfl
+      · exact Or.inl hw
+      · exact Or.inr hw
+    · intro h
+      apply decide_eq_true
+      rcases h with hu | hv
+      · exact ⟨u, hu, by simp⟩
+      · exact ⟨v, hv, by simp⟩
+  simp only [cnf3, Bool.and_eq_true, hc, ThreeClause.Hits]
+
+lemma hits_sound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (A B C : Finset (Fin n))
+    (hsafe : ∀ x, cnf3 A B C x = true → graphFun G ∅ x = true) :
+    ∀ u v, ThreeClause.Hits A B C u v → G.Adj u v := by
+  intro u v h
+  have hh := hsafe _ ((hits_pair A B C u v).mpr h)
+  have hedge : ∃ a b, G.Adj a b ∧ (a = u ∨ a = v) ∧ (b = u ∨ b = v) := by
+    simpa [graphFun] using hh
+  obtain ⟨a, b, hab, ha | ha, hb | hb⟩ := hedge
+  · subst a; subst b
+    exact False.elim ((G.ne_of_adj hab) rfl)
+  · simpa only [ha, hb] using hab
+  · simpa only [ha, hb] using hab.symm
+  · subst a; subst b
+    exact False.elim ((G.ne_of_adj hab) rfl)
+
+lemma incident_center_occurs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (A B C : Finset (Fin n))
+    (hsound : ∀ u v, ThreeClause.Hits A B C u v → G.Adj u v)
+    (a u : Fin n) (h : ThreeClause.Hits A B C a u) : a ∈ A ∨ a ∈ B ∨ a ∈ C := by
+  by_contra hn
+  push Not at hn
+  have huA := h.1.resolve_left hn.1
+  have huB := h.2.1.resolve_left hn.2.1
+  have huC := h.2.2.resolve_left hn.2.2
+  exact (G.ne_of_adj (hsound u u ⟨Or.inl huA, Or.inl huB, Or.inl huC⟩)) rfl
+
+lemma clean_clause_allowed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (D : Finset (Fin n)) (hgood : ∀ u ∈ D, G.Adj a u) :
+    NearColorCases.BAllowed G side a D := by
+  left
+  refine ⟨fun u hu => Ne.symm (hproper a u (hgood u hu)), ?_⟩
+  have he : D.filter (fun u => ¬ G.Adj a u) = ∅ := by
+    ext u
+    simp only [Finset.mem_filter, Finset.notMem_empty, iff_false, not_and]
+    exact fun hu => not_not.mpr (hgood u hu)
+  simp [he]
+
+lemma selector_first_center {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (a : Fin n) (A B C : Finset (Fin n))
+    (hsafe : ∀ x, cnf3 A B C x = true → graphFun G ∅ x = true) (haA : a ∈ A) :
+    ∃ D E : Finset (Fin n), (D = B ∨ D = C) ∧ (E = B ∨ E = C) ∧
+      NearColorCases.BAllowed G side a D ∧
+      (∀ u ∈ CProjectionCharges.leaf side a E, G.Adj a u) ∧
+      ∀ u, ThreeClause.Hits A B C a u →
+        u ∈ NearMergeCharges.project G a D ∧ u ∈ CProjectionCharges.leaf side a E := by
+  have hs := hits_sound G A B C hsafe
+  have clean_case (D : Finset (Fin n)) (hD : D = B ∨ D = C)
+      (hgood : ∀ u ∈ D, G.Adj a u)
+      (hcover : ∀ u, ThreeClause.Hits A B C a u → u ∈ D) :
+      ∃ D E : Finset (Fin n), (D = B ∨ D = C) ∧ (E = B ∨ E = C) ∧
+        NearColorCases.BAllowed G side a D ∧
+        (∀ u ∈ CProjectionCharges.leaf side a E, G.Adj a u) ∧
+        ∀ u, ThreeClause.Hits A B C a u →
+          u ∈ NearMergeCharges.project G a D ∧ u ∈ CProjectionCharges.leaf side a E := by
+    refine ⟨D, D, hD, hD, clean_clause_allowed G side hproper a D hgood, ?_, ?_⟩
+    · intro u hu
+      exact hgood u (Finset.mem_filter.mp hu).1
+    · intro u hu
+      have hm := hcover u hu
+      exact ⟨Finset.mem_filter.mpr ⟨hm, hgood u hm⟩,
+        Finset.mem_filter.mpr ⟨hm, Ne.symm (hproper a u (hgood u hm))⟩⟩
+  by_cases haB : a ∈ B
+  · have haC : a ∉ C := by
+      intro haC
+      exact (G.ne_of_adj (hs a a ⟨Or.inl haA, Or.inl haB, Or.inl haC⟩)) rfl
+    exact clean_case C (Or.inr rfl)
+      (fun u hu => hs a u ⟨Or.inl haA, Or.inl haB, Or.inr hu⟩)
+      (fun u hu => hu.2.2.resolve_left haC)
+  by_cases haC : a ∈ C
+  · exact clean_case B (Or.inl rfl)
+      (fun u hu => hs a u ⟨Or.inl haA, Or.inr hu, Or.inl haC⟩)
+      (fun u hu => hu.2.1.resolve_left haB)
+  have hstar : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true := by
+    intro x hx
+    have hx' : x a = true ∧ clause B x = true ∧ clause C x = true := by
+      simpa only [starCNF, Bool.and_eq_true] using hx
+    have hA : clause A x = true := decide_eq_true ⟨a, haA, hx'.1⟩
+    exact hsafe x (by simp only [cnf3, hA, hx'.2.1, hx'.2.2, Bool.and_self])
+  obtain ⟨D, E, hD, hE, hallow, hvalid, hcovD, hcovE⟩ :=
+    StarClauseSelector.safe_clause_selector_for_budget G side hproper hfour a B C hstar
+  refine ⟨D, E, hD, hE, hallow, hvalid, ?_⟩
+  intro u hu
+  have hm : u ∈ B ∩ C := Finset.mem_inter.mpr
+    ⟨hu.2.1.resolve_left haB, hu.2.2.resolve_left haC⟩
+  exact ⟨hcovD hm, hcovE hm⟩
+
+lemma selector_center {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (a : Fin n) (A B C : Finset (Fin n))
+    (hsafe : ∀ x, cnf3 A B C x = true → graphFun G ∅ x = true)
+    (ha : a ∈ A ∨ a ∈ B ∨ a ∈ C) :
+    ∃ D E : Finset (Fin n), (D = A ∨ D = B ∨ D = C) ∧
+      (E = A ∨ E = B ∨ E = C) ∧ NearColorCases.BAllowed G side a D ∧
+      (∀ u ∈ CProjectionCharges.leaf side a E, G.Adj a u) ∧
+      ∀ u, ThreeClause.Hits A B C a u →
+        u ∈ NearMergeCharges.project G a D ∧ u ∈ CProjectionCharges.leaf side a E := by
+  rcases ha with ha | ha | ha
+  · obtain ⟨D, E, hD, hE, hallow, hvalid, hcov⟩ :=
+      selector_first_center G side hproper hfour a A B C hsafe ha
+    exact ⟨D, E, Or.inr hD, Or.inr hE, hallow, hvalid, hcov⟩
+  · have heq : cnf3 B A C = cnf3 A B C := by
+      funext x
+      unfold cnf3
+      ac_rfl
+    obtain ⟨D, E, hD, hE, hallow, hvalid, hcov⟩ :=
+      selector_first_center G side hproper hfour a B A C (by simpa only [heq] using hsafe) ha
+    refine ⟨D, E, hD.elim Or.inl (fun h => Or.inr (Or.inr h)),
+      hE.elim Or.inl (fun h => Or.inr (Or.inr h)), hallow, hvalid, ?_⟩
+    intro u hu
+    exact hcov u ⟨hu.2.1, hu.1, hu.2.2⟩
+  · have heq : cnf3 C A B = cnf3 A B C := by
+      funext x
+      unfold cnf3
+      ac_rfl
+    obtain ⟨D, E, hD, hE, hallow, hvalid, hcov⟩ :=
+      selector_first_center G side hproper hfour a C A B (by simpa only [heq] using hsafe) ha
+    refine ⟨D, E, hD.elim Or.inl (fun h => Or.inr (Or.inl h)),
+      hE.elim Or.inl (fun h => Or.inr (Or.inl h)), hallow, hvalid, ?_⟩
+    intro u hu
+    exact hcov u ⟨hu.2.2, hu.1, hu.2.1⟩
+
+end GeneralThreeClauseSelector
+
+namespace ThreeClauseCenters
+
+open ThreeClause
+
+lemma hits_symm {n : ℕ} (A B C : Finset (Fin n)) (u v : Fin n)
+    (h : Hits A B C u v) : Hits A B C v u :=
+  ⟨h.1.symm, h.2.1.symm, h.2.2.symm⟩
+
+lemma bipartite_triangle_free {n : ℕ} (G : SimpleGraph (Fin n)) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v) :
+    ∀ u v w, ¬ (G.Adj u v ∧ G.Adj v w ∧ G.Adj w u) := by
+  intro u v w h
+  have huv := hproper u v h.1
+  have hvw := hproper v w h.2.1
+  have hwu := hproper w u h.2.2
+  cases hu : side u <;> cases hv : side v <;> cases hw : side w <;> simp_all
+
+lemma two_centers_fixed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (A B C : Finset (Fin n))
+    (hsound : ∀ u v, Hits A B C u v → G.Adj u v) (hno : NoCentre A B C)
+    (hactive : ∃ u v, Hits A B C u v) (hbc : B ∩ C = ∅) :
+    ∃ a b, a ≠ b ∧ Hits A B C a b ∧
+      ∀ u v, Hits A B C u v → u = a ∨ v = a ∨ u = b ∨ v = b := by
+  obtain ⟨a, b, hab, _, _, haA, haB, _, hbA, hbC, _, hform, _⟩ :=
+    fixed_orientation G hfour A B C hsound hno hactive hbc
+  refine ⟨a, b, hab, ⟨Or.inl haA, Or.inl haB, Or.inr hbC⟩, ?_⟩
+  intro u v hu
+  rcases (hform u v).mp hu with h | h | h | h
+  · exact Or.inl h.1
+  · exact Or.inr (Or.inl h.1)
+  · exact Or.inr (Or.inr (Or.inl h.1))
+  · exact Or.inr (Or.inr (Or.inr h.1))
+
+lemma two_centers_nonstar {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (A B C : Finset (Fin n))
+    (hsound : ∀ u v, Hits A B C u v → G.Adj u v) (hno : NoCentre A B C)
+    (hactive : ∃ u v, Hits A B C u v) :
+    ∃ a b, a ≠ b ∧ Hits A B C a b ∧
+      ∀ u v, Hits A B C u v → u = a ∨ v = a ∨ u = b ∨ v = b := by
+  rcases one_overlap_empty G (bipartite_triangle_free G side hproper) A B C hsound with hab | hac | hbc
+  · have hs : ∀ u v, Hits C A B u v → G.Adj u v :=
+      fun u v h => hsound u v ⟨h.2.1, h.2.2, h.1⟩
+    have hn : NoCentre C A B := by
+      intro c
+      obtain ⟨u, v, h, hu, hv⟩ := hno c
+      exact ⟨u, v, ⟨h.2.2, h.1, h.2.1⟩, hu, hv⟩
+    have ha : ∃ u v, Hits C A B u v := by
+      obtain ⟨u, v, h⟩ := hactive
+      exact ⟨u, v, ⟨h.2.2, h.1, h.2.1⟩⟩
+    obtain ⟨a, b, hne, hedge, hcover⟩ := two_centers_fixed G hfour C A B hs hn ha hab
+    exact ⟨a, b, hne, ⟨hedge.2.1, hedge.2.2, hedge.1⟩,
+      fun u v h => hcover u v ⟨h.2.2, h.1, h.2.1⟩⟩
+  · have hs : ∀ u v, Hits B A C u v → G.Adj u v :=
+      fun u v h => hsound u v ⟨h.2.1, h.1, h.2.2⟩
+    have hn : NoCentre B A C := by
+      intro c
+      obtain ⟨u, v, h, hu, hv⟩ := hno c
+      exact ⟨u, v, ⟨h.2.1, h.1, h.2.2⟩, hu, hv⟩
+    have ha : ∃ u v, Hits B A C u v := by
+      obtain ⟨u, v, h⟩ := hactive
+      exact ⟨u, v, ⟨h.2.1, h.1, h.2.2⟩⟩
+    obtain ⟨a, b, hne, hedge, hcover⟩ := two_centers_fixed G hfour B A C hs hn ha hac
+    exact ⟨a, b, hne, ⟨hedge.2.1, hedge.1, hedge.2.2⟩,
+      fun u v h => hcover u v ⟨h.2.1, h.1, h.2.2⟩⟩
+  · exact two_centers_fixed G hfour A B C hsound hno hactive hbc
+
+lemma centers_classification {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (A B C : Finset (Fin n))
+    (hsound : ∀ u v, Hits A B C u v → G.Adj u v)
+    (hactive : ∃ u v, Hits A B C u v) :
+    (∃ a, ∀ u v, Hits A B C u v → u = a ∨ v = a) ∨
+      (∃ a b, a ≠ b ∧ Hits A B C a b ∧
+        ∀ u v, Hits A B C u v → u = a ∨ v = a ∨ u = b ∨ v = b) := by
+  classical
+  by_cases hc : ∃ a, ∀ u v, Hits A B C u v → u = a ∨ v = a
+  · exact Or.inl hc
+  right
+  have hn : NoCentre A B C := by
+    intro c
+    by_contra h
+    apply hc
+    refine ⟨c, ?_⟩
+    intro u v hu
+    by_contra hne
+    have huc : u ≠ c := fun he => hne (Or.inl he)
+    have hvc : v ≠ c := fun he => hne (Or.inr he)
+    exact h ⟨u, v, hu, huc, hvc⟩
+  exact two_centers_nonstar G side hproper hfour A B C hsound hn hactive
+
+end ThreeClauseCenters
+
+namespace MatchingEndpointCount
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+
+noncomputable def andGates (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun k => (gateAt C k).op = GateOp.and
+
+lemma distinct_pair_endpoints (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (i j : Fin B.length) (hij : i ≠ j) :
+    (B.get i).1 ≠ (B.get j).1 ∧ (B.get i).1 ≠ (B.get j).2 ∧
+      (B.get i).2 ≠ (B.get j).1 ∧ (B.get i).2 ≠ (B.get j).2 := by
+  rcases lt_or_gt_of_ne hij with hlt | hgt
+  · exact hB.rel_get_of_lt hlt
+  · obtain ⟨h11, h12, h21, h22⟩ := hB.rel_get_of_lt hgt
+    exact ⟨Ne.symm h11, Ne.symm h21, Ne.symm h12, Ne.symm h22⟩
+
+lemma chosen_endpoint_injOn (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length)) (w : Fin B.length → ℕ)
+    (hw : ∀ i ∈ T, w i = (B.get i).1 ∨ w i = (B.get i).2) :
+    Set.InjOn w T := by
+  intro i hi j hj heq
+  by_contra hij
+  obtain ⟨h11, h12, h21, h22⟩ := distinct_pair_endpoints B hB i j hij
+  rcases hw i hi with hiw | hiw <;> rcases hw j hj with hjw | hjw
+  · exact h11 (hiw.symm.trans (heq.trans hjw))
+  · exact h12 (hiw.symm.trans (heq.trans hjw))
+  · exact h21 (hiw.symm.trans (heq.trans hjw))
+  · exact h22 (hiw.symm.trans (heq.trans hjw))
+
+lemma chosen_gate_injOn (n : ℕ) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length)) (gate : Fin B.length → ℕ)
+    (hgate : ∀ i ∈ T, n + gate i = (B.get i).1 ∨ n + gate i = (B.get i).2) :
+    Set.InjOn gate T := by
+  intro i hi j hj heq
+  apply chosen_endpoint_injOn B hB T (fun k => n + gate k) hgate hi hj
+  exact congrArg (fun k => n + k) heq
+
+lemma chosen_gate_image_card (n : ℕ) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length)) (gate : Fin B.length → ℕ)
+    (hgate : ∀ i ∈ T, n + gate i = (B.get i).1 ∨ n + gate i = (B.get i).2) :
+    (T.image gate).card = T.card := by
+  exact Finset.card_image_iff.mpr (chosen_gate_injOn n B hB T gate hgate)
+
+lemma chosen_gate_image_ands (C : Circuit) (B : List (ℕ × ℕ))
+    (T : Finset (Fin B.length)) (gate : Fin B.length → ℕ)
+    (hkind : ∀ i ∈ T, gate i < C.gates.length ∧ (gateAt C (gate i)).op = GateOp.and) :
+    ∀ k ∈ T.image gate, k < C.gates.length ∧ (gateAt C k).op = GateOp.and := by
+  intro k hk
+  obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hk
+  exact hkind i hi
+
+lemma chosen_gate_count (n : ℕ) (C : Circuit) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length)) (gate : Fin B.length → ℕ)
+    (hgate : ∀ i ∈ T, n + gate i = (B.get i).1 ∨ n + gate i = (B.get i).2)
+    (hkind : ∀ i ∈ T, gate i < C.gates.length ∧ (gateAt C (gate i)).op = GateOp.and) :
+    T.card ≤ (andGates C).card := by
+  classical
+  rw [← chosen_gate_image_card n B hB T gate hgate]
+  apply Finset.card_le_card
+  intro k hk
+  obtain ⟨hlt, hop⟩ := chosen_gate_image_ands C B T gate hkind k hk
+  change k ∈ (Finset.range C.gates.length).filter fun k => (gateAt C k).op = GateOp.and
+  exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hlt, hop⟩
+
+lemma exists_chosen_and_set (n : ℕ) (C : Circuit) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length))
+    (hex : ∀ i ∈ T, ∃ j, (n + j = (B.get i).1 ∨ n + j = (B.get i).2) ∧
+      j < C.gates.length ∧ (gateAt C j).op = GateOp.and) :
+    ∃ M : Finset ℕ, M.card = T.card ∧
+      (∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and) ∧
+      (∀ i ∈ T, ∃ j ∈ M, n + j = (B.get i).1 ∨ n + j = (B.get i).2) := by
+  classical
+  have hchoice : ∀ i : Fin B.length, ∃ j, i ∈ T →
+      (n + j = (B.get i).1 ∨ n + j = (B.get i).2) ∧
+        j < C.gates.length ∧ (gateAt C j).op = GateOp.and := by
+    intro i
+    by_cases hi : i ∈ T
+    · obtain ⟨j, hj⟩ := hex i hi
+      exact ⟨j, fun _ => hj⟩
+    · exact ⟨0, fun h => (hi h).elim⟩
+  choose gate hgate using hchoice
+  have he : ∀ i ∈ T, n + gate i = (B.get i).1 ∨ n + gate i = (B.get i).2 :=
+    fun i hi => (hgate i hi).1
+  have hk : ∀ i ∈ T, gate i < C.gates.length ∧ (gateAt C (gate i)).op = GateOp.and :=
+    fun i hi => (hgate i hi).2
+  refine ⟨T.image gate, chosen_gate_image_card n B hB T gate he,
+    chosen_gate_image_ands C B T gate hk, ?_⟩
+  intro i hi
+  exact ⟨gate i, Finset.mem_image_of_mem gate hi, he i hi⟩
+
+end MatchingEndpointCount
+
+namespace IncidencePoolCount
+
+lemma incidence_pool_count {n p l : ℕ}
+    (P : Fin p → Fin n) (L : Fin l → Fin n)
+    (hP : Function.Injective P) (hL : Function.Injective L)
+    (hPL : ∀ u v, P u ≠ L v)
+    (H : Fin n → Finset (Fin n)) (EL ER : Finset (Fin p × Fin l))
+    (hEL : ∀ e ∈ EL, L e.2 ∈ H (P e.1))
+    (hER : ∀ e ∈ ER, P e.1 ∈ H (L e.2)) :
+    EL.card + ER.card ≤ ∑ c : Fin n, (H c).card := by
+  classical
+  let f : Fin p × Fin l → Fin n × Fin n := fun e => (P e.1, L e.2)
+  let g : Fin p × Fin l → Fin n × Fin n := fun e => (L e.2, P e.1)
+  let A := EL.image f
+  let B := ER.image g
+  have hf : Function.Injective f := by
+    intro e e' he
+    apply Prod.ext
+    · exact hP (congrArg Prod.fst he)
+    · exact hL (congrArg Prod.snd he)
+  have hg : Function.Injective g := by
+    intro e e' he
+    apply Prod.ext
+    · exact hP (congrArg Prod.snd he)
+    · exact hL (congrArg Prod.fst he)
+  have hA : A.card = EL.card := Finset.card_image_of_injective EL hf
+  have hB : B.card = ER.card := Finset.card_image_of_injective ER hg
+  have hdisjoint : Disjoint A B := by
+    apply Finset.disjoint_left.mpr
+    intro e heA heB
+    obtain ⟨a, _, ha⟩ := Finset.mem_image.mp heA
+    obtain ⟨b, _, hb⟩ := Finset.mem_image.mp heB
+    exact hPL a.1 b.2 (congrArg Prod.fst (ha.trans hb.symm))
+  let pool : Finset (Fin n × Fin n) :=
+    Finset.univ.biUnion fun c => ({c} : Finset (Fin n)) ×ˢ H c
+  have hcover : A ∪ B ⊆ pool := by
+    intro e he
+    rcases Finset.mem_union.mp he with he | he
+    · obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp he
+      exact Finset.mem_biUnion.mpr ⟨P a.1, Finset.mem_univ _,
+        Finset.mem_product.mpr ⟨Finset.mem_singleton_self _, hEL a ha⟩⟩
+    · obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp he
+      exact Finset.mem_biUnion.mpr ⟨L a.2, Finset.mem_univ _,
+        Finset.mem_product.mpr ⟨Finset.mem_singleton_self _, hER a ha⟩⟩
+  have hpool : pool.card ≤ ∑ c : Fin n, (H c).card := by
+    have hh := Finset.card_biUnion_le (s := Finset.univ)
+      (t := fun c : Fin n => ({c} : Finset (Fin n)) ×ˢ H c)
+    simpa only [pool, Finset.card_product, Finset.card_singleton, one_mul] using hh
+  calc
+    EL.card + ER.card = A.card + B.card := by rw [hA, hB]
+    _ = (A ∪ B).card := (Finset.card_union_of_disjoint hdisjoint).symm
+    _ ≤ pool.card := Finset.card_le_card hcover
+    _ ≤ ∑ c : Fin n, (H c).card := hpool
+
+end IncidencePoolCount
+
+namespace GeneralRootFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+noncomputable def incidentLeaves {n : ℕ} (C : Circuit) (v : Fin n) (b c d : ℕ) : Finset (Fin n) := by
+  classical
+  exact Finset.univ.filter fun u => ThreeClause.Hits (orIn n C b) (orIn n C c) (orIn n C d) v u
+
+noncomputable def centerLeaves {n m : ℕ} (C : Circuit) (a : Fin m → Fin n)
+    (b c d : Fin m → ℕ) (v : Fin n) : Finset (Fin n) :=
+  (StarRootFamily.indexFiber a v).biUnion fun i => incidentLeaves C (a i) (b i) (c i) (d i)
+
+lemma select_source_wires {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (a : Fin n) (b c d : ℕ)
+    (hsafe : ∀ x, GeneralThreeClauseSelector.cnf3 (orIn n C b) (orIn n C c) (orIn n C d) x = true →
+      graphFun G ∅ x = true) (hactive : (incidentLeaves C a b c d).Nonempty) :
+    ∃ p q : ℕ, (p = b ∨ p = c ∨ p = d) ∧ (q = b ∨ q = c ∨ q = d) ∧
+      NearColorCases.BAllowed G side a (orIn n C p) ∧
+      (∀ u ∈ CProjectionCharges.leaf side a (orIn n C q), G.Adj a u) ∧
+      (∀ u ∈ incidentLeaves C a b c d, u ∈ NearMergeCharges.project G a (orIn n C p) ∧
+        u ∈ CProjectionCharges.leaf side a (orIn n C q)) := by
+  classical
+  obtain ⟨u, hu⟩ := hactive
+  have hoccurs := GeneralThreeClauseSelector.incident_center_occurs G
+    (orIn n C b) (orIn n C c) (orIn n C d)
+    (GeneralThreeClauseSelector.hits_sound G _ _ _ hsafe) a u (Finset.mem_filter.mp hu).2
+  obtain ⟨D, E, hD, hE, hallowed, hvalid, hcover⟩ :=
+    GeneralThreeClauseSelector.selector_center G side hproper hfour a
+      (orIn n C b) (orIn n C c) (orIn n C d) hsafe hoccurs
+  have hwire : ∀ S, (S = orIn n C b ∨ S = orIn n C c ∨ S = orIn n C d) →
+      ∃ w : ℕ, (w = b ∨ w = c ∨ w = d) ∧ orIn n C w = S := by
+    intro S hS
+    rcases hS with rfl | rfl | rfl
+    · exact ⟨b, Or.inl rfl, rfl⟩
+    · exact ⟨c, Or.inr (Or.inl rfl), rfl⟩
+    · exact ⟨d, Or.inr (Or.inr rfl), rfl⟩
+  obtain ⟨p, hp, hpD⟩ := hwire D hD
+  obtain ⟨q, hq, hqE⟩ := hwire E hE
+  refine ⟨p, q, hp, hq, ?_, ?_, ?_⟩
+  · simpa only [hpD] using hallowed
+  · simpa only [hqE] using hvalid
+  · intro v hv
+    simpa only [hpD, hqE] using hcover v (Finset.mem_filter.mp hv).2
+
+lemma select_source_family {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (a : Fin m → Fin n) (b c d : Fin m → ℕ)
+    (hb : ∀ i, b i < n + C.size) (hc : ∀ i, c i < n + C.size) (hd : ∀ i, d i < n + C.size)
+    (hsafe : ∀ i x, GeneralThreeClauseSelector.cnf3
+      (orIn n C (b i)) (orIn n C (c i)) (orIn n C (d i)) x = true → graphFun G ∅ x = true) :
+    ∃ T U : Fin n → Finset ℕ,
+      (∀ v, T v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, U v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, ∀ w ∈ T v, NearColorCases.BAllowed G side v (orIn n C w)) ∧
+      (∀ v, ∀ w ∈ U v, ∀ u ∈ CProjectionCharges.leaf side v (orIn n C w), G.Adj v u) ∧
+      (∀ v, centerLeaves C a b c d v ⊆
+        (T v).biUnion (fun w => NearMergeCharges.project G v (orIn n C w))) ∧
+      (∀ v, centerLeaves C a b c d v ⊆
+        (U v).biUnion (fun w => CProjectionCharges.leaf side v (orIn n C w))) ∧
+      (∑ v : Fin n, (T v).card) ≤ m ∧ (∑ v : Fin n, (U v).card) ≤ m := by
+  classical
+  let Active : Fin m → Prop := fun i => (incidentLeaves C (a i) (b i) (c i) (d i)).Nonempty
+  have hselect : ∀ i, Active i → ∃ p q : ℕ,
+      (p = b i ∨ p = c i ∨ p = d i) ∧ (q = b i ∨ q = c i ∨ q = d i) ∧
+      NearColorCases.BAllowed G side (a i) (orIn n C p) ∧
+      (∀ u ∈ CProjectionCharges.leaf side (a i) (orIn n C q), G.Adj (a i) u) ∧
+      (∀ u ∈ incidentLeaves C (a i) (b i) (c i) (d i),
+        u ∈ NearMergeCharges.project G (a i) (orIn n C p) ∧
+          u ∈ CProjectionCharges.leaf side (a i) (orIn n C q)) := by
+    intro i hi
+    exact select_source_wires G hfour side hproper C (a i) (b i) (c i) (d i) (hsafe i) hi
+  let p : Fin m → ℕ := fun i => if hi : Active i then (hselect i hi).choose else 0
+  let q : Fin m → ℕ := fun i => if hi : Active i then (hselect i hi).choose_spec.choose else 0
+  have hprops : ∀ i, Active i →
+      (p i = b i ∨ p i = c i ∨ p i = d i) ∧ (q i = b i ∨ q i = c i ∨ q i = d i) ∧
+      NearColorCases.BAllowed G side (a i) (orIn n C (p i)) ∧
+      (∀ u ∈ CProjectionCharges.leaf side (a i) (orIn n C (q i)), G.Adj (a i) u) ∧
+      (∀ u ∈ incidentLeaves C (a i) (b i) (c i) (d i),
+        u ∈ NearMergeCharges.project G (a i) (orIn n C (p i)) ∧
+          u ∈ CProjectionCharges.leaf side (a i) (orIn n C (q i))) := by
+    intro i hi
+    simpa only [p, q, dite_eq_left hi] using (hselect i hi).choose_spec.choose_spec
+  let T : Fin n → Finset ℕ := fun v => ((StarRootFamily.indexFiber a v).filter Active).image p
+  let U : Fin n → Finset ℕ := fun v => ((StarRootFamily.indexFiber a v).filter Active).image q
+  have hpool (f : Fin m → ℕ) :
+      (∑ v : Fin n, (((StarRootFamily.indexFiber a v).filter Active).image f).card) ≤ m := by
+    apply le_trans ?_ (StarRootFamily.root_pool_card_bound a f)
+    apply Finset.sum_le_sum
+    intro v hv
+    apply Finset.card_le_card
+    intro w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    exact Finset.mem_image.mpr ⟨i, (Finset.mem_filter.mp hi).1, rfl⟩
+  refine ⟨T, U, ?_, ?_, ?_, ?_, ?_, ?_, hpool p, hpool q⟩
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    have hiA := (Finset.mem_filter.mp hi).2
+    apply Finset.mem_range.mpr
+    rcases (hprops i hiA).1 with he | he | he
+    · rw [he]; exact hb i
+    · rw [he]; exact hc i
+    · rw [he]; exact hd i
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    have hiA := (Finset.mem_filter.mp hi).2
+    apply Finset.mem_range.mpr
+    rcases (hprops i hiA).2.1 with he | he | he
+    · rw [he]; exact hb i
+    · rw [he]; exact hc i
+    · rw [he]; exact hd i
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    obtain ⟨hiF, hiA⟩ := Finset.mem_filter.mp hi
+    have hiv := (Finset.mem_filter.mp hiF).2
+    rw [← hiv]
+    exact (hprops i hiA).2.2.1
+  · intro v w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    obtain ⟨hiF, hiA⟩ := Finset.mem_filter.mp hi
+    have hiv := (Finset.mem_filter.mp hiF).2
+    rw [← hiv]
+    exact (hprops i hiA).2.2.2.1
+  · intro v u hu
+    obtain ⟨i, hiF, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiA : Active i := ⟨u, hui⟩
+    have hiv := (Finset.mem_filter.mp hiF).2
+    have hp := ((hprops i hiA).2.2.2.2 u hui).1
+    rw [hiv] at hp
+    exact Finset.mem_biUnion.mpr ⟨p i,
+      Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨hiF, hiA⟩, rfl⟩, hp⟩
+  · intro v u hu
+    obtain ⟨i, hiF, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiA : Active i := ⟨u, hui⟩
+    have hiv := (Finset.mem_filter.mp hiF).2
+    have hp := ((hprops i hiA).2.2.2.2 u hui).2
+    rw [hiv] at hp
+    exact Finset.mem_biUnion.mpr ⟨q i,
+      Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨hiF, hiA⟩, rfl⟩, hp⟩
+
+lemma shared_three_clause_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (b c d : Fin m → ℕ)
+    (hb : ∀ i, b i < n + C.size) (hc : ∀ i, c i < n + C.size) (hd : ∀ i, d i < n + C.size)
+    (hsafe : ∀ i x, GeneralThreeClauseSelector.cnf3
+      (orIn n C (b i)) (orIn n C (c i)) (orIn n C (d i)) x = true → graphFun G ∅ x = true) :
+    (∑ v : Fin n, (centerLeaves C a b c d v).card) ≤
+      ((Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card).card + m := by
+  obtain ⟨T, U, hT, hU, hallowed, hvalid, hcovB, hcovC, hrootsB, hrootsC⟩ :=
+    select_source_family G hfour side hproper C a b c d hb hc hd hsafe
+  apply ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO Finset.univ T U
+    (fun v _ => hT v) (fun v _ => hU v) (fun v _ => hallowed v) (fun v _ => hvalid v)
+    (∑ v : Fin n, (centerLeaves C a b c d v).card) m
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovB v)
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovC v)
+  · omega
+
+lemma mem_centerLeaves_iff_accepted_pair {n m : ℕ}
+    (C : Circuit) (a : Fin m → Fin n) (b c d : Fin m → ℕ) (v u : Fin n) :
+    u ∈ centerLeaves C a b c d v ↔ ∃ i : Fin m, a i = v ∧
+      GeneralThreeClauseSelector.cnf3 (orIn n C (b i)) (orIn n C (c i)) (orIn n C (d i))
+        (fun w => decide (w = a i ∨ w = u)) = true := by
+  classical
+  constructor
+  · intro hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    refine ⟨i, (Finset.mem_filter.mp hi).2, ?_⟩
+    exact (GeneralThreeClauseSelector.hits_pair _ _ _ (a i) u).mpr (Finset.mem_filter.mp hui).2
+  · rintro ⟨i, hiv, hi⟩
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hiv⟩,
+      Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+        (GeneralThreeClauseSelector.hits_pair _ _ _ (a i) u).mp hi⟩⟩
+
+end GeneralRootFamily
 
 end PEqualNP.Outside.L_meta_2583
