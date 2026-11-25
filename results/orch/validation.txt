@@ -24,3 +24,7 @@ Checked factor constraints: SingleUseFactors.lean, 46 lines, Lean exit 0 with em
 Formula-only exhaustive computation: full_formula.cpp and full_formula.stdout.txt preserve independently reviewed search excluding <=13 AND/OR formula gates. Not Lean-checked and not a DAG/circuit lower bound.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=21.2 subagents=6
+
+Extended checked counting lemma: SingleUse.lean, 158 lines, Lean exit 0. Covers at most 13 gates with a unary-slot saving, and sharing-or-single-input-use dichotomy under explicit normalization assumptions. Independent review: toolchain GO.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=22.8 subagents=6

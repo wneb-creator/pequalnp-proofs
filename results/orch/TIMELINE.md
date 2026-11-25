@@ -8,3 +8,5 @@ Pilot pequalnp-pilot-180
 2026-11-25T19:25:38.771830+00:00 Single-use counting lemma compiled and independently reviewed; preparing checkpoint push.
 2026-11-25T19:27:32.147255+00:00 First re-plan: focus finite certificates and single-use structure; formula-only search completed, no13-gate formula.
 2026-11-25T19:27:51.187261+00:00 Factor constraints compiled and independently reviewed; formula DP source and full output preserved; preparing checkpoint push.
+2026-11-25T19:28:27.367489+00:00 sat_synthesis: all initial300s globalSAT runs UNKNOWN; known14 witness validated. Strongerone-NOT13 read-once/critical run active; monotone13 read-once/critical plus2730 monotonicity clauses started600s inSAT-focused mode. Formula13 SAT also active; graph_search independently computed formula minimum14.
+2026-11-25T19:29:28.959393+00:00 Generalized single-use counting lemmas compiled and independently reviewed; checkpointing.
