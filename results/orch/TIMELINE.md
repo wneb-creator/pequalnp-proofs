@@ -36,3 +36,5 @@
 2026-11-25T01:11:05.112724+00:00 — ForestElimAO2585 standalone compile passed: AO2 gate-shape and reads-back preservation under the compiler invariant, including earlier budgets. No full restriction wrapper or forest induction is claimed. All counterexample searches finished without a witness.
 
 2026-11-25T01:13:44.602059+00:00 — All2585 searches finished. Independent Forest checkpoint review passed. Confirmed the locally accepted but publication-ineligible R46 is archived unchanged under results/orch/candidates; removed its active Outside copy. Preparing reviewed evidence push before releasing this lease and requesting another step.
+
+2026-11-25T01:17:12.766484+00:00 — L-meta-2585 release acknowledged, reason other. Next desk request returned gap:null: Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes. Waiting-for-check count556. Null count1. Polling every4minutes per owner instruction; no lease held.

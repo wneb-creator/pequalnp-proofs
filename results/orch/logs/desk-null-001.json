@@ -1,0 +1,6 @@
+{
+ "gap": null,
+ "note": "Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes.",
+ "waiting_for_check": 556,
+ "retry_after_s": 1200
+}

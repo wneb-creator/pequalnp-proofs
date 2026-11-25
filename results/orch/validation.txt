@@ -38,3 +38,7 @@ ForestElimAO2585: standalone Lean exit0; exact binary AND/OR and reads-back comp
 ForestElim2585/Counts/AO: independent exact-source, provenance, log, format, and credential review PASS. L2585 remains unproved/unrefuted; archived R46 retains its local ACCEPTED(reduce) verdict but publication remains REFUSED. No L2585 PR opened.
 Sub-agents: 7 (six primary delegates plus matching-bound brainstorm)
 TIMING total=122.9 subagents=7
+
+L2585 released only after reviewed evidence push29d3a51782ab1355e03ffbcda78551af1d665607. Next desk answer gap:null, waiting_for_check556; no lease held. Null count1; complete desk answer and cumulative log preserved.
+Sub-agents: 7 (six primary delegates plus matching-bound brainstorm)
+TIMING total=126.4 subagents=7

@@ -1,0 +1,252 @@
+Public copy: lease identifiers have been redacted; timestamps, gap IDs, expiry times, notes, and verdicts are unchanged.
+2026-11-24T23:12:23.189955+00:00 {
+ "gap": {
+  "id": "L-meta-1677",
+  "title": "Petersen graph minus a vertex: no AND, OR (fan-in two), NOT circuit with at most 15 gates and first gate OR(x_0, x_6) computes its edge function",
+  "statement": "∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.FanInTwo C → (∀ y : Fin 9 → Bool, (C.wires (List.ofFn y)).getD 9 false = (y 0 || y 6)) → PEqualNP.MetaComplexity.circuitFun 9 C = (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) → 16 ≤ C.size",
+  "file": "lean/PEqualNP/Outside/L_meta_1677.lean",
+  "module": "PEqualNP.Outside.L_meta_1677",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The exact size of the Petersen graph edge function with NOT gates: one first-gate case of the graph minus a vertex",
+  "context": "SKETCH: a proof by cases is possible: one sibling case of this family (another first gate) was proved outright by exhaustive case analysis inside the checker's limits, as one long proof file. Same shape here: fix the first gate as stated, split on the next gates up to the symmetries that fix it, and close each branch by evaluation. A cut into smaller statements is welcome too: by the second gate up to symmetry, or by a structural invariant. Size: not measured; the sibling's proof was several thousand lines.",
+  "dead": [],
+  "weight": 90,
+  "parallel": 3,
+  "lane": "main",
+  "shards": 20,
+  "shard_spec": "0: every slice: if the second gate computes a constant, a copy of an input or of the first gate, delete it (one gate fewer, same first gate) and induct on size\n1: 2nd gate is one of NOT x0, NOT x1, NOT x2, NOT x3, NOT x4\n2: 2nd gate is one of NOT x5, NOT x6, NOT x7, NOT x8, NOT g\n3: 2nd gate is one of AND(x0,x1), OR(x0,x1), AND(x0,x2), OR(x0,x2), AND(x0,x3)\n4: 2nd gate is one of OR(x0,x3), AND(x0,x4), OR(x0,x4), AND(x0,x5), OR(x0,x5)\n5: 2nd gate is one of AND(x0,x6), AND(x0,x7), OR(x0,x7), AND(x0,x8), OR(x0,x8)\n6: 2nd gate is one of AND(x1,x2), OR(x1,x2), AND(x1,x3), OR(x1,x3), AND(x1,x4)\n7: 2nd gate is one of OR(x1,x4), AND(x1,x5), OR(x1,x5), AND(x1,x6), OR(x1,x6)\n8: 2nd gate is one of AND(x1,x7), OR(x1,x7), AND(x1,x8), OR(x1,x8), AND(x1,g)\n9: 2nd gate is one of OR(x1,g), AND(x2,x3), OR(x2,x3), AND(x2,x4), OR(x2,x4)\n10: 2nd gate is one of AND(x2,x5), OR(x2,x5), AND(x2,x6), OR(x2,x6), AND(x2,x7)\n11: 2nd gate is one of OR(x2,x7), AND(x2,x8), OR(x2,x8), AND(x2,g), OR(x2,g)\n12: 2nd gate is one of AND(x3,x4), OR(x3,x4), AND(x3,x5), OR(x3,x5), AND(x3,x6)\n13: 2nd gate is one of OR(x3,x6), AND(x3,x7), OR(x3,x7), AND(x3,x8), OR(x3,x8)\n14: 2nd gate is one of AND(x3,g), OR(x3,g), AND(x4,x5), OR(x4,x5), AND(x4,x6)\n15: 2nd gate is one of OR(x4,x6), AND(x4,x7), OR(x4,x7), AND(x4,x8), OR(x4,x8)\n16: 2nd gate is one of AND(x4,g), OR(x4,g), AND(x5,x6), OR(x5,x6), AND(x5,x7)\n17: 2nd gate is one of OR(x5,x7), AND(x5,x8), OR(x5,x8), AND(x5,g), OR(x5,g)\n18: 2nd gate is one of AND(x6,x7), OR(x6,x7), AND(x6,x8), OR(x6,x8), AND(x7,x8)\n19: 2nd gate is one of OR(x7,x8), AND(x7,g), OR(x7,g), AND(x8,g), OR(x8,g)",
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "a proof by cases is possible: one sibling case of this family (another first gate) was proved outright by exhaustive case analysis inside the checker's limits, as one long proof file. Same shape here: fix the first gate as stated, split on the next gates up to the symmetries that fix it, and close each branch by evaluation. A cut into smaller statements is welcome too: by the second gate up to symmetry, or by a structural invariant. Size: not measured; the sibling's proof was several thousand lines.",
+  "pr_open": 2,
+  "pr_numbers": [
+   10385,
+   10495
+  ]
+ },
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:24:39.529Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "shard": 6,
+ "shards": 20,
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-24T23:12:30.190750+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:32:30.030Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:17:00.635823+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:37:00.385Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:18:31.586738+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:38:31.485Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:22:35.343974+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:42:35.079Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:32:10.747523+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-24T23:52:10.474Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:41:41.196048+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:01:41.008Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:56:57.024424+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:16:56.796Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:42:28.074591+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:02:27.875Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-24T23:47:20.667253+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:07:20.536Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:06:27.575309+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:26:27.321Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:12:08.432798+00:00 beat-007
+{
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:32:03.169Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:21:43.098313+00:00 BEAT {
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+2026-11-25T00:23:34.154403+00:00 next-002
+{
+ "gap": {
+  "id": "L-meta-2585",
+  "title": "4-cycle-free incidence: every fan-in-two AND/OR circuit for it can be replaced by a read-1 one with at most as many gates",
+  "statement": "∀ (P L : ℕ) (I : Fin P → Fin L → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ p p' : Fin P, ∀ l l' : Fin L, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) → PEqualNP.TopForm.IsAO2 (P + L) C → (∀ z : Fin (P + L) → Bool, PEqualNP.MetaComplexity.circuitFun (P + L) C z = decide (∃ p : Fin P, ∃ l : Fin L, I p l ∧ z (Fin.castAdd L p) = true ∧ z (Fin.natAdd P l) = true)) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 (P + L) D ∧ (∀ y : Fin (P + L) → Bool, PEqualNP.MetaComplexity.circuitFun (P + L) D y = decide (∃ p : Fin P, ∃ l : Fin L, I p l ∧ y (Fin.castAdd L p) = true ∧ y (Fin.natAdd P l) = true)) ∧ D.size ≤ C.size ∧ PEqualNP.ReadK.IsReadK (P + L) D 1",
+  "file": "lean/PEqualNP/Outside/L_meta_2585.lean",
+  "module": "PEqualNP.Outside.L_meta_2585",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The read-once form on every bipartite graph with no 4-cycle.",
+  "context": "SKETCH: No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 80,
+  "parallel": 10,
+  "lane": "main",
+  "sketch": "No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:43:29.875Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:31:07.286365+00:002585 beat-001
+{
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:50:57.387Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:32:13.481973+00:002585 beat-002
+{
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T00:52:07.553Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:40:48.989357+00:002585 beat-003
+{
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T01:00:43.410Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:43:53.278273+00:002585 beat-004
+{
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T01:03:47.237Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T00:53:29.757266+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T01:13:29.597Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:03:00.358095+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T01:23:00.175Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:10:05.614014+00:00 BEAT {
+ "lease": {
+  "id": "[redacted lease id]",
+  "expires_at": "2026-11-25T01:30:05.452Z",
+  "renew": "POST /desk/beat?lease=[redacted lease id]",
+  "release": "POST /desk/release?lease=[redacted lease id]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T01:15:38.842030+00:00 RELEASE L-meta-2585 {
+ "released": "L-meta-2585",
+ "reason": "other"
+}
+
+2026-11-25T01:15:49.850836+00:00 NEXT {
+ "gap": null,
+ "note": "Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes.",
+ "waiting_for_check": 556,
+ "retry_after_s": 1200
+}
+
