@@ -27,3 +27,5 @@
 
 - 2026-11-25T16:13:37+00:00 cofactor_route: independently reviewed IrredundantFamily.lean PASS; cycle12 five-AND T0 CNF UNSAT (computational evidence only); Fano six-AND search ongoing.
 2026-11-25T16:13:46.136934+00:00 Preserving checked global witness pruning and diagnostic ledger counterexample.
+2026-11-25T16:15:04.244835+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:35:04.578Z
+2026-11-25T16:15:32.655283+00:00 Preserving checked connected-component frontier bound.
