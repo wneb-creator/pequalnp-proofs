@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-25T15:17:54.475570+00:00",
+  "status": "completed restricted local insertion searches; no general19-gate lower-bound claim",
+  "input": "results/orch/2590/lemmas/search_petersen_baseline.json approximation_gates",
+  "evaluation": "all1024assignments packed into Python integers",
+  "runs": [
+    {
+      "status": "completed specified one-gate insertion class; no exact repair",
+      "tested": 6110,
+      "best_full_errors": 4,
+      "elapsed": 0.06480707300033828,
+      "source": "results/orch/2590/lemmas/search_one_gate_repair.py",
+      "original_source_sha256": "e264dd6f22f3b7b782ee61f6792a1caae7eb85287de32dfc160c0adeaf1ba8c3",
+      "logs": [
+        {
+          "path": "results/orch/2590/search_logs/2590-search-one-gate-repair.stdout",
+          "sha256": "c94104586bb1382c7e3255a6e8e14be9cb48744f30de2732f7ff2c09d95b24c6",
+          "bytes": 571
+        },
+        {
+          "path": "results/orch/2590/search_logs/2590-search-one-gate-repair.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "status": "completed arbitrary-source one-gate insertion with single-old-wire redirection class; no exact repair",
+      "tested": 111800,
+      "best_full_errors": 4,
+      "elapsed": 1.1020187520007312,
+      "source": "results/orch/2590/lemmas/search_one_gate_repair_v2.py",
+      "original_source_sha256": "0b9b02e364b6f2982f036b8b0e2a2c6cab4ef148cdbf02dbed7424724df0bb7a",
+      "logs": [
+        {
+          "path": "results/orch/2590/search_logs/2590-search-one-gate-repair-v2.stdout",
+          "sha256": "a63223c1817caee90de00d6ec205c77d11fda0ac3900bde81c32666a99516c7d",
+          "bytes": 633
+        },
+        {
+          "path": "results/orch/2590/search_logs/2590-search-one-gate-repair-v2.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    }
+  ]
+}
