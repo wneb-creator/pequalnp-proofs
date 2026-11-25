@@ -1954,3 +1954,67 @@ lemma replace_two_point_color_shadow (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
     · exact Or.inr hrx
 
 end PEqualNP.Outside.L_meta_2583.ShadowGateRewrite
+
+namespace PEqualNP.Outside.L_meta_2583.MinJunkNormal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.GateRewrite
+  PEqualNP.Outside.L_meta_2583.ShadowGateRewrite
+
+lemma exists_budget_min_junk (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfun : circuitFun n C = graphFun G ∅) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ C.size ∧ circuitFun n D = graphFun G ∅ ∧
+      ∀ E : Circuit, IsAO2 n E → E.size ≤ C.size → circuitFun n E = graphFun G ∅ →
+        (junk G D).card ≤ (junk G E).card := by
+  classical
+  let P : ℕ → Prop := fun k => ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ C.size ∧
+    circuitFun n D = graphFun G ∅ ∧ (junk G D).card = k
+  have hex : ∃ k, P k := ⟨(junk G C).card, C, hAO, le_rfl, hfun, rfl⟩
+  obtain ⟨D, hD, hsize, hDf, hcard⟩ := Nat.find_spec hex
+  refine ⟨D, hD, hsize, hDf, ?_⟩
+  intro E hE hEsize hEf
+  rw [hcard]
+  exact Nat.find_le ⟨E, hE, hEsize, hEf, rfl⟩
+
+lemma exists_color_shadow_normal_form (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfun : circuitFun n C = graphFun G ∅)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ C.size ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ E : Circuit, IsAO2 n E → E.size ≤ C.size → circuitFun n E = graphFun G ∅ →
+        (junk G D).card ≤ (junk G E).card) ∧
+      (∀ (c : Bool) (R : Finset (Fin n)), R.Nonempty → ∀ g ∈ junk G D,
+        (∀ x : Fin n → Bool, wv n D x (n + g) =
+          wv n D (fun r => if color r = c then x r else false) (n + g)) →
+        wv n D (fun _ => false) (n + g) = false →
+        (∀ r : Fin n, wv n D (pairInput r r) (n + g) = true ↔ r ∈ R) →
+        ∀ a b : ℕ, a < n + g → b < n + g →
+          (∀ x : Fin n → Bool, (wv n D x a || wv n D x b) = true ↔ ∃ r ∈ R, x r = true) →
+          False) := by
+  obtain ⟨D, hD, hsize, hDf, hmin⟩ := exists_budget_min_junk n C hAO G hfun
+  refine ⟨D, hD, hsize, hDf, hmin, ?_⟩
+  intro c R _ g hg hdep hzero hshadow a b ha hb hnew
+  obtain ⟨hE, hEsize, hEf, hless⟩ := replace_one_color_shadow_wires n D hD G hDf color hbip
+    c R g hg hdep hzero hshadow a b ha hb hnew
+  have hbound := hmin (orReplace D g a b) hE (hEsize.trans_le hsize) hEf
+  omega
+
+lemma budget_min_junk_no_two_point_shadow (n : ℕ) (C D : Circuit)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hD : IsAO2 n D) (hsize : D.size ≤ C.size) (hDf : circuitFun n D = graphFun G ∅)
+    (hmin : ∀ E : Circuit, IsAO2 n E → E.size ≤ C.size → circuitFun n E = graphFun G ∅ →
+      (junk G D).card ≤ (junk G E).card)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (c : Bool) (g : ℕ) (hg : g ∈ junk G D) (a b : Fin n)
+    (hdep : ∀ x : Fin n → Bool, wv n D x (n + g) =
+      wv n D (fun r => if color r = c then x r else false) (n + g))
+    (hzero : wv n D (fun _ => false) (n + g) = false)
+    (hshadow : ∀ r : Fin n, wv n D (pairInput r r) (n + g) = true ↔ r = a ∨ r = b) : False := by
+  obtain ⟨hE, hEsize, hEf, hless⟩ := replace_two_point_color_shadow n D hD G hDf color hbip
+    c g hg a b hdep hzero hshadow
+  have hbound := hmin (orReplace D g a.val b.val) hE (hEsize.trans_le hsize) hEf
+  omega
+
+end PEqualNP.Outside.L_meta_2583.MinJunkNormal
