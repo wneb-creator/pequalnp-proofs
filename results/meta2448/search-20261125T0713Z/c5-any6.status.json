@@ -1,0 +1,6 @@
+{
+  "result": "unsat",
+  "solver_exit": 20,
+  "elapsed": 0.2498546360002365,
+  "peak_child_KiB": 12416
+}

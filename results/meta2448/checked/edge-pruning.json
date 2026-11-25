@@ -1,0 +1,8 @@
+{
+  "source": "results/meta2448/EdgePruning.lean",
+  "sha256": "667ced05be03d95c0933a49603b7c3eeb9990a1d82897767b4b3d75f98f0ccea",
+  "lines": 42,
+  "exit_code": 0,
+  "scope": "A monotone Boolean function below the exact graph function and agreeing with it on every graph-edge pair equals that graph function. Function-level pruning only; no circuit exchange, gate-count, minimality or star normalization is proved.",
+  "olean": "/tmp/oec/pequalnp-pilot-62/meta2448/EdgePruning.olean"
+}

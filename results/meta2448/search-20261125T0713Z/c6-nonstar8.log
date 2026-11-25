@@ -1,0 +1,2 @@
+{"graph": "cycle6", "input_count": 6, "gate_count": 8, "profile": "nonstar", "variables": 1028, "clauses": 6235}
+{"result": "unsat", "solver_exit": 20, "elapsed": 21.949195428000166, "peak_child_KiB": 20152}

@@ -1,0 +1,21 @@
+{
+  "source_sha256": "3108ab898aafaab08bdaf4f7e8f5d0089e33b87a90650a43f9cf27ad8810856c",
+  "status": "PASS_READ_ONLY_ENCODING_REVIEW",
+  "controls": [
+    {
+      "control": "c5-star7-control",
+      "sha256": "a2a0775640d430acfbb6b8a4f9529d3c79485b0027ebecf83bc2ab9fdc2b99ab",
+      "all_input_count": 32,
+      "gate_count": 7,
+      "has_star_profile": true
+    },
+    {
+      "control": "c6-star8-control",
+      "sha256": "ecefd80b7a57a550e2327acce4019dbccc6ed3f7609ab15ec7afb28f540fefd6",
+      "all_input_count": 64,
+      "gate_count": 8,
+      "has_star_profile": true
+    }
+  ],
+  "scope": "Finite normalized-model research only. No Lean minimum theorem or L-meta-2448 proof. Arbitrary-circuit normalization was reviewed mathematically but is not formalized."
+}

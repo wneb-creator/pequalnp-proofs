@@ -1,0 +1,41 @@
+{
+  "review": "APPROVED exact compiled StarExistence source and corrected scope documentation",
+  "scope": "Star-profile witness and minimum within the star-profile subclass only. Named target does not yet include this component.",
+  "files": [
+    {
+      "path": "results/meta2448/lemmas/StarExistence.lean",
+      "sha256": "9ecf19031659759a112528a7a61e7da29b341cc0d0c9479e6eb09404435501a8",
+      "bytes": 4967
+    },
+    {
+      "path": "results/meta2448/checked/StarExistence.lean",
+      "sha256": "9ecf19031659759a112528a7a61e7da29b341cc0d0c9479e6eb09404435501a8",
+      "bytes": 4967
+    },
+    {
+      "path": "results/meta2448/checked/StarExistence.log",
+      "sha256": "8afda65758a5d1b64471c63c8b01081be5d63e7b9ffa5b7cc6ca2344e48956bb",
+      "bytes": 741
+    },
+    {
+      "path": "results/meta2448/checked/StarExistence.sha256",
+      "sha256": "84c9a9acb6e04bca85ca69dd4a9c6ae34f4f4c94952331b96d18c3919effb7fa",
+      "bytes": 85
+    },
+    {
+      "path": "results/meta2448/checked/StarExistence.json",
+      "sha256": "60faa2943c16b7a24823951b0f6b6f00f1372c4edc30a61fba6bda778d86a008",
+      "bytes": 1037
+    },
+    {
+      "path": "results/meta2448/setup/star-existence-status.json",
+      "sha256": "60faa2943c16b7a24823951b0f6b6f00f1372c4edc30a61fba6bda778d86a008",
+      "bytes": 1037
+    },
+    {
+      "path": "results/meta2448/setup/STAR_SCOPE.md",
+      "sha256": "0657dc3c9a42ffc69cb8c9addcee09462b8145bb7ca58644edade203dab88cb9",
+      "bytes": 902
+    }
+  ]
+}

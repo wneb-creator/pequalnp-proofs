@@ -1,0 +1,8 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "-t",
+  "60",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/meta2448/c6-any7.sol",
+  "/tmp/oec/pequalnp-pilot-62/meta2448/c6-any7.cnf"
+]

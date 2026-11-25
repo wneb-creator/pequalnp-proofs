@@ -1,0 +1,8 @@
+usage: guard_synthesis.py [-h] --tag TAG ...
+
+positional arguments:
+  arguments
+
+options:
+  -h, --help  show this help message and exit
+  --tag TAG

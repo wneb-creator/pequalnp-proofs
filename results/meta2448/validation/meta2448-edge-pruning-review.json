@@ -1,0 +1,26 @@
+{
+  "review": "PASS: direct monotonicity and graph-edge-minterm argument; only posted Defs import; exact full EXIT0 log",
+  "scope": "Function-level equality after decreasing and preserving graph-edge minterms. No circuit construction, size comparison, minimum or star-profile result.",
+  "files": [
+    {
+      "path": "results/meta2448/checked/edge-pruning.lean",
+      "sha256": "667ced05be03d95c0933a49603b7c3eeb9990a1d82897767b4b3d75f98f0ccea",
+      "bytes": 1588
+    },
+    {
+      "path": "results/meta2448/checked/edge-pruning.log",
+      "sha256": "38b62579afc5c8deb761c896cab67a709ae3319df6077ea1d3e07e807697c91f",
+      "bytes": 705
+    },
+    {
+      "path": "results/meta2448/checked/edge-pruning.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/checked/edge-pruning.json",
+      "sha256": "2f9ef27a9e72a61053420c31c7d5d668bfb4fad3f6d4a3d88bd1449bf43f919d",
+      "bytes": 486
+    }
+  ]
+}

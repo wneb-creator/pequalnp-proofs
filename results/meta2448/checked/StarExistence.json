@@ -1,0 +1,21 @@
+{
+  "source": "results/meta2448/checked/StarExistence.lean",
+  "sha256": "9ecf19031659759a112528a7a61e7da29b341cc0d0c9479e6eb09404435501a8",
+  "lines": 119,
+  "exit_code": 0,
+  "kernel_checked": true,
+  "checked_utc": "2026-11-25T07:18:28.278588+00:00",
+  "wall_seconds": 5.508019074997719,
+  "peak_rss_kib": 2848684,
+  "peak_cgroup_bytes": 4465000448,
+  "scope": [
+    "An AND gate reading raw inputu is below that input",
+    "If everyAND reads a raw input, every owned edge is in a corresponding star",
+    "Exact graph-DNF circuit with HasStarProfile for every graph",
+    "Minimum size among circuits that already satisfy HasStarProfile"
+  ],
+  "not_proved": "A global minimum is attained by a star-profile circuit.",
+  "dependency": "Existence",
+  "dependency_source_sha256": "9a9b9a3ce6d914eab83be6d4c215d8723d00b860424ac280aa64716a679abf36",
+  "final_assembly": "Append the newStarExistence namespace after the existingExistence bodies; remove the local debug dependency line and retain onlyPEqualNP.Defs in the named target."
+}

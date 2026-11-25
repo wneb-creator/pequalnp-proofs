@@ -1,0 +1,14 @@
+usage: synthesize.py [-h] --graph {path4,cycle5,cycle6,cycle7,petersen}
+                     --gates GATES [--profile {any,star,nonstar}]
+                     [--seconds SECONDS] --tag TAG [--cnf-only]
+                     [--fixed-star-baseline]
+
+options:
+  -h, --help            show this help message and exit
+  --graph {path4,cycle5,cycle6,cycle7,petersen}
+  --gates GATES
+  --profile {any,star,nonstar}
+  --seconds SECONDS
+  --tag TAG
+  --cnf-only
+  --fixed-star-baseline
