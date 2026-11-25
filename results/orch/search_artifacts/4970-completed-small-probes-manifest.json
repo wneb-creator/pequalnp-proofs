@@ -1,0 +1,166 @@
+{
+  "frozen_utc": "2026-11-25T15:57:06.912347+00:00",
+  "notes": "Completed bounded C8/subK4 probes, controls, and finite OR-hiding transfer validation. All solver jobs stopped. No counterexample to posted4970.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/small_gate.py",
+      "size": 5270,
+      "sha256": "05ee683ccf78f5d0b9d8751dcadd1094fe63a11586b5afcc768bf6d7635694dc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/small-graph-counts.json",
+      "size": 244,
+      "sha256": "f5ab07f4004603a51efc030143a17196a0d96e027360a5c7688546663fad9cf6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/hide_or_transfer.py",
+      "size": 2686,
+      "sha256": "10aa7f88b8890ae2151794e6f89441aeec15cdfcb4957d1d200012e1c9799de8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/hide_or_transfer.json",
+      "size": 2915,
+      "sha256": "45800cf365cc4743af9f38f9ff37156512f080589619c3cb0257f8fd88d3aa81"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/hide_or_transfer.stdout",
+      "size": 85,
+      "sha256": "25d56f9bb81bf8531b4f1e58c74a0e145bcfab1224d33c4d813e57ea7df408b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/hide_or_transfer.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.cnf",
+      "size": 162114,
+      "sha256": "c8d1853e5e6029b630446571e5f3c15c79dc2e763fc8e80f7c55affc7b25517e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.meta.json",
+      "size": 3993,
+      "sha256": "9078737df20b4442efe2a0c474d883d0b94efd50eec6fb50c5e7aa702763f05f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.log",
+      "size": 79,
+      "sha256": "ff957e51ab4dd9306feff48dc69485ab5053aa370e746b58050cd51b73927412"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.stdout",
+      "size": 7343,
+      "sha256": "f1a79a2f44740d89d479ce076f695032e2c6f79d08dd7673a0edaf05ec6636a3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower.cnf",
+      "size": 137562,
+      "sha256": "876c01b7f33930baec398c682e2ae9762a5e8eb1ada721e440c1501d7ca15e8b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower.meta.json",
+      "size": 3564,
+      "sha256": "337ade2f35402a770b8f22c8deb8f94fa0550d7ff9e7a0d735e2a1f6ad6cf897"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower.log",
+      "size": 33,
+      "sha256": "45fbe31a7af62d9aa5170df058d8b8ed3c6785fb7159774d27f9bcad0b338f6d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower.stdout",
+      "size": 14487,
+      "sha256": "4a8f5571b4cf904109a693f3a791ffe1d427d86d257e6ff8f20c6e429364d1a8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-lower-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.cnf",
+      "size": 403706,
+      "sha256": "7c56dd08867370016fea4aa51631f4f546a3e0cb40b984d1d216aa4cc3c6dbcb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.meta.json",
+      "size": 6767,
+      "sha256": "0179fc17959c466ded03f4b32dc579bfe64ae1e6d7c597cd420ec3a38bc8d502"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.log",
+      "size": 80,
+      "sha256": "7951644eb5bc5f1edd402d951620ec0489c5e8016cfb7a5afe057a0829130283"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.stdout",
+      "size": 11464,
+      "sha256": "a6dd7d4c51e4d4c9da1820c4698a9b9824f4ba1fc2d918d488f6dfaa27c30927"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower.cnf",
+      "size": 355909,
+      "sha256": "cf6e3458e3f1e47dceef19a0cc17e826e6b7a5e2451da36f2834b9c36dc16ac1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower.meta.json",
+      "size": 6206,
+      "sha256": "dc1971d55d72088cd8db0ae5008dd4616919e108d4b57f6a99443c926e1fd4ef"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower.log",
+      "size": 34,
+      "sha256": "62c2e61246689fa63cd0c9281f881f1693a3ca2146dc9d31cc827e2335b9fdfb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower.stdout",
+      "size": 14800,
+      "sha256": "c618d33be0c54fbcf3adb1d84eb0552a1b7253491d4b2209f8602f4b51a305a7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-lower-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c8-control.circuit.json",
+      "size": 818,
+      "sha256": "2d3b2559bfdaa0c48d23e35061a2e75ce7ec86a6ab00ebfff76a38f3a609f3c8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/subk4-control.circuit.json",
+      "size": 1296,
+      "sha256": "9c06448052fb6fe2e5fd199a596110add9cc7e78a2df9416d95b6c575c08761c"
+    }
+  ]
+}

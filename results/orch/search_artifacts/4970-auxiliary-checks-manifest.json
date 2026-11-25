@@ -1,0 +1,206 @@
+{
+  "frozen_utc": "2026-11-25T15:53:55.297053+00:00",
+  "notes": "Auxiliary pureOR ledger exhaustive finite checks and AND-count SAT probes. C6-and2 UNSAT is computational only; Fano-and6 probes UNKNOWN. No proof of posted4970.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/and_count.py",
+      "size": 4094,
+      "sha256": "4387717c70b7003b7133c61af7d6e3b94918cfcccdf5bd484ec59e65d66aa30f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_check.cpp",
+      "size": 2619,
+      "sha256": "26c7d26812c6cb730895aca3807a5481e367fc2d78c81d887938b1551ad49780"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_check-build.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_check-build.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_n3_g5.stdout",
+      "size": 143,
+      "sha256": "a8ae77b9397a98bb016ca3c76268f8232cd92c5c4031a3af520be9df8c9df6d7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_n3_g5.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_n4_g4.stdout",
+      "size": 126,
+      "sha256": "1aaadffe2368d5b26f900f03520ea7a1066134d94f50228aaf02d08938808c41"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/or_ledger_n4_g4.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.cnf",
+      "size": 9159,
+      "sha256": "7ad04030ff3b671f798f9cf565d7134c916fff82ae768e57663aaab174e69617"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.meta.json",
+      "size": 872,
+      "sha256": "2fd85e93d6ff448dcd42f85f77e0260b429ceb07f2a0a1a27c3e0599fe4693b8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.log",
+      "size": 72,
+      "sha256": "4bbad01067b4efd5d660eb2557afc1e7110190cc31556f273e8afbc03faeceb0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.stdout",
+      "size": 4676,
+      "sha256": "07bbbd43216bf6264ce5adcfc6079b129c76cd8be2161f5a6ba028d3d80832cd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.cnf",
+      "size": 4332,
+      "sha256": "426081c06b348d6e2587a564aae949c737f24338b414c4164b5d461c5ec6bf75"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.meta.json",
+      "size": 629,
+      "sha256": "5bca46bea05bcf63f859c733ad087a68571129570584268065a5b27d29580321"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.log",
+      "size": 32,
+      "sha256": "821ebc0e768e7944cd4b15df3a5a5faf82af777d64c7c695d152751a66dba92c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.stdout",
+      "size": 4308,
+      "sha256": "09c69038c42e38248645384a8ca9e8b25b27e6ac9af15b626817fb7e76a11f7c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.cnf",
+      "size": 246069,
+      "sha256": "1a41409db9677de1601a80d53cd8233998b24770322c66201b55cc4a69fc4e1d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.meta.json",
+      "size": 4067,
+      "sha256": "50d16b6b1c14a8d1c1f1f908a7e8b29b07b971518e8515b32fb98982bcbd0edf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.log",
+      "size": 76,
+      "sha256": "56add6720ef32247c87930717f618ce303af97f9f17d157cee14b2e04d4e57bb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.stdout",
+      "size": 28849,
+      "sha256": "8609d9c30e2419e57cd18c001b83fc8c8d515caeff4a33052b69fcd9e9fcb54a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6.cnf",
+      "size": 180531,
+      "sha256": "7886b8e97ab8d4a4978fc61d8364dc693afc93340cde865d0ba8887ad9a5b01c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6.meta.json",
+      "size": 3495,
+      "sha256": "4f6b04726e6c656c0d34c311c2b4ae7c0757a867342bd07f57f708d1527b83ec"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6.log",
+      "size": 34,
+      "sha256": "5dbc62235b142aaf826fb9773f155e87e88c8a02d9a7ed432d319eb7a57a8143"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6.stdout",
+      "size": 11933,
+      "sha256": "120c95f2cbfca64ed849d32cd6ea872a8449d3d376f1f2950d9b58600a25e966"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero.cnf",
+      "size": 186873,
+      "sha256": "1c2984d2fd0f610fed52aa5f0c5f05c3d40209fe1083317f3b0d283024806eb3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero.meta.json",
+      "size": 3494,
+      "sha256": "b72f383910833e79b6d672905f5c614e8a3af26b384e18e8c4b92316f9d69a08"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero.log",
+      "size": 34,
+      "sha256": "3f0e4fa46339a1b3a91a0a1d2cff48436eeb19d5500ce690b6c2496a86efc47b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero.stdout",
+      "size": 12744,
+      "sha256": "caa27337f74816fbe08fb8f1fba3396e778f4284c6a5602715af95a0d6864c76"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and6-tzero-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and3-control.circuit.json",
+      "size": 368,
+      "sha256": "ff69da08127f8e0df8c750d055772243fe72c3f3b87bb972171f05428dc27226"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/fano-and7-control.circuit.json",
+      "size": 796,
+      "sha256": "6eaf5c2edbc269d78b9cb81bd99f5033c6e3c82b53c824a0f322e8f68307efaf"
+    }
+  ]
+}

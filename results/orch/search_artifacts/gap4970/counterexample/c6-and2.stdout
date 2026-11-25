@@ -1,0 +1,103 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ proof tracing ] ------------------------------------------------------
+c 
+c opening file to write '/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.lrat'
+c writing binary proof trace to '/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.lrat'
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.cnf'
+c found 'p cnf 149 404' header
+c parsed 404 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --lrat=true                    (different from default 'false')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0  393 128 86%
+c {  0.00  3  0 0   0    0    0  0% 0  393 128 86%
+c i  0.00  3  0 0   0    2    1 62% 0  393 122 82%
+c i  0.00  3  5 0   0   30   22 83% 2  393 121 81%
+c i  0.00  3  5 0   6   63   47 81% 2  393 116 78%
+c i  0.00  3  5 0   7   68   50 82% 2  393  85 57%
+c }  0.00  3  5 0   7   70   50 81% 2  393  47 32%
+c 0  0.00  3  5 0   7   70   50 81% 2  393  47 32%
+c 
+c --- [ closing proof ] ------------------------------------------------------
+c 
+c LRAT proof file '/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/c6-and2.lrat' closed
+c LRAT 156 added clauses 91.76%
+c LRAT 14 deleted clauses 8.24%
+c LRAT 5590 bytes (0.01 MB)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   94.41% search
+c         0.00   89.89% unstable
+c         0.00   14.62% parse
+c         0.00    3.63% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   68.85% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                19        27.14 %  of conflicts
+c conflicts:                    70     68694.80    per second
+c decisions:                   101     99116.78    per second
+c fixed:                       102        68.46 %  of all variables
+c learned:                      66        94.29 %  per conflict
+c learned_lits:                360       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    101        28.06 %  learned literals
+c minishrunken:                  7         1.94 %  learned literals
+c otfs:                          3         4.29 %  of conflict
+c propagations:               3747         3.68 M  per second
+c restarts:                      7        10.00    interval
+c subsumed:                     11         2.42 %  of all clauses
+c strengthened:                  3         0.66 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:           10.12    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

@@ -1,0 +1,5 @@
+n=4 max_gates=4 partitions=15 counterexample=0 seconds=0.059
+circuits_1=20
+circuits_2=600
+circuits_3=25200
+circuits_4=1411200
