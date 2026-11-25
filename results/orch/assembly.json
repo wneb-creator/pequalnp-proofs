@@ -58,5 +58,20 @@
     "file": "results/orch/lemmas/MixedLinear.lean",
     "sha256": "e340f135e4aef3a17e093b1b8717497b951b72c463589f9acd86f89c5ad24fd8",
     "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/LeastNormalizedBody.lean",
+    "sha256": "b1aa6f7480cb5c65e1f9f000fc4065648a95f661504d2b3fbddbeea98d8b3248",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/FreshCostExample.lean",
+    "sha256": "1895b81aff29f835a0c33abcbd0cb27172fd70521e465c3ac0dc91cc11124a73",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/FreshCostOptimalBody.lean",
+    "sha256": "46ff67789ebf725156b405889f5024d8f6623b6d27d45e9f72e115a007f4b89b",
+    "remove_identical_star_body": false
   }
 ]

@@ -32,3 +32,9 @@
 - 2026-11-25T13:17:31.915677+00:00: independently reviewed computational search encodings and complete completed-run logs archived; no target counterexample or formal lower bound.
 
 - 2026-11-25T13:25:07.943460+00:00: 65-line two-star repeated-reading example compiled and independently reviewed; exact target remains unproved.
+
+- 2026-11-25T13:25:35.313013+00:00: third re-plan; finite Fano charging route blocked beyond seven labels, current exact searches retained, final checked assembly planned.
+
+2026-11-25T13:30:42.422718+00:00 proof_route fresh joint-cost phase closed without full proof; Fano generalization obstruction and independent Katz-based support-count counterexample audit recorded in NOTES. Checked MixedLinear source unchanged.
+
+- 2026-11-25T13:33:27.317595+00:00: final4752-line partial assembly built and independently reviewed; finite-example optimality now checked.

@@ -1,0 +1,4 @@
+lake build PEqualNP.Outside.L_meta_2585: PASS, exit0.
+4752lines,210858bytes,SHA256 531e373e4f1294d246ae74facb8840e3e1c3f32c18dde7ad98da848b6bf9df95
+Independent normalization-agent assembly and format review PASS.
+Full posted theorem absent; this is a partial result.

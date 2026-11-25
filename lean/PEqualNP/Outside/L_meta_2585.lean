@@ -4571,3 +4571,182 @@ lemma linear_family_ao_cost {m n : ℕ} (S : Fin m → Finset (Fin n))
 
 
 end PEqualNP.Outside.L_meta_2585_aux.MixedLinear
+
+namespace PEqualNP.Outside.L_meta_2585.LeastNormalized
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2585.EdgeInvisible
+open PEqualNP.Outside.L_meta_2585.normalization
+
+lemma exists_least_normalized_essential (P L : ℕ)
+    (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 (P + L) C)
+    (hne : ∃ p l, I p l)
+    (hfun : ∀ x : Fin (P + L) → Bool,
+      circuitFun (P + L) C x =
+        decide (∃ p : Fin P, ∃ l : Fin L, I p l ∧
+          x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true)) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 (P + L) D ∧
+      D.size ≤ C.size ∧ circuitFun (P + L) D = circuitFun (P + L) C ∧
+      (∀ E : Circuit, PEqualNP.TopForm.IsAO2 (P + L) E →
+        circuitFun (P + L) E = circuitFun (P + L) C → D.size ≤ E.size) ∧
+      (∀ m < D.gates.length, ∀ a b : ℕ,
+        D.gates[m]? = some ⟨GateOp.or, [a, b]⟩ →
+        (PEqualNP.CircuitMoves.WireBelowOutput (P + L) D a ↔
+          PEqualNP.CircuitMoves.WireBelowOutput (P + L) D b)) ∧
+      (∀ (pre post : List Gate) (g : Gate), D.gates = pre ++ g :: post →
+        ∃ p : Fin P, ∃ l : Fin L, I p l ∧
+          circuitFun (P + L) (offGate pre post D.output)
+            (fun i => decide (i = Fin.castAdd L p ∨ i = Fin.natAdd P l)) = false) := by
+  classical
+  let good : Circuit → Prop := fun E =>
+    PEqualNP.TopForm.IsAO2 (P + L) E ∧ circuitFun (P + L) E = circuitFun (P + L) C
+  have hex : ∃ k : ℕ, ∃ E : Circuit, good E ∧ E.size = k :=
+    ⟨C.size, C, ⟨hAO, rfl⟩, rfl⟩
+  obtain ⟨E, hE, hsizeE⟩ := Nat.find_spec hex
+  have hminE : ∀ A : Circuit, good A → E.size ≤ A.size := by
+    intro A hA
+    rw [hsizeE]
+    exact Nat.find_min' hex ⟨A, hA, rfl⟩
+  have hEf : ∀ x : Fin (P + L) → Bool,
+      circuitFun (P + L) E x =
+        decide (∃ p : Fin P, ∃ l : Fin L, I p l ∧
+          x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true) := by
+    intro x
+    rw [hE.2]
+    exact hfun x
+  obtain ⟨D, hD, hs, hDf, hnorm⟩ := normalized_incidence P L I E hE.1
+    (incidence_output_lt P L I E hne hEf) hEf
+  have hsame : circuitFun (P + L) D = circuitFun (P + L) C := by
+    funext x
+    rw [hDf, hfun]
+  have hminD : ∀ A : Circuit, PEqualNP.TopForm.IsAO2 (P + L) A →
+      circuitFun (P + L) A = circuitFun (P + L) C → D.size ≤ A.size := by
+    intro A hA hAf
+    rw [hs]
+    exact hminE A ⟨hA, hAf⟩
+  refine ⟨D, hD, hminD C hAO rfl, hsame, hminD, hnorm, ?_⟩
+  intro pre post g hgs
+  have hsplit : atGate pre post g D.output = D := by
+    unfold atGate
+    rw [← hgs]
+  apply PEqualNP.Outside.L_meta_2585.EdgeEssential.least_gate_output_essential
+    P L I pre post g D.output
+  · rw [hsplit]
+    exact hD
+  · exact hne
+  · rw [hsplit]
+    exact hDf
+  · intro A hA hAf
+    rw [hsplit]
+    apply hminD A hA
+    funext x
+    rw [hAf, hfun]
+
+end PEqualNP.Outside.L_meta_2585.LeastNormalized
+
+namespace PEqualNP.Outside.L_meta_2585.FreshCostExample
+
+open PEqualNP.CircuitLowerBounds
+
+-- Two disjoint three-leaf stars amplify the repeated edges without amplifying
+-- the gap between this dirty circuit and the ordinary read-one construction.
+
+def C : Circuit :=
+  ⟨[⟨GateOp.or, [2, 3]⟩, ⟨GateOp.or, [8, 4]⟩,
+    ⟨GateOp.or, [5, 6]⟩, ⟨GateOp.or, [10, 7]⟩,
+    ⟨GateOp.or, [0, 1]⟩, ⟨GateOp.or, [9, 11]⟩,
+    ⟨GateOp.or, [0, 11]⟩, ⟨GateOp.or, [1, 9]⟩,
+    ⟨GateOp.and, [12, 13]⟩, ⟨GateOp.and, [14, 15]⟩,
+    ⟨GateOp.and, [16, 17]⟩], 18⟩
+
+def D : Circuit :=
+  ⟨[⟨GateOp.or, [2, 3]⟩, ⟨GateOp.or, [8, 4]⟩,
+    ⟨GateOp.or, [5, 6]⟩, ⟨GateOp.or, [10, 7]⟩,
+    ⟨GateOp.and, [0, 9]⟩, ⟨GateOp.and, [1, 11]⟩,
+    ⟨GateOp.or, [12, 13]⟩], 14⟩
+
+def E : List (ℕ × ℕ) := [(0, 2), (0, 3), (0, 4), (1, 5), (1, 6), (1, 7)]
+
+def isLine (i : ℕ) : Bool := decide (2 ≤ i)
+
+abbrev I (p : Fin 2) (l : Fin 6) : Prop :=
+  (p = 0 ∧ l.val < 3) ∨ (p = 1 ∧ 3 ≤ l.val)
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma valid_C : PEqualNP.TopForm.IsAO2 8 C := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma valid_D : PEqualNP.TopForm.IsAO2 8 D := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma no_four_cycle : ∀ p p' : Fin 2, ∀ l l' : Fin 6,
+    p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l') := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma computes_C : ∀ z : Fin 8 → Bool,
+    PEqualNP.MetaComplexity.circuitFun 8 C z =
+      decide (∃ p : Fin 2, ∃ l : Fin 6, I p l ∧
+        z (Fin.castAdd 6 p) = true ∧ z (Fin.natAdd 2 l) = true) := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma computes_D : ∀ z : Fin 8 → Bool,
+    PEqualNP.MetaComplexity.circuitFun 8 D z =
+      decide (∃ p : Fin 2, ∃ l : Fin 6, I p l ∧
+        z (Fin.castAdd 6 p) = true ∧ z (Fin.natAdd 2 l) = true) := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma all_interior_not_below : ∀ w : Fin 18,
+    ¬ PEqualNP.CircuitMoves.WireBelowOutput 8 C w.val := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma all_edges_double_reread : PEqualNP.ReadK.doubleReread C 8 isLine E = E := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma read_one_D : PEqualNP.ReadK.IsReadK 8 D 1 := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma sizes : C.size = 11 ∧ D.size = 7 := by decide
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma repeats_exceed_size_gap :
+    C.size - D.size < (PEqualNP.ReadK.doubleReread C 8 isLine E).length := by decide
+
+end PEqualNP.Outside.L_meta_2585.FreshCostExample
+
+namespace PEqualNP.Outside.L_meta_2585.FreshCostExample
+
+lemma replacement_optimal (T : PEqualNP.CircuitLowerBounds.Circuit)
+    (hT : PEqualNP.TopForm.IsAO2 8 T)
+    (hf : PEqualNP.MetaComplexity.circuitFun 8 T =
+      PEqualNP.MetaComplexity.circuitFun 8 C) : D.size ≤ T.size := by
+  have hTf : ∀ z : Fin 8 → Bool,
+      PEqualNP.MetaComplexity.circuitFun 8 T z =
+        decide (∃ p : Fin 2, ∃ l : Fin 6, I p l ∧
+          z (Fin.castAdd 6 p) = true ∧ z (Fin.natAdd 2 l) = true) := by
+    intro z
+    rw [hf]
+    exact computes_C z
+  have hbound := PEqualNP.Outside.L_meta_2585.Support.incident_vertices_card_le
+    2 6 I T hT hTf
+  have hcard : (Finset.univ.filter (fun v : Fin (2 + 6) =>
+      ∃ p : Fin 2, ∃ l : Fin 6, I p l ∧
+        (v = Fin.castAdd 6 p ∨ v = Fin.natAdd 2 l))).card = 8 := by decide
+  rw [hcard] at hbound
+  change 7 ≤ T.size
+  omega
+
+lemma optimum_plus_repeats_too_large :
+    C.size < D.size + (PEqualNP.ReadK.doubleReread C 8 isLine E).length := by decide
+
+end PEqualNP.Outside.L_meta_2585.FreshCostExample

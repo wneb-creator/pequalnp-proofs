@@ -1,0 +1,1 @@
+Interrupted intentionally after independent review found format issues. Exit1 after SIGINT. Not a build verdict. Issues fixed in build-4752.

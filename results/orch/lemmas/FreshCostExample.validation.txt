@@ -1,6 +1,5 @@
-Lean exit 0. Independent review: status_review PASS.
-Source SHA256 d0252a99e341bdbdc6b7491f3990c84e2e31b7f7979e2fb6722a28fe6ee8083c
-This is an auxiliary counterexample to a proposed excess charge, not a counterexample to L-meta-2585. The global optimality wrapper has not yet compiled.
-Complete stdout:
-
-Complete stderr:
+Current source:80lines,SHA256 1895b81aff29f835a0c33abcbd0cb27172fd70521e465c3ac0dc91cc11124a73.
+Verified within named4752-line aggregate: lake build exit0. Scoped limits and reducible I avoid a declared instance. Independent review PASS.
+Previous65-line source also compiled standalone; its complete empty logs remain logs/fresh-cost.stdout and .stderr.
+The28-line FreshCostOptimalBody is now verified in the aggregate too: minimum7gates;11gate normalized dirty example has6doubly reread edges, exceeding optimum excess4.
+This refutes an auxiliary charge, not L-meta-2585.
