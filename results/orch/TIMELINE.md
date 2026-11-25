@@ -15,3 +15,5 @@
 2026-11-25T14:21:06.286250+00:00 Generic Live/Run contraction core compiled and independently reviewed.
 
 2026-11-25T14:22:28.053900+00:00 Checked complementary-restriction upper bound: 14 binary gates plus one NOT. This closes the attempted restricted lower-bound strategy, not the posted gap.
+
+2026-11-25T14:23:45.971778+00:00 New17/18 gate arguments compiled conditional on existing P9floor15; independent review PASS.

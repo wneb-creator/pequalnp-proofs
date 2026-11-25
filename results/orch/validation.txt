@@ -23,3 +23,6 @@ TIMING total=20 subagents=6
 
 NegationRestriction.lean: lake env lean exit0; independent research review PASS. Restricted function only.
 TIMING total=22 subagents=6
+
+SeventeenCoreDev.lean: lake env lean exit0; independent review PASS; explicit P9floor15 premise, local research import.
+TIMING total=23 subagents=6

@@ -13,3 +13,7 @@ Write independent notes files and communicate findings; do not edit another agen
 - SAT partial-row models have failed full truth-table validation. No counterexample found. Searches now include maximal independent assignments, output endpoints, and single-NOT cut constraints.
 - Certificate bridge and NOT-count transformations compiled. No UNSAT certificate yet; support components do not prove the gap.
 - All three reduction slots are occupied. No new reduction may be submitted.
+
+## First replan
+
+The new17binary argument and first-AND/difference18binary argument now compile, with the existing nine-variable floor supplied as an explicit premise. The selfcontained base certificate rebuild is still running. Finish this integration first. Focus searches on17binary gates with at most2 NOTs and a first OR; edge/nonedge symmetry cases are running. P9signed15 search is also active. Stop stochastic search and the complementary-restriction lower-bound route: a checked14binary upper bound disproves the latter. Continue count-bounded SAT proof bridge; no UNSAT certificate exists yet.
