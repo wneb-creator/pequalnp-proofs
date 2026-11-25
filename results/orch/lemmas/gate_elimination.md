@@ -78,3 +78,20 @@ Implemented 168-line supplement `/tmp/oec/pequalnp-pilot-178/gate_elimination/Tr
 Lightweight core compiled successfully, then the full supplement compiled successfully against the built target module. Both outputs were empty; both exit codes were zero. Preserved sources/logs: `results/orch/lemmas/TrackedCore.lean`, `results/orch/tracked-core-build.txt`, `results/orch/lemmas/TrackedFull.lean`, `results/orch/tracked-full-build.txt`.
 
 Final deduction: if a concrete circuit has size≤13 and exactly one NOT, global lower13 forces extracted k≥13; k+(1−t)≤13 and t≤1 then give k=13,t=1. The new fixed-one-NOT checker endpoint excludes precisely this Live state. Original zero-NOT circuits can be returned unchanged, and circuits of size≥14 use the existing monotone14gate witness.
+
+## Independent review of the assembled full candidate
+
+Reviewed `/tmp/oec/pequalnp-pilot-178/root_helpers/FinalCutCandidate.lean`, SHA256 `afa12df79044cbf914ba884f1e47895742c7f8de9b1377da40c45acfc35120db`, 6977 lines / 507796 bytes. Verdict: conditional PASS, pending final frozen diff, successful named-file build, local checker, and recheck after computational rewrites.
+
+- Final theorem statement matches the original desk JSON byte-for-byte.
+- Final split is exhaustive: size≥14 uses the explicit witness; zero NOTs return the original circuit; otherwise indexed uniqueness gives exactly one NOT and tracked extraction contradicts the fixed-one-NOT certificate.
+- Generic proof engine through one1 is token-equivalent to the previously reviewed Lower13 source (ignoring whitespace); no hidden assumptions were inserted.
+- Sample constants are unchanged from independently verified data. The real circuit bridge retains actual root definitions, default-false nonexistent wire semantics, empty gate semantics, and correct NOT counting.
+- `live_certificate_false` receives lower13 as minimality. It does not assume the desired14 lower bound or the target statement. The E=[] branch avoids the optional hypothesis for an extra precomputed input.
+- Bucket lookup is conservative. `cutKey` is proved injective on the entire state, including every W field. `patchCut_eq` only replaces states whose original search result is already proved false. Hash collisions and missing bucket entries cannot introduce unsound pruning; unmatched entries evaluate the original search.
+- The list of partition masks is verified complete by mFull. The two certificate arms cover the unary and binary root cases.
+- Independently evaluated the explicit14-gate AND/OR witness on all128 assignments; every result equals the target graph function.
+- Exactly one import occurrence, the allowed PEqualNP.Defs line. No forbidden strings, attributes, unsafe/axiom commands, hidden format/control characters, or oversized decimal numerals. All239 option lines use allowed forms.
+- Candidate has16492 bytes of margin under the512KiB cap; recheck after further data representation changes.
+
+No Lean process was started during this review.
