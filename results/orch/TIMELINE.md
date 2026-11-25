@@ -10,3 +10,5 @@
 - 2026-11-25T08:45:30.493606+00:00: first partials pushed ee8a651780c007e6d186f8a54ad7b82629379b4e; ownership, graph biclique, and irredundancy components compiled and independently reviewed.
 
 - 2026-11-25T08:48:21.223963+00:00: second partials pushed 44dbe920fb2376c304f52eaa76157fbb29a1f505; reviewed cycle/path and clean-circuit components ready.
+
+- 2026-11-25T08:51:29.133605+00:00: third partials pushed 38cd863e9c0377f010d4574bd42ae3941ae24331; TopForm and two-pivot components reviewed.

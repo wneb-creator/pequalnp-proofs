@@ -73,3 +73,13 @@ clean_route.lean compiles, exit 0, complete log /tmp/oec/pequalnp-pilot-77/clean
 2026-11-25T08:47:58.329814+00:00 status_review
 
 Third independent partial review PASS. counterexample_route.lean 44 lines SHA256 64f21838c6c088ed55ae826edd2328092bf72246a3640d35b4564ffe0c56f154; repair_route.lean 64 lines SHA256 57b2900da0c4b1d85b6806d064dadb4b42055a6208991746bbe363367aa44f48; clean_route.lean 670 lines SHA256 79b28312544f6230432014b0c9102fad69628d49bad5926542713476c1c404ea. C5 witness computes five-cycle in seven gates with every AND owning an edge, but has no minimum-size proof. P4 local exchange is a valid Boolean absorption identity and decreases five gates to four; all circuit facts kernel-decided. Clean route exactly reuses the approved bypass prefix (namespace renamed); all 214 added lines reviewed, including no aliases, no constant true for zero-preserving functions, exact fan-in two with distinct earlier operands, and minimum-monotone/least-AO equivalence. Verified actual model permits arbitrary output index, so empty graph/zero-gate output n remains covered. Logs no errors; source forbidden/format scan clean. These are partial components only.
+
+## 2026-11-25T08:48:46.388802+00:00 graph_normal_form update
+
+Compiled results/orch/lemmas/dirty_repair_route.lean (301 lines, empty log dirty-repair-build-2.log, exit 0). Adapts checked L_meta_8305 unique-lost-edge dirty-gate repair, adds two_pivots: among no-larger monotone circuits for the same graph, a junk-count-minimal circuit has each dirty AND pivotal for an edge distinct from every given edge. This forces at least two distinct pivotal edge assignments when the graph has an edge. Root/reviewer notified for push.
+
+Read Jukna primary paper via built-in read-only web on 2026-11-25: https://web.vu.lt/mif/s.jukna/ftp/single1.pdf (Disproving the single level conjecture), pp.3,10. Its separation uses saturated extensions with two cliques; these contain triangles and four-cycles, so this is not a counterexample to L-meta-1772. It does confirm the single-level lower bound |E| for K2,2-free graphs. Any claim that this refutes girth-five safe normalization is unsupported.
+
+## 2026-11-25T08:49:16.483727+00:00 minimal-route TopForm normalization (frozen)
+
+topform_route.lean compiles, exit 0, complete log /tmp/oec/pequalnp-pilot-77/topform-route-build-1.log. Frozen pending independent review/push. Includes clean_route as prefix, then adapted L_meta_5779 exchange machinery (Defs only source), then new bridge PEqualNP.Outside.L_meta_1772_aux.topform.minimal_has_topform. This gives an equal-size minimal Monotone2 TopForm circuit for every minimal graph circuit, even empty graphs, with no girth assumption. Choose topform_route instead of clean_route in final assembly.
