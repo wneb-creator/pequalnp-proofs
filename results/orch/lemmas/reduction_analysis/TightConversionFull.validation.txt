@@ -1,0 +1,7 @@
+UTC 2026-11-25T06:52:56.254981+00:00
+Build exit0, complete log retained; inherited and benign simplification/deprecation warnings only.
+SHA256 5901f76bc1ab71974d7afa801609990f1dd535510183b9bf56fa32c901bd6898
+Standalone Defs-only generic helper. Accepted L7541 helper prefix through wf copied with only Mathlib import removal and namespace rename. Provenance upstream-refresh-004/L_meta_7541.lean, upstream main343363ea3f4ee0bf646666b5d9f3f1fdff48fe39.
+New theorem convert_tight: every Monotone2 ordinary circuit with one false input has an equivalent AndCount circuit using at most its AND count; when counts are equal, every original AND output wire equals some converted gate on each input. Generic tight_step forces every AND to append one record; retained_wire tracks the appended form through all later gates. Constants, unary gates, and invalid/default references are handled by the copied exact invariant.
+No graph specialization, full L650 result, or PR checker acceptance claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/TightConversionFull.lean
