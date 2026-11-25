@@ -4,3 +4,7 @@ SemanticCore.lean: lake env lean exit 0; lines=199; bytes=8114; sha256=835a5879c
 CombinatorialCover.lean: lake env lean exit 0; lines=76; bytes=3196; sha256=3f618007e59b11aa8a4518aa000af6e295283fcf30e51f4de0a529519adf7d7f
 Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
 TIMING total=107 subagents=6
+2026-11-25T15:46:47.256555+00:00
+StructuralCones.lean: lake env lean exit 0; lines=244; bytes=10732; sha256=257f0462ac13a4c1ea4b55b0975d8e3dca1301a14d46f3d4044e266897f4721e
+CountingExamples.lean: lake env lean exit 0; lines=54; bytes=2236; sha256=2031a5b55faebc9f62ca0f5d19d0dd7575ace1273dd1ffba766966c3df82937d
+StructuralPorts.lean: lake env lean exit 0; lines=294; bytes=13417; sha256=53345c0df7eff215701b184cddb71bcdc5b8e90c1c76ed02b21b745977ba4e68
