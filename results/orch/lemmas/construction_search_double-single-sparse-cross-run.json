@@ -1,0 +1,10 @@
+{
+  "pid": 35211,
+  "mode": "sparse-cross",
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 2715824128,
+  "seconds": 19.95513436500005,
+  "memory_limit_bytes": 4294967296
+}

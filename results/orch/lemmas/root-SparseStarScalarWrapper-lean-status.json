@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/SparseStarScalarWrapper.lean",
+  "sha256": "052083178c17abc0a82f2f94f32cf558467453bdfbe49fad8a02be4e944081f9",
+  "source_sha256_after": "052083178c17abc0a82f2f94f32cf558467453bdfbe49fad8a02be4e944081f9",
+  "started_utc": "2026-11-25T12:08:22.546792+00:00",
+  "finished_utc": "2026-11-25T12:08:24.874519+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1856077824,
+  "seconds": 2.3277491580010974,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 60
+}

@@ -1,0 +1,71 @@
+import took 1.24s
+simp took 108ms
+elaboration took 190ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 112ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 146ms
+ring took 153ms
+ring took 156ms
+ring took 170ms
+ring took 142ms
+ring took 120ms
+share common exprs took 310ms
+process pre-definitions took 109ms
+elaboration took 143ms
+type checking took 220ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSparseCross.lean:81:37: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomial, ca, cm, cp] at h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 249ms
+simp took 1.35s
+ring took 990ms
+share common exprs took 747ms
+process pre-definitions took 374ms
+elaboration took 530ms
+type checking took 1.42s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSparseCross.lean:129:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [perm4, Matrix.of_apply, model, polynomial, coefficients, ca, cm, cp, cz, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 750ms
+simp took 1.11s
+simp took 868ms
+simp took 933ms
+simp took 907ms
+simp took 1.01s
+share common exprs took 170ms
+elaboration took 108ms
+type checking took 180ms
+cumulative profiling times:
+	attribute application 0.198ms
+	compilation (IR) 3.45ms
+	compilation (LCNF base) 41.2ms
+	compilation (LCNF impure) 20.2ms
+	compilation (LCNF mono) 35ms
+	congr simp thm 11.3ms
+	declTypeLinter 12.2ms
+	elaboration 1.03s
+	fix level params 51.3ms
+	import 1.24s
+	initialization 37.2ms
+	instantiate metavars 65.2ms
+	interpretation 1.78s
+	let-to-have transformation 0.348ms
+	linting 1.16s
+	module linting 0.127ms
+	norm_num 158ms
+	parsing 93.7ms
+	process pre-definitions 571ms
+	ring 2.7s
+	share common exprs 1.24s
+	simp 6.49s
+	tactic execution 107ms
+	tacticAnalysis 10.5ms
+	type checking 1.87s
+	typeclass inference 1.02s

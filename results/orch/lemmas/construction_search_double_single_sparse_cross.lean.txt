@@ -1,0 +1,24 @@
+namespace PEqualNP.Outside.L_gct_231_aux.DoubleSingleMatrixBridge
+
+lemma sparse_cross_matrix_obstruction (a b c d g k rr : ℂ) (hr : rr^2=2)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+      model a b c d 0 1 g k 1 0 rr x y z r s)=24) : False := by
+  have hz := coefficients_zero a b c d 0 1 g k 1 0 rr hr hp
+  have h2 := hz 2
+  have h4 := hz 4
+  have h5 := hz 5
+  have h7 := hz 7
+  have h8 := hz 8
+  clear hz hp
+  simp [coefficients,ca,cm,cp,cz] at h2 h4 h5 h7 h8
+  have hg : g=2*(rr+1)-a-2*c := by
+    linear_combination (-(rr+1)/2)*h5-(a+2*c+g)*hr
+  have hk : k= -2*(rr-1)-b-2*d := by
+    linear_combination ((rr-1)/2)*h8-(b+2*d+k)*hr
+  subst g
+  subst k
+  have impossible : (20:ℂ)=0 := by
+    linear_combination h4-h2-h7-8*hr
+  norm_num at impossible
+
+end PEqualNP.Outside.L_gct_231_aux.DoubleSingleMatrixBridge
