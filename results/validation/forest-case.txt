@@ -1,0 +1,6 @@
+L-meta-3457 partial: acyclic incidence case
+2026-11-25T01:39:23.264836+00:00
+SHA256 104470528b1ea4649165a80ab1fe266b883dd9e8ca1fae829403de45f2277e24
+Lines 2378
+Central lake env lean: exit 0. Full stdout/stderr: forest-2378.stdout/.stderr. Warnings only. Independent source review approved this exact hash.
+Proves the requested clean replacement with D.size <= C.size when incidenceGraph.IsAcyclic. Uses the checked L3525 lower bound copied into the allowed namespace and the clean star-cover construction. No singleton or ReadsBack premise is needed on C in this subcase. General C4-free incidence graphs can have cycles, so this does not prove the posted L-meta-3457 statement.
