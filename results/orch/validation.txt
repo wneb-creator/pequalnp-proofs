@@ -42,3 +42,9 @@ structural-negative-rectangle.lean: lake env lean exit 0; SHA256 15712b10d7199ef
 Checked partial snapshot 6:
 library-topform-final.lean: lake env lean exit 0; SHA256 7b718ffc337811be0a17781273292887d89d085dd895046627f62326baf1107a
 structural-top-rectangle.lean: lake env lean exit 0; SHA256 4409044f715e9bfff13b5ae65f126c3b3cf80e271f253cbcb1c610000d2c224b
+
+Checked partial snapshot 7:
+library-or-essential.lean: lake env lean exit 0; SHA256 69dee56a91bb37187be154d162993d5e7f6fedd9ddcbf51f63c0ca4a2d4536bf
+structural-classification.lean: lake env lean exit 0; SHA256 65f852a351f45fdfd4dbedff2d7fbc70cff97d61c93810cde7864577e371fd01
+Combined named helper file: 5938 lines, 263032 bytes; lake build exit 0; SHA256 fe2f4128a3ff3894dc828655e2e611232a07d29aad85d3234d7a9622d9295d10
+Exact target remains absent. Previous exact checker verdict REJECTED(no-theorem); guard currently rejects only the absent target theorem.
