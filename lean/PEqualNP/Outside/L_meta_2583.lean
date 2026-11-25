@@ -7890,4 +7890,92 @@ lemma false_family_capacity {α : Type} [Fintype α]
 
 end AndChoiceKraft
 
+namespace Q3DirtySeed66
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583
+open Q3PackedCertificate
+
+def seedC : Circuit := ⟨[
+  { op := GateOp.or, inputs := [14, 17] },
+  { op := GateOp.or, inputs := [26, 20] },
+  { op := GateOp.or, inputs := [27, 23] },
+  { op := GateOp.and, inputs := [0, 28] },
+  { op := GateOp.or, inputs := [17, 18] },
+  { op := GateOp.or, inputs := [30, 19] },
+  { op := GateOp.and, inputs := [1, 31] },
+  { op := GateOp.or, inputs := [16, 17] },
+  { op := GateOp.or, inputs := [33, 22] },
+  { op := GateOp.or, inputs := [34, 24] },
+  { op := GateOp.and, inputs := [2, 35] },
+  { op := GateOp.or, inputs := [15, 17] },
+  { op := GateOp.or, inputs := [37, 21] },
+  { op := GateOp.or, inputs := [38, 25] },
+  { op := GateOp.and, inputs := [3, 39] },
+  { op := GateOp.or, inputs := [14, 19] },
+  { op := GateOp.or, inputs := [41, 22] },
+  { op := GateOp.or, inputs := [42, 25] },
+  { op := GateOp.and, inputs := [5, 43] },
+  { op := GateOp.or, inputs := [14, 18] },
+  { op := GateOp.or, inputs := [45, 21] },
+  { op := GateOp.or, inputs := [46, 24] },
+  { op := GateOp.and, inputs := [6, 47] },
+  { op := GateOp.or, inputs := [13, 23] },
+  { op := GateOp.or, inputs := [49, 24] },
+  { op := GateOp.or, inputs := [50, 25] },
+  { op := GateOp.and, inputs := [7, 51] },
+  { op := GateOp.or, inputs := [16, 19] },
+  { op := GateOp.or, inputs := [53, 21] },
+  { op := GateOp.or, inputs := [54, 23] },
+  { op := GateOp.and, inputs := [8, 55] },
+  { op := GateOp.or, inputs := [15, 18] },
+  { op := GateOp.or, inputs := [57, 22] },
+  { op := GateOp.or, inputs := [58, 23] },
+  { op := GateOp.and, inputs := [9, 59] },
+  { op := GateOp.or, inputs := [13, 20] },
+  { op := GateOp.or, inputs := [61, 21] },
+  { op := GateOp.or, inputs := [62, 22] },
+  { op := GateOp.and, inputs := [10, 63] },
+  { op := GateOp.or, inputs := [15, 19] },
+  { op := GateOp.or, inputs := [65, 20] },
+  { op := GateOp.or, inputs := [66, 24] },
+  { op := GateOp.and, inputs := [11, 67] },
+  { op := GateOp.or, inputs := [16, 18] },
+  { op := GateOp.or, inputs := [69, 20] },
+  { op := GateOp.or, inputs := [70, 25] },
+  { op := GateOp.and, inputs := [12, 71] },
+  { op := GateOp.or, inputs := [14, 15] },
+  { op := GateOp.or, inputs := [73, 16] },
+  { op := GateOp.or, inputs := [1, 4] },
+  { op := GateOp.or, inputs := [13, 4] },
+  { op := GateOp.or, inputs := [13, 74] },
+  { op := GateOp.and, inputs := [75, 76] },
+  { op := GateOp.and, inputs := [78, 77] },
+  { op := GateOp.or, inputs := [29, 32] },
+  { op := GateOp.or, inputs := [80, 36] },
+  { op := GateOp.or, inputs := [81, 40] },
+  { op := GateOp.or, inputs := [82, 44] },
+  { op := GateOp.or, inputs := [83, 48] },
+  { op := GateOp.or, inputs := [84, 52] },
+  { op := GateOp.or, inputs := [85, 56] },
+  { op := GateOp.or, inputs := [86, 60] },
+  { op := GateOp.or, inputs := [87, 64] },
+  { op := GateOp.or, inputs := [88, 68] },
+  { op := GateOp.or, inputs := [89, 72] },
+  { op := GateOp.or, inputs := [90, 79] }
+], 91⟩
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma checks : IsAO2 26 seedC ∧ seedC.size = 66 ∧
+    PackedEval.eval seedC pairWords = incidenceMask ∧
+    (∀ h : Fin 8, PackedEval.eval seedC (Q3ChunkedCertificate.words h) = 0) := by
+  decide +kernel
+
+lemma exact_semantics : ∀ z : Fin 26 → Bool, seedC.eval (List.ofFn z) =
+    decide (∃ p l : Fin 13, I p l ∧ z (Fin.castAdd 13 p) = true ∧
+      z (Fin.natAdd 13 l) = true) :=
+  Q3ChunkedCertificate.exact_of_chunks seedC checks.1 checks.2.2.1 checks.2.2.2
+
+end Q3DirtySeed66
+
 end PEqualNP.Outside.L_meta_2583
