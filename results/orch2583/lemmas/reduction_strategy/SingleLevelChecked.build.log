@@ -1,0 +1,4 @@
+lake env lean ../results/orch2583/lemmas/reduction_strategy/SingleLevel.lean
+Exit status: 0
+stdout: empty
+stderr: empty
