@@ -7,3 +7,8 @@ TIMING total=8 subagents=5
 
 Full refutation L_meta_12416.lean: lake build PEqualNP.Outside.L_meta_12416 PASSED, exit0; Build completed successfully (5149 jobs).
 Proof2449lines,152764bytes. Exact negation of posted statement. Local checker pending full Mathlib cache capacity.
+
+Local checker refute: FAULT (environment); verifier built, candidate and Defs built; verification could not import uncached Batteries root. Full Mathlib cache cannot fit in available disk; compressed filesystem mount denied.
+Cleanup skipped because checker unavailable; lines before2449 after2449.
+Sub-agents: status_review, toolchain_probe, circuit_search, lower_bound, independent_review, toolchain_probe/fuse_reader
+TIMING total=10 subagents=6

@@ -1,0 +1,7 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+checker stage: building the file and the definitions root t=9s
+checker stage: verifier reading the built file t=11s
+checker fault: object file '/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries.olean' of module Batteries does not exist
+CHECKER FAULT: the verifier ended without a verdict (exit 3).
