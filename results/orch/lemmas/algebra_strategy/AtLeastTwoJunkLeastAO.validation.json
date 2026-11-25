@@ -1,0 +1,16 @@
+{
+  "source": "results/orch/lemmas/algebra_strategy/AtLeastTwoJunkLeastAO.lean",
+  "sha256": "e3c28d229c84a8b0d0015cefae185619f678ac5bc676a436758df257529989a5",
+  "lines": 6430,
+  "exit_code": 0,
+  "log": "results/orch/lemmas/algebra_strategy/AtLeastTwoJunkLeastAO.build.log",
+  "scope": "Every size-at-most63 IsLeastAO circuit for the exact posted plane has at least two junk gates. Public Monotone2 normalization not included. Not a full L650 refutation.",
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "dependencies": "Copied accepted L5779,L5781,L8103 proof bodies with import-only changes; checked graph facts.",
+  "review": "APPROVED by status_review",
+  "successful_log_bytes": 9198,
+  "warnings": "Preserved full successful warning log; warnings originate primarily from copied accepted proofs."
+}
