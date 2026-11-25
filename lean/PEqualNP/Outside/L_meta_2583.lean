@@ -7927,4 +7927,709 @@ lemma blockAtoms_familyClauseEncoding {r n B v : ℕ}
 
 end SemanticLinearTag
 
+namespace CnfLogic
+
+open Finset
+
+variable {α : Type*}
+
+def Clause (W : Finset α) (x : α → Bool) : Prop := ∃ u ∈ W, x u = true
+
+def Holds (F : Finset (Finset α)) (x : α → Bool) : Prop := ∀ W ∈ F, Clause W x
+
+def Antichain (F : Finset (Finset α)) : Prop :=
+  ∀ W ∈ F, ∀ V ∈ F, V ⊆ W → V = W
+
+lemma implies_clause_iff (F : Finset (Finset α)) (S : Finset α) :
+    (∀ x : α → Bool, Holds F x → Clause S x) ↔ ∃ W ∈ F, W ⊆ S := by
+  classical
+  constructor
+  · intro himp
+    by_contra hn
+    push Not at hn
+    let x : α → Bool := fun u => decide (u ∉ S)
+    have hF : Holds F x := by
+      intro W hW
+      obtain ⟨u, huW, huS⟩ := Finset.not_subset.mp (hn W hW)
+      exact ⟨u, huW, by simpa [x] using huS⟩
+    obtain ⟨u, huS, hxu⟩ := himp x hF
+    have hu : u ∉ S := by simpa [x] using hxu
+    exact hu huS
+  · rintro ⟨W, hWF, hWS⟩ x hF
+    obtain ⟨u, huW, hxu⟩ := hF W hWF
+    exact ⟨u, hWS huW, hxu⟩
+
+lemma fails_complement [DecidableEq α] (F : Finset (Finset α))
+    {W : Finset α} (hW : W ∈ F) :
+    ¬ Holds F (fun u => decide (u ∉ W)) := by
+  intro hF
+  obtain ⟨u, huW, hxu⟩ := hF W hW
+  have hu : u ∉ W := by simpa using hxu
+  exact hu huW
+
+lemma prime_of_antichain (F : Finset (Finset α)) (hanti : Antichain F)
+    {W S : Finset α} (hW : W ∈ F) (hSW : S ⊆ W)
+    (himp : ∀ x : α → Bool, Holds F x → Clause S x) : W ⊆ S := by
+  obtain ⟨V, hVF, hVS⟩ := (implies_clause_iff F S).mp himp
+  have hVW : V = W := hanti W hW V hVF (Subset.trans hVS hSW)
+  exact hVW ▸ hVS
+
+lemma holds_erase_iff [DecidableEq α] (F : Finset (Finset α)) (W V : Finset α)
+    (hVF : V ∈ F) (hVW : V ≠ W) (hsub : V ⊆ W) :
+    ∀ x : α → Bool, Holds (F.erase W) x ↔ Holds F x := by
+  classical
+  intro x
+  constructor
+  · intro h U hU
+    by_cases hUW : U = W
+    · obtain ⟨u, huV, hxu⟩ := h V (mem_erase.mpr ⟨hVW, hVF⟩)
+      exact ⟨u, hUW.symm ▸ hsub huV, hxu⟩
+    · exact h U (mem_erase.mpr ⟨hUW, hU⟩)
+  · intro h U hU
+    exact h U (mem_erase.mp hU).2
+
+lemma no_unit_of_large_clauses (F : Finset (Finset α))
+    (hsize : ∀ W ∈ F, 2 ≤ W.card) :
+    ∀ i : α, ∃ x : α → Bool, Holds F x ∧ x i = false := by
+  classical
+  intro i
+  let x : α → Bool := fun u => decide (u ≠ i)
+  refine ⟨x, ?_, by simp [x]⟩
+  intro W hW
+  have hnot : ¬ W ⊆ {i} := by
+    intro hsub
+    have hc := card_le_card hsub
+    have hs := hsize W hW
+    simp only [card_singleton] at hc
+    omega
+  obtain ⟨u, huW, hui⟩ := Finset.not_subset.mp hnot
+  exact ⟨u, huW, by simpa [x] using hui⟩
+
+lemma equivalent_antichain_subset (F K : Finset (Finset α))
+    (hanti : Antichain F) (hequiv : ∀ x : α → Bool, Holds F x ↔ Holds K x) : F ⊆ K := by
+  intro W hWF
+  have hKW : ∀ x : α → Bool, Holds K x → Clause W x := fun x hx =>
+    (hequiv x).mpr hx W hWF
+  obtain ⟨V, hVK, hVW⟩ := (implies_clause_iff K W).mp hKW
+  have hFV : ∀ x : α → Bool, Holds F x → Clause V x := fun x hx =>
+    (hequiv x).mp hx V hVK
+  have hWV := prime_of_antichain F hanti hWF hVW hFV
+  have heq : V = W := Subset.antisymm hVW hWV
+  exact heq ▸ hVK
+
+lemma antichain_irredundant [DecidableEq α] (F : Finset (Finset α))
+    (hanti : Antichain F) {W : Finset α} (hW : W ∈ F) :
+    ∃ x : α → Bool, Holds (F.erase W) x ∧ ¬ Clause W x := by
+  classical
+  by_contra hn
+  push Not at hn
+  obtain ⟨V, hVF, hVW⟩ := (implies_clause_iff (F.erase W) W).mp hn
+  have heq := hanti W hW V (mem_erase.mp hVF).2 hVW
+  exact (mem_erase.mp hVF).1 heq
+
+end CnfLogic
+
+namespace ThinBlock
+
+open Finset
+
+variable {n : ℕ}
+
+lemma five_le_card_of_matching_three (I : Fin n → Fin n → Prop)
+    (F : Finset (Finset (Bool × Fin n))) (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) : 5 ≤ F.card := by
+  have hshape := matching_three_patterns I F hthin hsafe hfour p l hp hl hacc
+  have hmiss := pattern_missing_line (fun a b => I (p a) (l b)) hshape
+  classical
+  obtain ⟨L, hLF, hL⟩ := exists_pure_line_clause I F hsafe
+  obtain ⟨P, hPF, hP⟩ := exists_pure_point_clause I F hsafe
+  have hLp : ∀ i, (true, l i) ∈ L := fun i =>
+    (hacc i L hLF).resolve_left (fun h => hL ⟨p i, h⟩)
+  have hPp : ∀ i, (false, p i) ∈ P := fun i =>
+    (hacc i P hPF).resolve_right (fun h => hP ⟨l i, h⟩)
+  choose miss hmiss using hmiss
+  have hchoice : ∀ i, ∃ W ∈ F,
+      (false, p i) ∉ W ∧ (true, l (miss i)) ∉ W := fun i =>
+    miss_nonedge_pair I F hsafe (hmiss i)
+  choose C hCF hCp hClmiss using hchoice
+  have hCl : ∀ i, (true, l i) ∈ C i := fun i =>
+    (hacc i (C i) (hCF i)).resolve_left (hCp i)
+  have hCpoint : ∀ i, ∃ a, (false, a) ∈ C i := by
+    intro i
+    by_contra hn
+    have hm := hacc (miss i) (C i) (hCF i)
+    exact (hm.resolve_left (fun h => hn ⟨p (miss i), h⟩) |> hClmiss i)
+  have hCother : ∀ i j, i ≠ j → (false, p j) ∈ C i := by
+    intro i j hij
+    rcases hacc j (C i) (hCF i) with hpj | hlj
+    · exact hpj
+    have heq : l i = l j := card_le_one.mp (hthin (C i) (hCF i) (hCpoint i))
+      (l i) (mem_filter.mpr ⟨mem_univ _, hCl i⟩)
+      (l j) (mem_filter.mpr ⟨mem_univ _, hlj⟩)
+    exact (hij (hl heq)).elim
+  have hCinj : Function.Injective C := by
+    intro i j heq
+    by_contra hij
+    have hpj := hCother i j hij
+    rw [heq] at hpj
+    exact hCp j hpj
+  let D := (univ : Finset (Fin 3)).image C
+  have hDcard : D.card = 3 := by
+    simp [D, card_image_of_injective _ hCinj]
+  have hPD : P ∉ D := by
+    intro hpD
+    obtain ⟨i, _, heq⟩ := mem_image.mp hpD
+    exact hP ⟨l i, heq ▸ hCl i⟩
+  have hLD : L ∉ D := by
+    intro hlD
+    obtain ⟨i, _, heq⟩ := mem_image.mp hlD
+    obtain ⟨a, ha⟩ := hCpoint i
+    exact hL ⟨a, heq ▸ ha⟩
+  have hPL : P ≠ L := by
+    intro heq
+    exact hL ⟨p 0, heq ▸ hPp 0⟩
+  let K := insert P (insert L D)
+  have hKcard : K.card = 5 := by
+    simp [K, card_insert_of_notMem, hPD, hLD, hPL, hDcard]
+  have hKF : K ⊆ F := by
+    intro W hW
+    rcases mem_insert.mp hW with heq | hW
+    · simpa [heq] using hPF
+    rcases mem_insert.mp hW with heq | hW
+    · simpa [heq] using hLF
+    obtain ⟨i, _, heq⟩ := mem_image.mp hW
+    exact heq ▸ hCF i
+  have hc := card_le_card hKF
+  omega
+
+lemma clause_card_of_matching_three (F : Finset (Finset (Bool × Fin n)))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) : ∀ W ∈ F, 3 ≤ W.card := by
+  classical
+  intro W hW
+  let chosen : Fin 3 → Bool × Fin n := fun i =>
+    if (false, p i) ∈ W then (false, p i) else (true, l i)
+  have hchosen : ∀ i, chosen i ∈ W := by
+    intro i
+    by_cases hi : (false, p i) ∈ W
+    · simp [chosen, hi]
+    · simpa [chosen, hi] using (hacc i W hW).resolve_left hi
+  have hinj : Function.Injective chosen := by
+    intro i j hij
+    by_cases hi : (false, p i) ∈ W
+    · by_cases hj : (false, p j) ∈ W
+      · apply hp
+        simpa [chosen, hi, hj] using congrArg Prod.snd hij
+      · simp [chosen, hi, hj] at hij
+    · by_cases hj : (false, p j) ∈ W
+      · simp [chosen, hi, hj] at hij
+      · apply hl
+        simpa [chosen, hi, hj] using congrArg Prod.snd hij
+  have hsub : univ.image chosen ⊆ W := by
+    intro u hu
+    obtain ⟨i, _, rfl⟩ := mem_image.mp hu
+    exact hchosen i
+  have hc := card_le_card hsub
+  simpa [card_image_of_injective _ hinj] using hc
+
+lemma five_clause_antichain (I : Fin n → Fin n → Prop)
+    (F : Finset (Finset (Bool × Fin n))) (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) (hcard : F.card = 5) : CnfLogic.Antichain F := by
+  classical
+  intro W hWF V hVF hsub
+  by_contra hne
+  have hthin' : Thin (F.erase W) := by
+    intro U hU hpoint
+    exact hthin U (mem_erase.mp hU).2 hpoint
+  have hsafe' : Safe I (F.erase W) := by
+    intro x hx
+    apply hsafe x
+    exact (CnfLogic.holds_erase_iff F W V hVF hne hsub x).mp hx
+  have hacc' : ∀ i, Accept (F.erase W) (p i) (l i) := by
+    intro i U hU
+    exact hacc i U (mem_erase.mp hU).2
+  have hc := five_le_card_of_matching_three I (F.erase W) hthin' hsafe'
+    hfour p l hp hl hacc'
+  have hcerase : (F.erase W).card = 4 := by simp [card_erase_of_mem hWF, hcard]
+  omega
+
+lemma five_clause_prime (I : Fin n → Fin n → Prop)
+    (F : Finset (Finset (Bool × Fin n))) (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) (hcard : F.card = 5)
+    {W S : Finset (Bool × Fin n)} (hW : W ∈ F) (hSW : S ⊆ W)
+    (himp : ∀ x, CnfLogic.Holds F x → CnfLogic.Clause S x) : W ⊆ S := by
+  exact CnfLogic.prime_of_antichain F
+    (five_clause_antichain I F hthin hsafe hfour p l hp hl hacc hcard) hW hSW himp
+
+lemma matching_three_no_unit (F : Finset (Finset (Bool × Fin n)))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) :
+    ∀ u : Bool × Fin n, ∃ x, CnfLogic.Holds F x ∧ x u = false := by
+  apply CnfLogic.no_unit_of_large_clauses F
+  intro W hW
+  have hc := clause_card_of_matching_three F p l hp hl hacc W hW
+  omega
+
+end ThinBlock
+
+namespace CnfLogic
+
+open Finset
+
+variable {α β : Type*} [DecidableEq β]
+
+lemma clause_image (W : Finset α) (e : α → β) (x : β → Bool) :
+    Clause (W.image e) x ↔ Clause W (fun u => x (e u)) := by
+  constructor
+  · rintro ⟨v, hv, hx⟩
+    obtain ⟨u, hu, rfl⟩ := mem_image.mp hv
+    exact ⟨u, hu, hx⟩
+  · rintro ⟨u, hu, hx⟩
+    exact ⟨e u, mem_image.mpr ⟨u, hu, rfl⟩, hx⟩
+
+lemma holds_image (F : Finset (Finset α)) (e : α → β) (x : β → Bool) :
+    Holds (F.image (fun W => W.image e)) x ↔ Holds F (fun u => x (e u)) := by
+  constructor
+  · intro h W hW
+    exact (clause_image W e x).mp (h (W.image e) (mem_image.mpr ⟨W, hW, rfl⟩))
+  · intro h V hV
+    obtain ⟨W, hW, rfl⟩ := mem_image.mp hV
+    exact (clause_image W e x).mpr (h W hW)
+
+lemma antichain_image (F : Finset (Finset α)) (e : α → β)
+    (he : Function.Injective e) (hanti : Antichain F) :
+    Antichain (F.image (fun W => W.image e)) := by
+  intro W hW V hV hsub
+  obtain ⟨W₀, hW₀, rfl⟩ := mem_image.mp hW
+  obtain ⟨V₀, hV₀, rfl⟩ := mem_image.mp hV
+  have hsub₀ : V₀ ⊆ W₀ := by
+    intro v hv
+    have hv' := hsub (mem_image.mpr ⟨v, hv, rfl⟩)
+    obtain ⟨w, hw, heq⟩ := mem_image.mp hv'
+    exact he heq ▸ hw
+  exact congrArg (fun A : Finset α => A.image e) (hanti W₀ hW₀ V₀ hV₀ hsub₀)
+
+lemma clause_card_image (F : Finset (Finset α)) (e : α → β)
+    (he : Function.Injective e) (k : ℕ) (hsize : ∀ W ∈ F, k ≤ W.card) :
+    ∀ V ∈ F.image (fun W => W.image e), k ≤ V.card := by
+  intro V hV
+  obtain ⟨W, hW, rfl⟩ := mem_image.mp hV
+  simpa [card_image_of_injective W he] using hsize W hW
+
+lemma family_card_image (F : Finset (Finset α)) (e : α → β)
+    (he : Function.Injective e) :
+    (F.image (fun W => W.image e)).card = F.card := by
+  exact card_image_of_injective F (Finset.image_injective he)
+
+end CnfLogic
+
+namespace AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+
+/-- A valid wire set closed through untagged AND gates. -/
+def CoreClosed {v : ℕ} (n : ℕ) (C : Circuit)
+    (tag : ℕ → Option (Fin v)) (R : Finset ℕ) : Prop :=
+  (∀ w ∈ R, w < n + C.gates.length) ∧
+  ∀ w ∈ R, n ≤ w → tag w = none →
+    (gateAt C (w - n)).op = GateOp.and ∧
+      ∀ i ∈ (gateAt C (w - n)).inputs, i ∈ R
+
+lemma prime_clause_survives {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (tag : ℕ → Option (Fin v))
+    (encode : Finset (Fin n) → Fin v) (R : Finset ℕ)
+    (hcore : CoreClosed n C tag R)
+    (htag : ∀ w ∈ R, ∀ a, tag w = some a →
+      ∃ S : Finset (Fin n), a = encode S ∧
+        ∀ x : Fin n → Bool, val C (List.ofFn x) w =
+          decide (∃ i ∈ S, x i = true))
+    (f : (Fin n → Bool) → Bool) (W : Finset (Fin n)) (hcard : 2 ≤ W.card)
+    (hprime : ∀ S : Finset (Fin n), S ⊆ W →
+      (∀ x : Fin n → Bool, f x = true → ∃ i ∈ S, x i = true) → W ⊆ S)
+    {w : ℕ} (hw : w ∈ R)
+    (himp : ∀ x : Fin n → Bool, f x = true → val C (List.ofFn x) w = true)
+    (hfalse : val C (List.ofFn (complementInput W)) w = false) :
+    encode W ∈ clauseAtoms n C tag w := by
+  classical
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    cases ht : tag w with
+    | some a =>
+      obtain ⟨S, ha, hlinear⟩ := htag w hw a ht
+      have hSW : S ⊆ W := by
+        intro i hi
+        by_contra hnot
+        have hp : ∃ j ∈ S, complementInput W j = true :=
+          ⟨i, hi, by simp [complementInput, hnot]⟩
+        have hv : val C (List.ofFn (complementInput W)) w = true := by
+          rw [hlinear]
+          simp [hp]
+        rw [hfalse] at hv
+        cases hv
+      have hS : ∀ x : Fin n → Bool, f x = true → ∃ i ∈ S, x i = true := by
+        intro x hx
+        have hv := himp x hx
+        rw [hlinear] at hv
+        exact of_decide_eq_true hv
+      have heq : S = W := Finset.Subset.antisymm hSW (hprime S hSW hS)
+      rw [clauseAtoms_tagged C tag ht, ha, heq]
+      simp
+    | none =>
+      by_cases hin : w < n
+      · let i : Fin n := ⟨w, hin⟩
+        have hiW : i ∈ W := by
+          by_contra hnot
+          have hv : val C (List.ofFn (complementInput W)) w = true := by
+            change val C (List.ofFn (complementInput W)) i.val = true
+            rw [val_ofFn]
+            simp [complementInput, hnot]
+          rw [hfalse] at hv
+          cases hv
+        have hsingle : ({i} : Finset (Fin n)) ⊆ W := by simpa using hiW
+        have hunit : ∀ x : Fin n → Bool, f x = true →
+            ∃ j ∈ ({i} : Finset (Fin n)), x j = true := by
+          intro x hx
+          refine ⟨i, by simp, ?_⟩
+          have hv := himp x hx
+          change val C (List.ofFn x) i.val = true at hv
+          simpa only [val_ofFn] using hv
+        have hle := card_le_card (hprime {i} hsingle hunit)
+        simp only [card_singleton] at hle
+        omega
+      · have hge : n ≤ w := by omega
+        have hj : w - n < C.gates.length := by have hv := hcore.1 w hw; omega
+        have hw_eq : n + (w - n) = w := Nat.add_sub_of_le hge
+        obtain ⟨hop, hchildren⟩ := hcore.2 w hw hge ht
+        have hchild : ∃ i ∈ (gateAt C (w - n)).inputs,
+            val C (List.ofFn (complementInput W)) i = false := by
+          by_contra hnone
+          push Not at hnone
+          have hv : val C (List.ofFn (complementInput W)) w = true := by
+            rw [← hw_eq, val_and (by simp) hj hop]
+            intro i hi
+            refine ⟨rb (w - n) hj i hi, ?_⟩
+            cases hh : val C (List.ofFn (complementInput W)) i with
+            | false => exact False.elim (hnone i hi hh)
+            | true => rfl
+          rw [hfalse] at hv
+          cases hv
+        obtain ⟨i, hi, hifalse⟩ := hchild
+        have hiless : i < w := by simpa only [hw_eq] using rb (w - n) hj i hi
+        have hiimp : ∀ x : Fin n → Bool, f x = true → val C (List.ofFn x) i = true := by
+          intro x hx
+          have hv := himp x hx
+          rw [← hw_eq] at hv
+          exact ((val_and (by simp) hj hop).1 hv i hi).2
+        have hmem := ih i hiless (hchildren i hi) hiimp hifalse
+        rw [← hw_eq, clauseAtoms_and rb tag hj (by simpa only [hw_eq] using ht) hop]
+        exact mem_biUnion.mpr ⟨i, List.mem_toFinset.mpr hi, hmem⟩
+
+lemma prime_clause_at_root {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (tag : ℕ → Option (Fin v))
+    (encode : Finset (Fin n) → Fin v) (R : Finset ℕ)
+    (hcore : CoreClosed n C tag R)
+    (htag : ∀ w ∈ R, ∀ a, tag w = some a →
+      ∃ S : Finset (Fin n), a = encode S ∧
+        ∀ x : Fin n → Bool, val C (List.ofFn x) w =
+          decide (∃ i ∈ S, x i = true))
+    {root : ℕ} (hroot : root ∈ R) (W : Finset (Fin n)) (hcard : 2 ≤ W.card)
+    (hclause : ∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+      ∃ i ∈ W, x i = true)
+    (hprime : ∀ S : Finset (Fin n), S ⊆ W →
+      (∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+        ∃ i ∈ S, x i = true) → W ⊆ S) :
+    encode W ∈ clauseAtoms n C tag root := by
+  classical
+  have hfalse : val C (List.ofFn (complementInput W)) root = false := by
+    cases hval : val C (List.ofFn (complementInput W)) root with
+    | false => rfl
+    | true =>
+      obtain ⟨i, hi, htrue⟩ := hclause (complementInput W) hval
+      simp [complementInput, hi] at htrue
+  exact prime_clause_survives rb tag encode R hcore htag
+    (fun x => val C (List.ofFn x) root) W hcard hprime hroot
+    (fun _ hx => hx) hfalse
+
+lemma prime_family_at_root {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (tag : ℕ → Option (Fin v))
+    (encode : Finset (Fin n) → Fin v) (R : Finset ℕ)
+    (hcore : CoreClosed n C tag R)
+    (htag : ∀ w ∈ R, ∀ a, tag w = some a →
+      ∃ S : Finset (Fin n), a = encode S ∧
+        ∀ x : Fin n → Bool, val C (List.ofFn x) w =
+          decide (∃ i ∈ S, x i = true))
+    {root : ℕ} (hroot : root ∈ R) (F : Finset (Finset (Fin n)))
+    (hcard : ∀ W ∈ F, 2 ≤ W.card)
+    (hclause : ∀ W ∈ F, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true → ∃ i ∈ W, x i = true)
+    (hprime : ∀ W ∈ F, ∀ S : Finset (Fin n), S ⊆ W →
+      (∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+        ∃ i ∈ S, x i = true) → W ⊆ S) :
+    F.image encode ⊆ clauseAtoms n C tag root := by
+  classical
+  intro a ha
+  obtain ⟨W, hW, rfl⟩ := mem_image.mp ha
+  exact prime_clause_at_root rb tag encode R hcore htag hroot W (hcard W hW)
+    (hclause W hW) (hprime W hW)
+
+end AndCorePrime
+
+namespace AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+
+/-- A shared AND core with exact-linear terminals and valid wire references. -/
+def LinearAndCore (n : ℕ) (C : Circuit) (R : Finset ℕ) : Prop :=
+  (∀ w ∈ R, w < n + C.gates.length) ∧
+  ∀ w ∈ R, n ≤ w → IsLinear n C w ∨
+    ((gateAt C (w - n)).op = GateOp.and ∧
+      ∀ i ∈ (gateAt C (w - n)).inputs, i ∈ R)
+
+lemma linearAndCore_closed {n v : ℕ} {C : Circuit}
+    (encode : Finset (Fin n) → Fin v) {R : Finset ℕ}
+    (hcore : LinearAndCore n C R) : CoreClosed n C (semanticTag n C encode) R := by
+  classical
+  refine ⟨hcore.1, ?_⟩
+  intro w hw hge hnone
+  rcases hcore.2 w hw hge with hlin | hand
+  · simp [semanticTag, hge, hlin] at hnone
+  · exact hand
+
+lemma linear_core_prime_family {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (encode : Finset (Fin n) → Fin v)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R)
+    {root : ℕ} (hroot : root ∈ R) (F : Finset (Finset (Fin n)))
+    (hcard : ∀ W ∈ F, 2 ≤ W.card)
+    (hclause : ∀ W ∈ F, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true → ∃ i ∈ W, x i = true)
+    (hprime : ∀ W ∈ F, ∀ S : Finset (Fin n), S ⊆ W →
+      (∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+        ∃ i ∈ S, x i = true) → W ⊆ S) :
+    F.image encode ⊆ clauseAtoms n C (semanticTag n C encode) root := by
+  apply prime_family_at_root rb (semanticTag n C encode) encode R
+    (linearAndCore_closed encode hcore) ?_ hroot F hcard hclause hprime
+  intro w hw a htag
+  exact semanticTag_correct encode htag
+
+end AndCorePrime
+
+namespace AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+
+lemma clause_atom_origin {n v : ℕ} (C : Circuit) (tag : ℕ → Option (Fin v))
+    {w : ℕ} {a : Fin v} (hmem : a ∈ clauseAtoms n C tag w) :
+    ∃ u ≤ w, tag u = some a := by
+  classical
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    cases ht : tag w with
+    | some b =>
+      rw [clauseAtoms_tagged C tag ht] at hmem
+      have hab : a = b := mem_singleton.mp hmem
+      exact ⟨w, le_rfl, by simpa only [hab] using ht⟩
+    | none =>
+      rw [clauseAtoms, ht] at hmem
+      by_cases hin : w < n
+      · simp [hin] at hmem
+      · simp only [hin, ite_false] at hmem
+        by_cases hop : (gateAt C (w - n)).op = GateOp.and
+        · simp only [hop, ite_true] at hmem
+          obtain ⟨i, hi, hai⟩ := mem_biUnion.mp hmem
+          by_cases hiw : i < w
+          · simp only [hiw, dite_true] at hai
+            obtain ⟨u, hui, hu⟩ := ih i hiw hai
+            exact ⟨u, hui.trans (Nat.le_of_lt hiw), hu⟩
+          · simp [hiw] at hai
+        · simp [hop] at hmem
+
+lemma semantic_atom_has_linear_wire {n v : ℕ} {C : Circuit}
+    (encode : Finset (Fin n) → Fin v) (hinj : Function.Injective encode)
+    {root : ℕ} (hroot : root < n + C.gates.length) (W : Finset (Fin n))
+    (hmem : encode W ∈ clauseAtoms n C (semanticTag n C encode) root) :
+    ∃ w < n + C.gates.length, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) w = decide (∃ i ∈ W, x i = true) := by
+  obtain ⟨w, hw, htag⟩ := clause_atom_origin C (semanticTag n C encode) hmem
+  obtain ⟨S, hS, hcomp⟩ := semanticTag_correct encode htag
+  have hWS : W = S := hinj hS
+  exact ⟨w, lt_of_le_of_lt hw hroot, by simpa only [hWS] using hcomp⟩
+
+lemma semantic_family_has_linear_wires {n v : ℕ} {C : Circuit}
+    (encode : Finset (Fin n) → Fin v) (hinj : Function.Injective encode)
+    {root : ℕ} (hroot : root < n + C.gates.length) (F : Finset (Finset (Fin n)))
+    (hcover : F.image encode ⊆ clauseAtoms n C (semanticTag n C encode) root) :
+    ∀ W ∈ F, ∃ w < n + C.gates.length, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) w = decide (∃ i ∈ W, x i = true) := by
+  intro W hW
+  exact semantic_atom_has_linear_wire encode hinj hroot W
+    (hcover (mem_image.mpr ⟨W, hW, rfl⟩))
+
+end AndCorePrime
+
+namespace AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+
+lemma linear_core_cnf_family {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (encode : Finset (Fin n) → Fin v)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R)
+    {root : ℕ} (hroot : root ∈ R) (F : Finset (Finset (Fin n)))
+    (hcard : ∀ W ∈ F, 2 ≤ W.card) (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F x) :
+    F.image encode ⊆ clauseAtoms n C (semanticTag n C encode) root := by
+  apply linear_core_prime_family rb encode R hcore hroot F hcard
+  · intro W hW x hx
+    exact (hcnf x).mp hx W hW
+  · intro W hW S hSW himp
+    exact CnfLogic.prime_of_antichain F hanti hW hSW
+      (fun x hx => himp x ((hcnf x).mpr hx))
+
+lemma linear_core_cnf_certificate {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (encode : Finset (Fin n) → Fin v)
+    (hinj : Function.Injective encode)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R)
+    {root : ℕ} (hroot : root ∈ R) (F : Finset (Finset (Fin n)))
+    (hcard : ∀ W ∈ F, 2 ≤ W.card) (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F x) :
+    (F.image encode ⊆ clauseAtoms n C (semanticTag n C encode) root) ∧
+      ∀ W ∈ F, ∃ w < n + C.gates.length, ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ i ∈ W, x i = true) := by
+  have hcover := linear_core_cnf_family rb encode R hcore hroot F hcard hanti hcnf
+  exact ⟨hcover, semantic_family_has_linear_wires encode hinj
+    (hcore.1 root hroot) F hcover⟩
+
+end AndCorePrime
+
+namespace ThinBlock
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+open PEqualNP.Outside.L_meta_2583.AndCorePrime
+open MixedEdge
+
+lemma thin_five_linear_core_cost {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop)
+    (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hIfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i)) (hcard : ∀ b, (F b).card = 5)
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (blockOutput : Fin B → ℕ) (core : Fin B → Finset ℕ)
+    (hcore : ∀ b, LinearAndCore n C (core b))
+    (hout : ∀ b, blockOutput b ∈ core b)
+    (hcnf : ∀ b, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (blockOutput b) = true ↔ CnfLogic.Holds (F b) (fun u => x (e u)))
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))))
+    (hcenters : centers.card ≤ t)
+    (sources : {c : Fin n // c ∈ centers} → Finset ℕ)
+    (hvalid : ∀ c, ∀ w ∈ sources c, w < n + C.gates.length)
+    (hpos : ∀ c, ∀ v ∈ L c.val, ∃ w ∈ sources c,
+      val C (List.ofFn (pairInput v v)) w = true)
+    (hfalse : ∀ c, ∀ w ∈ sources c,
+      val C (List.ofFn (complementInput (G.neighborFinset c.val))) w = false)
+    (hsources : (∑ c : {c : Fin n // c ∈ centers}, (sources c).card) ≤ t)
+    (a : Fin t → Fin C.gates.length) (ha : Function.Injective a)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (starCenter : Fin t → Fin n) (starLeaf : Fin t → ℕ)
+    (starSet : Fin t → Finset (Fin n))
+    (hinputs : ∀ i, ∀ w ∈ (gateAt C (a i).val).inputs,
+      w = (starCenter i).val ∨ w = starLeaf i)
+    (hleaf : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (starLeaf i) = decide (∃ p ∈ starSet i, x p = true))
+    (z : Fin (t + B - 1) → Fin C.gates.length) (hz : Function.Injective z)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  let encode := supportEncoding n
+  let tag := semanticTag n C encode
+  have hcert : ∀ b,
+      ((F b).image (fun W => W.image e)).image encode ⊆
+        clauseAtoms n C tag (blockOutput b) ∧
+      ∀ W ∈ (F b).image (fun W => W.image e), ∃ w < n + C.gates.length,
+        ∀ x : Fin n → Bool,
+          val C (List.ofFn x) w = decide (∃ i ∈ W, x i = true) := by
+    intro b
+    apply linear_core_cnf_certificate rb encode encode.injective (core b)
+      (hcore b) (hout b) ((F b).image (fun W => W.image e))
+    · apply CnfLogic.clause_card_image (F b) e e.injective 2
+      intro W hW
+      have hsize := clause_card_of_matching_three (F b) (p b) (l b) (hp b) (hl b) (hacc b) W hW
+      omega
+    · exact CnfLogic.antichain_image (F b) e e.injective
+        (five_clause_antichain I (F b) (hthin b) (hsafe b) hIfour
+          (p b) (l b) (hp b) (hl b) (hacc b) (hcard b))
+    · intro x
+      exact (hcnf b x).trans (CnfLogic.holds_image (F b) e x).symm
+  have hwires : ∀ b W, W ∈ F b → ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ u ∈ W, x (e u) = true) := by
+    intro b W hW
+    obtain ⟨w, hw, hcomp⟩ := (hcert b).2 (W.image e) (mem_image.2 ⟨W, hW, rfl⟩)
+    refine ⟨w, hw, ?_⟩
+    intro x
+    rw [hcomp x]
+    exact Bool.decide_congr (CnfLogic.clause_image W e x)
+  have houtputs : ∀ b, ∃ w, w < n + C.gates.length ∧
+      (blockAtoms F b).image (familyClauseEncoding F e encode) ⊆ clauseAtoms n C tag w := by
+    intro b
+    refine ⟨blockOutput b, (hcore b).1 _ (hout b), ?_⟩
+    rw [blockAtoms_familyClauseEncoding F e encode b]
+    simpa only [image_image, Function.comp_def] using (hcert b).1
+  have hasmall : ∀ i, (clauseAtoms n C tag (n + (a i).val)).card ≤ 1 := by
+    intro i
+    exact semantic_star_and_small_of_inputs rb encode (a i).isLt (haop i)
+      (hinputs i) (starCenter i).isLt (starSet i) (hleaf i)
+  exact thin_five_anchored_shared_and_cost I F hthin hsafe hIfour p l hp hl hacc hcard
+    e G hfour hcross hline C hm rb hwires centers L hcover hcenters
+    sources hvalid hpos hfalse hsources (familyClauseEncoding F e encode)
+    (familyClauseEncoding_injective F e encode encode.injective) tag houtputs
+    a ha haop hasmall z hz hzop hzsmall hne
+
+end ThinBlock
+
 end PEqualNP.Outside.L_meta_2583
