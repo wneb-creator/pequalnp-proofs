@@ -1,0 +1,13 @@
+L-meta-2592 PARTIAL ONLY; full posted theorem remains unproved.
+
+Checked component: InputOccurrences.lean, 72 lines.
+Pinned Lean4.36 direct elaboration: exit0, no stdout/stderr.
+Independent source review PASS; reviewer independently repeated Lean4.36 elaboration: exit0.
+Full local checker not yet run: no full theorem claimed.
+
+Sub-agents: 6 (status/review, structural proof, counterexample search, normalization, few-NOT analysis, restriction route)
+TIMING total=12.0 subagents=6
+
+Named-file lake build output:
+✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (4.2s)
+Build completed successfully (3 jobs).
