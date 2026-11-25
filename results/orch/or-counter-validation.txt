@@ -1,0 +1,13 @@
+Artifact: results/orch/lemmas/setup_or_counter.lean
+Purpose: refute auxiliary ORcount >= |E|-1 claim; not a refutation of L-meta-1031.
+Pinned toolchain: Lean 4.36.0
+Command (cwd lean/): LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake env lean /tmp/oec/pequalnp-pilot-56/setup_or_counter_format.lean
+Run: setup-or-counter-004; exit_code=0; stderr empty; stdout contains two letI style warnings only.
+Checked scratch source was copied byte-for-byte to artifact path after PASS.
+Checks: graph edges=10; no triangles; no four-cycles; all256 Boolean inputs; binary monotone circuit; size=14; ORcount=8 < 10-1.
+Proof method: kernel decide; no native evaluation.
+Format fixes: no global instance declarations; allowed limit options scoped directly over declarations.
+Lines: 70
+SHA256: 22f94344057d529ebfcca0a6c2e8e7a3976d2ed6ab6fff928e676116283fe90d
+Repository gap checker: not run for this auxiliary helper; no posted-statement claim.
+Historical original002 metadata retained separately in or-counter-002-validation.txt.

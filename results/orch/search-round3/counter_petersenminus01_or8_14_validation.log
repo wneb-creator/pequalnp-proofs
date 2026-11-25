@@ -1,0 +1,109 @@
+{
+  "file": "counter_petersenminus01_or8_14_witness.json",
+  "size": 14,
+  "and_count": 6,
+  "or_count": 8,
+  "errors": [],
+  "triangles": [],
+  "squares": [],
+  "vertex_cover": 4,
+  "ownership": [
+    {
+      "gate": 3,
+      "wire": 11,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "centers": []
+    },
+    {
+      "gate": 4,
+      "wire": 12,
+      "edges": [],
+      "centers": []
+    },
+    {
+      "gate": 7,
+      "wire": 15,
+      "edges": [
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "centers": [
+        4
+      ]
+    },
+    {
+      "gate": 8,
+      "wire": 16,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "centers": [
+        0
+      ]
+    },
+    {
+      "gate": 10,
+      "wire": 18,
+      "edges": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "centers": [
+        3
+      ]
+    },
+    {
+      "gate": 12,
+      "wire": 20,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "centers": [
+        2
+      ]
+    }
+  ]
+}
