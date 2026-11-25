@@ -1,0 +1,11 @@
+Independent integration reviewer: derivative_lemmas
+Verdict: PASS for compiled partial preservation only; NOT PR ready and not a proof of L-meta-2602.
+SHA256: 6005df01664bf5e96b8d1f478d25e1b24aff6ebf111e8687e8be4beea0a1f29a
+Lines: 4664
+Original3265-line prefix is byte-identical to reviewed partial6 (SHA c563ae368cf13fba89a6ebe000280ca839d9388de53eca8a7305655cd0af339c). The entire suffix consists only of the twelve reviewed Frontier/Clamp fragments, each exactly once, plus whitespace; no unexplained added source remains.
+Frontier and ClampComplete semantics were independently reviewed in their standalone records; concrete Plan construction review is assigned to checker_review. The new minimum_all_active corollary minimizes size over ALL proper plane circuits with the two marked zero witnesses using Nat.find. Every candidate has natural finite size, existence follows from the supplied circuit, and any inactive gate would yield a circuit of exactly one smaller size with the same semantic/witness properties, contradicting global minimality. No unproved size>=63 or size-exactly63/64 assumption is used in this descent.
+Allowed imports: PEqualNP.Defs and Mathlib.Tactic.Tauto. Options used: maxHeartbeats and maxRecDepth. All helper namespace scopes remain under L_meta_2602_aux/target scopes. Forbidden text, string literals, sorry/new axioms/native_decide, and non-simp attributes absent. Custom Rule/Plan type format caveat remains acknowledged for eventual final-check review.
+Source guard ran on this exact snapshot and exited1, with only these reported refusals:
+REFUSED: the file holds no theorem
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_2602 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_2602` ... `end PEqualNP.Outside.L_meta_2602`; only the imports and the theorem stay outside
+The guard refusal is expected because the required posted theorem is not yet present; this review does not override or bypass it. Root's named lake build is in progress; no redundant build launched by reviewer.

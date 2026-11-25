@@ -1,0 +1,25 @@
+Independent ClampComplete review (2026-11-25T04:00:17.620715+00:00)
+Verdict: PASS for the complete inactive-gate elimination lemma and partial preservation/integration. This is not yet a proof of the posted gap.
+File: results/orch/lemmas/ClampComplete.lean
+SHA256: 6ae50a5279a4efc5be40ee6874ff8c7a20c122359c1ddd2883e9720fc7173aca
+Lines: 1787; bytes: 77778.
+
+Assembly: every reviewed constituent occurs verbatim exactly once: Derivative, final DeadGate, FirstDirty, DerivativeSuper, ClampPlanDefs, ClampShape, ClampPlan, ClampValues, ClampDerivative and ClampSemantic; the new ClampRealize and ClampPlane fragments also occur verbatim exactly once. The only import is PEqualNP.Defs. No duplicate declarations or unexpected replacement of a reviewed body was found.
+
+Final public helper scope:
+`inactive_gate_smaller` assumes only a proper 26-input circuit computing the stated plane function, an actual gate index, inactivity of that gate on every incident edge input, and the two original marked derivative witnesses. It has no Plan parameter or hidden representative, local-rule, cleanliness, collision, source-zero, padding-zero, or semantic-equivalence premise. A concrete Plan is constructed internally with pad(q)=2 when q=1 and 1 otherwise, and dummy inputs 1 and 2.
+
+All 52 edge assignments are covered by the literal universal quantifier over p,l : Fin13 with incidence offsets 0,1,3,9. The edge (0,0) supplies a positive input and dominates both singleton bases and both initial tangent supports; derivative-supervalue therefore derives both ordinary-value and derivative zeros at the removed source. Inputs 1 and 2, and hence all padding, are zero for both marked bases and tangent seeds. markedBase/markedInitial match the posted base0/seed13 and base13/seed0 clauses.
+
+Independently read both final wrappers and their value/derivative interfaces:
+- realize_plan selects the output's actual nonzero representative using a positive input on which the source is false. Boundedness/fixedness prove that representative is valid and differs from the source.
+- Representative semantics gives no new positive outputs and equality whenever the source is false. Every positive plane assignment contains one of the universally quantified incident-edge assignments, so monotonicity yields equality of the full Boolean function, not merely its values on pairs.
+- The two bases use actual old/new circuit wire values. Zero dummy/padding values give full physical equality there; None/Some representative facts are derived, then both derivative recurrences are transported. The changed output preserves the zero derivative by the representative derivative relation.
+- The constructed circuit has no reader of the source. DeadGate.erase applies to a valid nonoutput gate, preserves distinct earlier AND/OR inputs and full evaluation, transports initial seeds and actual derivative rules, and proves exactly D.size+1=C.size.
+- PlaneSpec D is recovered by rewriting full evaluation equality into the original PlaneSpec; no graph-incidence or derivative requirement is weakened.
+
+Format: no _root_ text, quotes, sorry, axiom declarations, native_decide, bv_decide, unsafe, attributes or options. All helpers remain within the allowed auxiliary namespace. Current guards report only the expected absent full-name target theorem; Rule/Plan declaration forms themselves are permitted by the current guard and remain ordinary kernel declarations.
+
+Validation: root reports standalone Lean compilation exit0 for this exact hash. The complete final build log is preserved alongside this review. No heavy checker retry was performed. The previous full local checker outcome remains FAULT from OOM, with no theorem verdict.
+
+Remaining mathematics: the lemma does not prove that an inactive gate exists in every 63/64-gate candidate, nor supply the global circuit-size lower bound needed to close L-meta-2602.

@@ -32,3 +32,15 @@
 
 2026-11-25 03:42 UTC — structural extraction route: identified precise properness/derivative collision obstruction before claiming a size-preserving theorem.
 - 2026-11-25T03:37:46.262947+00:00: Partial 6 built and independently reviewed: 65-gate witness, actual one-gate elimination under explicit local conditions, first-dirty singleton/pair witness, canonical/flag geometry, and derivative certificates.
+- 2026-11-25T03:38:04Z: Flag-transitivity certificate compiled; parent notified immediately.
+
+2026-11-25T03:40:45.338847+00:00 lemma_search CombinedFrontier compiled exit0; frozen for independent review and root integration.
+
+2026-11-25 03:50:33 UTC — structural started full representative-map/local-gate construction for the zero-edge clamp compiler; no Lean check launched during checker resource hold.
+
+2026-11-25 03:56:34 UTC — structural full ClampPlan constructor passed its third narrow Lean check; exact source and complete logs preserved in results/orch.
+
+- 2026-11-25T03:57:45.460839+00:00: Root replanned after the second checker OOM. Complete original-statement verifier remains blocked by 8GiB memory; no verdict. The concrete inactive-gate compiler has individually compiled Plan, semantic, value, derivative and shape components; total assembly is being checked. Structural and derivative strategies now target a global gate-count consequence of every gate being active on a minimal edge. False-row research continues on cross-side constraints; point-side constraints alone have a complete finite countermodel.
+
+2026-11-25T03:58:39.352675+00:00 inactive_gate_smaller compiled: first global gate-elimination result, no conditional factor-choice premise.
+- 2026-11-25T04:01:59.422672+00:00: Partial 9 built and independently reviewed: Unconditional edge-inactive gate removal, minimum realization with every gate active on an edge, prior frontier elimination, and the checked 65-gate witness. Original 63-64 exclusion remains open.
