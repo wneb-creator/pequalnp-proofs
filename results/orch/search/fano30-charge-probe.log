@@ -1,0 +1,1 @@
+{"or_pair_strict": true, "singleton_away": true, "bad_singleton_gates": [], "gates": 30, "normal": true, "pair_useful": true, "uncovered_edges": [[0, 7], [0, 11], [0, 13]], "centreless": 0, "junk": 1, "orN_minus_lam": 5, "bad_read_pairs": [[0, 7], [0, 11], [0, 13]], "charge_left": 12, "charge_right": 18, "all_truth_assignments_checked": 16384}

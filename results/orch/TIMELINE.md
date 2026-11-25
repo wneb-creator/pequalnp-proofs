@@ -18,3 +18,6 @@
 - 2026-11-25T09:03:00Z: checkpoint 4 pushed, commit 0105c37fee50513148c4c87d1c381646ab56c2f3 (time approximate).
 - 2026-11-25T09:03:23Z: renewed lease; expiry 09:23:23Z. Root reviewed compiled restriction lemma for preservation.
 - 2026-11-25T09:05:19Z: first 20-minute re-plan. Canonical construction, read1 lower bound, exact equivalence and full normalization are complete partials. Direct strategy moved to algebraic potentials; structural strategy to singleton restrictions and strict expansion; decomposition/lower-bound strategies split single-core geometry versus shared-core cost; countersearch moved from missing-edge annealing basins to bounded SAT repairs. Historical searches in public discussion 12644 confirm the same annealing basin and support this change.
+- 2026-11-25T09:33:19Z: second strategy re-plan: fresh independent mathematical agent added; global core charging, single-core tests, mixed-cover surplus, corrected structured SAT and checker memory repair continue. Seven distinct sub-agents used.
+
+- 2026-11-25 09:44 UTC: checkpoint7 preserves five independently reviewed compiled partials and the two full checker OOM logs. No verdict or full theorem. Search resumed after resource hold; actual 64-gate q3 solver calibration succeeded.

@@ -20,3 +20,6 @@
 {"event": "progress", "seconds": 450.0166889540001, "iterations": 29918825, "restarts": 1994, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}
 {"event": "progress", "seconds": 480.0166890790001, "iterations": 32756394, "restarts": 2183, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}
 {"event": "progress", "seconds": 510.0167057829999, "iterations": 35084394, "restarts": 2338, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}
+{"event": "progress", "seconds": 540.0167072589998, "iterations": 37137668, "restarts": 2475, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}
+{"event": "progress", "seconds": 570.016754623, "iterations": 41576748, "restarts": 2771, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}
+{"event": "finished", "seconds": 600.0000070310002, "iterations": 44851315, "restarts": 2990, "best": 197, "missing_edges": 0, "false_positive_boundaries": 197}

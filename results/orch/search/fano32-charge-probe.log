@@ -1,0 +1,1 @@
+{"gates": 32, "normal": true, "pair_useful": true, "uncovered_edges": [[0, 7], [0, 11], [0, 13]], "centreless": 0, "junk": 2, "orN_minus_lam": 6, "bad_read_pairs": [[0, 7], [0, 11], [0, 13]], "charge_left": 12, "charge_right": 24, "all_truth_assignments_checked": 16384}

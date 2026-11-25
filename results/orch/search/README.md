@@ -18,6 +18,8 @@ Independent audit corrected a symmetry error in the historical `counterexample_s
 - Fano stochastic walk: `python3 counterexample_walk.py --seconds 600 --seed 76`. Evaluated 33,823,394 mutations over 2,254 restarts. Best circuit differed on 36 full truth-table assignments, consistent with a missing edge. Complete output: `fano26-walk.log`.
 - C6 diagnostic: `python3 counterexample_c6.py --gates 8 --out c6-8-nonread1-full.cnf`, then `cadical -t 120 c6-8-nonread1-full.cnf`. The encoding additionally requires edge `(0,1)` to have no read-1 proof tree. All six positive pairs and five maximal independent sets are enforced. With no first-pair symmetry restriction, solver result UNSAT in 23.42 real seconds and 7.23 CPU seconds. This does not establish a Lean theorem. `c6-8-nonread1.log` is an earlier, more restricted run; `c6-8-nonread1-full.log` is the corrected diagnostic.
 
+The C6 diagnostic excludes repeated operands. This exclusion is justified for a least-size circuit because repeated-operand gates are redundant, but removing such a gate can change the read-1 property. Without a separately established eight-gate lower bound, read the result only as UNSAT for the encoded distinct-operand class.
+
 ## Structured repair and larger-case walk
 
 `counterexample_repair.cpp` uses incremental CaDiCaL, loading `fano26.cnf`, `fano26.seed`, and `fano26.phases`. A deterministic seed-76 shuffle frees 8 through 16 gate positions per trial; all other operations and operands are fixed by assumptions. Each solve has a 20,000-conflict cap, and the entire run has a 600-second wall-clock cap. The archived first repair run uses the historical restricted base and is only a heuristic neighborhood search. Future runs should use `fano26-full.cnf`, whose variable numbering is identical. The phases and seed do not contain credentials.
@@ -25,3 +27,47 @@ Independent audit corrected a symmetry error in the historical `counterexample_s
 The order-3 plane has neighborhoods `{l,l+1,l+3,l+9}` modulo 13, 26 inputs, 52 positive edge pairs, and 704 maximal independent sets. Its star circuit has 64 gates. The 63-gate walk targets a possible improvement. The ordinary walk optimizes boundary mismatches; the positive-priority walk weights each missing positive edge by 1,000, above all possible 704 false-positive boundaries. Commands use 600 seconds and seeds 76 and 77 respectively. These walks are weak diagnostics and are not exhaustive searches.
 
 `snapshot.json` records when the log copies were taken and which runs were ongoing. `source-hashes.json` hashes the archived programs. CNFs, solver binaries, third-party source code, and large build artifacts are deliberately omitted; instances are reproducible from the programs.
+
+## Results of the first repair and order-3 walks
+
+The first Fano repair finished 600 seconds with 294 neighborhoods: 167 UNSAT and 127 UNKNOWN, no witness. These counts do not exhaust all circuits. The ordinary order-3 walk ended at one incorrect boundary pattern, the trivial missing-edge obstruction. The positive-priority order-3 walk ran 600 seconds and 44,851,315 mutations; its best candidate accepted all 52 edges but also 197 maximal independent sets. The walks are not being extended because this diagnostic has weak calibration.
+
+## Smaller structural counterexample
+
+`counterexample_c5.py --gates 7` found a five-cycle circuit with seven gates that is not read-1 on edge `(0,1)`. Its Boolean formula is
+
+`x4 AND (x0 OR x3) OR ((x1 OR x3) AND (x2 OR (x0 AND x1)))`.
+
+All 32 assignments and the missing read-1 tree were checked independently in Python. `c5-7-nonread1-witness.json` gives the circuit. The file `../lemmas/counterexample_c5.lean` additionally kernel-checks its exact truth function, size, AO2 condition, prime pair, and failure of read-1. It does not prove minimality. This is not a counterexample to L-meta-2583: the five-cycle is not a projective-plane incidence graph and is not bipartite.
+
+The mixed OR gate in this circuit reads a wire below the edge function and a wire not below it. `counterexample_c5_normal.py` imposes the stronger normalization considered by another strategy: OR operands have the same below-function status, neither AND operand is below the function, and every gate is true on an edge pair. Under these additional constraints the seven-gate diagnostic is UNSAT. Therefore this small counterexample does not invalidate that normalized route.
+
+The analogous C8 eleven-gate non-read-1 diagnostic ended UNKNOWN at 120 seconds. All solver results in this section remain computational diagnostics; only the explicitly named Lean component has been kernel-checked.
+
+## Structured order-3 repair
+
+`counterexample_q3_repair.py` replaces the unstructured walks with SAT and counterexample-guided refinement. It chooses four, five or six lines from the lowest-concurrency quarter of line subsets, places their stars last, deletes one OR gate in a chosen star, and frees the connected cone consisting of those stars, their downstream OR tail, and one preceding OR. This gives exactly 20, 25 or 30 free gate positions. All other gates are encoded directly. Free gates can use either AND or OR and any two earlier wires, including repeated operands. There is no first-pair or global operand-order restriction.
+
+Each query always enforces all 52 positive edge pairs and initially about 40 negative maximal-independent patterns. Any SAT candidate is independently evaluated on all 756 boundary patterns; up to 24 newly violated negative patterns are added per refinement. A zero-error candidate would be saved as `witness.json`. Per-query limits are 15 seconds and 150,000 conflicts; each neighborhood has at most six refinement rounds, and the overall run has a 600-second cap with seed 76. Every neighborhood and round records its exact seed circuit, free positions, patterns, solver status, and complete solver log.
+
+Before this search, the known 64-gate star witness passed all 6,757,597 clauses of a 30-free-gate calibration instance with 97,957 variables and all 756 patterns. The program also checks the plane axioms and all 8,192 point-subset closure cases, verifying coverage of all independent inputs by the 704 maximal independent sets. `q3-64-calibration.json` and `q3-repair-calibration.log` preserve this control. The large calibration CNF is not retained.
+
+## Corrected Fano repair and normalized non-read-1 diagnostic
+
+The corrected-base repair completed 600.026 seconds over 512 neighborhoods: 285 UNSAT and 227 UNKNOWN, no witness. Full output is `fano26-full-repair.log`. This remains a restricted neighborhood search, not an exhaustive lower-bound certificate.
+
+`counterexample_charge_probe.py` builds a 32-gate Fano circuit by replacing point input 0 in the known 27-gate star by `(x0 OR x1) AND (x0 OR x2) AND (x0 OR x4)`. The triple `{1,2,4}` is a line not through 0. All 16,384 truth-table assignments agree with the Fano function; all gates are pair-useful and satisfy the proposed strong OR/AND normalization. Exactly the three edges through point 0 lack read-1 trees. This circuit has three uncovered star edges, no centreless tops, two junk AND gates, and six non-top-closure OR gates, so the candidate weighted inequality holds as 12 <= 24. These are Python diagnostics only; no Lean verification or minimality claim is made for this 32-gate circuit. Full circuit and counts are in `fano32-charge-probe.json`.
+
+## Prepared next-phase search programs
+
+`counterexample_phase_solve.cpp` supplies CaDiCaL phase hints from a complete seed assignment. `counterexample_q3_seeded.py` adds these hints, pair usefulness, OR-operand positive-support incomparability, and the requirement that all gates be used. `counterexample_q3_singleton.py` additionally evaluates all 26 singleton inputs and requires each gate accepting singleton v to accept a positive edge away from v. The last condition excludes gates replaceable by input v without changing any positive edge pair. The lower-bound strategy has separately Lean-checked these two minimality necessities. These programs were prepared at 09:38 UTC but have not yet run; their presence does not imply successful calibration or a search result. The next intended run first uses --solver-calibrate on a known 64-gate witness.
+
+The initial connected-cone order-3 run has completed: 41 neighborhoods in 601.4005703920002 seconds, all solver queries UNKNOWN. No SAT candidate was obtained, so no CEGAR refinement occurred. `q3-repair-run.log` and `q3-repair/` preserve the complete logs and exact per-query circuit/position/pattern seeds. The large current CNF was deleted after the completed run and is reproducible.
+
+## Actual phased solver calibration
+
+At 09:43 UTC, `counterexample_q3_singleton.py --solver-calibrate` passed: CaDiCaL with phase hints found SAT in 0.563 seconds on 21,145 variables and 911,367 clauses with 20 free gates. The decoded 64-gate circuit independently passed all 756 boundary inputs with zero errors. Full solver output and circuit are preserved under `q3-seeded-control/`. This is an actual solver positive control including all added minimality constraints.
+
+`counterexample_q3_adaptive.py` starts refinement with only the two monochromatic maximal independent sets and the 26 singleton rows needed for the singleton-away cut. Each successful but incorrect candidate adds up to eight violated maximal independent sets; a neighborhood permits up to 24 rounds. The planned cap is 600 seconds, with 30 seconds and 500,000 conflicts per query, seed76. Like all fixed-cone searches here it is heuristic. In particular, adding leastness constraints at exactly63 gates does not justify coverage of every smaller circuit by padding.
+
+Additional tiny boundary probes show normal non-read-1 circuits satisfying both OR incomparability and singleton-away: a 30-gate Fano circuit and a 67-gate order-3 circuit. Their candidate weighted charges still hold (12 <= 18 and30 <=36 respectively). These only demonstrate that the local cuts do not individually imply read-1; no minimality or new gap result is claimed.

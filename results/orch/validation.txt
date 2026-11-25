@@ -70,3 +70,23 @@ statement. Three complete compiler logs are retained with these artifacts.
 All official cache dependencies are now available, using job-owned anonymous
 RAM storage for additional immutable library artifacts. Checker unchanged.
 TIMING total=80 subagents=6
+
+Second strategy re-plan adds fresh_math (gpt-6.2-astra, ultra), an independent
+proof/counterexample construction attempt. Seven distinct sub-agents used
+in total; no more than six running alongside root.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math.
+TIMING total=90 subagents=7
+
+Checkpoint 7: independently reviewed OR support incomparability, singleton
+redundancy, pair-clean/global-below equivalence, strengthened P4 control, and
+mixed-cover N+q surplus have compiled. Five complete compiler logs retained.
+The named integration file remains 4978 lines and does not prove the final
+theorem. No cleanup pass or proof PR is claimed. Two official checker retries
+ended CHECKER FAULT (verifier exit137, cgroup memory exhaustion), before any
+verdict. Full logs: checker-checkpoint-4-full-cache.log and
+checker-checkpoint-4-low-ram.log. Checker source and definitions unchanged.
+Search archives remain diagnostic; no refutation or unrestricted bound found.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math.
+TIMING total=101 subagents=7
