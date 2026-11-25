@@ -1,6 +1,6 @@
 {
   "job": "pequalnp-pilot-53",
-  "updated_at": "2026-11-25T02:01:40.966618+00:00",
+  "updated_at": "2026-11-25T02:24:30.435470+00:00",
   "gap": "L-meta-3457",
   "full_statement_proved": false,
   "artifacts": [
@@ -83,6 +83,39 @@
       "sha256": "bbfe1c6235b75163605ed4ecf489b35ac2c7bc7f41e3dfbf47a37e5c0e64c49e",
       "validation": "central lake env lean exit0; independently reviewed",
       "scope": "Full conclusion under explicit girth and hub-separation hypotheses"
+    },
+    {
+      "file": "results/lemmas/CycleSix3457.lean",
+      "lines": 4544,
+      "bytes": 231752,
+      "sha256": "df92f46c80940a7c715f14b3523c2d430115de71de1ed7d24bb7f9a8347449a1",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full requested conclusion for canonical six-cycle incidence, with an eight-gate lower bound and clean construction"
+    },
+    {
+      "file": "results/lemmas/SmallIncidenceClassification3457.lean",
+      "lines": 203,
+      "bytes": 9924,
+      "sha256": "b67e595a1512fe15675fef8a356822d89a6540a6154183e2e561d3a23db95baf",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "C4-free incidence classification: acyclic for N <= 2; acyclic or a relabeled six-cycle for N = 3"
+    },
+    {
+      "file": "results/lemmas/CycleSixPerm3457.lean",
+      "lines": 4678,
+      "bytes": 238230,
+      "sha256": "814a15f5ee604442157d75c68ff3e8237ee4e2500289a6fb6c65d9739c33e2e3",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full requested conclusion for every relabeled six-cycle incidence"
+    },
+    {
+      "file": "results/lemmas/SmallCase3457.lean",
+      "lines": 7308,
+      "bytes": 358900,
+      "sha256": "cb6366057897292a3a1a828788459e7e4f3b9d44e057aca74cf85658b3fc2897",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full requested conclusion for every C4-free incidence with N <= 3"
     }
-  ]
+  ],
+  "format_caveat": "SparseCase and CycleSix retain copied custom data/proposition types and require manual format review; they are not automated-PR-ready files. Later combined derivatives that retain these declarations inherit the same format limitation."
 }

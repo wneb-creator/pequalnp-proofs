@@ -1,0 +1,1 @@
+{"matrix_count": 18521, "core_counts": {"empty": 16145, "C6": 2208, "theta333": 96, "C8": 72}, "example_masks": {"empty": 0, "C6": 25904, "theta333": 59731, "C8": 51795}, "elapsed_seconds": 0.18747088100008114, "status": "exhaustive finite graph census; not Lean checked; no circuit bound"}

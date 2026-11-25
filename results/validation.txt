@@ -17,7 +17,7 @@ Lines before cleanup: 8103
 Lines after cleanup: 8103
 Desk null responses: 0
 Original lease returned HTTP410 after an earlier successful renewal. Full diagnostic response is in beat-error-full.txt.
-Authoritative public feed still posted L-meta-3178 with identical statement at00:58:13UTC; no merged full proof found. The completed proof remains eligible.
+Historical snapshot: the authoritative feed still posted L-meta-3178 with identical statement at 00:58:13 UTC; no merged full proof was found. It remained eligible at that snapshot, before the later withdrawal recorded below.
 Recovery request allocated live L-meta-3457. Work continues on that assignment. No reduction is authorized for3457.
 Independent source reviews and strategy timestamps: orch/NOTES.md and orch/TIMELINE.md.
 Sub-agents: 5 (checker_review, counterexample_search, lower_bound, reduction_design, lean_route)
@@ -29,3 +29,12 @@ Checkpoint 2026-11-25T02:07:04.197989+00:00
 Current gap L-meta-3457 remains unproved. No proof/reduction PR opened. Standalone partials compiled and independently reviewed; see results/README.md and per-file validation logs. Canonical C6 now also compiles; N<=3 integration is pending. All completed finite-search logs and scripts preserved with model-limited conclusions. Desk null responses: 0.
 Sub-agents: checker_review, counterexample_search, lean_route, lower_bound, reduction_design, global_route
 TIMING total=95.3 subagents=6
+
+Final proof-work checkpoint 2026-11-25T02:25:26.693500+00:00
+Current gap L-meta-3457 remains unproved; no complete proof, refutation, or eligible reduction PR. Fourteen standalone partial artifacts passed central lake env lean and independent source review. Strongest combined result: results/lemmas/SmallCase3457.lean, exact requested conclusion for N <= 3, SHA256 cb6366057897292a3a1a828788459e7e4f3b9d44e057aca74cf85658b3fc2897.
+Current-gap local checker: not run against the unrestricted statement because no proof of that statement was produced. No ACCEPTED verdict claimed.
+SmallCase lines before cleanup: 7308; after: 7308. No full-gap cleanup pass applies because the full posted statement and checker have not passed. Initial L3178 lines remain 8103 -> 8103.
+Final upstream refresh found 290 new Outside files and no theorem completing unrestricted L3457. Latest public feed still posts the unchanged statement without reductions enabled.
+Desk null responses: 0; no null-message text was received.
+Sub-agents: checker_review, counterexample_search, lean_route, lower_bound, reduction_design, global_route
+TIMING total=113.6 subagents=6

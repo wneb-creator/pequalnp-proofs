@@ -97,3 +97,7 @@ python3 results/search3457/stochastic3457.py --N 5 --mask 18125950 --gates 15 --
 The free-OR model in [free-or/README.md](free-or/README.md) found the N4 nine-edge graph impossible with at most three singleton-clean ANDs in its reviewed CNF (UNSAT,0.068s). Sanity cases C6 with two ANDs were UNSAT, C6 with three ANDs and the N4 graph with four ANDs were SAT; both witnesses passed full scalar checks twice. These are reviewed computational results, not Lean certificates.
 
 The complementary free-AND model with at most seven ORs returned UNKNOWN after120 seconds, both unrestricted ([free-and/README.md](free-and/README.md)) and with the necessary singleton condition on multi-leaf AND regions ([free-and-root/REVIEW.md](free-and-root/REVIEW.md)). Thus no OR-count bound or total-size normalization is established. All source, full logs, small CNFs, mappings and result JSON are preserved. No search remains active.
+
+## Conceptual handoff and graph census
+
+[CONCEPTUAL.md](CONCEPTUAL.md) records the exact distinction between cross-pair cleanliness and output dominance, a valid local AND-reassociation trick and a matching example showing its limit. It also identifies the remaining4-by-4 cores. The exhaustive graph census in core_classification.py checked all65536 matrices, found18521 C4-free ones, and classified their2-cores as empty(16145),C6(2208),C8(72),or theta(3,3,3)(96). Complete stdout/stderr/JSON are preserved. This is a finite computational graph fact, not a Lean proof or a circuit bound. No further solver/search run is queued.

@@ -1,0 +1,20 @@
+Final bounded upstream check, 2026-11-25T02:25:04.568493+00:00
+
+Merge base: 21d823228c2dd3a440b7af3ad8dfb47bcfda8bc5
+Fetched main: 73ad62531ba5ae3b1e606a6458bc752070e65fb4
+New Outside files since merge base: 290 (138 L files, 152 R files).
+
+Result: no newly added unconditional theorem directly solving or strongly implying unrestricted L-meta-3457 was found. L_meta_3457 itself is absent from the additions. Complete final theorem tails for all290 files were saved and searched; the earlier statement-only extraction sometimes stops at a local let, so the full-tail file is the authoritative search artifact.
+
+Relevant new unconditional files:
+- L_meta_4245: generic OR substitution at additive1 gate, not no-growth cleanup.
+- L_meta_4249/L_meta_4754: fixed16→17 input instances of that additive1 substitution.
+- L_meta_5138: eliminates one tightly specified two-junk configuration in a least AO circuit, requiring exactly two junk gates, prescribed2×2 factors, private factor wires, a joining top AND, and no direct AND reader of either junk output. It does not supply arbitrary dirty-gate cleanup.
+- L_meta_5187: finite projective-plane partial-input lower bound, not a general transformation.
+- L_meta_5228: a fixed11-vertex, two-junk structural contradiction, not general cleanup.
+
+Closest new conditional packaging:
+- R_meta_4318_1 packages a stronger vertex-cover budget but still assumes global singleton-preserving normalization, a budget theorem, one-junk repair, and the many-junk budget. The difficult global premise remains an explicit argument.
+- R_meta_4297_1 packages star representation but assumes a rectangle extraction theorem and an additional OR-wire BelowOutput propagation condition, not supplied by L3457 hypotheses.
+
+No branch/checkouts, source edits, Lean processes, or git mutations were performed. Only read-only git inspection and scratch writes.

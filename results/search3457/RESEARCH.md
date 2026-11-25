@@ -45,3 +45,15 @@ The missing transformation is quantitative. Restricting one quadratic circuit se
 A typed, syntactically bilinear or already normalized circuit may permit useful cofactor sharing. Assuming such a form for an arbitrary supplied circuit would assume the substance of the normalization being sought. No size-preserving cofactor transformation was proved. Applying Tarjan's theorem directly to the original single-output circuit is therefore unjustified.
 
 The overlap theorem supplies a useful target invariant and explains why the raw Tarjan anomaly needs repeated variable overlap. It does not by itself prove the candidate stronger bound |E| + minimum_vertex_cover - 1 or L-meta-3457.
+
+## Independent ECCC source check — read 2026-11-25 UTC
+
+Jukna's original ECCC report TR05-021 was read at <https://eccc.weizmann.ac.il/report/2005/021/download/>. Printed pages 15–16 (zero-based PDF pages 14–15) discuss explicit K2,2-free bipartite graphs with Ω(n^(3/2)) edges, distinguish their formula lower bound from the circuit problem, and state Problem 24: prove C(f_G) = Ω(n^(1+ε)) for an explicit n-vertex graph. This is a historical research obstacle, not a refutation of L-meta-3457. **Current status in 2026: UNVERIFIED**; this check establishes only what the 2005 report says.
+
+## Final conceptual pass: two exact identities without a gate budget
+
+For a nonincident pair (p0,l0), the incidence function satisfies the exact identity F = F[x_p0:=0] OR F[y_l0:=0]: every genuine edge survives at least one restriction. Both restricted functions reject the target pair. This supplies a semantic repair but not a size-neutral circuit repair. Computing the two restrictions separately can duplicate shared gates. C4-freeness constrains final neighborhoods; it does not itself bound the number of distinct restricted versions of an internal wire.
+
+On cross-pair truth tables, clipping every signal matrix M to I preserves union and intersection. Thus clipping all input row and column matrices and then replaying the old gates would automatically clean every AND on cross nonedges. The clipped inputs, however, are neighborhood stars rather than free variables: the point-p input becomes x_p AND (OR of adjacent line variables). Paying for these masks is exactly the missing cover/circuit budget. Treating their computation as free would assume the desired resource inequality. These identities do not give a full proof or a counterexample. Allowing same-side pairs and larger supports does not remove this gate-count obstacle.
+
+The clipping observation is for binary/nonempty intersections. Empty AND gates need separate treatment: when N>0, the supplied singleton-zero condition already excludes them; when N=0, there are no cross pairs. No free mask or free false wire is assumed.
