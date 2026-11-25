@@ -136,3 +136,15 @@ Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math, gate_charge, restriction_charge,
 boolean_identity.
 TIMING total=134 subagents=10
+
+Checkpoint 12: generic monotone boundary/mask certificates, cyclic q3
+plane axioms, and the bit-parallel evaluation bridge compile and pass
+independent review. A known64-gate circuit has kernel-checked8192-bit
+zero output on its negative table and52-bitall-ones positive output.
+Inputword-to-canonicalmask correspondence has been independently checked
+externally, but its Lean proof is still pending. No63-gate witness exists
+in these artifacts. Four full compiler logs are retained.
+Reviewed frontier and incremental SAT diagnostics are preserved separately;
+no computational UNSAT is presented as a Lean proof. Named file7090lines
+and official checker status unchanged: fault/noverdict, finalgoalunproved.
+TIMING total=149 subagents=10

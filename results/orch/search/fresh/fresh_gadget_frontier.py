@@ -38,6 +38,7 @@ def run(k,private,pencil,limit,maxsec):
     class Timeout(Exception):pass
     def dfs(ws,s):
         nonlocal count
+        if s<0: return False
         if target in ws: return True
         if len(ws)<2:return False
         if seen.get(ws,-1)>=s:return False

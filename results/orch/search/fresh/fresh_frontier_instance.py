@@ -22,4 +22,10 @@ def write_instance(r,path):
     return ids,pos,neg
 if __name__=='__main__':
     cat=json.loads(Path('fresh-module-catalog.json').read_text())
-    for r in cat: write_instance(r,Path('fresh-module-'+r['id']+'.txt'))
+    for r in cat:
+        write_instance(r,Path('fresh-module-'+r['id']+'.txt'))
+        pure=r.copy()
+        pure['id']+='pure'
+        pure['groups']=[g for g in r['groups'] if len(g)>1]
+        pure['canonical']=sum(map(len,pure['groups']))+pure['k']-1
+        write_instance(pure,Path('fresh-module-'+pure['id']+'.txt'))

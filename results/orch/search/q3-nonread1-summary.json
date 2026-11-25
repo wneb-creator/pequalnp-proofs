@@ -1,0 +1,16 @@
+{
+  "finished": {
+    "event": "finished",
+    "trials": 9,
+    "seconds": 601.1693619170001
+  },
+  "queries": 64,
+  "sat": 55,
+  "unknown": 9,
+  "unsat": 0,
+  "min_false": 266,
+  "cut_sizes": {
+    "2": 53,
+    "3": 2
+  }
+}

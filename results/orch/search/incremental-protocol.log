@@ -1,0 +1,197 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-76/incremental-protocol.cnf'
+c found 'p cnf 2 1' header
+c parsed 1 clauses in 0.00 seconds process time
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.00  600.35% parse               
+c     8.0e+00  100.00%  4.0e+05         0.00   65.89% search              
+c     8.0e+00  100.00%  4.1e+05         0.00   64.92% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     8.0e+00  100.00%  2.6e+05         0.00    3.77% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                             1
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c propagations:                        0        0.00 M   per second           
+c searches:                            1
+c ticks:                               8        0.26 M   per second           
+c variables_original:                  2      100.00 %   vars                 
+c vars:                                2
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c OEC_RESULT 10 2
+v 1 2 0
+c OEC_DONE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.00  561.60% parse               
+c     1.1e+01   73.33%  5.4e+05         0.00   63.31% search              
+c     1.1e+01   73.33%  5.5e+05         0.00   62.34% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.5e+01  100.00%  4.6e+05         0.00    3.41% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                             1
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          1       50.00 %   searches             
+c propagations:                        2        0.06 M   per second           
+c searches:                            2
+c ticks:                              15        0.46 M   per second           
+c variables_original:                  2      100.00 %   vars                 
+c vars:                                2
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c OEC_RESULT 10 2
+v -1 2 0
+c OEC_DONE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.00  529.42% parse               
+c     1.4e+01   73.68%  6.6e+05         0.00   61.52% search              
+c     1.4e+01   73.68%  6.7e+05         0.00   60.61% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.9e+01  100.00%  5.5e+05         0.00    2.97% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                             1
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          2       66.67 %   searches             
+c propagations:                        3        0.09 M   per second           
+c searches:                            3
+c ticks:                              19        0.55 M   per second           
+c variables_original:                  3      100.00 %   vars                 
+c vars:                                3
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c OEC_RESULT 10 3
+v -1 2 3 0
+c OEC_DONE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.00  525.73% parse               
+c     1.4e+01   73.68%  6.6e+05         0.00   61.09% search              
+c     1.4e+01   73.68%  6.7e+05         0.00   60.19% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.9e+01  100.00%  5.5e+05         0.00    2.90% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                             1
+c conflicts:                           0        0.00 per second               
+c decisions:                           0        0.00 per second               
+c extensions:                          3       75.00 %   searches             
+c propagations:                        3        0.09 M   per second           
+c recomputed_tiers:                    1        0.00     interval             
+c searches:                            4
+c ticks:                              19        0.55 M   per second           
+c variables_original:                  3      100.00 %   vars                 
+c vars:                                3
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c OEC_RESULT 20 3
+c OEC_DONE

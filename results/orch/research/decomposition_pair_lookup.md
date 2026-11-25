@@ -8,7 +8,7 @@ The general prime-order construction uses onehot coordinate buckets. Four famili
 
 The independent input triple with active wires 5, 32, 36 is a false positive: point (1,0), line y=1, and line y=x. The lookup mixes slope zero from the first line with intercept zero from the second. Neither active line contains the active point.
 
-The generator independently checks every line has six points, every distinct pair of points has exactly one common line, every singleton/pair input agrees with the incidence function, the gate count, backward reads, and the false-positive triple. These are external exhaustive checks. Lean certification is work in progress and is not claimed here.
+The generator independently checks every line has six points, every distinct pair of points has exactly one common line, every singleton/pair input agrees with the incidence function, the gate count, backward reads, and the false-positive triple. Root independently repeated these checks. The frozen Lean artifact `../lemmas/decomposition_pair_lookup_geometry.lean` additionally proves circuit validity, size 212, the strict size comparison, the projective-plane axioms, and the false-positive triple. The all-pairs correctness check remains external exhaustive evidence; it is not yet a Lean theorem.
 
 The exact degree-two relaxation is a circuit in the lattice of subsets of unordered vertex pairs, diagonals included. Input vertex v denotes the set of pairs containing v; OR is union and AND is intersection. Equivalently, use squarefree Boolean polynomials with all monomials involving three or more distinct variables erased. The q=5 example proves this relaxation cannot establish the requested universal lower bound.
 

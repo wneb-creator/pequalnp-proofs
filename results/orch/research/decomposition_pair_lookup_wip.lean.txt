@@ -1,0 +1,518 @@
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_2583.PairLookup
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.EdgeOwnership
+  PEqualNP.MetaComplexity.NestedCover
+
+abbrev incidence (p l : Fin 31) : Prop :=
+  if p.val < 25 then
+    if l.val < 25 then p.val % 5 = (l.val / 5 * (p.val / 5) + l.val % 5) % 5
+    else l.val < 30 ∧ p.val / 5 = l.val - 25
+  else if p.val < 30 then
+    l.val = 30 ∨ (l.val < 25 ∧ l.val / 5 = p.val - 25)
+  else 25 ≤ l.val
+
+def circuit : Circuit :=
+  ⟨[⟨.or, [0, 1]⟩,
+    ⟨.or, [62, 2]⟩,
+    ⟨.or, [63, 3]⟩,
+    ⟨.or, [64, 4]⟩,
+    ⟨.or, [5, 6]⟩,
+    ⟨.or, [66, 7]⟩,
+    ⟨.or, [67, 8]⟩,
+    ⟨.or, [68, 9]⟩,
+    ⟨.or, [10, 11]⟩,
+    ⟨.or, [70, 12]⟩,
+    ⟨.or, [71, 13]⟩,
+    ⟨.or, [72, 14]⟩,
+    ⟨.or, [15, 16]⟩,
+    ⟨.or, [74, 17]⟩,
+    ⟨.or, [75, 18]⟩,
+    ⟨.or, [76, 19]⟩,
+    ⟨.or, [20, 21]⟩,
+    ⟨.or, [78, 22]⟩,
+    ⟨.or, [79, 23]⟩,
+    ⟨.or, [80, 24]⟩,
+    ⟨.or, [0, 5]⟩,
+    ⟨.or, [82, 10]⟩,
+    ⟨.or, [83, 15]⟩,
+    ⟨.or, [84, 20]⟩,
+    ⟨.or, [1, 6]⟩,
+    ⟨.or, [86, 11]⟩,
+    ⟨.or, [87, 16]⟩,
+    ⟨.or, [88, 21]⟩,
+    ⟨.or, [2, 7]⟩,
+    ⟨.or, [90, 12]⟩,
+    ⟨.or, [91, 17]⟩,
+    ⟨.or, [92, 22]⟩,
+    ⟨.or, [3, 8]⟩,
+    ⟨.or, [94, 13]⟩,
+    ⟨.or, [95, 18]⟩,
+    ⟨.or, [96, 23]⟩,
+    ⟨.or, [4, 9]⟩,
+    ⟨.or, [98, 14]⟩,
+    ⟨.or, [99, 19]⟩,
+    ⟨.or, [100, 24]⟩,
+    ⟨.or, [31, 32]⟩,
+    ⟨.or, [102, 33]⟩,
+    ⟨.or, [103, 34]⟩,
+    ⟨.or, [104, 35]⟩,
+    ⟨.or, [36, 37]⟩,
+    ⟨.or, [106, 38]⟩,
+    ⟨.or, [107, 39]⟩,
+    ⟨.or, [108, 40]⟩,
+    ⟨.or, [41, 42]⟩,
+    ⟨.or, [110, 43]⟩,
+    ⟨.or, [111, 44]⟩,
+    ⟨.or, [112, 45]⟩,
+    ⟨.or, [46, 47]⟩,
+    ⟨.or, [114, 48]⟩,
+    ⟨.or, [115, 49]⟩,
+    ⟨.or, [116, 50]⟩,
+    ⟨.or, [51, 52]⟩,
+    ⟨.or, [118, 53]⟩,
+    ⟨.or, [119, 54]⟩,
+    ⟨.or, [120, 55]⟩,
+    ⟨.or, [31, 36]⟩,
+    ⟨.or, [122, 41]⟩,
+    ⟨.or, [123, 46]⟩,
+    ⟨.or, [124, 51]⟩,
+    ⟨.or, [32, 37]⟩,
+    ⟨.or, [126, 42]⟩,
+    ⟨.or, [127, 47]⟩,
+    ⟨.or, [128, 52]⟩,
+    ⟨.or, [33, 38]⟩,
+    ⟨.or, [130, 43]⟩,
+    ⟨.or, [131, 48]⟩,
+    ⟨.or, [132, 53]⟩,
+    ⟨.or, [34, 39]⟩,
+    ⟨.or, [134, 44]⟩,
+    ⟨.or, [135, 49]⟩,
+    ⟨.or, [136, 54]⟩,
+    ⟨.or, [35, 40]⟩,
+    ⟨.or, [138, 45]⟩,
+    ⟨.or, [139, 50]⟩,
+    ⟨.or, [140, 55]⟩,
+    ⟨.and, [65, 105]⟩,
+    ⟨.and, [65, 109]⟩,
+    ⟨.and, [65, 113]⟩,
+    ⟨.and, [65, 117]⟩,
+    ⟨.and, [65, 121]⟩,
+    ⟨.and, [69, 105]⟩,
+    ⟨.and, [73, 105]⟩,
+    ⟨.and, [77, 105]⟩,
+    ⟨.and, [81, 105]⟩,
+    ⟨.or, [142, 143]⟩,
+    ⟨.or, [151, 144]⟩,
+    ⟨.or, [152, 145]⟩,
+    ⟨.or, [153, 146]⟩,
+    ⟨.or, [154, 147]⟩,
+    ⟨.or, [155, 148]⟩,
+    ⟨.or, [156, 149]⟩,
+    ⟨.or, [157, 150]⟩,
+    ⟨.and, [69, 109]⟩,
+    ⟨.and, [73, 117]⟩,
+    ⟨.and, [77, 113]⟩,
+    ⟨.and, [81, 121]⟩,
+    ⟨.or, [159, 160]⟩,
+    ⟨.or, [163, 161]⟩,
+    ⟨.or, [164, 162]⟩,
+    ⟨.and, [69, 113]⟩,
+    ⟨.and, [73, 109]⟩,
+    ⟨.and, [77, 121]⟩,
+    ⟨.and, [81, 117]⟩,
+    ⟨.or, [166, 167]⟩,
+    ⟨.or, [170, 168]⟩,
+    ⟨.or, [171, 169]⟩,
+    ⟨.and, [69, 117]⟩,
+    ⟨.and, [73, 121]⟩,
+    ⟨.and, [77, 109]⟩,
+    ⟨.and, [81, 113]⟩,
+    ⟨.or, [173, 174]⟩,
+    ⟨.or, [177, 175]⟩,
+    ⟨.or, [178, 176]⟩,
+    ⟨.and, [69, 121]⟩,
+    ⟨.and, [73, 113]⟩,
+    ⟨.and, [77, 117]⟩,
+    ⟨.and, [81, 109]⟩,
+    ⟨.or, [180, 181]⟩,
+    ⟨.or, [184, 182]⟩,
+    ⟨.or, [185, 183]⟩,
+    ⟨.and, [158, 125]⟩,
+    ⟨.and, [165, 141]⟩,
+    ⟨.and, [172, 137]⟩,
+    ⟨.and, [179, 133]⟩,
+    ⟨.and, [186, 129]⟩,
+    ⟨.or, [187, 188]⟩,
+    ⟨.or, [192, 189]⟩,
+    ⟨.or, [193, 190]⟩,
+    ⟨.or, [194, 191]⟩,
+    ⟨.and, [158, 129]⟩,
+    ⟨.and, [165, 125]⟩,
+    ⟨.and, [172, 141]⟩,
+    ⟨.and, [179, 137]⟩,
+    ⟨.and, [186, 133]⟩,
+    ⟨.or, [196, 197]⟩,
+    ⟨.or, [201, 198]⟩,
+    ⟨.or, [202, 199]⟩,
+    ⟨.or, [203, 200]⟩,
+    ⟨.and, [158, 133]⟩,
+    ⟨.and, [165, 129]⟩,
+    ⟨.and, [172, 125]⟩,
+    ⟨.and, [179, 141]⟩,
+    ⟨.and, [186, 137]⟩,
+    ⟨.or, [205, 206]⟩,
+    ⟨.or, [210, 207]⟩,
+    ⟨.or, [211, 208]⟩,
+    ⟨.or, [212, 209]⟩,
+    ⟨.and, [158, 137]⟩,
+    ⟨.and, [165, 133]⟩,
+    ⟨.and, [172, 129]⟩,
+    ⟨.and, [179, 125]⟩,
+    ⟨.and, [186, 141]⟩,
+    ⟨.or, [214, 215]⟩,
+    ⟨.or, [219, 216]⟩,
+    ⟨.or, [220, 217]⟩,
+    ⟨.or, [221, 218]⟩,
+    ⟨.and, [158, 141]⟩,
+    ⟨.and, [165, 137]⟩,
+    ⟨.and, [172, 133]⟩,
+    ⟨.and, [179, 129]⟩,
+    ⟨.and, [186, 125]⟩,
+    ⟨.or, [223, 224]⟩,
+    ⟨.or, [228, 225]⟩,
+    ⟨.or, [229, 226]⟩,
+    ⟨.or, [230, 227]⟩,
+    ⟨.and, [195, 85]⟩,
+    ⟨.and, [204, 89]⟩,
+    ⟨.and, [213, 93]⟩,
+    ⟨.and, [222, 97]⟩,
+    ⟨.and, [231, 101]⟩,
+    ⟨.or, [232, 233]⟩,
+    ⟨.or, [237, 234]⟩,
+    ⟨.or, [238, 235]⟩,
+    ⟨.or, [239, 236]⟩,
+    ⟨.and, [65, 56]⟩,
+    ⟨.and, [69, 57]⟩,
+    ⟨.and, [73, 58]⟩,
+    ⟨.and, [77, 59]⟩,
+    ⟨.and, [81, 60]⟩,
+    ⟨.or, [241, 242]⟩,
+    ⟨.or, [246, 243]⟩,
+    ⟨.or, [247, 244]⟩,
+    ⟨.or, [248, 245]⟩,
+    ⟨.and, [25, 105]⟩,
+    ⟨.and, [26, 109]⟩,
+    ⟨.and, [27, 113]⟩,
+    ⟨.and, [28, 117]⟩,
+    ⟨.and, [29, 121]⟩,
+    ⟨.or, [250, 251]⟩,
+    ⟨.or, [255, 252]⟩,
+    ⟨.or, [256, 253]⟩,
+    ⟨.or, [257, 254]⟩,
+    ⟨.or, [25, 26]⟩,
+    ⟨.or, [259, 27]⟩,
+    ⟨.or, [260, 28]⟩,
+    ⟨.or, [261, 29]⟩,
+    ⟨.or, [262, 30]⟩,
+    ⟨.and, [263, 61]⟩,
+    ⟨.or, [56, 57]⟩,
+    ⟨.or, [265, 58]⟩,
+    ⟨.or, [266, 59]⟩,
+    ⟨.or, [267, 60]⟩,
+    ⟨.and, [30, 268]⟩,
+    ⟨.or, [240, 249]⟩,
+    ⟨.or, [270, 258]⟩,
+    ⟨.or, [271, 264]⟩,
+    ⟨.or, [272, 269]⟩], 273⟩
+
+set_option maxRecDepth 100000 in
+lemma circuit_size : circuit.size = 212 := rfl
+
+def fastEval (z : Fin 62 → Bool) : Bool :=
+  let w62 := GateOp.or.eval [z 0, z 1]
+  let w63 := GateOp.or.eval [w62, z 2]
+  let w64 := GateOp.or.eval [w63, z 3]
+  let w65 := GateOp.or.eval [w64, z 4]
+  let w66 := GateOp.or.eval [z 5, z 6]
+  let w67 := GateOp.or.eval [w66, z 7]
+  let w68 := GateOp.or.eval [w67, z 8]
+  let w69 := GateOp.or.eval [w68, z 9]
+  let w70 := GateOp.or.eval [z 10, z 11]
+  let w71 := GateOp.or.eval [w70, z 12]
+  let w72 := GateOp.or.eval [w71, z 13]
+  let w73 := GateOp.or.eval [w72, z 14]
+  let w74 := GateOp.or.eval [z 15, z 16]
+  let w75 := GateOp.or.eval [w74, z 17]
+  let w76 := GateOp.or.eval [w75, z 18]
+  let w77 := GateOp.or.eval [w76, z 19]
+  let w78 := GateOp.or.eval [z 20, z 21]
+  let w79 := GateOp.or.eval [w78, z 22]
+  let w80 := GateOp.or.eval [w79, z 23]
+  let w81 := GateOp.or.eval [w80, z 24]
+  let w82 := GateOp.or.eval [z 0, z 5]
+  let w83 := GateOp.or.eval [w82, z 10]
+  let w84 := GateOp.or.eval [w83, z 15]
+  let w85 := GateOp.or.eval [w84, z 20]
+  let w86 := GateOp.or.eval [z 1, z 6]
+  let w87 := GateOp.or.eval [w86, z 11]
+  let w88 := GateOp.or.eval [w87, z 16]
+  let w89 := GateOp.or.eval [w88, z 21]
+  let w90 := GateOp.or.eval [z 2, z 7]
+  let w91 := GateOp.or.eval [w90, z 12]
+  let w92 := GateOp.or.eval [w91, z 17]
+  let w93 := GateOp.or.eval [w92, z 22]
+  let w94 := GateOp.or.eval [z 3, z 8]
+  let w95 := GateOp.or.eval [w94, z 13]
+  let w96 := GateOp.or.eval [w95, z 18]
+  let w97 := GateOp.or.eval [w96, z 23]
+  let w98 := GateOp.or.eval [z 4, z 9]
+  let w99 := GateOp.or.eval [w98, z 14]
+  let w100 := GateOp.or.eval [w99, z 19]
+  let w101 := GateOp.or.eval [w100, z 24]
+  let w102 := GateOp.or.eval [z 31, z 32]
+  let w103 := GateOp.or.eval [w102, z 33]
+  let w104 := GateOp.or.eval [w103, z 34]
+  let w105 := GateOp.or.eval [w104, z 35]
+  let w106 := GateOp.or.eval [z 36, z 37]
+  let w107 := GateOp.or.eval [w106, z 38]
+  let w108 := GateOp.or.eval [w107, z 39]
+  let w109 := GateOp.or.eval [w108, z 40]
+  let w110 := GateOp.or.eval [z 41, z 42]
+  let w111 := GateOp.or.eval [w110, z 43]
+  let w112 := GateOp.or.eval [w111, z 44]
+  let w113 := GateOp.or.eval [w112, z 45]
+  let w114 := GateOp.or.eval [z 46, z 47]
+  let w115 := GateOp.or.eval [w114, z 48]
+  let w116 := GateOp.or.eval [w115, z 49]
+  let w117 := GateOp.or.eval [w116, z 50]
+  let w118 := GateOp.or.eval [z 51, z 52]
+  let w119 := GateOp.or.eval [w118, z 53]
+  let w120 := GateOp.or.eval [w119, z 54]
+  let w121 := GateOp.or.eval [w120, z 55]
+  let w122 := GateOp.or.eval [z 31, z 36]
+  let w123 := GateOp.or.eval [w122, z 41]
+  let w124 := GateOp.or.eval [w123, z 46]
+  let w125 := GateOp.or.eval [w124, z 51]
+  let w126 := GateOp.or.eval [z 32, z 37]
+  let w127 := GateOp.or.eval [w126, z 42]
+  let w128 := GateOp.or.eval [w127, z 47]
+  let w129 := GateOp.or.eval [w128, z 52]
+  let w130 := GateOp.or.eval [z 33, z 38]
+  let w131 := GateOp.or.eval [w130, z 43]
+  let w132 := GateOp.or.eval [w131, z 48]
+  let w133 := GateOp.or.eval [w132, z 53]
+  let w134 := GateOp.or.eval [z 34, z 39]
+  let w135 := GateOp.or.eval [w134, z 44]
+  let w136 := GateOp.or.eval [w135, z 49]
+  let w137 := GateOp.or.eval [w136, z 54]
+  let w138 := GateOp.or.eval [z 35, z 40]
+  let w139 := GateOp.or.eval [w138, z 45]
+  let w140 := GateOp.or.eval [w139, z 50]
+  let w141 := GateOp.or.eval [w140, z 55]
+  let w142 := GateOp.and.eval [w65, w105]
+  let w143 := GateOp.and.eval [w65, w109]
+  let w144 := GateOp.and.eval [w65, w113]
+  let w145 := GateOp.and.eval [w65, w117]
+  let w146 := GateOp.and.eval [w65, w121]
+  let w147 := GateOp.and.eval [w69, w105]
+  let w148 := GateOp.and.eval [w73, w105]
+  let w149 := GateOp.and.eval [w77, w105]
+  let w150 := GateOp.and.eval [w81, w105]
+  let w151 := GateOp.or.eval [w142, w143]
+  let w152 := GateOp.or.eval [w151, w144]
+  let w153 := GateOp.or.eval [w152, w145]
+  let w154 := GateOp.or.eval [w153, w146]
+  let w155 := GateOp.or.eval [w154, w147]
+  let w156 := GateOp.or.eval [w155, w148]
+  let w157 := GateOp.or.eval [w156, w149]
+  let w158 := GateOp.or.eval [w157, w150]
+  let w159 := GateOp.and.eval [w69, w109]
+  let w160 := GateOp.and.eval [w73, w117]
+  let w161 := GateOp.and.eval [w77, w113]
+  let w162 := GateOp.and.eval [w81, w121]
+  let w163 := GateOp.or.eval [w159, w160]
+  let w164 := GateOp.or.eval [w163, w161]
+  let w165 := GateOp.or.eval [w164, w162]
+  let w166 := GateOp.and.eval [w69, w113]
+  let w167 := GateOp.and.eval [w73, w109]
+  let w168 := GateOp.and.eval [w77, w121]
+  let w169 := GateOp.and.eval [w81, w117]
+  let w170 := GateOp.or.eval [w166, w167]
+  let w171 := GateOp.or.eval [w170, w168]
+  let w172 := GateOp.or.eval [w171, w169]
+  let w173 := GateOp.and.eval [w69, w117]
+  let w174 := GateOp.and.eval [w73, w121]
+  let w175 := GateOp.and.eval [w77, w109]
+  let w176 := GateOp.and.eval [w81, w113]
+  let w177 := GateOp.or.eval [w173, w174]
+  let w178 := GateOp.or.eval [w177, w175]
+  let w179 := GateOp.or.eval [w178, w176]
+  let w180 := GateOp.and.eval [w69, w121]
+  let w181 := GateOp.and.eval [w73, w113]
+  let w182 := GateOp.and.eval [w77, w117]
+  let w183 := GateOp.and.eval [w81, w109]
+  let w184 := GateOp.or.eval [w180, w181]
+  let w185 := GateOp.or.eval [w184, w182]
+  let w186 := GateOp.or.eval [w185, w183]
+  let w187 := GateOp.and.eval [w158, w125]
+  let w188 := GateOp.and.eval [w165, w141]
+  let w189 := GateOp.and.eval [w172, w137]
+  let w190 := GateOp.and.eval [w179, w133]
+  let w191 := GateOp.and.eval [w186, w129]
+  let w192 := GateOp.or.eval [w187, w188]
+  let w193 := GateOp.or.eval [w192, w189]
+  let w194 := GateOp.or.eval [w193, w190]
+  let w195 := GateOp.or.eval [w194, w191]
+  let w196 := GateOp.and.eval [w158, w129]
+  let w197 := GateOp.and.eval [w165, w125]
+  let w198 := GateOp.and.eval [w172, w141]
+  let w199 := GateOp.and.eval [w179, w137]
+  let w200 := GateOp.and.eval [w186, w133]
+  let w201 := GateOp.or.eval [w196, w197]
+  let w202 := GateOp.or.eval [w201, w198]
+  let w203 := GateOp.or.eval [w202, w199]
+  let w204 := GateOp.or.eval [w203, w200]
+  let w205 := GateOp.and.eval [w158, w133]
+  let w206 := GateOp.and.eval [w165, w129]
+  let w207 := GateOp.and.eval [w172, w125]
+  let w208 := GateOp.and.eval [w179, w141]
+  let w209 := GateOp.and.eval [w186, w137]
+  let w210 := GateOp.or.eval [w205, w206]
+  let w211 := GateOp.or.eval [w210, w207]
+  let w212 := GateOp.or.eval [w211, w208]
+  let w213 := GateOp.or.eval [w212, w209]
+  let w214 := GateOp.and.eval [w158, w137]
+  let w215 := GateOp.and.eval [w165, w133]
+  let w216 := GateOp.and.eval [w172, w129]
+  let w217 := GateOp.and.eval [w179, w125]
+  let w218 := GateOp.and.eval [w186, w141]
+  let w219 := GateOp.or.eval [w214, w215]
+  let w220 := GateOp.or.eval [w219, w216]
+  let w221 := GateOp.or.eval [w220, w217]
+  let w222 := GateOp.or.eval [w221, w218]
+  let w223 := GateOp.and.eval [w158, w141]
+  let w224 := GateOp.and.eval [w165, w137]
+  let w225 := GateOp.and.eval [w172, w133]
+  let w226 := GateOp.and.eval [w179, w129]
+  let w227 := GateOp.and.eval [w186, w125]
+  let w228 := GateOp.or.eval [w223, w224]
+  let w229 := GateOp.or.eval [w228, w225]
+  let w230 := GateOp.or.eval [w229, w226]
+  let w231 := GateOp.or.eval [w230, w227]
+  let w232 := GateOp.and.eval [w195, w85]
+  let w233 := GateOp.and.eval [w204, w89]
+  let w234 := GateOp.and.eval [w213, w93]
+  let w235 := GateOp.and.eval [w222, w97]
+  let w236 := GateOp.and.eval [w231, w101]
+  let w237 := GateOp.or.eval [w232, w233]
+  let w238 := GateOp.or.eval [w237, w234]
+  let w239 := GateOp.or.eval [w238, w235]
+  let w240 := GateOp.or.eval [w239, w236]
+  let w241 := GateOp.and.eval [w65, z 56]
+  let w242 := GateOp.and.eval [w69, z 57]
+  let w243 := GateOp.and.eval [w73, z 58]
+  let w244 := GateOp.and.eval [w77, z 59]
+  let w245 := GateOp.and.eval [w81, z 60]
+  let w246 := GateOp.or.eval [w241, w242]
+  let w247 := GateOp.or.eval [w246, w243]
+  let w248 := GateOp.or.eval [w247, w244]
+  let w249 := GateOp.or.eval [w248, w245]
+  let w250 := GateOp.and.eval [z 25, w105]
+  let w251 := GateOp.and.eval [z 26, w109]
+  let w252 := GateOp.and.eval [z 27, w113]
+  let w253 := GateOp.and.eval [z 28, w117]
+  let w254 := GateOp.and.eval [z 29, w121]
+  let w255 := GateOp.or.eval [w250, w251]
+  let w256 := GateOp.or.eval [w255, w252]
+  let w257 := GateOp.or.eval [w256, w253]
+  let w258 := GateOp.or.eval [w257, w254]
+  let w259 := GateOp.or.eval [z 25, z 26]
+  let w260 := GateOp.or.eval [w259, z 27]
+  let w261 := GateOp.or.eval [w260, z 28]
+  let w262 := GateOp.or.eval [w261, z 29]
+  let w263 := GateOp.or.eval [w262, z 30]
+  let w264 := GateOp.and.eval [w263, z 61]
+  let w265 := GateOp.or.eval [z 56, z 57]
+  let w266 := GateOp.or.eval [w265, z 58]
+  let w267 := GateOp.or.eval [w266, z 59]
+  let w268 := GateOp.or.eval [w267, z 60]
+  let w269 := GateOp.and.eval [z 30, w268]
+  let w270 := GateOp.or.eval [w240, w249]
+  let w271 := GateOp.or.eval [w270, w258]
+  let w272 := GateOp.or.eval [w271, w264]
+  let w273 := GateOp.or.eval [w272, w269]
+  w273
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 400000 in
+lemma eval_eq_fastEval (z : Fin 62 → Bool) :
+    circuitFun 62 circuit z = fastEval z := by
+  rfl
+
+
+def backwardCheck (n : ℕ) : List Gate → Bool
+  | [] => true
+  | g :: gs => g.inputs.all (fun w => decide (w < n)) && backwardCheck (n + 1) gs
+
+lemma backwardCheck_sound (n : ℕ) (gs : List Gate) (out : ℕ)
+    (h : backwardCheck n gs = true) : ReadsBack n ⟨gs, out⟩ := by
+  intro j hj w hw
+  induction gs generalizing n j with
+  | nil => simp at hj
+  | cons g gs ih =>
+    have hc : g.inputs.all (fun w => decide (w < n)) = true ∧
+        backwardCheck (n + 1) gs = true := by
+      simpa only [backwardCheck, Bool.and_eq_true] using h
+    cases j with
+    | zero =>
+      simp only [gateAt, List.getD_cons_zero] at hw
+      have hh := List.all_eq_true.mp hc.1 w hw
+      simpa using hh
+    | succ j =>
+      have hj' : j < gs.length := by simpa using hj
+      have hw' : w ∈ (gateAt ⟨gs, out⟩ j).inputs := by
+        simpa [gateAt] using hw
+      have hh := ih (n + 1) hc.2 j hj' hw'
+      omega
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000 in
+lemma circuit_ao : PEqualNP.TopForm.IsAO2 62 circuit := by
+  refine ⟨?_, backwardCheck_sound 62 circuit.gates circuit.output (by decide +kernel), ?_⟩
+  · decide +kernel
+  · decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 1000000 in
+lemma plane_columns : ∀ l : Fin 31,
+    (Finset.univ.filter fun p => incidence p l).card = 6 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 4000000 in
+lemma plane_unique_line : ∀ p p' : Fin 31, p ≠ p' →
+    ∃! l : Fin 31, incidence p l ∧ incidence p' l := by
+  unfold ExistsUnique
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 4000000 in
+lemma pair_row_zero : ∀ l : Fin 31,
+    circuitFun 62 circuit (pairInput (Fin.castAdd 31 (0 : Fin 31)) (Fin.natAdd 31 l)) =
+      decide (incidence 0 l) := by
+  simp only [eval_eq_fastEval]
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 4000000 in
+lemma false_positive :
+    circuitFun 62 circuit (fun i => decide (i.val = 5 ∨ i.val = 32 ∨ i.val = 36)) = true ∧
+    ¬ ∃ p l : Fin 31, incidence p l ∧
+      (p.val = 5 ∨ p.val = 32 ∨ p.val = 36) ∧
+      (31 + l.val = 5 ∨ 31 + l.val = 32 ∨ 31 + l.val = 36) := by
+  simp only [eval_eq_fastEval]
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_2583.PairLookup

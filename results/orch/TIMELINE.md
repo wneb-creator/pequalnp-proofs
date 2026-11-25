@@ -31,3 +31,5 @@
 - 2026-11-25 10:11:15 UTC: checkpoint10 preserves generic unrestricted surplus lower bound and kernel-checked q5 geometry/control. Independent review passed; exact assigned theorem remains unproved.
 
 - 2026-11-25 10:17:25 UTC: checkpoint11 namedbuild passes after unrestricted3N−1 integration. Independent reviewpassed. Fourthreplan adds conicrestriction andBooleanidentity strategies; incrementalq3SATcontinues.
+
+- 2026-11-25 10:31:41 UTC: checkpoint12 preserves compiled q3 verification interfaces and numeric64-gatecontrol; global63 fixed-operation SAT rewiring is active. Repaired dominator argument independently reviewed as mathematics only.
