@@ -1,0 +1,8 @@
+{"starting": true, "n": 7, "size": 6, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 6, "mode": "general", "result": "unsat", "seconds": 0.8988650450000932, "tests": 15, "maximal_independent_sets": 7}
+{"starting": true, "n": 7, "size": 7, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 7, "mode": "general", "result": "unsat", "seconds": 15.58786813000006, "tests": 15, "maximal_independent_sets": 7}
+{"starting": true, "n": 7, "size": 8, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 8, "mode": "general", "result": "unknown", "seconds": 30.031617214000107, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout"}
+{"starting": true, "n": 7, "size": 9, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 9, "mode": "general", "result": "unknown", "seconds": 30.065799036000044, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout"}

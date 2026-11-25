@@ -1,0 +1,11 @@
+{"starting": true, "n": 5, "size": 7, "mode": "general", "tests": 10, "maximal_independent_sets": 5}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 7, "mode": "general", "result": "unsat", "seconds": 2.284558693000008, "tests": 10, "maximal_independent_sets": 5, "name": "C5", "maxor": 3}
+{"starting": true, "n": 5, "size": 8, "mode": "general", "tests": 10, "maximal_independent_sets": 5}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 8, "mode": "general", "result": "unsat", "seconds": 5.321527764999928, "tests": 10, "maximal_independent_sets": 5, "name": "C5", "maxor": 3}
+{"starting": true, "n": 5, "size": 9, "mode": "general", "tests": 10, "maximal_independent_sets": 5}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 9, "mode": "general", "result": "unsat", "seconds": 9.855297878999863, "tests": 10, "maximal_independent_sets": 5, "name": "C5", "maxor": 3}
+{"starting": true, "n": 5, "size": 10, "mode": "general", "tests": 10, "maximal_independent_sets": 5}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 10, "mode": "general", "result": "unsat", "seconds": 23.41335187300001, "tests": 10, "maximal_independent_sets": 5, "name": "C5", "maxor": 3}
+{"starting": true, "n": 7, "size": 11, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 11, "mode": "general", "result": "unknown", "seconds": 180.09514194000008, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout", "name": "theta233", "maxor": 6}
+{"starting": true, "n": 7, "size": 12, "mode": "general", "tests": 15, "maximal_independent_sets": 7}

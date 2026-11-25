@@ -1,0 +1,143 @@
+Lean setup and local-checker disk investigation — pequalnp-pilot-55
+
+The advertised warm Lean setup was absent in this execution environment: no lake/elan on PATH, no explicit user .elan binaries, no .pequalnp-prepared marker, and no lean/.lake directory.
+Installed the official pinned Lean 4.36.0 Linux release in task scratch. No repository toolchain, manifest, lakefile, or checker files were changed.
+
+Toolchain executable directory:
+/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin
+
+Validation:
+- Correctly requested cached dependencies by enumerating 71 direct external imports from the project Defs closure, plus narrow proof tactics/graph modules.
+- Forced official cache restoration completed: 2480 cached files.
+- lake --no-build build <71 external roots>: exit 0; All targets up-to-date (4975 jobs).
+- lake build PEqualNP.Defs: exit 0; Build completed successfully (5147 jobs).
+- The final Defs build compiled zero external Mathlib/Batteries/Aesop/Qq modules from source.
+- lake build checklemma: exit 0; Build completed successfully (5 jobs).
+- lake --no-build build checklemma: exit 0.
+- Native checker startup reaches its usage handler; exit 3 with no arguments, as expected.
+
+Setup exception — explicit disclosure:
+Two preliminary Defs build attempts inadvertently compiled 32 distinct Mathlib modules from source, contrary to the requested workflow. Both builds were stopped. The cause was that Mathlib cache filtering does not recurse through PEqualNP project imports; passing PEqualNP/Defs.lean therefore did not obtain the project dependency closure. The corrected forced official-cache download subsequently overwrote these artifacts, and the external --no-build validation passed. No further external source builds were performed.
+
+Incidental source targets:
+- Mathlib.Algebra.BigOperators.Group.Finset.Defs
+- Mathlib.Algebra.Group.Irreducible.Defs
+- Mathlib.Algebra.Group.Irreducible.Lemmas
+- Mathlib.Algebra.Group.Pi.Hom
+- Mathlib.Algebra.Group.Pi.Lemmas
+- Mathlib.Algebra.Prime.Defs
+- Mathlib.Algebra.Prime.Lemmas
+- Mathlib.Data.Finset.Piecewise
+- Mathlib.Data.Int.Notation
+- Mathlib.Data.Nat.BinaryRec
+- Mathlib.Lean.ContextInfo
+- Mathlib.Lean.Elab.InfoTree
+- Mathlib.Lean.Linter
+- Mathlib.Tactic.AdaptationNote
+- Mathlib.Tactic.Eqns
+- Mathlib.Tactic.Linter.DeclType
+- Mathlib.Tactic.Linter.DocPrime
+- Mathlib.Tactic.Linter.DocString
+- Mathlib.Tactic.Linter.HashCommandLinter
+- Mathlib.Tactic.Linter.HaveILetI
+- Mathlib.Tactic.Linter.InternalConstructor
+- Mathlib.Tactic.Linter.PrivateModule
+- Mathlib.Tactic.Linter.Style
+- Mathlib.Tactic.Linter.TacticDocumentation
+- Mathlib.Tactic.MinImports
+- Mathlib.Tactic.OfNat
+- Mathlib.Tactic.Simps.NotationClass
+- Mathlib.Tactic.TacticAnalysis.Declarations
+- Mathlib.Tactic.TypeStar
+- Mathlib.Util.AddRelatedDecl
+- Mathlib.Util.CodeActions
+- Mathlib.Util.ParseCommand
+
+Local checker requirement:
+- tools/check-lean.mjs:116 requires the real prebuilt Mathlib.olean.
+- lean/CheckLemma.lean:355 imports the full Mathlib environment and PEqualNP.Defs when checking the statement.
+- The checker was not changed, bypassed, or supplied with substitute library artifacts.
+
+Exact full-cache footprint measurement:
+All 9117 official cache archives were downloaded without in-place extraction (460999207 compressed bytes). They were extracted in batches of 16 into a disposable scratch directory, measured, and deleted after each batch. This measured every archive and preserved current proof dependencies.
+.c: 9117 files; 515680497 logical bytes; 532000768 allocated bytes.
+.hash: 63819 files; 1021101 logical bytes; 261402624 allocated bytes.
+.ilean: 9117 files; 299863354 logical bytes; 318963712 allocated bytes.
+.ir: 9117 files; 291476320 logical bytes; 310763520 allocated bytes.
+.olean: 9117 files; 1885089800 logical bytes; 1903906816 allocated bytes.
+.private: 9117 files; 3923446032 logical bytes; 3942432768 allocated bytes.
+.server: 9117 files; 111418656 logical bytes; 130113536 allocated bytes.
+.sig: 9117 files; 1604592 logical bytes; 37343232 allocated bytes.
+.trace: 9117 files; 2616579 logical bytes; 37343232 allocated bytes.
+
+Full-cache runtime artifacts (.olean/.private/.server/.ir/.sig): 6324559872 allocated bytes.
+Preserved toolchain runtime artifacts: 2199740416 allocated bytes.
+Required Lean/Lake shared libraries plus native checker: 491368448 allocated bytes.
+Combined minimum under the required runtime-preservation rules: 9015668736 allocated bytes.
+Entire filesystem capacity: 8417406976 bytes.
+Minimum exceeds entire filesystem capacity by 598261760 bytes, before repository sources/history, project artifacts, hash/trace metadata, owner reserve, temporary files, or output logs.
+
+Reinstallable toolchain build/editor/source files measured before removal:
+- static_archives: 427573248 allocated bytes.
+- source_tree: 35803136 allocated bytes.
+- editor_metadata: 95379456 allocated bytes.
+
+The checker links Lean statically; ldd lists only system libc/pthread/dl/rt/math libraries. After building and validating the cached native checker, reinstallable toolchain static archives, source, editor .ilean files, native-C-build LLVM/clang libraries, and the alternate lean4lean executable were removed. Required Lean/Lake runtime libraries and all core .olean/.server/.private/.ir/.sig files were preserved. These removals alone cannot solve the disk-only bound above. A sample scan of the ten largest toolchain .olean.private files found no all-zero 4096-byte blocks to reclaim without changing bytes.
+
+Disk-only conclusion: the full runtime cannot fit on this filesystem under the required preservation rules. This was subsequently resolved using byte-identical sealed memory-backed generated cache files, as documented below. No acceptance for the held gap is claimed.
+
+Complete diagnostic files remain under /tmp/oec/pequalnp-pilot-55/:
+- cache-validate.stdout / cache-validate.stderr
+- defs-build-final.stdout / defs-build-final.stderr
+- checker-build.stdout / checker-build.stderr
+- checker-cached-validate.stdout / checker-cached-validate.stderr
+- checker-ldd.txt / checker-elf-dynamic.txt
+- cache-footprint.json / cache-footprint-extract.stdout / cache-footprint-extract.stderr
+- source-build-exceptions.json
+- defs-build.stdout / defs-build.stderr / defs-build-restored.stdout / defs-build-restored.stderr
+
+No commits or pushes were made by the setup agent.
+
+Memory-backed official cache provisioning (completed)
+
+The root orchestrator requested a memory-backed storage solution. A tiny cross-process fixture first verified ordinary Linux memfd creation, /proc descriptor symlink reading, and mmap. Available memory was checked against the 8GiB cgroup limit. Python lacked named fcntl sealing constants; their values were verified from the installed Linux headers before use.
+
+The keeper copied official generated library artifacts into memfds, verified each SHA256 digest, sealed each descriptor against writes/growth/shrinkage/further seal changes, and atomically replaced only generated cache paths with descriptor symlinks. No Lean source, checker code, build configuration, statement, or artifact bytes were altered. Existing generated files were matched against the official archives before reuse. New unrelated Mathlib modules received their runtime artifacts only; existing narrow-import build artifacts were retained.
+
+Official cache archives processed: 9117.
+Existing runtime files verified against official archives: 12405.
+Missing official runtime files installed: 33180.
+Sealed memory-backed artifacts: 4781 files, 3000852768 bytes.
+Persistent keeper PID: 16142; independent session ID: 16142.
+The persistent keeper adopted the already sealed descriptors without copying their data, reverified all hashes, and atomically updated artifact symlinks. The original foreground keeper was then stopped. The persistent keeper is independent of the setup agent tool session and must remain alive while these cache artifacts are needed.
+
+Keeper control socket: /tmp/oec/pequalnp-pilot-55/memfd-cache.sock
+Authoritative descriptor/hash manifest: /tmp/oec/pequalnp-pilot-55/memfd-cache-manifest.json
+Keeper source: /tmp/oec/pequalnp-pilot-55/memfd_cache_keeper.py
+
+Final provisioning validation:
+- All 4781 memory-backed artifacts passed SHA256 verification after descriptor adoption.
+- lake --no-build build PEqualNP.Defs checklemma: exit 0; All targets up-to-date (5151 jobs).
+- A direct lake env lean load of a scratch file containing only import Mathlib: exit 0; empty stdout and stderr. This passed both before and after persistent-keeper adoption.
+- About 370MB disk space remains; the memory-backed data occupies about 3.01GB of shmem within an 8GiB cgroup limit. Other file-cache memory is reclaimable. Limit unrelated memory-heavy work during a full checker run.
+- No checker acceptance for L-meta-1031 is claimed by these environment checks; the exact proof still needs its normal checker invocation.
+
+Operational constraints:
+- Keep the keeper alive until all Lean/checker operations are finished. Closing it would invalidate generated-cache descriptor symlinks.
+- Keep proof imports narrow. Unrelated Mathlib modules have complete runtime artifacts for the checker, but not their optional build outputs; a broad lake build Mathlib would attempt uncached build work. Before adding a new dependency, validate its cached build state with --no-build and obtain official cache outputs as needed.
+- The native checker is already built and cached. Rebuilding native executables would require restoring removed build-only toolchain archives/libraries from the official release; ordinary Lean proof elaboration and the existing checker work.
+
+Final logs under /tmp/oec/pequalnp-pilot-55/:
+- final-runtime-cached-build.stdout / final-runtime-cached-build.stderr
+- final-runtime-full-load.stdout / final-runtime-full-load.stderr
+- runtime-install-complete.json / runtime-install-extract.stdout / runtime-install-extract.stderr
+- memfd-persistent-validation.json / memfd-detached.stdout / memfd-detached.stderr
+- toolchain-build-only-removed.json / toolchain-native-build-only-removed.json
+
+Native checker build stdout (complete):
+✔ [2/5] Built CheckLemma (8.9s)
+✔ [4/5] Built CheckLemma:c.o (5.0s)
+✔ [5/5] Built checklemma:exe (8.4s)
+Build completed successfully (5 jobs).
+
+Native checker build stderr (complete):

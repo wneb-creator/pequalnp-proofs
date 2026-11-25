@@ -1,0 +1,9 @@
+{"n": 1, "depth": 1, "states": 0, "solved": 1, "targets": 1, "elapsed": 1.3240000015457554e-05}
+{"n": 2, "depth": 1, "states": 2, "solved": 2, "targets": 2, "elapsed": 6.68909999888001e-05}
+{"n": 3, "depth": 1, "states": 6, "solved": 4, "targets": 7, "elapsed": 6.814299999291507e-05}
+{"n": 3, "depth": 2, "states": 27, "solved": 7, "targets": 7, "elapsed": 0.00012319600000409991}
+{"n": 4, "depth": 1, "states": 12, "solved": 7, "targets": 38, "elapsed": 0.0013862490000065009}
+{"n": 4, "depth": 2, "states": 114, "solved": 19, "targets": 38, "elapsed": 0.0015834460000121453}
+{"n": 4, "depth": 3, "states": 988, "solved": 26, "targets": 38, "elapsed": 0.002870195000014064}
+{"n": 4, "depth": 4, "states": 8291, "solved": 38, "targets": 38, "elapsed": 0.01737171999999987}
+{"bad_first_witnesses": []}

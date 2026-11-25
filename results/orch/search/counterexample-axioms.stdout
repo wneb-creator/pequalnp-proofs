@@ -1,0 +1,8 @@
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.size_seven' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.computes_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.every_and_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.monotone_binary' depends on axioms: [propext]

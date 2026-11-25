@@ -1,0 +1,12 @@
+{"starting": true, "n": 7, "size": 10, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 10, "mode": "general", "result": "unknown", "seconds": 120.18300237300002, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout", "name": "theta(2, 3, 3)"}
+{"starting": true, "n": 7, "size": 11, "mode": "unsound", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 11, "mode": "unsound", "result": "unknown", "seconds": 120.12788696999996, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout", "name": "theta(2, 3, 3)"}
+{"starting": true, "n": 8, "size": 11, "mode": "general", "tests": 18, "maximal_independent_sets": 9}
+{"n": 8, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 7], [7, 1]], "size": 11, "mode": "general", "result": "unknown", "seconds": 120.09032578899996, "tests": 18, "maximal_independent_sets": 9, "reason": "timeout", "name": "theta(2, 3, 4)"}
+{"starting": true, "n": 8, "size": 12, "mode": "unsound", "tests": 18, "maximal_independent_sets": 9}
+{"n": 8, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 7], [7, 1]], "size": 12, "mode": "unsound", "result": "unknown", "seconds": 120.09111356799997, "tests": 18, "maximal_independent_sets": 9, "reason": "timeout", "name": "theta(2, 3, 4)"}
+{"starting": true, "n": 8, "size": 11, "mode": "general", "tests": 18, "maximal_independent_sets": 9}
+{"n": 8, "edges": [[0, 2], [2, 3], [3, 1], [0, 4], [4, 5], [5, 1], [0, 6], [6, 7], [7, 1]], "size": 11, "mode": "general", "result": "unknown", "seconds": 120.104706287, "tests": 18, "maximal_independent_sets": 9, "reason": "timeout", "name": "theta(3, 3, 3)"}
+{"starting": true, "n": 8, "size": 12, "mode": "unsound", "tests": 18, "maximal_independent_sets": 9}
+{"n": 8, "edges": [[0, 2], [2, 3], [3, 1], [0, 4], [4, 5], [5, 1], [0, 6], [6, 7], [7, 1]], "size": 12, "mode": "unsound", "result": "unknown", "seconds": 120.07604221099996, "tests": 18, "maximal_independent_sets": 9, "reason": "timeout", "name": "theta(3, 3, 3)"}

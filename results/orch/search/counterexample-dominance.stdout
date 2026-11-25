@@ -1,0 +1,6 @@
+{"starting": true, "n": 7, "size": 10, "mode": "general", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 10, "mode": "general", "result": "unknown", "seconds": 120.270449998, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout", "name": "theta233", "dominance": true}
+{"starting": true, "n": 7, "size": 11, "mode": "unsound", "tests": 15, "maximal_independent_sets": 7}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "size": 11, "mode": "unsound", "result": "unknown", "seconds": 120.14775557400003, "tests": 15, "maximal_independent_sets": 7, "reason": "timeout", "name": "theta233", "dominance": true}
+{"starting": true, "n": 10, "size": 19, "mode": "general", "tests": 30, "maximal_independent_sets": 15}
+{"n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "size": 19, "mode": "general", "result": "unknown", "seconds": 120.47043244100018, "tests": 30, "maximal_independent_sets": 15, "reason": "timeout", "name": "Petersen", "dominance": true}

@@ -1,0 +1,8 @@
+{"starting": true, "n": 5, "max_and": 2, "tests": 10, "unlimited_or": true}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "max_and": 2, "tests": 10, "unlimited_or": true, "result": "unsat", "seconds": 0.2216820109999844, "name": "C5", "vertex_cover_number": 3}
+{"starting": true, "n": 7, "max_and": 3, "tests": 15, "unlimited_or": true}
+{"n": 7, "edges": [[0, 2], [2, 1], [0, 3], [3, 4], [4, 1], [0, 5], [5, 6], [6, 1]], "max_and": 3, "tests": 15, "unlimited_or": true, "result": "unsat", "seconds": 0.08239134699988426, "name": "theta233", "vertex_cover_number": 4}
+{"starting": true, "n": 10, "max_and": 5, "tests": 30, "unlimited_or": true}
+{"n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "max_and": 5, "tests": 30, "unlimited_or": true, "result": "unknown", "seconds": 180.02099225799998, "reason": "timeout", "name": "Petersen", "vertex_cover_number": 6}
+{"starting": true, "n": 14, "max_and": 6, "tests": 58, "unlimited_or": true}
+{"n": 14, "edges": [[0, 7], [1, 7], [3, 7], [1, 8], [2, 8], [4, 8], [2, 9], [3, 9], [5, 9], [3, 10], [4, 10], [6, 10], [0, 11], [4, 11], [5, 11], [1, 12], [5, 12], [6, 12], [0, 13], [2, 13], [6, 13]], "max_and": 6, "tests": 58, "unlimited_or": true, "result": "unknown", "seconds": 180.0906075349999, "reason": "timeout", "name": "Fano", "vertex_cover_number": 7}

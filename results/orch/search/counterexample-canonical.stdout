@@ -1,0 +1,2 @@
+{"name": "theta233", "first_pair_reps": [[0, 1], [0, 2], [0, 3], [0, 4], [2, 3], [3, 4], [3, 5], [3, 6]], "automorphisms": 4}
+{"starting": true, "n": 7, "size": 10, "mode": "general", "tests": 15, "maximal_independent_sets": 7}

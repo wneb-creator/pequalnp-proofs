@@ -1,0 +1,10 @@
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4]], "size": 4, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.10592042799999035, "name": "P5", "symmetry": false}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 4, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.025634743000011895, "name": "C5", "symmetry": false}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 5, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.06224706000000424, "name": "C5", "symmetry": false}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "size": 6, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.3955060499999945, "name": "C5", "symmetry": false}
+{"n": 5, "edges": [[0, 1], [0, 2], [0, 3], [3, 4]], "size": 4, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.019465035999985503, "name": "fork5", "symmetry": false}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5]], "size": 5, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.08663769800000409, "name": "P6", "symmetry": false}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5]], "size": 6, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.5186238370000069, "name": "P6", "symmetry": false}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "size": 5, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.09831920200002742, "name": "C6", "symmetry": false}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "size": 6, "sound": false, "unsound": false, "result": "unsat", "seconds": 0.7158925649999901, "name": "C6", "symmetry": false}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "size": 7, "sound": false, "unsound": false, "result": "unsat", "seconds": 8.717690534000042, "name": "C6", "symmetry": false}

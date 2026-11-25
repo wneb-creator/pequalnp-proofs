@@ -1,0 +1,561 @@
+L-meta-1031 partial-helper axiom audit
+UTC: 2026-11-25T01:32:22.441443+00:00
+Verdict: PASS for all audited declarations and exact source snapshots below.
+Scope: 15 current helper source files, 188 lemma/theorem declarations, plus the stronger signed-normalization snapshot (58 declarations, including 6 new names).
+Total successful axiom print records: 246.
+Allowed axioms: propext, Classical.choice, Quot.sound.
+Observed union: Classical.choice, Quot.sound, propext. No other axioms were reported.
+Every Lean invocation exited 0. Every expected declaration had exactly one axiom report. All stderr streams were empty.
+Method: exact source copies under task scratch, with #print axioms commands appended only to those scratch copies; original repository Lean files were not modified for this audit.
+The stronger signed-normalization source was /tmp/oec/pequalnp-pilot-55/signed-normalization.lean and is intended to replace results/orch/lemmas/signed_domination.lean after the preceding push.
+This audits partial helper declarations only; it is not a proof or local-checker verdict for the full posted gap.
+
+CURRENT SOURCE HASHES AT AUDIT COMPLETION
+results/orch/lemmas/signed_domination.lean  sha256=bf430654f61ff66332359698d55221bfd179f12852080d40cb9dbc4b86a202f6
+results/orch/lemmas/one_dirty_graph.lean  sha256=9e24169e6ab63603ea5e881d7929b2c154c6aa2c621838be47f2cd203c6f8723
+results/orch/lemmas/star_cover_dichotomy.lean  sha256=4c48a0d2bd6fe16f422e3fa8157c127fe9c99ec5916d685db44e5af2ec901c0d
+results/orch/lemmas/exchange_family.lean  sha256=de59e8ada19df940407035ee4741c09d77da034c27d807eb1b995aff94e52937
+results/orch/lemmas/finite_certificate.lean  sha256=3c353cb017becfc8d04e520d02a61cf143ed8430cbdb060755f94883f1d9dabd
+results/orch/lemmas/exchange_context.lean  sha256=09a71bf5ce20a1b1476b14a329227efa3d05fe104577a1937b086f291c06a2d1
+results/orch/lemmas/exchange_circuit.lean  sha256=c719e3a6c56dbac90cef3c45130d67e556762bfd3725858717fa7dced3dea861
+results/orch/lemmas/owner_inputs.lean  sha256=3bcb8a8c78ce9e00bec4d81d55b39069acd8668ddf58aae9443da221c1cadb6b
+results/orch/lemmas/circuit_monotone.lean  sha256=dde4c7a0b040cd75007531ec20d23660a0603c6d1890df77865fb2ba6bae8168
+results/orch/lemmas/normal_form.lean  sha256=2b53479031c968b45e1d0e0c48fd2ff1525641757538e6e8da994ef654bb6bbe
+results/orch/lemmas/exchange.lean  sha256=c6d1cb1f58122a69b35de11ae1d947f71ba14eb36f87b73703a1d3dab61045b7
+results/orch/lemmas/checker_review.lean  sha256=a35d17f8743b866e7efd9645646ba25ae906f94a4a34df24d745a9a575ec2b7f
+results/orch/lemmas/exchange_residue.lean  sha256=267f25807e164e012f0dcae09f90d2d45576cda21a1bd9540f23184357a33d7b
+results/orch/lemmas/counterexample.lean  sha256=214fa068b723f923e477bc5d18e3ba797370926ab66c9e9aafb046b4dfc52798
+results/orch/lemmas/boundary_certificate.lean  sha256=06f7da59e765f0c41c431963ab6702cfb3fa6c22ea77c6ac4f33cb2538a79c2b
+
+COMPLETE LEAN STDOUT AND STDERR FOR EACH SNAPSHOT
+
+==== results/orch/lemmas/signed_domination.lean (current snapshot) ====
+source_sha256=bf430654f61ff66332359698d55221bfd179f12852080d40cb9dbc4b86a202f6
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/signed_domination.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/signed_domination.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=16.48 declarations=52
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031.SignedDomination.wires_eq_foldl' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_getD_lt2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.getD_ge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_getD_gate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.eval_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_imp' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_output' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_bypass' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_val_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_self' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_lt_self' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_gt_self' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_rel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_unread' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_AO' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_mem' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_readsBack' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.erase_eq_bypass' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.mono_ops' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.wire_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.circuit_monotone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_reverse' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.graph_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.pair_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.boundary_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.signed_domination_impossible_with_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.signed_domination_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_operand_negative_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_operand_positive_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.sound_wire_not_and_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.gate_positive_edge_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_inputs_earlier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_has_another_operand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_has_another_earlier_operand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.list_eq_pair_of_distinct_mem' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_inputs_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_inputs_nil_or_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/one_dirty_graph.lean (current snapshot) ====
+source_sha256=9e24169e6ab63603ea5e881d7929b2c154c6aa2c621838be47f2cd203c6f8723
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/one_dirty_graph.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/one_dirty_graph.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=7.28 declarations=9
+allowed_axioms_check=PASS observed=Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.hasEdge_pair_iff' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.no_shared_literal_support' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.shared_monotone_signal_false_on_singletons' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.shared_or_signal_has_no_literal_branch' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.shared_product_edges_have_two_centers' depends on axioms: [propext,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.starProjection_below_product' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.starProjection_sound' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.starProjection_preserves_graph_pairs' depends on axioms: [propext,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph.single_star_replacement' depends on axioms: [propext]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/star_cover_dichotomy.lean (current snapshot) ====
+source_sha256=4c48a0d2bd6fe16f422e3fa8157c127fe9c99ec5916d685db44e5af2ec901c0d
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/star_cover_dichotomy.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/star_cover_dichotomy.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=10.09 declarations=2
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+/tmp/oec/pequalnp-pilot-55/axiom-audit/star_cover_dichotomy.lean:30:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'PEqualNP.Outside.L_meta_1031_aux.StarCover.edge_of_two_centers' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.StarCover.adjacent_double_cover_collapses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/exchange_family.lean (current snapshot) ====
+source_sha256=de59e8ada19df940407035ee4741c09d77da034c27d807eb1b995aff94e52937
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_family.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_family.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=15.8 declarations=2
+allowed_axioms_check=PASS observed=Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeFamily.filtered_rectangles' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeFamily.nonempty_gate_budget' depends on axioms: [propext, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/finite_certificate.lean (current snapshot) ====
+source_sha256=3c353cb017becfc8d04e520d02a61cf143ed8430cbdb060755f94883f1d9dabd
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/finite_certificate.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/finite_certificate.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=10.4 declarations=7
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.boundary_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.snoc_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.gate_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.fold_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.circuit_monotone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.maximal_independent_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.circuit_boundary_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/exchange_context.lean (current snapshot) ====
+source_sha256=09a71bf5ce20a1b1476b14a329227efa3d05fe104577a1937b086f291c06a2d1
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_context.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_context.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=12.69 declarations=16
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.snoc_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.gate_agree' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.run_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.run_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.run_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.getD_snoc_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.getD_twosnoc_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.getD_twosnoc_last' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.run_before' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.run_after' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.three_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.double_star' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.fragment_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.exchange_suffix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.exchange_context' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeContext.exchange_size' depends on axioms: [propext]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/exchange_circuit.lean (current snapshot) ====
+source_sha256=c719e3a6c56dbac90cef3c45130d67e556762bfd3725858717fa7dced3dea861
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_circuit.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_circuit.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=12.3 declarations=5
+allowed_axioms_check=PASS observed=propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeCircuit.before_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeCircuit.after_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeCircuit.before_binary_monotone' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeCircuit.after_binary_monotone' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeCircuit.eval_eq_of_implies' depends on axioms: [propext]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/owner_inputs.lean (current snapshot) ====
+source_sha256=3bcb8a8c78ce9e00bec4d81d55b39069acd8668ddf58aae9443da221c1cadb6b
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/owner_inputs.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/owner_inputs.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=7.3 declarations=24
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.eval_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.wf_snoc' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.wf_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.wf_keep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.wf_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.getD_snoc_lt' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.getD_snoc_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.wire_take' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.gate_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.iv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.val_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.val_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.split_gates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.coneFold_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.coneStep_getD_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.coneStep_getD_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.coneFold_getD_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OwnerInputs.inCone_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.owner_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/circuit_monotone.lean (current snapshot) ====
+source_sha256=dde4c7a0b040cd75007531ec20d23660a0603c6d1890df77865fb2ba6bae8168
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/circuit_monotone.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/circuit_monotone.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=10.1 declarations=4
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.snoc_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.gate_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.fold_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CircuitBoundary.circuit_monotone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/normal_form.lean (current snapshot) ====
+source_sha256=2b53479031c968b45e1d0e0c48fd2ff1525641757538e6e8da994ef654bb6bbe
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/normal_form.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/normal_form.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=17.66 declarations=50
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+/tmp/oec/pequalnp-pilot-55/axiom-audit/normal_form.lean:898:56: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'PEqualNP.Outside.L_meta_1031.Cleanup.eval_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.wf_snoc' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.wf_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.wf_keep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.wf_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.getD_snoc_lt' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.getD_snoc_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.wire_take' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.gate_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.iv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.val_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.val_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.split_gates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.coneFold_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.coneStep_getD_last' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.coneStep_getD_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.coneFold_getD_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.inCone_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.legal_of' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031.Cleanup.inCone_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.pi_symm' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.pi_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.pi_le' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.F_single' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.soundw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.trans_gen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.step_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.two_mem' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.er_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.er_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.er_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.rd_small' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.rd_at' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.Cleanup.rd_succ' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.rd_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.er_pre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.erase_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.conv_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.lift_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.fix_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.pure_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup.own_edge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.Cleanup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.sound_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.sound_minimum_suffices' depends on axioms: [propext, Classical.choice, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/exchange.lean (current snapshot) ====
+source_sha256=c6d1cb1f58122a69b35de11ae1d947f71ba14eb36f87b73703a1d3dab61045b7
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/exchange.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/exchange.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=3.23 declarations=6
+allowed_axioms_check=PASS observed=(none)
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.rotate_and' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.rotate_or_of_implies' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.double_star_exchange' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.filter_left_unique' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.filter_right_unique' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.Exchange.double_star_exchange_of_implies' does not depend on any axioms
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/checker_review.lean (current snapshot) ====
+source_sha256=a35d17f8743b866e7efd9645646ba25ae906f94a4a34df24d745a9a575ec2b7f
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/checker_review.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/checker_review.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=6.65 declarations=4
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.PivotalObstruction.chain_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.PivotalObstruction.chain_computes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.PivotalObstruction.each_gate_pivotal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.PivotalObstruction.last_gate_owns_nothing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/exchange_residue.lean (current snapshot) ====
+source_sha256=267f25807e164e012f0dcae09f90d2d45576cda21a1bd9540f23184357a33d7b
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_residue.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/exchange_residue.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=9.61 declarations=2
+allowed_axioms_check=PASS observed=propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeResidue.triple_edge' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.ExchangeResidue.shared_nonedge_pair_splits' depends on axioms: [propext]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/counterexample.lean (current snapshot) ====
+source_sha256=214fa068b723f923e477bc5d18e3ba797370926ab66c9e9aafb046b4dfc52798
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/counterexample.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/counterexample.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=11.74 declarations=4
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.size_seven' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.computes_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.every_and_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.monotone_binary' depends on axioms: [propext]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/boundary_certificate.lean (current snapshot) ====
+source_sha256=06f7da59e765f0c41c431963ab6702cfb3fa6c22ea77c6ac4f33cb2538a79c2b
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/boundary_certificate.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/boundary_certificate.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=6.19 declarations=1
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031_aux.boundary_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
+
+==== results/orch/lemmas/signed_domination.lean (pending stronger normalization) ====
+source_sha256=4ed1404535f82c6e564d0a4dc577fa52e212734cb9a2e962f6f03c91dc83c556
+snapshot=/tmp/oec/pequalnp-pilot-55/axiom-audit/signed_normalization_pending.lean
+command=/tmp/oec/pequalnp-pilot-55/lean-4.36.0-linux/bin/lake env lean /tmp/oec/pequalnp-pilot-55/axiom-audit/signed_normalization_pending.lean
+workdir=/workspace/pequalnp-proofs/lean
+exit_code=0 elapsed_seconds=12.69 declarations=58
+allowed_axioms_check=PASS observed=Classical.choice, Quot.sound, propext
+STDOUT BEGIN
+'PEqualNP.Outside.L_meta_1031.SignedDomination.wires_eq_foldl' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_getD_lt2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.getD_ge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.foldl_getD_gate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.eval_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_imp' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.val_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_output' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.gateAt_bypass' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_val_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_self' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_lt_self' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_gt_self' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_rel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_rel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_eval_unread' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_AO' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_mem' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.aliasWire_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_readsBack' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.erase_eq_bypass' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.mono_ops' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.wire_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.circuit_monotone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.opMono_reverse' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.bypass_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.graph_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.pair_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.boundary_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.signed_domination_impossible_with_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.signed_domination_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_operand_negative_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_operand_positive_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.sound_wire_not_and_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.gate_positive_edge_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_inputs_earlier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_has_another_operand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_has_another_earlier_operand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.SignedDomination.list_eq_pair_of_distinct_mem' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.or_inputs_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.and_inputs_nil_or_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.constant_true_wire_not_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.gate_not_constant_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.gate_inputs_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.minimum_isAO2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.minimum_isLeastAO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.gate_false_on_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+STDOUT END
+STDERR BEGIN
+
+STDERR END
