@@ -15,3 +15,60 @@ Lines: 90; cleanup pass for full proof not applicable yet.
 
 Sub-agents: 5 (status/library and decomposition; proof strategy and normalization; toolchain and review; counterexample/SAT; few-NOT/SAT audit)
 TIMING total=12.8 subagents=5
+
+Checkpoint 2: 2026-11-25T14:03:04.630456+00:00
+
+Artifact: results/orch/lemmas/NormalizeForSat.lean
+SHA256: 882600185b3c5596d8bfa82251ee3bb6100601a9c2c43633526da855e572a71f
+Lines: 183
+Build: lake env lean ../results/orch/lemmas/NormalizeForSat.lean (workdir lean/), exit 0.
+Independent review: status_1035 and/or proof_strategy mathematical and plain-file review; root source inspection.
+Compiler stdout (complete):
+../results/orch/lemmas/NormalizeForSat.lean:96:203: warning: This simp argument is unused:
+  Bool.and_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.or_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/NormalizeForSat.lean:96:218: warning: This simp argument is unused:
+  Bool.or_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [canonicalGate, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.headD_cons, readValue h, Bool.and_true, Bool.or_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+Compiler stderr (complete):
+
+Artifact: results/orch/lemmas/TruncateForSat.lean
+SHA256: 52b2ab8463c43c5652569e40a6a295d9e284976fd86c52751ba8e6560adc87cc
+Lines: 111
+Build: lake env lean ../results/orch/lemmas/TruncateForSat.lean (workdir lean/), exit 0.
+Independent review: status_1035 and/or proof_strategy mathematical and plain-file review; root source inspection.
+Compiler stdout (complete):
+../results/orch/lemmas/TruncateForSat.lean:15:10: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+Compiler stderr (complete):
+
+Artifact: results/orch/lemmas/DeadNotPad.lean
+SHA256: b8c81b0f9cb972718c5bf9c91c5967b760c9e5cbbe329e2b443d4ea6599d0e4e
+Lines: 92
+Build: lake env lean ../results/orch/lemmas/DeadNotPad.lean (workdir lean/), exit 0.
+Independent review: status_1035 and/or proof_strategy mathematical and plain-file review; root source inspection.
+Compiler stdout (complete):
+
+Compiler stderr (complete):
+Empty (combined compiler stream above).
+
+These are semantic normalization components, not a proof of the posted lower bound. The full-gap checker remains NOT RUN.
+Sub-agents: 5 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit)
+TIMING total=18.1 subagents=5
