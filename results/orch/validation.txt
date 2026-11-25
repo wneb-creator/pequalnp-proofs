@@ -112,3 +112,12 @@ Compiled and independently reviewed PASS: exhaustive suppliedOR first-nonOR excl
 Broad search archive independently reviewedPASS:117962clauses5832variables, full94-row CNF, complete600secondUNKNOWN logs, rejected870-error candidate, four-error warm control. No valid counterexample.
 Sub-agents:6
 TIMING total=99 subagents=6
+
+V2 FULLBUILD PASSED exit0:834seconds, Build completed successfully(5149jobs);7652lines421238bytes, reviewedhash unchanged.
+MonoNine standalone and MonoNineBridge compiledPASS; closedmonotone9floor16 and actual9floor16 now checked. MonoNine.lower16 axioms are only propext,Classical.choice,Quot.sound; prior conditional genericfloors can now be instantiated.
+Officialchecker attempted, exit3: CHECKER FAULT: the prebuilt Mathlib cache is missing. The required umbrella Mathlib.olean is absent; projecttargetedcache supportedsuccessfulbuilds. This is no proof acceptance/rejection. Exactpostedtheorem stillabsent independently. Cleanup preconditions notmet.
+Secondlease410:1886 renewal rejected despite15:20confirmationof15:40expiry; requiredcurl-si returned410. Fullheaders/body preserved. Workpaused; completedresults beingpushedbeforeauthorizedrecovery.
+Sub-agents:6
+TIMING total=104 subagents=6
+
+V2 actual-module axiom inspection PASS: SourceGuard,SourceEdgeGuard,NegativeSeedTransport use only standard3. All completed endpoint cofactor/deletion/lower components compiled and independently reviewedPASS. Endpoint0 consumed-NOT lower>=19 is conditional on actualNineLower16, now supplied by the separately compiled MonoNineBridge. DeadNOT semantic replacement and monotone compiler components are checked separately; fulldeadNOTwrapper not yet written. No full1886theorem.

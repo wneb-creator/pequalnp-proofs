@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_1886_aux.SourceGuard.maximal_independent_input' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1886_aux.SourceEdgeGuard.minimal_edge_input' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1886_aux.Stronger.NegativeSeedTransport.lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

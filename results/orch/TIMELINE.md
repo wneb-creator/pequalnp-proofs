@@ -186,3 +186,16 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:39:11.360Z historical event: recovery request assigned newOWN L-meta-1886 lease after checked2592 checkpoint push.
 2026-11-25T14:58:01Z observed named1886 v1 fullbuildPASS; exacttheoremabsent.
 2026-11-25T15:14:51.724315+00:00 v2 namedbuild and MonoNine build running; generic monotone components compiled/reviewed; exactgap unresolved.
+
+2026-11-25T15:05:29Z [petersen_search] Ordered monotone OR-bank run ended UNKNOWN; released CPU for root v2 build.
+2026-11-25T15:12:38Z [petersen_search] Broad18-gate CEGIS ended UNKNOWN on94rows after rejecting one model; transferred CPU to local_optimize.
+2026-11-25T15:15:03.236233+00:00 renewed; expiry 2026-11-25T15:35:03.448Z
+
+- 2026-11-25T15:18:10+00:00: reduction_design completed the checked endpoint-NOT consumer-distinctness bridge; both semantic objects exported for restriction compiler composition.
+2026-11-25T15:20:03.949610+00:00 renewed; expiry 2026-11-25T15:40:03.983Z
+
+- 2026-11-25T15:22:57+00:00: reduction_design completed general dead-single-NOT replacement semantics and exported the objects for compiler composition.
+
+2026-11-25T15:22:09Z observed v2 fullbuildPASS(834seconds); exact target absent.
+2026-11-25T15:23:01Z diagnostic renewal confirmed410 despite15:20expiry15:40; allnewworkpaused andtimerstopped.
+2026-11-25T15:28:12.906629+00:00 preserving allcompletedMonoNine/bridge/endpoint components before recoveryrequest.
