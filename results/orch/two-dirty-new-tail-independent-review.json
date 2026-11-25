@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T19:22:49.144817+00:00",
+  "file": "results/orch/lemmas/TwoDirtyNecessary2056.lean",
+  "sha256": "e00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f",
+  "scope": "Independent mathematical/static review of newly added final tail, lines6776-6865; full copied assembly is reviewed separately by status_review.",
+  "verdict": "APPROVED; compilation pending",
+  "checked": [
+    "Exact sum-incidence graph has52 edges. Matching p--(-p) gives13 disjoint edges and the stated label/image proof bounds every vertex cover by13.",
+    "AllCleanBudget gives52+covercard<=size+1, hence64<=size without normalization or singleton assumptions.",
+    "If an AND accepts a singleton, graph singleton-falsity makes it dirty. At-most-one dirty implies every other AND is clean.",
+    "L3653.main hypotheses exactly match AO2, fullcorrectness, bipartiteness,NoFourCycle,liftfixed,NoSoundOperands,alllive,chosenANDdirty,otherANDclean,singletonhit. It yields a no-larger all-clean D, so all_clean_lower transfers to C.",
+    "The complementary singleton-false case uses the already-reviewed OneDirtyPlane theorem.",
+    "Negating existence of two distinct dirtyANDs yields the at-most-one premise;64 lower bound contradicts size<=63."
+  ],
+  "limits": [
+    "Static/source review only, no extra build launched.",
+    "Final two-dirty conclusion remains conditional on AO2,fullgraphcorrectness,lift-fixed,all-live andNoSoundOperands; no unconditional circuit lower-bound or63witness claim."
+  ]
+}

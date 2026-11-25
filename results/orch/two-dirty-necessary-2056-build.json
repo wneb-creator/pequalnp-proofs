@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/TwoDirtyNecessary2056.lean"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-25T19:23:35.605441+00:00",
+  "finished_utc": "2026-11-25T19:25:50.241968+00:00",
+  "elapsed_seconds": 134.6365480639979,
+  "exit_code": 0,
+  "source_sha256": "e00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f",
+  "source_lines": 6865,
+  "maximum_child_rss_kib": 7592764,
+  "child_user_cpu_seconds": 111.925259,
+  "child_system_cpu_seconds": 13.96659,
+  "resource_threshold_triggered": false,
+  "scope": "Normalized full sum-plane AO2 circuits of size<=63 must have at least two distinct dirty ANDs; exact full-function/lift-fixed/live/no-clean-AND-operands assumptions remain, no singleton assumption. Not unrestricted>=64 or2056existence/refutation."
+}

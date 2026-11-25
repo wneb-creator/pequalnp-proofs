@@ -1,0 +1,27 @@
+{"utc": "2026-11-25T19:23:35.642324+00:00", "lake_pid": 44457, "available_kib": 12940448, "children": [], "action": "observe"}
+{"utc": "2026-11-25T19:23:40.675452+00:00", "lake_pid": 44457, "available_kib": 12882732, "children": [{"pid": 44506, "rss_kib": 88, "high_water_rss_kib": 88}], "action": "observe"}
+{"utc": "2026-11-25T19:23:45.710821+00:00", "lake_pid": 44457, "available_kib": 12659516, "children": [{"pid": 44529, "rss_kib": 1372208, "high_water_rss_kib": 1372208}], "action": "observe"}
+{"utc": "2026-11-25T19:23:50.775596+00:00", "lake_pid": 44457, "available_kib": 12287316, "children": [{"pid": 44529, "rss_kib": 2882936, "high_water_rss_kib": 2882936}], "action": "observe"}
+{"utc": "2026-11-25T19:23:55.800147+00:00", "lake_pid": 44457, "available_kib": 12291308, "children": [{"pid": 44529, "rss_kib": 3753584, "high_water_rss_kib": 3753584}], "action": "observe"}
+{"utc": "2026-11-25T19:24:00.826887+00:00", "lake_pid": 44457, "available_kib": 12363048, "children": [{"pid": 44529, "rss_kib": 5296284, "high_water_rss_kib": 5296284}], "action": "observe"}
+{"utc": "2026-11-25T19:24:05.874173+00:00", "lake_pid": 44457, "available_kib": 12354080, "children": [{"pid": 44529, "rss_kib": 6294672, "high_water_rss_kib": 6310884}], "action": "observe"}
+{"utc": "2026-11-25T19:24:10.902532+00:00", "lake_pid": 44457, "available_kib": 12095508, "children": [{"pid": 44529, "rss_kib": 6737060, "high_water_rss_kib": 6737060}], "action": "observe"}
+{"utc": "2026-11-25T19:24:15.923018+00:00", "lake_pid": 44457, "available_kib": 12368848, "children": [{"pid": 44529, "rss_kib": 6817500, "high_water_rss_kib": 6817500}], "action": "observe"}
+{"utc": "2026-11-25T19:24:20.942658+00:00", "lake_pid": 44457, "available_kib": 12309364, "children": [{"pid": 44529, "rss_kib": 6876208, "high_water_rss_kib": 6876208}], "action": "observe"}
+{"utc": "2026-11-25T19:24:25.991463+00:00", "lake_pid": 44457, "available_kib": 12222436, "children": [{"pid": 44529, "rss_kib": 6953788, "high_water_rss_kib": 6953788}], "action": "observe"}
+{"utc": "2026-11-25T19:24:31.028762+00:00", "lake_pid": 44457, "available_kib": 12152552, "children": [{"pid": 44529, "rss_kib": 7017876, "high_water_rss_kib": 7017876}], "action": "observe"}
+{"utc": "2026-11-25T19:24:36.096900+00:00", "lake_pid": 44457, "available_kib": 12192516, "children": [{"pid": 44529, "rss_kib": 6966520, "high_water_rss_kib": 7187600}], "action": "observe"}
+{"utc": "2026-11-25T19:24:41.142257+00:00", "lake_pid": 44457, "available_kib": 12188740, "children": [{"pid": 44529, "rss_kib": 6981136, "high_water_rss_kib": 7187600}], "action": "observe"}
+{"utc": "2026-11-25T19:24:46.205073+00:00", "lake_pid": 44457, "available_kib": 12116420, "children": [{"pid": 44529, "rss_kib": 6982708, "high_water_rss_kib": 7187600}], "action": "observe"}
+{"utc": "2026-11-25T19:24:51.275792+00:00", "lake_pid": 44457, "available_kib": 12200992, "children": [{"pid": 44529, "rss_kib": 7024236, "high_water_rss_kib": 7187600}], "action": "observe"}
+{"utc": "2026-11-25T19:24:56.308894+00:00", "lake_pid": 44457, "available_kib": 12061792, "children": [{"pid": 44529, "rss_kib": 7156572, "high_water_rss_kib": 7187600}], "action": "observe"}
+{"utc": "2026-11-25T19:25:01.340484+00:00", "lake_pid": 44457, "available_kib": 12025448, "children": [{"pid": 44529, "rss_kib": 7192480, "high_water_rss_kib": 7192480}], "action": "observe"}
+{"utc": "2026-11-25T19:25:06.391589+00:00", "lake_pid": 44457, "available_kib": 11974668, "children": [{"pid": 44529, "rss_kib": 7230940, "high_water_rss_kib": 7232604}], "action": "observe"}
+{"utc": "2026-11-25T19:25:11.430479+00:00", "lake_pid": 44457, "available_kib": 11920544, "children": [{"pid": 44529, "rss_kib": 7278448, "high_water_rss_kib": 7278448}], "action": "observe"}
+{"utc": "2026-11-25T19:25:16.490346+00:00", "lake_pid": 44457, "available_kib": 11797720, "children": [{"pid": 44529, "rss_kib": 7294944, "high_water_rss_kib": 7310056}], "action": "observe"}
+{"utc": "2026-11-25T19:25:21.522866+00:00", "lake_pid": 44457, "available_kib": 11649400, "children": [{"pid": 44529, "rss_kib": 7337528, "high_water_rss_kib": 7337528}], "action": "observe"}
+{"utc": "2026-11-25T19:25:26.550832+00:00", "lake_pid": 44457, "available_kib": 11519784, "children": [{"pid": 44529, "rss_kib": 7371672, "high_water_rss_kib": 7373756}], "action": "observe"}
+{"utc": "2026-11-25T19:25:31.614896+00:00", "lake_pid": 44457, "available_kib": 11346220, "children": [{"pid": 44529, "rss_kib": 7408820, "high_water_rss_kib": 7420240}], "action": "observe"}
+{"utc": "2026-11-25T19:25:36.647187+00:00", "lake_pid": 44457, "available_kib": 10892000, "children": [{"pid": 44529, "rss_kib": 7473280, "high_water_rss_kib": 7473280}], "action": "observe"}
+{"utc": "2026-11-25T19:25:41.705344+00:00", "lake_pid": 44457, "available_kib": 10587104, "children": [{"pid": 44529, "rss_kib": 7589832, "high_water_rss_kib": 7590332}], "action": "observe"}
+{"utc": "2026-11-25T19:25:46.776191+00:00", "lake_pid": 44457, "available_kib": 10427348, "children": [{"pid": 44529, "rss_kib": 7425220, "high_water_rss_kib": 7592764}], "action": "observe"}
