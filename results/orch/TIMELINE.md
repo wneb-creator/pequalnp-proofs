@@ -19,3 +19,4 @@
 - 2026-11-25T06:22:42.043664+00:00: three-filter cross-pair and double-star-center lemmas compiled and independently reviewed; preserving standalone helpers.
 - 2026-11-25T06:26:24.923216+00:00: adjacent-center cover lemmas compiled and independently reviewed; preserving standalone sources and complete logs.
 - 2026-11-25T06:32:45.637621+00:00: arbitrary-family filter-union adjacent-cover lemma compiled and independently reviewed.
+- 2026-11-25T06:35:49.969908+00:00: ambient-graph/subgraph counting bound and local mixed-support lemmas compiled and independently reviewed; preserving sources and complete logs.
