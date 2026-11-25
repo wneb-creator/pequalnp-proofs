@@ -6,3 +6,10 @@ Swarm L-meta-4970 timeline (UTC)
 
 Sub-agents: nine external bus helpers; local independent_audit and restore_lean.
 TIMING total=pending subagents=11
+
+- 2026-11-25T22:11:14+00:00: helper-1 first result: reusable L_meta_4990 leaf-count machinery; semantic star witnesses may contain AND bypasses.
+- 2026-11-25T22:12:11+00:00: helper-2 first result: IsAO2 excludes malformed-gate shortcuts; T resets at AND; finite counterexample search in preparation.
+- 2026-11-25T22:14:00Z: helper-3 first result: pure-OR witnesses permit safe AND bypass; witness-cone counting in progress (timestamp recorded on receipt).
+- 2026-11-25T22:15:04Z: helper-2 reports UNSAT for all 11 eligible graph shapes with side sizes at most three; not a Lean verdict. Cache restored; definitions and verifier build running.
+- 2026-11-25T22:16:00Z: Pinned definitions and checklemma build passed after full cache restoration.
+- 2026-11-25T22:18:00Z: Local auditor compiled reusable witness semantics and unique-center lemmas; root independently reviewed source before partial publication. Full lower bound remains open.
