@@ -1,0 +1,10 @@
+{
+  "raw": 394253,
+  "lz_bytes": 270165,
+  "huffman_bits": 1824494,
+  "huffman_bytes": 228062,
+  "min_length": 4,
+  "max_length": 10,
+  "tree_nodes": 255,
+  "estimated_source_payload": 457624
+}

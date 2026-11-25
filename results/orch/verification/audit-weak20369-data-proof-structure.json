@@ -1,0 +1,33 @@
+{
+  "fixture_sha256": "1b62162bd333e95c240404b645aad3e587621800c824d8403285f533dbce3879",
+  "data_sha256": "b35402367657094427850c2325cd84044f7fbd0a0fb70f4d96235455711c08da",
+  "supports_sha256": "8b0e950233f3c4a6fa8c110443273a2a786f01e9d21a5d84f854fcd11f95820f",
+  "truth_words": 23,
+  "nodes": [
+    {
+      "node": 9611,
+      "entries": 12,
+      "gate_cuts": 5,
+      "rows": 17,
+      "child_labels": 12,
+      "census": {
+        "fresh_candidates": 244,
+        "row": 232,
+        "cut": 10,
+        "entry": 2
+      }
+    },
+    {
+      "node": 20369,
+      "entries": 11,
+      "gate_cuts": 0,
+      "rows": 16,
+      "child_labels": 11,
+      "census": {
+        "fresh_candidates": 208,
+        "row": 208
+      }
+    }
+  ],
+  "verdict": "PASS finite data and current uncompiled support source; not a completed-node proof"
+}

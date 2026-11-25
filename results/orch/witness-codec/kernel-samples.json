@@ -1,0 +1,42 @@
+[
+  {
+    "module": "Benchmark512_2048",
+    "source_sha256": "96f29b4f423377b1105a4b266ed5a5739ec7a7ac43af0fdf4c6cf16b698d5123",
+    "source_bytes": 7555,
+    "sample_bytes": 2048,
+    "input_kind": "compact",
+    "compiler_exit": 0,
+    "elapsed_seconds": 2.254286289000447,
+    "sample_sha256": "52b8661aa79fdf326aadcaa5fa010035e1542488b2c76976be94781de97f8690"
+  },
+  {
+    "module": "Benchmark2048_16384",
+    "source_sha256": "dd1fcf7845c64cb8385cb090e581f2b0180d62f1c258e8c640d56381c36408b1",
+    "source_bytes": 54610,
+    "sample_bytes": 16384,
+    "input_kind": "compact",
+    "compiler_exit": 0,
+    "elapsed_seconds": 4.403129710999565,
+    "sample_sha256": "77b9a6a069112db351c11d6ec66adc910db7de5f19718e02d3a4c7144a8c81c4"
+  },
+  {
+    "module": "ShortlistBenchmark32768",
+    "source_sha256": "c9a825dd76b7b185baedbc4c9037a8dabb57c1e0775f395a97b10d11c98e0408",
+    "source_bytes": 97573,
+    "sample_bytes": 32768,
+    "input_kind": "shortlist",
+    "compiler_exit": 0,
+    "elapsed_seconds": 10.837214008999581,
+    "sample_sha256": "ef10af9ccaf3f9d89f5960c8d8d528ea452a82df1a7f6d38712ae7e5b3f90607"
+  },
+  {
+    "module": "ShortlistHuffmanBenchmark32768",
+    "source_sha256": "4c611fac427bfa89a0de003c738ec375de9c5b4eca3300618448f041f74fa966",
+    "source_bytes": 92735,
+    "sample_bytes": 32768,
+    "input_kind": "shortlist",
+    "compiler_exit": 0,
+    "elapsed_seconds": 23.643141962998925,
+    "sample_sha256": "ef10af9ccaf3f9d89f5960c8d8d528ea452a82df1a7f6d38712ae7e5b3f90607"
+  }
+]

@@ -161,3 +161,7 @@
 - 2026-11-25T16:42:34+00:00 status_review: weak18 search subtree80905 fully compiled via prior completednode76616 and explicit identitymemo80913;21terminal+2omitted-gate cofactor cuts discharged.
 
 - 2026-11-25T16:45:28.843255+00:00: named8179-line partial lake build passed5149jobs, noerrors. Actual two-node weak80905 subtree compiled and reviewed; full fresh mono19 structural audit passed all2065513closednodes. Preserving those results and full216MB archival data.
+
+- 2026-11-25 16:48:30 UTC: counterexample completed count-DAG/copy/memo semantics and independent recursive/rectangle reviews; bounded real witness codec measured and archived, with explicit whole-source limitation.
+
+2026-11-25T16:55:49.247386+00:00 Root preserved complete checked rectangle table, codec/data measurements, and reviewed memo/catalog helpers. Named target checker remains running; exact theorem absent.

@@ -1,0 +1,1959 @@
+{
+  "scope": "Preserve complete checked mono18 rectangle table and helpers; whole DAG/posted theorem not claimed.",
+  "checked_modules": [
+    {
+      "module": "Mono18RectangleBase",
+      "source": "results/orch/lemmas/Mono18RectangleBase.lean",
+      "sha256": "55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca",
+      "bytes": 8461,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleBase.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleBase.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-base.txt",
+        "results/orch/review-mono18-rectangle-adapters.txt"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleCost0Part0",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part0.lean",
+      "sha256": "79a64af84c2df6ebe7ec40af0b7b03c31007094918d6322066fc75c537364108",
+      "bytes": 7368,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part0.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part0.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part0.lean",
+      "independent_frozen_sha256": "79a64af84c2df6ebe7ec40af0b7b03c31007094918d6322066fc75c537364108"
+    },
+    {
+      "module": "Mono18RectangleCost0Part1",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part1.lean",
+      "sha256": "44e321dd010a24bfbaabc9c563d2a2b8785c9722ae1446954d40146d69b2d762",
+      "bytes": 7481,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part1.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part1.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part1.lean",
+      "independent_frozen_sha256": "44e321dd010a24bfbaabc9c563d2a2b8785c9722ae1446954d40146d69b2d762"
+    },
+    {
+      "module": "Mono18RectangleCost0Part2",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part2.lean",
+      "sha256": "b5442d6d64b883cc03eb3abb47e459c43ce88ac3854385a6c8b6ba670605b2c7",
+      "bytes": 7447,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part2.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part2.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part2.lean",
+      "independent_frozen_sha256": "b5442d6d64b883cc03eb3abb47e459c43ce88ac3854385a6c8b6ba670605b2c7"
+    },
+    {
+      "module": "Mono18RectangleCost0Part3",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part3.lean",
+      "sha256": "f782caa479db5faa41a8304493ddc885936934c333c3835e2e6596d8caebeece",
+      "bytes": 7452,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part3.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part3.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part3.lean",
+      "independent_frozen_sha256": "f782caa479db5faa41a8304493ddc885936934c333c3835e2e6596d8caebeece"
+    },
+    {
+      "module": "Mono18RectangleCost0Part4",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part4.lean",
+      "sha256": "eef0461a1c2ec3aa35d27260908cfeeffa5365f39bc88e8d8542801858a7c4e8",
+      "bytes": 7197,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part4.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part4.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part4.lean",
+      "independent_frozen_sha256": "eef0461a1c2ec3aa35d27260908cfeeffa5365f39bc88e8d8542801858a7c4e8"
+    },
+    {
+      "module": "Mono18RectangleCost0Part5",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part5.lean",
+      "sha256": "21d3001e2422d11455175592272c39e4547dc3b465f039d8547172837e009986",
+      "bytes": 7346,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part5.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part5.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part5.lean",
+      "independent_frozen_sha256": "21d3001e2422d11455175592272c39e4547dc3b465f039d8547172837e009986"
+    },
+    {
+      "module": "Mono18RectangleCost0Part6",
+      "source": "results/orch/lemmas/Mono18RectangleCost0Part6.lean",
+      "sha256": "d2ee6e2acfdb0af69d7e30ebcccf66789d63a401c8a28e1611c41b8287ef1ef1",
+      "bytes": 6192,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0Part6.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part6.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part6.lean",
+      "independent_frozen_sha256": "d2ee6e2acfdb0af69d7e30ebcccf66789d63a401c8a28e1611c41b8287ef1ef1"
+    },
+    {
+      "module": "Mono18RectangleCost0",
+      "source": "results/orch/lemmas/Mono18RectangleCost0.lean",
+      "sha256": "88fdde8b77330bc89a383609cad5c9e92a699bd91b78c66b295a876580b52a0c",
+      "bytes": 231,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost0.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0.lean",
+      "independent_frozen_sha256": "88fdde8b77330bc89a383609cad5c9e92a699bd91b78c66b295a876580b52a0c"
+    },
+    {
+      "module": "Mono18RectangleCost1",
+      "source": "results/orch/lemmas/Mono18RectangleCost1.lean",
+      "sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b",
+      "bytes": 3366,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost1.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost1.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost1.lean",
+      "independent_frozen_sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b"
+    },
+    {
+      "module": "Mono18RectangleCost2",
+      "source": "results/orch/lemmas/Mono18RectangleCost2.lean",
+      "sha256": "2acf6757319f24c0100efcf2de09d693fb953137a6abf038a08fe2e34ce8f27d",
+      "bytes": 942,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost2.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost2.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost2.lean",
+      "independent_frozen_sha256": "2acf6757319f24c0100efcf2de09d693fb953137a6abf038a08fe2e34ce8f27d"
+    },
+    {
+      "module": "Mono18RectangleCost3",
+      "source": "results/orch/lemmas/Mono18RectangleCost3.lean",
+      "sha256": "849c77b0436d48efc6c23488ad19e2d8d861442a24a66b14ce49f1fc907e7ce3",
+      "bytes": 2107,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost3.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost3.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost3.lean",
+      "independent_frozen_sha256": "849c77b0436d48efc6c23488ad19e2d8d861442a24a66b14ce49f1fc907e7ce3"
+    },
+    {
+      "module": "Mono18RectangleCost4",
+      "source": "results/orch/lemmas/Mono18RectangleCost4.lean",
+      "sha256": "e61eeddf2bb42f9e3bfe040336db4958f9e3773b063d7109baaeb842a6a0b2fb",
+      "bytes": 621,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost4.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost4.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost4.lean",
+      "independent_frozen_sha256": "e61eeddf2bb42f9e3bfe040336db4958f9e3773b063d7109baaeb842a6a0b2fb"
+    },
+    {
+      "module": "Mono18RectangleCost5",
+      "source": "results/orch/lemmas/Mono18RectangleCost5.lean",
+      "sha256": "09abd57bad6dc5428d7f7f54670b8c4668d84476782a4f43ff2eb1116256a00f",
+      "bytes": 4176,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost5.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost5.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost5.lean",
+      "independent_frozen_sha256": "09abd57bad6dc5428d7f7f54670b8c4668d84476782a4f43ff2eb1116256a00f"
+    },
+    {
+      "module": "Mono18RectangleCost6",
+      "source": "results/orch/lemmas/Mono18RectangleCost6.lean",
+      "sha256": "342238c6b9632087a9f2b8ecc65cf977195b6c3ce119bc2334728595a87cf4e8",
+      "bytes": 6765,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost6.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost6.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost6.lean",
+      "independent_frozen_sha256": "342238c6b9632087a9f2b8ecc65cf977195b6c3ce119bc2334728595a87cf4e8"
+    },
+    {
+      "module": "Mono18RectangleCost7",
+      "source": "results/orch/lemmas/Mono18RectangleCost7.lean",
+      "sha256": "3487d9afb0f45c233eeb49a9d29fa7a6400904febe0c93bf45f855268224861a",
+      "bytes": 3476,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost7.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost7.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost7.lean",
+      "independent_frozen_sha256": "3487d9afb0f45c233eeb49a9d29fa7a6400904febe0c93bf45f855268224861a"
+    },
+    {
+      "module": "Mono18RectangleCost8",
+      "source": "results/orch/lemmas/Mono18RectangleCost8.lean",
+      "sha256": "6164cf252050d34c833acbf8068cbe83c4d98b021e983d8c0cb9ff94d741bb48",
+      "bytes": 1956,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost8.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost8.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost8.lean",
+      "independent_frozen_sha256": "6164cf252050d34c833acbf8068cbe83c4d98b021e983d8c0cb9ff94d741bb48"
+    },
+    {
+      "module": "Mono18RectangleCost9",
+      "source": "results/orch/lemmas/Mono18RectangleCost9.lean",
+      "sha256": "9ecc32db3f2151a3c12005121c732192fa4f666051dcdf02e903c515e831af75",
+      "bytes": 3349,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost9.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost9.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost9.lean",
+      "independent_frozen_sha256": "9ecc32db3f2151a3c12005121c732192fa4f666051dcdf02e903c515e831af75"
+    },
+    {
+      "module": "Mono18RectangleCost10",
+      "source": "results/orch/lemmas/Mono18RectangleCost10.lean",
+      "sha256": "79dcd0a9cee83940ba139188732bdf8aac36652841aa1c3ccc1659200eeacb42",
+      "bytes": 2534,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost10.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost10.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost10.lean",
+      "independent_frozen_sha256": "79dcd0a9cee83940ba139188732bdf8aac36652841aa1c3ccc1659200eeacb42"
+    },
+    {
+      "module": "Mono18RectangleCost11",
+      "source": "results/orch/lemmas/Mono18RectangleCost11.lean",
+      "sha256": "b5fe0c4007dd5b664d7a4d8c9f7da64b40f6f8dde9d0691973d9f3e30dbe0f4f",
+      "bytes": 5370,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost11.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost11.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost11.lean",
+      "independent_frozen_sha256": "b5fe0c4007dd5b664d7a4d8c9f7da64b40f6f8dde9d0691973d9f3e30dbe0f4f"
+    },
+    {
+      "module": "Mono18RectangleCost12",
+      "source": "results/orch/lemmas/Mono18RectangleCost12.lean",
+      "sha256": "0a4107426c93f0e9fd4de6de205c0b651e6b13be20f7c6d567ade5084a64fe24",
+      "bytes": 2297,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost12.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost12.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost12.lean",
+      "independent_frozen_sha256": "0a4107426c93f0e9fd4de6de205c0b651e6b13be20f7c6d567ade5084a64fe24"
+    },
+    {
+      "module": "Mono18RectangleCost13",
+      "source": "results/orch/lemmas/Mono18RectangleCost13.lean",
+      "sha256": "ecdedef52ebd21f0eaebf0de7da2a5ddb2547b7d3d8192447a625899cc3281cb",
+      "bytes": 1390,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost13.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost13.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost13.lean",
+      "independent_frozen_sha256": "ecdedef52ebd21f0eaebf0de7da2a5ddb2547b7d3d8192447a625899cc3281cb"
+    },
+    {
+      "module": "Mono18RectangleCost14",
+      "source": "results/orch/lemmas/Mono18RectangleCost14.lean",
+      "sha256": "603930490b5c3d75ce4fb59cf1a9bec6b02adaff65690fe85297c2c2ceb7e2a7",
+      "bytes": 797,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost14.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost14.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost14.lean",
+      "independent_frozen_sha256": "603930490b5c3d75ce4fb59cf1a9bec6b02adaff65690fe85297c2c2ceb7e2a7"
+    },
+    {
+      "module": "Mono18RectangleCost15",
+      "source": "results/orch/lemmas/Mono18RectangleCost15.lean",
+      "sha256": "896119da411413ccc0bab2681124ebc9fec96336a3dc433ddf301b33a6f5da3a",
+      "bytes": 686,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost15.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost15.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost15.lean",
+      "independent_frozen_sha256": "896119da411413ccc0bab2681124ebc9fec96336a3dc433ddf301b33a6f5da3a"
+    },
+    {
+      "module": "Mono18RectangleCost16",
+      "source": "results/orch/lemmas/Mono18RectangleCost16.lean",
+      "sha256": "21b2de9f1a36c7a9df0eb63ec4308f6179c92f6247af7035854c2077b1a345f1",
+      "bytes": 909,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost16.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost16.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost16.lean",
+      "independent_frozen_sha256": "21b2de9f1a36c7a9df0eb63ec4308f6179c92f6247af7035854c2077b1a345f1"
+    },
+    {
+      "module": "Mono18RectangleCost17",
+      "source": "results/orch/lemmas/Mono18RectangleCost17.lean",
+      "sha256": "f2f4ed6d92865e694d11662ecf057cf746c349284337ab30d486143afa71bced",
+      "bytes": 606,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost17.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost17.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost17.lean",
+      "independent_frozen_sha256": "f2f4ed6d92865e694d11662ecf057cf746c349284337ab30d486143afa71bced"
+    },
+    {
+      "module": "Mono18RectangleCost18",
+      "source": "results/orch/lemmas/Mono18RectangleCost18.lean",
+      "sha256": "e4293f5ed18d12802ff5196dfe7b0c3f407b7188a04a2502c072f1ccfcde6e84",
+      "bytes": 1285,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCost18.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost18.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost18.lean",
+      "independent_frozen_sha256": "e4293f5ed18d12802ff5196dfe7b0c3f407b7188a04a2502c072f1ccfcde6e84"
+    },
+    {
+      "module": "Mono18RectangleCosts",
+      "source": "results/orch/lemmas/Mono18RectangleCosts.lean",
+      "sha256": "463669c649596a28beb3d761e25e668e1a89375795d1c829d0fc73b25f2d860b",
+      "bytes": 2856,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleCosts.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleCosts.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-packed-profiles.txt",
+        "results/orch/review-mono18-rectangle-base.txt"
+      ],
+      "scope": "complete packed cost data",
+      "independent_frozen_source": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCosts.lean",
+      "independent_frozen_sha256": "463669c649596a28beb3d761e25e668e1a89375795d1c829d0fc73b25f2d860b"
+    },
+    {
+      "module": "Mono18RectangleSamples",
+      "source": "results/orch/lemmas/Mono18RectangleSamples.lean",
+      "sha256": "4795340ca02ba193fc5c17f2296407f9110da9de2daf00f0ecd1d3311c9acc7f",
+      "bytes": 6873,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleSamples.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleSamples.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-consumers.txt",
+        "results/orch/review-mono18-rectangle-adapters.txt"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleLabels",
+      "source": "results/orch/lemmas/Mono18RectangleLabels.lean",
+      "sha256": "3f3d7c646824931c1ca110657966c85a275f9b2683a10acac832cb6843a0902b",
+      "bytes": 1227,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleLabels.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleLabels.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-consumers.txt"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleBank",
+      "source": "results/orch/lemmas/Mono18RectangleBank.lean",
+      "sha256": "8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8",
+      "bytes": 1709,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleBank.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleBank.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-consumers.txt",
+        "results/orch/review-mono18-rectangle-adapters.txt"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleLookup",
+      "source": "results/orch/lemmas/Mono18RectangleLookup.lean",
+      "sha256": "c620b98826763461a0dbda5e5690337d399b810f12ab70dbada197fc5a061937",
+      "bytes": 803,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleLookup.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleLookup.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-node38.txt",
+        "results/orch/review-mono18-rectangle-node38-data.json"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleNode38",
+      "source": "results/orch/lemmas/Mono18RectangleNode38.lean",
+      "sha256": "a43094412244344a1a09d8bc32848dead5bb8e50ed41668d01572c5039d31c2e",
+      "bytes": 4950,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleNode38.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleNode38.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-node38.txt",
+        "results/orch/review-mono18-rectangle-node38-data.json"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    },
+    {
+      "module": "Mono18RectangleTotals",
+      "source": "results/orch/lemmas/Mono18RectangleTotals.lean",
+      "sha256": "461fd3c2c7a860c53782da892cf5984cabda04db4acccc363d08d845bcff9b19",
+      "bytes": 798,
+      "build": {
+        "exit": 0,
+        "log": "results/orch/lemmas/Mono18RectangleTotals.compile.txt",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "results/orch/mono18-rectangle-build-status/Mono18RectangleTotals.status.json"
+      },
+      "reviews": [
+        "results/orch/review-mono18-rectangle-node38.txt",
+        "results/orch/review-mono18-rectangle-node38-data.json"
+      ],
+      "scope": "generic rectangle helper or actual node38 leaf"
+    }
+  ],
+  "checked_module_count": 34,
+  "data_module_count": 27,
+  "previously_reviewed_dependencies": [
+    {
+      "source": "results/orch/lemmas/RectangleRun.lean",
+      "sha256": "642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00",
+      "log": "results/orch/lemmas/RectangleRun.compile.txt",
+      "log_sha256": "418e0e77bee310363d5fccef3bbc3c5859e07e7f7041dddeee12823dc65f6932",
+      "reviews": [
+        "results/orch/review-rectangle-run.txt"
+      ],
+      "status": "previously checked/reviewed dependency; no new build in this lane"
+    },
+    {
+      "source": "results/orch/lemmas/RectangleRunIndexed.lean",
+      "sha256": "7dc46c45a36aaec15394eca9479dd0c71f4af57ec8db6b54cddf859b3ff8b129",
+      "log": "results/orch/lemmas/RectangleRunIndexed.compile.txt",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reviews": [
+        "results/orch/review-rectangle-run-wrappers.txt"
+      ],
+      "status": "previously checked/reviewed dependency; no new build in this lane"
+    },
+    {
+      "source": "results/orch/lemmas/RectanglePackedCheck.lean",
+      "sha256": "66931a4188ade0e38d18c4b8e5a0213c7f81ee1c812a8424909775df117f127c",
+      "log": "results/orch/lemmas/RectanglePackedCheck.compile.txt",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reviews": [
+        "results/orch/review-rectangle-packed-check.txt"
+      ],
+      "status": "previously checked/reviewed dependency; no new build in this lane"
+    }
+  ],
+  "drafts": {
+    "status": "uncompiled; excluded from checked_modules",
+    "paths": [
+      "results/orch/mono18-rectangle-drafts/Mono18Rectangle9611.lean",
+      "results/orch/mono18-rectangle-drafts/README.md",
+      "results/orch/mono18-rectangle-drafts/children9611.json",
+      "results/orch/mono18-rectangle-drafts/generate_children9611.py"
+    ]
+  },
+  "files": [
+    {
+      "path": "results/orch/lemmas/Mono18RectangleBank.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleBank.lean",
+      "bytes": 1709,
+      "sha256": "8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleBase.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleBase.lean",
+      "bytes": 8461,
+      "sha256": "55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0.lean",
+      "bytes": 231,
+      "sha256": "88fdde8b77330bc89a383609cad5c9e92a699bd91b78c66b295a876580b52a0c",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part0.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part0.lean",
+      "bytes": 7368,
+      "sha256": "79a64af84c2df6ebe7ec40af0b7b03c31007094918d6322066fc75c537364108",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part1.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part1.lean",
+      "bytes": 7481,
+      "sha256": "44e321dd010a24bfbaabc9c563d2a2b8785c9722ae1446954d40146d69b2d762",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part2.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part2.lean",
+      "bytes": 7447,
+      "sha256": "b5442d6d64b883cc03eb3abb47e459c43ce88ac3854385a6c8b6ba670605b2c7",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part3.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part3.lean",
+      "bytes": 7452,
+      "sha256": "f782caa479db5faa41a8304493ddc885936934c333c3835e2e6596d8caebeece",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part4.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part4.lean",
+      "bytes": 7197,
+      "sha256": "eef0461a1c2ec3aa35d27260908cfeeffa5365f39bc88e8d8542801858a7c4e8",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part5.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part5.lean",
+      "bytes": 7346,
+      "sha256": "21d3001e2422d11455175592272c39e4547dc3b465f039d8547172837e009986",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part6.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost0Part6.lean",
+      "bytes": 6192,
+      "sha256": "d2ee6e2acfdb0af69d7e30ebcccf66789d63a401c8a28e1611c41b8287ef1ef1",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost1.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost1.lean",
+      "bytes": 3366,
+      "sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost10.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost10.lean",
+      "bytes": 2534,
+      "sha256": "79dcd0a9cee83940ba139188732bdf8aac36652841aa1c3ccc1659200eeacb42",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost11.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost11.lean",
+      "bytes": 5370,
+      "sha256": "b5fe0c4007dd5b664d7a4d8c9f7da64b40f6f8dde9d0691973d9f3e30dbe0f4f",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost12.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost12.lean",
+      "bytes": 2297,
+      "sha256": "0a4107426c93f0e9fd4de6de205c0b651e6b13be20f7c6d567ade5084a64fe24",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost13.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost13.lean",
+      "bytes": 1390,
+      "sha256": "ecdedef52ebd21f0eaebf0de7da2a5ddb2547b7d3d8192447a625899cc3281cb",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost14.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost14.lean",
+      "bytes": 797,
+      "sha256": "603930490b5c3d75ce4fb59cf1a9bec6b02adaff65690fe85297c2c2ceb7e2a7",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost15.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost15.lean",
+      "bytes": 686,
+      "sha256": "896119da411413ccc0bab2681124ebc9fec96336a3dc433ddf301b33a6f5da3a",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost16.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost16.lean",
+      "bytes": 909,
+      "sha256": "21b2de9f1a36c7a9df0eb63ec4308f6179c92f6247af7035854c2077b1a345f1",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost17.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost17.lean",
+      "bytes": 606,
+      "sha256": "f2f4ed6d92865e694d11662ecf057cf746c349284337ab30d486143afa71bced",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost18.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost18.lean",
+      "bytes": 1285,
+      "sha256": "e4293f5ed18d12802ff5196dfe7b0c3f407b7188a04a2502c072f1ccfcde6e84",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost2.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost2.lean",
+      "bytes": 942,
+      "sha256": "2acf6757319f24c0100efcf2de09d693fb953137a6abf038a08fe2e34ce8f27d",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost3.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost3.lean",
+      "bytes": 2107,
+      "sha256": "849c77b0436d48efc6c23488ad19e2d8d861442a24a66b14ce49f1fc907e7ce3",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost4.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost4.lean",
+      "bytes": 621,
+      "sha256": "e61eeddf2bb42f9e3bfe040336db4958f9e3773b063d7109baaeb842a6a0b2fb",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost5.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost5.lean",
+      "bytes": 4176,
+      "sha256": "09abd57bad6dc5428d7f7f54670b8c4668d84476782a4f43ff2eb1116256a00f",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost6.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost6.lean",
+      "bytes": 6765,
+      "sha256": "342238c6b9632087a9f2b8ecc65cf977195b6c3ce119bc2334728595a87cf4e8",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost7.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost7.lean",
+      "bytes": 3476,
+      "sha256": "3487d9afb0f45c233eeb49a9d29fa7a6400904febe0c93bf45f855268224861a",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost8.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost8.lean",
+      "bytes": 1956,
+      "sha256": "6164cf252050d34c833acbf8068cbe83c4d98b021e983d8c0cb9ff94d741bb48",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost9.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCost9.lean",
+      "bytes": 3349,
+      "sha256": "9ecc32db3f2151a3c12005121c732192fa4f666051dcdf02e903c515e831af75",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCosts.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleCosts.lean",
+      "bytes": 2856,
+      "sha256": "463669c649596a28beb3d761e25e668e1a89375795d1c829d0fc73b25f2d860b",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleLabels.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleLabels.lean",
+      "bytes": 1227,
+      "sha256": "3f3d7c646824931c1ca110657966c85a275f9b2683a10acac832cb6843a0902b",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleLookup.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleLookup.lean",
+      "bytes": 803,
+      "sha256": "c620b98826763461a0dbda5e5690337d399b810f12ab70dbada197fc5a061937",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleNode38.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleNode38.lean",
+      "bytes": 4950,
+      "sha256": "a43094412244344a1a09d8bc32848dead5bb8e50ed41668d01572c5039d31c2e",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleSamples.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleSamples.lean",
+      "bytes": 6873,
+      "sha256": "4795340ca02ba193fc5c17f2296407f9110da9de2daf00f0ecd1d3311c9acc7f",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleTotals.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/Mono18RectangleTotals.lean",
+      "bytes": 798,
+      "sha256": "461fd3c2c7a860c53782da892cf5984cabda04db4acccc363d08d845bcff9b19",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectanglePackedCheck.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectanglePackedCheck.lean",
+      "bytes": 5688,
+      "sha256": "66931a4188ade0e38d18c4b8e5a0213c7f81ee1c812a8424909775df117f127c",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectangleRun.compile.txt",
+      "bytes": 226,
+      "sha256": "418e0e77bee310363d5fccef3bbc3c5859e07e7f7041dddeee12823dc65f6932",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectangleRun.lean",
+      "bytes": 8466,
+      "sha256": "642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectangleRunIndexed.compile.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/lemmas/RectangleRunIndexed.lean",
+      "bytes": 1213,
+      "sha256": "7dc46c45a36aaec15394eca9479dd0c71f4af57ec8db6b54cddf859b3ff8b129",
+      "kind": "checked_module_or_log"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/audit-output.txt",
+      "bytes": 337,
+      "sha256": "48ce016fc0a4501ed59ee2574e949e841198122ddc65f86c89f4c0d0cd1c2844",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/audit_profiles.py",
+      "bytes": 7261,
+      "sha256": "e066b222f64da80af2d6001c21f22c75e72e837f902b588311aed16eb6b62c39",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/input-manifest.json",
+      "bytes": 6805,
+      "sha256": "702be95494fa679db7a73adcbbdd07ec6af08834514444b6386fe628c021e4f6",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/census/profiles.json",
+      "bytes": 800717,
+      "sha256": "b3550a180b55ec83a511746ebe71d290327db9ebc56d404e26f50d717f119b0c",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/census/weights.json",
+      "bytes": 55600,
+      "sha256": "bde4f9f758aedb660f0980c65d20f6189f456e5454ed53ed28e3727b462b4e4d",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleBase.lean",
+      "bytes": 8461,
+      "sha256": "55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0.lean",
+      "bytes": 231,
+      "sha256": "88fdde8b77330bc89a383609cad5c9e92a699bd91b78c66b295a876580b52a0c",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part0.lean",
+      "bytes": 7368,
+      "sha256": "79a64af84c2df6ebe7ec40af0b7b03c31007094918d6322066fc75c537364108",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part1.lean",
+      "bytes": 7481,
+      "sha256": "44e321dd010a24bfbaabc9c563d2a2b8785c9722ae1446954d40146d69b2d762",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part2.lean",
+      "bytes": 7447,
+      "sha256": "b5442d6d64b883cc03eb3abb47e459c43ce88ac3854385a6c8b6ba670605b2c7",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part3.lean",
+      "bytes": 7452,
+      "sha256": "f782caa479db5faa41a8304493ddc885936934c333c3835e2e6596d8caebeece",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part4.lean",
+      "bytes": 7197,
+      "sha256": "eef0461a1c2ec3aa35d27260908cfeeffa5365f39bc88e8d8542801858a7c4e8",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part5.lean",
+      "bytes": 7346,
+      "sha256": "21d3001e2422d11455175592272c39e4547dc3b465f039d8547172837e009986",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part6.lean",
+      "bytes": 6192,
+      "sha256": "d2ee6e2acfdb0af69d7e30ebcccf66789d63a401c8a28e1611c41b8287ef1ef1",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost1.lean",
+      "bytes": 3366,
+      "sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost10.lean",
+      "bytes": 2534,
+      "sha256": "79dcd0a9cee83940ba139188732bdf8aac36652841aa1c3ccc1659200eeacb42",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost11.lean",
+      "bytes": 5370,
+      "sha256": "b5fe0c4007dd5b664d7a4d8c9f7da64b40f6f8dde9d0691973d9f3e30dbe0f4f",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost12.lean",
+      "bytes": 2297,
+      "sha256": "0a4107426c93f0e9fd4de6de205c0b651e6b13be20f7c6d567ade5084a64fe24",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost13.lean",
+      "bytes": 1390,
+      "sha256": "ecdedef52ebd21f0eaebf0de7da2a5ddb2547b7d3d8192447a625899cc3281cb",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost14.lean",
+      "bytes": 797,
+      "sha256": "603930490b5c3d75ce4fb59cf1a9bec6b02adaff65690fe85297c2c2ceb7e2a7",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost15.lean",
+      "bytes": 686,
+      "sha256": "896119da411413ccc0bab2681124ebc9fec96336a3dc433ddf301b33a6f5da3a",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost16.lean",
+      "bytes": 909,
+      "sha256": "21b2de9f1a36c7a9df0eb63ec4308f6179c92f6247af7035854c2077b1a345f1",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost17.lean",
+      "bytes": 606,
+      "sha256": "f2f4ed6d92865e694d11662ecf057cf746c349284337ab30d486143afa71bced",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost18.lean",
+      "bytes": 1285,
+      "sha256": "e4293f5ed18d12802ff5196dfe7b0c3f407b7188a04a2502c072f1ccfcde6e84",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost2.lean",
+      "bytes": 942,
+      "sha256": "2acf6757319f24c0100efcf2de09d693fb953137a6abf038a08fe2e34ce8f27d",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost3.lean",
+      "bytes": 2107,
+      "sha256": "849c77b0436d48efc6c23488ad19e2d8d861442a24a66b14ce49f1fc907e7ce3",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost4.lean",
+      "bytes": 621,
+      "sha256": "e61eeddf2bb42f9e3bfe040336db4958f9e3773b063d7109baaeb842a6a0b2fb",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost5.lean",
+      "bytes": 4176,
+      "sha256": "09abd57bad6dc5428d7f7f54670b8c4668d84476782a4f43ff2eb1116256a00f",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost6.lean",
+      "bytes": 6765,
+      "sha256": "342238c6b9632087a9f2b8ecc65cf977195b6c3ce119bc2334728595a87cf4e8",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost7.lean",
+      "bytes": 3476,
+      "sha256": "3487d9afb0f45c233eeb49a9d29fa7a6400904febe0c93bf45f855268224861a",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost8.lean",
+      "bytes": 1956,
+      "sha256": "6164cf252050d34c833acbf8068cbe83c4d98b021e983d8c0cb9ff94d741bb48",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost9.lean",
+      "bytes": 3349,
+      "sha256": "9ecc32db3f2151a3c12005121c732192fa4f666051dcdf02e903c515e831af75",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCosts.lean",
+      "bytes": 2856,
+      "sha256": "463669c649596a28beb3d761e25e668e1a89375795d1c829d0fc73b25f2d860b",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/blocks.json",
+      "bytes": 81866,
+      "sha256": "c523f558e4c881ca86b27930561e778cef00800d3b4347b8396be9b2a8f18fe4",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/compile-plan.json",
+      "bytes": 883,
+      "sha256": "c3065ce8884277c446fbc639eb19a3fecd97a561bb4992d7f3aae2a1e606dde1",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/generate_profiles.py",
+      "bytes": 2471,
+      "sha256": "18d17e347ca6f00c1e1c87ee27d53956b318dc714ada51bf839773c4c6329069",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/inputs/generated/profile-locator.json",
+      "bytes": 594645,
+      "sha256": "b2f3998de2e3d15074234e1cfe1627a303c9a7f2adcdd785fd1f500dfd1e91be",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/profiles-audited.json",
+      "bytes": 1602011,
+      "sha256": "b2f5657db8cb1f796ed9f5d685a2ae3d76d338559723f355edb4c395e6c85634",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-packed-profile-audit/report.json",
+      "bytes": 337,
+      "sha256": "48ce016fc0a4501ed59ee2574e949e841198122ddc65f86c89f4c0d0cd1c2844",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleBank.status.json",
+      "bytes": 597,
+      "sha256": "ecc9fe74094945e3886dd2eebf320cd4b43f08388bfe35217140674099a64feb",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleBase.status.json",
+      "bytes": 597,
+      "sha256": "177ce707ba4bd84a94b10da89782c13982a823b1f133f1cbb57463d3d7143440",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0.status.json",
+      "bytes": 698,
+      "sha256": "a90632d4aba4e81a20148bf9086fb8c3a703f8419883a6492fd1e79d38424b8c",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part0.status.json",
+      "bytes": 717,
+      "sha256": "6f757e54fbea6a971d06f0a7410c83d554bcdcf9c4a5ad749dd7519b4e12a39a",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part1.status.json",
+      "bytes": 719,
+      "sha256": "cb258bce39a58023dad51676b514c8a2e408cf2678133f55bacb422a8c58ae97",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part2.status.json",
+      "bytes": 719,
+      "sha256": "eda77485432b2773b0e21c2cd9141c1b90f65a9ab171550438064ba37fa8fd28",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part3.status.json",
+      "bytes": 718,
+      "sha256": "42b8a49eceaffc894a3a6189a2559520ebc779b19821646d3a0c7c5a2afc8f98",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part4.status.json",
+      "bytes": 717,
+      "sha256": "88bd3e0e27a17c37fa3bb368c378c2d6b799037cd52fb3f45c13fa92ae9a12d2",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part5.status.json",
+      "bytes": 718,
+      "sha256": "f9ddf926ad4c71acd353661375ed8cfe2e420b36dc02b47f3b4fa056fa7e85f0",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part6.status.json",
+      "bytes": 718,
+      "sha256": "8d744ecfb2a36170d82bdbdc607e1e032b6d6c1a1088f1dbd0e3800570b8121e",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost1.status.json",
+      "bytes": 699,
+      "sha256": "5eb5e78e435195cdae40166cb54eab571c3faa67c469595040950a7a2fc14bf0",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost10.status.json",
+      "bytes": 703,
+      "sha256": "3b8c005dd754d1e547888744d0db413f8f4dc625a4b801767d00389beac20934",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost11.status.json",
+      "bytes": 703,
+      "sha256": "c12a64715a271c2e70a7cbadc5967b6a6d2faa4dea7639f72107d473438c24d5",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost12.status.json",
+      "bytes": 703,
+      "sha256": "56de628ca862713d4e6a5e9fe6d4385af4ecdecdd7775a6b973043d4fd7e652d",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost13.status.json",
+      "bytes": 702,
+      "sha256": "79165fe3f96393a4effcfb5a12e3ee97f7455fcb977e9255fe784ee0535ce26b",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost14.status.json",
+      "bytes": 686,
+      "sha256": "e489a0f44a0b1dc898442b28aaf20f3126b42408ca2631d6f8c52544e0a9078e",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost15.status.json",
+      "bytes": 701,
+      "sha256": "3cb4c735f96312de3bfc21760d47fe9b5515c7cee028749bf9bb1beb31f78bf3",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost16.status.json",
+      "bytes": 703,
+      "sha256": "85c13ead7dd224fcb78f1f35bfa89ea97ad0243023c2c6c72ce480230b81af60",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost17.status.json",
+      "bytes": 702,
+      "sha256": "7c813c22116a989ab7354a80500d7143d439379b88cc6697ba33f81ad4be3739",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost18.status.json",
+      "bytes": 702,
+      "sha256": "5973571d6ce2e98a25a0e431f7f3e90db2e8143af9d79f0aad55727340424108",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost2.status.json",
+      "bytes": 699,
+      "sha256": "58bed0f66c82d568fe937886a81c473489a3af800c8700cefabf2edfcb47e653",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost3.status.json",
+      "bytes": 699,
+      "sha256": "c4f6ea728de2785dba91eb013eb832fe874edac4eed1d0d605f1d42b42409866",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost4.status.json",
+      "bytes": 699,
+      "sha256": "cbc56f8876c820798a6438db736456dbfb2ae50d64d276d4678ece81dca32ae7",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost5.status.json",
+      "bytes": 698,
+      "sha256": "b986cb60c57a6e48f83650d580ad896603222048dfe7be6ed16641ad2b6bbcaa",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost6.status.json",
+      "bytes": 699,
+      "sha256": "ddc12ae7f30d994b13e0701941eb3b064375321be496b86e67dad51526f64c3a",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost7.status.json",
+      "bytes": 699,
+      "sha256": "d79ced52785afde2b7f07372f92750a07b4606fa1010ca293c9cf38bc98579e6",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost8.status.json",
+      "bytes": 699,
+      "sha256": "d7925e1a022eb546084d1d9cf0d81be21bfbe7c6b6bc49838e67b95ba6d99253",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCost9.status.json",
+      "bytes": 698,
+      "sha256": "9800c84573cc2ceb086a3264a722fdf8447de7254eaf2b021c2d20ff61a430e8",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleCosts.status.json",
+      "bytes": 698,
+      "sha256": "fbae8ebd793862067ce5dbbe9f334d73d7c050684783ec29c37f5615f2d494a2",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleLabels.status.json",
+      "bytes": 606,
+      "sha256": "99bebfef383d50595499bda87ab71ca288c7474c717602c8ef0fc56cbf4c18ca",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleLookup.status.json",
+      "bytes": 606,
+      "sha256": "263091d689844a405c9c38751a471558e68965406a0d6fcf1f2115ea89829286",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleNode38.status.json",
+      "bytes": 605,
+      "sha256": "f2ee11a154d2fd6142a7d18d9f54cecc44def2f8280ac2c2d95e669156d59d31",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleSamples.status.json",
+      "bytes": 609,
+      "sha256": "ac5e6e74febaabc78c89ddebbe285ba31a1e8881b907c870ed150c8fa1feca19",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-build-status/Mono18RectangleTotals.status.json",
+      "bytes": 606,
+      "sha256": "bbc36599d8d2bb463adbe82ef868916016e635d311f72c02c6206bdcd491d0b2",
+      "kind": "build_status"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/README.md",
+      "bytes": 3542,
+      "sha256": "812391cd10df525a0e46e1f7180ec8dd37ca1f943c251f3c52dd05e678ccf2a0",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/blocks.json",
+      "bytes": 81866,
+      "sha256": "c523f558e4c881ca86b27930561e778cef00800d3b4347b8396be9b2a8f18fe4",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/compile_all.py",
+      "bytes": 963,
+      "sha256": "43dcaabb5d82d67adb846484ab3a2d123a1eb476e857b3769378c5b6bfcea080",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/compile_one.py",
+      "bytes": 995,
+      "sha256": "9f06e4cef05ef6d4b01e1cab7b2304847fa8fa38e5be108c96178942fbe9cba0",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/generate_complete.py",
+      "bytes": 3243,
+      "sha256": "a56ab420f0f24d1bc3c86c84f8ddbb1882091fd78ca31f07e032970d34b812c2",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/generate_node38.py",
+      "bytes": 2751,
+      "sha256": "a48239585c54ca41e7b1bbece6b05c95277f0d3138885ac5d0c4add7e71ed38e",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/generate_profiles.py",
+      "bytes": 2471,
+      "sha256": "18d17e347ca6f00c1e1c87ee27d53956b318dc714ada51bf839773c4c6329069",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/code/generate_samples.py",
+      "bytes": 2456,
+      "sha256": "8b7a5e53a22691424648e9a78c8dec20544ab43dfc530cf388d01a92f8ae061d",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/compile-all-progress.txt",
+      "bytes": 9148,
+      "sha256": "19bc309a90e554a7002abcbf8cc2d39e029a6132221419267b36f5c7041d594a",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/compile-completed.json",
+      "bytes": 10344,
+      "sha256": "12f7dd8848ebda022d1ee467a281ddcd1bec9142d8bf9119deab7aabd7c9e636",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/compile-plan.json",
+      "bytes": 883,
+      "sha256": "c3065ce8884277c446fbc639eb19a3fecd97a561bb4992d7f3aae2a1e606dde1",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/generation-reproduction.txt",
+      "bytes": 881,
+      "sha256": "ad159b4bac75f8d24848ce992f0f4b00e1737178be13026f21e1f1b32d7376b9",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/manifest.json",
+      "bytes": 3127,
+      "sha256": "7360101509cae9e92ba3bfa162ffccd15f28312a66adade89ce40f9bc5fbbbef",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/matrices.json",
+      "bytes": 16486,
+      "sha256": "9fe2cfa3cbebedac88d88f112879b9adde544bdf2389f98dc442359f1618f129",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/profiles.json",
+      "bytes": 800717,
+      "sha256": "b3550a180b55ec83a511746ebe71d290327db9ebc56d404e26f50d717f119b0c",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/summary.json",
+      "bytes": 478,
+      "sha256": "f83487c9fb011a1247b215118b715cde4e568eb9159b8214dc86b7e24e62d9a0",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/traces.json",
+      "bytes": 1118,
+      "sha256": "f7f82a36c6973b09ce982cbbc2525ac2f31c22830b24239c93e73cdf724e63ae",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/weights.json",
+      "bytes": 55600,
+      "sha256": "bde4f9f758aedb660f0980c65d20f6189f456e5454ed53ed28e3727b462b4e4d",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/node38.json",
+      "bytes": 5716,
+      "sha256": "4bd883ef057f602bf966737c59b16944feb00efe6cb992cd69bd20753486a390",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/profile-locator.json",
+      "bytes": 594645,
+      "sha256": "b2f3998de2e3d15074234e1cfe1627a303c9a7f2adcdd785fd1f500dfd1e91be",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/source-budget.json",
+      "bytes": 801,
+      "sha256": "312fd4d316608ae6dc7731e004bacf9423881eb62418e74ce5428e400c68b119",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-costs/sources.json",
+      "bytes": 11308,
+      "sha256": "cafb471e92c06d0641e4a1a223be203520758c2b23904649ec7669d2afb5e0e9",
+      "kind": "audit_or_generation_payload"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-drafts/Mono18Rectangle9611.lean",
+      "bytes": 5934,
+      "sha256": "da8314ea60e8ff5dec0b4a562fde7530c6e31949849b2949c36ac91c04f4a702",
+      "kind": "uncompiled_draft"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-drafts/README.md",
+      "bytes": 460,
+      "sha256": "bdc505c9a05e2aa6eba6ea9eda13242e80b5c31199f222a95eb2863bc6423387",
+      "kind": "uncompiled_draft"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-drafts/children9611.json",
+      "bytes": 11988,
+      "sha256": "d114c3484c1118113d6a1b34bbd141abd44852da6c4145e7aeb97d8d1c2ed27f",
+      "kind": "uncompiled_draft"
+    },
+    {
+      "path": "results/orch/mono18-rectangle-drafts/generate_children9611.py",
+      "bytes": 3763,
+      "sha256": "861cdea39a68821c7141a4f894043fdad9d31160f15ff6c635f5b13f6fd4f41c",
+      "kind": "uncompiled_draft"
+    },
+    {
+      "path": "results/orch/review-mono18-packed-profiles.txt",
+      "bytes": 1744,
+      "sha256": "57f5e92a5d1cb8f8526fb5d387dad5f363e2dc57e02c13bc171ea77f8d40ac2b",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-adapters.txt",
+      "bytes": 2335,
+      "sha256": "b6cc3258942d452a9bef315c24c65ed03c71fb19cc70083133b6651f025e7eff",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-base.txt",
+      "bytes": 2041,
+      "sha256": "0ca4cbd2f7a4df0d5cf7363565861f60230e2eab6336c0a90003764409cb1db5",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-consumers.txt",
+      "bytes": 2015,
+      "sha256": "15304b3e8c38882245757c06d16c6b0e4c12104dc036535ea6793b3f993600e4",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-node38-data.json",
+      "bytes": 766,
+      "sha256": "b390dbdd5197e3a2c78f1e3e00f7c1653ead991619ec4dfe56d30ebb6dac7685",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-mono18-rectangle-node38.txt",
+      "bytes": 1738,
+      "sha256": "033c98b7bb5559bfabe794b7dd34bfd8c3025850571f2abcb0cd0fedafaa092c",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-rectangle-packed-check.txt",
+      "bytes": 1282,
+      "sha256": "0b753b9af84bda6041ee830239b99ea811a0214a3c9bf97b610ce7a23c9026e6",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-rectangle-run-wrappers.txt",
+      "bytes": 1572,
+      "sha256": "7057f4728f4e0a221590a1161b180df9b85ea6160e4df1bccdfd4b87e4f8ca73",
+      "kind": "review"
+    },
+    {
+      "path": "results/orch/review-rectangle-run.txt",
+      "bytes": 1906,
+      "sha256": "de276aa4b66b17f993acc0acb651a9f6eef5bd3282c425748ead70c22149d745",
+      "kind": "review"
+    }
+  ],
+  "preserve_paths": [
+    "results/orch/lemmas/Mono18RectangleBank.compile.txt",
+    "results/orch/lemmas/Mono18RectangleBank.lean",
+    "results/orch/lemmas/Mono18RectangleBase.compile.txt",
+    "results/orch/lemmas/Mono18RectangleBase.lean",
+    "results/orch/lemmas/Mono18RectangleCost0.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part0.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part0.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part1.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part1.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part2.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part2.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part3.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part3.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part4.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part4.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part5.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part5.lean",
+    "results/orch/lemmas/Mono18RectangleCost0Part6.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost0Part6.lean",
+    "results/orch/lemmas/Mono18RectangleCost1.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost1.lean",
+    "results/orch/lemmas/Mono18RectangleCost10.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost10.lean",
+    "results/orch/lemmas/Mono18RectangleCost11.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost11.lean",
+    "results/orch/lemmas/Mono18RectangleCost12.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost12.lean",
+    "results/orch/lemmas/Mono18RectangleCost13.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost13.lean",
+    "results/orch/lemmas/Mono18RectangleCost14.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost14.lean",
+    "results/orch/lemmas/Mono18RectangleCost15.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost15.lean",
+    "results/orch/lemmas/Mono18RectangleCost16.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost16.lean",
+    "results/orch/lemmas/Mono18RectangleCost17.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost17.lean",
+    "results/orch/lemmas/Mono18RectangleCost18.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost18.lean",
+    "results/orch/lemmas/Mono18RectangleCost2.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost2.lean",
+    "results/orch/lemmas/Mono18RectangleCost3.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost3.lean",
+    "results/orch/lemmas/Mono18RectangleCost4.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost4.lean",
+    "results/orch/lemmas/Mono18RectangleCost5.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost5.lean",
+    "results/orch/lemmas/Mono18RectangleCost6.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost6.lean",
+    "results/orch/lemmas/Mono18RectangleCost7.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost7.lean",
+    "results/orch/lemmas/Mono18RectangleCost8.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost8.lean",
+    "results/orch/lemmas/Mono18RectangleCost9.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCost9.lean",
+    "results/orch/lemmas/Mono18RectangleCosts.compile.txt",
+    "results/orch/lemmas/Mono18RectangleCosts.lean",
+    "results/orch/lemmas/Mono18RectangleLabels.compile.txt",
+    "results/orch/lemmas/Mono18RectangleLabels.lean",
+    "results/orch/lemmas/Mono18RectangleLookup.compile.txt",
+    "results/orch/lemmas/Mono18RectangleLookup.lean",
+    "results/orch/lemmas/Mono18RectangleNode38.compile.txt",
+    "results/orch/lemmas/Mono18RectangleNode38.lean",
+    "results/orch/lemmas/Mono18RectangleSamples.compile.txt",
+    "results/orch/lemmas/Mono18RectangleSamples.lean",
+    "results/orch/lemmas/Mono18RectangleTotals.compile.txt",
+    "results/orch/lemmas/Mono18RectangleTotals.lean",
+    "results/orch/lemmas/RectanglePackedCheck.compile.txt",
+    "results/orch/lemmas/RectanglePackedCheck.lean",
+    "results/orch/lemmas/RectangleRun.compile.txt",
+    "results/orch/lemmas/RectangleRun.lean",
+    "results/orch/lemmas/RectangleRunIndexed.compile.txt",
+    "results/orch/lemmas/RectangleRunIndexed.lean",
+    "results/orch/mono18-packed-profile-audit/audit-output.txt",
+    "results/orch/mono18-packed-profile-audit/audit_profiles.py",
+    "results/orch/mono18-packed-profile-audit/input-manifest.json",
+    "results/orch/mono18-packed-profile-audit/inputs/census/profiles.json",
+    "results/orch/mono18-packed-profile-audit/inputs/census/weights.json",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleBase.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part0.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part1.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part2.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part3.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part4.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part5.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost0Part6.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost1.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost10.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost11.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost12.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost13.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost14.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost15.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost16.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost17.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost18.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost2.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost3.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost4.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost5.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost6.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost7.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost8.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCost9.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/Mono18RectangleCosts.lean",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/blocks.json",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/compile-plan.json",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/generate_profiles.py",
+    "results/orch/mono18-packed-profile-audit/inputs/generated/profile-locator.json",
+    "results/orch/mono18-packed-profile-audit/profiles-audited.json",
+    "results/orch/mono18-packed-profile-audit/report.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleBank.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleBase.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part0.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part1.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part2.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part3.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part4.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part5.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost0Part6.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost1.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost10.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost11.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost12.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost13.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost14.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost15.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost16.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost17.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost18.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost2.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost3.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost4.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost5.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost6.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost7.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost8.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCost9.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleCosts.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleLabels.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleLookup.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleNode38.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleSamples.status.json",
+    "results/orch/mono18-rectangle-build-status/Mono18RectangleTotals.status.json",
+    "results/orch/mono18-rectangle-costs/README.md",
+    "results/orch/mono18-rectangle-costs/blocks.json",
+    "results/orch/mono18-rectangle-costs/code/compile_all.py",
+    "results/orch/mono18-rectangle-costs/code/compile_one.py",
+    "results/orch/mono18-rectangle-costs/code/generate_complete.py",
+    "results/orch/mono18-rectangle-costs/code/generate_node38.py",
+    "results/orch/mono18-rectangle-costs/code/generate_profiles.py",
+    "results/orch/mono18-rectangle-costs/code/generate_samples.py",
+    "results/orch/mono18-rectangle-costs/compile-all-progress.txt",
+    "results/orch/mono18-rectangle-costs/compile-completed.json",
+    "results/orch/mono18-rectangle-costs/compile-plan.json",
+    "results/orch/mono18-rectangle-costs/generation-reproduction.txt",
+    "results/orch/mono18-rectangle-costs/manifest.json",
+    "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/matrices.json",
+    "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/profiles.json",
+    "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/summary.json",
+    "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/traces.json",
+    "results/orch/mono18-rectangle-costs/mono18-oredge-weak-census/weights.json",
+    "results/orch/mono18-rectangle-costs/node38.json",
+    "results/orch/mono18-rectangle-costs/profile-locator.json",
+    "results/orch/mono18-rectangle-costs/source-budget.json",
+    "results/orch/mono18-rectangle-costs/sources.json",
+    "results/orch/mono18-rectangle-drafts/Mono18Rectangle9611.lean",
+    "results/orch/mono18-rectangle-drafts/README.md",
+    "results/orch/mono18-rectangle-drafts/children9611.json",
+    "results/orch/mono18-rectangle-drafts/generate_children9611.py",
+    "results/orch/mono18-rectangle-preservation.json",
+    "results/orch/review-mono18-packed-profiles.txt",
+    "results/orch/review-mono18-rectangle-adapters.txt",
+    "results/orch/review-mono18-rectangle-base.txt",
+    "results/orch/review-mono18-rectangle-consumers.txt",
+    "results/orch/review-mono18-rectangle-node38-data.json",
+    "results/orch/review-mono18-rectangle-node38.txt",
+    "results/orch/review-rectangle-packed-check.txt",
+    "results/orch/review-rectangle-run-wrappers.txt",
+    "results/orch/review-rectangle-run.txt"
+  ],
+  "manifest_self_not_hashed": true
+}

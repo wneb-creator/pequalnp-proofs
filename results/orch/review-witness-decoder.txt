@@ -1,0 +1,7 @@
+PASS — WitnessDecoder independent source review
+SHA256: 73d7e4fa407ad8b95476aa4082a6d52490a77b11aa74d5cc936673a23196c9a8
+Source bytes: 1022
+Compiler status: EXIT0; complete empty log.
+The low header byte chooses a literal run of 1–128 bytes or a backreference run of 3–130 bytes with a 16-bit distance. Literal consumption advances by header plus payload; copy consumption advances exactly three bytes. Packed input/output use matching little-endian byte positions. copyBytes updates both output and count for every copied byte, so valid overlapping references read newly produced bytes correctly. Both recursive functions terminate structurally on Nat arguments.
+Malformed distances (zero or beyond count), truncated packed input, and arbitrary fuel produce a deterministic candidate rather than a validation error. This is harmless in the stated use: no codec correctness theorem or accepted search result is inferred from decoding alone; later finite equality / semantic checks must establish the decoded candidate. The decoder itself asserts no such equality and introduces no axioms, unsafe execution, or forbidden constructs.
+Scope: 1,022-byte generic candidate decoder only; actual large payloads, equality benchmark datasets and whole-search semantics are separate.

@@ -1,0 +1,48 @@
+{
+  "sources": {
+    "measure_proof_dag.py": {
+      "sha256": "13a0fb74838960b748e4b1cfdc7e544ab55255f26e8ef5871051b5355d279769",
+      "bytes": 14996
+    },
+    "replace_cofactor_witnesses.py": {
+      "sha256": "6911ee39648ee174f6566d9eb8052c96934ca73680358ebdeed8a19cd121b06c",
+      "bytes": 4412
+    }
+  },
+  "streams": {
+    "mono18-weak-dag": {
+      "proof_nodes": 106030,
+      "nonterminal_nodes": 4876,
+      "retained_entries": 107598,
+      "subtree_cut_witnesses": 266517,
+      "streams_checked": 14,
+      "summary_sha256": "90e3eee3a0bc2ef51067ff1d5f8520fcd6d8cbd5090fe770e283b39697d708b6"
+    },
+    "mono18-strong-dag": {
+      "proof_nodes": 29449,
+      "nonterminal_nodes": 1534,
+      "retained_entries": 29948,
+      "subtree_cut_witnesses": 53839,
+      "streams_checked": 14,
+      "summary_sha256": "e96d1b12ac6e8ffda1c6ea51b5188b0608e884ac74dca778c5f32f6b213a3370"
+    }
+  },
+  "replacements": {
+    "mono18-strong-weak-replacements.json": {
+      "sha256": "56e751c61b86af861441381f8aa5dff629bf8bdd839814317f29f8ac8f596f4d",
+      "requested": 32954,
+      "same": 21967,
+      "alternative": 6699,
+      "unresolved": 4288
+    },
+    "mono18-weak-profile1086-replacements.json": {
+      "sha256": "fee5d2ae2248956dc8cb08db2e99ba84a96137cd0504109d7b1d72bcf1d3a5bf",
+      "requested": 1,
+      "same": 0,
+      "alternative": 1,
+      "unresolved": 0,
+      "new_profile": 1089
+    }
+  },
+  "scope": "Source and immutable output integrity review; no complete search, prior-proof or kernel certificate claim."
+}

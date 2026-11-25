@@ -1,0 +1,73 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "81a5deceb591bcb404d874061527d6e8b7713b7f9bb1fecea8fb007575ebe019",
+  "manifest_entries": 94,
+  "gzip_streams_verified": 30,
+  "reports": [
+    {
+      "mode": "strong",
+      "event_counts": {
+        "header": 1,
+        "node": 29449,
+        "canonical": 4912,
+        "basis": 1534,
+        "entry": 29948,
+        "closure_complete": 1534,
+        "copy_child": 29448,
+        "done": 29449,
+        "subtree_cut": 53839,
+        "signal": 9523
+      },
+      "nonterminals": 1534,
+      "entries": 29948,
+      "subcuts": 53839,
+      "original_singlezero_contexts": 32954,
+      "replacements": [
+        {
+          "file": "mono18-strong-weak-replacements.json.gz",
+          "requested": 32954,
+          "reported_same": 21967,
+          "recorded_successes_replayed": 28666,
+          "unresolved": 4288
+        }
+      ]
+    },
+    {
+      "mode": "weak",
+      "event_counts": {
+        "header": 1,
+        "node": 106030,
+        "canonical": 15253,
+        "basis": 4876,
+        "entry": 107598,
+        "closure_complete": 4876,
+        "copy_child": 106029,
+        "done": 106030,
+        "subtree_cut": 266517,
+        "signal": 53871
+      },
+      "nonterminals": 4876,
+      "entries": 107598,
+      "subcuts": 266517,
+      "original_singlezero_contexts": 138061,
+      "replacements": [
+        {
+          "file": "mono18-weak14-replacements.json.gz",
+          "requested": 138061,
+          "reported_same": 91224,
+          "recorded_successes_replayed": 44996,
+          "unresolved": 1841
+        },
+        {
+          "file": "mono18-weak-profile1086-replacements.json",
+          "requested": 1,
+          "reported_same": 0,
+          "recorded_successes_replayed": 1,
+          "unresolved": 0
+        }
+      ]
+    }
+  ],
+  "max_rss_kib": 348940,
+  "scope": "Preservation/source review and independent input/count/payload/replacement replay. Failed alternatives remain unresolved, not impossibility proofs. Same-profile lower14 successes are counted from the archived classification, not individually recomputed here. Complete Lean root certificate, codec and all prior proofs remain absent."
+}

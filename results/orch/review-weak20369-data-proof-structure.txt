@@ -1,0 +1,44 @@
+Independent review: PASS for compiled Weak20369Data; static PASS for pending Weak20369Supports.
+Reviewer: proof_structure (independent of status_review and library_route).
+
+Read the complete generate_weak20369.py and generate_weak20369_supports.py generators and all declarations in their Lean products. Parsed the actual emitted Lean arrays independently rather than rerunning the generators. All 23 full 1024-bit signal literals match the frozen fixture. Both basis/class vectors, all 23 entries, five gate-cut records, exact DAG provenance, all 33 positive/negative row witnesses and every fresh gate alternative match the intended finite closure. Every rejected alternative has an actual retained-input/output row obstruction. The target is absent from both tables. The source includes every active singleton, plus exactly the derived OR entry in node9611.
+
+Independently parsed all 23 copied-label lists and the five compressed-label lists in the current support draft. Exact source positions, duplicate-valued labels, consumed supports, copied output multiplicities, sorted child words and caps all match the frozen child records. No alias collapse occurs. Counts and depth inequalities hold. The support generator assumes children are emitted in entry order; the audit verifies this assumption for every child in this concrete fixture.
+
+The data cache has a reported compiler exit0 and empty archived/scratch logs; no extra Lean run was launched. Weak20369Supports remains uncompiled during the root checker memory pause, so this review does not claim its compilation. Both source generators are scoped to this concrete fixture. The separate memo transport and all terminal/gate Run exclusions remain independent proof obligations; this data review does not certify the recursive node by itself.
+
+Exact hashes and exhaustive finite census are in verification/audit-weak20369-data-proof-structure.json. Audit script completed exit0. Its source parses actual Lean literals/tables and recomputes all gate, row, provenance, support, label, and cap checks independently.
+
+{
+  "fixture_sha256": "1b62162bd333e95c240404b645aad3e587621800c824d8403285f533dbce3879",
+  "data_sha256": "b35402367657094427850c2325cd84044f7fbd0a0fb70f4d96235455711c08da",
+  "supports_sha256": "8b0e950233f3c4a6fa8c110443273a2a786f01e9d21a5d84f854fcd11f95820f",
+  "truth_words": 23,
+  "nodes": [
+    {
+      "node": 9611,
+      "entries": 12,
+      "gate_cuts": 5,
+      "rows": 17,
+      "child_labels": 12,
+      "census": {
+        "fresh_candidates": 244,
+        "row": 232,
+        "cut": 10,
+        "entry": 2
+      }
+    },
+    {
+      "node": 20369,
+      "entries": 11,
+      "gate_cuts": 0,
+      "rows": 16,
+      "child_labels": 11,
+      "census": {
+        "fresh_candidates": 208,
+        "row": 208
+      }
+    }
+  ],
+  "verdict": "PASS finite data and current uncompiled support source; not a completed-node proof"
+}

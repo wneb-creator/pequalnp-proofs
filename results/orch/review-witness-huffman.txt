@@ -1,0 +1,7 @@
+PASS — WitnessHuffman independent source review
+SHA256: 3192c6c1685fef68c0e1497c229be21d10821d09463705c8416af0cf8e7e54b6
+Source bytes: 1242
+Compiler status: EXIT0; complete empty log.
+The packed tree stores two 10-bit child indices per node; the next low-order bit selects the child. Every step consumes exactly one bit, including the leaf step, and each byte traversal resets to node0 with a 16-step fuel bound. huffBytes assembles decoded values at successive little-endian byte offsets and propagates remaining bits. decodeHuff consumes a Huffman header, then either a literal sequence or two little-endian distance bytes, and uses the previously reviewed sequential-overlap copyBytes semantics. Recursive termination is structural.
+This is deliberately a candidate constructor, not a validator: malformed trees can contain cycles, exceed16 levels, or encode leaf values above255 (the10-bit child range permits values up to511 after subtracting512). Such inputs still return deterministic Nat candidates. The intended use must establish the resulting decoded payload by finite equality or semantic checks; no abstract correctness or range invariant is assumed here. The source adds no axiom or unsafe execution.
+Scope: generic1,242-byte wrapper only, excluding actual Huffman tree/data literals and the complete search certificate.

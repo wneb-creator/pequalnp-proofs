@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/lemmas/Mono18RectangleLabels.lean",
+  "source_sha256": "3f3d7c646824931c1ca110657966c85a275f9b2683a10acac832cb6843a0902b",
+  "log": "results/orch/lemmas/Mono18RectangleLabels.compile.txt",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "original_status": {
+    "source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleLabels.lean",
+    "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/labels-attempt1.txt",
+    "exit": 0,
+    "seconds": 3.6922337939995487,
+    "maxrss_kb": 2943076
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/lemmas/Mono18RectangleBank.lean",
+  "source_sha256": "8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8",
+  "log": "results/orch/lemmas/Mono18RectangleBank.compile.txt",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "original_status": {
+    "source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleBank.lean",
+    "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/bank-attempt1.txt",
+    "exit": 0,
+    "seconds": 3.053274699999747,
+    "maxrss_kb": 2908928
+  }
+}

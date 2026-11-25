@@ -1,0 +1,33 @@
+{
+  "parts": [
+    {
+      "stream": "node_structure",
+      "offset": 0,
+      "length": 14654
+    },
+    {
+      "stream": "entry_provenance",
+      "offset": 14654,
+      "length": 152331
+    },
+    {
+      "stream": "children",
+      "offset": 166985,
+      "length": 287493
+    },
+    {
+      "stream": "witness_dictionary",
+      "offset": 454478,
+      "length": 2943
+    },
+    {
+      "stream": "cut_witness_dictionary_indices",
+      "offset": 457421,
+      "length": 307607
+    }
+  ],
+  "total_bytes": 765028,
+  "sha256": "c539de6a9c37303c1c71a39fcc77010ed72641a74a33afc767d671e89ad0769d",
+  "gzip_bytes": 316330,
+  "scope": "Storage benchmark only. Varint fields are unsigned little-endian base128. Node/cut boundary arrays and profile/rectangle proofs are not included. No Lean decoder or complete finite certificate is claimed."
+}

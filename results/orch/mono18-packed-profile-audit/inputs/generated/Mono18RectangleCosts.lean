@@ -1,0 +1,133 @@
+import Mono18RectangleCost0
+import Mono18RectangleCost1
+import Mono18RectangleCost2
+import Mono18RectangleCost3
+import Mono18RectangleCost4
+import Mono18RectangleCost5
+import Mono18RectangleCost6
+import Mono18RectangleCost7
+import Mono18RectangleCost8
+import Mono18RectangleCost9
+import Mono18RectangleCost10
+import Mono18RectangleCost11
+import Mono18RectangleCost12
+import Mono18RectangleCost13
+import Mono18RectangleCost14
+import Mono18RectangleCost15
+import Mono18RectangleCost16
+import Mono18RectangleCost17
+import Mono18RectangleCost18
+
+namespace PEqualNP.Outside.L_meta_2373.Mono18Rectangle
+
+def blocks : List Block := [
+  ⟨0, block0⟩,
+  ⟨0, block1⟩,
+  ⟨0, block2⟩,
+  ⟨0, block3⟩,
+  ⟨0, block4⟩,
+  ⟨0, block5⟩,
+  ⟨0, block6⟩,
+  ⟨0, block7⟩,
+  ⟨0, block8⟩,
+  ⟨0, block9⟩,
+  ⟨0, block10⟩,
+  ⟨0, block11⟩,
+  ⟨0, block12⟩,
+  ⟨0, block13⟩,
+  ⟨0, block14⟩,
+  ⟨0, block15⟩,
+  ⟨0, block16⟩,
+  ⟨0, block17⟩,
+  ⟨0, block18⟩,
+  ⟨0, block19⟩,
+  ⟨0, block20⟩,
+  ⟨0, block21⟩,
+  ⟨0, block22⟩,
+  ⟨0, block23⟩,
+  ⟨0, block24⟩,
+  ⟨0, block25⟩,
+  ⟨0, block26⟩,
+  ⟨0, block27⟩,
+  ⟨0, block28⟩,
+  ⟨0, block29⟩,
+  ⟨0, block30⟩,
+  ⟨0, block31⟩,
+  ⟨0, block32⟩,
+  ⟨0, block33⟩,
+  ⟨0, block34⟩,
+  ⟨0, block35⟩,
+  ⟨0, block36⟩,
+  ⟨0, block37⟩,
+  ⟨0, block38⟩,
+  ⟨0, block39⟩,
+  ⟨0, block40⟩,
+  ⟨0, block41⟩,
+  ⟨0, block42⟩,
+  ⟨0, block43⟩,
+  ⟨0, block44⟩,
+  ⟨0, block45⟩,
+  ⟨0, block46⟩,
+  ⟨0, block47⟩,
+  ⟨0, block48⟩,
+  ⟨0, block49⟩,
+  ⟨0, block50⟩,
+  ⟨0, block51⟩,
+  ⟨0, block52⟩,
+  ⟨0, block53⟩,
+  ⟨0, block54⟩,
+  ⟨1, block55⟩,
+  ⟨1, block56⟩,
+  ⟨1, block57⟩,
+  ⟨1, block58⟩,
+  ⟨2, block59⟩,
+  ⟨3, block60⟩,
+  ⟨3, block61⟩,
+  ⟨3, block62⟩,
+  ⟨4, block63⟩,
+  ⟨5, block64⟩,
+  ⟨5, block65⟩,
+  ⟨5, block66⟩,
+  ⟨5, block67⟩,
+  ⟨5, block68⟩,
+  ⟨6, block69⟩,
+  ⟨6, block70⟩,
+  ⟨6, block71⟩,
+  ⟨6, block72⟩,
+  ⟨6, block73⟩,
+  ⟨6, block74⟩,
+  ⟨6, block75⟩,
+  ⟨6, block76⟩,
+  ⟨7, block77⟩,
+  ⟨7, block78⟩,
+  ⟨7, block79⟩,
+  ⟨7, block80⟩,
+  ⟨8, block81⟩,
+  ⟨8, block82⟩,
+  ⟨9, block83⟩,
+  ⟨9, block84⟩,
+  ⟨9, block85⟩,
+  ⟨9, block86⟩,
+  ⟨10, block87⟩,
+  ⟨10, block88⟩,
+  ⟨10, block89⟩,
+  ⟨11, block90⟩,
+  ⟨11, block91⟩,
+  ⟨11, block92⟩,
+  ⟨11, block93⟩,
+  ⟨11, block94⟩,
+  ⟨11, block95⟩,
+  ⟨11, block96⟩,
+  ⟨12, block97⟩,
+  ⟨12, block98⟩,
+  ⟨12, block99⟩,
+  ⟨13, block100⟩,
+  ⟨13, block101⟩,
+  ⟨14, block102⟩,
+  ⟨15, block103⟩,
+  ⟨16, block104⟩,
+  ⟨17, block105⟩,
+  ⟨18, block106⟩,
+  ⟨18, block107⟩]
+
+end PEqualNP.Outside.L_meta_2373.Mono18Rectangle

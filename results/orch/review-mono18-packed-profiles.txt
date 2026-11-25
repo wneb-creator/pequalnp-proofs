@@ -1,0 +1,10 @@
+Independent packed-profile data review: PASS
+Reviewer: counterexample
+Frozen audit: results/orch/mono18-packed-profile-audit/
+Auditor SHA256: e066b222f64da80af2d6001c21f22c75e72e837f902b588311aed16eb6b62c39
+
+Compared every generated Lean literal to the frozen census: 19 packed integer matrices, 4407 signed coefficients, 108 distinct block declarations, and all 6,159 record/locator pairs. Matrix decoding uses the actual Lean offset, bit width and row-major index; no high packed bits remain, and all matrix totals agree. Block aggregation order, split Cost0 modules, profile counts, masks and caps all match.
+
+Independently recomputed the exact maximum weighted subrectangle for every profile by enumerating subsets of the smaller support and summing positive opposite-side sums. This includes empty rectangles and negative coefficients. Total enumeration: 177,807 subsets. A separate exhaustive row-and-column subset implementation also matched on 407 small profiles. All recorded caps hold; 0 profiles have a strictly larger cap than their exact maximum. All 7633 source-obligation occurrences are retained through the census multiplicity field, with no deduplication of occurrences asserted in this review.
+
+The complete audit ran with exit0 in 0.645 seconds. Full stdout/stderr, per-profile results, exact input hashes and immutable input copies are archived. No Lean compile or search rerun was performed for this review. This validates packed finite data and generation correspondence, not completion of all kernel chunks, assignment-to-profile sample semantics, or the whole search/circuit exclusion. Those remain separate certificate obligations. The generic packed-check soundness and base-module mathematics have separate reviews.

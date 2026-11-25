@@ -1,0 +1,173 @@
+{
+  "node": {
+    "event": "rectangle",
+    "node": 38,
+    "remaining": 16,
+    "matrix": 0,
+    "total": 79,
+    "cost_sum": 76,
+    "state": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      4,
+      5,
+      6,
+      6,
+      7,
+      7,
+      8,
+      9,
+      10,
+      12,
+      28,
+      28
+    ],
+    "root_costs": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      8,
+      8
+    ]
+  },
+  "signal_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    28
+  ],
+  "profiles": [
+    {
+      "signal": 1,
+      "hex": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "profile": 241,
+      "block": 3,
+      "offset": 49,
+      "weight": 0,
+      "record": "0x11d6e8031"
+    },
+    {
+      "signal": 2,
+      "hex": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "profile": 286,
+      "block": 4,
+      "offset": 30,
+      "weight": 0,
+      "record": "0x126f70043"
+    },
+    {
+      "signal": 3,
+      "hex": "0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0",
+      "profile": 417,
+      "block": 6,
+      "offset": 33,
+      "weight": 0,
+      "record": "0x11bba8086"
+    },
+    {
+      "signal": 4,
+      "hex": "0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00",
+      "profile": 601,
+      "block": 9,
+      "offset": 25,
+      "weight": 0,
+      "record": "0x135e5810c"
+    },
+    {
+      "signal": 5,
+      "hex": "0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000",
+      "profile": 838,
+      "block": 13,
+      "offset": 6,
+      "weight": 0,
+      "record": "0x13e9b0218"
+    },
+    {
+      "signal": 6,
+      "hex": "0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000",
+      "profile": 2478,
+      "block": 38,
+      "offset": 57,
+      "weight": 0,
+      "record": "0x133f94420"
+    },
+    {
+      "signal": 7,
+      "hex": "0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000",
+      "profile": 2004,
+      "block": 31,
+      "offset": 20,
+      "weight": 0,
+      "record": "0x13fc8b040"
+    },
+    {
+      "signal": 8,
+      "hex": "0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000",
+      "profile": 1306,
+      "block": 20,
+      "offset": 26,
+      "weight": 0,
+      "record": "0x13e478c80"
+    },
+    {
+      "signal": 9,
+      "hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000",
+      "profile": 2893,
+      "block": 45,
+      "offset": 24,
+      "weight": 0,
+      "record": "0x10e3fe100"
+    },
+    {
+      "signal": 10,
+      "hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "profile": 1623,
+      "block": 25,
+      "offset": 23,
+      "weight": 0,
+      "record": "0x101ff9a00"
+    },
+    {
+      "signal": 12,
+      "hex": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "profile": 333,
+      "block": 5,
+      "offset": 13,
+      "weight": 0,
+      "record": "0x104660073"
+    },
+    {
+      "signal": 28,
+      "hex": "0xfafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafa",
+      "profile": 483,
+      "block": 7,
+      "offset": 35,
+      "weight": 0,
+      "record": "0x2192a80b7"
+    }
+  ],
+  "trace": "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/rectangles.jsonl"
+}

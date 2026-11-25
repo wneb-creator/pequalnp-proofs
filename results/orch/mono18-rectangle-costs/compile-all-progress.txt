@@ -1,0 +1,53 @@
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part0.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part0-attempt1.txt", "exit": 0, "seconds": 8.79793514999983, "maxrss_kb": 3194840}
+{"preserved": "Mono18RectangleCost0Part0.lean", "completed": 1, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part1.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part1-attempt1.txt", "exit": 0, "seconds": 13.703943811999125, "maxrss_kb": 3305396}
+{"preserved": "Mono18RectangleCost0Part1.lean", "completed": 2, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part2.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part2-attempt1.txt", "exit": 0, "seconds": 30.232386389998283, "maxrss_kb": 3418328}
+{"preserved": "Mono18RectangleCost0Part2.lean", "completed": 3, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part3.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part3-attempt1.txt", "exit": 0, "seconds": 24.42428651999944, "maxrss_kb": 3506812}
+{"preserved": "Mono18RectangleCost0Part3.lean", "completed": 4, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part4.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part4-attempt1.txt", "exit": 0, "seconds": 26.4534534609993, "maxrss_kb": 3483960}
+{"preserved": "Mono18RectangleCost0Part4.lean", "completed": 5, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part5.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part5-attempt1.txt", "exit": 0, "seconds": 37.55300815699957, "maxrss_kb": 3586288}
+{"preserved": "Mono18RectangleCost0Part5.lean", "completed": 6, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part6.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0Part6-attempt1.txt", "exit": 0, "seconds": 18.39965453900004, "maxrss_kb": 3333484}
+{"preserved": "Mono18RectangleCost0Part6.lean", "completed": 7, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost0-attempt1.txt", "exit": 0, "seconds": 2.792076140000063, "maxrss_kb": 2899708}
+{"preserved": "Mono18RectangleCost0.lean", "completed": 8, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost1.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost1-attempt1.txt", "exit": 0, "seconds": 19.666648243000964, "maxrss_kb": 3698972}
+{"preserved": "Mono18RectangleCost1.lean", "completed": 9, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost2.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost2-attempt1.txt", "exit": 0, "seconds": 6.1991989350008225, "maxrss_kb": 3446952}
+{"preserved": "Mono18RectangleCost2.lean", "completed": 10, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost3.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost3-attempt1.txt", "exit": 0, "seconds": 12.278410315999281, "maxrss_kb": 3619404}
+{"preserved": "Mono18RectangleCost3.lean", "completed": 11, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost4.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost4-attempt1.txt", "exit": 0, "seconds": 13.067138047999833, "maxrss_kb": 4405936}
+{"preserved": "Mono18RectangleCost4.lean", "completed": 12, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost5.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost5-attempt1.txt", "exit": 0, "seconds": 21.60802023799988, "maxrss_kb": 3732988}
+{"preserved": "Mono18RectangleCost5.lean", "completed": 13, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost6.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost6-attempt1.txt", "exit": 0, "seconds": 40.016477703999044, "maxrss_kb": 3695140}
+{"preserved": "Mono18RectangleCost6.lean", "completed": 14, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost7.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost7-attempt1.txt", "exit": 0, "seconds": 19.761272354999164, "maxrss_kb": 3698568}
+{"preserved": "Mono18RectangleCost7.lean", "completed": 15, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost8.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost8-attempt1.txt", "exit": 0, "seconds": 11.175762819999363, "maxrss_kb": 3651488}
+{"preserved": "Mono18RectangleCost8.lean", "completed": 16, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost9.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost9-attempt1.txt", "exit": 0, "seconds": 20.84447039800034, "maxrss_kb": 3712620}
+{"preserved": "Mono18RectangleCost9.lean", "completed": 17, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost10.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost10-attempt1.txt", "exit": 0, "seconds": 13.952302863001023, "maxrss_kb": 3613620}
+{"preserved": "Mono18RectangleCost10.lean", "completed": 18, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost11.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost11-attempt1.txt", "exit": 0, "seconds": 36.377186329000324, "maxrss_kb": 3668900}
+{"preserved": "Mono18RectangleCost11.lean", "completed": 19, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost12.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost12-attempt1.txt", "exit": 0, "seconds": 12.681222848999823, "maxrss_kb": 3632164}
+{"preserved": "Mono18RectangleCost12.lean", "completed": 20, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost13.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost13-attempt1.txt", "exit": 0, "seconds": 6.579886202000125, "maxrss_kb": 3420300}
+{"preserved": "Mono18RectangleCost13.lean", "completed": 21, "total": 27}
+{"preserved": "Mono18RectangleCost14.lean", "completed": 22, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost15.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost15-attempt1.txt", "exit": 0, "seconds": 4.77846367300117, "maxrss_kb": 3098028}
+{"preserved": "Mono18RectangleCost15.lean", "completed": 23, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost16.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost16-attempt1.txt", "exit": 0, "seconds": 11.547027675000209, "maxrss_kb": 3276820}
+{"preserved": "Mono18RectangleCost16.lean", "completed": 24, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost17.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost17-attempt1.txt", "exit": 0, "seconds": 4.301359940000111, "maxrss_kb": 3128256}
+{"preserved": "Mono18RectangleCost17.lean", "completed": 25, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost18.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost18-attempt1.txt", "exit": 0, "seconds": 7.578301288998773, "maxrss_kb": 3495912}
+{"preserved": "Mono18RectangleCost18.lean", "completed": 26, "total": 27}
+{"source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCosts.lean", "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCosts-attempt1.txt", "exit": 0, "seconds": 4.004387035000036, "maxrss_kb": 2918824}
+{"preserved": "Mono18RectangleCosts.lean", "completed": 27, "total": 27}

@@ -1,0 +1,7 @@
+import Mono18RectangleCost0Part0
+import Mono18RectangleCost0Part1
+import Mono18RectangleCost0Part2
+import Mono18RectangleCost0Part3
+import Mono18RectangleCost0Part4
+import Mono18RectangleCost0Part5
+import Mono18RectangleCost0Part6

@@ -1,0 +1,382 @@
+{
+  "README.md": {
+    "bytes": 2280,
+    "sha256": "0e2b5ae070211bc55a9be34fb7b84fe07bf57b941c87adfab52fdccde0438946"
+  },
+  "inputs.json": {
+    "bytes": 1117,
+    "sha256": "e4968eb5c9d7c46da9273a9ad3aff7376c1d3a632427b1dc67e55a95d61e2f8f"
+  },
+  "measure_proof_dag.py": {
+    "bytes": 14996,
+    "sha256": "13a0fb74838960b748e4b1cfdc7e544ab55255f26e8ef5871051b5355d279769"
+  },
+  "mono18-strong-dag/children.varint": {
+    "bytes": 80138,
+    "sha256": "34d5c4e30169334172e3efe60219cea17d8e9404ba2f72f6b203f124c73dbdd3"
+  },
+  "mono18-strong-dag/children.varint.gz": {
+    "bytes": 29598,
+    "sha256": "20bb54cf6117014e78c37b5882e6fcd70db2dbe2a7b9269261bf50a67c824ddd"
+  },
+  "mono18-strong-dag/compact-witness-candidate-layout.json": {
+    "bytes": 838,
+    "sha256": "fa643c9d4ae0ebeec5566b44abbab40c94239baae2761b539e87d165fe43ea8d"
+  },
+  "mono18-strong-dag/compact-witness-candidate.bin": {
+    "bytes": 184312,
+    "sha256": "879f47be81042b4ae6fd650425a002d426bf49aa33a8ba4ee3b282242852ea84"
+  },
+  "mono18-strong-dag/complete-fixture-15920.json": {
+    "bytes": 24601,
+    "sha256": "375d427766a7e6657a727588201e72e31a181c2efa40aa04b7c4c34793eb4a23"
+  },
+  "mono18-strong-dag/complete-fixture-24778.json": {
+    "bytes": 24001,
+    "sha256": "77a3dbdc4ce9bfa76afbcdc8fe67558cbe47ec64295ceaf39c01875cfe92c7e1"
+  },
+  "mono18-strong-dag/complete-fixture-27484.json": {
+    "bytes": 24611,
+    "sha256": "daa4c9fea46c18f191353f5bd2ca0a53f2b8474d17827e4be08fb158f11e71f6"
+  },
+  "mono18-strong-dag/completion-order.json": {
+    "bytes": 195038,
+    "sha256": "4794245b9ad1653a97c55f5d7cba7ae06334694e1785e837f2372668ac32df04"
+  },
+  "mono18-strong-dag/cut_witness_dictionary_indices.varint": {
+    "bytes": 62729,
+    "sha256": "466b9de2c69afb0dca71078c0d753c4848f363541a462ec919e205de52ebab00"
+  },
+  "mono18-strong-dag/cut_witness_dictionary_indices.varint.gz": {
+    "bytes": 35461,
+    "sha256": "6fca2bbf8581e0000d8f15e72e7be3af7a254e5474be80cc4eea02cecff5ffec"
+  },
+  "mono18-strong-dag/cuts_explicit.varint": {
+    "bytes": 275994,
+    "sha256": "29ae0944c7d59805cb09a981a54be33cf2aa0d7efaed11c485921138ed5b3cad"
+  },
+  "mono18-strong-dag/cuts_explicit.varint.gz": {
+    "bytes": 109250,
+    "sha256": "e2137bc431d6a203933e37b8633db26ad8ce55e0889dee09daccc3852a77cb43"
+  },
+  "mono18-strong-dag/cuts_witness_only.varint": {
+    "bytes": 114249,
+    "sha256": "5ef10db65a1446dd7be273692349314e499e784a4d4679115fe1ab9cd039b93e"
+  },
+  "mono18-strong-dag/cuts_witness_only.varint.gz": {
+    "bytes": 39609,
+    "sha256": "1e966d8ea0406f2ee156394b9be158ed0c49e933e05b50d3562e7c1fb45e102e"
+  },
+  "mono18-strong-dag/entry_provenance.varint": {
+    "bytes": 35235,
+    "sha256": "eb7ba12bb0a89194482986eea40c656be52d162b45448a007c66cf78fc4b7e2f"
+  },
+  "mono18-strong-dag/entry_provenance.varint.gz": {
+    "bytes": 9969,
+    "sha256": "a56b68a39e6bcc0d5250eaaa81ba987a6109833cf5480ef8a6fb78af06947615"
+  },
+  "mono18-strong-dag/entry_template_dictionary.varint": {
+    "bytes": 33165,
+    "sha256": "555d98bd4186bfc7e5f1facecf2e5f154d27ddcc057f46ff87a53cf0d5427789"
+  },
+  "mono18-strong-dag/entry_template_dictionary.varint.gz": {
+    "bytes": 10154,
+    "sha256": "9b9f1a24a2efcae42ddfb77dabf3914a62a040021dcc8a408c24e2b51ffeaad4"
+  },
+  "mono18-strong-dag/entry_template_indices.varint": {
+    "bytes": 2656,
+    "sha256": "761f4153db5a1f69c4a020472e039b5bac2111c1b231e23f451050b8f9d11ca6"
+  },
+  "mono18-strong-dag/entry_template_indices.varint.gz": {
+    "bytes": 2060,
+    "sha256": "c61746256274315559c4ed50adf9b6597fa592a49ccb8374eb06e46b55262b62"
+  },
+  "mono18-strong-dag/fixture-1.json": {
+    "bytes": 24661,
+    "sha256": "2bb8bcb38e431f82993f39a011c2836bf59b9d178ce914650ae2c769a86e7180"
+  },
+  "mono18-strong-dag/node_child_cofactor_presets.varint": {
+    "bytes": 7803,
+    "sha256": "ec36cc23485c31dea3d14ad3a716f4827835f0cd4e3d7152bbe72d0e9bcf50dc"
+  },
+  "mono18-strong-dag/node_child_cofactor_presets.varint.gz": {
+    "bytes": 3895,
+    "sha256": "7226dd011a4a4e995c53730be7b2e1175ba6ea5b0e4c8489df4d7204a170fefb"
+  },
+  "mono18-strong-dag/node_cut_presets.varint": {
+    "bytes": 22949,
+    "sha256": "b64dbca6787bc35f24ec86a18a16787cd8e867e7ba857657ff1460eaa8496ffc"
+  },
+  "mono18-strong-dag/node_cut_presets.varint.gz": {
+    "bytes": 13511,
+    "sha256": "3a9206a5060128a0dd2f86dea55ffb9f13c69c40e17a50abb7e65fd003278b80"
+  },
+  "mono18-strong-dag/node_explicit_child_links.varint": {
+    "bytes": 30168,
+    "sha256": "201667c2d98cd8aca99220e4e1682079bbf15a783059ebc61f05763af1497d25"
+  },
+  "mono18-strong-dag/node_explicit_child_links.varint.gz": {
+    "bytes": 20800,
+    "sha256": "9bb3cddfc719edf9d3bd2d0ad7b6281b06342b9d1a812dfd3e40b8f949ee9f5f"
+  },
+  "mono18-strong-dag/node_profile_only_presets.varint": {
+    "bytes": 17660,
+    "sha256": "17ed491b8963666e07711fb259f247da65e77e75b89fa9a0fcda82c3fabc310d"
+  },
+  "mono18-strong-dag/node_profile_only_presets.varint.gz": {
+    "bytes": 11590,
+    "sha256": "7a0f7a0b03affa9cd58b7f6a506d1ec1f5f80c6cf2c62809ad60835aee2bfcf8"
+  },
+  "mono18-strong-dag/node_rectangle_presets.varint": {
+    "bytes": 4490,
+    "sha256": "eb6d8f5a25131ef1a609a13157eb3f6dcc66174a8a8458f2d2839476b05ec0ce"
+  },
+  "mono18-strong-dag/node_rectangle_presets.varint.gz": {
+    "bytes": 1911,
+    "sha256": "7503535797fa8bcd589e3d7a39f5a4aacebf364a0ae7e8e76ec65d0793676c5a"
+  },
+  "mono18-strong-dag/node_structure.varint": {
+    "bytes": 4608,
+    "sha256": "9945e6cd9810f6aac983e9ec657c961a67d3c06c97fbdd53aecd0922cf437df2"
+  },
+  "mono18-strong-dag/node_structure.varint.gz": {
+    "bytes": 1555,
+    "sha256": "022fb0c47eddcd9c7a57705220d6c6113c5dcccb5004e88fb4854dcbb407ddc2"
+  },
+  "mono18-strong-dag/nonterminal-nodes.json": {
+    "bytes": 10283,
+    "sha256": "eeefd57bc9acb902d707ac2238fa5a81c02f74f80a8c7ded1965f124b8bed241"
+  },
+  "mono18-strong-dag/rectangle-nodes.json": {
+    "bytes": 118270,
+    "sha256": "4743b6d2aaf17c10d9f102cb8d64c3c8b5d4f658fc39a2f308b17779fcc3dace"
+  },
+  "mono18-strong-dag/shortlist-witness-candidate-layout.json": {
+    "bytes": 1339,
+    "sha256": "9b45cb2a2db38352d50497ba002eddb6736591116344d0d03196e749f7ae91b0"
+  },
+  "mono18-strong-dag/shortlist-witness-candidate.bin": {
+    "bytes": 107441,
+    "sha256": "af67c68f2fa536481ab236a26df33962ab6442cd147690b43ba282290de2e86d"
+  },
+  "mono18-strong-dag/summary.json": {
+    "bytes": 8202,
+    "sha256": "e96d1b12ac6e8ffda1c6ea51b5188b0608e884ac74dca778c5f32f6b213a3370"
+  },
+  "mono18-strong-dag/witness_dictionary.varint": {
+    "bytes": 1602,
+    "sha256": "299d962c4126f480a5b143a581fe66201d27a7999daec03a6c582c0b0d53021c"
+  },
+  "mono18-strong-dag/witness_dictionary.varint.gz": {
+    "bytes": 1239,
+    "sha256": "f5a6b70db658d041f4d26f96ebaf3b8804d441f8418a86b5e1d8e6f2fe07ec6e"
+  },
+  "mono18-strong-dag-measure.log": {
+    "bytes": 8202,
+    "sha256": "e96d1b12ac6e8ffda1c6ea51b5188b0608e884ac74dca778c5f32f6b213a3370"
+  },
+  "mono18-strong-weak-replacements.json.gz": {
+    "bytes": 753686,
+    "sha256": "ba9d84bc84e06d32201d953e295e62073353580c9ccd8fc4f6c61c25775c9afb",
+    "original_bytes": 10079022,
+    "original_sha256": "56e751c61b86af861441381f8aa5dff629bf8bdd839814317f29f8ac8f596f4d"
+  },
+  "mono18-strong-weak-replacements.log": {
+    "bytes": 3559,
+    "sha256": "b0d8ee50a4276b5133c99dc857fb6012c191b809719143847f07e4424edbcda4"
+  },
+  "mono18-weak-dag/children.varint": {
+    "bytes": 287493,
+    "sha256": "0afa3d79035895091e53cd196e75d695d6f4ef42ecd1830b127c2c0a4484f98d"
+  },
+  "mono18-weak-dag/children.varint.gz": {
+    "bytes": 99332,
+    "sha256": "8032b4c3ef1f2030c10da7ac8ef92ed329dda1b216752ec8971bc258e99ec945"
+  },
+  "mono18-weak-dag/compact-witness-candidate-layout.json": {
+    "bytes": 845,
+    "sha256": "9ec951344c469f33417fed011d5c2743fe1075d1693911feeb0f41c9d9ce1df6"
+  },
+  "mono18-weak-dag/compact-witness-candidate.bin": {
+    "bytes": 765028,
+    "sha256": "c539de6a9c37303c1c71a39fcc77010ed72641a74a33afc767d671e89ad0769d"
+  },
+  "mono18-weak-dag/complete-fixture-20369.json": {
+    "bytes": 29283,
+    "sha256": "1b62162bd333e95c240404b645aad3e587621800c824d8403285f533dbce3879"
+  },
+  "mono18-weak-dag/complete-fixture-80905.json": {
+    "bytes": 25081,
+    "sha256": "cd78afb3b4d251bc38cda91fe58cd85422fba06066f7ea061c834a9873d6913d"
+  },
+  "mono18-weak-dag/complete-fixture-94471.json": {
+    "bytes": 25858,
+    "sha256": "266c13f5d1a3d9624f8ecb71fd6d907e8c28232a0509e71182dec400ac0fea6f"
+  },
+  "mono18-weak-dag/completion-order.json": {
+    "bytes": 737136,
+    "sha256": "0626e036ffd17e4b13ccc2d1f531b6de73ccb1401e32eca9a36bc0b93fb41524"
+  },
+  "mono18-weak-dag/cut_witness_dictionary_indices.varint": {
+    "bytes": 307607,
+    "sha256": "f3752359045feee27605da8259f7edb36dbfe5a150ffa2754a8ad123ec342e0a"
+  },
+  "mono18-weak-dag/cut_witness_dictionary_indices.varint.gz": {
+    "bytes": 167297,
+    "sha256": "055e1a19f76432d572d777a10ac8eac6867e5717907536c4521699a5a0fb0d2f"
+  },
+  "mono18-weak-dag/cuts_explicit.varint": {
+    "bytes": 1400433,
+    "sha256": "1418ba2f54bab9dd90f057830d7955353709c94494bd25021bd722ff7b779b80"
+  },
+  "mono18-weak-dag/cuts_explicit.varint.gz": {
+    "bytes": 609380,
+    "sha256": "50c64bcc24c8cb920b12de750d662e59b7d83ac2c5a197e2fe41f3974c44f7f0"
+  },
+  "mono18-weak-dag/cuts_witness_only.varint": {
+    "bytes": 560881,
+    "sha256": "056b55877853baf448d36b03cce40b60818151d0d9b3c444ba4dc3219dfc0937"
+  },
+  "mono18-weak-dag/cuts_witness_only.varint.gz": {
+    "bytes": 188544,
+    "sha256": "a326855ed1060a3dd79211a50e3d9fc9665e7ab14b91ffd01f0f21b0add6ab83"
+  },
+  "mono18-weak-dag/entry_provenance.varint": {
+    "bytes": 152331,
+    "sha256": "6760a9578ddff078f01b346af29312d5f426ba4cab6ca78524ef84649198b2dc"
+  },
+  "mono18-weak-dag/entry_provenance.varint.gz": {
+    "bytes": 41280,
+    "sha256": "c100f4a8c3fd0620ed70555e8f4543881d5605c8cd612a6dd45c035bf15ce517"
+  },
+  "mono18-weak-dag/entry_template_dictionary.varint": {
+    "bytes": 145241,
+    "sha256": "32b87b85998796d66e25492732d46af815cf8215198dd0bb1aa4aa77cabe9fb5"
+  },
+  "mono18-weak-dag/entry_template_dictionary.varint.gz": {
+    "bytes": 41809,
+    "sha256": "70fd18a310a3ecee6c6b9095667c74b8cef1fc096cdb5468cb8b34eb28750c5d"
+  },
+  "mono18-weak-dag/entry_template_indices.varint": {
+    "bytes": 8603,
+    "sha256": "8983df53b17943e12e346c897b83e9d8e3a98a193a7610a65f8cbb66c3f77d3a"
+  },
+  "mono18-weak-dag/entry_template_indices.varint.gz": {
+    "bytes": 6958,
+    "sha256": "9496ebfcc33f4ab1b082ffebbdac1e8cfcbdc64f4cb788cce23e173d8bea87a5"
+  },
+  "mono18-weak-dag/fixture-1.json": {
+    "bytes": 27411,
+    "sha256": "204b8cb64be481e4be1c4ac5cd7117cfc757317887ac309141b6c63f74f1a059"
+  },
+  "mono18-weak-dag/node_child_cofactor_presets.varint": {
+    "bytes": 21969,
+    "sha256": "6f1b25fe4c721a02dbf8ddc9234280c2d53816d61dd898fdcd1e5f4a28400094"
+  },
+  "mono18-weak-dag/node_child_cofactor_presets.varint.gz": {
+    "bytes": 11055,
+    "sha256": "df2becf176e860ffa340532b79a47ee193a3428d6d70d61d9fbce2031c6f12d3"
+  },
+  "mono18-weak-dag/node_cut_presets.varint": {
+    "bytes": 86865,
+    "sha256": "e7e4d34f45724e62089e7874711149e94d23156b2c1ca73cde5b0397c7cbb438"
+  },
+  "mono18-weak-dag/node_cut_presets.varint.gz": {
+    "bytes": 47920,
+    "sha256": "73e78f9369ef23ce895631bb27abb71d1f09a145cf68238ff1a0eb7dd46e1742"
+  },
+  "mono18-weak-dag/node_explicit_child_links.varint": {
+    "bytes": 99369,
+    "sha256": "3b216227f19dffee6ed90779bf930d6a5ac835f7155df27c2b28144ef850d608"
+  },
+  "mono18-weak-dag/node_explicit_child_links.varint.gz": {
+    "bytes": 66564,
+    "sha256": "b678acf9da748b662079d40cacceacbb075de6f293c8df96c5b98241a74796c3"
+  },
+  "mono18-weak-dag/node_profile_only_presets.varint": {
+    "bytes": 63597,
+    "sha256": "08a507e9de394351ce4f561d1a95af066ce2f420787c2e208d5b1b3a93f92716"
+  },
+  "mono18-weak-dag/node_profile_only_presets.varint.gz": {
+    "bytes": 42170,
+    "sha256": "1a3b00111cd8badeab06f76a320996974f839797e6c1a2876562ff6c6c8d357e"
+  },
+  "mono18-weak-dag/node_rectangle_presets.varint": {
+    "bytes": 14609,
+    "sha256": "57c3e6300c7e52e4ff9e7cd1ed056e294bcc04d4bbd63212997a994023024c22"
+  },
+  "mono18-weak-dag/node_rectangle_presets.varint.gz": {
+    "bytes": 5938,
+    "sha256": "450371c5ff9a72b798fbab7ffffdae06f602e1d17b3e939d3ec034088e659ba3"
+  },
+  "mono18-weak-dag/node_structure.varint": {
+    "bytes": 14654,
+    "sha256": "faa076dcdd55822ee08bb281cee12159a61c296b344011e22508233fecd482ea"
+  },
+  "mono18-weak-dag/node_structure.varint.gz": {
+    "bytes": 5155,
+    "sha256": "a382739c062805c2cff8c928aa7467120143f626be2c6c1294f477d25b97ee87"
+  },
+  "mono18-weak-dag/nonterminal-nodes.json": {
+    "bytes": 34038,
+    "sha256": "98d72c0fb44df24e67e9b504a917d72580220a70f45e0597cae3d902ade8f761"
+  },
+  "mono18-weak-dag/rectangle-nodes.json": {
+    "bytes": 473327,
+    "sha256": "6fe9bab8c319ed00ed24490156fe266db466cef4105b180f1f7666049cccd2c8"
+  },
+  "mono18-weak-dag/shortlist-witness-candidate-layout.json": {
+    "bytes": 1350,
+    "sha256": "9442e3abf42f7b1f29647ca5f427e9c7b7fbb015c9bf6e40c3ce7c0164897408"
+  },
+  "mono18-weak-dag/shortlist-witness-candidate.bin": {
+    "bytes": 394253,
+    "sha256": "c99a645e1337e3ea0a04cda950552dfad549fd5c8e99be53449eff465c4f7650"
+  },
+  "mono18-weak-dag/summary.json": {
+    "bytes": 9073,
+    "sha256": "90e3eee3a0bc2ef51067ff1d5f8520fcd6d8cbd5090fe770e283b39697d708b6"
+  },
+  "mono18-weak-dag/witness_dictionary.varint": {
+    "bytes": 2943,
+    "sha256": "94ef1005b57efe51c3558cb0297520e676805bc9ef0d32ca37564bae8193d13c"
+  },
+  "mono18-weak-dag/witness_dictionary.varint.gz": {
+    "bytes": 2356,
+    "sha256": "82f5a67965fcb241d512b8c6baba071dcff844292afa7f6051360e4680b8970d"
+  },
+  "mono18-weak-dag-measure.log": {
+    "bytes": 9073,
+    "sha256": "90e3eee3a0bc2ef51067ff1d5f8520fcd6d8cbd5090fe770e283b39697d708b6"
+  },
+  "mono18-weak-profile1086-replacements.json": {
+    "bytes": 669,
+    "sha256": "fee5d2ae2248956dc8cb08db2e99ba84a96137cd0504109d7b1d72bcf1d3a5bf"
+  },
+  "mono18-weak-profile1086-replacements.log": {
+    "bytes": 302,
+    "sha256": "1b2be8b555e5766b24d2902846ed8066215a7cd6fe3e2e92b0edd313c8c42972"
+  },
+  "mono18-weak14-replacements.json.gz": {
+    "bytes": 1089126,
+    "sha256": "5b6b3a9ba30600df150f62fff2c6b88d2469a7ccbbaee267a1c149ba11eab513",
+    "original_bytes": 14674223,
+    "original_sha256": "905217170c84df5d0cadb706db79e62d0a227dd331a1a7932ab9bf86817b962b"
+  },
+  "mono18-weak14-replacements.log": {
+    "bytes": 14499,
+    "sha256": "be7b99b35190ef863ea52ac4613489a759b681ce04959710d3c382468e3acf2b"
+  },
+  "replace_cofactor_witnesses.py": {
+    "bytes": 4412,
+    "sha256": "6911ee39648ee174f6566d9eb8052c96934ca73680358ebdeed8a19cd121b06c"
+  },
+  "replace_cofactor_witnesses14.py": {
+    "bytes": 4691,
+    "sha256": "827297490675384b92fe70b795babfcdd551f4ffe0b657870875a3bebfca475b"
+  },
+  "copy_search_first_prooftrace.cpp": {
+    "bytes": 91153,
+    "sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "profiles": 6159,
+  "blocks": 108,
+  "subsets": 177807,
+  "weights": 19,
+  "sources": {
+    "Mono18RectangleCost11.lean": 5370,
+    "Mono18RectangleCost18.lean": 1285,
+    "Mono18RectangleCost2.lean": 942,
+    "Mono18RectangleCost3.lean": 2107,
+    "Mono18RectangleCost6.lean": 6765,
+    "Mono18RectangleCost0.lean": 49685,
+    "Mono18RectangleCosts.lean": 2856,
+    "Mono18RectangleCost12.lean": 2297,
+    "Mono18RectangleCost14.lean": 797,
+    "Mono18RectangleCost13.lean": 1390,
+    "Mono18RectangleCost17.lean": 606,
+    "Mono18RectangleCost4.lean": 621,
+    "Mono18RectangleCost8.lean": 1956,
+    "Mono18RectangleCost15.lean": 686,
+    "Mono18RectangleCost16.lean": 909,
+    "Mono18RectangleCost10.lean": 2534,
+    "Mono18RectangleCost5.lean": 4176,
+    "Mono18RectangleCost9.lean": 3349,
+    "Mono18RectangleCost7.lean": 3476,
+    "Mono18RectangleCost1.lean": 3366
+  }
+}

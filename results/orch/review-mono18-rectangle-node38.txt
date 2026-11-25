@@ -1,0 +1,9 @@
+Independent immutable source and actual-data review: PASS
+Reviewer: counterexample
+Sources: Mono18RectangleLookup.lean, Mono18RectangleNode38.lean, Mono18RectangleTotals.lean. Exact SHA256 and finite audit results are in review-mono18-rectangle-node38-data.json. All complete compiler logs are empty; author reports EXIT0. No new compile performed.
+
+Lookup wraps every stored record in its checked subtype. Both out-of-range defaults are themselves checked: an empty block or the explicit valid zero record. No unchecked index grants a bound; concrete consumers must still establish support and a strict cost gap. Totals checks all19 actual matrix sums and uses an explicitly bounded39-instance weight index for targetCost_eq.
+
+Parsed the actual Node38 Lean literals and references. All12 signatures match the frozen fresh weak trace and metadata bit-for-bit: ten inputs, OR(x0,x1), and OR(x0,x2). Every mask and cap agrees with the independently audited packed profile and exact block/offset lookup. All17 root occurrences, including repeated input and OR values, match the trace in order. Their costs are76 versus target79; all12x30 support bits and12x1024 signal bits were checked independently. The19 cached totals agree with direct sums of the original signed matrices.
+
+The concrete theorem passes each occurrence's checked record and support to the reviewed generic run exclusion, together with valid positive/negative samples and the strict cost gap. Its k<=16 premise gives k+1<=17 exactly. No deduplication or paid-gate assumption is introduced. It excludes this real terminal bank only, not the full initial OR-edge case or the posted gap. No trust/format issue found; research imports require inlining for a final submission.

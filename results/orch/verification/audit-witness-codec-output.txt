@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "3946eb4d2c7d8e12e9faab20443b70f0d756db8e910b7acea90ea8e0f729aa62",
+  "manifest_entries": 40,
+  "full_python_payload_roundtrips": [
+    {
+      "file": "Payload32768.lean",
+      "chunks": 24,
+      "decoded_bytes": 765028,
+      "source_bytes": 920179,
+      "decoded_sha256": "c539de6a9c37303c1c71a39fcc77010ed72641a74a33afc767d671e89ad0769d"
+    },
+    {
+      "file": "shortlist/Payload32768.lean",
+      "chunks": 13,
+      "decoded_bytes": 394253,
+      "source_bytes": 540608,
+      "decoded_sha256": "c99a645e1337e3ea0a04cda950552dfad549fd5c8e99be53449eff465c4f7650"
+    },
+    {
+      "file": "ShortlistHuffmanPayload.lean",
+      "chunks": 13,
+      "decoded_bytes": 394253,
+      "source_bytes": 457711,
+      "decoded_sha256": "c99a645e1337e3ea0a04cda950552dfad549fd5c8e99be53449eff465c4f7650"
+    }
+  ],
+  "compiled_kernel_samples": [
+    {
+      "module": "Benchmark512_2048",
+      "checked_bytes": 2048,
+      "kernel_exit": 0
+    },
+    {
+      "module": "Benchmark2048_16384",
+      "checked_bytes": 16384,
+      "kernel_exit": 0
+    },
+    {
+      "module": "ShortlistBenchmark32768",
+      "checked_bytes": 32768,
+      "kernel_exit": 0
+    },
+    {
+      "module": "ShortlistHuffmanBenchmark32768",
+      "checked_bytes": 32768,
+      "kernel_exit": 0
+    }
+  ],
+  "huffman_payload_source_bytes": 457711,
+  "decoder_source_bytes": 2264,
+  "remaining_of_512KiB": 64313,
+  "scope": "Preserved pure decoder prototypes and four finite kernel equalities only. Full candidate bytes independently roundtrip in Python; the whole candidate has not been kernel decoded or semantically checked as a search certificate. Missing checker, boundaries, priors and rectangle certificates remain outside this budget."
+}

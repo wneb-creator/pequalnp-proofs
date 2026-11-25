@@ -1,0 +1,10 @@
+Independent review: PASS
+Reviewer: status_review
+Source: results/orch/lemmas/CountNodeMemo.lean
+SHA256: 125cf6411c6bbf12c3cf3b598b874e55c0f3e8896fa40a0e231511a14652808d
+Bytes: 2012
+Compiler: author reported EXIT0; complete archived output is empty. No redundant build run.
+
+Read every source line and checked against the reviewed CountVectorRegroup, PrunedRawCongruence and PrunedRename interfaces. The class map may be noninjective: regroup sums actual occurrence counts, and only positive current classes need a signal identity. Every active root supplies that positivity from its filtered-card witness. The prior node is instantiated on the same active labels with regrouped tags, then raw equality is restricted to those labels and row renaming is pulled back using explicit surjectivity and target preservation. The final certificate retains A subset roots and rewrites count composition to regroup; it does not silently replace supports or drop duplicates. Depth and target remain exact.
+
+No concrete automorphism or prior exclusion is assumed without the corresponding theorem premises. This is a generic memo adapter, not a full search or gap proof. No blocking mathematical or format findings.

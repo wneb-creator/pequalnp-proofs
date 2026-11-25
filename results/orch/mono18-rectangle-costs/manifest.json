@@ -1,0 +1,107 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 3542,
+    "sha256": "812391cd10df525a0e46e1f7180ec8dd37ca1f943c251f3c52dd05e678ccf2a0"
+  },
+  {
+    "path": "blocks.json",
+    "bytes": 81866,
+    "sha256": "c523f558e4c881ca86b27930561e778cef00800d3b4347b8396be9b2a8f18fe4"
+  },
+  {
+    "path": "code/compile_all.py",
+    "bytes": 963,
+    "sha256": "43dcaabb5d82d67adb846484ab3a2d123a1eb476e857b3769378c5b6bfcea080"
+  },
+  {
+    "path": "code/compile_one.py",
+    "bytes": 995,
+    "sha256": "9f06e4cef05ef6d4b01e1cab7b2304847fa8fa38e5be108c96178942fbe9cba0"
+  },
+  {
+    "path": "code/generate_complete.py",
+    "bytes": 3243,
+    "sha256": "a56ab420f0f24d1bc3c86c84f8ddbb1882091fd78ca31f07e032970d34b812c2"
+  },
+  {
+    "path": "code/generate_node38.py",
+    "bytes": 2751,
+    "sha256": "a48239585c54ca41e7b1bbece6b05c95277f0d3138885ac5d0c4add7e71ed38e"
+  },
+  {
+    "path": "code/generate_profiles.py",
+    "bytes": 2471,
+    "sha256": "18d17e347ca6f00c1e1c87ee27d53956b318dc714ada51bf839773c4c6329069"
+  },
+  {
+    "path": "code/generate_samples.py",
+    "bytes": 2456,
+    "sha256": "8b7a5e53a22691424648e9a78c8dec20544ab43dfc530cf388d01a92f8ae061d"
+  },
+  {
+    "path": "compile-all-progress.txt",
+    "bytes": 9148,
+    "sha256": "19bc309a90e554a7002abcbf8cc2d39e029a6132221419267b36f5c7041d594a"
+  },
+  {
+    "path": "compile-completed.json",
+    "bytes": 10344,
+    "sha256": "12f7dd8848ebda022d1ee467a281ddcd1bec9142d8bf9119deab7aabd7c9e636"
+  },
+  {
+    "path": "compile-plan.json",
+    "bytes": 883,
+    "sha256": "c3065ce8884277c446fbc639eb19a3fecd97a561bb4992d7f3aae2a1e606dde1"
+  },
+  {
+    "path": "generation-reproduction.txt",
+    "bytes": 881,
+    "sha256": "ad159b4bac75f8d24848ce992f0f4b00e1737178be13026f21e1f1b32d7376b9"
+  },
+  {
+    "path": "mono18-oredge-weak-census/matrices.json",
+    "bytes": 16486,
+    "sha256": "9fe2cfa3cbebedac88d88f112879b9adde544bdf2389f98dc442359f1618f129"
+  },
+  {
+    "path": "mono18-oredge-weak-census/profiles.json",
+    "bytes": 800717,
+    "sha256": "b3550a180b55ec83a511746ebe71d290327db9ebc56d404e26f50d717f119b0c"
+  },
+  {
+    "path": "mono18-oredge-weak-census/summary.json",
+    "bytes": 478,
+    "sha256": "f83487c9fb011a1247b215118b715cde4e568eb9159b8214dc86b7e24e62d9a0"
+  },
+  {
+    "path": "mono18-oredge-weak-census/traces.json",
+    "bytes": 1118,
+    "sha256": "f7f82a36c6973b09ce982cbbc2525ac2f31c22830b24239c93e73cdf724e63ae"
+  },
+  {
+    "path": "mono18-oredge-weak-census/weights.json",
+    "bytes": 55600,
+    "sha256": "bde4f9f758aedb660f0980c65d20f6189f456e5454ed53ed28e3727b462b4e4d"
+  },
+  {
+    "path": "node38.json",
+    "bytes": 5716,
+    "sha256": "4bd883ef057f602bf966737c59b16944feb00efe6cb992cd69bd20753486a390"
+  },
+  {
+    "path": "profile-locator.json",
+    "bytes": 594645,
+    "sha256": "b2f3998de2e3d15074234e1cfe1627a303c9a7f2adcdd785fd1f500dfd1e91be"
+  },
+  {
+    "path": "source-budget.json",
+    "bytes": 801,
+    "sha256": "312fd4d316608ae6dc7731e004bacf9423881eb62418e74ce5428e400c68b119"
+  },
+  {
+    "path": "sources.json",
+    "bytes": 11308,
+    "sha256": "cafb471e92c06d0641e4a1a223be203520758c2b23904649ec7669d2afb5e0e9"
+  }
+]

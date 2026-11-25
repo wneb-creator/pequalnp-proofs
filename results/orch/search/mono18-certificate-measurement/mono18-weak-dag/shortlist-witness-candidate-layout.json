@@ -1,0 +1,48 @@
+{
+  "parts": [
+    {
+      "stream": "node_structure",
+      "offset": 0,
+      "length": 14654
+    },
+    {
+      "stream": "entry_template_dictionary",
+      "offset": 14654,
+      "length": 145241
+    },
+    {
+      "stream": "entry_template_indices",
+      "offset": 159895,
+      "length": 8603
+    },
+    {
+      "stream": "node_cut_presets",
+      "offset": 168498,
+      "length": 86865
+    },
+    {
+      "stream": "node_child_cofactor_presets",
+      "offset": 255363,
+      "length": 21969
+    },
+    {
+      "stream": "node_rectangle_presets",
+      "offset": 277332,
+      "length": 14609
+    },
+    {
+      "stream": "node_explicit_child_links",
+      "offset": 291941,
+      "length": 99369
+    },
+    {
+      "stream": "witness_dictionary",
+      "offset": 391310,
+      "length": 2943
+    }
+  ],
+  "total_bytes": 394253,
+  "sha256": "c99a645e1337e3ea0a04cda950552dfad549fd5c8e99be53449eff465c4f7650",
+  "gzip_bytes": 189350,
+  "scope": "Storage/decoder benchmark. All fields are unsigned base128varints. Per-node omitted candidates try any supplied exact profile/history-mask preset; terminal children try matrix/cofactor presets unless an explicit proof link applies. Row witnesses are recomputed. Generic decoder/sound checker, actual boundaries for derived closure enumeration, profile priors and rectangle costs are separate."
+}

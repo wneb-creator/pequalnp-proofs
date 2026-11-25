@@ -1,0 +1,44 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-87/library_route/mono18-weak-dag/compact-witness-candidate.bin",
+  "input_bytes": 765028,
+  "input_sha256": "c539de6a9c37303c1c71a39fcc77010ed72641a74a33afc767d671e89ad0769d",
+  "results": [
+    {
+      "chunk_size": 512,
+      "chunks": 1495,
+      "commands": 71273,
+      "compressed_bytes": 613558,
+      "payload_source_bytes": 1237538,
+      "decoder_source_bytes": 1022,
+      "seconds": 0.5403120480004873
+    },
+    {
+      "chunk_size": 2048,
+      "chunks": 374,
+      "commands": 88282,
+      "compressed_bytes": 562765,
+      "payload_source_bytes": 1128659,
+      "decoder_source_bytes": 1022,
+      "seconds": 0.7340185249995557
+    },
+    {
+      "chunk_size": 8192,
+      "chunks": 94,
+      "commands": 99350,
+      "compressed_bytes": 507394,
+      "payload_source_bytes": 1015768,
+      "decoder_source_bytes": 1022,
+      "seconds": 0.6301209310004197
+    },
+    {
+      "chunk_size": 32768,
+      "chunks": 24,
+      "commands": 105550,
+      "compressed_bytes": 459900,
+      "payload_source_bytes": 920179,
+      "decoder_source_bytes": 1022,
+      "seconds": 0.7539061669995135
+    }
+  ],
+  "scope": "Storage prototype only; source stream omits node/cut boundaries and profile/rectangle certificates."
+}

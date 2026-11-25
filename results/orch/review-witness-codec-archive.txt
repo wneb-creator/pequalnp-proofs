@@ -1,0 +1,14 @@
+Independent preservation/source review: PASS
+Reviewer: lean_setup
+Archive: results/orch/witness-codec
+Frozen40-entry manifest SHA256: 3946eb4d2c7d8e12e9faab20443b70f0d756db8e910b7acea90ea8e0f729aa62
+
+All40 file sizes/hashes match, with no unmanifested files except manifest.json. Read the complete pure Lean LZ/Huffman definitions, both generators, the compile launcher, README, layouts, reports and all equality theorem forms. Existing mathematical decoder reviews remain valid. These structurally recursive functions construct candidates; malformed offsets/trees/fuel do not imply trusted correctness. No new axioms, native execution, strings or custom datatypes enter the Lean definitions or finite equalities. Standalone benchmark imports and reused names are archival test modules, not a ready single-file proof PR.
+
+An independently written decoder parsed the actual Lean numeric payloads, checked every used Huffman path/leaf and copy distance, and reproduced all765028 original bytes and all394253 shortlisted bytes exactly. The Huffman tree/payload reproduced all13 shortlisted chunks; its actual full Lean payload size is457711bytes. This independent Python check does not assert full-payload kernel validation.
+
+All four compiled sample modules bind to exact successful status records and empty full logs. Their expected Nat/list literals were independently parsed to bytes and matched to the real input prefixes:2048,16384,32768 and32768bytes. Their actual literals independently decode to those same bytes, and each theorem uses decide+kernel. Final Huffman32KB equality source SHA4c611fac427bfa89a0de003c738ec375de9c5b4eca3300618448f041f74fa966, recorded exit0 and23.643seconds. No new build was needed. The earlier missing-generated-source failure remains fully preserved.
+
+Budget statement verified:457711 payload+2264 decoder source=459975bytes, leaving64313bytes of524288. This omits semantic boundaries, full finite checker, graph/cofactor priors, rectangle costs and the rest of the theorem. It does not establish whole-source feasibility or whole-certificate timing. Both plain-LZ payloads exceed512KiB already.
+
+The original Huffman generator retains its historical scratch-input path; the independently archived audit uses only relative preserved files and can reproduce the complete payload roundtrip after container loss. Full audit source/output: verification/audit-witness-codec.py/.json.

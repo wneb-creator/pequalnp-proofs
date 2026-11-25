@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "matrices": 19,
+  "coefficients": 4407,
+  "profiles": 6159,
+  "blocks": 108,
+  "subsets": 177807,
+  "brute_checks": 407,
+  "profiles_with_slack": 0,
+  "source_obligations": 7633,
+  "elapsed_seconds": 0.6454535249995388,
+  "scope": "Finite packed profile data only; no whole-search or kernel completion claim."
+}

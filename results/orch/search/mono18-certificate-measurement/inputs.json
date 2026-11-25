@@ -1,0 +1,38 @@
+{
+  "strong": {
+    "proof.jsonl": {
+      "bytes": 24552952,
+      "sha256": "dd073be53987beb8d20db01157d0f2760885b4b7f49e0628379c948fcb90236a"
+    },
+    "rectangles.jsonl": {
+      "bytes": 3763890,
+      "sha256": "a44af4f15238b6c7ab7c88e1d7c111e4c4ca41191273687b44ee531b1748755b"
+    },
+    "command.json": {
+      "bytes": 1032,
+      "sha256": "7df47128476a6b37077a17b920a29c5ca0060a4495517ac4a69cde3b2cbffcb8"
+    },
+    "exit.json": {
+      "bytes": 1141,
+      "sha256": "8a89cc78efd451877fb407e8a0147e14c0817622a2cec7ad7ba3efdd031ad364"
+    }
+  },
+  "weak": {
+    "proof.jsonl": {
+      "bytes": 106305331,
+      "sha256": "8117acc597729ddcda0cada9e03eab0a772b475c89c648c83d393d745214a977"
+    },
+    "rectangles.jsonl": {
+      "bytes": 14081376,
+      "sha256": "29402d78efb0bf717870cb933fa660d887f66409c05a07d30ac8663c6edf233e"
+    },
+    "command.json": {
+      "bytes": 1089,
+      "sha256": "276d2e9e71f55bb3db329d7b3fb0698d6576d441c0e050a3a1113744e267af07"
+    },
+    "exit.json": {
+      "bytes": 1197,
+      "sha256": "cb034b1bb814f5e4b7e260b88f3766cb56924def0b9f7c78eed8da2926013bfa"
+    }
+  }
+}

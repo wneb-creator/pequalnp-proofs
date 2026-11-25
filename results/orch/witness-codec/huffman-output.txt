@@ -1,0 +1,15 @@
+{
+  "input_bytes": 394253,
+  "input_sha256": "c99a645e1337e3ea0a04cda950552dfad549fd5c8e99be53449eff465c4f7650",
+  "chunks": 13,
+  "tree_internal_nodes": 255,
+  "tree_packed_bits": 5100,
+  "max_code_length": 10,
+  "lz_bytes": 270165,
+  "huffman_bits": 1824494,
+  "payload_source_bytes": 457711,
+  "decoder_source_bytes": 1242,
+  "base_decoder_source_bytes": 1022,
+  "benchmark_source_bytes": 92735,
+  "scope": "Complete candidate bytes roundtrip in Python; Lean finite equality benchmark only first32768bytes. Not a complete search certificate."
+}

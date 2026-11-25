@@ -1,0 +1,11 @@
+Independent review: PASS
+Reviewer: lean_setup
+Source: results/orch/lemmas/CofactorCatalogCore.lean
+SHA256: c5d7c4fc04108ee83942be5118b4cb9eee4c4a0d57347cda5a5afeca31d60fad
+Size:2622bytes. Complete log records compiler exit0 without diagnostics; no new build.
+
+Read all definitions and proofs. ProfileEntry is an abbreviation over existing products/Fin/list. The domain is the explicit10-input mask fold. decodeMove constructs total row moves; generic soundness does not trust a code to mean a valid swap/assignment, since checkMap and the moved-domain equality are independently checked on the resulting actual functions. Arbitrary malformed codes therefore do not bypass an obligation.
+
+canonical_lower is exactly the previously checked signed canonical prior transported by lower_lift. canonical_proper derives nonconstancy from that positive lower bound using a zero-gate Reach and freely available constant; this is valid without an extra target/properness assumption and introduces no circular dependency. check_sound splits the two Boolean checks and invokes the reviewed slice_correct with explicit canonical properness and bound. It yields precisely the Slice for its own decoded domain and canonical bound, with no claim about an external profile number until a finite catalog maps it.
+
+No new axioms, datatypes, instances, forbidden tactics, strings or attributes. This generic checker is a helper for the actual catalog, not a complete root certificate or posted theorem.

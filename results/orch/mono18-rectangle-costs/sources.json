@@ -1,0 +1,299 @@
+[
+  {
+    "source": "../lemmas/Mono18RectangleBase.lean",
+    "sha256": "55825ebbde97c5b1f2c02691357f66b395e84b0d8dd9e59036b33ab7fc6909ca",
+    "bytes": 8461,
+    "log": "../lemmas/Mono18RectangleBase.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part0.lean",
+    "sha256": "79a64af84c2df6ebe7ec40af0b7b03c31007094918d6322066fc75c537364108",
+    "bytes": 7368,
+    "log": "../lemmas/Mono18RectangleCost0Part0.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part1.lean",
+    "sha256": "44e321dd010a24bfbaabc9c563d2a2b8785c9722ae1446954d40146d69b2d762",
+    "bytes": 7481,
+    "log": "../lemmas/Mono18RectangleCost0Part1.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part2.lean",
+    "sha256": "b5442d6d64b883cc03eb3abb47e459c43ce88ac3854385a6c8b6ba670605b2c7",
+    "bytes": 7447,
+    "log": "../lemmas/Mono18RectangleCost0Part2.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part3.lean",
+    "sha256": "f782caa479db5faa41a8304493ddc885936934c333c3835e2e6596d8caebeece",
+    "bytes": 7452,
+    "log": "../lemmas/Mono18RectangleCost0Part3.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part4.lean",
+    "sha256": "eef0461a1c2ec3aa35d27260908cfeeffa5365f39bc88e8d8542801858a7c4e8",
+    "bytes": 7197,
+    "log": "../lemmas/Mono18RectangleCost0Part4.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part5.lean",
+    "sha256": "21d3001e2422d11455175592272c39e4547dc3b465f039d8547172837e009986",
+    "bytes": 7346,
+    "log": "../lemmas/Mono18RectangleCost0Part5.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0Part6.lean",
+    "sha256": "d2ee6e2acfdb0af69d7e30ebcccf66789d63a401c8a28e1611c41b8287ef1ef1",
+    "bytes": 6192,
+    "log": "../lemmas/Mono18RectangleCost0Part6.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost0.lean",
+    "sha256": "88fdde8b77330bc89a383609cad5c9e92a699bd91b78c66b295a876580b52a0c",
+    "bytes": 231,
+    "log": "../lemmas/Mono18RectangleCost0.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost1.lean",
+    "sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b",
+    "bytes": 3366,
+    "log": "../lemmas/Mono18RectangleCost1.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost2.lean",
+    "sha256": "2acf6757319f24c0100efcf2de09d693fb953137a6abf038a08fe2e34ce8f27d",
+    "bytes": 942,
+    "log": "../lemmas/Mono18RectangleCost2.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost3.lean",
+    "sha256": "849c77b0436d48efc6c23488ad19e2d8d861442a24a66b14ce49f1fc907e7ce3",
+    "bytes": 2107,
+    "log": "../lemmas/Mono18RectangleCost3.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost4.lean",
+    "sha256": "e61eeddf2bb42f9e3bfe040336db4958f9e3773b063d7109baaeb842a6a0b2fb",
+    "bytes": 621,
+    "log": "../lemmas/Mono18RectangleCost4.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost5.lean",
+    "sha256": "09abd57bad6dc5428d7f7f54670b8c4668d84476782a4f43ff2eb1116256a00f",
+    "bytes": 4176,
+    "log": "../lemmas/Mono18RectangleCost5.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost6.lean",
+    "sha256": "342238c6b9632087a9f2b8ecc65cf977195b6c3ce119bc2334728595a87cf4e8",
+    "bytes": 6765,
+    "log": "../lemmas/Mono18RectangleCost6.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost7.lean",
+    "sha256": "3487d9afb0f45c233eeb49a9d29fa7a6400904febe0c93bf45f855268224861a",
+    "bytes": 3476,
+    "log": "../lemmas/Mono18RectangleCost7.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost8.lean",
+    "sha256": "6164cf252050d34c833acbf8068cbe83c4d98b021e983d8c0cb9ff94d741bb48",
+    "bytes": 1956,
+    "log": "../lemmas/Mono18RectangleCost8.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost9.lean",
+    "sha256": "9ecc32db3f2151a3c12005121c732192fa4f666051dcdf02e903c515e831af75",
+    "bytes": 3349,
+    "log": "../lemmas/Mono18RectangleCost9.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost10.lean",
+    "sha256": "79dcd0a9cee83940ba139188732bdf8aac36652841aa1c3ccc1659200eeacb42",
+    "bytes": 2534,
+    "log": "../lemmas/Mono18RectangleCost10.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost11.lean",
+    "sha256": "b5fe0c4007dd5b664d7a4d8c9f7da64b40f6f8dde9d0691973d9f3e30dbe0f4f",
+    "bytes": 5370,
+    "log": "../lemmas/Mono18RectangleCost11.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost12.lean",
+    "sha256": "0a4107426c93f0e9fd4de6de205c0b651e6b13be20f7c6d567ade5084a64fe24",
+    "bytes": 2297,
+    "log": "../lemmas/Mono18RectangleCost12.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost13.lean",
+    "sha256": "ecdedef52ebd21f0eaebf0de7da2a5ddb2547b7d3d8192447a625899cc3281cb",
+    "bytes": 1390,
+    "log": "../lemmas/Mono18RectangleCost13.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost14.lean",
+    "sha256": "603930490b5c3d75ce4fb59cf1a9bec6b02adaff65690fe85297c2c2ceb7e2a7",
+    "bytes": 797,
+    "log": "../lemmas/Mono18RectangleCost14.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost15.lean",
+    "sha256": "896119da411413ccc0bab2681124ebc9fec96336a3dc433ddf301b33a6f5da3a",
+    "bytes": 686,
+    "log": "../lemmas/Mono18RectangleCost15.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost16.lean",
+    "sha256": "21b2de9f1a36c7a9df0eb63ec4308f6179c92f6247af7035854c2077b1a345f1",
+    "bytes": 909,
+    "log": "../lemmas/Mono18RectangleCost16.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost17.lean",
+    "sha256": "f2f4ed6d92865e694d11662ecf057cf746c349284337ab30d486143afa71bced",
+    "bytes": 606,
+    "log": "../lemmas/Mono18RectangleCost17.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCost18.lean",
+    "sha256": "e4293f5ed18d12802ff5196dfe7b0c3f407b7188a04a2502c072f1ccfcde6e84",
+    "bytes": 1285,
+    "log": "../lemmas/Mono18RectangleCost18.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleCosts.lean",
+    "sha256": "463669c649596a28beb3d761e25e668e1a89375795d1c829d0fc73b25f2d860b",
+    "bytes": 2856,
+    "log": "../lemmas/Mono18RectangleCosts.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleSamples.lean",
+    "sha256": "4795340ca02ba193fc5c17f2296407f9110da9de2daf00f0ecd1d3311c9acc7f",
+    "bytes": 6873,
+    "log": "../lemmas/Mono18RectangleSamples.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleLabels.lean",
+    "sha256": "3f3d7c646824931c1ca110657966c85a275f9b2683a10acac832cb6843a0902b",
+    "bytes": 1227,
+    "log": "../lemmas/Mono18RectangleLabels.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleBank.lean",
+    "sha256": "8dd25a8f97e8c831978ab328980bcec105e2d407c0d656e55e36ab90f056a2c8",
+    "bytes": 1709,
+    "log": "../lemmas/Mono18RectangleBank.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleLookup.lean",
+    "sha256": "c620b98826763461a0dbda5e5690337d399b810f12ab70dbada197fc5a061937",
+    "bytes": 803,
+    "log": "../lemmas/Mono18RectangleLookup.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  },
+  {
+    "source": "../lemmas/Mono18RectangleNode38.lean",
+    "sha256": "a43094412244344a1a09d8bc32848dead5bb8e50ed41668d01572c5039d31c2e",
+    "bytes": 4950,
+    "log": "../lemmas/Mono18RectangleNode38.compile.txt",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "log_bytes": 0,
+    "exit": 0
+  }
+]

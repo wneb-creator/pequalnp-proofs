@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS",
+  "source_hashes": {
+    "Mono18RectangleLookup.lean": "c620b98826763461a0dbda5e5690337d399b810f12ab70dbada197fc5a061937",
+    "Mono18RectangleNode38.lean": "a43094412244344a1a09d8bc32848dead5bb8e50ed41668d01572c5039d31c2e",
+    "Mono18RectangleTotals.lean": "461fd3c2c7a860c53782da892cf5984cabda04db4acccc363d08d845bcff9b19"
+  },
+  "signals": 12,
+  "signal_bits": 12288,
+  "support_bits": 360,
+  "root_occurrences": 17,
+  "cost_sum": 76,
+  "target_total": 79,
+  "trace_sha256": "29402d78efb0bf717870cb933fa660d887f66409c05a07d30ac8663c6edf233e",
+  "matrix_totals": [
+    79,
+    117,
+    40,
+    231,
+    2439,
+    116,
+    184,
+    137,
+    263,
+    125,
+    135,
+    271,
+    118,
+    111,
+    127,
+    181,
+    1589,
+    440,
+    43
+  ]
+}

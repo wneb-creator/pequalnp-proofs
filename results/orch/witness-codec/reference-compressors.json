@@ -1,0 +1,50 @@
+[
+  {
+    "stream": "node_structure",
+    "bytes": 14654,
+    "zlib9": 5143,
+    "bzip2": 4133,
+    "lzma6": 4616,
+    "seconds": 0.011663580000458751
+  },
+  {
+    "stream": "entry_provenance",
+    "bytes": 152331,
+    "zlib9": 41268,
+    "bzip2": 32221,
+    "lzma6": 32676,
+    "seconds": 0.08213028799946187
+  },
+  {
+    "stream": "children",
+    "bytes": 287493,
+    "zlib9": 99320,
+    "bzip2": 86235,
+    "lzma6": 83804,
+    "seconds": 0.22752626799956488
+  },
+  {
+    "stream": "witness_dictionary",
+    "bytes": 2943,
+    "zlib9": 2344,
+    "bzip2": 2671,
+    "lzma6": 2316,
+    "seconds": 0.01610296500075492
+  },
+  {
+    "stream": "cut_witness_dictionary_indices",
+    "bytes": 307607,
+    "zlib9": 167285,
+    "bzip2": 161105,
+    "lzma6": 139696,
+    "seconds": 0.15806530400004704
+  },
+  {
+    "stream": "all",
+    "bytes": 765028,
+    "zlib9": 316318,
+    "bzip2": 302294,
+    "lzma6": 262548,
+    "seconds": 0.49894033599957766
+  }
+]

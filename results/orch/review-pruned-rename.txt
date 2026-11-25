@@ -1,0 +1,11 @@
+Independent immutable mathematical review: PASS
+Reviewer: counterexample
+Source: results/orch/lemmas/PrunedRename.lean
+SHA256: 15062e34e6d50c09700ef9f4d7bbcb42f3df2d6a61e1433edec84e2d76c51539
+Size: 6091 bytes; complete compiler log empty, author-reported EXIT0. No compile rerun.
+
+Read all eight declarations. Pair-column membership is pulled through exactly the pair of renamed rows. The explicit target-fixed equation turns its moved target premise into the same needed columns. Budget cuts pull an actual Run through restrict_run, preserving every root-list occurrence and gate count, then rewrite the target by that equation.
+
+Surjectivity is used exactly to obtain injectivity on signatures, preserving properness, distinct operands and fresh output under the row map. It is not silently assumed for arbitrary row functions. Gate and bridge transport commute rename with bin and nested duplicateRaw, preserving both retained-certificate and compressed-cut alternatives. The copied support sets and occurrence counts remain unchanged.
+
+The depth induction preserves initial entries and target absence, invokes the existing node only for the properly renamed copied signal, and recursively pulls back both the child certificate and its bridge. No concrete permutation, graph automorphism, target invariance or child statement is supplied without an explicit hypothesis. This is a general semantic transport lemma, not a completed finite memo certificate or global gap proof. Ordinary terms only; no trust/format issue. Research imports need inlining for final submission.

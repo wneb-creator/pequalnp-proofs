@@ -1,0 +1,21 @@
+{
+  "cost_modules": 27,
+  "cost_module_bytes": 96202,
+  "packed_record_list_payload_bytes": 72599,
+  "cost_module_other_bytes": 23603,
+  "shared_foundation_files": {
+    "RectangleRun.lean": 8466,
+    "RectangleRunIndexed.lean": 1213,
+    "RectanglePackedCheck.lean": 5688,
+    "Mono18RectangleBase.lean": 8461,
+    "Mono18RectangleSamples.lean": 6873,
+    "Mono18RectangleLabels.lean": 1227,
+    "Mono18RectangleBank.lean": 1709,
+    "Mono18RectangleLookup.lean": 803
+  },
+  "shared_foundation_total": 34440,
+  "weight_table_declaration_bytes": 5557,
+  "sample_table_declaration_bytes": 4850,
+  "combined_source_bytes": 130642,
+  "scope": "Excludes Live1024 Run/BitVec foundation and cofactor machinery; includes all rectangle-specific dependencies and samples, but excludes optional node38 smoke."
+}

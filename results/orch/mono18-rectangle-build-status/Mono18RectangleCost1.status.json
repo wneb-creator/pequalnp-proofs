@@ -1,0 +1,14 @@
+{
+  "source": "results/orch/lemmas/Mono18RectangleCost1.lean",
+  "source_sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b",
+  "log": "results/orch/lemmas/Mono18RectangleCost1.compile.txt",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "original_status": {
+    "source": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost1.lean",
+    "log": "/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18RectangleCost1-attempt1.txt",
+    "exit": 0,
+    "seconds": 19.666648243000964,
+    "maxrss_kb": 3698972,
+    "sha256": "3397b03060bce201836ccfded778fcbcc67e6d384da8d173b7fdcdf9877bb89b"
+  }
+}
