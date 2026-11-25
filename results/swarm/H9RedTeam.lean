@@ -136,4 +136,62 @@ lemma mixedFanout_three_and :
       | .and => true
       | _ => false).length = 3 := by decide +kernel
 
+namespace MixedSupport
+
+variable {α : Type*} [DecidableEq α]
+
+def unit (u : α) : α → Bool := fun i => decide (i = u)
+
+def pair (u v : α) : α → Bool := fun i => decide (i = u ∨ i = v)
+
+def Mono (f : (α → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ i, x i = true → y i = true) → f x = true → f y = true
+
+lemma unit_le_pair_left (u v : α) : ∀ i, unit u i = true → pair u v i = true := by
+  intro i hi
+  simp only [unit, decide_eq_true_eq] at hi
+  simp [pair, hi]
+
+lemma unit_le_pair_right (u v : α) : ∀ i, unit v i = true → pair u v i = true := by
+  intro i hi
+  simp only [unit, decide_eq_true_eq] at hi
+  simp [pair, hi]
+
+lemma mixed_context_singleton_false
+    (colour : α → Bool) (Adj : α → α → Prop)
+    (hcross : ∀ u v, Adj u v → colour u ≠ colour v)
+    (g h : (α → Bool) → Bool) (hgm : Mono g) (hhm : Mono h)
+    (hsafe : ∀ u v, (g (pair u v) && h (pair u v)) = true → Adj u v)
+    (a b : α) (ha : colour a = false) (hb : colour b = true)
+    (hga : g (unit a) = true) (hgb : g (unit b) = true) :
+    ∀ w, h (unit w) = false := by
+  intro w
+  cases hw : h (unit w) with
+  | false => rfl
+  | true =>
+    have hadj (v : α) (hgv : g (unit v) = true) : Adj w v := by
+      apply hsafe w v
+      exact Bool.and_eq_true_iff.mpr
+        ⟨hgm _ _ (unit_le_pair_right w v) hgv,
+          hhm _ _ (unit_le_pair_left w v) hw⟩
+    have hwa := hcross w a (hadj a hga)
+    have hwb := hcross w b (hadj b hgb)
+    cases hcw : colour w
+    · exact False.elim (hwa (hcw.trans ha.symm))
+    · exact False.elim (hwb (hcw.trans hb.symm))
+
+lemma mixed_context_pair_inherited
+    (colour : α → Bool) (Adj : α → α → Prop)
+    (hcross : ∀ u v, Adj u v → colour u ≠ colour v)
+    (g h : (α → Bool) → Bool) (hgm : Mono g) (hhm : Mono h)
+    (hsafe : ∀ u v, (g (pair u v) && h (pair u v)) = true → Adj u v)
+    (a b : α) (ha : colour a = false) (hb : colour b = true)
+    (hga : g (unit a) = true) (hgb : g (unit b) = true)
+    (u v : α) (hp : (g (pair u v) && h (pair u v)) = true) :
+    h (pair u v) = true ∧ h (unit u) = false ∧ h (unit v) = false := by
+  have hz := mixed_context_singleton_false colour Adj hcross g h hgm hhm hsafe a b ha hb hga hgb
+  exact ⟨(Bool.and_eq_true_iff.mp hp).2, hz u, hz v⟩
+
+end MixedSupport
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam

@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 25 helper lemmas passed an independent compile and axiom audit.
+All 29 helper lemmas passed an independent compile and axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -18,10 +18,19 @@ have disconnected witness components; and an edge-active circuit can have five
 semantically mixed OR gates but only three AND gates. These examples do not
 contradict the posted lower bound.
 
+MixedSupport also proves that a monotone signal accepting singleton inputs of
+both bipartition colours has no singleton-accepting safe context; every surviving
+pair is accepted by that context with both singleton inputs rejected. This does
+not justify bypassing the signal: it may still filter nonedges.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
+Peer h5 87f88d39: exact compilation, source review and main-lemma axiom audit passed.
+Peer h6 28291057: source review and main-lemma axiom audit passed; compilation
+passed after deleting only the redundant Mathlib umbrella line. Exact original
+compilation was blocked by the unavailable Mathlib.olean in the selective cache.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration and independent diagnostic audit; peer lemma review and normalization analysis)
-TIMING total=8.1 subagents=2
+TIMING total=16.0 subagents=2
