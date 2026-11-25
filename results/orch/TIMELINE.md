@@ -16,3 +16,5 @@
 - 2026-11-25T14:30:13.017904+00:00: first signed gate operand-retention partial compiled and independently reviewed.
 - 2026-11-25T14:36:23.936362+00:00: FullRun, ReachRestriction, and MiniNine adapters compiled and independently reviewed; temporary development imports require final assembly.
 - 2026-11-25T14:38:25.508370+00:00: conditional17-binary argument and comparable-NOT circuit deletion compiled and independently reviewed.
+- 2026-11-25T14:39:24Z: renewal diagnostic returned HTTP410 although prior renewal granted expiry14:57:05.973Z. All proof/search work paused.
+- 2026-11-25T14:42:41.198729+00:00: recovery preservation includes checked SignedFloor, conditional PetersenBinary17, and conditional NonOrLower18; adapter discharging table hypothesis remains unchecked.

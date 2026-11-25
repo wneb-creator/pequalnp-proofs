@@ -1,0 +1,11 @@
+Reviewed at 2026-11-25T14:06:20.571226+00:00
+Independent review of partial baseline by status_and_review.
+PetersenUpper.lean and petersen20.json gate lists agree exactly.
+All 20 gates use AND/OR with two earlier wires; output wire is 29.
+The cover covers all 15 Petersen edges.
+Independent Python evaluator checked all 1024 assignments against the 15-edge definition: PASS.
+Lean plain-file scan: no _root_, double quotes, forbidden commands, sorry, new axioms, or native_decide. Only PEqualNP.Defs is imported. Allowed local limits only.
+No full-target proof claim is justified: this is a 20-gate monotone construction and contains no NOT.
+Kernel compilation is pending environment preparation, and is not claimed by this review.
+NOTES.md wording correction completed: known 20-gate construction is described without asserting optimality.
+This review authorizes preservation of the partial baseline after kernel compilation, not a proof PR.

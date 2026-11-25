@@ -1,0 +1,1 @@
+Known23gate oneNOT circuit checked on all1024inputs; all37408CNFclauses satisfied for8selectedrows.

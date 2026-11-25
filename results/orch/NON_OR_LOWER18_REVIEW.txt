@@ -1,0 +1,19 @@
+Independent red-team review: PASS for preserving a checked conditional partial.
+Reviewer: status_and_review.
+Reviewed UTC: 2026-11-25T14:40:42.433527+00:00
+Source: results/orch/lemmas/NonOrLower18.lean
+Source SHA256: 89b0bf4e90684790a58c0c46c8a2ccc7f80f35fe5459b2fc4543b0c097182c82
+Source size: 1129 lines, 50206 bytes.
+Provenance: the first 1031 lines are byte-identical to FullRunLower17.lean, SHA256 11d504257c4434d36db9098df1aa2b216c372baa17c968d5384ca5bd0f13f0c0, independently reviewed by lean_environment in FULL_RUN_LOWER17_REVIEW.txt. This review directly inspects the 98 added lines and rechecks static rules on the full source.
+
+Exact mathematical result: non_or_tail_lower17 assumes the genuine remaining hypothesis H that every free-NOT Reach construction of the nine-input deleted Petersen function requires at least15 binary operations. Given distinct initial raw inputs p,q, a permutation of the ten raw inputs, an initial signed operation d=0,2,or3 (AND, left AND negated-right, or negated-left AND right), and a Run continuation computing the ten-input Petersen function, it proves that the continuation uses at least17 operations. Including the initial operation would give18. This does not cover initial OR (d=1), does not prove H, and is not the complete posted circuit theorem.
+
+Proof review: first_keeps_both supplies both raw operands in the continuation list; it is not an unproved additional assumption. ret_tail_bound projects either chosen raw operand to false through the reviewed Petersen automorphism. The removed raw operand is available as a constant; every remaining raw operand is a nine-input root. A signed combination with one constant argument is available without preprocessing gates, including complement cases, so Reach.start is correctly used with p=0. The projected goal is exactly structuralDeletedEdge and is separately shown nonconstant. projected_bound therefore bounds15 plus the entire frontier mass by continuation length. The proof retains the three explicit frontier costs and only discards nonnegative rest mass.
+
+For d=0 or2, fixing the left operand false makes both the head combination and retained left operand constant. For d=3, fixing the right operand false makes both the head combination and retained right operand constant. These are two separate frontier entries, so both costs are legitimately counted; contraction accounts for duplicate constants as well. The final omega step derives continuation length>=17 from15+1+1 plus nonnegative remaining costs. There is no double count of the initial operation, which is outside the continuation.
+
+Static checks: only allowed imports, balanced intended module helper namespace, no _root_, strings, sorry, axioms, native_decide, unsafe commands, attributes, compilation commands, new data types or instances. Only inherited allowed maxRecDepth/maxHeartbeats options occur. No final exact-name theorem is claimed.
+
+Validation: root/author report compilation exit0 of the frozen repository source. Complete non-or-lower18-standalone.stdout names ../results/orch/lemmas/NonOrLower18.lean and contains6373 bytes of tactic/deprecation warnings only; stderr is empty. The separate scratch NonOrLower18.lean has a different hash and is not the reviewed artifact; the standalone log identifies the repository artifact. No rebuild was run.
+
+Verdict: preserve this source and full logs as a checked conditional partial. It is not a complete proof PR and is not checker ACCEPTED for L-meta-2592. Any source modification requires a fresh diff/hash review.

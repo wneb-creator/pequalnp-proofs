@@ -1,0 +1,21 @@
+Seed mismatch count: 6
+{"first_gate_done": 0, "seconds": 0.0712035650000189, "trials": 1800, "feasible_pairs": 444}
+{"first_gate_done": 1, "seconds": 0.15286950799998067, "trials": 3857, "feasible_pairs": 1093}
+{"first_gate_done": 2, "seconds": 0.23781324399999448, "trials": 6145, "feasible_pairs": 1475}
+{"first_gate_done": 3, "seconds": 0.29942435199996, "trials": 8665, "feasible_pairs": 2147}
+{"first_gate_done": 4, "seconds": 0.4675565000000006, "trials": 11409, "feasible_pairs": 3296}
+{"first_gate_done": 5, "seconds": 0.6572491560000344, "trials": 14321, "feasible_pairs": 4778}
+{"first_gate_done": 6, "seconds": 0.8061603840000089, "trials": 17381, "feasible_pairs": 6242}
+{"first_gate_done": 7, "seconds": 0.9394370329999902, "trials": 20549, "feasible_pairs": 7523}
+{"first_gate_done": 8, "seconds": 1.077713655000025, "trials": 23779, "feasible_pairs": 9348}
+{"first_gate_done": 9, "seconds": 1.2735805459999483, "trials": 27028, "feasible_pairs": 11411}
+{"first_gate_done": 10, "seconds": 1.4619356309999603, "trials": 30220, "feasible_pairs": 13141}
+{"first_gate_done": 11, "seconds": 1.5746668969999291, "trials": 33300, "feasible_pairs": 14729}
+{"first_gate_done": 12, "seconds": 1.675071064000008, "trials": 36204, "feasible_pairs": 15589}
+{"first_gate_done": 13, "seconds": 1.8747079370000392, "trials": 38844, "feasible_pairs": 17895}
+{"first_gate_done": 14, "seconds": 2.045352839999964, "trials": 41144, "feasible_pairs": 19743}
+{"first_gate_done": 15, "seconds": 2.1514118439999947, "trials": 43016, "feasible_pairs": 21615}
+{"first_gate_done": 16, "seconds": 2.2444087869999976, "trials": 44368, "feasible_pairs": 22967}
+{"first_gate_done": 17, "seconds": 2.2851137950000293, "trials": 45097, "feasible_pairs": 23696}
+{"first_gate_done": 18, "seconds": 2.287517245999993, "trials": 45097, "feasible_pairs": 23696}
+No exact one-NOT repair by changing two gate records of this seed.

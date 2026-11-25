@@ -1,0 +1,4 @@
+Independent root review: PASS as checked conditional development partial.
+SHA256: b3ec7e481203344874db9102bbd0dbb811c2b81c4a6d308ce2aefa5ca6c131d3
+The two count lemmas partition gates into NOT and non-NOT. circuit_run bounds abstract binary cost by the non-NOT count. The conditional Run lower bound yields17 at that cost. Arithmetic yields17+notCount<=size. The nine-input tableLower15 hypothesis is explicit and not discharged here. Temporary imports need final inlining.
+Complete build logs report no errors; author observed exit0.

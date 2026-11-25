@@ -1,0 +1,13 @@
+namespace PEqualNP.Outside.L_meta_2592.SignedFloor
+
+set_option maxRecDepth 32768 in
+lemma signed_lower_table : Lower true inputs graph 15 := by
+  have rootsEq : vars 511 = inputs := by decide +kernel
+  have goalEq : graphGoal 511 = graph := by decide +kernel
+  have cut : Impossible true (graphGoal 511) 14 (vars 511).toFinset := by
+    simpa only [rootsEq,goalEq] using signedRoot
+  have lower := plain_low (u:=true) (m:=511) (hints:=13438558465) (cap:=14)
+    (by decide +kernel) cut
+  simpa only [rootsEq,goalEq] using lower
+
+end PEqualNP.Outside.L_meta_2592.SignedFloor

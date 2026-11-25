@@ -1,0 +1,50 @@
+namespace PEqualNP.Outside.L_meta_2592.FullRun
+
+open PEqualNP.Outside.L_meta_2592.SignedFloor
+
+lemma first_keeps_right {u : Bool} {s d : Nat} {ka kb : Bool}
+    (p q : Fin 10) (hpq : p ≠ q) (rest : List (Wire (Fin 10 → Bool)))
+    (hrest : ∀ w ∈ rest, ∀ (x : Fin 10 → Bool) (a b : Bool),
+      w (structuralSetPair x p q a b) = w x)
+    (h : Run u structuralEdge s
+      (comb d (fun x => x p) (fun x => x q) ::
+        kept ka (fun x => x p) (kept kb (fun x => x q) rest))) : kb = true := by
+  cases kb with
+  | true => rfl
+  | false =>
+    exfalso
+    let z : Bool := decide (d ≠ 0 ∧ d ≠ 2)
+    obtain ⟨k, hk⟩ := structural_pair_cofactors p q hpq z false z true (by simp)
+    apply hk
+    apply run_agree h
+    intro w hw
+    simp only [kept, Bool.false_eq_true, ite_false] at hw
+    rcases List.mem_cons.mp hw with rfl | hw
+    · by_cases h0 : d = 0
+      · subst d
+        simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+          structural_set_pair_right]
+      · by_cases h1 : d = 1
+        · subst d
+          simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+            structural_set_pair_right]
+        · by_cases h2 : d = 2
+          · subst d
+            simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+              structural_set_pair_right]
+          · simp [comb, combine, inv, z, h0, h1, h2,
+              structural_set_pair_left _ _ _ hpq, structural_set_pair_right]
+    · rcases kept_mem hw with rfl | hw
+      · simp [structural_set_pair_left _ _ _ hpq]
+      · rw [hrest w hw, hrest w hw]
+
+lemma first_keeps_both {u : Bool} {s d : Nat} {ka kb : Bool}
+    (p q : Fin 10) (hpq : p ≠ q) (rest : List (Wire (Fin 10 → Bool)))
+    (hrest : ∀ w ∈ rest, ∀ (x : Fin 10 → Bool) (a b : Bool),
+      w (structuralSetPair x p q a b) = w x)
+    (h : Run u structuralEdge s
+      (comb d (fun x => x p) (fun x => x q) ::
+        kept ka (fun x => x p) (kept kb (fun x => x q) rest))) : ka = true ∧ kb = true :=
+  ⟨first_keeps_left p q hpq rest hrest h, first_keeps_right p q hpq rest hrest h⟩
+
+end PEqualNP.Outside.L_meta_2592.FullRun

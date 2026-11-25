@@ -1,0 +1,1 @@
+{"status": "timeout", "budget": 15, "nots": 4, "seconds": 50.098324184000035, "nodes": 53248, "memo": 23093, "maxdepth": 6, "bydepth": [1, 1, 17, 1396, 21680, 27031, 3122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "pair_count": 400, "sample_row_count": 340}

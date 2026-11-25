@@ -43,3 +43,7 @@ TIMING total=36.23 subagents=7
 
 FullRunLower17.lean and ComparableDelete.lean: compile exit0; independent reviews PASS. The17-bound still assumes the nine-input signed lower bound. Comparable deletion needs global source/output comparability and a nonconstant output.
 TIMING total=38.26 subagents=7
+
+Recovery checkpoint: full posted statement NOT PROVED; full checker not run. SignedFloor declarations compile exit0; PetersenBinary17 and NonOrLower18 compile exit0 as conditional partials. ConstantDropTwo and PetersenUpper remain unchecked. Complete logs and exact HTTP410 diagnostic retained.
+Sub-agents: seven total (repository/review, counterexample search, Lean environment/review, structural lower bound, finite lower bound, primary-NOT elimination, read-once counting child).
+TIMING total=42.52 subagents=7

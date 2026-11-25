@@ -1,0 +1,15 @@
+{"domain_bounds": [[15, "zero(0,)"], [15, "zero(1,)"], [15, "zero(2,)"], [15, "zero(3,)"], [15, "zero(4,)"], [15, "zero(5,)"], [15, "zero(6,)"], [15, "zero(7,)"], [15, "zero(8,)"], [15, "zero(9,)"], [13, "zero(0, 1)"], [13, "zero(0, 4)"], [13, "zero(0, 5)"], [13, "zero(1, 2)"], [13, "zero(1, 6)"], [13, "zero(2, 3)"], [13, "zero(2, 7)"], [13, "zero(3, 4)"], [13, "zero(3, 8)"], [13, "zero(4, 9)"], [13, "zero(5, 7)"], [13, "zero(5, 8)"], [13, "zero(6, 8)"], [13, "zero(6, 9)"], [13, "zero(7, 9)"], [12, "zero(0, 2)"], [12, "zero(0, 3)"], [12, "zero(0, 6)"], [12, "zero(0, 7)"], [12, "zero(0, 8)"], [12, "zero(0, 9)"], [12, "zero(1, 3)"], [12, "zero(1, 4)"], [12, "zero(1, 5)"], [12, "zero(1, 7)"], [12, "zero(1, 8)"], [12, "zero(1, 9)"], [12, "zero(2, 4)"], [12, "zero(2, 5)"], [12, "zero(2, 6)"], [12, "zero(2, 8)"], [12, "zero(2, 9)"], [12, "zero(3, 5)"], [12, "zero(3, 6)"], [12, "zero(3, 7)"], [12, "zero(3, 9)"], [12, "zero(4, 5)"], [12, "zero(4, 6)"], [12, "zero(4, 7)"], [12, "zero(4, 8)"], [12, "zero(5, 6)"], [12, "zero(5, 9)"], [12, "zero(6, 7)"], [12, "zero(7, 8)"], [12, "zero(8, 9)"], [11, "one0"], [11, "one1"], [11, "one2"], [11, "one3"], [11, "one4"], [11, "one5"], [11, "one6"], [11, "one7"], [11, "one8"], [11, "one9"]]}
+{"progress_seconds": 30.065821183000025, "nodes": 151040, "cuts": 90994, "memo": 561, "depth": 7}
+{"progress_seconds": 60.072374268999965, "nodes": 293888, "cuts": 182585, "memo": 1169, "depth": 9}
+{"progress_seconds": 90.16221075800013, "nodes": 462848, "cuts": 292216, "memo": 1895, "depth": 8}
+{"progress_seconds": 120.18833447099996, "nodes": 622592, "cuts": 401580, "memo": 2517, "depth": 8}
+{"progress_seconds": 150.19724982900016, "nodes": 1301504, "cuts": 850607, "memo": 5115, "depth": 8}
+{"progress_seconds": 180.19982779300017, "nodes": 2229760, "cuts": 1484427, "memo": 8372, "depth": 8}
+{"progress_seconds": 210.20507038999995, "nodes": 3158016, "cuts": 2109666, "memo": 11644, "depth": 8}
+{"progress_seconds": 240.24159359900023, "nodes": 4016128, "cuts": 2692066, "memo": 14572, "depth": 7}
+{"progress_seconds": 270.2503265659998, "nodes": 4811776, "cuts": 3205647, "memo": 17680, "depth": 8}
+{"progress_seconds": 300.2582284330001, "nodes": 5641728, "cuts": 3757291, "memo": 20854, "depth": 8}
+{"progress_seconds": 366.96055898800023, "nodes": 5785088, "cuts": 3854270, "memo": 21362, "depth": 7}
+{"progress_seconds": 396.9838138539999, "nodes": 6629376, "cuts": 4438613, "memo": 24263, "depth": 8}
+{"progress_seconds": 426.99923154199996, "nodes": 7387136, "cuts": 4946032, "memo": 26944, "depth": 8}
+{"progress_seconds": 457.0167843260001, "nodes": 8272896, "cuts": 5527709, "memo": 29972, "depth": 8}

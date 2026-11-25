@@ -1,0 +1,43 @@
+{
+  "at": "2026-11-25T14:34:19.544566+00:00",
+  "action": "SIGSTOP",
+  "reason": "Prioritize Lean certificate compilation; these searches are paused, not UNSAT.",
+  "processes": [
+    {
+      "pid": 5048,
+      "pattern": "^python3 /tmp/oec/pequalnp-pilot-108/(synth_circuit[.]py|cadical_input_not[.]py) "
+    },
+    {
+      "pid": 5201,
+      "pattern": "^python3 /tmp/oec/pequalnp-pilot-108/(synth_circuit[.]py|cadical_input_not[.]py) "
+    },
+    {
+      "pid": 6454,
+      "pattern": "^python3 /tmp/oec/pequalnp-pilot-108/(synth_circuit[.]py|cadical_input_not[.]py) "
+    },
+    {
+      "pid": 6891,
+      "pattern": "^python3 /tmp/oec/pequalnp-pilot-108/(synth_circuit[.]py|cadical_input_not[.]py) "
+    },
+    {
+      "pid": 6291,
+      "pattern": "^/tmp/oec/pequalnp-pilot-108/cgp_[^ ]+ "
+    },
+    {
+      "pid": 6859,
+      "pattern": "^/tmp/oec/pequalnp-pilot-108/cgp_[^ ]+ "
+    },
+    {
+      "pid": 8312,
+      "pattern": "^/tmp/oec/pequalnp-pilot-108/cgp_[^ ]+ "
+    },
+    {
+      "pid": 5049,
+      "pattern": "^/tmp/oec/pequalnp-pilot-108/toolchain/lean-4[.]36[.]0-linux/bin/cadical .* /tmp/oec/pequalnp-pilot-108/cadical-(inputnot|not-and-edge)-"
+    },
+    {
+      "pid": 6892,
+      "pattern": "^/tmp/oec/pequalnp-pilot-108/toolchain/lean-4[.]36[.]0-linux/bin/cadical .* /tmp/oec/pequalnp-pilot-108/cadical-(inputnot|not-and-edge)-"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+
+lemma functional_lower_of_table (lower : Lower true inputs graph 15) :
+    ∀ p bank, Reach true (List.ofFn (fun i : Fin 9 => fun x : Fin 9 → Bool => x i)) p bank →
+      Available true bank structuralDeletedEdge → 15 ≤ p := by
+  intro p bank reach avail
+  have hr : (List.ofFn (fun i : Fin 9 => fun x : Fin 9 → Bool => x i)).map (restrictRows sample) =
+      inputs.map observe := by
+    rw [←input_list,List.map_ofFn,List.map_ofFn]
+    rfl
+  have hg : restrictRows sample structuralDeletedEdge = observe graph := by
+    funext r
+    exact (edge_table r).symm
+  have reached := reach_restrict sample reach
+  rw [hr] at reached
+  have available := available_restrict sample avail
+  rw [hg] at available
+  exact lower p _ reached available

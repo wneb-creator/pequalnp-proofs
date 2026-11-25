@@ -1,0 +1,56 @@
+[
+  {
+    "file": "SignedCore.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/SignedCore.lean",
+    "bytes": 11656,
+    "sha256": "3256f14c3bd9e075f4c510f64877b72a555599e9d9eb8f6052eb900afa0cfe58"
+  },
+  {
+    "file": "Structural.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/Structural.lean",
+    "bytes": 6239,
+    "sha256": "64389ba4f029d240f3c44a7ce7c425097637a7ff3f4b84778408840d0f9004c8"
+  },
+  {
+    "file": "OperandRetentionFast.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/OperandRetentionFast.lean",
+    "bytes": 4881,
+    "sha256": "1032af0e63d0150ed791a22f41b2f34b57f749e41070d1b0861cec2a6d4b5fb6"
+  },
+  {
+    "file": "FullRunLower17.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/FullRunLower17.lean",
+    "bytes": 6868,
+    "sha256": "cf89f176a8ea6322193581fd568ac44e4998b91cb9cd2eae48a22500c875b0ab"
+  },
+  {
+    "file": "ReachRestriction.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/ReachRestriction.lean",
+    "bytes": 1024,
+    "sha256": "1b80bd194a6973cebd8c194583b29a386685f2fb8f1f0fff5669caab120078a9"
+  },
+  {
+    "file": "MiniNine.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/MiniNine.lean",
+    "bytes": 3110,
+    "sha256": "27b79ad70daae78dc00421fee5dd1e669417f685fce76cc2a90733bce066e2ac"
+  },
+  {
+    "file": "FullRun.lean",
+    "copied_from": "/workspace/pequalnp-proofs/results/orch/lemmas/FullRun.lean",
+    "bytes": 27105,
+    "sha256": "08f30a5ebef4608de130aa9fefa70acf93027f1c52046d2f3e5dac38c326631b"
+  },
+  {
+    "file": "PetersenBinary17.lean",
+    "copied_from": "/workspace/pequalnp-proofs/results/orch/lemmas/PetersenBinary17.lean",
+    "bytes": 1287,
+    "sha256": "b3ec7e481203344874db9102bbd0dbb811c2b81c4a6d308ce2aefa5ca6c131d3"
+  },
+  {
+    "file": "NonOrLower18.lean",
+    "copied_from": "/tmp/oec/pequalnp-pilot-108/NonOrLower18.lean",
+    "bytes": 4575,
+    "sha256": "fbbf5861127014d96daff89eeabf5da0b422f7351d530b312f3155c1dc710ce4"
+  }
+]

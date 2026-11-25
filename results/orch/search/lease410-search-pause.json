@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-25T14:40:07.724075+00:00",
+  "action": "SIGSTOP",
+  "reason": "Root reports lease HTTP410; all search work paused.",
+  "pids": [
+    9081
+  ]
+}

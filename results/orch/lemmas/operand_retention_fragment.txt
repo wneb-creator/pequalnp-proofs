@@ -1,0 +1,70 @@
+namespace PEqualNP.Outside.L_meta_2592.FullRun
+
+open PEqualNP.Outside.L_meta_2592.SignedFloor
+
+lemma kept_mem {R : Type} {w a : Wire R} {k : Bool} {xs : List (Wire R)}
+    (h : w ∈ kept k a xs) : w = a ∨ w ∈ xs := by
+  cases k <;> simp_all [kept]
+
+lemma comb_apply_eq {R : Type} (d : Nat) (a b : Wire R) (x y : R)
+    (ha : a x = a y) (hb : b x = b y) : comb d a b x = comb d a b y := by
+  unfold comb combine inv
+  split_ifs <;> simp_all
+
+lemma run_agree {R : Type} {u : Bool} {goal : Wire R} {s : Nat} {ws : List (Wire R)}
+    (h : Run u goal s ws) (x y : R) (hx : ∀ w ∈ ws, w x = w y) : goal x = goal y := by
+  revert hx
+  induction h using Run.ind with
+  | stop => intro hx; exact hx goal (by simp)
+  | perm p _ ih =>
+    intro hx
+    exact ih (fun w hw => hx w (p.mem_iff.mp hw))
+  | @two s a b rest d hd ka kb _ ih =>
+    intro hx
+    apply ih
+    intro w hw
+    rcases List.mem_cons.mp hw with rfl | hw
+    · exact comb_apply_eq d a b x y (hx a (by simp)) (hx b (by simp))
+    · rcases kept_mem hw with rfl | hw
+      · exact hx _ (by simp)
+      · rcases kept_mem hw with rfl | hw
+        · exact hx _ (by simp)
+        · exact hx w (by simp [hw])
+
+lemma first_keeps_left {u : Bool} {s d : Nat} {ka kb : Bool}
+    (p q : Fin 10) (hpq : p ≠ q) (rest : List (Wire (Fin 10 → Bool)))
+    (hrest : ∀ w ∈ rest, ∀ (x : Fin 10 → Bool) (a b : Bool),
+      w (structuralSetPair x p q a b) = w x)
+    (h : Run u structuralEdge s
+      (comb d (fun x => x p) (fun x => x q) ::
+        kept ka (fun x => x p) (kept kb (fun x => x q) rest))) : ka = true := by
+  cases ka with
+  | true => rfl
+  | false =>
+    exfalso
+    let z : Bool := decide (d = 1 ∨ d = 2)
+    obtain ⟨k, hk⟩ := structural_pair_cofactors p q hpq false z true z (by simp)
+    apply hk
+    apply run_agree h
+    intro w hw
+    simp only [kept, Bool.false_eq_true, ite_false] at hw
+    rcases List.mem_cons.mp hw with rfl | hw
+    · by_cases h0 : d = 0
+      · subst d
+        simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+          structural_set_pair_right]
+      · by_cases h1 : d = 1
+        · subst d
+          simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+            structural_set_pair_right]
+        · by_cases h2 : d = 2
+          · subst d
+            simp [comb, combine, inv, z, structural_set_pair_left _ _ _ hpq,
+              structural_set_pair_right]
+          · simp [comb, combine, inv, z, h0, h1, h2,
+              structural_set_pair_left _ _ _ hpq, structural_set_pair_right]
+    · rcases kept_mem hw with rfl | hw
+      · simp [structural_set_pair_right]
+      · rw [hrest w hw, hrest w hw]
+
+end PEqualNP.Outside.L_meta_2592.FullRun

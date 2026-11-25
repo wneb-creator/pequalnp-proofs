@@ -1,0 +1,32 @@
+[
+  {
+    "file": "results/orch/lemmas/SignedFloor.lean",
+    "sha256": "3149bbe50c1b4f956d6cb754117932e9c4f4ac6ffd6fd8b510ca97572268fb29",
+    "bytes": 245381
+  },
+  {
+    "file": "results/orch/lemmas/SignedCore.lean",
+    "sha256": "3256f14c3bd9e075f4c510f64877b72a555599e9d9eb8f6052eb900afa0cfe58",
+    "bytes": 11656
+  },
+  {
+    "file": "results/orch/lemmas/FullRun.lean",
+    "sha256": "08f30a5ebef4608de130aa9fefa70acf93027f1c52046d2f3e5dac38c326631b",
+    "bytes": 27105
+  },
+  {
+    "file": "results/orch/lemmas/ReachRestriction.lean",
+    "sha256": "1b80bd194a6973cebd8c194583b29a386685f2fb8f1f0fff5669caab120078a9",
+    "bytes": 1024
+  },
+  {
+    "file": "results/orch/lemmas/MiniNine.lean",
+    "sha256": "27b79ad70daae78dc00421fee5dd1e669417f685fce76cc2a90733bce066e2ac",
+    "bytes": 3110
+  },
+  {
+    "file": "results/orch/lemmas/PetersenBinary17.lean",
+    "sha256": "b3ec7e481203344874db9102bbd0dbb811c2b81c4a6d308ce2aefa5ca6c131d3",
+    "bytes": 1287
+  }
+]

@@ -1,0 +1,110 @@
+../results/orch/lemmas/BinaryRestriction.lean:117:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:119:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:121:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:117:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:119:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:121:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:148:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:148:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:154:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:154:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:264:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:266:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:268:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/BinaryRestriction.lean:264:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:266:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:268:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/BinaryRestriction.lean:287:10: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [opCount_cons, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:287:13: warning: This simp argument is unused:
+  opCount_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:348:92: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, List.any_nil, id_eq,
+    Bool.and_true, Bool.or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:348:107: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, List.any_cons, id_eq,
+    Bool.and_true, Bool.or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:348:143: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, List.any_cons, List.any_nil,
+    id_eq, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:366:63: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_nil, List.any_cons, List.any_nil, id_eq,
+    Bool.and_true, Bool.or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:366:78: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.any_cons, List.any_nil, id_eq,
+    Bool.and_true, Bool.or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/BinaryRestriction.lean:366:128: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, List.any_cons, List.any_nil,
+    id_eq, Bool.or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
