@@ -37,3 +37,9 @@ Root independently reviewed all new source and hypotheses.
 One-sided buffering overhead is p; Lattice gives exact min/max interpretation; ReaderPath is a checked counterexample to a normalization shortcut, not to L-meta-4675.
 Still no theorem of posted statement; no PR.
 TIMING total=27 subagents=7
+
+Checkpoint7: conditional one-dirty reader classification, restore-star identity, same-colour classification, and two-column graph lemmas compile.
+PruningCost proves forced-false semantics, AO2 validity, and removal of at least two gates for a forced gate and a later direct consumer; T0 preservation remains pending.
+Independent review: AND-count agent reviewed ReaderCharge; combinatorial agent reviewed PruningCost; inventory audited PruningCore axioms; root reviewed other new components.
+MatchingConsequence/TargetImplication compile but assume Posted; they are only formal hardness implications, not proofs of Posted.
+TIMING total=32.9 subagents=7

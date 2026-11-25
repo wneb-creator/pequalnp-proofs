@@ -14,3 +14,7 @@
 - 2026-11-25T17:25:03.787233+00:00: first replan: abandon per-row OR charging and one-dirty star-reader shortcut after explicit counterexamples; focus AND-count invariant, one-sided buffering, min/max transfer, and direct Fano26 synthesis.
 - 2026-11-25T17:27:06.449520+00:00: Lattice.lean exact edge bottleneck translation compiled; no diagnostics.
 - 2026-11-25T17:30:03.945574+00:00: one-sided buffering, min/max equivalence, one-dirty nonstar reader compiled and reviewed.
+- 2026-11-25T17:31:01.467415+00:00: RowSharing.lean extended with exact false-clause semantics and nonconvex avoidance-set witness; compiled with no diagnostics.
+- 2026-11-25T17:34:41.474286+00:00: MatchingConsequence.lean compiled; conditional difficulty consequence now has checked matching-cover and overhead-cancellation lemmas.
+- 2026-11-25T17:35:43.425165+00:00: TargetImplication.lean compiled; exact posted statement conditionally implies unrestricted edge-count lower bound on matching-saturated bipartite graphs.
+- 2026-11-25T17:38:06.911600+00:00: one-dirty graph/semantic lemmas and two-deletion pruning compiler compiled and independently reviewed.

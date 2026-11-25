@@ -39,4 +39,26 @@ lemma shared_or_right : ∀ y : Fin 3 → Bool,
 
 lemma shared_or_reach : orIn 5 circuit 8 = {4} := by decide
 
+def clause (q : Fin 3 → Bool) : Finset (Fin 5) :=
+  if q 2 then {0, 1}
+  else ({4} ∪ (if q 0 then {2} else {0})) ∪ (if q 1 then {3} else {1})
+
+lemma clause_semantics : ∀ x : Fin 5 → Bool,
+    PEqualNP.MetaComplexity.circuitFun 5 circuit x = false ↔
+      ∃ q : Fin 3 → Bool, ∀ v ∈ clause q, x v = false := by
+  decide
+
+lemma avoidance_not_cube_convex :
+    ¬ (∀ (q r s : Fin 3 → Bool), 2 ∉ clause q → 2 ∉ clause r →
+      (∀ i, s i = q i ∨ s i = r i) → 2 ∉ clause s) := by
+  intro h
+  have hq : 2 ∉ clause ![true, false, true] := by decide
+  have hr : 2 ∉ clause ![false, false, false] := by decide
+  have hs : ∀ i : Fin 3, (![true, false, false] : Fin 3 → Bool) i =
+      (![true, false, true] : Fin 3 → Bool) i ∨
+      (![true, false, false] : Fin 3 → Bool) i =
+      (![false, false, false] : Fin 3 → Bool) i := by decide
+  have hf := h ![true, false, true] ![false, false, false] ![true, false, false] hq hr hs
+  exact hf (by decide)
+
 end PEqualNP.Outside.L_meta_4675.RowSharing
