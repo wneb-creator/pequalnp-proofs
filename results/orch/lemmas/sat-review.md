@@ -59,3 +59,25 @@ Edge-positive and maximal-independent-negative rows determine the exact graph fu
 
 
 Optional ordered free-OR mode reviewed at SHA256 `13a91f4fc32c484bc61b5c69e6c7f3e6dacc50180d3996f7a2067330f19cc3e1`: its AND-port prefix comparison selects one of the two interchangeable orientations. Its adjacent-gate clauses require nondecreasing maximum selected source wire. Greedy topological ordering supplies this order because every newly available node uses the newly numbered largest wire. Requiring each AND output to be consumed later or selected finally is complete after removing dead nodes and padding a selected output with idempotent ANDs; that output remains live as the padding operand. Every function sought here accepts graph edges and rejects singletons, so it has at least one AND to pad. These constraints are optional and do not alter previous unordered runs.
+
+
+## Compact dual OR-budget encoding review
+
+Reviewed scratch `free-and/or_free_and_sat.py` SHA256 `b08057757c4f22bdb0a1f2cad98fe5374c558013873ad028595287cec8864ea1` and `decode.py` SHA256 `0b645c8fb0d5f07888d837b2bca38ec4617761b3c816cad278013c49c3ff45be`. The encoder complements the original cycle MIS/edge rows and reverses their labels, encoding the dual function g(y)=not f(not y). Swapping AND/OR in the decoder recovers the original function. Nonempty OR subsets between budgeted AND gates in the dual correspond to nonempty conjunctions between budgeted OR gates in the primal.
+
+The dual final OR excludes direct inputs. This is complete for cycles with at least four vertices: a direct input in the primal final conjunction would have to belong to every positive edge, but no vertex belongs to every cycle edge. This restriction would require separate justification for arbitrary graphs. No additional gate-order pruning is present in the reviewed version, and unused generators allow a smaller budget to be padded.
+
+Independently replayed the C6/five-OR and C4/two-OR controls: all 1,914 and 222 clauses, respectively, and all 64 and 16 truth assignments, including the complement-duality identity, passed. Metadata: scratch `free-and/independent-review.json`. The four-OR C6 search remains separate; these positive controls establish neither an exclusion result nor the posted core-cover theorem.
+
+
+## Variable-graph AND-budget encoding review
+
+Reviewed scratch `core-counterexample/unknown_graph_and_sat.py` SHA256 `f66df66ac76a4208f4b1040d51cd3fc2db441da1e395f1d399bc744df17938f9`. It loads the CNF helper from the reviewed local free-OR encoder, whose current SHA256 is `13a91f4fc32c484bc61b5c69e6c7f3e6dacc50180d3996f7a2067330f19cc3e1`. Decoder SHA256: `e30d8996ad0506b6ec5210c723489e4eca013d206abe19fe1cf0aafe69b34e8c`.
+
+The graph varies over balanced bipartite graphs on m+m vertices. Diagonal-edge units require a specified perfect matching, while a negative clause for every two-left/two-right square exactly forbids four-cycles. Every Boolean assignment is represented. Its implication from circuit acceptance to at least one selected graph edge inside that assignment is exactly BelowF; acceptance of all diagonal pairs is imposed separately. The free-OR normal form and the previously reviewed operand ordering, source-maximum ordering, and live-only padding argument apply unchanged. No graph-isomorphism pruning was imposed.
+
+The decoder filters the selected graph edges, checks the common-neighbor characterization of four-cycle absence, replays all CNF clauses, and tests the full decoded circuit. Independent positive-control replay verified all 31,085 clauses and all 256 assignments for four disjoint matching edges and a four-AND circuit. Results: scratch `core-counterexample/unknown-positive4-independent-review.json`. The proposed three-AND/four-pair and four-AND/five-pair searches are separate finite instances; no verdict or Lean theorem follows from this positive control.
+
+## Optional disjoint-port normalization, mathematical review
+
+For the free-AND OR-budget model only, common factors C of the two conjunction ports can be extracted using (A AND C) OR (B AND C) = C AND (A OR B). Process generators in order, substitute earlier conjunction representations into later ports, and replace each later occurrence by the residual generator together with C. If a residual port is empty, the generator collapses to C and can be removed. Any remaining two nonempty ports are disjoint and can be swapped to order their minimum indices. Unused padding preserves an at-most budget; live-only padding with disjoint ports has not been justified. Excluding raw input factors from the final conjunction still requires the positive edge family to have no common vertex. This normalization is informal, not a reviewed code implementation or a Lean theorem, and does not preserve AND count or total gate count.

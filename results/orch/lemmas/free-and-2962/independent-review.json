@@ -1,0 +1,21 @@
+{
+  "encoder_sha256": "b08057757c4f22bdb0a1f2cad98fe5374c558013873ad028595287cec8864ea1",
+  "decoder_sha256": "0b645c8fb0d5f07888d837b2bca38ec4617761b3c816cad278013c49c3ff45be",
+  "controls": [
+    {
+      "control": "c6-o5-pin",
+      "all_clauses": 1914,
+      "full_truth_and_duality_rows": 64,
+      "OR_count": 5,
+      "result": "PASS"
+    },
+    {
+      "control": "c4-o2-control",
+      "all_clauses": 222,
+      "full_truth_and_duality_rows": 16,
+      "OR_count": 2,
+      "result": "PASS"
+    }
+  ],
+  "scope": "Computational positive controls only; no four-OR C6 exclusion or posted-target claim."
+}

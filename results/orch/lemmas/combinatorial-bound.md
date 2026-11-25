@@ -37,6 +37,19 @@ The controls cover 16/256 inputs and 726/13466 clauses, respectively. The
 four-cycle deliberately violates the stronger candidate when C4-freeness is
 removed. These are computational checks, not Lean-checked exclusion proofs.
 
+Result at 2026-11-25 07:06 UTC: the exact C8 instance with six OR gates returned
+UNSAT (solver exit 20), within its 300-second cap. The full log and source/CNF
+hashes are preserved in the scratch directory. This establishes only a finite
+computational exclusion, not a Lean-checked result or the posted theorem.
+
+The exact-graph and partial-output versions of the proposed OR lower bound are
+equivalent for each fixed graph G. If h <= fG accepts edge set D, adjoining the
+missing edge monomials by OR computes fG with exactly |E(G) minus D| additional
+OR gates. Therefore an exact-function lower bound OR(fG) >= |E(G)| - 1 implies
+OR(h) >= |D| - 1. The reverse implication is immediate by taking h = fG. AND
+gates for the missing edge monomials are free in this comparison. This is an
+informal mathematical reduction, not formalized in Lean.
+
 ## Why an easy pair-set invariant fails
 
 Truncating every intermediate function to singleton and allowed-edge terms
@@ -66,6 +79,44 @@ free AND gates to select x in some places and y in others. Replacing the shared
 OR globally by either variable can then lose many distinct edges. C4-freeness
 limits common neighbors of x and y, but does not directly limit these separate
 neighborhoods or supply the required rewiring argument.
+
+## Forest gate-elimination argument
+
+The following is an informal proof strategy, independently reached by the
+orchestrator and this agent. It has not been formalized in Lean; implementing
+restriction, constant propagation, gate deletion, and renumbering is still
+required. The argument does allow sharing inside and between cones.
+
+OR bound: let h be any monotone circuit rejecting all singleton inputs, and let
+F be a forest all of whose edges are accepted pairs of h. Then
+|E(F)| <= number of OR gates + 1. For induction, take a leaf v with neighbor w.
+The pair vw is accepted but the singleton w is rejected, so v is essential and
+has a dependency path to the output. If F has another edge, setting v to zero
+leaves a nonzero output. Consequently that path must encounter an OR gate:
+an all-AND path would force h <= v. Its AND-only prefix becomes zero when v is
+zero, and its first OR collapses. Constant propagation eliminates that OR,
+while all other edges of F survive. Apply induction to F-v. The one-edge base
+case needs no OR gate. Thus the graphic rank of the complete accepted-pair
+graph is at most OR count plus one, even without a C4-free hypothesis.
+
+AND bound: suppose additionally h <= fG for a forest G, and let D be all accepted
+pairs of h. Remove isolated vertices or a leaf v whose incident edge is absent
+from D by setting v to zero; this preserves D. Otherwise choose a leaf v of G
+whose neighbor w satisfies vw in D. Set v to one and w to zero. A dependency
+path from v must encounter an AND, because an all-OR path would make h true on
+the singleton v. Its OR-only prefix becomes one, so the first AND collapses.
+The remaining function h' is below the edge function of G with v,w deleted:
+on an independent set of that graph, adjoining v still gives an independent
+set of G once w is absent, because v was a leaf of G. Every old accepted pair
+away from v,w survives by monotonicity. A minimum cover of D can contain w in
+place of v, giving tau(D) = 1 + tau(D minus v,w). Induction bounds that remaining
+cover by the remaining AND count, which is at least one smaller.
+
+For several maximal cores, OR-combine their functions. This uses the gates in
+their cone union once and at most mc-1 new OR gates, with no new AND gates. If
+the ambient graph G is a forest, the two arguments give |D| <= OR(U)+mc and
+tau(D) <= AND(U), hence the posted inequality after extending a cover of G-D.
+The case mc=0 is immediate. Cyclic C4-free graphs remain outside this argument.
 
 ## Recent primary source checked
 

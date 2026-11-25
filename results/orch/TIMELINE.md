@@ -13,3 +13,5 @@
 - 2026-11-25T06:39:43.011423+00:00: checked auxiliary duplicate-gate example preserved; it does not refute the assigned statement.
 
 - 2026-11-25T07:01:48.897840+00:00: local checker completed with REJECTED (no-theorem); named partial build passed, full theorem remains unproved. Six sub-agents used by this point; combinatorial_bound joined the original five.
+
+- 2026-11-25T07:13:13.638377+00:00: CoreAndCharge compiled and independent review passed; separate axiom audit of three new results lists only propext, Classical.choice, Quot.sound. Preserving immediately.

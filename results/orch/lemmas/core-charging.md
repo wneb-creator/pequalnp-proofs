@@ -66,3 +66,15 @@ Primary sources read 2026-11-25:
 - Teofilo Gonzalez and Joseph Ja'Ja', On the Complexity of Computing Bilinear Forms with {0,1} Constants (1980), https://sites.cs.ucsb.edu/~teo/papers/JCSS-BForm.pdf: the model explicitly restricts each nonscalar product to an x-linear times a y-linear form over integers. Its graph decomposition characterization cannot be imported into unrestricted Boolean circuits.
 
 No authoritative primary source found proves or refutes the unrestricted AND-count claim. Its current status remains UNVERIFIED; failure to find a theorem is not evidence of falsity.
+
+
+## New checked AND charge
+
+CoreAndCharge.lean compiled successfully (exit 0; warnings only), with full output preserved in CoreAndCharge.validation.txt. It copies the vector and cone infrastructure from LeafUnionStrict.lean through section Vectors, plus CoreStructure.lean, then adds:
+
+- pure_or_witness: an accepted pair at a wire with an OR-only cone supplies a singleton witness together with its unit read-vector.
+- core_has_and_ancestor: every core has a distinct AND ancestor in its cone. Otherwise both root operands are OR-only; their singleton witnesses must differ because the root is below a graph function, giving read-vector [1,1] and contradicting ReadTwiceAt.
+- core_two_and_gates: each core cone contains at least two AND gates.
+- maximal_cores_and_charge: if maximalCores is nonempty, the union of its cones has at least mc+1 AND gates. Every maximal core root is an AND; an AND ancestor of any chosen root lies in the union but cannot itself be maximal.
+
+These lemmas use AO2 and simple-graph semantics only, with no bipartite, no-four-cycle, or lift-fixed assumptions. They are structural partial results, not a proof of the posted full inequality.

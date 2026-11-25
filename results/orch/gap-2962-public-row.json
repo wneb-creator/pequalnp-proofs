@@ -1,0 +1,20 @@
+{
+  "id": "L-meta-2962",
+  "title": "Core-cover bound: at a lift fixed point of a fan-in-two AND/OR circuit for a 4-cycle-free bipartite edge function, |D| + tau(G) <= |U| + mc + tau(G - D)",
+  "statement": "∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit) (s : Fin n → Bool) (T T' : Finset (Fin n)), (∀ u v : Fin n, G.Adj u v → s u ≠ s v) → PEqualNP.TopForm.NoFourCycle G → PEqualNP.TopForm.IsAO2 n C → PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ → PEqualNP.Core.IsLiftFixedPoint G C → PEqualNP.MetaComplexity.NestedCover.IsMinCover G T → PEqualNP.MetaComplexity.NestedCover.IsMinCover (G.deleteEdges (((PEqualNP.Core.maximalCores G C).biUnion (PEqualNP.TopForm.gammaE G C) : Finset (Sym2 (Fin n))) : Set (Sym2 (Fin n)))) T' → ((PEqualNP.Core.maximalCores G C).biUnion (PEqualNP.TopForm.gammaE G C)).card + T.card ≤ ((PEqualNP.Core.maximalCores G C).biUnion (PEqualNP.Core.coneSet n C)).card + (PEqualNP.Core.maximalCores G C).card + T'.card",
+  "file": "lean/PEqualNP/Outside/L_meta_2962.lean",
+  "module": "PEqualNP.Outside.L_meta_2962",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "With its companion (the count for the gates outside the cores) this gives edges plus cover minus one for every exact circuit at a lift fixed point on a bipartite graph with no 4-cycle: the one-output bound.",
+  "context": "SKETCH: no proof is expected here in one piece: propose a cut into smaller statements. A core is a gate below the function whose two inputs are both not below it; U is the union of the input cones of the maximal cores. NOTE: the maximal cores here range over all gates, dead ones included; a live form (every gate in the output's cone) is on this desk as a separate step. By computation on about 140 circuits on small planes the statement holds on all, smallest margin 2, and dead gates added by script did not lower it. Open: cores that share gates.",
+  "dead": [],
+  "weight": 95,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "no proof is expected here in one piece: propose a cut into smaller statements. A core is a gate below the function whose two inputs are both not below it; U is the union of the input cones of the maximal cores. NOTE: the maximal cores here range over all gates, dead ones included; a live form (every gate in the output's cone) is on this desk as a separate step. By computation on about 140 circuits on small planes the statement holds on all, smallest margin 2, and dead gates added by script did not lower it. Open: cores that share gates.",
+  "pr_open": 0,
+  "pr_numbers": []
+}

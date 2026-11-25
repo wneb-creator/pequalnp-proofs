@@ -1,0 +1,51 @@
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:680:21: warning: This simp argument is unused:
+  hl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:701:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:734:21: warning: This simp argument is unused:
+  List.getElem?_append_right hle
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD, hpre_len]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:702:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:703:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:702:6: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:703:6: warning: Unused tactic linter: `exact (List.cons_getElem_drop_succ (h := hj)).symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:837:8: warning: Unused tactic linter: `change BelowF G C (opnd C j b - n)` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-71/audit-core-and.lean:917:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+'PEqualNP.Outside.L_meta_2962_aux.CoreAndCharge.core_has_and_ancestor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.CoreAndCharge.core_two_and_gates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.CoreAndCharge.maximal_cores_and_charge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -10,3 +10,5 @@ Additional checked component: StrictStar.lean proves the target when accepted co
 Axiom audit: the named singleton/matching/core-AND components and strict-leaf/star-forest components use only propext, Classical.choice, Quot.sound. Outputs in axioms-main.txt and axioms-star.txt. This is not an acceptance verdict for the posted theorem.
 
 2026-11-25T07:01:48.897840+00:00: authoritative local checker run on current 856-line partial exited 1. Verdict: REJECTED (no-theorem), because PEqualNP.Outside.L_meta_2962 is absent. Full output preserved in checker-partial-output.txt. Partial compilation does not establish the posted statement.
+
+CoreAndCharge.lean: 1017 lines, compiled with linter/deprecation warnings; no errors. Checked AND(U) >= mc+1 for nonempty maximal cores, plus two ANDs per core cone. Axiom audit of the three new core results passed; full output in axioms-core-and.txt. This remains a structural partial, not the posted target.

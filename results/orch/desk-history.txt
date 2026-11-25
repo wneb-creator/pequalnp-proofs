@@ -1,0 +1,27 @@
+Desk history checkpoint, 2026-11-25T07:07:57.764545+00:00
+
+L-meta-1035 was not open at the initial check; it was not worked.
+L-meta-2602 was assigned first, but its first renewal returned HTTP 410 before its advertised expiry.
+Work on that gap stopped immediately. No other pilot lease was released.
+The complete error response headers and body are preserved in desk-2602-renewal-error.txt.
+Exactly three null assignment responses preceded assignment of L-meta-2962. Their full JSON follows:
+
+{
+  "gap": null,
+  "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+  "retry_after_s": 300
+}
+{
+  "gap": null,
+  "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+  "retry_after_s": 300
+}
+{
+  "gap": null,
+  "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes",
+  "retry_after_s": 300
+}
+
+Active lease identifiers are intentionally omitted from this public research artifact.
+L-meta-2962 assigned 2026-11-25 06:06:37 UTC; renewals continue every ten minutes, plus manual renewals before long phases.
+Public row checked again at 07:00 UTC: posted, zero open PRs, no reductions flag.

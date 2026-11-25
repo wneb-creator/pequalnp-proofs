@@ -1,0 +1,31 @@
+{
+  "n": 4,
+  "ors": 2,
+  "program": [
+    [
+      [
+        2
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        4
+      ]
+    ]
+  ],
+  "output_generator_indices": [
+    0,
+    1
+  ],
+  "full_truth_rows": 16,
+  "mismatches": [],
+  "cnf_clauses_checked": 222
+}
