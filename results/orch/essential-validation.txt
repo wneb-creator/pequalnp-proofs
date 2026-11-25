@@ -1,0 +1,13 @@
+Partial result: every gate of a minimum monotone binary graph-function circuit is essential on some graph edge input.
+This is not a proof of the full assigned gap L-meta-1031.
+Source: results/orch/lemmas/relevance.lean
+Source SHA256: 9223bad0e58e7d29c99d3abcfdd2db0e735d98ff2d85abf5ad9074d8ad759bcf
+Source lines: 389
+Checked UTC: 2026-11-25T01:42:17.845635+00:00
+Command workdir: /workspace/pequalnp-proofs/lean
+Command: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache /workspace/pequalnp-proofs/tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/relevance.lean
+Exit code: 0
+Complete combined stdout/stderr: results/orch/essential-build.log
+Log bytes: 0
+Log SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Local checker: not run for this research lemma artifact; root controls the named-file checker.

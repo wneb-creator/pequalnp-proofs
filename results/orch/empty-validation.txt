@@ -1,0 +1,7 @@
+L-meta-1031 PARTIAL empty-graph case
+Source: results/orch/lemmas/root_empty.lean
+SHA256: 5843882f9f623f1fcf704da2e150113af860eb4c6ecf83fb7b5f54b0d0604d7c
+Lines: 19
+Validation: lake env lean exited 0; complete stdout/stderr preserved.
+Proves: the exact circuit conclusion whenever G has no edges, including n=0. The witness has zero gates and an out-of-range false output.
+Limitation: does not address nonempty graphs; no full-statement checker acceptance.

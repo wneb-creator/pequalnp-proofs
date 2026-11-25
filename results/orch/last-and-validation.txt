@@ -1,0 +1,9 @@
+Partial lemma checkpoint, not a proof of the posted statement.
+Source: results/orch/lemmas/proof_last_and.lean
+SHA256: da99bbaeefb2fb38fefe76528c1cdaafd87d4ef5c763120a1b7935cc926ae081
+Lines: 493
+Command (lean/): LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/proof_last_and.lean
+Exit status: 0. Complete combined stdout/stderr: last-and-build.log (empty).
+Proves that a gate followed only by OR gates is globally sound in a minimum graph-function circuit. This does not prove normalization of earlier AND gates.
+Independent review: status_review and independent_review both passed source inspection.
+Posted-statement checker: NOT RUN; full theorem remains unproved.
