@@ -107,4 +107,39 @@ lemma cross_star_not_mem_wmax {n : ℕ} {G : SimpleGraph (Fin n)}
   rw [hFx] at ht
   cases ht
 
+lemma exists_cross_nonedge {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (S T : Finset (Fin n))
+    (hS : 2 ≤ S.card) (hT : 2 ≤ T.card) :
+    ∃ s ∈ S, ∃ t ∈ T, ¬ G.Adj s t := by
+  by_contra hnone
+  push Not at hnone
+  obtain ⟨s₁, hs₁, s₂, hs₂, hss⟩ := Finset.one_lt_card.mp (by omega : 1 < S.card)
+  obtain ⟨t₁, ht₁, t₂, ht₂, htt⟩ := Finset.one_lt_card.mp (by omega : 1 < T.card)
+  exact htt (common_neighbors_unique h4 hss
+    (hnone s₁ hs₁ t₁ ht₁) (hnone s₂ hs₂ t₁ ht₁)
+    (hnone s₁ hs₁ t₂ ht₂) (hnone s₂ hs₂ t₂ ht₂))
+
+lemma pair_input_graphFun_false {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {u v : Fin n} (huv : ¬ G.Adj u v) :
+    graphFun G ∅ (PEqualNP.EdgeOwnership.pairInput u v) = false := by
+  change graphFun G ∅ (fun z => decide (z = u ∨ z = v)) = false
+  simpa only [or_self] using
+    triple_input_graphFun_false (u := u) (c := v) (d := v) huv huv (G.loopless.irrefl v)
+
+lemma raw_product_not_belowF {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (S T : Finset (Fin n))
+    (hS : 2 ≤ S.card) (hT : 2 ≤ T.card)
+    (E : PEqualNP.CircuitLowerBounds.Circuit) (h : ℕ)
+    (hprod : ∀ x : Fin n → Bool, PEqualNP.EdgeOwnership.gateVal n E h x = true ↔
+      (∃ s ∈ S, x s = true) ∧ (∃ t ∈ T, x t = true)) :
+    ¬ BelowF G E h := by
+  intro hbelow
+  obtain ⟨s, hs, t, ht, hst⟩ := exists_cross_nonedge h4 S T hS hT
+  have hgate := (hprod (PEqualNP.EdgeOwnership.pairInput s t)).mpr
+    ⟨⟨s, hs, by simp [PEqualNP.EdgeOwnership.pairInput]⟩,
+      ⟨t, ht, by simp [PEqualNP.EdgeOwnership.pairInput]⟩⟩
+  have hfalse := hbelow (PEqualNP.EdgeOwnership.pairInput s t) hgate
+  rw [pair_input_graphFun_false hst] at hfalse
+  cases hfalse
+
 end PEqualNP.Outside.L_meta_5012.OneFlagReview
