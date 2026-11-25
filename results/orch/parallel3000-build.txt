@@ -1,0 +1,44 @@
+import took 2.46s
+parsing took 282ms
+elaboration took 243ms
+elaboration took 2.06s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 129ms
+linting took 139ms
+process pre-definitions took 290ms
+elaboration took 15.5s
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 144ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 162ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 303ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 162ms
+linting took 384ms
+elaboration took 115ms
+elaboration took 187ms
+elaboration took 2.34s
+type checking took 789ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/Parallel3000Benchmark.lean:391:0: warning: Definition `decodeOnly` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 9.94s
+type checking took 9.07s
+cumulative profiling times:
+	attribute application 0.896ms
+	blocked (unaccounted) 9.97s
+	congr simp thm 1.05ms
+	declTypeLinter 129ms
+	elaboration 20.9s
+	fix level params 8.38ms
+	import 2.46s
+	initialization 40.3ms
+	instantiate metavars 63.3ms
+	interpretation 2.14s
+	let-to-have transformation 127ms
+	linting 675ms
+	module linting 0.229ms
+	parsing 439ms
+	process pre-definitions 561ms
+	share common exprs 122ms
+	simp 43.3ms
+	tactic execution 19.1ms
+	tacticAnalysis 106ms
+	type checking 19.9s
+	typeclass inference 7.67s

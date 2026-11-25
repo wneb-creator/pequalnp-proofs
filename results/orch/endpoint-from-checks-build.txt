@@ -1,0 +1,48 @@
+import took 2.45s
+/tmp/oec/pequalnp-pilot-178/lrat_route/EndpointFromChecks.lean:90:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-178/lrat_route/EndpointFromChecks.lean:135:23: warning: This simp argument is unused:
+  bR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, hhas, hble, Bool.cond_true] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/lrat_route/EndpointFromChecks.lean:135:39: warning: This simp argument is unused:
+  Bool.cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, bR, hhas, hble] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/lrat_route/EndpointFromChecks.lean:147:0: warning: Definition `oneNotMaskFull` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.0486ms
+	blocked (unaccounted) 734ms
+	compilation (IR) 0.0459ms
+	compilation (LCNF base) 0.637ms
+	compilation (LCNF impure) 0.209ms
+	compilation (LCNF mono) 0.483ms
+	congr simp thm 4.96ms
+	declTypeLinter 3.91ms
+	elaboration 29.5ms
+	fix level params 1.15ms
+	import 2.45s
+	initialization 42.7ms
+	instantiate metavars 2.91ms
+	interpretation 348ms
+	let-to-have transformation 0.0779ms
+	linting 24.2ms
+	module linting 0.131ms
+	parsing 10.9ms
+	process pre-definitions 9.74ms
+	share common exprs 5.72ms
+	simp 76.6ms
+	tactic execution 353ms
+	tacticAnalysis 3.67ms
+	type checking 279ms
+	typeclass inference 50.8ms

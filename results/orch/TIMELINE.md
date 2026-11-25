@@ -51,3 +51,5 @@
 - 2026-11-25 20:25 UTC: Both strict-initial and recursive-normalized6k benchmark files passed. Kernel35.8s and36.6s respectively; recursive normalization offers no measured gain and will be omitted from final computational path. Root reviewed reuse of checked normalization equalities and closed batch assertions. Saving complete sources/logs before testing bounded two-worker checks and direct List lookups.
 
 - 2026-11-25 20:26 UTC: Complete binary/unary continuation restoration and root checker assembly passed from explicit finite-check hypotheses,134ms kernel. Root reviewed fuel parameters and exact bucket restoration; computations remain separate obligations. Complete source/log saved.
+
+- 2026-11-25 20:29 UTC: Two independent3k kernel checks in async lemmas passed concurrently (9.94s/9.07s; main blocked9.97s; peak4,399,664KiB). Decode-only control789ms. Root reviewed closed assertions and unchanged strict normalization. Exact two-mask Live13/oneNOT endpoint passed from explicit root-check hypotheses (279ms); root reviewed use of actual iroot. Complete sources/logs saved.
