@@ -1,0 +1,9 @@
+L-meta-2583 PARTIAL ONLY
+Construction.lean: lake env lean exited 0.
+Project definitions: lake build PEqualNP.Defs exited 0 (5147 jobs).
+Checker verdict for the posted statement: NOT RUN; full proof unavailable.
+Independent red-team review: PASS as partial upper-bound artifact, not a proof PR.
+Construction source: L_meta_7684, commit 051efff1, PR #12317, Bastian Milan.
+Cleanup not started; partial has 1175 lines.
+Sub-agents: 6 (audit, structural proof, counterexample search, library lower-bound route, construction/SAT search, toolchain setup)
+TIMING total=6.4 subagents=6
