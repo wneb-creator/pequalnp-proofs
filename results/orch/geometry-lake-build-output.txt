@@ -1,0 +1,15 @@
+⚠ [1838/1839] Built PEqualNP.Outside.L_meta_2583 (11s)
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Finite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Sigma` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Piecewise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Choose` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1839/1839] Ran PEqualNP.Outside.L_meta_2583:irArts
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Finite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Sigma` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Piecewise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Choose` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (1839 jobs).

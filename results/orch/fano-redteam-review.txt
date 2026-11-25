@@ -1,0 +1,3 @@
+Independent reviewer: root, 2026-11-25T14:59:40.579211+00:00
+PASS for partial preservation only.
+FanoBlock.lean defines Fin7 incidence p=l,l+1,l+3 using modular Fin addition; computes residual edges and distinct endpoint counts. The lemma checks endpoint count7or9 when five cover vertices leave six edges. Kernel decide; no native_decide, sorry, axioms, custom instances, or forbidden commands. Limits use allowed declaration-local forms. This is not the posted theorem. Compiler reported exit0, complete output empty.
