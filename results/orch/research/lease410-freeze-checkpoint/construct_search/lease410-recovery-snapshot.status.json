@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T13:13:12.205083+00:00",
+  "scope": "Immutable snapshot of produced stdout prefix after lease410 pause. No complete modular vector or rational unit certificate.",
+  "native_pid": 30201,
+  "wrapper_pid": 30200,
+  "native_state": "SIGSTOP",
+  "raw_prefix_bytes": 56,
+  "raw_prefix_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+  "source_gzip_prefix_bytes": 120,
+  "source_gzip_prefix_sha256": "f612d0550d0539ae7d3773757c1937952fa5a6072d562f279deb9ab8d92dee0f",
+  "original_gzip_trailer_present": false,
+  "snapshot_gzip_complete": true,
+  "source": "construct_search/rank1-incident-opposite-liftstd-Q-2g.sing",
+  "native_status": "    PID    PPID STAT     ELAPSED     TIME   RSS\n  30200   30197 Sl         05:22 00:00:00 12052\n  30201   30200 T          05:22 00:02:06 764768\n"
+}

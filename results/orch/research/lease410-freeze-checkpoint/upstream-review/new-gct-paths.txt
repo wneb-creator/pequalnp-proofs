@@ -1,0 +1,4 @@
+A	lean/PEqualNP/Outside/L_gct_261.lean
+A	lean/PEqualNP/Outside/L_gct_267.lean
+A	lean/PEqualNP/Outside/L_gct_269.lean
+A	lean/PEqualNP/Outside/L_gct_271.lean

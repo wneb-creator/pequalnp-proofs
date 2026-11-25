@@ -1,0 +1,2 @@
+same-index {"terms": [10, 10, 9, 7, 12, 16, 5, 45, 78, 97, 60, 30], "total_terms": 379}
+other-index {"terms": [10, 10, 9, 7, 12, 16, 5, 45, 78, 97, 60, 30], "total_terms": 379}

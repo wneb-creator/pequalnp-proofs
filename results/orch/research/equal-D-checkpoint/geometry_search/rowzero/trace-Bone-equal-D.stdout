@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "Exact classification of B=0 kernel directions with D_i squared all equal and nonzero, normalized to D=(1,1,1). No companion nonextension conclusion.",
+  "symmetric_kernel_generators": [
+    "-E1**2 - 6*E1 + 2*E2 - 18",
+    "2*E1 - E3 + 6",
+    "E1**4 + 4*E1**3 - 4*E1**2*E2 + 8*E1**2 - 8*E1*E2 + 8*E1 + 4*E2**2 - 8*E2"
+  ],
+  "solved_E2": "E1**2/2 + 3*E1 + 9",
+  "solved_E3": "2*E1 + 6",
+  "last_equation": "4*(2*E1 + 7)*(2*E1 + 9)",
+  "branches": [
+    {
+      "elementary_symmetric_values": [
+        "-9/2",
+        "45/8",
+        "-3"
+      ],
+      "root_polynomial": "8*x**3 + 36*x**2 + 45*x + 24",
+      "discriminant": "-167184",
+      "irreducible_over_QQ": true
+    },
+    {
+      "elementary_symmetric_values": [
+        "-7/2",
+        "37/8",
+        "-1"
+      ],
+      "root_polynomial": "8*x**3 + 28*x**2 + 37*x + 8",
+      "discriminant": "-167184",
+      "irreducible_over_QQ": true
+    }
+  ],
+  "seconds": 0.25216425899998285
+}

@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-78/canonical_coefficients/CanonicalHomogeneousOptimized.lean",
+  "utc_started": "2026-11-25T13:06:27.236893+00:00",
+  "exit_code": 134,
+  "seconds": 9.92007182299858,
+  "peak_rss_kib": 2599520,
+  "user_seconds": 3.026245,
+  "system_seconds": 2.33021,
+  "stdout_bytes": 0,
+  "stderr_bytes": 301
+}

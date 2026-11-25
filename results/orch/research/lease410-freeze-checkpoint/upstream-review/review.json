@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE_NO_RELEVANT_NEW_LEMMA",
+  "utc": "2026-11-25T13:06:05.317648+00:00",
+  "base": "54122bb1",
+  "fetched_main": "4c6838d088af203338eae93cdbe3a94815931b88",
+  "fetch": "Successful direct read-only fetch of official upstream main into FETCH_HEAD; no branch/worktree/dependency change. Full stdout/stderr retained. No authentication error occurred.",
+  "new_added_gct_files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_gct_261.lean",
+      "line": 272,
+      "declaration": "theorem PEqualNP.Outside.L_gct_261 : \u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 7) := by",
+      "url": "https://github.com/brilliant-hq/pequalnp-proofs/blob/4c6838d088af203338eae93cdbe3a94815931b88/lean/PEqualNP/Outside/L_gct_261.lean#L272"
+    },
+    {
+      "path": "lean/PEqualNP/Outside/L_gct_267.lean",
+      "line": 64,
+      "declaration": "theorem PEqualNP.Outside.L_gct_267 : \u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset).card \u2264 7) := by",
+      "url": "https://github.com/brilliant-hq/pequalnp-proofs/blob/4c6838d088af203338eae93cdbe3a94815931b88/lean/PEqualNP/Outside/L_gct_267.lean#L64"
+    },
+    {
+      "path": "lean/PEqualNP/Outside/L_gct_269.lean",
+      "line": 148,
+      "declaration": "theorem PEqualNP.Outside.L_gct_269 : \u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 4 \u2227 g.support.card \u2264 4) \u2192 ((f * g + 1).roots.toFinset).card \u2264 12) :=",
+      "url": "https://github.com/brilliant-hq/pequalnp-proofs/blob/4c6838d088af203338eae93cdbe3a94815931b88/lean/PEqualNP/Outside/L_gct_269.lean#L148"
+    },
+    {
+      "path": "lean/PEqualNP/Outside/L_gct_271.lean",
+      "line": 103,
+      "declaration": "theorem PEqualNP.Outside.L_gct_271 : \u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 5 \u2227 g.support.card \u2264 5) \u2192 ((f * g + 1).roots.toFinset).card \u2264 14) := by",
+      "url": "https://github.com/brilliant-hq/pequalnp-proofs/blob/4c6838d088af203338eae93cdbe3a94815931b88/lean/PEqualNP/Outside/L_gct_271.lean#L103"
+    }
+  ],
+  "new_public_node_range": [
+    234,
+    273
+  ],
+  "public_snapshot_generated_at": "2026-11-25T12:48:12.698Z",
+  "public_scope": "Compared earliest available local program snapshot with233nodes to later273-node snapshot, then read each of40 exact immutable public node JSONs. All concern sparse real polynomial root/order bounds. No permanent or constant-level-space statement appeared.",
+  "conclusion": "No new theorem or posted decomposition relevant to L-gct-231/232 was found. The four newly merged GCT proofs establish negations of sparse-polynomial root bounds and do not help the permanent problem.",
+  "no_new_imports": true
+}

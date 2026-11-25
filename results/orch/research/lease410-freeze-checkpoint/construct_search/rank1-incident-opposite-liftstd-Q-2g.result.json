@@ -1,0 +1,1 @@
+{"engine": "Singular_focused_liftstd_12", "cpu_budget": 1200, "memory_mib": 2048, "wall_seconds": 146.80703687300047, "exit": 0, "scope": "Exact identity required before interpreting as a proof", "wall_budget": 2400, "child_user_cpu": 71.57542, "child_system_cpu": 1.6060249999999998, "child_maxrss_kib": 621660}

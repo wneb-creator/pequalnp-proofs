@@ -1,0 +1,8 @@
+{
+  "exit": 0,
+  "algorithm": "std",
+  "memory_mib": 256,
+  "cpu_cap": 60,
+  "wall_cap": 75,
+  "seconds": 0.06835257200145861
+}

@@ -1,0 +1,7 @@
+{"utc": "2026-11-25T13:07:38.129289+00:00", "event": "started", "pid": 30188, "source_sha256": "d3fcc2b5dc8db8491e9a61c13e9177153c2cd64ec1cc2797c5111d6cf2db9b6e"}
+{"utc": "2026-11-25T13:07:38.178423+00:00", "event": "stdout_line", "line": "MODULAR_LIFTSTD_UNIT_CERTIFICATE", "raw_bytes": 40}
+{"utc": "2026-11-25T13:07:38.178504+00:00", "event": "stdout_line", "line": "C[1,1]=1/2", "raw_bytes": 100}
+{"utc": "2026-11-25T13:07:38.178514+00:00", "event": "stdout_line", "line": "C[2,1]=-1/3x", "raw_bytes": 100}
+{"utc": "2026-11-25T13:07:38.178520+00:00", "event": "stdout_line", "line": "MODULAR_LIFTSTD_UNIT_RAW_RESIDUAL", "raw_bytes": 100}
+{"utc": "2026-11-25T13:07:38.178526+00:00", "event": "stdout_line", "line": "_[1,1]=0", "raw_bytes": 100}
+{"utc": "2026-11-25T13:07:38.193246+00:00", "event": "completed", "exit": 0, "termination": null}

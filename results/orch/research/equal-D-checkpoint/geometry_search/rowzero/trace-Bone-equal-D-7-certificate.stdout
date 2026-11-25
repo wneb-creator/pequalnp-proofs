@@ -1,0 +1,1 @@
+{"status": "PASS exact QQ polynomial identity", "seconds": 4.246739646001515, "bytes": 1822427, "multiplier_terms": [96, 42, 96, 12, 42, 96], "field_multiplier_terms": 250}

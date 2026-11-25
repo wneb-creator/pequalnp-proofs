@@ -27,3 +27,29 @@
 2026-11-25T10:59:08.610285+00:00 construct_search: fixedgenericHnets ruledoutexactly; discoveredglobalconstantdiagonalexclusion; childderiveduniformradical/splitgraph, rank2uniformCASinprogress.
 
 2026-11-25T11:06:07.909221+00:00:1097-line combined partial build passed. Constant-diagonal exclusion separately compiled and reviewed; preserved before integration. Global rank2 andrank3 cases remain active.
+
+- 2026-11-25T11:11:00.182110+00:00 — rowzero completed exact uniform bipartite hollow-direction obstruction; compact16,842-byte integer certificate verified independently; not Lean-checked.
+
+2026-11-25T11:13:52.055731+00:00 construct_search/net_normal_form: completed compact radical/split identities and guarded six-variable uniform graph system; no elimination verdict.
+
+- 2026-11-25T11:17:38.169373+00:00 — rowzero completed all three nonstar-plane2 exceptional representative checks and independent TriangleCover source/math review; cubic certificate7581bytes exact, not Lean-checked.
+
+- 2026-11-25T11:21:45.165130+00:00 — rowzero closed uniformnonstar-plane2 denominator coverage algebraically; quadratic-field certificate2725bytes verified; TriangleBridge source reviewed.
+
+- 2026-11-25T11:31:24.448564+00:00 — rowzero PermutationInvariance helper component compiled (114 lines), independent review PASS; source and logs preserved for root push.
+
+- 2026-11-25T11:32:42.710105+00:00 — combined1558-line named partial lake build passed; independent integration review PASS; full gap remains unresolved.
+
+- 2026-11-25T11:36:47.408276+00:00 net_normal_form: fraction-free rank-two system built and exact-specialization audit passed; final capped Singular elimination hit address-space memory limit immediately, no verdict. Artifacts frozen; switched to trace-zero common-zero-row classification.
+
+- 2026-11-25T11:40:20.860524+00:00 — combined2046-line named partial lake build passed; lower-diagonal-rank exclusion complete and independently reviewed. Trace-zero classification route now active.
+
+- 2026-11-25T11:42:07.943685+00:00 net_normal_form: exhaustive trace-zero plane census completed for F17/F19/F23 (24/56/48 planes); independent direct-permanent audit passed; rank-one nonhollow extras found at F19 and F23.
+
+- 2026-11-25T11:55:34.578670+00:00 net_normal_form: full C3-stable trace-zero rank2-plane arbitrary-nonextension research result certified; boundary and integer-polynomial audits PASS; evidence manifest frozen.
+
+- 2026-11-25T12:00:18.023747+00:00 — combined2629-line partial lake build passed; all-star direction exclusion complete. Rank-three incidence and rank-one tracezero elimination now active.
+
+- 2026-11-25T12:10:03.507981+00:00 net_normal_form: msolve startup crash traced to failed1GiB+4KiB virtual allocation under512MiB AS;1280MiB control passes at6.9MiB RSS; diagnostic evidence frozen.
+
+- 2026-11-25T12:17:20.400705+00:00 net_normal_form: complete three-chart global diagonal-rank-two3-flat systems generated;288 exact Ryser evaluations pass; source/equations/coverage frozen with no elimination run.

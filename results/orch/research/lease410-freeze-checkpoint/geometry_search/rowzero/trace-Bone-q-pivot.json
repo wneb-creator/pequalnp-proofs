@@ -1,0 +1,23 @@
+{
+  "status": "PASS exact identities",
+  "source_sha256": "44291cc3d7a487aa1c4b0718e503d89f5cd6d9c3e08acfcee9aa35a731b7d729",
+  "scope": "Nonvanishing of at least one R-coordinate quadratic first-variation pivot on a nonzero valid B=0 kernel direction. Does not prove the remaining generic B-rank-one exclusion.",
+  "specialization": "B=0,R=-3D",
+  "quadratic": "3*d0**2 + 3*d1**2 + 3*d2**2",
+  "cubic": "15*d0*d1*d2",
+  "quartic": "25*d0**4/16 + 7*d0**2*d1**2/8 + 7*d0**2*d2**2/8 + 25*d1**4/16 + 7*d1**2*d2**2/8 + 25*d2**4/16",
+  "zero_coordinate_identity": "If D_i=0 and {i,j,k}={0,1,2}, P=9*D_j^4/4+(D_j^2+D_k^2)*(25*D_k^2-11*D_j^2)/16.",
+  "quadratic_R_gradient": [
+    "-6*d0 - 2*r0",
+    "-6*d1 - 2*r1",
+    "-6*d2 - 2*r2"
+  ],
+  "argument": [
+    "If every R-coordinate pivot vanishes, R=-3D.",
+    "The cubic equation gives a zero D coordinate.",
+    "The quadratic gives that the other two coordinate squares sum to zero.",
+    "The verified quartic identity then gives D_j^4=0, hence D_j=0 and D_k=0 over C.",
+    "Thus D=0 and R=0, contradicting the nonzero kernel direction."
+  ],
+  "seconds": 0.20014184499814291
+}

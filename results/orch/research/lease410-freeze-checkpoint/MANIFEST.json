@@ -1,0 +1,3290 @@
+{
+  "frozen_utc": "2026-11-25T13:16:04.054461+00:00",
+  "source_manifests": [
+    {
+      "path": "geometry_search/lease-freeze-extra-preservation-manifest.json",
+      "sha256": "7f653e45b2ab13ff91b458719bf3d5a3e2cfb1610c020b29261a29e9bb0f5c29",
+      "entries": 53,
+      "scope": "Lease-invalid preservation freeze.24 extra-quartic Lean bodies have exact independent source/algebra audits but HAVE NOT BEEN LEAN CHECKED: the only bounded check failed in lake launcher thread startup before proof checking, under unchanged1GiB cap. Canonical55 native+wrapper are SIGSTOP paused with no completed basis; immutable full logs at pause are included. No target computation will resume without root lease confirmation. No global proof/refutation."
+    },
+    {
+      "path": "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+      "sha256": "1802a87f0f61340dddef803d34136547403d3f15c26c2f1368eacaa6383043a8",
+      "entries": 51,
+      "scope": "24 extra quartic consequence definitions and proofs as source only, exact rational identity audits, standalone wrappers, and scalar-prelude source review. No claim these extra Lean lemmas compiled."
+    },
+    {
+      "path": "construct_search/lease410-preservation-manifest.json",
+      "sha256": "71a02bac9f001853ab75212dca4e640d619a7dec2eba9a651db371a69e9e0542",
+      "entries": 28,
+      "scope": "All target computation paused.1.25GiB liftstd hitmemorycap; initial2GiB run stopped for compressed capture; streaming2GiB run paused on firstprime with no complete vector. Homogeneous fallback was prepared and tiny-smoked elsewhere but never target-run. Immutable produced-prefix snapshots only; live growing files excluded."
+    },
+    {
+      "path": "construct_search/net_normal_form/modular-vector-parser-manifest.json",
+      "sha256": "ee2086f8837520ce3c61e726349ff8e46cf5bc6a118965194377a2f84dcaea7e",
+      "entries": 5,
+      "scope": "Frozen parser and bounded initial readiness tests. No modular or rational certificate yet. Future scans update modular-vector-audit-report.json, which is intentionally not part of this frozen manifest."
+    },
+    {
+      "path": "geometry_search/generic-pivots-preservation-manifest.json",
+      "sha256": "f91178e5f0691b0d2a5e62660e25f0102609a40ea64d5c815f73d5c07a3cd90e",
+      "entries": 10,
+      "scope": "Exact nonzero quadratic pivot lemma plus a documented two-linear-pivot cover after earlier boundary exclusions. Quartic-pivot degeneracies and generic B-rank-one infeasibility remain open. No native result or Lean theorem."
+    },
+    {
+      "path": "upstream-review/preservation-manifest.json",
+      "sha256": "cd448c3e68e9fa5a420885b26ea180babc93a57ffa042f0d811c66d2c325f68c",
+      "entries": 12,
+      "scope": "Read-only upstream proof review and exact public metadata snapshots; no new proof claim. Per-node files remain in scratch; aggregate preserves exact URLs/titles/formal statements/statuses."
+    },
+    {
+      "path": "grind-review/source-manifest.json",
+      "sha256": "5bd545a1f19fa470744f2cde0949c29381157de00f61d80ad9e8af2a75f66b90",
+      "entries": 30,
+      "scope": "Authenticated local Lean capability source snapshots; no execution claim."
+    },
+    {
+      "path": "geometry_search/equal-D-complete-preservation-manifest.json",
+      "sha256": "4453f381a65f63f60ac77b96cdf9da3f258711722e954dd69e122ef7c7ebd01e",
+      "entries": 69,
+      "scope": "Completed independent complete-chain audit of both equal-D-square B-rank-one boundary exclusions. All12 direct Ryser coefficients, first-variation determinant/inverse, original residuals, both primitive field maps and exact integer-cleared certificate identities verified. Earlier notes saying second-agent audit pending are historical and superseded by the included final audit. Generic B-rank-one and full L-gct-231 remain open; no Lean theorem."
+    },
+    {
+      "path": "numeric/late-capability-preservation-manifest.json",
+      "sha256": "eedb93aa1118d6d0c9254ad5a5a3736abce6092b060f72c250725f5169d7e716",
+      "entries": 39,
+      "scope": "Frozen text-only capability, bounded-inconclusive module, Horner audit and authenticated build-space maintenance records; no target proof or full checker result. No active logs, binary archives, credentials, private lease or environment dumps."
+    }
+  ],
+  "referenced_bundles": [
+    {
+      "bundle": "results/orch/research/late-checkpoint",
+      "manifest_sha256": "00d51486d93e01a698ade14f1ee106972b97d45ff0414d9232baecf5c05ded3e"
+    },
+    {
+      "bundle": "results/orch/research/late-followup-checkpoint",
+      "manifest_sha256": "baf62f2d25e50668c271c48de3bf0839f6306806fded8a8ef08448b5d74bc775"
+    },
+    {
+      "bundle": "results/orch/research/late-geometry-checkpoint",
+      "manifest_sha256": "de703bf9979dd2ad5c83e78c8187e920fad20c49c60343a745fd4c133404aa75"
+    },
+    {
+      "bundle": "results/orch/research/stable-checkpoint",
+      "manifest_sha256": "2aa95140afce7f538f9c93a6bcd1c71c714b0b99fd14b23390faac5857aa52b2"
+    },
+    {
+      "bundle": "results/orch/research/completed-capability-checkpoint",
+      "manifest_sha256": "64bef47c84f90f699db1c64ed38abcafcfa5bab998c6850b67acb7ee9713f717"
+    },
+    {
+      "bundle": "results/orch/research/canonical-inputs-checkpoint",
+      "manifest_sha256": "a3ba704e24ef32de7fc4532652ceb87070765cddd1802d3bd6b4bb0dd8f873c8"
+    },
+    {
+      "bundle": "results/orch/research/equal-D-checkpoint",
+      "manifest_sha256": "2f919a69ed7211a289898a61b91873dad2d0482e20a0ad54dc0bb738982f9d15"
+    }
+  ],
+  "snapshots": [
+    {
+      "source": "results/orch/NOTES.md",
+      "path": "snapshots/NOTES.md",
+      "sha256": "c083fddeb5dc62665ffd6d7903d4d2df3aa8824bc854ac091a7ef5f019d1d3d8",
+      "captured_utc": "2026-11-25T13:16:04.043126+00:00"
+    },
+    {
+      "source": "results/orch/TIMELINE.md",
+      "path": "snapshots/TIMELINE.md",
+      "sha256": "f8c6b6b61c4cb7277af4d4279902edd4aee879e4516daa0db017fa1875c6a1aa",
+      "captured_utc": "2026-11-25T13:16:04.044173+00:00"
+    },
+    {
+      "source": "results/orch/PROGRESS.md",
+      "path": "snapshots/PROGRESS.md",
+      "sha256": "cb53d71510aa171bbbc852983576993373889f80417cd1aae8e922e1892761f3",
+      "captured_utc": "2026-11-25T13:16:04.045210+00:00"
+    },
+    {
+      "source": "results/orch/validation.txt",
+      "path": "snapshots/validation.txt",
+      "sha256": "f769d30249e406d278fbe72b1b9aa39a6a720268e78a658dd26ef2a0c428506e",
+      "captured_utc": "2026-11-25T13:16:04.047665+00:00"
+    },
+    {
+      "source": "results/orch/desk-410-response.txt",
+      "path": "snapshots/desk-410-response.txt",
+      "sha256": "6585a67d766f8361be04e48b2a01a4ce86c8bdc109067c4112505a91b90d1957",
+      "captured_utc": "2026-11-25T13:16:04.047815+00:00"
+    },
+    {
+      "source": "results/orch/desk-410-status.json",
+      "path": "snapshots/desk-410-status.json",
+      "sha256": "3d11b5483cd08b1ae90dd4a52bf8daaa4007eece833c482adec537cbe5be247d",
+      "captured_utc": "2026-11-25T13:16:04.047916+00:00"
+    },
+    {
+      "source": "results/orch/desk-410-independent-review.json",
+      "path": "snapshots/desk-410-independent-review.json",
+      "sha256": "50912e4c6bb3eb1804509c22f0e19942b507437de400084804b6a5f882e60259",
+      "captured_utc": "2026-11-25T13:16:04.048347+00:00"
+    }
+  ],
+  "files": [
+    {
+      "path": "AUDIT.json",
+      "bytes": 363,
+      "sha256": "516f203302e5d5e74a1d82921eb5768217379fe07310f5df18547c4d930c9723",
+      "decoded_bytes": 363,
+      "decoded_sha256": "516f203302e5d5e74a1d82921eb5768217379fe07310f5df18547c4d930c9723",
+      "provenance": [
+        "generated packaging audit"
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 2631,
+      "sha256": "6e9697ae0e566ad9def003d0551bfd1691bc60c0700062b1ff8a777224126449",
+      "decoded_bytes": 2631,
+      "decoded_sha256": "6e9697ae0e566ad9def003d0551bfd1691bc60c0700062b1ff8a777224126449",
+      "provenance": [
+        "generated scope record"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalCoefficients.lean",
+      "bytes": 101286,
+      "sha256": "42ff0b9edd6301114b6cadb53a8d0dd3a2550e64811930a47c3bfadeed58d339",
+      "decoded_bytes": 101286,
+      "decoded_sha256": "42ff0b9edd6301114b6cadb53a8d0dd3a2550e64811930a47c3bfadeed58d339",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalCoefficientsBody.lean",
+      "bytes": 101181,
+      "sha256": "94280c95047b4656870bdbe671192f3e2e9c7847e2dfd08e068e297d7ca7d8ea",
+      "decoded_bytes": 101181,
+      "decoded_sha256": "94280c95047b4656870bdbe671192f3e2e9c7847e2dfd08e068e297d7ca7d8ea",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalGeneratorCollection.lean",
+      "bytes": 92205,
+      "sha256": "8aac2aa1ca72d8f41f05d2df46b739738199e7acd9af3ff4ee7e04c611861a07",
+      "decoded_bytes": 92205,
+      "decoded_sha256": "8aac2aa1ca72d8f41f05d2df46b739738199e7acd9af3ff4ee7e04c611861a07",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalGeneratorCollectionBody.lean",
+      "bytes": 92097,
+      "sha256": "ee8765c019a5adc4c8ba8ea98bad859c3da0cc016a48caadd3240149c961ae92",
+      "decoded_bytes": 92097,
+      "decoded_sha256": "ee8765c019a5adc4c8ba8ea98bad859c3da0cc016a48caadd3240149c961ae92",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalGeneratorScalarCollection.lean",
+      "bytes": 91641,
+      "sha256": "208bd8166f18d9bb17d4128c3a92683b18c401f019af2bb88cd650c5097dd343",
+      "decoded_bytes": 91641,
+      "decoded_sha256": "208bd8166f18d9bb17d4128c3a92683b18c401f019af2bb88cd650c5097dd343",
+      "provenance": [
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalHomogeneous.lean",
+      "bytes": 9189,
+      "sha256": "2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3",
+      "decoded_bytes": 9189,
+      "decoded_sha256": "2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalHomogeneousBody.lean",
+      "bytes": 9084,
+      "sha256": "83c2eed3b39555098d9e363feefdfe70c3aa7ff16b8975a53cf5c4fdb4f2f02f",
+      "decoded_bytes": 9084,
+      "decoded_sha256": "83c2eed3b39555098d9e363feefdfe70c3aa7ff16b8975a53cf5c4fdb4f2f02f",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalHomogeneousOptimized.lean",
+      "bytes": 10084,
+      "sha256": "1df5fe94b80666ab598e25b6914595b4aee53f3239f296d7f737e4d8e0066716",
+      "decoded_bytes": 10084,
+      "decoded_sha256": "1df5fe94b80666ab598e25b6914595b4aee53f3239f296d7f737e4d8e0066716",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalHomogeneousOptimizedBody.lean",
+      "bytes": 9979,
+      "sha256": "a766c2a7a2540199c45da6283c6c4c2895c6fc895b848ea5331ac362dfcee096",
+      "decoded_bytes": 9979,
+      "decoded_sha256": "a766c2a7a2540199c45da6283c6c4c2895c6fc895b848ea5331ac362dfcee096",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/CanonicalScalarPrelude.lean",
+      "bytes": 11436,
+      "sha256": "4feefd4614fdf882934a4e829104594ee51ba9bab0f8f591186a02d51852474a",
+      "decoded_bytes": 11436,
+      "decoded_sha256": "4feefd4614fdf882934a4e829104594ee51ba9bab0f8f591186a02d51852474a",
+      "provenance": [
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/canonical-homogeneous-manifest.json",
+      "bytes": 1106,
+      "sha256": "837ab88c1ae1cd3e03139146533b69d359f7d11df66b39a6c016ec449a0a8c3c",
+      "decoded_bytes": 1106,
+      "decoded_sha256": "837ab88c1ae1cd3e03139146533b69d359f7d11df66b39a6c016ec449a0a8c3c",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/generate.py",
+      "bytes": 10947,
+      "sha256": "40cbd6d3ab56b73bc8bb1f4f89fa6c71f87872c9612c828b3bee178ac3abc00a",
+      "decoded_bytes": 10947,
+      "decoded_sha256": "40cbd6d3ab56b73bc8bb1f4f89fa6c71f87872c9612c828b3bee178ac3abc00a",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/generate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/generate.stdout",
+      "bytes": 177,
+      "sha256": "0d2e0b68caa5827b103f334242f19bbf56f1826dce985edbafefeb6eeef35b67",
+      "decoded_bytes": 177,
+      "decoded_sha256": "0d2e0b68caa5827b103f334242f19bbf56f1826dce985edbafefeb6eeef35b67",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-build-1.result.json",
+      "bytes": 328,
+      "sha256": "bbf91c3afbb0e8318c3792b122e0612068472d96de9cddbfb0560128c552045a",
+      "decoded_bytes": 328,
+      "decoded_sha256": "bbf91c3afbb0e8318c3792b122e0612068472d96de9cddbfb0560128c552045a",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-build-1.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-build-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-optimized-build-1.result.json",
+      "bytes": 335,
+      "sha256": "82a8d6f449a3191db2ee13a590f691a8af9db3d5624691e0e97f8d6ea2c67bca",
+      "decoded_bytes": 335,
+      "decoded_sha256": "82a8d6f449a3191db2ee13a590f691a8af9db3d5624691e0e97f8d6ea2c67bca",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-optimized-build-1.stderr",
+      "bytes": 301,
+      "sha256": "f446ed777c011aeda271a44ef93f18d6df713cd95758c8026948a5ac4e5ccc19",
+      "decoded_bytes": 301,
+      "decoded_sha256": "f446ed777c011aeda271a44ef93f18d6df713cd95758c8026948a5ac4e5ccc19",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-optimized-build-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/homogeneous-polynomials.json",
+      "bytes": 2413,
+      "sha256": "d69c34349063249fe843b8f2e8c567b06736b20842aef8c094ca2e292664bbb7",
+      "decoded_bytes": 2413,
+      "decoded_sha256": "d69c34349063249fe843b8f2e8c567b06736b20842aef8c094ca2e292664bbb7",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/lean-help.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/lean-help.stdout",
+      "bytes": 2994,
+      "sha256": "c9557089ab7ea58658784c290df0780bdaf08a8e975f6a411a4fd397e027f326",
+      "decoded_bytes": 2994,
+      "decoded_sha256": "c9557089ab7ea58658784c290df0780bdaf08a8e975f6a411a4fd397e027f326",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/optimize.py",
+      "bytes": 2731,
+      "sha256": "4e5775e9163527b9fa5cd9883b05b924d44c59185759a14f1c416fb058c48306",
+      "decoded_bytes": 2731,
+      "decoded_sha256": "4e5775e9163527b9fa5cd9883b05b924d44c59185759a14f1c416fb058c48306",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/optimize.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/optimize.stdout",
+      "bytes": 126,
+      "sha256": "f267d4ebcd6b84a5fb9a43b14e9d08a0a675bd2d9aa03dbe2fbfaebe43c8b35e",
+      "decoded_bytes": 126,
+      "decoded_sha256": "f267d4ebcd6b84a5fb9a43b14e9d08a0a675bd2d9aa03dbe2fbfaebe43c8b35e",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/reconstruction-matrix-integer-fourth.json",
+      "bytes": 515,
+      "sha256": "776046b361c51951f51415b784858f8d8dace90c4c794dd2977ab1babe87ffab",
+      "decoded_bytes": 515,
+      "decoded_sha256": "776046b361c51951f51415b784858f8d8dace90c4c794dd2977ab1babe87ffab",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/run_lean.py",
+      "bytes": 1853,
+      "sha256": "e2f67709ed8ce75221ab55312853feb1cfb98a887cc97589050e85f8f36de9f5",
+      "decoded_bytes": 1853,
+      "decoded_sha256": "e2f67709ed8ce75221ab55312853feb1cfb98a887cc97589050e85f8f36de9f5",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/scalar-prelude-provenance.json",
+      "bytes": 2157,
+      "sha256": "c9ffcdb11caecafd93e25a45095a3001427fd691ac7c23cdd7e97b5e635c11cb",
+      "decoded_bytes": 2157,
+      "decoded_sha256": "c9ffcdb11caecafd93e25a45095a3001427fd691ac7c23cdd7e97b5e635c11cb",
+      "provenance": [
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/time-help.stderr",
+      "bytes": 60,
+      "sha256": "3e737f6a9117cec194b02103b357f8668fae9adb86a8a8cd0bf25efab8948548",
+      "decoded_bytes": 60,
+      "decoded_sha256": "3e737f6a9117cec194b02103b357f8668fae9adb86a8a8cd0bf25efab8948548",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "canonical_coefficients/time-help.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen scalar source/draft and completed diagnostics"
+      ]
+    },
+    {
+      "path": "construct_search/lease410-pause.jsonl",
+      "bytes": 281,
+      "sha256": "bce7f55d7f075633624189914d2ccfc614c5e7a2005c774358c6289b916f7e78",
+      "decoded_bytes": 281,
+      "decoded_sha256": "bce7f55d7f075633624189914d2ccfc614c5e7a2005c774358c6289b916f7e78",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/lease410-preservation-manifest.json",
+      "bytes": 5659,
+      "sha256": "71a02bac9f001853ab75212dca4e640d619a7dec2eba9a651db371a69e9e0542",
+      "decoded_bytes": 5659,
+      "decoded_sha256": "71a02bac9f001853ab75212dca4e640d619a7dec2eba9a651db371a69e9e0542",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.progress.jsonl",
+      "bytes": 507,
+      "sha256": "869077c303bf243112d79a84fe3bdd7d76633721346f2c04b61cb31d1b12f852",
+      "decoded_bytes": 507,
+      "decoded_sha256": "869077c303bf243112d79a84fe3bdd7d76633721346f2c04b61cb31d1b12f852",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.status.json",
+      "bytes": 834,
+      "sha256": "284f392d043550bf92031a22cff15835f1d1e0b899a7c0552cefeccbb2b9d3dd",
+      "decoded_bytes": 834,
+      "decoded_sha256": "284f392d043550bf92031a22cff15835f1d1e0b899a7c0552cefeccbb2b9d3dd",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.stdout.gz",
+      "bytes": 67,
+      "sha256": "d7c0e1c65e29ae439f9cbe047f3030048a1278d665ab3fe717ca6bcb5e5e510e",
+      "decoded_bytes": 56,
+      "decoded_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/MODULAR-VECTOR-PARSER.md",
+      "bytes": 1967,
+      "sha256": "2f38bdc3b3ba192535f3b23628cb1245fe9fc913ae00bf466325007b2858073c",
+      "decoded_bytes": 1967,
+      "decoded_sha256": "2f38bdc3b3ba192535f3b23628cb1245fe9fc913ae00bf466325007b2858073c",
+      "provenance": [
+        "construct_search/net_normal_form/modular-vector-parser-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_modular_vectors.py",
+      "bytes": 10593,
+      "sha256": "1d729528f814dba60d5c68768d359ed16452d7195fc6d4e04ce96402e3cabf12",
+      "decoded_bytes": 10593,
+      "decoded_sha256": "1d729528f814dba60d5c68768d359ed16452d7195fc6d4e04ce96402e3cabf12",
+      "provenance": [
+        "construct_search/net_normal_form/modular-vector-parser-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/modular-vector-parser-initial-scan.json",
+      "bytes": 407,
+      "sha256": "18c4524040e2f28bc273ad278825eb4a3359206105c0748e4fa6f965ba41b4a0",
+      "decoded_bytes": 407,
+      "decoded_sha256": "18c4524040e2f28bc273ad278825eb4a3359206105c0748e4fa6f965ba41b4a0",
+      "provenance": [
+        "construct_search/net_normal_form/modular-vector-parser-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/modular-vector-parser-manifest.json",
+      "bytes": 1485,
+      "sha256": "ee2086f8837520ce3c61e726349ff8e46cf5bc6a118965194377a2f84dcaea7e",
+      "decoded_bytes": 1485,
+      "decoded_sha256": "ee2086f8837520ce3c61e726349ff8e46cf5bc6a118965194377a2f84dcaea7e",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/modular-vector-parser-test.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/net_normal_form/modular-vector-parser-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/modular-vector-parser-test.stdout",
+      "bytes": 32,
+      "sha256": "ec776588c442d888071c7847e46b881a9b113d6ac82bf8a7db1b7922f7181742",
+      "decoded_bytes": 32,
+      "decoded_sha256": "ec776588c442d888071c7847e46b881a9b113d6ac82bf8a7db1b7922f7181742",
+      "provenance": [
+        "construct_search/net_normal_form/modular-vector-parser-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-homogeneous-Q.sing",
+      "bytes": 8110,
+      "sha256": "4748fbd2bd3007af7ae607722e42dfbeec3addd3c761d7c01a624c3f61340f5c",
+      "decoded_bytes": 8110,
+      "decoded_sha256": "4748fbd2bd3007af7ae607722e42dfbeec3addd3c761d7c01a624c3f61340f5c",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.result.json",
+      "bytes": 313,
+      "sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38",
+      "decoded_bytes": 313,
+      "decoded_sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.sing",
+      "bytes": 8158,
+      "sha256": "ccfd658ed040658b323033301654abef9af353a1b2569ead1267aff57ef53372",
+      "decoded_bytes": 8158,
+      "decoded_sha256": "ccfd658ed040658b323033301654abef9af353a1b2569ead1267aff57ef53372",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.stdout",
+      "bytes": 56,
+      "sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+      "decoded_bytes": 56,
+      "decoded_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.result.json",
+      "bytes": 307,
+      "sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c",
+      "decoded_bytes": 307,
+      "decoded_sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.sing",
+      "bytes": 7434,
+      "sha256": "7466b6a35f1a5caaa54cfc2537fb4d319e093a534369bd3afc415959092211b5",
+      "decoded_bytes": 7434,
+      "decoded_sha256": "7466b6a35f1a5caaa54cfc2537fb4d319e093a534369bd3afc415959092211b5",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.stdout",
+      "bytes": 232,
+      "sha256": "5e6c5b6b49f8b1cb2aa121036219405dfc4b9f12d552bed6411bd645e234f9cc",
+      "decoded_bytes": 232,
+      "decoded_sha256": "5e6c5b6b49f8b1cb2aa121036219405dfc4b9f12d552bed6411bd645e234f9cc",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-run.stdout",
+      "bytes": 313,
+      "sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38",
+      "decoded_bytes": 313,
+      "decoded_sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-streaming-interruption.json",
+      "bytes": 370,
+      "sha256": "0d120d62b20b6e19c67b5b61e8f94f38866a6d405c9cdc35318cfbad90ede031",
+      "decoded_bytes": 370,
+      "decoded_sha256": "0d120d62b20b6e19c67b5b61e8f94f38866a6d405c9cdc35318cfbad90ede031",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-liftstd-rerun.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-liftstd-rerun.stdout",
+      "bytes": 307,
+      "sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c",
+      "decoded_bytes": 307,
+      "decoded_sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_homogeneous.py",
+      "bytes": 1540,
+      "sha256": "0432afe6ce664b4246c49480dba5d2c6d55b9d5265e5df20cc1f7d42a475d28e",
+      "decoded_bytes": 1540,
+      "decoded_sha256": "0432afe6ce664b4246c49480dba5d2c6d55b9d5265e5df20cc1f7d42a475d28e",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_liftstd_2g.py",
+      "bytes": 1530,
+      "sha256": "d4e06d8fe5a023c63da8321b0dd07d8d0b9a717484f5d310630b351035eb7180",
+      "decoded_bytes": 1530,
+      "decoded_sha256": "d4e06d8fe5a023c63da8321b0dd07d8d0b9a717484f5d310630b351035eb7180",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_liftstd_rerun.py",
+      "bytes": 1533,
+      "sha256": "d0642d69bc93e75aeb82e122e152cfb00bea5f558652df3cfbbcb6fe5d972d03",
+      "decoded_bytes": 1533,
+      "decoded_sha256": "d0642d69bc93e75aeb82e122e152cfb00bea5f558652df3cfbbcb6fe5d972d03",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke-run.stdout",
+      "bytes": 756,
+      "sha256": "d0152e1094903b31ee48eaefd43c6d8a6470c7962b1644156a65a5d22470b4e0",
+      "decoded_bytes": 756,
+      "decoded_sha256": "d0152e1094903b31ee48eaefd43c6d8a6470c7962b1644156a65a5d22470b4e0",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.progress.jsonl",
+      "bytes": 845,
+      "sha256": "020b490abf3bd60902974bf22fb5d164449badf969587d38a8857df6f27e657a",
+      "decoded_bytes": 845,
+      "decoded_sha256": "020b490abf3bd60902974bf22fb5d164449badf969587d38a8857df6f27e657a",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.result.json",
+      "bytes": 794,
+      "sha256": "4283382b01c27c33d3f6f8d12021d8f1a102ae53c44d566284cb1ae38e255071",
+      "decoded_bytes": 794,
+      "decoded_sha256": "4283382b01c27c33d3f6f8d12021d8f1a102ae53c44d566284cb1ae38e255071",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.stdout.gz",
+      "bytes": 135,
+      "sha256": "33a92ae76fc2fa7809b290ddc748aefad62e05a016d1cab9c6b2b8a5f499f8f5",
+      "decoded_bytes": 100,
+      "decoded_sha256": "a6ff1220d63fd58f9b22c736211c4cfe8c4c1fdd6e17c155a90fb8e0d012015a",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/stream_singular.py",
+      "bytes": 5112,
+      "sha256": "cdea62556d15f8fbd8a4b00972ef5e430bbb47af505cdf8e14f64222e96aee2c",
+      "decoded_bytes": 5112,
+      "decoded_sha256": "cdea62556d15f8fbd8a4b00972ef5e430bbb47af505cdf8e14f64222e96aee2c",
+      "provenance": [
+        "construct_search/lease410-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-q-pivot-independent-audit.json",
+      "bytes": 413,
+      "sha256": "6eab17919347333affb327a8c68efbfef2974e205e458ad53ba553712d91a72a",
+      "decoded_bytes": 413,
+      "decoded_sha256": "6eab17919347333affb327a8c68efbfef2974e205e458ad53ba553712d91a72a",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-q-pivot-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-q-pivot-independent-audit.stdout",
+      "bytes": 401,
+      "sha256": "c69c0ca93a171735daf602682ac6b098526c935e86bd507d4ce91efc60801e53",
+      "decoded_bytes": 401,
+      "decoded_sha256": "c69c0ca93a171735daf602682ac6b098526c935e86bd507d4ce91efc60801e53",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_Bone_q_pivot.py",
+      "bytes": 1397,
+      "sha256": "0ea916b66a75d78157bd1b72da4691104948e83be6c545d3be0f50f51affd776",
+      "decoded_bytes": 1397,
+      "decoded_sha256": "0ea916b66a75d78157bd1b72da4691104948e83be6c545d3be0f50f51affd776",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_canonical_extra_source.py",
+      "bytes": 3049,
+      "sha256": "96a44a5d4682d99d5aa0bb47fb662bb36df80a534a314fd210a0de560784e4b4",
+      "decoded_bytes": 3049,
+      "decoded_sha256": "96a44a5d4682d99d5aa0bb47fb662bb36df80a534a314fd210a0de560784e4b4",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical-extra-source-independent-audit.json",
+      "bytes": 6370,
+      "sha256": "44384be0d46a716a597e301c71588b3b6c52716305a87910809e6c090c24af44",
+      "decoded_bytes": 6370,
+      "decoded_sha256": "44384be0d46a716a597e301c71588b3b6c52716305a87910809e6c090c24af44",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical-extra-source-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical-extra-source-independent-audit.stdout",
+      "bytes": 209,
+      "sha256": "8aa343ab59709237496ae2ae012498cd3a5c703bb250f960e2d0953e7c909b1d",
+      "decoded_bytes": 209,
+      "decoded_sha256": "8aa343ab59709237496ae2ae012498cd3a5c703bb250f960e2d0953e7c909b1d",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.json",
+      "bytes": 769,
+      "sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e",
+      "decoded_bytes": 769,
+      "decoded_sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.stdout",
+      "bytes": 1877,
+      "sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21",
+      "decoded_bytes": 1877,
+      "decoded_sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/generic-pivots-preservation-manifest.json",
+      "bytes": 3196,
+      "sha256": "f91178e5f0691b0d2a5e62660e25f0102609a40ea64d5c815f73d5c07a3cd90e",
+      "decoded_bytes": 3196,
+      "decoded_sha256": "f91178e5f0691b0d2a5e62660e25f0102609a40ea64d5c815f73d5c07a3cd90e",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "geometry_search/lease-freeze-extra-preservation-manifest.json",
+      "bytes": 17422,
+      "sha256": "7f653e45b2ab13ff91b458719bf3d5a3e2cfb1610c020b29261a29e9bb0f5c29",
+      "decoded_bytes": 17422,
+      "decoded_sha256": "7f653e45b2ab13ff91b458719bf3d5a3e2cfb1610c020b29261a29e9bb0f5c29",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/TRACE_BONE_GENERIC_PIVOTS.md",
+      "bytes": 2450,
+      "sha256": "eb34dc581e12edc92f26e45fb06f400c969da62abd89328d60ffce030d29a66b",
+      "decoded_bytes": 2450,
+      "decoded_sha256": "eb34dc581e12edc92f26e45fb06f400c969da62abd89328d60ffce030d29a66b",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical-extra-freeze-manifest.json",
+      "bytes": 17110,
+      "sha256": "1802a87f0f61340dddef803d34136547403d3f15c26c2f1368eacaa6383043a8",
+      "decoded_bytes": 17110,
+      "decoded_sha256": "1802a87f0f61340dddef803d34136547403d3f15c26c2f1368eacaa6383043a8",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical-scalar-split-independent-review.json",
+      "bytes": 956,
+      "sha256": "d05eeb70803ae7735d0beda58717e841cec2059527bc44fb7f25be57bb97103c",
+      "decoded_bytes": 956,
+      "decoded_sha256": "d05eeb70803ae7735d0beda58717e841cec2059527bc44fb7f25be57bb97103c",
+      "provenance": [
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra0Standalone.lean",
+      "bytes": 73217,
+      "sha256": "a36ee88b897eefd0560734e6fa037d78a87425e9aebc805f3e7eeebeea330ab1",
+      "decoded_bytes": 73217,
+      "decoded_sha256": "a36ee88b897eefd0560734e6fa037d78a87425e9aebc805f3e7eeebeea330ab1",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra10Standalone.lean",
+      "bytes": 73215,
+      "sha256": "f610c49b896ac50f7043180a365723aa7adcd3ed6e5b7fd02b6ee7c644064037",
+      "decoded_bytes": 73215,
+      "decoded_sha256": "f610c49b896ac50f7043180a365723aa7adcd3ed6e5b7fd02b6ee7c644064037",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra11Standalone.lean",
+      "bytes": 78157,
+      "sha256": "67d78030171c63bdd8a65d0e428845dd4e593abc62a1909fb0a983826227bef8",
+      "decoded_bytes": 78157,
+      "decoded_sha256": "67d78030171c63bdd8a65d0e428845dd4e593abc62a1909fb0a983826227bef8",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra12Standalone.lean",
+      "bytes": 85308,
+      "sha256": "03cb2786b68632577610e1a34f4f7364da45864deeb4f9fa8846ea5430bf6899",
+      "decoded_bytes": 85308,
+      "decoded_sha256": "03cb2786b68632577610e1a34f4f7364da45864deeb4f9fa8846ea5430bf6899",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra13Standalone.lean",
+      "bytes": 76916,
+      "sha256": "32eb91821bf00506f5dc5a426190bf7a35e6628da3d6c62ad6e37874fce5b350",
+      "decoded_bytes": 76916,
+      "decoded_sha256": "32eb91821bf00506f5dc5a426190bf7a35e6628da3d6c62ad6e37874fce5b350",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra14Standalone.lean",
+      "bytes": 86742,
+      "sha256": "ce6e84404e4b48f32223fd562c8c2e037738d2bb0885b5277f6f7a38badf2d09",
+      "decoded_bytes": 86742,
+      "decoded_sha256": "ce6e84404e4b48f32223fd562c8c2e037738d2bb0885b5277f6f7a38badf2d09",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra15Standalone.lean",
+      "bytes": 86846,
+      "sha256": "83923e0da770652f0805c2d7ef1904589d516afdb2462e080ba8c388d84c30b5",
+      "decoded_bytes": 86846,
+      "decoded_sha256": "83923e0da770652f0805c2d7ef1904589d516afdb2462e080ba8c388d84c30b5",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra16Standalone.lean",
+      "bytes": 76970,
+      "sha256": "d6e457c7c28951576b199afeadfc9623cae19db720a276b7b71c415111e80802",
+      "decoded_bytes": 76970,
+      "decoded_sha256": "d6e457c7c28951576b199afeadfc9623cae19db720a276b7b71c415111e80802",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra17Standalone.lean",
+      "bytes": 85218,
+      "sha256": "ceeac380d35c5dfe16ffca610653e1ebfe0dcea0d9c7a4a7ba13bea701dbd87b",
+      "decoded_bytes": 85218,
+      "decoded_sha256": "ceeac380d35c5dfe16ffca610653e1ebfe0dcea0d9c7a4a7ba13bea701dbd87b",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra18Standalone.lean",
+      "bytes": 81006,
+      "sha256": "668f9e1de57d2939733405efa9652c914e3a26d4bb462c4d2525545de66995b9",
+      "decoded_bytes": 81006,
+      "decoded_sha256": "668f9e1de57d2939733405efa9652c914e3a26d4bb462c4d2525545de66995b9",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra19Standalone.lean",
+      "bytes": 76561,
+      "sha256": "5f5e3b7e7e24a11eb8056219ce6d3cfcb65c97255ec528c7b55d77acb9d5a32f",
+      "decoded_bytes": 76561,
+      "decoded_sha256": "5f5e3b7e7e24a11eb8056219ce6d3cfcb65c97255ec528c7b55d77acb9d5a32f",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra1Standalone.lean",
+      "bytes": 76886,
+      "sha256": "bba173e747c4e6502ad327a5ff8161ec9a5533228af1ca65cb96e4576e0fc689",
+      "decoded_bytes": 76886,
+      "decoded_sha256": "bba173e747c4e6502ad327a5ff8161ec9a5533228af1ca65cb96e4576e0fc689",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra20Standalone.lean",
+      "bytes": 76566,
+      "sha256": "83863bad9747db8f23d463298389c44ba9a8e1f57467940c3ac27b8668b2f0b6",
+      "decoded_bytes": 76566,
+      "decoded_sha256": "83863bad9747db8f23d463298389c44ba9a8e1f57467940c3ac27b8668b2f0b6",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra21Standalone.lean",
+      "bytes": 80655,
+      "sha256": "ded7c6e5ae43a2c016bde179637c002e73b0efde15564d5715782575d8efe767",
+      "decoded_bytes": 80655,
+      "decoded_sha256": "ded7c6e5ae43a2c016bde179637c002e73b0efde15564d5715782575d8efe767",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra22Standalone.lean",
+      "bytes": 73360,
+      "sha256": "3df9bdcad2871aef10f50cade8651c26f8029749d0de9fb04ffb7cb282c58507",
+      "decoded_bytes": 73360,
+      "decoded_sha256": "3df9bdcad2871aef10f50cade8651c26f8029749d0de9fb04ffb7cb282c58507",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra23Standalone.lean",
+      "bytes": 73359,
+      "sha256": "0615de35f6449b065d7cd70e507712d8a95c50aec4914f1701dba9c792719fb0",
+      "decoded_bytes": 73359,
+      "decoded_sha256": "0615de35f6449b065d7cd70e507712d8a95c50aec4914f1701dba9c792719fb0",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra2Standalone.lean",
+      "bytes": 76593,
+      "sha256": "76d9439447af53ee271bdb1ea726ab7f06b8a7facfb2914351b3e9096ead746a",
+      "decoded_bytes": 76593,
+      "decoded_sha256": "76d9439447af53ee271bdb1ea726ab7f06b8a7facfb2914351b3e9096ead746a",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra3Standalone.lean",
+      "bytes": 73164,
+      "sha256": "bcf6cf5d0181909f5268c096e996b173115be4fdce5c1260037fddde71986d82",
+      "decoded_bytes": 73164,
+      "decoded_sha256": "bcf6cf5d0181909f5268c096e996b173115be4fdce5c1260037fddde71986d82",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra4Standalone.lean",
+      "bytes": 76203,
+      "sha256": "5bef1db1ebd016fab54864bb44685adaf8f713f3a69551da7ebeefddab2a7a2b",
+      "decoded_bytes": 76203,
+      "decoded_sha256": "5bef1db1ebd016fab54864bb44685adaf8f713f3a69551da7ebeefddab2a7a2b",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra5Standalone.lean",
+      "bytes": 73227,
+      "sha256": "d4259411d87b05cf4276bd06e881dbda7f846110837b6d37f2ad8597c475413e",
+      "decoded_bytes": 73227,
+      "decoded_sha256": "d4259411d87b05cf4276bd06e881dbda7f846110837b6d37f2ad8597c475413e",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra6Standalone.lean",
+      "bytes": 84814,
+      "sha256": "ba7eb6b066adcca4f3177af2425b11482dd1f950b0c393e3d55dc81cc78ca497",
+      "decoded_bytes": 84814,
+      "decoded_sha256": "ba7eb6b066adcca4f3177af2425b11482dd1f950b0c393e3d55dc81cc78ca497",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra7Standalone.lean",
+      "bytes": 81133,
+      "sha256": "c268d85bc6200374180533bc59155bd1605a760ef49c7acb6232e65fde25223b",
+      "decoded_bytes": 81133,
+      "decoded_sha256": "c268d85bc6200374180533bc59155bd1605a760ef49c7acb6232e65fde25223b",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra8Standalone.lean",
+      "bytes": 81586,
+      "sha256": "1a7ce990d276e1928933855a473ccc325e7bacbf1879bc4865aa30cbff74d1be",
+      "decoded_bytes": 81586,
+      "decoded_sha256": "1a7ce990d276e1928933855a473ccc325e7bacbf1879bc4865aa30cbff74d1be",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtra9Standalone.lean",
+      "bytes": 83930,
+      "sha256": "a6af0495689acafd8159c26031b786ebc530f9f272bd261d7ae780c139e3d362",
+      "decoded_bytes": 83930,
+      "decoded_sha256": "a6af0495689acafd8159c26031b786ebc530f9f272bd261d7ae780c139e3d362",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtraBody.lean",
+      "bytes": 266724,
+      "sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa",
+      "decoded_bytes": 266724,
+      "decoded_sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/CanonicalExtraStandalone.lean",
+      "bytes": 334524,
+      "sha256": "d689f5ce7751861eca56e0b7df2b3013aed0578b7af5ac33f9dfd84ded9fc6ef",
+      "decoded_bytes": 334524,
+      "decoded_sha256": "d689f5ce7751861eca56e0b7df2b3013aed0578b7af5ac33f9dfd84ded9fc6ef",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/generate.py",
+      "bytes": 10044,
+      "sha256": "786ce7aee1ff91e8588bd385fb275d6255d3c25d40c6b5ffba9ae1091c58708b",
+      "decoded_bytes": 10044,
+      "decoded_sha256": "786ce7aee1ff91e8588bd385fb275d6255d3c25d40c6b5ffba9ae1091c58708b",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/generation-audit.json",
+      "bytes": 12539,
+      "sha256": "054002158108141af106863a5a6c5a72a9eade7ad47af71cd100a3f27b8e1b10",
+      "decoded_bytes": 12539,
+      "decoded_sha256": "054002158108141af106863a5a6c5a72a9eade7ad47af71cd100a3f27b8e1b10",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/generation.stdout",
+      "bytes": 280,
+      "sha256": "8e1f27cc2e67bedaa1f4fe4a79fe4eedf65ff898bd7e4c891dd81469e53f74fb",
+      "decoded_bytes": 280,
+      "decoded_sha256": "8e1f27cc2e67bedaa1f4fe4a79fe4eedf65ff898bd7e4c891dd81469e53f74fb",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/grouped-certificates.json",
+      "bytes": 988071,
+      "sha256": "5488d72382dc875763bbd90d4abf770b39ca781bd4f058a72fc3975eb0dc6f7e",
+      "decoded_bytes": 988071,
+      "decoded_sha256": "5488d72382dc875763bbd90d4abf770b39ca781bd4f058a72fc3975eb0dc6f7e",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/prepare_standalone.py",
+      "bytes": 2783,
+      "sha256": "a098541190b8f12f4c3095773c26cb63e745918a7a60df95f71c1f92e4210a76",
+      "decoded_bytes": 2783,
+      "decoded_sha256": "a098541190b8f12f4c3095773c26cb63e745918a7a60df95f71c1f92e4210a76",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/run_bounded.py",
+      "bytes": 2492,
+      "sha256": "42b1801bc231576dc5fa6fd00e5f251f7613a5d5ee3c2c09b695191629130771",
+      "decoded_bytes": 2492,
+      "decoded_sha256": "42b1801bc231576dc5fa6fd00e5f251f7613a5d5ee3c2c09b695191629130771",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build-driver.stdout",
+      "bytes": 1327,
+      "sha256": "c7a0cb823aae4342589f276135d1df58a9f3a6817fd659f6c74548dbf1e6cf5e",
+      "decoded_bytes": 1327,
+      "decoded_sha256": "c7a0cb823aae4342589f276135d1df58a9f3a6817fd659f6c74548dbf1e6cf5e",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build-result.json",
+      "bytes": 841,
+      "sha256": "5d555407fb561977434b17518dad89b9107a7f32073e3524289b1755bf9b71f8",
+      "decoded_bytes": 841,
+      "decoded_sha256": "5d555407fb561977434b17518dad89b9107a7f32073e3524289b1755bf9b71f8",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build-start.json",
+      "bytes": 500,
+      "sha256": "3a24d2c9b4aae431f926bff9e9d6986fa7f02f577cfdd8cffdc82a5642b85f2a",
+      "decoded_bytes": 500,
+      "decoded_sha256": "3a24d2c9b4aae431f926bff9e9d6986fa7f02f577cfdd8cffdc82a5642b85f2a",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build.stderr",
+      "bytes": 140,
+      "sha256": "972580a79ba905fdd3a075cf68abc7a8ead399c3a28d0128155435ee4643eff1",
+      "decoded_bytes": 140,
+      "decoded_sha256": "972580a79ba905fdd3a075cf68abc7a8ead399c3a28d0128155435ee4643eff1",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-preparation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-preparation.stdout",
+      "bytes": 776,
+      "sha256": "a468df3190c965f740da47ae324b68fd089309fa97a68bd4ee1c307959e824e9",
+      "decoded_bytes": 776,
+      "decoded_sha256": "a468df3190c965f740da47ae324b68fd089309fa97a68bd4ee1c307959e824e9",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/canonical_extra/standalone-provenance.json",
+      "bytes": 10998,
+      "sha256": "02dc9d35b48a6f54fa0c8c748ddd0fba3e551f7cc82f25e07beb8f3652cb571c",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "02dc9d35b48a6f54fa0c8c748ddd0fba3e551f7cc82f25e07beb8f3652cb571c",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-q-pivot.json",
+      "bytes": 1128,
+      "sha256": "85041d4cd94f1be3d25786bf5be30f4fe4c03fc2003900efcb6afb850b3f1ced",
+      "decoded_bytes": 1128,
+      "decoded_sha256": "85041d4cd94f1be3d25786bf5be30f4fe4c03fc2003900efcb6afb850b3f1ced",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-q-pivot.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-q-pivot.stdout",
+      "bytes": 1064,
+      "sha256": "0385aabb862f3771720652aa90a83082a51dd2f72dcddde5205be6a3ab895047",
+      "decoded_bytes": 1064,
+      "decoded_sha256": "0385aabb862f3771720652aa90a83082a51dd2f72dcddde5205be6a3ab895047",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_q_pivot.py",
+      "bytes": 2272,
+      "sha256": "fee39ae31c9714d5336de4486cf3d5ebd58a534cc9d9c60cebc7338618cffad9",
+      "decoded_bytes": 2272,
+      "decoded_sha256": "fee39ae31c9714d5336de4486cf3d5ebd58a534cc9d9c60cebc7338618cffad9",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/GrobnerSmoke.lean",
+      "bytes": 533,
+      "sha256": "7d0527095cef619ad1d2bd117f3e3d2d3418ab67a4aa0667f32e9779e4b98912",
+      "decoded_bytes": 533,
+      "decoded_sha256": "7d0527095cef619ad1d2bd117f3e3d2d3418ab67a4aa0667f32e9779e4b98912",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/freeze.json",
+      "bytes": 232,
+      "sha256": "50ae960742582af19a3c6ffbbf141f6ec7ea0238fde4b3967ab1ccc6bd555604",
+      "decoded_bytes": 232,
+      "decoded_sha256": "50ae960742582af19a3c6ffbbf141f6ec7ea0238fde4b3967ab1ccc6bd555604",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/lean-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/lean-help.stdout",
+      "bytes": 2994,
+      "sha256": "c9557089ab7ea58658784c290df0780bdaf08a8e975f6a411a4fd397e027f326",
+      "decoded_bytes": 2994,
+      "decoded_sha256": "c9557089ab7ea58658784c290df0780bdaf08a8e975f6a411a4fd397e027f326",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/run_lean_bounded.py",
+      "bytes": 1803,
+      "sha256": "08ff6c856941e471a226a39b651c0715f91aa460ed2aab12f126bfdd7434bc60",
+      "decoded_bytes": 1803,
+      "decoded_sha256": "08ff6c856941e471a226a39b651c0715f91aa460ed2aab12f126bfdd7434bc60",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/smoke-driver.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/smoke-driver.stdout",
+      "bytes": 537,
+      "sha256": "a8a006b4f8058a79779d7093bf3905b726beb2d9541c748a4e8a642f9d558d62",
+      "decoded_bytes": 537,
+      "decoded_sha256": "a8a006b4f8058a79779d7093bf3905b726beb2d9541c748a4e8a642f9d558d62",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/smoke.json",
+      "bytes": 561,
+      "sha256": "98c4c6b48d460b67cd47b9d8d2e5070ed86ec26add6f293f3e834c2021a2ecba",
+      "decoded_bytes": 561,
+      "decoded_sha256": "98c4c6b48d460b67cd47b9d8d2e5070ed86ec26add6f293f3e834c2021a2ecba",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/smoke.stderr",
+      "bytes": 132,
+      "sha256": "8359249f494db5081050f585a4c9d589f4edb85f31252481b841f195761fd4f1",
+      "decoded_bytes": 132,
+      "decoded_sha256": "8359249f494db5081050f585a4c9d589f4edb85f31252481b841f195761fd4f1",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/smoke.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen failed capability launch; not Lean checked"
+      ]
+    },
+    {
+      "path": "grind-review/source-manifest.json",
+      "bytes": 8944,
+      "sha256": "5bd545a1f19fa470744f2cde0949c29381157de00f61d80ad9e8af2a75f66b90",
+      "decoded_bytes": 8944,
+      "decoded_sha256": "5bd545a1f19fa470744f2cde0949c29381157de00f61d80ad9e8af2a75f66b90",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Config.lean",
+      "bytes": 14222,
+      "sha256": "9c05a59c81d92be6b6872d34ed1d751257b9af286e3fc889a2945cb3f7829d51",
+      "decoded_bytes": 14222,
+      "decoded_sha256": "9c05a59c81d92be6b6872d34ed1d751257b9af286e3fc889a2945cb3f7829d51",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring.lean",
+      "bytes": 512,
+      "sha256": "e4ce2ec8d5d3d5471879ff0777a9f7dc38ae7db89acb4d40f994a7189dffba05",
+      "decoded_bytes": 512,
+      "decoded_sha256": "e4ce2ec8d5d3d5471879ff0777a9f7dc38ae7db89acb4d40f994a7189dffba05",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/Basic.lean",
+      "bytes": 25254,
+      "sha256": "e20b816a722fc9003146396183d3af2af5394bc4725ca6a8b12f122b806f8df1",
+      "decoded_bytes": 25254,
+      "decoded_sha256": "e20b816a722fc9003146396183d3af2af5394bc4725ca6a8b12f122b806f8df1",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/CommSemiringAdapter.lean",
+      "bytes": 25079,
+      "sha256": "279d221ce7f225433fa3c39c7b018bb9486fc5dc5fa1cb08c3f2083c55b91560",
+      "decoded_bytes": 25079,
+      "decoded_sha256": "279d221ce7f225433fa3c39c7b018bb9486fc5dc5fa1cb08c3f2083c55b91560",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/CommSolver.lean",
+      "bytes": 90580,
+      "sha256": "979348323f927ea0a36f6422681f6626c9e1e96988203c9c0d450e722684f60f",
+      "decoded_bytes": 90580,
+      "decoded_sha256": "979348323f927ea0a36f6422681f6626c9e1e96988203c9c0d450e722684f60f",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/Envelope.lean",
+      "bytes": 22207,
+      "sha256": "3f579e4f376413ffc4af43dde047da05336ffe51783bcfe84f27d5f87ce4df69",
+      "decoded_bytes": 22207,
+      "decoded_sha256": "3f579e4f376413ffc4af43dde047da05336ffe51783bcfe84f27d5f87ce4df69",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/Field.lean",
+      "bytes": 10107,
+      "sha256": "e53eb3efc854f228235ade48c2819822ebee3124a10596b90d83c3b1daa3e440",
+      "decoded_bytes": 10107,
+      "decoded_sha256": "e53eb3efc854f228235ade48c2819822ebee3124a10596b90d83c3b1daa3e440",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/FieldSolver.lean",
+      "bytes": 21231,
+      "sha256": "0fc2d2e833f7cfbeb93028cc8f1aeb82e6d5b012ac31ab74ef605b06bbe3e024",
+      "decoded_bytes": 21231,
+      "decoded_sha256": "0fc2d2e833f7cfbeb93028cc8f1aeb82e6d5b012ac31ab74ef605b06bbe3e024",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/IntSolver.lean",
+      "bytes": 6380,
+      "sha256": "6eb17eb07a5e3228ce8d319b8bc55dac031c7327f4952f2c7b03a7fe85bb259b",
+      "decoded_bytes": 6380,
+      "decoded_sha256": "6eb17eb07a5e3228ce8d319b8bc55dac031c7327f4952f2c7b03a7fe85bb259b",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Init/Grind/Ring/OfScientific.lean",
+      "bytes": 791,
+      "sha256": "5e13f7548ef5ed09958690c210e6ce0e3c03634e3ee9d68721c01af0f8c07799",
+      "decoded_bytes": 791,
+      "decoded_sha256": "5e13f7548ef5ed09958690c210e6ce0e3c03634e3ee9d68721c01af0f8c07799",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Elab/Tactic/Grind/BuiltinTactic.lean",
+      "bytes": 23980,
+      "sha256": "958f1ce6ea35a72cb24388d7de5b3395f07ad61e48aff0639c1e729ff2029878",
+      "decoded_bytes": 23980,
+      "decoded_sha256": "958f1ce6ea35a72cb24388d7de5b3395f07ad61e48aff0639c1e729ff2029878",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Elab/Tactic/Grind/Config.lean",
+      "bytes": 2289,
+      "sha256": "7d51fdd21c71eed2bb4424dafbc8a9720e2fb4e965194d7c1b75e414afc857d8",
+      "decoded_bytes": 2289,
+      "decoded_sha256": "7d51fdd21c71eed2bb4424dafbc8a9720e2fb4e965194d7c1b75e414afc857d8",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Elab/Tactic/Grind/Main.lean",
+      "bytes": 23567,
+      "sha256": "bf3c444e432101dfba0dadb4e49a833a9debc89ba8323c56e6e80ed2afc5b605",
+      "decoded_bytes": 23567,
+      "decoded_sha256": "bf3c444e432101dfba0dadb4e49a833a9debc89ba8323c56e6e80ed2afc5b605",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing.lean",
+      "bytes": 2676,
+      "sha256": "286e72cabb56ea4af126cabe2015174b1a02e2fbf101164125a725c7a9c807b4",
+      "decoded_bytes": 2676,
+      "decoded_sha256": "286e72cabb56ea4af126cabe2015174b1a02e2fbf101164125a725c7a9c807b4",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Action.lean",
+      "bytes": 457,
+      "sha256": "5330941c1d8f34553ea07d4f2034804dab9e0abb6b2c70c8463ca979bb924cec",
+      "decoded_bytes": 457,
+      "decoded_sha256": "5330941c1d8f34553ea07d4f2034804dab9e0abb6b2c70c8463ca979bb924cec",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/DenoteExpr.lean",
+      "bytes": 1532,
+      "sha256": "a63849ca448457153e72e9669b8aabf18e5cffc12c667fd74ff651f957cf7a9b",
+      "decoded_bytes": 1532,
+      "decoded_sha256": "a63849ca448457153e72e9669b8aabf18e5cffc12c667fd74ff651f957cf7a9b",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/EqCnstr.lean",
+      "bytes": 26141,
+      "sha256": "4c091c20e849c62c3bfe841e8a693565d2dab2c04df67d35b608240fcbded9c2",
+      "decoded_bytes": 26141,
+      "decoded_sha256": "4c091c20e849c62c3bfe841e8a693565d2dab2c04df67d35b608240fcbded9c2",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Internalize.lean",
+      "bytes": 8929,
+      "sha256": "23ce79e78ed044e1c7ae359bb5f3fddcbd4fa749e50f1d7ec2673b81579cd8de",
+      "decoded_bytes": 8929,
+      "decoded_sha256": "23ce79e78ed044e1c7ae359bb5f3fddcbd4fa749e50f1d7ec2673b81579cd8de",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Inv.lean",
+      "bytes": 1475,
+      "sha256": "934c53da27f66fd2a3835f6aa95465ba76245d4d2a0e515c47a3ad9b5031d3d1",
+      "decoded_bytes": 1475,
+      "decoded_sha256": "934c53da27f66fd2a3835f6aa95465ba76245d4d2a0e515c47a3ad9b5031d3d1",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommRingM.lean",
+      "bytes": 2802,
+      "sha256": "ad51c9f07dce189c22a666fea690d14c63d3f8d4d6cbd587b1505877fb01f22f",
+      "decoded_bytes": 2802,
+      "decoded_sha256": "ad51c9f07dce189c22a666fea690d14c63d3f8d4d6cbd587b1505877fb01f22f",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommSemiringM.lean",
+      "bytes": 3217,
+      "sha256": "695188dac411c637e9a01ec0effe8e743899eceda1e96329816b60a0ea59006b",
+      "decoded_bytes": 3217,
+      "decoded_sha256": "695188dac411c637e9a01ec0effe8e743899eceda1e96329816b60a0ea59006b",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/PP.lean",
+      "bytes": 3542,
+      "sha256": "5c41de53ceb671c93d2e62e13bb2478ebff8bcc881960a35a5792c91f34defe3",
+      "decoded_bytes": 3542,
+      "decoded_sha256": "5c41de53ceb671c93d2e62e13bb2478ebff8bcc881960a35a5792c91f34defe3",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Power.lean",
+      "bytes": 1503,
+      "sha256": "a4102f6c7e9877f3d9ae1c25abe9af3d2e144d5f07e42e9acc7dc92188fe7422",
+      "decoded_bytes": 1503,
+      "decoded_sha256": "a4102f6c7e9877f3d9ae1c25abe9af3d2e144d5f07e42e9acc7dc92188fe7422",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Proof.lean",
+      "bytes": 23488,
+      "sha256": "7d7672e40dad00510f5142c0bb0ec1ab4a72861356f839fa8e2c349df6c0c3da",
+      "decoded_bytes": 23488,
+      "decoded_sha256": "7d7672e40dad00510f5142c0bb0ec1ab4a72861356f839fa8e2c349df6c0c3da",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Reify.lean",
+      "bytes": 1090,
+      "sha256": "1681621ef525e9349e6109000f9d32f16a83f509ace66aa4d3895f7c09b0e1a9",
+      "decoded_bytes": 1090,
+      "decoded_sha256": "1681621ef525e9349e6109000f9d32f16a83f509ace66aa4d3895f7c09b0e1a9",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingId.lean",
+      "bytes": 1549,
+      "sha256": "5a69e164998e6cc96898480a33351dcdf18b5af23cfcce6a6203919e1667e826",
+      "decoded_bytes": 1549,
+      "decoded_sha256": "5a69e164998e6cc96898480a33351dcdf18b5af23cfcce6a6203919e1667e826",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingM.lean",
+      "bytes": 7868,
+      "sha256": "c71f2019873ee4927560218b63f3165cf19672e54d98e28522ad60d73a931483",
+      "decoded_bytes": 7868,
+      "decoded_sha256": "c71f2019873ee4927560218b63f3165cf19672e54d98e28522ad60d73a931483",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SafePoly.lean",
+      "bytes": 5406,
+      "sha256": "0d5afeeb28dc16dc58027c967c9f1b998a8b603f24ad9d1a192bb4f8e248e3c3",
+      "decoded_bytes": 5406,
+      "decoded_sha256": "0d5afeeb28dc16dc58027c967c9f1b998a8b603f24ad9d1a192bb4f8e248e3c3",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SemiringM.lean",
+      "bytes": 5087,
+      "sha256": "9ba6192e7e37569ac25394ab2bcf23f1c3ec2bac041b1eff4470f6ab67a44c04",
+      "decoded_bytes": 5087,
+      "decoded_sha256": "9ba6192e7e37569ac25394ab2bcf23f1c3ec2bac041b1eff4470f6ab67a44c04",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Types.lean",
+      "bytes": 13694,
+      "sha256": "2d92e9a5ea2da66e617cdca562f0d7efc6fe4b066bf44860ed820713afbb2ba3",
+      "decoded_bytes": 13694,
+      "decoded_sha256": "2d92e9a5ea2da66e617cdca562f0d7efc6fe4b066bf44860ed820713afbb2ba3",
+      "provenance": [
+        "grind-review/source-manifest.json"
+      ]
+    },
+    {
+      "path": "historical-drafts/Dimension.lean",
+      "bytes": 1962,
+      "sha256": "89447b4a28103d4c4686484a6c96a72026c577d6c92bd96a727e80baf0e99c93",
+      "decoded_bytes": 1962,
+      "decoded_sha256": "89447b4a28103d4c4686484a6c96a72026c577d6c92bd96a727e80baf0e99c93",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/Hollow.lean",
+      "bytes": 7304,
+      "sha256": "1a46b0b27a2351b50755b074df0981e095c465d9788c1a89a83fd2e7f574a737",
+      "decoded_bytes": 7304,
+      "decoded_sha256": "1a46b0b27a2351b50755b074df0981e095c465d9788c1a89a83fd2e7f574a737",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/Permanent.lean",
+      "bytes": 2030,
+      "sha256": "de61e0cd2db023e9fccb0d1f5324cbb05134bc033d99bad660cf330dcbe89e10",
+      "decoded_bytes": 2030,
+      "decoded_sha256": "de61e0cd2db023e9fccb0d1f5324cbb05134bc033d99bad660cf330dcbe89e10",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/Star.lean",
+      "bytes": 1983,
+      "sha256": "3e12f356805c0de8a6639ecab454b97f33253edb8aee858bb50edd15f0334d0c",
+      "decoded_bytes": 1983,
+      "decoded_sha256": "3e12f356805c0de8a6639ecab454b97f33253edb8aee858bb50edd15f0334d0c",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/StarLine.lean",
+      "bytes": 6652,
+      "sha256": "a7f47d70d46ff5b240c8496a62d561009c2e38acc8934672d0aa4b8285068666",
+      "decoded_bytes": 6652,
+      "decoded_sha256": "a7f47d70d46ff5b240c8496a62d561009c2e38acc8934672d0aa4b8285068666",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/StarLineCompletion.lean",
+      "bytes": 8741,
+      "sha256": "01fe7817ca8281fae0969873c1d2e6e7c5e6c3a7f962718afe2be0946f1b004e",
+      "decoded_bytes": 8741,
+      "decoded_sha256": "01fe7817ca8281fae0969873c1d2e6e7c5e6c3a7f962718afe2be0946f1b004e",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "historical-drafts/StarMaximal.lean",
+      "bytes": 5134,
+      "sha256": "793bfe408598580368663834ef3c1dd6500cd07852190b93ec747eadbce70cb0",
+      "decoded_bytes": 5134,
+      "decoded_sha256": "793bfe408598580368663834ef3c1dd6500cd07852190b93ec747eadbce70cb0",
+      "provenance": [
+        "historical scratch draft; standalone status unverified; relevant successful content already integrated"
+      ]
+    },
+    {
+      "path": "root-algebra/generate_rank1_certificate_lean.py",
+      "bytes": 2978,
+      "sha256": "a347cf3eab7b3ec7a564ee8a322cc124913b31a143b5427dc60302f33bccd1c4",
+      "decoded_bytes": 2978,
+      "decoded_sha256": "a347cf3eab7b3ec7a564ee8a322cc124913b31a143b5427dc60302f33bccd1c4",
+      "provenance": [
+        "emitter/validator; never exercised on a real target certificate"
+      ]
+    },
+    {
+      "path": "snapshots/PROGRESS.md",
+      "bytes": 8176,
+      "sha256": "cb53d71510aa171bbbc852983576993373889f80417cd1aae8e922e1892761f3",
+      "decoded_bytes": 8176,
+      "decoded_sha256": "cb53d71510aa171bbbc852983576993373889f80417cd1aae8e922e1892761f3",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/desk-410-independent-review.json",
+      "bytes": 783,
+      "sha256": "50912e4c6bb3eb1804509c22f0e19942b507437de400084804b6a5f882e60259",
+      "decoded_bytes": 783,
+      "decoded_sha256": "50912e4c6bb3eb1804509c22f0e19942b507437de400084804b6a5f882e60259",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/desk-410-response.txt",
+      "bytes": 778,
+      "sha256": "6585a67d766f8361be04e48b2a01a4ce86c8bdc109067c4112505a91b90d1957",
+      "decoded_bytes": 778,
+      "decoded_sha256": "6585a67d766f8361be04e48b2a01a4ce86c8bdc109067c4112505a91b90d1957",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/desk-410-status.json",
+      "bytes": 640,
+      "sha256": "3d11b5483cd08b1ae90dd4a52bf8daaa4007eece833c482adec537cbe5be247d",
+      "decoded_bytes": 640,
+      "decoded_sha256": "3d11b5483cd08b1ae90dd4a52bf8daaa4007eece833c482adec537cbe5be247d",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/validation.txt",
+      "bytes": 17814,
+      "sha256": "f769d30249e406d278fbe72b1b9aa39a6a720268e78a658dd26ef2a0c428506e",
+      "decoded_bytes": 17814,
+      "decoded_sha256": "f769d30249e406d278fbe72b1b9aa39a6a720268e78a658dd26ef2a0c428506e",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "toolchain/reserve-after-upstream-fetch.py",
+      "bytes": 2035,
+      "sha256": "fa4ab22df981baf8c31017e1b1bb7ccef30b1f599c563e8ab8f60e4b18193b15",
+      "decoded_bytes": 2035,
+      "decoded_sha256": "fa4ab22df981baf8c31017e1b1bb7ccef30b1f599c563e8ab8f60e4b18193b15",
+      "provenance": [
+        "frozen authentic-artifact maintenance"
+      ]
+    },
+    {
+      "path": "toolchain/reserve-after-upstream-holder-reply.json",
+      "bytes": 7106,
+      "sha256": "8e3138713c479c3aed1c6261d3e8c0e261524fc3ae2a2b51f706150729c045e9",
+      "decoded_bytes": 7106,
+      "decoded_sha256": "8e3138713c479c3aed1c6261d3e8c0e261524fc3ae2a2b51f706150729c045e9",
+      "provenance": [
+        "frozen authentic-artifact maintenance"
+      ]
+    },
+    {
+      "path": "toolchain/reserve-after-upstream-validation.json",
+      "bytes": 8536,
+      "sha256": "751d742baafd7b31f9d45c874ea4ac422dc148337663c5880d685ea5774a8cc7",
+      "decoded_bytes": 8536,
+      "decoded_sha256": "751d742baafd7b31f9d45c874ea4ac422dc148337663c5880d685ea5774a8cc7",
+      "provenance": [
+        "frozen authentic-artifact maintenance"
+      ]
+    },
+    {
+      "path": "toolchain/reserve-after-upstream.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "frozen authentic-artifact maintenance"
+      ]
+    },
+    {
+      "path": "toolchain/reserve-after-upstream.stdout",
+      "bytes": 537,
+      "sha256": "9fdfc46c56a989c743f5c819bb5dfa90e88619befee6bf5fdd18b15592efd82c",
+      "decoded_bytes": 537,
+      "decoded_sha256": "9fdfc46c56a989c743f5c819bb5dfa90e88619befee6bf5fdd18b15592efd82c",
+      "provenance": [
+        "frozen authentic-artifact maintenance"
+      ]
+    },
+    {
+      "path": "upstream-review/L_gct_261.lean",
+      "bytes": 11979,
+      "sha256": "a64f4d0c43097d25c61e6208cc97e4e80083f850e3b46faada6d9aa9f05f5926",
+      "decoded_bytes": 11979,
+      "decoded_sha256": "a64f4d0c43097d25c61e6208cc97e4e80083f850e3b46faada6d9aa9f05f5926",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/L_gct_267.lean",
+      "bytes": 2761,
+      "sha256": "0c0f2c6f261a05781287d75781aedf713949ba66ce789dfd11a7616a7592ca6c",
+      "decoded_bytes": 2761,
+      "decoded_sha256": "0c0f2c6f261a05781287d75781aedf713949ba66ce789dfd11a7616a7592ca6c",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/L_gct_269.lean",
+      "bytes": 6473,
+      "sha256": "1e9bfc403964be32a26907064c68198744d13f64e07dacf7698903f5998e8a39",
+      "decoded_bytes": 6473,
+      "decoded_sha256": "1e9bfc403964be32a26907064c68198744d13f64e07dacf7698903f5998e8a39",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/L_gct_271.lean",
+      "bytes": 4218,
+      "sha256": "a07550667a13cf3092d403a9d1c68b89845f2a9e1dc819220bfbe248a0085a6b",
+      "decoded_bytes": 4218,
+      "decoded_sha256": "a07550667a13cf3092d403a9d1c68b89845f2a9e1dc819220bfbe248a0085a6b",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/REVIEW.txt",
+      "bytes": 518,
+      "sha256": "669757322e1bba445a03fd9acff41018820ea8647a01398c65626988786c5c79",
+      "decoded_bytes": 518,
+      "decoded_sha256": "669757322e1bba445a03fd9acff41018820ea8647a01398c65626988786c5c79",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/fetch.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1",
+      "decoded_bytes": 101,
+      "decoded_sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/fetch.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/head.txt",
+      "bytes": 94,
+      "sha256": "293c4c7c2ecf379cc4fced61d527b6a94ee89c640b08985c0e7fb2821e5c3c81",
+      "decoded_bytes": 94,
+      "decoded_sha256": "293c4c7c2ecf379cc4fced61d527b6a94ee89c640b08985c0e7fb2821e5c3c81",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/new-gct-manifest.json",
+      "bytes": 1097,
+      "sha256": "5f51adbd682c03cdb52e3e627179ffa8aedcb9dd4cb01d9454700c4ab6b9352e",
+      "decoded_bytes": 1097,
+      "decoded_sha256": "5f51adbd682c03cdb52e3e627179ffa8aedcb9dd4cb01d9454700c4ab6b9352e",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/new-gct-paths.txt",
+      "bytes": 156,
+      "sha256": "0d48973a41b104103dc29bbbc576414c1184b2f86a08952982c6dc1888f2f65d",
+      "decoded_bytes": 156,
+      "decoded_sha256": "0d48973a41b104103dc29bbbc576414c1184b2f86a08952982c6dc1888f2f65d",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/new-public-gct-nodes.json",
+      "bytes": 26381,
+      "sha256": "1f34ce75cfa12ccf52403c4ea2614fec40a2c2480d39ae884e8b47d2bab179e8",
+      "decoded_bytes": 26381,
+      "decoded_sha256": "1f34ce75cfa12ccf52403c4ea2614fec40a2c2480d39ae884e8b47d2bab179e8",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "upstream-review/preservation-manifest.json",
+      "bytes": 2558,
+      "sha256": "cd448c3e68e9fa5a420885b26ea180babc93a57ffa042f0d811c66d2c325f68c",
+      "decoded_bytes": 2558,
+      "decoded_sha256": "cd448c3e68e9fa5a420885b26ea180babc93a57ffa042f0d811c66d2c325f68c",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "upstream-review/review.json",
+      "bytes": 2876,
+      "sha256": "5237f4bca6ba1381763ab31ea6d69596c1065d74ff5badf7560fbd60937520ae",
+      "decoded_bytes": 2876,
+      "decoded_sha256": "5237f4bca6ba1381763ab31ea6d69596c1065d74ff5badf7560fbd60937520ae",
+      "provenance": [
+        "upstream-review/preservation-manifest.json"
+      ]
+    }
+  ],
+  "external_payloads": [
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/Bone-equal-D-chain-independent-audit.json",
+      "bytes": 1123,
+      "sha256": "4baec74076abfc39bdcead34e3abe4582d14d6912b57ee9351b7024c435f56ea",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/Bone-equal-D-chain-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/Bone-equal-D-chain-independent-audit.stdout",
+      "bytes": 731,
+      "sha256": "ea720fab21e1334e1ddbf5140af4ae5b28aa36ee8dbbc7bcfe91065cd1ddf4a6",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_Bone_equal_D_chain.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/audit_Bone_equal_D_chain.py",
+      "bytes": 6636,
+      "sha256": "8b8b9d3c92c20f11a95a29efcbcbf4db241a6ee30bc7fb826af44fd5ea582451",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/canonical55/input.json",
+      "repository_path": "results/orch/research/canonical-inputs-checkpoint/geometry_search/canonical55/input.json",
+      "bytes": 828291,
+      "sha256": "9111d1aacc49deed879e59172999a51d0e1f1488784d081d7a97491f7358dd19",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/equal-D-complete-preservation-manifest.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/equal-D-complete-preservation-manifest.json",
+      "bytes": 21401,
+      "sha256": "4453f381a65f63f60ac77b96cdf9da3f258711722e954dd69e122ef7c7ebd01e",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "geometry_search/full-quartic-correction.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/geometry_search/full-quartic-correction.json",
+      "bytes": 4878,
+      "sha256": "44291cc3d7a487aa1c4b0718e503d89f5cd6d9c3e08acfcee9aa35a731b7d729",
+      "provenance": [
+        "geometry_search/generic-pivots-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/TRACE_BONE_EQUAL_D.md",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/TRACE_BONE_EQUAL_D.md",
+      "bytes": 3294,
+      "sha256": "7e285b179a6830d2dd73498d03f4ba07631558086d7fe167e111261d5c4b10fd",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/audit_equal_D_field_maps.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/audit_equal_D_field_maps.py",
+      "bytes": 2540,
+      "sha256": "088dd45771156153730c3f7848723330d2907119d0d48a1dc4fc8d51307708b3",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/equal-D-field-maps-independent-audit.json",
+      "bytes": 1184,
+      "sha256": "fefb02129531980b9a941448563d3ed3891f556e998951ef8eb65e711e92530e",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/equal-D-field-maps-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/equal-D-field-maps-independent-audit.stdout",
+      "bytes": 1078,
+      "sha256": "1ae3524c83dcfdcba6e98fbf3df6b68988e223de14914e46dae7cad323f2b702",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/generate_trace_Bone.py",
+      "repository_path": "results/orch/research/stable-checkpoint/geometry_search/rowzero/generate_trace_Bone.py",
+      "bytes": 4796,
+      "sha256": "6c9680945ccaaca43988c11581602976920f63f1da26e3039cec07df254cd9af",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-certificate.json",
+      "bytes": 1822427,
+      "sha256": "c3b304a867d6a63f87a3c963795e312be3c967ae0d86e404c0eac88a920f2605",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stdout",
+      "bytes": 173,
+      "sha256": "d303272719ca72d6f83f6b5e6b82b83a98c9bf8bc499217f9df2bc75a2ca18fb",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stdout",
+      "bytes": 114,
+      "sha256": "eff6e1deff8e23f5fb8cdf9b57907adb0dfe3b31451e8202e654840c7fb9f78c",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-input.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-run.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift-run.json",
+      "bytes": 128,
+      "sha256": "26a1114fc44f38a6d965ff5c3268e816b33a292db95157648f846591f6341785",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.sing",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift.sing",
+      "bytes": 20090,
+      "sha256": "a72102f2caead04971bf60345fd7289907778de095faec7848414813d8afc013",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-lift.stdout",
+      "bytes": 548406,
+      "sha256": "94e81bc7c0e1a79a3a7a5d735a97ea6b2d42dd5e55e45d352be535a133d82e53",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stdout",
+      "bytes": 114,
+      "sha256": "045bfd35e63fbe168cc471122ed8db3f850f9009884e31fe9c8361fc99c35833",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-input.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-run.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std-run.json",
+      "bytes": 128,
+      "sha256": "1e4045c915410d9a760247a345c40fe43a5811eec693dd662797bb3efc7f0a08",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.sing",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing",
+      "bytes": 18227,
+      "sha256": "06cbf9a65c7ea5ff90bdb7b10c3ab2102b04e45587b0ad1cfe075bfd139f8bdf",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std.stdout",
+      "bytes": 1479,
+      "sha256": "4894d0db8f643ee6594a2b178c1ccc11a186fd6a6f9881eed0549de26fdcca6c",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stdout",
+      "bytes": 114,
+      "sha256": "e3dfa0f7690ccb198294e3bf0a5cd48bb0bc0f498a6671ea636d8d6ed49892db",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-input.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-run.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2-run.json",
+      "bytes": 128,
+      "sha256": "92f5c08b0438df105e0ce95cbfdef3d3fc7b844ef7cdb5c99caa42f7fdf45525",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.sing",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2.sing",
+      "bytes": 19801,
+      "sha256": "e5dd4b5527095b26004f84ea6ed2c50e9d7f898e9dc5fc96e928939fa4446865",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-7-std2.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-certificate.json",
+      "bytes": 1638407,
+      "sha256": "0055a7143e14f7fae348cb26f454a216095b7208693db46fe188a5423042d3ae",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stdout",
+      "bytes": 174,
+      "sha256": "272ad6282a7aea624bb280841937d511483ec167be27c67ac163ed71c74b7485",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stdout",
+      "bytes": 173,
+      "sha256": "d170f326832fae26f4efbbef883679127ee6ec80d4cf9fe58da1f9a2ff49cb13",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-input.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift-input.json",
+      "bytes": 15972,
+      "sha256": "d322b261e5913ab1ce3166f5d269658acb9592fd592ad116c7c80fa2406ca8c8",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-run.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift-run.json",
+      "bytes": 191,
+      "sha256": "42cd3b7c06b8edc26e4b75b673f2d484cdfad6a6ed63fdfdc3a1ff10ff1a1e67",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.sing",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift.sing",
+      "bytes": 16665,
+      "sha256": "74166f3ef07d4ac4c511288653f1e2f1968b623fb4af57e5c81c294252bfcc22",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-lift.stdout",
+      "bytes": 494330,
+      "sha256": "231a14d9c01ef622bbecb60b4ab994483206bb5ccf92d670a1d1cc4f371b546c",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stdout",
+      "bytes": 173,
+      "sha256": "d5ad69b23acd0030500e877afdc8b4910dd45c191a12917acc2109fb675750f7",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-input.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std-input.json",
+      "bytes": 15972,
+      "sha256": "d322b261e5913ab1ce3166f5d269658acb9592fd592ad116c7c80fa2406ca8c8",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-run.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std-run.json",
+      "bytes": 191,
+      "sha256": "7b325d26d0dc2d3059f646631ccfa8de07b489430d317a0643bf16b74e5614e5",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.sing",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std.sing",
+      "bytes": 16376,
+      "sha256": "e9ee7e73d5fb30c177828c8927c5a09981ec89f4e21c3a76090b525d68f02119",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-9-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-7.json",
+      "bytes": 16473,
+      "sha256": "175174c61b588cf5fcb6105f257dc4fd9e2eb88f2fda1b1a18241295b9f7c705",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-7.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-7.stdout",
+      "bytes": 223,
+      "sha256": "2feeade2edb61c6fbbcb579f4547345ee9f5e8fa2a82bcd5640c83541e2a8c49",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-9.json",
+      "bytes": 14730,
+      "sha256": "9ea357bcf6ae7a3b7e511b5155eed1af49ba6fc375688b51909435df0ce0ab4a",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-9.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D-linear-9.stdout",
+      "bytes": 224,
+      "sha256": "eb1ebe363b8a2f72d61978a9b46c97c565b12efa35b3cbc7b6d9bfa1f7feec7d",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.json",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D.json",
+      "bytes": 982,
+      "sha256": "55340031dfd06cdf7b5c54e0d505465385318e799d4a94ecb566babd2454c7f2",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.stderr",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.stdout",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace-Bone-equal-D.stdout",
+      "bytes": 982,
+      "sha256": "55340031dfd06cdf7b5c54e0d505465385318e799d4a94ecb566babd2454c7f2",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stderr",
+      "repository_path": "results/orch/research/stable-checkpoint/geometry_search/rowzero/trace-Bone-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stdout",
+      "repository_path": "results/orch/research/stable-checkpoint/geometry_search/rowzero/trace-Bone-generator.stdout",
+      "bytes": 177,
+      "sha256": "fdf7b083e4214d9b0059056afd50e1ff0ac54cb1d4cd9e9f116e988f6d1dca8d",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-same-index.sing",
+      "repository_path": "results/orch/research/stable-checkpoint/geometry_search/rowzero/trace-Bone-same-index.sing",
+      "bytes": 4923,
+      "sha256": "6c67e9c8d72daf4a5a31aeac80b75a47c02405c85f766ab4f36d9c0013ba1933",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-systems.json",
+      "repository_path": "results/orch/research/stable-checkpoint/geometry_search/rowzero/trace-Bone-systems.json",
+      "bytes": 14009,
+      "sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace_Bone_equal_D.py",
+      "bytes": 2124,
+      "sha256": "2ec4e52eaa1d9f0de9591ea91b7903a97497ea6d342946b33159bbd24ef27698",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_linear.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace_Bone_equal_D_linear.py",
+      "bytes": 3489,
+      "sha256": "de8c659c0979f4c9f53639c2cc8c0d52a9d6910cabf8f0dd04087f24477af175",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_linear_fast.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace_Bone_equal_D_linear_fast.py",
+      "bytes": 4652,
+      "sha256": "eee237c6abb155f289f1226472a7618dfc1d136f3639b2ffbb43fafba410f2e6",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_native.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/trace_Bone_equal_D_native.py",
+      "bytes": 4180,
+      "sha256": "4c0c61ae6eed85a0c0620b3b0a0c326cb2e260388caa1e09ee9bf894d348f88f",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/verify_Bone_equal_D_native.py",
+      "repository_path": "results/orch/research/equal-D-checkpoint/geometry_search/rowzero/verify_Bone_equal_D_native.py",
+      "bytes": 2448,
+      "sha256": "cc0910061e1c83d2507d36ad9b8e5cb3f6531ce0fb078d77a6a5a57ef1c1f707",
+      "provenance": [
+        "geometry_search/equal-D-complete-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/audit_root_horner.py",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/audit_root_horner.py",
+      "bytes": 3590,
+      "sha256": "9da82439b72099390a2c7c47097fd7a250a80e314edad400ed3457835f9db84e",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb-probe.py",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb-probe.py",
+      "bytes": 2807,
+      "sha256": "4441e4d4af87ec22c0ab5f3fa2ec6cbbda525b71142598a2cd89eb4c960cb325",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.sing",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb/probe.sing",
+      "bytes": 53962,
+      "sha256": "8f70f31eff7862143858dc1f0084b1edae684c4c15ad6c0031ecd7e93c2dfdf1",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb/probe.stdout",
+      "bytes": 850,
+      "sha256": "94f7bf51b3173ba6a12d68afd8d0be1315f11bb7f3c923e56fd180500515c621",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/result.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb/result.json",
+      "bytes": 522,
+      "sha256": "056596b2101b684fa754222680e84831ff6d41ce4e89c11387f50d347c004935",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/termination.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/incidence-module-slimgb/termination.json",
+      "bytes": 338,
+      "sha256": "392ed6300051aec07b27d75ada745c2930af9c9d1cf1c817aa6295fbe213f747",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/late-capability-preservation-manifest.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/late-capability-preservation-manifest.json",
+      "bytes": 7191,
+      "sha256": "eedb93aa1118d6d0c9254ad5a5a3736abce6092b060f72c250725f5169d7e716",
+      "provenance": [
+        "frozen source manifest"
+      ]
+    },
+    {
+      "path": "numeric/late-capability-status.txt",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/late-capability-status.txt",
+      "bytes": 1697,
+      "sha256": "38f29c76eb5e0aaa302cc2861acbd0ff11e14a47baee2c2252761ce41036d32a",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/root-horner-independent-audit.json",
+      "bytes": 1099,
+      "sha256": "850c8120f81f3a35d40e1975a7408fd5f60911b2460da9e5ed747d21a733f33a",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/root-horner-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/root-horner-independent-audit.stdout",
+      "bytes": 1099,
+      "sha256": "850c8120f81f3a35d40e1975a7408fd5f60911b2460da9e5ed747d21a733f33a",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced-certificates.jsonl",
+      "repository_path": "results/orch/research/stable-checkpoint/numeric/s4-augmented/reduced-certificates.jsonl",
+      "bytes": 117773,
+      "sha256": "905c24be354861695a2b44b3cab1838e78cf67e5bf5631ddb61b3421d505aff8",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/homogeneous-graph-smoke.json",
+      "bytes": 79,
+      "sha256": "c65e041e7fec87acaef4b2900f996ef3000cf63a190fd82bb8d9a736d24210e4",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.sing",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/homogeneous-graph-smoke.sing",
+      "bytes": 564,
+      "sha256": "56a5d55d5cc2a0d69ca8f0773ef27783e656a218885642a7088baf63af13b65f",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/homogeneous-graph-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/homogeneous-graph-smoke.stdout",
+      "bytes": 155,
+      "sha256": "2b9fa4ac2341feb05a54dd07b3b4d6afe6c2d44ce357a18d018f07bd8e59237b",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/liftstd-transformation-smoke.json",
+      "bytes": 80,
+      "sha256": "290ce7656edfc3272b98684e4cef526fc776f00ebf3e0cb0b2118579638af356",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.sing",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/liftstd-transformation-smoke.sing",
+      "bytes": 462,
+      "sha256": "ecd079d3cd930befafaa4128bbeec2aa7d8767740591e752267c1d2f5071fce1",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/liftstd-transformation-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/liftstd-transformation-smoke.stdout",
+      "bytes": 164,
+      "sha256": "b31926a28223b7301c3df91cbd50ed9b531307f7810bfe153159cdc359e96073",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/modular-liftstd-unit-smoke.json",
+      "bytes": 79,
+      "sha256": "bcc8095d3b0f0cc15b6ba6aa8f5384ae524bc6df18c33f2e4e3eef3a915e27e2",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.sing",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/modular-liftstd-unit-smoke.sing",
+      "bytes": 1041,
+      "sha256": "d3fcc2b5dc8db8491e9a61c13e9177153c2cd64ec1cc2797c5111d6cf2db9b6e",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/modular-liftstd-unit-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/numeric/s4-structure/modular-liftstd-unit-smoke.stdout",
+      "bytes": 100,
+      "sha256": "a6ff1220d63fd58f9b22c736211c4cfe8c4c1fdd6e17c155a90fb8e0d012015a",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/rational-id-rowmap.json",
+      "repository_path": "results/orch/research/late-checkpoint/numeric/s4-structure/rational-id-rowmap.json",
+      "bytes": 634177,
+      "sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433",
+      "provenance": [
+        "geometry_search/lease-freeze-extra-preservation-manifest.json",
+        "geometry_search/rowzero/canonical-extra-freeze-manifest.json"
+      ]
+    },
+    {
+      "path": "root-algebra/audit_rank1_certificate.py",
+      "repository_path": "results/orch/research/stable-checkpoint/root-algebra/audit_rank1_certificate.py",
+      "bytes": 4306,
+      "sha256": "374ecfaba7040da98122bf29edc6d10f46405ad8a27cb43c8f9e2ceace786541",
+      "provenance": [
+        "emitter/validator; never exercised on a real target certificate"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.json",
+      "repository_path": "results/orch/research/stable-checkpoint/root-algebra/rank1-generator-audit.json",
+      "bytes": 566,
+      "sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "provenance": [
+        "emitter/validator; never exercised on a real target certificate"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.stderr",
+      "repository_path": "results/orch/research/stable-checkpoint/root-algebra/rank1-generator-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "emitter/validator; never exercised on a real target certificate"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.stdout",
+      "repository_path": "results/orch/research/stable-checkpoint/root-algebra/rank1-generator-audit.stdout",
+      "bytes": 566,
+      "sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "provenance": [
+        "emitter/validator; never exercised on a real target certificate"
+      ]
+    },
+    {
+      "path": "snapshots/NOTES.md",
+      "repository_path": "results/orch/research/stable-checkpoint/snapshots/NOTES.md",
+      "bytes": 67869,
+      "sha256": "c083fddeb5dc62665ffd6d7903d4d2df3aa8824bc854ac091a7ef5f019d1d3d8",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/TIMELINE.md",
+      "repository_path": "results/orch/research/stable-checkpoint/snapshots/TIMELINE.md",
+      "bytes": 5738,
+      "sha256": "f8c6b6b61c4cb7277af4d4279902edd4aee879e4516daa0db017fa1875c6a1aa",
+      "provenance": [
+        "repository freeze snapshot"
+      ]
+    },
+    {
+      "path": "toolchain/backup-main-2629.py",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/backup-main-2629.py",
+      "bytes": 1863,
+      "sha256": "e0176f6aaf0aa37c6bb84e191fc89b57e76c7bede69ae7e5d91d1b9b295b65fb",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-backup-control.py",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-backup-control.py",
+      "bytes": 1657,
+      "sha256": "cbaabc6b0135995f047d53adfe937fc03ba30f8a0a956c9b42d7f97eb622e79f",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-backup-validation.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-backup-validation.json",
+      "bytes": 851,
+      "sha256": "4968b069613aa84c03f4c7592f129d99436f016f2f16bdd2c11fae8a4689a5ab",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-backup.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-backup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-backup.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-backup.stdout",
+      "bytes": 851,
+      "sha256": "4968b069613aa84c03f4c7592f129d99436f016f2f16bdd2c11fae8a4689a5ab",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-check.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-check.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-check.stdout",
+      "bytes": 254,
+      "sha256": "0bfd8ba20c55ea3556d163fb832fceaa01b365a0240965de6dc48a28f2b13688",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-compress.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-compress.stderr",
+      "bytes": 183,
+      "sha256": "e76017c26ebe37c0f9ae387149d8cc70711aea9c12ecf3fafe41dd941e20eee2",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-compress.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-compress.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-2629-decompress.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-2629-decompress.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-build-space-holder-reply.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-build-space-holder-reply.json",
+      "bytes": 11888,
+      "sha256": "be81409936407c450c52287d3e4aedabb00727d708f3a0d6d941c4c8eaad4347",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-build-space-private-plan.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-build-space-private-plan.json",
+      "bytes": 15955,
+      "sha256": "a40a2e14537478e107b9b34a714996d3ecba05163b6d0963f84afa67f669d751",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-build-space-validation.json",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-build-space-validation.json",
+      "bytes": 13960,
+      "sha256": "e6dec4b0ec6de7f64748df66f2327e509cdb10cb56c5b9fdfbbdc1c2575f62cd",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-build-space.stderr",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-build-space.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/main-build-space.stdout",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/main-build-space.stdout",
+      "bytes": 534,
+      "sha256": "4daebae4e2a3cbe17203134c697ef06f564bd494456d3d0f0d20b9d4fea62b19",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/run-main-build-space.py",
+      "repository_path": "results/orch/research/completed-capability-checkpoint/toolchain/run-main-build-space.py",
+      "bytes": 2206,
+      "sha256": "e950fe0c724ca98887596d061b66a439e18d1317cacf3731faa288b42383a81d",
+      "provenance": [
+        "numeric/late-capability-preservation-manifest.json"
+      ]
+    }
+  ],
+  "new_payload_bytes": 4735757,
+  "new_payload_files": 202
+}

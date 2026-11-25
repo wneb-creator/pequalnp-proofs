@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Independent exact comparison of each primitive-element field map and all six residuals against the original ordered-root quotient. No generic B-rank-one conclusion.",
+  "branches": {
+    "7": {
+      "ordered_root_source_sha256": "175174c61b588cf5fcb6105f257dc4fd9e2eb88f2fda1b1a18241295b9f7c705",
+      "primitive_input_sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07",
+      "certificate_sha256": "c3b304a867d6a63f87a3c963795e312be3c967ae0d86e404c0eac88a920f2605",
+      "primitive_minpoly_vanishes_in_ordered_root_quotient": true,
+      "inverse_x_and_y_maps_exact": true,
+      "all_six_residuals_match": true
+    },
+    "9": {
+      "ordered_root_source_sha256": "9ea357bcf6ae7a3b7e511b5155eed1af49ba6fc375688b51909435df0ce0ab4a",
+      "primitive_input_sha256": "d322b261e5913ab1ce3166f5d269658acb9592fd592ad116c7c80fa2406ca8c8",
+      "certificate_sha256": "0055a7143e14f7fae348cb26f454a216095b7208693db46fe188a5423042d3ae",
+      "primitive_minpoly_vanishes_in_ordered_root_quotient": true,
+      "inverse_x_and_y_maps_exact": true,
+      "all_six_residuals_match": true
+    }
+  },
+  "seconds": 1.732173899999907
+}

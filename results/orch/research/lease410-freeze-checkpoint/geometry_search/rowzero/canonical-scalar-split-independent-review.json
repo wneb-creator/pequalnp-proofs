@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Exact copied-declaration and audited-body boundaries, minimal-import list and format review only. No rebuild. Scalar identities and31 polynomial consequence lemmas are separated from the already checked rank-family existence wrapper.",
+  "prelude_sha256": "4feefd4614fdf882934a4e829104594ee51ba9bab0f8f591186a02d51852474a",
+  "prelude_lines": 217,
+  "collection_sha256": "208bd8166f18d9bb17d4128c3a92683b18c401f019af2bb88cd650c5097dd343",
+  "collection_lines": 1296,
+  "seven_original_declarations_byte_identical": [
+    "permanent_four",
+    "quartic_first_coefficients",
+    "quartic_all_coefficients",
+    "hadamardSigns",
+    "hadamardTransform",
+    "hadamardCoordinateMatrix",
+    "hadamardReconstruct"
+  ],
+  "optimized_scalar_body_byte_identical": true,
+  "generator_collection_body_byte_identical_except_excluded_rank_wrapper": true,
+  "no_main_Defs_dimension_or_bilinear_import": true,
+  "format_scan": "PASS"
+}

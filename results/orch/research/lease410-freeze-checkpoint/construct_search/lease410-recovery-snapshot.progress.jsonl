@@ -1,0 +1,4 @@
+{"utc": "2026-11-25T13:07:49.563309+00:00", "event": "started", "pid": 30201, "source_sha256": "ccfd658ed040658b323033301654abef9af353a1b2569ead1267aff57ef53372"}
+{"utc": "2026-11-25T13:07:49.604877+00:00", "event": "stdout_line", "line": "START_FOCUSED_LIFTSTD_12", "raw_bytes": 25}
+{"utc": "2026-11-25T13:07:49.605519+00:00", "event": "stdout_line", "line": "PRIME_LIFTSTD_START", "raw_bytes": 56}
+{"utc": "2026-11-25T13:07:49.605537+00:00", "event": "stdout_line", "line": "2147483587", "raw_bytes": 56}

@@ -1,0 +1,1 @@
+{"utc": "2026-11-25T13:12:03.519441+00:00", "action": "SIGSTOP", "reason": "Root reports expired lease HTTP410; target computation paused pending fresh lease", "process_sample": "    PID    PPID STAT     ELAPSED     TIME   RSS\n  30201   30200 T          04:13 00:02:06 764780\n"}

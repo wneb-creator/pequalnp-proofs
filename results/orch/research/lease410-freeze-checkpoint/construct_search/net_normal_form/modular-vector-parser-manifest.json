@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-11-25T13:11:36.393221+00:00",
+  "status": "Self-tests PASS; initial live scan has no complete blocks",
+  "scope": "Frozen parser and bounded initial readiness tests. No modular or rational certificate yet. Future scans update modular-vector-audit-report.json, which is intentionally not part of this frozen manifest.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/audit_modular_vectors.py",
+      "bytes": 10593,
+      "sha256": "1d729528f814dba60d5c68768d359ed16452d7195fc6d4e04ce96402e3cabf12"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/MODULAR-VECTOR-PARSER.md",
+      "bytes": 1967,
+      "sha256": "2f38bdc3b3ba192535f3b23628cb1245fe9fc913ae00bf466325007b2858073c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/modular-vector-parser-test.stdout",
+      "bytes": 32,
+      "sha256": "ec776588c442d888071c7847e46b881a9b113d6ac82bf8a7db1b7922f7181742"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/modular-vector-parser-test.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/modular-vector-parser-initial-scan.json",
+      "bytes": 407,
+      "sha256": "18c4524040e2f28bc273ad278825eb4a3359206105c0748e4fa6f965ba41b4a0"
+    }
+  ]
+}

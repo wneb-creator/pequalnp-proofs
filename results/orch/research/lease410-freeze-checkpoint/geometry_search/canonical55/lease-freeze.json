@@ -1,0 +1,13 @@
+{
+  "paused_utc": "2026-11-25T13:12:25.393152+00:00",
+  "reason": "Root reports desk lease HTTP410; all target computation frozen pending root reacquisition.",
+  "native_pid": 28884,
+  "wrapper_pid": 28883,
+  "before": "Singular          28883 R          17:30 00:10:29 667036 864348",
+  "after": "28883 python          T          17:30 00:00:01 10504  36440\n  28884 Singular        T          17:30 00:10:29 667036 864348",
+  "scope": "Paused incomplete modular computation; no basis or infeasibility result.",
+  "stdout_snapshot_sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21",
+  "stdout_snapshot_bytes": 1877,
+  "stderr_snapshot_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_snapshot_bytes": 0
+}

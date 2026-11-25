@@ -1,0 +1,120 @@
+CURRENT VALIDATION SNAPSHOT — 2026-11-25T13:01:53.655118+00:00
+
+PARTIAL RESULTS ONLY. The posted dimension-three existence theorem is absent. No full proof/refutation, proof PR, or tools/check-lean.mjs verdict is claimed.
+
+Named file: lean/PEqualNP/Outside/L_gct_231.lean
+Source: 3700 lines, 163040 bytes, 211 unique declarations.
+Source SHA256: b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e
+Command: lake build PEqualNP.Outside.L_gct_231
+Exit: 0
+Result: Build completed successfully (5159 jobs).
+Complete latest build diagnostics:
+combined3700-build.stdout: 66151 bytes; SHA256 10b2d3db4c324d81e082165c717d8d8a4bbb7baf9a578706e8b2a272063410ca
+combined3700-build.stderr: 105 bytes; SHA256 7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98
+combined3700-build.exit: 2 bytes; SHA256 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa
+Independent integration/source/format review: PASS; integration-3700-audit.json and rowzero/route-generators-assembly-independent-review.json reconstruct the exact main source from reviewed component bodies.
+
+Rank-two status: geometry and twelve exact incident coefficient equations are checked in main. Standalone lemmas/IncidentArithmeticGlue.lean, 48 lines, compiles and reduces the normalized opposite-edge claim to the explicit NormalizedIncidentArithmetic premise (twelve equations plus inverse guard). Its SHA256 is 6dabc2112f73a9de77a3d5bfe1b7d5a3d346f0846b4b31759357fc26825cb9c4. That premise has not been proved; the finite-prime candidate is not a rational certificate.
+
+Rank-three status: main contains unconditional Hadamard coordinates and incidence normalization. Standalone lemmas/CanonicalHomogeneous.lean, 162 lines, compiles and proves the exact radial formula plus canonical D=identity family. Its SHA256 is 2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3. Complete successful logs/validation accompany both standalone components. The 31-generator coefficient collection and 174-line proof-size optimization are audited drafts, not yet compiled. No exact rank-three inconsistency certificate is available.
+
+Missing global obligations: (1) prove NormalizedIncidentArithmetic unconditionally; (2) prove complex inconsistency of the canonical 31 coefficient equations, with any augmented consequences verified; (3) assemble the exact posted negated twin if these succeed, then run its full named build and authoritative checker. These are outstanding tasks, not new hypotheses asserted in the posted theorem.
+
+Checker: no verdict. Earlier full runtime smoke was resource-blocked; no full-checker runtime retest after cache migration. No checker implementation or project build configuration was altered. Selective axioms/main2629 audit of five older major helpers found only propext, Classical.choice, Quot.sound; this is not a current all-declaration audit or checker verdict.
+
+Measurement starts 2026-11-25T08:14:51Z; elapsed value below is wall-clock minutes at this snapshot. The seven used subagents include the earlier artifact_analysis reviewer as well as the currently active/recent workers.
+Sub-agents: construct_search, geometry_search, status_review, toolchain_setup, artifact_analysis, rowzero, net_normal_form
+TIMING total=287.0 subagents=7
+
+HISTORICAL CHECKPOINTS FOLLOW. Their line counts, timings, intermediate open tasks and build outcomes describe their own earlier snapshots; the current summary above supersedes them.
+
+PARTIAL CHECKPOINT: compiled helper lemmas only. The posted dimension-three existence theorem is not yet proved.
+
+Build: lake build PEqualNP.Outside.L_gct_231
+Exit: 0
+Result: Build completed successfully (5149 jobs).
+Complete stdout and stderr accompany this record.
+
+Checker: no verdict on this partial file. Full checker runtime smoke is resource-blocked in this container (8 GiB memory, 7.9 GiB disk); no checker/source alteration was made.
+
+Independent review: artifact_analysis checked the helper proofs and plain-file restrictions; no sorry, new axioms, native_decide, forbidden root qualifier, strings, attributes or options. This snapshot is not a proof PR.
+
+Sub-agents: status_review (dimension/star formalization), toolchain_setup (setup/permanent), artifact_analysis (independent review/research), construct_search (symbolic constructions), geometry_search (geometric constraints), rowzero (row-zero classification).
+TIMING total=87.2 subagents=6
+
+SECOND PARTIAL CHECKPOINT
+Named file: 159 lines. Added the symmetric two-dimensional star level-space and its explicit permanent formula. This still does not prove dimension three.
+Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5149 jobs).
+Complete logs: star-build.stdout and star-build.stderr. Independent review: PASS for the new helper proofs and integration plan.
+
+THIRD PARTIAL CHECKPOINT
+Named file: 322 lines. Added hollow_flat_finrank_le_two: every symmetric zero-diagonal permanent-level subspace has dimension at most two.
+Validation: lake env lean PEqualNP/Outside/L_gct_231.lean; exit 0; stdout and stderr empty.
+Independent review and independent rebuild: PASS (status_review). Complete direct Lean logs: hollow-lean.stdout and hollow-lean.stderr.
+Normal lake build awaits restoration of 22 optional prebuilt Mathlib artifacts; no Mathlib source compilation attempted. Still not a proof or refutation of the unrestricted dimension-three claim.
+
+FOURTH PARTIAL CHECKPOINT
+Named file: 431 lines. Added star_two_plane_maximal; its duplicate coefficient-extraction helper was removed during integration.
+Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5159 jobs). Complete logs: maximal-build.stdout and maximal-build.stderr.
+Independent source review and rebuild: PASS (status_review). All newly needed Mathlib optional build artifacts were restored from the pinned official cache before this build; no Mathlib source build was used.
+The posted dimension-three existence theorem remains unproved, and no global refutation is claimed.
+
+RESEARCH PRESERVATION CHECKPOINT — INDEPENDENT REVIEW PASS
+Reviewed by status_review at 2026-11-25T10:34:50.295983+00:00.
+Branch: pnp/pilot-78; HEAD before preservation: 6c66f7e9914f80b6ad50a2bb7435f2289dd3267b. No tracked proof or other source change since that reviewed checkpoint; only NOTES.md and TIMELINE.md were modified before this validation entry.
+Research snapshot: 313 manifest-listed mathematical files plus manifest.json, 314 files total, 2861480 bytes. Every listed size and SHA256 matches; no unlisted files, symlinks, executable files, or disallowed suffixes. Runtime CAS directories and large direction censuses are absent.
+Sensitive-data scan: no credential tokens, private keys, credential-bearing URLs, authorization values, lease identifiers, or private lease data found in research/, NOTES.md, TIMELINE.md, or this validation record. No redactions were needed; no sensitive values were printed.
+Claims review: summaries distinguish compiled partial lemmas, exact finite-field computations, numerical searches, and symbolic restrictions from the still-unproved complex statement. No full checker verdict, complete proof, or global refutation is claimed.
+Research snapshot aggregate SHA256 (sorted repository paths and bytes, NUL-delimited): ed43d6395092d0a40b437081d4c8203c39052dfeeb799ef39130c66ed5331a58.
+This is branch-only preservation, not a proof PR. Research files must be absent from the final PR diff if a complete proof or refutation is later submitted.
+
+Star-line components: named-file lake build exit0,602lines. Full stdout/stderr in starline-build.stdout/.stderr. Main posted theorem still absent; no checker verdict claimed.
+Independent status_review audit PASS: frozen176-line component matches integration exactly; algebra, nonzero hypotheses, and plain-file format checked. Reviewed target SHA256 ca7abaed3338ff24cc18ade48bacba5ae81f7b1976205cd4686dc5551e1206b5.
+
+Generic star-direction obstruction: named-file lake build exit0,799lines. Independent status_review audit PASS: exact202-line component inclusion, cone rank bound, kernel inclusion, rank-nullity, all nonzero hypotheses and plain-file rules. Reviewed SHA256 da9e98ec88f0099ba04977be67b44955e2e3921c2a19ee591b2b3496523b3695. Full target remains unresolved; no checker verdict.
+
+2026-11-25 11:04 UTC: preserved independently reviewed Nonstar.lean (144lines) and OGrEven.lean (164lines), each compiled exit0 with empty stdout/stderr. Sources preserved under results/orch/lemmas while combined1097-line build remains in progress. These remain partial components, not the posted theorem. Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form. TIMING total=170 subagents=7
+
+2026-11-25T11:06:07.909221+00:00: Combined1097-line named file lake build exit0; geometry independent integration/plain-file review PASS for SHA256076fcb95bf65631f5434149d42e399870d678b80ed6caaf323c3d75264f1c880. ConstantDiagonal96-line source separately compiled exit0 and independently reviewed byconstruct_search; source and complete logs preserved. Full posted theorem still absent; no checker verdict.
+Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
+TIMING total=171.3 subagents=7
+
+TriangleCover.lean105-line component compiled exit0; independent geometry_search/rowzero review PASS, SHA256788f94714c35ed0dcbe1879361eb4a85a2267c0ce7167de38fdaececbb8106a1. Scalar triangle-projection coverage via staged square-zero and Plucker identities; pair-independence and normalized-basis bridges remain separate. stdout empty; stderr contains only Mathlib local-changes warning after verified archival of unused sources. All runtime artifacts unchanged. Full gap unresolved.
+
+2026-11-25T11:24:46.054107+00:00: TriangleBridge.lean173-line component compiled exit0. Independent rowzero review PASS for SHA256e251db21a98f37c225b595aa9368663344fcfaa27ce48769e21d385898483cd7. Adds independence/minor, normalized submodule basis and even-chart bridges; includes unchanged TriangleCover prefix. Complete successful build-2 diagnostics preserved; harmless unused-tactic and Mathlib archived-source warnings. Full posted theorem remains absent.
+Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
+TIMING total=189.9 subagents=7
+
+CanonicalMaximal.lean98-line component compiled exit0; rowzero independent review PASS for SHA256c2d9b421bd9c9b4a8b630729a5c2529e93bc362bcdb161df6ef895bddd4a1dca. Both normalized nonstar obstructions now imply dimension≤2 for any valid ambient submodule containing those canonical planes. Unified canonical-plane interface and hollow cubic extraction included. Full posted theorem still unresolved. Complete build diagnostics preserved.
+
+2026-11-25T11:32:42.710105+00:00: Combined1558-line named partial file passed lake build PEqualNP.Outside.L_gct_231, exit0. Independent geometry integration/format review PASS, SHA256a8a592d176413ced1bf1483eefd0cf40d4a6f0acbd0d67504d7f541ee6871e0d. Added checked constant-diagonal exclusion, triangle-chart normalization, canonical-plane dimension bounds, cubic extraction and coordinate-permutation invariance. Complete stdout/stderr preserved. No main posted theorem and no full checker verdict; all mathematical scope limits still apply.
+
+WittCoordinates.lean169-line component compiled exit0, independent rowzero review PASS for SHA2566c28d22f2cff26825ba24ee1658eac4c155330ebc86f7aa020a01e4733a7398f. Proves exact coordinate reconstruction, dimension preservation, quadratic/cubic image constraints and classification of a normalized isotropic pair. Full successful build-2 diagnostics preserved. No global theorem or checker verdict.
+
+LowDiagonalRankComplete.lean493-line standalone component compiled exit0 on its first build; independent rowzero review PASS at SHA2565f25e8474bf664cb7972d40101dd179ae6b1bcb8d94823915e01f083519aea41. Complete restricted result: any valid symmetric permanent24 subspace containing a hollow subspace of dimension≥2 has dimension≤2; consequently diagonal-image rank≤1 implies dimension≤2. It includes the checked17-case orbit classification. Complete successful diagnostics preserved. Global diagonal-rank2 and3 cases remain unproved; no checker verdict.
+
+2026-11-25T11:40:20.860524+00:00: Combined2046-line named partial file passed lake build PEqualNP.Outside.L_gct_231, exit0, Build completed successfully (5159 jobs). Independent status_review integration/format audit PASS for SHA25634d899e7a47f1f2c4b9fce91d62d002c1831865035659d54d17eaf7bde3cbcb1. Complete lower-diagonal-rank result integrated unchanged. Complete stdout/stderr preserved. The posted theorem remains absent and higher diagonal-rank cases remain open; no full checker verdict.
+Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
+TIMING total=205.5 subagents=7
+
+Checked BasicStar components: DuplicateConstantComplete.lean217lines (SHAc2b12311b5400d76a9918e4e12164968ae9a52c90e033d72b5ff1e1a02841f9d) and BasicStarRows.lean23lines (SHA90042e4eec56934b03ecff679c57eb0681fe45905a56e828da741d77ffc600b2), each compiled exit0. Independent status_review PASS for new components; rowzero and construct independently reviewed shared duplicate-row permanent/linear-map helpers. Complete successful logs preserved. Final BasicStar ambient theorem still being assembled; no global proof claim.
+
+DuplicateNormalized.lean140-line component (including shared Common prefix) compiled exit0; independently reviewed by geometry_search and construct_search, SHA7b71d0d3613dc24e136e596c6437da00025b2c9fa806b65b3733e6c0e85b4279. Exact normalized duplicate-row pair obstruction checked, including both polynomial Bezout branches. Complete stdout/stderr preserved. Full BasicStar theorem still being assembled.
+
+DuplicateKernel.lean200-line component compiled exit0; independent geometry review PASS at SHAdefd6e8b45a442a4f20cce782ec639722c2ea94cf37b73786f3dd30df1f606a2. General normalization reduces an arbitrary duplicate-row coordinate kernel to the checked scalar contradiction. Includes earlier Common/Normalized prefix; preserve once when integrating. Complete successful logs included.
+
+BasicStarComplete.lean491-line component compiled exit0, independent status_review whole-component audit PASS at SHAadfa51d8752f4ea49bc7a3126547022eeed930cb52335a1ef3bec91a295c2e36. Complete restricted theorem containing_basic_star_line_finrank_le_two excludes dimension3 whenever the basic starMatrix1(-1) direction is present. Also proves every valid duplicate-row subspace has dimension≤1. Complete successful diagnostics and validation preserved; the unrestricted posted theorem remains unresolved.
+
+AllStarComplete.lean588-line component compiled exit0; independent rowzero wrapper review plus prior whole BasicStar review PASS, SHA7cf6b19ebccddcec74a5e78a831c0d453267cf7709404ec35dc9c89eefb5b1ba. Complete theorem containing_nonzero_starMatrix_finrank_le_two: every valid symmetric permanent24 subspace containing ANY nonzero starMatrix(a,b) has dimension≤2, including all exceptional parameter cases. Complete successful build diagnostics preserved. Global posted statement remains unproved.
+
+2026-11-25T12:00:18.023747+00:00: Combined2629-line named partial file passed lake build PEqualNP.Outside.L_gct_231, exit0, Build completed successfully (5159 jobs). Independent geometry integration/format audit PASS for SHA25625c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367. All-star theorem integrated unchanged. Complete stdout/stderr preserved. Full posted theorem still absent; no full checker verdict.
+Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
+TIMING total=225.5 subagents=7
+
+TraceRankTwo.lean103-line component compiled exit0; independent rowzero review PASS at SHA8abc00c41e8ec7111e6de4ac714094fb5d817e4ded7d6b2125b88cf4c4a305a1. Unconditional result extracts a nonzero hollow direction and a nonhollow trace-zero direction from a dimension3 valid subspace with diagonal-image rank2. A second helper is explicitly conditional on the still-unproved trace-zero star classification; it is not a proof of the posted statement. Complete successful logs and review preserved.
+
+PivotNormalization.lean120-line component compiled exit0; independent rowzero review PASS at SHAf5c171c021e83a331af60424cf5680a17cb06570a18eeacbeb072ddd12f578a4. Proves elementary incident support-to-star algebra and complete finite permutation/scaling normalization into incident/disjoint rank-one trace-zero charts. The unresolved polynomial consequences are not asserted. Complete successful logs preserved.
+
+HadamardCoordinates.lean148-line component compiled exit0; independent rowzero review PASS at SHA1639d6b9bc0eed514ddf298656fec9687ad0eb514a8c2b22282255f74521a855. Exact involutive transform, symmetric tangent reconstruction, trace and diagonal identities, and tangent entry-sum constraint proved. These are coordinates for the remaining rank-three case, not an infeasibility proof. Complete successful diagnostics preserved.
+
+Checked incident-rank-two reduction components: IncidentUniversalization99lines, OppositeStar115lines, IncidentRankTwoComplete364lines. Each compiled exit0 and independent source/math/format review PASS at frozen hashes in accompanying records. Combined theorem no_rank_two_diagonal_three_flat_of_normalized_incident requires ONLY the explicit NormalizedIncidentOppositeEdge premise beyond the valid-flat/rank hypotheses. Every normalization/classification step is checked, but that arithmetic premise remains unproved; this is not the posted theorem. Complete successful logs preserved.

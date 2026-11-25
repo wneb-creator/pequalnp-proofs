@@ -1,0 +1,326 @@
+{
+  "created_utc": "2026-11-25T13:12:55.901098+00:00",
+  "scope": "Lease-invalid preservation freeze.24 extra-quartic Lean bodies have exact independent source/algebra audits but HAVE NOT BEEN LEAN CHECKED: the only bounded check failed in lake launcher thread startup before proof checking, under unchanged1GiB cap. Canonical55 native+wrapper are SIGSTOP paused with no completed basis; immutable full logs at pause are included. No target computation will resume without root lease confirmation. No global proof/refutation.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/canonical_coefficients/CanonicalGeneratorCollectionBody.lean",
+      "relative_path": "canonical_coefficients/CanonicalGeneratorCollectionBody.lean",
+      "bytes": 92097,
+      "sha256": "ee8765c019a5adc4c8ba8ea98bad859c3da0cc016a48caadd3240149c961ae92"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_canonical_extra_source.py",
+      "relative_path": "geometry_search/audit_canonical_extra_source.py",
+      "bytes": 3049,
+      "sha256": "96a44a5d4682d99d5aa0bb47fb662bb36df80a534a314fd210a0de560784e4b4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical-extra-source-independent-audit.json",
+      "relative_path": "geometry_search/canonical-extra-source-independent-audit.json",
+      "bytes": 6370,
+      "sha256": "44384be0d46a716a597e301c71588b3b6c52716305a87910809e6c090c24af44"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical-extra-source-independent-audit.stderr",
+      "relative_path": "geometry_search/canonical-extra-source-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical-extra-source-independent-audit.stdout",
+      "relative_path": "geometry_search/canonical-extra-source-independent-audit.stdout",
+      "bytes": 209,
+      "sha256": "8aa343ab59709237496ae2ae012498cd3a5c703bb250f960e2d0953e7c909b1d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/input.json",
+      "relative_path": "geometry_search/canonical55/input.json",
+      "bytes": 828291,
+      "sha256": "9111d1aacc49deed879e59172999a51d0e1f1488784d081d7a97491f7358dd19"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.json",
+      "relative_path": "geometry_search/canonical55/lease-freeze.json",
+      "bytes": 769,
+      "sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.stderr",
+      "relative_path": "geometry_search/canonical55/lease-freeze.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.stdout",
+      "relative_path": "geometry_search/canonical55/lease-freeze.stdout",
+      "bytes": 1877,
+      "sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra0Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra0Standalone.lean",
+      "bytes": 73217,
+      "sha256": "a36ee88b897eefd0560734e6fa037d78a87425e9aebc805f3e7eeebeea330ab1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra10Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra10Standalone.lean",
+      "bytes": 73215,
+      "sha256": "f610c49b896ac50f7043180a365723aa7adcd3ed6e5b7fd02b6ee7c644064037"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra11Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra11Standalone.lean",
+      "bytes": 78157,
+      "sha256": "67d78030171c63bdd8a65d0e428845dd4e593abc62a1909fb0a983826227bef8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra12Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra12Standalone.lean",
+      "bytes": 85308,
+      "sha256": "03cb2786b68632577610e1a34f4f7364da45864deeb4f9fa8846ea5430bf6899"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra13Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra13Standalone.lean",
+      "bytes": 76916,
+      "sha256": "32eb91821bf00506f5dc5a426190bf7a35e6628da3d6c62ad6e37874fce5b350"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra14Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra14Standalone.lean",
+      "bytes": 86742,
+      "sha256": "ce6e84404e4b48f32223fd562c8c2e037738d2bb0885b5277f6f7a38badf2d09"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra15Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra15Standalone.lean",
+      "bytes": 86846,
+      "sha256": "83923e0da770652f0805c2d7ef1904589d516afdb2462e080ba8c388d84c30b5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra16Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra16Standalone.lean",
+      "bytes": 76970,
+      "sha256": "d6e457c7c28951576b199afeadfc9623cae19db720a276b7b71c415111e80802"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra17Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra17Standalone.lean",
+      "bytes": 85218,
+      "sha256": "ceeac380d35c5dfe16ffca610653e1ebfe0dcea0d9c7a4a7ba13bea701dbd87b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra18Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra18Standalone.lean",
+      "bytes": 81006,
+      "sha256": "668f9e1de57d2939733405efa9652c914e3a26d4bb462c4d2525545de66995b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra19Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra19Standalone.lean",
+      "bytes": 76561,
+      "sha256": "5f5e3b7e7e24a11eb8056219ce6d3cfcb65c97255ec528c7b55d77acb9d5a32f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra1Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra1Standalone.lean",
+      "bytes": 76886,
+      "sha256": "bba173e747c4e6502ad327a5ff8161ec9a5533228af1ca65cb96e4576e0fc689"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra20Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra20Standalone.lean",
+      "bytes": 76566,
+      "sha256": "83863bad9747db8f23d463298389c44ba9a8e1f57467940c3ac27b8668b2f0b6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra21Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra21Standalone.lean",
+      "bytes": 80655,
+      "sha256": "ded7c6e5ae43a2c016bde179637c002e73b0efde15564d5715782575d8efe767"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra22Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra22Standalone.lean",
+      "bytes": 73360,
+      "sha256": "3df9bdcad2871aef10f50cade8651c26f8029749d0de9fb04ffb7cb282c58507"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra23Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra23Standalone.lean",
+      "bytes": 73359,
+      "sha256": "0615de35f6449b065d7cd70e507712d8a95c50aec4914f1701dba9c792719fb0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra2Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra2Standalone.lean",
+      "bytes": 76593,
+      "sha256": "76d9439447af53ee271bdb1ea726ab7f06b8a7facfb2914351b3e9096ead746a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra3Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra3Standalone.lean",
+      "bytes": 73164,
+      "sha256": "bcf6cf5d0181909f5268c096e996b173115be4fdce5c1260037fddde71986d82"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra4Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra4Standalone.lean",
+      "bytes": 76203,
+      "sha256": "5bef1db1ebd016fab54864bb44685adaf8f713f3a69551da7ebeefddab2a7a2b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra5Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra5Standalone.lean",
+      "bytes": 73227,
+      "sha256": "d4259411d87b05cf4276bd06e881dbda7f846110837b6d37f2ad8597c475413e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra6Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra6Standalone.lean",
+      "bytes": 84814,
+      "sha256": "ba7eb6b066adcca4f3177af2425b11482dd1f950b0c393e3d55dc81cc78ca497"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra7Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra7Standalone.lean",
+      "bytes": 81133,
+      "sha256": "c268d85bc6200374180533bc59155bd1605a760ef49c7acb6232e65fde25223b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra8Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra8Standalone.lean",
+      "bytes": 81586,
+      "sha256": "1a7ce990d276e1928933855a473ccc325e7bacbf1879bc4865aa30cbff74d1be"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra9Standalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtra9Standalone.lean",
+      "bytes": 83930,
+      "sha256": "a6af0495689acafd8159c26031b786ebc530f9f272bd261d7ae780c139e3d362"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtraBody.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtraBody.lean",
+      "bytes": 266724,
+      "sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtraStandalone.lean",
+      "relative_path": "geometry_search/rowzero/canonical_extra/CanonicalExtraStandalone.lean",
+      "bytes": 334524,
+      "sha256": "d689f5ce7751861eca56e0b7df2b3013aed0578b7af5ac33f9dfd84ded9fc6ef"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/generate.py",
+      "relative_path": "geometry_search/rowzero/canonical_extra/generate.py",
+      "bytes": 10044,
+      "sha256": "786ce7aee1ff91e8588bd385fb275d6255d3c25d40c6b5ffba9ae1091c58708b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/generation-audit.json",
+      "relative_path": "geometry_search/rowzero/canonical_extra/generation-audit.json",
+      "bytes": 12539,
+      "sha256": "054002158108141af106863a5a6c5a72a9eade7ad47af71cd100a3f27b8e1b10"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/generation.stderr",
+      "relative_path": "geometry_search/rowzero/canonical_extra/generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/generation.stdout",
+      "relative_path": "geometry_search/rowzero/canonical_extra/generation.stdout",
+      "bytes": 280,
+      "sha256": "8e1f27cc2e67bedaa1f4fe4a79fe4eedf65ff898bd7e4c891dd81469e53f74fb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/grouped-certificates.json",
+      "relative_path": "geometry_search/rowzero/canonical_extra/grouped-certificates.json",
+      "bytes": 988071,
+      "sha256": "5488d72382dc875763bbd90d4abf770b39ca781bd4f058a72fc3975eb0dc6f7e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/prepare_standalone.py",
+      "relative_path": "geometry_search/rowzero/canonical_extra/prepare_standalone.py",
+      "bytes": 2783,
+      "sha256": "a098541190b8f12f4c3095773c26cb63e745918a7a60df95f71c1f92e4210a76"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/run_bounded.py",
+      "relative_path": "geometry_search/rowzero/canonical_extra/run_bounded.py",
+      "bytes": 2492,
+      "sha256": "42b1801bc231576dc5fa6fd00e5f251f7613a5d5ee3c2c09b695191629130771"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build-driver.stderr",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build-driver.stdout",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build-driver.stdout",
+      "bytes": 1327,
+      "sha256": "c7a0cb823aae4342589f276135d1df58a9f3a6817fd659f6c74548dbf1e6cf5e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build-result.json",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build-result.json",
+      "bytes": 841,
+      "sha256": "5d555407fb561977434b17518dad89b9107a7f32073e3524289b1755bf9b71f8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build-start.json",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build-start.json",
+      "bytes": 500,
+      "sha256": "3a24d2c9b4aae431f926bff9e9d6986fa7f02f577cfdd8cffdc82a5642b85f2a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build.stderr",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build.stderr",
+      "bytes": 140,
+      "sha256": "972580a79ba905fdd3a075cf68abc7a8ead399c3a28d0128155435ee4643eff1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build.stdout",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-preparation.stderr",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-preparation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-preparation.stdout",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-preparation.stdout",
+      "bytes": 776,
+      "sha256": "a468df3190c965f740da47ae324b68fd089309fa97a68bd4ee1c307959e824e9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-provenance.json",
+      "relative_path": "geometry_search/rowzero/canonical_extra/standalone-provenance.json",
+      "bytes": 10998,
+      "sha256": "02dc9d35b48a6f54fa0c8c748ddd0fba3e551f7cc82f25e07beb8f3652cb571c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-augmented/reduced-certificates.jsonl",
+      "relative_path": "numeric/s4-augmented/reduced-certificates.jsonl",
+      "bytes": 117773,
+      "sha256": "905c24be354861695a2b44b3cab1838e78cf67e5bf5631ddb61b3421d505aff8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-id-rowmap.json",
+      "relative_path": "numeric/s4-structure/rational-id-rowmap.json",
+      "bytes": 634177,
+      "sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433"
+    }
+  ],
+  "file_count": 53,
+  "total_bytes": 5208283
+}

@@ -1,0 +1,8 @@
+{
+  "exit": 0,
+  "algorithm": "lift",
+  "memory_mib": 256,
+  "cpu_cap": 60,
+  "wall_cap": 75,
+  "seconds": 13.783075323999583
+}

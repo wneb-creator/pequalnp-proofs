@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-25T13:06:46.637371+00:00",
+  "scope": "At root request, reversed only the last22 authentic private-artifact disk restorations to reserve space after upstream fetch. FullSHA/mode/mtime/seals verified; existing holder policy unchanged; no research or runtime bytes discarded.",
+  "before": {
+    "ok": true,
+    "count": 8655,
+    "bytes": 2906826168,
+    "pid": 4303
+  },
+  "after": {
+    "ok": true,
+    "count": 8677,
+    "bytes": 2947357632,
+    "pid": 4303
+  },
+  "disk_free_bytes": 72163328
+}

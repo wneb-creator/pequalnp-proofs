@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-11-25T13:04:26.704256+00:00",
+  "scope": "Exact nonzero quadratic pivot lemma plus a documented two-linear-pivot cover after earlier boundary exclusions. Quartic-pivot degeneracies and generic B-rank-one infeasibility remain open. No native result or Lean theorem.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_Bone_q_pivot.py",
+      "relative_path": "geometry_search/rowzero/trace_Bone_q_pivot.py",
+      "bytes": 2272,
+      "sha256": "fee39ae31c9714d5336de4486cf3d5ebd58a534cc9d9c60cebc7338618cffad9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-q-pivot.json",
+      "relative_path": "geometry_search/rowzero/trace-Bone-q-pivot.json",
+      "bytes": 1128,
+      "sha256": "85041d4cd94f1be3d25786bf5be30f4fe4c03fc2003900efcb6afb850b3f1ced"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-q-pivot.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bone-q-pivot.stdout",
+      "bytes": 1064,
+      "sha256": "0385aabb862f3771720652aa90a83082a51dd2f72dcddde5205be6a3ab895047"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-q-pivot.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bone-q-pivot.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/TRACE_BONE_GENERIC_PIVOTS.md",
+      "relative_path": "geometry_search/rowzero/TRACE_BONE_GENERIC_PIVOTS.md",
+      "bytes": 2450,
+      "sha256": "eb34dc581e12edc92f26e45fb06f400c969da62abd89328d60ffce030d29a66b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_Bone_q_pivot.py",
+      "relative_path": "geometry_search/audit_Bone_q_pivot.py",
+      "bytes": 1397,
+      "sha256": "0ea916b66a75d78157bd1b72da4691104948e83be6c545d3be0f50f51affd776"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-q-pivot-independent-audit.json",
+      "relative_path": "geometry_search/Bone-q-pivot-independent-audit.json",
+      "bytes": 413,
+      "sha256": "6eab17919347333affb327a8c68efbfef2974e205e458ad53ba553712d91a72a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-q-pivot-independent-audit.stdout",
+      "relative_path": "geometry_search/Bone-q-pivot-independent-audit.stdout",
+      "bytes": 401,
+      "sha256": "c69c0ca93a171735daf602682ac6b098526c935e86bd507d4ce91efc60801e53"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-q-pivot-independent-audit.stderr",
+      "relative_path": "geometry_search/Bone-q-pivot-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction.json",
+      "relative_path": "geometry_search/full-quartic-correction.json",
+      "bytes": 4878,
+      "sha256": "44291cc3d7a487aa1c4b0718e503d89f5cd6d9c3e08acfcee9aa35a731b7d729"
+    }
+  ],
+  "file_count": 10,
+  "total_bytes": 14003
+}

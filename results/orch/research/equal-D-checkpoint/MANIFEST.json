@@ -1,0 +1,405 @@
+{
+  "frozen_utc": "2026-11-25T13:03:57.726529+00:00",
+  "source_manifests": [
+    {
+      "path": "geometry_search/equal-D-complete-preservation-manifest.json",
+      "sha256": "4453f381a65f63f60ac77b96cdf9da3f258711722e954dd69e122ef7c7ebd01e",
+      "scope": "Completed independent complete-chain audit of both equal-D-square B-rank-one boundary exclusions. All12 direct Ryser coefficients, first-variation determinant/inverse, original residuals, both primitive field maps and exact integer-cleared certificate identities verified. Earlier notes saying second-agent audit pending are historical and superseded by the included final audit. Generic B-rank-one and full L-gct-231 remain open; no Lean theorem.",
+      "file_count": 69
+    },
+    {
+      "path": "construct_search/net_normal_form/liftstd-rerun-review-manifest.json",
+      "sha256": "32dcaf46492bf3bf722a23b711da653d5b13e722f9f2159070dcf5f9aee67335",
+      "scope": "Frozen source and runner audit of the active certificate recovery process, no CAS result or certificate claimed.",
+      "file_count": 4
+    }
+  ],
+  "files": [
+    {
+      "path": "AUDIT.json",
+      "bytes": 280,
+      "sha256": "5927feb62556f6a4c797361ad72c5a307c782f99f8562cad426b71ca39785b2a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1154,
+      "sha256": "826e8d4f395a2f0ecdf93fa979bd0983ccebc707d72d722572e66f3e4f8406d0"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_liftstd_rerun.py",
+      "bytes": 4886,
+      "sha256": "887ba35f19c72a2bf9b17612d77b761602be8fed141d2149b554b00e4b7318b5"
+    },
+    {
+      "path": "construct_search/net_normal_form/liftstd-rerun-independent-review.json",
+      "bytes": 2742,
+      "sha256": "bae3152c4c31c7c1323f1efef6968f1258bab48d99afc99c2f4058fa777610fb"
+    },
+    {
+      "path": "construct_search/net_normal_form/liftstd-rerun-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/liftstd-rerun-independent-review.stdout",
+      "bytes": 2520,
+      "sha256": "5ad8bdf36c1a1b91072804939ff0e5034aaff9eea68ea573ae8a947a34e5b498"
+    },
+    {
+      "path": "construct_search/net_normal_form/liftstd-rerun-review-manifest.json",
+      "bytes": 1114,
+      "sha256": "32dcaf46492bf3bf722a23b711da653d5b13e722f9f2159070dcf5f9aee67335"
+    },
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.json",
+      "bytes": 1123,
+      "sha256": "4baec74076abfc39bdcead34e3abe4582d14d6912b57ee9351b7024c435f56ea"
+    },
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/Bone-equal-D-chain-independent-audit.stdout",
+      "bytes": 731,
+      "sha256": "ea720fab21e1334e1ddbf5140af4ae5b28aa36ee8dbbc7bcfe91065cd1ddf4a6"
+    },
+    {
+      "path": "geometry_search/audit_Bone_equal_D_chain.py",
+      "bytes": 6636,
+      "sha256": "8b8b9d3c92c20f11a95a29efcbcbf4db241a6ee30bc7fb826af44fd5ea582451"
+    },
+    {
+      "path": "geometry_search/equal-D-complete-preservation-manifest.json",
+      "bytes": 21401,
+      "sha256": "4453f381a65f63f60ac77b96cdf9da3f258711722e954dd69e122ef7c7ebd01e"
+    },
+    {
+      "path": "geometry_search/rowzero/TRACE_BONE_EQUAL_D.md",
+      "bytes": 3294,
+      "sha256": "7e285b179a6830d2dd73498d03f4ba07631558086d7fe167e111261d5c4b10fd"
+    },
+    {
+      "path": "geometry_search/rowzero/audit_equal_D_field_maps.py",
+      "bytes": 2540,
+      "sha256": "088dd45771156153730c3f7848723330d2907119d0d48a1dc4fc8d51307708b3"
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.json",
+      "bytes": 1184,
+      "sha256": "fefb02129531980b9a941448563d3ed3891f556e998951ef8eb65e711e92530e"
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/equal-D-field-maps-independent-audit.stdout",
+      "bytes": 1078,
+      "sha256": "1ae3524c83dcfdcba6e98fbf3df6b68988e223de14914e46dae7cad323f2b702"
+    },
+    {
+      "path": "geometry_search/rowzero/generate_trace_Bone.py",
+      "bytes": 4796,
+      "sha256": "6c9680945ccaaca43988c11581602976920f63f1da26e3039cec07df254cd9af"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.json",
+      "bytes": 1822427,
+      "sha256": "c3b304a867d6a63f87a3c963795e312be3c967ae0d86e404c0eac88a920f2605"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-certificate.stdout",
+      "bytes": 173,
+      "sha256": "d303272719ca72d6f83f6b5e6b82b83a98c9bf8bc499217f9df2bc75a2ca18fb"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-driver.stdout",
+      "bytes": 114,
+      "sha256": "eff6e1deff8e23f5fb8cdf9b57907adb0dfe3b31451e8202e654840c7fb9f78c"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift-run.json",
+      "bytes": 128,
+      "sha256": "26a1114fc44f38a6d965ff5c3268e816b33a292db95157648f846591f6341785"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.sing",
+      "bytes": 20090,
+      "sha256": "a72102f2caead04971bf60345fd7289907778de095faec7848414813d8afc013"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-lift.stdout",
+      "bytes": 548406,
+      "sha256": "94e81bc7c0e1a79a3a7a5d735a97ea6b2d42dd5e55e45d352be535a133d82e53"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-driver.stdout",
+      "bytes": 114,
+      "sha256": "045bfd35e63fbe168cc471122ed8db3f850f9009884e31fe9c8361fc99c35833"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std-run.json",
+      "bytes": 128,
+      "sha256": "1e4045c915410d9a760247a345c40fe43a5811eec693dd662797bb3efc7f0a08"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.sing",
+      "bytes": 18227,
+      "sha256": "06cbf9a65c7ea5ff90bdb7b10c3ab2102b04e45587b0ad1cfe075bfd139f8bdf"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std.stdout",
+      "bytes": 1479,
+      "sha256": "4894d0db8f643ee6594a2b178c1ccc11a186fd6a6f9881eed0549de26fdcca6c"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-driver.stdout",
+      "bytes": 114,
+      "sha256": "e3dfa0f7690ccb198294e3bf0a5cd48bb0bc0f498a6671ea636d8d6ed49892db"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-input.json",
+      "bytes": 19418,
+      "sha256": "8a52cf1ac0f7620aceeec5d5a5d6593c28a85b864d50b83c13c7b3a1454e2c07"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2-run.json",
+      "bytes": 128,
+      "sha256": "92f5c08b0438df105e0ce95cbfdef3d3fc7b844ef7cdb5c99caa42f7fdf45525"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.sing",
+      "bytes": 19801,
+      "sha256": "e5dd4b5527095b26004f84ea6ed2c50e9d7f898e9dc5fc96e928939fa4446865"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-7-std2.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.json",
+      "bytes": 1638407,
+      "sha256": "0055a7143e14f7fae348cb26f454a216095b7208693db46fe188a5423042d3ae"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-certificate.stdout",
+      "bytes": 174,
+      "sha256": "272ad6282a7aea624bb280841937d511483ec167be27c67ac163ed71c74b7485"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-driver.stdout",
+      "bytes": 173,
+      "sha256": "d170f326832fae26f4efbbef883679127ee6ec80d4cf9fe58da1f9a2ff49cb13"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-input.json",
+      "bytes": 15972,
+      "sha256": "d322b261e5913ab1ce3166f5d269658acb9592fd592ad116c7c80fa2406ca8c8"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift-run.json",
+      "bytes": 191,
+      "sha256": "42cd3b7c06b8edc26e4b75b673f2d484cdfad6a6ed63fdfdc3a1ff10ff1a1e67"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.sing",
+      "bytes": 16665,
+      "sha256": "74166f3ef07d4ac4c511288653f1e2f1968b623fb4af57e5c81c294252bfcc22"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-lift.stdout",
+      "bytes": 494330,
+      "sha256": "231a14d9c01ef622bbecb60b4ab994483206bb5ccf92d670a1d1cc4f371b546c"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-driver.stdout",
+      "bytes": 173,
+      "sha256": "d5ad69b23acd0030500e877afdc8b4910dd45c191a12917acc2109fb675750f7"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-input.json",
+      "bytes": 15972,
+      "sha256": "d322b261e5913ab1ce3166f5d269658acb9592fd592ad116c7c80fa2406ca8c8"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std-run.json",
+      "bytes": 191,
+      "sha256": "7b325d26d0dc2d3059f646631ccfa8de07b489430d317a0643bf16b74e5614e5"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.sing",
+      "bytes": 16376,
+      "sha256": "e9ee7e73d5fb30c177828c8927c5a09981ec89f4e21c3a76090b525d68f02119"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-9-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.json",
+      "bytes": 16473,
+      "sha256": "175174c61b588cf5fcb6105f257dc4fd9e2eb88f2fda1b1a18241295b9f7c705"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-7.stdout",
+      "bytes": 223,
+      "sha256": "2feeade2edb61c6fbbcb579f4547345ee9f5e8fa2a82bcd5640c83541e2a8c49"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.json",
+      "bytes": 14730,
+      "sha256": "9ea357bcf6ae7a3b7e511b5155eed1af49ba6fc375688b51909435df0ce0ab4a"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D-linear-9.stdout",
+      "bytes": 224,
+      "sha256": "eb1ebe363b8a2f72d61978a9b46c97c565b12efa35b3cbc7b6d9bfa1f7feec7d"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.json",
+      "bytes": 982,
+      "sha256": "55340031dfd06cdf7b5c54e0d505465385318e799d4a94ecb566babd2454c7f2"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-equal-D.stdout",
+      "bytes": 982,
+      "sha256": "55340031dfd06cdf7b5c54e0d505465385318e799d4a94ecb566babd2454c7f2"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stdout",
+      "bytes": 177,
+      "sha256": "fdf7b083e4214d9b0059056afd50e1ff0ac54cb1d4cd9e9f116e988f6d1dca8d"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-same-index.sing",
+      "bytes": 4923,
+      "sha256": "6c67e9c8d72daf4a5a31aeac80b75a47c02405c85f766ab4f36d9c0013ba1933"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-systems.json",
+      "bytes": 14009,
+      "sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D.py",
+      "bytes": 2124,
+      "sha256": "2ec4e52eaa1d9f0de9591ea91b7903a97497ea6d342946b33159bbd24ef27698"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_linear.py",
+      "bytes": 3489,
+      "sha256": "de8c659c0979f4c9f53639c2cc8c0d52a9d6910cabf8f0dd04087f24477af175"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_linear_fast.py",
+      "bytes": 4652,
+      "sha256": "eee237c6abb155f289f1226472a7618dfc1d136f3639b2ffbb43fafba410f2e6"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_equal_D_native.py",
+      "bytes": 4180,
+      "sha256": "4c0c61ae6eed85a0c0620b3b0a0c326cb2e260388caa1e09ee9bf894d348f88f"
+    },
+    {
+      "path": "geometry_search/rowzero/verify_Bone_equal_D_native.py",
+      "bytes": 2448,
+      "sha256": "cc0910061e1c83d2507d36ad9b8e5cb3f6531ce0fb078d77a6a5a57ef1c1f707"
+    }
+  ],
+  "payload_bytes": 4813380
+}

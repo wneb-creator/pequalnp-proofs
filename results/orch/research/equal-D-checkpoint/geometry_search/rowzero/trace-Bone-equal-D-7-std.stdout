@@ -1,0 +1,19 @@
+   ? `number` ^ `number` failed
+   ? expected `number` ^ `int`
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 2: `y=a^6 + 21*a^5 + 187*a^4 + 903*a^3 + 159517*a^2/64 + 238539*a/64 + 307089/128;`
+   ? `poly` ^ `number` failed
+   ? expected `poly` ^ `int`
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 6: `8105968 - 280866719*v^2/4097952 + 2935350359*v/88105968 + 2037122921/10365408;`
+   ? expected ideal-expression. type 'help ideal;'
+   ? `I` is not defined
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 7: `ideal G=std(I);`
+   ? expected ideal-expression. type 'help ideal;'
+BASIS_SIZE
+   ? `G` is not defined
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 8: `print("BASIS_SIZE");size(G);print("DIMENSION");dim(G);print("BASIS");G;`
+DIMENSION
+   ? `G` is not defined
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 8: `print("BASIS_SIZE");size(G);print("DIMENSION");dim(G);print("BASIS");G;`
+BASIS
+   ? `G` is undefined
+   ? error occurred in or before /tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-equal-D-7-std.sing line 8: `print("BASIS_SIZE");size(G);print("DIMENSION");dim(G);print("BASIS");G;`

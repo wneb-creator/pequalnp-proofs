@@ -1,0 +1,56 @@
+{
+  "scope": "Exact copied base definitions plus the audited collected-entry scalar component; no rank-theoretic dependencies or unproved mathematical assumptions. No compilation yet. Canonical-family existence remains in the separately checked162-line component.",
+  "base_sha256": "b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e",
+  "copied_declarations": [
+    {
+      "name": "permanent_four",
+      "sha256": "875ccdf159b1e88f929e9e13ca48a18c5c8ae27fcd21fe236c100fedc0caa02b",
+      "lines": 37
+    },
+    {
+      "name": "quartic_first_coefficients",
+      "sha256": "eb1e31d18f4fe92d6e8c2ee093c75a8f3bbfbb4654cb3ac6ba75273686ab4907",
+      "lines": 11
+    },
+    {
+      "name": "quartic_all_coefficients",
+      "sha256": "11fb6dacf332f6811642de50cb872b2e803ca6f40734ca2d0cdd7e740cc1e718",
+      "lines": 9
+    },
+    {
+      "name": "hadamardSigns",
+      "sha256": "487fffe57a3b480e64a26dbd27cdcb81e8ce491cc7af8c88b6ca6ce8e62c4266",
+      "lines": 2
+    },
+    {
+      "name": "hadamardTransform",
+      "sha256": "cb090d16e43b131d492765e406973b8e78626ddfabfce46bb2ac7aad11135e27",
+      "lines": 12
+    },
+    {
+      "name": "hadamardCoordinateMatrix",
+      "sha256": "66fa4588ca05bab0e263cbaa3398f244e9402237ed3d2031cec551e243c886e3",
+      "lines": 5
+    },
+    {
+      "name": "hadamardReconstruct",
+      "sha256": "cfe92001e4ffb7bfacf0027187c5a1e57a110c19b6f346da3788a63f230598a2",
+      "lines": 2
+    }
+  ],
+  "prelude_lines": 217,
+  "prelude_sha256": "4feefd4614fdf882934a4e829104594ee51ba9bab0f8f591186a02d51852474a",
+  "collection_lines": 1296,
+  "collection_sha256": "208bd8166f18d9bb17d4128c3a92683b18c401f019af2bb88cd650c5097dd343",
+  "imports": [
+    "Mathlib.LinearAlgebra.Matrix.Permanent",
+    "Mathlib.Basic.Complex.Basic",
+    "Mathlib.LinearAlgebra.Matrix.Notation",
+    "Mathlib.Algebra.BigOperators.Fin",
+    "Mathlib.Algebra.Module.LinearMap.Basic",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.FinCases",
+    "Mathlib.Tactic.LinearCombination"
+  ],
+  "import_scope": "Scalar-only selected Mathlib modules; no PEqualNP.Defs, dimension or bilinear-form imports. Exact copied declarations unchanged."
+}

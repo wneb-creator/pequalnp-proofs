@@ -1,0 +1,6 @@
+Upstream GCT review: no relevant new permanent lemma.
+
+Fetched main 4c6838d088af203338eae93cdbe3a94815931b88 into FETCH_HEAD successfully. Branch/worktree unchanged by this fetch.
+New GCT proofs since54122bb1:261,267,269,271; all refute sparse real-polynomial root bounds.
+Public new nodes234–273 were each read from their immutable URLs; all concern sparse-polynomial roots or multiplicities. The comparison snapshot was generated2026-11-25T12:48:12.698Z.
+No new imports, source files or dependencies were changed.

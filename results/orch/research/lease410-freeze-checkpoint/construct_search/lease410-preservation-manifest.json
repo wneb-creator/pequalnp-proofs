@@ -1,0 +1,148 @@
+{
+  "utc": "2026-11-25T13:13:12.205083+00:00",
+  "status": "LEASE410_FROZEN_INCONCLUSIVE",
+  "scope": "All target computation paused.1.25GiB liftstd hitmemorycap; initial2GiB run stopped for compressed capture; streaming2GiB run paused on firstprime with no complete vector. Homogeneous fallback was prepared and tiny-smoked elsewhere but never target-run. Immutable produced-prefix snapshots only; live growing files excluded.",
+  "files": [
+    {
+      "path": "construct_search/stream_singular.py",
+      "bytes": 5112,
+      "sha256": "cdea62556d15f8fbd8a4b00972ef5e430bbb47af505cdf8e14f64222e96aee2c"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.result.json",
+      "bytes": 794,
+      "sha256": "4283382b01c27c33d3f6f8d12021d8f1a102ae53c44d566284cb1ae38e255071"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.stdout.gz",
+      "bytes": 135,
+      "sha256": "33a92ae76fc2fa7809b290ddc748aefad62e05a016d1cab9c6b2b8a5f499f8f5"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke.progress.jsonl",
+      "bytes": 845,
+      "sha256": "020b490abf3bd60902974bf22fb5d164449badf969587d38a8857df6f27e657a"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke-run.stdout",
+      "bytes": 756,
+      "sha256": "d0152e1094903b31ee48eaefd43c6d8a6470c7962b1644156a65a5d22470b4e0"
+    },
+    {
+      "path": "construct_search/stream-capture-smoke-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/run_rank1_liftstd_rerun.py",
+      "bytes": 1533,
+      "sha256": "d0642d69bc93e75aeb82e122e152cfb00bea5f558652df3cfbbcb6fe5d972d03"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.sing",
+      "bytes": 7434,
+      "sha256": "7466b6a35f1a5caaa54cfc2537fb4d319e093a534369bd3afc415959092211b5"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.stdout",
+      "bytes": 232,
+      "sha256": "5e6c5b6b49f8b1cb2aa121036219405dfc4b9f12d552bed6411bd645e234f9cc"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-rerun.result.json",
+      "bytes": 307,
+      "sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-rerun.stdout",
+      "bytes": 307,
+      "sha256": "396342d24dcaa206e0fd0ad51376e838611425493c48c10f4e56d47eef70776c"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-rerun.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/run_rank1_liftstd_2g.py",
+      "bytes": 1530,
+      "sha256": "d4e06d8fe5a023c63da8321b0dd07d8d0b9a717484f5d310630b351035eb7180"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.sing",
+      "bytes": 8158,
+      "sha256": "ccfd658ed040658b323033301654abef9af353a1b2569ead1267aff57ef53372"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.stdout",
+      "bytes": 56,
+      "sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g.result.json",
+      "bytes": 313,
+      "sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-run.stdout",
+      "bytes": 313,
+      "sha256": "90c330399b7f1b39d5c6ed659bea186a94957b0d1fff7717735bdf6d805e8e38"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-streaming-interruption.json",
+      "bytes": 370,
+      "sha256": "0d120d62b20b6e19c67b5b61e8f94f38866a6d405c9cdc35318cfbad90ede031"
+    },
+    {
+      "path": "construct_search/lease410-pause.jsonl",
+      "bytes": 281,
+      "sha256": "bce7f55d7f075633624189914d2ccfc614c5e7a2005c774358c6289b916f7e78"
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.stdout.gz",
+      "bytes": 67,
+      "sha256": "d7c0e1c65e29ae439f9cbe047f3030048a1278d665ab3fe717ca6bcb5e5e510e"
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.progress.jsonl",
+      "bytes": 507,
+      "sha256": "869077c303bf243112d79a84fe3bdd7d76633721346f2c04b61cb31d1b12f852"
+    },
+    {
+      "path": "construct_search/lease410-recovery-snapshot.status.json",
+      "bytes": 834,
+      "sha256": "284f392d043550bf92031a22cff15835f1d1e0b899a7c0552cefeccbb2b9d3dd"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-homogeneous-Q.sing",
+      "bytes": 8110,
+      "sha256": "4748fbd2bd3007af7ae607722e42dfbeec3addd3c761d7c01a624c3f61340f5c"
+    },
+    {
+      "path": "construct_search/run_rank1_homogeneous.py",
+      "bytes": 1540,
+      "sha256": "0432afe6ce664b4246c49480dba5d2c6d55b9d5265e5df20cc1f7d42a475d28e"
+    }
+  ],
+  "total_bytes": 39534
+}

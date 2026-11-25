@@ -1,0 +1,67 @@
+{
+  "scope": "Read-only upstream proof review and exact public metadata snapshots; no new proof claim. Per-node files remain in scratch; aggregate preserves exact URLs/titles/formal statements/statuses.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/fetch.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/fetch.stderr",
+      "bytes": 101,
+      "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/head.txt",
+      "bytes": 94,
+      "sha256": "293c4c7c2ecf379cc4fced61d527b6a94ee89c640b08985c0e7fb2821e5c3c81"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/new-gct-paths.txt",
+      "bytes": 156,
+      "sha256": "0d48973a41b104103dc29bbbc576414c1184b2f86a08952982c6dc1888f2f65d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/new-gct-manifest.json",
+      "bytes": 1097,
+      "sha256": "5f51adbd682c03cdb52e3e627179ffa8aedcb9dd4cb01d9454700c4ab6b9352e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/review.json",
+      "bytes": 2876,
+      "sha256": "5237f4bca6ba1381763ab31ea6d69596c1065d74ff5badf7560fbd60937520ae"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/REVIEW.txt",
+      "bytes": 518,
+      "sha256": "669757322e1bba445a03fd9acff41018820ea8647a01398c65626988786c5c79"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/new-public-gct-nodes.json",
+      "bytes": 26381,
+      "sha256": "1f34ce75cfa12ccf52403c4ea2614fec40a2c2480d39ae884e8b47d2bab179e8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/L_gct_261.lean",
+      "bytes": 11979,
+      "sha256": "a64f4d0c43097d25c61e6208cc97e4e80083f850e3b46faada6d9aa9f05f5926"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/L_gct_267.lean",
+      "bytes": 2761,
+      "sha256": "0c0f2c6f261a05781287d75781aedf713949ba66ce789dfd11a7616a7592ca6c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/L_gct_269.lean",
+      "bytes": 6473,
+      "sha256": "1e9bfc403964be32a26907064c68198744d13f64e07dacf7698903f5998e8a39"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/L_gct_271.lean",
+      "bytes": 4218,
+      "sha256": "a07550667a13cf3092d403a9d1c68b89845f2a9e1dc819220bfbe248a0085a6b"
+    }
+  ],
+  "count": 12,
+  "bytes": 56654
+}

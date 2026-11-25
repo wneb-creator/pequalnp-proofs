@@ -1,0 +1,10 @@
+{
+  "detected_utc": "2026-11-25T13:11:08Z",
+  "first_background_error_utc": "2026-11-25T13:04:44Z",
+  "last_success_advertised_expiry": "2026-11-25T13:14:44.235Z",
+  "http_status": 410,
+  "error": "no such live lease: it expired or was released. Ask /desk/next again.",
+  "response_sha256": "6585a67d766f8361be04e48b2a01a4ce86c8bdc109067c4112505a91b90d1957",
+  "action": "All target computations paused; immutable work being pushed before any fresh lease request. This pilot did not release the lease. No explanation beyond the server message is known.",
+  "scope": "No private lease identifier or authentication credential is included."
+}

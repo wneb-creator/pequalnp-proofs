@@ -1,0 +1,1 @@
+{"exit": 0, "algorithm": "lift", "memory_mib": 256, "cpu_cap": 60, "wall_cap": 75, "seconds": 7.605974050999066, "native_peak_rss_kib": 50732, "driver_peak_rss_kib": 55812}

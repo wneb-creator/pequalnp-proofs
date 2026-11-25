@@ -1,0 +1,182 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Config.lean",
+    "source_member": "src/lean/Init/Grind/Config.lean",
+    "bytes": 14222,
+    "sha256": "9c05a59c81d92be6b6872d34ed1d751257b9af286e3fc889a2945cb3f7829d51"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/Basic.lean",
+    "source_member": "src/lean/Init/Grind/Ring/Basic.lean",
+    "bytes": 25254,
+    "sha256": "e20b816a722fc9003146396183d3af2af5394bc4725ca6a8b12f122b806f8df1"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/CommSemiringAdapter.lean",
+    "source_member": "src/lean/Init/Grind/Ring/CommSemiringAdapter.lean",
+    "bytes": 25079,
+    "sha256": "279d221ce7f225433fa3c39c7b018bb9486fc5dc5fa1cb08c3f2083c55b91560"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/CommSolver.lean",
+    "source_member": "src/lean/Init/Grind/Ring/CommSolver.lean",
+    "bytes": 90580,
+    "sha256": "979348323f927ea0a36f6422681f6626c9e1e96988203c9c0d450e722684f60f"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/Envelope.lean",
+    "source_member": "src/lean/Init/Grind/Ring/Envelope.lean",
+    "bytes": 22207,
+    "sha256": "3f579e4f376413ffc4af43dde047da05336ffe51783bcfe84f27d5f87ce4df69"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/Field.lean",
+    "source_member": "src/lean/Init/Grind/Ring/Field.lean",
+    "bytes": 10107,
+    "sha256": "e53eb3efc854f228235ade48c2819822ebee3124a10596b90d83c3b1daa3e440"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/FieldSolver.lean",
+    "source_member": "src/lean/Init/Grind/Ring/FieldSolver.lean",
+    "bytes": 21231,
+    "sha256": "0fc2d2e833f7cfbeb93028cc8f1aeb82e6d5b012ac31ab74ef605b06bbe3e024"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/IntSolver.lean",
+    "source_member": "src/lean/Init/Grind/Ring/IntSolver.lean",
+    "bytes": 6380,
+    "sha256": "6eb17eb07a5e3228ce8d319b8bc55dac031c7327f4952f2c7b03a7fe85bb259b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring/OfScientific.lean",
+    "source_member": "src/lean/Init/Grind/Ring/OfScientific.lean",
+    "bytes": 791,
+    "sha256": "5e13f7548ef5ed09958690c210e6ce0e3c03634e3ee9d68721c01af0f8c07799"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Init/Grind/Ring.lean",
+    "source_member": "src/lean/Init/Grind/Ring.lean",
+    "bytes": 512,
+    "sha256": "e4ce2ec8d5d3d5471879ff0777a9f7dc38ae7db89acb4d40f994a7189dffba05"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Elab/Tactic/Grind/BuiltinTactic.lean",
+    "source_member": "src/lean/Lean/Elab/Tactic/Grind/BuiltinTactic.lean",
+    "bytes": 23980,
+    "sha256": "958f1ce6ea35a72cb24388d7de5b3395f07ad61e48aff0639c1e729ff2029878"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Elab/Tactic/Grind/Config.lean",
+    "source_member": "src/lean/Lean/Elab/Tactic/Grind/Config.lean",
+    "bytes": 2289,
+    "sha256": "7d51fdd21c71eed2bb4424dafbc8a9720e2fb4e965194d7c1b75e414afc857d8"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Elab/Tactic/Grind/Main.lean",
+    "source_member": "src/lean/Lean/Elab/Tactic/Grind/Main.lean",
+    "bytes": 23567,
+    "sha256": "bf3c444e432101dfba0dadb4e49a833a9debc89ba8323c56e6e80ed2afc5b605"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Action.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Action.lean",
+    "bytes": 457,
+    "sha256": "5330941c1d8f34553ea07d4f2034804dab9e0abb6b2c70c8463ca979bb924cec"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/DenoteExpr.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/DenoteExpr.lean",
+    "bytes": 1532,
+    "sha256": "a63849ca448457153e72e9669b8aabf18e5cffc12c667fd74ff651f957cf7a9b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/EqCnstr.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/EqCnstr.lean",
+    "bytes": 26141,
+    "sha256": "4c091c20e849c62c3bfe841e8a693565d2dab2c04df67d35b608240fcbded9c2"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Internalize.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Internalize.lean",
+    "bytes": 8929,
+    "sha256": "23ce79e78ed044e1c7ae359bb5f3fddcbd4fa749e50f1d7ec2673b81579cd8de"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Inv.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Inv.lean",
+    "bytes": 1475,
+    "sha256": "934c53da27f66fd2a3835f6aa95465ba76245d4d2a0e515c47a3ad9b5031d3d1"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommRingM.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommRingM.lean",
+    "bytes": 2802,
+    "sha256": "ad51c9f07dce189c22a666fea690d14c63d3f8d4d6cbd587b1505877fb01f22f"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommSemiringM.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/NonCommSemiringM.lean",
+    "bytes": 3217,
+    "sha256": "695188dac411c637e9a01ec0effe8e743899eceda1e96329816b60a0ea59006b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/PP.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/PP.lean",
+    "bytes": 3542,
+    "sha256": "5c41de53ceb671c93d2e62e13bb2478ebff8bcc881960a35a5792c91f34defe3"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Power.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Power.lean",
+    "bytes": 1503,
+    "sha256": "a4102f6c7e9877f3d9ae1c25abe9af3d2e144d5f07e42e9acc7dc92188fe7422"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Proof.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Proof.lean",
+    "bytes": 23488,
+    "sha256": "7d7672e40dad00510f5142c0bb0ec1ab4a72861356f839fa8e2c349df6c0c3da"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Reify.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Reify.lean",
+    "bytes": 1090,
+    "sha256": "1681621ef525e9349e6109000f9d32f16a83f509ace66aa4d3895f7c09b0e1a9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingId.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingId.lean",
+    "bytes": 1549,
+    "sha256": "5a69e164998e6cc96898480a33351dcdf18b5af23cfcce6a6203919e1667e826"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingM.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/RingM.lean",
+    "bytes": 7868,
+    "sha256": "c71f2019873ee4927560218b63f3165cf19672e54d98e28522ad60d73a931483"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SafePoly.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SafePoly.lean",
+    "bytes": 5406,
+    "sha256": "0d5afeeb28dc16dc58027c967c9f1b998a8b603f24ad9d1a192bb4f8e248e3c3"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SemiringM.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/SemiringM.lean",
+    "bytes": 5087,
+    "sha256": "9ba6192e7e37569ac25394ab2bcf23f1c3ec2bac041b1eff4470f6ab67a44c04"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Types.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing/Types.lean",
+    "bytes": 13694,
+    "sha256": "2d92e9a5ea2da66e617cdca562f0d7efc6fe4b066bf44860ed820713afbb2ba3"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-78/grind-review/source/src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing.lean",
+    "source_member": "src/lean/Lean/Meta/Tactic/Grind/Arith/CommRing.lean",
+    "bytes": 2676,
+    "sha256": "286e72cabb56ea4af126cabe2015174b1a02e2fbf101164125a725c7a9c807b4"
+  }
+]

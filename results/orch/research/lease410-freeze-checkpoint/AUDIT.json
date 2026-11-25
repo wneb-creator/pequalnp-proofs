@@ -1,0 +1,8 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T13:16:04.054461+00:00",
+  "verdict": "PASS",
+  "hash_size_mismatches": 0,
+  "sensitive_values_detected": 0,
+  "scope": "Frozen checked partials distinguished from uncompiled drafts, exact restricted evidence, failed launches, incomplete recovery snapshots and public metadata. No target computation rerun."
+}

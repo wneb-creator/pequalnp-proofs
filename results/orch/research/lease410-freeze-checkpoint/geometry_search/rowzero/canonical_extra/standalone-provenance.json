@@ -1,0 +1,248 @@
+{
+  "status": "PREPARED ONLY; no Lean build run",
+  "scope": "Standalone algebra-only wrappers: exact31 canonical polynomial definitions and vector, plus all24 or one extra consequence. No main, Defs, homogeneous, or other PEqualNP import.",
+  "imports": [
+    "Mathlib.Basic.Complex.Basic",
+    "Mathlib.Data.Fin.VecNotation",
+    "Mathlib.Tactic.LinearCombination",
+    "Mathlib.Tactic.FinCases"
+  ],
+  "api_sha256": "ee8765c019a5adc4c8ba8ea98bad859c3da0cc016a48caadd3240149c961ae92",
+  "extra_body_sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa",
+  "copied_declarations": [
+    "canonicalGenerator0",
+    "canonicalGenerator1",
+    "canonicalGenerator2",
+    "canonicalGenerator3",
+    "canonicalGenerator4",
+    "canonicalGenerator5",
+    "canonicalGenerator6",
+    "canonicalGenerator7",
+    "canonicalGenerator8",
+    "canonicalGenerator9",
+    "canonicalGenerator10",
+    "canonicalGenerator11",
+    "canonicalGenerator12",
+    "canonicalGenerator13",
+    "canonicalGenerator14",
+    "canonicalGenerator15",
+    "canonicalGenerator16",
+    "canonicalGenerator17",
+    "canonicalGenerator18",
+    "canonicalGenerator19",
+    "canonicalGenerator20",
+    "canonicalGenerator21",
+    "canonicalGenerator22",
+    "canonicalGenerator23",
+    "canonicalGenerator24",
+    "canonicalGenerator25",
+    "canonicalGenerator26",
+    "canonicalGenerator27",
+    "canonicalGenerator28",
+    "canonicalGenerator29",
+    "canonicalGenerator30",
+    "canonicalGenerators"
+  ],
+  "outputs": [
+    {
+      "index": null,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtraStandalone.lean",
+      "sha256": "d689f5ce7751861eca56e0b7df2b3013aed0578b7af5ac33f9dfd84ded9fc6ef",
+      "lines": 4065,
+      "bytes": 334524,
+      "exact_extra_body_slice_sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa"
+    },
+    {
+      "index": 0,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra0Standalone.lean",
+      "sha256": "a36ee88b897eefd0560734e6fa037d78a87425e9aebc805f3e7eeebeea330ab1",
+      "lines": 850,
+      "bytes": 73217,
+      "exact_extra_body_slice_sha256": "16e989d43a1245d1a0fb7b5e324a1116f61428abd6488372e96bc80868132c1d"
+    },
+    {
+      "index": 1,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra1Standalone.lean",
+      "sha256": "bba173e747c4e6502ad327a5ff8161ec9a5533228af1ca65cb96e4576e0fc689",
+      "lines": 892,
+      "bytes": 76886,
+      "exact_extra_body_slice_sha256": "304980513fdb8fc9618cb853375e185297cea4da772d1984d28eb3998e26de73"
+    },
+    {
+      "index": 2,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra2Standalone.lean",
+      "sha256": "76d9439447af53ee271bdb1ea726ab7f06b8a7facfb2914351b3e9096ead746a",
+      "lines": 888,
+      "bytes": 76593,
+      "exact_extra_body_slice_sha256": "8c5f5de1604a8dd6da2b43e889905ac4ff93608fd28c9a1a56d97a9a36656249"
+    },
+    {
+      "index": 3,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra3Standalone.lean",
+      "sha256": "bcf6cf5d0181909f5268c096e996b173115be4fdce5c1260037fddde71986d82",
+      "lines": 850,
+      "bytes": 73164,
+      "exact_extra_body_slice_sha256": "27cafe2db455cf09b8bb83973933ed2dd43adfebb65885cfeab16cfc64d82d09"
+    },
+    {
+      "index": 4,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra4Standalone.lean",
+      "sha256": "5bef1db1ebd016fab54864bb44685adaf8f713f3a69551da7ebeefddab2a7a2b",
+      "lines": 884,
+      "bytes": 76203,
+      "exact_extra_body_slice_sha256": "b04ec2727c0c1796b874322ced05c89604444b8d201568d492a25ffb2bf22dd6"
+    },
+    {
+      "index": 5,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra5Standalone.lean",
+      "sha256": "d4259411d87b05cf4276bd06e881dbda7f846110837b6d37f2ad8597c475413e",
+      "lines": 851,
+      "bytes": 73227,
+      "exact_extra_body_slice_sha256": "e5485e4b41ceb6ff3dbbe181c8793323d4e854bdda47615ed4d420248f60f986"
+    },
+    {
+      "index": 6,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra6Standalone.lean",
+      "sha256": "ba7eb6b066adcca4f3177af2425b11482dd1f950b0c393e3d55dc81cc78ca497",
+      "lines": 983,
+      "bytes": 84814,
+      "exact_extra_body_slice_sha256": "0e7bad30707fd1f55d577f6f5bdbd703ebba0c907322b6070768fd9efb1c9c7f"
+    },
+    {
+      "index": 7,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra7Standalone.lean",
+      "sha256": "c268d85bc6200374180533bc59155bd1605a760ef49c7acb6232e65fde25223b",
+      "lines": 940,
+      "bytes": 81133,
+      "exact_extra_body_slice_sha256": "e1a599060faf292120c2e641360e95239d803a7946841de632b7931d348b3caa"
+    },
+    {
+      "index": 8,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra8Standalone.lean",
+      "sha256": "1a7ce990d276e1928933855a473ccc325e7bacbf1879bc4865aa30cbff74d1be",
+      "lines": 943,
+      "bytes": 81586,
+      "exact_extra_body_slice_sha256": "a2b07f6f83c15d7d191df0f204d4efd673066d6b22faed49ab5640461a803004"
+    },
+    {
+      "index": 9,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra9Standalone.lean",
+      "sha256": "a6af0495689acafd8159c26031b786ebc530f9f272bd261d7ae780c139e3d362",
+      "lines": 973,
+      "bytes": 83930,
+      "exact_extra_body_slice_sha256": "206b55257ca3a7e0d93e3a849b3ee5f910f152996713db0a16b624e09306b09d"
+    },
+    {
+      "index": 10,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra10Standalone.lean",
+      "sha256": "f610c49b896ac50f7043180a365723aa7adcd3ed6e5b7fd02b6ee7c644064037",
+      "lines": 850,
+      "bytes": 73215,
+      "exact_extra_body_slice_sha256": "d53474be1b520d86a308b851c0592defde8b107633586092f4ae1b84400833e3"
+    },
+    {
+      "index": 11,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra11Standalone.lean",
+      "sha256": "67d78030171c63bdd8a65d0e428845dd4e593abc62a1909fb0a983826227bef8",
+      "lines": 907,
+      "bytes": 78157,
+      "exact_extra_body_slice_sha256": "4d40e65bae2f289be630c2d329c7f3a7179efb6b8ccec430d03e5ee4ae5d0862"
+    },
+    {
+      "index": 12,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra12Standalone.lean",
+      "sha256": "03cb2786b68632577610e1a34f4f7364da45864deeb4f9fa8846ea5430bf6899",
+      "lines": 987,
+      "bytes": 85308,
+      "exact_extra_body_slice_sha256": "29b98676aafef4a9485d8981b7771d0161f67bb27e5fd3eae0cc8259b15c4b38"
+    },
+    {
+      "index": 13,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra13Standalone.lean",
+      "sha256": "32eb91821bf00506f5dc5a426190bf7a35e6628da3d6c62ad6e37874fce5b350",
+      "lines": 891,
+      "bytes": 76916,
+      "exact_extra_body_slice_sha256": "cd9fd94e0c127857e4caea3e7a600f6ae12bb3e1ca3b4551a26d076e03253011"
+    },
+    {
+      "index": 14,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra14Standalone.lean",
+      "sha256": "ce6e84404e4b48f32223fd562c8c2e037738d2bb0885b5277f6f7a38badf2d09",
+      "lines": 1003,
+      "bytes": 86742,
+      "exact_extra_body_slice_sha256": "879b8719398774fc39963cbdca4ae418b58efed8aaf2e2dda6493e4f2419fc4a"
+    },
+    {
+      "index": 15,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra15Standalone.lean",
+      "sha256": "83923e0da770652f0805c2d7ef1904589d516afdb2462e080ba8c388d84c30b5",
+      "lines": 1006,
+      "bytes": 86846,
+      "exact_extra_body_slice_sha256": "044ae8e3823de3b6fe92f9b7bf84a3e555e2b76cf71951ff7e3301addd7e5819"
+    },
+    {
+      "index": 16,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra16Standalone.lean",
+      "sha256": "d6e457c7c28951576b199afeadfc9623cae19db720a276b7b71c415111e80802",
+      "lines": 892,
+      "bytes": 76970,
+      "exact_extra_body_slice_sha256": "fe89500a9137754d9ab01c24c64329a70ba6d19f09a5fae6df41664b981947b6"
+    },
+    {
+      "index": 17,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra17Standalone.lean",
+      "sha256": "ceeac380d35c5dfe16ffca610653e1ebfe0dcea0d9c7a4a7ba13bea701dbd87b",
+      "lines": 987,
+      "bytes": 85218,
+      "exact_extra_body_slice_sha256": "7c7e595d21195082d19ba1add4d4c64a63e90b8486a429500f43e8ebfc6df7eb"
+    },
+    {
+      "index": 18,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra18Standalone.lean",
+      "sha256": "668f9e1de57d2939733405efa9652c914e3a26d4bb462c4d2525545de66995b9",
+      "lines": 938,
+      "bytes": 81006,
+      "exact_extra_body_slice_sha256": "a2d8189250f01ff7074f70d4c7d8c5fdc43675e374fe42222b0e0c079dedbce2"
+    },
+    {
+      "index": 19,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra19Standalone.lean",
+      "sha256": "5f5e3b7e7e24a11eb8056219ce6d3cfcb65c97255ec528c7b55d77acb9d5a32f",
+      "lines": 888,
+      "bytes": 76561,
+      "exact_extra_body_slice_sha256": "0a9908d5cd6687f47c882262c98b4ecd368e0e63d9c24891cdaee49c89fcd28d"
+    },
+    {
+      "index": 20,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra20Standalone.lean",
+      "sha256": "83863bad9747db8f23d463298389c44ba9a8e1f57467940c3ac27b8668b2f0b6",
+      "lines": 889,
+      "bytes": 76566,
+      "exact_extra_body_slice_sha256": "bcdb0742cb22eb259b00cac79570e667ca41a722d0c667e2f95d6e23939a3ebd"
+    },
+    {
+      "index": 21,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra21Standalone.lean",
+      "sha256": "ded7c6e5ae43a2c016bde179637c002e73b0efde15564d5715782575d8efe767",
+      "lines": 933,
+      "bytes": 80655,
+      "exact_extra_body_slice_sha256": "2ca700f78ee3a50a1c279f38d1c015ad3a4d6259cb0ddec1b1153975befa91fc"
+    },
+    {
+      "index": 22,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra22Standalone.lean",
+      "sha256": "3df9bdcad2871aef10f50cade8651c26f8029749d0de9fb04ffb7cb282c58507",
+      "lines": 851,
+      "bytes": 73360,
+      "exact_extra_body_slice_sha256": "f1c385c130f1492cb2623096c02d0a9c71b3602e0cd22515a87fa36b3d2f2a3d"
+    },
+    {
+      "index": 23,
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtra23Standalone.lean",
+      "sha256": "0615de35f6449b065d7cd70e507712d8a95c50aec4914f1701dba9c792719fb0",
+      "lines": 851,
+      "bytes": 73359,
+      "exact_extra_body_slice_sha256": "9720c7a3a09a9615409594be94c4ec850f98fdc1c5648c3c3939ed695ccf24a6"
+    }
+  ]
+}

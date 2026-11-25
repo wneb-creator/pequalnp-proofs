@@ -1,0 +1,13 @@
+{
+  "exit": -6,
+  "source": "/tmp/oec/pequalnp-pilot-78/grind-review/GrobnerSmoke.lean",
+  "source_sha256": "7d0527095cef619ad1d2bd117f3e3d2d3418ab67a4aa0667f32e9779e4b98912",
+  "wall_seconds": 0.008919800999137806,
+  "cpu_seconds": 0.005536999999999999,
+  "max_rss_kib": 14076,
+  "address_cap_bytes": 1073741824,
+  "cpu_cap": 30,
+  "wall_cap": 60,
+  "threads": 1,
+  "scope": "Normal kernel-checked Lean compilation with direct1GiB-capped Lean child after supported lake env initialization; no environment dump, checker modification or Mathlib source build."
+}

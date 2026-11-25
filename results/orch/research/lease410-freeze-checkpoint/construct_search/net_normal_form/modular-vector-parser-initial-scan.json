@@ -1,0 +1,10 @@
+{
+  "scope": "No complete FP block yet; active/incomplete blocks ignored.",
+  "source": "/tmp/oec/pequalnp-pilot-78/construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.stdout.gz",
+  "snapshot": {
+    "compressed_prefix_bytes": 120,
+    "compressed_prefix_sha256": "f612d0550d0539ae7d3773757c1937952fa5a6072d562f279deb9ab8d92dee0f"
+  },
+  "complete_blocks": 0,
+  "seconds": 0.00017822799782152288
+}

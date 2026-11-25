@@ -1,0 +1,20 @@
+{
+  "engine": "Singular_focused_liftstd_12_streaming",
+  "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/modular-liftstd-unit-smoke.sing",
+  "source_sha256": "d3fcc2b5dc8db8491e9a61c13e9177153c2cd64ec1cc2797c5111d6cf2db9b6e",
+  "cpu_budget": 10,
+  "wall_budget": 30,
+  "memory_mib": 256,
+  "wall_seconds": 0.06613487299910048,
+  "exit": 0,
+  "termination": null,
+  "errors": [],
+  "raw_stdout_bytes": 100,
+  "raw_stdout_sha256": "a6ff1220d63fd58f9b22c736211c4cfe8c4c1fdd6e17c155a90fb8e0d012015a",
+  "gzip_bytes": 135,
+  "lossless_roundtrip_verified": true,
+  "child_user_cpu": 0.02409,
+  "child_system_cpu": 0.0064139999999999996,
+  "child_maxrss_kib": 11956,
+  "scope": "Complete stdout retained in lossless gzip. Exact polynomial identity still required before any proof claim."
+}

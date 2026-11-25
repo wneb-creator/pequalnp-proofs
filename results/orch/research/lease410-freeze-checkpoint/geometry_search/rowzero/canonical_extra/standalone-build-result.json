@@ -1,0 +1,16 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/CanonicalExtraStandalone.lean",
+  "source_sha256": "d689f5ce7751861eca56e0b7df2b3013aed0578b7af5ac33f9dfd84ded9fc6ef",
+  "started_utc": "2026-11-25T13:11:12.137094+00:00",
+  "address_space_cap_bytes": 1073741824,
+  "cpu_cap_seconds": 240,
+  "wall_cap_seconds": 300,
+  "lean_threads": 1,
+  "scope": "Algebra-only standalone31 definitions and24 certified quartic consequences. No main/Defs import; no posted theorem.",
+  "completed_utc": "2026-11-25T13:11:12.202345+00:00",
+  "exit": 134,
+  "seconds": 0.06506886400165968,
+  "peak_rss_kib": 24000,
+  "stdout": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build.stdout",
+  "stderr": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical_extra/standalone-build.stderr"
+}

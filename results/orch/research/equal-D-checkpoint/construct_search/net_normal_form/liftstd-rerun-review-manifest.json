@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-11-25T13:01:45.061664+00:00",
+  "scope": "Frozen source and runner audit of the active certificate recovery process, no CAS result or certificate claimed.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/audit_liftstd_rerun.py",
+      "bytes": 4886,
+      "sha256": "887ba35f19c72a2bf9b17612d77b761602be8fed141d2149b554b00e4b7318b5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/liftstd-rerun-independent-review.json",
+      "bytes": 2742,
+      "sha256": "bae3152c4c31c7c1323f1efef6968f1258bab48d99afc99c2f4058fa777610fb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/liftstd-rerun-independent-review.stdout",
+      "bytes": 2520,
+      "sha256": "5ad8bdf36c1a1b91072804939ff0e5034aaff9eea68ea573ae8a947a34e5b498"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/liftstd-rerun-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

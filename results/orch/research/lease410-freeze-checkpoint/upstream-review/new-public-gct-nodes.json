@@ -1,0 +1,362 @@
+[
+  {
+    "id": "L-gct-234",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-234.3830c091c201.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: every positive root of a nonzero signed sum of 3 cubes of polynomials with at most 2 terms has order at most 9",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 9",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-234.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-235",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-235.58b9e8484d9c.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some nonzero signed sum of 3 cubes of polynomials with at most 2 terms has a positive root of order more than 9",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 9)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-235.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-236",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-236.c9b44519e13e.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: every positive root of a nonzero signed sum of 3 cubes of polynomials with at most 3 terms has order at most 14",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 14",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-236.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-237",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-237.72eff95e3394.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some nonzero signed sum of 3 cubes of polynomials with at most 3 terms has a positive root of order more than 14",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 14)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-237.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-238",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-238.bdb59d3044eb.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: every positive root of a nonzero signed sum of 3 cubes of polynomials with at most 4 terms has order at most 21",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 4) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 21",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-238.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-239",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-239.ca91091acfc7.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some nonzero signed sum of 3 cubes of polynomials with at most 4 terms has a positive root of order more than 21",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 4) \u2192 ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2260 0 \u2192 \u2200 x : \u211d, 0 < x \u2192 Polynomial.rootMultiplicity x ((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3) \u2264 21)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-239.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-240",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-240.ed56328a7653.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 2 terms has at most 9 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 9",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-240.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-241",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-241.a3b093cb74a2.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 2 terms has more than 9 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 9)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-241.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-242",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-242.93fa59d2792e.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 3 terms has at most 14 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 14",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-242.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-243",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-243.020d46825c27.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 3 terms has more than 14 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 14)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-243.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-244",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-244.9609b6f60cd7.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 4 terms has at most 21 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 4) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 21",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-244.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-245",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-245.9857dd9392b2.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 4 terms has more than 21 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 4) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 21)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-245.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-246",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-246.316fe70cb5cd.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 5 terms has at most 26 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 5) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 26",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-246.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-247",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-247.e51b30c9b4e0.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 5 terms has more than 26 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 5) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 26)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-247.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-248",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-248.94984d6808c8.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 6 terms has at most 33 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 6) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 33",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-248.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-249",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-249.9f110b35e542.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 6 terms has more than 33 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 6) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 33)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-249.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-250",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-250.75fe7e4a220a.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 4 cubes of polynomials with at most 2 terms has at most 13 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 4 \u2192 \u211d) (g : Fin 4 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 4)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 13",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-250.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-251",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-251.ef5376897474.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 4 cubes of polynomials with at most 2 terms has more than 13 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 4 \u2192 \u211d) (g : Fin 4 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 4)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 13)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-251.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-252",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-252.1985eb4a0622.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 5 cubes of polynomials with at most 2 terms has at most 17 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 5 \u2192 \u211d) (g : Fin 5 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 5)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 17",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-252.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-253",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-253.24692d365f6d.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 5 cubes of polynomials with at most 2 terms has more than 17 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 5 \u2192 \u211d) (g : Fin 5 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 5)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 17)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-253.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-254",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-254.54f93226797b.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 6 cubes of polynomials with at most 2 terms has at most 21 distinct positive roots",
+    "formal_statement": "\u2200 (s : Fin 6 \u2192 \u211d) (g : Fin 6 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 6)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 21",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-254.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-255",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-255.04fe6f1bfbcf.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 6 cubes of polynomials with at most 2 terms has more than 21 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 6 \u2192 \u211d) (g : Fin 6 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 6)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 21)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-255.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-256",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-256.aaed8870dc1c.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 2 terms has at most 19 distinct real roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset).card \u2264 19",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-256.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-257",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-257.09495a1e2f32.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 2 terms has more than 19 distinct real roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 2) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset).card \u2264 19)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-257.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-258",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-258.023941128851.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: a signed sum of 3 cubes of polynomials with at most 3 terms has at most 29 distinct real roots",
+    "formal_statement": "\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset).card \u2264 29",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-258.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-259",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-259.2a90a63feed0.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some signed sum of 3 cubes of polynomials with at most 3 terms has more than 29 distinct real roots",
+    "formal_statement": "\u00ac (\u2200 (s : Fin 3 \u2192 \u211d) (g : Fin 3 \u2192 Polynomial \u211d), (\u2200 i, s i = 1 \u2228 s i = -1) \u2192 (\u2200 i, (g i).support.card \u2264 3) \u2192 ((((Finset.univ : Finset (Fin 3)).sum fun i => Polynomial.C (s i) * g i ^ 3)).roots.toFinset).card \u2264 29)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-259.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-260",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-260.0c486f1cff69.json",
+    "status": "refuted",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 3 terms has at most 7 distinct positive roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 7",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-260.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-261",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-261.857413ad21ef.json",
+    "status": "checked",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 3 terms has more than 7 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 7)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-261.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-262",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-262.f112f9a78c16.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 4 terms has at most 10 distinct positive roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 4 \u2227 g.support.card \u2264 4) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 10",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-262.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-263",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-263.d5416ecf8b6c.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 4 terms has more than 10 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 4 \u2227 g.support.card \u2264 4) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 10)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-263.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-264",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-264.b6cdfbe86f72.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 5 terms has at most 11 distinct positive roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 5 \u2227 g.support.card \u2264 5) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 11",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-264.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-265",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-265.68a817c6e2fe.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 5 terms has more than 11 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 5 \u2227 g.support.card \u2264 5) \u2192 ((f * g + 1).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 11)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-265.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-266",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-266.d816d51c135a.json",
+    "status": "refuted",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 3 terms has at most 7 distinct real roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset).card \u2264 7",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-266.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-267",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-267.64c969aa96d1.json",
+    "status": "checked",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 3 terms has more than 7 distinct real roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 3 \u2227 g.support.card \u2264 3) \u2192 ((f * g + 1).roots.toFinset).card \u2264 7)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-267.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-268",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-268.c318c6aa8cb1.json",
+    "status": "refuted",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 4 terms has at most 12 distinct real roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 4 \u2227 g.support.card \u2264 4) \u2192 ((f * g + 1).roots.toFinset).card \u2264 12",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-268.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-269",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-269.ca51a5c4f07d.json",
+    "status": "checked",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 4 terms has more than 12 distinct real roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 4 \u2227 g.support.card \u2264 4) \u2192 ((f * g + 1).roots.toFinset).card \u2264 12)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-269.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-270",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-270.6392ad859465.json",
+    "status": "refuted",
+    "title": "Small algebraic case: f g + 1 for two polynomials with at most 5 terms has at most 14 distinct real roots",
+    "formal_statement": "\u2200 f g : Polynomial \u211d, (f.support.card \u2264 5 \u2227 g.support.card \u2264 5) \u2192 ((f * g + 1).roots.toFinset).card \u2264 14",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-270.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-271",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-271.5ad2cc172ae0.json",
+    "status": "checked",
+    "title": "Small algebraic case: some f g + 1 for two polynomials with at most 5 terms has more than 14 distinct real roots",
+    "formal_statement": "\u00ac (\u2200 f g : Polynomial \u211d, (f.support.card \u2264 5 \u2227 g.support.card \u2264 5) \u2192 ((f * g + 1).roots.toFinset).card \u2264 14)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-271.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-272",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-272.f1b6cbfabc30.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: p q - r s for four polynomials with at most 4 terms has at most 22 distinct positive roots",
+    "formal_statement": "\u2200 p q r s : Polynomial \u211d, (p.support.card \u2264 4 \u2227 q.support.card \u2264 4 \u2227 r.support.card \u2264 4 \u2227 s.support.card \u2264 4) \u2192 ((p * q - r * s).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 22",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-272.json",
+    "exit": 0
+  },
+  {
+    "id": "L-gct-273",
+    "url": "https://data.pequalnp.com/data/lemma/L-gct-273.d9f70259de55.json",
+    "status": "conjecture",
+    "title": "Small algebraic case: some p q - r s for four polynomials with at most 4 terms has more than 22 distinct positive roots",
+    "formal_statement": "\u00ac (\u2200 p q r s : Polynomial \u211d, (p.support.card \u2264 4 \u2227 q.support.card \u2264 4 \u2227 r.support.card \u2264 4 \u2227 s.support.card \u2264 4) \u2192 ((p * q - r * s).roots.toFinset.filter (fun x : \u211d => 0 < x)).card \u2264 22)",
+    "path": "/tmp/oec/pequalnp-pilot-78/upstream-review/node-273.json",
+    "exit": 0
+  }
+]

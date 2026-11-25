@@ -1,0 +1,10 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T13:15:10.809612+00:00",
+  "verdict": "PASS",
+  "response_sha256": "6585a67d766f8361be04e48b2a01a4ce86c8bdc109067c4112505a91b90d1957",
+  "status_sha256": "3d11b5483cd08b1ae90dd4a52bf8daaa4007eece833c482adec537cbe5be247d",
+  "scope": "Exact response confirms final HTTP410 and server error; proxy HTTP200 is separate. Metadata makes no causal claim beyond server text and labels advertised-expiry discrepancy. Historical timestamps are metadata, not an independent re-query.",
+  "sensitive_values_detected": 0,
+  "scanner_note": "The broad private-lease pattern matched the literal public error phrase lease: it expired. That exact known server sentence was classified as public error text; all remaining bytes passed the scan."
+}

@@ -1,0 +1,1 @@
+{"status": "PASS exact rational source-generation audit; Lean NOT BUILT", "extra_count": 24, "source_sha256": "2fa445227fb6420fe0c2632242a9653c43d9606deb26a71cd4e44e0dc06b8daa", "source_lines": 3287, "source_bytes": 266724, "declaration_count": 50, "seconds": 0.6620412040028896}

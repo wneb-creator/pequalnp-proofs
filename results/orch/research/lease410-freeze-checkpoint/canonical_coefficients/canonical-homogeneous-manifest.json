@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-25T12:56:43.346638+00:00",
+  "scope": "Checked compact radial permanent formula and necessary canonical parameterization only. No31-generator collection check yet, no infeasibility or posted theorem/checker verdict.",
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CanonicalHomogeneous.lean",
+      "bytes": 9189,
+      "sha256": "2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CanonicalHomogeneous.build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CanonicalHomogeneous.build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CanonicalHomogeneous.validation.json",
+      "bytes": 947,
+      "sha256": "588f024c5b4813a2330ab94d051854666659e90c216aa001d9e7d598f93f9e6a"
+    }
+  ]
+}

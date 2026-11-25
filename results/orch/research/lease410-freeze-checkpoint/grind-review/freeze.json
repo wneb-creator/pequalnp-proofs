@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T13:12:29.770448+00:00",
+  "reason": "Root instructed immediate capability/target freeze while resolving desk HTTP410.",
+  "signalled_lean_pids": [],
+  "signal": "SIGTERM",
+  "no_other_process_touched": true
+}

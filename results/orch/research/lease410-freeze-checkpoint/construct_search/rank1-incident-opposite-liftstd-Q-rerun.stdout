@@ -1,0 +1,8 @@
+START_FOCUSED_LIFTSTD_12
+PRIME_LIFTSTD_START
+2147483587
+
+Singular error: no more memory
+System 1107460k:1107460k Appl 1085487k/18748k Malloc 1359k/0k Valloc 1102876k/18748k Pages 275719/0 Regions 1312:1312 Internal: 108208
+
+halt 14
