@@ -1,0 +1,41 @@
+[
+  {
+    "manifest": "s4-preservation-manifest.json",
+    "sha256": "19d0bdadd5ef5885b02cc0a38bc2413bcfa7042e56eb63d0c2c52ac9c10cb1c6",
+    "files": 52,
+    "stored_bytes": 616802,
+    "scanned_uncompressed_bytes": 1262407,
+    "credential_pattern_matches": 0,
+    "hash_and_path_verification": "PASS",
+    "scope_review": "PASS: modular degree bounds and numerical search only; no characteristic-zero or global nonexistence assertion",
+    "credential_material_found": false,
+    "frozen_set_confirmation": "toolchain_setup confirmed every listed file stable",
+    "review_status": "PASS"
+  },
+  {
+    "manifest": "s4-D8-preservation-manifest.json",
+    "sha256": "9a8d27d79d72599b1f1947a712ee5079f0dae2f0c51c9dbef8d0083392e50a9f",
+    "files": 15,
+    "stored_bytes": 1262294,
+    "scanned_uncompressed_bytes": 3396827,
+    "credential_pattern_matches": 0,
+    "hash_and_path_verification": "PASS",
+    "scope_review": "PASS: modular degree bounds and numerical search only; no characteristic-zero or global nonexistence assertion",
+    "credential_material_found": false,
+    "frozen_set_confirmation": "toolchain_setup confirmed every listed file stable",
+    "review_status": "PASS"
+  },
+  {
+    "manifest": "s4-numeric-preservation-manifest.json",
+    "sha256": "b9207aae8ce00066c0d1a1dff6cf70c9d51df5841d0820c8adc0ad5c7333af12",
+    "files": 6,
+    "stored_bytes": 52632,
+    "scanned_uncompressed_bytes": 52632,
+    "credential_pattern_matches": 0,
+    "hash_and_path_verification": "PASS",
+    "scope_review": "PASS: modular degree bounds and numerical search only; no characteristic-zero or global nonexistence assertion",
+    "credential_material_found": false,
+    "frozen_set_confirmation": "toolchain_setup confirmed every listed file stable",
+    "review_status": "PASS"
+  }
+]

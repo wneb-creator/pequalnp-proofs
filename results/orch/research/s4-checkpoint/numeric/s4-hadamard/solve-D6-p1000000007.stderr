@@ -1,0 +1,25 @@
+SPARSE rows=2601 columns=5766 nnz=51149 prime=1000000007
+iteration=100 cpu=0.015
+iteration=200 cpu=0.031
+iteration=300 cpu=0.043
+iteration=400 cpu=0.059
+iteration=500 cpu=0.071
+iteration=600 cpu=0.088
+iteration=700 cpu=0.099
+iteration=800 cpu=0.111
+iteration=900 cpu=0.127
+iteration=1000 cpu=0.143
+iteration=1100 cpu=0.155
+iteration=1200 cpu=0.167
+iteration=1300 cpu=0.183
+iteration=1400 cpu=0.195
+iteration=1500 cpu=0.211
+iteration=1600 cpu=0.223
+iteration=1700 cpu=0.239
+iteration=1800 cpu=0.251
+iteration=1900 cpu=0.267
+iteration=2000 cpu=0.283
+iteration=2100 cpu=0.295
+iteration=2200 cpu=0.307
+iteration=2300 cpu=0.323
+iteration=2400 cpu=0.339

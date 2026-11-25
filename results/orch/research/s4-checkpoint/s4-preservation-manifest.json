@@ -1,0 +1,327 @@
+{
+  "scope": "Completed stable S4 rational chart, signed-action generator, exact sparse solver, independent audits and modular degree5-7 dual witnesses. No characteristic-zero nonexistence claim. Active D8 outputs and regenerable matrices excluded.",
+  "solver_compile": [
+    "cc",
+    "-O3",
+    "-std=c11",
+    "-DFIXED_PRIME=1000000007ULL",
+    "macaulay-sparse.c",
+    "-o",
+    "macaulay-sparse-fast"
+  ],
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/macaulay-sparse.c",
+      "relative_path": "numeric/macaulay-sparse.c",
+      "sha256": "31a54a6d5d3a92a4f277ee97e4386e22111710a8aabb3f3f4636f41c20108617",
+      "bytes": 7677
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/macaulay-fast-tests.json",
+      "relative_path": "numeric/macaulay-fast-tests.json",
+      "sha256": "ca73d16ecaa6a0462915687a6375fe1e13d8daac321f0d5198abb5b762af6fff",
+      "bytes": 1695
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/macaulay-fast-tests.stdout",
+      "relative_path": "numeric/macaulay-fast-tests.stdout",
+      "sha256": "7b397cddbbf543e7fc45fa28b7299248655e7091e7c15e6af7460c19780961a9",
+      "bytes": 1211
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/generate.py",
+      "relative_path": "numeric/s4-hadamard/generate.py",
+      "sha256": "b8b770111dd2f99ec4f24751651210014f8be93884bbee900cd3f402a767f956",
+      "bytes": 3424
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix.py",
+      "relative_path": "numeric/s4-hadamard/matrix.py",
+      "sha256": "03feb3ae58835b0d312ad5be62a06f8322435e5518cc4a316003bf84f7d72a01",
+      "bytes": 6015
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve.py",
+      "relative_path": "numeric/s4-hadamard/solve.py",
+      "sha256": "6d9c7aea737f54999e6db822cd2e15e7e3ecbefabd1575d06df3d7263d6eaafb",
+      "bytes": 1838
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/chart.json",
+      "relative_path": "numeric/s4-hadamard/chart.json",
+      "sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5",
+      "bytes": 51196
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/generate.stdout",
+      "relative_path": "numeric/s4-hadamard/generate.stdout",
+      "sha256": "67b2354e1bd5447d753252ae5cd779291b374d30b8908834ee65d4ae01551d94",
+      "bytes": 881
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/generate.stderr",
+      "relative_path": "numeric/s4-hadamard/generate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D5-validation.json",
+      "relative_path": "numeric/s4-hadamard/invariant-D5-validation.json",
+      "sha256": "cf7cbb033491082053e6ad3662bf917855e1c2bffbb2fc9c03a575abbb37d6e8",
+      "bytes": 709
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D5-rows.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D5-rows.json.zst",
+      "sha256": "95e4a87804a3e380d2b5fca600ebd734bac83b641b18b5fcbb7c974d0c2da8f6",
+      "bytes": 1076
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D5-columns.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D5-columns.json.zst",
+      "sha256": "4542e8bff9a0e8016d2ca97b68cece1fcdbf03ae7f5f094f6b3e9becb5c366c1",
+      "bytes": 3246
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D5-p1000000007.stdout",
+      "relative_path": "numeric/s4-hadamard/solve-D5-p1000000007.stdout",
+      "sha256": "a2662d6e6bf6cc16541f22af660b6fac7d36f06ed9b4ead6dbb9be2a5006e16d",
+      "bytes": 155
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D5-p1000000007.stderr",
+      "relative_path": "numeric/s4-hadamard/solve-D5-p1000000007.stderr",
+      "sha256": "2dfced7c2b3109be0703ae1d7ff21d1378b7195e5a3a45bbfe4ce585c235a17a",
+      "bytes": 151
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D5-p1000000007.witness",
+      "relative_path": "numeric/s4-hadamard/solve-D5-p1000000007.witness",
+      "sha256": "8beab8ae6680a892f67f08a76dacb960764a0310c5e41a50bc417a9f04d9925d",
+      "bytes": 20512
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D5-p1000000007.result.json",
+      "relative_path": "numeric/s4-hadamard/solve-D5-p1000000007.result.json",
+      "sha256": "857743b7beedccd74326b3cc6cf49dc3e78cb92b673c946ea06e7f1b490b8fb7",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D5.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D5.stdout",
+      "sha256": "61d9ce995b9c4cc75ba38683fe60b32c87520e9f98b9ac5f792a24bec64fe369",
+      "bytes": 957
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D5.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D5.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D6-validation.json",
+      "relative_path": "numeric/s4-hadamard/invariant-D6-validation.json",
+      "sha256": "3816c0f3c0804e04c483ce7d7adf98c788795477d6221217efb0979282b4bb43",
+      "bytes": 719
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D6-rows.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D6-rows.json.zst",
+      "sha256": "cd99833e4d401856dd022d7a65ee56b3bf799727dc7bb487604f84378f1295c1",
+      "bytes": 5820
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D6-columns.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D6-columns.json.zst",
+      "sha256": "aa3617d8a7d1fa644274c69eec4358e304c1770ca25670ef02ae00beab6a0637",
+      "bytes": 11573
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D6-p1000000007.stdout",
+      "relative_path": "numeric/s4-hadamard/solve-D6-p1000000007.stdout",
+      "sha256": "b505a8334e68ee5e9f0132925b5c5703f4e75cfb639209944d949c8397050287",
+      "bytes": 157
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D6-p1000000007.stderr",
+      "relative_path": "numeric/s4-hadamard/solve-D6-p1000000007.stderr",
+      "sha256": "174ae37ec60c014e9968ff90c59d1383b5c93f4605f66d74c248230dc0a90407",
+      "bytes": 648
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D6-p1000000007.witness",
+      "relative_path": "numeric/s4-hadamard/solve-D6-p1000000007.witness",
+      "sha256": "2654e795aceacde66df7240569d3f2df75a57bcf507e2a1c388afdd48986b8d7",
+      "bytes": 84756
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D6-p1000000007.result.json",
+      "relative_path": "numeric/s4-hadamard/solve-D6-p1000000007.result.json",
+      "sha256": "0ed480e50bf783799dcac037dd5e288313dbd7edbb2855c1ac9fd6b410335e93",
+      "bytes": 219
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D6.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D6.stdout",
+      "sha256": "ec4c1298b66fae105a7eb285edcb2d6a06953b943f082bae6caad65a0f5a66ac",
+      "bytes": 970
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D6.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D6.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D7-validation.json",
+      "relative_path": "numeric/s4-hadamard/invariant-D7-validation.json",
+      "sha256": "2f2a34333e468ee6720b9a8a76662df82ce647695f5db9a58d263132e5bb9abd",
+      "bytes": 731
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D7-rows.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D7-rows.json.zst",
+      "sha256": "f424d0b64f5c56e6cd4b03acc7d78222dd375986c5cc4ebb8db4d07665b0126c",
+      "bytes": 25173
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D7-columns.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D7-columns.json.zst",
+      "sha256": "cbad41ef4e5c0c12364fa0da9c7e57e55f238d59be0e3609d94ba1b715083cb3",
+      "bytes": 36980
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D7-p1000000007.stdout",
+      "relative_path": "numeric/s4-hadamard/solve-D7-p1000000007.stdout",
+      "sha256": "fd4995c7bb567659266f4cc64776d11d5298223dd12d4c22a1cb4c591e5c4c04",
+      "bytes": 161
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D7-p1000000007.stderr",
+      "relative_path": "numeric/s4-hadamard/solve-D7-p1000000007.stderr",
+      "sha256": "b04d7b053bfed92e82defd83b7caefa1d9b452128ac97d054a74a01df0702dd9",
+      "bytes": 2812
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D7-p1000000007.witness",
+      "relative_path": "numeric/s4-hadamard/solve-D7-p1000000007.witness",
+      "sha256": "901eaaaf9b3e80bb8331cb3d398d77308e4d1a214e393017a5c0f408cbe61b92",
+      "bytes": 310534
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D7-p1000000007.result.json",
+      "relative_path": "numeric/s4-hadamard/solve-D7-p1000000007.result.json",
+      "sha256": "5627b71d99776c43b5c448f7573616cf9df8b8b932da9e3268661993606159d6",
+      "bytes": 219
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D7.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D7.stdout",
+      "sha256": "91e93edae9085a33091199f8bb1b8269304210e7f426cddc64bb2d6b69000cf2",
+      "bytes": 986
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D7.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D7.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D5-compact.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D5-compact.stdout",
+      "sha256": "9a8ba69e010b6fc3d15dfdcbf7d941e166c940d7e291be79bb274e8b94ac6226",
+      "bytes": 958
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D5-compact.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D5-compact.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/s4_hadamard_chart.py",
+      "relative_path": "construct_search/s4_hadamard_chart.py",
+      "sha256": "0648d4c6e2584b34a5352d9f0b1b0c92564a5053b8f759812c0c6c3f71b53ff1",
+      "bytes": 1537
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/s4-hadamard-actions.json",
+      "relative_path": "construct_search/s4-hadamard-actions.json",
+      "sha256": "c094779a0329d9d332e327b57f273885ec8d53815d189795c495f187328052c3",
+      "bytes": 23066
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/s4-hadamard-chart.stdout",
+      "relative_path": "construct_search/s4-hadamard-chart.stdout",
+      "sha256": "b70f693fb7f06ff7ce94be93a797547bbbda94b94f5cb39ee5fb501b533aca7b",
+      "bytes": 143
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/s4-hadamard-chart.stderr",
+      "relative_path": "construct_search/s4-hadamard-chart.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_s4_chart.py",
+      "relative_path": "construct_search/audit_s4_chart.py",
+      "sha256": "bdcb00c9a7d012e27c1867ff2164e417f894661d27ffc490f6fb92ff39c89bae",
+      "bytes": 2144
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-chart.stdout",
+      "relative_path": "construct_search/audit-s4-chart.stdout",
+      "sha256": "04ef592ca418aa388cf5f860f2980101c8182a5dfb50a3726d8e0a1bf2d5037c",
+      "bytes": 998
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-chart.stderr",
+      "relative_path": "construct_search/audit-s4-chart.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_s4_matrix.py",
+      "relative_path": "construct_search/audit_s4_matrix.py",
+      "sha256": "797f8e07098de27354d4b84990db44e85f379c47a98c60aa78d308bcf5f5fd43",
+      "bytes": 3674
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix.stdout",
+      "relative_path": "construct_search/audit-s4-matrix.stdout",
+      "sha256": "e5f51d51d29e43ff3155b7b684d91facc15b344e8fcda181a508d3176b386094",
+      "bytes": 337
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix.stderr",
+      "relative_path": "construct_search/audit-s4-matrix.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D6.stdout",
+      "relative_path": "construct_search/audit-s4-matrix-D6.stdout",
+      "sha256": "916e16e0c9d5b4360461254c9a8935285b626cd00fb3d5287f4dbb301c7f320f",
+      "bytes": 344
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D6.stderr",
+      "relative_path": "construct_search/audit-s4-matrix-D6.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D7.stdout",
+      "relative_path": "construct_search/audit-s4-matrix-D7.stdout",
+      "sha256": "e981fb8622139c49b6762ecb9647b943ffb575bfcde623c3fb1fce99a6d1e6f2",
+      "bytes": 351
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D7.stderr",
+      "relative_path": "construct_search/audit-s4-matrix-D7.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "total_bytes": 616802
+}

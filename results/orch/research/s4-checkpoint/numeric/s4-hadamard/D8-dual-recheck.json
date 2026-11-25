@@ -1,0 +1,8 @@
+{
+  "pass": true,
+  "rows": 52755,
+  "columns": 65662,
+  "entries": 1462233,
+  "constant_dual": 1,
+  "scope": "Exact persisted modular dual residual only; no characteristic-zero conclusion"
+}

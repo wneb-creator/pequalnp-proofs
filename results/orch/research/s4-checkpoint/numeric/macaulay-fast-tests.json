@@ -1,0 +1,125 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "case": 0,
+      "verdict": "dual"
+    },
+    {
+      "case": 1,
+      "verdict": "dual"
+    },
+    {
+      "case": 2,
+      "verdict": "primal"
+    },
+    {
+      "case": 3,
+      "verdict": "dual"
+    },
+    {
+      "case": 4,
+      "verdict": "primal"
+    },
+    {
+      "case": 5,
+      "verdict": "dual"
+    },
+    {
+      "case": 6,
+      "verdict": "primal"
+    },
+    {
+      "case": 7,
+      "verdict": "dual"
+    },
+    {
+      "case": 8,
+      "verdict": "primal"
+    },
+    {
+      "case": 9,
+      "verdict": "dual"
+    },
+    {
+      "case": 10,
+      "verdict": "dual"
+    },
+    {
+      "case": 11,
+      "verdict": "dual"
+    },
+    {
+      "case": 12,
+      "verdict": "dual"
+    },
+    {
+      "case": 13,
+      "verdict": "primal"
+    },
+    {
+      "case": 14,
+      "verdict": "dual"
+    },
+    {
+      "case": 15,
+      "verdict": "primal"
+    },
+    {
+      "case": 16,
+      "verdict": "dual"
+    },
+    {
+      "case": 17,
+      "verdict": "primal"
+    },
+    {
+      "case": 18,
+      "verdict": "dual"
+    },
+    {
+      "case": 19,
+      "verdict": "primal"
+    },
+    {
+      "case": 20,
+      "verdict": "dual"
+    },
+    {
+      "case": 21,
+      "verdict": "dual"
+    },
+    {
+      "case": 22,
+      "verdict": "dual"
+    },
+    {
+      "case": 23,
+      "verdict": "dual"
+    },
+    {
+      "case": 24,
+      "verdict": "dual"
+    },
+    {
+      "case": 25,
+      "verdict": "dual"
+    },
+    {
+      "case": 26,
+      "verdict": "primal"
+    },
+    {
+      "case": 27,
+      "verdict": "dual"
+    },
+    {
+      "case": 28,
+      "verdict": "dual"
+    },
+    {
+      "case": 29,
+      "verdict": "primal"
+    }
+  ]
+}

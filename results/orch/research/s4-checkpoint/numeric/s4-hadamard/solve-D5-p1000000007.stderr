@@ -1,0 +1,5 @@
+SPARSE rows=445 columns=1451 nnz=6821 prime=1000000007
+iteration=100 cpu=0.001
+iteration=200 cpu=0.005
+iteration=300 cpu=0.007
+iteration=400 cpu=0.010

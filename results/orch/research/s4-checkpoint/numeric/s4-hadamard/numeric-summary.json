@@ -1,0 +1,8 @@
+{
+  "runs": 320,
+  "best_residual": 0.0003415983948544541,
+  "cpu_seconds": 10.772503052000001,
+  "peak_rss_kib": 60276,
+  "jacobian_error": 1.7892019733929886e-10,
+  "scope": "Numerical candidate search only; nonzero residual does not imply nonexistence"
+}

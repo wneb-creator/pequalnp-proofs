@@ -1,0 +1,96 @@
+{
+  "scope": "Completed S4 degree8 modular dual and independent audit. Excludes this degree bound over F_1000000007 only. Large regenerable binary matrix omitted.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D8-validation.json",
+      "relative_path": "numeric/s4-hadamard/invariant-D8-validation.json",
+      "bytes": 739,
+      "sha256": "9d68efb8c4fbc4131197d7c8117a176249dd4a5e469891fee3b6950f5b5e8b86"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D8-rows.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D8-rows.json.zst",
+      "bytes": 95581,
+      "sha256": "f906ee0c3939bc04f8db740d74530b8377128d85a5bcbfff2124822e45107beb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/invariant-D8-columns.json.zst",
+      "relative_path": "numeric/s4-hadamard/invariant-D8-columns.json.zst",
+      "bytes": 114957,
+      "sha256": "90aa1ce60fdbd2a8932be66805a15f322c08cd9dd69c387e773c1a8ca2f220d4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D8-p1000000007.stdout",
+      "relative_path": "numeric/s4-hadamard/solve-D8-p1000000007.stdout",
+      "bytes": 164,
+      "sha256": "8c0a5e31b79c04bb809a18479836387a347e0fcac13b7b82874867a172b6dd77"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D8-p1000000007.stderr",
+      "relative_path": "numeric/s4-hadamard/solve-D8-p1000000007.stderr",
+      "bytes": 12020,
+      "sha256": "146bca58decc67754abf5fd750b29650751e9a23177bf8cacc76d2f690af3321"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D8-p1000000007.witness",
+      "relative_path": "numeric/s4-hadamard/solve-D8-p1000000007.witness",
+      "bytes": 1032346,
+      "sha256": "5f5db5de494bd46aa82df467f0d74c2b7d3dfc59676a087cc37269c822a55b94"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/solve-D8-p1000000007.result.json",
+      "relative_path": "numeric/s4-hadamard/solve-D8-p1000000007.result.json",
+      "bytes": 220,
+      "sha256": "3bac5c11149b18c12c62d1d29246663cb308f24e4189930ece7ca37558c1f3e7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/D8-dual-recheck.json",
+      "relative_path": "numeric/s4-hadamard/D8-dual-recheck.json",
+      "bytes": 191,
+      "sha256": "743be1618944749d7e77f02deca237ce7b898ac89410ff9d28285eeb23a2aa19"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D8.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D8.stdout",
+      "bytes": 1000,
+      "sha256": "7be8d5094d0dbc1e51dff383b957e9939aa5fedb7be4682b6d6bc888016292c6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D8.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D8-attempt1.stdout",
+      "relative_path": "numeric/s4-hadamard/matrix-D8-attempt1.stdout",
+      "bytes": 136,
+      "sha256": "53fa0337e12f913efcc319f0c90a1fd8af2f546b34930b5235258e3837412627"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/matrix-D8-attempt1.stderr",
+      "relative_path": "numeric/s4-hadamard/matrix-D8-attempt1.stderr",
+      "bytes": 176,
+      "sha256": "1e14ee9a4ac6b5fb00019c23dc38024db911a3dcbfb45d1bf3e9177e0b6df06b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_s4_large.py",
+      "relative_path": "construct_search/audit_s4_large.py",
+      "bytes": 4445,
+      "sha256": "a871683f8b6229f1c4f652cf86b1fbeb50a3c8b47acf2ec36e506cbecb945b19"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D8.stdout",
+      "relative_path": "construct_search/audit-s4-matrix-D8.stdout",
+      "bytes": 319,
+      "sha256": "af04f0d7f0eb53971c49293c3d038f8126b4d58f0f3d6db56912c7f2a7dab415"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D8.stderr",
+      "relative_path": "construct_search/audit-s4-matrix-D8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "total_bytes": 1262294
+}

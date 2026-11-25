@@ -1,0 +1,42 @@
+{
+  "scope": "Bounded320-start complex numerical search; no near-zero candidate and no nonexistence claim. Exact structured-form expansion is exploratory.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/numeric_probe.py",
+      "relative_path": "numeric/s4-hadamard/numeric_probe.py",
+      "bytes": 3248,
+      "sha256": "1b28df07d0d5fb1a6d66c64a5182ddc23870136906bb5e6e903c5b7b996d351e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/numeric.stdout",
+      "relative_path": "numeric/s4-hadamard/numeric.stdout",
+      "bytes": 43898,
+      "sha256": "f3d6c7eaf5e152f3fad0e986764eb50913e85436e8be9202d48a67e2b442b6b0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/numeric.stderr",
+      "relative_path": "numeric/s4-hadamard/numeric.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/numeric-best.json",
+      "relative_path": "numeric/s4-hadamard/numeric-best.json",
+      "bytes": 2935,
+      "sha256": "cd5f2f601f7582024ee738d0e290cf66fd98cf76822e4dd0c287df3faa2734ad"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/numeric-summary.json",
+      "relative_path": "numeric/s4-hadamard/numeric-summary.json",
+      "bytes": 257,
+      "sha256": "76e3df2807dd459382142fad9273711325fb7bdfbfc6999c7ac2bc8dc52a0503"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/structured-forms.txt",
+      "relative_path": "numeric/s4-hadamard/structured-forms.txt",
+      "bytes": 2294,
+      "sha256": "7615ceb9620d97d76643ec0950d06f04deee9fa6a4d9deb320ab06c0a27cddec"
+    }
+  ],
+  "total_bytes": 52632
+}
