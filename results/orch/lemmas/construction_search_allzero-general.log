@@ -1,0 +1,78 @@
+import took 1.14s
+simp took 112ms
+ring took 215ms
+ring took 210ms
+share common exprs took 297ms
+elaboration took 138ms
+type checking took 455ms
+linting took 271ms
+simp took 111ms
+simp took 154ms
+simp took 111ms
+simp took 105ms
+simp took 137ms
+simp took 124ms
+simp took 105ms
+simp took 102ms
+interpretation of _private.Mathlib.Tactic.Ring.RingNF.0.Mathlib.Tactic.RingNF.initFn._lam_0._@.Mathlib.Tactic.Ring.RingNF.1278461645._hygCtx._hyg.2._boxed took 120ms
+instantiate metavars took 216ms
+share common exprs took 201ms
+process pre-definitions took 120ms
+elaboration took 130ms
+type checking took 269ms
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:290:33: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, add_zero, raw_xz] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:295:24: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_zero, zero_add, raw_yz] at he
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:286:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:291:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:296:23: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:286:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:291:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/AllZeroGeneralNormalization.lean:296:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+linting took 221ms
+cumulative profiling times:
+	attribute application 0.211ms
+	congr simp thm 12ms
+	declTypeLinter 13.1ms
+	elaboration 534ms
+	fix level params 21.7ms
+	import 1.14s
+	initialization 66.5ms
+	instantiate metavars 263ms
+	interpretation 2.33s
+	let-to-have transformation 0.861ms
+	linting 603ms
+	module linting 0.586ms
+	norm_num 107ms
+	parsing 23.2ms
+	process pre-definitions 256ms
+	ring 1.29s
+	share common exprs 582ms
+	simp 2.47s
+	tactic execution 620ms
+	tacticAnalysis 10.3ms
+	type checking 974ms
+	typeclass inference 1.31s

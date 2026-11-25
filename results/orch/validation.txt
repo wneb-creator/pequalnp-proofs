@@ -253,3 +253,7 @@ TIMING total=245.8 subagents=7
 2026-11-25T12:46:06.539973+00:00 Preserved independently reviewed ExceptionalSingularDirection.lean (390042bytes), complete actual singular-direction partner obstruction with no unresolved callbacks. PinnedLean exit0 in456.99s, peak12690878464bytes,13GiB/600s supervised run. Earlier11GiB combined run stopped for memory only; all final exact-source assumptions/composition independently checked. This closes one local full-row branch; global target still unresolved and target checker not run.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=250.4 subagents=7
+
+2026-11-25T12:51:19.538538+00:00 Preserved independently reviewed AllZeroGeneralNormalization.lean17552bytes, pinnedLean exit0/12.82s/2.358GiB. For an arbitrary all-D-zero pencil, the theorem derives exactly the scaled model and permanent identity required by the explicit allzero obstruction, using the checked sign and skew lemmas. Scalar h0²24 premise explicit. Complete347647byte chart obstruction composition is pre-reviewed and queued for13GiB check; global target remains open.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=255.6 subagents=7
