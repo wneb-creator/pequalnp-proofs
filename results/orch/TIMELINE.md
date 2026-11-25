@@ -7,3 +7,4 @@
 2026-11-25T04:43:42.610263+00:00: pushedcheckpoint2ea01118553a79921adadb805c43b66653f78e3c; checked BatchForce helper + fullsourceWIP preserved.
 2026-11-25T04:43:42.610276+00:00: project definitions build passed; baseline fullproof profiling and shortpartial builds start.
 2026-11-25T04:44:30.055571+00:00: Cases normalization and Structural lowerbound8 compiled; independent checkpoint review passed.
+2026-11-25T04:45:28.344533+00:00: lookupforcing semantic equivalence compiled; independent review passed.

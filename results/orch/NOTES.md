@@ -26,3 +26,7 @@ Read primary author manuscript: Stasys Jukna, Disproving the Single Level Conjec
 
 ## Structural partial checked, 2026-11-25T04:43:52.013365+00:00
 Structural.lean passed lake env lean (exit0, about5seconds, empty diagnostic log). It proves the graph facts and a partial lower bound8 using the general support lemma adapted from Helpers/Support.lean inside the permitted auxiliary namespace. This does not establish the target lower bound16.
+
+2026-11-25T04:44:35.120031+00:00 case_decomposition: Cases.lean PASSED Lean4.36.0 via lake env lean, exit0,14.261s. Complete output results/orch/Cases-validation.txt. The normal-form component renames vertices by12 automorphisms and removes first constants/copies until first gate matches one of14 representative pair/NOT cases.
+
+2026-11-25T04:44:43.235532+00:00 counterexample_search: LookupForcing.lean compiles in0.146s with Lean4.36.0; proves eagerNat lookupFast equals old lookupBase for all parameters. Source and complete empty output preserved in results/orch for immediatepush.

@@ -6,3 +6,4 @@ BatchForce.lean: Lean4.36.0 exit0; four semantic equalities checked.
 Full L_meta_670.lean: baseline from https://github.com/open-goat/pequalnp-proofs/pull/12184 by benoitrazet; not yet locally built or checked.
 Original source independently reviewed for exact statement, allowed imports, plain-file guard, all512 truth-table rows, all9 essential-input witnesses.
 Cases.lean: Lean exit0,14.261s (warnings only). Structural.lean: Lean exit0, checked graph facts and partial lower bound8; full target16 remains unverified.
+LookupForcing.lean: Lean4.36.0 exit0,0.147s; universal lookup preservation checked.
