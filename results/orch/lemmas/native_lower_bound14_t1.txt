@@ -1,0 +1,14 @@
+Native exploratory result only; final Lean kernel check pending.
+doubleOne 1536 4 true
+doubleOne 4608 4 true
+doubleOne 3072 4 true
+doubleOne 33792 4 true
+doubleOne 6144 4 true
+doubleOne 18432 4 true
+doubleOne 12288 4 true
+doubleOne 24576 4 true
+doubleOne 40960 4 true
+root14 1 true ms=341534
+
+NativeEngineFull.lean sha256: 704cfe4bb0bd1fea3d0d54c6a0c791e55e65ccf1e1b9848e2b4c894c2a03836a
+Runner NativeFullBound.lean sha256: 35203c2dc4b2812ceeefc09bc8433100c934ff7c9854ef4796a27aebbab16ebe

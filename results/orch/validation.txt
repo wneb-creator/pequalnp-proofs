@@ -22,3 +22,7 @@ Third checkpoint: bounded-NOT circuit bridge and complete128-row engine compiled
 Full posted theorem remains unproved; large numeric lower-bound certificates still need kernel verification.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
 TIMING total=18.8 subagents=6
+
+Fourth checkpoint: Kernel13, KernelFullTables and KernelBridge13 compiled exit0; independent review passed. Checked actual circuit lower bound13 and monotone upper bound14. Full posted replacement theorem still pending.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
+TIMING total=21.2 subagents=6
