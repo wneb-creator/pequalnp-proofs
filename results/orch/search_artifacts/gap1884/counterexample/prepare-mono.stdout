@@ -1,0 +1,3 @@
+mono18-enc2 clauses 144603 vars 311701 SHA d70821d2b6c43b4a84fdda720013a11515d1d187ef8b89c97e61ba0d9eee49c4
+mono20-enc2 clauses 182863 vars 345281 SHA 21d79d06df1f0ee8f480604c5618e8bd9574ce32078e0e10b75798109f2f7ac4
+CONTROL assignment satisfies every 182863 CNF clauses

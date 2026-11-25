@@ -1,0 +1,4 @@
+CONTROL monotone-distributive gates=20 full_rows=1024 wrong=0
+CONTROL monotone-distributive gates=21 full_rows=1024 wrong=0
+CONTROL monotone-distributive gates=22 full_rows=1024 wrong=0
+CONTROL free-not-live gates=21 full_rows=1024 wrong=0

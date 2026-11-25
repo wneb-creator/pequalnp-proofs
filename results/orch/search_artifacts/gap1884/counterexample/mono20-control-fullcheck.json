@@ -1,0 +1,24 @@
+[
+  {
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/mono20-control.circuit.json",
+    "gates": 20,
+    "full_rows": 1024,
+    "wrong_rows": 0,
+    "bad_rows": [],
+    "is_posted_counterexample": false,
+    "input_map": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "free_unary": "not",
+    "gate_interpretation": "0 AND[a,b]; 1 OR[a,b]; 2 NOT[a]; 3 AND[]; 4 OR[]; unavailable reads false"
+  }
+]

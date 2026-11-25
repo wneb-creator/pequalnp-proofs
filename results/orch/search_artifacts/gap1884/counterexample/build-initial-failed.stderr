@@ -1,0 +1,14 @@
+In file included from /usr/include/c++/14/bits/stl_pair.h:62,
+                 from /usr/include/c++/14/bits/stl_algobase.h:64,
+                 from /usr/include/c++/14/algorithm:60,
+                 from /tmp/oec/pequalnp-pilot-99/gap1884/counterexample/search.cpp:1:
+/usr/include/c++/14/bits/utility.h: In instantiation of ‘constexpr const std::size_t std::tuple_size_v<std::vector<std::array<long unsigned int, 16> > >’:
+/usr/include/c++/14/tuple:2937:24:   required from ‘constexpr decltype(auto) std::apply(_Fn&&, _Tuple&&) [with _Fn = Gate&; _Tuple = vector<array<long unsigned int, 16> >&]’
+ 2937 |         = make_index_sequence<tuple_size_v<remove_reference_t<_Tuple>>>;
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/oec/pequalnp-pilot-99/gap1884/counterexample/search.cpp:35:229:   required from here
+   35 | bool verify(const std::vector<Gate>&gs,int out,const char*label){std::vector<TT>w(inputs.begin(),inputs.end());for(unsigned j=0;j<gs.size();j++){auto g=gs[j];assert(g.op>=0&&g.op<=4&&g.a<N+(int)j&&g.b<N+(int)j);w.push_back(apply(g,w));}int bad=0;auto&v=out<0?zero:w[out];for(int k=0;k<16;k++)bad+=std::popcount(v[k]^target[k]);std::printf("CONTROL %s gates=%zu full_rows=1024 wrong=%d\n",label,gs.size(),bad);std::fflush(stdout);return bad==0;}
+      |                                                                                                                                                                                                                                ~~~~~^~~~~
+/usr/include/c++/14/bits/utility.h:75:61: error: incomplete type ‘std::tuple_size<std::vector<std::array<long unsigned int, 16> > >’ used in nested name specifier
+   75 |     inline constexpr size_t tuple_size_v = tuple_size<_Tp>::value;
+      |                                                             ^~~~~
