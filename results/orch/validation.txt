@@ -22,3 +22,13 @@ reductions_2583_upper.lean: direct Lean PASSED exit0,1190lines; constructive rea
 Full checker: NOT RUN; no complete posted proof. Cleanup: not started; named file88lines before/after.
 Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
 TIMING total=21 subagents=6
+
+Unmodified localchecker attempted for L-meta-2583: exit3 FAULT before proof checking.
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+This does not certify the partial or the posted statement; complete theorem remains absent.
+
+Compiled partial: theory_read1_lower_2583.lean,2100lines,106028bytes, Leanexit0.
+Result: plane incidence has exact read1 lower bound N(q+2)-1; unrestricted lower remains unproved.
+Independent red-team review by reductions: PASS, sourceSHA25612a1cddfe28baaeabfbc501af5f9774894866c3995d601df2e28349f30a7222a.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=27 subagents=6

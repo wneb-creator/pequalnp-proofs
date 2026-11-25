@@ -7,3 +7,4 @@
 2026-11-25T14:41:07.352896+00:00 — stopped proof/search work after HTTP410; preserving uncompiled partials before re-request as instructed.
 2026-11-25T14:43:06Z — acquired L-meta-2583 lease; expires15:03:06Z; reductionsclosed.
 2026-11-25T14:47:31.911557+00:00 — first new-gap partials compile: prime-implicant characterization and constructive read1 upper bound; named L_meta_2583 lake build passes.
+2026-11-25T14:54:01.731901+00:00 — exactread1 lower bound compiles and passes independentreview; preserving.
