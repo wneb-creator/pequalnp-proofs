@@ -16,3 +16,5 @@ Independentreview: REVIEW-binary17.md; exactsourceSHA256824549cea61a489c88212092
 
 Sub-agents: status_check, counterexample, lower_bound, lean_setup, partial_lean, circuit_search
 TIMING total=32 subagents=6
+
+Further checked archive: FirstOr forces OR as the first operation of a normalized signed Live derivation with binary cost at most17 (not a claim about the original syntactic first gate). Its scratch test exited0; complete logs first-or-build.stdout/.stderr. Partial.lean now includes checked edge-deletion robustness and the twenty-gate upper bound; final full compile exited0, logs finite-final.stdout/.stderr. CountCheck verifies the conditional counting wrapper independently.
