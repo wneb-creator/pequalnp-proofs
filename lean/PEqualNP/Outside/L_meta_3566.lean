@@ -4511,3 +4511,708 @@ lemma clean_or_of_admissible_hoist {n : ℕ} (G : SimpleGraph (Fin n)) [Decidabl
   exact no_strict_rewrite G C _ hC hAO hF hsize hlt
 
 end PEqualNP.Outside.L_meta_3566.WireFirst
+
+
+namespace PEqualNP.Outside.L_meta_3566.MixedShell
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_3566.HoistEval
+open PEqualNP.Outside.L_meta_3566.AO2Upper (Good)
+
+def oldBlock (m a b c d : ℕ) : List Gate :=
+  [⟨.or,[a,b]⟩,⟨.or,[c,d]⟩,⟨.and,[m,m+1]⟩]
+
+def newBlock (m a b c d : ℕ) : List Gate :=
+  [⟨.and,[a,d]⟩,⟨.and,[c,b]⟩,⟨.or,[m,m+1]⟩]
+
+def oldCircuit (n : ℕ) (pre post : List Gate) (a b c d out : ℕ) : Circuit :=
+  ⟨pre ++ oldBlock (n+pre.length) a b c d ++ post,out⟩
+
+def newCircuit (n : ℕ) (pre post : List Gate) (a b c d out : ℕ) : Circuit :=
+  ⟨pre ++ newBlock (n+pre.length) a b c d ++ post,out⟩
+
+lemma size_eq (n : ℕ) (pre post : List Gate) (a b c d out : ℕ) :
+    (newCircuit n pre post a b c d out).size = (oldCircuit n pre post a b c d out).size := by
+  simp [newCircuit,oldCircuit,newBlock,oldBlock,Circuit.size]
+
+lemma good_of_ao2 (n : ℕ) (gs : List Gate) (out : ℕ) (hAO : IsAO2 n ⟨gs,out⟩) : Good n gs := by
+  induction gs generalizing n with
+  | nil => trivial
+  | cons g gs ih =>
+    refine ⟨⟨hAO.1 g (by simp),hAO.2.2 g (by simp),?_⟩,?_⟩
+    · intro i hi
+      have h := hAO.2.1 0 (by simp) i (by simpa [gateAt] using hi)
+      simpa using h
+    · apply ih (n+1)
+      refine ⟨fun g hg => hAO.1 g (by simp [hg]),?_,fun g hg => hAO.2.2 g (by simp [hg])⟩
+      intro j hj i hi
+      have hg : gateAt (⟨g::gs,out⟩ : Circuit) (j+1) = gateAt ⟨gs,out⟩ j := by
+        simp [gateAt]
+      have h := hAO.2.1 (j+1) (by simp; omega) i (by simpa [hg] using hi)
+      omega
+
+lemma good_append_iff (pre post : List Gate) (n : ℕ) :
+    Good n (pre++post) ↔ Good n pre ∧ Good (n+pre.length) post := by
+  induction pre generalizing n with
+  | nil => simp [Good]
+  | cons g gs ih =>
+    simp only [List.cons_append,Good,List.length_cons]
+    rw [ih]
+    constructor
+    · rintro ⟨h1,h2,h3⟩
+      exact ⟨⟨h1,h2⟩,by convert h3 using 1; omega⟩
+    · rintro ⟨⟨h1,h2⟩,h3⟩
+      exact ⟨h1,h2,by convert h3 using 1; omega⟩
+
+lemma new_ao2 (n : ℕ) (pre post : List Gate) (a b c d out : ℕ)
+    (hAO : IsAO2 n (oldCircuit n pre post a b c d out))
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length) :
+    IsAO2 n (newCircuit n pre post a b c d out) := by
+  have hg := good_of_ao2 n _ out hAO
+  change Good n (pre ++ oldBlock (n+pre.length) a b c d ++ post) at hg
+  rw [good_append_iff,good_append_iff] at hg
+  apply AO2Upper.good_ao2 n _ out
+  rw [good_append_iff,good_append_iff]
+  refine ⟨⟨hg.1.1,?_⟩,?_⟩
+  · simp [newBlock,Good]
+    omega
+  · simpa [oldBlock,newBlock] using hg.2
+
+lemma old_run (w : List Bool) (a b c d : ℕ)
+    (_ha : a < w.length) (_hb : b < w.length) (hc : c < w.length) (hd : d < w.length) :
+    (oldBlock w.length a b c d).foldl step w = w ++
+      [w.getD a false || w.getD b false, w.getD c false || w.getD d false,
+       (w.getD a false || w.getD b false) && (w.getD c false || w.getD d false)] := by
+  simp [oldBlock,step,GateOp.eval,List.append_assoc,
+    List.getElem?_append_left hc,List.getElem?_append_left hd]
+
+lemma new_run (w : List Bool) (a b c d : ℕ)
+    (_ha : a < w.length) (hb : b < w.length) (hc : c < w.length) (_hd : d < w.length) :
+    (newBlock w.length a b c d).foldl step w = w ++
+      [w.getD a false && w.getD d false, w.getD c false && w.getD b false,
+       (w.getD a false && w.getD d false) || (w.getD c false && w.getD b false)] := by
+  simp [newBlock,step,GateOp.eval,List.append_assoc,
+    List.getElem?_append_left hc,List.getElem?_append_left hb]
+
+lemma append_dom (a b s t : List Bool) (hlen : a.length = b.length)
+    (hab : ∀ i, a.getD i false = true → b.getD i false = true)
+    (hst : ∀ i, s.getD i false = true → t.getD i false = true) :
+    ∀ i, (a++s).getD i false = true → (b++t).getD i false = true := by
+  intro i hi
+  by_cases hlt : i < a.length
+  · rw [List.getD_append _ _ _ _ hlt] at hi
+    rw [List.getD_append _ _ _ _ (by omega)]
+    exact hab i hi
+  · rw [List.getD_append_right _ _ _ _ (by omega)] at hi
+    rw [List.getD_append_right _ _ _ _ (by omega),←hlen]
+    exact hst _ hi
+
+lemma gate_dom (g : Gate) (hAO : g.op = .and ∨ g.op = .or) (f h : ℕ → Bool)
+    (hfh : ∀ i, f i = true → h i = true) :
+    g.op.eval (g.inputs.map f) = true → g.op.eval (g.inputs.map h) = true := by
+  rcases hAO with ho | ho <;> rw [ho]
+  · simp only [GateOp.eval,List.all_map,List.all_eq_true,Function.comp_apply,id_eq]
+    intro hf i hi
+    exact hfh i (hf i hi)
+  · simp only [GateOp.eval,List.any_map,List.any_eq_true,Function.comp_apply,id_eq]
+    rintro ⟨i,hi,hf⟩
+    exact ⟨i,hi,hfh i hf⟩
+
+lemma fold_dom (gs : List Gate) (hAO : ∀ g ∈ gs, g.op = .and ∨ g.op = .or)
+    (a b : List Bool) (hlen : a.length = b.length)
+    (hab : ∀ i, a.getD i false = true → b.getD i false = true) :
+    ∀ i, (gs.foldl step a).getD i false = true → (gs.foldl step b).getD i false = true := by
+  induction gs generalizing a b with
+  | nil => exact hab
+  | cons g gs ih =>
+    apply ih (fun g hg => hAO g (by simp [hg])) (step a g) (step b g)
+    · simp [step,hlen]
+    · apply append_dom a b _ _ hlen hab
+      intro i hi
+      cases i with
+      | zero =>
+        simp only [List.getD_cons_zero] at hi ⊢
+        exact gate_dom g (hAO g (by simp)) _ _ hab hi
+      | succ i => simp at hi
+
+lemma block_dom (A B C D : Bool) :
+    ∀ i, ([A && D,C && B,(A && D)||(C && B)] : List Bool).getD i false = true →
+      ([A || B,C || D,(A || B)&&(C || D)] : List Bool).getD i false = true := by
+  intro i
+  rcases i with _ | _ | _ | i <;>
+    cases A <;> cases B <;> cases C <;> cases D <;> simp
+
+lemma wires_dom (n : ℕ) (pre post : List Gate) (a b c d out : ℕ)
+    (hAO : IsAO2 n (oldCircuit n pre post a b c d out))
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length) (x : Fin n → Bool) :
+    ∀ i, ((newCircuit n pre post a b c d out).wires (List.ofFn x)).getD i false = true →
+      ((oldCircuit n pre post a b c d out).wires (List.ofFn x)).getD i false = true := by
+  let w := pre.foldl step (List.ofFn x)
+  have hl : w.length = n+pre.length := by simp [w,foldl_step_length]
+  have hpost : ∀ g ∈ post, g.op = .and ∨ g.op = .or := by
+    intro g hg
+    apply hAO.1 g
+    simp [oldCircuit,hg]
+  simp only [newCircuit,oldCircuit,wires_eq,List.foldl_append]
+  change ∀ i, (post.foldl step ((newBlock (n+pre.length) a b c d).foldl step w)).getD i false = true →
+    (post.foldl step ((oldBlock (n+pre.length) a b c d).foldl step w)).getD i false = true
+  rw [←hl,new_run w a b c d (by omega) (by omega) (by omega) (by omega),
+    old_run w a b c d (by omega) (by omega) (by omega) (by omega)]
+  apply fold_dom post hpost
+  · simp
+  · exact append_dom w w _ _ rfl (fun _ h => h) (block_dom _ _ _ _)
+
+lemma fold_private_eq (gs : List Gate) (m : ℕ)
+    (hprivate : ∀ g ∈ gs, ∀ i ∈ g.inputs, i ≠ m ∧ i ≠ m+1)
+    (a b : List Bool) (hlen : a.length = b.length)
+    (hab : ∀ i, i ≠ m → i ≠ m+1 → a.getD i false = b.getD i false) :
+    ∀ i, i ≠ m → i ≠ m+1 →
+      (gs.foldl step a).getD i false = (gs.foldl step b).getD i false := by
+  induction gs generalizing a b with
+  | nil => exact hab
+  | cons g gs ih =>
+    apply ih (fun g hg => hprivate g (by simp [hg])) (step a g) (step b g)
+    · simp [step,hlen]
+    · have heval : g.op.eval (g.inputs.map fun i => a.getD i false) =
+          g.op.eval (g.inputs.map fun i => b.getD i false) := by
+        congr 1
+        apply List.map_congr_left
+        intro i hi
+        obtain ⟨hi1,hi2⟩ := hprivate g (by simp) i hi
+        exact hab i hi1 hi2
+      intro i hi1 hi2
+      by_cases hlt : i < a.length
+      · change (a++[_]).getD i false = (b++[_]).getD i false
+        rw [getD_append_left _ _ _ hlt,getD_append_left _ _ _ (by omega)]
+        exact hab i hi1 hi2
+      · change (a++[_]).getD i false = (b++[_]).getD i false
+        rw [List.getD_append_right _ _ _ _ (by omega),
+          List.getD_append_right _ _ _ _ (by omega),hlen,heval]
+
+lemma block_private_eq (w : List Bool) (A B C D : Bool)
+    (hQ : ((A && D)||(C && B)) = ((A || B)&&(C || D))) :
+    ∀ i, i ≠ w.length → i ≠ w.length+1 →
+      (w++[A && D,C && B,(A && D)||(C && B)]).getD i false =
+        (w++[A || B,C || D,(A || B)&&(C || D)]).getD i false := by
+  intro i hi1 hi2
+  by_cases hi : i < w.length
+  · rw [getD_append_left _ _ _ hi,getD_append_left _ _ _ hi]
+  · rw [List.getD_append_right _ _ _ _ (by omega),List.getD_append_right _ _ _ _ (by omega)]
+    have h0 : i-w.length ≠ 0 := by omega
+    have h1 : i-w.length ≠ 1 := by omega
+    generalize i-w.length = k at h0 h1 ⊢
+    rcases k with _ | _ | _ | k
+    · contradiction
+    · contradiction
+    · simpa using hQ
+    · simp
+
+lemma eval_eq_on (n : ℕ) (pre post : List Gate) (a b c d out : ℕ)
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length)
+    (hprivate : ∀ g ∈ post, ∀ i ∈ g.inputs, i ≠ n+pre.length ∧ i ≠ n+pre.length+1)
+    (ho1 : out ≠ n+pre.length) (ho2 : out ≠ n+pre.length+1) (x : Fin n → Bool)
+    (hQ : let w := pre.foldl step (List.ofFn x)
+      ((w.getD a false && w.getD d false)||(w.getD c false && w.getD b false)) =
+        ((w.getD a false || w.getD b false)&&(w.getD c false || w.getD d false))) :
+    circuitFun n (newCircuit n pre post a b c d out) x =
+      circuitFun n (oldCircuit n pre post a b c d out) x := by
+  let w := pre.foldl step (List.ofFn x)
+  have hl : w.length = n+pre.length := by simp [w,foldl_step_length]
+  change ((newCircuit n pre post a b c d out).wires (List.ofFn x)).getD out false =
+    ((oldCircuit n pre post a b c d out).wires (List.ofFn x)).getD out false
+  simp only [newCircuit,oldCircuit,wires_eq,List.foldl_append]
+  change (post.foldl step ((newBlock (n+pre.length) a b c d).foldl step w)).getD out false =
+    (post.foldl step ((oldBlock (n+pre.length) a b c d).foldl step w)).getD out false
+  rw [←hl,new_run w a b c d (by omega) (by omega) (by omega) (by omega),
+    old_run w a b c d (by omega) (by omega) (by omega) (by omega)]
+  exact fold_private_eq post (n+pre.length) hprivate _ _ (by simp)
+    (by simpa [hl] using block_private_eq w _ _ _ _ hQ) out ho1 ho2
+
+lemma circuit_mono (n : ℕ) (C : Circuit) (hAO : AndOrOnly C)
+    (x y : Fin n → Bool) (hxy : ∀ v, x v = true → y v = true) :
+    circuitFun n C x = true → circuitFun n C y = true := by
+  apply fold_dom C.gates hAO (List.ofFn x) (List.ofFn y) (by simp) _ C.output
+  intro i hi
+  by_cases h : i < n
+  · have hx : (List.ofFn x).getD i false = x ⟨i,h⟩ := by simp [List.getD_eq_getElem?_getD,h]
+    have hy : (List.ofFn y).getD i false = y ⟨i,h⟩ := by simp [List.getD_eq_getElem?_getD,h]
+    rw [hx] at hi
+    rw [hy]
+    exact hxy _ hi
+  · simp [List.getD_eq_getElem?_getD,List.getElem?_eq_none (by simp; omega : (List.ofFn x).length ≤ i)] at hi
+
+lemma graph_correct (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (a b c d out : ℕ)
+    (hAO : IsAO2 n (oldCircuit n pre post a b c d out))
+    (hfun : circuitFun n (oldCircuit n pre post a b c d out) = graphFun G ∅)
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length)
+    (hprivate : ∀ g ∈ post, ∀ i ∈ g.inputs, i ≠ n+pre.length ∧ i ≠ n+pre.length+1)
+    (ho1 : out ≠ n+pre.length) (ho2 : out ≠ n+pre.length+1)
+    (hedge : ∀ u v : Fin n, G.Adj u v →
+      let w := pre.foldl step (List.ofFn (pairInput u v))
+      ((w.getD a false && w.getD d false)||(w.getD c false && w.getD b false)) =
+        ((w.getD a false || w.getD b false)&&(w.getD c false || w.getD d false))) :
+    circuitFun n (newCircuit n pre post a b c d out) = graphFun G ∅ := by
+  have hD := new_ao2 n pre post a b c d out hAO ha hb hc hd
+  funext x
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    have h := wires_dom n pre post a b c d out hAO ha hb hc hd x out hx
+    change circuitFun n (oldCircuit n pre post a b c d out) x = true at h
+    rw [hfun] at h
+    exact h
+  · intro hx
+    have hEdge : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+      simpa [graphFun] using hx
+    obtain ⟨u,v,huv,hu,hv⟩ := hEdge
+    have hpC : circuitFun n (oldCircuit n pre post a b c d out) (pairInput u v) = true := by
+      rw [hfun]
+      have hp : ∃ z t, G.Adj z t ∧ pairInput u v z = true ∧ pairInput u v t = true :=
+        ⟨u,v,huv,by simp [pairInput],by simp [pairInput]⟩
+      simpa [graphFun] using hp
+    have hpD : circuitFun n (newCircuit n pre post a b c d out) (pairInput u v) = true :=
+      (eval_eq_on n pre post a b c d out ha hb hc hd hprivate ho1 ho2
+        (pairInput u v) (hedge u v huv)).trans hpC
+    apply circuit_mono n _ hD.1 (pairInput u v) x _ hpD
+    intro z hz
+    simp only [pairInput,decide_eq_true_eq] at hz
+    rcases hz with rfl | rfl
+    · exact hu
+    · exact hv
+
+lemma first_values (n : ℕ) (pre post : List Gate) (a b c d out : ℕ)
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length) (x : Fin n → Bool) :
+    let w := pre.foldl step (List.ofFn x)
+    gateVal n (oldCircuit n pre post a b c d out) pre.length x = (w.getD a false || w.getD b false) ∧
+    gateVal n (newCircuit n pre post a b c d out) pre.length x = (w.getD a false && w.getD d false) := by
+  let w := pre.foldl step (List.ofFn x)
+  have hl : w.length = n+pre.length := by simp [w,foldl_step_length]
+  change gateVal n (oldCircuit n pre post a b c d out) pre.length x = (w.getD a false || w.getD b false) ∧
+    gateVal n (newCircuit n pre post a b c d out) pre.length x = (w.getD a false && w.getD d false)
+  simp only [gateVal,newCircuit,oldCircuit,wires_eq,List.foldl_append]
+  change (post.foldl step ((oldBlock (n+pre.length) a b c d).foldl step w)).getD (n+pre.length) false = _ ∧
+    (post.foldl step ((newBlock (n+pre.length) a b c d).foldl step w)).getD (n+pre.length) false = _
+  rw [←hl,old_run w a b c d (by omega) (by omega) (by omega) (by omega),
+    new_run w a b c d (by omega) (by omega) (by omega) (by omega),
+    foldl_step_getD post _ w.length (by simp),foldl_step_getD post _ w.length (by simp)]
+  simp
+
+lemma mass_lt (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (a b c d out : ℕ)
+    (hAO : IsAO2 n (oldCircuit n pre post a b c d out))
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length)
+    (hstrict : ∃ x : Fin n → Bool, graphFun G ∅ x = false ∧
+      let w := pre.foldl step (List.ofFn x)
+      w.getD a false = true ∧ w.getD d false = false) :
+    WireMass.mass G (newCircuit n pre post a b c d out) <
+      WireMass.mass G (oldCircuit n pre post a b c d out) := by
+  apply WireProfile.mass_lt_of_profile G _ _ id
+  · intro j hj
+    simpa [newCircuit,oldCircuit,newBlock,oldBlock] using hj
+  · intro i hi j hj heq
+    exact heq
+  · intro x hx j hj hv
+    exact wires_dom n pre post a b c d out hAO ha hb hc hd x (n+j) hv
+  · obtain ⟨x,hx,hA,hD⟩ := hstrict
+    refine ⟨x,hx,pre.length,by simp [newCircuit,newBlock],?_,?_⟩
+    · change gateVal n (oldCircuit n pre post a b c d out) pre.length x = true
+      rw [(first_values n pre post a b c d out ha hb hc hd x).1,hA]
+      rfl
+    · rw [(first_values n pre post a b c d out ha hb hc hd x).2,hD]
+      simp
+
+lemma no_wire_least (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (a b c d out : ℕ)
+    (hLeast : WireFirst.IsWireLeast G (oldCircuit n pre post a b c d out))
+    (ha : a < n+pre.length) (hb : b < n+pre.length)
+    (hc : c < n+pre.length) (hd : d < n+pre.length)
+    (hprivate : ∀ g ∈ post, ∀ i ∈ g.inputs, i ≠ n+pre.length ∧ i ≠ n+pre.length+1)
+    (ho1 : out ≠ n+pre.length) (ho2 : out ≠ n+pre.length+1)
+    (hedge : ∀ u v : Fin n, G.Adj u v →
+      let w := pre.foldl step (List.ofFn (pairInput u v))
+      ((w.getD a false && w.getD d false)||(w.getD c false && w.getD b false)) =
+        ((w.getD a false || w.getD b false)&&(w.getD c false || w.getD d false)))
+    (hstrict : ∃ x : Fin n → Bool, graphFun G ∅ x = false ∧
+      let w := pre.foldl step (List.ofFn x)
+      w.getD a false = true ∧ w.getD d false = false) : False := by
+  exact WireFirst.no_strict_rewrite G _ _ hLeast
+    (new_ao2 n pre post a b c d out hLeast.1.1 ha hb hc hd)
+    (graph_correct n G pre post a b c d out hLeast.1.1 hLeast.1.2.1 ha hb hc hd
+      hprivate ho1 ho2 hedge)
+    (size_eq n pre post a b c d out).le
+    (mass_lt n G pre post a b c d out hLeast.1.1 ha hb hc hd hstrict)
+
+end PEqualNP.Outside.L_meta_3566.MixedShell
+
+
+namespace PEqualNP.Outside.L_meta_3566.PruningTrace
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.Pruning
+variable {n : ℕ} {ι : Type}
+
+def Trace (P : Prog n ι) (v : ι → (Fin n → Bool) → Bool) (K : Finset ι)
+    (gs : List Gate) : Prop :=
+  ∃ f : Fin gs.length → ι, Function.Injective f ∧ (∀ r, f r ∈ K) ∧
+    (∀ r : Fin gs.length, (gateAt ⟨gs, 0⟩ r.val).op = if P.isAnd (f r) then GateOp.and else GateOp.or) ∧
+    ∀ (r : Fin gs.length) x, gateVal n ⟨gs, 0⟩ r.val x = v (f r) x
+
+lemma trace_empty (P : Prog n ι) (v : ι → (Fin n → Bool) → Bool) (K : Finset ι) :
+    Trace P v K [] := by
+  refine ⟨Fin.elim0, ?_, ?_, ?_, ?_⟩ <;> intro r <;> exact Fin.elim0 r
+
+lemma trace_mono (P : Prog n ι) (v : ι → (Fin n → Bool) → Bool)
+    {K L : Finset ι} {gs : List Gate} (hKL : K ⊆ L) (h : Trace P v K gs) :
+    Trace P v L gs := by
+  obtain ⟨f, hf, hm, ho, hv⟩ := h
+  exact ⟨f, hf, fun r => hKL (hm r), ho, hv⟩
+
+lemma trace_snoc [DecidableEq ι] (P : Prog n ι) (v : ι → (Fin n → Bool) → Bool)
+    (K : Finset ι) (a : ι) (ha : a ∉ K) (gs : List Gate) (g : Gate)
+    (h : Trace P v K gs)
+    (hop : g.op = if P.isAnd a then GateOp.and else GateOp.or)
+    (hval : ∀ x, gateVal n ⟨gs ++ [g], 0⟩ gs.length x = v a x) :
+    Trace P v (insert a K) (gs ++ [g]) := by
+  classical
+  obtain ⟨f, hf, hm, ho, hv⟩ := h
+  let f' : Fin (gs ++ [g]).length → ι := fun r =>
+    if hr : r.val < gs.length then f ⟨r.val, hr⟩ else a
+  have hlast (r : Fin (gs ++ [g]).length) (hr : ¬ r.val < gs.length) : r.val = gs.length := by
+    have := r.isLt
+    simp only [List.length_append, List.length_singleton] at this
+    omega
+  refine ⟨f', ?_, ?_, ?_, ?_⟩
+  · intro r q he
+    by_cases hr : r.val < gs.length <;> by_cases hq : q.val < gs.length
+    · have he' : f ⟨r.val, hr⟩ = f ⟨q.val, hq⟩ := by simpa [f', hr, hq] using he
+      have := congrArg Fin.val (hf he')
+      exact Fin.ext this
+    · have he' : f ⟨r.val, hr⟩ = a := by simpa [f', hr, hq] using he
+      exact False.elim (ha (he' ▸ hm ⟨r.val, hr⟩))
+    · have he' : a = f ⟨q.val, hq⟩ := by simpa [f', hr, hq] using he
+      exact False.elim (ha (he' ▸ hm ⟨q.val, hq⟩))
+    · exact Fin.ext ((hlast r hr).trans (hlast q hq).symm)
+  · intro r
+    by_cases hr : r.val < gs.length
+    · simpa [f', hr] using Finset.mem_insert_of_mem (hm ⟨r.val, hr⟩)
+    · simp [f', hr]
+  · intro r
+    by_cases hr : r.val < gs.length
+    · have he : gateAt ⟨gs ++ [g], 0⟩ r.val = gateAt ⟨gs, 0⟩ r.val :=
+        List.getD_append _ _ _ _ hr
+      simpa only [he, f', dite_eq_left hr] using ho ⟨r.val, hr⟩
+    · have he : gateAt ⟨gs ++ [g], 0⟩ r.val = g := by
+        rw [hlast r hr]
+        simp [gateAt]
+      simpa only [he, f', dite_eq_right hr] using hop
+  · intro r x
+    by_cases hr : r.val < gs.length
+    · change wireVal n ⟨gs ++ [g], 0⟩ (n + r.val) x = _
+      rw [wireVal_old gs g (n + r.val) (by omega) x]
+      simpa only [f', dite_eq_left hr, gateVal, wireVal] using hv ⟨r.val, hr⟩ x
+    · simpa only [f', dite_eq_right hr, hlast r hr] using hval x
+
+lemma build_with_trace (P : Prog n ι) (rank : ι → ℕ) (v : ι → (Fin n → Bool) → Bool) (K : Finset ι)
+    (hcl : Closed P rank K) (hv : Sol P K v) :
+    ∃ gs : List Gate, IsAO2 n ⟨gs, 0⟩ ∧ gs.length ≤ (kept P v K).card ∧ (∀ i ∈ K, Res gs (v i)) ∧ Trace P v K gs := by
+  classical
+  induction K using Finset.induction_on_max_value rank with
+  | empty =>
+    refine ⟨[], ⟨?_, ?_, ?_⟩, by simp, (fun i hi => absurd hi (Finset.notMem_empty i)), trace_empty P v ∅⟩
+    · intro g hg; simp at hg
+    · intro j hj; simp at hj
+    · intro g hg; simp at hg
+  | insert a s ha hmax ih =>
+    have hs : Closed P rank s := by
+      intro i hi b j hj
+      obtain ⟨h1, h2⟩ := hcl i (Finset.mem_insert_of_mem hi) b j hj
+      refine ⟨(Finset.mem_insert.1 h1).resolve_left ?_, h2⟩
+      rintro rfl
+      exact absurd (hmax i hi) (by omega)
+    obtain ⟨gs, hAO, hlen, hres, htrace⟩ := ih hs fun x i hi => hv x i (Finset.mem_insert_of_mem hi)
+    have hsrc' : ∀ b : Fin 2, Res gs (fun x => srcAt x (fun j => v j x) (P.src a b)) := by
+      intro b
+      rcases hb : P.src a b with _ | (c | j)
+      · exact Or.inl fun x => rfl
+      · exact Or.inr ⟨rfl, c, by have := c.2; omega, fun x => wireVal_input gs c x⟩
+      · obtain ⟨h1, h2⟩ := hcl a (Finset.mem_insert_self a s) b j hb
+        refine hres j ((Finset.mem_insert.1 h1).resolve_left ?_)
+        rintro rfl
+        exact absurd h2 (lt_irrefl _)
+    have hsrc : ∀ b : Fin 2, (∀ x, srcAt x (fun j => v j x) (P.src a b) = false) ∨
+        (srcAt (fun _ => true) (fun j => v j fun _ => true) (P.src a b) = true ∧ ∃ w < n + gs.length,
+          ∀ x, wireVal n ⟨gs, 0⟩ w x = srcAt x (fun j => v j x) (P.src a b)) := hsrc'
+    have hva : ∀ x, v a x = opv (P.isAnd a) (srcAt x (fun j => v j x) (P.src a 0))
+        (srcAt x (fun j => v j x) (P.src a 1)) := fun x => hv x a (Finset.mem_insert_self a s)
+    have hsub : kept P v s ⊆ kept P v (insert a s) :=
+      Finset.filter_subset_filter _ (Finset.subset_insert a s)
+    have hlen' : gs.length ≤ (kept P v (insert a s)).card := hlen.trans (Finset.card_le_card hsub)
+    have same : Res gs (v a) → ∃ gs : List Gate, IsAO2 n ⟨gs, 0⟩ ∧
+        gs.length ≤ (kept P v (insert a s)).card ∧
+        (∀ i ∈ insert a s, Res gs (v i)) ∧ Trace P v (insert a s) gs := by
+      intro h
+      refine ⟨gs, hAO, hlen', ?_, trace_mono P v (Finset.subset_insert a s) htrace⟩
+      intro i hi
+      rcases Finset.mem_insert.1 hi with rfl | hi'
+      · exact h
+      · exact hres i hi'
+    rcases hsrc 0 with h0 | ⟨h0, w0, hw0, hv0⟩
+    · -- first operand constant false
+      refine same ?_
+      cases hop : P.isAnd a
+      · rcases hsrc 1 with h1 | ⟨h1, w1, hw1, hv1⟩
+        · exact Or.inl fun x => by rw [hva x, h0 x, h1 x, hop]; rfl
+        · refine Or.inr ⟨by rw [hva, h0, h1, hop]; rfl, w1, hw1, fun x => ?_⟩
+          rw [hv1 x, hva x, h0 x, hop]; simp [opv]
+      · exact Or.inl fun x => by rw [hva x, h0 x, hop]; rfl
+    · rcases hsrc 1 with h1 | ⟨h1, w1, hw1, hv1⟩
+      · refine same ?_
+        cases hop : P.isAnd a
+        · refine Or.inr ⟨by rw [hva, h0, h1, hop]; rfl, w0, hw0, fun x => ?_⟩
+          rw [hv0 x, hva x, h1 x, hop]; simp [opv]
+        · exact Or.inl fun x => by rw [hva x, h1 x, hop]; simp [opv]
+      · -- both operands kept: append a gate
+        have hak : a ∈ kept P v (insert a s) :=
+          Finset.mem_filter.2 ⟨Finset.mem_insert_self a s, h0, h1⟩
+        have hcard : (kept P v s).card + 1 ≤ (kept P v (insert a s)).card := by
+          have hnot : a ∉ kept P v s := fun h => ha (Finset.mem_filter.1 h).1
+          rw [← Finset.card_insert_of_notMem hnot]
+          exact Finset.card_le_card (Finset.insert_subset hak hsub)
+        let o : GateOp := if P.isAnd a then GateOp.and else GateOp.or
+        have ho : o = GateOp.and ∨ o = GateOp.or := by
+          by_cases h : P.isAnd a = true <;> simp [o, h]
+        have hnew : ∀ x, gateVal n ⟨gs ++ [⟨o, [w0, w1]⟩], 0⟩ gs.length x = v a x := by
+          intro x
+          change wireVal n ⟨gs ++ [⟨o, [w0, w1]⟩], 0⟩ (n + gs.length) x = _
+          rw [wireVal_new, hva x]
+          simp only [List.map_cons, List.map_nil, hv0 x, hv1 x]
+          by_cases h : P.isAnd a = true <;> simp [o, h, opv, GateOp.eval]
+        refine ⟨gs ++ [⟨o, [w0, w1]⟩], isAO2_snoc gs o ho w0 w1 hw0 hw1 hAO, ?_, ?_,
+          trace_snoc P v s a ha gs ⟨o, [w0, w1]⟩ htrace rfl hnew⟩
+        · simp only [List.length_append, List.length_singleton]; omega
+        · intro i hi
+          rcases Finset.mem_insert.1 hi with rfl | hi'
+          · refine Or.inr ⟨?_, n + gs.length, by simp, fun x => ?_⟩
+            · rw [hva]
+              simp only at h0 h1
+              rw [h0, h1]
+              cases P.isAnd i <;> rfl
+            · rw [wireVal_new, hva x]
+              simp only [List.map_cons, List.map_nil, hv0 x, hv1 x]
+              by_cases h : P.isAnd i = true
+              · simp [o, h, opv, GateOp.eval]
+              · simp [o, h, opv, GateOp.eval]
+          · exact res_mono gs _ _ (hres i hi')
+
+lemma fold_total_with_trace (P : Prog n ι) (rank : ι → ℕ)
+    (v : ι → (Fin n → Bool) → Bool) (K : Finset ι)
+    (hcl : Closed P rank K) (hv : Sol P K v) (o : Src n ι)
+    (ho : ∀ j, o = some (Sum.inr j) → j ∈ K) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ (kept P v K).card ∧
+      (∀ x : Fin n → Bool, circuitFun n D x = srcAt x (fun j => v j x) o) ∧
+      Trace P v K D.gates := by
+  obtain ⟨gs, hAO, hlen, hres, htrace⟩ := build_with_trace P rank v K hcl hv
+  have hR : Res gs (fun x => srcAt x (fun j => v j x) o) := by
+    rcases o with _ | (c | j)
+    · exact Or.inl fun x => rfl
+    · exact Or.inr ⟨rfl, c, by have := c.2; omega, fun x => wireVal_input gs c x⟩
+    · exact hres j (ho j rfl)
+  rcases hR with h | ⟨_, w, _, hw⟩
+  · refine ⟨⟨[], n⟩, zero_ao n, Nat.zero_le _, ?_, trace_empty P v K⟩
+    intro x
+    rw [zero_fun]
+    exact (h x).symm
+  · refine ⟨⟨gs, w⟩, ⟨hAO.1, hAO.2.1, hAO.2.2⟩, hlen, (fun x => hw x), htrace⟩
+
+lemma prune_closed_with_embedding (C : Circuit) (hC : IsAO2 n C) (K : Finset ℕ)
+    (hK : ∀ k ∈ K, k < C.gates.length)
+    (hcl : ∀ k ∈ K, ∀ w ∈ (gateAt C k).inputs, n ≤ w → w - n ∈ K)
+    (ho : ∀ j, srcOf n C.output = some (Sum.inr j) → j ∈ K) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ K.card ∧ circuitFun n D = circuitFun n C ∧
+      ∃ f : Fin D.size → Fin C.size, Function.Injective f ∧
+        (∀ r, (f r).val ∈ K) ∧ ∀ r x, gateVal n D r.val x = gateVal n C (f r).val x := by
+  let P : Prog n ℕ := progOf C fun k b => srcOf n (opnd C k b)
+  let v : ℕ → (Fin n → Bool) → Bool := fun k x => gateVal n C k x
+  have hback : ∀ k ∈ K, ∀ b : Fin 2, opnd C k b ∈ (gateAt C k).inputs := by
+    intro k hk b
+    have hm : gateAt C k ∈ C.gates := by
+      exact List.mem_of_getElem? (show C.gates[k]? = some (gateAt C k) by
+        simp [gateAt, List.getD_eq_getElem?_getD, hK k hk])
+    have hlen := hC.2.2 _ hm
+    have hb : b.val < (gateAt C k).inputs.length := by rw [hlen]; exact b.isLt
+    exact List.mem_of_getElem? (show (gateAt C k).inputs[b.val]? = some (opnd C k b) by
+      simp [opnd, List.getD_eq_getElem?_getD, hb])
+  have hclosed : Closed P id K := by
+    intro k hk b j hsrc
+    change srcOf n (opnd C k b) = some (Sum.inr j) at hsrc
+    have hw := srcOf_inr (opnd C k b) j hsrc
+    have hlt := hC.2.1 k (hK k hk) (opnd C k b) (hback k hk b)
+    refine ⟨?_, ?_⟩
+    · have hmem := hcl k hk (opnd C k b) (hback k hk b) (by omega)
+      simpa [hw] using hmem
+    · simpa using (show j < k by omega)
+  have hsol : Sol P K v := by
+    intro x k hk
+    change gateVal n C k x = opv (isA (gateAt C k).op)
+      (srcAt x (fun j => gateVal n C j x) (srcOf n (opnd C k 0)))
+      (srcAt x (fun j => gateVal n C j x) (srcOf n (opnd C k 1)))
+    rw [srcAt_srcOf, srcAt_srcOf]
+    exact gate_eq C hC k (hK k hk) x
+  obtain ⟨D,hD,hsize,hfun,htrace⟩ := fold_total_with_trace P id v K hclosed hsol (srcOf n C.output) ho
+  obtain ⟨f,hf,hm,_hop,hv⟩ := htrace
+  let e : Fin D.size → Fin C.size := fun r => ⟨f r,hK _ (hm r)⟩
+  refine ⟨D,hD,hsize.trans (Finset.card_filter_le K _),?_,e,?_,?_,?_⟩
+  · funext x
+    rw [hfun x]
+    exact srcAt_srcOf C C.output x
+  · intro r t hrt
+    exact hf (congrArg Fin.val hrt)
+  · exact hm
+  · exact hv
+
+lemma prune_complement_with_embedding (C : Circuit) (hC : IsAO2 n C) (J : Finset ℕ)
+    (hJ : J ⊆ Finset.range C.size)
+    (hcl : ∀ k < C.size, k ∉ J → ∀ w ∈ (gateAt C k).inputs,
+      n ≤ w → w-n ∉ J)
+    (ho : C.output < n+C.size) (hjout : n ≤ C.output → C.output-n ∉ J) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size + J.card ≤ C.size ∧ circuitFun n D = circuitFun n C ∧
+      ∃ f : Fin D.size → Fin C.size, Function.Injective f ∧
+        (∀ r, (f r).val ∉ J) ∧ ∀ r x, gateVal n D r.val x = gateVal n C (f r).val x := by
+  classical
+  let K := Finset.range C.size \ J
+  have hK : ∀ k ∈ K, k < C.gates.length := by
+    intro k hk
+    exact Finset.mem_range.mp (Finset.mem_sdiff.mp hk).1
+  have hclosed : ∀ k ∈ K, ∀ w ∈ (gateAt C k).inputs, n ≤ w → w-n ∈ K := by
+    intro k hk w hw hwn
+    obtain ⟨hkr,hkj⟩ := Finset.mem_sdiff.mp hk
+    have hkl := Finset.mem_range.mp hkr
+    have hwl := hC.2.1 k hkl w hw
+    exact Finset.mem_sdiff.mpr ⟨Finset.mem_range.mpr (by omega),hcl k hkl hkj w hw hwn⟩
+  have hout : ∀ j, srcOf n C.output = some (Sum.inr j) → j ∈ K := by
+    intro j hj
+    have heq := srcOf_inr C.output j hj
+    exact Finset.mem_sdiff.mpr ⟨Finset.mem_range.mpr (by omega),
+      by simpa [heq] using hjout (by omega)⟩
+  obtain ⟨D,hD,hs,hF,f,hf,hm,hv⟩ := prune_closed_with_embedding C hC K hK hclosed hout
+  have hcard : K.card + J.card = C.size := by
+    simpa [K] using Finset.card_sdiff_add_card_eq_card hJ
+  exact ⟨D,hD,by omega,hF,f,hf,fun r => (Finset.mem_sdiff.mp (hm r)).2,hv⟩
+
+end PEqualNP.Outside.L_meta_3566.PruningTrace
+
+
+namespace PEqualNP.Outside.L_meta_3566.ShellSemantics
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+def single {n : ℕ} (u : Fin n) : Fin n → Bool := fun w => decide (w = u)
+
+def mask {n : ℕ} (color : Fin n → Bool) (side : Bool) (x : Fin n → Bool) : Fin n → Bool :=
+  fun w => if color w = side then x w else false
+
+def Pure {n : ℕ} (color : Fin n → Bool) (side : Bool)
+    (f : (Fin n → Bool) → Bool) : Prop := ∀ x, f x = f (mask color side x)
+
+def oldFun {n : ℕ} (A B C D : (Fin n → Bool) → Bool) (x : Fin n → Bool) : Bool :=
+  (A x || B x) && (C x || D x)
+
+def projected {n : ℕ} (A B C D : (Fin n → Bool) → Bool) (x : Fin n → Bool) : Bool :=
+  (A x && D x) || (C x && B x)
+
+lemma mask_pair {n : ℕ} (color : Fin n → Bool) (side : Bool) (u v : Fin n)
+    (hu : color u = side) (hv : color v ≠ side) :
+    mask color side (pairInput u v) = mask color side (single u) := by
+  funext w
+  by_cases hc : color w = side <;> by_cases hwu : w = u <;> by_cases hwv : w = v <;>
+    simp_all [mask,pairInput,single]
+
+lemma pair_swap {n : ℕ} (u v : Fin n) : pairInput u v = pairInput v u := by
+  funext w
+  simp [pairInput,or_comm]
+
+lemma pure_pair {n : ℕ} (color : Fin n → Bool) (side : Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Pure color side f)
+    (u v : Fin n) (hu : color u = side) (hv : color v ≠ side) :
+    f (pairInput u v) = f (single u) := by
+  rw [hf (pairInput u v),mask_pair color side u v hu hv,←hf (single u)]
+
+lemma projection_pair_ordered {n : ℕ} (color : Fin n → Bool)
+    (A B C D : (Fin n → Bool) → Bool)
+    (hA : Pure color false A) (hB : Pure color true B)
+    (hC : Pure color false C) (hD : Pure color true D)
+    (hzero : ∀ w, oldFun A B C D (single w) = false)
+    (u v : Fin n) (hu : color u = false) (hv : color v = true) :
+    projected A B C D (pairInput u v) = oldFun A B C D (pairInput u v) := by
+  have hAu := pure_pair color false A hA u v hu (by simp [hv])
+  have hCu := pure_pair color false C hC u v hu (by simp [hv])
+  have hBv : B (pairInput u v) = B (single v) := by
+    rw [pair_swap]
+    exact pure_pair color true B hB v u hv (by simp [hu])
+  have hDv : D (pairInput u v) = D (single v) := by
+    rw [pair_swap]
+    exact pure_pair color true D hD v u hv (by simp [hu])
+  have hAC : (A (pairInput u v) && C (pairInput u v)) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro h
+    have hac : A (pairInput u v) = true ∧ C (pairInput u v) = true := by simpa using h
+    obtain ⟨ha,hc⟩ := hac
+    have haz := hAu.symm.trans ha
+    have hcz := hCu.symm.trans hc
+    have hz := hzero u
+    simp [oldFun,haz,hcz] at hz
+  have hBD : (B (pairInput u v) && D (pairInput u v)) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro h
+    have hbd : B (pairInput u v) = true ∧ D (pairInput u v) = true := by simpa using h
+    obtain ⟨hb,hd⟩ := hbd
+    have hbz := hBv.symm.trans hb
+    have hdz := hDv.symm.trans hd
+    have hz := hzero v
+    simp [oldFun,hbz,hdz] at hz
+  cases ha : A (pairInput u v) <;> cases hb : B (pairInput u v) <;>
+    cases hc : C (pairInput u v) <;> cases hd : D (pairInput u v) <;>
+    simp_all [projected,oldFun]
+
+lemma projection_pair {n : ℕ} (color : Fin n → Bool)
+    (A B C D : (Fin n → Bool) → Bool)
+    (hA : Pure color false A) (hB : Pure color true B)
+    (hC : Pure color false C) (hD : Pure color true D)
+    (hzero : ∀ w, oldFun A B C D (single w) = false)
+    (u v : Fin n) (huv : color u ≠ color v) :
+    projected A B C D (pairInput u v) = oldFun A B C D (pairInput u v) := by
+  cases hu : color u <;> cases hv : color v
+  · exact (huv (hu.trans hv.symm)).elim
+  · exact projection_pair_ordered color A B C D hA hB hC hD hzero u v hu hv
+  · rw [pair_swap]
+    exact projection_pair_ordered color A B C D hA hB hC hD hzero v u hv hu
+  · exact (huv (hu.trans hv.symm)).elim
+
+lemma singleton_negative {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u : Fin n) : graphFun G ∅ (single u) = false := by
+  simp [graphFun,single]
+
+lemma pure_single_opposite {n : ℕ} (color : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Pure color true f)
+    (hfzero : f (fun _ => false) = false) (u : Fin n) (hu : color u = false) :
+    f (single u) = false := by
+  have hm : mask color true (single u) = (fun _ => false) := by
+    funext w
+    by_cases hw : w = u <;> simp_all [mask,single]
+  rw [hf,hm,hfzero]
+
+lemma strict_witness {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (A D : (Fin n → Bool) → Bool)
+    (hD : Pure color true D) (hDzero : D (fun _ => false) = false)
+    (u : Fin n) (hu : color u = false) (hAu : A (single u) = true) :
+    ∃ x, graphFun G ∅ x = false ∧ A x = true ∧ D x = false :=
+  ⟨single u,singleton_negative G u,hAu,pure_single_opposite color D hD hDzero u hu⟩
+
+end PEqualNP.Outside.L_meta_3566.ShellSemantics

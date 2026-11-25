@@ -63,4 +63,9 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:35 UTC: Pushed reviewed profile/joint-minimum checkpoint 13d734a790685423d8d320e429cc7bab7c157016; remote SHA verified; bus 3760 marked PARTIAL.
 - 2026-11-25 22:39:03 UTC: Earliest dirty AND raw-OR-cone theorem and separate wire-first minimum passed independent source/axiom reviews and combined named build. Mixed-shell projection route explicitly requires singleton-clean support or edge agreement; first-dirty does not supply that premise. No final target theorem.
 
-TIMING total=97.8 subagents=10
+
+- 2026-11-25 22:40 UTC: Pushed reviewed raw-OR/wire-first checkpoint 411a776555936c8eff921922a33f25d7144daf98; remote SHA verified; bus 3849 marked PARTIAL.
+- 2026-11-25 22:41:47 UTC: Fifth route re-plan posted (bus 3886); requested smallest substantive remaining bridges to the full target from every helper.
+- 2026-11-25 22:46:37 UTC: Private contiguous mixed-shell compiler, pruning trace and corrected pure/singleton-clean edge-agreement lemmas passed independent source/axiom reviews and combined named build. No final theorem.
+
+TIMING total=105.3 subagents=10
