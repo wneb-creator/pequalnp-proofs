@@ -1,0 +1,6 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/ComputationalStrongSeeds.lean:7:0: warning: Definition `strongTrueTwo_check` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/workspace/pequalnp-proofs/results/orch/lemmas/ComputationalStrongSeeds.lean:16:0: warning: Definition `strongMixedThree_check` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`

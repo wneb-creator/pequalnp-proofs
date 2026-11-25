@@ -26,3 +26,5 @@ Pilot pequalnp-pilot-180
 - 2026-11-25 20:22 UTC: Exact memory bottleneck localized to first-NOT phase certificate. New parallel roles: proof_routes verifies Boolean decomposition; graph_search constructs filtered first-NOT checker; computational integrates; toolchain audits.
 
 - 2026-11-25 20:29 UTC: ContinuationSplit247lines compiled, empty logs; independent exact-SHA auditGO. Eight-way first-NOT coverage/recombination now kernel checked. Checkpointing before next certificate experiments.
+
+- 2026-11-25 20:31 UTC:48 additional mixed-assignment restriction bounds compiled and independently reviewed; checkpointing for search optimization.

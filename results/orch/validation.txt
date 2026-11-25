@@ -48,3 +48,5 @@ Complete proof CANDIDATE checkpoint (5735 lines): exact posted theorem, independ
 Candidate SHA256 04788182ab82dba35b6d4e9d730cae29d0a3e98c271c02555306855e6f8c0867.
 
 2026-11-25 20:29 UTC ContinuationSplit.lean:247lines; kernel compile exit0, empty logs; SHA256fa66488f681aa645432c862915358da15b4c6b72498e3ec8aaec08c6d50d0363; independent redteamGO. Full named proof still pending resource-bounded certificates.
+
+2026-11-25 20:31 UTC ComputationalStrongSeeds.lean:28lines;48 stronger restriction bounds kernel checked, exit0. Independent source auditGO plus separate truth-table essential-input support check for all48 facts. SHA256163e9778c09dc26bd1beb4623c5a4c0c0befe0391049768d2c0823f225db3cbb. Full proof still pending.
