@@ -1,0 +1,58 @@
+{
+  "scope": "Counterexample to a local odd-cycle obstruction; not a least circuit",
+  "graph": "path a-b-c-d-e, bipartite and acyclic",
+  "assignments_checked": 32,
+  "circuit_size": 9,
+  "strictly_shorter_equivalent_size": 5,
+  "junk_gate_wires": [
+    8,
+    10
+  ],
+  "accepted_edges_at_each_junk": {
+    "8": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "10": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ]
+  },
+  "top_gate_wires": [
+    13
+  ],
+  "top_form": true,
+  "lift_fixed_point": true,
+  "all_gates_live": true,
+  "no_AND_operand_below_target": true,
+  "each_edge_requires_read_more_than_one_at_top": true,
+  "read_two_suffices_for_each_edge_at_top": true
+}

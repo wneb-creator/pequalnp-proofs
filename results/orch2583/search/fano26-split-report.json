@@ -1,0 +1,119 @@
+[
+  {
+    "case": 0,
+    "first_gate": [
+      0,
+      0,
+      1
+    ],
+    "started_at": "2026-11-25T14:49:32.480262+00:00",
+    "finished_at": "2026-11-25T14:51:32.785408+00:00",
+    "elapsed_seconds": 120.3051693690004,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "0,0,1",
+      "--tag",
+      "fano26-case0-and-0-1"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T14:49:32.514293+00:00",
+      "finished_at": "2026-11-25T14:51:32.721233+00:00",
+      "elapsed_seconds": 120.20706867099989,
+      "first": "0,0,1",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155358,
+      "cnf_sha256": "8f3b7dfe246b6ae7382674f41bfb128a30329f7703477aac876b5627cde28044",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false
+    }
+  },
+  {
+    "case": 1,
+    "first_gate": [
+      0,
+      0,
+      7
+    ],
+    "started_at": "2026-11-25T14:51:32.787291+00:00",
+    "finished_at": "2026-11-25T14:53:33.121447+00:00",
+    "elapsed_seconds": 120.33417317199974,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "0,0,7",
+      "--tag",
+      "fano26-case1-and-0-7"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T14:51:32.816220+00:00",
+      "finished_at": "2026-11-25T14:53:33.024540+00:00",
+      "elapsed_seconds": 120.20844071800002,
+      "first": "0,0,7",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155358,
+      "cnf_sha256": "e036a9960335b601a60f729da0de02fa42479d61ed2498afa943eea70b9b1127",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false
+    }
+  },
+  {
+    "case": 2,
+    "first_gate": [
+      0,
+      2,
+      7
+    ],
+    "started_at": "2026-11-25T14:53:33.123593+00:00",
+    "finished_at": "2026-11-25T14:55:33.394806+00:00",
+    "elapsed_seconds": 120.27123133400028,
+    "argv": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-103/orch2583/fano_cnf.py",
+      "--gates",
+      "26",
+      "--seconds",
+      "120",
+      "--first",
+      "0,2,7",
+      "--tag",
+      "fano26-case2-and-2-7"
+    ],
+    "driver_exit": 0,
+    "result": {
+      "started_at": "2026-11-25T14:53:33.153400+00:00",
+      "finished_at": "2026-11-25T14:55:33.296620+00:00",
+      "elapsed_seconds": 120.14325635299974,
+      "first": "0,2,7",
+      "gates": 26,
+      "rows": 58,
+      "variables": 5928,
+      "clauses": 155358,
+      "cnf_sha256": "4f7d6a65895f3a003687dd55b1950bcc42f299f8fa59d019ba4bb26d5eb4ba5e",
+      "exit": 0,
+      "status": "UNKNOWN",
+      "all_gates_used": true,
+      "ordered_sources": false
+    }
+  }
+]

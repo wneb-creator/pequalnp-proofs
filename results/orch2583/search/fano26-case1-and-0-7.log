@@ -1,0 +1,2 @@
+START 2026-11-25T14:51:32.816220+00:00 gates 26 first 0,0,7 rows 58 variables 5928 clauses 155358 cnf_sha256 e036a9960335b601a60f729da0de02fa42479d61ed2498afa943eea70b9b1127
+RESULT {"all_gates_used": true, "clauses": 155358, "cnf_sha256": "e036a9960335b601a60f729da0de02fa42479d61ed2498afa943eea70b9b1127", "elapsed_seconds": 120.20844071800002, "exit": 0, "finished_at": "2026-11-25T14:53:33.024540+00:00", "first": "0,0,7", "gates": 26, "ordered_sources": false, "rows": 58, "started_at": "2026-11-25T14:51:32.816220+00:00", "status": "UNKNOWN", "variables": 5928}

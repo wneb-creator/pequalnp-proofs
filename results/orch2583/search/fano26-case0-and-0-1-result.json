@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-11-25T14:49:32.514293+00:00",
+  "finished_at": "2026-11-25T14:51:32.721233+00:00",
+  "elapsed_seconds": 120.20706867099989,
+  "first": "0,0,1",
+  "gates": 26,
+  "rows": 58,
+  "variables": 5928,
+  "clauses": 155358,
+  "cnf_sha256": "8f3b7dfe246b6ae7382674f41bfb128a30329f7703477aac876b5627cde28044",
+  "exit": 0,
+  "status": "UNKNOWN",
+  "all_gates_used": true,
+  "ordered_sources": false
+}

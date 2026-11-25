@@ -1,0 +1,110 @@
+{
+  "edges": 21,
+  "maximal_independent_sets": 37,
+  "negative_sizes": {
+    "7": 2,
+    "5": 14,
+    "4": 21
+  },
+  "verified_automorphisms": 336,
+  "pair_orbits": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "independent_size": 42,
+      "record_keys": [
+        "representative",
+        "pairs"
+      ]
+    },
+    {
+      "representative": [
+        0,
+        7
+      ],
+      "independent_size": 21,
+      "record_keys": [
+        "representative",
+        "pairs"
+      ]
+    },
+    {
+      "representative": [
+        2,
+        7
+      ],
+      "independent_size": 28,
+      "record_keys": [
+        "representative",
+        "pairs"
+      ]
+    }
+  ],
+  "baseline27.json": {
+    "gates": 27,
+    "bad_full_rows": 0
+  },
+  "negative26.json": {
+    "gates": 26,
+    "bad_full_rows": 47
+  },
+  "productive-positive-validation-witness.json": {
+    "gates": 27,
+    "bad_full_rows": 0
+  },
+  "fano-near26.json": {
+    "gates": 26,
+    "bad_full_rows": 47,
+    "bad_extremal_rows": [
+      8196
+    ]
+  },
+  "solver_cases_and_fixtures": {
+    "productive-impossible-first-validation": {
+      "status": "UNSAT",
+      "gates": 26,
+      "productive_on_edge": true
+    },
+    "negative-validation": {
+      "status": "UNSAT",
+      "gates": 26,
+      "productive_on_edge": false
+    },
+    "productive-fano26-case0-and-0-7": {
+      "status": "UNKNOWN",
+      "gates": 26,
+      "productive_on_edge": true
+    },
+    "productive-positive-validation": {
+      "status": "SAT",
+      "gates": 27,
+      "productive_on_edge": true
+    },
+    "positive-validation": {
+      "status": "SAT",
+      "gates": 27,
+      "productive_on_edge": false
+    },
+    "fano26-case2-and-2-7": {
+      "status": "UNKNOWN",
+      "gates": 26,
+      "productive_on_edge": false
+    },
+    "fano26-case0-and-0-1": {
+      "status": "UNKNOWN",
+      "gates": 26,
+      "productive_on_edge": false
+    },
+    "fano26-case1-and-0-7": {
+      "status": "UNKNOWN",
+      "gates": 26,
+      "productive_on_edge": false
+    }
+  },
+  "existing_search_manifest": {
+    "matches": 8,
+    "mismatches": []
+  }
+}

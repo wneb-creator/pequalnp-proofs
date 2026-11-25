@@ -1,0 +1,2 @@
+START 2026-11-25T14:48:54.642200+00:00 gates 26 first None rows 58 variables 5928 clauses 155433 cnf_sha256 c8d2ec21391b509ce1a92534f6a7ca4c2c14db535dc53984aea2efed039686b9
+RESULT {"all_gates_used": true, "clauses": 155433, "cnf_sha256": "c8d2ec21391b509ce1a92534f6a7ca4c2c14db535dc53984aea2efed039686b9", "elapsed_seconds": 0.20886525400010214, "exit": 20, "finished_at": "2026-11-25T14:48:54.851063+00:00", "first": null, "gates": 26, "ordered_sources": false, "rows": 58, "started_at": "2026-11-25T14:48:54.642200+00:00", "status": "UNSAT", "variables": 5928}

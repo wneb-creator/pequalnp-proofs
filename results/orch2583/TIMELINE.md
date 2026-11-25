@@ -9,3 +9,4 @@
 - 2026-11-25T14:50:10.803387+00:00: new named partial file built successfully; exact target still unproved.
 - 2026-11-25T14:53:58.467263+00:00: regular bipartite edge-deletion cover lower bound compiled in named file; independent review PASS.
 - 2026-11-25T14:57:53.489065+00:00: mixed-set and minimum-cover geometry built in named file; independent review PASS.
+- 2026-11-25T15:01:09.460464+00:00: strategy replan toward local star-block synthesis; full-input negative conditions retained. Timer now renews the root-held lease every5minutes, with complete desk replies in scratch desk-log.
