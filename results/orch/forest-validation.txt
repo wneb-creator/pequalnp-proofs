@@ -1,0 +1,14 @@
+PARTIAL RESULT: exact posted L-meta-1031 conclusion proved under G.IsAcyclic.
+The full posted no-triangle/no-four-cycle statement is not proved here.
+Source: results/orch/lemmas/inventory_forest.lean
+Source SHA256: 3afed505fadbf2f6345ebb8fb21214f74b76a10bb3e64f1127a83b52c97bec65
+Source lines: 2315
+Source bytes: 106478
+Lean compile: PASS, exit0
+Complete stdout: results/orch/forest-build.stdout (5604 bytes)
+Complete stderr: results/orch/forest-build.stderr (0 bytes)
+Command from lean/: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache /workspace/pequalnp-proofs/tools/bin/lake env lean ../results/orch/lemmas/inventory_forest.lean
+Checker against posted statement: NOT RUN on this experiment; module-named final theorem intentionally absent.
+Foundation: repository forest lower bound and canonical vertex-cover compiler inlined under own namespaces; datatype replaced by existing Sum type.
+Novel bridge: strengthen compiler output with common semantic center and witness false at all earlier ANDs, then use minimum vertex cover plus forest lower bound to establish a single minimum witness with exact raw ownership conclusion.
+Forbidden-source scan: no sorry, axioms, native_decide, _root_, strings, attributes, options, custom structures/inductives, or non-import imports.
