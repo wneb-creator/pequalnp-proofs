@@ -11,3 +11,6 @@ Desk null responses: 2.
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes
 Sub-agents: 6 (preflight review, Lean setup, OR-gate bound, counterexample search, library route, geometry route)
 TIMING total=24.2 subagents=6
+
+Additional compiled artifacts: StarCounterexample.lean checks a seven-gate C5 circuit and its star profile (not minimality); StarSandwich.lean checks preservation under downward monotone rewrites retaining edge positives. Both lake env lean exit 0, empty output. Root independently reviewed agent-authored sources; ordinary decide only, own namespaces, no forbidden constructs. These are research artifacts; named partial remains 1044 lines.
+Full checker environment: exact cache inventory shows approximately 3.47 GiB disk shortfall before optional cleanup; targeted Lean compilation works.
