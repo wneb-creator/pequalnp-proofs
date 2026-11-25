@@ -1,6 +1,8 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 21:21 UTC. This directory is a computational research artifact, not a proof submission.
-No Lean certificate, no final theorem, and no counterexample to L-meta-3566 were produced.
+Snapshot recorded 2026-11-25 21:31 UTC. This directory is a computational research artifact, not a proof submission.
+No final theorem or counterexample to L-meta-3566 was produced.
+The bounded-synthesis lower results have no Lean certificate. A separate Lean diagnostic
+checks only the failed local double-cover construction described below.
 No PR is intended for this helper record. The posted gap remains unresolved by this work.
 
 Observed bounded-synthesis results (external solver, not certified lower-bound proofs):
@@ -68,6 +70,19 @@ are retained under synthesis/ and excluded from version control. evidence.json c
 only small result summaries and SAT witnesses; full original diagnostics remain with
 the live job and are not bundled. Exponential graph enumeration limits practical input size.
 
+Checked local-construction diagnostic:
+  lean/PEqualNP/Outside/L_meta_3566.lean contains twelve helper lemmas under
+  PEqualNP.Outside.L_meta_3566.DoubleLift, with no final gap theorem.
+  The two-sheet graph from the L_meta_4849 edge list is bipartite and has no four-cycle.
+  Assignment {2,12,15} falsifies its edge function but satisfies the naive lifted dirty
+  product. Adding either natural repair edge (2,15) or (2,12) creates an explicit
+  four-cycle and a pair with two common neighbors. This rules out only those local
+  constructions, not all double-cover circuits or the posted gap.
+  lake --old build PEqualNP.Outside.L_meta_3566 passed with only the target rebuilt.
+  All twelve lemma axiom lists contain only propext, Classical.choice, Quot.sound.
+  optimization_review independently recomputed all finite graph certificates, read the
+  full source, freshly elaborated the file, and reran all twelve axiom checks: PASS.
+
 Sub-agents: toolchain, sat_setup, optimization_review
-TIMING total=20.0 subagents=3
+TIMING total=30.0 subagents=3
 Timing is cumulative at this research snapshot; work continues toward the full target.
