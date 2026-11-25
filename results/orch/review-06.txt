@@ -1,0 +1,6 @@
+Independent reviews:
+- structural cleared inventory_mutual_budget.lean, extracting generic residual bound and empty-wmax specialization.
+- proof_inventory cleared structural_mutual_budget.lean, rectangle/star resource inequalities.
+- structural cleared antecedent_five_independent.lean, finite kernel certificate for all512 matrices.
+- antecedent_search cleared structural_four_clause.lean, five-witness/four-clause pigeonhole lemma.
+All compiled and pass allowed format; no full target theorem claimed.
