@@ -3,9 +3,12 @@ Status: PARTIAL ONLY; no full posted theorem and no PR.
 ReplaceLast.lean: lake env lean exit 0, compiler output empty.
 Independent red-team review: PASS for partial checkpoint, pending full theorem.
 Full checker: not run; main theorem absent, full Mathlib cache absent.
-Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route
+Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route, or_case_route
 SensitivityMask.lean: lake env lean exit 0, compiler output empty; independent semantic and format review PASS for partial checkpoint.
 L_meta_2592.lean partial binaryFloor16: lake build PEqualNP.Outside.L_meta_2592 exit 0; Build completed successfully (5149 jobs).
 This proves 16 + notCount C <= C.size, not the full posted gap. File lines: 4589; no cleanup pass yet.
-Local checker exit 2: FAULT because full prebuilt Mathlib cache is missing; no acceptance claimed.
-TIMING total=15.65 subagents=5
+Local checker exit 3: FAULT because full prebuilt Mathlib cache is missing; no acceptance claimed.
+BinaryFloor17Extension.lean: lake env lean exit 0; independent finite-witness and mathematical review PASS. Integrated named17 file build pending.
+binaryFloor16 axiom audit: only propext, Classical.choice, Quot.sound.
+Full checker infrastructure: compressed filesystem mount rejected with Operation not permitted; checker unchanged.
+TIMING total=21.25 subagents=6
