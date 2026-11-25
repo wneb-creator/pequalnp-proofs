@@ -9,3 +9,10 @@ TIMING total=9 subagents=6
 
 Raw Nat-wire fanout lemma: Lean exit0; independent red-team PASS.
 Complete output: raw-fanout-build.log (empty on success).
+
+PEqualNP.Defs: lake build PASS, exit0; complete output defs-build.log.
+root_petersen.lean: Lean exit0; finite essentiality and all four pair cofactors distinct; independent review PASS.
+audit_last_not.lean: Lean exit0; last-output NOT and sole-primary reader partials.
+routes_normalized_live.lean: Lean exit0; normalization and dead-gate deletion partials.
+elimination_live_retain.lean: Lean exit0; retained-operand partial.
+All compiler outputs retained in adjacent named logs. Posted statement remains unproved.
