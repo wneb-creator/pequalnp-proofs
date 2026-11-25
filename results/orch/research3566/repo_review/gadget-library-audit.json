@@ -1,0 +1,45 @@
+[
+  {
+    "file": "heawood-library.json",
+    "sha256": "401ec5dfa45c5a98374b6516d23bb7ece7da755bf3ffd9413817bd9029b118ad",
+    "n": 14,
+    "edges": 21,
+    "rows": 58,
+    "nodes": 4097,
+    "recipes": 10213,
+    "active": 2250,
+    "clean_outputs": 434,
+    "node_kinds": {
+      "input": 14,
+      "linear": 115,
+      "clean": 77,
+      "product": 3534,
+      "guarded": 357
+    },
+    "backward_id_recipes": 1288,
+    "maximum_union_depth": 8,
+    "verdict": "PASS: exact boundary values, closed dependencies, union of recipes acyclic"
+  },
+  {
+    "file": "bip5x6-mixed-library.json",
+    "sha256": "6623b5111ccfe4daf7f0b2dc83414e37497e6912bff41e29eb768f7a3669e149",
+    "n": 11,
+    "edges": 14,
+    "rows": 31,
+    "nodes": 7184,
+    "recipes": 16902,
+    "active": 2920,
+    "clean_outputs": 541,
+    "node_kinds": {
+      "input": 11,
+      "linear": 67,
+      "clean": 43,
+      "product": 1158,
+      "mixed": 5407,
+      "guarded": 498
+    },
+    "backward_id_recipes": 667,
+    "maximum_union_depth": 8,
+    "verdict": "PASS: exact boundary values, closed dependencies, union of recipes acyclic"
+  }
+]

@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_3566.peel_of_cover_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3566.lower_bound_of_peeling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3566.not_peeling_of_small_circuit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3566.Upper.edge_upper_ao' depends on axioms: [propext, Classical.choice, Quot.sound]

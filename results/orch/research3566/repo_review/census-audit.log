@@ -1,0 +1,15 @@
+bip5x5_12_class0: n=10 m=12 tau=5 noC4=yes rows=12+17=29 expected=16 refutation<=15
+bip5x5_12_class1: n=10 m=12 tau=5 noC4=yes rows=12+14=26 expected=16 refutation<=15
+bip6x6_16_class0: n=12 m=16 tau=6 noC4=yes rows=16+23=39 expected=21 refutation<=20
+bip6x6_15_class0: n=12 m=15 tau=6 noC4=yes rows=15+21=36 expected=20 refutation<=19
+bip6x6_15_class1: n=12 m=15 tau=6 noC4=yes rows=15+33=48 expected=20 refutation<=19
+bip6x6_15_class2: n=12 m=15 tau=6 noC4=yes rows=15+24=39 expected=20 refutation<=19
+bip6x6_15_class3: n=12 m=15 tau=6 noC4=yes rows=15+23=38 expected=20 refutation<=19
+bip6x6_15_class4: n=12 m=15 tau=6 noC4=yes rows=15+23=38 expected=20 refutation<=19
+bip6x6_15_class5: n=12 m=15 tau=6 noC4=yes rows=15+24=39 expected=20 refutation<=19
+bip6x6_15_class6: n=12 m=15 tau=6 noC4=yes rows=15+26=41 expected=20 refutation<=19
+bip5x6_14: n=11 m=14 tau=5 noC4=yes rows=14+17=31 expected=18 refutation<=17
+census6x6.json: accepted=48 classes=1 scope=fixed perfect matching; both sides minimum degree at least 2
+census6x6m15.json: accepted=671 classes=7 scope=fixed perfect matching; both sides minimum degree at least 2
+census5x5.json: accepted=260 classes=2 scope=fixed perfect matching; no separate minimum-degree filter
+PASS elapsed=19.412s

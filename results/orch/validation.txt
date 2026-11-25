@@ -37,3 +37,7 @@ L-meta-3566 converseintegration: namedfile619lines27806bytes SHAbc22bca43747625b
 Restrictionpartial: Restrict3566.lean677lines29973bytes SHA63bee7161700d44108ca262d1938927c77568ee9cbdaa295930f60f6db72e9cc, Leanexit0,fulloutputrestrict-3566-build.log, independentreviewsrepo_reviewandproof_routePASS. ExactAO2 zero restriction savesonegate forpositive-degreevertexleavingedge; degree/bonusnotproved.
 
 Heawood graphcertificate: Matching3566.lean86lines, SHA256c7942218ca917e90f2900799bde75b5297efe638e51867d3681a419ed71b05e0, Leanexit0(emptylogmatching-3566-build.log), no custominstance. ExactJSON21edges,bipartite,NoFourCycle,minimumcover7checked. RootindependentreviewPASS for genericmatchingcardinalityargument, exactedgelist, finitechecksandformat. No26gatecircuitfound; nofullrefutationclaimed.
+
+Research checkpoint: independently reviewed census scripts, graph representatives, and complete audit outputs are preserved under research3566/. The 6x6 censuses are restricted to the stated perfect-matching/minimum-degree profiles. Timed SAT/MILP results are inconclusive, not lower-bound proofs. Axiom audit of the combined named partial found only propext, Classical.choice, Quot.sound.
+Sub-agents: six (proof routes, finite search, certificate search, gate elimination, Lean setup, independent review).
+TIMING total=132.0 subagents=6

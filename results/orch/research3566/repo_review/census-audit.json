@@ -1,0 +1,698 @@
+{
+  "verdict": "PASS with the stated census scopes; computational diagnostics only",
+  "representatives": [
+    {
+      "name": "bip5x5_12_class0",
+      "n": 10,
+      "edges": 12,
+      "left": 5,
+      "tau": 5,
+      "matching": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 12,
+      "maximal_negative_rows": 17,
+      "synthesis_rows": 29,
+      "expected_size": 16,
+      "refuting_size_at_most": 15,
+      "rows": [
+        15,
+        18,
+        20,
+        24,
+        17
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        9,
+        17,
+        30
+      ]
+    },
+    {
+      "name": "bip5x5_12_class1",
+      "n": 10,
+      "edges": 12,
+      "left": 5,
+      "tau": 5,
+      "matching": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 12,
+      "maximal_negative_rows": 14,
+      "synthesis_rows": 26,
+      "expected_size": 16,
+      "refuting_size_at_most": 15,
+      "rows": [
+        7,
+        26,
+        12,
+        9,
+        17
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        10,
+        22,
+        25
+      ]
+    },
+    {
+      "name": "bip6x6_16_class0",
+      "n": 12,
+      "edges": 16,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 16,
+      "maximal_negative_rows": 23,
+      "synthesis_rows": 39,
+      "expected_size": 21,
+      "refuting_size_at_most": 20,
+      "rows": [
+        7,
+        26,
+        52,
+        41,
+        17,
+        34
+      ],
+      "canonical_rows": [
+        3,
+        12,
+        21,
+        26,
+        38,
+        41
+      ]
+    },
+    {
+      "name": "bip6x6_15_class0",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          5,
+          9
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 21,
+      "synthesis_rows": 36,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        11,
+        22,
+        37,
+        24,
+        48,
+        40
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        6,
+        25,
+        42,
+        52
+      ]
+    },
+    {
+      "name": "bip6x6_15_class1",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 33,
+      "synthesis_rows": 48,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        31,
+        34,
+        36,
+        40,
+        48,
+        33
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        9,
+        17,
+        33,
+        62
+      ]
+    },
+    {
+      "name": "bip6x6_15_class2",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 24,
+      "synthesis_rows": 39,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        15,
+        50,
+        20,
+        24,
+        17,
+        33
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        9,
+        18,
+        46,
+        49
+      ]
+    },
+    {
+      "name": "bip6x6_15_class3",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 23,
+      "synthesis_rows": 38,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        15,
+        50,
+        20,
+        40,
+        17,
+        33
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        9,
+        22,
+        42,
+        49
+      ]
+    },
+    {
+      "name": "bip6x6_15_class4",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          10
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 23,
+      "synthesis_rows": 38,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        7,
+        26,
+        44,
+        9,
+        17,
+        48
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        10,
+        22,
+        44,
+        49
+      ]
+    },
+    {
+      "name": "bip6x6_15_class5",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 24,
+      "synthesis_rows": 39,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        7,
+        26,
+        44,
+        9,
+        17,
+        34
+      ],
+      "canonical_rows": [
+        3,
+        5,
+        14,
+        24,
+        41,
+        50
+      ]
+    },
+    {
+      "name": "bip6x6_15_class6",
+      "n": 12,
+      "edges": 15,
+      "left": 6,
+      "tau": 6,
+      "matching": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 15,
+      "maximal_negative_rows": 26,
+      "synthesis_rows": 41,
+      "expected_size": 20,
+      "refuting_size_at_most": 19,
+      "rows": [
+        7,
+        26,
+        44,
+        9,
+        20,
+        34
+      ],
+      "canonical_rows": [
+        3,
+        12,
+        21,
+        26,
+        38,
+        48
+      ]
+    },
+    {
+      "name": "bip5x6_14",
+      "n": 11,
+      "edges": 14,
+      "left": 5,
+      "tau": 5,
+      "matching": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "common_neighbor_max": 1,
+      "minimum_degree": 2,
+      "components": 1,
+      "positive_rows": 14,
+      "maximal_negative_rows": 17,
+      "synthesis_rows": 31,
+      "expected_size": 18,
+      "refuting_size_at_most": 17,
+      "rows": [
+        3,
+        13,
+        49,
+        22,
+        42
+      ],
+      "canonical_rows": [
+        3,
+        13,
+        22,
+        42,
+        49
+      ]
+    }
+  ],
+  "independent_recounts": [
+    {
+      "file": "census6x6.json",
+      "scope": "fixed perfect matching; both sides minimum degree at least 2",
+      "profiles": [
+        [
+          4,
+          3,
+          3,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          2,
+          2
+        ]
+      ],
+      "profile_counts": {
+        "(4, 3, 3, 2, 2, 2)": 0,
+        "(3, 3, 3, 3, 2, 2)": 48
+      },
+      "accepted": 48,
+      "isomorphism_classes": 1
+    },
+    {
+      "file": "census6x6m15.json",
+      "scope": "fixed perfect matching; both sides minimum degree at least 2",
+      "profiles": [
+        [
+          5,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          2,
+          2,
+          2
+        ]
+      ],
+      "profile_counts": {
+        "(5, 2, 2, 2, 2, 2)": 5,
+        "(4, 3, 2, 2, 2, 2)": 120,
+        "(3, 3, 3, 2, 2, 2)": 546
+      },
+      "accepted": 671,
+      "isomorphism_classes": 7
+    },
+    {
+      "file": "census5x5.json",
+      "scope": "fixed perfect matching; no separate minimum-degree filter",
+      "candidates": 77520,
+      "accepted": 260,
+      "isomorphism_classes": 2
+    }
+  ],
+  "source_sha256": {
+    "census5x5.py": "db57e7a0868c39ad094e41971e027e139c0108adcf1b3d60d3030888fa6d0393",
+    "census6x6.py": "d551b817a84c5d7498ea4a221563e18ae565a779c29aae67bb67ac1e1dd04678",
+    "census6x6m15.py": "4044ca5da147f69296a7f15315317f5357f1be47ddc533088d1ed3e75dcdf3ed",
+    "census5x5.json": "5497276f9bb812ae734d7ef7b8ce3a63009f0a88fa877b608c626d6dbb02239d",
+    "census6x6.json": "b956a66fc3a9c4e5c76b6166cc0280e51f5b3355939e16eecb8a89eb4191cd28",
+    "census6x6m15.json": "85e369c2d2d56a7ea16dfa36d851a2e14dcfcbaf5a74b9071c0f256cbc27b0a2",
+    "bip5x6_14.json": "7e687947a172f9fa2ce3cd6fe85d96d9c71ba3791976589453d30f07c9fa11ae"
+  },
+  "elapsed_seconds": 19.411892727000122
+}
