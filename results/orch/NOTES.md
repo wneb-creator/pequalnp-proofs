@@ -131,3 +131,7 @@ Finite exact-DNF check of face pruning is in job scratch face-collapse-check.py 
 ### Circuit adapter checked at 2026-11-25T03:45:12.712234+00:00
 
 `CircuitAdapter.lean` (195lines) passes Lean with empty output (`adapter-build-3.log`). For `TopForm.IsAO2 n C`, it proves the exact input-wire semantics, binary gate recurrence with natural-number operands, strict backward operand bounds, monotonicity of every wire, and a count bridge from abstract OR-gate indices to `ReadTwo.nOr C`. No distinct-operand assumption is needed by these adapter facts. Combined standalone plane-neighborhood39-OR application is now checking in `PlaneOrBound.lean`.
+
+## Structural concrete OR-family lower bound (2026-11-25T03:47:30.185835+00:00)
+
+Checked `results/orch/lemmas/PlaneOrBound.lean` (801 lines, exit 0; complete log `/tmp/oec/pequalnp-pilot-64/plane-or-bound-1.log`). The final theorem `PEqualNP.Outside.L_meta_2602_aux.PlaneOrBound.plane_or_lower_bound` says every legal binary AND/OR circuit on 13 inputs simultaneously computing the 13 plane-neighborhood OR functions as wires has at least 39 OR gates. AND gates are unrestricted. It combines the finite incidence geometry, the Circuit.wires adapter, and the generic OR-family bound. The independent reviewer passed the exact assembled file (SHA256 32f53c901432992c0a7585001d359f4203c28ef873df4c9f063bfb1e1c4822ce). This does not prove the single-output 26-input gap: the same original wire can have different functions under different point cofactors, so the simultaneous-output premise must not be assumed.

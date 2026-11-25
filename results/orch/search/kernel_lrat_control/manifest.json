@@ -1,0 +1,103 @@
+{
+  "recorded_at": "2026-11-25T03:50:53.888667+00:00",
+  "scope": "Trusted UNSAT of the explicit listed CNF. Its interpretation as all five-gate path circuits has not been formalized. This is not L-meta-2602.",
+  "theorem": "PEqualNP.Outside.Pilot64KernelControl.cnfUnsat",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "proof_method": "Repo LRAT checkW_sound and decide +kernel; no native evaluation.",
+  "files": [
+    {
+      "file": "lrat_kernel_control.py",
+      "bytes": 3761,
+      "sha256": "61414e0b13d4e3b16cefd22c1103b8576a1889bd4aeac280f3422b7c669bc723"
+    },
+    {
+      "file": "lrat-kernel-control-metadata.json",
+      "bytes": 547,
+      "sha256": "4832e496c2724e6951263515be0deefd0ea758298daaa6d825f3434e5b59e6e8"
+    },
+    {
+      "file": "lrat-kernel-generation.log",
+      "bytes": 523,
+      "sha256": "3ba597ec76450ced662adbfd26d3d9835c113a3778bf87db34a7ff812382fffb"
+    },
+    {
+      "file": "lrat-kernel-control-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "lrat-kernel-axiom-audit.log",
+      "bytes": 108,
+      "sha256": "bd40de9b235cb8eea8a48e33cface7972d6d18d5f42c23df647ff81091ec75bb"
+    },
+    {
+      "file": "path-center5-replay.lrat.gz",
+      "bytes": 69646,
+      "sha256": "e56be15a2919475a4c78a9a74cacad6d9e0aadbc2591e59e3bcce866a58b1168",
+      "original_bytes": 237158,
+      "original_sha256": "15a962b74602eb09121ec3de4ae09c384d1d01b7c56e077bab6cb7565bd66a6d",
+      "encoding": "gzip"
+    },
+    {
+      "file": "path-center5-replay.stdout.gz",
+      "bytes": 1697,
+      "sha256": "5e931f56b8ec01f2dabd19f00828b20bf8a52bf73181cad76d9397c9c1e6ab7e",
+      "original_bytes": 5419,
+      "original_sha256": "6d568c3c5cf663969d51507e880b9662a6f221ebf3bf5290c4932ef0e1470195",
+      "encoding": "gzip"
+    },
+    {
+      "file": "path-center5-replay.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "audit-path-center5.cnf.gz",
+      "bytes": 8835,
+      "sha256": "fc4b46ebd668ae2562350858a4d7c7cdfb1211cb90fcc474cba39af0890043d8",
+      "original_bytes": 33450,
+      "original_sha256": "7adbc353eec649e79e41f2cf4023e797f942261055317a4617da9ce70a48f976",
+      "encoding": "gzip"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1228,
+      "sha256": "33c784dda61b797f8795f954dc0e9adf0c13e958856b6a242dabacebc15d3ffc"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    },
+    {
+      "file": "lean/PEqualNP/Library/LRAT/Checker.lean",
+      "bytes": 26553,
+      "sha256": "b2cb50051ea0717a986aa11ece7690ab2e0a34f932453732322fc2d7969a4329"
+    }
+  ],
+  "generator_notes": "The repository checker source is copied with only a comment quotation removed. The Python generator trims the positive-hint LRAT dependency graph, renumbers clause keys by frequency, calculates every hinted unit literal, and packs 12-bit tokens in 128-token words. Lean checks these tokens without trusting the generator.",
+  "compile_argv": [
+    "lake",
+    "env",
+    "lean",
+    "results/orch/lemmas/Reductions.lean"
+  ],
+  "solver_argv": [
+    "cadical",
+    "--lrat",
+    "--binary=false",
+    "-t",
+    "20",
+    "audit-path-center5.cnf",
+    "path-center5-replay.lrat"
+  ]
+}

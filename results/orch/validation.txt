@@ -44,3 +44,7 @@ Witness65.lean complete: lake env lean passed, exit0;496 lines. All posted gate 
 OrFamilyBound.lean complete: lake env lean passed, exit0;320 lines. Common-wire linear OR-family bound m*(d-1); independent review passed.
 CircuitAdapter.lean v2: lake env lean passed, exit0;195 lines. Exact OR-count bridge added.
 PlaneOrBound.lean: lake env lean passed, exit0;801 lines. Any legal13-input AND/OR circuit exposing all13 order3 neighborhood ORs has at least39 OR gates. This is a multioutput partial, not the posted single-output26-input lower bound. Independent review passed.
+
+ProductiveBound.lean: lake env lean passed, exit0;276lines, nine deprecated if_pos warnings. Varying-cofactor weighted productive-OR count, not distinct physical gate count. Independently reviewed.
+Reductions.lean: lake env lean passed, exit0; explicit2537-clause CNF UNSAT via1274RUP steps and decide +kernel. Axiom audit: propext, Classical.choice, Quot.sound only. Circuit-to-CNF bridge unproved; this is not the posted statement. Independently reviewed as research artifact, not Outside PR format.
+Double-star audit: complete computational nine-gate UNSAT coverage;37solver runs and10gate SAT control archived with hashes. No kernel bridge or global lower bound claimed. Independently reviewed.

@@ -1,0 +1,1 @@
+{"seed": 2602, "iterations": 1140, "seconds": 0.07812830900002155, "errors": 2, "normalized_or_gates": [[2, 32], [8, 64], [65, 132], [256, 144], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}

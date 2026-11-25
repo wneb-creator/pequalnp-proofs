@@ -1,0 +1,44 @@
+{"seed": 2602, "seconds": 0.010566877999963253, "iterations": 1, "score": 3, "incorrect_outputs": 2, "per_output_costs": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2], "basis": "13 singleton inputs and13 complements of required4-subsets"}
+{"seed": 2602, "seconds": 0.011037464999958502, "iterations": 5, "score": 2, "incorrect_outputs": 2, "per_output_costs": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0], "basis": "13 singleton inputs and13 complements of required4-subsets"}
+{"seed": 2602, "seconds": 0.012326352999934898, "iterations": 38, "score": 2, "incorrect_outputs": 1, "per_output_costs": [0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0], "basis": "13 singleton inputs and13 complements of required4-subsets"}
+{"seed": 2602, "seconds": 0.015674181000008502, "iterations": 81, "score": 1, "incorrect_outputs": 1, "per_output_costs": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], "basis": "13 singleton inputs and13 complements of required4-subsets"}
+{"progress": true, "iterations": 148895, "accepted": 66950, "best": [1, 1], "seconds": 30.023446377999903, "seed": 2602, "cache_size": 8530}
+{"progress": true, "iterations": 315622, "accepted": 147392, "best": [1, 1], "seconds": 60.02633268599993, "seed": 2602, "cache_size": 10224}
+{"progress": true, "iterations": 480328, "accepted": 226309, "best": [1, 1], "seconds": 90.034225246, "seed": 2602, "cache_size": 11168}
+{"progress": true, "iterations": 686667, "accepted": 321586, "best": [1, 1], "seconds": 120.04219530699993, "seed": 2602, "cache_size": 11990}
+{"progress": true, "iterations": 916626, "accepted": 433985, "best": [1, 1], "seconds": 150.04619157899992, "seed": 2602, "cache_size": 12604}
+{"progress": true, "iterations": 1188487, "accepted": 559215, "best": [1, 1], "seconds": 180.04644055899996, "seed": 2602, "cache_size": 13106}
+{"progress": true, "iterations": 1452005, "accepted": 685424, "best": [1, 1], "seconds": 210.08626097599995, "seed": 2602, "cache_size": 13471}
+{"progress": true, "iterations": 1648983, "accepted": 779195, "best": [1, 1], "seconds": 240.0944230309999, "seed": 2602, "cache_size": 13684}
+{"progress": true, "iterations": 1815172, "accepted": 860513, "best": [1, 1], "seconds": 270.094705536, "seed": 2602, "cache_size": 13848}
+{"progress": true, "iterations": 2196241, "accepted": 1041171, "best": [1, 1], "seconds": 300.09487444499985, "seed": 2602, "cache_size": 14183}
+{"progress": true, "iterations": 2391199, "accepted": 1134696, "best": [1, 1], "seconds": 330.09820662699997, "seed": 2602, "cache_size": 14340}
+{"progress": true, "iterations": 2578030, "accepted": 1220016, "best": [1, 1], "seconds": 360.0987223159999, "seed": 2602, "cache_size": 14442}
+{"progress": true, "iterations": 2746407, "accepted": 1300809, "best": [1, 1], "seconds": 390.102244971, "seed": 2602, "cache_size": 14526}
+{"progress": true, "iterations": 2994663, "accepted": 1416759, "best": [1, 1], "seconds": 420.10618940000006, "seed": 2602, "cache_size": 14682}
+{"progress": true, "iterations": 3313447, "accepted": 1571893, "best": [1, 1], "seconds": 450.1141890339999, "seed": 2602, "cache_size": 14831}
+{"progress": true, "iterations": 3544076, "accepted": 1678063, "best": [1, 1], "seconds": 480.1147067139999, "seed": 2602, "cache_size": 14909}
+{"progress": true, "iterations": 3800914, "accepted": 1802357, "best": [1, 1], "seconds": 510.11820502399985, "seed": 2602, "cache_size": 14998}
+{"progress": true, "iterations": 4152537, "accepted": 1967352, "best": [1, 1], "seconds": 540.126724869, "seed": 2602, "cache_size": 15111}
+{"progress": true, "iterations": 4401462, "accepted": 2084432, "best": [1, 1], "seconds": 570.12697105, "seed": 2602, "cache_size": 15191}
+{"progress": true, "iterations": 4639684, "accepted": 2197724, "best": [1, 1], "seconds": 600.1301989719999, "seed": 2602, "cache_size": 15252}
+{"progress": true, "iterations": 4861652, "accepted": 2299885, "best": [1, 1], "seconds": 630.1307213689998, "seed": 2602, "cache_size": 15304}
+{"progress": true, "iterations": 5082656, "accepted": 2406303, "best": [1, 1], "seconds": 660.1308759130001, "seed": 2602, "cache_size": 15354}
+{"progress": true, "iterations": 5305031, "accepted": 2510771, "best": [1, 1], "seconds": 690.138180393, "seed": 2602, "cache_size": 15415}
+{"progress": true, "iterations": 5515220, "accepted": 2609065, "best": [1, 1], "seconds": 720.1382976599999, "seed": 2602, "cache_size": 15460}
+{"progress": true, "iterations": 5717575, "accepted": 2707006, "best": [1, 1], "seconds": 750.1383824129999, "seed": 2602, "cache_size": 15506}
+{"progress": true, "iterations": 5922290, "accepted": 2801323, "best": [1, 1], "seconds": 780.142172689, "seed": 2602, "cache_size": 15550}
+{"progress": true, "iterations": 6136286, "accepted": 2906065, "best": [1, 1], "seconds": 810.1461838439999, "seed": 2602, "cache_size": 15592}
+{"progress": true, "iterations": 6339291, "accepted": 3001156, "best": [1, 1], "seconds": 840.1862566399999, "seed": 2602, "cache_size": 15639}
+{"progress": true, "iterations": 6548554, "accepted": 3102324, "best": [1, 1], "seconds": 870.1865337959999, "seed": 2602, "cache_size": 15669}
+{"progress": true, "iterations": 6752544, "accepted": 3198207, "best": [1, 1], "seconds": 900.190176445, "seed": 2602, "cache_size": 15698}
+{"progress": true, "iterations": 6981870, "accepted": 3307259, "best": [1, 1], "seconds": 930.1982047369999, "seed": 2602, "cache_size": 15737}
+{"progress": true, "iterations": 7188114, "accepted": 3407495, "best": [1, 1], "seconds": 960.2061720739999, "seed": 2602, "cache_size": 15764}
+{"progress": true, "iterations": 7370818, "accepted": 3491845, "best": [1, 1], "seconds": 990.214272064, "seed": 2602, "cache_size": 15796}
+{"progress": true, "iterations": 7695139, "accepted": 3647858, "best": [1, 1], "seconds": 1020.2144821599999, "seed": 2602, "cache_size": 15845}
+{"progress": true, "iterations": 8050934, "accepted": 3816804, "best": [1, 1], "seconds": 1050.218163566, "seed": 2602, "cache_size": 15899}
+{"progress": true, "iterations": 8373742, "accepted": 3966937, "best": [1, 1], "seconds": 1080.2221933390001, "seed": 2602, "cache_size": 15942}
+{"progress": true, "iterations": 8708151, "accepted": 4123596, "best": [1, 1], "seconds": 1110.2261731889998, "seed": 2602, "cache_size": 15966}
+{"progress": true, "iterations": 9045676, "accepted": 4285415, "best": [1, 1], "seconds": 1140.2262748419998, "seed": 2602, "cache_size": 15995}
+{"progress": true, "iterations": 9379982, "accepted": 4441152, "best": [1, 1], "seconds": 1170.2301682070001, "seed": 2602, "cache_size": 16025}
+{"finished": true, "iterations": 9806727, "accepted": 4643327, "best": [1, 1], "seconds": 1200.0020185600001, "seed": 2602}

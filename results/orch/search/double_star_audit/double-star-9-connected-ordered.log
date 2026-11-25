@@ -1,0 +1,1 @@
+{"gates": 9, "require_zero_derivatives": true, "assignments": 10, "and_count": null, "first_gate": null, "fixed_control": false, "all_gates_used": true, "ordered_larger_operands": true, "variables": 874, "clauses": 5999, "solver_code": 20, "seconds": 68.25}

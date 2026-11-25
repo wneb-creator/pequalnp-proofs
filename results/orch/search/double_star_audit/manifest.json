@@ -1,0 +1,3039 @@
+{
+  "recorded_at": "2026-11-25T03:47:45.120414+00:00",
+  "scope": "Exactly nine binary AND/OR gates on eight inputs; distinct earlier operands; output last gate; computes the seven-edge double-star; both formal derivatives on edge (0,4) false.",
+  "status": "Computational UNSAT coverage only, not Lean/kernel checked and not a proof of L-meta-2602.",
+  "boundary_basis": {
+    "positive_masks": [
+      17,
+      33,
+      65,
+      129,
+      18,
+      20,
+      24
+    ],
+    "negative_masks": [
+      15,
+      240,
+      238
+    ],
+    "independent_exhaustive_test_assignments": 256
+  },
+  "complete_and_count_coverage": [
+    {
+      "and_count": 0,
+      "log": "double-star-9-and0.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 0,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5908,
+        "solver_code": 20,
+        "seconds": 0.01
+      },
+      "solver_stdout": "double-star-9-defect-basis-and0.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and0.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and0.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "0"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    },
+    {
+      "and_count": 1,
+      "log": "double-star-9-and1.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 1,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5936,
+        "solver_code": 20,
+        "seconds": 0.11
+      },
+      "solver_stdout": "double-star-9-defect-basis-and1.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and1.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and1.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "1"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    },
+    {
+      "and_count": 2,
+      "log": "double-star-9-and2.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 2,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5992,
+        "solver_code": 20,
+        "seconds": 7.11
+      },
+      "solver_stdout": "double-star-9-defect-basis-and2.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and2.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and2.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "2"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    },
+    {
+      "and_count": 3,
+      "driver_log": "double-star-and3-orbits.log",
+      "encoder": "double_star_search_v4.py",
+      "method": "five first-operand orbits times two operations; essential-input occurrence clauses",
+      "cases": [
+        {
+          "log": "double-star-9-and3-orbit0-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              0,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 9.01
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first0-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first0-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first0-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "0,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit0-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              0,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 7.19
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first0-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first0-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first0-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "0,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit0-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              0,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 8.62
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first0-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first0-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first0-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "0,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit0-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              0,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 16.6
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first0-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first0-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first0-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "0,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit0-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              0,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 14.7
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first0-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first0-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first0-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "0,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit1-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              1,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 2.65
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first1-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first1-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first1-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "1,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit1-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              1,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 6.2
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first1-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first1-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first1-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "1,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit1-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              1,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 6.19
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first1-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first1-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first1-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "1,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit1-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              1,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 2.23
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first1-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first1-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first1-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "1,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and3-orbit1-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 3,
+            "first_gate": [
+              1,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6072,
+            "solver_code": 20,
+            "seconds": 2.41
+          },
+          "solver_stdout": "double-star-9-defect-basis-and3-first1-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and3-first1-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and3-first1-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "3",
+            "--first",
+            "1,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        }
+      ]
+    },
+    {
+      "and_count": 4,
+      "driver_log": "double-star-and4-orbits.log",
+      "encoder": "double_star_search_v4.py",
+      "method": "five first-operand orbits times two operations; essential-input occurrence clauses",
+      "cases": [
+        {
+          "log": "double-star-9-and4-orbit0-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              0,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 18.59
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first0-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first0-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first0-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "0,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit0-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              0,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 23.09
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first0-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first0-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first0-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "0,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit0-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              0,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 31.89
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first0-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first0-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first0-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "0,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit0-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              0,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 23.09
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first0-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first0-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first0-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "0,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit0-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              0,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 6.98
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first0-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first0-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first0-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "0,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit1-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              1,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 5.08
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first1-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first1-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first1-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "1,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit1-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              1,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 10.28
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first1-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first1-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first1-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "1,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit1-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              1,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 12.24
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first1-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first1-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first1-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "1,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit1-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              1,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 5.3
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first1-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first1-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first1-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "1,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and4-orbit1-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 4,
+            "first_gate": [
+              1,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 6.29
+          },
+          "solver_stdout": "double-star-9-defect-basis-and4-first1-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and4-first1-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and4-first1-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "60",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "4",
+            "--first",
+            "1,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        }
+      ]
+    },
+    {
+      "and_count": 5,
+      "driver_log": "double-star-and5-orbits.log",
+      "encoder": "double_star_search_v4.py",
+      "method": "five first-operand orbits times two operations; essential-input occurrence clauses",
+      "cases": [
+        {
+          "log": "double-star-9-and5-orbit0-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              0,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 14.86
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first0-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first0-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first0-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "0,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit0-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              0,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 13.7
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first0-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first0-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first0-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "0,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit0-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              0,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 9.41
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first0-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first0-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first0-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "0,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit0-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              0,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 13.6
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first0-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first0-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first0-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "0,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit0-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              0,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 13.59
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first0-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first0-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first0-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "0,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit1-0-1.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              1,
+              0,
+              1
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 12.35
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first1-0-1-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first1-0-1-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first1-0-1-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "1,0,1"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit1-0-4.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              1,
+              0,
+              4
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 16.67
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first1-0-4-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first1-0-4-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first1-0-4-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "1,0,4"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit1-0-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              1,
+              0,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 11.64
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first1-0-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first1-0-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first1-0-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "1,0,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit1-1-2.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              1,
+              1,
+              2
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 9.77
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first1-1-2-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first1-1-2-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first1-1-2-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "1,1,2"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        },
+        {
+          "log": "double-star-9-and5-orbit1-1-5.log",
+          "result": {
+            "gates": 9,
+            "require_zero_derivatives": true,
+            "assignments": 10,
+            "and_count": 5,
+            "first_gate": [
+              1,
+              1,
+              5
+            ],
+            "fixed_control": false,
+            "all_gates_used": false,
+            "variables": 874,
+            "clauses": 6120,
+            "solver_code": 20,
+            "seconds": 9.98
+          },
+          "solver_stdout": "double-star-9-defect-basis-and5-first1-1-5-relevant.stdout.gz",
+          "solver_stderr": "double-star-9-defect-basis-and5-first1-1-5-relevant.stderr.gz",
+          "cnf": "double-star-9-defect-basis-and5-first1-1-5-relevant.cnf",
+          "argv": [
+            "--gates",
+            "9",
+            "--seconds",
+            "30",
+            "--defect",
+            "--basis",
+            "--and-count",
+            "5",
+            "--first",
+            "1,1,5"
+          ],
+          "encoder": "double_star_search_v4.py",
+          "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+        }
+      ]
+    },
+    {
+      "and_count": 6,
+      "log": "double-star-9-and6-relevant.log",
+      "encoder": "double_star_search_v4.py",
+      "method": "all first gates; essential-input occurrence clauses",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 6,
+        "first_gate": null,
+        "fixed_control": false,
+        "all_gates_used": false,
+        "variables": 874,
+        "clauses": 6069,
+        "solver_code": 20,
+        "seconds": 25.69
+      },
+      "solver_stdout": "double-star-9-defect-basis-and6-relevant.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and6-relevant.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and6-relevant.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "60",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "6"
+      ],
+      "encoder_sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b"
+    },
+    {
+      "and_count": 7,
+      "log": "double-star-9-and7.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 7,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5992,
+        "solver_code": 20,
+        "seconds": 1.21
+      },
+      "solver_stdout": "double-star-9-defect-basis-and7.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and7.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and7.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "7"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    },
+    {
+      "and_count": 8,
+      "log": "double-star-9-and8.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 8,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5936,
+        "solver_code": 20,
+        "seconds": 0.2
+      },
+      "solver_stdout": "double-star-9-defect-basis-and8.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and8.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and8.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "8"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    },
+    {
+      "and_count": 9,
+      "log": "double-star-9-and9.log",
+      "encoder": "double_star_search_v3.py",
+      "method": "all first gates",
+      "result": {
+        "gates": 9,
+        "require_zero_derivatives": true,
+        "assignments": 10,
+        "and_count": 9,
+        "first_gate": null,
+        "fixed_control": false,
+        "variables": 874,
+        "clauses": 5908,
+        "solver_code": 20,
+        "seconds": 0.02
+      },
+      "solver_stdout": "double-star-9-defect-basis-and9.stdout.gz",
+      "solver_stderr": "double-star-9-defect-basis-and9.stderr.gz",
+      "cnf": "double-star-9-defect-basis-and9.cnf",
+      "argv": [
+        "--gates",
+        "9",
+        "--seconds",
+        "30",
+        "--defect",
+        "--basis",
+        "--and-count",
+        "9"
+      ],
+      "encoder_sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d"
+    }
+  ],
+  "files": [
+    {
+      "file": "double-star-10-control.log",
+      "bytes": 387,
+      "sha256": "7c4272a1f64ab5c41855ad1d77ce431532ae5e147174dcdefc86158ad1ffb85f",
+      "retained": true
+    },
+    {
+      "file": "double-star-10-defect-basis-control.cnf",
+      "bytes": 95280,
+      "sha256": "c58f7d70cd505496f11402059a3b76db3e2857fcaaaedb60b6cf20bcef0988df",
+      "retained": false
+    },
+    {
+      "file": "double-star-10-defect-basis-control.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-10-defect-basis-control.stdout.gz",
+      "bytes": 3271,
+      "sha256": "49840c74e13976430c8e1310b0ca34af029c1a50db10efaeb395d8e1b7477e8b",
+      "retained": true,
+      "original_bytes": 7560,
+      "original_sha256": "b96b67bb304273807aabc1b05e9e1004de199f32b1f79c36696a184281ff98d8",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-10-defect-basis-control.witness.json",
+      "bytes": 699,
+      "sha256": "31c18cf1958ae20506e46e96307352933719412136573de1c85e498af7093240",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and0.log",
+      "bytes": 197,
+      "sha256": "43e7fb1c8a67e23eda4bbc77bbf0b1a3a7f4b9d6aadabe8ba088fa5474b979b3",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and1.log",
+      "bytes": 197,
+      "sha256": "9e37ce5b080d7e316314e8e8c60e33b2fc9040df5d93b1344f32412ca8560f7c",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and2.log",
+      "bytes": 197,
+      "sha256": "6c1c2391d059a933bbf67ddc2920bb6e0cf23fecd02cf9053ef3e317376b808f",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-connected.log",
+      "bytes": 222,
+      "sha256": "70bcb0a9fcb902208dcf0b8fed8e281bd9d4ded133f1ca769d404546e5d8ad10",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit0-0-1.log",
+      "bytes": 227,
+      "sha256": "66f526e493f3ac03d4e7d41f114ac2f1624d2c3f23265b5ae5c4a6d6104865b5",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit0-0-4.log",
+      "bytes": 227,
+      "sha256": "fdd716e59a59fad67c8f6faadc6f4fe2b40dadc70a4f3b67c938223cbb56e836",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit0-0-5.log",
+      "bytes": 227,
+      "sha256": "6e1fa29081c102dda735c73d592d562df803dd45cf4c60e66955e7e6fd66c951",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit0-1-2.log",
+      "bytes": 227,
+      "sha256": "a47853ac80b9028ae9750b5e04173be275d4b557259073bd483146801e5dded0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit0-1-5.log",
+      "bytes": 227,
+      "sha256": "84bff230bb71a98af59275748884125527c008a4d3040c2fa8cb3c18d1bea6b5",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit1-0-1.log",
+      "bytes": 227,
+      "sha256": "516dfe8ba7b7d3d68d518e608e22b5b6b26e4d949f6712f888d73b53a1e82f94",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit1-0-4.log",
+      "bytes": 226,
+      "sha256": "800981c9b118c8231ee0a25b7ebdb10ba83f57689e286bfcc048b339250599bf",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit1-0-5.log",
+      "bytes": 227,
+      "sha256": "de96f775cfe065c6a1d93a807e695341f7147c372249f17a87df9bebcf8aecbb",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit1-1-2.log",
+      "bytes": 227,
+      "sha256": "535fe9bbe345789cb536c5ded7b45ada7743698ced52e350c64b3b2dd78a2676",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-orbit1-1-5.log",
+      "bytes": 227,
+      "sha256": "aeb729b9d283ca181d271844d6b901dcc7ccdc11fb95a844e545621be48ab0ad",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3-relevant.log",
+      "bytes": 222,
+      "sha256": "4dbc0dcd7b6075796dbeaeb4612a3c055afb5bdd6379a09b12fd836e38b866d1",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and3.log",
+      "bytes": 222,
+      "sha256": "69d47263210bba7496171ed6060691ce5c06345e1fb92a969464f963aad893c0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-connected.log",
+      "bytes": 221,
+      "sha256": "ad657294af9c5d9812054452862093a7d00d717c3a8a359a493a7b26531d91f0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit0-0-1.log",
+      "bytes": 228,
+      "sha256": "6d0219f723b3f0c1529913be72cf38cbb56b99cb627ba5aba02e9747ec87cee7",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit0-0-4.log",
+      "bytes": 228,
+      "sha256": "014aa3f7d6f68a5723b30ba26af1a584256d38829b3231587b2cfc09f38533a0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit0-0-5.log",
+      "bytes": 228,
+      "sha256": "a0e2ec65ab1600fa19414aac4118c9211c0d020ed9e8e5cbc06fde065221e0d7",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit0-1-2.log",
+      "bytes": 228,
+      "sha256": "227885e3f627ac18e686875f49480fc44cc45020237deefa6984246aa3fea5f0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit0-1-5.log",
+      "bytes": 227,
+      "sha256": "bebfcad6b727e018555ea35453bdd35e40cba418e0178234dd261f3d4b996494",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit1-0-1.log",
+      "bytes": 227,
+      "sha256": "8375eb35d5bcece041823659f60c864754c27df2355b87ea7dfb4f5e0f5a5db6",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit1-0-4.log",
+      "bytes": 228,
+      "sha256": "a2669b7eced837ee1dbac433fd0889e677458a441271165b2c6853cd28497a76",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit1-0-5.log",
+      "bytes": 228,
+      "sha256": "f98964dc978a029d642583a4e9b8be31ef9f64ed4b5bf2dfdc3eaa29678a8a5c",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit1-1-2.log",
+      "bytes": 226,
+      "sha256": "9cb8e99cb49705a102c753e14c2296ede536975512af4245f65fccf81a6ca657",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-orbit1-1-5.log",
+      "bytes": 227,
+      "sha256": "65cbc5c0545ed73912a4bf643f662fd67175567f394824316bef0cf8b759ecb4",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4-relevant.log",
+      "bytes": 222,
+      "sha256": "c81df0891d082da262f73cbfe674f191f0148abb00e6e81369e1ee25d9b53460",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and4.log",
+      "bytes": 196,
+      "sha256": "bc7ba6e52aab1e2139352132bb09cb045d055bb39a6925282e5dec1c8f58cf2f",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-connected.log",
+      "bytes": 221,
+      "sha256": "eba42db8e71e27d2a303051525085cf00c06a9f7b1b9a35a306e5cc2f2f7559e",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit0-0-1.log",
+      "bytes": 228,
+      "sha256": "15ad9c88e3a57550b1be8bc1f2fbcfdcab55cc88b98858b0c25a56a32c719da9",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit0-0-4.log",
+      "bytes": 227,
+      "sha256": "0547f7dbb98a883b3dde891d73228271c558a0a3128d37b3b09204c6c80f18f6",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit0-0-5.log",
+      "bytes": 227,
+      "sha256": "bab1dbe25178722b5bdebf06b09d16d14768629cd77f56acc42aefbd307e129f",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit0-1-2.log",
+      "bytes": 227,
+      "sha256": "01a744bfa439dc93209f4810b86ea60d79c9913335f7f9be211e4b877e50b9f6",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit0-1-5.log",
+      "bytes": 228,
+      "sha256": "eb560208862a5380ffd633cb859e14f1147edf1aa26af8c44c69f662da13c21b",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit1-0-1.log",
+      "bytes": 228,
+      "sha256": "f1fc801c028b0ab9cd286dedb3cfd47632298fd1bbd007933c1e3dd4135ae115",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit1-0-4.log",
+      "bytes": 228,
+      "sha256": "331ab4ee44bc70263897f1ba9093d9c5ec9f6751cc082ab3cb338b3f7ec91ca3",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit1-0-5.log",
+      "bytes": 228,
+      "sha256": "9f73b5c8b1dc8a943d223eb7a5894e57e97eac724e2e84a67f63a54df8b769b8",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit1-1-2.log",
+      "bytes": 227,
+      "sha256": "d490de41beb719d68588ab73ff792f3712b4edad88eacbe27b47fb17aa9c326f",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-orbit1-1-5.log",
+      "bytes": 227,
+      "sha256": "f93919b490d1fdc55f6cbe01b24aa7250685d36ca5cf11cab570b9a92d415af0",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5-relevant.log",
+      "bytes": 222,
+      "sha256": "7f04e4c177b525e81a492cf356aff6f8a0caa2e39e1a1a9116acc0f5c4f5d757",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and5.log",
+      "bytes": 197,
+      "sha256": "722816d014ff3705bb0d7014ddac261cafb0352a7f63b2e5512b2cf3df110026",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and6-connected.log",
+      "bytes": 220,
+      "sha256": "bfc623a7d013759c97974241f8c1ce7cb897603a488e12610a8759cbd074b100",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and6-relevant.log",
+      "bytes": 223,
+      "sha256": "fc2a79672a212ca91b5bbec9258c92978114c364f9ff3db16bf527263b6acb89",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and6.log",
+      "bytes": 197,
+      "sha256": "d716f5532949116d8a9815713694945a8d17b8649514ed8f4b1903284001894b",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and7.log",
+      "bytes": 197,
+      "sha256": "045089d8376f653d6be37b64bfa2527e6363f9dc05c44a842f169e2492640435",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and8.log",
+      "bytes": 196,
+      "sha256": "d2aa1e65ecb0212a9ef220e8582d7b9734f9d1063af578af322efb77a1b144a4",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-and9.log",
+      "bytes": 197,
+      "sha256": "e628799d33750beadfeecda9843f6a0fb12ebe8617f4b0ad3db1dec5295430f9",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-basis.log",
+      "bytes": 138,
+      "sha256": "963fdfde316892ab9769add88c8bb53ad8f0b10160ec431b06c7f666e1b3de92",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-connected-ordered.log",
+      "bytes": 258,
+      "sha256": "392d22e6d56e93db908c1d2eb934fc97c24956fe31f87588d2b8d5bd57b2d1c2",
+      "retained": true
+    },
+    {
+      "file": "double-star-9-defect-basis-and0.cnf",
+      "bytes": 80925,
+      "sha256": "4742149f002347470e79a658219b106c9e0373b2702bbf0b0df2a8e05026a993",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and0.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and0.stdout.gz",
+      "bytes": 1361,
+      "sha256": "c8dc4a98a314ddd041d2638ee4d4e9f1e9a6bac50785b00df689c587c304e97e",
+      "retained": true,
+      "original_bytes": 4108,
+      "original_sha256": "bc0e47a3e04de102698f6cb44560210a164e91b4431b5b5e1736abe174a9d212",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and1.cnf",
+      "bytes": 81300,
+      "sha256": "9469ef86b33c4fac33d83707aaa315dd666d6c9cd6e2d74c577d412d8aaa81fa",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and1.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and1.stdout.gz",
+      "bytes": 1578,
+      "sha256": "23026939938cbdb338b25c6a739d673fdc08ed29648da8b6efd726279c62b484",
+      "retained": true,
+      "original_bytes": 4840,
+      "original_sha256": "95871736d43c09a9e97cd4515daa2ca9a36418f98bf4048be29a59553bfa4f47",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and2.cnf",
+      "bytes": 82456,
+      "sha256": "784f2b9c9eae57d90b244b24ede508cb304f82873b89644cb0a643c8bf3eceaa",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and2.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and2.stdout.gz",
+      "bytes": 3011,
+      "sha256": "c69a41d85f8196b39558fd57e228759925cede848b84ba484939bf12d8906f0a",
+      "retained": true,
+      "original_bytes": 10587,
+      "original_sha256": "8bfc59297d2e8a4372ca8d66f08a9620bd4bccf24cf00bb33ac6648e48a6439b",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-connected-relevant.cnf",
+      "bytes": 85217,
+      "sha256": "26fe3ccd000966545d228de735982116663be2a483c645a90186bf176d11beee",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-connected-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-connected-relevant.stdout.gz",
+      "bytes": 4596,
+      "sha256": "089d20caad8160dddc6c03dcf8008316ce55775154a7463720940fc801f40274",
+      "retained": true,
+      "original_bytes": 17473,
+      "original_sha256": "1d269cd97015def3c42b5b1dc0092862dbb2a8cb9b636890f276fff289412287",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-1-relevant.cnf",
+      "bytes": 84933,
+      "sha256": "ed4a572196ddb8ab6a4218da66632e021a415f5fa7ebbc4735aa3ab23e4c0a8a",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-1-relevant.stdout.gz",
+      "bytes": 3521,
+      "sha256": "b75238cd97b36fa5d451ef4d538bef2622a5ba938388261694e898cb43a2662b",
+      "retained": true,
+      "original_bytes": 12723,
+      "original_sha256": "bedea823aa6a8f43225a5394c267315897f35d27e7850f2c9dd384ae54a03eb5",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-4-relevant.cnf",
+      "bytes": 84933,
+      "sha256": "4fd6e1e8e6a973a328e0fbc469fc92510ec4b8d6384476ad37d96341a650bc0e",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-4-relevant.stdout.gz",
+      "bytes": 3603,
+      "sha256": "8ce8b68cf2d0d4fb71abdeb24a5341c53b18f8e64a3d1fc4bb7c129e7e985596",
+      "retained": true,
+      "original_bytes": 13200,
+      "original_sha256": "e93d9961c624fd4c28be8bf25218d3a82c0d229994e965bed15a229862ca7e92",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-5-relevant.cnf",
+      "bytes": 84933,
+      "sha256": "4aaa2e6d05f7c3c391afea9c3e277e134b2e760ec2942cbbd7624bdc62b32d4a",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-0-5-relevant.stdout.gz",
+      "bytes": 3639,
+      "sha256": "4619c673e3b041a587ba21c5ad249cb22fb3a7adc583c344c07b56a3f47f89d2",
+      "retained": true,
+      "original_bytes": 13406,
+      "original_sha256": "c2e25fe8b5293df77a343ec9283a3bba2092ae42422a3033b4c74ca5998ced55",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-2-relevant.cnf",
+      "bytes": 84933,
+      "sha256": "bd8df9b6f177ef49125c9f2e686f93febbe84c70769443fa9e1f2b7266b1b7dc",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-2-relevant.stdout.gz",
+      "bytes": 3635,
+      "sha256": "9dc00efa2e8ea88c8f7cd36b8ce69e0d2193c6928867770e491afd6868bbb601",
+      "retained": true,
+      "original_bytes": 13757,
+      "original_sha256": "3afcd3afe3729a5b78eea7d4744b994ba14100f95bb926d76b7e5269c65ee190",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-5-relevant.cnf",
+      "bytes": 84933,
+      "sha256": "6bd6ac892df4b05a3717d75d17ade5bc6c35092b8eab085b675e9c683e228a96",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first0-1-5-relevant.stdout.gz",
+      "bytes": 3373,
+      "sha256": "60b229f93fc79c07eb20b15fd01c30742dde5d0e141f8a427fe279b8ede4fb6f",
+      "retained": true,
+      "original_bytes": 12407,
+      "original_sha256": "417908fdd27e7ab8c60074d9b76f747da01da198585f5320d972e3c080de02d4",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-1-relevant.cnf",
+      "bytes": 84932,
+      "sha256": "9ed1f27ba0c6d33b3435b17fe41df9dcfeca27e71434e6f29a09cf7234f77247",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-1-relevant.stdout.gz",
+      "bytes": 2655,
+      "sha256": "446f0083651a751ac30b642c799441cdbf7214c918db80c043c82b1c7fd57f26",
+      "retained": true,
+      "original_bytes": 9169,
+      "original_sha256": "0c3c699f29a734193e632c1295bd19aeae421e92327a8317fd2807910f21852b",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-4-relevant.cnf",
+      "bytes": 84932,
+      "sha256": "d37d85a4548f2a444cb62ba188b0ea63484d1422935bb56a744087e9170914d4",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-4-relevant.stdout.gz",
+      "bytes": 3113,
+      "sha256": "8895e6967e7c2a0d7a9a70ee51f97604c583b32c6c4b1a0705a88720f8db247d",
+      "retained": true,
+      "original_bytes": 11324,
+      "original_sha256": "6dddd9adce80f0e2d0a0c59c9fcc1f7621719c891443b363a2931fb338bbcdd2",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-5-relevant.cnf",
+      "bytes": 84932,
+      "sha256": "07a753fcb5f95a14ee81190d60b22a36297be0ba04cbb0399778247999b0a6d9",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-0-5-relevant.stdout.gz",
+      "bytes": 3050,
+      "sha256": "d90947ed66f97bf620abe69499cd455fe9db2caf0458d102baf22d9d85f69cc4",
+      "retained": true,
+      "original_bytes": 10878,
+      "original_sha256": "604b7c9eea57de6b8e02725764c7b0cb17c05d5cfc5c1dabc64a49313a4441ed",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-2-relevant.cnf",
+      "bytes": 84932,
+      "sha256": "fbeabc6b9429e092b53ef3e6e4e17cf61a9e5c81ddac762875e7736ff7298487",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-2-relevant.stdout.gz",
+      "bytes": 2451,
+      "sha256": "5951e0893db32bb4165f82ce7d7bc05c93e7f3a5f1dfdef38121d1e57123a9e0",
+      "retained": true,
+      "original_bytes": 8249,
+      "original_sha256": "ee900e689efeccd23e92331c79e661a979a923a5b05082f5744296d5420bdd43",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-5-relevant.cnf",
+      "bytes": 84932,
+      "sha256": "1e876e9acd6be324849163eaf17561556d8e7c3bfdb37b965fcb6d37caf16b9a",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-first1-1-5-relevant.stdout.gz",
+      "bytes": 2598,
+      "sha256": "3c449375a5b810ca16e745e319791eaf074096c258be8d096163b4728a4d4136",
+      "retained": true,
+      "original_bytes": 8851,
+      "original_sha256": "764675cb9d77d3933fe8d433178ddde3eed1d109c84cfe9384c949be7a5b1d03",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-relevant.cnf",
+      "bytes": 84919,
+      "sha256": "aacf1df12d7a24d6ee74877d19fce5f2998bcf5612588552ea9c14b871abbad2",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and3-relevant.stdout.gz",
+      "bytes": 4483,
+      "sha256": "79ab7b4182f69901fc37d1d087afcf45567597b799a94b89014e74dde86b789f",
+      "retained": true,
+      "original_bytes": 16895,
+      "original_sha256": "281ac235af8b80f496ea907d003ad94bb4de2731c6c8e363a5e6a6bd926d4b0b",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-connected-relevant.cnf",
+      "bytes": 86783,
+      "sha256": "4e44f3dbe9b9e91ef0428c6e840670b0e5736968b6b2967bac4a3d0b0a99d57a",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-connected-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-connected-relevant.stdout.gz",
+      "bytes": 4518,
+      "sha256": "ca502a4a4da0c3312e5ce46f16ce8a9e408e3f3bf948c09181e3ab068ff7a0fe",
+      "retained": true,
+      "original_bytes": 17343,
+      "original_sha256": "699b26a5cadaa43f393e0f7f9bfd5a309202a7b2d8fe7fd9a76c29f9452ae091",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-1-relevant.cnf",
+      "bytes": 86499,
+      "sha256": "1ec5e63b05feb84b89bed04fa7c51016625dd8daefc3f70923aeb02275b6f076",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-1-relevant.stdout.gz",
+      "bytes": 4243,
+      "sha256": "b25798b4d8e0c6af6de3e2d7e1e94026b92addeb0dfc9493310908d5a467f8a6",
+      "retained": true,
+      "original_bytes": 15951,
+      "original_sha256": "41f198f952b70c139d8423ca72ef50e666d9dec87bf92278208354ac7375bf1a",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-4-relevant.cnf",
+      "bytes": 86499,
+      "sha256": "33a2479dc4fe0811c730bfdc67f55156ffe3abf91d664ed8f222d0a3d071c174",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-4-relevant.stdout.gz",
+      "bytes": 4284,
+      "sha256": "ecfef3383b003e0b41c266b472acfc2cd19b9eb8a1a39836c8874eba62c280b5",
+      "retained": true,
+      "original_bytes": 16253,
+      "original_sha256": "ef3a9a77c57ce0a8a2f488d3d2705a1cb8fc3d85749a406732729340adc7196c",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-5-relevant.cnf",
+      "bytes": 86499,
+      "sha256": "7b8a481b35d237db7b10d8c313ec0968771618fde329e1838097ffbb4f1badf5",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-0-5-relevant.stdout.gz",
+      "bytes": 4094,
+      "sha256": "65b220dfd0518a86267e2161105e19a62a5728935432229a919f484da53e263a",
+      "retained": true,
+      "original_bytes": 15647,
+      "original_sha256": "e5de2a3897a28211b967862adc0e4bce6844c1d216829d7f6d62d238f01caf5b",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-2-relevant.cnf",
+      "bytes": 86499,
+      "sha256": "2a5e7970bf56d7ddc96cd3207c1889e0b9bb337244bec7bfdfe435e1ccb440c3",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-2-relevant.stdout.gz",
+      "bytes": 3819,
+      "sha256": "56047ca9c99ab3e31abcaa0472ae7479174cb28cf0a86b3fdcdb621b39237358",
+      "retained": true,
+      "original_bytes": 13826,
+      "original_sha256": "032d44401ea4f427c4225f26fa774dbc4c578151f400cb05f68752d020f8529e",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-5-relevant.cnf",
+      "bytes": 86499,
+      "sha256": "022d5f3fa1234e07636a276dbb05b0e2413efc4c1918358000c0ae61dbfbff84",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first0-1-5-relevant.stdout.gz",
+      "bytes": 3870,
+      "sha256": "98049ca04bbb534416775fc84066296730e85e5bf0ab905107d6d80f70576a34",
+      "retained": true,
+      "original_bytes": 14546,
+      "original_sha256": "55d2c3986d29bce65fa507ddb2cc55b0243b9c05b071f334f3fb27b46f9c821f",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-1-relevant.cnf",
+      "bytes": 86498,
+      "sha256": "a41031a7694bc244818df1dcaede2f8197bdd31337e90c55753189926765ba62",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-1-relevant.stdout.gz",
+      "bytes": 3623,
+      "sha256": "aae3773f40943ea1e7f4c604db68ce7067c468194b918e4f66aeb6fd014235a1",
+      "retained": true,
+      "original_bytes": 13400,
+      "original_sha256": "b31c12a4e9471d9c66d7935aabb510c21f5b9cae0df06e2b3e2cbe5552faadfd",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-4-relevant.cnf",
+      "bytes": 86498,
+      "sha256": "8d62b4a2ee537830982f7381a53cfa4d341b69523ab8976fa9bbfe5538663986",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-4-relevant.stdout.gz",
+      "bytes": 3925,
+      "sha256": "9bb1c003232b4a5cd35b63119b3dcbb96993ac7f19b337223457778a2f1520de",
+      "retained": true,
+      "original_bytes": 14540,
+      "original_sha256": "314d49375e389a11a1d7db81d06ef2f1aad71e679b0e8c73e5e2e06f71826fff",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-5-relevant.cnf",
+      "bytes": 86498,
+      "sha256": "9cfa184ec0a07512d0b13221d8b77545d5c9390dfe9b40e913da08ca338475f1",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-0-5-relevant.stdout.gz",
+      "bytes": 3833,
+      "sha256": "e59938ee94407cbe73d419ef32d46de14618c552feebc8741180bf928c7c191d",
+      "retained": true,
+      "original_bytes": 14282,
+      "original_sha256": "12db958f1a001f40aa03f9a9ffe505e4b61fc9c7c4663a6c343ed850a72cbf22",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-2-relevant.cnf",
+      "bytes": 86498,
+      "sha256": "7797ce8121b9f659db0e53f73c3adc5445acff95ab5525e68c3795af426a40a7",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-2-relevant.stdout.gz",
+      "bytes": 3569,
+      "sha256": "523cd870f8d5fa65e1feefafba765f0c99af67597e24fab38c50cdd2e9a770b1",
+      "retained": true,
+      "original_bytes": 13609,
+      "original_sha256": "46952eb73ea05855f77b78750845fb9872adab89b7bd61f124cfc022a215f396",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-5-relevant.cnf",
+      "bytes": 86498,
+      "sha256": "04c63f34b794066611db7dda8221b64c5422353582955c1d8a5c9e9e56f1d73c",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-first1-1-5-relevant.stdout.gz",
+      "bytes": 3570,
+      "sha256": "e7bd925cd1b56804621d2191077f885a62e256ad98f44c3fa2b0780b1961c2f4",
+      "retained": true,
+      "original_bytes": 13266,
+      "original_sha256": "bb90f51bf79aa0c2565e0ba96a5c6db9dd59ce01c5d01669689e75a3f1618b86",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-relevant.cnf",
+      "bytes": 86485,
+      "sha256": "12135caa41effee57a52e7b326853e631b330e69748cc0784ce7d0c976b6a069",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4-relevant.stdout.gz",
+      "bytes": 4804,
+      "sha256": "e6ffa65196ce40027a50a383bb1c6c6b20c536c40310176e1c2eb34946bf8e01",
+      "retained": true,
+      "original_bytes": 18494,
+      "original_sha256": "0f2c535fa8cc9ae305352a2a8b5ebe0f8b1589b07d5b54692857b3e7f56dd2b5",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4.cnf",
+      "bytes": 85948,
+      "sha256": "bdfa0a6a18bd8d80e4228a084c2bbe1e4774df419095a48dea22b60e51b5fb29",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and4.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and4.stdout.gz",
+      "bytes": 3800,
+      "sha256": "ec6f1e448c63c2ba5cbdb1a0566763316c6f1a8d9b12e531d8b0a0b6d6fb8c9e",
+      "retained": true,
+      "original_bytes": 13706,
+      "original_sha256": "ca3f9db1211896798e3e95c88eb3bc09b9dbd9088f6c29182acf21bc92d3d401",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-connected-relevant.cnf",
+      "bytes": 86657,
+      "sha256": "58dadd1fcf4cf97efd9eca487849ca0ab9593f68a6deceb84d1220bbe39c3a24",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-connected-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-connected-relevant.stdout.gz",
+      "bytes": 4428,
+      "sha256": "843a891c5204436558fbce2cdcfe127a100bba608519fe20804c65503d5b99f8",
+      "retained": true,
+      "original_bytes": 16528,
+      "original_sha256": "53351ee5f972a6d84ca9e8f6c2f2b17e045f36d8b627a2741eaba98175693288",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-1-relevant.cnf",
+      "bytes": 86373,
+      "sha256": "783f01efb3171669de3a6e3cf04238d67d80340574b4424458c2b701fedbb7bd",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-1-relevant.stdout.gz",
+      "bytes": 3530,
+      "sha256": "0959138d6e11079bcebbfe7e26da51bb699c97b23c6dd4c6888018b0a7f88001",
+      "retained": true,
+      "original_bytes": 12642,
+      "original_sha256": "a7968d699017207e7189a764b24cbef83304f0f1e81e901d8b814b8386b1a2ca",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-4-relevant.cnf",
+      "bytes": 86373,
+      "sha256": "03007864e24b737f21fa341fef7170c2305ae040d3fffd37fcdc99f282658099",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-4-relevant.stdout.gz",
+      "bytes": 3889,
+      "sha256": "ff508763fa84d898b0e4f644e192e0d6543166f9cc0b4c0d96c9ea65de9662de",
+      "retained": true,
+      "original_bytes": 14733,
+      "original_sha256": "67c32d38adceb6c0db063f05c538e7febdca8b3c13bc53f8ed3d70bc30ecb67e",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-5-relevant.cnf",
+      "bytes": 86373,
+      "sha256": "8aea8138a5351f8effaefc0145eb3adf98b15f80e71aae3452533fc584acfa4f",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-0-5-relevant.stdout.gz",
+      "bytes": 3223,
+      "sha256": "9dc24d9d0a591f05b01c9f3d98ba0b3d193b65d48218d3fb87aa56ff0ef8e937",
+      "retained": true,
+      "original_bytes": 11434,
+      "original_sha256": "4df21a4e02e40e2d92fb05d2ab8bb5203be613c568f48b2a4864b034e622df2a",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-2-relevant.cnf",
+      "bytes": 86373,
+      "sha256": "0a6213918985787cd9f2954b83d085764f888bc07c9dc458798c64c3508f37f5",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-2-relevant.stdout.gz",
+      "bytes": 3298,
+      "sha256": "2042a1ec3bd23ebc60ef96d88847ee8102bd119bbe46a7a43d76a3e6dd5ef3aa",
+      "retained": true,
+      "original_bytes": 11976,
+      "original_sha256": "4ec79ce2a4aa7640bb1847c8da2875e1a6cc6be2e07925449fb88781b8a1978a",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-5-relevant.cnf",
+      "bytes": 86373,
+      "sha256": "eb524e343d3f728578f1c1eaf0e2f2c1bbd21d7d160ebb10ab4c75e27bf6bef8",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first0-1-5-relevant.stdout.gz",
+      "bytes": 3492,
+      "sha256": "816bd3684d1a19f359e0a2a988002ab9b00dbe4ec82103811ead4151998090f2",
+      "retained": true,
+      "original_bytes": 12614,
+      "original_sha256": "1d7577f71bf99adc7b4840bba26802a67f294166442093e202090d79efac1608",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-1-relevant.cnf",
+      "bytes": 86372,
+      "sha256": "1c17721ef281bf2a7de28ed0fb6df7674e2b41b872dcbe3ee00e0fac488b436c",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-1-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-1-relevant.stdout.gz",
+      "bytes": 4106,
+      "sha256": "b6aed4e55caeb42c1c455775de2f72c2b47b401ef67c2680b17053cc43085c5d",
+      "retained": true,
+      "original_bytes": 15874,
+      "original_sha256": "217e340dc5f79063add7e9bdb774b0a4cd4b5dd3aaed3dfaf1ab6b4138afa38e",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-4-relevant.cnf",
+      "bytes": 86372,
+      "sha256": "35e18dcf86d7ceb30e854936f8459764067b872ccee1892df59c4c58180c1763",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-4-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-4-relevant.stdout.gz",
+      "bytes": 4261,
+      "sha256": "14e667227f85d5a1d66eae33261662d4717c06390c59ff1042ea2e127757cc69",
+      "retained": true,
+      "original_bytes": 15726,
+      "original_sha256": "c684f456ccd984d5932a5e13972dfac31a1ade15700e87f38a8d0b0c9f2569b8",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-5-relevant.cnf",
+      "bytes": 86372,
+      "sha256": "46626a1194eeb87761a017db5ce4bb947e60e140a77c661a5cf5e4609d8712a1",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-0-5-relevant.stdout.gz",
+      "bytes": 4170,
+      "sha256": "c547c5b1426cecaac9ecc346def08d83db2618cf98ebf1287ee6de9f3cf949f4",
+      "retained": true,
+      "original_bytes": 15731,
+      "original_sha256": "50b1933c0882eda67a8f16fa584f06d7ba0a9ccaaea83932b57fecfce4796859",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-2-relevant.cnf",
+      "bytes": 86372,
+      "sha256": "276514895cfbe50ae468b42a83d8264559eba458aa0554e3ff434bf2ba8da7f0",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-2-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-2-relevant.stdout.gz",
+      "bytes": 3995,
+      "sha256": "9ae590beee8e64b525b1dd9e7f40db7f5d417dd179052a90df5485da232519d5",
+      "retained": true,
+      "original_bytes": 14979,
+      "original_sha256": "9566d2c4aa4044292a97d1a2c7af140f5e0630549b348291b9742b10ad6c84a5",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-5-relevant.cnf",
+      "bytes": 86372,
+      "sha256": "ac88ed246d775a660d66b83bc18586128a7516ec1234a9e5e62217b11c2f4e38",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-first1-1-5-relevant.stdout.gz",
+      "bytes": 4030,
+      "sha256": "6d08acd4a9ad50f3dcbd094511a062825d4927699584da3dfd9c2b7d12f99440",
+      "retained": true,
+      "original_bytes": 14992,
+      "original_sha256": "66cdf251e5dfe4cfeee501c9e04aae808f88e664bc1e54b2d11cdfc8511bbcd3",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-relevant.cnf",
+      "bytes": 86359,
+      "sha256": "76c5fd31f787a64de697f5d5b702b0b1bd716aed518208647225667cf0f71a5e",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5-relevant.stdout.gz",
+      "bytes": 4956,
+      "sha256": "cf6a0658ca551f2da32da9e403e994d5374c4a609cdd7ee10de4c7bdf06e1b98",
+      "retained": true,
+      "original_bytes": 19057,
+      "original_sha256": "926cfde47f1e444538ec6b062c17673f9d662aa4c132062a05f5e09553cafa73",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5.cnf",
+      "bytes": 85822,
+      "sha256": "a3abea561539111a9fb921029358e52b745cdadaee3addc39ef6e1f5b0782821",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and5.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and5.stdout.gz",
+      "bytes": 3936,
+      "sha256": "fd021c9d023a6cb72993bd5bbe8043ca4db2a13919dd20032b4805b78ab75a04",
+      "retained": true,
+      "original_bytes": 14618,
+      "original_sha256": "a31a1cb97053dd1600b9203a265c65d530b617a98f9d448f7e019f75e1cadf35",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-connected-relevant.cnf",
+      "bytes": 84965,
+      "sha256": "b3a5be0e6cc709c558eb67bcbe17f47ee1210c6f16293c680e1aca196ab41d12",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-connected-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-connected-relevant.stdout.gz",
+      "bytes": 3377,
+      "sha256": "b7705825ef6aa34a1cee4efed75b9ecf2fc62fd0dd05df0fa7bb1c16679e98a0",
+      "retained": true,
+      "original_bytes": 12102,
+      "original_sha256": "898f3c65454b10d28211e8066b5268345df56185f742baa6acba0c27842a1443",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-relevant.cnf",
+      "bytes": 84667,
+      "sha256": "611b720cf032a14e156f36b4d00b1617752ecd2b2f17cb9d0005162cf858e24d",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6-relevant.stdout.gz",
+      "bytes": 4065,
+      "sha256": "d58bf4c706ea8906d423ab02c43bf75dfc029db8cfe191b1df79ee3d76bc461b",
+      "retained": true,
+      "original_bytes": 14808,
+      "original_sha256": "c5cceb0593a4a7c2e7f304b5ee5af90c67fa0a633ceb0c5180b2aeac480426dd",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6.cnf",
+      "bytes": 84130,
+      "sha256": "8d4a91fe088e26592f8a5b9eda976faa644850878302b52c8176aa193fa42cbc",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and6.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and6.stdout.gz",
+      "bytes": 3936,
+      "sha256": "677dd0a199e41517ca39ac6f58436d71e9b43ed9b3b878657edb775dbc622dd3",
+      "retained": true,
+      "original_bytes": 14567,
+      "original_sha256": "1bc79abdff9fc56cc86396cf6b28753f994af009295d208e337d4b7524e378a8",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and7.cnf",
+      "bytes": 82276,
+      "sha256": "ae80255c6ec6ff1d4715a0b4ead9c2ad31d09cb7c7f8777570e40f395995fa95",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and7.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and7.stdout.gz",
+      "bytes": 2408,
+      "sha256": "5c63eb0002516e637c1e41dad00a409291390b2b3020afca7544ff7dc6226f96",
+      "retained": true,
+      "original_bytes": 8248,
+      "original_sha256": "decf36ec4118cb7623e010db786f17f5331fd949d78c68571db1579287c26604",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and8.cnf",
+      "bytes": 81237,
+      "sha256": "3f3398934c8292f82bd3ad72e77c6e8ba40a4a72f2feccce6a426a1b575261c2",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and8.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and8.stdout.gz",
+      "bytes": 1586,
+      "sha256": "90e39f97cc7a4e349e4c7307b0ca1f58db402a63a2431d6ec3ab50e735cac324",
+      "retained": true,
+      "original_bytes": 4840,
+      "original_sha256": "832b7bed4dce76e687e8bbf0e0fb922caf02e7f71e5462d14ed80e1fb6b1673f",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and9.cnf",
+      "bytes": 80916,
+      "sha256": "6be0328ae52ca15e73332cd68418a47ec0a6250e388787dab99c1b1d19f9ea8d",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-and9.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-and9.stdout.gz",
+      "bytes": 1291,
+      "sha256": "94e7cf1cd67e87dc396e24f3e303fbf823f0351ed704933ecaa7570ceaab6c6c",
+      "retained": true,
+      "original_bytes": 3895,
+      "original_sha256": "5589a2903e941b85def997484dfd977f24c7b06f02041853d719deffdf535f48",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-connected-ordered-relevant.cnf",
+      "bytes": 82599,
+      "sha256": "fc09fd89e4f842504cdd0730335f6e8101f472eec776b033de28a0a7cf1c9d41",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis-connected-ordered-relevant.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis-connected-ordered-relevant.stdout.gz",
+      "bytes": 5848,
+      "sha256": "c00a17538cbf4ef15ac277c32e17e337968580bf8b405f3a4610130de0d920da",
+      "retained": true,
+      "original_bytes": 22899,
+      "original_sha256": "80ac1acfb81a2bbe2fbc6e1ee2e33a3a5b797eece123ebdfaa04e515d6cee479",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis.cnf",
+      "bytes": 80866,
+      "sha256": "d3bba89f1e9fc5665dffe0323b4ee436e44831d5d75517d955b463b6efa5f47e",
+      "retained": false
+    },
+    {
+      "file": "double-star-9-defect-basis.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect-basis.stdout.gz",
+      "bytes": 5032,
+      "sha256": "3406388d1c371c617a9a5210a26e10c5f1f8e74a1da6f5abd63f21013e81f341",
+      "retained": true,
+      "original_bytes": 18489,
+      "original_sha256": "7c776cc5c049418741b107f39cb76c9bd493a88b66bdbb647ad72722b867d956",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "retained": true,
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9-defect.stdout.gz",
+      "bytes": 3538,
+      "sha256": "f84373d1ea6cb1f168d6d4ae891c40538626be68b5f13cde598376afbcf5af11",
+      "retained": true,
+      "original_bytes": 12436,
+      "original_sha256": "c6779a06363ecb4f080e3a64b2068c8d2961c68ba8e026f27db091a4711f86bb",
+      "encoding": "gzip"
+    },
+    {
+      "file": "double-star-9.log",
+      "bytes": 140,
+      "sha256": "34c3c4c4dd2f7b994948ed54e7d9b6b0e6b1f2d96a96d39c0a5db3ece27c6874",
+      "retained": true
+    },
+    {
+      "file": "double-star-and3-orbits.log",
+      "bytes": 3505,
+      "sha256": "b9ee049e7ffd0fc6af55bac05a0d7689e2e8642edaa436228d550efa78714525",
+      "retained": true
+    },
+    {
+      "file": "double-star-and4-orbits.log",
+      "bytes": 3511,
+      "sha256": "84b6a3a85b20639c30595a251dd81a3f1e60cd169cf5bd3be961374e75042104",
+      "retained": true
+    },
+    {
+      "file": "double-star-and5-orbits.log",
+      "bytes": 3511,
+      "sha256": "6b0158b5b004a7f528ca4f80e1712b9a1ec9e1b59190e83df9e2961c605eed27",
+      "retained": true
+    },
+    {
+      "file": "double-star-artifact-files.txt",
+      "bytes": 15918,
+      "sha256": "df65d455db5084632f8d51a7db710c78ce2a4c99f227bbf19f63e63a05ef67c2",
+      "retained": true
+    },
+    {
+      "file": "double-star-count-connected.log",
+      "bytes": 1024,
+      "sha256": "f13ff89a00bc3a7254614219448fa22a3fa06b9718d1e0a6cfcae4c0d5fe1342",
+      "retained": true
+    },
+    {
+      "file": "double-star-count-partitions.log",
+      "bytes": 2243,
+      "sha256": "ae7710ed5ba07578431c9ae7e179c919a33c3e3127801fd66e14705d347aa4db",
+      "retained": true
+    },
+    {
+      "file": "double-star-count-relevant.log",
+      "bytes": 1025,
+      "sha256": "79be8769727444e965d51704d9244b7957f65970a1448f99284fc860eb3bc34f",
+      "retained": true
+    },
+    {
+      "file": "double_star_orbit_driver.py",
+      "bytes": 2497,
+      "sha256": "bbc7cb228db7459158fb865f7932e99c78e61262056c59cab6e4a96717012c8c",
+      "retained": true
+    },
+    {
+      "file": "double_star_search.py",
+      "bytes": 5422,
+      "sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b",
+      "retained": true
+    },
+    {
+      "file": "double_star_search_v1.py",
+      "bytes": 3460,
+      "sha256": "d394cde7a941f1e23051a58513a6fe6e471c907a9bf7550d180f3d969fa68759",
+      "retained": true
+    },
+    {
+      "file": "double_star_search_v2.py",
+      "bytes": 3879,
+      "sha256": "7837f8e95f12528563aa46923b29605398e2a604cade27d8cd5ff179bca6f21f",
+      "retained": true
+    },
+    {
+      "file": "double_star_search_v3.py",
+      "bytes": 4955,
+      "sha256": "94a44400de5bbb37db4de0fb652f96f5b2f77edc615caca35d36cca5da58266d",
+      "retained": true
+    },
+    {
+      "file": "double_star_search_v4.py",
+      "bytes": 5422,
+      "sha256": "46722c599ca9be8eced8c41e1d6247f1a88ea87ec8778aaad868a22195b3bf5b",
+      "retained": true
+    },
+    {
+      "file": "double_star_search_v5.py",
+      "bytes": 5848,
+      "sha256": "9f46764be00e82ad155705efc418cb82b27addbe5cadb4cd2f7ede37a2c57dfc",
+      "retained": true
+    },
+    {
+      "file": "README.md",
+      "bytes": 1772,
+      "sha256": "d482b335e939d849d53065f99bebac0f27654f54474c8debf6c2a568520b0b4b",
+      "retained": true
+    },
+    {
+      "file": "validate.py",
+      "bytes": 2766,
+      "sha256": "77c1ea988f149b19d8508d3a3b731b307b21d977d71f9ca2725ebdd5b036f9cc",
+      "retained": true
+    },
+    {
+      "file": "validation.log",
+      "bytes": 94,
+      "sha256": "edf43102575a33e9fce6b0a24e507798fe09c2834aea95f8608f7712adecd97a",
+      "retained": true
+    }
+  ],
+  "provenance_limitation": "The first 30-second AND-count-3 timeout loaded encoder v4 after the driver started. Its deterministic solver output filename was later overwritten by the 60-second relevant-input run. Only its summary is retained. No UNSAT coverage relies on that timeout. All 37 UNSAT runs used for coverage have complete solver stdout/stderr.",
+  "dependencies": [
+    {
+      "file": "../repair_nearmiss_v3.py",
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "../and_count_search.py",
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1"
+    }
+  ],
+  "solver": {
+    "file": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "bytes": 1115504,
+    "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+  }
+}

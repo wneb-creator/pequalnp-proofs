@@ -1,0 +1,48 @@
+{"seed": 2602, "iterations": 1, "seconds": 0.0002101219999985915, "errors": 16, "normalized_or_gates": [[2, 32], [8, 32], [65, 2], [256, 400], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 2, "seconds": 0.0007223000000067259, "errors": 12, "normalized_or_gates": [[2, 32], [2, 9], [8, 32], [65, 132], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 3, "seconds": 0.0008758669999906488, "errors": 10, "normalized_or_gates": [[2, 8], [8, 32], [33, 68], [256, 145], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 5, "seconds": 0.01356208900006095, "errors": 9, "normalized_or_gates": [[2, 32], [2, 8], [65, 132], [256, 24], 576], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 6, "seconds": 0.01378114400006325, "errors": 8, "normalized_or_gates": [[2, 32], [2, 8], [65, 132], [256, 8], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 10, "seconds": 0.013940660000002936, "errors": 5, "normalized_or_gates": [[2, 32], [2, 72], [65, 132], [256, 24], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 22, "seconds": 0.014157992000036757, "errors": 3, "normalized_or_gates": [[2, 8], [24, 32], [3, 68], [256, 144], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"seed": 2602, "iterations": 1140, "seconds": 0.07812830900002155, "errors": 2, "normalized_or_gates": [[2, 32], [8, 64], [65, 132], [256, 144], 512], "description": "Each OR operand is an arbitrary nonempty conjunction of earlier atoms; final mask is a conjunction"}
+{"progress": true, "iterations": 931492, "accepted": 242846, "best": 2, "seconds": 30.00950641700001}
+{"progress": true, "iterations": 2348526, "accepted": 603760, "best": 2, "seconds": 60.00959943099997}
+{"progress": true, "iterations": 3500050, "accepted": 899530, "best": 2, "seconds": 90.01335936200007}
+{"progress": true, "iterations": 4716318, "accepted": 1218571, "best": 2, "seconds": 120.02133960900005}
+{"progress": true, "iterations": 5609061, "accepted": 1442202, "best": 2, "seconds": 150.02142615499997}
+{"progress": true, "iterations": 6608171, "accepted": 1691043, "best": 2, "seconds": 180.02532247499994}
+{"progress": true, "iterations": 8742251, "accepted": 2234494, "best": 2, "seconds": 210.02563057199995}
+{"progress": true, "iterations": 9639747, "accepted": 2463861, "best": 2, "seconds": 240.02568722799992}
+{"progress": true, "iterations": 10624751, "accepted": 2713380, "best": 2, "seconds": 270.029329902}
+{"progress": true, "iterations": 11720884, "accepted": 2982035, "best": 2, "seconds": 300.0296097590001}
+{"progress": true, "iterations": 13224622, "accepted": 3363721, "best": 2, "seconds": 330.0666226420001}
+{"progress": true, "iterations": 14434735, "accepted": 3669302, "best": 2, "seconds": 360.06681249999997}
+{"progress": true, "iterations": 15394692, "accepted": 3918905, "best": 2, "seconds": 390.06933477300004}
+{"progress": true, "iterations": 16491835, "accepted": 4198888, "best": 2, "seconds": 420.0696802740001}
+{"progress": true, "iterations": 17589416, "accepted": 4483170, "best": 2, "seconds": 450.06991226800005}
+{"progress": true, "iterations": 18782072, "accepted": 4788673, "best": 2, "seconds": 480.0773329020001}
+{"progress": true, "iterations": 19803970, "accepted": 5049366, "best": 2, "seconds": 510.08134440699996}
+{"progress": true, "iterations": 20876308, "accepted": 5319301, "best": 2, "seconds": 540.085332592}
+{"progress": true, "iterations": 22284211, "accepted": 5682212, "best": 2, "seconds": 570.093341238}
+{"progress": true, "iterations": 23336709, "accepted": 5948545, "best": 2, "seconds": 600.09734746}
+{"progress": true, "iterations": 24190810, "accepted": 6175133, "best": 2, "seconds": 630.0974250090001}
+{"progress": true, "iterations": 25211836, "accepted": 6442272, "best": 2, "seconds": 660.1013296640001}
+{"progress": true, "iterations": 26402287, "accepted": 6740407, "best": 2, "seconds": 690.105360007}
+{"progress": true, "iterations": 27540531, "accepted": 7038135, "best": 2, "seconds": 720.1173354800001}
+{"progress": true, "iterations": 28524857, "accepted": 7298994, "best": 2, "seconds": 750.1253218280001}
+{"progress": true, "iterations": 29640886, "accepted": 7588357, "best": 2, "seconds": 780.166637647}
+{"progress": true, "iterations": 30667653, "accepted": 7858125, "best": 2, "seconds": 810.1667453750001}
+{"progress": true, "iterations": 31751024, "accepted": 8140768, "best": 2, "seconds": 840.16686871}
+{"progress": true, "iterations": 33023226, "accepted": 8471843, "best": 2, "seconds": 870.169384868}
+{"progress": true, "iterations": 34215154, "accepted": 8776418, "best": 2, "seconds": 900.173322329}
+{"progress": true, "iterations": 35528520, "accepted": 9107864, "best": 2, "seconds": 930.1773183790001}
+{"progress": true, "iterations": 37106679, "accepted": 9510201, "best": 2, "seconds": 960.181332631}
+{"progress": true, "iterations": 38923619, "accepted": 9987032, "best": 2, "seconds": 990.1814369609999}
+{"progress": true, "iterations": 40501912, "accepted": 10396321, "best": 2, "seconds": 1020.185306846}
+{"progress": true, "iterations": 42923005, "accepted": 11023010, "best": 2, "seconds": 1050.189365898}
+{"progress": true, "iterations": 44845204, "accepted": 11505828, "best": 2, "seconds": 1080.189952853}
+{"progress": true, "iterations": 46722406, "accepted": 11986016, "best": 2, "seconds": 1110.190160397}
+{"progress": true, "iterations": 48529402, "accepted": 12445182, "best": 2, "seconds": 1140.190326272}
+{"progress": true, "iterations": 51470290, "accepted": 13208743, "best": 2, "seconds": 1170.193340114}
+{"finished": true, "iterations": 53172279, "accepted": 13652364, "best": 2, "seconds": 1200.0054489460001}

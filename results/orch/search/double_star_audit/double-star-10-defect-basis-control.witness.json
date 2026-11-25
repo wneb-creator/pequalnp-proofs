@@ -1,0 +1,66 @@
+{
+  "gates": 10,
+  "require_zero_derivatives": true,
+  "assignments": 10,
+  "and_count": null,
+  "first_gate": null,
+  "fixed_control": true,
+  "variables": 991,
+  "clauses": 6908,
+  "solver_code": 10,
+  "seconds": 0.01,
+  "gates_list": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      3,
+      8
+    ],
+    [
+      1,
+      4,
+      9
+    ],
+    [
+      0,
+      5,
+      6
+    ],
+    [
+      0,
+      7,
+      11
+    ],
+    [
+      0,
+      4,
+      12
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      0,
+      10,
+      14
+    ],
+    [
+      0,
+      1,
+      15
+    ],
+    [
+      1,
+      15,
+      16
+    ]
+  ],
+  "derivative_left": false,
+  "derivative_right": false
+}
