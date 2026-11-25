@@ -404,4 +404,511 @@ lemma live_iff_reindex {k l m budget : ℕ} (front : Fin k → BitVec m)
       live basicOps goal budget (frontierRoots front) := by
   rw [frontierRoots_reindex]
 
+def rowPattern {k m : ℕ} (front : Fin k → BitVec m) (i : Fin m) : BitVec k :=
+  (BitVec.ofBoolListLE (List.ofFn (fun q => (front q)[i.val]))).cast (by simp)
+
+lemma rowPattern_bit {k m : ℕ} (front : Fin k → BitVec m) (i : Fin m) (q : Fin k) :
+    (rowPattern front i)[q.val] = (front q)[i.val] := by
+  simp [rowPattern, ← BitVec.getLsbD_eq_getElem]
+
+lemma rowPattern_eq_iff {k m n : ℕ} (front : Fin k → BitVec m)
+    (front' : Fin k → BitVec n) (i : Fin m) (j : Fin n) :
+    rowPattern front i = rowPattern front' j ↔
+      ∀ q : Fin k, (front q)[i.val] = (front' q)[j.val] := by
+  constructor
+  · intro h q
+    have he := congrArg (fun w : BitVec k => w[q.val]) h
+    simpa only [rowPattern_bit] using he
+  · intro h
+    apply BitVec.eq_of_getElem_eq
+    intro q hq
+    rw [rowPattern_bit front i ⟨q, hq⟩, rowPattern_bit front' j ⟨q, hq⟩]
+    exact h ⟨q, hq⟩
+
+def patternKey {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) : Finset (BitVec k) :=
+  (Finset.univ.filter (fun i : Fin m => goal[i.val] = value)).image (rowPattern front)
+
+abbrev positivePatterns {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m) :
+    Finset (BitVec k) := patternKey front goal true
+
+abbrev negativePatterns {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m) :
+    Finset (BitVec k) := patternKey front goal false
+
+lemma mem_patternKey {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) (p : BitVec k) :
+    p ∈ patternKey front goal value ↔
+      ∃ i : Fin m, goal[i.val] = value ∧ rowPattern front i = p := by
+  simp only [patternKey, Finset.mem_image, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma rowsMatch_of_keys_eq {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = positivePatterns front' goal')
+    (negative : negativePatterns front goal = negativePatterns front' goal') :
+    rowsMatch front goal front' goal' := by
+  intro i
+  have same : patternKey front goal goal[i.val] = patternKey front' goal' goal[i.val] := by
+    cases goal[i.val]
+    · exact negative
+    · exact positive
+  have hm : rowPattern front i ∈ patternKey front goal goal[i.val] :=
+    (mem_patternKey front goal goal[i.val] _).mpr ⟨i, rfl, rfl⟩
+  rw [same] at hm
+  obtain ⟨j, hj, hp⟩ := (mem_patternKey front' goal' goal[i.val] _).mp hm
+  exact ⟨j, hj.symm, (rowPattern_eq_iff front front' i j).mp hp.symm⟩
+
+lemma labeledPatterns_eq_of_rowsMatch {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (forth : rowsMatch front goal front' goal')
+    (back : rowsMatch front' goal' front goal) :
+    labeledPatterns front goal = labeledPatterns front' goal' := by
+  apply Set.Subset.antisymm
+  · rintro p ⟨i, rfl⟩
+    obtain ⟨j, hg, hf⟩ := forth i
+    exact ⟨j, Prod.ext hg.symm (funext (fun q => (hf q).symm))⟩
+  · rintro p ⟨j, rfl⟩
+    obtain ⟨i, hg, hf⟩ := back j
+    exact ⟨i, Prod.ext hg.symm (funext (fun q => (hf q).symm))⟩
+
+lemma labeledPatterns_eq_of_keys_eq {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = positivePatterns front' goal')
+    (negative : negativePatterns front goal = negativePatterns front' goal') :
+    labeledPatterns front goal = labeledPatterns front' goal' :=
+  labeledPatterns_eq_of_rowsMatch front goal front' goal'
+    (rowsMatch_of_keys_eq front goal front' goal' positive negative)
+    (rowsMatch_of_keys_eq front' goal' front goal positive.symm negative.symm)
+
+lemma patternKey_not {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) : patternKey front (~~~goal) value = patternKey front goal (!value) := by
+  unfold patternKey
+  congr 1
+  ext i
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, BitVec.getElem_not]
+  cases goal[i.val] <;> cases value <;> decide
+
+lemma labeledPatterns_eq_of_swappedKeys {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = negativePatterns front' goal')
+    (negative : negativePatterns front goal = positivePatterns front' goal') :
+    labeledPatterns front goal = labeledPatterns front' (~~~goal') := by
+  apply labeledPatterns_eq_of_keys_eq front goal front' (~~~goal')
+  · simpa only [positivePatterns, negativePatterns, patternKey_not, Bool.not_true] using positive
+  · simpa only [positivePatterns, negativePatterns, patternKey_not, Bool.not_false] using negative
+
+lemma build_iff_patternKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = positivePatterns front' goal')
+    (negative : negativePatterns front goal = negativePatterns front' goal') :
+    build basicOps goal budget (frontierRoots front) ↔
+      build basicOps goal' budget (frontierRoots front') :=
+  build_iff_labeledPatterns front goal front' goal'
+    (labeledPatterns_eq_of_keys_eq front goal front' goal' positive negative)
+
+lemma live_iff_patternKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = positivePatterns front' goal')
+    (negative : negativePatterns front goal = negativePatterns front' goal') :
+    live basicOps goal budget (frontierRoots front) ↔
+      live basicOps goal' budget (frontierRoots front') :=
+  live_iff_labeledPatterns front goal front' goal'
+    (labeledPatterns_eq_of_keys_eq front goal front' goal' positive negative)
+
+lemma build_signed_iff_swappedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = negativePatterns front' goal')
+    (negative : negativePatterns front goal = positivePatterns front' goal') :
+    (build basicOps goal budget (frontierRoots front) ∨
+      build basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (build basicOps goal' budget (frontierRoots front') ∨
+      build basicOps (~~~goal') budget (frontierRoots front')) :=
+  build_signed_iff_swappedPatterns front goal front' goal'
+    (labeledPatterns_eq_of_swappedKeys front goal front' goal' positive negative)
+
+lemma live_signed_iff_swappedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : positivePatterns front goal = negativePatterns front' goal')
+    (negative : negativePatterns front goal = positivePatterns front' goal') :
+    (live basicOps goal budget (frontierRoots front) ∨
+      live basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (live basicOps goal' budget (frontierRoots front') ∨
+      live basicOps (~~~goal') budget (frontierRoots front')) :=
+  live_signed_iff_swappedPatterns front goal front' goal'
+    (labeledPatterns_eq_of_swappedKeys front goal front' goal' positive negative)
+
+def canonicalAt {m : ℕ} (ref : Fin m) (w : BitVec m) : BitVec m :=
+  if w[ref.val] then ~~~w else w
+
+lemma canonicalAt_bit {m : ℕ} (ref : Fin m) (w : BitVec m) :
+    (canonicalAt ref w)[ref.val] = false := by
+  cases h : w[ref.val] <;> simp [canonicalAt, h]
+
+lemma canonicalAt_of_false {m : ℕ} (ref : Fin m) (w : BitVec m)
+    (h : w[ref.val] = false) : canonicalAt ref w = w := by
+  simp only [canonicalAt, h, Bool.false_eq_true, ite_false]
+
+lemma canonicalAt_not {m : ℕ} (ref : Fin m) (w : BitVec m) :
+    canonicalAt ref (~~~w) = canonicalAt ref w := by
+  cases h : w[ref.val] <;> simp [canonicalAt, h]
+
+lemma canonicalAt_eq_iff {m : ℕ} (ref : Fin m) (u w : BitVec m) :
+    canonicalAt ref u = canonicalAt ref w ↔ u = w ∨ u = ~~~w := by
+  constructor
+  · intro h
+    cases hu : u[ref.val] <;> cases hw : w[ref.val] <;>
+      simp only [canonicalAt, hu, hw, Bool.false_eq_true,
+        ite_false, ite_true] at h
+    · exact Or.inl h
+    · exact Or.inr h
+    · exact Or.inr (by simpa only [BitVec.not_not] using congrArg (fun z => ~~~z) h)
+    · exact Or.inl (by simpa only [BitVec.not_not] using congrArg (fun z => ~~~z) h)
+  · rintro (rfl | rfl)
+    · rfl
+    · exact canonicalAt_not ref w
+
+lemma canonicalAt_ops {m : ℕ} (ref : Fin m) (u w z : BitVec m)
+    (hz : z ∈ basicOps u w) :
+    canonicalAt ref z ∈ basicOps (canonicalAt ref u) (canonicalAt ref w) := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  all_goals cases hu : u[ref.val] <;> cases hw : w[ref.val] <;>
+    simp [canonicalAt, basicOps, ops, hu, hw, BitVec.not_and, BitVec.not_or,
+      BitVec.and_comm, BitVec.or_comm]
+
+lemma zeroAt_ops {m : ℕ} (ref : Fin m) (u w : BitVec m)
+    (hu : u[ref.val] = false) (hw : w[ref.val] = false)
+    (z : BitVec m) (hz : z ∈ basicOps u w) : z[ref.val] = false := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [hu, hw]
+
+lemma pullback_rowEquiv_injective {m n : ℕ} (e : Fin n ≃ Fin m) :
+    Function.Injective (pullback e) := by
+  intro u w he
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  have hb := congrArg (fun z : BitVec n => z[(e.symm ⟨i, hi⟩).val]) he
+  simpa only [pullback_bit, Equiv.apply_symm_apply] using hb
+
+def canonicalTransport {m n : ℕ} (e : Fin n ≃ Fin m) (ref : Fin n)
+    (w : BitVec m) : BitVec n := canonicalAt ref (pullback e w)
+
+lemma canonicalTransport_injective_zero {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (u w : BitVec m) (hu : u[src.val] = false) (hw : w[src.val] = false)
+    (he : canonicalTransport e dst u = canonicalTransport e dst w) : u = w := by
+  rcases (canonicalAt_eq_iff dst _ _).mp he with same | opposite
+  · exact pullback_rowEquiv_injective e same
+  · have inv : u = ~~~w := pullback_rowEquiv_injective e (by
+      simpa only [pullback_not] using opposite)
+    have bad := congrArg (fun z : BitVec m => z[src.val]) inv
+    simp only [BitVec.getElem_not, hu, hw, Bool.not_false] at bad
+    contradiction
+
+lemma canonicalTransport_ops {m n : ℕ} (e : Fin n ≃ Fin m) (ref : Fin n)
+    (u w z : BitVec m) (hz : z ∈ basicOps u w) :
+    canonicalTransport e ref z ∈
+      basicOps (canonicalTransport e ref u) (canonicalTransport e ref w) :=
+  canonicalAt_ops ref _ _ _ (pullback_ops e u w z hz)
+
+lemma build_canonicalTransport {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : build basicOps goal budget roots) :
+    build basicOps (canonicalTransport e dst goal) budget
+      (roots.image (canonicalTransport e dst)) := by
+  exact build_map_on basicOps basicOps (fun w => w[src.val] = false)
+    (canonicalTransport e dst) (zeroAt_ops src)
+    (canonicalTransport_injective_zero e src dst)
+    (fun a b _ _ z hz => canonicalTransport_ops e dst a b z hz) initial run
+
+lemma live_canonicalTransport {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : live basicOps goal budget roots) :
+    live basicOps (canonicalTransport e dst goal) budget
+      (roots.image (canonicalTransport e dst)) := by
+  exact live_map_on basicOps basicOps (fun w => w[src.val] = false)
+    (canonicalTransport e dst) (zeroAt_ops src)
+    (canonicalTransport_injective_zero e src dst)
+    (fun a b _ _ z hz => canonicalTransport_ops e dst a b z hz) initial run
+
+lemma pullback_rowEquiv_inverse {m n : ℕ} (e : Fin n ≃ Fin m) (w : BitVec m) :
+    pullback e.symm (pullback e w) = w := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  rw [pullback_bit e.symm (pullback e w) ⟨i, hi⟩,
+    pullback_bit e w (e.symm ⟨i, hi⟩)]
+  simp only [Equiv.apply_symm_apply]
+
+lemma canonicalTransport_roundtrip {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n) (w : BitVec m) :
+    canonicalTransport e.symm src (canonicalTransport e dst w) = canonicalAt src w := by
+  change canonicalAt src (pullback e.symm (canonicalAt dst (pullback e w))) = _
+  by_cases phase : (pullback e w)[dst.val] = true
+  · have hc : canonicalAt dst (pullback e w) = ~~~(pullback e w) := by
+      simp only [canonicalAt, phase, ite_true]
+    rw [hc, pullback_not, pullback_rowEquiv_inverse, canonicalAt_not]
+  · have hc : canonicalAt dst (pullback e w) = pullback e w := by
+      simp [canonicalAt, phase]
+    rw [hc, pullback_rowEquiv_inverse]
+
+lemma canonicalTransport_roots_zero {m n : ℕ}
+    (e : Fin n ≃ Fin m) (dst : Fin n) (roots : Finset (BitVec m)) :
+    ∀ w ∈ roots.image (canonicalTransport e dst), w[dst.val] = false := by
+  intro w hw
+  obtain ⟨u, _, rfl⟩ := Finset.mem_image.mp hw
+  exact canonicalAt_bit dst (pullback e u)
+
+lemma canonicalTransport_roots_inverse {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n) (roots : Finset (BitVec m))
+    (initial : ∀ w ∈ roots, w[src.val] = false) :
+    (roots.image (canonicalTransport e dst)).image (canonicalTransport e.symm src) = roots := by
+  rw [Finset.image_image]
+  have inv : ∀ w ∈ roots,
+      canonicalTransport e.symm src (canonicalTransport e dst w) = w := by
+    intro w hw
+    rw [canonicalTransport_roundtrip, canonicalAt_of_false src w (initial w hw)]
+  ext w
+  constructor
+  · intro h
+    obtain ⟨u, hu, he⟩ := Finset.mem_image.mp h
+    change canonicalTransport e.symm src (canonicalTransport e dst u) = w at he
+    rw [inv u hu] at he
+    exact he ▸ hu
+  · intro hw
+    exact Finset.mem_image.mpr ⟨w, hw, inv w hw⟩
+
+lemma build_iff_canonicalTransport {m n budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false) (targetZero : goal[src.val] = false) :
+    build basicOps goal budget roots ↔
+      build basicOps (canonicalTransport e dst goal) budget
+        (roots.image (canonicalTransport e dst)) := by
+  constructor
+  · exact build_canonicalTransport e src dst initial
+  · intro run
+    have back := build_canonicalTransport e.symm dst src
+      (canonicalTransport_roots_zero e dst roots) run
+    simpa only [canonicalTransport_roundtrip, canonicalAt_of_false src goal targetZero,
+      canonicalTransport_roots_inverse e src dst roots initial] using back
+
+lemma live_iff_canonicalTransport {m n budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false) (targetZero : goal[src.val] = false) :
+    live basicOps goal budget roots ↔
+      live basicOps (canonicalTransport e dst goal) budget
+        (roots.image (canonicalTransport e dst)) := by
+  constructor
+  · exact live_canonicalTransport e src dst initial
+  · intro run
+    have back := live_canonicalTransport e.symm dst src
+      (canonicalTransport_roots_zero e dst roots) run
+    simpa only [canonicalTransport_roundtrip, canonicalAt_of_false src goal targetZero,
+      canonicalTransport_roots_inverse e src dst roots initial] using back
+
+lemma build_iff_canonicalAutomorphism {m budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Equiv.Perm (Fin m)) (ref : Fin m)
+    (initial : ∀ w ∈ roots, w[ref.val] = false) (targetZero : goal[ref.val] = false)
+    (goalFixed : canonicalTransport e ref goal = goal) :
+    build basicOps goal budget roots ↔
+      build basicOps goal budget (roots.image (canonicalTransport e ref)) := by
+  simpa only [goalFixed] using build_iff_canonicalTransport roots goal e ref ref initial targetZero
+
+lemma live_iff_canonicalAutomorphism {m budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Equiv.Perm (Fin m)) (ref : Fin m)
+    (initial : ∀ w ∈ roots, w[ref.val] = false) (targetZero : goal[ref.val] = false)
+    (goalFixed : canonicalTransport e ref goal = goal) :
+    live basicOps goal budget roots ↔
+      live basicOps goal budget (roots.image (canonicalTransport e ref)) := by
+  simpa only [goalFixed] using live_iff_canonicalTransport roots goal e ref ref initial targetZero
+
+def canonicalPullback {m n : ℕ} (ρ : Fin n → Fin m) (ref : Fin n)
+    (w : BitVec m) : BitVec n := canonicalAt ref (pullback ρ w)
+
+lemma canonicalPullback_injective_stable_zero {m n : ℕ}
+    {roots : Finset (BitVec m)} (ρ : Fin n → Fin m)
+    (cover : ∀ i : Fin m, ∃ j : Fin n, patternEq roots i (ρ j))
+    (src : Fin m) (dst : Fin n) (u w : BitVec m)
+    (hu : patternStable roots u ∧ u[src.val] = false)
+    (hw : patternStable roots w ∧ w[src.val] = false)
+    (he : canonicalPullback ρ dst u = canonicalPullback ρ dst w) : u = w := by
+  rcases (canonicalAt_eq_iff dst _ _).mp he with same | opposite
+  · exact pullback_injective_stable ρ cover u w hu.1 hw.1 same
+  · have inv : u = ~~~w := pullback_injective_stable ρ cover u (~~~w)
+      hu.1 (patternStable_not hw.1) (by simpa only [pullback_not] using opposite)
+    have bad := congrArg (fun z : BitVec m => z[src.val]) inv
+    simp only [BitVec.getElem_not, hu.2, hw.2, Bool.not_false] at bad
+    contradiction
+
+lemma canonicalPullback_ops {m n : ℕ} (ρ : Fin n → Fin m) (ref : Fin n)
+    (u w z : BitVec m) (hz : z ∈ basicOps u w) :
+    canonicalPullback ρ ref z ∈
+      basicOps (canonicalPullback ρ ref u) (canonicalPullback ρ ref w) :=
+  canonicalAt_ops ref _ _ _ (pullback_ops ρ u w z hz)
+
+lemma build_canonicalPullback {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (ρ : Fin n → Fin m)
+    (cover : ∀ i : Fin m, ∃ j : Fin n, patternEq roots i (ρ j))
+    (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : build basicOps goal budget roots) :
+    build basicOps (canonicalPullback ρ dst goal) budget
+      (roots.image (canonicalPullback ρ dst)) := by
+  exact build_map_on basicOps basicOps
+    (fun w => patternStable roots w ∧ w[src.val] = false)
+    (canonicalPullback ρ dst)
+    (fun a b ha hb z hz => ⟨patternStable_ops a b ha.1 hb.1 z hz,
+      zeroAt_ops src a b ha.2 hb.2 z hz⟩)
+    (canonicalPullback_injective_stable_zero ρ cover src dst)
+    (fun a b _ _ z hz => canonicalPullback_ops ρ dst a b z hz)
+    (fun w hw => ⟨patternStable_root roots w hw, initial w hw⟩) run
+
+lemma live_canonicalPullback {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (ρ : Fin n → Fin m)
+    (cover : ∀ i : Fin m, ∃ j : Fin n, patternEq roots i (ρ j))
+    (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : live basicOps goal budget roots) :
+    live basicOps (canonicalPullback ρ dst goal) budget
+      (roots.image (canonicalPullback ρ dst)) := by
+  exact live_map_on basicOps basicOps
+    (fun w => patternStable roots w ∧ w[src.val] = false)
+    (canonicalPullback ρ dst)
+    (fun a b ha hb z hz => ⟨patternStable_ops a b ha.1 hb.1 z hz,
+      zeroAt_ops src a b ha.2 hb.2 z hz⟩)
+    (canonicalPullback_injective_stable_zero ρ cover src dst)
+    (fun a b _ _ z hz => canonicalPullback_ops ρ dst a b z hz)
+    (fun w hw => ⟨patternStable_root roots w hw, initial w hw⟩) run
+
+def phasedFront {k m : ℕ} (front : Fin k → BitVec m) (signs : Fin k → Bool)
+    (q : Fin k) : BitVec m := if signs q then ~~~(front q) else front q
+
+lemma canonicalAt_phase {m : ℕ} (ref : Fin m) (w : BitVec m) (phase : Bool)
+    (hz : w[ref.val] = false) : canonicalAt ref (if phase then ~~~w else w) = w := by
+  cases phase <;> simp only [Bool.false_eq_true, ite_false, ite_true, canonicalAt_not,
+    canonicalAt_of_false ref w hz]
+
+lemma canonicalAt_phasedRoots {k m : ℕ} (front : Fin k → BitVec m)
+    (signs : Fin k → Bool) (ref : Fin m)
+    (zero : ∀ q : Fin k, (front q)[ref.val] = false) :
+    (frontierRoots (phasedFront front signs)).image (canonicalAt ref) = frontierRoots front := by
+  unfold frontierRoots
+  rw [Finset.image_image]
+  congr 1
+  funext q
+  exact canonicalAt_phase ref (front q) (signs q) (zero q)
+
+lemma phasedPatterns_pullback {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs : Fin k → Bool) (goalFlip : Bool) (dst : Fin n)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (same : labeledPatterns front goal =
+      labeledPatterns (phasedFront front' signs) (if goalFlip then ~~~goal' else goal')) :
+    ∃ ρ : Fin n → Fin m,
+      (∀ i : Fin m, ∃ j : Fin n, patternEq (frontierRoots front) i (ρ j)) ∧
+      canonicalPullback ρ dst goal = goal' ∧
+      (frontierRoots front).image (canonicalPullback ρ dst) = frontierRoots front' := by
+  obtain ⟨ρ, cover, hg, hr⟩ := matching_rows_pullback front goal
+    (phasedFront front' signs) (if goalFlip then ~~~goal' else goal')
+    (rowsMatch_of_patterns_eq _ _ _ _ same)
+    (rowsMatch_of_patterns_eq _ _ _ _ same.symm)
+  refine ⟨ρ, cover, ?_, ?_⟩
+  · unfold canonicalPullback
+    rw [hg]
+    exact canonicalAt_phase dst goal' goalFlip targetGoalZero
+  · change (frontierRoots front).image (canonicalAt dst ∘ pullback ρ) = frontierRoots front'
+    rw [← Finset.image_image, hr, canonicalAt_phasedRoots front' signs dst targetZero]
+
+lemma build_of_phasedPatterns {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs : Fin k → Bool) (goalFlip : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (same : labeledPatterns front goal =
+      labeledPatterns (phasedFront front' signs) (if goalFlip then ~~~goal' else goal'))
+    (run : build basicOps goal budget (frontierRoots front)) :
+    build basicOps goal' budget (frontierRoots front') := by
+  obtain ⟨ρ, cover, hg, hr⟩ := phasedPatterns_pullback front goal front' goal'
+    signs goalFlip dst targetZero targetGoalZero same
+  have initial : ∀ w ∈ frontierRoots front, w[src.val] = false := by
+    intro w hw
+    obtain ⟨q, _, rfl⟩ := Finset.mem_image.mp hw
+    exact sourceZero q
+  simpa only [hg, hr] using build_canonicalPullback ρ cover src dst initial run
+
+lemma live_of_phasedPatterns {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs : Fin k → Bool) (goalFlip : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (same : labeledPatterns front goal =
+      labeledPatterns (phasedFront front' signs) (if goalFlip then ~~~goal' else goal'))
+    (run : live basicOps goal budget (frontierRoots front)) :
+    live basicOps goal' budget (frontierRoots front') := by
+  obtain ⟨ρ, cover, hg, hr⟩ := phasedPatterns_pullback front goal front' goal'
+    signs goalFlip dst targetZero targetGoalZero same
+  have initial : ∀ w ∈ frontierRoots front, w[src.val] = false := by
+    intro w hw
+    obtain ⟨q, _, rfl⟩ := Finset.mem_image.mp hw
+    exact sourceZero q
+  simpa only [hg, hr] using live_canonicalPullback ρ cover src dst initial run
+
+lemma build_of_phasedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs : Fin k → Bool) (goalFlip : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive : positivePatterns front goal = positivePatterns (phasedFront front' signs)
+      (if goalFlip then ~~~goal' else goal'))
+    (negative : negativePatterns front goal = negativePatterns (phasedFront front' signs)
+      (if goalFlip then ~~~goal' else goal'))
+    (run : build basicOps goal budget (frontierRoots front)) :
+    build basicOps goal' budget (frontierRoots front') :=
+  build_of_phasedPatterns front goal front' goal' signs goalFlip src dst
+    sourceZero targetZero targetGoalZero
+    (labeledPatterns_eq_of_keys_eq _ _ _ _ positive negative) run
+
+lemma live_of_phasedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs : Fin k → Bool) (goalFlip : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive : positivePatterns front goal = positivePatterns (phasedFront front' signs)
+      (if goalFlip then ~~~goal' else goal'))
+    (negative : negativePatterns front goal = negativePatterns (phasedFront front' signs)
+      (if goalFlip then ~~~goal' else goal'))
+    (run : live basicOps goal budget (frontierRoots front)) :
+    live basicOps goal' budget (frontierRoots front') :=
+  live_of_phasedPatterns front goal front' goal' signs goalFlip src dst
+    sourceZero targetZero targetGoalZero
+    (labeledPatterns_eq_of_keys_eq _ _ _ _ positive negative) run
+
 end PEqualNP.Outside.L_meta_10760
