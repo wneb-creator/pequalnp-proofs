@@ -2039,4 +2039,323 @@ lemma relative_shared_cnf_matching_surplus {n r : ℕ}
 
 end RelativeCnf
 
+namespace MatchingDouble
+
+open Finset
+open PEqualNP.Outside.L_meta_2583.MatchingSurplus
+
+variable {r : ℕ} (I : Fin r → Fin r → Prop) [DecidableRel I]
+
+def rowWitness (j : Fin r) : Finset (Bool × Fin r) :=
+  insert (false, j) ((univ.filter fun b => ¬ I j b).image fun b => (true, b))
+
+def colTest : Option (Fin r) → Finset (Bool × Fin r)
+  | none => points
+  | some i => witness I i
+
+def rowTest : Option (Fin r) → Finset (Bool × Fin r)
+  | none => lines
+  | some j => rowWitness I j
+
+lemma mem_row_point (a j : Fin r) : (false, a) ∈ rowWitness I j ↔ a = j := by
+  simp [rowWitness]
+
+lemma mem_row_line (a j : Fin r) : (true, a) ∈ rowWitness I j ↔ ¬ I j a := by
+  simp [rowWitness]
+
+lemma row_witness_independent (j : Fin r) : Independent I (rowWitness I j) := by
+  intro a b ha hb
+  have haj := (mem_row_point I a j).mp ha
+  subst a
+  exact (mem_row_line I b j).mp hb
+
+lemma column_separation
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (a b : Option (Fin r)) (hab : a ≠ b) :
+    ∃ k, (false, k) ∈ colTest I a ∪ colTest I b ∧
+      (true, k) ∈ colTest I a ∪ colTest I b := by
+  cases a with
+  | none =>
+    cases b with
+    | none => exact (hab rfl).elim
+    | some j =>
+      refine ⟨j, mem_union_left _ (mem_points j), ?_⟩
+      exact mem_union_right _ ((mem_witness_line I j j).mpr rfl)
+  | some i =>
+    cases b with
+    | none =>
+      refine ⟨i, mem_union_right _ (mem_points i), ?_⟩
+      exact mem_union_left _ ((mem_witness_line I i i).mpr rfl)
+    | some j =>
+      have hij : i ≠ j := fun heq => hab (congrArg some heq)
+      by_cases hijI : I i j
+      · have hji : ¬ I j i := fun hjiI =>
+          hfour i j i j hij hij ⟨hdiag i, hijI, hjiI, hdiag j⟩
+        exact ⟨j, mem_union_left _ ((mem_witness_point I j i).mpr hji),
+          mem_union_right _ ((mem_witness_line I j j).mpr rfl)⟩
+      · exact ⟨i, mem_union_right _ ((mem_witness_point I i j).mpr hijI),
+          mem_union_left _ ((mem_witness_line I i i).mpr rfl)⟩
+
+lemma row_separation
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (a b : Option (Fin r)) (hab : a ≠ b) :
+    ∃ k, (false, k) ∈ rowTest I a ∪ rowTest I b ∧
+      (true, k) ∈ rowTest I a ∪ rowTest I b := by
+  cases a with
+  | none =>
+    cases b with
+    | none => exact (hab rfl).elim
+    | some j =>
+      exact ⟨j, mem_union_right _ ((mem_row_point I j j).mpr rfl),
+        mem_union_left _ (mem_lines j)⟩
+  | some i =>
+    cases b with
+    | none =>
+      exact ⟨i, mem_union_left _ ((mem_row_point I i i).mpr rfl),
+        mem_union_right _ (mem_lines i)⟩
+    | some j =>
+      have hij : i ≠ j := fun heq => hab (congrArg some heq)
+      by_cases hijI : I i j
+      · have hji : ¬ I j i := fun hjiI =>
+          hfour i j i j hij hij ⟨hdiag i, hijI, hjiI, hdiag j⟩
+        exact ⟨i, mem_union_left _ ((mem_row_point I i i).mpr rfl),
+          mem_union_right _ ((mem_row_line I i j).mpr hji)⟩
+      · exact ⟨j, mem_union_right _ ((mem_row_point I j j).mpr rfl),
+          mem_union_left _ ((mem_row_line I j i).mpr hijI)⟩
+
+lemma cross_separation (hr : 0 < r)
+    (hcross : ∀ i j, ∃ k, ¬ I k i ∧ ¬ I j k)
+    (a b : Option (Fin r)) :
+    ∃ k, (false, k) ∈ colTest I a ∪ rowTest I b ∧
+      (true, k) ∈ colTest I a ∪ rowTest I b := by
+  let z : Fin r := ⟨0, hr⟩
+  cases a with
+  | none =>
+    cases b with
+    | none => exact ⟨z, mem_union_left _ (mem_points z), mem_union_right _ (mem_lines z)⟩
+    | some j =>
+      obtain ⟨k, _, hjk⟩ := hcross z j
+      exact ⟨k, mem_union_left _ (mem_points k),
+        mem_union_right _ ((mem_row_line I k j).mpr hjk)⟩
+  | some i =>
+    cases b with
+    | none =>
+      obtain ⟨k, hki, _⟩ := hcross i z
+      exact ⟨k, mem_union_left _ ((mem_witness_point I k i).mpr hki),
+        mem_union_right _ (mem_lines k)⟩
+    | some j =>
+      obtain ⟨k, hki, hjk⟩ := hcross i j
+      exact ⟨k, mem_union_left _ ((mem_witness_point I k i).mpr hki),
+        mem_union_right _ ((mem_row_line I k j).mpr hjk)⟩
+
+lemma clause_count_double (hr : 0 < r)
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (hcross : ∀ i j, ∃ k, ¬ I k i ∧ ¬ I j k)
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hmiss : ∀ S, Independent I S → ∃ W ∈ F, Disjoint W S) :
+    2 * r + 2 ≤ F.card := by
+  classical
+  let B : Bool × Option (Fin r) → Finset (Bool × Fin r)
+    | (false, a) => colTest I a
+    | (true, a) => rowTest I a
+  have hB : ∀ a, Independent I (B a) := by
+    rintro ⟨t, a⟩
+    cases t with
+    | false =>
+      cases a with
+      | none => exact points_independent I
+      | some i => exact witness_independent I i
+    | true =>
+      cases a with
+      | none => exact lines_independent I
+      | some i => exact row_witness_independent I i
+  have hsep : ∀ a b, a ≠ b → ∃ k,
+      (false, k) ∈ B a ∪ B b ∧ (true, k) ∈ B a ∪ B b := by
+    rintro ⟨ta, a⟩ ⟨tb, b⟩ hab
+    cases ta <;> cases tb
+    · exact column_separation I hdiag hfour a b (fun h => hab (congrArg (Prod.mk false) h))
+    · exact cross_separation I hr hcross a b
+    · simpa only [B, Finset.union_comm] using cross_separation I hr hcross b a
+    · exact row_separation I hdiag hfour a b (fun h => hab (congrArg (Prod.mk true) h))
+  have hchoice : ∀ a, ∃ W ∈ F, Disjoint W (B a) := fun a => hmiss _ (hB a)
+  choose K hKF hKB using hchoice
+  have hinj : Function.Injective K := by
+    intro a b heq
+    by_contra hab
+    obtain ⟨k, hkp, hkl⟩ := hsep a b hab
+    have hdis : Disjoint (K a) (B a ∪ B b) := by
+      apply Finset.disjoint_left.mpr
+      intro z hzK hzB
+      rcases mem_union.mp hzB with hza | hzb
+      · exact Finset.disjoint_left.mp (hKB a) hzK hza
+      · rw [heq] at hzK
+        exact Finset.disjoint_left.mp (hKB b) hzK hzb
+    rcases hcover _ (hKF a) k with hkpK | hklK
+    · exact Finset.disjoint_left.mp hdis hkpK hkp
+    · exact Finset.disjoint_left.mp hdis hklK hkl
+  have hsub : univ.image K ⊆ F := by
+    intro W hW
+    obtain ⟨a, _, rfl⟩ := mem_image.mp hW
+    exact hKF a
+  have hcard : (univ.image K).card = 2 * r + 2 := by
+    rw [card_image_of_injective _ hinj]
+    simp [Nat.mul_add]
+  have hc := card_le_card hsub
+  rwa [hcard] at hc
+
+lemma cross_of_degree_sum
+    (hdegree : ∀ i j,
+      (univ.filter fun k => I k i).card + (univ.filter fun k => I j k).card < r) :
+    ∀ i j, ∃ k, ¬ I k i ∧ ¬ I j k := by
+  classical
+  intro i j
+  by_contra hn
+  have hsub : (univ : Finset (Fin r)) ⊆
+      (univ.filter fun k => I k i) ∪ (univ.filter fun k => I j k) := by
+    intro k hk
+    by_cases hki : I k i
+    · exact mem_union_left _ (mem_filter.mpr ⟨mem_univ _, hki⟩)
+    · have hjk : I j k := by
+        by_contra hjk
+        exact hn ⟨k, hki, hjk⟩
+      exact mem_union_right _ (mem_filter.mpr ⟨mem_univ _, hjk⟩)
+  have hc := card_le_card hsub
+  have hu := card_union_le (univ.filter fun k => I k i) (univ.filter fun k => I j k)
+  have hd := hdegree i j
+  simp only [card_univ, Fintype.card_fin] at hc
+  omega
+
+lemma clause_count_degree_bound (d : ℕ) (hr : 2 * d < r)
+    (hdiag : ∀ i, I i i)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (hcol : ∀ i, (univ.filter fun k => I k i).card ≤ d)
+    (hrow : ∀ j, (univ.filter fun k => I j k).card ≤ d)
+    (F : Finset (Finset (Bool × Fin r)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hmiss : ∀ S, Independent I S → ∃ W ∈ F, Disjoint W S) :
+    2 * r + 2 ≤ F.card := by
+  apply clause_count_double I (by omega) hdiag hfour ?_ F hcover hmiss
+  apply cross_of_degree_sum I
+  intro i j
+  have hc := hcol i
+  have hrw := hrow j
+  omega
+
+lemma graph_matching_clause_count_double {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hr : 0 < r) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (p l : Fin r → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpp : ∀ i j, ¬ G.Adj (p i) (p j)) (hll : ∀ i j, ¬ G.Adj (l i) (l j))
+    (hdiag : ∀ i, G.Adj (p i) (l i))
+    (hcross : ∀ i j, ∃ k, ¬ G.Adj (p k) (l i) ∧ ¬ G.Adj (p j) (l k))
+    (F : Finset (Finset (Fin n)))
+    (hcover : ∀ W ∈ F, ∀ i, p i ∈ W ∨ l i ∈ W)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    2 * r + 2 ≤ F.card := by
+  classical
+  let J : Fin r → Fin r → Prop := fun i j => G.Adj (p i) (l j)
+  let f : Bool × Fin r → Fin n
+    | (false, i) => p i
+    | (true, i) => l i
+  let Q : Finset (Fin n) → Finset (Bool × Fin r) :=
+    fun W => univ.filter fun u => f u ∈ W
+  have hJfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (J a c ∧ J a d ∧ J b c ∧ J b d) := by
+    intro a b c d hab hcd ⟨hac, had, hbc, hbd⟩
+    have hpab : p a ≠ p b := fun heq => hab (hp heq)
+    have heq : l c = l d := by
+      apply Finset.card_le_one.mp (hfour (p a) (p b) hpab)
+      · exact mem_filter.mpr ⟨mem_univ _, hac, hbc⟩
+      · exact mem_filter.mpr ⟨mem_univ _, had, hbd⟩
+    exact hcd (hl heq)
+  have hQcover : ∀ W ∈ F.image Q, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W := by
+    intro W hW i
+    obtain ⟨V, hVF, rfl⟩ := mem_image.mp hW
+    rcases hcover V hVF i with hpW | hlW
+    · exact Or.inl (by simpa [Q, f] using hpW)
+    · exact Or.inr (by simpa [Q, f] using hlW)
+  have hQmiss : ∀ S, Independent J S → ∃ W ∈ F.image Q, Disjoint W S := by
+    intro S hS
+    have himg : ∀ u ∈ S.image f, ∀ v ∈ S.image f, ¬ G.Adj u v := by
+      intro u hu v hv huv
+      obtain ⟨⟨tu, iu⟩, hiu, rfl⟩ := mem_image.mp hu
+      obtain ⟨⟨tv, iv⟩, hiv, rfl⟩ := mem_image.mp hv
+      cases tu <;> cases tv
+      · exact hpp iu iv huv
+      · exact hS iu iv hiu hiv huv
+      · exact hS iv iu hiv hiu huv.symm
+      · exact hll iu iv huv
+    obtain ⟨W, hWF, hWS⟩ := safe_clause_miss G F hsafe (S.image f) himg
+    refine ⟨Q W, mem_image.mpr ⟨W, hWF, rfl⟩, ?_⟩
+    apply Finset.disjoint_left.mpr
+    intro u huQ huS
+    have huW : f u ∈ W := (mem_filter.mp huQ).2
+    have huImg : f u ∈ S.image f := mem_image.mpr ⟨u, huS, rfl⟩
+    exact Finset.disjoint_left.mp hWS huW huImg
+  have hb := clause_count_double J hr hdiag hJfour hcross (F.image Q) hQcover hQmiss
+  exact le_trans hb card_image_le
+
+
+lemma graph_matching_clause_count_degree {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (d : ℕ) (hr : 2 * d < r)
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (p l : Fin r → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpp : ∀ i j, ¬ G.Adj (p i) (p j)) (hll : ∀ i j, ¬ G.Adj (l i) (l j))
+    (hdiag : ∀ i, G.Adj (p i) (l i))
+    (hcol : ∀ i, (univ.filter fun k => G.Adj (p k) (l i)).card ≤ d)
+    (hrow : ∀ j, (univ.filter fun k => G.Adj (p j) (l k)).card ≤ d)
+    (F : Finset (Finset (Fin n)))
+    (hcover : ∀ W ∈ F, ∀ i, p i ∈ W ∨ l i ∈ W)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    2 * r + 2 ≤ F.card := by
+  apply graph_matching_clause_count_double G (by omega) hfour p l hp hl hpp hll hdiag ?_ F hcover hsafe
+  apply cross_of_degree_sum (fun i j => G.Adj (p i) (l j))
+  intro i j
+  have hc := hcol i
+  have hrw := hrow j
+  omega
+
+end MatchingDouble
+
+namespace RelativeCnf
+
+lemma relative_shared_cnf_degree_surplus {n r : ℕ}
+    (G H : SimpleGraph (Fin n)) [DecidableRel G.Adj] [DecidableRel H.Adj]
+    (P : Finset (Fin n)) (hcover : Cnf.Covers G P)
+    (hP : ∀ a ∈ P, ∀ b ∈ P, ¬ G.Adj a b)
+    (hHG : H ≤ G) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (d : ℕ) (hr : 2 * d < r) (p l : Fin r → Fin n)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpP : ∀ i, p i ∈ P) (hdiag : ∀ i, H.Adj (p i) (l i))
+    (hcol : ∀ i, (Finset.univ.filter fun k => G.Adj (p k) (l i)).card ≤ d)
+    (hrow : ∀ j, (Finset.univ.filter fun k => G.Adj (p j) (l k)).card ≤ d)
+    (F : Finset (Finset (Fin n))) (k : ℕ)
+    (hsafe : ∀ x : Fin n → Bool,
+      (∀ W ∈ F, ∃ u ∈ W, x u = true) →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (haccept : ∀ u v, H.Adj u v →
+      ∀ W ∈ F, ∃ a ∈ W, a = u ∨ a = v)
+    (hcost : PEqualNP.SharedBlockCost.HasOrCost n F k) :
+    H.edgeFinset.card + 2 * r + 1 ≤ k + F.card := by
+  have hlP : ∀ i, l i ∉ P := by
+    intro i hi
+    exact hP (p i) (hpP i) (l i) hi (hHG (hdiag i))
+  have hll : ∀ i j, ¬ G.Adj (l i) (l j) := by
+    intro i j hij
+    exact (hcover _ _ hij).elim (hlP i) (hlP j)
+  have hFc := (relative_clause_properties G H F hsafe haccept).1
+  have hclauses := MatchingDouble.graph_matching_clause_count_degree G d hr hfour p l hp hl
+    (fun i j => hP (p i) (hpP i) (p j) (hpP j)) hll
+    (fun i => hHG (hdiag i)) hcol hrow F (fun W hW i => hFc W hW _ _ (hdiag i)) hsafe
+  have hedge := relative_shared_cnf_edge_bound G H P hcover hP hHG hfour F k hsafe haccept hcost
+  omega
+
+end RelativeCnf
+
 end PEqualNP.Outside.L_meta_2583
