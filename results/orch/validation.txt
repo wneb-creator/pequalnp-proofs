@@ -1,0 +1,20 @@
+pequalnp-pilot-144 — L-meta-2583
+PARTIAL CHECKPOINT ONLY. No proof or refutation of the posted statement. No proof PR.
+
+File: lean/PEqualNP/Outside/L_meta_2583.lean
+Named lake build: PASS, Build completed successfully (5149 jobs).
+Local checker: CHECKER FAULT: the prebuilt Mathlib cache is missing.
+Checker exit: 3. Full Mathlib cache cannot currently fit the available disk.
+The file contains checked helper lemmas but no final theorem.
+Cleanup: not started; 766 lines before and after.
+Independent review: repo_recon approved preservation as a partial checkpoint; not approved as a proof PR.
+
+Sub-agents: 6 — repo_recon, structural_proof, dirty_blocks, counterexample, lemma_search, sat_search.
+TIMING total=13.8 subagents=6
+
+Desk null count: 0.
+Lease renewal failed; repeated exactly once with curl -si and confirmed HTTP 410.
+Exact message: no such live lease: it expired or was released. Ask /desk/next again.
+Full response headers/body are in logs/desk-error-full.txt. No release request was made.
+
+KIT-MESSAGE-ID msg-dff04cd5f8d997249819b16b
