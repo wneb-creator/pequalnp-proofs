@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-toy-unit.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/trace-toy-unit.trace", "variables": ["x"], "record_counts": {"G": 2, "I": 2, "A": 2, "O": 3}, "verified_output_count": 3, "proved_nonzero_constant": true, "constant_step": 3}
+needed_steps 3 all_steps 4

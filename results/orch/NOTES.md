@@ -40,3 +40,23 @@ Continue four routes: whole common-singleton component extraction; graph-only gu
 The at-most-one-junk case now gives the desired star-profile existential conditionally, including zero junk and empty graphs. Multiple dirty gates remain unresolved. A concrete two-junk circuit blocks a fixed-prefix replacement within three added gates; this is not a full counterexample because the whole OR prefix can be rebuilt. Free-OR bounded-AND searches and finite total-gate synthesis support small instances but do not prove a global size bound. A fresh independent full-theorem route and allowed-import dependency extraction are underway.
 
 Recovery phase concluded with a new own assignment L-gct-231 at09:35UTC, after15 nulls. All old proof attempts stopped. Final old-source location is final-partial/L_meta_2448.lean; checked partial only. Shared-neighborhood graph-pair and later-cone arguments in structural.md remain paper arguments, not Lean results.
+
+
+## L-gct-231 replan at 2026-11-25T10:21:27.007552+00:00
+
+Own lease remains active. Last timer renewal10:16:07UTC expires10:36:07UTC; heartbeat renews every8minutes. Never request another gap or touch another pilot's lease. Whole-job deadline remains approximately13:03UTC.
+
+Named file now506lines, SHA256449df515d9a915699114a3680c21d9de5b4cbcf8e823143374ad52724ff48227. Build05 passes in10s; standard-axiom audit and independent source review pass. Checker05 completes with REJECTED(no-theorem). No full theorem or PR. All committed through8a1cb0d473ccb5302bff9dad9d83c14a296e61d2 and pushed to origin/pnp/pilot-75.
+
+Completed Lean work reduces a hypothetical solution to one of the star/triangle/path coordinate charts and converts the permanent condition to a formal polynomial identity. Original finite-orbit existential decision caused a checker memory fault; explicit216-entry witness table fixes the fault and is independently verified.
+
+Dead or scoped strategies: full denseOpenF4 charts hit memory/time limits, with no verdict; all support-only/rowzero/symmetry-stable exclusions remain restricted. Common2D star and block seeds cannot extend, by exact CAS/paper arguments. Numerical best is stationary at nonzero residual and is not a witness. Hidden connected linear stabilizer is scalar, so that Borel-degeneration approach is unavailable. None of these proves the full negation.
+
+Priorities for this interval:
+- lean_setup and finite_cases: get officialmsolve/neogb sparse exactQQ wrapper through controls, then bounded full charts; no char0 claim from modular unit alone.
+- structural_proof: validated exact row-operation certificates, corrected Lean calibration, and built-in grind.ring prototypes. Independent pipeline review has passed; final source must stay within512KiB.
+- library_route: robust coefficient extraction bridge for eventual full-chart certificates.
+- fresh_main_proof and existing child: common-kernel/cyclic-symmetry constructive or scoped classification; stop numerical repeats of stationary nonroots.
+- Root: integrate checked components, review/retain scopes, renew lease, preserve results by early commits/pushes. Do not submit incomplete file as proof.
+
+All research archives are under results/gct231; current frozen manifests include finite82files, fresh-completed22files, path14files, coordinate-pairs5files. Eight distinct subagents total.

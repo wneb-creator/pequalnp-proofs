@@ -13,5 +13,6 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=194.6 subagents=8
+TIMING total=199.1 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
+F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.

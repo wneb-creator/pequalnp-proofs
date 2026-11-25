@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-star-support.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/trace-star-support.trace", "variables": ["d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8"], "record_counts": {"G": 31, "I": 2221, "A": 20265, "S": 269, "O": 2492}, "verified_output_count": 2492, "proved_nonzero_constant": true, "constant_step": 1531}
+needed_steps 724 all_steps 1532

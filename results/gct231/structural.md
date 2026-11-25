@@ -121,3 +121,7 @@ The star-support trace now passes both independent parsing paths: all 2,492 outp
 The rowzero Lean emission failure was precisely a missing type annotation on the final constant equation, which Lean defaulted to Nat; both prior failed logs are retained. A corrected 71,633-byte source explicitly types all equations in complex numbers. Its compilation is deferred while the root serializes Lean builds to avoid OOM. No new successful Lean compile is claimed.
 
 The full path 18-variable chart, batch32, failed under its 2 GiB address-space cap after 15.646 seconds with `GNU MP: Cannot allocate memory (size=8)`, exit -6. This is UNKNOWN, not a contradiction or solution. Full stdout/stderr and the 49,724,206-byte partial row trace remain in scratch. Root authorized one batch4 / 4 GiB / 120-second retry after the finite agent's modular diagnostic finishes. The adapter now takes an explicit batch-limit argument; its batch4 toy-unit control passed exact replay.
+
+### Trace Lean calibration checked
+
+The corrected exact row-trace Lean theorem `rowzero_even_trace` compiled with exit0 in58.933seconds, peakprocessgroupRSS5,994,936KiB. Source71,633bytes/128lines, SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483. Global independently checked the same source, its emitted polynomial identities, and both calibration systems. The complete reviewed archive is `f4-trace/`, including buildlogs and resource metadata; no full-gap conclusion is claimed.

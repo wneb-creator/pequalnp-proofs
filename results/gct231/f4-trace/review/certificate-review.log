@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/trace_review/verify_certificate.py", line 116, in <module>
+    results = [check(filename) for filename in sys.argv[1:]]
+               ^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/trace_review/verify_certificate.py", line 59, in check
+    names, source = input_polynomials(input_path)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/trace_review/verify_certificate.py", line 30, in input_polynomials
+    coefficient = Q(factors[0])
+                  ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/fractions.py", line 239, in __new__
+    raise ValueError('Invalid literal for Fraction: %r' %
+ValueError: Invalid literal for Fraction: 'x^2'

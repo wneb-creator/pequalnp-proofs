@@ -1,0 +1,63 @@
+/tmp/oec/pequalnp-pilot-75/gct231/F4TraceRowzero.lean:124:814: error: Application type mismatch: The argument
+  Mathlib.Tactic.LinearCombination.mul_const_eq h94 (8214581 / 78291)
+has type
+  8214581 / 78291 *
+      (656437781 / 239886070 + -8187446041 / 2878632840 * r + 114186697153 / 40300859760 * u +
+                          12507619387 / 40300859760 * u * r +
+                        6839896 / 23988607 * u ^ 2 +
+                      u ^ 2 * r +
+                    -38875916 / 71965821 * t +
+                  -89054977 / 71965821 * t * r +
+                286153672 / 71965821 * t * u +
+              -361538717 / 143931642 * t ^ 2 +
+            14550157247 / 40300859760 * s +
+          14631709191 / 13433619920 * s * r +
+        482386253 / 71965821 * s * u) =
+    8214581 / 78291 * 0
+but is expected to have type
+  ?m.49902 = ?m.49904
+in the application
+  Mathlib.Tactic.LinearCombination.add_eq_eq
+    (Mathlib.Tactic.LinearCombination.add_eq_eq
+      (Mathlib.Tactic.LinearCombination.add_eq_eq
+        (Mathlib.Tactic.LinearCombination.add_eq_eq
+          (Mathlib.Tactic.LinearCombination.add_eq_eq
+            (Mathlib.Tactic.LinearCombination.add_eq_eq
+              (Mathlib.Tactic.LinearCombination.add_eq_eq
+                (Mathlib.Tactic.LinearCombination.add_eq_eq
+                  (Mathlib.Tactic.LinearCombination.add_eq_eq
+                    (Mathlib.Tactic.LinearCombination.add_eq_eq
+                      (Mathlib.Tactic.LinearCombination.add_eq_eq
+                        (Mathlib.Tactic.LinearCombination.add_eq_eq
+                          (Mathlib.Tactic.LinearCombination.add_eq_eq
+                            (Mathlib.Tactic.LinearCombination.add_eq_eq
+                              (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                  (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                    (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                      (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                        (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                          (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                            (Mathlib.Tactic.LinearCombination.add_eq_eq
+                                              (Mathlib.Tactic.LinearCombination.add_eq_eq ?m.50042 ?m.50051) ?m.50056)
+                                            ?m.50065)
+                                          ?m.50074)
+                                        ?m.50079)
+                                      ?m.50084)
+                                    ?m.50089)
+                                  ?m.50094)
+                                ?m.50099)
+                              ?m.50108)
+                            ?m.50113)
+                          ?m.50118)
+                        ?m.50127)
+                      ?m.50132)
+                    ?m.50141)
+                  ?m.50150)
+                ?m.50155)
+              ?m.50164)
+            ?m.50169)
+          ?m.50174)
+        ?m.50179)
+      ?m.50184)
+    (Mathlib.Tactic.LinearCombination.mul_const_eq h94 (8214581 / 78291))

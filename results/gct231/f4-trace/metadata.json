@@ -1,0 +1,26 @@
+{
+  "upstream": "https://github.com/nauotit/openf4",
+  "commit": "7155c6ec4e5f776e0e12202716dc7da58469e77b",
+  "license": "GPL-3.0",
+  "compile_command": "g++ -std=c++11 -O2 -I trace-openf4 openf4_qq_trace.cpp -lgmpxx -lgmp -o openf4_qq_trace",
+  "support_full_certificate_sha256": "d8455c78d9ea4e6b1164f3d368b088579be71bf81008f64d617ca1ce678dfbc0",
+  "support_sliced_certificate_sha256": "706caed729beab68b5c1c6924cad31bbc1d0575c76efe5c234ad5079827051f2",
+  "failed_auxiliary_traces": [
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-75/gct231/trace-path-full.trace",
+      "bytes": 49724206,
+      "sha256": "a50d40af7c70b928b37c9a5bf861e094552cd418126914da0cc1b75405029acf",
+      "archived": false,
+      "reason": "Incomplete auxiliary operation trace; no proved result depends on it. Full process stdout/stderr and parameters are archived."
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-75/gct231/trace-path-full-batch4.trace",
+      "bytes": 1133092216,
+      "sha256": "4e4323766d137bc1774c0d79333a26c15cb24a7f919f348e399e6056d8618cd5",
+      "archived": false,
+      "reason": "Incomplete auxiliary operation trace; no proved result depends on it. Full process stdout/stderr and parameters are archived."
+    }
+  ],
+  "current_lean_status": "PASS exit0,58.933seconds, peakgroupRSS5994936KiB; exactsourceSHA83e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483",
+  "scope": "Exact rational polynomial identities for known restricted calibrations. No full L-gct-231 result."
+}

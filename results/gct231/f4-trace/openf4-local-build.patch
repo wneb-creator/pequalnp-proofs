@@ -1,0 +1,11 @@
+--- openf4/include/dynamic-array.h
++++ openf4/include/dynamic-array.h
+@@ -135,7 +135,7 @@
+             
+             int _width; /*!< Width of the 2D array */
+             int _maxHeight; /*!< Maximum height of the 2D array */
+-            int _currentHeight; /*!< Number of allocated rows in the 2D array */
++            mutable int _currentHeight; /*!< Number of allocated rows in the 2D array */
+             
+             int _colIt; /*!< Column iterator */
+             int _rowIt; /*!< Row iterator */

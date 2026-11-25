@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 0.034226083000248764,
+  "seconds_limit": 30,
+  "memory_mib_limit": 2048,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/trace-rowzero.in",
+  "characteristic": 0
+}

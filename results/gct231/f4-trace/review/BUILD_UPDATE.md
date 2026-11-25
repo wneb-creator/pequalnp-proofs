@@ -1,0 +1,1 @@
+The independently reviewed source F4TraceRowzero.lean, SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483, subsequently compiled PASS (exit0). The parent archive includes complete build output and resource status. This updates the earlier review note that compilation was pending; the reviewed source is unchanged.

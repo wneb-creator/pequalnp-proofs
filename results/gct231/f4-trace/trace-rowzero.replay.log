@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/trace-rowzero.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/trace-rowzero.trace", "variables": ["s", "t", "u", "r"], "record_counts": {"G": 11, "I": 139, "A": 849, "S": 29, "O": 170}, "verified_output_count": 170, "proved_nonzero_constant": true, "constant_step": 124}
+needed_steps 63 all_steps 125

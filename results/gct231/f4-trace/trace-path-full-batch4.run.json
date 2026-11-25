@@ -1,0 +1,9 @@
+{
+  "status": "UNKNOWN_TIME_LIMIT",
+  "wall_seconds": 120.0784118290012,
+  "seconds_limit": 120,
+  "memory_mib_limit": 4096,
+  "batch_limit": 4,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/trace-path-full.in",
+  "characteristic": 0
+}

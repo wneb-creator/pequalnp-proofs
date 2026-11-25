@@ -1,0 +1,68 @@
+[
+  {
+    "file": "trace-toy-unit.certificate.json",
+    "sha256": "c735715ad82fc2ffdb9fa78f67e7bf1fbedc2dfb57d3ad6550043618ff17106c",
+    "input_sha256": "00864ec5b3ec780685fee444c7faf1a57981fb3670099f518f7e9fc6dca3a747",
+    "generators": 2,
+    "identities": 2,
+    "product_terms": 8,
+    "constant": 3,
+    "wall_seconds": 0.0023977639993972844,
+    "verdict": "PASS"
+  },
+  {
+    "file": "trace-toy-nonunit.certificate.json",
+    "sha256": "c6fbf372ca6ec45324ffb71fd75df4a2ed6add8907abfd0d78f84208213cfffa",
+    "input_sha256": "a799b903ec6912e00b6fdbdff847d84d18fe64ec6687de84d6296af81e403533",
+    "generators": 1,
+    "identities": 0,
+    "product_terms": 0,
+    "constant": null,
+    "wall_seconds": 0.0023948039997776505,
+    "verdict": "PASS"
+  },
+  {
+    "file": "trace-toy-rational.certificate.json",
+    "sha256": "8a359f249b2cded76684fca853d077f8314992598d4d3065d1c12882a9ae585a",
+    "input_sha256": "c10e514860cf3b6be2fb1887c0aa3303090213ca89835aff17b620f6b8439a21",
+    "generators": 2,
+    "identities": 2,
+    "product_terms": 12,
+    "constant": null,
+    "wall_seconds": 0.0012840979998145485,
+    "verdict": "PASS"
+  },
+  {
+    "file": "trace-toy-batch4.certificate.json",
+    "sha256": "cb3a3adb75a1499e99c0ba006b45ae22e339852ec79a97c8076441a2546676f9",
+    "input_sha256": "00864ec5b3ec780685fee444c7faf1a57981fb3670099f518f7e9fc6dca3a747",
+    "generators": 2,
+    "identities": 2,
+    "product_terms": 8,
+    "constant": 3,
+    "wall_seconds": 0.0015852859996812185,
+    "verdict": "PASS"
+  },
+  {
+    "file": "trace-rowzero-fast.certificate.json",
+    "sha256": "47b95514850d72bd5d53c1e35a0b476d26fbfe192825abb232264cd030b58a7c",
+    "input_sha256": "27ce247c3d34e585c409bf69dddb4a8fca7682c34d362d170943bb94e190e71f",
+    "generators": 11,
+    "identities": 114,
+    "product_terms": 38101,
+    "constant": 124,
+    "wall_seconds": 0.29663691199857567,
+    "verdict": "PASS"
+  },
+  {
+    "file": "trace-star-support-sliced.certificate.json",
+    "sha256": "706caed729beab68b5c1c6924cad31bbc1d0575c76efe5c234ad5079827051f2",
+    "input_sha256": "43b44737aafd64e67239cc2a2de209d439170ddc32db7e3d18fe8f06cae0b28c",
+    "generators": 26,
+    "identities": 698,
+    "product_terms": 2893038,
+    "constant": 1531,
+    "wall_seconds": 21.51406334300009,
+    "verdict": "PASS"
+  }
+]

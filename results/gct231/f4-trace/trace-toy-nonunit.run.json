@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 0.005228205998719204,
+  "seconds_limit": 20,
+  "memory_mib_limit": 1024,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-toy-nonunit.in",
+  "characteristic": 0
+}

@@ -1,0 +1,39 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-toy-nonunit.in",
+  "trace": "/tmp/oec/pequalnp-pilot-75/gct231/trace-toy-nonunit.trace",
+  "variables": [
+    "x"
+  ],
+  "record_counts": {
+    "G": 1,
+    "I": 1,
+    "O": 1
+  },
+  "verified_output_count": 1,
+  "proved_nonzero_constant": false,
+  "constant_step": null,
+  "needed_steps": [],
+  "steps": [
+    {
+      "index": 0,
+      "polynomial": [
+        [
+          [
+            0
+          ],
+          "-2"
+        ],
+        [
+          [
+            2
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 0
+      },
+      "parents": []
+    }
+  ]
+}

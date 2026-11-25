@@ -1,0 +1,9 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 3.1309435130006023,
+  "seconds_limit": 120,
+  "memory_mib_limit": 2048,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-star-support.in",
+  "characteristic": 0
+}

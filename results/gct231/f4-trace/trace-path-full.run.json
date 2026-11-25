@@ -1,0 +1,9 @@
+{
+  "status": "FAILED_NO_VERDICT",
+  "returncode": -6,
+  "wall_seconds": 15.645865172999038,
+  "seconds_limit": 120,
+  "memory_mib_limit": 2048,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/trace-path-full.in",
+  "characteristic": 0
+}
