@@ -32,3 +32,13 @@ AncestorDichotomy.lean: lake env lean ../results/orch/lemmas/AncestorDichotomy.l
 Independent source review: rules_review PASS; source hashes verified before staging. Repository checker not run on partial artifacts.
 Counterexample.lean is a positive C5 witness, not a gap refutation or a minimality proof.
 SoundAnd.lean grew from 72 to 107 lines during the previous review/staging window. Additional lines were independently reviewed after push and passed; no source correction was needed. Future pushes use reviewed source hashes.
+
+2026-11-25T03:51:18.305244+00:00 checked partials and search archive
+FilterClauses.lean: lake env lean ../results/orch/lemmas/FilterClauses.lean; exit 0. Full stdout/stderr in filter-clauses-build.log.
+FilterCycle.lean: lake env lean ../results/orch/lemmas/FilterCycle.lean; exit 0. Full stdout/stderr in filter-cycle-build.log.
+DirectFilter.lean: lake env lean ../results/orch/lemmas/DirectFilter.lean; exit 0. Full stdout/stderr in direct-filter-build.log.
+MixedFilter.lean: lake env lean ../results/orch/lemmas/MixedFilter.lean; exit 0. Full stdout/stderr in mixed-filter-build.log.
+DirectFilterExchange.lean: lake env lean ../results/orch/lemmas/DirectFilterExchange.lean; exit 0. Full stdout/stderr in direct-filter-exchange-build.log.
+Independent source review: rules_review PASS; all five source hashes and all 40 archive payload hashes verified before staging.
+Search results are computational, not Lean-checked minimality. Both C5 models and all BFS models independently re-evaluated; archived SAT model also satisfies all archived CNF clauses.
+Repository checker: not run on partial artifacts; exact posted target remains unproved.

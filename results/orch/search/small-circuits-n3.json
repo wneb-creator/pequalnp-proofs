@@ -1,0 +1,226 @@
+{
+  "n": 3,
+  "graph_count": 7,
+  "metrics": [
+    {
+      "depth": 1,
+      "states": 6,
+      "graphs_found": 4
+    },
+    {
+      "depth": 2,
+      "states": 27,
+      "graphs_found": 7
+    }
+  ],
+  "bad_witness_count": 0,
+  "graphs": [
+    {
+      "edges": [],
+      "size": 0,
+      "gates": [],
+      "ownership": []
+    },
+    {
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "size": 1,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 0,
+          "owned": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edges": [
+        [
+          0,
+          2
+        ]
+      ],
+      "size": 1,
+      "gates": [
+        [
+          "and",
+          0,
+          2
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 0,
+          "owned": [
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edges": [
+        [
+          1,
+          2
+        ]
+      ],
+      "size": 1,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 0,
+          "owned": [
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "size": 2,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "and",
+          2,
+          3
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 1,
+          "owned": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "size": 2,
+      "gates": [
+        [
+          "or",
+          0,
+          2
+        ],
+        [
+          "and",
+          1,
+          3
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 1,
+          "owned": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "size": 2,
+      "gates": [
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "and",
+          0,
+          3
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 1,
+          "owned": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

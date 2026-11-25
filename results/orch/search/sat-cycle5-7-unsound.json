@@ -1,0 +1,37 @@
+{
+  "graph": "cycle5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 7,
+  "returncode": 20,
+  "elapsed": 1.587000846862793,
+  "star_bound": 7,
+  "forced_dirty": false,
+  "forced_unowned": false,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": true,
+  "encoding_version": 2
+}

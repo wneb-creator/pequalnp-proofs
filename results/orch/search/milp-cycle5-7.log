@@ -1,0 +1,80 @@
+graph cycle5 n 5 edges [(0, 1), (0, 4), (1, 2), (2, 3), (3, 4)] alpha 2 star_bound 7
+tests 10 gates 7
+variables 329 constraints 1918 nonzeros 5237
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 1e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 1e+00]
+Presolving model
+1897 rows, 318 cols, 5121 nonzeros  0s
+1463 rows, 288 cols, 4230 nonzeros  0s
+1393 rows, 288 cols, 4160 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   1393 rows
+   288 cols (288 binary, 0 integer, 0 implied int., 0 continuous)
+   4160 nonzeros
+MIP-Timing:        0.02 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+         0       0         0   0.00%   0               inf                  inf        0      0      4       174     0.0s
+
+4.5% inactive integer columns, restarting
+Model after restart has 1192 rows, 265 cols (265 bin., 0 int., 0 impl., 0 cont.), and 3517 nonzeros
+
+MIP-Timing:         1.4 - starting analytic centre calculation
+         0       0         0   0.00%   0               inf                  inf       20      0      0      8175     1.4s
+         0       0         0   0.00%   0               inf                  inf       20      6      9      8263     1.4s
+
+Restarting search from the root node
+Model after restart has 1131 rows, 262 cols (262 bin., 0 int., 0 impl., 0 cont.), and 3327 nonzeros
+
+MIP-Timing:         6.4 - starting analytic centre calculation
+      2067       0         0   0.00%   0               inf                  inf       40      0      0     71877     6.4s
+      2067       0         0   0.00%   0               inf                  inf       40      4      5     71905     6.4s
+      4147      65       755   9.17%   0               inf                  inf     4981     55   8170    131550    11.4s
+      6524     102      1641  16.18%   0               inf                  inf     5576     48   9875    206800    16.4s
+ T    6828       0      1752 100.00%   0               0                  0.00%     5594     33   9638    214737    16.9s
+      6829       0      1753 100.00%   0               0                  0.00%     5594     33   9638    214740    16.9s
+
+Solving report
+  Status            Optimal
+  Primal bound      0
+  Dual bound        0
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0
+  Solution status   feasible
+                    0 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            16.86 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 2
+  Nodes             6829
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     214740 (total)
+                    0 (strong br.)
+                    7416 (separation)
+                    23162 (heuristics)
+result         message: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+        success: True
+         status: 0
+            fun: 0.0
+              x: [ 0.000e+00  1.000e+00 ...  0.000e+00  0.000e+00]
+ mip_node_count: 6829
+ mip_dual_bound: 0.0
+        mip_gap: 0.0
+WITNESS {"graph": "cycle5", "n": 5, "edges": [[0, 1], [0, 4], [1, 2], [2, 3], [3, 4]], "gate_count": 7, "status": 0, "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "elapsed": 16.872228622436523, "star_bound": 7, "gates": [["or", 0, 3], ["and", 2, 3], ["or", 0, 2], ["and", 4, 5], ["and", 1, 7], ["or", 6, 8], ["or", 9, 10]], "all_inputs_validated": true}

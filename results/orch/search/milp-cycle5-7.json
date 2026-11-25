@@ -1,0 +1,69 @@
+{
+  "graph": "cycle5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 7,
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "elapsed": 16.872228622436523,
+  "star_bound": 7,
+  "gates": [
+    [
+      "or",
+      0,
+      3
+    ],
+    [
+      "and",
+      2,
+      3
+    ],
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "and",
+      4,
+      5
+    ],
+    [
+      "and",
+      1,
+      7
+    ],
+    [
+      "or",
+      6,
+      8
+    ],
+    [
+      "or",
+      9,
+      10
+    ]
+  ],
+  "all_inputs_validated": true
+}

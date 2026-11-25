@@ -10,3 +10,4 @@
 - 2026-11-25 03:42:46 UTC: normal_form agent compiled LocalNormalForm and the generic minimum-circuit sound-operand exclusion.
 - 2026-11-25 03:41:33 UTC: lease renewed; expiry 2026-11-25 04:01:33 UTC.
 - 2026-11-25T03:43:09.296986+00:00: four more compiled partials reviewed; hashes fixed for preservation push.
+- 2026-11-25T03:51:18.305244+00:00: five compiled conditional filter components and frozen computational archive reviewed and hash-verified for preservation push.

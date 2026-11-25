@@ -1,0 +1,14 @@
+1 {'depth': 1, 'states': 0, 'graphs_found': 1}
+DONE 1 graphs 1 bad witnesses 0
+2 {'depth': 1, 'states': 2, 'graphs_found': 2}
+DONE 2 graphs 2 bad witnesses 0
+3 {'depth': 1, 'states': 6, 'graphs_found': 4}
+3 {'depth': 2, 'states': 27, 'graphs_found': 7}
+DONE 3 graphs 7 bad witnesses 0
+4 {'depth': 1, 'states': 12, 'graphs_found': 7}
+4 {'depth': 2, 'states': 114, 'graphs_found': 19}
+4 {'depth': 3, 'states': 988, 'graphs_found': 26}
+4 {'depth': 4, 'states': 8291, 'graphs_found': 38}
+DONE 4 graphs 38 bad witnesses 0
+C5 7-gate construction: [{'gate': 1, 'owned': [[0, 1], [0, 4]]}, {'gate': 3, 'owned': [[1, 2], [2, 3]]}, {'gate': 4, 'owned': [[3, 4]]}]
+seconds 0.02037644386291504

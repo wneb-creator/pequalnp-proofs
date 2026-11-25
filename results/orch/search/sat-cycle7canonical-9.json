@@ -1,0 +1,46 @@
+{
+  "graph": "cycle7canonical",
+  "n": 7,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "gate_count": 9,
+  "returncode": 20,
+  "elapsed": 20.923887968063354,
+  "star_bound": 10,
+  "forced_dirty": false,
+  "forced_unowned": false,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 2,
+  "canonical_first": true
+}

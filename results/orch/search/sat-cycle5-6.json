@@ -1,0 +1,31 @@
+{
+  "graph": "cycle5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 6,
+  "returncode": 20,
+  "elapsed": 0.22851157188415527,
+  "star_bound": 7,
+  "forced_dirty": false
+}

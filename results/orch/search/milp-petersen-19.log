@@ -1,0 +1,86 @@
+graph petersen n 10 edges [(0, 1), (0, 4), (0, 5), (1, 2), (1, 6), (2, 3), (2, 7), (3, 4), (3, 8), (4, 9), (5, 7), (5, 8), (6, 8), (6, 9), (7, 9)] alpha 4 star_bound 20
+tests 30 gates 19
+variables 2451 constraints 34846 nonzeros 94697
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 3e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 1e+00]
+Presolving model
+34785 rows, 2420 cols, 94357 nonzeros  0s
+26374 rows, 2360 cols, 82798 nonzeros  0s
+26153 rows, 2360 cols, 82576 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   26153 rows
+   2360 cols (2360 binary, 0 integer, 0 implied int., 0 continuous)
+   82576 nonzeros
+MIP-Timing:        0.56 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.6s
+         0       0         0   0.00%   0               inf                  inf        0      0      6       966     0.7s
+         0       0         0   0.00%   0               inf                  inf     1302    132    373      3375     5.8s
+         0       0         0   0.00%   0               inf                  inf     1420     43    582     15917    20.8s
+
+1.0% inactive integer columns, restarting
+Model after restart has 25606 rows, 2335 cols (2335 bin., 0 int., 0 impl., 0 cont.), and 80655 nonzeros
+
+MIP-Timing:          21 - starting analytic centre calculation
+         0       0         0   0.00%   0               inf                  inf       43      0      0     15917    21.1s
+         0       0         0   0.00%   0               inf                  inf       43     19     10     16165    21.2s
+         0       0         0   0.00%   0               inf                  inf      935     52    795     29545    37.5s
+        84       0         2   0.78%   0               inf                  inf      937     52    861     38808    44.7s
+       132      96         5   0.78%   0               inf                  inf     1028     56    892     76415    67.7s
+       251     128        32   0.78%   0               inf                  inf     1170     64   1187     86748    72.8s
+       309     147        57   0.78%   0               inf                  inf     1333     67   1721    102294    81.7s
+       324     146        64   0.78%   0               inf                  inf     1545     72   1885    111682    87.0s
+       378     144        89   0.78%   0               inf                  inf     1903     79   2359    123766    92.1s
+       419     143       106   0.78%   0               inf                  inf     2053     15   2535    155997   107.1s
+       477     142       127   0.78%   0               inf                  inf     2238     21   2959    177813   116.0s
+       585     141       169   0.78%   0               inf                  inf     2397     28   3488    189859   121.0s
+       623     140       182   0.78%   0               inf                  inf     2565     36   3782    203388   130.6s
+       669     140       199   0.78%   0               inf                  inf     2575     36   3938    212213   135.7s
+       709     140       214   0.78%   0               inf                  inf     2580     36   4069    220945   141.0s
+       749     151       217   0.78%   0               inf                  inf     2612     45   4183    243171   166.6s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+       818     218       227   0.78%   0               inf                  inf     2575     13   4330    255368   180.1s
+       818     218       227   0.78%   0               inf                  inf     2575     13   4330    255368   180.1s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        0
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            180.14 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             818
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     255368 (total)
+                    0 (strong br.)
+                    6417 (separation)
+                    144123 (heuristics)
+result         message: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)
+        success: False
+         status: 1
+            fun: None
+              x: None
+ mip_node_count: None
+ mip_dual_bound: None
+        mip_gap: None

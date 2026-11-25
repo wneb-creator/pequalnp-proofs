@@ -70,3 +70,53 @@ A gate false-positive on two vertex-disjoint nonedge pairs has at most four kill
 Odd-cycle obstruction: the dirty gate `(a OR c) AND (b OR d)` can have three killing centers in a C7. Put graph edges `bc`, `a-w1`, `c-w1`, `b-w2`, `d-w2`, `a-w3`, `d-w3`; each gate AND x_wi is below graphFun, despite no triangle or C4. Thus two-center restrictions cannot be assumed from girth>=5 alone. This observation is mathematical, not yet Lean checked.
 
 Broad degree-two projection fails to preserve gate count automatically: later AND gates can filter false-positive pairs and singleton terms from earlier products. Existing L_meta_1733 gives TopForm but permits multiple dirty ANDs; L_meta_3760 eliminates one dirty AND under bipartiteness, and L_meta_4846 controls disjoint owned edges. No complete normalization argument obtained.
+
+### 2026-11-25T03:39:07.649326+00:00 — solver-based search
+
+Installed no system packages. Built official CaDiCaL rel-3.1.0 from its GitHub source archive in job scratch (small executable). scipy MILP encoding found and fully validated C5 7-gate circuit in16.9s. Equivalent SAT encoding found one in0.075s and reported UNSAT for6 gates. Positive tests are edges, negative tests maximal independent sets; monotonicity makes those tests complete. CNF uses binary AND/OR, earlier distinct operands, output last, no unused gates, and nondecreasing larger operand order. The syntactic normalization assumptions are not Lean checked. Current runs: Petersen19 gates (<20 star bound) and C5 minimum7 with some AND true on singleton.
+
+### Sound-AND/P4 sharing component 2026-11-25T03:40:38.685890+00:00
+
+Checked `results/orch/lemmas/SoundAnd.lean` with `lake env lean` (exit 0, full empty log `/tmp/oec/pequalnp-pilot-66/sound-and-build.log`). It proves `path_factor_guards`: for P4 edges a-c, a-d, b-c with a≠b and c≠d, under no triangles/no 4-cycles, a sound literal guard p∧(a∨b) forces p=c; a sound q∧(c∨d) forces q=a; and no sound r∧(a∨c) exists. This rules out sharing the P4 filter factors with fresh sound star centers. It leaves same-center reuse and readers whose opposite operand has only dirty-gate support. Helper statements are in the allowed final namespace L_meta_1772_aux and use only PEqualNP.Defs.
+
+## Killer-pattern extensions — 2026-11-25T03:41:04.508455+00:00
+
+`SharedKillers.lean` proves that two gates with disjoint nonedge witnesses have at most four shared killing centers under NoFourCycle. `KillerPatterns.lean` proves sharper restrictions with triangle-freeness: two nonedge witnesses ab,ac in one gate and edge bc force every killing center adjacent to a; disjoint witnesses ab,cd in two gates plus cross edges ac,bd allow at most two shared killers; adding cross edge ad allows at most one. Both compile under `lake env lean` with only PEqualNP.Defs; full logs `shared-killers-build.log`, `killer-patterns-build.log` are empty (exit0). These are support restrictions toward repair, not proofs of the full posted target. Files frozen for independent review/push.
+
+### 2026-11-25T03:41:48.826593+00:00 — checked C5 construction
+
+`results/orch/lemmas/Counterexample.lean` compiles with only PEqualNP.Defs. It defines an explicit seven-gate C5 circuit and proves Monotone2, exact graph function equality, every AND owns an edge, and size7 by ordinary kernel reduction. It does not prove minimality or refute the target. Full log: scratch/cycle-five-lean.log (one letI style warning). Independent SAT checks found C5 six-gate UNSAT and seven-gate singleton-dirty UNSAT; C6 seven-gate UNSAT and eight-gate singleton-dirty UNSAT. Larger cycles/theta graphs and Petersen searches running; full logs retained.
+
+## Single-ancestor ownership exchange — 2026-11-25T03:41:58.104337+00:00
+
+- `SingleAncestor.lean` now compiles: `dominated_single_ancestor_owns` proves an AND gate j with unique possible strict-cone AND ancestor i must own an edge if gate_i globally implies gate_j. Redirecting j to i decreases all outputs, preserves every edge input, and contradicts minimality.
+- `shared_ancestor_in_all_sides_owns` derives this domination when every operand of j reaches i through an OR-only path with valid earlier-wire reads.
+- `AncestorDichotomy.lean` now compiles: `unowned_single_ancestor_is_filter` proves an unowned j has valid earlier-wire operands, at least one OR-only path to i, and at least one operand lacking such a path. Together with fan-in <=2 this leaves exactly a one-sided filter. This is direct ownership progress and does not require triangle/C4 assumptions.
+- Both self-contained helper files are frozen for root review and preservation. Full logs: `/tmp/oec/pequalnp-pilot-66/single-ancestor-build.log`, `/tmp/oec/pequalnp-pilot-66/ancestor-dichotomy-build.log`. Warnings only, no errors.
+
+## Local normalization — 2026-11-25 03:42:46 UTC
+
+- `LocalNormalForm.lean` compiled: TopForm + soundness only of AND ancestors active on a selected edge implies ownership. The condition can be limited to nonowning gates. No transformation theorem preserving this local condition has yet been proved.
+- `SoundOperand.lean` compiled: for every minimum Monotone2 circuit, every valid input wire of an AND gate has a witness where that wire is true but the circuit output is false. The proof bypasses the AND gate upward on all inputs if the operand were globally below the output, contradicting minimum size. This is independent of graph restrictions. Bypass infrastructure adapted from `SingleAncestor.lean`; new lemmas `no_sound_and_operand` and `and_operand_has_false_witness`. Full log `/tmp/oec/pequalnp-pilot-66/sound-operand-build.log`, exit 0 with only inherited deprecation/linter warnings.
+- Corrected earlier majority-of-three example: K3 has a sound 4-gate circuit; its 5-gate CNF is not a minimum, so that example does not refute universal minimum soundness.
+- One dirty ancestor boundary: in TopForm the only possible AND ancestor i of an unowned gate j is dirty; if both j operands reach i by OR-only paths, the minimum proof agent's dominance lemma applies. Remaining form j=(i OR S) AND T with i=A AND B. If T implies A, direct j=i AND T rewrites to B AND T; minimum_proof is implementing that direct-filter exchange. Mixed OR side requires accounting for other readers of OR(i,S).
+
+### 2026-11-25T03:46:29.493468+00:00 — search archive ready
+
+Packaged encoder, command documentation, representative exact CNFs, full solver logs, model JSONs and checksums under `results/orch/search/` (about1.5MB). No solver binary, installation files, desk metadata or credentials are included. C5 minimum7 admits no unowned AND in the normalized SAT model; C5 minimum7 also admits no unsound AND. C7 size9 is UNSAT with canonical-first graph symmetry (20.9s); C7 size10 unowned remains UNKNOWN after120s without this symmetry. Petersen19 is UNKNOWN after300s SAT and180s MILP. Solver timeouts are not lower bounds.
+
+### 2026-11-25 03:47 UTC — normal_form: MixedFilter compiled
+
+`MixedFilter.lean` (280 lines) compiles with exit 0. It proves the conditional absorption rewrite j=((A AND B) OR S) AND T to j=(B OR S) AND T when T implies A and the mixed OR has only reader j and is not the output. Monotone2, gate count, output, and all wires except that mixed OR are preserved. Full log: `/tmp/oec/pequalnp-pilot-66/mixed-filter-build.log`. This is a semantic component only; the target does not yet imply the dominance or unique-reader conditions. Conditional-helper expansion stops here. LocalNormalForm is logical packaging, not progress on the missing global bridge. Next analysis concerns arbitrary multiple dirty ancestors and a global cost repair.
+
+## General five-vertex ownership census — 2026-11-25T03:49:06.802993+00:00
+
+`alg-general5.py` in job scratch generated all 34 graph isomorphism classes on five vertices and used the shared SAT synthesizer. Every first satisfiable model had every AND owning an edge, and every model passed independent full truth-table and ownership validation. For 33 graphs all smaller normalized binary sizes tested UNSAT. K5 reached an all-owned size-10 witness, but a smaller-size test timed out, so its optimum is not established by this run. These are computational results, not Lean lower-bound proofs. Full data: `alg-general5-results.json`, `alg-general5-progress.log`, and individual `alg5_*.runlog`/`sat-alg5_*.json` files in scratch. Total71.4seconds.
+
+A conceptual restriction on amplifying the matching-two dirty gadget: attach one clean star center to each reused OR support S. Girth five forces each support independent in the base graph H and pairwise intersections at most one. If a pure CNF over those supports computes H, its necessary clauses are all minimal vertex covers. All such covers independent forces H to be a disjoint union of complete bipartite components; C4-freeness makes these stars. The support-intersection condition then permits only a single star or two isolated matching edges as the nontrivial fully reused CNF cases. This is a mathematical argument not yet formalized, and does not cover mixed AND/OR cyclic sharing.
+
+## Direct-filter repair checked — 2026-11-25T03:49:22.714418+00:00
+
+`DirectFilterExchange.lean` compiles (exit 0). The final lemma `direct_filter_exchange` handles j=i AND T, i=A AND B, with sole possible strict-cone AND ancestor i and T globally implying A. Replacing j by B AND T preserves every wire value, gate count, minimality, and every existing ownership witness; j now owns a graph edge. Generic infrastructure proves cone inclusion from inclusion of direct-reader dependencies and transports ownership under equal values/operations. The file is frozen for root review. Full log: `/tmp/oec/pequalnp-pilot-66/direct-filter-exchange-build.log`.
+
+Global obstruction remains: first-unowned selection does not bound the number of AND ancestors and does not give T⇒A or T⇒B. Multiple independent dirty ancestors can all fire on one graph edge without creating graph triangles or C4. Example ((a OR b) AND (c OR d)) AND ((a OR c) AND (b OR d)) computes the matching ad OR bc, uses 7 gates versus 3 directly, and final AND owns no edge. Thus minimality/global sharing cost, not a graph-only contradiction, must eliminate such patterns.

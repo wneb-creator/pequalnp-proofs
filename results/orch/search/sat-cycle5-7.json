@@ -1,0 +1,120 @@
+{
+  "graph": "cycle5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 7,
+  "returncode": 10,
+  "elapsed": 0.07540154457092285,
+  "star_bound": 7,
+  "forced_dirty": false,
+  "gates": [
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "or",
+      1,
+      4
+    ],
+    [
+      "and",
+      3,
+      4
+    ],
+    [
+      "and",
+      2,
+      5
+    ],
+    [
+      "and",
+      0,
+      6
+    ],
+    [
+      "or",
+      8,
+      9
+    ],
+    [
+      "or",
+      7,
+      10
+    ]
+  ],
+  "all_inputs_validated": true,
+  "ownership": [
+    {
+      "gate": 2,
+      "edges": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  ],
+  "singletons": [
+    {
+      "gate": 2,
+      "vertices": []
+    },
+    {
+      "gate": 3,
+      "vertices": []
+    },
+    {
+      "gate": 4,
+      "vertices": []
+    }
+  ]
+}

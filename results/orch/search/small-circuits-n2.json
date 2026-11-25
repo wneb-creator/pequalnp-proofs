@@ -1,0 +1,47 @@
+{
+  "n": 2,
+  "graph_count": 2,
+  "metrics": [
+    {
+      "depth": 1,
+      "states": 2,
+      "graphs_found": 2
+    }
+  ],
+  "bad_witness_count": 0,
+  "graphs": [
+    {
+      "edges": [],
+      "size": 0,
+      "gates": [],
+      "ownership": []
+    },
+    {
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "size": 1,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ]
+      ],
+      "ownership": [
+        {
+          "gate": 0,
+          "owned": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
