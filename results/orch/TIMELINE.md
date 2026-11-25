@@ -40,3 +40,7 @@
 2026-11-25T14:24:28.730790+00:00 Signed18 search slice exhausted900seconds,no witness; signed17 slice begins.
 2026-11-25T14:27:47.103106+00:00 Second orchestration replan: mono18 +actualNOT elimination; counterexample search prioritizes common-t architecture.
 2026-11-25T14:28:06.427398+00:00 Lease renewed; expires 2026-11-25T14:48:05.851Z.
+2026-11-25T14:33:06.815462+00:00 Lease renewed; expires 2026-11-25T14:53:06.032Z.
+
+- 2026-11-25T14:37:23.213472+00:00 not_cases: C6 with all three opposite-pair ORs supplied needs >=7 additional binary gates, free NOTs allowed; checked semantic theorem and direct circuit wrapper. Independent review of semantic theorem passed.
+2026-11-25T14:39:26.872477+00:00 Renewal returned HTTP410 unexpectedly; paused work and preserved checked components.
