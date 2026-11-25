@@ -1,0 +1,9 @@
+Independent review verdict: PASS for the generated K2,2 calibration control.
+
+Reviewed source SHA256: f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220. The source contains 2 canonical OR steps: u = x2 OR x0; v = (x1 AND u) OR (x3 AND u); output = u AND v. This equals (x0 OR x2) AND (x1 OR x3). The correctness theorem universally quantifies over Fin4→Bool and is proved by kernel decision, covering all16inputs. Monotone2 and exactly2 OR indices follow from the reviewed compiler theorems. The artifact is explicitly a calibration control, with no claim about the held target statement.
+
+The matching build log is empty and its metadata reports exit0. No new Lean process was run during this independent review. The control has no forbidden constructs or identifier text.
+
+Generator reviewed: results/orch/canonical-witness-to-lean.py, SHA256 ef9ebcef12f622c9b4502d7f7b9c00d603990afff33494839cddf4720e994422. Counts must be nonnegative exact integers; operation count must equal k; each operation must have exactly two operand lists. Each step i accepts references only in [0,n+i), and the final conjunction accepts references only in [0,n+k). Negative, Boolean, noninteger and forward references are rejected. Reverse tuple construction preserves the intended successive Fin(n+i) environments. Empty conjunctions and repeated references are correctly permitted by the compiler model. Output is written only after successful validation.
+
+Nonblocking generator limitation: Python ASCII-identifier validation does not exclude Lean reserved words or forbidden root-namespace text within a definition name. Such names would fail subsequent Lean or format checking. The reviewed cycleControl identifier is valid. Generic malformed container shapes may raise TypeError/KeyError rather than ValueError; they do not bypass reference checks or emit a partially validated file.

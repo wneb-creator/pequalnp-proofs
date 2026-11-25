@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/checked/canonical-compiler-structure.lean",
+  "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c",
+  "reviewer": "proof_routes",
+  "verdict": "PASS",
+  "checks": [
+    "Compiler induction emits only AND/OR gates of fan-in at most two",
+    "Each conjunction contributes zero OR gates and each step exactly one",
+    "ncard is transported from the complete set of gate indices, preserving repetitions",
+    "No side conditions can hide malformed references; structure theorem intentionally independent of reference validity",
+    "No extra axioms, sorry, native_decide, custom inductives, strings or forbidden identifier marker"
+  ]
+}

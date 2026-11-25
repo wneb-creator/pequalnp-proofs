@@ -1,0 +1,6 @@
+{
+  "sha256": "f0a32c04062e4e86770b14dcdea3b94bb04a9882d7182e2f976bd0c91e1a19b6",
+  "exit_code": 0,
+  "lines": 26,
+  "description": "Generic input-bit and checked-mask certificate imply compiled-circuit output on every sample"
+}

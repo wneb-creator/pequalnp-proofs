@@ -1,0 +1,16 @@
+{
+  "source": "results/orch/checked/TwentyOne.lean",
+  "sha256": "6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3",
+  "reviewer": "proof_routes",
+  "verdict": "PASS as checked partial21 lower bound; posted51 remains unproved",
+  "statement_check": "Exact posted statement after whitespace normalization and only51\u219221 replacement",
+  "checks": [
+    "Assumed ORcount\u226420 forces at most2 fresh blocks touched by each generic row using18 false ORs",
+    "All468 certified rows feed the disjoint-block averaging theorem, yielding bad-coordinate union\u22648",
+    "freshBlocks_cover transports the union bound to badCoords",
+    "Weighted survivor theorem then yields ORcount\u226523, contradicting\u226420",
+    "Both finite negative-row families are discharged from the exact posted admissibility hypotheses",
+    "Extensional filter proof changes only Decidable instances, not the predicate",
+    "Source has no forbidden proof escapes or formatting markers"
+  ]
+}

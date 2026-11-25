@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/checked/canonical-compiler-mask-certificates.lean",
+  "sha256": "e6d6fb6f54e6e20749d632aeabf6098d940a1f09b091ebb496571d9f4b705795",
+  "reviewer": "proof_routes",
+  "verdict": "PASS",
+  "checks": [
+    "Bitmask evaluation agrees pointwise with Boolean evaluation when the truth identity bit is true",
+    "Every OR mask is compared to the supplied literal before the environment advances",
+    "Missing intermediate masks force checker false; the final branch requires no unused masks",
+    "The soundness induction uses checked equality to replace the computed mask with the supplied literal",
+    "No concrete samples or final-statement claim are assumed"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780",
+  "exit_code": 0,
+  "lines": 171,
+  "description": "Compiler preserves evaluation on arbitrary initial wires and valid reference maps, including Fin n\u2192Fin m embeddings"
+}

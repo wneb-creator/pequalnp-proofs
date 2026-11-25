@@ -34,3 +34,11 @@
 - 2026-11-25T04:27:55.106057+00:00: lease renewed; expires 2026-11-25T04:47:55.388Z.
 - 2026-11-25T04:35:00.983145+00:00: lease renewed; expires 2026-11-25T04:55:01.225Z.
 - 2026-11-25T04:36:29.156056+00:00: lease renewed; expires 2026-11-25T04:56:29.340Z.
+- 2026-11-25T04:43:07.487409+00:00: lease renewed; expires 2026-11-25T05:03:07.645Z.
+- 2026-11-25T04:48:00.583659+00:00: lease renewed; expires 2026-11-25T05:08:00.696Z.
+- 2026-11-25T04:56:29.544610+00:00: lease renewed; expires 2026-11-25T05:16:29.861Z.
+- 2026-11-25T05:02:18.895979+00:00: lease renewed; expires 2026-11-25T05:22:19.089Z.
+- 2026-11-25T05:08:44.846935+00:00: lease renewed; expires 2026-11-25T05:28:45.073Z.
+
+- 2026-11-25T05:09:25.224987+00:00: Integrated21-OR partial run005 completed successfully; full51 target still unresolved. Global51 control passed; global50 search prepared. Heavycapacity3 work paused.
+- 2026-11-25T05:09:42.054067+00:00: lease renewed; expires 2026-11-25T05:29:42.255Z.

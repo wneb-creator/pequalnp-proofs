@@ -1,0 +1,5 @@
+{
+  "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5",
+  "exit_code": 0,
+  "description": "Final-format recursive alias Program uses only lists/Fin/tuples; compiler definitions checked; correctness pending"
+}

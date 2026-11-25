@@ -1,0 +1,33 @@
+{
+  "source": "results/orch/lemmas/TwentyOne.lean",
+  "sha256": "6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3",
+  "lines": 4133,
+  "started_utc": "2026-11-25T05:02:56.995458+00:00",
+  "status": "checked_partial",
+  "changes_from_run002": "Only the independently checked extensional filter argument; original3M rowInput conversion restored; no alias declarations.",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T05:08:20.772328+00:00",
+  "frozen_utc": "2026-11-25T05:09:10.961300+00:00",
+  "theorem": "PEqualNP.Outside.L_meta_1896_aux.TwentyOne.posted_twenty_one",
+  "conclusion": "21 <= number of OR gates; posted51 bound remains unproved",
+  "olean": "/tmp/oec/pequalnp-pilot-62/TwentyOne.olean",
+  "olean_bytes": 9957592,
+  "log_bytes": 3272,
+  "preflight": {
+    "sha256": "6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3",
+    "lines": 4133,
+    "bytes": 204063,
+    "posted_statement_only_51_to_21": true,
+    "prohibited_root_text": false,
+    "double_quotes": false,
+    "unpermitted_attributes": [],
+    "trailing_whitespace_lines": [],
+    "suspicious_tokens": []
+  },
+  "cache_import_probe_exit_code": 0,
+  "reported_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

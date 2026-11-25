@@ -1,16 +1,14 @@
 PARTIAL CHECKPOINT — L-meta-1896
-UTC: 2026-11-25T04:03:47.815365+00:00
-Posted target: at least 51 OR gates. It remains unproved; this branch is not a proof PR.
-Checked partial: exact posted hypotheses imply at least 20 OR gates.
+UTC: 2026-11-25T05:10:14.108779+00:00
+Posted target: at least51 OR gates, still unproved. This branch is not a proof PR.
+Checked partial: exact posted hypotheses imply at least21 OR gates.
 Named file: lean/PEqualNP/Outside/L_meta_1896.lean
-SHA256: ec1f2f40f2cec0e24fb274911856e0a6dee7641f01b111e4dc171e954e657eed
-Lines: 2232. Earlier named checkpoint: 816 lines. No final cleanup pass: full theorem and checker have not passed.
-Build: lake build PEqualNP.Outside.L_meta_1896 exited 0; Build completed successfully (5149 jobs).
-Full build output: results/orch/validation/twenty-named-build.log
-Checker: tools/check-lean.mjs exited 3 before statement checking.
-CHECKER FAULT: the prebuilt Mathlib cache is missing. Run lake exe cache get in lean/ (RUNBOOK.md, section 2).
-Full checker output: results/orch/validation/twenty-posted-checker.log
-Independent review: repo_audit approved this exact named-file hash as a labelled partial; no forbidden constructs or whitespace issues found.
-No PR opened because the posted 51-OR statement is not proved.
+SHA256: 6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3
+Lines:4133; previous named checkpoint2232. No final cleanup pass: full theorem and checker have not passed.
+Direct Lean compile run005 exited0; full output: checked/TwentyOne.log. Axiom audit: propext, Classical.choice, Quot.sound only.
+Named lake build is running. Previous20-bound named build passed5149jobs.
+Last actual checker: exit3 at missing root Mathlib cache before statement checking. Genuine official cache has now been restored; fresh checker pending.
+Independent review: repo_audit approved this exact source hash as a labelled partial, including exact hypotheses, finite certificates and final glue. No forbidden source constructs.
+No PR opened because the posted51-OR statement is not proved or refuted.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=80.3 subagents=7
+TIMING total=146.8 subagents=7

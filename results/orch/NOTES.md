@@ -8,7 +8,7 @@ Goal: every monotone fan-in-two circuit true at incident point-line pairs and fa
 Reductions are advertised open, but reductions_live=3; do not assume another reduction slot is available.
 
 Build environment: source /tmp/oec/pequalnp-pilot-62/lean-env.sh.
-Use minimal Mathlib dependencies; full Mathlib cache is absent. PEqualNP.Defs and checklemma built successfully.
+Use minimal Mathlib dependencies. PEqualNP.Defs and checklemma built successfully; the genuine official root Mathlib cache artifact was unpacked at04:25 UTC. A fresh statement-checker run is pending.
 Keep full diagnostics in task scratch. Never build Mathlib from source or run lake update.
 
 Agents write separate strategy notes under results/orch and read this shared file. Parent alone updates this file and final target.
@@ -52,3 +52,13 @@ The named file currently contains helper proofs only; the posted 51-OR theorem r
 - Dead shortcuts remain dead: unrestricted quadratic-shadow bounds, uniform cross-row merge charge, and a uniform54-per-gate pure-union deficit charge (an explicit join improves that deficit by60). Amortized variants remain unproved.
 - All published computational archives are labelled accordingly and independently reviewed. No PR has been opened; three reduction slots were already occupied.
 - Cumulative sub-agents remain7; reactivated existing child, no new team member. Parent alone manages lease, branch, checker and submission.
+
+## Replan 2026-11-25T05:10Z
+- The exact-premise21-OR lower bound compiled successfully in run005 (4133 lines). Its full log contains warnings only; the named-file build and posted-statement checker will follow preservation. The target51 remains unproved, and no counterexample has been found.
+- Environment interruption around04:42 killed the old Lean/SAT workers; interrupted queries have no verdict. The lease survived and is renewed by the root every10minutes and before long runs.
+- Capacity3 verification is paused. Computational capacity4 families can partition all13 points into7 blocks and delete all52 flags, so this deletion route cannot reach51. Only individual checked chunks/helpers are labelled checked.
+- Main counterexample effort now uses the unrestricted canonical free-AND global50-OR model, all52 flag positives and468 original generic negatives. Optional dirty-OR and late-prefix cuts were independently reviewed. Its51-OR control passed SAT and all546 sampled-input checks.
+- The51-OR baseline is not a counterexample. Lean compiler structure, exact OR count, Boolean semantics, bitmask semantics, literal-mask certificates and sample bridge have compiled. Finite sample-bit checks and completeness of the468 generic rows are being prepared so a real50-OR witness can be certified without delay.
+- Resource schedule: one large Lean job plus at most one capped SAT solver. Smaller Lean helpers run serially with a7.3GiB actual-memory guard. No large capacity3 enumeration batches are scheduled.
+- Active assignments: counterexample global50 search; proof_routes and existing child canonical compiler/certificates; lean_setup finite geometry completeness; or_lower_bound checked21 integration; repo_audit independent reviews. algebraic_witness is currently idle; the active7-slot ceiling prevented reactivation, and no new agent was created.
+- Cumulative sub-agents:7. No PR has been opened. All3 reduction slots were already occupied at last feed check.

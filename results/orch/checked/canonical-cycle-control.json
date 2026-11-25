@@ -1,0 +1,5 @@
+{
+  "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220",
+  "exit_code": 0,
+  "description": "4-input K2,2 control, exact semantics for all16inputs and legal circuit with exactly2ORs; not a target counterexample"
+}
