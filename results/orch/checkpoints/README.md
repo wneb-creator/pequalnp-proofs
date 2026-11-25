@@ -1,0 +1,5 @@
+These are frozen partial computation artifacts for gap L-gct-231. They are not a Groebner basis, a proof, or a nonexistence verdict. The finite-field LA44 computation is diagnostic.
+
+The gzip snapshot contains a bounded subset of complete derived polynomials from the row-sum-rank-three chart over F97. Its header and rowsum18-partial-metadata.json record the retained and total counts, snapshot round, ordered variables, and SHA256 hashes. The entire gzip stream was read to verify integrity and the retained polynomial count before archiving. The live engine continues separately; this file is an immutable copy opened before any live rotation.
+
+To resume, use the archived checkpoint wrapper with the unchanged rowsum-graph-mod97.msolve as the original input and this gzip file as --resume. The wrapper validates the original SHA256, variables, and field and ALWAYS unions original generators with the saved subset. Missing progress may need to be recomputed. No mathematical conclusion about complex solutions follows from this partial chart computation.

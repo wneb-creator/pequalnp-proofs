@@ -1,0 +1,13 @@
+{
+  "review": "APPROVED partial diagnostic archive",
+  "sha256": "5b8e71460a57106cb3fc22a1cf42eb3b5d3853787e8e200c92cf595ecbae54b3",
+  "compressed_bytes": 16071753,
+  "uncompressed_bytes": 53619860,
+  "generators": 1830,
+  "terms": 3102302,
+  "gzip_integrity": true,
+  "full_polynomial_grammar": true,
+  "original_hash_verified": true,
+  "not_a_groebner_basis": true,
+  "not_a_lean_proof": true
+}
