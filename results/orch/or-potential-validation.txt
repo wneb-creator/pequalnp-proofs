@@ -322,3 +322,258 @@ FILE meet-safe-cover-cumulative.stdout SHA256 810ea0dbcae76ac72640f6baa1263b13ee
 
 FILE meet-safe-cover-cumulative.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
+
+FILE meet_safe_cover_active.py SHA256 c2445da5b7b0e55301e5d10eb177577a3feffbcb410cc8522794a0288d997b80
+import itertools,json,random,time,sys
+
+def setup(n,edges):
+ adj=[0]*n
+ for a,b in edges:adj[a]|=1<<b;adj[b]|=1<<a
+ mis=[m for m in range(1<<n) if not any(m>>i&1 and adj[i]&m for i in range(n)) and all(m>>i&1 or adj[i]&m for i in range(n))]
+ tests=[(1<<a)|(1<<b) for a,b in edges]+mis
+ inputs=[sum(1<<j for j,t in enumerate(tests) if t>>i&1) for i in range(n)]
+ full=(1<<len(tests))-1;positive=(1<<len(edges))-1
+ closure={full:0}
+ for i,a in enumerate(inputs):
+  for m,s in list(closure.items()):closure.setdefault(m&a,s|(1<<i))
+ return inputs,full,positive,closure,tests
+
+def partition(closure,positive,m):
+ from functools import lru_cache
+ raw=sorted((value for value in closure if not(value&~positive) and value),key=int.bit_count,reverse=True)
+ supports=[]
+ for value in raw:
+  if not any(value&~sup==0 for sup in supports):supports.append(value)
+ byedge=[[s for s in supports if s>>i&1] for i in range(m)]
+ @lru_cache(None)
+ def cover(mask):
+  if not mask:return 0
+  bit=(mask&-mask).bit_length()-1
+  return 1+min(cover(mask&~s) for s in byedge[bit])
+ minimum=cover(positive)
+ return m-minimum,[]
+
+def search(name,n,edges,seconds=15):
+ inputs,full,pos,initial,tests=setup(n,edges)
+ start=time.monotonic();trials=0;steps=0;peak=0
+ while time.monotonic()-start<seconds:
+  closure=initial.copy();program=[];rank,labels=partition(closure,pos,len(edges))
+  for k in range(10):
+   choices=[(v,s) for v,s in closure.items() if v&pos and s]
+   for attempt in range(100):
+    a,sa=random.choice(choices);b,sb=random.choice(choices);v=a|b
+    if v not in closure:break
+   else:break
+   new=closure.copy()
+   for old,s in closure.items():new.setdefault(old&v,s|(1<<(n+k)))
+   newrank,newlabels=partition(new,pos,len(edges))
+   program.append((sa,sb));steps+=1;peak=max(peak,len(new))
+   if newrank>rank+1:
+    safe=[v for v in new if not(v&~pos)]
+    return {'graph':name,'n':n,'edges':edges,'tests':tests,'program':program,'bad_step':k,'old_rank':rank,'new_rank':newrank,'old_labels':labels,'new_labels':newlabels,'safe_masks':safe,'trials':trials,'steps':steps,'seconds':time.monotonic()-start,'result':'edge_active_safe_cover_step_jump'}
+   closure=new;rank=newrank;labels=newlabels
+   if len(closure)>30000:break
+  trials+=1
+ return {'graph':name,'trials':trials,'steps':steps,'peak_closure':peak,'seconds':time.monotonic()-start,'result':'no_edge_active_safe_cover_step_violation_found'}
+
+if __name__=='__main__':
+ random.seed(103155)
+ graphs=[('C4',4,[(0,1),(1,2),(2,3),(3,0)]),('C5',5,[(i,(i+1)%5) for i in range(5)]),('Petersen',10,[(i,(i+1)%5) for i in range(5)]+[(i,i+5) for i in range(5)]+[(5+i,5+(i+2)%5) for i in range(5)])]
+ for name,n,edges in graphs:
+  print(json.dumps(search(name,n,edges,float(sys.argv[1]) if len(sys.argv)>1 else 15)),flush=True)
+
+FILE meet-safe-cover-active.stdout SHA256 79bb55fa7316ed38aa6387355418ebf6001c992aee98f10d00482b20a6f7476e
+{"graph": "C4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3], [3, 0]], "tests": [3, 6, 12, 9, 5, 10], "program": [[8, 2]], "bad_step": 0, "old_rank": 0, "new_rank": 2, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 8, 4, 9, 6], "trials": 0, "steps": 1, "seconds": 4.956500015396159e-05, "result": "edge_active_safe_cover_step_jump"}
+{"graph": "C5", "n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "tests": [3, 6, 12, 24, 17, 5, 9, 10, 18, 20], "program": [[16, 8], [8, 36], [64, 6], [33, 130], [256, 8]], "bad_step": 4, "old_rank": 0, "new_rank": 2, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 6, 24], "trials": 166, "steps": 1665, "seconds": 0.034967272999892884, "result": "edge_active_safe_cover_step_jump"}
+{"graph": "Petersen", "n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "tests": [3, 6, 12, 24, 17, 33, 66, 132, 264, 528, 160, 320, 640, 288, 576, 50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773], "program": [[512, 4], [2, 24], [33, 1032], [1152, 1040], [3, 1040], [512, 2048]], "bad_step": 5, "old_rank": 1, "new_rank": 3, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 32, 64, 128, 1024, 256, 8192, 2048, 512, 16384, 4096, 4224, 4608, 16448, 513], "trials": 735, "steps": 7356, "seconds": 0.3893523910001022, "result": "edge_active_safe_cover_step_jump"}
+
+FILE meet-safe-cover-active.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+FILE two-choice-rectangle-axioms.stdout SHA256 8dfdea6aaf57f1a2a8f1c9d90e21b705cb9fc6bd9c6e41f97009db3e7d8902e7
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.factor_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.hasEdge_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.corners_repeat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.edgeCorners_card_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.HasEdge.card_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_choices_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.three_monomials_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_or_pattern_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.input_get' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.support_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.meet_append_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.evalTwo_pattern' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoOrBridge.two_or_program_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+FILE two-choice-rectangle-axioms.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+FILE meet_safe_cover_singleton_clean.py SHA256 c420c564fcc781c9355005f9739aae073a72ea19998b3416a1998a45aa9f927a
+import itertools,json,random,time,sys
+
+def setup(n,edges):
+ adj=[0]*n
+ for a,b in edges:adj[a]|=1<<b;adj[b]|=1<<a
+ mis=[m for m in range(1<<n) if not any(m>>i&1 and adj[i]&m for i in range(n)) and all(m>>i&1 or adj[i]&m for i in range(n))]
+ tests=[(1<<a)|(1<<b) for a,b in edges]+mis
+ inputs=[sum(1<<j for j,t in enumerate(tests) if t>>i&1) for i in range(n)]
+ full=(1<<len(tests))-1;positive=(1<<len(edges))-1
+ closure={full:0}
+ for i,a in enumerate(inputs):
+  for m,s in list(closure.items()):closure.setdefault(m&a,s|(1<<i))
+ return inputs,full,positive,closure,tests
+
+def partition(closure,positive,m):
+ from functools import lru_cache
+ raw=sorted((value for value in closure if not(value&~positive) and value),key=int.bit_count,reverse=True)
+ supports=[]
+ for value in raw:
+  if not any(value&~sup==0 for sup in supports):supports.append(value)
+ byedge=[[s for s in supports if s>>i&1] for i in range(m)]
+ @lru_cache(None)
+ def cover(mask):
+  if not mask:return 0
+  bit=(mask&-mask).bit_length()-1
+  return 1+min(cover(mask&~s) for s in byedge[bit])
+ minimum=cover(positive)
+ return m-minimum,[]
+
+def search(name,n,edges,seconds=15):
+ inputs,full,pos,initial,tests=setup(n,edges)
+ start=time.monotonic();trials=0;steps=0;peak=0
+ while time.monotonic()-start<seconds:
+  closure=initial.copy();program=[];rank,labels=partition(closure,pos,len(edges))
+  for k in range(10):
+   choices=[(v,s) for v,s in closure.items() if v&pos and s and ((v&pos).bit_count()!=1 or not(v&~pos))]
+   for attempt in range(100):
+    a,sa=random.choice(choices);b,sb=random.choice(choices);v=a|b
+    if v not in closure and ((v&pos).bit_count()!=1 or not(v&~pos)):break
+   else:break
+   new=closure.copy()
+   for old,s in closure.items():new.setdefault(old&v,s|(1<<(n+k)))
+   newrank,newlabels=partition(new,pos,len(edges))
+   program.append((sa,sb));steps+=1;peak=max(peak,len(new))
+   if newrank>rank+1:
+    safe=[v for v in new if not(v&~pos)]
+    return {'graph':name,'n':n,'edges':edges,'tests':tests,'program':program,'bad_step':k,'old_rank':rank,'new_rank':newrank,'old_labels':labels,'new_labels':newlabels,'safe_masks':safe,'trials':trials,'steps':steps,'seconds':time.monotonic()-start,'result':'singleton_clean_safe_cover_step_jump'}
+   closure=new;rank=newrank;labels=newlabels
+   if len(closure)>30000:break
+  trials+=1
+ return {'graph':name,'trials':trials,'steps':steps,'peak_closure':peak,'seconds':time.monotonic()-start,'result':'no_singleton_clean_safe_cover_step_violation_found'}
+
+if __name__=='__main__':
+ random.seed(103155)
+ graphs=[('C4',4,[(0,1),(1,2),(2,3),(3,0)]),('C5',5,[(i,(i+1)%5) for i in range(5)]),('Petersen',10,[(i,(i+1)%5) for i in range(5)]+[(i,i+5) for i in range(5)]+[(5+i,5+(i+2)%5) for i in range(5)])]
+ for name,n,edges in graphs:
+  print(json.dumps(search(name,n,edges,float(sys.argv[1]) if len(sys.argv)>1 else 15)),flush=True)
+
+FILE meet-safe-cover-singleton-clean.stdout SHA256 083f2b07a3f1c8c012327d5f6b7523684aa416f4a80736524f73b6912ee2e8f1
+{"graph": "C4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3], [3, 0]], "tests": [3, 6, 12, 9, 5, 10], "program": [[8, 2]], "bad_step": 0, "old_rank": 0, "new_rank": 2, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 8, 4, 9, 6], "trials": 0, "steps": 1, "seconds": 4.590999969877885e-05, "result": "singleton_clean_safe_cover_step_jump"}
+{"graph": "C5", "n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "tests": [3, 6, 12, 24, 17, 5, 9, 10, 18, 20], "program": [[4, 8], [3, 16], [2, 17], [1, 16], [32, 65], [17, 12], [256, 1024], [514, 32], [128, 2056]], "bad_step": 8, "old_rank": 1, "new_rank": 3, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 17, 20, 6, 24, 25, 9], "trials": 2026, "steps": 20269, "seconds": 0.6849627470000996, "result": "singleton_clean_safe_cover_step_jump"}
+{"graph": "Petersen", "n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "tests": [3, 6, 12, 24, 17, 33, 66, 132, 264, 528, 160, 320, 640, 288, 576, 50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773], "program": [[8, 132], [1028, 66], [66, 528], [4, 33], [8, 640], [2048, 32], [32, 32772], [40960, 16]], "bad_step": 7, "old_rank": 2, "new_rank": 4, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 32, 64, 128, 1024, 256, 8192, 2048, 512, 16384, 4096, 132, 196, 576, 1152, 48, 12, 140], "trials": 118, "steps": 1188, "seconds": 0.10617997500003185, "result": "singleton_clean_safe_cover_step_jump"}
+
+FILE meet-safe-cover-singleton-clean.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+FILE meet_safe_cover_incomparable.py SHA256 2adbc40028477252a5aed147cf047450fa65cb08e23694722d9916b318734093
+import itertools,json,random,time,sys
+
+def setup(n,edges):
+ adj=[0]*n
+ for a,b in edges:adj[a]|=1<<b;adj[b]|=1<<a
+ mis=[m for m in range(1<<n) if not any(m>>i&1 and adj[i]&m for i in range(n)) and all(m>>i&1 or adj[i]&m for i in range(n))]
+ tests=[(1<<a)|(1<<b) for a,b in edges]+mis
+ inputs=[sum(1<<j for j,t in enumerate(tests) if t>>i&1) for i in range(n)]
+ full=(1<<len(tests))-1;positive=(1<<len(edges))-1
+ closure={full:0}
+ for i,a in enumerate(inputs):
+  for m,s in list(closure.items()):closure.setdefault(m&a,s|(1<<i))
+ return inputs,full,positive,closure,tests
+
+def partition(closure,positive,m):
+ from functools import lru_cache
+ raw=sorted((value for value in closure if not(value&~positive) and value),key=int.bit_count,reverse=True)
+ supports=[]
+ for value in raw:
+  if not any(value&~sup==0 for sup in supports):supports.append(value)
+ byedge=[[s for s in supports if s>>i&1] for i in range(m)]
+ @lru_cache(None)
+ def cover(mask):
+  if not mask:return 0
+  bit=(mask&-mask).bit_length()-1
+  return 1+min(cover(mask&~s) for s in byedge[bit])
+ minimum=cover(positive)
+ return m-minimum,[]
+
+def search(name,n,edges,seconds=15):
+ inputs,full,pos,initial,tests=setup(n,edges)
+ start=time.monotonic();trials=0;steps=0;peak=0
+ while time.monotonic()-start<seconds:
+  closure=initial.copy();program=[];rank,labels=partition(closure,pos,len(edges))
+  for k in range(10):
+   choices=[(v,s) for v,s in closure.items() if v&pos and s and ((v&pos).bit_count()!=1 or not(v&~pos))]
+   for attempt in range(100):
+    a,sa=random.choice(choices);b,sb=random.choice(choices);v=a|b
+    if v not in closure and a&pos&~b and b&pos&~a:break
+   else:break
+   new=closure.copy()
+   for old,s in closure.items():new.setdefault(old&v,s|(1<<(n+k)))
+   newrank,newlabels=partition(new,pos,len(edges))
+   program.append((sa,sb));steps+=1;peak=max(peak,len(new))
+   if newrank>rank+1:
+    safe=[v for v in new if not(v&~pos)]
+    return {'graph':name,'n':n,'edges':edges,'tests':tests,'program':program,'bad_step':k,'old_rank':rank,'new_rank':newrank,'old_labels':labels,'new_labels':newlabels,'safe_masks':safe,'trials':trials,'steps':steps,'seconds':time.monotonic()-start,'result':'incomparable_safe_cover_step_jump'}
+   closure=new;rank=newrank;labels=newlabels
+   if len(closure)>30000:break
+  trials+=1
+ return {'graph':name,'trials':trials,'steps':steps,'peak_closure':peak,'seconds':time.monotonic()-start,'result':'no_incomparable_safe_cover_step_violation_found'}
+
+if __name__=='__main__':
+ random.seed(103155)
+ graphs=[('C4',4,[(0,1),(1,2),(2,3),(3,0)]),('C5',5,[(i,(i+1)%5) for i in range(5)]),('Petersen',10,[(i,(i+1)%5) for i in range(5)]+[(i,i+5) for i in range(5)]+[(5+i,5+(i+2)%5) for i in range(5)])]
+ for name,n,edges in graphs:
+  print(json.dumps(search(name,n,edges,float(sys.argv[1]) if len(sys.argv)>1 else 15)),flush=True)
+
+FILE meet-safe-cover-incomparable.stdout SHA256 1664d5ac561f631e66ad6e8942de01caafa2e534a59796a0f5044cf233303f82
+{"graph": "C4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3], [3, 0]], "tests": [3, 6, 12, 9, 5, 10], "program": [[8, 2]], "bad_step": 0, "old_rank": 0, "new_rank": 2, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 8, 4, 9, 6], "trials": 0, "steps": 1, "seconds": 4.5928999952593585e-05, "result": "incomparable_safe_cover_step_jump"}
+{"graph": "C5", "n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "tests": [3, 6, 12, 24, 17, 5, 9, 10, 18, 20], "program": [[6, 8], [16, 1], [2, 36], [2, 8], [64, 12], [512, 6], [1, 1056]], "bad_step": 6, "old_rank": 1, "new_rank": 3, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 6, 3, 24, 7, 5], "trials": 11553, "steps": 115537, "seconds": 3.2490815289997954, "result": "incomparable_safe_cover_step_jump"}
+{"graph": "Petersen", "n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "tests": [3, 6, 12, 24, 17, 33, 66, 132, 264, 528, 160, 320, 640, 288, 576, 50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773], "program": [[8, 33], [640, 1024], [576, 32], [4, 66], [512, 12], [8192, 640], [32768, 64], [81920, 256]], "bad_step": 7, "old_rank": 2, "new_rank": 4, "old_labels": [], "new_labels": [], "safe_masks": [1, 2, 0, 4, 16, 8, 32, 64, 128, 1024, 256, 8192, 2048, 512, 16384, 4096, 66, 4224, 4100, 260, 18432, 4356], "trials": 856, "steps": 8568, "seconds": 0.663298100999782, "result": "incomparable_safe_cover_step_jump"}
+
+FILE meet-safe-cover-incomparable.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+
+FILE general-or-lower-axioms.stdout SHA256 ece5d3d60423d31bc7205d5726a43acf5421db617bcd4b60b0e92db4df0ffc5e
+'PEqualNP.Outside.L_meta_1031_aux.GeneralOrLower.list_two' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.GeneralOrLower.circuit_or_ge_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+FILE general-or-lower-axioms.stderr SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+

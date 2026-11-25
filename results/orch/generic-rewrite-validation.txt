@@ -1,0 +1,63 @@
+L-meta-1031 generic research components; original statement remains unproved.
+
+First-OR deletion:300lines SHA34a9bab244a3cf1369602b2d5ac99d587c2fb1bcafbfd64f48eafb8776c42e66.
+Author build exit0, no diagnostics; graph_ownership independent review PASS.
+Direct first-OR substitution preserves bounded evaluation, shrinks truth values, and loses at most the pair of any two distinct original variables in the removedbranch.
+Complete21-theorem axiom-audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.meet_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.meet_singleton' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.meet_extend' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.getD_append_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rel_initial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.meet_rewrite' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rel_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.wires_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rel_wires' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.delete_first_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.meet_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.append_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.wires_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.delete_first_below' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.delete_first_agrees' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rewrite_bounded' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rewrite_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.rewrite_wellFormed' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.deleted_positive_requires_branch' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.branch_pair_unique' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrDeletion.lost_pair_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete stderr:
+
+General circuit OR bound:792lines SHA4bd32284dcdde14c354ae747d1d1cc7b058f876933016a02d5e993a9c1df57b1.
+Build exit0, empty stdout/stderr. Independent root review PASS.
+Scope: n>0, valid output, normalized binary circuit, graph without4cycles, graph-sound output acceptingatleast4distinctpairs imply atleast3OR gates.
+Complete finaltheorem axiom-audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.GeneralOrLower.list_two' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.GeneralOrLower.circuit_or_ge_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete stderr:
+
+Two-choice helper432-line revision SHA56632a33ebc8795768b4d05531e772d9fcdfa55990aa84c0e3f6f79d5ca695dc only replaces2 arithmetic proof fragments forimportrobustness; direct narrow build exit0 emptylogs and rootdiffreview PASS.
+Checker: not run, posted theorem unproved.
+Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
+TIMING total=74.03 subagents=6

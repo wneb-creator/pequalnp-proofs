@@ -359,7 +359,9 @@ lemma meet_append_two (n : ℕ) (atoms : List ℕ) (hb : bounded (n + 2) atoms)
     constructor
     · intro i hi
       have hv := h i.val hi
-      rw [List.getD_append _ _ _ _ (by simp [input_length]; omega),
+      rw [List.getD_append _ _ _ _ (by
+          simpa only [List.length_append, List.length_singleton, input_length]
+            using Nat.lt_succ_of_lt i.isLt),
         List.getD_append _ _ _ _ (by simp [input_length]),
         input_get n S i.val i.isLt] at hv
       exact of_decide_eq_true hv
@@ -372,7 +374,9 @@ lemma meet_append_two (n : ℕ) (atoms : List ℕ) (hb : bounded (n + 2) atoms)
         simpa [List.getD_eq_getElem?_getD, input_length] using hv
   · rintro ⟨hS, hv, hw⟩ i hi
     by_cases hin : i < n
-    · rw [List.getD_append _ _ _ _ (by simp [input_length]; omega),
+    · rw [List.getD_append _ _ _ _ (by
+          simpa only [List.length_append, List.length_singleton, input_length]
+            using Nat.lt_succ_of_lt hin),
         List.getD_append _ _ _ _ (by simpa [input_length] using hin), input_get n S i hin]
       exact decide_eq_true (hS ⟨i, hin⟩ hi)
     · have heq : i = n ∨ i = n + 1 := by have := hb i hi; omega
