@@ -4,7 +4,7 @@ import Mathlib.Tactic.Push
 import Mathlib.Tactic.Tauto
 import PEqualNP.Defs
 
-namespace PEqualNP.Outside.L_meta_12416
+namespace PEqualNP.Outside.L_meta_12415
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -2371,9 +2371,9 @@ lemma lb : ∀ s : ℕ, HasCircuitSize 5 (fun x : Fin 5 → Bool => Nat.testBit 
 
 end R0
 
-end PEqualNP.Outside.L_meta_12416
+end PEqualNP.Outside.L_meta_12415
 
-namespace PEqualNP.Outside.L_meta_12416
+namespace PEqualNP.Outside.L_meta_12415
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -2407,10 +2407,10 @@ lemma targetSix_lower (s : ℕ) (h : HasCircuitSize 6 targetSix s) : 9 ≤ s := 
   have h8 := R0.lb s' h'
   omega
 
-end PEqualNP.Outside.L_meta_12416
+end PEqualNP.Outside.L_meta_12415
 
 
-namespace PEqualNP.Outside.L_meta_12416
+namespace PEqualNP.Outside.L_meta_12415
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -2437,12 +2437,10 @@ lemma upperCircuit_eval : ∀ x : Fin 6 → Bool,
         (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0) := by
   decide +kernel
 
-end PEqualNP.Outside.L_meta_12416
+end PEqualNP.Outside.L_meta_12415
 
-open PEqualNP.Outside.L_meta_12416 in
-theorem PEqualNP.Outside.L_meta_12416 : ¬ (¬ (∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (3939035848 * 2 ^ 32 + 3939035272) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (3939035848 * 2 ^ 32 + 3939035272) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0))) := by
-  intro hneg
-  apply hneg
+open PEqualNP.Outside.L_meta_12415 in
+theorem PEqualNP.Outside.L_meta_12415 : ∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (3939035848 * 2 ^ 32 + 3939035272) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (3939035848 * 2 ^ 32 + 3939035272) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0) := by
   intro s hs
   refine ⟨upperCircuit, upperCircuit_mono, ?_, upperCircuit_eval⟩
   rw [upperCircuit_size]

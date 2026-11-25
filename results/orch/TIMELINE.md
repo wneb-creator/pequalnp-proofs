@@ -11,3 +11,5 @@
 2026-11-25T17:12:00.028538+00:00 nine-gate monotone witness compiled successfully
 2026-11-25T17:13:09.506624+00:00 full named refutation lake build PASSED
 2026-11-25T17:14:42.328829+00:00 local checker environmental FAULT; full refutation preserved on fork
+2026-11-25T17:15:28.127402+00:00 released own12416 false; acquired positive twin12415 proof-ready lease, expires17:34:53.721Z
+2026-11-25T17:16:32.366379+00:00 L-meta-12415 named build PASSED; standard axioms confirmed; local checker environmentalFAULT

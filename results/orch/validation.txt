@@ -1,14 +1,12 @@
-L-meta-12416 partial component: nine-gate monotone witness
-Lean command: lake env lean results/orch/lemmas/circuit_search/upper.fragment.lean (from lean/ with absolute source path)
-Result: exit 0; stdout and stderr empty.
-Full target proof and checker still pending.
-Sub-agents: status_review, toolchain_probe, circuit_search, lower_bound, independent_review
-TIMING total=8 subagents=5
-
-Full refutation L_meta_12416.lean: lake build PEqualNP.Outside.L_meta_12416 PASSED, exit0; Build completed successfully (5149 jobs).
-Proof2449lines,152764bytes. Exact negation of posted statement. Local checker pending full Mathlib cache capacity.
-
-Local checker refute: FAULT (environment); verifier built, candidate and Defs built; verification could not import uncached Batteries root. Full Mathlib cache cannot fit in available disk; compressed filesystem mount denied.
-Cleanup skipped because checker unavailable; lines before2449 after2449.
+L-meta-12415
+File: lean/PEqualNP/Outside/L_meta_12415.lean
+lake build PEqualNP.Outside.L_meta_12415: PASSED (exit0).
+Axioms: [propext, Classical.choice, Quot.sound].
+Local checker: FAULT (environment; verifier builds, file and definitions root build; missing full Mathlib dependency Batteries.olean).
+Full cache9117modules;6635not cached; disk0.78GiBfree; FUSEmount denied. No checker modifications.
+Cleanup skipped because local checker unavailable. Lines before2447 after2447.
+Independent red-team review: PASSED static format, exact statement, finite64rows, restriction argument, source comparison.
+Prior assignedL-meta-12416 refutation compiled and pushed before own lease released. Positive twin12415 obtained by proof-ready desk request.
+Desk null answers:0.
 Sub-agents: status_review, toolchain_probe, circuit_search, lower_bound, independent_review, toolchain_probe/fuse_reader
-TIMING total=10 subagents=6
+TIMING total=12 subagents=6
