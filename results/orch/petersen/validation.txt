@@ -18,3 +18,11 @@ Lease failure: HTTP410, prior expiry15:38:41.568Z; exact message: no such live l
 No null desk responses (0). Neither lost lease was released by this job.
 Sub-agents:7 total.
 TIMING total=32.16 subagents=7
+
+FINAL JOB STATUS at 2026-11-25T15:45:44.660056+00:00
+No full posted theorem/refutation; no PR. Named partial builds passed; full checker acceptance absent.
+Final desk null count:4. Same L-meta-4970 lease returned on one retry; ownership uncertain, no work/renewal/release on it. Stopped under existing-lease rule.
+See results/orch/FINAL_STATUS.md and results/orch/final-desk/desk-log.txt for exact response notes and full diagnostics.
+Earlier zero-null counts in this file describe the state before recovery polling.
+Sub-agents:7 total (status_audit, readk_strategy, library_route, counterexample, normal_form, toolchain_setup, delegated gate_count_theory).
+TIMING total=53.45 subagents=7

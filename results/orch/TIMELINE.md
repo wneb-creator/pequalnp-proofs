@@ -18,3 +18,8 @@
 
 2026-11-25T15:23:38.109872+00:00 readk_strategy Petersen work stopped by lease loss. Exact read1≥20 bound compiled; general19gate exclusion remains unresolved.
 2026-11-25T15:25:15.462544+00:00 Second lease vanished before expiry; HTTP410 confirmed. Petersen searches stopped. library_profile compiled; AND6 and20gate witness Lean sources UNVERIFIED after termination.
+
+2026-11-25T15:25:49+00:00 Recovery returned gap null: checker queue backlog. Polling continued every four minutes.
+2026-11-25T15:37:50+00:00 Fourth total null response; 521 queued, 487 checked in the last hour, estimated queue 64 minutes.
+2026-11-25T15:41:50+00:00 Poll returned L-meta-4970 with a shared-handle cap warning. One retry returned the same lease. Ownership uncertain; no work, renewal, or release on this gap. Stop under existing-lease rule.
+2026-11-25T15:45:44.660056+00:00 Final metadata archive prepared. No full proof accepted and no PR opened.

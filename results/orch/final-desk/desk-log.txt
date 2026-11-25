@@ -1,0 +1,401 @@
+2026-11-25T14:54:42.553730+00:00 REQUEST next another=1 hard=1
+2026-11-25T14:54:42.881472+00:00 RESPONSE
+{
+ "gap": {
+  "id": "L-meta-2583",
+  "title": "On a plane of order q, every fan-in-two AND/OR circuit for incidence can be replaced by a read-1 one with at most as many gates",
+  "statement": "∀ (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), 2 ≤ q → N = q ^ 2 + q + 1 → (∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) → (∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) → PEqualNP.TopForm.IsAO2 (N + N) C → (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) C z = decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 (N + N) D ∧ (∀ y : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D y = decide (∃ p l : Fin N, I p l ∧ y (Fin.castAdd N p) = true ∧ y (Fin.natAdd N l) = true)) ∧ D.size ≤ C.size ∧ PEqualNP.ReadK.IsReadK (N + N) D 1",
+  "file": "lean/PEqualNP/Outside/L_meta_2583.lean",
+  "module": "PEqualNP.Outside.L_meta_2583",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The stronger form the small cases allow: some no-larger circuit reads each point and line of a pair once.",
+  "context": "SKETCH: No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 90,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:14:42.021Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+
+2026-11-25T14:57:53.355908+00:00 BEAT RESPONSE
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:17:52.853Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:00:18.837441+00:00 BEAT RESPONSE
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:20:18.071Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:02:43.270210+00:00 BEAT RESPONSE
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:22:42.727Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:07:06.869780+00:00 BEAT RESPONSE
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T15:08:11.208245+00:00 DIAGNOSTIC RESPONSE
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 15:08:10 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 15:08:11 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BFbYPDcyXJMCsZiZGXQ6yjq3gk45uz6hnIH2spJvBjrdCAJAzmaOONHwCpc4GwZQCTYzpxFcB4HZjIo3uwqRbkT86shikrfOaC3PXB%2BBcFfpr6CCQpvXO7Iyw0u5J2Y%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a60191390f38a068-ORD
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 176
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T15:10:53.332906+00:00 REQUEST next another=1 hard=1 gap=L-meta-2583 (HTTP410 recovery)
+2026-11-25T15:10:53.571431+00:00 RECOVERY RESPONSE
+{
+ "gap": {
+  "id": "L-meta-2590",
+  "title": "A step toward: Petersen graph: no circuit of AND, OR (fan-in two) and NOT gates with at most 19 gates computes its edge function (step 1 of 2)",
+  "statement": "∀ (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 → x1.size ≤ (19 : ℕ) → ¬∀ (x4 : Fin (10 : ℕ) → Bool), x1.eval (List.ofFn x4) = (fun (x5 : Fin (10 : ℕ) → Bool) => x5 (0 : Fin (10 : ℕ)) && x5 (1 : Fin (10 : ℕ)) || x5 (1 : Fin (10 : ℕ)) && x5 (2 : Fin (10 : ℕ)) || x5 (2 : Fin (10 : ℕ)) && x5 (3 : Fin (10 : ℕ)) || x5 (3 : Fin (10 : ℕ)) && x5 (4 : Fin (10 : ℕ)) || x5 (4 : Fin (10 : ℕ)) && x5 (0 : Fin (10 : ℕ)) || x5 (0 : Fin (10 : ℕ)) && x5 (5 : Fin (10 : ℕ)) || x5 (1 : Fin (10 : ℕ)) && x5 (6 : Fin (10 : ℕ)) || x5 (2 : Fin (10 : ℕ)) && x5 (7 : Fin (10 : ℕ)) || x5 (3 : Fin (10 : ℕ)) && x5 (8 : Fin (10 : ℕ)) || x5 (4 : Fin (10 : ℕ)) && x5 (9 : Fin (10 : ℕ)) || x5 (5 : Fin (10 : ℕ)) && x5 (7 : Fin (10 : ℕ)) || x5 (7 : Fin (10 : ℕ)) && x5 (9 : Fin (10 : ℕ)) || x5 (9 : Fin (10 : ℕ)) && x5 (6 : Fin (10 : ℕ)) || x5 (6 : Fin (10 : ℕ)) && x5 (8 : Fin (10 : ℕ)) || x5 (8 : Fin (10 : ℕ)) && x5 (5 : Fin (10 : ℕ))) x4",
+  "file": "lean/PEqualNP/Outside/L_meta_2590.lean",
+  "module": "PEqualNP.Outside.L_meta_2590",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 1 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 50,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "Step 1 of 2 of a checked cut of L-meta-651. Its sibling steps: L-meta-2592. Together they give the parent; the parent's own sketch: no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). Hard and open; a conjecture, it may be false. A circuit with 19 gates refutes it and is as welcome as a proof. Known: a circuit with 20 gates exists. In-house reach (computed, not checked): split by the first gate up to the automorphisms of the graph into five cases; each case was run for ten minutes and none was decided; no circuit with 19 gates was found. ",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "unlocks_ids": [
+   "L-meta-651"
+  ],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:30:16.739Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+
+2026-11-25T15:14:43.467308+00:00 L-meta-2590 BEAT RESPONSE
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:34:43.120Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:18:41.767075+00:00 L-meta-2590 BEAT RESPONSE
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:38:41.568Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:22:24.503334+00:00 L-meta-2590 BEAT RESPONSE
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T15:23:21.054079+00:00 L-meta-2590 DIAGNOSTIC RESPONSE
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 15:23:20 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 15:23:20 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=LFyW63RDe4SjfpC1rEkAnlIVeeWmNHI8tSX3O92b7308dLu%2FNcUsqC5bBn24ZDFhRQ184S0pZRLGCRtGXT%2BlTk6hSTY7jf8HtgJJEVxGv4ikOjBn58ji%2Btt41hWSB9w%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a601a76efa64b165-ORD
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 199
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T15:25:48.788984+00:00 REQUEST next another=1 hard=1 gap=L-meta-2590 (second HTTP410 recovery)
+2026-11-25T15:25:49.137262+00:00 SECOND RECOVERY RESPONSE
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 552 were checked in the last hour, about 57 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 552,
+  "queue_minutes": 57
+ },
+ "retry_after_s": 600
+}
+
+
+2026-11-25T15:29:49.118548+00:00 POLL REQUEST next another=1 hard=1
+2026-11-25T15:29:49.419866+00:00 RESPONSE
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 519 were checked in the last hour, about 60 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 519,
+  "queue_minutes": 60
+ },
+ "retry_after_s": 600
+}
+
+
+2026-11-25T15:33:49.423910+00:00 POLL REQUEST next another=1 hard=1
+2026-11-25T15:33:49.730043+00:00 RESPONSE
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 501 were checked in the last hour, about 62 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 501,
+  "queue_minutes": 62
+ },
+ "retry_after_s": 600
+}
+
+
+2026-11-25T15:37:49.733515+00:00 POLL REQUEST next another=1 hard=1
+2026-11-25T15:37:50.012724+00:00 RESPONSE
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 487 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 487,
+  "queue_minutes": 64
+ },
+ "retry_after_s": 600
+}
+
+
+2026-11-25T15:41:50.014310+00:00 POLL REQUEST next another=1 hard=1
+2026-11-25T15:41:50.258773+00:00 RESPONSE
+{
+ "gap": {
+  "id": "L-meta-4970",
+  "title": "Bare-free T = 0: a bipartite 4-cycle-free graph's AND/OR edge-function circuit with no mixed OR, every edge served by a star OR, has >= |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' → ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) → PEqualNP.TopForm.IsAO2 (p + l) C → (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x = decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) → PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 → (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → (∃ (j : ℕ) (Q : Finset (Fin l)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ b' ∈ Q, x (Fin.natAdd p b') = true)) ∨ (∃ (j : ℕ) (P : Finset (Fin p)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ a' ∈ P, x (Fin.castAdd l a') = true))) → ∃ S : Finset (Fin (p + l)), (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧ E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4970.lean",
+  "module": "PEqualNP.Outside.L_meta_4970",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "a case of the class bound that looks within reach tonight: every edge delivered through a star OR",
+  "context": "SKETCH: A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 92,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "expires_at": "2026-11-25T16:01:33.251Z",
+  "renew": "POST /desk/beat?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 233,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T15:22:04.914Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+
+2026-11-25T15:42:26.925306+00:00 REQUEST single existing-lease retry next another=1 hard=1
+2026-11-25T15:42:27.266352+00:00 EXISTING-LEASE RETRY RESPONSE
+{
+ "gap": {
+  "id": "L-meta-4970",
+  "title": "Bare-free T = 0: a bipartite 4-cycle-free graph's AND/OR edge-function circuit with no mixed OR, every edge served by a star OR, has >= |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' → ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) → PEqualNP.TopForm.IsAO2 (p + l) C → (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x = decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) → PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 → (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → (∃ (j : ℕ) (Q : Finset (Fin l)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ b' ∈ Q, x (Fin.natAdd p b') = true)) ∨ (∃ (j : ℕ) (P : Finset (Fin p)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ a' ∈ P, x (Fin.castAdd l a') = true))) → ∃ S : Finset (Fin (p + l)), (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧ E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4970.lean",
+  "module": "PEqualNP.Outside.L_meta_4970",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "a case of the class bound that looks within reach tonight: every edge delivered through a star OR",
+  "context": "SKETCH: A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 92,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "expires_at": "2026-11-25T16:02:04.438Z",
+  "renew": "POST /desk/beat?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 233,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T15:22:04.914Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+

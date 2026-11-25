@@ -1,0 +1,30 @@
+{
+  "read_at_utc": "2026-11-25T15:28:12.571499+00:00",
+  "head_generated_at": "2026-11-25T15:26:55.201Z",
+  "head_url": "https://data.pequalnp.com/head.json",
+  "overview_url": "https://data.pequalnp.com/data/map/overview.86d0b32fe76e.json",
+  "program_url": "https://data.pequalnp.com/data/map/program/meta_complexity.c19330a03f54.json",
+  "rows": {
+    "2583": [
+      2583,
+      "j",
+      [],
+      "567fbafe0560",
+      1795510808,
+      0,
+      -1
+    ],
+    "2590": [
+      2590,
+      "j",
+      [],
+      "e52ef820c846",
+      1795510890,
+      0,
+      -1
+    ]
+  },
+  "status": "Both conjecture (j); neither checked, refuted, retired, or in_work in this public snapshot.",
+  "unchanged_since_1452_snapshot": true,
+  "interpretation": "Public map does not establish why desk renewals returned HTTP410. No cause inferred."
+}

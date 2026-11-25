@@ -1,0 +1,25 @@
+{
+  "read_at_utc": "2026-11-25T15:40:26.168478+00:00",
+  "source": "https://data.pequalnp.com/data/desk/gaps.json",
+  "updated_at": "2026-11-25T15:38:08.801Z",
+  "open_rows": 1588,
+  "fin10_rows_examined": 143,
+  "readk_open_ids": [
+    "L-meta-2582",
+    "L-meta-4895",
+    "L-meta-5180",
+    "L-meta-8947",
+    "L-meta-2583",
+    "L-meta-2584",
+    "L-meta-2585"
+  ],
+  "already_checked_component_sources": [
+    "L-meta-2988",
+    "L-meta-3692",
+    "L-meta-6369",
+    "L-meta-6579",
+    "L-meta-7684"
+  ],
+  "result": "No exact open posted match found for preserved compiled components. In particular no Petersen residual-cover profile statement is posted, and read-one cover-bound source L-meta-6369 is already checked. The open ReadK statements still demand the unresolved size-preserving normalization or unrelated lower bounds. No valid have=proof candidate identified.",
+  "activity": "Read-only public statement comparison; no new proof development, builds, or desk lease calls."
+}
