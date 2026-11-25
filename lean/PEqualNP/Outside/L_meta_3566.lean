@@ -42,4 +42,28 @@ lemma monotone_graph_boundary {n : ℕ} (G : SimpleGraph (Fin n))
       cases heq : f x <;> simp_all [Bool.le_iff_imp]
     simp [PEqualNP.MetaComplexity.NestedCover.graphFun, hfx, hx]
 
+lemma positive_closure {ι α β : Type*} (P : ι → Set α) (N : ι → Set β) (J : Set ι) :
+    let S := ⋂ i ∈ J, P i
+    let K := {i | S ⊆ P i}
+    J ⊆ K ∧ (⋂ i ∈ K, P i) = S ∧ (⋂ i ∈ K, N i) ⊆ ⋂ i ∈ J, N i := by
+  dsimp only
+  have hJK : J ⊆ {i | (⋂ j ∈ J, P j) ⊆ P i} := by
+    intro i hi x hx
+    simp only [Set.mem_iInter] at hx
+    exact hx i hi
+  refine ⟨hJK, ?_, ?_⟩
+  · apply Set.Subset.antisymm
+    · intro x hx
+      simp only [Set.mem_iInter] at hx ⊢
+      intro i hi
+      exact hx i (hJK hi)
+    · intro x hx
+      simp only [Set.mem_iInter]
+      intro i hi
+      exact hi hx
+  · intro x hx
+    simp only [Set.mem_iInter] at hx ⊢
+    intro i hi
+    exact hx i (hJK hi)
+
 end PEqualNP.Outside.L_meta_3566
