@@ -13,8 +13,8 @@ The final file preserves normalization/coefficient lemmas, C4 interfaces and sca
 The initial special L-meta-1035 was already resolved; the earlier own L-meta-2448 lease was withdrawn with410. Its checked partials were preserved before work moved to the current own L-gct-231 lease. Recovery polling returned15nulls; exact messages/counts are in results/orch/recovery-null-summary.json. The last exact message was:
 No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes.
 
-Delivery: all checked sources, full build/checker/axiom output, exact certificates, independent reviews and research history are preserved on origin branch pnp/pilot-75. Lease release is pending after this final pre-release preservation push; only own L-gct-231 will be released with out_of_time.
+Delivery: all checked sources, full build/checker/axiom output, exact certificates, independent reviews and research history are preserved on origin branch pnp/pilot-75. Own L-gct-231 lease was released with out_of_time at 2026-11-25T13:01:00.796328+00:00. The desk explicitly confirmed released=L-gct-231; the heartbeat stopped before release. No other lease was released.
 
 Sub-agents:8(status_review,structural_proof,library_route,finite_cases,lean_setup,global_normal_form,fresh_main_proof,fresh_main_proof/c3_review)
-TIMING total=357.3 subagents=8
+TIMING total=358.9 subagents=8
 Message ID acknowledged:msg-8f0f42bb760e4ee78f16c6cd

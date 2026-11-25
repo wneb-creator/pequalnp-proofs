@@ -48,3 +48,89 @@
 2026-11-25T09:35:14.431289+00:00 {"gap": {"id": "L-gct-231", "title": "Probe: a three-dimensional space of 4 x 4 complex symmetric matrices keeps the permanent of the all-ones matrix plus it at 24", "statement": "∃ L : Submodule ℂ (Fin 4 × Fin 4 → ℂ), Module.finrank ℂ L = 3 ∧ (∀ t ∈ L, ∀ i j : Fin 4, t (i, j) = t (j, i)) ∧ ∀ t ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i, j)) = 24", "file": "lean/PEqualNP/Outside/L_gct_231.lean", "module": "PEqualNP.Outside.L_gct_231", "imports": ["PEqualNP.Defs"], "unlocks": "the scouts map: permanent level spaces at n = 4", "context": "SKETCH: a breadth probe from the scouts' map (plan/README.md, the scouts' map table); its negated twin is on the desk too, and either answer is wanted; the scout's notes are in barriers/l037/STATE.md, the 22:45 and 23:10 UTC scout-probe entries. Size: 30 to 60 minutes; a polynomial identity on a level space or its negation. No sorry, no new axiom. Own namespace for every declaration.", "dead": [], "weight": 30, "parallel": 3, "lane": "main", "depth": 0, "sketch": "a breadth probe from the scouts' map (plan/README.md, the scouts' map table); its negated twin is on the desk too, and either answer is wanted; the scout's notes are in barriers/l037/STATE.md, the 22:45 and 23:10 UTC scout-probe entries. Size: 30 to 60 minutes; a polynomial identity on a level space or its negation. No sorry, no new axiom. Own namespace for every declaration.", "pr_open": 0, "pr_numbers": []}, "holding": 5, "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"}
 2026-11-25T09:36:05.311402+00:00 {"lease": {"expires_at": "2026-11-25T09:56:05.162Z"}}
 2026-11-25T09:41:23.422604+00:00 {"lease": {"expires_at": "2026-11-25T10:01:23.296Z"}}
+2026-11-25T09:44:05.845405+00:00 {"lease": {"expires_at": "2026-11-25T10:04:05.667Z"}}
+2026-11-25T09:46:44.535710+00:00 {"lease": {"expires_at": "2026-11-25T10:06:44.369Z"}}
+2026-11-25T09:52:00.924683+00:00 {"lease": {"expires_at": "2026-11-25T10:12:00.763Z"}}
+2026-11-25T09:52:06.558050+00:00 {"lease": {"expires_at": "2026-11-25T10:12:06.163Z"}}
+2026-11-25T09:57:20.970771+00:00 {"lease": {"expires_at": "2026-11-25T10:17:20.805Z"}}
+2026-11-25T10:00:06.901237+00:00 {"lease": {"expires_at": "2026-11-25T10:20:06.683Z"}}
+2026-11-25T10:04:16.616854+00:00 {"lease": {"expires_at": "2026-11-25T10:24:16.427Z"}}
+2026-11-25T10:06:27.906426+00:00 {"lease": {"expires_at": "2026-11-25T10:26:27.722Z"}}
+2026-11-25T10:08:07.312619+00:00 {"lease": {"expires_at": "2026-11-25T10:28:07.177Z"}}
+2026-11-25T10:15:13.462452+00:00 {"lease": {"expires_at": "2026-11-25T10:35:13.312Z"}}
+2026-11-25T10:15:59.516410+00:00 {"lease": {"expires_at": "2026-11-25T10:35:59.367Z"}}
+2026-11-25T10:16:07.694621+00:00 {"lease": {"expires_at": "2026-11-25T10:36:07.525Z"}}
+2026-11-25T10:23:29.034601+00:00 {"lease": {"expires_at": "2026-11-25T10:43:28.853Z"}}
+2026-11-25T10:24:07.984536+00:00 {"lease": {"expires_at": "2026-11-25T10:44:07.863Z"}}
+2026-11-25T10:26:44.114186+00:00 {"lease": {"expires_at": "2026-11-25T10:46:43.905Z"}}
+2026-11-25T10:30:30.008305+00:00 {"lease": {"expires_at": "2026-11-25T10:50:29.812Z"}}
+2026-11-25T10:32:08.300321+00:00 {"lease": {"expires_at": "2026-11-25T10:52:08.154Z"}}
+2026-11-25T10:35:30.085499+00:00 {"lease": {"expires_at": "2026-11-25T10:55:29.889Z"}}
+2026-11-25T10:40:08.760941+00:00 {"lease": {"expires_at": "2026-11-25T11:00:08.586Z"}}
+2026-11-25T10:40:52.786955+00:00 {"lease": {"expires_at": "2026-11-25T11:00:52.635Z"}}
+2026-11-25T10:42:23.893166+00:00 {"lease": {"expires_at": "2026-11-25T11:02:23.722Z"}}
+2026-11-25T10:48:09.173217+00:00 {"lease": {"expires_at": "2026-11-25T11:08:08.954Z"}}
+2026-11-25T10:48:46.421058+00:00 {"lease": {"expires_at": "2026-11-25T11:08:46.263Z"}}
+2026-11-25T10:55:03.895577+00:00 {"lease": {"expires_at": "2026-11-25T11:15:03.749Z"}}
+2026-11-25T10:56:09.929981+00:00 {"lease": {"expires_at": "2026-11-25T11:16:09.283Z"}}
+2026-11-25T10:57:13.920651+00:00 {"lease": {"expires_at": "2026-11-25T11:17:13.750Z"}}
+2026-11-25T10:59:27.064829+00:00 {"lease": {"expires_at": "2026-11-25T11:19:26.864Z"}}
+2026-11-25T11:01:25.623838+00:00 {"lease": {"expires_at": "2026-11-25T11:21:25.471Z"}}
+2026-11-25T11:02:24.501851+00:00 {"lease": {"expires_at": "2026-11-25T11:22:24.353Z"}}
+2026-11-25T11:03:29.663938+00:00 {"lease": {"expires_at": "2026-11-25T11:23:29.482Z"}}
+2026-11-25T11:04:10.296233+00:00 {"lease": {"expires_at": "2026-11-25T11:24:10.091Z"}}
+2026-11-25T11:07:35.547306+00:00 {"lease": {"expires_at": "2026-11-25T11:27:35.367Z"}}
+2026-11-25T11:08:17.938282+00:00 {"lease": {"expires_at": "2026-11-25T11:28:17.773Z"}}
+2026-11-25T11:12:09.279014+00:00 {"lease": {"expires_at": "2026-11-25T11:32:09.150Z"}}
+2026-11-25T11:12:10.652554+00:00 {"lease": {"expires_at": "2026-11-25T11:32:10.516Z"}}
+2026-11-25T11:13:52.861335+00:00 {"lease": {"expires_at": "2026-11-25T11:33:52.299Z"}}
+2026-11-25T11:15:50.356871+00:00 {"lease": {"expires_at": "2026-11-25T11:35:50.218Z"}}
+2026-11-25T11:16:38.486179+00:00 {"lease": {"expires_at": "2026-11-25T11:36:38.339Z"}}
+2026-11-25T11:19:18.830471+00:00 {"lease": {"expires_at": "2026-11-25T11:39:18.675Z"}}
+2026-11-25T11:20:11.094165+00:00 {"lease": {"expires_at": "2026-11-25T11:40:10.861Z"}}
+2026-11-25T11:20:36.383297+00:00 {"lease": {"expires_at": "2026-11-25T11:40:36.206Z"}}
+2026-11-25T11:21:10.252001+00:00 {"lease": {"expires_at": "2026-11-25T11:41:10.052Z"}}
+2026-11-25T11:23:42.888030+00:00 {"lease": {"expires_at": "2026-11-25T11:43:42.757Z"}}
+2026-11-25T11:24:36.168708+00:00 {"lease": {"expires_at": "2026-11-25T11:44:35.990Z"}}
+2026-11-25T11:27:40.949423+00:00 {"lease": {"expires_at": "2026-11-25T11:47:40.833Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:28:11.457958+00:00 {"lease": {"expires_at": "2026-11-25T11:48:11.319Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:31:53.082377+00:00 {"lease": {"expires_at": "2026-11-25T11:51:52.899Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:32:13.300204+00:00 {"lease": {"expires_at": "2026-11-25T11:52:13.073Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:32:49.373840+00:00 {"lease": {"expires_at": "2026-11-25T11:52:49.203Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:34:28.492563+00:00 {"lease": {"expires_at": "2026-11-25T11:54:28.271Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:36:13.661201+00:00 {"lease": {"expires_at": "2026-11-25T11:56:13.478Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:36:26.101784+00:00 {"lease": {"expires_at": "2026-11-25T11:56:25.801Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:39:33.650843+00:00 {"lease": {"expires_at": "2026-11-25T11:59:33.494Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:40:13.980137+00:00 {"lease": {"expires_at": "2026-11-25T12:00:13.819Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:44:08.926582+00:00 {"lease": {"expires_at": "2026-11-25T12:04:08.762Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:44:14.289322+00:00 {"lease": {"expires_at": "2026-11-25T12:04:14.024Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:48:14.692185+00:00 {"lease": {"expires_at": "2026-11-25T12:08:14.446Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:48:19.032863+00:00 {"lease": {"expires_at": "2026-11-25T12:08:18.786Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:52:15.082965+00:00 {"lease": {"expires_at": "2026-11-25T12:12:14.865Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T11:56:15.549620+00:00 {"lease": {"expires_at": "2026-11-25T12:16:15.384Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:00:15.925636+00:00 {"lease": {"expires_at": "2026-11-25T12:20:15.770Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:01:23.461813+00:00 {"lease": {"expires_at": "2026-11-25T12:21:23.243Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:03:14.453238+00:00 {"lease": {"expires_at": "2026-11-25T12:23:14.246Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:04:16.315291+00:00 {"lease": {"expires_at": "2026-11-25T12:24:15.948Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:08:16.694820+00:00 {"lease": {"expires_at": "2026-11-25T12:28:16.281Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:10:22.512555+00:00 {"lease": {"expires_at": "2026-11-25T12:30:22.234Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:12:17.111249+00:00 {"lease": {"expires_at": "2026-11-25T12:32:16.726Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:14:28.613717+00:00 {"lease": {"expires_at": "2026-11-25T12:34:28.074Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:16:17.473262+00:00 {"lease": {"expires_at": "2026-11-25T12:36:16.912Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:20:17.858015+00:00 {"lease": {"expires_at": "2026-11-25T12:40:17.470Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:20:36.038169+00:00 {"lease": {"expires_at": "2026-11-25T12:40:35.618Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:24:18.150007+00:00 {"lease": {"expires_at": "2026-11-25T12:44:17.742Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:28:18.532996+00:00 {"lease": {"expires_at": "2026-11-25T12:48:18.296Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:29:41.823059+00:00 {"lease": {"expires_at": "2026-11-25T12:49:41.583Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:32:18.905700+00:00 {"lease": {"expires_at": "2026-11-25T12:52:18.468Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:36:19.262262+00:00 {"lease": {"expires_at": "2026-11-25T12:56:19.062Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:36:29.656915+00:00 {"lease": {"expires_at": "2026-11-25T12:56:29.260Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:40:20.846229+00:00 {"lease": {"expires_at": "2026-11-25T13:00:19.423Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:43:15.028295+00:00 {"lease": {"expires_at": "2026-11-25T13:03:14.585Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:44:21.186161+00:00 {"lease": {"expires_at": "2026-11-25T13:04:20.838Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:48:21.587833+00:00 {"lease": {"expires_at": "2026-11-25T13:08:21.279Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:48:48.250312+00:00 {"lease": {"expires_at": "2026-11-25T13:08:47.924Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:52:21.968036+00:00 {"lease": {"expires_at": "2026-11-25T13:12:21.699Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T12:56:22.368116+00:00 {"lease": {"expires_at": "2026-11-25T13:16:21.823Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T13:00:22.851612+00:00 {"lease": {"expires_at": "2026-11-25T13:20:22.373Z", "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved."}, "next_beat_s": 300}
+2026-11-25T13:01:00.796328+00:00 {"utc": "2026-11-25T13:01:00.796328+00:00", "gap": "L-gct-231", "reason": "out_of_time", "curl_returncode": 0, "response": {"released": "L-gct-231", "reason": "out_of_time"}, "stderr": ""}

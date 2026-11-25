@@ -13,7 +13,7 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=357.3 subagents=8
+TIMING total=358.9 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
 CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.
@@ -63,3 +63,5 @@ Checker09 completedexit1 REJECTED(no-theorem); fullfinaloutput preserved underin
 Final named integration10PASS:3133lines504298bytes,oneouterauxnamespace,independentroot+c3 source/format reviewPASS. Build227s/6687jobs, all326declarations axiomauditedstandardthree; fulloutputs preserved. Checker10runningatcheckpoint. Finalcleanupnotperformed becausemainproof/acceptanceabsent; final3133linesbeforeandaftercleanupstatus. Separate twoaxisreducedscalarcontradictions compiled/auditedPASS45.38s andactualsource/archive independentlyreviewed; geometriccoverage remainsunformalized. Generic coefficient-list API compiled/audited/reviewedPASS; concrete modular norm attempts remainoutsidefinalmain.
 
 Final checker10terminal:REJECTED(no-theorem),exit1. FinalredteamPASS_FOR_PRESERVATION_ONLY; no fullresult/PR. Allcheckedcomponents are archived; full case2/case3compactnorm wrappers remainuncheckedafterlimits. Lastchecked source3133lines/504298bytes,all326axiomqueriesstandard. Finalcleanupnotperformed,3133→3133. Ownlease releasependingfinalpreservationpush.
+
+FINAL DELIVERY: own L-gct-231 releasedout_of_time at2026-11-25T13:01:00.796328+00:00,explicitdeskconfirmation. Heartbeatstopped. Nootherlease released. Lastsource-preservationcommit acc6b7d12039ca00e70ffa328d0f8b39e26c8363; finalnamed3133lines/504298bytes,f5508fba…,buildPASS/all326axiomsstandard,checkerREJECTED(no-theorem). NoPR. SeeFINAL-REPORT.md andlease-release.json.

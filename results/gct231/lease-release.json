@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T13:01:00.796328+00:00",
+  "gap": "L-gct-231",
+  "reason": "out_of_time",
+  "curl_returncode": 0,
+  "response": {
+    "released": "L-gct-231",
+    "reason": "out_of_time"
+  },
+  "stderr": ""
+}
