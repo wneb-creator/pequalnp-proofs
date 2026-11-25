@@ -1,0 +1,41 @@
+{
+  "reviewer": "/root/status_review",
+  "reviewed_at": "2026-11-25T06:02:45.633591+00:00",
+  "named_baseline_only_difference_from_audited_public_source": "247 attribution comment bytes",
+  "named_source_sha256": "1c31cfa39cea4936c1e20b0cfa430ec063d9f8cbfa5d443d9916947958146872",
+  "named_sha256": "e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22",
+  "flat_candidate_sha256": "95ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4",
+  "flat_minification_exact_forward_and_inverse": true,
+  "renamed_identifiers": 1326,
+  "flat_readable_sha256": "943af5881f9234c9f288c26bbaddce6226e1e470dc5209ec0271ebd4f1123daf",
+  "record_conversion_exact_inverse": true,
+  "record_replacements": 13,
+  "flat_data_source_sha256": "9cb7708908b59feedbdfabe22663b6ecd9cd4483608cf1ba5a64b987df2527a9",
+  "checked_logs": [
+    {
+      "source": "lean/PEqualNP/Outside/L_meta_670.lean",
+      "sha256": "e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22",
+      "metadata": "results/orch/named-baseline-build1.json",
+      "log": "results/orch/named-baseline-build1.log",
+      "exit_code": 0,
+      "error_lines": 0
+    },
+    {
+      "source": "results/orch/lemmas/PlainRecords12203Prefix.lean",
+      "sha256": "703bbe152853d4496e15861348db10699521f101e7fa37e2a89589e722bfcdca",
+      "metadata": "results/orch/plain-records12203-prefix-2.json",
+      "log": "results/orch/plain-records12203-prefix-2.log",
+      "exit_code": 0,
+      "error_lines": 0
+    },
+    {
+      "source": "results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean",
+      "sha256": "9efdec78d1e1c931a56eeab954b5a867fd8a930f955bef412ad914b53bf02cdf",
+      "metadata": "results/orch/plain-records12203-minified-prefix.json",
+      "log": "results/orch/plain-records12203-minified-prefix.log",
+      "exit_code": 0,
+      "error_lines": 0
+    }
+  ],
+  "checker_limitation": "Full checker verdict pending for the exact selected final source; static source audit and prefix/build results alone do not establish recursive axiom/replay acceptance."
+}

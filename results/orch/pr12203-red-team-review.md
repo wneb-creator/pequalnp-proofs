@@ -36,3 +36,9 @@ The frozen attributed original-depth candidate has only 239 additional comment b
 
 Reviewed UTC: 2026-11-25T05:22:33.559468+00:00
 Reviewer: /root/status_review, with independent KW/panel review from /root/normalization.
+
+## Subsequent compilation and plain-file classification
+
+Toolchain reported the frozen attributed original-depth source compiled fully with exit zero in1,042.562 seconds. This validates the complete proof and numerical branches locally, while the repository checker and recursive axiom audit remain separate.
+
+This source is **not automatically plain-file eligible**: KWRooms,FreeRooms,SingleFactor,and PanelProof are custom structures. CONTRIBUTING.md rule5 states: “A file that declares its own data type or instance is not merged by the program: it waits for a person to read it.” Passing checkPlain/checkProofFile does not remove that requirement. The mathematical review remains PASS; manual review or a separately checked conversion to existing types is required for the plain-file path.

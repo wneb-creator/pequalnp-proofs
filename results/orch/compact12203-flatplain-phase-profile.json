@@ -1,0 +1,18 @@
+{
+  "status": "full run passed",
+  "source_sha256": "95ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4",
+  "wholegraph_boundary_line": 6242,
+  "phase_kernel_stages": {
+    "shared": {
+      "count": 376,
+      "seconds": 406.45,
+      "maximum_seconds": 48.2
+    },
+    "wholegraph_and_final": {
+      "count": 422,
+      "seconds": 627.29,
+      "maximum_seconds": 12.9
+    }
+  },
+  "limitation": "Anonymous completed kernel stages grouped by source-warning boundaries; asynchronous elaboration may blur phase boundaries; no exact declaration attribution."
+}

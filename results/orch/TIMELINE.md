@@ -82,3 +82,5 @@
 - 2026-11-25 05:49:12 UTC: heartbeat returnedHTTP410 before advertised06:01expiry; diagnostic exact-repeat recorded; newproofwork paused and owned heartbeat stopped.
 
 - 2026-11-25T06:00:26Z: exact namedmodule lakebuild passed exit0; source unchanged.
+
+- 2026-11-25 06:18:10 UTC — Frozen completed-before-410 Compact12203FlatPlainCandidate.lean (SHA256 95ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4, 512092 bytes) full replay PASS, exit 0. Wall 1137.657s; user 1079.581s; system 107.000s; peak RSS 5441972 KiB; CPUs 0–1 with -j3; explicit olean 21429456 bytes. Complete log and metadata preserved in results/orch. This is full mathematical replay; local checker verdict remains pending.

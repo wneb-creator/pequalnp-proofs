@@ -210,5 +210,17 @@
   "github_url": "https://github.com/open-goat/pequalnp-proofs/pull/12203",
   "panels_independent_peer": "results/orch/pr12203-panels-independent.json",
   "verdict": "PASS: independent static and mathematical source review; complete kernel replay/checker pending",
-  "reviewed_at": "2026-11-25T05:22:33.559468+00:00"
+  "reviewed_at": "2026-11-25T05:22:33.559468+00:00",
+  "full_compilation_reported": {
+    "exit_code": 0,
+    "wall_seconds": 1042.562
+  },
+  "automatic_plain_file_eligible": false,
+  "custom_structures": [
+    "KWRooms",
+    "FreeRooms",
+    "SingleFactor",
+    "PanelProof"
+  ],
+  "plain_file_rule": "CONTRIBUTING.md rule5: custom data types wait for manual review"
 }

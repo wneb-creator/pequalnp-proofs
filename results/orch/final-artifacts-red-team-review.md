@@ -1,0 +1,18 @@
+Independent review by /root/status_review, 2026-11-25 06:02 UTC.
+
+Verdict: PASS for source integrity, mathematical source review, and the current static proof-file rules for both frozen artifacts. Full checker acceptance remains pending; this report is not a checker verdict.
+
+| Artifact | SHA-256 | Bytes | Margin below 512 KiB |
+| --- | --- | ---: | ---: |
+| `lean/PEqualNP/Outside/L_meta_670.lean` | `e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22` | 516783 | 7505 |
+| `results/orch/lemmas/Compact12203FlatPlainCandidate.lean` | `95ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4` | 512092 | 12196 |
+
+Both exact files pass the current exported `checkProofFile` and `checkFileKind` guards for module `PEqualNP.Outside.L_meta_670` and proof kind `check`. Each imports only `PEqualNP.Defs`; its final, fully qualified theorem is textually identical to the recorded posted statement, with nine inputs, the twelve specified edges, and gate budget 15. Helpers remain in the owned namespace. Both are regular, non-executable UTF-8 files. Neither contains custom data-type or instance declarations, attributes, forbidden text, strings, axioms, or kernel-bypass commands. Their only options are permitted numeric recursion/heartbeat limits in the required scoped form. Both meet CONTRIBUTING's automatic plain-file source requirements, unlike the earlier unconverted PR12203 source.
+
+The named baseline differs from the previously audited public PR12184 source only by 247 attribution-comment bytes. Its exact hash matches the completed local `lake build` metadata: exit 0, 1483.247 seconds, source unchanged, no error lines in the full saved log. Credit to benoitrazet, public revision `23cfcb8f020d4c1dfbf6b54a16284e8f1a932234`, and the original Apache-2.0 antecedents is retained. The prior source-level mathematical review applies without a proof-body or certificate change.
+
+For the flat/plain artifact, independently reversing all 1326 identifier renamings restores the exact readable source, and reversing the 13 record-conversion replacements restores the independently audited flat-data source. The prior inverse/name-collision audit checks imported identifiers as well as local names. The library-type encodings preserve all original fields and proof obligations, including dependent room witnesses; they add no assumptions. Both original-name and minified generic prefixes have matching source hashes and completed exit-0 logs. The flat-table audit independently replayed all 4021 node records and 15599 ordered hints; only certificate representation changes, with unchanged theorem bodies at that stage. The mathematical KW/panel and whole-circuit reviews remain applicable. Credit to 0xshuzo, public revision `0d2bbcdeb511ffff33552e155db3526648d8575b`, and the original Apache-2.0 antecedents is retained.
+
+No new source edits, proof search, or Lean builds were performed for this review. Evidence is recorded in `final-artifacts-red-team-static.json`, `final-artifacts-red-team-coherence.json`, `flat12203-independent-semantic-review.md`, the prior PR12184/PR12203 mathematical reviews, and the record/minification review reports.
+
+Before submission, the selected exact artifact still needs a successful full `tools/check-lean.mjs` verdict, including recursive project-declaration replay, the axiom whitelist, and statement equality in the independent definitions environment. The flat/plain artifact's complete final replay was pending at review time. The PR must separately add exactly the named Lean file with Git mode 100644 and no artifacts or other changes, and the gap must remain posted. An old-source build or a static guard pass does not substitute for these checks.
