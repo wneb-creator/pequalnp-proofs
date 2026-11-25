@@ -236,4 +236,94 @@ lemma packed_search_sound
       _ = (junk graph C).card := Fintype.card_coe _
 
 
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+abbrev graph := edgeGraph 11 (edges.map fun e => (e.1.val,e.2.val))
+
+set_option maxRecDepth 8192 in
+lemma graph_formula (x : Fin 11 → Bool) :
+    graphFun graph ∅ x = edges.any (fun e => x e.1 && x e.2) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false,
+    decide_false, Bool.false_or, decide_eq_true_eq, List.any_eq_true, Bool.and_eq_true]
+  constructor
+  · rintro ⟨u,v,⟨hne,hm⟩,hu,hv⟩
+    rcases hm with hm | hm
+    · obtain ⟨e,he,eq⟩ := List.mem_map.mp hm
+      have ha : e.1 = u := Fin.ext (congrArg Prod.fst eq)
+      have hb : e.2 = v := Fin.ext (congrArg Prod.snd eq)
+      exact ⟨e,he,ha.symm ▸ hu,hb.symm ▸ hv⟩
+    · obtain ⟨e,he,eq⟩ := List.mem_map.mp hm
+      have ha : e.1 = v := Fin.ext (congrArg Prod.fst eq)
+      have hb : e.2 = u := Fin.ext (congrArg Prod.snd eq)
+      exact ⟨e,he,ha.symm ▸ hv,hb.symm ▸ hu⟩
+  · rintro ⟨e,he,ha,hb⟩
+    have noloop : ∀ f ∈ edges, f.1 ≠ f.2 := by decide
+    exact ⟨e.1,e.2,⟨noloop e he,Or.inl (List.mem_map.mpr ⟨e,he,rfl⟩)⟩,ha,hb⟩
+
+lemma negative_independent (m : ℕ) (hm : m ∈ negatives) :
+    graphFun graph ∅ (fun i : Fin 11 => m.testBit i.val) = false := by
+  rw [graph_formula]
+  have h : ∀ m ∈ negatives,
+      edges.any (fun e => m.testBit e.1.val && m.testBit e.2.val) = false := by decide
+  exact h m hm
+
+lemma gate_up (C : Circuit) (hm : Monotone2 C) (j : ℕ) {x y : Fin 11 → Bool}
+    (h : ∀ i, x i = true → y i = true) :
+    gateVal 11 C j x = true → gateVal 11 C j y = true := by
+  apply wire_mono C hm (List.ofFn x) (List.ofFn y) (by simp) _ (11+j)
+  intro k hk
+  by_cases hlt : k < 11
+  · rw [List.getD_eq_getElem _ _ (by simpa using hlt)] at hk ⊢
+    simp only [List.getElem_ofFn] at hk ⊢
+    exact h ⟨k,hlt⟩ hk
+  · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_lt hlt)] at hk
+    cases hk
+
+lemma junk_iff_samples (C : Circuit) (hm : Monotone2 C) (j : ℕ) :
+    j ∈ junk graph C ↔ j < C.gates.length ∧ (gateAt C j).op = GateOp.and ∧
+      ∃ m ∈ negatives, gateVal 11 C j (fun i : Fin 11 => m.testBit i.val) = true := by
+  change j ∈ (Finset.range C.gates.length).filter (fun k => IsDirtyAnd 11 graph C k) ↔ _
+  rw [Finset.mem_filter, Finset.mem_range]
+  unfold IsDirtyAnd IsDirty
+  constructor
+  · rintro ⟨hj,hop,hj',x,hx,hf⟩
+    rw [graph_formula] at hf
+    obtain ⟨m,hm',hsub⟩ := covered x hf
+    exact ⟨hj,hop,m,hm',gate_up C hm j hsub hx⟩
+  · rintro ⟨hj,hop,m,hm',hv⟩
+    exact ⟨hj,hop,hj,_,hv,negative_independent m hm'⟩
+
+
+
+lemma three_junk_samples (C : Circuit) (hm : Monotone2 C)
+    (h : 3 ≤ (junk graph C).card) :
+    ∃ d : Fin 3 → Fin C.gates.length, ∃ m : Fin 3 → ℕ,
+      Function.Injective d ∧ ∀ i,
+        m i ∈ negatives ∧ (gateAt C (d i).val).op = GateOp.and ∧
+        gateVal 11 C (d i).val (fun v : Fin 11 => (m i).testBit v.val) = true := by
+  classical
+  let S := junk graph C
+  have hc : 3 ≤ Fintype.card ↥S := by simpa [S] using h
+  let f (i : Fin 3) : ↥S :=
+    (Fintype.equivFin ↥S).symm ⟨i.val,lt_of_lt_of_le i.isLt hc⟩
+  have hf : Function.Injective f := by
+    intro i j eq
+    apply Fin.ext
+    have hv := congrArg (fun a : ↥S => ((Fintype.equivFin ↥S) a).val) eq
+    simpa [f] using hv
+  have props (i : Fin 3) := (junk_iff_samples C hm (f i).val).mp (f i).property
+  let d (i : Fin 3) : Fin C.gates.length := ⟨(f i).val,(props i).1⟩
+  have witness (i : Fin 3) : ∃ m ∈ negatives,
+      gateVal 11 C (d i).val (fun v : Fin 11 => m.testBit v.val) = true := (props i).2.2
+  choose m hm' hv using witness
+  refine ⟨d,m,?_,?_⟩
+  · intro i j eq
+    apply hf
+    exact Subtype.ext (congrArg Fin.val eq)
+  · intro i
+    exact ⟨hm' i,(props i).2.1,hv i⟩
+
+
 end PEqualNP.Outside.L_meta_8032

@@ -1,10 +1,10 @@
 L-meta-8032 partial backup only.
 File: lean/PEqualNP/Outside/L_meta_8032.lean
-Lines: 239.
+Lines: 329.
 Build: lake build PEqualNP.Outside.L_meta_8032, exit 0.
 Build completed successfully.
 Full stdout/stderr preserved beside this file.
-Checker: not run; final named theorem is absent, so this is not a completed proof.
-Independent review: PASS for exact-test and packed-certificate partials (status_review).
+Checker: final named theorem absent; text guard reports only missing theorem. Not a completed proof.
+Independent review: PASS for test completeness, packed-certificate soundness, sampled junk equivalence, and three distinct junk witnesses (status_review).
 Sub-agents: status_review; toolchain_setup; structural_bound; finite_search; counterexample; finite_search/sat_encode
-TIMING total=31.9 subagents=6
+TIMING total=34.7 subagents=6
