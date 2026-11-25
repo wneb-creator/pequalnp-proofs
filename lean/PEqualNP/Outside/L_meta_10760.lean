@@ -291,18 +291,17 @@ lemma compile {goal : BitVec width} (nonzero : goal ≠ 0) (nonones : goal ≠ ~
 lemma bound_from_samples {inputCount budget : Nat} {goal : BitVec width}
     (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
     (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (roots : Finset (BitVec width)) (represented : ∀ u ∈ ins, holds roots u)
     (inputLength : ins.length = inputCount)
     (row : ∀ j : Fin width,
       target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
     (rejection : ∀ z, z = goal ∨ z = ~~~goal →
-      ¬ build basicOps z budget ins.toFinset)
+      ¬ build basicOps z budget roots)
     (gs : List Gate) (out : Nat) (legalGates : ∀ g ∈ gs, legal g)
     (computes : ∀ x : Fin inputCount → Bool,
       Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x) :
     budget < binaryCost gs := by
   by_contra! low
-  have initial : ∀ u ∈ ins, holds ins.toFinset u := fun u hu =>
-    .inr (.inr ⟨u, List.mem_toFinset.mpr hu, .inl rfl⟩)
   have evaluate (k : Fin width) :
       (gs.foldl step (ins.map (bit k))).getD out false = bit k goal := by
     let x (i : Fin inputCount) : Bool := bit k (ins.getD i.val 0)
@@ -316,10 +315,10 @@ lemma bound_from_samples {inputCount budget : Nat} {goal : BitVec width}
     change Circuit.eval ⟨gs, out⟩ (ins.map (bit k)) = bit k goal
     rw [← same, computes]
     exact row k
-  obtain ⟨z, hz, run⟩ := compile nonzero nonones gs out legalGates ins ins.toFinset
-    initial evaluate
-  have lift {a b : Nat} (h : a ≤ b) (hr : build basicOps z a ins.toFinset) :
-      build basicOps z b ins.toFinset := by
+  obtain ⟨z, hz, run⟩ := compile nonzero nonones gs out legalGates ins roots
+    represented evaluate
+  have lift {a b : Nat} (h : a ≤ b) (hr : build basicOps z a roots) :
+      build basicOps z b roots := by
     induction h with
     | refl => exact hr
     | step _ ih => exact Or.inl ih
@@ -328,11 +327,12 @@ lemma bound_from_samples {inputCount budget : Nat} {goal : BitVec width}
 lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec width}
     (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
     (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (roots : Finset (BitVec width)) (represented : ∀ u ∈ ins, holds roots u)
     (inputLength : ins.length = inputCount)
     (row : ∀ j : Fin width,
       target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
     (rejection : ∀ z, z = goal ∨ z = ~~~goal →
-      ¬ build basicOps z (replacementSize - 2) ins.toFinset)
+      ¬ build basicOps z (replacementSize - 2) roots)
     (upper : ∃ (gs : List Gate) (out : Nat),
       (∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2) ∧
       gs.length = replacementSize ∧
@@ -349,7 +349,7 @@ lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec wid
     have cut : binaryCost gs < gs.length :=
       (List.length_filter_lt_length_iff_exists (p := isBinary)).mpr
         ⟨g, member, by simp [isBinary, op]⟩
-    have lower := bound_from_samples nonzero nonones target ins inputLength row rejection
+    have lower := bound_from_samples nonzero nonones target ins roots represented inputLength row rejection
       gs out legalGates computes
     obtain ⟨ds, newOut, ok, size, evaluates⟩ := upper
     exact ⟨ds, newOut, ok, by omega, evaluates⟩
