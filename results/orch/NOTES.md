@@ -155,3 +155,19 @@ Multilinear.lean now also proves `no_nested_and_multilinear`: AO2, no AND gate i
 ## 2026-11-25T12:46:22.946288+00:00 clean-case bridge underway
 
 CleanJunk.lean compiled (empty junk implies every AND below graph function). CleanReadOne.lean combines checked clean topology with proof_route agent multilinear result to prove read1 conditional on TopForm and empty junk; it is being compiled. These hypotheses are still not established for arbitrary input circuits. Combined file replaces individual Multilinear/CleanTopForm/CleanJunk assembly entries.
+
+## 2026-11-25T12:46:32.671019+00:00 — higher-degree dirty obstruction checked (math_bound)
+
+HigherDirty.lean now compiles exit0 with empty logs. C is a23-gate CNF for matching3 G = x0*x3 OR x1*x4 OR x2*x5. H is its penultimate AND wire (wire25), the conjunction of seven transversal clauses except x3 OR x4 OR x5, hence H = G OR x0*x1*x2. Checked: C is AO2 and computes G; every interior wire w<28 is NOT below output; every gate is true on a matching edge; every AND is false on all singleton inputs; H agrees with G on every one/two-variable assignment, but H is true and G false on independent triple{0,1,2}. Thus even all these normalization properties do not imply that a dirty gate has a false pair witness. Only global minimality or stronger transformations can remove this higher-degree obstruction. Not a refutation of L2585; ordinary read1 matching3 circuit has5 gates.
+
+## Computational coverage and stronger tests, 2026-11-25T12:47:05.250271+00:00
+
+All333 nonempty3×3 C4-free targets are now covered computationally: exhaustive circuits through6gates settle every target whose star bound is≤7. Exactly6 targets have bound8, and verified line permutations identify each with C6, whose7gate SAT instance is UNSAT. Therefore the huge7gate enumeration was stopped as redundant; it did not complete. Explicit permutations are saved in results/orch/searches/six-cycle-isomorphisms.json. The empty incidence has a trivial empty circuit. This is still not a Lean proof of the universal3×3 case.
+
+ClosedIncidenceTests.lean compiled with queued lake env lean, exit0, empty logs; independently reviewed PASS by normalization agent (SHA2565ab12db77015093f5394dea08b362e17f2b2ba34bbbde190875bc611d0accfb1). It exactly justifies using closed point sets, equivalent to maximal independent assignments, as the negative tests. CircuitMonotone.lean from normalization agent compiled and independently reviewed PASS here (SHA2560e7ea608a2cda1ef727eaa3587198eaef3070ba4d99fdd3dc9e5ad9379f34155). Together they support compact Lean verification if a search succeeds.
+
+Third search family: cyclic8×8 incidence offsets0,1,3 (Möbius–Kantor8_3),24edges, explicit star bound31. Seeking30gates. Both my bounded upstream census and independent math_bound census found no exact-instance lower31 theorem, although generic or encoded results could exist. Stochastic search active; exactSAT prepared.
+
+## 2026-11-25T12:48:20.362852+00:00 clean-case read1 checked
+
+CleanReadOne.lean compiled with exit0 and empty logs. It proves IsAO2 plus TopForm plus empty junk implies ReadK1, then chooses the same circuit for the incidence replacement conclusion. Empty junk is a sufficient hypothesis, not shown equivalent to the original task or necessary for read1. Full general dirty-AND case remains open here.

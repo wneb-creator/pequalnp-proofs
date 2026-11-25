@@ -16,3 +16,4 @@
 - 2026-11-25T12:43:47.316148+00:00: first 20-minute re-plan; prioritize least normalized dirty-block charging and larger counterexample targets.
 - 2026-11-25T12:45:26.635720+00:00: no-nested-AND plus singletonfalse bridge checked by Lean.
 - 2026-11-25T12:46:30.575189+00:00: combined assigned partial built and reviewed; checker fault recorded; additional checked bridges preserved.
+- 2026-11-25T12:48:24.279881+00:00: higher-degree dirty-wire obstruction and computational search archive preserved.

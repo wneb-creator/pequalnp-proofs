@@ -28,3 +28,5 @@ Combined assigned file: lake build PEqualNP.Outside.L_meta_2585 PASSED exit 0, 2
 Local checker exit 3: CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
 Checker did not judge the full statement. Cleanup pass skipped because checker cannot start with installed partial cache; current before/after cleanup counts 2251/2251.
 Additional checked and independently reviewed artifacts: extended Multilinear, MergeValid, CleanTopForm, CircuitMonotone, ClosedIncidenceTests. CycleSix is a kernel-decided known upper-bound example; root inspected its exact explicit circuit and source format. Full statement remains unproved.
+
+HigherDirty.lean: lake env lean exit 0, empty complete logs; independent root source review passed. Computational search programs and completed logs preserved with snapshot hashes; no target counterexample.

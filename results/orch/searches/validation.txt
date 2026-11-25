@@ -1,0 +1,4 @@
+Canonicalization validation 3 4 all min costs match 18 brute [12, 240, 7200, 302400] pruned [6, 27, 129, 648]
+Canonicalization validation 4 3 all min costs match 100 brute [20, 600, 25200] pruned [12, 114, 1143]
+Verified explicit star witnesses, exact truth tables and squarefree edge polynomials: 333
+Search source SHA256: a6a1a64fe6e1ef316066d5e5ea60dbd85cdf53a6055c6a03a8050dc5670bb96c

@@ -1,0 +1,8 @@
+P 3 L 3 target graphs 333 max gates 6
+size 1 canonical circuits 30
+size 2 canonical circuits 675
+size 3 canonical circuits 15105
+size 4 canonical circuits 370368
+size 5 canonical circuits 10291038
+size 6 canonical circuits 325324930
+No counterexample in enumerated circuits. Seconds 14.4912
