@@ -42,3 +42,5 @@ Star-line components: named-file lake build exit0,602lines. Full stdout/stderr i
 Independent status_review audit PASS: frozen176-line component matches integration exactly; algebra, nonzero hypotheses, and plain-file format checked. Reviewed target SHA256 ca7abaed3338ff24cc18ade48bacba5ae81f7b1976205cd4686dc5551e1206b5.
 
 Generic star-direction obstruction: named-file lake build exit0,799lines. Independent status_review audit PASS: exact202-line component inclusion, cone rank bound, kernel inclusion, rank-nullity, all nonzero hypotheses and plain-file rules. Reviewed SHA256 da9e98ec88f0099ba04977be67b44955e2e3921c2a19ee591b2b3496523b3695. Full target remains unresolved; no checker verdict.
+
+2026-11-25 11:04 UTC: preserved independently reviewed Nonstar.lean (144lines) and OGrEven.lean (164lines), each compiled exit0 with empty stdout/stderr. Sources preserved under results/orch/lemmas while combined1097-line build remains in progress. These remain partial components, not the posted theorem. Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form. TIMING total=170 subagents=7
