@@ -16,3 +16,10 @@ Command (from lean/): lake env lean ../results/orch/lemmas/EliminationSound.lean
 Exit status: 0; complete stdout/stderr preserved as profile-sound-build.* (empty).
 Independent review: status_review approved SHA256 6b34a3d59df3101cd32166aa655bf1c2b61ef1749dbc36c3ced8ad83e8f9c932.
 Scope: conditional soundness of a finite profile obstruction; checked = true remains an explicit hypothesis. No full gap proof claimed.
+
+Compiled named partial: lean/PEqualNP/Outside/L_meta_2592.lean
+Command (from lean/): lake build PEqualNP.Outside.L_meta_2592
+Exit status: 0. Complete stdout/stderr in partial-build.stdout and partial-build.stderr.
+Independent review: status_review approved the identical PetersenBinaryFloor draft before build.
+SHA256: 6c8e232341117fe3ea3d7204332d3d2d60aa7b7b28d17da484f7c13b7e128a4f
+Scope: binary floor15 and 1..4NOT necessary condition. Full posted theorem remains absent; no full checker acceptance claimed.
