@@ -2,6 +2,8 @@ import Mathlib.Data.Fin.Basic
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Data.Fintype.Powerset
+import PEqualNP.Defs
+import Mathlib.Data.Finset.Card
 
 namespace PEqualNP.Outside.L_meta_2590_aux
 
@@ -297,5 +299,371 @@ lemma canonical_forced_exposure :
   decide +kernel
 
 end I3Geometry
+
+namespace CircuitPurity
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def singleton {n : ℕ} (v : Fin n) : Fin n → Bool := fun u => decide (u = v)
+
+def pair {n : ℕ} (u v : Fin n) : Fin n → Bool :=
+  fun w => decide (w = u ∨ w = v)
+
+def Independent {n : ℕ} (G : Fin n → Fin n → Prop) (x : Fin n → Bool) : Prop :=
+  ∀ u v, x u = true → x v = true → ¬ G u v
+
+lemma singleton_independent {n : ℕ} {G : Fin n → Fin n → Prop}
+    (hirr : ∀ u, ¬ G u u) (v : Fin n) : Independent G (singleton v) := by
+  intro u w hu hw
+  simp only [singleton, decide_eq_true_eq] at hu hw
+  subst u
+  subst w
+  exact hirr v
+
+lemma pair_le {n : ℕ} {u v : Fin n} {x : Fin n → Bool}
+    (hu : x u = true) (hv : x v = true) :
+    ∀ w, pair u v w = true → x w = true := by
+  intro w hw
+  simp only [pair, decide_eq_true_eq] at hw
+  rcases hw with rfl | rfl
+  · exact hu
+  · exact hv
+
+lemma independent_down {n : ℕ} {G : Fin n → Fin n → Prop}
+    {x y : Fin n → Bool} (hxy : ∀ u, x u = true → y u = true)
+    (hy : Independent G y) : Independent G x := by
+  intro u v hu hv
+  exact hy u v (hxy u hu) (hxy v hv)
+
+def stepWire (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma wires_eq_foldl (C : Circuit) (x : List Bool) :
+    C.wires x = C.gates.foldl stepWire x := rfl
+
+lemma foldl_getD_lt (gs : List Gate) (w : List Bool) (i : ℕ) (hi : i < w.length) :
+    (gs.foldl stepWire w).getD i false = w.getD i false := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    have hlt : i < (stepWire w g).length := by simp [stepWire]; omega
+    rw [ih (stepWire w g) hlt]
+    simp [stepWire, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma getD_ge (w : List Bool) (i : ℕ) (hi : w.length ≤ i) : w.getD i false = false := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none hi]
+
+lemma foldl_getD_gate (gs : List Gate) (w : List Bool) (j : ℕ) (hj : j < gs.length) :
+    (gs.foldl stepWire w).getD (w.length + j) false =
+      (gs[j]).op.eval ((gs[j]).inputs.map fun i =>
+        if i < w.length + j then (gs.foldl stepWire w).getD i false else false) := by
+  induction gs generalizing w j with
+  | nil => simp at hj
+  | cons g gs ih =>
+    rw [List.foldl_cons]
+    cases j with
+    | zero =>
+      have h1 : w.length < (stepWire w g).length := by simp [stepWire]
+      rw [Nat.add_zero, foldl_getD_lt gs (stepWire w g) w.length h1]
+      simp only [List.getElem_cons_zero]
+      have h2 : (stepWire w g).getD w.length false =
+          g.op.eval (g.inputs.map fun i => w.getD i false) := by
+        simp [stepWire, List.getD_eq_getElem?_getD]
+      rw [h2]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      by_cases hi : i < w.length
+      · rw [ite_eq_left hi, foldl_getD_lt gs (stepWire w g) i (by simp [stepWire]; omega)]
+        simp [stepWire, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+      · rw [ite_eq_right hi]; exact getD_ge w i (by omega)
+    | succ j =>
+      have hj' : j < gs.length := by simpa using hj
+      have key := ih (stepWire w g) j hj'
+      have hl : (stepWire w g).length = w.length + 1 := by simp [stepWire]
+      rw [hl] at key
+      have e : w.length + (j + 1) = w.length + 1 + j := by omega
+      simp only [List.getElem_cons_succ]
+      rw [e]
+      exact key
+
+def value {n : ℕ} (C : Circuit) (w : ℕ) (x : Fin n → Bool) : Bool :=
+  (C.wires (List.ofFn x)).getD w false
+
+lemma value_input {n : ℕ} (C : Circuit) (u : Fin n) (x : Fin n → Bool) :
+    value C u.val x = x u := by
+  unfold value
+  rw [wires_eq_foldl, foldl_getD_lt _ _ _ (by simp)]
+  simp [List.getD_eq_getElem?_getD]
+
+lemma value_and {n : ℕ} (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (C.gates[j]).op = GateOp.and) (x : Fin n → Bool) :
+    value C (n + j) x = true ↔
+      ∀ i ∈ (C.gates[j]).inputs, i < n + j ∧ value C i x = true := by
+  have h := foldl_getD_gate C.gates (List.ofFn x) j hj
+  simp only [List.length_ofFn] at h
+  unfold value
+  rw [wires_eq_foldl, h, hop]
+  simp [GateOp.eval]
+
+lemma value_or {n : ℕ} (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (C.gates[j]).op = GateOp.or) (x : Fin n → Bool) :
+    value C (n + j) x = true ↔
+      ∃ i ∈ (C.gates[j]).inputs, i < n + j ∧ value C i x = true := by
+  have h := foldl_getD_gate C.gates (List.ofFn x) j hj
+  simp only [List.length_ofFn] at h
+  unfold value
+  rw [wires_eq_foldl, h, hop]
+  simp [GateOp.eval]
+
+lemma pair_supported {n w : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (V : ℕ → (Fin n → Bool) → Bool)
+    (is : List ℕ) (hlen : is.length ≤ 2)
+    (hlin : ∀ i < w, ∀ y, Independent G y →
+      (V i y = true ↔ ∃ v, y v = true ∧ V i (singleton v) = true))
+    (x : Fin n → Bool) (hx : Independent G x)
+    (htrue : ∀ i ∈ is, i < w ∧ V i x = true) :
+    ∃ u v, Independent G (pair u v) ∧
+      ∀ i ∈ is, i < w ∧ V i (pair u v) = true := by
+  cases is with
+  | nil =>
+    let u : Fin n := ⟨0, hn⟩
+    refine ⟨u, u, ?_, by simp⟩
+    have heq : pair u u = singleton u := by funext v; simp [pair, singleton]
+    rw [heq]
+    exact singleton_independent hirr u
+  | cons a is =>
+    have ha := htrue a (by simp)
+    obtain ⟨u, hu, hau⟩ := (hlin a ha.1 x hx).mp ha.2
+    cases is with
+    | nil =>
+      have hp : Independent G (pair u u) := independent_down (pair_le hu hu) hx
+      refine ⟨u, u, hp, ?_⟩
+      intro i hi
+      simp only [List.mem_singleton] at hi
+      subst i
+      exact ⟨ha.1, (hlin a ha.1 _ hp).mpr ⟨u, by simp [pair], hau⟩⟩
+    | cons b is =>
+      have hnil : is = [] := by cases is <;> simp_all
+      subst is
+      have hb := htrue b (by simp)
+      obtain ⟨v, hv, hbv⟩ := (hlin b hb.1 x hx).mp hb.2
+      have hp : Independent G (pair u v) := independent_down (pair_le hu hv) hx
+      refine ⟨u, v, hp, ?_⟩
+      intro i hi
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+      rcases hi with hi | hi
+      · subst i
+        exact ⟨ha.1, (hlin a ha.1 _ hp).mpr ⟨u, by simp [pair], hau⟩⟩
+      · subst i
+        exact ⟨hb.1, (hlin b hb.1 _ hp).mpr ⟨v, by simp [pair], hbv⟩⟩
+
+lemma linear_before_of_pure {n k : ℕ} {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C)
+    (hk : k ≤ C.gates.length)
+    (hprior : ∀ j (hj : j < C.gates.length), j < k →
+      (C.gates[j]).op = GateOp.and →
+      ∀ x, Independent G x → value C (n + j) x = false) :
+    ∀ w < n + k, ∀ x, Independent G x →
+      (value C w x = true ↔ ∃ v, x v = true ∧ value C w (singleton v) = true) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw x hx
+    by_cases hwi : w < n
+    · let u : Fin n := ⟨w, hwi⟩
+      have hin (y : Fin n → Bool) : value C w y = y u := value_input C u y
+      simp only [hin, singleton, decide_eq_true_eq]
+      constructor
+      · intro hu
+        exact ⟨u, hu, rfl⟩
+      · rintro ⟨v, hv, huv⟩
+        exact huv.symm ▸ hv
+    · let j := w - n
+      have hjk : j < k := by dsimp [j]; omega
+      have hj : j < C.gates.length := lt_of_lt_of_le hjk hk
+      have hwj : w = n + j := by dsimp [j]; omega
+      have hgm := hmono (C.gates[j]) (List.getElem_mem hj)
+      rcases hgm.1 with hand | hor
+      · have hfalse (y : Fin n → Bool) (hy : Independent G y) : value C w y = false := by
+          rw [hwj]
+          exact hprior j hj hjk hand y hy
+        have hsf : ∀ v, value C w (singleton v) = false :=
+          fun v => hfalse _ (singleton_independent hirr v)
+        simp [hfalse x hx, hsf]
+      · have horec (y : Fin n → Bool) : value C w y = true ↔
+            ∃ i ∈ (C.gates[j]).inputs, i < w ∧ value C i y = true := by
+          simpa only [hwj] using value_or C j hj hor y
+        constructor
+        · intro ht
+          obtain ⟨i, hi, hiw, hiv⟩ := (horec x).mp ht
+          obtain ⟨v, hv, hivs⟩ := (ih i hiw (by omega) x hx).mp hiv
+          exact ⟨v, hv, (horec _).mpr ⟨i, hi, hiw, hivs⟩⟩
+        · rintro ⟨v, hv, hvs⟩
+          obtain ⟨i, hi, hiw, hivs⟩ := (horec _).mp hvs
+          exact (horec _).mpr ⟨i, hi, hiw, (ih i hiw (by omega) x hx).mpr ⟨v, hv, hivs⟩⟩
+
+lemma circuit_first_impure_pair {n : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (C.gates[j]).op = GateOp.and)
+    (hprior : ∀ r (hr : r < C.gates.length), r < j →
+      (C.gates[r]).op = GateOp.and →
+      ∀ x, Independent G x → value C (n + r) x = false)
+    (hdirty : ∃ x, Independent G x ∧ value C (n + j) x = true) :
+    ∃ u v, Independent G (pair u v) ∧ ¬ G u v ∧ value C (n + j) (pair u v) = true := by
+  obtain ⟨x, hx, hval⟩ := hdirty
+  have hlin := linear_before_of_pure hirr C hmono (Nat.le_of_lt hj) hprior
+  have hlen := (hmono (C.gates[j]) (List.getElem_mem hj)).2
+  obtain ⟨u, v, huv, hsupports⟩ := pair_supported hn hirr (value C)
+    (C.gates[j]).inputs hlen hlin x hx ((value_and C j hj hop x).mp hval)
+  exact ⟨u, v, huv, huv u v (by simp [pair]) (by simp [pair]),
+    (value_and C j hj hop _).mpr hsupports⟩
+
+lemma linear_of_pairs {n : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C)
+    (hpairs : ∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ u v, Independent G (pair u v) → value C (n + j) (pair u v) = false) :
+    ∀ w < n + C.gates.length, ∀ x, Independent G x →
+      (value C w x = true ↔ ∃ v, x v = true ∧ value C w (singleton v) = true) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw x hx
+    by_cases hwi : w < n
+    · let u : Fin n := ⟨w, hwi⟩
+      have hin (y : Fin n → Bool) : value C w y = y u := value_input C u y
+      simp only [hin, singleton, decide_eq_true_eq]
+      constructor
+      · intro hu
+        exact ⟨u, hu, rfl⟩
+      · rintro ⟨v, hv, huv⟩
+        exact huv.symm ▸ hv
+    · let j := w - n
+      have hj : j < C.gates.length := by dsimp [j]; omega
+      have hwj : w = n + j := by dsimp [j]; omega
+      have hgm := hmono (C.gates[j]) (List.getElem_mem hj)
+      rcases hgm.1 with hand | hor
+      · have hfalse (y : Fin n → Bool) (hy : Independent G y) : value C w y = false := by
+          cases hv : value C w y with
+          | false => rfl
+          | true =>
+            have hval : ∀ i ∈ (C.gates[j]).inputs, i < w ∧ value C i y = true := by
+              simpa only [hwj] using (value_and C j hj hand y).mp (hwj ▸ hv)
+            obtain ⟨u, v, huv, hav⟩ := pair_supported hn hirr (value C)
+              (C.gates[j]).inputs hgm.2
+              (fun i hi z hz => ih i hi (by omega) z hz) y hy hval
+            have ht : value C (n + j) (pair u v) = true :=
+              (value_and C j hj hand _).mpr (by simpa only [hwj] using hav)
+            rw [hpairs j hj hand u v huv] at ht
+            contradiction
+        have hsf : ∀ v, value C w (singleton v) = false :=
+          fun v => hfalse _ (singleton_independent hirr v)
+        simp [hfalse x hx, hsf]
+      · have horec (y : Fin n → Bool) : value C w y = true ↔
+            ∃ i ∈ (C.gates[j]).inputs, i < w ∧ value C i y = true := by
+          simpa only [hwj] using value_or C j hj hor y
+        constructor
+        · intro ht
+          obtain ⟨i, hi, hiw, hiv⟩ := (horec x).mp ht
+          obtain ⟨v, hv, hivs⟩ := (ih i hiw (by omega) x hx).mp hiv
+          exact ⟨v, hv, (horec _).mpr ⟨i, hi, hiw, hivs⟩⟩
+        · rintro ⟨v, hv, hvs⟩
+          obtain ⟨i, hi, hiw, hivs⟩ := (horec _).mp hvs
+          exact (horec _).mpr ⟨i, hi, hiw, (ih i hiw (by omega) x hx).mpr ⟨v, hv, hivs⟩⟩
+
+lemma circuit_pure_of_pairs {n : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C)
+    (hpairs : ∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ u v, Independent G (pair u v) → value C (n + j) (pair u v) = false) :
+    ∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ x, Independent G x → value C (n + j) x = false := by
+  intro j hj hop x hx
+  cases hv : value C (n + j) x with
+  | false => rfl
+  | true =>
+    obtain ⟨u, hu, hsu⟩ := (linear_of_pairs hn hirr C hmono hpairs
+      (n + j) (by omega) x hx).mp hv
+    have heq : pair u u = singleton u := by funext v; simp [pair, singleton]
+    have hp : Independent G (pair u u) := by rw [heq]; exact singleton_independent hirr u
+    have hf := hpairs j hj hop u u hp
+    rw [heq] at hf
+    rw [hf] at hsu
+    contradiction
+
+lemma circuit_purity_iff_pair_purity {n : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C) :
+    (∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ x, Independent G x → value C (n + j) x = false) ↔
+    (∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ u v, Independent G (pair u v) → value C (n + j) (pair u v) = false) := by
+  constructor
+  · intro h j hj hop u v huv
+    exact h j hj hop _ huv
+  · exact circuit_pure_of_pairs hn hirr C hmono
+
+lemma circuit_impure_pair {n : ℕ} (hn : 0 < n) {G : Fin n → Fin n → Prop}
+    (hirr : ∀ v, ¬ G v v) (C : Circuit) (hmono : Monotone2 C)
+    (hdirty : ∃ j, ∃ hj : j < C.gates.length, (C.gates[j]).op = GateOp.and ∧
+      ∃ x, Independent G x ∧ value C (n + j) x = true) :
+    ∃ j, ∃ hj : j < C.gates.length, (C.gates[j]).op = GateOp.and ∧
+      ∃ u v, Independent G (pair u v) ∧ value C (n + j) (pair u v) = true := by
+  classical
+  by_contra hnone
+  have hpairs : ∀ j (hj : j < C.gates.length), (C.gates[j]).op = GateOp.and →
+      ∀ u v, Independent G (pair u v) → value C (n + j) (pair u v) = false := by
+    intro j hj hop u v huv
+    cases hv : value C (n + j) (pair u v) with
+    | false => rfl
+    | true => exact False.elim (hnone ⟨j, hj, hop, u, v, huv, hv⟩)
+  obtain ⟨j, hj, hop, x, hx, hval⟩ := hdirty
+  have hfalse := circuit_pure_of_pairs hn hirr C hmono hpairs j hj hop x hx
+  rw [hfalse] at hval
+  contradiction
+
+end CircuitPurity
+
+namespace ResidualCodes
+
+lemma three_incomparable_need_three {α : Type*} [DecidableEq α]
+    (U A B C : Finset α) (hA : A ⊆ U) (hB : B ⊆ U) (hC : C ⊆ U)
+    (hAB : ¬ A ⊆ B) (hBA : ¬ B ⊆ A) (hCA : ¬ C ⊆ A)
+    (hCB : ¬ C ⊆ B) (hAC : ¬ A ⊆ C) : 3 ≤ U.card := by
+  by_contra hsmall
+  have htwo : U.card ≤ 2 := by omega
+  obtain ⟨a, haA, haB⟩ := Finset.not_subset.mp hAB
+  obtain ⟨b, hbB, hbA⟩ := Finset.not_subset.mp hBA
+  have hab : a ≠ b := by intro he; exact hbA (he ▸ haA)
+  have hpair : ({a, b} : Finset α) ⊆ U := by
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl
+    · exact hA haA
+    · exact hB hbB
+  have hcard : ({a, b} : Finset α).card = 2 := by simp [hab]
+  have hU : ({a, b} : Finset α) = U :=
+    Finset.eq_of_subset_of_card_le hpair (by omega)
+  obtain ⟨c, hcC, hcA⟩ := Finset.not_subset.mp hCA
+  obtain ⟨d, hdC, hdB⟩ := Finset.not_subset.mp hCB
+  have hc : c = b := by
+    have h := hC hcC
+    rw [← hU] at h
+    simp only [Finset.mem_insert, Finset.mem_singleton] at h
+    exact h.resolve_left (fun he => hcA (he ▸ haA))
+  have hd : d = a := by
+    have h := hC hdC
+    rw [← hU] at h
+    simp only [Finset.mem_insert, Finset.mem_singleton] at h
+    exact h.resolve_right (fun he => hdB (he ▸ hbB))
+  apply hAC
+  intro x hx
+  have h := hA hx
+  rw [← hU] at h
+  simp only [Finset.mem_insert, Finset.mem_singleton] at h
+  rcases h with rfl | rfl
+  · exact hd ▸ hdC
+  · exact hc ▸ hcC
+
+end ResidualCodes
 
 end PEqualNP.Outside.L_meta_2590_aux
