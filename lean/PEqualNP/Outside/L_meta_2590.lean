@@ -2764,4 +2764,202 @@ lemma pair_occurrences_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 ad
 end C6.GenericPair
 
 
+
+
+namespace C6.DagTools
+
+lemma relabel_empty_iff {n : Nat} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hD : Strict n D) (w : Nat) :
+    ¬ (supp n (relabel σ D) w).Nonempty ↔ ¬ (supp n D w).Nonempty := by
+  by_cases hw : w < n
+  · rw [show supp n (relabel σ D) w = {⟨w,hw⟩} from supp_input (relabel σ D) ⟨w,hw⟩,
+      show supp n D w = {⟨w,hw⟩} from supp_input D ⟨w,hw⟩]
+  · have he := relabel_supp σ hD w
+    rw [tr_liftP_ge σ (Nat.le_of_not_gt hw)] at he
+    simp only [he,Finset.image_nonempty]
+
+lemma relabel_Bzero {n : Nat} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hD : Strict n D) : Bzero n (relabel σ D) = Bzero n D := by
+  unfold Bzero surplusOn
+  simp only [inner,relabel_length,Finset.sum_filter]
+  apply Finset.sum_congr rfl
+  intro w hw
+  simp only [relabel_empty_iff σ hD w]
+  by_cases hz : (supp n D w).Nonempty
+  · simp [hz]
+  · simp only [hz,not_false_eq_true,ite_true]
+    have hn : n ≤ w := by
+      by_contra hh
+      have hi : w < n := by omega
+      apply hz
+      rw [show supp n D w = {⟨w,hi⟩} from supp_input D ⟨w,hi⟩]
+      exact Finset.singleton_nonempty _
+    have he := relabel_fanout σ D w
+    rw [tr_liftP_ge σ hn] at he
+    rw [he]
+
+end C6.DagTools
+
+namespace C6.GenericPair
+open DagTools
+
+lemma pair01_length_add_Bzero {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w) :
+    10 + Bzero 6 D ≤ D.length :=
+  two_pair_occurrences_length_ge_ten_add_Bzero h hc hAF hBE
+
+lemma pair02_length_add_Bzero {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) :
+    10 + Bzero 6 D ≤ D.length := by
+  have ha : ∃ w, (0 : V) ∈ supp 6 (relabel swapPairs D) w ∧
+      (5 : V) ∈ supp 6 (relabel swapPairs D) w := by
+    simpa [swapPairs] using joint_relabel swapPairs h.1 hAF
+  have hb : ∃ w, (1 : V) ∈ supp 6 (relabel swapPairs D) w ∧
+      (4 : V) ∈ supp 6 (relabel swapPairs D) w := by
+    simpa [swapPairs] using joint_relabel swapPairs h.1 hCD
+  have hs := pair01_length_add_Bzero (relabel_strictLive swapPairs h)
+    (c6_relabel_computes swapPairs swapPairs_adj h hc) ha hb
+  simpa only [relabel_length,relabel_Bzero swapPairs h.1] using hs
+
+lemma pair12_length_add_Bzero {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) :
+    10 + Bzero 6 D ≤ D.length := by
+  have ha : ∃ w, (0 : V) ∈ supp 6 (relabel rotatePairs D) w ∧
+      (5 : V) ∈ supp 6 (relabel rotatePairs D) w := by
+    simpa [rotatePairs] using joint_relabel rotatePairs h.1 hBE
+  have hb : ∃ w, (1 : V) ∈ supp 6 (relabel rotatePairs D) w ∧
+      (4 : V) ∈ supp 6 (relabel rotatePairs D) w := by
+    simpa [rotatePairs] using joint_relabel rotatePairs h.1 hCD
+  have hs := pair01_length_add_Bzero (relabel_strictLive rotatePairs h)
+    (c6_relabel_computes rotatePairs rotatePairs_adj h hc) ha hb
+  simpa only [relabel_length,relabel_Bzero rotatePairs h.1] using hs
+
+lemma two_distinct_pair_occurrences_length_add_Bzero {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (p q : Fin 3) (hne : p ≠ q) (hp : PairOccurs D p) (hq : PairOccurs D q) :
+    10 + Bzero 6 D ≤ D.length := by
+  fin_cases p <;> fin_cases q
+  · exact (hne rfl).elim
+  · exact pair01_length_add_Bzero h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair02_length_add_Bzero h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair01_length_add_Bzero h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact (hne rfl).elim
+  · exact pair12_length_add_Bzero h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair02_length_add_Bzero h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact pair12_length_add_Bzero h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact (hne rfl).elim
+
+lemma one_pair_occurs_length_add_Bzero {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (p : Fin 3) (hp : PairOccurs D p) :
+    9 + Bzero 6 D ≤ D.length := by
+  fin_cases p
+  · exact opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (0 : V)) (v := (5 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+  · exact opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (1 : V)) (v := (4 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+  · exact opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (2 : V)) (v := (3 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+
+lemma all_pair_occurrences_length_add_Bzero {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hp : ∀ p : Fin 3, PairOccurs D p) :
+    11 + Bzero 6 D ≤ D.length :=
+  three_pair_occurrences_length_ge_eleven_add_Bzero h hc
+    (by simpa [PairOccurs] using hp 0)
+    (by simpa [PairOccurs] using hp 1)
+    (by simpa [PairOccurs] using hp 2)
+
+lemma pair_occurrences_length_add_Bzero {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (S : Finset (Fin 3)) (hocc : ∀ p ∈ S, PairOccurs D p) :
+    8 + S.card + Bzero 6 D ≤ D.length := by
+  classical
+  have hmax : S.card ≤ 3 := by simpa using Finset.card_le_univ S
+  rcases (by omega : S.card = 0 ∨ S.card = 1 ∨ S.card = 2 ∨ S.card = 3) with h0 | h1 | h2 | h3
+  · have hb := c6_length_ge_eight_add_Bzero h hc
+    omega
+  · obtain ⟨p, hp⟩ := Finset.card_pos.mp (show 0 < S.card by omega)
+    have hb := one_pair_occurs_length_add_Bzero h hc p (hocc p hp)
+    omega
+  · obtain ⟨p, hp⟩ := Finset.card_pos.mp (show 0 < S.card by omega)
+    have hq : ∃ q ∈ S, q ≠ p := by
+      by_contra hn
+      push Not at hn
+      have hs : S ⊆ {p} := by
+        intro q hq
+        exact Finset.mem_singleton.mpr (hn q hq)
+      have hle := Finset.card_le_card hs
+      simp only [Finset.card_singleton] at hle
+      omega
+    obtain ⟨q, hq, hqp⟩ := hq
+    have hb := two_distinct_pair_occurrences_length_add_Bzero h hc p q
+      (Ne.symm hqp) (hocc p hp) (hocc q hq)
+    omega
+  · have heq : S = Finset.univ := Finset.eq_univ_of_card S (by simpa using h3)
+    have hb := all_pair_occurrences_length_add_Bzero h hc (fun p => hocc p (by rw [heq]; simp))
+    omega
+
+end C6.GenericPair
+
+
+namespace ProjectedBirth
+
+open C6.DagTools
+
+lemma zero_projected_support {n : Nat} {D : Dag} (hD : Strict n D)
+    {α : Type*} (rows : α → Fin n → Bool) (E : Finset (Fin n))
+    (positive : ∀ v ∈ E, ∃ r, rows r v = true) {w : Nat}
+    (zero : ∀ r, val D (rows r) w = false) : supp n D w ∩ E = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro v hv
+  obtain ⟨hs, hE⟩ := Finset.mem_inter.mp hv
+  obtain ⟨r, hr⟩ := positive v hE
+  have ht := sem_val_of_supp hD hs hr
+  rw [zero r] at ht
+  exact Bool.false_ne_true ht
+
+lemma projected_first_birth_no_zero_operand {n : Nat} {D : Dag} (hD : Strict n D)
+    {α : Type*} (rows : α → Fin n → Bool) (E S : Finset (Fin n))
+    (positive : ∀ v ∈ E, ∃ r, rows r v = true)
+    (hne : S.Nonempty) {j : Nat} (hj : j < D.length)
+    (hs : supp n D (n + j) ∩ E = S)
+    (first : ∀ w, w < n + j → supp n D w ∩ E ≠ S) (side : Bool) :
+    ¬ ∀ r, val D (rows r) (src D (j, side)) = false := by
+  intro hz
+  have he := zero_projected_support hD rows E positive hz
+  have hother : src D (j, !side) < n + j := by
+    obtain ⟨ha, hb, _⟩ := hD j hj
+    cases side <;> simp_all [src]
+  cases ht : tag D j with
+  | false =>
+      have ho : supp n D (n + j) =
+          supp n D (src D (j, side)) ∪ supp n D (src D (j, !side)) := by
+        cases side
+        · simpa [src] using sem_supp_or hD hj ht
+        · simpa [src, Finset.union_comm] using sem_supp_or hD hj ht
+      have ho' : supp n D (src D (j, !side)) ∩ E = S := by
+        rw [ho, Finset.union_inter_distrib_right, he, Finset.empty_union] at hs
+        exact hs
+      exact first _ hother ho'
+  | true =>
+      have ho : supp n D (n + j) =
+          supp n D (src D (j, side)) ∩ supp n D (src D (j, !side)) := by
+        cases side
+        · simpa [src] using sem_supp_and hD hj ht
+        · simpa [src, Finset.inter_comm] using sem_supp_and hD hj ht
+      obtain ⟨v, hv⟩ := hne
+      have hvout : v ∈ supp n D (n + j) ∩ E := by rwa [hs]
+      obtain ⟨hvg, hvE⟩ := Finset.mem_inter.mp hvout
+      rw [ho] at hvg
+      have hvin : v ∈ supp n D (src D (j, side)) ∩ E :=
+        Finset.mem_inter.mpr ⟨(Finset.mem_inter.mp hvg).1, hvE⟩
+      rw [he] at hvin
+      exact Finset.notMem_empty v hvin
+
+end ProjectedBirth
+
 end PEqualNP.Outside.L_meta_2590_aux
