@@ -3,7 +3,7 @@ Gap: L-meta-2602
 Status: checked partial components only; exact gap theorem is NOT proved.
 
 Sub-agents: 6 (status/counterexample search, structural proof, lemma route, finite search, toolchain, independent review)
-TIMING total=63.63 subagents=6
+TIMING total=81.72 subagents=6
 
 Lean: v4.36.0; pinned Mathlib cache fetched successfully (9117 files).
 Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean ../results/orch/lemmas/lemma_route.lean
@@ -77,3 +77,5 @@ Integrated canonical partial: 2874 lines, 137614 bytes; lake build exit 0, 58.10
 
 Canonical axiom audit PASS for all 144 helper lemmas in the 2874-line snapshot: only propext, Classical.choice, Quot.sound. Full Lean audit exit 0 in 90.9 seconds; this is distinct from the exact-statement checker, whose no-theorem rejection still applies.
 Generic matching-cover helper (105 lines) compiled and independently reviewed PASS; no three-edge matching implies a two-vertex cover, even for infinite types.
+
+Integrated canonical partial: 3006 lines, 143328 bytes; lake build exit 0, 44.01 seconds, peak 4683720 KiB. Independent final-merge review PASS. Adds the arbitrary four-clause pair-shadow two-cover interface. Exact main theorem remains absent. No cleanup pass is applicable because the exact checker has not accepted the statement; line count before/after cleanup is unchanged at 3006.

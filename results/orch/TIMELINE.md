@@ -55,3 +55,11 @@
 2026-11-25T03:59:44.455140+00:00 Integrated resource-safe TopForm partial and active-junk/rectangle-meet snapshots saved.
 
 - 2026-11-25T04:09:06.079753+00:00: Preserving combined active-junk, finite rectangle certificate, and independently validated finite witnesses; exact gap still open.
+
+2026-11-25T04:16:45.624679+00:00 Pair-clean no-double strengthening compiled, allowed axioms confirmed, independent review requested.
+
+2026-11-25T04:22:25.091737+00:00 Generic no-three-matching implies cover≤2 compiled, axioms checked, independent review PASS.
+
+- 2026-11-25 04:16 UTC: structure_proof completes and independently reviews four-center cover for all shared clean literal filters and the clean product of two arbitrary rectangles; identifies improper use of mixed-cover>=16 and blocks unsupported AND>=14 claim.
+
+2026-11-25T04:27:11.102115+00:00 Combined 3006-line checked partial and final four-clause interface passed build and independent review; exact gap remains unproved.
