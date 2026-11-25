@@ -436,4 +436,46 @@ lemma erase_preserves_edge_function
     have hD : D.eval (List.ofFn edge) = true := (eqval edge hwire).trans hC
     exact wires_mono D mono edge x hedge D.output hD
 
+lemma minimal_gate_has_offstar_edge
+    {n : ℕ} (C : Circuit) (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (hr : PEqualNP.MetaComplexity.NestedCover.ReadsBack n C)
+    (m : ℕ) (hmidx : m < C.gates.length) (p : Fin n)
+    (E : Fin n → Fin n → Prop)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn x) = true ↔ ∃ u v, E u v ∧ x u = true ∧ x v = true)
+    (minimal : ∀ D : Circuit, PEqualNP.MetaComplexity.Monotone2 D →
+      (∀ x : Fin n → Bool,
+        D.eval (List.ofFn x) = true ↔ ∃ u v, E u v ∧ x u = true ∧ x v = true) →
+      C.size ≤ D.size)
+    (singleton : (C.wires (List.ofFn (fun i : Fin n => decide (i = p)))).getD
+      (n + m) false = true) :
+    ∃ u v, E u v ∧ p ≠ u ∧ p ≠ v ∧
+      (C.wires (List.ofFn (fun i : Fin n => decide (i = u ∨ i = v)))).getD
+        (n + m) false = true := by
+  classical
+  by_contra no
+  have pairs : ∀ u v, E u v →
+      (C.wires (List.ofFn (fun i : Fin n => decide (i = u ∨ i = v)))).getD
+        (n + m) false = decide (p = u ∨ p = v) := by
+    intro u v huv
+    by_cases hp : p = u ∨ p = v
+    · rw [decide_eq_true hp]
+      apply wires_mono C hm (fun i : Fin n => decide (i = p))
+        (fun i : Fin n => decide (i = u ∨ i = v)) _ (n + m) singleton
+      intro i hi
+      have hip : i = p := of_decide_eq_true hi
+      subst i
+      exact decide_eq_true hp
+    · rw [decide_eq_false hp]
+      cases h : (C.wires (List.ofFn (fun i : Fin n => decide (i = u ∨ i = v)))).getD
+          (n + m) false with
+      | false => rfl
+      | true =>
+        exact (no ⟨u, v, huv, fun hpu => hp (Or.inl hpu),
+          fun hpv => hp (Or.inr hpv), h⟩).elim
+  obtain ⟨mono, _, size, computes⟩ :=
+    erase_preserves_edge_function C hm hr m hmidx p E correct singleton pairs
+  have bound := minimal (PEqualNP.CircuitMoves.eraseGate n C m p.val) mono computes
+  omega
+
 end PEqualNP.Outside.L_meta_650.Pruning

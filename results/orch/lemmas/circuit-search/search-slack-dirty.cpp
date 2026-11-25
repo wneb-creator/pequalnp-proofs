@@ -1,0 +1,44 @@
+#include <array>
+#include <algorithm>
+#include <chrono>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <numeric>
+#include <random>
+#include <vector>
+using namespace std;
+constexpr int N=26,K=80,W=12;
+using Bits=array<uint64_t,W>;
+struct Gate { int a,b,op; };
+mt19937_64 rng(132);
+vector<uint32_t> pos,neg;
+Bits target,positive;
+vector<Bits> inputs;
+int ones(const Bits&a){int n=0;for(auto x:a)n+=__builtin_popcountll(x);return n;}
+Bits fun(const Bits&a,const Bits&b,int op){Bits z;for(int i=0;i<W;i++)z[i]=op?(a[i]|b[i]):(a[i]&b[i]);return z;}
+vector<Bits> eval(const vector<Gate>&g){auto w=inputs;for(auto x:g)w.push_back(fun(w[x.a],w[x.b],x.op));return w;}
+int score(const Bits&x,int weight=1){int s=0;for(int i=0;i<W;i++){uint64_t e=x[i]^target[i];s+=__builtin_popcountll(e);if(weight>1)s+=(weight-1)*__builtin_popcountll(e&positive[i]);}return s;}
+int maskedscore(const Bits&a,const Bits&b,int op,const Bits&mask,const Bits&need,int weight){int s=0;for(int i=0;i<W;i++){uint64_t e=((op?(a[i]|b[i]):(a[i]&b[i]))^need[i])&mask[i];s+=__builtin_popcountll(e);if(weight>1)s+=(weight-1)*__builtin_popcountll(e&positive[i]);}return s;}
+vector<Gate> seed(){vector<Gate> g;bool dirty=rng()%2;vector<int> centers(13);iota(centers.begin(),centers.end(),0);shuffle(centers.begin(),centers.end(),rng);vector<int> roots;for(int p:centers){vector<int> ls;for(int l=0;l<13;l++)if((p+l)%13==0||(p+l)%13==1||(p+l)%13==3||(p+l)%13==9){if(!(dirty&&((p==0&&l==0)||(p==1&&(l==0||l==2)))))ls.push_back(13+l);}shuffle(ls.begin(),ls.end(),rng);int z=ls[0];for(int i=1;i<(int)ls.size();i++){g.push_back({z,ls[i],1});z=N+g.size()-1;}g.push_back({p,z,0});roots.push_back(N+g.size()-1);}while(roots.size()>1){shuffle(roots.begin(),roots.end(),rng);int a=roots.back();roots.pop_back();int b=roots.back();roots.pop_back();g.push_back({a,b,1});roots.push_back(N+g.size()-1);}if(dirty){int r=roots[0];g.push_back({0,1,1});int a=N+g.size()-1;g.push_back({13,15,1});int b=N+g.size()-1;g.push_back({13,1,1});int c=N+g.size()-1;g.push_back({a,b,0});int q=N+g.size()-1;g.push_back({q,c,0});int z=N+g.size()-1;g.push_back({r,z,1});}int count=g.size();vector<Gate> out;vector<int> id(N+count);iota(id.begin(),id.begin()+N,0);for(int i=0;i<count;i++){int left=K-count-(int(out.size())-i);int add=(i==count-1)?left:min(left,int(rng()%3));for(int q=0;q<add;q++)out.push_back({int(rng()%(N+out.size())),int(rng()%(N+out.size())),int(rng()%2)});out.push_back({id[g[i].a],id[g[i].b],g[i].op});id[N+i]=N+out.size()-1;}return out;}
+void reorder(vector<Gate>&g){
+ vector<Gate> out;vector<int> id(N+K,-1);for(int i=0;i<N;i++)id[i]=i;vector<int> todo(K);iota(todo.begin(),todo.end(),0);
+ while(!todo.empty()){vector<int> ready;for(int k:todo)if(id[g[k].a]>=0 && id[g[k].b]>=0 && (k<K-1 || todo.size()==1))ready.push_back(k);if(ready.empty()){cerr<<"topo failure"<<endl;exit(2);}int k=ready[rng()%ready.size()];out.push_back({id[g[k].a],id[g[k].b],g[k].op});id[N+k]=N+out.size()-1;todo.erase(find(todo.begin(),todo.end(),k));}g=out;
+}
+int dirtyCount(const vector<Gate>&g){array<bool,N+K> active={};vector<int> todo={N+K-1};while(!todo.empty()){int a=todo.back();todo.pop_back();if(active[a])continue;active[a]=true;if(a>=N){todo.push_back(g[a-N].a);todo.push_back(g[a-N].b);}}array<bool,K> dirty={};for(int a=0;a<N;a++)for(int b=a;b<N;b++){bool edge=(a<13&&b>=13&&((a+b-13)%13==0||(a+b-13)%13==1||(a+b-13)%13==3||(a+b-13)%13==9));if(edge)continue;array<bool,N+K> v={};v[a]=v[b]=true;for(int j=0;j<K;j++){v[N+j]=g[j].op?(v[g[j].a]||v[g[j].b]):(v[g[j].a]&&v[g[j].b]);if(active[N+j]&&!g[j].op&&v[N+j])dirty[j]=true;}}return count(dirty.begin(),dirty.end(),true);}
+void save(const vector<Gate>&g,string f){ofstream o(f);o<<"[";for(int i=0;i<K;i++){if(i)o<<",";o<<"["<<g[i].op<<","<<g[i].a<<","<<g[i].b<<"]";}o<<"]\n";}
+int main(int argc,char**argv){double seconds=argc>1?stod(argv[1]):600;string base=argc>2?argv[2]:".";int weight=argc>3?stoi(argv[3]):4;if(argc>4)rng.seed(stoull(argv[4]));uint32_t all=(1<<13)-1;int adj[13]={};for(int p=0;p<13;p++)for(int l=0;l<13;l++)if((p+l)%13==0||(p+l)%13==1||(p+l)%13==3||(p+l)%13==9){adj[p]|=1<<l;pos.push_back((1<<p)|(1<<(13+l)));}for(int s=0;s<(1<<13);s++){int cover=0;for(int p=0;p<13;p++)if(s>>p&1)cover|=adj[p];int t=all^cover,closure=0;for(int p=0;p<13;p++)if(!(adj[p]&t))closure|=1<<p;if(s==closure)neg.push_back(s|(t<<13));}vector<uint32_t> tests=pos;tests.insert(tests.end(),neg.begin(),neg.end());inputs.resize(N);for(int i=0;i<(int)tests.size();i++){if(i<(int)pos.size()){target[i/64]|=1ull<<(i%64);positive[i/64]|=1ull<<(i%64);}for(int p=0;p<N;p++)if(tests[i]>>p&1)inputs[p][i/64]|=1ull<<(i%64);}
+
+ auto start=chrono::steady_clock::now();int total=0,best=1000,restarts=0,bestDirty=1000;
+ using Deps=array<uint64_t,2>;
+ while(chrono::duration<double>(chrono::steady_clock::now()-start).count()<seconds){auto g=seed();reorder(g);auto vals=eval(g);int bestRun=80;
+ for(int iter=0;iter<20000;iter++){total++;int j=rng()%K;auto low=vals,high=vals;low[N+j].fill(0);high[N+j].fill(~0ull);for(int k=j+1;k<K;k++){low[N+k]=fun(low[g[k].a],low[g[k].b],g[k].op);high[N+k]=fun(high[g[k].a],high[g[k].b],g[k].op);}Bits mask;for(int q=0;q<W;q++)mask[q]=low.back()[q]^high.back()[q];
+ vector<Deps> dep(N+K);for(int k=0;k<K;k++){for(int q=0;q<2;q++)dep[N+k][q]=dep[g[k].a][q]|dep[g[k].b][q];dep[N+k][k/64]|=1ull<<(k%64);}Deps backbone={0,0};vector<int> todo={N+K-1};while(!todo.empty()){int v=todo.back();todo.pop_back();if(v<N||(backbone[(v-N)/64]>>((v-N)%64)&1))continue;backbone[(v-N)/64]|=1ull<<((v-N)%64);if(v!=N+j){todo.push_back(g[v-N].a);todo.push_back(g[v-N].b);}}
+ bool active=(backbone[j/64]>>(j%64))&1;int curr=__builtin_popcountll(dep.back()[0])+__builtin_popcountll(dep.back()[1]);array<Gate,K+1> chosen;array<int,K+1> counts={};int minimum=K;
+ for(int a=0;a<N+j;a++)for(int b=a;b<N+j;b++)for(int op=0;op<2;op++){if(maskedscore(vals[a],vals[b],op,mask,target,1))continue;int cost=active?(__builtin_popcountll(backbone[0]|dep[a][0]|dep[b][0])+__builtin_popcountll(backbone[1]|dep[a][1]|dep[b][1])):curr;if(cost>min(bestRun+3,67))continue;if(cost<minimum)minimum=cost;if(rng()%++counts[cost]==0)chosen[cost]={a,b,op};}
+ int cost=minimum;if(rng()%5==0){int upto=min(K,minimum+2);for(int q=minimum+1;q<=upto;q++)if(counts[q] && rng()%2==0)cost=q;}if(counts[cost]){g[j]=chosen[cost];vals=eval(g);curr=cost;}if(score(vals.back())){cerr<<"incorrect rewrite"<<endl;return 2;}bestRun=min(bestRun,curr);
+ if(curr<best){best=curr;cout<<"bestsize "<<best<<" iter "<<total<<" sec "<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<endl;save(g,base+"/best.json");}if(curr<=63){save(g,base+"/solution.json");return 0;}
+ if(iter%1000==999){int dc=dirtyCount(g);if(dc&&curr<bestDirty){bestDirty=curr;cout<<"dirtysize "<<curr<<" dirtycount "<<dc<<" iter "<<total<<endl;save(g,base+"/best-dirty.json");}reorder(g);vals=eval(g);}if(iter%30==0&&chrono::duration<double>(chrono::steady_clock::now()-start).count()>=seconds)break;
+ }restarts++;if(restarts%10==0)cout<<"restarts "<<restarts<<" iter "<<total<<endl;}
+ cout<<"done bestsize="<<best<<" iterations="<<total<<endl;
+}

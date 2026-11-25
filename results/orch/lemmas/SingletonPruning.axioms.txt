@@ -1,0 +1,64 @@
+Diagnostic scratch-copy compilation: PASS (exit 0)
+Source SHA256 before diagnostic commands: aa537d8a40363b1f344b99110e42ada90e9006a6399a96c085e929f43750f1fc
+Commands appended only to scratch copy: #print axioms on erase_preserves_edge_function and minimal_gate_has_offstar_edge.
+
+Complete stdout and stderr:
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:122:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:146:69: warning: This simp argument is unused:
+  List.getElem?_take
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_append, hjm, (by omega : j < C.gates.length)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:153:69: warning: This simp argument is unused:
+  List.getElem?_take
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_append, hjm, List.getElem?_drop, h1,
+    (by omega : j + 1 < C.gates.length), (by omega : min m C.gates.length = m)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:252:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:262:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:269:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:269:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:275:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:275:33: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:283:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-132/review/SingletonPruningAxioms.lean:365:24: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_meta_650.Pruning.erase_preserves_edge_function' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_650.Pruning.minimal_gate_has_offstar_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

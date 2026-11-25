@@ -1,7 +1,8 @@
 Lean compilation: PASS (exit 0)
-Source SHA256: 5134ac3aec7511dc428dba208d92701cbaca84a30320fffcce6076b2c4633cf5
+Source SHA256: aa537d8a40363b1f344b99110e42ada90e9006a6399a96c085e929f43750f1fc
 Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean
 This is a checked helper, not a proof of L-meta-650. The posted bound remains 63.
+Both final lemmas use only propext, Classical.choice, Quot.sound.
 
 Complete stdout and stderr:
 /workspace/pequalnp-proofs/results/orch/lemmas/SingletonPruning.lean:122:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
@@ -58,6 +59,6 @@ Hint: Use `simp` instead of `simpa`:
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 
-Independent review: root inspected the proof and statement; PASS for partial preservation. No proof of the posted size63 statement is claimed.
-Sub-agents: 5 (circuit search, structural analysis, Lean baseline, SAT resynthesis, proof/checker review)
-TIMING total=18.6 subagents=5
+Independent review: root reviewed the minimality corollary; structural_math reviewed search artifacts and independently checked all witness controls. PASS for partial preservation, not a proof of size63.
+Sub-agents: 6 (five strategy/proof agents and one independent search-audit child)
+TIMING total=21.8 subagents=6
