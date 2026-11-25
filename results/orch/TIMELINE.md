@@ -17,3 +17,5 @@
 2026-11-25T14:22:28.053900+00:00 Checked complementary-restriction upper bound: 14 binary gates plus one NOT. This closes the attempted restricted lower-bound strategy, not the posted gap.
 
 2026-11-25T14:23:45.971778+00:00 New17/18 gate arguments compiled conditional on existing P9floor15; independent review PASS.
+
+2026-11-25T14:27:31.810569+00:00 Strong16binary bound, all non-OR opcode extension, physical counted CNF transport and cardinality order all compiled and independently reviewed.

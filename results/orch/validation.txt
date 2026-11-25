@@ -26,3 +26,6 @@ TIMING total=22 subagents=6
 
 SeventeenCoreDev.lean: lake env lean exit0; independent review PASS; explicit P9floor15 premise, local research import.
 TIMING total=23 subagents=6
+
+CombinatorialStrong.lean: standalone compile exit0,16+NOT lower bound. OpcodeThree.lean: conditional non-OR branch bound. CertificateTransport.lean: standalone compile exit0, conditional counted UNSAT bridge. CountTransport.lean and CardinalityOrder.lean: compile exit0. All independently reviewed PASS. Posted gap still unproved.
+TIMING total=26 subagents=6
