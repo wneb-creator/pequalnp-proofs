@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/OneDirtyPlane2056.lean"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-25T19:19:04.685460+00:00",
+  "finished_utc": "2026-11-25T19:20:13.984377+00:00",
+  "elapsed_seconds": 69.29897286499909,
+  "exit_code": 0,
+  "source_sha256": "5bb805978ab235aa4d6aa60dc10aaabdfccd74c55da77bb11ef897988a1a9cab",
+  "source_lines": 3231,
+  "maximum_child_rss_kib": 7200112,
+  "child_user_cpu_seconds": 55.55566,
+  "child_system_cpu_seconds": 8.299047,
+  "scope": "Restricted sum-plane >=64 for normalized AO2 full-function circuits with all ANDs Boolean-false on every singleton and at most one dirty AND. Explicit lift-fixed/live/no-clean-AND-operands assumptions retained. Not unrestricted2056 proof."
+}
