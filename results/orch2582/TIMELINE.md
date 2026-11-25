@@ -20,3 +20,5 @@
 - 2026-11-25T18:54:28.016123+00:00: Final named partial build passed in 92.339 seconds (5149 jobs), including the explicit 285-witness matching certificate.
 - 2026-11-25T18:54:37.281053+00:00: Major endpoint axiom audit passed, permitted axioms only.
 - 2026-11-25T18:54:49.631558+00:00: Final official checker exited 3 with missing prebuilt Mathlib cache FAULT; full theorem absent independently. Cleanup skipped.
+
+- 2026-11-25T18:57:51.844207+00:00: After push of checked partial commit 12c8dfa924e6ade04d8c2099448acfb8329c5265, own L-meta-2582 lease released successfully with reason other. No proof PR; full theorem unresolved.

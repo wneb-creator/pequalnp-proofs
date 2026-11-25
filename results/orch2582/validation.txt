@@ -12,7 +12,9 @@ Mathematical progress: canonical READ1/READ2 threshold case; same-size normaliza
 Unresolved: size-preserving READ2 normalization of smaller projective-plane circuits with shared dirty gates. No claimed plane counterexample or minimum-size result. Reductions are not open.
 Prior gap L-meta-4675: 3547-line checked partial preserved before unexpected HTTP 410; own recovery request assigned L-meta-2582. Other pilots' leases untouched.
 Desk null answers: 0. Two assignments; no null-message text exists.
-Lease: current own lease renewed through 2026-11-25T19:14:37.616Z; handback pending after preservation.
+Lease: own L-meta-2582 lease released successfully with reason other at 18:57:51 UTC, after checked results were pushed. Other pilots' leases untouched.
+Preserved proof commit: 12c8dfa924e6ade04d8c2099448acfb8329c5265 on origin/pnp/pilot-164.
+New-gap effort: approximately 26.34 minutes; total task effort exceeded 90 minutes.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
-TIMING total=108.83 subagents=6
+TIMING total=112.68 subagents=6
 Acknowledged: msg-177bc781a347345a68602494
