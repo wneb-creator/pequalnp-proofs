@@ -12809,7 +12809,7 @@ lemma delete_support {n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ)
   simp only [mem_supp]
   rw [na_del_val hS j hj hf (single v) w hw]
 
-lemma delete_annotations {m n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ)
+lemma delete_marks {m n : ℕ} {D : Dag} (hS : Strict n D) (j : ℕ)
     (hj : j < D.length) (hf : fanout D (n + j) = 0)
     (S : Finset (Fin m)) (g : Fin m → ℕ) (P : Fin m → Finset (Fin n))
     (hinj : Set.InjOn g S)
@@ -12914,7 +12914,7 @@ lemma prune_aux {m n : ℕ} (F : (Fin n → Bool) → Bool)
           rw [ho, na_del_val hS j hj hf0 x _ (by omega), hu]
           exact hD x
         obtain ⟨hkeep,hdrop,hginj,hgb,hgj⟩ :=
-          delete_annotations hS j hj hf0 S g P hinj hbounds hjoint
+          delete_marks hS j hj hf0 S g P hinj hbounds hjoint
         obtain ⟨D',S',g',h1,hsub,hginj',hgb',hgj',h2,h3,h4⟩ :=
           ih (D.length - 1) (by omega) (na_del n j D) hl
             (na_del_strict hS j hj hf0) hne' hD'
@@ -12922,7 +12922,7 @@ lemma prune_aux {m n : ℕ} (F : (Fin n → Bool) → Bool)
         exact ⟨D',S',g',h1,Finset.Subset.trans hsub hkeep,hginj',hgb',hgj',
           by omega,by omega,h4⟩
 
-lemma exists_live_preserving_annotations {m n : ℕ} (F : (Fin n → Bool) → Bool)
+lemma exists_live_preserving_marks {m n : ℕ} (F : (Fin n → Bool) → Bool)
     (hess : ∀ i : Fin n, ∃ x y : Fin n → Bool,
       (∀ k, k ≠ i → x k = y k) ∧ F x ≠ F y)
     (P : Fin m → Finset (Fin n)) (D : Dag) (hS : Strict n D) (hne : D ≠ [])
@@ -12952,7 +12952,7 @@ lemma lift_live_bound {m n : ℕ} (F : (Fin n → Bool) → Bool)
     (hbounds : ∀ i ∈ S, n ≤ g i ∧ g i < n + D.length)
     (hjoint : ∀ i ∈ S, P i ⊆ supp n D (g i)) : b + S.card ≤ D.length := by
   obtain ⟨D',S',g',h1,_,h2,h3,h4,_,h5,h6⟩ :=
-    exists_live_preserving_annotations F hess P D hS hne hD S g hinj hbounds hjoint
+    exists_live_preserving_marks F hess P D hS hne hD S g hinj hbounds hjoint
   have h7 := hlive D' S' g' h1 h6 h2 h3 h4
   omega
 
