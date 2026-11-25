@@ -24,3 +24,11 @@
 2026-11-25 16:16:56 UTC — Certificate helper completed and Lean-checked; parent notified for preservation.
 2026-11-25T16:17:28.605631+00:00 Semantic equality insufficiency forT0 preservation Lean-checked.
 2026-11-25T16:19:35.042975+00:00 Integrated 2560-line graph ledger and pure-OR-preserving normalization built and independently reviewed.
+2026-11-25T16:19:46.286599+00:00 Tagged normalizationbudget/provenance inductionstep compiled.
+2026-11-25T16:19:57.158230+00:00 Strategy C completed refined-ledger finite tests and bounded Fano counterexample search; no counterexample found; independent finite audit passed.
+2026-11-25T16:20:31.819912+00:00 Global strategy compiled bipartite relation geometry and clean-AND star-support circuit corollary; normalization |U| >= tau subroute refuted by three-edge path. Testing residual two-bound decomposition next.
+2026-11-25T16:21:14.073445+00:00 TaggedphysicalPoolandsimulationinduction compiled.
+2026-11-25T16:23:28.326153+00:00 FULL T0-preserving taggednormalization plusORwitnesspreservation compiled.
+2026-11-25T16:25:03.663805+00:00 Global independent strategy completed more than 20 minutes of research; three helper files compiled, full lower bound and dirty-AND residual charge remain open.
+
+2026-11-25T16:26:33.718218+00:00 — Archived independently reviewed tagged normalization, reach bridge, tagged pool/model and provenance counterexample. Main theorem remains unproved.

@@ -1,7 +1,8 @@
 L-meta-4970 PARTIAL ONLY
 Integrated 2560-line helper snapshot compiled in the named module. Posted theorem not yet proved.
 Build: PASS, named module; full log in partial-build.txt.
-Checker: NOT RUN; helper-only file has no final theorem. Full Mathlib cache also exceeds available disk.
+Additional 1174-line tagged normalization: PASS, independent review PASS; preserves T=0 and pure-OR witnesses.
+Checker: NOT RUN; helper-only file has no final theorem. Full Mathlib cache is not present; disk is constrained.
 Independent review: PASS for archival partial push. Guard correctly refuses missing final theorem.
-Sub-agents: 7 (status review, toolchain/setup and certificates, counting, lemma search/normalization, counterexample search, independent global argument, independent finite-search audit)
-TIMING total=33.8 subagents=7
+Sub-agents: 9 (six direct proof/search/review agents, plus finite audit, reach bridge, and tagged review)
+TIMING total=40.8 subagents=9
