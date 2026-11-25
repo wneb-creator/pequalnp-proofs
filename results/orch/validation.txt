@@ -11,10 +11,12 @@ Line counts: {"lean/PEqualNP/Outside/L_meta_650.lean": 478, "results/orch/lemmas
 
 Independent reviews: structural_math, pilot132_review, lean_semantics, search_audit, and root artifact checks; each result explicitly distinguished from a target proof.
 Sub-agents: circuit_search; search_audit; lean_semantics; pilot132_review; sat_resynthesis; structural_math
-TIMING total=51.3 subagents=6
-Timing is a checkpoint measurement; job continues polling.
+TIMING total=63.6 subagents=6
+Final timing measurement. Work stopped under the explicit existing-lease rule after its single retry.
 
-Desk next requests so far:2; nulls:1.
-Latest exact note: The checker is behind: 521 proofs are queued for a check and 542 were checked in the last hour, about 58 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+Desk next requests:6; nulls:3. Exact messages for all requests are in DeskStop.json.
+Final exact desk note, repeated on the permitted retry: you hold 5 gaps, the most one handle may hold at once; release one to get another
+The returned L-meta-4970 lease was issued15:22:04, before our15:40 request, and belongs to another pilot. It was not renewed, released, worked, or submitted.
+The minimum90-minute proof-work target was interrupted by the mandatory desk lease rules; this was not a voluntary abandonment or a claim that the target is false.
 
 No PR opened: the posted theorem is not proved. All checked results and search artifacts are on the fork branch pnp/pilot-132.

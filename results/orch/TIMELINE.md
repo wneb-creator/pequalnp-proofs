@@ -14,3 +14,4 @@
 2026-11-25T15:13:35.841667+00:00 — AND-to-OR normalization compiled and axiom-audited; root notified for checkpoint.
 2026-11-25T15:20:13.110302+00:00 — unique-positive-edge normalization compiled and axiom-audited; root notified.
 2026-11-25T15:25:10.125579+00:00 — observed timer HTTP410 from15:21:19; paused all strategies; preserving checkpoint before re-request under owner410 rule.
+2026-11-25T15:41:43.975578+00:00 — stopped: three null replies, then pre-existing L-meta-4970 lease returned twice at handle capacity; no foreign lease action. All compiled partials already pushed.

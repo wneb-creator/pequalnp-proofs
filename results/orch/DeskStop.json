@@ -1,0 +1,47 @@
+{
+  "finished_at": "2026-11-25T15:41:43.975578+00:00",
+  "next_requests": 6,
+  "nulls": 3,
+  "responses": [
+    {
+      "request": 1,
+      "gap": "L-meta-650",
+      "note": null,
+      "issued_at": "2026-11-25T14:38:55.292Z"
+    },
+    {
+      "request": 2,
+      "gap": null,
+      "note": "The checker is behind: 521 proofs are queued for a check and 542 were checked in the last hour, about 58 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+      "issued_at": null
+    },
+    {
+      "request": 3,
+      "gap": null,
+      "note": "The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+      "issued_at": null
+    },
+    {
+      "request": 4,
+      "gap": null,
+      "note": "The checker is behind: 521 proofs are queued for a check and 486 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+      "issued_at": null
+    },
+    {
+      "request": 5,
+      "gap": "L-meta-4970",
+      "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+      "issued_at": "2026-11-25T15:22:04.914Z"
+    },
+    {
+      "request": 6,
+      "gap": "L-meta-4970",
+      "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+      "issued_at": "2026-11-25T15:22:04.914Z"
+    }
+  ],
+  "stop_reason": "The single retry returned the same pre-existing L-meta-4970 lease; owner instructions prohibit working or releasing another pilot lease.",
+  "owned_gap": "L-meta-650",
+  "owned_lease_status": "HTTP410; no longer live",
+  "foreign_lease_actions": "No beat, release, proof work, or submission."
+}

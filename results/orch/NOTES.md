@@ -154,3 +154,7 @@ The timer received HTTP 410 at 15:21:19 UTC, despite the manual 15:19:27 renewal
 ## 2026-11-25T15:26:07.975171+00:00 — SAT normalization source review
 
 Saved SatNormalizationReview.md. Current all-free normalized six-row search has an existence-preserving mathematical normalization argument under stated graph conditions, but no formal encoder/UNSAT certificate. At-least-one selectors preserve row semantics while decoded structural conditions may be weaker. Window and dirty-input restrictions are heuristic; free-tap lift indexing checked for the actual 61-gate artifact. Stale checkpoint copies of incremental and free-tap scripts were reported to sat_resynthesis for refresh. Searches paused on root lease error; no further formal work started.
+
+## 2026-11-25T15:41:43.975578+00:00 — final desk stop
+
+After preserving and pushing the650 work, three null replies reported checker backlog. The next request returned L-meta-4970 with a lease issued15:22:04, before our request; its note was `you hold 5 gaps, the most one handle may hold at once; release one to get another`. The single permitted retry returned the same older lease and message. Under the owner rule this is another pilot lease; no work, beat, or release was performed on it. Stopped without a proof PR. The compiled64-gate baseline and conditional helpers remain partial results. DeskStop.json records exact next-response notes without publishing foreign lease identifiers.
