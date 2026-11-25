@@ -1,0 +1,50 @@
+import took 2.62s
+parsing took 307ms
+elaboration took 294ms
+process pre-definitions took 155ms
+elaboration took 3.08s
+process pre-definitions took 338ms
+elaboration took 14s
+declTypeLinter took 108ms
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 128ms
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 201ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 132ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 346ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 615ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 342ms
+linting took 802ms
+elaboration took 257ms
+elaboration took 215ms
+process pre-definitions took 119ms
+elaboration took 3.1s
+type checking took 37.7s
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryChunk6000Benchmark.lean:382:0: warning: Definition `compactBigChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+elaboration took 1.22s
+type checking took 578ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryChunk6000Benchmark.lean:478:0: warning: Definition `binGroupsCover` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.649ms
+	blocked (unaccounted) 28.2ms
+	congr simp thm 1.13ms
+	declTypeLinter 176ms
+	elaboration 22.7s
+	fix level params 6.91ms
+	import 2.62s
+	initialization 43.8ms
+	instantiate metavars 118ms
+	interpretation 3.1s
+	let-to-have transformation 207ms
+	linting 1.08s
+	module linting 0.114ms
+	parsing 565ms
+	process pre-definitions 780ms
+	share common exprs 182ms
+	simp 18.1ms
+	tactic execution 59.6ms
+	tacticAnalysis 143ms
+	type checking 38.6s
+	typeclass inference 8.81s

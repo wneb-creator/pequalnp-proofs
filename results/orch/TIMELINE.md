@@ -41,3 +41,5 @@
 - 2026-11-25 20:10 UTC: Re-plan after resource benchmarks: chunk large arrays, hash continuation lookups with exact-key checks, fully normalize states, and select a safe group cap. Full scratch candidate507,796bytes; full proof not yet checked. All previously compiled results already pushed.
 
 - 2026-11-25 20:12 UTC: IndexMask group-coverage helper kernel-checked (1.73ms). proof_route independent red-team review PASS: duplicate/unsorted group IDs are harmless, mask equality covers every required index without additional assumptions. Full source/log preserved.
+
+- 2026-11-25 20:15 UTC: Chunked6k batch and full3199-ID coverage mask passed; peak5,637,064KiB,37.7s kernel for the18-leaf batch. Group-to-leaf assembly is checked conditionally on all groups (remaining groups pending). Compact low0 pilot passed worst leaf, nested bounds, closed root coverage, and conditional restoration; total kernel6.7s. Root reviewed proof endpoints and assumptions; proof_route independently verified all chunked tables against prior data. Saved complete sources/logs.

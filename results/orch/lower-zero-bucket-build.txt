@@ -1,0 +1,62 @@
+import took 4.3s
+parsing took 274ms
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroBucketPilot.lean:19:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 269ms
+elaboration took 2.2s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 121ms
+linting took 104ms
+process pre-definitions took 281ms
+elaboration took 11.2s
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 163ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 289ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 157ms
+linting took 358ms
+elaboration took 125ms
+elaboration took 174ms
+elaboration took 2.06s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 121ms
+type checking took 5.13s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroBucketPilot.lean:524:0: warning: Definition `low0PilotCheck15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 334ms
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroBucketPilot.lean:580:0: warning: Definition `low0BucketsBound` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.1s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroBucketPilot.lean:592:0: warning: Definition `low0Coverage` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroBucketPilot.lean:602:31: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+cumulative profiling times:
+	attribute application 1.21ms
+	blocked (unaccounted) 63.9ms
+	compilation (IR) 2.34ms
+	compilation (LCNF base) 54.9ms
+	compilation (LCNF impure) 8.86ms
+	compilation (LCNF mono) 13.5ms
+	congr simp thm 5.09ms
+	declTypeLinter 149ms
+	elaboration 16.6s
+	fix level params 6.18ms
+	import 4.3s
+	initialization 39.7ms
+	instantiate metavars 62.2ms
+	interpretation 2.27s
+	let-to-have transformation 137ms
+	linting 650ms
+	module linting 0.0684ms
+	norm_num 1.05ms
+	parsing 461ms
+	process pre-definitions 511ms
+	share common exprs 99.6ms
+	simp 63.6ms
+	tactic execution 125ms
+	tacticAnalysis 108ms
+	type checking 6.7s
+	typeclass inference 6.18s
