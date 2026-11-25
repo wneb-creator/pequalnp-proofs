@@ -1,4 +1,6 @@
 import Mathlib.Combinatorics.Hall.Basic
+import Mathlib.Data.Nat.Bitwise
+import Mathlib.Data.BitVec
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_2583
@@ -5788,4 +5790,349 @@ lemma top_form_line_degree :
 lemma top_form_inner_and_dirty : ¬ BelowF pathGraph topFormCircuit 2 := by decide +kernel
 
 end PathDegreeObstruction
+
+
+namespace PartialPointBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.Outside.L_meta_2583.Repair
+open PEqualNP.Outside.L_meta_2583.PurePointBudget
+
+lemma accepted_subset_target {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    (U S : Finset (Fin n)) (roots : Finset ℕ)
+    (haccept : ∀ p ∈ S, ∃ w ∈ roots, val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ w ∈ roots, val C (List.ofFn (complementInput U)) w = false) : S ⊆ U := by
+  intro p hp
+  obtain ⟨w, hw, hval⟩ := haccept p hp
+  exact support_subset_of_false hm (hfalse w hw) (mem_support.2 hval)
+
+lemma grouped_partial_or_budget {n : ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (U S : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (haccept : ∀ i, ∀ p ∈ S i, ∃ w ∈ roots i,
+      val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ i, ∀ w ∈ roots i, val C (List.ofFn (complementInput (U i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    (∑ i, ((S i).card - (roots i).card)) ≤ (orGates C).card := by
+  classical
+  let pools := fun i => orPool C (complementInput (U i)) C.gates.length
+  have hlocal : ∀ i, (S i).card - (roots i).card ≤ (pools i).card := by
+    intro i
+    have hsub : S i ⊆ (roots i).biUnion (singletonSupport n C) := by
+      intro p hp
+      obtain ⟨w, hw, hv⟩ := haccept i p hp
+      exact Finset.mem_biUnion.2 ⟨w, hw, mem_support.2 hv⟩
+    have hcard := Finset.card_le_card hsub
+    have hb := frontier_budget hm rb (complementInput (U i)) C.gates.length (roots i)
+      (hvalid i) (hfalse i) (fun w hw _ => hvalid i w hw)
+    dsimp only [pools]
+    omega
+  have hdis : ((Finset.univ : Finset ι) : Set ι).PairwiseDisjoint pools := by
+    intro i _ j _ hij
+    exact orPool_disjoint hm (hpair i j hij) C.gates.length
+  have hsub : Finset.univ.biUnion pools ⊆ orGates C := by
+    intro k hk
+    obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.1 hk
+    obtain ⟨hk, hop, _⟩ := mem_orPool.1 hi
+    exact Finset.mem_filter.2 ⟨Finset.mem_range.2 hk, hop⟩
+  calc
+    _ ≤ ∑ i, (pools i).card := Finset.sum_le_sum fun i _ => hlocal i
+    _ = (Finset.univ.biUnion pools).card := (Finset.card_biUnion hdis).symm
+    _ ≤ _ := Finset.card_le_card hsub
+
+lemma grouped_or_budget {n : ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (U : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (hfalse : ∀ i, ∀ w ∈ roots i, val C (List.ofFn (complementInput (U i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    (∑ i, (((roots i).biUnion (singletonSupport n C)).card - (roots i).card)) ≤
+      (orGates C).card := by
+  apply grouped_partial_or_budget hm rb U _ roots hvalid _ hfalse hpair
+  intro i p hp
+  obtain ⟨w, hw, hp⟩ := Finset.mem_biUnion.1 hp
+  exact ⟨w, hw, mem_support.1 hp⟩
+
+lemma partial_output_or_budget {n : ℕ} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {C : Circuit} (hm : Monotone2 C) (rb : ReadsBack n C)
+    (U S : ι → Finset (Fin n)) (output : ι → ℕ)
+    (hvalid : ∀ i, output i < n + C.gates.length)
+    (haccept : ∀ i, ∀ p ∈ S i, val C (List.ofFn (pairInput p p)) (output i) = true)
+    (hfalse : ∀ i, val C (List.ofFn (complementInput (U i))) (output i) = false)
+    (hpair : ∀ i j, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    (∑ i, ((S i).card - 1)) ≤ (orGates C).card := by
+  have hb := grouped_partial_or_budget hm rb U S (fun i => {output i})
+    (by intro i w hw; simpa only [Finset.mem_singleton.1 hw] using hvalid i)
+    (by intro i p hp; exact ⟨output i, Finset.mem_singleton_self _, haccept i p hp⟩)
+    (by intro i w hw; simpa only [Finset.mem_singleton.1 hw] using hfalse i) hpair
+  simpa only [Finset.card_singleton] using hb
+
+end PartialPointBudget
+
+
+namespace PackedEval
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def gate (w : List ℕ) (g : Gate) : ℕ :=
+  match g.op with
+  | .and => (w.getD (g.inputs.getD 0 0) 0) &&& (w.getD (g.inputs.getD 1 0) 0)
+  | .or => (w.getD (g.inputs.getD 0 0) 0) ||| (w.getD (g.inputs.getD 1 0) 0)
+  | _ => 0
+
+def wires (C : Circuit) (w : List ℕ) : List ℕ :=
+  C.gates.foldl (fun w g => w ++ [gate w g]) w
+
+def eval (C : Circuit) (w : List ℕ) : ℕ :=
+  (wires C w).getD C.output 0
+
+lemma testBit_getD (w : List ℕ) (r i : ℕ) :
+    (w.getD i 0).testBit r = (w.map fun a => a.testBit r).getD i false := by
+  induction w generalizing i with
+  | nil => simp
+  | cons a w ih =>
+    cases i with
+    | zero => simp
+    | succ i => simpa using ih i
+
+lemma gate_testBit (w : List ℕ) (g : Gate) (r : ℕ)
+    (hop : g.op = .and ∨ g.op = .or) (hlen : g.inputs.length = 2) :
+    (gate w g).testBit r =
+      g.op.eval (g.inputs.map fun i => (w.map fun a => a.testBit r).getD i false) := by
+  obtain ⟨a, b, hi⟩ := List.length_eq_two.mp hlen
+  have ha := testBit_getD w r a
+  have hb := testBit_getD w r b
+  rcases hop with hop | hop
+  · simpa [gate, hop, hi, GateOp.eval] using congrArg₂ (fun a b : Bool => a && b) ha hb
+  · simpa [gate, hop, hi, GateOp.eval] using congrArg₂ (fun a b : Bool => a || b) ha hb
+
+lemma fold_testBit (gs : List Gate) (w : List ℕ) (r : ℕ)
+    (hgs : ∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length = 2) :
+    (gs.foldl (fun w g => w ++ [gate w g]) w).map (fun a => a.testBit r) =
+      gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+        (w.map fun a => a.testBit r) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    have hg := hgs g (by simp)
+    have hs : ∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length = 2 :=
+      fun g h => hgs g (by simp [h])
+    simp only [List.foldl_cons]
+    rw [ih _ hs]
+    simp only [List.map_append, List.map_cons, List.map_nil, gate_testBit w g r hg.1 hg.2]
+
+lemma wires_testBit (C : Circuit) (w : List ℕ) (r : ℕ)
+    (hC : ∀ g ∈ C.gates, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length = 2) :
+    (wires C w).map (fun a => a.testBit r) = C.wires (w.map fun a => a.testBit r) :=
+  fold_testBit C.gates w r hC
+
+lemma eval_testBit (C : Circuit) (w : List ℕ) (r : ℕ)
+    (hC : ∀ g ∈ C.gates, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length = 2) :
+    (eval C w).testBit r = C.eval (w.map fun a => a.testBit r) := by
+  rw [eval, testBit_getD, wires_testBit C w r hC]
+  rfl
+
+lemma eval_testBit_of_isAO2 (n : ℕ) (C : Circuit) (w : List ℕ) (r : ℕ)
+    (hC : IsAO2 n C) :
+    (eval C w).testBit r = C.eval (w.map fun a => a.testBit r) :=
+  eval_testBit C w r (fun g hg => ⟨hC.1 g hg, hC.2.2 g hg⟩)
+
+end PackedEval
+
+
+namespace PackedColumns
+
+def col : ℕ → ℕ → ℕ
+  | 0, _ => 0
+  | n + 1, j =>
+    if j < n then
+      let v := col n j
+      v ||| (v <<< (2 ^ n))
+    else if j = n then
+      ((2 ^ (2 ^ n) - 1) <<< (2 ^ n))
+    else 0
+
+lemma col_testBit (n j : ℕ) (hj : j < n) (r : ℕ) :
+    (col n j).testBit r = (decide (r < 2 ^ n) && r.testBit j) := by
+  induction n generalizing j r with
+  | zero => omega
+  | succ n ih =>
+    have hp : 2 ^ (n + 1) = 2 ^ n + 2 ^ n := by rw [pow_succ]; omega
+    by_cases hjn : j < n
+    · rw [col, ite_eq_left hjn]
+      simp only [Nat.testBit_lor, Nat.testBit_shiftLeft, ih j hjn]
+      by_cases hr : r < 2 ^ n
+      · have hn : ¬ 2 ^ n ≤ r := by omega
+        have hr' : r < 2 ^ (n + 1) := by omega
+        simp [hr, hn, hr']
+      · have hn : 2 ^ n ≤ r := by omega
+        have he : r.testBit j = (r - 2 ^ n).testBit j := by
+          have h := Nat.testBit_two_pow_add_gt hjn (r - 2 ^ n)
+          rw [Nat.add_sub_of_le hn] at h
+          exact h
+        by_cases hr' : r < 2 ^ (n + 1)
+        · have hd : r - 2 ^ n < 2 ^ n := by omega
+          simp [hr, hn, hr', hd, he]
+        · have hd : ¬ r - 2 ^ n < 2 ^ n := by omega
+          simp [hr, hn, hr', hd]
+    · have he : j = n := by omega
+      subst j
+      simp only [col, Nat.lt_irrefl, ite_false, ite_true,
+        Nat.testBit_shiftLeft, Nat.testBit_two_pow_sub_one]
+      by_cases hr : r < 2 ^ n
+      · have hn : ¬ 2 ^ n ≤ r := by omega
+        have hb := Nat.testBit_lt_two_pow hr
+        simp [hn, hb]
+      · have hn : 2 ^ n ≤ r := by omega
+        by_cases hr' : r < 2 ^ (n + 1)
+        · have hd : r - 2 ^ n < 2 ^ n := by omega
+          have hb := Nat.testBit_of_two_pow_le_and_two_pow_add_one_gt hn hr'
+          simp [hn, hr', hd, hb]
+        · have hd : ¬ r - 2 ^ n < 2 ^ n := by omega
+          simp [hn, hr', hd]
+
+lemma col_testBit_lt (n j r : ℕ) (hj : j < n) (hr : r < 2 ^ n) :
+    (col n j).testBit r = r.testBit j := by
+  simp [col_testBit n j hj r, hr]
+
+lemma col_testBit_ge (n j r : ℕ) (hj : j < n) (hr : 2 ^ n ≤ r) :
+    (col n j).testBit r = false := by
+  simp [col_testBit n j hj r, Nat.not_lt_of_ge hr]
+
+lemma col_lt (n j : ℕ) (hj : j < n) : col n j < 2 ^ (2 ^ n) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro r hr
+  exact col_testBit_ge n j r hj hr
+
+lemma col_eq_zero (n j : ℕ) (hj : n ≤ j) : col n j = 0 := by
+  cases n with
+  | zero => rfl
+  | succ n =>
+    have hlt : ¬ j < n := by omega
+    have hne : j ≠ n := by omega
+    simp [col, hlt, hne]
+
+lemma col_testBit_all (n j r : ℕ) :
+    (col n j).testBit r = (decide (j < n) && decide (r < 2 ^ n) && r.testBit j) := by
+  by_cases hj : j < n
+  · simp [col_testBit n j hj r, hj]
+  · simp [col_eq_zero n j (by omega), hj]
+
+end PackedColumns
+
+
+namespace PackedLineColumns
+
+def joinWords (ws : List Nat) : Nat := ws.foldr (· ||| ·) 0
+
+lemma joinWords_bit (ws : List Nat) (r : Nat) :
+    (joinWords ws).testBit r = ws.any (fun w => w.testBit r) := by
+  induction ws with
+  | nil => simp [joinWords]
+  | cons w ws ih => simpa [joinWords, Nat.testBit_lor] using congrArg (fun b => w.testBit r || b) ih
+
+def lineWord {n m : Nat} (I : Fin n → Fin m → Prop) [DecidableRel I]
+    (cols : Fin n → Nat) (l : Fin m) : Nat :=
+  Nat.ldiff (2 ^ (2 ^ n) - 1) (joinWords (List.ofFn (fun p => if I p l then cols p else 0)))
+
+lemma lineWord_bit {n m : Nat} (I : Fin n → Fin m → Prop) [DecidableRel I]
+    (cols : Fin n → Nat) (r : Fin (2 ^ n)) (l : Fin m)
+    (hc : ∀ p : Fin n, (cols p).testBit r.val = r.val.testBit p.val) :
+    (lineWord I cols l).testBit r.val =
+      decide (∀ p : Fin n, I p l → r.val.testBit p.val = false) := by
+  have hnot (b : Bool) : (!b) = true ↔ b = false := by cases b <;> decide
+  apply Bool.eq_iff_iff.mpr
+  simp only [lineWord, Nat.testBit_ldiff, Nat.testBit_two_pow_sub_one, r.isLt,
+    decide_true, Bool.true_and, joinWords_bit, hnot, decide_eq_true_eq,
+    List.any_eq_false, List.forall_mem_ofFn_iff]
+  constructor
+  · intro h p hp
+    simpa [hp, hc] using h p
+  · intro h p
+    by_cases hp : I p l
+    · simp [hp, hc, h p hp]
+    · simp [hp]
+
+end PackedLineColumns
+
+
+namespace PackedInputCode
+
+def code {n : Nat} (x : Fin n → Bool) : Fin (2 ^ n) :=
+  ⟨(BitVec.ofBoolListLE (List.ofFn x)).toNat, by
+    simpa using (BitVec.ofBoolListLE (List.ofFn x)).isLt⟩
+
+lemma code_bit {n : Nat} (x : Fin n → Bool) (i : Fin n) :
+    (code x).val.testBit i.val = x i := by
+  unfold code
+  rw [BitVec.testBit_toNat, BitVec.getLsbD_ofBoolListLE]
+  simp [List.getD_eq_getElem?_getD]
+
+end PackedInputCode
+
+
+namespace PackedBoundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_2583.ReducedCheck
+open PEqualNP.Outside.L_meta_2583.CircuitCheckWrapper
+
+lemma input_bits {n m : ℕ} (I : Fin n → Fin m → Prop) [DecidableRel I]
+    (w : List ℕ) (hlen : w.length = n + m)
+    (hpoint : ∀ (r : Fin (2 ^ n)) (p : Fin n),
+      (w.getD p.val 0).testBit r.val = r.val.testBit p.val)
+    (hline : ∀ (r : Fin (2 ^ n)) (l : Fin m),
+      (w.getD (n + l.val) 0).testBit r.val =
+        decide (∀ p : Fin n, I p l → r.val.testBit p.val = false))
+    (P : Finset (Fin n)) :
+    w.map (fun a => a.testBit (PackedInputCode.code (fun p => decide (p ∈ P))).val) =
+      List.ofFn (liftInput (independentInput I P)) := by
+  let r := PackedInputCode.code (fun p => decide (p ∈ P))
+  have hwire : ∀ i : Fin (n + m), (w.getD i.val 0).testBit r.val =
+      liftInput (independentInput I P) i := by
+    intro i
+    refine Fin.addCases ?_ ?_ i
+    · intro p
+      simpa [r, liftInput, independentInput] using
+        (hpoint r p).trans (PackedInputCode.code_bit (fun p => decide (p ∈ P)) p)
+    · intro l
+      have hwline : (w.getD (n + l.val) 0).testBit r.val =
+          decide (l ∈ avoidingRight I P) := by
+        rw [hline r l]
+        congr 1
+        apply propext
+        rw [mem_avoidingRight]
+        constructor
+        · intro h p hp hI
+          have hf := h p hI
+          simpa [r, PackedInputCode.code_bit, hp] using hf
+        · intro h p hI
+          have hp : p ∉ P := fun hp => h p hp hI
+          simp [r, PackedInputCode.code_bit, hp]
+      simpa [liftInput, independentInput] using hwline
+  apply List.ext_getElem
+  · simpa using hlen
+  · intro i hi hj
+    have hwi : i < w.length := by simpa using hi
+    have hib : i < n + m := by simpa [hlen] using hwi
+    simpa [List.getD_eq_getElem?_getD, hwi] using hwire ⟨i, hib⟩
+
+lemma independent_false_of_packed_zero {n m : ℕ} (I : Fin n → Fin m → Prop)
+    [DecidableRel I] (C : Circuit) (hAO : IsAO2 (n + m) C)
+    (w : List ℕ) (hlen : w.length = n + m)
+    (hpoint : ∀ (r : Fin (2 ^ n)) (p : Fin n),
+      (w.getD p.val 0).testBit r.val = r.val.testBit p.val)
+    (hline : ∀ (r : Fin (2 ^ n)) (l : Fin m),
+      (w.getD (n + l.val) 0).testBit r.val =
+        decide (∀ p : Fin n, I p l → r.val.testBit p.val = false))
+    (hzero : PackedEval.eval C w = 0) :
+    ∀ P : Finset (Fin n), circuitFun (n + m) C (liftInput (independentInput I P)) = false := by
+  intro P
+  have h := PackedEval.eval_testBit_of_isAO2 (n + m) C w
+    (PackedInputCode.code (fun p => decide (p ∈ P))).val hAO
+  rw [hzero, input_bits I w hlen hpoint hline P] at h
+  simpa [circuitFun] using h.symm
+
+end PackedBoundary
 end PEqualNP.Outside.L_meta_2583
