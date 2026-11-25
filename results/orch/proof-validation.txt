@@ -1,0 +1,23 @@
+Proof strategy validation 2026-11-25T01:35:38.164043+00:00
+Pinned Lean 4.36.0; only PEqualNP.Defs imported; LAKE_ARTIFACT_CACHE=false.
+These are partial lemmas. The pair-normalization existence hypothesis in finish_from_pair_normalization remains unproved. No checker acceptance of the posted gap is claimed.
+
+File: results/orch/lemmas/proof_pair_sound.lean
+SHA256: 4eb4244757d6fecf5abb7e86dc777a26ab0d4ab76e51543c5864396367bee8d0
+Lines: 310
+Exit: 0
+Complete compiler stdout/stderr:
+
+
+File: results/orch/lemmas/proof_bridge.lean
+SHA256: 7e5a488da282d6e851e91ec55c397369a815854692a18129009e36f6ac5e183c
+Lines: 1812
+Exit: 0
+Complete compiler stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_bridge.lean:1204:55: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+

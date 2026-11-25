@@ -1,0 +1,8 @@
+L-meta-1031 PARTIAL ownership construction
+Source: results/orch/lemmas/inventory_star.lean
+SHA256: 22589e43394a0876ebd2164f9178d55e8fd606dfe1ad667ce2380eab45d37708
+Lines: 229
+Validation: lake env lean compiled this source with exit 0. Complete stdout/stderr preserved.
+Proves: every finite graph has a computing monotone binary circuit satisfying the exact nonempty-star ownership condition.
+Limitation: no minimum-size claim about this witness. Not the full posted theorem.
+Checker: full posted statement not checked; not PR-ready.
