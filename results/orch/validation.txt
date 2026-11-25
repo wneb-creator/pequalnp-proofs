@@ -1,0 +1,10 @@
+L-meta-2583 PARTIAL ONLY
+Compiled file: results/orch/lemmas/readk_card.lean
+Command: lake env lean ../results/orch/lemmas/readk_card.lean
+Exit status: 0
+Stdout: empty
+Stderr: empty
+Independent red-team review: PASS for partial preservation.
+Full posted theorem and local checker: not yet passed.
+Sub-agents: status audit and review; ReadK construction; library lower bounds; counterexample search; normal forms; toolchain setup
+TIMING total=6.77 subagents=6
