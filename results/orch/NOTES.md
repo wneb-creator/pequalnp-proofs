@@ -132,3 +132,8 @@ Environment is ready: pinned Lean 4.36.0 and full prebuilt Mathlib cache, checkl
 - Random F13 search sampled 3026 constant directions and found 15 distinct level 2-planes, none extending to a 3-plane over F13. Five had larger linearized extension spaces.
 - The nontrivial nullity-4 example lifts over Q: A01=1, A12=A13=-1/2, B02=1, B03=-1. Its exact extension quotient has coordinates p0,p1 and Groebner basis [4p0²-12p0p1-63p1², p1³], so it has no extension over C either. The other nullity-4 examples are permutations of this crossed-star plane or the ordinary star plane.
 - Scripts, complete logs, and small plane lists are archived under results/orch/lemmas. None of these computational diagnostics is a Lean refutation of the full statement.
+
+## Lean-checked star-plane maximality / 2026-11-25 09:49 UTC
+- `results/orch/lemmas/StarMaximal.lean` compiles with exit0, empty log. Main lemma in namespace L_gct_231_aux.StarMaximal proves: if symmetricT satisfies per(J+star(x,y)+zT)=24 for every x,y,z, then T=star(T01,T02). Thus the checked2Dstarspace admits no linear extension. This remains a partial; arbitrary3spaces could avoid thisstarspace.
+- Proof: four scalar evaluations extract first derivative; six parameter evaluations and exact linear_combination certificates force lower3×3block constantq andT00=−2p−9q. Quadratic/cubic coefficients forceq³=0, thenp²=0, finishing allentries. No additional axioms or unchecked computation.
+- File frozen for root review andearlypush. Full buildlog star-maximal-build.log; CAS derivation star-maximal-generate.py/log/data.json is supplementaryonly.

@@ -55,3 +55,18 @@ Scope: no chart-coverage theorem or arbitrary-space refutation is claimed.
 Local checker for target: not run; target remains unproved.
 Sub-agents: six.
 TIMING total=64.0 subagents=6
+
+Additional checked partial: standard star plane has no symmetric extension.
+UTC: 2026-11-25T09:52:17.485724+00:00
+File: results/orch/lemmas/StarMaximal.lean
+Lines: 108
+SHA256: d331a0b91eb58dde39be37e0116b70ab84f794e8a74a067db913d744bd4a84ef
+Command (cwd lean/): lake env lean ../results/orch/lemmas/StarMaximal.lean
+Build exit status: 0
+Complete build stdout and stderr follows:
+
+Independent review: passed; a symmetric direction preserving the entire standard star plane already belongs to it.
+Scope: this excludes extensions of one particular 2D space, not arbitrary 3D spaces.
+Local checker for target: not run; target remains unproved.
+Sub-agents: seven, including an added fresh mathematical review.
+TIMING total=76.6 subagents=7

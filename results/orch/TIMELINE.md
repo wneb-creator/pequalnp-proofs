@@ -14,3 +14,4 @@
 
 - 2026-11-25T09:45:04.732764+00:00 geometry_route started sole long rowsum18 mod97 F4, LA44 probabilistic sparse, 2threads, maxpairs512, 8GiB AS,1200s CPU/wall bounds. No other largeGB jobs active.
 - 2026-11-25T09:48:45.332127+00:00: archived 38 independently reviewed CAS/search artifacts with explicit diagnostic-only scope.
+- 2026-11-25T09:52:17.485724+00:00: standard star-plane maximality compiled and independently reviewed; preserving checked partial.
