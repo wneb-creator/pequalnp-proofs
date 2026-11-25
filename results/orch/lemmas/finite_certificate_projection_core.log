@@ -1,0 +1,21 @@
+results/orch/lemmas/finite_certificate_projection_core.lean:23:10: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+results/orch/lemmas/finite_certificate_projection_core.lean:25:10: warning: This simp argument is unused:
+  h0
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h1, h2, BitVec.setWidth_not (by decide : 512 ≤ 1024)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+results/orch/lemmas/finite_certificate_projection_core.lean:25:14: warning: This simp argument is unused:
+  h1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h0, h2, BitVec.setWidth_not (by decide : 512 ≤ 1024)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
