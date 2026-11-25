@@ -1,0 +1,10 @@
+Scope: finite computational obstruction for one restricted shared-prefix topology, not a Lean theorem and not a proof of L-meta-1890.
+Generator: genlocal.py
+Command: python3 genlocal.py 16 4 01 local4.cnf ord,used,out,pad,pre,padrd
+Solver command: cadical -t 60 local4.cnf
+Result: UNSATISFIABLE, exit 20, 0.64 seconds, 10.74 MB RSS.
+Rows: all 128 assignments to original variables [0,2,3,4,5,6,9].
+Available free signals: the seven originals; A=0 OR 2 OR 6; B=3 OR 5 OR 6; C=2 OR 5 OR 9; D=0 OR 3 OR 9; seed=0 AND 2; and four independently selected OR-pair intermediates within A,B,C,D (81 choices). False is also available via the circuit convention.
+Target Y=(0 AND 5) OR (2 AND 3) OR (6 AND 9) OR (4 AND D).
+Allowed additional gates: at most four AND/OR/NOT/true gates, arbitrary output.
+Independent C++ enumeration by petersen_counterexample agrees.

@@ -1,0 +1,346 @@
+{
+  "checked_partial": [
+    {
+      "file": "results/orch/lemmas/petersen-search/Surjective.lean",
+      "sha256": "54217a1def6dffa0e8bd8a6920de59953ca9079451c9eeea942f09e6595b5076",
+      "bytes": 2059
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/surjective-final.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/surjective-final.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/surjective-validation.txt",
+      "sha256": "e88ef4ebca8fe100c3b4d7e342f773521fb0003351d1c911233703b6cb5c3f7a",
+      "bytes": 487
+    }
+  ],
+  "computational_research": [
+    {
+      "file": "results/orch/lemmas/petersen-search/twenty-gates.json",
+      "sha256": "cd1ce62a7e6ccd9e6a5a2ae92a513ae05e0529d1136cfb2e50aacdda52c2b761",
+      "bytes": 1785
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/genseeded.py",
+      "sha256": "101fdcc774cf13690480925f1a82fc55ed1e256e06626dbb2341023c918cdfac",
+      "bytes": 5514
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/genrepair.py",
+      "sha256": "b017af40a8cf90550aa131355f1de99800607c29ded7ca06be553c49cf5f2353",
+      "bytes": 5506
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/decode-seeded.py",
+      "sha256": "404b6df51cc09e82bee1048f1440af7c26c6904e9c8aa4978011134959e20695",
+      "bytes": 1340
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair.py",
+      "sha256": "8c178e2878f63fce0a72e769d0c92bbe7dc5b69cec44c4a9858067bca0321394",
+      "bytes": 2619
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-seed.json",
+      "sha256": "49cb5c09e67dc404786c09093a4209ebf0d1ccc8d6ff63f0b94d09ce76c55b4a",
+      "bytes": 288
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/rows-001.json",
+      "sha256": "49e025e2699ebd6af2a7843cbacd0210feb9564c3be6d1fd962e58255e3cb9f5",
+      "bytes": 192
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/genlocal.py",
+      "sha256": "accb383ef397a0e9502b58b7105e41ca6821ac53025af2c0b47a1aeb0ab71d5e",
+      "bytes": 6245
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/genlocal.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/genlocal.stderr",
+      "sha256": "a9d9ac774d6904a04518a9ca5bdc8055ac2fdc16b8cda84d41b84925e7b475cb",
+      "bytes": 560
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/local4-sat.stdout",
+      "sha256": "160cc7bcff224398cb642e7407956f2821ba43ea0c04c0e528ea1150760b5249",
+      "bytes": 12027
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/local4-sat.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/cadical-version.txt",
+      "sha256": "b2f44d3b6e29f8b1b73ea4735f006affc4d198e1fd9c7d50e736159b1ef636c6",
+      "bytes": 6
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/cadical-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/local4-validation.txt",
+      "sha256": "adbfeeca47fdb90c7ab5492991b7389f926870e72f0714c7dd683bd5b9ba469f",
+      "bytes": 854
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/local4-cnf.sha256",
+      "sha256": "dea03f7b7efb4cf32702ab81c4b4beb5b5a5164f468e69d2ea3aaf1b4eead1c8",
+      "bytes": 77
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/seed18-sat.stdout",
+      "sha256": "abe69c5ae4c43b690033335692871eab3b6eb234a42a55f3d8d9bfa418514bed",
+      "bytes": 1201641
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/seed18-sat.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/seed18-sat.witness.json",
+      "sha256": "4fc01127522caf167a7c5d2ccdea12bc8e147eb00d2613d8937ec4b7ae7ad8d5",
+      "bytes": 8868
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/seed18-001-sat.stdout",
+      "sha256": "014123b49e882172f0f3d7ea764153437808f524a1566cafba1a8b097f8771c9",
+      "bytes": 47695
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/seed18-001-sat.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair.stdout",
+      "sha256": "7bfc26223a5c63cbc99f9d68bcb341d6673aad7b8fdd5e3faf3b4d79080b11a6",
+      "bytes": 3122
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-results.json",
+      "sha256": "09e998914da0197f10da77b0ba841f5efc3a623b578b4021766c71cba1d265e3",
+      "bytes": 5006
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-000.stdout",
+      "sha256": "47abd9e700f22bcb2c5322f2312d912773f181d1ec62167226607d56ab11a302",
+      "bytes": 13340
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-000.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-001.stdout",
+      "sha256": "5d435e61c788371e0b3667e9810860c8b27376ff2a46813e9fd751dee366046d",
+      "bytes": 18369
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-001.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-002.stdout",
+      "sha256": "de7dfcd210114fa1eece1f4b23309eb45eafca1aef0417840d72511c3f4a568c",
+      "bytes": 17608
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-002.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-003.stdout",
+      "sha256": "198d0998774bd613a66dca1eb802f15fe4cc0fedc2f99256f55d6e66e52f77b5",
+      "bytes": 16714
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-003.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-004.stdout",
+      "sha256": "c2870461d6c64014876bfb0788ae5be63f98b4de77934dd2f4534d5481455cb6",
+      "bytes": 19034
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-004.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-005.stdout",
+      "sha256": "979c653e52f9e09bfbd5bff5800ed5d2c27cccca16eac05198d8fbc9da4317ce",
+      "bytes": 16680
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-005.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-006.stdout",
+      "sha256": "59cb9af4e7419cbab13d95319bd36249b553b5b98c79d88af9c67e33fceec3c5",
+      "bytes": 18324
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-006.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-007.stdout",
+      "sha256": "277480892a191e67dfcac59f97470d430cba3ac81b2492a390ab550bedbb91d7",
+      "bytes": 19674
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-007.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-008.stdout",
+      "sha256": "9ec52fa069c3d2ef4dfdf42c9b878852557bfc0f882f57117855a716a666fffd",
+      "bytes": 17404
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-008.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-009.stdout",
+      "sha256": "20f79fd9abef90be87b6b925f739c64c63483024054f3637dce85b96fd131a66",
+      "bytes": 16593
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-009.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-010.stdout",
+      "sha256": "da5d3b71d2d05d219789e105b3d9a6d477741c12316449fc8d75aea03473e377",
+      "bytes": 18950
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-010.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-011.stdout",
+      "sha256": "4d461c93548bb259e65090a4b1714fb42a8d0d2889a2f170542b661fd95ba2e1",
+      "bytes": 19564
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-011.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-012.stdout",
+      "sha256": "4df5d2eceec653899d76022898f611765b50e756aa76f9546829de25f4751960",
+      "bytes": 17220
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-012.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-013.stdout",
+      "sha256": "786b202c7f59cb84dfc6805c13c3ee8bf3d95b34fbdba28bafbcd448878de788",
+      "bytes": 19485
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-013.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-014.stdout",
+      "sha256": "4f9b8082afac39318a5dd9f02977615d8801cfdce3251e11ea2b73bd36595b3b",
+      "bytes": 19778
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-014.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-015.stdout",
+      "sha256": "e5a1f6d802d48198e6cfb5e1a5d7d5ed74e2c535b19d61a694cf359c64f991e1",
+      "bytes": 18303
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-015.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-016.stdout",
+      "sha256": "d548ec79292fb186a43ac4cb707844e947e24b67c4919f716ea368d240b76f4f",
+      "bytes": 16601
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-016.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-017.stdout",
+      "sha256": "cdb5974889fcebff1d8be098d9c27e053f3af3240b49121c437f7eb0f2d8c1ce",
+      "bytes": 16790
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-017.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-018.stdout",
+      "sha256": "56e0372c1250a7d989dcfc06973cff8220af32570d3d432e59f6852b834faa9f",
+      "bytes": 16576
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-018.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-019.stdout",
+      "sha256": "ea11890484274feb84b506729c3115dabbeec65f11707ff44d67585d0b2601d7",
+      "bytes": 15576
+    },
+    {
+      "file": "results/orch/lemmas/petersen-search/repair-019.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

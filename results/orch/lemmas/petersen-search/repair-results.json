@@ -1,0 +1,379 @@
+[
+  {
+    "index": 0,
+    "free": [
+      9,
+      12,
+      14,
+      16,
+      17
+    ],
+    "exit": 20,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "seconds": 3.0674287060001006,
+    "peak_KiB": 50080,
+    "memory_stop": false
+  },
+  {
+    "index": 1,
+    "free": [
+      0,
+      4,
+      9,
+      12,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.429545026000596,
+    "peak_KiB": 45204,
+    "memory_stop": false
+  },
+  {
+    "index": 2,
+    "free": [
+      4,
+      7,
+      9,
+      10,
+      12,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.079605584000092,
+    "peak_KiB": 19460,
+    "memory_stop": false
+  },
+  {
+    "index": 3,
+    "free": [
+      1,
+      6,
+      9,
+      12,
+      14,
+      16,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.413825149999866,
+    "peak_KiB": 19268,
+    "memory_stop": false
+  },
+  {
+    "index": 4,
+    "free": [
+      4,
+      7,
+      9,
+      12,
+      14,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.22045063800033,
+    "peak_KiB": 31484,
+    "memory_stop": false
+  },
+  {
+    "index": 5,
+    "free": [
+      0,
+      1,
+      3,
+      9,
+      12,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.347505124000236,
+    "peak_KiB": 31524,
+    "memory_stop": false
+  },
+  {
+    "index": 6,
+    "free": [
+      2,
+      7,
+      9,
+      10,
+      12,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.25744909200057,
+    "peak_KiB": 31504,
+    "memory_stop": false
+  },
+  {
+    "index": 7,
+    "free": [
+      4,
+      6,
+      7,
+      9,
+      12,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.201682504000019,
+    "peak_KiB": 31512,
+    "memory_stop": false
+  },
+  {
+    "index": 8,
+    "free": [
+      3,
+      4,
+      5,
+      11,
+      12,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.222554616999332,
+    "peak_KiB": 16400,
+    "memory_stop": false
+  },
+  {
+    "index": 9,
+    "free": [
+      2,
+      3,
+      6,
+      7,
+      14,
+      16,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.383738397999878,
+    "peak_KiB": 55688,
+    "memory_stop": false
+  },
+  {
+    "index": 10,
+    "free": [
+      0,
+      2,
+      5,
+      8,
+      10,
+      12,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.186457392999728,
+    "peak_KiB": 31524,
+    "memory_stop": false
+  },
+  {
+    "index": 11,
+    "free": [
+      2,
+      3,
+      6,
+      11,
+      12,
+      13,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.275930361999599,
+    "peak_KiB": 19932,
+    "memory_stop": false
+  },
+  {
+    "index": 12,
+    "free": [
+      1,
+      2,
+      7,
+      12,
+      13,
+      14,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.451030647000152,
+    "peak_KiB": 46296,
+    "memory_stop": false
+  },
+  {
+    "index": 13,
+    "free": [
+      0,
+      4,
+      5,
+      6,
+      10,
+      11,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.318211371999496,
+    "peak_KiB": 31460,
+    "memory_stop": false
+  },
+  {
+    "index": 14,
+    "free": [
+      2,
+      3,
+      6,
+      8,
+      12,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.271082783000566,
+    "peak_KiB": 31528,
+    "memory_stop": false
+  },
+  {
+    "index": 15,
+    "free": [
+      1,
+      3,
+      4,
+      7,
+      10,
+      13,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.206869693000044,
+    "peak_KiB": 20096,
+    "memory_stop": false
+  },
+  {
+    "index": 16,
+    "free": [
+      0,
+      6,
+      10,
+      12,
+      13,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.381210160000592,
+    "peak_KiB": 31500,
+    "memory_stop": false
+  },
+  {
+    "index": 17,
+    "free": [
+      2,
+      3,
+      9,
+      11,
+      14,
+      16,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.490776435000043,
+    "peak_KiB": 31540,
+    "memory_stop": false
+  },
+  {
+    "index": 18,
+    "free": [
+      6,
+      7,
+      10,
+      11,
+      12,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.127961744000459,
+    "peak_KiB": 31584,
+    "memory_stop": false
+  },
+  {
+    "index": 19,
+    "free": [
+      4,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17
+    ],
+    "exit": 0,
+    "status": [
+      "c UNKNOWN"
+    ],
+    "seconds": 10.206226071999481,
+    "peak_KiB": 45060,
+    "memory_stop": false
+  }
+]

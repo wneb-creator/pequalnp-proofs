@@ -1,0 +1,7 @@
+Source: results/orch/lemmas/petersen-search/Surjective.lean
+Command (from lean/): lake env lean -j1 -M6500 /workspace/pequalnp-proofs/results/orch/lemmas/petersen-search/Surjective.lean
+Result: exit 0; stdout empty; stderr empty.
+Claim: every input map of a circuit computing the seeded Petersen edge function is surjective.
+Scope: checked helper only; not a proof of L-meta-1890.
+Imports: PEqualNP.Defs only.
+No sorry, native_decide, new axioms, strings, attributes, or global options.
