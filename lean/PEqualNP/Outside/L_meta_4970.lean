@@ -3396,4 +3396,200 @@ lemma bipartite_normalize_top {p l : ℕ} (E : Finset (Fin p × Fin l))
 
 end H8PostedCounts
 
+namespace H8Residual
+
+def sourceVector {p : ℕ} {I : Type*} (Q : I → Finset (Fin p))
+    (x : Fin p → Bool) : I → Bool :=
+  fun i => decide (∃ a ∈ Q i, x a = true)
+
+lemma source_separates_edge {p l : ℕ} {I : Type*}
+    (E : Finset (Fin p × Fin l)) (Q : I → Finset (Fin p))
+    (D : (I → Bool) → (Fin l → Bool) → Bool)
+    (hm : ∀ y, Monotone (fun u => D u y))
+    (hc : ∀ x y, D (sourceVector Q x) y =
+      decide (∃ a b, (a,b) ∈ E ∧ x a = true ∧ y b = true))
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ i, a ∈ Q i ∧ ∀ a' ∈ Q i, (a',b) ∈ E := by
+  classical
+  let x : Fin p → Bool := fun a' => decide (a' = a)
+  let y : Fin p → Bool := fun a' => decide ((a',b) ∉ E)
+  let z : Fin l → Bool := fun b' => decide (b' = b)
+  have ht : D (sourceVector Q x) z = true := by
+    rw [hc]
+    simp only [decide_eq_true_eq]
+    exact ⟨a,b,hab,by simp [x],by simp [z]⟩
+  have hf : D (sourceVector Q y) z = false := by
+    rw [hc]
+    simp only [decide_eq_false_iff_not]
+    rintro ⟨a',b',he,hy,hz⟩
+    have hb : b' = b := by simpa [z] using hz
+    subst b'
+    have hy' : (a',b) ∉ E := by simpa [y] using hy
+    exact hy' he
+  by_contra hsep
+  have bad : ∀ i, a ∈ Q i → ∃ a' ∈ Q i, (a',b) ∉ E := by
+    intro i hi
+    by_contra h
+    apply hsep
+    refine ⟨i,hi,?_⟩
+    intro a' ha'
+    by_contra hn
+    exact h ⟨a',ha',hn⟩
+  have hle : sourceVector Q x ≤ sourceVector Q y := by
+    intro i
+    cases hv : sourceVector Q x i with
+    | false => simp
+    | true =>
+      have hi : a ∈ Q i := by simpa [sourceVector,x] using hv
+      obtain ⟨a',ha',hne⟩ := bad i hi
+      have hv' : sourceVector Q y i = true := by
+        simp only [sourceVector,decide_eq_true_eq]
+        exact ⟨a',ha',by simp [y,hne]⟩
+      simp [hv']
+  have h := hm z hle
+  change D (sourceVector Q x) z ≤ D (sourceVector Q y) z at h
+  rw [ht,hf] at h
+  exact (by decide : ¬ ((true : Bool) ≤ false)) h
+
+lemma one_source_cover {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (h4 : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (Q : Finset (Fin p)) :
+    ∃ S : Finset (Fin (p+l)), S.card ≤ 1 ∧
+      ∀ a b, a ∈ Q → (∀ a' ∈ Q, (a',b) ∈ E) →
+        Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S := by
+  classical
+  by_cases hsmall : Q.card ≤ 1
+  · refine ⟨Q.image (Fin.castAdd l), (Finset.card_image_le).trans hsmall, ?_⟩
+    intro a b ha _
+    exact Or.inl (Finset.mem_image_of_mem _ ha)
+  · have hlarge : 1 < Q.card := by omega
+    obtain ⟨a,ha,a',ha',hne⟩ := Finset.one_lt_card.mp hlarge
+    by_cases hex : ∃ b : Fin l, ∀ a' ∈ Q, (a',b) ∈ E
+    · obtain ⟨b0,hb0⟩ := hex
+      refine ⟨{Fin.natAdd p b0}, by simp, ?_⟩
+      intro c b hc hb
+      right
+      have hbb : b = b0 := by
+        by_contra hne'
+        exact h4 a a' b b0 hne hne' ⟨hb a ha,hb0 a ha,hb a' ha',hb0 a' ha'⟩
+      simp [hbb]
+    · refine ⟨∅, by simp, ?_⟩
+      intro a b ha hb
+      exact (hex ⟨b,hb⟩).elim
+
+lemma sources_give_cover {p l : ℕ} {I : Type*} [Fintype I]
+    (E : Finset (Fin p × Fin l)) (Q : I → Finset (Fin p))
+    (h4 : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hs : ∀ a b, (a,b) ∈ E → ∃ i, a ∈ Q i ∧ ∀ a' ∈ Q i, (a',b) ∈ E) :
+    ∃ S : Finset (Fin (p+l)), S.card ≤ Fintype.card I ∧
+      ∀ a b, (a,b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S := by
+  classical
+  choose T hT hcover using fun i => one_source_cover E h4 (Q i)
+  refine ⟨Finset.univ.biUnion T, ?_, ?_⟩
+  · calc
+      (Finset.univ.biUnion T).card ≤ ∑ i : I, (T i).card := Finset.card_biUnion_le
+      _ ≤ ∑ _i : I, 1 := Finset.sum_le_sum fun i _ => hT i
+      _ = Fintype.card I := by simp
+  · intro a b hab
+    obtain ⟨i,hai,hbi⟩ := hs a b hab
+    rcases hcover i a b hai hbi with ha | hb
+    · exact Or.inl (Finset.mem_biUnion.mpr ⟨i,Finset.mem_univ _,ha⟩)
+    · exact Or.inr (Finset.mem_biUnion.mpr ⟨i,Finset.mem_univ _,hb⟩)
+
+lemma monochromatic_decoder_cover {p l : ℕ} {I : Type*} [Fintype I]
+    (E : Finset (Fin p × Fin l)) (Q : I → Finset (Fin p))
+    (D : (I → Bool) → (Fin l → Bool) → Bool)
+    (h4 : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hm : ∀ y, Monotone (fun u => D u y))
+    (hc : ∀ x y, D (sourceVector Q x) y =
+      decide (∃ a b, (a,b) ∈ E ∧ x a = true ∧ y b = true)) :
+    ∃ S : Finset (Fin (p+l)), S.card ≤ Fintype.card I ∧
+      ∀ a b, (a,b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S := by
+  apply sources_give_cover E Q h4
+  intro a b hab
+  exact source_separates_edge E Q D hm hc a b hab
+
+def singletonAssignment {p : ℕ} (a : Fin p) : Fin p → Bool :=
+  fun a' => decide (a' = a)
+
+lemma function_source_separates_edge {p l : ℕ} {I : Type*}
+    (E : Finset (Fin p × Fin l)) (q : I → (Fin p → Bool) → Bool)
+    (D : (I → Bool) → (Fin l → Bool) → Bool)
+    (hq : ∀ i, Monotone (q i))
+    (hm : ∀ y, Monotone (fun u => D u y))
+    (hc : ∀ x y, D (fun i => q i x) y =
+      decide (∃ a b, (a,b) ∈ E ∧ x a = true ∧ y b = true))
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ i, q i (singletonAssignment a) = true ∧
+      ∀ a', q i (singletonAssignment a') = true → (a',b) ∈ E := by
+  classical
+  let x := singletonAssignment a
+  let y : Fin p → Bool := fun a' => decide ((a',b) ∉ E)
+  let z : Fin l → Bool := fun b' => decide (b' = b)
+  have ht : D (fun i => q i x) z = true := by
+    rw [hc]
+    simp only [decide_eq_true_eq]
+    exact ⟨a,b,hab,by simp [x,singletonAssignment],by simp [z]⟩
+  have hf : D (fun i => q i y) z = false := by
+    rw [hc]
+    simp only [decide_eq_false_iff_not]
+    rintro ⟨a',b',he,hy,hz⟩
+    have hb : b' = b := by simpa [z] using hz
+    subst b'
+    have hy' : (a',b) ∉ E := by simpa [y] using hy
+    exact hy' he
+  have hex : ∃ i, q i x = true ∧ q i y = false := by
+    by_contra hn
+    have hle : (fun i => q i x) ≤ (fun i => q i y) := by
+      intro i
+      change q i x ≤ q i y
+      cases hx : q i x <;> cases hy : q i y
+      · decide
+      · decide
+      · exact (hn ⟨i,hx,hy⟩).elim
+      · decide
+    have h := hm z hle
+    change D (fun i => q i x) z ≤ D (fun i => q i y) z at h
+    rw [ht,hf] at h
+    exact (by decide : ¬ ((true : Bool) ≤ false)) h
+  obtain ⟨i,hi,hiy⟩ := hex
+  refine ⟨i,hi,?_⟩
+  intro a' ha'
+  by_contra hn
+  have hle : singletonAssignment a' ≤ y := by
+    intro c
+    by_cases he : c = a'
+    · subst c
+      simp [singletonAssignment,y,hn]
+    · simp [singletonAssignment,he]
+  have h := hq i hle
+  rw [ha',hiy] at h
+  exact (by decide : ¬ ((true : Bool) ≤ false)) h
+
+lemma monochromatic_function_decoder_cover {p l : ℕ} {I : Type*} [Fintype I]
+    (E : Finset (Fin p × Fin l)) (q : I → (Fin p → Bool) → Bool)
+    (D : (I → Bool) → (Fin l → Bool) → Bool)
+    (h4 : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hq : ∀ i, Monotone (q i))
+    (hm : ∀ y, Monotone (fun u => D u y))
+    (hc : ∀ x y, D (fun i => q i x) y =
+      decide (∃ a b, (a,b) ∈ E ∧ x a = true ∧ y b = true)) :
+    ∃ S : Finset (Fin (p+l)), S.card ≤ Fintype.card I ∧
+      ∀ a b, (a,b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S := by
+  classical
+  let Q : I → Finset (Fin p) := fun i =>
+    Finset.univ.filter fun a => q i (singletonAssignment a) = true
+  apply sources_give_cover E Q h4
+  intro a b hab
+  obtain ⟨i,hi,hn⟩ := function_source_separates_edge E q D hq hm hc a b hab
+  refine ⟨i,by simpa [Q] using hi,?_⟩
+  intro a' ha'
+  exact hn a' (by simpa [Q] using ha')
+
+end H8Residual
+
 end PEqualNP.Outside.L_meta_4970
