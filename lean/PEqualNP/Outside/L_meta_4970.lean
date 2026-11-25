@@ -274,4 +274,152 @@ lemma leaf_count_bypass {α : Type*} [DecidableEq α]
       have := ih W hW'
       omega
 
+lemma belowOr_finset_conj_factor {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (Q : Finset α) (I : Finset ι) (f : ι → (α → Bool) → Bool)
+    (hm : ∀ i ∈ I, MonotoneBool (f i))
+    (hb : BelowOr Q (fun x => decide (∀ i ∈ I, f i x = true))) :
+    ∃ i ∈ I, BelowOr Q (f i) := by
+  by_contra hn
+  have hall : ∀ i ∈ I, f i (outsideInput Q) = true := by
+    intro i hi
+    cases hfi : f i (outsideInput Q) with
+    | false =>
+      exact False.elim (hn ⟨i, hi, (belowOr_iff_outside_false Q (f i) (hm i hi)).mpr hfi⟩)
+    | true => rfl
+  obtain ⟨a, ha, hax⟩ := hb (outsideInput Q) (decide_eq_true hall)
+  simp [outsideInput, ha] at hax
+
+lemma or_finset_conj_eq_or_factors {α ι κ : Type*}
+    [DecidableEq α] [DecidableEq ι] [DecidableEq κ]
+    (Q : Finset α) (I : Finset ι) (J : Finset κ)
+    (f : ι → (α → Bool) → Bool) (g : κ → (α → Bool) → Bool)
+    (hf : ∀ i ∈ I, MonotoneBool (f i)) (hg : ∀ j ∈ J, MonotoneBool (g j))
+    (h : ∀ x,
+      (decide (∀ i ∈ I, f i x = true) || decide (∀ j ∈ J, g j x = true)) =
+        decide (∃ a ∈ Q, x a = true)) :
+    ∃ i ∈ I, ∃ j ∈ J, BelowOr Q (f i) ∧ BelowOr Q (g j) ∧
+      ∀ x, (f i x || g j x) = decide (∃ a ∈ Q, x a = true) := by
+  have hb : BelowOr Q (fun x =>
+      decide (∀ i ∈ I, f i x = true) || decide (∀ j ∈ J, g j x = true)) := by
+    intro x hx
+    change (decide (∀ i ∈ I, f i x = true) || decide (∀ j ∈ J, g j x = true)) = true at hx
+    rw [h x] at hx
+    exact of_decide_eq_true hx
+  obtain ⟨hI, hJ⟩ := belowOr_or Q _ _ hb
+  obtain ⟨i, hi, hfi⟩ := belowOr_finset_conj_factor Q I f hf hI
+  obtain ⟨j, hj, hgj⟩ := belowOr_finset_conj_factor Q J g hg hJ
+  refine ⟨i, hi, j, hj, hfi, hgj, ?_⟩
+  intro x
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    simp only [Bool.or_eq_true] at hx
+    rcases hx with hfx | hgx
+    · exact decide_eq_true (hfi x hfx)
+    · exact decide_eq_true (hgj x hgx)
+  · intro hx
+    have hc : (decide (∀ i ∈ I, f i x = true) || decide (∀ j ∈ J, g j x = true)) = true :=
+      (h x).trans hx
+    simp only [Bool.or_eq_true] at hc ⊢
+    rcases hc with hfx | hgx
+    · exact Or.inl ((of_decide_eq_true hfx) i hi)
+    · exact Or.inr ((of_decide_eq_true hgx) j hj)
+
+
+def unitInput {α : Type*} [DecidableEq α] (u : α) : α → Bool :=
+  fun i => decide (i = u)
+
+def pairInput {α : Type*} [DecidableEq α] (u v : α) : α → Bool :=
+  fun i => decide (i = u ∨ i = v)
+
+lemma unitInput_le_pairInput_left {α : Type*} [DecidableEq α] (u v : α) :
+    ∀ i, unitInput u i = true → pairInput u v i = true := by
+  intro i hi
+  simp only [unitInput, decide_eq_true_eq] at hi
+  simp only [pairInput, decide_eq_true_eq]
+  exact Or.inl hi
+
+lemma unitInput_le_pairInput_right {α : Type*} [DecidableEq α] (u v : α) :
+    ∀ i, unitInput v i = true → pairInput u v i = true := by
+  intro i hi
+  simp only [unitInput, decide_eq_true_eq] at hi
+  simp only [pairInput, decide_eq_true_eq]
+  exact Or.inr hi
+
+lemma pairContext_singleton_centre {α : Type*} [DecidableEq α]
+    (Adj : α → α → Prop)
+    (hno : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (Adj a b ∧ Adj a b' ∧ Adj a' b ∧ Adj a' b'))
+    (g h : (α → Bool) → Bool) (hgm : MonotoneBool g) (hhm : MonotoneBool h)
+    (hPair : ∀ u v, (g (pairInput u v) && h (pairInput u v)) = true → Adj u v)
+    {c q1 q2 : α} (hq : q1 ≠ q2) (hc1 : Adj c q1) (hc2 : Adj c q2)
+    (hg1 : g (unitInput q1) = true) (hg2 : g (unitInput q2) = true) :
+    ∀ v, h (unitInput v) = true → v = c := by
+  intro v hv
+  have hvq (q : α) (hgq : g (unitInput q) = true) : Adj v q := by
+    apply hPair v q
+    simp only [Bool.and_eq_true]
+    exact ⟨hgm _ _ (unitInput_le_pairInput_right v q) hgq,
+      hhm _ _ (unitInput_le_pairInput_left v q) hv⟩
+  by_contra hvc
+  exact hno c v q1 q2 (Ne.symm hvc) hq ⟨hc1, hc2, hvq q1 hg1, hvq q2 hg2⟩
+
+def PairMinterm {α : Type*} [DecidableEq α]
+    (f : (α → Bool) → Bool) (u v : α) : Prop :=
+  f (pairInput u v) = true ∧ f (unitInput u) = false ∧ f (unitInput v) = false
+
+lemma pairContext_inherited_off_centre {α : Type*} [DecidableEq α]
+    (g h : (α → Bool) → Bool) (c : α)
+    (hc : ∀ v, h (unitInput v) = true → v = c)
+    {u v : α} (hu : u ≠ c) (hv : v ≠ c)
+    (hp : (g (pairInput u v) && h (pairInput u v)) = true) :
+    PairMinterm h u v := by
+  have hp' : g (pairInput u v) = true ∧ h (pairInput u v) = true := by
+    simpa only [Bool.and_eq_true] using hp
+  refine ⟨hp'.2, ?_, ?_⟩
+  · cases he : h (unitInput u) with
+    | false => rfl
+    | true => exact False.elim (hu (hc u he))
+  · cases he : h (unitInput v) with
+    | false => rfl
+    | true => exact False.elim (hv (hc v he))
+
+lemma pairContext_inherited_at_centre {α : Type*} [DecidableEq α]
+    (g h : (α → Bool) → Bool) {c b : α}
+    (hc : g (unitInput c) = false) (hb : g (unitInput b) = false)
+    (hp : (g (pairInput c b) && h (pairInput c b)) = true) :
+    PairMinterm g c b := by
+  have hp' : g (pairInput c b) = true ∧ h (pairInput c b) = true := by
+    simpa only [Bool.and_eq_true] using hp
+  exact ⟨hp'.1, hc, hb⟩
+
+lemma pairContext_minterm_or_star {α : Type*} [DecidableEq α]
+    (g h : (α → Bool) → Bool) (c : α)
+    (hc : ∀ v, h (unitInput v) = true → v = c)
+    (hgc : g (unitInput c) = false)
+    {u v : α} (hp : (g (pairInput u v) && h (pairInput u v)) = true) :
+    PairMinterm h u v ∨ PairMinterm g u v ∨
+      (u = c ∧ g (unitInput v) = true ∧ h (unitInput u) = true) ∨
+      (v = c ∧ g (unitInput u) = true ∧ h (unitInput v) = true) := by
+  have hp' : g (pairInput u v) = true ∧ h (pairInput u v) = true := by
+    simpa only [Bool.and_eq_true] using hp
+  obtain ⟨hgp, hhp⟩ := hp'
+  cases hhu : h (unitInput u) with
+  | false =>
+    cases hhv : h (unitInput v) with
+    | false => exact Or.inl ⟨hhp, hhu, hhv⟩
+    | true =>
+      have hvc := hc v hhv
+      cases hgu : g (unitInput u) with
+      | false =>
+        exact Or.inr (Or.inl ⟨hgp, hgu, hvc.symm ▸ hgc⟩)
+      | true => exact Or.inr (Or.inr (Or.inr ⟨hvc, rfl, rfl⟩))
+  | true =>
+    have huc := hc u hhu
+    cases hgv : g (unitInput v) with
+    | false =>
+      exact Or.inr (Or.inl ⟨hgp, huc.symm ▸ hgc, hgv⟩)
+    | true => exact Or.inr (Or.inr (Or.inl ⟨huc, rfl, rfl⟩))
+
+
 end PEqualNP.Outside.L_meta_4970_aux
