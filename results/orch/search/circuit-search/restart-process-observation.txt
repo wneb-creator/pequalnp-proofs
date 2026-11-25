@@ -1,0 +1,7 @@
+    PID    PPID STAT COMMAND         ELAPSED     TIME   RSS
+  11987       1 Z    python3            2842 00:00:47     0
+  15294       1 Z    phased             2009 00:23:58     0
+  15721       1 Z    python3            1812 00:00:11     0
+  18051       1 Z    python3             771 00:00:00     0
+  18052       1 Z    kissat              771 00:08:27     0
+  19014   19011 S    python3             163 00:00:00  9620

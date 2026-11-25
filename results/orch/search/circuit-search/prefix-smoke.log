@@ -1,0 +1,2 @@
+first 20 gates undominated: SAT; tail copy allowed; all16384 inputs verified
+first 28 gates undominated: UNSAT; domination of final copy detected

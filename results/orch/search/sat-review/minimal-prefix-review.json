@@ -1,0 +1,11 @@
+{
+  "source_bound_edges_match": true,
+  "prefix_20_to_28_extra_comparisons": 300,
+  "extra_vars": 17400,
+  "extra_clauses": 35100,
+  "invalid_prefixes_rejected": [
+    -1,
+    4
+  ],
+  "status": "passed"
+}

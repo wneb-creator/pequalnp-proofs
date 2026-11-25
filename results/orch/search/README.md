@@ -9,3 +9,5 @@ The completed stochastic and bounded subgraph logs are saved in full. Active sol
 Known result: the saved 27-gate baseline has been independently checked on all 16,384 inputs and in Lean. No 26-gate witness or general lower bound has been established.
 
 The four bounded subgraph inputs and their complete UNKNOWN solver logs are included. general-reproduction.json records the flags needed to reproduce the initial general CNF exactly.
+
+The 07:32 UTC snapshot preserves completed and interrupted searches separately. Both third-prefix CaDiCaL and AND-root Kissat processes were lost during the environment restart; their partial logs establish no SAT or UNSAT verdict. The new focused F0+A search was running and its live logs are excluded. Source-only and experimental artifacts are not Lean certificates.

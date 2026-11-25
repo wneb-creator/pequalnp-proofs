@@ -1,0 +1,43 @@
+{
+  "name": "third-shadow3-prefix20-26",
+  "started_at": "2026-11-25T06:58:27.138667+00:00",
+  "wall_limit_seconds": 2700,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-26.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/near26-third-shadow3-prefix20.phases",
+    "2700"
+  ],
+  "cnf_sha256": "514ba23ad26f7b64147fc94f53f98814666640fb2859d3e60db426f65378ffc3",
+  "phases_sha256": "077b21997a620830a6252ab427c8ea57aef2f778ac3d410a9763b839269fc0f0",
+  "pause_events": [
+    {
+      "reason": "root requested 60-second CPU window for official verifier and Frontier Lean check",
+      "started_at": "2026-11-25T07:16:45.574106+00:00",
+      "pids": [
+        10460,
+        15294
+      ],
+      "finished_at": "2026-11-25T07:17:45.577744+00:00",
+      "wall_seconds": 60.0045774350001,
+      "pid": 15294
+    }
+  ],
+  "status": "INTERRUPTED",
+  "observed_at": "2026-11-25T07:32:21.742035+00:00",
+  "interruption_report": "Root reported a workspace restart at approximately 07:28 UTC; the solver was subsequently observed as a zombie with RSS 0.",
+  "observed_process": {
+    "pid": 15294,
+    "command": "phased",
+    "state": "Z",
+    "rss_kib": 0,
+    "ps_cpu_time": "00:23:58"
+  },
+  "observation_file": "restart-process-observation.txt",
+  "solver_verdict": null,
+  "exit_code": null,
+  "finished_at": null,
+  "log_bytes": 186,
+  "log_sha256": "8e4e97a4f91c8252762fed206491369b24268aed01978baddc4476968c5e0342",
+  "runtime_note": "No termination timestamp or exact resource accounting survived; elapsed time to observation is not asserted as solver runtime."
+}

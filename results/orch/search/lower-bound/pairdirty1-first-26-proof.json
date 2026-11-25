@@ -1,0 +1,17 @@
+{
+  "artifact": "pairdirty1-first-26.drat",
+  "size_bytes": 483164081,
+  "sha256": "6262fb565c1185f7cf1f3218796f73f2b221025e428c1ded269f4a84c8d912f5",
+  "solver_verdicts": [
+    "c UNKNOWN"
+  ],
+  "certificate_status": "INCOMPLETE: solver returned UNKNOWN; this is not an UNSAT certificate",
+  "solver_verdict": "UNKNOWN",
+  "compressed_artifact": "pairdirty1-first-26.drat.gz",
+  "compressed_size_bytes": 287541453,
+  "compressed_sha256": "234250de0de4af6b026746e59823ba7f3d37c7b27f8ddf3e6d63ee0ec887c187",
+  "decompression_verified_sha256": "6262fb565c1185f7cf1f3218796f73f2b221025e428c1ded269f4a84c8d912f5",
+  "compression_completed": "2026-11-25T07:01:12.837641+00:00",
+  "compression_elapsed_seconds": 54.071,
+  "original_removed_after_verification": true
+}

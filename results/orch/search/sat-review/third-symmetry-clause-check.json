@@ -1,0 +1,31 @@
+{
+  "numeric_CNF_patterns_exact_match": true,
+  "additional_clauses": 3715,
+  "known_star_prefix_allowed": true,
+  "adjacent_lex_prefix_assignments_before": 47250,
+  "after": 26484,
+  "fixed_prefix_boundary_example": {
+    "prefix_score": 226,
+    "first": [
+      0,
+      1
+    ],
+    "second": [
+      0,
+      1
+    ],
+    "third": [
+      1,
+      1
+    ],
+    "third_representative": [
+      0,
+      0
+    ],
+    "operations": [
+      false,
+      false,
+      false
+    ]
+  }
+}

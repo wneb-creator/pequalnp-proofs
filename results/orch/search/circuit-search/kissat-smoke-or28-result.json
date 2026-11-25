@@ -1,0 +1,22 @@
+{
+  "name": "kissat-smoke-or28",
+  "started_at": "2026-11-25T07:09:38.181331+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-or28.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "ebc30379b2b36ed80369b9d241e2435cb30378b6596784cfb6e01e94ae4c2c27",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T07:09:38.372012+00:00",
+  "wall_seconds": 0.1493783239993718,
+  "cpu_seconds": 0.112011,
+  "max_rss_kib": 17544,
+  "exit_code": 20,
+  "status": "UNSAT"
+}

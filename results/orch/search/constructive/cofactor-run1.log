@@ -1,0 +1,2 @@
+{"event": "best", "trial": 0, "size": 27, "depth": 2, "states": 7, "seconds": 0.0020959749999747146}
+{"event": "done", "seconds": 24.143072169000334, "trials": 1942, "best": 27, "full_truth_table_errors": 0}

@@ -1,0 +1,26 @@
+{
+  "gates": 26,
+  "assignments": 16384,
+  "target_errors": 49,
+  "target_false_negatives": 0,
+  "exact_supergraph_errors": 0,
+  "added_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      6,
+      13
+    ]
+  ],
+  "elapsed_seconds": 0.351104
+}

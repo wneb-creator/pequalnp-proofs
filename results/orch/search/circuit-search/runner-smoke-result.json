@@ -1,0 +1,21 @@
+{
+  "name": "runner-smoke",
+  "started_at": "2026-11-25T06:29:53.133788+00:00",
+  "wall_limit_seconds": 5,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow-smoke-28.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/near26-shadow3.phases",
+    "5"
+  ],
+  "cnf_sha256": "dd002f228ffb8b8521ce0d627fc94ac31d79ecc495fada162463b96ff8f1b43f",
+  "phases_sha256": "c2b320479844cff1767437142df1c933b88398b0fad523ea12be45878279878c",
+  "finished_at": "2026-11-25T06:29:53.460554+00:00",
+  "wall_seconds": 0.24528384299992467,
+  "cpu_seconds": 0.17595699999999997,
+  "max_rss_kib": 32212,
+  "exit_code": 10,
+  "status": "SAT",
+  "full_truth_table_verified": true,
+  "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/runner-smoke-witness.json"
+}

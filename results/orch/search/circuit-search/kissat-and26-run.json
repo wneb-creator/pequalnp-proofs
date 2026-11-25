@@ -1,0 +1,16 @@
+{
+  "name": "kissat-and26",
+  "started_at": "2026-11-25T07:19:05.026189+00:00",
+  "wall_limit_seconds": 2700,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=2700",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-and26.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "456955fe83e35005cbf7df95a9d63eb504b76be852d50808bbccbf7ae81168e8",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

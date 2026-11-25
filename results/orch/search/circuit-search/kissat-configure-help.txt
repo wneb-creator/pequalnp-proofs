@@ -1,0 +1,114 @@
+usage: configure [ <option> ... ]
+
+where <option> is one of the following
+
+  -h      print only a list of common command line options
+  --help  print this complete list of all command line options
+
+  -c      include assertion checking code (default for '-g')
+  -g      compile for testing and debugging (implies '-c', '-s', '-l')
+  -l      include logging code (default for '-g', needs run-time enabling too)
+  -p      pedantic compilation ('-Werror -std=c99 --pedantic')
+  -s      add symbols (default for '-g')
+
+Options used to instrument the code for coverage and performance profiling.
+
+  --coverage        include line coverage code (to be used with 'gcov')
+  --profile         include profiling code (to be used with 'gprof')
+
+For coverage testing it might be useful to enforce different compiler
+optimization levels, i.e., lower than the default '-O3' (without '-g').
+  
+  -O[0|1|2|3]       set the optimization level of the compiler explicitly
+
+Writing through 'popen' can be considered harmful in certain library usage.
+
+  --safe            disable the use of writing through 'popen'
+                    (and thus disables writing zipped files too)
+
+We have compile time options which save memory and speed up the solver by
+limiting the size of formulas that can be handled, fix the default
+configuration, disable messages, profiling and certain statistics.
+
+  --compact         limit watcher stacks and clause arena size
+  --no-options      fix all solver options to their default value
+  --quiet           disable messages, built-in profiling and metrics
+                   
+  --competition     same as '--no-options --quiet' (competition configuration)
+  --extreme         same as '--compact --no-options --quiet'
+                   
+  --no-proofs       do not include code for proof generation
+  --ultimate        all configurations above ('--extreme --no-proofs')
+
+For '--no-options' (and '--extreme', '--ultimate', and '--competition' too)
+we allow the following options which enforce a different option at compile
+time (corresponding to the same run-time settings without '--no-options'):
+
+  --default         do not enforce specialized option configurations
+  --sat             force options to focus on satisfiable instance
+  --unsat           force options to focus on unsatisfiable instance
+
+Redundant metrics and statistics gathering code can be enabled and disabled
+separately.  Only essential counters are updated and printed without these.
+Metrics are considered to be statistics, thus  '--metrics' also implies
+'--statistics' and vice versa '--no-statistics' implies '--no-metrics.
+   
+   --metrics        include metrics code (default with '-g', '-l')
+   --no-metrics     no metrics code (default with '--quiet' etc.)
+                   
+   --statistics     include statistics code (default without '--extreme')
+   --no-statistics  no statistics code (default with '--extreme')
+
+For (delta) debugging and testing the parser can read options embedded
+in DIMACS files.  This feature is enabled for '-c', '-g', and '-l' but
+disabled for optimized compilation (without '-c', '-g', nor '-l'),
+except that '--embedded' is also assumed with '--coverage' unless options
+are disabled (with '--no-options', '--extreme' or '--no-options').
+
+   --embedded | -e  allow parsing option value pairs in DIMACS file 
+   --no-embedded    disable parsing option value pairs in DIMACS file
+
+The default goal of the generated 'makefile' only builds the library
+'libkissat.a' and the stand alone SAT solver 'kissat'.  The test program
+'tissat' is only compiled on demand (with 'make test'), unless '-g',
+'--coverage' or '--embedded' is specified.  To force compilation of
+'tissat' by default use the following:
+
+   --test           compile test program by default (default with '-g')
+   --no-test        do not compile test program (default without '-g')
+
+The sub-solver 'kitten' used for extracting definitions has a stand-alone
+mode and for testing purposes can be compiled into a 'kitten' binary.
+
+   --kitten         generate 'kitten' binary too (default with '-g')
+   --no-kitten      do not generate 'kitten' binary (default without '-g')
+
+Enable (very) expensive low-level checkers for data structures:
+
+   --check-all      check consistency of all data structures
+   --check-heap     check consistency of binary heaps
+   --check-kitten   check consistencies in 'Kitten' sub-solver
+   --check-queue    check consistency of the variable-move-to-front queue
+   --check-vectors  check consistency of watch vectors
+   --check-walk     check consistency of local search
+
+Enabling any of these enforces assertion and online proof checking ('-c').
+We also allow an explicit choice of the C compiler.
+
+  CC=<compiler>     default is 'gcc' (and we regularly test with 'CC=clang')
+
+The following options are for convenience and in essence just passed through
+to the makefile and thus the compiler to avoid editing the makefile.  However,
+for '-m32' the configure script checks that it can actually really do 32-bit
+builds. Furthermore, in case of '-fsanitize=address' the macro '-DASAN' is
+defined, such that some tests incompatible with ASAN can be omitted.
+       
+  -m32              add '-m32' option to compile for 32-bit
+  -static           add '-static' linking flag
+  -shared           add '-fpic' compilation flag and produce shared library
+
+  -f...             add '-f...' options, such as
+                    -fsanitize=address', '-fpic' or '-flto'
+
+The default configuration builds optimized code with 'gcc' without symbols,
+an no checking, metrics, embedded options parsing nor logging code included.

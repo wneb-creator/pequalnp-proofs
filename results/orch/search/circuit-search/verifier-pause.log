@@ -1,0 +1,2 @@
+{"reason": "root requested 60-second CPU window for official verifier and Frontier Lean check", "started_at": "2026-11-25T07:16:45.574106+00:00", "pids": [10460, 15294]}
+{"reason": "root requested 60-second CPU window for official verifier and Frontier Lean check", "started_at": "2026-11-25T07:16:45.574106+00:00", "pids": [10460, 15294], "finished_at": "2026-11-25T07:17:45.577744+00:00", "wall_seconds": 60.0045774350001}

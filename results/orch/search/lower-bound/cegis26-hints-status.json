@@ -1,1 +1,1 @@
-{"status": "running", "pid": 8981, "started": "2026-11-25T06:16:37.048887+00:00"}
+{"status": "finished", "pid": 8981, "started": "2026-11-25T06:16:37.048887+00:00", "ended": "2026-11-25T06:36:37.356800+00:00", "elapsed_seconds": 1200.308, "returncode": 0}

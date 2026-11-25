@@ -1,0 +1,16 @@
+{
+  "name": "kissat-smoke-fixedand28",
+  "started_at": "2026-11-25T07:09:49.162240+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-and28.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "942d11ae76cbd111e78d42931a28aeac3aca20d62f4d0c521dff619c1abfbc8c",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

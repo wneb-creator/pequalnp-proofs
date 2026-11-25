@@ -1,0 +1,22 @@
+{
+  "source": "https://github.com/arminbiere/kissat",
+  "commit": "8af8e56f174b778aef3aa45af9f739b2a5f492c2",
+  "version": "4.0.4",
+  "configure": [
+    "./configure"
+  ],
+  "build": [
+    "make",
+    "-j1"
+  ],
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "compiler_flags": "-W -Wall -O3 -DNDEBUG",
+  "binary_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "build_logs": [
+    "kissat-clone.log",
+    "kissat-configure.log",
+    "kissat-build.log"
+  ],
+  "help": "kissat-help.txt",
+  "license": "MIT"
+}

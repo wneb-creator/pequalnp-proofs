@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-25T06:02:31Z",
+  "wall_limit_seconds": 1800,
+  "pre_search_renewal_at": "2026-11-25T06:02:08Z",
+  "command": "phased live-dirty26.cnf near26.phases 1800",
+  "cnf_sha256": "728efb1ff362ba4730bb18cec8855cd548cd11994399f459101afa9d75bd56fb",
+  "phases_sha256": "eb9e099f745b8d478ceb7b0d7c2bd117d3e63664d4d19a3f754995f8a2fb823e",
+  "complete_log": "guided26-solve.log",
+  "constraints": [
+    "canonical65prefixes",
+    "boundary_nontriviality",
+    "adjacent_independent_lex_order",
+    "liveness",
+    "exists_AND_accepting_a_maximal_false_row"
+  ],
+  "tail_equal_operands_allowed": true
+}

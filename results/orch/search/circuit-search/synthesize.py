@@ -12,11 +12,14 @@ parser.add_argument('--ordered-max',action='store_true')
 parser.add_argument('--no-lex-order',action='store_true')
 parser.add_argument('--no-liveness',action='store_true')
 parser.add_argument('--minimal',action='store_true')
+parser.add_argument('--minimal-prefix',type=int,default=0)
 parser.add_argument('--dirty-and',action='store_true')
 parser.add_argument('--edge-file')
 parser.add_argument('--shadow-missing',type=int,choices=[0,1,2,3],default=0)
 parser.add_argument('--output',required=True)
 args=parser.parse_args()
+if not 0<=args.minimal_prefix<=args.gates:
+ parser.error('--minimal-prefix must lie between zero and the gate count')
 
 edges=[(0,7),(0,8),(0,10),(1,7),(1,9),(1,13),(2,8),(2,12),(2,13),(3,7),(3,11),(3,12),(4,10),(4,11),(4,13),(5,9),(5,10),(5,12),(6,8),(6,9),(6,11)]
 ninputs=14
@@ -84,7 +87,7 @@ for i in range(args.gates):
  if not args.allow_trivial:
   clause(*out[:positive_count])
   clause(*[-x for x in out[positive_count:]])
- if args.minimal:
+ if args.minimal or i<args.minimal_prefix:
   for old in values:
    witnesses=[]
    for r,(a,b) in enumerate(zip(out,old)):
@@ -170,5 +173,5 @@ path=Path(args.output)
 with path.open('w') as f:
  f.write(f'p cnf {nv} {len(clauses)}\n')
  for c in clauses:f.write(' '.join(map(str,c))+' 0\n')
-path.with_suffix('.map.json').write_text(json.dumps({'gates':args.gates,'structure':structure,'rows':rows,'nv':nv,'clauses':len(clauses),'prefix':args.prefix,'ninputs':ninputs,'edges':edges,'shadow_missing':args.shadow_missing}))
+path.with_suffix('.map.json').write_text(json.dumps({'gates':args.gates,'structure':structure,'rows':rows,'nv':nv,'clauses':len(clauses),'prefix':args.prefix,'ninputs':ninputs,'edges':edges,'shadow_missing':args.shadow_missing,'minimal':args.minimal,'minimal_prefix':args.minimal_prefix}))
 print(json.dumps({'file':str(path),'gates':args.gates,'variables':nv,'clauses':len(clauses),'rows':len(rows),'prefix':args.prefix}),flush=True)

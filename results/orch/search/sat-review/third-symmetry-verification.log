@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "automorphisms": 336,
+  "prefixes": 65,
+  "third_pairs_per_prefix": 136,
+  "before": 8840,
+  "after": 5125,
+  "forbidden": 3715,
+  "stabilizer_size_histogram": {
+    "1": 7,
+    "2": 33,
+    "4": 15,
+    "6": 1,
+    "8": 7,
+    "12": 1,
+    "16": 1
+  },
+  "third_orbit_histogram": {
+    "26": 1,
+    "27": 1,
+    "45": 7,
+    "46": 1,
+    "49": 3,
+    "64": 12,
+    "73": 4,
+    "88": 29,
+    "136": 7
+  }
+}
