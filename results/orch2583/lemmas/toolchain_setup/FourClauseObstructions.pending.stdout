@@ -1,0 +1,40 @@
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:130:59: error(lean.unknownIdentifier): Unknown constant `Finset.not_mem_empty`
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:134:11: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  true =
+    Bool.rec (decide (∃ u v, G.Adj u v ∧ (∃ i, e i = u ∧ x i = true) ∧ ∃ i, e i = v ∧ x i = true)) true
+      (decide (∃ a ∈ ∅, ∃ i, e i = a ∧ x i = true))
+at case `Eq.refl`
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:137:10: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 5 were provided
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:131:4: warning: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.not_mem_empty, exists_false, decide_false,
+    Bool.false_or, decide_eq_true_eq, liftInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:131:15: warning: This simp argument is unused:
+  exists_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.not_mem_empty, false_and, decide_false,
+    Bool.false_or, decide_eq_true_eq, liftInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:131:29: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.not_mem_empty, false_and, exists_false,
+    Bool.false_or, decide_eq_true_eq, liftInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch2583/lemmas/toolchain_setup/FourClauseObstructions.lean:131:43: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.not_mem_empty, false_and, exists_false,
+    decide_false, decide_eq_true_eq, liftInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

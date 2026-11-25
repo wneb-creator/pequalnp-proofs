@@ -1,0 +1,8 @@
+{
+  "returncode": 10,
+  "expected": 10,
+  "rows": 756,
+  "vars": 10436,
+  "clauses": 519884,
+  "description": "star64 with laststar four gates free but pinned to known valid selectors"
+}

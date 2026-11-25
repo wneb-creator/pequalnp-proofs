@@ -1,0 +1,1 @@
+The restored file is the exact initial version that completed Lean checking with exit code 0 and empty stdout/stderr at 2026-11-25 15:07 UTC. A later extension was started before the lease expired; it failed on a Finset lemma name and is preserved as FourClauseObstructions.pending.lean with full diagnostics. No further build was run after the stop message.

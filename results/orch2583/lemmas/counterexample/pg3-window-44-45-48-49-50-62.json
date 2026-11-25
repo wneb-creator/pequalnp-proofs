@@ -1,0 +1,16 @@
+{
+  "window": [
+    44,
+    45,
+    48,
+    49,
+    50,
+    62
+  ],
+  "vars": 16790,
+  "clauses": 806418,
+  "generation_seconds": 2.2967381799999202,
+  "total_seconds": 22.34236689799991,
+  "returncode": 0,
+  "status": "UNKNOWN"
+}

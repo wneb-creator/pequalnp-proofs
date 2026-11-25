@@ -16,3 +16,9 @@ Actual local checker run exit3: CHECKER FAULT, Batteries.olean unavailable while
 Cleanup pass skipped because fullchecker cannot run locally. Before/after cleanup882/882lines; no cleanup attempted.
 BoundaryReplacement.lean: checked264line semantic dual; no gate-count claim. ThreeClause.lean: checked specific5→4 gate rewrite. Independentlyreviewed.
 TIMING total=64 subagents=6
+Lease unexpectedly invalidated: renewal15:08:25UTC HTTP410, after advertisedexpiry15:24:24. Diagnostic curl-si repeated once; fullresponse preserved. Allproof/searchworkpaused.
+DeletePrimeDeadChecked.lean:1004lines, compileexit0; precise strictsize-decrease theorem for gatefalseonallprimeedges, frozenwithmatchingSHA/log.
+FourClauseObstructions.lean: initialsourcecompileexit0; pendingextensionseparate.
+MinCoverBase.lean andMinCoverLeaf.lean: UNCHECKED drafts withfailinglogs. Weightedminimalcoverclaim mathematicallyaudited andsmall4x4graphsverified, notyetLeanproved.
+No SATcounterexample orglobalUNSATproof. BaseFano26 UNKNOWN600s; PG3fixedwindows8UNSAT4UNKNOWN,largerwindowspaused.
+TIMING total=69 subagents=6

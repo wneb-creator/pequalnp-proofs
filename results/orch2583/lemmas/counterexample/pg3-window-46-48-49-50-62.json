@@ -1,0 +1,15 @@
+{
+  "window": [
+    46,
+    48,
+    49,
+    50,
+    62
+  ],
+  "vars": 13627,
+  "clauses": 675400,
+  "generation_seconds": 1.6351284140000644,
+  "total_seconds": 4.856538528999863,
+  "returncode": 20,
+  "status": "UNSAT"
+}

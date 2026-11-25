@@ -1,0 +1,28 @@
+results/orch2583/lemmas/root/MinCoverBase.lean:27:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2583_aux.MinCover.mem_neighbors`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+results/orch2583/lemmas/root/MinCoverBase.lean:31:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2583_aux.MinCover.mem_family`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+results/orch2583/lemmas/root/MinCoverBase.lean:79:14: error(lean.unknownIdentifier): Unknown constant `Finset.not_mem_erase`
+results/orch2583/lemmas/root/MinCoverBase.lean:80:14: error: Function expected at
+  G.loopless
+but this term has type
+  Std.Irrefl G.Adj
+
+Note: Expected a function because this term is being applied to the argument
+  v
+results/orch2583/lemmas/root/MinCoverBase.lean:91:10: error(lean.unknownIdentifier): Unknown constant `Finset.not_mem_erase`
+results/orch2583/lemmas/root/MinCoverBase.lean:92:10: error: Function expected at
+  G.loopless
+but this term has type
+  Std.Irrefl G.Adj
+
+Note: Expected a function because this term is being applied to the argument
+  u

@@ -1,0 +1,1 @@
+{"output": 13, "padding": [], "truth_table_wrong_count": 0, "boundary_wrong_count": 0, "read1_edges": 6, "read1_missing_edges": [], "checked_cnf_clauses": 5662, "violated_cnf_clauses": []}

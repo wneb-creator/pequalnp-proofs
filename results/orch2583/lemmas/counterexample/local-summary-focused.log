@@ -1,0 +1,6 @@
+{"window": [44, 48, 49, 50, 62], "vars": 15135, "clauses": 687073, "generation_seconds": 2.5993243630000507, "total_seconds": 6.766214750000017, "returncode": 20, "status": "UNSAT"}
+{"window": [45, 48, 49, 50, 62], "vars": 14381, "clauses": 681235, "generation_seconds": 2.1496437260002494, "total_seconds": 7.471695232999991, "returncode": 20, "status": "UNSAT"}
+{"window": [46, 48, 49, 50, 62], "vars": 13627, "clauses": 675400, "generation_seconds": 1.6351284140000644, "total_seconds": 4.856538528999863, "returncode": 20, "status": "UNSAT"}
+{"window": [47, 48, 49, 50, 62], "vars": 12873, "clauses": 669568, "generation_seconds": 1.4051082389996736, "total_seconds": 4.4774759499996435, "returncode": 20, "status": "UNSAT"}
+{"window": [46, 47, 48, 49, 50, 62], "vars": 15286, "clauses": 798198, "generation_seconds": 1.8291963659999055, "total_seconds": 16.393402897000215, "returncode": 20, "status": "UNSAT"}
+{"window": [44, 45, 48, 49, 50, 62], "vars": 16790, "clauses": 806418, "generation_seconds": 2.2967381799999202, "total_seconds": 22.34236689799991, "returncode": 0, "status": "UNKNOWN"}

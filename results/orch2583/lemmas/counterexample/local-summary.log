@@ -1,0 +1,3 @@
+{"window": [48, 49, 50], "vars": 8013, "clauses": 385596, "generation_seconds": 1.020025329999953, "total_seconds": 1.489724219999971, "returncode": 20, "status": "UNSAT"}
+{"window": [48, 49, 50, 62], "vars": 9702, "clauses": 537698, "generation_seconds": 1.1903597099999388, "total_seconds": 2.0362696490001326, "returncode": 20, "status": "UNSAT"}
+{"window": [48, 49, 50, 61, 62], "vars": 12145, "clauses": 691051, "generation_seconds": 2.3495710430001964, "total_seconds": 7.312850815999809, "returncode": 20, "status": "UNSAT"}
