@@ -1,0 +1,190 @@
+{
+  "note": "Use fresh names or a separate scratch directory to avoid overwriting archived logs. The interrupted stress run used reviewed source preserved in search3.",
+  "commands": [
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-pivotal-search.py",
+        "--graph",
+        "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json",
+        "--name",
+        "stress12pivotal",
+        "--gates",
+        "12",
+        "--depth",
+        "3",
+        "--pivotal-gates",
+        "--minimal-pruning",
+        "--seconds",
+        "1200"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-top-form-search.py",
+        "--graph",
+        "petersen",
+        "--name",
+        "petersen19topform",
+        "--gates",
+        "19",
+        "--depth",
+        "3",
+        "--defective-two-pivots",
+        "--top-form",
+        "--minimal-pruning",
+        "--seconds",
+        "600"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-two-pivots-search.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "twopivotscalibrationc5",
+        "--gates",
+        "7",
+        "--depth",
+        "3",
+        "--unowned-two-pivots",
+        "--seconds",
+        "30"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-joint-pivots-search.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "jointpivotscalibrationc5",
+        "--gates",
+        "7",
+        "--depth",
+        "3",
+        "--defective-two-pivots",
+        "--seconds",
+        "30"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-top-form-search.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "topformcalibrationc5",
+        "--gates",
+        "7",
+        "--depth",
+        "3",
+        "--defective-two-pivots",
+        "--seconds",
+        "30",
+        "--top-form"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-or-pivot.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "pureorpivotc5",
+        "--gates",
+        "7",
+        "--bad-pure-or-pivot",
+        "--seconds",
+        "60"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-or-pivot.py",
+        "--graph",
+        "cycle6",
+        "--name",
+        "pureorpivotc6",
+        "--gates",
+        "8",
+        "--bad-pure-or-pivot",
+        "--seconds",
+        "60"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/check-two-pivots.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/check-joint-pivots.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/check-top-form.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/joint-unsound-scan.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/alg-fivefactor-star.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/alg-fivefactor-topform.py"
+      ]
+    },
+    {
+      "cwd": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-top-or-pivot.py",
+        "--graph",
+        "cycle7",
+        "--name",
+        "pureortopcycle7",
+        "--gates",
+        "10",
+        "--bad-pure-or-pivot",
+        "--top-form",
+        "--seconds",
+        "60"
+      ]
+    }
+  ]
+}

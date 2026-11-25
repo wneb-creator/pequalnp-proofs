@@ -1,0 +1,108 @@
+{
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "automorphisms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      0,
+      4,
+      3,
+      2
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      0
+    ],
+    [
+      2,
+      1,
+      0,
+      4,
+      3
+    ],
+    [
+      2,
+      3,
+      4,
+      0,
+      1
+    ],
+    [
+      3,
+      2,
+      1,
+      0,
+      4
+    ],
+    [
+      3,
+      4,
+      0,
+      1,
+      2
+    ],
+    [
+      4,
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "group_size": 10,
+  "prefix_depth": 3,
+  "prefix_nodes": [
+    1,
+    2,
+    6
+  ],
+  "added_clauses": 68,
+  "base_sha256": "cecb2bb0d9f2f0d5df656a0c5ef2971d49400c1bae1e0048864849a198b18fb1",
+  "cnf_sha256": "e4a9a8826e89344c80992356934b35064ae745668efb3b3d195ea31f24346006",
+  "caveat": "Automorphisms and group closure exhaustively checked; circuit canonicalization argument not Lean checked."
+}

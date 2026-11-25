@@ -32,7 +32,7 @@ The clean-class criterion is needed only for a selected minimum that still has a
 
 ## Diagnostics and limits
 
-`search/`, `search2/`, and `search3/` preserve solver encodings, complete logs, witnesses, validation, and manifests. Restricted-model UNSAT results are not Lean lower bounds. Long stress-graph and Petersen searches have not produced a counterexample; timeouts and interrupted runs are UNKNOWN.
+`search/`, `search2/`, `search3/`, and `search4/` preserve solver encodings, complete logs, witnesses, validation, and manifests. Restricted-model UNSAT results are not Lean lower bounds. Long stress-graph and Petersen searches have not produced a counterexample; timeouts and interrupted runs are UNKNOWN.
 
 `heuristic/` preserves a completed Petersen rewiring run and an interrupted stress-graph run. Their saved best circuits are incorrect and are explicitly labeled as such. `attempts/` contains an interrupted finite Lean attempt, clearly excluded from the compiled-source census.
 

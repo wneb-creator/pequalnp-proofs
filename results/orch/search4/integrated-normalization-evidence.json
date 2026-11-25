@@ -1,0 +1,16 @@
+{
+  "theorem": "PEqualNP.Outside.L_meta_1772_aux.IntegratedNormalForm.exists_integrated_normal_form",
+  "source": "../lemmas/IntegratedNormalForm.lean",
+  "sha256": "5087c25c4ff3a391bfedde349db25043366c1a01a641bc70d7cfa3ff190a17bc",
+  "scope": "Every nonempty finite graph has a public minimum simultaneously in TopForm and with two distinct unordered pivotal edges for every dirty or unowned AND.",
+  "lean_build_exit_code": 0,
+  "complete_build_log": "integrated-normal-form-build-003.log",
+  "independent_review": "PASS by rules_review at the recorded source hash",
+  "remaining_caveats": [
+    "strict binary/distinct-port and gate-order normalization",
+    "generic CNF translation",
+    "graph automorphism prefix restriction",
+    "optional local signature pruning",
+    "exact-k conditions do not exclude smaller minima"
+  ]
+}

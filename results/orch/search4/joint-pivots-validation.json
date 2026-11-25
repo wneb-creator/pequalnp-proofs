@@ -1,0 +1,131 @@
+{
+  "note": "A nonminimum triangle diagnostic, outside the target graph class. Gate3 is owned and unsound, with exactly one pivotal edge; gate5 is unowned with three pivotal edges. Every gate is pivotal.",
+  "n": 3,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "gates": [
+    [
+      "or",
+      0,
+      1
+    ],
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "or",
+      1,
+      2
+    ],
+    [
+      "and",
+      3,
+      4
+    ],
+    [
+      "or",
+      0,
+      6
+    ],
+    [
+      "and",
+      5,
+      7
+    ]
+  ],
+  "all_inputs_checked": 8,
+  "pivotal_edges": [
+    [
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  ],
+  "results": [
+    {
+      "label": "dirtyonepivotcontrol",
+      "joint": false,
+      "expected_returncode": 10,
+      "actual_returncode": 10,
+      "cnf_sha256": "d337dbe77c62fac7495ef5e61fc7e1d929f4a661d93b9cfcfbfd94a5c571427b",
+      "verdict": "PASS"
+    },
+    {
+      "label": "dirtyonepivotexcluded",
+      "joint": true,
+      "expected_returncode": 20,
+      "actual_returncode": 20,
+      "cnf_sha256": "f0cca0b1fbe75370ec6dfb00ad8e979c2765ed543e5086ba8fe8c520c14b54cf",
+      "verdict": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "label": "onepivotcontrol",
+    "model": "sat-repairdiagsafec5-8-singletonsafe-unowned-minimal.json",
+    "two_pivots": false,
+    "expected_returncode": 10,
+    "actual_returncode": 10,
+    "cnf_sha256": "01547113e1a403bc1f325204425f0b5ebc6c124c66de3a4acb17a8ed6fca57df",
+    "verdict": "PASS"
+  },
+  {
+    "label": "onepivotexcluded",
+    "model": "sat-repairdiagsafec5-8-singletonsafe-unowned-minimal.json",
+    "two_pivots": true,
+    "expected_returncode": 20,
+    "actual_returncode": 20,
+    "cnf_sha256": "296e30442b33b90db1529ee2eab24e734187fb430b354e9a6548e88ae5be6d70",
+    "verdict": "PASS"
+  },
+  {
+    "label": "threepivotallowed",
+    "model": "sat-repairdiagc5-8-unowned-minimal.json",
+    "two_pivots": true,
+    "expected_returncode": 10,
+    "actual_returncode": 10,
+    "cnf_sha256": "ecd7f383197bcbfc522129cf633e722ef26ce8b846b29f1a6aaa6da073918b77",
+    "verdict": "PASS"
+  }
+]

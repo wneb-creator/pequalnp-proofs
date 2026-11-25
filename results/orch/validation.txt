@@ -100,7 +100,7 @@ TIMING total=69.9 subagents=6
 2026-11-25T04:38:48.971203+00:00 reviewed partial batch
 FactoryBoundaryBudget.lean: standalone Lean exit0; independent review PASS; SHA256 8a012affef7e6f8e91a3c0c6013c0bb6774418981c3c9acaa9c0f61c09e2dc7b; full log factory-boundary-budget-build.log.
 PivotalDirty.lean: standalone Lean exit0; independent review PASS; SHA256 d20dd8eb54190d16d82f8f5dca29f651bc7f5428b1f4a84226197816eb39bce4; full log pivotal-dirty-build.log.
-FactoryBoundaryBudget proves explicit combinatorial/arithmetic bounds only; wiring and arbitrary-reader extraction remain obligations. PivotalDirty proves singleton-pivotal repairs preserve both dirty and unowned counts, with the appropriate strict decreases. Full statement remains unproved; repository checker not run on partial artifacts.
+FactoryBoundaryBudget proves explicit combinatorial/arithmetic bounds only; wiring and arbitrary-reader extraction remain obligations. PivotalDirty proves singleton-pivotal repairs never increase either the dirty or the unowned count, with the appropriate strict decreases. Full statement remains unproved; repository checker not run on partial artifacts.
 
 2026-11-25T04:44:55.794817+00:00 joint normal form and diagnostic preservation
 JointNormalForm.lean:1863 lines; Lean exit0; independent review PASS; SHA256 960e0a27c94187af3ee0d28dc37443ce2bb5c1441dcec00f0332fd0c1d811135; full log joint-normal-form-build.log.
@@ -121,3 +121,11 @@ For every nonempty finite graph, constructs a public minimum satisfying TopForm 
 Exact assigned statement and independently reviewed progress guide are preserved.
 Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
 TIMING total=90.5 subagents=6
+
+2026-11-25T04:59:21.594461+00:00 final preservation review
+Outcome: exact L-meta-1772 statement neither proved nor refuted. No proof PR; no named final-file lake build; repository checker not run because the exact theorem is absent. Strongest partial IntegratedNormalForm.lean:3849 lines before/after preservation, standalone Lean exit0. No full-proof cleanup pass performed.
+Completed strongest Petersen19 run:600.03 seconds, UNKNOWN, no witness or lower bound. Compiled partials and complete diagnostic logs are preserved on pnp/pilot-66. The two PRs currently listed by the public desk are reductions, not accepted full proofs.
+Desk null responses:1. Exact message: no step is free that you have not already looked at and handed back in the last hour (5); new steps are posted through the day, ask again in a few minutes
+Only this job's lease will be released with reason other after the final preservation push; no other pilot lease has been modified.
+Sub-agents: six; independent rules/source review, minimality and normalization, semantic normal forms, counterexample search, algebraic replacement, graph repair/counting.
+TIMING total=93.8 subagents=6

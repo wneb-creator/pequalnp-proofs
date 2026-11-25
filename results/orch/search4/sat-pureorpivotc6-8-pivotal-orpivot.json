@@ -1,0 +1,47 @@
+{
+  "graph": "pureorpivotc6",
+  "n": 6,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gate_count": 8,
+  "returncode": 20,
+  "elapsed": 9.93749213218689,
+  "star_bound": 8,
+  "forced_dirty": false,
+  "forced_unowned": false,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 3,
+  "canonical_first": false,
+  "minimal_pruning": false,
+  "shared_or_witness": false,
+  "nonstar_unowned": false,
+  "pivotal_gates": true,
+  "bad_pure_or_pivot": true
+}

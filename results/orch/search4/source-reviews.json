@@ -1,0 +1,44 @@
+{
+  "reviewer": "rules_review",
+  "date_utc": "2026-11-25",
+  "verdict": "PASS",
+  "sources": [
+    {
+      "file": "circuit-sat-two-pivots.py",
+      "sha256": "dbe496485064d3fc19fdaa0fabbf18b2d1c97e5a9453b452d6bd213aa8d57f32"
+    },
+    {
+      "file": "symmetry-two-pivots-search.py",
+      "sha256": "fa76a85d2b917987456faf7ee38293a8a4378c474d259a511f93a8194f0d812e"
+    },
+    {
+      "file": "circuit-sat-joint-pivots.py",
+      "sha256": "03210808828f9ccff0faff6c4bc8c314f98f9a3f7ac2d2e780b0fe5ef1c46a12"
+    },
+    {
+      "file": "symmetry-joint-pivots-search.py",
+      "sha256": "4b96567e327b8b8ccca5e3331fbeea8504af41c6fc86467559be1d9f642fffbf"
+    },
+    {
+      "file": "circuit-sat-top-form.py",
+      "sha256": "44ba79cad1b69c459e221eef56acc30913714994a1ec68b43c6375bbe8cceb2f"
+    },
+    {
+      "file": "symmetry-top-form-search.py",
+      "sha256": "038c6a7067b766504d8b41f2b750be341d1726c6a9b8c9d10797177da2112a2b"
+    }
+  ],
+  "scope": [
+    "ownership alternative or two distinct lost unordered edges",
+    "negative maximal-independent values characterize unsound monotone gates",
+    "strict structural reachability and soundness encode TopForm",
+    "full-input and cone validation for every SAT model",
+    "pinned positive and negative regression controls"
+  ],
+  "caveats": [
+    "implementation review is not an end-to-end Lean SAT translation certificate",
+    "normal-form existence is not a property of every minimum",
+    "exact-k and optional local signature pruning caveats remain"
+  ],
+  "composition_note": "IntegratedNormalForm theorem compiled during target run; see integrated-normalization-evidence.json for scope and review status."
+}

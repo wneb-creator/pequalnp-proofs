@@ -1,0 +1,224 @@
+{
+  "graph": "cycle5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 7,
+  "seconds_limit": 30,
+  "returncode": 10,
+  "elapsed": 0.03857135772705078,
+  "group_size": 10,
+  "prefix_depth": 3,
+  "minimal_pruning": false,
+  "all_owned": false,
+  "pivotal_gates": true,
+  "unowned_two_pivots": true,
+  "defective_two_pivots": true,
+  "top_form": true,
+  "top_form_validated": true,
+  "dirty_ands": [],
+  "gates": [
+    [
+      "and",
+      0,
+      1
+    ],
+    [
+      "or",
+      0,
+      3
+    ],
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "and",
+      4,
+      6
+    ],
+    [
+      "and",
+      2,
+      7
+    ],
+    [
+      "or",
+      8,
+      9
+    ],
+    [
+      "or",
+      5,
+      10
+    ]
+  ],
+  "all_inputs_validated": true,
+  "ownership": [
+    {
+      "gate": 0,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    }
+  ],
+  "pivotal_witnesses": [
+    {
+      "gate": 0,
+      "lost_edges": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "gate": 1,
+      "lost_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 2,
+      "lost_edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "lost_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "lost_edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 5,
+      "lost_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 6,
+      "lost_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    }
+  ]
+}

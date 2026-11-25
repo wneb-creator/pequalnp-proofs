@@ -1,0 +1,82 @@
+{
+  "note": "Independent full truth-table, exact strict-cone ownership, shared-factor, forced-false pivotal witnesses, joint two-pivots, TopForm and pure-OR violation validation.",
+  "models": [
+    {
+      "file": "sat-jointpivotscalibrationc5-7-pivotal-twopivots-jointpivots-sym.json",
+      "sha256": "8562cbd5cb2e782730582283caef68c2cf7f141f7566ac1c7819fe9abb490cf6",
+      "n": 5,
+      "gates": 7,
+      "all_inputs_checked": 32,
+      "all_owned": true,
+      "every_gate_pivotal": true,
+      "top_form": false,
+      "dirty_ands": [],
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-pureorpivotc5-7-pivotal-orpivot.json",
+      "sha256": "c9e607281c075da4400d25740756066c67815fb814516dffb56d6130adb8dcf2",
+      "n": 5,
+      "gates": 7,
+      "all_inputs_checked": 32,
+      "all_owned": true,
+      "every_gate_pivotal": true,
+      "top_form": false,
+      "dirty_ands": [],
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-repairdiagc5-8-unowned-minimal.json",
+      "sha256": "8ca79058f91e8cdaa60abed52ebe58208a66e51d022c8d090162d7d0ec7613cc",
+      "n": 5,
+      "gates": 8,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "top_form": true,
+      "dirty_ands": [
+        4
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-repairdiagsafec5-8-singletonsafe-unowned-minimal.json",
+      "sha256": "519b06de63de68e8aa71c6ef1c6e0e74e4bc4abf28d9c3ffe581820872d256c3",
+      "n": 5,
+      "gates": 8,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "top_form": true,
+      "dirty_ands": [
+        3
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-topformcalibrationc5-7-pivotal-twopivots-jointpivots-topform-sym.json",
+      "sha256": "2018b9c8bcc759d2f1bb2d76e935a97e2449bfde2ab9cb474a21d7d8ce7b7b93",
+      "n": 5,
+      "gates": 7,
+      "all_inputs_checked": 32,
+      "all_owned": true,
+      "every_gate_pivotal": true,
+      "top_form": true,
+      "dirty_ands": [],
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-twopivotscalibrationc5-7-pivotal-twopivots-sym.json",
+      "sha256": "a3d6509f27262a593519b91d59e85f56e218ad5f4e0e3fbcce242e9ba49715b3",
+      "n": 5,
+      "gates": 7,
+      "all_inputs_checked": 32,
+      "all_owned": true,
+      "every_gate_pivotal": true,
+      "top_form": true,
+      "dirty_ands": [],
+      "verdict": "PASS"
+    }
+  ],
+  "verdict": "PASS"
+}

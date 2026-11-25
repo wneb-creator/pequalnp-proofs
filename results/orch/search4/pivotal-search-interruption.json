@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-11-25T04:44:18.125034+00:00",
+  "name": "stress12pivotal",
+  "status": "INTERRUPTED_UNKNOWN",
+  "reason": "Environment refresh around04:43UTC; old exec session unavailable, cadical process14896 zombie, no verdict and no summary JSON.",
+  "planned_limit_seconds": 1200,
+  "full_log": "sat-stress12pivotal-12-minimal-pivotal-sym-solver.log",
+  "log_bytes": 156500,
+  "log_sha256": "9a2021f0b267a71516535c069ae39c1cabfdd52ac9802af2210062bee150b1e2",
+  "planned_run_start_utc": "2026-11-25T04:30:28Z",
+  "last_recorded_progress": "c - 716.49 47 28 205 236745  1 6433967 82908 1.7 36 21 2 3 36% 28886 2200 59%"
+}

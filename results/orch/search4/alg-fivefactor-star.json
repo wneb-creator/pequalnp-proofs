@@ -1,0 +1,130 @@
+{
+  "n": 9,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "center": 0,
+  "leaves": [
+    1,
+    2,
+    3
+  ],
+  "factors": [
+    [
+      1,
+      2,
+      3,
+      5,
+      7,
+      8
+    ],
+    [
+      1,
+      2,
+      3,
+      5,
+      6,
+      8
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ]
+  ],
+  "sound_full_table_checked": true,
+  "no_individually_clean_factor": true,
+  "every_proper_subproduct_unsound": [
+    {
+      "omitted_factor": 0,
+      "independent_witness": [
+        0,
+        4,
+        6
+      ]
+    },
+    {
+      "omitted_factor": 1,
+      "independent_witness": [
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "omitted_factor": 2,
+      "independent_witness": [
+        0,
+        5,
+        7
+      ]
+    },
+    {
+      "omitted_factor": 3,
+      "independent_witness": [
+        0,
+        5,
+        8
+      ]
+    },
+    {
+      "omitted_factor": 4,
+      "independent_witness": [
+        0,
+        6,
+        8
+      ]
+    }
+  ],
+  "caveat": "No minimum-circuit or gap-refutation claim; this only refutes an unrestricted clean-factor extraction lemma."
+}
