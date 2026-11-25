@@ -973,6 +973,80 @@ lemma rightTrue_or_budget {p l : ℕ} (C : Circuit) (hao : IsAO2 (p+l) C)
   exact restricted_or_budget C hao (rightTrueInput (l := l)) Q
     (rightTrue_input_support Q) w hw hfun
 
+noncomputable def sampleRestriction {n m : ℕ}
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool)
+    (x : Fin m → Bool) : Fin n → Bool :=
+  if h : ∃ q, x q = true then sample (Classical.choose h) else z
+
+lemma sampleRestriction_zero {n m : ℕ}
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool) :
+    sampleRestriction z sample (complementInput Finset.univ) = z := by
+  simp [sampleRestriction, complementInput]
+
+lemma sampleRestriction_singleton {n m : ℕ}
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool) (q : Fin m) :
+    sampleRestriction z sample (singletonInput q) = sample q := by
+  classical
+  have hex : ∃ r : Fin m, singletonInput q r = true := ⟨q, by simp [singletonInput]⟩
+  have heq : Classical.choose hex = q := by
+    simpa [singletonInput] using Classical.choose_spec hex
+  simp only [sampleRestriction, dite_eq_left hex, heq]
+
+lemma sample_or_budget_restriction {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool)
+    (hinput : ∀ i : Fin n, z i = false →
+      (Finset.univ.filter fun q => sample q i = true).card ≤ 1)
+    (w : ℕ) (hw : w < n + C.gates.length)
+    (hz : (C.wires (List.ofFn z)).getD w false = false)
+    (hsample : ∀ q, (C.wires (List.ofFn (sample q))).getD w false = true) :
+    m ≤ 1 + (restrictedSafeOr C (sampleRestriction z sample) Finset.univ).card := by
+  classical
+  have hfun : ∀ x : Fin m → Bool,
+      (C.wires (List.ofFn (sampleRestriction z sample x))).getD w false =
+        decide (∃ q ∈ (Finset.univ : Finset (Fin m)), x q = true) := by
+    intro x
+    by_cases hx : ∃ q, x q = true
+    · simp only [sampleRestriction, dite_eq_left hx]
+      rw [hsample]
+      simp [hx]
+    · simp only [sampleRestriction, dite_eq_right hx]
+      rw [hz]
+      simp [hx]
+  have hsmall : ∀ i : Fin n, sampleRestriction z sample (complementInput Finset.univ) i = false →
+      (Finset.univ.filter fun q => sampleRestriction z sample (singletonInput q) i = true).card ≤ 1 := by
+    intro i hi
+    rw [sampleRestriction_zero] at hi
+    simpa only [sampleRestriction_singleton] using hinput i hi
+  simpa using restricted_or_budget C hao (sampleRestriction z sample) Finset.univ hsmall w hw hfun
+
+noncomputable def sampleSafeOr {n m : ℕ} (C : Circuit)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j =>
+    (gateAt C j).op = .or ∧
+      (C.wires (List.ofFn z)).getD (n+j) false = false ∧
+      2 ≤ (Finset.univ.filter fun q =>
+        (C.wires (List.ofFn (sample q))).getD (n+j) false = true).card
+
+lemma sampleSafeOr_eq_restricted {n m : ℕ} (C : Circuit)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool) :
+    sampleSafeOr C z sample =
+      restrictedSafeOr C (sampleRestriction z sample) Finset.univ := by
+  classical
+  simp only [sampleSafeOr, restrictedSafeOr, restrictedSupport,
+    sampleRestriction_zero, sampleRestriction_singleton]
+
+lemma sample_or_budget {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (z : Fin n → Bool) (sample : Fin m → Fin n → Bool)
+    (hinput : ∀ i : Fin n, z i = false →
+      (Finset.univ.filter fun q => sample q i = true).card ≤ 1)
+    (w : ℕ) (hw : w < n + C.gates.length)
+    (hz : (C.wires (List.ofFn z)).getD w false = false)
+    (hsample : ∀ q, (C.wires (List.ofFn (sample q))).getD w false = true) :
+    m ≤ 1 + (sampleSafeOr C z sample).card := by
+  rw [sampleSafeOr_eq_restricted]
+  exact sample_or_budget_restriction C hao z sample hinput w hw hz hsample
+
 end Kernel
 
 namespace Boundary
