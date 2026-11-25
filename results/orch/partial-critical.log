@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/CriticalRestriction.lean:265:31: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [r, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil, id_eq, hinval, hc,
+    hgtrue.2, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

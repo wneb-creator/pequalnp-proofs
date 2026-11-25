@@ -18,3 +18,8 @@ Full checker environment: exact cache inventory shows approximately 3.47 GiB dis
 Additional checked artifact StarCover.lean (441 lines): constructs star-profile circuit at vertex-cover cost and assembles exact posted conclusion CONDITIONALLY on the matching universal circuit lower bound. That lower bound is UNPROVED. Compiled exit 0, one unused-binder warning. Independent review passed first412-line snapshot; root reviewed29-line min-cover/conditional extension.
 Actual local checker invocation: exit 3; CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
 This is an infrastructure fault, not acceptance. The named partial also lacks the full posted theorem.
+
+Consolidated named partial: 1937 lines; lake build PEqualNP.Outside.L_meta_2448 exit0, Build completed successfully (5149 jobs).
+Added pivotal-star gate restriction, graph-rewrite, cover construction and checked C5 witness to the named file. Full posted theorem STILL ABSENT.
+Independent counterexample-agent review PASS for partial checkpoint. Axiom audit of11 key lemmas: only propext, Classical.choice, Quot.sound. Complete build, format and audit outputs preserved. Format guard refuses expected missing final theorem; this is not PR-ready.
+Cleanup not performed because full checker could not run. Line counts before/after cleanup:1937/1937.
