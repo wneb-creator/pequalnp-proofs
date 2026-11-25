@@ -4221,4 +4221,198 @@ lemma true_eligible_edges_cover
 
 end GlobalMixing
 
+
+namespace GlobalMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open FirstMixing
+
+lemma opposite_raw_support_subset_singleton
+    {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Circuit}
+    (ao : IsAO2 n C) (hfour : NoFourCycle G) {p l : Fin n} {m a : ℕ} {b : Fin 2}
+    (hedge : s(p,l) ∈ Ustar G C)
+    (hmcentre : gateVal n C m (pairInput p p) = true)
+    (hpencil : PencilAt G C m l) (ha : a ∈ tops G C)
+    (hpath : Relation.ReflTransGen (CircuitLedger.Budget.OrStep n C)
+      (opnd C a b) (n + m)) :
+    side C a (1-b) ⊆ {l} := by
+  intro l' hl'
+  apply Finset.mem_singleton.mpr
+  exact global_opposite_leaf_unique ao hfour hedge hmcentre hpencil
+    ⟨hpencil.1, a, ha, b, hpath, hl'⟩
+
+end GlobalMixing
+
+namespace GlobalMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open FirstMixing
+
+lemma selected_mixing_certificates_cover
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hfour : NoFourCycle G)
+    (U : Finset (Sym2 (Fin n))) (hU : U ⊆ Ustar G C)
+    (hcert : ∀ e ∈ U, ∃ m ∈ mixing G C, ∃ p l : Fin n,
+      e = s(p,l) ∧ gateVal n C m (pairInput p p) = true ∧ PencilAt G C m l) :
+    ∃ S : Finset (Fin n), S.card ≤ (mixing G C).card ∧
+      ∀ e ∈ U, ∃ v ∈ S, v ∈ e := by
+  classical
+  let Cert : ℕ → Sym2 (Fin n) → Fin n → Prop := fun m e l =>
+    ∃ p : Fin n, e = s(p,l) ∧ gateVal n C m (pairInput p p) = true ∧ PencilAt G C m l
+  apply CertificateCover.cover_of_unique_labels U (mixing G C) Cert
+  · intro e he
+    obtain ⟨m, hm, p, l, heq, hmtrue, hpencil⟩ := hcert e he
+    refine ⟨m, hm, l, ?_, p, heq, hmtrue, hpencil⟩
+    rw [heq]
+    exact Sym2.mem_iff.mpr (Or.inr rfl)
+  · intro m hm e he f hf l l' hecert hfcert
+    obtain ⟨p, heq, hmtrue, hpencil⟩ := hecert
+    obtain ⟨p', hfeq, _, hpencil'⟩ := hfcert
+    have hres : s(p,l) ∈ Ustar G C := by rw [← heq]; exact hU he
+    exact (global_opposite_leaf_unique hAO hfour hres hmtrue hpencil hpencil').symm
+
+end GlobalMixing
+
+
+namespace Relative603
+open Finset
+variable {V : Type*} [DecidableEq V]
+
+def edgeAt (G : SimpleGraph V) (X : Finset V) : Prop :=
+  ∃ u ∈ X, ∃ v ∈ X, G.Adj u v
+
+def bit (A B X : Finset V) : Prop := A ⊆ X ∨ B ⊆ X
+
+def factors (F : Finset V → Prop) (S A B : Finset V) : Prop :=
+  ∀ X ⊆ S, ∀ Y ⊆ S, (bit A B X ↔ bit A B Y) →
+    ∀ T : Finset V, Disjoint T S → (F (X ∪ T) ↔ F (Y ∪ T))
+
+lemma edgeAt_pair (G : SimpleGraph V) (u v : V) : edgeAt G {u,v} ↔ G.Adj u v := by
+  simp only [edgeAt, mem_insert, mem_singleton]
+  constructor
+  · rintro ⟨a,rfl|rfl,b,rfl|rfl,h⟩
+    · exact (G.irrefl h).elim
+    · exact h
+    · exact h.symm
+    · exact (G.irrefl h).elim
+  · intro h
+    exact ⟨u,Or.inl rfl,v,Or.inr rfl,h⟩
+
+lemma pair_minimal {G : SimpleGraph V} {Y : Finset V} {p q : V}
+    (hY : edgeAt G Y) (hs : Y ⊆ {p,q}) : Y = {p,q} := by
+  obtain ⟨a,ha,b,hb,hab⟩ := hY
+  have ha' := hs ha
+  have hb' := hs hb
+  simp only [mem_insert,mem_singleton] at ha' hb'
+  apply subset_antisymm hs
+  intro i hi
+  simp only [mem_insert,mem_singleton] at hi
+  have hne := hab.ne
+  grind
+
+/-- The module obstruction only needs pair completeness for H and safety for a no-four G.
+  The Boolean predicate may accept additional ambient edges and higher prime implicants. -/
+lemma no_relative_module
+    (H G : SimpleGraph V) (F : Finset V → Prop) (S A B : Finset V)
+    (safe : ∀ X, F X → edgeAt G X)
+    (complete : ∀ p q, H.Adj p q → F {p,q})
+    (hAS : A ⊆ S) (hBS : B ⊆ S) (hA : A.Nonempty) (hB : B.Nonempty)
+    (two : ∃ p ∈ S, ∃ q ∈ S, p ≠ q)
+    (degree : ∀ p ∈ S, ∃ q r, q ≠ r ∧ H.Adj p q ∧ H.Adj p r)
+    (noFour : ∀ p q, p ≠ q → ∀ a b,
+      G.Adj p a → G.Adj q a → G.Adj p b → G.Adj q b → a = b) :
+    ¬ factors F S A B := by
+  classical
+  intro fac
+  have emptyFalse : ¬ F ∅ := fun h => by simpa [edgeAt] using safe ∅ h
+  have singletonFalse (p : V) : ¬ F {p} := fun h => by simpa [edgeAt] using safe {p} h
+  have emptyBit : ¬ bit A B ∅ := by simpa [bit, hA.ne_empty, hB.ne_empty]
+  have fullBit : bit A B S := Or.inl hAS
+  have hg {p q : V} (h : H.Adj p q) : G.Adj p q :=
+    (edgeAt_pair G p q).mp (safe _ (complete p q h))
+  obtain ⟨p, hp, q, hq, hpq⟩ := two
+  by_cases inside : F S
+  · have encode : ∀ X ⊆ S, F X ↔ bit A B X := by
+      intro X hX
+      constructor
+      · intro hx
+        by_contra hb
+        have hh := fac X hX ∅ (empty_subset _) (iff_of_false hb emptyBit) ∅ (by simp)
+        exact emptyFalse (by simpa using hh.mp (by simpa using hx))
+      · intro hb
+        have hh := fac X hX S (subset_refl _) (iff_of_true hb fullBit) ∅ (by simp)
+        simpa using hh.mpr (by simpa using inside)
+    have closed : ∀ p ∈ S, ∀ q, H.Adj p q → q ∈ S := by
+      intro p hp q hpq
+      by_contra hq
+      have singleBit : ¬ bit A B {p} := by
+        rw [← encode {p} (singleton_subset_iff.mpr hp)]
+        exact singletonFalse p
+      have hh := fac {p} (singleton_subset_iff.mpr hp) ∅ (empty_subset _)
+        (iff_of_false singleBit emptyBit) {q} (by simpa using hq)
+      exact singletonFalse q (by simpa using hh.mp (by simpa using complete p q hpq))
+    have atmost : ∀ p ∈ S, ∀ q ∈ S, H.Adj p q → ({p,q} : Finset V) = A ∨ {p,q} = B := by
+      intro p hp q hq hpq
+      have hpair : ({p,q} : Finset V) ⊆ S := by
+        intro w hw
+        simp only [mem_insert, mem_singleton] at hw
+        rcases hw with rfl | rfl <;> assumption
+      rcases (encode _ hpair).mp (complete p q hpq) with h | h
+      · exact Or.inl (pair_minimal (safe _ ((encode A hAS).mpr (Or.inl (subset_refl _)))) h).symm
+      · exact Or.inr (pair_minimal (safe _ ((encode B hBS).mpr (Or.inr (subset_refl _)))) h).symm
+    obtain ⟨a,b,hab,hpa,hpb⟩ := degree p hp
+    have ha := closed p hp a hpa
+    have hb := closed p hp b hpb
+    obtain ⟨c,d,hcd,hac,had⟩ := degree a ha
+    obtain ⟨z,hzp,haz⟩ : ∃ z, z ≠ p ∧ H.Adj a z := by
+      by_cases hc : c = p
+      · exact ⟨d,fun he => hcd (hc.trans he.symm),had⟩
+      · exact ⟨c,hc,hac⟩
+    have hz := closed a ha z haz
+    have h1 := atmost p hp a ha hpa
+    have h2 := atmost p hp b hb hpb
+    have h3 := atmost a ha z hz haz
+    have hpna := hpa.ne
+    have hpnb := hpb.ne
+    have hanz := haz.ne
+    have diff12 : ({p,a}:Finset V) ≠ {p,b} := by
+      intro heq
+      have : a ∈ ({p,b}:Finset V) := heq ▸ (by simp : a ∈ ({p,a}:Finset V))
+      simpa [Ne.symm hpna,hab] using this
+    have diff13 (x : V) : ({p,x}:Finset V) ≠ {a,z} := by
+      intro heq
+      have : p ∈ ({a,z}:Finset V) := heq ▸ (by simp : p ∈ ({p,x}:Finset V))
+      simpa [hpna,Ne.symm hzp] using this
+    rcases h1 with h1|h1 <;> rcases h2 with h2|h2 <;> rcases h3 with h3|h3 <;> grind
+  · have noInside : ∀ X ⊆ S, ¬ F X := by
+      intro X hX hx
+      by_cases hb : bit A B X
+      · have hh := fac X hX S (subset_refl _) (iff_of_true hb fullBit) ∅ (by simp)
+        exact inside (by simpa using hh.mp (by simpa using hx))
+      · have hh := fac X hX ∅ (empty_subset _) (iff_of_false hb emptyBit) ∅ (by simp)
+        exact emptyFalse (by simpa using hh.mp (by simpa using hx))
+    have outside : ∀ p ∈ S, ∀ a, H.Adj p a → a ∉ S := by
+      intro p hp a hpa ha
+      exact noInside {p,a} (by
+        intro w hw
+        simp only [mem_insert, mem_singleton] at hw
+        rcases hw with rfl | rfl <;> assumption) (complete p a hpa)
+    have singleBit : ∀ p ∈ S, bit A B {p} := by
+      intro p hp
+      obtain ⟨a,b,hab,hpa,hpb⟩ := degree p hp
+      by_contra hn
+      have ha := outside p hp a hpa
+      have hh := fac {p} (singleton_subset_iff.mpr hp) ∅ (empty_subset _)
+        (iff_of_false hn emptyBit) {a} (by simpa using ha)
+      exact singletonFalse a (by simpa using hh.mp (by simpa using complete p a hpa))
+    obtain ⟨a,b,hab,hpa,hpb⟩ := degree p hp
+    have transfer : ∀ t, H.Adj p t → G.Adj q t := by
+      intro t hpt
+      have ht := outside p hp t hpt
+      have hh := fac {p} (singleton_subset_iff.mpr hp) {q} (singleton_subset_iff.mpr hq)
+        (iff_of_true (singleBit p hp) (singleBit q hq)) {t} (by simpa using ht)
+      apply (edgeAt_pair G q t).mp
+      exact safe _ (by simpa using hh.mp (by simpa using complete p t hpt))
+    exact hab (noFour p q hpq a b (hg hpa) (transfer a hpa) (hg hpb) (transfer b hpb))
+
+end Relative603
+
 end PEqualNP.Outside.L_meta_2583
