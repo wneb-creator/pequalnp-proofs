@@ -29,3 +29,5 @@
 - 2026-11-25T16:51:28.550464+00:00: preserved1884 dependency audit, structural attempts, checker OOM diagnosis and independently reviewed SAT controls/search programs. Generic18 full-table search reached600seconds without SAT/UNSAT verdict.
 
 - 2026-11-25T17:02:51.131858+00:00:50-line1884partial passes namedbuild; target absent. Searches finished with no verdict/refutation. Final preservation and own-lease release pending.
+
+- 2026-11-25T17:04:06.969085+00:00: own1884lease released reasonother; noPR, targets unproved.

@@ -1,6 +1,6 @@
 # Pilot154 preserved work
 
-This branch currently contains research checkpoints, not a completed proof submission. No PR is open for this job.
+This branch currently contains research checkpoints, not a completed proof submission. No PR is open for this job. The own L-meta-1884 lease was released with reason `other`; the earlier L-meta-4970 lease had returned410. Work is stopped and no solver remains running.
 
 ## L-meta-4970
 

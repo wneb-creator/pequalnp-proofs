@@ -43,3 +43,7 @@ Official checker final4970 outcome: CHECKER FAULT: verifier ended without a verd
 Final preservation before release: L_meta_4970.lean2581lines and L_meta_1884.lean50lines both pass named lake builds. Neither contains the posted target theorem. Source guard1884 REFUSED missing theorem; official checker4970 FAULT exit137 (OOM). Official1884checker not rerun because targetabsent and whole-Mathlib replay alreadyOOMs. Cleanup not applicable: no full accepted proof; line counts before/after cleanup2581/2581 and50/50. NoPRopened. Last SAT runSIGKILL; no full-tablecounterexample orUNSAT obtained. Allthree reduction slots1884occupied.
 Sub-agents:7 (structural proof, global bridge, combinatorial ledger, lemma search, counterexample search, Lean setup, independent review)
 TIMING total=99.5 subagents=7
+
+Final status 2026-11-25T17:04:06.969085+00:00: ownL-meta-1884lease released successfully withreasonother. NoPRopened; postedtheorems remainunproved. Nootherpilotleasewasreleased. Allcheckedpartials andcompletedsearchlogs pushed. No active solver/build remains; lease timer stopped.
+Sub-agents:7 (structural proof, global bridge, combinatorial ledger, lemma search, counterexample search, Lean setup, independent review)
+TIMING total=100.8 subagents=7
