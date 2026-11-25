@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "sha256": "8abc00c41e8ec7111e6de4ac714094fb5d817e4ded7d6b2125b88cf4c4a305a1",
+  "line_count": 103,
+  "unconditional_hollow_nonzero_direction_from_diagonal_kernel": true,
+  "unconditional_nonhollow_tracezero_direction_from_diagonal_image_trace_kernel": true,
+  "subspace_membership_and_symmetry_transport": true,
+  "pair_independence_follows_from_hollow_and_nonhollow": true,
+  "conditional_classification_is_explicit_hypothesis": true,
+  "permutation_and_finrank_contradiction": true,
+  "scope": "Independent source/math/format review. The second lemma is conditional on an unproved classification; this does not prove that classification or the posted gap. No build by reviewer."
+}

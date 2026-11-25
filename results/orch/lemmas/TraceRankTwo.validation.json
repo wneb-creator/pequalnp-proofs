@@ -1,0 +1,7 @@
+{
+  "sha256": "8abc00c41e8ec7111e6de4ac714094fb5d817e4ded7d6b2125b88cf4c4a305a1",
+  "lines": 103,
+  "build_exit": 0,
+  "scope": "Unconditional rank-two pair extraction plus conditional bridge assuming an explicit unproved classification hypothesis. No proof of that classification or the posted statement.",
+  "review": "PASS: geometry_search/rowzero/trace-rank-two-independent-review.json"
+}
