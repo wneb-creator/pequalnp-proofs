@@ -1514,3 +1514,17 @@ Ninth partial review: PASS for finite-OR-side sharing rewrite and audited SAT ar
 sharing_linear_route.lean: lake env lean, exit0. Complete stdout/stderr:
 
 SAT evidence reviewed and five cases independently reproduced. Timeout/unknown is not UNSAT. SAT results have no Lean/LRAT certificate. Exact reviewed file hashes are in finite/SAT_REVIEW_MANIFEST.json.
+
+Tenth partial review: PASS for single-edge signature ownership repair and strict bad-count decrease. This requires equality of graph-pair signature to one edge monomial, not merely one pivotal edge. No full-statement verdict.
+
+single_edge_route.lean
+Command: lake env lean ../results/orch/lemmas/single_edge_route.lean
+Exit: 0
+Complete stdout/stderr:
+
+
+single_edge_repair_route.lean
+Command: lake env lean ../results/orch/lemmas/single_edge_repair_route.lean
+Exit: 0
+Complete stdout/stderr:
+

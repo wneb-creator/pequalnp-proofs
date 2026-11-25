@@ -24,3 +24,5 @@
 - 2026-11-25T09:02:34.372373+00:00: batch7 pushed 4975c8b2c9fc913cc36802b8d4d353feee5030c7; safe filter and mixed-reader restrictions reviewed.
 
 - 2026-11-25T09:07:33.241791+00:00: batch8 pushed 3148473edd924d08b4e9ce2d633b7ddbc263a5ba; finite-OR-side sharing and SAT archives reviewed.
+
+- 2026-11-25T09:16:54.476636+00:00: batch9 pushed 9c39745d434a7de58470cb3a797d62486adac7b6; single-edge signature repair independently reviewed.
