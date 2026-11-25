@@ -1,0 +1,50 @@
+Checkpoint 10 independent review: PASS for partial preservation.
+
+Named target: lean/PEqualNP/Outside/L_meta_5012.lean
+SHA256 ae2de3f7ed7e480356bb61574ab4de14aeba3f72bf177ce3f5e6f331b34f27cf
+6771 lines; 327022 bytes; regular UTF-8 file, not executable or a symlink.
+All declaration blocks from the previously reviewed 6236-line target are unchanged.
+The 12 added source helpers and no_two_junk_without_guarded_residual match
+the independently reviewed standalone exclusion artifact exactly.
+The two new corollaries were independently read: guarded_residual_exists derives
+graph nonemptiness from actual nonempty junk and contradicts disjointness;
+normalized_two_junk_with_guarded_residual preserves leastness, size, exactly two
+junk gates, TopForm and lift fixed point before applying that corollary.
+Build03 completed successfully (5149 jobs); stderr is empty.
+The strongest corollary uses only propext, Classical.choice and Quot.sound.
+Allowed Defs import only; no forbidden commands, strings, special root namespace
+escape, attributes, options, custom instances or data types.
+The exact posted theorem remains absent. This is NOT a completed proof PR.
+
+Additional source reviews by pilot176_status:
+pure_product_classification.lean: PASS, 421 lines.
+SHA256 35791c62303e8b7fbec85566053b75a9a859ef937b8dab933a5097835d56e0f3
+Read overlap cleaner bounds and final three-way classification; bipartiteness,
+C4 freedom and both large-arm assumptions remain explicit where required.
+Compile stdout/stderr are empty; format checks pass.
+restriction_nested_joint.lean: PASS, 84 lines.
+SHA256 36827edc83edbd2acd406a0d2288c7d9c11392d8a54c61e8ba315de6ef7c6b7a
+Read both semantic lemmas: when either dependency coefficient is true, joint
+acceptance gives a cleaner endpoint. The unguarded corollary forces both false.
+The semantic joint implication is explicit; no unjustified leastness conclusion.
+Compile log contains warnings only; stderr is empty; format checks pass.
+
+Delegated independent reviews:
+structural reviewed inventory_strict_budget.lean and inventory_overlap_budget.lean.
+SHA256 98b351017263669111e0a4529753ecfab3f9d601f1494ec5d1896573b3fef7b8
+SHA256 e0efb0d11a715297608c4614c682ee105dda88e02c4cac79beaeebac031f7c66
+PASS: exact prior prefixes, strict finite-union deficit, active-support collision
+and final overlap budget; no unsupported full-target claim or forbidden syntax.
+toolchain reviewed inventory_split_budget.lean and inventory_residual_split.lean.
+SHA256 37cbd2faefe4eee9b140ae5adbe69b27387c63b0972d93d9b8379924d2e2778e
+SHA256 d004e75606048c737a606149f99c89732d18ccf49c1fa92ccd9ddcd1a83c1658
+PASS: exact prefixes, split charge and residual star packaging, explicit graph
+assumptions; successful compile logs with inherited warnings only.
+antecedent_search reviewed restriction_first_rung.lean, 1088 lines.
+SHA256 b843957b532f8c08f1f07d38db5d60fbd848620479e34f0aa1d0b5a9c17d0f34
+PASS: exact lowering prefix and star helpers. The independent other junk gate
+keeps its negative witness, so the new junk set is exactly a singleton.
+All edge-preservation and earlier-wire assumptions remain explicit.
+
+Branch observed: pnp/pilot-176. No git or desk mutations were made by reviewer.
+Optional normalized search snapshot delta is not covered by this review.

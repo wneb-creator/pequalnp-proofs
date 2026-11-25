@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_5012.normalized_two_junk_with_guarded_residual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

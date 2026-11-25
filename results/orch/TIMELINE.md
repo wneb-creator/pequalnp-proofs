@@ -34,3 +34,11 @@
 
 - 2026-11-25T19:28:51+00:00: toolchain agent compiled singleton-overlap exact double-star pair decomposition.
 - 2026-11-25T19:31:06.241964+00:00: stronger no-guarded-residual case excluded; integrated empty-wmax case and further geometry/surgery reviewed; checkpoint9.
+- 2026-11-25T19:33:40.591661+00:00: lease renewed; expires 2026-11-25T19:53:40.104Z.
+
+- 2026-11-25T19:36:14+00:00: toolchain agent compiled exhaustive pure-product guarded-pair classification.
+- 2026-11-25T19:38:41.141211+00:00: lease renewed; expires 2026-11-25T19:58:40.070Z.
+
+- 2026-11-25T19:42Z re-plan: guarded residual necessity is kernel-checked. Focus on Ustar-preserving clean-star replacement and independent-junk OR overhead. Geometric single-star/flag claim sent for finite falsification before more proof code. Full target remains open.
+
+2026-11-25T19:48:50.013662+00:00 restriction: Ustar-only lowering and first-rung clean-star exclusion compiled; independent review requested.
