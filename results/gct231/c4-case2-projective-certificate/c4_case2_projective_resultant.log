@@ -1,0 +1,55 @@
+first q 338 0.3803833730016777
+first c 746 2.050836361999245
+first l 380 2.5749873770000704
+raw ql 1517 9.694355464998807
+divided ql 581 77 15.156713700998807
+reduced ql 192 97 16.197844603000704
+raw qc 2928 44.66296326900192
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_case2_projective_resultant.py", line 15, in <module>
+    divided=S.Poly(raw,P,B,domain=S.QQ).exquo(S.Poly(a**power,P,B,domain=S.QQ)).as_expr()
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 190, in __new__
+    return cls._from_expr(rep, opt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 319, in _from_expr
+    rep, opt = _dict_from_expr(rep, opt)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polyutils.py", line 377, in _dict_from_expr
+    expr = expr.expand()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/expr.py", line 3704, in expand
+    expr, hit = Expr._expand_hint(expr, hint, deep=deep, **hints)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/expr.py", line 3643, in _expand_hint
+    newexpr = getattr(expr, hint)(**hints)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/power.py", line 1106, in _eval_expand_multinomial
+    return basic_from_dict(expansion_dict, *p)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polyutils.py", line 405, in expr_from_dict
+    result.append(Mul(*term))
+                  ^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/operations.py", line 108, in __new__
+    c_part, nc_part, order_symbols = cls.flatten(args)
+                                     ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/mul.py", line 703, in flatten
+    elif coeff.is_zero:
+         ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/assumptions.py", line 502, in getit
+    self._assumptions = self.default_assumptions.copy()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/assumptions.py", line 482, in copy
+    return self.__class__(self)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/assumptions.py", line 479, in __init__
+    self.deduce_all_facts(facts)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/facts.py", line 627, in deduce_all_facts
+    beta_maytrigger.update(beta_triggers[k, v])
+MemoryError

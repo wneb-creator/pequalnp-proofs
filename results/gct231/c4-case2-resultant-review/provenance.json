@@ -1,0 +1,5 @@
+{
+  "reviewed_archive_manifest": "8f95dddb0911c0f6b297ffe7a5d0c9ae1fddfa5235d10091095c013ffd60430a",
+  "endpoint_review_manifest": "562cd188aedf717b7e835a9a68f00737692cbd8ad85ea6daf06a1fd598563c93",
+  "scope": "Exact CAS chain, not Lean; all arithmetic over QQ except rigorous modular coprimality certificate for a rational gcd"
+}

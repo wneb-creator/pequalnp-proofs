@@ -1,0 +1,8 @@
+Start UTC 2026-11-25T12:11:12.182021+00:00
+grouped-subset-r2-final PASS7-file hashes/coverage; fullgzip 41932316 bytes; 1001319 numeric terms; 456 rows; original31 polynomial prefix modulo1009; metadata and complete log equality; status UNKNOWN_TIME_LIMIT 1800.1015710709999 seconds
+Manifest 3a5b7a268865520ef6754466e8a3e076887c39d77ab7258e227eac63013e2ac5 raw SHA256 15b98702b067913bf5d14e3f0e067524455e55d562d58e952b7b8ead14a62ee8
+star-center-r1-final PASS7-file hashes/coverage; fullgzip 42022985 bytes; 1003520 numeric terms; 449 rows; original31 polynomial prefix modulo1009; metadata and complete log equality; status UNKNOWN_TIME_LIMIT 900.0562599769983 seconds
+Manifest 0fc8f15c836ef0784ff61cec6a3eb1509df3126e90e801d6fe63ce655f58a3f6 raw SHA256 b30f6149bc49bceb64853d3c79b0fbe3e215bef64a8629c299ee447090c586b8
+No final basis, ideal-membership certificate or mathematical verdict. No live solver touched or rerun.
+Finish UTC 2026-11-25T12:11:31.482346+00:00
+PASS

@@ -1,0 +1,15 @@
+Start UTC 2026-11-25T12:09:36.839745+00:00
+Exact component body/hash and enclosing scope PASS CommonPlaneIntegration 1aaaa15f2afadc317c741261a7fb57dad2dc2f408c8c41726940c7568919e522
+Exact component body/hash and enclosing scope PASS FactorMatchingIntegration eb9de3de6915c657561b3e59966d28fae23cbc3e151f3027c87c0b7fd5c318a3
+Exact component body/hash and enclosing scope PASS C4Coordinates 22de414e9c8b8b992ce11a46d8167da4f09d86ddafc71f29e7bbd84317e317fe
+Exact component body/hash and enclosing scope PASS PolynomialNonsquareIntegration a00e214f4f3390128431db17af70a7211ac730b705d3e92bc193563f8cd95451
+Exact component body/hash and enclosing scope PASS IsolatedVertex 1528a09dae1375675626720952ea9d8a2c7f6b35eeb852830db9e0a07da17344
+Exact component body/hash and enclosing scope PASS C4OpenCertificates 7944028ae577f616c88a4ba2f76717c5812c9a5fc480b73199b519797296401b
+Exact component body/hash and enclosing scope PASS TriangleAxis f453366b19430a626696520b30cdcbefbd2131b6aa4cc32606fa2c7beeb89a22
+Exact component body/hash and enclosing scope PASS C4Case2Endpoints 719ac5d4b27dd5162d3b30db96f8bdf0dabce727f7be25b41bf36ebcb6126d74
+Exact component body/hash and enclosing scope PASS Case3EndpointsIntegration 2dfae559b3eb4b7445aea3e4d483c5663f6f83ff685cde7111790946ecb4d125
+Entire old1528-line body exact; all nine bodies exact; only import union and enclosing section/namespace rebasing changed: PASS
+269 fully qualified declarations, no collisions or stale trace namespace, scoped opens/options and allowed source format: PASS
+Scope: source-preservation/namespace review only; no new compiler, no assertion of the posted existential theorem. Component proof audits remain separate.
+Finish UTC 2026-11-25T12:09:36.860556+00:00
+PASS

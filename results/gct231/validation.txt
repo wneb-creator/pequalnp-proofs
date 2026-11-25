@@ -1,7 +1,7 @@
 Gap: L-gct-231
 Status: PARTIAL ONLY; no proof/refutation and no PR.
 Named file: lean/PEqualNP/Outside/L_gct_231.lean
-Source:1528lines101116bytes,SHA25642c23a475a0793c31278bd6324609ad96d59e78b571e2152b346d3a0a79e656c
+Source:2593lines267790bytes,SHA256c99884a7311d847e0b23c4b1147c4a30bb133630a07dace51a6129675c6feee2
 Named lake build07:exit0,module53s; complete build-partial-07.log preserved underintegration07.
 Independent source, integration and component recompilation reviews: PASS.
 Axiom audit: all audited lemmas use only propext, Classical.choice, Quot.sound.
@@ -13,7 +13,7 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=306.9 subagents=8
+TIMING total=314.3 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
 CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.
@@ -48,3 +48,6 @@ Tiny triangle-axis scalar contradiction: exact source22lines SHA256f453366b19430
 Case3ScalarEndpointsNarrow.lean42lines,SHA2562dfae559b3eb4b7445aea3e4d483c5663f6f83ff685cde7111790946ecb4d125: compiled and standard-axiom audited; theorem bodies byte-identical to reviewed original40line source. Independent fresh/root source and hypothesis reviewPASS. Complete exact case3 resultant classification independently reviewed as CAS mathematics only, no Lean elimination theorem. Older exact-QQ caps and finite-field-only diagnostics are preserved with independent scope/status reviews; none is a full-gap proof.
 
 Combined partial candidate V1:2507lines264200bytes,SHA256455519b9fd760d5ec45d2da6274066654d1cc37123ee75c85ec6192cb54ca5a0; serial complete buildPASS347.06s,peak5589556KiB. Old1528body and all6newcomponent bodies preserved bytewise; independent root and c3 assembly/source reviewsPASS. Complete source/logs/inputs frozen. No main theorem. V2adds three already-checked endpoint components and awaits named build.
+
+Named integration08:2593lines267790bytes; lake buildPASS exit0,module188s,6683jobs. Checker08exit1 REJECTED(no-theorem), complete logs preserved. Independent root+c3assembly reviewsPASS: all9component bodies and old1528body byte-identical; format scan has no forbiddenmatches orattributes. All-declaration axiom audit prepared but not yet run. Cleanup not reached; sourcegrowth1528to2593 is integration, not a cleanup pass.
+Exact original C4case2 resultant classification now independently checked as CAS mathematics only; no Lean necessity chain. Projective norm201KBcandidate is source-reviewed but awaiting compile; its norm hypotheses are explicit and their full case2 necessity is unproved. Final two fullstar runs are UNKNOWN_TIME_LIMIT1800.102s/900.056s with reviewed complete logs and partial restart snapshots. ExactQQtriangle trace reached output cap at80.54s and remainsUNKNOWN.

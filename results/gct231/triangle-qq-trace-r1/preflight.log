@@ -1,0 +1,3 @@
+All rational rows are byte-identical to the independently exact-reviewed input; only characteristic changed to zero.
+Reviewed primitive engine source, binary, and RUNPATH checks PASS.
+PREFLIGHT PASS 4c5ebcabb1bfab850ce72be671eb2b2e754151c55f208837a1e9549032f4f50c

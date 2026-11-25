@@ -1,0 +1,13 @@
+Independent exact-CAS chain review PASS, 2026-11-25.
+
+Frozen original archive:33 files, SHA256SUMS8f95dddb0911c0f6b297ffe7a5d0c9ae1fddfa5235d10091095c013ffd60430a. Every file hash and exact coverage verified. Source six equations match both forward/reverse exports. Saturation is B*P*sat*W−1; F=K*(-6B²+(5P²−P+10)B−8P²)−3PB, so P,B,W,K are nonzero. All20 archived curve-reduction denominators are nonzero constants times powers of K; none removed an extra factor.
+
+Both directions independently reconstructed exactly. Initial curve reductions use pseudo-remainders; first eliminations use the homogeneous evaluation formula for a linear resultant; second eliminations use direct Sylvester determinants. No leading coefficient is divided in the root implication. Every archived remainder agrees up to a nonzero rational constant and a power of K. This phase completed66.85s under768MiB.
+
+Four norms were independently recomputed by univariate polynomial arithmetic, including their exact removals of known-nonzero P/K factors. G=(P+2)^2*(P^4−2P^3+4P+2)^22 divides every norm overQQ. Their primitive integer cofactors have nonzero leading coefficients modulo1009 and common gcd1 modulo1009. By Gauss lemma this proves G is the exactQQ common gcd up to scalar; this is a rigorous rational gcd verification, not an inference of characteristic-zero inconsistency from a finite-field ideal.
+
+The original B-linear resultant, rather than only its norm, was retained in the quartic branch. Its actual remainder modulo Q equals the recorded primitive e up to a nonzero rational constant. The exact identities e=a*(3B+P³−2P²)+Q*h and a*inverse+Q*bezout=1 pass. Substitution B=(2P²−P³)/3 gives W=P²Q exactly, excluding Q=0 on the open chart. Hence P=−2, where F=−2(B−1)(3B−16). All endpoint specializations match the original six equations. The separately reviewed compiled endpoint lemmas force U0,V6 at B1 and exclude B16/3. Saturation then forces sat−1/26; this point satisfies all six equations. The previously reviewed seventh square condition has value−216 and excludes it.
+
+Scope: complete exact-CAS exclusion of this open case2 normalized necessary system. The resultant chain and geometric reduction are not Lean theorems. Only the explicit endpoint scalar lemmas are separately Lean checked.
+
+Diagnostics: the first checker completed all resultants, then stopped because the reviewer compared otherwise equal QQ/ZZ-domain Poly objects. Correcting that type-sensitive assertion to compare expressions yields the passing norm/finish continuation. Both complete logs are retained; no source mathematics or archived input changed. The final checker supports --tail-only to avoid rerunning the verified resultant phase.

@@ -1,0 +1,4 @@
+eliminate_V_01 normdegree 266 gcddegree 266 seconds 23.41355316499903
+eliminate_V_02 normdegree 196 gcddegree 142 seconds 37.9057341129992
+eliminate_V_12 normdegree 290 gcddegree 142 seconds 63.867535546
+factor_final_gcd (P + 2)**2*(P**4 - 2*P**3 + 4*P + 2)**22*(20*P**13 + 62*P**12 - 173*P**11 - 664*P**10 + 94*P**9 + 1489*P**8 - 180*P**7 - 2008*P**6 + 320*P**5 + 1364*P**4 - 228*P**3 - 528*P**2 + 40*P + 100)**4/160000

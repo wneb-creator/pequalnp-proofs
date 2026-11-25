@@ -1,0 +1,13 @@
+{
+  "status": "UNKNOWN_OUTPUT_FILE_SIZE_LIMIT",
+  "returncode": -25,
+  "wall_seconds": 80.5414999129971,
+  "seconds_limit": 600,
+  "memory_mib_limit": 2048,
+  "output_file_mib_limit": 256,
+  "pairs": 32,
+  "input": "gct231/triangle-qq-trace-r1/triangle-qq.in",
+  "input_sha256": "4c5ebcabb1bfab850ce72be671eb2b2e754151c55f208837a1e9549032f4f50c",
+  "companion_sha256": "6b51fd3cab24f0c56a304601cd36e43b3f7cebaf418997f87d0999c432129191",
+  "binary_sha256": "7f424fb398ca7c5a758ba39e63461e9f0410f44975031f13936e4a7c1f89c669"
+}

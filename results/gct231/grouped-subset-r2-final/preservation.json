@@ -1,0 +1,25 @@
+{
+  "preserved_utc": "2026-11-25T12:02:46.137136+00:00",
+  "run_status": "UNKNOWN_TIME_LIMIT",
+  "snapshot_sha256_uncompressed": "15b98702b067913bf5d14e3f0e067524455e55d562d58e952b7b8ead14a62ee8",
+  "snapshot_bytes_uncompressed": 41932316,
+  "original_snapshot": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-grouped-subset-r2.checkpoint.s000027.in",
+  "metadata": {
+    "sequence": 27,
+    "round": 261,
+    "characteristic": 1009,
+    "nvars": 18,
+    "original_generators": 31,
+    "original_terms": 2450,
+    "appended_basis_rows": 425,
+    "appended_basis_terms": 998869,
+    "available_basis_rows": 4424,
+    "available_basis_terms": 159998381,
+    "omitted_basis_rows": 3999,
+    "omitted_basis_terms": 158999512,
+    "derived_term_budget": 1000000,
+    "selection": "Increasing leading degree, then term count, then active-basis index; greedy budget.",
+    "scope": "Original generators plus a bounded subset of active polynomial consequences; partial restart generating set, not a Groebner verdict."
+  },
+  "scope": "Complete bounded-run logs plus a partial finite-field restart generating set. A partial checkpoint is not a Groebner basis or characteristic-zero proof."
+}

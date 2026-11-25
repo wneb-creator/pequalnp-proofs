@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "sha256": "c99884a7311d847e0b23c4b1147c4a30bb133630a07dace51a6129675c6feee2",
+  "scope": "Independent exact body preservation of9components+old1528, unchanged import union, formats/size; main theorem absent.",
+  "lines": 2593,
+  "bytes": 267790
+}

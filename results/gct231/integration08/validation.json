@@ -1,0 +1,14 @@
+{
+  "scope": "Compiled partial helpers only; no main theorem or refutation.",
+  "lines": 2593,
+  "bytes": 267790,
+  "named_build_exit": 0,
+  "named_module_seconds": 188,
+  "lake_jobs": 6683,
+  "checker_exit": 1,
+  "checker_verdict": "REJECTED (no-theorem)",
+  "format_rg_exit": 1,
+  "format_meaning": "No forbidden matches; no attributes.",
+  "axiom_audit_status": "Prepared; pending separate run.",
+  "independent_body_review": "PASS: root and c3, all9component bodies and original1528 preserved."
+}

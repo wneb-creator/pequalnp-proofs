@@ -1,0 +1,47 @@
+[
+  {
+    "directory": "c4-case2-projective-certificate",
+    "files": 45,
+    "manifest_sha256": "dc34caba4856c1f46b088fbb63dedc5c214858522eb96428aea2de044272fbdc"
+  },
+  {
+    "directory": "c4-case2-resultant-review",
+    "files": 5,
+    "manifest_sha256": "071e97d647b596c197bda89a693e5cc69a272c1e5c32884549f6e3edd27185a9"
+  },
+  {
+    "directory": "c4-case2-resultants",
+    "files": 33,
+    "manifest_sha256": "8f95dddb0911c0f6b297ffe7a5d0c9ae1fddfa5235d10091095c013ffd60430a"
+  },
+  {
+    "directory": "fullstar-final-archive-review",
+    "files": 2,
+    "manifest_sha256": "3d236a37795455fa2c2e9a0b7f9dc0f93036ea12fe4f0c3080fa1c5ef57925a9"
+  },
+  {
+    "directory": "grouped-subset-r2-final",
+    "files": 7,
+    "manifest_sha256": "3a5b7a268865520ef6754466e8a3e076887c39d77ab7258e227eac63013e2ac5"
+  },
+  {
+    "directory": "projective-certificate-archive-review",
+    "files": 2,
+    "manifest_sha256": "a56ffa07a7637eb53f8d824de793d55cd800caa9202b3baa1a00aea2c71289ce"
+  },
+  {
+    "directory": "projective-norm-review",
+    "files": 4,
+    "manifest_sha256": "4a4008a12b4e0de2ba2e63fd61202be8c875e80946408e571d2836f399fbb6c7"
+  },
+  {
+    "directory": "star-center-r1-final",
+    "files": 7,
+    "manifest_sha256": "0fc8f15c836ef0784ff61cec6a3eb1509df3126e90e801d6fe63ce655f58a3f6"
+  },
+  {
+    "directory": "triangle-qq-trace-r1",
+    "files": 19,
+    "manifest_sha256": "ce31e3a5f594cc94dccbdfc1f285c14afac166090abd548681312121bf7e1617"
+  }
+]

@@ -1,0 +1,29 @@
+0.092 SATURATION AND K IDENTITY PASS
+3.195 ALL DENOMINATORS CONSTANT TIMES POWERS OF K; NO FACTORS REMOVED c4-case2-resultants.json
+6.395 ALL DENOMINATORS CONSTANT TIMES POWERS OF K; NO FACTORS REMOVED c4-case2-reverse-resultants.json
+6.404 EXACT REDUCTION PASS 0:q
+6.409 EXACT REDUCTION PASS 0:c
+6.502 EXACT REDUCTION PASS 0:linear_r
+6.544 EXACT REDUCTION PASS 0:quadratic_l
+7.474 EXACT REDUCTION PASS 0:eliminate_U_q
+14.219 EXACT REDUCTION PASS 0:eliminate_U_c
+15.889 EXACT REDUCTION PASS 0:eliminate_U_l
+22.926 EXACT REDUCTION PASS 0:eliminate_V_01
+25.463 EXACT REDUCTION PASS 0:eliminate_V_02
+35.92 EXACT REDUCTION PASS 0:eliminate_V_12
+35.924 EXACT REDUCTION PASS 1:q
+35.928 EXACT REDUCTION PASS 1:c
+36.007 EXACT REDUCTION PASS 1:linear_r
+36.04 EXACT REDUCTION PASS 1:quadratic_l
+37.151 EXACT REDUCTION PASS 1:eliminate_V_q
+44.597 EXACT REDUCTION PASS 1:eliminate_V_c
+46.503 EXACT REDUCTION PASS 1:eliminate_V_l
+53.794 EXACT REDUCTION PASS 1:eliminate_U_01
+56.338 EXACT REDUCTION PASS 1:eliminate_U_02
+66.851 EXACT REDUCTION PASS 1:eliminate_U_12
+66.851 ALL NECESSARY RESULTANTS VERIFIED
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/case2_review/check_chain.py", line 89, in <module>
+    fac=s.Poly(parse(factor),P,domain=s.QQ);assert fac in [s.Poly(P,P),s.Poly(K,P)]
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

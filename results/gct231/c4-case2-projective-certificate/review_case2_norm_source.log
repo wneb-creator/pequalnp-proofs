@@ -1,0 +1,5 @@
+{
+  "source_sha256": "bbb25336dd33dc4cf5e1047020305dc5f646e87eeb98ac847ed40cd3e016a2c0",
+  "actual_Lean_norms_and_Bezout_coefficients": "PASS",
+  "scope": "only the two explicit norm equations imply a scalar disjunction"
+}

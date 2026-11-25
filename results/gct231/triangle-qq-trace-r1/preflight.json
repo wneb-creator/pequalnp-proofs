@@ -1,0 +1,32 @@
+{
+  "prepared_utc": "2026-11-25T12:04:13.263012+00:00",
+  "source_sha256": "03a8aa61b2a83e2918457d922059fb481128cc02b3d1532c2cfcc11677ed0ce7",
+  "input_sha256": "4c5ebcabb1bfab850ce72be671eb2b2e754151c55f208837a1e9549032f4f50c",
+  "bindings": {
+    "runner": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/run_neogb_trace_primitive.py",
+      "sha256": "4623b7e6c2cd506a2043a7afc5a0905816d5a6976f64ab468b420c7a097869ba"
+    },
+    "trace_source": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/cert_trace_primitive.c",
+      "sha256": "2ab5d0c46f1c9fee998122f58e959f38c72391d3f666af1bcfc279a7276c1676"
+    },
+    "generator": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_cert_trace_primitive.py",
+      "sha256": "6bee4ca3cf45891420ee77bc182d109e8753f2b456aa5ecdb9bef99b9c77f0d1"
+    },
+    "generated_qq_source": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/src/neogb/la_qq.c",
+      "sha256": "9f9d0f95939606164ae8838a364fde08d28837b05a985d356863eec688483294"
+    },
+    "binary": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/neogb_cli_trace",
+      "sha256": "7f424fb398ca7c5a758ba39e63461e9f0410f44975031f13936e4a7c1f89c669"
+    },
+    "library": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-primitive/libneogb_trace.so",
+      "sha256": "aaa927d2c41d9e2ab958839db00dea220e94448e50d76ffa86ce4c4ef00c5f4e"
+    }
+  },
+  "scope": "Exact QQ trace research; no mathematical verdict without exact replay."
+}

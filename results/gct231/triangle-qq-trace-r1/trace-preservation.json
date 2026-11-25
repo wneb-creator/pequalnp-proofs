@@ -1,0 +1,14 @@
+{
+  "raw_bytes": 268435456,
+  "raw_sha256": "5599bfbfb6881818bc0c0f38222d2d2d85a8d405df1ee7308e7aa98fc32819d7",
+  "raw_newline_count": 269716,
+  "raw_ends_with_newline": false,
+  "compressed_bytes": 123750576,
+  "compressed_sha256": "dd42d1d7719ef09da4f064cf246c4bf5e0e96d0664f9cb8425150cfa73073839",
+  "decompression_sha256_verified": true,
+  "completed_rounds_with_timings": 30,
+  "last_completed_round": "  6      32    4840    2635 x 4476        4.58%     31 new       1 zero        17.11 | 16.87        ",
+  "unfinished_round_log": "  6      33    5001    1807 x 4089        7.54%     33 new       0 zero",
+  "basis_output_exists": false,
+  "scope": "Full interrupted trace, including its truncated final record; no replay or contradiction claimed."
+}

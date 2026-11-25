@@ -1,0 +1,7 @@
+{
+  "status": "COMPLETED",
+  "returncode": 1,
+  "wall_seconds": 62.45865454599698,
+  "seconds_limit": 90,
+  "memory_mib_limit": 512
+}

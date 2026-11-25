@@ -1,0 +1,4 @@
+ACTUAL LEAN PREMISES EXACTLY MATCH BOTH NORMS; EXACT G*COFACTOR FACTORIZATIONS PASS
+ACTUAL LEAN MULTIPLIERS PARSED AND EXACT INTEGER CONVOLUTION IDENTITY PASS
+SCOPE PASS: only two explicit univariate premises imply P=-2 or Q=0; no premise is asserted to follow from the original C4 system.
+{"status": "PASS_INDEPENDENT_INTEGER_POLYNOMIAL_IDENTITY", "source_sha256": "bbb25336dd33dc4cf5e1047020305dc5f646e87eeb98ac847ed40cd3e016a2c0", "premise_degrees": [112, 140], "gcd_degree": 58, "multiplier_degrees": [81, 53], "scale_digits": 1375, "wall_seconds": 0.2231993200002762, "Lean_build": "not run by reviewer; source-only approval"}
