@@ -1,4 +1,5 @@
 import PEqualNP.Defs
+import Mathlib.Data.Finset.Card
 import Mathlib.Data.Multiset.AddSub
 import Mathlib.Data.BitVec
 import Mathlib.Tactic.FinCases
@@ -3187,5 +3188,261 @@ lemma five_gate_target_exclusion {D : Dag} (hS : Strict 10 D)
     (actual_program_semantics hS hinj hvalid hports htypes)
 
 end OnceActualLabels
+
+
+namespace SupportCount
+
+lemma target_card_le_intermediate_card
+    {α β γ : Type*} [DecidableEq α] [DecidableEq β] [DecidableEq γ]
+    (F : Finset α) (H : Finset β)
+    (target : α → Finset γ) (support : β → Finset γ)
+    (hcard : H.card ≤ 2)
+    (hnonempty : ∀ i ∈ F, (target i).Nonempty)
+    (hdisjoint : ∀ i ∈ F, ∀ j ∈ F, i ≠ j → Disjoint (target i) (target j))
+    (hwitness : ∀ i ∈ F,
+      (∃ h ∈ H, (support h).Nonempty ∧ support h ⊆ target i) ∨
+      (∃ a ∈ H, ∃ b ∈ H, a ≠ b ∧ support a ∩ support b = target i)) :
+    F.card ≤ H.card := by
+  classical
+  by_cases hand : ∃ i ∈ F, ∃ a ∈ H, ∃ b ∈ H,
+      a ≠ b ∧ support a ∩ support b = target i
+  · obtain ⟨i, hi, a, ha, b, hb, hab, hinter⟩ := hand
+    have hpair : ({a, b} : Finset β) ⊆ H := by
+      intro x hx
+      rcases Finset.mem_insert.mp hx with rfl | hx
+      · exact ha
+      · exact (Finset.mem_singleton.mp hx) ▸ hb
+    have hpaircard : ({a, b} : Finset β).card = 2 := by simp [hab]
+    have hH : H = {a, b} :=
+      (Finset.eq_of_subset_of_card_le hpair (by omega)).symm
+    have hcontains : ∀ h ∈ H, target i ⊆ support h := by
+      intro h hh x hx
+      have hx' : x ∈ support a ∩ support b := by simpa [hinter] using hx
+      rw [hH] at hh
+      rcases Finset.mem_insert.mp hh with rfl | hh
+      · exact (Finset.mem_inter.mp hx').1
+      · rw [Finset.mem_singleton] at hh
+        subst h
+        exact (Finset.mem_inter.mp hx').2
+    have hF : F ⊆ {i} := by
+      intro j hj
+      rw [Finset.mem_singleton]
+      by_contra hji
+      have hsubset : target i ⊆ target j := by
+        rcases hwitness j hj with ⟨h, hh, _, hs⟩ | ⟨c, hc, d, hd, _, heq⟩
+        · exact Finset.Subset.trans (hcontains h hh) hs
+        · intro x hx
+          rw [← heq]
+          exact Finset.mem_inter.mpr ⟨hcontains c hc hx, hcontains d hd hx⟩
+      obtain ⟨x, hx⟩ := hnonempty i hi
+      exact Finset.disjoint_left.mp (hdisjoint i hi j hj (Ne.symm hji)) hx (hsubset hx)
+    have hFcard : F.card ≤ 1 := by
+      simpa using Finset.card_le_card hF
+    rw [hH, hpaircard]
+    omega
+  · have hor : ∀ i : F, ∃ h : H,
+        (support h).Nonempty ∧ support h ⊆ target i := by
+      intro i
+      rcases hwitness i i.property with ⟨h, hh, hne, hs⟩ | ⟨a, ha, b, hb, hab, heq⟩
+      · exact ⟨⟨h, hh⟩, hne, hs⟩
+      · exact False.elim (hand ⟨i, i.property, a, ha, b, hb, hab, heq⟩)
+    choose f hf using hor
+    apply Finset.card_le_card_of_injective (f := f)
+    intro i j hij
+    apply Subtype.ext
+    by_contra hne
+    obtain ⟨x, hx⟩ := (hf i).1
+    have hxi : x ∈ target i := (hf i).2 hx
+    have hxj : x ∈ target j := (hf j).2 (by simpa [hij] using hx)
+    exact Finset.disjoint_left.mp
+      (hdisjoint i i.property j j.property hne) hxi hxj
+
+lemma six_le_counted_add_free
+    {α β γ : Type*} [DecidableEq α] [DecidableEq β] [DecidableEq γ]
+    (F : Finset α) (H : Finset β)
+    (target : α → Finset γ) (support : β → Finset γ)
+    (n k : Nat)
+    (hbudget : H.card + 3 ≤ n)
+    (hclasses : 3 ≤ F.card + k)
+    (hnonempty : ∀ i ∈ F, (target i).Nonempty)
+    (hdisjoint : ∀ i ∈ F, ∀ j ∈ F, i ≠ j → Disjoint (target i) (target j))
+    (hwitness : ∀ i ∈ F,
+      (∃ h ∈ H, (support h).Nonempty ∧ support h ⊆ target i) ∨
+      (∃ a ∈ H, ∃ b ∈ H, a ≠ b ∧ support a ∩ support b = target i)) :
+    6 ≤ n + k := by
+  by_contra hsmall
+  have hcard : H.card ≤ 2 := by omega
+  have hbound := target_card_le_intermediate_card F H target support hcard
+    hnonempty hdisjoint hwitness
+  omega
+
+end SupportCount
+
+
+namespace SupportBirth
+
+lemma not_target_of_overlap {α : Type*} [DecidableEq α]
+    {T : Finset (Finset α)} {P A : Finset α}
+    (hdis : ∀ X ∈ T, ∀ Y ∈ T, X ≠ Y → Disjoint X Y)
+    (hP : P ∈ T) (hAP : A ≠ P) (hinter : (A ∩ P).Nonempty) : A ∉ T := by
+  intro hA
+  obtain ⟨x, hx⟩ := hinter
+  exact Finset.disjoint_left.mp (hdis A hA P hP hAP)
+    (Finset.mem_inter.mp hx).1 (Finset.mem_inter.mp hx).2
+
+lemma union_birth_support {α : Type*} [DecidableEq α]
+    {T : Finset (Finset α)} {P A B : Finset α}
+    (hdis : ∀ X ∈ T, ∀ Y ∈ T, X ≠ Y → Disjoint X Y)
+    (hP : P ∈ T) (hAP : A ≠ P) (hBP : B ≠ P)
+    (hunion : A ∪ B = P) : A ∉ T ∧ A.Nonempty ∧ A ⊆ P := by
+  have hnonempty : A.Nonempty := by
+    by_contra h
+    have hz : A = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
+    exact hBP (by simpa only [hz, Finset.empty_union] using hunion)
+  have hsub : A ⊆ P := by
+    intro x hx
+    rw [← hunion]
+    exact Finset.mem_union_left B hx
+  refine ⟨not_target_of_overlap hdis hP hAP ?_, hnonempty, hsub⟩
+  obtain ⟨x, hx⟩ := hnonempty
+  exact ⟨x, Finset.mem_inter.mpr ⟨hx, hsub hx⟩⟩
+
+lemma inter_birth_support {α : Type*} [DecidableEq α]
+    {T : Finset (Finset α)} {P A B : Finset α}
+    (hdis : ∀ X ∈ T, ∀ Y ∈ T, X ≠ Y → Disjoint X Y)
+    (hP : P ∈ T) (hPn : P.Nonempty) (hAP : A ≠ P) (hBP : B ≠ P)
+    (hinter : A ∩ B = P) :
+    A ∉ T ∧ B ∉ T ∧ A.Nonempty ∧ B.Nonempty ∧ A ≠ B := by
+  obtain ⟨x, hx⟩ := hPn
+  have hxab : x ∈ A ∩ B := by rw [hinter]; exact hx
+  obtain ⟨hxa, hxb⟩ := Finset.mem_inter.mp hxab
+  refine ⟨not_target_of_overlap hdis hP hAP ⟨x, Finset.mem_inter.mpr ⟨hxa, hx⟩⟩,
+    not_target_of_overlap hdis hP hBP ⟨x, Finset.mem_inter.mpr ⟨hxb, hx⟩⟩,
+    ⟨x, hxa⟩, ⟨x, hxb⟩, ?_⟩
+  intro hAB
+  exact hAP (by simpa only [← hAB, Finset.inter_self] using hinter)
+
+lemma earlier_mem_nontarget {α : Type*} [DecidableEq α]
+    (S : ℕ → Finset α) (T : Finset (Finset α)) (H : Finset ℕ)
+    {j n i : ℕ} (hzero : S 0 = ∅) (hj : j ≤ n)
+    (hH : ∀ h, 0 < h → h ≤ n → S h ∉ T → h ∈ H)
+    (hi : i < j) (hni : (S i).Nonempty) (hti : S i ∉ T) : i ∈ H := by
+  have hipos : 0 < i := by
+    apply Nat.pos_of_ne_zero
+    intro hiz
+    subst i
+    simp only [hzero, Finset.not_nonempty_empty] at hni
+  exact hH i hipos (Nat.le_trans (Nat.le_of_lt hi) hj) hti
+
+lemma birth_gate_witness {α : Type*} [DecidableEq α]
+    (S : ℕ → Finset α) (T : Finset (Finset α)) (H : Finset ℕ)
+    {j n : ℕ} {P : Finset α}
+    (hzero : S 0 = ∅) (hj : j ≤ n)
+    (hdis : ∀ X ∈ T, ∀ Y ∈ T, X ≠ Y → Disjoint X Y)
+    (hP : P ∈ T) (hPn : P.Nonempty)
+    (hfirst : ∀ i < j, S i ≠ P)
+    (hH : ∀ h, 0 < h → h ≤ n → S h ∉ T → h ∈ H)
+    (hgate :
+      (∃ a < j, ∃ F : Finset α, S a ∪ F = P ∧ F ≠ P) ∨
+      (∃ a < j, ∃ b < j, S a ∪ S b = P) ∨
+      (∃ a < j, ∃ b < j, S a ∩ S b = P)) :
+    (∃ h ∈ H, (S h).Nonempty ∧ S h ⊆ P) ∨
+      (∃ a ∈ H, ∃ b ∈ H, a ≠ b ∧ S a ∩ S b = P) := by
+  rcases hgate with ⟨a, ha, F, heq, hF⟩ | ⟨a, ha, b, hb, heq⟩ | ⟨a, ha, b, hb, heq⟩
+  · obtain ⟨hnt, hne, hsub⟩ := union_birth_support hdis hP (hfirst a ha) hF heq
+    exact Or.inl ⟨a, earlier_mem_nontarget S T H hzero hj hH ha hne hnt, hne, hsub⟩
+  · obtain ⟨hnt, hne, hsub⟩ := union_birth_support hdis hP (hfirst a ha) (hfirst b hb) heq
+    exact Or.inl ⟨a, earlier_mem_nontarget S T H hzero hj hH ha hne hnt, hne, hsub⟩
+  · obtain ⟨hna, hnb, hanea, hbnea, hab⟩ :=
+      inter_birth_support hdis hP hPn (hfirst a ha) (hfirst b hb) heq
+    refine Or.inr ⟨a, earlier_mem_nontarget S T H hzero hj hH ha hanea hna,
+      b, earlier_mem_nontarget S T H hzero hj hH hb hbnea hnb, ?_, heq⟩
+    intro h
+    exact hab (congrArg S h)
+
+end SupportBirth
+
+namespace SupportCount
+
+lemma nontarget_card_add_target_card_le
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : Finset α) (T : Finset β) (S : α → β)
+    (hoccurs : T ⊆ G.image S) :
+    (G.filter (fun i => S i ∉ T)).card + T.card ≤ G.card := by
+  have himage : T ⊆ (G.filter (fun i => S i ∈ T)).image S := by
+    intro t ht
+    obtain ⟨i, hi, heq⟩ := Finset.mem_image.mp (hoccurs ht)
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨hi, by simpa [heq] using ht⟩, heq⟩
+  have hbound := (Finset.card_le_card himage).trans (Finset.card_image_le)
+  have hpartition := Finset.card_filter_add_card_filter_not
+    (s := G) (fun i => S i ∈ T)
+  omega
+
+lemma sequence_six_le_gates_add_exact_free_targets
+    {α : Type*} [DecidableEq α]
+    (S : Nat → Finset α) (T Free : Finset (Finset α)) (n : Nat)
+    (hzero : S 0 = ∅)
+    (hthree : T.card = 3)
+    (hnonempty : ∀ P ∈ T, P.Nonempty)
+    (hdisjoint : ∀ P ∈ T, ∀ Q ∈ T, P ≠ Q → Disjoint P Q)
+    (hoccurs : ∀ P ∈ T, ∃ j, 0 < j ∧ j ≤ n ∧ S j = P)
+    (hgate : ∀ j, 0 < j → j ≤ n →
+      (∃ a < j, ∃ F ∈ Free, S a ∪ F = S j) ∨
+      (∃ a < j, ∃ b < j, S a ∪ S b = S j) ∨
+      (∃ a < j, ∃ b < j, S a ∩ S b = S j)) :
+    6 ≤ n + (T ∩ Free).card := by
+  classical
+  let G := (Finset.range (n + 1)).erase 0
+  let H := G.filter (fun i => S i ∉ T)
+  have hGmem : ∀ i, i ∈ G ↔ 0 < i ∧ i ≤ n := by
+    intro i
+    simp only [G, Finset.mem_erase, Finset.mem_range]
+    omega
+  have hGcard : G.card = n := by
+    simp [G, Finset.card_erase_of_mem]
+  have hTimage : T ⊆ G.image S := by
+    intro P hP
+    obtain ⟨j, hjpos, hjle, heq⟩ := hoccurs P hP
+    exact Finset.mem_image.mpr ⟨j, (hGmem j).mpr ⟨hjpos, hjle⟩, heq⟩
+  have hbudget : H.card + 3 ≤ n := by
+    have hb := nontarget_card_add_target_card_le G T S hTimage
+    simpa only [H, hthree, hGcard] using hb
+  have hclasses : 3 ≤ (T \ Free).card + (T ∩ Free).card := by
+    rw [Finset.card_sdiff_add_card_inter, hthree]
+  apply six_le_counted_add_free (T \ Free) H id S n (T ∩ Free).card
+    hbudget hclasses
+  · intro P hP
+    exact hnonempty P (Finset.mem_sdiff.mp hP).1
+  · intro P hP Q hQ hne
+    exact hdisjoint P (Finset.mem_sdiff.mp hP).1 Q (Finset.mem_sdiff.mp hQ).1 hne
+  · intro P hP
+    have hPT : P ∈ T := (Finset.mem_sdiff.mp hP).1
+    have hPF : P ∉ Free := (Finset.mem_sdiff.mp hP).2
+    obtain ⟨j₀, _, hj₀le, hj₀eq⟩ := hoccurs P hPT
+    have hex : ∃ j, S j = P := ⟨j₀, hj₀eq⟩
+    let j := Nat.find hex
+    have hjeq : S j = P := Nat.find_spec hex
+    have hjle : j ≤ n := (Nat.find_min' hex hj₀eq).trans hj₀le
+    have hjpos : 0 < j := by
+      apply Nat.pos_of_ne_zero
+      intro hz
+      have hPe : P = ∅ := by simpa [hz, hzero] using hjeq.symm
+      simpa [hPe] using hnonempty P hPT
+    apply SupportBirth.birth_gate_witness S T H hzero hjle hdisjoint hPT
+      (hnonempty P hPT)
+    · intro i hi
+      exact Nat.find_min hex hi
+    · intro i hipos hile hint
+      exact Finset.mem_filter.mpr ⟨(hGmem i).mpr ⟨hipos, hile⟩, hint⟩
+    · rcases hgate j hjpos hjle with
+        ⟨a, ha, F, hF, heq⟩ | ⟨a, ha, b, hb, heq⟩ | ⟨a, ha, b, hb, heq⟩
+      · left
+        refine ⟨a, ha, F, heq.trans hjeq, ?_⟩
+        intro hFP
+        exact hPF (hFP ▸ hF)
+      · exact Or.inr (Or.inl ⟨a, ha, b, hb, heq.trans hjeq⟩)
+      · exact Or.inr (Or.inr ⟨a, ha, b, hb, heq.trans hjeq⟩)
+
+end SupportCount
 
 end PEqualNP.Outside.L_meta_2590
