@@ -12,11 +12,11 @@ Cleanup pass: not started, because the target checker has not passed. Line count
 Preserved components: false-OR certificate quota; exact behavior on thin inputs; one operand has at most twelve nonincident pairs and at most one singleton; a merged-pair pattern forces the other bad family into one column with at most nine entries.
 Experimental scripts and outputs are computational research artifacts, not Lean certificates. No valid counterexample was found in completed searches.
 
-Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack
-TIMING total=65 subagents=7
+Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack, fresh_count, final_audit, linear_bound
+TIMING total=72 subagents=10
 
 Desk nulls: 1
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
 
-Additional checked limitation artifact: lemmas/OperandWitness.lean (148 lines), exact posted orientation. Its 62-gate circuit has all52 positive pairs, exactly12 bad pairs, and no singleton; it has only one hot wire and is NOT a refutation ofL-meta-2089.
-Completed20-minute search: strict15140404 mutations; relaxed181506495 mutations; no valid witness. Best strict candidate misses2 positive pairs and has0 false positives. Full logs/configurations/validators preserved.
+Additional checked limitation artifact: lemmas/OperandWitness.lean (164 lines), exact posted orientation. Its 62-gate circuit accepts all 52 positive pairs and exactly 12 nonincident pairs, and rejects every singleton. Lean also verifies that wire 87 is the only wire accepting all positive pairs. This is NOT a refutation of L-meta-2089. Fresh independent Lean compilation and independent Python evaluation passed.
+Completed 20-minute search: strict 15,140,404 mutations; relaxed 181,506,495 mutations; no valid witness. Best strict candidate misses 2 positive pairs and has 0 false positives. Full logs, configurations, and validators are preserved.

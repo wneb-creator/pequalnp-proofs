@@ -145,4 +145,20 @@ lemma properties : Monotone2 circuit ∧ circuit.size = 62 ∧
   ⟨circuit_monotone, circuit_size, output_valid, incident_accepted,
     bad_pair_card, singletons_rejected⟩
 
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma diagonal_hot_unique : ∀ a : Fin 88,
+    (∀ p : Fin 13, value circuit (pairInput p p) a.val = true) →
+    a.val = circuit.output := by
+  unfold value circuit pairInput
+  decide +kernel
+
+lemma hot_unique (a : Fin 88)
+    (h : ∀ p l, incidence p l → value circuit (pairInput p l) a.val = true) :
+    a.val = circuit.output := by
+  apply diagonal_hot_unique a
+  intro p
+  apply h p p
+  exact ⟨0, by simp [delta], by simp⟩
+
 end PEqualNP.Outside.L_meta_2089.OperandWitness

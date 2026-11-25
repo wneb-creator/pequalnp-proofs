@@ -1,0 +1,65 @@
+{
+  "source_sha256": "03e637580f9ee70686f999eef19a690696899d1befbae28d9f59442997b902df",
+  "gate_count": 62,
+  "all_dependencies_backward": true,
+  "accepted_positives": 52,
+  "bad_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      12
+    ]
+  ],
+  "hot_wires": [
+    87
+  ],
+  "diagonal_hot_wires": [
+    87
+  ],
+  "singleton_support": [],
+  "bad_pairs_match_artifact": true,
+  "all_62_gates_match_json": true
+}
