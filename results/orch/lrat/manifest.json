@@ -1,0 +1,86 @@
+{
+  "GeneratedIdentity.lean": {
+    "bytes": 108637,
+    "sha256": "9e3b90088433320441cc510bdb6b9347644935f6cf67cd52f0d3602de4947688"
+  },
+  "GeneratedIdentity.log": {
+    "bytes": 117,
+    "sha256": "85aa769aa5f780e328958b6466f465b7b89e54d5b1a228750380c0d12714a753"
+  },
+  "Plane65-bool-2.log": {
+    "bytes": 124,
+    "sha256": "37e20e97dffdcf4278f1563b44a3132270b9ced4b0f7bd375602cf6ee7c81fc3"
+  },
+  "Plane65-bool.lean": {
+    "bytes": 108519,
+    "sha256": "9a312307ea3e19139acb0b42288de03fc7cc6c5ff8212d210c753c3918595bb9"
+  },
+  "Plane65-cadical.log": {
+    "bytes": 4271,
+    "sha256": "8e89c093cc63c39cb32ae3bf0749de4d0e953ffff928011b96f63816bdedcb01"
+  },
+  "Plane65-gates.json": {
+    "bytes": 26328,
+    "sha256": "4360e33fad676583e35f8971a650beae658207e0ca1aac4b40ee7924fcd04c20"
+  },
+  "Plane65-recurrence-3.log": {
+    "bytes": 111,
+    "sha256": "2c22bacc4a1444a98175beb0bca80cb358434a01e06dfa264b188c865df06d0b"
+  },
+  "Plane65-recurrence.lean": {
+    "bytes": 132018,
+    "sha256": "f946a407acb352a4a40692c1665096a5e2a2ad353566cee2618dedfea14a8036"
+  },
+  "Plane65-rup.lean": {
+    "bytes": 78621,
+    "sha256": "4f8e209885d4712ac45452e4a4fde0f2eb6fed37102d06cc8ca662a2b9b9782c"
+  },
+  "Plane65-rup.log": {
+    "bytes": 104,
+    "sha256": "12b9c373690b7ba32b0f2dbba3d859db81f9f2d6cb44478e1a9d430a129878aa"
+  },
+  "Plane65.cnf": {
+    "bytes": 5468,
+    "sha256": "b31a9889e37c9e54b3ca29b9c492d4b0bd440f019750c56f3fb67f7138751b01"
+  },
+  "Plane65.lrat": {
+    "bytes": 6278,
+    "sha256": "9a58eefafac76140467672d9ff5939e97d2566c408547a59931e5bf452b7191e"
+  },
+  "Probe.lean": {
+    "bytes": 226,
+    "sha256": "f004e5cfb3ed3e9cc03d55d3b10c762d0d37f90a26ec0992bc1988f4a5171cb6"
+  },
+  "Probe.log": {
+    "bytes": 910,
+    "sha256": "9f49cc556ab3dc01152b77f11d6e5b75bcde4541de03673f14855fbc977c1da5"
+  },
+  "README.md": {
+    "bytes": 4771,
+    "sha256": "272264f5e4f0ea92a3a87756757f5da854a9656e9e74137e8ea6370b6f389569"
+  },
+  "bool-clause-lemmas.lean.inc": {
+    "bytes": 1207,
+    "sha256": "28970c39a5a7f9e1984d08a602ce2887da075aea887a54688d492ea77de48345"
+  },
+  "cadical-help.log": {
+    "bytes": 14905,
+    "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+  },
+  "export_rup.py": {
+    "bytes": 3029,
+    "sha256": "ff257da99fbdbe89fcb824617ee34263685b5f01fbb2da54578408d9546c6394"
+  },
+  "generate_identity.py": {
+    "bytes": 2545,
+    "sha256": "065ebb8387fc844868b068151feba29097d493afd3a998b17b52dac2b68fb5bc"
+  },
+  "generator-test.log": {
+    "bytes": 35,
+    "sha256": "a30443082267dca73a18c5a4c6a223fdf556e43cc0dc0a01d05e1dc9fa27d52e"
+  },
+  "plane65-witness.json": {
+    "bytes": 3078,
+    "sha256": "e125866dc4fec1b34919aa7a0a8b373fbc38fffda247118ef350daa836dc06d0"
+  }
+}

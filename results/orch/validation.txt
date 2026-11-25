@@ -65,3 +65,5 @@ Finite 65-gate plane and 12-gate tree witnesses verified by exact symbolic monom
 
 Integrated canonical partial: 1402 lines; lake build exit 0, 29.38 seconds, peak 4165416 KiB. Independent merge review PASS. Includes active-junk, rectangle intersection and four-clause finite certificate. Main theorem absent.
 General graph lift of four-clause certificate: 146 lines; standalone Lean exit 0, empty output; independent review PASS.
+
+Reusable SAT-to-kernel certificate pipeline preserved. Exact 65-gate Boolean wiring identity compiled with only the three standard axioms; independently reconstructed CNF and all 206 RUP steps PASS. This is not a 64-gate counterexample.

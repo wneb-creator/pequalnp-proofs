@@ -1,0 +1,17 @@
+{
+  "manifest_files_verified": 19,
+  "variables": 194,
+  "cnf_clauses": 506,
+  "original_gates": 65,
+  "dnf_edge_terms": 52,
+  "total_gate_equations": 168,
+  "output_pair": [
+    90,
+    193
+  ],
+  "rup_additions_checked": 206,
+  "deletion_rows": 2,
+  "final_empty_clause": 712,
+  "proof_source_sha256": "9a312307ea3e19139acb0b42288de03fc7cc6c5ff8212d210c753c3918595bb9",
+  "verdict": "PASS for supporting 65-gate wiring identity; not final-format gap proof"
+}

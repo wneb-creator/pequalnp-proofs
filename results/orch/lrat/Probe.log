@@ -1,0 +1,15 @@
+'kernel_sat_test' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem kernel_sat_test : ∀ (a a_1 : Prop), (¬a ∧ ¬a_1 ∨ a ∧ ¬a_1) ∨ ¬a ∧ a_1 ∨ a ∧ a_1 :=
+fun a a_1 =>
+  Sat.Fmla.refute kernel_sat_test.ctx_1 kernel_sat_test.proof_2 fun v h h_1 =>
+    Sat.Fmla.reify_or
+      (Sat.Fmla.reify_or
+        (Sat.Fmla.reify_one
+          (Sat.Clause.reify_and (Sat.Literal.reify_pos h) (Sat.Clause.reify_one (Sat.Literal.reify_pos h_1))))
+        (Sat.Fmla.reify_one
+          (Sat.Clause.reify_and (Sat.Literal.reify_neg h) (Sat.Clause.reify_one (Sat.Literal.reify_pos h_1)))))
+      (Sat.Fmla.reify_or
+        (Sat.Fmla.reify_one
+          (Sat.Clause.reify_and (Sat.Literal.reify_pos h) (Sat.Clause.reify_one (Sat.Literal.reify_neg h_1))))
+        (Sat.Fmla.reify_one
+          (Sat.Clause.reify_and (Sat.Literal.reify_neg h) (Sat.Clause.reify_one (Sat.Literal.reify_neg h_1)))))

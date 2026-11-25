@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2602_aux.sat_plane65_wiring_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

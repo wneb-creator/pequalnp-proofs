@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS supporting artifact only",
+  "sha256": "f946a407acb352a4a40692c1665096a5e2a2ad353566cee2618dedfea14a8036",
+  "gate_count": 168,
+  "gate_definitions_match_previously_reviewed_certificate": true,
+  "all_recurrence_instantiations_match": true,
+  "earlier_distinct_inputs": true,
+  "reviewed_boolean_proof_unchanged": true,
+  "generic_recurrence_review": "fold length and prefix preservation justify earlier gate recurrence; specialized AND/OR reduce GateOp.eval",
+  "axioms_log": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "65-gate extended-circuit wire equality only; not posted64-bound; archive formatting requires conversions described in README"
+}
