@@ -1,0 +1,11 @@
+--- repair_base.py
++++ unique_input_base.py
+@@ -135,7 +135,7 @@
+    clause(op,y,-a,-b);clause(op,y,-c,-d)
+   linear.append(lo);quadratic.append(qo)
+  values.append(out)
+- entry={'left':left,'right':right,'op':op,'out':out}
++ entry={'left':left,'right':right,'op':op,'out':out,'left_values':lv,'right_values':rv}
+  if args.shadow_missing:entry.update({'linear':lo,'quadratic':qo})
+  structure.append(entry)
+ 

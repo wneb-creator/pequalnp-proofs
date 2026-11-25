@@ -1,0 +1,28 @@
+{
+  "workdir": "/tmp/oec/pequalnp-pilot-70/circuit-search",
+  "prepare_command": [
+    "python3",
+    "unique_input_phases.py",
+    "--cnf",
+    "unique0-26-permissive-final.cnf",
+    "--seed",
+    "near26.json",
+    "--automorphisms",
+    "/tmp/oec/pequalnp-pilot-70/sat-review/verified_symmetry.json",
+    "--prefix",
+    "unique0-26-near"
+  ],
+  "optional_future_runner": [
+    "python3",
+    "run_recorded.py",
+    "--name",
+    "unique0-26-phased",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.cnf",
+    "--phases",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-near.phases",
+    "--seconds",
+    "3600"
+  ],
+  "status": "Prepared only; target-budget phased search not launched."
+}

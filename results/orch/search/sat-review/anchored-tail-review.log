@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "source_sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b",
+  "base_encoder_sha256": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+  "production_checks": [
+    {
+      "name": "anchored-tail26",
+      "gates": 26,
+      "variables": 7249,
+      "clauses": 199034,
+      "prefix_lex_comparisons": 23,
+      "anchor_clauses": 648,
+      "sha256": "6ff5e62b19607e099ce4c324b20e3a21d9de11da80a76d00a1bc531e9eb65538"
+    },
+    {
+      "name": "anchored-tail27-smoke-base",
+      "gates": 27,
+      "variables": 7582,
+      "clauses": 211099,
+      "prefix_lex_comparisons": 24,
+      "anchor_clauses": 666,
+      "sha256": "aeb07b1ef37b61c9c75e57b68dffc3d8553a5124c3b0879c976097463286093b"
+    }
+  ],
+  "witness_checks": [
+    {
+      "name": "anchored-tail-baseline27",
+      "full_gates": 27,
+      "target_errors": 0,
+      "exact_core": true
+    },
+    {
+      "name": "anchored-tail-seed26-missing-1-13",
+      "full_gates": 26,
+      "target_errors": 47,
+      "exact_core": true
+    },
+    {
+      "name": "anchored-tail-seed26-missing-2-13",
+      "full_gates": 26,
+      "target_errors": 47,
+      "exact_core": true
+    },
+    {
+      "name": "anchored-tail-seed26-missing-4-13",
+      "full_gates": 26,
+      "target_errors": 47,
+      "exact_core": true
+    }
+  ],
+  "smoke_cnf_clauses_verified": 211180,
+  "full_inputs_checked_per_witness": 16384,
+  "scope": "Restricted sufficient C OR (U AND V) family, F0 <= C <= Heawood, lex within prefix only; no unrestricted lower-bound claim."
+}

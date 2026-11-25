@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "source_sha256": "d6e94b9976a3a4f6cadc4e1f0541d7c37271774d57a15d5a3fc0d8287ce6afaa",
+  "models": [
+    {
+      "family": "ten",
+      "branch": 0,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "4912f695e24f5bafa04008460285439f22a74fa320fbcb316ba0c32a31d73548"
+    },
+    {
+      "family": "ten",
+      "branch": 1,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "9a17392c9ebacabad8f0a82d72e985a51091770b41d282074801733b8bbddaf7"
+    },
+    {
+      "family": "ten",
+      "branch": 2,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "42397955fdd9a1795123aee8b10d9120341e2735056746590792a9120fdb0b2e"
+    },
+    {
+      "family": "ten",
+      "branch": 3,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "bd5dfefda1af4508813ec61fb5d99c5f75b366d25afe897453f6ed78256b1d0e"
+    },
+    {
+      "family": "ten",
+      "branch": 4,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "68b0f4ded01f29ad12308657cfd64600f2c6176c2c4a05e61c24248ab2d91606"
+    },
+    {
+      "family": "ten",
+      "branch": 5,
+      "status": "SAT model preserved",
+      "checked_clauses": 28160,
+      "model_log_sha256": "23cda1ba145e3c8fb287054b526c789a307b82e30b14dd01bb33e04661e53cdf"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 0,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "344330b3b9800ad7b44d32654ede98aaae7ddea8fb8b58caaa0124768ed61bad"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 1,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "fd40421a115514a47a00f6900a9b076631db17214a4ec62bddeb95e2e06f93ad"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 2,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "f8a18fdfb3305757c326b6b56b23cf79624dab9f309be95770c6af27fdb20bca"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 3,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "4d7e2cd382a6350a056d6b200119de8edf10567ad22474024a38c67323477776"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 4,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "3e3837be1287b1116e53197ac64a1301222240d8b36c71ccd2c45bda212204e6"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 5,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "b8373e1b25b462b4974e2bdc85972ffda33fae1ff2c7aa3db67cb99725528ba4"
+    },
+    {
+      "family": "noncollinear",
+      "branch": 6,
+      "status": "SAT model preserved",
+      "checked_clauses": 56271,
+      "model_log_sha256": "8f3338023c8c7f3cb581f655164c6c096e136ef6d1159ed0eda1b53162ac02e8"
+    },
+    {
+      "family": "matching",
+      "branch": null,
+      "status": "SAT model preserved",
+      "checked_clauses": 41596
+    }
+  ],
+  "scope": "Existing independently truth-checked baseline models revalidated against preserved base plus new gate/support constraints; no new solver launch."
+}

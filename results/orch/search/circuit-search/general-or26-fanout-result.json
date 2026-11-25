@@ -1,0 +1,32 @@
+{
+  "name": "general-or26-fanout",
+  "started_at": "2026-11-25T08:24:29.148529+00:00",
+  "wall_limit_seconds": 3600,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=3600",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/general-or26-fanout.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "f870da9b0683e0055ee77c830296a760e84b38f9185d2803288ad0a01df26024",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T08:52:15.521485+00:00",
+  "wall_seconds": 1666.3559583229999,
+  "cpu_seconds": 1610.170247,
+  "max_rss_kib": 86268,
+  "exit_code": -15,
+  "status": "INTERRUPTED",
+  "independent_review": "PASS: existing restrictions reviewed previously; final fanout composition reviewed by lower_bound.",
+  "scope": "OR-root26 with third symmetry, shadow-missing3, prefix20 nondomination, and necessary raw-input fanout clauses; retain all encoded restrictions when interpreting UNSAT.",
+  "solver_verdict": null,
+  "interruption": {
+    "requested_at": "2026-11-25T08:52:15.426035+00:00",
+    "pid": 24174,
+    "signal": "SIGTERM",
+    "reason": "Root-directed reallocation to the independently reviewed unique-input normal form after 08:51:27 lease renewal; not a solver nonexistence verdict."
+  },
+  "solve_log_sha256": "a5ae9c8946aab6bd2d2d43e6b9e8fd11e3efd7daf77a47552af2efa65815678f"
+}

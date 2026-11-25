@@ -1,0 +1,24 @@
+{
+  "cnf_sha256": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244",
+  "source_sha256": "8ae41b1fc11992cf82aed319ce911a950533c2df8aeb4c4e2b9b8734aa5ff559",
+  "original_seed_sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+  "automorphisms_sha256": "313b85c5ae5857d1f1f11c0845f6f51e03706ff6ea852903b8a73eb5dda3209d",
+  "phase_sha256": "5e96bcfb2eba5d129a8b4a0c3b899cb1e6d8d3bdbfba4698ff7cdb50768fa47c",
+  "eligible_automorphisms": 144,
+  "phase_literals": 5928,
+  "unphased_variables": 1325,
+  "boundary_mismatches": [
+    5
+  ],
+  "missing_edge_mask": 8194,
+  "full_truth_assignments_checked": 16384,
+  "full_errors": 47,
+  "partially_assigned_clauses_satisfied": 205934,
+  "partially_assigned_clauses_unresolved": 2891,
+  "fully_falsified_clauses": [
+    [
+      7199
+    ]
+  ],
+  "scope": "Soft preferences only. The normalized seed has one missing target edge and is not a witness."
+}

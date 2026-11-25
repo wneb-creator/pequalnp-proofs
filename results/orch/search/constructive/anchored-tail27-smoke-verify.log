@@ -1,0 +1,1 @@
+{"status": "VERIFIED", "gate_count": 27, "core_wire": 38, "checked_clauses": 211180, "checked_assignments": 16384, "cnf_sha256": "9705bb2f63bd8e30047d33addd464774be42a6f581579c491ecdc984015ae7e4", "log_sha256": "5c4676da75ece5d5ec521c5d6258dce7382f4abd7559350694e1983bfceb3fbe", "source_sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b"}

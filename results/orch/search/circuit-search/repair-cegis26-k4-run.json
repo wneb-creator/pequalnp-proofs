@@ -1,0 +1,16 @@
+{
+  "name": "repair-cegis26-k4",
+  "started_at": "2026-11-25T08:57:58.548894+00:00",
+  "wall_limit_seconds": 60,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=60",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k4.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "54bdc16177bab041707fc96c8d371d3708b0d44f2faee0f021e9df2c6ec5dee1",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

@@ -1,0 +1,6 @@
+{
+  "requested_at": "2026-11-25T08:52:15.426035+00:00",
+  "pid": 24174,
+  "signal": "SIGTERM",
+  "reason": "Root-directed reallocation to the independently reviewed unique-input normal form after 08:51:27 lease renewal; not a solver nonexistence verdict."
+}

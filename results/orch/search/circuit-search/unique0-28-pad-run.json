@@ -1,0 +1,16 @@
+{
+  "name": "unique0-28-pad",
+  "started_at": "2026-11-25T08:49:52.949282+00:00",
+  "wall_limit_seconds": 5,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=5",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "b94564ce452ac1eecec4f2891ae8f0274ec852162ab365bfb96a33bffa1f93c5",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

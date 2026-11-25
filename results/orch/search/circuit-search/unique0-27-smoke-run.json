@@ -1,0 +1,16 @@
+{
+  "name": "unique0-27-smoke",
+  "started_at": "2026-11-25T08:48:47.561270+00:00",
+  "wall_limit_seconds": 5,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=5",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "fcf843318cf7f888a819599277ab78204ecd7e7ce03f7be28d34214dcdd634da",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

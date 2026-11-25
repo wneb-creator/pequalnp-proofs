@@ -1,0 +1,102 @@
+{
+  "source_sha256": {
+    "unique_input_base.py": "1f00b614240f448ca0c89a62eb3880dfa8d8df5eff8a91402b7988ab143f6422",
+    "repair_base.py": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+    "add_unique_input.py": "2b5243f5f7e475d407112e406e8dc681c308be1d4ba562089d11638b67c1ad65",
+    "add_raw_fanout.py": "d50aa52f37814cdb2c07ee7c3015497f0d28c53b63be589a3314a75fafe2af22",
+    "run_kissat.py": "46632f432f6f0e6da1538f126ed6fe0edf01ec10e5b78150456f2ba60796f084",
+    "decode.py": "76359ac080495f46758e02de734a5454556efc00e658252d90490eb43a23f79f",
+    "unique-input-source.diff": "77d85d6b62092c509852768fb4e65d9395e2967ebea2044e985942d8a3d3f62a",
+    "unique0-26-permissive-final.cnf": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244"
+  },
+  "command": [
+    "python3",
+    "unique_input_base.py",
+    "--gates",
+    "26",
+    "--no-canon",
+    "--allow-initial-repeats",
+    "--allow-trivial",
+    "--output",
+    "unique0-26-permissive-base.cnf"
+  ],
+  "postprocessing": [
+    [
+      "python3",
+      "add_unique_input.py",
+      "unique0-26-permissive-base.cnf",
+      "unique0-26-permissive-critical.cnf"
+    ],
+    [
+      "python3",
+      "add_raw_fanout.py",
+      "unique0-26-permissive-critical.cnf",
+      "unique0-26-permissive-final.cnf"
+    ]
+  ],
+  "launch_prepared": [
+    "python3",
+    "run_kissat.py",
+    "--name",
+    "unique0-26-kissat",
+    "--cnf",
+    "unique0-26-permissive-final.cnf",
+    "--seconds",
+    "3600",
+    "--preset",
+    "default",
+    "--seed",
+    "1"
+  ],
+  "smokes": {
+    "unique0-27-smoke": {
+      "name": "unique0-27-smoke",
+      "started_at": "2026-11-25T08:48:47.561270+00:00",
+      "wall_limit_seconds": 5,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=5",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke.cnf"
+      ],
+      "backend": "kissat",
+      "preset": "default",
+      "cnf_sha256": "fcf843318cf7f888a819599277ab78204ecd7e7ce03f7be28d34214dcdd634da",
+      "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+      "finished_at": "2026-11-25T08:48:47.750371+00:00",
+      "wall_seconds": 0.1289141170000221,
+      "cpu_seconds": 0.09420799999999999,
+      "max_rss_kib": 16128,
+      "exit_code": 10,
+      "status": "SAT",
+      "full_truth_table_verified": true,
+      "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-witness.json"
+    },
+    "unique0-28-pad": {
+      "name": "unique0-28-pad",
+      "started_at": "2026-11-25T08:49:52.949282+00:00",
+      "wall_limit_seconds": 5,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+        "-s",
+        "--time=5",
+        "--seed=1",
+        "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad.cnf"
+      ],
+      "backend": "kissat",
+      "preset": "default",
+      "cnf_sha256": "b94564ce452ac1eecec4f2891ae8f0274ec852162ab365bfb96a33bffa1f93c5",
+      "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+      "finished_at": "2026-11-25T08:49:53.273726+00:00",
+      "wall_seconds": 0.29775574799896276,
+      "cpu_seconds": 0.19233899999999998,
+      "max_rss_kib": 16512,
+      "exit_code": 10,
+      "status": "SAT",
+      "full_truth_table_verified": true,
+      "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-witness.json"
+    }
+  },
+  "old_candidate_note": "unique0-26-base/critical/final without permissive in the name were preliminary generation-only artifacts with nontriviality restrictions. The reviewed intended candidate uses permissive in its name and explicitly allows trivial signatures."
+}

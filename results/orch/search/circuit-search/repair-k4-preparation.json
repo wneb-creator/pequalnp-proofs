@@ -1,0 +1,51 @@
+{
+  "independent_review": "repair-review.json; source hashes unchanged",
+  "searches": [
+    {
+      "name": "repair-near26-k4",
+      "nv": 7593,
+      "clauses": 183299,
+      "cnf_sha256": "b92a428b321ebddff9cc93a2c80c7208b1e9ed641ce7deca5bae5fd144e10b2f",
+      "seed_sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "budget": 4,
+      "scope": "fixed topological slot neighborhood, with commutative operands",
+      "command": [
+        "python3",
+        "run_kissat.py",
+        "--name",
+        "repair-near26-k4",
+        "--cnf",
+        "repair-near26-k4.cnf",
+        "--seconds",
+        "60",
+        "--preset",
+        "default",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "name": "repair-cegis26-k4",
+      "nv": 7593,
+      "clauses": 183299,
+      "cnf_sha256": "54bdc16177bab041707fc96c8d371d3708b0d44f2faee0f021e9df2c6ec5dee1",
+      "seed_sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+      "budget": 4,
+      "scope": "fixed topological slot neighborhood, with commutative operands",
+      "command": [
+        "python3",
+        "run_kissat.py",
+        "--name",
+        "repair-cegis26-k4",
+        "--cnf",
+        "repair-cegis26-k4.cnf",
+        "--seconds",
+        "60",
+        "--preset",
+        "default",
+        "--seed",
+        "1"
+      ]
+    }
+  ]
+}

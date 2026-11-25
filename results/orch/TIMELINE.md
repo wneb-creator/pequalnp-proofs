@@ -36,3 +36,7 @@
 - 2026-11-25T08:13:49.119517+00:00: search result four-star-cut10-v0: UNKNOWN, wall120.048s/CPU73.561s. Scope is the named restricted search; no unrestricted result.
 - 2026-11-25T08:16:41.869187+00:00: search result four-star-cut10-v3: UNKNOWN, wall120.019s/CPU80.862s. Scope is the named restricted search; no unrestricted result.
 - 2026-11-25T08:23:57.271652+00:00: search result f0-available-a24: UNKNOWN, wall2700.037s/CPU2523.786s. Scope is the named restricted search; no unrestricted result.
+- 2026-11-25T08:38:03.394056+00:00: matching-cut14 completed UNKNOWN after2700.022wallseconds/2534.165CPUseconds; full log preserved.
+- 2026-11-25T08:38:16.089439+00:00: joint six-variant ten-gate search began with reviewed CNF and correlated-input decoder.
+- 2026-11-25T08:49:40+00:00: RawOccurrence (80lines) compiled and passed independent review; conditional counting and padding lemmas preserved.
+- 2026-11-25T08:52:12.146505+00:00: strategy review prioritizes reviewed unique-input general synthesis; current general final-OR run being reallocated. No full proof.

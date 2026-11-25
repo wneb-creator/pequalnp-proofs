@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "source_sha256": "d6e94b9976a3a4f6cadc4e1f0541d7c37271774d57a15d5a3fc0d8287ce6afaa",
+  "production_outputs": [
+    {
+      "file": "joint-ten10-live",
+      "gate_clauses": 9,
+      "coverage_clauses": 60,
+      "variables": 1423,
+      "clauses": 24858,
+      "sha256": "4fbcc1edefa3c5d140e48bcae5f3ecbb70393c22b7b1a11544984bdff9b9d781"
+    },
+    {
+      "file": "joint-noncollinear14-live",
+      "gate_clauses": 13,
+      "coverage_clauses": 77,
+      "variables": 2476,
+      "clauses": 51186,
+      "sha256": "187d0a36ff60c1f9445b0844d3f10cebced11836a86d842cdb98429c955c2507"
+    },
+    {
+      "file": "matching-cut14-pairs-live",
+      "gate_clauses": 13,
+      "coverage_clauses": 10,
+      "variables": 2085,
+      "clauses": 37651,
+      "sha256": "38609991efca139e72543fc3626e745f9a1f3db5f769989ec44279e103c8f2f9"
+    }
+  ],
+  "models": [
+    {
+      "name": "joint-ten11-smoke-v1-branch-0",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-ten11-smoke-v1-branch-1",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-ten11-smoke-v1-branch-2",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-ten11-smoke-v1-branch-3",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-ten11-smoke-v1-branch-4",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-ten11-smoke-v1-branch-5",
+      "verified_clauses": 28194
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-0",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-1",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-2",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-3",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-4",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-5",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "joint-noncollinear15-smoke-v1-branch-6",
+      "verified_clauses": 56317
+    },
+    {
+      "name": "matching-cut15-pairs-smoke",
+      "verified_clauses": 41641
+    }
+  ],
+  "scope": "Gate-only liveness and target-essential underlying support coverage; no requirement to consume every initial signal."
+}
