@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "reviewer": "status_review",
+  "reviewed_utc": "2026-11-25T11:40:50.273312+00:00",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_gct_231.lean",
+  "source_sha256": "34d899e7a47f1f2c4b9fce91d62d002c1831865035659d54d17eaf7bde3cbcb1",
+  "source_lines": 2046,
+  "component": "/tmp/oec/pequalnp-pilot-78/low_diag/LowDiagonalRankComplete.lean",
+  "component_sha256": "5f25e8474bf664cb7972d40101dd179ae6b1bcb8d94823915e01f083519aea41",
+  "exact_component_body_occurrences": 1,
+  "body_start_line": 1558,
+  "plain_file_restrictions": "PASS: one required helper namespace, named end, top imports only, scoped heartbeat limits only, no forbidden text, strings, attributes, axioms, native_decide or syntax extensions",
+  "mathematical_review": "Exact integration of the independently reviewed and Lean-checked lower-diagonal-rank component; no statement or proof-body changes. Component mathematical audit is geometry_search/rowzero/low-diagonal-assembly-independent-review.json.",
+  "build": "No duplicate rebuild by reviewer; root reports successful main2046 lake build.",
+  "scope": "Partial results only. The posted gap theorem and full checker verdict are absent."
+}
