@@ -1545,4 +1545,30 @@ lemma reviewStar_packing_circuit_sum_lower_bound {t : ℕ} (d : Fin t → ℕ)
   rw [← reviewStar_vertex_card d]
   exact reviewStar_packing_circuit_lower_bound d nonempty A packed C fanin correct
 
+
+/-
+Independent OR sources need not satisfy the distance condition used above.  On P6,
+the five sources below are independent sets, but several contain vertices at distance two.
+The downstream circuit uses six gates.  Charging the five source ORs gives eleven gates,
+so this example does not contradict the original graph-circuit claim.
+-/
+namespace IndependentP6
+
+def sixPaid : Circuit :=
+  ⟨[⟨.and,[0,1]⟩,⟨.and,[3,4]⟩,⟨.or,[5,6]⟩,
+    ⟨.and,[2,7]⟩,⟨.and,[5,6]⟩,⟨.or,[8,9]⟩],10⟩
+
+lemma paid_size : sixPaid.size = 6 := rfl
+lemma paid_monotone : Monotone2 sixPaid := by
+  simp [Monotone2, sixPaid]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma p6_identity : ∀ a b c d e f : Bool,
+    sixPaid.eval [a || c, b || d, b || e, c || e, d || f] =
+      ((a && b) || (b && c) || (c && d) || (d && e) || (e && f)) := by
+  decide
+
+end IndependentP6
+
 end PEqualNP.Outside.L_meta_1904_aux
