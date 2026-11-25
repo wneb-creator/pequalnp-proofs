@@ -1,0 +1,29 @@
+{
+  "created": "2026-11-25T15:14:26.340217+00:00",
+  "verdict": "Three UNKNOWN searches; one rejected partial model; no counterexample or UNSAT",
+  "cnf_variables": 5832,
+  "cnf_clauses": 117962,
+  "files": {
+    "search-1886-cegis.py": "c209c8db42868be20d7836623c2e97e8a05712e7eff99d55d3012c31686ecfdd",
+    "search-cadical-wrapper.cpp": "a4039a81978d9d4c3f4a025ef0c99e486a9c805bc3561e3ca1896efac5a8055b",
+    "search-1886-cegis-or18.log": "ef1eec5e0901958422c4b65ba9d1add3831e6b5c7f7f760b7d1e22ad0b057bbb",
+    "search-1886-cegis-or18.cnf": "6c524abbce32f27cc29687895c1449295c905760d72535460aef0871bd30972d",
+    "search-1886-cegis-or18.json": "1aef09a967084e7c797f33df03e85359351d8a26ea5fd6b32d3f10aba45d165f",
+    "search-1886-cegis-or18-candidate1.json": "76ea5279cd15f090aebf4efc9d38de38cafc9185daf6e569c9a855665bbd43ca",
+    "search-1886-and-finalor-ordered.log": "be13254747119754066c9134079002b699f0c1cb24f78eb0bf3fbff791173c7a",
+    "search-1886-and-finalor-ordered.sol": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "search-1886-and-finalor-ordered.json": "9dfc86e429bb50825ea94d5a674ad3df049281d4481acbea23fac46bb79cd76d",
+    "search-1886-or-monotone-ordered.log": "edd67a248c41ecfd262203c3dd8d7879d0ce3760e8e0af60b29f5c3bfea651c5",
+    "search-1886-or-monotone-ordered.sol": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "search-1886-or-monotone-ordered.json": "e7109034eaeff9f8879e67a492c117383d31cebae8c4679fbe3325d5caa3124d",
+    "search-1886-cegis-warm.py": "ac204b8fedccfe4ff47339747872a771bcc34adef413fab85fcf152aaf02955a",
+    "search-cadical-wrapper-v2.cpp": "0a004cd20d048a84e3f8096aee20ed7e60a74b799ad2e454bff4a9c829bebe11",
+    "local1886-near-canonical.json": "e50319e605b41762965fe5f1c57155424ad45994e23bd04e41f7e41ca3b2f5c0",
+    "search-1886-warm-control.log": "49fd63b1db7bceaa1fd42d099cc6db4073d02ca2ada000a3e0891d590788e8a4",
+    "search-1886-warm-control.json": "5150c8b3101c5aa62a826f87c1fd478e99eb18ff5c214c9d973bb2116ad881a7",
+    "search-1886-warm-control-candidate1.json": "c2e08a9de3195de9ecf7584d6b65c375d87844e806b1400f8b205322d943fedd",
+    "search-cadical-assumptions-control.json": "58da1678eeeaac189834d6688652b417bf300f441094cfe73fe4d554eb73e7ca",
+    "local1886-review-warm.json": "1fe7f648d1a57157a016cf1a8709b617ce91a6c9f79ed49cb660fde9b0344b12",
+    "local1886-review-cegis.json": "4425425caa72fe625825ab33e98e9248a23ed74e0816c17b195af1d62c11f3fb"
+  }
+}

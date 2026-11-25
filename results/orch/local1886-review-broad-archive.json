@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-25T15:15:26.665382+00:00",
+  "verdict": "PASS",
+  "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/search_1886_broad",
+  "manifest_files": 21,
+  "all_hashes_match": true,
+  "cnf": {
+    "variables": 5832,
+    "clauses": 117962,
+    "all_literals_valid": true
+  },
+  "ordered_runs": [
+    {
+      "run": "search-1886-and-finalor-ordered",
+      "result": "UNKNOWN",
+      "seconds": 600.0,
+      "log_lines": 585
+    },
+    {
+      "run": "search-1886-or-monotone-ordered",
+      "result": "UNKNOWN",
+      "seconds": 600.0,
+      "log_lines": 602
+    }
+  ],
+  "broad_run": {
+    "final_rows": 94,
+    "result": "UNKNOWN",
+    "seconds": 600.0017380640002
+  },
+  "independent_candidate_checks": [
+    {
+      "file": "search-1886-cegis-or18-candidate1.json",
+      "full_rows_checked": 1024,
+      "errors": 870,
+      "qualifies": false
+    },
+    {
+      "file": "search-1886-warm-control-candidate1.json",
+      "full_rows_checked": 1024,
+      "errors": 4,
+      "qualifies": false
+    }
+  ],
+  "scope": "README accurately records three UNKNOWN searches, one rejected broad model, and a short warm control. Complete final CNF is reproducible but is neither an UNSAT certificate nor a Lean proof. No credentials or binaries detected; archive unchanged."
+}

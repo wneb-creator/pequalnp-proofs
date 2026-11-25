@@ -107,3 +107,8 @@ Generic-mode extraction, realization, bank/floor and actual-circuit wrappers com
 Reviewed local1886-repair archive preserves exact restricted exhaustive failures; no generalcircuit exclusion or Lean certificate claimed. Shared notes/timeline preserved through latest completed components.
 Sub-agents:6
 TIMING total=92 subagents=6
+
+Compiled and independently reviewed PASS: exhaustive suppliedOR first-nonOR exclusion and40-value OR census, negative-seed absence bounds/transport, endpoint_order and actual endpoint_consumers, monotone constant sweep with reference-prefix preservation. These retain explicit Live/consumer/floor assumptions; no full target proof.
+Broad search archive independently reviewedPASS:117962clauses5832variables, full94-row CNF, complete600secondUNKNOWN logs, rejected870-error candidate, four-error warm control. No valid counterexample.
+Sub-agents:6
+TIMING total=99 subagents=6

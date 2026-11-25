@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-25T15:07:21.583032+00:00",
+  "verdict": "PASS",
+  "files": {
+    "search-1886-cegis-warm.py": "ac204b8fedccfe4ff47339747872a771bcc34adef413fab85fcf152aaf02955a",
+    "search-cadical-wrapper-v2.cpp": "0a004cd20d048a84e3f8096aee20ed7e60a74b799ad2e454bff4a9c829bebe11",
+    "local1886-near-canonical.json": "e50319e605b41762965fe5f1c57155424ad45994e23bd04e41f7e41ca3b2f5c0"
+  },
+  "warm_model_matches_exact_seed": true,
+  "warm_errors": [
+    69,
+    104,
+    521,
+    548
+  ],
+  "initial_rows": 28,
+  "refined_rows": 32,
+  "independent_assumption_reset_control": {
+    "first": 10,
+    "first_model": [
+      -1,
+      2
+    ],
+    "second": 10,
+    "second_model": [
+      1,
+      -2
+    ]
+  },
+  "counterexample_sampling_sizes_checked": 960,
+  "scope": "Warm assumptions apply only to the first solve and are not emitted as permanent CNF clauses. Seed-wrong critical rows are initially omitted, then restored from independent1024 validation. With the supplied zero-NOT seed, min-not must be0. First solve explicitly assertsSAT, so timeout or inconsistent warm assumptions cannot be reported as UNSAT. Later solves cover the unrestricted configured normalized template and retain learned clauses. Full candidate verification remains mandatory; one-second control endedUNKNOWN after restoring all30 critical rows plus endpoints."
+}

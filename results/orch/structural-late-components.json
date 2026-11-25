@@ -1,0 +1,62 @@
+{
+  "utc": "2026-11-25T15:20:26.070839+00:00",
+  "scope": "Checked partial components only; exact L-meta-1886 theorem unproved",
+  "components": [
+    {
+      "name": "mode_extract_transport",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/mode_extract_transport.fragment.lean",
+      "sha256": "f66bcc23185a29146b10515c43c3897ad331b4a9bdd1289f79b5fe1f1aaeee4e",
+      "lines": 60,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "mode_realize",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/mode_realize.fragment.lean",
+      "sha256": "eaf3441e59868405bf0289636d6e14e5fc10f61b3e51f498d8d76c952e110509",
+      "lines": 45,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "mode_floor",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/mode_floor.fragment.lean",
+      "sha256": "5becff25a2f989aad6e9c998495209dee4c835e56846873d30da9a5f6970e610",
+      "lines": 73,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "or_first_nonor",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/or_first_nonor.fragment.lean",
+      "sha256": "ed471262c7cf1ac8a068ece2e32561cf54e7a3097027940c8d6fa4bb20f8265d",
+      "lines": 135,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "negative_seed_absent",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_absent.fragment.lean",
+      "sha256": "9e048986bec3a2bc979536181a71cf2efc2a1fc850b859c8de27d7f192c89188",
+      "lines": 49,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "negative_seed_absent_transport",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_absent_transport.fragment.lean",
+      "sha256": "c59efb02eef722fc801f0cb171cbe7569c23cabace49935c6849d517ee04f05d",
+      "lines": 48,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "name": "or_first_census",
+      "fragment": "/workspace/pequalnp-proofs/results/orch/lemmas/or_first_census.fragment.lean",
+      "sha256": "de6704c1e8fee57453b2ddab7ed4644a047e8d03be21d13f6db68f6e2bd205ad",
+      "lines": 78,
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    }
+  ]
+}

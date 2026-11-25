@@ -1,0 +1,16 @@
+{
+  "endpoint_order": {
+    "sha256": "0c74e550dccbcc13f81f26eff7aeb8aa185618ba4cec1ee9ba0a6c2b54fd1a1a",
+    "lines": 99,
+    "fragment_sha256": "f499cd068777cd2c5c2f495dec11d7afb2016877d9b943891fbf616fecc23134",
+    "compile": "PASS",
+    "log": "/tmp/oec/pequalnp-pilot-92/endpoint-order-build.txt"
+  },
+  "endpoint_consumers": {
+    "sha256": "3de797be917365f6ff39014e7b2e4ef2bdbf7b0ce179730ba0bc743ac1a1bef6",
+    "lines": 100,
+    "fragment_sha256": "ca91874a5a409b6817f051d8810f7fdc70eece84bbf875599644a701d0e1b89b",
+    "compile": "PASS",
+    "log": "/tmp/oec/pequalnp-pilot-92/endpoint-consumers-build.txt"
+  }
+}
