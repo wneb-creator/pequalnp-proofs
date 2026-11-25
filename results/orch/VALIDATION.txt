@@ -14,3 +14,7 @@ TIMING total=24.2 subagents=6
 
 Additional compiled artifacts: StarCounterexample.lean checks a seven-gate C5 circuit and its star profile (not minimality); StarSandwich.lean checks preservation under downward monotone rewrites retaining edge positives. Both lake env lean exit 0, empty output. Root independently reviewed agent-authored sources; ordinary decide only, own namespaces, no forbidden constructs. These are research artifacts; named partial remains 1044 lines.
 Full checker environment: exact cache inventory shows approximately 3.47 GiB disk shortfall before optional cleanup; targeted Lean compilation works.
+
+Additional checked artifact StarCover.lean (441 lines): constructs star-profile circuit at vertex-cover cost and assembles exact posted conclusion CONDITIONALLY on the matching universal circuit lower bound. That lower bound is UNPROVED. Compiled exit 0, one unused-binder warning. Independent review passed first412-line snapshot; root reviewed29-line min-cover/conditional extension.
+Actual local checker invocation: exit 3; CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+This is an infrastructure fault, not acceptance. The named partial also lacks the full posted theorem.
