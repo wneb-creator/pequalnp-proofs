@@ -1,0 +1,6 @@
+L-meta-3457 partial: OR-suffix gate dichotomy
+2026-11-25T01:52:22.005410+00:00
+SHA256 72b49bcdc06482e39d336565560c983982beecc4ac67dcaaa62585a5f75c5d90
+Lines 271
+Central lake env lean LastAndV2.lean: exit 0, empty stdout/stderr. Independent source review approved this exact hash.
+Any gate followed only by OR gates either globally implies the circuit output or can be replaced by OR[] without changing the function on inputs of the fixed length. No ReadsBack or arity assumption is needed for this isolated semantic fact. It does not normalize arbitrary earlier AND gates.
