@@ -10,3 +10,7 @@ TIMING total=20 subagents=6
 
 Additional compiled partials (each lake env lean exit0): CompleteCNF (circuit-to-SAT completeness,529lines),OneNotCross (48lines),Partial16 (non-NOT bound,4579lines). None provesfullstatement. Exactsource archived underresults/orch/lemmas/checked; all independentlyreviewed beforepush.
 TIMING total=24 subagents=6
+
+PetersenCNF.lean (548lines) compiled and independentlyreviewed; conditional conclusion exactlymatchespostedstatement. UNSATpremise unproved.
+Local checker on503line namedpartial: REJECTED(no-theorem), missing PEqualNP.Outside.L_meta_2592. Full checker stdout/stderr archived. No accepted proof/PR.
+TIMING total=27 subagents=6

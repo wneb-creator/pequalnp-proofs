@@ -7,3 +7,4 @@
 2026-11-25T14:06:44.152725+00:00 Combined structural and essential-NOT witness partial named build passed; reviewer approved all components.
 2026-11-25T14:09:14.931927+00:00 Replanned after~23minutes; prioritize verified finiteCNF + unrestrictedsearch, retain structural cost approach.
 2026-11-25T14:10:05.884725+00:00 CompleteCNF,OneNotCross,Partial16 independentlyreviewed and compiled; preservingexactsource andfulllogs incheckpoint.
+2026-11-25T14:13:52.343627+00:00 PetersenCNF exact-statement conditional wrapper compiled and reviewed; local checker on503line partial returned REJECTED(no-theorem), as expected.
