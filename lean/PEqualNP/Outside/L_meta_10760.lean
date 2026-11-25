@@ -2711,3 +2711,15 @@ lemma forest3_index_guard_sound (i : Nat) (hi : i < sliceSpecs.length)
   exact List.getElem_mem hi
 
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92.Forests
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+
+lemma sliceSpecs_vars_check :
+    sliceSpecs.all (fun s => s.2.2.all (fun v => decide (v < 7))) = true := by decide +kernel
+
+lemma sliceSpecs_vars_lt7 : ∀ s ∈ sliceSpecs, ∀ v ∈ s.2.2, v < 7 := by
+  intro s hs v hv
+  exact of_decide_eq_true ((List.all_eq_true.mp
+    ((List.all_eq_true.mp sliceSpecs_vars_check) s hs)) v hv)
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
