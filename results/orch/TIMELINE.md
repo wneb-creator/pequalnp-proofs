@@ -16,3 +16,7 @@
 2026-11-25T10:25Z — Preserving independently reviewed blocking-set partial and configured checker output. Exact target remains unresolved; configured checker rejects no-theorem. Four-cap and five-point stochastic searches continue; fixed-prefix joint12 SAT gains independently reviewed essential-input cuts.
 
 2026-11-25T10:30Z — Public feed confirms joint-output child L-meta-6658 refuted by checked L-meta-6659 (PR13206). Stopped local joint12 solver UNKNOWN; its witnesses would imply the refuted premise. Public reductions_live decreased to2. Preparing arbitrary four-cap15 reduction and broad full27 SAT.
+
+2026-11-25T10:41:16.862046+00:00 — Low equality partial compiled and independently reviewed; preserving before further work. Preparing polarity-minimality SAT cuts and high equality lemmas. No new reduction submitted because proposed cap premise faces a mathematical obstruction.
+
+2026-11-25T10:43Z — K4 equality and generic single-reader derivative bridge compiled and independently reviewed. Preserving both with low Fano equality. Combined strict-live K4 obstruction is in progress; original Fano target remains unresolved.

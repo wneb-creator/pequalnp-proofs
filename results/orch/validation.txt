@@ -6,8 +6,11 @@ Checker: exit 1, REJECTED (no-theorem); final target theorem is absent. The chec
 Independent whole-file review: PASS by status_review; all new tails also reviewed by algebraic_route.
 Complete build logs and earlier axiom audit are archived alongside this file.
 Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
-TIMING total=89.0 subagents=6
+TIMING total=104.1 subagents=6
 Additional archival partial: constructive-completion.lean, 80 lines; all 441 witness cases independently recomputed, Lean exit 0, no claim about arbitrary AND factors.
 Normal-form axiom audit: only propext, Classical.choice, Quot.sound.
 Additional archival partial: algebraic-blocking.lean, 44 lines, Lean exit 0; blocking-set classification and pure-point constraint for an OR-of-lines masked factor. Independent review PASS; scope excludes arbitrary AND factors.
 Additional archival partial: formalization-essential.lean, 188 lines; generic omitted-input monotonicity and kernel-checked nine-feature certificates. Lean exit0, independent review PASS by algebraic_route. This concerns only the fixed-prefix subproblem, now superseded by an external checked refutation of its larger joint-output premise.
+Additional archival partial: algebraic-equality-low.lean, 6827 lines (6745 accepted upstream prefix plus new equality proof). Lean exit0; independent review PASS. Proves Bzero=0 in the two one-sided low-cardinality cases under totalSurplus≤14. Original copied namespace retained in archive only; this is not the full target or its negation.
+Additional archival partial: formalization-single-reader.lean, 2109 lines; accepted DAG prefix plus generic graph-path and derivative lemmas. Lean exit0 with matching hash receipt; independent review PASS. A unique-reader path and a false-to-true output change force derivative=true. No claim about normalization preserving derivatives or the full target.
+Additional archival partial: constructive-k4-equality.lean, 5171 lines (accepted prefix plus85newlines). Lean exit0; independent review PASS for the exact source hash. Under strict-live K4 correctness and at most15 gates, all original point inputs have unique-reader chains to the output. No original Circuit normalization claim.
