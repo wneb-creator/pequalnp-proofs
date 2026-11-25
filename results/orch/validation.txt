@@ -22,3 +22,5 @@ TIMING total=56.0 subagents=6
 Final L-meta-2592 components FirstNonOrBound, NormalizeMono, TraceMonoRun, MonoContraction, and TraceProject compiled and passed independent semantic review. Restart transport utility passed independent review and its full controls; it is untrusted data tooling, not a kernel axiom. New assignment L-meta-2583 began after the old lease returned 410.
 
 L-meta-2583: Blocks.lean compiled separately with empty stdout/stderr and passed independent review. Named target now contains this partial composition; full normalization theorem is absent. Named build pending.
+
+L-meta-2583 named build passed (5149 jobs). Frozen Blocks hash b2e852164e257d645b2c95522167ed860a13ca53cb0c66b9755418166a247ec9 includes the incidence appendix; that exact appendix and named file were independently reviewed after the source-copy race was detected. StarConstruction, PlaneGeometry, and ReadOneCost compiled and passed semantic review. Archival StarConstruction/ReadOneCost have top-level helper namespace placement issues to fix during final integration. None proves the unrestricted circuit lower bound.
