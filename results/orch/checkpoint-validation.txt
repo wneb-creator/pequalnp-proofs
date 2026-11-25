@@ -31,3 +31,5 @@ TIMING total=28 subagents=6
 
 Seventh checkpoint: unconditional 17 + NOT-count <= circuit size for the exact Petersen target compiled with exit 0. Independent toolchain-agent review and axiom inspection PASS; only standard three axioms. Consequently a size19 target circuit has at most2NOTs.
 Development source imports cached modules and has global limit settings; named-file assembly will inline dependencies and scope/remove options before submission. This remains a partial result, not the exact L-meta-2592 theorem.
+
+Eighth checkpoint: NonOrSeed compiled exit 0 and independently reviewed by one_not_route. Residual signed circuit bound17 holds for distinct-input AND/difference seeds; OR is explicitly excluded. No circular use of the new bound; absent-seed case uses prior global Live17. Still not the full posted theorem.

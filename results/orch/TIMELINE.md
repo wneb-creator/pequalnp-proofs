@@ -17,3 +17,6 @@
 2026-11-25T14:04:38.931360+00:00: root re-plan: concentrate on global17binary route and signed1/2NOT search; drop4NOT synthesis and generic lemma expansion.
 2026-11-25T14:13:09.352629+00:00: residual pair floor16 and all integration bridges compiled and independently reviewed.
 2026-11-25T14:15:59.476296+00:00: unconditional seventeen-plus-NOT bound compiled and independently checked; remaining cases exactly one or two NOTs.
+
+2026-11-25T14:18:24.664907+00:00: allfive explicitNOT essentialorbit SAT cases UNKNOWN300s each; signed1NOTorbit69 UNKNOWN300s; standardfull2NOT UNKNOWN600s. Signedgenerator smoke tests (20binary0NOT and21binary1NOT withnegativefalsewireuse) passedall1024rows. Delete2binary+insert1sharedNOT neighborhood over40correct20gatecircuits exhausted183,416,922 configurations, none matched32criticalrows.
+2026-11-25T14:19:48.902464+00:00: non-OR seeded residual bound17 compiled and independently reviewed.
