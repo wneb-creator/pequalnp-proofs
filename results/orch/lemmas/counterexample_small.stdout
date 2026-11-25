@@ -1,0 +1,5 @@
+{"depth": 1, "states": 12, "unrestricted_found": 5, "clean_found": 5, "at": "2026-11-25T00:34:33.716636+00:00"}
+{"depth": 2, "states": 114, "unrestricted_found": 9, "clean_found": 9, "at": "2026-11-25T00:34:33.717192+00:00"}
+{"depth": 3, "states": 988, "unrestricted_found": 11, "clean_found": 11, "at": "2026-11-25T00:34:33.719831+00:00"}
+{"depth": 4, "states": 8291, "unrestricted_found": 15, "clean_found": 15, "at": "2026-11-25T00:34:33.748731+00:00"}
+{"N": 2, "all_minima_clean": true, "graphs": 15, "minimum_by_edge_mask": {"0": 0, "1": 1, "2": 1, "3": 2, "4": 1, "5": 2, "6": 3, "7": 4, "8": 1, "9": 3, "10": 2, "11": 4, "12": 2, "13": 4, "14": 4}, "scope": "Exhaustive useful binary AND/OR circuits; repeated operands/copies omitted. Constants do not help nonconstant monotone minimum circuits."}

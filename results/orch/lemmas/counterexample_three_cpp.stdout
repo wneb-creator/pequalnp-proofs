@@ -1,0 +1,37 @@
+target_classes=15
+found edge_mask=256 minimum=1 clean_upper=1
+depth=1 states=2 raw=30 functions=354 seconds=0.000562474
+found edge_mask=384 minimum=2 clean_upper=2
+depth=2 states=11 raw=73 functions=367 seconds=0.000974643
+found edge_mask=272 minimum=3 clean_upper=3
+found edge_mask=448 minimum=3 clean_upper=3
+depth=3 states=90 raw=459 functions=420 seconds=0.00287185
+found edge_mask=416 minimum=4 clean_upper=4
+found edge_mask=392 minimum=4 clean_upper=4
+depth=4 states=981 raw=4140 functions=635 seconds=0.0511913
+found edge_mask=424 minimum=5 clean_upper=5
+found edge_mask=480 minimum=5 clean_upper=5
+found edge_mask=273 minimum=5 clean_upper=5
+found edge_mask=393 minimum=5 clean_upper=5
+depth=5 states=13932 raw=48410 functions=1399 seconds=0.407146
+found edge_mask=417 minimum=6 clean_upper=6
+found edge_mask=484 minimum=6 clean_upper=6
+depth=6 states=236249 raw=717122 functions=4313 seconds=6.79281
+found edge_mask=482 minimum=7 clean_upper=7
+found edge_mask=426 minimum=7 clean_upper=7
+depth=7 states=0 raw=0 functions=14642 seconds=9.44723
+result edge_mask=427 minimum=0 clean_upper=8
+result edge_mask=426 minimum=7 clean_upper=7
+result edge_mask=256 minimum=1 clean_upper=1
+result edge_mask=448 minimum=3 clean_upper=3
+result edge_mask=384 minimum=2 clean_upper=2
+result edge_mask=416 minimum=4 clean_upper=4
+result edge_mask=392 minimum=4 clean_upper=4
+result edge_mask=480 minimum=5 clean_upper=5
+result edge_mask=393 minimum=5 clean_upper=5
+result edge_mask=484 minimum=6 clean_upper=6
+result edge_mask=272 minimum=3 clean_upper=3
+result edge_mask=482 minimum=7 clean_upper=7
+result edge_mask=273 minimum=5 clean_upper=5
+result edge_mask=424 minimum=5 clean_upper=5
+result edge_mask=417 minimum=6 clean_upper=6

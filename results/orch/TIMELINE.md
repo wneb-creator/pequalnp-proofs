@@ -10,3 +10,7 @@
 2026-11-25T00:40:40.041199+00:00 named-file build passed: geometry and monotonicity helpers
 2026-11-25T00:41:26.411385+00:00 renewed; expiry 2026-11-25T01:01:26.175Z
 2026-11-25T00:42:20.248523+00:00 named-file build passed: base cases included, 352 lines
+2026-11-25T00:42:36.625945+00:00 renewed; expiry 2026-11-25T01:02:36.504Z
+
+2026-11-25T00:43:30.852568+00:00 generic monotone restriction strategy completed and Lean checked; shared with padding/bridge agent.
+2026-11-25T00:44:16.751391+00:00 named-file build passed: isolated-vertex padding included, 552 lines
