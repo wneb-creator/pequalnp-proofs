@@ -20,3 +20,8 @@ These computations are not Lean kernel certificates.
 
 Sub-agents: 5 (independent reviewer, finite SAT search, structural proof route, Lean partial proof, independent semantic enumeration)
 TIMING total=12.6 subagents=5
+
+Second checkpoint 2026-11-25T10:32:31.529397+00:00
+structural_three_mis.lean: lake env lean exit 0; complete output in structural-three-mis.log.
+Independent review: passed; SHA256 40ce9b1f13ebd3d732cff91083ec5e84967cd0f87b3dfd2acdffd0271904022a.
+Upstream L_meta_950 already proves the exact universal opposite of L-meta-949; public feed marks it checked. Source commit fcb70f4f1f62682f6d680290de26bfa5a1fc2f7b, PR #1995.
