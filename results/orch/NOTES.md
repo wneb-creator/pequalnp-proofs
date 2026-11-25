@@ -108,3 +108,7 @@ Actual Normalization.lean with allowed Defs import compiled successfully (exit 0
 ## 2026-11-25T12:38:01.622633+00:00 — abstract union computation bound checked (math_bound)
 
 Also checked UnionCount.lean (223 lines), the same charging theorem for any finite computation starting from singleton supports and adding one binary union per gate. It imports only narrow Mathlib modules, has no project dependency, and proves sharp sum(rowcard-1)<=number of gates for C4-free output families. Source and complete empty success logs in results/orch/lemmas/UnionCount.lean and results/orch/logs/unioncount.{stdout,stderr}.
+
+## 2026-11-25T12:39:06.255275+00:00 — checked multilinearity bridge
+
+`results/orch/lemmas/Multilinear.lean` proves `IsAO2 n C → IsSyntMultilinear n C → IsReadK n C 1`, with no restriction on the computed function. The scan invariant assigns every true wire a witness set T supported by its syntactic support, whose 0/1 indicator is an actual read vector. Disjoint AND supports keep capped vector sums 0/1. Final result compiles in Lean 4.36.0, exit 0, empty stdout/stderr in results/orch/logs/multilinear.*. Independent math_bound semantic/format review passed; final hash confirmation pending after a purely definitional conversion fix. This is a sufficient invariant for the posted target, not a proof that every minimum incidence circuit has it.
