@@ -1,0 +1,14 @@
+Independent complete Terminal0 review by lean_setup, 2026-11-25 UTC
+
+Source: /tmp/oec/pequalnp-pilot-87/counterexample/terminal0/Live1024Terminal0CompleteLocal.lean
+SHA256: 44d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a
+Size: 245134 bytes, 3367 lines.
+Verdict: PASS source/trust/math review; awaiting final localized-source compile. Author's otherwise identical global-option version compiled EXIT0 with all13copy proofs and final terminal theorem.
+
+Compared against reviewed initial closure artifact: all signal, root, target, row-pair, table and witness data are unchanged. The delta removes two global limits, adds declaration-local limits, and supplies all13CopyCertificate proofs plus terminal_excluded. The independent full data/witness audit already passed for these unchanged inputs; see terminal0-independent-audit.txt.
+
+Each CopyCertificate proves its two leaves, complete fresh closure via witnessClosedCheck_sound, bridge via witnessBridgeCheck_sound, and missing full target using kernel decidability. The thirteen-case entry split covers every initial-table pair, including the one composite support {5,8}. The final theorem proves Impossible false graph12(roots.image raw), with root injectivity, initial entries, gate-column and target-cover hypotheses, initial closure, all copy certificates, width12and target absence discharged. It is an unconditional exclusion for this particular twelve-wire terminal state; it is not an exhaustive original-input search or the posted gap theorem.
+
+The previously flagged global options are fixed: every option now ends in in and sits directly above its served theorem. No sorry, axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom datatype/instance, _root_, strings or attributes. Sole import PEqualNP.Defs, helper namespace target-prefixed. No remaining red-team blocker for preserving this concrete terminal partial once the localized build exits0.
+
+Final compilation update: localized source compiled EXIT0 and was archived as results/orch/lemmas/Live1024Terminal0.lean with the exact reviewed hash 44d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a. Inspected its complete8928-byte compiler log:29linterwarnings, zero errors or sorry warnings. Module object also emitted. Final immutable-source verdict: PASS for this unconditional concrete twelve-wire terminal-state exclusion.

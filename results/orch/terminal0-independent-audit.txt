@@ -1,0 +1,30 @@
+SOURCE_SHA256 7b8ccd2b8e5c38716ec6f972a942fb7b7788f114fa58b716c0bdc3b5fff4f331
+PASS: 85 signatures fit1024bits;12proper distinct roots;target equals Petersen onall1024rows;15positives areexactedge masks;15negatives aremaximalindependentsets.
+PASS oldTable entries 13 matched 2 row_rejections 286
+PASS copyTable0 entries 34 matched 46 row_rejections 1258
+PASS copy bridge/leaves/target absence 0
+PASS copyTable1 entries 28 matched 30 row_rejections 890
+PASS copy bridge/leaves/target absence 1
+PASS copyTable2 entries 32 matched 42 row_rejections 1110
+PASS copy bridge/leaves/target absence 2
+PASS copyTable3 entries 32 matched 42 row_rejections 1158
+PASS copy bridge/leaves/target absence 3
+PASS copyTable4 entries 28 matched 34 row_rejections 938
+PASS copy bridge/leaves/target absence 4
+PASS copyTable5 entries 22 matched 20 row_rejections 608
+PASS copy bridge/leaves/target absence 5
+PASS copyTable6 entries 14 matched 2 row_rejections 330
+PASS copy bridge/leaves/target absence 6
+PASS copyTable7 entries 18 matched 10 row_rejections 474
+PASS copy bridge/leaves/target absence 7
+PASS copyTable8 entries 24 matched 24 row_rejections 684
+PASS copy bridge/leaves/target absence 8
+PASS copyTable9 entries 18 matched 10 row_rejections 474
+PASS copy bridge/leaves/target absence 9
+PASS copyTable10 entries 14 matched 2 row_rejections 326
+PASS copy bridge/leaves/target absence 10
+PASS copyTable11 entries 36 matched 50 row_rejections 1238
+PASS copy bridge/leaves/target absence 11
+PASS copyTable12 entries 18 matched 12 row_rejections 440
+PASS copy bridge/leaves/target absence 12
+ALL FINITE TABLE/WITNESS INPUTS PASS independent Python evaluation. Lean13copychecks remain separately required.

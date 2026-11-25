@@ -35,3 +35,7 @@
 - 2026-11-25T13:49:30.406328+00:00: second replan; checker memory issue resolved by active-source trim; exact-statement checker gives REJECTED(no-theorem), not acceptance.
 
 - 2026-11-25T13:55:24.291661+00:00: Defs-only 98-line target built successfully; required checker completed with REJECTED(no-theorem). Preserving reviewed partial lemmas while concrete stronger wrappers compile.
+
+- 2026-11-25 13:57:01 UTC — counterexample: final localized concrete state0 terminal exclusion compiled EXIT0 and archived; immutable SHA25644d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a.
+
+- 2026-11-25T13:57:34.326013+00:00: Concrete twelve-wire terminal-state exclusion completed and independently reviewed, with all thirteen copy certificates; preserving complete source and compiler output.

@@ -11,7 +11,7 @@ REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_met
 Full output: check-trimmed.txt. Earlier checker attempts exhausted memory; their complete fault logs are preserved. Narrowing imports resolved that infrastructure problem.
 The target trim reduced 135 lines to 98, preserving graph facts and archiving the unused upper-bound construction. This was a partial-result resource improvement, not the final post-acceptance cleanup pass.
 
-Reviewed compiled components are archived under lemmas/, with complete logs and independent reviews. These include a signed nine-input lower bound, generic finite closure certificates, a conditional 17-binary-gate lift, and first-operand-retention lemmas. They do not prove the posted statement. A self-contained concrete 17-binary-gate lower bound and a concrete finite terminal-state exclusion are undergoing final standalone builds.
+Reviewed compiled components are archived under lemmas/, with complete logs and independent reviews. These include a signed nine-input lower bound, generic finite closure certificates, a conditional 17-binary-gate lift, and first-operand-retention lemmas. They do not prove the posted statement. The concrete twelve-wire/12-gate terminal-state exclusion has compiled and passed independent review; it supplies all thirteen copied-basis certificates. A self-contained concrete 17-binary-gate lower bound is undergoing its final standalone build.
 All full-target searches remain incomplete or bounded, with no exact counterexample. Archive READMEs state their limits.
 Desk null replies: 0. One lease held, L-meta-2373; renewed every 5 minutes.
 
