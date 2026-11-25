@@ -1,0 +1,452 @@
+[
+  {
+    "free_gates": [
+      0,
+      1
+    ],
+    "exit": 20,
+    "seconds": 0.05618289399990317,
+    "peak_KiB": 1008,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      2
+    ],
+    "exit": 20,
+    "seconds": 0.05605906999971921,
+    "peak_KiB": 4500,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      3
+    ],
+    "exit": 20,
+    "seconds": 0.05607793099989067,
+    "peak_KiB": 4572,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      4
+    ],
+    "exit": 20,
+    "seconds": 0.05566232199998922,
+    "peak_KiB": 4460,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      5
+    ],
+    "exit": 20,
+    "seconds": 0.05605333099993004,
+    "peak_KiB": 4436,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.05660094700033369,
+    "peak_KiB": 4440,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.05601633399965067,
+    "peak_KiB": 4468,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05589122499986843,
+    "peak_KiB": 4492,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      0,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.055883689999973285,
+    "peak_KiB": 4500,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      2
+    ],
+    "exit": 20,
+    "seconds": 0.05620742099927156,
+    "peak_KiB": 4336,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      3
+    ],
+    "exit": 20,
+    "seconds": 0.05548677700062399,
+    "peak_KiB": 4384,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      4
+    ],
+    "exit": 20,
+    "seconds": 0.055854306000583165,
+    "peak_KiB": 4424,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      5
+    ],
+    "exit": 20,
+    "seconds": 0.057712849999916216,
+    "peak_KiB": 4612,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.05688932500015653,
+    "peak_KiB": 3324,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.05722341000000597,
+    "peak_KiB": 4696,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05579914500049199,
+    "peak_KiB": 4484,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      1,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.055665771000349196,
+    "peak_KiB": 4392,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      3
+    ],
+    "exit": 20,
+    "seconds": 0.055846723999820824,
+    "peak_KiB": 4348,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      4
+    ],
+    "exit": 20,
+    "seconds": 0.055452536000302644,
+    "peak_KiB": 4348,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      5
+    ],
+    "exit": 20,
+    "seconds": 0.05576020999978937,
+    "peak_KiB": 4364,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.05564684399996622,
+    "peak_KiB": 4456,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.058442965000722324,
+    "peak_KiB": 4636,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05549929099925066,
+    "peak_KiB": 4412,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      2,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.05555811199974414,
+    "peak_KiB": 4264,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      4
+    ],
+    "exit": 20,
+    "seconds": 0.055754562000402075,
+    "peak_KiB": 4472,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      5
+    ],
+    "exit": 20,
+    "seconds": 0.055747089999385935,
+    "peak_KiB": 4508,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.056108552000296186,
+    "peak_KiB": 4516,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.055769850000615406,
+    "peak_KiB": 4448,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05567803800022375,
+    "peak_KiB": 4416,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      3,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.055921205000231566,
+    "peak_KiB": 4548,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      4,
+      5
+    ],
+    "exit": 20,
+    "seconds": 0.055670448999990185,
+    "peak_KiB": 4452,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      4,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.05562113900032273,
+    "peak_KiB": 4444,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      4,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.05537635200016666,
+    "peak_KiB": 4380,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      4,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05568285699973785,
+    "peak_KiB": 4356,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      4,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.0562491790005879,
+    "peak_KiB": 4416,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      5,
+      6
+    ],
+    "exit": 20,
+    "seconds": 0.055780448999939836,
+    "peak_KiB": 4408,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      5,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.05596019200038427,
+    "peak_KiB": 4432,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      5,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.055479389000538504,
+    "peak_KiB": 4452,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      5,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.055698375000247324,
+    "peak_KiB": 4396,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      6,
+      7
+    ],
+    "exit": 20,
+    "seconds": 0.055502848000287486,
+    "peak_KiB": 4388,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      6,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.05596291799975006,
+    "peak_KiB": 4352,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      6,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.01057485799992719,
+    "peak_KiB": 0,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      7,
+      8
+    ],
+    "exit": 20,
+    "seconds": 0.055839199999354605,
+    "peak_KiB": 4632,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      7,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.05556249500023114,
+    "peak_KiB": 4324,
+    "memory_stopped": false
+  },
+  {
+    "free_gates": [
+      8,
+      9
+    ],
+    "exit": 20,
+    "seconds": 0.05587852600001497,
+    "peak_KiB": 4244,
+    "memory_stopped": false
+  }
+]

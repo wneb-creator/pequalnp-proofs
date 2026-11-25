@@ -1,0 +1,8 @@
+{'graph': 'cycle5', 'gates': 6, 'mode': 'ordinary', 'exit': 20, 'status': ['s UNSATISFIABLE'], 'seconds': 0.7719639639999514, 'peak_KiB': 5152, 'memory_stopped': False}
+{'graph': 'cycle6', 'gates': 7, 'mode': 'ordinary', 'exit': 20, 'status': ['s UNSATISFIABLE'], 'seconds': 4.390802953000275, 'peak_KiB': 8064, 'memory_stopped': False}
+{'graph': 'cycle7', 'gates': 9, 'mode': 'ordinary', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.051585644000625, 'peak_KiB': 17684, 'memory_stopped': False}
+{'graph': 'cycle7', 'gates': 9, 'mode': 'safe', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.26434852999955, 'peak_KiB': 18164, 'memory_stopped': False}
+{'graph': 'theta233', 'gates': 10, 'mode': 'ordinary', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.21755048100022, 'peak_KiB': 17628, 'memory_stopped': False}
+{'graph': 'theta233', 'gates': 10, 'mode': 'safe', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.10044451500016, 'peak_KiB': 16472, 'memory_stopped': False}
+{'graph': 'shared_or8', 'gates': 12, 'mode': 'ordinary', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.05621178599995, 'peak_KiB': 19188, 'memory_stopped': False}
+{'graph': 'shared_or8', 'gates': 12, 'mode': 'safe', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.047878877000585, 'peak_KiB': 20504, 'memory_stopped': False}

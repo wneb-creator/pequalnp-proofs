@@ -1,0 +1,67 @@
+[
+  {
+    "file": "best-category-0.json",
+    "gate_count": 19,
+    "false_positives": [],
+    "false_negatives": [
+      640,
+      641,
+      642,
+      648,
+      649,
+      650,
+      896,
+      897,
+      898
+    ],
+    "unsafe_and_gates": []
+  },
+  {
+    "file": "best-category-2.json",
+    "gate_count": 19,
+    "false_positives": [],
+    "false_negatives": [
+      33,
+      37,
+      41,
+      97,
+      101,
+      105
+    ],
+    "unsafe_and_gates": [
+      7
+    ]
+  },
+  {
+    "file": "best-category-4.json",
+    "gate_count": 19,
+    "false_positives": [
+      544,
+      546,
+      548,
+      552,
+      554
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      12,
+      14
+    ]
+  },
+  {
+    "file": "best-category-6.json",
+    "gate_count": 19,
+    "false_positives": [
+      138,
+      385,
+      521,
+      770
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      9,
+      12,
+      14
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "source": "R_meta_1904_137.lean",
+    "bytes": 6181,
+    "sha256": "0c1c049be048ae881d1194a862fe33307ddcfc550fa66dad63e4493f8685b7b3",
+    "checked_feed_hash_match": null,
+    "upstream_commit": "6df838232151d851dbbcaf4dfd410af1f5f8650b",
+    "upstream_author": "DemystifyCode",
+    "upstream_subject": "Reduce L-meta-1904 through singleton-clean minimum circuits (#4612)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  },
+  {
+    "source": "R_meta_1904_271.lean",
+    "bytes": 4334,
+    "sha256": "3938a803d6e4f8bd9489cf62e74730ede688f5950367ba863477b769ca36b344",
+    "checked_feed_hash_match": null,
+    "upstream_commit": "cec1f0b76e796104bc967dbfb5da44ff28389633",
+    "upstream_author": "ylwang",
+    "upstream_subject": "Reduce L-meta-1904 via forests, cycles and a vertex-cover lower bound (#7000)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  },
+  {
+    "source": "R_meta_1904_493.lean",
+    "bytes": 13811,
+    "sha256": "3c2abb467aff984e657d149e87a013a762fe3bf8c30ecc7573bd6db409816c46",
+    "checked_feed_hash_match": null,
+    "upstream_commit": "2a3a5af114261a54e6a2fd72cffcb7ecbb459833",
+    "upstream_author": "Iris",
+    "upstream_subject": "Check R-meta-1904-493 (#6844)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  },
+  {
+    "source": "L_meta_4320.lean",
+    "bytes": 17498,
+    "sha256": "f8d626b4edf243fe363ee81b5d0280929994b64855386d1699f3692c670eec64",
+    "checked_feed_hash_match": true,
+    "upstream_commit": "8a646fd9e8a880320aec1d5eabd8b45b45d6824e",
+    "upstream_author": "Brandon Bodily",
+    "upstream_subject": "L-meta-4320 (#8753)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  },
+  {
+    "source": "L_meta_5733.lean",
+    "bytes": 274868,
+    "sha256": "415eb09d7d9a6a3d250566b7cfdf20438743ae6e30d0ef969cd13d4a9a1d3b1b",
+    "checked_feed_hash_match": true,
+    "upstream_commit": "04df44d2f0cb54607d9cff9f23fb3b41eb3eef30",
+    "upstream_author": "Myles",
+    "upstream_subject": "L-meta-5733 (#13097)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  },
+  {
+    "source": "L_meta_5735.lean",
+    "bytes": 18681,
+    "sha256": "bf848f7cd1aaf2d14dafbc635a6e3fa655421864780d0a5594db8fce679b521b",
+    "checked_feed_hash_match": true,
+    "upstream_commit": "7715f653271b14cd90c2e3fa41882b75a5592ae8",
+    "upstream_author": "willakone",
+    "upstream_subject": "L-meta-5735 (#12505)",
+    "local_validation": "Copied existing accepted source for research; not recompiled in this task."
+  }
+]

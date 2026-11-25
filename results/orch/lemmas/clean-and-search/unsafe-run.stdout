@@ -1,0 +1,2 @@
+{'graph': 'cycle5', 'gates': 7, 'mode': 'unsafe', 'exit': 20, 'status': ['s UNSATISFIABLE'], 'seconds': 7.704268140999375, 'peak_KiB': 8572, 'memory_stopped': False}
+{'graph': 'cycle6', 'gates': 8, 'mode': 'unsafe', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 45.06536350999977, 'peak_KiB': 15384, 'memory_stopped': False}

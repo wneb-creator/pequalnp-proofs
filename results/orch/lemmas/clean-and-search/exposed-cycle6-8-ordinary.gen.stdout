@@ -1,0 +1,1 @@
+{"n": 6, "gates": 8, "mode": "ordinary", "rows": [3, 6, 9, 12, 18, 21, 24, 33, 36, 42, 48], "minimal_true": [3, 6, 12, 24, 33, 48], "maximal_false": [9, 18, 21, 36, 42], "variables": 4320, "clauses": 4409}

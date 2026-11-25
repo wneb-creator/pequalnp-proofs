@@ -1,0 +1,40 @@
+seed 19047 covers 7 automorphisms 84 seconds 180
+best 16 fp 11 fn 5 eval 2 runs 1 time 0.000136119
+category 2 error 16 unsafe_ands 1 unused_flag 0 eval 2
+best 14 fp 10 fn 4 eval 3 runs 1 time 0.000544282
+category 2 error 14 unsafe_ands 1 unused_flag 0 eval 3
+category 0 error 21 unsafe_ands 0 unused_flag 0 eval 4
+best 12 fp 8 fn 4 eval 5 runs 1 time 0.000840927
+category 0 error 12 unsafe_ands 0 unused_flag 0 eval 5
+best 8 fp 8 fn 0 eval 6 runs 1 time 0.00127326
+category 0 error 8 unsafe_ands 0 unused_flag 0 eval 6
+category 2 error 13 unsafe_ands 1 unused_flag 0 eval 54
+category 4 error 27 unsafe_ands 2 unused_flag 0 eval 86
+category 4 error 23 unsafe_ands 2 unused_flag 0 eval 184
+category 4 error 19 unsafe_ands 2 unused_flag 0 eval 195
+category 2 error 11 unsafe_ands 1 unused_flag 0 eval 362
+category 4 error 17 unsafe_ands 2 unused_flag 0 eval 837
+best 7 fp 2 fn 5 eval 1125 runs 1 time 0.00312899
+category 2 error 7 unsafe_ands 1 unused_flag 0 eval 1125
+category 4 error 15 unsafe_ands 2 unused_flag 0 eval 1159
+category 4 error 14 unsafe_ands 2 unused_flag 0 eval 1456
+category 4 error 12 unsafe_ands 2 unused_flag 0 eval 1532
+category 6 error 23 unsafe_ands 3 unused_flag 0 eval 1919
+category 4 error 10 unsafe_ands 2 unused_flag 0 eval 2278
+category 6 error 17 unsafe_ands 3 unused_flag 0 eval 2279
+category 6 error 15 unsafe_ands 3 unused_flag 0 eval 2343
+category 4 error 8 unsafe_ands 2 unused_flag 0 eval 30400
+category 6 error 12 unsafe_ands 3 unused_flag 0 eval 40665
+category 6 error 10 unsafe_ands 3 unused_flag 0 eval 45565
+best 5 fp 0 fn 5 eval 63533 runs 6 time 0.0631912
+category 0 error 5 unsafe_ands 0 unused_flag 0 eval 63533
+category 2 error 6 unsafe_ands 1 unused_flag 0 eval 63617
+category 6 error 8 unsafe_ands 3 unused_flag 0 eval 103996
+category 6 error 6 unsafe_ands 3 unused_flag 0 eval 204686
+category 4 error 6 unsafe_ands 2 unused_flag 0 eval 204817
+best 4 fp 4 fn 0 eval 225451 runs 21 time 0.222547
+category 4 error 4 unsafe_ands 2 unused_flag 0 eval 225451
+category 2 error 4 unsafe_ands 1 unused_flag 0 eval 276218
+best 2 fp 2 fn 0 eval 1410885 runs 127 time 1.38952
+category 2 error 2 unsafe_ands 1 unused_flag 0 eval 1410885
+progress best 2 eval 51552126 runs 4986 elapsed 30.0013

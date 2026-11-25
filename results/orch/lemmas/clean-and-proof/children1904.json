@@ -1,0 +1,101 @@
+[
+  {
+    "id": "L-meta-4316",
+    "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj], (\u2200 (x4 x5 x6 : Fin x1), x2.Adj x4 x5 \u2192 x2.Adj x5 x6 \u2192 \u00acx2.Adj x6 x4) \u2192 (\u2200 (x5 x6 x7 x8 : Fin x1), x2.Adj x5 x6 \u2192 x2.Adj x6 x7 \u2192 x2.Adj x7 x8 \u2192 x2.Adj x8 x5 \u2192 x5 = x7 \u2228 x6 = x8) \u2192 x2.edgeFinset.Nonempty \u2192 \u2200 (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x7 \u2192 PEqualNP.MetaComplexity.circuitFun x1 x7 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 \u2205 \u2192 \u2203 (x10 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x10 \u2227 PEqualNP.MetaComplexity.circuitFun x1 x10 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 \u2205 \u2227 x10.size \u2264 x7.size \u2227 \u2200 x11 < x10.size, (PEqualNP.MetaComplexity.NestedCover.gateAt x10 x11).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 (x14 : Fin x1), PEqualNP.EdgeOwnership.gateVal x1 x10 x11 (PEqualNP.EdgeOwnership.pairInput x14 x14) = Bool.false",
+    "file": "lean/PEqualNP/Outside/L_meta_4316.lean",
+    "module": "PEqualNP.Outside.L_meta_4316",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "weight": 5,
+    "parallel": 6,
+    "lane": "main",
+    "depth": 2,
+    "reductions": true,
+    "reductions_live": 2,
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-1904"
+    ]
+  },
+  {
+    "id": "L-meta-4318",
+    "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj], (\u2200 (x4 x5 x6 : Fin x1), x2.Adj x4 x5 \u2192 x2.Adj x5 x6 \u2192 \u00acx2.Adj x6 x4) \u2192 (\u2200 (x5 x6 x7 x8 : Fin x1), x2.Adj x5 x6 \u2192 x2.Adj x6 x7 \u2192 x2.Adj x7 x8 \u2192 x2.Adj x8 x5 \u2192 x5 = x7 \u2228 x6 = x8) \u2192 x2.edgeFinset.Nonempty \u2192 \u2200 (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.IsMinimalMonoCircuit x1 x7 \u2192 PEqualNP.MetaComplexity.circuitFun x1 x7 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 \u2205 \u2192 (\u2200 x10 < x7.size, (PEqualNP.MetaComplexity.NestedCover.gateAt x7 x10).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 (x13 : Fin x1), PEqualNP.EdgeOwnership.gateVal x1 x7 x10 (PEqualNP.EdgeOwnership.pairInput x13 x13) = Bool.false) \u2192 \u2203 (x11 : Finset (Fin x1)), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover x2 x11 \u2227 x2.edgeFinset.card + x11.card \u2264 x7.size + (1 : \u2115)",
+    "file": "lean/PEqualNP/Outside/L_meta_4318.lean",
+    "module": "PEqualNP.Outside.L_meta_4318",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "weight": 5,
+    "parallel": 6,
+    "lane": "main",
+    "depth": 2,
+    "reductions": true,
+    "reductions_live": 1,
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-1904"
+    ]
+  },
+  {
+    "id": "L-meta-5282",
+    "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj],   have x4 : (Fin x1 \u2192 Bool) \u2192 Bool := fun (x4 : Fin x1 \u2192 Bool) => Decidable.decide (\u2203 (x5 : Fin x1) (x6 : Fin x1), x2.Adj x5 x6 \u2227 x4 x5 = Bool.true \u2227 x4 x6 = Bool.true);   have x5 : Finset (Fin x1) \u2192 Fin x1 \u2192 Bool := fun (x5 : Finset (Fin x1)) (x6 : Fin x1) => Decidable.decide (x6 \u2208 x5);   have x6 : PEqualNP.CircuitLowerBounds.Circuit \u2192 Prop := fun (x6 : PEqualNP.CircuitLowerBounds.Circuit) => \u2200 (x7 : \u2115) (x8 : PEqualNP.CircuitLowerBounds.Gate), x6.gates[x7]? = Option.some x8 \u2192 x8.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 (x11 : Finset (Fin x1)), x11.card \u2264 (1 : \u2115) \u2192 (x6.wires (List.ofFn (x5 x11))).getD (x1 + x7) Bool.false = Bool.false;   (\u2200 (x7 x8 x9 : Fin x1), x2.Adj x7 x8 \u2192 x2.Adj x8 x9 \u2192 \u00acx2.Adj x9 x7) \u2192 (\u2200 (x8 x9 x10 x11 : Fin x1), x2.Adj x8 x9 \u2192 x2.Adj x9 x10 \u2192 x2.Adj x10 x11 \u2192 x2.Adj x11 x8 \u2192 x8 = x10 \u2228 x9 = x11) \u2192 \u2203 (x9 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x9 \u2227 (\u2200 (x10 : Fin x1 \u2192 Bool), x9.eval (List.ofFn x10) = x4 x10) \u2227 (\u2200 (x10 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x10 \u2192 (\u2200 (x12 : Fin x1 \u2192 Bool), x10.eval (List.ofFn x12) = x4 x12) \u2192 x9.size \u2264 x10.size) \u2227 x6 x9",
+    "file": "lean/PEqualNP/Outside/L_meta_5282.lean",
+    "module": "PEqualNP.Outside.L_meta_5282",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "weight": 5,
+    "parallel": 6,
+    "lane": "main",
+    "depth": 2,
+    "reductions": true,
+    "reductions_live": 3,
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-1904"
+    ]
+  },
+  {
+    "id": "L-meta-5284",
+    "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj],   have x4 : (Fin x1 \u2192 Bool) \u2192 Bool := fun (x4 : Fin x1 \u2192 Bool) => Decidable.decide (\u2203 (x5 : Fin x1) (x6 : Fin x1), x2.Adj x5 x6 \u2227 x4 x5 = Bool.true \u2227 x4 x6 = Bool.true);   have x5 : Finset (Fin x1) \u2192 Fin x1 \u2192 Bool := fun (x5 : Finset (Fin x1)) (x6 : Fin x1) => Decidable.decide (x6 \u2208 x5);   have x6 : PEqualNP.CircuitLowerBounds.Circuit \u2192 Prop := fun (x6 : PEqualNP.CircuitLowerBounds.Circuit) => \u2200 (x7 : \u2115) (x8 : PEqualNP.CircuitLowerBounds.Gate), x6.gates[x7]? = Option.some x8 \u2192 x8.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 (x11 : Finset (Fin x1)), x11.card \u2264 (1 : \u2115) \u2192 (x6.wires (List.ofFn (x5 x11))).getD (x1 + x7) Bool.false = Bool.false;   (\u2200 (x7 x8 x9 : Fin x1), x2.Adj x7 x8 \u2192 x2.Adj x8 x9 \u2192 \u00acx2.Adj x9 x7) \u2192 (\u2200 (x8 x9 x10 x11 : Fin x1), x2.Adj x8 x9 \u2192 x2.Adj x9 x10 \u2192 x2.Adj x10 x11 \u2192 x2.Adj x11 x8 \u2192 x8 = x10 \u2228 x9 = x11) \u2192 \u2200 (x9 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x9 \u2192 (\u2200 (x11 : Fin x1 \u2192 Bool), x9.eval (List.ofFn x11) = x4 x11) \u2192 x6 x9 \u2192 \u2203 (x13 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x13 \u2227 x13.size \u2264 x9.size \u2227 (\u2200 (x14 x15 : Fin x1), x2.Adj x14 x15 \u2192 x13.eval (List.ofFn (x5 {x14, x15})) = Bool.true) \u2227 (\u2200 (x14 : Fin x1), x13.eval (List.ofFn (x5 {x14})) = Bool.false) \u2227 \u2200 (x14 : \u2115) (x15 : PEqualNP.CircuitLowerBounds.Gate), x13.gates[x14]? = Option.some x15 \u2192 x15.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 \u2200 (x18 : Finset (Fin x1)), x18.card \u2264 (2 : \u2115) \u2192 (x13.wires (List.ofFn (x5 x18))).getD (x1 + x14) Bool.false = Bool.true \u2192 \u2203 x21 \u2208 x18, \u2203 x22 \u2208 x18, x2.Adj x21 x22",
+    "file": "lean/PEqualNP/Outside/L_meta_5284.lean",
+    "module": "PEqualNP.Outside.L_meta_5284",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "weight": 5,
+    "parallel": 6,
+    "lane": "main",
+    "depth": 2,
+    "reductions": true,
+    "reductions_live": 2,
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-1904"
+    ]
+  },
+  {
+    "id": "L-meta-5737",
+    "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj], (\u2200 (x4 x5 x6 : Fin x1), x2.Adj x4 x5 \u2192 x2.Adj x5 x6 \u2192 \u00acx2.Adj x6 x4) \u2192 (\u2200 (x5 x6 x7 x8 : Fin x1), x2.Adj x5 x6 \u2192 x2.Adj x6 x7 \u2192 x2.Adj x7 x8 \u2192 x2.Adj x8 x5 \u2192 x5 = x7 \u2228 x6 = x8) \u2192 \u00ac(x2.IsAcyclic \u2228 (5 : \u2115) \u2264 x1 \u2227 \u2203 (x6 : Fin x1 \u2243 Fin x1), \u2200 (x7 x8 : Fin x1), x2.Adj x7 x8 \u2194 (\u2191(x6 x7) + (1 : \u2115)) % x1 = \u2191(x6 x8) \u2228 (\u2191(x6 x8) + (1 : \u2115)) % x1 = \u2191(x6 x7)) \u2192 \u2200 (x7 : Finset (Fin x1)), PEqualNP.MetaComplexity.NestedCover.IsMinCover x2 x7 \u2192 \u2200 (x9 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x9 \u2192 (\u2200 (x11 : Fin x1 \u2192 Bool), x9.eval (List.ofFn x11) = Decidable.decide (\u2203 (x12 : Fin x1) (x13 : Fin x1), x2.Adj x12 x13 \u2227 x11 x12 = Bool.true \u2227 x11 x13 = Bool.true)) \u2192 x2.edgeFinset.card + x7.card - (1 : \u2115) \u2264 x9.size",
+    "file": "lean/PEqualNP/Outside/L_meta_5737.lean",
+    "module": "PEqualNP.Outside.L_meta_5737",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "weight": 5,
+    "parallel": 6,
+    "lane": "main",
+    "depth": 2,
+    "reductions": true,
+    "pr_open": 0,
+    "pr_numbers": [],
+    "unlocks_ids": [
+      "L-meta-1904"
+    ]
+  }
+]

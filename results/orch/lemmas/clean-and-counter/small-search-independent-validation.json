@@ -1,0 +1,122 @@
+[
+  {
+    "file": "c7/best-category-0.json",
+    "gate_count": 9,
+    "false_positives": [],
+    "false_negatives": [
+      48,
+      49,
+      50,
+      52,
+      53
+    ],
+    "unsafe_and_gates": []
+  },
+  {
+    "file": "c7/best-category-2.json",
+    "gate_count": 9,
+    "false_positives": [
+      34,
+      42
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      5
+    ]
+  },
+  {
+    "file": "c7/best-category-4.json",
+    "gate_count": 9,
+    "false_positives": [
+      9,
+      17,
+      21,
+      41
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      6,
+      7
+    ]
+  },
+  {
+    "file": "c7/best-category-6.json",
+    "gate_count": 9,
+    "false_positives": [
+      9,
+      17,
+      18,
+      21,
+      41,
+      82
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      2,
+      6,
+      7
+    ]
+  },
+  {
+    "file": "theta233/best-category-0.json",
+    "gate_count": 10,
+    "false_positives": [],
+    "false_negatives": [
+      33,
+      35,
+      49
+    ],
+    "unsafe_and_gates": []
+  },
+  {
+    "file": "theta233/best-category-2.json",
+    "gate_count": 10,
+    "false_positives": [],
+    "false_negatives": [
+      33,
+      35
+    ],
+    "unsafe_and_gates": [
+      2
+    ]
+  },
+  {
+    "file": "theta233/best-category-4.json",
+    "gate_count": 10,
+    "false_positives": [
+      3
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      5,
+      6
+    ]
+  },
+  {
+    "file": "theta233/best-category-6.json",
+    "gate_count": 10,
+    "false_positives": [
+      3,
+      72,
+      76
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      2,
+      6,
+      7
+    ]
+  },
+  {
+    "file": "theta233/one-error-candidate.json",
+    "gate_count": 10,
+    "false_positives": [
+      3
+    ],
+    "false_negatives": [],
+    "unsafe_and_gates": [
+      5,
+      6
+    ]
+  }
+]

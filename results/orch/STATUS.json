@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T21:24:06.423183+00:00",
+  "updated_at": "2026-11-25T21:32:29.035132+00:00",
   "job": "pequalnp-pilot-184",
   "kit_message_id": "msg-de5167a166b49e5130746459",
   "started_at": "2026-11-25T19:33:35Z",
@@ -42,5 +42,5 @@
     "circuit_search",
     "petersen_counterexample"
   ],
-  "current_strategy": "L1904 structural normalization, local circuit rewrite and rank decrease, independent small-graph SAT/stochastic searches. Three reduction slots already occupied; no full proof or refutation."
+  "current_strategy": "L1904 work frozen after more than20minutes. Checked restricted minimum-circuit normal form; full statement unresolved. All3reduction slots occupied. Planning own-lease release and documented kind=cut request after complete backup."
 }

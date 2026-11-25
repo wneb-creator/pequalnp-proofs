@@ -1,0 +1,43 @@
+seed 1904 covers 5 automorphisms 120 seconds 600
+best 50 fp 18 fn 32 eval 2 runs 1 time 0.000248338
+category 0 error 50 unsafe_ands 0 unused_flag 0 eval 2
+best 17 fp 8 fn 9 eval 3 runs 1 time 0.000558976
+category 2 error 17 unsafe_ands 1 unused_flag 0 eval 3
+category 4 error 60 unsafe_ands 2 unused_flag 0 eval 7
+category 0 error 22 unsafe_ands 0 unused_flag 0 eval 8
+category 0 error 21 unsafe_ands 0 unused_flag 0 eval 12
+best 9 fp 0 fn 9 eval 21 runs 1 time 0.00110756
+category 0 error 9 unsafe_ands 0 unused_flag 0 eval 21
+category 2 error 14 unsafe_ands 1 unused_flag 0 eval 26
+category 4 error 23 unsafe_ands 2 unused_flag 0 eval 31
+category 2 error 13 unsafe_ands 1 unused_flag 0 eval 99
+category 6 error 43 unsafe_ands 3 unused_flag 0 eval 262
+category 2 error 11 unsafe_ands 1 unused_flag 0 eval 496
+category 6 error 40 unsafe_ands 3 unused_flag 0 eval 22391
+category 6 error 31 unsafe_ands 3 unused_flag 0 eval 31288
+category 6 error 30 unsafe_ands 3 unused_flag 0 eval 31741
+category 6 error 20 unsafe_ands 3 unused_flag 0 eval 31751
+category 4 error 22 unsafe_ands 2 unused_flag 0 eval 32784
+category 4 error 21 unsafe_ands 2 unused_flag 0 eval 35936
+category 4 error 20 unsafe_ands 2 unused_flag 0 eval 77817
+category 4 error 18 unsafe_ands 2 unused_flag 0 eval 106492
+category 4 error 16 unsafe_ands 2 unused_flag 0 eval 106514
+category 4 error 15 unsafe_ands 2 unused_flag 0 eval 107221
+category 6 error 18 unsafe_ands 3 unused_flag 0 eval 172570
+category 6 error 16 unsafe_ands 3 unused_flag 0 eval 207082
+best 4 fp 4 fn 0 eval 230330 runs 23 time 0.281631
+category 6 error 4 unsafe_ands 3 unused_flag 0 eval 230330
+category 4 error 12 unsafe_ands 2 unused_flag 0 eval 230925
+category 4 error 10 unsafe_ands 2 unused_flag 0 eval 3009620
+category 2 error 10 unsafe_ands 1 unused_flag 0 eval 7734655
+category 4 error 7 unsafe_ands 2 unused_flag 0 eval 11919656
+category 4 error 5 unsafe_ands 2 unused_flag 0 eval 16176786
+progress best 4 eval 26721478 runs 3014 elapsed 30.0043
+progress best 4 eval 58374273 runs 6618 elapsed 60.0057
+progress best 4 eval 85832645 runs 9772 elapsed 90.009
+progress best 4 eval 107734539 runs 12299 elapsed 120.013
+category 2 error 6 unsafe_ands 1 unused_flag 0 eval 124322585
+progress best 4 eval 125519112 runs 14338 elapsed 150.014
+progress best 4 eval 153770678 runs 17596 elapsed 180.059
+progress best 4 eval 175966573 runs 20166 elapsed 210.06
+progress best 4 eval 209971121 runs 24086 elapsed 240.061

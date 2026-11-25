@@ -1,0 +1,20 @@
+{
+  "minimum_vertex_cover": 4,
+  "circuits": {
+    "safe": {
+      "gate_count": 13,
+      "errors": [],
+      "unsafe_and_gate_indices": [],
+      "unsafe_assignment_count": 0
+    },
+    "unsafe": {
+      "gate_count": 14,
+      "errors": [],
+      "unsafe_and_gate_indices": [
+        4,
+        5
+      ],
+      "unsafe_assignment_count": 10
+    }
+  }
+}

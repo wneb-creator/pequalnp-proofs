@@ -1,0 +1,1 @@
+{"false_positives":2,"false_negatives":0,"output":15,"gates":[["or",6,1],["or",5,0],["or",3,1],["or",5,3],["and",2,9],["and",8,7],["or",11,12],["and",4,10],["or",14,13]]}

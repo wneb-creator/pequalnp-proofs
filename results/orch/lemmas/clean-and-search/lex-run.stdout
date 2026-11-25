@@ -1,0 +1,2 @@
+{'graph': 'theta233', 'gates': 10, 'mode': 'ordinary', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 120.0129198500008, 'peak_KiB': 24544, 'memory_stopped': False}
+{'graph': 'shared_or8', 'gates': 12, 'mode': 'ordinary', 'exit': 0, 'status': ['c UNKNOWN'], 'seconds': 120.05872748599995, 'peak_KiB': 29028, 'memory_stopped': False}

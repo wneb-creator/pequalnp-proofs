@@ -1,0 +1,58 @@
+{
+  "gap": "L-meta-1904",
+  "finished_utc": "2026-11-25T21:29:23.371551+00:00",
+  "formal_status": "No Lean proof; finite computational searches only",
+  "counterexample_found": false,
+  "all_processes_finished": true,
+  "suites": [
+    {
+      "file": "results.json",
+      "runs": 8,
+      "exit_counts": {
+        "20": 2,
+        "0": 6
+      }
+    },
+    {
+      "file": "unsafe-results.json",
+      "runs": 2,
+      "exit_counts": {
+        "20": 1,
+        "0": 1
+      }
+    },
+    {
+      "file": "used-results.json",
+      "runs": 2,
+      "exit_counts": {
+        "0": 2
+      }
+    },
+    {
+      "file": "local-results.json",
+      "runs": 45,
+      "exit_counts": {
+        "20": 45
+      }
+    },
+    {
+      "file": "exposed-results.json",
+      "runs": 2,
+      "exit_counts": {
+        "20": 2
+      }
+    },
+    {
+      "file": "lex-results.json",
+      "runs": 2,
+      "exit_counts": {
+        "0": 2
+      }
+    }
+  ],
+  "total_runs": 61,
+  "diagnostics": "All completed solver/generator stdout and stderr files are in this folder. CNFs are reproducible from source, data and recorded solver version.",
+  "prepared_unrun": [
+    "gen-aut.py with run-aut.py as a standalone suite"
+  ]
+}

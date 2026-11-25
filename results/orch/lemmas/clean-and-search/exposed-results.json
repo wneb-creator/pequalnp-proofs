@@ -1,0 +1,26 @@
+[
+  {
+    "graph": "cycle6",
+    "gates": 8,
+    "mode": "ordinary",
+    "exit": 20,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "seconds": 3.3300060779993146,
+    "peak_KiB": 6792,
+    "memory_stopped": false
+  },
+  {
+    "graph": "cycle6",
+    "gates": 8,
+    "mode": "safe",
+    "exit": 20,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "seconds": 1.8009029149998241,
+    "peak_KiB": 6144,
+    "memory_stopped": false
+  }
+]

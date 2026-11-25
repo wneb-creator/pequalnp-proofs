@@ -1,0 +1,7 @@
+{'n': 0, 'all_labeled_graphs': 1, 'girth_at_least_five_cores': 1, 'girth_at_least_five_extensions': 1, 'unexpected': []}
+{'n': 1, 'all_labeled_graphs': 1, 'girth_at_least_five_cores': 1, 'girth_at_least_five_extensions': 1, 'unexpected': []}
+{'n': 2, 'all_labeled_graphs': 2, 'girth_at_least_five_cores': 2, 'girth_at_least_five_extensions': 2, 'unexpected': []}
+{'n': 3, 'all_labeled_graphs': 8, 'girth_at_least_five_cores': 7, 'girth_at_least_five_extensions': 4, 'unexpected': []}
+{'n': 4, 'all_labeled_graphs': 64, 'girth_at_least_five_cores': 38, 'girth_at_least_five_extensions': 10, 'unexpected': []}
+{'n': 5, 'all_labeled_graphs': 1024, 'girth_at_least_five_cores': 303, 'girth_at_least_five_extensions': 26, 'unexpected': []}
+{'n': 6, 'all_labeled_graphs': 32768, 'girth_at_least_five_cores': 3424, 'girth_at_least_five_extensions': 61, 'unexpected': []}

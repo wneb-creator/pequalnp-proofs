@@ -1,0 +1,48 @@
+seed 1904233 covers 6 automorphisms 24 seconds 240
+best 13 fp 11 fn 2 eval 2 runs 1 time 0.000267663
+category 0 error 13 unsafe_ands 0 unused_flag 0 eval 2
+category 2 error 19 unsafe_ands 1 unused_flag 0 eval 5
+best 11 fp 8 fn 3 eval 7 runs 1 time 0.000648468
+category 0 error 11 unsafe_ands 0 unused_flag 0 eval 7
+category 2 error 15 unsafe_ands 1 unused_flag 0 eval 9
+category 2 error 14 unsafe_ands 1 unused_flag 0 eval 10
+category 2 error 12 unsafe_ands 1 unused_flag 0 eval 13
+best 8 fp 0 fn 8 eval 18 runs 1 time 0.00130278
+category 0 error 8 unsafe_ands 0 unused_flag 0 eval 18
+category 2 error 11 unsafe_ands 1 unused_flag 0 eval 30
+category 2 error 9 unsafe_ands 1 unused_flag 0 eval 43
+category 4 error 15 unsafe_ands 2 unused_flag 0 eval 61
+category 4 error 14 unsafe_ands 2 unused_flag 0 eval 377
+category 6 error 17 unsafe_ands 3 unused_flag 0 eval 398
+category 4 error 11 unsafe_ands 2 unused_flag 0 eval 669
+category 4 error 9 unsafe_ands 2 unused_flag 0 eval 673
+best 5 fp 5 fn 0 eval 721 runs 1 time 0.00264816
+category 2 error 5 unsafe_ands 1 unused_flag 0 eval 721
+category 4 error 7 unsafe_ands 2 unused_flag 0 eval 764
+category 6 error 13 unsafe_ands 3 unused_flag 0 eval 781
+category 6 error 11 unsafe_ands 3 unused_flag 0 eval 816
+category 0 error 7 unsafe_ands 0 unused_flag 0 eval 858
+category 6 error 9 unsafe_ands 3 unused_flag 0 eval 937
+category 0 error 5 unsafe_ands 0 unused_flag 0 eval 1196
+category 6 error 7 unsafe_ands 3 unused_flag 0 eval 2382
+best 3 fp 0 fn 3 eval 108561 runs 13 time 0.0642422
+category 0 error 3 unsafe_ands 0 unused_flag 0 eval 108561
+category 2 error 3 unsafe_ands 1 unused_flag 0 eval 108689
+category 6 error 5 unsafe_ands 3 unused_flag 0 eval 163960
+category 4 error 5 unsafe_ands 2 unused_flag 0 eval 164119
+category 4 error 3 unsafe_ands 2 unused_flag 0 eval 4592257
+category 6 error 4 unsafe_ands 3 unused_flag 0 eval 6513330
+best 2 fp 2 fn 0 eval 6679311 runs 655 time 4.02351
+category 4 error 2 unsafe_ands 2 unused_flag 0 eval 6679311
+best 1 fp 1 fn 0 eval 6680640 runs 655 time 4.02445
+category 4 error 1 unsafe_ands 2 unused_flag 0 eval 6680640
+category 2 error 2 unsafe_ands 1 unused_flag 0 eval 20601111
+progress best 1 eval 50326290 runs 4795 elapsed 30.0024
+progress best 1 eval 101981843 runs 9635 elapsed 60.0055
+progress best 1 eval 148325617 runs 14006 elapsed 90.0148
+progress best 1 eval 199656832 runs 18826 elapsed 120.019
+progress best 1 eval 245686782 runs 23192 elapsed 150.021
+progress best 1 eval 277954918 runs 26248 elapsed 180.029
+category 6 error 3 unsafe_ands 3 unused_flag 0 eval 284323884
+progress best 1 eval 321365211 runs 30425 elapsed 210.033
+DONE best 1 eval 372056447 runs 35312

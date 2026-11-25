@@ -1,0 +1,4 @@
+best-category-0.json FP 0 FN 9 unsafe ANDs []
+best-category-2.json FP 0 FN 6 unsafe ANDs [7]
+best-category-4.json FP 5 FN 0 unsafe ANDs [12, 14]
+best-category-6.json FP 4 FN 0 unsafe ANDs [9, 12, 14]

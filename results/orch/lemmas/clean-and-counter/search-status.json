@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-25T21:25:14.957820+00:00",
+  "petersen19": {
+    "exit_code": 143,
+    "status": "stopped after plateau; no counterexample",
+    "last_log": "progress best 4 eval 209971121 runs 24086 elapsed 240.061"
+  },
+  "c7": {
+    "exit_code": 143,
+    "status": "stopped after root identified accepted exact bound; encoding check only",
+    "last_log": "progress best 2 eval 51552126 runs 4986 elapsed 30.0013"
+  },
+  "theta233": {
+    "exit_code": 2,
+    "status": "completed bounded search without counterexample",
+    "last_log": "DONE best 1 eval 372056447 runs 35312"
+  },
+  "running_processes": 0
+}
