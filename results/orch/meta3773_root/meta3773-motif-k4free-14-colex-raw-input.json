@@ -1,0 +1,104 @@
+{
+  "nondecreasing_max_input": true,
+  "mandatory_raw_inputs": true,
+  "each_gate_positive_on_some_edge": true,
+  "label": "k4free",
+  "inputs": 13,
+  "raw_inputs": 10,
+  "free_or_pairs": [
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "budget": 14,
+  "edges": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "positive_samples": [
+    17,
+    18,
+    33,
+    36,
+    65,
+    72,
+    130,
+    132,
+    258,
+    264,
+    516,
+    520
+  ],
+  "maximal_negative_samples": [
+    15,
+    28,
+    42,
+    70,
+    137,
+    184,
+    261,
+    340,
+    515,
+    610,
+    897,
+    1008
+  ],
+  "variables": 11424,
+  "clauses": 1243878,
+  "cnf_sha256": "b7e2811774d518358af879b7b32a21aed482cdf05d874282539c3970a24689c5"
+}

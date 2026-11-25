@@ -1,0 +1,667 @@
+{
+  "scope": "semantic pool heuristic; finite808-row verification only",
+  "input_files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79040-140-best.json.near",
+      "sha256": "1604a875fb8be3fed69693618011ed384aff7a9a15a35b7b6fcb61b237740c8c",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 209
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79012-100-best.json.near",
+      "sha256": "df24a02751c67d8b614cc35f0eb33f1927a135d70cca343e539920cf70d4e072",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79044-140-best.json",
+      "sha256": "9a7507a5dc2d8570f85e8e64c25ea68d37028e2977c4bc837203eb1736c3905d",
+      "original_gates": 66,
+      "recombined_cost": 66,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79036-110-best.json.unproductive",
+      "sha256": "28f3272f3ce020c1f21db759478df7551f582909c7de6e459309ec3aba2b9798",
+      "original_gates": 66,
+      "recombined_cost": 66,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79020-100-best.json.near",
+      "sha256": "ec7bf31a5bd1c5965e0cfd972da550cf292a9eb0b49390e4b18a503f0976d1db",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79024-100-best.json.near",
+      "sha256": "1427d17e888b90ad790fb3dee452546dd82296eb501352977565b41eb485aeb1",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79040-140-best.json.unproductive",
+      "sha256": "22c722a2c1daefb6bc5e1f17c377fabb5ae7ce136730e5f26d91314672a61ee8",
+      "original_gates": 66,
+      "recombined_cost": 66,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79040-140-best.json.near-unproductive",
+      "sha256": "1b43195f72db1f15706fca5a344b6050bb192d8cba2927d2efd40cd5c40f9848",
+      "original_gates": 62,
+      "recombined_cost": 62,
+      "errors": 209
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79020-100-best.json.near-unproductive",
+      "sha256": "169c8b79d69ebecc99a269b187783c671ab27703cb29b26b9797ba7ed60b2425",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 3
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79016-100-best.json.unproductive",
+      "sha256": "7239c60898ed1667ceb1eb55e4bf64aef7b9e4a3e2972379cc23c5d7e594dd70",
+      "original_gates": 68,
+      "recombined_cost": 66,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79032-110-best.json.near-unproductive",
+      "sha256": "9066a8d0c4b4ae3b4732436a75b6c4c1ac224aef7ee2967bcbea5ca8b265d6d7",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 3
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79044-140-best.json.near",
+      "sha256": "2a58680054f8ee55cf6dbced4eefa06fcc231e570767180c6ea815ac0ee28d3a",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 248
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79040-140-best.json.over",
+      "sha256": "22c722a2c1daefb6bc5e1f17c377fabb5ae7ce136730e5f26d91314672a61ee8",
+      "original_gates": 66,
+      "recombined_cost": 66,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79024-100-best.json",
+      "sha256": "072a5a25ea0313969e8782172419bf46fee9e6d316396a8102006e77086b2f3a",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79040-140-best.json",
+      "sha256": "22c722a2c1daefb6bc5e1f17c377fabb5ae7ce136730e5f26d91314672a61ee8",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79024-100-best.json.unproductive",
+      "sha256": "7b3b9347f581d488847af83589d46679110fbf1a73e3f628c207763f834eca1b",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79020-100-best.json",
+      "sha256": "293ffa334c7faa4a605435ab90df10bd11033f7af1c8635c248e702f8a00af32",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79001-100-best.json",
+      "sha256": "ec81771696afc0d335b3d547a317cdd9d21edd63e2d65cd69e49ba6f74b1e048",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79028-100-best.json.unproductive",
+      "sha256": "bf1e45e56995acbaa6561f23e8c748c7d2cda0e0881b7f00add905746e1af7ef",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79020-100-best.json.unproductive",
+      "sha256": "6bd88f723530057740a30a055815bec9f4f442e6ed81e2bbad5f223e48eeacc9",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79024-100-best.json.near-unproductive",
+      "sha256": "845c15a09bb4dfa28344aa026c9fd9ffbf20d243fae95f6958296f454da9db65",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 3
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79028-100-best.json",
+      "sha256": "09d85129301ca2b2b8ad38727a3d917f3de21cfdd2f0987ea68f69aa4cf9ff8d",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79048-140-best.json.near",
+      "sha256": "bfd7bb592db21828e23ba84b10d38985bd6d5dafc9be61b730a969e6de160918",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 248
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79016-100-best.json",
+      "sha256": "05a8683511791672198c4e43aaee1ed64939e676053881b68c9a93589dddc20d",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79032-110-best.json.near",
+      "sha256": "46915ea54cbfa955ad5d13bdb96c7e4d164cf68971e0e5f434c8639e96ab0dfe",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79044-140-best.json.unproductive",
+      "sha256": "9a7507a5dc2d8570f85e8e64c25ea68d37028e2977c4bc837203eb1736c3905d",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79036-110-best.json.near",
+      "sha256": "12bbe700eaecab02270db4be8f7e0677125908c1ff7085557536419a3f3c4966",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79002-100-best.json",
+      "sha256": "4d0d50479256509667bf33df0f70a34a0ab8371130b16bf6b8bbfd90fe039c4c",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79048-140-best.json.near-unproductive",
+      "sha256": "ba19d43bb077b6da3722d4742b0b25f474a98e62be5669a3702d0a66ee2a3dcd",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 248
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79032-110-best.json.unproductive",
+      "sha256": "4a3ab68b2c486c25a91cedd4dd7281ca1d5170829e91cdb8753141521b587918",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79008-100-best.json",
+      "sha256": "96a00b8d390534bab2ff7c372f519750d3f527015fa962c1894b5fbac3b60212",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79036-110-best.json.near-unproductive",
+      "sha256": "805d658eb23dac9ef417aeabbb3bd8208af4ca2a2514215238151d160bcfc6e4",
+      "original_gates": 63,
+      "recombined_cost": 61,
+      "errors": 3
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79016-100-best.json.near",
+      "sha256": "e4b4f8305ca3cc8bea45c843565fbed3894765afa5d1f78e71e0098f26fb5509",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 4
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-pencil61-p9-overapprox.json",
+      "sha256": "dbe7f070b1625bf25df82eb129d67f38133fc81363510157b9b186da3da01727",
+      "original_gates": 61,
+      "recombined_cost": 65,
+      "errors": 363
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79044-140-best.json.over",
+      "sha256": "9a7507a5dc2d8570f85e8e64c25ea68d37028e2977c4bc837203eb1736c3905d",
+      "original_gates": 66,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79048-140-best.json.over",
+      "sha256": "ba19d43bb077b6da3722d4742b0b25f474a98e62be5669a3702d0a66ee2a3dcd",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 248
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79044-140-best.json.near-unproductive",
+      "sha256": "31681f4b46e63465ef6831f3ac8ac73a475a2011c3025a055f4e677bbb7c9db6",
+      "original_gates": 63,
+      "recombined_cost": 64,
+      "errors": 248
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79016-100-best.json.near-unproductive",
+      "sha256": "e4b4f8305ca3cc8bea45c843565fbed3894765afa5d1f78e71e0098f26fb5509",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 4
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79036-110-best.json",
+      "sha256": "7f46ed4f8af2c6ebbffbb5ef3bdacb3caf03fdd69dab31c7e5425154b58c962e",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-pencil60-union-overapprox.json",
+      "sha256": "9d311e6506fc8f1c303a666486d2133ab52b317698672cd7f98c8d89f7b3ddaf",
+      "original_gates": 60,
+      "recombined_cost": 61,
+      "errors": 310
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79012-100-best.json",
+      "sha256": "a96da0695625180c6ba464e0ad9de29c19f82c0ccd8eb2d3005500e1e837ee6e",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79028-100-best.json.near-unproductive",
+      "sha256": "90a20f9c8b2f09c9739a01184eba8dd7259cd76d46b1257bb882f1cc5e3af687",
+      "original_gates": 63,
+      "recombined_cost": 61,
+      "errors": 3
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79028-100-best.json.near",
+      "sha256": "7cbe83e73281375ac471f7864b77330e6855fc3c4221122c3a90fb88e7bba967",
+      "original_gates": 63,
+      "recombined_cost": 63,
+      "errors": 1
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79005-100-best.json",
+      "sha256": "09720bf1cec2a64b368aa28795658b039dbdaaadaaeb0ac92ecf5201020a1155",
+      "original_gates": 65,
+      "recombined_cost": 64,
+      "errors": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79032-110-best.json",
+      "sha256": "7d0ba89075c053cd7dbbc41a5e880325aa690c345f4fd73c045b237637c1565a",
+      "original_gates": 64,
+      "recombined_cost": 64,
+      "errors": 0
+    }
+  ],
+  "skipped": [],
+  "events": [
+    {
+      "target_cost": 66,
+      "node": 177,
+      "seconds": 0.0004887870018137619
+    },
+    {
+      "target_cost": 64,
+      "node": 377,
+      "seconds": 0.0019139159994665533
+    }
+  ],
+  "seconds": 0.4457296319997113,
+  "pairs": 745420,
+  "rounds": 4,
+  "gates": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      6
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      1,
+      3,
+      11
+    ],
+    [
+      1,
+      28,
+      27
+    ],
+    [
+      1,
+      4,
+      11
+    ],
+    [
+      1,
+      3,
+      9
+    ],
+    [
+      1,
+      32,
+      26
+    ],
+    [
+      1,
+      3,
+      12
+    ],
+    [
+      1,
+      9,
+      31
+    ],
+    [
+      1,
+      2,
+      29
+    ],
+    [
+      0,
+      13,
+      33
+    ],
+    [
+      1,
+      5,
+      36
+    ],
+    [
+      0,
+      24,
+      38
+    ],
+    [
+      1,
+      4,
+      34
+    ],
+    [
+      1,
+      6,
+      40
+    ],
+    [
+      0,
+      41,
+      23
+    ],
+    [
+      1,
+      8,
+      35
+    ],
+    [
+      0,
+      18,
+      43
+    ],
+    [
+      0,
+      21,
+      30
+    ],
+    [
+      1,
+      5,
+      4
+    ],
+    [
+      1,
+      7,
+      12
+    ],
+    [
+      1,
+      1,
+      4
+    ],
+    [
+      1,
+      3,
+      10
+    ],
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      1,
+      7,
+      2
+    ],
+    [
+      1,
+      8,
+      0
+    ],
+    [
+      1,
+      51,
+      9
+    ],
+    [
+      1,
+      2,
+      10
+    ],
+    [
+      1,
+      2,
+      12
+    ],
+    [
+      1,
+      55,
+      52
+    ],
+    [
+      1,
+      48,
+      54
+    ],
+    [
+      1,
+      53,
+      6
+    ],
+    [
+      0,
+      14,
+      56
+    ],
+    [
+      1,
+      46,
+      0
+    ],
+    [
+      0,
+      25,
+      57
+    ],
+    [
+      1,
+      50,
+      10
+    ],
+    [
+      1,
+      62,
+      12
+    ],
+    [
+      0,
+      20,
+      58
+    ],
+    [
+      0,
+      17,
+      63
+    ],
+    [
+      1,
+      1,
+      11
+    ],
+    [
+      1,
+      47,
+      66
+    ],
+    [
+      0,
+      15,
+      67
+    ],
+    [
+      1,
+      60,
+      7
+    ],
+    [
+      1,
+      49,
+      8
+    ],
+    [
+      0,
+      22,
+      69
+    ],
+    [
+      1,
+      70,
+      7
+    ],
+    [
+      0,
+      19,
+      72
+    ],
+    [
+      1,
+      10,
+      11
+    ],
+    [
+      1,
+      6,
+      74
+    ],
+    [
+      1,
+      0,
+      75
+    ],
+    [
+      0,
+      16,
+      76
+    ],
+    [
+      1,
+      68,
+      73
+    ],
+    [
+      1,
+      61,
+      77
+    ],
+    [
+      1,
+      45,
+      65
+    ],
+    [
+      1,
+      39,
+      42
+    ],
+    [
+      1,
+      81,
+      59
+    ],
+    [
+      1,
+      37,
+      64
+    ],
+    [
+      1,
+      83,
+      44
+    ],
+    [
+      1,
+      84,
+      78
+    ],
+    [
+      1,
+      85,
+      71
+    ],
+    [
+      1,
+      80,
+      86
+    ],
+    [
+      1,
+      87,
+      82
+    ],
+    [
+      1,
+      88,
+      79
+    ]
+  ],
+  "output": 89,
+  "input_count": 26,
+  "size": 64,
+  "errors": 0,
+  "first_gate": [
+    1,
+    0,
+    1
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "canonical_adjacent_independent_gates": true,
+  "label": "theta",
+  "inputs": 8,
+  "budget": 11,
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "positive_samples": [
+    5,
+    10,
+    12,
+    17,
+    34,
+    48,
+    65,
+    130,
+    192
+  ],
+  "maximal_negative_samples": [
+    3,
+    86,
+    88,
+    100,
+    104,
+    148,
+    152,
+    164,
+    169
+  ],
+  "variables": 4125,
+  "clauses": 235528,
+  "cnf_sha256": "74f5b5718d184ddbc05a08669a99ab9db9d78092d025d310f6a9a80ea5e6b597"
+}
