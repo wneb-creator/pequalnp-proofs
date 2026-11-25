@@ -18,3 +18,5 @@
 2026-11-25T00:47:10.040757+00:00 normalization padding and full pair-only equivalence compiled cleanly (exit 0).
 2026-11-25T00:47:51.853786+00:00 renewed; expiry 2026-11-25T01:07:51.706Z
 2026-11-25T00:48:52.274333+00:00 named-file build passed: pair-only/full equivalence, 1119 lines
+2026-11-25T00:51:04.325751+00:00 renewed; expiry 2026-11-25T01:11:04.147Z
+2026-11-25T00:53:15.761290+00:00 named-file build passed: local3-gate surgery included,1297lines

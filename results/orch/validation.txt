@@ -1,10 +1,10 @@
 Partial checkpoint only: L-meta-3451 is NOT proved.
-Named lake build: PASS (1119 lines).
-Checked result: pair-only normalization is equivalent to the exact posted statement; pair-only normalization remains unproved.
-Also checked: geometry, monotonicity, empty/single-edge base cases, padding, restriction, and local rewrite obstruction.
-Official checker exit 3: CHECKER FAULT, missing prebuilt full Mathlib cache.
+Named lake build: PASS (1297 lines).
+Checked result: pair-only normalization is equivalent to exact posted statement; its normalization premise remains unproved.
+Additional checked local3-gate rewrite preserves size/semantics under two explicit wire implications.
+Official checker exit3: CHECKER FAULT, missing prebuilt full Mathlib cache.
 Independent review: status_review passed full merged diff and exact posted RHS comparison.
-Finite search: all 334 C4-free 3x3 incidence graphs validated computationally; not Lean proofs.
-Cleanup pass: skipped, official checker cannot run with available cache/disk.
+Finite search: all334 C4-free3x3 graphs validated computationally; not Lean proofs.
+Cleanup pass skipped because official checker cannot run with available cache/disk.
 Sub-agents: 6 (status_review, toolchain, normalization, counterexample, reduction, global_strategy)
-TIMING total=18 subagents=6
+TIMING total=22 subagents=6
