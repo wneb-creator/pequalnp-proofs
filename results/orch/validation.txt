@@ -148,3 +148,11 @@ Reviewed frontier and incremental SAT diagnostics are preserved separately;
 no computational UNSAT is presented as a Lean proof. Named file7090lines
 and official checker status unchanged: fault/noverdict, finalgoalunproved.
 TIMING total=149 subagents=10
+
+Checkpoint 13: generic word packing, fast q3 canonical masks, and all13
+point input-word identities are kernel checked and independently reviewed.
+Three complete compiler logs retained; no new candidate or final theorem.
+Named file remains7090 lines; official checker still has no verdict after
+its documented memory failures. Additional line-word correspondence is
+being checked separately and is not claimed here.
+TIMING total=158 subagents=10
