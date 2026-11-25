@@ -9,6 +9,7 @@ Additional compiled components and full diagnostics are under results/orch/.
 Local checker: FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
 No final theorem for the posted statement is claimed. No PR opened for this checkpoint.
 Cleanup pass: not applicable to incomplete proof.
-Independent review: lean_setup, PASS for explicitly marked partial batch only.
+Independent review: lean_setup, PASS for named partial; root, PASS for UniqueOr helper and singleton/pair corollaries.
+UniqueOr source and compiled axiom audit pass; only standard three axioms. Source reviewed independently of author.
 Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
-TIMING total=74.6 subagents=7
+TIMING total=83.5 subagents=7

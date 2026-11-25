@@ -10,3 +10,7 @@
 - 2026-11-25T11:41:12.427268+00:00: Bridge67 restriction/sampling component reviewed; preserves a reduction to an unresolved finite certificate, not a stronger bound.
 - 2026-11-25T11:55:55.911927+00:00: named lower67 built successfully; exact P7 exclusion replaces the resource-heavy unverified two-P5 certificate.
 - 2026-11-25T12:03:44.118843+00:00: two false auxiliary lower-bound routes refuted by compiled explicit circuits; independent root validation passed.
+
+- 2026-11-25T12:12:19.610733+00:00: UniqueOr accepted-input transfer lemma and singleton/pair corollaries compiled; independent root review in progress. Preserved as research helper; posted gap remains unresolved.
+
+- 2026-11-25T12:12:35.771159+00:00: UniqueOr208-line source independently reviewed by root. Recompiled with axiom audit: PASS, standard three axioms only. Preparing immediate partial checkpoint push.
