@@ -18,3 +18,9 @@
 2026-11-25T16:08:13.424607+00:00 Counting: arbitrary-overlapping pure-OR family component ledger compiled.
 2026-11-25T16:10:35.368818+00:00 L5322 normalization strengthened with exact pure-OR witness preservation; compiled.
 2026-11-25T16:11:26.864429+00:00 Integrated 1725-line helper snapshot built and independently reviewed; overlap components, graph geometry and clean-output gate counts included.
+2026-11-25T16:12:17.034760+00:00 Normalization strengthened to preserve actual pure-OR witness gates; compiled.
+2026-11-25T16:13:46.277577+00:00 Counting: bipartite edge-card ledger and posted-premise witness specialization compiled.
+
+2026-11-25 16:16:56 UTC — Certificate helper completed and Lean-checked; parent notified for preservation.
+2026-11-25T16:17:28.605631+00:00 Semantic equality insufficiency forT0 preservation Lean-checked.
+2026-11-25T16:19:35.042975+00:00 Integrated 2560-line graph ledger and pure-OR-preserving normalization built and independently reviewed.
