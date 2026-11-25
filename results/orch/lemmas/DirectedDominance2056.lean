@@ -469,4 +469,28 @@ lemma delete_directed_dominated {n : ℕ} {C : Circuit}
         rw [hval] at h
         cases h
 
+lemma least_separates_earlier_wire {n : ℕ} {C : Circuit}
+    (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hout : C.output < n + C.size)
+    (rows : Set (Fin n → Bool)) (target : (Fin n → Bool) → Bool)
+    (hcorrect : ∀ x ∈ rows,
+      PEqualNP.MetaComplexity.circuitFun n C x = target x)
+    (hmin : ∀ D : Circuit, PEqualNP.TopForm.IsAO2 n D →
+      D.output < n + D.size →
+      (∀ x ∈ rows, PEqualNP.MetaComplexity.circuitFun n D x = target x) →
+      C.size ≤ D.size)
+    (r b : ℕ) (hr : r < C.size) (hb : b < n + r) :
+    ∃ x ∈ rows, wv n C x (n + r) = target x ∧ wv n C x b ≠ target x := by
+  classical
+  by_contra h
+  have hdom : ∀ x ∈ rows,
+      wv n C x (n + r) = target x → wv n C x b = target x := by
+    intro x hx hg
+    by_contra hb'
+    exact h ⟨x, hx, hg, hb'⟩
+  obtain ⟨D, hd, hsize, houtD, hcorr⟩ :=
+    delete_directed_dominated hC hout r b hr hb rows target hcorrect hdom
+  have hm := hmin D hd houtD hcorr
+  omega
+
 end PEqualNP.Outside.L_meta_2056_aux.DirectedDominance
