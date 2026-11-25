@@ -2094,4 +2094,64 @@ lemma incidence_or_budget {q N : ℕ} (I : Fin N → Fin N → Prop) [DecidableR
 
 end PurePointBudget
 
+
+namespace CofactorSharing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.Outside.L_meta_2583.Repair
+open PEqualNP.Outside.L_meta_2583.PurePointBudget
+
+def gates : List Gate :=
+  [⟨GateOp.or, [4, 5]⟩, ⟨GateOp.and, [0, 6]⟩,
+   ⟨GateOp.or, [3, 5]⟩, ⟨GateOp.and, [1, 8]⟩,
+   ⟨GateOp.or, [3, 4]⟩, ⟨GateOp.and, [2, 10]⟩,
+   ⟨GateOp.or, [7, 9]⟩, ⟨GateOp.or, [12, 11]⟩]
+
+def baseCircuit : Circuit := ⟨gates, 13⟩
+
+def cutCircuit (l : Fin 3) : Circuit :=
+  ⟨(List.ofFn fun j : Fin 3 =>
+    (⟨if j = l then GateOp.and else GateOp.or, []⟩ : Gate)) ++ gates, 13⟩
+
+lemma base_ao2 : IsAO2 6 baseCircuit := by decide +kernel
+
+lemma base_correct : ∀ z : Fin 6 → Bool,
+    circuitFun 6 baseCircuit z = decide (∃ p l : Fin 3, p ≠ l ∧
+      z (Fin.castAdd 3 p) = true ∧ z (Fin.natAdd 3 l) = true) := by
+  decide +kernel
+
+lemma cuts_are_cofactors : ∀ (l : Fin 3) (x : Fin 3 → Bool),
+    circuitFun 3 (cutCircuit l) x =
+      circuitFun 6 baseCircuit (CircuitCheckWrapper.liftInput
+        (Sum.elim x (fun j : Fin 3 => decide (j = l)))) := by
+  decide +kernel
+
+lemma cuts_correct : ∀ (l : Fin 3) (x : Fin 3 → Bool),
+    circuitFun 3 (cutCircuit l) x = decide (∃ p : Fin 3, p ≠ l ∧ x p = true) := by
+  decide +kernel
+
+lemma cuts_monotone : ∀ l : Fin 3, Monotone2 (cutCircuit l) ∧ ReadsBack 3 (cutCircuit l) := by
+  intro l
+  fin_cases l <;> constructor
+  all_goals
+    simp [Monotone2, ReadsBack, cutCircuit, gates, gateAt, List.ofFn_succ] <;> decide +kernel
+
+lemma target_intersection_small :
+    (({1, 2} : Finset (Fin 3)) ∩ {0, 2}).card = 1 := by decide +kernel
+
+lemma cofactor_pools_overlap :
+    ¬ Disjoint
+      (orPool (cutCircuit 0) (complementInput ({1, 2} : Finset (Fin 3))) 11)
+      (orPool (cutCircuit 1) (complementInput ({0, 2} : Finset (Fin 3))) 11) := by
+  intro h
+  have h0 : 10 ∈ orPool (cutCircuit 0) (complementInput ({1, 2} : Finset (Fin 3))) 11 := by
+    apply mem_orPool.2
+    refine ⟨by decide, rfl, ?_, ?_⟩ <;> decide +kernel
+  have h1 : 10 ∈ orPool (cutCircuit 1) (complementInput ({0, 2} : Finset (Fin 3))) 11 := by
+    apply mem_orPool.2
+    refine ⟨by decide, rfl, ?_, ?_⟩ <;> decide +kernel
+  exact Finset.disjoint_left.1 h h0 h1
+
+end CofactorSharing
+
 end PEqualNP.Outside.L_meta_2583
