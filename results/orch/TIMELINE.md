@@ -16,3 +16,5 @@
 - 2026-11-25T19:07:10.375524+00:00: two concrete examples compiled and passed independent review; preserving checkpoint3.
 - 2026-11-25T19:08:37.796981+00:00: lease renewed; expires 2026-11-25T19:28:37.405Z.
 - 2026-11-25T19:08:42.848222+00:00: normalization, ordered two-junk normal form and nonempty-edge bridge checked/reviewed; checkpoint4.
+- 2026-11-25T19:13:38.270241+00:00: lease renewed; expires 2026-11-25T19:33:37.779Z.
+- 2026-11-25T19:13:47.283774+00:00: combined target compiled and independently reviewed; standard-axiom audit passed; checkpoint5.

@@ -1,0 +1,6 @@
+Independent reviewer: pilot176_status
+Combined named target reviewed: source helper blocks mechanically match reviewed source artifacts; fullnames preserved by namespace shortening.
+New normalized_two_junk sound; 2114 lines,94308bytes,134lemmas, no target theorem yet.
+Axiom audit: propext, Classical.choice, Quot.sound only.
+restriction_nested.lean427lines reviewed: duplicate-wire elimination forces nontrivial nested filters with all needed assumptions.
+Checker FAULT is cache environment limitation, not acceptance or rejection of statement.

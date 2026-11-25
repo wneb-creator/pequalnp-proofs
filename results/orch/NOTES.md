@@ -41,3 +41,17 @@ Checker storage issue: CheckLemma.lean imports full Mathlib at runtime, so a lon
 - 2026-11-25T19:06:56.370212+00:00 [restriction] Concrete obstruction compiled: restriction_example.lean,85lines,exit0,emptylogs. Single-edge graph ab on4vertices; g1=(a OR c) AND (b OR d),g2=g1 AND a,out=g2 AND b. Checked AO2,TopForm,junk={2,3},bipartite,C4-free,correct graph function,AND explicit nonleastness. Abstract earliest g1 as fresh t gives t AND a AND b, proved not equal to any graph edge function. This refutes abstraction from two-junk+TopForm alone,NOT the posted statement; leastness must enter the argument.
 
 - 2026-11-25T19:08:22.136718+00:00 [structural] Compiled structural_normal_form.lean combines the checked cone-order and semantic-support helpers with two_junk_normal_form: under AO2+TopForm+exactly2 junk, choose g<h, junk={g,h}, nonempty A,B and R,S, a,b:Bool such that g=OR(A) AND OR(B) and h=(OR(R) OR a*g) AND (OR(S) OR b*g). This is the full local syntactic semantic form; remaining proof needs leastness-sensitive elimination of nonflag cases / final cost budget. Safety alone does not force flags: finite C6 scan found 22422 productive safe dirty-product pairs, only12 both flags.
+
+## Internal helper inventory 2026-11-25T19:12:52.662689+00:00
+
+Scanned 197 relevant Outside files and indexed 10,495 declarations (scratch internal-signatures.json). No hidden unconditional no-two-junk/no-junk theorem sufficient for L-meta-5012 found. The generic contradictions with exactly two junk gates still require the flag hypotheses from L_meta_5412; others specialize the 11-vertex graph or impose resource budgets.
+
+Additional genuinely generic helpers:
+- L_meta_7895.lean:990, dichotomy: least + TopForm + junk.card=2 implies either 2 <= 2*centreless.card + extraOR.card, or exact nested single-reader chain a -> b -> m, centreless empty, extraOR={m}, and both dirty gates accept every residual edge.
+- L_meta_5242.lean:1233, cover: under least + TopForm + nested two junk, exists K with K.card<=4 such that every residual edge has an endpoint adjacent to K. No graph-class hypothesis needed.
+- L_meta_8305.lean:180, reduce: if switching one junk gate off loses at most one graph edge, replace it without increasing Monotone2 size and strictly decrease junk.card. This preserves neither exact AO2 nor exactly-one-junk automatically; those remain obligations.
+- L_meta_7465.lean:1405, oneCentreClauseBound: NoFourCycle + least + TopForm + residual nonempty + centreless.card=1 + extraOR empty gives 2^residual.card <= 2*junk.card+1. Thus with two junk, residual.card<=2.
+- L_meta_7465.lean:1837, oneMixingExponential: same general setting with centreless empty and extraOR.card=1 gives 2^residual.card <= junk.card+2, again residual.card<=2 for two junk.
+- L_meta_9425.lean:874, main: fully generic independent two-junk with a common top admits a tagged finite-set union/meet representation and size bound; the sample codomain is fixed Finset.range 40. This is a combinatorial certificate translation, not a no-two-junk theorem.
+
+The L_meta_7559 residualBound is fully generic as already reported by root. Internal helper statements inside long files often exceed their specialized final theorem, but none of the newly identified helpers closes all cases alone.
