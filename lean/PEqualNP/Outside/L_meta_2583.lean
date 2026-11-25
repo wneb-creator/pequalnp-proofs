@@ -4346,6 +4346,543 @@ lemma strict_multioutput_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRe
   change _ ≤ (neighborhoodPool G C K).card + _ at hb
   omega
 
+lemma shared_family_cover_bound {n p l : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G)
+    (htri : ∀ u v w, ¬ (G.Adj u v ∧ G.Adj v w ∧ G.Adj w u))
+    (C : Circuit) (hAO : IsAO2 n C) (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hTN : ∀ c ∈ K, ∀ w ∈ T c, ∀ u ∈ orIn n C w, G.Adj c u)
+    (M O : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (hO : ∀ k ∈ O, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      orIn n C (n + k) = ∅)
+    (j : ℕ) (u v : Fin n) (huv : G.Adj u v)
+    (hu : u ∈ orIn n C (n + j)) (hv : v ∈ orIn n C (n + j))
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r t : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hleaves : EL.card + ER.card ≤ ∑ c ∈ K, ((T c).biUnion (orIn n C)).card)
+    (hroots : (∑ c ∈ K, (T c).card) ≤ 2 * r + t)
+    (hands : 2 * r + t ≤ M.card) (haggregation : r + t ≤ O.card + 1) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card ≤ C.size := by
+  constructor
+  · intro e he
+    have he' : e ∈ EL ∪ ER := hcover.symm ▸ he
+    exact (Finset.mem_union.mp he').elim (fun h => Or.inl (hleft e h))
+      (fun h => Or.inr (hright e h))
+  · have hb := strict_multioutput_budget G hfour htri C hAO K T hT hTN M O hM hO
+      j u v huv hu hv
+    have hm := SharedThreeClauseLedger.edge_multiplicity E EL ER hcover
+    have hc := SharedThreeClauseLedger.centre_budget EL ER F L ZL R ZR r t
+      hfl hfr hlcover hrcover hr ht
+    omega
+
 end PoolSurplus
+
+
+
+namespace StarThreeClause
+
+open PEqualNP.MetaComplexity.NestedCover
+
+def clause {n : ℕ} (S : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  decide (∃ u ∈ S, x u = true)
+
+def starCNF {n : ℕ} (a : Fin n) (B C : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  x a && (clause B x && clause C x)
+
+lemma triple_safety {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true)
+    (b c : Fin n) (hb : b ∈ B) (hc : c ∈ C) :
+    G.Adj a b ∨ G.Adj a c ∨ G.Adj b c := by
+  let x : Fin n → Bool := fun u => decide (u = a ∨ u = b ∨ u = c)
+  have ha : x a = true := by simp [x]
+  have hbx : x b = true := by simp [x]
+  have hcx : x c = true := by simp [x]
+  have hB : clause B x = true := by
+    apply decide_eq_true
+    exact ⟨b, hb, hbx⟩
+  have hC : clause C x = true := by
+    apply decide_eq_true
+    exact ⟨c, hc, hcx⟩
+  have hfun := hsafe x (by simp only [starCNF, ha, hB, hC, Bool.and_self])
+  have hedge : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    simpa [graphFun] using hfun
+  obtain ⟨u, v, huv, hu, hv⟩ := hedge
+  have hu' : u = a ∨ u = b ∨ u = c := of_decide_eq_true hu
+  have hv' : v = a ∨ v = b ∨ v = c := of_decide_eq_true hv
+  rcases hu' with rfl | rfl | rfl <;> rcases hv' with rfl | rfl | rfl
+  · exact False.elim ((G.ne_of_adj huv) rfl)
+  · exact Or.inl huv
+  · exact Or.inr (Or.inl huv)
+  · exact Or.inl huv.symm
+  · exact False.elim ((G.ne_of_adj huv) rfl)
+  · exact Or.inr (Or.inr huv)
+  · exact Or.inr (Or.inl huv.symm)
+  · exact Or.inr (Or.inr huv.symm)
+  · exact False.elim ((G.ne_of_adj huv) rfl)
+
+lemma outside_rectangle {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    ∀ b ∈ B, ∀ c ∈ C, ¬ G.Adj a b → ¬ G.Adj a c → G.Adj b c := by
+  intro b hb c hc hab hac
+  exact ((triple_safety G a B C hsafe b c hb hc).resolve_left hab).resolve_left hac
+
+lemma outside_small {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (a : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    (B.filter (fun b => ¬ G.Adj a b)).card ≤ 1 ∨
+      (C.filter (fun c => ¬ G.Adj a c)).card ≤ 1 := by
+  by_cases hb : (B.filter (fun b => ¬ G.Adj a b)).card ≤ 1
+  · exact Or.inl hb
+  right
+  have htwo : 1 < (B.filter (fun b => ¬ G.Adj a b)).card := by omega
+  obtain ⟨b, hb, d, hd, hbd⟩ := Finset.one_lt_card.mp htwo
+  have hsub : C.filter (fun c => ¬ G.Adj a c) ⊆
+      Finset.univ.filter (fun c => G.Adj b c ∧ G.Adj d c) := by
+    intro c hc
+    obtain ⟨hb, hab⟩ := Finset.mem_filter.mp hb
+    obtain ⟨hd, had⟩ := Finset.mem_filter.mp hd
+    obtain ⟨hc, hac⟩ := Finset.mem_filter.mp hc
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+      outside_rectangle G a B C hsafe b hb c hc hab hac,
+      outside_rectangle G a B C hsafe d hd c hc had hac⟩
+  exact (Finset.card_le_card hsub).trans (hfour b d hbd)
+
+lemma chosen_leaf_projection {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    (∀ b ∈ B, side b ≠ side a → G.Adj a b) ∨
+      (∀ c ∈ C, side c ≠ side a → G.Adj a c) := by
+  classical
+  by_cases hb : ∀ b ∈ B, side b ≠ side a → G.Adj a b
+  · exact Or.inl hb
+  push Not at hb
+  obtain ⟨b, hb, hba, hab⟩ := hb
+  right
+  intro c hc hca
+  by_contra hac
+  have hbc := outside_rectangle G a B C hsafe b hb c hc hab hac
+  have heq : side b = side c := by
+    cases ha : side a <;> cases hb' : side b <;> cases hc' : side c <;> simp_all
+  exact hproper b c hbc heq
+
+lemma accepted_pair_iff {n : ℕ} (a u : Fin n) (B C : Finset (Fin n))
+    (haB : a ∉ B) (haC : a ∉ C) :
+    starCNF a B C (fun v => decide (v = a ∨ v = u)) = true ↔ u ∈ B ∩ C := by
+  constructor
+  · intro h
+    have hBC : clause B (fun v => decide (v = a ∨ v = u)) = true ∧
+        clause C (fun v => decide (v = a ∨ v = u)) = true := by
+      simpa [starCNF] using h
+    have hB := hBC.1
+    have hC := hBC.2
+    obtain ⟨b, hb, hbx⟩ := of_decide_eq_true hB
+    obtain ⟨c, hc, hcx⟩ := of_decide_eq_true hC
+    have hbu : b = u := (of_decide_eq_true hbx).resolve_left (fun h => haB (h ▸ hb))
+    have hcu : c = u := (of_decide_eq_true hcx).resolve_left (fun h => haC (h ▸ hc))
+    exact Finset.mem_inter.mpr ⟨hbu ▸ hb, hcu ▸ hc⟩
+  · intro h
+    obtain ⟨huB, huC⟩ := Finset.mem_inter.mp h
+    have hB : clause B (fun v => decide (v = a ∨ v = u)) = true := by
+      apply decide_eq_true
+      exact ⟨u, huB, by simp⟩
+    have hC : clause C (fun v => decide (v = a ∨ v = u)) = true := by
+      apply decide_eq_true
+      exact ⟨u, huC, by simp⟩
+    rw [starCNF, hB, hC]
+    simp
+
+lemma safe_intersection_neighbors {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    ∀ u ∈ B ∩ C, G.Adj a u := by
+  intro u hu
+  obtain ⟨huB, huC⟩ := Finset.mem_inter.mp hu
+  rcases triple_safety G a B C hsafe u u huB huC with h | h | h
+  · exact h
+  · exact h
+  · exact False.elim ((G.ne_of_adj h) rfl)
+
+lemma safe_projection_covers_pairs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (B C : Finset (Fin n)) (haB : a ∉ B) (haC : a ∉ C)
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true) :
+    ∃ D : Finset (Fin n), (D = B ∨ D = C) ∧
+      (∀ u ∈ D, side u ≠ side a → G.Adj a u) ∧
+      (∀ u, starCNF a B C (fun v => decide (v = a ∨ v = u)) = true →
+        u ∈ D ∧ side u ≠ side a) := by
+  have hn := safe_intersection_neighbors G a B C hsafe
+  have hside : ∀ u ∈ B ∩ C, side u ≠ side a := by
+    intro u hu h
+    exact hproper a u (hn u hu) h.symm
+  rcases chosen_leaf_projection G side hproper a B C hsafe with hb | hc
+  · refine ⟨B, Or.inl rfl, hb, ?_⟩
+    intro u hu
+    have hi := (accepted_pair_iff a u B C haB haC).mp hu
+    exact ⟨(Finset.mem_inter.mp hi).1, hside u hi⟩
+  · refine ⟨C, Or.inr rfl, hc, ?_⟩
+    intro u hu
+    have hi := (accepted_pair_iff a u B C haB haC).mp hu
+    exact ⟨(Finset.mem_inter.mp hi).2, hside u hi⟩
+
+lemma outside_in_stray_neighborhood {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a z : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true)
+    (hz : z ∈ B) (haz : ¬ G.Adj a z) :
+    ∀ c ∈ C, ¬ G.Adj a c → G.Adj z c := by
+  intro c hc hac
+  exact outside_rectangle G a B C hsafe z hz c hc haz hac
+
+lemma small_outside_classification {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a : Fin n) (B : Finset (Fin n))
+    (hsmall : (B.filter (fun b => ¬ G.Adj a b)).card ≤ 1) :
+    (∀ u ∈ B, G.Adj a u) ∨
+      ∃ z ∈ B, ¬ G.Adj a z ∧ ∀ u ∈ B, G.Adj a u ∨ u = z := by
+  classical
+  by_cases hall : ∀ u ∈ B, G.Adj a u
+  · exact Or.inl hall
+  push Not at hall
+  obtain ⟨z, hz, haz⟩ := hall
+  right
+  refine ⟨z, hz, haz, ?_⟩
+  intro u hu
+  by_cases hau : G.Adj a u
+  · exact Or.inl hau
+  right
+  exact Finset.card_le_one.mp hsmall u (Finset.mem_filter.mpr ⟨hu, hau⟩)
+    z (Finset.mem_filter.mpr ⟨hz, haz⟩)
+
+lemma same_part_stray {n : ℕ} (G : SimpleGraph (Fin n))
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a z : Fin n) (B : Finset (Fin n))
+    (hB : ∀ u ∈ B, G.Adj a u ∨ u = z) :
+    ∀ u ∈ B, side u = side a → u = z := by
+  intro u hu hs
+  rcases hB u hu with hau | huz
+  · exact False.elim (hproper a u hau hs.symm)
+  · exact huz
+
+lemma opposite_part_stray {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a z : Fin n) (B C : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true)
+    (hz : z ∈ B) (haz : ¬ G.Adj a z) (hside : side z ≠ side a)
+    (hB : ∀ u ∈ B, G.Adj a u ∨ u = z) :
+    (∀ u ∈ B, side u ≠ side a) ∧
+      (∀ u ∈ C, side u ≠ side a → G.Adj a u) ∧
+      (∀ u ∈ C, side u = side a → G.Adj z u) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro u hu h
+    rcases hB u hu with hau | rfl
+    · exact hproper a u hau h.symm
+    · exact hside h
+  · intro u hu hs
+    by_contra hau
+    have hzu := outside_in_stray_neighborhood G a z B C hsafe hz haz u hu hau
+    have heq : side z = side u := by
+      cases ha : side a <;> cases hz' : side z <;> cases hu' : side u <;> simp_all
+    exact hproper z u hzu heq
+  · intro u hu hs
+    apply outside_in_stray_neighborhood G a z B C hsafe hz haz u hu
+    intro hau
+    exact hproper a u hau hs.symm
+
+lemma same_part_stray_projection {n : ℕ} (G : SimpleGraph (Fin n))
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a z : Fin n) (B : Finset (Fin n)) (hz : side z = side a)
+    (hB : ∀ u ∈ B, G.Adj a u ∨ u = z) :
+    (∀ u ∈ B, side u ≠ side a → G.Adj a u) ∧
+      (B.filter (fun u => side u = side a)).card ≤ 1 := by
+  constructor
+  · intro u hu hs
+    rcases hB u hu with hau | rfl
+    · exact hau
+    · exact False.elim (hs hz)
+  · apply Finset.card_le_one.mpr
+    intro u hu v hv
+    obtain ⟨hu, hus⟩ := Finset.mem_filter.mp hu
+    obtain ⟨hv, hvs⟩ := Finset.mem_filter.mp hv
+    exact (same_part_stray G side hproper a z B hB u hu hus).trans
+      (same_part_stray G side hproper a z B hB v hv hvs).symm
+
+lemma unique_center {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (a b : Fin n) (S : Finset (Fin n))
+    (hlarge : 2 ≤ S.card) (ha : ∀ u ∈ S, G.Adj a u) (hb : ∀ u ∈ S, G.Adj b u) : a = b := by
+  by_contra hab
+  have hs : S ⊆ Finset.univ.filter (fun u => G.Adj a u ∧ G.Adj b u) := by
+    intro u hu
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, ha u hu, hb u hu⟩
+  have hh := Finset.card_le_card hs
+  have hn := hfour a b hab
+  omega
+
+lemma shared_mixed_support_forces_stray {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a b z : Fin n) (B C S : Finset (Fin n))
+    (hsafe : ∀ x, starCNF a B C x = true → graphFun G ∅ x = true)
+    (hz : z ∈ B) (haz : ¬ G.Adj a z) (hSC : S ⊆ C) (hlarge : 2 ≤ S.card)
+    (hside : ∀ u ∈ S, side u = side a) (hb : ∀ u ∈ S, G.Adj b u) :
+    z = b := by
+  apply unique_center G hfour z b S hlarge
+  · intro u hu
+    apply outside_in_stray_neighborhood G a z B C hsafe hz haz u (hSC hu)
+    intro hau
+    exact hproper a u hau (hside u hu).symm
+  · exact hb
+
+lemma reciprocal_strays {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a b za zb : Fin n) (Ba Ca Bb Cb Sa Sb : Finset (Fin n))
+    (hsafea : ∀ x, starCNF a Ba Ca x = true → graphFun G ∅ x = true)
+    (hsafeb : ∀ x, starCNF b Bb Cb x = true → graphFun G ∅ x = true)
+    (hza : za ∈ Ba) (haza : ¬ G.Adj a za) (hzb : zb ∈ Bb) (hbzb : ¬ G.Adj b zb)
+    (hSa : Sa ⊆ Ca) (hSb : Sb ⊆ Cb) (hla : 2 ≤ Sa.card) (hlb : 2 ≤ Sb.card)
+    (hsidea : ∀ u ∈ Sa, side u = side a) (hsideb : ∀ u ∈ Sb, side u = side b)
+    (hSaN : ∀ u ∈ Sa, G.Adj b u) (hSbN : ∀ u ∈ Sb, G.Adj a u) :
+    za = b ∧ zb = a ∧ ¬ G.Adj a b := by
+  have h1 := shared_mixed_support_forces_stray G hfour side hproper a b za Ba Ca Sa
+    hsafea hza haza hSa hla hsidea hSaN
+  have h2 := shared_mixed_support_forces_stray G hfour side hproper b a zb Bb Cb Sb
+    hsafeb hzb hbzb hSb hlb hsideb hSbN
+  exact ⟨h1, h2, h1 ▸ haza⟩
+
+end StarThreeClause
+
+
+
+namespace ThinProjection
+
+def leaf {n : ℕ} (side : Fin n → Bool) (c : Fin n) (S : Finset (Fin n)) : Finset (Fin n) :=
+  S.filter fun u => side u ≠ side c
+
+def own {n : ℕ} (side : Fin n → Bool) (c : Fin n) (S : Finset (Fin n)) : Finset (Fin n) :=
+  S.filter fun u => side u = side c
+
+def Allowed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (c : Fin n) (S : Finset (Fin n)) : Prop :=
+  leaf side c S ⊆ Finset.univ.filter (fun u => G.Adj c u) ∧ (own side c S).card ≤ 1
+
+lemma allowed_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (c : Fin n) (S T : Finset (Fin n))
+    (hST : S ⊆ T) (hT : Allowed G side c T) : Allowed G side c S := by
+  constructor
+  · intro u hu
+    obtain ⟨hu, hs⟩ := Finset.mem_filter.mp hu
+    exact hT.1 (Finset.mem_filter.mpr ⟨hST hu, hs⟩)
+  · apply le_trans (Finset.card_le_card (show own side c S ⊆ own side c T from ?_)) hT.2
+    intro u hu
+    obtain ⟨hu, hs⟩ := Finset.mem_filter.mp hu
+    exact Finset.mem_filter.mpr ⟨hST hu, hs⟩
+
+lemma distinct_allowed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (c d : Fin n) (hcd : c ≠ d) (S : Finset (Fin n))
+    (hc : Allowed G side c S) (hd : Allowed G side d S)
+    (hlc : 2 ≤ (leaf side c S).card) (hld : 2 ≤ (leaf side d S).card) : False := by
+  by_cases hs : side c = side d
+  · have heq : leaf side c S = leaf side d S := by simp only [leaf, hs]
+    have hsub : leaf side c S ⊆ Finset.univ.filter (fun u => G.Adj c u ∧ G.Adj d u) := by
+      intro u hu
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+        (Finset.mem_filter.mp (hc.1 hu)).2,
+        (Finset.mem_filter.mp (hd.1 (heq ▸ hu))).2⟩
+    have hb := Finset.card_le_card hsub
+    have hh := hfour c d hcd
+    omega
+  · have hp : ∀ u, side u = side c ↔ side u ≠ side d := by
+      intro u
+      cases hc : side c <;> cases hd : side d <;> cases hu : side u <;> simp_all
+    have heq : own side c S = leaf side d S := by
+      ext u
+      simp only [own, leaf, Finset.mem_filter, hp]
+    have hh := hc.2
+    rw [heq] at hh
+    omega
+
+lemma thin_projection_budget {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (s : ℕ → Finset (Fin n)) (a b : ℕ → ℕ) (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
+    (hinput : ∀ i < n, (s i).card ≤ 1)
+    (ha : ∀ k < m, a k < n + k) (hb : ∀ k < m, b k < n + k)
+    (hstep : ∀ k < m, s (n + k) = s (a k) ∪ s (b k) ∨ s (n + k) = ∅)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + m))
+    (hallowed : ∀ c ∈ K, ∀ w ∈ T c, Allowed G side c (s w)) :
+    (∑ c ∈ K, ((T c).biUnion (fun w => leaf side c (s w))).card) ≤
+      ((Finset.range m).filter fun k => 2 ≤ (s (n + k)).card).card +
+        ∑ c ∈ K, (T c).card := by
+  classical
+  let ss : Fin n → ℕ → Finset (Fin n) := fun c w =>
+    if Allowed G side c (s w) then leaf side c (s w) else ∅
+  let pool : Fin n → Finset ℕ := fun c =>
+    (Finset.range m).filter fun k => 2 ≤ (ss c (n + k)).card
+  have hssinput : ∀ c, ∀ i < n, (ss c i).card ≤ 1 := by
+    intro c i hi
+    dsimp only [ss]
+    split_ifs
+    · exact (Finset.card_filter_le _ _).trans (hinput i hi)
+    · simp
+  have hssstep : ∀ c, ∀ k < m,
+      ss c (n + k) = ss c (a k) ∪ ss c (b k) ∨ ss c (n + k) = ∅ := by
+    intro c k hk
+    by_cases hc : Allowed G side c (s (n + k))
+    · rcases hstep k hk with hu | he
+      · have hac : Allowed G side c (s (a k)) :=
+          allowed_mono G side c _ _ (hu ▸ Finset.subset_union_left) hc
+        have hbc : Allowed G side c (s (b k)) :=
+          allowed_mono G side c _ _ (hu ▸ Finset.subset_union_right) hc
+        left
+        simp only [ss, hc, hac, hbc, ite_true]
+        simp only [hu, leaf, Finset.filter_union]
+      · right
+        simp [ss, he, leaf]
+    · right
+      simp [ss, hc]
+  have hbound : ∀ c ∈ K,
+      ((T c).biUnion (fun w => leaf side c (s w))).card ≤ (pool c).card + (T c).card := by
+    intro c hc
+    have hh := MultiRoot.neighborhood_budget n m (ss c) a b Finset.univ
+      (hssinput c) ha hb (hssstep c) (T c) (hT c hc)
+      (fun w hw => Finset.subset_univ _)
+    have heq : (T c).biUnion (ss c) = (T c).biUnion (fun w => leaf side c (s w)) := by
+      apply Finset.biUnion_congr rfl
+      intro w hw
+      exact ite_eq_left (hallowed c hc w hw)
+    rw [heq] at hh
+    simpa only [Finset.subset_univ, true_and, pool] using hh
+  have hpoolfacts : ∀ c k, k ∈ pool c →
+      Allowed G side c (s (n + k)) ∧ 2 ≤ (leaf side c (s (n + k))).card := by
+    intro c k hk
+    have hcard := (Finset.mem_filter.mp hk).2
+    have hc : Allowed G side c (s (n + k)) := by
+      by_contra hn
+      simp [ss, hn] at hcard
+    exact ⟨hc, by simpa only [ss, hc, ite_true] using hcard⟩
+  have hdisjoint : (K : Set (Fin n)).PairwiseDisjoint pool := by
+    intro c hc d hd hcd
+    apply Finset.disjoint_left.mpr
+    intro k hkc hkd
+    obtain ⟨hac, hlc⟩ := hpoolfacts c k hkc
+    obtain ⟨had, hld⟩ := hpoolfacts d k hkd
+    exact distinct_allowed G hfour side c d hcd (s (n + k)) hac had hlc hld
+  have hpoolcard : (∑ c ∈ K, (pool c).card) ≤
+      ((Finset.range m).filter fun k => 2 ≤ (s (n + k)).card).card := by
+    rw [← Finset.card_biUnion hdisjoint]
+    apply Finset.card_le_card
+    intro k hk
+    obtain ⟨c, hc, hkc⟩ := Finset.mem_biUnion.mp hk
+    have hklt := (Finset.mem_filter.mp hkc).1
+    have hcard := (hpoolfacts c k hkc).2
+    exact Finset.mem_filter.mpr ⟨hklt, hcard.trans (Finset.card_filter_le _ _)⟩
+  have hs := Finset.sum_le_sum (s := K) hbound
+  rw [Finset.sum_add_distrib] at hs
+  exact hs.trans (Nat.add_le_add_right hpoolcard _)
+
+lemma circuit_thin_projection_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (C : PEqualNP.CircuitLowerBounds.Circuit) (hAO : PEqualNP.TopForm.IsAO2 n C)
+    (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hallowed : ∀ c ∈ K, ∀ w ∈ T c, Allowed G side c (PEqualNP.TopForm.orIn n C w)) :
+    (∑ c ∈ K, ((T c).biUnion (fun w => leaf side c (PEqualNP.TopForm.orIn n C w))).card) ≤
+      ((Finset.range C.gates.length).filter fun k =>
+        2 ≤ (PEqualNP.TopForm.orIn n C (n + k)).card).card +
+          ∑ c ∈ K, (T c).card := by
+  exact thin_projection_budget G hfour side (PEqualNP.TopForm.orIn n C)
+    (fun k => PEqualNP.TopForm.opnd C k 0) (fun k => PEqualNP.TopForm.opnd C k 1) K T
+    (RawOrSupport.orIn_input C)
+    (fun k hk => RawOrSupport.opnd_lt hAO.2.2 hAO.2.1 hk 0)
+    (fun k hk => RawOrSupport.opnd_lt hAO.2.2 hAO.2.1 hk 1)
+    (RawOrSupport.orIn_binary hAO) hT hallowed
+
+end ThinProjection
+
+namespace ThinFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma nontrivial_gate_accounting {n : ℕ} (C : Circuit) (M O : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (hO : ∀ k ∈ O, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      orIn n C (n + k) = ∅) :
+    ((Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card).card +
+      M.card + O.card ≤ C.size := by
+  classical
+  let R := (Finset.range C.gates.length).filter fun k => 2 ≤ (orIn n C (n + k)).card
+  have hR : ∀ k ∈ R, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      2 ≤ (orIn n C (n + k)).card := by
+    intro k hk
+    obtain ⟨hkr, htwo⟩ := Finset.mem_filter.mp hk
+    exact ⟨Finset.mem_range.mp hkr, RawOrSupport.support_nontrivial_or C k htwo, htwo⟩
+  have hRM : Disjoint R M := by
+    apply Finset.disjoint_left.mpr
+    intro k hk hm
+    have ho := (hR k hk).2.1
+    rw [(hM k hm).2] at ho
+    cases ho
+  have hRO : Disjoint R O := by
+    apply Finset.disjoint_left.mpr
+    intro k hk ho
+    have htwo := (hR k hk).2.2
+    rw [(hO k ho).2.2] at htwo
+    simp at htwo
+  have hMO : Disjoint M O := by
+    apply Finset.disjoint_left.mpr
+    intro k hm ho
+    have hb := (hO k ho).2.1
+    rw [(hM k hm).2] at hb
+    cases hb
+  have hRM_O : Disjoint (R ∪ M) O := Finset.disjoint_union_left.mpr ⟨hRO, hMO⟩
+  have hsub : R ∪ M ∪ O ⊆ Finset.range C.gates.length := by
+    intro k hk
+    rcases Finset.mem_union.mp hk with hk | hk
+    · rcases Finset.mem_union.mp hk with hk | hk
+      · exact Finset.mem_range.mpr (hR k hk).1
+      · exact Finset.mem_range.mpr (hM k hk).1
+    · exact Finset.mem_range.mpr (hO k hk).1
+  have hcard := Finset.card_le_card hsub
+  rw [Finset.card_union_of_disjoint hRM_O, Finset.card_union_of_disjoint hRM,
+    Finset.card_range] at hcard
+  exact hcard
+
+lemma shared_family_cover_bound {n p l : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (C : Circuit) (hAO : IsAO2 n C) (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hallowed : ∀ c ∈ K, ∀ w ∈ T c, ThinProjection.Allowed G side c (orIn n C w))
+    (M O : Finset ℕ)
+    (hM : ∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and)
+    (hO : ∀ k ∈ O, k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧
+      orIn n C (n + k) = ∅)
+    (E EL ER F : Finset (Fin p × Fin l)) (L ZL : Finset (Fin p)) (R ZR : Finset (Fin l))
+    (r s t : ℕ) (hcover : EL ∪ ER = E) (hfl : F ⊆ EL) (hfr : F ⊆ ER)
+    (hlcover : L ⊆ F.image Prod.fst ∪ ZL) (hrcover : R ⊆ F.image Prod.snd ∪ ZR)
+    (hr : F.card ≤ r) (ht : ZL.card + ZR.card ≤ s + t)
+    (hleft : ∀ e ∈ EL, e.1 ∈ L) (hright : ∀ e ∈ ER, e.2 ∈ R)
+    (hleaves : EL.card + ER.card ≤
+      ∑ c ∈ K, ((T c).biUnion (fun w => ThinProjection.leaf side c (orIn n C w))).card)
+    (hroots : (∑ c ∈ K, (T c).card) ≤ 2 * r + s + t)
+    (hands : 2 * r + 2 * s + t ≤ M.card) (haggregation : r + s + t ≤ O.card + 1) :
+    (∀ e ∈ E, e.1 ∈ L ∨ e.2 ∈ R) ∧ E.card + L.card + R.card + s ≤ C.size + 1 := by
+  constructor
+  · intro e he
+    have he' : e ∈ EL ∪ ER := hcover.symm ▸ he
+    exact (Finset.mem_union.mp he').elim (fun h => Or.inl (hleft e h))
+      (fun h => Or.inr (hright e h))
+  · have hb := ThinProjection.circuit_thin_projection_budget G hfour side C hAO K T hT hallowed
+    have hg := nontrivial_gate_accounting C M O hM hO
+    have hm := SharedThreeClauseLedger.edge_multiplicity E EL ER hcover
+    have hc := SharedThreeClauseLedger.centre_budget EL ER F L ZL R ZR r (s + t)
+      hfl hfr hlcover hrcover hr ht
+    omega
+
+end ThinFamily
 
 end PEqualNP.Outside.L_meta_2583
