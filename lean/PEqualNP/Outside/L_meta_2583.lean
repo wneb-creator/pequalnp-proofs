@@ -3134,7 +3134,7 @@ lemma mixing_subset_outside_lam {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRe
   obtain ⟨_, h0, h1, _⟩ := Finset.mem_filter.mp hl
   exact hmix (by simp [h0.ne_empty, h1.ne_empty])
 
-lemma dirty_empty_root_count {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+lemma dirty_empty_source_count {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
     {C : Circuit} (hAO : IsAO2 n C) (R L : Finset ℕ)
     (hL : ∀ j ∈ L, j ∈ junk G C) (hR : ∀ r ∈ R, orIn n C r = ∅)
     (hreach : ∀ j ∈ L, ∃ r ∈ R, PEqualNP.CleanedNonEdge.OrReaches n C r j) :
@@ -3164,7 +3164,7 @@ lemma dirty_frontier_budget {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.
     (hreach : ∀ j ∈ L, ∃ r ∈ R, PEqualNP.CleanedNonEdge.OrReaches n C r j)
     (hroots : R.card ≤ (mixing G C).card + z) :
     L.card ≤ (orN G C \ lam G C).card + z := by
-  have h := dirty_empty_root_count hAO R L hL hR hreach
+  have h := dirty_empty_source_count hAO R L hL hR hreach
   omega
 
 end FrontierCount
