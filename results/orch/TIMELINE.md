@@ -32,3 +32,7 @@
 2026-11-25T16:17:57.846453+00:00 Stopped three lower-priority annealers to leave one Fano26 annealer plus two direct subK4 SAT runs under four-CPU quota. Complete stdout logs preserved.
 2026-11-25T16:17:58.770529+00:00 Preserving checked circuit component count.
 2026-11-25T16:19:29.535064+00:00 Preserving checked subK4 graph and minimum-cover lower bound for potential SAT witness.
+2026-11-25T16:20:04.847406+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:40:04.981Z
+
+- 2026-11-25T16:20:42+00:00 cofactor_route: original Fano six-AND T0 search UNKNOWN at600s; ordered variant interrupted; launched sole auxiliary Fano search with first-gate automorphism canonicalization after root renewal. Independently source-reviewed MatchingCover.lean PASS.
+2026-11-25T16:21:32.865318+00:00 Preserving checked aggregate component count and concrete star separation.

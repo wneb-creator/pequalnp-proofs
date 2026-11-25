@@ -61,3 +61,6 @@ CircuitComponents.lean: Lean exit0, complete stdout/stderr empty; independent so
 
 Ninth partial checkpoint:
 MatchingCover.lean (63 lines): Lean exit0, complete stdout/stderr empty; independent source review PASS by cofactor_route. Proves a generic matching cover bound, and for the exact subK4 SAT graph proves C4-freeness, 12 edges, and every vertex cover has at least4 vertices. No satisfying14-gate circuit has been found.
+
+Tenth partial checkpoint:
+CircuitComponentSum.lean and StarSeparation.lean: Lean exit0, complete diagnostics empty; independent source review PASS by status_review. The aggregate bound retains the summed component counts. Concrete bipartite star supports satisfy its pairwise intersection assumption by C4-freeness. Full target still unproved.
