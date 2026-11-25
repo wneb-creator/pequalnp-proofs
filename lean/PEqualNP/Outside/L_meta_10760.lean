@@ -3989,3 +3989,101 @@ lemma helper7Hard26Covered :
 
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.MemoPruned
+
+def bankStateCheck {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (member : Nat → α → Bool) : Nat → α → Bool
+  | 0, x => !admissible 0 x || !done x
+  | k + 1, x => !admissible (k + 1) x ||
+      (!done x && (children k x).all (fun y => !admissible k y || member k y))
+
+def bankLevelCheck {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α)
+    (member : Nat → α → Bool) (k : Nat) : Bool :=
+  (bank k).all (bankStateCheck admissible done children member k)
+
+def bankPrefixCheck {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α)
+    (member : Nat → α → Bool) (k : Nat) : Bool :=
+  (List.range (k + 1)).all (bankLevelCheck admissible done children bank member)
+
+lemma bankStateCheck_zero_sound {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (member : Nat → α → Bool) (x : α)
+    (h : bankStateCheck admissible done children member 0 x = true) :
+    plain admissible done children 0 x = false := by
+  have hs : admissible 0 x = false ∨ done x = false := by
+    simpa [bankStateCheck] using h
+  rcases hs with ha | hd
+  · exact plain_reject_of_guard admissible done children 0 x ha
+  · simp [plain, hd]
+
+lemma bankStateCheck_succ_sound {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α)
+    (member : Nat → α → Bool) (k : Nat) (x : α)
+    (hmember : ∀ y, member k y = true → y ∈ bank k)
+    (hprev : ∀ y ∈ bank k, plain admissible done children k y = false)
+    (h : bankStateCheck admissible done children member (k + 1) x = true) :
+    plain admissible done children (k + 1) x = false := by
+  have hs : admissible (k + 1) x = false ∨
+      (done x = false ∧ ∀ y ∈ children k x,
+        admissible k y = false ∨ member k y = true) := by
+    simpa [bankStateCheck, List.all_eq_true] using h
+  rcases hs with ha | ⟨hd, hc⟩
+  · exact plain_reject_of_guard admissible done children (k + 1) x ha
+  · apply plain_reject_of_cover admissible done children k x (bank k) hd _ hprev
+    intro y hy
+    rcases hc y hy with ha | hm
+    · exact Or.inl ha
+    · exact Or.inr (hmember y hm)
+
+lemma bankLevelChecks_sound {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α)
+    (member : Nat → α → Bool)
+    (hmember : ∀ j y, member j y = true → y ∈ bank j) (k : Nat) :
+    (∀ j, j ≤ k → bankLevelCheck admissible done children bank member j = true) →
+    ∀ x ∈ bank k, plain admissible done children k x = false := by
+  induction k with
+  | zero =>
+      intro hchecks x hx
+      exact bankStateCheck_zero_sound admissible done children member x
+        (List.all_eq_true.mp (hchecks 0 (Nat.le_refl 0)) x hx)
+  | succ k ih =>
+      intro hchecks x hx
+      have hprev : ∀ y ∈ bank k, plain admissible done children k y = false :=
+        ih (fun j hj => hchecks j (Nat.le_trans hj (Nat.le_succ k)))
+      exact bankStateCheck_succ_sound admissible done children bank member k x
+        (hmember k) hprev
+        (List.all_eq_true.mp (hchecks (k + 1) (Nat.le_refl (k + 1))) x hx)
+
+lemma bankPrefixCheck_sound {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α)
+    (member : Nat → α → Bool)
+    (hmember : ∀ j y, member j y = true → y ∈ bank j)
+    (k : Nat) (h : bankPrefixCheck admissible done children bank member k = true) :
+    ∀ x ∈ bank k, plain admissible done children k x = false := by
+  apply bankLevelChecks_sound admissible done children bank member hmember k
+  intro j hj
+  exact List.all_eq_true.mp h j (List.mem_range.mpr (Nat.lt_succ_of_le hj))
+
+def listBankLevelCheck {α : Type} [DecidableEq α]
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α) (k : Nat) : Bool :=
+  bankLevelCheck admissible done children bank (fun j x => decide (x ∈ bank j)) k
+
+lemma listBankLevelChecks_sound {α : Type} [DecidableEq α]
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (bank : Nat → List α) (k : Nat)
+    (hchecks : ∀ j, j ≤ k → listBankLevelCheck admissible done children bank j = true) :
+    ∀ x ∈ bank k, plain admissible done children k x = false := by
+  exact bankLevelChecks_sound admissible done children bank
+    (fun j x => decide (x ∈ bank j)) (fun _ _ h => of_decide_eq_true h) k hchecks
+
+end PEqualNP.Outside.L_meta_10760.MemoPruned
